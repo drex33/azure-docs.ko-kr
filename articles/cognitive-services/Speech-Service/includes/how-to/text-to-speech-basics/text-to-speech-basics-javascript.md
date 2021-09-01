@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-js
-ms.openlocfilehash: 69c4d1fa56c6ff98989b4f9a5ae54209eb76be13
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 2a300a2bdffec7c376206f62d1b6fc8791aad01b
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113659568"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122423280"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -267,7 +267,7 @@ SSML을 사용자 지정에 사용하려면 음성을 전환하는 간단한 변
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -309,7 +309,7 @@ function synthesizeSpeech() {
 ```
 
 > [!NOTE]
-> SSML을 사용하지 않고 음성을 변경하려면 `SpeechConfig.speechSynthesisVoiceName = "en-US-AriaNeural";`을 사용하여 `SpeechConfig`에서 속성을 설정하면 됩니다.
+> SSML을 사용하지 않고 음성을 변경하려면 `SpeechConfig.speechSynthesisVoiceName = "en-US-ChristopherNeural";`을 사용하여 `SpeechConfig`에서 속성을 설정하면 됩니다.
 
 ## <a name="get-facial-pose-events"></a>얼굴 포즈 이벤트 가져오기
 

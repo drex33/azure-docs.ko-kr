@@ -1,17 +1,17 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: mikben
-ms.openlocfilehash: 1ec88e7d3727405ac3320168666d4de6dea0423a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.author: rifox
+ms.openlocfilehash: 4f56b8dd22c51b6ae3908491afd08bbab1b065ae
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762351"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966481"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/dotnet/).
 

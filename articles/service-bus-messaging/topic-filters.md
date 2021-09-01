@@ -3,12 +3,12 @@ title: Azure Service Bus 토픽 필터 | Microsoft Docs
 description: 이 문서에서는 구독자가 필터를 지정하여 토픽에서 수신하려는 메시지를 정의하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: f813c9a635fde70e2f72ab3dab0d2e01197c6fff
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 310393456b21c43fe6d0665fad9e2f505045253c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448665"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867087"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
 
@@ -73,8 +73,14 @@ SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체
 > Azure Portal이 이제 Service Bus Explorer 기능을 지원하므로 포털에서 구독 필터를 만들거나 편집할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-다음 샘플을 참조하세요. 
+선택한 언어로 샘플을 사용하여 Azure Service Bus 기능을 살펴봅니다. 
 
-- [.NET - 필터가 포함된 기본 송신 및 수신 자습서](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
-- [.NET - 토픽 필터](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
-- [Azure Resource Manager 템플릿](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
+- [.NET용 Azure Service Bus 클라이언트 라이브러리 샘플(최신)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플(최신)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Python용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [JavaScript용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+
+이전 .NET 및 Java 클라이언트 라이브러리에 대한 샘플은 다음을 참조하세요.
+- [.NET용 Azure Service Bus 클라이언트 라이브러리 샘플(레거시)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플(레거시)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)

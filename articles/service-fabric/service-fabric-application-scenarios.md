@@ -3,12 +3,12 @@ title: 애플리케이션 시나리오 및 설계
 description: 서비스 패브릭의 클라우드 애플리케이션 범주 개요 상태 저장 및 상태 비저장 서비스를 사용하는 애플리케이션 설계에 대해 논의합니다.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 7d9459e6e0168657cf8e9062331fec0237f58c70
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 703adde38d195395ae07dea022da873754e1d2f1
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045759"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867141"
 ---
 # <a name="service-fabric-application-scenarios"></a>서비스 패브릭 애플리케이션 시나리오
 
@@ -46,7 +46,7 @@ Service Fabric의 고유한 아키텍처는 애플리케이션에서 거의 실�
 
 ## <a name="application-design-case-studies"></a>애플리케이션 디자인 사례 연구
 
-애플리케이션 설계에 Service Fabric을 사용하는 방법을 보여 주는 사례 연구는 [고객 스토리](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc)와 [Azure의 마이크로 서비스](https://azure.microsoft.com/solutions/microservice-applications/) 사이트에 게시됩니다.
+애플리케이션 설계에 Service Fabric을 사용하는 방법을 보여 주는 사례 연구는 [고객 스토리](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc)와 [Azure의 마이크로 서비스](https://azure.microsoft.com/solutions/microservice-applications/) 사이트에 게시됩니다.
 
 ## <a name="designing-applications-composed-of-stateless-and-stateful-microservices"></a>상태 비저장 및 상태 저장 마이크로 서비스로 구성된 애플리케이션 설계
 

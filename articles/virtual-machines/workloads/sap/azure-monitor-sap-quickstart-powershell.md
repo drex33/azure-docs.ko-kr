@@ -9,12 +9,12 @@ ms.subservice: baremetal-sap
 ms.date: 07/08/2021
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell - devx-track-azurepowershell - mode-api
-ms.openlocfilehash: 62f1cdcc51779351d743c5e3be5b8405a0bee2d1
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 572c2f76e315baf916adaab8cc31d154bce32ff0
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113567653"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969754"
 ---
 # <a name="quickstart-deploy-azure-monitor-for-sap-solutions-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 
@@ -144,4 +144,4 @@ Remove-AzResourceGroup -Name myResourceGroup
 SAP 솔루션을 위한 Azure Monitor에 관해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [SAP 솔루션을 위한 Azure Monitor](azure-monitor-overview.md)
+> [Azure의 SAP 모니터링](monitor-sap-on-azure.md)

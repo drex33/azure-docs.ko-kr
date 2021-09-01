@@ -7,12 +7,12 @@ metadata:
   ms.topic: article
   ms.date: 07/08/2020
   ms.author: radeltch
-  ms.openlocfilehash: ac0646f0fca867402477acac9bca62753f275fdd
-  ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+  ms.openlocfilehash: 903d2e2b2413f4ad92a6f0fb88871f4410e464b4
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/16/2021
-  ms.locfileid: "114393613"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122967152"
 title: SAP 솔루션을 위한 Azure Monitor FAQ(미리 보기)
 summary: "## <a name=\"frequently-asked-questions\"></a>질문과 대답\n\n이 문서에서는 SAP 솔루션을 위한 Azure Monitor 관련 FAQ(자주 묻는 질문)와 답변을 제공합니다.  \n"
 sections:
@@ -82,4 +82,4 @@ sections:
   - question: >
       SAP NetWeaver 공급자를 설정하기 위해 시스템 구성을 수행한 후에는 SAP 인스턴스를 다시 시작해야 하나요?
     answer: "예, SAP 구성 변경을 통해 보호 해제된 메서드가 생기고 나면 각 SAP 시스템을 다시 시작하여 구성 변경 내용이 업데이트되도록 해야 합니다.  \n"
-additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\nSAP 솔루션을 위한 Azure Monitor에 관해 자세히 알아봅니다.\n\n> [!div class=\"nextstepaction\"]\n> [SAP 솔루션을 위한 Azure Monitor](azure-monitor-overview.md)"
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\nSAP 솔루션을 위한 Azure Monitor에 관해 자세히 알아봅니다.\n\n> [!div class=\"nextstepaction\"]\n> [Azure의 SAP 모니터링](monitor-sap-on-azure.md)"

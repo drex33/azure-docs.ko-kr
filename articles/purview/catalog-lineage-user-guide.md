@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: 4708cdc0a7937749e0df9a65267067f5dc31198d
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.date: 08/25/2021
+ms.openlocfilehash: 38f150a99b2145968569e986ea158b1aa552593a
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530279"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968605"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Azure Purview Data Catalog 계보 사용자 가이드
 
@@ -31,7 +31,7 @@ Azure Purview의 플랫폼 기능 중 하나는 데이터 프로세스에서 만
 | 데이터 처리 시스템 | 지원되는 범위 |
 | ---------------------- | ------------|
 | Azure Data Factory | [복사 작업](how-to-link-azure-data-factory.md#copy-activity-support) <br> [데이터 흐름 작업](how-to-link-azure-data-factory.md#data-flow-support) <br> [SSIS 패키지 작업 실행](how-to-link-azure-data-factory.md#execute-ssis-package-support) |
-| Azure Synapse Analytics | [복사 작업](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) |
+| Azure Synapse Analytics | [복사 작업](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) <br> [데이터 흐름 작업](how-to-lineage-azure-synapse-analytics.md#data-flow-support) |
 | Azure Data Share | [스냅샷 공유](how-to-link-azure-data-share.md) |
  
 ### <a name="data-storage-systems"></a>데이터 스토리지 시스템

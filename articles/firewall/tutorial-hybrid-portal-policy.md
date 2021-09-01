@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/27/2021
+ms.date: 08/26/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: b396da87089351859cb5f0c38d72e39da5d7f7d3
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 25ec41f3c3d191c0ff13eb4301396b78100b3ef7
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108077628"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123028477"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-and-policy-in-a-hybrid-network-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall과 정책 배포 및 구성
 
@@ -465,7 +465,5 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-그런 다음, Azure Firewall 로그를 모니터링할 수 있습니다.
-
 > [!div class="nextstepaction"]
-> [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)
+> [Azure Firewall 프리미엄 배포 및 구성](premium-deploy.md)

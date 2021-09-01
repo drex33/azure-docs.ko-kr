@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/28/2021
+ms.date: 08/26/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: df84d765a735f1b8b4ce4cf6d36deb3235d9bc31
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 4c9472b419fd796ae53383f73c168e6ac43342bb
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108210085"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965868"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-and-policy-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall과 정책 배포 및 구성
 
@@ -46,8 +46,9 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * 테스트 서버에 대한 원격 데스크톱을 허용하도록 NAT 규칙 구성
 > * 방화벽 테스트
 
+원하는 경우 [Azure PowerShell](deploy-ps-policy.md)을 사용하여 이 절차를 완료할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -136,11 +137,11 @@ VNet에 방화벽을 배포합니다.
 
    |설정  |값  |
    |---------|---------|
-   |Subscription     |\<your subscription\>|
+   |구독     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
    |지역     |전에 사용한 동일한 위치 선택|
-   |방화벽 관리|**이 방화벽 관리를 위해 Firewall Policy 사용**|
+   |방화벽 관리|**방화벽 정책을 사용하여 이 방화벽 관리**|
    |방화벽 정책|**새로 추가**:<br>**fw-test-pol**<br>선택한 지역 
    |가상 네트워크 선택     |**기존 리소스 사용**: **Test-FW-VN**|
    |공용 IP 주소     |**새로 추가**:<br>**이름**: **fw-pip**|
@@ -280,4 +281,4 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)
+> [Azure Firewall 프리미엄 배포 및 구성](premium-deploy.md)

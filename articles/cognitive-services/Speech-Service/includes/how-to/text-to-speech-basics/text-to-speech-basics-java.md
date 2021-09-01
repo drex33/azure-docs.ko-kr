@@ -1,16 +1,16 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
 ms.custom: devx-track-java
-ms.author: trbye
-ms.openlocfilehash: f5f5ab8d353e0f20405a6cc4dccda38dbb0625a8
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.author: lajanuar
+ms.openlocfilehash: f773bf4b9266f5110e2c4ce855a274e8b88e091b
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113280234"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122423269"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -88,7 +88,7 @@ public static void main(String[] args) {
 }
 ```
 
-다음으로, `speechConfig` 개체와 `audioConfig` 개체를 매개 변수로 전달하는 `SpeechSynthesizer`를 인스턴스화합니다. 그러면 음성 합성을 실행하고 파일에 쓰는 작업이 텍스트 문자열을 사용하여 `SpeakText()`를 실행하는 것만큼 간단합니다.
+다음으로, `speechConfig` 개체와 `audioConfig` 개체를 매개 변수로 전달하는 `SpeechSynthesizer`를 인스턴스화합니다. 그러면 음성 합성 및 파일 쓰기를 실행하는 것은 텍스트 문자열을 사용하여 `SpeakText()`를 실행하는 것만큼 간단합니다.
 
 ```java
 public static void main(String[] args) {
@@ -183,7 +183,7 @@ SSML을 사용자 지정에 사용하려면 음성을 전환하는 간단한 변
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -222,7 +222,7 @@ public static void main(String[] args) {
 ```
 
 > [!NOTE]
-> SSML을 사용하지 않고 음성을 변경하려면 `SpeechConfig.setSpeechSynthesisVoiceName("en-US-AriaNeural");`을 사용하여 `SpeechConfig`에서 속성을 설정하면 됩니다.
+> SSML을 사용하지 않고 음성을 변경하려면 `SpeechConfig.setSpeechSynthesisVoiceName("en-US-ChristopherNeural");`을 사용하여 `SpeechConfig`에서 속성을 설정하면 됩니다.
 
 ## <a name="get-facial-pose-events"></a>얼굴 포즈 이벤트 가져오기
 

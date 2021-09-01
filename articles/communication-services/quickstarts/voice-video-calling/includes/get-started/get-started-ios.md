@@ -2,16 +2,16 @@
 title: 빠른 시작 - Azure Communication Services를 사용하여 iOS 앱에 통화 추가
 description: 이 빠른 시작에서는 iOS용 Azure Communication Services Calling SDK를 사용하는 방법을 알아봅니다.
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: de2e9fd9cb44b855dbc1db8d1d355be092d6c83e
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 2c1340e41471ab25f00d7ad0a9e678dfeb65470f
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112536208"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122970264"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 

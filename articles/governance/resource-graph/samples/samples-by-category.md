@@ -1,15 +1,15 @@
 ---
 title: 범주별 샘플 Azure Resource Graph 쿼리 목록
 description: Azure Resource-Graph에 대한 샘플 쿼리를 나열합니다. 범주에는 태그, Azure Advisor, Key Vault, Kubernetes, 게스트 구성 등이 포함됩니다.
-ms.date: 08/13/2021
+ms.date: 08/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 88843e10de8edc1235c007ab1709eb9c7285e3a2
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: fe756f62dee2a576ddeff23955de800fb50fe46e
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122068355"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309500"
 ---
 # <a name="azure-resource-graph-sample-queries-by-category"></a>범주별 Azure Resource Graph 샘플 쿼리
 

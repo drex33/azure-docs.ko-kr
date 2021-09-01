@@ -8,18 +8,21 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7addfc3a0d91b85c4d63afa4ee6a55b5202c3855
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0e5b5a2fb64c803c76f663d506dec8d750a4af29
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770240"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643606"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버 만들기
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+
 이 빠른 시작에서는 [Azure Cloud Shell](https://shell.azure.com)에서 [Azure CLI](/cli/azure/get-started-with-azure-cli) 명령을 사용하여 5분 안에 Azure Database for MySQL 유연한 서버를 만드는 방법을 보여 줍니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
@@ -218,7 +221,7 @@ wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA
 mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
 > [!IMPORTANT]
-> Azure Cloud Shell을 사용하여 유연한 서버에 연결하는 동안 --ssl=true 매개 변수를 사용해야 하고 --ssl-mode=REQUIRED는 필요하지 않습니다.
+>Azure Cloud Shell을 사용하여 유연한 서버에 연결하는 동안 --ssl=true 매개 변수를 사용해야 하고 --ssl-mode=REQUIRED는 필요하지 않습니다.
 > 주된 이유는 Azure Cloud Shell에는 Oracle 배포 환경의 mysql 클라이언트에는 --ssl-mode 매개 변수가 필요한 반면, --ssl 매개 변수가 필요한 MariaDB 배포 환경의 mysql.exe 클라이언트가 미리 설치되어 있기 때문입니다.
 
 이전 명령을 실행한 후에 유연한 서버에 연결하는 동안 다음과 같은 오류 메시지가 표시되는 경우 앞에서 언급한 "Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)"를 사용하여 방화벽 규칙을 설정하지 않았거나 옵션이 저장되지 않은 것입니다. 방화벽을 다시 설정하고 다시 시도해 보세요.

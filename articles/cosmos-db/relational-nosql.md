@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d986106337eb1ede2f6d61303d8a4c487bbed276
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7926994766646f89a2ea853df3cc60715005b814
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93088474"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123097791"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>NoSQL 및 관계형 데이터베이스 간 차이점 이해
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Azure Cosmos DB는 열 패밀리, 문서, 그래프, 키-값 등의 모든 주�
 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices) 패턴이 최근 몇 년 동안 상당히 증가했습니다. 이 패턴은 [서비스 지향 아키텍처](https://en.wikipedia.org/wiki/Service-oriented_architecture)를 기반으로 합니다. 최신 마이크로 서비스 아키텍처에서 사실상의 데이터 전송 표준은 [JSON](https://en.wikipedia.org/wiki/JSON)으로, 대부분의 문서 지향 NoSQL 데이터베이스의 스토리지 매체이기도 합니다. 이 때문에 NoSQL 문서 저장소는 [이벤트 소싱 패턴](https://en.wikipedia.org/wiki/Event-driven_architecture)을 사용하여 복잡한 마이크로 서비스 구현에서 지속성과 동기화 둘 다를 훨씬 더 원활하게 충족할 수 있습니다. 해당 아키텍처에서 기존 관계형 데이터베이스는 유지 관리가 훨씬 더 복잡할 수 있습니다. API 간 상태 및 동기화에 필요한 변환 작업량이 더 많기 때문입니다. 특히 Azure Cosmos DB에는 많은 NoSQL 데이터베이스보다 훨씬 더 원활하게 JSON 기반 마이크로 서비스 아키텍처를 지원할 수 있는 다양한 기능이 있습니다.
 
 * 순수 JSON 데이터 형식 선택
-* 데이터베이스에 기본 제공되는 JavaScript 엔진 및 [쿼리 API](./javascript-query-api.md)
+* 데이터베이스에 기본 제공되는 JavaScript 엔진 및 [쿼리 API](sql/javascript-query-api.md)
 * 클라이언트에서 컨테이너 수정 알림을 받기 위해 구독할 수 있는 첨단 [변경 피드](./change-feed.md)
 
 ## <a name="some-challenges-with-nosql-databases"></a>NoSQL 데이터베이스와 관련된 몇 가지 과제

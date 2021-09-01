@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/02/2021
-ms.openlocfilehash: 0560c7e1f8770dd27d8ad462d10a2668d69d5865
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ab1be78570ef784da6a51eb27d9d18d5c902f092
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559251"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221652"
 ---
 # <a name="tutorial-debug-a-skillset-using-debug-sessions"></a>자습서: 디버그 세션을 사용하여 기술 세트 디버그
 
@@ -39,7 +39,7 @@ Azure Portal의 **디버그 세션** 은 기술 세트의 전체적인 시각화
 
 + REST API를 사용하여 개체를 만들기 위한 [Postman 데스크톱 앱](https://www.getpostman.com/) 및 [Postman 컬렉션](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions)
 
-+ [샘플 데이터(임상 시험)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19).
++ [샘플 데이터(임상 시험)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-pdf-19).
 
 > [!NOTE]
 > 또한 이 빠른 시작은 AI에 대한 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 사용합니다. 워크로드가 너무 작으므로 Cognitive Services는 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에서 탭으로 처리됩니다. 즉, 추가 Cognitive Services 리소스를 만들지 않고도 이 연습을 완료할 수 있습니다.
@@ -48,7 +48,7 @@ Azure Portal의 **디버그 세션** 은 기술 세트의 전체적인 시각화
 
 이 섹션에서는 인덱서 및 기술 세트에 작업할 콘텐츠가 있도록 Azure Blob Storage에 샘플 데이터 세트를 만듭니다.
 
-1. 19개 파일로 구성된 [샘플 데이터(clinical-trials-pdf-19)를 다운로드](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19)합니다.
+1. 19개 파일로 구성된 [샘플 데이터(clinical-trials-pdf-19)를 다운로드](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-pdf-19)합니다.
 
 1. [Azure 스토리지 계정을 만들](../storage/common/storage-account-create.md?tabs=azure-portal)거나 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 

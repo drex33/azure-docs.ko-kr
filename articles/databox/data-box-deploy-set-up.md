@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 08/23/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: a82dc471e8b92fb936750a05c515b4701a135344
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335471"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221315"
 ---
 ::: zone target="docs"
 
@@ -116,20 +116,17 @@ ms.locfileid: "94335471"
 다음 단계를 수행하여 로컬 웹 UI 및 포털 UI를 사용하여 디바이스를 설정합니다.
 
 1. 사용 중인 랩톱에서 이더넷 어댑터를 구성하여 고정 IP 주소가 192.168.100.5이고 서브넷이 255.255.255.0인 디바이스에 연결합니다. 
-2. 디바이스의 MGMT 포트에 연결하고 로컬 웹 UI(https\://192.168.100.10)에 액세스합니다. 디바이스를 켠 후 최대 5분이 소요될 수 있습니다.
-3. **세부 정보** 를 클릭한 다음, **웹 페이지로 이동** 을 클릭합니다.
+1. 디바이스의 MGMT 포트에 연결하고 로컬 웹 UI(https\://192.168.100.10)에 액세스합니다. 디바이스를 켠 후 최대 5분이 소요될 수 있습니다.
+1. **세부 정보** 를 클릭한 다음, **웹 페이지로 이동** 을 클릭합니다.
 
    ![로컬 웹 UI에 연결](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
-4. 로컬 웹 UI에 대한 **로그인** 페이지가 보입니다. 디바이스 일련 번호가 포털 UI와 로컬 웹 UI 모두에서 일치하는지 확인합니다. 이 때는 디바이스가 잠겨있습니다.
-5. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-6. 포털에서 디바이스 자격 증명을 다운로드합니다. **일반 &gt; 디바이스 세부 정보** 로 이동합니다. **디바이스 암호** 를 복사합니다. 디바이스 암호는 포털에서 특정 순서에 연결됩니다. 
+1. 로컬 웹 UI에 대한 **로그인** 페이지가 보입니다. 디바이스 일련 번호가 포털 UI와 로컬 웹 UI 모두에서 일치하는지 확인합니다. 이 때는 디바이스가 잠겨있습니다.
 
-    ![디바이스 자격 증명 얻기](media/data-box-deploy-set-up/data-box-device-credentials.png)
+1. [!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
     
-    
-7. 이전 단계에 Azure Portal에서 얻은 디바이스 암호를 입력하여 디바이스의 로컬 웹 UI에 로그인합니다. **로그인** 을 클릭합니다.
-8. **대시보드** 에서 네트워크 인터페이스가 구성되어 있는지 확인합니다. 
+1. 이전 단계에 Azure Portal에서 얻은 디바이스 암호를 입력하여 디바이스의 로컬 웹 UI에 로그인합니다. **로그인** 을 클릭합니다.
+1. **대시보드** 에서 네트워크 인터페이스가 구성되어 있는지 확인합니다. 
    - 환경에서 DHCP를 사용하도록 설정하면 네트워크 인터페이스가 자동으로 구성됩니다. 
    - DHCP를 사용하도록 설정하지 않으면 필요한 경우 **집합 네트워크 인터페이스** 로 이동하여 정적 IP를 할당합니다.
 
@@ -146,9 +143,9 @@ ms.locfileid: "94335471"
 ## <a name="connect-your-device"></a>디바이스 연결
 
 1. 디바이스 암호를 확인하려면 [Azure Portal](https://portal.azure.com)에서 **일반 &gt; 디바이스 정보** 로 이동합니다.
-2. Data Box에 연결하는 데 사용 중인 컴퓨터의 이더넷 어댑터에서 고정 IP 주소 192.168.100.5 및 서브넷 255.255.255.0을 할당합니다. `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다. 
-3. Azure Portal에서 암호를 사용하여 로그인합니다. 웹 사이트의 보안 인증서 문제를 나타내는 오류가 표시됩니다. 브라우저별 지침에 따라 웹 페이지로 이동합니다.
-4. 기본적으로 10Gbps 또는 1Gbps 데이터 인터페이스의 네트워크 설정은 DHCP로 구성됩니다. 필요한 경우 이 인터페이스를 정적으로 구성하고 IP 주소를 제공할 수 있습니다. 
+1. Data Box에 연결하는 데 사용 중인 컴퓨터의 이더넷 어댑터에서 고정 IP 주소 192.168.100.5 및 서브넷 255.255.255.0을 할당합니다. `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다. 
+1. Azure Portal에서 암호를 사용하여 로그인합니다. 웹 사이트의 보안 인증서 문제를 나타내는 오류가 표시됩니다. 브라우저별 지침에 따라 웹 페이지로 이동합니다.
+1. 기본적으로 10Gbps 또는 1Gbps 데이터 인터페이스의 네트워크 설정은 DHCP로 구성됩니다. 필요한 경우 이 인터페이스를 정적으로 구성하고 IP 주소를 제공할 수 있습니다. 
 
 ::: zone-end
 

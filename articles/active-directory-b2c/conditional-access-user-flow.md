@@ -11,12 +11,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 200fa1b225e4f0f8c4dc2a11c3da2a02227c778e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 96e402a46d931223832295ccbd892eb38b909c59
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960693"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220785"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 흐름에 조건부 액세스 추가
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
@@ -187,7 +187,7 @@ MS Graph API를 사용하여 로그인 위험 기반 조건부 액세스 정책�
 
 ID 보호는 사용자의 정상적인 행동을 계산하고 해당 결과를 사용해서 위험에 대한 결정을 내릴 수 있습니다. 사용자 위험은 ID가 손상된 확률을 계산한 결과입니다. P2 라이선스가 있는 B2C 테넌트는 사용자 위험을 통합하는 조건부 액세스 정책을 만들 수 있습니다. 사용자가 위험으로 감지되면 해당 암호를 안전하게 변경하여 위험을 해결하고 해당 계정에 액세스하도록 요구할 수 있습니다. 사용자가 자체적으로 수정할 수 있도록 보안 암호 변경을 요구하는 사용자 위험 정책을 설정하는 것이 좋습니다.
 
-[B2C에 대한 ID 보호 검색 제한 사항](identity-protection-investigate-risk.md#service-limitations-and-considerations)을 고려하여 [ID 보호의 사용자 위험](../active-directory/identity-protection/concept-identity-protection-risks.md#user-risk)에 대해 자세히 알아봅니다.
+[B2C에 대한 ID 보호 검색 제한 사항](identity-protection-investigate-risk.md#service-limitations-and-considerations)을 고려하여 [ID 보호의 사용자 위험](../active-directory/identity-protection/concept-identity-protection-risks.md#user-linked-detections)에 대해 자세히 알아봅니다.
 
 Azure Portal 또는 Microsoft Graph API를 통해 조건부 액세스를 구성하여 사용자 위험이 중간 또는 높은 경우 MFA(다단계 인증) 및 암호 변경을 요구하는 사용자 위험 기반 조건부 액세스 정책을 사용하도록 설정합니다.
 

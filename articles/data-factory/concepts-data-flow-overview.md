@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 05/20/2021
-ms.openlocfilehash: 8e10ede945f60ee693738ab7230a2c50b5bcb972
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: 1d4e8ad4fd7d0b5690f506e9db7f1043c8f21045
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642418"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039094"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory의 매핑 데이터 흐름
 
@@ -156,7 +156,7 @@ Azure Data Factory 팀은 비즈니스 논리를 빌드한 후 데이터 흐름�
 | 미국 중남부  | |
 | 인도 남부 | |
 | 동남 아시아    | ✓ |
-| 스위스 북부 |   |
+| 스위스 북부 | ✓ |
 | 스위스 서부 | |
 | 아랍에미리트 중부 | |
 | 아랍에미리트 북부 | ✓ |

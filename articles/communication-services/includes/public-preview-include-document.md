@@ -1,16 +1,16 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: mikben
+ms.author: rifox
 ms.custom: private_preview
-ms.openlocfilehash: 2b37c4a96484a7aa4c8c8a9b48dcd150b709b712
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 68d67df596d8eabc5df4dfc180beef567a32e6e2
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107769"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078238"
 ---
 > [!IMPORTANT]
 > 이 문서에 설명된 기능은 현재 공개 미리 보기 상태입니다.

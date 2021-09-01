@@ -13,14 +13,14 @@ ms.date: 02/03/2020
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94174eeb943f4016fde8baf329fa6ba27768e486
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80881251"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039936"
 ---
-# <a name="how-to-configure-sso-on-macos-and-ios"></a>방법: macOS 및 iOS에서 SSO 구성
+# <a name="configure-sso-on-macos-and-ios"></a>macOS 및 iOS에서 SSO 구성
 
 macOS 및 iOS용 MSAL(Microsoft 인증 라이브러리)은 macOS/iOS 앱과 브라우저 간 SSO(Single Sign-On)를 지원합니다. 이 문서에는 다음 SSO 시나리오를 다룹니다.
 
@@ -104,7 +104,7 @@ App3 리디렉션 URI: `msauth.com.contoso.mytestapp3://auth`
 
 자세한 내용은 [키 집합 그룹](howto-v2-keychain-objc.md)을 참조하세요.
 
-## <a name="configure-the-application-object&quot;></a>애플리케이션 개체 구성
+## <a name="configure-the-application-object"></a>애플리케이션 개체 구성
 
 각 애플리케이션에서 키 집합 자격을 사용하도록 설정하고 SSO를 사용할 준비가 되면 다음 예제와 같이 키 집합 액세스 그룹을 사용하여 `MSALPublicClientApplication`을 구성합니다.
 
@@ -112,8 +112,8 @@ Objective-C:
 
 ```objc
 NSError *error = nil;
-MSALPublicClientApplicationConfig *configuration = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@&quot;<my-client-id>&quot;];
-configuration.cacheConfig.keychainSharingGroup = @&quot;my.keychain.group&quot;;
+MSALPublicClientApplicationConfig *configuration = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<my-client-id>"];
+configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
     
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
@@ -121,7 +121,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 Swift:
 
 ```swift
-let config = MSALPublicClientApplicationConfig(clientId: &quot;<my-client-id>")
+let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
 config.cacheConfig.keychainSharingGroup = "my.keychain.group"
 
 do {
@@ -183,7 +183,7 @@ MSAL은 Microsoft Authenticator를 사용하여 조정된 인증을 지원합니
     }
     ```
     
-**Xcode 11을 사용하는 경우** MSAL 콜백을 `SceneDelegate` 파일에 대신 배치해야 합니다.
+**Xcode 11을 사용하는 경우** `SceneDelegate` 파일에 MSAL 콜백을 대신 추가해야 합니다.
 이전 iOS와의 호환성을 위해 UISceneDelegate 및 UIApplicationDelegate를 모두 지원하는 경우 MSAL 콜백을 두 파일에 배치해야 합니다.
 
 Objective-C:

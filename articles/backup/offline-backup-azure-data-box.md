@@ -3,16 +3,16 @@ title: Azure Data Box를 사용하여 오프라인 백업
 description: Azure Data Box를 사용하여 MARS 에이전트에서 Recovery Services 자격 증명 모음에 대량의 초기 백업 데이터를 오프라인으로 시드하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 78adc479ce5733e208d2334d30d7b88e4edf8d6b
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 7793259797a47eb0353de7ecb27686ea2eafa24c
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576094"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123185906"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Data Box를 사용한 Azure Backup 오프라인 백업
 
-[Azure Data Box](../databox/data-box-overview.md)를 사용하여 Recovery Services 자격 증명 모음에 대량의 초기 MARS(Microsoft Azure Recovery Services) 백업을 오프라인으로 시드할 수 있습니다(네트워크 사용 없이). 이 프로세스는 대기 시간이 긴 네트워크를 통해 대량 백업 데이터를 온라인으로 이동하는 데 사용되었을 시간과 네트워크 대역폭을 절약합니다. 이 고급 기능은 현재 미리 보기로 제공됩니다. Azure Data Box 기반의 오프라인 백업은 [Azure Import/Export 서비스 기반의 오프라인 백업](./backup-azure-backup-import-export.md)에 비해 다음 두 가지 고유한 이점이 있습니다.
+[Azure Data Box](../databox/data-box-overview.md)를 사용하여 Recovery Services 자격 증명 모음에 대량의 초기 MARS(Microsoft Azure Recovery Services) 백업을 오프라인으로 시드할 수 있습니다(네트워크 사용 없이). 이 프로세스는 대기 시간이 긴 네트워크를 통해 대량 백업 데이터를 온라인으로 이동하는 데 사용되었을 시간과 네트워크 대역폭을 절약합니다.  Azure Data Box 기반의 오프라인 백업은 [Azure Import/Export 서비스 기반의 오프라인 백업](./backup-azure-backup-import-export.md)에 비해 다음 두 가지 고유한 이점이 있습니다.
 
 - 사용자 고유의 Azure 호환 디스크와 커넥터를 전달하지 않아도 됩니다. Azure Data Box에서 선택한 [Data Box SKU](https://azure.microsoft.com/services/databox/data/)와 관련된 디스크를 제공합니다.
 - Azure Backup(MARS 에이전트)에서 Azure Data Box의 지원되는 SKU에 백업 데이터를 직접 쓸 수 있습니다. 이 기능을 사용하면 초기 백업 데이터에 사용할 스테이징 위치를 프로비저닝하지 않아도 됩니다. 디스크를 포맷하고 해당 데이터를 디스크에 복사하는 유틸리티도 필요하지 않습니다.
@@ -56,7 +56,7 @@ Azure Data Box를 사용하여 MARS 에이전트에서 데이터를 시드하는
 >[!IMPORTANT]
 >단일 서버의 초기 백업 데이터는 단일 Azure Data Box 인스턴스 또는 Azure Data Box 디스크에 포함되어야 하며, 동일한 SKU 또는 다른 SKU의 여러 디바이스 간에 공유할 수 없습니다. 하지만 Azure Data Box 디바이스는 여러 서버의 초기 백업을 포함할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="azure-subscription-and-required-permissions"></a>Azure 구독 및 필요한 권한
 

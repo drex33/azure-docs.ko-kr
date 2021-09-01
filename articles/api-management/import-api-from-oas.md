@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 05295efec3d7651c3a77dd5ad6e2c72b57a6c5a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fd06fa92d7ad028aa45d78268f5a992d4b2b862
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95994708"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186356"
 ---
 # <a name="import-an-openapi-specification"></a>OpenAPI 사양 가져오기
 
@@ -28,7 +28,6 @@ ms.locfileid: "95994708"
 > [!div class="checklist"]
 > * "OpenAPI 사양" 백 엔드 API 가져오기
 > * Azure Portal에서 API 테스트
-> * 개발자 포털에서 API 테스트
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

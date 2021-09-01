@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/29/2021
+ms.date: 08/26/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b509bde062a8df059b2ff3f9e48fbbf9be9f97c5
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 2f863c9fc5bad369813ee37c51ded73e96980a54
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108280848"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034209"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-policy-dnat-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 정책 DNAT로 인바운드 인터넷 트래픽 필터링
 
@@ -151,11 +151,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    |설정  |값  |
    |---------|---------|
-   |Subscription     |\<your subscription\>|
+   |구독     |\<your subscription\>|
    |Resource group     |**RG-DNAT-Test** 를 선택합니다. |
    |속성     |**FW-DNAT-test**|
    |지역     |전에 사용한 동일한 위치 선택|
-   |방화벽 관리|**이 방화벽 관리를 위해 Firewall Policy 사용**|
+   |방화벽 관리|**방화벽 정책을 사용하여 이 방화벽 관리**|
    |방화벽 정책|**새로 추가**:<br>**fw-dnat-pol**<br>선택한 지역 
    |가상 네트워크 선택     |**기존 항목 사용**: VN-Hub|
    |공용 IP 주소     |**새**, 이름: **fw-pip** 를 추가합니다.|
@@ -227,7 +227,5 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-그런 다음, Azure Firewall 로그를 모니터링할 수 있습니다.
-
 > [!div class="nextstepaction"]
-> [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)
+> [Azure Firewall 프리미엄 배포 및 구성](premium-deploy.md)

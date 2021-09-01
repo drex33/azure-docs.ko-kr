@@ -13,14 +13,14 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: e04884c078bd9a5693ddcbc4e71470bb23e13d60
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 0cea2fdd28c486dbd4b1ca3872cb4e5afaa0379a
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079920"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039684"
 ---
-# <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션을 제거하는 방법
+# <a name="remove-an-application-registered-with-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼에 등록된 애플리케이션 제거
 
 Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 및 SaaS(Software-as-a-Service) 공급자는 애플리케이션 등록을 제거해야 할 수 있습니다.
 

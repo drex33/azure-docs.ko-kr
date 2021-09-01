@@ -1,19 +1,20 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Indexer) 계정 관리
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Azure에 연결된 Azure Video Analyzer for Media(이전의 Video Indexer) 계정을 관리하는 방법을 알아봅니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: c5acccbb4d7314a6ba462284674ffd1e1fd21ca0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 836cff6a8b55378089a6215b9d0c25e3fcac76c4
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386711"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305178"
 ---
 # <a name="manage-a-video-analyzer-for-media-account-connected-to-azure"></a>Azure에 연결된 Video Analyzer for Media 계정 관리.
 
@@ -58,14 +59,6 @@ Videos Indexer 계정이 Azure에 연결된 경우 다음과 같은 항목이 �
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
 |애플리케이션 ID|이 Video Analyzer for Media 계정에 대해 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한 포함)입니다. <br/><br/>앱 ID를 얻으려면 Azure Portal로 이동합니다. Media Services 계정에서 계정을 선택하고 **API 액세스** 로 이동합니다. **서비스 주체를 사용하여 Media Services API에 연결** -> **Azure AD 앱** 을 선택합니다. 관련 매개 변수를 복사합니다.|
 |애플리케이션 키|위에서 지정한 Media Services 계정과 연결된 Azure AD 애플리케이션 키입니다. <br/><br/>앱 키를 얻으려면 Azure Portal로 이동합니다. Media Services 계정에서 계정을 선택하고 **API 액세스** 로 이동합니다. **서비스 주체를 사용하여 Media Services API에 연결** -> **애플리케이션 관리** -> **인증서 및 비밀** 을 선택합니다. 관련 매개 변수를 복사합니다.|
-
-## <a name="autoscale-reserved-units"></a>예약 단위 자동 크기 조정
-
-**설정** 페이지에서 미디어 RU(예약 단위)의 자동 크기 조정을 설정할 수 있습니다. 옵션이 **켜기** 인 경우 최대 RU 수를 할당하고, Video Analyzer for Media에서 RU를 자동으로 중지/시작하는지 확인할 수 있습니다. 이 옵션을 사용하면 유휴 시간에 대한 추가 비용을 지불하지 않고, 인덱싱 로드가 높을 때 인덱싱 작업이 완료될 때까지 오랫동안 기다리지 않아도 됩니다.
-
-자동 크기 조정은 1RU 미만으로 축소되거나 Media Services 계정의 기본 제한을 초과하도록 확장되지는 않습니다. 제한을 늘리려면 서비스 요청을 만듭니다. 할당량 및 제한 사항과 지원 티켓을 여는 방법에 대한 자세한 내용은 [할당량 및 제한 사항](../../media-services/previous/media-services-quotas-and-limitations.md)을 참조하세요.
-
-![자동 크기 조정 예약 단위 Video Analyzer for Media](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>오류 및 경고
 

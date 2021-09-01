@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: a9166131ce288b63de7e73b7a793c187a366908e
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 6e816919d41dbae62c33028c5d35c996654d7f26
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213942"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258305"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인하는 웹앱: 코드 구성
 
@@ -247,7 +247,7 @@ Microsoft ID 플랫폼(이전의 Azure AD v2.0)으로 인증을 추가하려면 
 > [!NOTE]
 > Microsoft.Identity.Web을 활용하는 Microsoft ID 플랫폼용 새 ASP.NET Core 템플릿을 사용하여 직접 시작하려는 경우에는 .NET Core 3.1 및 .NET 5.0용 프로젝트 템플릿이 포함된 미리 보기 NuGet 패키지를 다운로드할 수 있습니다. 설치가 완료되면 ASP.NET Core 웹 애플리케이션(MVC 또는 Blazor)을 직접 인스턴스화할 수 있습니다. 자세한 내용은 [Microsoft.Identity.Web 웹앱 프로젝트 템플릿](https://aka.ms/ms-id-web/webapp-project-templates)을 참조하세요. 이 방법은 아래의 모든 단계를 수행하는 가장 간단한 방법입니다.
 >
-> Visual Studio 내에서 현재의 기본 ASP.NET Core 웹 프로젝트를 사용하거나 `dotnet new mvc --auth SingleAuth` 또는 `dotnet new webapp --auth SingleAuth`를 사용하여 프로젝트를 시작하려는 경우 다음과 같은 코드가 표시됩니다.
+> Visual Studio 내에서 현재의 기본 ASP.NET Core 웹 프로젝트를 사용하거나 `dotnet new mvc --auth SingleOrg` 또는 `dotnet new webapp --auth SingleOrg`를 사용하여 프로젝트를 시작하려는 경우 다음과 같은 코드가 표시됩니다.
 >
 >```c#
 >  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)

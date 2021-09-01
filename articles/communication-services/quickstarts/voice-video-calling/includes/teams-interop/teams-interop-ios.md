@@ -2,16 +2,16 @@
 title: 빠른 시작 - iOS 앱에서 Teams 모임에 조인
 description: 이 자습서에서는 iOS용 Azure Communication Services 통화 SDK를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: c23512eeb044d07e845de2a24ab6afd3bd190101
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 1b277dcca381cd621fac6011ad47f30e2744ee68
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112535999"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078136"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services 통화 SDK를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 

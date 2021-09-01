@@ -13,14 +13,14 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 825a7d8c53552120a861657c7f3df7ae8f488c18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45e3489416a68b23d89a3966fe8515713d834a5b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581723"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123030427"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
+# <a name="sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
 많은 조직에 SaaS(Software as a Service) 애플리케이션을 제공하는 경우, 모든 Azure AD(Azure Active Directory) 테넌트의 로그인을 허용하도록 애플리케이션을 구성할 수 있습니다. 이 구성을 *다중 테넌트 애플리케이션 만들기* 라고 합니다. 모든 Azure AD 테넌트의 사용자는 애플리케이션에 계정을 사용하기로 동의한 후 애플리케이션에 로그인할 수 있습니다.
 

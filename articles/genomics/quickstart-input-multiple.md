@@ -4,17 +4,17 @@ titleSuffix: Microsoft Genomics
 description: 이 문서에서는 입력 파일이 동일한 샘플에서 온 여러 FASTQ 또는 BAM 파일인 경우 Microsoft Genomics 서비스에 워크플로를 제출하는 방법을 보여 줍니다.
 services: genomics
 ms.service: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlund
-ms.author: grhuynh
+ms.author: vigunase
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 1c7a65a2ff58d3191e7b21ecd40a8aa1bc1f4086
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: c87cd34231c3d9b54b4f4973f64761171605b560
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551851"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259832"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>동일한 샘플의 여러 입력을 사용하여 워크플로 제출
 

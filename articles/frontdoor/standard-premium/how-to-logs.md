@@ -5,14 +5,14 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.date: 03/15/2021
+ms.date: 08/26/2021
 ms.author: duau
-ms.openlocfilehash: 531f4a9c9f535779e451ca316a8a5867f6cdaba5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5446c240d1d07b5b99fe6f91a031617756a6018c
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573900"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967594"
 ---
 # <a name="azure-front-door-standardpremium-preview-logging"></a>Azure Front Door 표준/프리미엄(미리 보기) 로깅
 
@@ -83,7 +83,7 @@ Azure Front Door는 현재 다음과 같은 스키마가 있고 아래와 같이
 | UserAgent | 클라이언트에서 사용한 브라우저 유형입니다. |
 | ClientIp | 원본에서 요청한 클라이언트의 IP 주소입니다. 요청에 X-Forwarded-For 헤더가 있는 경우 클라이언트 IP는 동일한 곳에서 선택됩니다. |
 | SocketIp | AFD 에지에 대한 직접 연결의 IP 주소입니다. 클라이언트에서 HTTP 프록시 또는 부하 분산 장치를 사용하여 요청을 보낸 경우 SocketIp의 값은 프록시 또는 부하 분산 장치의 IP 주소입니다. |
-| 대기 시간 | AFD 에지 서버가 클라이언트의 요청을 수신한 시간부터 AFD가 클라이언트에 마지막 응답 바이트를 보내는 시간까지의 시간(밀리초)입니다. 이 필드는 네트워크 대기 시간 및 TCP 버퍼링을 고려하지 않습니다. |
+| timeTaken | AFD 에지 서버가 클라이언트의 요청을 수신한 시간부터 AFD가 클라이언트에 마지막 응답 바이트를 보내는 시간까지의 시간(밀리초)입니다. 이 필드는 네트워크 대기 시간 및 TCP 버퍼링을 고려하지 않습니다. |
 | RequestProtocol | 클라이언트가 요청에 지정한 프로토콜인 HTTP, HTTPS입니다 |
 | SecurityProtocol | 요청에 사용되는 TLS/SSL 프로토콜 버전이거나, 암호화가 없는 경우 null입니다. 가능한 값은 SSLv3, TLSv1, TLSv1.1, TLSv1.2입니다. |
 | SecurityCipher | 요청 프로토콜의 값이 HTTPS인 경우 이 필드는 클라이언트에서 협상한 TLS/SSL 암호화와 암호화를 위해 AFD를 나타냅니다. |
@@ -96,7 +96,7 @@ Azure Front Door는 현재 다음과 같은 스키마가 있고 아래와 같이
 | ClientPort | 요청한 클라이언트의 IP 포트입니다. |
 | Referrer | 요청을 시작한 사이트의 URL입니다. |
 | TimetoFirstByte | AFD의 시간(밀리초)은 Azure Front Door에서 측정된 대로 첫 번째 바이트가 클라이언트로 전송되는 시간에 대한 요청을 받습니다. 이 속성은 클라이언트 데이터를 측정하지 않습니다. |
-| 오류 정보 | 이 필드는 각 응답의 오류 토큰에 대한 자세한 정보를 제공합니다. <br> **Noerror**: 발견된 오류가 없음을 나타냅니다. <br> **Certificateerror**: 제네릭 SSL 인증서 오류입니다. <br> **CertificateNameCheckFailed**: SSL 인증서의 호스트 이름이 잘못되었거나 일치하지 않습니다. <br> **Clientdisconnected**: 클라이언트 네트워크 연결 때문에 요청이 실패했습니다. <br> **Clientgeoblocked**: 클라이언트가 IP의 지리적 위치에 따라 차단되었습니다. <br> **UnspecifiedClientError**: 제네릭 클라이언트 오류입니다. <br> **Invalidrequest**: 요청이 잘못되었습니다. 이 오류는 잘못된 형식의 헤더, 본문 및 URL 때문에 발생할 수 있습니다. <br> **Dnsfailure**: DNS 오류가 발생했습니다. <br> **DNSTimeout**: 백 엔드를 확인하는 DNS 쿼리 시간이 초과되었습니다. <br> **DNSNameNotResolved**: 서버 이름이나 주소를 확인할 수 없습니다. <br> **OriginConnectionAborted**: 원본과의 연결이 비정상적으로 끊어졌습니다. <br> **OriginConnectionError**: 제네릭 원본 연결 오류입니다. <br> **OriginConnectionRefused**: 원본과의 연결이 설정되지 않았습니다. <br> **OriginError**: 제네릭 원본 오류입니다. <br> **OriginInvalidRequest**: 잘못된 요청을 원본으로 보냈습니다. <br> **Responseheadertoobig**: 원본에서 너무 많은 응답 헤더를 반환했습니다. <br> **OriginInvalidResponse**: **원본이 잘못되었거나 인식할 수 없는 응답을 반환했습니다. <br> **OriginTimeout**: 원본 요청에 대한 시간 제한이 만료되었습니다. <br> **Responseheadertoobig**: 원본에서 너무 많은 응답 헤더를 반환했습니다. <br> **RestrictedIP**: 제한된 IP로 인해 요청이 차단되었습니다. <br> **SSLHandshakeError**: SSL 핸드셰이크 오류로 인해 원본과의 연결을 설정할 수 없습니다. <br> **SSLInvalidRootCA**: RootCA가 잘못되었습니다. <br> **Sslininvalid cipher**: HTTPS 연결이 설정된 암호화가 잘못되었습니다. <br> **OriginConnectionAborted**: 원본과의 연결이 비정상적으로 끊어졌습니다. <br> **OriginConnectionRefused**: 원본과의 연결이 설정되지 않았습니다. <br> **UnspecifiedError**: 테이블의 오류에 맞지 않는 오류가 발생했습니다. |
+| 오류 정보 | 이 필드는 각 응답의 오류 토큰에 대한 자세한 정보를 제공합니다. <br> **Noerror**: 발견된 오류가 없음을 나타냅니다. <br> **CertificateError**: 제네릭 SSL 인증서 오류입니다. <br> **CertificateNameCheckFailed**: SSL 인증서의 호스트 이름이 잘못되었거나 일치하지 않습니다. <br> **Clientdisconnected**: 클라이언트 네트워크 연결 때문에 요청이 실패했습니다. <br> **Clientgeoblocked**: 클라이언트가 IP의 지리적 위치에 따라 차단되었습니다. <br> **UnspecifiedClientError**: 제네릭 클라이언트 오류입니다. <br> **InvalidRequest**: 요청이 잘못되었습니다. 이 오류는 잘못된 형식의 헤더, 본문 및 URL 때문에 발생할 수 있습니다. <br> **Dnsfailure**: DNS 오류가 발생했습니다. <br> **DNSTimeout**: 백 엔드를 확인하는 DNS 쿼리 시간이 초과되었습니다. <br> **DNSNameNotResolved**: 서버 이름이나 주소를 확인할 수 없습니다. <br> **OriginConnectionAborted**: 원본과의 연결이 비정상적으로 끊어졌습니다. <br> **OriginConnectionError**: 제네릭 원본 연결 오류입니다. <br> **OriginConnectionRefused**: 원본과의 연결이 설정되지 않았습니다. <br> **OriginError**: 제네릭 원본 오류입니다. <br> **OriginInvalidRequest**: 잘못된 요청을 원본으로 보냈습니다. <br> **Responseheadertoobig**: 원본에서 너무 많은 응답 헤더를 반환했습니다. <br> **OriginInvalidResponse**: **원본이 잘못되었거나 인식할 수 없는 응답을 반환했습니다. <br> **OriginTimeout**: 원본 요청에 대한 시간 제한이 만료되었습니다. <br> **Responseheadertoobig**: 원본에서 너무 많은 응답 헤더를 반환했습니다. <br> **RestrictedIP**: 제한된 IP로 인해 요청이 차단되었습니다. <br> **SSLHandshakeError**: SSL 핸드셰이크 오류로 인해 원본과의 연결을 설정할 수 없습니다. <br> **SSLInvalidRootCA**: RootCA가 잘못되었습니다. <br> **Sslininvalid cipher**: HTTPS 연결이 설정된 암호화가 잘못되었습니다. <br> **OriginConnectionAborted**: 원본과의 연결이 비정상적으로 끊어졌습니다. <br> **OriginConnectionRefused**: 원본과의 연결이 설정되지 않았습니다. <br> **UnspecifiedError**: 테이블의 오류에 맞지 않는 오류가 발생했습니다. |
 | OriginURL | 요청이 전송되는 원본의 전체 URL입니다. 구성표, 호스트 헤더, 포트, 경로 및 쿼리 문자열로 구성됩니다. <br> **URL 다시 작성**: 규칙 집합에 URL 다시 작성 규칙이 있는 경우 경로가 다시 작성된 경로를 참조합니다. <br> **에지 POP의 캐시** 에지 POP에서 캐시가 적중하는 경우 원본은 N/A입니다. <br> **대량 요청** 요청된 콘텐츠가 원본으로 돌아가는 청크 요청이 여러 개 있는 경우 이 필드는 원본에 대한 첫 번째 요청에 해당합니다. 자세한 내용은 개체 청크를 참조하세요. |
 | OriginIP | 요청을 처리한 원본 IP입니다. <br> **에지 POP의 캐시** 에지 POP에서 캐시가 적중하는 경우 원본은 N/A입니다. <br> **대량 요청** 요청된 콘텐츠가 원본으로 돌아가는 청크 요청이 여러 개 있는 경우 이 필드는 원본에 대한 첫 번째 요청에 해당합니다. 자세한 내용은 개체 청크를 참조하세요. |
 | OriginName| 원본에 대한 전체 DNS 이름(원본 URL의 호스트 이름)입니다. <br> **에지 POP의 캐시** 에지 POP에서 캐시가 적중하는 경우 원본은 N/A입니다. <br> **대량 요청** 요청된 콘텐츠가 원본으로 돌아가는 청크 요청이 여러 개 있는 경우 이 필드는 원본에 대한 첫 번째 요청에 해당합니다. 자세한 내용은 개체 청크를 참조하세요. |

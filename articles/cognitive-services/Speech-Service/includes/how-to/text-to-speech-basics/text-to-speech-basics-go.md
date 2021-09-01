@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
 ms.author: yulili
-ms.openlocfilehash: 54647867ab0a0d2c1333f80121aeab49a2efc959
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: 7c64db9a503caff0bb2cda3e7dc576bb3e72884d
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113279777"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122423293"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다.
 
@@ -279,7 +279,7 @@ SSML을 사용자 지정에 사용하려면 음성을 전환하는 간단한 변
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -289,7 +289,7 @@ SSML을 사용자 지정에 사용하려면 음성을 전환하는 간단한 변
 요청은 거의 같지만 `SpeakTextAsync()` 함수를 사용하는 대신 `SpeakSsmlAsync()`를 사용합니다. 이 함수에는 XML 문자열이 필요하므로 먼저 SSML 구성을 문자열로 로드합니다. 여기에서 결과 개체는 이전 예제와 정확히 동일합니다.
 
 > [!NOTE]
-> SSML을 사용하지 않고 음성을 변경하려면 `speechConfig.SetSpeechSynthesisVoiceName("en-US-AriaNeural")`을 사용하여 `SpeechConfig`에서 속성을 설정하면 됩니다.
+> SSML을 사용하지 않고 음성을 변경하려면 `speechConfig.SetSpeechSynthesisVoiceName("en-US-ChristopherNeural")`을 사용하여 `SpeechConfig`에서 속성을 설정하면 됩니다.
 
 ## <a name="get-facial-pose-events"></a>얼굴 포즈 이벤트 가져오기
 

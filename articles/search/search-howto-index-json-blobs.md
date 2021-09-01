@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: c0abbf8dc928dc20778d748e16eea5ae8b775282
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ba6df6b29c9d7b9b388b34dab163a132272c6200
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557093"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223903"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 Blob 인덱서를 사용하여 JSON Blob을 인덱싱하는 방법
 
@@ -75,7 +75,7 @@ api-key: [admin key]
 
 ### <a name="json-example-single-hotel-json-files"></a>json 예제(단일 호텔 JSON 파일)
 
-GitHub의 [호텔 JSON 문서 데이터 세트](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotel-json-documents)는 JSON 구문 분석을 테스트하는 데 유용합니다. 여기서 각 Blob은 구조화된 JSON 파일을 나타냅니다. 데이터 파일을 Blob Storage에 업로드하고 **데이터 가져오기** 마법사를 사용하여 이 콘텐츠를 개별 검색 문서로 구문 분석하는 방법을 신속하게 평가할 수 있습니다. 
+GitHub의 [호텔 JSON 문서 데이터 세트](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels/hotel-json-documents)는 JSON 구문 분석을 테스트하는 데 유용합니다. 여기서 각 Blob은 구조화된 JSON 파일을 나타냅니다. 데이터 파일을 Blob Storage에 업로드하고 **데이터 가져오기** 마법사를 사용하여 이 콘텐츠를 개별 검색 문서로 구문 분석하는 방법을 신속하게 평가할 수 있습니다. 
 
 데이터 세트는 5개의 Blob으로 구성되며, 각 Blob에는 주소 컬렉션과 객실 컬렉션이 포함된 호텔 문서가 있습니다. Blob 인덱서는 두 컬렉션을 모두 검색하고 인덱스 스키마에 입력 문서 구조를 반영합니다.
 
@@ -110,7 +110,7 @@ api-key: [admin key]
 
 ### <a name="jsonarrays-example-clinical-trials-sample-data"></a>jsonArrays 예제(임상 체험용 샘플 데이터)
 
-GitHub의 [임상 체험용 json 데이터 세트](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-json)는 JSON 배열 구문 분석을 테스트하는 데 유용합니다. 데이터 파일을 Blob Storage에 업로드하고 **데이터 가져오기** 마법사를 사용하여 이 콘텐츠를 개별 검색 문서로 구문 분석하는 방법을 신속하게 평가할 수 있습니다. 
+GitHub의 [임상 체험용 json 데이터 세트](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-json)는 JSON 배열 구문 분석을 테스트하는 데 유용합니다. 데이터 파일을 Blob Storage에 업로드하고 **데이터 가져오기** 마법사를 사용하여 이 콘텐츠를 개별 검색 문서로 구문 분석하는 방법을 신속하게 평가할 수 있습니다. 
 
 데이터 세트는 총 100개의 엔터티에 대해 각각 엔터티의 JSON 배열을 포함하는 8개의 Blob으로 구성됩니다. 엔터티의 채워지는 필드는 다를 수 있지만 최종 결과는 모든 Blob의 모든 배열에서 엔터티마다 하나의 검색 문서가 됩니다.
 
@@ -166,12 +166,6 @@ api-key: [admin key]
     "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
 }
 ```
-
-### <a name="jsonlines-example-caselaw-sample-data"></a>jsonLines 예제(caselaw 샘플 데이터)
-
-GitHub의 [caselaw JSON 데이터 세트](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw)는 JSON 새 줄 구문 분석을 테스트하는 데 유용합니다. 다른 샘플과 마찬가지로 이 데이터를 Blob Storage에 업로드하고 **데이터 가져오기** 마법사를 사용하여 구문 분석 모드가 개별 Blob에 미치는 영향을 신속하게 평가할 수 있습니다.
-
-데이터 세트는 새 줄로 구분된 10개의 JSON 엔터티를 포함하는 하나의 Blob으로 구성되며, 각 엔터티는 단일 법률 사례를 설명합니다. 최종 결과는 엔터티당 하나의 검색 문서가 됩니다.
 
 ## <a name="map-json-fields-to-search-fields"></a>JSON 필드를 검색 필드에 매핑
 

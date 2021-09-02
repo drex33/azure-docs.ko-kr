@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cf646fe61e3fa00407cf2ff3f47f872167c00aa9
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 9ab311c8e348c6e0cbb703a73562770a2f4f963f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903901"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251753"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>테이블 및 큐에 대한 고객 관리형 키를 지원하는 계정 만들기
 
@@ -160,8 +160,8 @@ $account.Encryption.Services.Table
 Azure CLI를 사용하여 스토리지 계정의 서비스가 계정 암호화 키를 사용하고 있는지 확인하려면 [az storage account show](/cli/azure/storage/account#az_storage_account_show) 명령을 호출합니다. 이 명령은 스토리지 계정 속성 및 해당 값의 집합을 반환합니다. 암호화 속성 내에서 각 서비스에 대한 `keyType` 필드를 찾아 `Account`로 설정되어 있는지 확인합니다.
 
 ```azurecli
-az storage account show /
-    --name <storage-account> /
+az storage account show \
+    --name <storage-account> \
     --resource-group <resource-group>
 ```
 

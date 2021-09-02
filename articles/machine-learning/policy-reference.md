@@ -1,18 +1,18 @@
 ---
 title: Azure Machine Learning을 위한 기본 제공 정책 정의
 description: Azure Machine Learning을 위한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.author: larryfr
 author: BlackMist
 ms.topic: reference
 ms.service: machine-learning
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 91691f8706c17679ac7dd9ff0c35055ef63a3a86
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: de5aea098b7fbc7c4e9691d9ad2cd9f4c6b5f8e7
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606151"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100737"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Azure Machine Learning을 위한 Azure Policy 기본 제공 정책 정의
 

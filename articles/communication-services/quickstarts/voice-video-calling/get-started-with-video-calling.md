@@ -3,17 +3,17 @@ title: 빠른 시작 - 영상 통화를 앱에 추가(JavaScript)
 titleSuffix: An Azure Communication Services quickstart
 description: 이 빠른 시작에서는 Azure Communication Services를 사용하여 앱에 영상 통화 기능을 추가하는 방법을 알아봅니다.
 author: xumo-95
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: eba7e8e2b84bcb5a86f7406b23c9b2b78df2f5b7
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: f7ea9e9706cbf5e5f07f709cc4973927933499ad
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111699"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251568"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app"></a>빠른 시작: 1:1 영상 통화를 앱에 추가
 

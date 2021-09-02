@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: 06d72e0a8953e6f22faebb6da2bc607fe5ebfad0
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 124c5fba529d39a675f92642413d4305c58debda
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112239534"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101457"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos 계정 관리
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "112239534"
 
 ### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>Azure CLI
 
-[Azure CLI를 사용하여 Azure Cosmos DB 계정 만들기](manage-with-cli.md#create-an-azure-cosmos-db-account)를 참조하세요.
+[Azure CLI를 사용하여 Azure Cosmos DB 계정 만들기](sql/manage-with-cli.md#create-an-azure-cosmos-db-account)를 참조하세요.
 
 ### <a name="azure-powershell"></a><a id="create-database-account-via-ps"></a>Azure PowerShell
 
@@ -62,7 +62,7 @@ ms.locfileid: "112239534"
 
 ### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>Azure CLI
 
-[Azure CLI를 사용하여 영역 추가 또는 제거](manage-with-cli.md#add-or-remove-regions)를 참조하세요.
+[Azure CLI를 사용하여 영역 추가 또는 제거](sql/manage-with-cli.md#add-or-remove-regions)를 참조하세요.
 
 ### <a name="azure-powershell"></a><a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
@@ -78,7 +78,7 @@ ms.locfileid: "112239534"
 
 ### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
-[Azure CLI로 다중 쓰기 영역 사용](manage-with-cli.md#enable-multiple-write-regions)을 참조하세요.
+[Azure CLI로 다중 쓰기 영역 사용](sql/manage-with-cli.md#enable-multiple-write-regions)을 참조하세요.
 
 ### <a name="azure-powershell"></a><a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
@@ -164,7 +164,7 @@ ms.locfileid: "112239534"
 
 ### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
-[Azure CLI로 자동 장애 조치(failover) 사용](manage-with-cli.md#enable-automatic-failover)을 참조하세요.
+[Azure CLI로 자동 장애 조치(failover) 사용](sql/manage-with-cli.md#enable-automatic-failover)을 참조하세요.
 
 ### <a name="azure-powershell"></a><a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
@@ -195,7 +195,7 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 
 ### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Azure CLI
 
-[Azure CLI로 장애 조치(failover) 우선 순위 설정](manage-with-cli.md#set-failover-priority)을 참조하세요.
+[Azure CLI로 장애 조치(failover) 우선 순위 설정](sql/manage-with-cli.md#set-failover-priority)을 참조하세요.
 
 ### <a name="azure-powershell"></a><a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
@@ -227,7 +227,7 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 
 ### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Azure CLI
 
-[Azure CLI로 수동 장애 조치(failover) 트리거](manage-with-cli.md#trigger-manual-failover)를 참조하세요.
+[Azure CLI로 수동 장애 조치(failover) 트리거](sql/manage-with-cli.md#trigger-manual-failover)를 참조하세요.
 
 ### <a name="azure-powershell"></a><a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
@@ -238,4 +238,4 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 데이터베이스 및 컨테이너와 함께 Azure Cosmos 계정을 관리하는 방법에 대한 자세한 내용 및 예제는 다음 문서를 읽어보세요.
 
 * [Azure PowerShell을 사용하여 Azure Cosmos DB 관리](manage-with-powershell.md)
-* [Azure CLI를 사용하여 Azure Cosmos DB 관리](manage-with-cli.md)
+* [Azure CLI를 사용하여 Azure Cosmos DB 관리](sql/manage-with-cli.md)

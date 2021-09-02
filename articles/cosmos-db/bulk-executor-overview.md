@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 159b44c4002c838a22656e8a8ddc5f5f6efd69b7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c6e630444fce484c02cd6707673d96a83360b801
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971941"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100962"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,6 +53,6 @@ Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 스토
 ## <a name="next-steps"></a>다음 단계 
   
 * [.NET](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 대량 실행기 라이브러리를 사용하는 샘플 애플리케이션을 사용해 보며 자세히 알아봅니다.  
-* [.NET](sql-api-sdk-bulk-executor-dot-net.md) 및 [Java](sql-api-sdk-bulk-executor-java.md)에서 대량 실행기 SDK 정보 및 릴리스 정보를 확인하세요.
+* [.NET](sql-api-sdk-bulk-executor-dot-net.md) 및 [Java](sql/sql-api-sdk-bulk-executor-java.md)에서 대량 실행기 SDK 정보 및 릴리스 정보를 확인하세요.
 * 대량 실행기 라이브러리는 Cosmos DB Spark 커넥터에 통합됩니다. 자세한 내용은 [Azure Cosmos DB Spark 커넥터](./create-sql-api-spark.md) 문서를 참조하세요.  
 * 또한 대량 실행기 라이브러리는 Azure Data Factory가 데이터를 복사할 수 있도록 [Azure Cosmos DB 커넥터](../data-factory/connector-azure-cosmos-db.md)의 새 버전에 통합됩니다.

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 04/07/2021
-ms.openlocfilehash: b0aa9d5dec25d8d600ecbcde59a57e67917c6411
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 65288730cafaa39507eeab4ed2e3d29267080262
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011154"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310484"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>하이퍼스케일(Citus) SQL API의 함수
 
@@ -657,61 +657,6 @@ SELECT * from citus_remote_connection_stats();
  citus_worker_1 | 5432 | postgres      |                        3
 (1 row)
 ```
-
-### <a name="master_drain_node"></a>master\_drain\_node
-
-master\_drain\_node() 함수는 분할을 지정된 노드에서 [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table)에서 `shouldhaveshards`가 true로 설정된 다른 노드로 이동합니다. 서버 그룹에서 노드를 제거하고 노드의 물리적 서버를 끄기 전에 함수를 호출합니다.
-
-#### <a name="arguments"></a>인수
-
-**nodename:** 드레이닝할 노드의 호스트 이름입니다.
-
-**nodeport:** 드레이닝할 노드의 포트 번호입니다.
-
-**shard\_transfer\_mode:** (선택 사항) PostgreSQL 논리적 복제를 사용할지 또는 교차 작업자 COPY 명령을 사용할지 여부와 관계없이 복제 방법을 지정합니다. 가능한 값은 다음과 같습니다.
-
-> -   `auto`: 논리적 복제가 가능한 경우 복제본 ID가 필요하고 그렇지 않으면 레거시 동작을 사용합니다(예: 분할 복구, PostgreSQL 9.6). 이것은 기본값입니다.
-> -   `force_logical`: 테이블에 복제본 ID가 없는 경우에도 논리적 복제를 사용합니다. 테이블에 대한 동시 업데이트/삭제 문은 복제 중에 실패합니다.
-> -   `block_writes`: 기본 키 또는 복제본 ID가 없는 테이블에는 COPY(쓰기 차단)를 사용합니다.
-
-**rebalance\_strategy:** (선택 사항) [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table)의 전략 이름입니다.
-이 인수가 생략되면 함수는 테이블에 표시된 대로 기본 전략을 선택합니다.
-
-#### <a name="return-value"></a>반환 값
-
-해당 없음
-
-#### <a name="example"></a>예
-
-다음은 단일 노드를 제거하는 일반적인 단계입니다(예: 표준 PostgreSQL 포트의 '10.0.0.1').
-
-1.  노드를 드레이닝합니다.
-
-    ```postgresql
-    SELECT * from master_drain_node('10.0.0.1', 5432);
-    ```
-
-2.  명령이 완료될 때까지 기다립니다.
-
-3.  노드 제거
-
-여러 노드를 드레이닝하는 경우 [rebalance_table_shards](#rebalance_table_shards)를 대신 사용하는 것이 좋습니다. 이렇게 하면 하이퍼스케일(Citus)이 미리 계획하고 분할의 이동 횟수를 최소로 할 수 있습니다.
-
-1.  제거할 각 노드에 대해 다음을 실행합니다.
-
-    ```postgresql
-    SELECT * FROM master_set_node_property(node_hostname, node_port, 'shouldhaveshards', false);
-    ```
-
-2.  [rebalance_table_shards](#rebalance_table_shards)를 사용하여 한 번에 모두 드레이닝
-
-    ```postgresql
-    SELECT * FROM rebalance_table_shards(drain_only := true);
-    ```
-
-3.  드레이닝 재조정이 완료될 때까지 대기
-
-4.  노드 제거
 
 ### <a name="replicate_table_shards"></a>replicate\_table\_shards
 

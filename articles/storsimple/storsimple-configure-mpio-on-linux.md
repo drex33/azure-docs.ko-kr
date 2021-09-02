@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 435cc7c94b3445e22b6890f326bbead504c67826
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98745736"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226805"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
 이 문서에서는 Centos 6.6 호스트 서버에서 다중 경로 IO(MPIO)를 구성하는 데 필요한 단계를 설명합니다. 호스트 서버는 iSCSI 초기자를 통해 고가용성용 Microsoft Azure StorSimple 디바이스에 연결됩니다. StorSimple 볼륨에 대한 다중 경로 디바이스 및 특정 설치의 자동 검색을 자세히 설명합니다.
@@ -298,7 +298,7 @@ StorSimple 디바이스에는 다음이 있어야 합니다.
     Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
     ```
 
-    하나의 호스트 인터페이스 및 두 개의 경로가 표시되면 iSCSI용 호스트에 두 개의 인터페이스를 모두 사용하도록 설정해야 합니다. [Linux 설명서의 자세한 지침](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html)을 따르세요.
+    하나의 호스트 인터페이스 및 두 개의 경로가 표시되면 iSCSI용 호스트에 두 개의 인터페이스를 모두 사용하도록 설정해야 합니다. [Linux 설명서의 자세한 지침](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/online_storage_reconfiguration_guide/ifacesetup-iscsioffload)을 따르세요.
 
 1. 볼륨은 StorSimple 디바이스에서 CentOS 서버에 노출됩니다. 자세한 내용은 StorSimple 디바이스에서 Azure Portal을 통한 [6단계: 볼륨 만들기](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume)를 참조하세요.
 

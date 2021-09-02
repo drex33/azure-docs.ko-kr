@@ -7,14 +7,14 @@ manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 2b58548cd68bd8366b1f75ea95696ba1ad04f77e
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 8718573de0742e69bee723f34ff94fcb20656be4
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114292333"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251128"
 ---
 # <a name="quickstart-set-up-and-manage-teams-access-tokens"></a>빠른 시작: Teams 액세스 토큰 설정 및 관리
 

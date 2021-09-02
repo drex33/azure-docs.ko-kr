@@ -4,12 +4,12 @@ description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure �
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 3448b162c17dec2ab5b7637a3527d1c470bd415c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a70e2780cb2ceeb37379557ad9cb4bb931e9b6f1
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618579"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252223"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -73,9 +73,9 @@ Azure Portal의 **VM 백업 정책** 창에서, **즉시 복원** 섹션 아래�
 > Az PowerShell 버전 1.6.0 이상에서는 PowerShell을 사용하여 정책의 즉시 복원 스냅샷 보존 기간을 업데이트 가능
 
 ```powershell
-$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
 각 정책의 기본 스냅샷 보존은 2일로 설정됩니다. 값을 최소 1일에서 최대 5일로 변경할 수 있습니다. 주간 정책의 경우 스냅샷 보존이 5일로 고정됩니다.

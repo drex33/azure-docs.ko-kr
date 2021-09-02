@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 2f4bd040d7e5858fd561444f56dbce7b3f940d9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83f3264ca3dd8460f44695acbef281c99286f2f8
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92742400"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252320"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management 서비스에서 외부 서비스 사용
 Azure API Management 서비스에서 사용할 수 있는 정책은 순수하게 들어오는 요청, 보내는 응답 및 기본 구성 정보에 기반하여 다양한 범위의 유용한 작업을 수행할 수 있습니다. 그러나 API Management 정책에서 외부 서비스와 상호 작용할 수 있으면 더 많은 기회를 얻게 됩니다.
@@ -69,7 +69,7 @@ Slack에는 인바운드 웹 후크가 있습니다. 인바운드 웹 후크를 
 `send-request` 정책을 사용하면 복잡한 처리 기능을 수행하는 외부 서비스를 사용할 수 있고 이후 정책 처리에 사용할 수 있는 API 관리 서비스에 데이터를 반환할 수 있습니다.
 
 ### <a name="authorizing-reference-tokens"></a>참조 토큰 권한 부여
-API Management의 주요 기능은 백 엔드 리소스를 보호하는 것입니다. API에서 사용하는 권한 부여 서버가 [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md)처럼 [JWT 토큰](https://jwt.io/)을 해당 OAuth2 흐름의 일부로 만드는 경우 `validate-jwt` 정책을 사용하여 토큰의 유효성을 확인할 수 있습니다. 일부 권한 부여 서버는 권한 부여 서버에 다시 호출하지 않으면 확인할 수 없는 [참조 토큰](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/)이라는 것을 만듭니다.
+API Management의 주요 기능은 백 엔드 리소스를 보호하는 것입니다. API에서 사용하는 권한 부여 서버가 [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md)처럼 [JWT 토큰](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims)을 해당 OAuth2 흐름의 일부로 만드는 경우 `validate-jwt` 정책을 사용하여 토큰의 유효성을 확인할 수 있습니다. 일부 권한 부여 서버는 권한 부여 서버에 다시 호출하지 않으면 확인할 수 없는 [참조 토큰](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/)이라는 것을 만듭니다.
 
 ### <a name="standardized-introspection"></a>표준화된 검사
 과거에는 권한 부여 서버를 사용하여 참조 토큰을 확인하는 표준화된 방법이 없었습니다. 그러나 최근에 제안된 표준 [RFC 7662](https://tools.ietf.org/html/rfc7662) 는 리소스 서버가 토큰의 유효성을 검사하는 방법을 정의하는 IETF에서 게시되었습니다.
@@ -105,7 +105,10 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 
 또는 권한 부여 서버에 토큰이 유효한지 여부를 나타내는 “활성” 필드가 없는 경우 Postman과 같은 도구를 사용하여 유효한 토큰에 설정된 속성을 확인합니다. 예를 들어 유효한 토큰 응답에 “expires_in”이라는 속성이 포함된 경우 다음과 같이 이 속성 이름이 권한 부여 서버 응답에 있는지 확인합니다.
 
+```xml
 <when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
+```
+
 
 ### <a name="reporting-failure"></a>오류 보고
 `<choose>` 정책을 사용하여 토큰이 유효한지 감지할 수 있으며 그럴 경우 401 응답을 반환합니다.

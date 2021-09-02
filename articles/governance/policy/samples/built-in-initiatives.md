@@ -1,15 +1,15 @@
 ---
 title: 기본 제공 정책 이니셔티브 목록
 description: Azure Policy에 대한 기본 제공 정책 이니셔티브를 나열합니다. 범주에는 규정 준수, 게스트 구성 등이 포함됩니다.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 36fe2923155e92d08224ef10a17366296236082d
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 33ad32f430170c7bfc22f4a438a15b58413a434f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122605172"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123109667"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy 기본 제공 이니셔티브 정의
 

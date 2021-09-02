@@ -165,7 +165,7 @@
           href: runtime-troubleshoot.md
         - name: .NET 업그레이드 문제 해결
           href: dotnet-upgrade-troubleshoot.md
-    - name: Azure 데이터 분석에서 Spark로 마이그레이션
+    - name: Azure Synapse Analytics의 Spark로 마이그레이션
       href: migrate-azure-data-lake-analytics-to-synapse.md
 - name: 참조
   items:

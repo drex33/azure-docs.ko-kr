@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Cache for Redis에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: sample
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a267222433ff3650d6a0f945d2f9c94eca81c6ca
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 1ada215111ce1e4d91f1ec6d6809cceaae4a4991
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122605073"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111613"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 Azure Policy 규정 준수 컨트롤
 

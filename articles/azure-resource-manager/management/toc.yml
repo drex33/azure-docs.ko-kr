@@ -123,6 +123,14 @@
           href: tag-support.md
         - name: Azure Resource Graph 쿼리
           href: ./resource-graph-samples.md
+    - name: 프라이빗 링크 액세스
+      items:
+        - name: 만들기 - 포털
+          href: create-private-link-access-portal.md
+        - name: 만들기 - REST
+          href: create-private-link-access-rest.md
+        - name: 관리 - REST
+          href: manage-private-link-access-rest.md
     - name: 리소스 그룹 관리
       items:
         - name: Azure portal

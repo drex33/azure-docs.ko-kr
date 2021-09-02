@@ -2,18 +2,19 @@
 title: 기능 평가 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Azure Portal의 Personalizer 리소스에서 평가를 실행하는 경우 Personalizer는 모델에 영향을 주는 컨텍스트 및 작업 기능에 대한 정보를 제공합니다.
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: c0e47a2943cf8c934d201f76aefc41868adf0b25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d504293da96ea6f0c22c2a54563b39b92e4485e
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "87127726"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831020"
 ---
 # <a name="feature-evaluation"></a>기능 평가
 

@@ -2,123 +2,123 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Azure Percept 플랫폼
+    - name: Azure Percept 개요
       href: overview-azure-percept.md
-    - name: Azure Percept Studio
+    - name: Azure Percept Studio 개요
       href: overview-azure-percept-studio.md
-    - name: Azure Percept DK
+    - name: Azure Percept DK 및 Vision 디바이스 개요
       href: overview-azure-percept-dk.md
-    - name: Azure Percept Audio
+    - name: Azure Percept Audio 디바이스 개요
       href: overview-azure-percept-audio.md
-    - name: Azure Percept Vision 모듈 및 워크로드
+    - name: Azure Percept Vision AI 모듈
       href: azureeyemodule-overview.md
 - name: 빠른 시작
   items:
     - name: Azure Percept 디바이스 설정
       items:
-        - name: Azure Percept DK 언박싱 및 조립
+        - name: Azure Percept DK 디바이스 개봉 및 조립
           href: quickstart-percept-dk-unboxing.md
-        - name: Azure Percept DK 설정 환경 완료
+        - name: Azure Percept DK 디바이스 설정
           href: quickstart-percept-dk-set-up.md
-        - name: Azure Percept Audio 설정
+        - name: Azure Percept Audio 디바이스 설정
           href: quickstart-percept-audio-setup.md
 - name: 자습서
   items:
     - name: Azure Percept를 사용하여 프로토타입 생성 시작
       items:
-        - name: 코드 없는 비전 솔루션 빌드 및 배포
+        - name: Azure Percept Studio에서 코드 없는 비전 솔루션 만들기
           href: tutorial-nocode-vision.md
-        - name: 코드 없는 음성 솔루션 빌드 및 배포
+        - name: Azure Percept Studio에서 코드 없는 음성 도우미 만들기
           href: tutorial-no-code-speech.md
 - name: 개념
   items:
     - name: Azure Percept DK
       items:
-        - name: 80/20 통합
+        - name: Azure Percept DK 80/20 통합
           href: overview-8020-integration.md
-        - name: 디바이스 업데이트
+        - name: Azure Percept DK 업데이트 환경
           href: overview-update-experience.md
     - name: Azure Percept Audio
       items:
-        - name: LED 및 단추 동작
+        - name: Azure Percept Audio 단추 및 LED 상태
           href: audio-button-led-behavior.md
     - name: 고급 개발
       items:
-        - name: 고급 개발
+        - name: Azure Percept를 사용한 고급 개발
           href: overview-advanced-code.md
-        - name: Azure Percept AI 모델
+        - name: Azure Percept 샘플 AI 모델
           href: overview-ai-models.md
-        - name: 음성 모듈 인터페이스 및 워크플로
+        - name: Azure Percept 음성 모듈 인터페이스 워크플로
           href: speech-module-interface-workflow.md
     - name: 보안
       items:
         - name: Azure Percept 보안
           href: overview-percept-security.md
-        - name: 방화벽 구성 및 보안 권장 사항
+        - name: Azure Percept 보안 권장 사항
           href: concept-security-configuration.md
 - name: 방법 가이드
   items:
     - name: Azure Percept DK를 사용한 비전 솔루션 개발
       items:
-        - name: Devkit의 비디오 스트림 보기
+        - name: Azure Percept DK RTSP 비디오 스트림 보기
           href: how-to-view-video-stream.md
-        - name: Devkit에 AI 모델 배포
+        - name: Azure Percept DK에 비전 AI 모델 배포
           href: how-to-deploy-model.md
-        - name: 비전 프로젝트에 대한 이미지 캡처
+        - name: Azure Percept Studio의 이미지 캡처
           href: how-to-capture-images.md
-        - name: Devkit의 원격 분석 데이터 보기
+        - name: Azure Percept DK의 모델 유추 원격 분석 보기
           href: how-to-view-telemetry.md
     - name: Azure Percept DK를 사용하여 음성 솔루션 개발
       items:
-        - name: IoT Hub에서 음성 도우미 구성
+        - name: Azure Percept 음성 도우미 애플리케이션 구성
           href: how-to-configure-voice-assistant.md
-        - name: Azure Percept Studio에서 음성 도우미 구성
+        - name: Azure Percept 음성 도우미 애플리케이션 관리
           href: how-to-manage-voice-assistant.md
-        - name: 음성 도우미 애플리케이션으로 돌아가기
+        - name: Azure Percept Studio에서 음성 도우미 애플리케이션 찾기
           href: return-to-voice-assistant-application-window.md
-        - name: 음성 도우미 애플리케이션 삭제
+        - name: Azure Percept Audio 음성 도우미 애플리케이션 삭제
           href: delete-voice-assistant-application.md
     - name: Azure Percept 디바이스 업데이트
       items:
         - name: 업데이트 전략을 확인하는 방법
           href: how-to-determine-your-update-strategy.md
-        - name: 무선 업데이트 설정
+        - name: Azure IoT Hub를 설정하여 무선 업데이트를 배포합니다.
           href: how-to-set-up-over-the-air-updates.md
-        - name: 업데이트 패키지 식별
+        - name: Azure Percept DK 업데이트 패키지 선택
           href: how-to-select-update-package.md
         - name: 무선으로 Azure Percept DK 업데이트
           href: how-to-update-over-the-air.md
-        - name: USB를 통해 Azure Percept DK 업데이트
+        - name: USB-C 연결을 통해 Azure Percept DK 업데이트
           href: how-to-update-via-usb.md
     - name: Azure Percept DK에 연결
       items:
-        - name: 이더넷을 통한 연결
+        - name: 이더넷을 통해 Azure Percept DK에 연결
           href: how-to-connect-over-ethernet.md
-        - name: 고급 네트워크 설정 지정
+        - name: Azure Percept DK에서 고급 네트워크 설정
           href: how-to-set-up-advanced-network-settings.md
-        - name: 5G 또는 LTE 네트워크를 통해 연결
+        - name: 5G 또는 LTE 네트워크를 통해 Azure Percept 연결
           href: connect-over-cellular.md
-        - name: SSH를 통해 연결
+        - name: SSH를 통해 Azure Percept DK에 연결
           href: how-to-ssh-into-percept-dk.md
-        - name: 직렬 방식으로 연결
+        - name: Azure Percept DK에 직렬 연결
           href: how-to-connect-to-percept-dk-over-serial.md
     - name: 도구
       items:
-        - name: Dev Tools Pack 설치 관리자
+        - name: Azure Percept 개발 도구 설치
           href: dev-tools-installer.md
     - name: 문제 해결
       items:
-        - name: 설치 환경 문제 해결
+        - name: Azure Percept DK 설정 환경 문제 해결
           href: how-to-troubleshoot-setup.md
-        - name: 일반적인 Azure Percept DK 문제 해결
+        - name: Azure Percept DK 디바이스 문제 해결
           href: troubleshoot-dev-kit.md
-        - name: 비전 솔루션 문제 해결
+        - name: Azure Percept Vision 및 비전 모듈 문제 해결
           href: vision-solution-troubleshooting.md
-        - name: Azure Percept Audio 문제 해결
+        - name: Azure Percept Audio 및 음성 모듈 문제 해결
           href: troubleshoot-audio-accessory-speech-module.md
-        - name: 알려진 문제
+        - name: Azure Percept의 알려진 문제
           href: known-issues.md
-        - name: 하드웨어 지원 받기
+        - name: ASUS에서 Azure Percept 하드웨어 지원 받기
           href: how-to-get-hardware-support.md
 - name: 참조
   items:

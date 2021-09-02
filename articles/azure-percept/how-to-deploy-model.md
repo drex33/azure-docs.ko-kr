@@ -1,20 +1,20 @@
 ---
 title: Azure Percept DK에 비전 AI 모델 배포
 description: Azure Percept Studio에서 Azure Percept DK에 비전 AI 모델을 배포하는 방법을 알아봅니다.
-author: mimcco
-ms.author: mimcco
+author: tsampige
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c9622c033309a8e6c33e49180b2a40d8b1f2720e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 56e41e180600b9a50a79ac2c2ae49a9678642e25
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754328"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221206"
 ---
-# <a name="deploy-a-vision-ai-model-to-your-azure-percept-dk"></a>Azure Percept DK에 비전 AI 모델 배포
+# <a name="deploy-a-vision-ai-model-to-azure-percept-dk"></a>Azure Percept DK에 비전 AI 모델 배포
 
 이 가이드를 따라 Azure Percept Studio에서 Azure Percept DK에 비전 AI 모델을 배포합니다.
 

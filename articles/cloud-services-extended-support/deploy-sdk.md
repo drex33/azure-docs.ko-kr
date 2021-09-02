@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 83d1f6f9fc34b398031d6d9069c9c166ddf52a57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 873d9f8695927ab28014ec9510d78bd59a8fad8f
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751106"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310294"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Azure SDK를 사용하여 Cloud Services(추가 지원) 배포
 
@@ -28,18 +28,18 @@ Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-pre
 
     ```csharp
         public class CustomLoginCredentials : ServiceClientCredentials
-    {
-        private string AuthenticationToken { get; set; }
-        public override void InitializeServiceClient<T>(ServiceClient<T> client)
-           {
-               var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantID}");
-               var credential = new ClientCredential(clientId: "{clientID}", clientSecret: "{clientSecret}");
-               var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
-               if (result == null) throw new InvalidOperationException("Failed to obtain the JWT token");
-               AuthenticationToken = result.Result.AccessToken;
-           }
-        public override async Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-           {
+        {
+            private string AuthenticationToken { get; set; }
+            public override void InitializeServiceClient<T>(ServiceClient<T> client)
+            {
+                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantID}");
+                var credential = new ClientCredential(clientId: "{clientID}", clientSecret: "{clientSecret}");
+                var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
+                if (result == null) throw new InvalidOperationException("Failed to obtain the JWT token");
+                AuthenticationToken = result.Result.AccessToken;
+            }
+            public override async Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+            {
                 if (request == null) throw new ArgumentNullException("request");
                 if (AuthenticationToken == null) throw new InvalidOperationException("Token Provider Cannot Be Null");
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", AuthenticationToken);
@@ -47,6 +47,7 @@ Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-pre
                 //request.Version = new Version(apiVersion);
                 await base.ProcessHttpRequestAsync(request, cancellationToken);
             }
+        }
     
         var creds = new CustomLoginCredentials();
         m_subId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");

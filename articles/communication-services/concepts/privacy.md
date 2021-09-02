@@ -6,14 +6,14 @@ manager: anvalent
 services: azure-communication-services
 ms.author: chpalm
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 870000e49e77475e8f8c7dcac84d470a853c8a76
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 8b8500ed6c43149e47a82b58e9b25a07ac7eef59
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762861"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258044"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 

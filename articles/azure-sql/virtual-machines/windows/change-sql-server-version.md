@@ -15,12 +15,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb8d0150bafe795f2b23fa18581adc60d091aaf2
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8428f9ce69bc58a206eb5c60b3602ffbb17f7c19
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078836"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225678"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 현재 위치 변경
 
@@ -108,7 +108,7 @@ SQL Server 버전을 변경한 후에는 Azure Portal을 사용하여 SQL Server
 :::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="버전 확인":::
 
 > [!NOTE]
-> SQL IaaS 에이전트 확장에 이미 등록한 경우 VM에 설치된 SQL Server 버전 및 에디션을 올바르게 검색하도록 [RP에서 등록 취소](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension)한 다음, [SQL VM 리소스 등록](sql-agent-extension-manually-register-single-vm.md#register-with-extension)을 다시 수행합니다. 이렇게 하면 이 VM과 연결된 메타데이터 및 청구 정보가 업데이트됩니다.
+> SQL IaaS 에이전트 확장에 이미 등록한 경우 VM에 설치된 SQL Server 버전 및 에디션을 올바르게 검색하도록 [RP에서 등록 취소](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension)한 다음, [SQL VM 리소스 등록](sql-agent-extension-manually-register-single-vm.md#full-mode)을 다시 수행합니다. 이렇게 하면 이 VM과 연결된 메타데이터 및 청구 정보가 업데이트됩니다.
 
 ## <a name="remarks"></a>설명
 

@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: bdaad591effc2ef9e5d682dd9a80d994a9e1c34d
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: cd6f2de9d440309662ef47a950f6c1331e30d5fb
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733415"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221099"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>자습서: Bastion을 구성하고 Windows VM에 연결
 
@@ -72,16 +72,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 | 공용 IP 주소 SKU |  Standard  |
 | 할당  | 정적 |
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
-
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
-Azure Portal에 로그인합니다.
-
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Bastion 호스트 만들기
 
 이 섹션은 VNet에서 베스천 개체를 만드는 데 도움이 됩니다. VNet의 VM에 안전하게 연결하려면 다음을 수행해야 합니다.
 
+1. [Azure Portal](https://ms.portal.azure.com)에 로그인합니다.
 1. 검색에 **Bastion** 을 입력합니다.
 1. 서비스 아래에서 **Bastion** 을 클릭합니다.
 1. Bastion 페이지에서 **+ 만들기** 를 클릭하여 **Bastion 만들기** 페이지를 엽니다.

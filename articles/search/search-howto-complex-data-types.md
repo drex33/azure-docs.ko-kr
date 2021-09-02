@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2021
-ms.openlocfilehash: 0a9b1a746a5228ba958b9c1c0cca38b088ca1176
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: bcd0819ce2720597c6e9f2435d37fe9276d595cd
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222238"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222276"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Azure Cognitive Search에서 복합 데이터 형식을 모델링하는 방법
 
@@ -24,7 +24,7 @@ Azure Cognitive Search 인덱스를 채우는 데 사용되는 외부 데이터 
 
 Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원합니다. 이러한 형식을 사용하여 Azure Cognitive Search 인덱스에서 거의 모든 JSON 구조를 모델링할 수 있습니다. 이전 버전의 Azure Cognitive Search API에서는 일반 행 집합만 가져올 수 있었습니다. 최신 버전에서는 이제 인덱스가 원본 데이터와 더 밀접하게 일치합니다. 즉, 원본 데이터에 복합 형식이 있는 경우 인덱스에도 복합 형식이 있을 수 있습니다.
 
-시작하려면 Azure Portal의 **데이터 가져오기** 마법사에서 로드할 수 있는 [호텔 데이터 세트](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md)를 권장합니다. 마법사는 원본의 복합 형식을 검색하고 검색된 구조를 기반으로 인덱스 스키마를 제안합니다.
+시작하려면 Azure Portal의 **데이터 가져오기** 마법사에서 로드할 수 있는 [호텔 데이터 세트](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels)를 권장합니다. 마법사는 원본의 복합 형식을 검색하고 검색된 구조를 기반으로 인덱스 스키마를 제안합니다.
 
 > [!Note]
 > 복합 형식에 대한 지원은 일반적으로부터 `api-version=2019-05-06`부터 사용할 수 있습니다. 
@@ -162,7 +162,7 @@ Azure Cognitive Search는 기본적으로 복합 형식 및 컬렉션을 지원�
 
 ## <a name="next-steps"></a>다음 단계
 
-**데이터 가져오기** 마법사에서 [호텔 데이터 세트](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md)를 사용해 봅니다. 데이터에 액세스하려면 추가 정보에 제공된 Cosmos DB 연결 정보가 필요합니다.
+**데이터 가져오기** 마법사에서 [호텔 데이터 세트](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels)를 사용해 봅니다. 데이터에 액세스하려면 추가 정보에 제공된 Cosmos DB 연결 정보가 필요합니다.
 
 이 정보를 사용한 마법사의 첫 번째 단계는 새 Azure Cosmos DB 데이터 원본을 만드는 것입니다. 마법사에서는 더 나아가 대상 인덱스 페이지에 가서 복합 형식이 포함된 인덱스가 표시됩니다. 이 인덱스를 만들고 로드한 다음, 쿼리를 실행하여 새 구조를 파악합니다.
 

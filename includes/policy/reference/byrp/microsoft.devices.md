@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: cf5dfa4937ec256331b8728c3cd62a6651d5c9c7
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: d231a4e98814b0e85716de8b1e3e6ed6f0157a2a
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122604067"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110142"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[\[미리 보기\]: Azure IoT Hub는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d7e144b-159c-44fc-95c1-ac3dbf5e6e54) |고객 관리형 키를 사용하여 IoT Hub에서 미사용 데이터를 암호화하면 기본 서비스 관리형 키 위에 두 번째 암호화 계층이 추가되고, 키에 대한 고객 제어, 사용자 지정 회전 정책 및 키 액세스 제어를 통해 데이터에 대한 액세스를 관리할 수 있습니다. IoT Hub를 만드는 동안 고객 관리형 키를 구성해야 합니다. 고객 관리형 키를 구성하는 방법에 대한 자세한 내용은 [https://aka.ms/iotcmk](../../../../articles/iot-hub/iot-hub-customer-managed-keys.md)를 구성해야 합니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IotHub_CMKEncryptionEnabled.json) |
 |[공용 네트워크 액세스를 사용하지 않도록 IoT Hub 디바이스 프로비저닝 서비스 인스턴스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F859dfc91-ea35-43a6-8256-31271c363794) |공용 인터넷을 통해 액세스할 수 없도록 IoT Hub 디바이스 프로비저닝 인스턴스에 대한 공용 네트워크 액세스를 사용하지 않도록 설정합니다. 이를 통해 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/iotdpsvnet](../../../../articles/iot-dps/virtual-network-support.md)에서 자세히 알아보세요. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTDps_DisablePublicNetworkAccess_Modify.json) |

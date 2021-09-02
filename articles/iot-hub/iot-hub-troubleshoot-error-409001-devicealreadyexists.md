@@ -2,18 +2,17 @@
 title: 문제 해결 Azure IoT Hub 오류 409001 DeviceAlreadyExists
 description: 오류 409001 DeviceAlreadyExists 해결 방법 이해
 author: jlian
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
-ms.date: 01/30/2020
+ms.date: 07/07/2021
 ms.author: jlian
-ms.openlocfilehash: b075519fff2c7c328778d770ef68e9751922807b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f6ef32537da22324ac2d4991fac9df785374e16f
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061131"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829202"
 ---
 # <a name="409001-devicealreadyexists"></a>409001 DeviceAlreadyExists
 

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aadf4cb638c1b9c16df934a9ee3c0a992a3e8a7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 14a2dea0445a866f7c352eedf64d631d83b1b0f0
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748676"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864410"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>관리되지 않는 Azure AD 조직에서 회사 또는 학교 계정 사용 중지
 
@@ -32,7 +32,7 @@ ms.locfileid: "108748676"
 
 계정을 사용 중지하려면 먼저 다음 항목을 확인해야 합니다.
 
-* 관리되지 않는 Azure AD 조직의 사용자인지 확인합니다. 관리되는 조직에 속하는 경우 계정을 사용 중지할 수 없습니다. 관리되는 조직에 속하고 계정을 사용 중지하려면 관리자에게 문의해야 합니다. 관리되지 않는 조직에 속해 있는지 여부를 확인하는 방법에 대한 자세한 내용은 [관리되지 않는 테넌트에서 사용자 삭제](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)를 참조하세요.
+* 관리되지 않는 Azure AD 조직의 사용자인지 확인합니다. 관리되는 조직에 속하는 경우 계정을 사용 중지할 수 없습니다. 관리되는 조직에 속하고 계정을 사용 중지하려면 관리자에게 문의해야 합니다. 관리되지 않는 조직에 속해 있는지 여부를 확인하는 방법에 대한 자세한 내용은 [관리되지 않는 테넌트에서 사용자 삭제](/power-automate/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)를 참조하세요.
 
 * 유지할 데이터를 저장합니다. 내보내기 요청을 제출하는 방법에 대한 자세한 내용은 [관리되지 않는 테넌트에 대한 시스템 생성 로그 액세스 및 내보내기](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)를 참조하세요.
 
@@ -56,5 +56,5 @@ ms.locfileid: "108748676"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory의 셀프 서비스 등록이란?](directory-self-service-signup.md)
-- [관리되지 않는 테넌트에서 사용자 삭제](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
+- [관리되지 않는 테넌트에서 사용자 삭제](/power-automate/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
 - [관리되지 않는 테넌트에 대한 시스템 생성 로그 액세스 및 내보내기](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)

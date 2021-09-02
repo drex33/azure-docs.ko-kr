@@ -187,6 +187,8 @@
           items:
             - name: 개요
               href: automation-dsc-overview.md
+            - name: Linux 원하는 상태 구성 - PowerShell
+              href: dsc-linux-powershell.md
             - name: 상태 구성 시작
               href: automation-dsc-getting-started.md
             - name: 상태 구성 사용

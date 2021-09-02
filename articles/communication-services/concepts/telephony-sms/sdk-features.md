@@ -2,19 +2,19 @@
 title: Azure Communication Services에 대한 SMS SDK 개요
 titleSuffix: An Azure Communication Services concept document
 description: SMS SDK 및 해당 제품에 대한 개요를 제공합니다.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: bf93a892a810bd59110a0545c29bc2b11b40d893
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 5e30f7741352945fb634b2f8066a47f2c47c879b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112170"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258140"
 ---
 # <a name="sms-sdk-overview"></a>SMS SDK 개요
 

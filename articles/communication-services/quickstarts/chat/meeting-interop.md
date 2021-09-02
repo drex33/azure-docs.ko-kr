@@ -8,12 +8,12 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-web-ios-android
-ms.openlocfilehash: f7d815c94c2f04bfdef354efb8364d9b94e915f1
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: c3dacc492df4dc749514971b16776ae0c3e2adc7
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122067115"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254700"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>빠른 시작: 채팅 앱으로 Teams 미팅에 참가
 

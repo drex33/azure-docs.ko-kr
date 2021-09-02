@@ -7,14 +7,14 @@ manager: anvalent
 services: azure-communication-services
 ms.author: jken
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: a80badb155238847bebf6810188a4f1675cb012f
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 599a210425509fd6134a6541a27f2eee74b6054d
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253974"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254630"
 ---
 # <a name="record-and-download-calls-with-event-grid"></a>Event Grid를 사용하여 통화 녹화 및 다운로드
 

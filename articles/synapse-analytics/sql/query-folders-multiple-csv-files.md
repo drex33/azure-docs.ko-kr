@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c4d88e1a87f6b546e26dd55da338a36f16ebe4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a91ca96e69ae5408a3232513eea3ba1443c97064
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462622"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253603"
 ---
 # <a name="query-folders-and-multiple-files"></a>폴더 및 여러 파일 쿼리  
 
@@ -26,7 +26,7 @@ ms.locfileid: "96462622"
 
 첫 번째 단계는 쿼리를 실행할 **데이터베이스를 만드는** 것입니다. 그런 다음, 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 샘플에서 사용되는 데이터 원본, 데이터베이스 범위 자격 증명 및 외부 파일 형식을 만듭니다.
 
-*csv/taxi* 폴더를 사용하여 샘플 쿼리를 따릅니다. 2016년 7월부터 2018년 6월까지 NYC Taxi - Yellow Taxi Trip Records 데이터가 포함됩니다. *csv/taxi* 의 파일은 yellow_tripdata_<year>-<month>.csv 패턴을 사용하여 연월에 따라 이름이 지정됩니다.
+*csv/taxi* 폴더를 사용하여 샘플 쿼리를 따릅니다. 2016년 7월부터 2018년 6월까지 NYC Taxi - Yellow Taxi Trip Records 데이터가 포함됩니다. *csv/taxi* 의 파일은 yellow_tripdata_\<year>-\<month>.csv 패턴을 사용하여 연월에 따라 이름이 지정됩니다.
 
 ## <a name="read-all-files-in-folder"></a>폴더의 모든 파일 읽기
 

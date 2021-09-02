@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: fc2a3aeb2f3b0844649f7ab5cfcc5007028aa9f7
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 87131f6a34978ab1e893037dd84563686fa83117
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608534"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100076"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Kubernetes 클러스터 컨테이너 CPU 및 메모리 리소스 한도는 지정된 한도를 초과하지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345eecc-fa47-480f-9e88-67dcc122b164) |Kubernetes 클러스터에서 리소스 소모 공격을 방지하기 위해 컨테이너 CPU 및 메모리 리소스 제한을 적용합니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../../../../articles/governance/policy/concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[6.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerResourceLimits.json) |
 |[Kubernetes 클러스터 컨테이너는 호스트 프로세스 ID 또는 호스트 IPC 네임스페이스를 공유해서는 안 됨](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8) |Kubernetes 클러스터에서 호스트 프로세스 ID 네임스페이스 및 호스트 IPC 네임스페이스를 공유하지 못하도록 Pod 컨테이너를 차단합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.2 및 CIS 5.2.3의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../../../../articles/governance/policy/concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/BlockHostNamespace.json) |

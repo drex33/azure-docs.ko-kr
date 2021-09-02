@@ -6,14 +6,14 @@ author: ProbablePrime
 services: azure-communication-services
 ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: tutorial
 ms.service: azure-communication-services
-ms.openlocfilehash: 7691bb6ffd93c3c87872659417f91de1599a81e8
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 1b4998be1b49e58c7e2d22749ee46e1f8d754ecd
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767168"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255268"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>자습서: Postman을 사용하여 서명 및 요청
 이 자습서에서는 HTTP를 사용하여 Azure Communication Services에 대해 요청하기 위해 Postman을 설정하고 사용합니다. 이 자습서를 마치면 Communication Services 및 Postman을 사용하여 SMS 메시지를 성공적으로 보낼 수 있습니다. 그런 다음, Postman을 사용하여 Azure Communication Services 내의 다른 API를 탐색할 수 있습니다.

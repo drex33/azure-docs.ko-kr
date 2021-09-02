@@ -4,18 +4,18 @@ metadata:
   titleSuffix: Microsoft Genomics
   description: 기술 정보, SLA 및 청구를 포함하여 Microsoft Genomics 서비스 사용과 관련된 일반적인 질문에 대한 답변을 알아봅니다.
   services: genomics
-  author: grhuynh
+  author: vigunase
   manager: cgronlun
-  ms.author: grhuynh
+  ms.author: vigunase
   ms.service: genomics
   ms.topic: troubleshooting
   ms.date: 12/07/2017
-  ms.openlocfilehash: 0060ebfc207c6f0027e1387f859c71a917bf7b1b
-  ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+  ms.openlocfilehash: 053835683a94f20a8d91cce969fe94f7e66e5556
+  ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/09/2021
-  ms.locfileid: "113559072"
+  ms.lasthandoff: 08/31/2021
+  ms.locfileid: "123258610"
 title: 'Microsoft Genomics: 일반적인 질문'
 summary: "이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. Microsoft Genomics 서비스에 대한 자세한 내용은 [Microsoft Genomics란?](overview-what-is-genomics.md)을 참조하세요. 문제 해결 방법에 대한 자세한 내용은 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 참조하세요. \n"
 sections:

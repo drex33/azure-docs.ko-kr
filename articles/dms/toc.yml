@@ -18,6 +18,8 @@
           href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: 개념
   items:
+    - name: Azure Data Studio를 사용한 마이그레이션
+      href: migration-using-azure-data-studio.md
     - name: 필수 구성 요소
       href: pre-reqs.md
     - name: 데이터베이스 마이그레이션 시나리오 상태

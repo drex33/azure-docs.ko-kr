@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 08/20/2021
-ms.openlocfilehash: 2f78ac362288f8246b31d33bdf167197cd2f3f3b
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.date: 08/27/2021
+ms.openlocfilehash: 8fc88f0de0cb6be5d4d719e1a5a763a1acff2a24
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609383"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100518"
 ---
 # <a name="azure-policy-built-in-definitions-for-data-factory-preview"></a>Data Factory에 대한 Azure Policy 기본 제공 정의(미리 보기)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

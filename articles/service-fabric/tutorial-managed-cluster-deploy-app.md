@@ -4,12 +4,12 @@ description: 이 자습서에서는 Service Fabric 관리형 클러스터에 연
 ms.topic: tutorial
 ms.date: 5/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f9ee801bdddd43563794aee7420ee8ba54f4d1d7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2b1228deaf5627c8a367a9b0927320f93d98a50e
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672412"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867443"
 ---
 # <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster"></a>자습서: Service Fabric 관리형 클러스터에 앱 배포
 
@@ -96,9 +96,10 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 이 단계에서는 Service Fabric 관리형 클러스터에 애플리케이션을 배포했습니다. 애플리케이션 배포 옵션에 대한 자세한 내용은 다음을 참조하세요.
 
-* [관리형 클러스터 애플리케이션 비밀 배포](how-to-managed-cluster-application-secrets.md)
-* [ARM 템플릿을 사용하여 관리형 클러스터 애플리케이션 배포](how-to-managed-cluster-app-deployment-template.md)
-* [관리 ID를 사용하여 관리형 클러스터 애플리케이션 배포](how-to-managed-cluster-application-managed-identity.md)
+* [관리형 클러스터에 애플리케이션 비밀 배포](how-to-managed-cluster-application-secrets.md)
+* [Azure Resource Manager를 사용하여 애플리케이션을 관리형 클러스터 배포](how-to-managed-cluster-app-deployment-template.md)
+* [관리 ID가 있는 애플리케이션을 관리형 클러스터에 배포](how-to-managed-cluster-application-managed-identity.md)
+
 
 관리형 클러스터 구성 옵션에 대한 자세한 내용은 다음을 참조하세요.
 

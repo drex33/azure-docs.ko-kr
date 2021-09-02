@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/09/2021
+ms.date: 08/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 623d8d63c309ba918054e2efb2344cb1d778a74d
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 283fff5d2c9df863173f2d2e42c12cd399c14c00
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861407"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307503"
 ---
 ### <a name="get-enabled-resource-types-for-azure-arc-enabled-custom-locations"></a>Azure Arc 지원 사용자 지정 위치에 사용하도록 설정된 리소스 종류 가져오기
 

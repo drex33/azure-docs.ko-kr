@@ -1,15 +1,15 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
-ms.author: mikben
-ms.openlocfilehash: be7eee7c8de5cae201660b4d165ca51bb40b3c19
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.author: rifox
+ms.openlocfilehash: 927fcadc97ec689e477198e87b690a50e3c9e28f
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339630"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966038"
 ---
 Communication Services 호출 클라이언트 라이브러리를 사용하여 앱에 1:1 영상 통화를 추가하여 Azure Communication Services를 시작하세요. Android용 Azure Communication Services Calling SDK를 사용하여 영상 통화를 시작 및 응답하는 방법에 대해 알아봅니다.
 

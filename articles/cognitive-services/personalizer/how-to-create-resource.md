@@ -1,17 +1,20 @@
 ---
 title: Personalizer 리소스 만들기
 description: 이 문서에서는 Azure Portal에서 각 피드백 루프에 대해 Personalizer 리소스를 만드는 방법에 대해 알아봅니다.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0c75d917f1abe72af2f4aa56b0f67dbb7bcd24a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b901153653b292a77ff19a25f065cf225e54f76e
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91303559"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831560"
 ---
 # <a name="create-a-personalizer-resource"></a>Personalizer 리소스 만들기
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: aebcf680fec069fdb28114ef8a1a0f6fd8547e63
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: f1e995e558b902b9b1210b87f319748d731228b6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112458581"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967831"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 NSG 흐름 로그 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "112458581"
 ## <a name="nsg-flow-logs-object"></a>NSG 흐름 로그 개체
 
 모든 매개 변수를 포함하는 NSG 흐름 로그 개체는 다음과 같습니다.
-속성에 대한 전체 개요를 보려면 [NSG 흐름 로그 템플릿 참조](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters)를 참조하세요.
+속성에 대한 전체 개요를 보려면 [NSG 흐름 로그 템플릿 참조](/azure/templates/microsoft.network/networkwatchers/flowlogs#retentionpolicyparameters)를 참조하세요.
 
 ```json
 {

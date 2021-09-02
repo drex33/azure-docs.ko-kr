@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 02fcea444b81c681da2f77ed756f259deb6533d8
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 6dd7f169c07e92fcb5f675459eee731b9157007d
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606662"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108237"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Automation 계정 변수를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |중요한 데이터를 저장할 때 Automation 계정 변수 자산의 암호화를 사용하도록 설정해야 합니다. |감사, 거부, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 |[Automation 계정은 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F955a914f-bf86-4f0e-acd5-e0766b0efcb6) |공용 네트워크 액세스를 사용하지 않도록 설정하면 리소스가 공용 인터넷에 노출되지 않도록 하여 보안이 향상됩니다. 대신 프라이빗 엔드포인트를 만들어 Automation 계정 리소스 노출을 제한할 수 있습니다. [https://docs.microsoft.com/azure/automation/how-to/private-link-security](../../../../articles/automation/how-to/private-link-security.md)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_PublicNetworkAccess_Audit.json) |

@@ -1,20 +1,20 @@
 ---
-title: 이더넷을 통해 Azure Percept DK 설정 환경을 시작하는 방법
+title: 이더넷을 통해 Azure Percept DK에 연결
 description: 이 가이드에서는 이더넷을 통해 연결할 때 Azure Percept DK 설정 환경으로 연결하는 방법을 보여 줍니다.
-author: mimcco
-ms.author: mimcco
+author: WendyAnn0079
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 01a1c2fcb5981681c504e3e61fc68a10922e15d5
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 6ffc2a2d55bdad670c8323dfc57efad17dec1930
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111442110"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227084"
 ---
-# <a name="how-to-launch-the-azure-percept-dk-setup-experience-over-ethernet"></a>이더넷을 통해 Azure Percept DK 설정 환경을 시작하는 방법
+# <a name="connect-to-azure-percept-dk-over-ethernet"></a>이더넷을 통해 Azure Percept DK에 연결
 
 이 방법 가이드에서는 이더넷 연결을 통해 Azure Percept DK 설정 환경을 시작하는 방법을 알아봅니다. 이 가이드는 [빠른 시작: Azure Percept DK를 설정하고 첫 번째 AI 모델 배포](./quickstart-percept-dk-set-up.md) 가이드와 함께 제공됩니다. 아래에 설명된 각 옵션을 확인하고 사용자 환경에 가장 적합한 옵션을 선택합니다.
 

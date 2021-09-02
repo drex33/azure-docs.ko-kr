@@ -4,18 +4,18 @@ titleSuffix: Microsoft Genomics
 description: 이 문서에서는 문제 해결 가이드 또는 FAQ를 사용하여 문제를 해결할 수 없는 경우 Microsoft Genomics에 문의하기 위한 지원 요청을 작성하는 방법에 대해 설명합니다.
 keywords: 문제 해결, 오류, 디버깅, 지원
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ab85dbc95a8f7432afba3eaa082f6490d1ba8dba
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 4fd18dd1f8f15a99a7de32038798a925d369ed1a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113552463"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259445"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>지원을 위해 Microsoft Genomics에 문의하는 방법
 이 개요에서는 지원 요청을 파일링하여 Microsoft Genomics에 문의하는 방법을 설명합니다. 이 기능은 [문제 해결 가이드](troubleshooting-guide-genomics.md) 또는 [FAQ](frequently-asked-questions-genomics.yml)를 사용하여 문제를 해결할 수 없는 경우에 유용할 수 있습니다. 

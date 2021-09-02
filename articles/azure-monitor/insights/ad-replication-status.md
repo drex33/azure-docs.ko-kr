@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: c99ad16e119c4262aa6d9d645b2457cdd46061b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7e5690e95bdc3f55a108fdc7c09e4d6e21b9c2b
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101700680"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968071"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링
 
@@ -23,6 +23,7 @@ AD 복제 상태 솔루션은 Active Directory 환경에서 복제 실패가 있
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
+
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
 ### <a name="prerequisites"></a>필수 구성 요소
@@ -33,9 +34,11 @@ AD 복제 상태 솔루션은 Active Directory 환경에서 복제 실패가 있
 
 
 ### <a name="install-agents-on-domain-controllers"></a>도메인 컨트롤러에 에이전트 설치
+
 평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다. 또는 구성원 서버에 에이전트를 설치하고 Azure Monitor에 AD 복제 데이터를 보내도록 에이전트를 구성해야 합니다. Windows 컴퓨터를 Azure Monitor에 연결하는 방법을 파악하려면 [Azure Monitor에 Windows 컴퓨터 연결](../agents/agent-windows.md)을 참조하세요. 도메인 컨트롤러가 Azure Monitor에 연결하려는 기존 System Center Operations Manager 환경에 이미 속해 있는 경우 [Azure Monitor에 Operations Manager 연결](../agents/om-agents.md)을 참조하세요.
 
 ### <a name="enable-non-domain-controller"></a>비도메인 컨트롤러 사용
+
 Azure Monitor에 도메인 컨트롤러를 직접 연결하지 않으려는 경우 Azure Monitor에 연결된 도메인의 다른 컴퓨터를 사용하여 AD 복제 상태 솔루션 팩에 대한 데이터를 수집하고 데이터를 보내도록 할 수 있습니다.
 
 1. AD 복제 상태 솔루션을 사용하여 컴퓨터가 모니터링하려는 도메인의 구성원인지 확인합니다.

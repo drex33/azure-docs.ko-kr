@@ -1,20 +1,20 @@
 ---
-title: Azure Percept DK 및 Azure Percept Audio를 사용하여 음성 도우미 만들기
+title: Azure Percept Studio에서 코드 없는 음성 도우미 만들기
 description: 코드 없는 음성 솔루션을 만들어서 Azure Percept DK에 배포하는 방법을 알아봅니다.
-author: philmea
-ms.author: philmea
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 441d0b4b76e0c543bd82c5546e0ca89250e418e7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0ceb71b5caaf17c485d4f4bd649e6b68d7c72a5d
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748172"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224055"
 ---
-# <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Azure Percept DK 및 Azure Percept Audio를 사용하여 음성 도우미 만들기
+# <a name="create-a-no-code-voice-assistant-in-azure-percept-studio"></a>Azure Percept Studio에서 코드 없는 음성 도우미 만들기
 
 이 자습서에서는 템플릿을 통해 Azure Percept DK 및 Azure Percept Audio에서 사용할 음성 도우미를 만듭니다. 음성 도우미 데모는 [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) 내에서 실행되며 다양한 음성 제어 가상 개체를 포함하고 있습니다. 개체를 제어하려면 디바이스를 절전 모드에서 해제하는 단어 또는 짧은 문구인 키워드를 말한 다음, 명령을 말합니다. 각 템플릿은 특정 명령 세트에 응답합니다.
 

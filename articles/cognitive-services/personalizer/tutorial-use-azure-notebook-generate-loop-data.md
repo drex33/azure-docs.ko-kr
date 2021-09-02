@@ -2,19 +2,20 @@
 title: '자습서: Azure Notebook - Personalizer'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 고객이 주문해야 하는 커피의 종류를 제안하는 Personalizer 루프 시스템을 Azure Notebook에서 시뮬레이션합니다. 사용자 및 해당 기본 설정은 사용자 데이터 세트에 저장됩니다. 커피에 대한 정보도 제공되며 커피 데이터 세트에 저장됩니다.
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0cf2aa504fd7a36a55740b3a59eeb3759e67f469
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66d32a61a3c8f3b88562bdff0c541ec5d88e65d8
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509912"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830980"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>자습서: Azure Notebook에서 Personalizer 사용
 
@@ -30,7 +31,7 @@ ms.locfileid: "88509912"
 |--|--|--|
 |Alice<br>Bob<br>Cathy<br>Dave|아침<br>낮<br>저녁|맑음<br>비<br>눈|
 
-시간이 지남에 따라 Personalizer에서 학습하도록 _시스템_에서도 각 사용자의 커피 선택에 대한 세부 정보를 인식하고 있습니다.
+시간이 지남에 따라 Personalizer에서 학습하도록 _시스템_ 에서도 각 사용자의 커피 선택에 대한 세부 정보를 인식하고 있습니다.
 
 |커피 - 작업 기능|온도 형식|원산지|로스트 종류|유기농|
 |--|--|--|--|--|
@@ -39,7 +40,7 @@ ms.locfileid: "88509912"
 |아이스 모카|콜드|에티오피아|라이트|비유기농|
 |라떼|핫|브라질|어둡게|비유기농|
 
-Personalizer 루프의 **목적**은 가능한 한 많은 시간 동안 사용자와 커피 사이에서 가장 일치하는 항목을 찾는 것입니다.
+Personalizer 루프의 **목적** 은 가능한 한 많은 시간 동안 사용자와 커피 사이에서 가장 일치하는 항목을 찾는 것입니다.
 
 이 자습서의 코드는 [Personalizer 샘플 GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook)에서 사용할 수 있습니다.
 
@@ -57,7 +58,7 @@ Personalizer 서비스에 대한 수천 개의 호출마다 Azure Notebook은 **
 * 컨텍스트 기능 - 사용자, 날씨 및 하루 중 시간을 임의로 선택하여 사용자를 웹 사이트 또는 모바일 디바이스에서 시뮬레이션합니다.
 * 기능을 사용하는 작업 - Personalizer에서 _모든_ 커피 데이터를 제안합니다.
 
-시스템은 요청을 받은 다음, 동일한 하루 중 시간 및 날씨에 대해 해당 예측과 사용자의 알려진 선택 항목을 비교합니다. 알려진 선택 항목이 예측된 선택 항목과 동일하면 1의 **보상**을 Personalizer에 다시 보냅니다. 그렇지 않은 경우 다시 보낸 보상은 0입니다.
+시스템은 요청을 받은 다음, 동일한 하루 중 시간 및 날씨에 대해 해당 예측과 사용자의 알려진 선택 항목을 비교합니다. 알려진 선택 항목이 예측된 선택 항목과 동일하면 1의 **보상** 을 Personalizer에 다시 보냅니다. 그렇지 않은 경우 다시 보낸 보상은 0입니다.
 
 > [!Note]
 > 이는 시뮬레이션이므로 보상 알고리즘이 간단합니다. 실제 시나리오의 알고리즘에서는 고객 경험의 다양한 측면에 가중치를 부여할 수 있는 비즈니스 논리를 사용하여 보상 점수를 결정해야 합니다.
@@ -79,7 +80,7 @@ Personalizer 서비스에 대한 수천 개의 호출마다 Azure Notebook은 **
 
 ## <a name="configure-personalizer-resource"></a>Personalizer 리소스 구성
 
-Azure Portal에서 **모델 업데이트 빈도**와 **보상 대기 시간**이 각각 15초로 설정된 [Personalizer 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)를 구성합니다. 이러한 값은 **[구성](how-to-settings.md#configure-service-settings-in-the-azure-portal)** 페이지에서 찾을 수 있습니다.
+Azure Portal에서 **모델 업데이트 빈도** 와 **보상 대기 시간** 이 각각 15초로 설정된 [Personalizer 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)를 구성합니다. 이러한 값은 **[구성](how-to-settings.md#configure-service-settings-in-the-azure-portal)** 페이지에서 찾을 수 있습니다.
 
 |설정|값|
 |--|--|
@@ -270,8 +271,8 @@ Coffee count 4
 이 자습서의 뒷부분에서는 10,000개의 요청에 대한 장기 실행 프로세스가 브라우저에서 업데이트하는 텍스트 상자를 통해 표시됩니다. 장기 실행 프로세스가 종료되면 차트 또는 총 합계로 더 쉽게 볼 수 있습니다. 이 정보를 보려면 리소스와 함께 제공되는 메트릭을 사용합니다. 이제 서비스에 대한 요청을 완료했으므로 차트를 만든 다음, 장기 실행 프로세스가 진행되는 동안 차트를 정기적으로 새로 고칠 수 있습니다.
 
 1. Azure Portal에서 Personalizer 리소스를 선택합니다.
-1. 리소스 탐색의 [모니터링] 아래에서 **메트릭**을 선택합니다.
-1. 차트에서 **메트릭 추가**를 선택합니다.
+1. 리소스 탐색의 [모니터링] 아래에서 **메트릭** 을 선택합니다.
+1. 차트에서 **메트릭 추가** 를 선택합니다.
 1. 리소스 및 메트릭 네임스페이스가 이미 설정되어 있습니다. **성공한 호출 수** 메트릭과 **합계** 집계만 선택하면 됩니다.
 1. 시간 필터를 지난 4시간으로 변경합니다.
 
@@ -583,21 +584,21 @@ createChart(count,rewards)
 ## <a name="run-an-offline-evaluation"></a>오프라인 평가 실행
 
 1. Azure Portal에서 Personalizer 리소스의 **평가** 페이지를 엽니다.
-1. **평가 만들기**를 선택합니다.
+1. **평가 만들기** 를 선택합니다.
 1. 루프 평가에 필요한 평가 이름 및 날짜 범위의 데이터를 입력합니다. 날짜 범위에는 평가에 집중하는 날짜만 포함되어야 합니다.
     ![Azure Portal에서 Personalizer 리소스의 평가 페이지를 엽니다. 평가 만들기를 선택합니다. 평가 이름과 날짜 범위를 입력합니다.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
-    이 오프라인 평가를 실행하는 목적은 이 루프에 사용되는 기능과 작업에 대해 더 나은 학습 정책이 있는지 확인하는 것입니다. 더 나은 학습 정책을 찾으려면 **최적화 검색**이 설정되어 있는지 확인합니다.
+    이 오프라인 평가를 실행하는 목적은 이 루프에 사용되는 기능과 작업에 대해 더 나은 학습 정책이 있는지 확인하는 것입니다. 더 나은 학습 정책을 찾으려면 **최적화 검색** 이 설정되어 있는지 확인합니다.
 
-1. **확인**을 선택하여 평가를 시작합니다.
+1. **확인** 을 선택하여 평가를 시작합니다.
 1. 이 **평가** 페이지에서 새 평가 및 해당 현재 상태가 나열됩니다. 이 평가에는 보유한 데이터의 양에 따라 시간이 걸릴 수 있습니다. 몇 분 후에 이 페이지로 돌아와서 결과를 볼 수 있습니다.
-1. 평가가 완료되면 평가를 선택한 다음, **다른 학습 정책 비교**를 선택합니다. 여기서는 사용 가능한 학습 정책과 이러한 정책이 데이터에서 동작하는 방법을 보여 줍니다.
-1. 테이블에서 맨 위에 있는 학습 정책을 선택하고, **적용**을 선택합니다. 그러면 _가장 적합한_ 학습 정책을 모델에 적용하고 다시 학습시킵니다.
+1. 평가가 완료되면 평가를 선택한 다음, **다른 학습 정책 비교** 를 선택합니다. 여기서는 사용 가능한 학습 정책과 이러한 정책이 데이터에서 동작하는 방법을 보여 줍니다.
+1. 테이블에서 맨 위에 있는 학습 정책을 선택하고, **적용** 을 선택합니다. 그러면 _가장 적합한_ 학습 정책을 모델에 적용하고 다시 학습시킵니다.
 
 ## <a name="change-update-model-frequency-to-5-minutes"></a>모델 업데이트 빈도를 5분으로 변경
 
 1. 여전히 Azure Portal의 Personalizer 리소스에서 **구성** 페이지를 선택합니다.
-1. **모델 업데이트 빈도** 및 **보상 대기 시간**을 5분으로 변경하고, **저장**을 선택합니다.
+1. **모델 업데이트 빈도** 및 **보상 대기 시간** 을 5분으로 변경하고, **저장** 을 선택합니다.
 
 [보상 대기 시간](concept-rewards.md#reward-wait-time) 및 [모델 업데이트 빈도](how-to-settings.md#model-update-frequency)에 대해 자세히 알아보세요.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Data Box에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Data Box에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: sample
 author: alkohli
 ms.author: alkohli
 ms.service: databox
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a097a3e795c66d120b0f3fcd7d59f298cbe2ad3f
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 311a6060f3d485bb574925510a1c5ca9723d96c9
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606627"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110426"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-box"></a>Azure Data Box에 대한 Azure Policy 규정 준수 컨트롤
 

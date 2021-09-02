@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 82d4fae022d2d97bb2285e556c4050fcb3cca562
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5c567e5bf64fdfcda9d6600fdcf5aa15c1a34f25
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535974"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112958"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Striim을 사용하여 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -34,11 +34,11 @@ Azure Marketplace의 Striim 이미지는 데이터 웨어하우스와 데이터�
 
 1. **리소스 만들기** 를 선택하고 Azure Marketplace에서 **Striim** 을 검색합니다. 첫 번째 옵션과 **만들기** 를 선택합니다.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Striim 마켓플레이스 항목 찾기":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Striim 마켓플레이스 항목 찾기":::
 
 1. 그런 다음, Striim 인스턴스의 구성 속성을 입력합니다. Striim 환경은 가상 머신에 배포됩니다. **기본** 창에서 **VM 사용자 이름**, **VM 암호** 를 입력합니다(이 암호는 VM에 SSH로 연결하는 데 사용됨). Striim을 배포할 **구독**, **리소스 그룹** 및 **위치 세부 정보** 를 선택합니다. 완료되면 **확인** 을 선택합니다.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Striim의 기본 설정 구성":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Striim의 기본 설정 구성":::
 
 
 1. **Striim 클러스터 설정** 창에서 Striim 배포 유형과 가상 머신 크기를 선택합니다.
@@ -53,7 +53,7 @@ Azure Marketplace의 Striim 이미지는 데이터 웨어하우스와 데이터�
 
 1. **Striim 액세스 설정** 창에서 **공용 IP 주소**(기본값 선택), **Striim의 도메인 이름**, Striim UI에 로그인하는 데 사용하려는 **관리자 암호** 를 구성합니다. VNET 및 서브넷을 구성합니다(기본값 선택). 세부 정보를 입력한 후 계속하려면 **확인** 을 선택합니다.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Striim 액세스 설정":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Striim 액세스 설정":::
 
 1. Azure는 배포의 유효성을 검사하고 모든 것이 양호한지 확인합니다. 유효성 검사를 완료하는 데 몇 분 정도 걸립니다. 유효성 검사가 완료되면 **확인** 을 선택합니다.
   
@@ -81,11 +81,11 @@ Azure Marketplace의 Striim 이미지는 데이터 웨어하우스와 데이터�
 
 1. Azure Portal에서 배포한 Striim 인스턴스로 이동합니다. 상단 메뉴 표시줄에서 **연결** 단추를 선택하고 **SSH** 탭에서 **VM 로컬 계정을 사용하여 로그인** 필드에 URL을 복사합니다.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="SSH URL 얻기":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="SSH URL 얻기":::
 
 1. 새 터미널 창을 열고 Azure Portal에서 복사한 SSH 명령을 실행합니다. 이 문서에서는 MacOS에서 터미널을 사용합니다. Windows 컴퓨터에서는 PuTTY 또는 다른 SSH 클라이언트를 사용하여 유사한 지침을 따를 수 있습니다. 메시지가 표시되면 **yes** 를 입력하여 계속하고 이전 단계에서 가상 머신에 설정한 **암호** 를 입력합니다.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png" alt-text="Striim VM에 연결":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png" alt-text="Striim VM에 연결":::
 
 1. 이제 새 터미널 탭을 열어 이전에 다운로드한 **ojdbc8.jar** 파일을 복사합니다. 다음 SCP 명령을 사용하여 로컬 컴퓨터의 jar 파일을 Azure에서 실행 중인 Striim 인스턴스의 tmp 폴더로 복사합니다.
 
@@ -94,7 +94,7 @@ Azure Marketplace의 Striim 이미지는 데이터 웨어하우스와 데이터�
    scp ojdbc8.jar striimdemo@striimdemo.westus.cloudapp.azure.com:/tmp
    ```
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/copy-jar-file.png" alt-text="로컬 컴퓨터에서 Striim으로 Jar 파일 복사":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/copy-jar-file.png" alt-text="로컬 컴퓨터에서 Striim으로 Jar 파일 복사":::
 
 1. 다음으로 Striim 인스턴스에 SSH를 수행하고 sudo로 로그인한 창으로 다시 이동합니다. 다음 명령을 사용하여 **ojdbc8.jar** 파일을 **/tmp** 디렉터리에서 Striim 인스턴스의 **lib** 디렉터리로 이동합니다.
 
@@ -105,7 +105,7 @@ Azure Marketplace의 Striim 이미지는 데이터 웨어하우스와 데이터�
    chmod +x ojdbc8.jar
    ```
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/move-jar-file.png" alt-text="Jar 파일을 lib 폴더로 이동":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/move-jar-file.png" alt-text="Jar 파일을 lib 폴더로 이동":::
 
 
 1. 동일한 터미널 창에서 다음 명령을 실행하여 Striim 서버를 다시 시작합니다.
@@ -125,17 +125,17 @@ Azure Marketplace의 Striim 이미지는 데이터 웨어하우스와 데이터�
 
 1. 이제 Azure로 다시 이동하여 Striim VM의 공용 IP 주소를 복사합니다. 
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Striim VM IP 주소 복사":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Striim VM IP 주소 복사":::
 
 1. Striim의 웹 UI로 이동하려면 브라우저에서 새 탭을 열고 공용 IP를 복사하고 그 뒤에 9080을 입력합니다. Azure Portal에서 지정한 관리자 암호와 함께 **관리자** 사용자 이름을 사용하여 로그인합니다.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Striim에 로그인":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Striim에 로그인":::
 
 1. 이제 Striim의 홈페이지가 표시됩니다. **Dashboards**, **Apps** 및 **SourcePreview** 의 세 가지 창이 있습니다. Dashboards 창에서는 실시간으로 데이터를 이동하고 시각화할 수 있습니다. Apps 창에는 스트리밍 데이터 파이프라인 또는 데이터 흐름이 포함됩니다. 페이지 오른쪽에는 데이터를 이동하기 전에 미리 볼 수 있는 SourcePreview가 있습니다.
 
 1. **Apps** 창을 선택합니다. 여기서는 이 창을 중점적으로 설명하겠습니다. Striim에 대해 학습하는 데 사용할 수 있는 다양한 샘플 앱이 있습니다. 그러나 이 문서에서는 직접 만들겠습니다. 오른쪽 상단에서 **앱 추가** 단추를 선택합니다.
 
-   :::image type="content" source="../media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png" alt-text="Striim 앱 추가":::
+   :::image type="content" source="../sql/media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png" alt-text="Striim 앱 추가":::
 
 1. Striim 애플리케이션을 만드는 방법에는 몇 가지가 있습니다. 이 시나리오에서는 **처음부터 시작** 을 선택합니다.
 

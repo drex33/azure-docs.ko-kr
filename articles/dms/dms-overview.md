@@ -9,17 +9,19 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: overview
-ms.date: 02/20/2020
-ms.openlocfilehash: 4d0f4bf0f0617fa2fc00a62d65b94dbf29f36688
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/01/2021
+ms.openlocfilehash: 68d462a93d891c25602bb305417ddeb64f5f02a1
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725389"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123317286"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Azure Database Migration Service란 무엇인가요?
 
 Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션(온라인 마이그레이션)할 수 있도록 설계된 완전 관리형 서비스입니다.
+
+[!INCLUDE [database-migration-services-sql-mi-sql-vm](../../includes/database-migration-services-sql-mi-sql-vm.md)]
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>익숙한 도구로 Azure에 데이터베이스 마이그레이션
 

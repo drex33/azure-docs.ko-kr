@@ -1,20 +1,20 @@
 ---
-title: Azure Percept 보안 개요
+title: Azure Percept 보안
 description: Azure Percept 보안에 대해 자세히 알아봅니다.
 author: mimcco
-ms.author: mimcco
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: template-concept
-ms.openlocfilehash: 93884fb87f87651054ffff0a04c4910de634a5eb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cfee4f14b5e7f135c7bbe609b5f3453b5fce8589
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567647"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221948"
 ---
-# <a name="azure-percept-security-overview"></a>Azure Percept 보안 개요
+# <a name="azure-percept-security"></a>Azure Percept 보안
 
 Azure Percept 디바이스는 하드웨어 신뢰할 수 있는 루트를 사용하여 설계되었습니다. 이러한 기본 제공 보안을 통해 카메라 및 마이크와 같은 유추 데이터 및 개인 정보 보호 센서를 보호하고, Azure Percept Studio 서비스에 대한 디바이스 인증 및 권한 부여를 사용할 수 있습니다.
 

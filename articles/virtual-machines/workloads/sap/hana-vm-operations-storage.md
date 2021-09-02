@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/09/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 818d39417689fd5fad80b69b2ee63af9114dc239
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 5eb1ecce79e8b98478eb1957086f23d49c7c5b14
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004640"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968218"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -263,7 +263,7 @@ Ultra Disk의 다른 이점은 프리미엄 스토리지에 비해 더 향상된
 > Ultra Disk는 아직 모든 Azure 지역에 출시되지 않았고 아직 아래 나열된 모든 VM 유형을 지원하지 않습니다. Ultra Disk를 사용할 수 있는 지역 및 지원되는 VM 제품군에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](../../disks-types.md#ultra-disk) 문서를 참조하세요.
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>순수 Ultra Disk 구성을 사용하는 프로덕션 권장 스토리지 솔루션
-이 구성에서는 **/hana/data** 및 **/hana/log** 볼륨을 별도로 유지합니다. 제안된 값은 SAP가 [SAP TDI 스토리지 백서](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)에서 권장하는 대로 SAP HANA 및 스토리지 구성에 대한 VM 유형을 인증하는 KPI에서 도출된 것입니다.
+이 구성에서는 **/hana/data** 및 **/hana/log** 볼륨을 별도로 유지합니다. 제안된 값은 SAP가 [SAP TDI 스토리지 백서](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf)에서 권장하는 대로 SAP HANA 및 스토리지 구성에 대한 VM 유형을 인증하는 KPI에서 도출된 것입니다.
 
 권장 사항은 이 문서의 앞부분에서 설명한 대로 SAP 최소 요구 사항을 초과하는 경우가 많습니다. 나열된 권장 사항은 SAP에서 권장하는 크기와 다양한 VM 유형이 제공하는 최대 스토리지 처리량 간의 절충입니다.
 

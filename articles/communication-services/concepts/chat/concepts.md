@@ -3,18 +3,18 @@ title: Azure Communication Services의 채팅 개념
 titleSuffix: An Azure Communication Services concept document
 description: Communication Services 채팅 개념에 대해 알아봅니다.
 author: knvsl
-manager: jken
+manager: chpalm
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: dc3647d82eff225eacdd56826639629b9d0aa838
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9370539d981838589e0b113083504da33948050b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731962"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256944"
 ---
 # <a name="chat-concepts"></a>채팅 개념 
 

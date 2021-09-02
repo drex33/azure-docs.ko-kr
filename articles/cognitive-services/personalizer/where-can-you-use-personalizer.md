@@ -1,16 +1,19 @@
 ---
 title: 사용 위치 및 방법 - Personalizer
 description: 애플리케이션에서 표시할 적절한 항목, 작업 또는 제품을 선택할 수 있는 모든 상황에 Personalizer를 적용하여 환경을 더 효율적으로 만들거나, 더 나은 비즈니스 결과를 달성하거나, 생산성을 향상시킬 수 있습니다.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 87179950c33a6facb59ce499aa0ae393e53fb37f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc8b0a09212c54ae1e0328e5d1dbfd6d8f213981
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91777227"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830192"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Personalizer를 사용하는 위치 및 방법
 

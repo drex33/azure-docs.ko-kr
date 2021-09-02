@@ -1,17 +1,17 @@
 ---
 title: Azure Percept DK 데이터시트
 description: 자세한 디바이스 사양에 대해서는 Azure Percept DK 데이터시트를 확인하세요.
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 47a9c707dbe0bb4276512cdd364ef679c7c6aa3c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2ec8e46dc881b48e4f885aa2237fae063c9d4305
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110097195"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222438"
 ---
 # <a name="azure-percept-dk-datasheet"></a>Azure Percept DK 데이터시트
 
@@ -33,8 +33,8 @@ ms.locfileid: "110097195"
 |스토리지                         |16GB     |
 |메모리                          |4GB     |
 |포트                           |1x 이더넷 <br> 2x USB-A 3.0 <br> 1x USB-C     |
-|작동 온도           |0도 ~ 35도 C     |
-|비 작동 온도       |-40 ~ 85도 C     |
+|작동 온도           |섭씨 0도 ~ 35도     |
+|비 작동 온도       |섭씨 -40도 ~ 85도     |
 |상대 습도               |10%~95%    |
 |인증                   |CE <br> ACMA <br> FCC <br> IC <br> NCC <br> VCCI + MIC <br> NRTL <br> CB   |
 |전원 공급 장치                    |3\.42A에서 19VDC(65W) |

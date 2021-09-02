@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 47231ecab14ab9d1705d1015c0de4a035a10a02e
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 5ac431f489f279ea09407e1a34c234911d71f12f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112417310"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259738"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -21,7 +21,7 @@ Microsoft Azure Attestation과 관련된 몇 가지 기본 개념은 다음과 �
 
 ## <a name="json-web-token-jwt"></a>JWT(JSON 웹 토큰)
 
-[JWT(JSON Web Token)](https://jwt.io/)는 당사자 간에 정보를 JSON(JavaScript Object Notation) 개체로 안전하게 전송하기 위한 개방형 표준 [RFC7519](https://tools.ietf.org/html/rfc7519) 방법입니다. 이 정보는 디지털 서명되어 있으므로 확인하고 신뢰할 수 있습니다. JWT는 비밀 또는 공개/프라이빗 키 쌍을 사용하여 서명할 수 있습니다.
+[JWT(JSON Web Token)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims)는 당사자 간에 정보를 JSON(JavaScript Object Notation) 개체로 안전하게 전송하기 위한 개방형 표준 [RFC7519](https://tools.ietf.org/html/rfc7519) 방법입니다. 이 정보는 디지털 서명되어 있으므로 확인하고 신뢰할 수 있습니다. JWT는 비밀 또는 공개/프라이빗 키 쌍을 사용하여 서명할 수 있습니다.
 
 ## <a name="json-web-key-jwk"></a>JWK(JSON 웹 키)
 

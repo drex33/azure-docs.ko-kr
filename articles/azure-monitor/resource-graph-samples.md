@@ -1,17 +1,17 @@
 ---
 title: Azure Monitor에 대한 Azure Resource Graph 샘플 쿼리
 description: Azure Monitor 관련 리소스와 속성에 액세스하기 위한 리소스 종류 및 테이블의 사용을 보여 주는 Azure Monitor에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 08/09/2021
+ms.date: 08/31/2021
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: f7b7de70a84028c0f26b547cd1dd18889a21aa6b
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 12ba6d7f891acc3f025ab4e5b9c3306bcb49704c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861245"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318317"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-monitor"></a>Azure Monitor에 대한 Azure Resource Graph 샘플 쿼리
 

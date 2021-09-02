@@ -52,7 +52,7 @@ items:
         href: deployment-best-practices.md
       - name: Azure Purview 제한
         href: how-to-manage-quotas.md
-      - name: 검색 및 수집
+      - name: 검사 및 수집
         href: concept-scans-and-ingestion.md
       - name: 탄력적 데이터 맵
         href: concept-elastic-data-map.md
@@ -239,19 +239,19 @@ items:
         items:
           - name: 프라이빗 엔드포인트
             items:
-              - name: Azure Purview 프라이빗 엔드포인트 개요
+              - name: 프라이빗 엔드포인트 개요
                 href: catalog-private-link.md
-              - name: Purview 계정에 비공개로 안전하게 연결
+              - name: Purview 계정 및 포털에 대한 네트워크 격리
                 href: catalog-private-link-account-portal.md
-              - name: 비공개로 안전하게 데이터 원본 검색
+              - name: 검사를 위해 네트워크 격리
                 href: catalog-private-link-ingestion.md
-              - name: Azure Purview에 연결하고 비공개로 안전하게 데이터 원본 검색
+              - name: 엔드투엔드 네트워크 격리
                 href: catalog-private-link-end-to-end.md
-              - name: Azure Purview 프라이빗 엔드포인트 DNS 구성
+              - name: 프라이빗 엔드포인트에 대한 DNS 구성
                 href: catalog-private-link-name-resolution.md
-              - name: Azure Purview 프라이빗 엔드포인트 문제 해결 가이드
+              - name: 프라이빗 엔드포인트 문제 해결
                 href: catalog-private-link-troubleshoot.md
-              - name: Azure Purview 프라이빗 엔드포인트 FAQ
+              - name: 프라이빗 엔드포인트 FAQ
                 href: catalog-private-link-faqs.md
           - name: Azure 정책 예외
             href: create-purview-portal-faq.md

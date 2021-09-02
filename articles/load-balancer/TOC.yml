@@ -33,6 +33,8 @@
       href: tutorial-multi-availability-sets-portal.md
     - name: Load Balancer에서 포트 전달 구성
       href: tutorial-load-balancer-port-forwarding-portal.md
+    - name: 여러 IP 구성의 부하 분산
+      href: load-balancer-multiple-ip.md
     - name: 영역 간 부하 분산 장치
       items:
         - name: 영역 간 부하 분산 장치 만들기 - 포털
@@ -150,8 +152,6 @@
       href: load-balancer-distribution-mode.md
     - name: 여러 IP 구성 사용
       items:
-        - name: 포털
-          href: load-balancer-multiple-ip.md
         - name: Azure CLI
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell

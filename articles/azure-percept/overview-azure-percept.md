@@ -1,20 +1,20 @@
 ---
 title: Azure Percept 개요
 description: Azure Percept 플랫폼에 대한 자세한 정보
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: 09ee8346b62f868be3811ebfb6b3dc36ff9d0f83
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e0a5dfd39fd6047256d951fe33c10167e4f4c21b
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567664"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221256"
 ---
-# <a name="introduction-to-azure-percept"></a>Azure Percept 소개
+# <a name="azure-percept-overview"></a>Azure Percept 개요
 
 Azure Percept는 Edge에서 IoT 및 AI를 사용하여 비즈니스 전환을 가속화하기 위해 설계된 하드웨어, 소프트웨어 및 서비스 제품군입니다. Azure Percept는 하드웨어에서 서비스까지 전체 스택을 포괄하여 대규모 Edge AI의 통합 문제를 해결합니다.  
 

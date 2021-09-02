@@ -1,20 +1,20 @@
 ---
-title: Azure Percept Studio 내에서 음성 도우미 애플리케이션 구성
+title: Azure Percept 음성 도우미 애플리케이션 관리
 description: Azure Percept Studio 내에서 음성 도우미 애플리케이션 구성
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 764ca28ec6e66d63ffeb98399f654b14eb9b6715
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d66ee6e8e277585061448ecc23e4195c72c04bb6
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754292"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225232"
 ---
-# <a name="managing-your-voice-assistant"></a>음성 도우미 관리
+# <a name="manage-your-azure-percept-voice-assistant-application"></a>Azure Percept 음성 도우미 애플리케이션 관리
 
 이 문서에서는 [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)내에서 음성 도우미 애플리케이션의 키워드 및 명령을 구성하는 방법을 설명합니다. 포털 대신 IoT Hub 내에서 키워드를 구성하는 방법에 대한 지침은 이 [방법 문서](./how-to-configure-voice-assistant.md)를 참조하세요.
 

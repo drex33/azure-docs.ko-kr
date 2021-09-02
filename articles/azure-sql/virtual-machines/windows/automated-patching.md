@@ -16,12 +16,12 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd1d81362534f4de7357ebbbc6877aa7c3f72f2e
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 44dae9d8c8bc5ee3896bfc65340dfeee7679d54e
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434753"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223178"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure 가상 머신에서 SQL Server의 자동화된 패치(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -110,9 +110,6 @@ $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -Mainte
 s
 Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
-
-> [!IMPORTANT]
-> 확장 프로그램이 아직 설치되지 않은 경우 확장 프로그램을 설치하면 SQL Server가 다시 시작됩니다.
 
 이 예제를 바탕으로 다음 표에서는 대상 Azure VM에 미치는 실질적인 영향을 설명합니다.
 

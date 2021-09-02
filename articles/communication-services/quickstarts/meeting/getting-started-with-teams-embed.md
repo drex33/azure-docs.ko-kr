@@ -8,12 +8,12 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
-ms.openlocfilehash: 573b86cd764de3c2cd6ef3ebd261e8e80fda322b
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 03f5e608dcf5460af6d9086bde43cd0d5a160589
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113218133"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259765"
 ---
 # <a name="quickstart-add-joining-a-teams-meeting-to-your-app"></a>빠른 시작: 앱에 Teams 모임 조인 추가
 

@@ -1,17 +1,20 @@
 ---
 title: 웹앱 사용 - Personalizer
 description: Personalizer 반복을 사용하는 C# .NET 웹앱을 사용자 지정하여 작업(기능 포함) 및 컨텍스트 기능에 따라 사용자에게 올바른 콘텐츠를 제공합니다.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8e9ffe2851daaa60a990a03cbc29a47deb28ff8f
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363921"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829225"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>자습서: .NET 웹앱에 Personalizer 추가
 
@@ -30,7 +33,7 @@ Personalizer 반복을 사용하는 C# .NET 웹앱을 사용자 지정하여 작
 
 ## <a name="select-the-best-content-for-a-web-app"></a>웹앱에 가장 적합한 콘텐츠 선택
 
-표시할 단일 상위 항목(rewardActionId)에 개인 맞춤해야 하는 _작업_ (일부 콘텐츠 형식) 목록이 웹 페이지에 있는 경우 웹앱에서 Personalizer를 사용해야 합니다. 작업 목록의 예로 뉴스 기사, 단추 배치 위치 및 제품 이름에 대한 단어 선택이 있습니다.
+표시할 단일 상위 항목(rewardActionId)에 개인 맞춤해야 하는 _작업_(일부 콘텐츠 형식) 목록이 웹 페이지에 있는 경우 웹앱에서 Personalizer를 사용해야 합니다. 작업 목록의 예로 뉴스 기사, 단추 배치 위치 및 제품 이름에 대한 단어 선택이 있습니다.
 
 컨텍스트 기능과 함께 작업 목록을 Personalizer 반복에 보냅니다. Personalizer는 최상의 단일 작업을 선택한 다음, 해당 작업을 웹앱에 표시합니다.
 
@@ -157,8 +160,8 @@ private string GetUsersTastePreference()
 웹앱은 Personalizer를 사용하여 음식 선택 목록에서 최상의 작업을 선택합니다. 이를 위해 각 순위 API 호출과 함께 다음 정보를 보냅니다.
 * 기능(예: `taste` 및 `spiceLevel`)이 포함된 **작업**
 * **컨텍스트** 기능(예: 하루 중 `time`, 사용자의 `taste` 선호도, 브라우저의 사용자 에이전트 정보 및 컨텍스트 기능)
-* **제외하는 작업** (예: 주스)
-* **eventId** (순위 API에 대한 호출마다 다름)
+* **제외하는 작업**(예: 주스)
+* **eventId**(순위 API에 대한 호출마다 다름)
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>웹앱의 Personalizer 모델 기능
 
@@ -566,7 +569,7 @@ public RankRequest GenerateRank()
 
 [보상 점수](concept-rewards.md)는 기능 계획과 마찬가지로 신중하게 계획해야 합니다. 보상 점수는 일반적으로 0에서 1까지의 값이어야 합니다. 이 값은 클라이언트 애플리케이션에서 사용자 동작에 따라 부분적으로, 그리고 서버에서 비즈니스 논리와 목표에 따라 부분적으로 _계산할 수 있습니다_.
 
-Azure Portal에서 Personalizer 리소스에 대해 구성된 **보상 대기 시간** 내에 서버에서 Reward API를 호출하지 않는 경우 **기본 보상** (Azure Portal에도 구성됨)이 해당 이벤트에 사용됩니다.
+Azure Portal에서 Personalizer 리소스에 대해 구성된 **보상 대기 시간** 내에 서버에서 Reward API를 호출하지 않는 경우 **기본 보상**(Azure Portal에도 구성됨)이 해당 이벤트에 사용됩니다.
 
 이 애플리케이션 샘플에서 값을 선택하여 보상이 선택에 미치는 영향을 확인할 수 있습니다.
 

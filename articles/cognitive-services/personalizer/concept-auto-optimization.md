@@ -1,16 +1,19 @@
 ---
 title: 자동 최적화 - Personalizer
 description: 이 문서에서는 Azure Personalizer 서비스에서 자동 최적화 기능의 개념을 간략히 설명합니다.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: d2e8e73e47ebef566bed098e911b372aad6ee1e5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 603dc55b96d12610bc023487e731c7599841c985
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382694"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829418"
 ---
 # <a name="personalizer-auto-optimize-preview"></a>Personalizer 자동 최적화(미리 보기)
 

@@ -2,19 +2,19 @@
 title: Personalizer 리소스 엔드포인트 및 키 찾기
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: erhopf
+author: jeffmend
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.date: 08/25/2019
-ms.author: erhopf
-ms.openlocfilehash: 36910f7571e621c04ed8093d967f839bfedffacb
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: jeffme
+ms.openlocfilehash: 24aa4aa5e71cdaa13e899675cccc8ae3e1f85f10
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371804"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829272"
 ---
 > [!IMPORTANT]
 > Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Personalizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 

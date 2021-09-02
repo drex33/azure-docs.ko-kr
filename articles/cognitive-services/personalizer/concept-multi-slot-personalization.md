@@ -2,18 +2,19 @@
 title: 다중 슬롯 개인 설정
 description: Personalizer Rank 및 Reward API를 사용하여 단일 슬롯 및 다중 슬롯 개인 설정을 사용하는 위치와 시기에 대해 알아봅니다.
 services: cognitive-services
-ms.author: edjez
+author: jeffmend
+ms.author: jeffme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 05/24/2021
-ms.openlocfilehash: 042bce09afeabb10b20d8dfcb575040ccf5e1c03
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 38e94b4e7527fa32b24773e5120d60d6d039f169
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382382"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829432"
 ---
 # <a name="multi-slot-personalization-preview"></a>다중 슬롯 개인 설정(미리 보기)
 

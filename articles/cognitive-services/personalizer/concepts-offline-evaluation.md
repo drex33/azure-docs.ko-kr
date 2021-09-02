@@ -2,18 +2,19 @@
 title: 오프라인 평가 방법 사용 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 오프라인 평가를 사용하여 앱의 효과를 측정하고 학습 루프를 분석하는 방법에 대해 설명합니다.
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 627f511bb12c16c8f54935d1f782cb7c2c962163
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95217acd5c423c71eb75a43ee1e756d6b95b696d
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "87132758"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829778"
 ---
 # <a name="offline-evaluation"></a>오프라인 평가
 

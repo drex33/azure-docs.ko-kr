@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/01/2021
 ms.custom: template-concept
 recommendations: false
-ms.openlocfilehash: 5f8d78f7080c1505db4a82d9393801ad8418beed
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b427d0b4d94497039f5949115246b7920b0e0116
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537134"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829400"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행하는 방법에 대한 가이드
 
@@ -19,7 +19,7 @@ ms.locfileid: "122537134"
 
 | 시작 | 개념| 샘플 |
 |--|--|--| 
-| <ul><li>[Visual Studio Code 사용](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[명령줄 도구 사용](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Visual Studio 사용](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[호스팅 옵션](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[참조 샘플](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
+| <ul><li>[Visual Studio Code 사용](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[명령줄 도구 사용](create-first-function-cli-csharp.md?tabs=isolated-process)</li><li>[Visual Studio 사용](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[호스팅 옵션](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[참조 샘플](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 .NET 5.0을 지원하거나 함수 Out of Process를 실행하지 않아도 되는 경우 대신 [C# 클래스 라이브러리 함수를 개발](functions-dotnet-class-library.md)할 수 있습니다.
 

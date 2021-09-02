@@ -1,20 +1,20 @@
 ---
 title: SSH를 통해 Azure Percept DK에 연결
 description: PuTTY를 사용하여 SSH를 통해 Azure Percept DK에 연결하는 방법을 알아봅니다.
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4ee194e6d501d967d37453763c9cd4b25d1bedbe
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b22a359e112d7d0d3caae76acd20a7e3fd3ada01
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754202"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226230"
 ---
-# <a name="connect-to-your-azure-percept-dk-over-ssh"></a>SSH를 통해 Azure Percept DK에 연결
+# <a name="connect-to-azure-percept-dk-over-ssh"></a>SSH를 통해 Azure Percept DK에 연결
 
 아래 단계를 따라 OpenSSH 또는 [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)를 통해 Azure Percept DK에 SSH 연결을 설정합니다.
 

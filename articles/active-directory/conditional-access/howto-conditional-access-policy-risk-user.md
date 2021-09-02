@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a6509c7b47a0f8c3f36df72e1d3aa16c834594f
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: f2de6916a3845e0e51e810d12199d41b3cfd9319
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110612821"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225591"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>조건부 액세스: 사용자 위험 기반 조건부 액세스
 
-Microsoft는 연구원, 법 집행 기관, Microsoft의 다양한 보안 팀, 신뢰할 수 있는 기타 소스와 협력하여 유출된 사용자 이름 및 암호 쌍을 찾습니다. Azure AD Premium P2 라이선스가 있는 조직은 [Azure AD ID 보호 사용자 위험 검색](../identity-protection/concept-identity-protection-risks.md#user-risk)을 통합하여 조건부 액세스 정책을 만들 수 있습니다. 
+Microsoft는 연구원, 법 집행 기관, Microsoft의 다양한 보안 팀, 신뢰할 수 있는 기타 소스와 협력하여 유출된 사용자 이름 및 암호 쌍을 찾습니다. Azure AD Premium P2 라이선스가 있는 조직은 [Azure AD ID 보호 사용자 위험 검색](../identity-protection/concept-identity-protection-risks.md#user-linked-detections)을 통합하여 조건부 액세스 정책을 만들 수 있습니다. 
 
 이 정책을 구성할 수 있는 위치에는 조건부 액세스 및 ID 보호의 두 가지가 있습니다. 조건부 액세스 정책을 사용하는 구성은 향상된 진단 데이터, 보고서 전용 모드 통합, 그래프 API 지원 및 정책에서 다른 조건부 액세스 속성을 활용하는 기능을 포함하여 더 많은 컨텍스트를 제공하는 기본 방법입니다.
 

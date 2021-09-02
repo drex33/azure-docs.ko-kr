@@ -6,97 +6,97 @@ metadata:
   ms.subservice: personalizer
   ms.topic: troubleshooting
   ms.date: 02/26/2020
-  ms.author: erhopf
-  author: erhopf
+  ms.author: jeffme
+  author: jeffmend
   ms.manager: nitinme
-  ms.openlocfilehash: c7c95f69a794a2266c16cb2cb15a1e300d9ac54d
-  ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+  ms.openlocfilehash: 13e935fabd4b80148ef27f19bf4173ff722a6db6
+  ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/14/2021
-  ms.locfileid: "122530147"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122831425"
 title: Personalizer 질문과 대답
 summary: 이 문서에는 Personalizer 서비스 문제 해결에 대해 질문과 대답이 포함되어 있습니다.
 sections:
 - name: 구성 문제
   questions:
   - question: >
-      I changed a configuration setting and now my loop isn't performing at the same learning level. What happened?
+      구성 설정을 변경했는데 루프가 동일한 학습 수준에서 수행되지 않습니다. 무슨 일이 일어났나요?
     answer: >
-      Some configuration settings [reset your model](how-to-settings.md#settings-that-include-resetting-the-model). Configuration changes should be carefully planned.
+      일부 구성 설정은 [모델을 초기화](how-to-settings.md#settings-that-include-resetting-the-model)합니다. 구성 변경 내용을 신중하게 계획해야 합니다.
   - question: >
-      When configuring Personalizer with the API, I received an error. What happened?
+      API를 사용하여 Personalizer를 구성할 때 오류가 발생합니다. 무슨 일이 일어났나요?
     answer: >
-      If you use a single API request to configure your service and change your learning behavior, you will get an error. You need to make two separate API calls: first, to configure your service, then to switch learning behavior.
+      단일 API 요청을 사용하여 서비스를 구성하고 학습 동작을 변경하면 오류가 발생합니다. 먼저 서비스를 구성한 다음 학습 동작을 전환하려면 두 개의 API 호출을 별도로 만들어야 합니다.
 - name: 트랜잭션 오류
   questions:
   - question: >
-      I get an HTTP 429 (Too many requests) response from the service. What can I do?
+      서비스에서 HTTP 429(너무 많은 요청) 응답이 발생합니다. 어떻게 해야 합니까?
     answer: >
-      If you picked a free price tier when you created the Personalizer instance, there is a quota limit on the number of Rank requests that are allowed. Review your API call rate for the Rank API (in the Metrics pane in the Azure portal for your Personalizer resource) and adjust the pricing tier (in the Pricing Tier pane) if your call volume is expected to increase beyond the threshold for chosen pricing tier.
+      Personalizer 인스턴스를 만들 때 무료 가격 책정 계층을 선택한 경우에는 허용되는 순위 요청 수에 할당량 제한이 있습니다. 통화량이 선택한 가격 책정 계층의 임계값을 초과하여 증가할 것으로 예상되는 경우, Personalizer 리소스에 대한 Azure Portal의 메트릭 창에서 순위 API의 API 호출 속도를 검토하고 가격 계층 창에서 가격 책정 계층을 조정합니다.
   - question: >
-      I'm getting a 5xx error on Rank or Reward APIs. What should I do?
+      순위 또는 보상 API에 대해 5xx 오류가 발생합니다.   어떻게 해야 합니까?
     answer: >
-      These issues should be transparent. If they continue, contact support by selecting **New support request** in the **Support + troubleshooting** section, in the Azure portal for your Personalizer resource.
+      이러한 문제는 투명해야 합니다. 문제가 계속 발생하는 경우 Personalizer 리소스에 대한 Azure Portal의 **지원 + 문제 해결** 섹션에서 **새 지원 요청** 을 선택하여 지원 담당자에게 문의하세요.
 - name: 학습 루프
   questions:
   - question: >
-      The learning loop doesn't attain a 100% match to the system without Personalizer. How do I fix this?
+      학습 루프가 Personalizer 없는 시스템과 100% 일치하지 않습니다. 이 문제를 해결하려면 어떻게 해야 합니까?
     answer: >
-      The reasons you don't attain your goal with the learning loop:
+      학습 루프로 목표를 달성하지 못한 이유는 다음과 같습니다.
 
-      * Not enough features sent with Rank API call
+      * 순위 API 호출로 전송된 기능이 부족합니다.
 
-      * Bugs in the features sent - such as sending non-aggregated feature data such as timestamps to Rank API
+      * 전송된 기능 버그(예: 타임스탬프와 같이 집계할 수 없는 기능 데이터를 순위 API로 보냄)
 
-      * Bugs with loop processing - such as not sending reward data to Reward API for events
+      * 루프 처리 버그(예: 이벤트에 대한 보상 데이터를 보상 API로 보내지 않음)
 
 
-      To fix, you need to change the processing by either changing the features sent to the loop, or make sure the reward is a correct evaluation of the quality of the Rank's response.
+      이 문제를 해결하려면 루프에 전송된 기능을 변경하여 처리를 변경하거나 보상이 순위 응답의 품질에 대한 올바른 평가인지 확인해야 합니다.
   - question: >
-      The learning loop doesn't seem to learn. How do I fix this?
+      학습 루프가 학습되지 않는 것 같습니다. 이 문제를 해결하려면 어떻게 해야 합니까?
     answer: >
-      The learning loop needs a few thousand Reward calls before Rank calls prioritize effectively.
+      순위 호출에서 효과적으로 우선 순위를 지정하려면 학습 루프에 수천 개의 보상 호출이 필요합니다.
 
 
-      If you are unsure about how your learning loop is currently behaving, run an [offline evaluation](concepts-offline-evaluation.md), and apply the corrected learning policy.
+      학습 루프가 현재 어떻게 작동하는지 잘 모르는 경우 [오프라인 평가](concepts-offline-evaluation.md)를 실행하고 수정된 학습 정책을 적용합니다.
   - question: >
-      I keep getting rank results with all the same probabilities for all items. How do I know Personalizer is learning?
+      순위 결과가 모든 항목에 대해 동일한 확률로 계속 나타납니다. Personalizer가 학습 중인지 어떻게 알 수 있나요?
     answer: >
-      Personalizer returns the same probabilities in a Rank API result when it has just started and has an _empty_ model, or when you reset the Personalizer Loop, and your model is still within your **Model update frequency** period.
+      Personalizer는 방금 시작되어 _빈_ 모델이 있거나 Personalizer 루프를 초기화했지만 모델이 여전히 **모델 업데이트 빈도** 기간 내에 있는 경우 순위 API 결과에서 동일한 확률을 반환합니다.
 
 
-      When the new update period begins, the updated model is used, and you'll see the probabilities change.
+      새 업데이트 기간이 시작되면 업데이트된 모델이 사용되며 확률이 변경되는 것을 볼 수 있습니다.
   - question: >
-      The learning loop was learning but seems to not learn anymore, and the quality of the Rank results isn't that good. What should I do?
+      학습 루프가 학습 중이었지만 더 이상 학습하지 않는 것 같고 순위 결과의 품질이 좋지 않습니다.   어떻게 해야 합니까?
     answer: >
-      * Make sure you've completed and applied one evaluation in the Azure portal for that Personalizer resource (learning loop).
+      * 해당 Personalizer 리소스(학습 루프)에 대해 Azure Portal에서 하나의 평가를 완료하고 적용했는지 확인합니다.
 
-      * Make sure all rewards are sent, via the Reward API, and processed.
+      * 모든 보상이 보상 API를 통해 전송되고 처리되었는지 확인합니다.
   - question: >
-      How do I know that the learning loop is getting updated regularly and is used to score my data?
+      학습 루프가 정기적으로 업데이트되고 데이터의 점수를 매기는 데 사용되는지 어떻게 알 수 있나요?
     answer: >
-      You can find the time when the model was last updated in the **Model and Learning Settings** page of the Azure portal. If you see an old timestamp, it is likely because you are not sending the Rank and Reward calls. If the service has no incoming data, it does not update the learning. If you see the learning loop is not updating frequently enough, you can edit the loop's **Model Update frequency**.
+      Azure Portal의 **모델 및 학습 설정** 페이지에서 모델이 마지막으로 업데이트된 시간을 확인할 수 있습니다. 과거 타임스탬프가 표시되는 경우 순위 및 보상 호출을 보내지 않기 때문일 수 있습니다. 서비스에 수신되는 데이터가 없으면 학습이 업데이트되지 않습니다. 학습 루프가 자주 업데이트되지 않는 것으로 나타나는 경우 루프의 **모델 업데이트 빈도** 를 편집할 수 있습니다.
 - name: 오프라인 평가
   questions:
   - question: >
-      An offline evaluation's feature importance returns a long list with hundreds or thousands of items. What happened?
+      오프라인 평가의 기능 중요도는 수백 또는 수천 개의 항목을 포함하는 긴 목록을 반환합니다. 무슨 일이 일어났나요?
     answer: >
-      This is typically due to timestamps, user IDs or some other fine grained features sent in.
+      이는 일반적으로 타임스탬프, 사용자 ID 또는 기타 일부 세분화된 기능으로 인해 발생합니다.
   - question: >
-      I created an offline evaluation and it succeeded almost instantly. Why is that? I don't see any results?
+      오프라인 평가를 만들었는데 거의 즉시 성공했습니다. 왜 그럴까요? 결과가 보이지 않습니다.
     answer: >
-      The offline evaluation uses the trained model data from the events in that time period. If you did not send any data in the time period between start and end time of the evaluation, it will complete without any results. Submit a new offline evaluation by selecting a time range with events you know were sent to Personalizer.
+      오프라인 평가는 해당 기간의 이벤트에서 학습된 모델 데이터를 사용합니다. 평가 시작 시간과 종료 시간 사이에 데이터를 보내지 않은 경우 결과 없이 완료됩니다. Personalizer로 전송된 이벤트가 있는 시간 범위를 선택하여 새 오프라인 평가를 제출하세요.
 - name: 학습 정책
   questions:
   - question: >
-      How do I import a learning policy?
+      학습 정책을 가져오려면 어떻게 해야 하나요?
     answer: >
-      Learn more about [learning policy concepts](concept-active-learning.md#understand-learning-policy-settings) and [how to apply](how-to-manage-model.md) a new learning policy. If you do not want to select a learning policy, you can use the [offline evaluation](how-to-offline-evaluation.md) to suggest a learning policy, based on your current events.
+      [학습 정책 개념](concept-active-learning.md#understand-learning-policy-settings) 및 새로운 학습 정책을 [적용하는 방법](how-to-manage-model.md)에 대해 자세히 알아봅니다. 학습 정책을 선택하지 않으려면 [오프라인 평가](how-to-offline-evaluation.md)를 사용하여 현재 이벤트를 기반으로 학습 정책을 제안할 수 있습니다.
 - name: 보안
   questions:
   - question: >
-      The API key for my loop has been compromised. What can I do?
+      루프의 API 키가 손상되었습니다. 어떻게 해야 합니까?
     answer: >
-      You can regenerate one key after swapping your clients to use the other key. Having two keys allows you to propagate the key in a lazy manner without having to have any downtime. We recommend doing this on a regular cycle as a security measure.
-additionalContent: "\n## Next steps\n\n[Configure the model update frequency](how-to-settings.md#model-update-frequency)"
+      키가 하나인 경우 다른 키를 사용하도록 클라이언트를 바꾼 후 키를 다시 생성할 수 있습니다. 키가 두 개인 경우에는 가동 중지 시간 없이 지연 방식으로 키를 전파할 수 있습니다. 보안을 위해 이 작업을 정기적으로 수행하는 것이 좋습니다.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n[모델 업데이트 빈도 구성](how-to-settings.md#model-update-frequency)"

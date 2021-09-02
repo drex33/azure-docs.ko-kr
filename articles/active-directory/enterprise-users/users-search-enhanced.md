@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de315722641248a2a577c97403da400a6de67e6c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98127841"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867078"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Azure Active Directory의 사용자 관리 개선 사항(미리 보기)
 
@@ -70,7 +70,6 @@ ms.locfileid: "98127841"
 - 회사 이름: 사용자가 연결된 회사 이름입니다.
 - 초대 상태: 게스트 사용자의 초대 상태입니다.
 - 메일: 사용자의 이메일입니다.
-- 마지막 로그인: 사용자가 마지막으로 로그인한 날짜입니다. 이 속성은 감사 로그 읽기 권한(Reporting_ApplicationAuditLogs_Read)이 있는 사용자에게만 표시됩니다.
 
 ![모든 사용자 및 삭제된 사용자 페이지에 표시되는 새 사용자 속성](./media/users-search-enhanced/user-properties.png)
 

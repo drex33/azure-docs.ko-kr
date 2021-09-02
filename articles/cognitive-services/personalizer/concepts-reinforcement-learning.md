@@ -2,18 +2,19 @@
 title: 보충 학습 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Personalizer는 작업 및 현재 컨텍스트에 대한 정보를 사용하여 보다 나은 순위를 추천합니다. 이러한 작업 및 컨텍스트에 대한 정보는 기능으로 참조되는 특성 또는 속성입니다.
-services: cognitive-services
-manager: nitinme
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.openlocfilehash: 8b97221de4921e06ddfab610618f37683b990181
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ad6414060bc744a85aaecfc8b9ceeac8dd57d30
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "87132741"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830759"
 ---
 # <a name="what-is-reinforcement-learning"></a>보충 학습이란?
 

@@ -233,10 +233,10 @@
               items:
                 - name: Azure portal
                   href: logs/quick-create-workspace.md
+                - name: Azure CLI
+                  href: logs/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: logs/powershell-workspace-configuration.md
-                - name: Resource Manager 템플릿
-                  href: logs/resource-manager-workspace.md
             - name: 작업 영역 배포 디자인
               href: logs/design-logs-deployment.md
             - name: 작업 영역 모니터링

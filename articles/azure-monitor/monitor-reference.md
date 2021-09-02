@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: b04cacb1d2767e152e62bc3fd5902798204f3f60
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e43944b803f798c3bd741903f1ee0732bcb93d4
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536038"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864536"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -125,8 +125,8 @@ ms.locfileid: "122536038"
 |Managed Applications  | 예 | 아니요 | 예 |  |
 |지도  | 예 | 아니요 | 예 |  |
 |Media Services | 예 | 예 | 예 |  |
-|Microsoft Managed Desktop | 예 | 아니요 | 예 |  |
-|Microsoft PowerApps | 예 | 아니요 | 예 |  |
+|Microsoft Managed Desktop | 예 | 아니요 | 아니요 |  |
+|Microsoft Power Apps | 아니요 | 아니요 | 예 |  |
 |Microsoft 소셜 참여 | 예 | 아니요 | 예 |  |
 |Microsoft Stream | 예 | 예 | 예 |  |
 |마이그레이션 | 예 | 아니요 | 예 |  |

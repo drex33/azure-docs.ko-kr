@@ -1,18 +1,21 @@
 ---
 title: Personalizer란?
 description: Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 서비스로, 사용자의 실시간 동작을 통해 학습합니다.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, 기계 학습
-ms.openlocfilehash: b2577502907b69e134651c93ab7a98fc51e9aaa6
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: f293cbfbf76d22ebf18f1ad4ea7f57d24806b8f2
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169252"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830260"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 

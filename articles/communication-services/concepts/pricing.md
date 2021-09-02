@@ -7,14 +7,14 @@ manager: nmurav
 services: azure-communication-services
 ms.author: nmurav
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: ba47fd528882e1d7de45470f00316c57b966ddb5
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: d8938a437db42a2d1cb5dd88f6102ce7f5facb3a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762884"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259076"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
 
@@ -77,10 +77,6 @@ Alice는 Azure Communication Services 직접 라우팅을 통해 Azure Communica
 - Communication Services 서버에서 SBC로 Communication Services 직접 라우팅 아웃바운드 레그의 참가자 1명(Bob) x 10분 x 참가자 레그당(분당) $0.004 = $0.04.
 
 **총 통화 비용**: $0.04 + $0.04 = $0.08
-
-> [!Note]
-> Azure Communication Services 직접 라우팅 레그는 2021년 8월 1일까지 요금이 청구되지 않습니다.
-
 
 ### <a name="pricing-example-group-audio-call-using-js-sdk-and-one-pstn-leg"></a>가격 책정 예: JS SDK 및 PSTN 레그 1개를 사용하는 그룹 음성 통화
 

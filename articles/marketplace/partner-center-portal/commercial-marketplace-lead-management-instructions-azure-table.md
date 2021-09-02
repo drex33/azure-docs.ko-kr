@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: c136f0f2a946eca0d89c04734c9f351d4e6c79d6
-ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
+ms.openlocfilehash: 8a66e42466f6b7ed85a330bb3bf3f1dda422e0d5
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2021
-ms.locfileid: "113601140"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867546"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Azure Table 스토리지를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -59,7 +59,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(선택 사항) Power Automate를 사용하여 잠재 고객 알림 받기
 
-[Power Automate](/flow/)를 사용하여 잠재 고객이 Azure Storage 테이블에 추가될 때마다 알림이 발송되도록 자동화할 수 있습니다. 계정이 없으면 [체험 계정에 가입](https://flow.microsoft.com/)할 수 있습니다.
+[Power Automate](/power-automate/)를 사용하여 잠재 고객이 Azure Storage 테이블에 추가될 때마다 알림이 발송되도록 자동화할 수 있습니다. 계정이 없으면 [체험 계정에 가입](https://flow.microsoft.com/)할 수 있습니다.
 
 ### <a name="lead-notification-example"></a>잠재 고객 알림 예제
 

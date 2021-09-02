@@ -4,20 +4,19 @@ ms.service: media-services
 ms.topic: include
 ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: f4bdd5332b3c10cf375c7c04ede25137328714a2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 0c60b111483d896ad2beb008d165b9fb84160b35
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106073595"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835566"
 ---
 >[!NOTE]
 >고정되지 않은 리소스의 경우 지원 티켓을 열어 할당량 증가를 요청하세요. 더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 마세요.
 
 | 리소스 | 제한 | 
 | --- | --- | 
-| 단일 구독의 Azure Media Services 계정 | 25(고정) |
-| Media Services 계정당 미디어 예약 단위 |25(S1)<br/>10(S2, S3)<sup>1</sup> | 
+| 단일 구독의 Azure Media Services 계정 | 25(고정) | 
 | Media Services 계정 작업당 작업 | 50,000<sup>2</sup> |
 | 작업당 연결된 태스크 | 30(고정) |
 | Media Services 계정당 자산 | 1,000,000|

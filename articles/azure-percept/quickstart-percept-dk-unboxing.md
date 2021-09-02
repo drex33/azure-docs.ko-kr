@@ -1,20 +1,20 @@
 ---
-title: Azure Percept DK 구성 요소 언박싱 및 조립
+title: Azure Percept DK 디바이스 개봉 및 조립
 description: Azure Percept DK를 언박싱 및 연결하고 기능을 활용하는 방법에 대해 알아봅니다.
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: deaa0a3904eef33ebab8e73687d6864d389e2963
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ce47b2463441fdd44c9db72c2dcbf2f8935b15d6
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748046"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222992"
 ---
-# <a name="quickstart-unbox-and-assemble-your-azure-percept-dk-components"></a>빠른 시작: Azure Percept DK 구성 요소 언박싱 및 조립
+# <a name="unbox-and-assemble-the-azure-percept-dk-device"></a>Azure Percept DK 디바이스 개봉 및 조립
 
 Azure Percept DK를 받은 후에는 이 가이드에서 구성 요소를 연결하고 디바이스를 켜는 방법에 대한 정보를 참조하세요.
 

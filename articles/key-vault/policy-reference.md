@@ -1,18 +1,18 @@
 ---
 title: Key Vault에 대한 기본 제공 정책 정의
 description: Key Vault에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f1631a44b05d07189e23b402cdf4ecf2bb66acb0
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 7482dbb6ed95c26b3a61812fa314c969a7247291
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122604093"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108066"
 ---
 # <a name="azure-policy-built-in-definitions-for-key-vault"></a>Key Vault에 대한 Azure Policy 기본 제공 정의
 

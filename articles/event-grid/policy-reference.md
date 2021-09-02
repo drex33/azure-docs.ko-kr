@@ -1,15 +1,15 @@
 ---
 title: Azure Event Grid에 대한 기본 제공 정책 정의
 description: Azure Event Grid에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0d21f6bc87e242f5311453fbef4f484a3b2a7cc7
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 20919e93122a8359ba78b0b9918b96a35af6e599
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609345"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106912"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-grid"></a>Azure Event Grid에 대한 Azure Policy 기본 제공 정의
 

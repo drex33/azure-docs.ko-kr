@@ -1,18 +1,18 @@
 ---
 title: Azure Storage에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Storage에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: sample
 author: twooley
 ms.author: twooley
 ms.service: storage
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: eed982daa1bdd064d01b92822830c238b4e0b177
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 9a4f12aa2d8f84d357c0b0ce5c3f1c7c6e3f40f8
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122605264"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105955"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-storage"></a>Azure Storage에 대한 Azure Policy 규정 준수 컨트롤
 

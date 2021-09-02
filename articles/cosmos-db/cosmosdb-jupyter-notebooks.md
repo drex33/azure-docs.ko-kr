@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 4f57d2793a28f4bbb201764c67af82f31d0b9333
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 450a00a4ddfe7bfcae7d6c265addab5dd672ee64
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100369801"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105011"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Azure Cosmos DB에 기본 제공되는 Jupyter Notebooks 지원(미리 보기)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -64,4 +64,4 @@ Azure Cosmos DB에 기본 제공되는 Jupyter Notebooks를 시작하려면 다�
 * [Notebook 샘플 갤러리 살펴보기](https://cosmos.azure.com/gallery.html)
 * [Python Notebook 기능 및 명령 사용](use-python-notebook-features-and-commands.md)
 * [C# Notebook 기능 및 명령 사용](use-csharp-notebook-features-and-commands.md)
-* [GitHub 리포지토리에서 Notebooks 가져오기](import-github-notebooks.md)
+* [GitHub 리포지토리에서 Notebooks 가져오기](sql/import-github-notebooks.md)

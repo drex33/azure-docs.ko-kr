@@ -2,19 +2,19 @@
 title: Azure Communication Services의 전화 흐름
 titleSuffix: An Azure Communication Services concept document
 description: Azure Communication Services의 전화 흐름에 대해 알아봅니다.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b93ab0d76bd1e40368803f47df7a2eddc27b2d2d
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 4893e444b387bb59d174b8f64fb564182e8d2792
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112791"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254793"
 ---
 # <a name="call-flow-basics"></a>호출 흐름 기본 사항
 

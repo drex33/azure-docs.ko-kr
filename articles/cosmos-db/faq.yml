@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/01/2019
   ms.author: sngun
   ms.custom: seodec18
-  ms.openlocfilehash: 8ded857f617ab61f6914635f41642b86c1848861
-  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+  ms.openlocfilehash: 945947dc1ed0b0cb5d9537e3456825fe20170c9e
+  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122321788"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123106226"
 title: Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 summary: >
   [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -127,7 +127,7 @@ sections:
   - question: >
       기본 키란?
     answer: >
-      기본 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 기본 키를 배포할 때 주의하세요. 주 기본 키 및 보조 기본 키는 [Azure Portal][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-with-cli.md#list-account-keys)을 참조하세요.
+      기본 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 기본 키를 배포할 때 주의하세요. 주 기본 키 및 보조 기본 키는 [Azure Portal][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](sql/manage-with-cli.md#list-account-keys)을 참조하세요.
   - question: >
       PreferredLocations를 설정할 수 있는 지역은 어디인가요?
     answer: >

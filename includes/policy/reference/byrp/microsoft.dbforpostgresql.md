@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: b2002080c2b5c948ef1ad7cc17beebeca3cc4a9c
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 75afc262fb47fd4bfae2b5d5dde1706c21f6c3bc
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608249"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123109152"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Database for PostgreSQL 서버에서 사용할 수 있도록 Advanced Threat Protection 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb048e65-913c-49f9-bb5f-1084184671d3) |데이터베이스에 액세스하거나 데이터베이스를 악용하려는 비정상적이고 잠재적으로 유해한 시도를 나타내는 비정상적인 활동을 탐지하려면 기본 계층이 아닌 Azure Database for PostgreSQL 서버에서 Advanced Threat Protection을 사용하도록 설정합니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/DeployAtpOnPostgreSqlServers_Deploy.json) |
 |[PostgreSQL 데이터베이스 서버에 대해 연결 제한을 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5345bb39-67dc-4960-a1bf-427e16b9a0bd) |이 정책은 연결 제한을 사용하도록 설정하지 않고 사용자 환경에서 PostgreSQL 데이터베이스를 감사하는 데 도움이 됩니다. 이 설정은 잘못된 암호 로그인 실패가 너무 많을 경우 IP당 임시 연결 제한을 사용하도록 설정합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_ConnectionThrottling_Enabled_Audit.json) |

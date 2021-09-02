@@ -3,18 +3,18 @@ title: 버전 릴리스 기록
 titleSuffix: Microsoft Genomics
 description: 수정 사항 및 새로운 기능을 위한 Microsoft Genomics Python 클라이언트에 대한 업데이트의 릴리스 기록입니다.
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: 8bcf14b64b5e6417c3a1d90fd36651350efac879
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 3023f01b9a9ccbc3a56c509b1edc86885f2af41e
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551725"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255695"
 ---
 # <a name="version-release-history"></a>버전 릴리스 기록
 Microsoft Genomics 팀은 수정 사항 및 새로운 기능으로 Microsoft Genomics Python 클라이언트를 정기적으로 업데이트합니다. 

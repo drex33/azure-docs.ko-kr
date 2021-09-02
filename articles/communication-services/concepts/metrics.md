@@ -2,19 +2,19 @@
 title: Azure Communication Service의 메트릭 정의
 titleSuffix: An Azure Communication Services concept document
 description: 이 문서에서는 Azure Portal에서 사용할 수 있는 메트릭 정의를 다룹니다.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f144b3710e0af570289be1981214687c176cbc71
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 959ae65e5faf7830a780726dc1c29f5d9bfb880c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111468"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255386"
 ---
 # <a name="metrics-overview"></a>메트릭 개요
 

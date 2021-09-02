@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/18/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: adbf8c229c598557ff4a91c3f8e120d92a5801c0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: c9aa909c262caf2e5019fe45317988b98d859759
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746173"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255966"
 ---
 | 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -28,7 +28,7 @@ ms.locfileid: "111746173"
 | &nbsp; |[Azure Database for MySQL](../connector-azure-database-for-mysql.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Database for PostgreSQL](../connector-azure-database-for-postgresql.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) |✓ |✓ |✓ |✓ |
-| &nbsp; |[Azure File Storage](../connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure 파일](../connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Database](../connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |

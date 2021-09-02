@@ -1,18 +1,18 @@
 ---
 title: Azure Cognitive Search에 대한 기본 제공 정책 정의
 description: Azure Cognitive Search에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.topic: reference
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 1095c5af0bfef58f183bbfac3ef5a840c4d8eac3
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: db3c7196875583d2f1425edd26466ddf71ff4730
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122603955"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123109864"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 Azure Policy 기본 제공 정의
 

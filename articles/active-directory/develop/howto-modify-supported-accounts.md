@@ -13,14 +13,14 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 3ae6616263de605d5910f244423b9e7ffc036c5d
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: c89cb9c43ae274170e0cedb01b1908a874b7317e
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079926"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039951"
 ---
-# <a name="how-to-modify-the-accounts-supported-by-an-application"></a>애플리케이션에서 지원되는 계정을 수정하는 방법
+# <a name="modify-the-accounts-supported-by-an-application"></a>애플리케이션에서 지원되는 계정 수정
 
 Microsoft ID 플랫폼을 사용하여 애플리케이션을 등록할 때 해당 계정 유형으로 액세스할 수 있는 사용자를 지정했습니다. 예를 들어 조직 *단일 테넌트* 앱인 조직에서만 계정을 지정했을 수 있습니다. 또는 *다중 테넌트* 앱인 조직(사용자 포함)에 계정을 지정했을 수 있습니다.
 

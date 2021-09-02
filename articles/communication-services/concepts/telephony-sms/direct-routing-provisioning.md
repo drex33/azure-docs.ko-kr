@@ -6,14 +6,14 @@ manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 27b1b08196ef76bba92bf1f2ff518585c896178a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 079ef0c70641100e0b2efe7d08d79dc218a83abc
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743529"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259032"
 ---
 # <a name="session-border-controllers-and-voice-routing"></a>Session Border Controller 및 음성 라우팅
 Azure Communication Services 직접 라우팅을 사용하면 기존 전화 통신 인프라를 Azure에 연결할 수 있습니다. 이 문서에는 지원되는 SBC(Session Border Controller)를 직접 라우팅에 연결하는 데 필요한 상위 수준 단계와 사용하도록 설정된 통신 리소스에 음성 라우팅을 사용하는 방법이 나와 있습니다. 

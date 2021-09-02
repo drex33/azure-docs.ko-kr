@@ -1,20 +1,20 @@
 ---
-title: Azure Percept Studio에서 코드 없는 비전 솔루션을 위한 이미지 캡처
+title: Azure Percept Studio의 이미지 캡처
 description: Azure Percept Studio에서 Azure Percept DK로 이미지를 캡처하는 방법
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 2c7116d7e62afe6a59ad48bbb28dabf3c05bc311
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b724e18d8f9119ac33d878cfbf4393c4712d003f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754400"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219680"
 ---
-# <a name="capture-images-for-a-vision-project-in-azure-percept-studio"></a>Azure Percept Studio에서 비전 프로젝트용 이미지 캡처
+# <a name="capture-images-in-azure-percept-studio"></a>Azure Percept Studio의 이미지 캡처
 
 이 가이드에 따라 기존 비전 프로젝트에 Azure Percept DK를 사용하여 이미지를 캡처합니다. 비전 프로젝트를 아직 만들지 않은 경우 [코드 없는 비전 자습서](./tutorial-nocode-vision.md)를 참조하세요.
 

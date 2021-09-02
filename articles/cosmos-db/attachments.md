@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: a8e968d05a1f844a79d2e42d10c323ed4c392424
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4fd96c9112d3ae9d1e2590d1ca99275c7eead07
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521223"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123102497"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Azure Cosmos DB 첨부 파일
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB 첨부 파일은 외부 Blob 또는 미디어 파일과 연관된 메타데이터 및 참조서를 포함하는 특수 항목입니다.
 

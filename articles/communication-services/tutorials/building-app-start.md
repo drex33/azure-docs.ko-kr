@@ -6,14 +6,14 @@ author: nmurav
 services: azure-communication-services
 ms.author: nmurav
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: tutorial
 ms.service: azure-communication-services
-ms.openlocfilehash: aa65887b1d4c2fc7a6fcc0b99a572df62af1fb47
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 62c72271e1c72b524de1ff2365a78ec240007bfb
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107562"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250976"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>자습서: Azure Communication Services용 웹앱 준비(Node.js)
 

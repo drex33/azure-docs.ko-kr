@@ -15,12 +15,12 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cad63eaa8e548e48e76bba63e5ba70358b34cd99
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ff04f3595cbcba7a5bfc1c5c5e9564a862cb32de
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535892"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223734"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 가상 머신에서 자동화된 백업(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,28 +100,6 @@ PowerShell을 사용하여 자동화된 Backup을 구성할 수도 있습니다.
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
-### <a name="install-the-sql-server-iaas-extension"></a>SQL Server IaaS 확장 설치
-Azure Portal에서 SQL Server VM을 프로비저닝한 경우 SQL Server IaaS 확장이 이미 설치되어 있을 것입니다. **Get-AzVM** 명령을 호출하고 **Extensions** 속성을 검사하여 VM에 대해 해당 확장이 설치되어 있는지 확인할 수 있습니다.
-
-```powershell
-$vmname = "vmname"
-$resourcegroupname = "resourcegroupname"
-
-(Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions
-```
-
-SQL Server IaaS 에이전트 확장이 설치되어 있는 경우 "SqlIaaSAgent" 또는 "SQLIaaSExtension"으로 표시됩니다. 확장에 대한 **ProvisioningState** 가 "Succeeded"로 표시되어야 합니다.
-
-설치되지 않았거나 프로비저닝되지 못한 경우 다음 명령을 사용하여 설치할 수 있습니다. VM 이름 및 리소스 그룹 외에, VM이 있는 하위 지역( **$region**)도 지정해야 합니다. SQL Server VM에 맞는 라이선스 유형을 지정하고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 통해 종량제 또는 BYOL 중 하나를 선택합니다. 라이선스에 대한 자세한 내용은 [라이선싱 모델](licensing-model-azure-hybrid-benefit-ahb-change.md)을 참조하세요. 
-
-```powershell
-New-AzSqlVM  -Name $vmname `
-    -ResourceGroupName $resourcegroupname `
-    -Location $region -LicenseType <PAYG/AHUB>
-```
-
-> [!IMPORTANT]
-> 확장 프로그램이 아직 설치되지 않은 경우 확장 프로그램을 설치하면 SQL Server가 다시 시작됩니다.
 
 ### <a name="verify-current-settings"></a><a id="verifysettings"></a> 현재 설정 확인
 

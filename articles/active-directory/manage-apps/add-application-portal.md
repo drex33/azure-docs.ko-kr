@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 08/21/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 8c1b7ea859bb3f8819fbffc9568da4c9289979f5
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 40d82ea916a647dc927e4420058d208c3fd18973
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669460"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111014"
 ---
 # <a name="quickstart-add-an-application-to-your-tenant"></a>빠른 시작: 테넌트에 애플리케이션 추가
 
@@ -47,10 +47,9 @@ Azure AD 테넌트에 애플리케이션을 추가하려면 다음을 수행합�
 1. [Azure Portal](https://portal.azure.com)의 **Azure 서비스** 창에서 **엔터프라이즈 애플리케이션** 을 선택합니다. **모든 애플리케이션** 창이 열리고 Azure AD 테넌트에 있는 임의의 애플리케이션 샘플이 표시됩니다.
 2. **엔터프라이즈 애플리케이션** 창에서 **새 애플리케이션** 을 선택합니다.
 3. **Azure AD 갤러리 찾아보기** 창이 열리고 클라우드 플랫폼, 온-프레미스 애플리케이션 및 추천 애플리케이션에 대한 타일이 표시됩니다. **추천 애플리케이션** 섹션에 나열된 애플리케이션에는 페더레이션된 SSO(Single Sign-On) 및 프로비저닝을 지원하는지 여부를 나타내는 아이콘이 있습니다.
-4. 레거시 앱 갤러리 환경으로 다시 전환: **애플리케이션 추가 페이지** 상단의 배너에서 **새롭게 개선된 앱 갤러리 환경에 있습니다. 레거시 앱 갤러리 환경으로 다시 전환하려면 여기를 클릭하세요** 라는 링크를 선택합니다.
     ![이름 또는 범주로 앱 검색](media/add-application-portal/browse-gallery.png)
-5. 추가하려는 애플리케이션의 갤러리를 찾아보거나 검색 상자에 해당 이름을 입력하여 애플리케이션을 검색할 수 있습니다. 그런 다음, 결과에서 애플리케이션을 선택합니다.
-6. 다음 단계는 애플리케이션 개발자가 SSO(Single Sign-On)를 구현하는 방법에 따라 달라집니다. 앱 개발자는 네 가지 방법으로 Single Sign-On을 구현할 수 있습니다. 네 가지 방법은 SAML, OpenID Connect, 암호 및 Linked입니다. 앱을 추가하는 경우 스크린샷에 표시된 것처럼 특정 SSO 구현을 사용하는 앱만 필터링하고 표시하도록 선택할 수 있습니다. 예를 들어 SSO를 구현하는 인기 있는 표준은 SAML(Security Assertion Markup Language)이라고 합니다. 널리 사용되는 다른 표준은 OIDC(OpenId Connect)라고 합니다. 이러한 표준을 사용하여 SSO를 구성하는 방법은 서로 다르므로 추가하는 앱에서 구현하는 SSO 유형을 기록해 둡니다.
+4. 추가하려는 애플리케이션의 갤러리를 찾아보거나 검색 상자에 해당 이름을 입력하여 애플리케이션을 검색할 수 있습니다. 그런 다음, 결과에서 애플리케이션을 선택합니다.
+5. 다음 단계는 애플리케이션 개발자가 SSO(Single Sign-On)를 구현하는 방법에 따라 달라집니다. 앱 개발자는 네 가지 방법으로 Single Sign-On을 구현할 수 있습니다. 네 가지 방법은 SAML, OpenID Connect, 암호 및 Linked입니다. 앱을 추가하는 경우 스크린샷에 표시된 것처럼 특정 SSO 구현을 사용하는 앱만 필터링하고 표시하도록 선택할 수 있습니다. 예를 들어 SSO를 구현하는 인기 있는 표준은 SAML(Security Assertion Markup Language)이라고 합니다. 널리 사용되는 다른 표준은 OIDC(OpenId Connect)라고 합니다. 이러한 표준을 사용하여 SSO를 구성하는 방법은 서로 다르므로 추가하는 앱에서 구현하는 SSO 유형을 기록해 둡니다.
 
     - 앱 개발자가 SSO에 **OIDC 표준** 을 사용한 경우 **가입** 을 선택합니다. 설정 페이지가 나타납니다. 다음으로 OIDC 기반 Single Sign-On 설정에 대한 빠른 시작으로 이동합니다.
     :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="OIDC 기반 SSO 앱 추가를 보여 주는 스크린샷":::

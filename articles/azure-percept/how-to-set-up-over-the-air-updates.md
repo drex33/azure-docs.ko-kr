@@ -1,24 +1,24 @@
 ---
 title: Azure IoT Hub를 설정하여 무선 업데이트를 배포합니다.
 description: Azure IoT Hub를 구성하여 Azure Percept DK에 대한 업데이트를 무선으로 배포하는 방법에 관해 알아봅니다.
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 81697efc7832adf62d26c751d1e6e93070c2579b
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 26e53511cfab9444a9d5a9c4dcd868be07b40e16
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684076"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224358"
 ---
-# <a name="how-to-set-up-azure-iot-hub-to-deploy-over-the-air-updates-to-your-azure-percept-dk"></a>Azure IoT Hub를 설정하여 Azure Percept DK에 무선 업데이트를 배포하는 방법
+# <a name="set-up-azure-iot-hub-to-deploy-over-the-air-updates"></a>Azure IoT Hub를 설정하여 무선 업데이트를 배포합니다.
 
 무선 업데이트를 사용하여 Azure Percept DK를 안전하게 최신 상태로 유지합니다. 몇 가지 간단한 단계를 통해 Device Update for IoT Hub를 사용하여 Azure 환경을 설정하고 Azure Percept DK에 최신 업데이트를 배포할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Percept DK(Devkit)
 - [Azure 구독](https://azure.microsoft.com/free/)

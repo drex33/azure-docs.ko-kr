@@ -1,16 +1,19 @@
 ---
 title: 학습 동작 구성
 description: 실습생 모드는 Personalizer 서비스 및 기계 학습 기능에 대한 확신을 제공하고, 서비스가 온라인 트래픽의 위험 없이 학습 가능한 정보를 전송하는 메트릭을 제공합니다.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: caa3a0d8d9619ee65dbd9d71ae2ff4f56a128c8d
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94579294"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831551"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Personalizer 학습 동작 구성
 

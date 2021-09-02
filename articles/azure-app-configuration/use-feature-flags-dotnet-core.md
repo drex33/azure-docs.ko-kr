@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 4d54e1ff07b250b5595d2f8aee5f022bd2359721
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5f15d016c890ec214fe6b6a3d8af3138d202408b
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729510"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122970341"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
@@ -191,18 +191,19 @@ config.AddAzureAppConfiguration(options =>
 기능 관리자는 기능 플래그의 구성 원본으로 *appsettings.json* 을 지원합니다. 다음 예제에서는 JSON 파일에서 기능 플래그를 설정하는 방법을 보여줍니다.
 
 ```JSON
-"FeatureManagement": {
-    "FeatureA": true, // Feature flag set to on
-    "FeatureB": false, // Feature flag set to off
-    "FeatureC": {
-        "EnabledFor": [
-            {
-                "Name": "Percentage",
-                "Parameters": {
-                    "Value": 50
+{"FeatureManagement": {
+        "FeatureA": true, // Feature flag set to on
+        "FeatureB": false, // Feature flag set to off
+        "FeatureC": {
+            "EnabledFor": [
+                {
+                    "Name": "Percentage",
+                    "Parameters": {
+                        "Value": 50
+                    }
                 }
-            }
-        ]
+            ]
+        }
     }
 }
 ```

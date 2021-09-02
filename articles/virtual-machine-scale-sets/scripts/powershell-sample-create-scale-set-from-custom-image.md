@@ -1,20 +1,20 @@
 ---
 title: Azure PowerShell 샘플 - 사용자 지정 VM 이미지 사용
 description: 이 스크립트는 사용자 지정 VM 이미지를 VM 인스턴스의 원본으로 사용하는 가상 머신 확장 집합을 만듭니다.
-author: axayjo
-ms.author: akjosh
+author: mamccrea
+ms.author: mamccrea
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
 ms.custom: akjosh, devx-track-azurepowershell
-ms.openlocfilehash: 34a786c133d38e40cfa614ddceed53a6cf52b617
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2adc24bb6c00854ef44511d73d441d02949de945
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89078931"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221191"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-powershell"></a>PowerShell을 사용하여 사용자 지정 VM 이미지에서 가상 머신 확장 집합 만들기
 이 스크립트는 사용자 지정 VM 이미지를 VM 인스턴스의 원본으로 사용하는 가상 머신 확장 집합을 만듭니다.

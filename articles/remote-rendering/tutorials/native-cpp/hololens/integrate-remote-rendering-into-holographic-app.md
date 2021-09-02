@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: a07a8a9c50e0f71daa48f65ebf8c2e7a7f166cc5
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 2f3f5c48614abe4157d706ea0cef3f88a91119ca
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594302"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223596"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>자습서: Hololens Holographic 앱에 Remote Rendering 통합
 
@@ -322,10 +322,13 @@ void HolographicAppMain::StartModelLoading()
         [this](RR::Status status, RR::ApiHandle<RR::LoadModelResult> result)
         {
             m_modelLoadResult = RR::StatusToResult(status);
-            m_modelLoadFinished = true; // successful if m_modelLoadResult==RR::Result::Success
-            char buffer[1024];
-            sprintf_s(buffer, "Remote Rendering: Model loading completed. Result: %s\n", RR::ResultToString(m_modelLoadResult));
-            OutputDebugStringA(buffer);
+            m_modelLoadFinished = true;
+
+            if (m_modelLoadResult == RR::Result::Success)
+            {
+                RR::Double3 pos = { 0.0, 0.0, -2.0 };
+                result->GetRoot()->SetPosition(pos);
+            }
         },
         // progress update callback
             [this](float progress)

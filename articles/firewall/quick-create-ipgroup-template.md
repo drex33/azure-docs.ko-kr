@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/10/2021
 ms.author: victorh
-ms.openlocfilehash: 4bb2488bde959281abc5284b3d28b2a7fe3301e3
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: f74340192cc79db8cf238ea4776dee42edbe51e6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005342"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967992"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>빠른 시작: Azure Firewall 및 IP 그룹 만들기 - ARM 템플릿
 
@@ -78,7 +78,7 @@ Azure Portal에서 배포된 리소스, 특히 IP 그룹을 사용하는 방화�
 
 :::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="네트워크 규칙.":::
 
-템플릿에서 방화벽의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Network azureFirewalls 템플릿 참조](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls)를 참조하세요.
+템플릿에서 방화벽의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Network azureFirewalls 템플릿 참조](/azure/templates/microsoft.network/azurefirewalls)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

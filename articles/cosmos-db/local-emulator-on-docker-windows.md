@@ -7,14 +7,15 @@ ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
 ms.date: 04/20/2021
-ms.openlocfilehash: 0e38f39edeb68577470868e0bd68a37cb7fe0516
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bda82b51661ccd615e26c7abcc8002db3bb5d24f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386434"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111500"
 ---
 # <a name="use-the-emulator-on-docker-for-windows"></a><a id="run-on-windows-docker"></a>Windows용 Docker에서 에뮬레이터 사용
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Windows Docker 컨테이너에서 Azure Cosmos DB Emulator를 실행할 수 있습니다. Docker 풀 명령의 경우 [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/), `Dockerfile`의 경우 [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)를 참조하세요. 현재, 이 에뮬레이터는 Oracle Linux용 Docker에서 작동하지 않습니다. Windows용 Docker에서 에뮬레이터를 실행하려면 다음 지침을 따르세요.
 

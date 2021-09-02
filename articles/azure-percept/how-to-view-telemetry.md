@@ -1,18 +1,18 @@
 ---
 title: Azure Percept DK의 모델 유추 원격 분석 보기
 description: Azure IoT Explorer에서 Azure Percept DK의 비전 모델 유추 원격 분석을 보는 방법에 대해 알아봅니다.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 3e09646614d37a97400a7e90b380048d97c0369c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d2ca288240d9f361f305c026e611140cba941e47
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754220"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224079"
 ---
 # <a name="view-your-azure-percept-dks-model-inference-telemetry"></a>Azure Percept DK의 모델 유추 원격 분석 보기
 

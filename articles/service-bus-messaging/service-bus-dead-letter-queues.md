@@ -2,14 +2,14 @@
 title: Service Bus 배달 못 한 편지 큐 | Microsoft Docs
 description: Azure Service Bus의 배달 못한 편지 큐에 대해 설명합니다. Service Bus 큐 및 토픽 구독은 배달 못한 편지 큐라고 하는 보조 하위 큐를 제공합니다.
 ms.topic: article
-ms.date: 04/08/2021
+ms.date: 08/30/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 9a7eaf3cee7af4ba0f0049ee8b7a8dd0b271a94a
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: b64500b6fefd8da7fe2b6dda4719e7ed6ae81b94
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804469"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258343"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 

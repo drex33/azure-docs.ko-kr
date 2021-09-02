@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9be5aff348ce7065f9ff40f09e4e0495367bb9f5
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 7f82598d854f323f69d4575a86f0a1808c97906c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112118531"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258115"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -242,16 +242,16 @@ if (share.Exists())
     // Check current usage stats for the share.
     // Note that the ShareStats object is part of the protocol layer for the File service.
     Microsoft.Azure.Storage.File.Protocol.ShareStats stats = share.GetStats();
-    Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
+    Console.WriteLine("Current share usage: {0} GiB", stats.Usage.ToString());
 
-    // Specify the maximum size of the share, in GB.
-    // This line sets the quota to be 10 GB greater than the current usage of the share.
+    // Specify the maximum size of the share, in GiB.
+    // This line sets the quota to be 10 GiB greater than the current usage of the share.
     share.Properties.Quota = 10 + stats.Usage;
     share.SetProperties();
 
     // Now check the quota for the share. Call FetchAttributes() to populate the share's properties.
     share.FetchAttributes();
-    Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    Console.WriteLine("Current share quota: {0} GiB", share.Properties.Quota);
 }
 ```
 

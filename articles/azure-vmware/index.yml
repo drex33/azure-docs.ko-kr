@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 08/02/2021
-  ms.openlocfilehash: 0c9e3b78cac6bce3fb4a928faa76d7613d22a2dc
-  ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+  ms.date: 08/31/2021
+  ms.openlocfilehash: e0bf4719596ea64c5b80f66a48861d080a9e0d58
+  ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/16/2021
-  ms.locfileid: "122228610"
+  ms.lasthandoff: 08/31/2021
+  ms.locfileid: "123258392"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
       url: introduction.md
     - text: 플랫폼 업데이트
       url: azure-vmware-solution-platform-updates.md
+    - text: FAQ
+      url: ./faq.yml
   - linkListType: concept
     links:
     - text: 액세스 및 ID
@@ -36,32 +38,10 @@ landingContent:
       url: concepts-networking.md
     - text: 프라이빗 클라우드 및 클러스터
       url: concepts-private-clouds-clusters.md
-    - text: 스토리지
+    - text: 명령 실행
+      url: concepts-run-command.md
+    - text: Storage
       url: concepts-storage.md
-- title: FAQ
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: 일반
-      url: ./faq.yml
-    - text: 고객 커뮤니케이션
-      url: /azure/azure-vmware/faq#customer-communication
-    - text: 구성 및 설정
-      url: /azure/azure-vmware/faq#configuration-and-setup
-    - text: VMware 소프트웨어
-      url: /azure/azure-vmware/faq#vmware-software
-    - text: 컴퓨팅
-      url: /azure/azure-vmware/faq#compute
-    - text: 네트워킹 및 상호 연결
-      url: /azure/azure-vmware/faq#networking-and-interconnectivity
-    - text: 스토리지
-      url: /azure/azure-vmware/faq#storage
-    - text: 호스트, 클러스터 및 프라이빗 클라우드
-      url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
-    - text: ID 관리
-      url: /azure/azure-vmware/faq#identity-management
-    - text: 청구 및 지원
-      url: /azure/azure-vmware/faq#billing-and-support
 - title: 시작
   linkLists:
   - linkListType: deploy
@@ -94,12 +74,24 @@ landingContent:
       url: tutorial-scale-private-cloud.md
     - text: 8 - 프라이빗 클라우드 삭제
       url: tutorial-delete-private-cloud.md
+- title: 재해 복구
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: JetStream DR 배포
+      url: deploy-disaster-recovery-using-jetstream.md
+    - text: 재해 복구를 위한 VMware HCX 배포
+      url: deploy-disaster-recovery-using-vmware-hcx.md
+    - text: 재해 복구를 위한 VMware SRM 배포
+      url: disaster-recovery-using-vmware-site-recovery-manager.md
 - title: ID 관리
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 프라이빗 클라우드의 액세스 및 ID
+    - text: 액세스 및 ID
       url: concepts-identity.md
+    - text: vCenter에 대한 ID 원본 구성
+      url: configure-identity-source-vcenter.md
     - text: cloudadmin 자격 증명 회전
       url: rotate-cloudadmin-credentials.md
 - title: Azure VMware Solution 확장
@@ -122,8 +114,6 @@ landingContent:
       url: configure-dns-azure-vmware-solution.md
     - text: 포트 미러링 구성
       url: configure-port-mirroring-azure-vmware-solution.md
-    - text: GitHub Enterprise 서버 구성
-      url: configure-github-enterprise-server.md
     - text: 공용 인터넷 액세스 사용
       url: enable-public-internet-access.md
     - text: vWAN에서 사이트 간 VPN 구성
@@ -132,6 +122,10 @@ landingContent:
       url: configure-windows-server-failover-cluster.md
     - text: 동일한 지역에 여러 프라이빗 클라우드 연결
       url: connect-multiple-private-clouds-same-region.md
+    - text: 스토리지 정책 구성
+      url: configure-storage-policy.md
+    - text: 배치 정책 만들기
+      url: create-placement-policy.md
 - title: Azure 네이티브 통합
   linkLists:
   - linkListType: how-to-guide
@@ -204,8 +198,6 @@ landingContent:
       url: https://youtu.be/BoQYvqzb6Y8
     - text: 마이그레이션 및 용량 계획
       url: https://youtu.be/NoNG-hkksrA
-    - text: Azure Logic App을 사용하여 vCenter 및 NSX-T 암호 회전
-      url: https://youtu.be/cK1qY3knj88
 - title: Azure VMware Solution 리소스 이동
   linkLists:
   - linkListType: reference

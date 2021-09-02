@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
-ms.openlocfilehash: 2f312b98af8fdec65f8b1994e744d59bec558ba3
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: bb4552d068183907b24ff2a0c5b7a9dcce593a25
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112281596"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967816"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS
 
@@ -64,7 +64,7 @@ ms.locfileid: "112281596"
 * [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [Linux에서 SAP용 Azure Virtual Machines 배포(이 문서)][deployment-guide]
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [Red Hat Gluster Storage용 제품 설명서](https://access.redhat.com/documentation/red_hat_gluster_storage/)
+* [Red Hat Gluster Storage용 제품 설명서](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.5)
 * 일반 RHEL 설명서
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)(고가용성 추가 기능 관리)

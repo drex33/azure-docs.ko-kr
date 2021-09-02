@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: seshin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8a1205647f4895407bff9301415249a055990f6e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c1ab7e4f30fbd297bc5aad79a8d250ec55684ddb
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528755"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123215325"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Private Link를 사용하여 Azure Synapse 작업 영역에 연결
 
@@ -44,6 +44,9 @@ ms.locfileid: "122528755"
 **리소스** 탭에서 **내 디렉터리의 Azure 리소스에 연결** 을 선택합니다. Azure Synapse 작업 영역을 포함하는 **구독** 을 선택합니다. Azure Synapse 작업 영역에 대한 프라이빗 엔드포인트를 만들기 위한 **리소스 종류** 는 *Microsoft.Synapse/workspaces* 입니다.
 
 **리소스** 로 Azure Synapse 작업 영역을 선택합니다. 모든 Azure Synapse 작업 영역에는 다음에 대한 프라이빗 엔드포인트를 만들 수 있는 세 개의 **대상 하위 리소스** 가 있습니다. Sql, SqlOnDemand 및 Dev
+- Sql는 SQL 풀에서 SQL 쿼리 실행 시 사용합니다.
+- SqlOnDemand는 SQL 기본 제공 쿼리 실행 시 사용합니다.
+- Dev는 Azure Synapse Analytics Studio 작업 영역 내에서 다른 모든 항목에 액세스할 때 사용합니다.
 
 완료되면 **다음: 구성>** 을 선택하여 설정의 다음 부분으로 이동합니다.
 ![구독 및 지역 세부 정보 선택 2](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)

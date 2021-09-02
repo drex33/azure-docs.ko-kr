@@ -2,16 +2,16 @@
 title: 빠른 시작 - Azure Communication Services를 사용하여 Windows 앱에 통화 추가
 description: 이 빠른 시작에서는 Windows용 Azure Communication Services Calling SDK를 사용하는 방법을 알아봅니다.
 author: tophpalmer
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dc5905ab50932f156e17831356c0998ffd001285
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 5959cb809e9537c5de9ed2dce771a234f742dc08
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201074"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "123078297"
 ---
 이 빠른 시작에서는 Windows용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 

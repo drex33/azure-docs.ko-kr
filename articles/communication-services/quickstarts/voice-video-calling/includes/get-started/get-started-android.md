@@ -2,16 +2,16 @@
 title: 빠른 시작 - Azure Communication Services를 사용하여 Android 앱에 VOIP 통화 추가
 description: 이 자습서에서는 Android용 Azure Communication Services Calling SDK를 사용하는 방법을 알아봅니다.
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 18ac7ba882f82e1c5de29367e3cd27f0f5a260c0
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 3953bdeaed6a20417b321ce89cd6b72ee052058a
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339629"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122970271"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -19,7 +19,7 @@ ms.locfileid: "114339629"
 
 샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)에서 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android 스튜디오](https://developer.android.com/studio)(Android 애플리케이션 만들기용)

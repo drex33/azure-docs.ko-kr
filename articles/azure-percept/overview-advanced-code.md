@@ -1,18 +1,18 @@
 ---
-title: Azure Percept 고급 개발
+title: Azure Percept를 사용한 고급 개발
 description: Azure Percept의 고급 개발 도구에 대한 자세한 정보
-author: mimcco
-ms.author: mimcco
+author: tsampige
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 4abe8e07a8311bab9b6e98746d0fc05bd2e89395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bfa0cc1a853d843ef5c41c4e1d9337accd6f2805
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956114"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221972"
 ---
 # <a name="advanced-development-with-azure-percept"></a>Azure Percept를 사용한 고급 개발
 

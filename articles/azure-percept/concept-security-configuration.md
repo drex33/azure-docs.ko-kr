@@ -1,19 +1,19 @@
 ---
-title: Azure Percept 방화벽 구성 및 보안 권장 사항
+title: Azure Percept 보안 권장 사항
 description: Azure Percept 방화벽 구성 및 보안 권장 사항에 대해 자세히 알아보기
 author: mimcco
-ms.author: mimcco
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: cfc20a30104e24a3950c71bdd8377544803d2f25
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 146b39db7aaae2ee043d14d61a7be4f00363c548
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604416"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222331"
 ---
-# <a name="azure-percept-firewall-configuration-and-security-recommendations"></a>Azure Percept 방화벽 구성 및 보안 권장 사항
+# <a name="azure-percept-security-recommendations"></a>Azure Percept 보안 권장 사항
 
 Azure Percept를 사용하여 방화벽 및 일반적인 보안 모범 사례를 구성하는 방법에 대한 자세한 내용은 아래 지침을 검토하세요.
 
@@ -28,7 +28,7 @@ Azure Percept를 사용하여 방화벽 및 일반적인 보안 모범 사례를
 |*.auth.azureperceptdk.azure.net|443|Azure DK SOM 인증 및 권한 부여|
 |*.auth.projectsantacruz.azure.net|443|Azure DK SOM 인증 및 권한 부여|
 
-또한 [Azure IoT Edge에서 사용하는 연결](https://docs.microsoft.com/azure/iot-edge/production-checklist#allow-connections-from-iot-edge-devices)의 목록을 검토합니다.
+또한 [Azure IoT Edge에서 사용하는 연결](../iot-edge/production-checklist.md#allow-connections-from-iot-edge-devices)의 목록을 검토합니다.
 
 ## <a name="additional-recommendations-for-deployment-to-production"></a>프로덕션 환경에 대한 추가 권장 사항
 

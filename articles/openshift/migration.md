@@ -7,12 +7,12 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: 마이그레이션, ARO, OpenShift, Red Hat
-ms.openlocfilehash: 371672de83a6d745d7b367f8327a64e11059923e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f166b393350971a48b23420daa9917b6ba7bbe1
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653281"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038043"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 3.11에서 Azure Red Hat OpenShift 4로 마이그레이션
 
@@ -94,7 +94,7 @@ Azure Red Hat OpenShift 4는 다음 PersistentVolume 플러그 인을 지원합�
 - NFS
 - Red Hat OpenShift 컨테이너 스토리지
 
-이러한 스토리지 유형 구성에 대한 자세한 내용은 [영구적 스토리지 구성](https://access.redhat.com/documentation/azure_red_hat_openshift/4/html/storage/configuring-persistent-storage)을 참조하세요.
+이러한 스토리지 유형 구성에 대한 자세한 내용은 [영구적 스토리지 구성](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.7/html/storage/configuring-persistent-storage)을 참조하세요.
 
 ### <a name="registry"></a>레지스트리
 

@@ -2,24 +2,24 @@
 title: Azure Communication Services에 대한 채팅 SDK 개요
 titleSuffix: An Azure Communication Services concept document
 description: Azure Communication Services 채팅 SDK에 대해 알아봅니다.
-author: mikben
-manager: jken
+author: knvsl
+manager: chpalm
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 36b528d7899b2b5cda7c05752a7cbb42dec6adbc
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2279761beffa9724a56fe9a4af54787d15a3705a
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459299"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258275"
 ---
 # <a name="chat-sdk-overview"></a>채팅 SDK 개요 
 
 Azure Communication Services 채팅 SDK를 사용하여 다양한 실시간 채팅을 애플리케이션에 추가할 수 있습니다.
-    
+
 ## <a name="chat-sdk-capabilities"></a>채팅 SDK 기능    
 
 다음 목록에서는 현재 Communication Services 채팅 SDK에서 사용할 수 있는 기능 세트를 보여줍니다.  
@@ -41,8 +41,8 @@ Azure Communication Services 채팅 SDK를 사용하여 다양한 실시간 채�
 |                   | 참가자가 채팅 스레드에서 메시지를 적극적으로 입력할 때 알림 받기                                         | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 |                   | 채팅 스레드에서 모든 메시지 가져오기                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | 메시지 콘텐츠의 일부로 유니코드 이모지 보내기                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|                   | 채팅 메시지에 메타데이터 추가                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
-|                   | 표시 이름을 입력 표시기 알림에 추가                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
+|                   | 채팅 메시지에 메타데이터 추가                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ❌    | ✔️   |  
+|                   | 표시 이름을 입력 표시기 알림에 추가                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ❌    | ✔️   |  
 |실시간 알림(독점적인 신호 패키지에서 사용하도록 설정**)|  채팅 클라이언트는 채팅 스레드에서 발생하는 들어오는 메시지 및 기타 작업에 대한 실시간 업데이트를 받기 위해 구독할 수 있습니다. 실시간 알림에 대해 지원되는 업데이트 목록을 보려면 [채팅 개념](concepts.md#real-time-notifications)을 참조하세요.                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 | Azure Event Grid와 통합             | Azure Event Grid에서 사용할 수 있는 채팅 이벤트를 사용하여 사용자 지정 알림 서비스를 연결하거나 해당 이벤트를 웹후크에 게시하여 채팅이 완료된 후 CRM 레코드 업데이트와 같은 비즈니스 논리를 실행합니다.   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
 | 보고 </br>(이 정보는 Azure Portal에서 Communication Services 리소스의 모니터링 탭에서 사용할 수 있습니다.)      | Azure 메트릭 탐색기에서 게시된 메트릭을 모니터링하여 채팅 앱의 API 트래픽을 이해하고 이상을 감지하도록 경고를 설정합니다.     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  

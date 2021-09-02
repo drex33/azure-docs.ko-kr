@@ -48,46 +48,12 @@
       href: concepts-networking.md
     - name: 프라이빗 클라우드 및 클러스터
       href: concepts-private-clouds-clusters.md
+    - name: 명령 실행
+      href: concepts-run-command.md
     - name: 스토리지
       href: concepts-storage.md
 - name: 방법 가이드
   items:
-    - name: Azure VMware Solution 평가 만들기
-      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - name: Azure VMware Solution에 대한 호스트 할당량 요청
-      href: request-host-quota-azure-vmware-solution.md
-    - name: 예약 인스턴스로 비용 절감
-      href: reserved-instance.md
-    - name: 배치 정책 만들기
-      href: create-placement-policy.md
-    - name: 네트워킹 구성
-      items:
-        - name: DHCP 서버 또는 릴레이 구성
-          href: configure-dhcp-azure-vmware-solution.md
-        - name: L2 확장 네트워크에서 DHCP 구성
-          href: configure-l2-stretched-vmware-hcx-networks.md
-        - name: DNS 전달자 구성
-          href: configure-dns-azure-vmware-solution.md
-        - name: 포트 미러링 구성
-          href: configure-port-mirroring-azure-vmware-solution.md
-        - name: 공용 인터넷 액세스 사용
-          href: enable-public-internet-access.md
-        - name: vWAN에서 사이트 간 VPN 구성
-          href: configure-site-to-site-vpn-gateway.md
-    - name: 동일한 지역에 여러 프라이빗 클라우드 연결
-      href: connect-multiple-private-clouds-same-region.md
-    - name: GitHub Enterprise 서버 구성
-      href: configure-github-enterprise-server.md
-    - name: Windows Server 장애 조치(Failover) 클러스터 구성
-      href: configure-windows-server-failover-cluster.md
-    - name: cloudadmin 자격 증명 회전
-      href: rotate-cloudadmin-credentials.md
-    - name: 리소스 이동
-      items:
-        - name: Azure VMware solution 구독 이동
-          href: move-ea-csp-subscriptions.md
-        - name: 지역간 Azure VMware Solution 리소스 이동
-          href: move-azure-vmware-solution-across-regions.md
     - name: Azure 네이티브 통합
       items:
         - name: 'VM 보호, 모니터링 및 관리'
@@ -126,6 +92,60 @@
               href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
             - name: Azure에서 장애 복구
               href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - name: Azure VMware Solution 평가 만들기
+      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+    - name: 배치 정책 만들기
+      href: create-placement-policy.md
+    - name: vCenter에 대한 외부 ID 원본 구성
+      href: configure-identity-source-vcenter.md
+    - name: GitHub Enterprise 서버 구성
+      href: configure-github-enterprise-server.md
+    - name: 네트워킹 구성
+      items:
+        - name: DHCP 서버 또는 릴레이 구성
+          href: configure-dhcp-azure-vmware-solution.md
+        - name: L2 확장 네트워크에서 DHCP 구성
+          href: configure-l2-stretched-vmware-hcx-networks.md
+        - name: DNS 전달자 구성
+          href: configure-dns-azure-vmware-solution.md
+        - name: 포트 미러링 구성
+          href: configure-port-mirroring-azure-vmware-solution.md
+        - name: 공용 인터넷 액세스 사용
+          href: enable-public-internet-access.md
+        - name: vWAN에서 사이트 간 VPN 구성
+          href: configure-site-to-site-vpn-gateway.md
+    - name: 스토리지 정책 구성
+      href: configure-storage-policy.md
+    - name: Windows Server 장애 조치(Failover) 클러스터 구성
+      href: configure-windows-server-failover-cluster.md
+    - name: 동일한 지역에 여러 프라이빗 클라우드 연결
+      href: connect-multiple-private-clouds-same-region.md
+    - name: 재해 복구 배포
+      items:
+        - name: JetStream DR 배포
+          href: deploy-disaster-recovery-using-jetstream.md
+        - name: 재해 복구를 위한 VMware HCX 배포
+          href: deploy-disaster-recovery-using-vmware-hcx.md
+        - name: 재해 복구를 위한 VMware SRM 배포
+          href: disaster-recovery-using-vmware-site-recovery-manager.md
+    - name: 리소스 이동
+      items:
+        - name: Azure VMware solution 구독 이동
+          href: move-ea-csp-subscriptions.md
+        - name: 지역간 Azure VMware Solution 리소스 이동
+          href: move-azure-vmware-solution-across-regions.md
+    - name: Azure VMware Solution에 대한 호스트 할당량 요청
+      href: request-host-quota-azure-vmware-solution.md
+    - name: cloudadmin 자격 증명 회전
+      href: rotate-cloudadmin-credentials.md
+    - name: 예약 인스턴스로 비용 절감
+      href: reserved-instance.md
+    - name: VMware 에코시스템
+      items:
+        - name: VM용 백업 솔루션
+          href: ecosystem-back-up-vms.md
+        - name: VM용 마이그레이션 솔루션
+          href: ecosystem-migration-vms.md
     - name: VMware 솔루션
       items:
         - name: vRealize 작업 구성
@@ -142,12 +162,6 @@
               href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: VMware HCX 어플라이언스 업그레이드
           href: 'https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html'
-    - name: VMware 에코시스템
-      items:
-        - name: VM용 백업 솔루션
-          href: ecosystem-back-up-vms.md
-        - name: VM용 마이그레이션 솔루션
-          href: ecosystem-migration-vms.md
 - name: 리소스
   items:
     - name: 학습 경로
@@ -164,6 +178,8 @@
       items:
         - name: 일반
           href: ./faq.yml
+        - name: 결제
+          href: /azure/azure-vmware/faq#billing
         - name: 고객 커뮤니케이션
           href: /azure/azure-vmware/faq#customer-communication
         - name: 구성 및 설정
@@ -184,8 +200,6 @@
           href: /azure/azure-vmware/faq#identity-management
         - name: CSP 및 다중 테넌트
           href: /azure/azure-vmware/faq#csp-and-multi-tenancy
-        - name: 청구 및 지원
-          href: /azure/azure-vmware/faq#billing-and-support
     - name: 동영상
       items:
         - name: 재생 목록
@@ -196,8 +210,6 @@
           href: 'https://youtu.be/BoQYvqzb6Y8'
         - name: 마이그레이션 및 용량 계획
           href: 'https://youtu.be/NoNG-hkksrA'
-        - name: Azure Logic App을 사용하여 vCenter 및 NSX-T 암호 회전
-          href: 'https://youtu.be/cK1qY3knj88'
 - name: 참조
   items:
     - name: REST API

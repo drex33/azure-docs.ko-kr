@@ -17,12 +17,12 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b3433031beba287d1412d0c2254941b7a3e9e118
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 4970ef21be1e5c440acc871f5ca5583da1916f52
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968407"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728525"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Azure Monitor에서 Azure AD 권한 관리에 대한 로그 및 보고 보관
 
@@ -76,14 +76,15 @@ Azure AD 감사 로그를 보관하려면 Azure 구독에 Azure Monitor가 포�
 
 1. *액세스 패키지 작업* 이라는 통합 문서를 선택합니다. 
 
-1. 해당 통합 문서에서 시간 범위를 선택(확실하지 않은 경우 **모두** 로 변경)하고 해당 시간 범위 중에 작업이 포함된 모든 액세스 패키지의 드롭다운 목록에서 액세스 패키지 ID를 선택합니다. 선택한 시간 범위 중에 발생한 액세스 패키지와 관련 있는 이벤트가 표시됩니다.  
+1. 해당 통합 문서에서 시간 범위를 선택(확실하지 않은 경우 **모두** 로 변경)하고 해당 시간 범위 중에 작업이 포함된 모든 액세스 패키지의 드롭다운 목록에서 액세스 패키지 ID를 선택합니다. 선택한 시간 범위 중에 발생한 액세스 패키지와 관련 있는 이벤트가 표시됩니다.
 
     ![액세스 패키지 이벤트 보기](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
 
-    각 행에는 시간, 액세스 패키지 ID, 작업 이름, 개체 ID, UPN 및 작업을 시작한 사용자의 표시 이름이 포함됩니다.  추가 세부 정보는 JSON에 포함되어 있습니다.   
+    각 행에는 시간, 액세스 패키지 ID, 작업 이름, 개체 ID, UPN 및 작업을 시작한 사용자의 표시 이름이 포함됩니다.  추가 세부 정보는 JSON에 포함되어 있습니다.
 
-1. 전역 관리자가 사용자를 애플리케이션 역할에 직접 할당하는 것과 같이, 액세스 패키지 할당으로 인한 것이 아닌 애플리케이션에 대한 애플리케이션 역할 할당이 변경되었는지 확인하려면 *애플리케이션 역할 할당 작업* 이라는 통합 문서를 선택하면 됩니다.
+1. 전역 관리자가 사용자를 애플리케이션 역할에 직접 할당하는 경우와 같이, 액세스 패키지 할당으로 인해 생성되지 않은 애플리케이션에 대한 애플리케이션 역할 할당이 변경되었는지 확인하려면 ‘애플리케이션 역할 할당 작업’이라는 통합 문서를 선택할 수 있습니다.
 
+    ![앱 역할 할당 보기](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Azure Portal을 이용해 사용자 지정 Azure Monitor 쿼리 만들기
 권한 관리 이벤트를 포함하여 Azure AD 감사 이벤트에 대한 고유 쿼리를 만들 수 있습니다.  
@@ -163,7 +164,7 @@ $subs | ft
  
 `Connect-AzAccount –Subscription $subs[0].id` 같은 명령을 사용하여 해당 구독에 대한 PowerShell 세션을 다시 인증하고 연결할 수 있습니다. 비대화형 기능을 포함하여 PowerShell에서 Azure를 인증하는 방법에 대해 자세히 알아보려면 [Azure PowerShell을 사용하여 로그인](/powershell/azure/authenticate-azureps)을 참조하세요.
 
-해당 구독에 Log Analytics 작업 영역이 여러 개 있는 경우 cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace)에서 작업 영역의 목록을 반환합니다. 그러면 Azure AD 로그가 포함된 작업 영역을 찾을 수 있습니다. 이 cmdlet이 반환하는 `CustomerId` 필드는 Log Analytics 작업 영역 개요의 Azure Portal에 표시되는 "작업 영역 ID"의 값과 동일합니다.
+해당 구독에 Log Analytics 작업 영역이 여러 개 있는 경우 cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace)에서 작업 영역의 목록을 반환합니다. 그러면 Azure AD 로그가 포함된 작업 영역을 찾을 수 있습니다. 이 cmdlet이 반환하는 `CustomerId` 필드는 Log Analytics 작업 영역 개요의 Azure Portal에 표시되는 “작업 영역 ID”의 값과 동일합니다.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace

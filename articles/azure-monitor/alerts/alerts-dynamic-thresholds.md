@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4761550c3d08b66fc949c9b6e2950dc08278eea8
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718066"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592235"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure Monitor에서 동적 임계값을 사용하는 메트릭 경고
 
@@ -22,7 +22,7 @@ ms.locfileid: "101718066"
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>동적 조건 형식은 언제 어떤 이유로 권장되나요?
 
-1. **확장 가능한 경고** – 동적 임계값 경고 규칙은 한 번에 수백 개의 메트릭 시리즈에 대한 맞춤형 임계값을 생성할 수 있지만, 단일 메트릭에 경고 규칙을 정의하는 것과 동일한 용이성을 제공합니다. 이를 통해 생성하고 관리하는 경고의 수를 줄일 수 있습니다. Azure Portal 또는 Azure Resource Manager API를 사용하여 생성할 수 있습니다. 이 확장 가능한 접근 방법은 메트릭 차원을 다루거나 모든 구독 리소스와 같은 여러 리소스에 적용할 때 특히 유용합니다.  [템플릿을 사용하여 동적 임계값으로 메트릭 경고를 구성하는 방법에 자세히 알아봅니다](./alerts-metric-create-templates.md).
+1. **확장 가능한 경고** – 동적 임계값 경고 규칙은 한 번에 수백 개의 메트릭 시리즈에 대한 맞춤형 임계값을 생성할 수 있지만, 단일 메트릭에 경고 규칙을 정의하는 것과 동일한 용이성을 제공합니다. 이를 통해 생성하고 관리하는 경고의 수를 줄일 수 있습니다. Azure Portal 또는 Azure Resource Manager API를 사용하여 생성할 수 있습니다. 이 확장 가능한 접근 방법은 메트릭 차원을 다루거나 모든 구독 리소스와 같은 여러 리소스에 적용할 때 특히 유용합니다. [템플릿을 사용하여 동적 임계값으로 메트릭 경고를 구성하는 방법에 자세히 알아봅니다](./alerts-metric-create-templates.md).
 
 1. **스마트 메트릭 패턴 인식** – ML 기술을 사용하여 메트릭 패턴을 자동으로 검색하고, 종종 계절성(매시간/매일/매주)을 포함할 수 있는 시간에 따른 메트릭 변경에 맞게 조정할 수 있습니다. 시간에 따른 메트릭 동작에 맞게 조정하고, 해당 패턴에서의 편차에 따라 경고를 발생하면 각 메트릭의 "정확한" 임계값을 알지 못해도 됩니다. 동적 임계값에 사용되는 ML 알고리즘은 예상되는 패턴을 따르지 않는 노이즈(낮은 정밀도) 또는 넓은(낮은 재현율) 임계값을 방지하도록 디자인되었습니다.
 

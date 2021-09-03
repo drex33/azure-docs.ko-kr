@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 534efc4723c0a526bd8d607299bbf3ec4effaa86
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: c1d6d7fbac720a6a0f8793e75d08733ce01e0707
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895013"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112322353"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>프리미엄 Azure Cache for Redis 인스턴스에 대한 지역에서 복제 구성
 
@@ -38,6 +38,7 @@ ms.locfileid: "111895013"
 
 일부 기능은 지역에서 복제에서 지원되지 않습니다.
 
+- 영역 중복은 지역에서 복제에서 지원되지 않습니다.
 - 지속성은 지역에서 복제에서 지원되지 않습니다.
 - 두 캐시에 모두 클러스터링이 사용 설정되어 있고 분할 수가 같은 경우 클러스터링이 지원됩니다.
 - 동일한 VNET의 캐시는 지원됩니다.
@@ -45,7 +46,7 @@ ms.locfileid: "111895013"
 
 지역에서 복제를 구성한 후에는 연결된 캐시 쌍에 다음과 같은 제한이 적용됩니다.
 
-- 보조 연결된 캐시는 읽기 전용입니다. 이 캐시에서 읽을 수는 있지만 데이터를 쓸 수 없습니다. Geo-Secondary 인스턴스에서 읽기를 선택하는 경우 Geo-Primary와 Geo-Secondary 간에 전체 데이터 동기화가 발생할 때마다(Geo-Primary 또는 Geo-Secondary가 업데이트되고 일부 재부팅 시나리오에서도 발생함), Geo-Secondary 인스턴스는 Geo-Primary와 Geo-Secondary 간의 전체 데이터 동기화가 완료될 때까지 모든 Redis 작업에 대해 오류(전체 데이터 동기화가 진행 중임을 나타냄)를 throw합니다. Geo-Secondary에서 읽는 애플리케이션은 Geo-Secondary에서 해당 오류가 throw할 때마다 Geo-Primary로 폴백하도록 빌드해야 합니다. 
+- 보조 연결된 캐시는 읽기 전용입니다. 이 캐시에서 읽을 수는 있지만 데이터를 쓸 수 없습니다. Geo-Secondary 인스턴스에서 읽기를 선택하는 경우 Geo-Primary와 Geo-Secondary 간에 전체 데이터 동기화가 발생할 때마다(Geo-Primary 또는 Geo-Secondary가 업데이트되고 일부 재부팅 시나리오에서도 발생함), Geo-Secondary 인스턴스는 Geo-Primary와 Geo-Secondary 간의 전체 데이터 동기화가 완료될 때까지 모든 Redis 작업에 대해 오류(전체 데이터 동기화가 진행 중임을 나타냄)를 throw합니다. Geo-Secondary에서 읽는 애플리케이션은 Geo-Secondary에서 해당 오류가 throw할 때마다 Geo-Primary로 폴백하도록 빌드해야 합니다.
 - 링크를 추가하기 전에 보조 연결된 캐시에 있던 모든 데이터가 제거됩니다. 그러나 나중에 지역에서 복제를 제거하면 복제된 데이터는 보조 연결된 캐시에 유지됩니다.
 - 캐시를 연결하는 동안에는 캐시를 [스케일링](cache-how-to-scale.md)할 수 없습니다.
 - 캐시에 클러스터링이 사용 설정된 경우에는 [분할 수를 변경](cache-how-to-premium-clustering.md)할 수 없습니다.
@@ -58,27 +59,27 @@ ms.locfileid: "111895013"
 
 ## <a name="add-a-geo-replication-link"></a>지역에서 복제 연결 추가
 
-1. 지역에서 복제를 위해 두 캐시를 연결하려면 먼저 기본 연결 캐시로 사용할 캐시의 리소스 메뉴에서 **지역에서 복제** 를 클릭합니다. 그런 다음 **지역에서 복제** 블레이드에서 **캐시 복제 연결 추가** 를 클릭합니다.
+1. 지역에서 복제를 위해 두 캐시를 연결하려면 먼저 기본 연결 캐시로 사용할 캐시의 리소스 메뉴에서 **지역에서 복제** 를 클릭합니다. 그런 다음, 왼쪽에 있는 **지역에서 복제** 에서 **캐시 복제 링크 추가** 를 클릭합니다.
 
     ![링크 추가](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. **호환되는 캐시** 목록에서 원하는 보조 캐시의 이름을 클릭합니다. 보조 캐시가 목록에 표시되지 않으면 보조 캐시에 대한 [지역에서 복제 필수 조건](#geo-replication-prerequisites)이 충족되는지 확인합니다. 지역으로 캐시를 필터링하려면 지도에서 해당 지역을 클릭하여 해당 캐시만 **Compatible caches**(호환되는 캐시) 목록에 표시합니다.
+1. **호환 가능한 캐시** 목록에서 원하는 보조 캐시의 이름을 선택합니다. 보조 캐시가 목록에 표시되지 않으면 보조 캐시에 대한 [지역에서 복제 필수 조건](#geo-replication-prerequisites)이 충족되는지 확인합니다. 지역별로 캐시를 필터링하려면 지도에서 해당 지역을 선택하여 **호환 가능한 캐시** 목록에 해당 캐시만 표시합니다.
 
     ![지역에서 복제 호환되는 캐시](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
-    
+
     상황에 맞는 메뉴를 사용하여 연결 프로세스를 시작하거나 보조 캐시에 대한 세부 정보를 볼 수도 있습니다.
 
     ![지역에서 복제 상황에 맞는 메뉴](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. **링크** 를 클릭하여 두 캐시를 함께 연결하고 복제 프로세스를 시작합니다.
+1. **연결** 을 선택하여 두 캐시를 함께 연결하고 복제 프로세스를 시작합니다.
 
     ![캐시 연결](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. **지역에서 복제** 블레이드에서 복제 프로세스의 진행률을 볼 수 있습니다.
+1. 왼쪽에 있는 **지역에서 복제** 에서 복제 프로세스의 진행률을 볼 수 있습니다.
 
     ![연결 상태](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
-    주 캐시와 보조 캐시에 대한 **개요** 블레이드에서 연결 상태를 볼 수도 있습니다.
+    주 캐시와 보조 캐시에 대한 **개요** 를 사용하여 왼쪽에서 연결 상태를 볼 수도 있습니다.
 
     ![기본 및 보조 캐시의 연결 상태 확인 방법을 보여 주는 스크린샷](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
@@ -90,8 +91,8 @@ ms.locfileid: "111895013"
 
 ## <a name="remove-a-geo-replication-link"></a>지역에서 복제 연결 제거
 
-1. 두 캐시 간 연결을 제거하고 지역에서 복제를 중지하려면 **지역에서 복제** 블레이드에서 **Unlink caches**(캐시 연결 해제)를 클릭합니다.
-    
+1. 두 캐시 간 연결을 제거하고 지역에서 복제를 중지하려면 왼쪽에 있는 **지역에서 복제** 에서 **캐시 연결 해제** 를 클릭합니다.
+
     ![캐시 연결 해제](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
     연결 해제 프로세스가 완료되면 보조 캐시를 읽기 및 쓰기에 사용할 수 있습니다.
@@ -201,5 +202,5 @@ Azure 지역 간 자동 장애 조치(failover)는 지역에서 복제된 캐시
 
 Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
-* [Azure Cache for Redis - 서비스 계층](cache-overview.md#service-tiers)
-* [Azure Cache for Redis의 고가용성](cache-high-availability.md)
+- [Azure Cache for Redis - 서비스 계층](cache-overview.md#service-tiers)
+- [Azure Cache for Redis의 고가용성](cache-high-availability.md)

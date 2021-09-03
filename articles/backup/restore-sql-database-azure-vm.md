@@ -2,13 +2,13 @@
 title: Azure VM에서 SQL Server 데이터베이스 복원
 description: 이 문서에서는 Azure Backup으로 백업되는 Azure VM에서 실행되는 SQL Server 데이터베이스 및 복원하는 방법을 설명합니다. 지역 간 복원을 사용하여 데이터베이스를 보조 지역으로 복원할 수도 있습니다.
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/06/2021
+ms.openlocfilehash: 312cf2918356c44b010097de4abf66be03f172a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97734405"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528211"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -173,7 +173,7 @@ Azure Backup은 다음과 같은 방법으로 Azure VM에서 실행되는 SQL Se
 
 복원 옵션 중 하나인 CRR(지역 간 복원)을 사용하면 Azure 쌍으로 연결된 지역인 보조 지역에서 Azure VM에 호스팅된 SQL 데이터베이스를 복원할 수 있습니다.
 
-미리 보기 중에 기능에 등록하려면 [시작하기 전에 섹션](./backup-create-rs-vault.md#set-cross-region-restore)을 참조하십시오.
+기능에 온보딩하려면 [시작하기 전 섹션](./backup-create-rs-vault.md#set-cross-region-restore)을 참조하세요.
 
 CRR을 사용하도록 설정되어 있는지 확인하려면 [지역 간 복원 구성](backup-create-rs-vault.md#configure-cross-region-restore)의 지침을 따르십시오.
 
@@ -193,19 +193,15 @@ CRR을 사용하도록 설정된 경우 보조 지역에서 백업 항목을 볼
 
 ### <a name="restore-in-secondary-region"></a>보조 지역의 복원
 
-보조 지역 복원 사용자 환경은 주 지역 복원 사용자 환경과 유사합니다. 복원 구성 창에서 세부 정보를 구성하여 복원을 구성하는 경우 보조 지역 매개 변수만 제공하라는 메시지가 표시됩니다.
+보조 지역 복원 사용자 환경은 주 지역 복원 사용자 환경과 유사합니다. 복원 구성 창에서 세부 정보를 구성하여 복원을 구성하는 경우 보조 지역 매개 변수만 제공하라는 메시지가 표시됩니다. 보조 지역에 자격 증명 모음이 있어야 하고, 보조 지역의 자격 증명 모음에 SQL 서버를 등록해야 합니다.
 
 ![복원 위치 및 방법](./media/backup-azure-sql-database/restore-secondary-region.png)
-
->[!NOTE]
->보조 지역의 가상 네트워크는 고유하게 할당해야 하며 해당 리소스 그룹의 다른 VM에는 사용할 수 없습니다.
 
 ![진행 중인 복원 알림 트리거](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
 >[!NOTE]
->
 >- 복원이 트리거되고 데이터 전송 단계에서는 복원 작업을 취소할 수 없습니다.
->- 보조 지역에서 복원하는 데 필요한 Azure 역할은 주 지역의 경우와 동일합니다.
+>- 지역 간 복원 작업을 수행하는 데 필요한 역할/액세스 수준은 구독의 _백업 운영자_ 역할과 원본 및 대상 가상 머신의 _기여자(쓰기)_ 권한입니다. 백업 작업을 보기 위해 구독에서 필요한 최소 권한은 ‘백업 읽기 권한자’입니다.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>보조 지역 복원 작업 모니터링
 

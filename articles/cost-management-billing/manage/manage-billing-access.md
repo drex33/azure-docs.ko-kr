@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 06/27/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 1574149e0587701323cb9ae5ae0c5cfeaccf47c7
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 2aae9775c884f8ccedc1f3ce70025c5331030133
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096409"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112987854"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure의 청구 정보에 대한 액세스 관리
 
@@ -42,7 +42,8 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 
 역할을 할당하려면 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-** EA 고객인 경우 계정 소유자는 팀의 다른 사용자에게 위의 역할을 할당할 수 있습니다. 그러나 이러한 사용자가 청구 정보를 보려면 엔터프라이즈 관리자는 Enterprise Portal에서 AO 보기 요금을 사용하도록 설정해야 합니다.
+> [!note]
+> EA 고객인 경우 계정 소유자는 팀의 다른 사용자에게 위의 역할을 할당할 수 있습니다. 그러나 이러한 사용자가 청구 정보를 보려면 엔터프라이즈 관리자는 Enterprise Portal에서 AO 보기 요금을 사용하도록 설정해야 합니다.
 
 
 ### <a name="allow-users-to-download-invoices"></a><a name="opt-in"></a> 사용자가 청구서를 다운로드하도록 허용
@@ -61,7 +62,7 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 
 1. **청구서** 를 선택한 다음, **청구서에 액세스** 를 선택합니다.
 
-    ![청구서에 대한 액세스를 위임하는 방법을 보여 주는 스크린샷](./media/manage-billing-access/aa-optin01.png)
+    ![청구서에 대한 액세스 권한을 위임하는 방법을 보여 주는 스크린샷](./media/manage-billing-access/aa-optin01.png)
 
 1. **켬** 을 선택하고 저장합니다.
 
@@ -75,39 +76,20 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 
 청구 읽기 권한자 기능은 미리 보기로 제공되며 비전역 클라우드는 아직 지원하지 않습니다.
 
-1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+- 구독 범위에서 사용자에게 청구 읽기 권한자 역할을 할당합니다.  
+     세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-1. **Cost Management + 청구** 에서 검색합니다.
-
-    ![Azure Portal 검색을 보여 주는 스크린샷](./media/manage-billing-access/billing-search-cost-management-billing.png)
-
-1. 왼쪽 창에서 **구독** 을 선택합니다. 액세스에 따라 청구 범위를 선택한 다음, **구독** 을 선택해야 할 수 있습니다.
-
-    ![구독 선택을 보여 주는 스크린샷](./media/manage-billing-access/billing-select-subscriptions.png)
-
-1. **액세스 제어(IAM)** 를 선택합니다.
-1. 페이지 맨 위에서 **추가** 를 선택합니다.
-
-    ![역할 할당 추가 클릭을 보여 주는 스크린샷](./media/manage-billing-access/billing-click-add-role-assignment.png)
-
-1. **역할** 드롭 다운 목록에서 **청구 읽기 권한자** 를 선택합니다.
-1. **선택** 텍스트 상자에 추가하려는 사용자의 이름이나 이메일을 입력합니다.
-1. 사용자를 선택합니다.
-1. **저장** 을 선택합니다.
-    ![저장 단추를 강조 표시하는 스크린샷.](./media/manage-billing-access/billing-save-role-assignment.png)
-
-1. 몇 분이 지나면 사용자에게는 구독의 청구 읽기 권한자 역할이 할당됩니다.
-
-** EA 고객인 경우 계정 소유자 또는 부서 관리자가 청구 읽기 권한자 역할을 팀 멤버에게 할당할 수 있습니다. 단 청구 읽기 권한자가 부서나 계정에 대한 청구 정보를 보려면, 엔터프라이즈 관리자가 Enterprise 포털에서 **AO 요금 보기** 또는 **DA 요금 보기** 정책을 사용하도록 설정해야 합니다.
+> [!NOTE]
+> EA 고객은 계정 소유자 또는 부서 관리자가 청구 읽기 권한자 역할을 팀 멤버에게 할당할 수 있습니다. 단 청구 읽기 권한자가 부서나 계정에 대한 청구 정보를 보려면, 엔터프라이즈 관리자가 Enterprise 포털에서 **AO 요금 보기** 또는 **DA 요금 보기** 정책을 사용하도록 설정해야 합니다.
 
 ## <a name="check-the-type-of-your-billing-account"></a>청구 계정의 유형 확인
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
+
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 
 - 소유자 또는 참가자 등의 다른 역할의 사용자는 청구 정보에 액세스할 수만 있고 Azure 서비스에는 액세스할 수 없습니다. 이러한 역할을 관리하려면 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 - 역할에 대한 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
-
-## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
-
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

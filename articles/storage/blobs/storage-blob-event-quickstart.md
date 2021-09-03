@@ -4,17 +4,17 @@ description: Azure Event Grid를 사용하여 Blob Storage 이벤트를 구독�
 author: normesta
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 03/05/2020
+ms.date: 08/11/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: be726ea6722dca1e44d6e33883a5bb22e6783431
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d05f6086bcf4bc59e9bc7f680139ccaf7660578
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889317"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529746"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 웹 엔드포인트에 스토리지 이벤트 라우팅
 
@@ -160,3 +160,4 @@ az group delete --name <resource_group_name>
 
 - [Blob Storage 이벤트에 응답](storage-blob-event-overview.md)
 - [Event Grid 정보](../../event-grid/overview.md)
+- [Blob 리하이드레이션 이벤트에 대한 응답으로 Azure 함수 실행](archive-rehydrate-handle-event.md)

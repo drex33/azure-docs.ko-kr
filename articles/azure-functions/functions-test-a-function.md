@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 27bc8171509e16f25c508dd71515d8cb25a11b0b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 21bc9991534084ace3be025f1ee0b295ea78558f
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639864"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223809"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -23,6 +23,7 @@ ms.locfileid: "105639864"
 
 - [xUnit을 사용한 Visual Studio의 C#](#c-in-visual-studio)
 - [Jest를 사용한 VS Code의 JavaScript](#javascript-in-vs-code)
+- [pytest를 사용하는 Python](./functions-reference-python.md?tabs=application-level#unit-testing)
 
 샘플 리포지토리는 [GitHub](https://github.com/Azure-Samples/azure-functions-tests)에서 사용할 수 있습니다.
 

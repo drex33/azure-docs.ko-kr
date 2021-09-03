@@ -7,19 +7,23 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 04/12/2021
-ms.openlocfilehash: 107d10bec77ea7bb2b67ae86f48d5b88a286869d
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.date: 07/26/2021
+ms.openlocfilehash: f31aa44237e0312d08a43155db867192d83a57ef
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229507"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722025"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>CEF 및 CommonSecurityLog 필드 매핑
 
 다음 표에서는 CEF(Common Event Format) 필드 이름과 Azure Sentinel에 있는 CommonSecurityLog에서 사용하는 이름 간의 매핑을 보여 주므로, Azure Sentinel에서 CEF 데이터 원본을 사용하여 작업할 때 유용할 수 있습니다.
 
 자세한 내용은 [Common Event Format을 사용하여 외부 솔루션 연결](connect-common-event-format.md)을 참조하세요.
+
+> [!NOTE]
+> Log Analytics로 [CEF 데이터를 수집](connect-common-event-format.md#prerequisites)하려면 Azure Sentinel 작업 영역이 필요합니다.
+>
 
 ## <a name="a---c"></a>A - C
 
@@ -60,7 +64,7 @@ ms.locfileid: "108229507"
 | dproc | DestinationProcessName | 이벤트 대상 프로세스의 이름입니다(예: `telnetd` 또는 `sshd.`). |
 | dpt | DestinationPort | 대상 포트입니다. <br>유효한 값: `*0` - `65535` |
 | dst | DestinationIP | IP 네트워크에서 이벤트가 참조하는 대상 IpV4 주소입니다. |
-| dtz | DeviceTimeZon | 이벤트를 생성하는 디바이스의 표준 시간대입니다. |
+| dtz | DeviceTimeZone | 이벤트를 생성하는 디바이스의 표준 시간대입니다. |
 | duid |DestinationUserId | ID로 대상 사용자를 식별합니다. |
 | duser | DestinationUserName |이름으로 대상 사용자를 식별합니다.|
 | dvc | DeviceAddress | 이벤트를 생성하는 디바이스의 IPv4 주소입니다. |

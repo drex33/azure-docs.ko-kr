@@ -13,12 +13,12 @@ ms.date: 03/11/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: f6e683977781b7522eb23a10fcdb997c3e65938d
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: d3ec7c9786a9b5d3774c05669ae6d51ad443e71d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110783324"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529063"
 ---
 # <a name="manage-your-users-with-my-staff"></a>내 직원으로 사용자 관리
 
@@ -43,17 +43,19 @@ ms.locfileid: "110783324"
 * SMS 기반 인증을 사용하도록 설정하려면 Azure AD 테넌트에 *전역 관리자* 권한이 필요합니다.
 * 문자 메시지 인증 방법 정책에서 설정된 각 사용자는 이를 사용하지 않더라도 라이선스를 부여받아야 합니다. 설정된 각 사용자에게는 다음 Azure AD 또는 Microsoft 365 라이선스 중 하나가 있어야 합니다.
 
-  * [Azure AD Premium P1 또는 P2](https://azure.microsoft.com/pricing/details/active-directory/)
-  * [M365(Microsoft 365) F1 또는 F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
-  * [EMS(Enterprise Mobility + Security) E3 또는 E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) 또는 [M365(Microsoft 365) E3 또는 E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
+  * [Azure AD Premium P1 또는 P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
+  * [Microsoft 365 F1 또는 F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+  * [EMS(Enterprise Mobility + Security) E3 또는 E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) 또는 [Microsoft 365 E3 또는 E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 ## <a name="how-to-enable-my-staff"></a>내 직원을 사용하도록 설정하는 방법
 
 관리 단위를 구성한 후에는 이 범위를 내 직원에 액세스하는 사용자에게 적용할 수 있습니다. 관리자 역할이 할당된 사용자만 내 직원에 액세스할 수 있습니다. 내 직원을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. 사용자 관리자 권한으로 Azure Portal에 로그인합니다.
-2. **Azure Active Directory** > **사용자 설정** > **사용자 기능 미리 보기** > **사용자 기능 미리 보기 설정 관리** 로 이동합니다.
-3. **관리자가 내 직원에 액세스할 수 있음** 아래에서 모든 사용자 또는 선택한 사용자가 액세스할 수 있도록 설정하거나 어떤 사용자도 액세스하지 못하도록 설정할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 사용자 관리자로 로그인합니다.
+
+1. **Azure Active Directory** > **사용자 설정** > **사용자 기능 미리 보기** > **사용자 기능 미리 보기 설정 관리** 를 선택합니다.
+
+1. **관리자가 내 직원에 액세스할 수 있음** 아래에서 모든 사용자 또는 선택한 사용자가 액세스할 수 있도록 설정하거나 어떤 사용자도 액세스하지 못하도록 설정할 수 있습니다.
 
 > [!Note]
 > 관리자 역할이 할당된 사용자만 내 직원에 액세스할 수 있습니다. 관리자 역할이 할당되지 않은 사용자에 대해 내 직원을 사용하도록 설정하더라도 해당 직원은 내 직원에 액세스할 수 없습니다.

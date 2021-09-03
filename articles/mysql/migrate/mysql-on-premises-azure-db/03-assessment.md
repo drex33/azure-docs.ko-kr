@@ -1,5 +1,5 @@
 ---
-title: MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 평가
+title: 'MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 평가'
 description: MySQL 워크로드를 마이그레이션하기 전에 수행해야 하는 많은 실사가 있습니다.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 9d7dc8626e86e7ab93c7a6e76cc426c3904147c2
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 4510cbe04181da7badb10c61bd510bed084580e8
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082988"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284251"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-assessment"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 평가
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-assessment"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 평가
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -82,19 +84,19 @@ MyISAM 데이터베이스와 테이블을 InnoDB 테이블로 변환해야 합�
 
 ```dotnetcli
     SELECT 
-        tab.table_schema,   
-        tab.table_name,   
-        tab.engine as engine_type,   
-        tab.auto_increment,   
-        tab.table_rows,   
-        tab.create_time,   
-        tab.update_time,   
-        tco.constraint_type 
-    FROM information_schema.tables tab   
-    LEFT JOIN information_schema.table_constraints tco   
-        ON (tab.table_schema = tco.table_schema   
-            AND tab.table_name = tco.table_name   
-            )   
+        tab.table_schema,
+        tab.table_name,
+        tab.engine as engine_type,
+        tab.auto_increment,
+        tab.table_rows,
+        tab.create_time,
+        tab.update_time,
+        tco.constraint_type
+    FROM information_schema.tables tab
+    LEFT JOIN information_schema.table_constraints tco
+        ON (tab.table_schema = tco.table_schema
+            AND tab.table_name = tco.table_name
+            )
     WHERE  
         tab.table_schema NOT IN ('mysql', 'information_schema', 'performance_
 schema', 'sys')  
@@ -176,7 +178,7 @@ AWS(Amazon Web Services)와 같은 클라우드 서비스 공급자에서 데이
 
 ### <a name="azure-migrate"></a>Azure Migrate
 
-[Azure Migrate](/azure/migrate/migrate-services-overview)에서는 MySQL 데이터베이스 워크로드를 직접 마이그레이션할 수 없습니다. 하지만 가상 머신에 또는 하드웨어 기반 머신에 호스트되는지에 관계없이 관리자가 어떤 사용자와 어떤 애플리케이션에서 데이터를 사용하는지 잘 모를 때 사용할 수 있습니다. MySQL 워크로드를 호스트하는 머신에서 모니터링 에이전트를 설치하고 실행하면 [종속성 분석](/azure/migrate/concepts-dependency-visualization)을 수행할 수 있습니다. 에이전트는 월과 같은 설정된 기간 동안 정보를 수집합니다. 종속성 데이터를 분석하여 데이터베이스에 대한 알 수 없는 연결을 찾을 수 있습니다. 연결 데이터는 보류 중인 마이그레이션에 대한 알림을 받아야 하는 애플리케이션 소유자를 식별하는 데 도움이 될 수 있습니다.
+[Azure Migrate](../../../migrate/migrate-services-overview.md)에서는 MySQL 데이터베이스 워크로드를 직접 마이그레이션할 수 없습니다. 하지만 가상 머신에 또는 하드웨어 기반 머신에 호스트되는지에 관계없이 관리자가 어떤 사용자와 어떤 애플리케이션에서 데이터를 사용하는지 잘 모를 때 사용할 수 있습니다. MySQL 워크로드를 호스트하는 머신에서 모니터링 에이전트를 설치하고 실행하면 [종속성 분석](../../../migrate/concepts-dependency-visualization.md)을 수행할 수 있습니다. 에이전트는 월과 같은 설정된 기간 동안 정보를 수집합니다. 종속성 데이터를 분석하여 데이터베이스에 대한 알 수 없는 연결을 찾을 수 있습니다. 연결 데이터는 보류 중인 마이그레이션에 대한 알림을 받아야 하는 애플리케이션 소유자를 식별하는 데 도움이 될 수 있습니다.
 
 애플리케이션과 사용자 연결 데이터의 종속성 분석 외에도 Azure Migrate는 [Hyper-V, VMware 또는 물리적 서버](../../../migrate/migrate-appliance-architecture.md)를 분석하여 적절한 대상 환경을 제안하는 데 도움이 되는 데이터베이스 워크로드의 사용 패턴을 제공하는 데 사용될 수 있습니다.
 
@@ -192,7 +194,7 @@ Linux 워크로드는 [MMA(Microsoft Monitoring Agent)](../../../azure-monitor/a
 
   - **기본**: 가벼운 컴퓨팅 및 I/O 성능이 필요한 워크로드
 
-  - **범용**: 확장 가능한 I/O 처리량과 함께 컴퓨팅과 메모리 간의 균형이 필요한 대부분의 비즈니스 워크로드
+  - **범용**: 스케일링 가능한 I/O 처리량과 함께 컴퓨팅과 메모리 간의 균형이 필요한 대부분의 비즈니스 워크로드
 
   - **메모리 최적화**: 보다 빠른 트랜잭션 처리와 우수한 동시성을 위해 메모리 내 성능이 필요한 고성능 데이터베이스 워크로드
 
@@ -207,7 +209,7 @@ Linux 워크로드는 [MMA(Microsoft Monitoring Agent)](../../../azure-monitor/a
 |---------|------|
 | **기본** | 스토리지가 1TB 미만이며 고성능이 필요하지 않은 개발 컴퓨터 |
 | **범용** | 기본 계층이 제공할 수 있는 것보다 더 많은 IOPS가 필요하지만 16TB 미만 스토리지, 4GB 미만 메모리가 필요합니다. |
-| **메모리 최적화** | 높은 동시성 innodb_buffer_pool_instances, 큰 BLOB 크기, 복제 대상이 많은 시스템과 같이 상위 메모리나 높은 캐시, 버퍼 관련 서버 구성을 활용하는 데이터 워크로드 |
+| **메모리 최적화** | 높은 동시성 innodb_buffer_pool_instances, 큰 BLOB 크기, 복제 복사본이 많은 시스템 등, 높은 메모리나 높은 캐시, 버퍼 관련 서버 구성을 활용하는 데이터 워크로드 |
 
 ### <a name="costs"></a>비용
 
@@ -217,28 +219,28 @@ WWI는 [Azure Database for MySQL 가격 계산기](https://azure.microsoft.com/p
 
 | 리소스 | Description | 수량 | 비용 |
 |----------|-------------|----------|------|
-| **컴퓨팅(범용)** | vCore 4개, 20GB                   | 1 @ $0.351/시간                                               | 3074.76달러/년 |
-| **스토리지**                   | 5GB                              | 12 x 150 @ $0.115                                           | 207달러/년     |
-| **Backup**                    | 프로비전된 스토리지의 최대 100% | 프로비전된 서버 스토리지의 최대 100%까지 추가 비용 없음      | 0\.00달러/년    |
-| **읽기 복제본**              | 1초 지역 복제본           | 컴퓨팅 + 스토리지                                           | 3281.76달러/년 |
-| **Network**                   | 5GB 미만/월 송신                | 무료                                                        |               |
-| **합계**                     |                                   |                                                             | 6563.52달러/년 |
+| **컴퓨팅(범용)** | vCore 4개, 20GB                  | 1 @ $0.351/시간                                              | 3074.76달러/년 |
+| **스토리지**                   | 5GB                             | 12 x 150 @ $0.115                                          | 207달러/년     |
+| **Backup**                    | 프로비전된 스토리지의 최대 100%| 프로비전된 서버 스토리지의 최대 100%까지 추가 비용 없음     | 0\.00달러/년    |
+| **읽기 복제본**              | 1초 지역 복제본          | 컴퓨팅 + 스토리지                                          | 3281.76달러/년 |
+| **Network**                   | 5GB 미만/월 송신               | 무료                                                       |               |
+| **합계**                     |                                  |                                                            | 6563.52달러/년 |
 
 WWI의 CIO는 초기 비용을 검토한 후 3년보다 훨씬 긴 기간 동안 Azure를 사용하고 있다는 사실을 확인했습니다. 3년 [예약 인스턴스](../../concept-reserved-pricing.md)를 사용하여 연간 \~4,000달러를 추가로 절약하기로 결정했습니다.
 
 | 리소스 | Description | 수량 | 비용 |
 |----------|-------------|----------|------|
-| **컴퓨팅(범용)** | vCore 4개                          | 1 @ $0.1375/시                                               | 1204.5달러/년 |
-| **스토리지**                   | 5GB                              | 12 x 150 @ $0.115                                            | 207달러/년    |
-| **Backup**                    | 프로비전된 스토리지의 최대 100% | 프로비전된 서버 스토리지의 최대 100%까지 추가 비용 없음       | 0\.00달러/년   |
-| **Network**                   | 5GB 미만/월 송신                | 무료                                                         |              |
-| **읽기 복제본**              | 1초 지역 복제본           | 컴퓨팅 + 스토리지                                            | 1411.5달러/년 |
-| **합계**                     |                                   |                                                              | 2823달러/년   |
+| **컴퓨팅(범용)** | vCore 4개                          | 1 @ $0.1375/시                                              | 1204.5달러/년 |
+| **스토리지**                   | 5GB                              | 12 x 150 @ $0.115                                           | 207달러/년    |
+| **Backup**                    | 프로비전된 스토리지의 최대 100% | 프로비전된 서버 스토리지의 최대 100%까지 추가 비용 없음      | 0\.00달러/년   |
+| **Network**                   | 5GB 미만/월 송신                | 무료                                                        |              |
+| **읽기 복제본**              | 1초 지역 복제본           | 컴퓨팅 + 스토리지                                           | 1411.5달러/년 |
+| **합계**                     |                                   |                                                             | 2823달러/년   |
 
 위 표와 같이 TCO(총 소유 비용)에서 백업, 네트워크 송신 및 모든 읽기 복제본을 고려해야 합니다. 더 많은 데이터베이스가 추가됨에 따라 생성된 스토리지와 네트워크 트래픽을 추가적인 비용 기반 요소로 고려해야 합니다.
 
 > [!NOTE]
-> 위 예상치에 애플리케이션 계층에 대한 [ExpressRoute](/azure/expressroute/expressroute-introduction), [Azure App Gateway](/azure/application-gateway/overview), [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) 또는 [App Service](/azure/app-service/overview) 비용은 포함되지 않습니다.
+> 위 예상치에 애플리케이션 계층에 대한 [ExpressRoute](../../../expressroute/expressroute-introduction.md), [Azure App Gateway](../../../application-gateway/overview.md), [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) 또는 [App Service](../../../app-service/overview.md) 비용은 포함되지 않습니다.
 >
 > 위 가격은 언제든지 변경될 수 있으며 지역에 따라 달라질 수 있습니다.
 
@@ -255,7 +257,7 @@ Azure Database for MySQL로 전환할 때 SSL(Secure Sockets Layer) 기반 통�
 
 ## <a name="wwi-scenario"></a>WWI 시나리오
 
-WWI는 MySQL 데이터 자산에 대한 정보를 수집하여 평가를 시작했습니다. 다음을 컴파일할 수 있었습니다.
+WWI는 다음 표와 같이 MySQL 데이터 자산에 관한 정보를 수집하여 평가를 시작했습니다.
 
 | 속성 | 원본 | Db 엔진 | 크기 | IOPS | 버전 | 소유자 | 가동 중지 시간 |
 |------|--------|-----------|------|------|---------|-------|----------|
@@ -282,6 +284,8 @@ WWI는 MySQL 데이터 자산에 대한 정보를 수집하여 평가를 시작�
   - 가동 중지 시간 요구 사항을 이해합니다.
 
   - 애플리케이션을 변경할 준비를 수행합니다.
+
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [계획](./04-planning.md)

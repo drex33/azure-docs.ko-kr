@@ -1,28 +1,28 @@
 ---
-title: Windows Virtual Desktop에 대한 Azure 다단계 인증 설정 - Azure
-description: Windows Virtual Desktop 보안을 강화하기 위해 Azure 다단계 인증을 설정하는 방법입니다.
+title: Azure Virtual Desktop에 대한 Azure 다단계 인증 설정 - Azure
+description: Azure Virtual Desktop 보안을 강화하기 위해 Azure 다단계 인증을 설정하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 719b4579d97992cdfc3563ccb72b31809569182c
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 6e01b132dd68fd711af30f816df15795991efd41
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107898264"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111754190"
 ---
-# <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대해 Azure Multi-Factor Authentication을 사용하도록 설정
+# <a name="enable-azure-multifactor-authentication-for-azure-virtual-desktop"></a>Azure Virtual Desktop에 대해 Azure 다단계 인증을 사용하도록 설정
 
 >[!IMPORTANT]
-> Windows Virtual Desktop(클래식) 문서에서 이 페이지를 방문한 경우, 완료되면 [Windows Virtual Desktop(클래식) 문서로 돌아가야 합니다](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+> Azure Virtual Desktop(클래식) 문서에서 이 페이지를 방문한 경우, 완료되면 [Azure Virtual Desktop(클래식) 설명서로 돌아가야 합니다](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 
-Windows Virtual Desktop용 Windows 클라이언트는 로컬 컴퓨터와 Windows Virtual Desktop을 통합하는 데 유용한 옵션입니다. 그러나 Windows 클라이언트에 Windows Virtual Desktop 계정을 구성할 때 사용자와 사용자의 안전을 유지하기 위해 수행해야 하는 특정 조치가 있습니다.
+Azure Virtual Desktop용 Windows 클라이언트는 로컬 머신과 Azure Virtual Desktop을 통합하는 데 유용한 옵션입니다. 그러나 Windows 클라이언트에 Azure Virtual Desktop 계정을 구성할 때 사용자와 사용자의 안전을 유지하기 위해 수행해야 하는 특정 조치가 있습니다.
 
 처음 로그인하면 클라이언트에서 사용자 이름, 암호 및 Azure 다단계 인증을 요청합니다. 그런 다음, 클라이언트는 다음에 로그인할 때 Azure AD(Active Directory) 엔터프라이즈 애플리케이션의 토큰을 기억합니다. 세션 호스트의 자격 증명을 요청하는 메시지에서 **이 컴퓨터에 저장** 을 선택하면 사용자는 자격 증명을 다시 입력할 필요 없이 클라이언트를 다시 시작한 후 로그인할 수 있습니다.
 
-자격 증명을 기억하는 것은 편리하지만 엔터프라이즈 시나리오 또는 개인 디바이스에 대한 배포를 덜 안전하게 만들 수도 있습니다. 사용자를 보호하기 위해 클라이언트가 Azure 다단계 인증 자격 증명을 계속 더 자주 요청하도록 할 수 있습니다. 이 문서에서는 Windows Virtual Desktop에 대한 조건부 액세스 정책을 구성하여 이 설정을 사용하도록 설정하는 방법을 보여 줍니다.
+자격 증명을 기억하는 것은 편리하지만 엔터프라이즈 시나리오 또는 개인 디바이스에 대한 배포를 덜 안전하게 만들 수도 있습니다. 사용자를 보호하기 위해 클라이언트가 Azure 다단계 인증 자격 증명을 계속 더 자주 요청하도록 할 수 있습니다. 이 문서에서는 Azure Virtual Desktop에 대한 조건부 액세스 정책을 구성하여 이 설정을 사용하도록 설정하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -33,11 +33,11 @@ Windows Virtual Desktop용 Windows 클라이언트는 로컬 컴퓨터와 Window
 - 모든 사용자에 대해 Azure 다단계 인증을 사용하도록 설정합니다. 이 방법에 대한 자세한 내용은 [사용자에 대해 2단계 인증을 요구하는 방법](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user)을 참조하세요.
 
 > [!NOTE]
-> 다음 설정은 [Windows Virtual Desktop 웹 클라이언트](https://rdweb.wvd.microsoft.com/arm/webclient/index.html)에도 적용됩니다.
+> 다음 설정은 [Azure Virtual Desktop 웹 클라이언트](https://rdweb.wvd.microsoft.com/arm/webclient/index.html)에도 적용됩니다.
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
-Windows Virtual Desktop에 연결할 때 다단계 인증이 필요한 조건부 액세스 정책을 만드는 방법은 다음과 같습니다.
+Azure Virtual Desktop에 연결할 때 다단계 인증이 필요한 조건부 액세스 정책을 만드는 방법은 다음과 같습니다.
 
 1. **Azure Portal** 에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 2. **Azure Active Directory** > **Security** > **조건부 액세스** 로 이동합니다.
@@ -47,25 +47,25 @@ Windows Virtual Desktop에 연결할 때 다단계 인증이 필요한 조건부
 6. **포함** 에서 **사용자 및 그룹 선택** > **사용자 및 그룹** > [필수 조건](#prerequisites) 단계에서 만든 그룹을 선택합니다.
 7. **완료** 를 선택합니다.
 8. **클라우드 앱 또는 작업** > **포함** 에서 **앱 선택** 을 선택합니다.
-9. 사용 중인 Windows Virtual Desktop의 버전에 따라 다음 앱 중 하나를 선택합니다.
+9. 사용 중인 Azure Virtual Desktop의 버전에 따라 다음 앱 중 하나를 선택합니다.
    
-   - Windows Virtual Desktop(클래식)을 사용하는 경우 다음 앱을 선택합니다.
+   - Azure Virtual Desktop(클래식)을 사용하는 경우 다음 앱을 선택합니다.
        
-       - **Windows Virtual Desktop**(앱 ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
-       - **Windows Virtual Desktop 클라이언트**(앱 ID fa4345a4-a730-4230-84a8-7d9651b86739): 웹 클라이언트에서 정책을 설정할 수 있습니다.
+       - **Azure Virtual Desktop**(앱 ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Azure Virtual Desktop 클라이언트**(앱 ID fa4345a4-a730-4230-84a8-7d9651b86739): 웹 클라이언트에서 정책을 설정할 수 있습니다.
        
         그런 다음 11단계로 건너뜁니다.
 
-   - Windows Virtual Desktop을 사용하는 경우 이 앱을 대신 선택합니다.
+   - Azure Virtual Desktop을 사용하는 경우 이 앱을 대신 선택합니다.
        
-       -  **Windows Virtual Desktop**(앱 ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       -  **Azure Virtual Desktop**(앱 ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
        
         그런 다음 10단계로 이동합니다.
 
    >[!IMPORTANT]
-   > Windows Virtual Desktop Azure Resource Manager 공급자라는 앱을 선택하지 마세요(50e95039-b200-4007-bc97-8d5790743a63). 이 앱은 사용자 피드를 검색하는 데만 사용되며 다단계 인증을 사용할 수 없습니다.
+   > Azure Virtual Desktop Azure Resource Manager 공급자라는 앱을 선택하지 마세요(50e95039-b200-4007-bc97-8d5790743a63). 이 앱은 사용자 피드를 검색하는 데만 사용되며 다단계 인증을 사용할 수 없습니다.
    > 
-   > Windows Virtual Desktop(클래식)을 사용하는 경우 조건부 액세스 정책이 모든 액세스를 차단하고 Windows Virtual Desktop 앱 ID만 제외하는 경우 정책에 앱 ID 9cdead84-a844-4324-93f2-b2e6bb768d07을 추가하여 이 문제를 해결할 수 있습니다. 이 앱 ID를 추가하지 않으면 Windows Virtual Desktop(클래식) 리소스의 피드 검색을 차단합니다.
+   > Azure Virtual Desktop(클래식)을 사용하는 경우 조건부 액세스 정책이 모든 액세스를 차단하고 Azure Virtual Desktop 앱 ID만 제외하는 경우 정책에 앱 ID 9cdead84-a844-4324-93f2-b2e6bb768d07을 추가하여 이 문제를 해결할 수 있습니다. 이 앱 ID를 추가하지 않으면 Azure Virtual Desktop(클래식) 리소스의 피드 검색을 차단합니다.
 
 10. **조건** > **클라이언트 앱** 으로 이동합니다. **구성** 에서 **예** 를 선택한 다음 정책을 적용할 위치를 선택합니다.
     
@@ -79,7 +79,7 @@ Windows Virtual Desktop에 연결할 때 다단계 인증이 필요한 조건부
 11. 앱을 선택했으면 **선택** 을 선택한 다음 **완료** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![클라우드 앱 또는 작업 페이지의 스크린샷 Windows Virtual Desktop 및 Windows Virtual Desktop 클라이언트 앱은 빨간색으로 강조 표시됩니다.](media/cloud-apps-enterprise.png)
+    > ![클라우드 앱 또는 작업 페이지의 스크린샷 Azure Virtual Desktop 및 Azure Virtual Desktop 클라이언트 앱은 빨간색으로 강조 표시됩니다.](media/cloud-apps-enterprise.png)
 
     >[!NOTE]
     >선택하려는 앱의 앱 ID를 찾으려면 **엔터프라이즈 애플리케이션** 으로 이동하여 애플리케이션 유형 드롭다운 메뉴에서 **Microsoft 애플리케이션** 을 선택합니다.
@@ -90,7 +90,7 @@ Windows Virtual Desktop에 연결할 때 다단계 인증이 필요한 조건부
 15. **만들기** 를 선택하여 정책을 사용하도록 설정합니다.
 
 >[!NOTE]
->웹 클라이언트를 사용하여 브라우저를 통해 Windows Virtual Desktop에 로그인하는 경우 로그에 클라이언트 앱 ID가 a85cf173-4192-42f8-81fa-777a763e6e2c(Windows Virtual Desktop 클라이언트)로 나열됩니다. 클라이언트 앱이 조건부 액세스 정책이 설정된 서버 앱 ID에 내부적으로 연결되어 있기 때문입니다. 
+>웹 클라이언트를 사용하여 브라우저를 통해 Azure Virtual Desktop에 로그인하는 경우 로그에 클라이언트 앱 ID가 a85cf173-4192-42f8-81fa-777a763e6e2c(Azure Virtual Desktop 클라이언트)로 나열됩니다. 클라이언트 앱이 조건부 액세스 정책이 설정된 서버 앱 ID에 내부적으로 연결되어 있기 때문입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

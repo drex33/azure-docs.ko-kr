@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0a04c6c58f8bfa5370a6529b81a5a85090413a2a
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 6dc086aae55f3b35dbb7dc787df6a65b7ade108f
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107536"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674214"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 보기 및 구성
 
@@ -30,6 +30,12 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 > * DDoS 보호 원격 분석 유효성 검사 및 테스트
 
 ### <a name="metrics"></a>메트릭
+
+메트릭 이름은 다양한 패킷 유형과 바이트 및 패킷을 나타내며, 각 메트릭에서 태그 이름의 기본 구조는 다음과 같습니다.
+
+- **Dropped 태그 이름**(예: **Inbound Packets Dropped DDoS**): DDoS 보호 시스템에서 삭제/스크럽한 패킷의 수입니다.
+- **Forwarded 태그 이름**(예: **Inbound Packets Forwarded DDoS**): DDoS 시스템에서 대상 VIP로 전달한 패킷의 수입니다(필터링되지 않은 트래픽).
+- **태그 이름 없음**(예: **Inbound Packets DDoS**): 스크럽 시스템으로 들어온 패킷의 총 수입니다(삭제 및 전달된 패킷의 합계를 나타냄).
 
 > [!NOTE]
 > **집계** 에 대한 여러 옵션이 Azure Portal에 표시되지만 아래 표에 나열된 집계 유형만 각 메트릭에 대해 지원됩니다. 이러한 혼란에 대해 사과드립니다. 이 문제를 해결하기 위해 노력하고 있습니다.
@@ -70,26 +76,35 @@ Azure DDoS Protection 표준에는 다음 [메트릭](../azure-monitor/essential
 
 ## <a name="view-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 보기
 
-공격에 대한 원격 분석이 Azure Monitor를 통해 실시간으로 제공됩니다. 원격 분석은 공용 IP 주소가 완화된 경우에만 사용할 수 있습니다. 
+공격에 대한 원격 분석이 Azure Monitor를 통해 실시간으로 제공됩니다. TCP SYN용 [완화 트리거](#view-ddos-mitigation-policies)인 TCP 및 UDP는 편한 시간에 사용할 수 있지만, 다른 원격 분석은 공용 IP 주소가 완화된 경우에만 사용할 수 있습니다. 
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인하고 DDoS Protection 계획으로 이동합니다.
+세 가지 리소스 종류인 DDoS 보호 계획, 가상 네트워크, 공용 IP 주소를 통해 보호된 공용 IP 주소에 대한 DDoS 원격 분석을 볼 수 있습니다.
+
+### <a name="ddos-protection-plan"></a>DDoS 보호 계획
+1. [Azure Portal](https://portal.azure.com/)에 로그인하고 DDoS 보호 계획으로 이동합니다.
+2. **모니터링** 아래에서 **메트릭** 을 선택합니다.
+3. **범위** 를 선택합니다. 로깅할 공용 IP 주소가 포함된 **구독** 을 선택하고 **리소스 종류** 로 **공용 IP 주소** 를 선택한 다음, 메트릭을 로깅할 특정 공용 IP 주소를 선택한 후, **적용** 을 선택합니다.
+4. **집계** 유형을 **최대** 로 선택합니다. 
+
+### <a name="virtual-network"></a>가상 네트워크
+1. [Azure Portal](https://portal.azure.com/)에 로그인하고 DDoS 보호가 사용으로 설정된 가상 네트워크로 이동합니다.
 2. **모니터링** 아래에서 **메트릭** 을 선택합니다.
 3. **범위** 를 선택합니다. 로깅할 공용 IP 주소가 포함된 **구독** 을 선택하고 **리소스 종류** 로 **공용 IP 주소** 를 선택한 다음, 메트릭을 로깅할 특정 공용 IP 주소를 선택한 후, **적용** 을 선택합니다.
 4. **집계** 유형을 **최대** 로 선택합니다.
+5. **필터 추가** 를 선택합니다. **속성** 에서 **보호된 IP 주소** 를 선택하고 연산자를 **=** 로 설정해야 합니다. **값** 에는 DDoS 보호를 사용하여 보호되는 가상 네트워크와 연결된 공용 IP 주소의 드롭다운이 표시됩니다. 
 
-메트릭 이름은 다양한 패킷 유형과 바이트 및 패킷을 나타내며, 각 메트릭에서 태그 이름의 기본 구조는 다음과 같습니다.
+![DDoS 진단 설정](./media/ddos-attack-telemetry/vnet-ddos-metrics.png)
 
-- **Dropped 태그 이름**(예: **Inbound Packets Dropped DDoS**): DDoS 보호 시스템에서 삭제/스크럽한 패킷의 수입니다.
-- **Forwarded 태그 이름**(예: **Inbound Packets Forwarded DDoS**): DDoS 시스템에서 대상 VIP로 전달한 패킷의 수입니다(필터링되지 않은 트래픽).
-- **태그 이름 없음**(예: **Inbound Packets DDoS**): 스크럽 시스템으로 들어온 패킷의 총 수입니다(삭제 및 전달된 패킷의 합계를 나타냄).
+### <a name="public-ip-address"></a>공용 IP 주소
+1. [Azure Portal](https://portal.azure.com/)에 로그인하고 공용 IP 주소로 이동합니다.
+2. **모니터링** 아래에서 **메트릭** 을 선택합니다.
+3. **집계** 유형을 **최대** 로 선택합니다.
 
 ## <a name="view-ddos-mitigation-policies"></a>DDoS 완화 정책 보기
 
-DDoS 보호 표준은 DDoS를 사용하도록 설정된 가상 네트워크에서 보호되는 리소스의 각 공용 IP 주소에 대해 자동 조정된 세 가지 완화 정책(TCP SYN, TCP 및 UDP)을 적용합니다. 다음 그림과 같이 **DDoS 완화를 트리거하는 인바운드 TCP 패킷** 및 **집계** 유형이 '최대'인 **DDoS 완화를 트리거하는 인바운드 UDP 패킷** 메트릭을 선택하여 정책 임계값을 볼 수 있습니다.
+DDoS 보호 표준은 DDoS 보호가 사용하도록 설정된 가상 네트워크에서 보호되는 리소스의 각 공용 IP 주소에 대해 자동 조정된 세 가지 완화 정책(TCP SYN, TCP 및 UDP)을 적용합니다. 다음 그림과 같이 **DDoS 완화를 트리거하는 인바운드 TCP 패킷** 및 **집계** 유형이 '최대'인 **DDoS 완화를 트리거하는 인바운드 UDP 패킷** 메트릭을 선택하여 정책 임계값을 볼 수 있습니다.
 
 ![완화 정책 보기](./media/manage-ddos-protection/view-mitigation-policies.png)
-
-정책 임계값은 Azure 기계 학습 기반의 네트워크 트래픽 프로파일링을 통해 자동으로 구성됩니다. 정책 임계값을 위반한 경우에만 공격을 받고 있는 IP 주소에 대해 DDoS 완화가 발생합니다.
 
 ## <a name="validate-and-test"></a>유효성 검사 및 테스트
 

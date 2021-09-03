@@ -8,24 +8,27 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 06/18/2021
 ms.author: justinha
-ms.openlocfilehash: afa6920a36a5a7218571239b36815004d8f2d450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 935abb1a1eae362e3036c323da35aa5fd7b9b018
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619354"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707973"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인에서 DNS를 관리하고 조건부 전달자 만들기
 
-Azure AD DS(Azure Active Directory Domain Services)에서 키 구성 요소는 DNS(도메인 이름 확인)입니다. Azure AD DS에는 관리되는 도메인에 대한 이름 확인을 제공하는 DNS 서버가 포함되어 있습니다. 이 DNS 서버에는 기본 제공 DNS 레코드와 서비스를 실행하는 데 사용할 수 있는 주요 구성 요소에 대한 업데이트가 포함되어 있습니다.
+Azure AD DS에는 관리되는 도메인에 대한 이름 확인을 제공하는 DNS(Domain Name System) 서버가 포함되어 있습니다. 이 DNS 서버에는 기본 제공 DNS 레코드와 서비스를 실행하는 데 사용할 수 있는 주요 구성 요소에 대한 업데이트가 포함되어 있습니다.
 
 사용자 고유의 애플리케이션 및 서비스를 실행하는 경우 도메인에 연결되지 않은 머신에 대한 DNS 레코드를 만들고, 부하 분산 장치에 대한 가상 IP 주소를 구성하거나, 외부 DNS 전달자를 설정해야 할 수 있습니다. *AAD DC 관리자* 그룹에 속한 사용자에게는 Azure AD DS 관리되는 도메인에 대한 DNS 관리 권한이 부여되고 사용자 지정 DNS 레코드를 만들고 편집할 수 있습니다.
 
 하이브리드 환경에서 온-프레미스 AD DS 환경과 같은 다른 DNS 네임스페이스에서 구성된 DNS 영역 및 레코드는 관리되는 도메인에 동기화되지 않습니다. 다른 DNS 네임스페이스의 명명된 리소스를 확인하려면 환경에서 기존 DNS 서버를 가리키는 조건부 전달자를 만들고 사용합니다.
 
 이 문서에서는 DNS 서버 도구를 설치한 다음 DNS 콘솔을 사용하여 Azure AD DS에서 레코드를 관리하고 조건부 전달자를 만드는 방법을 보여 줍니다.
+
+>[!NOTE]
+>서버 수준 DNS 전달자를 만들거나 변경하는 기능은 지원되지 않으며 Azure AD DS 관리되는 도메인과 관련된 문제가 발생합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

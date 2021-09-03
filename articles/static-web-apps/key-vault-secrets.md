@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/17/2021
 ms.author: cshoe
-ms.openlocfilehash: cc0ced1a6c91bf2e7960e638c295d33a45db135e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3f373122d6d68e6435cfe7083115c91718e05a09
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073345"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528757"
 ---
 # <a name="securing-authentication-secrets-in-azure-key-vault"></a>Azure Key Vault에서 인증 비밀 보호
 
@@ -24,11 +24,16 @@ ms.locfileid: "110073345"
 - ID에 대한 액세스 키 자격 증명 모음 비밀 액세스를 부여합니다.
 - 정적 웹앱 애플리케이션 설정에서 키 자격 증명 모음 비밀을 참조하세요.
 
-이 문서에서는 애플리케이션에서 이러한 각 항목을 설정하는 방법을 보여 줍니다.
+이 문서에서는 [BYOF(Bring Your Own Functions) 애플리케이션](./functions-bring-your-own.md)용 프로덕션에서 위의 각 항목을 설정하는 방법을 보여 줍니다.
+
+Key Vault 통합은 다음에 사용할 수 없습니다.
+
+- [정적 웹앱의 스테이징 버전](./review-publish-pull-requests.md). Key Vault 통합은 프로덕션 환경에서만 지원됩니다.
+- [관리형 함수를 사용하는 정적 웹앱](./apis.md). 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 기존 Azure Static Web Apps 사이트
+- [BYOF(Bring Your Own Functions)](./functions-bring-your-own.md)를 사용하는 기존의 Azure Static Web Apps 사이트
 - 비밀 값이 있는 기존 Key Vault 리소스
 
 ## <a name="create-identity"></a>ID 만들기

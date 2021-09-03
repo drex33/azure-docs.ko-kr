@@ -5,28 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 05/27/2021
+ms.date: 07/13/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
-ms.reviewer: mal
 ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c971c93d873bb8326b986cfd771ef96b615f2131
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 7068ff38338e92843a957f50f63309412b63b31c
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110612769"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113759801"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 협업 문제 해결
 
 Azure AD(Azure Active Directory) B2B 협업과 관련된 일반적인 문제에 대한 몇 가지 해결책은 다음과 같습니다.
 
    > [!IMPORTANT]
-   > - **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
+   >
+   > - **2021년 7월 12일부터**, Azure AD B2B 고객이 사용자 지정 또는 기간 업무 애플리케이션에 대한 셀프 서비스 등록과 함께 사용하기 위해 새로운 Google 통합을 설정하는 경우 인증이 시스템 웹 보기로 이동될 때까지 Google ID를 사용한 인증이 작동하지 않습니다. [자세히 알아보기](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **2021년 9월 30부터** Google은 [포함된 웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. 앱이 포함된 웹 보기로 사용자를 인증하고 [외부 사용자 초대](google-federation.md) 또는 [셀프 서비스 등록](identity-providers.md)을 위해 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) 또는 Azure AD B2B와 함께 Google 페더레이션을 사용하는 경우 Google Gmail 사용자는 인증할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비 단계로, 고객은 현재 일반 공급 중인 [메일 일회용 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>외부 사용자를 추가했지만 [전체 주소 목록]이나 사용자 선택에서 볼 수 없습니다.
@@ -66,6 +67,10 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 이 문제를 해결하려면 외부 사용자의 관리자가 사용자 계정을 Azure Active Directory와 동기화해야 합니다.
 
+### <a name="external-user-has-a-proxyaddress-that-conflicts-with-a-proxyaddress-of-an-existing-local-user"></a>외부 사용자에게 기존 로컬 사용자의 proxyAddress와 충돌하는 proxyAddress가 있습니다.
+
+사용자를 테넌트로 초대할 수 있는지 여부를 확인할 때 확인해야 하는 한 가지는 proxyAddress의 충돌입니다. 여기에는 홈 테넌트에서 사용자의 proxyAddresses 및 테넌트에서 로컬 사용자의 proxyAddress가 포함됩니다. 외부 사용자의 경우 기존 B2B 사용자의 proxyAddress에 메일을 추가합니다. 로컬 사용자의 경우 이미 있는 계정을 사용하여 로그인하도록 요청할 수 있습니다.
+
 ## <a name="i-cant-invite-an-email-address-because-of-a-conflict-in-proxyaddresses"></a>ProxyAddresses의 충돌 때문에 메일 주소를 초대할 수 없습니다.
 
 이 충돌은 디렉터리의 다른 개체가 해당 proxyAddresses 중 하나와 동일한 초대 메일 주소를 가질 때 발생합니다. 이 충돌을 해결하려면 이 메일을 다시 초대하기 전에 [user](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) 개체에서 이메일을 제거하고 연결된 [연락처](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) 개체도 삭제합니다.
@@ -87,7 +92,9 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 초대 대상자는 ISP 또는 스팸 필터를 확인하여 Invites@microsoft.com 주소가 허용되는지 확인해야 합니다.
 
 > [!NOTE]
-> 중국의 21Vianet에서 운영하는 Azure 서비스의 경우 발신자 주소는 Invites@oe.21vianet.com입니다.
+>
+> - 중국의 21Vianet에서 운영하는 Azure 서비스의 경우 발신자 주소는 Invites@oe.21vianet.com입니다.
+> - Azure AD Government 클라우드의 경우 보낸 사람 주소는 invites@azuread.us입니다.
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>사용자 지정 메시지가 초대 메시지에 포함되지 않는다는 것을 확인했습니다.
 
@@ -135,6 +142,15 @@ Azure 미국 정부 클라우드 내에서 B2B 공동 작업은 현재 Azure 미
 1. PowerShell 명령 `Restore-AzureADDeletedApplication -ObjectId {id}`를 실행합니다. 명령의 `{id}` 부분을 이전 단계의 `ObjectId`로 바꿉니다.
 
 이제 Azure Portal에 복원된 앱이 표시됩니다.
+
+## <a name="a-guest-user-was-invited-successfully-but-the-email-attribute-is-not-populating"></a>게스트 사용자가 성공적으로 초대되었지만 메일 특성이 채워지지 않음
+
+이미 디렉터리에 있는 사용자 개체와 일치하는 메일 주소를 가진 게스트 사용자를 실수로 초대한다고 가정해 보겠습니다. 게스트 사용자 개체가 만들어지지만 메일 주소는 `mail` 또는 `proxyAddresses` 속성이 아니라 `otherMail` 속성에 추가됩니다. 이 문제를 방지하기 위해 다음 PowerShell 단계를 사용하여 Azure AD 디렉터리에서 충돌하는 사용자 개체를 검색할 수 있습니다.
+
+1. Azure AD PowerShell 모듈을 열고 `Connect-AzureAD`를 실행합니다.
+1. 중복 연락처 개체를 확인하려는 Azure AD 테넌트의 전역 관리자로 로그인합니다.
+1. PowerShell 명령 `Get-AzureADContact -All $true | ? {$_.ProxyAddresses -match 'user@domain.com'}`를 실행합니다.
+1. PowerShell 명령 `Get-AzureADContact -All $true | ? {$_.Mail -match 'user@domain.com'}`를 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

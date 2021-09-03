@@ -6,12 +6,12 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: ef47a97381c0c01afb13b66495167795c49b03c3
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 50200c4116dd8186a4ba51725f5880d25c753923
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531095"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272406"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -183,7 +183,7 @@ Content-type: application/json
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
-      "kyName": "key-name",
+      "keyName": "key-name",
       "keyVersion": "current-version"
   },
   "sku": {
@@ -214,7 +214,7 @@ Content-type: application/json
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
-      "kyName": "key-name",
+      "keyName": "key-name",
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
@@ -414,7 +414,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결된 작업 영역
 - 현재 중국에서는 Lockbox를 사용할 수 없습니다. 
 
 - [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)는 지원되는 지역에서 2020년 10월부터 만들어진 클러스터에 자동으로 구성됩니다. 클러스터에서 GET 요청을 보내고 이중 암호화가 사용 가능한 클러스터의 `isDoubleEncryptionEnabled` 값이 `true`인지 관찰하여 클러스터가 이중 암호화로 구성되었는지 확인할 수 있습니다. 
-  - 클러스터를 만들 때 "region-name은 클러스터의 이중 암호화를 지원하지 않습니다" 오류가 발생하는 경우 REST 요청 본문에 `"properties": {"isDoubleEncryptionEnabled": false}`를 추가하여 이중 암호화 없이 클러스터를 만들 수 있습니다.
+  - 클러스터를 만들 때 “region-name은 클러스터의 이중 암호화를 지원하지 않습니다.” 오류가 발생하는 경우 REST 요청 본문에 `"properties": {"isDoubleEncryptionEnabled": false}`를 추가하여 이중 암호화 없이 클러스터를 만들 수 있습니다.
   - 클러스터를 만든 후에는 이중 암호화 설정을 변경할 수 없습니다.
 
   - 클러스터의 `identity` `type`을 `None`으로 설정하면 데이터에 대한 액세스도 철회되지만, 이 접근 방식은 지원 담당자에게 문의하지 않고 되돌릴 수 없기 때문에 권장되지 않습니다. 데이터에 대한 액세스를 철회하는 데 권장되는 방법은 [키 해지](#key-revocation)입니다.
@@ -455,9 +455,9 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결된 작업 영역
   -  400 -- 요청 본문이 null이거나 형식이 잘못되었습니다.
   -  400 -- SKU 이름이 잘못되었습니다. SKU 이름을 capacityReservation으로 설정합니다.
   -  400 -- 용량이 제공되었지만 SKU가 capacityReservation이 아닙니다. SKU 이름을 capacityReservation으로 설정합니다.
-  -  400 -- SKU의 용량이 누락되었습니다. 용량 값을 500, 1000, 2000 또는 5000GB/일로 설정합니다.
+  -  400 -- SKU의 용량이 누락되었습니다. 용량 값을 500, 1,000, 2,000 또는 5,000GB/일로 설정합니다.
   -  400 -- 용량이 30일 동안 잠겨 있습니다. 업데이트 30일 후에는 용량을 줄일 수 있습니다.
-  -  400 -- SKU가 설정되지 않았습니다. SKU 이름을 capacityReservation으로 설정하고 용량 값을 500, 1000, 2000 또는 5000GB/일로 설정합니다.
+  -  400 -- SKU가 설정되지 않았습니다. SKU 이름을 capacityReservation으로 설정하고 용량 값을 500, 1,000, 2,000 또는 5,000GB/일로 설정합니다.
   -  400 -- ID가 null이거나 비어 있습니다. SystemAssigned 유형으로 ID를 설정합니다.
   -  400 -- KeyVaultProperties는 만들 때 설정됩니다. 클러스터를 만든 후 KeyVaultProperties를 업데이트합니다.
   -  400 -- 지금은 작업을 실행할 수 없습니다. 비동기 작업이 성공함 이외의 상태에 있습니다. 업데이트 작업을 수행하기 전에 클러스터에서 해당 작업을 완료해야 합니다.

@@ -4,13 +4,13 @@ description: Bicep으로 확장 리소스 종류를 배포할 때 범위 속성�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 59b6576dfb1bd5e0ac4f56e6a59b6ea4d5c4b5f4
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/30/2021
+ms.openlocfilehash: a899622c22d68217fd4fbf73e495f89885f4d7ba
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027247"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531159"
 ---
 # <a name="set-scope-for-extension-resources-in-bicep"></a>Bicep에서 확장 리소스의 범위 설정
 
@@ -25,9 +25,9 @@ ms.locfileid: "111027247"
 
 ## <a name="apply-at-deployment-scope"></a>배포 범위에서 적용
 
-대상 배포 범위에서 확장 리소스 종류를 적용하려면 리소스 종류에서와 마찬가지로 템플릿에 리소스를 추가합니다. 사용 가능한 범위는 [리소스 그룹](deploy-to-resource-group.md), [구독](deploy-to-subscription.md), [관리 그룹](deploy-to-management-group.md) 및 [테넌트](deploy-to-tenant.md)입니다. 배포 범위가 리소스 종류를 지원해야 합니다.
+대상 배포 범위에서 확장 리소스 종류를 적용하려면 다른 리소스 종류에서와 마찬가지로 템플릿에 리소스를 추가합니다. 사용 가능한 범위는 [리소스 그룹](deploy-to-resource-group.md), [구독](deploy-to-subscription.md), [관리 그룹](deploy-to-management-group.md) 및 [테넌트](deploy-to-tenant.md)입니다. 배포 범위가 리소스 종류를 지원해야 합니다.
 
-다음 템플릿에서는 잠금을 배포합니다.
+리소스 그룹에 배포된 경우 다음 템플릿은 해당 리소스 그룹에 잠금을 추가합니다.
 
 ```bicep
 resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
@@ -39,7 +39,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 }
 ```
 
-다음 예제에서는 역할을 할당합니다.
+다음 예제는 배포된 구독에 역할을 할당합니다.
 
 ```bicep
 targetScope = 'subscription'
@@ -75,7 +75,7 @@ resource roleAssignSub 'Microsoft.Authorization/roleAssignments@2020-04-01-previ
 
 ## <a name="apply-to-resource"></a>리소스에 적용
 
-리소스에 확장 리소스를 적용하려면 `scope` 속성을 사용합니다. Scope 속성을 확장을 추가하는 리소스의 이름으로 설정합니다. Scope 속성은 확장 리소스 유형의 루트 속성입니다.
+리소스에 확장 리소스를 적용하려면 `scope` 속성을 사용합니다. 범위 속성에서 확장을 추가하는 리소스를 참조합니다. 리소스의 기호 이름을 제공하여 리소스를 참조합니다. Scope 속성은 확장 리소스 유형의 루트 속성입니다.
 
 다음 예제에서는 스토리지 계정을 만들고 여기에 역할을 적용합니다.
 
@@ -102,7 +102,7 @@ var role = {
 }
 var uniqueStorageName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource storageName 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2019-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -118,10 +118,24 @@ resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-p
     roleDefinitionId: role[builtInRoleType]
     principalId: principalId
   }
-  scope: storageName
-  dependsOn: [
-    storageName
-  ]
+  scope: demoStorageAcct
+}
+```
+
+기존 리소스에 확장 리소스를 적용할 수 있습니다. 다음 예제에서는 기존 스토리지 계정에 잠금을 추가합니다.
+
+```bicep
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
+  name: 'examplestore'
+}
+
+resource createStorageLock 'Microsoft.Authorization/locks@2016-09-01' = {
+  name: 'storeLock'
+  scope: demoStorageAcct
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Storage account should not be deleted.'
+  }
 }
 ```
 

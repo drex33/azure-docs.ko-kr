@@ -5,12 +5,12 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.openlocfilehash: c2456fcfffd9645f94856998142f262298b5eef9
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 250396771733d13732d1ac02ef1e57a15d6ca3b8
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581465"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530323"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -257,7 +257,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
     * Red Hat Enterprise Linux(RHEL) 6.x
     * Oracle Linux(OL) 6.x
 * Linux의 경우 통합 에이전트 설치 디렉터리의 모든 폴더 액세스 권한은 이제 로컬 사용자로만 제한되었습니다.
-* Windows의 경우 SQL Server 및 SharePoint 클러스터와 같이 부하가 심한 분산 애플리케이션에서 일반적인 분산 일관성 북마크를 발급할 때 발생한 시간 제한 문제가 해결되었습니다.
+* Windows의 경우 SQL Server 및 SharePoint 클러스터와 같이 부하가 심한 분산 애플리케이션에서 일반적인 분산 일관성 책갈피를 발급할 때 발생한 시간 제한 문제가 해결되었습니다.
 * 구성 서버 기본 설치 관리자와 관련된 로그가 수정되었습니다.
 * VMware vCLI 6.0에 대한 다운로드 링크가 Windows 마스터 대상 기본 설치 관리자에 추가되었습니다.
 * 장애 조치 및 재해 복구 훈련 중에 네트워크 구성 변경에 대한 추가 검사 및 로그가 추가되었습니다.

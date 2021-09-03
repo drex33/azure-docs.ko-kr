@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/08/2020
+ms.date: 08/09/2021
 ms.author: rolyon
-ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fc3d614ef26235325e0b9a9e8fee68d2bf919a5
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555924"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529540"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Azure RBAC의 범위 이해
 
@@ -69,7 +69,7 @@ Azure에서는 [관리 그룹](../governance/management-groups/overview.md), 구
 > | 범위 | 예제 |
 > | --- | --- |
 > | 관리 그룹 | `/providers/Microsoft.Management/managementGroups/marketing-group` |
-> | Subscription | `/subscriptions/00000000-0000-0000-0000-000000000000` |
+> | 구독 | `/subscriptions/00000000-0000-0000-0000-000000000000` |
 > | Resource group | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg` |
 > |  | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales` |
 > | 리소스 | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/azurestorage12345/blobServices/default/containers/blob-container-01` |
@@ -119,6 +119,18 @@ Azure에서는 [관리 그룹](../governance/management-groups/overview.md), 구
         "type": "Microsoft.Authorization/roleAssignments"
       }
     ```
+
+## <a name="scope-and-arm-templates"></a>범위 및 ARM 템플릿
+
+역할 할당은 ‘확장 리소스’라고 하는 Azure Resource Manager의 특수한 유형입니다. 확장 리소스는 다른 리소스의 기능에 추가되는 리소스입니다. 항상 또 다른 리소스의 확장(자식과 같음)으로서 존재합니다. 예를 들어 구독 범위의 역할 할당은 구독의 확장 리소스입니다. 역할 할당의 이름은 항상 확장 중인 리소스의 이름과 `/Microsoft.Authorization/roleAssignments/{roleAssignmentId}`입니다. ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 역할을 할당하는 경우 일반적으로 범위를 제공할 필요가 없습니다. 그 이유는 범위 필드가 항상 확장 중인 리소스의 ID가 되기 때문입니다. 범위는 역할 할당 자체의 ID로부터 확인할 수 있습니다. 다음 표는 역할 할당 ID 및 해당 범위의 예를 보여 줍니다.
+
+> [!div class="mx-tableFixed"]
+> | 역할 할당 ID | 범위 |
+> | --- | --- |
+> | `/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}` | `/subscriptions/{subscriptionId}` |
+> | `/subscriptions/{subscriptionId}/resourceGroups/Example-Storage-rg/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}` | `/subscriptions/{subscriptionId}/resourceGroups/Example-Storage-rg` |
+
+범위 및 ARM 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당](role-assignments-template.md)을 참조하세요. 확장 리소스 종류의 전체 목록은 [다른 리소스의 기능을 확장하는 리소스 종류](../azure-resource-manager/management/extension-resource-types.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,21 +4,21 @@ description: 원격 데스크톱 연결을 허용하기 위해 Azure 클라우�
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 8fa0d3c0e29c53e6fe9cb32ddf02168686be1efe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f66b962224a756947637a5a291825e1c2b0987ae
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743256"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530515"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic"></a>Azure Cloud Services(클래식)의 역할에 대해 원격 데스크톱 연결 사용
 
 > [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다. 이러한 변경으로 AzureService Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌었으며 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -63,7 +63,7 @@ Azure Portal에서는 애플리케이션이 배포된 후에도 원격 데스크
 4. **열기** 를 클릭한 후 **연결** 을 클릭하여 원격 데스크톱 연결을 시작합니다.
 
 >[!NOTE]
-> 클라우드 서비스가 NSG 뒤에 있는 경우 포트 **3389** 및 **20000** 의 트래픽을 허용하는 규칙을 만들어야 할 수 있습니다.  원격 데스크톱은 포트 **3389** 를 사용합니다.  클라우드 서비스 인스턴스에서 부하가 분산되므로 연결할 인스턴스를 직접 제어할 수 없습니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트가 RDP 트래픽을 관리하고 클라이언트에서 RDP 쿠키를 전송하고 연결할 개별 인스턴스를 지정할 수 있도록 합니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트를 사용하려면 포트 **20000***이 열려 있어야 합니다. 이 포트는 NSG가 있으면 차단될 수 있습니다.
+> 클라우드 서비스가 NSG 뒤에 있는 경우 포트 **3389** 및 **20000** 의 트래픽을 허용하는 규칙을 만들어야 할 수 있습니다.  원격 데스크톱은 포트 **3389** 를 사용합니다.  클라우드 서비스 인스턴스에서 부하가 분산되므로 연결할 인스턴스를 직접 제어할 수 없습니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트가 RDP 트래픽을 관리하고 클라이언트에서 RDP 쿠키를 전송하고 연결할 개별 인스턴스를 지정할 수 있도록 합니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트를 사용하려면 포트 **20000** 이 열려 있어야 합니다. 이 포트는 NSG가 있으면 차단될 수 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

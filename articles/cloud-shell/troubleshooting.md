@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60743cdbc48d695c0c98c6e34273a0c407fef546
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87543455"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529089"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -158,7 +158,7 @@ Azure Cloud Shell은 개인 데이터를 중대하게 사용하며, Azure Cloud 
 Bash:
 
   ```
-  token="Bearer $(curl http://localhost:50342/oauth2/token --data &quot;resource=https://management.azure.com/&quot; -H Metadata:true -s | jq -r &quot;.access_token")"
+  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
   curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
   ```
 
@@ -175,22 +175,22 @@ PowerShell:
 >[!Note]
 > 사용자 설정을 삭제하는 경우 실제 Azure Files 공유는 삭제되지 않습니다. 해당 작업을 완료하려면 Azure Files로 이동합니다.
 
-1. [![시작 Azure Cloud Shell 레이블이 지정된 단추를 표시하는 이미지.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+1. Azure PowerShell 또는 Azure CLI가 설치된 상태에서 Cloud Shell 또는 로컬 셸을 시작합니다.
 
 2. Bash 또는 PowerShell에서 다음 명령을 실행합니다.
 
 Bash:
 
   ```
-  token="Bearer $(curl http://localhost:50342/oauth2/token --data &quot;resource=https://management.azure.com/&quot; -H Metadata:true -s | jq -r &quot;.access_token")"
+  token=(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
   ```
 
 PowerShell:
 
   ```powershell
-  $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
-  Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
+  $token= (Get-AzAccessToken -Resource  https://management.azure.com/).Token
+  Invoke-WebRequest -Method Delete -Uri https://management.azure.com?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
 ## <a name="azure-government-limitations"></a>Azure Government 제한 사항
 Azure Government의 Azure Cloud Shell은 Azure Portal을 통해서만 액세스할 수 있습니다.

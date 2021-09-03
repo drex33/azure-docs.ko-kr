@@ -6,14 +6,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 9b9315705896dcec4e7a3baa2ad962ca04036a48
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: d5087994a72b52ce091dac98987b8e0bc60e287e
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732093"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224738"
 ---
 # <a name="configure-host-scaling-preview"></a>호스트 크기 조정 구성(미리 보기)
 
@@ -21,8 +21,7 @@ ms.locfileid: "113732093"
 
 ## <a name="configuration-steps"></a>구성 단계
 
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
+1. [Azure Portal](https://ms.portal.azure.com)에 로그인합니다.
 1. Azure Portal에서 Bastion 호스트로 이동합니다.
 1. 호스트 크기 조정 인스턴스 수에는 표준 계층이 필요합니다. **구성** 페이지에서 **계층** 에 대해 계층이 **표준** 인지 확인합니다. 계층이 기본인 경우 드롭다운에서 **표준** 을 선택합니다. 
 

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 08/03/2021
 ms.author: victorh
-ms.openlocfilehash: 51af9ff4972f5edef02426a6e81e8582123c9a7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b331180e40d1baf92a3c1408f3e003a257fa114a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98107857"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528773"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Azure Firewall을 사용하여 AKS(Azure Kubernetes Service) 배포 보호
 
@@ -21,6 +21,10 @@ AKS(Azure Kubernetes Service)는 Azure에서 관리되는 Kubernetes 클러스�
 Kubernetes는 가상 머신의 클러스터를 오케스트레이션하고 사용 가능한 컴퓨팅 리소스 및 각 컨테이너의 리소스 요구 사항에 따라 해당 가상 머신에서 실행하도록 컨테이너를 예약합니다. 컨테이너는 Pod, Kubernetes의 기본 운영 단위로 그룹화되며, 이러한 Pod는 원하는 상태로 스케일링됩니다.
 
 관리와 운영을 목적으로 AKS 클러스터의 노드는 특정 포트와 FQDN(정규화된 도메인 이름)에 액세스해야 합니다. 이러한 작업에는 API 서버와 통신 또는 코어 Kubernetes 클러스터 구성 요소와 노드 보안 업데이트를 다운로드하여 설치하기 등이 있습니다. Azure Firewall을 통해 사용자 환경을 잠그고 아웃바운드 트래픽을 필터링할 수 있습니다.
+
+개요를 보려면 Jorge Cortes의 다음 비디오를 시청하세요.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWIcAo]
 
 이 문서의 지침에 따라 Azure Firewall을 사용하여 Azure Kubernetes 클러스터에 대한 추가 보호를 제공합니다.
 

@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 09a23e9e1e4508b10003f95f6e8c3502ea214d64
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 74ce915d5183315ab3a9ef57c8913ac6b7a3a9f1
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109733770"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112415393"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
@@ -38,7 +38,7 @@ ms.locfileid: "109733770"
 [Azure AD 자격 증명](disk-encryption-windows-aad.md#)에 암호화가 사용하도록 설정된 경우 대상 VM은 Azure Active Directory 엔드포인트 및 Key Vault 엔드포인트 모두에 대한 연결을 허용해야 합니다. 현재 Azure Active Directory 인증 엔드포인트는 [Microsoft 365 URL 및 IP 주소 범위](/microsoft-365/enterprise/urls-and-ip-address-ranges) 설명서의 56 및 59 섹션에서 유지 관리됩니다. Key Vault 지침은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](../../key-vault/general/access-behind-firewall.md)하는 방법에 관한 설명서에서 제공됩니다.
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
-VM은 VM 내에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소(`169.254.169.254`)를 사용하는 [Azure Instance Metadata 서비스](../windows/instance-metadata-service.md) 엔드포인트에 액세스할 수 있어야 합니다.  이 주소에 대한 로컬 HTTP 트래픽(예: X-Forwarded-For 헤더)을 변경하는 프록시 구성은 지원되지 않습니다.
+VM은 Azure 플랫폼 리소스 통신에 사용되는 [Azure Instance Metadata Service](../windows/instance-metadata-service.md) 엔드포인트(`169.254.169.254`) 및 [가상 공용 IP 주소](../../virtual-network/what-is-ip-address-168-63-129-16.md)(`168.63.129.16`)에 액세스할 수 있어야 합니다. 이 주소에 대한 로컬 HTTP 트래픽을 변경하는(예: X-Forwarded-For 헤더 추가) 프록시 구성은 지원되지 않습니다.
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Windows Server 2016 Server Core 문제 해결
 

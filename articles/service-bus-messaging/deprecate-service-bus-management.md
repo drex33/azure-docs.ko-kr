@@ -2,17 +2,17 @@
 title: Azure 메시징 서비스 - Service Manager에서 Resource Manager로
 description: 이 문서에서는 사용되지 않는 Azure Service Manager REST API 및 PowerShell cmdlet을 Resource Manager REST API 및 PowerShell cmdlet으로 매핑을 설명합니다.
 ms.topic: article
-ms.date: 04/13/2021
-ms.openlocfilehash: 68b4327f1b7b698b379b0b380b79dffbe240b781
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 08/31/2021
+ms.openlocfilehash: 3ae280b6b8491129f2300c938cc5ec121241fa72
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412568"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303148"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Azure Service Bus, Relay 및 Event Hubs에 대한 Azure Service Manager 지원 중단
 
-차세대 클라우드 인프라 스택인 Resource Manager는 “클래식" Azure 서비스 관리 모델(클래식 배포 모델)을 완전히 대체합니다. 따라서 클래식 배포 모델 REST API와 Service Bus, Relay, Event Hubs에 대한 지원은 2021년 11월 1일에 사용 중지됩니다. 이 사용 중단은 [Microsoft 기술 커뮤니티 공지](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Deprecating-Service-Management-support-for-Azure-Service-Bus/ba-p/370909)에서 처음 발표되었지만 최근에 중단 기간을 원래 발표 시점에서 2년 더 연장하기로 결정했습니다. 쉽게 식별하기 위해 이러한 API는 URI에 `management.core.windows.net`이 포함되어 있습니다. 사용되지 않는 API 및 현재 사용해야 하는 Azure Resource Manager API 버전 목록은 다음 표를 참조하세요.
+차세대 클라우드 인프라 스택인 Resource Manager는 “클래식" Azure 서비스 관리 모델(클래식 배포 모델)을 완전히 대체합니다. 따라서 클래식 배포 모델 REST API와 Service Bus, Relay, Event Hubs에 대한 지원은 2021년 11월 1일에 사용 중지됩니다. 이 사용 중단은 [Microsoft 기술 커뮤니티 알림](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Deprecating-Service-Management-support-for-Azure-Service-Bus/ba-p/370909)에서 처음 발표되었습니다. 쉽게 식별하기 위해 이러한 API는 URI에 `management.core.windows.net`이 포함되어 있습니다. 사용되지 않는 API 및 현재 사용해야 하는 Azure Resource Manager API 버전 목록은 다음 표를 참조하세요.
 
 Service Bus, Relay, Event Hubs를 계속 사용하려면 2021년 10월 31일까지 Resource Manager로 이동합니다. 이전 API를 사용하는 모든 고객은 리소스 그룹화, 태그, 간소화된 배포 및 관리 프로세스, Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하는 세분화된 액세스 제어를 포함하는 Resource Manager의 추가 이점을 활용하기 위해 곧 전환하는 것이 좋습니다.
 
@@ -59,7 +59,7 @@ Service Bus/Event Hub/Relay<br/>```PUT https://management.core.windows.net/{subs
 | [Get-AzureSBNamespace](/powershell/module/servicemanagement/azure.service/get-azuresbnamespace) | [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace) | [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace) |
 | [New-AzureSBAuthorizationRule](/powershell/module/servicemanagement/azure.service/new-azuresbauthorizationrule) | [New-AzureRmServiceBusAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusauthorizationrule) | [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule) |
 | [New-AzureSBNamespace](/powershell/module/servicemanagement/azure.service/new-azuresbnamespace) | [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace) | [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace) |
-| [Remove-AzureRmRelayAuthorizationRule](/powershell/module/azurerm.relay/remove-azurermrelayauthorizationrule) | [Remove-AzureRmEventHubAuthorizationRule](/powershell/module/azurerm.eventhub/remove-azurermeventhubauthorizationrule) | [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) |
+| [Remove-AzureSBAuthorizationRule](/powershell/module/servicemanagement/azure.service/remove-azuresbauthorizationrule0) | [Remove-AzureRmServiceBusAuthorizationRule](/powershell/module/azurerm.servicebus/remove-azurermservicebusauthorizationrule) | [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) |
 | [Remove-AzureSBNamespace](/powershell/module/servicemanagement/azure.service/remove-azuresbnamespace) | [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace) | [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace) |
 | [Set-AzureSBAuthorizationRule](/powershell/module/servicemanagement/azure.service/set-azuresbauthorizationrule) | [Set-AzureRmServiceBusAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusauthorizationrule) | [Set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule) |
 

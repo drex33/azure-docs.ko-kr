@@ -12,12 +12,12 @@ author: rothja
 ms.author: jroth
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 0d811953b191a661682767262c899b98119cdbc8
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 75f30fe7263d14538ad14588a56aafecde96a126
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786208"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528846"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>새 지역으로 리소스 이동 - Azure SQL Database 및 Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,6 +40,9 @@ ms.locfileid: "110786208"
 > [!NOTE]
 > 이 문서는 Azure 공용 클라우드 내에서 또는 동일한 소버린 클라우드 내에서의 마이그레이션에 적용됩니다.
 
+> [!NOTE]
+> Azure SQL 데이터베이스 및 탄력적 풀을 다른 Azure 지역으로 이동하려면 Azure Resource Mover(미리 보기)를 사용할 수도 있습니다. 동일한 작업을 수행하기 위한 자세한 단계는 [이 자습서](../../resource-mover/tutorial-move-region-sql.md)를 참조하세요.
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="move-a-database"></a>데이터베이스 이동
@@ -49,7 +52,13 @@ ms.locfileid: "110786208"
 1. 각 원본 서버에 대한 대상 서버를 만듭니다.
 1. [PowerShell](scripts/create-and-configure-database-powershell.md)을 사용하여 적절한 예외로 방화벽을 구성합니다.  
 1. 올바른 로그인을 사용하여 서버를 구성합니다. 구독 관리자 또는 SQL Server 관리자가 아닌 경우에는 관리자와 협력하여 필요한 권한을 할당받습니다. 자세한 내용은 [재해 복구 후 Azure SQL Database 보안을 관리하는 방법](active-geo-replication-security-configure.md)을 참조하세요.
-1. 데이터베이스가 투명한 데이터 암호화로 암호화되고 Azure Key Vault에서 사용자 고유의 암호화 키를 사용하는 경우, 대상 지역에 올바른 암호화 자료를 프로비전해야 합니다. 자세한 내용은 [Azure Key Vault의 고객 관리형 키를 사용한 Azure SQL 투명한 데이터 암호화](transparent-data-encryption-byok-overview.md)를 참조하세요.
+1. 데이터베이스가 TDE(투명한 데이터 암호화)로 암호화되고 Azure Key Vault에서 BYOK(Bring Your Own Key) 또는 CMK(고객 관리형 키)를 사용하는 경우, 대상 지역에 올바른 암호화 자료를 프로비저닝해야 합니다. 
+    - 이 작업을 수행하는 가장 간단한 방법은 기존 키 자격 증명 모음의 암호화 키(원본 서버에서 TDE 보호기로 사용됨)를 대상 서버에 추가한 다음, 대상 서버에서 키를 TDE 보호기로 설정하는 것입니다.
+      > [!NOTE]
+      > 이제 한 지역의 서버 또는 관리형 인스턴스를 다른 지역의 주요 자격 증명 모음에 연결할 수 있습니다.
+    - 대상 서버가 이전 암호화 키(데이터베이스 백업 복원에 필요)에 액세스하도록 보장하는 가장 좋은 방법은 원본 서버에서 [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet을 실행하거나, 원본 관리형 인스턴스에서 [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) cmdlet을 실행하여 사용 가능한 키 목록을 반환하고 해당 키를 대상 서버에 추가하는 것입니다.
+    - 대상 서버에서 고객 관리형 TDE를 구성하는 방법에 대한 자세한 내용과 모범 사례는 [Azure Key Vault에서 고객 관리형 키를 사용한 Azure SQL 투명한 데이터 암호화](transparent-data-encryption-byok-overview.md)를 참조하세요.
+    - 키 자격 증명 모음을 새 지역으로 이동하려면 [지역 간에 Azure 키 자격 증명 모음 이동](../../key-vault/general/move-region.md)을 참조하세요. 
 1. 데이터베이스 수준 감사를 사용하도록 설정된 경우 이를 사용하지 않고 대신 서버 수준 감사를 사용하도록 설정합니다. 장애 조치(failover) 후 데이터베이스 수준 감사에는 이동 후 원하지 않거나 가능하지 않은 지역 간 트래픽이 필요합니다.
 1. 서버 수준 감사의 경우 다음을 확인합니다.
    - 기존 감사 로그가 포함된 스토리지 컨테이너, Log Analytics 또는 이벤트 허브가 대상 지역으로 이동됩니다.

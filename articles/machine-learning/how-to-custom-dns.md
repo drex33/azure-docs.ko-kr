@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 08/03/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
-ms.openlocfilehash: 3ed8a3623163ef5f596508cd7073a68eec3fe297
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6395f88f4841ef5447b8dfef5310fba6e0440e32
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566798"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771457"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
@@ -34,7 +34,7 @@ ms.locfileid: "122566798"
 > * [보안 유추 환경](how-to-secure-inferencing-vnet.md)
 > * [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [자체 DNS 서버](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)를 사용하는 Azure Virtual Network입니다.
 
@@ -285,14 +285,17 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
     **Azure 퍼블릭 지역**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
+    - ```instances.ml.azure.us```
     
     **Azure 중국 지역**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
+    - ```instances.ml.azure.cn```
     
     **Azure US Government 지역**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
+    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > DNS 서버의 구성 단계는 여기에 포함되지 않습니다. 사용자 지정 DNS 서버로 사용할 수 있는 많은 DNS 솔루션이 사용 가능하기 때문입니다. 조건부 전달을 적절하게 구성하는 방법은 DNS 솔루션에 관한 설명서를 참조하세요.
@@ -415,14 +418,17 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
     **Azure 퍼블릭 지역**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
+    - ```instances.ml.azure.us```     
     
     **Azure 중국 지역**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
-    
+    - ```instances.ml.azure.cn```
+
     **Azure US Government 지역**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
+    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > DNS 서버의 구성 단계는 여기에 포함되지 않습니다. 사용자 지정 DNS 서버로 사용할 수 있는 많은 DNS 솔루션이 사용 가능하기 때문입니다. 조건부 전달을 적절하게 구성하는 방법은 DNS 솔루션에 관한 설명서를 참조하세요.
@@ -436,14 +442,17 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
     **Azure 퍼블릭 지역**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
+    - ```instances.ml.azure.us```
     
     **Azure 중국 지역**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
+    - ```instances.ml.azure.cn```
     
     **Azure US Government 지역**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
+    - ```instances.ml.azure.us```
 
     > [!IMPORTANT]
     > DNS 서버의 구성 단계는 여기에 포함되지 않습니다. 사용자 지정 DNS 서버로 사용할 수 있는 많은 DNS 솔루션이 사용 가능하기 때문입니다. 조건부 전달을 적절하게 구성하는 방법은 DNS 솔루션에 관한 설명서를 참조하세요.

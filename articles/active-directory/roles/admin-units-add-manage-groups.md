@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9a7b08f792c36ecf0f65e37f2f9e9c551bca8c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c824ee3a8365261fa6409bf79904cde1b409fc26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088141"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536050"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory의 관리 단위에서 그룹 추가 및 관리
 
@@ -45,21 +45,29 @@ Azure Portal, PowerShell 또는 Microsoft Graph를 사용하여 관리 단위에
 
 * **그룹** 창에서 다음을 수행합니다.
 
-  1. Azure Portal에서 **Azure AD** 로 이동합니다.
-  1. **그룹** 을 선택하고 관리 단위에 할당할 그룹을 선택합니다. 
+  1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+  1. **Azure Active Directory** > **그룹** 을 선택합니다.
+
+  1. 관리 단위에 할당할 그룹을 선택합니다.
+
   1. 왼쪽 창에서 **관리 단위** 를 선택하여 그룹이 할당된 관리 단위 목록을 표시합니다. 
 
      !["관리 단위" 창에 있는 "관리 단위에 할당" 링크의 스크린샷](./media/admin-units-add-manage-groups/assign-to-group-1.png)
 
   1. **관리 단위에 할당** 을 선택합니다.
+
   1. 오른쪽 창에서 관리 단위를 선택합니다.
 
-* **관리 단위** > **모든 그룹** 창에서 다음을 수행합니다.
+* **관리 단위** > **그룹** 창에서 다음을 수행합니다.
 
-  1. Azure Portal에서 **Azure AD** 로 이동합니다.
+  1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+  1. **Azure Active Directory** > **관리 단위** 를 선택합니다.
   
-  1. 왼쪽 창에서 **관리 단위** 를 선택한 다음, **모든 그룹** 을 선택합니다. 
-     관리 단위에 이미 할당된 모든 그룹은 오른쪽 창에 표시됩니다. 
+  1. 그룹을 추가할 관리 단위를 선택합니다.
+  
+  1. **그룹** 을 선택합니다. 관리 단위에 이미 할당된 모든 그룹은 오른쪽 창에 표시됩니다. 
 
   1. **그룹** 창에서 **추가** 를 선택합니다.
     오른쪽 창에는 Azure AD 조직에서 사용 가능한 모든 그룹이 나열됩니다. 

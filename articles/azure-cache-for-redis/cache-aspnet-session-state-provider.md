@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
-ms.openlocfilehash: ce77f5074d707da5cfb251a103653b96e4644b5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78610123c984196740d39cb209d1eff5ca380f06
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92544531"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284369"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자
 
@@ -25,7 +25,6 @@ Azure Cache for Redis는 메모리 내 또는 SQL Server 데이터베이스가 �
 Azure Cache for Redis 세션 상태 NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 애플리케이션을 구성하려면 **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔** 을 차례로 클릭합니다.
 
 `Package Manager Console` 창에서 다음 명령을 실행합니다.
-    
 
 ```powershell
 Install-Package Microsoft.Web.RedisSessionStateProvider
@@ -33,8 +32,8 @@ Install-Package Microsoft.Web.RedisSessionStateProvider
 
 > [!IMPORTANT]
 > 프리미엄 계층에서 클러스터링 기능을 사용하는 경우 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 이상을 사용하지 않으면 예외가 throw됩니다. 2.0.1 이상 버전으로 이동하는 주요 변경 내용입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 사항](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)을 참조하세요. 이 문서를 업데이트할 당시 이 패키지의 현재 버전은 2.2.3입니다.
-> 
-> 
+>
+>
 
 Reids 세션 상태 제공자 NuGet 패키지는 StackExchange.Redis.StrongName 패키지에 종속성을 갖습니다. StackExchange.Redis.StrongName 패키지가 프로젝트에 나타나지 않는 경우 설치됩니다.
 
@@ -80,7 +79,7 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 
 주석 처리된 섹션은 특성의 예와 각 특성의 샘플 설정을 제공합니다.
 
-Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스하는 방법에 대한 지침은 [Azure Cache for Redis 설정 구성](cache-configure.md#configure-azure-cache-for-redis-settings)을 참조하세요.
+Microsoft Azure Portal의 캐시 왼쪽에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스하는 방법에 대한 지침은 [Azure Cache for Redis 설정 구성](cache-configure.md#configure-azure-cache-for-redis-settings)을 참조하세요.
 
 * **호스트** – 캐시 엔드포인트를 지정합니다.
 * **포트** – TLS 설정에 따라 비-TLS/SSL 포트 또는 TLS/SSL 포트를 사용합니다.
@@ -116,8 +115,8 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 
 > [!IMPORTANT]
 > 기본값 메모리 내 ASP.NET 세션 상태 제공자에 저장될 수 있는 데이터와 달리 캐시에 저장된 데이터는 직렬화할 수 있어야 합니다. Redis에 세션 상태 제공자를 사용하면 세션 상태에 저장되는 데이터 형식을 직렬화할 수 있는지 확인해야 합니다.
-> 
-> 
+>
+>
 
 ## <a name="aspnet-session-state-options"></a>ASP.NET 세션 상태 옵션
 
@@ -135,3 +134,4 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Cache for Redis에 대한 ASP.NET 출력 캐시 제공자](cache-aspnet-output-cache-provider.md)를 확인합니다.
+

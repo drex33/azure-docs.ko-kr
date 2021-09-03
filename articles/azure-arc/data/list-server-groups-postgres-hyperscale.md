@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 7577ca4b8a1d7db7ea99aadfef4fd2a445b66425
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7254ed303e45c69f291aa5c7a06f63390aaed162
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90940792"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529351"
 ---
 # <a name="list-the-azure-arc-enabled-postgresql-hyperscale-server-groups-created-in-an-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러에서 만든 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 나열
 
@@ -24,10 +24,11 @@ ms.locfileid: "90940792"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="from-cli-with-azdata"></a>azdata를 사용하는 CLI에서
+## <a name="from-cli-with-azure-cli-extension-az"></a>Azure CLI 확장(az)이 있는 CLI에서
+
 이 명령의 일반적인 형식은 다음과 같습니다.
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 다음과 같은 출력을 반환합니다.
@@ -38,8 +39,8 @@ postgres01  Ready    2
 postgres02  Ready    2
 ```
 이 명령에 사용할 수 있는 매개 변수에 대한 자세한 내용을 보려면 다음을 실행하세요.
-```console
-azdata arc postgres server list --help
+```azurecli
+az postgres arc-server list --help
 ```
 
 ## <a name="from-cli-with-kubectl"></a>kubectl을 사용하는 CLI에서

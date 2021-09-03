@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: landing-page
 ms.workload: identity
-ms.date: 03/09/2021
+ms.date: 06/23/2021
 ms.author: jeedes
 ms.custom: contperf-fy21q3-portal
 ms.reviewer: celested
-ms.openlocfilehash: eda1ad058bf969351122cb9df1b528341067a186
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: b14873d0a1a7d158d27bbd6a730d1f4f4d92d3b9
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105640890"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112554902"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서
 
@@ -86,6 +86,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![logo-Evernote](./media/tutorial-list/active-directory-saas-evernote-tutorial.png)| [Evernote](evernote-tutorial.md)|
 | ![logo-ExpenseIn](./media/tutorial-list/active-directory-saas-expensein-tutorial.png)| [ExpenseIn](expensein-tutorial.md)|
 | ![logo-EZOfficeInventory](./media/tutorial-list/active-directory-saas-ezofficeinventory-tutorial.png)| [EZOfficeInventory](ezofficeinventory-tutorial.md)|
+| ![logo-FAX.PLUS](./media/tutorial-list/active-directory-saas-fax-plus-tutorial.png)| [FAX.PLUS](fax-plus-tutorial.md)|
 | ![logo-Foodee](./media/tutorial-list/active-directory-saas-foodee-tutorial.png)| [Foodee](foodee-tutorial.md)|
 | ![logo-Freedcamp](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|
 | ![logo-Freshservice](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|
@@ -99,6 +100,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![logo-Kendis - Azure AD 통합](./media/tutorial-list/active-directory-saas-kendis-azure-ad-integration.png)| [Kendis - Azure AD Integration](kendis-scaling-agile-platform-tutorial.md)|
 | ![logo-Knowledge Anywhere LMS](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
 | ![logo-Litmus](./media/tutorial-list/active-directory-saas-litmus-tutorial.png)| [Litmus](litmus-tutorial.md)|
+| ![logo-LogMeIn](./media/tutorial-list/active-directory-saas-logmein-tutorial.png)| [LogMeIn](logmein-tutorial.md)|
 | ![logo-Marketo](./media/tutorial-list/active-directory-saas-marketo-tutorial.png)| [Marketo](marketo-tutorial.md)|
 | ![logo-Meraki Dashboard](./media/tutorial-list/active-directory-saas-meraki-dashboard-tutorial.png)| [Meraki Dashboard](meraki-dashboard-tutorial.md)|
 | ![logo-monday.com](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|
@@ -111,6 +113,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![logo-productboard](./media/tutorial-list/active-directory-saas-productboard-tutorial.png)| [productboard](productboard-tutorial.md)|
 | ![logo-PurelyHR](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|
 | ![logo-RingCentral](./media/tutorial-list/active-directory-saas-ringcentral-tutorial.png)| [RingCentral](ringcentral-tutorial.md)|
+| ![logo-Saba Cloud](./media/tutorial-list/active-directory-saas-saba-cloud-tutorial.png)| [Saba Cloud](saba-cloud-tutorial.md)|
 | ![logo-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)|
 | ![logo-SAP Cloud Platform Identity Authentication](./media/tutorial-list/active-directory-saas-sap-hana-tutorial.png)| [SAP Cloud Platform Identity Authentication](sap-hana-cloud-platform-identity-authentication-tutorial.md)|
 | ![logo-ScaleX Enterprise](./media/tutorial-list/active-directory-saas-scalex-enterprise-tutorial.png)| [ScaleX Enterprise](scalex-enterprise-tutorial.md)|
@@ -132,6 +135,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![logo-Way We Do](./media/tutorial-list/active-directory-saas-waywedo-tutorial.png)| [Way We Do](waywedo-tutorial.md)|
 | ![logo-Whimsical](./media/tutorial-list/active-directory-saas-whimsical-tutorial.png)| [Whimsical](whimsical-tutorial.md)|
 | ![logo-WhosOffice](./media/tutorial-list/active-directory-saas-whosoffice-tutorial.png)| [WhosOffice](whosoffice-tutorial.md)|
+| ![logo-Wootric](./media/tutorial-list/active-directory-saas-wootric-tutorial.png)| [Wootric](wootric-tutorial.md)|
 | ![logo-Workplace by Facebook](./media/tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Workplace by Facebook](workplacebyfacebook-tutorial.md)|
 | ![logo-Workteam](./media/tutorial-list/active-directory-saas-workteam-tutorial.png)| [Workteam](workteam-tutorial.md)|
 | ![logo-XaitPorter](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2b6b3e9a6bdead4e4da7f1a829698d86cfbf52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9eeed96b87aa5c115994ee73d1985526b26af11
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92366176"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528607"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>조건부 액세스: Azure 관리용 MFA 필요
 
@@ -26,7 +26,7 @@ ms.locfileid: "92366176"
 * Azure PowerShell
 * Azure CLI
 
-이러한 도구는 구독 수준 구성, 서비스 설정 및 구독 청구를 변경할 수 있는, 리소스에 대한 높은 권한의 액세스를 제공할 수 있습니다. 이러한 권한 있는 리소스를 보호하기 위해 이러한 리소스에 액세스하는 모든 사용자에 대해 다단계 인증을 요구하는 것이 좋습니다.
+이러한 도구는 구독 수준 구성, 서비스 설정 및 구독 청구를 변경할 수 있는, 리소스에 대한 높은 권한의 액세스를 제공할 수 있습니다. 이러한 권한 있는 리소스를 보호하기 위해 이러한 리소스에 액세스하는 모든 사용자에 대해 다단계 인증을 요구하는 것이 좋습니다. Azure AD에서 이러한 도구는 [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management)라는 도구 모음으로 그룹화됩니다. Azure Government의 경우 Azure Government Cloud Management API 앱이어야 합니다. 
 
 ## <a name="user-exclusions"></a>사용자 제외
 
@@ -39,18 +39,17 @@ ms.locfileid: "92366176"
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
-다음 단계를 통해 [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) 앱에 액세스 권한이 있는 사용자에게 다단계 인증을 수행하도록 요구하는 조건부 액세스 정책을 만들 수 있습니다.
+다음 단계를 통해 [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) 도구 모음에 액세스 권한이 있는 사용자에게 다단계 인증을 수행하도록 요구하는 조건부 액세스 정책을 만들 수 있습니다.
 
 1. **Azure Portal** 에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스** 로 이동합니다.
 1. **새 정책** 을 선택합니다.
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
-1. **할당** 에서 **사용자 및 그룹** 을 선택합니다.
+1. **할당** 아래에서 **사용자 및 그룹** 을 선택합니다.
    1. **포함** 에서 **모든 사용자** 를 선택합니다.
    1. **제외** 에서 **사용자 및 그룹** 을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료** 를 선택합니다.
 1. **클라우드 앱 또는 작업** > **포함** 에서 **앱 선택** 을 선택하고, **Microsoft Azure Management**, **선택**, **완료** 를 차례로 선택합니다.
-1. **조건** > **클라이언트 앱(미리 보기)** 의 **이 정책이 적용될 클라이언트 앱 선택** 에서 모든 기본값을 선택한 상태로 두고 **완료** 를 선택합니다.
 1. **액세스 제어** > **권한 부여** 에서 **액세스 권한 부여**, **다단계 인증 요구**, **선택** 을 차례로 선택합니다.
 1. 설정을 확인하고 **정책 사용** 을 **켜기** 로 설정합니다.
 1. **만들기** 를 선택하여 정책을 만들어 사용하도록 설정합니다.
@@ -59,6 +58,6 @@ ms.locfileid: "92366176"
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
+[조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)

@@ -11,28 +11,28 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/19/2021
+ms.date: 07/21/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 547e48e9cecb672c5274bc001178b2ea2aaf47af
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: fee1aab009bdbf84acf1a73244d6686db50e4e3f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577654"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450709"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 아키텍처
 
 이 문서에서는 Azure의 SAP HANA(대규모 인스턴스)(BareMetal Infrastructure라고도 함)를 배포하기 위한 아키텍처를 설명합니다. 
 
-Azure의 SAP HANA(대규모 인스턴스) 솔루션에는 높은 수준에서 VM(가상 머신)에 상주하는 SAP 애플리케이션 계층이 있습니다. 데이터베이스 계층은 Azure IaaS VM과 동일한 Azure 지역에 있는 SAP 인증 HANA(대규모 인스턴스)에 있습니다.
+Azure의 SAP HANA(대규모 인스턴스) 솔루션에는 높은 수준에서 VM(가상 머신)에 상주하는 SAP 애플리케이션 계층이 있습니다. 데이터베이스 계층은 SAP 인증 HLI(HANA 대규모 인스턴스)에 있습니다. HLI는 Azure IaaS VM과 동일한 Azure 지역에 있습니다.
 
 > [!NOTE]
 > SAP DBMS(데이터베이스 관리 시스템) 계층과 동일한 Azure 지역에 SAP 애플리케이션 계층을 배포합니다. 이 규칙은 Azure의 SAP 워크로드에 대해 게시된 정보에 잘 설명되어 있습니다. 
 
 ## <a name="architectural-overview"></a>아키텍처 개요
 
-Azure의 SAP HANA(대규모 인스턴스)의 전체 아키텍처는 SAP TDI 인증 하드웨어 구성을 제공합니다. 하드웨어는 SAP HANA 데이터베이스를 위한 가상화되지 않은 운영 체제 미설치 고성능 서버입니다. 또한 사용자 요구 사항에 맞게 SAP 애플리케이션 계층에 대한 리소스 크기를 조정할 수 있는 Azure 기능 및 유연성도 제공합니다.
+Azure의 SAP HANA(대규모 인스턴스)의 전체 아키텍처는 SAP TDI 인증 하드웨어 구성을 제공합니다. 하드웨어는 SAP HANA 데이터베이스를 위한 가상화되지 않은 운영 체제 미설치 고성능 서버입니다. SAP 애플리케이션 계층의 리소스를 필요에 따라 확장할 수 있는 유연성을 제공합니다.
 
 ![Azure(큰 인스턴스)에서 SAP HANA의 아키텍처 개요](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -49,7 +49,7 @@ Azure의 SAP HANA(대규모 인스턴스)의 전체 아키텍처는 SAP TDI 인�
   -  [Windows 가상 머신에서 SAP 사용](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Azure 가상 머신에서 SAP 솔루션 사용](get-started.md)
 
-- **왼쪽:** Azure 대규모 인스턴스 스탬프의 SAP HANA TDI 인증 하드웨어를 보여 줍니다. HANA(대규모 인스턴스) 디바이스는 온-프레미스에서 Azure로 연결할 때와 동일한 기술을 사용하여 Azure 구독의 가상 네트워크에 연결합니다. 2019년 5월에 ExpressRoute 게이트웨이 없이 HANA(대규모 인스턴스) 단위와 Azure VM 간의 통신을 허용하는 최적화를 도입했습니다. ExpressRoute FastPath라고 하는 이 최적화는 앞의 다이어그램에서 빨간색 선으로 표시됩니다.
+- **왼쪽:** Azure 대규모 인스턴스 스탬프의 SAP HANA TDI 인증 하드웨어를 보여 줍니다. HANA(대규모 인스턴스) 디바이스는 온-프레미스 서버가 Azure로 연결할 때와 동일한 기술을 사용하여 Azure 구독의 가상 네트워크에 연결합니다. 2019년 5월에 ExpressRoute 게이트웨이 없이 HANA(대규모 인스턴스) 단위와 Azure VM 간의 통신을 허용하는 최적화를 도입했습니다. ExpressRoute FastPath라고 하는 이 최적화는 앞의 다이어그램에서 빨간색 선으로 표시됩니다.
 
 ## <a name="components-of-the-azure-large-instance-stamp"></a>Azure(대규모 인스턴스) 스탬프의 구성 요소
 
@@ -61,7 +61,9 @@ Azure 큰 인스턴스 스탬프 자체는 다음 구성 요소를 결합합니�
 
 ## <a name="tenants"></a>테넌트
 
-큰 인스턴스 스탬프의 다중 테넌트 인프라 내에서 고객이 격리된 테넌트로 배포됩니다. 테넌트 배포 시 Azure 등록 내에서 Azure 구독 이름을 지정합니다. Azure 구독은 HANA 대규모 인스턴스가 청구되는 구독입니다. 이러한 테넌트는 Azure 구독과 1:1 관계를 포함합니다. 네트워크의 경우 서로 다른 Azure 구독에 속한 다른 가상 네트워크에서 한 Azure 지역의 한 테넌트에 배포된 HANA 대규모 인스턴스 장치에 액세스할 수 있습니다. 이러한 Azure 구독은 동일한 Azure 등록에 속해야 합니다.
+큰 인스턴스 스탬프의 다중 테넌트 인프라 내에서 고객이 격리된 테넌트로 배포됩니다. 테넌트 배포 시 Azure 등록 내에서 Azure 구독 이름을 지정합니다. Azure 구독은 HANA 대규모 인스턴스가 청구되는 구독입니다. 이러한 테넌트는 Azure 구독과 1:1 관계를 포함합니다. 
+
+네트워크의 경우 서로 다른 Azure 구독에 속한 다른 가상 네트워크에서 한 Azure 지역의 한 테넌트에 배포된 HANA 대규모 인스턴스에 액세스할 수 있습니다. 이러한 Azure 구독은 동일한 Azure 등록에 속해야 합니다.
 
 ## <a name="availability-across-regions"></a>지역 간 기능 가용성
 

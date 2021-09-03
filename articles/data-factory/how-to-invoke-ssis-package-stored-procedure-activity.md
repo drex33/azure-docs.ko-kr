@@ -3,17 +3,18 @@ title: 저장 프로시저 작업으로 SSIS 패키지 실행 - Azure
 description: 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법에 대해 설명합니다.
 author: swinarko
 ms.service: data-factory
+ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 06/04/2021
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6260606fe56d4dfc6bac93e04e726b5fd3298777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08c0e844b941a8b8bc9ed110300b6bc3e5c1474c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100391510"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535665"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
 
@@ -69,9 +70,10 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>저장 프로시저 작업을 사용하여 파이프라인 만들기
 이 단계에서는 Data Factory UI를 사용하여 파이프라인을 만듭니다. 저장 프로시저 작업을 파이프라인에 추가하고 sp_executesql 저장 프로시저를 사용하여 SSIS 패키지를 실행하도록 구성합니다. 
 
-1. 시작 페이지에서 **파이프라인 만들기** 를 클릭합니다. 
+1. 홈페이지에서 **오케스트레이션** 을 클릭합니다. 
 
-    ![시작 페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
+    ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
+
 2. **작업** 도구 상자에서 **일반** 을 펼치고, **저장 프로시저** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 
 
     ![저장 프로시저 작업 끌어서 놓기](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)

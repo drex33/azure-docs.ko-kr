@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: de3d9aa60322cc3e6e189f6f16c35d6f42c0cf61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53b4c0250e4ceb034853ab588cfb2ef93a6ae005
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102500413"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297797"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -29,11 +29,9 @@ Azure Machine Learning은 SDK를 사용하는 코드 중심 솔루션부터 자�
     | [자동화된 기계 학습](#automated-machine-learning) | 자동화된 기계 학습을 사용하면 **방대한 데이터 과학 또는 프로그래밍 지식 없이도 모델을 학습** 시킬 수 있습니다. 데이터 과학 및 프로그래밍에 대한 배경 지식이 있는 분들에게는 알고리즘 선택 및 하이퍼 매개 변수 튜닝을 자동화하여 시간과 리소스를 절약하는 방법을 제공합니다. 자동화된 기계 학습을 사용할 때 실행 구성 정의에 대해 걱정할 필요가 없습니다. |
     | [기계 학습 파이프라인](#machine-learning-pipeline) | 파이프라인은 다른 학습 방법이 아니라 **모듈식 재사용 가능 단계를 사용하여 워크플로를 정의하는 방법** 으로, 학습을 포함할 수 있습니다. 기계 학습 파이프라인은 자동화된 Machine Learning 및 실행 구성을 사용하여 모델을 학습시킬 수 있습니다. 파이프라인은 특별히 학습에 집중하지 않으므로, 파이프라인을 사용하는 이유는 다른 학습 방법보다 다양합니다. 일반적으로 다음과 같은 경우에 파이프라인을 사용합니다.<br>* 장기 실행 학습 작업 또는 데이터 준비와 같은 **무인 프로세스를 예약** 하려고 합니다.<br>* 이기종 컴퓨팅 리소스 및 스토리지 위치에서 조정되는 **여러 단계** 를 사용합니다.<br>* 재학습 또는 일괄 처리 채점 같은 특정 시나리오에서 파이프라인을 **재사용 가능 템플릿** 으로 사용합니다.<br>워크플로의 * **데이터 원본, 입력 및 출력을 추적하고 버전을 관리합니다**.<br>* **특정 단계를 독립적으로 작업하는 다른 팀에서 워크플로를 구현** 합니다. 그런 다음, 파이프라인에서 여러 단계를 조인하여 워크플로를 구현할 수 있습니다. |
 
-+ [R용 Azure Machine Learning SDK(미리 보기)](#r-sdk-preview): R용 SDK는 그물형 패키지를 사용하여 Azure Machine Learning의 Python SDK에 바인딩합니다. 따라서 모든 R 환경에서 Python SDK를 사용하여 구현된 핵심 개체 및 메서드에 액세스할 수 있습니다.
-
 + **디자이너**: Azure Machine Learning 디자이너는 개념 증명을 빌드하기 위한 또는 코딩 경험이 거의 없는 사용자를 위한 쉬운 진입점을 제공합니다. 끌어서 놓기 웹 기반 UI를 사용하여 모델을 학습시킬 수 있습니다. 디자인의 일부로 Python 코드를 사용할 수도 있고, 코드를 작성하지 않고 모델을 학습시킬 수도 있습니다.
 
-+ **CLI**: 기계 학습 CLI는 Azure Machine Learning을 사용하는 일반적인 작업에 대한 명령을 제공하며, **스크립팅 및 자동화 작업** 에 종종 사용됩니다. 예를 들어 학습 스크립트 또는 파이프라인을 만든 후에는 CLI를 사용하여 일정에 따라 또는 학습에 사용되는 데이터 파일이 업데이트될 때 학습 실행을 시작할 수 있습니다. 학습 모델에는 학습 작업을 제출하는 명령을 제공합니다. 실행 구성 또는 파이프라인을 사용하여 작업을 제출할 수 있습니다.
++ **Azure CLI**: 기계 학습 CLI는 Azure Machine Learning을 사용하는 일반적인 작업에 대한 명령을 제공하며, **스크립팅 및 자동화 작업** 에 종종 사용됩니다. 예를 들어 학습 스크립트 또는 파이프라인을 만든 후에는 Azure CLI를 사용하여 일정에 따라 또는 학습에 사용되는 데이터 파일이 업데이트될 때 학습 실행을 시작할 수 있습니다. 학습 모델에는 학습 작업을 제출하는 명령을 제공합니다. 실행 구성 또는 파이프라인을 사용하여 작업을 제출할 수 있습니다.
 
 각 학습 방법에서 다양한 유형의 컴퓨팅 리소스를 학습에 사용할 수 있습니다. 이러한 리소스를 총칭하여 [__컴퓨팅 대상__](concept-azure-machine-learning-architecture.md#compute-targets)이라고 합니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning 컴퓨팅, Azure HDInsight 또는 원격 가상 머신)입니다.
 
@@ -90,7 +88,7 @@ Azure 학습 수명 주기는 다음으로 구성됩니다.
 1. 컴퓨팅 노드에 dockerfile 빌드 또는 다운로드 
     1. 시스템에서 다음 해시가 계산됩니다. 
         - 기본 이미지 
-        - 사용자 지정 docker 단계([사용자 지정 Docker 기본 이미지를 사용하여 모델 배포](./how-to-deploy-custom-docker-image.md) 참조)
+        - 사용자 지정 docker 단계([사용자 지정 Docker 기본 이미지를 사용하여 모델 배포](./how-to-deploy-custom-container.md) 참조)
         - conda 정의 YAML ([Azure Machine Learning에서 소프트웨어 환경 만들기 및 사용](./how-to-use-environments.md) 참조)
     1. 시스템은 작업 영역 ACR(Azure Container Registry) 조회에서 이 해시를 키로 사용합니다.
     1. 찾을 수 없는 경우 전역 ACR에서 일치하는 항목을 찾습니다.
@@ -103,14 +101,6 @@ Azure 학습 수명 주기는 다음으로 구성됩니다.
 
 로컬 머신에서 학습하도록 선택하면(“로컬 실행으로 구성”) Docker를 사용할 필요가 없습니다. 선택하는 경우 Docker를 로컬로 사용할 수 있습니다(예제는 [ML 파이프라인 구성](./how-to-debug-pipelines.md) 섹션 참조).
 
-## <a name="r-sdk-preview"></a>R SDK(미리 보기)
-
-R SDK는 Azure Machine Learning에서 R 언어를 사용할 수 있습니다. SDK는 그물형 패키지를 사용하여 Azure Machine Learning의 Python SDK에 바인딩합니다. 따라서 모든 R 환경에서 Python SDK를 사용하여 구현된 핵심 개체 및 메서드에 액세스할 수 있습니다.
-
-자세한 내용은 다음 문서를 참조하세요.
-
-* [R용 Azure Machine Learning SDK 참조](https://azure.github.io/azureml-sdk-for-r/index.html)
-
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning 디자이너
 
 디자이너를 사용하면 웹 브라우저에서 끌어서 놓기 인터페이스를 사용하여 모델을 학습시킬 수 있습니다.
@@ -118,19 +108,7 @@ R SDK는 Azure Machine Learning에서 R 언어를 사용할 수 있습니다. SD
 + [디자이너란?](concept-designer.md)
 + [자습서: 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)
 
-## <a name="many-models-solution-accelerator"></a>많은 모델 솔루션 가속기
-
-[많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기준으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
-
-예를 들어 다음 시나리오에서 __각 인스턴스 또는 개인__ 에 대한 모델을 빌드하면 결과가 향상될 수 있습니다.
-
-* 개별 스토어별 매출 예측
-* 수백 개의 유정에 대한 예측 유지 관리
-* 개별 사용자 환경 조정
-
-자세한 내용은 GitHub의 [많은 모델 솔루션 가속기](https://aka.ms/many-models)를 참조하세요.
-
-## <a name="cli"></a>CLI
+## <a name="azure-cli"></a>Azure CLI
 
 기계 학습 CLI는 Azure CLI용 확장이며 Azure Machine Learning을 사용하기 위한 플랫폼 간 CLI 명령을 제공합니다. 일반적으로 CLI를 사용하여 기계 학습 모델 학습 등의 작업을 자동화할 수 있습니다.
 

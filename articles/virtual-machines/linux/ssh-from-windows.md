@@ -9,12 +9,12 @@ ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e85974968e523903282cdd8a577dee13ab32bf4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 485968e6fa9a68781de85648f0ad008586c2c15b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668132"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566687"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -84,6 +84,12 @@ Azure VM에서 배포된 공개 키 및 로컬 시스템에서 배포된 프라�
 ```bash
 ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
+
+이 VM에 연결한 적이 없는 경우 호스트 지문을 확인하라는 메시지가 표시됩니다. 제공된 지문을 간단히 허용하려고 하지만, 이는 사용자를 중간에 공격 가능성이 있는 사람에게 노출됩니다. 항상 호스트 지문을 확인해야 합니다. 클라이언트에서 처음 연결할 때만 이 작업을 수행하면 됩니다. 포털을 통해 호스트 지문을 얻으려면 다음과 함께 실행 명령을 사용합니다. `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+
+:::image type="content" source="media/ssh-from-windows/run-command-validate-host-fingerprint.png" alt-text="Run 명령을 사용하여 호스트 지문의 유효성을 검사하는 방법을 보여 주는 스크린샷.":::
+
+CLI를 사용하여 명령을 실행하려면 [`az vm run-command invoke` 명령](/cli/azure/vm/run-command)을 사용합니다.
 
 키 쌍을 만들 때 암호를 구성한 경우 메시지가 표시되면 암호를 입력합니다.
 

@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 15ade6fca3885bfabba7a23e2c3d8e561a9e6a0c
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: e5b2c5eaca13b26504c4229ef990abc4adce23c9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738467"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528180"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Azure Purview에서 지원되는 데이터 원본 및 파일 형식
 
@@ -32,7 +32,7 @@ Purview는 [여기](purview-connector-overview.md)에 나열된 모든 데이터
 - Purview는 사용자 지정 파일 확장명 및 사용자 지정 파서도 지원합니다.
  
 > [!Note]
-> 모든 Gzip 파일은 내부 단일 csv 파일에 매핑되어야 합니다. Gzip 파일에는 시스템 및 사용자 지정 분류 규칙이 적용됩니다. 현재는 내부 여러 파일 또는 csv 이외의 파일 형식에 매핑된 gzip 파일 검사를 지원하지 않습니다. 또한 Purview 스캐너는 스키마 추출 및 분류를 위해 snappy 압축 PARQUET 및 AVRO 파일 형식 검사를 지원합니다.
+> 모든 Gzip 파일은 내부 단일 csv 파일에 매핑되어야 합니다. Gzip 파일에는 시스템 및 사용자 지정 분류 규칙이 적용됩니다. 현재는 내부 여러 파일 또는 csv 이외의 파일 형식에 매핑된 gzip 파일 검사를 지원하지 않습니다. 또한 Purview 스캐너는 스키마 추출 및 분류를 위해 snappy 압축 PARQUET 형식 검사를 지원합니다. 
 
 > [!Note]
 > Purview 스캐너는 스키마 추출을 위해 AVRO, ORC 및 PARQUET 파일 형식의 복잡한 데이터 형식을 지원하지 않습니다.   
@@ -46,9 +46,10 @@ Purview 용어에서
 
 모든 구조적 파일 형식에 대해 Purview 스캐너는 다음과 같은 방법으로 파일을 샘플링합니다.
 
-- 구조적 파일 형식의 경우 각 열에서 128개 행 또는 1MB 중 더 낮은 행을 샘플링합니다.
-- 문서 파일 형식의 경우 각 파일의 20MB를 샘플링합니다.
+- 구조적 파일 형식의 경우 각 열에서 상위 128개 행 또는 처음 1MB 중 더 낮은 행을 샘플링합니다.
+- 문서 파일 형식의 경우 각 파일의 처음 20MB를 샘플링합니다.
     - 문서 파일이 20MB보다 큰 경우 심층 검사가 적용되지 않습니다(분류에 따름). 이 경우 Purview는 파일 이름 및 정규화된 이름과 같은 기본 메타데이터만 캡처합니다.
+- **표 형식 데이터 원본(SQL, CosmosDB)** 의 경우 상위 128개 행을 샘플링합니다. 
 
 ## <a name="resource-set-file-sampling"></a>리소스 집합 파일 샘플링
 
@@ -64,7 +65,7 @@ Purview에서 파티션 파일의 폴더 또는 그룹이 시스템 리소스 �
 
 ## <a name="classification"></a>분류
 
-모든 105 시스템 분류 규칙은 구조적 파일 형식에 적용됩니다. MCE 분류 규칙만 문서 파일 형식에 적용됩니다(데이터 검사 기본 regex 패턴, 블룸 필터 기반 검색에는 적용되지 않음). 지원되는 분류에 대한 자세한 내용은 [Azure Purview에서 지원되는 분류](supported-classifications.md)를 참조하세요.
+모든 206 시스템 분류 규칙은 구조적 파일 형식에 적용됩니다. MCE 분류 규칙만 문서 파일 형식에 적용됩니다(데이터 검사 기본 regex 패턴, 블룸 필터 기반 검색에는 적용되지 않음). 지원되는 분류에 대한 자세한 내용은 [Azure Purview에서 지원되는 분류](supported-classifications.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

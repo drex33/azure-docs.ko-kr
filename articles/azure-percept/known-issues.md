@@ -1,17 +1,17 @@
 ---
 title: Azure Percept의 알려진 문제
 description: Azure Percept의 알려진 문제 및 해결 방법에 대한 자세한 정보
-author: mimcco
-ms.author: mimcco
+author: juniem
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 03/25/2021
-ms.openlocfilehash: bf1e6f1297e73811e4ce7044319b13dc4c5b149f
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 4d6bbc2396819b1eea7ac17f5c0da87055450927
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114295871"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223961"
 ---
 # <a name="azure-percept-known-issues"></a>Azure Percept의 알려진 문제
 

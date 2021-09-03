@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 7932ad3b30910e539acfbff2329a03f80a4d1a0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00387e190df3bcc6f654868d078a068e9196a635
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104670361"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567340"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 삭제
 
@@ -26,31 +26,31 @@ ms.locfileid: "104670361"
 
 예를 들어, 아래 설정에서 _postgres01_ 인스턴스를 삭제하려 한다고 가정해 보겠습니다.
 
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 Name        State    Workers
 ----------  -------  ---------
 postgres01  Ready    3
 ```
 
 delete 명령의 일반 형식은 다음과 같습니다.
-```console
-azdata arc postgres server delete -n <server group name>
+```azurecli
+az postgres arc-server delete -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 이 명령을 실행하면 서버 그룹 삭제를 확인하도록 요청됩니다. 스크립트를 사용하여 삭제를 자동화하는 경우에는 --force 매개 변수를 사용하여 확인 요청을 무시해야 합니다. 예를 들어, 다음과 같은 명령을 실행합니다. 
-```console
-azdata arc postgres server delete -n <server group name> --force
+```azurecli
+az postgres arc-server delete -n <server group name> --force --k8s-namespace <namespace> --use-k8s
 ```
 
 delete 명령에 대한 자세한 내용을 보려면 다음을 실행합니다.
-```console
-azdata arc postgres server delete --help
+```azurecli
+az postgres arc-server delete --help 
 ```
 
 ### <a name="delete-the-server-group-used-in-this-example"></a>이 예제에 사용된 서버 그룹 삭제
 
-```console
-azdata arc postgres server delete -n postgres01
+```azurecli
+az postgres arc-server delete -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Kubernetes PVC(영구 볼륨 클레임) 회수
@@ -112,7 +112,7 @@ persistentvolumeclaim "data-postgres01-0" deleted
   
 
 >[!NOTE]
-> 표시된 것처럼, PVC를 삭제하지 않으면 Kubernetes 클러스터에서 오류가 발생하게 될 수 있습니다. 이러한 오류 중 일부에는 이 스토리지 문제로 인해 pod가 제거될 수 있으므로(정상적인 Kubernetes 동작) azdata를 사용하여 Kubernetes 클러스터에 로그인할 수 없는 경우가 포함될 수 있습니다.
+> 표시된 것처럼, PVC를 삭제하지 않으면 Kubernetes 클러스터에서 오류가 발생하게 될 수 있습니다. 이러한 오류 중 일부에는 Kubernetes API에서 리소스를 만들기, 읽기, 업데이트, 삭제할 수 없거나 이 스토리지 문제(정상적인 Kubernetes 동작)로 인해 Kubernetes 노드에서 컨트롤러 Pod가 제거될 수 있으므로 `az arcdata dc export`와 같은 명령이 실행될 수 있는 것이 포함될 수 있습니다.
 >
 > 예를 들어, 다음과 유사한 로그의 메시지가 표시될 수 있습니다.  
 > ```output

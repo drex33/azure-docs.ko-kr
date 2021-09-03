@@ -11,13 +11,13 @@ ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 02/24/2020
-ms.openlocfilehash: f98dcdd9c1a479703c82c01b4fd240507ea355de
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/23/2021
+ms.openlocfilehash: 6d3027afae6b1d4121582014bb2b525ba2fd2c44
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784469"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090262"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 제거
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -32,10 +32,10 @@ ms.locfileid: "107784469"
 
 Key Vault에서 TDE 보호기를 삭제하면 최대 10분 내에 암호화된 모든 데이터베이스가 해당 오류 메시지와 함께 모든 연결을 거부하기 시작하고 해당 상태를 [액세스할 수 없음](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector)으로 변경합니다.
 
-이 방법 가이드에서는 손상 인시던트 대응 후 원하는 결과에 따라 두 가지 방법을 살펴봅니다.
+이 방법 가이드에서는 손상된 인시던트 대응 후 데이터베이스를 **액세스할 수 없도록** 렌더링하는 접근 방식에 대해 설명합니다.
 
-- Azure SQL Database/Azure Synapse Analytics의 데이터베이스에 **액세스할 수 없도록** 합니다.
-- Azure SQL Database/Azure Synapse Analytics의 데이터베이스에 **액세스할 수 없도록** 합니다.
+> [!NOTE]
+> 이 문서는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics(전용 SQL 풀(이전의 SQL DW))에 적용됩니다. Synapse 작업 영역 내의 전용 SQL 풀을 위한 투명한 데이터 암호화에 대한 문서는 [Azure Synapse Analytics 암호화](../../synapse-analytics/security/workspaces-encryption.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

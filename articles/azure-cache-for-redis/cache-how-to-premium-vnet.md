@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: b8e70b1450aa7c121c88e508667dc37ad01d212e
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 618fc8258c2e34c482b6c11cac469de503fa0179
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536877"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536471"
 ---
 # <a name="configure-virtual-network-support-for-a-premium-azure-cache-for-redis-instance"></a>프리미엄 Azure Cache for Redis 인스턴스에 대한 가상 네트워크 지원 구성
 
@@ -19,6 +19,10 @@ ms.locfileid: "111536877"
 
 > [!NOTE]
 > Azure Cache for Redis는 클래식 배포 모델 및 Azure Resource Manager 가상 네트워크를 모두 지원합니다.
+>
+
+> [!IMPORTANT]
+> Azure Cache for Redis는 이제 네트워크 아키텍처를 단순화하고 Azure의 엔드포인트 간 연결을 보호하는 Azure Private Link를 지원합니다. 가상 네트워크 내 서브넷의 개인 IP 주소가 할당된 프라이빗 엔드포인트를 통해 가상 네트워크에서 Azure Cache 인스턴스에 연결할 수 있습니다. Azure Private Links는 모든 계층에서 제공되며 Azure Policy 지원 및 간소화된 NSG 규칙 관리를 포함합니다. 자세한 내용은 [Private Link 문서](cache-private-link.md)를 참조하세요. VNet 주입 캐시를 Private Link로 마이그레이션하려면 [여기](cache-vnet-migration.md)를 참조하세요.
 >
 
 ## <a name="set-up-virtual-network-support"></a>가상 네트워크 지원 설정
@@ -35,7 +39,7 @@ ms.locfileid: "111536877"
 
 1. **새 Redis Cache** 페이지에서 새 프리미엄 계층 캐시의 설정을 구성합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **DNS 이름** | 전역적으로 고유한 이름을 입력합니다. | 캐시 이름은 1~63자의 문자열이어야 하며 숫자, 문자, 하이픈만 포함할 수 있습니다. 이름은 숫자 또는 문자로 시작하고 끝나야 하며 연속 하이픈을 포함할 수 없습니다. 캐시 인스턴스의 *호스트 이름* 은 *\<DNS name>.redis.cache.windows.net* 입니다. |
    | **구독** | 드롭다운 목록에서 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. |
@@ -52,7 +56,7 @@ ms.locfileid: "111536877"
    >
    >
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **가상 네트워크** | 드롭다운 목록에서 가상 네트워크를 선택합니다. | 캐시와 동일한 구독 및 위치에 있는 가상 네트워크를 선택합니다. |
    | **서브넷** | 드롭다운 목록에서 서브넷을 선택합니다. | 서브넷의 주소 범위는 CIDR 표기법을 따라야 합니다(예: 192.168.1.0/24). 가상 네트워크의 주소 공간에 포함되어야 합니다. |

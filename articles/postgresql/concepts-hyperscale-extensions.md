@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: 221d8b1d9fdd40a71bcfdeed57c02451e44052f2
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.date: 08/03/2021
+ms.openlocfilehash: 27c7ae33dc889f7bbc29bb5e396fae3a6cdea67d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012765"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535649"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL - 하이퍼스케일(Citus)의 PostgreSQL 확장
 
@@ -21,6 +21,13 @@ PostgreSQL은 확장을 사용하여 데이터베이스 기능을 확장할 수 
 ## <a name="use-postgresql-extensions"></a>PostgreSQL 확장 사용
 
 PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치하려면 psql 도구에서 [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) 명령을 실행하여 패키지 개체를 데이터베이스에 로드합니다.
+
+> [!NOTE]
+> `CREATE EXTENSION`이 권한 거부 오류와 함께 실패하면 대신 `create_extension()` 함수를 시도합니다. 예를 들면 다음과 같습니다.
+>
+> ```sql
+> SELECT create_extension('postgis');
+> ```
 
 Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 현재 여기에 나열된 대로 키 확장의 하위 집합을 지원합니다. 나열된 항목 이외의 확장은 지원되지 않습니다. Azure Database for PostgreSQL로 사용자 고유의 확장을 만들 수 없습니다.
 
@@ -35,7 +42,7 @@ Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 현재 여기에 �
 > [!div class="mx-tableFixed"]
 > | **내선 번호** | **설명** | **PG 11** | **PG 12** | **PG 13** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus 분산 데이터베이스입니다. | 9.5-1 | 9.5-1 | 10.0-2 |
+> | [citus](https://github.com/citusdata/citus) | Citus 분산 데이터베이스입니다. | 9.5-2 | 10.0-3 | 10.0-3 |
 
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 
@@ -44,14 +51,14 @@ Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 현재 여기에 �
 > |---|---|---|---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. | 1.5 | 1.6 | 1.6 |
 > | [cube](https://www.postgresql.org/docs/current/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. | 1.4 | 1.4 | 1.4 |
-> | [hll](https://github.com/citusdata/postgresql-hll) | HyperLogLog 데이터 구조를 제공합니다. | 2.14 | 2.15 | 2.15 |
+> | [hll](https://github.com/citusdata/postgresql-hll) | HyperLogLog 데이터 구조를 제공합니다. | 2.15 | 2.15 | 2.15 |
 > | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | 키/값 쌍 집합을 저장하기 위한 데이터 형식을 제공합니다. | 1.5 | 1.6 | 1.7 |
 > | [isn](https://www.postgresql.org/docs/current/static/isn.html) | 국제 제품 번호 매기기 표준에 대한 데이터 형식을 제공합니다. | 1.2 | 1.2 | 1.2 |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | LOB(Large Object) 유지 관리입니다. | 1.1 | 1.1 | 1.1 |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | 계층적 트리 구조에 대한 데이터 형식을 제공합니다. | 1.1 | 1.1 | 1.2 |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | 직선 세그먼트 또는 부동 소수점 간격을 나타내는 데이터 형식입니다. | 1.3 | 1.3 | 1.3 |
 > | [tdigest](https://github.com/tvondra/tdigest) | 분위수 및 절사평균과 같은 순위 기반 통계의 온라인 누적을 위한 데이터 형식입니다. | 1.0 | 1.0 | 1.0 |
-> | [topn](https://github.com/citusdata/postgresql-topn/) | top-n JSONB에 대한 형식입니다. | 2.2.2 | 2.3.1 | 2.3.1 |
+> | [topn](https://github.com/citusdata/postgresql-topn/) | top-n JSONB에 대한 형식입니다. | 2.3.1 | 2.3.1 | 2.3.1 |
 
 ### <a name="full-text-search-extensions"></a>전체 텍스트 검색 확장
 
@@ -74,11 +81,10 @@ Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 현재 여기에 �
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | 정수 집계 및 열거자입니다(사용되지 않음). | 1.1 | 1.1 | 1.1 |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | null 없는 정수 배열을 조작하기 위한 함수 및 연산자를 제공합니다. | 1.2 | 1.2 | 1.3 |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | 마지막 수정 시간을 추적하는 함수입니다. | 1.0 | 1.0 | 1.0 |
-> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | 시간 또는 ID로 분할된 테이블을 관리합니다. | 4.1 | 4.4.1 | 4.4.1 |
+> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | 시간 또는 ID로 분할된 테이블을 관리합니다. | 4.5.1 | 4.5.1 | 4.5.1 |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | trigram 일치를 기준으로 영숫자 텍스트의 유사성을 확인하기 위한 함수 및 연산자를 제공합니다. | 1.4 | 1.4 | 1.5 |
 > | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | 암호화 함수를 제공합니다. | 1.3 | 1.3 | 1.3 |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | 참조 무결성을 구현하는 함수입니다(사용되지 않음). | 1.0 | 1.0 | 1.0 |
-> | session\_analytics | hstore 배열을 쿼리하는 함수입니다. | | | |
 > | [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html) | 크로스탭을 비롯하여 전체 테이블을 조작하는 함수를 제공합니다. | 1.0 | 1.0 | 1.0 |
 > | [tcn](https://www.postgresql.org/docs/current/tcn.html) | 트리거된 변경 알림입니다. | 1.0 | 1.0 | 1.0 |
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | 시간 이동 구현을 위한 함수입니다. | 1.0 | | |
@@ -111,7 +117,7 @@ Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 현재 여기에 �
 > | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | 플랫 파일 액세스를 위한 외래 데이터 래퍼입니다. | 1.0 | 1.0 | 1.0 |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | 낮은 수준에서 데이터베이스 페이지의 콘텐츠를 검사합니다. | 1.7 | 1.7 | 1.8 |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | 공유 버퍼 캐시에서 일어나는 작업을 실시간으로 검사하기 위한 수단을 제공합니다. | 1.3 | 1.3 | 1.3 |
-> | [pg\_cron](https://github.com/citusdata/pg_cron) | PostgreSQL용 작업 스케줄러입니다. | 1.1 | 1.3 | 1.3 |
+> | [pg\_cron](https://github.com/citusdata/pg_cron) | PostgreSQL용 작업 스케줄러입니다. | 1.3 | 1.3 | 1.3 |
 > | [pg\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | FSM(사용 가능한 공간 맵)을 검사합니다. | 1.2 | 1.2 | 1.2 |
 > | [pg\_prewarm](https://www.postgresql.org/docs/current/static/pgprewarm.html) | 관계 데이터를 버퍼 캐시에 로드하는 방법을 제공합니다. | 1.2 | 1.2 | 1.2 |
 > | [pg\_stat\_statements](https://www.postgresql.org/docs/current/static/pgstatstatements.html) | 서버에서 실행되는 모든 SQL 문의 실행 통계를 추적하는 수단을 제공합니다. 이 확장에 대한 정보는 "pg_stat_statements" 섹션을 참조하세요. | 1.6 | 1.7 | 1.8 |
@@ -130,11 +136,11 @@ Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 현재 여기에 �
 > [!div class="mx-tableFixed"]
 > | **내선 번호** | **설명** | **PG 11** | **PG 12** | **PG 13** |
 > |---|---|---|---|---|
-> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | postgis\_sfcgal | PostGIS SFCGAL 함수입니다. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | postgis\_tiger\_geocoder | PostGIS 타이거 지오코더(tiger geocoder) 및 리버스 지오코더(reverse geocoder) | 2.5.1 | 3.0.3 | 3.0.3 |
-> | postgis\_topology | PostGIS는 토폴로지 공간 유형 및 함수입니다. | 2.5.1 | 3.0.3 | 3.0.3 |
+> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | postgis\_sfcgal | PostGIS SFCGAL 함수입니다. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | postgis\_tiger\_geocoder | PostGIS 타이거 지오코더(tiger geocoder) 및 리버스 지오코더(reverse geocoder) | 2.5.5 | 3.0.3 | 3.0.3 |
+> | postgis\_topology | PostGIS는 토폴로지 공간 유형 및 함수입니다. | 2.5.5 | 3.0.3 | 3.0.3 |
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements

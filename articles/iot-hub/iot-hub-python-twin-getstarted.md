@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 12b1d083ae1481f7c8b5fe60cac9156a56aeaa0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 292c23398950a367f77c4200925007f660702a34
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87875475"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566855"
 ---
 # <a name="get-started-with-device-twins-python"></a>디바이스 쌍 시작(Python)
 
@@ -239,8 +239,8 @@ ms.locfileid: "87875475"
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* [IoT Hub 시작](quickstart-send-telemetry-python.md) 자습서를 참조하여 디바이스에서 원격 분석을 보냅니다.
+* [IoT Hub 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) 자습서를 참조하여 디바이스에서 원격 분석을 보냅니다.
 
 * [desired 속성을 사용하여 디바이스 구성](tutorial-device-twins.md) 자습서를 통해 디바이스 쌍의 desired 속성을 사용하여 디바이스를 구성합니다.
 
-* [직접 메서드 사용](quickstart-control-device-python.md) 자습서를 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 디바이스를 제어합니다.
+* [직접 메서드 사용](./quickstart-control-device.md?pivots=programming-language-python) 빠른 시작을 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 디바이스를 제어합니다.

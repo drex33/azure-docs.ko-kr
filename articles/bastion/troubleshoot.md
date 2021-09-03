@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 740b228855a11623600d8724eeff7ad865538e74
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 6b8ce0014524a407d6d35b85fed3bf5f41b556cf
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004190"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567547"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Azure Bastion 문제 해결
 
@@ -68,6 +68,13 @@ The key's randomart image is:
 **Q:** 도메인 조인된 Windows 가상 머신에 연결할 수 없습니다.
 
 **A:** Azure Bastion은 사용자 이름-암호 기반의 도메인 로그인에 대해서만 도메인 조인 VM 로그인을 지원합니다. Azure Portal에서 도메인 자격 증명을 지정하는 경우 *domain\username* 형식 대신 UPN(username@domain) 형식을 사용하여 로그인합니다. 이 형식은 도메인 조인 또는 하이브리드 조인(도메인 조인 및 Azure AD 조인) 가상 머신에서 지원됩니다. Azure AD 조인 전용 가상 머신에서는 지원되지 않습니다.
+
+## <a name="unable-to-connect-to-virtual-machine"></a><a name="connectivity"></a> 가상 머신에 연결할 수 없음
+
+**Q:** 내 가상 머신에 연결할 수 없습니다(위의 문제가 발생하지 않음).
+
+**A:** Azure Portal에서 Azure Bastion 리소스의 **연결 문제 해결** 탭(**모니터링** 섹션)으로 이동하여 연결 문제를 해결할 수 있습니다. Network Watcher 연결 문제 해결은 VM(가상 머신)에서 VM, FQDN(정규화된 도메인 이름), URI 또는 IPv4 주소로의 직접 TCP 연결을 확인하는 기능을 제공합니다. 시작하려면 연결을 시작할 원본과 연결할 대상을 선택한 다음 "확인"을 선택합니다. [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview).
+
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>파일 전송 문제
 

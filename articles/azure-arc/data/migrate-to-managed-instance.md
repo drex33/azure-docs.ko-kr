@@ -7,20 +7,19 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: f2d2c2ecff92dde411c6ec2a8d00ad997f4c5c02
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: d93fa1d16366ee131d98aebe2ab8e3e040949d72
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495830"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567437"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>마이그레이션: SQL Server에서 Azure Arc 지원 SQL Managed Instance로 마이그레이션
 
 이 시나리오에서는 두 가지 백업 및 복원 방법을 통해 SQL Server 인스턴스에서 Azure Arc의 Azure SQL 관리형 인스턴스로 데이터베이스를 마이그레이션하는 단계를 안내합니다.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="use-azure-blob-storage"></a>Azure Blob Storage 사용
 
@@ -31,8 +30,13 @@ Azure Arc 지원 SQL Managed Instance로 마이그레이션하려면 Azure Blob 
 ### <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Data Studio 설치](install-client-tools.md)
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - [Azure Storage Explorer 설치](https://azure.microsoft.com/features/storage-explorer/)
 - Azure 구독
+
+
 
 ### <a name="step-1-provision-azure-blob-storage"></a>1단계: Azure Blob Storage 프로비저닝
 
@@ -124,7 +128,7 @@ URL에 백업에 대한 자세한 내용은 아래를 참조하세요.
 
 이 방법은 모든 방법으로 만든 백업 파일을 사용하고 Azure SQL 관리형 인스턴스 Pod의 로컬 스토리지에 복사하여 Windows 또는 Linux의 일반적인 파일 시스템에 있는 것처럼 복원할 수 있도록 하는 방법을 보여 줍니다. 이 시나리오에서는 `kubectl cp` 명령을 사용하여 한 위치의 파일을 Pod의 파일 시스템에 복사합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - kubectl을 설치하고 Azure Arc 데이터 서비스가 배포된 Kubernetes 클러스터를 가리키도록 구성합니다.
 - Azure Data Studio 또는 SQL Server Management Server와 같은 도구를 설치하고 백업 파일을 만들려고 하거나 로컬 파일 시스템에 이미 생성된 기존 .bak 파일이 있는 SQL Server에 연결합니다.
@@ -150,7 +154,7 @@ SQL 인스턴스가 배포된 Pod의 이름을 찾습니다. 일반적으로 `po
 kubectl get pods -n <namespace of data controller>
 ```
 
-예제:
+예:
 
 로컬 스토리지에서 클러스터의 SQL Pod로 백업 파일을 복사합니다.
 
@@ -189,7 +193,7 @@ GO
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Arc 지원 SQL Managed Instance의 특징 및 기능에 대한 자세한 정보](managed-instance-features.md)
+[Azure Arc 지원 SQL Managed Instance의 특징 및 기능에 대해 자세히 알아보기](managed-instance-features.md)
 
 [데이터 컨트롤러를 생성하여 시작](create-data-controller.md)
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/03/2021
 ms.author: victorh
-ms.openlocfilehash: 0800373919ba95f48d30b9fe6eb5e7f8eb99a82a
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: 8a757b1825cb1c1e2f471a965077ea5801000dc4
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422069"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113761442"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Application Gateway를 사용한 TLS 종료 및 종단간 TLS 개요
 
@@ -126,9 +126,9 @@ HTTPS 상태 프로브의 경우 Application Gateway v1 SKU는 HTTP 설정에 �
 ---
 시나리오 | v1 | v2 |
 | --- | --- | --- |
-| 클라이언트에서 SNI 헤더를 지정하고 모든 다중 사이트 수신기가 "SNI 필요" 플래그를 사용하도록 설정된 경우 | 적절한 인증서를 반환합니다. 사이트가 없는 경우 (server_name에 따라) 연결이 다시 설정됩니다. | 가능한 경우 적절한 인증서를 반환합니다. 그렇지 않으면 구성된 첫 번째 HTTPS 수신기의 인증서를 순서대로 반환합니다.|
-| 클라이언트에서 SNI 헤더를 지정하지 않는 경우 및 모든 다중 사이트 헤더가 "SNI 필요"를 사용하도록 설정된 경우 | 연결을 다시 설정합니다. | 구성된 첫 번째 HTTPS 수신기의 인증서를 순서대로 반환합니다.
-| 클라이언트에서 SNI 헤더를 지정하지 않는 경우 및 인증서로 구성된 기본 수신기가 있는 경우 | 기본 수신기에 구성된 인증서를 클라이언트에 반환합니다(기본 또는 대체 인증서). | 구성된 첫 번째 HTTPS 수신기의 인증서를 순서대로 반환합니다. |
+| 클라이언트에서 SNI 헤더를 지정하고 모든 다중 사이트 수신기가 "SNI 필요" 플래그를 사용하도록 설정된 경우 | 적절한 인증서를 반환합니다. 사이트가 없는 경우 (server_name에 따라) 연결이 다시 설정됩니다. | 사용 가능한 경우 적절한 인증서를 반환하고, 그렇지 않으면 HTTPS 수신기와 연결된 요청 라우팅 규칙에 지정된 순서에 따라 첫 번째 HTTPS 수신기의 인증서를 반환합니다.|
+| 클라이언트에서 SNI 헤더를 지정하지 않는 경우 및 모든 다중 사이트 헤더가 "SNI 필요"를 사용하도록 설정된 경우 | 연결을 다시 설정합니다. | HTTPS 수신기와 연결된 요청 라우팅 규칙에 지정된 순서에 따라 첫 번째 HTTPS 수신기의 인증서를 반환합니다.
+| 클라이언트에서 SNI 헤더를 지정하지 않는 경우 및 인증서로 구성된 기본 수신기가 있는 경우 | 기본 수신기에 구성된 인증서를 클라이언트에 반환합니다(기본 또는 대체 인증서). | 기본 수신기에 구성된 인증서를 반환합니다. |
 
 ### <a name="backend-tls-connection-application-gateway-to-the-backend-server"></a>백 엔드 TLS 연결(Application Gateway를 백 엔드 서버에 연결)
 

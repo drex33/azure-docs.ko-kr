@@ -1,23 +1,20 @@
 ---
-title: Azure Application Insights 사용 코호트 | Microsoft Docs
+title: Application Insights 사용 코호트 | Microsoft Docs
 description: 공통점이 있는 다양한 사용자, 세션, 이벤트 또는 작업의 집합을 분석합니다.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 04/10/2018
-ms.reviewer: mbullwin
-ms.openlocfilehash: 2c35356951560b11a605334aba4c26dbc38086de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
+ms.openlocfilehash: de5a452f15cd19c97fec727307b33fc469166459
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100583551"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537115"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 
-코호트는 공통점이 있는 다양한 사용자, 세션, 이벤트 또는 작업의 집합입니다. Azure Application Insights에서 코호트는 분석 쿼리에 의해 정의됩니다. 특정 사용자 또는 이벤트 집합을 반복적으로 분석해야 하는 경우 코호트 기능이 사용자가 관심을 두는 집합을 보다 유연하게 정확히 나타낼 수 있습니다.
-
-![코호트 창](./media/usage-cohorts/001.png)
+코호트는 공통점이 있는 다양한 사용자, 세션, 이벤트 또는 작업의 집합입니다. Application Insights에서 코호트는 분석 쿼리에 의해 정의됩니다. 특정 사용자 또는 이벤트 집합을 반복적으로 분석해야 하는 경우 코호트 기능이 사용자가 관심을 두는 집합을 보다 유연하게 정확히 나타낼 수 있습니다.
 
 ## <a name="cohorts-versus-basic-filters"></a>코호트 및 기본 필터
 
@@ -32,7 +29,7 @@ ms.locfileid: "100583551"
 
 팀에서는 특정 월에 앱을 5번 이상 사용하는 모든 사용자를 참여도 높은 사용자로 정의하고 있습니다. 이 섹션에서는 이러한 참여한 사용자의 코호트를 정의합니다.
 
-1. 코호트 도구를 엽니다.
+1. **코호트 만들기** 를 선택합니다.
 
 2. **템플릿 갤러리** 탭을 선택합니다. 다양한 코호트에 대한 템플릿 컬렉션이 표시됩니다.
 
@@ -45,8 +42,7 @@ ms.locfileid: "100583551"
 
 4. **UsedAtLeastCustom** 을 **5+ days** 로 변경하고, **Period** 를 기본값인 28일로 둡니다.
 
-    ![참여한 사용자](./media/usage-cohorts/003.png)
-
+  
     이제 이 코호트는 지난 28일 중에서 별도의 5일 동안의 사용자 지정 이벤트 또는 페이지 보기와 함께 전송된 모든 사용자 ID를 나타냅니다.
 
 5. **저장** 을 선택합니다.
@@ -60,9 +56,8 @@ ms.locfileid: "100583551"
 
 사용자 도구를 엽니다. **표시** 드롭다운 상자의 **속하는 사용자** 아래에서 만든 코호트를 선택합니다.
 
-이제 사용자 도구는 다음 사용자 코호트로 필터링됩니다.
 
-![특정 코호트로 필터링된 사용자 창](./media/usage-cohorts/004.png)
+:::image type="content" source="./media/usage-cohorts/cohort-2.png" alt-text="코호트를 보여 주는 보기 드롭다운 스크린샷.":::
 
 다음 몇 가지 사항에 유의하세요.
 
@@ -75,13 +70,11 @@ ms.locfileid: "100583551"
 
 이벤트의 코호트를 만들 수도 있습니다. 이 섹션에서는 이벤트 및 페이지 보기의 코호트를 정의합니다. 그러면 다른 도구에서 사용하는 방법을 알게 됩니다. 이 코호트는 팀에서 _활성 사용_ 으로 간주하는 이벤트 집합 또는 특정 새 기능과 관련된 집합을 정의할 수 있습니다.
 
-1. 코호트 도구를 엽니다.
+1. **코호트 만들기** 를 선택합니다.
 
 2. **템플릿 갤러리** 탭을 선택합니다. 다양한 코호트에 대한 템플릿 컬렉션이 표시됩니다.
 
 3. **이벤트 선택** 을 선택합니다.
-
-    ![이벤트 선택 스크린샷](./media/usage-cohorts/006.png)
 
 4. **활동** 드롭다운 상자에서 코호트에 포함하려는 이벤트를 선택합니다.
 
@@ -91,11 +84,10 @@ ms.locfileid: "100583551"
 
 앞에 나온 두 코호트는 드롭다운 상자를 사용하여 정의되었습니다. 하지만 전체적인 유연성을 위해 분석 쿼리를 사용하여 코호트를 정의할 수도 있습니다. 방법을 알아보기 위해 영국의 사용자 코호트를 만듭니다.
 
-![코호트 도구의 사용법을 단계별로 보여주는 애니메이션 이미지](./media/usage-cohorts/cohorts0001.gif)
 
 1. 코호트 도구를 열고, **템플릿 갤러리** 탭을 선택하고, **빈 사용자 코호트** 를 선택합니다.
 
-    ![빈 사용자 코호트](./media/usage-cohorts/001.png)
+   :::image type="content" source="./media/usage-cohorts/cohort.png" alt-text="코호트의 템플릿 갤러리 스크린샷." lightbox="./media/usage-cohorts/cohort.png":::
 
     여기에는 다음 3개의 섹션이 있습니다.
    * Markdown 텍스트 섹션: 여기서 팀의 다른 사용자를 위해 코호트를 좀 더 자세히 설명합니다.
@@ -107,7 +99,7 @@ ms.locfileid: "100583551"
      쿼리 섹션에서 [분석 쿼리를 작성](/azure/kusto/query)합니다. 쿼리는 정의하려는 코호트를 설명하는 특정 행 집합을 선택합니다. 그러면 코호트 도구는 “| summarize by user_Id” 절을 쿼리에 암시적으로 추가합니다. 이 데이터는 테이블의 쿼리 아래에서 미리 볼 수 있으므로 쿼리가 올바른 결과를 반환하도록 할 수 있습니다.
 
      > [!NOTE]
-     > 이 쿼리가 보이지 않으면 섹션을 더 길게 늘리고 쿼리를 표시합니다. 이 섹션 맨 처음에 나오는 애니메이션 .gif는 크기 조정 동작을 보여 줍니다.
+     > 이 쿼리가 보이지 않으면 섹션을 더 길게 늘리고 쿼리를 표시합니다. 
 
 2. 다음 텍스트를 복사하여 쿼리 편집기에 붙여넣습니다.
 

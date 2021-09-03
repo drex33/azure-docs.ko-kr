@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: eed40e353531ec6df4ecafad3757845b45a99886
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 7e0bda68f41091b25e233c8461a472d8e63e3d63
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071854"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597168"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -81,26 +81,29 @@ Connect-AzAccount
 여러 구독이 있으며 그 중에서 하나의 구독을 지정하려면 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) cmdlet을 사용하여 해당 구독을 나열한 다음, [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet을 사용합니다.
 
 ```powershell
-Set-AzContext -Subscription -Subscription <SubscriptionId>
+Set-AzContext -Subscription <SubscriptionId>
 ```
 
 [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) cmdlet을 실행하면 올바른 구독이 선택되었는지 확인됩니다.
 
 Azure Disk Encryption cmdlet이 설치되어 있는지 확인하려면 [Get-command](/powershell/module/microsoft.powershell.core/get-command) cmdlet을 사용합니다.
-     
+
 ```powershell
 Get-command *diskencryption*
 ```
+
 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요. 
 
 ## <a name="enable-encryption-on-an-existing-or-running-linux-vm"></a>기존 또는 실행 중인 Linux VM에서 암호화를 사용
+
 이 시나리오에서는 Resource Manager 템플릿, PowerShell cmdlet 또는 CLI 명령을 사용하여 암호화를 사용하도록 설정할 수 있습니다. 가상 머신 확장에 대한 스키마 정보가 필요한 경우 [Linux용 Azure Disk Encryption 확장](../extensions/azure-disk-enc-linux.md) 문서를 참조하세요.
 
 >[!IMPORTANT]
  >Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅샷을 만들고 백업해야 합니다. 관리 디스크에 대한 스냅샷은 포털에서 만들거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md)을 통해 만들 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업을 만들면 Set-AzVMDiskEncryptionExtension cmdlet에 -skipVmBackup 매개 변수를 지정하여 관리 디스크를 암호화하는 데 사용할 수 있습니다. 백업이 만들어지고 이 매개 변수가 지정되지 않으면 관리 디스크 기반 VM에 대한 Set-AzVMDiskEncryptionExtension 명령은 실패하게 됩니다. 
 >
->암호화하거나 암호화를 사용하지 않도록 설정하면 VM이 다시 부팅될 수 있습니다. 
->
+> 암호화하거나 암호화를 사용하지 않도록 설정하면 VM이 다시 부팅될 수 있습니다.
+
+암호화를 사용하지 않도록 설정하려면 [암호화 사용 안 함 및 암호화 확장 제거](#disable-encryption-and-remove-the-encryption-extension)를 참조하세요.
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-using-azure-cli"></a>Azure CLI를 사용하여 기존 또는 실행 중인 Linux VM에서 암호화 사용 
 
@@ -129,14 +132,10 @@ key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
-
-- **암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) 명령을 사용합니다. 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.
-
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "data"
-     ```
+암호화를 사용하지 않도록 설정하려면 [암호화 사용 안 함 및 암호화 확장 제거](#disable-encryption-and-remove-the-encryption-extension)를 참조하세요.
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-using-powershell"></a>PowerShell을 사용하여 기존 또는 실행 중인 Linux VM에서 암호화 사용
+
 Azure에서 [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet을 사용하여 실행 중인 가상 머신에서 암호화를 사용하도록 설정합니다. 디스크를 암호화하기 전에 [Azure Backup](../../backup/backup-azure-vms-encryption.md)을 사용하여 [스냅샷](snapshot-copy-managed-disk.md)을 만들거나 VM을 백업하세요. 실행 중인 Linux VM을 암호화하기 위해 PowerShell 스크립트에 -skipVmBackup 매개 변수가 이미 지정되어 있습니다.
 
 -  **실행 중인 VM 암호화:** 아래 스크립트는 변수를 초기화하고 Set-AzVMDiskEncryptionExtension cmdlet을 실행합니다. 리소스 그룹, VM 및 키 자격 증명 모음은 필수 구성 요소로 만들어졌습니다. MyVirtualMachineResourceGroup, MySecureVM 및 MySecureVault를 사용자 값으로 바꿉니다. 암호화를 진행 중인 디스크를 지정하도록 -VolumeType 매개 변수를 수정합니다.
@@ -178,12 +177,9 @@ Azure에서 [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-
      ```azurepowershell-interactive 
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
-    
-- **디스크 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다. 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.
-     
-     ```azurepowershell-interactive 
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
-     ```
+
+암호화를 사용하지 않도록 설정하려면 [암호화 사용 안 함 및 암호화 확장 제거](#disable-encryption-and-remove-the-encryption-extension)를 참조하세요.
+
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-with-a-template"></a>템플릿을 사용하여 기존 또는 실행 중인 Linux VM에서 암호화 사용
 
@@ -206,6 +202,8 @@ Azure에서 [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-
 | 위치 | 모든 리소스에 대한 위치. |
 
 Linux VM 디스크 암호화 템플릿을 구성하는 방법에 대한 자세한 내용은 [Linux용 Azure Disk Encryption](../extensions/azure-disk-enc-linux.md)을 참조하세요.
+
+암호화를 사용하지 않도록 설정하려면 [암호화 사용 안 함 및 암호화 확장 제거](#disable-encryption-and-remove-the-encryption-extension)를 참조하세요.
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Linux VM의 데이터 디스크에 EncryptFormatAll 기능 사용
 
@@ -311,14 +309,14 @@ Azure Disk Encryption 동일 스크립트의 지침을 사용하여 Azure에서 
 * [사전에 암호화된 Linux VHD 준비](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-linux-vhd)
 
 >[!IMPORTANT]
- >Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅샷을 만들고 백업해야 합니다. 포털에서 관리 디스크에 대한 스냅샷을 수행하거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md)을 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업을 만들면 Set-AzVMDiskEncryptionExtension cmdlet에 -skipVmBackup 매개 변수를 지정하여 관리 디스크를 암호화하는 데 사용할 수 있습니다. 백업이 만들어지고 이 매개 변수가 지정되지 않으면 관리 디스크 기반 VM에 대한 Set-AzVMDiskEncryptionExtension 명령은 실패하게 됩니다. 
+ >Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅샷을 만들고 백업해야 합니다. 포털에서 관리 디스크에 대한 스냅샷을 수행하거나 [Azure Backup](../../backup/backup-azure-vms-encryption.md)을 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업을 만들면 Set-AzVMDiskEncryptionExtension cmdlet에 -skipVmBackup 매개 변수를 지정하여 관리 디스크를 암호화하는 데 사용할 수 있습니다. 백업이 만들어지고 이 매개 변수가 지정되지 않으면 관리 디스크 기반 VM에 대한 Set-AzVMDiskEncryptionExtension 명령은 실패하게 됩니다.
 >
-> 암호화하거나 암호화를 사용하지 않도록 설정하면 VM이 다시 부팅될 수 있습니다. 
+> 암호화하거나 암호화를 사용하지 않도록 설정하면 VM이 다시 부팅될 수 있습니다.
 
 
 
 ### <a name="use-azure-powershell-to-encrypt-vms-with-pre-encrypted-vhds"></a>Azure PowerShell을 사용하여 미리 암호화된 VHD가 있는 VM을 암호화 
-[Set-AzVMOSDisk](/powershell/module/Az.Compute/Set-AzVMOSDisk#examples) PowerShell cmdlet을 사용하여 암호화된 VHD에서 디스크 암호화를 사용하도록 설정할 수 있습니다. 아래 예제에서는 몇 가지 공통 매개 변수를 제공합니다. 
+[Set-AzVMOSDisk](/powershell/module/Az.Compute/Set-AzVMOSDisk#examples) PowerShell cmdlet을 사용하여 암호화된 VHD에서 디스크 암호화를 사용하도록 설정할 수 있습니다. 아래 예제에서는 몇 가지 공통 매개 변수를 제공합니다.
 
 ```azurepowershell
 $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
@@ -386,9 +384,58 @@ PowerShell 구문과 달리 CLI에서는 사용자가 암호화를 사용하도�
     >[!NOTE]
     > disk-encryption-keyvault 매개 변수의 값 구문은 전체 식별자 문자열, 즉 /subscriptions/[subscription-id-guid]/resourceGroups/[KVresource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]입니다.</br> key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]입니다. 
 
+## <a name="disable-encryption-and-remove-the-encryption-extension"></a>암호화 사용 안 함 및 암호화 확장 제거
 
-## <a name="disable-encryption-for-linux-vms"></a>Linux VM에 대한 암호화 사용 안 함
-[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
+
+Azure Disk Encryption 확장을 사용하지 않도록 설정하고 Azure Disk Encryption 확장을 제거할 수 있습니다. 이는 두 가지 별개의 작업입니다.
+
+ADE를 제거하려면 먼저 암호화를 사용하지 않도록 설정한 다음 확장을 제거하는 것이 좋습니다. 사용하지 않도록 설정하지 않고 암호화 확장을 제거하면 디스크가 계속 암호화됩니다. 확장을 제거한 **후** 암호화를 사용하지 않도록 설정하면 암호 해독 작업을 수행하기 위해 확장이 다시 설치되고 두 번째 제거되어야 합니다.
+
+> [!WARNING]
+> OS 디스크가 암호화된 경우 암호화를 사용하지 않도록 설정할 수 **없습니다**. (OS 디스크는 원래 암호화 작업이 volumeType=ALL 또는 volumeType=OS를 지정하는 경우 암호화됩니다.) 
+>
+> 암호화 사용하지 않도록 설정은 데이터 디스크가 암호화되지만 OS 디스크는 암호화되지 않은 경우에만 작동합니다.
+
+### <a name="disable-encryption"></a>암호화 사용 안 함
+
+Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 암호화를 사용하지 않도록 설정할 수 있습니다. 암호화를 사용하지 않도록 설정해도 확장은 제거되지 **않습니다**([암호화 확장 제거](#remove-the-encryption-extension) 참조).
+
+- **Azure PowerShell을 사용하여 디스크 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다.
+
+     ```azurepowershell-interactive
+     Disable-AzVMDiskEncryption -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM" -VolumeType "all"
+     ```
+
+- **Azure CLI를 사용하여 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) 명령을 사용합니다. 
+
+     ```azurecli-interactive
+     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
+     ```
+
+- **Resource Manager 템플릿으로 암호화를 사용하지 않도록 설정:** 
+
+    1. [실행 중인 Linux VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-linux-vm-without-aad) 템플릿에서 **Azure에 배포** 를 클릭합니다.
+    2. 구독, 리소스 그룹, 위치, VM, 볼륨 유형, 약관 및 규약을 선택합니다.
+    3.  **구매** 를 클릭하여 실행 중인 Linux VM에서 디스크 암호화를 사용하지 않도록 설정합니다.
+
+### <a name="remove-the-encryption-extension"></a>암호화 확장 제거
+
+디스크의 암호를 해독하고 암호화 확장을 제거하려면 확장을 제거하기 **전에** 암호화를 사용하지 않도록 설정해야 합니다. [암호화 사용 안 함](#disable-encryption)을 참조하세요.
+
+Azure PowerShell 또는 Azure CLI를 사용하여 암호화 확장을 제거할 수 있습니다. 
+
+- **Azure PowerShell로 디스크 암호화 사용 안 함:** 암호화를 제거하려면 [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) cmdlet을 사용합니다.
+
+     ```azurepowershell-interactive
+     Remove-AzVMDiskEncryptionExtension -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM"
+     ```
+
+- **Azure CLI로 암호화 사용 안 함:** 암호화를 제거하려면 [az vm extension delete](/cli/azure/vm/extension#az_vm_extension_delete) 명령을 사용합니다.
+
+     ```azurecli-interactive
+     az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryptionForLinux"
+     ```
+
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 

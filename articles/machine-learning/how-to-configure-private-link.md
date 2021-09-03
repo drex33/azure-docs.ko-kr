@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/01/2021
-ms.openlocfilehash: 1c07e96a82814e59c635a592313e461d06a6fcc3
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: ef8d50b0cc4463f59d8fcb96afda3ef4a5c96781
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217470"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123028392"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역용 프라이빗 엔드포인트 구성
 
@@ -43,7 +43,6 @@ Azure Private Link를 사용하면 프라이빗 엔드포인트를 사용하여 
 
 ## <a name="limitations"></a>제한 사항
 
-* Azure Government 지역에서는 프라이빗 엔드포인트로 Azure Machine Learning 작업 영역을 사용할 수 없습니다.
 * 프라이빗 엔드포인트로 보호된 작업 영역에 대한 퍼블릭 액세스를 사용하도록 설정하고 퍼블릭 인터넷을 통해 Azure Machine Learning 스튜디오를 사용하는 경우, 디자이너와 같은 일부 기능에서 데이터에 액세스하지 못할 수 있습니다. 이 문제는 VNet 뒤에서 보호되는 서비스에 데이터를 저장하는 경우에 발생합니다. 예를 들어 Azure Storage 계정이 있습니다.
 * Mozilla Firefox를 사용하는 경우 작업 영역의 프라이빗 엔드포인트에 액세스를 시도할 때 문제가 발생할 수 있습니다. 이 문제는 Mozilla의 DNS over HTTPS와 관련된 것일 수 있습니다. 해결 방법으로 Microsoft Edge 또는 Google Chrome을 사용하는 것이 좋습니다.
 * 프라이빗 엔드포인트를 사용해도 작업 영역을 삭제하거나 컴퓨팅 리소스를 관리하는 것과 같은 Azure 컨트롤 플레인(관리 작업)에는 영향을 주지 않습니다. 예를 들어 컴퓨팅 대상 생성, 업데이트 또는 삭제가 있습니다. 이러한 작업은 항상 그렇듯 공용 인터넷을 통해 수행됩니다. Azure Machine Learning 스튜디오, API(게시된 파이프라인 포함) 또는 SDK를 사용하는 등의 데이터 평면 작업은 프라이빗 엔드포인트를 사용합니다.

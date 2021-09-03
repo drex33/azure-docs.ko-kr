@@ -5,13 +5,13 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: fac488ba1881b6b79139eaf2468237e546737177
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.date: 07/28/2021
+ms.openlocfilehash: cf8f4adabf07ec349c2b5890d0f3a6cfd6bbb192
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077333"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566571"
 ---
 # <a name="best-practices-for-creating-assessments"></a>평가 생성 모범 사례
 
@@ -19,12 +19,13 @@ ms.locfileid: "106077333"
 
 이 문서에는 Azure Migrate 검색 및 평가 도구를 사용하여 평가를 만들 때의 모범 사례가 요약되어 있습니다.
 
-Azure Migrate: 검색 및 평가 도구로 만든 평가는 데이터의 지정 시간 스냅샷입니다. Azure Migrate: 검색 및 평가를 사용하여 만들 수 있는 평가에는 세 가지 유형이 있습니다.
+Azure Migrate: 검색 및 평가 도구로 만든 평가는 데이터의 지정 시간 스냅샷입니다. Azure Migrate: 검색 및 평가를 사용하여 만들 수 있는 평가에는 네 가지 유형이 있습니다.
 
 **평가 유형** | **세부 정보**
---- | --- 
+--- | ---
 **Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 형식을 사용하여 Azure로 마이그레이션하기 위한 [VMware](how-to-set-up-appliance-vmware.md) 및 [Hyper-V](how-to-set-up-appliance-hyper-v.md) 환경과 [물리적 서버](how-to-set-up-appliance-physical.md)의 온-프레미스 서버를 평가할 수 있습니다. [자세히 알아보기](concepts-assessment-calculation.md)
 **Azure SQL** | 온-프레미스 SQL Server를 VMware 환경에서 Azure SQL Database 또는 Azure SQL Managed Instance로 마이그레이션하기 위한 평가. [자세한 내용](concepts-azure-sql-assessment-calculation.md)
+**Azure App Service** | IIS 웹 서버에서 실행되는 온-프레미스 ASP.NET 웹앱을 VMware 환경에서 Azure App Service로 마이그레이션하기 위한 평가입니다. [자세한 내용](concepts-azure-webapps-assessment-calculation.md)
 **AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [AVS(Azure VMware 솔루션)](../azure-vmware/introduction.md)로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 AVS(Azure VMware 솔루션)로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md)을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
@@ -35,8 +36,8 @@ Azure Migrate 평가의 크기 조정 기준 옵션:
 
 **크기 조정 기준** | **세부 정보** | **Data**
 --- | --- | ---
-**성능 기반** | 수집된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | **Azure VM 평가**: VM 크기 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항(표준 HDD/SSD 또는 프리미엄 관리 디스크)은 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.<br/><br/>**Azure SQL 평가**: Azure SQL 구성은 CPU 사용률, 메모리 사용률, IOPS(데이터 및 로그 파일), IO 작업의 처리량 및 대기 시간을 포함하는 SQL 인스턴스 및 데이터베이스의 성능 데이터를 기반으로 합니다.<br/><br/>**AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.
-**온-프레미스인 경우** | 권장 사항을 적용하기 위해 성능 데이터를 사용하지 않는 평가. | **Azure VM 평가**: VM 크기 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 디스크 유형은 평가를 위해 스토리지 유형 설정에서 선택한 항목을 기반으로 합니다.<br/><br/> **AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.
+**성능 기반** | 수집된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | **Azure VM 평가**: VM 크기 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항(표준 HDD/SSD, 프리미엄 관리 또는 ultra 디스크)은 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.<br/><br/>**Azure SQL 평가**: Azure SQL 구성은 CPU 사용률, 메모리 사용률, IOPS(데이터 및 로그 파일), IO 작업의 처리량 및 대기 시간을 포함하는 SQL 인스턴스 및 데이터베이스의 성능 데이터를 기반으로 합니다.<br/><br/>**AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.
+**온-프레미스인 경우** | 권장 사항을 적용하기 위해 성능 데이터를 사용하지 않는 평가. | **Azure VM 평가**: VM 크기 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 디스크 유형은 평가를 위해 스토리지 유형 설정에서 선택한 항목을 기반으로 합니다.<br/><br/> **Azure App Service 평가**: 평가 권장 사항은 온-프레미스 웹앱 구성 데이터를 기반으로 합니다.<br/><br/> **AVS(Azure VMware 솔루션) 평가**: AVS 노드 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.
 
 #### <a name="example"></a>예제
 예를 들어 4개 코어의 사용률이 20%이고, 8GB 메모리의 사용률이 10%인 온-프레미스 VM이 있는 경우, Azure VM 평가는 다음과 같습니다.
@@ -54,7 +55,7 @@ Azure Migrate 평가의 크기 조정 기준 옵션:
 
 Azure Migrate 어플라이언스는 온-프레미스 환경을 지속적으로 프로파일링하고, 메타데이터 및 성능 데이터를 Azure로 전송합니다. 어플라이언스를 사용하여 검색된 서버를 평가하려면 다음 모범 사례를 따르세요.
 
-- **현 상태 평가 만들기**: Azure Migrate 포털에서 서버가 표시되는 즉시 현 상태 평가를 만들 수 있습니다. 온프레미스 크기 조정 기준을 사용하여 Azure SQL 평가를 만들 수는 없습니다.
+- **현 상태 평가 만들기**: Azure Migrate 포털에서 서버가 표시되는 즉시 현 상태 평가를 만들 수 있습니다. 온프레미스 크기 조정 기준을 사용하여 Azure SQL 평가를 만들 수는 없습니다. Azure App Service 평가는 기본적으로 온-프레미스와 같습니다.
 - **성능 기반 평가 만들기**: 검색을 설정한 후 성능 기반 평가를 실행하기 전에 적어도 하루를 기다리는 것이 좋습니다.
     - 성능 데이터를 수집하는 데 시간이 걸립니다. 적어도 하루를 기다리면 평가를 실행하기 전에 성능 데이터 요소가 충분한지 확인할 수 있습니다.
     - 성능 기반 평가를 실행하는 경우 평가 기간 동안 환경을 프로파일링해야 합니다. 예를 들어 성능 기간을 일주일로 설정하여 평가를 만드는 경우 검색 시작 후 일주일 이상 기다려야 데이터 요소가 수집됩니다. 그렇지 않으면 평가가 별 5개 등급을 얻지 못합니다.
@@ -71,13 +72,12 @@ Azure Migrate 어플라이언스는 온-프레미스 환경을 지속적으로 �
 AVS에서 사용된 스토리지 엔진은 vSAN입니다. vSAN 스토리지 정책은 가상 머신에 대한 스토리지 요구 사항을 정의합니다. 이러한 정책은 VM에 스토리지를 할당하는 방법을 결정하기 때문에 VM에 필요한 서비스 수준을 보장합니다. 다음은 사용 가능한 FTT-Raid 조합입니다. 
 
 **FTT(허용 실패)** | **RAID 구성** | **필요한 최소 호스트** | **크기 조정 고려 사항**
---- | --- | --- | --- 
+--- | --- | --- | ---
 1 | RAID-1(미러링) | 3 | 100GB VM은 200GB를 사용합니다.
 1 | RAID-5(이레이져 코딩) | 4 | 100GB VM은 133.33GB를 사용합니다.
 2 | RAID-1(미러링) | 5 | 100GB VM은 300GB를 사용합니다.
 2 | RAID-6(이레이져 코딩) | 6 | 100GB VM은 150GB를 사용합니다.
 3 | RAID-1(미러링) | 7 | 100GB VM은 400GB를 사용합니다.
-
 
 ## <a name="best-practices-for-confidence-ratings"></a>신뢰 등급의 모범 사례
 
@@ -103,7 +103,6 @@ AVS에서 사용된 스토리지 엔진은 vSAN입니다. vSAN 스토리지 정�
    61%-80% | 별 4개
    81%-100% | 별 5개
 
-
 ## <a name="common-assessment-issues"></a>일반적인 평가 문제
 
 평가에 영향을 주는 몇 가지 일반적인 환경 문제를 해결하는 방법은 다음과 같습니다.
@@ -115,7 +114,9 @@ AVS에서 사용된 스토리지 엔진은 vSAN입니다. vSAN 스토리지 정�
 ### <a name="outdated-assessments"></a>오래된 평가
 
 #### <a name="azure-vm-assessment-and-avs-assessment"></a>Azure VM 평가 및 AVS 평가
+
 평가된 그룹에 있는 온-프레미스 서버에 대한 변경 내용이 있는 경우 평가가 **오래됨** 으로 표시됩니다. 아래 속성에서 수행된 하나 이상의 변경으로 인해 평가가 "오래됨"으로 표시될 수 있습니다.
+
 - 프로세서 코어 수
 - 할당된 메모리
 - 부팅 유형 또는 펌웨어
@@ -124,16 +125,27 @@ AVS에서 사용된 스토리지 엔진은 vSAN입니다. vSAN 스토리지 정�
 - 네트워크 어댑터 수
 - 디스크 크기 변경(할당된 GB)
 - NIC 속성 업데이트. 예: Mac 주소 변경, IP 주소 추가 등
-    
+
 변경 내용이 반영되도록 평가를 다시 실행합니다(**다시 계산**).
-    
+
 #### <a name="azure-sql-assessment"></a>Azure SQL 평가
+
 평가된 그룹에 있는 온-프레미스 SQL 인스턴스 및 데이터베이스에 변경 내용이 있는 경우 평가는 **오래됨** 상태로 표시됩니다. 아래 이유 중 하나 이상으로 인해 평가가 "오래 됨"으로 표시될 수 있습니다.
+
 - SQL 인스턴스가 추가되었거나 서버에서 제거되었습니다.
 - SQL 데이터베이스가 추가되었거나 SQL 인스턴스에서 제거되었습니다.
 - 20%를 초과하여 변경된 SQL 인스턴스의 총 데이터베이스 크기
 - 프로세서 코어 수 변경
-- 할당된 메모리 변경        
+- 할당된 메모리 변경
+  
+    변경 내용이 반영되도록 평가를 다시 실행합니다(**다시 계산**).
+
+#### <a name="azure-app-service-assessment"></a>Azure App Service 평가
+
+평가된 그룹에 있는 온-프레미스 웹앱에 변경 내용이 있는 경우 평가는 **오래됨** 으로 표시됩니다. 아래 이유 중 하나 이상으로 인해 평가가 "오래 됨"으로 표시될 수 있습니다.
+
+- 웹앱이 서버에서 추가 또는 제거되었습니다.
+- 기존 웹앱에 대한 구성 변경 내용입니다.
   
     변경 내용이 반영되도록 평가를 다시 실행합니다(**다시 계산**).
 
@@ -144,7 +156,7 @@ AVS에서 사용된 스토리지 엔진은 vSAN입니다. vSAN 스토리지 정�
 - 평가를 작성하는 기간 동안 환경을 프로파일링하지 않았습니다. 예를 들어 성능 기간을 일주일로 설정하여 평가를 만드는 경우 검색 시작 후 일주일 이상 기다려야 데이터 요소가 수집됩니다. 이 기간 동안 기다릴 수 없으면 성능 기간을 더 짧은 기간으로 변경하고 평가를 '다시 계산'하세요.
  
 - 평가는 일부 또는 모든 서버에 대한 성능 데이터를 평가 기간에 수집할 수 없습니다. 높은 신뢰 등급의 경우 다음을 확인하세요. 
-    - 평가 기간에 서버의 전원이 켜져 있는지 확인합니다.
+    - 평가 중에 서버 전원이 켜집니다.
     - 443 포트에서 아웃바운드 연결이 허용되는지 확인합니다.
     - Hyper-V 서버의 경우 동적 메모리가 사용하도록 설정되어 있는지 확인합니다. 
     - Azure Migrate에서 에이전트의 연결 상태가 '연결됨'인지 확인하고, 마지막 하트비트를 확인합니다.
@@ -159,7 +171,7 @@ AVS에서 사용된 스토리지 엔진은 vSAN입니다. vSAN 스토리지 정�
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>AVS 평가를 위한 마이그레이션 도구 지침
 
 AVS(Azure VMware 솔루션) 평가에 대한 Azure 준비 상태 보고서에서 다음과 같은 권장 도구를 확인할 수 있습니다. 
-- **VMware HCX 또는 Enterprise**: VMware 서버의 경우 VMware HCX(하이브리드 클라우드 확장) 솔루션은 온-프레미스 워크로드를 AVS(Azure VMware Solution) 프라이빗 클라우드로 마이그레이션하는 데 권장되는 마이그레이션 도구입니다. [자세한 정보](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **VMware HCX 또는 Enterprise**: VMware 서버의 경우 VMware HCX(하이브리드 클라우드 확장) 솔루션은 온-프레미스 워크로드를 AVS(Azure VMware Solution) 프라이빗 클라우드로 마이그레이션하는 데 제안되는 마이그레이션 도구입니다. [자세한 정보](../azure-vmware/install-vmware-hcx.md).
 - **알 수 없음**: CSV 파일을 통해 가져온 서버의 경우 기본 마이그레이션 도구를 알 수 없습니다. VMware 환경의 서버에서 VMware HCX(하이브리드 클라우드 확장) 솔루션을 사용하는 것이 좋습니다.
 
 

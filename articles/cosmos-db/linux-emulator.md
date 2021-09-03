@@ -6,12 +6,12 @@ ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
 ms.date: 06/04/2021
-ms.openlocfilehash: 6e3fd0c2dafd9d174b79206cb5482450fee74f8e
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 5c6ddce8d50da1660bfcba8b29bb032b56197bb8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984051"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566315"
 ---
 # <a name="run-the-emulator-on-docker-for-linux-preview"></a>Linux용 Docker에서 에뮬레이터 실행(미리 보기)
 
@@ -37,11 +37,11 @@ Azure Cosmos DB 에뮬레이터는 로컬 개발자 워크스테이션에서 실
 
 - Linux 에뮬레이터는 확장성 있는 서비스가 아니며 많은 수의 컨테이너를 지원하지 않습니다. Azure Cosmos DB 에뮬레이터를 사용할 경우 기본적으로 400RU/s에서 고정 크기 컨테이너를 최대 10개까지 만들거나(Azure Cosmos DB SDK를 사용하는 경우에만 지원됨) 무제한 컨테이너를 5개 만들 수 있습니다. 이 값을 변경하는 방법에 대한 자세한 내용은 [PartitionCount 값 설정](emulator-command-line-parameters.md#set-partitioncount) 문서를 참조하세요.
 
-- 클라우드 서비스와 같은 [일관성 수준](consistency-levels.md)을 시나리오 테스트 전용 명령줄 인수를 사용하여 조정할 수 있지만(기본 설정: 세션) 사용자는 클라우드 서비스에서와 같은 동작을 기대하지 않을 수도 있습니다. 예를 들어 강력하면서 제한된 부실 일관성은 계정의 기본 일관성을 Cosmos DB SDK에 전달하는 것 외에 에뮬레이터에 영향을 미치지 않습니다.
+- [일관성 수준](consistency-levels.md)이 시나리오 테스트 전용 명령줄 인수를 사용하여 조정될 수 있지만(기본 설정: 세션) 사용자는 클라우드 서비스에서와 같은 동작을 기대하지 않을 수도 있습니다. 예를 들어 강력하면서 제한된 부실 일관성은 계정의 기본 일관성을 Cosmos DB SDK에 전달하는 것 외에 에뮬레이터에 영향을 미치지 않습니다.
 
 - Linux 에뮬레이터는 [다중 지역 복제](distribute-data-globally.md)를 제공하지 않습니다.
 
-- Azure Cosmos DB Linux 에뮬레이터 복사본은 항상 Azure Cosmos DB 서비스의 최신 변경 사항이 적용된 최신 상태로 유지되지 않을 수 있으므로 [Azure Cosmos DB Capacity Planner](estimate-ru-with-capacity-planner.md)를 사용하여 애플리케이션에 필요한 처리량(RU)을 정확하게 예측해야 합니다. <add link>
+- Azure Cosmos DB Linux 에뮬레이터 복사본은 항상 Azure Cosmos DB 서비스의 최신 변경 사항이 적용된 최신 상태로 유지되지 않을 수 있으므로 [Azure Cosmos DB Capacity Planner](estimate-ru-with-capacity-planner.md)를 사용하여 애플리케이션에 필요한 처리량(RU)을 정확하게 예측해야 합니다.
 
 - Linux 에뮬레이터는 최대 ID 속성 크기 254자를 지원합니다.
 

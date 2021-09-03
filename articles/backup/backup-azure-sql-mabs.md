@@ -2,17 +2,31 @@
 title: Azure Backup Server를 사용하여 SQL Server 백업
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server)를 사용하여 SQL Server 데이터베이스를 백업하는 구성을 알아봅니다.
 ms.topic: conceptual
-ms.date: 03/24/2017
-ms.openlocfilehash: e79b5263b248312b7170288be24ab5fc196042a7
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 07/28/2021
+ms.openlocfilehash: f97fc81b051b8c7d76ee1769b82ad4a2d489357b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518663"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528122"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 SQL Server 백업
 
-이 문서는 MABS(Microsoft Azure Backup Server)를 사용하여 SQL Server 데이터베이스 백업을 설정하는 데 도움이 됩니다.
+MABS(Microsoft Azure Backup Server)는 SQL Server 데이터베이스에 대한 백업 및 복구를 제공합니다. SQL Server 데이터베이스 백업뿐만 아니라 SQL Server 컴퓨터의 시스템 백업 또는 완전 백업을 실행할 수 있습니다. MABS가 보호할 수 있는 것은 다음과 같습니다.
+
+- 독립 실행형 SQL Server 인스턴스
+- SQL Server FCI(장애 조치(failover) 클러스터 인스턴스)
+
+>[!Note]
+>MABS v3 UR2는 CSV(클러스터 공유 볼륨)를 사용하여 SQL Server FCI(장애 조치(failover) 클러스터 인스턴스)를 지원합니다.
+>
+>Azure에서 스토리지 공간 다이렉트를 사용하는 SQL Server FCI 및 Azure 공유 디스크를 사용하는 SQL Server FCI의 보호는 이 기능에서 지원됩니다. Azure VM에 배포된 SQL FCI 인스턴스를 보호하기 위해 DPM 서버를 Azure VM에 배포해야 합니다.
+>
+>다음의 기본 설정을 가진 SQL Server AlwaysOn 가용성 그룹:
+>- 보조 사용
+>- 보조만
+>- 주
+>- 임의의 복제본
 
 SQL Server 데이터베이스를 백업하고 Azure에서 복구하려면 다음을 수행합니다.
 

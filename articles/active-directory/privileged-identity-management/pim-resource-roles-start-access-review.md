@@ -15,12 +15,12 @@ ms.date: 04/27/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cf140468aa0743ab93eaa2fe2d1c35f5fa64b37
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f676ca94b6e1e6333a4cc4f862b60a02e71d24e9
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084810"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567757"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할의 액세스 검토 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "110084810"
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] PIM의 라이선스에 대한 자세한 내용은 [Privileged Identity Management를 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)을 참조하세요.
 
 > [!Note]
->  현재 테넌트에서 활성화된 Azure Active Directory Premium P2 버전을 사용하여 Azure AD 및 Azure 리소스 역할(미리 보기)에 액세스할 수 있는 서비스 주체에 대한 액세스 검토의 범위를 지정할 수 있습니다. 서비스 주체에 대한 라이선스 모델은 이 기능의 일반 공급용으로 최종 결정되며 추가 라이선스가 필요할 수 있습니다.
+> 현재 테넌트에서 활성화된 Azure Active Directory Premium P2 버전을 사용하여 Azure AD 및 Azure 리소스 역할(미리 보기)에 액세스할 수 있는 서비스 주체에 대한 액세스 검토의 범위를 지정할 수 있습니다. 서비스 주체에 대한 라이선스 모델은 이 기능의 일반 공급용으로 최종 결정되며 추가 라이선스가 필요할 수 있습니다.
 
 ## <a name="prerequisite-role"></a>필수 역할
 
@@ -42,10 +42,12 @@ ms.locfileid: "110084810"
 1. 필수 역할 중 하나에 할당된 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **ID 거버넌스** 를 선택합니다.
- 
+
 1. 왼쪽 메뉴의 **Azure AD Privileged Identity Management** 에서 **Azure 리소스** 를 선택합니다.
 
 1. 관리하려는 리소스(예: 구독)를 선택합니다.
+
+    ![Azure 리소스 - 액세스 검토를 만들 리소스 선택](./media/pim-resource-roles-start-access-review/access-review-select-resource.png)
 
 1. 관리에서 **액세스 검토** 를 선택합니다.
 
@@ -65,7 +67,9 @@ ms.locfileid: "110084810"
 
 1. **종료** 설정을 사용하여 되풀이 액세스 검토 시리즈를 종료하는 방법을 지정합니다. 이 시리즈는 세 가지 방법으로 종료할 수 있습니다. 무기한으로, 특정 날짜까지, 또는 정의된 되풀이 횟수가 완료된 이후에 검토를 시작하도록 연속적으로 실행됩니다. 사용자, 다른 사용자 관리자 또는 다른 전역 관리자는 해당 날짜에 종료되도록 **설정** 에서 날짜를 변경하여 생성 후 시리즈를 중지할 수 있습니다.
 
-1. **사용자** 섹션에서 검토 범위를 선택합니다. 사용자를 검토하려면 **사용자를 선택하거나 (미리 보기) 서비스 주체를 선택** 하여 Azure 역할에 대한 액세스 권한이 있는 컴퓨터 계정을 검토합니다.   
+1. **사용자** 섹션에서 검토 범위를 선택합니다. 사용자를 검토하려면 **사용자를 선택하거나 (미리 보기) 서비스 주체를 선택** 하여 Azure 역할에 대한 액세스 권한이 있는 컴퓨터 계정을 검토합니다.
+
+    **사용자** 를 선택하면 역할에 할당된 그룹의 멤버 자격이 그룹의 개별 멤버로 확장됩니다. **서비스 주체** 를 선택하면 중첩된 그룹을 통하지 않고 직접 멤버 자격이 있는 사용자만 검토됩니다.  
 
     ![역할 멤버 자격을 검토할 사용자 범위](./media/pim-resource-roles-start-access-review/users.png)
 
@@ -76,7 +80,7 @@ ms.locfileid: "110084810"
     > 둘 이상의 역할을 선택하면 여러 액세스 검토가 생성됩니다. 예를 들어 5개의 역할을 선택하면 별도의 액세스 검토가 5개 생성됩니다.
     **Azure AD 역할** 의 액세스 검토를 만드는 경우 다음은 멤버 자격 검토 목록 예제를 보여 줍니다.
 
-1. **할당 유형** 에서 주체가 역할에 할당된 방식에 따라 검토 범위를 지정합니다. **(미리 보기) 적격 할당만** 을 선택하여 검토 생성 시 활성화 상태에 관계없이 적격 할당을 검토하거나 **(미리 보기) 활성 할당만** 을 선택하여 활성 할당을 검토합니다. 유형에 관계없이 모든 할당을 검토하려면 **모든 활성 및 적격 할당** 을 선택합니다.
+1. **할당 유형** 에서 주체가 역할에 할당된 방식에 따라 검토 범위를 지정합니다. **적격 할당만** 을 선택하여 검토를 만들 때 활성화 상태에 관계없이 적격 할당을 검토하거나 **활성 할당만** 을 선택하여 활성 할당을 검토합니다. 유형에 관계없이 모든 할당을 검토하려면 **모든 활성 및 적격 할당** 을 선택합니다.
 
     ![검토자 할당 유형 목록](./media/pim-resource-roles-start-access-review/assignment-type-select.png)
 
@@ -119,7 +123,7 @@ ms.locfileid: "110084810"
 
 1. **메일 알림** 을 **사용** 으로 설정하면 Azure AD는 액세스 검토가 시작될 때 검토자에게 이메일 알림을 보내고 검토가 완료될 때 관리자에게 이메일 알림을 보냅니다.
 
-1. **미리 알림** 을 **사용** 으로 설정하면 Azure AD는 검토를 완료하지 않은 검토자에게 진행 중인 액세스 검토에 대한 미리 알림을 보냅니다.
+1. **미리 알림** 을 **사용** 으로 설정하면 Azure AD는 모든 검토자에게 진행 중인 액세스 검토에 대한 미리 알림을 보냅니다. 검토자는 해당 시간에 검토를 완료했는지 여부에 관계없이 검토 기간의 중간에 미리 알림을 받게 됩니다.
 1. 검토자에게 보낸 이메일의 콘텐츠는 검토 이름, 리소스 이름, 기한 등 검토 세부 정보를 기준으로 자동 생성됩니다. 추가 지침이나 연락처 등의 추가 정보를 전달할 방법이 필요한 경우 **검토자 이메일에 대한 추가 콘텐츠** 에 해당 세부 정보를 지정할 수 있습니다. 이 콘텐츠는 할당된 검토자에게 전송하는 초대 및 미리 알림 이메일에 포함됩니다. 아래 강조 표시된 섹션이 이 정보가 표시되는 위치입니다.
 
     ![강조 표시된 검토자에게 보낸 이메일 콘텐츠](./media/pim-resource-roles-start-access-review/email-info.png)

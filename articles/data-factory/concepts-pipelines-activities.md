@@ -1,33 +1,36 @@
 ---
-title: Azure Data Factory의 파이프라인 및 작업
-description: Azure Data Factory의 파이프라인 및 작업에 대해 알아봅니다.
+title: 파이프라인 및 활동
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics의 파이프라인 및 작업에 대해 알아봅니다.
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 8c910264a01967b62ebae80f63ac3f40e98ab48a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 08/24/2021
+ms.openlocfilehash: 135d9235a94dd22311a804ee8c20046d2608a95c
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773284"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822223"
 ---
-# <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
+# <a name="pipelines-and-activities-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 파이프라인 및 작업
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-create-pipelines.md)
 > * [현재 버전](concepts-pipelines-activities.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서는 Azure Data Factory의 파이프라인 및 활동을 이해하고 데이터 이동 및 데이터 처리 시나리오를 위한 엔드투엔드 데이터 기반 워크플로 사용하는 데 도움이 됩니다.
+이 문서는 Azure Data Factory 및 Azure Synapse Analytics의 파이프라인 및 작업을 이해하고 데이터 이동 및 데이터 처리 시나리오를 위한 엔드투엔드 데이터 기반 워크플로 사용하는 데 도움이 됩니다.
 
 ## <a name="overview"></a>개요
-데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 예를 들어, 파이프라인에는 로그 데이터를 수집하고 정리한 다음 매핑 데이터 흐름을 시작하여 로그 데이터를 분석하는 일련의 작업이 포함될 수 있습니다. 파이프라인을 사용하면 작업을 개별적으로 관리하는 대신 하나의 세트로 관리할 수 있습니다. 작업이 아닌 파이프라인을 독립적으로 배포하고 예약합니다.
+Data Factory 또는 Synapse Workspace에는 하나 이상의 파이프라인이 있을 수 있습니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 예를 들어, 파이프라인에는 로그 데이터를 수집하고 정리한 다음 매핑 데이터 흐름을 시작하여 로그 데이터를 분석하는 일련의 작업이 포함될 수 있습니다. 파이프라인을 사용하면 작업을 개별적으로 관리하는 대신 하나의 세트로 관리할 수 있습니다. 작업이 아닌 파이프라인을 독립적으로 배포하고 예약합니다.
 
 파이프라인의 작업은 데이터에 대해 수행할 동작을 정의합니다. 예를 들어 복사 작업을 사용하여 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 데이터 흐름 작업 또는 Databricks Notebook 작업을 사용하여 Blob Storage의 데이터를 처리하고 비즈니스 인텔리전스 보고 솔루션을 기반으로 하는 Azure Synapse Analytics 풀로 변환합니다.
 
-Data Factory는 [데이터 이동 작업](copy-activity-overview.md), [데이터 변환 작업](transform-data.md) 및 [제어 작업](#control-flow-activities)이라는 세 종류의 작업 그룹이 있습니다. 활동은 0개 이상의 입력 [데이터 세트](concepts-datasets-linked-services.md)를 받고 하나 이상의 출력 [데이터 세트](concepts-datasets-linked-services.md)를 생성할 수 있습니다. 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 세트 간 관계를 보여 줍니다.
+Azure Data Factory 및 Azure Synapse Analytics에는 [데이터 이동 작업](copy-activity-overview.md), [데이터 변환 작업](transform-data.md) 및 [제어 작업](#control-flow-activities)의 세 가지 작업 그룹이 있습니다. 활동은 0개 이상의 입력 [데이터 세트](concepts-datasets-linked-services.md)를 받고 하나 이상의 출력 [데이터 세트](concepts-datasets-linked-services.md)를 생성할 수 있습니다. 다음 다이어그램은 파이프라인, 작업 및 데이터 세트 간 관계를 보여 줍니다.
 
 ![데이터 세트, 작업 및 파이프라인 간 관계](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
@@ -42,18 +45,18 @@ Data Factory는 [데이터 이동 작업](copy-activity-overview.md), [데이터
 자세한 내용은 [작업 복사 - 개요](copy-activity-overview.md)를 참조하세요.
 
 ## <a name="data-transformation-activities"></a>데이터 변환 활동
-Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프라인에 추가할 수 있는 다음과 같은 변환 작업을 지원합니다.
+Azure Data Factory 및 Azure Synapse Analytics는 개별적으로 추가하거나 다른 작업과 연결할 수 있는 다음 변환 작업을 지원합니다.
 
 데이터 변환 작업 | 컴퓨팅 환경
 ---------------------------- | -------------------
-[데이터 흐름](control-flow-execute-data-flow-activity.md) | Azure Data Factory에서 관리하는 Azure Databricks
+[데이터 흐름](control-flow-execute-data-flow-activity.md) | Azure Data Factory에서 관리하는 Apache Spark 클러스터
 [Azure 함수](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Azure Machine Learning Studio(클래식) 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) | Azure VM
+[ML Studio(클래식) 작업: Batch Execution 및 리소스 업데이트](transform-data-using-machine-learning.md) | Azure VM
 [저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics 또는 SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure 데이터 레이크 분석
 [사용자 지정 작업](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -69,17 +72,17 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 제어 작업 | Description
 ---------------- | -----------
 [변수 추가](control-flow-append-variable-activity.md) | 기존 배열 변수에 값을 추가합니다.
-[파이프라인 실행](control-flow-execute-pipeline-activity.md) | 파이프라인 실행 작업을 사용하면 하나의 Data Factory 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
+[파이프라인 실행](control-flow-execute-pipeline-activity.md) | Execute Pipeline 작업을 사용하면 하나의 Data Factory 또는 Synapse 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
 [Filter](control-flow-filter-activity.md) | 입력 배열에 필터 식 적용
 [ForEach](control-flow-for-each-activity.md) | ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 활동의 루프 구현은 프로그래밍 언어의 Foreach 반복 구조와 비슷합니다.
-[메타데이터 가져오기](control-flow-get-metadata-activity.md) | GetMetadata 작업을 사용하면 Azure Data Factory에 있는 모든 데이터의 메타데이터를 검색할 수 있습니다.
+[메타데이터 가져오기](control-flow-get-metadata-activity.md) | GetMetadata 작업은 Data Factory 또는 Synapse 파이프라인에서 모든 데이터의 메타데이터를 검색하는 데 사용할 수 있습니다.
 [If 조건 작업](control-flow-if-condition-activity.md) | If 조건을 사용하여 True 또는 False로 평가되는 조건을 기반으로 분기할 수 있습니다. If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 평가하고, 조건이 `false.`로 평가되면 다른 작업 집합을 평가합니다.
 [조회 작업](control-flow-lookup-activity.md) | 조회 작업을 사용하면 모든 외부 소스에서 레코드/테이블 이름/값을 읽거나 조회할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다.
 [변수 설정](control-flow-set-variable-activity.md) | 기존 변수의 값을 설정합니다.
-[Until 작업](control-flow-until-activity.md) | 프로그래밍 언어의 Do-Until 루핑 구조와 유사한 Do-Until 루프를 구현합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다.
+[Until 작업](control-flow-until-activity.md) | 프로그래밍 언어의 Do-Until 루핑 구조와 유사한 Do-Until 루프를 구현합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. until 작업의 시간 제한 값을 지정할 수 있습니다.
 [유효성 검사 작업](control-flow-validation-activity.md) | 참조 데이터 세트가 존재하거나 지정된 조건을 충족하거나 시간 제한에 도달하는 경우에만 파이프라인이 실행을 계속하도록 합니다.
 [Wait 작업](control-flow-wait-activity.md) | 파이프라인에서 대기 작업을 사용하는 경우 파이프라인은 후속 작업을 계속 실행하기 전에 지정된 시간 동안 대기합니다.
-[웹 작업](control-flow-web-activity.md) | 웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다.
+[웹 작업](control-flow-web-activity.md) | 웹 작업은 파이프라인에서 사용자 지정 REST 엔드포인트를 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다.
 [웹후크 작업](control-flow-webhook-activity.md) | 웹후크 작업을 사용하여 엔드포인트를 호출하고 콜백 URL을 전달합니다. 파이프라인 실행은 다음 작업을 진행하기 전에 콜백이 호출될 때까지 기다립니다.
 
 ## <a name="pipeline-json"></a>파이프라인 JSON
@@ -103,10 +106,10 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 }
 ```
 
-태그 | 설명 | Type | 필수
+태그 | 설명 | 형식 | 필수
 --- | ----------- | ---- | --------
 name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>사용할 수 없는 문자: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" </li></ul> | String | 예
-description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 예
+description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | No
 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | Array | 예
 매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 목록 | 예
 동시성 | 파이프라인에 포함할 수 있는 최대 동시 실행 수입니다. 기본적으로 최댓값이 없습니다. 동시성 한도에 도달하면 추가 파이프라인 실행은 이전 실행이 완료될 때까지 큐에서 대기합니다. | 숫자 | No 
@@ -143,7 +146,7 @@ description | 파이프라인의 용도를 설명하는 텍스트를 지정합�
 name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 55개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>사용할 수 없는 문자: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | 예</li></ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
 type | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-flow-activities) 섹션을 참조하세요. | 예
-linkedServiceName | 작업에서 사용하는 연결된 서비스의 이름입니다.<br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. | HDInsight 작업, Azure Machine Learning 스튜디오(클래식) 일괄 처리 점수 매기기 작업, 저장 프로시저 작업의 경우 예입니다. <br/><br/>다른 모든 사용자의 경우 아니요
+linkedServiceName | 작업에서 사용하는 연결된 서비스의 이름입니다.<br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. | HDInsight 작업, ML Studio(클래식) 일괄 처리 점수 매기기 작업, 저장 프로시저 작업의 경우 예입니다. <br/><br/>다른 모든 사용자의 경우 아니요
 typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | No
 policy | 작업의 런타임 동작에 영향을 주는 정책입니다. 이 속성은 시간 제한 및 다시 시도 동작을 포함합니다. 지정되지 않은 경우 기본값이 사용됩니다. 자세한 내용은 [작업 정책](#activity-policy)을 참조하세요. | No
 dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency) 참조 | 예
@@ -311,7 +314,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 - 작업에 대한 입력을 **InputDataset** 으로 설정하고 작업에 대한 출력을 **OutputDataset** 으로 설정합니다. JSON의 데이터 세트 정의에 대해서는 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요.
 - **typeProperties** 섹션에서 **BlobSource** 를 원본 유형으로 지정하고 **SqlSink** 를 싱크 유형으로 지정합니다. [데이터 이동 작업](#data-movement-activities) 섹션에서 소스 또는 싱크로 사용할 데이터 저장소를 클릭하여 해당 데이터 저장소로/부터 데이터를 이동하는 방법을 알아봅니다.
 
-이 파이프라인 만드는 전체 연습은 [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
+이 파이프라인을 만드는 전체 연습은 [빠른 시작: Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 ## <a name="sample-transformation-pipeline"></a>샘플 변환 파이프라인
 다음 샘플 파이프라인에는 **HDInsightHive** in the **활동** 유형의 하나의 활동이 있습니다. 이 샘플에서 [HDInsight Hive 활동](transform-data-using-hadoop-hive.md) 은 Azure HDInsight Hadoop 클러스터에서 Hive 스크립트 파일을 실행하여 Azure Blob Storage에서 데이터를 변환합니다.
@@ -403,3 +406,6 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 
 - [복사 작업을 포함하는 데이터 파이프라인 만들기](quickstart-create-data-factory-powershell.md)
 - [데이터 변환 활동을 사용하여 파이프라인 빌드](tutorial-transform-data-spark-powershell.md)
+
+Azure Data Factory를 사용하여 CI/CD(지속적 통합 및 전달)를 달성하는 방법
+- [Azure Data Factory의 지속적인 통합 및 지속적인 업데이트](continuous-integration-deployment.md)

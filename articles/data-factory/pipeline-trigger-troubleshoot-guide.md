@@ -8,12 +8,12 @@ ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 29aff19ee900c8683249241725904e5509eced8b
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: aed6df814ddfb240093aad8ff981e9b89a6f2f52
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531207"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867573"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 오케스트레이션 및 트리거 문제 해결
 
@@ -160,7 +160,7 @@ Azure Data Factory는 모든 리프 수준 활동의 결과를 평가합니다. 
 * **동시성 제한:** 파이프라인에 동시성 정책이 있으면 진행 중인 오래된 파이프라인 실행이 없는지 확인합니다. 
 * **모니터링 제한:** ADF 작성 캔버스로 이동하여 파이프라인을 선택하고 동시성 속성이 할당되어 있는지 확인합니다. 있으면 모니터링 보기로 이동하여 지난 45일 동안 진행 중인 실행이 없는지 확인합니다. 진행 중인 실행이 있으면 취소할 수 있으며 새 파이프라인 실행을 시작해야 합니다.
 
-* **일시적인 문제:** 일시적인 네트워크 문제, 자격 증명 오류, 서비스 중단 등이 해당 실행에 영향을 주었을 수 있습니다. 이를 위해 Azure Data Factory에는 문제가 발생했을 때 모든 실행을 모니터링하고 시작하는 내부 복구 프로세스가 있습니다. [여기](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-pipelines-and-activities)에 설명된 대로 파이프라인과 작업을 다시 실행할 수 있습니다. 작업을 취소했거나 실패한 경우 [작업 실패에서 재실행](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-from-failed-activity)에 따라 작업을 다시 실행할 수 있습니다. 이 프로세스는 매시간 발생하므로 실행이 한 시간보다 오래 중단된 경우 지원 사례를 만듭니다.
+* **일시적인 문제:** 일시적인 네트워크 문제, 자격 증명 오류, 서비스 중단 등이 해당 실행에 영향을 주었을 수 있습니다. 이를 위해 Azure Data Factory에는 문제가 발생했을 때 모든 실행을 모니터링하고 시작하는 내부 복구 프로세스가 있습니다. [여기](monitor-visually.md#rerun-pipelines-and-activities)에 설명된 대로 파이프라인과 작업을 다시 실행할 수 있습니다. 작업을 취소했거나 실패한 경우 [작업 실패에서 재실행](monitor-visually.md#rerun-from-failed-activity)에 따라 작업을 다시 실행할 수 있습니다. 이 프로세스는 매시간 발생하므로 실행이 한 시간보다 오래 중단된 경우 지원 사례를 만듭니다.
 
 
  
@@ -268,7 +268,7 @@ Edge/Chrome 브라우저 **개발자 도구** 를 사용하여 ADF 포털에서 
 문제 해결을 위한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A 질문 페이지](/answers/topics/azure-data-factory.html)
 *  [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)

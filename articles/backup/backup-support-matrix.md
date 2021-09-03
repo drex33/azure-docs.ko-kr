@@ -2,14 +2,14 @@
 title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 07/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: 2b5700498bd09e24adeb6d1a386e8bb8da6b92c7
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 8f953cf2bdacaa983061a04168345d1add1842f2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006728"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566448"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -39,7 +39,7 @@ Azure Backup에서는 Recovery Services 자격 증명 모음을 사용하여 Azu
 **자격 증명 모음 이동** | 구독 간에 또는 동일한 구독의 리소스 그룹 간에 [자격 증명 모음을 이동](./backup-azure-move-recovery-services-vault.md)할 수 있습니다. 그러나 자격 증명 모음을 지역 간에 이동하는 것은 지원되지 않습니다.
 **자격 증명 모음 간 데이터 이동** | 자격 증명 모음 간의 백업된 데이터 이동은 지원되지 않습니다.
 **자격 증명 모음 스토리지 유형 수정** | 백업을 저장하기 전에 자격 증명 모음에 대한 스토리지 복제 유형(지역 중복 스토리지 또는 로컬 중복 스토리지)을 수정할 수 있습니다. 자격 증명 모음에서 백업이 시작되면 복제 유형을 수정할 수 없습니다.
-**ZRS(영역 중복 스토리지)** | UKS(영국 남부) 및 SEA(동남 아시아) 지역에서 사용할 수 있습니다.
+**ZRS(영역 중복 스토리지)** | 영국 남부, 동남아시아, 호주 동부, 북유럽, 미국 중부 및 일본 동부에서 미리 보기로 지원됩니다.
 **프라이빗 엔드포인트** | Recovery Services 자격 증명 모음에 대한 프라이빗 엔드포인트를 만들기 위한 요구 사항은 [이 섹션](./private-endpoints.md#before-you-start)을 참조하세요.  
 
 ## <a name="on-premises-backup-support"></a>온-프레미스 백업 지원
@@ -155,6 +155,17 @@ Azure Backup은 데이터 가용성 및 복원력 기능을 강화하도록 지�
 | SQL/SAP HANA | 사용 가능      | 프랑스 중부, UG 아이오와 및 UG 버지니아를 제외한 모든 Azure 공용 지역 및 소버린 지역에서 사용할 수 있습니다. |
 | MARS 에이전트/온-프레미스  | 예                                                           | 해당 없음               |
 | AFS(Azure 파일 공유)                 | 예                                                           | 해당 없음               |
+
+## <a name="resource-health"></a>리소스 상태
+
+리소스 상태 확인은 다음 조건에서 작동합니다.
+
+|     |     |
+| --- | --- |
+| **지원되는 리소스** | Recovery Services 자격 증명 모음 |
+| **지원되는 지역** | 미국 동부 2, 동아시아 및 프랑스 중부. |
+| **지원되지 않는 지역의 경우** | 리소스 상태는 "알 수 없음"으로 표시됩니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 

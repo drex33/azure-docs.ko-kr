@@ -2,19 +2,18 @@
 title: 경고를 사용하여 문제에 대한 알림 받기 - Azure IoT Edge
 description: Azure Monitor 경고 규칙을 사용하여 대규모로 모니터링
 author: veyalla
-manager: philmea
 ms.author: veyalla
 ms.date: 06/08/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 14deb9a8a8ecaf67306ab8e29b2dfea7fa130c00
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 1de507f113f5bf457a4394be9e5fb86c37291e95
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904453"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537466"
 ---
 # <a name="get-notified-about-issues-using-alerts-preview"></a>경고를 사용하여 문제에 대한 알림 받기(미리 보기)
 
@@ -22,11 +21,14 @@ ms.locfileid: "111904453"
 
 [Azure Monitor 로그 경고](../azure-monitor/alerts/alerts-unified-log.md)를 사용하여 IoT Edge 디바이스를 대규모로 모니터링할 수 있습니다. [솔루션 아키텍처](how-to-collect-and-transport-metrics.md#architecture)에 강조 표시된 대로 Azure Monitor Log Analytics는 메트릭 데이터베이스로 사용됩니다. 이 통합은 리소스 중심 로그 경고를 사용하여 강력하고 유연한 경고 기능을 제공합니다.
 
+> [!IMPORTANT]
+> 이 기능은 현재 IoT Hub에서만 사용할 수 있으며 IoT Central에서는 사용할 수 없습니다.
+
 ## <a name="create-an-alert-rule"></a>경고 규칙 만들기
 
 디바이스 플릿에서 다양한 범위를 모니터링하는 [로그 경고 규칙을 만들](../azure-monitor/alerts/alerts-log.md) 수 있습니다.
 
-샘플 [KQL](https://aka.ms/kql) 경고 쿼리는 IoT Hub 리소스 아래에 제공됩니다. 에지 디바이스의 메트릭 데이터에 대해 작동하는 쿼리에는 제목에 *IoT Edge:* 접두사가 붙습니다. 이러한 예제를 그대로 사용하거나 필요에 따라 수정하여 정확한 요구에 맞는 쿼리를 만들 수 있습니다.
+샘플 [KQL](/azure/data-explorer/kusto/query/) 경고 쿼리는 IoT Hub 리소스 아래에 제공됩니다. 에지 디바이스의 메트릭 데이터에 대해 작동하는 쿼리에는 제목에 *IoT Edge:* 접두사가 붙습니다. 이러한 예제를 그대로 사용하거나 필요에 따라 수정하여 정확한 요구에 맞는 쿼리를 만들 수 있습니다.
 
 예제 경고 쿼리에 액세스하려면 다음 단계를 수행합니다.
 
@@ -66,4 +68,4 @@ ms.locfileid: "111904453"
 
 ## <a name="next-steps"></a>다음 단계
 
-[사용자 지정 모듈의 메트릭](how-to-add-custom-metrics.md)을 통해 모니터링 솔루션을 향상시킵니다. 
+[사용자 지정 모듈의 메트릭](how-to-add-custom-metrics.md)을 통해 모니터링 솔루션을 향상시킵니다.

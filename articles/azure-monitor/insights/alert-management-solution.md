@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 6f3761b1c933d113bf65c70370c29bcfa7950eea
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: b9bd43591c64d1b83ba8bf8f5400c0273141d735
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728657"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537919"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics의 경고 관리 솔루션
 
 ![경고 관리 아이콘](media/alert-management-solution/icon.png)
 
-경고 관리 솔루션을 통해 Log Analytics 리포지토리에서 모든 경고를 분석할 수 있습니다.  [Log Analytics에서 만든](../alerts/alerts-overview.md) 또는 [Nagios 또는 Zabbix에서 가져온](../vm/quick-collect-linux-computer.md) 원본을 포함하여 다양한 원본에서 이러한 경고가 발생할 수 있습니다. 또한 솔루션은 [연결된 System Center Operations Manager 관리 그룹](../agents/om-agents.md)에서도 경고를 가져옵니다.
+경고 관리 솔루션을 통해 Log Analytics 리포지토리에서 모든 경고를 분석할 수 있습니다.  [Log Analytics에서 만든](../alerts/alerts-overview.md) 또는 [Nagios 또는 Zabbix에서 가져온](../vm/monitor-virtual-machine.md) 원본을 포함하여 다양한 원본에서 이러한 경고가 발생할 수 있습니다. 또한 솔루션은 [연결된 System Center Operations Manager 관리 그룹](../agents/om-agents.md)에서도 경고를 가져옵니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 솔루션은 Log Analytics 리포지토리에서 **경고** 유형의 모든 레코드를 사용하므로 이러한 레코드를 수집하는 데 필요한 구성을 모두 수행해야 합니다.
 
 - Log Analytics 경고의 경우 [경고 규칙을 만들어서](../alerts/alerts-overview.md) 리포지토리에서 직접 경고 레코드를 만듭니다.
-- Nagios 및 Zabbix 경고의 경우 Log Analytics로 경고를 보내도록 [해당 서버를 구성](../vm/quick-collect-linux-computer.md)합니다.
+- Nagios 및 Zabbix 경고의 경우 Log Analytics로 경고를 보내도록 [해당 서버를 구성](../vm/monitor-virtual-machine.md)합니다.
 - System Center Operations Manager 경고의 경우 [Operations Manager 관리 그룹을 Log Analytics 작업 영역에 연결](../agents/om-agents.md)합니다.  그러면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.  
 
 ## <a name="configuration"></a>구성
@@ -39,10 +39,10 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="agents"></a>에이전트
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | 지원 | 설명 |
+| 연결된 소스 | 지원 | Description |
 |:--- |:--- |:--- |
 | [Windows 에이전트](../agents/agent-windows.md) | 아니요 |직접 Windows 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Windows 에이전트에서 성능 데이터를 수집할 수 있습니다. |
-| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 아니요 |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
+| [Linux 에이전트](../vm/monitor-virtual-machine.md) | 아니요 |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
 | [System Center Operations Manager 관리 그룹](../agents/om-agents.md) |예 |Operations Manager 에이전트에 대해 생성된 경고는 관리 그룹에 전달된 다음 Log Analytics에 전달됩니다.<br><br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 경고 데이터는 관리 그룹에서 Log Analytics 리포지토리로 전달됩니다. |
 
 

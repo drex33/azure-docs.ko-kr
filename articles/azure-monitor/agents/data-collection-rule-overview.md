@@ -6,20 +6,20 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
 ms.custom: references_region
-ms.openlocfilehash: e7da31ec80153fe2d2bd6923850a4342886fa9be
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 83ad2245ec010bd91907ae27e077f86b4d6b1d5e
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495573"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122400"
 ---
-# <a name="data-collection-rules-in-azure-monitor-preview"></a>Azure Monitor의 데이터 수집 규칙(미리 보기)
+# <a name="data-collection-rules-in-azure-monitor"></a>Azure Monitor의 데이터 수집 규칙
 DCR(데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정의하고 데이터를 보내거나 저장할 위치를 지정합니다. 이 문서에서는 콘텐츠 및 구조체를 포함한 데이터 수집 규칙의 개요와 이를 만들고 사용하는 방법을 설명합니다.
 
 ## <a name="input-sources"></a>입력 원본
 데이터 수집 규칙은 현재 다음과 같은 입력 원본을 지원합니다.
 
-- Azure Monitor 에이전트를 사용하는 Azure 가상 머신. [Azure Monitor 에이전트를 위한 데이터 수집 구성(미리 보기)](../agents/data-collection-rule-azure-monitor-agent.md)을 참조하세요.
+- 가상 머신, 가상 머신 확장 집합 및 서버용 Azure Arc에서 실행되는 Azure Monitor 에이전트. [Azure Monitor 에이전트를 위한 데이터 수집 구성(미리 보기)](../agents/data-collection-rule-azure-monitor-agent.md)을 참조하세요.
 
 
 
@@ -30,8 +30,10 @@ DCR(데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정�
 |:---|:---|
 | 데이터 원본 | 자체 형식 및 해당 데이터를 노출하는 메서드를 사용하는 모니터링 데이터의 고유한 원본. 데이터 원본의 예로는 Windows 이벤트 로그, 성능 카운터 및 syslog가 있습니다. 각 데이터 원본은 아래에 설명된 것처럼 특정 데이터 원본 형식과 일치합니다. |
 | 스트림 | 한 가지 형식으로 변환 및 스키마된 데이터 원본 집합을 설명하는 고유 핸들입니다. 각 데이터 원본에는 하나 이상의 스트림이 필요하고, 여러 데이터 원본에서 하나의 스트림을 사용할 수 있습니다. 한 스트림의 모든 데이터 원본은 공통 스키마를 공유합니다. 예를 들어 동일한 Log Analytics 작업 영역에 있는 여러 테이블에 특정 데이터 원본을 보내려는 경우 여러 스트림을 사용합니다. |
-| 대상 | 데이터를 전송해야 하는 대상 집합입니다. 예를 들면 Log Analytics 작업 영역, Azure Monitor 메트릭 및 Azure Event Hubs가 있습니다. | 
+| 대상 | 데이터를 전송해야 하는 대상 집합입니다. 예를 들면 Log Analytics 작업 영역 및 Azure Monitor 메트릭이 있습니다. | 
 | 데이터 흐름 | 대상에 보내야 하는 스트림을 정의합니다. | 
+
+데이터 수집 규칙은 지역적으로 저장되며 Log Analytics가 지원되는 모든 공개 지역에서 사용할 수 있습니다. 현재 정부 지역 및 클라우드는 지원되지 않습니다.
 
 다음 다이어그램에서는 데이터 수집 규칙의 구성 요소와 그 관계를 설명합니다
 
@@ -73,7 +75,7 @@ DCR(데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정�
   - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## <a name="sample-data-collection-rule"></a>샘플 데이터 수집 규칙
-아래의 샘플 데이터 수집 규칙은 Azure Management 에이전트를 사용하는 가상 머신에 대한 것이며 다음과 같은 세부 정보를 포함합니다.
+아래의 샘플 데이터 수집 규칙은 Azure Monitor 에이전트를 사용하는 가상 머신에 대한 것이며 다음과 같은 세부 정보를 포함합니다.
 
 - 성능 데이터
   - 15초마다 특정 프로세서, 메모리, 논리 디스크 및 실물 디스크 카운터를 수집하고 1분마다 업로드합니다.

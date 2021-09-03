@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 08/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 84b10fefbfae4ca42fa96cc96f357dbfe0d25800
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 94528abaf90a94c59dd97c9a4ae0d15162914bc7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794775"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537102"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Azure NetApp Files에 대한 볼륨 복제본 만들기
 
@@ -105,6 +105,9 @@ NFS 프로토콜의 경우 내보내기 정책 규칙이 내보내기에 액세�
     ![복제 권한 부여](../media/azure-netapp-files/cross-region-replication-authorize.png) 
 
 6. 권한 부여 필드에 3단계에서 가져온 대상 복제 볼륨 리소스 ID를 붙여넣은 다음 **확인** 을 클릭합니다.
+
+    > [!NOTE]
+    > 주어진 시간에 대상 스토리지 상태와 같은 다양한 요인으로 인해 원본 볼륨의 사용 공간과 대상 볼륨의 사용 공간 사이에 차이가 있을 수 있습니다. <!-- ANF-14038 --> 
 
 ## <a name="next-steps"></a>다음 단계  
 

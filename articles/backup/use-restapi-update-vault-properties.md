@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용하여 자격 증명 모음 �
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6dfa05a3bc26c21da95d60374582f10a1a0b84d2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91567828"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458850"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 자격 증명 모음 구성 업데이트
 
@@ -25,7 +25,7 @@ ms.locfileid: "91567828"
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>REST API를 사용하여 일시 삭제 상태 페치
 
-기본적으로 새로 만든 Recovery Services 자격 증명 모음에는 일시 삭제 상태가 활성화됩니다. 자격 증명 모음에 대한 일시 삭제 상태를 페치/업데이트하려면 백업 자격 증명 모음의 구성 관련 [REST API 문서](/rest/api/backup/backupresourcevaultconfigs)를 사용합니다.
+기본적으로 새로 만든 Recovery Services 자격 증명 모음에는 일시 삭제 상태가 활성화됩니다. 자격 증명 모음에 대한 일시 삭제 상태를 페치/업데이트하려면 백업 자격 증명 모음의 구성 관련 [REST API 문서](/rest/api/backup/backup-resource-vault-configs)를 사용합니다.
 
 자격 증명 모음에 대한 일시 삭제의 현재 상태를 페치하려면 다음 *GET* 작업을 사용합니다.
 
@@ -43,9 +43,9 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 'GET' 작업에 대한 성공적인 응답은 다음과 같습니다.
 
-|이름  |유형  |Description  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
-|200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
+|200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backup-resource-vault-configs/get#backupresourcevaultconfigresource)      | 정상        |
 
 ##### <a name="example-response"></a>예제 응답
 
@@ -81,9 +81,9 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 다음과 같은 일반적인 정의가 요청 본문을 만드는 데 사용됩니다.
 
-자세한 내용은 [REST API 설명서](/rest/api/backup/backupresourcevaultconfigs/update#request-body)를 참조하세요.
+자세한 내용은 [REST API 설명서](/rest/api/backup/backup-resource-vault-configs/update#request-body)를 참조하세요.
 
-|이름  |필수  |Type  |Description  |
+|이름  |필수  |Type  |설명  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  선택적 eTag       |
 |위치     |  true       |String         |   리소스 위치      |
@@ -107,9 +107,9 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 'PATCH' 작업에 대한 성공적인 응답은 다음과 같습니다.
 
-|이름  |유형  |Description  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
-|200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
+|200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backup-resource-vault-configs/get#backupresourcevaultconfigresource)      | 정상        |
 
 ##### <a name="example-response-for-the-patch-operation"></a>PATCH 작업에 대한 응답의 예
 

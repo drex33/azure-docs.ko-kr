@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 430af1dfcbd9c7faabfca2f3f5b80b3b3106a889
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74d5bee95ae91eb11f249518f49b711d9649db01
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675794"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467659"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
 
@@ -188,7 +188,7 @@ HADR 사용자 가이드에서는 2노드 SAP ASE "Always-on" 솔루션의 설�
 > Azure에서 지원되는 유일한 구성은 부동 IP 없이 Fault Manager를 사용하는 것입니다.  부동 IP 주소 방법은 Azure에서 작동하지 않습니다. 
 
 ### <a name="third-node-for-disaster-recovery"></a>재해 복구를 위한 세 번째 노드
-SAP ASE Always-On을 로컬 고가용성에 사용하는 것 외에도 구성을 다른 Azure 지역에 있는 비동기적으로 복제된 노드로 확장할 수 있습니다. 이러한 시나리오에 대한 설명서는 [여기](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)서 찾을 수 있습니다.
+SAP ASE Always-On을 로컬 고가용성에 사용하는 것 외에도 구성을 다른 Azure 지역에 있는 비동기적으로 복제된 노드로 확장할 수 있습니다. 자세한 내용은 [Sybase 16. 3 패치 레벨 3 Always-on + Suse 12.3의 DR 설치 절차](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)를 참조하세요.
 
 ## <a name="sap-ase-database-encryption--ssl"></a>SAP ASE 데이터베이스 암호화 및 SSL 
 SAP SWPM(Software Provisioning Manager)은 설치 중에 데이터베이스를 암호화하는 옵션을 제공합니다.  암호화를 사용하려면 SAP 전체 데이터베이스 암호화를 사용하는 것이 좋습니다.  자세한 내용은 다음 문서를 참조하세요.
@@ -245,7 +245,6 @@ SAP 시스템을 호스트하는 Azure Virtual Machine이 AD 및 DNS에 연결�
 > 
 > 
 
-DNS 이름에 관련된 자세한 내용은 [여기][virtual-machines-azurerm-versus-azuresm]서 확인할 수 있습니다.
 
 SAP 프로필 매개 변수 icm/host_name_full을 Azure VM의 DNS 이름으로 설정할 경우 링크는 다음과 같습니다.
 

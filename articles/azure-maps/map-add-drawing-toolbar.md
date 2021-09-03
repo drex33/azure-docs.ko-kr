@@ -7,14 +7,13 @@ ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: b00628ec5a9f41b027bf90b93421f3aa1404e97a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a548d516213b65406a2f47c27c9a1a82cfb6f4b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896398"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567399"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>맵에 그리기 도구 모음 추가
 
@@ -69,7 +68,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 
 ## <a name="change-drawing-rendering-style"></a>그리기 렌더링 스타일 변경
 
-그리는 도형의 스타일은 `drawingManager.getLayers()` 함수를 사용하여 그리기 관리자의 기본 레이어를 검색한 다음 개별 레이어의 옵션을 설정하여 사용자 지정할 수 있습니다. 도형을 편집할 때 좌표에 대해 나타나는 끌기 핸들은 HTML 표식입니다. 그리기 관리자의 `dragHandleStyle` 및 `secondaryDragHandleStyle` 옵션에 HTML 표식 옵션을 전달하여 끌기 핸들의 스타일을 사용자 지정할 수 있습니다.  
+그리는 도형의 스타일은 `drawingManager.getLayers()` 및 `drawingManager.getPreviewLayers()` 함수를 사용하여 그리기 관리자의 기본 레이어를 검색한 다음 개별 레이어의 옵션을 설정하여 사용자 지정할 수 있습니다. 도형을 편집할 때 좌표에 대해 나타나는 끌기 핸들은 HTML 표식입니다. 그리기 관리자의 `dragHandleStyle` 및 `secondaryDragHandleStyle` 옵션에 HTML 표식 옵션을 전달하여 끌기 핸들의 스타일을 사용자 지정할 수 있습니다.  
 
 다음 코드는 그리기 관리자에서 렌더링 레이어를 가져오고 그리기의 렌더링 스타일을 변경하는 옵션을 수정합니다. 이 경우 점은 파란색 표식 아이콘으로 렌더링됩니다. 선은 빨강색이며 너비는 4픽셀입니다. 다각형의 윤곽은 주황색이고 초록색으로 채워집니다. 그런 다음 끌기 핸들의 스타일을 정사각형 아이콘으로 변경합니다. 
 
@@ -100,6 +99,12 @@ layers.polygonOutlineLayer.setOptions({
     strokeColor: 'orange'
 });
 
+
+//Get preview rendering layers from the drawing manager and modify line styles to be dashed.
+var previewLayers = drawingManager.getPreviewLayers();
+previewLayers.lineLayer.setOptions({ strokeColor: 'red', strokeWidth: 4, strokeDashArray: [3,3] });
+previewLayers.polygonOutlineLayer.setOptions({ strokeColor: 'orange', strokeDashArray: [3, 3] });
+
 //Update the style of the drag handles that appear when editting.
 drawingManager.setOptions({
     //Primary drag handle that represents coordinates in the shape.
@@ -126,6 +131,8 @@ drawingManager.setOptions({
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>그리기 렌더링 스타일 변경</a> 펜을 참조하세요.
 </iframe>
 
+> [!NOTE]
+> 편집 모드에서 모양을 회전할 수 있습니다. 회전은 MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon 및 Rectangle 도형에서 지원됩니다. 점 및 원 도형은 회전할 수 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

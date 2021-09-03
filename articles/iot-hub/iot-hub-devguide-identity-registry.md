@@ -6,18 +6,18 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 06/29/2021
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2590ffd15ec046d0fc81e73b98577fa9ad91ae41
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 71007f18edcac6089be89537f0021f75c2cc4b38
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109712751"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294738"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -183,8 +183,10 @@ iothub-message-schema | moduleLifecycleNotification |
 | deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId** 로 디바이스를 구분하는 데 사용됩니다. |
 | etag |필요한 경우 읽기 전용 |[RFC7232](https://tools.ietf.org/html/rfc7232)에 따라 디바이스 ID에 대해 약한 ETag를 나타내는 문자열입니다. |
-| auth |선택적 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
-| auth.symkey |선택적 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
+| 인증 |선택적 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. 자세한 내용은 REST API 문서에서 [인증 메커니즘](/rest/api/iothub/service/devices/get-identity#authenticationmechanism)을 참조하세요. |
+| capabilities | 선택적 | 디바이스의 기능 집합입니다. 예를 들어 디바이스가 에지 디바이스인지 여부입니다. 자세한 내용은 REST API 문서에서 [디바이스 기능](/rest/api/iothub/service/devices/get-identity#devicecapabilities)을 참조하세요. |
+| deviceScope | 선택적 | 디바이스의 범위입니다. 에지 디바이스에서 자동으로 만들어지고 변경할 수 없습니다. 비-에지 디바이스에서 더 이상 사용되지 않습니다. 그러나 자식(리프) 디바이스에서는 API의 이전 버전과의 호환성을 위해 이 속성을 **parentScopes** 속성(부모 디바이스의 **deviceScope**)과 동일한 값으로 설정합니다. 자세한 내용은 [게이트웨이로서의 IoT Edge: 부모 및 자식 관계](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships)를 참조하세요.|
+| parentScopes | 선택적 | 자식 디바이스의 직접적인 부모 범위(부모 디바이스의 **deviceScope** 속성 값) 에지 디바이스에서 디바이스에 부모가 없으면 값이 비어 있습니다. 비-에지 디바이스에서 디바이스에 부모가 없으면 속성이 존재하지 않습니다. 자세한 내용은 [게이트웨이로서의 IoT Edge: 부모 및 자식 관계](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships)를 참조하세요. |
 | 상태 |필수 |액세스 표시기입니다. **사용** 또는 **사용 안 함** 으로 설정할 수 있습니다. **사용** 이면 디바이스를 연결할 수 있습니다. **사용 안 함** 이면 이 디바이스는 디바이스 연결 엔드포인트에 액세스할 수 없습니다. |
 | statusReason |선택적 |디바이스 ID 상태의 원인을 저장하는 128자 길이의 문자열입니다. UTF-8 문자를 모두 허용합니다. |
 | statusUpdateTime |읽기 전용 |마지막 상태 업데이트의 시간과 날짜를 보여 주는 임시 표시기입니다. |
@@ -208,11 +210,9 @@ iothub-message-schema | moduleLifecycleNotification |
 | moduleId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId** 로 디바이스를 구분하는 데 사용됩니다. |
 | etag |필요한 경우 읽기 전용 |[RFC7232](https://tools.ietf.org/html/rfc7232)에 따라 디바이스 ID에 대해 약한 ETag를 나타내는 문자열입니다. |
-| auth |선택적 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
-| auth.symkey |선택적 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
-| 상태 |필수 |액세스 표시기입니다. **사용** 또는 **사용 안 함** 으로 설정할 수 있습니다. **사용** 이면 디바이스를 연결할 수 있습니다. **사용 안 함** 이면 이 디바이스는 디바이스 연결 엔드포인트에 액세스할 수 없습니다. |
-| statusReason |선택적 |디바이스 ID 상태의 원인을 저장하는 128자 길이의 문자열입니다. UTF-8 문자를 모두 허용합니다. |
-| statusUpdateTime |읽기 전용 |마지막 상태 업데이트의 시간과 날짜를 보여 주는 임시 표시기입니다. |
+| 인증 |선택적 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. 자세한 내용은 REST API 문서에서 [인증 메커니즘](/rest/api/iothub/service/modules/get-identity#authenticationmechanism)을 참조하세요. |
+| managedBy | 선택적 | 이 모듈을 관리하는 사람을 식별합니다. 예를 들어, 에지 런타임이 이 모듈을 소유하는 경우 이 값은 "IotEdge"입니다. |
+| cloudToDeviceMessageCount | 읽기 전용 | 모듈에 전송하기 위해 현재 큐에 있는 클라우드 대 모듈 메시지 수입니다. |
 | connectionState |읽기 전용 |연결 상태를 나타내는 필드: **연결됨** 또는 **연결 끊김**. 이 필드는 디바이스 연결 상태의 IoT Hub 뷰를 나타냅니다. **중요**: 이 필드는 개발/디버깅 용도로만 사용해야 합니다. 연결 상태는 MQTT 또는 AMQP를 사용하여 디바이스에 대해서만 업데이트됩니다. 또한 이는 프로토콜 수준의 ping(MQTT ping 또는 AMQP ping)을 기반으로 하고 있으며 최대 5분 동안만 지연이 될 수 있습니다. 이러한 이유로, 연결되었지만 연결이 끊긴 것으로 보고된 디바이스와 같이 거짓 긍정이 있을 수 있습니다. |
 | connectionStateUpdatedTime |읽기 전용 |연결 상태가 마지막으로 업데이트된 날짜 및 시간을 표시하는 임시 표시기입니다. |
 | lastActivityTime |읽기 전용 |디바이스 연결이 마지막으로 연결되거나 메시지를 받거나 보낸 날짜 및 시간을 표시하는 임시 표시기입니다. |
@@ -248,7 +248,7 @@ IoT Hub ID 레지스트리를 사용하는 방법에 대해 알아봤으니 다�
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
-* [Azure IoT Hub 시작](quickstart-send-telemetry-dotnet.md)
+* [Azure IoT Hub 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 

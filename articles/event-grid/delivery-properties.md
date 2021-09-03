@@ -2,18 +2,18 @@
 title: Azure Event Grid - 전송되는 이벤트에 사용자 지정 헤더 설정
 description: 전송되는 이벤트에 사용자 지정 헤더(또는 전송 속성)를 설정하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: 515f2687781329d0f9f9648460663a0a30f7c637
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.date: 08/13/2021
+ms.openlocfilehash: de16c3b4981dc02a54a68269d4eef743d9f48c4b
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887448"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529645"
 ---
 # <a name="custom-delivery-properties"></a>사용자 지정 전달 속성
-이벤트 구독을 사용하면 전송되는 이벤트에 포함된 HTTP 헤더를 설정할 수 있습니다. 이 기능을 통해 대상에 필요한 사용자 지정 헤더를 설정할 수 있습니다. 이벤트 구독을 만들 때 최대 10개의 헤더를 설정할 수 있습니다. 각 헤더 값은 4,096(4K)바이트 이하여야 합니다.
+이벤트 구독을 사용하면 배달된 이벤트에 포함 되는 HTTP 헤더를 설정할 수 있습니다. 이 기능을 사용하여 대상에 필요한 사용자 지정 헤더를 설정할 수 있습니다. 이벤트 구독을 만들 때 최대 10개의 헤더를 설정할 수 있습니다. 각 헤더 값은 4,096(4K)바이트보다 크지 않아야 합니다.
 
-다음 대상으로 전송되는 이벤트에 사용자 지정 헤더를 설정할 수 있습니다.
+다음 대상에 배달되는 이벤트에 사용자 지정 헤더를 설정할 수 있습니다.
 
 - Webhook
 - Azure Service Bus 토픽 및 큐
@@ -33,6 +33,20 @@ Azure Portal에서 이벤트 구독을 만들 때 **전송 속성** 탭을 사�
 수신 이벤트 속성에 따라 헤더 값을 설정할 수 있습니다. JsonPath 구문을 사용하여 수신 이벤트 속성 값을 참조하고 발신 요청의 헤더 값으로 사용합니다. 예를 들어 이벤트 데이터에서 수신 이벤트 속성 **system** 의 값을 사용하여 **Channel** 헤더의 값을 설정하려면 다음과 같이 이벤트 구독을 구성합니다.
 
 :::image type="content" source="./media/delivery-properties/dynamic-header-property.png" alt-text="전송 속성 - 동적":::
+
+## <a name="use-azure-cli"></a>Azure CLI 사용
+`az eventgrid event-subscription create` 명령을 사용하여 구독을 만들 때 `--delivery-attribute-mapping` 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+
+```azurecli
+az eventgrid event-subscription create -n es1 \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1
+    --endpoint-type storagequeue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/sa1/queueservices/default/queues/q1 \
+    --enable-advanced-filtering-on-arrays true
+    --delivery-attribute-mapping staticproperty1 static somestaticvalue2 true 
+    --delivery-attribute-mapping staticproperty2 static somestaticvalue3 false 
+    --delivery-attribute-mapping dynamicproperty1 dynamic data.key1
+```
 
 ## <a name="examples"></a>예제
 이 섹션에서는 전송 속성을 사용하는 몇 가지 예제를 제공합니다.

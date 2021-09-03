@@ -3,14 +3,14 @@ title: .NET의 지속형 엔터티에 대한 개발자 가이드 - Azure Functio
 description: Azure Functions용 Durable Functions 확장을 사용하여 .NET에서 지속형 엔터티로 작업하는 방법입니다.
 author: sebastianburckhardt
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 06/30/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 88d2a23104b67dae8fd480406eb9171e9f3d5652
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6927c0a276ffa58077ce258dc5fa4ce02eb8f43f
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92740015"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108048"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>.NET의 지속형 엔터티에 대한 개발자 가이드 읽기
 
@@ -264,10 +264,11 @@ context.SignalEntity<ICounter>("myCounter", ...);
 일반적으로 모든 매개 변수 및 반환 형식은 JSON 직렬화되어야 합니다. 그러지 않으면 런타임에 직렬화 예외가 throw됩니다.
 
 또한 다음과 같은 몇 가지 추가 규칙이 적용됩니다.
+* 엔터티 인터페이스는 엔터티 클래스와 동일한 어셈블리에 정의되어야 합니다.
 * 엔터티 인터페이스는 메서드만 정의해야 합니다.
 * 엔터티 인터페이스에 일반 매개 변수를 포함하면 안 됩니다.
 * 엔터티 인터페이스 메서드에는 매개 변수가 둘 이상 있으면 안 됩니다.
-* 엔터티 인터페이스 메서드는 `void`, `Task` 또는 `Task<T>`를 반환해야 합니다. 
+* 엔터티 인터페이스 메서드는 `void`, `Task` 또는 `Task<T>`를 반환해야 합니다.
 
 인터페이스가 `SignalEntity` 또는 `CreateProxy`에 대한 형식 인수로 사용될 때 이러한 규칙 중 하나라도 위반하면 런타임에 `InvalidOperationException`이 throw됩니다. 예외 메시지는 어떤 규칙이 위반되었는지 설명합니다.
 

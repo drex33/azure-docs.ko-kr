@@ -11,18 +11,21 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: d56ffff1538e068e80195972315f261d09a53d88
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 03c66f9610ab8dc309098e1eee695ded477938bc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530907"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768448"
 ---
 # <a name="tutorial-configure-azure-web-application-firewall-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 Azure Web Application Firewall 구성
 
 이 샘플 자습서에서는 사용자 지정 도메인을 사용하는 Azure AD(Active Directory) B2C 테넌트에서 [Azure WAF(Web Application Firewall)](https://azure.microsoft.com/services/web-application-firewall/#overview) 솔루션을 사용하도록 설정하는 방법을 알아봅니다. Azure WAF는 일반적인 악용과 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+>[!NOTE]
+>이 기능은 공개 미리 보기 상태입니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 시작하려면 다음이 필요합니다.
 
@@ -52,7 +55,7 @@ Azure WAF를 사용하도록 설정하려면 WAF 정책을 구성하고 보호�
 
 2. **WAF 정책 만들기** 페이지로 이동하여 **기본** 탭을 선택합니다. 다음 정보를 입력하고 나머지 설정은 기본값을 적용합니다.
 
-| 값 | 설명 |
+| 값 | Description |
 |:--------|:-------|
 | 정책 | 글로벌 WAF(Front Door)|
 | Front Door SKU | 기본, 표준 또는 프리미엄 SKU 중에서 선택합니다. |
@@ -66,7 +69,7 @@ Azure WAF를 사용하도록 설정하려면 WAF 정책을 구성하고 보호�
 
 4. WAF 정책 만들기 페이지의 **연결** 탭으로 이동하여 + **Front Door 프로필 연결** 을 선택하고, 다음 설정을 입력합니다.
 
-| 값 | 설명 |
+| 값 | Description |
 |:----|:------|
 | Front Door | Azure AD B2C 사용자 지정 도메인과 연결된 Front Door 이름을 선택합니다. |
 | 도메인 | WAF 정책을 연결할 Azure AD B2C 사용자 지정 도메인을 선택합니다.|

@@ -13,22 +13,22 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/11/2020
+ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 274db058f9f291d720fc350bb23f7bfdde2791e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3975f23ad184ec04849fca57ef37d5fe57c2b48f
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670942"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530543"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Azure 가상 머신의 SAP 워크로드 지원 시나리오
 Azure에서 SAP NetWeaver, Business one `Hybris` 또는 S/4HANA 시스템 아키텍처를 디자인하면 다양한 아키텍처 및 도구를 사용하여 확장성 있고 효율적인 고가용성 배포를 수행할 수 있는 여러 기회가 열립니다. 사용하는 운영 체제 또는 DBMS에 따라 다르지만 제한이 있습니다. 또한 온-프레미스에서 지원되는 모든 시나리오가 Azure에서도 똑같은 방식으로 지원되는 것은 아닙니다. 이 문서에서는 Azure VM을 독점적으로 사용하는 지원되는 고가용성 구성 및 비-고가용성 구성과 아키텍처를 안내합니다. [HANA 대규모 인스턴스](./hana-overview-architecture.md)를 지원하는 시나리오는 [HANA 대규모 인스턴스의 지원되는 시나리오](./hana-supported-scenario.md) 문서를 참조하세요. 
 
 
 ## <a name="2-tier-configuration"></a>2계층 구성
-SAP 2 계층 구성은 동일한 서버 또는 VM 단위에서 실행되는 SAP DBMS 및 애플리케이션 계층이 조합된 계층에서 빌드되는 것으로 간주됩니다. 두 번째 계층은 사용자 인터페이스 계층으로 간주됩니다. 2계층 구성의 경우 DBMS 및 SAP 애플리케이션 계층은 Azure VM 리소스를 공유합니다. 따라서 리소스를 두고 서로 경합하지 않는 방식으로 여러 구성 요소를 구성해야 합니다. 또한 VM 리소스를 초과 구독하지 않도록 주의해야 합니다. 이러한 구성은 여러 관련 Azure 구성 요소의 [Azure 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 초과하는 고가용성을 제공하지 않습니다.
+SAP 2 계층 구성은 동일한 서버 또는 VM 단위에서 실행되는 SAP DBMS 및 애플리케이션 계층이 조합된 계층에서 빌드되는 것으로 간주됩니다. 두 번째 계층은 사용자 인터페이스 계층으로 간주됩니다. 2계층 구성의 경우 DBMS 및 SAP 애플리케이션 계층은 Azure VM 리소스를 공유합니다. 결과적으로 이러한 구성 요소가 리소스를 놓고 경합하지 않는 방식으로 다른 구성 요소를 구성해야 합니다. 또한 VM 리소스를 초과 구독하지 않도록 주의해야 합니다. 이러한 구성은 여러 관련 Azure 구성 요소의 [Azure 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 초과하는 고가용성을 제공하지 않습니다.
 
 이 구성을 그림으로 표시하면 다음과 같습니다.
 
@@ -69,7 +69,7 @@ Azure에서 지원되는 모든 OS/DBMS 조합의 경우 이 유형의 구성이
 - SAP HANA의 경우 VM 하나에 여러 인스턴스를 배포하는 것이 지원되며, SAP에서는 이 배포 방법을 MCOS라고 부릅니다. 자세한 내용은 SAP 문서 [하나의 호스트에 여러 SAP HANA 시스템 배포(MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
 - /b2751fd43bec41a9a14e01913f1edf18.html)를 참조하세요.
 
-하나의 호스트에서 여러 데이터베이스 인스턴스를 실행하는 경우 서로 다른 인스턴스가 리소스를 두고 경합하여 VM의 물리적 리소스 제한을 초과하는 일이 없도록 해야 합니다. VM을 공유하는 모든 인스턴스가 할당할 수 있는 메모리를 제한해야 하는 경우에 특히 그렇습니다. 여러 데이터베이스 인스턴스에서 활용할 수 있는 CPU 리소스에도 똑같이 적용될 수 있습니다. 지금까지 언급한 모든 DBMS는 인스턴스 수준에서 메모리 할당과 CPU 리소스를 제한할 수 있는 구성이 있습니다.
+하나의 호스트에서 여러 데이터베이스 인스턴스를 실행하는 경우 서로 다른 인스턴스가 리소스를 두고 경합하여 VM의 물리적 리소스 제한을 초과하는 일이 없도록 해야 합니다. VM을 공유하는 모든 인스턴스가 할당할 수 있는 메모리를 제한해야 하는 경우에 특히 그렇습니다. 여러 데이터베이스 인스턴스에서 사용할 수 있는 CPU 리소스에도 똑같이 적용될 수 있습니다. 지금까지 언급한 모든 DBMS는 인스턴스 수준에서 메모리 할당과 CPU 리소스를 제한할 수 있는 구성이 있습니다.
 Azure VM에서 이러한 구성을 지원하기 위해, 다른 인스턴스에서 관리하는 데이터베이스의 데이터 및 로그/다시 실행 로그 파일에 사용되는 디스크 또는 볼륨이 분리될 것으로 기대합니다. 다시 말해서, 다른 DBMS 인스턴스에서 관리하는 데이터베이스의 데이터 또는 로그/다시 실행 로그 파일은 동일한 디스크 또는 볼륨을 공유할 수 없습니다. 
 
 HANA 대규모 인스턴스의 디스크 구성은 구성된 상태로 전달되며 [HANA 대규모 인스턴스의 지원되는 시나리오](./hana-supported-scenario.md#single-node-mcos)에 자세히 설명되어 있습니다. 
@@ -156,7 +156,7 @@ SAP Central Services는 SAP 구성의 두 번째 단일 실패 지점입니다. 
 - 파일 복제를 위한 두 개의 SUSE VM과 `drdb`를 사용하여 고가용성 NFS 공유를 만드는 SUSE 운영 체제의 Pacemaker. 자세한 내용은 아래 문서에 나와 있습니다.
     - [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성](./high-availability-guide-suse.md)
     - [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](./high-availability-guide-suse-nfs.md)
-- [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)에서 제공하는 NFS 공유를 활용하는 Pacemaker SUSE 운영 체제. 자세한 내용은 아래 문서에 설명되어 있습니다.
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)에서 제공하는 NFS 공유를 사용하는 Pacemaker SUSE 운영 체제. 자세한 내용은 아래 문서에 설명되어 있습니다.
     - [SAP 애플리케이션용 Azure NetApp Files를 사용하여 SUSE Linux Enterprise Server에서 Azure VM의 SAP NetWeaver 고가용성 실현](./high-availability-guide-suse-netapp-files.md)
 - `glusterfs` 클러스터에 호스트되는 NFS 공유를 사용하는 Red Hat 운영 체제의 Pacemaker. 자세한 내용은 아래 문서에서 찾을 수 있습니다.
     - [Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성](./high-availability-guide-rhel.md)
@@ -177,21 +177,21 @@ SAP Central Services는 SAP 구성의 두 번째 단일 실패 지점입니다. 
 
 
 ### <a name="supported-storage-with-the-sap-central-services-scenarios-listed-above"></a>위에 나열된 SAP Central Services 시나리오를 지원하는 스토리지
-Azure 스토리지 유형 중 일부만 고가용성 NFS 또는 SMB 공유를 제공하기 때문에 SAP Central Services 클러스터 시나리오에 사용할 수 있는 지원되는 스토리지 유형 목록은 다음과 같습니다.
+Azure Storage 유형 중 일부만 고가용성 NFS 또는 SMB 공유를 제공하기 때문에 SAP Central Services 클러스터 시나리오에 사용할 수 있는 지원되는 스토리지 유형 목록은 다음과 같습니다.
 
-- Windows 스케일 아웃 파일 서버를 사용하는 Windows 장애 조치(failover) 클러스터 서버는 Azure NetApp Files를 제외한 모든 네이티브 Azure 스토리지 유형에 배포할 수 있습니다. 그러나 처리량 및 IOPS의 서비스 수준 계약이 우수한 Premium Storage를 활용하는 것이 좋습니다.
+- Windows 스케일 아웃 파일 서버를 사용하는 Windows 장애 조치(failover) 클러스터 서버는 Azure NetApp Files를 제외한 모든 네이티브 Azure 스토리지 유형에 배포할 수 있습니다. 그러나 처리량 및 IOPS의 서비스 수준 계약이 우수한 Premium Storage를 사용하는 것이 좋습니다.
 - Azure NetApp Files에서 SMB를 사용하는 Windows 장애 조치(failover) 클러스터 서버는 Azure NetApp Files에서 지원됩니다. Azure 파일 서비스의 SMB 공유는 현재 지원되지 **않습니다**.
-- SIOS `Datakeeper` 기반의 Windows 공유 디스크를 사용하는 Windows 장애 조치(failover) 클러스터 서버는 Azure NetApp Files를 제외한 모든 네이티브 Azure 스토리지 유형에 배포할 수 있습니다. 그러나 처리량 및 IOPS의 서비스 수준 계약이 우수한 Premium Storage를 활용하는 것이 좋습니다.
+- SIOS `Datakeeper` 기반의 Windows 공유 디스크를 사용하는 Windows 장애 조치(failover) 클러스터 서버는 Azure NetApp Files를 제외한 모든 네이티브 Azure 스토리지 유형에 배포할 수 있습니다. 그러나 처리량 및 IOPS의 서비스 수준 계약이 우수한 Premium Storage를 사용하는 것이 좋습니다.
 - Azure NetApp Files에서 NFS 공유를 사용하는 SUSE 또는 Red Hat Pacemaker는 Azure NetApp Files에서 지원됩니다. 
-- 두 VM 간에 `drdb` 구성을 사용하는 SUSE Pacemake는 Azure NetApp Files를 제외한 네이티브 Azure 스토리지 유형을 사용하여 지원됩니다. 그러나 처리량 및 IOPS의 서비스 수준 계약이 우수한 Premium Storage를 활용하는 것이 좋습니다.
-- `glusterfs`를 사용하여 NFS 공유를 제공하는 Red Hat Pacemaker는 Azure NetApp Files를 제외한 네이티브 Azure 스토리지 유형을 사용하여 지원됩니다. 그러나 처리량 및 IOPS의 서비스 수준 계약이 우수한 Premium Storage를 활용하는 것이 좋습니다.
+- 두 VM 간에 `drdb` 구성을 사용하는 SUSE Pacemake는 Azure NetApp Files를 제외한 네이티브 Azure 스토리지 유형을 사용하여 지원됩니다. 그러나 처리량 및 IOPS의 서비스 수준 계약이 우수한 Premium Storage를 사용하는 것이 좋습니다.
+- `glusterfs`를 사용하여 NFS 공유를 제공하는 Red Hat Pacemaker는 Azure NetApp Files를 제외한 네이티브 Azure 스토리지 유형을 사용하여 지원됩니다. 그러나 처리량 및 IOPS의 서비스 수준 계약이 우수한 Premium Storage를 사용하는 것이 좋습니다.
 
 > [!IMPORTANT]
 > Microsoft Azure Marketplace는 Azure 네이티브 스토리지 기반의 스토리지 솔루션을 제공하는 다양한 소프트 어플라이언스를 제공합니다. 이러한 소프트 어플라이언스는 NFS 또는 SMB 공유를 만드는 데 사용할 수 있으며, 이론적으로는 장애 조치(failover) 클러스터 SAP Central Services에서도 사용할 수 있습니다. 이러한 솔루션은 Microsoft의 SAP 워크로드를 직접 지원하지 않습니다. 이러한 솔루션을 사용하여 NFS 또는 SMB 공유를 만들기로 결정하는 경우 스토리지 소프트 어플라이언스의 소프트웨어를 소유한 타사가 SAP Central Service 구성에 대한 지원을 제공해야 합니다.
 
 
 ## <a name="multi-sid-sap-central-services-failover-clusters"></a>다중 SID SAP Central Services 장애 조치(failover) 클러스터
-대규모 SAP 환경에 필요한 VM 수를 줄일 수 있도록 SAP는 여러 SAP 시스템의 SAP Central Services 인스턴스를 장애 조치(failover) 클러스터 구성으로 실행하는 것을 허용합니다. NetWeaver 또는 S/4HANA 프로덕션 시스템이 30개 이상 있다고 가정해 봅시다. 다중 SID 클러스터링이 없으면 이 구성은 30개 이상의 Windows 또는 Pacemaker 장애 조치(failover) 클러스터에서 60개 이상의 VM이 필요합니다. 뿐만 아니라 DBMS 장애 조치(failover) 클러스터도 필요합니다. 장애 조치(failover) 클러스터 구성의 두 노드에 여러 SAP 중앙 서비스를 배포하면 VM 수를 크게 줄일 수 있습니다. 그러나 단일 2노드 클러스터 구성에 SAP 중앙 서비스 인스턴스를 여러 개 배포해도 몇 가지 단점이 있습니다. 클러스터 구성의 단일 VM과 관련된 문제가 여러 SAP 시스템에 적용됩니다. 여러 프로덕션 SAP 시스템이 영향을 받기 때문에 클러스터 구성에서 실행되는 게스트 OS의 유지 관리에 더 많은 조정이 필요합니다. SAP LaMa와 같은 도구는 시스템 복제 프로세스에서 다중 SID 클러스터링을 지원하지 않습니다.
+대규모 SAP 환경에 필요한 VM 수를 줄일 수 있도록 SAP는 여러 SAP 시스템의 SAP 중앙 서비스 인스턴스를 장애 조치(failover) 클러스터 구성으로 실행하는 것을 허용합니다. NetWeaver 또는 S/4HANA 프로덕션 시스템이 30개 이상 있다고 가정해 봅시다. 다중 SID 클러스터링이 없으면 이 구성은 30개 이상의 Windows 또는 Pacemaker 장애 조치(failover) 클러스터에서 60개 이상의 VM이 필요합니다. 뿐만 아니라 DBMS 장애 조치(failover) 클러스터도 필요합니다. 장애 조치(failover) 클러스터 구성의 두 노드에 여러 SAP 중앙 서비스를 배포하면 VM 수를 크게 줄일 수 있습니다. 그러나 단일 2노드 클러스터 구성에 SAP 중앙 서비스 인스턴스를 여러 개 배포해도 몇 가지 단점이 있습니다. 클러스터 구성의 단일 VM과 관련된 문제가 여러 SAP 시스템에 적용됩니다. 여러 프로덕션 SAP 시스템이 영향을 받기 때문에 클러스터 구성에서 실행되는 게스트 OS의 유지 관리에 더 많은 조정이 필요합니다. SAP LaMa와 같은 도구는 시스템 복제 프로세스에서 다중 SID 클러스터링을 지원하지 않습니다.
 
 Azure에서는 ENSA1 및 ENSA2를 사용하는 Windows 운영 체제에 대해 다중 SID 클러스터 구성이 지원됩니다. 이전 Enqueue Replication Service 아키텍처(ENSA1)를 단일 다중 SID 클러스터의 새 아키텍처(ENSA2)와 결합하지 않는 것이 좋습니다. 이러한 아키텍처에 대한 자세한 내용은 아래 문서에 설명되어 있습니다.
 
@@ -246,7 +246,7 @@ VM에서 전체 워크로드 트래픽을 발생시키지 않으므로 더 작�
 - 여러 VM이 하나의 Azure 가용성 집합에 수집되거나 VM의 M 시리즈 제품군과 Mv2 제품군 사이에서 크기를 조정해야 하는 경우 VM 제품군의 크기를 조정하면 문제가 발생할 수 있습니다.
 - 데이터베이스 인스턴스가 최소의 지연 시간으로 변경 스트림을 수신할 수 있는 CPU 및 메모리 사용량과 이러한 변경 내용을 최소의 지연 시간으로 데이터에 적용할 수 있는 충분한 CPU 및 메모리 리소스를 고려해야 합니다.  
 
-다양한 VM 크기의 제한 사항에 대한 자세한 내용은 [여기](../../sizes.md)서 찾을 수 있습니다. 
+다양한 VM 크기의 제한 사항에 대한 자세한 내용은 [VM 크기](../../sizes.md) 페이지에서 찾을 수 있습니다.
 
 DR 대상을 배포하는 데 지원되는 또 다른 방법은 비프로덕션 SAP 인스턴스의 비프로덕션 DBMS 인스턴스를 실행하는 VM에 두 번째 DBMS 인스턴스를 설치하는 것입니다. DR 시나리오에서 주 인스턴스로 작동해야 하는 특정 대상 인스턴스에 필요한 메모리, CPU 리소스, 네트워크 대역폭 및 스토리지 대역폭을 알아내야 하기 때문에 약간 어려울 수 있습니다. 특히 HANA에서는 데이터가 DR 대상 인스턴스에 미리 로드되지 않도록 공유 호스트에서 DR 대상으로 작동하는 인스턴스를 구성하는 것이 좋습니다.
 
@@ -289,13 +289,13 @@ Azure 아키텍처에서 SAP 워크로드를 지원하지 않는 시나리오 �
 - NetWeaver, S/4HANA 및 `Hybris`에서 예를 든 것처럼 SAP 애플리케이션 계층과 SAP 공통 아키텍처의 SAP DBMS 계층 간에 더 큰 네트워크 대기 시간이 발생하는 배포 시나리오. 다음 내용이 포함됩니다.
     - 계층 중 하나를 온-프레미스에 배포하고 다른 계층을 Azure에 배포
     - 시스템의 SAP 애플리케이션 계층을 DBMS 계층이 아닌 다른 Azure 지역에 배포
-    - 한 계층을 Azure와 공동 배치되는 데이터 센터에 배포하고 다른 계층을 Azure에 배포(이러한 아키텍처 패턴을 Azure 네이티브 서비스에서 제공하는 경우는 제외)
+    - 한 계층을 Azure와 공동 배치되는 데이터 센터에 배포하고 다른 계층을 Azure에 배포(이러한 아키텍처 패턴을 Azure 기본 서비스에서 제공하는 경우는 제외)
     - SAP 애플리케이션 계층과 DBMS 계층 사이에 네트워크 가상 어플라이언스 배포
     - SAP DBMS 계층 또는 SAP 전역 전송 디렉터리에 대한 Azure 데이터 센터에 공동 배치되는 데이터 센터에 호스팅되는 스토리지 활용
     - 서로 다른 두 클라우드 공급업체를 사용하여 두 계층을 배포. 예: DBMS 계층은 Oracle 클라우드 인프라에 배포하고 애플리케이션 계층은 Azure에 배포
 - 다중 인스턴스 HANA Pacemaker 클러스터 구성
 - Windows에서 지원되는 SAP 데이터베이스용 SOFS 또는 ANF의 SMB를 통해 공유 디스크를 사용하는 Windows 클러스터 구성. 이 방법 대신 특정 데이터베이스의 네이티브 고가용성 복제를 사용하고 별도의 스토리지 스택을 사용하는 것이 좋습니다.
-- SAP HANA를 제외하고 데이터베이스 파일이 NFS 공유에 있는 Linux에서 지원되는 SAP 데이터베이스를 ANF에 배포
+- SAP HANA, Oracle Linux의 Oracle, Suse 및 Red Hat의 Db2를 제외하고 ANF 상단의 NFS 공유에 있는 데이터베이스 파일을 사용하여 Linux에서 지원되는 SAP 데이터베이스 배포
 - Windows 및 Oracle Linux가 아닌 다른 게스트 OS에 Oracle DBMS 배포. [SAP 지원 노트 #2039619](https://launchpad.support.sap.com/#/notes/2039619)도 참조하세요.
 
 Microsoft에서 테스트하지 않았으므로 경험이 없는 시나리오는 다음과 같습니다.

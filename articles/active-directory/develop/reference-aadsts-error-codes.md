@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/17/2021
+ms.date: 07/28/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e08f9090682a62ffe209122e88adca9e9710b96
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 3b1d7d8b658e0a0ac01789ca8a13ce0a2f779767
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064038"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528632"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -119,13 +119,13 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50048 | SubjectMismatchesIssuer - 주체가 클라이언트 어설션의 발급자 클레임과 일치하지 않습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - 알 수 없거나 잘못된 인스턴스입니다. |
 | AADSTS50050 | MalformedDiscoveryRequest - 요청 형식이 잘못되었습니다. |
-| AADSTS50053 | IdsLocked - 잘못된 사용자 ID 또는 암호로 로그인을 너무 많이 시도하여 계정이 잠겨 있습니다. |
-| AADSTS50055 | InvalidPasswordExpiredPassword - 암호가 만료되었습니다. |
-| AADSTS50056 | 암호가 잘못되었거나 null입니다. 이 사용자에 대한 저장소에 암호가 없습니다. |
-| AADSTS50057 | UserDisabled - 사용자 계정이 비활성화됩니다. 관리자가 계정을 비활성화했습니다. |
-| AADSTS50058 | UserInformationNotProvided - 사용자가 로그인되지 않았습니다. 이는 사용자가 인증되지 않았고 아직 로그인하지 않은 경우에 발생하는 일반적인 오류입니다.</br>사용자가 이전에 로그인한 SSO 컨텍스트에서 이 오류가 발생하는 경우 SSO 세션을 찾을 수 없거나 SSO 세션이 잘못되었음을 의미합니다.</br>이 오류는 prompt=none이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
+| AADSTS50053 | 이 오류는 두 가지 다른 이유로 인해 발생할 수 있습니다. <br><ul><li>IdsLocked - 잘못된 사용자 ID 또는 암호로 로그인을 너무 많이 시도하여 계정이 잠겨 있습니다. 반복적인 로그인 시도로 인해 사용자가 차단되었습니다. [위험 재구성 및 사용자 차단 해제](../identity-protection/howto-identity-protection-remediate-unblock.md)를 참조하세요.</li><li>또는 악의적인 활동이 있는 IP 주소에서 제공되었으므로 로그인이 차단되었습니다.</li></ul> <br>이 오류를 발생시킨 실패 이유를 확인하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다.  Azure AD 테넌트로 이동한 다음 **모니터링** -> **로그인** 으로 이동합니다. **로그인 오류 코드** 50053으로 실패한 사용자 로그인을 찾아 **실패 이유** 를 확인합니다.|
+| AADSTS50055 | InvalidPasswordExpiredPassword - 암호가 만료되었습니다. 사용자의 암호가 만료되어 로그인 또는 세션이 종료되었습니다. 사용자가 다시 설정하거나 [Azure Active Directory를 사용하여 사용자의 암호 다시 설정](../fundamentals/active-directory-users-reset-password-azure-portal.md)을 통해 관리자에게 다시 설정하도록 요청할 수 있습니다. |
+| AADSTS50056 | 잘못된 암호 또는 Null 암호: 이 사용자에 대한 디렉터리에 암호가 없습니다. 사용자에게 암호를 다시 입력하라는 메시지가 표시됩니다. |
+| AADSTS50057 | UserDisabled - 사용자 계정이 비활성화됩니다. 이 계정을 지원하는 Active Directory의 사용자 개체가 사용하지 않도록 설정되었습니다. 관리자는 [Powershell을 통해](/powershell/module/activedirectory/enable-adaccount) 이 계정을 다시 사용하도록 설정할 수 있습니다. |
+| AADSTS50058 | UserInformationNotProvided - Single-Sign-on의 세션 정보가 부족합니다. 이는 사용자가 로그인하지 않았음을 의미합니다. 이는 사용자가 인증되지 않았고 아직 로그인하지 않은 경우에 발생하는 일반적인 오류입니다.</br>사용자가 이전에 로그인한 SSO 컨텍스트에서 이 오류가 발생하는 경우 SSO 세션을 찾을 수 없거나 SSO 세션이 잘못되었음을 의미합니다.</br>이 오류는 prompt=none이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다. 사용자는 문제를 해결하기 위해 테넌트 관리자에게 문의할 수 있습니다. |
-| AADSTS50061 | SignoutInvalidRequest - 로그아웃 요청이 잘못되었습니다. |
+| AADSTS50061 | SignoutInvalidRequest - 로그아웃을 완료할 수 없습니다. 요청이 잘못되었습니다. |
 | AADSTS50064 | CredentialAuthenticationError - 사용자 이름 또는 암호에 대한 자격 증명 유효성 검사에 실패했습니다. |
 | AADSTS50068 | SignoutInitiatorNotParticipant - 로그아웃에 실패했습니다. 로그아웃을 시작한 앱은 현재 세션의 참가자가 아닙니다. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier - 로그아웃에 실패했습니다. 로그아웃 요청에서 지정된 이름의 식별자가 기존 세션과 일치하지 않습니다. |
@@ -136,14 +136,16 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50079 | UserStrongAuthEnrollmentRequired - 관리자가 구성을 변경했거나 사용자가 새 위치로 이동했기 때문에 사용자는 다단계 인증을 사용해야 합니다. |
 | AADSTS50085 | 새로 고침 토큰에 소셜 IDP 로그인이 필요합니다. 사용자가 사용자 이름-암호를 사용하여 다시 로그인해 보세요. |
 | AADSTS50086 | SasNonRetryableError |
-| AADSTS50087 | SasRetryableError - 서비스를 일시적으로 사용할 수 없습니다. 다시 시도하세요. |
-| AADSTS50089 | 흐름 토큰이 만료되었습니다. 인증에 실패했습니다. 사용자가 사용자 이름-암호를 사용하여 다시 로그인하도록 하세요. |
+| AADSTS50087 | SasRetryableError - 강력한 인증 중에 일시적인 오류가 발생했습니다. 다시 시도하세요. |
+| AADSTS50088 | 통신 MFA 호출 제한에 도달했습니다. 몇 분 후에 다시 시도하세요. |
+| AADSTS50089 | 흐름 토큰이 만료되어 인증에 실패했습니다. Expected - 인증 코드, 새로 고침 토큰 및 세션은 시간이 지남에 따라 만료되거나 사용자 또는 관리자에 의해 해제됩니다. 앱은 사용자에게 새 로그인을 요청합니다. |
 | AADSTS50097 | DeviceAuthenticationRequired - 디바이스 인증이 필요합니다. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized - JWT 서명이 잘못되었습니다. |
 | AADSTS50105 | EntitlementGrantsNotFound - 로그인한 사용자가 로그인한 앱의 역할에 할당되지 않았습니다. 앱에 사용자를 할당하세요. 자세히 알아보려면 오류 [AADSTS50105](/troubleshoot/azure/active-directory/error-code-aadsts50105-user-not-assigned-role)에 대한 문제 해결 문서를 참조하세요. |
 | AADSTS50107 | InvalidRealmUri - 요청된 페더레이션 영역 개체가 존재하지 않습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat - JWT 헤더에 문제가 있습니다. 테넌트 관리자에게 문의하세요. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter - 클레임 변환에 잘못된 입력 매개 변수가 있습니다. 테넌트 관리자에게 문의하여 정책을 업데이트하세요. |
+| AADSTS501241 | 변환 ID '{transformId}'에 필수 입력 '{paramName}'이(가) 없습니다. 이 오류는 Azure AD가 애플리케이션에 대한 SAML 응답을 빌드하려고 시도하는 동안 반환됩니다. NameID 클레임 또는 NameIdentifier는 SAML 응답에서 필수이며 Azure AD가 NameID 클레임에 대한 원본 특성을 가져오지 못한 경우 이 오류를 반환합니다. 해결 방법으로 Azure Portal > Azure Active Directory > 엔터프라이즈 애플리케이션 > 애플리케이션 선택 > Single Sign-On > 사용자 특성 및 클레임 > 고유한 사용자 ID(이름 ID)에서 클레임 규칙을 추가합니다.  |
 | AADSTS50125 | PasswordResetRegistrationRequiredInterrupt - 암호 재설정 또는 암호 등록 항목으로 인해 로그인이 중단되었습니다. |
 | AADSTS50126 | InvalidUserNameOrPassword - 잘못된 사용자 이름 또는 암호로 인해 자격 증명 유효성 검사 오류가 발생했습니다. |
 | AADSTS50127 | BrokerAppNotInstalled - 사용자는 이 콘텐츠에 액세스하기 위해 broker 앱을 설치해야 합니다. |
@@ -156,7 +158,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50135 | PasswordChangeCompromisedPassword - 계정이 위험하므로 암호를 변경해야 합니다. |
 | AADSTS50136 | RedirectMsaSessionToApp - 단일 MSA 세션이 검색되었습니다. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken - 외부 새로 고침 토큰이 누락되어 세션이 잘못되었습니다. |
-| AADSTS50140 | KmsiInterrupt - 사용자가 로그인할 때 "로그인 유지" 인터럽트로 인해 이 오류가 발생했습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
+| AADSTS50140 | KmsiInterrupt - 사용자가 로그인할 때 "로그인 유지" 인터럽트로 인해 이 오류가 발생했습니다. 이는 예상되는 로그인 흐름의 일부로, 사용자에게 더 쉽게 로그인할 수 있도록 현재 브라우저에 로그인 상태를 유지할 것인지 묻는 메시지가 표시됩니다. 자세한 내용은 [새로운 Azure AD 로그인 및 “로그인 유지” 환경 출시!](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/the-new-azure-ad-sign-in-and-keep-me-signed-in-experiences/m-p/128267)를 참조하세요. 상관 ID, 요청 ID 및 오류 코드가 있는 [지원 티켓을 열면](../fundamentals/active-directory-troubleshooting-support-howto.md) 자세한 내용을 확인할 수 있습니다.|
 | AADSTS50143 | 세션이 일치하지 않습니다. 사용자 테넌트가 다른 리소스로 인해 도메인 힌트와 일치하지 않기 때문에 세션이 유효하지 않습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword - 사용자의 Active Directory 암호가 만료되었습니다. 사용자에 대한 새 암호를 생성하거나 사용자가 셀프 서비스 재설정 도구를 사용하여 암호를 다시 설정하도록 합니다. |
 | AADSTS50146 | MissingCustomSigningKey - 이 앱은 앱별 서명 키로 구성해야 합니다. 응용 프로그램이 키로 구성되지 않았거나, 키가 만료되었거나 아직 유효하지 않습니다. |
@@ -193,6 +195,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS65004 | UserDeclinedConsent - 사용자가 앱에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
 | AADSTS65005 | MisconfiguredApplication - 앱에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 앱이 없거나, 클라이언트 앱에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 앱에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 앱을 구성했을 수 있습니다. 자세히 알아보려면 오류 [AADSTS650056](/troubleshoot/azure/active-directory/error-code-aadsts650056-misconfigured-app)에 대한 문제 해결 문서를 참조하세요. |
 | AADSTS650052 | 조직 `\"{organization}\"`에서 구독하지 않거나 사용하도록 설정하지 않은 서비스 `(\"{name}\")`에 대한 액세스가 앱에 필요합니다. IT 관리자에게 문의하여 서비스 구독 구성을 검토하세요. |
+| AADSTS650054 |  애플리케이션에서 제거되었거나 더 이상 사용할 수 없는 리소스에 액세스할 수 있는 권한을 요청했습니다. 앱이 호출하는 모든 리소스가 작업 중인 테넌트에 있는지 확인합니다. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - 인증에 실패했습니다. 새로 고침 토큰이 잘못되었습니다. 다음과 같은 이유로 오류가 발생했을 수 있습니다.<ul><li>토큰 바인딩 헤더가 비어 있습니다.</li><li>토큰 바인딩 해시가 일치하지 않습니다.</li></ul> |
 | AADSTS70001 | UnauthorizedClient - 애플리케이션을 사용할 수 없습니다. 자세히 알아보려면 오류 [AADSTS70001](/troubleshoot/azure/active-directory/error-code-aadsts70001-app-not-found-in-directory)에 대한 문제 해결 문서를 참조하세요. |
@@ -200,6 +203,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS70003 | UnsupportedGrantType - 앱에서 지원되지 않는 권한 부여 유형을 반환했습니다. |
 | AADSTS70004 | InvalidRedirectUri - 앱에서 잘못된 리디렉션 URI를 반환했습니다. 클라이언트에서 지정한 리디렉션 주소가 구성된 주소 또는 OIDC 승인 목록의 주소와 일치하지 않습니다. |
 | AADSTS70005 | UnsupportedResponseType - 다음과 같은 이유로 앱이 지원되지 않는 응답 형식을 반환했습니다.<ul><li>'token' 응답 형식을 앱에 대해 사용할 수 없습니다.</li><li>'id_token' 응답 형식에 'OpenID' 범위가 필요합니다. 인코딩된 wctx에 지원되지 않는 OAuth 매개 변수 값이 있습니다.</li></ul> |
+| AADSTS700054 | Response_type 'id_token'을 애플리케이션에 대해 사용할 수 없습니다.  애플리케이션이 권한 부여 엔드포인트에서 ID 토큰을 요청했지만 ID 토큰 암시적 허용이 사용하도록 설정되지 않았습니다.  Azure Portal > Azure Active Directory > 앱 등록 > 애플리케이션 선택 > 인증 > '암시적 허용 및 하이브리드 흐름'에서 'ID 토큰'이 선택되어 있는지 확인합니다.|
 | AADSTS70007 | UnsupportedResponseMode - 앱에서 토큰을 요청할 때 지원되지 않는 `response_mode` 값을 반환했습니다.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - 비활성 상태로 인해 새로 고침 토큰이 만료되었습니다. 토큰이 XXX에서 발행되었으며 일정 기간 동안 비활성 상태였습니다. |
 | AADSTS70011 | InvalidScope - 앱에서 요청한 범위가 잘못되었습니다. |

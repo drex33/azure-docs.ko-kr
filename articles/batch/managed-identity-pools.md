@@ -2,13 +2,13 @@
 title: 배치 풀의 관리 ID 구성
 description: 배치 풀에서 사용자가 할당한 관리 ID를 사용하도록 설정하는 방법과 노드 내에서 관리 ID를 사용하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 243cf375b3ebf8bd64d73022ba44c3224b58872d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/18/2021
+ms.openlocfilehash: 903e173a6028e6bb574dfba618661da802702c2d
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457773"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568218"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>배치 풀의 관리 ID 구성
 
@@ -53,10 +53,10 @@ var poolParameters = new Pool(name: "yourPoolName")
         Identity = new BatchPoolIdentity
         {
             Type = PoolIdentityType.UserAssigned,
-            UserAssignedIdentities = new Dictionary<string, BatchPoolIdentityUserAssignedIdentitiesValue>
+            UserAssignedIdentities = new Dictionary<string, UserAssignedIdentities>
             {
                 ["Your Identity Resource Id"] =
-                    new BatchPoolIdentityUserAssignedIdentitiesValue()
+                    new UserAssignedIdentities()
             }
         }
     };
@@ -71,7 +71,14 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
 
 ## <a name="use-user-assigned-managed-identities-in-batch-nodes"></a>배치 노드에서 사용자가 할당한 관리 ID 사용
 
-풀을 만든 후에는 사용자가 할당한 관리 ID가 SSH(Secure Shell) 또는 RDP(원격 데스크톱)를 통해 풀 노드에 액세스할 수 있습니다. 관리 ID가 [관리 ID를 지원하는 Azure 리소스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)에 직접 액세스할 수 있도록 작업을 구성할 수도 있습니다.
+Azure Storage 또는 Azure Container Registry와 같은 다른 Azure 리소스에 액세스하는 많은 Azure Batch 기술은 관리 ID를 지원합니다. Azure Batch에서 관리 ID를 사용하는 방법에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+- [리소스 파일](resource-files.md)
+- [출력 파일](batch-task-output-files.md#specify-output-files-using-managed-identity)
+- [Azure Container Registry](batch-docker-container-workloads.md#managed-identity-support-for-acr)
+- [Azure Blob 컨테이너 파일 시스템](virtual-file-mount.md#azure-blob-container)
+
+관리 ID가 [관리 ID를 지원하는 Azure 리소스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)에 직접 액세스할 수 있도록 작업을 수동으로 구성할 수도 있습니다.
 
 배치 노드 내에서 관리 ID 토큰을 가져와 [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md)를 사용하여 Azure AD 인증을 통해 인증할 수 있습니다.
 

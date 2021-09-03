@@ -4,12 +4,12 @@ description: 리소스 관리자 배포 모델 및 기본(또는 서비스 관�
 ms.topic: conceptual
 ms.date: 04/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0d4b21b095b715599059452c269cde24fb701364
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e9ea1e778db81cfaa69163d5e127d384f8c4b3f5
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322116"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298172"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
 
@@ -107,14 +107,14 @@ SRP: 스토리지 리소스 공급자, CRP: 계산 리소스 공급자, NRP: 네
 | Virtual Machines용 클라우드 서비스 |클라우드 서비스는 플랫폼 가용성 및 부하 분산이 필요한 가상 머신을 유지하는 컨테이너였습니다. |클라우드 서비스는 더 이상 새 모델을 사용하여 Virtual Machine을 만드는 데 필요한 개체가 아닙니다. |
 | 가상 네트워크 |가상 머신의 가상 네트워크는 선택 사항입니다. 포함되는 경우 Resource Manager로 가상 네트워크를 배포할 수 없습니다. |가상 머신에 Resource Manager에서 배포한 가상 네트워크가 필요합니다. |
 | 스토리지 계정 |가상 머신은 운영 체제, 임시 및 추가 데이터 디스크를 위한 가상 머신 디스크를 저장하는 스토리지 계정이 필요합니다. |가상 머신에 Blob Storage에서 해당 디스크를 저장하는 스토리지 계정이 필요합니다. |
-| 가용성 집합 |Virtual Machines에서 동일한 “AvailabilitySetName”을 구성하여 플랫폼 가용성을 표시했습니다. 최대 장애 도메인 수는 2개였습니다. |가용성 집합은 Microsoft.Compute 공급자가 표시하는 리소스입니다. 고가용성이 필요한 Virtual Machines는 가용성 집합에 포함되어야 합니다. 최대 장애 도메인 수는 이제 3개입니다. |
-| 선호도 그룹 |선호도 그룹은 Virtual Network를 만드는 데 필요했습니다. 하지만 지역 가상 네트워크의 도입으로 더 이상 필요하지 않게 되었습니다. |간단히 말해, Azure 리소스 관리자를 통해 표시되는 API에는 선호도 그룹 개념이 존재하지 않습니다. |
+| 가용성 집합 |Virtual Machines에서 동일한 "AvailabilitySetName"을 구성하여 플랫폼 가용성을 표시했습니다. 최대 장애 도메인 수는 2개였습니다. |가용성 집합은 Microsoft.Compute 공급자가 표시하는 리소스입니다. 고가용성이 필요한 Virtual Machines는 가용성 집합에 포함되어야 합니다. 최대 장애 도메인 수는 이제 3개입니다. |
+| 선호도 그룹 |선호도 그룹은 Virtual Network를 만드는 데 필요했습니다. 하지만 지역 가상 네트워크의 도입으로 더 이상 필요하지 않게 되었습니다. |간단히 말해, Azure Resource Manager를 통해 표시되는 API에는 선호도 그룹 개념이 존재하지 않습니다. |
 | 부하 분산 |클라우드 서비스를 만들면 배포된 Virtual Machines에 대한 암시적 부하 분산 장치가 제공됩니다. |부하 분산 장치는 Microsoft.Network 공급자가 표시하는 리소스입니다. 부하 분산이 필요한 Virtual Machines의 기본 네트워크 인터페이스는 부하 분산 장치를 참조해야 합니다. 부하 분산 장치는 내부 또는 외부에 있을 수 있습니다. 부하 분산 장치 인스턴스는 가상 머신의 NIC(옵션)를 포함하는 IP 주소의 백 엔드 풀을 참조하며 로드 분산 장치 공용 또는 개인 IP 주소(옵션)를 참조합니다. |
 | 가상 IP 주소 |Cloud Services는 VM이 클라우드 서비스에 추가될 때 기본 VIP(가상 IP 주소)를 가져옵니다. 가상 IP 주소는 암시적 부하 분산 장치와 연결된 주소입니다. |공용 IP 주소는 Microsoft.Network 공급자가 표시하는 리소스입니다. 공용 IP 주소는 고정(예약된) 또는 동적일 수 있습니다. 동적 공용 IP는 부하 분산 장치에 할당될 수 있습니다. 보안 그룹을 사용하여 공용 IP의 보안을 유지할 수 있습니다. |
 | 예약된 IP 주소 |Azure에서 IP 주소를 예약하고 클라우드 서비스와 연결하여 IP 주소를 고정할 수 있습니다. |공용 IP 주소는 고정 모드에서 만들 수 있으며 예약된 IP 주소와 동일한 기능을 제공합니다. |
 | VM당 PIP(공용 IP 주소) |공용 IP 주소를 VM에 직접 연결할 수도 있습니다. |공용 IP 주소는 Microsoft.Network 공급자가 표시하는 리소스입니다. 공용 IP 주소는 고정(예약된) 또는 동적일 수 있습니다. |
 | 엔드포인트 |특정 포트에 대한 연결을 설정하려면 Virtual Machine에서 입력 엔드포인트를 구성해야 했습니다. 가상 머신에 연결하는 일반적인 모드 중 하나는 입력 엔드포인트를 설정하는 방식으로 수행되었습니다. |부하 분산 장치에서 인바운드 NAT 규칙을 구성하여 특정 포트의 엔드포인트에서 VM에 연결하도록 지원하는 동일한 기능을 실현할 수 있습니다. |
-| DNS 이름 |클라우드 서비스는 전역적으로 고유한 암시적 DNS 이름을 가져옵니다. 예를 들면 `mycoffeeshop.cloudapp.net`와 같습니다. |DNS 이름은 공용 IP 주소 리소스에 지정할 수 있는 선택적 매개 변수입니다. FQDN 형식 예: `<domainlabel>.<region>.cloudapp.azure.com` |
+| DNS 이름 |클라우드 서비스는 전역적으로 고유한 암시적 DNS 이름을 가져옵니다. 예: `mycoffeeshop.cloudapp.net` |DNS 이름은 공용 IP 주소 리소스에 지정할 수 있는 선택적 매개 변수입니다. FQDN 형식 예: `<domainlabel>.<region>.cloudapp.azure.com` |
 | 네트워크 인터페이스 |기본 및 보조 네트워크 인터페이스와 해당 속성이 가상 머신의 네트워크 구성으로 정의되었습니다. |네트워크 인터페이스는 Microsoft.Network 공급자가 표시하는 리소스입니다. 네트워크 인터페이스의 수명 주기는 가상 머신과 관련이 없습니다. 네트워크 인터페이스는 가상 머신의 할당된 IP 주소(필수), 가상 머신에 대한 가상 네트워크의 서브넷(필수) 및 네트워크 보안 그룹(선택)을 참조합니다. |
 
 다양한 배포 모델의 가상 네트워크를 연결하는 것에 대한 자세한 내용은 [포털에서 다양한 배포 모델의 가상 네트워크 연결](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)을 참조하세요.
@@ -148,7 +148,7 @@ Azure Resource Manager를 사용하여 만든 가상 머신, 가상 네트워크
 
 **Azure 리소스 관리자 템플릿 예제는 어디서 찾을 수 있습니까?**
 
-[Azure Resource Manager 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
+[Azure Resource Manager 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

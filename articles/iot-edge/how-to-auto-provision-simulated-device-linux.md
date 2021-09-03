@@ -2,18 +2,17 @@
 title: Linux VM에서 가상 TPM을 사용하여 디바이스 프로비저닝 - Azure IoT Edge
 description: Linux VM에서 시뮬레이션된 TPM을 사용하여 Azure IoT Edge에 대한 Azure Device Provisioning Service 테스트
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 79fe8acd06084c58b0cf9b47bf93e933c648510c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: d667b2429c7911353df98795f7116d47f8f15d8a
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481993"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122538954"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Linux에서 TPM을 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝
 
@@ -184,7 +183,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
 
 ## <a name="configure-the-device-with-provisioning-information"></a>프로비저닝 정보를 사용하여 디바이스 구성
 
-런타임이 디바이스에 설치되면 Device Provisioning Service 및 IoT Hub에 연결하는 데 사용되는 정보로 디바이스를 구성합니다.
+런타임이 디바이스에 설치되면 디바이스를 Device Provisioning Service 및 IoT Hub에 연결하는 데 사용되는 정보로 구성합니다.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -228,6 +227,12 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
 
 1. 이전 섹션에서 수집된 DPS **ID 범위** 및 디바이스 **등록 ID** 를 확인합니다.
 
+1. IoT Edge 설치의 일부로 제공되는 템플릿 파일을 기반으로 디바이스에 대한 구성 파일을 만듭니다.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
 1. IoT Edge 디바이스에서 구성 파일을 엽니다.
 
    ```bash
@@ -265,49 +270,45 @@ IoT Edge 런타임은 디바이스를 자동으로 프로비저닝하려면 TPM�
 
 `iotedge` 서비스에 루트 권한이 있도록 systemd 설정을 재정의하여 IoT Edge 런타임에 TPM 액세스 권한을 부여할 수 있습니다. 서비스 권한을 승격시키지 않으려는 경우 다음 단계를 사용하여 수동으로 TPM 액세스 권한을 제공할 수도 있습니다.
 
-1. 디바이스에서 TPM 하드웨어 모듈에 대한 파일 경로를 찾아 로컬 변수로 저장합니다.
-
-   ```bash
-   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
-   ```
-
-2. tpm0에 IoT Edge 런타임 액세스 권한을 부여할 새 규칙을 만듭니다.
+1. tpm0 및 tpmrm0에 IoT Edge 런타임 액세스 권한을 부여할 새 규칙을 만듭니다. 
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. 규칙 파일을 엽니다.
+2. 규칙 파일을 엽니다.
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. 규칙 파일에 다음과 같은 액세스 정보를 복사합니다.
+3. 규칙 파일에 다음과 같은 액세스 정보를 복사합니다. 4\.12 이전 커널을 사용하는 디바이스에는 `tpmrm0`이 없을 수 있습니다. tpmrm0이 없는 디바이스는 해당 규칙을 안전하게 무시합니다.
 
    ```input
    # allow iotedge access to tpm0
    KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="iotedge", MODE="0600"
+   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="iotedge", MODE="0600"
    ```
 
-5. 파일을 저장하고 종료합니다.
+4. 파일을 저장하고 종료합니다.
 
-6. 새 규칙을 평가하려면 udev 시스템을 트리거합니다.
+5. 새 규칙을 평가하려면 udev 시스템을 트리거합니다.
 
    ```bash
-   /bin/udevadm trigger $tpm
+   /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
    ```
 
-7. 규칙이 성공적으로 적용됐는지 확인합니다.
+6. 규칙이 성공적으로 적용됐는지 확인합니다.
 
    ```bash
-   ls -l /dev/tpm0
+   ls -l /dev/tpm*
    ```
 
    성공한 출력은 다음과 같이 표시됩니다.
 
    ```output
-   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpm0
+   crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
    올바른 사용 권한이 적용됐는지 확인할 수 없는 경우 머신을 재부팅하여 udev를 새로 고칩니다.
@@ -320,52 +321,48 @@ IoT Edge 런타임은 디바이스의 TPM에 대한 액세스 권한을 조정�
 
 `aziottpm` 서비스에 루트 권한이 있도록 systemd 설정을 재정의하여 TPM 액세스 권한을 부여할 수 있습니다. 서비스 권한을 승격시키지 않으려는 경우 다음 단계를 사용하여 수동으로 TPM 액세스 권한을 제공할 수도 있습니다.
 
-1. 디바이스에서 TPM 하드웨어 모듈에 대한 파일 경로를 찾아 로컬 변수로 저장합니다.
-
-   ```bash
-   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
-   ```
-
-2. tpm0에 IoT Edge 런타임 액세스 권한을 부여할 새 규칙을 만듭니다.
+1. tpm0 및 tpmrm0에 IoT Edge 런타임 액세스 권한을 부여할 새 규칙을 만듭니다. 
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
    ```
 
-3. 규칙 파일을 엽니다.
+2. 규칙 파일을 엽니다.
 
    ```bash
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. 규칙 파일에 다음과 같은 액세스 정보를 복사합니다.
+3. 규칙 파일에 다음과 같은 액세스 정보를 복사합니다. 4\.12 이전 커널을 사용하는 디바이스에는 `tpmrm0`이 없을 수 있습니다. tpmrm0이 없는 디바이스는 해당 규칙을 안전하게 무시합니다.
 
    ```input
-   # allow aziottpm access to tpm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
+   # allow aziottpm access to tpm0 and tpmrm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0660"
+   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="aziottpm", MODE="0660"
    ```
 
-5. 파일을 저장하고 종료합니다.
+4. 파일을 저장하고 종료합니다.
 
-6. 새 규칙을 평가하려면 udev 시스템을 트리거합니다.
+5. 새 규칙을 평가하려면 udev 시스템을 트리거합니다.
 
    ```bash
-   /bin/udevadm trigger $tpm
+   /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
    ```
 
-7. 규칙이 성공적으로 적용됐는지 확인합니다.
+6. 규칙이 성공적으로 적용됐는지 확인합니다.
 
    ```bash
-   ls -l /dev/tpm0
+   ls -l /dev/tpm*
    ```
 
    성공한 출력은 다음과 같이 표시됩니다.
 
    ```output
-   crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 aziottpm root 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 aziottpm root 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
-   올바른 사용 권한이 적용됐는지 확인할 수 없는 경우 머신을 재부팅하여 udev를 새로 고칩니다.
+   올바른 사용 권한이 적용됐는지 확인할 수 없는 경우 머신을 재부팅하여 udev를 새로 고칩니다. 
 :::moniker-end
 <!-- end 1.2 -->
 
@@ -439,7 +436,7 @@ IoT Edge 런타임이 실행되고 있는지 확인합니다.
 iotedge list
 ```
 
-Device Provisioning Service에서 만든 개별 등록이 사용되었는지 확인할 수 있습니다. Azure Portal에서 Device Provisioning Service 인스턴스로 이동합니다. 만든 개별 등록의 등록 세부 정보를 엽니다. 등록 상태가 **할당됨** 이고 디바이스 ID가 나열된 것을 확인할 수 있습니다.
+Device Provisioning Service에서 만든 개별 등록이 사용되었는지 확인할 수 있습니다. Azure Portal에서 Device Provisioning Service 인스턴스로 이동합니다. 만든 개별 등록의 등록 세부 정보를 엽니다. 등록 상태가 **할당됨** 이며 디바이스 ID가 나열된 것을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

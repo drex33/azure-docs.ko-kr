@@ -1,23 +1,28 @@
 ---
 title: 참조 - Linux의 Azure Policy 게스트 구성 기준
 description: Azure Policy 게스트 구성을 통해 구현되는 Azure의 Linux 기준에 대한 세부 정보입니다.
-ms.date: 06/11/2021
+ms.date: 08/03/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 692157fe7c17e013e08f74713a8c896ec29c5204
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 4fe3e374b39c880940fa61b84342d2d8cbf94d12
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033017"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566532"
 ---
-# <a name="azure-policy-guest-configuration-baseline-for-linux"></a>Linux의 Azure Policy 게스트 구성 기준
+# <a name="linux-security-baseline"></a>Linux 보안 기준
 
-다음 문서에서는 **\[미리 보기\] Linux 머신이 Azure 보안 기준 게스트 구성 정책 정의 감사에 대해 충족해야 하는 요구 사항** 을 자세히 설명합니다. 자세한 내용은 [Azure Policy 게스트 구성](../concepts/guest-configuration.md) 및 [Azure 보안 벤치마크(V2) 개요](../../../security/benchmarks/overview.md)를 참조하세요.
+이 문서에서는 다음 구현에 적용할 수 있는 Linux 게스트의 구성 설정에 대해 자세히 설명합니다.
+
+- **\[미리 보기\] Linux 컴퓨터는 Azure 컴퓨팅 보안 기준** Azure Policy 게스트 구성 정의에 대한 요구 사항을 충족해야 합니다.
+- Azure Security Center에서 **컴퓨터 보안 구성의 취약성을 수정해야 함**)
+
+자세한 내용은 [Azure Policy 게스트 구성](../concepts/guest-configuration.md) 및 [Azure 보안 벤치마크(V2) 개요](../../../security/benchmarks/overview.md)를 참조하세요.
 
 ## <a name="general-security-controls"></a>일반 보안 컨트롤
 
-|속성<br /><sub>(ID)</sub> |세부 정보 |수정 확인 |
+|Name<br /><sub>(CCEID)</sub> |세부 정보 |수정 확인 |
 |---|---|---|
 |/home 파티션에서 nodev 옵션을 설정합니다.<br /><sub>(1.1.4)</sub> |설명: 공격자가 /home 파티션에 특수 디바이스(예: 블록 또는 문자 디바이스)를 탑재할 수 있습니다. |/etc/fstab 파일을 편집하고 /home 파티션의 네 번째 필드(탑재 옵션)에 대해 nodev를 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
 |/tmp 파티션에서 nodev 옵션을 설정합니다.<br /><sub>(1.1.5)</sub> |설명: 공격자가 /tmp 파티션에 특수 디바이스(예: 블록 또는 문자 디바이스)를 탑재할 수 있습니다. |/etc/fstab 파일을 편집하고 /tmp 파티션의 네 번째 필드(탑재 옵션)에 대해 nodev를 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
@@ -41,6 +46,7 @@ ms.locfileid: "112033017"
 |/etc/hosts.deny에 대한 권한을 구성합니다.<br /><sub>(3.4.5)</sub> |설명: 권한 없는 쓰기 액세스로부터 `/etc/hosts.deny` 파일을 보호하는 것이 중요합니다. 이 파일은 기본적으로 보호되지만 의도치 않게 또는 악의적인 작업을 통해 파일 권한이 변경될 수 있습니다. |/etc/hosts.deny의 소유자와 그룹을 루트로 설정하고 권한을 0644로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r file-permissions'를 실행합니다. |
 |기본적으로 거부 방화벽 정책을 사용합니다.<br /><sub>(3.6.2)</sub> |설명: 기본적으로 수락 정책을 사용하면 거부하도록 구성되지 않은 모든 패킷을 방화벽에서 수락합니다. 기본적으로 허용 정책을 사용하는 것보다 기본적으로 삭제 정책을 사용하면 보안 방화벽을 더 쉽게 유지 관리할 수 있습니다. |방화벽 소프트웨어를 사용하여 들어오는/나가는/라우팅된 트래픽에 대한 기본 정책을 `deny` 또는 `reject`로 적절하게 설정합니다. |
 |모든 NFS 탑재에 nodev/nosuid 옵션을 사용해야 합니다.<br /><sub>(5)</sub> |설명: 공격자가 원격 파일 시스템을 통해 상승된 보안 컨텍스트 또는 특수 디바이스에서 실행되는 파일을 로드할 수 있습니다. |/etc/fstab의 네 번째 필드(탑재 옵션)에 nosuid 및 nodev옵션을 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
+|/etc/ssh/sshd_config에 대한 권한이 구성되어 있는지 확인합니다.<br /><sub>(5.2.1)</sub> |설명: `/etc/ssh/sshd_config` 파일은 권한이 없는 사용자에 의한 무단 변경으로부터 보호되어야 합니다. |/etc/ssh/sshd_config의 소유자 및 그룹을 루트로 설정하고 권한을 0600으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r sshd-config-file-permissions'를 실행합니다. |
 |암호 만들기 요구 사항을 구성합니다.<br /><sub>(5.3.1)</sub> |설명: 강력한 암호는 무차별 암호 대입 방법을 통해 시스템이 해킹되지 않도록 보호합니다. |배포판의 적절한 PAM에서 minlen=14, minclass = 4, dcredit = -1, ucredit = -1, ocredit = -1, lcredit = -1 키/값 쌍을 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r enable-password-requirements'를 실행합니다. |
 |잘못된 암호를 입력하면 잠그도록 구성합니다.<br /><sub>(5.3.2)</sub> |설명: 로그인 시도가 `n`회 연속으로 실패할 경우 사용자 ID를 잠그도록 구성하면 시스템에 대한 무차별 암호 대입 공격을 완화할 수 있습니다. |Ubuntu 및 Debian의 경우 pam_tally 및 pam_deny 모듈을 적절하게 추가합니다. 그 외의 배포판은 해당 배포판의 설명서를 참조하세요. |
 |필요 없는 파일 시스템(cramfs)을 설치하여 사용하지 않습니다.<br /><sub>(6.1)</sub> |설명: 공격자가 cramfs의 취약성을 사용하여 권한을 높일 수 있습니다. |cramfs를 사용하지 않도록 설정하는 파일을 /etc/modprob.d 디렉터리에 추가하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
@@ -84,8 +90,10 @@ ms.locfileid: "112033017"
 |패킷 리디렉션 보내기를 사용하지 않습니다.<br /><sub>(38.3)</sub> |설명: 공격자가 라우팅을 손상시켜서 사용자로 하여금 유효한 시스템이 아닌 공격자가 설정한 시스템에 액세스하게 만들 목적으로 손상된 호스트를 사용하여 다른 라우터 디바이스에 대한 잘못된 ICMP 리디렉션을 보낼 수 있습니다. |/etc/sysctl.conf에서 'net.ipv4.conf.all.send_redirects = 0' 및 'net.ipv4.conf.default.send_redirects = 0' 매개 변수를 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-send-redirects'를 실행합니다. |
 |모든 인터페이스에서 ICMP 리디렉션 보내기를 사용하지 않도록 설정해야 합니다. (net.ipv4.conf.default.accept_redirects = 0)<br /><sub>(38.4)</sub> |설명: 공격자가 이 시스템의 라우팅 테이블을 변경하여 트래픽을 대체 대상으로 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-accept-redirects'를 실행합니다. |
 |모든 인터페이스에서 ICMP 리디렉션 보내기를 사용하지 않도록 설정해야 합니다. (net.ipv4.conf.default.secure_redirects = 0)<br /><sub>(38.5)</sub> |설명: 공격자가 이 시스템의 라우팅 테이블을 변경하여 트래픽을 대체 대상으로 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-secure-redirects'를 실행합니다. |
-|모든 인터페이스에서 원본 라우팅된 패킷을 사용하지 않도록 설정해야 합니다. (net.ipv4.conf.all.accept_source_route = 0)<br /><sub>(40.1)</sub> |설명: 공격자가 악의적인 목적으로 트래픽을 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-accept-source-route'를 실행합니다. |
-|모든 인터페이스에서 원본 라우팅된 패킷을 사용하지 않도록 설정해야 합니다. (net.ipv6.conf.all.accept_source_route = 0) 또는 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-accept-source-route'를 실행합니다.<br /><sub>(40.2)</sub> |설명: 공격자가 악의적인 목적으로 트래픽을 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정합니다. |
+|모든 인터페이스에서 원본 라우팅된 패킷을 사용하지 않도록 설정해야 합니다. (net.ipv4.conf.all.accept_source_route = 0)<br /><sub>(40.1)</sub> |설명: 공격자가 악의적인 목적으로 트래픽을 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정합니다. |
+|모든 인터페이스에서 원본 라우팅된 패킷을 사용하지 않도록 설정해야 합니다. (net.ipv6.conf.all.accept_source_route = 0)<br /><sub>(40.2)</sub> |설명: 공격자가 악의적인 목적으로 트래픽을 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정합니다. |
+|원본 라우팅된 패킷을 수락하기 위한 기본 설정은 네트워크 인터페이스에 대해 사용하지 않도록 설정되어야 합니다. (net.ipv4.conf.default.accept_source_route = 0)<br /><sub>(42.1)</sub> |설명: 공격자가 악의적인 목적으로 트래픽을 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정합니다. |
+|원본 라우팅된 패킷을 수락하기 위한 기본 설정은 네트워크 인터페이스에 대해 사용하지 않도록 설정되어야 합니다. (net.ipv6.conf.default.accept_source_route = 0)<br /><sub>(42.2)</sub> |설명: 공격자가 악의적인 목적으로 트래픽을 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정합니다. |
 |브로드캐스트에 대한 가짜 ICMP 응답을 무시해야 합니다. (net.ipv4.icmp_ignore_bogus_error_responses = 1)<br /><sub>(43)</sub> |설명: 공격자가 ICMP 공격을 수행하여 DoS를 유발할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r enable-icmp-ignore-bogus-error-responses'를 실행합니다. |
 |브로드캐스트/멀티캐스트 주소로 전송된 ICMP 에코 요청(ping)을 무시해야 합니다. (net.ipv4.icmp_echo_ignore_broadcasts = 1)<br /><sub>(44)</sub> |설명: 공격자가 ICMP 공격을 수행하여 DoS를 유발할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r enable-icmp-echo-ignore-broadcasts'를 실행합니다. |
 |모든 인터페이스에서 martian 패킷(허용되지 않는 주소를 사용하는 패킷) 로깅을 사용해야 합니다. (net.ipv4.conf.all.log_martians = 1)<br /><sub>(45.1)</sub> |설명: 공격자가 스푸핑된 주소에서 트래픽을 보내고 발각되지 않을 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r enable-log-martians'를 실행합니다. |
@@ -101,6 +109,7 @@ ms.locfileid: "112033017"
 |TIPC가 사용하지 않도록 설정되었는지 확인<br /><sub>(57)</sub> |설명: 프로토콜이 필요 없는 경우 잠재적인 공격 노출 영역을 줄이기 위해 드라이버를 설치하지 않는 것이 좋습니다. |`/etc/modprobe.d/` 디렉터리에 있는 파일을 .conf로 끝나도록 편집하거나 이러한 파일을 새로 만들고, `install tipc /bin/true`를 추가하고, tipc 모듈을 언로드하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
 |로깅이 구성되어 있는지 확인<br /><sub>(60)</sub> |설명: 보안과 관련된 수많은 중요 정보(예: 성공 및 실패한 su 시도, 실패한 로그인 시도, 루트 로그인 시도 등)가 `rsyslog`를 통해 전송됩니다. |syslog, rsyslog 또는 syslog-ng를 적절하게 구성합니다. |
 |syslog, rsyslog 또는 syslog-ng 패키지를 설치해야 합니다.<br /><sub>(61)</sub> |설명: 안정성 및 보안 이슈가 로깅되지 않아 적절한 진단이 어렵습니다. |rsyslog 패키지를 설치하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r install-rsyslog'를 실행합니다. |
+|systemd-journald 서비스는 로그 메시지를 유지하도록 구성되어야 합니다.<br /><sub>(61.1)</sub> |설명: 안정성 및 보안 이슈가 로깅되지 않아 적절한 진단이 어렵습니다. |/var/log/journal을 만들고 journald.conf의 스토리지가 자동 또는 영구적인지 확인합니다. |
 |로깅 서비스를 사용합니다.<br /><sub>(62)</sub> |설명: 노드에 이벤트를 기록하는 기능이 있어야 합니다. |rsyslog 패키지를 사용하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r enable-rsyslog'를 실행합니다. |
 |모든 rsyslog 로그 파일에 대한 파일 권한을 640 또는 600으로 설정해야 합니다.<br /><sub>(63)</sub> |설명: 공격자가 로그를 조작하여 작업을 숨길 수 있습니다. |'$FileCreateMode 0640' 줄을 '/etc/rsyslog.conf' 파일에 추가합니다. |
 |로거 구성 파일을 제한합니다.<br /><sub>(63.1)</sub> |설명: 중요한 syslog 데이터를 보관하고 보호할 수 있도록 로그 파일이 존재하고 올바른 권한이 있는지 확인하는 것이 중요합니다. |로거의 구성 파일을 0640으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r logger-config-file-permissions'를 실행합니다. |
@@ -135,8 +144,23 @@ ms.locfileid: "112033017"
 |/etc/cron.monthly에 대한 권한을 구성합니다.<br /><sub>(96)</sub> |설명: 권한 없는 사용자에게 이 디렉터리에 대한 쓰기 권한을 부여하면 권한 없는 사용자가 인증되지 않은 상승된 권한을 획득할 수 있습니다. 이 디렉터리에 대한 읽기 권한을 부여하면 권한 없는 사용자가 상승된 권한을 얻는 방법 또는 감사 컨트롤을 우회하는 방법에 대한 인사이트를 얻을 수 있습니다. |/etc/cron.monthly의 소유자와 그룹을 루트로 설정하고 권한을 0700으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r fix-cron-file-perms'를 실행합니다. |
 |/etc/cron.weekly에 대한 권한을 구성합니다.<br /><sub>(97)</sub> |설명: 권한 없는 사용자에게 이 디렉터리에 대한 쓰기 권한을 부여하면 권한 없는 사용자가 인증되지 않은 상승된 권한을 획득할 수 있습니다. 이 디렉터리에 대한 읽기 권한을 부여하면 권한 없는 사용자가 상승된 권한을 얻는 방법 또는 감사 컨트롤을 우회하는 방법에 대한 인사이트를 얻을 수 있습니다. |/etc/cron.weekly의 소유자와 그룹을 루트로 설정하고 권한을 0700으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r fix-cron-file-perms'를 실행합니다. |
 |at/cron을 권한 있는 사용자로 제한합니다.<br /><sub>(98)</sub> |설명: 많은 시스템에서 시스템 관리자에게만 `cron` 작업을 예약할 수 있는 권한이 부여됩니다. `cron.allow` 파일을 사용하여 `cron` 작업을 실행할 수 있는 사람을 제어하면 이 정책이 적용됩니다. 거부 목록보다 허용 목록을 관리하는 것이 더 쉽습니다. 거부 목록에서는 시스템에 사용자 ID를 추가한 후 거부 파일에 추가하는 것을 잊어버릴 가능성이 있습니다. |/etc/cron.deny 및 /etc/at.deny를 각각 해당하는 `allow` 파일로 바꿉니다. |
+|SSH는 모범 사례를 충족하도록 구성 및 관리되어야 합니다. - '/etc/ssh/sshd_config Protocol = 2'<br /><sub>(106.1)</sub> |설명: 공격자가 이전 버전의 SSH 프로토콜의 결함을 사용하여 액세스 권한을 얻을 수 있습니다. |'/opt/microsoft/omsagent/plugin/omsremediate -r configure-ssh-protocol' 명령을 실행합니다. 그러면 '/etc/ssh/sshd_config' 파일에 'Protocol 2'가 설정됩니다. |
+|SSH는 모범 사례를 충족하도록 구성 및 관리되어야 합니다. - '/etc/ssh/sshd_config IgnoreRhosts = yes'<br /><sub>(106.3)</sub> |설명: 공격자가 Rhosts 프로토콜의 결함을 사용하여 액세스 권한을 얻을 수 있습니다. |'/usr/local/bin/azsecd remediate (/opt/microsoft/omsagent/plugin/omsremediate) -r enable-ssh-ignore-rhosts' 명령을 실행합니다. 그러면 '/etc/ssh/sshd_config' 파일에 'IgnoreRhosts yes' 줄이 추가됩니다. |
+|SSH LogLevel이 INFO로 설정되어 있는지 확인합니다.<br /><sub>(106.5)</sub> |설명: SSH는 다양한 양의 상세 정보와 함께 여러 로깅 수준을 제공합니다. `DEBUG `는 특히 SSH 통신 디버깅을 위한 것 외에는 특별히 권장되지 _않습니다_. 데이터가 너무 많아 중요한 보안 정보를 식별하기 어렵기 때문입니다. `INFO `수준은 SSH 사용자의 로그인 작업만 기록하는 기본 수준입니다. 인시던트 응답과 같은 대부분의 경우 특정 사용자가 시스템에서 활성화된 시기를 확인하는 것이 중요합니다. 로그아웃 레코드를 사용하면 연결을 끊은 사용자를 제거할 수 있으므로 필드를 좁히는 데 도움이 됩니다. |`/etc/ssh/sshd_config` 파일을 편집하여 다음과 같이 매개 변수를 설정합니다. ```         LogLevel INFO         ``` |
+|SSH MaxAuthTries가 6 이하로 설정되어 있는지 확인<br /><sub>(106.7)</sub> |설명: `MaxAuthTries ` 매개 변수를 낮은 숫자로 설정하면 SSH 서버에 대한 무차별 암호 대입 공격(brute force attack)이 성공할 위험이 최소화됩니다. 권장 설정은 4이지만 사이트 정책에 따라 숫자를 설정합니다. |SSH MaxAuthTries가 6 이하로 설정되었는지 확인합니다. `/etc/ssh/sshd_config` 파일을 편집하여 다음과 같이 매개 변수를 설정합니다. ```         MaxAuthTries 6         ``` |
+|SSH 액세스가 제한되어 있는지 확인<br /><sub>(106.11)</sub> |설명: SSH를 통해 시스템에 원격으로 액세스할 수 있는 사용자를 제한하면 권한 있는 사용자만 시스템에 액세스할 수 있습니다. |SSH 액세스가 제한되어 있는지 확인합니다. `/etc/ssh/sshd_config` 파일을 편집하여 다음과 같이 하나 이상의 매개 변수를 설정합니다. ```         AllowUsers          AllowGroups          DenyUsers          DenyGroups          ``` |
+|ssh 서버를 통한 rsh 명령의 에뮬레이션은 사용하지 않도록 설정되어야 합니다. - '/etc/ssh/sshd_config RhostsRSAAuthentication = no'<br /><sub>(107)</sub> |설명: 공격자가 RHosts 프로토콜의 결함을 사용하여 액세스 권한을 얻을 수 있습니다. |'/opt/microsoft/omsagent/plugin/omsremediate -r disable-ssh-rhost-rsa-auth' 명령을 실행합니다. 그러면 '/etc/ssh/sshd_config' 파일에 'RhostsRSAAuthentication no' 줄이 추가됩니다. |
+|SSH 호스트 기반 인증을 사용하지 않도록 설정해야 합니다. - '/etc/ssh/sshd_config HostbasedAuthentication = no'<br /><sub>(108)</sub> |설명: 공격자가 호스트 기반 인증을 사용하여 손상된 호스트에서 액세스 권한을 얻을 수 있습니다. |'/opt/microsoft/omsagent/plugin/omsremediate -r disable-ssh-host-based-auth' 명령을 실행합니다. 그러면 '/etc/ssh/sshd_config' 파일에 'HostbasedAuthentication no' 줄이 추가됩니다. |
+|SSH를 통한 루트 로그인은 사용하지 않도록 설정되어야 합니다. - '/etc/ssh/sshd_config PermitRootLogin = no'<br /><sub>(109)</sub> |설명: 공격자가 루트 암호를 무차별 암호 대입하거나 루트로 직접 로그인하여 명령 기록을 숨길 수 있습니다. |'/usr/local/bin/azsecd remediate -r disable-ssh-root-login' 명령을 실행합니다. 그러면 '/etc/ssh/sshd_config' 파일에 'PermitRootLogin no' 줄이 추가됩니다. |
+|암호가 비어 있는 계정의 원격 연결은 사용하지 않도록 설정되어야 합니다. - '/etc/ssh/sshd_config PermitEmptyPasswords = no'<br /><sub>(110)</sub> |설명: 공격자가 암호 추측을 통해 액세스 권한을 얻을 수 있습니다. |'/usr/local/bin/azsecd remediate (/opt/microsoft/omsagent/plugin/omsremediate) -r disable-ssh-empty-passwords' 명령을 실행합니다. 그러면 '/etc/ssh/sshd_config' 파일에 'PermitEmptyPasswords no' 줄이 추가됩니다. |
+|SSH 유휴 시간 제한 간격이 구성되어 있는지 확인<br /><sub>(110.1)</sub> |설명: 연결과 관련된 시간 초과 값이 없으면 권한이 없는 사용자가 다른 사용자의 ssh 세션에 액세스할 수 있습니다. 시간 제한 값을 설정하면 최소한 이러한 상황이 발생할 위험이 줄어듭니다. 권장 설정은 300초(5분)이지만 사이트 정책에 따라 이 시간 제한 값을 설정합니다. `ClientAliveCountMax`에 대한 권장 설정은 0입니다. 이 경우 클라이언트 세션은 유휴 시간 5분 후에 종료되고 keepalive 메시지가 전송되지 않습니다. |/etc/ssh/sshd_config 파일을 편집하여 정책에 따라 매개 변수를 설정합니다. |
+|SSH LoginGraceTime이 1분 미만으로 설정되어 있는지 확인합니다.<br /><sub>(110.2)</sub> |설명: `LoginGraceTime` 매개 변수를 낮은 숫자로 설정하면 SSH 서버에 대한 무차별 암호 대입 공격(brute force attack)이 성공할 위험이 최소화됩니다. 또한 인증되지 않은 동시 연결 수를 제한합니다. 권장 설정은 60초(1분)이지만 사이트 정책에 따라 수를 설정합니다. |/etc/ssh/sshd_config 파일을 편집하여 정책에 따라 매개 변수를 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r configure-login-grace-time'을 실행합니다. |
+|승인된 MAC 알고리즘만 사용되는지 확인<br /><sub>(110.3)</sub> |설명: MD5 및 96비트 MAC 알고리즘은 약한 것으로 간주되며 SSH 다운그레이드 공격에서 악용 가능성을 높이는 것으로 나타났습니다. 약한 알고리즘은 확장된 컴퓨팅 기능으로 악용될 수 있는 약한 지점으로 계속해서 많은 주의가 필요합니다. 알고리즘을 중단하는 공격자는 MiTM 위치를 이용하여 SSH 터널의 암호를 해독하고 자격 증명 및 정보를 캡처할 수 있습니다. |/etc/sshd_config 파일을 편집하고 승인된 MAC의 쉼표로 구분된 목록을 포함하도록 MAC 줄을 추가/수정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r configure-macs'를 실행합니다. |
 |원격 로그인 경고 배너를 올바르게 구성합니다.<br /><sub>(111)</sub> |설명: 경고 메시지는 시스템에 로그인을 시도하는 사용자에게 시스템과 관련된 법적 상태를 알리며, 시스템을 소유한 조직의 이름과 적용 중인 모든 모니터링 정책을 포함해야 합니다. 또한 로그인 배너에 OS 및 패치 수준 정보를 표시하면 시스템의 특정 익스플로잇을 대상으로 삼으려는 공격자에게 자세한 시스템 정보를 제공하게 되는 부작용이 있습니다. 권한 있는 사용자는 로그인한 후 `uname -a` 명령을 실행하여 이 정보를 쉽게 얻을 수 있습니다. |/etc/issue.net 파일에서 \m \r \s 및 \v의 인스턴스를 제거합니다. |
 |로컬 로그인 경고 배너를 올바르게 구성합니다.<br /><sub>(111.1)</sub> |설명: 경고 메시지는 시스템에 로그인을 시도하는 사용자에게 시스템과 관련된 법적 상태를 알리며, 시스템을 소유한 조직의 이름과 적용 중인 모든 모니터링 정책을 포함해야 합니다. 또한 로그인 배너에 OS 및 패치 수준 정보를 표시하면 시스템의 특정 익스플로잇을 대상으로 삼으려는 공격자에게 자세한 시스템 정보를 제공하게 되는 부작용이 있습니다. 권한 있는 사용자는 로그인한 후 `uname -a` 명령을 실행하여 이 정보를 쉽게 얻을 수 있습니다. |/etc/issue 파일에서 \m \r \s 및 \v의 인스턴스를 제거합니다. |
+|SSH 경고 배너를 사용하도록 설정해야 합니다. - '/etc/ssh/sshd_config Banner = /etc/issue.net'<br /><sub>(111.2)</sub> |설명: 사용자는 시스템에서 자신의 작업이 모니터링된다는 경고를 받지 않습니다. |'/usr/local/bin/azsecd remediate -r configure-ssh-banner' 명령을 실행합니다. 그러면 '/etc/ssh/sshd_config' 파일에 'Banner /etc/azsec/banner.txt' 줄이 추가됩니다. |
+|사용자는 SSH에 대한 환경 옵션을 설정할 수 없습니다.<br /><sub>(112)</sub> |설명: 공격자가 SSH를 통해 일부 액세스 제한을 바이패스할 수 있습니다. |'/etc/ssh/sshd_config' 파일에서 'PermitUserEnvironment yes' 줄을 제거합니다. |
+|SSH에는 적절한 암호화를 사용해야 합니다. (암호화 aes128-ctr,aes192-ctr,aes256-ctr)<br /><sub>(113)</sub> |설명: 공격자가 보안이 취약한 SSH 연결을 손상시킬 수 있습니다. |'/usr/local/bin/azsecd remediate -r configure-ssh-ciphers' 명령을 실행합니다. 그러면 '/etc/ssh/sshd_config' 파일에 'Ciphers aes128-ctr,aes192-ctr,aes256-ctr' 줄이 추가됩니다. |
 |avahi-daemon 서비스를 사용하지 않습니다.<br /><sub>(114)</sub> |설명: 공격자가 avahi daemon의 취약성을 이용하여 액세스 권한을 얻을 수 있습니다. |avahi-daemon 서비스를 사용하지 않도록 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-avahi-daemon'을 실행합니다. |
 |cups 서비스를 사용하지 않습니다.<br /><sub>(115)</sub> |설명: 공격자가 cup 서비스의 결함을 이용하여 권한을 높일 수 있습니다. |cups 서비스를 사용하지 않도록 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-cups'를 실행합니다. |
 |isc-dhcpd 서비스를 사용하지 않습니다.<br /><sub>(116)</sub> |설명: 공격자가 dhcpd를 사용하여 클라이언트에 잘못된 정보를 제공하고, 정상적인 작업을 방해할 수 있습니다. |isc-dhcp-server 패키지를 제거합니다(apt-get remove isc-dhcp-server). |

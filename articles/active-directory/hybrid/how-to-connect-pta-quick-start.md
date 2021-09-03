@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5e71522d53bd4e528b2a5a106a4dcc344df3ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a85f2d5d928d93bf9e85899e53439a2cc4710448
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732859"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114455608"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -51,13 +51,13 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 
-1. Azure AD Connect를 실행할 수 있도록 Windows Server 2012 R2 이상을 실행 중인 서버를 찾습니다. 아직 사용하지 않는 경우 [서버에서 TLS 1.2를 사용하도록 설정](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect)합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다. Windows Server Core 버전에서 통과 인증 에이전트를 설치하는 것은 지원되지 않습니다. 
+1. Azure AD Connect를 실행할 수 있도록 Windows Server 2016 이상을 실행 중인 서버를 찾습니다. 아직 사용하지 않는 경우 [서버에서 TLS 1.2를 사용하도록 설정](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect)합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다. Windows Server Core 버전에서 통과 인증 에이전트를 설치하는 것은 지원되지 않습니다. 
 2. 이전 단계에서 찾은 서버에 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 설치합니다. Azure AD Connect가 이미 실행되고 있는 경우 버전이 1.1.750.0 이상인지 확인합니다.
 
     >[!NOTE]
     >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 [Azure AD Connect 릴리스 정보](./reference-connect-version-history.md)를 참조하세요.
 
-3. 독립 실행형 인증 에이전트를 실행할 수 있도록 TLS 1.2를 사용하도록 설정한 Windows Server 2012 R2 이상을 실행 중인 하나 이상의 추가 서버를 찾습니다. 이러한 추가 서버는 로그인 요청의 고가용성을 보장하기 위해 필요합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
+3. 독립 실행형 인증 에이전트를 실행할 수 있도록 TLS 1.2를 사용하도록 설정한 Windows Server 2016 이상을 실행 중인 하나 이상의 추가 서버를 찾습니다. 이러한 추가 서버는 로그인 요청의 고가용성을 보장하기 위해 필요합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
 
     >[!IMPORTANT]
     >프로덕션 환경의 테넌트에서 실행되는 최소 3개의 인증 에이전트를 확보하는 것이 좋습니다. 테넌트당 인증 에이전트 40개라는 시스템 제한이 있습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
@@ -179,7 +179,7 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md): 현재 통과 인증이 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [기술 심층 분석](how-to-connect-pta-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.
-- [질문과 대답](how-to-connect-pta-faq.md): 자주 하는 질문과 대답을 살펴봅니다.
+- [질문과 대답](how-to-connect-pta-faq.yml): 자주 하는 질문과 대답을 살펴봅니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
 - [보안 심층 분석](how-to-connect-pta-security-deep-dive.md): 통과 인증 기능에 대한 기술 정보를 가져옵니다.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.

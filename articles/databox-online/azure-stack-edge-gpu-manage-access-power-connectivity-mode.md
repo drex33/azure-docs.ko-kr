@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 07/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 07942431134c4178afec4c6593193d1cc743f7db
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 97ba43602899ee60a6a2d24cdd699b12b8a1c687
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067694"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114219712"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에 대한 액세스, 전원 및 연결 모드 관리
 
@@ -160,7 +161,10 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 
 디바이스는 완전 연결 모드 외에도, 부분 연결 또는 연결 끊김 모드에서도 실행할 수 있습니다. 이러한 각 모드는 아래에 설명되어 있습니다.
 
-- **완전 연결** - 디바이스가 작동하는 일반적인 기본 모드입니다. 이 모드에서는 데이터의 클라우드 업로드와 다운로드를 모두 사용할 수 있습니다. Azure Portal 또는 로컬 웹 UI를 사용하여 디바이스를 관리할 수 있습니다.
+- **완전 연결** - 디바이스가 작동하는 일반적인 기본 모드입니다. 이 모드에서는 데이터의 클라우드 업로드와 다운로드를 모두 사용할 수 있습니다. Azure Portal 또는 로컬 웹 UI를 사용하여 디바이스를 관리할 수 있습니다. 
+
+    > [!NOTE]
+    > 네트워크 기능 관리자 배포의 경우 Azure Stack Edge 디바이스는 **온라인** 이고 완전 연결 모드에서 작동해야 합니다.
 
 - **부분적으로 연결이 끊어짐** – 이 모드에서는 디바이스에서 공유 데이터를 업로드 또는 다운로드할 수 없지만 Azure Portal을 통해 디바이스를 관리할 수 있습니다.
 

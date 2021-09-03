@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d044ddbde293721e26ed491e237aa5b89075f72a
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699082"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531215"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
 
@@ -65,6 +65,8 @@ Azure Portal은 특정 리소스에 대한 부하 분산 장치 리소스 페이
 
   >[!NOTE] 
   >데이터가 분당 한 번 샘플링되므로 특정 메트릭을 해석할 때 시간 집계가 중요합니다. 시간 집계가 5분으로 설정되고 메트릭 집계 유형 Sum이 SNAT 할당과 같은 메트릭에 사용되는 경우 그래프에 할당된 총 SNAT 포트의 5배가 표시됩니다. 
+  >
+  >권장 사항: 메트릭 집계 유형 합계 및 개수를 분석할 때 1분보다 긴 시간 집계 값을 사용하는 것이 좋습니다.
 
 ![표준 Load Balancer에 대한 메트릭](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
@@ -169,7 +171,7 @@ SNAT 포트 사용량과 할당을 보려면 다음을 수행합니다.
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>내 서비스에 대한 인바운드/아웃바운드 연결 시도를 확인하려면 어떻게 해야 하나요?
 <details>
   <summary>Expand</summary>
-SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 전송된 ([아웃바운드 흐름](./load-balancer-outbound-connections.md) 관련) TCP SYN 패킷 볼륨을 설명합니다. 이 메트릭을 사용하여 서비스에 대한 TCP 연결 시도를 이해할 수 있습니다.
+SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 전송된 ([아웃바운드 흐름](../load-balancer-outbound-connections.md) 관련) TCP SYN 패킷 볼륨을 설명합니다. 이 메트릭을 사용하여 서비스에 대한 TCP 연결 시도를 이해할 수 있습니다.
 
 대부분의 시나리오에서 집계로 **Sum** 을 사용합니다.
 

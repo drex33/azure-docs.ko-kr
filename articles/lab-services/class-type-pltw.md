@@ -3,12 +3,12 @@ title: Azure Lab Services를 사용하여 Project Lead the Way 랩 설정
 description: Project Lead The Way 수업을 진행하도록 랩을 설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: aaaddcb2c2111ccfbf0edfc79bbefafb711b19dc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 85e8b8d55ed5a91c21c2554ce15e3ef893e30f15
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768538"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566853"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Project Lead The Way 수업을 위한 랩 설정
 
@@ -100,7 +100,7 @@ Autodesk 생성 라이선스 파일은 라이선스 서버의 MAC 주소를 포�
 ### <a name="template-machine"></a>템플릿 머신
 PLTW에 필요한 설치 파일 중 일부는 클 수 있습니다. 랩 템플릿 VM에 파일을 다운로드하는 경우 복사하는 데 시간이 오래 걸릴 수 있습니다.
 
-설치 파일을 템플릿 머신에 다운로드하고 모든 항목을 설치하는 대신 물리적 환경에서 PLTW 이미지를 만드는 것이 좋습니다.  그러면 랩을 만들 때 사용할 수 있도록 사용자 지정 이미지를 공유 이미지 갤러리로 가져올 수 있습니다.  자세한 내용은 [사용자 지정 이미지를 공유 이미지 갤러리에 업로드](./upload-custom-image-shared-image-gallery.md)를 참조하세요.
+설치 파일을 템플릿 머신에 다운로드하고 모든 항목을 설치하는 대신 물리적 환경에서 PLTW 이미지를 만드는 것이 좋습니다.  그러면 랩을 만들 때 사용할 수 있도록 사용자 지정 이미지를 공유 이미지 갤러리로 가져올 수 있습니다.  자세한 내용은 [사용자 지정 이미지 만들기를 위한 권장 방법](approaches-for-custom-image-creation.md)을 참조하세요.
 
 이 권장 사항에 따라 랩 설정에 대한 주요 작업을 확인합니다.
 

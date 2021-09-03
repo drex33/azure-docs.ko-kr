@@ -5,23 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb1504e406e5edb25cea01fa2add5751257802e8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b1bb9c2ad21469ad6b658795f29361760d4bcf13
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744452"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536169"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory의 인증 방법 - 휴대폰 옵션
 
 문자 메시지를 사용하는 직접 인증의 경우 [SMS 기반 인증에 대해 사용자를 구성하고 사용하도록 설정](howto-authentication-sms-signin.md)할 수 있습니다. SMS 기반 로그인은 일선 작업자에게 적합합니다. SMS 기반 로그인을 사용하면 사용자가 애플리케이션 및 서비스에 액세스하기 위해 사용자 이름과 암호를 몰라도 됩니다. 대신 사용자가 등록된 휴대폰 번호를 입력하고 확인 코드를 포함하는 문자 메시지를 받은 후 로그인 인터페이스에 입력합니다.
 
-사용자는 Azure AD Multi-Factor Authentication 또는 SSPR(셀프 서비스 암호 재설정) 중에 사용되는 인증의 보조 형식처럼 휴대폰 또는 사무실 전화를 사용하여 자신을 확인할 수도 있습니다.
+사용자는 Azure AD Multi-Factor Authentication 또는 SSPR(셀프 서비스 암호 재설정) 중에 사용되는 인증의 보조 형식처럼 휴대폰 또는 사무실 전화를 사용하여 자신을 확인할 수도 있습니다. 
+
+> [!NOTE]
+> 평가판 구독이 있는 Azure AD 테넌트에는 전화 통화 확인을 사용할 수 없습니다.  예를 들어 평가판 EMS 라이선스에 등록하면 전화 통화 확인 기능이 제공되지 않습니다.
 
 올바르게 작동하려면 전화번호가 *+CountryCode PhoneNumber* 형식으로 저장되어야 합니다(예: *+1 4251234567*).
 
@@ -50,7 +53,7 @@ SSPR 또는 Azure AD Multi-Factor Authentication 중에 전화 통화 확인을 
 
 ## <a name="office-phone-verification"></a>사무실 전화 확인
 
-SSPR 또는 Azure AD Multi-Factor Authentication 중에 전화 통화 확인을 사용하면 사용자가 등록한 전화번호로 자동 음성 전화가 걸려옵니다. 로그인 프로세스를 완료하려면 키패드에서 #을 누르라는 메시지가 사용자에게 표시됩니다.
+SSPR 또는 Azure AD Multi-Factor Authentication 중에 전화 통화 확인을 사용하면 사용자가 등록한 전화번호로 자동 음성 전화가 걸려옵니다. 로그인 프로세스를 완료하려면 키패드에서 #을 누르라는 메시지가 사용자에게 표시됩니다. 
 
 ## <a name="troubleshooting-phone-options"></a>전화 옵션 문제 해결
 

@@ -4,12 +4,12 @@ description: Azure 구독 및 리소스 그룹에서 Recovery Services 자격 �
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 239294f1744da9f040ac62435e6930b60f6bc357
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6de0d6902705ff0edffd5e51e0e8f9abc6378830
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954373"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114298092"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹에서 Recovery Services 자격 증명 모음 이동
 
@@ -23,7 +23,7 @@ ms.locfileid: "111954373"
 
 - 리소스 그룹 간에 자격 증명 모음을 이동하는 중에는 쓰기 및 삭제 작업을 방지하기 위해 원본 및 대상 리소스 그룹이 모두 잠깁니다. 자세한 내용은 [이 문서](../azure-resource-manager/management/move-resource-group-and-subscription.md)를 참조하세요.
 - 관리자 구독에만 자격 증명 모음을 이동할 권한이 있습니다.
-- 구독에서 자격 증명 모음을 이동할 때 대상 구독은 원본 구독과 동일한 테넌트에 있어야 하며, 사용 설정된 상태로 존재해야 합니다. 자격 증명 모음을 다른 Azure AD 디렉터리로 이동하려면 [다른 디렉터리로 구독 이전](../role-based-access-control/transfer-subscription.md) 및 [Recovery Services 자격 증명 모음 FAQ](/azure/backup/backup-azure-backup-faq.yml#recovery-services-vault)를 참조하세요.
+- 구독에서 자격 증명 모음을 이동할 때 대상 구독은 원본 구독과 동일한 테넌트에 있어야 하며, 사용 설정된 상태로 존재해야 합니다. 자격 증명 모음을 다른 Azure AD로 이동하려면 [다른 디렉터리로 구독 이전](../role-based-access-control/transfer-subscription.md) 및 [Recovery Services 자격 증명 모음 FAQ](/azure/backup/backup-azure-backup-faq#recovery-services-vault)를 참조하세요.
 - 대상 리소스 그룹에 쓰기 작업을 수행할 수 있는 권한이 있어야 합니다.
 - 자격 증명 모음을 이동하면 리소스 그룹이 변경됩니다. Recovery Services 자격 증명 모음은 동일한 위치에 있으며 변경할 수 없습니다.
 - 지역별로 한 번에 하나의 Recovery Services 자격 증명 모음을 이동할 수 있습니다.

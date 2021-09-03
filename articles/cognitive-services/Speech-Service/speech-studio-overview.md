@@ -3,19 +3,19 @@ title: Speech Studio 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Studio는 애플리케이션에서 Azure Speech Service의 기능을 빌드하고 통합하기 위한 UI 기반 도구 집합입니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.author: trbye
-ms.openlocfilehash: ddf7b85f5775ee25a260f19ae81e43afff95facb
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.author: lajanuar
+ms.openlocfilehash: 6042a129308b7be478b2bd1a45379ad56f62aca6
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902341"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567544"
 ---
 # <a name="what-is-speech-studio"></a>Speech Studio란?
 
@@ -23,16 +23,12 @@ ms.locfileid: "111902341"
 
 ## <a name="set-up-your-azure-account"></a>Azure 계정 설정
 
-[Speech Studio](https://speech.microsoft.com)를 사용하려면 Azure 계정 및 Speech Service 구독이 있어야 합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](overview.md#try-the-speech-service-for-free).
+[Speech Studio](https://speech.microsoft.com)를 사용하려면 먼저 Azure 계정이 있고 Speech Service 리소스를 추가해야 합니다. 계정 및 리소스가 없는 경우 [Speech Service 평가판을 사용해 보세요](overview.md#try-the-speech-service-for-free).
 
-> [!NOTE]
-> 표준(S0) 구독을 만들어야 합니다. 체험(F0) 구독은 지원되지 않습니다.
+Azure 계정 및 Speech Service 리소스를 만든 후:
 
-Azure 계정 및 Speech Service 구독을 만든 후:
-
-1. [Speech Studio](https://speech.microsoft.com)에 로그인합니다.
-1. 작업해야 하는 구독을 선택하고 음성 프로젝트를 만듭니다.
-1. 구독을 수정하려면 상단 메뉴에서 톱니바퀴 단추를 선택합니다.
+1. Azure 계정으로 [Speech Studio](https://speech.microsoft.com)에 로그인합니다.
+1. 시작하는 데 필요한 음성 서비스 리소스를 선택합니다. (상단 메뉴의 "설정"에서 언제든지 리소스를 변경할 수 있습니다.)
 
 ## <a name="speech-studio-features"></a>Speech Studio 기능
 

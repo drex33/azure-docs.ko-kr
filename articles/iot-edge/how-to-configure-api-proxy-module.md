@@ -2,7 +2,6 @@
 title: API 프록시 모듈 구성 - Azure IoT Edge | Microsoft Docs
 description: IoT Edge 게이트웨이 계층 구조에 대한 API 프록시 모듈을 사용자 지정하는 방법을 알아봅니다.
 author: kgremban
-manager: philmea
 ms.author: kgremban
 ms.date: 11/10/2020
 ms.topic: conceptual
@@ -12,25 +11,24 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f55c3a1f699f8a087eb97eaba347a3f21c124cc9
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 100d67f30066b74fdcd6e70cfc714be7f7ee5ccd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307319"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537039"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>게이트웨이 계층 구조 시나리오에 대한 API 프록시 모듈 구성(미리 보기)
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
-API 프록시 모듈을 사용하면 IoT Edge 디바이스가 클라우드 서비스에 직접 연결하는 대신 게이트웨이를 통해 HTTP 요청을 보낼 수 있습니다. 이 문서에서는 게이트웨이 계층 구조 요구 사항을 지원하도록 모듈을 사용자 지정할 수 있는 구성 옵션을 안내합니다.
+이 문서에서는 게이트웨이 계층 구조 요구 사항을 지원하도록 모듈을 사용자 지정할 수 있는 API 프록시 모듈에 대한 구성 옵션을 안내합니다.
 
->[!NOTE]
->이 기능에는 Linux 컨테이너를 실행하는 IoT Edge 버전 1.2(공개 미리 보기로 제공됨)가 필요합니다.
+API 프록시 모듈은 모두 HTTPS 프로토콜을 지원하고 포트 443에 바인딩하는 여러 서비스가 배포될 때 IoT Edge 디바이스에 대한 통신을 단순화합니다. 이는 자식 디바이스의 클라이언트가 클라우드에 직접 연결할 수 없기 때문에 [네트워크 격리 다운스트리밍 디바이스](how-to-connect-downstream-iot-edge-device.md#network-isolate-downstream-devices)에 설명된 것과 같은 ISA-95 기반 네트워크 격리 아키텍처에서 IoT Edge 디바이스의 계층적 배포와 특히 관련이 있습니다.
 
-일부 네트워크 아키텍처에서 게이트웨이 뒤에 있는 IoT Edge 디바이스는 클라우드에 직접 액세스할 수 없습니다. 클라우드 서비스 연결을 시도하는 모든 모듈이 실패합니다. API 프록시 모듈은 대신 게이트웨이 계층 구조의 계층을 통과하도록 모듈 연결을 다시 라우팅하는 방법으로 이 구성에서 다운스트림 IoT Edge 디바이스를 지원합니다. 클라이언트가 각 계층에서 연결을 종료하여 터널링 없이 HTTPS를 통해 여러 서비스와 안전하게 통신하는 방법을 제공합니다. API 프록시 모듈은 최상위 계층에서 IoT Edge에 도달할 때까지 게이트웨이 계층 구조의 IoT Edge 디바이스 간에 프록시 모듈 역할을 합니다. 이 시점에서 최상위 계층 IoT Edge 디바이스에서 실행되는 서비스는 해당 요청을 처리하고, API 프록시 모듈은 단일 포트를 통해 로컬 서비스에서 클라우드로 가는 모든 HTTP 트래픽에 대한 프록시 역할을 수행합니다.
+예를 들어 자식 IoT Edge 디바이스가 Docker 이미지를 가져오도록 허용하려면 Docker 레지스트리 모듈을 배포해야 합니다. Blob 업로드를 허용하려면 동일한 IoT Edge 디바이스에 Azure Blob Storage 모듈을 배포해야 합니다. 두 서비스 모두 통신에 HTTPS를 사용합니다. API 프록시는 IoT Edge 디바이스에서 이러한 배포를 가능하게 합니다. API 프록시 모듈은 각 서비스 대신 호스트 디바이스의 포트 443에 바인딩하고 사용자 구성 규칙에 따라 해당 디바이스에서 실행 중인 올바른 서비스 모듈로 요청을 라우팅합니다. 개별 서비스는 여전히 클라이언트 인증 및 권한 부여를 포함하여 요청을 처리할 책임이 있습니다.
 
-API 프록시 모듈은 더 낮은 계층의 디바이스가 컨테이너 이미지를 풀하거나 Blob를 스토리지에 푸시할 수 있게 하는 등 여러 게이트웨이 계층 구조 시나리오를 구현할 수 있습니다. 프록시 규칙 구성은 데이터를 라우팅하는 방법을 정의합니다. 이 문서에서는 몇 가지 일반적인 구성 옵션을 설명합니다.
+API 프록시가 없으면 각 서비스 모듈은 호스트 디바이스의 별도 포트에 바인딩해야 하므로 부모 IoT Edge 디바이스에 연결하는 각 자식 디바이스에서 수행하기 힘들고 오류가 발생하기 쉬운 구성 변경이 필요합니다.
 
 ## <a name="deploy-the-proxy-module"></a>프록시 모듈 배포
 

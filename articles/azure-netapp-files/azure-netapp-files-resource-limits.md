@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 07/28/2021
 ms.author: b-juche
-ms.openlocfilehash: b5abb26a5a96b73f06f25661c62061f664069ee3
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 06be68fb1de224bbbcad13e71e7f4069e44f8309
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903491"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566330"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -31,6 +31,7 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 
 |  리소스  |  기본 제한  |  지원 요청을 통해 조정 가능  |
 |----------------|---------------------|--------------------------------------|
+|  [구독당 지역 용량 할당량](#regional-capacity-quota)   |  25TiB  |  Yes  |
 |  구독당 Azure 지역별 NetApp 계정 수  |  10    |  예   |
 |  NetApp 계정당 용량 풀 수   |    25     |   예   |
 |  구독당 볼륨 수   |    500     |   Yes   |
@@ -93,9 +94,39 @@ Azure NetApp Files 볼륨에는 *maxfiles* 라는 한도가 있습니다. Maxfil
 
 볼륨 할당량이 20TiB 이상인 경우 maxfiles 한도를 5억 개로 늘릴 수 있습니다. <!-- ANF-11854 --> 
 
+## <a name="regional-capacity-quota"></a>지역 용량 할당량
+
+Azure NetApp Files에는 용량에 따라 지역 제한이 있습니다. 각 구독에 대한 표준 용량 제한은 모든 서비스 수준에서 지역당 25TiB입니다.   
+
+다음과 같이 특정 **서비스 및 구독 한도(할당량)** 지원 티켓을 제출하여 용량 증가를 요청할 수 있습니다.
+
+1. 포털에서 **지원 + 문제 해결** 로 이동하여 지원 요청 프로세스를 시작합니다.  
+
+    ![지원 문제 해결 메뉴를 보여 주는 스크린샷.](../media/azure-netapp-files/support-troubleshoot-menu.png)   
+
+2.  **서비스 및 구독 한도(할당량)** 문제 유형을 선택하고 모든 관련 세부 정보를 입력합니다.
+
+    ![서비스 및 구독 제한 메뉴를 보여 주는 스크린샷.](../media/azure-netapp-files/service-subscription-limits-menu.png)   
+
+3. 세부 정보 탭에서 **세부 정보 입력** 링크를 클릭한 다음 **구독당 TiB** 할당량 유형을 선택합니다.   
+
+    ![세부 정보 탭의 세부 정보 입력 링크를 보여 주는 스크린샷.](../media/azure-netapp-files/support-details.png)   
+
+    ![할당량 세부 정보 창을 보여 주는 스크린샷.](../media/azure-netapp-files/support-quota-details.png)   
+
+4.  지원 방법 페이지에서 **심각도 수준 B - 보통 영향** 을 선택해야 합니다.  
+
+    ![지원 방법 창을 보여 주는 스크린샷.](../media/azure-netapp-files/support-method-severity.png)   
+
+5. 요청 프로세스를 완료하여 요청을 발행합니다. 
+ 
+티켓이 제출되면 처리를 위해 요청이 Azure 용량 관리 팀으로 전송됩니다. 일반적으로 영업일 기준 2일 이내에 응답을 받게 됩니다. Azure 용량 관리 팀에서 대규모 요청을 처리하기 위해 연락할 수 있습니다.
+ 
+지역 용량 할당량 증가는 청구 증가를 발생시키지 않습니다. 요금은 여전히 프로비저닝된 용량 풀을 기반으로 합니다.
+
 ## <a name="request-limit-increase"></a>요청 한도 증가 <a name="limit_increase"></a> 
 
-Azure 지원 요청을 만들어 위의 표에서 조정 가능한 한도를 늘릴 수 있습니다. 
+Azure 지원 요청을 만들어 [리소스 제한](#resource-limits) 표에서 조정 가능한 한도를 늘릴 수 있습니다. 
 
 Azure Portal 탐색 화면에서: 
 

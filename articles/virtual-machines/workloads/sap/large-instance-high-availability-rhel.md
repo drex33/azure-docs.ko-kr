@@ -6,19 +6,22 @@ ms.author: jaawasth
 ms.service: virtual-machines-sap
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: f7b6e6efbbd17655b4f68d79ac26ee34ae754a3b
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 3da8c2a0147136ad5da90489e4f8db511cad7378
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728449"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217452"
 ---
 # <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>RHEL의 SAP를 위한 Azure 대규모 인스턴스 고가용성
 
 > [!NOTE]
 > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 ‘블랙리스트’라는 용어가 언급되어 있습니다. 소프트웨어에서 이 용어가 제거되면 이 문서에서도 제거할 예정입니다.
 
-이 문서에서는 RHEL 7.6에서 Pacemaker 클러스터를 구성하여 SAP HANA 데이터베이스 장애 조치를 자동화하는 방법을 알아봅니다. 이 가이드의 단계를 진행하려면 Linux, SAP HANA 및 Pacemaker에 대한 지식이 있어야 합니다.
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+
+이 문서에서는 RHEL 7에서 Pacemaker 클러스터를 구성하여 SAP HANA 데이터베이스 장애 조치(failover)를 자동화하는 방법을 알아봅니다. 이 가이드의 단계를 진행하려면 Linux, SAP HANA 및 Pacemaker에 대한 지식이 있어야 합니다.
 
 다음 표에는 이 문서에서 사용되는 호스트 이름이 나와 있습니다. 이 문서의 코드 블록에서는 실행해야 하는 명령과 명령을 실행한 결과를 보여 줍니다. 각 명령에서 어느 노드를 참조하는지 주의 깊게 확인하세요.
 
@@ -136,6 +139,7 @@ ms.locfileid: "107728449"
 
 6. 시스템을 업데이트합니다.
     1. 먼저 시스템에 최신 업데이트를 철시한 후에 SBD 디바이스의 설치를 시작합니다.
+    1. 고객은 [RHEL 고가용성 클러스터 지원 정책 - 클러스터 내 SAP HANA 관리](https://access.redhat.com/articles/3397471)에 설명된 대로 resource-agents-sap-hana 패키지 버전 4.1.1-12.el7_6.26 이상이 설치되어 있는지 확인해야 합니다.
     1. 시스템을 전체 업데이트하는 것이 권장되지만, 전체 업데이트하지 않으려는 경에는 최소한 다음과 같은 패키지를 업데이트합니다.
         1. `resource-agents-sap-hana`
         1. `selinux-policy`
@@ -308,7 +312,7 @@ ms.locfileid: "107728449"
 ## <a name="sbd-configuration"></a>SBD 구성
 이 섹션에서는 SBD를 구성하는 방법을 알아봅니다. 이 섹션에서는 이 문서의 시작 부분에서 언급했던 두 개의 호스트 `sollabdsm35`와 `sollabdsm36`을 그대로 사용합니다.
 
-1.  두 노드에서 iSCSI 또는 FC 디스크가 보이는지 확인합니다. 이 예제에서는 FC 기반 SBD 디바이스를 사용합니다. SBD 펜싱에 대한 자세한 내용은 [Design Guidance for RHEL High Availability Clusters - SBD Considerations](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faccess.redhat.com%2Farticles%2F2941601&data=04%7C01%7Cralf.klahr%40microsoft.com%7Cd49d7a3e3871449cdecc08d8c77341f1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478645171139432%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=c%2BUAC5gmgpFNWZCQFfiqcik8CH%2BmhH2ly5DsOV1%2FE5M%3D&reserved=0)(RHEL 고가용성 클러스터 디자인 가이드- SBD 고려 사항)를 참조하세요.
+1.  두 노드에서 iSCSI 또는 FC 디스크가 보이는지 확인합니다. 이 예제에서는 FC 기반 SBD 디바이스를 사용합니다. SBD 펜싱에 대한 자세한 내용은 [RHEL 고가용성 클러스터를 위한 설계 지침 - SBD 고려 사항](https://access.redhat.com/articles/2941601) 및 [RHEL 고가용성 클러스터에 대한 지원 정책 - sbd 및 fence_sbd](https://access.redhat.com/articles/2800691)를 참조하세요.
 2.  모든 노드에서 LUN-ID가 동일해야 합니다.
   
 3.  sbd 디바이스의 다중 경로 상태를 확인합니다.
@@ -641,7 +645,7 @@ ms.locfileid: "107728449"
 
 이 섹션에서는 클러스터에 HANA를 통합합니다. 이 섹션에서는 이 문서의 시작 부분에서 언급했던 두 개의 호스트 `sollabdsm35`와 `sollabdsm36`을 그대로 사용합니다.
 
-HANA를 통합하는 방법에는 두 가지가 있습니다. 첫 번째 옵션은 보조 시스템을 사용하여 QAS 시스템을 실행할 수 있는 비용 최적화된 솔루션입니다. 이 방법에서는 클러스터 소프트웨어, 운영 체제 또는 HANA에서 업데이트를 테스트할 시스템이 남지 않는데 구성 업데이트는 PRD 시스템의 예기치 않은 가동 중지 시간을 발생시킬 수 있으므로 이 방법은 권장되지 않습니다. 또한 보조 시스템에서 PRD 시스템을 활성화해야 하는 경우 보조 노드에서 QAS를 종료해야 합니다. 두 번째 옵션은 하나의 클러스터에는 QAS 시스템을 설치하고 두 번째 클러스터를 PRD용으로 사용하는 것입니다. 이 옵션에서는 모든 구성 요소가 프로덕션에 배치되기 전에 테스트해 보는 것도 가능합니다. 이 문서에서는 두 번째 옵션을 구성하는 방법을 보여 줍니다.
+기본 및 지원되는 방법은 데이터베이스를 직접 전환할 수 있는 성능 최적화 시나리오를 만드는 것입니다. 이 문서에서는 이 시나리오만 설명합니다. 이 경우 QAS 시스템용 클러스터 하나와 별도의 PRD 시스템용 클러스터를 설치하는 것이 좋습니다. 이 경우에만 생산에 들어가기 전에 모든 구성 요소를 테스트할 수 있습니다.
 
 
 * 이 프로세스는 다음 페이지에 있는 RHEL 설명의 빌드입니다.
@@ -649,6 +653,12 @@ HANA를 통합하는 방법에는 두 가지가 있습니다. 첫 번째 옵션�
   * https://access.redhat.com/articles/3004101
 
  ### <a name="steps-to-follow-to-configure-hsr"></a>HSR을 구성하기 위해 수행해야 하는 단계
+
+ | **로그 복제 모드**            | **설명**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **동기식 메모리 내(기본값)** | 동기식 메모리 내(mode=syncmem)는 로그 항목이 기본의 로그 볼륨에 기록되고 로그를 보내는 것이 메모리에 복사된 후 보조 인스턴스에 의해 확인된 경우 로그 쓰기가 성공한 것으로 간주됨을 의미합니다. 보조 시스템에 대한 연결이 끊어지면 기본 시스템은 트랜잭션 처리를 계속하고 변경 사항을 로컬 디스크에만 기록합니다. 보조 시스템이 연결되어 있는 동안 기본 장애와 보조 장애가 동시에 발생하거나 보조 시스템의 연결이 끊어진 상태에서 인계를 실행하면 데이터 손실이 발생할 수 있습니다. 이 옵션은 보조 인스턴스에서 디스크 I/O를 기다릴 필요가 없기 때문에 더 나은 성능을 제공하지만 데이터 손실에 더 취약합니다.                                                                                                                                                                                                                                                                                                                     |
+| **동기**                     | 동기식(mode=sync)은 로그 항목이 기본 인스턴스 및 보조 인스턴스의 로그 볼륨에 기록되었을 때 로그 쓰기가 성공한 것으로 간주됨을 의미합니다. 보조 시스템에 대한 연결이 끊어지면 기본 시스템은 트랜잭션 처리를 계속하고 변경 사항을 로컬 디스크에만 씁니다. 보조 시스템이 연결되어 있는 한 이 시나리오에서는 데이터 손실이 발생하지 않습니다. 보조 시스템의 연결이 끊어진 상태에서 인계를 실행하면 데이터가 손실될 수 있습니다. 또한 이 복제 모드는 전체 동기화 옵션으로 실행할 수 있습니다. 즉, 기본 인스턴스와 보조 인스턴스의 로그 파일에 로그 버퍼가 기록되어야 로그 쓰기가 성공한 것입니다. 또한 보조 시스템의 연결이 끊어지면(예: 네트워크 오류) 기본 시스템은 보조 시스템에 대한 연결이 다시 설정될 때까지 트랜잭션 처리를 일시 중단합니다. 이 시나리오에서는 데이터 손실이 발생하지 않습니다. 매개 변수 \[system\_replication\]/enable\_full\_sync)만 사용하여 시스템 복제에 대한 전체 동기화 옵션을 설정할 수 있습니다. 전체 동기화 옵션을 사용하도록 설정하는 방법에 대한 자세한 내용은 시스템 복제를 위한 전체 동기화 옵션을 사용하도록 설정을 참조하세요.                                                                                                                                                                                                                                                                                                              |
+| **비동기**                    | 비동기식(mode=async)은 기본 시스템이 다시 실행 로그 버퍼를 보조 시스템으로 비동기식으로 보내는 것을 의미합니다. 기본 시스템은 트랜잭션이 기본 시스템의 로그 파일에 기록되고 네트워크를 통해 보조 시스템으로 전송되면 트랜잭션을 커밋합니다. 보조 시스템의 확인을 기다리지 않습니다. 이 옵션은 보조 시스템에서 로그 I/O를 기다릴 필요가 없기 때문에 더 나은 성능을 제공합니다. 보조 시스템의 모든 서비스에서 데이터베이스 일관성이 보장됩니다. 그러나 데이터 손실에 더 취약합니다. 데이터 변경 사항은 인수 시 손실될 수 있습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 1.  다음은 node1(기본)에서 실행할 작업입니다.
     1. 데이터베이스 로그 모드가 normal로 설정되어 있는지 확인합니다.
@@ -1052,7 +1062,11 @@ global.ini
 3.  복제된 SAPHanaTopology 리소스를 만듭니다.
     SAPHanaTopology 리소스가 각 노드에서 SAP HANA 시스템 복제의 상태와 구성을 수집하고 있습니다. SAPHanaTopology를 구성하려면 다음과 같은 특성이 필요합니다.
        ```
-       pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 InstanceNumber=00 --clone clone-max=2 clone-node-max=1    interleave=true
+       pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 op start timeout=600 \
+       op stop timeout=300 \
+       op monitor interval=10 timeout=600 \
+       clone clone-max=2 clone-node-max=1 interleave=true
+
        ```
 
     | 특성 이름 | 설명  |
@@ -1064,32 +1078,21 @@ global.ini
        ```
        pcs resource show SAPHanaTopology_HR2_00
    
-       InstanceNumber 2-digit SAP Instance identifier.
-       pcs resource show SAPHanaTopology_HR2_00-clone
-   
        Clone: SAPHanaTopology_HR2_00-clone
-   
         Meta Attrs: clone-max=2 clone-node-max=1 interleave=true
-   
-        Resource: SAPHanaTopology_HR2_00 (class=ocf provider=heartbeat
-       type=SAPHanaTopology)
-   
-        Attributes: InstanceNumber=00 SID=HR2
-   
-        Operations: monitor interval=60 timeout=60
-       (SAPHanaTopology_HR2_00-monitor-interval-60)
-   
-        start interval=0s timeout=180
-       (SAPHanaTopology_HR2_00-start-interval-0s)
-   
-        stop interval=0s timeout=60 (SAPHanaTopology_HR2_00-stop-interval-0s)
-   
+        Resource: SAPHanaTopology_HR2_00 (class=ocf provider=heartbeat type=SAPHanaTopology)
+         Attributes: InstanceNumber=00 SID=HR2
+         Operations: monitor interval=60 timeout=60 (SAPHanaTopology_HR2_00-monitor-interval-60)
+                     start interval=0s timeout=180 (SAPHanaTopology_HR2_00-start-interval-0s)
+                     stop interval=0s timeout=60 (SAPHanaTopology_HR2_00-stop-interval-0s)
+       
+         
        ```
 
 4.  기본/보조 SAPHana 리소스를 만듭니다.
     * SAPHana 리소스는 SAP HANA 데이터베이스의 시작, 중지 및 위치 이동을 담당합니다. 이 리소스는 기본/보조 클러스터 리소스로서 실행해야 합니다. 이 리소스는 다음과 같은 특성을 갖습니다.
 
-| 특성 이름            | 필수 여부 | 기본값 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 특성 이름            | 필수 여부 | 기본값 | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |---------------------------|-----------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SID                       | 예       | 없음          | SAP HANA 설치의 SAP SID(시스템 ID)입니다. 모든 노드에서 동일해야 합니다.                                                                                                                                                                                                                                                                                                                                                                                       |
 | InstanceNumber            | 예       | 없음          | 2자리 SAP 인스턴스 ID입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -1100,39 +1103,32 @@ global.ini
 
 5.  HANA 리소스를 만듭니다.
     ```
-    pcs resource create SAPHana_HR2_00 SAPHana SID=HR2 InstanceNumber=00 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200   AUTOMATED_REGISTER=true primary notify=true clone-max=2 clone-node-max=1 interleave=true
+    pcs resource create SAPHana_HR2_00 SAPHana SID=HR2 InstanceNumber=00 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=true op start timeout=3600 \
+    op stop timeout=3600 \
+    op monitor interval=61 role="Slave" timeout=700 \
+    op monitor interval=59 role="Master" timeout=700 \
+    op promote timeout=3600 \
+    op demote timeout=3600 \
+    master meta notify=true clone-max=2 clone-node-max=1 interleave=true
+
 
     pcs resource show SAPHana_HR2_00-primary
 
 
     Primary: SAPHana_HR2_00-primary
-
-        Meta Attrs: clone-max=2 clone-node-max=1 interleave=true notify=true
-
-        Resource: SAPHana_HR2_00 (class=ocf provider=heartbeat type=SAPHana)
-
-        Attributes: AUTOMATED_REGISTER=false DUPLICATE_PRIMARY_TIMEOUT=7200
-    InstanceNumber=00 PREFER_SITE_TAKEOVER=true SID=HR2
-
-        Operations: demote interval=0s timeout=320
-    (SAPHana_HR2_00-demote-interval-0s)
-
-        monitor interval=120 timeout=60 (SAPHana_HR2_00-monitor-interval-120)
-
-        monitor interval=121 role=Secondary timeout=60
-    (SAPHana_HR2_00-monitor-
-
-        interval-121)
-
-        monitor interval=119 role=Primary timeout=60 (SAPHana_HR2_00-monitor-
-
-        interval-119)
-
-        promote interval=0s timeout=320 (SAPHana_HR2_00-promote-interval-0s)
-
-        start interval=0s timeout=180 (SAPHana_HR2_00-start-interval-0s)
-
-        stop interval=0s timeout=240 (SAPHana_HR2_00-stop-interval-0s)
+     Meta Attrs: clone-max=2 clone-node-max=1 interleave=true notify=true
+     Resource: SAPHana_HR2_00 (class=ocf provider=heartbeat type=SAPHana)
+      Attributes: AUTOMATED_REGISTER=false DUPLICATE_PRIMARY_TIMEOUT=7200 InstanceNumber=00 PREFER_SITE_TAKEOVER=true SID=HR2
+      Operations: demote interval=0s timeout=320 (SAPHana_HR2_00-demote-interval-0s)
+                  monitor interval=120 timeout=60 (SAPHana_HR2_00-monitor-interval-120)
+                  monitor interval=121 role=Secondary timeout=60 (SAPHana_HR2_00-monitor-
+                  interval-121)
+                  monitor interval=119 role=Primary timeout=60 (SAPHana_HR2_00-monitor-
+                  interval-119)
+                  promote interval=0s timeout=320 (SAPHana_HR2_00-promote-interval-0s)
+                  start interval=0s timeout=180 (SAPHana_HR2_00-start-interval-0s)
+                  stop interval=0s timeout=240 (SAPHana_HR2_00-stop-interval-0s)
+   
 
     
     
@@ -1318,3 +1314,10 @@ pcs cluster node clear node1
 ```
 
 자동 등록을 선호하는지 여부는 고객 시나리오에 따라 달라집니다. 운영 팀의 편의를 위해서는 인수가 이루어진 후에 노드를 자동으로 다시 등록하는 것이 좋을 수 있습니다. 그러나 먼저 추가 테스트를 실행하여 모든 것이 예상대로 작동하는지 확인하려면 노드를 수동으로 등록하는 것이 좋을 수 있습니다.
+
+##  <a name="references"></a>참조
+
+1. [pacemaker 클러스터의 스케일 업에서 자동화된 SAP HANA 시스템 복제](https://access.redhat.com/articles/3397471)
+2. [RHEL 고가용성 클러스터 지원 정책 - 클러스터에서 SAP HANA 관리](https://access.redhat.com/articles/3397471)
+3. [Azure의 RHEL에서 Pacemaker 설정 - Azure Virtual Machines](high-availability-guide-rhel-pacemaker.md)
+4. [Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어 - Azure Virtual Machines](hana-li-portal.md)

@@ -4,19 +4,22 @@ description: 이 문서에서는 일정에 따라 Azure Resource Manager 및 클
 ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/29/2021
-ms.openlocfilehash: 8df0f31b57d7cd82ed89c4f5f0df37535ad9678a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/25/2021
+ms.openlocfilehash: 3e2946bf493da2570106fdb554704ef7f286b7cb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067279"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566877"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>VM v2 시작/중지(미리 보기) 개요
 
 VM v2 시작/중지(미리 보기) 기능은 여러 구독에서 Azure VM(가상 머신)을 시작하거나 중지합니다. 사용자 정의 일정에 따라 Azure VM을 시작 또는 중지하고, [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)를 통해 인사이트를 제공하고, [작업 그룹](../../azure-monitor/alerts/action-groups.md)을 사용하여 선택적 알림을 전송합니다. 이 기능은 대부분의 시나리오에서 Azure Resource Manager VM 및 클래식 VM을 관리할 수 있습니다.
 
 이 새 버전의 VM v2 시작/중지(미리 보기)는 VM 비용을 최적화하려는 고객에게 분산된 저렴한 자동화 옵션을 제공합니다. Azure Automation에서 사용할 수 있는 [원래 버전](../../automation/automation-solution-vm-management.md)과 동일한 기능을 모두 제공하지만 Azure에서 최신 기술을 활용하도록 설계되었습니다.
+
+> [!NOTE]
+> 배포 중에 문제가 발생하면 VM v2 시작/중지(미리 보기)를 사용할 때 문제가 발생하거나 관련 질문이 있는 경우 [GitHub](https://github.com/microsoft/startstopv2-deployments/issues)에서 문제를 제출할 수 있습니다. 이 미리 보기 버전에서는 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)에서 Azure 지원 인시던트를 제출할 수 없습니다. 
 
 ## <a name="overview"></a>개요
 
@@ -28,15 +31,16 @@ VM v2 시작/중지(미리 보기)가 다시 디자인되고 [이전 버전](../
 
 |속성 |트리거 |Description |
 |-----|--------|------------|
-|AlertAvailabilityTest |타이머 |이 함수는 가용성 테스트를 수행하여 기본 함수 **AutoStopVM** 을 항상 사용할 수 있도록 합니다.|
-|AutoStop |HTTP |이 함수는 논리 앱에서 호출되는 진입점 함수인 **AutoStop** 시나리오를 지원합니다.|
-|AutoStopAvailabilityTest |타이머 |이 함수는 가용성 테스트를 수행하여 기본 함수 **AutoStop** 을 항상 사용할 수 있도록 합니다.|
-|AutoStopVM |HTTP |이 함수는 경고 조건이 true인 경우 VM 경고에 의해 자동으로 트리거됩니다.|
-|CreateAutoStopAlertExecutor |큐 |이 함수는 **AutoStop** 함수에서 페이로드 정보를 가져와 VM에 대한 경고를 만듭니다.|
 |예약됨 |HTTP |이 함수는 예약된 시나리오와 시퀀싱된 시나리오 모두에 사용할 수 있습니다(페이로드 스키마로 구분). 논리 앱에서 호출되는 진입점 함수이며 페이로드를 사용하여 VM 시작 또는 중지 작업을 처리합니다. |
-|ScheduledAvailabilityTest |타이머 |이 함수는 가용성 테스트를 수행하여 기본 함수 **Scheduled** 를 항상 사용할 수 있도록 합니다.|
-|VirtualMachineRequestExecutor |큐 |이 함수는 VM에서 실제 시작 및 중지 작업을 수행합니다.|
+|AutoStop |HTTP |이 함수는 논리 앱에서 호출되는 진입점 함수인 **AutoStop** 시나리오를 지원합니다.|
+|AutoStopVM |HTTP |이 함수는 경고 조건이 true인 경우 VM 경고에 의해 자동으로 트리거됩니다.|
 |VirtualMachineRequestOrchestrator |큐 |이 함수는 **Scheduled** 함수에서 페이로드 정보를 가져오고 VM 시작 및 중지 요청을 오케스트레이션합니다.|
+|VirtualMachineRequestExecutor |큐 |이 함수는 VM에서 실제 시작 및 중지 작업을 수행합니다.|
+|CreateAutoStopAlertExecutor |큐 |이 함수는 **AutoStop** 함수에서 페이로드 정보를 가져와 VM에 대한 경고를 만듭니다.|
+|HeartBeatAvailabilityTest |타이머 |이 함수는 기본 HTTP 함수의 가용성을 모니터링합니다.|
+|CostAnalyticsFunction |타이머 |이 함수는 V2 시작/중지 솔루션을 월 단위로 실행하는 데 드는 비용을 계산합니다.|
+|SavingsAnalyticsFunction |타이머 |이 함수는 시작/중지 V2 솔루션이 달성된 총 절감액을 월 단위로 계산합니다.|
+|VirtualMachineSavingsFunction |큐 |이 함수는 시작/중지 V2 솔루션이 달성된 VM에 대한 실제 절감 계산을 수행합니다.|
 
 예를 들어 **Scheduled** HTTP 트리거 함수는 일정 및 시퀀스 시나리오를 처리하는 데 사용됩니다. 마찬가지로 **AutoStop** HTTP 트리거 함수는 자동 중지 시나리오를 처리합니다.
 

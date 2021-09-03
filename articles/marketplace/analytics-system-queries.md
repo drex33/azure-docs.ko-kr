@@ -4,15 +4,16 @@ description: Microsoft 상업적 마켓플레이스에서 제품에 대한 분�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
-ms.openlocfilehash: f2b5f7eb559e349947f88067a3d2ea53d99b7cbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/06/2021
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.openlocfilehash: 04d56f39cc4721d0290bb258595fb95b6440cf79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102584010"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529271"
 ---
 # <a name="list-of-system-queries"></a>시스템 쿼리 목록
 
@@ -41,11 +42,19 @@ ms.locfileid: "102584010"
 
 **보고서 설명**: 지난 6개월에 대한 주문 보고서
 
-**QueryId**:  `fd0f299c-5a1c-4929-9f48-bfc6cc44355d`
+**QueryID**: `fd0f299c-5a1c-4929-9f48-bfc6cc44355d`
 
 **보고서 쿼리**:
 
 `SELECT MarketplaceSubscriptionId,MonthStartDate,OfferType,AzureLicenseType,MarketplaceLicenseType,Sku,CustomerCountry,IsPreviewSKU,OrderId,OrderQuantity,CloudInstanceName,IsNewCustomer,OrderStatus,OrderCancelDate,CustomerCompanyName,CustomerName,OrderPurchaseDate,OfferName,TrialEndDate,CustomerId,BillingAccountId FROM ISVOrder TIMESPAN LAST_6_MONTHS`
+
+**보고서 설명**: 지난 6개월에 대한 OrdersV2 보고서
+
+**QueryID**: `bd1b0cc1-ce45-4578-beba-6fe5a69fd421`
+
+**보고서 쿼리**:
+
+`SELECT MarketplaceSubscriptionId,MonthStartDate,OfferType,AzureLicenseType,MarketplaceLicenseType,Sku,CustomerCountry,IsPreviewSKU,OrderId,OrderQuantity,CloudInstanceName,IsNewCustomer,OrderStatus,OrderCancelDate,CustomerCompanyName,CustomerName,OrderPurchaseDate,OfferName,TrialEndDate,CustomerId,BillingAccountId,TermStartDate,TermEndDate,PurchaseRecordId,PurchaseRecordLineItemId,HasTrial,IsTrialDeployment,estimatedcharges FROM ISVOrderV2 TIMESPAN LAST_6_MONTHS`
 
 ## <a name="usage-report-queries"></a>사용량 보고서 쿼리
 

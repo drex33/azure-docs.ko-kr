@@ -2,14 +2,14 @@
 title: 새 구독 또는 리소스 그룹으로 리소스 이동
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 06/03/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e899319460c4d9b144a580e0cb093488ea76683c
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: ec23b4306f088328bfb72f3cf9071a70f8eb2307
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322170"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586782"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>리소스를 새 리소스 그룹 또는 구독으로 이동
 
@@ -122,9 +122,119 @@ ms.locfileid: "108322170"
 * 2단계: 소스 구독에서 대상 구독으로 리소스 및 종속 리소스를 함께 이동합니다.
 * 3단계: 선택적으로 대상 구독 내에서 종속 리소스를 여러 리소스 그룹으로 다시 배포합니다.
 
-## <a name="validate-move"></a>이동 유효성 검사
+## <a name="use-the-portal"></a>포털 사용
 
-[이동 작업 유효성 검사](/rest/api/resources/resources/moveresources)를 수행하면 실제로 리소스를 이동하지 않고 이동 시나리오를 테스트할 수 있습니다. 이 작업을 사용하여 이동이 성공했는지 확인합니다. 이동 요청을 보내면 유효성 검사가 자동으로 호출됩니다. 이 작업은 결과를 미리 확인해야 할 경우에만 수행합니다. 이 작업을 실행하려면 다음이 필요합니다.
+리소스를 이동하려면 해당 리소스가 포함된 리소스 그룹을 선택합니다.
+
+이동하려는 리소스 선택 모든 리소스를 이동하려면 목록 위쪽에서 확인란을 선택합니다. 또는 리소스를 개별적으로 선택합니다.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources-to-move.png" alt-text="리소스 선택":::
+
+**이동** 단추를 선택합니다.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/select-move.png" alt-text="이동 옵션":::
+
+이 단추는 세 가지 옵션을 제공합니다.
+
+* 새 리소스 그룹으로 이동합니다.
+* 새 구독으로 이동합니다.
+* 새 지역으로 이동합니다. 지역을 변경하려면 [지역 간 리소스 이동(리소스 그룹에서)](../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json)을 참조하세요.
+
+리소스를 새 리소스 그룹으로 이동할지 또는 새 구독으로 이동할지를 선택합니다.
+
+원본 리소스 그룹이 자동으로 설정됩니다. 대상 리소스 그룹을 지정합니다. 새 구독으로 이동하는 경우 구독도 지정합니다. **다음** 을 선택합니다.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/select-destination-group.png" alt-text="대상 리소스 그룹 선택":::
+
+포털에서 리소스를 이동할 수 있는지 유효성을 검사합니다. 유효성 검사가 완료될 때까지 기다립니다.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/validation.png" alt-text="이동 유효성 검사":::
+
+유효성 검사가 성공적으로 완료되면 **다음** 을 선택합니다.
+
+이 리소스에 대해 도구와 스크립트를 업데이트해야 함을 승인합니다. 리소스 이동을 시작하려면 **이동** 을 선택합니다.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/acknowledge-change.png" alt-text="대상 선택":::
+
+이동이 완료되면 결과가 알림으로 제공됩니다.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/view-notification.png" alt-text="이동 결과 보기":::
+
+## <a name="use-azure-powershell"></a>Azure PowerShell 사용
+
+### <a name="validate"></a>유효성 검사
+
+실제로 리소스를 이동하지 않고 이동 시나리오를 테스트하려면 [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) 명령을 사용합니다. 이 명령은 결과를 미리 확인해야 할 경우에만 사용합니다. 이 작업을 실행하려면 다음이 필요합니다.
+
+* 원본 리소스 그룹의 리소스 ID
+* 대상 리소스 그룹의 리소스 ID
+* 이동할 각 리소스의 리소스 ID
+
+```azurepowershell
+Invoke-AzResourceAction -Action validateMoveResources `
+-ResourceId "/subscriptions/{subscription-id}/resourceGroups/{source-rg}" `
+-Parameters @{ resources= @("/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}", "/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}", "/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}");targetResourceGroup = '/subscriptions/{subscription-id}/resourceGroups/{destination-rg}' }  
+```
+
+유효성 검사를 통과하면 출력이 표시되지 않습니다.
+
+유효성 검사에 실패하면 리소스를 이동할 수 없는 이유를 설명하는 오류 메시지가 표시됩니다.
+
+### <a name="move"></a>이동
+
+다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 [Move-AzResource](/powershell/module/az.resources/move-azresource) 명령을 사용합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다.
+
+```azurepowershell-interactive
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+```
+
+새 구독으로 이동하려면 `DestinationSubscriptionId` 매개 변수 값을 포함합니다.
+
+## <a name="use-azure-cli"></a>Azure CLI 사용
+
+### <a name="validate"></a>유효성 검사
+
+실제로 리소스를 이동하지 않고 이동 시나리오를 테스트하려면 [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action) 명령을 사용합니다. 이 명령은 결과를 미리 확인해야 할 경우에만 사용합니다. 이 작업을 실행하려면 다음이 필요합니다.
+
+* 원본 리소스 그룹의 리소스 ID
+* 대상 리소스 그룹의 리소스 ID
+* 이동할 각 리소스의 리소스 ID
+
+요청 본문에서 `\"`를 사용하여 큰따옴표를 이스케이프합니다.
+
+```azurecli
+az resource invoke-action --action validateMoveResources \
+  --ids "/subscriptions/{subscription-id}/resourceGroups/{source-rg}" \
+  --request-body "{  \"resources\": [\"/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}\", \"/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}\", \"/subscriptions/{subscription-id}/resourceGroups/{source-rg}/providers/{resource-provider}/{resource-type}/{resource-name}\"],\"targetResourceGroup\":\"/subscriptions/{subscription-id}/resourceGroups/{destination-rg}\" }" 
+```
+
+유효성 검사를 통과하면 다음이 표시됩니다.
+
+```azurecli
+{} Finished .. 
+```
+
+유효성 검사에 실패하면 리소스를 이동할 수 없는 이유를 설명하는 오류 메시지가 표시됩니다.
+
+### <a name="move"></a>이동
+
+기존 리소스를 다른 리소스 그룹 또는 구독으로 이동하려면 [az resource move](/cli/azure/resource#az_resource_move) 명령을 사용합니다. 이동할 리소스에 대한 리소스 ID를 제공합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다. `--ids` 매개 변수에서 이동할 리소스 ID를 쉼표로 구분한 목록을 제공합니다.
+
+```azurecli
+webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/serverfarms" --query id --output tsv)
+az resource move --destination-group newgroup --ids $webapp $plan
+```
+
+새 구독으로 이동하려면 `--destination-subscription-id` 매개 변수를 제공합니다.
+
+## <a name="use-rest-api"></a>REST API 사용
+
+### <a name="validate"></a>유효성 검사
+
+[이동 작업 유효성 검사](/rest/api/resources/resources/validate-move-resources)를 수행하면 실제로 리소스를 이동하지 않고 이동 시나리오를 테스트할 수 있습니다. 이 작업을 사용하여 이동이 성공했는지 확인합니다. 이동 요청을 보내면 유효성 검사가 자동으로 호출됩니다. 이 작업은 결과를 미리 확인해야 할 경우에만 수행합니다. 이 작업을 실행하려면 다음이 필요합니다.
 
 * 원본 리소스 그룹의 이름
 * 대상 리소스 그룹의 리소스 ID
@@ -175,65 +285,7 @@ Authorization: Bearer <access-token>
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
 
-## <a name="use-the-portal"></a>포털 사용
-
-리소스를 이동하려면 해당 리소스가 포함된 리소스 그룹을 선택합니다.
-
-리소스 그룹을 보면 이동 옵션이 사용하지 않도록 설정되어 있습니다.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="이동 옵션 사용 안 함":::
-
-이동 옵션을 사용하려면 이동할 리소스를 선택합니다. 모든 리소스를 선택하려면 목록 위의 확인란을 선택합니다. 또는 리소스를 개별적으로 선택합니다. 리소스를 선택한 후 이동 옵션이 사용하도록 설정됩니다.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="리소스 선택":::
-
-**이동** 단추를 선택합니다.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="이동 옵션":::
-
-이 단추는 세 가지 옵션을 제공합니다.
-
-* 새 리소스 그룹으로 이동합니다.
-* 새 구독으로 이동합니다.
-* 새 지역으로 이동합니다. 지역을 변경하려면 [지역 간 리소스 이동(리소스 그룹에서)](../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json)을 참조하세요.
-
-리소스를 새 리소스 그룹으로 이동할지 또는 새 구독으로 이동할지를 선택합니다.
-
-대상 리소스 그룹을 선택합니다. 이러한 리소스에 대해 스크립트를 업데이트해야 함을 승인하고 **확인** 을 선택합니다. 새 구독으로 이동하도록 선택한 경우 대상 구독도 선택해야 합니다.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="대상 선택":::
-
-리소스를 이동할 수 있는지 확인한 후 이동 작업이 실행되고 있다는 알림이 표시됩니다.
-
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="알림":::
-
-완료되면 결과를 알려 줍니다.
-
-## <a name="use-azure-powershell"></a>Azure Powershell 사용
-
-다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 [Move-AzResource](/powershell/module/az.resources/move-azresource) 명령을 사용합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다.
-
-```azurepowershell-interactive
-$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
-```
-
-새 구독으로 이동하려면 `DestinationSubscriptionId` 매개 변수 값을 포함합니다.
-
-## <a name="use-azure-cli"></a>Azure CLI 사용
-
-기존 리소스를 다른 리소스 그룹 또는 구독으로 이동하려면 [az resource move](/cli/azure/resource#az_resource_move) 명령을 사용합니다. 이동할 리소스에 대한 리소스 ID를 제공합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다. `--ids` 매개 변수에서 이동할 리소스 ID를 쉼표로 구분한 목록을 제공합니다.
-
-```azurecli
-webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
-plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/serverfarms" --query id --output tsv)
-az resource move --destination-group newgroup --ids $webapp $plan
-```
-
-새 구독으로 이동하려면 `--destination-subscription-id` 매개 변수를 제공합니다.
-
-## <a name="use-rest-api"></a>REST API 사용
+### <a name="move"></a>이동
 
 기존 리소스를 다른 리소스 그룹 또는 구독으로 이동하려면 [리소스 이동](/rest/api/resources/resources/moveresources) 작업을 수행합니다.
 
@@ -291,6 +343,12 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
   * storageAccounts
 
 또 다른 일반적인 예에는 가상 네트워크 이동이 포함되어 있습니다. 해당 가상 네트워크와 연관된 다른 여러 리소스를 이동해야 할 수 있습니다. 이동 요청은 공용 IP 주소, 경로 테이블, 가상 네트워크 게이트웨이, 네트워크 보안 그룹 등의 이동을 필요로 할 수 있습니다.
+
+**질문: “RequestDisallowedByPolicy” 오류 코드는 무엇을 의미하나요?**
+
+Resource Manager는 이동을 시도하기 전에 이동 요청의 유효성을 검사합니다. 이 유효성 검사에는 이동에 포함된 리소스에 정의된 정책 확인이 포함됩니다. 예를 들어, 키 자격 증명 모음을 이동하려고 하지만 대상 리소스 그룹에서 키 자격 증명 모음 만들기를 거부하는 정책이 조직에 있는 경우 유효성 검사에 실패하고 이동이 차단됩니다. 반환된 오류 코드는 **RequestDisallowedByPolicy** 입니다. 
+
+정책에 관한 자세한 내용은 [Azure Policy란?](../../governance/policy/overview.md)을 참조하세요.
 
 **질문: Azure에서 일부 리소스를 이동할 수 없는 이유는 무엇인가요?**
 

@@ -3,15 +3,20 @@ title: Azure Lab Services에서 공유 이미지 갤러리 사용 | Microsoft Do
 description: 사용자가 다른 사용자와 이미지를 공유하고 다른 사용자가 해당 이미지를 사용하여 랩에서 템플릿 VM을 만들 수 있도록 공유 이미지 갤러리를 사용하도록 랩 계정을 구성하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: e4ebc0c865784922cc52d4f9b67c61f27908df55
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: caba089d5f3f0f9ec50f575a06ce9fad1bf8ef8f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970008"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529027"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Azure Lab Services에서 공유 이미지 갤러리 사용
-이 문서는 교육자/랩 관리자가 템플릿 가상 머신 이미지를 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)에 저장하여 다른 사용자가 랩을 만들 수 있도록 하는 방법을 보여 줍니다. 
+
+이미지에는 VM에 설치된 운영 체제, 소프트웨어 애플리케이션, 파일, 설정이 포함됩니다.  새 랩을 설정할 때 사용할 수 있는 두 가지 유형의 이미지가 있습니다.
+-   Azure 내에서 사용하도록 Microsoft에서 미리 빌드한 마켓플레이스 이미지.  이러한 이미지에는 Windows 또는 Linux가 설치되어 있으며 소프트웨어 애플리케이션도 포함될 수 있습니다.  예를 들어 [Data Science Virtual Machine 이미지](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm)에는 설치된 딥 러닝 프레임워크와 도구가 포함되어 있습니다.
+-   교육 기관의 IT 부서 및/또는 기타 교육자가 만든 사용자 지정 이미지.  Windows 및 Linux 사용자 지정 이미지를 모두 만들 수 있으며 고유한 요구 사항에 따라 Microsoft와 타사 애플리케이션을 유연하게 설치할 수 있습니다.  또한 파일을 추가하고 애플리케이션 설정을 변경할 수 있습니다.
+
+이 문서에서는 다른 사용자가 랩을 만드는 데 사용할 수 있도록 교육자/랩 관리자가 템플릿 가상 머신 이미지를 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)에 저장하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
 > 공유 이미지 갤러리를 사용하는 동안 Azure Lab Services는 128GB 미만의 OS 디스크 공간이 있는 이미지만 지원합니다. 128GB 이상의 디스크 공간이 있거나 여러 디스크가 있는 이미지는 랩 생성 동안 가상 머신 이미지 목록에 표시되지 않습니다.
@@ -27,7 +32,6 @@ ms.locfileid: "111970008"
 ## <a name="prerequisites"></a>사전 요구 사항
 - [Azure PowerShell](../virtual-machines/shared-images-powershell.md) 또는 [Azure CLI](../virtual-machines/shared-images-cli.md)를 사용하여 공유 이미지 갤러리를 만듭니다.
 - 공유 이미지 갤러리를 랩 계정에 연결했습니다. 단계별 지침은 [공유 이미지 갤러리를 연결하거나 분리하는 방법](how-to-attach-detach-shared-image-gallery.md)을 참조하세요.
-
 
 ## <a name="save-an-image-to-the-shared-image-gallery"></a>공유 이미지 갤러리에 이미지 저장
 공유 이미지 갤러리가 연결된 후에는 랩 계정 관리자 또는 교육자는 다른 교육자가 다시 사용할 수 있도록 공유 이미지 갤러리에 이미지를 저장할 수 있습니다. 
@@ -49,7 +53,7 @@ ms.locfileid: "111970008"
     공유 이미지 갤러리에 이미지를 저장하면 다른 랩을 만들 때 갤러리에서 해당 이미지를 사용할 수 있습니다. 랩 컨텍스트 외부의 공유 이미지 갤러리에 이미지를 업로드할 수도 있습니다. 자세한 내용은 다음을 참조하세요.
 
     - [Shared Image Gallery 개요](../virtual-machines/shared-images-powershell.md)
-    - [Shared Image Gallery에 사용자 지정 이미지 업로드](upload-custom-image-shared-image-gallery.md)
+    - [사용자 지정 이미지를 만들기 위한 권장 방법](approaches-for-custom-image-creation.md)
 
     > [!IMPORTANT]
     > Azure Lab Services에서 [랩의 템플릿 이미지](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery)를 공유 이미지 갤러리에 저장하면 이미지가 갤러리에 **특수 이미지** 로 업로드됩니다. [특수 이미지](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images)는 머신 관련 정보와 사용자 프로필을 유지합니다. Azure Lab Services 외부의 갤러리에 일반 이미지를 직접 업로드할 수 있습니다.    
@@ -75,6 +79,6 @@ ms.locfileid: "111970008"
 ## <a name="next-steps"></a>다음 단계
 랩 계정에 연결 및 분리하여 공유 이미지 갤러리를 설정하는 방법에 대한 자세한 내용은 [공유 이미지 갤러리를 연결 및 분리하는 방법](how-to-attach-detach-shared-image-gallery.md)을 참조하세요.
 
-랩 컨텍스트 외부의 공유 이미지 갤러리로 Windows 사용자 지정 이미지를 가져오려면 [공유 이미지 갤러리로 사용자 지정 이미지 가져오기](upload-custom-image-shared-image-gallery.md)를 참조하세요.
+랩 컨텍스트 외부의 공유 이미지 갤러리에 사용자 지정 이미지를 가져오기 위한 다른 옵션을 살펴보려면 [사용자 지정 이미지를 만들기 위한 권장 방법](approaches-for-custom-image-creation.md)을 참조하세요.
 
 일반적인 공유 이미지 갤러리에 대한 자세한 내용은 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)를 참조하세요.

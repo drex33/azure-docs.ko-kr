@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd4b836fa0f9628fa3a7d4f6b6064091db7289bc
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 4f7fb48f71a891493220440d56a50e3c72510892
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796430"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529062"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Azure AD에서 응급 액세스 계정 관리
 
@@ -78,7 +78,8 @@ ms.locfileid: "110796430"
 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>비상 계정의 개체 ID 가져오기
 
-1. 사용자 관리자 역할에 할당된 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 사용자 관리자 역할에 할당된 계정으로 [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
 1. **Azure Active Directory** > **사용자** 를 선택합니다.
 1. 비상 계정을 검색하고 사용자의 이름을 선택합니다.
 1. 개체 ID 특성을 복사하여 나중에 사용할 수 있도록 저장합니다.

@@ -1,26 +1,23 @@
 ---
-title: Azure Portal의 Azure Firewall 프리미엄 미리 보기
-description: Azure Portal의 Azure Firewall 프리미엄 미리 보기에 대해 알아봅니다.
+title: Azure Portal의 Azure Firewall 프리미엄
+description: Azure Portal의 Azure Firewall 프리미엄에 대해 알아봅니다.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: 3d56fc73faeb0d48ba7e5b21449c61d6213afa40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfb9f76751bbf5966b4aaa29e382a0946bf7cfd6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100549696"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440433"
 ---
-# <a name="azure-firewall-premium-preview-in-the-azure-portal"></a>Azure Portal의 Azure Firewall 프리미엄 미리 보기
+# <a name="azure-firewall-premium-in-the-azure-portal"></a>Azure Portal의 Azure Firewall 프리미엄
 
-> [!IMPORTANT]
-> Azure Firewall 프리미엄은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
- Azure Firewall 프리미엄 미리 보기는 매우 중요하고 규정을 준수하는 환경에 필요한 기능을 갖춘 차세대 방화벽입니다. 이 관리 팩에는 다음과 같은 기능이 포함되어 있습니다.
+ Azure Firewall 프리미엄은 매우 민감하고 통제된 환경에 필요한 기능을 갖춘 차세대 방화벽입니다. 이 관리 팩에는 다음과 같은 기능이 포함되어 있습니다.
 
 - **TLS 검사** - 아웃바운드 트래픽을 해독하고, 데이터를 처리한 다음 데이터를 암호화하고 대상에 보냅니다.
 - **IDPS** - 네트워크 침입 감지 및 방지 시스템(IDPS)을 사용하면 악의적인 활동의 네트워크 활동을 모니터링 하고, 이 활동에 대한 정보를 기록하고, 보고하고, 필요 시 차단할 수 있습니다.
@@ -31,11 +28,11 @@ ms.locfileid: "100549696"
 
 ## <a name="deploy-the-firewall"></a>방화벽 배포
 
-Azure Firewall 프리미엄 미리 보기 배포는 표준 Azure Firewall을 배포하는 것과 비슷합니다.
+Azure Firewall 프리미엄 배포는 표준 Azure Firewall을 배포하는 것과 비슷합니다.
 
 :::image type="content" source="media/premium-portal/premium-portal.png" alt-text="포털 배포":::
 
-**방화벽 계층** 에 **프리미엄(미리 보기)** 을 선택하고 **방화벽 정책** 에 기존 프리미엄 정책을 선택하거나 새로 만듭니다.
+**방화벽 계층** 에서 **프리미엄** 을 선택한 다음, **방화벽 정책** 에서 기존 프리미엄 정책을 선택하거나 새로 만듭니다.
 
 ## <a name="configure-the-premium-policy"></a>프리미엄 정책 구성
 
@@ -51,4 +48,4 @@ Azure Firewall 프리미엄 미리 보기 배포는 표준 Azure Firewall을 배
 
 ## <a name="next-steps"></a>다음 단계
 
-작동 중인 Azure Firewall 프리미엄 미리 보기 기능을 확인하려면 [Azure Firewall 프리미엄 미리 보기 배포 및 구성](premium-deploy.md)을 참조하세요.
+Azure Firewall 프리미엄 기능을 실제로 확인하려면 [Azure Firewall 프리미엄 배포 및 구성](premium-deploy.md)을 참조하세요.

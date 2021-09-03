@@ -2,18 +2,18 @@
 title: Azure PowerShell - VM 호스트에서 엔드투엔드 암호화 사용
 description: 호스트에서 암호화를 사용하여 Azure VM에 엔드투엔드 암호화를 사용하도록 설정하는 방법입니다.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 51b8b202b95e5246b31bf97c3cc7f2e9ba8e36e7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 9fc618480b4c00ab65f4300a66747acdc2a11f74
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669089"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113359014"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure PowerShell 모듈을 통해 호스트에서 암호화를 사용하여 엔드투엔드 암호화를 사용하도록 설정합니다.
 
@@ -171,6 +171,21 @@ $VM = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName
 $VM.SecurityProfile.EncryptionAtHost
 ```
 
+### <a name="disable-encryption-at-host"></a>호스트에서 암호화를 사용하지 않도록 설정합니다.
+
+호스트에서 암호화를 사용하지 않도록 설정하려면 먼저 VM 할당을 취소해야 합니다.
+
+```powershell
+$ResourceGroupName = "yourResourceGroupName"
+$VMName = "yourVMName"
+
+$VM = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName
+
+Stop-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName -Force
+
+Update-AzVM -VM $VM -ResourceGroupName $ResourceGroupName -EncryptionAtHost $false
+```
+
 ### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-customer-managed-keys"></a>호스트에서 고객 관리형 키로 암호화를 사용하도록 설정된 가상 머신 확장 집합을 만듭니다. 
 
 고객 관리형 키로 OS 및 데이터 디스크의 캐시를 암호화하기 위해 앞서 만든 DiskEncryptionSet의 리소스 URI를 사용해 관리 디스크로 가상 머신 확장 집합을 만듭니다. 임시 디스크는 플랫폼 관리형 키를 사용하여 암호화됩니다. 
@@ -276,6 +291,19 @@ $VMScaleSetName = "yourVMSSName"
 $VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -Name $VMScaleSetName
 
 $VMSS.VirtualMachineProfile.SecurityProfile.EncryptionAtHost
+```
+
+### <a name="update-a-virtual-machine-scale-set-to-disable-encryption-at-host"></a>호스트에서 암호화를 사용하지 않도록 가상 머신 확장 집합을 업데이트합니다. 
+
+가상 머신 확장 집합의 호스트에서 암호화를 사용하지 않도록 설정할 수 있지만 이 설정은 호스트에서 암호화를 사용하지 않도록 설정한 후에 생성된 VM에만 영향을 줍니다. 기존 VM의 경우 VM 할당을 취소하고, [해당 개별 VM의 호스트에서 암호화를 사용하지 않도록 설정](#disable-encryption-at-host)한 다음, VM을 다시 할당해야 합니다.
+
+```powershell
+$ResourceGroupName = "yourResourceGroupName"
+$VMScaleSetName = "yourVMSSName"
+
+$VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -Name $VMScaleSetName
+
+Update-AzVmss -VirtualMachineScaleSet $VMSS -Name $VMScaleSetName -ResourceGroupName $ResourceGroupName -EncryptionAtHost $false
 ```
 
 ## <a name="finding-supported-vm-sizes"></a>지원되는 VM 크기 찾기

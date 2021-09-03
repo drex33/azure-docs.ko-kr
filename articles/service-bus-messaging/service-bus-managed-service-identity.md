@@ -2,13 +2,14 @@
 title: Service Bus를 통해 Azure 리소스에 관리 ID 사용
 description: 이 문서에서는 관리 ID를 사용하여 Azure Service Bus 엔터티(큐, 토픽 및 구독)에 액세스하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 04/23/2021
-ms.openlocfilehash: 3efe513d5e19ca13567b05e8f8d0aafb402ae879
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 06/14/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: ed6f7d495466139a7d1a98aed7d5323f7ad4c074
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161126"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112123211"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Azure Active Directory로 관리 ID를 인증하여 Azure Service Bus 리소스 액세스
 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 애플리케이션 코드가 실행되는 배포와 관련된 보안 ID를 만들 수 있도록 하는 Azure 간 기능입니다. 그런 다음 애플리케이션에 필요한 특정 Azure 리소스에 액세스하기 위한 사용자 지정 권한을 부여하는 액세스 제어 역할에 해당 ID를 연결할 수 있습니다.
@@ -92,30 +93,10 @@ Service Bus에서 관리 ID를 사용하려면 ID에 역할 및 적절한 범위
 이 설정을 사용하도록 설정하면 새 서비스 ID가 Azure AD(Azure Active Directory)에서 생성되고 App Service 호스트로 구성됩니다.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할을 할당하려면
-이제 서비스 ID를 Service Bus 리소스의 필수 범위에 있는 역할에 할당합니다. Service Bus 네임스페이스에 역할을 할당하려면 Azure Portal의 네임스페이스로 이동합니다. 리소스에 대한 Access Control(IAM) 설정을 표시하고 다음 지침에 따라 역할 할당을 관리합니다.
+원하는 범위(Service Bus 네임스페이스, 리소스 그룹, 구독)에서 관리 서비스 ID에 [Service Bus 역할](#azure-built-in-roles-for-azure-service-bus) 중 하나를 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요. 
 
 > [!NOTE]
-> 다음 단계에서는 Service Bus 네임스페이스에 서비스 ID 역할을 할당합니다. 동일한 단계에 따라 지원되는 다른 범위(리소스 그룹 및 구독)에서 역할을 할당할 수 있습니다. 
-> 
-> 없는 경우 [Service Bus Messaging 네임스페이스를 만듭니다](service-bus-create-namespace-portal.md). 
-
-1. Azure Portal에서 Service Bus 네임스페이스로 이동하고 네임스페이스에 대한 **개요** 를 표시합니다. 
-1. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택하여 Service Bus 네임스페이스에 대한 액세스 제어 설정을 표시합니다.
-1.  **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
-3.  **추가** 를 선택한 다음 **역할 할당 추가** 를 선택합니다.
-4.  **역할 할당 추가** 페이지에서 다음 단계를 수행합니다.
-    1. **역할** 에서 할당하려는 Service Bus 역할을 선택합니다. 이 경우 **Azure Service Bus 데이터 소유자** 입니다.
-    1. **다음에 대한 액세스 할당** 필드의 경우 **시스템이 할당한 관리 ID** 아래에서 **App Service** 를 선택합니다. 
-    1. 웹앱의 관리 ID가 생성된 **구독** 을 선택합니다.
-    1. 만든 웹앱에 대한 **관리 ID** 를 선택합니다. ID의 기본 이름은 웹앱의 이름과 동일합니다. 
-    1. 그런 다음 **저장** 을 선택합니다.
-        
-        ![역할 할당 추가 페이지](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-
-    역할을 할당하면 웹 애플리케이션은 정의된 범위에서 Service Bus 엔터티에 액세스할 수 있습니다. 
-
-    > [!NOTE]
-    > 관리 ID를 지원하는 서비스 목록은 [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 참조하세요.
+> 관리 ID를 지원하는 서비스 목록은 [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 참조하세요.
 
 ### <a name="run-the-app"></a>앱 실행
 이제 만든 ASP.NET 애플리케이션의 기본 페이지를 수정합니다. [이 GitHub 리포지토리](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet)의 웹 애플리케이션 코드를 사용할 수 있습니다.  

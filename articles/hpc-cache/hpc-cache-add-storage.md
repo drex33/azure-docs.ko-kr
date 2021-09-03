@@ -4,15 +4,15 @@ description: Azure HPC Cache가 장기 파일 스토리지에 대해 온-프레�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 07/12/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
-ms.openlocfilehash: aae7d29abbb9ef18846e85e9a54ff0fb97f09181
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 3ea51d88d65b8016e68673703ee823df19bcf608
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738521"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294951"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -20,7 +20,7 @@ ms.locfileid: "109738521"
 
 모든 캐시에 대해 10개의 다른 스토리지 대상을 정의할 수 있으며, 더 큰 캐시는 [최대 20개의 스토리지 대상을 지원할](#size-your-cache-correctly-to-support-your-storage-targets)수 있습니다.
 
-캐시는 하나의 집계형 네임스페이스에서 모든 스토리지 대상을 제공합니다. 스토리지 대상을 추가하면 네임스페이스 경로가 별도로 구성됩니다.
+캐시는 하나의 [집계형 네임스페이스](hpc-cache-namespace.md)에서 모든 스토리지 대상을 제공합니다. 스토리지 대상을 추가하면 네임스페이스 경로가 별도로 구성됩니다.
 
 스토리지 내보내기는 캐시의 가상 네트워크에서 액세스할 수 있어야 합니다. 온-프레미스 하드웨어 스토리지의 경우 NFS 스토리지 액세스를 위한 호스트 이름을 확인할 수 있는 DNS 서버를 설정해야 할 수 있습니다. 자세한 내용은 [DNS 액세스](hpc-cache-prerequisites.md#dns-access)를 참조하세요.
 
@@ -38,12 +38,37 @@ ms.locfileid: "109738521"
 
 ## <a name="size-your-cache-correctly-to-support-your-storage-targets"></a>스토리지 대상을 지원하도록 캐시 크기를 올바르게 조정
 
-지원되는 스토리지 대상 수는 캐시를 만들 때 설정되는 캐시 크기에 따라 달라집니다. 크기는 처리량 용량(GB/s)과 스토리지 용량(TB)의 조합입니다.
+지원되는 스토리지 대상 수는 캐시를 만들 때 설정되는 캐시 크기에 따라 달라집니다. 캐시 용량은 처리량 용량(GB/초)과 스토리지 용량(TB)의 조합입니다.
 
-* 최대 10개의 스토리지 대상 - 선택한 처리량 값에 대해 가장 작거나 중간 크기의 캐시 스토리지 크기를 선택하는 경우 캐시에는 최대 10개의 스토리지 대상이 있을 수 있습니다.
-* 최대 20개의 스토리지 대상 - 10개 넘는 스토리지 대상을 사용하려는 경우 선택한 처리량 값에 사용할 수 있는 가장 높은 캐시 크기를 선택합니다. Azure CLI 사용하는 경우 캐시 SKU에 가장 높은 유효한 캐시 크기를 선택합니다.
+* 최대 10개의 스토리지 대상 - 선택한 처리량에 대해 가장 작거나 중간 캐시 스토리지 값이 있는 표준 캐시에는 최대 10개의 스토리지 대상이 있을 수 있습니다.
+
+  예를 들어, 2GB/초 처리량을 선택하고 가장 높은 캐시 스토리지 크기를 선택하지 않으면 캐시는 최대 10개의 스토리지 대상을 지원합니다.
+
+* 최대 20개의 스토리지 대상 -
+
+  * 모든 높은 처리량 캐시(미리 구성된 캐시 스토리지 크기 포함)는 최대 20개의 스토리지 대상을 지원할 수 있습니다.
+  * 선택한 처리량 값에 대해 사용 가능한 가장 높은 캐시 크기를 선택하는 경우 표준 캐시는 최대 20개의 스토리지 대상을 지원할 수 있습니다. Azure CLI 사용하는 경우 캐시 SKU에 가장 높은 유효한 캐시 크기를 선택합니다.
 
 처리량 및 캐시 크기 설정에 대한 자세한 내용은 [캐시 용량 설정](hpc-cache-create.md#set-cache-capacity)을 읽어보세요.
+
+## <a name="choose-the-correct-storage-target-type"></a>올바른 스토리지 대상 유형 선택
+
+세 가지 스토리지 대상 유형인 **NFS**, **Blob**, **ADLS-NFS** 중에서 선택할 수 있습니다. 이 HPC Cache 프로젝트 중에 파일을 저장하는 데 사용할 스토리지 시스템의 종류와 일치하는 유형을 선택합니다.
+
+* **NFS** - NAS(네트워크 연결 스토리지) 시스템의 데이터에 액세스하기 위한 NFS 스토리지 대상을 만듭니다. 이 대상은 온-프레미스 스토리지 시스템 또는 NFS를 통해 액세스할 수 있는 다른 스토리지 유형일 수 있습니다.
+
+  * 요구 사항: [NFS 스토리지 요구 사항](hpc-cache-prerequisites.md#nfs-storage-requirements)
+  * 지침: [새 NFS 스토리지 대상 추가](#add-a-new-nfs-storage-target)
+
+* **Blob** - Blob Storage 대상을 사용하여 새 Azure Blob 컨테이너에 작업 파일을 저장합니다. 이 컨테이너는 Azure HPC Cache에서만 읽거나 쓸 수 있습니다.
+
+  * 필수 조건: [Blob Storage 요구 사항](hpc-cache-prerequisites.md#blob-storage-requirements)
+  * 지침: [새 Azure Blob Storage 대상 추가](#add-a-new-azure-blob-storage-target)
+
+* **ADLS-NFS** - ADLS-NFS 스토리지 대상은 [NFS 지원 Blob](../storage/blobs/network-file-system-protocol-support.md) 컨테이너의 데이터에 액세스합니다. 표준 NFS 명령을 사용하여 컨테이너를 미리 로드할 수 있으며 나중에 NFS를 사용하여 파일을 읽을 수 있습니다.
+
+  * 필수 조건: [ADLS-NFS 스토리지 요구 사항](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements)
+  * 지침: [새 ADLS-NFS 스토리지 대상 추가](#add-a-new-adls-nfs-storage-target)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>새 Azure Blob Storage 대상 추가
 
@@ -52,7 +77,9 @@ ms.locfileid: "109738521"
 Azure Portal **스토리지 대상 추가** 페이지에는 스토리지 대상을 추가하기 직전에 새 Blob 컨테이너를 만드는 옵션이 포함되어 있습니다.
 
 > [!NOTE]
-> NFS 탑재 Blob Storage의 경우 [ADLS-NFS 스토리지 대상](#) 유형을 사용합니다.
+>
+> * NFS 탑재 Blob Storage의 경우 [ADLS-NFS 스토리지 대상](#add-a-new-adls-nfs-storage-target) 유형을 사용합니다.
+> * [높은 처리량 캐시 구성](hpc-cache-create.md#choose-the-cache-type-for-your-needs)은 표준 Azure Blob Storage 대상을 지원하지 않습니다. 대신 NFS 지원 Blob Storage(ADLS-NFS)를 사용합니다.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -91,7 +118,7 @@ Azure HPC Cache는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-ba
 
 스토리지 계정 소유자는 'HPC Cache 리소스 공급자' 사용자를 위해 [스토리지 계정 참가자](../role-based-access-control/built-in-roles.md#storage-account-contributor) 및 [스토리지 Blob 데이터 참가자](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 명시적으로 추가해야 합니다.
 
-미리 이 작업을 수행할 수도 있고 Blob Storage 대상을 추가하는 페이지에서 링크를 클릭할 수도 있습니다. 역할 설정이 Azure 환경을 통해 전파되는 데 최대 5분이 걸릴 수 있으므로 스토리지 대상을 만들려면 역할을 추가한 후 몇 분 정도 기다려야 합니다.
+미리 이 작업을 수행할 수도 있고 Blob Storage 대상을 추가하는 포털 페이지에서 링크를 클릭할 수도 있습니다. 역할 설정이 Azure 환경을 통해 전파되는 데 최대 5분이 걸릴 수 있으므로 스토리지 대상을 만들려면 역할을 추가한 후 몇 분 정도 기다려야 합니다.
 
 1. 스토리지 계정에 대한 **액세스 제어(IAM)** 를 엽니다.
 
@@ -107,7 +134,7 @@ Azure HPC Cache는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-ba
     ![역할 할당 추가 페이지](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
    > [!NOTE]
-   > HPC Cache 리소스 공급자를 찾을 수 없는 경우 “storagecache” 문자열을 대신 검색해 보세요. HPC Cache 미리 보기(GA 이전)에 참여한 사용자는 서비스 주체의 이전 이름을 사용해야 할 수 있습니다.
+   > HPC Cache 리소스 공급자를 찾을 수 없는 경우 “storagecache” 문자열을 대신 검색해 보세요. 이는 서비스 주체의 GA 이전 이름이었습니다.
 
 <!-- 
 Steps to add the Azure roles:
@@ -116,9 +143,9 @@ Steps to add the Azure roles:
 
 1. Click the **+** at the top of the page and choose **Add a role assignment**.
 
-1. Select the role "Storage Account Contributor&quot; from the list.
+1. Select the role "Storage Account Contributor" from the list.
 
-1. In the **Assign access to** field, leave the default value selected (&quot;Azure AD user, group, or service principal").  
+1. In the **Assign access to** field, leave the default value selected ("Azure AD user, group, or service principal").  
 
 1. In the **Select** field, search for "hpc".  This string should match one service principal, named "HPC Cache Resource Provider". Click that principal to select it.
 
@@ -183,7 +210,7 @@ az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
 
 ## <a name="add-a-new-nfs-storage-target"></a>새 NFS 스토리지 대상 추가
 
-NFS 스토리지 대상은 설정이 Blob Storage 대상과 다릅니다. 사용 모델 설정을 사용하면 캐시에서 이 스토리지 시스템의 데이터를 효율적으로 캐시할 수 있습니다.
+이 스토리지 시스템의 데이터를 저장하는 방법을 캐시에 알려 주는 사용 모델 설정을 포함하여 NFS 스토리지 대상의 설정은 Blob Storage 대상과 다릅니다.
 
 ![NFS 대상이 정의된 스토리지 대상 추가 페이지의 스크린샷](media/add-nfs-target.png)
 
@@ -191,13 +218,15 @@ NFS 스토리지 대상은 설정이 Blob Storage 대상과 다릅니다. 사용
 > NFS 스토리지 대상을 만들기 전에 Azure HPC Cache가 스토리지 시스템에 액세스할 수 있고 권한 요구 사항을 충족하는지 확인합니다. 캐시에서 스토리지 시스템에 액세스할 수 없으면 스토리지 대상 만들기가 실패합니다. 자세한 내용은 [NFS 스토리지 요구 사항](hpc-cache-prerequisites.md#nfs-storage-requirements) 및 [NAS 구성 및 NFS 스토리지 대상 문제 해결](troubleshoot-nas.md)을 참조하세요.
 
 ### <a name="choose-a-usage-model"></a>사용 모델 선택
-<!-- referenced from GUI by aka.ms link -->
 
 NFS를 사용하여 스토리지 시스템에 연결하는 스토리지 대상을 만드는 경우 해당 대상에 대한 사용 모델을 선택해야 합니다. 이 모델은 데이터를 캐시하는 방법을 결정합니다.
 
 이러한 설정에 대한 자세한 내용은 [사용 모델 이해](cache-usage-models.md)를 참조하세요.
 
-기본 제공 사용 모델을 사용하여 빠른 응답과 부실 데이터를 가져올 위험 간에 균형을 유지하는 방법을 선택할 수 있습니다. 파일 읽기 속도를 최적화하려면 캐시의 파일을 백 엔드 파일과 비교해서 확인하는지 여부는 중요하지 않을 수 있습니다. 반면에 파일을 원격 스토리지에서 항상 최신 상태로 유지하려면 자주 확인하는 모델을 선택합니다.
+HPC Cache의 기본 제공 사용 모델을 사용하여 빠른 응답과 부실 데이터를 가져올 위험 간에 균형을 유지하는 방법을 선택할 수 있습니다. 파일 읽기 속도를 최적화하려면 캐시의 파일을 백 엔드 파일과 비교해서 확인하는지 여부는 중요하지 않을 수 있습니다. 반면에 파일을 원격 스토리지에서 항상 최신 상태로 유지하려면 자주 확인하는 모델을 선택합니다.
+
+> [!NOTE]
+> [높은 처리량 스타일 캐시](hpc-cache-create.md#choose-the-cache-type-for-your-needs)는 읽기 캐싱만 지원합니다.
 
 다음 세 가지 옵션이면 대부분의 상황을 해결할 수 있습니다.
 
@@ -246,7 +275,7 @@ NFS 지원 스토리지 대상에 대한 다음 정보를 제공합니다.
 
 * **대상 유형** - **NFS** 를 선택합니다.
 
-* **호스트 이름** - NFS 스토리지 시스템의 IP 주소 또는 정규화된 도메인 이름을 입력합니다. (캐시에서 이름을 확인할 수 있는 DNS 서버에 액세스할 수 있는 경우에만 도메인 이름을 사용합니다.)
+* **호스트 이름** - NFS 스토리지 시스템의 IP 주소 또는 정규화된 도메인 이름을 입력합니다. (캐시가 이름을 확인할 수 있는 DNS 서버에 액세스할 수 있는 경우에만 도메인 이름을 사용합니다.) 스토리지 시스템이 여러 IP에서 참조되는 경우 여러 IP 주소를 입력할 수 있습니다.
 
 * **사용 모델** - 위의 [사용 모델 선택](#choose-a-usage-model)에 설명된 대로 워크플로에 따라 데이터 캐싱 프로필 중 하나를 선택합니다.
 
@@ -324,22 +353,23 @@ az hpc-cache nfs-storage-target add --resource-group "hpc-cache-group" --cache-n
 
 ---
 
-## <a name="add-a-new-adls-nfs-storage-target-preview"></a>새 ADLS-NFS 스토리지 대상 추가(미리 보기)
+## <a name="add-a-new-adls-nfs-storage-target"></a>새 ADLS-NFS 스토리지 대상 추가
 
 ADLS-NFS 스토리지 대상은 NFS(네트워크 파일 시스템) 3.0 프로토콜을 지원하는 Azure Blob 컨테이너를 사용합니다.
 
-> [!NOTE]
-> Azure Blob Storage에 대한 NFS 3.0 프로토콜 지원은 공개 미리 보기 상태입니다. 가용성이 제한되며, 현재 기능과 정식 출시 기능에는 차이가 있을 수 있습니다. 프로덕션 시스템에서는 미리 보기 기술을 사용하지 마세요.
->
-> 최신 정보는 [NFS 3.0 프로토콜 지원](../storage/blobs/network-file-system-protocol-support.md) 을 참조하세요.
+이 기능에 관한 자세한 내용은 [NFS 3.0 프로토콜 지원](../storage/blobs/network-file-system-protocol-support.md)을 참조하세요.
 
 ADLS-NFS 스토리지 대상은 Blob Storage 대상 및 NFS 스토리지 대상과 약간씩 유사성이 있습니다. 예를 들면 다음과 같습니다.
 
 * Blob Storage 대상과 마찬가지로 Azure HPC Cache 에 [스토리지 계정에 액세스](#add-the-access-control-roles-to-your-account)할 수 있는 권한을 제공해야 합니다.
 * NFS 스토리지 대상과 마찬가지로 캐시 [사용 모델](#choose-a-usage-model)을 설정해야 합니다.
-* NFS 사용 Blob 컨테이너에는 NFS 호환 계층 구조가 있기 때문에 데이터를 수집하기 위해 캐시를 사용할 필요가 없으며 컨테이너는 다른 NFS 시스템에서 읽을 수 있습니다. 데이터를 ADLS-NFS 컨테이너에 미리 로드한 다음 HPC Cache에 스토리지 대상으로 추가하고 나중에 HPC Cache 외부에서 데이터에 액세스할 수 있습니다. 표준 Blob 컨테이너를 HPC Cache 스토리지 대상으로 사용하는 경우 데이터는 전용 형식으로 작성되며 다른 Azure HPC Cache 호환 제품에서만 액세스할 수 있습니다.
+* NFS 사용 Blob 컨테이너에는 NFS 호환 계층 구조가 있기 때문에 데이터를 수집하기 위해 캐시를 사용할 필요가 없으며 컨테이너는 다른 NFS 시스템에서 읽을 수 있습니다.
 
-ADLS NFS 스토리지 대상을 만들려면 먼저 NFS 사용 스토리지 계정을 만들어야 합니다. [Azure HPC Cache의 필수 구성 요소](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview)의 팁과 [NFS를 사용하여 Blob Storage 탑재](../storage/blobs/network-file-system-protocol-support-how-to.md)의 지침을 따르세요. 스토리지 계정을 설정한 후 스토리지 대상을 만들 때 새 컨테이너를 만들 수 있습니다.
+  데이터를 ADLS-NFS 컨테이너에 미리 로드한 다음 HPC Cache에 스토리지 대상으로 추가하고 나중에 HPC Cache 외부에서 데이터에 액세스할 수 있습니다. 표준 Blob 컨테이너를 HPC Cache 스토리지 대상으로 사용하는 경우 데이터는 전용 형식으로 작성되며 다른 Azure HPC Cache 호환 제품에서만 액세스할 수 있습니다.
+
+ADLS NFS 스토리지 대상을 만들려면 먼저 NFS 사용 스토리지 계정을 만들어야 합니다. [Azure HPC Cache의 필수 조건](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements)의 단계와 [NFS를 사용하여 Blob Storage 탑재](../storage/blobs/network-file-system-protocol-support-how-to.md)의 지침을 따릅니다. 캐시 및 스토리지 계정에 동일한 가상 네트워크를 사용하지 않는 경우 캐시의 VNet이 스토리지 계정의 VNet에 액세스할 수 있는지 확인합니다.
+
+스토리지 계정을 설정한 후 스토리지 대상을 만들 때 새 컨테이너를 만들 수 있습니다.
 
 이 구성에 대한 자세한 내용은 [Azure HPC Cache에서 탑재 Blob Storage 사용](nfs-blob-considerations.md)을 참조하세요.
 

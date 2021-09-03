@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 디지털 트윈에서 태그를 구현하는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 7/22/2020
+ms.date: 8/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a161df47047ffb92b1557b84e457363ee9d2507c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8059178543bde38cbb1429f98f2f0205fb07c347
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090085"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771178"
 ---
 # <a name="add-tags-to-digital-twins"></a>디지털 트윈에 태그 추가 
 
@@ -38,13 +38,35 @@ ms.locfileid: "110090085"
 
 `tags` 속성이 디지털 트윈 모델의 일부이면 이 속성의 값을 설정하여 디지털 트윈의 표식 태그를 설정할 수 있습니다. 
 
-다음은 세 트윈에 대한 표식 `tags`를 채우는 예입니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
-
-다음은 [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)를 사용하여 트윈에 대한 마커 `tags`를 설정하는 방법에 대한 코드 예제입니다.
+다음은 [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)를 사용하여 트윈에 대한 `tags` 표식을 설정하는 방법에 대한 코드 예제입니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
+
+위의 예제에 따라 만든, 태그 속성이 있는 트윈은 다음과 같이 표시됩니다.
+
+```JSON
+{
+  "$dtId": "myTwinID",
+  "$etag": "W/\"e7429259-6833-46b4-b443-200a77a468c2\"",
+  "$metadata": {
+    "$model": "dtmi:example:Room;1",
+    "Temperature": {
+      "lastUpdateTime": "2021-08-03T14:24:42.0850614Z"
+    },
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:24:42.0850614Z"
+    }
+  },
+  "Temperature": 75,
+  "tags": {
+    "VIP": true,
+    "oceanview": true
+  }
+}
+```
+
+>[!TIP]
+> CLI 또는 API를 사용하여 [쿼리](how-to-query-graph.md)하면 트윈의 JSON 표현을 확인할 수 있습니다.
 
 ### <a name="query-with-marker-tags"></a>표식 태그가 있는 쿼리
 
@@ -74,11 +96,44 @@ ms.locfileid: "110090085"
 
 표식 태그와 마찬가지로 모델에서 이 `tags` 속성의 값을 설정하여 디지털 트윈에서 값 태그를 설정할 수 있습니다. 값 태그를 표식 태그로 사용하려면 `tagValue` 필드를 빈 문자열 값(`""`)으로 설정하면 됩니다. 
 
-다음은 세 트윈에 대한 값 `tags`를 채우는 예입니다.
+아래에는 크기를 나타내는 값 태그가 있는 두 트윈의 JSON 본문이 나와 있습니다. 예제의 트윈에는 표식 태그로 사용되는 “red” 또는 “purple”의 값 태그도 있습니다.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
+large 크기의 값 태그와 “red”의 표식 태그가 있는 예제 Twin1:
 
-이 예에서는 `red` 및 `purple`이 표식 태그로 사용됩니다.
+```JSON
+{
+  "$dtId": "Twin1",
+  "$etag": "W/\"d3997593-cc5f-4d8a-8683-957becc2bcdd\"",
+  "$metadata": {
+    "$model": "dtmi:example:ValueTags;1",
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:43:02.3150852Z"
+    }
+  },
+  "tags": {
+    "red": "",
+    "size": "large"
+  }
+}
+```
+
+small 크기의 값 태그와 “purple”의 표식 태그가 있는 예제 Twin2:
+```JSON
+{
+  "$dtId": "Twin2",
+  "$etag": "W/\"e215e586-b14a-4234-8ddb-be69ebfef878\"",
+  "$metadata": {
+    "$model": "dtmi:example:ValueTags;1",
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:43:53.1517123Z"
+    }
+  },
+  "tags": {
+    "purple": "",
+    "size": "small"
+  }
+}
+```
 
 ### <a name="query-with-value-tags"></a>값 태그가 있는 쿼리
 
@@ -95,7 +150,7 @@ ms.locfileid: "110090085"
 ## <a name="next-steps"></a>다음 단계
 
 디지털 트윈 모델 디자인 및 관리에 대해 자세히 알아보기
-* [방법: DTDL 모델 관리](how-to-manage-model.md)
+* [DTDL 모델 관리](how-to-manage-model.md)
 
 트윈 그래프 쿼리에 대해 자세히 알아보기
-* [방법: 트윈 그래프 쿼리](how-to-query-graph.md)
+* [쌍 그래프 쿼리](how-to-query-graph.md)

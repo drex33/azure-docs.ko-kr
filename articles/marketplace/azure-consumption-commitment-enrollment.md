@@ -1,19 +1,19 @@
 ---
 title: Azure Consumption Commitment 등록 - Azure Marketplace
 description: 이 문서에는 Microsoft MACC(Azure Consumption Commitment) 프로그램의 개요, MACC 프로그램에 제안이 등록되었는지 확인하는 방법 및 MACC 요구 사항이 포함되어 있습니다.
-author: mingshen-ms
-ms.author: mingshen
+author: posurnis
+ms.author: posurnis
 ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/03/2021
-ms.openlocfilehash: 55d3899630fe60b1b033bd21eeb65ab2050e57c0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 07/27/2021
+ms.openlocfilehash: a3fe8707df1270f8571ad86fe07406376f71ab93
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756278"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529025"
 ---
 # <a name="azure-consumption-commitment-enrollment"></a>Azure Consumption Commitment 등록
 
@@ -21,13 +21,11 @@ ms.locfileid: "111756278"
 
 ## <a name="macc-program"></a>MACC 프로그램
 
-_MACC(Microsoft Azure Consumption Commitment)_ 프로그램은 Azure Marketplace 게시되는 [거래 가능한 제품](marketplace-commercial-transaction-capabilities-and-considerations.md#transact-overview)을 위한 것입니다. 이 프로그램에 등록된 Azure 고객의 거래 가능한 제품 비용은 조직의 Microsoft Azure Consumption Commitment에 기여합니다.
+_MACC(Microsoft Azure Consumption Commitment)_ 프로그램은 Azure Marketplace 게시되는 [거래 가능한 제품](marketplace-commercial-transaction-capabilities-and-considerations.md#transact-overview)을 위한 것입니다. 이 프로그램에 등록된 거래 가능한 제품의 Azure Marketplace 구매는 조직의 Microsoft Azure Consumption Commitment에 기여합니다.
 
 ### <a name="requirements-for-an-offer-to-be-enrolled-in-macc"></a>MACC에 등록할 제품에 대한 요구 사항
 
-제품은 MACC 프로그램에 등록하기 위해 다음 요구 사항을 충족해야 합니다. 이러한 요구 사항에 대한 예외 요청은 수락되지 않습니다.
-
-MACC에 등록하려면 제품이 다음과 같아야 합니다.
+MACC 프로그램에 등록하려면 제품이 다음 요구 사항을 충족해야 합니다.
 
 - $0보다 큰 가격 책정 계획으로 거래 가능  
     > [!NOTE]

@@ -10,13 +10,13 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 3a971b88e2152d79f0c11cc58092d6faf1e3f900
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/22/2021
+ms.openlocfilehash: 256f8f6f792f9bf373af4be9b429a9485b17b7a8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752678"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528461"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance의 새로운 기능은 무엇인가요?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,27 +50,66 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대한 설명서는 별도�
 
 | 기능 | 세부 정보 |
 | ---| --- |
-| Elastic Database 작업(미리 보기) | 자세한 내용은 [탄력적 작업 만들기, 구성 및 관리](elastic-jobs-overview.md)를 참조하세요. |
+| 탄력적 데이터베이스 작업 | 자세한 내용은 [탄력적 작업 만들기, 구성 및 관리](elastic-jobs-overview.md)를 참조하세요. |
 | 탄력적 쿼리 | 자세한 내용은 [탄력적 쿼리 개요](elastic-query-overview.md)를 참조하세요. |
-| 탄력적 트랜잭션 | [클라우드 데이터베이스의 분산 트랜잭션](elastic-transactions-overview.md). |
+| 탄력적 트랜잭션 | 자세한 내용은 [클라우드 데이터베이스의 분산 트랜잭션](elastic-transactions-overview.md)을 참조하세요. |
 | Azure Portal의 쿼리 편집기 |자세한 내용은 [Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리](connect-query-portal.md)를 참조하세요.|
-|SQL 분석|자세한 내용은 [Azure SQL 분석](../../azure-monitor/insights/azure-sql.md)을 참조하세요.|
-| &nbsp; |
+| SQL 분석|자세한 내용은 [Azure SQL 분석](../../azure-monitor/insights/azure-sql.md)을 참조하세요.|
+| 쿼리 저장소 힌트 | 자세한 내용은 [쿼리 저장소 힌트](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-current&preserve-view=true)를 참조하세요.|
+| ---| --- |
 
 ### <a name="azure-sql-managed-instance"></a>[Azure SQL Managed Instance](#tab/managed-instance)
 
 | 기능 | 세부 정보 |
 | ---| --- |
+| [SQL Managed Instance 범용에 대한 16TB 지원](https://techcommunity.microsoft.com/t5/azure-sql/increased-storage-limit-to-16-tb-for-sql-managed-instance/ba-p/2421443) | SQL Managed Instance 범용에서 최대 16TB 공간 할당을 지원합니다. |
+| [Azure SQL에 대한 Azure Active Directory 전용 인증](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) | Azure SQL Managed Instance의 Azure Active Directory 전용 인증 퍼블릭 미리 보기입니다. |
+| [Log Replay Service를 사용한 마이그레이션](../managed-instance/log-replay-service-migrate.md) | Log Replay Service를 사용하여 SQL Server의 데이터베이스를 SQL Managed Instance로 마이그레이션합니다. |
+| [유지 관리 기간](./maintenance-window.md)| 유지 관리 기간 기능을 사용하여 유지 관리 일정을 구성할 수 있습니다. |
+| [Azure SQL Managed Instance에 대한 Service Broker 인스턴스 간 메시지 교환](https://azure.microsoft.com/updates/service-broker-message-exchange-for-azure-sql-managed-instance-in-public-preview/) | Azure SQL Managed Instance에서 인스턴스 간 메시지 교환을 지원합니다. |
+| [Azure SQL Managed Instance에 대한 장기 백업 보존](https://azure.microsoft.com/updates/longterm-backup-retention-ltr-for-azure-sql-managed-instance-in-public-preview/) | Azure SQL Managed Instance에서 최대 10년 동안 장기 백업 보존을 지원합니다. |
+| [Azure SQL Managed Instance에 대한 Azure Monitor SQL 인사이트](https://azure.microsoft.com/updates/azure-monitor-sql-insights-for-azure-sql-in-public-preview/) | 퍼블릭 미리 보기로 제공되는 Azure SQL Managed Instance에 대한 Azure Monitor SQL 인사이트입니다. |
 | [분산 트랜잭션](./elastic-transactions-overview.md) | 관리되는 인스턴스 간의 분산 트랜잭션 |
 | [인스턴스 풀](../managed-instance/instance-pools-overview.md) | 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리하고 비용 효율적인 방법입니다. |
-| [인스턴스 수준 Azure AD 서버 보안 주체(로그인)](/sql/t-sql/statements/create-login-transact-sql) | [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 문을 사용하여 인스턴스 수준 로그인을 만듭니다. |
 | [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) | 테이블의 변경 내용을 SQL Managed Instance, SQL Database 또는 SQL Server의 다른 데이터베이스로 복제합니다. 또는 SQL Managed Instance 또는 SQL Server의 다른 인스턴스에서 일부 행이 변경될 때 테이블을 업데이트합니다. 자세한 내용은 [Azure SQL Managed Instance에서 복제 구성](../managed-instance/replication-between-two-instances-configure-tutorial.md)을 참조하세요. |
 | 위협 탐지 |자세한 내용은 [Azure SQL Managed Instance에서 위협 탐지 구성](../managed-instance/threat-detection-configure.md)을 참조하세요.|
-| 장기 백업 보존 | 자세한 내용은 [Azure SQL Managed Instance에서 장기 백업 보존 구성](../managed-instance/long-term-backup-retention-configure.md)(현재 제한된 공개 미리 보기로 제공됨)을 참조하세요. |
+| 쿼리 저장소 힌트 | 자세한 내용은 [쿼리 저장소 힌트](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true)를 참조하세요.|
+| ---| --- |
 
 ---
 
 ## <a name="new-features"></a>새로운 기능
+
+### <a name="sql-managed-instance-h1-2021-updates"></a>SQL Managed Instance H1 2021 업데이트
+
+- [SQL Managed Instance 범용에 대한 16TB 지원 퍼블릭 미리 보기](https://techcommunity.microsoft.com/t5/azure-sql/increased-storage-limit-to-16-tb-for-sql-managed-instance/ba-p/2421443) - SQL Managed Instance 범용에서 최대 16TB 공간 할당을 지원합니다(퍼블릭 미리 보기).
+- [SQL Managed Instance 범용의 성능 향상을 위한 병렬 백업](https://techcommunity.microsoft.com/t5/azure-sql/parallel-backup-for-better-performance-in-sql-managed-instance/ba-p/2421762) - SQL Managed Instance 범용에서 더 빠른 백업을 지원합니다.
+- [Azure SQL에 대한 Azure Active Directory 전용 인증](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) - Azure SQL Managed Instance의 Azure Active Directory 전용 인증 퍼블릭 미리 보기입니다.
+- [Resource Health를 사용하여 Azure SQL Managed Instance의 상태 모니터링](resource-health-to-troubleshoot-connectivity.md) - Azure SQL Managed Instance에서 Resource Health 모니터링을 지원합니다.
+- [이제 Azure SQL Managed Instance에 대한 서비스 지원 서브넷 구성에서 사용자 정의 경로에 서비스 태그 사용](../managed-instance/connectivity-architecture-overview.md) - 사용자 정의 경로(UDR) 테이블을 지원합니다.
+- [Log Replay Service를 사용하여 Managed Instance로 마이그레이션](../managed-instance/log-replay-service-migrate.md) - Log Replay Service(퍼블릭 미리 보기)를 사용하여 SQL Server의 데이터베이스를 SQL Managed Instance로 마이그레이션할 수 있습니다.
+- [유지 관리 기간](./maintenance-window.md) - 유지 관리 기간 기능을 사용하여 유지 관리 일정을 구성할 수 있습니다. [유지 관리 기간 알림](https://techcommunity.microsoft.com/t5/azure-sql/maintenance-window-for-azure-sql-database-and-managed-instance/ba-p/2174835)(퍼블릭 미리 보기)을 참조하세요.
+- [Azure SQL Managed Instance의 Machine Learning Services 출시](https://azure.microsoft.com/updates/machine-learning-services-on-azure-sql-managed-instance-now-generally-available/) - Azure SQL Managed Instance의 Machine Learning Services가 출시되었습니다.
+- [Azure SQL Managed Instance에 대한 Service Broker 인스턴스 간 메시지 교환](https://azure.microsoft.com/updates/service-broker-message-exchange-for-azure-sql-managed-instance-in-public-preview/) - 인스턴스 간 메시지 교환을 지원합니다.
+- [Azure SQL Managed Instance에 대한 장기 백업 보존](https://azure.microsoft.com/updates/longterm-backup-retention-ltr-for-azure-sql-managed-instance-in-public-preview/) - Azure SQL Managed Instance에서 최대 10년 동안 장기 백업 보존을 지원합니다.
+- [Azure SQL Managed Instance에 대한 동적 데이터 마스킹 세분화된 권한](dynamic-data-masking-overview.md) - Azure SQL Managed Instance에 대한 동적 데이터 마스킹 세분화된 권한이 출시되었습니다. 
+- [Microsoft 작업에 대한 Azure SQL Managed Instance 감사](https://azure.microsoft.com/updates/azure-sql-auditing-of-microsoft-operations-is-now-generally-available/) - Microsoft 작업에 대한 Azure SQL Managed Instance 감사가 출시되었습니다.
+- [Azure SQL Managed Instance에 대한 Azure Monitor SQL 인사이트](https://azure.microsoft.com/updates/azure-monitor-sql-insights-for-azure-sql-in-public-preview/) - 퍼블릭 미리 보기로 제공되는 Azure SQL Managed Instance에 대한 Azure Monitor SQL 인사이트입니다.
+
+### <a name="sql-managed-instance-h2-2020-updates"></a>SQL Managed Instance H2 2020 업데이트
+
+- [퍼블릭 미리 보기: Azure SQL DB와 Azure SQL MI에서 Microsoft 지원 작업 감사](https://azure.microsoft.com/updates/auditing-of-microsoft-support-operations-in-azure-sql-db-and-azure-sql-mi/) - Microsoft 지원 작업 감사 기능을 사용하면 감사 로그 대상에 대한 지원 요청 중에 서버 및/또는 데이터베이스에 액세스해야 하는 경우 Microsoft 지원 작업을 감사할 수 있습니다(퍼블릭 미리 보기).
+- [Azure SQL Managed Instances에 걸친 분산 데이터베이스 트랜잭션](https://azure.microsoft.com/updates/distributed-database-transactions-spanning-multiple-azure-sql-managed-instances/) - Azure SQL Managed Instances에 걸친 분산 데이터베이스 트랜잭션이 추가되어 기존 애플리케이션의 원활한 마이그레이션과 수직 또는 수평 분할된 데이터베이스 아키텍처를 사용하는 최신 다중 테넌트 애플리케이션 개발이 가능합니다(퍼블릭 미리 보기).
+- [Azure SQL Managed Instance에 대한 구성 가능한 백업 스토리지 중복성 옵션](https://azure.microsoft.com/updates/configurable-backup-storage-redundancy-option-for-azure-sql-managed-instance-2/) - LRS(로컬 중복 스토리지) 및 ZRS(영역 중복 스토리지) 옵션이 백업 스토리지 중복성에 추가되어 더 많은 유연성과 선택 사항을 제공합니다. 
+- [Azure SQL Database 및 Managed Instance에 대한 백업 스토리지 비용 절감](https://azure.microsoft.com/updates/backup-storage-cost-savings-for-azure-sql-database-and-managed-instance/) - 사용자가 TDE(투명한 데이터 암호화)를 사용하는 데이터베이스에 대해 PITR 백업 보존 기간과 백업 자동 압축을 설정할 수 있으므로 이제 백업 스토리지 공간이 최대 30% 더 효율적으로 사용됩니다.
+- [Azure SQL MI에 대한 Azure AD 인증 기능](https://azure.microsoft.com/updates/azure-ad-authentication-features-for-azure-sql-db-azure-synapse-analytics-and-azure-sql-managed-instance/) - 이 기능을 사용하면 Azure AD 애플리케이션을 통해 사용자 생성을 자동화하고, SQL Managed Instance에서 개별 Azure AD 게스트 사용자를 만들 수 있습니다(퍼블릭 미리 보기).
+- [Azure SQL Managed Instance에 대한 글로벌 가상 네트워크 피어링 지원](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)
+- [Azure SQL Managed Instance에서 지원되는 모든 SSRS 버전의 카탈로그 데이터베이스 호스팅](https://azure.microsoft.com/updates/hosting-catalog-databases-for-all-supported-versions-of-ssrs-in-azure-sql-managed-instance/) - Azure SQL Managed Instance는 지원되는 모든 SSRS(SQL Server Reporting Services) 버전의 카탈로그 데이터베이스를 호스트할 수 있습니다.
+- [Azure SQL Database Managed Instance의 주요 성능 개선 사항](https://techcommunity.microsoft.com/t5/azure-sql/announcing-major-performance-improvements-for-azure-sql-database/ba-p/1701256) 
+- [Azure SQL Managed Instance에 대한 향상된 관리 환경](https://azure.microsoft.com/updates/enhanced-management-experience-for-azure-sql-managed-instance/)
+- [미리 보기로 제공되는 Azure SQL Managed Instance의 Machine Learning](https://techcommunity.microsoft.com/t5/azure-sql/announcing-major-performance-improvements-for-azure-sql-database/ba-p/1701256) - 이제 Azure SQL Managed Instance에서 R 및 Python 언어를 지원하는 Machine Learning Services 미리 보기가 지원됩니다(퍼블릭 미리 보기).
+- [Azure SQL Managed Instance의 애플리케이션 오류 복원력을 위해 사용자가 시작하는 장애 조치(failover)](https://azure.microsoft.com/updates/userinitiated-failover-for-application-fault-resiliency-in-azure-sql-managed-instance-is-now-generally-available/) - 이제 사용자가 시작하는 장애 조치(failover)가 출시되어 PowerShell, CLI 명령, API 호출을 사용하여 자동 장애 조치(failover)를 수동으로 시작하는 기능을 제공합니다.
+
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>SQL Managed Instance H2 2019 업데이트
 
@@ -99,6 +138,7 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대한 설명서는 별도�
 |[ @query매개 변수를 사용할 때 sp_send_dbmail 프로시저가 일시적으로 실패할 수 있습니다.](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|2021년 1월|해결 방법 있음||
 |[서버 신뢰 그룹에서 관리되는 인스턴스를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020년 10월|해결 방법 있음||
 |[관리되는 인스턴스 확장 작업 후에 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020년 10월|해결 방법 있음||
+|[이전에 삭제한 논리 서버와 동일한 이름으로 SQL Managed Instance를 만들 수 없습니다.](#cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted)|2020년 8월|해결 방법 있음||
 |Azure SQL의 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) 및 Managed Instance의 `BACKUP`/`RESTORE` 문은 Azure AD Manage ID를 사용하여 Azure 스토리지에 인증할 수 없습니다.|2020년 9월|해결 방법 있음||
 |[서비스 주체는 Azure AD 및 AKV에 액세스할 수 없음](#service-principal-cannot-access-azure-ad-and-akv)|2020년 8월|해결 방법 있음||
 |[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|
@@ -164,6 +204,10 @@ END
 ### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>관리되는 인스턴스 확장 작업 후 분산 트랜잭션을 실행할 수 없습니다.
 
 서비스 계층 또는 vCore 수 변경을 포함하는 관리되는 인스턴스 확장 작업은 백 엔드에서 서버 신뢰 그룹 설정을 다시 설정하고 [분산 트랜잭션](./elastic-transactions-overview.md) 실행을 사용하지 않도록 설정합니다. 해결 방법으로 Azure Portal에서 새 [서버 신뢰 그룹](../managed-instance/server-trust-group-overview.md)을 삭제하고 만듭니다.
+
+### <a name="cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted"></a>이전에 삭제한 논리 서버와 동일한 이름으로 SQL Managed Instance를 만들 수 없습니다.
+
+[논리 서버](./logical-servers.md)가 삭제된 후 이름이 레코드에서 해제되기까지 7일 임계 기간이 있습니다. 해당 기간에는 동일한 이름의 SQL Managed Instance를 만들 수 없습니다. 해결 방법으로, SQL Managed Instance에 다른 이름을 사용하거나 논리 서버 이름을 해제하기 위한 지원 티켓을 만들어야 합니다.
 
 ### <a name="bulk-insert-and-backuprestore-statements-should-use-sas-key-to-access-azure-storage"></a>BULK INSERT 및 BACKUP/RESTORE 문은 SAS 키를 사용하여 Azure Storage에 액세스해야 합니다.
 

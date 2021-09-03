@@ -1,21 +1,21 @@
 ---
-title: 'Azure ExpressRoute: 네트워크 엔지니어를 위한 Azure'
+title: 네트워크 엔지니어를 위한 Azure
 description: 이 페이지에서는 기존 네트워크 엔지니어에게 Azure의 네트워크 작동 방식을 설명합니다.
 documentationcenter: na
 services: networking
-author: osamaz
+author: osamazia
 manager: tracsman
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: 9a22e58e4407897fb9418cae0ba9f32408cda8e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c73ea7c9e2f399e479f7d3f8bef5797feabb83ec
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98234208"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530322"
 ---
 # <a name="azure-for-network-engineers"></a>네트워크 엔지니어를 위한 Azure
 기존 네트워크 엔지니어는 라우터, 스위치, 케이블, 방화벽과 같은 물리적 자산을 처리하여 인프라를 빌드했습니다. 논리 계층에서 VLAN(가상 LAN), STP(Spanning Tree Protocol), 라우팅 프로토콜(RIP, OSPF, BGP)을 구성했습니다. 관리 도구와 CLI를 사용하여 네트워크를 관리했습니다. 네트워크 엔드포인트가 논리적이고 라우팅 프로토콜 사용을 최소화하는 클라우드의 네트워킹은 다릅니다. Azure에서 자산을 구성하고 관리하기 위해 Azure Resource Manager API, Azure CLI, PowerShell을 사용합니다. Azure 네트워킹의 기본 테넌트를 이해하여 클라우드에서 네트워크 경험을 시작합니다. 

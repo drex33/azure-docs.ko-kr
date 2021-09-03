@@ -3,12 +3,12 @@ title: REST API를 사용하여 Azure 파일 공유 복원
 description: REST API를 사용하여 Azure Backup을 통해 만든 복원 지점에서 Azure 파일 공유 또는 특정 파일을 복원하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7673379df250892671eb01fd2635cca651f69b04
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88761800"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457440"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>REST API를 사용하여 Azure 파일 공유 복원
 
@@ -33,7 +33,7 @@ ms.locfileid: "88761800"
 
 ## <a name="fetch-containername-and-protecteditemname"></a>ContainerName 및 ProtectedItemName 페치
 
-대부분의 복원 관련 API 호출의 경우 {containerName} 및 {protectedItemName} URI 매개 변수의 값을 전달해야 합니다. [GET backupprotectableitems](/rest/api/backup/protecteditems/get) 작업의 응답 본문에서 ID 특성을 사용하여 이러한 매개 변수의 값을 검색합니다. 이 예제에서 보호하려는 파일 공유의 ID는 다음과 같습니다.
+대부분의 복원 관련 API 호출의 경우 {containerName} 및 {protectedItemName} URI 매개 변수의 값을 전달해야 합니다. [GET backupprotectableitems](/rest/api/backup/protected-items/get) 작업의 응답 본문에서 ID 특성을 사용하여 이러한 매개 변수의 값을 검색합니다. 이 예제에서 보호하려는 파일 공유의 ID는 다음과 같습니다.
 
 `"/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;afsaccount/protectableItems/azurefileshare;azurefiles`
 
@@ -58,7 +58,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 * {protectedItemName}: *azurefileshare;azurefiles*
 * {ResourceGroupName}: *azurefiles*
 
-GET URI에는 필요한 모든 매개 변수가 있습니다. 추가 요청 본문은 필요하지 않습니다.
+GET URI에는 필요한 모든 매개 변수가 있습니다. 다른 요청 본문은 필요하지 않습니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13

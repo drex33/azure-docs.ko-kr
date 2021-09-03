@@ -2,13 +2,13 @@
 title: 800개 개수 제한이 없는 리소스
 description: 리소스 그룹에 800개가 넘는 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열합니다.
 ms.topic: conceptual
-ms.date: 04/12/2021
-ms.openlocfilehash: f77bd964003638ca33e1f30e352b1f35a866ac6a
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 07/13/2021
+ms.openlocfilehash: e9145500ade55aa8cb9061b6da125e2bd8a0f5c5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060249"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113769245"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 인스턴스가 800개로 제한되지 않는 리소스
 
@@ -28,7 +28,6 @@ ms.locfileid: "112060249"
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
-* edgeSubscriptions
 * linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
@@ -119,7 +118,7 @@ ms.locfileid: "112060249"
 ## <a name="microsoftinsights"></a>microsoft.insights
 
 * metricalerts
-* scheduledQueryRules
+* scheduledqueryrules
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -137,6 +136,7 @@ ms.locfileid: "112060249"
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/snapshotPolicies
 * netAppAccounts/volumeGroups
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
@@ -173,7 +173,7 @@ ms.locfileid: "112060249"
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses - 기본적으로 인스턴스가 800개로 제한됩니다. 고객 지원팀에 문의하여 한도를 늘릴 수 있습니다.
+* publicIPAddresses
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -209,20 +209,20 @@ ms.locfileid: "112060249"
 * accounts/accountQuotaPolicies
 * accounts/groupPolicies
 * accounts/jobs
+* accounts/models
 * accounts/storageContainers
-
-## <a name="microsoftstorage"></a>Microsoft.Storage
-
-* storageAccounts
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 * servers/databases
 
-## <a name="microsoftweb"></a>Microsoft.Web
+## <a name="microsoftstorage"></a>Microsoft.Storage
 
-* apiManagementAccounts/apis
-* sites
+* storageAccounts
+
+## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
+
+* streamingjobs - 기본적으로 인스턴스가 800개로 제한됩니다. 고객 지원팀에 문의하여 한도를 늘릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

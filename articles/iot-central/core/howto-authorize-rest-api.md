@@ -7,12 +7,12 @@ ms.date: 03/24/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 73ef942b42858a3219502fe09c3b9281be81f964
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 540137495e06bb05fbf5e96e3b930e0c8cda4b10
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776807"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461233"
 ---
 # <a name="how-to-authenticate-and-authorize-iot-central-rest-api-calls"></a>IoT Central REST API 호출을 인증하고 권한을 부여하는 방법
 
@@ -24,9 +24,11 @@ IoT Central REST API를 사용하면 IoT Central 애플리케이션과 통합되
 
 ## <a name="token-types"></a>토큰 형식
 
+자동화/테스트/API 호출을 직접 수행하는 경우 사용자 전달자 토큰을 사용하는 것이 좋습니다. 개발 환경(즉, devops)을 자동화/스크립팅하는 경우 SPN 전달자 토큰을 사용하는 것이 좋습니다. API 토큰은 두 경우에 모두 사용할 수 있지만 만료 및 누출 위험이 있으므로 가능하면 항상 전달자를 사용하는 것이 좋습니다. 이해가 되셨나요? 
+
 REST API를 사용하여 IoT Central 애플리케이션에 액세스하려면 다음을 사용하면 됩니다.
 
-- _Azure Active Directory 전달자 토큰_. 전달자 토큰은 Azure Active Directory 사용자 계정과 연결됩니다. 토큰은 사용자가 IoT Central 애플리케이션에서 사용하는 것과 동일한 사용 권한을 호출자에게 부여합니다.
+- _Azure Active Directory 전달자 토큰_. 전달자 토큰은 Azure Active Directory 사용자 계정이나 서비스 주체와 연결됩니다. 토큰은 사용자나 서비스 주체가 IoT Central 애플리케이션에서 가진 사용 권한과 동일한 권한을 호출자에게 부여합니다.
 - IoT Central API 토큰. API 토큰은 IoT Central 애플리케이션의 역할과 연결됩니다.
 
 IoT Central의 사용자 및 역할에 대해 자세히 알아보려면 [IoT Central 애플리케이션에서 사용자 및 역할 관리](howto-manage-users-roles.md)를 참조하세요.
@@ -56,6 +58,8 @@ az account get-access-token --resource https://apps.azureiotcentral.com
 ```
 
 전달자 토큰은 약 1시간 동안 유효하며, 그 후에는 새로 만들어야 합니다.
+
+서비스 주체용 전달자 토큰을 가져오려면 [서비스 주체 인증](/rest/api/iotcentral/authentication#service-principal-authentication)을 참조하세요.
 
 ## <a name="get-an-api-token"></a>API 토큰 가져오기
 

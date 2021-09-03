@@ -10,12 +10,12 @@ ms.custom: automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 716ed2920b1e731a8515b7f099e77853955d9943
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 343d6dd27167001ecf98435596837eaab5f50da5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884807"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528831"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>해석력: 자동화된 Machine Learning의 모델 설명(미리 보기)
 
@@ -41,15 +41,7 @@ ms.locfileid: "107884807"
 원시 및 엔지니어링된 기능에 대한 설명이 포함된 `best_run`에서 설명을 검색합니다.
 
 > [!NOTE]
-> 다음 알고리즘을 최적의 모델로 권장하는 Auto ML 예측 실험에는 해석력 및 최적의 모델 설명을 사용할 수 없습니다: 
-> * TCNForecaster
-> * AutoArima
-> * ExponentialSmoothing
-> * Prophet
-> * 평균 
-> * Naive
-> * Seasonal Average 
-> * Seasonal Naive
+> 해석력, 모델 설명은 자동화된 ML 예측 실험에서 권장하는 TCNForecaster 모델에 사용할 수 없습니다.
 
 ### <a name="download-the-engineered-feature-importances-from-the-best-run"></a>최적 실행에서 엔지니어링된 기능 중요도 다운로드
 
@@ -134,7 +126,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
 ```
-자동화된 Machine Learning을 사용하여 학습된 모델의 경우 `get_output()` 메서드를 사용하여 최적의 모델을 가져오고 로컬에서 설명을 계산할 수 있습니다.  `interpret-community` 패키지의 `ExplanationDashboard`로 설명 결과를 시각화 할 수 있습니다.
+자동화된 Machine Learning을 사용하여 학습된 모델의 경우 `get_output()` 메서드를 사용하여 최적의 모델을 가져오고 로컬에서 설명을 계산할 수 있습니다.  `raiwidgets` 패키지의 `ExplanationDashboard`로 설명 결과를 시각화할 수 있습니다.
 
 ```python
 best_run, fitted_model = remote_run.get_output()
@@ -157,7 +149,7 @@ pip install interpret-community[visualization]
 
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict()),
-from interpret_community.widget import ExplanationDashboard
+from raiwidgets import ExplanationDashboard
 ExplanationDashboard(engineered_explanations, automl_explainer_setup_obj.automl_estimator, datasetX=automl_explainer_setup_obj.X_test_transform)
 
  
@@ -166,7 +158,7 @@ raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
                                      raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
                                      eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(raw_explanations.get_feature_importance_dict()),
-from interpret_community.widget import ExplanationDashboard
+from raiwidgets import ExplanationDashboard
 ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipeline, datasetX=automl_explainer_setup_obj.X_test_raw)
 ```
 

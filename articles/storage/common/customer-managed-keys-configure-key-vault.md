@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 24fbe843986b732a04c9e356c54f3d768d6739be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7377f0e296f571640aba35639972e66a60c6dd0f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100558176"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114444652"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Azure Key Vault에 저장된 고객 관리형 키를 사용하여 암호화 구성
 
-Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대한 추가 제어를 위해 사용자 고유의 키를 관리할 수 있습니다. 고객 관리형 키는 Azure Key Vault 또는 Key Vault 관리형 HSM(하드웨어 보안 모델)(미리 보기)에 저장되어야 합니다.
+Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대한 추가 제어를 위해 사용자 고유의 키를 관리할 수 있습니다. 고객 관리형 키는 Azure Key Vault 또는 Key Vault 관리형 HSM(하드웨어 보안 모델)에 저장되어 있어야 합니다.
 
-이 문서에서는 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 키 자격 증명 모음에 저장된 고객 관리형 키로 암호화를 구성하는 방법에 대해 알아봅니다. 관리형 HSM에 저장된 고객 관리형 키로 암호화를 구성하는 방법에 대해 알아보려면 [Azure Key Vault 관리형 HSM(미리 보기)에 저장된 고객 관리형 키로 암호화 구성](customer-managed-keys-configure-key-vault-hsm.md)을 참조하세요.
+이 문서에서는 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 키 자격 증명 모음에 저장된 고객 관리형 키로 암호화를 구성하는 방법에 대해 알아봅니다. 관리형 HSM에 저장된 고객 관리형 키로 암호화를 구성하는 방법에 대한 자세한 내용은 [Azure Key Vault 관리형 HSM에 저장된 고객 관리형 키로 암호화 구성](customer-managed-keys-configure-key-vault-hsm.md)을 참조하세요.
 
 > [!NOTE]
 > Azure Key Vault 및 Azure Key Vault 관리형 HSM은 구성에 대해 동일한 API 및 관리 인터페이스를 지원합니다.
@@ -83,7 +83,7 @@ Set-AzKeyVaultAccessPolicy `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 새 키 자격 증명 모음을 만들려면 [az keyvault create](/cli/azure/keyvault#az-keyvault-create)를 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+Azure CLI를 사용하여 새 키 자격 증명 모음을 만들려면 [az keyvault create](/cli/azure/keyvault#az_keyvault_create)를 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az keyvault create \
@@ -97,7 +97,7 @@ Azure CLI를 사용하여 기존 키 자격 증명 모음에 보호 제거를 �
 
 다음으로 시스템 할당 관리 ID를 스토리지 계정에 할당합니다. 이 관리 ID를 사용하여 스토리지 계정에게 키 자격 증명 모음에 액세스할 수 있는 권한을 부여합니다. 시스템 할당 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
 
-Azure CLI를 사용하여 관리 ID를 할당하려면 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출합니다.
+Azure CLI를 사용하여 관리 ID를 할당하려면 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출합니다.
 
 ```azurecli-interactive
 az storage account update \
@@ -108,7 +108,7 @@ az storage account update \
 
 마지막으로, 스토리지 계정이 액세스 권한을 가지도록 키 자격 증명 모음에 대한 액세스 정책을 구성합니다. 이 단계에서는 이전에 스토리지 계정에 할당한 관리 ID를 사용합니다.
 
-키 자격 증명 모음에 대한 액세스 정책을 설정하려면 [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy)를 호출합니다.
+키 자격 증명 모음에 대한 액세스 정책을 설정하려면 [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy)를 호출합니다.
 
 ```azurecli-interactive
 storage_account_principal=$(az storage account show \
@@ -147,7 +147,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 키를 추가하려면 [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create)를 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+Azure CLI를 사용하여 키를 추가하려면 [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create)를 호출합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az keyvault key create \
@@ -213,7 +213,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 Azure CLI를 사용하여 고객 관리형 키에서 키 버전 자동 업데이트를 구성하려면 [Azure CLI 버전 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) 이상을 설치합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-고객 관리형 키의 키 버전을 자동으로 업데이트하려면 스토리지 계정의 고객 관리형 키를 사용하도록 암호화를 구성할 때 키 버전을 생략합니다. 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출하여 스토리지 계정의 암호화 설정을 업데이트합니다. `--encryption-key-source` 매개 변수를 포함하고 이를 `Microsoft.Keyvault`로 설정하여 계정에서 고객 관리형 키를 사용하도록 설정합니다.
+고객 관리형 키의 키 버전을 자동으로 업데이트하려면 스토리지 계정의 고객 관리형 키를 사용하도록 암호화를 구성할 때 키 버전을 생략합니다. 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출하여 스토리지 계정의 암호화 설정을 업데이트합니다. `--encryption-key-source` 매개 변수를 포함하고 이를 `Microsoft.Keyvault`로 설정하여 계정에서 고객 관리형 키를 사용하도록 설정합니다.
 
 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -241,7 +241,7 @@ az storage account update
 
 Azure Portal에서 키 버전 수동 업데이트를 사용하도록 고객 관리형 키를 구성하려면 버전을 포함하여 키 URI를 지정합니다. 키를 URI로 지정하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 키 URI을 찾으려면 키 자격 증명 모음으로 이동하여 **키** 설정을 선택합니다. 원하는 키를 선택한 다음, 키를 클릭하여 해당 버전을 봅니다. 키 버전을 선택하여 해당 버전의 설정을 봅니다.
+1. Azure Portal에서 키 URI를 찾으려면 키 자격 증명 모음으로 이동하여 **키** 설정을 선택합니다. 원하는 키를 선택한 다음, 키를 클릭하여 버전을 확인합니다. 키 버전을 선택하여 해당 버전의 설정을 봅니다.
 1. URI를 제공하는 **키 식별자** 필드의 값을 복사합니다.
 
     ![키 자격 증명 모음 키 URI를 보여 주는 스크린샷](media/customer-managed-keys-configure-key-vault/portal-copy-key-identifier.png)
@@ -251,7 +251,7 @@ Azure Portal에서 키 버전 수동 업데이트를 사용하도록 고객 관�
 
    ![키 URI를 입력하는 방법을 보여 주는 스크린샷](./media/customer-managed-keys-configure-key-vault/portal-specify-key-uri.png)
 
-1. 키 자격 증명 모음이 포함된 구독을 지정합니다.
+1. 키 자격 증명 모음을 포함하는 구독을 지정합니다.
 1. 변경 내용을 저장합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -273,7 +273,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-키 버전 수동 업데이트를 사용하도록 고객 관리형 키를 구성하려면 스토리지 계정의 암호화를 구성할 때 키 버전을 명시적으로 제공합니다. 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출하여 스토리지 계정의 암호화 설정을 업데이트합니다. `--encryption-key-source` 매개 변수를 포함하고 이를 `Microsoft.Keyvault`로 설정하여 계정에서 고객 관리형 키를 사용하도록 설정합니다.
+키 버전 수동 업데이트를 사용하도록 고객 관리형 키를 구성하려면 스토리지 계정의 암호화를 구성할 때 키 버전을 명시적으로 제공합니다. 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출하여 스토리지 계정의 암호화 설정을 업데이트합니다. `--encryption-key-source` 매개 변수를 포함하고 이를 `Microsoft.Keyvault`로 설정하여 계정에서 고객 관리형 키를 사용하도록 설정합니다.
 
 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -297,7 +297,7 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-키 버전을 수동으로 업데이트할 때 새 버전을 사용하도록 스토리지 계정의 암호화 설정을 업데이트해야 합니다. 먼저 [az keyvault show](/cli/azure/keyvault#az-keyvault-show)를 호출하여 키 자격 증명 모음 URI를 쿼리하고 [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions)를 호출하여 키 버전을 쿼리합니다. 그런 다음 이전 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출하여 새 버전의 키를 사용하도록 스토리지 계정의 암호화 설정을 업데이트합니다.
+키 버전을 수동으로 업데이트할 때 새 버전을 사용하도록 스토리지 계정의 암호화 설정을 업데이트해야 합니다. 먼저 [az keyvault show](/cli/azure/keyvault#az_keyvault_show)를 호출하여 키 자격 증명 모음 URI를 쿼리하고 [az keyvault key list-versions](/cli/azure/keyvault/key#az_keyvault_key_list-versions)를 호출하여 키 버전을 쿼리합니다. 그런 다음 이전 예제와 같이 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출하여 새 버전의 키를 사용하도록 스토리지 계정의 암호화 설정을 업데이트합니다.
 
 ---
 
@@ -319,7 +319,7 @@ PowerShell을 사용하여 키를 변경하려면 [고객 관리형 키로 암�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 키를 변경하려면 [고객 관리형 키로 암호화 구성](#configure-encryption-with-customer-managed-keys)에 표시된 대로 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출하고 새 키 이름 및 버전을 제공합니다. 새 키가 다른 키 자격 증명 모음에 있으면 키 자격 증명 모음 URI도 업데이트해야 합니다.
+Azure CLI를 사용하여 키를 변경하려면 [고객 관리형 키로 암호화 구성](#configure-encryption-with-customer-managed-keys)에 표시된 대로 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 호출하고 새 키 이름 및 버전을 제공합니다. 새 키가 다른 키 자격 증명 모음에 있으면 키 자격 증명 모음 URI도 업데이트해야 합니다.
 
 ---
 
@@ -342,7 +342,7 @@ Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-키 자격 증명 모음 액세스 정책을 제거하여 고객 관리형 키를 철회할 수 있습니다. Azure CLI를 사용하여 고객 관리형 키를 철회하려면 다음 예제와 같이 [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) 명령을 호출합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 바꾸고 위의 예제에 정의된 변수를 사용해야 합니다.
+키 자격 증명 모음 액세스 정책을 제거하여 고객 관리형 키를 철회할 수 있습니다. Azure CLI를 사용하여 고객 관리형 키를 철회하려면 다음 예제와 같이 [az keyvault delete-policy](/cli/azure/keyvault#az_keyvault_delete_policy) 명령을 호출합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 바꾸고 위의 예제에 정의된 변수를 사용해야 합니다.
 
 ```azurecli-interactive
 az keyvault delete-policy \
@@ -375,7 +375,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 고객 관리형 키를 사용하지 않도록 설정하려면 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az-storage-account-update) 명령을 호출하고 `--encryption-key-source parameter`를 `Microsoft.Storage`로 설정합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 바꾸고 위의 예제에 정의된 변수를 사용해야 합니다.
+Azure CLI를 사용하여 고객 관리형 키를 사용하지 않도록 설정하려면 다음 예제와 같이 [az storage account update](/cli/azure/storage/account#az_storage_account_update) 명령을 호출하고 `--encryption-key-source parameter`를 `Microsoft.Storage`로 설정합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 바꾸고 위의 예제에 정의된 변수를 사용해야 합니다.
 
 ```azurecli-interactive
 az storage account update
@@ -390,4 +390,4 @@ az storage account update
 
 - [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)
 - [Azure Storage 암호화용 고객 관리형 키](customer-managed-keys-overview.md)
-- [Azure Key Vault 관리형 HSM(미리 보기)에 저장된 고객 관리형 키를 사용하여 암호화 구성](customer-managed-keys-configure-key-vault-hsm.md).
+- [Azure Key Vault 관리형 HSM에 저장된 고객 관리형 키를 사용하여 암호화 구성](customer-managed-keys-configure-key-vault-hsm.md).

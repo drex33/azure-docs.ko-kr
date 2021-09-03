@@ -1,5 +1,5 @@
 ---
-title: MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 BCDR(비즈니스 연속성 및 재해 복구)
+title: 'MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: BCDR(비즈니스 연속성 및 재해 복구)'
 description: 중요 업무용 시스템과 마찬가지로 백업 및 복원 및 재해 복구(BCDR) 전략은 전체 시스템 디자인의 중요한 부분입니다.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 4785c49c456b0008f0ec4c67cdee55d8118c76a9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 35ab4f952b2e8082f4923926f11698fef352c8f8
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082889"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296217"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-business-continuity-and-disaster-recovery-bcdr"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 BCDR(비즈니스 연속성 및 재해 복구)
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-business-continuity-and-disaster-recovery-bcdr"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: BCDR(비즈니스 연속성 및 재해 복구)
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -30,7 +32,7 @@ ms.locfileid: "112082889"
 
 Azure Database for MySQL은 기본적으로 7일간 자동 백업을 지원합니다. 이를 현재 최대 35일로 수정하는 것이 적절할 수 있습니다. 값이 35일로 변경되면 할당된 스토리지의 1배 이상 추가 백업 스토리지에 대한 요금이 청구됩니다.
 
-[Azure Database for MySQL의 백업 및 복원](/azure/mysql/concepts-backup) 문서에 설명된 대로 데이터베이스 백업 기능에 대한 몇 가지 최신 제한이 있습니다. 구현해야 하는 추가 전략을 결정할 때 이를 이해하는 것이 중요합니다.
+[Azure Database for MySQL의 백업 및 복원](../../concepts-backup.md) 문서에 설명된 대로 데이터베이스 백업 기능에 대한 몇 가지 최신 제한이 있습니다. 구현해야 하는 추가 전략을 결정할 때 이를 이해하는 것이 중요합니다.
 
 알아두어야 할 일부 항목은 다음과 같습니다.
 
@@ -41,21 +43,21 @@ Azure Database for MySQL은 기본적으로 7일간 자동 백업을 지원합�
 - 최대 16TB를 허용하는 계층에는 스냅샷 기반 백업이 있습니다.
 
     > [!NOTE]
-    > [일부 지역](/azure/mysql/concepts-pricing-tiers#storage)에서는 아직 최대 16TB의 스토리지를 지원하지 않습니다.
+    > [일부 지역](../../concepts-pricing-tiers.md#storage)에서는 아직 최대 16TB의 스토리지를 지원하지 않습니다.
 
 ### <a name="restore"></a>복원
 
 서버를 만드는 동안 중복성(로컬 또는 지역)을 구성해야 합니다. 그러나 지역 복원을 수행할 수 있으며 복원 프로세스 중에 이러한 옵션을 수정할 수 있습니다. 복원 작업을 수행하면 일시적으로 연결을 중지하고 복원 프로세스 중에 애플리케이션을 종료할 수 있습니다.
 
-데이터베이스를 복원하는 동안 데이터베이스 외부의 모든 지원 항목을 복원해야 합니다. 마이그레이션 프로세스를 검토합니다. 자세한 내용은 [복원 후 작업 수행](/azure/mysql/concepts-backup#perform-post-restore-tasks)을 참조하세요.
+데이터베이스를 복원하는 동안 데이터베이스 외부의 모든 지원 항목을 복원해야 합니다. 마이그레이션 프로세스를 검토합니다. 자세한 내용은 [복원 후 작업 수행](../../concepts-backup.md#perform-post-restore-tasks)을 참조하세요.
 
 ## <a name="read-replicas"></a>읽기 복제본
 
-[읽기 복제본](/azure/mysql/concepts-read-replicas)을 사용하여 MySQL 읽기 처리량을 늘리고, 지역 사용자의 성능을 향상시키고 재해 복구를 구현할 수 있습니다. 하나 이상의 읽기 복제본을 만드는 경우 주 서버와 동일한 컴퓨팅 및 스토리지에 대한 추가 요금이 적용됩니다.
+[읽기 복제본](../../concepts-read-replicas.md)을 사용하여 MySQL 읽기 처리량을 늘리고, 지역 사용자의 성능을 향상시키고 재해 복구를 구현할 수 있습니다. 하나 이상의 읽기 복제본을 만드는 경우 주 서버와 동일한 컴퓨팅 및 스토리지에 대한 추가 요금이 적용됩니다.
 
 ## <a name="deleted-servers"></a>삭제된 서버
 
-관리자나 잘못된 행위자가 Azure Portal 또는 자동화된 방법을 통해 서버를 삭제하는 경우 모든 백업 및 읽기 복제본이 삭제됩니다. Azure Database for MySQL 리소스 그룹에 [리소스 잠금](/azure/azure-resource-manager/management/lock-resources)을 만들어 인스턴스에 추가 삭제 방지 계층을 추가하는 것이 중요합니다.
+관리자나 잘못된 행위자가 Azure Portal 또는 자동화된 방법을 통해 서버를 삭제하는 경우 모든 백업 및 읽기 복제본이 삭제됩니다. Azure Database for MySQL 리소스 그룹에 [리소스 잠금](../../../azure-resource-manager/management/lock-resources.md)을 만들어 인스턴스에 추가 삭제 방지 계층을 추가하는 것이 중요합니다.
 
 ## <a name="regional-failure"></a>지역 오류
 
@@ -66,7 +68,7 @@ Azure Database for MySQL은 기본적으로 7일간 자동 백업을 지원합�
 
 ### <a name="load-balancers"></a>부하 분산 장치
 
-애플리케이션이 전 세계 여러 인스턴스로 구성된 경우 모든 클라이언트를 업데이트하는 것은 불가능할 수 있습니다. [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) 또는 [Application Gateway](/azure/application-gateway/overview)를 활용하여 원활한 장애 조치(failover) 기능을 구현합니다. 유용하고 시간이 절약되기는 하지만 이러한 도구는 지역 장애 조치(failover) 기능에 필요하지 않습니다.
+애플리케이션이 전 세계 여러 인스턴스로 구성된 경우 모든 클라이언트를 업데이트하는 것은 불가능할 수 있습니다. [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) 또는 [Application Gateway](../../../application-gateway/overview.md)를 활용하여 원활한 장애 조치(failover) 기능을 구현합니다. 유용하고 시간이 절약되기는 하지만 이러한 도구는 지역 장애 조치(failover) 기능에 필요하지 않습니다.
 
 ## <a name="wwi-scenario"></a>WWI 시나리오
 
@@ -119,6 +121,8 @@ WWI는 아래에 설명된 단계를 수행하도록 읽기 복제본의 장애 
 
 - 빠른 장애 조치(failover)를 위해 애플리케이션에 대한 부하 분산 전략을 구현합니다.  
 
+
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [보안](./13-security.md)

@@ -1,6 +1,6 @@
 ---
 title: Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 사용하여 데이터를 배포하고 스케일 아웃하는 개념
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 사용하여 데이터를 배포하는 개념
 services: azure-arc
 ms.service: azure-arc
@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 4698826a78afe816029288f2d5eda14834124904
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 69405ac6386587e6621c67532a8bd7f41450370e
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407810"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729941"
 ---
 # <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 사용하여 데이터를 배포하는 개념
 
@@ -27,7 +27,7 @@ ms.locfileid: "111407810"
 
 Azure(PaaS)에서 Database as a Service로 제공되는 Postgres 데이터베이스 엔진의 하이퍼스케일 폼 팩터입니다. 하이퍼스케일 환경을 사용하는 Citus 확장으로 구동됩니다. 이 폼 팩터에서 서비스는 Microsoft 데이터 센터에서 실행되며 Microsoft가 운영합니다.
 
-- _Azure Arc 지원 PostgreSQL 하이퍼스케일_
+- ‘Azure Arc 지원 PostgreSQL 하이퍼스케일’
 
 Azure Arc 지원 데이터 서비스와 함께 제공되는 Postgres 데이터베이스 엔진의 하이퍼스케일 폼 팩터입니다. 이 폼 팩터에서 고객은 시스템을 호스트하고 운영하는 인프라를 제공합니다.
 
@@ -56,7 +56,7 @@ Azure Arc 지원 Postgres 하이퍼스케일을 최대한 활용하려면 다음
 ## <a name="choose-a-distribution-column"></a>배포 열 선택
 분산 열을 선택해야 하는 이유
 
-이는 가장 중요한 모델링 결정 중 하나입니다. Azure Arc 지원 PostgreSQL 하이퍼스케일은 행의 분포 열 값을 기준으로 분할된 데이터베이스에 행을 저장합니다. 올바르게 선택할 경우, 동일한 물리적 노드에서 관련 데이터를 함께 그룹화하여 쿼리를 빠르게 만들고 모든 SQL 기능에 대한 지원을 추가합니다. 잘못 선택할 경우, 시스템이 느리게 실행되며 노드 전체에서 모든 SQL 기능을 지원하지 않습니다. 이 문서에서는 가장 일반적인 두 가지 하이퍼스케일 시나리오에 대한 배포 열 팁을 제공합니다.
+이는 가장 중요한 모델링 결정 중 하나입니다. Azure Arc 지원 PostgreSQL 하이퍼스케일은 행의 분포 열 값을 기준으로 분할된 데이터베이스에 행을 저장합니다. 올바르게 선택할 경우 관련 데이터가 동일한 물리적 노드에 그룹화되어 쿼리를 빠르게 만들고 모든 SQL 기능을 지원할 수 있습니다. 잘못 선택할 경우, 시스템이 느리게 실행되며 노드 전체에서 모든 SQL 기능을 지원하지 않습니다. 이 문서에서는 가장 일반적인 두 가지 하이퍼스케일 시나리오에 대한 배포 열 팁을 제공합니다.
 
 자세한 내용은 [배포 열 선택](../../postgresql/concepts-hyperscale-choose-distribution-column.md)을 참조하세요.
 
@@ -69,8 +69,8 @@ Azure Arc 지원 Postgres 하이퍼스케일을 최대한 활용하려면 다음
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Arc 지원 PostgreSQL 하이퍼스케일 만들기에 관해 알아보기](create-postgresql-hyperscale-server-group.md)
+- [Azure Arc 지원 PostgreSQL 하이퍼스케일을 만드는 방법에 관해 알아보기](create-postgresql-hyperscale-server-group.md)
 - [Arc 데이터 컨트롤러의 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 스케일 아웃하는 정보에 관해 알아보기](scale-out-in-postgresql-hyperscale-server-group.md)
-- [Azure Arc 지원 데이터 서비스에 관해 알아보기](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
-- [Azure Arc에 관해 알아보기](https://aka.ms/azurearc)
+- [Azure Arc 지원 Data Services에 관해 알아보기](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
+- [Azure Arc에 대해 자세히 알아보세요.](https://aka.ms/azurearc)
 

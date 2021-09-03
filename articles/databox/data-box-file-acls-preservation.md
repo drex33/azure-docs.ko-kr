@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: e8df77356b6b5b1b40e2abd772e13c2e811413ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96d3957a7626e393728d4a309bc56ecaa19d4e83
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91950315"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114400924"
 ---
 # <a name="preserving-file-acls-attributes-and-timestamps-with-azure-data-box"></a>Azure Data Box를 사용하여 파일 ACL, 특성, 타임스탬프 유지
 
@@ -102,6 +102,45 @@ robocopy <Source> <Target> * /copyall /e /dcopy:DAT /r:3 /w:60 /is /nfl /ndl /np
 |`/log+:<LogFile>`  |기존 로그 파일에 출력을 추가합니다.|
 
 `robocopy` 매개 변수에 대한 자세한 내용은 [자습서: SMB를 통해 Azure Data Box에 데이터 복사](./data-box-deploy-copy-data.md)를 참조하세요.
+
+> [!NOTE]
+> `/copyall`을 사용하여 데이터를 복사하면 디렉터리와 파일에 대한 원본 ACL이 Azure Files로 전송됩니다. 원본 데이터에 대한 읽기 권한만 있고 원본 데이터를 수정할 수 없는 경우 Data Box의 데이터에 대한 읽기 권한만 갖게 됩니다. 디렉터리와 파일에 대한 모든 ACL을 데이터와 함께 복사하려는 경우에만 `/copyall`을 사용합니다.
+
+#### <a name="use-robocopy-to-list-copy-modify-files-on-data-box"></a>robocopy를 사용하여 Data Box의 파일 나열, 복사, 수정
+
+`robocopy`를 사용하여 데이터를 복사할 때 사용하는 몇 가지 일반적인 시나리오는 다음과 같습니다.
+
+- **데이터만 Data Box에 복사, 디렉터리와 파일에 대한 ACL 복사 안 함**
+
+    데이터, 특성, 타임스탬프만 복사하려면 `/dcopy:DAT` 옵션을 사용합니다. 디렉터리와 파일에 대한 ACL은 복사되지 않습니다.
+
+- **데이터 및 디렉터리와 파일에 대한 ACL을 Data Box에 복사**
+
+    디렉터리와 파일에 대한 모든 ACL을 포함하여 모든 원본 데이터를 복사하려면 `/copyall`을 사용합니다.
+
+- **robocopy를 사용하여 Data Box의 파일 시스템 나열**
+
+    디렉터리 내용을 나열하려면 다음 명령을 사용합니다.
+
+    `robocopy <source-dir> NULL /l /s /xx /njh /njs /fp /B`
+
+    파일 탐색기에서는 해당 파일을 나열할 수 없습니다.
+    
+- **Data Box의 폴더와 파일 복사 또는 삭제**
+
+    단일 파일을 복사하려면 다음 명령을 사용합니다.
+
+    `robocopy <source-dir> <destination-dir> <file-name> /B`
+
+    단일 파일을 삭제하려면 다음 명령을 사용합니다.
+
+    `robocopy <source-dir> <destination-dir> <file-name> /purge /B`
+
+    위 명령에서 `<source-dir>`에는 `<file-name>` 파일이 없어야 합니다. 위 명령은 대상을 원본과 동기화하므로 대상에서 해당 파일이 제거됩니다.
+
+    파일 탐색기에서는 위 작업을 수행하지 못할 수도 있습니다.
+
+자세한 내용은 [robocopy 명령 사용](/windows-server/administration/windows-commands/robocopy)을 참조하세요.
 
 ### <a name="linux-data-copy-tool"></a>Linux 데이터 복사 도구
 

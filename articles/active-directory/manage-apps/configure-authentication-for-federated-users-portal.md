@@ -2,22 +2,23 @@
 title: 홈 영역 검색을 사용하여 로그인 자동 가속 구성
 description: 자동 가속 및 도메인 힌트를 비롯하여 페더레이션된 사용자의 Azure Active Directory 인증을 위한 홈 영역 검색 정책을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: mtillman
+ms.author: davidmu
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2729ec3ca445fa53503a1968e1fee639bd990f6b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: hirsin
+ms.openlocfilehash: c909f888ac498900cfa4aac409ee6cabfc381250
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081500"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528814"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -254,7 +255,7 @@ HRD 정책이 구성되어 있는 애플리케이션을 확인하려면 **Get-Az
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-#### <a name="step-5-youre-done"></a>5단계: 완료되었습니다!
+#### <a name="step-5-youre-done"></a>5단계: 완료
 
 애플리케이션을 통해 새 정책이 작동 중인지 확인합니다.
 

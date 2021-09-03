@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory의 프로비저닝 로그(미리 보기) | Microsoft Docs
+title: Azure Active Directory의 프로비저닝 로그 | Microsoft Docs
 description: Azure Active Directory의 프로비저닝 로그 개요입니다.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.date: 4/25/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42a1ea52c9de3332c2b73b5c03e203f6d6694c49
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: d110abaf9621b638d698bef08d579a5ab2c4285f
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017394"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113362074"
 ---
-# <a name="provisioning-logs-in-azure-active-directory-preview"></a>Azure Active Directory의 프로비저닝 로그(미리 보기)
+# <a name="provisioning-logs-in-azure-active-directory"></a>Azure Active Directory의 프로비저닝 로그
 
 IT 관리자가 IT 환경의 운영 상태를 파악하려고 합니다. 시스템 상태 정보를 사용하여 잠재적 이슈에 대응해야 하는지 여부와 방법을 평가할 수 있습니다. 
 

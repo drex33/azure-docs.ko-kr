@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 07/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 203ea5bb372c3afc77eb62508d1c95dc5f00bb4b
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: c5d12c45554897a9acfef1d32a2216d1eb410133
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315726"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459581"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>셀프 서비스 등록에 사용자 지정 승인 워크플로 추가
 
@@ -28,7 +28,9 @@ ms.locfileid: "108315726"
 - 수동 검토를 트리거합니다. 요청이 승인되면 승인 시스템은 Microsoft Graph를 사용하여 사용자 계정을 프로비전합니다. 승인 시스템은 사용자에게 계정이 생성되었음을 알릴 수도 있습니다.
 
 > [!IMPORTANT]
-> **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
+>
+> - **2021년 7월 12일부터**, Azure AD B2B 고객이 사용자 지정 또는 기간 업무 애플리케이션에 대한 셀프 서비스 등록과 함께 사용하기 위해 새로운 Google 통합을 설정하는 경우 인증이 시스템 웹 보기로 이동될 때까지 Google ID를 사용한 인증이 작동하지 않습니다. [자세히 알아보기](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **2021년 9월 30부터** Google은 [포함된 웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. 앱이 포함된 웹 보기로 사용자를 인증하고 [외부 사용자 초대](google-federation.md) 또는 [셀프 서비스 등록](identity-providers.md)을 위해 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) 또는 Azure AD B2B와 함께 Google 페더레이션을 사용하는 경우 Google Gmail 사용자는 인증할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## <a name="register-an-application-for-your-approval-system"></a>승인 시스템용 애플리케이션 등록
 
@@ -84,7 +86,7 @@ ms.locfileid: "108315726"
 4. **사용자 흐름** 을 선택하고 API 커넥터를 사용하도록 설정하려는 사용자 흐름을 선택합니다.
 5. **API 커넥터** 를 선택하고 사용자 흐름의 다음 단계에서 호출하려는 API 엔드포인트를 선택합니다.
 
-   - **ID 공급자를 통해 로그인한 후**: 승인 상태 API 커넥터, 예를 들어 _승인 상태 확인_ 을 선택합니다.
+   - **등록 중 ID 공급자와 페더레이션한 후**: 승인 상태 API 커넥터(예: _승인 상태 확인_)를 선택합니다.
    - **사용자를 만들기 전에**: 승인 요청 API 커넥터, 예를 들어 _승인 요청_ 을 선택합니다.
 
    ![사용자 흐름에 API 추가](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
@@ -317,7 +319,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                           | 필수 | Description                                                                                                                                                            |
+| 매개 변수                                           | 필수 | 설명                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userPrincipalName                                   | Yes      | API에 전송된 `email` 클레임을 사용하여 생성하고, `@` 문자를 `_`로 바꾸고 `#EXT@<tenant-name>.onmicrosoft.com`으로 미리 보류할 수 있습니다. |
 | accountEnabled                                      | Yes      | `true`로 설정해야 합니다.                                                                                                                                                 |

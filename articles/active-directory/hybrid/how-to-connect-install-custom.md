@@ -14,12 +14,12 @@ ms.date: 09/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3afeadff71bd373354b891bd6690d94d28fc0805
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29cc31121a4888c23ccbec1c549f2313d0c9e165
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92096354"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439325"
 ---
 # <a name="custom-installation-of-azure-active-directory-connect"></a>Azure Active Directory Connect 사용자 지정 설치
 더 많은 설치 옵션을 원하는 경우 Azure AD(Azure Active Directory) Connect에서 *사용자 지정 설정* 을 사용합니다. 예를 들어 포리스트가 여러 개 있거나 선택적 기능을 구성하려는 경우 이러한 설정을 사용합니다. [빠른 설치](how-to-connect-install-express.md)로는 배포 또는 토폴로지 요구 사항을 충족할 수 없는 경우 사용자 지정 설정을 사용합니다.
@@ -42,7 +42,7 @@ Azure AD Connect 사용자 지정 설치를 설정하려면 다음 섹션에서 
 - [동기화](#sync-pages)
 
 ### <a name="install-required-components"></a>필요한 구성 요소 설치
-동기화 서비스를 설치하는 경우 선택적 구성 섹션을 선택하지 않아도 됩니다. Azure AD Connect가 모든 항목을 자동으로 설정합니다. 알아서 SQL Server 2012 Express LocalDB 인스턴스를 설정하고, 적절한 그룹을 만들고, 권한을 할당합니다. 기본값을 변경하려면 해당 확인란의 선택을 취소합니다.  다음 표에는 이러한 옵션이 요약되어 있으며 추가 정보에 대한 링크가 나와 있습니다. 
+동기화 서비스를 설치하는 경우 선택적 구성 섹션을 선택하지 않아도 됩니다. Azure AD Connect가 모든 항목을 자동으로 설정합니다. SQL Server 2019 Express LocalDB 인스턴스를 설정하고, 적절한 그룹을 만들고, 사용 권한을 할당합니다. 기본값을 변경하려면 해당 확인란의 선택을 취소합니다.  다음 표에는 이러한 옵션이 요약되어 있으며 추가 정보에 대한 링크가 나와 있습니다. 
 
 ![Azure AD Connect의 필수 설치 구성 요소에 대한 선택 사항을 보여주는 스크린샷](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
@@ -116,7 +116,7 @@ Azure AD DS(Active Directory Domain Services)에 연결하려면 Azure AD Connec
 
 userPrincipalName 특성을 라우팅할 수 없고 확인할 수 없는 경우에는 다른 특성을 선택해도 됩니다. 예를 들어 로그인 ID를 보관하는 특성으로 이메일을 선택할 수 있습니다. userPrincipalName 대신 다른 특성을 사용하는 경우 해당 특성을 *대체 ID* 라고 부릅니다. 
 
-대체 ID 특성 값은 RFC 822 표준을 따라야 합니다. 대체 ID는 암호 해시 동기화, 통과 인증 및 페더레이션에 사용할 수 있습니다. Active Directory에서는 특성의 값이 하나뿐인 경우에도 특성을 다중 값으로 정의할 수 없습니다. 대체 ID에 대한 자세한 내용은 [통과 인증: 질문과 대답](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)을 참조하세요.
+대체 ID 특성 값은 RFC 822 표준을 따라야 합니다. 대체 ID는 암호 해시 동기화, 통과 인증 및 페더레이션에 사용할 수 있습니다. Active Directory에서는 특성의 값이 하나뿐인 경우에도 특성을 다중 값으로 정의할 수 없습니다. 대체 ID에 대한 자세한 내용은 [통과 인증: 질문과 대답](./how-to-connect-pta-faq.yml#does-pass-through-authentication-support--alternate-id--as-the-username--instead-of--userprincipalname--)을 참조하세요.
 
 >[!NOTE]
 > 통과 인증을 사용하도록 설정하는 경우 사용자 지정 프로세스를 진행하려면 하나 이상의 검증된 도메인이 있어야 합니다.

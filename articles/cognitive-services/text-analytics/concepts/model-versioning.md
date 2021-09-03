@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/03/2021
+ms.date: 06/17/2021
 ms.author: aahi
-ms.openlocfilehash: 60b9b7ace0f788c7ae5b248c4011ccde52811d2b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d1804505a73be2db8d7088caf74063381fa0ba33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757142"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528678"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Text Analytics API의 모델 버전 관리
 
@@ -39,13 +39,20 @@ Text Analytics API 버전 3을 사용하면 데이터에 사용되는 모델 버
 
 이러한 모델의 업데이트에 대한 자세한 내용은 [새로운 기능](../whats-new.md)을 참조하세요.
 
+## <a name="extractive-summarization"></a>추출 요약
+
+추출 요약은 `version 3.1-preview.1`부터 비동기 `analyze` 엔드포인트를 사용하여 제공됩니다. 
+
+현재 모델 버전은 `2021-08-01`입니다.
+
 ## <a name="text-analytics-for-health"></a>의료 분야 Text Analytics
 
 [의료 분야 Text Analytics](../how-tos/text-analytics-for-health.md) 컨테이너는 위의 API 엔드포인트와는 별도의 모델 버전 관리를 사용합니다.  컨테이너 이미지당 하나의 모델 버전만 사용할 수 있습니다.
 
 | 엔드포인트                        | 컨테이너 이미지 태그                     | 모델 버전 |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `3.0.015370001-onprem-amd64` 또는 최신          | `2021-03-01`  |
+| `/entities/health`              | `3.0.016230002-onprem-amd64` 또는 최신            | `2021-05-15`  |
+| `/entities/health`              | `3.0.015370001-onprem-amd64`            | `2021-03-01`  |
 | `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
 | `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |

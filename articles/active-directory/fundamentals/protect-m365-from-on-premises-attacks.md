@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cee69fbd2cb829a7ec90179e94098e307e5a094
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 456f635e3cd7be91064a15b87c0da627678fdc45
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968541"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113732983"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>온-프레미스 공격으로부터 Microsoft 365 보호
 
@@ -172,7 +172,7 @@ Azure AD 기능을 사용하여 디바이스를 안전하게 관리합니다.
 
     -   모든 디바이스 관리 워크로드에 대한 권한의 원본으로 [Microsoft Intune](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/microsoft-intune) 을 사용합니다.
 
--   [**권한 있는 액세스 디바이스 배포**](/security/compass/privileged-access-devices#device-roles-and-profiles): 권한 있는 액세스를 사용하여 Microsoft 365 및 Azure AD를 관리합니다.
+-   [**권한 있는 액세스 디바이스 배포**](/security/compass/privileged-access-devices#device-roles-and-profiles): 권한 있는 액세스를 사용하여 [권한 있는 액세스 보호](/security/compass/overview)에 대한 완전한 접근 방식의 일부로 Microsoft 365와 Azure AD를 관리합니다.
 
 ## <a name="workloads-applications-and-resources"></a>워크로드, 애플리케이션, 리소스 
 
@@ -209,7 +209,7 @@ Azure AD 조건부 액세스를 사용하여 신호를 해석하고 이를 통�
 
 * 조건부 액세스를 포함하지 않는 Azure AD의 버전을 사용하는 경우 [Azure AD 보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md)을 사용하고 있는지 확인합니다.
 
-   Azure AD 기능 라이선스에 대한 자세한 내용은 [Azure AD 가격 책정 가이드](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+   Azure AD 기능 라이선스에 대한 자세한 내용은 [Azure AD 가격 책정 가이드](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)를 참조하세요.
 
 ## <a name="monitor"></a>모니터 
 

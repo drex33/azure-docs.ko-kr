@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL 데이터베이스의 데이터를 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹으로 마이그레이션
-titleSuffix: Azure Arc enabled database services
+titleSuffix: Azure Arc-enabled database services
 description: PostgreSQL 데이터베이스의 데이터를 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹으로 마이그레이션
 services: azure-arc
 ms.service: azure-arc
@@ -8,29 +8,29 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 06860f9d09db7a9e9497431620e15cc5e3168206
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 25e19ac7512c26e9e6985d033ec46d76b4c5233a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411632"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528405"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>PostgreSQL 데이터베이스를 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹으로 마이그레이션
 
-이 문서에서는 기존 PostgreSQL 데이터베이스(Azure Arc 지원 Data Services에서 호스트되지 않는 데이터베이스)를 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹으로 가져오는 단계를 설명합니다.
+이 문서에서는 기존 PostgreSQL 데이터베이스(Azure Arc 지원 Data Services에서 호스트되지 않은 데이터베이스)를 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹으로 가져오는 단계를 설명합니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="considerations"></a>고려 사항
 
-Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹은 PostgreSQL의 커뮤니티 버전이며 CitusData 확장을 사용하도록 설정된 상태로 실행됩니다. 따라서 Azure Arc 외부 PostgreSQL에서 작동하는 모든 도구는 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 작동해야 합니다.
+Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹은 PostgreSQL의 커뮤니티 버전이며 CitusData 확장이 활성화된 상태로 실행됩니다. Azure Arc 외부 PostgreSQL에서 작동하는 모든 도구는 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 작동합니다.
 
 
 따라서 Postgres에 대해 지금 사용하는 도구 세트로 다음을 수행할 수 있습니다.
 1. Azure Arc 외부에 호스트된 인스턴스에서 Postgres 데이터베이스를 백업합니다.
-2. Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 복원
+2. Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 데이터베이스를 복원합니다.
 
 사용자가 수행할 수 있는 작업은 다음과 같습니다.
 - 서버 매개 변수 재설정
@@ -44,6 +44,8 @@ Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹은 PostgreSQL의 �
 - `pg_restore`
 - `psql`
 - ...
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ## <a name="example"></a>예제
 `pgAdmin` 도구를 사용하여 단계를 설명해 보겠습니다.
@@ -68,13 +70,13 @@ Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹은 PostgreSQL의 �
 백업이 성공적으로 완료됩니다.  
 :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="마이그레이션-원본-백업-완료됨":::
 
-### <a name="create-an-empty-database-on-the-destination-system-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 대상 시스템에서 빈 데이터베이스를 만듭니다.
+### <a name="create-an-empty-database-on-the-destination-system-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 대상 시스템에서 빈 데이터베이스 만들기
 
 > [!NOTE]
 > `pgAdmin` 도구에 Postgres 인스턴스를 등록하려면 Kubernetes 클러스터에서 인스턴스의 공용 IP를 사용하고 포트 및 보안 컨텍스트를 적절하게 설정해야 합니다. 다음 명령을 실행한 후 `psql` 엔드포인트 줄에서 해당 세부 정보를 찾을 수 있습니다.
 
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 다음과 같은 출력을 반환합니다.
 ```console
@@ -112,7 +114,7 @@ azdata arc postgres endpoint list -n postgres01
    복원에 성공했습니다.  
    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="마이그레이션-데이터베이스-복원-완료됨":::
 
-### <a name="verify-that-the-database-was-successfully-restored-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>데이터베이스가 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 성공적으로 복원되었는지 확인합니다.
+### <a name="verify-that-the-database-was-successfully-restored-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>데이터베이스가 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 성공적으로 복원되었는지 확인
 
 다음 방법 중 하나를 사용할 수 있습니다.
 
@@ -128,8 +130,8 @@ Arc 설정 내에서 `psql`를 사용하여 Postgres 인스턴스에 연결하�
 
 1. `psql` 연결 문자열에서 도움을 주는 엔드포인트를 나열합니다.
 
-   ```console
-   azdata arc postgres endpoint list -n postgres01
+   ```azurecli
+   az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
    [
      {
        "Description": "PostgreSQL Instance",
@@ -179,7 +181,7 @@ Arc 설정 내에서 `psql`를 사용하여 Postgres 인스턴스에 연결하�
    ```
 
 > [!NOTE]
-> - 규모를 확장하고 PostgreSQL 하이퍼스케일 서버 그룹의 작업자 노드에 데이터를 분할/분산시키기 전까지 Azure Arc 지원 PostgreSQL 하이퍼스케일에서 실행에 있어 성능상 이점이 별로 없습니다. [다음 단계](#next-steps)를 참조하세요.
+> - 스케일 아웃하고 PostgreSQL 하이퍼스케일 서버 그룹의 작업자 노드에 데이터를 분할/분산하기 전에는 Azure Arc 지원 PostgreSQL 하이퍼스케일에서 실행해도 성능이 크게 향상되지 않습니다. [다음 단계](#next-steps)를 참조하세요.
 >
 > - 현재 온-프레미스 또는 기타 클라우드에서 실행되는 기존 Postgres 인스턴스를 “Azure Arc에 온보딩”할 수 없습니다. 즉, 기존 Postgres 인스턴스에 일종의 “Azure Arc 에이전트”를 설치하여 Azure Arc에서 사용할 수 있는 Postgres 설정으로 만들 수 없습니다. 대신 새 Postgres 인스턴스를 만들고 여기에 데이터를 전송해야 합니다. 위에 표시된 방법을 사용하여 이 작업을 수행하거나 원하는 ETL 도구를 사용할 수 있습니다.
 
@@ -194,6 +196,6 @@ Arc 설정 내에서 `psql`를 사용하여 Postgres 인스턴스에 연결하�
     * [다중 테넌트 데이터베이스 설계](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [실시간 분석 대시보드 설계](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> *이 문서에서는 **Azure Portal에 로그인** 섹션을 건너뛰고 **Postgres-하이퍼스케일(Citus)에 대한 Azure 데이터베이스를 만듭니다**. Azure Arc 배포의 나머지 단계를 구현합니다. 이러한 섹션은 Azure 클라우드에서 PaaS 서비스로 제공되는 Azure Database용 PostgreSQL 하이퍼스케일(Citus)에 한정되지만, 문서의 다른 부분은 Azure Arc 지원 PostgreSQL 하이퍼스케일에 직접 적용할 수 있습니다.
+> *이 문서에서는 **Azure Portal에 로그인** 섹션을 건너뛰고 **Postgres-하이퍼스케일(Citus)에 대한 Azure 데이터베이스를 만듭니다**. Azure Arc 배포의 나머지 단계를 구현합니다. 이 섹션은 Azure 클라우드에서 PaaS 서비스로 제공되는 Azure Database for PostgreSQL 하이퍼스케일(Citus)에 한정되지만, 문서의 다른 부분은 Azure Arc 지원 PostgreSQL 하이퍼스케일에 직접 적용할 수 있습니다.
 
 - [Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-in-postgresql-hyperscale-server-group.md)

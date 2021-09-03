@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate 어플라이언스
 description: Azure Migrate 어플라이언스에 대한 지원 요약을 제공합니다.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 7a660b6da0d391e7e2671302432c937b5142f4b0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d8aa5f6bf955bcc3ee3fa86c17375d47402628ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747728"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528246"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -23,8 +23,8 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 **시나리오** | **도구** | **용도**
 --- | --- | ---
-**VMware 환경에서 실행되는 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | VMware 환경 내에서 실행되는 서버 검색<br/><br/> 설치된 소프트웨어 인벤토리 검색 및 에이전트 없는 종속성 분석을 수행하고 SQL Server 인스턴스와 데이터베이스를 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
-**VMware 환경에서 실행되는 에이전트 없는 서버 마이그레이션** | Azure Migrate: 서버 마이그레이션 | VMware 환경 내에서 실행되는 서버를 검색합니다. <br/><br/> 서버에 에이전트를 설치하지 않고 서버를 복제합니다.
+**VMware 환경에서 실행되는 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | VMware 환경 내에서 실행되는 서버 검색<br/><br/> 설치된 소프트웨어 인벤토리, ASP.NET 웹앱, SQL Server 인스턴스 및 데이터베이스, 에이전트 없는 종속성 분석을 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
+**VMware 환경에서 실행되는 에이전트 없는 서버 마이그레이션** | Azure Migrate: Server Migration | VMware 환경 내에서 실행되는 서버를 검색합니다. <br/><br/> 서버에 에이전트를 설치하지 않고 서버를 복제합니다.
 **Hyper-V 환경에서 실행되는 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | Hyper-V 환경 내에서 실행되는 서버를 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
 **온-프레미스에서 물리적 또는 가상화된 서버 검색 및 평가** |  Azure Migrate: 검색 및 평가 |  온-프레미스에서 물리적 또는 가상화된 서버를 검색합니다.<br/><br/> 평가를 위해 서버 구성 및 성능 메타데이터를 수집합니다.
 
@@ -44,45 +44,45 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 **요구 사항** | **VMware**
 --- | ---
-**권한** | 어플라이언스 구성 관리자를 로컬로 또는 원격으로 액세스하려면 어플라이언스 서버에 대한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
-**어플라이언스 서비스** | 어플라이언스에는 다음 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버에 대한 검색 및 평가를 시작하기 위해 원본 세부 정보를 사용하여 구성할 수 있는 웹 애플리케이션입니다.<br/> - **VMware 검색 에이전트**: 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타데이터를 수집합니다.<br/>- **VMware 평가 에이전트**: 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타데이터를 수집합니다.<br/>- **자동 업데이트 서비스**: 이 서비스는 어플라이언스에서 실행되는 모든 에이전트를 최신 상태로 유지합니다. 자동으로 24시간마다 한 번씩 실행됩니다.<br/>- **DRA 에이전트**: VM 복제를 오케스트레이션하고, 복제된 서버와 Azure 간의 통신을 조정합니다. 에이전트 없는 마이그레이션을 사용하여 서버를 Azure에 복제할 때만 사용됩니다.<br/>- **게이트웨이**: 복제된 데이터를 Azure에 보냅니다. 에이전트 없는 마이그레이션을 사용하여 서버를 Azure에 복제할 때만 사용됩니다.<br/>- **SQL 검색 및 평가 에이전트**: SQL Server 인스턴스 및 데이터베이스의 구성 및 성능 메타데이터를 Azure에 보냅니다.
+**권한** | 어플라이언스 구성 관리자를 로컬이나 원격으로 액세스하려면 어플라이언스 서버에 대한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
+**어플라이언스 서비스** | 어플라이언스에는 다음 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버 검색 및 평가를 시작하기 위해 원본 세부 정보로 구성할 수 있는 웹 애플리케이션입니다.<br/> - **VMware 검색 에이전트**: 이 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타데이터를 수집합니다.<br/>- **VMware 평가 에이전트**: 이 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타데이터를 수집합니다.<br/>- **자동 업데이트 서비스**: 이 서비스는 어플라이언스에서 실행되는 모든 에이전트를 최신 상태로 유지합니다. 자동으로 24시간마다 한 번씩 실행됩니다.<br/>- **DRA 에이전트**: VM 복제를 오케스트레이션하고, 복제된 서버와 Azure 간의 통신을 조정합니다. 에이전트 없는 마이그레이션을 사용하여 서버를 Azure에 복제할 때만 사용됩니다.<br/>- **게이트웨이**: 복제된 데이터를 Azure에 보냅니다. 에이전트 없는 마이그레이션을 사용하여 서버를 Azure에 복제할 때만 사용됩니다.<br/>- **SQL 검색 및 평가 에이전트**: SQL Server 인스턴스 및 데이터베이스의 구성 및 성능 메타데이터를 Azure에 보냅니다.<br/>- **웹앱 검색 및 평가 에이전트**: 웹앱 구성 데이터를 Azure에 보냅니다.
 **프로젝트 제한** |  한 어플라이언스는 단일 프로젝트에만 등록할 수 있습니다.<br/> 단일 프로젝트에 등록된 기기가 여러 개 있을 수 있습니다.
 **검색 제한** | 어플라이언스는 vCenter Server에서 실행되는 서버를 최대 10,000대까지 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
 **지원되는 배포** | OVA 템플릿을 사용하여 vCenter Server에서 실행되는 새 서버로 배포합니다.<br/><br/> PowerShell 설치 프로그램 스크립트를 사용하여 Windows Server 2016을 실행하는 기존 서버에 배포합니다.
-**OVA 템플릿** | 프로젝트 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140333)에서 다운로드<br/><br/> 다운로드 크기는 11.9GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다.<br/>평가 기간이 곧 만료되는 경우 OVA 템플릿을 사용하여 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 서버의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
+**OVA 템플릿** | 프로젝트 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140333)에서 다운로드<br/><br/> 다운로드 크기는 11.9GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다.<br/>평가 기간이 곧 만료되는 경우 OVA 템플릿을 사용하여 새 어플라이언스를 다운로드하고 배포하거나 어플라이언스 서버의 운영 체제 라이선스를 활성화하는 것이 좋습니다.
 **OVA 확인** | 해시 값을 확인하여 프로젝트에서 다운로드한 OVA 템플릿을 [확인](tutorial-discover-vmware.md#verify-security)합니다.
 **PowerShell 스크립트** | PowerShell 설치 프로그램 스크립트를 사용하여 어플라이언스를 배포하는 방법은 이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-vmware)를 참조하세요.<br/><br/> 
-**하드웨어 및 네트워크 요구 사항** |  어플라이언스는 Windows Server 2016, 32GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 서버에서 실행해야 합니다.<br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> OVA 템플릿을 사용하여 어플라이언스를 배포하는 경우 vCenter Server에 충분한 리소스가 있어야 하드웨어 요구 사항을 충족하는 서버를 만들 수 있습니다.<br/><br/> 기존 서버에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하며 하드웨어 요구 사항을 충족하는지 확인합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
+**하드웨어 및 네트워크 요구 사항** |  어플라이언스는 Windows Server 2016, 32GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 서버에서 실행해야 합니다.<br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> OVA 템플릿을 사용하여 어플라이언스를 배포하는 경우 vCenter Server에 충분한 리소스가 있어야 하드웨어 요구 사항을 충족하는 서버를 만들 수 있습니다.<br/><br/> 기존 서버에서 어플라이언스를 실행하는 경우 어플라이언스가 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
 **VMware 요구 사항** | VCenter Server에서 어플라이언스를 서버로 배포하는 경우 5.5, 6.0, 6.5, 6.7 또는 7.0 버전을 실행하는 vCenter Server 및 5.5 버전 이상을 실행하는 ESXi 호스트에 배포해야 합니다.<br/><br/> 
-**VDDK(에이전트 없는 마이그레이션)** | 서버의 에이전트 없는 마이그레이션을 위한 어플라이언스를 활용하려면 VMware vSphere VDDK를 어플라이언스 서버에 설치해야 합니다.
+**VDDK(에이전트 없는 마이그레이션)** | 서버의 에이전트 없는 마이그레이션을 위해 어플라이언스를 사용하려면 어플라이언스 서버에 VMware vSphere VDDK를 설치해야 합니다.
 
 ## <a name="appliance---hyper-v"></a>어플라이언스 - Hyper-V
 
 **요구 사항** | **Hyper-V**
 --- | ---
-**권한** | 어플라이언스 구성 관리자를 로컬로 또는 원격으로 액세스하려면 어플라이언스 서버에 대한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
-**어플라이언스 서비스** | 어플라이언스에는 다음 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버에 대한 검색 및 평가를 시작하기 위해 원본 세부 정보를 사용하여 구성할 수 있는 웹 애플리케이션입니다.<br/> - **검색 에이전트**: 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타데이터를 수집합니다.<br/>- **평가 에이전트**: 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타데이터를 수집합니다.<br/>- **자동 업데이트 서비스**: 이 서비스는 어플라이언스에서 실행되는 모든 에이전트를 최신 상태로 유지합니다. 자동으로 24시간마다 한 번씩 실행됩니다.
+**권한** | 어플라이언스 구성 관리자를 로컬이나 원격으로 액세스하려면 어플라이언스 서버에 대한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
+**어플라이언스 서비스** | 어플라이언스에는 다음 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버 검색 및 평가를 시작하기 위해 원본 세부 정보로 구성할 수 있는 웹 애플리케이션입니다.<br/> - **검색 에이전트**: 이 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타데이터를 수집합니다.<br/>- **평가 에이전트**: 이 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타데이터를 수집합니다.<br/>- **자동 업데이트 서비스**: 이 서비스는 어플라이언스에서 실행되는 모든 에이전트를 최신 상태로 유지합니다. 자동으로 24시간마다 한 번씩 실행됩니다.
 **프로젝트 제한** |  한 어플라이언스는 단일 프로젝트에만 등록할 수 있습니다.<br/> 단일 프로젝트에 등록된 기기가 여러 개 있을 수 있습니다.
 **검색 제한** | 어플라이언스는 Hyper-v 환경에서 실행되는 서버를 최대 5000개까지 검색할 수 있습니다.<br/> 어플라이언스는 최대 300개의 Hyper-V 호스트에 연결할 수 있습니다.
 **지원되는 배포** | VHD 템플릿을 사용하여 Hyper-V 호스트에서 실행되는 서버로 배포합니다.<br/><br/> PowerShell 설치 프로그램 스크립트를 사용하여 Windows Server 2016을 실행하는 기존 서버에 배포합니다.
 **VHD 템플릿** | VHD를 포함하는 Zip 파일입니다. 프로젝트 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140422)에서 다운로드합니다.<br/><br/> 다운로드 크기는 8.91GB입니다.<br/><br/> 다운로드한 어플라이언스 템플릿에는 180일 동안 유효한 Windows Server 2016 평가 라이선스가 제공됩니다.<br/> 평가 기간이 곧 만료되는 경우 새 어플라이언스를 다운로드하여 배포하거나 어플라이언스 서버의 운영 체제 라이선스에 대한 정품 인증을 수행하는 것이 좋습니다.
 **VHD 확인** | 해시 값을 확인하여 프로젝트에서 다운로드한 VHD 템플릿을 [확인](tutorial-discover-hyper-v.md#verify-security)합니다.
 **PowerShell 스크립트** | PowerShell 설치 프로그램 스크립트를 사용하여 어플라이언스를 배포하는 방법은 이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)를 참조하세요.<br/>
-**하드웨어 및 네트워크 요구 사항**  |  어플라이언스는 Windows Server 2016, 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 서버에서 실행해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> Hyper-V 호스트에서 실행되는 서버로 어플라이언스를 실행하는 경우 호스트에 충분한 리소스가 있어야 하드웨어 요구 사항을 충족하는 서버를 만들 수 있습니다.<br/><br/> 기존 서버에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하며 하드웨어 요구 사항을 충족하는지 확인합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
+**하드웨어 및 네트워크 요구 사항**  |  어플라이언스는 Windows Server 2016, 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지 및 외부 가상 스위치가 있는 서버에서 실행해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> Hyper-V 호스트에서 실행되는 서버로 어플라이언스를 실행하는 경우 호스트에 충분한 리소스가 있어야 하드웨어 요구 사항을 충족하는 서버를 만들 수 있습니다.<br/><br/> 기존 서버에서 어플라이언스를 실행하는 경우 어플라이언스가 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
 **Hyper-V 요구 사항** | VHD 템플릿을 사용하여 어플라이언스를 배포하는 경우 Azure Migrate에서 제공하는 어플라이언스는 Hyper-V VM 버전 5.0입니다.<br/><br/> Hyper-V 호스트에서 Windows Server 2012 R2 이상을 실행해야 합니다.
 
 ## <a name="appliance---physical"></a>어플라이언스 - 물리적 서버
 
 **요구 사항** | **물리적 서버**
 --- | ---
-**권한** | 어플라이언스 구성 관리자를 로컬로 또는 원격으로 액세스하려면 어플라이언스 서버에 대한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
-**어플라이언스 서비스** | 어플라이언스에는 다음 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버에 대한 검색 및 평가를 시작하기 위해 원본 세부 정보를 사용하여 구성할 수 있는 웹 애플리케이션입니다.<br/> - **검색 에이전트**: 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타데이터를 수집합니다.<br/>- **평가 에이전트**: 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타데이터를 수집합니다.<br/>- **자동 업데이트 서비스**: 이 서비스는 어플라이언스에서 실행되는 모든 에이전트를 최신 상태로 유지합니다. 자동으로 24시간마다 한 번씩 실행됩니다.
+**권한** | 어플라이언스 구성 관리자를 로컬이나 원격으로 액세스하려면 어플라이언스 서버에 대한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
+**어플라이언스 서비스** | 어플라이언스에는 다음 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버 검색 및 평가를 시작하기 위해 원본 세부 정보로 구성할 수 있는 웹 애플리케이션입니다.<br/> - **검색 에이전트**: 이 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타데이터를 수집합니다.<br/>- **평가 에이전트**: 이 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타데이터를 수집합니다.<br/>- **자동 업데이트 서비스**: 이 서비스는 어플라이언스에서 실행되는 모든 에이전트를 최신 상태로 유지합니다. 자동으로 24시간마다 한 번씩 실행됩니다.
 **프로젝트 제한** |  한 어플라이언스는 단일 프로젝트에만 등록할 수 있습니다.<br/> 단일 프로젝트에 등록된 기기가 여러 개 있을 수 있습니다.<br/>
 **검색 제한** | 어플라이언스는 최대 1,000개의 물리적 서버를 검색할 수 있습니다.
 **지원되는 배포** | PowerShell 설치 프로그램 스크립트를 사용하여 Windows Server 2016을 실행하는 기존 서버에 배포합니다.
 **PowerShell 스크립트** | 스크립트(AzureMigrateInstaller.ps1)를 프로젝트 또는 [여기서](https://go.microsoft.com/fwlink/?linkid=2140334) zip 파일로 다운로드합니다. [자세히 알아봅니다](tutorial-discover-physical.md).<br/><br/> 다운로드 크기는 85.8MB입니다.
 **스크립트 확인** | 해시 값을 확인하여 프로젝트에서 다운로드한 PowerShell 설치 프로그램 스크립트를 [확인](tutorial-discover-physical.md#verify-security)합니다.
-**하드웨어 및 네트워크 요구 사항** |  어플라이언스는 Windows Server 2016, 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지가 있는 서버에서 실행해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 기존 서버에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하며 하드웨어 요구 사항을 충족하는지 확인합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
+**하드웨어 및 네트워크 요구 사항** |  어플라이언스는 Windows Server 2016, 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지가 있는 서버에서 실행해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 기존 서버에서 어플라이언스를 실행하는 경우 어플라이언스가 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
 
 ## <a name="url-access"></a>URL 액세스
 
@@ -97,12 +97,11 @@ Azure Migrate 어플라이언스는 인터넷에 연결해야 합니다.
 **URL** | **세부 정보**  
 --- | --- |
 *.portal.azure.com  | Azure Portal로 이동합니다.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Azure 구독에 로그인합니다.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Azure AD(Active Directory) 앱을 만듭니다.
-management.azure.com | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Microsoft Azure AD 앱을 만듭니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com  <br/> *.microsoftazuread-sso.com | Azure Active Directory에서 액세스 제어와 ID 관리에 사용됩니다.
+management.azure.com | 리소스 배포와 관리 작업에 사용됩니다.
 *.services.visualstudio.com | 내부 모니터링에 사용되는 어플라이언스 로그를 업로드합니다.
 *.vault.azure.net | Azure Key Vault에서 비밀을 관리합니다.<br/> 참고: 복제할 서버에서 이 URL에 액세스할 수 있는지 확인합니다.
-aka.ms/* | aka 링크에 대한 액세스를 허용합니다. 어플라이언스 서비스의 최신 업데이트를 다운로드 및 설치하는 데 사용됩니다.
+aka.ms/* | 다음 링크에 대한 액세스를 허용합니다. 어플라이언스 서비스의 최신 업데이트를 다운로드하고 설치하는 데 사용됩니다.
 download.microsoft.com/download | Microsoft 다운로드 센터에서 다운로드할 수 있습니다.
 \*.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신입니다.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Azure Migrate 서비스 URL에 연결합니다.
@@ -115,11 +114,11 @@ download.microsoft.com/download | Microsoft 다운로드 센터에서 다운로�
 --- | --- |
 *.portal.azure.us  | Azure Portal로 이동합니다.
 graph.windows.net | Azure 구독에 로그인합니다.
-login.microsoftonline.us  | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Azure AD(Active Directory) 앱을 만듭니다.
-management.usgovcloudapi.net | 어플라이언스에서 Azure Migrate 서비스와 통신할 수 있도록 Azure AD 앱을 만듭니다.
+login.microsoftonline.us  | Azure Active Directory에서 액세스 제어와 ID 관리에 사용됩니다.
+management.usgovcloudapi.net |  리소스 배포와 관리 작업에 사용됩니다.
 *.services.visualstudio.com | 내부 모니터링에 사용되는 어플라이언스 로그를 업로드합니다.
 *.vault.usgovcloudapi.net | Azure Key Vault에서 비밀을 관리합니다.
-aka.ms/* | aka 링크에 대한 액세스를 허용합니다. 어플라이언스 서비스의 최신 업데이트를 다운로드 및 설치하는 데 사용됩니다.
+aka.ms/* | 다음 링크에 대한 액세스를 허용합니다. 어플라이언스 서비스의 최신 업데이트를 다운로드하고 설치하는 데 사용됩니다.
 download.microsoft.com/download | Microsoft 다운로드 센터에서 다운로드할 수 있습니다.
 *.servicebus.usgovcloudapi.net  | 어플라이언스와 Azure Migrate 서비스 간의 통신입니다.
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Azure Migrate 서비스 URL에 연결합니다.
@@ -129,16 +128,15 @@ download.microsoft.com/download | Microsoft 다운로드 센터에서 다운로�
 
 ### <a name="public-cloud-urls-for-private-link-connectivity"></a>프라이빗 링크 연결에 대한 퍼블릭 클라우드 URL
 
-어플라이언스는 프라이빗 링크 액세스를 통해 다음 URL(직접 또는 프록시를 통해)에 액세스해야 합니다. 
+어플라이언스는 프라이빗 링크 액세스를 통해 다음 URL(직접 또는 프록시를 통해)에 액세스해야 합니다.
 
 **URL** | **세부 정보**  
---- | --- | 
+--- | --- |
 *.portal.azure.com  | Azure Portal로 이동합니다.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Azure 구독에 로그인합니다.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Azure AD(Active Directory) 앱을 만듭니다.
-management.azure.com | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Microsoft Azure AD 앱을 만듭니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> *.microsoftazuread-sso.com  | Azure Active Directory에서 액세스 제어와 ID 관리에 사용됩니다.
+management.azure.com |  리소스 배포와 관리 작업에 사용됩니다.
 *.services.visualstudio.com(선택 사항) | 내부 모니터링에 사용되는 어플라이언스 로그를 업로드합니다.
-aka.ms/*(선택 사항) | aka 링크에 대한 액세스를 허용합니다. 어플라이언스 서비스의 최신 업데이트를 다운로드 및 설치하는 데 사용됩니다.
+aka.ms/*(선택 사항) | 다음 링크에 대한 액세스를 허용합니다. 어플라이언스 서비스의 최신 업데이트를 다운로드하고 설치하는 데 사용됩니다.
 download.microsoft.com/download | Microsoft 다운로드 센터에서 다운로드할 수 있습니다.
 \*.servicebus.windows.net | **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/> 어플라이언스와 Azure Migrate 서비스 간의 통신입니다.
 \*.hypervrecoverymanager.windowsazure.com | **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/> Azure Migrate 서비스 URL에 연결합니다.
@@ -248,6 +246,15 @@ Parent  | Get-WindowsFeature  | Parent
 버전  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | 버전
 서비스 팩  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | SP
 버전  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | 버전
+
+#### <a name="aspnet-web-apps-data"></a>ASP.NET 웹앱 데이터
+
+어플라이언스가 VMware 환경에서 검색된 각 Windows 서버로부터 수집하는 웹앱 구성 데이터는 다음과 같습니다.
+
+**엔터티** | **데이터**
+--- | ---
+웹앱 | 애플리케이션 이름 <br/>구성 경로 <br/>프런트 엔드 바인딩 <br/>사용으로 설정된 프레임워크 <br/>호스팅 웹 서버<br/>하위 애플리케이션과 가상 애플리케이션 <br/>애플리케이션 풀 이름 <br/>런타임 버전 <br/>관리형 파이프라인 모드
+웹 서버 | 서버 이름 <br/>서버 유형(현재 IIS만 해당) <br/>구성 위치 <br/>버전 <br/>FQDN <br/>검색에 사용되는 자격 증명 <br/>애플리케이션 목록
 
 #### <a name="windows-server-operating-system-data"></a>Windows Server 운영 체제 데이터
 

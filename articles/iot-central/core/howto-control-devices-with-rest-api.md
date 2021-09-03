@@ -7,12 +7,12 @@ ms.date: 06/01/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 56ee24985da57c6da76638b659e5a07e68d0f516
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2e808ee2d36237a830877e7f043656ce9189bd89
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788950"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461282"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-control-devices"></a>IoT Central REST API를 사용하여 디바이스를 제어하는 방법
 
@@ -33,9 +33,9 @@ IoT Central REST API에 대한 참조 설명서는 [Azure IoT Central REST API �
 
 ## <a name="components-and-modules"></a>구성 요소 및 모듈
 
-구성 요소를 사용하면 디바이스 기능을 그룹화하고 다시 사용할 수 있습니다. 구성 요소 및 디바이스 모델에 대해 자세히 알아보려면 [IoT 플러그 앤 플레이 모델링 가이드](../../iot-pnp/concepts-modeling-guide.md)를 참조하세요.
+구성 요소를 사용하면 디바이스 기능을 그룹화하고 다시 사용할 수 있습니다. 구성 요소 및 디바이스 모델에 대해 자세히 알아보려면 [IoT 플러그 앤 플레이 모델링 가이드](../../iot-develop/concepts-modeling-guide.md)를 참조하세요.
 
-모든 디바이스 템플릿에서 구성 요소를 사용하는 것은 아닙니다. 다음 스크린샷은 모든 기능이 **기본 구성 요소** 라는 단일 인터페이스에 정의된 간단한 [자동 온도 조절기](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json)의 디바이스 템플릿을 보여 줍니다.
+모든 디바이스 템플릿에서 구성 요소를 사용하는 것은 아닙니다. 다음 스크린샷은 모든 기능이 **루트 구성 요소** 라는 단일 인터페이스에 정의된 간단한 [자동 온도 조절기](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json)의 디바이스 템플릿을 보여 줍니다.
 
 :::image type="content" source="media/howto-control-devices-with-rest-api/thermostat-device.png" alt-text="구성 요소가 없는 간단한 자동 온도 조절기 디바이스를 보여 주는 스크린샷":::
 
@@ -485,4 +485,4 @@ GET https://{your app subdomain}.azureiotcentral.com/api/devices/temperature-con
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 REST API를 사용하여 디바이스를 제어하는 방법을 알아봤으므로, 제안된 다음 단계는 [REST API를 사용하여 IoT Central 애플리케이션을 관리](/learn/modules/manage-iot-central-apps-with-rest-api/)하는 것입니다.
+이제 REST API를 사용하여 디바이스를 제어하는 방법을 알아봤으므로, 다음 단계에서는 [IoT Central REST API를 사용하여 작업을 만들고 관리하는 방법](howto-manage-jobs-with-rest-api.md)을 알아보는 것이 좋습니다.

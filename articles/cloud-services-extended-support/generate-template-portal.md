@@ -8,16 +8,16 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 03/07/2021
 ms.custom: ''
-ms.openlocfilehash: a4f206d68df3cd8dd4dd5b1b411d316e7aacde92
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 6654d1e167eefea1544262dab279b15b87b6b2ba
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077114"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460298"
 ---
 # <a name="generate-arm-template-for-cloud-services-extended-support-using-the-azure-portal"></a>Azure Portal를 사용하여 Cloud Services(확장 지원)를 위한 ARM 템플릿 생성
 
-이 문서에서는 클라우드 서비스를 위한 [Azure Portal](https://portal.azure.com)에서 ARM 템플릿 및 매개 변수 파일을 다운로드하는 방법을 설명합니다. ARM 템플릿 및 매개 변수 파일은 Powershell을 통한 배포에서 클라우드 서비스를 만들거나 업데이트하는 데 사용할 수 있습니다.
+이 문서에서는 클라우드 서비스를 위한 [Azure Portal](https://portal.azure.com)에서 ARM 템플릿 및 매개 변수 파일을 다운로드하는 방법을 설명합니다. ARM 템플릿과 매개 변수 파일은 PowerShell을 통한 배포에서 클라우드 서비스를 만들거나 업데이트하는 데 사용할 수 있습니다.
 
 ## <a name="get-arm-template-via-portal"></a>포털을 통해 ARM 템플릿 가져오기
 
@@ -34,6 +34,6 @@ ms.locfileid: "106077114"
     :::image type="content" source="media/download-template-portal-2.png" alt-text="이미지는 Azure Portal의 패키지 SAS URI 및 구성 SAS URI 매개 변수를 표시합니다.":::
   
 ## <a name="next-steps"></a>다음 단계 
-- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 - [Azure Portal](deploy-portal.md)을 사용한 클라우드 서비스(추가 지원) 배포
   

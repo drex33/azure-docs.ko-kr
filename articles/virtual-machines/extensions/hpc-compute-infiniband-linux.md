@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cef84415deb9b108dce4016fc76265f077695898
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 18e7132d6c767ecd1a7cd085d5b563a89d6af300
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662817"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446088"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Linux용 InfiniBand 드라이버 확장
 
 이 확장은 Linux를 실행하는 InfiniBand 및 SR-IOV 사용('r' 크기) [H 시리즈](../sizes-hpc.md) 및 [N 시리즈](../sizes-gpu.md) VM에 InfiniBand OFED 드라이버를 설치합니다. VM 제품군에 따라 확장은 Connect-X NIC에 적절한 드라이버를 설치합니다.
 
-OFED 드라이버의 수동 설치에 대한 지침은 [여기](../workloads/hpc/enable-infiniband.md#manual-installation)에서 확인할 수 있습니다.
+OFED 드라이버의 수동 설치에 대한 지침은 [HPC VM에서 InfiniBand 사용](../workloads/hpc/enable-infiniband.md#manual-installation)에서 확인할 수 있습니다.
 
 [Windows VM](hpc-compute-infiniband-windows.md)용 InfiniBand 드라이버를 설치하기 위한 확장도 사용할 수 있습니다.
 

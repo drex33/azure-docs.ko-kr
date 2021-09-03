@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: b1a56c8acf1789690c01f1c16b7c37a237720e39
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4fdcf88200b3c2a6b5371633c10d9246cfbf4c31
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564877"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730247"
 ---
 # <a name="limitations-of-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일의 제한 사항
 
@@ -39,7 +39,7 @@ ms.locfileid: "105564877"
 
 ## <a name="roles-and-responsibilities"></a>역할 및 책임
 
-Microsoft와 고객 간의 역할 및 책임은 Azure PaaS 서비스(Platform As A Service)와 Azure 하이브리드(예: Azure Arc 지원 PostgreSQL 하이퍼스케일) 간에 서로 다릅니다. 
+Microsoft와 고객 간의 역할과 책임은 Azure PaaS 서비스(Platform As A Service)와 Azure 하이브리드(예: Azure Arc 지원 PostgreSQL 하이퍼스케일) 간에 서로 다릅니다. 
 
 ### <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -59,7 +59,7 @@ __Microsoft에서 Azure Arc 하이브리드 서비스에 대한 SLA를 제공하
 
 ## <a name="next-steps"></a>다음 단계
 
-- **사용해 보기.** AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)를 사용하여 빠르게 시작하세요. 
+- **사용해보기.** AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), Google GKE(Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc 빠른 시작](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)을 사용하여 빠르게 시작하세요. 
 
 - **나만의 인프라 생성.** 고유한 Kubernetes 클러스터에 만들려면 다음 단계를 따르세요. 
    1. [클라이언트 도구 설치](install-client-tools.md)
@@ -68,4 +68,4 @@ __Microsoft에서 Azure Arc 하이브리드 서비스에 대한 SLA를 제공하
 
 - **Learn**
    - [Azure Arc 지원 데이터 서비스에 대해 자세히 알아보기](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
-   - [Azure Arc에 대해 자세히 알아보기](https://aka.ms/azurearc)
+   - [Azure Arc에 대해 자세히 알아보세요.](https://aka.ms/azurearc)

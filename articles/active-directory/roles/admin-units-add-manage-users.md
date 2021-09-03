@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba7c3459d5df540304b0595ac6aacf039c558d6c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6f40b395bffabd089831a7a827a4ab81e216727c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094657"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528630"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory의 관리 단위에서 사용자 추가 및 관리
 
@@ -43,9 +43,9 @@ Azure AD(Azure Active Directory)에서 관리 단위에 그룹을 추가하여 �
 
 - 사용자 프로필에서 개별 사용자 할당:
 
-   1. [Azure AD 관리 센터](https://portal.azure.com)에 로그인합니다.
+   1. [Azure Portal](https://portal.azure.com)이나 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
-   1. **사용자** 를 선택한 다음, 사용자의 프로필을 열려면 관리 단위에 할당할 사용자를 선택합니다.
+   1. **Azure Active Directory** > **사용자** 를 선택한 다음, 사용자 프로필을 열려면 관리 단위에 할당할 사용자를 선택합니다.
    
    1. **관리 단위** 를 선택합니다. 
    
@@ -55,17 +55,19 @@ Azure AD(Azure Active Directory)에서 관리 단위에 그룹을 추가하여 �
 
 - 관리 단위에서 개별 사용자 할당:
 
-   1. [Azure AD 관리 센터](https://portal.azure.com)에 로그인합니다.
-   1. **관리 단위** 를 선택한 다음, 사용자를 할당할 관리 단위를 선택합니다.
+   1. [Azure Portal](https://portal.azure.com)이나 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+   1. **Azure Active Directory** > **관리 단위** 를 선택한 다음, 사용자를 할당할 관리 단위를 선택합니다.
+
    1. **모든 사용자** 를 선택하고, **멤버 추가** 를 선택한 다음, **멤버 추가** 창에서 관리 단위에 할당할 하나 이상의 사용자를 선택합니다.
 
         ![관리 단위에 사용자를 할당하기 위한 관리 단위 "사용자" 창의 스크린샷.](./media/admin-units-add-manage-users/assign-to-admin-unit.png)
 
 - 사용자를 대량 작업으로 할당:
 
-   1. [Azure AD 관리 센터](https://portal.azure.com)에 로그인합니다.
+   1. [Azure Portal](https://portal.azure.com)이나 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
-   1. **관리 단위** 를 선택합니다.
+   1. **Azure Active Directory** > **관리 단위** 를 선택합니다.
 
    1. 사용자를 추가할 관리 단위를 선택합니다.
 

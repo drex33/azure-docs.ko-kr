@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 06/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 56a2eff6a39f879de4e9d968eb470243014cb430
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 474bb5582011c9e701a188f227a54238a9f19b57
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982037"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285574"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
 
@@ -38,7 +38,7 @@ ms.locfileid: "111982037"
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
-## <a name="register-an-application"></a>애플리케이션 등록
+## <a name="register-an-azure-ad-app"></a>Azure AD 앱 등록
 
 Azure AD B2C(Azure Active Directory B2C)에서 사용자가 Azure AD 계정으로 로그인할 수 있도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 애플리케이션을 만들어야 합니다. 자세한 내용은 [Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](../active-directory/develop/quickstart-register-app.md)을 참조하세요.
 
@@ -63,7 +63,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 사용자가 Azure AD 계정으�
 1. **인증서 및 암호** 를 선택하고 **새 클라이언트 암호** 를 선택합니다.
 1. 비밀에 **설명** 을 입력하고 만료를 선택한 다음 **추가** 를 선택합니다. 이후 단계에서 사용할 비밀의 **값** 을 기록합니다.
 
-## <a name="configuring-optional-claims"></a>선택적 클레임 구성
+### <a name="configuring-optional-claims"></a>선택적 클레임 구성
 
 Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경우 Azure Portal UI 또는 애플리케이션 매니페스트에서 애플리케이션에 대한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [Azure AD 앱에 선택적 클레임을 제공하는 방법](../active-directory/develop/active-directory-optional-claims.md)을 참조하세요.
 
@@ -75,6 +75,10 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 1. **토큰 형식** 으로 **ID** 를 선택합니다.
 1. 추가할 선택적 클레임으로 `family_name` 및 `given_name`을 선택합니다.
 1. **추가** 를 클릭합니다.
+
+## <a name="optional-verify-your-app-authenticity"></a>[선택 사항] 앱 신뢰성 확인
+
+[게시자 확인](../active-directory/develop/publisher-verification-overview.md)을 통해 사용자는 [등록된](#register-an-azure-ad-app) 앱의 신뢰성을 파악할 수 있습니다. 확인된 앱은 앱의 게시자가 MPN(Microsoft 파트너 네트워크)을 사용하여 ID를 [확인했음](/partner-center/verification-responses)을 의미합니다. [앱을 게시자 확인으로 표시](../active-directory/develop/mark-app-as-publisher-verified.md)하는 방법을 알아봅니다. 
 
 ## <a name="create-a-policy-key"></a>정책 키 만들기
 
@@ -201,8 +205,6 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 정책을 사용하는 경우 개발하는 동안 정책 문제를 해결할 때 추가 정보가 필요할 수 있습니다.
-
-문제를 진단하는 데 도움이 되도록 정책을 일시적으로 "개발자 모드"로 지정하여 Azure Application Insights에서 로그를 수집할 수 있습니다. [Azure Active Directory B2C: 로그 수집](troubleshoot-with-application-insights.md)에서 방법을 알아보세요.
+[Azure AD 토큰을 애플리케이션에 전달](idp-pass-through-user-flow.md)하는 방법을 알아봅니다.
 
 ::: zone-end

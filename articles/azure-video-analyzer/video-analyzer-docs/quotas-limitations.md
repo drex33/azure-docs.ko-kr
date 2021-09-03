@@ -3,13 +3,13 @@ title: Azure Video Analyzer 할당량 및 제한 사항 - Azure
 description: 이 문서에서는 Azure Video Analyzer 할당량 및 제한 사항을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 05/26/2021
-ms.openlocfilehash: d4bc488411319832b59540fb1392b5d3259cef69
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.date: 06/01/2021
+ms.openlocfilehash: a94ebd36728519b7ae73d9cc48c82097dcfdbb21
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652190"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602079"
 ---
 # <a name="video-analyzer-quotas-and-limitations"></a>Video Analyzer 할당량 및 제한 사항
 
@@ -60,7 +60,9 @@ Edge 모듈을 작동 상태로 복원하려면 모듈이 Azure Video Analyzer �
 ### <a name="supported-cameras"></a>지원되는 카메라
 RTSP 프로토콜을 지원하는 IP 카메라만 사용할 수 있습니다. [ONVIF 규격 제품](https://www.onvif.org/conformant-products) 페이지에서 RTSP를 지원하는 IP 카메라를 찾을 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다.
 
-또한 이러한 카메라는 H.264 비디오 및 AAC 오디오를 사용하도록 구성해야 합니다. 다른 코덱은 현재 지원되지 않습니다.
+H.264 비디오와 AAC 오디오를 사용하도록 카메라를 구성해야 합니다. 다른 코덱은 현재 지원되지 않습니다.
+
+Video Analyzer는 [인터리브된 RTP 스트림]( https://datatracker.ietf.org/doc/html/rfc2326#section-10.12)을 사용하는 RTSP만 지원합니다. 이 모드에서 RTP 트래픽은 RTSP TCP 연결을 통해 터널링됩니다. UDP를 통한 RTP 트래픽은 지원되지 않습니다.
 
 ### <a name="support-for-video-ai"></a>비디오 AI 지원
 HTTP 또는 gRPC 확장 프로세서는 외부 AI 모듈을 사용하여 이미지/비디오 프레임 데이터의 전송만 지원합니다. 따라서 오디오 데이터에 대한 추론 실행은 지원되지 않습니다. 결과적으로 `inputs` 중 하나로 RTSP 원본 노드가 있는 파이프라인 토폴로지의 프로세서 노드도 `outputSelectors` 속성을 사용하여 비디오만 프로세서로 전달되도록 합니다. 이 [토폴로지](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json)를 예로 참조하세요.

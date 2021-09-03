@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 27cc53c3eef1bb2a9962d2c21ae80db3c8b0383d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7958c66275bbfb3d08244c7ca81d50fca4b915d0
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585437"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529524"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL을 사용한 테이블 디자인
 
@@ -102,7 +102,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 [외부 테이블](develop-tables-external-tables.md)은 Azure Storage Blob 또는 Azure Data Lake Storage에 있는 데이터를 가리킵니다.
 
-[CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문을 사용하여 외부 테이블에서 전용 SQL 풀로 데이터를 가져옵니다. 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)를 참조하세요.
+[CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context) 문을 사용하여 외부 테이블에서 전용 SQL 풀로 데이터를 가져옵니다. 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)를 참조하세요.
 
 서버리스 SQL 풀의 경우 [CETAS](develop-tables-cetas.md)사용하여 쿼리 결과를 Azure Storage의 외부 테이블에 저장할 수 있습니다.
 
@@ -112,7 +112,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 ## <a name="distributed-tables"></a>분산 테이블
 
-전용 SQL 풀의 기본 기능은 [분산](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions)에 걸쳐 있는 테이블에 저장하고 운영할 수 있는 방법입니다.  전용 SQL 풀은 데이터를 배포하는 세 가지 방법을 지원합니다.
+전용 SQL 풀의 기본 기능은 [분산](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?context=/azure/synapse-analytics/context/context#distributions)에 걸쳐 있는 테이블에 저장하고 운영할 수 있는 방법입니다.  전용 SQL 풀은 데이터를 배포하는 세 가지 방법을 지원합니다.
 
 - 라운드 로빈(기본값)
 - 해시
@@ -122,19 +122,19 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 해시 분산 테이블은 분산 열의 값에 따라 행을 분산합니다. 해시 분산 테이블은 대형 테이블의 쿼리에 대해 고성능을 달성하도록 설계되었습니다. 배포 열을 선택할 때 고려해야 할 몇 가지 요소가 있습니다.
 
-자세한 내용은 [분산 테이블에 대한 디자인 지침](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+자세한 내용은 [분산 테이블에 대한 디자인 지침](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)을 참조하세요.
 
 ### <a name="replicated-tables"></a>복제된 테이블
 
 복제된 테이블에는 모든 컴퓨팅 노드에서 사용할 수 있는 테이블의 전체 복사본이 있습니다. 복제된 테이블 조인에는 데이터 이동이 필요 없으므로 복제된 테이블에 대한 쿼리는 빠르게 실행됩니다. 하지만 복제 시 추가 스토리지가 필요하며 대형 테이블에는 비효율적입니다.
 
-자세한 내용은 [복제된 테이블에 대한 디자인 지침](../sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+자세한 내용은 [복제된 테이블에 대한 디자인 지침](../sql-data-warehouse/design-guidance-for-replicated-tables.md?context=/azure/synapse-analytics/context/context)을 참조하세요.
 
 ### <a name="round-robin-tables"></a>라운드 로빈 테이블
 
 라운드 로빈 테이블은 테이블 행을 모든 분산에서 균일하게 배포합니다. 행은 무작위로 분산됩니다. 라운드 로빈 테이블에 대한 데이터 로드는 빠릅니다.  그러나 쿼리에는 다른 배포 방법보다 더 많은 데이터 이동이 필요할 수 있습니다.
 
-자세한 내용은 [분산 테이블에 대한 디자인 지침](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+자세한 내용은 [분산 테이블에 대한 디자인 지침](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)을 참조하세요.
 
 ### <a name="common-distribution-methods-for-tables"></a>테이블에 대한 일반적인 분산 방법
 
@@ -150,7 +150,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 전용 SQL 풀에서 분할된 테이블은 데이터 범위에 따라 테이블 행에 대한 작업을 저장하고 실행합니다. 예를 들어 테이블을 일, 월 또는 연도별로 분할할 수 있습니다. 쿼리 검색을 파티션 내의 데이터로 제한하는 파티션 제거를 통해 쿼리 성능을 향상시킬 수 있습니다.
 
-파티션 전환을 통해 데이터를 유지 관리할 수도 있습니다. 전용 SQL 풀의 데이터는 이미 분산되어 있으므로 파티션이 너무 많으면 쿼리 성능이 느려질 수 있습니다. 자세한 내용은 [분할 지침](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.  
+파티션 전환을 통해 데이터를 유지 관리할 수도 있습니다. 전용 SQL 풀의 데이터는 이미 분산되어 있으므로 파티션이 너무 많으면 쿼리 성능이 느려질 수 있습니다. 자세한 내용은 [분할 지침](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context)을 참조하세요.  
 
 > [!TIP]
 > 비어 있지 않은 테이블 파티션으로 파티션을 전환할 때 기존 데이터가 잘리는 경우 [ALTER table](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true) 문에 TRUNCATE_TARGET 옵션을 사용하는 것이 좋습니다.
@@ -200,7 +200,7 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 
 ## <a name="primary-key-and-unique-key"></a>기본 키 및 고유 키
 
-전용 SQL 풀의 경우 PRIMARY KEY는 NONCLUSTERED와 NOT ENFORCED를 모두 사용하는 경우에만 지원됩니다.  UNIQUE 제약 조건은 NOT ENFORCED를 사용하는 경우에만 지원됩니다.  자세한 내용은 [SQL 풀 테이블 제약 조건](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서를 참조하세요.
+전용 SQL 풀의 경우 PRIMARY KEY는 NONCLUSTERED와 NOT ENFORCED를 모두 사용하는 경우에만 지원됩니다.  UNIQUE 제약 조건은 NOT ENFORCED를 사용하는 경우에만 지원됩니다.  자세한 내용은 [전용 SQL 풀 테이블 제약 조건](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?context=/azure/synapse-analytics/context/context) 문서를 참조하세요.
 
 ## <a name="commands-for-creating-tables"></a>테이블을 만드는 명령
 
@@ -231,7 +231,7 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 - [인덱싱된 뷰](/sql/relational-databases/views/create-indexed-views?view=azure-sqldw-latest&preserve-view=true)
 - [시퀀스](/sql/t-sql/statements/create-sequence-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [스파스 열](/sql/relational-databases/tables/use-sparse-columns?view=azure-sqldw-latest&preserve-view=true)
-- 서로게이트 키, [ID](../sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용하여 구현
+- 서로게이트 키, [ID](../sql-data-warehouse/sql-data-warehouse-tables-identity.md?context=/azure/synapse-analytics/context/context)를 사용하여 구현
 - [동의어](/sql/t-sql/statements/create-synonym-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [트리거](/sql/t-sql/statements/create-trigger-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [고유 인덱스](/sql/t-sql/statements/create-index-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -440,4 +440,4 @@ ORDER BY    distribution_id
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터 웨어하우스에 대한 테이블을 만든 후 다음 단계는 테이블에 데이터를 로드하는 것입니다.  로드에 대한 자습서는 [전용 SQL 풀에 데이터 로드](../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#load-the-data-into-sql-pool)를 참조하세요.
+데이터 웨어하우스에 대한 테이블을 만든 후 다음 단계는 테이블에 데이터를 로드하는 것입니다.  로드에 대한 자습서는 [전용 SQL 풀에 데이터 로드](../sql-data-warehouse/load-data-wideworldimportersdw.md?context=/azure/synapse-analytics/context/context#load-the-data-into-sql-pool)를 참조하세요.

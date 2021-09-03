@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8400713ea04c3f26d18fc032b5b0d0f3b8c65068
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 6744970ec7aadfc4a9cb967c479307b441f4fb1b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061923"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453054"
 ---
 # <a name="query-csv-files"></a>CSV 파일 쿼리
 
@@ -175,25 +175,15 @@ WHERE
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'csv/population-unix-hdr/population.csv',
-        DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV', PARSER_VERSION = '2.0',
-        FIELDTERMINATOR =',',
-        FIRSTROW = 2,
-        HEADER_ROW = TRUE
-    )
-    WITH (
-        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-        [year] smallint,
-        [population] bigint
+    BULK 'csv/population-unix-hdr/population.csv',
+    DATA_SOURCE = 'SqlOnDemandDemo',
+    FORMAT = 'CSV', PARSER_VERSION = '2.0',
+    FIELDTERMINATOR =',',
+    HEADER_ROW = TRUE
     ) AS [r]
-WHERE
-    country_name = 'Luxembourg'
-    AND year = 2017;
 ```
 
-`HEADER_ROW = { TRUE | FALSE }` 옵션은 CSV 파일의 첫 번째 행을 HEADER ROW로 읽고 값을 기본 이름(C1, C2 등) 대신 열 이름으로 표시합니다.
+`HEADER_ROW = TRUE` 옵션은 파일의 헤더 행에서 열 이름을 읽습니다. 파일 내용에 익숙하지 않은 경우 탐색 용도로 사용하기에 좋습니다. 최상의 성능을 위해 [모범 사례에서 적절한 데이터 형식 사용 섹션](best-practices-serverless-sql-pool.md#use-appropriate-data-types)을 참조하세요. 또한 [여기에서 OPENROWSET 구문](develop-openrowset.md#syntax)에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="custom-quote-character"></a>사용자 지정 따옴표
 

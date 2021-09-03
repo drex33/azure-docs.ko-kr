@@ -1,19 +1,19 @@
 ---
 title: Liquid 템플릿을 통한 JSON 및 XML 변환
-description: Azure Logic Apps에서 Liquid 템플릿을 맵으로 사용하여 JSON 및 XML 변환
+description: Azure Logic Apps에서 Liquid 템플릿을 맵으로 사용하여 JSON과 XML을 변환합니다.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/31/2020
-ms.openlocfilehash: 0362c9ed4f736474dbd49e1bfaf1373e0f48acd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/25/2021
+ms.openlocfilehash: 01b5e9930353078406751001300a1baa3c23cf00
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94992712"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690557"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Azure Logic Apps에서 Liquid 템플릿을 맵으로 사용하여 JSON 및 XML 변환
 
@@ -132,9 +132,20 @@ ms.locfileid: "94992712"
 
 ## <a name="test-your-logic-app"></a>논리 앱 테스트
 
-[Postman](https://www.getpostman.com/postman) 또는 유사한 도구를 사용하여 논리 앱에 JSON 입력을 게시합니다. 논리 앱에서 변환된 JSON 출력은 이 예제와 같습니다.
+1. [Postman](https://www.getpostman.com/postman)이나 유사한 도구와 `POST` 메서드를 사용하여 요청 트리거의 URL에 대한 호출을 보내고 변환할 JSON 입력을 포함합니다. 예를 들면 다음과 같습니다.
 
-![예제 출력](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+   ```json
+   {
+      "devices": "Surface, Windows Phone, Desktop computer, Monitors",
+      "firstName": "Dean",
+      "lastName": "Ledet",
+      "phone": "(111)5551111"
+   }
+   ```
+
+1. 워크플로 실행이 완료되면 워크플로의 실행 기록으로 이동하여 **JSON을 JSON으로 변환** 작업의 입력과 출력을 검사합니다. 예를 들면 다음과 같습니다.
+
+   ![예제 출력](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
 <a name="template-considerations"></a>
 

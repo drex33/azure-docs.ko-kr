@@ -7,18 +7,17 @@ ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 95a04d763fa5982181cc1c797bce969d9857ae4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e9bb7ac183873c0fc4d97bd883ddd85110f9188
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92890635"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529229"
 ---
 # <a name="use-the-drawing-tools-module"></a>그리기 도구 모듈 사용
 
-Azure Maps 웹 SDK는 *그리기 도구 모듈* 을 제공합니다. 이 모듈을 사용하면 마우스나 터치 화면 같은 입력 장치를 사용하여 맵에서 도형을 쉽게 그리거나 편집할 수 있습니다. 이 모듈의 핵심 클래스는 [그리기 관리자](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-)입니다. 그리기 관리자는 맵에서 도형을 그리거나 편집하는 데 필요한 모든 기능을 제공합니다. 이는 직접 사용할 수 있으며, 사용자 지정 도구 모음 UI와 통합됩니다. 또한 기본 제공 [그리기 도구 모음](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) 클래스를 사용할 수 있습니다. 
+Azure Maps 웹 SDK는 *그리기 도구 모듈* 을 제공합니다. 이 모듈을 사용하면 마우스나 터치 화면 같은 입력 장치를 사용하여 맵에서 도형을 쉽게 그리거나 편집할 수 있습니다. 이 모듈의 핵심 클래스는 [그리기 관리자](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-)입니다. 그리기 관리자는 맵에서 도형을 그리거나 편집하는 데 필요한 모든 기능을 제공합니다. 이는 직접 사용할 수 있으며, 사용자 지정 도구 모음 UI와 통합됩니다. 또한 기본 제공 [그리기 도구 모음](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) 클래스를 사용할 수 있습니다.
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>웹 페이지에서 그리기 도구 모듈 로드
 
@@ -27,14 +26,14 @@ Azure Maps 웹 SDK는 *그리기 도구 모듈* 을 제공합니다. 이 모듈�
     - Azure Maps 서비스 모듈의 전역적으로 호스트된 Azure Content Delivery Network 버전을 사용합니다. 파일의 `<head>` 요소에서 JavaScript 및 CSS 스타일시트에 대한 참조를 추가합니다.
 
         ```html
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.js"></script>
         ```
 
     - 또는 [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) npm 패키지를 사용하여 Azure Maps 웹 SDK 소스 코드의 그리기 도구 모듈을 로컬로 로드한 다음 앱을 사용하여 호스트할 수 있습니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 다음 명령을 실행합니다.
-    
+
         > **npm install azure-maps-drawing-tools**
-    
+
         그런 다음 파일의 `<head>` 요소에서 JavaScript 및 CSS 스타일시트에 대한 참조를 추가합니다.
 
          ```html
@@ -102,6 +101,64 @@ Azure Maps로 펜 <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>자유롭�
 <iframe height="685" title="그리기 관리자 사용자 지정" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps으로 펜 <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>도형 데이터 가져오기</a>(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조하세요.
 </iframe>
 
+
+### <a name="put-a-shape-into-edit-mode"></a>도형을 편집 모드로 전환
+
+기존 도형을 그리기 관리자 `edit` 함수에 전달하여 프로그래밍 방식으로 편집 모드로 전환합니다. 도형이 GeoJSON 기능인 경우 전달하기 전에 `atls.Shape` 클래스로 래핑합니다.
+
+프로그래밍 방식으로 편집 모드에서 도형을 가져오려면 도면 관리자 모드를 `idle`로 설정합니다.
+
+```javascript
+//If you are starting with a GeoJSON feature, wrap it with the atlas.Shape class.
+var feature = { 
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [0,0]
+        },
+    "properties":  {}
+};
+
+var shape = new atlas.Shape(feature);
+
+//Pass the shape into the edit function of the drawing manager.
+drawingManager.edit(shape);
+
+//Later, to programmatically take shape out of edit mode, set mode to idle. 
+drawingManager.setOptions({ mode: 'idle' });
+```
+
+> [!NOTE]
+> 도형이 그리기 관리자의 `edit` 함수에 전달되면 그리기 관리자가 유지 관리하는 데이터 원본에 추가됩니다. 도형이 이전에 다른 데이터 원본에 있었던 경우 해당 데이터 원본에서 제거됩니다.
+
+최종 사용자가 보고 편집할 수 있도록 도형을 그리기 관리자에 추가하되 프로그래밍 방식으로 편집 모드로 전환하지 않으려면 그리기 관리자에서 데이터 원본을 검색하고 도형을 추가합니다.
+
+```javascript
+//The shape(s) you want to add to the drawing manager so 
+var shape = new atlas.Shape(feature);
+
+//Retrieve the data source from the drawing manager.
+var source = drawingManager.getSource();
+
+//Add your shape.
+source.add(shape);
+
+//Alternatively, load in a GeoJSON feed using the sources importDataFromUrl function.
+source.importDataFromUrl('yourFeatures.json');
+```
+
+다음 표에서는 다양한 유형의 도형 기능에서 지원하는 편집 유형을 나열합니다.
+
+| 도형 기능 | 포인트 편집 | 회전 | 도형 삭제 |
+|---------------|:-----------:|:------:|:------------:|
+| Point         | ✓           |        | ✓           |
+| LineString    | ✓           | ✓      | ✓           |
+| Polygon       | ✓           | ✓      | ✓           |
+| MultiPoint    |             | ✓      | ✓           |
+| MultiLineString |           | ✓      | ✓           |
+| MultiPolygon  |             | ✓      | ✓           |
+| Circle        | ✓           |        | ✓           |
+| 사각형     | ✓           | ✓      | ✓           |
 
 ## <a name="next-steps"></a>다음 단계
 

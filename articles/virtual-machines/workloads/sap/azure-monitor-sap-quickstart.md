@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
-ms.openlocfilehash: 33965b51895e38df67ac3a542e8b40d71cbc2912
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3acbef6c8521022ae847925e48d3cd42e13dc56e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536170"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965401"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-by-using-the-azure-portal"></a>Azure Portal을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 
@@ -219,4 +219,4 @@ Azure Portal에 NetWeaver 공급자를 설치하려면:
 SAP 솔루션을 위한 Azure Monitor에 관해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [SAP 솔루션을 위한 Azure Monitor](azure-monitor-overview.md)
+> [Azure의 SAP 모니터링](monitor-sap-on-azure.md)

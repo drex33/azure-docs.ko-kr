@@ -7,12 +7,12 @@ ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a0a7b24c2d28e27c44a130383e852838950abe49
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: d6a1d252a6b9068697fe738d4d2b1c6bbf6ceeb5
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733196"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588276"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Azure IoT Central 솔루션에서 명령을 사용하는 방법
 
@@ -39,8 +39,8 @@ ms.locfileid: "108733196"
 
 | 필드             |설명|
 |-------------------|-----------|
-|표시 이름       |대시보드 및 양식에 사용되는 명령 값입니다.|
-| Name            | 명령 이름입니다. IoT Central은 표시 이름에서 이 필드의 값을 생성하지만, 필요한 경우 사용자 고유의 값을 선택할 수 있습니다. 이 필드는 영숫자여야 합니다. 디바이스 코드는 이 **이름** 값을 사용합니다.|
+|표시 이름       |대시보드 타일과 디바이스 양식에서 사용되는 명령 값입니다.|
+| 이름            | 명령 이름입니다. IoT Central은 표시 이름에서 이 필드의 값을 생성하지만, 필요한 경우 사용자 고유의 값을 선택할 수 있습니다. 이 필드는 영숫자여야 합니다. 디바이스 코드는 이 **이름** 값을 사용합니다.|
 | 기능 유형 | 명령입니다.|
 | 오프라인 상태인 경우 큐에 넣기 | 이 명령을 오프라인 명령으로 만들지 여부입니다. |
 | 설명     | 명령 기능에 대한 설명입니다.|

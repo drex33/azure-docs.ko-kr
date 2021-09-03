@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: fe259c3858e798f9bcb72600b680f12c19055884
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 41c39a87375b66e9aaf916f927d09a3b6abb3b0e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470366"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529256"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용하여 네트워크 연결 모니터링
 
@@ -76,14 +76,14 @@ NSG(네트워크 보안 그룹) 또는 방화벽에 대한 규칙은 원본과 �
 
 연결 모니터가 온-프레미스 컴퓨터를 모니터링 원본으로 인식하도록 하려면 컴퓨터에 Log Analytics 에이전트를 설치합니다.  그런 다음, 네트워크 성능 모니터 솔루션을 사용하도록 설정합니다. 이러한 에이전트는 Log Analytics 작업 영역에 연결되므로 에이전트가 모니터링을 시작하려면 먼저 작업 영역 ID 및 기본 키를 설정해야 합니다.
 
-Windows 컴퓨터용 Log Analytics 에이전트를 설치하려면 [windows용 Azure Monitor 가상 머신 확장](../virtual-machines/extensions/oms-windows.md)을 참조하세요.
+Windows 머신에 Log Analytics 에이전트를 설치하려면 [Windows에 Log Analytics 에이전트 설치](../azure-monitor/agents/agent-windows.md)를 참조하세요.
 
 경로에 방화벽 또는 NVA(네트워크 가상 어플라이언스)가 포함된 경우에는 대상에 연결할 수 있는지 확인합니다.
 
 Windows 컴퓨터의 경우, 포트를 열려면 매개 변수 없이 PowerShell 창에서 관리자 권한으로 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 스크립트를 실행합니다.
 
 Linux 컴퓨터의 경우 사용할 portNumber를 수동으로 변경해야 합니다. 
-* /var/opt/microsoft/omsagent/npm_state 경로로 이동 
+* 다음 경로로 이동: /var/opt/microsoft/omsagent/npm_state. 
 * 파일 열기: npmdregistry
 * 포트 번호 값 변경: ```“PortNumber:<port of your choice>”```
 
@@ -279,15 +279,24 @@ Network Watcher에서 연결 모니터로 이동하면 다음과 같은 방법�
 
 Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기를 만들 수 있습니다. UI에 표시되는 모든 데이터는 Log Analytics에서 가져온 것입니다. 리포지토리의 데이터를 대화형으로 분석할 수 있습니다. 에이전트 상태 또는 Log Analytics 기반으로 하는 다른 솔루션의 데이터에 상관 관계를 지정합니다. 데이터를 Excel 또는 Power BI로 내보내거나 공유 가능한 링크를 만듭니다.
 
+#### <a name="network-topology-in-connection-monitor"></a>연결 모니터의 네트워크 토폴로지 
+
+일반적으로 연결 모니터 토폴로지는 기본적으로 원본에서 대상으로 모든 홉을 가져오는 에이전트에서 수행되는 추적 경로 명령의 결과를 사용하여 빌드됩니다.
+그러나 원본 또는 대상이 Azure 경계에 있는 경우 고유 작업 2개의 결과를 병합하여 토폴로지가 빌드됩니다.
+첫 번째는 확실히 추적 경로 명령의 결과입니다. 두 번째는 Azure 경계 내의 (고객) 네트워크 구성을 기반으로 논리 경로를 식별하는 내부 명령(NW의 Next Hop Diagnostics 도구와 매우 유사)의 결과입니다. 후자는 논리적이고 전자는 일반적으로 Azure 경계에서 홉을 식별하지 않으므로 병합된 결과의 대다수 홉(대부분 Azure 경계의 모든 홉)에는 대기 시간 값이 있습니다.
+
 #### <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
 
 연결 모니터 환경 전에 생성된 연결 모니터에서는 4가지 메트릭인 % 프로브 실패, AverageRoundtripMs, ChecksFailedPercent, RoundTripTimeMs를 모두 사용할 수 있습니다. 연결 모니터 환경에서 생성된 연결 모니터에서는 ChecksFailedPercent, RoundTripTimeMs, Test Result 메트릭에 대해서만 데이터를 사용할 수 있습니다.
+
+메트릭은 모니터링 빈도에 따라 내보내지고 특정 시간에 연결 모니터의 측면을 설명합니다. 연결 모니터 메트릭에는 SourceName, DestinationName, TestConfiguration, TestGroup 등 여러 차원이 있습니다. 이러한 차원을 사용하여 특정 데이터 세트를 시각화할 수 있으며 경고를 정의하는 동안 동일한 대상을 지정할 수도 있습니다.
+현재 Azure 메트릭은 1분의 최소 단위를 허용합니다. 빈도가 1분 미만이면 집계된 결과가 표시됩니다.
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="연결 모니터의 메트릭을 보여주는 스크린샷" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 메트릭을 사용하는 경우 리소스 종류를 Microsoft.Network/networkWatchers/connectionMonitors로 설정합니다.
 
-| 메트릭 | 표시 이름 | 단위 | 집계 유형 | Description | 차원 |
+| 메트릭 | 표시 이름 | 단위 | 집계 유형 | 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent(클래식) | 프로브 실패 %(클래식) | 백분율 | 평균 | 실패한 연결 모니터링 프로브의 백분율(%)<br>이 메트릭은 연결 모니터 클래식에만 사용할 수 있습니다  | 차원 없음 |
 | AverageRoundtripMs(클래식) | 평균 왕복 시간(ms)(클래식) | 밀리초 | 평균 | 원본과 대상 간에 전송된 연결 모니터링 프로브의 평균 네트워크 RTT<br>이 메트릭은 연결 모니터 클래식에만 사용할 수 있습니다 |             차원 없음 |
@@ -365,6 +374,37 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
 * 게이트웨이 연결에서 BGP를 사용하도록 설정되지 않았습니다.
 * 부하 분산 장치에서 DIP 프로브가 다운되었습니다.
 
+## <a name="comparision-between-azures-connectivity-monitoring-support"></a>Azure의 연결 모니터링 지원 간 비교 
+
+가동 중지 시간 없이 한 번의 클릭으로 네트워크 성능 모니터 및 연결 모니터(클래식)에서 새롭게 향상된 연결 모니터로 테스트를 마이그레이션할 수 있습니다.
+ 
+마이그레이션은 다음과 같은 결과를 생성하는 데 도움이 됩니다.
+
+* 에이전트 및 방화벽 설정이 그대로 작동합니다. 변경할 필요가 없습니다. 
+* 기존 연결 모니터는 연결 모니터 > 테스트 그룹 > 테스트 형식에 매핑됩니다. **편집** 을 선택하여 새 연결 모니터의 속성 보기 및 수정을 할 수 있고, 연결 모니터를 변경할 템플릿을 다운로드할 수 있으며, Azure Resource Manager를 통해 템플릿을 제출할 수 있습니다. 
+* Network Watcher 확장을 포함하는 Azure 가상 머신은 작업 영역과 메트릭 모두에 데이터를 보냅니다. 연결 모니터는 이전 메트릭(ProbesFailedPercent 및 AverageRoundtripMs) 대신 새 메트릭(ChecksFailedPercent 및 RoundTripTimeMs)을 통해 데이터를 사용할 수 있습니다. 이전 메트릭은 ProbesFailedPercent -> ChecksFailedPercent 및 AverageRoundtripMs -> RoundTripTimeMs로 새 메트릭으로 마이그레이션됩니다.
+* 데이터 모니터링:
+   * **경고**: 새 메트릭으로 자동으로 마이그레이션됩니다.
+   * **대시보드 및 통합**: 메트릭 집합을 수동으로 편집해야 합니다. 
+   
+네트워크 성능 모니터 및 연결 모니터(클래식)에서 연결 모니터로 마이그레이션해야 하는 몇 가지 이유가 있습니다. 다음은 Azure의 연결 모니터가 네트워크 성능 모니터 및 연결 모니터(클래식)에 대해 수행하는 방식을 보여 주는 몇 가지 사용 사례입니다. 
+
+ | 기능  | 네트워크 성능 모니터 | 연결 모니터(클래식) | 연결 모니터 |
+ | -------  | --------------------------- | -------------------------- | ------------------ | 
+ | Azure 및 하이브리드 모니터링을 위한 통합 환경 | 사용할 수 없음 | 사용할 수 없음 | 사용 가능 |
+ | 구독 간, 지역 간, 작업 영역 간 모니터링 | 구독 간, 지역 간 모니터링을 허용하지만 작업 영역 간 모니터링을 허용하지 않음 | 사용할 수 없음 | 구독 간, 작업 영역 간 모니터링을 허용함, Azure 에이전트에는 지역 경계가 있음  |
+ | 중앙 집중식 작업 영역 지원 |  사용할 수 없음 | 사용할 수 없음   | 사용 가능 |
+ | 여러 원본이 여러 대상을 ping할 수 있음 | 성능 모니터링을 사용하면 여러 원본이 여러 대상을 ping할 수 있고, 서비스 연결 모니터링을 사용하면 여러 원본이 단일 서비스/URL을 ping할 수 있으며, Express Route를 사용하면 여러 원본이 여러 대상을 ping할 수 있음 | 사용할 수 없음 | 사용 가능 |
+ | 온-프레미스, 인터넷 홉, Azure 전반에 걸친 통합 토폴로지 | 사용할 수 없음 | 사용할 수 없음 | 사용 가능 |
+ | HTTP 상태 코드 검사 | 사용할 수 없음  | 사용할 수 없음 | 사용 가능 |
+ | 연결 진단 | 사용할 수 없음 | 사용 가능 | 사용 가능 |
+ | 복합 리소스 - VNET, 서브넷, 온-프레미스 사용자 지정 네트워크 | 성능 모니터링은 서브넷, 온-프레미스 네트워크, 논리 네트워크 그룹을 지원하며, 서비스 연결 모니터링, Express Route는 온-프레미스 및 Azure 에이전트만 지원 | 사용할 수 없음 | 사용 가능 |
+ | 연결 메트릭 및 차원 측정값 |   사용할 수 없음 | 손실, 대기 시간, RTT | 사용 가능 |
+ | 자동화 – PS/CLI/Terraform | 사용할 수 없음 | 사용 가능 | 사용 가능 |
+ | Linux 지원 | 성능 모니터링은 Linux를 지원하며, 서비스 연결 모니터 및 Express Route는 Linux를 지원하지 않음 | 사용 가능 | 사용 가능 |
+ | 퍼블릭, 정부, Mooncake, Air-Gapped 클라우드 지원 | 사용 가능 | 사용 가능 | 사용 가능|
+
+
 ## <a name="faq"></a>FAQ
 
 ### <a name="are-classic-vms-supported"></a>클래식 VM이 지원되나요?
@@ -379,6 +419,9 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
 ### <a name="the-test-failure-reason-is-nothing-to-display"></a>테스트 실패 이유가 “표시할 내용 없음”입니다.
 연결 모니터 대시보드에 표시되는 문제는 토폴로지 검색 또는 홉 탐색 중에 발견됩니다. % 손실 또는 RTT에 대해 설정된 임계값이 위반되었지만 홉에 문제가 없는 경우가 있을 수 있습니다.
 
+### <a name="while-migrating-existing-connection-monitor-classic-to-connection-monitor-the-external-endpoint-tests-are-being-migrated-with-tcp-protocol-only"></a>기존 연결 모니터(클래식)를 연결 모니터로 마이그레이션하는 동안 외부 엔드포인트 테스트는 TCP 프로토콜을 통해서만 마이그레이션되나요? 
+연결 모니터(클래식)에는 프로토콜 선택 항목이 없습니다. 따라서 고객은 연결 모니터(클래식)에서 HTTP 프로토콜을 사용하여 외부 엔드포인트에 대한 연결을 지정할 수 없었습니다.
+모든 테스트는 연결 모니터(클래식)에 TCP 프로토콜만 있으므로, 마이그레이션 시 연결 모니터 테스트에서 TCP 구성을 만듭니다. 
 
 ## <a name="next-steps"></a>다음 단계
     

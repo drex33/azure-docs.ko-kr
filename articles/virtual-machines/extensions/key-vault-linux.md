@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 795bed84103170a695e9105c978b110ceb6475cb
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 56feecac6edae1c25c8706891ed7c2697a2508e1
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673264"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114221199"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
@@ -120,7 +120,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |
@@ -264,13 +264,8 @@ Azure CLI는 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vaul
   - 배포 시점에 있어야 합니다. 
   - 관리 ID를 사용하여 VM/VMSS ID에 대한 Key Vault 액세스 정책을 설정해야 합니다. [Key Vault 인증](../../key-vault/general/authentication.md) 및 [Key Vault 액세스 정책 할당 방법](../../key-vault/general/assign-access-policy-cli.md)을 참조하세요.
 
-### <a name="frequently-asked-questions"></a>질문과 대답
 
-* 설정할 수 있는 observedCertificates 수에 제한이 있나요?
-  아니요, Key Vault VM 확장은 observedCertificates 수에 제한이 없습니다.
-
-
-### <a name="troubleshoot"></a>문제 해결
+## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 
 확장 배포 상태에 대한 데이터는 Azure PowerShell 또는 Azure Portal을 통해 검색할 수 있습니다. 지정된 VM에 대한 확장의 배포 상태를 보려면 Azure PowerShell을 사용하여 다음 명령을 실행합니다.
 
@@ -283,13 +278,17 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
-#### <a name="logs-and-configuration"></a>로그 및 구성
+### <a name="logs-and-configuration"></a>로그 및 구성
 
-```
-/var/log/waagent.log
-/var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
-/var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
-```
+Key Vault VM 확장 로그는 VM에서 로컬로 존재하며 문제 해결의 경우 가장 많은 정보를 제공합니다.
+
+|위치|Description|
+|--|--|
+| /var/log/waagent.log  | 확장에 대한 업데이트가 발생한 시간을 표시합니다. |
+| /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*    | Key Vault VM 확장 서비스 로그를 검토하여 akvvm_service 서비스와 인증서 다운로드의 상태를 확인합니다. PEM 파일의 다운로드 위치는 이 파일에서 인증서 파일 이름이라는 항목을 사용하여 찾을 수도 있습니다. certificateStoreLocation을 지정하지 않으면 기본적으로 //var/lib/waagent/Microsoft.Azure.KeyVault.Store/로 설정됩니다. |
+| /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/* | Key Vault VM 확장 서비스의 구성과 이진 파일입니다. |
+|||
+  
 ### <a name="using-symlink"></a>Symlink 사용
 
 기호화된 링크 또는 Symlink는 기본적으로 고급 바로 가기입니다. 폴더 모니터링을 방지하고 최신 인증서를 자동으로 얻으려면 이 symlink `([VaultName].[CertificateName])`를 사용하여 Linux에서 최신 버전의 인증서를 가져올 수 있습니다.
@@ -298,6 +297,7 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 
 * 설정할 수 있는 observedCertificates 수에 제한이 있나요?
   아니요, Key Vault VM 확장은 observedCertificates 수에 제한이 없습니다.
+  
 
 ### <a name="support"></a>지원
 

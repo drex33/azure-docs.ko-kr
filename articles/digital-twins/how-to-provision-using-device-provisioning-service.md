@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fee559a25a1a2b45d64d652a87c6670fb2757052
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c611194819255b4d986f4cfa57d15a2e0d73cd42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474649"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528837"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>DPS(Device Provisioning Service)를 사용하여 Azure Digital Twins에서 디바이스 자동 관리
 
@@ -25,9 +25,9 @@ _프로비저닝_ 및 _사용 중지_ 단계에 대한 자세한 내용 및 모�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 프로비저닝을 설정하려면 먼저 다음을 설정해야 합니다.
-* **Azure Digital Twins 인스턴스**. [방법: 인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)의 지침에 따라 Azure Digital Twins 인스턴스를 만듭니다. Azure Portal([지침](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))에서 인스턴스의 **_호스트 이름_** 을 수집합니다.
+* **Azure Digital Twins 인스턴스**. [인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)의 지침에 따라 Azure Digital Twins 인스턴스를 만듭니다. Azure Portal([지침](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))에서 인스턴스의 **_호스트 이름_** 을 수집합니다.
 * **IoT Hub**. 지침은 [IoT Hub 빠른 시작](../iot-hub/quickstart-send-telemetry-cli.md)의 "IoT Hub 만들기" 섹션을 참조하세요.
-* IoT Hub 데이터를 기반으로 디지털 트윈 정보를 업데이트하는 [Azure 함수](../azure-functions/functions-overview.md). [방법: IoT 허브 데이터 수집](how-to-ingest-iot-hub-data.md)의 지침에 따라 이 Azure 함수를 만듭니다. 이 문서에서 사용할 함수 **_이름_** 을 수집합니다.
+* IoT Hub 데이터를 기반으로 디지털 트윈 정보를 업데이트하는 [Azure 함수](../azure-functions/functions-overview.md). [IoT 허브 데이터 수집](how-to-ingest-iot-hub-data.md)의 지침에 따라 이 Azure 함수를 만듭니다. 이 문서에서 사용할 함수 **_이름_** 을 수집합니다.
 
 또한 이 샘플에서는 Device Provisioning Service를 사용한 프로비저닝을 포함하는 **디바이스 시뮬레이터** 를 사용합니다. 디바이스 시뮬레이터는 [Azure Digital Twins 및 IoT Hub 통합 샘플](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)에 있습니다. 샘플 링크로 이동하여 제목 아래에서 **코드 찾아보기** 단추를 선택하여 머신에서 샘플 프로젝트를 가져옵니다. 그러면 **코드** 단추와 **ZIP 다운로드** 를 선택하여 .zip. 파일로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다. 
 
@@ -72,10 +72,10 @@ _프로비저닝_ 및 _사용 중지_ 단계에 대한 자세한 내용 및 모�
 
 Device Provisioning Service를 사용하여 새 디바이스를 프로비저닝하는 경우 등록 ID와 동일한 이름을 사용하여 Azure Digital Twins에서 해당 디바이스에 대한 새 트윈을 만들 수 있습니다.
 
-IoT 디바이스를 프로비저닝하는 데 사용되는 Device Provisioning Service 인스턴스를 만듭니다. 아래 Azure CLI 지침을 사용하거나 Azure Portal: [빠른 시작: Azure Portal에서 IoT Hub Device Provisioning Service 설정](../iot-dps/quick-setup-auto-provision.md)을 사용할 수 있습니다.
+IoT 디바이스를 프로비저닝하는 데 사용되는 Device Provisioning Service 인스턴스를 만듭니다. 아래의 Azure CLI 지침을 사용하거나 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](../iot-dps/quick-setup-auto-provision.md)에 따라 Azure Portal을 사용할 수 있습니다.
 
 다음 Azure CLI 명령은 Device Provisioning Service를 만듭니다. Device Provisioning Service 이름, 리소스 그룹 및 지역을 지정해야 합니다. Device Provisioning Service를 지원하는 지역을 확인하려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub)을 방문하세요.
-Azure CLI가 [컴퓨터에 설치되어 있는 경우](/cli/azure/install-azure-cli) 이 명령은 [Cloud Shell](https://shell.azure.com) 또는 로컬로 실행할 수 있습니다.
+Azure CLI가 [머신에 설치되어 있는 경우](/cli/azure/install-azure-cli) 이 명령은 [Cloud Shell](https://shell.azure.com) 또는 로컬로 실행할 수 있습니다.
 
 ```azurecli-interactive
 az iot dps create --name <Device-Provisioning-Service-name> --resource-group <resource-group-name> --location <region>
@@ -83,29 +83,22 @@ az iot dps create --name <Device-Provisioning-Service-name> --resource-group <re
 
 ### <a name="add-a-function-to-use-with-device-provisioning-service"></a>Device Provisioning Service에서 사용할 함수 추가
 
-[필수 구성 요소](#prerequisites) 섹션에서 만든 함수 앱 프로젝트 내에서 Device Provisioning Service에 사용할 새 함수를 만듭니다. 이 함수는 [사용자 지정 할당 정책의](../iot-dps/how-to-use-custom-allocation-policies.md) Device Provisioning Service에서 새 디바이스를 프로비저닝하는 데 사용됩니다.
+[필수 조건](#prerequisites) 섹션에서 만든 함수 앱 프로젝트 내에서 Device Provisioning Service에 사용할 새 함수를 만듭니다. 이 함수는 [사용자 지정 할당 정책의](../iot-dps/how-to-use-custom-allocation-policies.md) Device Provisioning Service에서 새 디바이스를 프로비저닝하는 데 사용됩니다.
 
 먼저 컴퓨터의 Visual Studio에서 함수 앱 프로젝트를 열고 다음 단계를 수행합니다.
 
-#### <a name="step-1-add-a-new-function"></a>1단계: 새 함수 추가 
+1. 먼저 Visual Studio의 함수 앱 프로젝트에서 ‘HTTP 트리거’ 형식의 새 함수를 만듭니다. 이 작업을 수행하는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project)을 참조하세요.
 
-Visual Studio에서 함수 앱 프로젝트에 *HTTP 트리거* 형식의 새 함수를 추가합니다.
+2. 프로젝트에 새 NuGet 패키지를 추가합니다. [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). 코드에 사용된 패키지가 프로젝트에 아직 포함되지 않은 경우 프로젝트에 더 많은 패키지를 추가해야 할 수도 있습니다.
 
-:::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-http-trigger-function-visual-studio.png" alt-text="함수 앱 프로젝트에 Http 트리거 형식의 Azure 함수를 추가하는 Visual Studio 뷰의 스크린샷." lightbox="media/how-to-provision-using-device-provisioning-service/add-http-trigger-function-visual-studio.png":::
+3. 새로 만든 함수 코드 파일에서 다음 코드를 붙여넣고 함수 이름을 *DpsAdtAllocationFunc.cs* 로 바꾼 후 파일을 저장합니다.
 
-#### <a name="step-2-fill-in-function-code"></a>2단계: 함수 코드 입력
+    :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 
-프로젝트에 새 NuGet 패키지를 추가합니다. [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). 코드에 사용된 패키지가 프로젝트에 아직 포함되지 않은 경우 프로젝트에 더 많은 패키지를 추가해야 할 수도 있습니다.
+4. *DpsAdtAllocationFunc.cs* 함수를 사용하여 프로젝트를 Azure의 함수 앱에 게시합니다. 이 작업을 수행하는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#publish-to-azure)을 참조하세요.
 
-새로 만든 함수 코드 파일에서 다음 코드를 붙여넣고 함수 이름을 *DpsAdtAllocationFunc.cs* 로 바꾼 후 파일을 저장합니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
-
-#### <a name="step-3-publish-the-function-app-to-azure"></a>3단계: Azure에 함수 앱 게시
-
-*DpsAdtAllocationFunc.cs* 함수를 사용하여 프로젝트를 Azure의 함수 앱에 게시합니다.
-
-[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
+> [!IMPORTANT]
+> [필수 조건 섹션](#prerequisites)에서 함수 앱을 처음 만들 때 이미 함수의 액세스 역할을 할당하고 Azure Digital Twins 인스턴스에 액세스하도록 애플리케이션 설정을 구성했을 수 있습니다. 이 작업은 전체 함수 앱에 대해 한 번만 수행해야 하므로 계속하기 전에 앱에서 작업이 완료되었는지 확인합니다. ‘앱 인증 코드 쓰기’ 문서의 [게시된 앱 구성](how-to-authenticate-client.md#configure-published-app) 섹션에서 지침을 찾을 수 있습니다.
 
 ### <a name="create-device-provisioning-enrollment"></a>Device Provisioning 등록 만들기
 
@@ -130,7 +123,7 @@ Visual Studio에서 함수 앱 프로젝트에 *HTTP 트리거* 형식의 새 �
 
 ### <a name="set-up-the-device-simulator"></a>디바이스 시뮬레이터 설정
 
-이 샘플에서는 Device Provisioning Service를 사용한 프로비저닝을 포함하는 디바이스 시뮬레이터를 사용합니다. 디바이스 시뮬레이터는 [필수 구성 요소](#prerequisites) 섹션에서 다운로드한 [Azure Digital Twins 및 IoT Hub 통합 샘플](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)에 있습니다.
+이 샘플에서는 Device Provisioning Service를 사용한 프로비저닝을 포함하는 디바이스 시뮬레이터를 사용합니다. 디바이스 시뮬레이터는 [필수 조건](#prerequisites) 섹션에서 다운로드한 [Azure Digital Twins 및 IoT Hub 통합 샘플](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)에 있습니다.
 
 #### <a name="upload-the-model"></a>모델 업로드
 
@@ -138,7 +131,7 @@ Visual Studio에서 함수 앱 프로젝트에 *HTTP 트리거* 형식의 새 �
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-모델에 대한 자세한 내용은 [방법: 모델 관리](how-to-manage-model.md#upload-models)를 참조하세요.
+모델에 대한 자세한 내용은 [모델 관리](how-to-manage-model.md#upload-models)를 참조하세요.
 
 #### <a name="configure-and-run-the-simulator"></a>시뮬레이터 구성 및 실행
 
@@ -185,7 +178,7 @@ node .\adt_custom_register.js
 
 ### <a name="validate"></a>유효성 검사
 
-이 문서에서 설정한 흐름의 결과로 디바이스가 Azure Digital Twins에 자동으로 등록됩니다. 다음 [Azure Digital Twins CLI](concepts-cli.md) 명령을 사용하여 사용자가 만든 Azure Digital Twins 인스턴스에서 디바이스 트윈을 찾습니다.
+이 문서에서 설정한 흐름의 결과로 디바이스가 Azure Digital Twins에 자동으로 등록됩니다. 다음 [Azure Digital Twins CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_show) 명령을 사용하여 사용자가 만든 Azure Digital Twins 인스턴스에서 디바이스 트윈을 찾습니다.
 
 ```azurecli-interactive
 az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
@@ -228,43 +221,38 @@ Azure Digital Twins 인스턴스에서 발견되는 디바이스 트윈이 표�
 
 #### <a name="configure-event-hub-with-function-app"></a>함수 앱을 사용하여 이벤트 허브 구성
 
-다음으로 [필수 구성 요소](#prerequisites) 섹션에서 설정한 Azure 함수 앱을 구성하여 새 이벤트 허브를 사용합니다. 이렇게 하려면 이벤트 허브의 연결 문자열을 사용하여 함수 앱 내에 환경 변수를 설정합니다.
+다음으로 [필수 조건](#prerequisites) 섹션에서 설정한 Azure 함수 앱을 구성하여 새 이벤트 허브를 사용합니다. 이렇게 하려면 이벤트 허브의 연결 문자열을 사용하여 함수 앱 내에 환경 변수를 설정합니다.
 
 1. 방금 만든 정책을 열고 **연결 문자열-기본 키** 값을 복사합니다.
 
     :::image type="content" source="media/how-to-provision-using-device-provisioning-service/event-hub-sas-policy-connection-string.png" alt-text="연결 문자열-기본 키를 복사하는 방법을 보여주는 Azure Portal의 스크린샷." lightbox="media/how-to-provision-using-device-provisioning-service/event-hub-sas-policy-connection-string.png":::
 
-2. 다음 Azure CLI 명령을 사용하여 함수 앱 설정에서 연결 문자열을 변수로 추가합니다. Azure CLI가 [컴퓨터에 설치되어 있는 경우](/cli/azure/install-azure-cli) 이 명령은 [Cloud Shell](https://shell.azure.com) 또는 로컬로 실행할 수 있습니다.
+2. 다음 Azure CLI 명령을 사용하여 함수 앱 설정에서 연결 문자열을 변수로 추가합니다. Azure CLI가 [머신에 설치되어 있는 경우](/cli/azure/install-azure-cli) 이 명령은 [Cloud Shell](https://shell.azure.com) 또는 로컬로 실행할 수 있습니다.
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-App-Service-function-app-name>
+    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-function-app-name>
     ```
 
 ### <a name="add-a-function-to-retire-with-iot-hub-lifecycle-events"></a>IoT Hub 수명 주기 이벤트를 사용하여 사용 중지하는 함수 추가
 
-[필수 구성 요소](#prerequisites) 섹션에서 만든 함수 앱 프로젝트 내에서 IoT Hub 수명 주기 이벤트를 사용하여 기존 디바이스를 사용 중지하는 새 함수를 만듭니다.
+[필수 조건](#prerequisites) 섹션에서 만든 함수 앱 프로젝트 내에서 IoT Hub 수명 주기 이벤트를 사용하여 기존 디바이스를 사용 중지하는 새 함수를 만듭니다.
 
 수명 주기 이벤트에 대한 자세한 내용은 [IoT Hub 비-원격 분석 이벤트](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)를 참조하세요. Azure Functions와 함께 Event Hubs를 사용하는 방법에 대한 자세한 내용은 [Azure Functions에 대한 Azure Event Hubs 트리거](../azure-functions/functions-bindings-event-hubs-trigger.md)를 참조하세요.
 
 먼저 컴퓨터의 Visual Studio에서 함수 앱 프로젝트를 열고 다음 단계를 수행합니다.
 
-#### <a name="step-1-add-a-new-function"></a>1단계: 새 함수 추가
-     
-Visual Studio에서 함수 앱 프로젝트에 *Event Hub 트리거* 형식의 새 함수를 추가합니다.
+1. 먼저 Visual Studio의 함수 앱 프로젝트에서 ‘이벤트 허브 트리거’ 형식의 새 함수를 만듭니다. 이 작업을 수행하는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project)을 참조하세요.
 
-:::image type="content" source="media/how-to-provision-using-device-provisioning-service/create-event-hub-trigger-function.png" alt-text="함수 앱 프로젝트에서 Event Hub 트리거 형식의 Azure 함수를 추가하는 방법을 보여주는 Visual Studio 창의 스크린샷." lightbox="media/how-to-provision-using-device-provisioning-service/create-event-hub-trigger-function.png":::
+2. 프로젝트에 새 NuGet 패키지를 추가합니다. [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). 코드에 사용된 패키지가 프로젝트에 아직 포함되지 않은 경우 프로젝트에 더 많은 패키지를 추가해야 할 수도 있습니다.
 
-#### <a name="step-2-fill-in-function-code"></a>2단계: 함수 코드 입력
+3. 새로 만든 함수 코드 파일에서 다음 코드를 붙여넣고 함수 이름을 *DeleteDeviceInTwinFunc.cs* 로 바꾼 후 파일을 저장합니다.
 
-새로 만든 함수 코드 파일에서 다음 코드를 붙여넣고 함수 이름을 `DeleteDeviceInTwinFunc.cs`로 바꾼 후 파일을 저장합니다.
+    :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
-:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
+4. *DeleteDeviceInTwinFunc.cs* 함수가 있는 프로젝트를 Azure의 함수 앱에 게시합니다. 이 작업을 수행하는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#publish-to-azure)을 참조하세요.
 
-#### <a name="step-3-publish-the-function-app-to-azure"></a>3단계: Azure에 함수 앱 게시
-
-*DeleteDeviceInTwinFunc.cs* 함수가 있는 프로젝트를 Azure의 함수 앱에 게시합니다.
-
-[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
+> [!IMPORTANT]
+> [필수 조건 섹션](#prerequisites)에서 함수 앱을 처음 만들 때 이미 함수의 액세스 역할을 할당하고 Azure Digital Twins 인스턴스에 액세스하도록 애플리케이션 설정을 구성했을 수 있습니다. 이 작업은 전체 함수 앱에 대해 한 번만 수행해야 하므로 계속하기 전에 앱에서 작업이 완료되었는지 확인합니다. ‘앱 인증 코드 쓰기’ 문서의 [게시된 앱 구성](how-to-authenticate-client.md#configure-published-app) 섹션에서 지침을 찾을 수 있습니다.
 
 ### <a name="create-an-iot-hub-route-for-lifecycle-events"></a>수명 주기 이벤트에 대한 IoT Hub 경로 만들기
 
@@ -273,7 +261,7 @@ Visual Studio에서 함수 앱 프로젝트에 *Event Hub 트리거* 형식의 �
 먼저 IoT 허브에서 이벤트 허브 엔드포인트를 만들어야 합니다. 그런 다음 IoT 허브의 경로를 추가하여 이 이벤트 허브 엔드포인트에 수명 주기 이벤트를 보냅니다.
 이벤트 허브 엔드포인트를 만들려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 [필수 구성 요소](#prerequisites) 섹션에서 만든 IoT 허브로 이동하고 왼쪽의 메뉴 옵션에서 **메시지 라우팅** 을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 [필수 조건](#prerequisites) 섹션에서 만든 IoT 허브로 이동하고 왼쪽의 메뉴 옵션에서 **메시지 라우팅** 을 선택합니다.
 2. **사용자 지정 엔드포인트** 탭을 선택합니다.
 3. **+ 추가** 를 선택하고 **이벤트 허브** 를 선택하여 이벤트 허브 형식 엔드포인트를 추가합니다.
 
@@ -320,7 +308,7 @@ Visual Studio에서 함수 앱 프로젝트에 *Event Hub 트리거* 형식의 �
 
 Azure Digital Twins에 반영된 변경 내용을 확인하는 데 몇 분 정도 걸릴 수 있습니다.
 
-다음 [Azure Digital Twins CLI](concepts-cli.md) 명령을 사용하여 Azure Digital Twins 인스턴스에서 디바이스 트윈이 삭제된 것을 확인합니다.
+다음 [Azure Digital Twins CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_show) 명령을 사용하여 Azure Digital Twins 인스턴스에서 디바이스 트윈이 삭제된 것을 확인합니다.
 
 ```azurecli-interactive
 az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
@@ -349,7 +337,7 @@ az group delete --name <your-resource-group>
 
 디바이스에 대해 생성된 디지털 트윈은 Azure Digital Twins에 플랫 계층으로 저장되지만 모델 정보 및 조직에 대한 다중 수준 계층 구조를 사용하여 보강할 수 있습니다. 이 개념에 대한 자세한 내용은 다음을 참조하세요.
 
-* [개념: Digital Twins 및 트윈 그래프](concepts-twins-graph.md)
+* [Digital Twins 및 쌍 그래프](concepts-twins-graph.md)
 
 Azure 함수에서 HTTP 요청을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -357,5 +345,5 @@ Azure 함수에서 HTTP 요청을 사용하는 방법에 대한 자세한 내용
 
 Azure Digital Twins에 이미 저장된 모델 및 그래프 데이터를 사용하여 이 정보를 자동으로 제공하는 사용자 지정 논리를 작성할 수 있습니다. 트윈 그래프에서 정보를 관리, 업그레이드 및 검색하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* [방법: 디지털 트윈 관리](how-to-manage-twin.md)
-* [방법: 트윈 그래프 쿼리](how-to-query-graph.md)
+* [Digital Twin 관리](how-to-manage-twin.md)
+* [쌍 그래프 쿼리](how-to-query-graph.md)

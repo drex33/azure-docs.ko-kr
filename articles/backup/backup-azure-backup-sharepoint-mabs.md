@@ -2,13 +2,13 @@
 title: MABS를 사용하여 Azure에 SharePoint 팜 백업
 description: Azure Backup Server를 사용하여 SharePoint 데이터를 백업 및 복원합니다. 이 문서에서는 원하는 데이터를 Azure에 저장할 수 있도록 SharePoint 팜을 구성하는 정보를 제공합니다. 디스크 또는 Azure에서 보호된 SharePoint 데이터를 복원할 수 있습니다.
 ms.topic: conceptual
-ms.date: 04/26/2020
-ms.openlocfilehash: dd0c6ede50151114994152ed2375cf53f708c620
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 07/30/2021
+ms.openlocfilehash: 2c52ace2515fbb1423c2ca3be75dfde837e6dd5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769366"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528621"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>MABS를 사용하여 Azure에 SharePoint 팜 백업
 
@@ -30,7 +30,7 @@ SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니
 
 * MABS는 스케일 아웃 파일 서버(SOFS) 공유에 호스트되는 SharePoint SQL Server 데이터베이스의 백업을 제공하지 않습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 Azure Backup 서버 등록 등이 포함됩니다.
 
@@ -254,6 +254,25 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
    일관성 확인이 시작됩니다.
 
 1. 6단계를 수행한 경우 이제 보호 그룹에서 볼륨을 제거할 수 있습니다.
+
+## <a name="remove-a-database-from-a-sharepoint-farm"></a>SharePoint 팜에서 데이터베이스 제거
+
+SharePoint 팜에서 데이터베이스가 제거되면 MABS는 해당 데이터베이스의 백업을 건너뛰고 SharePoint 팜의 다른 데이터베이스를 계속 백업하며 백업 관리자에게 경고합니다.
+
+### <a name="mabs-alert---farm-configuration-changed"></a>MABS 경고 - 팜 구성이 변경됨
+
+SharePoint 데이터베이스의 자동 보호에 실패할 경우 MABS(Microsoft Azure Backup Server)에서 생성되는 경고입니다. 이 경고의 원인에 대한 자세한 내용은 경고 **세부 정보** 창을 참조하세요.
+
+이 경고를 해결하려면 다음 단계를 수행하세요.
+
+1. 데이터베이스가 팜에서 실제로 제거되었는지 SharePoint 관리자에게 확인합니다. 데이터베이스가 팜에서 제거된 경우 MABS의 활성 보호에서 제거해야 합니다.
+1. 활성 보호에서 데이터베이스를 제거하려면:
+   1. **MABS 관리자 콘솔** 의 탐색 모음에서 **보호** 를 클릭합니다.
+   1. **표시** 창에서 SharePoint 팜의 보호 그룹을 마우스 오른쪽 단추로 클릭한 후 **구성원 보호 중지** 를 클릭합니다.
+   1. **보호 중지** 대화 상자에서 **보호된 데이터 보존** 을 클릭합니다.
+   1. **보호 중지** 를 클릭합니다.
+
+**보호 그룹 수정** 마법사를 사용하여 보호할 SharePoint 팜을 다시 추가할 수 있습니다. 다시 보호하는 동안 SharePoint 프런트 엔드 서버를 선택하고 **새로 고침** 을 클릭하여 SharePoint 데이터베이스 캐시를 업데이트한 후 SharePoint 팜을 선택하고 계속 진행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

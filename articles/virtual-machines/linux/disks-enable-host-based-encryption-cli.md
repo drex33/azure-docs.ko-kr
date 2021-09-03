@@ -2,18 +2,18 @@
 title: 호스트 - Azure CLI - 관리 디스크에서 암호화를 사용하여 엔드투엔드 암호화 사용
 description: 호스트에서 암호화를 사용하여 Azure 관리 디스크에서 엔드투엔드 암호화를 사용하도록 설정합니다.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 10fe02b0deb505fcedc6fc3119150709b6613b04
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 752fef23b0acd2fe4722fb89720d6312699e49cf
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673026"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113358348"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure CLI를 사용하여 호스트에서 암호화를 사용하는 엔드투엔드 암호화를 사용하도록 설정
 
@@ -124,6 +124,20 @@ az vm show -n $vmName \
 --query [securityProfile.encryptionAtHost] -o tsv
 ```
 
+
+### <a name="update-a-vm-to-disable-encryption-at-host"></a>호스트에서 암호화를 사용하지 않도록 VM을 업데이트합니다. 
+
+호스트에서 암호화를 사용하지 않도록 설정하려면 먼저 VM 할당을 취소해야 합니다.
+
+```azurecli
+rgName=yourRGName
+vmName=yourVMName
+
+az vm update -n $vmName \
+-g $rgName \
+--set securityProfile.encryptionAtHost=false
+```
+
 ### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-customer-managed-keys"></a>호스트에서 고객 관리형 키로 암호화를 사용하도록 설정된 가상 머신 확장 집합을 만듭니다. 
 
 고객 관리형 키로 OS 및 데이터 디스크의 캐시를 암호화하기 위해 앞서 만든 DiskEncryptionSet의 리소스 URI를 사용해 관리 디스크로 가상 머신 확장 집합을 만듭니다. 임시 디스크는 플랫폼 관리형 키를 사용하여 암호화됩니다. 
@@ -191,6 +205,19 @@ vmssName=yourVMName
 az vmss show -n $vmssName \
 -g $rgName \
 --query [virtualMachineProfile.securityProfile.encryptionAtHost] -o tsv
+```
+
+### <a name="update-a-virtual-machine-scale-set-to-disable-encryption-at-host"></a>호스트에서 암호화를 사용하지 않도록 가상 머신 확장 집합을 업데이트합니다. 
+
+가상 머신 확장 집합의 호스트에서 암호화를 사용하지 않도록 설정할 수 있지만 이 설정은 호스트에서 암호화를 사용하지 않도록 설정한 후에 생성된 VM에만 영향을 줍니다. 기존 VM의 경우 VM 할당을 취소하고, [해당 개별 VM의 호스트에서 암호화를 사용하지 않도록 설정](#update-a-vm-to-disable-encryption-at-host)한 다음, VM을 다시 할당해야 합니다.
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMName
+
+az vmss update -n $vmssName \
+-g $rgName \
+--set virtualMachineProfile.securityProfile.encryptionAtHost=false
 ```
 
 ## <a name="finding-supported-vm-sizes"></a>지원되는 VM 크기 찾기

@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 573868d8dc637afcab1970d0e41ed2ed0830808d
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 191c76c6ec67112df71d8d5525b2c5938627b3d6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538850"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458541"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트를 사용하여 모델 학습 
 
@@ -31,7 +31,7 @@ Azure Machine Learning 데이터 세트는 [ScriptRunConfig](/python/api/azureml
 
 데이터 세트를 만들고 학습시키려면 다음이 필요합니다.
 
-* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
@@ -126,7 +126,7 @@ run.wait_for_completion(show_output=True)
 * 입력 데이터 세트를 컴퓨팅 대상에 탑재합니다.
 
 > [!Note]
-> 사용자 지정 Docker 기본 이미지를 사용하는 경우 데이터 세트 탑재가 작동하려면 `apt-get install -y fuse`를 종속성으로 사용하여 fuse를 설치해야 합니다. [사용자 지정 빌드 이미지를 빌드](how-to-deploy-custom-docker-image.md#build-a-custom-base-image)하는 방법을 알아봅니다.
+> 사용자 지정 Docker 기본 이미지를 사용하는 경우 데이터 세트 탑재가 작동하려면 `apt-get install -y fuse`를 종속성으로 사용하여 fuse를 설치해야 합니다. [사용자 지정 빌드 이미지를 빌드](./how-to-deploy-custom-container.md)하는 방법을 알아봅니다.
 
 Notebook 예제는 [데이터 입력 및 출력을 사용하여 학습 실행을 구성하는 방법](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb)을 참조하세요.
 
@@ -228,17 +228,14 @@ with open(mounted_input_path, 'r') as f:
 
 Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database 및 Azure Database for PostgreSQL에서 생성된 데이터 세트에 대해 모든 형식의 파일 탑재 또는 다운로드가 지원됩니다. 
 
-데이터 세트를 **탑재** 할 때 데이터 세트가 참조하는 파일을 디렉터리(탑재 지점)에 연결하고 컴퓨팅 대상에서 사용할 수 있게 합니다. 탑재는 Azure Machine Learning 컴퓨팅, 가상 머신 및 HDInsight를 포함한 Linux 기반 컴퓨팅에 지원됩니다. 
+데이터 세트를 **탑재** 할 때 데이터 세트가 참조하는 파일을 디렉터리(탑재 지점)에 연결하고 컴퓨팅 대상에서 사용할 수 있게 합니다. 탑재는 Azure Machine Learning 컴퓨팅, 가상 머신 및 HDInsight를 포함한 Linux 기반 컴퓨팅에 지원됩니다. 데이터 크기가 컴퓨팅 디스크 크기를 초과하는 경우 다운로드를 수행할 수 없습니다. 이 시나리오의 경우 스크립트에서 사용하는 데이터 파일만 처리 시 로드되므로 탑재하는 것이 좋습니다.
 
-데이터 세트를 **다운로드** 하면 데이터 세트에서 참조하는 모든 파일이 컴퓨팅 대상으로 다운로드됩니다. 다운로드는 모든 컴퓨팅 형식에 지원됩니다. 
+데이터 세트를 **다운로드** 하면 데이터 세트에서 참조하는 모든 파일이 컴퓨팅 대상으로 다운로드됩니다. 다운로드는 모든 컴퓨팅 형식에 지원됩니다. 스크립트가 데이터 세트에서 참조하는 모든 파일을 처리하고 컴퓨팅 디스크가 전체 데이터 세트에 적합한 경우 스토리지 서비스에서 데이터를 스트림하는 오버헤드를 방지하기 위해 다운로드하는 것이 좋습니다. 다중 노드 다운로드의 경우 [제한을 방지하는 방법](#troubleshooting)을 참조하세요. 
 
 > [!NOTE]
 > 다운로드 경로 이름은 Windows OS의 경우 255자 이하의 영숫자여야 합니다. Linux OS의 경우 다운로드 경로 이름은 4,096자 이하의 영숫자여야 합니다. 또한 Linux OS의 경우 파일 이름(다운로드 경로 `/path/to/file/{filename}`의 마지막 세그먼트)은 255자 이하의 영숫자여야 합니다.
 
-스크립트가 데이터 세트에서 참조하는 모든 파일을 처리하고 컴퓨팅 디스크가 전체 데이터 세트에 적합한 경우 스토리지 서비스에서 데이터를 스트림하는 오버헤드를 방지하기 위해 다운로드하는 것이 좋습니다. 데이터 크기가 컴퓨팅 디스크 크기를 초과하는 경우 다운로드를 수행할 수 없습니다. 이 시나리오의 경우 스크립트에서 사용하는 데이터 파일만 처리 시 로드되므로 탑재하는 것이 좋습니다.
-
 다음 코드는 `dataset`를 `mounted_path`의 임시 디렉터리에 탑재함
-
 
 ```python
 import tempfile
@@ -297,6 +294,18 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
   * 아웃바운드 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md) 규칙이 없고 `azureml-sdk>=1.12.0`을 사용하는 경우 `azureml-dataset-runtime` 및 해당 종속성을 특정 부 버전의 최신 버전으로 업데이트합니다. 또는 실행에서 사용하는 경우 수정 사항이 포함된 최신 패치가 있도록 환경을 다시 만듭니다. 
   * `azureml-sdk<1.12.0`을 사용하는 경우 최신 버전으로 업그레이드합니다.
   * 아웃바운드 NSG 규칙이 있는 경우 서비스 태그 `AzureResourceMonitor`의 모든 트래픽을 허용하는 아웃바운드 규칙이 있는지 확인합니다.
+
+**데이터 세트 초기화 실패: ThrottlingException으로 인해 StreamAccessException 발생**
+
+다중 노드 파일 다운로드의 경우, 모든 노드가 Azure Storage 서비스에서 파일 데이터 세트의 모든 파일을 다운로드하려고 시도하여 제한 오류가 발생할 수 있습니다. 제한을 방지하려면 처음에 `AZUREML_DOWNLOAD_CONCURRENCY` 환경 변수가 CPU 코어 수를 노드 수로 나눈 값의 8배가 되도록 설정합니다. 이 환경 변수의 값을 설정하려면 몇 가지 실험이 필요할 수 있으므로 앞에서 설명한 지침은 시작점입니다.
+
+다음 예제에서는 32개 코어와 4개 노드를 가정합니다.
+
+```python
+from azureml.core.environment import Environment 
+myenv = Environment(name="myenv")
+myenv.environment_variables = {"AZUREML_DOWNLOAD_CONCURRENCY":64}
+```
 
 ### <a name="azurefile-storage"></a>AzureFile 스토리지
 

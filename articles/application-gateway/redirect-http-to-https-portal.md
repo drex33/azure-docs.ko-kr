@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 92805b4f6c46a32718d755d19c9053705112fa48
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5192a740667217741b20d6bd335ca5662f3fc6aa
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321342"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114690590"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -137,7 +137,7 @@ Export-PfxCertificate `
 3. 검색 상자에 *확장 집합* 을 입력하고 Enter 키를 누릅니다.
 4. **가상 머신 확장 집합** 을 선택한 후 **만들기** 를 선택합니다.
 5. **가상 머신 확장 집합 이름** 으로 *myvmss* 를 입력합니다.
-6. 운영 체제 디스크 이미지에 대해** **Windows Server 2016 Datacenter** 를 선택했는지 확인합니다.
+6. **운영 체제 디스크 이미지** 에서 **Windows Server 2016 Datacenter** 를 선택했는지 확인합니다.
 7. **리소스 그룹** 으로 **myResourceGroupAG** 를 선택합니다.
 8. **사용자 이름** 으로 *azureuser* 를 입력합니다.
 9. **암호** 로 *Azure123456!* 을 입력하고 암호를 확인합니다.

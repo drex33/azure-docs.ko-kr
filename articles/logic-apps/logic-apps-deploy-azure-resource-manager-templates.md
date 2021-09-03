@@ -3,16 +3,16 @@ title: 논리 앱 템플릿 배포
 description: Azure Logic Apps용으로 만든 Azure Resource Manager 템플릿을 배포하는 방법 알아보기
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: article
-ms.date: 08/25/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 08/04/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f8a71aa4545316313f4ef2d9f349646ca8769d7
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 8be8361b58e4b1b1fad3f41b29958a360e206890
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278437"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528609"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Azure Logic Apps에 대한 Azure Resource Manager 템플릿 배포
 
@@ -93,11 +93,11 @@ Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 CI/CD(연속 �
 
 * [Resource Manager 템플릿을 Azure Pipelines와 통합](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
 * [자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합](../azure-resource-manager/templates/deployment-tutorial-pipeline.md)
-* [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps에 대한 함수 앱 작업 설정 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps에서 통합 계정에 연결 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps를 사용하여 Azure Pipelines 오케스트레이션](/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
+* [샘플: Azure Logic Apps를 사용하여 Azure Pipelines 오케스트레이션](https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration)
+* [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/storage-account-connections)
+* [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/service-bus-connections)
+* [샘플: Azure Logic Apps에 대한 Azure Functions 작업 설정 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/function-app-actions)
+* [샘플: Azure Logic Apps에서 통합 계정에 연결 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/integration-account-connections)
 
 Azure Pipelines 사용에 대한 개략적인 일반 단계는 다음과 같습니다.
 
@@ -123,14 +123,14 @@ Azure Pipelines 사용에 대한 개략적인 일반 단계는 다음과 같습�
 
 다음은 권한 부여 연결을 처리하는 몇 가지 제안입니다.
 
+* Azure Portal 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 열어 OAuth 연결에 대한 권한을 수동으로 부여합니다. 연결에 권한을 부여할 때 액세스 허용 확인 페이지가 표시될 수도 있습니다.
+
 * 동일한 지역에 있는 논리 앱 간에 API 연결 리소스를 미리 인증하고 공유합니다. API 연결은 논리 앱과는 별도로 Azure 리소스로 존재합니다. 논리 앱은 API 연결 리소스에 종속되어 있지만 API 연결 리소스는 논리 앱에 대한 종속성이 없으며 종속 논리 앱을 삭제한 후에도 유지됩니다. 또한 논리 앱은 다른 리소스 그룹에 있는 API 연결을 사용할 수 있습니다. 하지만 논리 앱 디자이너는 논리 앱과 동일한 리소스 그룹에서만 API 연결을 만들 수 있도록 지원합니다.
 
   > [!NOTE]
   > API 연결 공유를 고려하고 있다면 솔루션이 [잠재적인 제한 문제를 처리](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling)할 수 있는지 확인하십시오. 제한은 연결 수준에서 발생하므로 여러 논리 앱에서 동일한 연결을 다시 사용하면 제한 문제가 발생할 가능성이 높아질 수 있습니다.
 
 * 다단계 인증이 필요한 서비스 및 시스템이 시나리오에 포함되지 않는 한, PowerShell 스크립트를 사용하여 각 OAuth 연결에 대한 동의를 제공할 수 있습니다. 이렇게 하려면 권한 부여 및 동의가 이미 제공된 활성 브라우저 세션이 있는 가상 머신에서 일반 사용자 계정으로 연속 통합 작업자를 실행하면 됩니다. 예를 들어 [Logic Apps GitHub 리포지토리의 LogicAppConnectionAuth 프로젝트](https://github.com/logicappsio/LogicAppConnectionAuth)에서 제공하는 샘플 스크립트의 용도를 변경할 수 있습니다.
-
-* Azure Portal 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 열어 OAuth 연결에 대한 권한을 수동으로 부여합니다.
 
 * Azure AD(Azure Active Directory) [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)를 대신 사용하여 연결 권한을 부여하는 경우에는 [논리 앱 템플릿에서 서비스 주체 매개 변수를 지정](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)하는 방법을 알아보세요.
 

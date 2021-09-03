@@ -2,18 +2,17 @@
 title: 언어 감지 인식 기술
 titleSuffix: Azure Cognitive Search
 description: 구조화되지 않은 텍스트를 평가하고 각 레코드에 대해 Azure Cognitive Search의 AI 보강 파이프라인에서 분석의 강도를 나타내는 점수로 언어 식별자를 반환합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: fbe2c9a66015886c96a7c4414eb3b425b8180a18
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 08/12/2021
+ms.openlocfilehash: 01b6449baa7c5d13b041f886074425d78e037579
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539778"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529516"
 ---
 #   <a name="language-detection-cognitive-skill"></a>언어 감지 인식 기술
 
@@ -24,10 +23,8 @@ ms.locfileid: "111539778"
 언어 감지는 Bing의 자연어 처리 라이브러리를 활용하며, 이는 Text Analytics에 대해 나열된 [지원 언어 및 지역](../cognitive-services/text-analytics/language-support.md) 수를 초과합니다. 정확한 언어 목록은 게시되지 않지만 널리 쓰이는 모든 언어, 변형, 방언, 일부 지역 및 문화 언어가 포함됩니다. 사용 빈도가 낮은 언어로 표현된 콘텐츠가 있는 경우, [언어 감지 API를 사용](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)하여 코드가 반환되는지 확인할 수 있습니다. 감지할 수 없는 언어에 대한 응답은 `(Unknown)`입니다.
 
 > [!NOTE]
-> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 이 기술은 Cognitive Services에 바인딩되며, 하루에 인덱서당 20개의 문서를 초과하는 트랜잭션에 대한 [청구 가능한 리소스](cognitive-search-attach-cognitive-services.md)를 필요로 합니다. 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에 설명되어 있습니다.
-
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill

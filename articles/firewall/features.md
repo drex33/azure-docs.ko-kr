@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: 8dbfb23d4314f8ceb13ad36ca9733e446e176090
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 5acb23767f8c766de80961fb8e76297f4b31a5c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278187"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528776"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall 기능
 
@@ -35,7 +35,7 @@ Azure Firewall에는 다음과 같은 기능이 포함되어 있습니다.
 - 여러 공용 IP 주소
 - Azure Monitor 로깅
 - 강제 터널링
-- 웹 범주(미리 보기)
+- 웹 범주
 - 인증
 
 ## <a name="built-in-high-availability"></a>기본 제공되는 고가용성
@@ -59,7 +59,7 @@ Azure Firewall 가용성 영역은 가용 영역을 지원하는 지역에서 �
 
 ## <a name="unrestricted-cloud-scalability"></a>무제한 클라우드 확장성
 
-Azure Firewall은 변화하는 트래픽 흐름을 수용하기 위해 필요한 만큼 확장이 가능하기 때문에 최대 트래픽에 대한 예산을 마련할 필요가 없습니다.
+Azure Firewall은 변화하는 네트워크 트래픽 흐름을 수용하기 위해 필요한 만큼 스케일 아웃이 가능하기 때문에 최대 트래픽에 대한 예산을 마련할 필요가 없습니다.
 
 ## <a name="application-fqdn-filtering-rules"></a>애플리케이션 FQDN 필터링 규칙
 
@@ -68,6 +68,8 @@ Azure Firewall은 변화하는 트래픽 흐름을 수용하기 위해 필요한
 ## <a name="network-traffic-filtering-rules"></a>네트워크 트래픽 필터링 규칙
 
 원본 및 대상 IP 주소, 포트 및 프로토콜별로 네트워크 필터링 규칙을 중앙에서 만들거나 *허용* 하거나 *거부* 할 수 있습니다. Azure Firewall은 상태를 완전히 저장하기 때문에 다양한 유형의 연결에서 올바른 패킷을 구별할 수 있습니다. 여러 구독 및 가상 네트워크 전반에 규칙이 적용되고 기록됩니다.
+
+Azure Firewall은 레이어 3 및 레이어 4 네트워크 프로토콜의 상태 저장 필터링을 지원합니다. 레이어 3 IP 프로토콜은 네트워크 규칙에서 **모두** 프로토콜을 선택하고 포트에 **\*** 와일드카드를 선택하여 필터링할 수 있습니다.
 
 ## <a name="fqdn-tags"></a>FQDN 태그
 
@@ -114,9 +116,9 @@ Azure Firewall 통합 문서는 Azure Firewall 데이터를 분석할 수 있도
 
 모든 인터넷 바인딩된 트래픽을 인터넷으로 직접 이동하는 대신 지정된 다음 홉으로 라우팅하도록 Azure Firewall을 구성할 수 있습니다. 예를 들어 온-프레미스 에지 방화벽이나 기타 NVA(네트워크 가상 어플라이언스)를 통해 네트워크 트래픽을 인터넷에 전달하기 전에 처리할 수 있습니다. 자세한 내용은 [Azure Firewall 강제 터널링](forced-tunneling.md)을 참조하세요.
 
-## <a name="web-categories-preview"></a>웹 범주(미리 보기)
+## <a name="web-categories"></a>웹 범주
 
-웹 범주를 사용하면 관리자가 도박 웹 사이트, 소셜 미디어 웹 사이트 등의 웹 사이트 범주에 대한 사용자 액세스를 허용하거나 거부할 수 있습니다. 웹 범주는 Azure Firewall 표준에 포함되어 있지만, Azure Firewall 프리미엄 미리 보기에서 더 세밀하게 조정됩니다. FQDN을 기반으로 범주가 일치하는지 확인하는 표준 SKU의 웹 범주 기능과 달리, 프리미엄 SKU에서는 전체 URL에 따라 HTTP와 HTTPS 트래픽의 범주가 일치하는지 확인합니다. Azure Firewall 프리미엄 미리 보기에 대한 자세한 내용은 [Azure Firewall 프리미엄 미리 보기 기능](premium-features.md)을 참조하세요.
+웹 범주를 사용하면 관리자가 도박 웹 사이트, 소셜 미디어 웹 사이트 등의 웹 사이트 범주에 대한 사용자 액세스를 허용하거나 거부할 수 있습니다. 웹 범주는 Azure Firewall 표준에 포함되어 있지만, Azure Firewall 프리미엄에서 더 세밀하게 조정됩니다. FQDN을 기반으로 범주가 일치하는지 확인하는 표준 SKU의 웹 범주 기능과 달리, 프리미엄 SKU에서는 전체 URL에 따라 HTTP와 HTTPS 트래픽의 범주가 일치하는지 확인합니다. Azure Firewall 프리미엄에 대한 자세한 내용은 [Azure Firewall 프리미엄 기능](premium-features.md)을 참조하세요.
 
 예를 들어 Azure Firewall에서 `www.google.com/news`의 HTTPS 요청을 가로채면 다음과 같이 분류되어야 합니다. 
 
@@ -125,18 +127,6 @@ Azure Firewall 통합 문서는 Azure Firewall 데이터를 분석할 수 있도
 - Firewall 프리미엄 – 전체 URL을 검사하므로 `www.google.com/news`는 *뉴스* 로 분류됩니다.
 
 범주는 심각도를 기반으로 **책임**, **고대역폭**, **비즈니스 사용**, **생산성 손실**, **일반 탐색**, **분류되지 않음** 으로 구성됩니다.
-
-### <a name="categorization-change"></a>분류 변경
-
-다음을 수행하는 경우 분류 변경을 요청할 수 있습니다.
-
- - FQDN 또는 URL은 다른 범주에 속해야 함 
- 
-또는 
-
-- 분류되지 않은 FQDN 또는 URL에 대해 제안된 범주가 있음
-
-[https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request)에서 요청을 제출할 수 있습니다.
 
 ### <a name="category-exceptions"></a>범주 예외
 
@@ -150,4 +140,4 @@ Azure Firewall은 PCI(결제 카드 산업), SOC(서비스 조직 컨트롤), IS
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Firewall 프리미엄 미리 보기 기능](premium-features.md)
+- [Azure Firewall 프리미엄 기능](premium-features.md)

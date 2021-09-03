@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/17/2020
+ms.date: 07/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 749829f641119273813d3c8ca826daf8b4dc4d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e2212171f0be8d754ac1a86567641c2bad8a9a0
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742666"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602775"
 ---
 # <a name="enable-per-user-azure-ad-multi-factor-authentication-to-secure-sign-in-events"></a>사용자별 Azure Multi-Factor Authentication을 사용하여 로그인 이벤트 보호
 
@@ -27,7 +27,7 @@ Azure AD에서 사용자 로그인 이벤트를 보호하려면 MFA(다단계 �
 
 필요에 따라 사용자별 Azure AD Multi-Factor Authentication에 대해 각 계정을 사용하도록 설정할 수 있습니다. 사용자가 개별적으로 설정되면 신뢰할 수 있는 IP 주소에서 로그인하거나 _신뢰할 수 있는 디바이스에서 MFA 기억하기_ 기능이 설정된 경우와 같이 몇 가지 예외를 제외하고는, 로그인할 때마다 다단계 인증을 수행합니다.
 
-Azure AD 라이선스에 조건부 액세스가 포함되지 않고 보안 기본값을 사용하지 않는 경우 사용자 상태를 변경하지 않는 것이 좋습니다. MFA를 사용하도록 설정하는 다양한 방법에 대한 자세한 내용은 [Azure AD Multi-Factor Authentication의 기능 및 라이선스](concept-mfa-licensing.md)를 참조하세요.
+Azure AD 라이선스에 조건부 액세스가 포함되지 않고 보안 기본값을 사용하지 않는 경우 [사용자 상태](#azure-ad-multi-factor-authentication-user-states)를 변경하지 않는 것이 좋습니다. MFA를 사용하도록 설정하는 다양한 방법에 대한 자세한 내용은 [Azure AD Multi-Factor Authentication의 기능 및 라이선스](concept-mfa-licensing.md)를 참조하세요.
 
 > [!IMPORTANT]
 >
@@ -43,7 +43,7 @@ Azure AD 라이선스에 조건부 액세스가 포함되지 않고 보안 기�
 
 | 시스템 상태 | 설명 | 영향을 받는 레거시 인증 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
 |:---:| --- |:---:|:--:|:--:|
-| 사용 안 함 | 사용자별 Azure AD Multi-Factor Authentication에 등록되지 않은 사용자에 대한 기본 상태입니다. | 예 | 예 | 예 |
+| 사용 안 함 | 사용자별 Azure AD Multi-Factor Authentication에 등록되지 않은 사용자에 대한 기본 상태입니다. | 예 | 아니요 | 예 |
 | 사용 | 해당 사용자가 사용자별 Azure AD Multi-Factor Authentication에 등록되어 있지만 계속해서 레거시 인증에 암호를 사용할 수 있습니다. 사용자가 MFA 인증 방법을 아직 등록하지 않은 경우 다음에 최신 인증을 사용하여 로그인할 때 등록하라는 메시지가 표시됩니다(예: 웹 브라우저를 통해). | 아니요. 레거시 인증은 등록 프로세스가 완료될 때까지 계속 작동합니다. | 예. 세션이 만료되면 Azure AD Multi-Factor Authentication 등록이 필요합니다.| 예. 액세스 토큰이 만료되면 Azure AD Multi-Factor Authentication 등록이 필요합니다. |
 | 적용 | 사용자가 사용자별 Azure AD Multi-Factor Authentication에 등록되어 있습니다. 사용자가 인증 방법을 아직 등록하지 않은 경우 다음에 최신 인증을 사용하여 로그인할 때 등록하라는 메시지가 표시됩니다(예: 웹 브라우저를 통해). *활성화* 된 상태에서 등록을 완료하는 사용자는 자동으로 *적용됨* 상태로 전환됩니다. | 예. 앱에 앱 암호가 필요합니다. | 예. 로그인 시에 Azure AD Multi-Factor Authentication이 필요 합니다. | 예. 로그인 시에 Azure AD Multi-Factor Authentication이 필요 합니다. |
 
@@ -79,76 +79,15 @@ Azure AD 라이선스에 조건부 액세스가 포함되지 않고 보안 기�
 
 사용자를 사용으로 설정한 후 전자 메일을 통해 알립니다. 사용자에게 다음에 로그인할 때 등록하도록 요청하라는 메시지가 표시됨을 알려 줍니다. 또한 조직에서 최신 인증을 지원하지 않는 비브라우저 앱을 사용하는 경우 앱 암호를 만들어야 합니다. 자세한 내용은 [Azure AD Multi-Factor Authentication 최종 사용자 가이드](../user-help/multi-factor-authentication-end-user-first-time.md)를 참조하여 시작하는 데 도움을 받으세요.
 
-## <a name="change-state-using-powershell"></a>PowerShell을 사용하여 상태 변경
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>사용자별 MFA의 사용자를 조건부 액세스 기반 MFA로 변환
 
-[Azure AD PowerShell](/powershell/azure/)을 사용하여 사용자 상태를 변경하려면 사용자 계정에 대한 `$st.State` 매개 변수를 변경합니다. 사용자 계정에 대한 세 가지 가능한 상태가 있습니다.
+사용자가 사용자별로 적용된 Azure AD Multi-Factor Authentication을 사용하도록 설정했다면 다음 PowerShell을 사용하여 조건부 액세스 기반 Azure AD Multi-Factor Authentication으로 변환하는 데 도움을 받을 수 있습니다.
 
-* *Enabled*
-* *적용*
-* *사용 안 함*  
-
-일반적으로, MFA에 아직 등록되지 않은 경우 사용자를 *적용* 상태로 직접 이동하지 마세요. 이렇게 하면 사용자가 Azure AD Multi-Factor Authentication 등록을 마치고 [앱 암호](howto-mfa-app-passwords.md)를 가져오지 못했기 때문에 레거시 인증 앱 작동이 중단됩니다. 일부 경우에는 이 동작을 원할 수도 있지만 사용자가 등록할 때까지는 사용자 환경에 영향을 줍니다.
-
-시작하려면 다음과 같이 [Install-Module](/powershell/module/powershellget/install-module)을 사용하여 *MSOnline* 모듈을 설치합니다.
-
-```PowerShell
-Install-Module MSOnline
-```
-
-다음으로 [Connect-MsolService](/powershell/module/msonline/connect-msolservice)를 사용하여 연결합니다.
-
-```PowerShell
-Connect-MsolService
-```
-
-다음 예제 PowerShell 스크립트는 *bsimon@contoso.com* 이라는 개별 사용자에 대해 MFA를 사용하도록 설정합니다.
-
-```PowerShell
-$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-$st.RelyingParty = "*"
-$st.State = "Enabled"
-$sta = @($st)
-
-# Change the following UserPrincipalName to the user you wish to change state
-Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
-```
-
-PowerShell은 사용자를 대량 설정해야 할 때 적합한 옵션입니다. 다음 스크립트는 사용자 목록을 반복하고 해당 계정에서 MFA를 사용하도록 설정합니다. 다음과 같이 `$users`에 대한 첫 번째 줄에 설정하는 사용자 계정을 정의합니다.
-
-   ```PowerShell
-   # Define your list of users to update state in bulk
-   $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-
-   foreach ($user in $users)
-   {
-       $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-       $st.RelyingParty = "*"
-       $st.State = "Enabled"
-       $sta = @($st)
-       Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-   }
-   ```
-
-MFA를 사용하지 않도록 설정하기 위해 다음 예제에서는 [Get-MsolUser](/powershell/module/msonline/get-msoluser)를 사용하여 사용자를 가져온 다음, [Set-MsolUser](/powershell/module/msonline/set-msoluser)를 사용하여 정의된 사용자에 대한 *StrongAuthenticationRequirements* 세트를 제거합니다.
-
-```PowerShell
-Get-MsolUser -UserPrincipalName bsimon@contoso.com | Set-MsolUser -StrongAuthenticationRequirements @()
-```
-
-다음과 같이 [Set-MsolUser](/powershell/module/msonline/set-msoluser)를 사용하여 사용자에 대해 MFA를 직접 사용하지 않도록 설정할 수도 있습니다.
-
-```PowerShell
-Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements @()
-```
-
-## <a name="convert-users-from-per-user-mfa-to-conditional-access"></a>사용자를 사용자별 MFA에서 조건부 액세스로 변환
-
-다음 PowerShell은 조건부 액세스 기반 Azure AD Multi-Factor Authentication으로 변환하는 데 도움이 될 수 있습니다.
+ISE 창에서 이 PowerShell을 실행하거나 로컬에 실행할 `.PS1` 파일로 저장합니다. [MSOnline 모듈](/powershell/module/msonline/?view=azureadps-1.0#msonline)을 통해서만 작업을 수행할 수 있습니다. 
 
 ```PowerShell
 # Sets the MFA requirement state
 function Set-MfaState {
-
     [CmdletBinding()]
     param(
         [Parameter(ValueFromPipelineByPropertyName=$True)]
@@ -158,7 +97,6 @@ function Set-MfaState {
         [ValidateSet("Disabled","Enabled","Enforced")]
         $State
     )
-
     Process {
         Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
         $Requirements = @()
@@ -169,18 +107,13 @@ function Set-MfaState {
             $Requirement.State = $State
             $Requirements += $Requirement
         }
-
         Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
                      -StrongAuthenticationRequirements $Requirements
     }
 }
-
 # Disable MFA for all users
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
-
-> [!NOTE]
-> 사용자에 대하여 MFA를 다시 사용하도록 설정되고 해당 사용자가 다시 등록하지 않은 경우 MFA 상태는 MFA 관리 UI에서 *사용* 에서 *적용* 으로 전환되지 않습니다. 이 경우 관리자가 직접 사용자를 *적용* 으로 이동해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

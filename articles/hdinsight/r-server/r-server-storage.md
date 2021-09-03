@@ -2,17 +2,19 @@
 title: HDInsight의 ML Services용 Azure Storage 솔루션 - Azure
 description: HDInsight의 ML Services에서 사용할 수 있는 다양한 스토리지 옵션에 대해 알아봅니다.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/02/2020
-ms.openlocfilehash: ddc48025de164ff68fb539a293e06bae09171742
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2ed4e27fb680c14ed5bbae0585d89152c1999b97
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943905"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295870"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML Services용 Azure Storage 솔루션
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 HDInsight의 ML Services에는 데이터, 코드, 또는 분석 결과가 포함된 개체를 유지할 수 있는 다양한 스토리지 솔루션이 있습니다. 해당 솔루션에는 다음 옵션이 포함됩니다.
 
@@ -95,7 +97,7 @@ hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 ```
 
-모든 디렉터리와 파일 참조는 이제 스토리지 계정 `wasbs://container2@storage2.blob.core.windows.net`을 지정합니다. 지정한 **이름 노드** 입니다.
+모든 디렉터리와 파일 참조는 이제 스토리지 계정 `wasbs://container2@storage2.blob.core.windows.net`을 지정합니다. 이는 지정한 **이름 노드** 입니다.
 
 다음과 같이 **스토리지2** 에 `/user/RevoShare/<SSH username>` 디렉터리를 구성합니다.
 

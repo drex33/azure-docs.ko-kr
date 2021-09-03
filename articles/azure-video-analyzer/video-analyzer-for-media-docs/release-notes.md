@@ -1,22 +1,23 @@
 ---
 title: Azure Video Analyzer for Media(이전 이름 Video Indexer) 릴리스 정보 | Microsoft Docs
 description: 최신 개발 정보를 확인할 수 있도록 이 문서에서는 Azure Video Analyzer for Media(이전 이름 Video Indexer)의 최신 업데이트에 관한 정보를 제공합니다.
-services: media-services
+services: azure-video-analyzer
 documentationcenter: ''
 author: Juliako
 manager: femila
 editor: ''
 ms.workload: na
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.custom: references_regions
-ms.date: 05/06/2021
+ms.date: 08/01/2021
 ms.author: juliako
-ms.openlocfilehash: d67d8dba31a453f4a42982519d619f294d47e04f
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 69d0190454a1b5948e894c5bc5a03a235daca78d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813822"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529453"
 ---
 # <a name="video-analyzer-for-media-release-notes"></a>Video Analyzer for Media 릴리스 정보
 
@@ -29,6 +30,18 @@ ms.locfileid: "111813822"
 * 버그 수정
 * 사용되지 않는 기능
 
+## <a name="july-2021"></a>2021년 7월
+
+### <a name="automatic-scaling-of-media-reserved-units"></a>미디어 예약 단위의 자동 스케일링
+ 
+2021년 8월 1일부터 Azure Video Analyzer for Media(이전 이름 Video Indexer)는 [Azure Media Services](../../media-services/latest/media-services-overview.md)에 의한 [MRU(Media Reserved Unit)](../../media-services/latest/concept-media-reserved-units.md) 자동 스케일링을 사용하도록 설정했습니다. 따라서 이제 Azure Video Analyzer for Media를 통해 관리할 필요가 없습니다. 자동 스케일링이 수행되므로, 비즈니스 요구 사항에 따라 가격 최적화(예: 많은 경우 가격 인하)가 가능합니다.
+
+## <a name="june-2021"></a>2021년 6월
+ 
+### <a name="video-analyzer-for-media-deployed-in-six-new-regions"></a>Video Analyzer for Media가 6개의 새 지역에 배포됨
+ 
+이제 프랑스 중부, 미국 중부, 브라질 남부, 미국 중서부, 한국 중부, 일본 서부 지역에서 Video Analyzer for Media 유료 계정을 만들 수 있습니다.
+  
 ## <a name="may-2021"></a>2021년 5월
 
 ### <a name="new-source-languages-support-for-speech-to-text-stt-translation-and-search"></a>STT(음성 텍스트 변환), 번역, 검색을 위한 새로운 소스 언어 지원
@@ -51,13 +64,19 @@ Video Analyzer for Media는 이제 중국어(광둥어)('zh-HK'), 네덜란드�
  
 ### <a name="new-option-to-toggle-bounding-boxes-for-observed-people-on-the-player"></a>플레이어의 경계 상자(관찰된 사람들)를 설정/해제하는 새로운 옵션  
 
-고급 비디오 설정을 통해 비디오를 인덱싱하면 새로운 관찰된 사람 기능을 볼 수 있습니다.
-
-미디어 파일에서 사람이 검색되면 미디어 플레이어를 통해 검색된 사용자에 대한 경계 상자를 사용하도록 설정할 수 있습니다.
+고급 비디오 설정을 통해 비디오를 인덱싱하면 새로운 관찰된 사람 기능을 볼 수 있습니다. 미디어 파일에서 사람이 검색되면 미디어 플레이어를 통해 검색된 사용자에 대한 경계 상자를 사용하도록 설정할 수 있습니다.
 
 ## <a name="april-2021"></a>2021년 4월
 
 Video Indexer 서비스의 이름이 Azure Video Analyzer for Media로 바뀌었습니다.
+
+### <a name="improved-upload-experience-in-the-portal"></a>포털의 업로드 환경 개선
+ 
+Video Analyzer for Media는 [포털](https://www.videoindexer.ai)에서 다음과 같은 새로운 업로드 환경을 제공합니다. 미디어 파일을 업로드하려면 **미디어 파일** 탭에서 **업로드** 단추를 누릅니다.
+
+### <a name="new-developer-portal-in-available-in-gov-cloud"></a>정부 클라우드에서 새 개발자 포털 사용 가능
+ 
+[Video Analyzer for Media 개발자 포털](https://api-portal.videoindexer.ai)을 이제 미국 정부용 Azure에서도 사용할 수 있습니다.
 
 ### <a name="observed-people-tracing-preview"></a>관찰된 사람 추적(미리 보기)  
 
@@ -76,14 +95,6 @@ Video Analyzer for Media에서 생성된 JSON 파일에서도 이 기능을 사�
 이제 감지된 음향 이벤트를 선택 자막 파일에서 볼 수 있습니다. 이 파일은 Video Analyzer for Media 포털에서 다운로드할 수 있으며 GetArtifact API에서 아티팩트로 사용할 수 있습니다.
 
 **오디오 효과 감지**(미리 보기) 구성 요소는 다양한 음향 이벤트를 감지하고 이를 다양한 음향 범주(예: 총성, 비명, 군중 반응 등)로 분류합니다. 자세한 내용은 [오디오 효과 감지](audio-effects-detection.md)를 참조하세요.
-
-### <a name="improved-upload-experience-in-the-portal"></a>포털의 업로드 환경 개선
-
-Video Analyzer for Media는 포털에서 다음과 같은 새로운 업로드 환경을 제공합니다.
-
-* Fairfax에서 새 개발자 포털 사용 가능
-
-Video Analyzer for Media의 새로운 [개발자 포털](https://api-portal.videoindexer.ai)은 이제 정부 클라우드에서도 사용할 수 있습니다.
 
 ## <a name="march-2021"></a>2021년 3월
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbbb1ab30a9f49157951b95a7b33769c3cb2347e
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 4fe0354f3d8e4d2b3ac2938f1cd03baa2ca2ce4d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111810269"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530710"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -48,8 +48,8 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 | 한 가상 네트워크의 App Service Web Apps로부터 다른 가상 네트워크의 VM까지 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | Azure의 VM 또는 역할 인스턴스에서 온-프레미스 컴퓨터와 서비스 이름을 확인합니다. |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인. |해당 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달하면 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
-| 내부 IP에 대한 역방향 DNS |[Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) 또는 [자체 DNS 서버를 사용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |해당 없음 |
-| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |해당 없음|
+| 내부 IP에 대한 역방향 DNS |[Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) 또는 [자체 DNS 서버를 사용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |적용할 수 없음 |
+| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |적용할 수 없음|
 
 ## <a name="azure-provided-name-resolution"></a>Azure에서 제공하는 이름 확인
 
@@ -149,8 +149,8 @@ resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 �
   1. *timeout:1 attempts:5* 를 **/etc/sysconfig/network/config** 의 **NETCONFIG_DNS_RESOLVER_OPTIONS=""** 매개 변수에 추가합니다.
   2. `netconfig update`를 실행하여 업데이트합니다.
 * **CentOS**(networkmanager 사용):
-  1. *echo "options timeout:1 attempts:5"* 를 **/etc/NetworkManager/dispatcher.d/11-dhclient** 에 추가합니다.
-  2. `service network restart`로 업데이트합니다.
+  1. **/etc/sysconfig/network-scripts/ifcfg-eth0** 파일에 *RES_OPTIONS="options timeout:1 attempts:5"* 행을 추가합니다.
+  2. `systemctl restart NetworkManager.service`로 업데이트합니다.
 
 ## <a name="name-resolution-that-uses-your-own-dns-server"></a>자체 DNS 서버를 사용하는 이름 확인
 

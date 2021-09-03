@@ -7,21 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: f0d85f056cfaaa58fcc72eb9c2182b3e1a78affb
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 01/27/2021
+ms.openlocfilehash: 5643f9a8bb1caec8d264ba5dfba9913d5d13b2ec
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581610"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414848"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 로그 데이터를 수집 및 분석
 
 진단 또는 운영 로그는 Azure Cognitive Search의 자세한 작업에 대한 인사이트를 제공하고 서비스 상태 및 프로세스를 모니터링하는 데 유용합니다. 내부적으로 Microsoft는 지원 티켓을 제출하는 경우 조사 및 분석에 충분한 정도의 짧은 시간 동안(약 30일) 백 엔드에 대한 시스템 정보를 유지합니다. 그러나, 작동 데이터에 대한 소유권을 원할 경우 로깅 정보가 수집되는 위치를 지정하는 진단 설정을 구성해야 합니다.
 
-진단 로깅은 [Azure Monitor](../azure-monitor/index.yml)와의 통합을 통해 사용하도록 설정됩니다. 
-
-진단 로깅을 설정하면 스토리지 메커니즘을 지정하라는 메시지가 표시됩니다. 다음 표에서는 데이터를 수집하고 유지하기 위한 옵션을 열거합니다.
+진단 로깅은 [Azure Monitor](../azure-monitor/index.yml)에 대한 백 엔드 통합을 통해 사용할 수 있습니다. 진단 로깅을 설정하면 로그를 유지하기 위해 스토리지 옵션을 지정하라는 메시지가 표시됩니다. 다음 표에는 옵션이 열거되어 있습니다.
 
 | 리소스 | 사용 대상 |
 |----------|----------|
@@ -55,9 +53,9 @@ ms.locfileid: "106581610"
 
 1. 설정을 저장합니다.
 
-1. 로깅을 사용하도록 설정한 후에는 검색 서비스를 사용하여 로그 및 메트릭 생성을 시작합니다. 기록된 이벤트 및 메트릭을 사용할 수 있게 되기까지는 시간이 걸립니다.
+1. 로깅이 사용하도록 설정된 후 검색 서비스는 로그와 메트릭 생성을 시작합니다. 로그된 이벤트와 메트릭을 사용할 수 있게 되기까지는 시간이 걸릴 수 있습니다.
 
-Log Analytics의 경우, 데이터를 사용할 수 있는 시간이 몇 분 정도 지나면 Kusto 쿼리를 실행하여 데이터를 반환할 수 있습니다. 자세한 내용은 [쿼리 요청 모니터링](search-monitor-logs.md)을 참조하세요.
+Log Analytics의 경우 데이터를 사용할 수 있을 때까지 몇 분 정도 기다려야 합니다. 이후 Kusto 쿼리를 실행하여 데이터를 반환할 수 있습니다. 자세한 내용은 [쿼리 요청 모니터링](search-monitor-logs.md)을 참조하세요.
 
 Blob Storage의 경우, 컨테이너가 Blob Storage에 표시될 때까지 1시간이 걸립니다. 시간 및 컨테이너당 하나의 Blob가 있습니다. 기록하거나 측정하는 활동이 있는 경우에만 컨테이너가 만들어집니다. 데이터가 스토리지 계정에 복사되면 해당 데이터가 JSON 형식으로 다음 두 컨테이너에 배치됩니다.
 
@@ -70,7 +68,9 @@ Blob Storage의 경우, 컨테이너가 Blob Storage에 표시될 때까지 1시
 
 1. **모니터링** 에서 **로그** 를 선택합니다.
 
-1. 쿼리 창에서 **AzureMetrics** 를 입력합니다. 이 간단한 쿼리를 실행하여 이 테이블에서 수집된 데이터를 확인합니다. 메트릭 및 값을 보려면 테이블을 스크롤합니다. 맨 위에 있는 레코드 수에 유의하십시오. 서비스가 잠시 메트릭을 수집했다면 시간 간격을 조정하여 관리 가능한 데이터 세트를 가져올 수 있습니다.
+1. 쿼리 창에서 **AzureMetrics** 를 입력하고 범위(검색 서비스)와 시간 범위를 확인한 다음, **실행** 을 클릭하여 이 테이블에 수집된 데이터를 파악합니다.
+
+   메트릭 및 값을 보려면 테이블을 스크롤합니다. 위쪽에 있는 레코드 수에 유의하세요. 서비스가 잠시 메트릭을 수집했다면 시간 간격을 조정하여 관리 가능한 데이터 세트를 가져올 수 있습니다.
 
    ![AzureMetrics 테이블](./media/search-monitor-usage/azuremetrics-table.png "AzureMetrics 테이블")
 
@@ -112,7 +112,7 @@ AzureDiagnostics
 AzureDiagnostics
 | summarize OperationName, Count=count()
 | where OperationName in ('Query.Search', 'Indexing.Index')
-| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| summarize Count=count(), AvgLatency=avg(durationMs) by bin(TimeGenerated, 1h), OperationName
 | render timechart
 ```
 
@@ -120,7 +120,7 @@ AzureDiagnostics
 
 Azure Monitor에서 캡처한 기록된 이벤트에는 인덱싱 및 쿼리와 관련된 이벤트가 포함됩니다. Log Analytics의 **AzureDiagnostics** 테이블은 쿼리 및 인덱싱과 관련된 작동 데이터를 수집합니다.
 
-| OperationName | Description |
+| OperationName | 설명 |
 |---------------|-------------|
 | ServiceStats | 이 작업은 로드되거나 새로 고쳐질 때 포털 개요 페이지를 채우도록 직접 또는 암시적으로 호출되는 [서비스 통계 가져오기](/rest/api/searchservice/get-service-statistics)에 대한 루틴 호출입니다. |
 | Query.Search |  인덱스에 대한 요청을 쿼리합니다. 기록된 쿼리에 대한 자세한 내용은 [쿼리 모니터링](search-monitor-queries.md)을 참조하세요.|
@@ -138,7 +138,7 @@ Azure Monitor에서 캡처한 기록된 이벤트에는 인덱싱 및 쿼리와 
 
 다음 표는 리소스 로깅에 공통적인 필드의 일부 목록입니다.
 
-| Name | Type | 예제 | 메모 |
+| Name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
 | timeGenerated |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
 | resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
@@ -154,7 +154,7 @@ Azure Monitor에서 캡처한 기록된 이벤트에는 인덱싱 및 쿼리와 
 
 아래 속성은 Azure Cognitive Search에만 적용됩니다.
 
-| Name | Type | 예제 | 메모 |
+| 이름 | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
 | Description_s |문자열 |"GET /indexes('content')/docs" |작업의 엔드포인트 |
 | Documents_d |int |42 |처리된 문서 수 |
@@ -165,7 +165,7 @@ Azure Monitor에서 캡처한 기록된 이벤트에는 인덱싱 및 쿼리와 
 
 메트릭은 쿼리 요청에 대해 캡처되고 1분 간격으로 측정됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다. 자세한 내용은 [쿼리 요청 모니터링](search-monitor-queries.md)을 참조하세요.
 
-| Name | Type | 예제 | 메모 |
+| Name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
 | resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
 | metricName |문자열 |"Latency" |메트릭 이름 |

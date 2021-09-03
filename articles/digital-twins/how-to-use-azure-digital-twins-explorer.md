@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/20/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9d029c3392ad5b5472173d17db17a113526d4f3a
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 22ad40dadf36b711bde4b7af7e8b24b09610ab89
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111811509"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459507"
 ---
 # <a name="use-azure-digital-twins-explorer-preview"></a>Azure Digital Twins Explorer 사용(미리 보기)
 
@@ -485,7 +485,7 @@ Azure Digital Twins Explorer 환경을 다른 사람과 공유하여 작업에�
 
 `https://explorer.digitaltwins.azure.net/?tid=00a000aa-00a0-00aa-0a0aa000aa00&eid=ADT-instance.api.wcus.digitaltwins.azure.net`
 
-수신자가 결과 Azure Digital Twins Explorer 창에서 인스턴스를 보려면 해당 Azure 계정에 로그인하고 인스턴스에 대한 **Azure Digital Twins 데이터 판독기** 액세스 권한이 있어야 합니다.(Azure Digital Twins 역할에 대해서는 [개념: 보안](concepts-security.md)에서 자세히 알아볼 수 있습니다.) 수신자가 그래프 및 데이터를 변경하려면 인스턴스에 대한 **Azure Digital Twins 데이터 소유자** 역할이 있어야 합니다.
+수신자가 결과 Azure Digital Twins Explorer 창에서 인스턴스를 보려면 해당 Azure 계정에 로그인하고 인스턴스에 대한 **Azure Digital Twins 데이터 읽기 권한자** 액세스 권한이 있어야 합니다(Azure Digital Twins 역할에 대한 자세한 내용은 [보안](concepts-security.md) 참조). 수신자가 그래프 및 데이터를 변경하려면 인스턴스에 대한 **Azure Digital Twins 데이터 소유자** 역할이 있어야 합니다.
 
 ### <a name="link-with-a-query"></a>쿼리와 연결
 
@@ -524,5 +524,5 @@ Azure Digital Twins Explorer를 위한 몇 가지 고급 설정 옵션을 사용
 ## <a name="next-steps"></a>다음 단계 
 
 Azure Digital Twins 트윈 그래프에 대한 쿼리 작성에 대해 알아봅니다. 
-* [개념: 쿼리 언어](concepts-query-language.md)
-* [방법: 트윈 그래프 쿼리](how-to-query-graph.md)
+* [쿼리 언어](concepts-query-language.md)
+* [쌍 그래프 쿼리](how-to-query-graph.md)

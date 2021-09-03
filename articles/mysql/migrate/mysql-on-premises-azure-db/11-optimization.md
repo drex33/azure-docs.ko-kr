@@ -1,5 +1,5 @@
 ---
-title: MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 최적화
+title: 'MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 최적화'
 description: 감사 및 활동 로그 외에도 Azure Metrics를 사용하여 서버 성능을 모니터링할 수도 있습니다.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: c207e4981adc64d92804c97a69225eacb89e2fac
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 4a1f279ad8eb81891a184700b1076bcec89b92e8
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082900"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296206"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-optimization"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 최적화
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-optimization"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 최적화
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -24,7 +26,7 @@ ms.locfileid: "112082900"
 
 ## <a name="monitoring-hardware-and-query-performance"></a>하드웨어 및 쿼리 성능 모니터링
 
-감사 및 활동 로그 외에도 [Azure Metrics](/azure/azure-monitor/platform/data-platform-metrics)를 사용하여 서버 성능을 모니터링할 수도 있습니다. Azure 메트릭은 1분 간격으로 제공되며 경고를 구성할 수 있습니다. 모니터링할 수 있는 메트릭의 종류에 대한 자세한 내용은 [Azure Database for MySQL 모니터링](/azure/mysql/concepts-monitoring)을 참조하세요.
+감사 및 활동 로그 외에도 [Azure Metrics](../../../azure-monitor/essentials/data-platform-metrics.md)를 사용하여 서버 성능을 모니터링할 수도 있습니다. Azure 메트릭은 1분 간격으로 제공되며 경고를 구성할 수 있습니다. 모니터링할 수 있는 메트릭의 종류에 대한 자세한 내용은 [Azure Database for MySQL 모니터링](../../concepts-monitoring.md)을 참조하세요.
 
 앞서 언급했듯이 데이터베이스 계층 업그레이드를 결정할 때 cpu\_퍼센트 또는 메모리\_퍼센트와 같은 메트릭을 모니터링하는 것이 중요할 수 있습니다. 지속적으로 높은 값은 계층 업그레이드가 필요함을 나타낼 수 있습니다.
 
@@ -38,12 +40,12 @@ AzureDiagnostics
 | where Category == 'MySqlSlowLogs'
 | project TimeGenerated, LogicalServerName\_s, 
 event\_class\_s, start\_time\_t , q uery\_time\_d, 
-sql\_text\_s | top 5 by query\_time\_d desc
+sql\_text\_s| top 5 by query\_time\_d desc
 ```
 
 ## <a name="query-performance-insight"></a>쿼리
 
-기본 서버 모니터링 측면 외에도 Azure는 애플리케이션 쿼리 성능을 모니터링하는 도구를 제공합니다. 쿼리를 수정하거나 개선하면 쿼리 처리량이 크게 증가할 수 있습니다. [Query Performance Insight 도구](/azure/mysql/concepts-query-performance-insight)를 사용하여 가장 오래 실행되는 쿼리를 분석하고 해당 항목이 정해진 기간 내에 결정적일 경우 캐시할 수 있는지 확인하거나 쿼리를 수정하여 성능을 높일 수 있습니다.
+기본 서버 모니터링 측면 외에도 Azure는 애플리케이션 쿼리 성능을 모니터링하는 도구를 제공합니다. 쿼리를 수정하거나 개선하면 쿼리 처리량이 크게 증가할 수 있습니다. [Query Performance Insight 도구](../../concepts-query-performance-insight.md)를 사용하여 가장 오래 실행되는 쿼리를 분석하고 해당 항목이 정해진 기간 내에 결정적일 경우 캐시할 수 있는지 확인하거나 쿼리를 수정하여 성능을 높일 수 있습니다.
 
 MySQL 로그 파일에 느린 쿼리를 표시하도록 `slow\_query\_log`를 설정할 수 있습니다(기본값은 OFF). `long\_query\_time` 서버 매개 변수는 긴 쿼리 시간(기본값은 10초)에 대해 사용자에게 알릴 수 있습니다.
 
@@ -83,6 +85,8 @@ Azure 엔지니어와 협력하는 마이그레이션 팀은 KQL 쿼리를 MySQL
 
   - 사용자의 지역 이동을 고려하거나 애플리케이션이 변경되어야 합니다.  
 
+
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [BCDR(비즈니스 연속성 및 재해 복구)](./12-business-continuity-and-disaster-recovery.md)

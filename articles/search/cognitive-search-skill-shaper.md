@@ -2,18 +2,17 @@
 title: 쉐이퍼 인식 기술
 titleSuffix: Azure Cognitive Search
 description: 구조화되지 않은 데이터에서 메타데이터 및 구조화된 정보를 추출하여 Azure Cognitive Search의 AI 보강 파이프라인에서 복합 형식으로 구성합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 81eb0e60befc544a6c3bee8f04e901b6a5e472bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: 9395f0446680135bde99193609bde82385f64b0b
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85560817"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038784"
 ---
 # <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
 
@@ -24,7 +23,7 @@ ms.locfileid: "85560817"
 출력 이름은 항상 “output”입니다. 내부적으로, 파이프라인은 아래 예제에 표시된 것처럼 “analyzedText” 같은 다른 이름을 매핑할 수 있지만 **쉐이퍼** 기술 자체는 응답에 “output”을 반환합니다. 이는 보강된 문서를 디버그하고 이름 불일치를 확인하거나 사용자 지정 기술을 작성하고 응답을 직접 구조화하는 경우에 중요합니다.
 
 > [!NOTE]
-> **쉐이퍼** 기술은 Cognitive Services API에 바인딩되지 않으며 사용 요금이 부과되지 않습니다. 그렇지만 **무료** 리소스 옵션을 재정의하여 일별 보강 횟수를 낮게 제한하려면 계속해서 [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다.
+> 이 기술은 Cognitive Services에 바인딩되지 않습니다. 청구할 수 없으며 Cognitive Services 주요 요구 사항이 없습니다.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
@@ -36,7 +35,6 @@ Microsoft.Skills.Util.ShaperSkill
 복합 형식을 만드는 또 다른 방법은 **쉐이퍼** 기술을 사용하는 것입니다. 이 기술을 기술 세트에 포함하면 기술 세트를 처리하는 동안 메모리 내 작업이 중첩된 구조의 데이터 셰이프를 출력할 수 있으며, 인덱스의 복합 형식에 매핑될 수 있습니다. 
 
 다음 예제 스킬 정의에서는 구성원 이름을 입력으로 제공합니다. 
-
 
 ```json
 {
@@ -66,26 +64,26 @@ Microsoft.Skills.Util.ShaperSkill
 기술은 인덱서에 의해 호출되며 인덱서에는 인덱스가 필요합니다. 인덱스의 복합 필드 표현은 다음 예제와 유사합니다. 
 
 ```json
-
-    "name": "my-index",
-    "fields": [
-        {   "name": "myId", "type": "Edm.String", "key": true, "filterable": true   },
-        {   "name": "analyzedText", "type": "Edm.ComplexType",
-            "fields": [{
-                    "name": "text",
-                    "type": "Edm.String",
-                    "filterable": false,
-                    "sortable": false,
-                    "facetable": false,
-                    "searchable": true  },
-          {
-                    "name": "sentiment",
-                    "type": "Edm.Double",
-                    "searchable": true,
-                    "filterable": true,
-                    "sortable": true,
-                    "facetable": true
-                },
+"name":"my-index",
+"fields":[
+   { "name":"myId", "type":"Edm.String", "key":true, "filterable":true  },
+   { "name":"analyzedText", "type":"Edm.ComplexType",
+      "fields":[
+         {
+            "name":"text",
+            "type":"Edm.String",
+            "facetable":false,
+            "filterable":false,
+            "searchable":true,
+            "sortable":false  },
+         {
+            "name":"sentiment",
+            "type":"Edm.Double",
+            "facetable":true,
+            "filterable":true,
+            "searchable":true,
+            "sortable":true }
+      }
 ```
 
 ### <a name="skill-input"></a>기술 입력

@@ -1,76 +1,104 @@
 ---
-title: .NET을 사용하여 스토리지 계정 유형 및 SKU 이름 가져오기
+title: 스토리지 계정 구성 정보 가져오기
 titleSuffix: Azure Storage
-description: .NET 클라이언트 라이브러리를 사용하여 Azure Storage 계정 유형 및 SKU 이름을 가져오는 방법을 알아봅니다.
+description: Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure Resource Manager 리소스 ID, 계정 위치, 계정 유형 또는 복제 SKU를 포함한 스토리지 계정 구성 속성을 검색합니다.
 services: storage
-author: normesta
-ms.author: normesta
-ms.date: 11/12/2020
+author: tamram
+ms.author: tamram
+ms.date: 06/23/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 94e8a76d48b8ff45d089a9ee375b3dc4a5e5de94
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: f3f94dda19f11b1a0aad9a84e7ae624e41c5015c
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653104"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112573655"
 ---
-# <a name="get-storage-account-type-and-sku-name-with-net"></a>.NET을 사용하여 스토리지 계정 유형 및 SKU 이름 가져오기
+# <a name="get-storage-account-configuration-information"></a>스토리지 계정 구성 정보 가져오기
 
-이 문서에서는 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 사용하여 Blob에 대한 Azure Storage 계정 유형 및 SKU 이름을 가져오는 방법을 보여줍니다.
+이 문서에서는 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure Storage 계정의 구성 정보 및 속성을 가져오는 방법을 보여 줍니다.
 
-## <a name="about-account-type-and-sku-name"></a>계정 유형 및 SKU 이름 정보
+## <a name="get-the-resource-id-for-a-storage-account"></a>스토리지 계정의 리소스 ID 가져오기
 
-**계정 유형**: 올바른 계정 유형에는 `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` 및 `StorageV2`가 포함됩니다. [Azure 스토리지 계정 개요](storage-account-overview.md)에는 다양한 스토리지 계정에 대한 설명을 포함하여 자세한 정보가 있습니다.
+모든 Azure Resource Manager 리소스에는 해당 리소스를 고유하게 식별하는 연결된 리소스 ID가 있습니다. 특정 작업을 수행하려면 리소스 ID를 제공해야 합니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 스토리지 계정의 리소스 ID를 가져올 수 있습니다.
 
-**SKU 이름**: 유효한 SKU 이름에는 `Premium_LRS`, `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS`, `Standard_RAGZRS` 및 `Standard_ZRS`가 포함됩니다. SKU 이름은 대/소문자를 구분하며, [SkuName 클래스](/dotnet/api/microsoft.azure.management.storage.models.skuname)의 문자열 필드입니다.
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-## <a name="retrieve-account-information"></a>계정 정보 검색
+Azure Portal에서 스토리지 계정의 Azure Resource Manager 리소스 ID를 표시하려면 다음 단계를 수행합니다.
 
-다음 코드 예제에서는 읽기 전용 계정 속성을 검색하고 표시합니다.
+1. Azure Portal의 스토리지 계정으로 이동합니다.
+1. **개요** 페이지의 **기본 정보** 섹션에서 **JSON 보기** 링크를 선택합니다.
+1. 스토리지 계정의 리소스 ID가 페이지 맨 위에 표시됩니다.
 
-# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+    :::image type="content" source="media/storage-account-get-info/resource-id-portal.png" alt-text="포털에서 스토리지 계정의 리소스 ID를 복사하는 방법을 보여 주는 스크린샷":::
 
-Blob과 연결된 스토리지 계정 유형 및 SKU 이름을 가져오려면 [GetAccountInfo](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfo) 또는 [GetAccountInfoAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfoasync) 메서드를 호출합니다.
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Account.cs" id="Snippet_GetAccountInfo":::
+PowerShell을 사용하여 스토리지 계정의 Azure Resource Manager 리소스 ID를 반환하려면 [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈을 설치했는지 확인합니다. 다음으로, [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) 명령을 호출하여 스토리지 계정을 반환하고 해당 리소스 ID를 가져옵니다.
 
-# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+```azurepowershell
+(Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>).Id
+```
 
-Blob와 연결된 스토리지 계정 유형 및 SKU 이름을 가져오려면 [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) 또는 [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync) 메서드를 호출합니다.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```csharp
-private static async Task GetAccountInfoAsync(CloudBlob blob)
-{
-    try
-    {
-        // Get the blob's storage account properties.
-        AccountProperties acctProps = await blob.GetAccountPropertiesAsync();
+Azure CLI를 사용하여 스토리지 계정의 Azure Resource Manager 리소스 ID를 반환하려면 [az storage account show](/cli/azure/storage/account#az_storage_account_show) 명령을 호출하고 리소스 ID를 쿼리합니다.
 
-        // Display the properties.
-        Console.WriteLine("Account properties");
-        Console.WriteLine("  AccountKind: {0}", acctProps.AccountKind);
-        Console.WriteLine("      SkuName: {0}", acctProps.SkuName);
-    }
-    catch (StorageException e)
-    {
-        Console.WriteLine("HTTP error code {0}: {1}",
-                            e.RequestInformation.HttpStatusCode,
-                            e.RequestInformation.ErrorCode);
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-    }
-}
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query id \
+    --output tsv
 ```
 
 ---
 
-[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
+REST API에서 [스토리지 계정 - 속성 가져오기](/rest/api/storagerp/storage-accounts/get-properties) 작업을 호출하여 스토리지 계정의 리소스 ID를 가져올 수도 있습니다.
+
+Azure Resource Manager에서 관리하는 리소스 종류에 관한 자세한 내용은 [리소스 공급자 및 리소스 종류](../../azure-resource-manager/management/resource-providers-and-types.md)를 참조하세요.
+
+## <a name="get-the-account-type-location-or-replication-sku-for-a-storage-account"></a>스토리지 계정의 계정 유형, 위치 또는 복제 SKU 가져오기
+
+계정 유형, 위치 및 복제 SKU는 스토리지 계정에서 사용할 수 있는 속성 중 일부입니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 해당 값을 볼 수 있습니다.
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+Azure Portal에서 스토리지 계정의 계정 유형, 위치 또는 복제 SKU를 보려면 다음 단계를 수행합니다.
+
+1. Azure Portal의 스토리지 계정으로 이동합니다.
+1. **개요** 페이지의 **기본 정보** 섹션에서 이 속성을 찾습니다.
+
+    :::image type="content" source="media/storage-account-get-info/account-configuration-portal.png" alt-text="포털의 계정 구성을 보여 주는 스크린샷":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell을 사용하여 스토리지 계정의 계정 유형, 위치 또는 복제 SKU를 보려면 [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) 명령을 호출하여 스토리지 계정을 반환한 다음, 속성을 확인합니다.
+
+```azurepowershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>
+$account.Location
+$account.Sku
+$account.Kind
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+PowerShell을 사용하여 스토리지 계정의 계정 유형, 위치 또는 복제 SKU를 보려면 [az storage account show](/cli/azure/storage/account#az_storage_account_show) 명령을 호출하여 속성을 쿼리합니다.
+
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query '[location,sku,kind]' \
+    --output tsv
+```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Portal](https://portal.azure.com) 및 Azure REST API를 통해 스토리지 계정에서 수행할 수 있는 다른 작업에 대해 알아봅니다.
-
-- [계정 정보 가져오기 작업(REST)](/rest/api/storageservices/get-account-information)
+- [Storage 계정 개요](storage-account-overview.md)
+- [스토리지 계정을 만드는](storage-account-create.md)

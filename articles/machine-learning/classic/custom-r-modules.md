@@ -9,22 +9,24 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: d44f2cfa72bd53b01da073fca31ca698eb42720d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47498a3b790af5b1ff8eeee821b655e8a307660d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520479"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693598"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Azure Machine Learning 스튜디오(클래식)에 사용할 사용자 지정 R 모듈 정의
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 이 항목에서는 사용자 지정 R 스튜디오(클래식)를 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
 
-**사용자 지정 모듈** 은 작업 영역에 업로드하고 Azure Machine Learning 스튜디오(클래식) 실험의 일부로 실행할 수 있는 사용자 정의 모듈입니다. 사용자 지정 R 모듈은 사용자 정의 R 함수를 실행하는 **사용자 지정 모듈** 입니다. **R** 은 통계학자 및 데이터 과학자가 알고리즘을 구현하는 데 널리 사용되는 통계 컴퓨팅 및 그래픽용 프로그래밍 언어입니다. 현재, R은 사용자 지정 모듈에서 지원되는 유일한 언어이지만 향후 릴리스에서는 추가 언어에 대한 지원이 예정되어 있습니다.
+**사용자 지정 모듈** 은 작업 영역에 업로드하고 Machine Learning 스튜디오(클래식) 실험의 일부로 실행할 수 있는 사용자 정의 모듈입니다. 사용자 지정 R 모듈은 사용자 정의 R 함수를 실행하는 **사용자 지정 모듈** 입니다. **R** 은 통계학자 및 데이터 과학자가 알고리즘을 구현하는 데 널리 사용되는 통계 컴퓨팅 및 그래픽용 프로그래밍 언어입니다. 현재, R은 사용자 지정 모듈에서 지원되는 유일한 언어이지만 향후 릴리스에서는 추가 언어에 대한 지원이 예정되어 있습니다.
 
-사용자 지정 모듈은 다른 모든 모듈처럼 사용할 수 있다는 점에서 Azure Machine Learning 스튜디오(클래식)에서 **첫 번째 클래스 상태** 로 유지됩니다. 다른 모듈과 함께 실행하거나, 게시된 실험이나 시각화에 포함할 수 있습니다. 사용자는 모듈에 의해 구현되는 알고리즘, 사용할 입력 및 출력 포트, 모델링 매개 변수 및 기타 여러 런타임 동작을 제어할 수 있습니다. 사용자 지정 모듈을 포함한 실험을 공유하기 쉽도록 Azure AI 갤러리에 게시할 수도 있습니다.
+사용자 지정 모듈은 다른 모든 모듈처럼 사용할 수 있다는 점에서 Machine Learning 스튜디오(클래식)에서 **첫 번째 클래스 상태** 로 유지됩니다. 다른 모듈과 함께 실행하거나, 게시된 실험이나 시각화에 포함할 수 있습니다. 사용자는 모듈에 의해 구현되는 알고리즘, 사용할 입력 및 출력 포트, 모델링 매개 변수 및 기타 여러 런타임 동작을 제어할 수 있습니다. 사용자 지정 모듈을 포함한 실험을 공유하기 쉽도록 Azure AI 갤러리에 게시할 수도 있습니다.
 
 ## <a name="files-in-a-custom-r-module"></a>사용자 지정 R 모듈의 파일
 사용자 지정 R 모듈은 최소한 다음 두 개의 파일을 포함하는 .zip 파일로 정의됩니다.
@@ -55,7 +57,7 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE)
 ```
 
 ### <a name="the-xml-definition-file"></a>XML 정의 파일
-이 `CustomAddRows` 함수를 Azure Machine Learning 스튜디오(클래식) 모듈로 노출하려면 XML 정의 파일을 만들어 **사용자 지정 행 추가** 모듈의 표시 및 동작 방식을 지정해야 합니다. 
+이 `CustomAddRows` 함수를 Machine Learning 스튜디오(클래식) 모듈로 노출하려면 XML 정의 파일을 만들어 **사용자 지정 행 추가** 모듈의 표시 및 동작 방식을 지정해야 합니다. 
 
 ```xml
 <!-- Defined a module using an R Script -->
@@ -98,7 +100,7 @@ XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 Custom
 ### <a name="package-and-register-the-module"></a>모듈 패키지 및 등록
 이 두 파일을 *CustomAddRows.R* 과 *CustomAddRows.xml* 로 저장한 다음 두 파일을 *CustomAddRows.zip* 파일로 함께 압축합니다.
 
-이 파일을 Machine Learning 작업 영역에 등록하려면 Azure Machine Learning 스튜디오(클래식)의 작업 영역으로 이동한 후, 아래쪽에서 **+새로 만들기** 단추를 클릭하고 **모듈 -> Zip 패키지에서** 를 선택하여 새 **사용자 지정 행 추가** 모듈을 업로드합니다.
+이 파일을 Machine Learning 작업 영역에 등록하려면 Machine Learning 스튜디오(클래식)의 작업 영역으로 이동한 후, 아래쪽에서 **+새로 만들기** 단추를 클릭하고 **모듈 -> Zip 패키지에서** 를 선택하여 새 **사용자 지정 행 추가** 모듈을 업로드합니다.
 
 ![Zip 업로드](./media/custom-r-modules/upload-from-zip-package.png)
 
@@ -106,7 +108,7 @@ XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 Custom
 
 ## <a name="elements-in-the-xml-definition-file"></a>인수
 ### <a name="module-elements"></a>Module 요소
-**Module** 요소는 XML 파일에서 사용자 지정 모듈을 정의하는 데 사용됩니다. 여러 **module** 요소를 사용하여 여러 모듈을 하나의 XML 파일에 정의할 수 있습니다. 작업 영역의 각 모듈은 이름이 고유해야 합니다. 기존 사용자 지정 모듈과 동일한 이름으로 사용자 지정 모듈을 등록하면 기존 모듈이 새 모듈로 바뀝니다. 그러나 사용자 지정 모듈을 기존 Azure Machine Learning 스튜디오(클래식) 모듈과 동일한 이름으로 등록할 수 있습니다. 이 경우 모듈 팔레트의 **사용자 지정** 범주에 표시됩니다.
+**Module** 요소는 XML 파일에서 사용자 지정 모듈을 정의하는 데 사용됩니다. 여러 **module** 요소를 사용하여 여러 모듈을 하나의 XML 파일에 정의할 수 있습니다. 작업 영역의 각 모듈은 이름이 고유해야 합니다. 기존 사용자 지정 모듈과 동일한 이름으로 사용자 지정 모듈을 등록하면 기존 모듈이 새 모듈로 바뀝니다. 그러나 사용자 지정 모듈을 기존 Machine Learning 스튜디오(클래식) 모듈과 동일한 이름으로 등록할 수 있습니다. 이 경우 모듈 팔레트의 **사용자 지정** 범주에 표시됩니다.
 
 ```xml
 <Module name="Custom Add Rows" isDeterministic="false"> 
@@ -125,7 +127,7 @@ Module 요소의 문자 제한에 대한 규칙:
 * **Description** 요소의 내용은 128자를 초과할 수 없습니다.
 * **Owner** 요소의 내용은 32자를 초과할 수 없습니다.
 
-모듈의 결과는 결정적이거나 비결정적일 수 있습니다.** 기본적으로 모든 모듈은 결정적인 것으로 간주됩니다. 즉, 변경되지 않는 입력 매개 변수 및 데이터 세트가 주어진 경우 모듈은 같은 결과 eacRAND 또는 모듈이 실행되는 함수 시간을 반환합니다. 이 동작을 제공하는 경우 Azure Machine Learning 스튜디오(클래식)는 매개 변수 또는 입력 데이터가 변경된 경우 결정적인 것으로 표시된 모듈만 다시 작동시킵니다. 캐시된 결과 반환은 훨씬 더 빠른 실험의 실행도 제공합니다.
+모듈의 결과는 결정적이거나 비결정적일 수 있습니다.** 기본적으로 모든 모듈은 결정적인 것으로 간주됩니다. 즉, 변경되지 않는 입력 매개 변수 및 데이터 세트가 주어진 경우 모듈은 같은 결과 eacRAND 또는 모듈이 실행되는 함수 시간을 반환합니다. 이 동작을 제공하는 경우 Machine Learning 스튜디오(클래식)는 매개 변수 또는 입력 데이터가 변경된 경우 결정적인 것으로 표시된 모듈만 다시 작동시킵니다. 캐시된 결과 반환은 훨씬 더 빠른 실험의 실행도 제공합니다.
 
 현재 날짜 또는 시간을 반환하는 RAND 또는 함수와 같은 비결정적인 함수도 있습니다. 모듈이 비결정적 함수를 사용하는 경우 옵션 **isDeterministic** 특성을 **FALSE** 로 설정하여 모듈을 비결정적으로 지정할 수 있습니다. 이는 모듈이 모듈 입력 및 매개 변수가 변경되지 않은 경우에도 실험이 실행될 때마다 다시 실행되는 것을 보장합니다. 
 
@@ -351,7 +353,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
   * **기본값** - 기본 속성 값은 **Item** 요소 중 하나의 ID 값에 해당해야 합니다.
 
 ### <a name="auxiliary-files"></a>보조 파일
-사용자 지정 모듈 ZIP 파일에 있는 모든 파일은 실행 시간 동안 사용할 수 있습니다. 모든 디렉터리 구조는 있는 그대로 유지됩니다. 따라서 파일 소싱이 로컬과 Azure Machine Learning 스튜디오(클래식) 실행에서 동일하게 작동합니다. 
+사용자 지정 모듈 ZIP 파일에 있는 모든 파일은 실행 시간 동안 사용할 수 있습니다. 모든 디렉터리 구조는 있는 그대로 유지됩니다. 따라서 파일 소싱이 로컬과 Machine Learning 스튜디오(클래식) 실행에서 동일하게 작동합니다. 
 
 > [!NOTE]
 > 모든 파일은 ‘src’ 디렉터리로 추출되므로 모든 경로에 ‘src/’ 접두사가 있어야 합니다.

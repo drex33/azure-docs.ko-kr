@@ -1,22 +1,22 @@
 ---
-title: Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기(미리 보기)
+title: Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기
 description: Blob 인덱스 태그를 사용하여 Blob 개체를 분류, 관리 및 쿼리하는 방법에 대해 알아봅니다.
 author: normesta
 ms.author: normesta
-ms.date: 05/17/2021
+ms.date: 06/14/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: bd1738c0a5d63ad9eacaa1500a6ce10268a93b04
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c4ff918be67d74d536159ebbd3e707c1d7e68e8b
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664882"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730751"
 ---
-# <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기(미리 보기)
+# <a name="manage-and-find-azure-blob-data-with-blob-index-tags"></a>Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기
 
 데이터 세트가 커질수록 데이터의 바다에서 특정 개체를 찾기가 어려울 수 있습니다. Blob 인덱스 태그는 키-값 인덱스 태그 특성을 사용하여 데이터 관리 및 검색 기능을 제공합니다. 단일 컨테이너 내에서 또는 스토리지 계정의 모든 컨테이너에서 개체를 분류하고 찾을 수 있습니다. 데이터 요구 사항이 변경되면 인덱스 태그를 업데이트하여 개체를 동적으로 분류할 수 있습니다. 개체는 현재 컨테이너 조직에 그대로 남아 있을 수 있습니다.
 
@@ -28,9 +28,6 @@ Blob 인덱스 태그를 통해 다음을 수행할 수 있습니다.
 - [Blob 수명 주기 관리](storage-lifecycle-management-concepts.md)와 같은 기능에 대한 고급 컨트롤을 위해 인덱스 태그 사용
 
 스토리지 계정에 수백만 개의 Blob이 있고 여기에 다양한 애플리케이션이 액세스하는 시나리오를 생각해 보겠습니다. 단일 프로젝트에서 관련된 모든 데이터를 찾으려고 합니다. 데이터가 서로 다른 명명 규칙을 사용하여 여러 컨테이너에 분산되어 있을 수 있기 때문에 범위에 무엇이 있는지 확실하지 않습니다. 그런데 애플리케이션은 모든 데이터를 프로젝트에 기반한 태그와 함께 업로드합니다. 수백만 개의 Blob을 검색하고 이름과 속성을 비교하는 대신 `Project = Contoso`를 검색 기준으로 사용할 수 있습니다. Blob 인덱스는 전체 스토리지 계정에서 모든 컨테이너를 필터링하여 `Project = Contoso`에서 Blob 집합을 50개만 빠르게 찾아서 반환합니다.
-
-> [!IMPORTANT]
-> Blob 인덱스 태그는 현재 **미리 보기** 상태이며 모든 공용 지역에서 사용할 수 있습니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Blob 인덱스 사용 방법에 대한 예제를 시작하려면 [Blob 인덱스 태그를 사용하여 데이터 관리 및 찾기](storage-blob-index-how-to.md)를 참조하세요.
 
@@ -118,7 +115,7 @@ Blob 인덱스 필터링에는 다음 기준이 적용됩니다.
 
 다음 표에는 `Find Blobs by Tags`에 유효한 모든 연산자가 나와 있습니다.
 
-|  연산자  |  Description  | 예제 |
+|  연산자  |  설명  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | `"Status" = 'In Progress'` |
 |     >      |  보다 큼 | `"Date" > '2018-06-18'` |
@@ -143,7 +140,7 @@ REST 버전 2019-10-10 이상에서는 대부분의 [Blob service API](/rest/api
 
 아래 표는 조건부 연산에 유효한 연산자를 보여줍니다.
 
-|  연산자  |  Description  | 예제 |
+|  연산자  |  설명  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | `"Status" = 'In Progress'` |
 |     <>     |   같지 않음   | `"Status" <> 'Done'` |
@@ -222,7 +219,7 @@ Blob 인덱스 일치를 수명 주기 규칙의 독립 실행형 필터 집합�
 
 Blob 인덱스 태그에 대한 액세스 권한은 다음 방식 중 하나를 사용하여 부여할 수 있습니다.
 
-- Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure AD(Azure Active Directory) 보안 주체에 권한을 부여합니다. 탁월한 보안과 사용 편의성을 위해 Azure AD를 사용합니다. Blob 작업에서 Azure AD를 사용하는 방법에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](../common/storage-auth-aad.md)를 참조하세요.
+- Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure AD(Azure Active Directory) 보안 주체에 권한을 부여합니다. 탁월한 보안과 사용 편의성을 위해 Azure AD를 사용합니다. Blob 작업에서 Azure AD를 사용하는 방법에 관한 자세한 내용은 [Azure Storage에서 데이터에 대한 액세스 권한 부여](../common/authorize-data-access.md)를 참조하세요.
 - SAS(공유 액세스 서명)를 사용하여 Blob 인덱스에 대한 액세스를 위임합니다. 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조하세요.
 - 계정 액세스 키를 사용하여 공유 키로 작업에 권한을 부여합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](/rest/api/storageservices/authorize-with-shared-key)를 참조하세요.
 
@@ -230,7 +227,7 @@ Blob 인덱스 태그는 Blob 데이터에 대한 하위 리소스입니다. Blo
 
 ### <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-[Azure AD ID](../common/storage-auth-aad.md)를 사용하는 호출자에게는 Blob 인덱스 태그에 대해 다음과 같은 작업 권한이 부여될 수 있습니다.
+[Azure AD ID](../common/authorize-data-access.md)를 사용하는 호출자에게는 Blob 인덱스 태그에 대해 다음과 같은 작업 권한이 부여될 수 있습니다.
 
 | Blob 인덱스 태그 작업                                          | Azure RBAC 동작                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -282,7 +279,7 @@ Blob 인덱스 태그와 메타데이터 모두 Blob 리소스와 함께 임의�
 
 ## <a name="pricing"></a>가격 책정
 
-Blob 인덱스 가격 책정은 공개 미리 보기 상태이며 일반 공급을 위해 변경될 수 있습니다. 스토리지 계정 내 월 평균 인덱스 태그 수에 대한 요금이 청구됩니다. 인덱싱 엔진에 대한 비용은 없습니다. 블로그 태그 설정, Blob 태그 얻기, Blob 태그 찾기에 대한 요청은 현재 해당 트랜잭션 요율로 청구됩니다. 태그로 Blob 찾기 트랜잭션을 수행하는 경우 사용하는 목록 트랜잭션 수는 요청의 절 수와 같습니다. 예를 들어 (StoreID = 100) 쿼리는 하나의 목록 트랜잭션입니다.  (StoreID = 100 AND SKU = 10010) 쿼리는 두 개의 목록 트랜잭션입니다. [자세한 내용은 블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
+스토리지 계정 내 월 평균 인덱스 태그 수에 대한 요금이 청구됩니다. 인덱싱 엔진에 대한 비용은 없습니다. 블로그 태그 설정, Blob 태그 얻기, Blob 태그 찾기에 대한 요청은 현재 해당 트랜잭션 요율로 청구됩니다. 태그로 Blob 찾기 트랜잭션을 수행하는 경우 사용하는 목록 트랜잭션 수는 요청의 절 수와 같습니다. 예를 들어 (StoreID = 100) 쿼리는 하나의 목록 트랜잭션입니다.  (StoreID = 100 AND SKU = 10010) 쿼리는 두 개의 목록 트랜잭션입니다. [자세한 내용은 블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 
 ## <a name="regional-availability-and-storage-account-support"></a>지역 가용성 및 스토리지 계정 지원
 
@@ -295,42 +292,20 @@ Blob 인덱스 태그는 현재 모든 공용 지역에서 사용할 수 있습�
 시작하려면 [Blob 인덱스 태그를 사용하여 데이터 관리 및 찾기](storage-blob-index-how-to.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 스토리지 계정에서 Blob 인덱스 미리 보기를 사용하려면 먼저 구독을 등록해야 합니다. 이 문서의 [조건 및 알려진 문제](#conditions-and-known-issues) 섹션을 참조하세요.
-
-### <a name="register-your-subscription-preview"></a>구독 등록(미리 보기)
-
-Blob 인덱스 태그는 공개 미리 보기 상태이므로 해당 기능을 사용하려면 먼저 구독을 등록해야 합니다. 요청을 제출하려면 다음 PowerShell 또는 CLI 명령을 실행합니다.
-
-#### <a name="register-by-using-powershell"></a>PowerShell을 사용하여 등록
-
-```powershell
-Register-AzProviderFeature -FeatureName BlobIndex -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-#### <a name="register-by-using-azure-cli"></a>Azure CLI를 사용하여 등록
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name BlobIndex
-az provider register --namespace 'Microsoft.Storage'
-```
+> 스토리지 계정에서 Blob 인덱스를 사용하려면 먼저 구독을 등록해야 합니다. 이 문서의 [조건 및 알려진 문제](#conditions-and-known-issues) 섹션을 참조하세요.
 
 ## <a name="conditions-and-known-issues"></a>조건 및 알려진 문제
 
-이 섹션에서는 Blob 인덱스 태그 공개 미리 보기의 알려진 문제 및 조건에 대해 설명합니다. 이 기능은 동작이 변경될 수 있으므로 GA(일반 공급)에 도달할 때까지 프로덕션 워크로드에 사용해서는 안 됩니다.
+이 섹션에서는 알려진 문제와 상태를 설명합니다.
 
-- 미리 보기의 경우 먼저 구독을 등록해야 미리 보기 지역에서 스토리지 계정에 Blob 인덱스를 사용할 수 있습니다.
-- 범용 v2 계정만 미리 보기에서 지원됩니다. 프리미엄 블록 Blob, 레거시 Blob, 계층 구조 네임스페이스가 사용되는 계정은 지원되지 않습니다. 범용 v1 계정은 지원되지 않습니다.
+- 범용 v2 계정만 지원됩니다. 프리미엄 블록 Blob, 레거시 Blob, 계층 구조 네임스페이스가 사용되는 계정은 지원되지 않습니다. 범용 v1 계정은 지원되지 않습니다.
 - 인덱스 태그가 있는 페이지 Blob을 업로드하면 태그가 유지되지 않습니다. 페이지 Blob을 업로드한 후 태그를 설정하세요.
 - 필터링 범위가 단일 컨테이너로 지정되면 필터 식의 모든 인덱스 태그가 같음 검사(키= 값)인 경우에만 `@container`를 전달할 수 있습니다.
 - `AND` 조건과 함께 범위 연산자를 사용하는 경우에는 동일한 인덱스 태그 키 이름만 지정할 수 있습니다(`"Age" > '013' AND "Age" < '100'`).
-- 버전 관리 및 Blob 인덱스는 지원되지 않습니다. Blob 인덱스 태그는 버전에 대해 유지되지만 Blob 인덱스 엔진으로 전달되지 않습니다.
+- 버전 관리가 사용되는 경우 현재 버전에서도 인덱스 태그를 사용할 수 있습니다. 이전 버전의 경우 인덱스 태그는 버전에 대해 유지되지만 Blob 인덱스 엔진에 전달되지 않습니다. 인덱스 태그를 쿼리하여 이전 버전을 검색할 수 없습니다.
 - 인덱스 태그가 인덱싱되었는지 확인하는 API는 없습니다.
-- 계정 장애 조치(failover)는 지원되지 않습니다. 장애 조치(failover) 후에는 Blob 인덱스가 제대로 업데이트되지 않을 수 있습니다.
 - 수명 주기 관리는 Blob 인덱스 일치를 사용한 같음 검사만 지원합니다.
 - `Copy Blob`은 원본 Blob에서 새 대상 Blob으로 Blob 인덱스 태그를 복사하지 않습니다. 대상 Blob에 적용할 태그는 복사 작업 중에 지정할 수 있습니다.
-- 대상 Blob에 적용된 태그가 있는 다른 스토리지 계정에서 `Copy Blob`을 수행하면(비동기 복사) Blob 인덱스 엔진이 필터 집합의 Blob 및 해당 태그를 반환하지 않습니다. URL에서 `Copy Blob`(동기 복사)를 사용하세요.
-- 태그는 스냅샷 생성 시 유지됩니다. 단, 스냅샷 승격은 지원되지 않으며, 실행하면 태그 집합이 비워질 수 있습니다.
 
 ## <a name="faq"></a>FAQ
 

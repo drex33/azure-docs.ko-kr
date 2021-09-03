@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 07/29/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c903cf06981e1336ae30942775de11d09bb1299b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fca86017b69d20ae71af94b4cabe76c5236815f
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675348"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530862"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링
 
@@ -150,7 +150,7 @@ Microsoft는 공유 디스크 옵션에서 SAP ASCS/SCS 고가용성을 구현�
 
 -  [Azure Ultra disk](../../disks-types.md#ultra-disk)는 SAP 워크로드용 Azure 공유 디스크로 지원되지 않습니다. 현재 가용성 집합의 Azure Ultra Disk를 사용하여 Azure VM을 배치할 수 없습니다.
 -  프리미엄 SSD 디스크가 있는 [Azure 공유 디스크](../../disks-shared.md)는 가용성 집합의 VM에서만 지원됩니다. 가용성 영역 배포에서는 지원되지 않습니다. 
--  Azure 공유 디스크 값인 [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes)는 공유 디스크로 사용할 수 있는 클러스터 노드의 개수를 결정합니다. 일반적으로 SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터에서는 두 개의 노드를 구성하므로 `maxShares` 에 해당하는 값은 2로 설정되어야 합니다.
+-  Azure 공유 디스크 값인 [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes)는 공유 디스크로 사용할 수 있는 클러스터 노드의 개수를 결정합니다. 일반적으로 SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터에서는 두 개의 노드를 구성하므로 `maxShares`에 해당하는 값은 2로 설정되어야 합니다.
 -  모든 SAP ASCS/SCS 클러스터 VM은 동일한 [Azure 근접 배치 그룹](../../windows/proximity-placement-groups.md)에 배포되어야 합니다.   
    PPG가 없는 Azure 공유 디스크를 사용해 가용성 집합에 Windows 클러스터 VM을 배포할 수 있지만, PPG가 있으면 Azure 공유 디스크와 클러스터 VM의 물리적 근접성을 확보할 수 있으므로 해당 VM과 스토리지 계층 간의 대기 시간을 줄일 수 있습니다.    
 
@@ -167,8 +167,8 @@ Azure 공유 디스크의 제한 사항에 대한 자세한 내용은 Azure 공�
 Windows Server 2016과 2019가 모두 지원됩니다(최신 데이터 센터 이미지 사용).
 
 다음과 같은 이유로 인해 **Windows Server 2019 Datacenter** 를 사용하는 것이 훨씬 좋습니다.
-- Windows 2019 장애 조치(Failover) 클러스터 서비스가 Azure를 인식합니다.
-- Azure 일정 이벤트를 모니터링하여 Azure 호스트 유지 관리 및 향상된 환경에 대한 통합 및 인식 기능이 추가되었습니다.
+- Windows 2019 장애 조치(Failover) 클러스터 서비스가 Azure 인식
+- Azure 호스트 유지 관리에 대한 통합 및 인식이 추가되었으며, Azure 일정 이벤트를 모니터링하여 향상된 경험을 제공합니다.
 - 분산 네트워크 이름(기본 옵션)을 사용할 수 있습니다. 따라서, 클러스터 네트워크 이름을 위해 전용 IP 주소가 있을 필요가 없습니다. 또한, 해당 IP 주소를 Azure Internal Load Balancer에 구성할 필요도 없습니다. 
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>SIOS DataKeeper를 사용한 Azure의 공유 디스크
@@ -190,10 +190,42 @@ _SIOS DataKeeper를 사용한 Azure의 Windows 장애 조치(Failover) 클러스
 > [!NOTE]
 > SQL Server와 같은 일부 DBMS 제품에서는 가용성을 높이기 위해 공유 디스크를 사용할 필요가 없습니다. SQL Server AlwaysOn은 한 클러스터 노드의 로컬 디스크에서 다른 클러스터 노드의 로컬 디스크로 DBMS 데이터 및 로그 파일을 복제합니다. 이 경우 Windows 클러스터 구성에는 공유 디스크가 필요하지 않습니다.
 >
+## <a name="optional-configurations"></a>선택적 구성
+
+다음 다이어그램에서는 총 VM 수를 줄이기 위해 Microsoft Windows 장애 조치(failover) 클러스터를 실행하는 Azure VM의 여러 SAP 인스턴스를 보여 줍니다.
+
+SAP ASCS/SCS 클러스터의 로컬 SAP Application Server 또는 Microsoft SQL Server Always On 노드의 SAP ASCS/SCS 클러스터 역할일 수 있습니다.
+
+> [!IMPORTANT]
+> SQL Server Always On 노드에 로컬 SAP Application Server를 설치하는 것은 지원되지 않습니다.
+>
+
+SAP ASCS/SCS와 Microsoft SQL Server 데이터베이스는 모두 SPOF(단일 실패 지점)입니다. Windows 환경에서 이러한 SPOF를 보호하기 위해 WSFC가 사용됩니다.
+
+SAP ASCS/SCS의 리소스 사용량은 매우 작지만 SQL Server 또는 SAP Application Server에 대한 메모리 구성을 2GB씩 줄이는 것이 좋습니다.
+
+### <a name="sap-application-servers-on-wsfc-nodes-using-sios-datakeeper"></a>SIOS DataKeeper를 사용하는 WSFC 노드의 SAP Application Server
+
+![그림 6: SIOS DataKeeper 및 로컬로 설치된 SAP Application Server를 사용하여 Azure에서 Windows Server 장애 조치(failover) 클러스터링 구성][sap-ha-guide-figure-1003]
+
+> [!NOTE]
+> SAP Application Server는 로컬로 설치되므로 그림과 같이 동기화를 설정하지 않아도 됩니다.
+>
+### <a name="sap-ascsscs-on-sql-server-always-on-nodes-using-sios-datakeeper"></a>SIOS DataKeeper를 사용하는 SQL Server Always On 노드의 SAP ASCS/SCS
+
+![그림 7: SIOS DataKeeper를 사용하는 SQL Server Always On 노드의 SAP ASCS/SCS][sap-ha-guide-figure-1005]
+
+[Windows SOFS를 사용하는 WSFC 노드의 SAP Application Server에 대한 선택적 구성][optional-fileshare]
+
+[NetApp Files SMB를 사용하는 WSFC 노드의 SAP Application Server에 대한 선택적 구성][optional-smb]
+
+[Windows SOFS를 사용하는 SQL Server Always On 노드의 SAP ASCS/SCS에 대한 선택적 구성][optional-fileshare-sql]
+
+[NetApp Files SMB를 사용하는 SQL Server Always On 노드의 SAP ASCS/SCS에 대한 선택적 구성][optional-smb-sql]
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 위한 SAP HA용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스에 대한 SAP HA용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 * [SAP ASCS/SCS 인스턴스에 대한 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]
 
@@ -253,7 +285,9 @@ _SIOS DataKeeper를 사용한 Azure의 Windows 장애 조치(Failover) 클러스
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
 [sap-ha-guide-figure-1001]:./media/virtual-machines-shared-sap-high-availability-guide/1001-wsfc-on-azure-ilb.png
-[sap-ha-guide-figure-1002]:./media/virtual-machines-shared-sap-high-availability-guide/1002-wsfc-sios-on-azure-ilb.png
+[sap-ha-guide-figure-1003]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sios-as.png
+[sap-ha-guide-figure-1005]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-sios.png
+[sap-ha-guide-figure-1002]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sios.png
 [sap-ha-guide-figure-2000]:./media/virtual-machines-shared-sap-high-availability-guide/2000-wsfc-sap-as-ha-on-azure.png
 [sap-ha-guide-figure-2001]:./media/virtual-machines-shared-sap-high-availability-guide/2001-wsfc-sap-ascs-ha-on-azure.png
 [sap-ha-guide-figure-2003]:./media/virtual-machines-shared-sap-high-availability-guide/2003-wsfc-sap-dbms-ha-on-azure.png
@@ -347,12 +381,16 @@ _SIOS DataKeeper를 사용한 Azure의 Windows 장애 조치(Failover) 클러스
 
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[optional-smb]:high-availability-guide-windows-netapp-files-smb.md#5121771a-7618-4f36-ae14-ccf9ee5f2031 (NetApp Files SMB를 사용하는 WSFC 노드의 SAP Application Server에 대한 선택적 구성)
+[optional-fileshare]:sap-high-availability-guide-wsfc-file-share.md#86cb3ee0-2091-4b74-be77-64c2e6424f50 (Windows SOFS를 사용하는 WSFC 노드의 SAP Application Server에 대한 선택적 구성)
+[optional-smb-sql]:high-availability-guide-windows-netapp-files-smb.md#01541cf2-0a03-48e3-971e-e03575fa7b4f (NetApp Files SMB를 사용하는 SQL Server Always On 노드의 SAP ASCS/SCS에 대한 선택적 구성)
+[optional-fileshare-sql]:sap-high-availability-guide-wsfc-file-share.md#db335e0d-09b4-416b-b240-afa18505f503 (Windows SOFS를 사용하는 SQL Server Always On 노드의 SAP ASCS/SCS에 대한 선택적 구성)

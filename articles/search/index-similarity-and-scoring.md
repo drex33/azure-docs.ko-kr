@@ -2,24 +2,24 @@
 title: 유사성 및 점수 매기기 개요
 titleSuffix: Azure Cognitive Search
 description: 유사성 및 점수 매기기의 개념과 개발자가 점수 매기기 결과를 사용자 지정하기 위해 수행할 수 있는 작업을 설명합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: puneet-hariharan-MSFT
+ms.author: puhariharan
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 72243f896b2cf7dbab61a42514bee634da28d4c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cacf6097234a5a2c7ec5261623fe653e509b8d9f
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676330"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981433"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Azure Cognitive Search의 유사성 및 점수 매기기
 
-본 문서에서는 Azure Cognitive Search의 두 가지 유사성 순위 알고리즘에 대해 설명합니다. 이와 관련된 두 가지 기능인 *채점 프로필*(검색 점수 조정 기준)과 *featuresMode* 매개 변수(추가 세부 정보 표시를 위해 검색 점수의 압축 해제)를 함께 소개합니다. 
+이 문서에서는 쿼리와 가장 관련성이 높은 일치하는 문서를 확인하기 위해 Azure Cognitive Search에서 사용하는 두 가지 유사성 순위 알고리즘을 설명합니다. 또한 이 문서에서는 관련된 두 가지 기능인 ‘점수 매기기 프로필’(검색 점수 조정 기준)과 *featuresMode* 매개 변수(추가 세부 정보 표시를 위해 검색 점수의 압축 풀기)를 소개합니다.
 
-의미 체계 순위 재지정 알고리즘 세 가지 중 하나는 현재 퍼블릭 미리 보기 상태입니다. 자세한 내용은 [의미 체계 검색 개요](semantic-search-overview.md)부터 확인하세요.
+> [!NOTE]
+> [의미 체계 순위 재지정 알고리즘](semantic-ranking.md) 세 가지 중 하나는 현재 퍼블릭 미리 보기 상태입니다. 자세한 내용은 [의미 체계 검색 개요](semantic-search-overview.md)부터 확인하세요.
 
 ## <a name="similarity-ranking-algorithms"></a>유사성 순위 알고리즘
 

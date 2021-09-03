@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 92db62622c37241a76d7847931df030162de8f00
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: e810a5d3a94ad4e356d0b44a422b757b5710a781
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504229"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122530063"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 결과 작업 방법
 
@@ -157,4 +157,4 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 + 포털에서 [애플리케이션 생성기](search-create-app-portal.md)는 검색 창 및 패싯 탐색과, 이미지가 있는 결과 영역을 포함하는 HTML 페이지를 만듭니다.
 + [C#에서 첫 번째 앱 만들기](tutorial-csharp-create-first-app.md)는 기능적인 클라이언트를 빌드하는 자습서입니다. 샘플 코드는 페이지가 매겨진 쿼리, 적중 항목 강조 표시 및 정렬을 보여줍니다.
 
-[뉴욕시 작업 데모 앱](https://aka.ms/azjobsdemo), [라이브 데모 사이트를 사용하는 JavaScript 샘플 코드](https://github.com/liamca/azure-search-javascript-samples), [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd) 등 몇 가지 코드 샘플에서 웹 프런트 엔드 인터페이스를 확인할 수 있습니다.
+[뉴욕시 작업 데모 앱](https://aka.ms/azjobsdemo) 또는 [라이브 데모 사이트를 사용하는 JavaScript 샘플 코드](https://github.com/liamca/azure-search-javascript-samples) 등 몇 가지 코드 샘플에서 웹 프런트 엔드 인터페이스를 확인할 수 있습니다.

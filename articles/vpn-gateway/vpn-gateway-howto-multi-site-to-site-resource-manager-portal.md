@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: d65367b561ed94c4872ce86edede2043f99cced4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 304d96e9f7566ab80ac71d176fc52ccf3c852b49
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292687"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528421"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>VNet에 S2S 연결 추가: Azure Portal
 
@@ -31,7 +31,7 @@ ms.locfileid: "108292687"
 다음 사항을 확인합니다.
 
 * 새 ExpressRoute 및 VPN Gateway 공존 구성을 구성하지 않습니다.
-* 기존 연결로 Resource Manager 배포 모델을 사용하여 만든 가상 네트워크가 있습니다.
+* 기존 연결에서 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)을 사용하여 만든 가상 네트워크가 있습니다.
 * VNet용 가상 네트워크 게이트웨이는 RouteBased입니다. PolicyBased VPN 게이트웨이가 있다면 가상 네트워크 게이트웨이를 삭제하고 새 VPN 게이트웨이를 RouteBased로 만들어야 합니다.
 * 어떠한 주소 범위도 이 Vnet이 연결하고 있는 Vnet에 대해 겹치지 않습니다.
 * 호환되는 VPN 디바이스 및 그것을 구성할 수 있는 사람이 있습니다. [VPN 디바이스 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 디바이스를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.

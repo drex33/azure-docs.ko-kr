@@ -4,22 +4,22 @@ description: Azure Monitor 에이전트를 사용하여 가상 머신에서 데�
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/16/2021
-ms.openlocfilehash: c1c0c7c2bf312b636c5ed16223a6bf8865d44fd1
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.date: 07/16/2021
+ms.openlocfilehash: 749caf37ee09f9dc794dee60c6d4a5b93da43c6e
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112070979"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114386320"
 ---
-# <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트를 위한 데이터 수집 구성(미리 보기)
+# <a name="configure-data-collection-for-the-azure-monitor-agent"></a>Azure Monitor 에이전트를 위한 데이터 수집 구성
 
 DCR(데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정의하고 데이터를 보낼 위치를 지정합니다. 이 문서에서는 Azure Monitor 에이전트를 사용하여 가상 머신에서 데이터를 수집하는 데이터 수집 규칙을 만드는 방법을 설명합니다.
 
-데이터 수집 규칙에 대한 자세한 설명은 [Azure Monitor의 데이터 수집 규칙(미리 보기)](data-collection-rule-overview.md)을 참조하세요.
+데이터 수집 규칙에 대한 자세한 설명은 [Azure Monitor의 데이터 수집 규칙](data-collection-rule-overview.md)을 참조하세요.
 
 > [!NOTE]
-> 이 문서에서는 현재 미리 보기 상태인 Azure Monitor 에이전트를 사용하여 가상 머신의 데이터를 구성하는 방법을 설명합니다. 일반 공급되는 에이전트에 대한 설명과 이 에이전트를 사용하여 데이터를 수집하는 방법에 대한 [Azure Monitor 에이전트 개요](agents-overview.md)를 참조하세요.
+> 이 문서에서는 Azure Monitor 에이전트만 사용하여 가상 머신에 대한 데이터를 구성하는 방법을 설명합니다.
 
 ## <a name="data-collection-rule-associations"></a>데이터 수집 규칙 연결
 
@@ -36,7 +36,9 @@ DCR(데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정�
 Azure Portal를 사용하여 데이터 수집 규칙을 만들고 구독의 가상 머신을 해당 규칙에 연결할 수 있습니다. Azure Monitor 에이전트가 자동으로 설치되고 아직 설치되지 않은 가상 머신에 대해 관리 ID가 만들어집니다.
 
 > [!IMPORTANT]
-> 현재 데이터 수집 규칙에서 사용자 할당 관리 ID가 이미 있는 가상 머신에서 관리 ID를 만들 경우 사용자 할당 ID를 사용할 수 없습니다.
+> 포털을 사용하여 데이터 수집 규칙을 만드는 경우, 대상 리소스에서 기존의 사용자가 할당한 ID(있는 경우)뿐 아니라 시스템이 할당한 관리 ID도 사용할 수 있게 됩니다. 기존 애플리케이션에서 요청에 사용자가 할당한 ID를 지정하지 않으면 머신은 기본적으로 시스템이 할당한 ID를 대신 사용합니다. [자세한 내용](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
+
+                    
 
 > [!NOTE]
 > Log Analytics로 데이터를 보내려면 Log Analytics 작업 영역이 있는 **동일한 영역** 에서 데이터 수집 규칙을 만들어야 합니다. 규칙은 지원되는 다른 영역의 컴퓨터에 연결할 수 있습니다.
@@ -115,12 +117,12 @@ REST API를 사용하여 데이터 수집 규칙 및 연결을 만들려면 다�
 3. [REST API](/rest/api/monitor/datacollectionruleassociations/create#examples)를 사용하여 데이터 수집 규칙에 대한 각 가상 머신에 대한 연결을 만듭니다.
 
 
-## <a name="create-association-using-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 연결 만들기
+## <a name="create-rule-and-association-using-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 규칙 및 연결 만들기
 
 > [!NOTE]
 > Log Analytics로 데이터를 보내려면 Log Analytics 작업 영역이 있는 **동일한 영역** 에서 데이터 수집 규칙을 만들어야 합니다. 규칙은 지원되는 다른 영역의 컴퓨터에 연결할 수 있습니다.
 
-리소스 관리자 템플릿을 사용하여 Azure 가상 머신 또는 Azure Arc 사용 서버 간에 연결할 수 있습니다. 샘플 템플릿으로는 [Azure Monitor의 데이터 수집 규칙에 대한 Resource Manager 템플릿 샘플](./resource-manager-data-collection-rules.md)을 참조하세요.
+Resource Manager 템플릿을 사용하여 Azure 가상 머신이나 Azure Arc 지원 서버에 대한 규칙과 연결을 만들 수 있습니다. 샘플 템플릿은 [Azure Monitor의 데이터 수집 규칙에 대한 Resource Manager 템플릿 샘플](./resource-manager-data-collection-rules.md)을 참조하세요.
 
 
 ## <a name="manage-rules-and-association-using-powershell"></a>PowerShell을 사용하여 규칙 및 연결 관리

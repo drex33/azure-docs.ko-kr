@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/20/2020
+ms.date: 07/27/2021
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f1eb7a5b4697801775d23091c610ab594b0b27ec
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 065a06955adc9c157134e138a25aaee9f54f5bea
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813383"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529518"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
-[Azure Machine Learning](overview-what-is-azure-ml.md)의 아키텍처 및 개념에 대해 알아봅니다.  이 문서에서는 구성 요소와, 구성 요소가 연동하여 기계 학습 모델의 빌드, 배포 및 유지 관리 프로세스를 지원하는 방법에 대해 간략하게 설명합니다.
+[Azure Machine Learning](overview-what-is-azure-machine-learning.md)의 아키텍처 및 개념에 대해 알아봅니다.  이 문서에서는 구성 요소와, 구성 요소가 연동하여 기계 학습 모델의 빌드, 배포 및 유지 관리 프로세스를 지원하는 방법에 대해 간략하게 설명합니다.
 
 ## <a name="workspace"></a><a name="workspace"></a> 작업 영역
 
@@ -197,7 +197,7 @@ Scikit-learn을 사용하여 모델을 학습하는 방법에 대한 예제를 �
 
 [작업 영역](#workspace) > **엔드포인트**
 
-엔드포인트는 클라우드에서 호스트될 수 있는 웹 서비스 또는 통합형 디바이스 배포를 위한 IoT 모듈을 사용해 모델을 인스턴스화하는 것입니다.
+엔드포인트는 클라우드에서 호스트할 수 있는 웹 서비스로의 모델 인스턴스화입니다.
 
 #### <a name="web-service-endpoint"></a>웹 서비스 엔드포인트
 
@@ -232,13 +232,7 @@ Application Insights 원격 분석 또는 모델 원격 분석을 사용하도�
 파이프라인 엔드포인트는 게시된 파이프라인의 컬렉션입니다. 이 논리적 조직에서는 동일한 엔드포인트를 사용하여 여러 파이프라인을 관리하고 호출할 수 있습니다. 파이프라인 엔드포인트에서 게시된 각 파이프라인의 버전이 지정됩니다. 엔드포인트에 대해 기본 파이프라인을 선택하거나 REST 호출에서 버전을 지정할 수 있습니다.
  
 
-#### <a name="iot-module-endpoints"></a>IoT 모듈 엔드포인트
 
-배포된 IoT 모듈 엔드포인트는 모델 및 연결된 스크립트나 애플리케이션과 모든 추가 종속성을 포함하는 Docker 컨테이너입니다. Edge 디바이스에서 Azure IoT Edge를 사용하여 이러한 모듈을 배포합니다.
-
-모니터링을 사용하도록 설정한 경우 Azure에서는 Azure IoT Edge 모듈 내의 모델에서 원격 분석 데이터를 수집합니다. 원격 분석 데이터는 사용자만 액세스할 수 있으며 스토리지 계정 인스턴스에 저장됩니다.
-
-Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 중인 디바이스를 모니터링합니다. 
 ## <a name="automation"></a>Automation
 
 ### <a name="azure-machine-learning-cli"></a>Azure Machine Learning CLI 
@@ -261,7 +255,7 @@ Azure Machine Learning은 다음과 같은 모니터링 및 로깅 기능을 제
    * [MLflow로 실험 추적](how-to-use-mlflow.md)
    * [TensorBoard로 시각화 실행](how-to-monitor-tensorboard.md)
 * __관리자__ 의 경우 작업 영역 및 관련 Azure 리소스와 Azure Monitor의 리소스 생성 및 삭제 같은 이벤트에 대한 정보를 모니터링할 수 있습니다. 자세한 내용은 [Azure Machine Learning 모니터링 방법](monitor-azure-machine-learning.md)을 참조하세요.
-* __DevOps__ 또는 __MLOps__ 의 경우 웹 서비스로 배포된 모델이나, IoT Edge 모듈에서 생성된 정보를 모니터링하여 배포에서의 문제를 식별하고 서비스에 제출된 데이터를 수집할 수 있습니다. 자세한 내용은 [모델 데이터 수집](how-to-enable-data-collection.md) 및 [Application Insights를 사용한 모니터링](how-to-enable-app-insights.md)을 참조하세요.
+* __DevOps__ 또는 __MLOps__ 의 경우 웹 서비스로 배포된 모델에서 생성된 정보를 모니터링하여 배포에서의 문제를 식별하고 서비스에 제출된 데이터를 수집할 수 있습니다. 자세한 내용은 [모델 데이터 수집](how-to-enable-data-collection.md) 및 [Application Insights를 사용한 모니터링](how-to-enable-app-insights.md)을 참조하세요.
 
 ## <a name="interacting-with-your-workspace"></a>작업 영역 상호 작용
 
@@ -283,15 +277,13 @@ Azure Machine Learning은 다음과 같은 모니터링 및 로깅 기능을 제
 > 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 +  [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)를 사용하여 Python 환경에서 서비스와 상호 작용합니다.
-+ [R용 Azure Machine Learning SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용하여 R 환경에서 서비스와 상호 작용합니다(미리 보기).
 + [Azure Machine Learning 디자이너](concept-designer.md)를 사용하여 코드를 작성하지 않고 워크플로 단계를 수행합니다. 
 + 자동화에 [Azure Machine Learning CLI](./reference-azure-machine-learning-cli.md)를 사용합니다.
-+ [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기반으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Machine Learning을 시작하려면 다음을 참조하세요.
 
-* [Azure Machine Learning이란 무엇인가요?](overview-what-is-azure-ml.md)
+* [Azure Machine Learning이란 무엇인가요?](overview-what-is-azure-machine-learning.md)
 * [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)
 * [자습서(1부): 모델 학습](tutorial-train-models-with-aml.md)

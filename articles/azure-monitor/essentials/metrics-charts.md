@@ -4,14 +4,14 @@ description: Azure 메트릭 탐색기의 고급 사용에 대해 알아봅니�
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 06/30/2020
 ms.author: vitalyg
-ms.openlocfilehash: 8564f96ad311a07ccf4582f274e44e6ebd1e0c85
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bd0fef05913c66f767cb81e3c999fda4edaa8c21
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758526"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456527"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
@@ -113,7 +113,9 @@ Azure 메트릭 탐색기에서 여러 메트릭 선을 그리는 차트를 만�
 - 시간 세분성이 30분으로 설정된 경우 48개 집계 데이터 요소에서 차트가 그려집니다. 즉, 꺾은선형 차트는 차트 그림 영역에서 48개의 점을 연결합니다(24시간 x 시간당 2개의 데이터 요소). 각 데이터 요소는 각각의 관련 30분 기간 동안 발생한 서버 요청에 대해 캡처된 모든 응답 시간의 평균을 나타냅니다.
 - 시간 세분성을 15분으로 전환하면 집계 데이터 요소가 96개 표시됩니다.  즉, 24시간 x 시간당 4개의 데이터 요소를 얻습니다.
 
-메트릭 탐색기에는 5가지 기본 통계 집계 형식인 합계, 개수, 최소, 최대 및 평균이 있습니다. 합계 집계는 총 집계라고도 합니다.  메트릭 탐색기는 대부분의 메트릭에 대해 관련이 없고 사용할 수 없는 집계를 숨깁니다.
+메트릭 탐색기에는 5가지 기본 통계 집계 형식인 합계, 개수, 최소, 최대 및 평균이 있습니다. 합계 집계는 총 집계라고도 합니다.  메트릭 탐색기는 대부분의 메트릭에 대해 관련이 없고 사용할 수 없는 집계를 숨깁니다. 
+
+메트릭 집계의 작동 방식에 대한 자세한 내용은 [Azure Monitor 메트릭 집계 및 표시 설명](metrics-aggregation-explained.md)을 참조하세요.
 
 * **합계**: 집계 간격 중에 캡처된 모든 값의 합계입니다.
 

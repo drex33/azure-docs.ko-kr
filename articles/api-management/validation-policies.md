@@ -6,14 +6,14 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 07/12/2021
 ms.author: apimpm
-ms.openlocfilehash: 1a835d26b4c41c92b9849856a2f31b3550947bd8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 26f1f9449a4e02f25e44e55d578f0194615b0be5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104801896"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114437076"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>요청 및 응답의 유효성을 검사하는 API Management 정책
 
@@ -25,7 +25,7 @@ ms.locfileid: "104801896"
 
 - [콘텐츠 유효성 검사](#validate-content) - API 스키마에 대한 요청 또는 응답 본문의 크기 또는 JSON 스키마의 유효성을 검사합니다. 
 - [매개 변수 유효성 검사](#validate-parameters) - API 스키마에 대한 요청 헤더, 쿼리 또는 경로 매개 변수의 유효성을 검사합니다.
-- [헤더 유효성 검사](#validate-headers) - API 스키마에 대해 응답 헤더의 유효성을 검사합니다.
+- [헤더 유효성 검사](#validate-headers) - API 스키마에 대한 응답 헤더의 유효성을 검사합니다.
 - [상태 코드 유효성 검사](#validate-status-code) - API 스키마에 대한 응답에서 HTTP 상태 코드의 유효성을 검사합니다.
 
 > [!NOTE]
@@ -40,8 +40,8 @@ ms.locfileid: "104801896"
 | 작업         | Description          |                                                                                                                         
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | ignore | 유효성 검사 건너뛰기. |
-| 방지 | 요청 또는 응답 처리를 차단하고, 자세한 유효성 검사 오류를 로그하고, 오류를 반환합니다. 첫 번째 오류 집합이 검색되면 처리가 중단됩니다. |
-| 검색(detect) | 요청 또는 응답 처리를 중단하지 않고 유효성 검사 오류를 로그합니다. |
+| 방지 | 요청 또는 응답 처리를 차단하고, 자세한 [유효성 검사 오류](#validation-errors)를 로그하고, 오류를 반환합니다. 첫 번째 오류 집합이 검색되면 처리가 중단됩니다. 
+| 검색(detect) | 요청 또는 응답 처리를 중단하지 않고 [유효성 검사 오류](#validation-errors)를 로그합니다. |
 
 ## <a name="logs"></a>로그
 
@@ -85,19 +85,19 @@ API 처리량에 대한 유효성 검사 정책의 영향을 평가하기 위해
 
 ### <a name="elements"></a>요소
 
-| 이름         | Description                                                                                                                                   | 필수 |
+| 이름         | 설명                                                                                                                                   | 필수 |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-content | 루트 요소입니다.                                                                                                                               | 예      |
 | 콘텐츠 | 이러한 요소 중 하나 이상을 추가하여 요청 또는 응답의 콘텐츠 형식 유효성을 검사하고, 지정된 작업을 수행합니다.  | 예 |
 
 ### <a name="attributes"></a>특성
 
-| 이름                       | Description                                                                                                                                                            | 필수 | 기본값 |
+| Name                       | 설명                                                                                                                                                            | 필수 | 기본값 |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | unspecified-content-type-action | API 스키마에 지정되지 않은 콘텐츠 형식을 사용하여 요청 또는 응답에 대해 수행할 [작업](#actions)입니다. |  예     | 해당 없음   |
 | max-size | 요청 또는 응답 본문의 최대 길이(바이트)로 `Content-Length` 헤더가 확인합니다. 요청 본문 또는 응답 본문이 압축된 경우 이 값은 압축을 푼 길이입니다. 허용되는 최댓값: 102,400바이트(100KB).  | 예       | 해당 없음   |
 | size-exceeded-action | 요청이나 응답의 본문 크기가 `max-size`에서 지정한 크기를 초과했을 때 수행할 [작업](#actions)입니다. |  예     | 해당 없음   |
-| errors-variable-name | 유효성 검사 오류를 로그할 `context.Variables`의 변수 이름입니다.  |   예    | 해당 없음   |
+| errors-variable-name | 유효성 검사 오류를 로그할 `context.Variables`의 변수 이름입니다.  |   아니요    | 해당 없음   |
 | type | 본문 유효성 검사를 실행할 콘텐츠 형식으로 `Content-Type` 헤더가 확인합니다. 값은 대/소문자를 구분하지 않습니다. 비어 있는 경우 API 스키마에 지정된 모든 콘텐츠 형식에 적용됩니다. |   예    |  해당 없음  |
 | validate-as | 일치하는 콘텐츠 형식의 요청 또는 응답 본문의 유효성 검사에 사용할 유효성 검사 엔진입니다. 현재 지원되는 유일한 값은 “json”입니다.   |  예     |  해당 없음  |
 | action | 본문이 지정된 콘텐츠 형식과 일치하지 않는 요청이나 응답에 수행할 [작업](#actions)입니다.  |  예      | 해당 없음   |
@@ -151,7 +151,7 @@ API 처리량에 대한 유효성 검사 정책의 영향을 평가하기 위해
 
 ### <a name="elements"></a>요소
 
-| 이름         | Description                                                                                                                                   | 필수 |
+| 이름         | 설명                                                                                                                                   | 필수 |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-parameters | 루트 요소입니다. 요청의 모든 매개 변수에 대한 기본 유효성 검사 작업을 지정합니다.                                                                                                                              | 예      |
 | headers | 요청에서 헤더 매개 변수에 대한 기본 유효성 검사 작업을 재정의하려면 이 요소를 추가합니다.   | 예 |
@@ -161,11 +161,11 @@ API 처리량에 대한 유효성 검사 정책의 영향을 평가하기 위해
 
 ### <a name="attributes"></a>특성
 
-| 이름                       | Description                                                                                                                                                            | 필수 | 기본값 |
+| Name                       | 설명                                                                                                                                                            | 필수 | 기본값 |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | specified-parameter-action | API 스키마에 지정된 요청 매개 변수에 수행할 [작업](#actions)입니다. <br/><br/> `headers`, `query`, 또는 `path` 요소에서 제공되는 경우, 그 값은 `specified-parameter-action`의 값을 재정의하며 그 위치는 `validate-parameters` 요소 안입니다.  |  예     | 해당 없음   |
 | unspecified-parameter-action | API 스키마에 지정되지 않은 요청 매개 변수에 수행할 [작업](#actions)입니다. <br/><br/>`headers`이나 `query` 요소에서 제공되는 경우 그 값은 `unspecified-parameter-action`의 값을 재정의하며 그 위치는 `validate-parameters` 요소 안입니다. |  예     | 해당 없음   |
-| errors-variable-name | 유효성 검사 오류를 로그할 `context.Variables`의 변수 이름입니다.  |   예    | 해당 없음   |
+| errors-variable-name | 유효성 검사 오류를 로그할 `context.Variables`의 변수 이름입니다.  |   아니요    | 해당 없음   |
 | name | 유효성 검사 작업을 재정의할 매개 변수의 이름입니다. 값은 대/소문자를 구분하지 않습니다.  | 예 | 해당 없음 |
 | action | 이름이 일치하는 매개 변수에 수행할 [작업](#actions)입니다. 매개 변수가 API 스키마에 지정된 경우 이 값은 상위 수준 `specified-parameter-action` 구성을 재정의합니다. 매개 변수가 API 스키마에 지정되지 않은 경우 이 값은 상위 수준 `unspecified-parameter-action` 구성을 재정의합니다.| 예 | 해당 없음 | 
 
@@ -199,18 +199,18 @@ API 처리량에 대한 유효성 검사 정책의 영향을 평가하기 위해
 ```
 ### <a name="elements"></a>요소
 
-| 이름         | Description                                                                                                                                   | 필수 |
+| 이름         | 설명                                                                                                                                   | 필수 |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-headers | 루트 요소입니다. 응답의 모든 헤더에 대한 기본 유효성 검사 작업을 지정합니다.                                                                                                                              | 예      |
 | header | 명명된 헤더에 하나 이상의 요소를 추가하여 응답의 헤더에 대한 기본 유효성 검사 작업을 재정의합니다. | 예 |
 
 ### <a name="attributes"></a>특성
 
-| 이름                       | Description                                                                                                                                                            | 필수 | 기본값 |
+| Name                       | 설명                                                                                                                                                            | 필수 | 기본값 |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | specified-header-action | API 스키마에 지정된 응답 헤더에 수행할 [작업](#actions)입니다.  |  예     | 해당 없음   |
 | unspecified-header-action | API 스키마에 지정되지 않은 응답 헤더에 수행할 [작업](#actions)입니다.  |  예     | 해당 없음   |
-| errors-variable-name | 유효성 검사 오류를 로그할 `context.Variables`의 변수 이름입니다.  |   예    | 해당 없음   |
+| errors-variable-name | 유효성 검사 오류를 로그할 `context.Variables`의 변수 이름입니다.  |   아니요    | 해당 없음   |
 | name | 유효성 검사 작업을 재정의할 헤더의 이름입니다. 값은 대/소문자를 구분하지 않습니다. | 예 | 해당 없음 |
 | action | 이름이 일치하는 헤더에 수행할 [작업](#actions)입니다. 헤더가 API 스키마에 지정된 경우 이 값은 `specified-header-action`의 값을 재정의하며 그 위치는 `validate-headers` 요소 안입니다. 그렇지 않으면 헤더 유효성 검사 요소에서 `unspecified-header-action` 값을 재정의합니다. | 예 | 해당 없음 | 
 
@@ -242,17 +242,17 @@ API 처리량에 대한 유효성 검사 정책의 영향을 평가하기 위해
 
 ### <a name="elements"></a>요소
 
-| 이름         | Description                                                                                                                                   | 필수 |
+| 이름         | 설명                                                                                                                                   | 필수 |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-status-code | 루트 요소입니다.                                                                                                | 예      |
 | status-code | HTTP 상태 코드에 하나 이상의 요소를 추가하여 응답의 상태 코드에 대한 기본 유효성 검사 작업을 재정의합니다. | 예 |
 
 ### <a name="attributes"></a>특성
 
-| 이름                       | Description                                                                                                                                                            | 필수 | 기본값 |
+| Name                       | 설명                                                                                                                                                            | 필수 | 기본값 |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | unspecified-status-code-action | API 스키마에 지정되지 않은 응답의 HTTP 상태 코드에 수행할 [작업](#actions)입니다.  |  예     | 해당 없음   |
-| errors-variable-name | 유효성 검사 오류를 로그할 `context.Variables`의 변수 이름입니다.  |   예    | 해당 없음   |
+| errors-variable-name | 유효성 검사 오류를 로그할 `context.Variables`의 변수 이름입니다.  |   아니요    | 해당 없음   |
 | code | 유효성 검사 작업을 재정의할 HTTP 상태 코드입니다. | 예 | 해당 없음 |
 | action | API 스키마에 지정되지 않은 일치 상태 코드에 수행할 [작업](#actions)입니다. API 스키마에 상태 코드가 지정된 경우에는 이 재정의가 적용되지 않습니다. | 예 | 해당 없음 | 
 
@@ -271,7 +271,10 @@ API 처리량에 대한 유효성 검사 정책의 영향을 평가하기 위해
 * **세부 정보** -오류를 조사하는 데 사용할 수 있습니다. 공개적으로 공유되지 않습니다.
 * **공용 응답** -클라이언트에 반환되는 오류입니다. 구현 세부 정보를 누출하지 않습니다.
 
-| **이름**                             | **형식**                                                        | **유효성 검사 규칙** | **세부 정보**                                                                                                                                       | **공용 응답**                                                                                                                       | **동작**           |
+유효성 검사 정책에서 `prevent` 작업을 지정하고 오류를 생성하는 경우, API 관리의 응답에는 HTTP 상태 코드 400(인바운드 섹션에서 정책 적용 시) 및 502(아웃바운드 섹션에서 정책 적용 시)가 포함됩니다.
+
+
+| **이름**   | **형식**                                                        | **유효성 검사 규칙** | **세부 정보**                                                                                                                                       | **공용 응답**                                                                                                                       | **동작**           |
 |----|----|---|---|---|----|
 | **validate-content** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
 | |RequestBody                                                     | SizeLimit           | 요청의 본문은 {size} 바이트 길이이며 구성된 제한 {maxSize} 바이트를 초과합니다.                                                       | 요청의 본문은 {size} 바이트 길이이며 {maxSize} 바이트 제한을 초과합니다.                                                          | 검색/방지 |
@@ -285,7 +288,7 @@ API 처리량에 대한 유효성 검사 정책의 영향을 평가하기 위해
 | {messageContentType}                 | ResponseBody                                                    | IncorrectMessage    | 응답 본문이 콘텐츠 형식 {messageContentType}과 연결된 정의 {definitionName}을 따르지 않습니다.<br/><br/>{valError.Message} Line: {valError.LineNumber}, Position: {valError.LinePosition}                                       | 내부 오류로 인해 요청을 처리할 수 없습니다. API 소유자에게 문의하세요.                                                       | 검색/방지 |
 |                                      | RequestBody                                                     | ValidationException | 콘텐츠 형식 {messageContentType}에 대한 요청 본문의 유효성을 검사할 수 없습니다.<br/><br/>{exception details}                                                                | 내부 오류로 인해 요청을 처리할 수 없습니다. API 소유자에게 문의하세요.                                                       | 검색/방지 |
 |                                      | ResponseBody                                                    | ValidationException | 콘텐츠 형식 {messageContentType}에 대한 응답 본문의 유효성을 검사할 수 없습니다.<br/><br/>{exception details}                                                                | 내부 오류로 인해 요청을 처리할 수 없습니다. API 소유자에게 문의하세요.                                                       | 검색/방지 |
-| **validate-parameter / validate-headers** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
+| **validate-parameters / validate-headers** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
 | {paramName} / {headerName}           | QueryParameter/PathParameter/RequestHeader                  | Unspecified         | 지정되지 않은 {path parameter / query parameter / header} {paramName}은 허용되지 않습니다.                                                               | 지정되지 않은 {path parameter / query parameter / header} {paramName}은 허용되지 않습니다.                                                       | 검색/방지 |
 | {headerName}                         | ResponseHeader                                                  | Unspecified         | 지정되지 않은 헤더 {headerName}은 허용되지 않습니다.                                                                                                   | 내부 오류로 인해 요청을 처리할 수 없습니다. API 소유자에게 문의하세요.                                                       | 검색/방지 |
 |                                      |ApiSchema                                                       |                     | API의 스키마가 없거나 확인할 수 없습니다.                                                                                            | 내부 오류로 인해 요청을 처리할 수 없습니다. API 소유자에게 문의하세요.                                                       | 검색/방지 |

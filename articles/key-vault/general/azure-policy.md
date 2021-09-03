@@ -7,12 +7,12 @@ ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: cddc7b931bf59412d4a7ec8e6b0eecfe148f3d5e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: dcbbe63754bdcfc4ded249720b58940e0c219bf9
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749279"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529505"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Azure Policy과 Key Vault 통합
 
@@ -35,7 +35,7 @@ ms.locfileid: "107749279"
 
 ## <a name="available-built-in-policy-definitions"></a>사용 가능한 “기본 제공” 정책 정의
 
-키 자격 증명 모음은 키, 인증서 및 비밀 개체를 관리하는 데 사용할 수 있는 정책 세트를 만들었습니다. 이러한 정책은 '기본 제공' 정책이므로 사용하도록 설정하기 위해 사용자 지정 JSON을 작성하지 않아도 되며, Azure Portal에서 할당할 수 있습니다. 조직의 요구에 맞게 특정 매개 변수를 사용자 지정할 수 있습니다.
+Key Vault는 키 자격 증명 모음과 해당 키, 인증서, 비밀 개체를 관리하는 데 사용할 수 있는 정책 세트를 만들었습니다. 이러한 정책은 '기본 제공' 정책이므로 사용하도록 설정하기 위해 사용자 지정 JSON을 작성하지 않아도 되며, Azure Portal에서 할당할 수 있습니다. 조직의 요구에 맞게 특정 매개 변수를 사용자 지정할 수 있습니다.
 
 # <a name="certificate-policies"></a>[인증서 정책](#tab/certificates)
 
@@ -58,7 +58,7 @@ ms.locfileid: "107749279"
 
 ### <a name="certificates-should-be-issued-by-the-specified-integrated-certificate-authority-preview"></a>인증서는 지정된 통합 인증 기관에서 발급해야 함(미리 보기)
 
-Key Vault 통합 인증 기관(Digicert 또는 GlobalSign)을 사용하며 사용자가 이러한 공급자 중 하나를 사용하도록 하려면 이 정책을 사용하여 선택을 감사하거나 적용합니다. 이 정책은 Key Vault에서 자체 서명된 인증서의 생성을 감사하거나 거부하는 데도 사용할 수 있습니다.
+Key Vault 통합 인증 기관(Digicert 또는 GlobalSign)을 사용하며 사용자가 이러한 공급자 중 하나를 사용하도록 하려면 이 정책을 사용하여 선택을 감사하거나 적용합니다. 이 정책은 인증서의 발급 정책에서 선택한 CA와 키 자격 증명 모음에 정의된 CA 공급자를 평가합니다. 이 정책은 Key Vault에서 자체 서명된 인증서의 생성을 감사하거나 거부하는 데도 사용할 수 있습니다.
 
 ### <a name="certificates-should-be-issued-by-the-specified-non-integrated-certificate-authority-preview"></a>인증서는 지정된 비통합 인증 기관에서 발급해야 함(미리 보기)
 
@@ -159,6 +159,20 @@ HSM은 키를 저장하는 하드웨어 보안 모듈입니다. HSM은 암호화
 
 키 자격 증명 모음 내에서 비밀이 유효한 최대 일 수를 지정하여 조직의 규정 준수 요구 사항을 관리합니다. 설정한 임계값보다 긴 시간 동안 유효한 비밀은 비준수로 표시됩니다. 또한 이 정책을 사용하여 지정한 최대 유효 기간 보다 긴 만료 날짜가 설정된 새 비밀 생성을 차단할 수도 있습니다.
 
+# <a name="key-vault-policies"></a>[Key Vault 정책](#tab/keyvault)
+
+### <a name="key-vault-should-use-a-virtual-network-service-endpoint"></a>Key Vault는 가상 네트워크 서비스 엔드포인트를 사용해야 함
+
+이 정책은 가상 네트워크 서비스 엔드포인트를 사용하도록 구성되지 않은 모든 Key Vault를 감사합니다.
+
+### <a name="resource-logs-in-key-vault-should-be-enabled"></a>Key Vault에서 리소스 로그를 사용하도록 설정해야 함
+
+리소스 로그 사용을 감사합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 사용할 활동 내역을 다시 만들 수 있습니다.
+
+### <a name="key-vaults-should-have-purge-protection-enabled"></a>키 자격 증명 모음에 제거 방지를 사용하도록 설정해야 함
+
+키 자격 증명 모음을 악의적으로 삭제하면 데이터가 영구적으로 손실될 수 있습니다. 조직의 악의적인 내부자가 잠재적으로 키 자격 증명 모음을 삭제하고 제거할 수 있습니다. 제거 보호는 일시 삭제된 키 자격 증명 모음에 대해 필수 보존 기간을 적용하여 내부자 공격으로부터 보호합니다. 일시 삭제 보존 기간 동안에는 조직 또는 Microsoft 내부의 어느 누구도 키 자격 증명 모음을 제거할 수 없습니다.
+
 ---
 
 ## <a name="example-scenario"></a>예제 시나리오
@@ -240,3 +254,4 @@ HSM은 키를 저장하는 하드웨어 보안 모듈입니다. HSM은 암호화
 
 - [Azure Policy 서비스](../../governance/policy/overview.md)에 대해 자세히 알아보기
 - Key Vault 샘플을 참조하세요. [Key Vault 기본 제공 정책 정의](../../governance/policy/samples/built-in-policies.md#key-vault)
+- [Key Vault에 대한 Azure 보안 벤치마크 지침](/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)에 대해 알아보기

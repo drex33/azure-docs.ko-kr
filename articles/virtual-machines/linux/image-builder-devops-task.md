@@ -1,20 +1,20 @@
 ---
 title: '미리 보기: Azure Image Builder Service DevOps 작업'
 description: 애플리케이션과 OS를 설치하고 구성할 수 있도록 VM 이미지에 빌드 아티팩트를 넣는 Azure DevOps 작업입니다.
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7055aa967058e1592f757c2dabf7890b1da76632
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 2c3785f20c47656304f7d40b67c9d90c54cb3072
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441801"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447083"
 ---
 # <a name="azure-image-builder-service-devops-task-preview"></a>Azure Image Builder Service DevOps 작업(미리 보기)
 
@@ -79,7 +79,7 @@ ms.locfileid: "111441801"
 위치는 Image Builder가 실행될 지역입니다. 설정된 수의 [지역](../image-builder-overview.md#regions)만 지원됩니다. 원본 이미지가 이 위치에 있어야 합니다. 예를 들어 Shared Image Gallery를 사용하는 경우 복제본이 해당 지역에 있어야 합니다.
 
 ### <a name="managed-identity-required"></a>관리 ID(필수)
-Image Builder에는 원본 사용자 지정 이미지를 읽고, Azure Storage에 연결하고, 사용자 지정 이미지를 만드는 데 사용하는 관리 ID가 필요합니다. 자세한 내용은 [여기](../image-builder-overview.md#permissions)를 참조하세요.
+Image Builder에는 원본 사용자 지정 이미지를 읽고, Azure Storage에 연결하고, 사용자 지정 이미지를 만드는 데 사용하는 관리 ID가 필요합니다. 자세한 내용은 [Azure Image Builder에 대한 자세한 정보](../image-builder-overview.md#permissions)를 참조하세요.
 
 ### <a name="vnet-support"></a>VNET 지원
 
@@ -347,3 +347,4 @@ template name:  t_1556938436xxx
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 [Azure Image Builder 개요](../image-builder-overview.md)를 참조하세요.
+

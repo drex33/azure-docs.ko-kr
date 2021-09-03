@@ -1,15 +1,15 @@
 ---
 title: Azure Functions에서 실행 로그 스트림
-description: 공백 포함 115-145자. 이 추상은 검색 결과에 표시됩니다.
+description: 함수에 대한 로그를 거의 실시간으로 스트리밍하는 방법을 알아봅니다.
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-azurepowershell
-ms.openlocfilehash: cc12af12fa41d5556f2c5a0fc000abbc9c13a0d8
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6abf93be2d63434996fa2de7f400c742f9962575
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076926"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668462"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Azure Functions에서 실행 로그 스트림 사용
 

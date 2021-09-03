@@ -1,14 +1,14 @@
 ---
 title: 대규모 Azure Sentinel 작업 영역 관리
 description: Azure Lighthouse는 위임된 고객 리소스에서 Azure Sentinel을 효과적으로 관리할 수 있도록 지원합니다.
-ms.date: 03/02/2021
+ms.date: 08/16/2021
 ms.topic: how-to
-ms.openlocfilehash: c72dcdd190acfaf3db0b5c9feb1a30b00c63a94d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 44efc4afeb3ea238b5a8a29d8f12a7bfb4f6d621
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077829"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530707"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>대규모 Azure Sentinel 작업 영역 관리
 
@@ -38,6 +38,9 @@ Azure Sentinel을 사용하여 Security-as-a-service 제품을 빌드하려고 �
 
 > [!NOTE]
 > 여러 [지역](../../availability-zones/az-overview.md#regions)에 있는 위임된 리소스를 관리할 수 있습니다. 그러나 [국가별 클라우드](../../active-directory/develop/authentication-national-cloud.md) 및 Azure 퍼블릭 클라우드 또는 별도의 두 국가별 클라우드 간에 구독을 위임하는 것은 지원되지 않습니다.
+
+> [!IMPORTANT]
+> 모든 작업 영역이 고객 테넌트에 생성된 경우 Microsoft.SecurityInsights 및 Microsoft.OperationalInsights 리소스 공급자도 관리 테넌트의 구독에 [등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)해야 합니다.
 
 ## <a name="granular-azure-role-based-access-control-azure-rbac"></a>세분화된 Azure RBAC(Azure 역할 기반 액세스 제어)란?
 
@@ -92,5 +95,5 @@ Office 365 데이터 커넥터를 설정한 후 통합 문서에서 데이터 �
 
 - [Azure Sentinel](../../sentinel/overview.md)에 대해 알아봅니다.
 - [Azure Sentinel 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sentinel/)를 검토 합니다.
+- Azure Sentinel 환경의 배포 및 초기 구성 작업 속도를 높이는 프로젝트인 [Azure Sentinel All in One](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One)을 살펴보세요.
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
-

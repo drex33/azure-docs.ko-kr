@@ -10,18 +10,18 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6657147d044d49ff72532ad270552a175c197c8f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ae8759bd10096737b400fe672c3555ff5fd41585
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078223"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296634"
 ---
-# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>방법: 시계열 데이터에서 Anomaly Detector API 사용  
+# <a name="how-to-use-the-anomaly-detector-univariate-api-on-your-time-series-data"></a>방법: 시계열 데이터에서 Anomaly Detector 단변량 API를 사용하는 방법  
 
 [Anomaly Detector API](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)는 두 가지 변칙 검색 방법을 제공합니다. 시계열 전체에서 일괄 처리로 변칙을 검색하거나 최신 데이터 포인트의 변칙 상태를 검색하여 데이터가 생성될 때 변칙을 검색할 수 있습니다. 검색 모델은 각 데이터 포인트의 예상 값과 변칙 검색의 상한 및 하한을 포함하여 변칙 결과를 반환합니다. 이러한 값을 사용하여 일반 값의 범위와 데이터의 변칙을 시각화할 수 있습니다.
 
-## <a name="anomaly-detection-modes"></a>Anomaly Detection 모드 
+## <a name="anomaly-detection-modes"></a>Anomaly Detection 모드
 
 Anomaly Detector API는 검색 모드(일괄 처리 및 스트리밍)를 제공합니다.
 

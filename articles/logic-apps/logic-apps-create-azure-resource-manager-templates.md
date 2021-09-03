@@ -3,15 +3,15 @@ title: 논리 앱 배포 템플릿 만들기
 description: Azure Logic Apps에서 배포를 자동화하기 위해 Azure Resource Manager 템플릿을 만드는 방법을 알아봅니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: 9bf6e9a09cfd271fb701b930eaee7b0e8bdee61f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 07/20/2021
+ms.openlocfilehash: 3378c04fd6a43d50b670767d1d3fc4f59043e1e9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961619"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456606"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대한 배포를 자동화하는 Azure Resource Manager 템플릿 만들기
 
@@ -49,10 +49,11 @@ Azure Resource Manager 템플릿에 대한 자세한 내용은 다음 항목을 
 
 다음 샘플에서는 Azure Resource Manager 템플릿, Azure DevOps의 Azure Pipelines, Azure PowerShell을 사용하여 논리 앱을 만들고 배포하는 방법을 보여 줍니다.
 
-* [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps에 대한 함수 앱 작업 설정](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps에서 통합 계정에 연결](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps를 사용하여 Azure Pipelines 오케스트레이션](https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration)
+* [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/storage-account-connections)
+* [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/service-bus-connections)
+* [샘플: Azure Logic Apps에 대한 Azure Functions 작업 설정 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/function-app-actions)
+* [샘플: Azure Logic Apps에서 통합 계정에 연결 및 Azure DevOps에서 Azure Pipelines를 사용하여 배포](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/integration-account-connections)
 
 ### <a name="install-powershell-modules"></a>PowerShell 모듈 설치
 
@@ -119,9 +120,9 @@ Azure Key Vault 참조(정적만 해당)를 사용하여 추출하려면 다음 
 Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필수 | 설명 |
 |------------|----------|-------------|
-| TemplateFile | 예 | 템플릿 파일의 파일 경로입니다. |
+| TemplateFile | Yes | 템플릿 파일의 파일 경로입니다. |
 | KeyVault | 아니요 | 가능한 키 자격 증명 모음 값을 처리하는 방법을 설명하는 열거형입니다. 기본값은 `None`입니다. |
 ||||
 

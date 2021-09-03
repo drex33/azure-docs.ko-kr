@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 7245b0c0fb1e96959ef5dca4992cf52a38accb58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a73269a411ff250afd6e9779deb36d00a596ac3d
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920293"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223665"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 바인딩 식 패턴
 
@@ -261,7 +261,9 @@ module.exports = function (context, info) {
 
 ### <a name="dot-notation"></a>점 표기법
 
-JSON 페이로드의 속성 중 일부가 속성을 가진 개체인 경우 점 표기법을 사용하여 직접 참조할 수 있습니다. 예를 들어 JSON이 다음과 같다고 가정합니다.
+JSON 페이로드의 속성 중 일부가 속성을 가진 개체인 경우 점 표기법을 사용하여 직접 참조할 수 있습니다. 점 표기법은 [Cosmos DB](./functions-bindings-cosmosdb-v2.md) 또는 [Table Storage](./functions-bindings-storage-table-output.md) 바인딩에서 작동하지 않습니다. 
+
+예를 들어 JSON이 다음과 같다고 가정합니다.
 
 ```json
 {

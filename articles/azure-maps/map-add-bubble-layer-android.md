@@ -1,6 +1,6 @@
 ---
-title: Android maps에 거품형 계층 추가 | Microsoft Azure 맵
-description: 지도에서 요소를 고정 크기의 원으로 렌더링 하는 방법에 대해 알아봅니다. 이 목적을 위해 Azure Maps Android SDK를 사용 하 여 거품형 계층을 추가 하 고 사용자 지정 하는 방법을 참조 하세요.
+title: Android 지도에 거품형 계층 추가 | Microsoft Azure Maps
+description: 맵의 지점을 고정된 크기의 원으로 렌더링하는 방법을 알아봅니다. Azure Maps Android SDK를 사용하여 거품형 계층을 추가하고 사용자 지정하는 방법을 확인합니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 2/26/2021
@@ -9,27 +9,27 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: f3c175f30c5c0e6206f4fee274e0f3f000e55a74
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: c3f4dc33347a7e4397a2cd53ecc56d87ed155378
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100171"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093520"
 ---
-# <a name="add-a-bubble-layer-to-a-map-android-sdk"></a>지도에 거품형 계층 추가 (Android SDK)
+# <a name="add-a-bubble-layer-to-a-map-android-sdk"></a>지도에 거품형 계층 추가(Android SDK)
 
-이 문서에서는 데이터 원본의 점 데이터를 지도에서 거품형 계층으로 렌더링 하는 방법을 보여 줍니다. 거품형 계층은 고정 픽셀 반지름이 있는 지도에서 요소를 원으로 렌더링 합니다.
+이 문서에서는 맵에 거품형 계층으로 데이터 원본에서 지점 데이터를 렌더링할 수 있는 방법을 보여줍니다. 거품형 계층은 고정된 픽셀 반경을 사용하여 지점을 맵에 원형으로 렌더링합니다.
 
 > [!TIP]
-> 기본적으로 거품형 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 옵션을로 설정 `eq(geometryType(), "Point")` 합니다. MultiPoint 기능도 포함 하려면 `filter` 계층의 옵션을로 설정 `any(eq(geometryType(), "Point"), eq(geometryType(), "MultiPoint"))` 합니다.
+> 기본적으로 거품형 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 계층이 점 기하 도형 기능만 렌더링하도록 제한하려면 계층의 `filter` 옵션을 `eq(geometryType(), "Point")`로 설정합니다. MultiPoint 기능도 포함하려면 계층의 `filter` 옵션을 `any(eq(geometryType(), "Point"), eq(geometryType(), "MultiPoint"))`로 설정합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-[빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료 해야 합니다. 이 문서의 코드 블록은 maps 이벤트 처리기에 삽입할 수 있습니다 `onReady` .
+[빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료해야 합니다. 이 문서의 코드 블록은 맵 `onReady` 이벤트 처리기에 삽입할 수 있습니다.
 
 ## <a name="add-a-bubble-layer"></a>거품형 레이어 추가
 
-다음 코드는 데이터 소스에 점의 배열을 로드 합니다. 그런 다음 데이터 요소를 거품형 계층에 연결 합니다. 거품형 계층은 각 거품의 반지름을 5 픽셀 및 흰색 채우기 색으로 렌더링 합니다. 그리고, 파란색의 스트로크 색 및 6 픽셀의 스트로크 너비입니다.
+다음 코드는 지점 배열을 데이터 원본에 로드합니다. 그러면 데이터 요소가 거품형 계층에 연결됩니다. 거품형 계층은 5픽셀과 채우기 색이 흰색인 각 거품의 반경을 렌더링합니다. 파란색 스트로크 색과 6픽셀의 스트로크 너비입니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -96,13 +96,13 @@ map.layers.add(layer)
 
 ::: zone-end
 
-다음 스크린샷은 거품형 계층에서 위의 코드를 렌더링 하는 위치를 보여 줍니다.
+다음 스크린샷에서는 위 코드가 거품형 계층에서 점을 렌더링하는 것을 보여 줍니다.
 
-![거품형 계층을 사용 하 여 렌더링 된 점이 있는 지도](media/map-add-bubble-layer-android/android-bubble-layer.png)
+![거품형 계층을 사용하여 렌더링된 점이 있는 지도](media/map-add-bubble-layer-android/android-bubble-layer.png)
 
 ## <a name="show-labels-with-a-bubble-layer"></a>거품형 계층을 사용하여 레이블 표시
 
-이 코드는 거품형 계층을 사용 하 여 지도에서 점을 렌더링 하는 방법을 보여 줍니다. 기호 계층을 사용 하 여 레이블을 렌더링 하는 방법을 보여 줍니다. 기호 계층의 아이콘을 숨기려면 `iconImage` 옵션을로 설정 `"none"` 합니다.
+이 코드는 거품형 계층을 사용하여 맵에 지점을 렌더링하는 방법을 보여줍니다. 기호 계층을 사용하여 레이블을 렌더링하는 방법도 있습니다. 기호 계층의 아이콘을 숨기려면 `iconImage` 옵션을 `"none"`으로 설정합니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -169,9 +169,9 @@ map.layers.add(
 
 ::: zone-end
 
-다음 스크린샷에서는 위의 코드 렌더링 거품형 계층의 지점과 기호 계층이 있는 점의 텍스트 레이블을 보여 줍니다.
+다음 스크린샷에서는 거품형 계층에서 점을 렌더링하고 기호 계층을 사용하여 점의 텍스트 레이블을 렌더링하는 위 코드를 보여 줍니다.
 
-![거품형 계층을 사용 하 여 렌더링 된 점이 있는 지도 및 기호 계층이 있는 텍스트 레이블](media/map-add-bubble-layer-android/android-bubble-symbol-layer.png)
+![거품형 계층을 사용하여 렌더링된 점과 기호 계층을 사용하여 렌더링된 텍스트 레이블이 있는 지도](media/map-add-bubble-layer-android/android-bubble-symbol-layer.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -179,6 +179,9 @@ map.layers.add(
 
 > [!div class="nextstepaction"]
 > [데이터 원본 만들기](create-data-source-android-sdk.md)
+
+> [!div class="nextstepaction"]
+> [클러스터 지점 데이터](clustering-point-data-android-sdk.md)
 
 > [!div class="nextstepaction"]
 > [기호 계층 추가](how-to-add-symbol-to-android-map.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70cc20b51587a70e8a124b6f3b5d047ff827db83
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 695786a43291bdb0cb679d79cfa4e6d08cf67770
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112034592"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867222"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: 권한 부여
 
@@ -58,7 +58,7 @@ ms.locfileid: "112034592"
 
 Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 사용하여 특정 규정 준수 요구 사항을 충족하는 디바이스를 식별할 수 있습니다. 이 정책 준수 정보는 Intune에서 Azure AD에 전달되며 조건부 액세스에서 리소스에 대한 액세스를 부여하거나 차단하는 결정을 내릴 수 있습니다. 준수 정책에 대한 자세한 내용은 [Intune을 사용하여 디바이스에서 조직의 리소스에 대한 액세스를 허용하는 규칙 설정](/intune/protect/device-compliance-get-started) 문서를 참조하세요.
 
-디바이스는 Intune(모든 디바이스 OS용) 또는 Windows 10 디바이스용 타사 MDM 시스템에서 규정 준수 상태로 표시할 수 있습니다. 유일하게 지원되는 타사 MDM 시스템은 Jamf pro입니다. 통합에 대한 자세한 내용은 [규정 준수를 위해 Intune과 Jamf Pro 통합](/intune/protect/conditional-access-integrate-jamf) 문서를 참조하세요.
+디바이스는 Intune(모든 디바이스 OS용) 또는 Windows 10 디바이스용 타사 MDM 시스템에서 규정 준수 상태로 표시할 수 있습니다. 지원되는 타사 MDM 시스템 목록은 [Intune에서 타사 디바이스 준수 파트너 지원](/mem/intune/protect/device-compliance-partners)문서에서 확인할 수 있습니다.
 
 디바이스는 준수 상태로 표시되기 전에 Azure AD에 등록되어 있어야 합니다. 디바이스 등록에 대한 자세한 내용은 [디바이스 ID란?](../devices/overview.md)문서에서 확인할 수 있습니다.
 
@@ -72,7 +72,7 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 
 조직에서는 클라우드 앱에 대한 액세스 시도가 승인된 클라이언트 앱에서 수행되도록 요구할 수 있습니다. 이러한 승인된 클라이언트 앱은 모든 MDM(모바일 디바이스 관리) 솔루션과는 별도로 [Intune 앱 보호 정책](/intune/app-protection-policy)을 지원합니다.
 
-이 권한 부여 컨트롤을 활용하려면 조건부 액세스는 디바이스가 Azure Active Directory에 등록되어 있을 것을 요구합니다. 이렇게 하려면 Broker 앱을 사용해야 합니다. iOS의 Microsoft Authenticator, 또는 Android 디바이스용 Microsoft Authenticator 또는 Microsoft 회사 포털 중 하나를 Broker 앱으로 사용할 수 있습니다. 사용자가 인증을 시도할 때 Broker 앱이 디바이스에 설치되어 있지 않은 경우, 사용자는 필요한 Broker 앱 설치를 위한 적절한 앱 스토어로 리디렉션됩니다.
+이 권한 부여 컨트롤을 적용하려면 조건부 액세스는 디바이스가 Azure Active Directory에 등록되어 있을 것을 요구합니다. 이렇게 하려면 Broker 앱을 사용해야 합니다. iOS의 Microsoft Authenticator, 또는 Android 디바이스용 Microsoft Authenticator 또는 Microsoft 회사 포털 중 하나를 Broker 앱으로 사용할 수 있습니다. 사용자가 인증을 시도할 때 Broker 앱이 디바이스에 설치되어 있지 않은 경우, 사용자는 필요한 Broker 앱 설치를 위한 적절한 앱 스토어로 리디렉션됩니다.
 
 다음은 해당 설정을 지원하는 것으로 확인된 클라이언트 앱입니다.
 
@@ -92,7 +92,7 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
-- Microsoft PowerApps
+- Microsoft Power Apps
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
@@ -122,7 +122,7 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 
 조건부 정책에서 선택한 클라우드 앱에 액세스하려면 클라이언트 앱에 [Intune 앱 보호 정책](/intune/app-protection-policy)이 있어야 하도록 요구할 수 있습니다. 
 
-이 권한 부여 컨트롤을 활용하려면 조건부 액세스는 디바이스가 Azure Active Directory에 등록되어 있을 것을 요구합니다. 이렇게 하려면 Broker 앱을 사용해야 합니다. 브로커 앱은 iOS의 경우 Microsoft Authenticator, Android 디바이스의 경우 Microsoft 회사 포털일 수 있습니다. 사용자가 인증을 시도할 때 Broker 앱이 디바이스에 설치되어 있지 않은 경우, 사용자는 Broker 앱 설치를 위한 앱 스토어로 리디렉션됩니다.
+이 권한 부여 컨트롤을 적용하려면 조건부 액세스는 디바이스가 Azure Active Directory에 등록되어 있을 것을 요구합니다. 이렇게 하려면 Broker 앱을 사용해야 합니다. 브로커 앱은 iOS의 경우 Microsoft Authenticator, Android 디바이스의 경우 Microsoft 회사 포털일 수 있습니다. 사용자가 인증을 시도할 때 Broker 앱이 디바이스에 설치되어 있지 않은 경우, 사용자는 Broker 앱 설치를 위한 앱 스토어로 리디렉션됩니다.
 
 애플리케이션은 **정책 보증** 이 구현된 **Intune SDK** 가 있어야 하며 해당 설정을 지원하기 위한 다른 특정 요구 사항을 충족해야 합니다. Intune SDK를 사용하여 애플리케이션을 구현하는 개발자는 이러한 요구 사항에 대한 SDK 문서에서 자세한 내용을 확인할 수 있습니다.
 
@@ -140,12 +140,13 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
+- Microsoft Teams
 - Microsoft Word
 - Intune용 MultiLine
 - Nine Mail - 메일 및 달력
 
 > [!NOTE]
-> Microsoft Teams, Microsoft Kaizala, 비즈니스용 Microsoft Skype 및 Microsoft Visio는 **앱 보호 정책 부여 필요** 를 지원하지 않습니다. 이러한 앱이 작동하도록 해야 하는 경우 **승인된 앱 필요** 권한 부여만을 사용하세요. 이러한 3가지 애플리케이션에서는 두 개의 권한 부여 사이에 the 또는 절을 사용할 수 없습니다.
+> Microsoft Kaizala, 비즈니스용 Microsoft Skype, Microsoft Visio는 **앱 보호 정책 부여 필요** 를 지원하지 않습니다. 이러한 앱이 작동하도록 해야 하는 경우 **승인된 앱 필요** 권한 부여만을 사용하세요. 이러한 3가지 애플리케이션에서는 두 개의 권한 부여 사이에 the 또는 절을 사용할 수 없습니다.
 
 **주의**
 
@@ -158,22 +159,22 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 
 ### <a name="require-password-change"></a>암호 변경 필요 
 
-사용자 위험이 감지된 경우 관리자는 사용자 위험 정책 조건을 사용하여 사용자가 Azure AD 셀프 서비스 암호 재설정을 통해 암호를 안전하게 변경하도록 선택할 수 있습니다. 사용자 위험이 감지되면 사용자는 셀프 서비스 암호 재설정을 수행하여 사용자 위험 이벤트를 자동으로 수정하고 닫을 수 있으므로 관리자에게 불필요한 업무 부담이 발생하지 않게 됩니다. 
+사용자 위험이 감지된 경우 관리자는 사용자 위험 정책 조건을 사용하여 사용자가 Azure AD 셀프 서비스 암호 재설정을 통해 암호를 안전하게 변경하도록 선택할 수 있습니다. 사용자 위험이 검색되면 사용자는 셀프 서비스 암호 재설정을 수행하여 사용자 위험 이벤트를 자동으로 수정하고 닫을 수 있으므로 관리자에게 불필요한 업무 부담이 발생하지 않게 됩니다. 
 
 사용자에게 암호를 변경하라는 메시지가 표시되면 먼저 다단계 인증을 완료해야 합니다. 사용자 계정에 위험이 감지되는 경우를 대비할 수 있도록 모든 사용자가 다단계 인증에 등록했는지 확인해야 합니다.  
 
 > [!WARNING]
 > 사용자는 사용자 위험 정책을 트리거하기 전에 셀프 서비스 암호 재설정에 이미 등록되어 있어야 합니다. 
 
-암호 변경 컨트롤을 사용하여 정책을 구성할 때는 몇 가지 제한 사항이 있습니다.  
+암호 변경 컨트롤을 사용하여 정책을 구성하는 경우의 제한 사항은 다음과 같습니다.  
 
-1. 정책은 ‘모든 클라우드 앱’에 할당해야 합니다. 이렇게 하면 다른 앱을 통해 로그인하는 간단한 방식을 통해 공격자가 다른 앱을 사용하여 사용자의 암호를 변경하고 계정을 재설정하는 위험을 방지할 수 있습니다. 
+1. 정책은 ‘모든 클라우드 앱’에 할당해야 합니다. 이 요구 사항은 다른 앱을 통해 로그인하는 방식을 통해 공격자가 다른 앱을 사용하여 사용자의 암호를 변경하고 계정을 재설정하는 위험을 방지할 수 있습니다. 
 1. 암호 변경 필요는 규정 준수 디바이스 필요와 같은 다른 컨트롤과 함께 사용할 수 없습니다.  
 1. 암호 변경 컨트롤은 사용자 및 그룹 할당 조건, 클라우드 앱 할당 조건(all로 설정되어야 함), 사용자 위험 조건에만 사용할 수 있습니다. 
 
 ### <a name="terms-of-use"></a>사용 약관
 
-조직에서 사용 약관을 만든 경우 권한 부여 컨트롤에 추가 옵션이 표시될 수 있습니다. 이러한 옵션을 사용하면 관리자는 정책에 의해 보호되는 리소스에 액세스하는 조건으로 사용 약관을 승인하도록 요구할 수 있습니다. 사용 약관에 대한 자세한 내용은 [Azure Active Directory 사용 약관](terms-of-use.md)문서에서 확인할 수 있습니다.
+조직에서 사용 약관을 만든 경우 권한 부여 컨트롤에 다른 옵션이 표시될 수 있습니다. 이러한 옵션을 사용하면 관리자는 정책에 의해 보호되는 리소스에 액세스하는 조건으로 사용 약관을 승인하도록 요구할 수 있습니다. 사용 약관에 대한 자세한 내용은 [Azure Active Directory 사용 약관](terms-of-use.md)문서에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

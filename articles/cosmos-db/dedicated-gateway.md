@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: 436ad1da3e1b212e03113132d4aff9f48a3d80da
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7cc6acc29cf8019bf65d3495cfd8a00a87da11bc
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386506"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112914250"
 ---
 # <a name="azure-cosmos-db-dedicated-gateway---overview-preview"></a>Azure Cosmos DB 전용 게이트웨이 - 개요(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,6 +26,9 @@ ms.locfileid: "110386506"
 전용 게이트웨이는 Azure Cosmos DB에 기본 제공됩니다. [전용 게이트웨이를 프로비전](how-to-configure-integrated-cache.md)할 경우 완전 관리형 노드로 요청을 백 엔드 파티션에 라우팅합니다. 전용 게이트웨이를 사용하여 Azure Cosmos DB에 연결하면 표준 게이트웨이로 Azure Cosmos DB에 연결하는 것보다 대기 시간이 더 빠르고 예측 가능해집니다. 전용 게이트웨이와 표준 게이트웨이를 비교하면 캐시 누락도 대기 시간을 향상시킬 수 있습니다.
 
 애플리케이션에서 전용 게이트웨이를 사용하는 데 필요한 최소한의 코드 변경만 있습니다. 신규 및 기존 Azure Cosmos DB 계정 모두 읽기 성능을 향상시키기 위해 전용 게이트웨이를 프로비전할 수 있습니다.
+
+> [!NOTE]
+> 전용 게이트웨이에 관한 피드백이 있나요? 많은 의견 부탁드립니다. 언제든지 자유롭게 Azure Cosmos DB 엔지니어링 팀(cosmoscachefeedback@microsoft.com)과 피드백을 직접 공유해 주세요.
 
 ## <a name="connection-modes"></a>연결 모드
 

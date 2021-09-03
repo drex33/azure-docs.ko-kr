@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: be7f15b5221be8b3acb7f64c4435e40f40f21f8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9e726e53d40ac90aec6bbbaaf41399698b11209
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720922"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529269"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 가격 책정 계층은 프로비전할 수 있는 컴퓨팅의 vCore 수, vCore당 메모리 및 데이터를 저장하는 데 사용되는 스토리지 기술로 구분됩니다. 모든 리소스는 MySQL 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 
@@ -22,7 +24,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 | 컴퓨팅 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | vCore 메모리 | 2GB | 5GB | 10 GB |
-| 스토리지 크기 | 5GB-1TB | 5GB-16TB | 5GB-16TB |
+| 스토리지 크기 | 5GB-1TB | 5GB~16TB | 5GB~16TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
 가격 책정 계층을 선택하려면 시작 지점으로 다음 표를 사용합니다.
@@ -43,27 +45,94 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 
 프로비전하는 스토리지는 Azure Database for MySQL 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 MySQL 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 
-| 스토리지 특성   | Basic | 범용 가상 컴퓨터 | 메모리에 최적화 |
+Azure Database for MySQL – 단일 서버는 서버에 대해 다음 백 엔드 스토리지를 지원합니다. 
+
+| 스토리지 유형   | 기본 | 범용 v1 | 범용 v2 |
 |:---|:----------|:--------------------|:---------------------|
-| 스토리지 유형 | 기본 스토리지 | 범용 스토리지 | 범용 스토리지 |
-| 스토리지 크기 | 5GB-1TB | 5GB-16TB | 5GB-16TB |
-| 스토리지 증분 크기 | 1 GB | 1 GB | 1 GB |
-| IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000IOPS |
-
-> [!NOTE]
-> 최대 16TB 및 20,000IOPS의 스토리지는 다음 지역에서 지원됩니다. 미국 동부, 미국 동부 2, 미국 중부, 브라질 남부, 미국 서부, 미국 중북부, 미국 남서부, 유럽 북부, 유럽 서부, 영국 남부, 영국 서부, 동남아시아, 동아시아, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 오스트레일리아 동부, 오스트레일리아 남동부, 미국 서부 2, 미국 중서부 , 캐나다 동부 및 캐나다 중부.
->
-> 그 밖의 모든 지역은 최대 4TB의 스토리지와 최대 6000IOPS를 지원합니다.
->
-
-서버를 만드는 동안과 만든 후에 추가 스토리지 용량을 추가하고 시스템에서 워크로드의 스토리지 사용량에 따라 스토리지를 자동으로 늘리도록 허용할 수 있습니다. 
+| 스토리지 크기 | 5GB-1TB | 5GB-4TB | 5GB~16TB |
+| 스토리지 증분 크기 | 1GB | 1GB | 1GB |
+| IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000IOPS |
 
 >[!NOTE]
+> 기본 스토리지는 IOPS 보장을 제공하지 않습니다. 범용 스토리지에서 IOPS의 규모는 프로비저닝된 스토리지 크기와 3:1 비율로 조정됩니다.
+
+### <a name="basic-storage"></a>기본 스토리지 
+기본 스토리지는 기본 가격 책정 계층 서버를 지원하는 백 엔드 스토리지입니다. 기본 스토리지는 프로비저닝된 IOPS가 보장되지 않고 대기 시간이 가변적인 백 엔드의 Azure 표준 스토리지를 활용합니다. 기본 계층은 개발 또는 자주 사용되지 않는 소규모 애플리케이션을 위한 I/O 성능, 가벼운 컴퓨팅, 저렴한 비용이 필요한 워크로드에 가장 적합합니다.
+
+### <a name="general-purpose-storage"></a>범용 스토리지 
+범용 스토리지는 범용 및 메모리 최적화 계층 서버를 지원하는 백 엔드 스토리지입니다. 범용 스토리지에서 IOPS의 규모는 프로비저닝된 스토리지 크기와 3:1 비율로 조정됩니다. 아래에 설명된 대로 두 세대의 범용 스토리지가 있습니다.
+
+#### <a name="general-purpose-storage-v1-supports-up-to-4-tb"></a>범용 스토리지 v1(최대 4TB 지원)
+범용 스토리지 v1은 서버당 최대 4TB 스토리지 및 6000 IOPS를 지원할 수 있는 레거시 스토리지 기술을 기반으로 합니다. 범용 스토리지 v1은 로컬 캐싱 및 백업을 위해 MySQL 엔진을 실행하는 컴퓨팅 노드의 메모리를 활용하도록 최적화됩니다. 범용 스토리지 v1의 백업 프로세스는 컴퓨팅 노드의 메모리에 있는 데이터 및 로그 파일을 읽고 최대 35일 동안 보존하기 위해 대상 백업 스토리지에 복사합니다. 따라서 백업하는 동안 스토리지의 메모리 및 IO 사용량이 상대적으로 높습니다. 
+
+모든 Azure 지역에서 범용 스토리지 v1을 지원합니다.
+
+범용 스토리지 v1의 범용 또는 메모리 최적화 서버의 경우 다음을 고려하는 것이 좋습니다.
+
+*   스토리지 캐싱 및 백업 버퍼에 대해 10~30%의 초과 메모리를 차지하는 컴퓨팅 SKU 계층 계획 
+*   백업 IO를 처리하기 위해 데이터베이스 워크로드에 필요한 것보다 10% 더 높은 IOPS 프로비저닝 
+*   또는 기본 스토리지 인프라를 아래에 공유된 원하는 Azure 지역에서 사용할 수 있는 경우 최대 16TB 스토리지를 지원하는 아래에 설명된 범용 스토리지 v2로 마이그레이션합니다. 
+
+#### <a name="general-purpose-storage-v2-supports-up-to-16-tb-storage"></a>범용 스토리지 v2(최대 16TB 스토리지 지원)
+범용 스토리지 v2는 최대 16TB 및 20000 IOPS를 지원할 수 있는 최신 스토리지 인프라를 기반으로 합니다. 인프라를 사용할 수 있는 Azure 지역의 하위 집합에서 새로 프로비저닝된 모든 서버는 기본적으로 범용 스토리지 v2에 위치합니다. 범용 스토리지 v2는 MySQL의 컴퓨팅 노드에서 메모리를 소비하지 않으며 범용 v1 스토리지에 비해 더 나은 예측 가능한 IO 대기 시간을 제공합니다. 범용 v2 스토리지 서버의 백업은 스냅샷 기반이며 추가 IO 오버헤드가 없습니다. 범용 스토리지 v1에 비해 범용 v2 스토리지에서 MySQL 서버 성능은 프로비저닝된 동일한 스토리지 및 IOPS에 대해 더 높을 것으로 예상됩니다. 최대 16TB 스토리지를 지원하는 범용 스토리지에 대해 추가 비용이 없습니다. 16TB 스토리지로의 마이그레이션 지원이 필요하면 Azure Portal에서 지원 티켓을 엽니다.
+
+범용 스토리지 v2는 다음 Azure 지역에서 지원됩니다. 
+
+| 지역 | 범용 스토리지 v2 가용성 | 
+| --- | --- | 
+| 오스트레일리아 동부 | :heavy_check_mark: | 
+| 오스트레일리아 동남부 | :heavy_check_mark: | 
+| 브라질 남부 | :heavy_check_mark: | 
+| 캐나다 중부 | :heavy_check_mark: |
+| 캐나다 동부 | :heavy_check_mark: |
+| 미국 중부 | :heavy_check_mark: | 
+| 미국 동부 | :heavy_check_mark: | 
+| 미국 동부 2 | :heavy_check_mark: |
+| 동아시아 | :heavy_check_mark: | 
+| 일본 동부 | :heavy_check_mark: | 
+| 일본 서부 | :heavy_check_mark: | 
+| 한국 중부 | :heavy_check_mark: |
+| 한국 남부 | :heavy_check_mark: |
+| 북유럽 | :heavy_check_mark: | 
+| 미국 중북부 | :heavy_check_mark: | 
+| 미국 중남부 | :heavy_check_mark: | 
+| 동남 아시아 | :heavy_check_mark: | 
+| 영국 남부 | :heavy_check_mark: | 
+| 영국 서부 | :heavy_check_mark: | 
+| 미국 중서부 | :heavy_check_mark: | 
+| 미국 서부 | :heavy_check_mark: | 
+| 미국 서부 2 | :heavy_check_mark: | 
+| 서유럽 | :heavy_check_mark: | 
+| 인도 중부* | :heavy_check_mark: | 
+| 프랑스 중부* | :heavy_check_mark: | 
+| 아랍에미리트 북부* | :heavy_check_mark: | 
+| 남아프리카 북부* | :heavy_check_mark: |
+
+> [!Note] 
+> *Azure Database for MySQL이 퍼블릭 미리 보기에서 범용 스토리지 v2를 가지고 있는 지역 <br /> *이러한 Azure 지역의 경우 범용 스토리지 v1 및 v2 모두에서 서버를 만들 수 있는 옵션이 있습니다. 퍼블릭 미리 보기에서 범용 스토리지 v2를 사용하여 만든 서버의 경우 다음 제한 사항이 적용됩니다. <br /> 
+> * 지역 중복 백업은 지원되지 않습니다.<br /> 
+> * 복제본 서버는 범용 스토리지 v2를 지원하는 지역에 있어야 합니다. <br /> 
+    
+
+### <a name="how-can-i-determine-which-storage-type-my-server-is-running-on"></a>내 서버가 실행 중인 스토리지 유형을 확인하려면 어떻게 해야 하나요?
+
+포털의 가격 책정 계층 블레이드에서 이동하여 서버의 스토리지 유형을 찾을 수 있습니다. 
+* 기본 SKU를 사용하여 서버를 프로비저닝하는 경우 스토리지 유형은 기본 스토리지입니다.
+* 범용 또는 메모리 최적화 SKU를 사용하여 서버를 프로비저닝하는 경우 스토리지 유형은 범용 스토리지입니다.
+   *  서버에서 프로비저닝할 수 있는 최대 스토리지가 최대 4TB인 경우 스토리지 유형은 범용 스토리지 v1입니다.
+   *  서버에서 프로비저닝할 수 있는 최대 스토리지가 최대 16TB인 경우 스토리지 유형은 범용 스토리지 v2입니다.
+
+### <a name="can-i-move-from-general-purpose-storage-v1-to-general-purpose-storage-v2-if-yes-how-and-is-there-any-additional-cost"></a>범용 스토리지 v1에서 범용 스토리지 v2로 이동할 수 있나요? 그렇다면 방법은 무엇이며 추가 비용이 있나요?
+예, 기본 스토리지 인프라를 원본 서버의 Azure 지역에서 사용할 수 있는 경우 범용 스토리지 v1에서 v2로의 마이그레이션이 지원됩니다. 마이그레이션 및 v2 스토리지는 추가 비용 없이 사용할 수 있습니다.
+
+### <a name="can-i-grow-storage-size-after-server-is-provisioned"></a>서버를 프로비저닝한 후 스토리지 크기를 늘릴 수 있나요?
+서버를 만드는 동안과 만든 후에 추가 스토리지 용량을 추가하고 시스템에서 워크로드의 스토리지 사용량에 따라 스토리지를 자동으로 늘리도록 허용할 수 있습니다. 
+
+>[!IMPORTANT]
 > 스토리지는 스케일 다운이 아닌 스케일 업만 가능합니다.
 
-기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 스토리지 크기와 3:1 비율로 조정됩니다.
-
-Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 [스토리지 제한, 스토리지 비율, 스토리지 사용됨 및 IO 백분율](concepts-monitoring.md)입니다.
+### <a name="monitoring-io-consumption"></a>IO 소비 모니터링
+Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 [스토리지 제한, 스토리지 비율, 사용된 스토리지, IO 백분율](concepts-monitoring.md)입니다. 범용 스토리지 v1이 있는 MySQL 서버에 대한 모니터링 메트릭은 MySQL 엔진이 소비한 메모리와 IO를 보고하지만 제한 사항인 스토리지 레이어의 메모리와 IO 소비를 캡처하지 못할 수 있습니다.
 
 ### <a name="reaching-the-storage-limit"></a>스토리지 제한에 도달
 
@@ -85,7 +154,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 ## <a name="backup-storage"></a>백업 스토리지 
 
-Azure Database for MySQL은 추가 비용 없이 최대 100%의 프로비전된 서버 스토리지를 백업 스토리지로 제공합니다. 이 용량을 초과해서 사용하는 백업 스토리지는 매달 GB 단위로 요금이 청구됩니다. 예를 들어 250GB의 스토리지로 서버를 프로비전하는 경우 추가 비용 없이 250GB의 추가 스토리지를 서버 백업에 사용할 수 있게 됩니다. 250GB를 초과하는 백업용 스토리지는 [가격 책정 모델](https://azure.microsoft.com/pricing/details/mysql/)에 따라 비용이 청구됩니다. 백업 스토리지 사용, 백업 스토리지 비용 모니터링 및 제어에 영향을 주는 요소를 이해하려면 [백업 설명서](concepts-backup.md)를 참조할 수 있습니다.
+Azure Database for MySQL은 추가 비용 없이 최대 100%의 프로비전된 서버 스토리지를 백업 스토리지로 제공합니다. 이 용량을 초과해서 사용하는 백업 스토리지는 매달 GB 단위로 요금이 청구됩니다. 예를 들어 250GB의 스토리지로 서버를 프로비저닝하는 경우 추가 비용 없이 250GB의 추가 스토리지를 서버 백업에 사용할 수 있게 됩니다. 250GB를 초과하는 백업용 스토리지는 [가격 책정 모델](https://azure.microsoft.com/pricing/details/mysql/)에 따라 비용이 청구됩니다. 백업 스토리지 사용, 백업 스토리지 비용 모니터링 및 제어에 영향을 주는 요소를 이해하려면 [백업 설명서](concepts-backup.md)를 참조할 수 있습니다.
 
 ## <a name="scale-resources"></a>리소스 스케일링
 

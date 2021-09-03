@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/22/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 924f7248733ee573cc68b137fccb829b2a79af31
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 06945efc6be8700955b1a475d00d21951102c214
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296468"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492796"
 ---
 # <a name="azure-digital-twins-query-language-reference-operators"></a>Azure Digital Twins 쿼리 언어 참조: 연산자
 
@@ -28,15 +28,15 @@ ms.locfileid: "108296468"
 
 ### <a name="example"></a>예제
 
-다음은 `=`를 사용하는 예제입니다. 다음 쿼리는 온도 값이 80인 트윈을 반환합니다.
+`=`을 사용하는 예제는 다음과 같습니다. 다음 쿼리는 온도 값이 80인 트윈을 반환합니다.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="EqualityExample":::
 
-다음은 `<`를 사용하는 예제입니다. 다음 쿼리는 온도 값이 80 미만인 트윈을 반환합니다.
+`<`을 사용하는 예제는 다음과 같습니다. 다음 쿼리는 온도 값이 80 미만인 트윈을 반환합니다.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="ComparisonExample":::
 
-다음은 `<=`를 사용하는 예제입니다. 다음 쿼리는 온도 값이 80보다 작거나 같은 트윈을 반환합니다.
+`<=`을 사용하는 예제는 다음과 같습니다. 다음 쿼리는 온도 값이 80보다 작거나 같은 트윈을 반환합니다.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="OrderedComparisonExample":::
 
@@ -47,9 +47,9 @@ ms.locfileid: "108296468"
 * `IN`: 지정된 값이 값 세트에 있으면 true로 평가됩니다.
 * `NIN`: 지정된 값이 값 세트에 없으면 true로 평가됩니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
-다음은 `IN`을 사용하는 예제입니다. 다음 쿼리는 `owner` 속성이 목록의 여러 옵션 중 하나인 트윈을 반환합니다.
+`IN`을 사용하는 예제는 다음과 같습니다. 다음 쿼리는 `owner` 속성이 목록의 여러 옵션 중 하나인 트윈을 반환합니다.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="InExample":::
 
@@ -60,17 +60,17 @@ ms.locfileid: "108296468"
 * `OR`: 두 식을 연결하는 데 사용되며 둘 중 하나 이상이 true이면 true로 평가됩니다.
 * `NOT`: 식을 부정하는 데 사용되며 식 조건이 충족되지 않으면 true로 평가됩니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
-다음은 `AND`를 사용하는 예제입니다. 다음 쿼리는 온도가 80 미만이고 습도가 50 미만인 두 조건을 모두 충족하는 트윈을 반환합니다.
+`AND`를 사용하는 예제는 다음과 같습니다. 다음 쿼리는 온도가 80 미만이고 습도가 50 미만인 두 조건을 모두 충족하는 트윈을 반환합니다.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="AndExample":::
 
-다음은 `OR`을 사용하는 예제입니다. 다음 쿼리는 온도가 80 미만이고 습도가 50 미만인 조건 중 하나 이상을 충족하는 트윈을 반환합니다.
+`OR`를 사용하는 예제는 다음과 같습니다. 다음 쿼리는 온도가 80 미만이고 습도가 50 미만인 조건 중 하나 이상을 충족하는 트윈을 반환합니다.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="OrExample":::
 
-다음은 `NOT`을 사용하는 예제입니다. 다음 쿼리는 온도가 80 미만인 조건을 충족하지 않는 트윈을 반환합니다.
+`NOT`을 사용하는 예제는 다음과 같습니다. 다음 쿼리는 온도가 80 미만인 조건을 충족하지 않는 트윈을 반환합니다.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="NotExample":::
 

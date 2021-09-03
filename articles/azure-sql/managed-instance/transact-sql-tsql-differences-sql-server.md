@@ -9,14 +9,14 @@ ms.topic: reference
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, bonova, danil
-ms.date: 3/16/2021
+ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 8c3ab997aeb179754e4c365dc41b795cf5c3bdc7
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 005984260532ddf0a349380f290a65313e371336
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528561"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530790"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server와 Azure SQL Managed Instance 간의 T-SQL 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -470,8 +470,8 @@ PolyBase에 대한 일반 정보는 [PolyBase](/sql/relational-databases/polybas
 
 인스턴스 간 Service Broker 메시지 교환은 Azure SQL Managed Instance 사이에만 지원됩니다.
 
-- `CREATE ROUTE`: 다른 SQL Managed Instance의 `LOCAL`또는 DNS 이름 이외의 `ADDRESS`가 포함된 `CREATE ROUTE`는 사용할 수 없습니다.
-- `ALTER ROUTE`: 다른 SQL Managed Instance의 `LOCAL`또는 DNS 이름 이외의 `ADDRESS`가 포함된 `ALTER ROUTE`는 사용할 수 없습니다.
+- `CREATE ROUTE`: 다른 SQL Managed Instance의 `LOCAL`또는 DNS 이름 이외의 `ADDRESS`가 포함된 `CREATE ROUTE`는 사용할 수 없습니다. 포트는 항상 4022입니다.
+- `ALTER ROUTE`: 다른 SQL Managed Instance의 `LOCAL`또는 DNS 이름 이외의 `ADDRESS`가 포함된 `ALTER ROUTE`는 사용할 수 없습니다. 포트는 항상 4022입니다.
 
 전송 보안이 지원되며, 대화 보안은 지원되지 않습니다.
 - `CREATE REMOTE SERVICE BINDING`은 지원되지 않습니다.
@@ -491,6 +491,8 @@ Service Broker는 기본적으로 사용하도록 설정되어 있으며, 비활
   - `remote data archive`
   - `remote proc trans`
   - `scan for startup procs`
+- 다음 [sp_configure](/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) 옵션은 무시되고 영향을 주지 않습니다. 
+  - `Ole Automation Procedures`
 - `sp_execute_external_scripts`는 지원되지 않습니다. [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)를 참조하세요.
 - `xp_cmdshell`는 지원되지 않습니다. [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
 - `Extended stored procedures` 는 지원되지 않으며 여기에는 `sp_addextendedproc` 및 `sp_dropextendedproc`이 포함됩니다. 이 기능은 SQL Server의 사용 중단 경로에 있기 때문에 지원되지 않습니다. 자세한 내용은 [확장 저장 프로시저](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming)를 참조하세요.

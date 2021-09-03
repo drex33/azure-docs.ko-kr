@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 06/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3a7c93bb0e0dcc51e35bc27fa0799d8410e66df6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c4d31d7a1d9e67b1c246de50887d65206a12d57
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104581884"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284620"
 ---
 # <a name="set-up-a-resource-owner-password-credentials-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 리소스 소유자 암호 자격 증명 흐름 설정
 
@@ -365,6 +365,14 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
     "refresh_token_expires_in": 1209600
 }
 ```
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="the-provided-application-is-not-configured-to-allow-the-oauth-implicit-flow"></a>제공된 애플리케이션이 ‘OAuth’ 암시적 흐름을 허용하도록 구성되지 않았습니다.
+
+* **증상** - ROPC 흐름을 실행하고 다음 메시지가 표시됩니다. AADB2C90057: 제공된 애플리케이션이 ‘OAuth’ 암시적 흐름을 허용하도록 구성되지 않았습니다.
+* **가능한 원인** - 애플리케이션에 암시적 흐름이 허용되지 않습니다.
+* **해결 방법**: Azure AD B2C에 [앱 등록](#register-an-application)을 만드는 경우 애플리케이션 매니페스트를 수동으로 편집하고 `oauth2AllowImplicitFlow` 속성 값을 `true`로 설정해야 합니다. `oauth2AllowImplicitFlow` 속성을 구성한 후 변경을 적용하는 데 몇 분(일반적으로 5분 이하)이 걸릴 수 있습니다. 
 
 ## <a name="use-a-native-sdk-or-app-auth"></a>네이티브 SDK 또는 App-Auth 사용
 

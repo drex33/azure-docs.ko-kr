@@ -3,12 +3,12 @@ title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 30b45394ea620d05a89c3b2fd747573f1ea8017d
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: a884edd23fa1538fcc2b00c80190eab6699e1e47
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205002"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112414488"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -25,9 +25,21 @@ IP 주소는 개별 함수가 아니라 함수 앱과 연결됩니다. 들어오
 
 각 함수 앱에는 하나의 인바운드 IP 주소가 있습니다. 해당 IP 주소를 찾으려면 다음을 수행합니다.
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 함수 앱으로 이동합니다.
 3. **설정** 아래에서 **속성** 을 선택합니다. 인바운드 IP 주소는 **가상 IP 주소** 아래에 나타납니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+
+로컬 클라이언트 컴퓨터에서 `nslookup` 유틸리티를 사용합니다.
+
+```command
+nslookup <APP_NAME>.azurewebsites.net
+```
+
+---
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>함수 앱 아웃바운드 IP 주소
 
@@ -35,22 +47,25 @@ IP 주소는 개별 함수가 아니라 함수 앱과 연결됩니다. 들어오
 
 함수 앱에서 사용 가능한 아웃바운드 IP 주소를 찾으려면 다음을 수행합니다.
 
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
 1. [Azure Resource Explorer](https://resources.azure.com)에 로그인합니다.
 2. **구독 > {사용자 구독} > 공급자 > Microsoft.Web > 사이트** 를 차례로 선택합니다.
 3. JSON 패널에서 함수 앱의 이름으로 끝나는 `id` 속성이 있는 사이트를 찾습니다.
 4. `outboundIpAddresses` 및 `possibleOutboundIpAddresses`를 확인합니다. 
 
-`outboundIpAddresses` 집합은 현재 함수 앱에서 사용할 수 있습니다. `possibleOutboundIpAddresses` 집합에는 함수 앱에서 [다른 가격 책정 계층으로 크기 조정](#outbound-ip-address-changes)하는 경우에만 사용할 수 있는 IP 주소가 포함됩니다.
-
-사용 가능한 아웃바운드 IP 주소를 찾는 다른 방법은 [Cloud Shell](../cloud-shell/quickstart.md)을 사용하는 것입니다.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
-az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
+az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query outboundIpAddresses --output tsv
+az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query possibleOutboundIpAddresses --output tsv
 ```
+---
+
+`outboundIpAddresses` 집합은 현재 함수 앱에서 사용할 수 있습니다. `possibleOutboundIpAddresses` 집합에는 함수 앱에서 [다른 가격 책정 계층으로 크기 조정](#outbound-ip-address-changes)하는 경우에만 사용할 수 있는 IP 주소가 포함됩니다.
 
 > [!NOTE]
-> [소비 계획](consumption-plan.md) 또는 [프리미엄 계획](functions-premium-plan.md)에서 실행되는 함수 앱의 크기를 조정하는 경우 새로운 아웃바운드 IP 주소 범위를 할당할 수 있습니다. 이러한 계획 중 하나에서 실행하는 경우 전체 데이터 센터를 허용 목록에 추가해야 할 수 있습니다.
+> [소비 계획](consumption-plan.md) 또는 [프리미엄 계획](functions-premium-plan.md)에서 실행되는 함수 앱의 크기를 조정하는 경우 새로운 아웃바운드 IP 주소 범위를 할당할 수 있습니다. 이러한 플랜 중 하나를 실행하는 경우 보고된 아웃바운드 IP 주소를 사용하여 확실한 허용 목록을 만들 수 없습니다. 동적 스케일링 중에 사용되는 모든 잠재적인 아웃바운드 주소를 포함하려면 전체 데이터 센터를 허용 목록에 추가해야 합니다.
 
 ## <a name="data-center-outbound-ip-addresses"></a>데이터 센터 아웃바운드 IP 주소
 
@@ -98,7 +113,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 자동 크기 조정 동작으로 인해 [소비 계획](consumption-plan.md) 또는 [프리미엄 계획](functions-premium-plan.md)에서 실행될 때의 아웃바운드 IP는 언제든 변경될 수 있습니다. 
 
-허용 목록에 추가가 필요한 경우 등, 함수 앱의 아웃바운드 IP 주소를 제어해야 할 때는 프리미엄 계획에서 [가상 네트워크 NAT 게이트웨이](#virtual-network-nat-gateway-for-outbound-static-ip)를 구현하는 것이 좋습니다.
+허용 목록에 추가해야 하는 경우와 같이 함수 앱의 아웃바운드 IP 주소를 제어해야 하는 경우에는 프리미엄 호스팅 플랜에서 실행하는 동안 [가상 네트워크 NAT 게이트웨이](#virtual-network-nat-gateway-for-outbound-static-ip)를 구현하는 것이 좋습니다. 전용(App Service) 플랜에서 실행하여 이 작업을 수행할 수도 있습니다.
 
 ### <a name="dedicated-plans"></a>전용 계획
 
@@ -127,7 +142,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ### <a name="virtual-network-nat-gateway-for-outbound-static-ip"></a>아웃바운드 고정 IP용 가상 네트워크 NAT 게이트웨이
 
-가상 네트워크 NAT 게이트웨이를 사용하여 고정 공용 IP 주소를 통해 트래픽을 전달함으로써 함수에서 아웃바운드 트래픽의 IP 주소를 제어할 수 있습니다. [프리미엄 계획](functions-premium-plan.md)에서 실행하는 경우 이 토폴로지를 사용할 수 있습니다. 자세히 알아보려면 [자습서: Azure 가상 네트워크 NAT 게이트웨이를 사용하여 Azure Functions 아웃바운드 IP 제어](functions-how-to-use-nat-gateway.md)를 참조하세요.
+가상 네트워크 NAT 게이트웨이를 사용하여 고정 공용 IP 주소를 통해 트래픽을 전달함으로써 함수에서 아웃바운드 트래픽의 IP 주소를 제어할 수 있습니다. [프리미엄 플랜](functions-premium-plan.md) 또는 [전용(App Service) 플랜](dedicated-plan.md)에서 실행하는 경우 이 토폴로지를 사용할 수 있습니다. 자세히 알아보려면 [자습서: Azure 가상 네트워크 NAT 게이트웨이를 사용하여 Azure Functions 아웃바운드 IP 제어](functions-how-to-use-nat-gateway.md)를 참조하세요.
 
 ### <a name="app-service-environments"></a>App Service Environment
 
@@ -135,16 +150,20 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 함수 앱이 App Service Environment에서 실행되는지 확인하려면 다음을 수행합니다.
 
+# <a name="azure-porta"></a>[Azure Portal](#tab/portal)
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 함수 앱으로 이동합니다.
 3. **개요** 탭을 선택합니다.
 4. App Service 계획 계층이 **App Service 계획/가격 책정 계층** 아래에 표시됩니다. App Service Environment 가격 책정 계층은 **격리** 입니다.
- 
-또는 [Cloud Shell](../cloud-shell/quickstart.md)을 사용할 수 있습니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
 ```
+
+---
 
 App Service Environment `sku`는 `Isolated`입니다.
 

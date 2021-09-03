@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 3d654a84b6e0e5cfb00c7b5d5dd5742649ec7a81
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: b6af5e7efa14c7a8b2243e908b52ed6cf50c8272
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900776"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727222"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Azure Portal에서 Blob 데이터에 대한 액세스 권한을 부여하는 방법을 선택합니다.
 
@@ -54,7 +54,7 @@ Azure AD 계정을 사용하여 Azure Portal에서 Blob 데이터에 액세스�
 
 Azure Resource Manager **읽기 권한자** 역할은 사용자가 스토리지 계정 리소스를 볼 수 있지만 수정할 수는 없도록 허용합니다. Azure Storage에서 데이터에 대한 읽기 권한은 제공하지 않고 계정 관리 리소스에 대해서만 제공합니다. 사용자가 Azure Portal에서 Blob 컨테이너로 이동할 수 있도록 **읽기 권한자** 역할이 필요합니다.
 
-Blob 데이터에 대한 액세스를 지원하는 기본 제공 역할에 대한 자세한 내용은 [Blob에 대한 Azure 역할](assign-azure-role-data-access.md#azure-roles-for-blobs)을 참조하세요.
+Blob 데이터에 대한 액세스를 지원하는 기본 제공 역할에 관한 내용은 [Azure Active Directory를 사용하여 Blob에 대한 액세스 권한 부여](authorize-access-azure-active-directory.md)를 참조하세요.
 
 사용자 지정 역할은 기본 제공 역할이 제공하는 권한과 동일하되 다른 조합으로 지원합니다. Azure 사용자 지정 역할을 생성하는 방법에 대해 자세히 알고 싶다면, [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 및 [Azure 리소스에 대한 역할 정의 이해](../../role-based-access-control/role-definitions.md)를 참조하세요.
 
@@ -110,5 +110,5 @@ Blob 업로드 작업에 권한을 부여하는 방법을 지정하려면 다음
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory를 사용하여 Azure Blob 및 큐에 대한 액세스 인증](../common/storage-auth-aad.md)
+- [Azure Storage의 데이터에 대한 액세스 권한 부여](../common/authorize-data-access.md)
 - [Blob 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)

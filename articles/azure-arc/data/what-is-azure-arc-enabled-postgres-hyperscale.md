@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8edf540c3f67a3a8bee075569f0a2588cae18a62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d43753084f79184b338b16223ed45cb00a2dfb33
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390014"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113732461"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일이란?
 
@@ -30,6 +30,9 @@ Azure Arc 지원 PostgreSQL 하이퍼스케일은 Azure Arc 지원 데이터 서
 - [연결 모드 및 요구 사항](connectivity.md)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+관련 기능에 대한 자세한 내용은 노출되는 데이터 에피소드를 참조할 수도 있습니다.
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-Arc-Enabled-PostgreSQL-Hyperscale--Data-Exposed/player?format=ny]
 
 ## <a name="compare-solutions"></a>솔루션 비교
 
@@ -56,5 +59,5 @@ Azure Arc 지원 데이터 서비스와 함께 제공되는 Postgres 데이터�
    3. [Azure Arc에 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 만들기](create-postgresql-hyperscale-server-group.md) 
 
 - **Learn**
-   - [Azure Arc 지원 데이터 서비스에 대해 자세히 알아보세요.](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
+   - [Azure Arc 지원 데이터 서비스에 대해 자세히 알아보기](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
    - [Azure Arc에 대해 자세히 알아보세요.](https://aka.ms/azurearc)

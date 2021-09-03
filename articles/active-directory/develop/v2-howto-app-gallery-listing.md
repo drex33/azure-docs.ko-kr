@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 앱 갤러리에 앱 게시
-description: Azure Active Directory 앱 갤러리에 Single Sign-On을 지원하는 애플리케이션을 나열하는 방법을 알아봅니다.
+description: Azure Active Directory 앱 갤러리에 Single Sign-On을 지원하는 애플리케이션을 나열하는 방법을 알아봅니다. 앱 갤러리에 게시하면 고객이 더 쉽게 앱을 찾고 테넌트에 추가할 수 있습니다.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -8,20 +8,34 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/10/2021
+ms.date: 06/23/2021
 ms.author: kenwith
 ms.reviewer: jeedes
-ms.custom: aaddev
-ms.openlocfilehash: ade77d05e209d65a9d7aa40451362bd66718cf75
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.custom: aaddev, contperf-fy21q4
+ms.openlocfilehash: 7938e8ffbaca3f069016a445775d9c669f1ad144
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033343"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228071"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
 
-Azure AD 앱 갤러리에 앱을 게시할 수 있습니다. 앱이 게시되면 테넌트에서 앱을 추가할 때 고객에게 옵션으로 표시됩니다. 
+Azure AD(Azure Active Directory) 앱 갤러리에 앱을 게시할 수 있습니다. 앱이 게시되면 [테넌트에 앱을 추가](../manage-apps/add-application-portal.md)할 때 고객에게 옵션으로 표시됩니다. 
+
+Azure AD 앱 갤러리에 앱을 게시하는 단계는 다음과 같습니다.
+1. 필수 구성 요소
+1. 앱에 적합한 Single Sign-On 표준을 선택합니다.
+1. 앱에서 Single Sign-On을 구현합니다.
+1. 앱에서 SCIM 사용자 프로비저닝 구현(선택 사항)
+1. Azure 테넌트를 만들고 앱을 테스트합니다.
+1. 설명서를 만들고 게시합니다.
+1. 앱을 제출합니다.
+1. Microsoft 파트너 네트워크에 참가합니다.
+
+## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리란?
+
+[Azure AD 앱 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1)는 SSO(Single Sign-On)와 자동화된 사용자 프로비저닝을 쉽게 배포하고 구성할 수 있는 수천 개의 앱 카탈로그입니다.
 
 Azure AD 갤러리에 앱을 추가하면 다음과 같은 이점이 있습니다.
 
@@ -30,6 +44,7 @@ Azure AD 갤러리에 앱을 추가하면 다음과 같은 이점이 있습니�
 - 갤러리에서 빠른 검색에 애플리케이션을 제공합니다.
 - 무료, 기본 및 프리미엄 Azure AD 고객은 이 통합을 모두 사용할 수 있습니다.
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
+- [SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(System for Cross-domain Identity Management)을 사용하는 고객은 동일한 앱에 대한 프로비저닝을 사용할 수 있습니다.
 
 또한 고객이 앱의 ID 공급자로 Azure AD를 사용하는 경우 많은 이점이 있습니다. 그 중 일부는 다음과 같습니다.
 
@@ -47,39 +62,18 @@ Azure AD 갤러리에 앱을 추가하면 다음과 같은 이점이 있습니�
 - 사용자가 Azure AD SSO를 사용하고 별도 자격 증명이 필요하지 않도록 함으로써 애플리케이션에 로그온하여 할 때 보안 및 편의를 추가적으로 제공합니다.
 
 > [!TIP]
-> 구매 또는 구독을 통해 다른 회사에서 사용할 애플리케이션을 제공하는 경우 자신의 Azure 테넌트 내에서 고객이 애플리케이션을 사용할 수 있도록 합니다. 이것을 다중 테넌트 애플리케이션이라고 합니다. 이 개념에 대한 개요는 [Azure의 다중 테넌트 애플리케이션](../../dotnet-develop-multitenant-applications.md) 및 [Azure Active Directory의 테넌시](single-and-multi-tenant-apps.md)를 참조하세요.
+> 구매 또는 구독을 통해 다른 회사에서 사용할 애플리케이션을 제공하는 경우 자신의 Azure 테넌트 내에서 고객이 애플리케이션을 사용할 수 있도록 합니다. 이것을 다중 테넌트 애플리케이션이라고 합니다. 이 개념의 개요는 [Azure Active Directory의 테넌트](single-and-multi-tenant-apps.md)를 참조하세요.
 
-> [!IMPORTANT]
-> Azure AD 갤러리에 앱을 게시하려면 특정 사용 약관에 동의해야 합니다. 시작하기 전에 [사용 약관](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)을 읽고 동의해야 합니다.
-
-Azure AD 앱 갤러리에 앱을 게시하는 단계는 다음과 같습니다.
-1. 앱에 적합한 Single Sign-On 표준을 선택합니다.
-2. 앱에서 Single Sign-On을 구현합니다.
-3. Azure 테넌트를 만들고 앱을 테스트합니다.
-4. 설명서를 만들고 게시합니다.
-5. 앱을 제출합니다.
-6. Microsoft 파트너 네트워크에 참가합니다.
-
-## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리란?
-
-- 고객에게 최상의 SSO(Single Sign-On) 환경을 제공합니다.
-- 애플리케이션 구성이 간단하고 최소화됩니다.
-- 갤러리에서 빠른 검색에 애플리케이션을 제공합니다.
-- 무료, 기본 및 프리미엄 Azure AD 고객은 이 통합을 모두 사용할 수 있습니다.
-- 상호 고객을 위한 단계별 구성 자습서가 있습니다.
-- [SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(System for Cross-domain Identity Management)을 사용하는 고객은 동일한 앱에 대한 프로비저닝을 사용할 수 있습니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
+Azure AD 갤러리에 앱을 게시하려면 먼저 특정 [사용 약관](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)을 읽고 이에 동의해야 합니다.
 
 두 명 이상의 사용자를 등록하여 테스트하기 위한 영구 계정이 필요합니다.
 
 - 페더레이션된 애플리케이션(Open ID 및 SAML/WS-Fed)의 경우 애플리케이션은 Azure AD 앱 갤러리에 표시되려면 SaaS(Software-as-a-Service) 모델을 지원해야 합니다. 엔터프라이즈 갤러리 애플리케이션은 특정 고객이 아닌 여러 고객 구성을 지원해야 합니다.
-- Open ID Connect의 경우 애플리케이션은 다중 테넌트화되어야 하며, [Azure AD 동의 프레임워크](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)는 애플리케이션에 대해 올바르게 구현되어야 합니다. 모든 고객이 애플리케이션에 동의를 제공할 수 있도록 사용자가 공통 엔드포인트에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
+- Open ID Connect의 경우 애플리케이션은 다중 테넌트화되어야 하며, [Azure AD 동의 프레임워크](../develop/consent-framework.md)는 애플리케이션에 대해 올바르게 구현되어야 합니다. 모든 고객이 애플리케이션에 동의를 제공할 수 있도록 사용자가 공통 엔드포인트에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
 - SAML 2.0/WS-Fed의 경우 SP 또는 IDP 모드에서 SAML/WS-Fed SSO 통합을 수행하는 기능이 애플리케이션에 있어야 합니다. 요청을 제출하기 전에 이 기능이 제대로 작동하는지 확인합니다.
 - 암호 SSO의 경우 암호 보관을 수행하여 Single Sign-On이 예상대로 작동할 수 있도록 애플리케이션이 폼 인증을 지원하는지 확인하세요.
 - 두 명 이상의 사용자를 등록하여 테스트하기 위한 영구 계정이 필요합니다.
-
-**개발자용 Azure AD를 얻으려면 어떻게 하나요?**
 
 모든 프리미엄 Azure AD 기능(90일 무료)이 있는 무료 테스트 계정을 얻을 수 있으며, 개발 작업을 수행하는 한, 확장할 수 있습니다. [Microsoft 365 개발자 프로그램에 참여하세요.](/office/developer-program/microsoft-365-developer-program)
 
@@ -139,7 +133,7 @@ OAuth 및 OIDC의 경우 [인증 패턴 지침](v2-app-types.md) 및 [Azure Acti
 
 SAML 및 WS-Fed의 경우 SP 또는 IDP 모드에서 SSO 통합을 수행하는 기능이 애플리케이션에 있어야 합니다. 요청을 제출하기 전에 이 기능이 제대로 작동하는지 확인합니다.
 
-인증에 대해 자세히 알아보려면 [인증이란?](../azuread-dev/v1-authentication-scenarios.md)을 참조하세요.
+인증에 대해 자세히 알아보려면 [인증이란?](authentication-vs-authorization.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 페더레이션된 애플리케이션(OpenID 및 SAML/WS-Fed)의 경우 앱에서 SaaS(Software as a Service) 모델을 지원해야 합니다. Azure AD 갤러리 애플리케이션은 여러 고객 구성을 지원해야 하며 단일 고객에만 국한되면 안 됩니다.
@@ -296,6 +290,8 @@ OpenID Connect를 사용하여 갤러리에 나열할 애플리케이션을 추�
 갤러리에서 OpenID Connect 애플리케이션을 나열하는 프로세스의 타임라인은 영업일을 기준으로 2~5일입니다.
 
 ![갤러리에 OpenID Connect 애플리케이션을 나열하기 위한 타임라인](./media/howto-app-gallery-listing/timeline2.png)
+
+갤러리에 SCIM 프로비저닝 애플리케이션을 나열하는 프로세스의 타임라인은 가변적이며 다양한 요인에 따라 달라집니다. 
 
 ### <a name="escalations"></a>에스컬레이션
 

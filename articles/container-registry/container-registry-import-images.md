@@ -2,13 +2,13 @@
 title: 컨테이너 이미지 가져오기
 description: Docker 명령을 실행하지 않고도 Azure API를 사용하여 컨테이너 이미지를 Azure Container Registry로 가져옵니다.
 ms.topic: article
-ms.date: 01/15/2021
-ms.openlocfilehash: e7becadab7f23acd7b85d6d82fd8abbfa7608add
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/28/2021
+ms.openlocfilehash: 04e9ead09061fad5630b883c6f5749bafc7a4a7a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781526"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529001"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>컨테이너 이미지를 컨테이너 레지스트리로 가져오기
 
@@ -32,9 +32,7 @@ Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지�
 
 컨테이너 이미지를 가져오기 위해 이 문서에서는 Azure Cloud Shell이나 로컬로 Azure CLI를 실행하도록 요구합니다(버전 2.0.55 이상 권장). `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-> [!NOTE]
-> 여러 Azure 지역에 동일한 컨테이너 이미지를 분산해야 하는 경우 Azure Container Registry에서 [지역 복제](container-registry-geo-replication.md)도 지원합니다. 레지스트리를 지역 복제하면(프리미엄 서비스 계층 필요), 단일 레지스트리의 동일한 이미지와 태그 이름으로 여러 지역에 서비스를 제공할 수 있습니다.
->
+[!INCLUDE [container-registry-geo-replication-include](../../includes/container-registry-geo-replication-include.md)]
 
 > [!IMPORTANT]
 > 두 Azure Container Registry 간의 이미지 가져오기에 대한 변경 내용은 2021년 1월에 도입되었습니다.
@@ -158,7 +156,10 @@ az acr import \
 
 ## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>다른 AD 테넌트의 Azure Container Registry에서 가져오기
 
-다른 Azure Active Directory 테넌트의 Azure Container Registry에서 가져오려면 로그인 서버 이름으로 원본 레지스트리를 지정하고 레지스트리에 대한 풀 액세스를 사용할 수 있는 사용자 이름 및 암호 자격 증명을 제공합니다. 예를 들어 [리포지토리 범위 토큰](container-registry-repository-scoped-permissions.md) 및 암호나 원본 레지스트리에 대한 ACRPull 액세스 권한이 있는 Active Directory [서비스 주체](container-registry-auth-service-principal.md)의 appID 및 암호를 사용합니다. 
+다른 Azure Active Directory 테넌트의 Azure Container Registry에서 가져오려면 로그인 서버 이름으로 원본 레지스트리를 지정하고 레지스트리에 대한 풀 액세스를 사용할 수 있는 자격 증명을 제공합니다. 
+
+### <a name="cross-tenant-import-with-username-and-password"></a>사용자 이름 및 암호를 사용하여 교차 테넌트 가져오기
+예를 들어 [리포지토리 범위 토큰](container-registry-repository-scoped-permissions.md) 및 암호나 원본 레지스트리에 대한 ACRPull 액세스 권한이 있는 Active Directory [서비스 주체](container-registry-auth-service-principal.md)의 appID 및 암호를 사용합니다. 
 
 ```azurecli
 az acr import \
@@ -167,6 +168,28 @@ az acr import \
   --image targetimage:tag \
   --username <SP_App_ID> \
   --password <SP_Passwd>
+```
+
+### <a name="cross-tenant-import-with-access-token"></a>액세스 토큰을 사용하여 교차 테넌트 가져오기
+
+레지스트리 권한이 있는 원본 테넌트의 ID를 사용하여 원본 레지스트리에 액세스하려면 액세스 토큰을 가져올 수 있습니다.
+
+```azurecli
+# Login to Azure CLI with the identity, for example a user-assigned managed identity
+az login --identity --username <identity_ID>
+
+# Get access token returned by `az account get-access-token`
+az account get-access-token 
+```
+
+대상 테넌트에서 액세스 토큰을 `az acr import` 명령에 대한 암호로 전달합니다. 원본 레지스트리는 로그인 서버 이름으로 지정됩니다. 이 명령에는 사용자 이름이 필요하지 않습니다.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source sourceregistry.azurecr.io/sourcerrepo:tag \
+  --image targetimage:tag \
+  --password <access-token>
 ```
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>비 Azure 프라이빗 컨테이너 레지스트리에서 가져오기
@@ -184,7 +207,13 @@ az acr import \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 공용 레지스트리 또는 다른 프라이빗 레지스트리에서 Azure Container Registry로 컨테이너 이미지를 가져오는 방법을 알아보았습니다. 추가 이미지 가져오기 옵션은 [az acr import][az-acr-import] 명령 참조를 참조하세요. 
+이 문서에서는 공용 레지스트리 또는 다른 프라이빗 레지스트리에서 Azure Container Registry로 컨테이너 이미지를 가져오는 방법을 알아보았습니다. 
+
+* 추가 이미지 가져오기 옵션은 [az acr import][az-acr-import] 명령 참조를 참조하세요. 
+
+* 이미지 가져오기는 다른 Azure 지역, 구독 또는 Azure AD 테넌트의 컨테이너 레지스트리로 콘텐츠를 이동하는 데 도움이 될 수 있습니다. 자세한 내용은 [수동으로 컨테이너 레지스트리를 다른 지역으로 이동](manual-regional-move.md)을 참조하세요.
+
+* 네트워크 제한 컨테이너 레지스트리에서 [아티팩트 내보내기를 사용하지 않도록 설정](data-loss-prevention.md)하는 방법을 알아보세요.
 
 
 <!-- LINKS - Internal -->

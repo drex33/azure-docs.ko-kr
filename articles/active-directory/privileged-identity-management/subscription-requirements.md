@@ -17,12 +17,12 @@ ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0428f73c4df3d97002def03823ff8cced1d647
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6570e378aa75843c525cb21ed58c9da5fd4fb574
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552634"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531182"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Privileged Identity Management를 사용하기 위한 라이선스 요구 사항
 
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 ## <a name="valid-licenses"></a>유효한 라이선스
 
-PIM과 모든 설정을 사용하려면 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]가 필요합니다. 현재 테넌트에서 활성화된 Azure Active Directory Premium P2 버전을 사용하여 Azure AD 및 Azure 리소스 역할(미리 보기)에 액세스할 수 있는 서비스 주체에 대한 액세스 검토의 범위를 지정할 수 있습니다. 서비스 주체에 대한 라이선스 모델은 이 기능의 일반 공급용으로 최종 결정되며 추가 라이선스가 필요할 수 있습니다.
+PIM 및 PIM의 모든 설정을 사용하려면 Azure AD 라이선스가 필요합니다. 현재 테넌트에서 활성화된 Azure Active Directory Premium P2 버전을 사용하여 Azure AD 및 Azure 리소스 역할(미리 보기)에 액세스할 수 있는 서비스 주체에 대한 액세스 검토의 범위를 지정할 수 있습니다. 서비스 주체에 대한 라이선스 모델은 이 기능의 일반 공급용으로 최종 결정되며 추가 라이선스가 필요할 수 있습니다. [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## <a name="licenses-you-must-have"></a>보유해야 하는 라이선스
 

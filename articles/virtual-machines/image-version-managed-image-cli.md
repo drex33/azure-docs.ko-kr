@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1d0644b9ec9009fe5d1db7701834cb9788f86ab0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6386bb06d0728b8d3b5d7832675402913c43087b
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790170"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205186"
 ---
 # <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Azure CLI를 사용하여 관리형 이미지를 이미지 버전으로 복제
 기존 관리형 이미지를 Shared Image Gallery로 복제하려는 경우, 관리형 이미지에서 직접 Shared Image Gallery 이미지를 만들 수 있습니다. 새 이미지 만들기를 테스트한 후에는 원본 관리형 이미지를 삭제할 수 있습니다. [PowerShell](image-version-managed-image-powershell.md)을 사용하여 관리형 이미지에서 Shared Image Gallery로 마이그레이션할 수도 있습니다.
@@ -62,6 +62,9 @@ az sig image-definition create \
    --os-state generalized
 ```
 
+> [!NOTE]
+> 타사 이미지에서 파생된 이미지를 포함할 이미지 정의의 경우 계획 정보는 타사 이미지의 계획 정보와 정확히 일치해야 합니다. 이미지 정의를 만들 때 `--plan-name`, `--plan-product`, `--plan-publisher`를 추가하여 이미지 정의에 플랜 정보를 포함합니다.
+>
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 

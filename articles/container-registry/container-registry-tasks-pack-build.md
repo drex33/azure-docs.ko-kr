@@ -2,14 +2,14 @@
 title: 클라우드 네이티브 빌드팩을 사용하여 이미지 빌드
 description: Dockerfile을 사용하지 않고 az acr pack build 명령을 사용하여 앱에서 컨테이너 이미지를 빌드하고 Azure Container Registry에 푸시합니다.
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 06/24/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 1700c8fda8ac91e7d447d35c0989da2d5fc3aefe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 28630c46ea56bd4df1a43e5e377b3051f9cdd966
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780932"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913965"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>클라우드 네이티브 빌드팩을 사용하여 앱에서 이미지 빌드 및 푸시
 
@@ -29,19 +29,19 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용하여 이 문서�
 * 명령을 실행하는 Azure Container Registry
 * 결과 이미지에 대한 이미지 이름 및 태그
 * ACR 작업에 [지원되는 컨텍스트 위치](container-registry-tasks-overview.md#context-locations)(예: 로컬 디렉터리, GitHub 리포지토리 또는 원격 tarball) 중 하나
-* 애플리케이션에 적합한 빌드팩 빌더 이미지의 이름 더 빠른 빌드를 위한 Azure Container Registry 캐시 빌더 이미지(예: `cloudfoundry/cnb:0.0.34-cflinuxfs3`)  
+* 애플리케이션에 적합한 빌드팩 빌더 이미지의 이름 Azure Container Registry에서 캐시되지 않는 경우 작성기 이미지는 `--pull` 매개 변수를 사용하여 끌어와야 합니다.  
 
 `az acr pack build`는 [실행 변수](container-registry-tasks-reference-yaml.md#run-variables) 및 스트리밍되고 나중에 검색할 수 있도록 저장되는 [작업 실행 로그](container-registry-tasks-logs.md)를 포함한 ACR 작업 명령의 다른 기능을 지원합니다.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>예제: Cloud Foundry 빌더를 사용하여 Node.js 이미지 빌드
 
-다음 예제에서는 `cloudfoundry/cnb:0.0.34-cflinuxfs3` 빌더를 사용하여 [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) 리포지토리에 Node.js 앱의 컨테이너 이미지를 빌드합니다. 이 빌더는 Azure Container Registry로 캐시되므로 `--pull` 매개 변수가 필요하지 않습니다.
+다음 예제에서는 `cloudfoundry/cnb:cflinuxfs3` 빌더를 사용하여 [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) 리포지토리에 Node.js 앱의 컨테이너 이미지를 빌드합니다.
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
-    --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:0.0.34-cflinuxfs3 \
+    --image node-app:1.0 \
+    --pull --builder cloudfoundry/cnb:cflinuxfs3 \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
@@ -65,7 +65,7 @@ docker run --rm -p 1337:1337 myregistry.azurecr.io/node-app:1.0
 
 ## <a name="example-build-java-image-with-heroku-builder"></a>예: Heroku 빌더를 사용하여 Java 이미지 빌드
 
-다음 예제에서는 `heroku/buildpacks:18` 빌더를 사용하여 [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) 리포지토리에 Java 앱의 컨테이너 이미지를 빌드합니다. `--pull` 매개 변수는 명령이 최신 빌더 이미지를 가져오도록 지정합니다. 
+다음 예제에서는 `heroku/buildpacks:18` 빌더를 사용하여 [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) 리포지토리에 Java 앱의 컨테이너 이미지를 빌드합니다. 
 
 ```azurecli
 az acr pack build \

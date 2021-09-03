@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/02/2020
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c24bcf45b2440aada43af62035f0b988128c8f8
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92215436"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112284548"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>오류 코드: Azure Active Directory B2C
 
@@ -144,6 +144,7 @@ Azure Active Directory B2C 서비스에서 다음 오류를 반환할 수 있습
 | `AADB2C90284` | 식별자가 ‘{0}’인 애플리케이션에 동의가 부여되지 않아 로컬 계정에 사용할 수 없습니다. |
 | `AADB2C90285` | 식별자가 ‘{0}’인 애플리케이션을 찾을 수 없습니다. |
 | `AADB2C90288` | ‘{2}’ 테넌트의 새로 고침 토큰 상환에 사용할 TechnicalProfile ‘{1}’에 참조된 ID가 ‘{0}’인 UserJourney가 ‘{3}’ 정책 또는 기본 정책에 없습니다. |
+| `AADB2C90287` | 요청에 잘못된 리디렉션 URI ‘{0}’이(가) 있습니다.|
 | `AADB2C90289` | ID 공급자에 연결하는 동안 오류가 발생했습니다. 나중에 다시 시도하세요. |
 | `AADB2C90296` | 애플리케이션이 올바르게 구성되지 않았습니다. 액세스하려는 사이트의 관리자에게 문의하세요. |
 | `AADB2C99005` | 요청에 잘못된 문자 ‘{0}’이(가) 포함된 잘못된 범위 매개 변수가 있습니다. |

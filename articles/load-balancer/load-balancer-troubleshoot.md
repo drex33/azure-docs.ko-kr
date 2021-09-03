@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: cddaf1bde84d7e60eb59bd4c58c65fa889e06ae3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ab256d58284e79323b988b2b81f4c664fa3fc16
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028814"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456683"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
@@ -35,7 +35,7 @@ Load Balancer 연결을 사용할 수 없을 때 가장 일반적인 증상은 �
 
 **유효성 검사 및 해결**
 
-표준 ILB는 **기본적으로 안전합니다**. 기본 ILB는 *숨겨진* 공용 IP 주소를 통해 인터넷에 연결하는 것을 허용했습니다. IP 주소가 고정적이거나 소유한 NSG를 통해 잠겨 있지 않으므로, 프로덕션 워크로드에는 권장되지 않습니다. 최근에 기본 ILB에서 표준 ILB로 이동한 경우, NSG를 통해 IP를 잠그는 [아웃바운드 전용](egress-only.md) 구성을 통해 명시적으로 공용 IP를 만들어야 합니다. 서브넷에서 [NAT Gateway](../virtual-network/nat-overview.md)를 사용할 수도 있습니다.
+표준 ILB는 **기본적으로 안전합니다**. 기본 ILB는 기본 아웃바운드 액세스 IP라는 ‘숨겨진’ 공용 IP 주소를 통한 인터넷 연결을 허용했습니다. IP 주소가 고정적이거나 소유한 NSG를 통해 잠겨 있지 않으므로, 프로덕션 워크로드에는 권장되지 않습니다. 최근에 기본 ILB에서 표준 ILB로 이동한 경우, NSG를 통해 IP를 잠그는 [아웃바운드 전용](egress-only.md) 구성을 통해 명시적으로 공용 IP를 만들어야 합니다. 서브넷에서 [NAT Gateway](../virtual-network/nat-gateway/nat-overview.md)를 사용할 수도 있습니다. NAT Gateway는 아웃바운드에 권장되는 솔루션입니다.
 
 ## <a name="cant-change-backend-port-for-existing-lb-rule-of-a-load-balancer-that-has-virtual-machine-scale-set-deployed-in-the-backend-pool"></a>백 엔드 풀에 배포된 가상 머신 확장 집합이 있는 부하 분산 장치의 기존 LB 규칙에 대해 백 엔드 포트를 변경할 수 없습니다.
 

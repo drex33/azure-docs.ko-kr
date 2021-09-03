@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 06/13/2021
-ms.openlocfilehash: 9aad86bc08d7190ae9fca9faab9dbfcfba93f206
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 07/07/2021
+ms.openlocfilehash: 2d145e62392ee95189a212c1cd0b294134ce1109
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062319"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528827"
 ---
 # <a name="create-rich-interactive-reports-of-security-center-data"></a>Security Center 데이터에 대한 풍부한 대화형 보고서 만들기
 
@@ -20,9 +20,9 @@ ms.locfileid: "112062319"
 
 통합 문서는 Azure 데이터 시각화를 위한 풍부한 기능 집합을 제공합니다. 각 시각화 형식에 대한 자세한 예제는 [시각화 예제 및 설명서](../azure-monitor/visualize/workbooks-text-visualizations.md)를 참조하세요. 
 
-Azure Security Center 내에서 기본 제공 보고서에 액세스하여 조직의 보안 상태를 추적할 수 있습니다. 또한 사용자 지정 보고서를 빌드하여 Security Center 또는 지원되는 다른 데이터 원본에서 광범위한 데이터를 볼 수 있습니다.
+Azure Security Center 내에서 기본 제공 통합 문서에 액세스하여 조직의 보안 상태를 추적할 수 있습니다. 또한 사용자 지정 통합 문서를 빌드하여 Security Center 또는 지원되는 다른 데이터 원본에서 광범위한 데이터를 볼 수 있습니다.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="시간 경과에 따른 보안 점수 보고서":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="시간 경과에 따른 보안 점수 통합 문서.":::
 
 ## <a name="availability"></a>가용성
 
@@ -30,66 +30,66 @@ Azure Security Center 내에서 기본 제공 보고서에 액세스하여 조�
 |---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
 | 릴리스 상태:                  | GA(일반 공급)                                                                                                                    |
 | 가격 책정:                        | Free                                                                                                                                         |
-| 필요한 역할 및 권한: | 통합 문서를 저장하려면 대상 리소스 그룹에 대한 최소 통합 문서 기여자 권한이 있어야 합니다.                                      |
-| 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부) |
+| 필요한 역할 및 권한: | 통합 문서를 저장하려면 대상 리소스 그룹에 대해 최소 [통합 문서 기여자](../role-based-access-control/built-in-roles.md#workbook-contributor) 권한이 있어야 합니다. |
+| 클라우드:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet) |
 |                                 |                                                                                                                                              |
 
 ## <a name="workbooks-gallery-in-azure-security-center"></a>Azure Security Center의 통합 문서 갤러리
 
-통합된 Azure 통합 문서 기능을 사용하여 Azure Security Center를 통해 사용자 지정 대화형 보고서를 쉽게 빌드할 수 있습니다. 또한 Security Center에는 사용자 지정에 사용할 수 있는 다음 보고서를 포함하는 통합 문서 갤러리가 포함되어 있습니다.
+통합된 Azure 통합 문서 기능을 사용하여 Azure Security Center를 통해 사용자 지정 대화형 통합 문서를 쉽게 빌드할 수 있습니다. 또한 Security Center에는 사용자 지정에 사용할 수 있는 다음 통합 문서를 포함하는 갤러리가 포함되어 있습니다.
 
-- **시간 경과에 따른 보안 점수** - 구독의 점수와 리소스에 대한 권장 사항의 변경 내용 추적
-- **시스템 업데이트** - 리소스, OS, 심각도 등에 따라 누락된 시스템 업데이트 보기
-- **취약성 평가 결과** - Azure 리소스의 취약성 검사 결과 보기
+- [‘시간 경과에 따른 보안 점수’ 통합 문서](#use-the-secure-score-over-time-workbook) - 구독의 점수와 리소스에 대한 권장 사항의 변경 내용 추적
+- [‘시스템 업데이트’ 통합 문서](#use-the-system-updates-workbook) - 리소스, OS, 심각도 등에 따라 누락된 시스템 업데이트 보기
+- [‘취약성 평가 결과’ 통합 문서](#use-the-vulnerability-assessment-findings-workbook) - Azure 리소스의 취약성 검사 결과 보기
+- [‘시간에 따른 규정 준수’ 통합 문서](#use-the-compliance-over-time-workbook) - 선택한 규정 또는 산업 표준을 준수하는 구독의 상태 보기 
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Azure Security Center의 기본 제공 통합 문서 갤러리":::
 
-제공된 보고서 중 하나를 선택하거나 직접 만듭니다.
+제공된 통합 문서 중 하나를 선택하거나 직접 만듭니다.
 
 > [!TIP]
-> **편집** 단추를 사용하여 제공된 보고서 중에서 원하는 대로 보고서를 사용자 지정할 수 있습니다. 편집이 완료되면 **저장** 을 선택하면 변경 내용이 새 통합 문서에 저장됩니다.
+> **편집** 단추를 사용하여 제공된 통합 문서 중에서 하나를 선택하여 원하는 대로 사용자 지정할 수 있습니다. 편집이 완료되면 **저장** 을 선택하면 변경 내용이 새 통합 문서에 저장됩니다.
 > 
 > :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-supplied-workbooks.png" alt-text="제공된 통합 문서를 편집하여 특정 요구에 맞게 사용자 지정":::
 
-### <a name="use-the-secure-score-over-time-report"></a>'시간 경과에 따른 보안 점수' 보고서 사용
+### <a name="use-the-secure-score-over-time-workbook"></a>‘시간 경과에 따른 보안 점수’ 통합 문서 사용
 
-이 보고서는 Log Analytics 작업 영역의 보안 점수 데이터를 사용합니다. [Azure Portal의 Security Center 페이지에서 연속 내보내기 구성](continuous-export.md?tabs=azure-portal)에 설명된 대로 연속 내보내기 도구에서 해당 데이터를 내보내야 합니다.
+이 통합 문서는 Log Analytics 작업 영역의 보안 점수 데이터를 사용합니다. [Azure Portal의 Security Center 페이지에서 연속 내보내기 구성](continuous-export.md?tabs=azure-portal)에 설명된 대로 연속 내보내기 도구에서 해당 데이터를 내보내야 합니다.
 
 연속 내보내기를 설정할 때 **스트리밍 업데이트** 및 **스냅샷** 으로 내보내기 빈도를 설정합니다.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/export-frequency-both.png" alt-text="시간에 따른 보안 점수 통합 문서에 대해 연속 내보내기 구성의 내보내기 빈도 설정에서 두 옵션을 모두 선택해야 합니다.":::
 
 > [!NOTE]
-> 스냅샷은 매주 내보낼 수 있으므로 이 보고서의 데이터를 보려면 먼저 내보낼 첫 번째 스냅샷을 한 주 이상 기다려야 합니다.
+> 스냅샷은 매주 내보낼 수 있으므로 이 통합 문서의 데이터를 보려면 먼저 내보낼 첫 번째 스냅샷을 한 주 이상 기다려야 합니다.
 
 > [!TIP]
 > 조직 전체에서 연속 내보내기를 구성하려면 [대규모 연속 내보내기 구성](continuous-export.md?tabs=azure-policy)에서 설명하는 제공된 Azure Policy 'DeployIfNotExist' 정책을 사용합니다.
 
-시간에 따른 보안 점수 보고서에는 선택한 작업 영역에 보고하는 구독에 대한 5개의 그래프가 있습니다.
-
+시간에 따른 보안 점수 통합 문서에는 선택한 작업 영역에 보고하는 구독에 대한 5개의 그래프가 있습니다.
 
 |그래프  |예제  |
 |---------|---------|
-|**지난 주 및 월의 점수 추세**<br>이 섹션을 사용하여 구독의 점수에 대한 현재 점수와 일반적인 추세를 모니터링합니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-1.png" alt-text="기본 제공 보고서의 보안 점수 추세":::|
+|**지난 주 및 월의 점수 추세**<br>이 섹션을 사용하여 구독의 점수에 대한 현재 점수와 일반적인 추세를 모니터링합니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-1.png" alt-text="기본 제공 통합 문서의 보안 점수 추세":::|
 |**선택한 모든 구독에 대한 집계 점수**<br>선택한 시간 범위에서 임의의 날짜에 집계된 점수를 확인하려면 추세 선에서 임의의 지점 위로 마우스를 가져갑니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-2.png" alt-text="선택한 모든 구독에 대한 집계 점수":::|
 |**비정상 리소스의 권장 사항**<br>이 표에서는 선택한 기간 동안 비정상으로 변경된 대부분의 리소스를 가진 권장 사항을 심사하는 데 도움이 됩니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-3.png" alt-text="비정상 리소스의 권장 사항":::|
 |**특정 보안 컨트롤의 점수**<br>Security Center의 보안 컨트롤은 권장 구성의 논리적 그룹화입니다. 이 차트에서는 모든 컨트롤의 주간 점수를 한눈에 보여 줍니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-4.png" alt-text="선택한 기간 동안 보안 컨트롤의 점수":::|
 |**리소스 변경**<br>선택한 기간 동안 변경된 상태(정상, 비정상 또는 적용되지 않음)가 있는 대부분의 리소스에 대한 권장 사항이 여기에 나열됩니다. 목록에서 권장 사항을 선택하면 특정 리소스를 나열하는 새 테이블이 열립니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-5.png" alt-text="상태가 변경된 대부분의 리소스에 대한 권장 사항":::|
 
-### <a name="use-the-system-updates-report"></a>'시스템 업데이트' 보고서 사용
+### <a name="use-the-system-updates-workbook"></a>‘시스템 업데이트’ 통합 문서 사용
 
-이 보고서는 "시스템 업데이트를 머신에 설치해야 합니다."라는 보안 권장 사항을 기반으로 합니다.
+이 통합 문서는 “시스템 업데이트를 머신에 설치해야 합니다.”라는 보안 권장 사항을 기반으로 합니다.
 
-이 보고서는 미해결 업데이트가 있는 머신을 식별하는 데 도움이 됩니다.
+이 통합 문서는 미해결 업데이트가 있는 머신을 식별하는 데 도움이 됩니다.
 
 다음에 따라 선택한 구독에 대한 상황을 볼 수 있습니다.
 
 - 미해결 업데이트가 포함된 리소스 목록
 - 리소스에서 누락된 업데이트 목록
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/system-updates-report.png" alt-text="누락된 업데이트 보안 권장 사항을 기반으로 하는 Security Center의 시스템 업데이트 보고서":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/system-updates-report.png" alt-text="누락된 업데이트 보안 권장 사항을 기반으로 하는 Security Center의 시스템 업데이트 통합 문서":::
 
-### <a name="use-the-vulnerability-assessment-findings-report"></a>'취약성 평가 결과' 보고서 사용
+### <a name="use-the-vulnerability-assessment-findings-workbook"></a>‘취약성 평가 결과’ 통합 문서 사용
 
 Security Center에는 머신에 대한 취약성 스캐너, 컨테이너 레지스트리의 컨테이너 및 SQL 서버가 포함됩니다.
 
@@ -106,9 +106,29 @@ Security Center에는 머신에 대한 취약성 스캐너, 컨테이너 레지�
 - SQL 데이터베이스에 대한 취약성 평가 결과를 수정해야 함
 - 머신의 SQL 서버에 대한 취약성 평가 결과를 수정해야 함
 
-이 보고서는 이러한 결과를 수집하고 심각도, 리소스 종류 및 범주별로 구성합니다.
+이 통합 문서는 이러한 결과를 수집하고 심각도, 리소스 종류, 범주별로 구성합니다.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/vulnerability-assessment-findings-report.png" alt-text="Security Center의 취약성 평가 결과 보고서":::
+
+
+### <a name="use-the-compliance-over-time-workbook"></a>‘시간에 따른 규정 준수’ 통합 문서 사용
+
+Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. 기본 제공 표준에는 NIST SP 800-53, SWIFT CSP CSCF v2020, 캐나다 연방 PBMM, HIPAA HITRUST 등이 포함됩니다. 규정 준수 대시보드를 사용하여 조직과 관련된 특정 표준을 선택할 수 있습니다. [규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)에서 자세히 알아보세요.
+
+이 통합 문서를 사용하면 대시보드에 추가한 다양한 표준을 사용하여 시간에 따른 규정 준수 상태를 추적할 수 있습니다.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-select-standards.png" alt-text="시간에 따른 규정 준수 보고서를 위한 표준을 선택합니다.":::
+
+보고서의 개요 영역에서 표준을 선택하면 아래쪽 창에 좀 더 자세한 분석이 표시됩니다.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-details.png" alt-text="특정 표준과 관련된 변경 내용에 대한 자세한 분석":::
+
+권장 사항 수준까지 드릴다운을 계속하여 각 컨트롤을 통과하거나 실패한 리소스를 볼 수 있습니다. 
+
+> [!TIP]
+> 보고서의 각 패널에 대해 “Excel로 내보내기” 옵션을 사용하여 데이터를 Excel 내보낼 수 있습니다.
+>
+> :::image type="content" source="media/custom-dashboards-azure-workbooks/export-workbook-data.png" alt-text="규정 준수 통합 문서 데이터를 Excel로 내보내기":::
 
 
 ## <a name="import-workbooks-from-other-workbook-galleries"></a>다른 통합 문서 갤러리에서 통합 문서 가져오기
@@ -148,4 +168,4 @@ Security Center에는 머신에 대한 취약성 스캐너, 컨테이너 레지�
 이 문서에서는 기본 제공 보고서와 사용자 지정 대화형 보고서를 빌드하는 옵션이 있는 Security Center의 통합된 Azure Monitor 통합 문서 페이지에 대해 설명했습니다.
 
 - [Azure Monitor 통합 문서](../azure-monitor/visualize/workbooks-overview.md)에 대해 자세히 알아봅니다
-- 기본 제공 보고서는 Security Center의 권장 사항에서 데이터를 가져옵니다. [보안 권장 사항 - 참조 가이드](recommendations-reference.md)에서 다양한 보안 권장 사항에 대해 알아봅니다.
+- 기본 제공 통합 문서는 Security Center의 권장 사항에서 데이터를 끌어옵니다. [보안 권장 사항 - 참조 가이드](recommendations-reference.md)에서 다양한 보안 권장 사항에 대해 알아봅니다.

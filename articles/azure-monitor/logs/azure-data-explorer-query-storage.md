@@ -1,5 +1,5 @@
 ---
-title: Azure Data Explorer(미리 보기)를 사용하여 Azure Monitor에서 내보낸 데이터 쿼리하기
+title: Azure Data Explorer를 사용하여 Azure Monitor에서 내보낸 데이터 쿼리하기
 description: Azure Data Explorer를 사용하여 Log Analytics 작업 영역에서 Azure Storage 계정으로 내보낸 데이터를 쿼리할 수 있습니다.
 author: osalzberg
 ms.author: bwren
@@ -7,14 +7,14 @@ ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ad938d15f8e21ed34014c0a743b5ba891f5476e0
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e3ab2a3bfc6e42e1cba479ee8dacb97d8f46305a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316842"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530746"
 ---
-# <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Azure Data Explorer(미리 보기)를 사용하여 Azure Monitor에서 내보낸 데이터 쿼리하기
+# <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer"></a>Azure Data Explorer를 사용하여 Azure Monitor에서 내보낸 데이터 쿼리하기
 Azure Monitor에서 Azure Storage 계정으로 데이터를 내보내면 저렴한 가격으로 보존이 가능하며 여러 지역에 로그를 다시 할당할 수 있습니다. Azure Data Explorer를 사용하여 Log Analytics 작업 영역에서 내보낸 데이터를 쿼리할 수 있습니다. 구성된 후에는 작업 영역에서 Azure Storage 계정으로 전송된 지원하는 테이블을 Azure Data Explorer의 데이터 원본으로 사용할 수 있습니다.
 
 프로세스는 다음과 같습니다. 
@@ -30,7 +30,7 @@ Azure Monitor에서 Azure Storage 계정으로 데이터를 내보내면 저렴�
 ## <a name="send-data-to-azure-storage"></a>Azure Storage로 데이터 보내기
 다음 옵션 중 하나를 사용하여 Azure Monitor 로그를 Azure Storage 계정으로 내보낼 수 있습니다.
 
-- Log Analytics 작업 영역의 모든 데이터를 Azure Storage 계정 또는 이벤트 허브로 내보내려면 Azure Monitor Logs의 Log Analytics 작업 영역 데이터 내보내기 기능을 사용합니다. [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)](./logs-data-export.md)를 참조하세요.
+- Log Analytics 작업 영역의 모든 데이터를 Azure Storage 계정 또는 이벤트 허브로 내보내려면 Azure Monitor Logs의 Log Analytics 작업 영역 데이터 내보내기 기능을 사용합니다. [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](./logs-data-export.md)를 참조하세요.
 - 논리 앱을 사용하여 로그 쿼리에서 예약된 내보내기. 이는 데이터 내보내기 기능과 유사하지만 필터링된 데이터 또는 집계된 데이터를 Azure Storage로 보낼 수 있습니다. 그러나 이 방법에는 [로그 쿼리 한도](../service-limits.md#log-analytics-workspaces)가 적용됩니다. [논리 앱을 사용하여 Log Analytics 작업 영역에서 Azure Storage로 데이터 보관](./logs-export-logic-app.md)을 참조하세요.
 - 논리 앱을 사용한 일회성 내보내기 [Logic Apps와 Power Automate용 Azure Monitor Logs 커넥터](./logicapp-flow-connector.md)를 참조하세요.
 - PowerShell 스크립트를 사용하여 로컬 컴퓨터에 일회성 내보내기 [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport)를 참조하세요.
@@ -80,6 +80,10 @@ $SecondCommand = @()
 foreach ($record in $output) {
     if ($record.DataType -eq 'System.DateTime') {
         $dataType = 'datetime'
+    } elseif ($record.DataType -eq 'System.Int32') {
+        $dataType = 'int32'
+    } elseif ($record.DataType -eq 'System.Double') {
+        $dataType = 'double'
     } else {
         $dataType = 'string'
     }

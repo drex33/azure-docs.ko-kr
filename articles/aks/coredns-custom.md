@@ -6,12 +6,12 @@ author: palma21
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jpalma
-ms.openlocfilehash: ff7862636ec96db525e4a6920b35dbc1ce6be6d7
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6ca95378145664b2fafe342d4887d3d8dcf7122a
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076243"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112407"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용하여 CoreDNS 사용자 지정
 
@@ -46,17 +46,15 @@ metadata:
   namespace: kube-system
 data:
   test.server: | # you may select any name here, but it must end with the .server file extension
-    <domain to be rewritten>.com:53 {
-        errors
-        cache 30
-        rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
-        kubernetes cluster.local in-addr.arpa ip6.arpa {
-          pods insecure
-          upstream
-          fallthrough in-addr.arpa ip6.arpa
-        }
-        forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
-    }
+  <domain to be rewritten>.com:53 {
+  log
+  errors
+  rewrite stop {
+    name regex (.*)\.<domain to be rewritten>.com {1}.default.svc.cluster.local
+    answer name (.*)\.default\.svc\.cluster\.local {1}.<domain to be rewritten>.com
+  }
+  forward . /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
+}
 ```
 
 > [!IMPORTANT]
@@ -179,22 +177,6 @@ metadata:
   namespace: kube-system
 data:
     test.override: | # you may select any name here, but it must end with the .override file extension
-          hosts example.hosts example.org { # example.hosts must be a file
-              10.0.0.1 example.org
-              fallthrough
-          }
-```
-
-INLINE을 사용하여 호스트 테이블에서 하나 이상의 줄을 지정하려면 다음을 수행합니다.
-
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns-custom # this is the name of the configmap you can overwrite with your changes
-  namespace: kube-system
-data:
-    test.override: | # you may select any name here, but it must end with the .override file extension
           hosts { 
               10.0.0.1 example1.org
               10.0.0.2 example2.org
@@ -203,7 +185,9 @@ data:
           }
 ```
 
-## <a name="enable-logging-for-dns-query-debugging"></a>DNS 쿼리 디버깅 시 로깅 사용 
+## <a name="troubleshooting"></a>문제 해결
+
+엔드포인트나 확인 검사와 같은 일반적인 CoreDNS 문제 해결 단계는 [DNS 확인 디버깅][coredns-troubleshooting]을 참조하세요.
 
 DNS 쿼리 로깅을 사용하려면 coredns-custom ConfigMap에 다음 구성을 적용합니다.
 
@@ -216,6 +200,12 @@ metadata:
 data:
   log.override: | # you may select any name here, but it must end with the .override file extension
         log
+```
+
+구성 변경 내용을 적용한 후에는 `kubectl logs` 명령을 사용하여 CoreDNS 디버그 로깅을 확인합니다. 예를 들면 다음과 같습니다.
+
+```console
+kubectl logs --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -233,6 +223,7 @@ data:
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [coredns hosts]: https://coredns.io/plugins/hosts/
+[coredns-troubleshooting]: https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/
 
 <!-- LINKS - internal -->
 [concepts-network]: concepts-network.md

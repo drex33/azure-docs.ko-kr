@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 03/23/2021
 ms.author: rezar
-ms.openlocfilehash: 59bae8bfea29ee458288751209ffc860b5b9ce9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b84cb11211c3a51bd463ad7081963298f8ec357e
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956005"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450829"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 Oracle WebLogic Server를 실행하는 솔루션에는 무엇이 있습니까?
 
@@ -31,7 +31,7 @@ Azure WLS 솔루션은 Java 애플리케이션을 Azure virtual machines로 가�
 
 _이러한 제품은 사용자 라이선스가 필요합니다_. Oracle을 사용하여 적절한 라이선스를 이미 확보했으며 Azure에서 제품을 실행할 수 있는 적절한 라이선스를 보유하고 있다고 가정합니다.
 
-제품은 기본 이미지 (Oracle Linux 7.6의 WebLogic 서버 14 및 JDK 11)를 통해 다양한 운영 체제, Java 및 WLS 버전을 지원합니다. 이러한 기본 이미지는 Azure에서 직접 사용할 수도 있습니다. 기본 이미지는 복잡하고 사용자 지정된 Azure 배포가 필요한 고객에게 적합합니다. 현재 기본 이미지 집합은 [여기](https://azuremarketplace.microsoft.com/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1)에서 사용할 수 있습니다.
+제품은 기본 이미지 (Oracle Linux 7.6의 WebLogic 서버 14 및 JDK 11)를 통해 다양한 운영 체제, Java 및 WLS 버전을 지원합니다. 이러한 기본 이미지는 Azure에서 직접 사용할 수도 있습니다. 기본 이미지는 복잡하고 사용자 지정된 Azure 배포가 필요한 고객에게 적합합니다. 현재 기본 이미지 세트는 [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1)에서 사용할 수 있습니다.
 
 _이러한 제품을 개발하는 엔지니어링 팀과 마이그레이션 시나리오를 긴밀하게 작업하는 데 관심이 있으신 경우 [마켓플레이스 제품 개요 페이지](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)에서 [연락처](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) 단추_ 를 선택합니다. 프로그램 관리자, 설계자 및 엔지니어가 곧 연락하여 긴밀한 협업을 시작할 것입니다. 제품 개발이 활발히 진행되는 동안에는 마이그레이션 시나리오에 대한 협업 기회가 무료로 제공됩니다.
 

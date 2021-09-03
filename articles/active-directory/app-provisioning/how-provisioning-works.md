@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 06/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e95359d24cda6b0d23084010d8ab19566dd2197c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 415824041c8e721c96ad9a9d480d5e50436310e4
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409382"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964773"
 ---
 # <a name="how-application-provisioning-works-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 프로비저닝이 작동하는 방식
 
@@ -140,7 +140,7 @@ ServiceNow, G Suite, Box 등의 일부 애플리케이션은 사용자 프로비
 
 ### <a name="errors-and-retries"></a>오류 및 다시 시도
 
-대상 시스템의 오류로 인해 대상 시스템에서 개별 사용자를 추가, 업데이트 또는 삭제할 수 없는 경우 다음 동기화 주기에서 작업이 다시 시도됩니다. 사용자가 계속 실패하면 감소된 빈도로 다시 시도되기 시작하여, 점차 하루에 한 번만 시도되는 빈도까지 축소됩니다. 오류를 해결하려면 관리자가 [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 확인하여 근본 원인을 파악하고 적절한 조치를 수행해야 합니다. 일반적인 오류는 다음과 같습니다.
+대상 시스템의 오류로 인해 대상 시스템에서 개별 사용자를 추가, 업데이트 또는 삭제할 수 없는 경우 다음 동기화 주기에서 작업이 다시 시도됩니다. 오류는 지속적으로 다시 시도되므로 다시 시도 빈도를 점진적으로 다시 스케일링합니다. 오류를 해결하려면 관리자가 [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 확인하여 근본 원인을 파악하고 적절한 조치를 수행해야 합니다. 일반적인 오류는 다음과 같습니다.
 
 - 대상 시스템에서 필요한 특성이 사용자의 소스 시스템에 채워져 있지 않음
 - 대상 시스템에서 UNIQUE 제약 조건을 가진 특성 값이 사용자의 원본 시스템에 있고 다른 사용자 레코드에 동일한 값이 있음

@@ -2,21 +2,21 @@
 title: 비즈니스 인텔리전스 파트너
 description: Azure Synapse Analytics를 지원하는 솔루션을 제공하는 타사 비즈니스 인텔리전스 파트너 목록.
 services: synapse-analytics
-author: mabasile-MSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/27/2019
+ms.date: 07/09/2021
+author: mabasile-MSFT
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 96d1a3ed6bfe3fa90cdfa11f1b1081f12e4af990
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e77146667488482b6970f60c2d4f76ec76a4b45f
+ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95904354"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113643598"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics 비즈니스 인텔리전스 파트너
 
@@ -25,13 +25,14 @@ ms.locfileid: "95904354"
 ## <a name="our-business-intelligence-partners"></a>비즈니스 인텔리전스 파트너
 | 파트너 | Description | 웹 사이트/제품 링크 |
 | ------- | ----------- | -------------------- |
-| ![AtScale](./media/sql-data-warehouse-partner-business-intelligence/atscale-logo.png) |**AtScale**<br>AtScale은 분산 데이터에 대한 안전하고 제어되는 단일 작업 영역을 제공합니다. AtScale의 Cloud OLAP, Autonomous Data Engineering™ 및 Universal Semantic Layer™는 보다 빠르고 정확한 비즈니스 의사 결정을 위해 비즈니스 인텔리전스 결과물을 강화합니다. |[제품 페이지](https://www.atscale.com/partners/microsoft/)<br> |
+| ![AtScale](./media/sql-data-warehouse-partner-business-intelligence/atscale-logo.png) |**AtScale**<br>AtScale은 분산 데이터에 대한 안전하고 제어되는 단일 작업 영역을 제공합니다. AtScale의 Cloud OLAP, Autonomous Data Engineering&trade;, Universal Semantic Layer&trade;는 보다 빠르고 정확한 비즈니스 의사 결정을 위해 비즈니스 인텔리전스 결과물을 강화합니다. |[제품 페이지](https://www.atscale.com/partners/microsoft/)<br> |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst는 공유 공통 분석 패브릭 위에서 서로 엮인 가상화된 BI 인스턴스 네트워크를 통해 전체 조직을 연결합니다.|[제품 페이지](https://www.birst.com/)<br> |
-| ![Dremio](./media/sql-data-warehouse-partner-business-intelligence/dremio-logo.png) |**Dremio**<br> 분석가 및 데이터 과학자는 Dremio의 혁신적인 UI을 사용하여 데이터를 발견, 탐색 및 큐레이팅할 수 있으며, IT는 거버넌스와 보안을 유지할 수 있습니다. Dremio를 사용하면 Blob Storage, Azure SQL Database, Azure Synapse SQL, HDInsight 등을 통해 ADLS에 쉽게 조인할 수 있습니다. Dremio를 사용하면 Power BI 분석가가 ADLS에 저장된 새 데이터 세트를 검색하고, IT의 준비 없이 Power BI의 데이터에 즉시 액세스하고, 시각화를 만들고, 실시간으로 보고서를 반복적으로 수정할 수 있습니다. 또한 분석가는 ADLS와 다른 데이터베이스 간에 데이터를 결합하는 새 보고서를 만들 수 있습니다. |[제품 페이지](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br> |
+| ![개수](./media/sql-data-warehouse-partner-business-intelligence/count-logo.png) |**개수**<br> Count는 차세대 SQL 편집기로, 데이터를 검색하고 팀과 공유하는 가장 빠른 방법을 제공합니다. Count의 핵심은 SQL용으로 빌드된 데이터 Notebook으로, 코드를 구성하고, 신속하게 반복하고, 흐름을 유지할 수 있습니다. 몇 번의 클릭만으로 결과를 즉시 시각화하거나 사용자 지정하여 매우 자세한 차트를 빌드합니다. 일회성 쿼리부터 Azure Synapse 데이터 원본에서 빌드된 완전 대화형 데이터 스토리까지 모든 것을 즉시 공유합니다. |[제품 페이지](https://count.co/)<br>|
+| ![Dremio](./media/sql-data-warehouse-partner-business-intelligence/dremio-logo.png) |**Dremio**<br> 분석가와 데이터 과학자는 Dremio의 혁신적인 UI을 사용하여 데이터를 검색, 탐색, 큐레이팅할 수 있으며, IT는 거버넌스와 보안을 유지할 수 있습니다. Dremio를 사용하면 Blob Storage, Azure SQL Database, Azure Synapse SQL, HDInsight 등을 통해 ADLS에 쉽게 조인할 수 있습니다. Dremio를 사용하면 Power BI 분석가가 ADLS에 저장된 새 데이터 세트를 검색하고, IT의 준비 없이 Power BI의 데이터에 즉시 액세스하고, 시각화를 만들고, 실시간으로 보고서를 반복적으로 수정할 수 있습니다. 또한 분석가는 ADLS와 다른 데이터베이스 간에 데이터를 결합하는 새 보고서를 만들 수 있습니다. |[제품 페이지](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br> |
 | ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Dundas 데이터 시각화는 비즈니스 인텔리전스 및 데이터 시각화 소프트웨어에서 선도적인 글로벌 공급자입니다.  Dundas 대시보드, 보고 및 시각적 데이터 분석은 비즈니스 애플리케이션으로의 원활한 통합 기능을 제공하여 더 나은 결정 및 빠른 통찰력이 가능합니다.|[제품 페이지](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dundas.dundas-bi)<br> |
 | ![IBM Cognos](./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png) |**IBM Cognos Analytics**<br>Cognos Analytics에는 광범위한 공급망을 검사하는 숙련된 비즈니스 분석가든 캠페인을 최적화하는 마케팅 담당자든 간단하고, 명확하고, 간편하게 사용할 수 있는 셀프 서비스 기능이 포함되어 있습니다. Cognos Analytics는 AI 및 기타 기능을 사용하여 데이터 탐색을 안내합니다. 이를 통해 사용자가 필요한 답변을 쉽게 얻을 수 있습니다.|[제품 페이지](https://www.ibm.com/products/cognos-analytics)<br>|
 | ![Information Builders](./media/sql-data-warehouse-partner-business-intelligence/informationbuilders_logo.png) |**Information Builders(WebFOCUS)**<br>WebFOCUS 비즈니스 인텔리전스는 회사에서 기업 전체와 기업 외부에서도 데이터를 보다 전략적으로 사용할 수 있도록 도와줍니다. 사용자와 관리자는 여러 데이터 원본 및 형식의 콘텐츠를 결합하는 대시보드를 빠르게 만들 수 있습니다. 또한 BI 및 분석 콘텐츠를 원활하고 안전하게 공유할 수 있도록 해 주는 강력한 보안과 포괄적인 거버넌스를 제공합니다.|[제품 페이지](https://www.informationbuilders.com/products/bi-and-analytics-platform)<br> |
-| ![Jinfonet](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_logo.png) |**Jinfonet JReport**<br>JReport는 기업용 돌출형 BI 솔루션입니다. 이 솔루션은 보고서 작성, 대시보드 그리고 클라우드, 빅 데이터 및 트랜잭션 데이터 원본에 대한 데이터 분석 등의 기능을 제공합니다. 데이터를 시각화하여 즉석에서 신속한 의사 결정을 위해 자체 보고 및 데이터 검색을 수행할 수 있습니다. |[제품 페이지](https://www.jinfonet.com/product/jreport-designer)<br> |
+| ![Jinfonet](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_logo.png) |**Jinfonet JReport**<br>JReport는 기업용 돌출형 BI 솔루션입니다. 이 솔루션은 보고서 작성, 대시보드 그리고 클라우드, 빅 데이터 및 트랜잭션 데이터 원본에 대한 데이터 분석 등의 기능을 제공합니다. 데이터를 시각화하여 즉석에서 신속한 의사 결정을 위해 자체 보고 및 데이터 검색을 수행할 수 있습니다. |[제품 페이지](https://www.logianalytics.com/jreport/)<br> |
 | ![LogiAnalytics](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_logo.png) |**Logi Analytics**<br>이제 Logi Analytics를 같이 사용하여 세계에서 가장 크고 다양한 데이터 세트에서 조직이 데이터를 수집하고 분석하고 즉시 작업을 수행하도록 할 수 있습니다. |[제품 페이지](https://www.logianalytics.com/)<br>|
 | ![Looker](./media/sql-data-warehouse-partner-business-intelligence/looker_logo.png) |**Looker BI**<br>Looker는 귀사의 모든 직원에게 비즈니스를 구동하는 데이터를 탐색하고 이해하는 능력을 제공합니다. 또한 Looker는 데이터 분석가에게 해당 데이터를 제어하고 조정하기 위한 유연하고 재사용이 가능한 모델링 계층을 제공합니다.  회사는 Looker를 catalyst로 사용하여 근본적으로 culture를 변형합니다.|[제품 페이지](https://looker.com/partners/microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20)<br> |
 | ![Microstrategy](./media/sql-data-warehouse-partner-business-intelligence/microstrategy_logo.png) |**MicroStrategy**<br>MicroStrategy 플랫폼은 조직이 비즈니스 데이터로부터 가치를 얻을 수 있도록 지원하는 완전한 비즈니스 인텔리전스 및 분석 기능 세트를 제공합니다. MicroStrategy의 강력한 분석 엔진, 포괄적인 도구 집합, 다양한 데이터 커넥터 및 개방형 아키텍처를 통해 모든 팀에 걸쳐 분석에 대한 액세스를 확장하는 데 필요한 모든 것을 얻을 수 있습니다.|[제품 페이지](https://www.microstrategy.com/us/product/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm)<br> |
@@ -49,4 +50,5 @@ ms.locfileid: "95904354"
 ## <a name="next-steps"></a>다음 단계
 다른 파트너에 대해 자세히 알아보려면 [데이터 통합 파트너](sql-data-warehouse-partner-data-integration.md), [데이터 관리 파트너](sql-data-warehouse-partner-data-management.md) 및 [기계 학습 및 AI 파트너](sql-data-warehouse-partner-machine-learning-ai.md)를 참조하세요.
 
+[Synapse Studio를 통해 파트너 솔루션을 검색](sql-data-warehouse-partner-browse-partners.md)하는 방법을 참조하세요.
  

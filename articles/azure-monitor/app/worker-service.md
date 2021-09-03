@@ -4,12 +4,12 @@ description: Azure Monitor Application Insights를 사용하여 .NET Core/.NET F
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: c1ca594626d4384c9dfb62990ee2017d2094fca4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ed4670c1eda0a6a6b1b32ca69cc8a2010ae486e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371858"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528855"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Worker Service 애플리케이션(비 HTTP 앱)에 대한 Application Insights
 
@@ -19,11 +19,11 @@ ms.locfileid: "100371858"
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-[Worker Service용 Application Insights SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)는 애플리케이션이 실행되는 위치나 방식과 관계없이 비 HTTP 애플리케이션에 가장 적합합니다. 애플리케이션이 실행 중이고 Azure에 네트워크로 연결되어 있는 경우, 원격 분석을 수집할 수 있습니다. Application Insights 모니터링은 .NET Core가 지원되는 모든 위치에서 지원됩니다. 해당 패키지는 새로 도입된 [.Net Core 3.0 Worker 서비스](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [Asp.Net Core 2.1/2.2의 백그라운드 작업](/aspnet/core/fundamentals/host/hosted-services), 콘솔 앱(.NET Core/.NET Framework) 등에서 사용할 수 있습니다.
+[Worker Service용 Application Insights SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)는 애플리케이션이 실행되는 위치나 방식과 관계없이 비 HTTP 애플리케이션에 가장 적합합니다. 애플리케이션이 실행 중이고 Azure에 네트워크로 연결되어 있는 경우, 원격 분석을 수집할 수 있습니다. Application Insights 모니터링은 .NET Core를 지원하는 모든 위치에서 지원됩니다. 해당 패키지는 새로 도입된 [.NET Core 3.0 Worker 서비스](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [ASP.NET Core 2.1/2.2의 백그라운드 작업](/aspnet/core/fundamentals/host/hosted-services), 콘솔 앱(.NET Core/.NET Framework) 등에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-유효한 Application Insights 계측 키. Application Insights에 원격 분석을 보내려면 해당 키가 필요합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우, [Application Insights 리소스 만들기](./create-new-resource.md)를 참조하세요.
+유효한 Application Insights 계측 키. 이 키는 원격 분석을 Application Insights에 보내는 데 필요합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우, [Application Insights 리소스 만들기](./create-new-resource.md)를 참조하세요.
 
 ## <a name="using-application-insights-sdk-for-worker-services"></a>Worker Service용 Application Insights SDK 사용
 
@@ -44,7 +44,7 @@ ms.locfileid: "100371858"
 
 ## <a name="net-core-30-worker-service-application"></a>.NET Core 3.0 Worker Service 애플리케이션
 
-전체 예제는 [여기](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)를 참조하세요.
+전체 예제는 [여기](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService)를 참조하세요.
 
 1. [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0) 다운로드 및 설치
 2. Microsoft Visual Studio에서 새 프로젝트 템플릿 또는 명령줄 `dotnet new worker`을 사용하여 새 Worker Service 프로젝트를 만듭니다.
@@ -136,7 +136,7 @@ ms.locfileid: "100371858"
 
 [이](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio) 문서에서는 ASP.NET Core 2.1/2.2 애플리케이션에서 백그라운드 작업을 만드는 방법을 설명합니다.
 
-전체 예제는 [여기](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService)를 참조하세요.
+전체 예제는 [여기](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/BackgroundTasksWithHostedService)를 참조하세요.
 
 1. 애플리케이션에 [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 패키지를 설치합니다.
 2. 다음 예제와 같이 `services.AddApplicationInsightsTelemetryWorkerService();`을 `ConfigureServices()` 메서드에 추가합니다.
@@ -223,7 +223,7 @@ ms.locfileid: "100371858"
 
 이 문서의 시작 부분에서 설명한 것처럼 일반 콘솔 애플리케이션에서도 새 패키지를 사용하여 Application Insights 원격 분석을 사용하도록 설정할 수 있습니다. 해당 패키지는 [`NetStandard2.0`](/dotnet/standard/net-standard)을 대상으로 하므로 .NET Core 2.0 이상의 콘솔 앱 및 .NET Framework 4.7.2 이상의 앱에서 사용할 수 있습니다.
 
-전체 예제는 [여기](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)를 참조하세요.
+전체 예제는 [여기](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ConsoleApp)를 참조하세요.
 
 1. 애플리케이션에 [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 패키지를 설치합니다.
 
@@ -301,15 +301,15 @@ ms.locfileid: "100371858"
 
 ### <a name="live-metrics"></a>라이브 메트릭
 
-[라이브 메트릭](./live-stream.md)은 Application Insights 모니터링이 올바르게 구성되었는지 여부를 신속하게 확인하는 데 사용할 수 있습니다. 포털 및 분석에서는 원격 분석 데이터가 표시되기 시작하는 데 몇 분 정도 시간이 걸릴 수 있지만, 라이브 메트릭은 근 실시간으로 실행 중인 프로세스의 CPU 사용량을 표시합니다. 또한 요청, 종속성, 추적 등의 다른 원격 분석 데이터도 표시할 수 있습니다.
+[라이브 메트릭](./live-stream.md)은 Application Insights 모니터링이 올바르게 구성되었는지 여부를 빠르게 확인하는 데 사용할 수 있습니다. 포털 및 분석에서는 원격 분석 데이터가 표시되기 시작하는 데 몇 분 정도 시간이 걸릴 수 있지만, 라이브 메트릭은 근 실시간으로 실행 중인 프로세스의 CPU 사용량을 표시합니다. 또한 요청, 종속성, 추적 등의 다른 원격 분석 데이터도 표시할 수 있습니다.
 
 ### <a name="ilogger-logs"></a>ILogger 로그
 
-`ILogger`의 심각도 `Warning` 또는 그 이상을 통해 보내진 로그는 자동으로 캡처됩니다. [ILogger 문서](ilogger.md#control-logging-level)에 따라 Application Insights에서 캡처한 로그 수준을 사용자 지정합니다.
+`ILogger`의 심각도 `Warning` 또는 그 이상을 통해 보내진 로그는 자동으로 캡처됩니다. [ILogger 문서](ilogger.md#logging-level)에 따라 Application Insights에서 캡처한 로그 수준을 사용자 지정합니다.
 
 ### <a name="dependencies"></a>종속성
 
-종속성 수집은 기본적으로 사용하도록 설정되어 있습니다. [이](asp-net-dependencies.md#automatically-tracked-dependencies) 문서는 자동으로 수집되는 종속성에 대해 설명하고 수동 추적을 수행하는 단계를 포함합니다.
+종속성 수집은 기본적으로 사용하도록 설정됩니다. [이](asp-net-dependencies.md#automatically-tracked-dependencies) 문서는 자동으로 수집되는 종속성에 대해 설명하고 수동 추적을 수행하는 단계를 포함합니다.
 
 ### <a name="eventcounter"></a>EventCounter
 
@@ -353,11 +353,11 @@ public void ConfigureServices(IServiceCollection services)
 
 |설정 | 설명 | 기본값
 |---------------|-------|-------
-|EnableQuickPulseMetricStream | LiveMetrics 기능 사용/사용하지 않음 | true
-|EnableAdaptiveSampling | 적응 샘플링 사용/사용하지 않음 | true
+|EnableQuickPulseMetricStream | LiveMetrics 기능 사용/사용 안 함 | true
+|EnableAdaptiveSampling | 적응 샘플링 사용/사용 안 함 | true
 |EnableHeartbeat | 주기적으로(15분 기본값) ‘HeartBeatState’라는 사용자 지정 메트릭을 .NET 버전, Azure 환경 정보 등의 런타임 정보로 (해당하는 경우) 보내는 하트비트 기능 사용/사용하지 않음. | true
-|AddAutoCollectedMetricExtractor | 샘플링을 수행하기 전 요청/종속성에 대한 미리 집계된 메트릭을 전송하는 TelemetryProcessor, AutoCollectedMetrics 추출기를 사용/사용하지 않음. | true
-|EnableDiagnosticsTelemetryModule | `DiagnosticsTelemetryModule` 사용/사용하지 않음 해당 기능을 사용하지 않도록 설정하면 다음 `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, `EnableAppServicesHeartbeatTelemetryModule` 설정이 무시됩니다. | true
+|AddAutoCollectedMetricExtractor | AutoCollectedMetrics 추출기 사용/사용 안 함. 이는 샘플링을 수행하기 전에 요청/종속성에 대해 미리 집계된 메트릭을 보내는 TelemetryProcessor입니다. | true
+|EnableDiagnosticsTelemetryModule | `DiagnosticsTelemetryModule` 사용/사용 안 함. 이를 사용하지 않도록 설정하면 `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, `EnableAppServicesHeartbeatTelemetryModule` 설정이 무시됩니다. | true
 
 최신 목록은 의 [구성 가능한 설정`ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs)을 참조하세요.
 
@@ -413,7 +413,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="removing-telemetryinitializers"></a>TelemetryInitializers 제거
 
-원격 분석 이니셜라이저는 기본적으로 제공됩니다. 모든 원격 분석 이니셜라이저 또는 특정 원격 분석 이니셜라이저를 제거하려면 `AddApplicationInsightsTelemetryWorkerService()`을 호출한 *후에* 다음 샘플 코드를 사용합니다.
+원격 분석 이니셜라이저는 기본적으로 제공됩니다. 모든 또는 특정 원격 분석 이니셜라이저를 제거하려면 `AddApplicationInsightsTelemetryWorkerService()`를 호출한 *후* 에 다음 샘플 코드를 사용합니다.
 
 ```csharp
    public void ConfigureServices(IServiceCollection services)
@@ -451,7 +451,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Application Insights는 원격 분석 모듈을 사용하여 수동으로 추적할 필요 없이 특정 워크로드에 대한 원격 분석 데이터를 자동으로 수집합니다.
 
-다음 자동 수집 모듈은 기본적으로 사용하도록 설정되어 있습니다. 자동 수집 모듈은 원격 분석 데이터를 자동으로 수집합니다. 자동 수집 모듈을 사용하지 않도록 설정하거나 기본 동작을 변경하도록 구성할 수 있습니다.
+다음 자동 수집 모듈은 기본적으로 사용하도록 설정되어 있습니다. 이러한 자동 수집 모듈은 원격 분석을 자동으로 수집해야 합니다. 자동 수집 모듈을 사용하지 않도록 설정하거나 기본 동작을 변경하도록 구성할 수 있습니다.
 
 * `DependencyTrackingTelemetryModule`
 * `PerformanceCollectorModule`
@@ -505,7 +505,7 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
-### <a name="disable-telemetry-dynamically"></a>동적 원격 분석 사용하지 않음
+### <a name="disable-telemetry-dynamically"></a>동적으로 원격 분석 사용 안 함
 
 원격 분석을 조건부로 또는 동적으로 사용하지 않도록 설정하려는 경우, 코드 어느 곳에서나 ASP.NET Core 종속성 삽입 컨테이너를 사용하여 `TelemetryConfiguration` 인스턴스를 확인하고 `DisableTelemetry` 플래그를 설정할 수 있습니다.
 
@@ -532,16 +532,16 @@ using Microsoft.ApplicationInsights.Channel;
 
 Visual Studio IDE의 온보딩은 현재 ASP.NET/ASP.NET Core 애플리케이션에 대해서만 지원하고 있습니다. 이 문서는 Visual Studio에서 Worker Service 애플리케이션에 대한 온보딩을 지원할 때 업데이트될 예정입니다.
 
-### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>상태 모니터 같은 도구를 사용하여 Application Insights 모니터링을 사용하도록 설정할 수 있나요?
+### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-azure-monitor-application-insights-agent-formerly-status-monitor-v2"></a>Azure Monitor Application Insights Agent(이전의 상태 모니터 v2)와 같은 도구를 사용하여 Application Insights 모니터링을 사용하도록 설정할 수 있나요?
 
-아니요. [상태 모니터](./monitor-performance-live-website-now.md) 및 [상태 모니터 v2](./status-monitor-v2-overview.md)는 현재 ASP.NET 4.x만 지원하고 있습니다.
+아니요, [Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md)는 현재 ASP.NET 4.x만 지원합니다.
 
-### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Linux에서 애플리케이션을 실행하는 경우 모든 기능이 지원되나요?
+### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>내 애플리케이션을 Linux에서 실행하는 경우 모든 기능이 지원되나요?
 
 예. 해당 SDK에 대한 기능 지원은 모든 플랫폼에서 동일하지만 다음과 같은 경우는 예외입니다.
 
 * 성능 카운터는 라이브 메트릭에 표시된 프로세스 CPU/메모리를 제외한 Windows에서만 지원됩니다.
-* `ServerTelemetryChannel`을 기본적으로 사용하도록 설정하더라도 애플리케이션이 Linux 또는 MacOS에서 실행되는 경우, 네트워크 문제가 있으면 채널이 원격 분석 데이터를 유지하기 위해 일시적으로 로컬 스토리지 폴더를 자동 생성하지 않습니다. 해당 제한으로 인해 임시 네트워크 또는 서버 문제가 발생하면 원격 분석 데이터가 손실됩니다. 문제를 해결하려면 채널에 대한 로컬 폴더를 구성합니다.
+* `ServerTelemetryChannel`을 기본적으로 사용하도록 설정하는 경우에도 애플리케이션이 Linux 또는 macOS에서 실행될 때 네트워크 문제가 있으면 채널에서 원격 분석을 일시적으로 유지하기 위해 로컬 스토리지 폴더를 자동으로 만들지 않습니다. 이 제한으로 인해 일시적인 네트워크 또는 서버 문제가 있으면 원격 분석이 손실됩니다. 문제를 해결하려면 채널에 대한 로컬 폴더를 구성합니다.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -561,17 +561,17 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="sample-applications"></a>샘플 애플리케이션
 
-[.Net Core 콘솔 애플리케이션](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) .NET Core(2.0 이상) 또는 .NET Framework(4.7.2 이상)로 작성된 콘솔 애플리케이션을 사용하는 경우, 해당 샘플을 사용합니다.
+[.Net Core 콘솔 애플리케이션](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ConsoleApp) .NET Core(2.0 이상) 또는 .NET Framework(4.7.2 이상)로 작성된 콘솔 애플리케이션을 사용하는 경우, 해당 샘플을 사용합니다.
 
-[HostedServices를 통한 ASP .Net Core 백그라운드 작업](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService) Asp.Net Core 2.1/2.2를 사용하여 [여기](/aspnet/core/fundamentals/host/hosted-services)의 공식 지침에 따라 백그라운드 작업을 만드는 경우 이 샘플을 사용합니다.
+[HostedServices를 통한 ASP.NET Core 백그라운드 작업](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/BackgroundTasksWithHostedService) ASP.NET Core 2.1/2.2를 사용하여 [여기](/aspnet/core/fundamentals/host/hosted-services)의 공식 지침에 따라 백그라운드 작업을 만드는 경우 이 샘플을 사용합니다.
 
-[.Net Core 3.0 작업자 서비스](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) [여기](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template)의 공식 지침에 따른 .NET Core 3.0 작업자 서비스 애플리케이션이 있는 경우 이 샘플을 사용합니다.
+[.Net Core 3.0 작업자 서비스](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService) [여기](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template)의 공식 지침에 따른 .NET Core 3.0 작업자 서비스 애플리케이션이 있는 경우 이 샘플을 사용합니다.
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK
 
 * [코드를 읽고 기여합니다](https://github.com/microsoft/ApplicationInsights-dotnet).
 
-최신 업데이트 및 버그 수정에 대해서는 [릴리스 정보를 참조하세요](./release-notes.md).
+최신 업데이트 및 버그 수정에 대해서는 [릴리스 정보를 참조](./release-notes.md)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

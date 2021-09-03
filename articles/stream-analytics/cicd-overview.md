@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: 940813f12d542715db47781731144a75e854a98e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aede2f01b7a38637767c6278e913b9bb2cf1a950
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019570"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586134"
 ---
 # <a name="continuous-integration-and-deployment-cicd-for-azure-stream-analytics"></a>Azure Stream Analytics에 대한 CI/CD(지속적인 통합 및 배포)
 
@@ -30,7 +30,7 @@ Azure Stream Analytics를 처음 접하는 경우 [Azure Stream Analytics 빠른
 
 2. Git 리포지토리와 같은 소스 제어 시스템에 Azure Stream Analytics 프로젝트를 커밋합니다.
 
-3. [Azure Stream Analytics CI/CD 도구](cicd-tools.md)를 사용하여 프로젝트를 빌드하고 배포를 위한 Azure 리소스 관리 템플릿을 생성합니다.
+3. [Azure Stream Analytics CI/CD 도구](cicd-tools.md)를 사용하여 프로젝트를 빌드하고 배포를 위한 Azure Resource Manager 템플릿을 생성합니다.
 
 4. 품질 회귀를 위해 [자동화된 스크립트 테스트](cicd-tools.md#automated-test)를 실행합니다.
 

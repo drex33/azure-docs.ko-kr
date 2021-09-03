@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 644a0d645abb186731ddb1f408cd36e5b9ba3c3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73e20cfcdd0c56f2136b4ce658f7d2d2bed53022
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104780024"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530798"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -22,8 +22,8 @@ ms.locfileid: "104780024"
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Azure Machine Learning 스튜디오(클래식) Batch Execution 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning 스튜디오(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [ML Studio(클래식) Batch Execution 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [ML Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 활동](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -321,7 +321,7 @@ getDebugInfo를 **Always** 로 설정했으므로 Blob 컨테이너의 pyFiles �
 
 다음 표에서는 JSON 정의에서 사용되는 JSON 속성을 설명합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | name | 파이프라인의 작업 이름입니다. | 예 |
 | description | 작업에서 수행하는 동작을 설명하는 텍스트입니다. | 예 |
@@ -341,7 +341,7 @@ Pig 및 Hive 작업에서 수행하는 것처럼 Spark 작업은 인라인 스�
 
 HDInsight 연결된 서비스에서 참조하는 Blob Storage에 다음 폴더 구조를 만듭니다. 그런 다음 **entryFilePath** 로 표시된 루트 폴더의 해당 하위 폴더에 종속 파일을 업로드합니다. 예를 들어 Python 파일은 루트 폴더의 pyFiles 하위 폴더에 업로드하고, jar 파일은 jars 하위 폴더에 업로드합니다. 런타임 시, Data Factory 서비스에 필요한 Blob Storage의 폴더 구조는 다음과 같습니다.
 
-| 경로 | Description | 필수 | Type |
+| 경로 | 설명 | 필수 | Type |
 | ---- | ----------- | -------- | ---- |
 | . | 스토리지 연결된 서비스의 Spark 작업에 대한 루트 경로입니다. | 예 | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 입력 파일을 가리키는 경로입니다. | 예 | 파일 |

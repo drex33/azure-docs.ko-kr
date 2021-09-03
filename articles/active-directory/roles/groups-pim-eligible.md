@@ -13,19 +13,19 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d1d5e1b9a159d8084c3bf93d00611af72f2b21
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 38b6ee8181f24601a66df7205d44256604834c10
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085872"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228638"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 그룹에 역할 할당
 
 이 문서에서는 Azure AD PIM(Privileged Identity Management)을 사용하여 그룹에 Azure AD(Azure Active Directory) 역할을 할당하는 방법에 대해 설명합니다.
 
 > [!NOTE]
-> PIM을 사용하여 Azure AD 역할에 그룹을 할당하려면 업데이트된 버전의 Privileged Identity Management를 사용해야 합니다. Azure AD 조직에서 Privileged Identity Management API를 활용하는 경우 이전 버전의 PIM을 사용하고 있을 수 있습니다. 이 경우에는 별칭 pim_preview@microsoft.com에 문의하여 조직을 이동하고 API를 업데이트하세요. [PIM에서 Azure AD 역할 및 기능](../privileged-identity-management/azure-ad-roles-features.md)에 대해 자세히 알아보세요.
+> PIM을 사용하여 Azure AD 역할에 그룹을 할당하려면 업데이트된 버전의 Privileged Identity Management를 사용해야 합니다. Azure AD 조직에서 Privileged Identity Management API를 활용하는 경우 이전 버전의 PIM을 사용하고 있을 수 있습니다. 이 경우에는 별칭 pim_preview@microsoft.com에 문의하여 조직을 이동하고 API를 업데이트하세요. [PIM에서 Azure AD 역할 및 기능](../privileged-identity-management/pim-configure.md)에 대해 자세히 알아보세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -84,7 +84,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 
 ## <a name="next-steps"></a>다음 단계
 
-- [클라우드 그룹을 사용하여 역할 할당 관리](groups-concept.md)
-- [클라우드 그룹에 할당된 역할 문제 해결](groups-faq-troubleshooting.md)
+- [Azure AD 그룹을 사용하여 역할 할당 관리](groups-concept.md)
+- [그룹에 할당된 Azure AD 역할 문제 해결](groups-faq-troubleshooting.yml)
 - [Privileged Identity Management에서 Azure AD 관리자 역할 설정 구성](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Privileged Identity Management에서 Azure 리소스 역할 할당](../privileged-identity-management/pim-resource-roles-assign-roles.md)

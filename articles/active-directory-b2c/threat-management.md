@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/15/2021
+ms.date: 07/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 183abae52d8b8dc4b78f48118866d6d667aaeaed
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8e17f6933695755a86c5d1e2fbcb7a14c183d0c4
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061627"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114602836"
 ---
 # <a name="mitigate-credential-attacks-in-azure-ad-b2c"></a>Azure AD B2C에서 자격 증명 공격 완화
 
@@ -59,6 +59,9 @@ Azure AD B2C는 좀 더 복잡한 계정 잠금 전략을 사용합니다. 계�
 스마트 잠금 기능을 테스트할 때 입력하는 각 암호에 대해 고유한 패턴을 사용합니다. [https://passwordsgenerator.net/](https://passwordsgenerator.net/)와 같은 암호 생성 웹앱을 사용해보세요.
 
 스마트 잠금 임계값에 도달하면 계정이 잠겨있는 동안 다음 메시지가 표시됩니다. **무단 사용을 방지하기 위해 계정이 일시적으로 잠겼습니다. 다음에 다시 시도하세요**. 오류 메시지는 [지역화](localization-string-ids.md#sign-up-or-sign-in-error-messages)될 수 있습니다.
+
+> [!NOTE]
+> 스마트 잠금을 테스트하는 경우 Azure AD 인증 서비스의 지리적으로 분산되고 부하가 분산된 특성으로 인해 로그인 요청은 다른 데이터 센터에서 처리될 수 있습니다. 이 시나리오에서 각 Azure AD 데이터 센터가 독립적으로 잠금을 추적하기 때문에 잠금을 유발하는 잠금 임계값 시도 횟수를 정의하는 것보다 더 많은 시간이 걸릴 수 있습니다. 사용자는 완전히 잠기기 전에 최대 (threshold_limit * datacenter_count)번의 잘못된 시도를 할 수 있습니다.
 
 ## <a name="viewing-locked-out-accounts"></a>잠긴 계정 보기
 

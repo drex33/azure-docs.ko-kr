@@ -3,17 +3,17 @@ title: Azure IaaS VM에 대한 디스크 유형 선택 - 관리 디스크
 description: 울트라 디스크, 프리미엄 SSD, 표준 SSD, 표준 HDD를 포함하여 가상 머신에 사용 가능한 Azure 디스크 유형을 알아봅니다.
 author: roygara
 ms.author: rogarana
-ms.date: 05/12/2021
+ms.date: 06/29/2021
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 782d4d18e9b6ffc16c1d95a995cef806adc42904
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5c8e9a7d2d9989ef3080741753f604b9eb5d4289
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083425"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113362182"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 
@@ -78,13 +78,11 @@ Azure 프리미엄 SSD는 IO(입출력) 집약적 워크로드가 있는 VM(가�
 ### <a name="disk-size"></a>디스크 크기
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
-Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 스토리지 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 애플리케이션에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다. 프리미엄 SSD 디스크는 한자리 밀리초 미만의 낮은 지연 시간과 시간의 99.9% 동안 이전 표에서 설명한 목표 IOPS 및 처리량을 제공하도록 설계되었습니다.
+Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 스토리지 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 애플리케이션에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다. 프리미엄 SSD는 한자리 밀리초 미만의 낮은 지연 시간과 시간의 99.9% 동안 이전 표에서 설명한 목표 IOPS와 처리량을 제공하도록 설계되었습니다.
 
 ## <a name="bursting"></a>버스팅
 
-P30보다 작은 프리미엄 SSD 크기는 이제 디스크 버스트를 제공하며 디스크당 최대 3,500개의 IOPS와 최대 170MB/s의 대역폭을 버스트할 수 있습니다. 버스팅은 자동화되며 크레딧 시스템을 기반으로 작동합니다. 디스크 트래픽이 프로비저닝된 성능 목표보다 낮으면 크레딧이 버스트 버킷에 자동으로 누적되고, 트래픽이 최대 버스트 제한까지 목표를 초과하면 크레딧이 자동으로 소비됩니다. 최대 버스트 제한은 디스크 IOPS의 상한을 정의합니다. 사용할 버스트 크레딧이 있어도 대역폭. 디스크 버스트는 IO 패턴의 예기치 않은 변경에 대한 더 나은 허용 오차를 제공합니다. 급증 트래픽을 사용하는 OS 디스크 부팅 및 애플리케이션에 대해 가장 잘 활용할 수 있습니다.    
-
-디스크 버스트 지원은 기본적으로 적용 가능한 디스크 크기의 새 배포에서 사용하도록 설정되며 사용자 작업은 필요하지 않습니다. 해당하는 크기의 기존 디스크의 경우 두 옵션 중 하나를 사용하여 버스트를 사용하도록 설정할 수 있습니다. 디스크를 분리하고 다시 연결하거나 연결된 VM을 중지했다가 다시 시작합니다. 최대 버스트 제한인 30 분의 최대 기간을 지 원하는 가상 컴퓨터에 디스크가 연결되어 있는 경우 적용 가능한 모든 디스크 크기가 전체 버스트 크레딧 버킷으로 시작됩니다. Azure 디스크에서 버스 팅이 작동하는 방식에 대한 자세한 내용은 [프리미엄 SSD 버스 팅](./disk-bursting.md)을 참조하세요. 
+프리미엄 SSD는 디스크 버스팅을 제공합니다. 디스크 버스트는 IO 패턴의 예기치 않은 변경에 대한 더 나은 허용 오차를 제공합니다. 급증 트래픽을 사용하는 OS 디스크 부팅 및 애플리케이션에 대해 가장 잘 활용할 수 있습니다. Azure 디스크의 버스팅 작동 방식에 관한 자세한 내용은 [디스크 수준 버스팅](disk-bursting.md#disk-level-bursting)을 참조하세요.
 
 ### <a name="transactions"></a>트랜잭션
 
@@ -102,6 +100,10 @@ Azure 표준 SSD는 더 낮은 IOPS 수준에서 일관된 성능이 필요한 �
 ### <a name="transactions"></a>트랜잭션
 
 표준 SSD의 경우 256 KiB 미만의 처리량에 해당하는 각 I/O 작업은 단일 I/O 작업으로 간주됩니다. 처리량 256 KiB보다 큰 I/O 작업은 크기가 256 KiB인 여러 I/O로 간주됩니다. 이러한 트랜잭션은 청구에 영향을 미칩니다.
+
+### <a name="bursting"></a>버스팅
+
+표준 SSD는 디스크 버스팅을 제공합니다. 디스크 버스트는 IO 패턴의 예기치 않은 변경에 대한 더 나은 허용 오차를 제공합니다. 급증 트래픽을 사용하는 OS 디스크 부팅 및 애플리케이션에 대해 가장 잘 활용할 수 있습니다. Azure 디스크의 버스팅 작동 방식에 관한 자세한 내용은 [디스크 수준 버스팅](disk-bursting.md#disk-level-bursting)을 참조하세요.
 
 ## <a name="standard-hdd"></a>표준 HDD
 

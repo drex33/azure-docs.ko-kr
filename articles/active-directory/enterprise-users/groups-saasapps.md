@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 06/30/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df36cd334dbb455cf1717bf18fc6c8337d0ee6d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f5284ca0669331e507ec39e4aa1feb261380a6c
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96547885"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113128627"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리
 
-Azure AD Premium 라이선스 플랜으로 Azure AD(Azure Active Directory)를 사용하는 경우 그룹을 사용하여 Azure AD와 통합되는 SaaS 애플리케이션에 대한 액세스 권한을 할당할 수 있습니다. 예를 들어 5가지 SaaS 애플리케이션을 사용하는 마케팅 부서에 대해 액세스 권한을 할당하려는 경우 마케팅 부서의 사용자가 포함된 그룹을 만든 다음 마케팅 부서에 필요한 이 5가지 SaaS 애플리케이션에 해당 그룹을 할당할 수 있습니다. 이러한 방식으로 한 곳에서 마케팅 부서의 멤버 자격을 관리하여 시간을 절약할 수 있습니다. 사용자는 마케팅 그룹 멤버로 추가되는 경우 애플리케이션에 할당되고 마케팅 그룹에서 제거되면 애플리케이션에서 할당이 제거됩니다. 이 기능은 Azure AD 애플리케이션 갤러리 내에서 추가할 수 있는 수많은 애플리케이션과 함께 사용할 수 있습니다.
+Azure AD Premium 라이선스 플랜으로 Azure AD(Azure Active Directory)를 사용하는 경우 그룹을 사용하여 Azure AD와 통합되는 SaaS 애플리케이션에 대한 액세스 권한을 할당할 수 있습니다. 예를 들어, 5가지 SaaS 애플리케이션을 사용하는 마케팅 부서에 대해 액세스 권한을 할당하려는 경우 마케팅 부서의 사용자가 포함된 Office 365 또는 보안 그룹을 만든 다음, 마케팅 부서에 필요한 이 5가지 SaaS 애플리케이션에 해당 그룹을 할당할 수 있습니다. 이러한 방식으로 한 곳에서 마케팅 부서의 멤버 자격을 관리하여 시간을 절약할 수 있습니다. 사용자는 마케팅 그룹 멤버로 추가되는 경우 애플리케이션에 할당되고 마케팅 그룹에서 제거되면 애플리케이션에서 할당이 제거됩니다. 이 기능은 Azure AD 애플리케이션 갤러리 내에서 추가할 수 있는 수많은 애플리케이션과 함께 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure AD Premium 평가판을 시작하거나 Azure AD Premium 라이선스 플랜을 구매한 후에만 이 기능을 사용할 수 있습니다.

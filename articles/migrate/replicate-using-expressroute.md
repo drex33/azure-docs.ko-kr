@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: 3a6afa0fadf5a84ad938b0b0cec321c0e17adeff
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: c16b4a91f297621fa96e0e18f816d77e9f3b4e2a
+ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317526"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112322407"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Azure Migrate을 사용하여 ExpressRoute를 통해 데이터 복제: Server Migration
 
@@ -88,7 +88,7 @@ Microsoft.Network/privateDnsZones/read <br/> Microsoft.Network/privateEndpoints/
 1. **업그레이드 확인** 에서 계정 이름을 입력합니다.
 1. 페이지의 가장 아래에서 **업그레이드** 를 선택합니다.
 
-   ![스토리지 계정을 업그레이드하는 방법을 보여주는 스크린샷](./media/replicate-using-expressroute/upgrade-storage-account.png)
+   ![스토리지 계정을 업그레이드하는 방법을 보여주는 스크린샷](./media/replicate-using-expressroute/upgrade-storage-account.png) 
 
 ### <a name="create-a-private-endpoint-for-the-storage-account"></a>스토리지 계정의 프라이빗 엔드포인트 만들기
 
@@ -149,7 +149,34 @@ Microsoft.Network/privateDnsZones/read <br/> Microsoft.Network/privateEndpoints/
     1. **레코드 집합 추가** 페이지에서 FQDN 및 개인 IP 항목을 A 형식 레코드로 추가합니다.
 
 > [!Important]
-> 원본 환경에서 스토리지 계정의 프라이빗 엔드포인트에 대한 개인 IP 주소를 확인하려면 추가 DNS 설정이 필요할 수 있습니다. 필요한 DNS 구성을 이해하려면 [Azure 프라이빗 엔드포인트 DNS 구성](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder)을 참조하세요.
+> 원본 환경에서 스토리지 계정의 프라이빗 엔드포인트에 대한 개인 IP 주소를 확인하려면 추가 DNS 설정이 필요할 수 있습니다. 필요한 DNS 구성을 이해하려면 [Azure 프라이빗 엔드포인트 DNS 구성](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder)을 참조하세요.  
+
+### <a name="verify-network-connectivity-to-the-storage-account"></a>스토리지 계정에 대한 네트워크 연결 확인
+
+프라이빗 링크 연결의 유효성을 검사하려면 Azure Migrate 어플라이언스를 호스트하는 온-프레미스 VM에서 캐시 스토리지 계정 리소스 엔드포인트의 DNS 확인을 수행하고 개인 IP 주소로 확인되는지 확인합니다.
+
+캐시 스토리지 계정의 DNS 확인을 설명하는 예제입니다. 
+
+- nslookup _storageaccountname_.blob.core.windows.net을 입력합니다. <storage-account-name>을 Azure Migrate에서 생성되는 캐시 스토리지 계정 이름으로 바꿉니다.  
+
+    다음과 같은 메시지가 표시됩니다.  
+
+   ![DNS 확인 예제](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png)
+
+- 스토리지 계정 이름에 대해 개인 IP 주소 10.1.0.5가 반환됩니다. 이 주소는 스토리지 계정의 프라이빗 엔드포인트에 속해야 합니다. 
+
+DNS 확인이 잘못된 경우 다음 단계를 수행합니다.  
+
+- **팁:** 스토리지 계정 FQDN 링크인 _storageaccountname_.blob.core.windows.net과 연결된 개인 IP 주소로 온-프레미스 어플라이언스의 DNS 호스트 파일을 편집하여 원본 환경 DNS 레코드를 수동으로 업데이트할 수 있습니다. 이 옵션은 테스트용으로만 사용하는 것이 좋습니다. 
+- 사용자 지정 DNS를 사용하는 경우 사용자 지정 DNS 설정을 검토하고 DNS 구성이 올바른지 유효성을 검사합니다. 지침은 [프라이빗 엔드포인트 개요: DNS 구성](../private-link/private-endpoint-overview.md#dns-configuration)을 참조하세요. 
+- Azure 제공 DNS 서버를 사용하는 경우 [추가 문제 해결을 위한](./troubleshoot-network-connectivity.md#validate-the-private-dns-zone) 참조로 이 가이드를 사용합니다.   
+
+### <a name="configure-proxy-bypass-rules-on-the-azure-migrate-appliance-for-expressroute-private-peering-connectivity"></a>Azure Migrate 어플라이언스(ExpressRoute 개인 피어링 연결의 경우)에서 프록시 바이패스 규칙 구성 
+프록시 바이패스의 경우 다음과 같이 캐시 스토리지 계정에 대한 프록시 바이패스 규칙을 추가할 수 있습니다. 
+- _storageaccountname_.blob.core.windows.net.
+
+> [!Important]
+>  Azure Migrate는 인터넷 액세스가 필요한 다른 스토리지 계정을 사용하므로 *.blob.core.windows.net을 무시하지 마세요. 이 스토리지 계정, 게이트웨이 스토리지 계정은 복제되는 VM에 관한 상태 정보를 저장하는 데만 사용됩니다. Azure Migrate 프로젝트 리소스 그룹의 스토리지 계정 이름에서 접두사를 _**gwsa**_ 로 식별하여 게이트웨이 스토리지 계정을 찾을 수 있습니다. 
 
 ## <a name="replicate-data-by-using-an-expressroute-circuit-with-microsoft-peering"></a>ExpressRoute 회로를 사용하여 Microsoft 피어링을 통해 데이터 복제
 
@@ -157,42 +184,54 @@ Microsoft 피어링 또는 기존 공용 피어링 도메인(새 ExpressRoute �
 
 ![Microsoft 피어링을 사용한 복제를 보여주는 다이어그램](./media/replicate-using-expressroute/replication-with-microsoft-peering.png)
 
-Microsoft 피어링 회로를 통해 복제 데이터를 사용하는 경우에도 Azure Migrate를 사용하여 다른 통신(컨트롤 플레인)을 위해 온-프레미스 사이트에서 인터넷에 연결해야 합니다. 다른 URL 중 일부는 ExpressRoute를 통해 연결할 수 없습니다. 복제 어플라이언스 또는 Hyper-V 호스트는 복제 프로세스를 오케스트레이션 하기 위해 URL에 액세스할 수 있어야 합니다. [VMware 에이전트 없는 마이그레이션](./migrate-appliance.md#public-cloud-urls) 또는 [에이전트 기반 마이그레이션](./migrate-replication-appliance.md)의 두 가지 마이그레이션 시나리오에 따른 URL 요구 사항을 검토하세요.
+복제 데이터가 Microsoft 피어링 회로를 통해 이동하는 경우에도 컨트롤 플레인을 위한 온-프레미스 사이트의 인터넷 연결과 ExpressRoute를 통해 연결할 수 없는 다른 URL이 필요합니다. 복제 어플라이언스 또는 Hyper-V 호스트는 복제 프로세스를 오케스트레이션 하기 위해 URL에 액세스할 수 있어야 합니다. [VMware 에이전트 없는 마이그레이션](./migrate-appliance.md#public-cloud-urls) 또는 [에이전트 기반 마이그레이션](./migrate-replication-appliance.md)의 두 가지 마이그레이션 시나리오에 따른 URL 요구 사항을 검토하세요. 
 
-온-프레미스 사이트에서 프록시를 사용하고 복제 트래픽에 대해 ExpressRoute를 사용하려는 경우 온-프레미스 어플라이언스의 관련 URL에 대해 프록시 바이패스를 구성합니다.
-
-### <a name="configure-proxy-bypass-rules-on-the-azure-migrate-appliance-for-vmware-agentless-migrations"></a>Azure Migrate 어플라이언스에서 프록시 바이패스 규칙 구성(VMware 에이전트 없는 마이그레이션의 경우)
-
-1. 원격 데스크톱을 통해 Azure Migrate 어플라이언스에 로그인합니다.
-1. 메모장을 사용하여 *C:/ProgramData/MicrosoftAzure/Config/appliance.json* 파일을 엽니다.
-1. 이 파일에서 `"EnableProxyBypassList": "false"` 줄을 `"EnableProxyBypassList": "true"`로 변경합니다. 변경 내용을 저장하고 어플라이언스를 다시 시작합니다.
-1. 다시 시작한 후 어플라이언스 구성 관리자를 열면 웹앱 UI에 프록시 바이패스 옵션이 보입니다. 프록시 바이패스 목록에 다음 URL을 추가합니다.
-
-    - *vault.azure.net
-    - .*.servicebus.windows.net
-    - .*.discoverysrv.windowsazure.com
-    - .*.migration.windowsazure.com
-    - .\*.hypervrecoverymanager.windowsazure.com
-    - .*.blob.core.windows.net
-
-### <a name="configure-proxy-bypass-rules-on-the-replication-appliance-for-agent-based-migrations"></a>복제 어플라이언스에 대한 프록시 바이패스 규칙 구성(에이전트 기반 마이그레이션의 경우)
-
-구성 서버 및 프로세스 서버에서 프록시 바이패스 목록을 구성하려면 다음을 수행합니다.
-
-1. [PsExec 도구](/sysinternals/downloads/psexec)를 다운로드하여 시스템 사용자 컨텍스트에 액세스합니다.
-1. `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"` 명령줄을 실행하여 시스템 사용자 컨텍스트에서 Internet Explorer를 엽니다.
-1. Internet Explorer에서 프록시 설정을 추가합니다.
-1. 바이패스 목록에서 Azure Storage URL: *.blob.core.windows.net을 추가합니다.
-
-앞의 바이패스 규칙은 관리 통신이 인터넷에 대한 프록시를 통과할 수 있는 동안 ExpressRoute를 통해 복제 트래픽이 이동할 수 있도록 합니다.
-
-또한 Azure Migrate 복제 트래픽이 인터넷 대신 ExpressRoute 회로를 통과하도록 하려면 다음 BGP 커뮤니티에 대한 경로 필터에서 경로를 보급해야 합니다.
+ Microsoft 피어링을 통한 복제 데이터 전송의 경우 Azure Storage 엔드포인트의 경로를 보급하도록 경로 필터를 구성합니다. 이는 대상 Azure 지역(마이그레이션할 지역)의 지역 BGP 커뮤니티가 됩니다. Microsoft 피어링을 통해 컨트롤 플레인 트래픽을 라우팅하려면 필요에 따라 다른 퍼블릭 엔드포인트의 경로를 보급하도록 경로 필터를 구성합니다.  
 
 - 원본 Azure 지역에 대한 지역 BGP 커뮤니티(Azure Migrate 프로젝트 영역)
 - 대상 Azure 지역에 대한 지역 BGP 커뮤니티(마이그레이션 영역)
 - Azure Active Directory에 대한 BGP 커뮤니티(12076:5060)
 
 [경로 필터](../expressroute/how-to-routefilter-portal.md) 및 [ExpressRoute에 대한 BGP 커뮤니티](../expressroute/expressroute-routing.md#bgp) 목록에 대해 자세히 알아보세요.
+
+### <a name="proxy-configuration-for-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링의 프록시 구성
+
+어플라이언스가 인터넷 연결에 프록시를 사용하는 경우 특정 URL에 대한 프록시 바이패스를 구성하여 Microsoft 피어링 회로를 통해 해당 URL을 라우팅해야 할 수 있습니다. 
+
+#### <a name="configure-proxy-bypass-rules-for-expressroute-microsoft-peering-on-the-azure-migrate-appliance-for-vmware-agentless-migrations"></a>Azure Migrate 어플라이언스에서 ExpressRoute Microsoft 피어링에 대한 프록시 바이패스 규칙 구성(VMware 에이전트 없는 마이그레이션의 경우)
+
+1. 원격 데스크톱을 통해 Azure Migrate 어플라이언스에 로그인합니다.
+2.  메모장을 사용하여 *C:/ProgramData/MicrosoftAzure/Config/appliance.json* 파일을 엽니다.
+3. 이 파일에서 `"EnableProxyBypassList": "false"` 줄을 `"EnableProxyBypassList": "true"`로 변경합니다. 변경 내용을 저장하고 어플라이언스를 다시 시작합니다.
+4. 다시 시작한 후 어플라이언스 구성 관리자를 열면 웹앱 UI에 프록시 바이패스 옵션이 보입니다. 
+5. 복제 트래픽의 경우 “.*.blob.core.windows.net”에 대한 프록시 바이패스 규칙을 구성할 수 있습니다. 필요에 따라 다른 컨트롤 플레인 엔드포인트에 대한 프록시 바이패스 규칙을 구성할 수 있습니다. 이 엔드포인트에는 다음이 필요합니다. 
+
+    - *vault.azure.net
+    - .*.servicebus.windows.net
+    - .*.discoverysrv.windowsazure.com
+    - .*.migration.windowsazure.com
+    - .\*.hypervrecoverymanager.windowsazure.com
+
+> [!Note]
+> 다음 URL은 ExpressRoute를 통해 액세스할 수 없으며 인터넷 연결이 필요합니다. *.portal.azure.com, *.windows.net, *.msftauth.net, *.msauth.net, *.microsoft.com, *.live.com, *.office.com, *.microsoftonline.com, *.microsoftonline-p.com, *.microsoftazuread-sso.com, management.azure.com, *.services.visualstudio.com*(선택 사항), aka.ms/(선택 사항), download.microsoft.com/download.
+
+
+#### <a name="configure-proxy-bypass-rules-expressroute-microsoft-peering-on-the-replication-appliance-for-agent-based-migrations"></a>복제 어플라이언스에서 ExpressRoute Microsoft 피어링에 대한 프록시 바이패스 규칙 구성(에이전트 기반 마이그레이션의 경우)
+
+구성 서버 및 프로세스 서버에서 프록시 바이패스 목록을 구성하려면 다음을 수행합니다.
+
+1. [PsExec 도구](/sysinternals/downloads/psexec)를 다운로드하여 시스템 사용자 컨텍스트에 액세스합니다.
+2. `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"` 명령줄을 실행하여 시스템 사용자 컨텍스트에서 Internet Explorer를 엽니다.
+3. Internet Explorer에서 프록시 설정을 추가합니다.
+4. 복제 트래픽의 경우 “.*.blob.core.windows.net”에 대한 프록시 바이패스 규칙을 구성할 수 있습니다. 필요에 따라 다른 컨트롤 플레인 엔드포인트에 대한 프록시 바이패스 규칙을 구성할 수 있습니다. 이 엔드포인트에는 다음이 필요합니다. 
+
+    - .*.backup.windowsazure.com
+    - .\*.hypervrecoverymanager.windowsazure.com
+
+Azure Storage 엔드포인트에 대한 바이패스 규칙은 컨트롤 플레인 통신이 인터넷에 대한 프록시를 통해 이동할 수 있는 동안 복제 트래픽이 ExpressRoute를 통해 이동할 수 있는지 확인합니다. 
+
+> [!Note]
+> 다음 URL은 ExpressRoute를 통해 액세스할 수 없으며 인터넷 연결이 필요합니다. *.portal.azure.com, *.windows.net, *.msftauth.net, *.msauth.net, *.microsoft.com, *.live.com, *.office.com, *.microsoftonline.com, *.microsoftonline-p.com, *.microsoftazuread-sso.com, management.azure.com, *.services.visualstudio.com*(선택 사항), aka.ms/(선택 사항), download.microsoft.com/download, dev.mysql.com.
 
 ## <a name="next-steps"></a>다음 단계
 

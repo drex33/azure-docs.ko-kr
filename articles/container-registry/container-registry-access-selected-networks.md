@@ -2,13 +2,13 @@
 title: 공용 레지스트리 액세스 구성
 description: 선택한 공용 IP 주소나 주소 범위에서 Azure 컨테이너 레지스트리에 대한 액세스를 사용하기 위한 IP 규칙을 구성합니다.
 ms.topic: article
-ms.date: 03/08/2021
-ms.openlocfilehash: 727aa1dc028b5f52a022e54c2cd252ae372e78fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/30/2021
+ms.openlocfilehash: cb48a91190f352154a2f0af1e02dcd3e36f436d5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773065"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528112"
 ---
 # <a name="configure-public-ip-network-rules"></a>공용 IP 네트워크 규칙 구성
 
@@ -108,22 +108,39 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ## <a name="troubleshoot"></a>문제 해결
 
+### <a name="access-behind-https-proxy"></a>HTTPS 프록시를 사용하여 액세스
+
 공용 네트워크 규칙이 설정되거나 레지스트리에 대한 공용 액세스가 거부된 경우 허용되지 않은 공용 네트워크에서 레지스트리에 로그인하려는 시도가 실패합니다. 프록시에 대한 액세스 규칙이 설정되지 않은 경우 HTTPS 프록시 뒤에서의 클라이언트 액세스도 실패합니다. `Error response from daemon: login attempt failed with status: 403 Forbidden` 또는 `Looks like you don't have access to registry`와 유사한 오류 메시지가 표시됩니다.
 
 이러한 오류는 네트워크 액세스 규칙에서 허용하는 HTTPS 프록시를 사용하지만 프록시가 클라이언트 환경에서 제대로 구성되지 않은 경우에도 발생할 수 있습니다. Docker 클라이언트와 Docker 데몬이 모두 프록시 동작에 대해 구성되어 있는지 확인합니다. 자세한 내용은 Docker 문서의 [HTTP/HTTPS 프록시](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)를 참조하세요.
 
+### <a name="access-from-azure-pipelines"></a>Azure Pipelines에서 액세스
+
+특정 IP 주소에 대한 액세스를 제한하는 Azure 컨테이너 레지스트리에서 Azure Pipelines를 사용하는 경우 파이프라인의 아웃바운드 IP 주소가 고정되지 않았으므로 파이프라인이 레지스트리에 액세스하지 못할 수 있습니다. 기본적으로 파이프라인은 변경되는 IP 주소 세트가 있는 가상 머신 풀에서 Microsoft 호스팅 [에이전트](/azure/devops/pipelines/agents/agents)를 사용하여 작업을 실행합니다.
+
+한 가지 해결 방법은 파이프라인을 실행하는 데 사용되는 에이전트를 Microsoft 호스팅 에이전트에서 자체 호스팅 에이전트로 변경하는 것입니다. 관리하는 [Windows](/azure/devops/pipelines/agents/v2-windows) 또는 [Linux](/azure/devops/pipelines/agents/v2-linux) 머신에서 실행되는 자체 호스팅 에이전트를 사용하면 파이프라인의 아웃바운드 IP 주소를 제어하고 이 주소를 레지스트리 IP 액세스 규칙에 추가할 수 있습니다.
+
+### <a name="access-from-aks"></a>AKS에서 액세스
+
+특정 IP 주소에 대한 액세스를 제한하는 Azure 컨테이너 레지스트리에서 AKS(Azure Kubernetes Service)를 사용하는 경우 기본적으로 고정 AKS IP 주소를 구성할 수 없습니다. AKS 클러스터의 송신 IP 주소가 임의로 할당됩니다.
+
+AKS 클러스터가 레지스트리에 액세스하도록 허용하려면 다음 옵션을 사용할 수 있습니다.
+
+* Azure 기본 Load Balancer를 사용하는 경우 AKS 클러스터의 [고정 IP 주소](../aks/egress.md)를 설정합니다. 
+* Azure 표준 Load Balancer를 사용하는 경우 클러스터에서 [송신 트래픽을 제어](../aks/limit-egress-traffic.md)하는 방법에 대한 지침을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 가상 네트워크에서 프라이빗 엔드포인트를 사용하여 레지스트리에 대한 액세스를 제한하려면 [Azure 컨테이너에 대한 Azure Private Link 구성](container-registry-private-link.md)을 참조하세요.
 * 클라이언트 방화벽 뒤에서 레지스트리 액세스 규칙을 설정해야 할 경우 [방화벽 뒤의 Azure Container Registry에 액세스하기 위한 규칙 구성](container-registry-firewall-access-rules.md)을 참조하세요.
+* 자세한 문제 해결 지침은 [레지스트리를 사용하여 네트워크 문제 해결](container-registry-troubleshoot-access.md)을 참조하세요.
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add
-[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az-acr-network-rule-remove
-[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az-acr-network-rule-list
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-update]: /cli/azure/acr#az-acr-update
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az_acr_network_rule_add
+[az-acr-network-rule-remove]: /cli/azure/acr/network-rule/#az_acr_network_rule_remove
+[az-acr-network-rule-list]: /cli/azure/acr/network-rule/#az_acr_network_rule_list
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-update]: /cli/azure/acr#az_acr_update
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.com

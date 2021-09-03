@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 3da80de79490ce21ae99a4dd7dd36c08054cd666
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d55308876db0928bef4fdf3b89ace10305f7c47d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751580"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528295"
 ---
 # <a name="what-is-msix-app-attach"></a>MSIX 앱 연결이란?
 
@@ -27,7 +27,7 @@ MSIX 앱 연결은 물리적 머신과 가상 머신 모두에 MSIX 애플리케
 
 - 마스터 이미지에 앱 배치
 - 중앙 관리를 위해 SCCM 또는 Intune과 같은 도구 사용
-- 동적 앱 프로비저닝(AppV, VMWare AppVolumes 또는 Citrix AppLayering)
+- 동적 앱 프로비저닝(AppV, VMware AppVolumes 또는 Citrix AppLayering)
 - Microsoft 및 타사 도구를 사용하여 사용자 지정 도구 또는 스크립트 만들기
 
 ## <a name="what-does-msix-app-attach-do"></a>MSIX 앱 연결은 어떤 기능을 하나요?
@@ -56,4 +56,4 @@ MSIX 앱 연결은 VDI 또는 SBC 외부에서 적용할 수 있어야 합니다
 
 ## <a name="next-steps"></a>다음 단계
 
-MSIX 앱 연결에 관해 자세히 알아보려면 [용어집](app-attach-glossary.md) 및 [FAQ](app-attach-faq.md)를 확인하세요. 그러지 않으면 [앱 연결 설정](app-attach.md)을 시작합니다.
+MSIX 앱 연결에 관해 자세히 알아보려면 [용어집](app-attach-glossary.md) 및 [FAQ](app-attach-faq.yml)를 확인하세요. 그러지 않으면 [앱 연결 설정](app-attach.md)을 시작합니다.

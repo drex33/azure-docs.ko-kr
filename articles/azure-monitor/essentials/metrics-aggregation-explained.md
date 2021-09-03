@@ -6,12 +6,12 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 03/10/2021
-ms.openlocfilehash: c89b352954f114ec9da22cad6751bb57ef59899b
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 9c543b1bebfdeb47c1a1e1326f49247d8103191f
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381800"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529499"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Azure Monitor Metrics 메트릭 집계 및 표시 설명
 
@@ -97,7 +97,7 @@ ms.locfileid: "106381800"
 
 ### <a name="granularity"></a>세분성
 
-최소 시간 간격은 1분이지만 내부 시스템은 메트릭에 따라 데이터를 더 빠르게 캡처할 수 있습니다. 예를 들어 CPU 백분율은 정기적 간격으로 15초마다 추적됩니다. HTTP 오류는 트랜잭션으로 추적되기 때문에 분당 1회 이상을 쉽게 초과할 수 있습니다. SQL Storage와 같은 기타 메트릭은 20분마다 캡처됩니다. 이런 선택은 개별 리소스 공급자 및 유형에 달려 있습니다. 대부분 가능한 가장 작은 간격을 제공하려고 합니다.
+최소 시간 단위는 1분이지만 내부 시스템은 메트릭에 따라 데이터를 더 빠르게 캡처할 수 있습니다. 예를 들어 Azure VM의 CPU 백분율은 15초 간격으로 캡처됩니다. HTTP 오류는 트랜잭션으로 추적되기 때문에 분당 1회 이상을 쉽게 초과할 수 있습니다. SQL Storage와 같은 기타 메트릭은 20분 간격으로 캡처됩니다. 이런 선택은 개별 리소스 공급자 및 유형에 달려 있습니다. 대부분 가능한 최소 시간 간격을 제공하려고 합니다.
 
 ### <a name="dimensions-splitting-and-filtering"></a>차원, 분할 및 필터링
 

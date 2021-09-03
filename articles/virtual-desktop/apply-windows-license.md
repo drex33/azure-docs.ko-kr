@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eaf8bd06493fb105207024b3b78c584ad58d4149
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 44a8c8ab6420db717533e83af9e01a89fad47bad
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745406"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205033"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>세션 호스트 가상 머신에 Windows 라이선스 적용
 
@@ -35,7 +35,7 @@ Update-AzVM -ResourceGroupName <resourceGroupName> -VM $vm
 ```
 
 ## <a name="verify-your-session-host-vm-is-utilizing-the-licensing-benefit"></a>세션 호스트 VM이 라이선싱 혜택을 사용하고 있는지 확인
-VM을 배포한 후 다음 cmdlet을 실행하여 라이선스 유형을 확인합니다.
+VM을 배포한 후 이 cmdlet을 실행하여 라이선스 유형을 확인합니다.
 ```powershell
 Get-AzVM -ResourceGroupName <resourceGroupName> -Name <vmName>
 ```

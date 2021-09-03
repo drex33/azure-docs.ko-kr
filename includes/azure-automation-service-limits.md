@@ -5,15 +5,15 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 07/22/2021
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 1949fe7e795d7f671462f8c2a78204690dfa0595
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 938a5858efe79affe904d8d07a05270f3071ab72
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108807493"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114659738"
 ---
 #### <a name="process-automation"></a>프로세스 자동화
 
@@ -32,13 +32,15 @@ ms.locfileid: "108807493"
 | 샌드박스당 허용되는 최대 네트워크 소켓 수<sup>1</sup> |1,000 |Azure 샌드박스에만 적용됩니다.|
 | Runbook당 허용되는 최대 런타임<sup>1</sup> |3시간 |Azure 샌드박스에만 적용됩니다.|
 | 구독에서 Automation 계정의 최대 수 |제한 없음 ||
-| Automation 계정당 최대 Hybrid Worker 그룹 수|4,000||
+| Automation 계정당 최대 시스템 하이브리드 runbook worker 수|4,000||
+| Automation 계정당 최대 사용자 하이브리드 runbook worker 수|4,000||
 |단일 Hybrid Runbook Worker에서 실행할 수 있는 최대 동시 작업 수|50 ||
 | 최대 Runbook 작업 매개 변수 크기   | 512KB||
 | 최대 Runbook 매개 변수   | 50|50개의 매개 변수 한도에 도달하면 JSON 또는 XML 문자열을 매개 변수에 전달하고 Runbook을 사용하여 구문 분석할 수 있습니다.|
 | 최대 웹후크 페이로드 크기 |  512KB|
 | 작업 데이터가 보존되는 최대 일수|30일|
 | 최대 PowerShell 워크플로 상태 크기 |5 MB| 워크플로를 검사할 때 PowerShell 워크플로 Runbook에 적용됩니다.|
+| Automation 계정에서 지원되는 최대 태그 수|15||
 
 <sup>1</sup>샌드박스는 여러 작업에서 사용할 수 있는 공유 환경입니다. 동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다.
 

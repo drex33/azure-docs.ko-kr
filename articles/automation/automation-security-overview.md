@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Automation 계정 인증의 개요를 제
 keywords: 자동화 보안, 안전한 자동화, 자동화 인증
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2021
+ms.date: 08/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 33402eb41ed9c22cf38890229d833cd2ab00d65d
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 78b188b270ec08aa546311b449f908d47313a9a1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279517"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528466"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Azure Automation 계정 인증 개요
 
@@ -34,11 +34,11 @@ Azure Automation에서 Azure Resource Manager 및 PowerShell cmdlet을 사용하
 
 ## <a name="managed-identities-preview"></a>관리 ID(미리 보기)
 
-Azure AD(Azure Active Directory)의 관리 ID를 사용하면 Runbook에서 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Azure AD의 관리 ID에 대한 자세한 내용은 [Azure 리소스의 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+Azure AD(Azure Active Directory)의 관리 ID를 사용하면 Runbook에서 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리되며, 비밀을 프로비저닝하거나 회전하지 않아도 됩니다. Azure AD의 관리 ID에 대한 자세한 내용은 [Azure 리소스의 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 관리 ID를 사용하는 경우 얻을 수 있는 몇 가지 혜택은 다음과 같습니다.
 
-- 관리 ID를 사용하여 Azure AD 인증을 지원하는 모든 Azure 서비스에 인증할 수 있습니다. 클라우드 및 하이브리드 작업에 사용할 수 있습니다. 하이브리드 작업은 Azure 또는 비 Azure VM에서 실행되는 Hybrid Runbook Worker를 실행할 때 관리 ID를 사용할 수 있습니다.
+- Automation 실행 계정 대신 관리 ID를 사용하면 관리가 더 간단해집니다. 실행 계정에서 사용되는 인증서를 갱신할 필요가 없습니다.
 
 - 관리 ID는 추가 비용 없이 사용할 수 있습니다.
 
@@ -52,8 +52,8 @@ Automation 계정에는 다음 두 가지 유형의 ID를 부여할 수 있습�
 
 - 사용자 할당 ID는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
 
->[!NOTE]
-> 사용자 할당 ID는 아직 지원되지 않습니다.
+> [!NOTE]
+> 사용자가 할당한 ID는 클라우드 작업에서만 지원됩니다. 다양한 관리 ID에 대한 자세한 내용은 [ID 유형 관리](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)를 참조하세요.
 
 관리 ID 사용에 대한 자세한 내용은 [Azure Automation에 관리 ID 사용(미리 보기)](enable-managed-identity-for-automation.md)을 참조하세요.
 
@@ -61,8 +61,37 @@ Automation 계정에는 다음 두 가지 유형의 ID를 부여할 수 있습�
 
 Azure Automation의 실행 계정은 클래식 배포 모델로 배포된 리소스 또는 Azure Resource Manager 리소스를 관리하기 위한 인증을 제공합니다. Azure Automation에는 두 가지 유형의 실행 계정이 있습니다.
 
-* Azure 실행 계정: Azure에 대한 Azure Resource Manager 배포 및 관리 서비스를 기반으로 Azure 리소스를 관리할 수 있습니다.
-* Azure 클래식 실행 계정: 클래식 배포 모델을 기반으로 Azure 클래식 리소스를 관리할 수 있습니다.
+실행 계정을 만들거나 갱신하려면 다음 세 가지 수준에서 권한이 필요합니다.
+
+- 구독,
+- Azure AD(Azure Active Directory),
+- Automation 계정
+
+### <a name="subscription-permissions"></a>구독 권한
+
+`Microsoft.Authorization/*/Write` 권한이 필요합니다. 이 권한은 다음 Azure 기본 제공 역할 중 하나의 멤버 자격을 통해 얻습니다.
+
+- [소유자](../role-based-access-control/built-in-roles.md#owner)
+- [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator)
+
+클래식 실행 계정을 구성하거나 갱신하려면 구독 수준에서 공동 관리자 역할이 있어야 합니다. 클래식 구독 권한을 자세히 알아보려면 [Azure 클래식 구독 관리자](../role-based-access-control/classic-administrators.md#add-a-co-administrator)를 참조하세요.
+
+### <a name="azure-ad-permissions"></a>Azure AD 권한
+
+서비스 주체를 만들거나 갱신하려면 다음 Azure AD 기본 제공 역할 중 하나의 구성원이어야 합니다.
+
+- [애플리케이션 관리자](../active-directory/roles/permissions-reference.md#application-administrator)
+- [애플리케이션 개발자](../active-directory/roles/permissions-reference.md#application-developer)
+
+디렉터리 수준에서 테넌트의 **모든** 사용자에게 멤버 자격을 할당할 수 있으며, 이것이 기본 동작입니다. 디렉터리 수준에서 두 역할 중 하나에 멤버 자격을 부여할 수 있습니다. 자세한 내용은 [Azure AD 인스턴스에 애플리케이션을 추가할 수 있는 권한이 있는 사람은 누구인가요?](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)를 참조하세요.
+
+### <a name="automation-account-permissions"></a>Automation 계정 권한
+
+Automation 계정을 만들거나 업데이트하려면 다음 Automation 계정 역할 중 하나의 구성원이어야 합니다.
+
+- [소유자](./automation-role-based-access-control.md#owner)
+- [기여자](./automation-role-based-access-control.md#contributor)
+- [사용자 지정 Azure Automation 기여자](./automation-role-based-access-control.md#custom-azure-automation-contributor-role)
 
 Azure Resource Manager 및 클래식 배포 모델에 대한 자세한 내용은 [Resource Manager 및 클래식 배포](../azure-resource-manager/management/deployment-models.md)를 참조하세요.
 
@@ -101,7 +130,7 @@ Azure 클래식 실행 계정을 만들 때 다음 작업을 수행합니다.
 
 ## <a name="service-principal-for-run-as-account"></a>실행 계정에 대한 서비스 주체
 
-실행 계정의 서비스 주체에는 기본적으로 Azure AD를 읽을 권한이 없습니다. Azure AD를 읽거나 관리하는 권한을 추가하려면 **API 권한** 에서 서비스 주체에 대한 권한을 부여해야 합니다. 자세히 알아보려면 [웹 API 액세스 권한 추가](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조하세요.
+실행 계정의 서비스 주체에는 기본적으로 Azure AD를 읽을 수 있는 권한이 없습니다. Azure AD를 읽거나 관리하는 권한을 추가하려면 **API 권한** 에서 서비스 주체에 대한 권한을 부여해야 합니다. 자세히 알아보려면 [웹 API 액세스 권한 추가](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조하세요.
 
 ## <a name="run-as-account-permissions"></a><a name="permissions"></a>실행 계정 권한
 
@@ -130,7 +159,7 @@ Azure 클래식 실행 계정을 만들 때 다음 작업을 수행합니다.
 1. Azure Portal의 Azure Active Directory 창에서 **사용자 및 그룹** 을 선택합니다.
 2. **모든 사용자** 를 선택합니다.
 3. 이름을 선택하고 **프로필** 을 선택합니다.
-4. 사용자의 프로필에 있는 **사용자 유형** 특성의 값이 **게스트** 로 설정되지 않았는지 확인합니다.
+4. 사용자 프로필 아래의 **사용자 유형** 특성 값이 **게스트** 로 설정되지 않았는지 확인합니다.
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
@@ -138,9 +167,12 @@ Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azur
 
 리소스 그룹의 권한 할당에 대한 엄격한 보안 컨트롤이 있는 경우 실행 계정 멤버 자격을 리소스 그룹의 **참가자** 역할에 할당해야 합니다.
 
+> [!NOTE]
+> Automation 작업을 실행하는 데 **Log Analytics 기여자** 역할을 사용하지 않는 것이 좋습니다. 대신 Azure Automation 기여자 사용자 지정 역할을 만들고 Automation 계정과 관련된 작업에 사용합니다. 자세한 내용은 [사용자 지정 Azure Automation 기여자 역할](./automation-role-based-access-control.md#custom-azure-automation-contributor-role)을 참조하세요.
+
 ## <a name="runbook-authentication-with-hybrid-runbook-worker"></a>Hybrid Runbook Worker를 사용하여 Runbook 인증
 
-데이터 센터의 Hybrid Runbook Worker에서 또는 AWS와 같은 기타 클라우드 환경의 컴퓨팅 서비스에서 실행되는 Runbook은 일반적으로 Azure 리소스를 인증하는 Runbook에 사용되는 것과 동일한 방법을 사용할 수 없습니다. 이러한 리소스는 Azure 외부에서 실행되므로 로컬로 액세스하는 리소스에 인증하려면 Automation에서 정의한 자체 보안 자격 증명이 필요하기 때문입니다. Runbook Workers를 사용하는 Runbook 인증에 대한 자세한 내용은 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 참조하세요.
+데이터 센터의 Hybrid Runbook Worker에서 실행되거나 AWS와 같은 기타 클라우드 환경의 컴퓨팅 서비스에서 실행되는 Runbook은 일반적으로 Azure 리소스를 인증하는 Runbook에 사용되는 것과 동일한 방법을 사용할 수 없습니다. 이러한 리소스는 Azure 외부에서 실행되므로 로컬로 액세스하는 리소스에 인증하려면 Automation에서 정의한 자체 보안 자격 증명이 필요하기 때문입니다. Runbook Workers를 사용하는 Runbook 인증에 대한 자세한 내용은 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 참조하세요.
 
 Azure VM에서 Hybrid Runbook Worker를 사용하는 Runbook의 경우 실행 계정 대신 [관리형 ID로 Runbook 인증](automation-hrw-run-runbooks.md#runbook-auth-managed-identities)을 사용하여 Azure 리소스를 인증할 수 있습니다.
 

@@ -6,18 +6,18 @@ ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb18cca782b85e608c3c7ddb001ecb03b86055f6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a2d78b83ac7725f07060b3b61b01e57837fb053b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833529"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465905"
 ---
 # <a name="management-of-azure-automation-data"></a>Azure Automation 데이터 관리
 
 이 문서에는 Azure Automation 환경에서 데이터를 보호하는 방법을 설명하는 여러 항목이 포함되어 있습니다.
 
-## <a name="tls-12-enforcement-for-azure-automation"></a>Azure Automation에 대한 TLS 1.2 적용
+## <a name="tls-12-for-azure-automation"></a>Azure Automation용 TLS 1.2
 
 Azure Automation으로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 보안) 1.2 사용을 구성하는 것이 좋습니다. 다음은 HTTPS를 통해 자동화 서비스와 통신하는 메서드나 클라이언트의 목록입니다.
 

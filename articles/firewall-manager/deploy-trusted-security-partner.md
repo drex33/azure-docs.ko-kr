@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 08/06/2021
 ms.author: victorh
-ms.openlocfilehash: b8e10eef89df12807cabd96d64d9c7d659f91d6c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7b8dd13c5d2c3c080ca20115dfc41b23dd6e545e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109512"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528252"
 ---
 # <a name="deploy-a-security-partner-provider"></a>보안 파트너 공급자 배포
 
@@ -69,6 +69,9 @@ Virtual WAN에서 기존 허브를 선택하고 *보안 가상 허브* 로 변�
 
 가상 허브의 VPN Gateway에 대한 터널을 설정하려면 타사 공급자에 허브에 대한 액세스 권한이 있어야 합니다. 이 작업을 수행하려면 서비스 주체를 구독 또는 리소스 그룹에 연결하고 액세스 권한을 부여합니다. 그런 다음 해당 포털을 사용하여 타사에 자격 증명을 제공해야 합니다.
 
+> [!NOTE]
+> 타사 보안 공급자가 사용자 대신 VPN 사이트를 만듭니다. 이 VPN 사이트는 Azure Portal에 표시되지 않습니다.
+
 ### <a name="create-and-authorize-a-service-principal"></a>서비스 주체 만들기 및 권한 부여
 
 1. Azure Active Directory(AD) 서비스 주체 만들기: 리디렉션 URL을 건너뛸 수 있습니다. 
@@ -103,6 +106,8 @@ Virtual WAN에서 기존 허브를 선택하고 *보안 가상 허브* 로 변�
 
    :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="보안 구성":::
 5. 또한 조직에서 가상 네트워크 및 지점의 공용 IP 범위를 사용하는 경우 **프라이빗 트래픽 접두사** 를 사용하여 해당 IP 접두사를 명시적으로 지정해야 합니다. 공용 IP 주소 접두사는 개별적으로 지정하거나 집계로 지정할 수 있습니다.
+
+   프라이빗 트래픽 접두사에 RFC1918 이외의 주소를 사용하는 경우 RFC1918이 아닌 프라이빗 트래픽에 SNAT를 사용하지 않도록 방화벽에 대한 SNAT 정책을 구성해야 할 수 있습니다. 기본적으로 Azure Firewall은 RFC1918 이외의 모든 트래픽을 SNAT합니다.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>타사 서비스를 통한 분기 또는 VNet 인터넷 트래픽
 

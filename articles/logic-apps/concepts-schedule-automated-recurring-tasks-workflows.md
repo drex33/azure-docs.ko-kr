@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: e9fbafa9f3c33d10496e84f61e1f2b97f6328d3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fc565a886698466fce8eaa6ac5ff47ae44be4c9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100581803"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458833"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 반복적인 자동화된 작업, 프로세스 및 워크플로 예약 및 실행
 
 Logic Apps는 일정에 따라 자동화된 반복적인 작업 및 프로세스를 만들고 실행하는 데 도움이 됩니다. 일정 유형의 트리거인 기본 제공 되풀이 트리거 또는 슬라이딩 윈도우 트리거로 시작하는 논리 앱 워크플로를 만들어 나중에 또는 반복적인 간격으로 작업을 즉시 실행할 수 있습니다. HTTP 또는 HTTPS 엔드포인트와 같은 Azure 내부 및 외부에서 서비스를 호출하고, Azure Storage 및 Azure Service Bus와 같은 Azure 서비스에 메시지를 게시하거나, 파일 공유에 업로드된 파일을 가져올 수 있습니다. 되풀이 트리거를 사용하여 작업 실행을 위한 복잡한 일정 및 고급 되풀이를 설정할 수도 있습니다. 기본 제공 일정 트리거 및 작업에 대한 자세한 정보는 [일정 트리거](#schedule-triggers) 및 [작업 예약](#schedule-actions)을 참조하세요. 
 
 > [!TIP]
-> 예약된 각 작업에 대해 별도의 논리 앱을 만들거나 [지역 및 구독당 워크플로 제한](../logic-apps/logic-apps-limits-and-config.md#definition-limits)에 실행하지 않고도 반복적인 워크로드를 예약하고 실행할 수 있습니다. 대신, Azure 빠른 시작 템플릿에서 만든 논리 앱 패턴인 [ Azure 빠른 시작 템플릿: Logic Apps 작업 스케줄러](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/)를 사용할 수 있습니다.
+> 예약된 각 작업에 대해 별도의 논리 앱을 만들거나 [지역 및 구독당 워크플로 제한](../logic-apps/logic-apps-limits-and-config.md#definition-limits)에 실행하지 않고도 반복적인 워크로드를 예약하고 실행할 수 있습니다. 대신, Azure 빠른 시작 템플릿에서 만든 논리 앱 패턴인 [ Azure 빠른 시작 템플릿: Logic Apps 작업 스케줄러](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logicapps-jobscheduler/)를 사용할 수 있습니다.
 >
 > Logic Apps 작업 스케줄러 템플릿은 TimerJob 논리 앱을 호출하는 CreateTimerJob 논리 앱을 만듭니다. 그런 다음 HTTP 요청을 수행하고 해당 요청에 대한 입력으로 일정을 전달하여 CreateTimerJob 논리 앱을 API로 호출할 수 있습니다. CreateTimerJob 논리 앱에 대한 각 호출은 지정된 일정에 따라 계속 실행되거나 지정된 제한에 도달할 때까지 계속 실행되는 새 TimerJob 인스턴스를 만드는 TimerJob 논리 앱을 호출합니다. 이렇게 하면 인스턴스가 개별 논리 앱 워크플로 정의 또는 리소스가 아니기 때문에 워크플로 제한에 대해 걱정하지 않고 원하는 만큼의 TimerJob 인스턴스를 실행할 수 있습니다.
 
@@ -199,6 +199,27 @@ Logic Apps는 일정에 따라 자동화된 반복적인 작업 및 프로세스
 ![“Scheduler: 한 번 실행 작업” 템플릿을 선택합니다.](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
 
 또는 **HTTP 요청을 받을 때 - 요청** 트리거를 사용하여 논리 앱을 시작할 수 있는 경우 시작 시간을 트리거의 매개 변수로 전달합니다. 첫 번째 작업의 경우 **다음 기간까지 지연 - 일정** 작업을 사용하고, 다음 작업 실행을 시작할 때의 시간을 제공합니다.
+
+<a name="run-once-last-day-of-the-month"></a>
+
+## <a name="run-once-at-last-day-of-the-month"></a>매월 마지막 날에 한 번 실행
+
+매월 마지막 날에 한 번만 되풀이 트리거를 실행하려면 디자이너가 아닌 코드 보기를 사용하여 워크플로의 기본 JSON 정의에서 트리거를 편집해야 합니다. 그러나 다음 예제를 사용할 수 있습니다.
+
+```json
+"triggers": {
+    "Recurrence": {
+        "recurrence": {
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "monthDays": [-1]
+            }
+        },
+        "type": "Recurrence"
+    }
+}
+```
 
 <a name="example-recurrences"></a>
 

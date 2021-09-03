@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 07/22/2021
 ms.author: erhopf
-ms.openlocfilehash: c7aeb9e9f4de7b4de62f9b5a8da6d997e32a2399
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e81b2121e8b4f71040014d3e211177dc8656b556
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94363326"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447621"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
 
@@ -64,8 +64,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>다중 서비스 구독 키로 인증
 
->[!WARNING]
-> 현재 QnA Maker, Speech Services, Custom Vision 및 Anomaly Detector 서비스는 다중 서비스 키를 지원하지 **않습니다**.
+> [!WARNING]
+> 현재 다중 서비스 키는 QnA Maker, Immersive Reader, Personalizer, Anomaly Detector를 지원하지 않습니다.
 
 또한 이 옵션은 구독 키를 사용하여 요청을 인증합니다. 주요 차이점은 구독 키가 특정 서비스에 연결되지 않고, 오히려 단일 키를 사용하여 여러 Cognitive Services에 대한 요청을 인증할 수 있다는 것입니다. 지역별 가용성, 지원되는 기능 및 가격 책정에 대한 자세한 내용은 [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)을 참조하세요.
 
@@ -96,6 +96,13 @@ Translator 서비스에서 다중 서비스 구독 키를 사용하는 경우 `O
 - `westeurope`
 - `westus`
 - `westus2`
+- `francecentral`
+- `koreacentral`
+- `northcentralus`
+- `southafricanorth`
+- `uaenorth`
+- `switzerlandnorth`
+
 
 ### <a name="sample-requests"></a>샘플 요청
 

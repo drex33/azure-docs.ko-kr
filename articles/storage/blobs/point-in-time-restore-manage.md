@@ -10,12 +10,12 @@ ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd58ae6aa0083b0f2a02ef1c008e76f92f39b766
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 7e2d71c1f388786c05052e773ea621caab92185e
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676304"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531183"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>블록 BLOB 데이터에 지정 시간 복원 수행
 
@@ -24,7 +24,7 @@ ms.locfileid: "110676304"
 지정 시간 복원에 대한 자세한 내용은 [블록 Blob에 대한 지정 시간 복원](point-in-time-restore-overview.md)을 참조하세요.
 
 > [!CAUTION]
-> 지정 시간 복원은 블록 Blob에 대한 작업만 복원하도록 지원합니다. 컨테이너에 대한 작업은 복원할 수 없습니다. [컨테이너 삭제](/rest/api/storageservices/delete-container) 작업을 호출하여 스토리지 계정에서 컨테이너를 삭제하면 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 전체 컨테이너를 삭제하는 대신 개별 Blob을 삭제해야 나중에 복원할 수 있습니다. 또한 실수로 삭제되지 않도록 보호하기 위해 컨테이너 및 Blob에 대해 일시 삭제를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [컨테이너의 일시 삭제(미리 보기)](soft-delete-container-overview.md) 및 [Blob의 일시 삭제](soft-delete-blob-overview.md)를 참조하세요.
+> 지정 시간 복원은 블록 Blob에 대한 작업만 복원하도록 지원합니다. 컨테이너에 대한 작업은 복원할 수 없습니다. [컨테이너 삭제](/rest/api/storageservices/delete-container) 작업을 호출하여 스토리지 계정에서 컨테이너를 삭제하면 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 전체 컨테이너를 삭제하는 대신 개별 Blob을 삭제해야 나중에 복원할 수 있습니다. 또한 실수로 삭제되지 않도록 보호하기 위해 컨테이너 및 Blob에 대해 일시 삭제를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [컨테이너의 일시 삭제](soft-delete-container-overview.md) 및 [Blob의 일시 삭제](soft-delete-blob-overview.md)를 참조하세요.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>지정 시간 복원 활성화 및 구성
 
@@ -128,7 +128,7 @@ PowerShell 또는 Azure CLI를 사용하여 복원 작업을 수행하는 경우
 >
 > 스토리지 계정이 지역에서 복제되는 경우 보조 위치에서의 읽기 작업은 복원 작업 중에 진행될 수 있습니다.
 >
-> 일련의 데이터를 복원하는 데 걸리는 시간은 복원 기간 중에 수행된 쓰기 및 삭제 작업의 건수에 따라 달라집니다. 예를 들어 100만 개의 개체에 하루에 3천 개의 개체가 추가되고 1천 개의 개체가 삭제되는 계정의 경우 30일 전의 시점으로 복원하는 데 약 2시간이 소요됩니다. 변동률이 이와 같은 계정에는 보존 기간과 복원 범위를 90일 전을 초과하지 않도록 설정하는 것이 좋습니다.
+> 일련의 데이터를 복원하는 데 걸리는 시간은 복원 작업을 선택하기 위한 최대 1시간 후 복원 기간 중에 수행된 쓰기 및 삭제 작업의 건수에 따라 달라집니다. 예를 들어 100만 개의 개체에 하루에 3천 개의 개체가 추가되고 1천 개의 개체가 삭제되는 계정의 경우 30일 전의 시점으로 복원하는 데 약 2~3시간이 소요됩니다. 변경 수가 적은 복원의 경우 복원하는 데 최대 1시간이 소요됩니다. 변동률이 이와 같은 계정에는 보존 기간과 복원 범위를 90일 전을 초과하지 않도록 설정하는 것이 좋습니다.
 
 ### <a name="restore-all-containers-in-the-account"></a>계정의 모든 컨테이너 복원
 

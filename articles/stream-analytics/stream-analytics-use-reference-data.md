@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: e05a4cbbc5fefbfe8a92914ef480f32bdf43ca37
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/25/2021
+ms.openlocfilehash: 828748a2702233bfdabf3dc627e46956bf436020
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99560224"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289372"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
@@ -118,7 +118,7 @@ SQL Database 참조 데이터를 구성하려면 먼저 **참조 데이터** 입
 |3   |150MB 이하   |
 |6 이상   |5GB 이하    |
 
-참조 데이터에는 압축이 지원되지 않습니다.
+참조 데이터에는 압축이 지원되지 않습니다. 300MB 보다 큰 참조 데이터 세트의 경우 성능을 최적화하기 위해 [델타 쿼리](./sql-reference-data.md#delta-query) 옵션과 함께 원본으로 Azure SQL Database를 사용하는 것이 좋습니다. 해당 시나리오에서 델타 쿼리를 사용하지 않는 경우 참조 데이터 세트를 새로 고칠 때마다 워터마크 지연 메트릭이 급증하는 것을 볼 수 있습니다. 
 
 ## <a name="joining-multiple-reference-datasets-in-a-job"></a>작업에서 여러 참조 데이터 집합 조인
 하나의 쿼리 단계에서 하나의 스트림 입력만 하나의 참조 데이터 입력과 조인할 수 있습니다. 그러나 쿼리를 여러 단계로 나누어 여러 참조 데이터 집합을 조인할 수 있습니다. 아래에 예제가 나와 있습니다.

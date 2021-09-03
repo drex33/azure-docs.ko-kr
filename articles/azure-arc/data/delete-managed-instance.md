@@ -7,25 +7,24 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: e9496b1782cb78cacb378b167386cd9fe950b15c
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 19f5befde22ed7b16302b7da5df313c476b47194
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110495899"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528593"
 ---
 # <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance 삭제
 이 문서에서는 Azure Arc 지원 SQL Managed Instance를 삭제하는 방법을 설명합니다.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="view-existing-azure-arc-enabled-sql-managed-instances"></a>기존 Azure Arc 지원 SQL Managed Instance 보기
 SQL Managed Instance를 보려면 다음 명령을 실행합니다.
 
-```console
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 출력은 다음과 비슷합니다.
@@ -39,14 +38,14 @@ demo-mi 1/1         10.240.0.4:32023  Ready
 ## <a name="delete-a-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance 삭제
 SQL Managed Instance를 삭제하려면 다음 명령을 실행합니다.
 
-```console
-azdata arc sql mi delete -n <NAME_OF_INSTANCE>
+```azurecli
+az sql mi-arc delete -n <NAME_OF_INSTANCE> --k8s-namespace <namespace> --use-k8s
 ```
 
 출력은 다음과 비슷합니다.
 
-```console
-# azdata arc sql mi delete -n demo-mi
+```azurecli
+# az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
 Deleted demo-mi from namespace arc
 ```
 
@@ -90,7 +89,7 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
   
 
 > [!NOTE]
-> 표시된 것처럼, PVC를 삭제하지 않으면 Kubernetes 클러스터에서 오류가 발생하게 될 수 있습니다. 이러한 오류 중 일부에는 이 스토리지 문제로 인해 pod가 제거될 수 있으므로(정상적인 Kubernetes 동작) azdata를 사용하여 Kubernetes 클러스터에 로그인할 수 없는 경우가 포함될 수 있습니다.
+> 표시된 것처럼, PVC를 삭제하지 않으면 Kubernetes 클러스터에서 오류가 발생하게 될 수 있습니다. 해당 오류에는 Kubernetes API에서 리소스 만들기, 읽기, 업데이트, 삭제를 수행할 수 없거나 이 스토리지 문제로 인해 Kubernetes 노드에서 컨트롤러 Pod가 제거될 수 있으므로(정상적인 Kubernetes 동작) `az arcdata dc export`와 같은 명령을 실행할 수 있는 경우가 포함될 수 있습니다.
 >
 > 예를 들어, 다음과 유사한 로그의 메시지가 표시될 수 있습니다.  
 > - Annotations:    microsoft.com/ignore-pod-health: true  

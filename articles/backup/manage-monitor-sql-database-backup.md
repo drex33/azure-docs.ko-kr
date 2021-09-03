@@ -2,13 +2,13 @@
 title: Azure VM에서 SQL Server DB 관리 및 모니터링
 description: 이 문서에서는 Azure VM에서 실행되는 SQL Server 데이터베이스를 관리하고 모니터링하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 3938e26e134f7d823d8a6f6fac631ebf4442e6ab
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 07/27/2021
+ms.openlocfilehash: e768eae283aaf113d68f425cb306860411a9bcd9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519139"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528786"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -123,6 +123,9 @@ SQL Database에 대한 보호를 재개하려면:
   ![백업 정책 수정](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
 정책 수정은 관련된 모든 백업 항목에 영향을 주며 해당하는 **보호 구성** 작업을 트리거합니다.
+
+>[!Note]
+>정책 수정은 기존 복구 지점에도 영향을 줍니다. <br><br> 보관 계층에서 180일간 유지되지 않은 보관의 복구 지점에 대해, 해당 복구 지점을 삭제하면 초기 삭제 비용이 발생합니다. [자세히 알아보기](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion).
 
 ### <a name="inconsistent-policy"></a>일관성 없는 정책
 

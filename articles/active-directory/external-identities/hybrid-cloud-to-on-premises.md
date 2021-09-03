@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8ac1d8d10407347dac5889e9270e623e0abbeb9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: efe7a8d1969f457a70326edb99652eb8f25d27b8
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968514"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213888"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여
 
@@ -24,16 +24,17 @@ Azure AD(Azure Active Directory) B2B 협업 기능을 사용하여 파트너 조
 
 ## <a name="access-to-saml-apps"></a>SAML 앱에 대한 액세스
 
-온-프레미스 앱이 SAML 기반 인증을 사용하는 경우 손쉽게 Azure AD B2B 협업 사용자가 Azure Portal을 통해 이러한 앱을 사용할 수 있습니다.
+온-프레미스 앱이 SAML 기반 인증을 사용하는 경우 손쉽게 Azure AD B2B 협업 사용자가 Azure AD 애플리케이션 프록시를 사용하여 Azure Portal을 통해 해당 앱을 사용할 수 있습니다.
 
-다음을 모두 수행해야 합니다.
+다음과 같은 작업을 수행해야 합니다.
 
-- [SAML 기반 Single Sign-On 구성](../manage-apps/configure-saml-single-sign-on.md)에 설명된 대로 SAML을 사용하여 앱을 통합합니다. **로그온 URL** 값에 사용하는 값을 알고 있어야 합니다.
--  Azure AD 애플리케이션 프록시를 사용하여 인증 원본으로 구성된 **Azure Active Directory** 와 함께 온-프레미스 앱을 게시합니다. 지침은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](../app-proxy/application-proxy-add-on-premises-application.md)를 참조하세요. 
+- 애플리케이션 프록시를 사용하도록 설정하고 커넥터를 설치합니다. 지침은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](../app-proxy/application-proxy-add-on-premises-application.md)를 참조하세요.
+- [애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 대한 SAML Single Sign-On](../app-proxy/application-proxy-configure-single-sign-on-on-premises-apps.md)의 지침에 따라 Azure AD 애플리케이션 프록시를 통해 온-프레미스 SAML 기반 애플리케이션을 게시합니다.
+- Azure AD B2B 사용자를 SAML 애플리케이션에 할당합니다.
 
-   **내부 URL** 설정을 구성하는 경우 비갤러리 애플리케이션 템플릿에 지정된 로그온 URL을 사용합니다. 이 방식으로 사용자는 조직 경계 외부에서 응용 프로그램에 액세스할 수 있습니다. 애플리케이션 프록시는 온-프레미스 앱에 대해 SAML Single Sign-On을 수행합니다.
- 
-   ![온-프레미스 앱 설정 내부 URL 및 인증 표시](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
+위 단계를 완료한 경우 앱이 시작되고 실행됩니다. Azure AD B2B 액세스를 테스트하려면 다음을 수행합니다.
+1.  브라우저를 열고 앱을 게시할 때 만든 외부 URL로 이동합니다.
+2.  앱에 할당한 Azure AD B2B 계정으로 로그인합니다. 앱을 열고 Single Sign-On을 사용하여 액세스할 수 있어야 합니다.
 
 ## <a name="access-to-iwa-and-kcd-apps"></a>IWA 및 KCD 앱에 액세스
 

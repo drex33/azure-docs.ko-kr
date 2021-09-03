@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mbullwin
-ms.openlocfilehash: 3979bb82bfa055cc2a134bf3119097c452ffb855
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec057d625342c2e80478b0555395f6bc5250ee6b
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94364125"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296778"
 ---
-# <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Azure Container Instances에 Anomaly Detector 컨테이너 배포
+# <a name="deploy-an-anomaly-detector-univariate-container-to-azure-container-instances"></a>Azure Container Instances에 Anomaly Detector 단변량 컨테이너 배포
 
 Cognitive Services [Anomaly Detector](../anomaly-detector-container-howto.md) 컨테이너를 Azure [Container Instances](../../../container-instances/index.yml)에 배포하는 방법을 알아봅니다. 이 절차에서는 Anomaly Detector 리소스를 만드는 방법을 보여 줍니다. 그런 다음 연결된 컨테이너 이미지를 풀하는 방법을 설명합니다. 마지막으로 브라우저에서 이 둘의 오케스트레이션을 실행하는 기능을 강조합니다. 컨테이너를 사용하면 개발자가 인프라 관리보다 애플리케이션 개발에 집중할 수 있습니다.
 

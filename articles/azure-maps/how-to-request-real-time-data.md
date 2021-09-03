@@ -3,24 +3,23 @@ title: Microsoft Azure Maps Mobility Services(미리 보기)를 사용하여 실
 description: 정류장 도착과 같은 실시간 대중교통 데이터를 요청하는 방법을 알아봅니다. 이 목적을 위해 Azure Maps Mobility Services(미리 보기)를 사용하는 방법을 참조하세요.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 06/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d3e3dc4b0e3bc64a38856da8344583b744ea62b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e7358e76cdcf07f39a9b5a5fcab7ab0151ebc32
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96906049"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529004"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Azure Maps Mobility Services(미리 보기)를 사용하여 실시간 대중교통 데이터 요청 
 
 > [!IMPORTANT]
-> Azure Maps Mobility Services는 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> Azure Maps Mobility Services 미리 보기는 사용 중지되었으며 2021년 10월 5일 이후에는 더 이상 사용할 수 없으며 지원되지 않습니다. 다른 모든 Azure Maps API 및 서비스는 이 만료 공지의 영향을 받지 않습니다.
+> 자세한 내용은 [Azure Maps Mobility 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/)를 참조하세요.
 
 
 이 문서에서는 Azure Maps [Mobility Services](/rest/api/maps/mobility)를 사용하여 실시간 대중교통 데이터를 요청하는 방법을 보여 줍니다.
@@ -39,19 +38,15 @@ Azure Maps 대중교통 API에 대한 호출을 수행하려면 먼저 Azure Map
 
 메트로 ID로 "522"을 사용하겠습니다. 이 ID는 "Seattle–Tacoma–Bellevue, WA" 영역에 대한 메트로 ID입니다. "522---2060603"을 정류장 ID로 사용합니다 .이 버스 정류장은 "Ne 24th St & 162nd Ave Ne, Bellevue WA"에 있습니다. 다음 5개의 실시간 도착 데이터를 요청하려면 이 정류장의 모든 다음 실시간 도착에 대해 다음 단계를 완료합니다.
 
-1. Postman 앱을 열고 요청을 저장할 컬렉션을 만들어 보겠습니다. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다.
+1. Postman 앱을 엽니다. **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
-2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택합니다. 그런 다음 **저장** 을 선택합니다.
-
-    ![Postman에서 요청 생성](./media/how-to-request-transit-data/postman-new.png)
-
-3. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력하여 GET 요청을 만듭니다. `{subscription-key}`를 Azure Maps 기본 키로 바꿉니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력하여 GET 요청을 만듭니다. `{subscription-key}`를 Azure Maps 기본 키로 바꿉니다.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
     ```
 
-4. 요청이 성공적으로 완료되면 다음 응답을 받게 됩니다.  'ScheduleType' 매개 변수는 예상 도착 시간이 실시간 데이터를 기준으로 하는지 또는 정적 데이터를 기준으로 하는지를 정의합니다.
+3. 요청이 성공적으로 완료되면 다음 응답을 받게 됩니다.  'ScheduleType' 매개 변수는 예상 도착 시간이 실시간 데이터를 기준으로 하는지 또는 정적 데이터를 기준으로 하는지를 정의합니다.
 
     ```JSON
     {

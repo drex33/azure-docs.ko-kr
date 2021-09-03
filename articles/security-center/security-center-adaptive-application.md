@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: f8d0871f07168e0d7a2fbda90df4209ab7e5a28e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 9f1fdfeadd56b070c942c023a7373b43363a1916
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748502"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528648"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응형 애플리케이션 제어를 통해 컴퓨터의 공격 표면 축소
 
@@ -46,9 +46,9 @@ Azure Security Center 적응형 애플리케이션 제어의 이점과 이 데�
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
-|지원되는 컴퓨터:|![예](./media/icons/yes-icon.png) Windows 및 Linux를 실행하는 Azure 및 비 Azure 컴퓨터<br>![예](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) 컴퓨터|
+|지원되는 컴퓨터:|:::image type="icon" source="./media/icons/yes-icon.png"::: Windows와 Linux를 실행하는 Azure 및 비 Azure 머신<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/index.yml) 머신|
 |필요한 역할 및 권한:|**보안 리더** 및 **리더** 역할은 그룹과 안전한 것으로 알려진 애플리케이션 목록을 모두 볼 수 있습니다.<br>**기여자** 및 **보안 관리자** 역할은 그룹과 안전한 것으로 알려진 애플리케이션 목록을 모두 편집할 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
 
@@ -87,13 +87,13 @@ Security Center가 구독에서 유사한 애플리케이션 세트를 일관되
 
 1. **권장됨** 탭을 엽니다. 권장 허용 목록이 있는 컴퓨터 그룹이 나타납니다.
 
-   ![권장됨 탭](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
+   ![권장 탭](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
 
 1. 그룹을 선택합니다. 
 
 1. 새 규칙을 구성하려면 특정 컴퓨터 그룹에 고유한 이 **애플리케이션 제어 규칙 구성** 페이지의 다양한 섹션과 그 내용을 검토합니다.
 
-   ![새 규칙 구성](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
+   ![새 규칙을 구성합니다.](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
 
    1. **컴퓨터 선택** - 기본적으로 식별된 그룹 내의 모든 컴퓨터가 선택됩니다. 이 규칙에서 제거하려면 선택을 취소합니다.
    
@@ -127,7 +127,7 @@ Security Center가 구독에서 유사한 애플리케이션 세트를 일관되
 
    1. **규칙 추가** 를 선택합니다.
 
-      ![사용자 지정 규칙 추가](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
+      ![사용자 지정 규칙을 추가합니다.](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
    1. 안전한 것으로 알려진 경로를 정의하는 경우 **규칙 유형** 을 '경로'로 변경하고 단일 경로를 입력합니다. 경로에 와일드카드 문자를 포함할 수 있습니다.
    
@@ -150,7 +150,7 @@ Security Center가 구독에서 유사한 애플리케이션 세트를 일관되
 
     이 창에는 그룹 이름(수정 가능함), OS 유형, 위치 및 기타 관련 세부 정보가 표시됩니다.
 
-    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="적응형 애플리케이션 제어를 위한 그룹 설정 페이지" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="적응형 애플리케이션 제어의 그룹 설정 페이지" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
 1. 필요한 경우 그룹의 이름 또는 파일 형식 보호 모드를 수정합니다.
 
@@ -189,7 +189,7 @@ Security Center가 구독에서 유사한 애플리케이션 세트를 일관되
 
     경고 페이지에는 경고에 대한 자세한 내용이 표시되고 위협을 완화하는 방법에 대한 권장 사항이 있는 **작업 수행** 링크가 제공됩니다.
 
-    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="적응형 애플리케이션 제어 경고의 시작 시간은 ":::입니다.
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="적응형 애플리케이션 제어 경고의 시작 시간":::
 
     > [!NOTE]
     > 적응형 애플리케이션 제어는 12시간마다 한 번씩 이벤트 수를 계산합니다. 경고 페이지에 표시된 "활동 시작 시간"은 의심스러운 프로세스가 활성화된 시간이 **아니라** 적응형 애플리케이션 제어에서 경고를 만든 시간입니다.
@@ -238,12 +238,12 @@ REST API에서 사용 가능한 몇 가지 함수는 다음과 같습니다.
 ## <a name="faq---adaptive-application-controls"></a>FAQ - 적응형 애플리케이션 제어
 
 - [애플리케이션 제어를 적용하는 옵션이 있나요?](#are-there-any-options-to-enforce-the-application-controls)
-- [내 권장 애플리케이션에 Qualys 앱이 표시되는 이유가 무엇인가요?](#why-do-i-see-a-qualys-app-in-my-recommendeded-applications)
+- [내 권장 애플리케이션에 Qualys 앱이 표시되는 이유는 무엇인가요?](#why-do-i-see-a-qualys-app-in-my-recommended-applications)
 
 ### <a name="are-there-any-options-to-enforce-the-application-controls"></a>애플리케이션 제어를 적용하는 옵션이 있나요?
 현재 사용할 수 있는 적용 옵션은 없습니다. 적응형 애플리케이션 제어는 안전한 것으로 정의된 애플리케이션 이외의 애플리케이션이 실행될 때 **보안 경고** 를 제공하기 위한 것입니다. 이 페이지에 나와 있는 것처럼 다양한 이점이 있습니다([적응형 애플리케이션 제어의 이점은 무엇인가요?](#what-are-the-benefits-of-adaptive-application-controls)).
 
-### <a name="why-do-i-see-a-qualys-app-in-my-recommendeded-applications"></a>내 권장 애플리케이션에 Qualys 앱이 표시되는 이유가 무엇인가요?
+### <a name="why-do-i-see-a-qualys-app-in-my-recommended-applications"></a>내 권장 애플리케이션에 Qualys 앱이 표시되는 이유는 무엇인가요?
 [서버용 Azure Defender](defender-for-servers-introduction.md)에서는 추가 비용 없이 컴퓨터의 취약성을 검사합니다. Qualys 라이선스 또는 Qualys 계정이 필요하지 않습니다. 모든 항목이 Security Center 내에서 원활하게 처리됩니다. 이 검사기에 대한 자세한 내용 및 배포 방법에 대한 지침은 [Defender의 통합 취약성 평가 솔루션](deploy-vulnerability-assessment-vm.md)을 참조하세요.
 
 Security Center에서 검사기를 배포할 때 경고가 생성되지 않도록 하기 위해 적응형 애플리케이션 제어 권장 허용 목록에는 모든 컴퓨터에 대한 검사기가 포함되어 있습니다. 

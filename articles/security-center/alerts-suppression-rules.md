@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 646495597565bbb033ac3adaa15f3754f33e8fd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d6a9ca83060c074740985b87af841bfa4be17f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634171"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528380"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Azure Defender의 경고 표시 안 함
 
@@ -26,7 +26,7 @@ ms.locfileid: "100634171"
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free<br>(대부분의 보안 경고는 Azure Defender에서만 사용할 수 있습니다.)|
 |필요한 역할 및 권한:|**보안 관리자** 및 **소유자** 는 규칙을 만들거나 삭제할 수 있습니다.<br>**보안 읽기 권한자** 및 **읽기 권한자** 는 규칙을 볼 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
 
@@ -45,7 +45,7 @@ ms.locfileid: "100634171"
 > [!CAUTION]
 > 보안 경고를 표시하지 않으면 Azure Defender의 위협 방지 기능이 약화됩니다. 중복된 경고 제거 규칙의 잠재적인 영향을 신중하게 확인하고 오랜 시간 동안 모니터링해야 합니다.
 
-:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="중복된 경고 제거 규칙 만들기":::
+:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="경고 제거 규칙 만들기":::
 
 ## <a name="create-a-suppression-rule"></a>제거 규칙 만들기
 
@@ -64,7 +64,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 
     - 또는 페이지 맨 위에 있는 **중복된 경고 제거 규칙** 링크를 선택하고, 중복된 경고 제거 규칙 페이지에서 **새 중복된 경고 제거 규칙 만들기** 를 선택합니다.
 
-        ![새 중복된 경고 제거 규칙 만들기** 단추](media/alerts-suppression-rules/create-new-suppression-rule.png)
+        ![새 제거 규칙 만들기** 단추](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
 1. 새 중복된 경고 제거 규칙 창에서 새 규칙의 세부 정보를 입력합니다.
     - 규칙은 **모든 리소스** 에 대한 경고를 해제할 수 있으므로 나중에 이와 같은 경고가 표시되지 않습니다.     
@@ -73,7 +73,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
     > [!TIP]
     > 특정 경고에서 새 규칙 페이지를 열면 새 규칙에 경고 및 구독이 자동으로 구성됩니다. **새 중복된 경고 규칙 만들기** 링크를 사용하면 선택한 구독이 포털의 현재 필터와 일치하게 됩니다.
 
-    [![중복된 경고 제거 규칙 만들기 창](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
+    [![제거 규칙 만들기 창](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 1. 규칙의 세부 정보를 입력합니다.
     - **이름** - 규칙의 이름입니다. 규칙 이름은 문자 또는 숫자로 시작하고 2-50자 사이여야 하며 대시(-) 또는 밑줄(_) 이외의 기호를 포함하지 않아야 합니다. 
     - **상태** - '사용' 또는 '사용 안 함'입니다.
@@ -90,7 +90,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 1. Security Center의 보안 경고 페이지에서 페이지 맨 위에 있는 **중복된 경고 제거 규칙** 링크를 선택합니다.
 1. 선택한 구독에 대한 모든 규칙을 포함하는 중복된 경고 제거 규칙 페이지가 열립니다.
 
-    [![중복된 경고 제거 규칙 목록](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
+    [![제거 규칙 목록](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
 1. 단일 규칙을 편집하려면 규칙에 대한 줄임표 메뉴(...)를 열고 **편집** 을 선택합니다.
 1. 필요한 부분을 변경하고 **적용** 을 선택합니다. 
@@ -103,7 +103,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 1. 선택한 구독에 대한 모든 규칙을 포함하는 중복된 경고 제거 규칙 페이지가 열립니다.
 1. 단일 규칙을 삭제하려면 규칙에 대한 줄임표 메뉴(...)를 열고 **삭제** 를 선택합니다.
 1. 여러 규칙을 삭제하려면 삭제할 규칙의 확인란을 선택하고 **삭제** 를 선택합니다.
-    ![하나 이상의 중복된 경고 제거 규칙 삭제](media/alerts-suppression-rules/delete-multiple-alerts.png)
+    ![하나 이상의 제거 규칙 삭제](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>API를 사용하여 중복된 경고 제거 규칙 만들기 및 관리
 

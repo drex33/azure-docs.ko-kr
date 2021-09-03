@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: pafarley
-ms.openlocfilehash: 195beaaae2925ce9cc6e7cc70bd0415ded49f155
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: d5a1da6bbe251e6200cd3a64117748e9ebbfae2a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166706"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298118"
 ---
 # <a name="call-the-read-api"></a>읽기 API 호출
 
@@ -24,6 +24,8 @@ ms.locfileid: "108166706"
 이 가이드에서는 사용자가 이미 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스를 생성"  target="_blank">Computer Vision 리소스를 생성했으며 </a> 구독 키와 엔드포인트 URL을 획득했다고 가정합니다. 아직 시작하지 않았다면 [빠른 시작](../quickstarts-sdk/client-library.md)을 따라 시작하세요.
 
 ## <a name="submit-data-to-the-service"></a>서비스에 데이터 제출
+
+읽기 API에 로컬 이미지 또는 원격 이미지를 제출합니다. 로컬의 경우 HTTP 요청 본문에 이진 이미지 데이터를 저장합니다. 원격의 경우 `{"url":"http://example.com/images/test.jpg"}` 같이 요청 본문의 형식을 지정하여 이미지의 URL을 지정합니다.
 
 Read API의 [Read 호출](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)은 이미지 또는 PDF 문서를 입력으로 사용하고 텍스트를 비동기적으로 추출합니다.
 

@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: esarroyo
-ms.openlocfilehash: 769db1b447c6f5ce31a1ed23ddf5d7ef973bcad5
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: 9f863760130b0748405cb30d4257864482b679f0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112553147"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106242"
 ---
 # <a name="troubleshoot-issues-with-diagnostics-queries"></a>진단 쿼리 관련 문제 해결
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 **AzureDiagnostics(레거시)** 및 **리소스 관련(미리 보기)** 테이블로 전송된 진단 로그를 사용하여 Azure Cosmos DB 계정 관련 문제 해결에 도움이 되는 간단한 쿼리를 작성하는 방법을 설명합니다.
 

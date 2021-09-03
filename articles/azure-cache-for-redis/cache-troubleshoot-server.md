@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: b0a912a3023ba6d8504d5856d5a45a93d0dc9488
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: a3eb35ada01612d3a3298b1899d3e9fb7101684b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809403"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528687"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Azure Cache for Redis 서버 쪽 문제 해결
 
@@ -42,10 +42,11 @@ Redis는 이러한 문제를 식별하는 데 도움을 주는 [INFO](https://re
 - 크게 캐시된 개체를 더 작은 관련 개체로 분할합니다.
 - 사용 중인 메모리와 같은 메트릭에 대한 [경고를 생성](cache-how-to-monitor.md#alerts)하여 잠재적인 영향에 대해 조기에 알림을 받을 수 있습니다.
 - 더 많은 메모리 용량을 사용하여 더 큰 캐시 크기로 [조정합니다](cache-how-to-scale.md).
+- 더 많은 메모리 용량을 사용하여 더 큰 캐시 크기로 [조정합니다](cache-how-to-scale.md). 자세한 내용은 [Azure Cache for Redis 계획 FAQ](./cache-planning-faq.yml)를 참조하세요.
 
 ## <a name="high-cpu-usage-or-server-load"></a>높은 CPU 사용량 또는 서버 부하
 
-서버 부하 또는 CPU 사용량이 높으면 서버가 요청을 적시에 처리할 수 없음을 의미합니다. 서버의 응답 속도가 느려지고 요청 속도를 따라갈 수 없습니다.
+서버 부하 또는 CPU 사용량이 높으면 서버가 요청을 적시에 처리할 수 없음을 의미합니다. 서버의 응답 속도가 느려지고 요청 속도를 따라가지 못할 수 있습니다.
 
 CPU 또는 서버 부하와 같은 [메트릭을 모니터링합니다](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer). CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다.
 
@@ -53,11 +54,11 @@ CPU 또는 서버 부하와 같은 [메트릭을 모니터링합니다](cache-ho
 
 - 아래에 명시된 [장기 실행 명령](#long-running-commands) 또는 상위 메모리 압력으로 인한 페이지 폴트와 같은 CPU 급증 원인을 조사하십시오.
 - CPU 또는 서버 부하와 같은 메트릭에 대한 [경고를 생성](cache-how-to-monitor.md#alerts)하여 잠재적인 영향에 대해 조기에 알림을 받을 수 있습니다.
-- 더 많은 CPU 용량을 사용하여 더 큰 캐시 크기로 [조정합니다](cache-how-to-scale.md).
+- 더 많은 분할된 데이터베이스로 [스케일 아웃](cache-how-to-scale.md)하여 여러 Redis 프로세스에 부하를 분산하거나, 더 많은 CPU 코어가 있는 대규모 캐시 크기로 스케일 업합니다. 자세한 내용은 [Azure Cache for Redis 계획 FAQ](./cache-planning-faq.yml)를 참조하세요.
 
 ## <a name="long-running-commands"></a>장기 실행 명령
 
-일부 Redis 명령 실행은 다른 명령에 비해 비용이 많이 듭니다. [Redis 명령 설명서](https://redis.io/commands)는 각 명령의 시간 복잡성을 보여 줍니다. Redis 명령 처리는 단일 스레드이므로, 실행 시간이 필요한 명령은 그 다음에 오는 다른 모든 명령을 차단합니다. Redis 서버에 발급하는 명령을 검토하여 성능 영향을 이해해야 합니다. 예를 들어, [KEYS](https://redis.io/commands/keys) 명령은 O(N) 작업이라고 알지 못해도 자주 사용됩니다. [SCAN](https://redis.io/commands/scan)을 사용하여 CPU 급증을 줄이는 KEYS를 방지할 수 있습니다.
+일부 Redis 명령 실행은 다른 명령에 비해 비용이 많이 듭니다. [Redis 명령 설명서](https://redis.io/commands)는 각 명령의 시간 복잡성을 보여 줍니다. Redis 명령 처리는 단일 스레드이므로, 실행하는 데 시간이 걸리는 명령은 그 다음에 오는 다른 모든 명령을 차단합니다. Redis 서버에 실행하는 명령을 검토하여 성능에 미치는 영향을 파악합니다. 예를 들어, [KEYS](https://redis.io/commands/keys) 명령은 O(N) 작업이라고 알지 못해도 자주 사용됩니다. [SCAN](https://redis.io/commands/scan)을 사용하여 CPU 급증을 줄이는 KEYS를 방지할 수 있습니다.
 
 [SLOWLOG](https://redis.io/commands/slowlog) 명령을 사용하여 서버에 대해 실행되는 비용이 많이 드는 명령을 측정할 수 있습니다.
 
@@ -71,12 +72,12 @@ CPU 또는 서버 부하와 같은 [메트릭을 모니터링합니다](cache-ho
 
 - 네트워크 수요를 줄이기 위해 클라이언트 호출 동작을 변경합니다.
 - 캐시 읽기 또는 캐시 쓰기와 같은 메트릭에 잠재적 영향을 초기에 알리도록 [경고를 만듭니다](cache-how-to-monitor.md#alerts).
-- 더 많은 네트워크 대역폭 용량을 사용하여 더 큰 캐시 크기로 [조정합니다](cache-how-to-scale.md).
+- 더 많은 네트워크 대역폭 용량을 사용하여 더 큰 캐시 크기로 [조정합니다](cache-how-to-scale.md). 자세한 내용은 [Azure Cache for Redis 계획 FAQ](./cache-planning-faq.yml)를 참조하세요.
 
 ## <a name="additional-information"></a>추가 정보
 
 - [Azure Cache for Redis 클라이언트 쪽 문제 해결](cache-troubleshoot-client.md)
 - [올바른 계층 선택](cache-overview.md#choosing-the-right-tier)
-- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
 - [Azure Cache for Redis를 모니터링하는 방법](cache-how-to-monitor.md)
-- [어떻게 Redis 명령을 실행할 수 있나요?](cache-development-faq.md#how-can-i-run-redis-commands)
+- [어떻게 Redis 명령을 실행할 수 있나요?](cache-development-faq.yml#how-can-i-run-redis-commands-)

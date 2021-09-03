@@ -1,67 +1,56 @@
 ---
-title: Azure SQL 데이터 검색
+title: Azure SQL의 데이터 인덱싱
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에서 전체 텍스트 검색을 위해 인덱서를 사용하여 Azure SQL Database 또는 SQL Managed Instance에서 데이터를 가져옵니다. 이 문서에서는 연결, 인덱서 구성 및 데이터 수집에 대해 설명합니다.
+description: Azure Cognitive Search에서 전체 텍스트 검색을 위해 콘텐츠와 메타데이터의 인덱싱을 자동화하도록 Azure SQL 인덱서를 설정합니다.
 manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/26/2021
+ms.openlocfilehash: 27cebeb9eaff63d9acb7976cac5a8837cca5e702
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358629"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983287"
 ---
-# <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Azure Cognitive Search 인덱서를 사용하여 Azure SQL 콘텐츠에 연결 및 인덱싱
+# <a name="index-data-from-azure-sql"></a>Azure SQL의 데이터 인덱싱
 
-[Azure Cognitive Search 인덱스](search-what-is-an-index.md)를 쿼리하기 전에 데이터를 채워야 합니다. 데이터가 Azure SQL Database 또는 SQL Managed Instance에 있는 경우 **Azure SQL Database용 Azure Cognitive Search 인덱서**(또는 줄여서 **Azure SQL 인덱서**)가 인덱싱 프로세스를 자동화할 수 있으므로 작성할 코드의 양과 신경 써야 할 인프라가 줄어듭니다.
+이 문서에서는 콘텐츠를 추출하고 Azure Cognitive Search에서 검색할 수 있도록 Azure SQL 인덱서를 구성하는 방법을 보여 줍니다. 이 워크플로는 Azure Cognitive Search에 대한 검색 인덱스를 만들고 Azure SQL Database와 Azure SQL Managed Instance에서 추출한 기존 콘텐츠와 함께 로드합니다.
 
-이 문서에서는 [인덱서](search-indexer-overview.md) 사용 원리를 다루지만 Azure SQL Database 또는 SQL Managed Instance에서만 사용할 수 있는 기능(예: 통합 변경 내용 추적)에 대해서도 설명합니다. 
+이 문서에서는 [인덱서](search-indexer-overview.md) 사용 원리를 다루지만 Azure SQL Database 또는 SQL Managed Instance에서만 사용할 수 있는 기능(예: 통합 변경 내용 추적)에 대해서도 설명합니다.
 
-Azure SQL Database와 SQL Managed Instance 외에도 Azure Cognitive Search는 [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) 및 [Azure Table Storage](search-howto-indexing-azure-tables.md)에 대한 인덱서를 제공합니다. 다른 데이터 원본에 대한 지원을 요청하려면 [Azure Cognitive Search 피드백 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 의견을 남겨 주시기 바랍니다.
+다음 클라이언트를 사용하여 Azure SQL 인덱서를 설정할 수 있습니다.
 
-## <a name="indexers-and-data-sources"></a>인덱서 및 데이터 원본
-
-**데이터 원본** 은 인덱싱할 데이터, 데이터 액세스를 위한 자격 증명 및 데이터 변경 내용(예: 수정되거나 삭제된 행)을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다. 이는 독립된 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
-
-**인덱서** 는 단일 데이터 원본을 대상 검색 인덱스에 연결하는 리소스입니다. 인덱서는 다음과 같은 방법으로 사용됩니다.
-
-* 인덱스를 채우기 위해 데이터에 대한 일회성 복사를 수행합니다.
-* 예약에 따라 데이터 원본의 변경 내용으로 인덱스를 업데이트합니다.
-* 필요에 따라 요청 시 인덱스 업데이트를 실행합니다.
-
-단일 인덱서는 테이블 또는 뷰를 하나만 사용할 수 있지만 여러 검색 인덱스를 채우려는 경우 여러 인덱서를 만들 수 있습니다. 개념에 대한 자세한 내용은 [인덱서 작업: 일반적인 워크플로](/rest/api/searchservice/Indexer-operations#typical-workflow)를 참조하세요.
-
-다음을 사용하여 Azure SQL 인덱서를 설정하고 구성할 수 있습니다.
-
-* [Azure Portal](https://portal.azure.com)의 데이터 가져오기 마법사
+* [Azure Portal](https://ms.portal.azure.com)
+* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
 * Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
-* Azure Cognitive Search [REST API](/rest/api/searchservice/indexer-operations)
 
-이 문서에서는 REST API를 사용하여 **인덱서** 및 **데이터 원본** 을 만듭니다.
+이 문서에서는 REST API를 사용합니다. 
 
-## <a name="when-to-use-azure-sql-indexer"></a>Azure SQL 인덱서를 사용하는 경우
-데이터와 관련된 여러 요소에 따라 Azure SQL 인덱서를 사용하는 것이 적절할 수도 있고 그렇지 않을 수도 있습니다. 데이터가 다음 요구 사항에 적합한 경우 Azure SQL 인덱서를 사용할 수 있습니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
-| 조건 | 세부 정보 |
-|----------|---------|
-| 단일 테이블 또는 뷰에서 발생한 데이터 | 데이터가 여러 테이블에 분산된 경우 데이터에 대한 단일 뷰를 만들 수 있습니다. 그러나 뷰를 사용하는 경우 증분 변경 내용으로 인덱스를 새로 고치는 데 SQL Server 통합 변경 검색을 사용할 수 없습니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요. |
-| 호환되는 데이터 형식 | Azure Cognitive Search 인덱스에서는 전부는 아니지만 대부분의 SQL 형식이 지원됩니다. 목록은 [데이터 형식 매핑](#TypeMapping)을 참조하세요. |
-| 실시간 데이터 동기화가 필요하지 않습니다. | 인덱서는 최대 5분마다 테이블을 다시 인덱싱할 수 있습니다. 데이터가 자주 변경되고 변경 내용을 몇 초 또는 몇 분 이내에 인덱스에 반영해야 하는 경우에는 [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) 또는 [.NET SDK](./search-get-started-dotnet.md)를 사용하여 업데이트된 행을 직접 푸시하는 것이 좋습니다. |
-| 증분 인덱싱 가능 | 데이터 집합이 크고 일정에 따라 인덱서를 실행하려는 경우 Azure Cognitive Search에서 새 행, 변경된 행 및 삭제된 행을 효율적으로 식별할 수 있어야 합니다. 비-증분 인덱싱은 주문 시(일정을 따르지 않고) 인덱싱하거나 100,000 미만의 행을 인덱싱하는 경우에만 허용됩니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요. |
+* 데이터는 단일 테이블이나 뷰에서 시작됩니다. 데이터가 여러 테이블에 분산된 경우 데이터에 대한 단일 뷰를 만들 수 있습니다. 뷰 사용의 단점은 증분 변경 내용으로 인덱스를 새로 고치는 데 SQL Server 통합 변경 검색을 사용할 수 없다는 것입니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요.
 
-> [!NOTE] 
-> Azure Cognitive Search는 SQL Server 인증만 지원합니다. Azure Active Directory 암호 인증에 대한 지원이 필요한 경우 이 [UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica)에 투표하세요.
+* 데이터 형식이 호환되어야 합니다. 검색 인덱스에서는 전부는 아니지만 대부분의 SQL 형식이 지원됩니다. 목록은 [데이터 형식 매핑](#TypeMapping)을 참조하세요.
+
+* SQL Managed Instance에는 퍼블릭 엔드포인트를 통해 연결되어야 합니다. 자세한 내용은 [퍼블릭 엔드포인트를 통한 인덱서 연결](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)을 참조하세요.
+
+* Azure 가상 머신에서 SQL Server에 연결하려면 보안 인증서를 수동으로 설정해야 합니다. 자세한 내용은 [Azure VM의 SQL Server에 대한 인덱서 연결](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)을 참조하세요.
+
+실시간 데이터 동기화는 애플리케이션 요구 사항이 아니어야 합니다. 인덱서는 최대 5분마다 테이블을 다시 인덱싱할 수 있습니다. 데이터가 자주 변경되고 해당 변경 내용을 몇 초 또는 몇 분 이내에 인덱스에 반영해야 하는 경우에는 [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) 또는 [.NET SDK](search-get-started-dotnet.md)를 사용하여 업데이트된 행을 직접 푸시하는 것이 좋습니다.
+
+증분 인덱싱이 가능합니다. 데이터 집합이 크고 일정에 따라 인덱서를 실행하려는 경우 Azure Cognitive Search에서 새 행, 변경된 행 및 삭제된 행을 효율적으로 식별할 수 있어야 합니다. 비-증분 인덱싱은 주문 시(일정을 따르지 않고) 인덱싱하거나 100,000 미만의 행을 인덱싱하는 경우에만 허용됩니다. 자세한 내용은 아래의 [변경 및 삭제된 행 캡처](#CaptureChangedRows)를 참조하세요.
+
+Azure Cognitive Search는 연결 문자열에 사용자 이름과 암호가 제공되는 SQL Server 인증을 지원합니다. 또는 관리 ID를 설정하고 Azure 역할을 사용하여 연결 시 자격 증명을 생략할 수 있습니다. 자세한 내용은 [관리 ID를 사용하여 인덱서 연결 설정](search-howto-managed-identities-sql.md)을 참조하세요.
 
 ## <a name="create-an-azure-sql-indexer"></a>Azure SQL 인덱서 만들기
 
 1. 데이터 원본을 만듭니다.
 
-   ```
+   ```http
     POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
@@ -82,7 +71,7 @@ Azure SQL Database와 SQL Managed Instance 외에도 Azure Cognitive Search는 [
 
 3. 이름을 지정하고 데이터 원본 및 대상 인덱스를 참조하여 인덱서는 만듭니다.
 
-   ```
+   ```http
     POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
@@ -96,7 +85,7 @@ Azure SQL Database와 SQL Managed Instance 외에도 Azure Cognitive Search는 [
 
 이 방법으로 만든 인덱서에는 일정이 없습니다. 만들어지면 자동으로 한 번 실행됩니다. 언제든지 **run indexer** 요청을 사용하여 다시 실행할 수 있습니다.
 
-```
+```http
     POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2020-06-30
     api-key: admin-key
 ```
@@ -107,16 +96,16 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 
 인덱서 상태 및 실행 기록(인덱싱된 항목 수, 오류 등)을 모니터링하려면 **indexer status** 요청을 사용합니다.
 
-```
+```http
     GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
     api-key: admin-key
 ```
 
 응답은 다음과 같아야 합니다.
 
-```
+```json
     {
-        "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
+        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
         "lastResult": {
             "status":"success",
@@ -151,9 +140,10 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 응답에 대한 추가 정보는 [인덱서 상태 가져오기](/rest/api/searchservice/get-indexer-status)에서 확인할 수 있습니다.
 
 ## <a name="run-indexers-on-a-schedule"></a>일정에 따라 인덱서 실행
+
 일정에 따라 주기적으로 실행되도록 인덱서를 정렬할 수도 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 추가합니다. 아래 예제에서는 인덱서를 업데이트하는 PUT 요청을 보여 줍니다.
 
-```
+```http
     PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
@@ -176,6 +166,7 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 Azure Cognitive Search는 **증분 인덱싱** 을 사용하여 전체 테이블을 다시 인덱싱하거나 인덱서가 실행될 때마다 표시될 필요가 없도록 합니다. Azure Cognitive Search는 증분 인덱싱을 지원하는 두 가지 변경 검색 정책을 제공합니다. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>SQL 통합 변경 내용 추적 정책
+
 SQL 데이터베이스에서 [변경 내용 추적](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 지원하는 경우 **SQL 통합 변경 내용 추적 정책** 을 사용하는 것이 좋습니다. 가장 효율적인 정책입니다. 또한 테이블에 "일시 삭제" 열을 명시적으로 추가하지 않고도 Azure Cognitive Search에서 삭제된 행을 식별할 수 있습니다.
 
 #### <a name="requirements"></a>요구 사항 

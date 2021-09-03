@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/23/2021
 ms.author: duau
-ms.openlocfilehash: 62f51922399a300b9ed803c3ee2d380dcab615b8
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 672fac2b33ef1d8fd9be1948d0c7da332f8ce43b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987527"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566644"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>ExpressRoute 가상 네트워크 게이트웨이 정보
 
@@ -31,23 +31,50 @@ ExpressRoute를 통해 Azure 가상 네트워크와 온-프레미스 네트워�
 ## <a name="gateway-skus"></a><a name="gwsku"></a>게이트웨이 SKU
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-게이트웨이를 보다 강력한 게이트웨이 SKU로 업그레이드하려면 대부분의 경우 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet'을 사용하면 됩니다. 표준 및 고성능 SKU로 업그레이드하는 경우에 가능합니다. 하지만 초고성능 SKU로 업그레이드하려면 게이트웨이를 다시 만들어야 합니다. 게이트웨이를 다시 만들면 가동 중지 시간이 발생합니다.
+게이트웨이를 보다 강력한 게이트웨이 SKU로 업그레이드하려면 대부분의 경우 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet'을 사용하면 됩니다. 표준 및 고성능 SKU로 업그레이드하는 경우에 가능합니다. 그러나 비AZ(가용성 영역) 게이트웨이를 UltraPerformance SKU로 업그레이드하려면 게이트웨이를 다시 만들어야 합니다. 게이트웨이를 다시 만들면 가동 중지 시간이 발생합니다. AZ 지원 SKU를 업그레이드하기 위해 게이트웨이를 삭제하고 다시 만들 필요가 없습니다.
+### <a name="feature-support-by-gateway-sku"></a><a name="gatewayfeaturesupport"></a>게이트웨이 SKU별 지원 기능
+다음 표는 각 게이트웨이 유형에서 지원되는 기능을 보여 줍니다.
+
+|**게이트웨이 SKU**|**VPN Gateway 및 ExpressRoute 공존**|**FastPath**|**회로 연결의 최대 수**|
+| --- | --- | --- | --- |
+|**Standard SKU/ERGw1Az**|예|예|4|
+|**고성능 SKU/ERGw2Az**|예|예|8
+|**Ultra Performance SKU/ErGw3Az**|예|예|16
 
 ### <a name="estimated-performances-by-gateway-sku"></a><a name="aggthroughput"></a>게이트웨이 SKU에서 예상된 성능
-다음 표에서는 게이트웨이 형식과 예상된 성능을 보여줍니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
+다음 표에서는 게이트웨이 형식과 예상된 성능 크기 조정 수를 보여 줍니다. 이 숫자는 다음 테스트 조건에서 파생되었으며 최대 지원 한계를 나타냅니다. 실제 성능은 트래픽이 테스트 조건을 얼마나 근접하게 복제하는지에 따라 다를 수 있습니다.
+
+### <a name="testing-conditions"></a>테스트 조건
+##### <a name="standardergw1az"></a>**Standard/ERGw1Az** #####
+
+- 회로 대역폭: 1Gbps
+- 게이트웨이에서 보급하는 경로 수: 500
+- 학습된 경로 수: 4,000
+##### <a name="high-performanceergw2az"></a>**고성능/ERGw2Az** #####
+
+- 회로 대역폭: 1Gbps
+- 게이트웨이에서 보급하는 경로 수: 500
+- 학습된 경로 수: 9,500
+##### <a name="ultra-performanceergw3az"></a>**Ultra Performance/ErGw3Az** #####
+
+- 회로 대역폭: 1Gbps
+- 게이트웨이에서 보급하는 경로 수: 500
+- 학습된 경로 수: 9,500
+
+ 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
+ 
+|**게이트웨이 SKU**|**초당 연결**|**초당 메가비트**|**초당 패킷 수**|**가상 네트워크의 지원되는 VM 수**|
+| --- | --- | --- | --- | --- |
+|**Standard/ERGw1Az**|7,000|1,000|100,000|2,000|
+|**고성능/ERGw2Az**|14,000|2,000|250,000|4,500|
+|**Ultra Performance/ErGw3Az**|16,000|10000|1,000,000|11,000|
 
 > [!IMPORTANT]
 > 애플리케이션 성능은 엔드투엔드 대기 시간 및 애플리케이션을 여는 트래픽 흐름 수와 같은 여러 요인에 따라 달라집니다. 테이블의 숫자는 이상적인 환경에서 애플리케이션이 이론상 수행할 수 있는 상한값을 나타냅니다.
->
->
 
-> [!NOTE]
+>[!NOTE]
 > 동일한 가상 네트워크에 연결할 수 있는 동일한 피어링 위치에서의 최대 ExpressRoute 회로 수는 모든 게이트웨이에 대해 4개입니다.
 >
->
-
-[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
-
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>게이트웨이 서브넷
 

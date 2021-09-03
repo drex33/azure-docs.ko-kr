@@ -2,19 +2,18 @@
 title: DPM 및 MABS에 대해 Azure Data Box를 사용한 오프라인 백업
 description: Azure Data Box를 사용하여 DPM 및 MABS에서 초기 백업 데이터를 오프라인으로 시드할 수 있습니다.
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/29/2021
+ms.openlocfilehash: 568baf7351555511b58dba59bec404688a646126
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96752552"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528451"
 ---
-# <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>DPM 및 MABS에 대해 Azure Data Box를 사용한 오프라인 시드(미리 보기)
+# <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs"></a>Azure Data Box를 사용하는, DPM과 MABS에 대한 오프라인 시드
 
 > [!NOTE]
-> 이 기능은 DPM(Data Protection Manager) 2019 UR2 이상에 적용됩니다.<br><br>
-> 이 기능은 현재 MABS(Microsoft Azure Backup Server)에 대한 미리 보기로 제공됩니다. MABS에서 오프라인 시드를 위해 Azure Data Box를 사용하는 데 관심이 있는 경우 [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com)으로 문의하세요.
+> 이 기능은 DPM(Data Protection Manager) 2019 UR2 이상과 MABS v3 UR2 이상에서 적용할 수 있습니다.
 
 이 문서에서는 Azure Data Box를 사용하여 DPM 및 MABS에서 초기 백업 데이터를 Azure Recovery Services 자격 증명 모음에 오프라인으로 시드하는 방법을 설명합니다.
 
@@ -217,9 +216,15 @@ DPM 서버의 MAB(Microsoft Azure Backup) 에이전트는 사용자 테넌트에
 
 #### <a name="step-1"></a>1단계
 
-오프라인 백업을 구성할 때 DPM/MABS 콘솔에 다음 오류 메시지가 표시되는지 확인합니다.
+오프라인 백업을 구성할 때 DPM/MABS 콘솔에 다음 오류 메시지 중 하나가 표시되는지 확인합니다.
 
-![Azure Recovery Services 에이전트](./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png)
+**이 서버의 인증 정보를 Azure로 업로드할 수 없기 때문에 현재 Azure 계정의 오프라인 백업 정책을 만들 수 없습니다. (ID: 100242)**
+
+:::image type="content" source="./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png" alt-text="Azure Recovery Services 에이전트.":::
+
+**가져오기 작업 상태를 쿼리하고 Recovery Services 자격 증명 모음으로 백업 데이터를 이동하는 데 필요한 Azure에 대한 서비스 호출을 수행할 수 없습니다. (ID:100230)**
+
+:::image type="content" source="./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent-error-screen.png" alt-text="Azure Recovery Services 에이전트의 오류 화면 스크린샷.":::
 
 #### <a name="step-2"></a>2단계
 

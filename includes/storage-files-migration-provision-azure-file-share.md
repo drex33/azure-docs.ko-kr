@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: 532ac3b60f90a3d587a57ad8ea9663a6cfad3d90
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: c1fda4eb853e97b7a5b85beebe162ab3869e4a68
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109644943"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "113799164"
 ---
 Azure 파일 공유는 Azure 스토리지 계정의 클라우드에 저장됩니다.
 다른 수준의 성능 고려 사항이 여기에 적용됩니다.
@@ -32,9 +32,9 @@ Azure 파일 공유는 Azure 스토리지 계정의 클라우드에 저장됩니
 각 스토리지 계정의 지역이 동일하고 이미 배포한 Storage Sync Service 리소스의 지역과 일치해야 합니다.
 
 > [!CAUTION]
-> 100TiB 제한이 있는 Azure 파일 공유를 만드는 경우 해당 공유는 로컬 중복 스토리지 또는 영역 중복 스토리지 중복 옵션만 사용할 수 있습니다. 100TiB 파일 공유를 사용하려면 먼저 스토리지 중복도 요구 사항을 고려하세요.
+> 100TiB 한도가 있는 Azure 파일 공유를 만드는 경우 해당 공유는 로컬 중복 스토리지 또는 영역 중복 스토리지 중복 옵션만 사용할 수 있습니다. 100TiB 파일 공유를 사용하려면 먼저 스토리지 중복도 요구 사항을 고려하세요.
 
-Azure 파일 공유는 기본적으로 여전히 5TiB 한도로 생성됩니다. 새 스토리지 계정을 만드는 중이므로 [100TiB 제한으로 Azure 파일 공유를 허용하는 스토리지 계정 만들기 참고 자료](../articles/storage/files/storage-files-how-to-create-large-file-share.md)를 따라야 합니다.
+Azure 파일 공유는 기본적으로 여전히 5TiB 한도로 생성됩니다. [Azure 파일 공유 만들기](../articles/storage/files/storage-how-to-create-file-share.md)의 단계에 따라 대량 파일 공유를 만듭니다.
 
 스토리지 계정을 배포할 때 또 다른 고려 사항은 Azure Storage의 중복도입니다. [Azure Storage 중복도 옵션](../articles/storage/common/storage-redundancy.md)을 참조하세요.
 

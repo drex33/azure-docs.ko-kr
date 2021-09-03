@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ba266c5a4ec5ffb84ee02e9c1904423f01d333e5
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: aca2e73b6abbdce6447034e14d0457958f1b800e
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670914"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112964503"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 TLS/SSL 인증서 문제 해결
 
@@ -35,14 +35,14 @@ TLS 바인딩을 추가하면 다음과 같은 오류 메시지가 표시됩니�
 
 #### <a name="cause"></a>원인
 
-여러 앱에서 동일한 IP 주소에 대한 IP 기반 SSL 바인딩이 여러 개 있는 경우 이 문제가 발생할 수 있습니다. 예를 들어 앱 A는 IP 기반 SSL과 기존 인증서를 사용합니다. 앱 B는 동일한 IP 주소에 IP 기반 SSL과 새 인증서를 사용합니다. 새 인증서로 앱 TLS 바인딩을 업데이트하면 다른 앱에 동일한 IP 주소가 사용되고 있기 때문에 이 오류 발생과 함께 작업이 실패합니다. 
+여러 앱에서 동일한 IP 주소에 대한 IP 기반 TLS/SSL 바인딩이 여러 개 있는 경우 이 문제가 발생할 수 있습니다. 예를 들어, 앱 A는 이전 인증서를 사용하는 IP 기반 TLS/SSL 바인딩이 있습니다. 앱 B에는 동일한 IP 주소의 새 인증서를 사용하는 IP 기반 TLS/SSL 바인딩이 있습니다. 새 인증서로 앱 TLS 바인딩을 업데이트하면 다른 앱에 동일한 IP 주소가 사용되고 있기 때문에 이 오류 발생과 함께 작업이 실패합니다. 
 
-#### <a name="solution"></a>해결 방법 
+#### <a name="solution"></a>솔루션 
 
 이 문제를 해결하려면 다음 방법 중 하나를 사용합니다.
 
-- 기존 인증서를 사용하는 앱에서 IP 기반 SSL 바인딩을 삭제합니다. 
-- 새 인증서를 사용하는 새 IP 기반 SSL 바인딩을 만듭니다.
+- 이전 인증서를 사용하는 앱에서 IP 기반 TLS/SSL 바인딩을 삭제합니다. 
+- 새 인증서를 사용하는 새 IP 기반 TLS/SSL 바인딩을 만듭니다.
 
 ### <a name="you-cant-delete-a-certificate"></a>인증서를 삭제할 수 없음 
 
@@ -56,7 +56,7 @@ TLS 바인딩을 추가하면 다음과 같은 오류 메시지가 표시됩니�
 
 다른 앱에서 인증서를 사용하는 경우 이 문제가 발생할 수 있습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 해당 인증서의 TLS 바인딩을 앱에서 제거합니다. 그 후 인증서를 삭제해 봅니다. 여전히 인증서를 삭제할 수 없으면 인터넷 브라우저 캐시를 지우고, 새 브라우저 창에서 Azure Portal을 다시 엽니다. 그 후 인증서를 삭제해 봅니다.
 
@@ -127,7 +127,7 @@ Azure Portal에서 [Azure App Service 인증서](./configure-ssl-certificate.md#
 
 앱에 새 호스트 이름을 추가하여 하위 도메인을 할당할 수 없습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 - 구독 관리자에게 문의하여 앱에 호스트 이름을 추가할 권한을 갖고 있는지 확인합니다.
 - 더 많은 하위 도메인이 필요한 경우 도메인 호스팅을 Azure Domain Name Service(DNS)로 변경하는 것이 좋습니다. Azure DNS를 사용하여 앱에 호스트 이름 500개를 추가할 수 있습니다. 자세한 내용은 [하위 도메인 추가](/archive/blogs/waws/mapping-a-custom-subdomain-to-an-azure-website)를 참조하세요.
@@ -146,7 +146,7 @@ Azure Portal에서 [Azure App Service 인증서](./configure-ssl-certificate.md#
 - TTL(Time to Live)이 만료되지 않았습니다. 도메인의 DNS 구성을 검사하여 TTL 값을 확인한 다음, 기간이 만료될 때까지 기다립니다.
 - DNS 구성이 올바르지 않습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 - 이 문제가 스스로 해결될 때까지 48시간 동안 기다립니다.
 - DNS 구성에서 TTL 설정을 변경할 수 있는 경우 값을 5분으로 변경하고 문제가 해결되는지 확인합니다.
 - [WhatsmyDNS.net](https://www.whatsmydns.net/)을 사용하여 도메인이 앱의 IP 주소를 가리키는지 확인합니다. 가리키지 않으면 A 레코드를 앱의 올바른 IP 주소로 구성합니다.
@@ -159,7 +159,7 @@ Azure Portal에서 [Azure App Service 인증서](./configure-ssl-certificate.md#
 #### <a name="cause"></a>원인 
 구독 소유자가 실수로 도메인을 삭제했을 가능성이 있습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 도메인이 7일 이내에 삭제된 경우 도메인에서 아직 삭제 프로세스가 시작되지 않았습니다. 이 경우 동일한 구독에서 Azure Portal을 통해 동일한 도메인을 다시 구입할 수 있습니다. (검색 상자에 정확한 도메인 이름을 입력해야 합니다.) 이 도메인에 대한 요금이 다시 청구되지 않습니다. 도메인이 삭제된 지 7일 이상이 지난 경우 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하여 도메인 복원 관련 도움을 받으세요.
 
 ## <a name="domain-problems"></a>도메인 문제
@@ -170,7 +170,7 @@ Azure Portal에서 [Azure App Service 인증서](./configure-ssl-certificate.md#
 
 잘못된 도메인에 대한 App Service 인증서를 구입했습니다. 올바른 도메인을 사용하도록 인증서를 업데이트할 수 없습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 해당 인증서를 삭제하고 새 인증서를 구입합니다.
 
@@ -185,7 +185,7 @@ App Service 인증서가 갱신되었지만 App Service 인증서를 사용하�
 #### <a name="cause"></a>원인 
 App Service는 48시간 이내에 인증서를 자동으로 동기화합니다. 인증서를 회전하거나 업데이트해도 애플리케이션이 새로 업데이트된 인증서가 아닌 기존 인증서를 검색하는 경우가 가끔 있습니다. 인증서 리소스를 동기화하는 작업이 아직 실행되지 않았기 때문입니다. 동기화를 클릭하세요. 동기화 작업은 앱 가동 중지 시간 없이 App Service의 인증서에 대한 호스트 이름 바인딩을 자동으로 업데이트합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 인증서를 강제로 동기화하면 됩니다.
 
@@ -198,7 +198,7 @@ App Service는 48시간 이내에 인증서를 자동으로 동기화합니다. 
 #### <a name="symptom"></a>증상 
 App Service 인증서에서 도메인 확인을 거쳐야만 인증서를 사용할 수 있습니다. **확인** 을 선택하면 프로세스가 실패합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 TXT 레코드를 추가하여 수동으로 도메인을 확인합니다.
 
 1. 도메인 이름을 호스트하는 DNS(도메인 이름 서비스) 공급자로 이동합니다.

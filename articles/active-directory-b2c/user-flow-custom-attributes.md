@@ -7,27 +7,27 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 08/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 17c73257db371bbec0c72a23b1303847a8d14102
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 836802e65c8eb76f17bbf053e54ed9dbedf54049
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102607920"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536321"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 특성 정의
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-[사용자 지정 정책을 사용하여 클레임 추가 및 사용자 입력 사용자 지정](configure-user-input.md) 문서에서 기본 제공 [사용자 프로필 특성](user-profile-attributes.md)을 사용하는 방법을 알아봅니다. 이 문서에서는 Azure AD B2C(Azure Active Directory B2C) 디렉터리에서 사용자 지정 특성을 사용하도록 설정합니다. 나중에 [사용자 흐름](user-flow-overview.md)이나 [사용자 지정 정책](custom-policy-get-started.md)에서 새 특성을 사용자 지정 클레임으로 동시에 사용할 수 있습니다.
+[사용자 지정 정책을 사용하여 클레임 추가 및 사용자 입력 사용자 지정](configure-user-input.md) 문서에서 기본 제공 [사용자 프로필 특성](user-profile-attributes.md)을 사용하는 방법을 알아봅니다. 이 문서에서는 Azure AD B2C(Azure Active Directory B2C) 디렉터리에서 사용자 지정 특성을 사용하도록 설정합니다. 나중에 [사용자 흐름](user-flow-overview.md)이나 [사용자 지정 정책](user-flow-overview.md)에서 새 특성을 사용자 지정 클레임으로 동시에 사용할 수 있습니다.
 
 Azure AD B2C 디렉터리에는 [기본 제공 특성 집합](user-profile-attributes.md)이 함께 제공됩니다. 그러나 특정 시나리오를 관리하기 위해 고유한 특성을 만들어야 하는 경우가 많습니다. 예를 들면 다음과 같습니다.
 
-* 고객 대면 응용 프로그램은 **LoyaltyId** 특성을 유지해야 합니다.
+* 고객 대면 애플리케이션은 **loyaltyId** 특성을 유지해야 합니다.
 * ID 공급자에게는 고유한 사용자 ID **uniqueUserGUID** 가 있으며, 이를 유지해야 합니다.
 * 다른 논리가 계속 작동하려면 사용자 지정 사용자 경험에서 사용자의 상태인 **migrationStatus** 를 유지해야 합니다.
 
@@ -68,7 +68,24 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 
 ## <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C 확장 앱
 
-확장 특성은 사용자에 대한 데이터를 포함할 수 있더라도 응용 프로그램 개체에만 등록할 수 있습니다. 확장 특성은 `b2c-extensions-app`이라는 응용 프로그램에 연결됩니다. 이 애플리케이션은 사용자 데이터 저장을 위해 Azure AD B2C에서 사용하므로 수정하지 않습니다. 이 응용 프로그램은 Azure AD B2C 앱 등록 아래에서 확인할 수 있습니다. 응용 프로그램 속성을 가져옵니다.
+확장 특성은 사용자에 대한 데이터를 포함할 수 있더라도 응용 프로그램 개체에만 등록할 수 있습니다. 확장 특성은 `b2c-extensions-app`이라는 응용 프로그램에 연결됩니다. 이 애플리케이션은 사용자 데이터 저장을 위해 Azure AD B2C에서 사용하므로 수정하지 않습니다. 이 응용 프로그램은 Azure AD B2C 앱 등록 아래에서 확인할 수 있습니다. 
+
+::: zone pivot="b2c-user-flow"
+
+애플리케이션 ID를 가져오려면:
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **앱 등록** 을 선택하고 **모든 응용 프로그램** 을 선택합니다.
+1. `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` 애플리케이션을 선택합니다.
+1. **애플리케이션 ID** 를 복사합니다. 예: `11111111-1111-1111-1111-111111111111`.
+ 
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+응용 프로그램 속성을 가져옵니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
@@ -78,8 +95,6 @@ Azure AD B2C를 사용하면 각 사용자 계정에 저장된 특성 집합을 
 1. 다음 식별자를 클립보드에 복사하고 저장합니다.
     * **애플리케이션 ID**. 예: `11111111-1111-1111-1111-111111111111`.
     * **개체 ID** - 예: `22222222-2222-2222-2222-222222222222`.
-
-::: zone pivot="b2c-custom-policy"
 
 ## <a name="modify-your-custom-policy"></a>사용자 지정 정책 수정
 

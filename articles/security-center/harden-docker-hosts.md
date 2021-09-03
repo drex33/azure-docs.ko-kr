@@ -3,16 +3,16 @@ title: Azure Security Center를 사용하여 Docker 호스트 강화 및 컨테�
 description: Docker 호스트를 보호하고 CI Docker 벤치마크를 준수하는지 확인하는 방법
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 07/18/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b30e08a2739000d2a7ec14a95742f2654e1d2ea1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e421815fd962a62760c4d16106daa7f85fb1599
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98916237"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528548"
 ---
 # <a name="harden-your-docker-hosts"></a>Docker 호스트 강화
 
@@ -32,7 +32,7 @@ Security Center는 CIS Docker 벤치마크의 전체 규칙 세트를 포함하�
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
 |필요한 역할 및 권한:|호스트에서 연결하는 작업 영역에 대한 **판독기**|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Docker 구성에서 보안 취약성 식별 및 수정
@@ -43,18 +43,21 @@ Security Center는 CIS Docker 벤치마크의 전체 규칙 세트를 포함하�
 
     권장 사항 페이지는 영향을 받는 리소스(Docker 호스트)를 표시합니다. 
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-found.png" alt-text="컨테이너 보안 구성에서 취약성 수정 시 권장 사항":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-found.png" alt-text="컨테이너 보안 구성의 취약성을 수정하기 위한 권장 사항":::
+
+    > [!NOTE]
+    > Docker를 실행하지 않는 머신은 **해당되지 않는 리소스** 탭에 표시됩니다. Azure Policy에는 준수 상태로 표시됩니다. 
 
 1. 특정 호스트가 실패한 CIS 컨트롤을 보고 수정하려면 조사하려는 호스트를 선택합니다. 
 
     > [!TIP]
-    > 자산 인벤토리 페이지에서 시작하여 이 권장 사항에 도달한 경우 권장 사항 페이지의 **작업 수행** 단추를 선택합니다.
+    > 자산 인벤토리 페이지에서 시작하여 이 권장 사항에 도달한 경우 권장 사항 페이지에서 **작업 수행** 단추를 선택합니다.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="작업 단추를 사용하여 Log Analytics 시작":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Log Analytics를 시작하는 작업 수행 단추":::
 
     사용자 지정 작업을 실행할 준비가 되면 Log Analytics가 열립니다. 사용자 지정 쿼리 기본값은 문제를 해결하는 데 도움이 되는 지침과 함께 평가된 모든 실패한 규칙의 목록을 포함합니다.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="모든 실패한 CI 컨트롤을 표시하는 쿼리가 있는 Log Analytics 페이지":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="실패한 모든 CIS 컨트롤을 표시하는 쿼리가 있는 Log Analytics 페이지":::
 
 1. 필요한 경우 쿼리 매개 변수를 조정합니다.
 

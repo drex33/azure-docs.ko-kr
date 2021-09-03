@@ -5,25 +5,29 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8f0fb9ab5c53c3fd1bfb32ac7b112a116301cba7
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: bef6439ae51c6e15f7be997758acbbd3722ae4ff
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575346"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223263"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
 이 페이지에는 Azure Remote Rendering과 관련된 일반적인 문제와 해결 방법이 나열되어 있습니다.
 
+## <a name="client-cant-connect-to-server"></a>클라이언트가 서버에 연결할 수 없음
+
+방화벽(디바이스, 라우터 내 등)이 [시스템 요구 사항](../overview/system-requirements.md#network-firewall)에서 언급한 포트를 차단하지 않는지 확인합니다.
+
+## <a name="failed-to-load-model"></a>모델을 로드하지 못함
+
+Blob 구성이 올바르지만 모델 로드(예: Unity 샘플을 통해)에 실패하면 Blob Storage가 제대로 연결되지 않았을 수 있습니다. 이는 [스토리지 계정 연결](../how-tos/create-an-account.md#link-storage-accounts) 장에 설명되어 있습니다. 올바른 연결 후 변경 사항이 적용될 때까지 최대 30분이 소요될 수 있습니다.
+
 ## <a name="cant-link-storage-account-to-arr-account"></a>스토리지 계정을 ARR 계정에 연결할 수 없음
 
 [스토리지 계정을 연결](../how-tos/create-an-account.md#link-storage-accounts)하는 동안 Remote Rendering 계정이 나열되지 않는 경우가 가끔 있습니다. 이 문제를 해결하려면 Azure Portal에서 ARR 계정으로 이동하여 왼쪽에 있는 **설정** 그룹에서 **ID** 를 선택합니다. **상태** 가 **켬** 으로 설정되었는지 확인합니다.
 ![Unity 프레임 디버거](./media/troubleshoot-portal-identity.png)
-
-## <a name="client-cant-connect-to-server"></a>클라이언트가 서버에 연결할 수 없음
-
-방화벽(디바이스, 라우터 내 등)이 [시스템 요구 사항](../overview/system-requirements.md#network-firewall)에서 언급한 포트를 차단하지 않는지 확인합니다.
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>오류 '`Disconnected: VideoFormatNotAvailable`'
 
@@ -161,6 +165,8 @@ Azure Remote Rendering은 Unity 렌더링 파이프라인에 후크하여 비디
 
 이 문제가 발생하는 이유는 MSAA, HDR 또는 post 처리를 사용할 수 있기 때문일 수 있습니다. 저품질 프로필을 선택하고 Unity에서 기본값으로 설정했는지 확인합니다. 이렇게 하려면 *편집 > 프로젝트 설정... > 품질* 로 이동합니다.
 
+Unity 2020에서 OpenXR 플러그 인을 사용할 때 사용하도록 설정된 사후 처리에 관계없이 이 추가 외부 렌더링 대상을 만드는 URP(Universal Render Pipeline) 버전이 있습니다. 따라서 URP 버전을 수동으로 10.5.1(또는 그 이상) 이상으로 업그레이드하는 것이 중요합니다. 이는 [시스템 요구 사항](../overview/system-requirements.md#unity-2020)에 설명되어 있습니다.
+
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Remote Rendering API를 사용하는 Unity 코드가 컴파일되지 않음
 
 ### <a name="use-debug-when-compiling-for-unity-editor"></a>Unity 편집기에 사용하기 위해 컴파일할 때 디버그 사용
@@ -183,9 +189,9 @@ Arm64에 대한 `AudioPluginMsHRTF.dll`가 버전 3.0.1의 *Windows Mixed Realit
 
 ## <a name="native-c-based-application-does-not-compile"></a>네이티브 C++ 기반 애플리케이션이 컴파일되지 않음
 
-### <a name="library-not-found-error-for-uwp-application-or-dll"></a>UWP 애플리케이션 또는 Dll에 대한 '라이브러리를 찾을 수 없음' 오류
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>UWP 애플리케이션 또는 DLL에 대한 '라이브러리를 찾을 수 없음' 오류
 
-C++ NuGet 패키지 내에는 사용할 이진 버전을 정의하는 `microsoft.azure.remoterendering.Cpp.targets` 파일이 있습니다. `UWP`를 식별하기 위해 파일의 조건은 `ApplicationType == 'Windows Store'`에 대해 검사합니다. 따라서 이 형식이 프로젝트에 설정되어 있는지 확인해야 합니다. Visual Studio의 프로젝트 마법사를 통해 UWP 애플리케이션 또는 Dll를 만드는 경우에 해당합니다.
+C++ NuGet 패키지 내에는 사용할 이진 버전을 정의하는 `microsoft.azure.remoterendering.Cpp.targets` 파일이 있습니다. `UWP`를 식별하기 위해 파일의 조건은 `ApplicationType == 'Windows Store'`에 대해 검사합니다. 따라서 이 형식이 프로젝트에 설정되어 있는지 확인해야 합니다. Visual Studio의 프로젝트 마법사를 통해 UWP 애플리케이션 또는 DLL을 만드는 경우에 해당합니다.
 
 ## <a name="unstable-holograms"></a>불안정한 홀로그램
 
@@ -247,7 +253,7 @@ ARR에는 표면에서 z-fight할 수 있는지를 확인하는 기능([바둑�
 
 ## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>네이티브 C++ 앱에서 다중 패스 스테레오 렌더링을 사용하는 그래픽 아티팩트
 
-[**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image)을 호출한 후 로컬 콘텐츠에 대해 다중 패스 스테레오 렌더링 모드를 사용하는 사용자 지정 네이티브 C++ 앱(왼쪽과 오른쪽 눈에 별도의 패스로 렌더링)이 드라이버 버그를 트리거할 수 있는 경우도 있습니다. 버그로 인해 비결정적 래스터화 결함이 발생하여 개별 삼각형 또는 로컬 콘텐츠의 삼각형 부분이 무작위로 사라지게 됩니다. 성능상의 이유로 최신 단일 패스 스테레오 렌더링 기법을 사용하여 로컬 콘텐츠를 렌더링하는 것이 좋습니다(예: **SV_RenderTargetArrayIndex** 사용).
+[**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image-openxr)을 호출한 후 로컬 콘텐츠에 대해 다중 패스 스테레오 렌더링 모드를 사용하는 사용자 지정 네이티브 C++ 앱(왼쪽과 오른쪽 눈에 별도의 패스로 렌더링)이 드라이버 버그를 트리거할 수 있는 경우도 있습니다. 버그로 인해 비결정적 래스터화 결함이 발생하여 개별 삼각형 또는 로컬 콘텐츠의 삼각형 부분이 무작위로 사라지게 됩니다. 성능상의 이유로 최신 단일 패스 스테레오 렌더링 기법을 사용하여 로컬 콘텐츠를 렌더링하는 것이 좋습니다(예: **SV_RenderTargetArrayIndex** 사용).
 
 ## <a name="conversion-file-download-errors"></a>변환 파일 다운로드 오류
 

@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: article
 ms.date: 06/07/2021
 ms.author: duau
-ms.openlocfilehash: 848134fec184febcdc5cde722fbec8e55d149d14
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f76c996f75dce0ea1f6aae8dc8c86ac80f6006a5
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747998"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253875"
 ---
 # <a name="azure-route-server-preview-faq"></a>Azure Route Server(미리 보기) FAQ
 
@@ -31,11 +31,11 @@ Azure Route Server는 NVA(네트워크 가상 어플라이언스)와 가상 네�
 
 ### <a name="how-many-route-servers-can-i-create-in-a-virtual-network"></a>가상 네트워크에서 몇 대의 경로 서버를 만들 수 있나요?
 
-VNet에서는 하나의 경로 서버만 만들 수 있습니다. *RouteServerSubnet* 이라는 지정된 서브넷에 배포해야 합니다.
+가상 네트워크에서는 하나의 경로 서버만 만들 수 있습니다. *RouteServerSubnet* 이라는 전용 서브넷에 배포해야 합니다.
 
-### <a name="does-azure-route-server-support-vnet-peering"></a>Azure Route Server에서 VNet 피어링을 지원하나요?
+### <a name="does-azure-route-server-support-virtual-network-peering"></a>Azure Route Server에서 가상 네트워크 피어링을 지원하나요?
 
-예. Azure Route Server를 호스트하는 VNet을 다른 VNet에 피어링하고 후자의 VNet에서 원격 게이트웨이 사용을 사용하도록 설정하면, Azure Route Server는 해당 VNet의 주소 공간을 학습하고 피어링된 모든 NLA로 보냅니다. 또한 NVA에서 피어링된 VNet에 있는 VM의 라우팅 테이블로 경로를 프로그래밍합니다. 
+예, Azure Route Server를 호스트하는 가상 네트워크를 다른 가상 네트워크에 피어링하고 두 번째 가상 네트워크에서 원격 게이트웨이 사용을 활성화하면, Azure Route Server는 해당 가상 네트워크의 주소 공간을 학습하고 피어링된 모든 NVA로 보냅니다. 또한 NVA에서 피어링된 가상 네트워크에 있는 VM의 라우팅 테이블로 경로를 프로그래밍합니다. 
 
 
 ### <a name="what-routing-protocols-does-azure-route-server-support"></a><a name = "protocol"></a>Azure Route Server에서 지원하는 라우팅 프로토콜은 무엇인가요?
@@ -48,6 +48,10 @@ Azure Route Server는 BGP(Border Gateway Protocol)만 지원합니다. 가상 �
 
 ### <a name="does-azure-route-server-store-customer-data"></a>Azure Route Server에서 고객 데이터를 저장하나요?
 아니요. Azure Route Server는 NVA와 BGP 경로만 교환한 다음, 가상 네트워크로 전파합니다.
+
+### <a name="why-does-azure-route-server-require-a-public-ip-address"></a>Azure Route Server에 공용 IP 주소가 필요한 이유는 무엇인가요?
+
+Azure Route Server는 공용 IP 주소가 필요하므로 Route Server 구성을 관리하는 백엔드 서비스에 대한 연결을 보장해야 합니다. 
 
 ### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-how-does-it-handle-them"></a>Azure Route Server가 둘 이상의 NVA에서 동일한 경로를 수신하는 경우 어떻게 처리하나요?
 
@@ -72,11 +76,15 @@ Azure Route Server는 BGP(Border Gateway Protocol)만 지원합니다. 가상 �
 
 아니요, Azure Route Server는 16비트(2바이트) ASN만 지원합니다.
 
+### <a name="can-i-configure-a-user-defined-route-udr-in-the-azurerouteserver-subnet"></a>AzureRouteServer 서브넷에서 UDR(사용자 정의 경로)을 구성할 수 있나요?
+
+아니요, Azure Route Server는 AzureRouteServer 서브넷에서 UDR 구성을 지원하지 않습니다.
+
 ### <a name="can-i-peer-two-route-servers-in-two-peered-virtual-networks-and-enable-the-nvas-connected-to-the-route-servers-to-talk-to-each-other"></a>피어링된 두 개의 가상 네트워크에서 두 개의 경로 서버를 피어링하고, 경로 서버에 연결된 NVA가 서로 통신하도록 할 수 있나요? 
 
 ***토폴로지: NVA1 -> RouteServer1 -> (VNet 피어링을 통해) -> RouteServer2 -> NVA2***
 
-아니요. Azure Route Server는 데이터 트래픽을 전달하지 않습니다. NVA를 통한 전송 연결을 사용하도록 설정하려면 NVA 간에 직접 연결(예: IPsec 터널)을 설정하고 동적 경로 전파를 위해 경로 서버를 활용합니다. 
+아니요. Azure Route Server는 데이터 트래픽을 전달하지 않습니다. NVA를 통한 전송 연결을 사용하도록 설정하려면 NVA 간에 직접 연결(예: IPsec 터널)을 설정하고 동적 경로 전파를 위해 경로 서버를 사용합니다. 
 
 ## <a name="route-server-limits"></a><a name = "limitations"></a>Route Server 한도
 
@@ -87,9 +95,9 @@ Azure Route Server에는 배포당 다음과 같은 한도가 있습니다.
 | 지원되는 BGP 피어 수 | 8 |
 | 각 BGP 피어가 Azure Route Server에 보급할 수 있는 경로 수 | 200 |
 | Azure Route Server가 ExpressRoute 또는 VPN 게이트웨이에 보급할 수 있는 경로 수 | 200 |
-| Azure Route Server에서 지원할 수 있는 가상 네트워크(피어링된 VNet 포함)의 VM 수 | 6000 |
+| Azure Route Server에서 지원할 수 있는 가상 네트워크(피어링된 가상 네트워크 포함)의 VM 수 | 6000 |
 
-NVA가 한도보다 많은 경로를 보급하면 BGP 세션이 끊깁니다. 게이트웨이와 Azure Route Server에서 발생하면 온-프레미스 네트워크에서 Azure로의 연결이 끊깁니다. 자세한 내용은 [Azure 가상 머신 라우팅 문제 진단](../virtual-network/diagnose-network-routing-problem.md)을 참조하세요.
+NVA가 한도보다 많은 경로를 보급하면 BGP 세션이 끊깁니다. 게이트웨이와 Azure Route Server 간에 BGP 세션이 끊어지면 온-프레미스 네트워크에서 Azure로의 연결이 끊깁니다. 자세한 내용은 [Azure 가상 머신 라우팅 문제 진단](../virtual-network/diagnose-network-routing-problem.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

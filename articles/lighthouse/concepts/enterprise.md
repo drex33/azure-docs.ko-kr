@@ -3,12 +3,12 @@ title: 엔터프라이즈 시나리오의 Azure Lighthouse
 description: Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용하는 엔터프라이즈 내에서 테넌트 간 관리를 간소화하는 데 사용할 수 있습니다.
 ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 139c7be2c1736841e81e70aa562ab9841fd76337
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 12a6c2f03c06fbd69e77e32b236258bc6a6c8fbe
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788718"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768298"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>엔터프라이즈 시나리오의 Azure Lighthouse
 
@@ -38,7 +38,7 @@ Tenant A에 해당 작업을 수행하는 조직 사용자가 이미 포함되�
 
 어떤 방식이든 [리소스에 액세스할 수 있는 사용자를 정의할 때는 최소 권한의 원칙을 따라야 합니다](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). 이렇게 하면 필요한 작업을 수행하는 데 필요한 권한만 사용자에게 부여하고 실수로 인한 오류가 발생할 가능성을 줄일 수 있습니다.
 
-Azure Lighthouse는 물리적으로 데이터 또는 리소스를 이동하는 것이 아니라 관리 테넌트와 관리형 테넌트 간의 논리적 연결만 제공합니다. 또한 액세스는 항상 관리 테넌트에서 관리형 테넌트로의 한 방향으로만 진행됩니다.  관리 테넌트의 사용자와 그룹은 관리형 테넌트 리소스에 대한 관리 작업을 수행할 때 다단계 인증을 계속 사용해야 합니다.
+Azure Lighthouse는 물리적으로 데이터 또는 리소스를 이동하는 것이 아니라 관리 테넌트와 관리형 테넌트 간의 논리적 연결만 제공합니다. 또한 액세스는 항상 관리 테넌트에서 관리형 테넌트로의 한 방향으로만 진행됩니다. 관리 테넌트의 사용자와 그룹은 관리형 테넌트 리소스에서 관리 작업을 수행할 때 다단계 인증을 계속 사용해야 합니다.
 
 내부 또는 외부 거버넌스 및 규정 준수 가드 레일을 사용하는 엔터프라이즈는 투명성 요구 사항을 충족하기 위해 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)를 사용할 수 있습니다. 엔터프라이즈 테넌트에서 관리 및 관리형 테넌트 관계를 설정한 경우, 각 테넌트의 사용자는 기록된 활동을 확인하여 다른 테넌트의 사용자가 수행한 작업을 모니터링하고 볼 수 있습니다.
 

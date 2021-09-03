@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 03/30/2021
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fe9160f22754c62888b2a61ce9751f596842604e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: d87c789b4c5f1decc468838ccabd136cec32cabc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076707"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535460"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Unity 프로젝트에서 Azure Spatial Anchors 구성
 
@@ -32,6 +32,13 @@ Unity 프로젝트에 Azure Spatial Anchors SDK를 포함하려면 먼저 Unity 
 
 ### <a name="import-asa-packages"></a>ASA 패키지 가져오기
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
+
+### <a name="hololens-only-configure-your-unity-project-xr-settings"></a>HoloLens만 해당: Unity 프로젝트 XR 설정 구성
+HoloLens에서 MixedReality 앱을 개발할 때 Unity에서 XR 구성을 설정해야 합니다. 자세한 내용은 [XR 구성 설정 - Mixed Reality | Microsoft Docs](https://docs.microsoft.com/windows/mixed-reality/develop/unity/xr-project-setup?tabs=openxr)와 [Unity 버전 및 XR 플러그 인 선택 - Mixed Reality | Microsoft Docs](https://docs.microsoft.com/windows/mixed-reality/develop/unity/choosing-unity-version)를 참조하세요.
+
+Azure Spatial Anchors SDK 2.9 이상은 Windows XR 플러그 인(com.unity.xr.windowsmr)만 지원하므로 Azure Spatial Anchor HoloLens Unity 패키지에는 com.unity.xr.windowsmr 패키지에 대한 명시적 종속성이 있습니다.
+
+Azure Spatial Anchors SDK 버전 2.10.0 이상은 Mixed Reality OpenXR 플러그 인([com.microsoft.mixedreality.openxr](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging?_a=package&feed=Unity-packages&view=overview&package=com.microsoft.mixedreality.openxr&protocolType=Npm))과 Windows XR 플러그 인([com.unity.xr.windowsmr](https://docs.unity3d.com/Manual/com.unity.xr.windowsmr.html))을 모두 지원합니다. 선택에 따라 프로젝트에 com.microsoft.mixedreality.openxr 또는 com.unity.xr.windowsmr 패키지 중 하나를 포함해야 합니다.
 
 ### <a name="android-only-configure-the-maintemplategradle-file"></a>Android 전용: mainTemplate.gradle 파일 구성
 

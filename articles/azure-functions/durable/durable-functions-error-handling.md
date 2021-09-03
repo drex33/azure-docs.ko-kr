@@ -4,12 +4,12 @@ description: Azure Functions의 지속성 함수 확장에서 오류를 처리�
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 7a2a95a25bc42de9f4c93200d4fdd1e5d558549a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8ffa633479189ad8391d4c03c59113dc957d77e6
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377436"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667138"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>지속성 함수의 오류 처리(Azure Functions)
 
@@ -218,7 +218,7 @@ Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
 
 이전 예제의 작업 함수 호출은 자동 재시도 정책을 구성하기 위한 매개 변수를 사용합니다. 자동 재시도 정책을 사용자 지정하기 위한 몇 가지 옵션이 있습니다.
 
-* **최대 시도 횟수**: 최대 다시 시도 횟수입니다.
+* **최대 시도 횟수**: 최대 시도 횟수입니다. 1로 설정하면 다시 시도하지 않습니다.
 * **첫 번째 다시 시도 간격**: 첫 번째 다시 시도를 수행할 때까지 기다리는 시간입니다.
 * **백오프 계수**: 백오프의 증가율을 결정하는 데 사용되는 계수입니다. 기본값은 1입니다.
 * **최대 다시 시도 간격**: 다시 시도 간에 기다리는 최대 시간입니다.

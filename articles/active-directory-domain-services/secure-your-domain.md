@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/21/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f344496bab8f2864c8ccbdff4f98b57e1d6f432
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: fe8f41c2ecf92034f81f2332aabee5a55df66a92
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613261"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439257"
 ---
 # <a name="harden-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인 확정
 
@@ -50,6 +50,7 @@ ms.locfileid: "110613261"
 1. 다음 설정에 대해 **사용** 또는 **사용 안 함** 을 클릭합니다.
    - **TLS 1.2 전용 모드**
    - **NTLM 인증**
+   - **온-프레미스에서 암호 동기화**
    - **온-프레미스에서 NTLM 암호 동기화**
    - **RC4 암호화**
    - **Kerberos armoring**
@@ -64,6 +65,10 @@ ms.locfileid: "110613261"
 - 할당이 **거부** 인 경우 규정 준수는 TLS 1.2가 필요하지 않으면 Azure AD DS 인스턴스가 생성되지 않도록 하고 TLS 1.2가 필요할 때까지 Azure AD DS 인스턴스에 대한 업데이트를 방지합니다.
 
 ![규정 준수 설정 스크린샷](media/secure-your-domain/policy-tls.png)
+
+## <a name="audit-ntlm-failures"></a>NTLM 오류 감사
+
+NTLM 암호 동기화를 사용하지 않도록 설정하면 보안은 향상되지만 많은 애플리케이션과 서비스가 작동하지 않습니다. 예를 들어 DNS 서버 관리나 RDP와 같은 리소스에 해당 IP 주소로 연결하면 액세스가 거부되어 실패합니다. NTLM 암호 동기화를 사용하지 않도록 설정한 후 애플리케이션이나 서비스가 예상대로 작동하지 않는 경우, 이벤트 세부 정보에 NTLM이 **인증 패키지** 로 지정된 **로그온/로그오프** > **로그온 감사** 이벤트 범주에 대해 보안 감사를 사용하도록 설정하여 NTLM 인증 오류를 확인할 수 있습니다. 자세한 내용은 [Azure Active Directory Domain Services에 보안 감사 사용](security-audit-events.md)을 참조하세요.
 
 ## <a name="use-powershell-to-harden-your-domain"></a>PowerShell을 사용하여 도메인 강화
 

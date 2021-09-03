@@ -2,13 +2,13 @@
 title: Azure CLI 및 템플릿으로 리소스 배포
 description: Azure Resource Manager와 Azure CLI를 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
-ms.date: 05/07/2021
-ms.openlocfilehash: 4507fe743674ac8c7ee45b53adb1e4cc543289d5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/15/2021
+ms.openlocfilehash: 8ecb8bb2e6b24571d91e97157ff91ba931b0719d
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951167"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296776"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포
 
@@ -235,6 +235,19 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 ```
 
 개체에 전달하려는 JSON 주위에 큰따옴표를 사용합니다.
+
+변수를 사용하여 매개 변수 값을 포함할 수 있습니다. Bash에서 변수를 모든 매개 변수 값으로 설정하고 배포 명령에 추가합니다.
+
+```azurecli-interactive
+params="prefix=start suffix=end"
+
+az deployment group create \
+  --resource-group testgroup \
+  --template-file <path-to-template> \
+  --parameters $params
+``` 
+
+그러나 Windows 명령 프롬프트(CMD) 또는 PowerShell에서 Azure CLI를 사용하는 경우에는 변수를 JSON 문자열로 설정합니다. 따옴표를 이스케이프합니다(예: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`).
 
 ### <a name="parameter-files"></a>매개 변수 파일
 

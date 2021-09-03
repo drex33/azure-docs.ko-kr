@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 07/19/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c92095449132b790c80cf6396a3608f802d7e9a7
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101689031"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458507"
 ---
 # <a name="two-way-sms-unsupported"></a>양방향 SMS가 지원되지 않음
 
-Azure AD MFA(다단계 인증) 서버를 위한 양방향 SMS는 2018년에 사용 중지되었고 2021년 2월 24일부터 더 이상 지원되지 않습니다. 관리자는 아직 양방향 SMS를 사용하는 사용자들이 다른 방법을 사용할 수 있도록 하여야 합니다.
+Azure AD MFA(Multi-Factor Authentication) 서버용 양방향 SMS는 원래 2018년에 사용이 중단되었으며, 2021년 8월 2일까지 지원 확장을 받은 조직을 제외하고 2021년 2월 24일 이후에는 더 이상 지원되지 않습니다. 관리자는 아직 양방향 SMS를 사용하는 사용자들이 다른 방법을 사용할 수 있도록 하여야 합니다.
 
 대상 관리자에게 2020년 12월 8일과 2021년 1월 28일에 이메일 알람과 Azure Portal Service Health 알림(포털 알림)이 발송되었습니다. 이 경고는 해당 구독에 연결된 소유자, 공동 소유자, 관리자 및 서비스 관리자 RBAC 역할에 전달되었습니다. 이미 다음 단계를 완료하였다면 아무 조치도 필요 없습니다.
 

@@ -6,19 +6,21 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: f6d0e9b303f12beb7cac22bf94d7ae34b36b77b3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 269656068d01e2db1e222ec58e5f9b40f34f0d53
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958762"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536787"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Azure Database for MySQL과 호환되는 MySQL 드라이버 및 관리 도구
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 이 문서에서는 Azure Database for MySQL 단일 서버와 호환되는 드라이버 및 관리 도구를 설명합니다.
 
->[!NOTE]
->이 문서는 드라이버가 단일 서버 서비스의 [연결 아키텍처](concepts-connectivity-architecture.md)와 호환되도록 Azure Database for MySQL 단일 서버에만 적용됩니다. [Azure Database for MySQL 유연한 서버](./flexible-server/overview.md)는 지원되는 모든 드라이버 및 도구와 호환되고 MySQL 커뮤니티 버전과 호환됩니다. 
+> [!NOTE]
+> 이 문서는 드라이버가 단일 서버 서비스의 [연결 아키텍처](concepts-connectivity-architecture.md)와 호환되도록 Azure Database for MySQL 단일 서버에만 적용됩니다. [Azure Database for MySQL 유연한 서버](./flexible-server/overview.md)는 지원되는 모든 드라이버 및 도구와 호환되고 MySQL 커뮤니티 버전과 호환됩니다. 
 
 ## <a name="mysql-drivers"></a>MySQL 드라이버
 Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 버전의 MySQL 데이터베이스를 사용합니다. 따라서 다양한 프로그래밍 언어 및 드라이버와 호환됩니다. 세 가지 최신 버전의 MySQL 드라이버를 지원하는 것이 목표이며, MySQL 드라이버의 기능 및 사용 편의를 개선하기 위해 지속적으로 오픈 소스 커뮤니티의 작성자와 협력하고 있습니다. 다음 표에는 테스트를 통해 Azure Database for MySQL 5.6 및 5.7과 호환되는 것으로 확인된 드라이버 목록이 정리되어 있습니다.
@@ -26,8 +28,8 @@ Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 �
 | **프로그래밍 언어** | **Driver** | **연결** | **호환되는 버전** | **호환되지 않는 버전** | **참고** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
 | PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | PHP 7.0과 SSL MySQLi 연결의 경우 연결 문자열에 MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT를 추가합니다. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO 집합: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` 옵션을 false로 설정합니다.|
-| .NET | .NET용 Async MySQL 커넥터 | https://github.com/mysql-net/MySqlConnector <br> [Nuget의 설치 패키지](https://www.nuget.org/packages/MySqlConnector/) | 0.27 이상 | 0.26.5 이하 | |
-| .NET | MySQL Connector/NET | https://github.com/mysql/mysql-connector-net | 6.6.3 ,7.0 ,8.0 |  | 인코딩 버그로 인해 UTF8이 아닌 Windows 시스템 중 일부에서 연결이 실패할 수 있습니다. |
+| .NET | .NET용 Async MySQL 커넥터 | https://github.com/mysql-net/MySqlConnector <br> [NuGet의 설치 패키지](https://www.nuget.org/packages/MySqlConnector/) | 0.27 이상 | 0.26.5 이하 | |
+| .NET | MySQL Connector/NET | https://github.com/mysql/mysql-connector-net | 6.6.3, 7.0, 8.0 |  | 인코딩 버그로 인해 UTF8이 아닌 Windows 시스템 중 일부에서 연결이 실패할 수 있습니다. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> NPM의 설치 패키지:<br> NPM에서 `npm install mysql` 실행 | 2.15 | 2.14.1 이하 | |
 | Node.js | node-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4+ | | |
 | Go | Go MySQL 드라이버 | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 1\.3 버전에 대한 연결 문자열에서 `allowNativePasswords=true`를 사용합니다. 버전 1.4에는 수정 프로그램이 포함되어 있으므로 `allowNativePasswords=true`가 더 이상 필요하지 않습니다. |
@@ -35,7 +37,7 @@ Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 �
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3+ | 0.9.0 - 0.9.2(web2py의 회귀) | |
 | Java | MariaDB Connector/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 | | 
 | Java | MySQL Connector/J | https://github.com/mysql/mysql-connector-j | 5.1.21+, MySQL 8.0에서 8.0.17+ 사용 | 5.1.20 이하 | |
-| C | MySQL 커넥터/C(libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2+ | | |
+| C | MySQL 커넥터/C(libmysqlclient) | https://dev.mysql.com/doc/c-api/5.7/en/c-api-implementations.html | 6.0.2+ | | |
 | C | MySQL 커넥터/ODBC(myodbc) | https://github.com/mysql/mysql-connector-odbc | 3.51.29+ | | |
 | C++ | MySQL 커넥터/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9+ | 1.1.3 이하 | | 
 | C++ | MySQL++| https://github.com/tangentsoft/mysqlpp | 3.2.3+ | | |

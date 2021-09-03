@@ -11,12 +11,12 @@ author: MaraSteiu
 ms.author: masteiu
 ms.reviewer: mathoma
 ms.date: 08/20/2019
-ms.openlocfilehash: c3a2be7a00c6718dd33b573faec4a619cbf5a1bb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: f0ec1d641fc78e4fde612f987ad319d62bd9eeaf
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074848"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112914232"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Azure SQL 데이터 동기화는 무엇인가요?
 
@@ -142,7 +142,6 @@ SQL 데이터 동기화는 온-프레미스 및 클라우드 모두의 여러 �
 ### <a name="general-limitations"></a>일반적인 제한 사항
 
 - 테이블은 기본 키가 아닌 ID 열을 포함할 수 없습니다.
-- 데이터 동기화를 사용하기 위해서는 테이블에 클러스터형 인덱스가 있어야 합니다.
 - 기본 키는 sql_variant, binary, varbinary, image, xml 데이터 형식을 포함할 수 없습니다.
 - 지원되는 전체 자릿수가 보조 키에만 해당하므로 time, datetime, datetime2, datetimeoffset 같은 데이터 형식을 기본 키로 사용하는 경우 주의하세요.
 - 개체(데이터베이스, 테이블 및 열) 이름에는 인쇄 가능한 문자 마침표(.), 왼쪽 대괄호([) 또는 오른쪽 대괄호(])를 사용할 수 없습니다.
@@ -154,6 +153,8 @@ SQL 데이터 동기화는 온-프레미스 및 클라우드 모두의 여러 �
 - 두 개의 기본 키만 다른 경우(예: Foo 및 foo) 데이터 동기화에서 이 시나리오를 지원하지 않습니다.
 - 테이블 잘림은 데이터 동기화에서 지원되는 작업이 아닙니다(변경 내용은 추적되지 않음).
 - 하이퍼스케일 데이터베이스는 지원되지 않습니다. 
+- 메모리 액세스에 최적화된 테이블은 지원되지 않습니다.
+- 허브 및 멤버 데이터베이스가 가상 네트워크에 있는 경우 허브와 멤버 간 동기화 실행을 처리해야 하는 동기화 앱이 고객의 프라이빗 링크 내에서 허브 또는 멤버 데이터베이스에 대한 액세스를 지원하지 않으므로 데이터 동기화 작동하지 않습니다. 이 제한 사항은 고객이 데이터 동기화 프라이빗 링크 기능을 사용하는 경우에도 적용됩니다. 
 
 #### <a name="unsupported-data-types"></a>지원되지 않는 데이터 형식
 
@@ -198,6 +199,10 @@ SQL 데이터 동기화는 온-프레미스 및 클라우드 모두의 여러 �
 
 > [!NOTE]
 > 동기화 그룹의 스키마 설정을 변경하는 경우, 허브 데이터베이스를 다시 프로비전할 수 있도록 데이터 동기화 서비스가 서버에 액세스하도록 허용해야 합니다.
+
+### <a name="region-data-residency"></a>지역 데이터 보존 
+
+동일한 지역 내에 있는 데이터를 동기화하는 경우 SQL 데이터 동기화는 서비스 인스턴스가 배포된 지역 외부에 있는 고객 데이터를 저장/처리하지 않습니다. 서로 다른 지역에 있는 데이터를 동기화하는 경우 SQL 데이터 동기화는 고객 데이터를 쌍을 이루는 지역에 복제합니다.
 
 ## <a name="faq-about-sql-data-sync"></a>SQL 데이터 동기화 FAQ
 

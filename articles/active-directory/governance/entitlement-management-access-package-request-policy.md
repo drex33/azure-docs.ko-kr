@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/16/2020
+ms.date: 07/01/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccd3de1b05c416ea25f7636c683f887dccc76898
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 4fcd11f88cb25ef3afb199b147856d0a0140e44c
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713795"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113491986"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지에 요청 설정 변경
 
@@ -141,7 +141,7 @@ ms.locfileid: "109713795"
 1. 연결된 조직을 모두 선택했으면 **선택** 을 클릭합니다.
 
     > [!NOTE]
-    > 선택한 연결된 조직의 모든 사용자가 이 액세스 패키지를 요청할 수 있습니다. 여기에는 Azure B2B 허용 또는 거부 목록에서 차단하는 경우를 제외하고는 조직과 연결된 모든 하위 도메인의 Azure AD 사용자가 포함됩니다. 자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](../external-identities/allow-deny-list.md)을 참조하세요.
+    > 선택한 연결된 조직의 모든 사용자가 이 액세스 패키지를 요청할 수 있습니다. 여기에는 Azure B2B 허용 또는 차단 목록에서 차단하는 경우를 제외하고는 조직과 연결된 모든 하위 도메인의 Azure AD 사용자가 포함됩니다. 자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](../external-identities/allow-deny-list.md)을 참조하세요.
 
 1. 승인이 필요한 경우 [Azure AD 권한 관리에서 액세스 패키지에 대한 승인 설정 변경](entitlement-management-access-package-approval-policy.md) 단계를 통해 승인 설정을 구성합니다.
  
@@ -198,11 +198,17 @@ ms.locfileid: "109713795"
 
 1. **다음** 을 클릭합니다.
 
-1. 액세스 패키지에 대한 액세스를 요청할 때 요청자에게 추가 정보를 제공하도록 요구하려면 [Azure AD 권한 관리에서 액세스 패키지에 대한 승인 및 요청자 정보(미리 보기) 설정 변경](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview)의 단계를 통해 요청자 정보를 구성합니다(미리 보기).
+1. 액세스 패키지에 대한 액세스를 요청할 때 요청자에게 추가 정보를 제공하도록 요구하려면 [Azure AD 권한 관리에서 액세스 패키지에 대한 승인 및 요청자 정보 설정 변경](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval)의 단계를 통해 요청자 정보를 구성합니다.
 
 1. 수명 주기 설정을 구성합니다.
 
 1. 정책을 편집하는 경우 **업데이트** 를 클릭합니다. 새 정책을 추가하는 경우 **만들기** 를 클릭합니다.
+
+## <a name="prevent-requests-from-users-with-incompatible-access-preview"></a>호환되지 않는 액세스 권한이 있는 사용자의 요청 방지(미리 보기)
+
+요청할 수 있는 사용자에 대한 정책 확인 외에도, 그룹이나 또 다른 액세스 패키지를 통해 일부 액세스 권한이 이미 있는 사용자가 과도한 액세스 권한을 얻지 못하도록 액세스를 추가로 제한할 수 있습니다.
+
+사용자가 액세스 패키지를 요청할 수 없도록 구성하려는 경우 사용자에게 또 다른 액세스 패키지에 대한 할당이 이미 있거나 사용자가 그룹의 멤버이면 [액세스 패키지에 대한 의무 분리 검사 구성](entitlement-management-access-package-incompatible.md)의 단계를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

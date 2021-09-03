@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: 099c65143f29f4fdf341b52e5d80731f1bdb0808
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.date: 07/12/2021
+ms.openlocfilehash: b461b424a8b0d52533da824353abc2b24ec465a6
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031004"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666270"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB의 분할 및 수평적 크기 조정
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -71,7 +71,7 @@ Azure Cosmos DB는 해시 기반 분할을 사용하여 논리 파티션을 실�
 
 일반적으로 작은 컨테이너에는 하나의 실제 파티션만 필요하지만 4개 이상의 복제본이 있어야 합니다.
 
-다음 이미지에서는 논리 파티션이 전역적으로 배포된 실제 파티션에 매핑되는 방법을 보여 줍니다.
+다음 이미지에서는 논리 파티션이 전역적으로 배포된 실제 파티션에 매핑되는 방법을 보여 줍니다. 이미지의 [파티션 세트](global-dist-under-the-hood.md#partition-sets)는 여러 지역에서 동일한 논리 파티션 키를 관리하는 실제 파티션 그룹을 나타냅니다.
 
 :::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="Azure Cosmos DB 분할을 보여 주는 이미지" border="false":::
 
@@ -135,3 +135,4 @@ Azure Cosmos DB에서 [다중 항목 ACID 트랜잭션](database-transactions-op
 * [Azure Cosmos DB에서 글로벌 배포](distribute-data-globally.md)에 대한 자세한 정보
 * [Azure Cosmos 컨테이너의 처리량을 프로비전](how-to-provision-container-throughput.md)하는 방법을 알아봅니다.
 * [Azure Cosmos 데이터베이스의 처리량을 프로비전](how-to-provision-database-throughput.md)하는 방법을 알아봅니다.
+* [Azure Cosmos DB에서 데이터를 모델링하고 분할](/learn/modules/model-partition-data-azure-cosmos-db/)하는 방법에 관한 학습 모듈을 참조하세요.

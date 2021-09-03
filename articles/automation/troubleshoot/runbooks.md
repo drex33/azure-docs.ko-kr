@@ -2,15 +2,15 @@
 title: Azure Automation Runbook 문제 해결
 description: 이 문서에서는 Azure Automation Runbook과 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.date: 02/11/2021
+ms.date: 07/27/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.openlocfilehash: 7964bc62aefc912a0f61744841784600575c98de
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a7711d30a71cc5b637a1fc755609d3f5c48683d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831225"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528802"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -39,7 +39,7 @@ Azure Automation에서 Runbook을 실행하는 동안 오류가 발생하면 다
 1. Runbook이 일시 중단되거나 예기치 않게 실패하는 경우,
 
     * 실행 계정이 만료되었으면 [인증서를 갱신](../manage-runas-account.md#cert-renewal)합니다.
-    * 만료된 웹후크를 사용하여 Runbook을 시작하려면 [웹후크를 갱신](../automation-webhooks.md#renew-a-webhook)합니다.
+    * 만료된 웹후크를 사용하여 Runbook을 시작하려면 [웹후크를 갱신](../automation-webhooks.md#update-a-webhook)합니다.
     * 현재 Runbook 상태 및 문제의 가능한 원인을 확인하려면 [작업 상태를 확인](../automation-runbook-execution.md#job-statuses)합니다.
     * Runbook이 일시 중단되기 전에 수행되는 작업을 식별하려면 [추가 출력을 Runbook에 추가](../automation-runbook-output-and-messages.md#working-with-message-streams)합니다.
     * 작업에서 throw된 [예외를 처리](../automation-runbook-execution.md#exceptions)합니다.
@@ -47,6 +47,22 @@ Azure Automation에서 Runbook을 실행하는 동안 오류가 발생하면 다
 1. Runbook 작업 또는 Hybrid Runbook Worker의 환경에서 응답하지 않는 경우 이 단계를 수행합니다.
 
     Azure Automation 대신 Hybrid Runbook Worker에서 Runbook을 실행하는 경우 [하이브리드 작업자 자체의 문제를 해결](hybrid-runbook-worker.md)해야 할 수도 있습니다.
+
+## <a name="scenario-access-blocked-to-azure-storage-or-azure-key-vault-or-azure-sql"></a>시나리오: Azure Storage, Azure Key Vault 또는 Azure SQL에 대한 액세스가 차단됨
+
+이 시나리오에서는 [Azure Storage](../../storage/common/storage-network-security.md)를 예로 사용합니다. 그러나 이 정보는 [Azure Key Vault](../../key-vault/general/network-security.md) 및 [Azure SQL](../../azure-sql/database/firewall-configure.md)에 동일하게 적용됩니다.
+
+### <a name="issue"></a>문제
+
+Runbook에서 Azure Storage에 액세스하려고 하면 다음 메시지와 유사한 오류가 발생합니다. `The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation.`
+
+### <a name="cause"></a>원인
+
+Azure Storage의 Azure Firewall이 사용하도록 설정되어 있습니다.
+
+### <a name="resolution"></a>해결 방법
+
+[Azure Storage](../../storage/common/storage-network-security.md), [Azure Key Vault](../../key-vault/general/network-security.md) 또는 [Azure SQL](../../azure-sql/database/firewall-configure.md)에서 Azure Firewall을 사용하도록 설정하면 해당 서비스에 대한 Azure Automation Runbook의 액세스가 차단됩니다. Automation이 신뢰할 수 있는 서비스 목록에 포함되어 있지 않기 때문에, 신뢰할 수 있는 Microsoft 서비스를 허용하는 방화벽 예외가 사용하도록 설정된 경우에도 액세스가 차단됩니다. 방화벽을 사용하도록 설정한 경우에는 Hybrid Runbook Worker 및 [가상 네트워크 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)를 통해서만 액세스할 수 있습니다.
 
 ## <a name="scenario-runbook-fails-with-a-no-permission-or-forbidden-403-error"></a><a name="runbook-fails-no-permission"></a>시나리오: 403 권한 없음 또는 금지됨 오류로 인해 Runbook이 실패함
 
@@ -470,7 +486,7 @@ Azure Automation Runbook에 대한 웹후크를 호출하려고 하면 다음 �
 
 ### <a name="resolution"></a>해결 방법
 
-웹후크를 사용하지 않도록 설정되어 있으면 Azure Portal을 통해 다시 사용하도록 설정할 수 있습니다. 웹후크가 만료되었으면 이를 삭제한 다음, 다시 만들어야 합니다. 아직 만료되지 않은 경우에만 [웹후크를 갱신](../automation-webhooks.md#renew-a-webhook)할 수 있습니다. 
+웹후크를 사용하지 않도록 설정되어 있으면 Azure Portal을 통해 다시 사용하도록 설정할 수 있습니다. 웹후크가 만료되었으면 이를 삭제한 다음, 다시 만들어야 합니다. 아직 만료되지 않은 경우에만 [웹후크를 갱신](../automation-webhooks.md#update-a-webhook)할 수 있습니다. 
 
 ## <a name="scenario-429-the-request-rate-is-currently-too-large"></a><a name="429"></a>시나리오: 429: 요청 속도가 현재 너무 높음
 

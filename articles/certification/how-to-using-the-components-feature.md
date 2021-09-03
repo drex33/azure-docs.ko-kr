@@ -7,12 +7,12 @@ ms.service: certification
 ms.topic: how-to
 ms.date: 05/04/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0041299031934bd76e4ef0700d2e75e2d61516cd
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 494ff350866d8de1386a5fd98539f0e3e5ff2c3f
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745473"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126305"
 ---
 # <a name="add-components-on-the-portal"></a>포털에서 구성 요소 추가
 
@@ -65,7 +65,7 @@ ms.locfileid: "108745473"
 | 완제품                                   | 1          | 고객 준비 제품, 분리형 | 해당 없음                                              |
 | **분리 가능한 주변 장치** 를 사용한 완제품 | 2 이상  | 고객 준비 제품, 분리형 | 주변 장치/분리형 또는 통합형              |
 | **통합된 구성 요소** 를 사용한 완제품  | 2 이상  | 고객 준비 제품, 분리형 | 적절한 유형/분리형 또는 통합형 선택 |
-| 솔루션 지원 개발 키트                             | 2 이상  | 고객 준비 제품, 분리형 | 적절한 유형/분리형 또는 통합형 선택 |
+| 솔루션 지원 개발 키트                             | 1개 이상  | 고객 준비 제품 또는 개발 보드, 분리형 또는 통합형| 적절한 유형/분리형 또는 통합형 선택 |
 
 ## <a name="example-component-usage"></a>구성 요소 사용 예제
 

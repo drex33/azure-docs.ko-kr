@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 지역 추가, 처리량 업데이트, 지역
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 08/13/2021
 ms.author: sngun
-ms.openlocfilehash: 6f3e408343fc75d6587d1a67a0179edf13d56e36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ce2d934c335099d07bbe5621a8aa363bf97583c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101658251"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122530070"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Azure Cosmos DB 컨트롤 플레인 작업을 감사하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -68,17 +68,17 @@ Azure Portal을 사용하여 컨트롤 플레인 작업에 대해 진단 로그�
    | where TimeGenerated >= ago(1h)
    ```
 
-다음 스크린샷은 Azure Cosmos 계정에 대해 일관성 수준이 변경될 때 로그를 캡처합니다.
+   다음 스크린샷은 Azure Cosmos 계정에 대해 일관성 수준이 변경될 때 로그를 캡처합니다. `activityId_g` 값 결과는 작업의 활동 ID와 다릅니다.
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="VNet이 추가될 때 컨트롤 플레인 로그":::
+   :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="VNet이 추가될 때 컨트롤 플레인 로그":::
 
-다음 스크린샷은 Cassandra 계정의 키스페이스 또는 테이블이 생성될 때 그리고 처리량이 업데이트될 때 로그를 캡처합니다. 데이터베이스 및 컨테이너에서 만들기 및 업데이트 작업의 컨트롤 플레인 로그는 다음 스크린샷에 표시된 것처럼 개별적으로 기록됩니다.
+   다음 스크린샷은 Cassandra 계정의 키스페이스 또는 테이블이 생성될 때 그리고 처리량이 업데이트될 때 로그를 캡처합니다. 데이터베이스 및 컨테이너에서 만들기 및 업데이트 작업의 컨트롤 플레인 로그는 다음 스크린샷에 표시된 것처럼 개별적으로 기록됩니다.
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="처리량이 업데이트될 때 컨트롤 플레인 로그":::
+   :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="처리량이 업데이트될 때 컨트롤 플레인 로그":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>특정 작업과 연관된 ID 식별
 
-추가로 디버깅하려면 활동 ID를 사용하거나 작업의 타임스탬프를 사용하여 **활동 로그** 에서 특정 작업을 식별할 수 있습니다. 타임스탬프는 활동 ID가 명시적으로 전달되지 않은 일부 Resource Manager 클라이언트에 사용됩니다. 활동 로그는 해당 작업이 시작된 ID에 대한 세부 정보를 제공합니다. 다음 스크린샷은 활동 ID를 사용하는 방법과 활동 로그에서 이와 관련된 작업을 찾는 방법을 보여줍니다.
+추가로 디버그하려면 `activityId_g` 또는 작업의 타임스탬프를 사용하여 **활동 로그** 에서 특정 작업을 식별할 수 있습니다. 타임스탬프는 활동 ID가 명시적으로 전달되지 않은 일부 Resource Manager 클라이언트에 사용됩니다. 활동 로그는 해당 작업이 시작된 ID에 대한 세부 정보를 제공합니다. 다음 스크린샷은 `activityId_g`를 사용하여 활동 로그에서 관련된 작업을 찾는 방법을 보여줍니다.
 
 :::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="활동 ID 사용 및 작업 찾기":::
 

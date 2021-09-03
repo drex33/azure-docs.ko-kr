@@ -8,12 +8,12 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 06/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: e616b21b1b94d141bf54a589ac134878d829ba8e
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: a03031640bd116e2901ff123b5fec13d36151fd4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900560"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528168"
 ---
 # <a name="azure-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항(퍼블릭 미리 보기)
 
@@ -43,9 +43,9 @@ ms.locfileid: "111900560"
 
 SAP Basis 버전에 따라 SAP 솔루션에는 다음 SAP 로그 변경 요청이 필요합니다.
 
-- **SAP Basis 버전 7.50 이상**, NPLK900131 설치
-- **SAP Basis 버전 7.40**, NPLK900132 설치
-- 지원되는 SAP Basis 버전에 **필요한 권한을 갖춘 SAP 역할을 만들려면** NPLK900114를 설치합니다. 자세한 내용은 [SAP 시스템 구성](sap-deploy-solution.md#configure-your-sap-system) 및 [필요한 ABAP 권한](#required-abap-authorizations)을 참조하세요.
+- **SAP Basis 버전 7.50 이상**, NPLK900144 설치
+- **하위 버전**, NPLK900146 설치
+- 지원되는 SAP Basis 버전에 **필요한 권한이 있는 SAP 역할을 만들려면** NPLK900140을 설치합니다. 자세한 내용은 [SAP 시스템 구성](sap-deploy-solution.md#configure-your-sap-system) 및 [필요한 ABAP 권한](#required-abap-authorizations)을 참조하세요.
 
 > [!NOTE]
 > 필요한 SAP 로그 변경 요청은 커넥터에 필요한 사용자 지정 RFC FM을 노출하며 표준 또는 사용자 지정 개체를 변경하지 않습니다.
@@ -138,7 +138,8 @@ SAP Basis 버전이 7.50 이하인 경우 다음 SAP 노트를 설치합니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [자습서: SAP용 Azure Sentinel 솔루션 배포](sap-deploy-solution.md)
-- [Azure Sentinel SAP 데이터 커넥터 온-프레미스 배포](sap-solution-deploy-alternate.md)
+- [SAP용 Azure Sentinel 솔루션 배포](sap-deploy-solution.md)
+- [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
 - [Azure Sentinel SAP 솔루션: 제공되는 보안 콘텐츠](sap-solution-security-content.md)
+- [Azure Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f925e72493a94bcdbde64bdfbcef6acf83977f52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bf4f1fbb5d984b052a9fdb84ed9d26da18db2f9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669731"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445816"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Azure 지역 간 SAP HANA 가용성
 
@@ -67,7 +67,7 @@ Azure Virtual Network에서는 다른 IP 주소 범위를 사용합니다. IP �
 
 ![두 지역의 세 VM에 대한 다이어그램](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
 
-SAP의 HANA 2.0 SPS3에는 [여러 대상 시스템 복제](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) 기능이 도입되었습니다. 업데이트 시나리오에서 여러 대상 시스템 복제 기능을 사용하는 경우 몇 가지 이점이 있습니다. 예를 들어 유지 관리 또는 업데이트로 인해 보조 HA 사이트가 다운되어도 DR 사이트(지역 2)에는 영향이 없습니다. HANA 여러 대상 시스템 복제에 대한 추가 정보는 [여기](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html)서 확인할 수 있습니다.
+SAP의 HANA 2.0 SPS3에는 [여러 대상 시스템 복제](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) 기능이 도입되었습니다. 업데이트 시나리오에서 여러 대상 시스템 복제 기능을 사용하는 경우 몇 가지 이점이 있습니다. 예를 들어 유지 관리 또는 업데이트로 인해 보조 HA 사이트가 다운되어도 DR 사이트(지역 2)에는 영향이 없습니다. HANA 여러 대상 시스템 복제에 대한 자세한 내용은 [SAP 도움말 포털](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html)에서 확인할 수 있습니다.
 여러 대상 복제를 통해 생성할 수 있는 아키텍처는 다음과 같습니다.
 
 ![2개 지역에 3개 VM(여러 대상)이 있는 다이어그램](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)

@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: bf311eb2b2d0ff7a9c17380d2e384bc05c6f05f3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/17/2021
+ms.openlocfilehash: 61fb6de73567b7a83e2c4db2010c717a160aebe0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562038"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473991"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 순위 지정
 
 > [!IMPORTANT]
-> 의미 체계 검색 기능은 공개 미리 보기 상태로 미리 보기 REST API와 포털을 통해 제공됩니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 나와 있는 그대로 제공되며, 일반 공급 시 동일하게 구현된다는 보장은 없습니다. 이러한 기능에는 비용이 청구될 수 있습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
+> 의미 체계 검색은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 퍼블릭 미리 보기로 제공됩니다. Azure Portal, 미리 보기 REST API, 베타 SDK를 통해 사용할 수 있습니다. 이러한 기능에는 비용이 청구될 수 있습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
 
 의미 체계 순위 지정은 초기 결과 집합과 가장 일치하는 항목의 순위를 다시 지정하여 정밀도를 개선하는 쿼리 실행 파이프라인의 확장입니다. 의미 체계 순위 지정은 키워드와 일치하는 언어적 일치가 아닌 쿼리 용어의 의미 체계 의미를 포착하기 위해 학습된 대규모 변환기 기반 네트워크를 통해 지원됩니다. [기본적인 유사성 순위 알고리즘](index-ranking-similarity.md)과 다르게 의미 체계 순위매기기는 단어의 컨텍스트와 의미를 사용하여 관련성을 정합니다.
 
@@ -40,8 +40,10 @@ ms.locfileid: "105562038"
 
 이제 각 문서는 하나의 긴 문자열로 표시됩니다.
 
+문자열은 문자나 단어가 아니라 토큰으로 구성됩니다. 최대 토큰 수는 128개의 고유 토큰입니다. 추정을 위해 128개의 토큰이 128개 단어에 해당하는 문자열과 거의 동일하다고 가정할 수 있습니다. 
+
 > [!NOTE]
-> 문자열은 문자나 단어가 아니라 토큰으로 구성됩니다. 토큰화는 검색 가능한 필드에 대한 분석기 할당에 의해 부분적으로 결정됩니다. nGram이나 EdgeNGram과 같은 특수 분석기를 사용하는 경우 searchFields에서 해당 필드를 제외하는 것이 좋습니다. 문자열을 토큰화하는 방법에 대한 자세한 내용은 [Test Analyzer REST API](/rest/api/searchservice/test-analyzer)를 사용하여 분석기의 토큰 출력을 검토하면 됩니다.
+>토큰화는 검색 가능한 필드에 대한 분석기 할당에 의해 부분적으로 결정됩니다. nGram이나 EdgeNGram과 같은 특수 분석기를 사용하는 경우 searchFields에서 해당 필드를 제외하는 것이 좋습니다. 문자열을 토큰화하는 방법에 대한 자세한 내용은 [Test Analyzer REST API](/rest/api/searchservice/test-analyzer)를 사용하여 분석기의 토큰 출력을 검토하면 됩니다.
 
 ## <a name="extraction"></a>추출
 

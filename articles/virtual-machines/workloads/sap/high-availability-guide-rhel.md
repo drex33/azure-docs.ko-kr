@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/12/2021
+ms.date: 08/11/2021
 ms.author: radeltch
-ms.openlocfilehash: cf71f180a1ce845df436391b98227ae173fe77f1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2bbc8ccf445a9fb45e2dc91041287d6ca47653a2
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303664"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966883"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -39,7 +39,7 @@ ms.locfileid: "107303664"
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
@@ -66,7 +66,7 @@ ms.locfileid: "107303664"
 * [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [Red Hat Gluster Storage용 제품 설명서](https://access.redhat.com/documentation/red_hat_gluster_storage/)
+* [Red Hat Gluster Storage용 제품 설명서](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.5)
 * [pacemaker 클러스터의 SAP Netweaver](https://access.redhat.com/articles/3150081)
 * 일반 RHEL 설명서
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
@@ -240,7 +240,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          * ASCS ERS의 경우 33 **02**, 5 **02** 13, 5 **02** 14, 5 **02** 16 포트 및 TCP에 대해 위의 단계를 반복합니다.
 
 > [!IMPORTANT]
-> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.  
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure Load Balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.  
 
 > [!Note]
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
@@ -359,6 +359,13 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    SAP Note [2002167]의 설명에 따라 RHEL 구성
 
 ### <a name="installing-sap-netweaver-ascsers"></a>SAP NetWeaver ASCS/ERS 설치
+
+1. **[1]** 클러스터 기본 속성 구성
+
+   ```
+   pcs resource defaults resource-stickiness=1
+   pcs resource defaults migration-threshold=3
+   ```
 
 1. **[1]** ASCS 인스턴스에 대한 가상 IP 리소스 및 상태 프로브 만들기
 
@@ -481,7 +488,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    enque/encni/set_so_keepalive = true
    </code></pre>
 
-   ENSA1 및 ENSA2 모두에서 `keepalive` OS 매개 변수는 SAP 메모 [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명된 대로 설정하여야 합니다.    
+   ENSA1 및 ENSA2 모두에 대해 `keepalive` OS 매개 변수가 SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에서 설명한 대로 설정되어 있는지 확인합니다.    
 
    * ERS 프로필
 
@@ -498,7 +505,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
 1. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이런 상황을 방지하려면 ENSA1 사용 시에는 SAP NetWeaver ASCS/SCS 프로필에 매개 변수를 설정하고, ENSA1/ENSA2 양쪽의 경우에는 모든 SAP 서버에서 Linux 시스템`keepalive` 설정을 변경합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이를 방지하려면 ENSA1 사용 시에는 SAP NetWeaver ASCS/SCS 프로필에 매개 변수를 설정하고, ENSA1/ENSA2 양쪽의 경우에는 모든 SAP 서버에서 Linux 시스템`keepalive` 설정을 변경합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
 
    <pre><code># Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=300
@@ -532,6 +539,8 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-<b>NW1</b>_ASCS
    
+   sudo pcs resource meta g-<b>NW1</b>_ASCS resource-stickiness=3000
+
    sudo pcs resource create rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
     InstanceName=<b>NW1</b>_ERS02_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS02_<b>nw1-aers</b>" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
@@ -547,36 +556,40 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    </code></pre>
 
    SAP는 SAP NW 7.52부터 복제를 비롯하여 큐에 넣기 서버 2에 대한 지원을 도입했습니다. ABAP Platform 1809부터 큐에 넣기 서버 2가 기본적으로 설치됩니다. 큐에 넣기 서버 2 지원에 대해서는 SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416)을 참조하세요.
-   [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(큐에 넣기 서버 2 아키텍처)를 사용하는 경우, 리소스 에이전트 resource-agents-sap-4.1.1-12.el7.x86_64 이상을 설치하고 리소스를 다음과 같이 정의합니다.
+   [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(큐에 넣기 서버 2 아키텍처)를 사용하는 경우 리소스 에이전트 resource-agents-sap-4.1.1-12.el7.x86_64 이상을 설치하고 리소스를 다음과 같이 정의합니다.
 
 <pre><code>sudo pcs property set maintenance-mode=true
    
    sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
     InstanceName=<b>NW1</b>_ASCS00_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS00_<b>nw1-ascs</b>" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-<b>NW1</b>_ASCS
+
+   sudo pcs resource meta g-<b>NW1</b>_ASCS resource-stickiness=3000
    
    sudo pcs resource create rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
     InstanceName=<b>NW1</b>_ERS02_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS02_<b>nw1-aers</b>" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-<b>NW1</b>_AERS
+
+   sudo pcs resource meta rsc_sap_<b>NW1</b>_<b>ERS02</b> resource-stickiness=3000
       
    sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
-   sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
+   sudo pcs constraint order start g-<b>NW1</b>_ASCS then start g-<b>NW1</b>_AERS kind=Optional symmetrical=false
    sudo pcs constraint order start g-<b>NW1</b>_ASCS then stop g-<b>NW1</b>_AERS kind=Optional symmetrical=false
    
    sudo pcs node unstandby <b>nw1-cl-0</b>
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   이전 버전에서 업그레이드하고 큐에 넣기 서버 2로 전환하는 경우, SAP Note [2641322](https://launchpad.support.sap.com/#/notes/2641322)를 참조하세요. 
+   이전 버전에서 업그레이드하고 큐에 넣기 서버 2로 전환하는 경우 SAP Note [2641322](https://launchpad.support.sap.com/#/notes/2641322)를 참조하세요. 
 
    > [!NOTE]
-   > 위의 구성에서 시간 제한은 단지 예제이며 특정 SAP 설정에 맞게 조정하여야 할 수 있습니다. 
+   > 위의 구성에서 시간 제한은 단지 예제이며 특정 SAP 설정에 맞게 조정해야 할 수 있습니다. 
 
    클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
 
@@ -712,7 +725,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
 ## <a name="install-database"></a>데이터베이스 설치
 
-이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA를 설치하는 방법에 대한 자세한 내용은 [Red Hat Enterprise Linux에 설치된 Azure VM의 SAP HANA 고가용성][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533]을 참조하세요.
+이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에 SAP HANA를 설치하는 방법에 대한 자세한 내용은 [Red Hat Enterprise Linux에 설치된 Azure VM의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.. For a list of supported databases, see [SAP Note 1928533][1928533]
 
 1. SAP 데이터베이스 인스턴스 설치 실행
 
@@ -746,7 +759,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
    설치한 SAP HANA System Replication의 가상 이름을 가리키도록 SAP HANA 보안 저장소를 업데이트합니다.
 
-   다음 명령을 실행하여 항목을 \<sapsid>관리자처럼 나열합니다
+   다음 명령을 실행하여 항목을 \<sapsid>관리자처럼 나열합니다.
 
    <pre><code>hdbuserstore List
    </code></pre>
@@ -946,7 +959,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
     [root@nw1-cl-1 ~]# pgrep -f enq.sapNW1 | xargs kill -9
    </code></pre>
 
-   ASCS 인스턴스는 즉시 다른 노드로 장애 조치(Failover)되어야 합니다. 또한 ASCS 인스턴스가 시작된 후 ERS 인스턴스도 장애 조치(Failover)되어야 합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
+   ENSA1의 경우 ASCS 인스턴스는 즉시 다른 노드로 장애 조치(Failover)되어야 합니다. 또한 ASCS 인스턴스가 시작된 후 ERS 인스턴스도 장애 조치(Failover)되어야 합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ASCS00
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02

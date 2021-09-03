@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 47902f17662dea8205d02e6a49e447b8467c9870
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 9c8aa6aa30cae55d4a317eea7acad475b8e70b97
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673723"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530742"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 
@@ -371,11 +371,11 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 Azure 플랫폼 이미지를 사용하는 경우 *imageReference* 를 수정하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
 >[!NOTE]
-> 플랫폼 이미지를 사용하는 경우 이미지 참조 버전으로 "최신"을 지정하는 것이 일반적입니다. VM을 만들고 규모를 확장하고 이미지로 다시 설치하는 동안 VM은 사용 가능한 최신 버전으로 만들어집니다. 하지만 시간이 지나면서 새 이미지 버전이 릴리스되면 OS 이미지가 자동으로 업데이트된다는 의미는 **아닙니다**. 자동 OS 업그레이드를 제공하는 별도의 기능이 현재 미리 보기 상태에 있습니다. 자세한 내용은 [자동 OS 업그레이드 설명서](virtual-machine-scale-sets-automatic-upgrade.md)를 참조하세요.
+> 플랫폼 이미지를 사용하는 경우 이미지 참조 버전으로 "최신"을 지정하는 것이 일반적입니다. VM을 만들고 규모를 확장하고 이미지로 다시 설치하는 동안 VM은 사용 가능한 최신 버전으로 만들어집니다. 하지만 시간이 지나면서 새 이미지 버전이 릴리스되면 OS 이미지가 자동으로 업데이트된다는 의미는 **아닙니다**. 별도의 기능을 통해서는 자동 OS 업그레이드를 제공합니다. 자세한 내용은 [자동 OS 업그레이드 설명서](virtual-machine-scale-sets-automatic-upgrade.md)를 참조하세요.
 
 사용자 지정 이미지를 사용하는 경우 *imageReference* ID를 업데이트하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>확장 집합에 대한 OS 이미지 업데이트
 이전 버전의 Ubuntu LTS 16.04를 실행하는 확장 집합이 있을 수도 있습니다. Ubuntu LTS 16.04의 최신 버전(예: 버전 *16.04.201801090*)으로 업데이트하려고 합니다. 이미지 참조 버전 속성은 목록에 포함되어 있지 않으므로 다음 중 한 가지 명령으로 이러한 속성을 직접 수정할 수 있습니다.

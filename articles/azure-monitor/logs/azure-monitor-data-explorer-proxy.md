@@ -6,12 +6,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: a800f78df26ce76144994bb9da2cac6271323eb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 498fc101f257b05d24826cead8906b513ec34ccd
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419425"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530723"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Azure Monitor를 사용한 Azure Data Explorer 리소스 간 쿼리
 Azure Monitor는 Azure Data Explorer, [Application Insights](../app/app-insights-overview.md) 및 [Log Analytics](../logs/data-platform-logs.md) 사이의 교차 서비스 쿼리를 지원합니다. 그다음 Log Analytics/Application Insights 도구를 사용하여 Azure Data Explorer 클러스터를 쿼리하고 교차 서비스 쿼리에서 이를 참조할 수 있습니다. 이 아티클에서는 서비스 간 쿼리를 만드는 방법을 보여 줍니다.
@@ -55,6 +55,15 @@ union customEvents, CL1 | take 10
 
 > [!Tip]
 > 줄임 형식은 허용됩니다. *ClusterName*/*InitialCatalog*. 예를 들어 `adx('help/Samples')`은 `adx('help.kusto.windows.net/Samples')`로 변환됩니다.
+
+>[!Note]
+> 
+>* 공용 구조체가 아니라 [`join` 연산자](/azure/data-explorer/kusto/query/joinoperator)를 사용하면 Azure Data Explorer 클러스터의 데이터를 Log Analytics Workspace와 결합하기 위해 [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints)를 사용해야 합니다.
+>* Hint.remote={Direction of the Log Analytics Workspace}를 사용합니다. 예를 들어 다음과 같습니다.
+>```kusto
+>AzureDiagnostics
+>| join hint.remote=left adx("cluster=ClusterURI").AzureDiagnostics on (ColumnName)
+>```
 
 ## <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>다른 테넌트에서 Azure Monitor 리소스를 사용하여 한 테넌트의 Azure Data Explorer 클러스터에서 데이터 조인
 

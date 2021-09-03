@@ -1,15 +1,15 @@
 ---
 title: Kubernetes용 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다.
-ms.date: 05/13/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5a479c6f6bf22f416b3508c08dff5d60a8297d1a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 20b3362823644ab478e2069fbc610079820302c3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985025"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538663"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -196,8 +196,8 @@ Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도�
 
    |도메인 |포트 |
    |---|---|
-   |`gov-prod-policy-data.trafficmanager.net` |`443` |
-   |`raw.githubusercontent.com` |`443` |
+   |`data.policy.core.windows.net` |`443` |
+   |`store.policy.core.windows.net` |`443` |
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: ddb42dde242bb9c3f33a6dc3f8f52a147367f295
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e3710613b0a2622b20329ed383d5f818b01f6fee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139114"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529079"
 ---
 # <a name="ddos-protection-reference-architectures"></a>DDoS Protection 참조 아키텍처
 
@@ -66,7 +66,7 @@ Azure에서 공용 IP 주소를 백 엔드 원본에 대한 트래픽을 온-프
 
 ![온-프레미스 리소스 보호](./media/reference-architectures/ddos-on-prem.png)
 
-인터넷에서 트래픽을 수신하는 웹 애플리케이션이 있는 경우 Application Gateway 뒤에 웹 애플리케이션을 호스팅한 다음, SQL 삽입 및 Slowloris와 같은 레이어 7 웹 공격으로부터 WAF를 사용하여 보호할 수 있습니다. 애플리케이션의 백 엔드 원본은 VPN을 통해 연결된 온-프레미스 환경에 있습니다. 
+인터넷에서 트래픽을 수신하는 웹 애플리케이션이 있는 경우 Application Gateway 뒤에 웹 애플리케이션을 호스트한 다음, WAF를 사용하여 SQL 삽입 같은 레이어 7 웹 공격으로부터 보호할 수 있습니다. 애플리케이션의 백 엔드 원본은 VPN을 통해 연결된 온-프레미스 환경에 있습니다. 
 
 온-프레미스 환경의 백 엔드 리소스는 공용 인터넷에 노출되지 않습니다. AppGW/WAF 공용 IP만 인터넷에 노출되며 애플리케이션의 DNS 이름이 해당 공용 IP 주소에 매핑됩니다. 
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: 8dd5dc8223314894e04b060f7080ab5f3b0fdfba
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 07/08/2021
+ms.openlocfilehash: f390f6126ce2e4e780fe98f9aa038b98893b341a
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483174"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113566213"
 ---
 # <a name="configure-dynamics-365-for-operations-offer-properties"></a>Dynamics 365 for Operations 제안 속성 구성
 
@@ -26,13 +26,13 @@ ms.locfileid: "110483174"
 - 두 번째 선택적 범주(보조)를 추가하려면 **+범주** 링크를 선택합니다.
 - 기본 및/또는 보조 범주에 하위 범주를 최대 두 개까지 선택합니다. 제안에 적용되는 하위 범주가 없으면 **해당 없음** 을 선택합니다. Ctrl+클릭을 사용하여 두 번째 하위 범주를 선택합니다.
 
-[제안 목록 모범 사례](gtm-offer-listing-best-practices.md)에서 범주와 하위 범주의 전체 목록을 확인하세요.
+[제안 목록 모범 사례](gtm-offer-listing-best-practices.md)에서 범주와 하위 범주의 전체 목록을 참조하세요.
 
 ### <a name="industries"></a>산업
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)].
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
-이 제안이 적용될 Dynamics 365의 **적용 가능한 제품** 을 선택합니다.
+상거래, 금융, 인사 관리, 프로젝트 작업 및/또는 공급망 관리와 같이 제품에 적용되는 **적용 가능한 제품** 을 선택합니다. 이 선택을 통해 고객은 제품이 표시되는 기준 AppSource Dynamics 365 제품 필터를 기반으로 제품을 찾을 수 있습니다.
 
 제안의 **앱 버전** 을 입력합니다. 이 버전 숫자는 제안의 세부 정보 페이지에 표시되어 고객이 볼 수 있습니다.
 

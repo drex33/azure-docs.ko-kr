@@ -9,16 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 91fe9cee0178dc3f742ac59995212ae1ef3a7a38
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 9baa15de1d053b03f28b1d5ba10a8f6e2d9673d7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582963"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695952"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Machine Learning 스튜디오(클래식)에 대한 Net# 신경망 사양 언어 가이드
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Net#은 Microsoft가 개발한 언어로, 심층 신경망 네트워크나 임의 차원의 난해와 같은 복잡한 신경 네트워크 아키텍처를 정의하는 데 사용됩니다. 이미지, 비디오 또는 오디오와 같은 데이터에 대한 학습을 개선하는 데 복잡한 구조체를 사용할 수 있습니다.
 

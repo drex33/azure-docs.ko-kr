@@ -2,15 +2,16 @@
 title: 관리형 앱을 배포할 때 Key Vault 사용
 description: Managed Applications를 배포하는 경우 Azure Key Vault에서 액세스 비밀 사용하는 방법 보여주기
 author: tfitzmac
+ms.custom: subject-rbac-steps
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 08/16/2021
 ms.author: tomfitz
-ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5a6dc1de2ee574a69b8dab746a24bcf82b44d64
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81458286"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530415"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Azure Managed Applications를 배포할 때 Key Vault 비밀 액세스
 
@@ -36,19 +37,9 @@ ms.locfileid: "81458286"
 
 ## <a name="add-service-as-contributor"></a>서비스를 기여자로 추가
 
-1. **액세스 제어(IAM)** 를 선택합니다.
+키 자격 증명 모음 범위에서 **어플라이언스 리소스 공급자** 사용자에게 **기여자** 역할을 할당합니다.
 
-   ![액세스 제어 선택](./media/key-vault-access/access-control.png)
-
-1. **역할 할당 추가** 를 선택합니다.
-
-   ![추가 선택](./media/key-vault-access/add-access-control.png)
-
-1. 역할에 대해 **기여자** 를 선택합니다. **어플라이언스 리소스 공급자** 를 검색하고 사용 가능한 옵션 중에서 선택합니다.
-
-   ![공급자 검색](./media/key-vault-access/search-provider.png)
-
-1. **저장** 을 선택합니다.
+세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ## <a name="reference-key-vault-secret"></a>Key Vault 비밀 참조
 

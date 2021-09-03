@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 25ff8611cc988c9777b52a313cfd74d4ee0a638c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9b434852764508899f091cbb88aa0817654e08c0
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870299"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113650742"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
 
@@ -47,7 +47,7 @@ spark.sql.files.maxPartitionBytes 1099511627776
 spark.sql.files.openCostInBytes 1099511627776
 ```
 
-위에 표시된 예제는 5개의 Spark 구성 매개 변수에 대한 몇 가지 기본값을 재정의합니다.  이러한 값은 Apache Hadoop MapReduce 분할 최소 크기 및 parquet 블록 크기의 압축 코덱입니다. 또한 Spar SQL 파티션 및 열려 있는 파일 크기 기본값이 여기에 해당합니다.  이러한 구성 변경은 관련 데이터 및 작업(이 예제에서는 게놈 데이터)이 특정 특성을 갖기 때문에 선택되었습니다. 이러한 특성은 사용자 지정 구성 설정을 사용할 때 더 좋습니다.
+위에 표시된 예제는 5개의 Spark 구성 매개 변수에 대한 몇 가지 기본값을 재정의합니다.  이러한 값은 Apache Hadoop MapReduce 분할 최소 크기 및 parquet 블록 크기의 압축 코덱입니다. 또한 Spark SQL 파티션 및 열려 있는 파일 크기 기본값이 여기에 해당합니다.  이러한 구성 변경은 관련 데이터 및 작업(이 예제에서는 게놈 데이터)이 특정 특성을 갖기 때문에 선택되었습니다. 이러한 특성은 사용자 지정 구성 설정을 사용할 때 더 좋습니다.
 
 ---
 

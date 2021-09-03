@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 674e8036463a317d6e578750bc7ed3802ae776e4
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 5aca623f9292a1e34eacd209b204436dc7fbdcea
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567694"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220841"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -32,7 +32,7 @@ ms.locfileid: "122567694"
 > 3. 작업 영역에서 [Azure Sentinel 솔루션을 사용하도록 설정](../../sentinel/quickstart-onboard.md)합니다.
 > 4. Azure Sentinel의 **데이터 커넥터** 페이지로 이동하여 **Office 365** 커넥터를 사용하도록 설정합니다.
 >
-> ## <a name="frequently-asked-questions"></a>자주 묻는 질문
+> ## <a name="frequently-asked-questions"></a>질문과 대답
 > 
 > ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-october-31"></a>Q: 지금부터 10월 31일까지 Office 365 Azure Monitor 솔루션을 온보딩할 수 있나요?
 > 아니요, Azure Monitor Office 365 솔루션 온보딩 스크립트는 더 이상 사용할 수 없습니다. 솔루션은 10월 31일에 제거됩니다.
@@ -91,10 +91,10 @@ ms.locfileid: "122567694"
 > ### <a name="q-how-i-can-use-the-azure-sentinel-out-of-the-box-security-oriented-content"></a>Q: Azure Sentinel 즉시 사용 가능한 보안 지향 콘텐츠를 사용하려면 어떻게 해야 하나요?
 > Azure Sentinel은 Office 365 및 Azure AD 로그를 기반으로 즉시 사용 가능한 보안 지향 대시보드, 사용자 지정 경고 쿼리, 헌팅 쿼리, 조사 및 자동화된 응답 기능을 제공합니다. Azure Sentinel GitHub 및 자습서를 살펴보고 자세히 알아봅니다.
 >
-> - [처음부터 위협 감지](/azure/azure-monitor/insights/articles/sentinel/detect-threats-built-in.md)
-> - [의심스러운 위협을 검색하는 사용자 지정 분석 규칙 만들기](/azure/azure-monitor/insights/articles/sentinel/detect-threats-custom.md)
-> - [데이터 모니터링](/azure/azure-monitor/insights/articles/sentinel/monitor-your-data.md)
-> - [Azure Sentinel을 사용하여 인시던트 조사](/azure/azure-monitor/insights/articles/sentinel/investigate-cases.md)
+> - [처음부터 위협 감지](/azure/sentinel/detect-threats-built-in)
+> - [의심스러운 위협을 검색하는 사용자 지정 분석 규칙 만들기](/azure/sentinel/detect-threats-custom)
+> - [데이터 모니터링](/azure/sentinel/monitor-your-data)
+> - [Azure Sentinel을 사용하여 인시던트 조사](/azure/sentinel/investigate-cases)
 > - [Azure Sentinel에서 자동화된 위협 응답 설정](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Azure Sentinel GitHub 커뮤니티](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
@@ -217,7 +217,7 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
     .\office365_unsubscribe.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeTennantID <Tenant ID> 
     ```
 
-    예:
+    예제:
 
     ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
@@ -265,13 +265,13 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 | 형식 | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
 | OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| 작업 | 사용자 또는 관리자 활동의 이름입니다.  |
+| 작업(Operation) | 사용자 또는 관리자 활동의 이름입니다.  |
 | OrganizationId | 조직의 Office 365 테넌트 GUID입니다. 이 값은 값이 나타나는 Office 365 서비스에 관계없이 조직에서 항상 동일하게 유지됩니다. |
 | RecordType | 수행한 작업의 유형입니다. |
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceeded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
 | UserId | 레코드가 기록된 원인인 작업을 수행한 사용자의 UPN(사용자 계정 이름)입니다. 예를 들면 my_name@my_domain_name과 같습니다. SHAREPOINT\system 또는 NTAUTHORITY\SYSTEM과 같은 시스템 계정이 수행한 활동에 대한 레코드도 포함됩니다. | 
 | UserKey | UserId 속성에 나와 있는 사용자의 대체 ID입니다.  예를 들어 SharePoint, 비즈니스용 OneDrive 및 Exchange에서 사용자가 수행한 이벤트의 경우에는 이 속성에 PUID(Passport 고유 ID)가 입력됩니다. 시스템 계정이 수행한 이벤트와 기타 서비스에서 발생하는 이벤트의 경우 이 속성이 UserID 속성과 같은 값을 지정할 수도 있습니다.|
-| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>애플리케이션<br>DcAdmin<br>주기적<br>예약됨<br>ServicePrincipal<br>시스템 |
+| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>Admin<br>애플리케이션<br>DcAdmin<br>주기적<br>예약됨<br>ServicePrincipal<br>시스템 |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성

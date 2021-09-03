@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 10fe758bf11f0452ef07d30329d7d48914fbb4bf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c70cf1ca07e5fff58a14aa6b5b6c2f18b9e0e775
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566822"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222521"
 ---
 # <a name="deployment-best-practices"></a>배포 모범 사례
 
@@ -127,7 +127,7 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
 
 ### <a name="java"></a>Java
 
-Kudu [zipdeploy/](deploy-zip.md) API를 사용하여 JAR 애플리케이션을 배포하고, [wardeploy/](deploy-zip.md#deploy-war-file)를 사용하여 WAR 앱을 배포합니다. Jenkins를 사용하는 경우 배포 단계에서 직접 해당 API를 사용할 수 있습니다. 자세한 내용은 [이 문서](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli)를 참조하세요.
+Kudu [zipdeploy/](deploy-zip.md) API를 사용하여 JAR 애플리케이션을 배포하고, [wardeploy/](deploy-zip.md#deploy-warjarear-packages)를 사용하여 WAR 앱을 배포합니다. Jenkins를 사용하는 경우 배포 단계에서 직접 해당 API를 사용할 수 있습니다. 자세한 내용은 [이 문서](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli)를 참조하세요.
 
 ### <a name="node"></a>노드
 

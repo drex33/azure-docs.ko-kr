@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: 59b4f38efde2416687702647031d2b37553ff8ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7bcce4d18f6bcfe299a31dae3eb036bef12da9b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103555657"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535772"
 ---
 # <a name="troubleshoot-vm-insights"></a>VM 인사이트 문제 해결
 이 문서에서는 VM 인사이트를 사용하거나 사용하도록 설정하는 데 문제가 있는 경우에 대한 해결 정보를 제공합니다.
@@ -39,12 +39,12 @@ Azure Portal에서 Azure 가상 머신을 온보딩하면 다음과 같은 단�
 | 운영 체제 | 에이전트 | 
 |:---|:---|
 | Windows | MicrosoftMonitoringAgent<br>Microsoft.Azure.Monitoring.DependencyAgent |
-| Linux | OMSAgentForLinux<br>DependencyAgentForLinux |
+| Linux | OMSAgentForLinux<br>DependencyAgentLinux |
 
 설치된 확장 목록에 운영 체제에 대한 두 개의 확장이 표시되지 않으면 이를 설치해야 합니다. 확장이 목록에 있지만 상태가 ‘프로비저닝 성공’으로 표시되지 않으면 확장을 제거하고 다시 설치해야 합니다.
 
 ### <a name="do-you-have-connectivity-issues"></a>연결 문제가 있나요?
-Windows 머신의 경우 *TestCloudConnectivity* 도구를 사용하여 연결 문제를 식별할 수 있습니다. 이 도구는 기본적으로 *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent* 폴더에 에이전트와 함께 설치됩니다. 관리자 권한 명령 프롬프트에서 도구를 실행합니다. 그러면 결과가 반환되고 테스트에 실패한 곳이 강조 표시됩니다. 
+Windows 머신의 경우 *TestCloudConnectivity* 도구를 사용하여 연결 문제를 식별할 수 있습니다. 이 도구는 기본적으로 *%SystemDrive%\Program Files\Microsoft Monitoring Agent\Agent* 폴더에 에이전트와 함께 설치됩니다. 관리자 권한 명령 프롬프트에서 도구를 실행합니다. 그러면 결과가 반환되고 테스트에 실패한 곳이 강조 표시됩니다. 
 
 ![TestCloudConnectivity 도구](media/vminsights-troubleshoot/test-cloud-connectivity.png)
 
@@ -61,17 +61,17 @@ Log Analytics 에이전트 관련 문제 해결에 대한 내용은 다음 문�
 ### <a name="has-your-log-analytics-workspace-reached-its-data-limit"></a>Log Analytics 작업 영역이 데이터 한도에 도달했나요?
 [데이터 수집에 대한 용량 예약 및 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 확인하세요.
 
-### <a name="is-your-virtual-machine-sending-log-and-performance-data-to-azure-monitor-logs"></a>가상 머신이 로그 및 성능 데이터를 Azure Monitor 로그로 전송하고 있나요?
+### <a name="is-your-virtual-machine-agent-connected-to-azure-monitor-logs"></a>가상 머신 에이전트가 Azure Monitor Logs에 연결되어 있나요?
 
 Azure Portal의 Azure Monitor 메뉴에 있는 **로그** 에서 Log Analytics를 엽니다. 컴퓨터에 대한 다음 쿼리를 실행합니다.
 
 ```kuso
-Usage 
-| where Computer == "my-computer" 
-| summarize sum(Quantity), any(QuantityUnit) by DataType
+Heartbeat
+| where Computer == "my-computer"
+| sort by TimeGenerated desc 
 ```
 
-데이터가 표시되지 않으면 에이전트에 문제가 있을 수 있습니다. 에이전트 문제 해결 정보는 위의 섹션을 참조하세요.
+데이터가 표시되지 않거나 컴퓨터가 최근에 하트비트를 보내지 않았다면 에이전트에 문제가 있을 수 있습니다. 에이전트 문제 해결 정보는 위의 섹션을 참조하세요.
 
 ## <a name="virtual-machine-doesnt-appear-in-map-view"></a>지도 보기에 가상 머신이 표시되지 않음
 

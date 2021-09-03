@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/19/2020
-ms.openlocfilehash: e4cd22418c4f8a2f9504baf665c67a4a57f7f6f5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 1accce46358c360be83ebc3ea85f0f2257b567c8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103388"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456544"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 
@@ -37,7 +37,7 @@ ISV 연결 프로그램을 위해 계정을 설정하고 관리하려면 [파트
 > [!NOTE]
 > 이 단계에서는 계정에서 법적 계약에 서명하기 위한 파트너 센터의 *소유자* 또는 *관리자* 역할이 필요합니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 1. **설정**(기어 아이콘) > **계정 설정** 을 선택합니다.
 1. **계약** 을 선택합니다.
 1. 버전 링크를 선택하고 계약을 확인합니다.
@@ -50,7 +50,7 @@ ISV 연결 프로그램을 위해 계정을 설정하고 관리하려면 [파트
 > [!NOTE]
 > 이 단계에서는 계정에서 청구 정보를 업데이트하기 위한 파트너 센터의 *소유자* 또는 *관리자* 역할이 필요합니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 1. **설정**(기어 아이콘) > **계정 설정** 을 선택합니다.
 1. **조직 프로필** 에서 **청구 프로필** 및 **개발자** 탭을 차례로 선택합니다.
 1. 법적 엔터티에서 채워지는 기본 연락처 및 청구 정보를 검토합니다.
@@ -77,8 +77,7 @@ ISV 연결 프로그램을 위해 계정을 설정하고 관리하려면 [파트
 
 계정에 대해 도움을 받으려면 계정 관리자에게 문의하거나 [Microsoft 파트너 지원](https://aka.ms/marketplacepublishersupport)에 연락합니다. 비즈니스 애플리케이션 ISV 연결 프로그램에 대한 일반 정보는 다음을 참조하세요.
 
-- [ISV를 위한 비즈니스 애플리케이션](https://partner.microsoft.com/solutions/business-applications/isv-overview)(온라인 문서)
-- [비즈니스 애플리케이션 ISV에 대한 새 프로그램 개요](https://aka.ms/BizAppsISVProgram)(PDF)
-- [비즈니스 애플리케이션 ISV 연결 프로그램 FAQ](https://assetsprod.microsoft.com/faq-using-partner-center-isv-connect.pdf)(PDF)
-- [비즈니스 애플리케이션 ISV에 대해 예정된 프로그램](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/)(블로그 게시물)
-- [ISV 연결 프로그램 정책](https://aka.ms/bizappsisvpolicies)(PDF)
+- [Business Applications 파트너 정보](https://aka.ms/bizappsisvWeb)(웹 사이트)
+- [ISV 연결 프로그램 가이드](https://aka.ms/bizappsisvProgram)(PDF)
+- [ISV 연결 프로그램 파트너 FAQ](https://powerplatformpartners.transform.microsoft.com/download?assetname=assets/ISV%20Connect%20Partner%20FAQ.pdf&download=1)(PDF)
+- [ISV 연결 프로그램 변경 내용](https://cloudblogs.microsoft.com/dynamics365/bdm/2021/07/14/innovate-and-grow-with-the-simplified-business-applications-isv-connect-program/)(블로그 게시물)

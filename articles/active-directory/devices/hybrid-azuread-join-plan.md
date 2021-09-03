@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 06/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c0d0fa394c8b962206879a80d600987753f2f6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: db8be2618ee4bdeab517242870d593e88f631cfa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953469"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536319"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -36,6 +36,14 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 > [!NOTE]
 > Windows 10 하이브리드 Azure AD 조인에 필요한 최소 도메인 컨트롤러 버전은 Windows Server 2008 R2입니다.
+
+하이브리드 Azure AD 조인 디바이스에는 주기적으로 도메인 컨트롤러에 대한 네트워크 가시선이 필요합니다. 이 연결이 없으면 디바이스를 사용할 수 없게 됩니다.
+
+도메인 컨트롤러의 가시선에 들어오지 않는 시나리오:
+
+- 디바이스 암호 변경 암호 변경
+- 사용자 암호 변경(캐시된 자격 증명)
+- TPM 다시 설정
 
 ## <a name="plan-your-implementation"></a>구현 계획
 
@@ -93,7 +101,7 @@ Windows 데스크톱 운영 체제를 실행하는 디바이스의 경우 지원
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>디바이스에서 Azure AD 등록 상태 처리
 
-Windows 10 도메인 조인 디바이스가 테넌트에 [등록된 Azure AD](overview.md#getting-devices-in-azure-ad)인 경우 하이브리드 Azure AD 조인 및 Azure AD 등록 디바이스의 이중 상태로 이어질 수 있습니다. 이 시나리오를 자동으로 해결하려면 Windows 10 1803(KB4489894 적용) 이상으로 업그레이드하는 것이 좋습니다. 1803 이전 릴리스에서는 하이브리드 Azure AD 조인을 사용하도록 설정하기 전에 Azure AD 등록 상태를 수동으로 제거해야 합니다. 1803 이상 릴리스에서는 이중 상태를 방지하기 위해 다음과 같은 변경 내용이 적용되었습니다.
+Windows 10 도메인 조인 디바이스가 테넌트에 [등록된 Azure AD](concept-azure-ad-register.md)인 경우 하이브리드 Azure AD 조인 및 Azure AD 등록 디바이스의 이중 상태로 이어질 수 있습니다. 이 시나리오를 자동으로 해결하려면 Windows 10 1803(KB4489894 적용) 이상으로 업그레이드하는 것이 좋습니다. 1803 이전 릴리스에서는 하이브리드 Azure AD 조인을 사용하도록 설정하기 전에 Azure AD 등록 상태를 수동으로 제거해야 합니다. 1803 이상 릴리스에서는 이중 상태를 방지하기 위해 다음과 같은 변경 내용이 적용되었습니다.
 
 - 사용자에 대한 기존 Azure AD 등록 상태는 <i>디바이스가 하이브리드 Azure AD에 조인되고 동일한 사용자가 로그인한 후</i> 자동으로 제거됩니다. 예를 들어 디바이스에 사용자 A의 Azure AD 등록 상태가 있는 경우 사용자 A가 디바이스에 로그인할 때만 사용자 A에 대한 이중 상태가 정리됩니다. 동일한 디바이스에 여러 사용자가 있는 경우 해당하는 사용자가 로그인하면 이중 상태가 개별적으로 정리됩니다. Azure AD 등록 상태를 제거하는 것 외에도, 자동 등록을 통해 Azure AD 등록의 일부로 등록을 수행하는 경우 Windows 10은 Intune 또는 다른 MDM에서 디바이스 등록을 취소합니다.
 - 디바이스의 로컬 계정에 대한 Azure AD 등록 상태는 해당 변경의 영향을 받지 않습니다. 도메인 계정에만 적용됩니다. 사용자가 도메인 사용자가 아니므로 로컬 계정에 대한 Azure AD 등록 상태는 사용자 로그온 후에도 자동으로 제거되지 않습니다. 

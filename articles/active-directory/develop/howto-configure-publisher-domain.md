@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 06/23/2021
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
-ms.custom: aaddev
-ms.openlocfilehash: d17bd46d8036ff2535b0dede9ab95121ad3bf7a8
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.custom: contperf-fy21q4, aaddev
+ms.openlocfilehash: 43fef26f3006120cb62676bfd5675c1e79b849d4
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713435"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579975"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>방법: 애플리케이션의 게시자 도메인 구성
 
@@ -81,9 +81,7 @@ ms.locfileid: "109713435"
    ```
 
 1. 자리 표시자 *{YOUR-APP-ID-HERE}* 를 앱에 해당하는 애플리케이션(클라이언트) ID로 바꿉니다.
-
 1. `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json` 위치에서 파일을 호스트합니다. 확인된 도메인과 일치하도록 자리 표시자 *{YOUR-DOMAIN-HERE}* 를 변경합니다.
-
 1. **도메인 확인 및 저장** 단추를 클릭합니다.
 
 도메인이 확인된 후에는 확인에 사용되는 리소스를 유지 관리하지 않아도 됩니다. 확인이 완료되면 호스트된 파일을 제거할 수 있습니다.
@@ -93,8 +91,8 @@ ms.locfileid: "109713435"
 테넌트가 도메인을 확인한 경우 **확인된 도메인 선택** 드롭다운에 있는 도메인 중 하나를 선택합니다.
 
 > [!NOTE]
-> 반환되어야 하는 예상 `Content-Type` 헤더는 `application/json`입니다. `application/json; charset=utf-8`과 같은 다른 항목을 사용하는 경우 다음과 같은 오류가 발생할 수 있습니다.
-> 
+> 반환되어야 하는 예상 `Content-Type` 헤더는 `application/json`입니다. `application/json; charset=utf-8`과 같은 다른 항목을 사용하는 경우 오류가 발생할 수 있습니다.
+>
 > `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
 >
 
@@ -112,7 +110,7 @@ ms.locfileid: "109713435"
 
 ## <a name="implications-on-redirect-uris"></a>리디렉션 URI에 대한 영향
 
-회사/학교 계정 또는 개인 Microsoft 계정([다중 테넌트](single-and-multi-tenant-apps.md))으로 로그인하는 애플리케이션은 리디렉션 URI를 지정할 때 몇 가지 제한 사항이 적용됩니다.
+회사/학교 계정 또는 개인 Microsoft 계정(다중 테넌트)으로 로그인하는 애플리케이션은 리디렉션 URI를 지정할 때 몇 가지 제한 사항이 적용됩니다.
 
 ### <a name="single-root-domain-restriction"></a>단일 루트 도메인 제한
 

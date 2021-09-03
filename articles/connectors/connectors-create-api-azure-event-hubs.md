@@ -3,16 +3,16 @@ title: Azure Event Hubs에 대한 연결
 description: 이벤트 허브에 연결하고 Azure Logic Apps의 워크플로에 트리거 또는 작업을 추가합니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 05/03/2021
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 07/16/2021
 tags: connectors
-ms.openlocfilehash: 7f82debf0cc09d032b00de8197cf873c01801353
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 079d131cac55c6d7a54547a3720546ab6422f7d5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755588"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114473079"
 ---
 # <a name="connect-to-an-event-hub-from-workflows-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로에서 이벤트 허브에 연결
 
@@ -70,7 +70,7 @@ Event Hubs 트리거 또는 작업을 처음 추가하면 이벤트 허브에 �
 
    * 다음 연결 정보를 제공합니다.
 
-     | 속성 | 필수 | 값 | Description |
+     | 속성 | 필수 | 값 | 설명 |
      |----------|----------|-------|-------------|
      | **연결 이름** | 예 | <*connection-name*> | 연결에 만들 이름 |
      | **Event Hubs 네임스페이스** | 예 | <*event-hubs-namespace*> | 사용하려는 Event Hubs 네임스페이스를 선택합니다. |
@@ -102,12 +102,12 @@ Azure Logic Apps에서 모든 워크플로는 특정 조건이 충족될 때 실
 
 1. 트리거에서 모니터링할 이벤트 허브에 대한 정보를 제공합니다. 예를 들면:
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이벤트 허브 이름** | 예 | 모니터링할 이벤트 허브의 이름 |
-   | **콘텐츠 형식** | 예 | 이벤트의 콘텐츠 형식입니다. 기본값은 `application/octet-stream`입니다. |
+   | **콘텐츠 형식** | 아니요 | 이벤트의 콘텐츠 형식입니다. 기본값은 `application/octet-stream`입니다. |
    | **소비자 그룹 이름** | 예 | 이벤트를 읽는 데 사용할 [Event Hubs 소비자 그룹의 이름](../event-hubs/event-hubs-features.md#consumer-groups)입니다. 지정하지 않으면 기본값 소비자 그룹이 사용됩니다. |
-   | **최대 이벤트 수** | 예 | 최대 이벤트 수입니다. 트리거는 1과 이 속성으로 지정된 이벤트의 수 범위의 숫자를 반환합니다. |
+   | **최대 이벤트 수** | 아니요 | 최대 이벤트 수입니다. 트리거는 1과 이 속성으로 지정된 이벤트의 수 범위의 숫자를 반환합니다. |
    | **간격** | 예 | 빈도에 따라 워크플로가 실행되는 빈도를 설명하는 양의 정수 |
    | **빈도** | 예 | 되풀이 시간 단위 |
    ||||
@@ -118,13 +118,13 @@ Azure Logic Apps에서 모든 워크플로는 특정 조건이 충족될 때 실
 
    **추가 속성**
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **콘텐츠 스키마** | 예 | 이벤트 허브에서 읽을 이벤트의 JSON 콘텐츠 스키마입니다. 예를 들어 콘텐츠 스키마를 지정하는 경우 스키마와 일치하는 이벤트에 대해서만 워크플로를 트리거할 수 있습니다. |
-   | **최소 파티션 키** | 예 | 읽을 최소 [파티션](../event-hubs/event-hubs-features.md#partitions) ID를 입력합니다. 기본적으로 모든 파티션이 읽혀집니다. |
-   | **최대 파티션 키** | 예 | 읽을 최대 [파티션](../event-hubs/event-hubs-features.md#partitions) ID를 입력합니다. 기본적으로 모든 파티션이 읽혀집니다. |
-   | **표준 시간대** | 예 | 이 트리거는 UTC 오프셋을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. <p>자세한 내용은 [Azure Logic Apps를 사용하여 되풀이 작업과 워크플로 만들기 및 실행](../connectors/connectors-native-recurrence.md)을 참조하세요. |
-   | **시작 시간** | 예 | 시작 시간을 다음 형식으로 입력합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss<p>또는<p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ<p>자세한 내용은 [Azure Logic Apps를 사용하여 되풀이 작업과 워크플로 만들기 및 실행](../connectors/connectors-native-recurrence.md)을 참조하세요. |
+   | **최소 파티션 키** | 아니요 | 읽을 최소 [파티션](../event-hubs/event-hubs-features.md#partitions) ID를 입력합니다. 기본적으로 모든 파티션이 읽혀집니다. |
+   | **최대 파티션 키** | 아니요 | 읽을 최대 [파티션](../event-hubs/event-hubs-features.md#partitions) ID를 입력합니다. 기본적으로 모든 파티션이 읽혀집니다. |
+   | **표준 시간대** | 아니요 | 이 트리거는 UTC 오프셋을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. <p>자세한 내용은 [Azure Logic Apps를 사용하여 되풀이 작업과 워크플로 만들기 및 실행](../connectors/connectors-native-recurrence.md)을 참조하세요. |
+   | **시작 시간** | 아니요 | 시작 시간을 다음 형식으로 입력합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss<p>또는<p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ<p>자세한 내용은 [Azure Logic Apps를 사용하여 되풀이 작업과 워크플로 만들기 및 실행](../connectors/connectors-native-recurrence.md)을 참조하세요. |
    ||||
 
 1. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
@@ -135,10 +135,12 @@ Azure Logic Apps에서 모든 워크플로는 특정 조건이 충족될 때 실
 
 ## <a name="trigger-polling-behavior"></a>트리거 폴링 동작
 
-모든 Event Hubs 트리거는 *긴 폴링* 트리거입니다. 즉, 트리거가 모든 이벤트를 처리한 다음, 더 많은 이벤트가 이벤트 허브에 나타날 때까지 파티션당 30초를 기다립니다. 
+모든 Event Hubs 트리거는 긴 폴링 트리거입니다. 이 동작은 트리거가 발생할 때 모든 이벤트를 처리한 다음, 더 많은 이벤트가 이벤트 허브에 표시되도록 30초 동안 대기함을 의미합니다. 설계상, 30초 동안 표시되는 이벤트가 없으면 트리거를 건너뜁니다. 그렇지 않으면 트리거는 이벤트 허브가 빈 상태가 될 때까지 이벤트를 계속 읽습니다. 다음 트리거 폴링은 트리거 속성에 설정한 되풀이 간격을 기준으로 발생합니다.
 
 예를 들어 트리거가 4개의 파티션으로 설정된 경우 이 지연 시간은 트리거가 모든 파티션 폴링을 완료하기까지 최대 2분이 걸릴 수 있습니다. 이 지연 시간 내에 이벤트가 수신되지 않으면 트리거 실행을 건너뜁니다. 그렇지 않으면 트리거는 이벤트 허브가 빈 상태가 될 때까지 이벤트를 계속 읽습니다. 다음 트리거 폴링은 트리거의 속성에 지정한 되풀이 간격을 기준으로 발생합니다.
 
+메시지가 표시되는 특정 파티션을 알고 있는 경우 이 파티션의 이벤트만 읽거나, 트리거의 최대 및 최소 파티션 키를 설정하여 해당 파티션의 이벤트를 읽도록 트리거를 업데이트할 수 있습니다. 자세한 내용은 [Event Hubs 트리거 추가](#add-trigger) 섹션을 참조하세요.
+     
 ## <a name="trigger-checkpoint-behavior"></a>검사점 동작 트리거
 
 Event Hubs 트리거가 이벤트 허브의 각 파티션에서 이벤트를 읽는 경우, 트리거는 자체 상태를 사용하여 스트림 오프셋(파티션의 이벤트 위치) 및 트리거가 이벤트를 읽는 파티션에 대한 정보를 유지합니다.
@@ -167,12 +169,12 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 작업에서 보내려는 이벤트에 대한 정보를 제공합니다.
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이벤트 허브 이름** | 예 | 이벤트를 보낼 이벤트 허브 |
-   | **콘텐츠** | 예 | 전송하려는 이벤트의 콘텐츠 |
+   | **콘텐츠** | 아니요 | 전송하려는 이벤트의 콘텐츠 |
    | **속성** | 예 | 보낼 앱 속성 및 값 |
-   | **파티션 키** | 예 | 이벤트를 보낼 위치에 대한 [파티션](../event-hubs/event-hubs-features.md#partitions) ID |
+   | **파티션 키** | 아니요 | 이벤트를 보낼 위치에 대한 [파티션](../event-hubs/event-hubs-features.md#partitions) ID |
    ||||
 
    추가 속성을 보려면 **새 매개 변수 추가** 목록을 엽니다. 매개변수를 선택하면 해당 속성이 작업에 추가됩니다. 예를 들면 다음과 같습니다.

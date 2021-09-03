@@ -8,19 +8,14 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: fc6c9f6c7c69f92c66706678dd27e082412afa3e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 6613952b5d7811c187123963a6e611602aabb5dc
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110539175"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113127693"
 ---
-# <a name="configure-nat-rules-for-your-virtual-wan-vpn-gateway---preview"></a>Virtual WAN VPN Gateway에 대한 NAT 규칙 구성 - 미리 보기
-
-> [!IMPORTANT]
-> NAT 규칙은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="configure-nat-rules-for-your-virtual-wan-vpn-gateway"></a>Virtual WAN VPN 게이트웨이에 대한 NAT 규칙 구성
 
 정적 일대일 NAT 규칙을 사용하여 Virtual WAN VPN Gateway를 구성할 수 있습니다. NAT 규칙은 IP 주소의 일대일 변환을 설정하는 메커니즘을 제공합니다. NAT는 호환되지 않거나 겹치는 IP 주소를 가진 두 개의 IP 네트워크를 상호 연결하는 데 사용할 수 있습니다. 일반적인 시나리오는 Azure VNet 리소스에 액세스하려는 겹치는 IP가 있는 분기입니다.
 

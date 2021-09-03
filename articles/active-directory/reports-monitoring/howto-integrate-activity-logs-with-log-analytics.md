@@ -13,32 +13,35 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/11/2021
+ms.date: 07/09/2021
 ms.author: markvi
 ms.reviewer: besiler
+ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c29b631d3002f0c79fb2dd1b1f26dfa65051368c
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 44599666f6da3fddcd6c3df36daf25faac807e6e
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112018970"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568141"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure AD 로그를 Azure Monitor 로그와 통합
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+이 문서에서는 Azure Monitor와 Azure AD(Azure Active Directory) 로그를 통합하는 단계를 수행합니다.
 
-Azure Monitor 로그를 사용하면 데이터를 쿼리하여 특정 이벤트를 찾고, 추세를 분석하고, 다양한 데이터 원본 간의 상관 관계를 수행할 수 있습니다. 이제 Azure Monitor 로그에 Azure AD 활동 로그를 통합함으로써 다음과 같은 작업을 수행할 수 있습니다.
+Azure Monitor 로그에 Azure AD 활동 로그를 통합함으로써 다음과 같은 작업을 수행할 수 있습니다.
 
  * Azure Security Center에서 게시한 보안 로그와 Azure AD 로그인 로그를 비교합니다.
+  
+ * Azure Application Insights의 애플리케이션 성능 데이터를 서로 연결하여 애플리케이션의 로그인 페이지에서 성능 병목 현상을 해결합니다.
 
- * Azure Application Insights의 애플리케이션 성능 데이터를 서로 연결하여 애플리케이션의 로그인 페이지에서 성능 병목 현상을 해결합니다.  
+ * Identity Protection 위험 사용자 및 위험 검색 로그를 분석하여 환경에서 위협 검색(공개 미리 보기)
+ 
+ * 인증을 위해 ADAL(Active Directory 인증 라이브러리)을 사용하는 애플리케이션에서 로그인을 식별합니다. [ADAL의 지원 종료가 다가오고 있습니다](../develop/msal-migration.md).
 
-Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure AD 로그에 대해 Azure Monitor 로그를 사용할 때의 이점을 보여줍니다.
+이 Microsoft Ignite 세션 동영상은 실제 시나리오에서 Azure AD 로그에 대해 Azure Monitor 로그를 사용할 때의 이점을 보여 줍니다.
 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
-
-이 문서에서는 Azure Monitor와 Azure AD(Azure Active Directory) 로그를 통합하는 방법을 알아봅니다.
 
 ## <a name="supported-reports"></a>지원되는 보고서
 
@@ -47,12 +50,11 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 * **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
 * **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그에 보고된 작업을 누가 수행했는지 확인할 수 있습니다.
 * **프로비저닝 로그**: [프로비저닝 로그](../app-provisioning/application-provisioning-log-analytics.md)를 사용하면 모든 타사 애플리케이션에서 생성, 업데이트 및 삭제된 사용자를 모니터링할 수 있습니다. 
+* **위험 사용자 로그(공개 미리 보기)** : [위험 사용자 로그](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users)를 사용하여 사용자 위험 수준 및 수정 작업의 변경 내용을 모니터링할 수 있습니다. 
+* **위험 검색 로그(공개 미리 보기)** : [위험 검색 로그](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections)를 사용하여 사용자의 위험 검색을 모니터링하고 조직에서 검색된 위험 작업의 추세를 분석할 수 있습니다. 
 
-> [!NOTE]
-> B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
->
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>전제 조건 
 
 이 기능을 사용하려면 다음이 필요합니다.
 
@@ -79,9 +81,16 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 4. 로그를 보내려는 Log Analytics 작업 영역을 선택하거나, 제공된 대화 상자에서 새 작업 영역을 만듭니다.  
 
-5. 다음 중 하나 또는 둘 모두를 수행합니다.
+5. 다음 중 하나 또는 모두를 시도합니다.
     * Log Analytics 작업 영역에 감사 로그를 보내려면 **AuditLogs** 확인란을 선택합니다. 
     * Log Analytics 작업 영역에 로그인 로그를 보내려면 **SignInLogs** 확인란을 선택합니다.
+    * 비대화형 사용자 로그인 로그를 Log Analytics 작업 영역으로 보내려면 **NonInteractiveUserSignInLogs** 확인란을 선택합니다.
+    * Log Analytics 작업 영역에 서비스 주체 로그인 로그를 보내려면 **ServicePrincipleSignInLogs** 확인란을 선택합니다.
+    * Log Analytics 작업 영역에 관리 ID 로그인 로그를 보내려면 **ManagedIdentitySignInLogs** 확인란을 선택합니다.
+    * Log Analytics 작업 영역에 프로비저닝 로그를 보내려면 **ProvisioningLogs** 확인란을 선택합니다.
+    * ADFS(Active Directory Federation Services) 로그인 로그를 Log Analytics 작업 영역으로 보내려면 **ADFSSignInLogs** 를 선택합니다.
+    * 위험 사용자 로그를 Log Analytics 작업 영역으로 보내려면 **RiskyUsers** 확인란을 선택합니다. (공개 미리 보기)
+    * Log Analytics 작업 영역에 위험 검색 로그를 보내려면 **UserRiskEvents** 확인란을 선택합니다. (공개 미리 보기)
 
 6. **저장** 을 선택하여 설정을 저장합니다.
 

@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 69ac47296cb4624de6cdf05ddb3e72973751f631
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 68742801234696f104de85832353b98ef33b1b2d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519625"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112454405"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>로컬 모델 배포 문제 해결
 
@@ -24,7 +24,7 @@ ACI(Azure Container Instances) 또는 AKS(Azure Kubernetes Service)에 대한 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 * 옵션 A(**권장**) - Azure Machine Learning 컴퓨팅 인스턴스에서 로컬로 디버그
    * [컴퓨팅 인스턴스](how-to-deploy-local-container-notebook-vm.md)가 실행 되는 Azure Machine Learning 작업 영역
 * 옵션 B - 컴퓨팅에서 로컬로 디버그
@@ -33,6 +33,31 @@ ACI(Azure Container Instances) 또는 AKS(Azure Kubernetes Service)에 대한 �
    * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
    * 로컬 시스템에서 작동하는 Docker가 설치되어 있어야 합니다. 
    * Docker 설치를 확인하려면 터미널 또는 명령 프롬프트에서 `docker run hello-world` 명령을 사용합니다. Docker 설치 또는 Docker 오류 문제 해결에 대한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조하세요.
+* 옵션 C - Azure Machine Learning 유추 HTTP 서버를 사용하여 로컬 디버깅을 사용하도록 설정합니다.
+    * Azure Machine Learning 유추 HTTP 서버[(미리 보기)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)는 로컬 개발 환경에서 입력 스크립트(`score.py`)의 유효성을 쉽게 검사할 수 있도록 하는 Python 패키지입니다. 점수 매기기 스크립트에 문제가 있으면 서버에서 오류를 반환합니다. 또한 오류가 발생한 위치도 반환합니다.
+    * 연속 통합 및 배포 파이프라인에서 유효성 검사 게이트를 만들 때에도 서버를 사용할 수 있습니다. 예를 들어 후보 스크립트를 사용하여 서버를 시작하고 로컬 엔드포인트에 대해 테스트 도구 모음을 실행합니다.
+
+## <a name="azure-machine-learning-inference-http-server"></a>Azure Machine Learning 유추 HTTP 서버
+
+로컬 유추 서버를 사용하면 항목 스크립트(`score.py`)를 신속하게 디버그할 수 있습니다. 기본 점수 스크립트에 버그가 있는 경우 서버에서 모델을 초기화하거나 제공하지 못합니다. 대신 예외 및 문제가 발생한 위치를 throw합니다. [Azure Machine Learning 유추 HTTP 서버에 대한 자세한 정보](how-to-inference-server-http.md)
+
+1. [pypi](https://pypi.org/) 피드에서 `azureml-inference-server-http` 패키지를 설치합니다.
+
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
+
+2. 서버를 시작하고 항목 스크립트로 `score.py`를 설정합니다.
+
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
+
+3. `curl`을 사용하여 서버에 점수 매기기 요청을 보냅니다.
+
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
 
 ## <a name="debug-locally"></a>로컬에서 디버그
 
@@ -128,6 +153,7 @@ print(ws.webservices['mysvc'].get_logs())
 배포에 대해 자세히 알아보세요.
 
 * [원격 배포 문제를 해결하는 방법](how-to-troubleshoot-deployment.md)
+* [Azure Machine Learning 유추 HTTP 서버](how-to-inference-server-http.md)
 * [배포 방법 및 위치](how-to-deploy-and-where.md)
 * [자습서: 모델 학습 및 배포](tutorial-train-models-with-aml.md)
 * [로컬에서 실험을 실행하고 디버그하는 방법](./how-to-debug-visual-studio-code.md)

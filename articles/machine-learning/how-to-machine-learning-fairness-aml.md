@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: 3b71347f9375ebb24befe665c031af9cd7ad7cc3
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 86916a14c79e9e2432dc5fb03da66081d4bab737
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884843"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529560"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning을 사용하여 ML 모델의 공정성 평가(미리 보기)
 
@@ -31,7 +31,7 @@ ms.locfileid: "107884843"
 
 ## <a name="azure-machine-learning-fairness-sdk"></a>Azure Machine Learning Fairness SDK 
 
-Azure Machine Learning Fairness SDK, `azureml-contrib-fairness`는 Azure Machine Learning 내에 오픈 소스 Python 패키지인 [Fairlearn](http://fairlearn.github.io)을 통합합니다. Azure Machine Learning에서 Fairlearn의 통합에 관해 자세히 알아보려면 해당 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness)을 확인하세요. Fairlearn에 관한 자세한 내용은 [예제 가이드](https://fairlearn.org/v0.6.0/auto_examples/)와 [샘플 Notebook](https://github.com/fairlearn/fairlearn/tree/master/notebooks)을 참조하세요. 
+Azure Machine Learning Fairness SDK, `azureml-contrib-fairness`는 Azure Machine Learning 내에 오픈 소스 Python 패키지인 [Fairlearn](http://fairlearn.github.io)을 통합합니다. Azure Machine Learning에서 Fairlearn의 통합에 관해 자세히 알아보려면 해당 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness)을 확인하세요. Fairlearn에 관한 자세한 내용은 [예제 가이드](https://fairlearn.org/main/auto_examples/)와 [샘플 Notebook](https://github.com/fairlearn/fairlearn/tree/master/notebooks)을 참조하세요. 
 
 다음 명령을 사용하여 `azureml-contrib-fairness`와 `fairlearn` 패키지를 설치합니다.
 ```bash
@@ -64,7 +64,7 @@ pip install fairlearn==0.4.6
     from sklearn.compose import make_column_selector as selector
     from sklearn.pipeline import Pipeline
     
-    from fairlearn.widget import FairlearnDashboard
+    from raiwidgets import FairnessDashboard
 
     # Load the census dataset
     data = fetch_openml(data_id=1590, as_frame=True)
@@ -126,12 +126,12 @@ pip install fairlearn==0.4.6
     # Train the model on the test data
     lr_predictor.fit(X_train, y_train)
 
-    # (Optional) View this model in Fairlearn's fairness dashboard, and see the disparities which appear:
-    from fairlearn.widget import FairlearnDashboard
-    FairlearnDashboard(sensitive_features=A_test, 
-                       sensitive_feature_names=['Race', 'Sex'],
-                       y_true=y_test,
-                       y_pred={"lr_model": lr_predictor.predict(X_test)})
+    # (Optional) View this model in the fairness dashboard, and see the disparities which appear:
+    from raiwidgets import FairnessDashboard
+    FairnessDashboard(sensitive_features=A_test, 
+                      sensitive_feature_names=['Race', 'Sex'],
+                      y_true=y_test,
+                      y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
 
 2. Azure Machine Learning에 로그인하여 모델을 등록합니다.
@@ -227,7 +227,7 @@ pip install fairlearn==0.4.6
     1. 이전 단계에 따라 원본 모델을 등록한 경우 왼쪽 창에서 **모델** 을 선택하여 볼 수 있습니다.
     1. 모델을 선택한 다음 **공정성** 탭을 선택하여 설명 시각화 대시보드를 봅니다.
 
-    시각화 대시보드 및 포함 내용에 관해 자세히 알아보려면 Fairlearn의 [사용자 가이드](https://fairlearn.org/v0.6.0/user_guide/assessment.html#fairlearn-dashboard)를 확인하세요.
+    시각화 대시보드 및 포함 내용에 관해 자세히 알아보려면 Fairlearn의 [사용자 가이드](https://fairlearn.org/main/user_guide/assessment.html#fairlearn-dashboard)를 확인하세요.
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>여러 모델의 공정성 인사이트 업로드
 
@@ -269,9 +269,9 @@ pip install fairlearn==0.4.6
     model_dict[svm_reg_id] = svm_predictor
     ```
 
-3. 로컬에서 Fairlearn 대시보드 로드
+3. 로컬에서 공정성 대시보드 로드
 
-    공정성 인사이트를 Azure Machine Learning에 업로드하기 전에 로컬에서 호출된 Fairlearn 대시보드에서 해당 예측을 검사할 수 있습니다. 
+    공정성 인사이트를 Azure Machine Learning에 업로드하기 전에 로컬에서 호출된 공정성 대시보드에서 해당 예측을 검사할 수 있습니다. 
 
 
 
@@ -281,12 +281,12 @@ pip install fairlearn==0.4.6
     for n, p in model_dict.items():
         ys_pred[n] = p.predict(X_test)
 
-    from fairlearn.widget import FairlearnDashboard
+    from raiwidgets import FairnessDashboard
 
-    FairlearnDashboard(sensitive_features=A_test, 
-                    sensitive_feature_names=['Race', 'Sex'],
-                    y_true=y_test.tolist(),
-                    y_pred=ys_pred)
+    FairnessDashboard(sensitive_features=A_test, 
+                      sensitive_feature_names=['Race', 'Sex'],
+                      y_true=y_test.tolist(),
+                      y_pred=ys_pred)
     ```
 
 3. 공정성 메트릭을 미리 계산합니다.
@@ -338,14 +338,14 @@ pip install fairlearn==0.4.6
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>완화되지 않은 공정성 인사이트와 완화된 공정성 인사이트 업로드
 
-Fairlearn의 [완화 알고리즘](https://fairlearn.org/v0.6.0/user_guide/mitigation.html)을 사용하고, 생성된 완화 모델을 원래의 완화되지 않은 모델과 비교하며, 비교된 모델 간의 성능/공정성 장단점을 검색할 수 있습니다.
+Fairlearn의 [완화 알고리즘](https://fairlearn.org/main/user_guide/mitigation.html)을 사용하고, 생성된 완화 모델을 원래의 완화되지 않은 모델과 비교하며, 비교된 모델 간의 성능/공정성 장단점을 검색할 수 있습니다.
 
-[그리드 검색](https://fairlearn.org/v0.6.0/user_guide/mitigation.html#grid-search) 완화 알고리즘(다양한 공정성 및 성능의 장단점을 유지하면서 완화된 모델 컬렉션을 생성)의 사용을 보여 주는 예를 보려면 이 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb)을 확인하세요. 
+[그리드 검색](https://fairlearn.org/main/user_guide/mitigation.html#grid-search) 완화 알고리즘(다양한 공정성 및 성능의 장단점을 유지하면서 완화된 모델 컬렉션을 생성)의 사용을 보여 주는 예를 보려면 이 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb)을 확인하세요. 
 
 단일 실행에서 여러 모델의 공정성 인사이트를 업로드하면 공정성과 성능 측면에서 모델을 비교할 수 있습니다. 모델 비교 차트에 표시된 모델 중 하나를 클릭하면 특정 모델에 관한 자세한 공정성 인사이트를 볼 수 있습니다.
 
 
-[![모델 비교 Fairlearn 대시보드](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
+[![모델 비교 공정성 대시보드](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
     
 
 ## <a name="next-steps"></a>다음 단계

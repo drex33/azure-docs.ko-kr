@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2021
 ms.author: yelevin
-ms.openlocfilehash: 8c9206404294557f3f4a50d03ae550e407b92ed3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c231840b6255ef693353d83323710cb3243efaef
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529436"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214307"
 ---
 # <a name="threat-intelligence-integration-in-azure-sentinel"></a>Azure Sentinel에서 위협 인텔리전스 통합
 
@@ -112,7 +112,7 @@ TIP(위협 인텔리전스 플랫폼) 피드에 연결하려면 지침에 따라
 
 ### <a name="threatquotient-threat-intelligence-platform"></a>ThreatQuotient 위협 인텔리전스 플랫폼
 
-- 문서 [ThreatQ 통합을 위한 Microsoft Sentinel 커넥터](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=DetailsAndSupport)에서 [ThreatQuotient TIP](https://www.threatq.com/)를 Azure Sentinel과 연결하는 데 필요한 지원 정보와 지침을 확인할 수 있습니다.
+- 문서 [ThreatQ 통합을 위한 Microsoft Sentinel 커넥터](https://azuremarketplace.microsoft.com/marketplace/apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?tab=overview)에서 [ThreatQuotient TIP](https://www.threatq.com/)를 Azure Sentinel과 연결하는 데 필요한 지원 정보와 지침을 확인할 수 있습니다.
 
 ## <a name="incident-enrichment-sources"></a>인시던트 보강 소스
 

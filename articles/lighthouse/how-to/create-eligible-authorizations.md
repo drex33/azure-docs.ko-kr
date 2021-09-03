@@ -1,14 +1,14 @@
 ---
 title: 적격 권한 부여 만들기
 description: Azure Lighthouse에 고객을 온보딩하는 경우 관리 테넌트의 사용자가 Just-In-Time 방식으로 해당 역할을 승격할 수 있습니다.
-ms.date: 07/15/2021
+ms.date: 08/26/2021
 ms.topic: how-to
-ms.openlocfilehash: 5f5711b8ee573e0f91437dd1e89a870c755f4725
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 1754a7d43f184e340badb7adb29de8caa3901372
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114667224"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038688"
 ---
 # <a name="create-eligible-authorizations"></a>적격 권한 부여 만들기
 
@@ -103,7 +103,7 @@ Azure Lighthouse 고객을 온보딩하려면 수정하는 [해당 매개 변수
 
 |온보딩하려면(적격 권한 부여 사용)  |사용하는 Azure Resource Manager 템플릿  |수정할 매개 변수 파일 |
 |---------|---------|---------|
-|Subscription   |[subscription.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription.json)  |[subscription.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription.Parameters.json)    |
+|Subscription   |[subscription.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription.json)  |[subscription.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription.parameters.json)    |
 |구독(승인자 포함)  |[subscription-managing-tenant-approvers.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription-managing-tenant-approvers.json)  |[subscription-managing-tenant-approvers.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription-managing-tenant-approvers.parameters.json)    |
 |Resource group   |[rg.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg.json)  |[rg.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg.parameters.json)    |
 |리소스 그룹(승인자 포함)  |[rg-managing-tenant-approvers.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg-managing-tenant-approvers.json)  |[rg-managing-tenant-approvers.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg-managing-tenant-approvers.parameters.json)    |
@@ -121,113 +121,77 @@ Azure Lighthouse 고객을 온보딩하려면 수정하는 [해당 매개 변수
             "type": "string",
             "metadata": {
                 "description": "Specify a unique name for your offer"
-            },
-            "defaultValue": "<to be filled out by MSP> Specify a title for your offer"
+            }
         },
         "mspOfferDescription": {
             "type": "string",
             "metadata": {
                 "description": "Name of the Managed Service Provider offering"
-            },
-            "defaultValue": "<to be filled out by MSP> Provide a brief description of your offer"
+            }
         },
         "managedByTenantId": {
             "type": "string",
             "metadata": {
                 "description": "Specify the tenant id of the Managed Service Provider"
-            },
-            "defaultValue": "<to be filled out by MSP> Provide your tenant id"
+            }
         },
         "authorizations": {
             "type": "array",
             "metadata": {
                 "description": "Specify an array of objects, containing tuples of Azure Active Directory principalId, a Azure roleDefinitionId, and an optional principalIdDisplayName. The roleDefinition specified is granted to the principalId in the provider's Active Directory and the principalIdDisplayName is visible to customers."
-            },
-            "defaultValue": [
-                { 
-                    "principalId": "00000000-0000-0000-0000-000000000000", 
-                    "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-                    "principalIdDisplayName": "PIM_Group" 
-                }, 
-                { 
-                    "principalId": "00000000-0000-0000-0000-000000000000", 
-                    "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
-                    "principalIdDisplayName": "PIM_Group" 
-                }   
-            ]
-        }, 
-        "eligibleAuthorizations": { 
-            "type": "array", 
-            "metadata": { 
-                "description": "Provide the authorizations that will have just-in-time role assignments on customer environments" 
-            },
-           "defaultValue": [ 
-                { 
-                        "justInTimeAccessPolicy": { 
-                            "multiFactorAuthProvider": "Azure", 
-                            "maximumActivationDuration": "PT8H",
-                            "managedByTenantApprovers": [ 
-                                { 
-                                    "principalId": "00000000-0000-0000-0000-000000000000", 
-                                    "principalIdDisplayName": "PIM-Approvers" 
-                                }
-                            ]
-                        },
-                        "principalId": "00000000-0000-0000-0000-000000000000", 
-                        "principalIdDisplayName": "PIM_Group",
-                        "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c" 
-                        
-                }                    
-            ]    
-
-        }                 
-    },
-    "variables": {
-        "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
-        "mspAssignmentName": "[guid(parameters('mspOfferName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.ManagedServices/registrationDefinitions",
-            "apiVersion": "2020-02-01-preview",
-            "name": "[variables('mspRegistrationName')]",
-            "properties": {
-                "registrationDefinitionName": "[parameters('mspOfferName')]",
-                "description": "[parameters('mspOfferDescription')]",
-                "managedByTenantId": "[parameters('managedByTenantId')]",
-                "authorizations": "[parameters('authorizations')]", 
-                "eligibleAuthorizations": "[parameters('eligibleAuthorizations')]" 
             }
         },
-        {
-            "type": "Microsoft.ManagedServices/registrationAssignments",
-            "apiVersion": "2020-02-01-preview",
-            "name": "[variables('mspAssignmentName')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
-            ],
-            "properties": {
-                "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+        "eligibleAuthorizations": {
+            "type": "array",
+            "metadata": {
+                "description": "Provide the authorizations that will have just-in-time role assignments on customer environments with support for approvals from the managing tenant"
             }
         }
-    ],
-    
-    "outputs": {
-        "mspOfferName": {
-            "type": "string",
-            "value": "[concat('Managed by', ' ', parameters('mspOfferName'))]"
+    },
+        "variables": {
+            "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
+            "mspAssignmentName": "[guid(parameters('mspOfferName'))]"
         },
-        "authorizations": {
-            "type": "array",
-            "value": "[parameters('authorizations')]"
-        }, 
-        "eligibleAuthorizations": { 
-            "type": "array", 
-            "value": "[parameters('eligibleAuthorizations')]" 
-
-        } 
+        "resources": [
+            {
+                "type": "Microsoft.ManagedServices/registrationDefinitions",
+                "apiVersion": "2020-02-01-preview",
+                "name": "[variables('mspRegistrationName')]",
+                "properties": {
+                    "registrationDefinitionName": "[parameters('mspOfferName')]",
+                    "description": "[parameters('mspOfferDescription')]",
+                    "managedByTenantId": "[parameters('managedByTenantId')]",
+                    "authorizations": "[parameters('authorizations')]",
+                    "eligibleAuthorizations": "[parameters('eligibleAuthorizations')]"
+                }
+            },
+            {
+                "type": "Microsoft.ManagedServices/registrationAssignments",
+                "apiVersion": "2020-02-01-preview",
+                "name": "[variables('mspAssignmentName')]",
+                "dependsOn": [
+                    "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+                ],
+                "properties": {
+                    "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+                }
+            }
+        ],
+        "outputs": {
+            "mspOfferName": {
+                "type": "string",
+                "value": "[concat('Managed by', ' ', parameters('mspOfferName'))]"
+            },
+            "authorizations": {
+                "type": "array",
+                "value": "[parameters('authorizations')]"
+            },
+            "eligibleAuthorizations": {
+                "type": "array",
+                "value": "[parameters('eligibleAuthorizations')]"
+            }
+        }
     }
-}
 ```
 
 ### <a name="define-eligible-authorizations-in-your-parameters-file"></a>parameters 파일에서 적격 권한 부여 정의

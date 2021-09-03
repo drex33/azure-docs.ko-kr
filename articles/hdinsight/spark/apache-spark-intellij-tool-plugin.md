@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 29fb96dc83ada329910844506838dee461321343
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 21f815af73b264f7be6ffaf1e59909a7139ea022
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866338"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113297553"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "104866338"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요. 퍼블릭 클라우드의 HDinsight 클러스터만 지원되고 다른 보안 클라우드 유형(예: 정부 클라우드)은 지원되지 않습니다.
 
 * [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  이 문서에서는 Java 버전 8.0.202를 사용합니다.
 
@@ -371,7 +371,7 @@ WINUTILS.EXE 필수 구성 요소를 충족하는지 확인합니다.
 
 ### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>ID 브로커(HIB)를 사용하여 HDInsight ESP 클러스터에 연결
 
-Azure 구독에 로그인하는 일반적인 단계에 따라 ID 브로커(HIB)를 사용하여 HDInsight ESP 클러스터에 연결할 수 있습니다. 로그인한 후에는 Azure Explorer에 클러스터 목록이 표시됩니다. 자세한 지침은 [HDInsight 클러스터에 연결](#connect-to-your-hdinsight-cluster)을 참조하세요.
+Azure 구독에 로그인하는 일반적인 단계에 따라 ID 브로커(HIB)를 사용하여 HDInsight ESP 클러스터에 연결할 수 있습니다. 로그인하면 Azure Explorer에 클러스터 목록이 표시됩니다. 자세한 지침은 [HDInsight 클러스터에 연결](#connect-to-your-hdinsight-cluster)을 참조하세요.
 
 ### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>HDInsight ESP 클러스터에서 ID 브로커(HIB)를 사용하여 Spark Scala 응용 프로그램 실행
 

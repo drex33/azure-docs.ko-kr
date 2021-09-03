@@ -9,20 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: a050425cec6062bdf4d62c6ace3c61d84eaede5d
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: c4cfe742789576a4aaf61cd3194af64ede849aa7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582819"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695013"
 ---
 # <a name="create-endpoints-for-deployed-machine-learning-studio-classic-web-services"></a>배포된 Machine Learning Studio(클래식) 웹 서비스에 대한 엔드포인트 만들기
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-
-> [!NOTE]
-> 이 항목에서는 **클래식** Machine Learning 웹 서비스에 적용되는 기술을 설명합니다.
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 웹 서비스가 배포된 후 해당 서비스에 대한 기본 엔드포인트가 만들어집니다. 기본 엔드포인트는 API 키를 사용하여 호출할 수 있습니다. 웹 서비스 포털에서 고유 키를 사용하여 엔드포인트를 더 추가할 수 있습니다.
 웹 서비스의 각 엔드포인트는 독립적으로 처리, 제한 및 관리됩니다. 각 엔드포인트에는 고객에게 배포할 수 있는 권한 부여 키가 있는 고유한 URL이 있습니다.

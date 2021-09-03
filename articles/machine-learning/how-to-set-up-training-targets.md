@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/28/2020
+ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e044920953d0b635e7fe92f07b2cd69c0d8f5ee7
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: e08823861e0b1a197313c8311cc13ac972d61a25
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888587"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122603711"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
@@ -28,7 +28,7 @@ ms.locfileid: "107888587"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 * [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/install)(1.13.0 이상)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)(`ws`)
 * 컴퓨팅 대상(`my_compute_target`).  [컴퓨팅 대상 만들기](how-to-create-attach-compute-studio.md) 
@@ -77,7 +77,9 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 이 문서의 예제 코드에서는 "사전 요구 사항" 섹션에서 `my_compute_target`이라는 컴퓨팅 대상을 이미 만들었다고 가정합니다.
 
 >[!Note]
->Azure Databricks는 모델 학습을 위한 컴퓨팅 대상으로 지원되지 않습니다. Azure Databricks는 데이터 준비 및 배포 작업에 사용할 수 있습니다. 
+>Azure Databricks는 모델 학습을 위한 컴퓨팅 대상으로 지원되지 않습니다. Azure Databricks는 데이터 준비 및 배포 작업에 사용할 수 있습니다.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## <a name="create-an-environment"></a>환경 만들기
 Azure Machine Learning [환경](concept-environments.md)은 기계 학습이 수행되는 환경을 캡슐화한 것입니다. 학습 및 채점 스크립트와 관련된 Python 패키지, Docker 이미지, 환경 변수 및 소프트웨어 설정을 지정합니다. 또한 런타임(Python, Spark 또는 Docker)을 지정합니다.
@@ -133,7 +135,7 @@ script_run_config.run_config.target = my_compute_target
 실행에 허용되는 기본 최대 시간을 재정의하려면 **`max_run_duration_seconds`** 매개 변수를 통해 이 작업을 수행할 수 있습니다. 이 값보다 오래 걸리면 시스템에서 자동으로 실행을 취소하려고 시도합니다.
 
 ### <a name="specify-a-distributed-job-configuration"></a>분산 작업 구성 지정
-분산 학습 작업을 실행하려면 분산 작업별 구성을 **`distributed_job_config`** 매개 변수에 제공합니다. 지원되는 구성 유형으로 [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) 및 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration)이 있습니다. 
+[분산 학습](how-to-train-distributed-gpu.md) 작업을 실행하려면 분산 작업별 구성을 **`distributed_job_config`** 매개 변수에 제공합니다. 지원되는 구성 유형으로 [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) 및 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration)이 있습니다. 
 
 분산 Horovod, TensorFlow 및 PyTorch 작업 실행에 대한 자세한 내용과 예제는 다음을 참조하세요.
 
@@ -177,6 +179,9 @@ run.wait_for_completion(show_output=True)
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="troubleshooting"></a>문제 해결
+
+* **AttributeError: 'RoundTripLoader' 개체에 'comment_handling' 특성이 없습니다.** 이 오류는 `azureml-core` 종속성인 `ruamel-yaml`의 새 버전(v0.17.5)에서 발생합니다. 이 버전에는 `azureml-core`에 대한 호환성이 손상되는 변경이 도입되었습니다. 이 오류를 수정하려면 `pip uninstall ruamel-yaml`을 실행하고 다른 버전의 `ruamel-yaml`을 설치하여 `ruamel-yaml`을 제거합니다. 지원되는 버전은 v0.15.35 ~ v0.17.4(포함)입니다. `pip install "ruamel-yaml>=0.15.35,<0.17.5"`를 실행하여 이 작업을 수행할 수 있습니다.
+
 
 * **`jwt.exceptions.DecodeError`로 인한 실행 실패**: 정확한 오류 메시지: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`. 
     

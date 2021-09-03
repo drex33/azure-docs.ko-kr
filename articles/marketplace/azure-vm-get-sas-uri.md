@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 04/21/2021
-ms.openlocfilehash: 1935d64db958112a7b6951abb81e3bd4d7119bda
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.date: 06/23/2021
+ms.openlocfilehash: 4bebe0ea34f9f9cc62b0ed4e96fd6fb1c7615635
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525753"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913458"
 ---
 # <a name="generate-a-sas-uri-for-a-vm-image"></a>VM 이미지에 대한 SAS URI 생성
 
@@ -58,7 +58,7 @@ $resourceGroupName=myResourceGroupName
 $snapshotName=mySnapshot
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
-#Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
+#Know more about SAS here: https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1
 $sasExpiryDuration=3600
 
 #Provide storage account name where you want to copy the underlying VHD file. Currently, only general purpose v1 storage is supported.
@@ -128,7 +128,7 @@ SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 
 2. PowerShell 파일(.ps1 파일 확장명)을 만들고, 다음 코드를 복사한 다음, 로컬로 저장합니다.
 
     ```azurecli-interactive
-    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <container-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
+    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <container-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
     ```
 
 3. 파일을 편집하여 다음 매개 변수 값을 사용합니다. UTC 날짜/시간 형식(예: 2020-04-01T00:00:00Z)으로 날짜를 입력합니다.
@@ -141,7 +141,7 @@ SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 
     다음은 적절한 매개 변수 값의 예시(이 문서의 작성 시점 기준)입니다.
 
     ```azurecli-interactive
-    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name <container-name> -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
+    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name <container-name> -- permissions rl --start '2020-04-01T00:00:00Z' --expiry '2021-04-01T00:00:00Z'
     ```
 
 1. 변경 내용을 저장합니다.
@@ -174,5 +174,5 @@ SAS 주소(URL)를 만드는 데 사용되는 일반적인 두 가지 도구는 
 ## <a name="next-steps"></a>다음 단계
 
 - 문제가 발생하는 경우 [VM SAS 오류 메시지](azure-vm-sas-failure-messages.md)를 참조하세요.
-- [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)
+- [파트너 센터에 로그인](https://go.microsoft.com/fwlink/?linkid=2165935)
 - [Azure Marketplace에서 가상 머신 제품 만들기](azure-vm-create.md)

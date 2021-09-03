@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 08/03/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 4d98ebbebbb25e2ab903e06162114f8fa026fbda
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 33d8bb83b172e913abc13804d61c9b158e86e78c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529338"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768511"
 ---
 # <a name="cli-v2-yaml-schemas"></a>CLI(v2) YAML 스키마
 
@@ -63,7 +63,7 @@ Azure CLI에 대한 확장인 Azure Machine Learning CLI(v2)는 특정 스키마
 - | -
 [온라인(실시간) 관리](reference-yaml-deployment-managed-online.md) | https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 [관리되는 일괄 처리](reference-yaml-deployment-managed-batch.md) | https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
-[Kubernetes(k8s) 온라인(실시간)](reference-yaml-deployment-k8s-online.md) | https://azuremlschemas.azureedge.net/latest/k8sOnelineDeployment.schema.json
+[Kubernetes(k8s) 온라인(실시간)](reference-yaml-deployment-k8s-online.md) | https://azuremlschemas.azureedge.net/latest/k8sOnlineDeployment.schema.json
 
 ## <a name="next-steps"></a>다음 단계
 

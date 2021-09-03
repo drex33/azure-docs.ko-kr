@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: c9edfdf1c9740ec1fdaaeeedbc6ba92793eb0b3f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7aad80816a7bf8f6a1c55c8a4f1de1d4761fc523
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779960"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528596"
 ---
-# <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks-preview"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크 및 Azure Files용 CSI(Container Storage Interface) 드라이버 사용(미리 보기)
+# <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크와 Azure Files용 CSI(Container Storage Interface) 드라이버 사용
 
 CSI(Container Storage Interface)는 임의 블록과 파일 스토리지 시스템을 Kubernetes의 컨테이너화된 워크로드에 공개하는 표준입니다. CSI를 채택하고 사용하면 AKS(Azure Kubernetes Service)는 플러그 인을 작성, 배포, 반복하여 핵심 Kubernetes 코드를 조정하고 릴리스 주기를 기다릴 필요 없이 Kubernetes에서 새로운 스토리지 시스템을 공개하거나 기존 스토리지 시스템을 개선할 수 있습니다.
 
@@ -29,47 +29,7 @@ AKS의 CSI 스토리지 드라이버 지원을 통해 기본적으로 다음을 
 
 - 이 기능은 클러스터를 만들 때만 설정할 수 있습니다.
 - CSI 드라이버를 지원하는 최소 Kubernetes 부 버전은 v1.17입니다.
-- 미리 보기 중에는 기본 스토리지 클래스가 [동일한 인트리 스토리지 클래스](concepts-storage.md#storage-classes)가 됩니다. 이 기능을 일반적으로 사용할 수 있게 되면 기본 스토리지 클래스는 `managed-csi` 스토리지 클래스가 되고 인트리 스토리지 클래스는 제거됩니다.
-- 첫 번째 미리 보기 단계에서는 Azure CLI만 지원됩니다.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### <a name="register-the-enableazurediskfilecsidriver-preview-feature"></a>`EnableAzureDiskFileCSIDriver` 미리 보기 기능 등록
-
-Azure 디스크 및 Azure Files용 CSI 드라이버를 사용할 수 있는 AKS 클러스터를 만들려면 구독에서 `EnableAzureDiskFileCSIDriver` 기능 플래그를 사용하도록 설정해야 합니다.
-
-`EnableAzureDiskFileCSIDriver`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 기능 플래그를 등록 합니다.
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureDiskFileCSIDriver"
-```
-
-상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureDiskFileCSIDriver')].{Name:name,State:properties.state}"
-```
-
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
-
-CSI 스토리지 드라이버를 사용할 수 있는 AKS 클러스터 또는 노드 풀을 만들려면 최신 *aks-preview* Azure CLI 확장이 필요합니다. [Az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치 합니다. 또는 [az extension update][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 설치 합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
-
+- 기본 스토리지 클래스는 `managed-csi` 스토리지 클래스입니다.
 
 ## <a name="create-a-new-cluster-that-can-use-csi-storage-drivers"></a>CSI 스토리지 드라이버를 사용할 수 있는 새 클러스터 만들기
 

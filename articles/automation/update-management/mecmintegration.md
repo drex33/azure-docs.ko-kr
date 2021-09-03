@@ -3,14 +3,14 @@ title: Microsoft Endpoint Configuration Manager와 Azure Automation 업데이트
 description: 이 문서에서는 업데이트 관리를 사용하여 Microsoft Endpoint Configuration Manager를 구성하여 소프트웨어 업데이트를 관리자 클라이언트에 배포하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 07/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: a848c7c15bf786ba26b8a1fdb1dab41b9aa20b8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6889d5058a7ca93e410afa0454e108d79bb70569
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575767"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203906"
 ---
 # <a name="integrate-update-management-with-microsoft-endpoint-configuration-manager"></a>업데이트 관리를 Microsoft Endpoint Configuration Manager와 통합
 
@@ -34,9 +34,11 @@ Microsoft Endpoint Configuration Manager에서 소프트웨어 업데이트 배�
 
 Microsoft Endpoint Configuration Manager에서 업데이트 배포 관리를 계속하려는 경우 다음 단계를 수행합니다. Azure Automation에서 Microsoft Endpoint Configuration Manager에 연결하여 Log Analytics 작업 영역에 연결된 클라이언트 컴퓨터에 업데이트를 적용합니다. 업데이트 콘텐츠는 배포를 Microsoft Endpoint Configuration Manager에서 관리하는 경우 클라이언트 컴퓨터 캐시에서 사용할 수 있습니다.
 
-1. [소프트웨어 업데이트 배포](/configmgr/sum/deploy-use/deploy-software-updates)에 설명된 프로세스를 사용하여 Microsoft Endpoint Configuration Manager 계층 구조의 최상위 사이트에서 소프트웨어 업데이트 배포를 만듭니다. 표준 배포와 다르게 구성해야 하는 유일한 설정은 배포 패키지의 다운로드 동작을 제어하는 **소프트웨어 업데이트를 설치하지 않음** 옵션입니다. 이 동작은 다음 단계에서 예약된 업데이트 배포를 만들어 업데이트 관리에서 관리됩니다.
+1. [소프트웨어 업데이트 배포](/configmgr/sum/deploy-use/deploy-software-updates)에 설명된 프로세스를 사용하여 Microsoft Endpoint Configuration Manager 계층 구조의 최상위 사이트에서 소프트웨어 업데이트 배포를 만듭니다. 표준 배포와 다르게 구성해야 하는 유일한 설정은 Endpoint Configuration Manager의 **설치 최종 기한** 옵션입니다. Automation 업데이트 관리만 업데이트 배포를 시작하도록 하려면 미래 날짜로 설정해야 합니다. 이 설정은 [4단계, 소프트웨어 업데이트 그룹 배포](/configmgr/sum/deploy-use/manually-deploy-software-updates#BKMK_4DeployUpdateGroup)에서 설명합니다.
 
-2. Azure Automation에서 **업데이트 관리** 를 선택합니다. [업데이트 배포 만들기](deploy-updates.md#schedule-an-update-deployment)에서 설명한 단계에 따라 새 배포를 만들고, **유형** 드롭다운에서 **가져온 그룹** 을 선택하여 적절한 Microsoft Endpoint Configuration Manager 컬렉션을 선택합니다. 다음 중요 사항을 주의하세요.
+2. Endpoint Configuration Manager에서 대상 머신에 알림이 표시되지 않도록 **사용자 알림** 옵션을 구성합니다. 로그온한 사용자가 예약된 업데이트 배포에 관한 알림을 받고 해당 업데이트를 수동으로 배포하지 않도록 하려면 **소프트웨어 센터 및 모든 알림에서 숨기기** 옵션을 설정하는 것이 좋습니다. 이 설정은 [4단계, 소프트웨어 업데이트 그룹 배포](/configmgr/sum/deploy-use/manually-deploy-software-updates#BKMK_4DeployUpdateGroup)에서 설명합니다.
+
+3. Azure Automation에서 **업데이트 관리** 를 선택합니다. [업데이트 배포 만들기](deploy-updates.md#schedule-an-update-deployment)에서 설명한 단계에 따라 새 배포를 만들고, **유형** 드롭다운에서 **가져온 그룹** 을 선택하여 적절한 Microsoft Endpoint Configuration Manager 컬렉션을 선택합니다. 다음 중요 사항을 주의하세요.
 
     a. 선택한 Microsoft Endpoint Configuration Manager 디바이스 컬렉션에 유지 관리 기간이 정의되어 있는 경우 컬렉션의 멤버는 예약된 배포에 정의된 **기간** 설정 대신 이 기간을 사용합니다.
 

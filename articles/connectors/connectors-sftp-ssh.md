@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: article
-ms.date: 04/05/2021
+ms.topic: conceptual
+ms.date: 08/05/2021
 tags: connectors
-ms.openlocfilehash: 5eae6b48a65f919ea233ad77a215ed5672425175
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 32638d71f2c700700be5eb1b2ad63f18969d82a0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385856"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529342"
 ---
 # <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 만들기 및 관리
 
@@ -87,15 +87,16 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면 이 항목의
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 워크플로에서 SFTP 계정에 액세스할 수 있도록 하는 SFTP 서버 주소 및 계정 자격 증명. SSH 프라이빗 키 및 SSH 프라이빗 키 암호에 대한 액세스도 필요합니다. 청크를 사용하여 대용량 파일을 업로드하려면 SFTP 서버의 루트 폴더에 대한 읽기 및 쓰기 권한이 모두 필요합니다. 그렇지 않으면 "401 권한 없음" 오류가 발생합니다.
 
-  SFTP-SSH 커넥터는 프라이빗 키 인증과 암호 인증을 모두 지원합니다. 하지만 SFTP-SSH 커넥터는 이러한 프라이빗 키 형식, 알고리즘 및 지문 *만* 지원합니다.
+  SFTP-SSH 커넥터는 프라이빗 키 인증과 암호 인증을 모두 지원합니다. 그러나 SFTP-SSH 커넥터는 다음과 같은 프라이빗 키 형식, 암호화 알고리즘, 지문, 키 교환 알고리즘‘만’ 지원합니다.
 
   * **프라이빗 키 형식**: OpenSSH와 ssh.com 형식의 RSA(Rivest Shamir Adleman) 및 DSA(디지털 서명 알고리즘) 키 프라이빗 키가 PuTTY(.ppk) 파일 형식인 경우 먼저 [키를 OpenSSH(.pem) 파일 형식으로 변환](#convert-to-openssh)합니다.
   * **암호화 알고리즘**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC 및 AES-256-CBC
   * **지문**: MD5
+  * **키 교환 알고리즘**: curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group-exchange-sha1, diffie-hellman-group16-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, diffie-hellman-group1-sha1
 
   워크플로에 SFTP-SSH 트리거 또는 동작을 추가한 후에는 SFTP 서버에 대한 연결 정보를 제공해야 합니다. 이 연결에 대한 SSH 프라이빗 키를 제공하는 경우 ***키를 수동으로 입력하거나 편집하지 마세요**. 이로 인해 연결이 실패할 수 있습니다. 대신, SSH 프라이빗 키 파일에서 _*_키를 복사_*_ 하고 해당 키를 연결 세부 정보에 *_붙여넣어야 합니다_**. 자세한 내용은 이 문서의 뒷부분에 나오는 [SSH를 사용하여 SFTP에 연결](#connect) 섹션을 참조하세요.
 
@@ -123,7 +124,7 @@ SFTP-SSH 트리거는 SFTP 파일 시스템을 폴링하여 마지막 폴링 이
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>트리거 되풀이 이동 및 드리프트
 
-SFTP-SSH 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 트리거는 [되풀이 트리거](../connectors/connectors-native-recurrence.md)와 같이 기본적으로 Azure Logic Apps에서 실행되는 기본 제공 트리거와 다릅니다. 되풀이 연결 기반 트리거에서 되풀이 일정은 실행을 제어하는 유일한 드라이버가 아니며, 표준 시간대는 최초 시작 시간만 결정합니다. 후속 실행은 되풀이 일정, 마지막 트리거 실행 *및* 런타임 시 예기치 않은 동작을 발생시킬 수 있는 기타 요인에 따라 달라집니다. 예를 들어 예기치 않은 동작에는 DST(일광 절약 시간제)가 시작되고 끝날 때 지정된 일정을 유지하지 못하는 오류가 포함될 수 있습니다. DST가 적용될 때 되풀이 시간이 이동하지 않게 하려면 되풀이를 수동으로 조정합니다. 이렇게 하면 워크플로가 예상 시간에 계속 실행됩니다. 그렇지 않으면 DST가 시작될 때 시작 시간이 1시간 앞으로 이동하고, DST가 종료되면 1시간 뒤로 이동합니다. 자세한 내용은 [연결 기반 트리거의 되풀이](../connectors/apis-list.md#recurrence-connection-based)를 참조하세요.
+SFTP-SSH 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 트리거는 [되풀이 트리거](../connectors/connectors-native-recurrence.md)와 같이 기본적으로 Azure Logic Apps에서 실행되는 기본 제공 트리거와 다릅니다. 되풀이 연결 기반 트리거에서 되풀이 일정은 실행을 제어하는 유일한 드라이버가 아니며, 표준 시간대는 최초 시작 시간만 결정합니다. 후속 실행은 되풀이 일정, 마지막 트리거 실행 *및* 런타임 시 예기치 않은 동작을 발생시킬 수 있는 기타 요인에 따라 달라집니다. 예를 들어 예기치 않은 동작에는 DST(일광 절약 시간제)가 시작되고 끝날 때 지정된 일정을 유지하지 못하는 오류가 포함될 수 있습니다. DST가 적용될 때 되풀이 시간이 이동하지 않게 하려면 되풀이를 수동으로 조정합니다. 이렇게 하면 워크플로가 예상 시간에 계속 실행됩니다. 그렇지 않으면 DST가 시작될 때 시작 시간이 1시간 앞으로 이동하고, DST가 종료되면 1시간 뒤로 이동합니다. 자세한 내용은 [연결 기반 트리거의 되풀이](../connectors/apis-list.md#recurrence-for-connection-based-triggers)를 참조하세요.
 
 <a name="convert-to-openssh"></a>
 
@@ -141,7 +142,7 @@ PuTTY 형식 및 OpenSSH 형식은 서로 다른 파일 이름 확장명을 사�
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   예:
+   예를 들면 다음과 같습니다.
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -259,9 +260,9 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 동작을
 
 이 오류는 논리 앱이 SFTP 서버와의 연결을 성공적으로 설정할 수 없는 경우에 발생할 수 있습니다. 이 문제에 대한 다른 이유가 있을 수 있으므로 다음 문제 해결 옵션을 사용해 보세요.
 
-* 연결 제한 시간은 20초입니다. SFTP 서버의 성능이 양호하고 중간 디바이스(예: 방화벽)가 오버헤드를 추가하지 않는지 확인합니다. 
+* 연결 제한 시간은 20초입니다. SFTP 서버의 성능이 양호하고 중간 디바이스(예: 방화벽)가 오버헤드를 추가하지 않는지 확인합니다.
 
-* 방화벽이 설정된 경우 승인된 목록에 **관리되는 커넥터 IP** 주소를 추가해야 합니다. 논리 앱의 지역에 대한 IP 주소를 찾으려면 [Azure Logic Apps의 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#multi-tenant-azure---outbound-ip-addresses)을 참조하세요.
+* 방화벽이 설정된 경우 지역에 대한 **관리형 커넥터 IP** 주소를 승인된 목록에 추가해야 합니다. 논리 앱의 지역에 대한 IP 주소를 찾으려면 [관리형 커넥터 아웃바운드 IP - Azure Logic Apps](/connectors/common/outbound-ip-addresses)를 참조하세요.
 
 * 이 오류가 간헐적으로 발생하는 경우 SFTP-SSH 동작의 **재시도 정책** 설정을 기본 4회 재시도보다 많은 재시도 횟수로 변경합니다.
 

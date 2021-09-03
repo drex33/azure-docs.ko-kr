@@ -1,14 +1,14 @@
 ---
-title: Bicep tp를 사용하여 관리 그룹에 리소스 배포
+title: Bicep을 사용하여 관리 그룹에 리소스 배포
 description: 관리 그룹 범위에서 리소스를 배포하는 Bicep 파일을 만드는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 58fbed44045a90f4f344117fd76f7de8b0493771
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 07/19/2021
+ms.openlocfilehash: afa4a0f266eb7720a569df123c9828fd151d21e0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372197"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453603"
 ---
 # <a name="management-group-deployments-with-bicep-files"></a>Bicep 파일을 사용하여 관리 그룹 배포
 
@@ -128,7 +128,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
 }
 ```
 
-다른 관리 그룹을 대상으로 하려면 모듈을 추가합니다. [managementGroup 함수](bicep-functions-scope.md#managementgroup)를 사용하여 `scope` 속성을 설정합니다. 관리 그룹 이름을 제공합니다.
+다른 관리 그룹을 대상으로 하려면 [모듈](modules.md)을 추가합니다. [managementGroup 함수](bicep-functions-scope.md#managementgroup)를 사용하여 `scope` 속성을 설정합니다. 관리 그룹 이름을 제공합니다.
 
 ```bicep
 targetScope = 'managementGroup'
@@ -137,7 +137,7 @@ param otherManagementGroupName string
 
 // module deployed at management group level but in a different management group
 module exampleModule 'module.bicep' = {
-  name: 'deployToDifferntMG'
+  name: 'deployToDifferentMG'
   scope: managementGroup(otherManagementGroupName)
 }
 ```

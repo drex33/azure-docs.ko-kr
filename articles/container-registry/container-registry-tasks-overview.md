@@ -2,13 +2,13 @@
 title: ACR 작업 개요
 description: 클라우드에서 안전하고 자동화된 컨테이너 이미지 빌드 관리, 패치를 제공하는 Azure Container Registry의 기능 모음인 ACR 작업을 소개합니다.
 ms.topic: article
-ms.date: 08/12/2020
-ms.openlocfilehash: a42a2bfcdc1621689421940c4db2fcf4f5e64b89
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/14/2021
+ms.openlocfilehash: 8a68ff312df13517bfe2b59d97dff25783da11ab
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781004"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202277"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용하여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -61,12 +61,21 @@ ACR 작업은 Git 리포지토리를 작업의 컨텍스트로 설정할 때 다
 | Commit | 예 |
 | 끌어오기 요청 | No |
 
-소스 코드 업데이트 트리거를 구성하려면 작업에 PAT(개인용 액세스 토큰)를 제공하여 퍼블릭 또는 프라이빗 GitHub 또는 Azure DevOps 리포지토리에 웹후크를 설정해야 합니다.
-
 > [!NOTE]
 > 현재 ACR 작업은 GitHub Enterprise 리포지토리에서 커밋 또는 끌어오기 요청 트리거를 지원하지 않습니다.
 
 두 번째 ACR 작업 자습서인 [Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 자동화](container-registry-tutorial-build-task.md)에서 소스 코드 커밋 시 빌드를 트리거하는 방법을 알아보세요.
+
+### <a name="personal-access-token"></a>개인 액세스 토큰.
+
+소스 코드 업데이트 트리거를 구성하려면 작업에 PAT(개인용 액세스 토큰)를 제공하여 퍼블릭 또는 프라이빗 GitHub 또는 Azure DevOps 리포지토리에 웹후크를 설정해야 합니다. PAT에 필요한 범위는 다음과 같습니다.
+
+| 리포지토리 유형 |GitHub  |DevOps  |
+|---------|---------|---------|
+|공용 리포지토리    | repo:status<br/>public_repo        | 코드(읽기)        |
+|프라이빗 리포지토리   | 리포지토리(모든 권한)    | 코드(읽기)      |
+
+PAT를 만들려면 [GitHub](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) 또는 [Azure DevOps](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) 문서를 참조하세요.
 
 ## <a name="automate-os-and-framework-patching"></a>OS 및 프레임워크 패치 자동화
 
@@ -114,7 +123,7 @@ ACR 작업을 위한 [기본 이미지 업데이트 트리거](container-registr
 | 컨테이너 레지스트리의 아티팩트 | 컨테이너 레지스트리 리포지토리의 [OCI 아티팩트](container-registry-oci-artifacts.md) 파일입니다. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
-> 작업의 컨텍스트로 프라이빗 Git 리포지토리를 사용하는 경우에는 PAT(개인용 액세스 토큰)를 제공해야 합니다.
+> 소스 코드 업데이트에 의해 트리거된 작업의 컨텍스트로 Git 리포지토리를 사용하는 경우 [PAT(개인 액세스 토큰)](#personal-access-token)를 제공해야 합니다.
 
 ## <a name="image-platforms"></a>이미지 플랫폼
 

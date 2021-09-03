@@ -3,12 +3,12 @@ title: Application Insights에 대한 릴리스 주석 | Microsoft Docs
 description: Application Insights를 사용하여 배포 또는 기타 중요한 이벤트를 추적하기 위한 주석을 만드는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/20/2021
-ms.openlocfilehash: 230d02c26b29bb38ec4c8260109f75f1a8eca468
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a92e659353f6500a6e40e9704af73cae08e95fbf
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536389"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830156"
 ---
 # <a name="release-annotations-for-application-insights"></a>Application Insights의 릴리스 주석
 
@@ -102,8 +102,10 @@ CreateReleaseAnnotation PowerShell 스크립트를 사용하여 Azure DevOps를 
     }
     
     $body = (ConvertTo-Json $annotation -Compress) -replace '(\\+)"', '$1$1"' -replace "`"", "`"`""
-
     az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) "
+
+    # Use the following command for Linux Azure DevOps Hosts or other PowerShell scenarios
+    # Invoke-AzRestMethod -Path "$aiResourceId/Annotations?api-version=2015-05-01" -Method PUT -Payload $body
     ```
 
 3. 다음 코드로 PowerShell 스크립트를 호출하여 꺽쇠 괄호로 묶인 자리 표시자를 고유한 값으로 바꿉니다. -releaseProperties는 선택 사항입니다.

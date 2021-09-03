@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd70bccde30c2b844cfa6188a3fb06a075558a91
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e83b7b8fd3e1667dbf6f402be2f7dd52a6381340
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143002"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965722"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -64,7 +64,7 @@ VPN 또는 ExpressRoute를 통한 사이트 간 연결은 프로덕션 시나리
 - Azure PowerShell cmdlet
 - Azure CLI
 
-[SAP 클라우드 플랫폼](https://cal.sap.com/)을 통해 Azure VM 서비스에 전체 설치된 SAP HANA 플랫폼을 배포할 수도 있습니다. 설치 프로세스는 [Azure에서 SAP S/4HANA 또는 BW/4HANA 배포](./cal-s4h.md) 또는 [여기](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)에서 릴리스된 자동화로 설명되어 있습니다.
+[SAP 클라우드 플랫폼](https://cal.sap.com/)을 통해 Azure VM 서비스에 전체 설치된 SAP HANA 플랫폼을 배포할 수도 있습니다. 설치 프로세스는 [Azure에서 SAP S/4HANA 또는 BW/4HANA 배포](./cal-s4h.md)에 설명되어 있거나 [GitHub](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)에서 릴리스된 자동화로 설명됩니다.
 
 >[!IMPORTANT]
 > M208xx_v2 VM을 사용하려면 Azure VM 이미지 갤러리에서 Linux 이미지를 신중하게 선택해야 합니다. 세부 정보를 확인하려면 [메모리 최적화 가상 머신 크기](../../mv2-series.md)문서를 참조하세요.
@@ -143,7 +143,7 @@ SAP HANA 스케일 아웃에 대한 VM 노드의 기본 구성은 다음과 같�
 - 모든 다른 디스크 볼륨은 서로 다른 노드 간에 공유되지 않으며 NFS를 기반으로 하지 않습니다. 공유되지 않는 **hana/data** 및 **/hana/log** 를 사용한 스케일 아웃 HANA 설치에 관한 설치 구성 및 단계는 이 문서의 뒷부분에서 제공됩니다. 사용할 수 있는 HANA 인증 스토리지는 [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md) 문서를 확인하세요.
 
 
-볼륨이나 디스크 크기를 조정하는 경우 [SAP HANA TDI 스토리지 요구 사항](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)문서에서 작업자 노드 수에 따라 필요한 크기를 확인해야 합니다. 이 문서에는 필요한 볼륨 용량을 구하기 위해 적용해야 하는 수식이 나와 있습니다.
+볼륨이나 디스크 크기를 조정하는 경우 [SAP HANA TDI 스토리지 요구 사항](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf)문서에서 작업자 노드 수에 따라 필요한 크기를 확인해야 합니다. 이 문서에는 필요한 볼륨 용량을 구하기 위해 적용해야 하는 수식이 나와 있습니다.
 
 스케일 아웃 SAP HANA VM에 대한 단일 노드 구성의 그래픽에 표시되는 다른 설계 기준은 VNet 또는 그 이상의 서브넷 구성입니다. SAP는 HANA 노드 간 통신으로부터 트래픽 발생 클라이언트/애플리케이션을 분리할 것을 권장합니다. 그래픽에서와 같이 이는 두 개의 다른 vNIC를 VM에 연결하여 달성됩니다. 두 vNIC는 서로 다른 서브넷에 있고, 서로 다른 두 IP 주소를 가집니다. 그런 다음, NSG 또는 사용자 정의 경로를 사용하여 라우팅 규칙을 통해 트래픽 흐름을 제어합니다.
 
@@ -211,7 +211,7 @@ Azure IaaS에서 DT 2.0은 전용 VM에서만 지원됩니다. HANA 인스턴스
 - M64-32ms 
 - E32sv3 
 
-VM 유형에 대한 설명은 [여기](../../sizes-memory.md)를 참조하세요.
+VM 유형 설명에 대한 자세한 내용은 [Azure VM 크기 - 메모리](../../sizes-memory.md)를 참조하세요.
 
 비용을 절감하기 위해 "웜" 데이터를 오프로드하는 DT 2.0의 기본 개념을 고려하여 해당 VM 크기를 사용하는 것이 좋습니다. 가능한 조합과 관련하여 엄격한 규칙은 없습니다. 이 조합은 특정 고객 워크로드에 따라 다릅니다.
 
@@ -232,7 +232,7 @@ SAP HANA 인증 M 시리즈 VM과 지원되는 DT 2.0 VM(M64-32ms 및 E32sv3)의
 
 전용 VM에 DT 2.0을 설치하려면 DT 2.0 VM과 SAP HANA VM 간의 네트워크 처리량이 10GB 이상이어야 합니다. 따라서 반드시 모든 VM을 동일한 Azure Vnet에 배치하고 Azure 가속 네트워킹을 사용하도록 설정해야 합니다.
 
-Azure 가속 네트워킹에 대한 자세한 내용은 [여기](../../../virtual-network/create-vm-accelerated-networking-cli.md)를 참조하세요.
+Azure 가속화된 네트워킹에 대한 자세한 내용은 [Azure CLI를 사용하여 가속화된 네트워킹으로 Azure VM 만들기](../../../virtual-network/create-vm-accelerated-networking-cli.md)를 참조하세요.
 
 ### <a name="vm-storage-for-sap-hana-dt-20"></a>SAP HANA DT 2.0용 VM 스토리지
 
@@ -243,9 +243,9 @@ DT 2.0 모범 사례 지침에 따라 디스크 IO 처리량은 물리적 코어
 
 DT 2.0 VM에 여러 Azure 디스크를 연결하고 OS 수준에서 소프트웨어 RAID(스트라이핑)를 만들어 VM당 최대 디스크 처리량 한도를 달성해야 합니다. 이와 관련하여 단일 Azure 디스크는 최대 VM 한도에 도달하는 처리량을 제공할 수 없습니다. DT 2.0을 실행하려면 Azure Premium Storage가 필수적입니다. 
 
-- 사용 가능한 Azure 디스크 유형에 대한 자세한 내용은 [여기서](../../disks-types.md) 찾을 수 있습니다.
-- mdadm을 통해 소프트웨어 RAID를 만드는 방법에 대한 자세한 내용은 [여기서](/previous-versions/azure/virtual-machines/linux/configure-raid) 찾을 수 있습니다.
-- 최대 처리량에 적합한 스트라이프 볼륨을 만들도록 LVM을 구성하는 방법에 대한 자세한 내용은 [여기서](/previous-versions/azure/virtual-machines/linux/configure-lvm) 찾을 수 있습니다.
+- 사용 가능한 Azure 디스크 유형에 대한 자세한 내용은 [Azure IaaS VM의 디스크 유형 선택 - 관리 디스크](../../disks-types.md) 페이지에서 확인할 수 있습니다.
+- mdadm을 통해 소프트웨어 RAID를 만드는 방법에 대한 자세한 내용은 [Linux VM에서 소프트웨어 RAID 구성](/previous-versions/azure/virtual-machines/linux/configure-raid) 페이지에서 확인할 수 있습니다.
+- 최대 처리량을 위해 스트라이프 볼륨을 만들도록 LVM을 구성하는 방법에 대한 자세한 내용은 [Linux를 실행하는 가상 머신에서 LVM 구성](/previous-versions/azure/virtual-machines/linux/configure-lvm) 페이지에서 확인할 수 있습니다.
 
 크기 요구 사항에 따라 VM의 최대 처리량에 도달할 수 있는 다양한 옵션이 있습니다. 여기에는 VM 처리량 상한을 달성하도록 각 DT 2.0 VM 유형에 적용할 수 있는 데이터 볼륨 디스크 구성이 있습니다. E32sv3 VM은 더 작은 워크로드에 대한 항목 수준으로 간주되어야 합니다. 이 경우 속도가 충분히 빠르지 않아 VM의 크기를 M64-32ms로 조정해야 할 수도 있습니다.
 M64-32ms VM에는 많은 메모리가 있으므로 특히 읽기 집약적인 워크로드의 경우 IO 로드가 한도에 도달하지 못할 수 있습니다. 따라서 스트라이프 집합에서 적은 수의 디스크가 고객 특정 워크로드에 따라 충분할 수 있습니다. 그러나 만일의 경우에 대비하여 아래의 디스크 구성이 최대 처리량을 보장하기 위해 선택되었습니다.
@@ -259,7 +259,7 @@ M64-32ms VM에는 많은 메모리가 있으므로 특히 읽기 집약적인 �
 
 특히 워크로드가 읽기 집약적인 경우 데이터베이스 소프트웨어의 데이터 볼륨에 대한 권장 사항에 따라 IO 성능을 높여 Azure 호스트 캐시를 "read-only(읽기 전용)"로 설정할 수 있습니다. 반면에 트랜잭션 로그의 경우 Azure 호스트 디스크 캐시는 "none"이어야 합니다. 
 
-로그 볼륨의 크기와 관련하여 권장되는 시작점은 데이터 크기의 15%로 추론됩니다. 로그 볼륨은 비용 및 처리량 요구 사항에 따라 다양한 Azure 디스크 유형을 사용하여 만들 수 있습니다. 로그 볼륨의 경우 높은 I/O 처리량이 필요합니다.  VM 형식 M64-32ms를 사용하는 경우 [쓰기 가속기](../../how-to-enable-write-accelerator.md)를 사용하도록 설정해야 합니다. Azure Write Accelerator는 트랜잭션 로그에 대한 최적 디스크 쓰기 대기 시간을 제공합니다(M 시리즈에서만 사용 가능). VM 유형별 최대 디스크 수와 같이 고려해야 할 몇 가지 항목도 있습니다. Write Accelerator에 대한 자세한 정보는 [여기](../../how-to-enable-write-accelerator.md)를 참조할 수 있습니다.
+로그 볼륨의 크기와 관련하여 권장되는 시작점은 데이터 크기의 15%로 추론됩니다. 로그 볼륨은 비용 및 처리량 요구 사항에 따라 다양한 Azure 디스크 유형을 사용하여 만들 수 있습니다. 로그 볼륨의 경우 높은 I/O 처리량이 필요합니다.  VM 형식 M64-32ms를 사용하는 경우 [쓰기 가속기](../../how-to-enable-write-accelerator.md)를 사용하도록 설정해야 합니다. Azure Write Accelerator는 트랜잭션 로그에 대한 최적 디스크 쓰기 대기 시간을 제공합니다(M 시리즈에서만 사용 가능). VM 유형별 최대 디스크 수와 같이 고려해야 할 몇 가지 항목도 있습니다. 쓰기 가속기에 대한 자세한 내용은 [Azure 쓰기 가속기](../../how-to-enable-write-accelerator.md) 페이지에서 확인할 수 있습니다.
 
 
 로그 볼륨의 크기 조정에 대한 몇 가지 예는 다음과 같습니다.

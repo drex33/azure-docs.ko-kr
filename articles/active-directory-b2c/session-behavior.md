@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 06/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2e0af2e682799d4286a0d00daa2ce7e3805cf4ac
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: 9259fac727287ce4d52594d146eaac96a3085433
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565251"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528823"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 세션 동작 구성
 
@@ -114,7 +114,7 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함됩니�
 
 ## <a name="enable-keep-me-signed-in-kmsi"></a>KMSI(로그인 유지) 사용
 
-Azure AD B2C 디렉터리에 로컬 계정이 있는 웹 및 네이티브 애플리케이션 사용자에 대해 KMSI 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하도록 설정하면 브라우저를 닫은 후에도 세션이 활성 상태로 유지되도록 로그인 상태 유지를 선택할 수 있습니다. 그런 다음, 사용자 이름과 암호를 다시 입력하라는 메시지가 표시되지 않으면서 브라우저를 다시 열 수 있습니다. 사용자가 로그아웃하면 이 액세스 권한이 철회됩니다.
+Azure AD B2C 디렉터리에 로컬 계정이 있는 웹 및 네이티브 애플리케이션 사용자에 대해 KMSI 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하도록 설정하면 브라우저를 닫은 후에도 세션이 활성 상태로 유지되도록 로그인 상태 유지를 선택할 수 있습니다. 세션은 [영구 쿠키](cookie-definitions.md)를 설정하여 유지 관리됩니다. KMSI를 선택하는 사용자는 브라우저를 다시 열 수 있으며 사용자 이름과 암호를 다시 입력하라는 메시지가 표시되지 않습니다. 사용자가 로그아웃하면 이 액세스 권한(영구 쿠키)이 철회됩니다. 
 
 ![로그인 상태 유지 확인란을 표시하는 가입 로그인 페이지의 예](./media/session-behavior/keep-me-signed-in.png)
 
@@ -194,7 +194,7 @@ KMSI 확인란을 가입 및 로그인 페이지에 추가하려면 `setting.ena
 
 ### <a name="configure-a-relying-party-file"></a>신뢰 당사자 파일 구성
 
-만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다. KeepAliveInDays 매개 변수를 사용하여 KMSI(로그인 유지) 세션 쿠키가 유지되는 기간을 구성할 수 있습니다. 예를 들어, 이 값을 30으로 설정하면 KMSI 세션 쿠키가 30일 동안 유지됩니다. 값 범위는 1~90일입니다.
+만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다. KeepAliveInDays 매개 변수를 사용하여 KMSI(로그인 유지) 세션 쿠키가 유지되는 기간을 구성할 수 있습니다. 예를 들어, 이 값을 30으로 설정하면 KMSI 세션 쿠키가 30일 동안 유지됩니다. 값 범위는 1~90일입니다. 값을 0으로 설정하면 KMSI 기능이 해제됩니다.
 
 1. 사용자 지정 정책 파일(예: *SignUpOrSignin.xml*)을 엽니다.
 1. 아직 존재하지 않는 경우 자식 노드 `<UserJourneyBehaviors>`을 `<RelyingParty>` 노드에 추가합니다. `<DefaultUserJourney ReferenceId="User journey Id" />`의 바로 다음에 있어야 합니다(예: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`).

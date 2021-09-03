@@ -2,23 +2,24 @@
 title: 자체 호스팅 통합 런타임을 SSIS의 프록시로 구성
 description: 자체 호스팅 통합 런타임을 Azure-SSIS Integration Runtime의 프록시로 구성하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.custom: seo-lt-2019
-ms.date: 05/19/2021
-ms.openlocfilehash: 5159b560a52bf9568c2b56e3bef3e762240bd9e6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.date: 07/19/2021
+ms.openlocfilehash: d015c5182b51c655d45365a2f45a9f9d08db582b
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468714"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835631"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 IR을 Azure-SSIS IR의 프록시로 구성
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 문서에서는 자체 호스팅 IR(자체 호스팅 통합 런타임)을 프록시로 구성하여 Azure Data Factory의 Azure-SSIS IR(Azure-SSIS Integration Runtime)에서 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법을 설명합니다. 
+이 문서에서는 자체 호스팅 IR(자체 호스팅 통합 런타임)을 프록시로 구성하여 ADF(Azure Data Factory)의 Azure-SSIS IR(Azure-SSIS Integration Runtime)에서 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법을 설명합니다. 
 
 이 기능을 사용하면 [Azure-SSIS IR을 가상 네트워크에 조인](./join-azure-ssis-integration-runtime-virtual-network.md)하지 않고도 데이터에 액세스하고 온-프레미스에서 작업을 실행할 수 있습니다. 이 기능은 회사 네트워크에 구성이 너무 복잡하거나 정책이 너무 제한적이어서 Azure-SSIS IR을 삽입할 수 없는 경우에 유용합니다.
 
@@ -50,7 +51,7 @@ SQL/프로세스 실행 태스크에서 이 기능을 사용하면 자체 호스
   
   PostgreSQL, MySQL, Oracle 등의 다른 데이터베이스 시스템에 OLEDB/ODBC/ADO.NET 드라이버를 사용하는 경우 해당 웹 사이트에서 64비트 버전을 다운로드할 수 있습니다.
 - 패키지에 있는 Azure 기능 팩의 데이트 흐름 구성 요소를 사용하는 경우 자체 호스팅 IR이 설치된 머신와 동일한 머신에 [SQL Server 2017용 Azure Feature Pack을 다운로드하고 설치](https://www.microsoft.com/download/details.aspx?id=54798)합니다(아직 수행하지 않은 경우).
-- 아직 설치하지 않은 경우 자체 호스팅 IR이 설치된 컴퓨터에서 [64비트 버전의 VC(Visual C++) 런타임을 다운로드하여 설치](https://www.microsoft.com/download/details.aspx?id=40784)합니다.
+- 아직 설치하지 않은 경우 자체 호스팅 IR이 설치된 컴퓨터에서 [64비트 버전의 VC(Visual C++) 런타임을 다운로드하여 설치](https://www.microsoft.com/en-us/download/details.aspx?id=40784)합니다.
 
 ### <a name="enable-windows-authentication-for-on-premises-tasks"></a>온-프레미스 작업에 Windows 인증 활성화
 
@@ -67,10 +68,10 @@ SQL/프로세스 실행 태스크에서 이 기능을 사용하면 자체 호스
 아직 만들지 않은 경우 Azure-SSIS IR이 설정된 동일한 데이터 팩터리에 Azure Blob Storage 연결된 서비스를 만듭니다. 이렇게 하려면 [Azure Data Factory 연결된 서비스 만들기](./quickstart-create-data-factory-portal.md#create-a-linked-service)를 참조하세요. 다음 단계는 반드시 수행해야 합니다.
 - **데이터 저장소** 에서 **Azure Blob Storage** 를 선택합니다.  
 - **통합 런타임을 통한 연결** 의 경우 **AutoResolveIntegrationRuntime**(자체 호스팅 IR 아님)을 선택하여, 이를 무시하고 대신 Azure-SSIS IR을 사용하여 Azure Blob Storage에 대한 액세스 자격 증명을 페치할 수 있습니다.
-- **인증 방법** 에서 **계정 키**, **SAS URI**, **서비스 주체** 또는 **관리 ID** 를 선택합니다.  
+- **인증 방법** 에서 **계정 키**, **SAS URI**, **서비스 주체**, **관리 ID** 또는 **사용자가 할당한 관리 ID** 를 선택합니다.  
 
 >[!TIP]
->**서비스 주체** 방법을 선택하는 경우 서비스 주체에 '스토리지 Blob 데이터 기여자' 이상의 역할을 부여합니다. 자세한 내용은 [Azure Blob Storage 커넥터](connector-azure-blob-storage.md#linked-service-properties)를 참조하세요. **관리 ID** 메서드를 선택하는 경우 ADF 관리 ID에 Azure Blob Storage에 액세스할 수 있는 적절한 역할을 부여합니다. 자세한 내용은 [ADF 관리 ID로 Azure Active Directory 인증을 사용하여 Azure Blob Storage 액세스](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)를 참조하세요.
+>**서비스 주체** 방법을 선택하는 경우 서비스 주체에 '스토리지 Blob 데이터 기여자' 이상의 역할을 부여합니다. 자세한 내용은 [Azure Blob Storage 커넥터](connector-azure-blob-storage.md#linked-service-properties)를 참조하세요. **관리 ID**/**사용자가 할당한 관리 ID** 방법을 선택하는 경우 ADF에 대해 지정한 시스템/사용자가 할당한 관리 ID에 Azure Blob Storage에 액세스할 수 있는 적절한 역할을 부여합니다. 자세한 내용은 [ADF에 대해 지정한 시스템/사용자가 할당한 관리 ID로 Azure AD(Azure Active Directory) 인증을 사용하여 Azure Blob Storage에 액세스](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)를 참조하세요.
 
 ![스테이징을 위해 Azure Blob Storage에 연결된 서비스 준비](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -105,7 +106,7 @@ $DataProxyIntegrationRuntimeName = "" # OPTIONAL to configure a proxy for on-pre
 $DataProxyStagingLinkedServiceName = "" # OPTIONAL to configure a proxy for on-premises data access 
 $DataProxyStagingPath = "" # OPTIONAL to configure a proxy for on-premises data access 
 
-# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
+# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data access
 if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
 {
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

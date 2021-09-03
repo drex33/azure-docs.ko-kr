@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2021
-ms.openlocfilehash: a4873662578dee69d4f7fe16618101a732129f58
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/12/2021
+ms.openlocfilehash: 451e03c8557f224dce118866932307b32bfbfd56
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111561786"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536081"
 ---
 # <a name="choose-an-api-in-azure-cosmos-db"></a>Azure Cosmos DB에서 API 선택
 
@@ -43,7 +43,7 @@ MongoDB, Cassandra, Gremlin 및 Table용 API는 오픈 소스 데이터베이스
 
 ## <a name="coresql-api"></a>Core(SQL) API
 
-이 API는 데이터를 문서 형식으로 저장합니다. 인터페이스, 서비스 및 SDK 클라이언트 라이브러리를 완전히 제어할 수 있으므로 최상의 종단 간 환경을 제공합니다. Azure Cosmos DB에 롤아웃되는 새로운 기능은 SQL API 계정에서 처음 사용할 수 있습니다. Azure Cosmos DB SQL API 계정은 JSON 개체를 쿼리할 수 있는 가장 친숙하고 인기 있는 쿼리 언어 중 하나인 SQL(구조적 쿼리 언어) 구문을 사용하여 항목을 쿼리할 수 있도록 지원합니다. 좀 더 자세히 알아보려면 [SQL 쿼리 시작](sql-query-getting-started.md)을 참조하세요.
+이 API는 데이터를 문서 형식으로 저장합니다. 인터페이스, 서비스 및 SDK 클라이언트 라이브러리를 완전히 제어할 수 있으므로 최상의 종단 간 환경을 제공합니다. Azure Cosmos DB에 롤아웃되는 새로운 기능은 SQL API 계정에서 처음 사용할 수 있습니다. Azure Cosmos DB SQL API 계정은 JSON 개체를 쿼리할 수 있는 가장 친숙하고 인기 있는 쿼리 언어 중 하나인 SQL(구조적 쿼리 언어) 구문을 사용하여 항목을 쿼리할 수 있도록 지원합니다. 자세한 내용은 [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/) 학습 모듈 및 [SQL 쿼리 시작하기](sql-query-getting-started.md) 문서를 참조하세요.
 
 Oracle, DynamoDB, HBase 등의 다른 데이터베이스에서 마이그레이션하려고 하며 최신 기술을 사용하여 앱을 빌드하려면 SQL API가 권장되는 옵션입니다. SQL API는 분석을 지원하고 운영 및 분석 워크로드 간에 성능을 격리할 수 있도록 합니다.
 
@@ -51,9 +51,9 @@ Oracle, DynamoDB, HBase 등의 다른 데이터베이스에서 마이그레이�
 
 이 API는 BSON 형식을 통해 문서 구조에 데이터를 저장합니다. MongoDB 유선 프로토콜과 호환되지만 네이티브 MongoDB 관련 코드를 사용하지는 않습니다. 이 API는 스케일링, 고가용성, 지역에서 복제, 여러 쓰기 위치, 자동 및 투명한 분할된 데이터베이스 관리, 운영 및 분석 저장소 간의 투명한 복제 등과 같은 Azure Cosmos DB의 기능을 계속 사용하면서 광범위한 MongoDB 에코시스템 및 기술을 사용하려는 경우에 적합합니다.
 
-연결 문자열을 변경하여 MongoDB용 API에서 기존 MongoDB 앱을 사용할 수 있습니다. Mongodump 및 mongorestore와 같은 네이티브 MongoDB 도구를 사용하거나 Azure Database Migration 도구를 사용하여 기존 데이터를 이동할 수 있습니다. MongoDB 셸, [MongoDB Compass](mongodb-compass.md) 및 [Robo3T](mongodb-robomongo.md)와 같은 도구는 쿼리를 실행하고 네이티브 MongoDB에서와 같이 데이터 작업을 수행할 수 있습니다.
+연결 문자열을 변경하여 MongoDB용 API에서 기존 MongoDB 앱을 사용할 수 있습니다. Mongodump 및 mongorestore와 같은 네이티브 MongoDB 도구를 사용하거나 Azure Database Migration 도구를 사용하여 기존 데이터를 이동할 수 있습니다. MongoDB 셸, [MongoDB Compass](mongodb/connect-using-compass.md) 및 [Robo3T](mongodb/connect-using-robomongo.md)와 같은 도구는 쿼리를 실행하고 네이티브 MongoDB에서와 같이 데이터 작업을 수행할 수 있습니다.
 
-MongoDB용 API는 4.0, 3.6 및 3.2 MongoDB 서버 버전과 호환됩니다. 서버 버전 4.0은 최상의 성능 및 전체 기능 지원을 제공하므로 권장됩니다. 자세한 내용은 [MongoDB용 API](mongodb-introduction.md) 문서를 참조하세요.
+MongoDB용 API는 4.0, 3.6 및 3.2 MongoDB 서버 버전과 호환됩니다. 서버 버전 4.0은 최상의 성능 및 전체 기능 지원을 제공하므로 권장됩니다. 자세한 내용은 [MongoDB용 API](mongodb/mongodb-introduction.md) 문서를 참조하세요.
 
 ## <a name="cassandra-api"></a>Cassandra API
 
@@ -71,12 +71,12 @@ Azure Cosmos DB의 Gremlin API는 [Apache TinkerPop](https://tinkerpop.apache.or
 
 이 API는 키/값 형식으로 데이터를 저장합니다. 현재 Azure Table Storage를 사용하고 있는 경우 대기 시간, 스케일링, 처리량, 글로벌 배포, 인덱스 관리, 낮은 쿼리 성능에 대해 몇 가지 제한 사항이 있을 수 있습니다. Table API는 이러한 제한을 해결하며, Azure Cosmos DB의 이점을 사용하기 위해서는 앱을 마이그레이션하는 것이 좋습니다. Table API는 OLTP 시나리오만 지원합니다.
 
-Azure Table Storage에 대해 작성된 애플리케이션은 코드를 거의 변경하지 않고 Table API로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 자세히 알아보려면 [Table API](table-introduction.md) 문서를 참조하세요.
+Azure Table Storage에 대해 작성된 애플리케이션은 코드를 거의 변경하지 않고 Table API로 마이그레이션할 수 있으며 프리미엄 기능을 활용할 수 있습니다. 자세히 알아보려면 [Table API](introduction.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Cosmos DB SQL API 시작](create-sql-api-dotnet.md)
-* [Azure Cosmos DB의 MongoDB API 시작](create-mongodb-nodejs.md)
-* [Azure Cosmos DB Cassandra API 시작](create-cassandra-dotnet.md)
+* [Azure Cosmos DB의 MongoDB API 시작](mongodb/create-mongodb-nodejs.md)
+* [Azure Cosmos DB Cassandra API 시작](cassandra/manage-data-dotnet.md)
 * [Azure Cosmos DB Gremlin API 시작](create-graph-dotnet.md)
 * [Azure Cosmos DB Table API 시작](create-table-dotnet.md)

@@ -5,14 +5,14 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/22/2021
+ms.date: 06/28/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: faec2b48cba9527974ca906169703b7c9bcdedb6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a1ffc7c70a37b58fd727bab41cc77df3851f7147
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102178344"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113005273"
 ---
-현재 디스크 버스팅 주문형 모델은 미국 중서부에서만 사용할 수 있습니다.
+현재 디스크 버스팅의 주문형 모델은 모든 퍼블릭 Azure 지역에서 사용할 수 있습니다.

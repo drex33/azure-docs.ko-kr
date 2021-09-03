@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 04/22/2019
-ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/20/2021
+ms.openlocfilehash: af13306598db75e89064507b9a2fad80d8d33542
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74793034"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453174"
 ---
 # <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps에서 AS2 메시지 설정에 대한 참조
 
@@ -47,7 +47,7 @@ ms.locfileid: "74793034"
 | 속성 | 필수 | Description |
 |----------|----------|-------------|
 | **메시지 서명 사용** | 예 | 보내는 모든 메시지에 디지털 서명을 해야 하는지 여부를 지정합니다. 서명이 필요한 경우 다음 값을 선택합니다. <p>- **서명 알고리즘** 목록에서 메시지에 서명하는 데 사용할 알고리즘을 선택합니다. <br>- **인증서** 목록에서 기존 호스트 파트너 프라이빗 인증서를 선택합니다. 인증서가 없는 경우 [인증서 추가](../logic-apps/logic-apps-enterprise-integration-certificates.md)에 대해 자세히 알아보세요. |
-| **메시지 암호화 사용** | 예 | 보내는 모든 메시지를 암호화해야 하는지 여부를 지정합니다. 암호화가 필요한 경우 다음 값을 선택합니다. <p>- **암호화 알고리즘** 목록에서 메시지를 암호화하는 데 사용할 게스트 파트너 퍼블릭 인증서 알고리즘을 선택합니다. <br>- **인증서** 목록에서 기존 게스트 파트너 프라이빗 인증서를 선택하여 보내는 메시지를 암호화합니다. 인증서가 없는 경우 [인증서 추가](../logic-apps/logic-apps-enterprise-integration-certificates.md)에 대해 자세히 알아보세요. |
+| **메시지 암호화 사용** | 예 | 보내는 모든 메시지를 암호화해야 하는지 여부를 지정합니다. 암호화가 필요한 경우 다음 값을 선택합니다. <p>- **암호화 알고리즘** 목록에서 메시지를 암호화하는 데 사용할 게스트 파트너 퍼블릭 인증서 알고리즘을 선택합니다. <br>- **인증서** 목록에서 보내는 메시지를 암호화하는 데 사용할 기존 게스트 파트너 퍼블릭 인증서를 선택합니다. 인증서가 없는 경우 [인증서 추가](../logic-apps/logic-apps-enterprise-integration-certificates.md)에 대해 자세히 알아보세요. |
 | **메시지 압축 사용** | 예 | 보내는 모든 메시지를 압축해야 하는지 여부를 지정합니다. |
 | **HTTP 헤더 펼침** | 예 | HTTP `content-type` 헤더를 한 줄에 배치합니다. |
 | **MIME 헤더로 파일 이름 전송** | 예 | MIME 헤더에 파일 이름을 포함할지 여부를 지정합니다. |

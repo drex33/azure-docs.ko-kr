@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: v-erkel
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb7d88424a04754612f981d58e8e1d6cb85ce0fb
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 26272090d3ec18328df2ac553b15e53abc824708
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770593"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114294915"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Azure HPC Cache 만들기
 
@@ -114,7 +114,7 @@ Azure HPC Cache는 캐시 적중률을 최대화하기 위해 캐시되고 미�
 
 **고객 관리형** 을 선택하여 고객 관리형 키 암호화를 선택합니다. 키 자격 증명 모음 사양 필드가 표시됩니다. 사용할 Azure Key Vault를 선택한 다음 이 캐시에 사용할 키 및 버전을 선택합니다. 키는 2048비트 RSA 키여야 합니다. 이 페이지에서 새 키 자격 증명 모음, 키 또는 키 버전을 만들 수 있습니다.
 
-[자동 키 순환](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys)을 사용하려면 **항상 현재 키 버전 사용** 확인란을 선택합니다.
+[자동 키 순환](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview)을 사용하려면 **항상 현재 키 버전 사용** 확인란을 선택합니다.
 
 이 캐시에 특정 관리 ID를 사용하려면 **관리 ID** 섹션에서 구성합니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID란 무엇인가요?](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
@@ -149,7 +149,7 @@ Azure HPC Cache는 캐시 적중률을 최대화하기 위해 캐시되고 미�
 
 ## <a name="create-the-cache-with-azure-cli"></a>Azure CLI를 사용하여 캐시 만들기
 
-[Azure HPC Cache용 Azure CLI 설치](./az-cli-prerequisites.md).
+[Azure HPC Cache용 Azure CLI 설치](./az-cli-prerequisites.md)
 
 > [!NOTE]
 > 현재 Azure CLI는 고객 관리형 암호화 키를 사용한 캐시 만들기를 지원하지 않습니다. Azure 포털을 사용합니다.
@@ -178,11 +178,11 @@ Azure HPC Cache는 캐시 적중률을 최대화하기 위해 캐시되고 미�
 
   | 캐시 크기 | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072GB    | 예         | no          | no          |
-  | 6144GB    | 예         | 예         | no          |
+  | 3072GB    | 예         | 아니요          | 아니요          |
+  | 6144GB    | 예         | 예         | 아니요          |
   | 12288GB   | 예         | 예         | 예         |
-  | 24576GB   | no          | 예         | 예         |
-  | 49152GB   | no          | no          | 예         |
+  | 24576GB   | 아니요          | 예         | 예         |
+  | 49152GB   | 아니요          | 아니요          | 예         |
 
   캐시에서 10개가 넘는 스토리지 대상을 사용하려면 SKU에 대해 사용 가능한 가장 높은 캐시 크기 값을 선택합니다. 이러한 구성은 최대 20개의 스토리지 대상을 지원합니다.
 
@@ -282,11 +282,11 @@ Install-Module -Name Az.HPCCache
 
   | 캐시 크기 | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072GB    | 예         | no          | no          |
-  | 6144GB    | 예         | 예         | no          |
+  | 3072GB    | 예         | 아니요          | 아니요          |
+  | 6144GB    | 예         | 예         | 아니요          |
   | 12,288GB   | 예         | 예         | 예         |
-  | 24,576GB   | no          | 예         | 예         |
-  | 49,152GB   | no          | no          | 예         |
+  | 24,576GB   | 아니요          | 예         | 예         |
+  | 49,152GB   | 아니요          | 아니요          | 예         |
 
   가격 책정과 처리량 및 워크플로에 적절하게 캐시 크기를 조정하는 방법에 대한 중요한 정보는 포털 지침 탭의 **캐시 용량 설정** 섹션을 참조하세요.
 

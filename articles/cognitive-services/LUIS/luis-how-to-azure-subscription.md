@@ -9,13 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2021
-ms.openlocfilehash: 60e5d37f57d6a87d9190650f044a1ffc991e60fb
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/12/2021
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: 4fe1e8cd4c78d4411a7cb9058648fc0e782cb0ee
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096022"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666306"
 ---
 # <a name="how-to-create-and-manage-luis-resources"></a>LUIS 리소스를 만들고 관리하는 방법
 
@@ -69,9 +70,9 @@ LUIS 리소스를 만들려면 LUIS 포털, [Azure Portal](https://ms.portal.azu
 
 [!INCLUDE [Create LUIS Prediction resource in LUIS portal](./includes/add-prediction-resource-portal.md)]
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+# <a name="without-luis-portal"></a>[LUIS 포털 사용 안 함](#tab/without-portal)
 
-### <a name="create-luis-resources-in-the-azure-cli"></a>Azure CLI에서 LUIS 리소스 만들기
+### <a name="create-luis-resources-without-using-the-luis-portal"></a>LUIS 포털을 사용하지 않고 LUIS 리소스 만들기
 
 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 각 리소스를 개별적으로 만듭니다.
 
@@ -130,9 +131,9 @@ LUIS 리소스를 만들려면 LUIS 포털, [Azure Portal](https://ms.portal.azu
 1. **예측 리소스** 또는 **작성 리소스** 탭에서 **예측 리소스 추가** 또는 **작성 리소스 추가** 단추를 선택합니다.
 1. 양식의 필드를 사용하여 올바른 리소스를 찾은 다음, **저장** 을 선택합니다.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+# <a name="without-luis-portal"></a>[LUIS 포털 사용 안 함](#tab/without-portal)
 
-## <a name="assign-prediction-resource-programmatically"></a>프로그래밍 방식으로 예측 리소스 할당 
+## <a name="assign-prediction-resource-without-using-the-luis-portal"></a>LUIS 포털을 사용하지 않고 예측 리소스 할당
 
 CI/CD 파이프라인과 같은 자동화된 프로세스의 경우 다음 단계를 사용하여 LUIS 앱에 대한 LUIS 리소스 할당을 자동화할 수 있습니다.
 
@@ -181,9 +182,9 @@ CI/CD 파이프라인과 같은 자동화된 프로세스의 경우 다음 단�
 1. **관리** > **Azure 리소스** 로 차례로 이동합니다.
 1. 리소스에 대한 **리소스 할당 취소** 단추를 선택합니다.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+# <a name="without-luis-portal"></a>[LUIS 포털 사용 안 함](#tab/without-portal)
 
-## <a name="unassign-prediction-resource-programmatically"></a>프로그래밍 방식으로 예측 리소스 할당 취소
+## <a name="unassign-prediction-resource-without-using-the-luis-portal"></a>LUIS 포털을 사용하지 않고 예측 리소스 할당 취소
 
 1. 문자의 영숫자 문자열인 [Azure Resource Manager 토큰을](https://resources.azure.com/api/token?plaintext=true) 가져옵니다. 이 토큰은 곧 만료되므로 즉시 사용합니다. 다음 Azure CLI 명령을 사용할 수도 있습니다.
 

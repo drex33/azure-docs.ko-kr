@@ -5,17 +5,17 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 03/05/2021
-ms.openlocfilehash: 32ad688a2b42f2699933f2e26aed44122f36ff40
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 08/09/2021
+ms.openlocfilehash: 82070e6b10a1b0bffddb511545f54d369f6f99b8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409580"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529132"
 ---
 # <a name="get-started-with-document-translation"></a>문서 번역 시작
 
- 이 문서에서는 HTTP REST API 메서드와 함께 문서 번역을 사용하는 방법을 알아봅니다. 문서 번역은 [Azure Translator](../translator-info-overview.md) 서비스의 클라우드 기반 기능입니다.  Document Translation API를 사용하면 원본 문서 구조와 텍스트 형식을 유지하면서 전체 문서를 번역할 수 있습니다.
+ 이 문서에서는 HTTP REST API 메서드와 함께 문서 번역을 사용하는 방법을 알아봅니다. 문서 번역은 [Azure Translator](../translator-overview.md) 서비스의 클라우드 기반 기능입니다.  Document Translation API를 사용하면 원본 문서 구조와 텍스트 형식을 유지하면서 전체 문서를 번역할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -29,11 +29,11 @@ ms.locfileid: "111409580"
 
 * 활성 [**Azure 계정**](https://azure.microsoft.com/free/cognitive-services/).  계정이 없는 경우 [**무료 계정을 만들 수**](https://azure.microsoft.com/free/) 있습니다.
 
-* [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 서비스 리소스(Cognitive Services 리소스 **아님**).
+* [**단일 서비스 Translator 리소스**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)(다중 서비스 Cognitive Services 리소스 **아님**).
 
 * [**Azure Blob Storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). 스토리지 계정 내에서 Blob 데이터를 저장하고 구성하는 컨테이너를 만듭니다.
 
-## <a name="get-your-custom-domain-name-and-subscription-key"></a>사용자 지정 도메인 이름 및 구독 키 가져오기
+## <a name="custom-domain-name-and-subscription-key"></a>사용자 지정 도메인 이름 및 구독 키
 
 > [!IMPORTANT]
 >
@@ -65,13 +65,15 @@ Translator 서비스에 대한 요청에는 액세스 인증을 위한 읽기 �
 
 :::image type="content" source="../media/translator-keys.png" alt-text="Azure Portal의 구독 키 가져오기 필드 이미지":::
 
-## <a name="create-your-azure-blob-storage-containers"></a>Azure Blob Storage 컨테이너 만들기
+## <a name="create-azure-blob-storage-containers"></a>Azure Blob Storage 컨테이너 만들기
 
-[**Azure Blob Storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 원본, 대상 및 선택적 용어집 파일에 대한 [**컨테이너를 생성**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)해야 합니다.
+원본 및 대상 파일에 대한 [**Azure Blob Storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 [**컨테이너를 만들어야**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) 합니다.
 
 * **원본 컨테이너**. 이 컨테이너는 번역을 위해 파일을 업로드하는 위치입니다(필수).
-* **대상 컨테이너**. 이 컨테이너는 번역된 파일이 저장되는 위치입니다(필수).  
-* **용어집 컨테이너**. 이 컨테이너에서 용어집 파일을 업로드합니다(옵션).  
+* **대상 컨테이너**. 이 컨테이너는 번역된 파일이 저장되는 위치입니다(필수).
+
+> [!NOTE]
+> 문서 번역은 대상 컨테이너에서 용어집을 Blob으로서 지원합니다(별도 용어집 컨테이너 아님). 사용자 지정 용어집을 포함하려면 대상 컨테이너에 추가하고 요청에 ` glossaryUrl`을 포함합니다.  용어집에 번역 언어 쌍이 없으면 적용되지 않습니다. [사용자 지정 용어집을 사용하여 문서 번역](#translate-documents-using-a-custom-glossary) *참조*
 
 ### <a name="create-sas-access-tokens-for-document-translation"></a>**문서 번역을 위한 SAS 토큰 생성**
 
@@ -79,15 +81,123 @@ Translator 서비스에 대한 요청에는 액세스 인증을 위한 읽기 �
 
 * **원본** 컨테이너 또는 Blob에는 **읽기** 및 **나열** 액세스가 지정되어 있어야 합니다.
 * **대상** 컨테이너 또는 Blob에는 **쓰기** 및 **나열** 액세스가 지정되어 있어야 합니다.
-* **용어집** 컨테이너 또는 Blob에는 **읽기** 및 **나열** 액세스가 지정되어 있어야 합니다.
+* **용어집** Blob에는 **읽기** 및 **나열** 액세스가 지정되어 있어야 합니다.
 
 > [!TIP]
 >
-> * 작업에서 **여러** 파일(Blob)을 번역하는 경우 **컨테이너 수준에서 SAS 액세스 권한을 위임** 합니다.  
-> * 작업에서 **단일** 파일(Blob)을 번역하는 경우 **Blob 수준에서 SAS 액세스 권한을 위임** 합니다.  
+> * 작업에서 **여러** 파일(Blob)을 번역하는 경우 **컨테이너 수준에서 SAS 액세스 권한을 위임** 합니다.
+> * 작업에서 **단일** 파일(Blob)을 번역하는 경우 **Blob 수준에서 SAS 액세스 권한을 위임** 합니다.
 >
 
-## <a name="set-up-your-coding-platform"></a>코딩 플랫폼 설정
+## <a name="document-translation-http-requests"></a>문서 번역: HTTP 요청
+
+일괄 처리 문서 번역 요청은 POST 요청을 통해 Translator 서비스 엔드포인트로 전송됩니다. 성공하면 POST 메서드가 `202 Accepted` 응답 코드를 반환하고 서비스에서 일괄 요청을 만듭니다.
+
+### <a name="http-headers"></a>HTTP 헤더
+
+각 Document Translator API 요청에는 다음 헤더가 포함됩니다.
+
+|HTTP 헤더|Description|
+|---|--|
+|Ocp-Apim-Subscription-Key|**필수**: 이 값은 Translator 또는 Cognitive Services 리소스에 대한 Azure 구독 키입니다.|
+|콘텐츠 형식|**필수**: 페이로드의 콘텐츠 형식을 지정합니다. 허용되는 값은 application/json 또는 charset=UTF-8입니다.|
+|Content-Length|**필수**: 요청 본문의 길이입니다.|
+
+### <a name="post-request-body-properties"></a>POST 요청 본문 속성
+
+* POST 요청 URL이 POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`입니다.
+* POST 요청 본문은 `inputs`라는 JSON 객체입니다.
+* `inputs` 개체는 원본 및 대상 언어 쌍에 대한 `sourceURL` 및 `targetURL` 컨테이너 주소를 모두 포함합니다.
+* `prefix` 및 `suffix` 필드(선택 사항)는 폴더를 포함하여 컨테이너의 문서를 필터링하는 데 사용됩니다.
+* `glossaries` 필드(선택 사항)의 값은 문서가 번역될 때 적용됩니다.
+* 각 대상 언어의 `targetUrl`은 고유해야 합니다.
+
+>[!NOTE]
+> 이름이 같은 파일이 대상에 이미 있으면 해당 파일을 덮어씁니다.
+
+<!-- markdownlint-disable MD024 -->
+### <a name="translate-all-documents-in-a-container"></a>컨테이너의 모든 문서 번역
+
+```json
+{
+    "inputs": [
+        {
+            "source": {
+                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
+            },
+            "targets": [
+                {
+                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
+                    "language": "fr"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### <a name="translate-a-specific-document-in-a-container"></a>컨테이너의 특정 문서 번역
+
+* “storageType”: “File”을 지정했는지 확인합니다.
+* 특정 Blob/문서(컨테이너 아님)에 대한 원본 URL 및 SAS 토큰을 생성했는지 확인합니다.
+* SAS 토큰은 컨테이너용이지만 대상 URL의 일부로 대상 파일 이름을 지정했는지 확인합니다.
+* 아래 샘플 요청은 두 개의 대상 언어로 번역되는 단일 문서를 보여줍니다.
+
+```json
+{
+    "inputs": [
+        {
+            "storageType": "File",
+            "source": {
+                "sourceUrl": "https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D"
+            },
+            "targets": [
+                {
+                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
+                    "language": "es"
+                },
+                {
+                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
+                    "language": "de"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### <a name="translate-documents-using-a-custom-glossary"></a>사용자 지정 용어집을 사용하여 문서 번역
+
+```json
+{
+    "inputs": [
+        {
+            "source": {
+                "sourceUrl": "https://myblob.blob.core.windows.net/source",
+                "filter": {
+                    "prefix": "myfolder/"
+                }
+            },
+            "targets": [
+                {
+                    "targetUrl": "https://myblob.blob.core.windows.net/target",
+                    "language": "es",
+                    "glossaries": [
+                        {
+                            "glossaryUrl": "https:// myblob.blob.core.windows.net/glossary/en-es.xlf",
+                            "format": "xliff"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+## <a name="use-code-to-submit-document-translation-requests"></a>코드를 사용하여 문서 번역 요청 제출
+
+### <a name="set-up-your-coding-platform"></a>코딩 플랫폼 설정
 
 ### <a name="c"></a>[C#](#tab/csharp)
 
@@ -105,7 +215,7 @@ Translator 서비스에 대한 요청에는 액세스 인증을 위한 읽기 �
 * 엔드포인트, 구독 키 및 컨테이너 URL 값을 설정합니다.
 * 프로그램을 실행합니다.
 
-### <a name="python"></a>[Python](#tab/python)  
+### <a name="python"></a>[Python](#tab/python)
 
 * 새 프로젝트를 만듭니다.
 * 샘플 중 하나의 코드를 프로젝트에 복사하여 붙여넣습니다.
@@ -120,7 +230,7 @@ Translator 서비스에 대한 요청에는 액세스 인증을 위한 읽기 �
 mkdir sample-project
 ```
 
-* 프로젝트 디렉터리에서 다음 하위 디렉터리 구조를 만듭니다.  
+* 프로젝트 디렉터리에서 다음 하위 디렉터리 구조를 만듭니다.
 
   src</br>
 &emsp; └ main</br>
@@ -167,7 +277,7 @@ gradle build
 gradle run
 ```
 
-### <a name="go"></a>[Go](#tab/go)  
+### <a name="go"></a>[Go](#tab/go)
 
 * 새 Go 프로젝트를 만듭니다.
 * 아래 제공된 코드를 추가합니다.
@@ -178,87 +288,6 @@ gradle run
 * 파일을 실행합니다(예: 'example-code').
 
  ---
-
-## <a name="make-document-translation-requests"></a>문서 번역 요청 만들기
-
-일괄 처리 문서 번역 요청은 POST 요청을 통해 Translator 서비스 엔드포인트로 전송됩니다. 성공하면 POST 메서드가 `202 Accepted` 응답 코드를 반환하고 서비스에서 일괄 요청을 만듭니다.
-
-### <a name="http-headers"></a>HTTP 헤더
-
-각 Document Translator API 요청에는 다음 헤더가 포함됩니다.
-
-|HTTP 헤더|Description|
-|---|--|
-|Ocp-Apim-Subscription-Key|**필수**: 이 값은 Translator 또는 Cognitive Services 리소스에 대한 Azure 구독 키입니다.|
-|콘텐츠 형식|**필수**: 페이로드의 콘텐츠 형식을 지정합니다. 허용되는 값은 application/json 또는 charset=UTF-8입니다.|
-|Content-Length|**필수**: 요청 본문의 길이입니다.|
-
-### <a name="post-request-body-properties"></a>POST 요청 본문 속성
-
-* POST 요청 URL이 POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`입니다.
-* POST 요청 본문은 `inputs`라는 JSON 객체입니다.
-* `inputs` 개체는 원본 및 대상 언어 쌍에 대한 `sourceURL` 및 `targetURL` 컨테이너 주소를 모두 포함하며 선택적으로 `glossaryURL` 컨테이너 주소를 포함할 수 있습니다.
-* `prefix` 및 `suffix` 필드(선택 사항)는 폴더를 포함하여 컨테이너의 문서를 필터링하는 데 사용됩니다.
-* `glossaries` 필드(선택 사항)의 값은 문서가 번역될 때 적용됩니다.
-* 각 대상 언어의 `targetUrl`은 고유해야 합니다.
-
->[!NOTE]
-> 이름이 같은 파일이 대상에 이미 있으면 해당 파일을 덮어씁니다.
-
-## <a name="post-a-translation-request"></a>번역 요청 게시(POST)
-
-<!-- markdownlint-disable MD024 -->
-### <a name="post-request-body-to-translate-all-documents-in-a-container"></a>컨테이너의 모든 문서를 번역하는 POST 요청 본문
-
-```json
-{
-    "inputs": [
-        {
-            "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
-            },
-            "targets": [
-                {
-                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
-                    "language": "fr"
-                }
-            ]
-        }
-    ]
-}
-```
-
-
-### <a name="post-request-body-to-translate-a-specific-document-in-a-container"></a>컨테이너의 특정 문서를 번역하는 POST 요청 본문
-
-* "storageType": "File"을 지정했는지 확인합니다.
-* 특정 Blob/문서(컨테이너 아님)에 대한 원본 URL 및 SAS 토큰을 생성했는지 확인합니다. 
-* SAS 토큰은 컨테이너용이지만 대상 URL의 일부로 대상 파일 이름을 지정했는지 확인합니다.
-* 아래 샘플 요청은 두 개의 대상 언어로 번역되는 단일 문서를 보여 줍니다.
-
-```json
-{
-    "inputs": [
-        {
-            "storageType": "File",
-            "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D"
-            },
-            "targets": [
-                {
-                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
-                    "language": "es"
-                },
-                {
-                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
-                    "language": "de"
-                }
-            ]
-        }
-    ]
-}
-```
-
 
 > [!IMPORTANT]
 >
@@ -286,9 +315,7 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
 
 >
 
-## <a name="_post-document-translation_-request"></a>_문서 번역 게시(POST)_ 요청
-
-번역 서비스에 일괄 처리 문서 번역 요청을 제출합니다.
+ ## <a name="translate-documents"></a>문서 번역
 
 ### <a name="c"></a>[C#](#tab/csharp)
 
@@ -298,7 +325,7 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Text;
-    
+
 
     class Program
     {
@@ -310,27 +337,27 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
         private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
 
         static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
-        
+
         static async Task Main(string[] args)
         {
             using HttpClient client = new HttpClient();
             using HttpRequestMessage request = new HttpRequestMessage();
             {
-            
+
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 request.Method = HttpMethod.Post;
                 request.RequestUri = new Uri(endpoint + route);
                 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 request.Content = content;
-                
+
                 HttpResponseMessage  response = await client.SendAsync(request);
                 string result = response.Content.ReadAsStringAsync().Result;
                 if (response.IsSuccessStatusCode)
                 {
                     Console.WriteLine($"Status code: {response.StatusCode}");
                     Console.WriteLine();
-                    Console.WriteLine($"Response Headers:"); 
+                    Console.WriteLine($"Response Headers:");
                     Console.WriteLine(response.Headers);
                 }
                 else
@@ -519,14 +546,14 @@ if err != nil {
 
 ---
 
-## <a name="_get-file-formats_"></a>_파일 형식 가져오기(GET)_ 
+## <a name="get-file-formats"></a>파일 형식 가져오기
 
 지원되는 파일 형식 목록을 검색합니다. 성공한 경우 이 메서드는 `200 OK` 응답 코드를 반환합니다.
 
 ### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
-   
+
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -577,7 +604,7 @@ let route = '/documents/formats';
 let config = {
   method: 'get',
   url: endpoint + route,
-  headers: { 
+  headers: {
     'Ocp-Apim-Subscription-Key': subscriptionKey
   }
 };
@@ -610,7 +637,7 @@ public class GetFileFormats {
     public void get() throws IOException {
         Request request = new Request.Builder().url(
                 url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
-        Response response = client.newCall(request).execute(); 
+        Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
 
@@ -696,7 +723,7 @@ func main() {
 
 ---
 
-## <a name="_get-job-status_"></a>_작업 상태 가져오기(GET)_ 
+## <a name="get-job-status"></a>작업 상태 가져오기
 
 단일 작업의 현재 상태와 문서 번역 요청의 모든 작업 요약을 가져옵니다. 성공한 경우 이 메서드는 `200 OK` 응답 코드를 반환합니다.
 <!-- markdownlint-disable MD024 -->
@@ -704,7 +731,7 @@ func main() {
 ### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
-   
+
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -755,7 +782,7 @@ let route = '/batches/{id}';
 let config = {
   method: 'get',
   url: endpoint + route,
-  headers: { 
+  headers: {
     'Ocp-Apim-Subscription-Key': subscriptionKey
   }
 };
@@ -789,7 +816,7 @@ public class GetJobStatus {
     public void get() throws IOException {
         Request request = new Request.Builder().url(
                 url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
-        Response response = client.newCall(request).execute(); 
+        Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
 
@@ -875,7 +902,7 @@ func main() {
 
 ---
 
-## <a name="_get-document-status_"></a>_문서 상태 가져오기(GET)_
+## <a name="get-document-status"></a>문서 상태 가져오기
 
 ### <a name="brief-overview"></a>간략한 개요
 
@@ -884,7 +911,7 @@ func main() {
 ### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
-   
+
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -935,7 +962,7 @@ let route = '/{id}/document/{documentId}';
 let config = {
   method: 'get',
   url: endpoint + route,
-  headers: { 
+  headers: {
     'Ocp-Apim-Subscription-Key': subscriptionKey
   }
 };
@@ -969,7 +996,7 @@ public class GetDocumentStatus {
     public void get() throws IOException {
         Request request = new Request.Builder().url(
                 url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
-        Response response = client.newCall(request).execute(); 
+        Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
 
@@ -1055,7 +1082,7 @@ func main() {
 
 ---
 
-## <a name="_delete-job_"></a>_작업 삭제(DELETE)_ 
+## <a name="delete-job"></a>작업 삭제
 
 ### <a name="brief-overview"></a>간략한 개요
 
@@ -1064,7 +1091,7 @@ func main() {
 ### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
-   
+
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -1115,7 +1142,7 @@ let route = '/batches/{id}';
 let config = {
   method: 'delete',
   url: endpoint + route,
-  headers: { 
+  headers: {
     'Ocp-Apim-Subscription-Key': subscriptionKey
   }
 };
@@ -1149,7 +1176,7 @@ public class DeleteJob {
     public void get() throws IOException {
         Request request = new Request.Builder().url(
                 url).method("DELETE", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
-        Response response = client.newCall(request).execute(); 
+        Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
 
@@ -1248,6 +1275,18 @@ func main() {
 |번역 메모리 파일 크기| ≤ 10MB|
 
 문서 번역을 사용하여 암호화된 암호를 가진 문서 또는 콘텐츠 복사를 위한 액세스가 제한된 문서와 같은 보안 문서를 번역할 수 없습니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="common-http-status-codes"></a>일반 HTTP 상태 코드
+
+| HTTP 상태 코드 | Description | 가능한 원인 |
+|------------------|-------------|-----------------|
+| 200 | 확인 | 요청이 성공했습니다. |
+| 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
+| 401 | 권한 없음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. Azure Portal에서 구독을 관리할 때 **Cognitive Services** 다중 서비스 리소스가 _아닌_ **Translator** 단일 서비스 리소스를 사용하고 있는지 확인하세요.
+| 429 | 너무 많은 요청 | 구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다. |
+| 502 | 잘못된 게이트웨이    | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다. |
 
 ## <a name="learn-more"></a>자세한 정보
 

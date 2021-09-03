@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: mbullwin
-ms.openlocfilehash: b4153b07b153a9ee0b16dc032ab5e7810e236d7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0fd02fbdd8f6c02ce86a4e0c1ee3eabec69e56c3
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98936277"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296724"
 ---
-# <a name="deploy-an-anomaly-detector-module-to-iot-edge"></a>IoT Edge에 Anomaly Detector 모듈 배포
+# <a name="deploy-an-anomaly-detector-univariate-module-to-iot-edge"></a>IoT Edge에 Anomaly Detector 단변량 모듈 배포
 
 IoT Edge 디바이스에 Cognitive Services [Anomaly Detector](../anomaly-detector-container-howto.md) 모듈을 배포하는 방법을 알아봅니다. IoT Edge에 배포되고 나면 모듈은 다른 모듈과 함께 IoT Edge에서 컨테이너 인스턴스로 실행됩니다. 표준 Docker 컨테이너 환경에서 실행되는 Anomaly Detector 컨테이너 인스턴스와 정확히 동일한 API를 노출합니다. 
 

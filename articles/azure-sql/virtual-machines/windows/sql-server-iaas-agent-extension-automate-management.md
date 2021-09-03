@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a80770013d373dbbd1ca672fbd2153731b604f5c
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 619c29b2c28c04e1cbf4d4dcda8fe3048234e7dd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079556"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529455"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용하여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -78,6 +78,7 @@ SQL Server IaaS 에이전트 확장은 SQL Server VM 관리에 대한 다양한 
 | **포털에서 디스크 사용률 보기** | Azure Portal에서 SQL 데이터 파일의 디스크 사용률에 대한 그래픽 표현을 볼 수 있습니다.  <br/> 관리 모드: 전체 | 
 | **유연한 라이선스** | BYOL(Azure 하이브리드 혜택)에서 종량제 라이선스 모델로 [원활하게 전환](licensing-model-azure-hybrid-benefit-ahb-change.md)하여 비용을 절감합니다. <br/> 관리 모드: 경량 및 전체| 
 | **유연한 버전/에디션** | SQL Server의 [버전](change-sql-server-version.md) 또는 [에디션](change-sql-server-edition.md)을 변경하려는 경우 전체 SQL Server VM을 배포할 필요 없이 Azure Portal 내에서 메타데이터를 업데이트할 수 있습니다.  <br/> 관리 모드: 경량 및 전체| 
+| **Security Center 포털 통합** | [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md)을 사용하도록 설정한 경우 Azure Portal의 [SQL 가상 머신](manage-sql-vm-portal.md) 리소스에서 직접 Security Center 권장 사항을 볼 수 있습니다. 자세한 내용은 [보안 모범 사례](security-considerations-best-practices.md)를 참조하세요.  <br/> 관리 모드: 경량 및 전체| 
 
 
 ## <a name="management-modes"></a>관리 모드
@@ -173,4 +174,4 @@ SQL Server IaaS 확장을 Azure VM의 SQL Server에 설치하려면 [자동 설�
 
 Azure Virtual Machines의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server란?](sql-server-on-azure-vm-iaas-what-is-overview.md)을 참조하세요.
 
-자세한 내용은 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요. 
+자세한 내용은 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요.

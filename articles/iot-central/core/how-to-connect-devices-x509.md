@@ -102,7 +102,7 @@ IoT Central은 SAS(공유 액세스 서명) 및 X.509 인증서를 모두 지원
 
 ### <a name="run-sample-device-code&quot;></a>샘플 디바이스 코드 실행
 
-:::zone pivot=&quot;programming-language-csharp&quot;
+:::zone pivot="programming-language-csharp"
 
 Windows를 사용하는 경우 샘플이 작동하려면 X.509 인증서가 Windows 인증서 저장소에 있어야 합니다. 저장소에 인증서를 추가하려면:
 

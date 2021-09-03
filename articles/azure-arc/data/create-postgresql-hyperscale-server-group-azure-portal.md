@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 905bfa7093fc21dfe472742e03d938cbfcaee43a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 382e4e855b0a4925cfaae2f7746587a7ab2fd951
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407582"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567341"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group-from-the-azure-portal"></a>Azure Portal에서 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
@@ -39,8 +39,8 @@ ms.locfileid: "111407582"
 
 요구 사항: Azure Portal에서 작동하는 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 배포하기 전에 먼저 *직접* 연결 모드를 사용하도록 구성된 Azure Arc 데이터 컨트롤러를 배포해야 합니다.
 Arc 데이터 컨트롤러를 배포하려면 다음 문서의 지침을 완료합니다.
-1. [데이터 컨트롤러 배포 - 직접 연결 모드(필수 구성 요소)](deploy-data-controller-direct-mode-prerequisites.md)
-1. [Azure Arc 데이터 컨트롤러 배포 | 직접 연결 모드](deploy-data-controller-direct-mode.md)
+1. [데이터 컨트롤러 배포 - 직접 연결 모드(필수 구성 요소)](create-data-controller-direct-prerequisites.md)
+1. [Azure Portal에서 직접 연결 모드로 Azure Arc 데이터 컨트롤러 배포](create-data-controller-direct-azure-portal.md)
 
 
 ## <a name="preliminary-and-temporary-step-for-openshift-users-only"></a>OpenShift 사용자만을 위한 임시 예비 단계
@@ -102,12 +102,12 @@ Azure Portal에서 Azure Arc 지원 Postgres 하이퍼스케일 서버 그룹을
     - 로그에 대한 스토리지 클래스를 설정하려면 매개 변수 `--storage-class-logs` 또는 `-scl` 뒤에 스토리지 클래스 이름을 지정합니다.
     - 백업에 대한 스토리지 클래스를 설정하려면 이 Azure Arc 지원 PostgreSQL 하이퍼스케일 미리 보기에서 수행하려는 백업/복원 작업 유형에 따라 스토리지 클래스를 설정하는 두 가지 방법이 있습니다. 이 경험을 단순화하기 위해 노력하고 있습니다. 스토리지 클래스 또는 볼륨 클레임 탑재를 지정합니다. 볼륨 클레임 탑재는 콜론으로 구분된 기존 영구 볼륨 클레임(동일한 네임스페이스에 있음) 및 볼륨 유형(및 볼륨 유형에 따른 선택적 메타데이터)의 쌍입니다. 영구 볼륨은 PostgreSQL 서버 그룹의 각 Pod에 탑재됩니다.
         - 전체 데이터베이스 복원만 수행하려면 매개 변수 `--storage-class-backups` 또는 `-scb` 뒤에 스토리지 클래스 이름을 설정합니다.
-        - 전체 데이터베이스 복원과 특정 시점 복원을 모두 수행하려는 경우 매개 변수 `--volume-claim-mounts` 또는 `-vcm` 뒤에 볼륨 클레임 이름 및 볼륨 유형을 설정합니다.
+        - 전체 데이터베이스 복원과 특정 시점 복원을 모두 수행하려는 경우 매개 변수 `--volume-claim-mounts` 또는 `--volume-claim-mounts` 뒤에 볼륨 클레임 이름 및 볼륨 유형을 설정합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Arc 지원 PostgreSQL 하이퍼스케일에 연결: [연결 엔드포인트 및 연결 문자열 얻기](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)를 읽습니다.
+- Azure Arc 지원 PostgreSQL 하이퍼스케일에 연결: [연결 엔드포인트 및 연결 문자열 가져오기](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)를 읽습니다.
 - Azure Database for PostgreSQL 하이퍼스케일의 개념 및 방법 가이드를 읽고 여러 PostgreSQL 하이퍼스케일 노드에 데이터를 배포하고 잠재적으로 더 나은 성능을 활용할 수 있습니다.
     * [노드 및 테이블](../../postgresql/concepts-hyperscale-nodes.md)
     * [애플리케이션 유형 확인](../../postgresql/concepts-hyperscale-app-type.md)

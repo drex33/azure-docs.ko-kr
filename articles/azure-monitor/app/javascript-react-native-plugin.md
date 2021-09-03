@@ -1,21 +1,21 @@
 ---
-title: Application Insights JavaScript SDK에 대한 원시 반응 플러그 인
-description: Application Insights JavaScript SDK에 대한 원시 반응 플러그 인을 설치하고 사용하는 방법입니다.
+title: Application Insights JavaScript SDK용 React Native 플러그 인
+description: Application Insights JavaScript SDK용 React Native 플러그 인을 설치하고 사용하는 방법입니다.
 services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 0c122a21fc7149e9943825cafbed77069b7919f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b407fdc0614d94862257ce3bebc0f58f971f9d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100593600"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528686"
 ---
-# <a name="native-react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK에 대한 원시 반응 플러그 인
+# <a name="react-native-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK용 React Native 플러그 인
 
-Application Insights JavaScript SDK의 원시 반응 플러그 인은 디바이스 정보를 수집하며 다음을 기본적으로 자동 수집합니다.
+Application Insights JavaScript SDK용 React Native 플러그 인은 디바이스 정보를 수집합니다. 이 플러그 인이 기본적으로 자동 수집하는 정보는 다음과 같습니다.
 
 - **고유한 디바이스 ID**(설치 ID라고도 함)
 - **디바이스 모델 이름**(예: iPhone X, Samsung Galaxy Fold, Huawei P30 Pro 등)

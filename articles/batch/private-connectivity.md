@@ -2,14 +2,14 @@
 title: Azure Batch 계정으로 프라이빗 엔드포인트 사용
 description: 프라이빗 엔드포인트를 사용하여 Azure Batch 계정에 비공개로 연결하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 08/03/2021
 ms.custom: references_regions
-ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad3a869f2eee259133c6ab5dd18e1e615825a718
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920006"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566324"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Azure Batch 계정으로 프라이빗 엔드포인트 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "98920006"
 Private Link를 사용하면 사용자가 가상 네트워크 내부에서 또는 피어링된 가상 네트워크에서 Azure Batch 계정에 액세스할 수 있습니다. Private Link에 매핑된 리소스 역시 프라이빗 피어링을 사용하여 VPN 또는 [Azure ExpressRoute](../expressroute/expressroute-introduction.md)를 통해 온-프레미스에서 액세스할 수 있습니다. [자동 또는 수동 승인 방법](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow)을 사용하여 Private Link를 통해 구성된 Azure Batch 계정에 연결할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Batch의 프라이빗 연결에 대한 지원은 현재 독일 중부, 독일 북동부, 중국 동부, 중국 동부 2, 중국 북부 및 중국 북부 2를 제외한 모든 지역에서 사용할 수 있습니다.
+> Azure Batch의 프라이빗 연결 지원은 현재 독일 중부 및 독일 북동부를 제외한 모든 지역에서 사용할 수 있습니다.
 
 이 문서에서는 프라이빗 Batch 계정을 만들고 프라이빗 엔드포인트를 사용하여 액세스하는 단계를 설명합니다.
 

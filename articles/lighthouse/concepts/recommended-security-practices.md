@@ -3,12 +3,12 @@ title: 권장 보안 방법
 description: Azure Lighthouse를 사용하는 경우 보안 및 액세스 제어를 고려하는 것이 중요합니다.
 ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3aa50833b547882506bfad125992bb1c2f4e85bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 897f09c41d550d6200cc3d78743bb3b010f2c402
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419306"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768266"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
 
@@ -19,7 +19,7 @@ ms.locfileid: "103419306"
 
 ## <a name="require-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication 필요
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)(2단계 인증이라고도 함)에서는 여러 인증 단계를 요구하여 공격자가 계정에 대한 액세스 권한을 얻지 못하게 합니다. 위임된 고객 리소스에 대한 액세스 권한이 있는 사용자를 포함하여 관리 테넌트의 모든 사용자에 대해 Multi-Factor Authentication을 요구해야 합니다.
+[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)(2단계 인증이라고도 함)에서는 여러 인증 단계를 요구하여 공격자가 계정에 대한 액세스 권한을 얻지 못하게 합니다. 위임된 고객 리소스에 대한 액세스 권한이 있는 사용자를 포함하여 관리 테넌트의 모든 사용자에 대해 Azure AD Multi-Factor Authentication을 요구해야 합니다.
 
 또한 고객에게 테넌트에서도 Azure Multi-Factor Authentication을 구현하도록 요청하는 것이 좋습니다.
 

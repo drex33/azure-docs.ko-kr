@@ -9,19 +9,20 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
-ms.openlocfilehash: 0dc49265c0ea799e194e4ac7004b558d8a9d4dd8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d5aef7050501c586fe3a5d4177c80b6be8ada94
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519272"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694600"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Machine Learning Studio(클래식) 웹 서비스를 사용하는 방법
 
 **적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio(클래식)  ![이는 이 문서가 Azure Machine Learning에 적용됨을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
-Azure Machine Learning Studio(클래식) 예측 모델을 웹 서비스로 배포하고 나면 REST API를 사용하여 데이터를 전송하고 예측을 가져올 수 있습니다. 데이터를 실시간으로 또는 일괄 처리 모드로 보낼 수 있습니다.
+Machine Learning 스튜디오(클래식) 예측 모델을 웹 서비스로 배포하고 나면 REST API를 사용하여 데이터를 전송하고 예측을 가져올 수 있습니다. 데이터를 실시간으로 또는 일괄 처리 모드로 보낼 수 있습니다.
 
 다음 Machine Learning Studio(클래식)를 사용하여 Machine Learning 웹 서비스를 만들고 배포하는 방법에 대한 자세한 내용을 알아볼 수 있습니다.
 
@@ -32,9 +33,9 @@ Azure Machine Learning Studio(클래식) 예측 모델을 웹 서비스로 배�
 
 
 ## <a name="overview"></a>개요
-Azure Machine Learning 웹 서비스를 통해 외부 애플리케이션에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스 호출은 외부 애플리케이션에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
+Machine Learning 웹 서비스를 통해 외부 애플리케이션에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스 호출은 외부 애플리케이션에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
 
-Azure Machine Learning Studio(클래식)에는 다음 두 가지 유형의 서비스가 있습니다.
+Machine Learning 스튜디오(클래식)에는 다음 두 가지 유형의 서비스가 있습니다.
 
 * RRS(요청-응답 서비스) - 대기 시간이 짧고 확장성이 높은 서비스로, Machine Learning Studio(클래식)에서 생성 및 배포되는 상태 비저장 모델에 대한 인터페이스를 제공합니다.
 * BES(일괄 처리 실행 서비스) – 데이터 레코드의 점수를 일괄적으로 매기는 비동기 서비스입니다.
@@ -44,12 +45,12 @@ Machine Learning 웹 서비스에 대한 자세한 내용은 [Machine Learning �
 ## <a name="get-an-authorization-key"></a>인증 키 가져오기
 실험을 배포할 때 웹 서비스에 API 키가 생성됩니다. 여러 위치에서 키를 검색할 수 있습니다.
 
-### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Microsoft Azure Machine Learning 웹 서비스 포털에서
-[Microsoft Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에 로그인합니다.
+### <a name="from-the-machine-learning-web-services-portal"></a>Machine Learning 웹 서비스 포털에서
+[Machine Learning 웹 서비스](https://services.azureml.net) 포털에 로그인합니다.
 
 새 Machine Learning 웹 서비스에 대한 API 키를 가져오려면 다음을 수행합니다.
 
-1. Azure Machine Learning 웹 서비스 포털의 최상위 메뉴에서 **웹 서비스** 를 클릭합니다.
+1. Machine Learning 웹 서비스 포털의 위쪽 메뉴에서 **웹 서비스** 를 클릭합니다.
 2. 키를 검색하려는 웹 서비스를 클릭합니다.
 3. 위쪽 메뉴에서 **사용** 을 클릭합니다.
 4. **기본 키** 를 복사하고 저장합니다.
@@ -82,7 +83,7 @@ Machine Learning API 도움말에는 예측 웹 서비스에 대한 세부 정�
 
 **새 웹 서비스에 대한 Machine Learning API 도움말을 보려면**
 
-[Azure Machine Learning 웹 서비스 포털에서](https://services.azureml.net/):
+[Machine Learning 웹 서비스 포털에서](https://services.azureml.net/):
 
 1. 최상위 메뉴에서 **웹 서비스** 를 클릭합니다.
 2. 키를 검색하려는 웹 서비스를 클릭합니다.

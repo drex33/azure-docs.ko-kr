@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom:
 - aaddev
 - identityplatformtop40
 - fasttrack-edit
-ms.openlocfilehash: 920589c3c0582387a83d5f7d85c660f0692a761b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c1e125127cf4376eb96e267c11e35085a4a27f18
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471282"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458902"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft ID 플랫폼 ID 토큰
 
@@ -36,7 +36,7 @@ ID 토큰은 [OpenID Connect](v2-protocols-oidc.md)가 OAuth 2.0에 대해 만�
 
 ## <a name="claims-in-an-id-token"></a>ID 토큰의 클레임
 
-ID 토큰은 [JWT(JSON 웹 토큰)](https://jwt.io/introduction/)입니다. ID 토큰은 헤더, 페이로드 및 서명으로 구성됩니다. 헤더와 서명을 사용하여 토큰의 신뢰성을 확인할 수 있으며, 페이로드에는 클라이언트가 요청한 사용자에 관한 정보가 포함됩니다. V1.0 및 v2.0 ID 토큰은 전달되는 정보의 양에 차이가 있습니다. 이 버전은 요청된 위치의 엔드포인트를 기준으로 합니다. 기존 애플리케이션은 Azure AD 엔드포인트(v1.0)를 사용할 가능성이 높은 반면, 새 애플리케이션은 “Microsoft ID 플랫폼” 엔드포인트(v2.0)를 사용해야 합니다.
+ID 토큰은 [JWT(JSON 웹 토큰)](https://wikipedia.org/wiki/JSON_Web_Token)입니다. ID 토큰은 헤더, 페이로드 및 서명으로 구성됩니다. 헤더와 서명을 사용하여 토큰의 신뢰성을 확인할 수 있으며, 페이로드에는 클라이언트가 요청한 사용자에 관한 정보가 포함됩니다. V1.0 및 v2.0 ID 토큰은 전달되는 정보의 양에 차이가 있습니다. 이 버전은 요청된 위치의 엔드포인트를 기준으로 합니다. 기존 애플리케이션은 Azure AD 엔드포인트(v1.0)를 사용할 가능성이 높은 반면, 새 애플리케이션은 “Microsoft ID 플랫폼” 엔드포인트(v2.0)를 사용해야 합니다.
 
 * v1.0: Azure AD 엔드포인트: `https://login.microsoftonline.com/common/oauth2/authorize`
 * v2.0: Microsoft ID 플랫폼 엔드포인트: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
@@ -67,8 +67,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |-----|--------|-------------|
 |`typ` | 문자열 - 항상 "JWT" | 토큰이 JWT 토큰임을 나타냅니다.|
 |`alg` | String | 토큰을 서명하는 데 사용된 알고리즘을 나타냅니다. 예: "RS256" |
-|`kid` | String | 이 토큰을 확인하는 데 사용되는 공개 키의 지문입니다. v1.0 및 v2.0 액세스 `id_tokens`로 내보냅니다. |
-|`x5t` | String | `kid`와 동일합니다(사용 및 값). 그러나 호환성을 위해 v1.0 `id_tokens`로만 내보내는 레거시 클레임입니다. |
+| `kid` | String | 이 토큰의 서명 유효성을 검사하는 데 사용할 수 있는 퍼블릭 키의 지문을 지정합니다. v1.0 및 v2.0 ID 토큰으로 내보냅니다. |
+| `x5t` | String | 사용 및 값에서 `kid`와 동일하게 작동합니다. `x5t`는 호환성을 위해 v1.0 ID 토큰으로만 내보내는 레거시 클레임입니다. |
 
 ### <a name="payload-claims"></a>페이로드 클레임
 
@@ -93,7 +93,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |`roles`| 문자열 배열 | 로그인하는 사용자에게 할당된 역할의 집합입니다. |
 |`rh` | 불투명 문자열 |Azure에서 토큰의 유효성을 다시 검사하기 위해 사용하는 내부 클레임입니다. 무시됩니다. |
 |`sub` | String | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 주체는 쌍으로 된 식별자이며 특정 애플리케이션 ID에 고유합니다. 단일 사용자가 두 개의 다른 클라이언트 ID를 사용하여 두 개의 다른 앱에 로그인하는 경우 해당 앱은 주체 클레임에 두 개의 다른 값을 받게 됩니다. 이는 아키텍처 및 개인 정보 요구 사항에 따라 필요하거나 필요하지 않을 수 있습니다. |
-|`tid` | 문자열, GUID | 사용자가 속해 있는 Azure AD 테넌트를 나타내는 GUID입니다. 회사 및 학교 계정의 경우 GUID는 사용자가 속해 있는 조직의 변경이 불가능한 테넌트 ID입니다. 개인 계정의 경우 이 값은 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
+|`tid` | 문자열, GUID | 사용자가 로그인하는 테넌트를 나타냅니다. 회사 및 학교 계정의 경우 GUID는 사용자가 로그인하는 조직의 테넌트 ID로, 변경할 수 없습니다. 개인 Microsoft 계정 테넌트(Xbox, Teams for Life 또는 Outlook 같은 서비스)에 로그인하는 경우 값은 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. 이 클레임을 받으려면 앱에서 `profile` 범위를 요청해야 합니다. |
 |`unique_name` | String | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. 이 값은 특정 시점에는 고유하지만, 이메일 및 기타 식별자를 다시 사용할 수 있을 때 다른 계정에 다시 나타날 수 있습니다. 따라서 이 값은 표시 목적으로만 사용해야 합니다. v1.0 `id_tokens`로만 발급됩니다. |
 |`uti` | 불투명 문자열 | Azure에서 토큰의 유효성을 다시 검사하기 위해 사용하는 내부 클레임입니다. 무시됩니다. |
 |`ver` | 문자열, 1.0 또는 2.0 | id_token의 버전을 나타냅니다. |
@@ -104,12 +104,12 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 
 사용자를 식별하는 경우(예를 들어 데이터베이스에서 조회하거나 해당 사용자가 보유한 권한을 결정하는 경우)에는 시간이 지나도 일정하고 고유하게 유지되는 정보를 사용하는 것이 중요합니다. 레거시 애플리케이션은 이메일 주소, 전화 번호 또는 UPN과 같은 필드를 사용하는 경우도 있습니다.  시간 경과에 따라 모두 변경될 수 있으며 다시 사용될 수도 있습니다. 예를 들어 직원이 개명하거나 현재 직원에게 이제 더 이상 재직 중이 아닌 이전 직원의 이메일 주소를 주는 경우가 이에 포함됩니다. 따라서 애플리케이션이 사용자를 식별하기 위해 사람이 읽을 수 있는 데이터를 사용하지 않는 것이 **중요** 합니다. 사람이 읽을 수 있다면 누군가가 바꿀 수 있기 때문입니다. 대신 OIDC 표준에서 제공하는 클레임 또는 Microsoft에서 제공하는 확장 클레임(`sub` 및 `oid` 클레임)을 사용합니다.
 
-사용자별 정보를 올바로 저장하려면 `sub` 또는 `oid`를 독립적으로 사용하거나(이 경우 GUID는 고유함) 필요한 경우 라우팅 또는 분할에 사용되는 `tid`를 사용합니다.  서비스 간에 데이터를 공유해야 하는 경우 모든 앱이 지정된 사용자에 대해 동일한 `oid` 및 `tid` 클레임을 얻게 되므로 `oid`+`tid`가 가장 좋습니다.  Microsoft ID 플랫폼의 `sub` 클레임은 “쌍으로 된 조합”입니다. 토큰 수신자, 테넌트 및 사용자의 조합을 기준으로 고유합니다.  따라서 지정된 사용자에 대한 ID 토큰을 요청하는 두 개의 앱은 다른 `sub` 클레임을 수신하지만 해당 사용자에 대해서는 `oid` 클레임으로 동일합니다.
+사용자별 정보를 올바로 저장하려면 `sub` 또는 `oid`를 독립적으로 사용하거나(이 경우 GUID는 고유함) 필요한 경우 라우팅 또는 분할에 사용되는 `tid`를 사용합니다.  서비스 간에 데이터를 공유해야 하는 경우 모든 앱이 지정된 테넌트에서 작업하는 지정된 사용자에 대해 동일한 `oid` 및 `tid` 클레임을 얻게 되므로 `oid`+`tid`가 가장 좋습니다.  Microsoft ID 플랫폼의 `sub` 클레임은 “쌍으로 된 조합”입니다. 토큰 수신자, 테넌트 및 사용자의 조합을 기준으로 고유합니다.  따라서 지정된 사용자에 대한 ID 토큰을 요청하는 두 개의 앱은 다른 `sub` 클레임을 수신하지만 해당 사용자에 대해서는 `oid` 클레임으로 동일합니다.
 
 >[!NOTE]
 > 사용자에 대한 정보를 저장하여 테넌트 간의 상관 관계를 지정하기 위해 `idp` 클레임을 사용하지 마세요.  애플리케이션이 테넌트 간에 사용자를 추적할 수 없도록 설계를 통해 테넌트 간 사용자에 대한 `oid` 및 `sub` 클레임이 변경되기 때문에 작동하지 않습니다.  
 >
-> 사용자가 한 테넌트에 위치하고 있지만 다른 테넌트에서 인증하는 게스트 시나리오는 사용자가 서비스에 대한 새 사용자인 것처럼 사용자를 처리해야 합니다.  Contoso 테넌트의 문서와 권한은 Fabrikam 테넌트에서 적용되지 않습니다. 이는 테넌트 간 실수로 인한 데이터 누출을 방지하기 위해 중요합니다.
+> 사용자가 한 테넌트에 위치하고 있지만 다른 테넌트에서 인증하는 게스트 시나리오는 사용자가 서비스에 대한 새 사용자인 것처럼 사용자를 처리해야 합니다.  Contoso 테넌트의 문서와 권한은 Fabrikam 테넌트에서 적용되지 않습니다. 이 제한은 테넌트 간에 실수로 데이터가 유출되고 데이터 수명 주기가 적용되는 것을 방지하는 데 중요합니다.  테넌트에서 게스트를 제거하면 해당 테넌트에서 게스트가 만든 데이터에 대한 액세스 권한도 제거됩니다. 
 
 ### <a name="groups-overage-claim"></a>그룹 초과분 클레임
 토큰 크기가 HTTP 헤더 크기 제한을 초과하지 않도록 하기 위해 Azure AD는 `groups` 클레임에 포함되는 개체 ID 수를 제한합니다. 사용자가 초과분 제한(SAML 토큰의 경우 150, JWT 토큰의 경우 200)보다 많은 그룹의 멤버인 경우 Azure AD는 토큰의 그룹 클레임을 내보내지 않습니다. 대신 애플리케이션에 Microsoft Graph API를 쿼리하여 사용자의 그룹 멤버 자격을 검색하도록 가리키는 토큰의 초과분 클레임이 포함됩니다.
@@ -149,5 +149,6 @@ ID 토큰의 유효성 검사는 [액세스 토큰의 유효성을 검사](acces
 
 ## <a name="next-steps"></a>다음 단계
 
+* ID 토큰을 내보내는 프로토콜을 정의하는 [OpenID Connect](v2-protocols-oidc.md) 흐름을 검토합니다. 
 * [액세스 토큰](access-tokens.md)에 대해 자세히 알아보기
 * ID 토큰의 JWT 클레임을 [선택적 클레임](active-directory-optional-claims.md)을 사용하여 사용자 지정합니다.

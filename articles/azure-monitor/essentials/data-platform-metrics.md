@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2021
 ms.author: bwren
-ms.openlocfilehash: 5c8256e453763d9cd2fdc18687df3064552dcf2b
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 00014d4a7f2829ec6836473d03ae0b25f388a903
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289537"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286469"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Azure Monitor 메트릭 개요
 Azure Monitor 메트릭은 [모니터링된 리소스](../monitor-reference.md)에서 시계열 데이터베이스로 숫자 데이터를 수집하는 Azure Monitor의 기능입니다. 메트릭은 정기적으로 수집되며 특정 시간에 시스템의 일부 측면을 설명하는 수치 값입니다. Azure Monitor의 메트릭은 경량이며 거의 실시간으로 시나리오를 지원할 수 특히 경고 및 빠른 문제 감지에 유용합니다. 메트릭 탐색기를 사용하여 대화형으로 분석하거나, 값이 임계값을 초과할 때 경고를 통해 사전에 알림을 받거나, 통합 문서나 대시보드에서 시각화할 수 있습니다.
@@ -27,7 +27,7 @@ Azure Monitor 메트릭은 [모니터링된 리소스](../monitor-reference.md)�
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Azure Monitor 메트릭으로 무엇을 할 수 있나요?
 다음 테이블에는 Azure Monitor에서 메트릭을 사용할 수 있는 여러 방법이 나와 있습니다.
 
-|  | Description |
+|  | 설명 |
 |:---|:---|
 | **분석** | [메트릭 탐색기](metrics-charts.md)를 사용 하 여 차트에서 수집된 메트릭을 분석하고 여러 리소스의 메트릭을 비교할 수 있습니다. |
 | **경고** | 메트릭 값이 임계값을 초과하면 알림을 보내거나 [자동화된 작업](../alerts/action-groups.md)을 수행하는 [메트릭 경고 규칙](../alerts/alerts-metric.md)을 구성합니다. |
@@ -133,6 +133,9 @@ Azure Monitor 메트릭에서 수집한 데이터는 타임 스탬프 데이터 
 > [!NOTE]
 > 장기적인 추세의 경우 [Log Analytics 작업 영역에 Azure Monitor 리소스에 대한 플랫폼 메트릭을 보낼 수](./resource-logs.md#send-to-azure-storage) 있습니다.
 
+
+> [!NOTE]
+> 위에서 언급한 대로 대부분의 Azure 리소스에서 플랫폼 메트릭은 93일간 보관됩니다. 그러나 단일 차트에서는 30일의 데이터만 메트릭 타일에서 쿼리할 수 있습니다. 이 제한은 로그 기반 메트릭에는 적용되지 않습니다. 빈 차트가 표시되거나 차트에 메트릭 데이터의 일부만 표시되는 경우 시간 선택기의 시작 날짜와 종료 날짜 사이의 간격이 30일을 초과하지 않는지 확인합니다. 30일 간격을 선택하면 차트를 [이동](./metrics-charts.md#pan)하여 전체 보존 기간을 볼 수 있습니다.
 
 
 

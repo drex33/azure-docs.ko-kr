@@ -10,18 +10,18 @@ ms.custom: how-to
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: 95c9880eb8c61b5a057cf2573aad7871c3c37bb3
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 5bba667b70099e3f88e1ff62ae3472144556a0d1
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613615"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529523"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench는 어떻게 되었나요?
 
 Azure Machine Learning Workbench 애플리케이션과 일부 초기 기능은 [아키텍처](concept-azure-machine-learning-architecture.md) 향상을 위해 **2018년 9월** 릴리스부터 더 이상 사용되지 않고 다른 기능으로 대체되었습니다.
 
-환경을 향상시키기 위해 릴리스에는 고객 피드백을 반영한 중요 업데이트가 포함되어 있습니다. 실험 실행에서 모델 배포에 이르기까지 핵심 기능은 변경되지 않았습니다. 그러나 이제 강력한 <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>, R SDK 및 [Azure CLI](reference-azure-machine-learning-cli.md)를 사용하여 시스템 학습 작업과 파이프라인을 수행할 수 있습니다.
+환경을 향상시키기 위해 릴리스에는 고객 피드백을 반영한 중요 업데이트가 포함되어 있습니다. 실험 실행에서 모델 배포에 이르기까지 핵심 기능은 변경되지 않았습니다. 그러나 이제 강력한 <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a> 및 [Azure CLI](reference-azure-machine-learning-cli.md)를 사용하여 기계 학습 작업과 파이프라인을 수행할 수 있습니다.
 
 이전 버전의 Azure Machine Learning에서 만든 대부분의 아티팩트는 사용자 고유의 로컬 또는 클라우드 스토리지에 저장됩니다. 이러한 아티팩트는 그대로 유지됩니다.
 
@@ -85,7 +85,7 @@ run = exp.submit(source_directory=script_folder,
 
 기존 CLI에 대한 지원이 종료되어 모델을 다시 배포하거나 모델 관리 계정을 사용하여 처음에 배포한 웹 서비스를 관리할 수 없습니다. 그러나 ACS(Azure Container Service)가 계속 지원된다면 이러한 웹 서비스는 계속 작동합니다.
 
-최신 버전에서 모델은 ACI(Azure Container Instances) 또는 AKS(Azure Kubernetes Service) 클러스터에 웹 서비스로 배포됩니다. FPGA 및 Azure IoT Edge에 배포할 수도 있습니다.
+최신 버전에서 모델은 ACI(Azure Container Instances) 또는 AKS(Azure Kubernetes Service) 클러스터에 웹 서비스로 배포됩니다. 또한 FPGA에 배포할 수도 있습니다.
 
 다음 문서에서 자세히 알아보세요.
 + [모델을 배포하는 위치 및 방법](how-to-deploy-and-where.md)
@@ -95,7 +95,7 @@ run = exp.submit(source_directory=script_folder,
 
 [Azure Machine Learning에 대한 최신 아키텍처](concept-azure-machine-learning-architecture.md)에 대해 알아봅니다.
 
-서비스 개요는 [Azure Machine Learning이란?](overview-what-is-azure-ml.md)을 읽어보세요.
+서비스 개요는 [Azure Machine Learning이란?](overview-what-is-azure-machine-learning.md)을 읽어보세요.
 
 [빠른 시작: Azure Machine Learning 서비스 시작](quickstart-create-resources.md)으로 시작합니다.  그런 다음 이러한 리소스를 사용하여 원하는 방법으로 첫 번째 실험을 만듭니다.
 

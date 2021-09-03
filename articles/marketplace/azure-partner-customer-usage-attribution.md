@@ -6,12 +6,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/12/2021
 ms.custom: devx-track-terraform, devx-track-azurepowershell
-ms.openlocfilehash: b1f40ff5175de88e101bfe8f22f9593502e7d6d0
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 9536002cb5c3e30f32479b74e761d7128090af26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005882"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528436"
 ---
 # <a name="azure-customer-usage-attribution"></a>Azure 고객 사용량 특성
 
@@ -33,6 +33,11 @@ ms.locfileid: "112005882"
 ## <a name="commercial-marketplace-azure-apps"></a>Azure 앱 상업용 마켓플레이스
 
 상업용 마켓플레이스에 게시된 Azure 앱에서 Azure 사용량 추적은 대부분 자동으로 이루어집니다. [Marketplace Azure 앱 계획의 기술 구성](./azure-app-solution.md#define-the-technical-configuration)의 일부로 Resource Manager 템플릿을 업로드하는 경우 파트너 센터는 Azure Resource Manager에서 읽을 수 있는 추적 ID를 추가합니다.
+
+>[!NOTE]
+>애플리케이션 사용이 당사 시스템에서 정확하게 표시되도록 하려면:
+>1. 리소스 종류 Microsoft.Resources/deployment에서 추적 ID를 변수로 정의하는 경우 계획의 **기술 구성** 페이지에서 파트너 센터에 표시되는 추적 ID로 변수를 바꿉니다(아래 [Resource Manager 템플릿에 GUID 추가](#add-a-guid-to-a-resource-manager-template) 참조).
+>2. Resource Manager 템플릿이 고객 사용 특성 이외의 목적으로 Microsoft.Resources/deployments 유형의 리소스를 사용하는 경우 Microsoft는 귀하를 대신하여 고객 사용 특성 추적 ID를 추가할 수 없습니다. Microsoft.Resources/deployments 유형의 새 리소스를 추가하고 계획의 **기술 구성** 페이지에서 파트너 센터에 표시되는 추적 ID를 추가합니다(아래의 [Resource Manager 템플릿에 GUID 추가](#add-a-guid-to-a-resource-manager-template) 참조).
 
 Azure Resource Manager API를 사용하는 경우 코드에서 리소스를 배포하는 것처럼 Azure Resource Manager에 전달하려면 [아래 지침](#use-resource-manager-apis) 에 따라 추적 ID를 추가해야 합니다. 이 ID는 계획의 기술 구성페이지에서 파트너 센터에 표시됩니다. 
 

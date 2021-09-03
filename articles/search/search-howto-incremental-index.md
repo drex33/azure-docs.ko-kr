@@ -2,25 +2,22 @@
 title: 캐시 및 증분 보강 구성(미리 보기)
 titleSuffix: Azure Cognitive Search
 description: 인식 기술 세트에서 제어형 처리를 위해 캐싱을 사용하도록 설정하고 보강된 콘텐츠의 상태를 유지합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
-author: vkurpad
-manager: eladz
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: e8164a6ee56a332528cdce8e81cd85460af0c1db
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 4165768837f590690a39226b983b4d32361957e3
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752390"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730562"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search에서 증분 보강을 위해 캐싱을 구성하는 방법
 
 > [!IMPORTANT] 
-> 증분 보강은 현재 퍼블릭 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
-> [REST API 미리 보기 버전](search-api-preview.md)에서 이 기능을 제공합니다. 현재 포털 또는 .NET SDK 지원은 없습니다.
+> 이 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 퍼블릭 미리 보기로 제공됩니다. [미리 보기 REST API](/rest/api/searchservice/index-preview)에서 이 기능을 지원합니다.
 
 이 문서에서는 매번 다시 빌드하지 않고도 단계를 증분 방식으로 수정할 수 있도록 보강 파이프라인에 캐싱을 추가하는 방법을 보여 줍니다. 기본적으로 기술 세트는 상태 비저장이며 해당 컴포지션의 어떤 부분이든 변경하려면 인덱서 전체를 다시 실행해야 합니다. 증분 보강을 사용하면 인덱서가 기술 세트 또는 인덱서 정의에서 검색된 변경 내용을 기준으로 새로 고쳐야 하는 문서 트리 부분을 확인할 수 있습니다. 처리된 기존 출력은 유지되고 가능한 모든 곳에서 재사용됩니다. 
 

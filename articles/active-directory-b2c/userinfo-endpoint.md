@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2021
+ms.date: 07/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c060a029b1cdbdd890ced96cab732966cb652de0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94b00fb293913e5501bd70ecb782304c56314ed9
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500583"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113430127"
 ---
 # <a name="userinfo-endpoint"></a>UserInfo 엔드포인트
 
@@ -266,6 +266,43 @@ Authorization: Bearer <your access token>
     "signInNames.emailAddress": "john.s@contoso.com"
 }
 ```
+
+## <a name="provide-optional-claims"></a>선택적 클레임 제공
+
+앱에 더 많은 클레임을 제공하려면 다음 단계를 수행합니다.
+
+1. [사용자 특성을 추가하고 사용자 입력을 사용자 지정](configure-user-input.md)합니다.
+1. 제공하려는 클레임을 사용하여 [신뢰 당사자 정책 기술 프로필](relyingparty.md#technicalprofile) OutputClaims 요소를 수정합니다. `DefaultValue` 특성을 사용하여 기본값을 설정합니다. 기본값을 `{Context:CorrelationId}`와 같은 [클레임 해결 프로그램](claim-resolver-overview.md)으로 설정할 수도 있습니다. 기본값을 강제로 사용하려면 `AlwaysUseDefaultValue` 특성을 `true`로 설정합니다. 다음 예제에서는 기본값을 사용하여 city 클레임을 추가합니다.
+    
+    ```xml
+    <RelyingParty>
+      ...
+      <TechnicalProfile Id="PolicyProfile">
+        ...
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="city" DefaultValue="Berlin" />
+        </OutputClaims>
+        ...
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+  
+1. 제공하려는 클레임을 사용하여 UserInfoIssuer 기술 프로필 InputClaims 요소를 수정합니다. `PartnerClaimType` 특성을 사용하여 앱에 반환되는 클레임의 이름을 변경합니다. 다음 예제에서는 city 클레임을 추가하고 일부 클레임의 이름을 변경합니다.
+
+    ```xml
+    <TechnicalProfile Id="UserInfoIssuer">
+      ...
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" />
+        <InputClaim ClaimTypeReferenceId="city" />
+        <InputClaim ClaimTypeReferenceId="givenName" />
+        <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="familyName" />
+        <InputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+        <InputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
+      </InputClaims>
+      ...
+    </TechnicalProfile>
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 

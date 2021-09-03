@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: b6ce9e77421df0563810fd7f8255720c1fd2d0c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 194154f192cfcc91138b13bd37b37d80d38097d2
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591077"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113126791"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용한 Azure Functions 모니터링
 
@@ -22,7 +22,7 @@ Azure Monitor 로그는 동일한 작업 영역에 있는 여러 리소스의 �
 Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/azure/kusto/query/)의 한 버전을 사용합니다. Kusto 쿼리 언어는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 등의 고급 기능도 포함합니다. [여러 강좌](../azure-monitor/logs/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.
 
 > [!NOTE]
-> Azure Monitor 로그와의 통합은 현재 Windows Consumption, 프리미엄 및 전용 호스팅 계획에서 실행되는 v2 및 v3 함수 앱에 대한 공개 미리 보기로 제공됩니다.
+> Azure Monitor 로그 통합은 현재 퍼블릭 미리 보기 상태입니다. [버전 1.x](functions-versions.md)에서 실행되는 함수 앱에는 지원되지 않습니다.
 
 ## <a name="setting-up"></a>설치
 

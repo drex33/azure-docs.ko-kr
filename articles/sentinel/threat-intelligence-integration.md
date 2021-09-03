@@ -11,30 +11,32 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2021
+ms.date: 07/13/2021
 ms.author: yelevin
-ms.openlocfilehash: d8f7fff97a92a98fbcd0198ce601c88df914d9e2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8c9206404294557f3f4a50d03ae550e407b92ed3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471487"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529436"
 ---
 # <a name="threat-intelligence-integration-in-azure-sentinel"></a>Azure Sentinel에서 위협 인텔리전스 통합
 
-> [!IMPORTANT]
-> Azure Sentinel의 위협 인텔리전스 데이터 커넥터는 현재 공개 미리 보기로 제공됩니다.
-> 이 기능은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+Azure Sentinel은 [위협 인텔리전스 피드를 사용](work-with-threat-indicators.md)하여 알려진 위협을 탐지하고 우선 순위를 지정하는 보안 분석가의 기능을 향상시키는 몇 가지 다른 방법을 제공합니다. 
 
-Azure Sentinel은 [위협 인텔리전스 피드를 사용](import-threat-intelligence.md)하여 알려진 위협을 탐지하고 우선 순위를 지정하는 보안 분석가의 기능을 향상시키는 몇 가지 다른 방법을 제공합니다. 
+사용 가능한 여러 통합 [TIP(위협 인텔리전스 플랫폼) 제품](connect-threat-intelligence-tip.md) 중 하나를 사용할 수 있고, [TAXII 서버에 연결](connect-threat-intelligence-taxii.md)하여 STIX 호환 위협 인텔리전스 원본을 사용할 수 있으며, [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator)와 직접 통신할 수 있는 사용자 지정 솔루션을 사용할 수도 있습니다. 
 
-사용 가능한 여러 통합 TIP(위협 인텔리전스 플랫폼) 제품 중 하나를 이용할 수 있고, TAXII 서버에 연결하여 STIX 호환 위협 인텔리전스 원본을 이용할 수 있으며, [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator)와 직접 통신할 수 있는 사용자 지정 솔루션을 사용할 수도 있습니다.
+직접 조사 및 대응 작업에 도움이 될 수 있는 TI 정보로 인시던트 보강을 위해 플레이북에서 위협 인텔리전스 원본에 연결할 수도 있습니다.
 
-또한 직접 조사 및 응답 작업에 도움이 될 수 있는 TI 정보로 인시던트 보강을 위해 플레이북에서 위협 인텔리전스 원본에 연결할 수 있습니다.
+> [!TIP]
+> [MSSP(관리형 서비스 공급자)](mssp-protect-intellectual-property.md)와 같이 동일한 테넌트에 여러 작업 영역이 있는 경우 중앙 작업 영역에만 위협 지표를 연결하는 것이 더 비용 효율적일 수 있습니다.
+>
+> 각각의 개별 작업 영역으로 가져온 동일한 위협 지표 세트가 있는 경우 작업 영역 간 쿼리를 실행하여 작업 영역에서 위협 지표를 집계할 수 있습니다. MSSP 인시던트 검색, 조사, 헌팅 환경 내에서 상호 연결합니다.
+>
 
 ## <a name="taxii-threat-intelligence-feeds"></a>TAXII 위협 인텔리전스 피드
 
-TAXII 위협 인텔리전스 피드에 연결하려면 아래 링크된 각 공급업체에서 제공하는 데이터와 함께 [위협 인텔리전스 - TAXII](connect-threat-intelligence.md#connect-azure-sentinel-to-taxii-servers) 데이터 커넥터를 사용합니다. 커넥터와 함께 사용하는 데 필요한 데이터를 얻으려면 공급업체에 직접 문의해야 할 수 있습니다.
+TAXII 위협 인텔리전스 피드에 연결하려면 아래에 링크된 각 공급업체에서 제공한 데이터와 함께 [Azure Sentinel을 STIX/TAXII 위협 인텔리전스 피드에 연결](connect-threat-intelligence-taxii.md) 지침을 따르세요. 커넥터와 함께 사용하는 데 필요한 데이터를 얻으려면 공급업체에 직접 문의해야 할 수 있습니다.
 
 ### <a name="anomali-limo"></a>Anomali Limo
 
@@ -69,7 +71,7 @@ TAXII 위협 인텔리전스 피드에 연결하려면 아래 링크된 각 공�
 
 ## <a name="integrated-threat-intelligence-platform-products"></a>통합 위협 인텔리전스 플랫폼 제품
 
-TIP(위협 인텔리전스 플랫폼) 피드에 연결하려면 지침에 따라 Azure Sentinel에 [위협 인텔리전스 플랫폼 피드를 연결](connect-threat-intelligence.md#connect-azure-sentinel-to-your-threat-intelligence-platform)합니다. 이 지침의 두 번째 파트에서는 TIP 솔루션에 정보를 입력하는 방법을 알려드립니다. 자세한 정보는 아래 링크를 참조하세요.
+TIP(위협 인텔리전스 플랫폼) 피드에 연결하려면 지침에 따라 [Azure Sentinel에 위협 인텔리전스 플랫폼을 연결](connect-threat-intelligence-tip.md)합니다. 이 지침의 두 번째 파트에서는 TIP 솔루션에 정보를 입력하는 방법을 알려드립니다. 자세한 정보는 아래 링크를 참조하세요.
 
 ### <a name="agari-phishing-defense-and-brand-protection"></a>Agari 피싱 방어 및 브랜드 보호
 
@@ -85,7 +87,7 @@ TIP(위협 인텔리전스 플랫폼) 피드에 연결하려면 지침에 따라
 
 ### <a name="eclecticiq-platform"></a>EclecticIQ 플랫폼
 
-- [EclecticIQ 플랫폼](https://www.eclecticiq.com/platform/)에 대해 자세히 알아봅니다.
+- EclecticIQ 플랫폼은 Azure Sentinel과 통합되어 위협 탐지, 헌팅, 응답을 향상시킵니다. 이 양방향 통합의 [이점 및 사용 사례](https://www.eclecticiq.com/resources/azure-sentinel-and-eclecticiq-intelligence-center)에 관해 자세히 알아보세요.
 
 ### <a name="groupib-threat-intelligence-and-attribution"></a>GroupIB 위협 인텔리전스 및 특성
 
@@ -128,7 +130,7 @@ TIP(위협 인텔리전스 플랫폼) 피드에 연결하려면 지침에 따라
 
 ### <a name="reversinglabs-titaniumcloud"></a>ReversingLabs TitaniumCloud
 
-- [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) 에 대한 인시던트 보강 플레이북을 Azure Sentinel [GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information)에서 찾아 사용하도록 설정합니다.
+- [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) 에 대한 인시던트 보강 플레이북을 Azure Sentinel [GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information)에서 찾아 사용하도록 설정합니다.
 - ReversingLabs 인텔리전스 논리 앱 [커넥터 설명서](/connectors/reversinglabsintelligence/)를 참조하세요.
 
 ### <a name="riskiq-passive-total"></a>RiskIQ Passive Total
@@ -146,5 +148,5 @@ TIP(위협 인텔리전스 플랫폼) 피드에 연결하려면 지침에 따라
 
 이 문서에서는 위협 인텔리전스 공급자를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터에 대한 가시성을 얻고 잠재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](./tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터에 대한 가시성을 얻고 잠재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](./detect-threats-built-in.md)을 시작합니다.

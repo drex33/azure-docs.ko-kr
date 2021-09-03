@@ -10,16 +10,16 @@ ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 373c3e28e1d2dffdde8e8483a78c23174bd6513a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ee5213adf10ddc7ea17c93011989e52fe570b3ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678599"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528423"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Azure VPN Gateway와의 활성-활성 S2S VPN 연결 구성
 
-이 문서에서는 Resource Manager 배포 모델 및 PowerShell을 사용하여 활성-활성 프레미스 간 및 VNet 간 연결을 만드는 단계를 안내합니다. Azure Portal에서 활성-활성 게이트웨이를 구성할 수도 있습니다.
+이 문서에서는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)과 PowerShell을 사용하여 활성-활성 프레미스 간 연결과 VNet 간 연결을 만드는 단계를 안내합니다. Azure Portal에서 활성-활성 게이트웨이를 구성할 수도 있습니다.
 
 ## <a name="about-highly-available-cross-premises-connections"></a>고가용성 프레미스 간 연결 정보
 크로스-프레미스 및 VNet 간 연결에 대해 고가용성을 달성하려면 여러 VPN Gateway를 배포하고 네트워크와 Azure 간에 여러 병렬 연결을 설정해야 합니다. 연결 옵션 및 토폴로지에 대한 개요는 [고가용성 프레미스 간 연결 및 VNet 간 연결](vpn-gateway-highlyavailable.md)을 참조하세요.
@@ -49,7 +49,7 @@ VPN 게이트웨이가 이미 있는 경우 다음을 수행할 수 있습니다
 
 ### <a name="before-you-begin"></a>시작하기 전에
 * Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* 브라우저에서 CloudShell을 사용하지 않으려는 경우 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/)를 참조하세요.
+* 브라우저에서 Cloud Shell을 사용하지 않으려는 경우 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/)를 참조하세요.
 
 ### <a name="step-1---create-and-configure-vnet1"></a>1단계 - VNet1 만들기 및 구성
 #### <a name="1-declare-your-variables"></a>1. 변수 선언
@@ -122,7 +122,7 @@ $gw1ipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet $sub
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. 활성-활성 구성을 사용하여 VPN 게이트웨이 만들기
-TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. GatewayIpConfig 항목이 두 개 있고 EnableActiveActiveFeature 플래그가 설정되어 있습니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 45분 이상).
+TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. GatewayIpConfig 항목이 두 개 있고 EnableActiveActiveFeature 플래그가 설정되어 있습니다. 게이트웨이를 만드는 데 시간이 걸릴 수 있습니다(선택한 SKU에 따라 완료하는 데 45분 이상 걸림).
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug

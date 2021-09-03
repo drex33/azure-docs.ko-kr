@@ -2,23 +2,22 @@
 title: 이미지에서 텍스트 추출
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 파이프라인에 있는 이미지에서 텍스트 및 기타 정보를 처리하고 추출합니다.
-manager: nitinme
-author: LuisCabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68186c5294c0a3a2f376a93ef1902307780f48bb
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 2591e3468999bfb48fc125bd6edfe17da8eecefd
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538288"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114728147"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>AI 보강 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 
-Azure Cognitive Search에는 이미지 및 이미지 파일에서 작동하는 몇 가지 기능이 있습니다. 문서를 해독하는 동안 *imageAction* 매개 변수를 사용하여 정지 신호에서 단어 "STOP"과 같은 영숫자 텍스트를 포함하는 사진이나 그림에서 텍스트를 추출할 수 있습니다. 기타 시나리오에는 민들레 사진의 "민들레" 또는 "노란색"과 같은 이미지의 텍스트 표현을 생성하는 방법이 포함됩니다. 또한 해당 크기와 같은 이미지에 대한 메타데이터를 추출할 수 있습니다.
+Azure Cognitive Search에는 이미지 및 이미지 파일에서 작동하는 몇 가지 기능이 있습니다. [문서 크래킹](search-indexer-overview.md#document-cracking) 중에 *imageAction* 매개 변수를 사용하여 정지 신호에서 단어 “STOP”과 같은 영숫자 텍스트를 포함하는 사진이나 그림에서 텍스트를 추출할 수 있습니다. 기타 시나리오에는 민들레 사진의 "민들레" 또는 "노란색"과 같은 이미지의 텍스트 표현을 생성하는 방법이 포함됩니다. 또한 해당 크기와 같은 이미지에 대한 메타데이터를 추출할 수 있습니다.
 
 이 아티클에서는 이미지 처리에 대해 자세히 설명하고 AI 보강 파이프라인에서 이미지를 사용하는 방법에 대한 참고 자료를 제공합니다.
 

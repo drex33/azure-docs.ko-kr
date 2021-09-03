@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 5137b633f66088efbee41b96ba715eb3b18961dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91fe9cee0178dc3f742ac59995212ae1ef3a7a38
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519255"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582963"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Machine Learning 스튜디오(클래식)에 대한 Net# 신경망 사양 언어 가이드
 
@@ -22,10 +22,10 @@ ms.locfileid: "100519255"
 
 Net#은 Microsoft가 개발한 언어로, 심층 신경망 네트워크나 임의 차원의 난해와 같은 복잡한 신경 네트워크 아키텍처를 정의하는 데 사용됩니다. 이미지, 비디오 또는 오디오와 같은 데이터에 대한 학습을 개선하는 데 복잡한 구조체를 사용할 수 있습니다.
 
-Net# 아키텍처 사양은 다음 컨텍스트에서 사용할 수 있습니다.
-
-+ Microsoft Azure Machine Learning 스튜디오(클래식)의 모든 신경망 모듈: [다중 클래스 신경망](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [2클래스 신경망](/azure/machine-learning/studio-module-reference/two-class-neural-network), [신경망 회귀](/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Microsoft ML Server의 신경망 함수: R 언어의 경우 [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) 및 [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet), Python의 경우 [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network).
+Machine Learning 스튜디오(클래식)의 모든 신경망 모듈에서 Net# 아키텍처 사양을 사용할 수 있습니다. 
+* [다중 클래스 신경망](/azure/machine-learning/studio-module-reference/multiclass-neural-network)
+* [2클래스 신경망](/azure/machine-learning/studio-module-reference/two-class-neural-network)
+* [신경망 회귀](/azure/machine-learning/studio-module-reference/neural-network-regression)
 
 
 이 문서에서는 Net#을 사용하여 사용자 지정 신경망을 개발하는 데 필요한 기본 개념과 구문을 설명합니다.
@@ -33,7 +33,6 @@ Net# 아키텍처 사양은 다음 컨텍스트에서 사용할 수 있습니다
 + 신경망 요구 사항 및 기본 구성 요소를 정의하는 방법
 + Net# 사양 언어의 구문 및 키워드
 + Net#을 사용하여 만든 사용자 지정 신경망의 예
-
 
 
 ## <a name="neural-network-basics"></a>신경망 기본 사항
@@ -57,7 +56,7 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 
 ## <a name="supported-customizations"></a>지원되는 사용자 지정
 
-Azure Machine Learning 스튜디오(클래식)에서 만든 신경망 모델의 아키텍처는 Net#을 사용하여 광범위하게 사용자 지정할 수 있습니다. 다음을 할 수 있습니다.
+Machine Learning 스튜디오(클래식)에서 만드는 신경망 모델의 아키텍처는 Net#을 사용하여 광범위하게 사용자 지정할 수 있습니다. 다음을 할 수 있습니다.
 
 + 숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
 + 계층이 서로 연결되는 방법을 지정합니다.
@@ -461,6 +460,6 @@ output Digit [10] from Hid3 all;
 + 총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여 `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`와 같이 계산할 수 있습니다.
 + `Sharing[d]`가 `d == 0`에 대해서만 False이므로 커널 수는 `MapCount * NodeCount\[0] = 10 * 5 = 50`입니다.
 
-## <a name="acknowledgements"></a>감사의 말
+## <a name="acknowledgments"></a>감사의 글
 
-신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, Machine Learning) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 애플리케이션에 사용됩니다. 자세한 내용은 [Azure Machine Learning Studio의 신경망 - Net# 소개](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)를 참조하세요.
+신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, Machine Learning) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 애플리케이션에 사용됩니다. 자세한 내용은 [Azure Machine Learning 스튜디오의 신경망 - Net# 소개](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)를 참조하세요.

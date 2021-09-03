@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: tisande
-ms.openlocfilehash: ddfdd4897a0cd194465828bba4bea0c002a4e434
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b8c2e27b7023a106815b34538f1cd3dba85354b3
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110797675"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667658"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Azure Cosmos DB 통합 캐시를 구성하는 방법(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -59,6 +59,11 @@ ms.locfileid: "110797675"
 
 3. .NET 또는 Java SDK를 사용하는 경우 연결 모드를 [게이트웨이 모드](sql-sdk-connection-modes.md#available-connectivity-modes)로 설정합니다. Python 및 Node.js SDK에는 게이트웨이 모드 외에 추가 연결 옵션이 없기 때문에 이 단계가 필요하지 않습니다.
 
+> [!NOTE]
+> 최신 .NET 또는 Java SDK 버전을 사용하는 경우 기본 연결 모드는 직접 모드입니다. 통합 캐시를 사용하려면 이 기본값을 재정의해야 합니다.
+
+Java SDK를 사용하는 경우 `CosmosClientBuilder` 내에서 수동으로 [contentResponseOnWriteEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable&preserve-view=true)도 `true`로 설정해야 합니다. 다른 SDK를 사용하는 경우 이 값은 기본값인 `true`로 이미 설정되어 있으므로 변경할 필요가 없습니다.
+
 ## <a name="adjust-request-consistency"></a>요청 일관성 조정
 
 최종으로 요청 일관성을 조정해야 합니다. 그러지 않으면 요청은 항상 통합 캐시를 바이패스합니다. 모든 읽기 작업에 대해 최종 일관성을 구성하는 가장 쉬운 방법은 [계정 수준에서 설정](consistency-levels.md#configure-the-default-consistency-level)하는 것입니다. 또한 [요청 수준](how-to-manage-consistency.md#override-the-default-consistency-level)에서 일관성을 구성할 수도 있습니다. 이는 읽기의 하위 집합만 통합 캐시를 활용하려는 경우에 권장됩니다.
@@ -85,7 +90,7 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 ```
 
 > [!NOTE]
-> 현재는 최신 .NET 및 Java 미리 보기 SDK를 사용하여 MaxIntegratedCacheStaleness만 조정할 수 있습니다.
+> 현재는 최신 [.NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) 및 [Java](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.16.0-beta.1) 미리 보기 SDK를 사용하여 MaxIntegratedCacheStaleness만 조정할 수 있습니다.
 
 ## <a name="verify-cache-hits"></a>캐시 적중 확인
 
@@ -96,6 +101,10 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 -   클라이언트가 전용 게이트웨이 엔드포인트에 연결됩니다.
 -  클라이언트가 게이트웨이 모드를 사용합니다(Python 및 Node.js SDK는 항상 게이트웨이 모드를 사용함).
 -   요청의 일관성을 최종으로 설정해야 합니다.
+
+> [!NOTE]
+> 통합 캐시에 관한 피드백이 있나요? 많은 의견 부탁드립니다. 언제든지 자유롭게 Azure Cosmos DB 엔지니어링 팀(cosmoscachefeedback@microsoft.com)과 피드백을 직접 공유해 주세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

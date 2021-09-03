@@ -10,26 +10,26 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
-ms.custom: devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: f175e8d5c3dd19b212dfbdd04025d12f549667ed
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
+ms.openlocfilehash: 424e1908df6d3e92d365e2dd3e10a42f7d1ddb2a
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293299"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296410"
 ---
-# <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>데이터 랭글링을 위해 Apache Spark 풀(Azure Synapse Analytics에서 제공) 연결(미리 보기)
+# <a name="data-wrangling-with-apache-spark-pools-preview"></a>Apache Spark 풀을 사용한 데이터 랭글링(미리 보기) 
 
-이 문서에서는 [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md)에서 제공되는 Apache Spark 풀을 [Azure Machine Learning 작업 영역](concept-workspace.md)에 연결하여, 이를 실행하고 대규모로 데이터 랭글링을 수행하는 방법을 알아봅니다. 
+이 문서에서는 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/)를 사용하여 Jupyter Notebook에서 [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md)가 제공하는 전용 Synapse 세션 내 데이터 랭글링 작업을 대화형으로 수행하는 방법을 알아봅니다. 
 
-이 문서에는 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/)를 사용하여 Jupyter Notebook에 있는 전용 Synapse 세션 내에서 데이터 랭글링 작업을 대화형으로 수행하기 위한 안내가 포함되어 있습니다. Azure Machine Learning 파이프라인을 사용하려면 [기계 학습 파이프라인에서 Apache Spark(Azure Synapse Analytics에서 제공)를 사용하는 방법(미리 보기)](how-to-use-synapsesparkstep.md)을 참조하세요.
+Azure Machine Learning 파이프라인을 사용하려면 [기계 학습 파이프라인에서 Apache Spark(Azure Synapse Analytics에서 제공)를 사용하는 방법(미리 보기)](how-to-use-synapsesparkstep.md)을 참조하세요.
 
-Synapse 작업 영역에서 Azure Synapse Analytics를 사용하는 방법에 대한 안내가 필요하면 [Azure Synapse Analytics 시작 시리즈](../synapse-analytics/get-started.md)를 참조하세요.
+Synapse 작업 영역에서 Azure Synapse Analytics를 사용하는 방법에 대한 지침은 [Azure Synapse Analytics 시작 시리즈](../synapse-analytics/get-started.md)를 참조하세요.
 
 >[!IMPORTANT]
 > Azure Machine Learning 및 Azure Synapse Analytics 통합은 미리 보기 상태입니다. 이 문서에 제공된 기능은 언제든지 변경될 수 있는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능을 포함하는 `azureml-synapse` 패키지를 사용합니다.
 
-## <a name="azure-machine-learning-and-azure-synapse-analytics-integration-preview"></a>Azure Machine Learning 및 Azure Synapse Analytics 통합(미리 보기)
+## <a name="azure-machine-learning-and-azure-synapse-analytics-integration"></a>Azure Machine Learning 및 Azure Synapse Analytics 통합
 
 Azure Machine Learning과 Azure Synapse Analytics를 통합(미리 보기)하면 대화형 데이터 탐색 및 준비를 위해 Azure Synapse에서 지원하는 Apache Spark 풀을 연결할 수 있습니다. 이 통합을 통해 기계 학습 모델 학습에 사용하는 동일한 Python Notebook 내에서 대규모 데이터 랭글링을 위한 전용 컴퓨팅을 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure Machine Learning과 Azure Synapse Analytics를 통합(미리 보기)하면
 
 * [Azure Portal에서 Azure Synapse Analytics 작업 영역을 만듭니다](../synapse-analytics/quickstart-create-workspace.md).
 
-* [Azure Portal, 웹 도구 또는 Synapse Studio를 사용하여 Apache Spark 풀을 만듭니다.](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+* [Azure Portal, 웹 도구 또는 Synapse Studio를 사용하여 Apache Spark 풀을 만듭니다](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
 * Azure Machine Learning SDK를 설치하거나 SDK가 이미 설치된 [Azure Machine Learning 컴퓨팅 인스턴스](concept-compute-instance.md#create)를 사용하도록 [개발 환경을 구성](how-to-configure-environment.md)합니다. 
 
@@ -51,91 +51,15 @@ Azure Machine Learning과 Azure Synapse Analytics를 통합(미리 보기)하면
   pip install azureml-synapse
   ```
 
-* [Azure Machine Learning 작업 영역과 Azure Synapse Analytics 작업 영역 연결](how-to-link-synapse-ml-workspaces.md)
+* [Azure Machine Learning Python SDK](how-to-link-synapse-ml-workspaces.md#link-sdk)를 사용하거나 [Azure Machine Learning 스튜디오](how-to-link-synapse-ml-workspaces.md#link-studio)를 통해 Azure Machine Learning 작업 영역과 Azure Synapse Analytics 작업 영역을 연결합니다.
 
-## <a name="get-an-existing-linked-service"></a>연결된 기존 서비스 가져오기
-데이터 랭글링을 위한 전용 컴퓨팅을 연결하기 전에 Azure Synapse Analytics 작업 영역에 연결된 ML 작업 영역이 있어야 합니다. 이것을 연결된 서비스라 합니다. 
-
-연결된 기존 서비스를 검색 및 사용하려면 Azure Synapse Analytics 작업 영역에 대한 **사용자 또는 기여자** 권한이 필요합니다.
-
-기계 학습 작업 영역과 연결된 모든 연결된 서비스를 봅니다. 
-
-```python
-from azureml.core import LinkedService
-
-LinkedService.list(ws)
-```
-
-이 예제에서는 [`get()`](/python/api/azureml-core/azureml.core.linkedservice#get-workspace--name-) 메서드를 사용하여 `ws` 작업 영역에서 기존의 연결된 서비스 `synapselink1`을 검색합니다.
-```python
-from azureml.core import LinkedService
-
-linked_service = LinkedService.get(ws, 'synapselink1')
-```
- 
-## <a name="attach-synapse-spark-pool-as-a-compute"></a>Synapse Spark 풀을 컴퓨팅으로 연결
-
-연결된 서비스를 검색한 후에는 Synapse Apache Spark 풀을 데이터 랭글링 작업을 위한 전용 컴퓨팅 리소스로 연결합니다. 
-
-다음을 통해 Apache Spark 풀을 연결할 수 있습니다.
-* Azure Machine Learning Studio
-* [ARM(Azure Resource Manager) 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)
-* Azure Machine Learning Python SDK 
-
-### <a name="attach-a-pool-via-the-studio"></a>스튜디오를 통해 풀 연결
-다음 단계를 수행합니다. 
-
-1. [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 로그인합니다.
-1. 왼쪽 창의 **관리** 섹션에서 **연결된 서비스** 를 선택합니다.
-1. Synapse 작업 영역을 선택합니다.
-1. 왼쪽 위에서 **연결된 Spark 풀** 을 선택합니다. 
-1. **연결** 을 선택합니다. 
-1. 목록에서 Apache Spark 풀을 선택하고 이름을 입력합니다.  
-    1. 이 목록은 컴퓨팅에 연결할 수 있는 사용 가능한 Synapse Spark 풀을 식별합니다. 
-    1. 새 Synapse Spark 풀을 만들려면 [Synapse Studio를 사용하여 Apache Spark 풀 만들기](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)를 참조하세요.
-1. **선택한 항목 연결** 을 선택합니다. 
-
-### <a name="attach-a-pool-with-the-python-sdk"></a>Python SDK를 사용하여 풀 연결
-
-**Python SDK** 를 사용하여 Apache Spark 풀을 연결할 수도 있습니다. 
-
-다음 코드 
-1. [`SynapseCompute`](/python/api/azureml-core/azureml.core.compute.synapsecompute)를 다음과 같이 구성합니다.
-
-   1. 이전 단계에서 만들었거나 검색한 [`LinkedService`](/python/api/azureml-core/azureml.core.linkedservice), `linked_service`입니다. 
-   1. 연결하려는 컴퓨팅 대상의 유형 `SynapseSpark`
-   1. Apache Spark 풀의 이름. 이는 Azure Synapse Analytics 작업 영역에 있는 기존의 Apache Spark 풀과 일치해야 합니다.
-   
-1. 전달하여 기계 학습 [`ComputeTarget`](/python/api/azureml-core/azureml.core.computetarget)을 만듭니다. 
-   1. 사용하려는 기계 학습 작업 영역 `ws`
-   1. Azure Machine Learning 작업 영역 내에서 컴퓨팅을 참조하려는 이름입니다. 
-   1. Synapse Compute를 구성할 때 지정한 attach_configuration.
-       1. ComputeTarget.attach()에 대한 호출은 비동기이므로 호출이 완료될 때까지 샘플이 차단됩니다.
-
-```python
-from azureml.core.compute import SynapseCompute, ComputeTarget
-
-attach_config = SynapseCompute.attach_configuration(linked_service, #Linked synapse workspace alias
-                                                    type='SynapseSpark', #Type of assets to attach
-                                                    pool_name=synapse_spark_pool_name) #Name of Synapse spark pool 
-
-synapse_compute = ComputeTarget.attach(workspace= ws,                
-                                       name= synapse_compute_name, 
-                                       attach_configuration= attach_config
-                                      )
-
-synapse_compute.wait_for_completion()
-```
-
-Apache Spark 풀이 연결되었는지 확인합니다.
-
-```python
-ws.compute_targets['Synapse Spark pool alias']
-```
+* [Synapse Spark 풀을 컴퓨팅 대상으로 연결](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute)합니다.
 
 ## <a name="launch-synapse-spark-pool-for-data-wrangling-tasks"></a>데이터 랭글링 작업을 위해 Synapse Spark 풀을 시작합니다.
 
-Apache Spark 풀을 사용하여 데이터 준비를 시작하려면 Apache Spark 풀 이름을 지정합니다.
+Apache Spark 풀을 사용하여 데이터 준비를 시작하려면 연결된 Spark Synapse 컴퓨팅 이름을 지정합니다. 이 이름은 **연결된 컴퓨팅** 탭에서 Azure Machine Learning 스튜디오를 통해 찾을 수 있습니다. 
+
+![연결된 컴퓨팅 이름 가져오기](media/how-to-data-prep-synapse-spark-pool/attached-compute.png)
 
 > [!IMPORTANT]
 > Apache Spark 풀을 계속 사용하려면 단일 코드 줄의 경우 `%synapse`, 여러 줄의 경우 `%%synapse`를 사용하여 데이터 랭글링 전체에서 사용할 컴퓨팅 리소스를 표시해야 합니다. 
@@ -171,9 +95,15 @@ env.register(workspace=ws)
 
 Apache Spark 풀 및 사용자 지정 환경에서 데이터 준비를 시작하려면 Apache Spark 풀 이름과 Apache Spark 세션 중에 사용할 환경을 지정합니다. 또한 구독 ID, 기계 학습 작업 영역 리소스 그룹 및 기계 학습 작업 영역의 이름을 제공할 수 있습니다.
 
+>[!IMPORTANT]
+> 연결된 Synapse 작업 영역에서 [세션 수준 패키지 허용](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages-preview)이 사용하도록 설정되었는지 확인합니다.
+>
+>![세션 수준 패키지 사용](media/how-to-data-prep-synapse-spark-pool/enable-session-level-package.png)
+
 ```python
 %synapse start -c SynapseSparkPoolAlias -e myenv -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
 ```
+
 ## <a name="load-data-from-storage"></a>스토리지에서 데이터 로드
 
 Apache Spark 세션이 시작되면 준비하려는 데이터를 읽습니다. 데이터 로드는 Azure Blob Storage 및 Azure Data Lake Storage Generation 1 및 2에서 지원됩니다.
@@ -184,7 +114,7 @@ Apache Spark 세션이 시작되면 준비하려는 데이터를 읽습니다. �
 
 * 기존의 [Azure Machine Learning 데이터 세트](how-to-create-register-datasets.md)에서 데이터를 읽습니다.
 
-이러한 스토리지 서비스에 액세스하려면 **Storage Blob 데이터 읽기 권한자** 권한이 필요합니다. 이러한 스토리지 서비스에 데이터를 다시 쓰려면 **Storage Blob 데이터 기여자** 권한이 필요합니다. [스토리지 권한 및 역할에 대해 자세히 알아보세요](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues).
+이러한 스토리지 서비스에 액세스하려면 **Storage Blob 데이터 읽기 권한자** 권한이 필요합니다. 이러한 스토리지 서비스에 데이터를 다시 쓰려면 **Storage Blob 데이터 기여자** 권한이 필요합니다. [스토리지 권한 및 역할에 대해 자세히 알아보세요](../storage/blobs/assign-azure-role-data-access.md).
 
 ### <a name="load-data-with-hadoop-distributed-files-system-hdfs-path"></a>HDFS(Hadoop Distributed Files System) 경로를 사용하여 데이터 로드
 
@@ -283,7 +213,7 @@ df.show()
 
 데이터 탐색 및 준비가 완료되면 준비된 데이터를 나중에 사용할 수 있게 Azure의 스토리지 계정에 저장합니다.
 
-다음 예제에서 준비된 데이터는 Azure Blob Storage에 다시 기록되고 `training_data` 디렉터리의 원본 `Titanic.csv` 파일을 덮어씁니다. 스토리지에 다시 쓰려면 **Storage Blob 데이터 기여자** 권한이 필요합니다. [스토리지 권한 및 역할에 대해 자세히 알아보세요](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues).
+다음 예제에서 준비된 데이터는 Azure Blob Storage에 다시 기록되고 `training_data` 디렉터리의 원본 `Titanic.csv` 파일을 덮어씁니다. 스토리지에 다시 쓰려면 **Storage Blob 데이터 기여자** 권한이 필요합니다. [스토리지 권한 및 역할에 대해 자세히 알아보세요](../storage/blobs/assign-azure-role-data-access.md).
 
 ```python
 %% synapse
@@ -321,9 +251,9 @@ input1 = train_ds.as_mount()
 
 ## <a name="use-a-scriptrunconfig-to-submit-an-experiment-run-to-a-synapse-spark-pool"></a>`ScriptRunConfig`를 사용하여 Synapse Spark 풀에 실험 실행을 제출합니다.
 
-데이터 랭글링 작업을 자동화하고 프로덕션화할 준비가 되었으면 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) 개체를 사용하여 [이전에 연결한 Synapse Spark 풀](#attach-a-pool-with-the-python-sdk)에 실험 실행을 제출할 수 있습니다.  
+데이터 랭글링 작업을 자동화하고 프로덕션화할 준비가 되었으면 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) 개체를 사용하여 [연결된 Synapse Spark 풀](how-to-link-synapse-ml-workspaces.md#attach-a-pool-with-the-python-sdk)에 실험 실행을 제출할 수 있습니다.  
 
-마찬가지로 Azure Machine Learning 파이프라인이 있으면 [파이프라인에서 SynapseSparkStep을 사용하여 Synapse Spark 풀을 데이터 준비 단계의 컴퓨팅 대상으로 지정](how-to-use-synapsesparkstep.md)할 수 있습니다.
+마찬가지로, Azure Machine Learning 파이프라인이 있으면 파이프라인에서 [SynapseSparkStep을 사용하여 Synapse Spark 풀을 데이터 준비 단계의 컴퓨팅 대상으로 지정](how-to-use-synapsesparkstep.md)할 수 있습니다.
 
 Synapse Spark 풀에 데이터를 제공하는 것은 데이터 세트 형식에 따라 달라집니다. 
 

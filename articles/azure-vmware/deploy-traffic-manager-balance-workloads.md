@@ -3,12 +3,12 @@ title: Traffic Manager를 배포하여 Azure VMware Solution 워크로드 균형
 description: Azure VMware Solution과 Traffic Manager를 통합하여 여러 지역의 여러 엔드포인트에서 애플리케이션 워크로드의 균형을 조정하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.openlocfilehash: d00f699c094995dad15d4ab5558fcd838ed33128
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ac8f402eadcced4e8592a68f13abd6d2693b8b0c
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087007"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601988"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Traffic Manager를 배포하여 Azure VMware Solution 워크로드 균형 조정
 
@@ -18,7 +18,7 @@ ms.locfileid: "110087007"
 
 이 다이어그램에서는 Traffic Manager가 지역 엔드포인트 간의 DNS 수준에서 애플리케이션에 대한 부하 분산을 제공하는 방법을 보여 줍니다. 게이트웨이에는 IIS 서버로 구성된 백 엔드 풀 멤버가 있으며 Azure VMware Solution 외부 엔드포인트로 참조됩니다. 두 프라이빗 클라우드 지역 간에 가상 네트워크를 통해 연결할 때 ExpressRoute 게이트웨이를 사용합니다.   
 
-:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Azure VMware Solution과 Traffic Manager 통합의 아키텍처 다이어그램" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Azure VMware Solution과 Traffic Manager 통합 다이어그램" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
 
 시작하기 전에 먼저 [필수 조건](#prerequisites)을 검토한 후 다음 절차를 안내합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "110087007"
 
    애플리케이션 게이트웨이에 대한 다양한 정보를 보여 주는 창이 열립니다. 
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="선택한 애플리케이션 게이트웨이의 세부 정보를 보여 주는 애플리케이션 게이트웨이 페이지의 스크린샷" lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-configuration.png" alt-text="선택한 애플리케이션 게이트웨이의 세부 정보를 보여 주는 애플리케이션 게이트웨이 페이지의 스크린샷" lightbox="media/traffic-manager/backend-pool-configuration.png":::
 
 1. 백 엔드 풀 중 하나의 구성을 확인하려면 **백 엔드 풀** 을 선택합니다. IP 주소(172.29.1.10)를 사용하여 웹 서버로 구성된 VM 백 엔드 풀 멤버가 하나 표시됩니다.
  
@@ -70,7 +70,7 @@ ms.locfileid: "110087007"
 
 1. 구성된 세그먼트를 보려면 **세그먼트** 를 선택합니다.  Contoso-T01 게이트웨이, Tier-1의 유연한 라우터에 연결된 Contoso-segment1이 표시됩니다.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="NSX-T Manager의 세그먼트 프로필을 보여 주는 스크린샷" lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png" alt-text="NSX-T Manager의 세그먼트 프로필을 보여 주는 스크린샷" lightbox="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png":::    
 
 1. 연결된 세그먼트 수와 함께 Tier-1 게이트웨이 목록을 보려면 **Tier-1 게이트웨이** 를 선택합니다. 
 

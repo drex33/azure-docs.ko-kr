@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 00ee1b6e9772100cbc4abf9c79260a231bbd27af
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 73fb4adaf1c14256beef23cc9ce7ec53bd020937
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755144"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535500"
 ---
 # <a name="preview-azure-automanage-for-virtual-machines"></a>미리 보기: 가상 머신용 Azure Automanage
 
@@ -35,6 +35,9 @@ Azure Automanage에 가상 머신을 온보딩한 후에는 각 모범 사례 �
 
 Automanage는 VM이 있는 지리적 위치 외부에서 고객 데이터를 저장/처리하지 않습니다. 동남아시아 지역의 Automanage는 동남아시아 외부에서 데이터를 저장/처리하지 않습니다.
 
+> [!NOTE]
+> Automanage는 Azure 가상 머신과 Arc 지원 서버에서 사용할 수 있습니다. 현재 미국 정부 클라우드에서는 Automanage를 사용할 수 없습니다.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 가상 머신에서 Azure Automanage를 사용하기 전에 고려해야 할 몇 가지 필수 구성 요소가 있습니다.
@@ -43,6 +46,7 @@ Automanage는 VM이 있는 지리적 위치 외부에서 고객 데이터를 저
 - VM은 지원되는 지역에 있어야 합니다(아래 참조).
 - 사용자에게 올바른 사용 권한이 있어야 합니다(아래 참조).
 - 지금은 Automanage에서 샌드박스 구독을 지원하지 않습니다.
+- Automanage는 현재 Windows 10을 지원하지 않습니다.
 
 ### <a name="supported-regions"></a>지원되는 지역
 Automanage는 다음 지역에 있는 VM만 지원합니다.

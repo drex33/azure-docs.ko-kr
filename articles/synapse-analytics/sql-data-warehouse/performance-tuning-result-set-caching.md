@@ -11,16 +11,16 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 80827b5c891029092f144dd2f645220b798cc781
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: edd131be48b75ccbedf0e537f92b69de214076ee
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565485"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113005351"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>결과 세트 캐싱을 사용한 성능 조정
 
-결과 집합 캐싱을 사용하도록 설정한 경우 전용 SQL 풀은 반복 사용을 위해 사용자 데이터베이스에 쿼리 결과를 자동으로 캐시합니다.  이렇게 하면 후속 쿼리 실행 시 지속형 캐시에서 직접 결과를 가져올 수 있으므로 재계산이 필요하지 않습니다.   결과 세트 캐싱은 쿼리 성능을 향상시키고 컴퓨팅 리소스 사용량을 줄입니다.  또한 캐시된 결과 세트를 사용하는 쿼리는 동시성 슬롯을 사용하지 않으므로 기존 동시성 제한이 적용되지 않습니다. 보안을 위해 캐시된 결과를 만든 사용자와 동일한 데이터 액세스 권한이 있는 경우에만 캐시된 결과에 액세스할 수 있습니다.  
+결과 집합 캐싱을 사용하도록 설정한 경우 전용 SQL 풀은 반복 사용을 위해 사용자 데이터베이스에 쿼리 결과를 자동으로 캐시합니다.  이렇게 하면 후속 쿼리 실행 시 지속형 캐시에서 직접 결과를 가져올 수 있으므로 재계산이 필요하지 않습니다.   결과 세트 캐싱은 쿼리 성능을 향상시키고 컴퓨팅 리소스 사용량을 줄입니다.  또한 캐시된 결과 세트를 사용하는 쿼리는 동시성 슬롯을 사용하지 않으므로 기존 동시성 제한이 적용되지 않습니다. 보안을 위해 캐시된 결과를 만든 사용자와 동일한 데이터 액세스 권한이 있는 경우에만 캐시된 결과에 액세스할 수 있습니다.  결과 집합 캐싱은 기본적으로 데이터베이스 및 세션 수준에서 끄기입니다. 
 
 ## <a name="key-commands"></a>주요 명령
 

@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/31/2020
+ms.date: 07/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07094e399f153f56746a931a4a100b3c0d38f92f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30d16b2042e2bfc8e11824fe64cf709413fd05d8
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772079"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218388"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
 
@@ -123,7 +123,7 @@ HANA 대규모 인스턴스 장치에 [태그](../../../azure-resource-manager/m
 
 ![Azure Portal의 HLI 속성 위쪽 부분](./media/hana-li-portal/portal-properties-top.png)
 
-처음 몇 개의 데이터 항목은 개요 화면에서 이미 봤습니다. 하지만 데이터의 중요한 부분은 배포된 첫 번째 장치가 전달될 때 얻은 ExpressRoute 회로 ID입니다. 일부 지원 사례에서는 이 데이터를 물을 수 있습니다. 중요한 데이터 항목이 스크린샷 아래쪽에 표시됩니다. 표시되는 데이터는 스토리지를 HANA 대규모 인스턴스 스택의 **테넌트** 로 격리하는 NFS 스토리지 헤드의 IP 주소입니다. 이 IP 주소는 [스토리지 스냅샷 백업을 위한 구성 파일](./hana-backup-restore.md#set-up-storage-snapshots)을 편집할 때도 필요합니다. 
+처음 몇 개의 데이터 항목은 개요 화면에서 이미 봤습니다. 하지만 데이터의 중요한 부분은 배포된 첫 번째 장치가 전달될 때 얻은 ExpressRoute 회로 ID입니다. 일부 지원 사례에서는 이 데이터를 물을 수 있습니다. 중요한 데이터 항목이 스크린샷 아래쪽에 표시됩니다. 표시되는 데이터는 스토리지를 HANA 대규모 인스턴스 스택의 **테넌트** 로 격리하는 NFS 스토리지 헤드의 IP 주소입니다. 이 IP 주소는 [Azure 애플리케이션 일치 스냅샷 도구 구성](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md)을 편집할 때도 필요합니다. 
 
 속성 창에서 아래로 스크롤하면 HANA 대규모 인스턴스 장치의 고유 리소스 ID 또는 배포에 할당된 구독 ID와 같은 추가 데이터를 얻을 수 있습니다.
 

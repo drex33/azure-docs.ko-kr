@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.custom: security-recommendations
-ms.openlocfilehash: db0e033adf553c25c6b7b401f8d0df1a2cd5995f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 260f8682766187ba9cedb3b5bf951e06548c0048
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97592163"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727943"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Queue Storage에 대한 보안 권장 사항
 
@@ -37,7 +37,7 @@ Azure Security Center는 Azure 리소스의 보안 상태를 정기적으로 분
 
 | 권장 | 주석 | Security Center |
 |-|----|--|
-| Azure AD(Azure Active Directory)를 사용하여 큐 데이터에 대한 액세스 권한 부여 | Azure AD는 Queue Storage에 대한 요청에 권한을 부여하기 위해 공유 키 권한 부여보다 뛰어난 보안과 사용 편의성을 제공합니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Blob 및 큐에 대한 액세스 권한 부여](../common/storage-auth-aad.md)를 참조하세요. | - |
+| Azure AD(Azure Active Directory)를 사용하여 큐 데이터에 대한 액세스 권한 부여 | Azure AD는 Queue Storage에 대한 요청에 권한을 부여하기 위해 공유 키 권한 부여보다 뛰어난 보안과 사용 편의성을 제공합니다. 자세한 내용은 [Azure Storage의 데이터에 대한 액세스 권한 부여](../common/authorize-data-access.md)를 참조하세요. | - |
 | Azure RBAC를 통해 Azure AD 보안 주체에 권한을 할당하는 경우 최소 권한의 주체에 유의 | 사용자, 그룹 또는 애플리케이션에 역할을 할당할 때 해당 보안 주체에게 작업을 수행하는 데 필요한 권한만 부여합니다. 리소스에 대한 액세스를 제한하면 데이터의 의도하지 않은 악의적인 오용을 방지할 수 있습니다. | - |
 | Azure Key Vault를 사용하여 계정 액세스 키 보호 | Azure AD를 사용하여 Azure Storage에 대한 요청을 승인하는 것이 좋습니다. 그러나 공유 키 인증을 사용해야 하는 경우에는 Azure Key Vault를 사용하여 계정 키를 보호합니다. 애플리케이션에 키를 저장하는 대신 런타임에 키 자격 증명 모음에서 키를 검색할 수 있습니다. | - |
 | 정기적으로 계정 키 다시 생성 | 정기적으로 계정 키를 회전하면 악의적인 행위자에게 데이터를 노출하는 위험을 줄일 수 있습니다. | - |

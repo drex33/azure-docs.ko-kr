@@ -2,22 +2,22 @@
 title: 애플리케이션에 테넌트 전체 관리자 동의 부여 - Azure AD
 description: 최종 사용자가 애플리케이션에 로그인할 때 동의 여부를 묻지 않도록 애플리케이션에 테넌트 전체 동의를 부여하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: mtillman
-ms.reviewer: phsignor
+ms.author: davidmu
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 836636dfa5cc817685ca815485aa4dba980f1e5a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 397b55bccde5781de5b9e53922e31281b3ec855c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081356"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529307"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>애플리케이션에 대한 테넌트 전체 관리자 동의 부여
 
@@ -25,9 +25,9 @@ ms.locfileid: "112081356"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-테넌트 전체 관리자 동의를 부여하려면 조직을 대신하여 동의할 수 있는 사용자로 로그인해야 합니다. 여기에는 [전역 관리자](../roles/permissions-reference.md#global-administrator) 및 [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 그리고 일부 애플리케이션의 경우 [애플리케이션 관리자](../roles/permissions-reference.md#application-administrator) 및 [클라우드 애플리케이션 관리자](../roles/permissions-reference.md#cloud-application-administrator)가 포함됩니다. [애플리케이션에 권한을 부여할 수 있는 권한](../roles/custom-consent-permissions.md)을 포함하는 [사용자 지정 디렉터리 역할](../roles/custom-create.md)이 할당된 사용자에게는 테넌트 전체 동의를 부여할 수 있는 권한도 부여될 수 있습니다.
+테넌트 전체 관리자 동의를 부여하려면 조직을 대신하여 동의할 수 있는 사용자로 로그인해야 합니다. 여기에는 [전역 관리자](../roles/permissions-reference.md#global-administrator) 및 [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator)가 포함됩니다. Microsoft Graph 또는 Azure AD Graph에 대한 애플리케이션 권한이 필요하지 않은 애플리케이션의 경우, [애플리케이션 관리자](../roles/permissions-reference.md#application-administrator) 및 [클라우드 애플리케이션 관리자](../roles/permissions-reference.md#cloud-application-administrator)도 여기에 포함됩니다. [애플리케이션에 권한을 부여할 수 있는 권한](../roles/custom-consent-permissions.md)을 포함하는 [사용자 지정 디렉터리 역할](../roles/custom-create.md)이 할당된 사용자에게는 테넌트 전체 동의를 부여할 수 있는 권한도 부여될 수 있습니다.
 
 > [!WARNING]
 > 애플리케이션에 테넌트 전체 관리자 동의를 부여하면 앱과 앱 게시자에게 조직의 데이터에 대한 액세스 권한이 부여됩니다. 동의를 부여하기 전에 애플리케이션에서 요청하는 권한을 신중하게 검토합니다.
@@ -43,7 +43,7 @@ ms.locfileid: "112081356"
 
 **엔터프라이즈 애플리케이션** 에 나열된 앱에 테넌트 전체 관리자 동의를 부여하려면
 
-1. [전역 관리자](../roles/permissions-reference.md#global-administrator), [애플리케이션 관리자](../roles/permissions-reference.md#application-administrator) 또는 [클라우드 애플리케이션 관리자](../roles/permissions-reference.md#cloud-application-administrator) 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 관리자 동의를 부여할 수 있는 역할로 [Azure Portal](https://portal.azure.com)에 로그인합니다([필수 조건](#prerequisites) 참조).
 2. **Azure Active Directory** 를 선택한 다음 **엔터프라이즈 애플리케이션** 을 선택합니다.
 3. 테넌트 전체 관리자 동의를 부여하려는 애플리케이션을 선택합니다.
 4. **권한** 을 선택한 다음 **관리자 동의 부여** 를 클릭합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "112081356"
 6. 애플리케이션에 필요한 권한에 동의하면 동의를 부여합니다. 그렇지 않으면 **취소** 를 클릭하거나 창을 닫습니다.
 
 > [!WARNING]
-> **엔터프라이즈 애플리케이션** 을 통해 테넌트 전체 관리자 동의를 부여하면 이전에 테넌트 전체에 부여된 모든 권한이 해지됩니다. 사용자가 이전에 부여한 권한은 영향을 받지 않습니다. 
+> **엔터프라이즈 애플리케이션** 을 통해 테넌트 전체 관리자 동의를 부여하면 이전에 테넌트 전체에 부여된 모든 권한이 해지됩니다. 사용자가 이전에 부여한 권한은 영향을 받지 않습니다.
 
 ### <a name="grant-admin-consent-in-app-registrations"></a>앱 등록에서 관리자 동의 부여
 
@@ -59,7 +59,7 @@ ms.locfileid: "112081356"
 
 **앱 등록** 에서 테넌트 전체 관리자 동의를 부여하려면
 
-1. [전역 관리자](../roles/permissions-reference.md#global-administrator), [애플리케이션 관리자](../roles/permissions-reference.md#application-administrator) 또는 [클라우드 애플리케이션 관리자](../roles/permissions-reference.md#cloud-application-administrator) 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 관리자 동의를 부여할 수 있는 역할로 [Azure Portal](https://portal.azure.com)에 로그인합니다([필수 조건](#prerequisites) 참조).
 2. **Azure Active Directory** 를 선택한 다음, **앱 등록** 을 선택합니다.
 3. 테넌트 전체 관리자 동의를 부여하려는 애플리케이션을 선택합니다.
 4. **API 권한** 을 선택한 다음 **관리자 동의 부여** 를 클릭합니다.
@@ -67,7 +67,7 @@ ms.locfileid: "112081356"
 6. 애플리케이션에 필요한 권한에 동의하면 동의를 부여합니다. 그렇지 않으면 **취소** 를 클릭하거나 창을 닫습니다.
 
 > [!WARNING]
-> **앱 등록** 을 통해 테넌트 전체 관리자 동의를 부여하면 이전에 테넌트 전체에 부여된 모든 권한이 해지됩니다. 사용자가 이전에 부여한 권한은 영향을 받지 않습니다. 
+> **앱 등록** 을 통해 테넌트 전체 관리자 동의를 부여하면 이전에 테넌트 전체에 부여된 모든 권한이 해지됩니다. 사용자가 이전에 부여한 권한은 영향을 받지 않습니다.
 
 ## <a name="construct-the-url-for-granting-tenant-wide-admin-consent"></a>테넌트 전체 관리자 동의를 부여하기 위한 URL 생성
 
@@ -87,7 +87,7 @@ https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 언제나처럼 동의를 부여하기 전에 애플리케이션에서 요청하는 권한을 신중하게 검토합니다.
 
 > [!WARNING]
-> 이 URL을 통해 테넌트 전체 관리자 동의를 부여하면 이전에 테넌트 전체에 부여된 모든 권한이 해지됩니다. 사용자가 이전에 부여한 권한은 영향을 받지 않습니다. 
+> 이 URL을 통해 테넌트 전체 관리자 동의를 부여하면 이전에 테넌트 전체에 부여된 모든 권한이 해지됩니다. 사용자가 이전에 부여한 권한은 영향을 받지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

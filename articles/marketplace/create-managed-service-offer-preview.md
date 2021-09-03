@@ -1,21 +1,21 @@
 ---
-title: 관리되는 서비스 제품에 대한 미리 보기 대상 그룹을 추가하는 방법
-description: Microsoft 파트너 센터에서 관리 서비스 제품에 대한 미리 보기 대상을 추가하는 방법에 대해 알아봅니다.
+title: 관리되는 서비스 제품의 미리 보기 대상 그룹 추가
+description: Azure Marketplace에서 관리되는 서비스 제품의 미리 보기 대상 그룹을 추가합니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
-ms.openlocfilehash: a30265f335dd279470e6de421f83e682a304788f
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 7/16/2021
+ms.openlocfilehash: 38fbf04f9e8f961cca99bd3e0b23e05e664f4848
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060510"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649703"
 ---
-# <a name="how-to-add-a-preview-audience-for-your-managed-service-offer"></a>관리되는 서비스 제품에 대한 미리 보기 대상을 추가하는 방법
+# <a name="add-a-preview-audience-for-a-managed-service-offer"></a>관리되는 서비스 제품의 미리 보기 대상 그룹 추가
 
 이 문서에서는 파트너 센터를 사용하여 상업적 마켓플레이스에서 관리되는 서비스 제품에 대한 미리 보기 대상을 구성하는 방법을 설명합니다. 미리 보기 대상은 라이브 상태가 되기 전에 제품을 검토할 수 있습니다.
 
@@ -43,7 +43,8 @@ ms.locfileid: "112060510"
 5. 파일을 CSV 파일로 저장합니다.
 6. **미리 보기 대상** 페이지에서 **대상 가져오기(csv)** 링크를 선택합니다.
 7. **확인** 대화 상자에서 **예** 를 선택한 다음 CSV 파일을 업로드합니다.
-8. 다음 탭으로 진행하기 전에 **초안 저장** 을 선택합니다.
+
+다음 탭인 **플랜 개요** 로 이동하기 전에 **초안 저장** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

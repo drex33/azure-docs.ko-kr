@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 9ebf502fc2ae83651e8f69472b3b2042cef723d8
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: f29302efdf6d2a0c0b12ec15d897efda16cdc368
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537247"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539223"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Functions에 대한 Azure Event Grid 출력 바인딩
 
@@ -162,7 +162,100 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
+다음 예는 Event Grid 사용자 지정 주제에 메시지를 작성하는 Java 함수를 보여 줍니다. 이 함수는 바인딩의 `setValue` 메서드를 사용하여 문자열을 출력합니다.
+
+```java
+public class Function {
+    @FunctionName("EventGridTriggerTest")
+    public void run(@EventGridTrigger(name = "event") String content,
+            @EventGridOutput(name = "outputEvent", topicEndpointUri = "MyEventGridTopicUriSetting", topicKeySetting = "MyEventGridTopicKeySetting") OutputBinding<String> outputEvent,
+            final ExecutionContext context) {
+        context.getLogger().info("Java EventGrid trigger processed a request." + content);
+        final String eventGridOutputDocument = "{\"id\": \"1807\", \"eventType\": \"recordInserted\", \"subject\": \"myapp/cars/java\", \"eventTime\":\"2017-08-10T21:03:07+00:00\", \"data\": {\"make\": \"Ducati\",\"model\": \"Monster\"}, \"dataVersion\": \"1.0\"}";
+        outputEvent.setValue(eventGridOutputDocument);
+    }
+}
+```
+
+POJO 클래스를 사용하여 EventGrid 메시지를 보낼 수도 있습니다.
+
+```java
+public class Function {
+    @FunctionName("EventGridTriggerTest")
+    public void run(@EventGridTrigger(name = "event") String content,
+            @EventGridOutput(name = "outputEvent", topicEndpointUri = "MyEventGridTopicUriSetting", topicKeySetting = "MyEventGridTopicKeySetting") OutputBinding<EventGridEvent> outputEvent,
+            final ExecutionContext context) {
+        context.getLogger().info("Java EventGrid trigger processed a request." + content);
+
+        final EventGridEvent eventGridOutputDocument = new EventGridEvent();
+        eventGridOutputDocument.setId("1807");
+        eventGridOutputDocument.setEventType("recordInserted");
+        eventGridOutputDocument.setEventTime("2017-08-10T21:03:07+00:00");
+        eventGridOutputDocument.setDataVersion("1.0");
+        eventGridOutputDocument.setSubject("myapp/cars/java");
+        eventGridOutputDocument.setData("{\"make\": \"Ducati\",\"model\":\"monster\"");
+
+        outputEvent.setValue(eventGridOutputDocument);
+    }
+}
+
+class EventGridEvent {
+    private String id;
+    private String eventType;
+    private String subject;
+    private String eventTime;
+    private String dataVersion;
+    private String data;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getDataVersion() {
+        return dataVersion;
+    }
+
+    public void setDataVersion(String dataVersion) {
+        this.dataVersion = dataVersion;
+    }
+
+    public String getEventTime() {
+        return eventTime;
+    }
+
+    public void setEventTime(String eventTime) {
+        this.eventTime = eventTime;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }  
+}
+```
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -364,7 +457,19 @@ C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
+Java 클래스의 경우 [EventGridAttribute](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/EventGridOutput.java) 특성을 사용합니다.
+
+특성의 생성자는 사용자 지정 항목 이름이 포함된 앱 설정 이름과 항목 키가 포함된 앱 설정 이름을 사용합니다. 이러한 설정에 대한 자세한 내용은 [출력 - 구성](#configuration)을 참조하세요. `EventGridOutput` 특성 예제는 다음과 같습니다.
+
+```java
+public class Function {
+    @FunctionName("EventGridTriggerTest")
+    public void run(@EventGridTrigger(name = "event") String content,
+            @EventGridOutput(name = "outputEvent", topicEndpointUri = "MyEventGridTopicUriSetting", topicKeySetting = "MyEventGridTopicKeySetting") OutputBinding<String> outputEvent, final ExecutionContext context) {
+            ...
+    }
+}
+```
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -376,7 +481,7 @@ PowerShell에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
+Python에서는 특성을 지원하지 않습니다.
 
 ---
 
@@ -415,7 +520,7 @@ Event Grid 확장의 버전 3.0.0 이상을 사용하는 앱은 [Azure.Messaging
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
+`out EventGridOutput paramName`과 같은 메서드 매개 변수를 호출하여 개별 메시지를 보내고 `ICollector<EventGridOutput>`으로 여러 메시지를 작성합니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -427,7 +532,9 @@ Java에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python에서는 Event Grid 출력 바인딩을 사용할 수 없습니다.
+함수에서 Event Grid 메시지를 출력하는 두 가지 옵션이 있습니다.
+- **반환 값**: *function.json* 의 `name` 속성을 `$return`으로 설정합니다. 이 구성을 사용하면 함수의 반환 값이 Event Grid 메시지로 유지됩니다.
+- **명령형**: [출력](/python/api/azure-functions/azure.functions.out) 형식으로 선언된 매개 변수의 [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) 메서드에 값을 전달합니다. `set`에 전달되는 값은 Event Grid 메시지로 유지됩니다.
 
 ---
 

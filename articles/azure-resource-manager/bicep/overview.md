@@ -2,19 +2,19 @@
 title: Azure 리소스 배포를 위한 Bicep 언어
 description: Azure에 인프라를 배포하기 위한 Bicep 언어를 설명합니다. JSON을 사용하여 템플릿을 개발하는 것보다 향상된 제작 환경을 제공합니다.
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 673578a8415009428b49e320c954079ebf7a0116
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/18/2021
+ms.openlocfilehash: 93aea8ee92d1f15ac45bd5978e7cbf68261e5a69
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556769"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568133"
 ---
 # <a name="what-is-bicep"></a>Bicep이란?
 
-Bicep은 선언적 구문을 사용하여 Azure 리소스를 배포하는 DSL(도메인 특정 언어)입니다. 간결한 구문, 신뢰할 수 있는 형식 안전성 및 코드 다시 사용에 대한 지원을 제공합니다. Bicep은 Azure 인프라에 대한 최상의 제작 환경을 코드 솔루션으로 제공합니다.
+Bicep은 선언적 구문을 사용하여 Azure 리소스를 배포하는 DSL(도메인 특정 언어)입니다. 간결한 구문, 신뢰할 수 있는 형식 안전성 및 코드 다시 사용에 대한 지원을 제공합니다. Bicep은 Azure에서 코드형 인프라 솔루션에 대한 최고의 제작 환경을 제공합니다.
 
-ARM 템플릿(Azure Resource Manager 템플릿)을 개발하는 데 JSON 대신 Bicep을 사용할 수 있습니다. ARM 템플릿을 만드는 JSON 구문은 자세한 정보를 사용할 수 있으며 복잡한 식이 필요할 수 있습니다. Bicep 구문은 이러한 복잡성을 줄이고 개발 환경을 향상시킵니다. Bicep은 ARM 템플릿 JSON에 대한 투명한 추상화이며 JSON 템플릿 기능이 손실되지 않습니다. 배포하는 동안 Bicep CLI는 Bicep 파일을 ARM 템플릿 JSON으로 변환 컴파일됩니다.
+ARM 템플릿(Azure Resource Manager 템플릿)을 개발하는 데 JSON 대신 Bicep을 사용할 수 있습니다. ARM 템플릿을 만드는 JSON 구문은 자세한 정보를 사용할 수 있으며 복잡한 식이 필요할 수 있습니다. Bicep 구문은 이러한 복잡성을 줄이고 개발 환경을 향상시킵니다. Bicep은 ARM 템플릿 JSON에 대한 투명한 추상화이며 JSON 템플릿 기능이 손실되지 않습니다. 배포 중에 Bicep CLI는 Bicep 파일을 ARM 템플릿 JSON으로 변환합니다.
 
 Bicep은 애플리케이션을 작성하기 위한 일반적인 프로그래밍 언어가 아닙니다. Bicep 파일은 리소스를 만드는 일련의 프로그래밍 명령을 작성하지 않고 Azure 리소스 및 리소스 속성을 선언합니다.
 
@@ -30,28 +30,30 @@ Bicep에 대한 자세한 내용은 다음 비디오를 참조하세요.
 
 Bicep으로 시작하려면:
 
-1. **도구를 설치** 합니다. [Bicep 개발 및 배포 환경 설정](./install.md)을 참조하세요. 또는 [Bicep 플레이그라운드](./decompile.md#side-by-side-view)를 사용하여 Bicep 및 이에 상응하는 JSON을 나란히 보거나 [VS Code Devcontainer/Codespaces 리포지토리](https://github.com/Azure/vscode-remote-try-bicep)를 사용하여 사전 구성된 저작 환경을 얻을 수 있습니다.
+1. **도구를 설치** 합니다. [Bicep 개발 및 배포 환경 설정](./install.md)을 참조하세요. 또는 [VS Code Devcontainer/Codespaces 리포지토리](https://github.com/Azure/vscode-remote-try-bicep)를 사용하여 사전 구성된 작성 환경을 얻을 수 있습니다.
 2. **[빠른 시작](./quickstart-create-bicep-use-visual-studio-code.md) 및 [Microsoft Learn Bicep 모듈](./learn-bicep.md)** 을 완료합니다.
 
-기존 ARM 템플릿을 Bicep으로 디컴파일하려면 [ARM 템플릿을 Bicep으로 디컴파일](./decompile.md)을 참조하세요.
+기존 ARM 템플릿을 Bicep으로 디컴파일하려면 [ARM 템플릿을 Bicep으로 디컴파일](./decompile.md)을 참조하세요. [Bicep 플레이그라운드](https://bicepdemo.z22.web.core.windows.net/)를 사용하여 Bicep 및 이에 상응하는 JSON을 나란히 볼 수 있습니다.
 
-추가 Bicep 예는 [Bicep GitHub 리포지토리](https://github.com/Azure/bicep/tree/main/docs/examples)에서 찾을 수 있습니다.
+Bicep 파일에서 사용할 수 있는 리소스에 대해 알아보려면 [Bicep 리소스 참조](/azure/templates/)를 참조하세요.
+
+Bicep 예는 [Bicep GitHub 리포지토리](https://github.com/Azure/bicep/tree/main/docs/examples)에서 찾을 수 있습니다.
 
 ## <a name="benefits-of-bicep-versus-other-tools"></a>Bicep 및 기타 도구의 이점
 
 Bicep은 다른 옵션에 비해 다음과 같은 이점을 제공합니다.
 
-- **모든 리소스 유형 및 API 버전 지원**: Bicep은 Azure 서비스에 대한 모든 미리 보기 및 GA 버전을 즉시 지원합니다. 리소스 공급자가 새 리소스 종류 및 API 버전을 도입하는 즉시 Bicep 파일에서 사용할 수 있습니다. 새 서비스를 사용하기 전에 도구가 업데이트될 때까지 기다릴 필요가 없습니다.
+- **모든 리소스 종류 및 API 버전 지원**: Bicep은 Azure 서비스에 대한 모든 미리 보기 및 GA 버전을 즉각적으로 지원합니다. 리소스 공급자가 새 리소스 종류 및 API 버전을 도입하는 즉시 Bicep 파일에서 사용할 수 있습니다. 새 서비스를 사용하기 전에 도구가 업데이트될 때까지 기다릴 필요가 없습니다.
 - **단순 구문**: 동등한 JSON 템플릿과 비교할 때 Bicep 파일은 더 간결하고 읽기 쉽습니다. Bicep에는 프로그래밍 언어에 대한 이전 지식이 필요하지 않습니다. Bicep 구문은 선언적이며 배포하려는 리소스 및 리소스 속성을 지정합니다.
 - **저작 경험**: VS Code를 사용하여 Bicep 파일을 만들 때 최고 수준의 작성 환경이 제공됩니다. 편집기는 풍부한 형식 안전성, Intellisense 및 구문 유효성 검사를 제공합니다.
 - **모듈성**: [모듈](./modules.md)을 사용하여 Bicep 코드를 관리 가능한 부분으로 나눌 수 있습니다. 모듈은 관련 리소스 집합을 배포합니다. 모듈을 사용하면 코드를 재사용하고 개발을 간소화할 수 있습니다. 해당 리소스를 배포해야 할 때마다 모듈을 Bicep 파일에 추가합니다.
 - **Azure 서비스와 통합**: Bicep은 Azure Policy, 템플릿 사양 및 청사진과 같은 Azure 서비스와 통합됩니다.
-- **관리할 상태 또는 상태 파일 없음**: 모든 상태가 Azure에 저장됩니다. 사용자는 협업할 수 있으며 업데이트가 예상대로 처리된다는 확신을 가질 수 있습니다. 템플릿을 배포하기 전에 변경 사항을 미리 보려면 [가상 작업](./deploy-what-if.md)을 사용합니다.
-- **무료 및 오픈 소스**: Bicep은 완전 무료입니다. 프리미엄 기능에 대한 비용을 지불할 필요가 없습니다. Microsoft 지원에서도 지원합니다.
+- **관리할 상태 또는 상태 파일 없음**: 모든 상태가 Azure에 저장됩니다. 사용자는 공동 작업을 수행할 수 있으며 업데이트가 예상대로 처리된다는 확신을 가질 수 있습니다. 템플릿을 배포하기 전에 변경 사항을 미리 보려면 [가상 작업](./deploy-what-if.md)을 사용합니다.
+- **무료 및 오픈 소스**: Bicep은 완전히 무료입니다. 프리미엄 기능에 대한 비용을 지불할 필요가 없습니다. Microsoft 지원에서도 지원합니다.
 
 ## <a name="bicep-improvements"></a>Bicep 개선 사항
 
-Bicep은 동등한 JSON에 비해 더 쉽고 간결한 구문을 제공합니다. `[...]` 식을 사용하지 않아도 됩니다. 대신 함수를 직접 호출하고 매개 변수 및 변수에서 값을 가져옵니다. 배포된 각 리소스에 심볼 이름을 지정하여 템플릿에서 해당 리소스를 쉽게 참조할 수 있게 됩니다.
+Bicep은 동등한 JSON에 비해 더 쉽고 간결한 구문을 제공합니다. 대괄호로 묶인 식 `[...]`을 사용하지 않습니다. 대신 함수를 직접 호출하고 매개 변수 및 변수에서 값을 가져옵니다. 배포된 각 리소스에 심볼 이름을 지정하여 템플릿에서 해당 리소스를 쉽게 참조할 수 있게 됩니다.
 
 예를 들어 다음 JSON은 리소스 속성에서 출력 값을 반환합니다.
 
@@ -94,7 +96,7 @@ ARM 템플릿을 선택한 고객의 경우 Bicep이 제작 환경을 개선할 
 
 **생산용으로 사용할 준비가 되었나요?**
 
-예. v0.3부터 Bicep은 Microsoft 지원 계획에서 지원됩니다. Bicep에는 ARM 템플릿을 사용하여 어떤 작업을 수행할 수 있는지에 대한 패리티가 있습니다. 현재 계획된 호환성이 손상되는 변경이 없지만 나중에 호환성이 손상되는 변경을 만들어야 할 수 있습니다.
+예. 버전 0.3부터 Bicep은 Microsoft 지원 계획에서 지원됩니다. Bicep에는 ARM 템플릿을 사용하여 어떤 작업을 수행할 수 있는지에 대한 패리티가 있습니다. 현재 계획된 호환성이 손상되는 변경이 없지만 나중에 호환성이 손상되는 변경을 만들어야 할 수 있습니다.
 
 **Azure에만 Bicep을 사용할 수 있나요?**
 
@@ -107,6 +109,29 @@ ARM 템플릿을 선택한 고객의 경우 Bicep이 제작 환경을 개선할 
 기존 ARM 템플릿은 계속해서 지금까지와 똑같이 작동합니다. ARM 템플릿을 변경할 필요가 없습니다. 기본 ARM 템플릿 JSON 언어를 계속 지원할 것입니다. Bicep 파일은 JSON으로 컴파일되고 해당 JSON은 배포를 위해 Azure에 전송됩니다.
 
 준비가 되면 [JSON 파일을 Bicep으로 디컴파일](./decompile.md)할 수 있습니다.
+
+## <a name="known-limitations"></a>알려진 제한 사항
+
+- 단일 행 개체 및 배열은 지원하지 않습니다. 예를 들어 `['a', 'b', 'c']`은 지원되지 않습니다. 자세한 내용은 [배열](data-types.md#arrays) 및 [개체](data-types.md#objects)를 참조하세요.
+- 긴 줄을 여러 줄로 나누는 것은 지원하지 않습니다. 예를 들면 다음과 같습니다.
+
+    ```bicep
+    resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+      ...
+    }
+    ```
+
+    다음과 같이 작성할 수 없습니다.
+
+    ```bicep
+    resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' =
+        if (newOrExisting == 'new') {
+          ...
+        }
+    ```
+
+- 단일 apiProfile을 각 리소스 유형에 대해 설정된 apiVersion에 매핑하는 데 사용되는 apiProfile 개념을 지원하지 않습니다.
+- 사용자 정의 함수 지원 없음
 
 ## <a name="next-steps"></a>다음 단계
 

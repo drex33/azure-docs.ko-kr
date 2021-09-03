@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 544f871f62481243cda2409db24b0d067df28c32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/26/2021
+ms.openlocfilehash: cb88998009ab05eb91b8945a138ef935660dac35
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580582"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710755"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus) 모니터링 및 튜닝
 
@@ -20,9 +20,17 @@ ms.locfileid: "100580582"
 
 ## <a name="metrics"></a>메트릭
 
-하이퍼스케일(Citus)은 서버 그룹의 각 노드에 대한 메트릭을 제공합니다. 메트릭은 지원 리소스의 동작에 대한 인사이트를 제공합니다. 각 메트릭은 1분 빈도로 내보내지며, 최대 30일 동안 기록됩니다.
+하이퍼스케일(Citus)은 서버 그룹의 노드에 대한 메트릭과 그룹 전체에 대한 집계 메트릭을 제공합니다. 메트릭은 지원 리소스의 동작에 대한 인사이트를 제공합니다. 각 메트릭은 1분 빈도로 내보내지며, 최대 30일 동안 기록됩니다.
 
-메트릭의 그래프를 보는 것 외에 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-hyperscale-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요.  다른 작업에는 자동화된 작업 설정, 고급 분석 실행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/data-platform.md)를 참조하세요.
+메트릭의 그래프를 보는 것 외에 경고를 구성할 수 있습니다. 단계별 지침은 [경고 설정 방법](howto-hyperscale-alert-on-metric.md)을 참조하세요.  다른 작업에는 자동화된 작업 설정, 고급 분석 실행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/data-platform.md)를 참조하세요.
+
+### <a name="per-node-vs-aggregate"></a>노드당 대 집계
+
+기본적으로 Azure Portal은 서버 그룹의 노드에서 하이퍼스케일(Citus) 메트릭을 집계합니다. 그러나 디스크 사용량과 같은 일부 메트릭은 노드당 정보가 더 유용합니다. 노드에 대한 메트릭을 확인하려면 Azure Monitor [서버 이름별 메트릭 분할](../azure-monitor/essentials/metrics-charts.md#metric-splitting)을 사용합니다.
+
+> [!NOTE]
+>
+> 일부 하이퍼스케일(Citus) 서버 그룹은 메트릭 분할을 지원하지 않습니다. 해당 서버 그룹에서 서버 그룹 **개요** 페이지의 노드 이름을 클릭하면 개별 노드에 대한 메트릭을 볼 수 있습니다. 노드에 대한 **메트릭** 페이지가 열립니다.
 
 ### <a name="list-of-metrics"></a>메트릭 목록
 
@@ -44,3 +52,4 @@ Azure는 클러스터 전체의 집계 메트릭을 제공하지 않지만 여�
 ## <a name="next-steps"></a>다음 단계
 
 - 메트릭에 대한 경고 생성에 대한 지침은 [경고를 설정하는 방법](howto-hyperscale-alert-on-metric.md)을 참조하세요.
+- [메트릭 분할](../azure-monitor/essentials/metrics-charts.md#metric-splitting)을 수행하여 서버 그룹의 노드당 메트릭을 검사하는 방법을 알아봅니다.

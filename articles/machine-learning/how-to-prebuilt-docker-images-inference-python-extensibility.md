@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 8af27f876f1c325cf99214e36f680e012e86c98d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 08139501886f580033aae46bdabd55ed300c5059
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536329"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710011"
 ---
 # <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>미리 빌드된 Docker 이미지에 대한 Python 패키지 확장성(미리 보기)
 
@@ -28,7 +28,7 @@ ms.locfileid: "110536329"
 
 * [미리 설치된 Python 패키지](#preinstalled): 미리 설치된 Python 패키지가 포함된 디렉터리를 제공합니다. 배포하는 동안 이 디렉터리는 사용할 항목 스크립트(`score.py`)에 대한 컨테이너에 탑재됩니다.
 
-    __프로덕션 배포__ 에 이 방법을 사용합니다. 패키지가 포함된 디렉터리를 이미지에 탑재하기 때문에 배포에 공용 인터넷 액세스 권한이 없는 경우에도 사용할 수 있습니다. 보안 Azure Virtual Network에 배포되는 경우를 예로 들 수 있습니다.
+    __프로덕션 배포__ 에 이 방법을 사용합니다. 패키지가 포함된 디렉터리를 이미지에 탑재하기 때문에 배포에 공용 인터넷 액세스 권한이 없는 경우에도 사용할 수 있습니다. 예를 들어 보안 Azure Virtual Network에 배포된 경우입니다.
 
 > [!IMPORTANT]
 > 현재 Azure Machine Learning에서 미리 빌드된 Docker 이미지는 미리 보기에서 사용할 수 있습니다. 미리 보기 기능은 지원 또는 서비스 수준 계약의 보증 없이 “있는 그대로” 제공됩니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -173,6 +173,13 @@ myenv.environment_variables = {
 
 
 * 등록된 모델 또는 로컬 모델을 로드하는 방법에 대한 자세한 내용은 [배포 위치 및 방법](how-to-deploy-and-where.md?tabs=azcli#define-a-dummy-entry-script)을 참조하세요.
+
+## <a name="bug-fixes"></a>버그 수정
+
+### <a name="2021-07-26"></a>2021-07-26
+
+* 이제 `AZUREML_EXTRA_REQUIREMENTS_TXT` 및 `AZUREML_EXTRA_PYTHON_LIB_PATH`는 항상 점수 매기기 스크립트의 디렉터리를 기준으로 합니다.
+예를 들어 requirements.txt와 점수 매기기 스크립트가 둘 다 **my_folder** 에 있는 경우 `AZUREML_EXTRA_REQUIREMENTS_TXT`를 requirements.txt로 설정해야 합니다. `AZUREML_EXTRA_REQUIREMENTS_TXT`가 더 이상 **my_folder/requirements.txt** 로 설정되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

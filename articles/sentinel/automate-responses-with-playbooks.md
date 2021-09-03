@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 06/29/2021
 ms.author: yelevin
-ms.openlocfilehash: 0687b3bf486d2496763237164536be34f504f7ed
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: bddd27b29a1546f0c985f7a5b3aa15027be75d46
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112070888"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528306"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Azure Sentinel의 플레이북을 사용하여 위협 대응 자동화
 
@@ -33,6 +33,8 @@ ms.locfileid: "112070888"
 대부분의 경우 경고 및 인시던트는 특정 및 정의된 수정 작업으로 해결할 수 있는 반복 패턴을 따릅니다.
 
 플레이북은 Azure Sentinel에서 루틴으로 실행할 수 있는 수정 작업의 컬렉션입니다. 플레이북은 [**위협 대응을 자동화하고 오케스트레이션**](tutorial-respond-threats-playbook.md)하는 데 도움이 될 수 있습니다. 각각 분석 규칙 또는 자동화 규칙에 따라 트리거되는 경우 특정 경고나 인시던트에 대응하여 플레이북을 자동으로 실행되도록 설정하거나 수동으로 실행할 수 있습니다.
+
+예를 들어 계정과 머신이 손상된 경우 플레이북은 SOC 팀이 인시던트 알림을 받을 때까지 네트워크에서 머신을 격리하고 계정을 차단할 수 있습니다.
 
 플레이북은 구독 수준에서 만들어지고 적용되지만, **플레이북** 탭(새 **자동화** 블레이드에서)에는 선택한 구독에서 사용할 수 있는 모든 플레이북이 표시됩니다.
 
@@ -197,7 +199,7 @@ IP 주소 엔터티를 생성하는 분석 규칙에 따라 경고에서 Azure S
 
 경고 만들기로 트리거되고 경고를 입력으로 받는 플레이북의 경우(첫 번째 단계는 “Azure Sentinel 경고가 트리거될 때”) 플레이북을 분석 규칙에 연결합니다.
 
-1. 자동화된 응답을 정의하려는 경고를 생성하는 [분석 규칙](tutorial-detect-threats-custom.md)을 편집합니다.
+1. 자동화된 응답을 정의하려는 경고를 생성하는 [분석 규칙](detect-threats-custom.md)을 편집합니다.
 
 1. **자동화된 응답** 탭의 **경고 자동화** 에서 경고가 만들어질 때 이 분석 규칙에서 트리거할 플레이북을 선택합니다.
 
@@ -242,7 +244,7 @@ IP 주소 엔터티를 생성하는 분석 규칙에 따라 경고에서 Azure S
 
 ### <a name="run-a-playbook-manually-on-an-incident"></a>인시던트에서 수동으로 플레이북 실행
 
-아직 지원되지 않습니다. <!--make this a note instead? -->
+아직 지원되지 않습니다.
 
 ## <a name="manage-your-playbooks"></a>플레이북 관리
 
@@ -275,6 +277,29 @@ API 연결은 Logic Apps를 다른 서비스에 연결하는 데 사용됩니다
 API 연결을 보는 또 다른 방법은 **모든 리소스** 블레이드로 이동하여 *API 연결* 형식으로 필터링하는 것입니다. 이러한 방식으로 여러 연결을 한 번에 선택하고, 태그를 지정하고, 삭제할 수 있습니다.
 
 기존 연결에 대한 권한 부여를 변경하려면 연결 리소스를 입력하고 **API 연결 편집** 을 선택합니다.
+
+## <a name="recommended-playbooks"></a>권장 플레이북
+
+[Azure Sentinel GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)에서 사용할 수 있는 권장 플레이북과 기타 유사한 플레이북은 다음과 같습니다.
+
+- **알림 플레이북** 은 경고나 인시던트가 생성될 때 트리거되고 구성된 대상으로 알림을 보냅니다.
+
+    - [Microsoft Teams 채널에 메시지 게시](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Teams)
+    - [Outlook 메일 알림 보내기](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification)
+    - [Slack 채널에 메시지 게시](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Slack)
+
+- **차단 플레이북** 은 경고나 인시던트가 생성될 때 트리거되고 계정, IP 주소, 호스트와 같은 엔터티 정보를 수집하며 추가 작업에서 차단합니다.
+
+    - [IP 주소를 차단하라는 메시지 표시](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-IPs-on-MDATP-Using-GraphSecurity).
+    - [AAD 사용자 차단](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-AADUser)
+    - [AAD 사용자 암호 재설정](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Reset-AADUserPassword/)
+    - [머신을 격리하라는 메시지 표시](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Isolate-AzureVMtoNSG)
+
+- **만들기, 업데이트 또는 닫기 플레이북** 은 Azure Sentinel, Microsoft 365 보안 서비스 또는 기타 티켓팅 시스템에서 인시던트를 만들거나 업데이트하거나 닫을 수 있습니다.
+
+    - [인시던트의 심각도 변경](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Change-Incident-Severity)
+    - [ServiceNow 인시던트 만들기](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Create-SNOW-record)
+
 
 ## <a name="next-steps"></a>다음 단계
 

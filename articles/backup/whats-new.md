@@ -2,13 +2,13 @@
 title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: 7be5b96a8575c0bed9208ef5d700aca747411aa2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/05/2021
+ms.openlocfilehash: f2c4e3fa492a4dfe3c42ffb615442d3c6c449404
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959327"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122538154"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -18,6 +18,8 @@ Azure Backup은 Azure에서 데이터의 보호 성능을 향상시키는 새로
 
 ## <a name="updates-summary"></a>업데이트 요약
 
+- 2021년 7월
+  - [이제 Azure Backup용 Azure VM의 SQL Server에 대한 보관 계층 지원이 일반 공급됩니다.](#archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available)
 - 2021년 5월
   - [이제 Azure Blob용 백업이 일반 공급됨](#backup-for-azure-blobs-is-now-generally-available)
 - 2021년 4월
@@ -44,6 +46,18 @@ Azure Backup은 Azure에서 데이터의 보호 성능을 향상시키는 새로
   - [RHEL Azure Virtual Machines에서 SAP HANA 백업(미리 보기)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [백업 데이터에 대한 ZRS(영역 중복 스토리지)(미리 보기)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Azure VM의 SQL Server 및 SAP HANA 워크로드에 대한 일시 삭제](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available"></a>이제 Azure Backup용 Azure VM의 SQL Server에 대한 보관 계층 지원이 일반 공급됩니다.
+
+Azure Backup을 사용하면 Azure Virtual Machines의 Azure Virtual Machines 및 SQL Server에 대한 장기 보존 지점을 낮은 비용의 보관 계층으로 이동할 수 있습니다. 자격 증명 모음 보관 계층의 복구 지점에서 복원할 수도 있습니다.
+
+복구 지점을 이동하는 기능 외에도 다음을 수행합니다.
+
+- Azure Backup은 비용 절감을 보장하는 Azure Virtual Machine 백업에 대한 특정 복구 지점 집합을 이동하기 위한 권장 사항을 제공합니다.
+- 샘플 스크립트를 사용하여 특정 백업 항목에 대한 모든 복구 지점을 한 번에 이동할 수 있습니다.
+- 자격 증명 모음 대시보드에서 Archive Storage 사용량을 볼 수 있습니다.
+
+자세한 내용은 [보관 계층 지원](./archive-tier-support.md)을 참조하세요.
 
 ## <a name="backup-for-azure-blobs-is-now-generally-available"></a>이제 Azure Blob용 백업이 일반 공급됨
 
@@ -83,7 +97,7 @@ Blob에 대한 운영 백업은 다른 Backup 관리 기능 중에서 백업 센
 
 ## <a name="azure-disk-backup-in-preview"></a>Azure Disk Backup(미리 보기)
 
-Azure Disk Backup은 스냅샷 생성을 정기적으로 자동화하고 백업 정책을 사용하여 구성된 기간 동안 유지함으로써 [Azure Managed Disks](../virtual-machines/managed-disks-overview.md)에 대한 스냅샷 수명 주기를 관리하는 턴키 솔루션을 제공합니다. 인프라 비용이 0이고 사용자 지정 스크립팅 또는 관리 오버헤드가 없어도 디스크 스냅샷을 관리할 수 있습니다. 매일 여러 백업에 대한 지원을 포함하는 [증분 스냅샷](../virtual-machines/disks-incremental-snapshots.md)을 사용하여 관리 디스크의 지정 시간 백업을 수행하는 충돌 일관성 백업 솔루션입니다. 에이전트 없는 솔루션이기도 하며, 프로덕션 애플리케이션 성능에 영향을 주지 않습니다. 현재 실행 중인 Azure 가상 머신에 연결되어 있는지 여부에 관계없이 OS 및 데이터 디스크(공유 디스크 포함)의 백업과 복원을 지원합니다.
+Azure Disk Backup은 스냅샷 생성을 정기적으로 자동화하고 백업 정책을 사용하여 구성된 기간 동안 유지함으로써 [Azure Managed Disks](../virtual-machines/managed-disks-overview.md)에 대한 스냅샷 수명 주기를 관리하는 턴키 솔루션을 제공합니다. 인프라 비용이 0이고 사용자 지정 스크립팅 또는 관리 오버헤드가 없어도 디스크 스냅샷을 관리할 수 있습니다. 매일 여러 백업에 대한 지원을 포함하는 [증분 스냅샷](../virtual-machines/disks-incremental-snapshots.md)을 사용하여 관리 디스크의 지정 시간 백업을 수행하는 충돌 일관성 백업 솔루션입니다. 에이전트 없는 솔루션이기도 하며 프로덕션 애플리케이션 성능에 영향을 미치지 않습니다. 현재 실행 중인 Azure 가상 머신에 연결되어 있는지 여부에 관계없이 OS 및 데이터 디스크(공유 디스크 포함)의 백업과 복원을 지원합니다.
 
 자세한 내용은 [Azure Disk Backup(미리 보기)](disk-backup-overview.md)을 참조하세요.
 
@@ -103,7 +117,7 @@ Azure Disk Backup은 스냅샷 생성을 정기적으로 자동화하고 백업 
 
 이제 Azure Backup은 Azure VM에서 호스트되는 SAP HANA 데이터베이스용 증분 백업을 지원합니다. 이를 통해 SAP HANA 데이터를 보다 빠르고 비용 효율적으로 백업할 수 있습니다.
 
-자세한 내용은 [백업 정책을 만드는 동안 사용할 수 있는 다양한 옵션](/azure/backup/sap-hana-faq-backup-azure-vm.yml#policy) 및 [SAP HANA 데이터베이스용 백업 정책을 만드는 방법](tutorial-backup-sap-hana-db.md#creating-a-backup-policy)을 참조하세요.
+자세한 내용은 [백업 정책을 만드는 동안 사용할 수 있는 다양한 옵션](/azure/backup/sap-hana-faq-backup-azure-vm#policy) 및 [SAP HANA 데이터베이스용 백업 정책을 만드는 방법](tutorial-backup-sap-hana-db.md#creating-a-backup-policy)을 참조하세요.
 
 ## <a name="backup-center-in-preview"></a>백업 센터(미리 보기)
 

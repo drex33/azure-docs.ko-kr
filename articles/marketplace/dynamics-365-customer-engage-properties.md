@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/20/2021
-ms.openlocfilehash: ccb3c715cf598a72eff490d4a177063898110c69
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 155b8deb614aa2c2a85ce9b81625e3d6972ff09b
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820237"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113566231"
 ---
 # <a name="configure-dynamics-365-for-customer-engagement--power-apps-offer-properties"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제안 속성 구성
 
@@ -23,8 +23,8 @@ ms.locfileid: "107820237"
 제안이 적절한 AppSource 검색 영역에 배치되도록 범주와 하위 범주를 선택합니다. 제안 설명에서 제안이 해당 범주를 지원하는 방법을 설명해야 합니다.
 
 - 기본 범주를 선택합니다.
-- 두 번째 선택적 범주(보조 범주)를 추가하려면 **+범주** 링크를 선택합니다.
-- 기본 범주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주를 선택합니다. 제안에 적용되는 하위 범주가 없으면 **해당 없음** 을 선택합니다. Ctrl+클릭을 사용하여 두 번째 하위 범주를 선택합니다.
+- 두 번째 선택적 범주(보조)를 추가하려면 **+범주** 링크를 선택합니다.
+- 기본 및/또는 보조 범주에 하위 범주를 최대 두 개까지 선택합니다. 제안에 적용되는 하위 범주가 없으면 **해당 없음** 을 선택합니다. Ctrl+클릭을 사용하여 두 번째 하위 범주를 선택합니다.
 
 [제안 목록 모범 사례](gtm-offer-listing-best-practices.md)에서 범주와 하위 범주의 전체 목록을 참조하세요.
 
@@ -32,7 +32,7 @@ ms.locfileid: "107820237"
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
-이 제안이 적용될 Dynamics 365의 **적용 가능한 제품** 을 선택합니다.
+고객 서비스, 고객 음성, 프로젝트 작업, 현장 서비스, 마케팅, 혼합 현실, Power Apps, Power Automate, Power Virtual Agents, Project Service Automation 및/또는 판매와 같이 제품에 적용되는 **적용 가능한 제품** 을 선택합니다. 이 선택을 통해 고객은 제품이 표시되는 기준 AppSource Dynamics 365 제품 필터를 기반으로 제품을 찾을 수 있습니다.
 
 제안의 **앱 버전** 을 입력합니다. 이 버전 숫자는 제안의 세부 정보 페이지에 표시되어 고객이 볼 수 있습니다.
 

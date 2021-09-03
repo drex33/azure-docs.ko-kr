@@ -11,14 +11,14 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/25/2021
+ms.date: 06/01/2021
 ms.author: mathoma
-ms.openlocfilehash: afaabddb9996ee1645439aeec035882221681bab
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: b9aa10e9a11ee1268c8bb49d5cb32d0550c2ca3a
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569749"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582081"
 ---
 # <a name="hadr-configuration-best-practices-sql-server-on-azure-vms"></a>HADR 구성 모범 사례(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -213,10 +213,10 @@ get-cluster | fl *subnet*
 완화된 모니터링을 위해 기본값에서 다음 매개 변수를 늘리고 필요에 따라 조정합니다. 
 
 
-|매개 변수 |기본값  |Description  |
-|---------|---------|---------|
-|**Healthcheck 제한 시간**|60000 |주 복제본 또는 노드의 상태를 확인합니다. 클러스터 리소스 DLL sp_server_diagnostics는 상태 확인 제한 시간 임계값의 1/3에 해당하는 간격으로 결과를 반환합니다. sp_server_diagnostics가 느리거나 정보를 반환하지 않는 경우 리소스 DLL은 리소스가 응답하지 않고 자동 장애 조치(failover)를 시작하기로 결정하기 전에 상태 확인 제한 시간 임계값의 전체 간격 동안 대기합니다. |
-|**오류 상태 수준** |  2  | 자동 장애 조치(failover)를 트리거하는 조건입니다. 가장 낮은 제한 수준 1에서 가장 높은 제한 수준 5까지의 다섯 가지 오류 상태 수준이 있습니다.  |
+|매개 변수 |기본값  |완화된 값  |Description  |
+|---------|---------|---------|---------|
+|**Healthcheck 제한 시간**|30000 |60000 |주 복제본 또는 노드의 상태를 확인합니다. 클러스터 리소스 DLL sp_server_diagnostics는 상태 확인 제한 시간 임계값의 1/3에 해당하는 간격으로 결과를 반환합니다. sp_server_diagnostics가 느리거나 정보를 반환하지 않는 경우 리소스 DLL은 리소스가 응답하지 않고 자동 장애 조치(failover)를 시작하기로 결정하기 전에 상태 확인 제한 시간 임계값의 전체 간격 동안 대기합니다. |
+|**오류 상태 수준** |  3  |   2  |자동 장애 조치(failover)를 트리거하는 조건입니다. 가장 낮은 제한 수준 1에서 가장 높은 제한 수준 5까지의 다섯 가지 오류 상태 수준이 있습니다.  |
 
 Transact-SQL(T-SQL)을 사용하여 AG 및 FCI 모두에 대한 상태 검사 및 오류 조건을 수정합니다. 
 
@@ -236,11 +236,11 @@ ALTER SERVER CONFIGURATION SET FAILOVER CLUSTER PROPERTY FailureConditionLevel =
 
 **가용성 그룹** 에 따라 다음 권장 매개 변수로 시작하고 필요에 따라 조정합니다. 
 
-|매개 변수 |기본값  |Description  |
-|---------|---------|---------|
-|**임대 시간 제한**|40,000|스플릿 브레인을 방지합니다. |
-|**세션 제한 시간**|20 |복제본 간의 통신 문제를 검사합니다. 세션 제한 시간은 가용성 복제본이 연결이 실패한 것으로 간주되기 전에 연결된 복제본에서 ping 응답을 받기 위해 기다리는 최대 시간(초)을 제어하는 복제본 속성입니다. 기본적으로 복제본은 ping 응답을 받기 위해 10초 동안 기다립니다. 이 복제본 속성은 지정된 보조 복제본과 가용성 그룹의 주 복제본 사이의 연결에만 적용됩니다. |
-| **Max failures in specified period** | 6 | 여러 노드 오류 내에서 클러스터된 리소스의 무한한 이동을 방지하는 데 사용됩니다. 값이 너무 낮으면 가용성 그룹이 오류 상태가 될 수 있습니다. 값이 너무 낮으면 AG가 오류 상태가 될 수 있으므로 값을 높여 성능 문제로 인한 짧은 중단을 방지해야 합니다. | 
+|매개 변수 |기본값  |완화된 값  |Description  |
+|---------|---------|---------|---------|
+|**임대 시간 제한**|20000|40,000|스플릿 브레인을 방지합니다. |
+|**세션 제한 시간**|10000 |20000|복제본 간의 통신 문제를 검사합니다. 세션 제한 시간은 가용성 복제본이 연결이 실패한 것으로 간주되기 전에 연결된 복제본에서 ping 응답을 받기 위해 기다리는 최대 시간(초)을 제어하는 복제본 속성입니다. 기본적으로 복제본은 ping 응답을 받기 위해 10초 동안 기다립니다. 이 복제본 속성은 지정된 보조 복제본과 가용성 그룹의 주 복제본 사이의 연결에만 적용됩니다. |
+| **Max failures in specified period** | 2 | 6 |여러 노드 오류 내에서 클러스터된 리소스의 무한한 이동을 방지하는 데 사용됩니다. 값이 너무 낮으면 가용성 그룹이 오류 상태가 될 수 있습니다. 값이 너무 낮으면 AG가 오류 상태가 될 수 있으므로 값을 높여 성능 문제로 인한 짧은 중단을 방지해야 합니다. | 
 
 변경 전에 다음 사항을 고려합니다. 
 - 해당 기본값 아래로 제한 시간 값을 줄이지 않습니다. 

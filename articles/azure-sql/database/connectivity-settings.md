@@ -9,14 +9,14 @@ ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: mathoma, vanto
-ms.date: 07/06/2020
+ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4de2ad883e0daa4a0be0e1da8060b783af5713ff
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 77b629f5fb354ee94d06055999ece59aea05e592
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699867"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529347"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Azure SQL 연결 설정
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "110699867"
 
 연결 설정은 다음 스크린샷에 표시된 것처럼 **방화벽 및 가상 네트워크** 화면에서 액세스할 수 있습니다.
 
- ![연결 설정 창의 스크린샷.][1]
+:::image type="content" source="media/single-database-create-quickstart/manage-connectivity-settings.png" alt-text="SQL Server용 Azure Portal의 방화벽 및 가상 네트워크 설정 스크린샷":::
 
 > [!NOTE]
 > 이 설정은 적용되는 즉시 효력을 냅니다. 고객이 각 설정의 요구 사항을 충족하지 않으면 연결이 끊길 수 있습니다.
@@ -121,6 +121,10 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 Error 47072
 Login failed with invalid TLS version
 ```
+
+## <a name="set-the-minimal-tls-version-in-azure-portal"></a>Azure Portal에서 최소 TLS 버전 설정
+
+**Azure Portal** 에서 [SQL Server](https://portal.azure.com) 리소스로 이동합니다. **보안** 설정에서 **방화벽 및 가상 네트워크** 를 선택합니다. 서버와 연결된 모든 SQL Database에 대해 원하는 **최소 TLS 버전** 을 선택하고 **저장** 을 선택합니다.
 
 ## <a name="set-the-minimal-tls-version-via-powershell"></a>PowerShell을 통해 최소 TLS 버전 설정
 
@@ -225,5 +229,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 - 서버의 연결 정책을 변경하는 방법에 관한 정보는 [conn-policy](/cli/azure/sql/server/conn-policy)를 참조하세요.
 
 <!--Image references-->
-[1]: media/single-database-create-quickstart/manage-connectivity-settings.png
 [2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png

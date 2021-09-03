@@ -7,17 +7,17 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: a4db444fa7f0f03e2d8ffe94d8337b8d0f76a0e5
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 06/24/2021
+ms.openlocfilehash: 6f17f89feb3bb5e563f662160598be14528a9240
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747776"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112963531"
 ---
 # <a name="partner-spotlight"></a>파트너 스포트라이트
 
-Azure Cognitive Search가 포함된 엔드투엔드 솔루션을 빌드하는 Microsoft 파트너의 전문적인 도움을 받으십시오. 아래에 소개하고 있는 파트너들은 다양한 비즈니스 및 기술 시나리오에서 전체 텍스트 검색 및 AI 보강과 관련하여 심도 깊은 경험을 보유하고 있습니다.
+Azure Cognitive Search가 포함된 포괄적인 솔루션을 빌드하는 Microsoft 파트너의 전문적인 도움을 받으세요. 아래에 소개하고 있는 파트너들은 다양한 비즈니스와 기술 시나리오에서 전체 텍스트 검색 및 AI 보강을 통합한 깊이 있는 경험을 보유하고 있습니다.
 
 | 파트너 | Description | 제품 링크 |
 |---------|-------------|----------------------|
@@ -28,4 +28,4 @@ Azure Cognitive Search가 포함된 엔드투엔드 솔루션을 빌드하는 Mi
 | ![Neudesic](media/resource-partners/neudesic-logo.png "Neudesic 회사 로고") | [**Neudesic**](https://www.neudesic.com/)은 디지털 현대화 및 발전을 통해 고객에게 영향력 있는 비즈니스 결과를 제공하는 비즈니스 혁신 분야의 신뢰할 수 있는 기술 파트너입니다. Neudesic 컨설턴트는 비즈니스와 기술 전문 지식을 결합하여 사용자 지정 애플리케이션 개발, 데이터 및 인공 지능, 포괄적 관리 서비스, 비즈니스 소프트웨어 제품 등을 비롯한 다양한 클라우드 및 데이터 기반 솔루션을 제공합니다. 2002에 설립된 Neudesic은 캘리포니아 어바인에 본사를 둔 사기업입니다. | [제품 페이지](https://www.neudesic.com/services/modern-workplace/document-intelligence-platform-schedule-demo/)|
 | ![OrangeNXT](media/resource-partners/orangenxt-beldmerk-boven-160px.png "OrangeNXT 회사 로고") | [**Orangenxt**](https://orangenxt.com/)는 데이터 통합, 데이터 모델링 및 특정 사용 사례를 위해 개발된 사용자 지정 논리를 포함하는 빌드 기술 세트 분야의 전문 지식을 제공합니다.</br></br>digitalNXT Search는 Azure Cognitive Search 파이프라인에서 AI, OCR(광학 인식), 자연어 처리 등을 결합하여 다양한 정형 및 비정형 데이터 원본에서 검색 결과를 추출하는 데 도움이 되는 OrangeNXT 솔루션입니다. DigitalNXT Search에는 선택한 데이터를 해석하고 상관 관계를 지정하는 고급 사용자 지정 인식 기술이 내장돼 있습니다.</br></br>| [제품 페이지](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)|
 | ![Plain Concepts](media/resource-partners/plain-concepts-logo.png "Plain Concepts 회사 로고") | [**Plain Concepts**](https://www.plainconcepts.com/contact/)는 Azure에 대한 15년 이상의 클라우드, 데이터, AI 전문 지식을 보유하고 있으며 12개가 넘는 Microsoft MVP 수상 경력이 있는 Microsoft 파트너입니다. Plain Concepts는 서로 다른 출처의 정보 간에 새로운 데이터 관계를 만들어내는 것을 전문으로 합니다. 이를 AI, 기계 학습, 인지적 서비스와 결합하여 머신과 사람 팀 모두의 생산성을 기하급수적으로 향상합니다. 또한 고객이 회사 요구 사항에 가장 잘 맞는 AI 기반 솔루션으로 디지털 혁신을 일으킬 수 있도록 지원합니다.| [제품 페이지](https://www.plainconcepts.com/artificial-intelligence/) |
-
+| ![Raytion](media/resource-partners/raytion-logo-blue.png "Raytion 회사 로고") | [**Raytion**](https://www.raytion.com/)은 협업, 검색, 클라우드에 전략적으로 초점을 맞춘 국제적으로 운영되는 IT 비즈니스 자문 회사입니다. Raytion은 Microsoft Azure Cognitive Search 및 Raytion 제품군을 기반으로 하는 지능적이고 완전한 기능을 갖춘 검색 솔루션을 제공합니다. Raytion의 솔루션을 사용하면 광범위한 엔터프라이즈 콘텐츠 시스템을 쉽게 인덱싱할 수 있으며, 개별 요구 사항에 맞게 조정할 수 있는 정교한 검색 환경을 제공합니다. 이 솔루션은 엔터프라이즈 검색, 지식 검색, 서비스 데스크 에이전트 지원 및 더 많은 애플리케이션의 기반입니다. | [제품 페이지](https://www.raytion.com/connectors) |

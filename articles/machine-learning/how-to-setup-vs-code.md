@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 80f6849bb4989692e8cd29a3288f9b104bf250bb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: devplatv2
+ms.openlocfilehash: 6e0975a61ff5b36eb5ffbe5737be614a70150796
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460089"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122539071"
 ---
 # <a name="set-up-the-visual-studio-code-azure-machine-learning-extension-preview"></a>Visual Studio Code Azure Machine Learning 확장(미리 보기) 설정
 
@@ -34,10 +35,10 @@ VS Code용 Azure Machine Learning 확장은 다음에 대한 사용자 인터페
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 동작합니다. 구독이 없는 경우 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)에 가입하여 사용해 보세요.
+- 동작합니다. 구독이 없는 경우 [Azure Machine Learning의 평가판 또는 유료 버전](https://azure.microsoft.com/free/)에 가입하여 사용해 보세요.
 - Visual Studio Code. 없는 경우 [설치](https://code.visualstudio.com/docs/setup/setup-overview)합니다.
 - [Python](https://www.python.org/downloads/)
-- (선택 사항) 확장을 사용하여 리소스를 만들려면 2.0 CLI를 설치해야 합니다. 설치 지침은 [2.0 CLI 설치, 설정 및 사용(미리 보기)](how-to-configure-cli.md)을 참조하세요.
+- (선택 사항) 확장을 사용하여 리소스를 만들려면 CLI(v2)를 설치해야 합니다. 설치 지침은 [CLI(v2) 설치, 설정 및 사용(미리 보기)](how-to-configure-cli.md)을 참조하세요.
 
 ## <a name="install-the-extension"></a>확장 설치
 
@@ -55,7 +56,7 @@ VS Code용 Azure Machine Learning 확장은 다음에 대한 사용자 인터페
 이 자습서의 나머지 단계는 최신 버전의 확장으로 테스트되었습니다.
 
 > [!NOTE]
-> Azure Machine Learning VS Code 확장은 기본적으로 2.0 CLI를 사용합니다. 1\.0 CLI로 전환하려면 Visual Studio Code의 `azureML.CLI Compatibility Mode` 설정을 `1.0`으로 설정합니다. Visual Studio에서 설정을 수정하는 방법에 대한 자세한 내용은 [사용자 및 작업 영역 설정 설명서](https://code.visualstudio.com/docs/getstarted/settings)를 참조하세요.
+> Azure Machine Learning VS Code 확장은 기본적으로 CLI(v2)를 사용합니다. 1\.0 CLI로 전환하려면 Visual Studio Code의 `azureML.CLI Compatibility Mode` 설정을 `1.0`으로 설정합니다. Visual Studio에서 설정을 수정하는 방법에 대한 자세한 내용은 [사용자 및 작업 영역 설정 설명서](https://code.visualstudio.com/docs/getstarted/settings)를 참조하세요.
 
 ## <a name="sign-in-to-your-azure-account"></a>Azure 계정에 로그인
 
@@ -70,7 +71,7 @@ Azure 계정에 로그인하려면 Visual Studio Code 상태 표시줄에서 **A
 
 ## <a name="choose-your-default-workspace"></a>기본 작업 영역 선택
 
-기본 Azure Machine Learning 작업 영역을 선택하면 2.0 CLI YAML 사양 파일을 작성할 때 다음을 사용할 수 있습니다.
+기본 Azure Machine Learning 작업 영역을 선택하면 CLI(v2) YAML 사양 파일을 작성할 때 다음을 사용할 수 있습니다.
 
 - 스키마 유효성 검사
 - 자동 완성

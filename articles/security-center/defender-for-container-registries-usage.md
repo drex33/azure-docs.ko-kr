@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 286ce9b628eff0975cff1cfa006f914ed43c3c46
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 195e47ce7165a02c5bb7126521432d448e2199a9
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469682"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238809"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리용 Azure Defender를 사용하여 이미지에서 취약성 검사
 
@@ -56,7 +56,7 @@ Azure Resource Manager 기반 Azure Container Registry에 저장된 이미지의
 
 1. 결과를 보려면 **권장 사항** 페이지로 이동합니다. 문제가 발견되면 **Azure Container Registry 이미지를 재구성해야 한다는** 권장 사항을 확인할 수 있습니다
 
-    ![문제를 교정하기 위한 권장 사항 ](media/monitor-container-security/acr-finding.png)
+    ![문제를 수정하기 위한 권장 사항](media/monitor-container-security/acr-finding.png)
 
 1. 권장 사항을 선택합니다. 
 
@@ -70,15 +70,15 @@ Azure Resource Manager 기반 Azure Container Registry에 저장된 이미지의
 
 1. 특정 리포지토리를 선택하여 취약한 이미지가 있는 리포지토리를 확인합니다.
 
-    ![리포지토리 선택](media/monitor-container-security/acr-finding-select-repository.png)
+    ![리포지토리를 선택합니다.](media/monitor-container-security/acr-finding-select-repository.png)
 
-    리포지토리 세부 정보 페이지가 열립니다. 문제의 심각도 평가와 함께 취약한 이미지를 나열합니다.
+    리포지토리 세부 정보가 열립니다. 결과의 심각도 평가와 함께 취약한 이미지가 나열됩니다.
 
-1. 취약성을 확인할 특정 이미지를 선택합니다.
+1. 취약성을 확인할 이미지를 선택합니다.
 
     ![이미지 선택](media/monitor-container-security/acr-finding-select-image.png)
 
-    선택한 이미지에 대한 검색 결과 목록이 열립니다.
+    선택한 이미지에 대한 결과 목록이 열립니다.
 
     ![결과 목록](media/monitor-container-security/acr-findings.png)
 

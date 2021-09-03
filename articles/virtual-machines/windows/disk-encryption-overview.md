@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e283ff2de003146c8228d36843f00ca8e4faced9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 4bd75896654711a1188ca260abbe1a076baab1db
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748574"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597356"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows VM을 위한 Azure Disk Encryption
 
@@ -38,12 +38,13 @@ Azure Disk Encryption은 Virtual Machines와 동일한 방식으로 영역 복�
 
 Windows VM은 [다양한 크기](../sizes-general.md)로 사용할 수 있습니다. Azure Disk Encryption은 1세대 및 2세대 VM에서 지원됩니다. Azure Disk Encryption은 Premium Storage가 있는 VM에 사용할 수도 있습니다.
 
-Azure Disk Encryption는 [기본, A-시리즈 VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/) 또는 메모리가 2GB 미만인 가상 머신에서 사용할 수 없습니다.  임시 디스크(Dv4, Dsv4, Ev4, Esv4)가 없는 VM 이미지에서도 Azure Disk Encryption을 사용할 수 없습니다.  [로컬 임시 디스크가 없는 AZURE VM 크기](../azure-vms-no-temp-disk.md)를 참조하세요.  추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-windows.md#unsupported-scenarios)를 참조하세요.
+Azure Disk Encryption는 [기본, A-시리즈 VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/) 또는 메모리가 2GB 미만인 가상 머신에서 사용할 수 없습니다.  추가 예외는 [Azure Disk Encryption: 지원되지 않는 시나리오](disk-encryption-windows.md#unsupported-scenarios)를 참조하세요.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
 - Windows 클라이언트: Windows 8 이상.
-- Windows Server: Windows Server 2008 R2 이상.  
+- Windows Server: Windows Server 2008 R2 이상.
+- Windows 10 Enterprise 다중 세션  
  
 > [!NOTE]
 > Windows Server 2008 R2를 사용하려면 암호화를 위해 .NET Framework 4.5가 설치되어 있어야 하며, 설치는 Windows 업데이트에서 Windows Server 2008 R2 x64 베이스 시스템([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983))용 Microsoft .NET Framework 4.5.2의 선택적 업데이트를 통해 합니다.  
@@ -58,12 +59,13 @@ Azure Disk Encryption을 사용하려면, VM이 다음 네트워크 엔드포인
   - Windows VM은 Azure 확장 리포지토리를 호스트하는 Azure 스토리지 엔드포인트 및 VHD 파일을 호스트하는 Azure 스토리지 계정에 연결할 수 있어야 합니다.
   -  보안 정책이 Azure VM에서 인터넷으로 액세스를 제한하는 경우 이전 URI를 확인하고 IP에 대한 아웃바운드 연결을 허용하도록 특정 규칙을 구성할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../../key-vault/general/access-behind-firewall.md)를 참조하세요.    
 
-
 ## <a name="group-policy-requirements"></a>그룹 정책 요구 사항
 
 Azure Disk Encryption은 Windows VM에 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. “호환되는 TPM이 없이 BitLocker 허용”에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 확인하세요.
 
-사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책에는 [BitLocker 복구 정보의 사용자 스토리지 구성 -> 256비트 복구 키 허용](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) 설정이 포함되어야 합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.
+사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책에는 [BitLocker 복구 정보의 사용자 스토리지 구성 -> 256비트 복구 키 허용](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) 설정이 포함되어야 합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 컴퓨터에서 새 정책을 적용하고, 새 정책을 강제로 업데이트(gpupdate.exe /force)합니다.  다시 시작해야 할 수 있습니다.
+
+MBAM(Microsoft Bitlocker 관리 및 모니터링) 그룹 정책 기능은 Azure Disk Encryption과 호환되지 않습니다.
 
 > [!WARNING]
 > Azure Disk Encryption은 **복구 키를 저장하지 않습니다**. [대화형 로그온: 컴퓨터 계정 잠금 임계값](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) 보안 설정이 사용하도록 설정된 경우 직렬 콘솔을 통해 복구 키를 제공해야만 컴퓨터를 복구할 수 있습니다. 적절한 복구 정책이 사용하도록 설정되었는지 확인하기 위한 지침은 [Bitlocker 복구 가이드 계획](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan)에서 찾을 수 있습니다.

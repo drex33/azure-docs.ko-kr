@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 1bbc549a9ba457d5f515df25d6fdce0c2ede6f2e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9686cce60520895fe4a3ae7fb47e1eb0eca03599
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105582656"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112975300"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리에 있는 사용자
 
@@ -192,7 +192,7 @@ ms.locfileid: "105582656"
 
     ![액세스 패키지 - 정책 - 대체 승인자 추가](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
 
-    [첫 번째 승인자]에 대해 [승인자로서 관리자]를 선택하면 대체 승인자 필드에서 선택할 수 있는 추가 옵션인 **두 번째 수준 관리자를 대체 승인자로** 가 제공됩니다. 이 옵션을 선택하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우 요청을 전달할 대체 승인자를 추가해야 합니다.
+    [첫 번째 승인자]에 대해 [승인자로서 관리자]를 선택하면 대체 승인자 필드에서 선택할 수 있는 추가 옵션인 **두 번째 수준 관리자를 대체 승인자로** 가 제공됩니다. 이 옵션을 선택하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없으면 요청을 전달할 대체 승인자를 추가해야 합니다.
 
 1. **며칠 후에 대체 승인자에게 전달하시겠습니까?** 상자에서 승인자가 요청을 승인하거나 거부해야 하는 일수를 입력합니다. 요청 기간 전에 요청을 승인하거나 거부한 승인자가 없는 경우 요청이 만료(시간 제한)되고, 사용자가 액세스 패키지에 대한 다른 요청을 제출해야 합니다. 
 
@@ -210,7 +210,7 @@ ms.locfileid: "105582656"
 
 1. **다음** 을 클릭합니다.
 
-## <a name="add-requestor-information-preview-to-an-access-package"></a>액세스 패키지에 요청자 정보(미리 보기) 추가
+## <a name="add-requestor-information-to-an-access-package"></a>액세스 패키지에 요청자 정보 추가
 
 1. **요청자 정보** 탭으로 이동하여 **질문** 하위 탭을 클릭합니다.
  
@@ -218,7 +218,7 @@ ms.locfileid: "105582656"
 
     ![액세스 패키지 - 정책 - 요청자 정보 사용 설정](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. 사용자 고유의 지역화 옵션을 추가하려면 **지역화 추가** 를 클릭합니다.
+1. 질문과 대답 옵션을 지역화하려면 **지역화 추가** 를 클릭합니다.
     1. **질문에 대한 지역화 추가** 창에서 질문을 지역화할 언어에 대한 **언어 코드** 를 선택합니다.
     1. **지역화된 텍스트** 상자에서 질문을 구성한 언어로 입력합니다.
     1. 필요한 모든 지역화가 추가되면 **저장** 을 클릭합니다.
@@ -229,10 +229,13 @@ ms.locfileid: "105582656"
  
     ![액세스 패키지 - 정책 - 여러 선택 항목 대답 형식 보기 및 편집 선택](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
-1. 여러 선택 항목을 선택하는 경우 **보기 및 편집** 단추를 클릭하여 대답 옵션을 구성합니다.
-    1. [보기 및 편집]이 선택되면 **질문 보기/편집** 창이 열립니다.
+1. 여러 선택 항목을 선택하는 경우 **편집 및 지역화** 단추를 클릭하여 대답 옵션을 구성합니다.
+    1. 편집 및 지역화를 선택하면 **질문 편집/지역화** 창이 열립니다.
     1. **대답 값** 상자에서 질문에 대답할 때 요청자에게 제공하려는 응답 옵션을 입력합니다.
-    1. 필요한 만큼 응답을 입력한 다음, **저장** 을 클릭합니다.
+    1. 필요한 만큼 응답을 입력합니다.
+    1. 다중 선택 옵션에 대한 고유한 지역화를 추가하려면 특정 옵션을 지역화하려는 언어에 대해 **선택적 언어 코드** 를 선택합니다.
+    1. 지역화 텍스트 상자에 구성한 언어로 옵션을 입력합니다.
+    1. 각 다중 선택 옵션에 필요한 모든 지역화를 추가한 후 **저장** 을 클릭합니다.
     
     ![액세스 패키지 - 정책 - 여러 선택 항목 옵션 입력](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   

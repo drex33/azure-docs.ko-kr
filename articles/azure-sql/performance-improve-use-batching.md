@@ -10,13 +10,13 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
-ms.date: 01/25/2019
-ms.openlocfilehash: e78f6762e3eb94e010909941cc84d19a37f3afc4
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 06/22/2021
+ms.openlocfilehash: dc246908497d8f13bddbc06498900842850397ae
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691353"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530414"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>일괄 처리를 사용하여 Azure SQL Database 및 Azure SQL Managed Instance 애플리케이션 성능을 개선하는 방법
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -602,7 +602,7 @@ exec sp_InsertOrdersBatch @orders, @details
 
 ### <a name="upsert"></a>UPSERT
 
-다른 일괄 작업 시나리오는 동시에 기존 행을 업데이트하고 새 행을 삽입하는 작업을 포함합니다. 이 작업은 경우에 따라 “UPSERT”(업데이트 + 삽입) 작업이라고 합니다. 이 작업에 INSERT 및 UPDATE에 대한 호출을 따로 생성하기 보다는 MERGE 문이 가장 적합합니다. MERGE 문은 삽입과 업데이트 작업을 단일 호출로 수행할 수 있습니다.
+다른 일괄 작업 시나리오는 동시에 기존 행을 업데이트하고 새 행을 삽입하는 작업을 포함합니다. 이 작업은 경우에 따라 “UPSERT”(업데이트 + 삽입) 작업이라고 합니다. INSERT 및 UPDATE에 대한 호출을 따로 생성하는 대신 MERGE 문을 사용하는 것이 적합합니다. MERGE 문은 삽입과 업데이트 작업을 단일 호출로 수행할 수 있습니다. MERGE 문 잠금 메커니즘은 개별 INSERT 및 UPDATE 문과 다르게 작동합니다. 프로덕션에 배포하기 전에 특정 워크로드를 테스트합니다.
 
 테이블 반환 매개 변수가 MERGE 문과 함께 사용되어 업데이트와 삽입을 수행할 수 있습니다. 예를 들어 EmployeeID, FirstName, LastName, SocialSecurityNumber 열을 포함하는 간소화된 Employee 테이블이 있습니다.
 

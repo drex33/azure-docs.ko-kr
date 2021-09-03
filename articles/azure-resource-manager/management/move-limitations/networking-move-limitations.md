@@ -2,17 +2,19 @@
 title: Azure 네트워킹 리소스를 새 구독 또는 리소스 그룹으로 이동
 description: Azure Resource Manager를 사용하여 가상 네트워크 및 다른 네트워킹 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: 0ac503a778b3de8945b074628242233f9bcd6a3b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 08/16/2021
+ms.openlocfilehash: 5a609b8c6a08136827062e0ae4107905aa1b8fe8
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129966"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530391"
 ---
 # <a name="move-guidance-for-networking-resources"></a>네트워킹 리소스 이동 지침
 
 이 문서에서는 특정 시나리오의 가상 네트워크와 다른 네트워킹 리소스를 이동하는 방법을 설명합니다.
+
+이동하는 동안 네트워킹 리소스가 중단 없이 작동합니다.
 
 ## <a name="dependent-resources"></a>종속 리소스
 

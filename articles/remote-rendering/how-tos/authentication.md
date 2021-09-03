@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 35fd78a9d55dc684045fdb4b83691c1613801421
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01b2dbaa8ed318f08fd68660078ae6fb9923221d
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97724886"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112969770"
 ---
 # <a name="configure-authentication"></a>인증 구성
 
@@ -47,9 +47,25 @@ Azure Remote Rendering은 [ASA(Azure Spatial Anchors)](../../spatial-anchors/con
 
 계정 키는 개발 중에만 빠른 프로토타입을 위해 권장됩니다. 포함된 계정 키를 사용하여 애플리케이션을 프로덕션에 제공하지 않는 것이 좋습니다. 권장되는 접근 방식은 사용자 기반 또는 서비스 기반 Azure AD 인증 방식을 사용하는 것입니다.
 
- Azure AD 인증은 [ASA(Azure Spatial Anchors)](../../spatial-anchors/index.yml) 서비스의 [Azure AD 사용자 인증](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) 섹션에 설명되어 있습니다.
+### <a name="azure-ad-user-authentication"></a>Azure AD 사용자 인증
 
- 자세한 내용은 [자습서: Azure Remote Rendering 및 모델 스토리지 보안 설정 - Azure Active Directory 인증](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)을 참조하세요.
+Azure AD 인증은 [Azure Spatial Anchors 설명서](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication)에 설명되어 있습니다.
+
+단계에 따라 Azure Portal에서 Azure Active Directory 사용자 인증을 구성합니다.
+
+1. Azure Active Directory에 애플리케이션을 등록합니다. 등록하는 과정에서 애플리케이션이 다중 테넌트인지 여부를 확인해야 합니다. 또한 인증 블레이드에서 애플리케이션에 허용되는 리디렉션 URL을 제공해야 합니다.
+:::image type="content" source="./media/azure-active-directory-app-setup.png" alt-text="인증 설정":::
+
+1. API 권한 탭의 **mixedreality** 에서 **mixedreality.signin** 범위에 대한 **위임된 권한** 을 요청합니다.
+:::image type="content" source="./media/azure-active-directory-app-api-permissions.png" alt-text="API 권한":::
+
+1. 보안 -> 권한 탭에서 관리자 동의를 부여합니다. :::image type="content" source="./media/azure-active-directory-grant-admin-consent.png" alt-text="관리자 동의":::
+
+1. 그런 다음, Azure Remote Rendering 리소스로 이동합니다. 액세스 제어 패널에서 Azure Remote Rendering 리소스에 대한 위임된 액세스 권한을 사용하는 대신 애플리케이션과 사용자에 대해 원하는 [역할](#azure-role-based-access-control)을 부여합니다.
+:::image type="content" source="./media/azure-remote-rendering-add-role-assignment.png" alt-text="권한 추가":::
+:::image type="content" source="./media/azure-remote-rendering-role-assignments.png" alt-text="역할 할당":::
+
+애플리케이션 코드에서 Azure AD 사용자 인증을 사용하는 방법에 관한 내용은 [자습서: Azure Remote Rendering 및 모델 스토리지 보안 - Azure Active Directory 인증](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)을 참조하세요.
 
 ## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 

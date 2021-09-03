@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/19/2021
 ms.author: azhussai
-ms.openlocfilehash: 615db7e8d53e397755ae318d171dab1eab9ec6c6
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 2e448f907e129f628c4614c9df703bf2c39ea47a
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727811"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113665100"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대한 메트릭
 
@@ -52,7 +52,7 @@ Application Gateway는 모두 밀리초 단위로 측정되는 요청 및 응답
 
   수신할 요청을 처리하고 응답을 보내는 데 걸리는 평균 시간입니다. 
 
-  Application Gateway가 HTTP 요청의 첫 번째 바이트를 받은 시점부터 마지막 응답 바이트가 클라이언트로 전송된 시간까지의 간격입니다. 여기에는 모든 응답과 *클라이언트 RTT* 를 전송하기 위해 Application Gateway에서 수행하는 Application Gateway, *백 엔드 마지막 바이트 응답 시간* 등의 처리 시간이 포함됩니다.
+  Application Gateway가 HTTP 요청의 첫 번째 바이트를 받은 시점부터 마지막 응답 바이트가 클라이언트로 전송된 시간까지의 간격입니다. 여기에는 Application Gateway에서 사용한 처리 시간, ‘백 엔드 마지막 바이트 응답 시간’, 모든 응답을 전송하기 위해 Application Gateway에서 사용한 시간이 포함됩니다.
 
 - **클라이언트 RTT**
 

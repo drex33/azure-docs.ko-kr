@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 07/26/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d0dd081e3e1a681ba55e3457b79a548d6b2bb7
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c5d5e34ee5013a6f4ad28779e92536ff2d8ef868
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530382"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730771"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Azure Active Directory의 인증 방법 - OATH 토큰 
 
@@ -31,7 +31,7 @@ Authenticator 앱은 푸시 알림을 수행하도록 설정된 경우 자동으
 
 ## <a name="oath-hardware-tokens-preview"></a>OATH 하드웨어 토큰(미리 보기)
 
-Azure AD는 30초 또는 60초마다 코드를 새로 고치는 OATH-TOTP SHA-1 토큰의 사용을 지원합니다. 고객은 자신이 선택한 공급업체에서 이러한 토큰을 구매할 수 있습니다.
+Azure AD는 30초 또는 60초마다 코드를 새로 고치는 OATH-TOTP SHA-1 토큰의 사용을 지원합니다. 고객은 자신이 선택한 공급업체에서 이러한 토큰을 구매할 수 있습니다. 
 
 OATH TOTP 하드웨어 토큰은 일반적으로 토큰에서 사전 프로그래밍된 비밀 키 또는 시드를 제공합니다. 이러한 키는 다음 단계에 설명된 대로 Azure AD에 입력해야 합니다. 비밀 키는 128자로 제한되며 일부 토큰과는 호환되지 않을 수 있습니다. 비밀 키에는 *a-z* 또는 *A-Z* 와 *2-7* 까지의 숫자만 포함할 수 있으며, *Base32* 로 인코딩해야 합니다.
 
@@ -62,3 +62,4 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 ## <a name="next-steps"></a>다음 단계
 
 [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview)를 사용하는 인증 구성 방법에 대해 자세히 알아봅니다.
+암호 없는 인증과 호환되는 [FIDO2 보안 키 공급자](concept-authentication-passwordless.md#fido2-security-key-providers)에 대해 알아봅니다.

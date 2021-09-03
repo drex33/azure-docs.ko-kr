@@ -4,20 +4,16 @@ description: Azure API Management에 사용할 수 있는 정책에 대해 알�
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 07/19/2021
 ms.author: apimpm
-ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6856226c1eda0e8d5fde7df6d2b251007a47fa2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562351"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468521"
 ---
 # <a name="api-management-policies"></a>API Management 정책
 이 섹션에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](api-management-howto-policies.md)을 참조하세요.
@@ -36,11 +32,13 @@ ms.locfileid: "103562351"
     -   [구독으로 사용 할당량 설정](api-management-access-restriction-policies.md#SetUsageQuota) - 구독을 기준으로 갱신 가능 또는 수명 호출 볼륨 및/또는 대역폭 할당량을 적용할 수 있습니다.
     -   [키로 사용 할당량 설정](api-management-access-restriction-policies.md#SetUsageQuotaByKey) - 키를 기준으로 갱신 가능 또는 수명 호출 볼륨 및/또는 대역폭 할당량을 적용할 수 있습니다.
     -   [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) - 지정된 HTTP 헤더 또는 지정된 쿼리 매개 변수에서 추출된 JWT의 존재 및 유효성을 적용합니다.
+    -   [클라이언트 인증서 유효성 검사](api-management-access-restriction-policies.md#validate-client-certificate) - 클라이언트가 API Management 인스턴스에 제공하는 인증서가 지정된 유효성 검사 규칙 및 클레임과 일치하도록 적용합니다.
 -   [고급 정책](api-management-advanced-policies.md#AdvancedPolicies)
     -   [제어 흐름](api-management-advanced-policies.md#choose) - 부울 식의 평가 결과에 따라 정책 문을 조건부로 적용합니다.
     -   [요청 전달](api-management-advanced-policies.md#ForwardRequest) - 백 엔드 서비스에 요청을 전달합니다.
     -   [동시성 제한](api-management-advanced-policies.md#LimitConcurrency) - 지정된 정책이 한 번에 지정된 요청 수를 초과해서 실행하지 못하게 합니다.
     -   [이벤트 허브에 기록](api-management-advanced-policies.md#log-to-eventhub) - 로거 엔터티가 정의한 메시지 대상에 지정된 형식으로 메시지를 보냅니다.
+    -   [메트릭 내보내기](api-management-advanced-policies.md#emit-metrics) - 실행 시 사용자 지정 메트릭을 Application Insights로 보냅니다.
     -   [모의 응답](api-management-advanced-policies.md#mock-response) - 파이프라인 실행을 중단하고 호출자에게 직접 모의 응답을 반환합니다.
     -   [다시 시도](api-management-advanced-policies.md#Retry) - 조건이 충족될 때까지 포함된 정책 문을 실행하도록 다시 시도합니다. 실행은 지정된 시간 간격으로 최대 지정된 재시도 횟수까지 반복됩니다.
     -   [응답 반환](api-management-advanced-policies.md#ReturnResponse) - 파이프라인 실행을 중단하고 호출자에게 직접 지정된 응답을 반환합니다.

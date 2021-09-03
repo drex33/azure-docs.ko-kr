@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 7ca6fdf685da74b8b0e10875a2bd16d66a7b4c60
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: fa70dce0e245f706e5278e7274ac17855b50622f
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020310"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122538902"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>프리미엄 파일 공유를 사용하여 FCI 만들기(Azure VMs의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -213,7 +213,9 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 - MSDTC(Microsoft Distributed Transaction Coordinator)는 Windows Server 2016 이전 버전에서 지원되지 않습니다. 
 - Filestream은 프리미엄 파일 공유를 사용하는 장애 조치(failover) 클러스터에 대해 지원되지 않습니다. 파일 스트림을 사용하려면 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 또는 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md)를 대신 사용하여 클러스터를 배포합니다.
 - [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)로만 SQL IaaS 에이전트 확장에 등록할 수 있습니다. 
-- 데이터베이스 스냅샷은 [스파스 파일 제한으로 인해 Azure Files](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)에서 현재 지원되지 않습니다.  
+- 데이터베이스 스냅샷은 [스파스 파일 제한으로 인해 Azure Files](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)에서 현재 지원되지 않습니다.
+- 데이터베이스 스냅샷을 만들 수 없으므로 DBCC CHECKDB 실행은 현재 지원되지 않습니다. 
+- 메모리 내 OLTP 기능을 사용하는 데이터베이스는 프리미엄 파일 공유로 배포된 장애 조치(failover) 클러스터 인스턴스에서 지원되지 않습니다. 비즈니스에 메모리 내 OLTP가 필요한 경우 대신 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 또는 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md)를 사용하여 FCI를 배포하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

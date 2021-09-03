@@ -2,13 +2,13 @@
 title: Azure Arc의 App Service
 description: Azure 운영자를 위한 Azure Arc App Service 통합 소개입니다.
 ms.topic: article
-ms.date: 05/03/2021
-ms.openlocfilehash: bbdb7fb1426a5c63e579929806caa1b2008f11eb
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 08/17/2021
+ms.openlocfilehash: bd5e257d48ec009ccb79696f4c299fd93568f1c9
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590093"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530802"
 ---
 # <a name="app-service-functions-and-logic-apps-on-azure-arc-preview"></a>Azure Arc의 App Service, Functions 및 Logic Arc(미리 보기)
 
@@ -73,8 +73,10 @@ App Service 확장을 Arc 지원 Kubernetes 클러스터에 설치하면 지정�
 - [어떤 App Service 기능이 지원되나요?](#which-app-service-features-are-supported)
 - [네트워킹 기능을 지원하나요?](#are-networking-features-supported)
 - [관리 ID가 지원되나요?](#are-managed-identities-supported)
+- [스케일링 한도가 있나요?](#are-there-any-scaling-limits)
 - [어떤 로그가 수집되나요?](#what-logs-are-collected)
 - [공급자 등록 오류가 표시되는 경우 어떻게 해야 하나요?](#what-do-i-do-if-i-see-a-provider-registration-error)
+- [ARM64 기반 클러스터에 애플리케이션 서비스 확장을 배포할 수 있나요?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
 
 ### <a name="how-much-does-it-cost"></a>가격은 얼마인가요?
 
@@ -104,6 +106,10 @@ FTP 배포는 지원되지 않습니다. 현재 `az webapp up`도 지원되지 �
 
 아니요. Azure Arc에서 실행할 때 앱에 관리 ID를 할당할 수 없습니다. 앱에 다른 Azure 리소스 작업을 위한 ID가 필요한 경우 대신 [애플리케이션 서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 사용하는 것이 좋습니다.
 
+### <a name="are-there-any-scaling-limits"></a>스케일링 한도가 있나요?
+
+Azure Arc를 사용하는 Kubernetes의 Azure App Service와 함께 배포된 모든 애플리케이션은 기본 Kubernetes 클러스터의 한도 내에서 스케일링할 수 있습니다.  기본 Kubernetes 클러스터에서 사용 가능한 컴퓨팅 리소스(주로 CPU 및 메모리)가 부족하면 애플리케이션은 Kubernetes가 사용 가능한 리소스로 예약할 수 있는 애플리케이션의 인스턴스 수로만 스케일링할 수 있습니다.
+
 ### <a name="what-logs-are-collected"></a>어떤 로그가 수집되나요?
 
 시스템 구성 요소와 애플리케이션 모두에 대한 로그는 표준 출력에 기록됩니다. 두 로그 유형 모두를 표준 Kubernetes 도구를 사용하여 분석을 위해 수집할 수 있습니다. 또한 [Log Analytics 작업 영역](../azure-monitor/logs/log-analytics-overview.md)을 사용하여 App Service 클러스터 확장을 구성할 수도 있으며 모든 로그를 해당 작업 영역으로 보냅니다.
@@ -113,6 +119,10 @@ FTP 배포는 지원되지 않습니다. 현재 `az webapp up`도 지원되지 �
 ### <a name="what-do-i-do-if-i-see-a-provider-registration-error"></a>공급자 등록 오류가 표시되는 경우 어떻게 해야 하나요?
 
 Kubernetes 환경 리소스를 만들 때 일부 구독에 “등록된 리소스 공급자를 찾을 수 없음” 오류가 표시될 수 있습니다. 오류 세부 정보에는 유효한 것으로 간주되는 위치 및 API 버전 세트가 포함될 수 있습니다. 이 경우 Microsoft.Web 공급자에 대해 구독을 다시 등록해야 할 수 있습니다. 이 작업은 기존 애플리케이션 또는 API에 영향을 주지 않습니다. 다시 등록하려면 Azure CLI를 사용하여 `az provider register --namespace Microsoft.Web --wait`를 실행합니다. 그런 다음, Kubernetes 환경 명령을 다시 시도합니다.
+
+### <a name="can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster"></a>ARM64 기반 클러스터에 애플리케이션 서비스 확장을 배포할 수 있나요?
+
+ARM64 기반 클러스터는 현재 지원되지 않습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

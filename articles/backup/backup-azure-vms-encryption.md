@@ -2,13 +2,13 @@
 title: 암호화된 Azure VM 백업 및 복원
 description: Azure Backup 서비스를 사용하여 암호화된 Azure VM을 백업하고 복원하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 226c3d08903385a1df97d83209762452a70ed816
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.date: 07/27/2021
+ms.openlocfilehash: ef23abb7ba25675ce267fb6a4b0e273a1cc445a4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565651"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528123"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>암호화된 Azure 가상 머신 백업 및 복원
 
@@ -44,9 +44,9 @@ Azure Backup은 ADE(Azure Disk Encryption)로 암호화된 OS/데이터 디스�
 
 ### <a name="limitations"></a>제한 사항
 
-- 동일한 구독 및 지역 내에서 ADE 암호화된 VM을 백업하고 복원할 수 있습니다.
+- 동일한 구독 내에서 ADE 암호화된 VM을 백업하고 복원할 수 있습니다.
 - Azure Backup은 독립 실행형 키를 사용하여 암호화된 VM을 지원합니다. VM을 암호화하는 데 사용되는 인증서의 일부인 키는 현재 지원되지 않습니다.
-- Recovery Services Backup 자격 증명 모음과 동일한 구독 및 지역 내에서 ADE 암호화된 VM을 백업하고 복원할 수 있습니다.
+- Azure Backup은 Azure 쌍을 이루는 지역으로 암호화된 Azure VM의 교차 지역 복원을 지원합니다. 자세한 내용은 [지원 매트릭스](./backup-support-matrix.md#cross-region-restore)를 참조하세요.
 - ADE 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 파일 및 폴더를 복원하려면 전체 VM을 복구해야 합니다.
 - VM을 복원하는 경우 ADE 암호화된 VM에 대해 [기존 VM 바꾸기](backup-azure-arm-restore-vms.md#restore-options) 옵션을 사용할 수 없습니다. 이 옵션은 암호화되지 않은 관리 디스크에 대해서만 지원됩니다.
 

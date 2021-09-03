@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: d115495f56a9e64672682a92d5837db48dbf052d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e167abee5bd98e5dcef702ae4629cd886cb75967
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099814"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465733"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>프리미엄 Azure Cache for Redis에 대한 데이터 지속성을 구성
 
@@ -157,7 +157,7 @@ RDB 지속성 백업 간격의 주기는 이전 백업 프로세스가 성공적
 
 ### <a name="what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made"></a>새 백업을 만들면 이전 RDB 백업은 어떻게 되나요?
 
-가장 최근 백업을 제외한 모든 RDB 지속성 백업은 자동으로 삭제됩니다. 즉시 삭제되지 않을 수 있으나 오래된 백업을 무한정 유지하지는 않습니다.
+가장 최근 백업을 제외한 모든 RDB 지속성 백업은 자동으로 삭제됩니다. 즉시 삭제되지 않을 수 있으나 오래된 백업을 무한정 유지하지는 않습니다. 스토리지 계정에 대해 일시 삭제를 켜면 일시 삭제 설정이 적용되고 기존 백업은 일시 삭제 상태로 계속 상주합니다.
 
 ### <a name="when-should-i-use-a-second-storage-account"></a>두 번째 스토리지 계정은 언제 사용해야 하나요?
 
@@ -194,7 +194,7 @@ AOF 파일에 저장된 데이터는 스토리지에 데이터를 저장하는 �
 
 클러스터링을 사용하도록 설정하면 캐시의 각 분할은 이전 표에 표시된 것처럼 자체 페이지 Blob 집합을 갖습니다. 예를 들어 분할이 3개 있는 P2 캐시는 24개 페이지 Blob에 해당 AOF 파일을 분산합니다(분할된 데이터베이스당 8개 Blob, 3개 분할된 데이터베이스).
 
-다시 쓰기 후 2개의 AOF 파일 집합이 스토리지에 존재합니다. 다시 쓰기 작업은 백그라운드에서 발생하며 첫 번째 파일 세트에 추가됩니다. 다시 쓰는 동안 캐시로 전송되는 설정 작업을 두 번째 집합에 추가합니다. 오류가 발생하는 경우 다시 쓰는 동안 백업이 일시적으로 저장됩니다. 다시 쓰기 작업이 완료되면 백업이 즉시 삭제됩니다.
+다시 쓰기 후 2개의 AOF 파일 집합이 스토리지에 존재합니다. 다시 쓰기 작업은 백그라운드에서 발생하며 첫 번째 파일 세트에 추가됩니다. 다시 쓰는 동안 캐시로 전송되는 설정 작업을 두 번째 집합에 추가합니다. 오류가 발생하는 경우 다시 쓰는 동안 백업이 일시적으로 저장됩니다. 다시 쓰기 작업이 완료되면 백업이 즉시 삭제됩니다. 스토리지 계정에 대해 일시 삭제를 켜면 일시 삭제 설정이 적용되고 기존 백업은 일시 삭제 상태로 계속 상주합니다.
 
 ### <a name="will-i-be-charged-for-the-storage-being-used-in-data-persistence"></a>데이터 지속성에 사용되는 스토리지에 대한 요금이 청구되나요?
 

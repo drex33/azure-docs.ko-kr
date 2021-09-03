@@ -2,36 +2,31 @@
 title: Azure Security Center의 Endpoint Protection 권장 사항
 description: 엔드포인트 보호 솔루션을 검색하고 정상으로 식별하는 방법입니다.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 2730a2f5-20bc-4027-a1c2-db9ed0539532
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/29/2019
+ms.date: 07/21/2021
 ms.author: memildin
-ms.openlocfilehash: 1ce20deed8b26dc5f5bebf4656dd3f1c370d766f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 841d52b53fd492f1b9f6760deba438f68a47d004
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561231"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114470715"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure Security Center의 Endpoint Protection 평가 및 권장 사항
 
 Azure Security Center는 [지원되는](security-center-services.md#endpoint-supported) 버전의 Endpoint Protection 솔루션의 성능 상태 평가를 제공합니다. 이 문서에서는 Security Center에서 다음 두 가지 권장 사항을 생성하는 시나리오를 설명합니다.
 
-* **가상 머신에 엔드포인트 보호 솔루션 설치**
-* **머신의 엔드포인트 보호 상태 문제 해결**
+- [머신에 Endpoint Protection을 설치해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439)
+- [머신에서 엔드포인트 보호 상태 문제를 해결해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus)가 실행되고 결과가 **AMServiceEnabled: False** 인 경우 Security Center에서는 **“가상 머신에 엔드포인트 보호 솔루션을 설치”** 하는 것이 좋습니다.
+- [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus)가 실행되고 결과가 **AMServiceEnabled: False** 인 경우 **머신에 Endpoint Protection을 설치** 하는 것이 좋습니다.
 
-* [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus)가 실행되고 다음 상황이 발생하는 경우 Security Center에서는 **“머신에서 엔드포인트 보호 성능 상태 문제를 해결”** 하는 것이 좋습니다.
+- [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus)가 실행되고 다음 상황이 발생하는 경우 **머신에서 Endpoint Protection 상태 문제를 해결** 하는 것이 좋습니다.
 
   * 다음 속성은 모두 false입니다.
 
@@ -49,9 +44,9 @@ Azure Security Center는 [지원되는](security-center-services.md#endpoint-sup
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center Endpoint Protection
 
-* **SCEPMpModule("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1")** 을 가져오고 **Get-MProtComputerStatus** 를 실행한 결과가 **AMServiceEnabled = false** 인 경우 Security Center에서는 **“가상 머신에 엔드포인트 보호 솔루션을 설치”** 하는 것이 좋습니다.
+* **SCEPMpModule("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1")** 을 가져오고 **Get-MProtComputerStatus** 를 실행한 결과가 **AMServiceEnabled = false** 인 경우 **머신에 Endpoint Protection을 설치** 하는 것이 좋습니다.
 
-* **Get-MprotComputerStatus** 가 실행되고 다음 상황이 발생하는 경우 Security Center에서는 **“머신에서 엔드포인트 보호 성능 상태 문제를 해결”** 하는 것이 좋습니다.
+* **Get-MprotComputerStatus** 가 실행되고 다음 상황이 발생하는 경우 **머신에서 Endpoint Protection 상태 문제를 해결** 하는 것이 좋습니다.
 
   * 다음 속성 중 하나 이상이 false인 경우:
 
@@ -69,14 +64,14 @@ Azure Security Center는 [지원되는](security-center-services.md#endpoint-sup
 
 ## <a name="trend-micro"></a>Trend Micro
 
-* 다음 검사가 충족되지 않는 경우 Security Center에서는 **“가상 머신에 엔드포인트 보호 솔루션을 설치”** 하는 것이 좋습니다.
+* 다음 검사가 충족되지 않는 경우 **머신에 Endpoint Protection을 설치** 하는 것이 좋습니다.
     - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** 가 있음
     - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** 가 있음
     - **dsa_query.cmd** 파일은 설치 폴더에 있습니다.
     - **dsa_query.cmd** 를 실행하면 **Component.AM.mode: on - Trend Micro Deep Security Agent detected** 가 표시됩니다.
 
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
-다음 검사가 충족되지 않는 경우 Security Center에서는 **“가상 머신에 엔드포인트 보호 솔루션을 설치”** 하는 것이 좋습니다.
+다음 검사가 충족되지 않는 경우 **머신에 Endpoint Protection을 설치** 하는 것이 좋습니다.
 
 - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
@@ -86,7 +81,7 @@ Azure Security Center는 [지원되는](security-center-services.md#endpoint-sup
 - **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 - **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-다음 검사가 충족되지 않는 경우 Security Center에서는 **“머신에서 엔드포인트 보호 성능 상태 문제를 해결”** 하는 것이 좋습니다.
+다음 검사가 충족되지 않는 경우 **머신에서 Endpoint Protection 상태 문제를 해결** 하는 것이 좋습니다.
 
 - Symantec 버전 >= 12 확인: 레지스트리 위치: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 - 실시간 보호 상태 확인: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
@@ -101,12 +96,12 @@ Azure Security Center는 [지원되는](security-center-services.md#endpoint-sup
 
 ## <a name="mcafee-endpoint-protection-for-windows"></a>McAfee Endpoint Protection for Windows
 
-다음 검사가 충족되지 않는 경우 Security Center에서는 **“가상 머신에 엔드포인트 보호 솔루션을 설치”** 하는 것이 좋습니다.
+다음 검사가 충족되지 않는 경우 **머신에 Endpoint Protection을 설치** 하는 것이 좋습니다.
 
 - **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
 - **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-다음 검사가 충족되지 않는 경우 Security Center에서는 **“머신에서 엔드포인트 보호 성능 상태 문제를 해결”** 하는 것이 좋습니다.
+다음 검사가 충족되지 않는 경우 **머신에서 Endpoint Protection 상태 문제를 해결** 하는 것이 좋습니다.
 
 - McAfee 버전: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 - 서명 버전 찾기: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
@@ -115,12 +110,12 @@ Azure Security Center는 [지원되는](security-center-services.md#endpoint-sup
 
 ## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>McAfee Endpoint Security for Linux Threat Prevention 
 
-다음 검사가 충족되지 않는 경우 Security Center에서는 **“가상 머신에 엔드포인트 보호 솔루션을 설치”** 하는 것이 좋습니다.
+다음 검사가 충족되지 않는 경우 **머신에 Endpoint Protection을 설치** 하는 것이 좋습니다.
 
 - **/opt/isec/ens/threatprevention/bin/isecav** 파일이 있음
 - **"/opt/isec/ens/threatprevention/bin/isecav --version"** 출력: **McAfee 이름 = McAfee Endpoint Security for Linux Threat Prevention 및 McAfee 버전 >= 10**
 
-다음 검사가 충족되지 않는 경우 Security Center에서는 **“머신에서 엔드포인트 보호 성능 상태 문제를 해결”** 하는 것이 좋습니다.
+다음 검사가 충족되지 않는 경우 **머신에서 Endpoint Protection 상태 문제를 해결** 하는 것이 좋습니다.
 
 - **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** 는 **빠른 검사, 전체 검사** 와 두 검사 모두 <= 7일을 반환합니다.
 - **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** 는 **DAT 및 엔진 업데이트 시간** 과 두 항목 모두 <= 7일을 반환합니다.
@@ -128,11 +123,11 @@ Azure Security Center는 [지원되는](security-center-services.md#endpoint-sup
 
 ## <a name="sophos-antivirus-for-linux"></a>Sophos Antivirus for Linux 
 
-다음 검사가 충족되지 않는 경우 Security Center에서는 **“가상 머신에 엔드포인트 보호 솔루션을 설치”** 하는 것이 좋습니다.
+다음 검사가 충족되지 않는 경우 **머신에 Endpoint Protection을 설치** 하는 것이 좋습니다.
 - **/opt/sophos-av/bin/savdstatus** 파일이 있거나 사용자 지정 위치 **"readlink $(which savscan)"** 검색
 - **"/opt/sophos-av/bin/savdstatus --version"** 은 Sophos 이름 = **Sophos Anti-Virus 및 Sophos 버전 >= 9** 를 반환합니다.
 
-다음 검사가 충족되지 않는 경우 Security Center에서는 **“머신에서 엔드포인트 보호 성능 상태 문제를 해결”** 하는 것이 좋습니다.
+다음 검사가 충족되지 않는 경우 **머신에서 Endpoint Protection 상태 문제를 해결** 하는 것이 좋습니다.
 - **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"** 은 값을 반환합니다.
 - **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1"은 값을 반환합니다.
 - **"/opt/sophos-av/bin/savdstatus --lastupdate"** 는 lastUpdate를 반환하며 이는 <= 7일이어야 합니다. 

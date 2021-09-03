@@ -2,17 +2,20 @@
 title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure Backup Server를 사용하여 VMware vCenter/ESXi 서버에서 실행 중인 VMware VM을 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/24/2020
-ms.openlocfilehash: 12374393d0f94c567a68f1e28b6479e0747f3d40
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/27/2021
+ms.openlocfilehash: d734b9852da54c13d498cfd4a60caf007735d2f6
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084595"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722589"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
 이 문서에서는 Azure Backup Server(MABS)를 사용하여 VMware ESXi 호스트/vCenter Server에서 실행 중인 VMware VM을 Azure로 백업하는 방법을 설명합니다.
+
+>[!Note]
+>이제 MABS v3 업데이트 롤업 2 릴리스를 사용하여 VMware 7.0 VM도 백업할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -33,6 +36,13 @@ MABS는 VMware 가상 머신을 백업할 때 다음 기능을 제공합니다.
 - MABS는 로컬 디스크, NFS(네트워크 파일 시스템) 또는 클러스터 스토리지에 저장된 VM을 보호합니다.
 - MABS가 부하 분산을 위해 마이그레이션된 VM 보호: VM이 부하 분산을 위해 마이그레이션되면 MABS가 VM을 자동으로 검색하고 VM 보호를 계속합니다.
 - MABS는 전체 VM을 복구하지 않고 Windows VM에서 파일/폴더를 복구할 수 있으므로 필요한 파일을 더 빠르게 복구할 수 있습니다.
+
+## <a name="support-matrix"></a>지원 매트릭스
+
+| MABS 버전 | 백업이 지원되는 VMware VM 버전 |
+| --- | --- |
+| MABS v3 UR2 | VMware 서버 7.0, 6.7, 6.5 또는 6.0(라이선스 버전) |
+| MABS v3 UR1 | VMware 서버 6.7, 6.5, 6.0 또는 5.5(라이선스 버전) |
 
 ## <a name="prerequisites-and-limitations"></a>필수 구성 요소 및 제한 사항
 
@@ -160,7 +170,7 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
 
 다음 표에서 만든 사용자 계정에 할당해야 하는 권한을 확인할 수 있습니다.
 
-| vCenter 6.5 사용자 계정에 대한 권한                          | vCenter 6.7 사용자 계정에 대한 권한                            |
+| vCenter 6.5 사용자 계정에 대한 권한                          | vCenter 6.7 이상 사용자 계정에 대한 권한                            |
 |----------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | Datastore cluster.Configure a datastore cluster                           | Datastore cluster.Configure a datastore cluster                           |
 | Datastore.AllocateSpace                                                    | Datastore.AllocateSpace                                                    |
@@ -401,9 +411,9 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 ## <a name="vmware-parallel-backups"></a>VMware 병렬 백업
 
 >[!NOTE]
-> 이 기능은 MABS V3 UR1에 적용됩니다.
+> 이 기능은 MABS V3 UR1 이상에 적용됩니다.
 
-이전 버전의 MABS에서는 보호 그룹 간에만 병렬 백업이 수행되었습니다. MABS V3 UR1을 사용하면 단일 보호 그룹 내의 모든 VMware VM 백업이 병렬화되어 VM 백업 속도가 빨라집니다. 모든 VMware 델타 복제 작업이 병렬로 실행됩니다. 기본적으로 병렬로 실행할 작업 수는 8로 설정됩니다.
+이전 버전의 MABS에서는 보호 그룹 간에만 병렬 백업이 수행되었습니다. MABS V3 UR1 이상을 사용하면 단일 보호 그룹 내의 모든 VMware VM 백업이 병렬화되어 VM 백업 속도가 빨라집니다. 모든 VMware 델타 복제 작업이 병렬로 실행됩니다. 기본적으로 병렬로 실행할 작업 수는 8로 설정됩니다.
 
 아래 표시된 대로 레지스트리 키를 사용하여 작업 수를 수정할 수 있습니다(기본적으로 표시되지 않으며 추가해야 함).
 
@@ -413,9 +423,9 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 > [!NOTE]
 > 작업 수를 더 높은 값으로 수정할 수 있습니다. 작업 수를 1로 설정하면 복제 작업이 순차적으로 실행됩니다. 더 높은 값으로 설정하려면 VMware 성능을 고려해야 합니다. 사용 중인 리소스의 수와 VMWare vSphere 서버에 필요한 추가 사용을 고려하여 병렬로 실행할 델타 복제 작업 수를 확인합니다. 또한, 변경된 내용은 새로 생성된 보호 그룹에만 적용됩니다. 기존 보호 그룹의 경우 보호 그룹에 다른 VM을 일시적으로 추가해야 합니다. 보호 그룹 구성을 적절하게 업데이트해야 합니다. 절차를 완료한 후 보호 그룹에서 VM을 제거할 수 있습니다.
 
-## <a name="vmware-vsphere-67"></a>VMware vSphere 6.7
+## <a name="vmware-vsphere-67-and-70"></a>VMware vSphere 6.7 및 7.0
 
-vSphere 6.7을 백업하려면 다음을 수행합니다.
+vSphere 6.7과 7.0을 백업하려면 다음을 수행합니다.
 
 - MABS 서버에서의 TLS 1.2 사용 설정
 
@@ -447,9 +457,9 @@ Windows Registry Editor Version 5.00
 ## <a name="exclude-disk-from-vmware-vm-backup"></a>VMware VM 백업에서 디스크 제외
 
 > [!NOTE]
-> 이 기능은 MABS V3 UR1에 적용됩니다.
+> 이 기능은 MABS V3 UR1 이상에 적용됩니다.
 
-MABS V3 UR1을 사용하여 VMware VM 백업에서 특정 디스크를 제외할 수 있습니다. 구성 스크립트 **ExcludeDisk.ps1** 은 `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`에 있습니다.
+MABS V3 UR1 이상을 사용하여 VMware VM 백업에서 특정 디스크를 제외할 수 있습니다. 구성 스크립트 **ExcludeDisk.ps1** 은 `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`에 있습니다.
 
 디스크 제외를 구성하려면 다음 단계를 수행합니다.
 

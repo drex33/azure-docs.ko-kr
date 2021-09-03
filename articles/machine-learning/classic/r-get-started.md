@@ -9,16 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 46cefe1e7f535a066125f368e1c80497a1a28d3f
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 6d0e0fb8f3e179177995ed4cea8cbf42a3c060d7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579777"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691486"
 ---
 # <a name="get-started-with-machine-learning-studio-classic-in-r"></a>R에서 Machine Learning Studio(클래식) 시작
 
 **적용 대상:** ![이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이 문서가 Azure Machine Learning에 적용되지 않음을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
 이 자습서에서는 Machine Learning Studio(클래식)를 사용하여 R 코드를 만들고 테스트하고 실행하는 방법을 알아봅니다. 자습서가 끝나면 완전한 예측 솔루션을 보유하게 됩니다.

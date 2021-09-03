@@ -1,23 +1,23 @@
 ---
-title: Windows Virtual Desktop 설정 파일 공유 MSIX 앱 연결 - Azure
-description: Windows Virtual Desktop에 맞게 MSIX 앱 연결에 대한 파일 공유를 설정하는 방법입니다.
+title: Azure Virtual Desktop 설정 파일 공유 MSIX 앱 연결 - Azure
+description: Azure Virtual Desktop에 맞게 MSIX 앱 연결에 대한 파일 공유를 설정하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 59f2ac4021a4f3ae7d2121d9e96bac96c658485c
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: e0ba3363b6004afb8e42f420fae681b2827106fb
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516941"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707088"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>MSIX 앱 연결에 대한 파일 공유 설정
 
 모든 MSIX 이미지는 읽기 전용 권한이 있는 호스트 풀의 사용자가 액세스할 수 있는 네트워크 공유에 저장되어야 합니다.
 
-MSIX 앱 연결에는 파일 공유에서 사용하는 스토리지 패브릭 유형에 대한 종속성이 없습니다. MSIX 앱 연결 공유에 대한 고려 사항은 FSLogix 공유와 동일합니다. 스토리지 요구 사항에 대한 자세한 내용은 [Windows Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 스토리지 옵션](store-fslogix-profile.md)을 참조하세요.
+MSIX 앱 연결에는 파일 공유에서 사용하는 스토리지 패브릭 유형에 대한 종속성이 없습니다. MSIX 앱 연결 공유에 대한 고려 사항은 FSLogix 공유와 동일합니다. 스토리지 요구 사항에 대한 자세한 내용은 [Azure Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 스토리지 옵션](store-fslogix-profile.md)을 참조하세요.
 
 ## <a name="performance-requirements"></a>성능 요구 사항
 
@@ -35,7 +35,7 @@ MSIX 앱 연결에는 파일 공유에서 사용하는 스토리지 패브릭 �
 
 ### <a name="storage-recommendations"></a>스토리지 권장 사항
 
-Azure는 MISX 앱 연결에 사용할 수 있는 여러 스토리지 옵션을 제공합니다. Azure Files 또는 Azure NetApp Files를 사용하는 것이 좋습니다. 이러한 옵션은 비용과 관리 오버헤드 사이에서 최상의 가치를 제공합니다. [Windows Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 스토리지 옵션](store-fslogix-profile.md) 문서는 Azure에서 제공하는 다른 관리되는 스토리지 솔루션을 Windows Virtual Desktop의 컨텍스트에서 비교합니다.
+Azure는 MISX 앱 연결에 사용할 수 있는 여러 스토리지 옵션을 제공합니다. Azure Files 또는 Azure NetApp Files를 사용하는 것이 좋습니다. 이러한 옵션은 비용과 관리 오버헤드 사이에서 최상의 가치를 제공합니다. [Azure Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 스토리지 옵션](store-fslogix-profile.md) 문서는 Azure에서 제공하는 다른 관리되는 스토리지 솔루션을 Azure Virtual Desktop의 컨텍스트에서 비교합니다.
 
 ### <a name="optimize-msix-app-attach-performance"></a>MSIX 앱 연결 성능 최적화
 
@@ -53,7 +53,7 @@ MSIX 앱 연결 성능을 최적화하기 위해 수행하는 몇 가지 다른 
 
 - FSLogix 프로필 컨테이너에서 MSIX 앱 연결에 대한 스토리지 패브릭을 분리합니다.
 - 모든 VM 시스템 계정 및 사용자 계정에는 파일 공유에 액세스할 수 있는 읽기 전용 권한이 있어야 합니다.
-- Windows Virtual Desktop에 대한 모든 재해 복구 계획은 보조 장애 조치(failover) 위치에 MSIX 앱 연결 파일 공유 복제를 포함해야 합니다. 재해 복구에 대해 자세히 알아보려면 [비즈니스 연속성 및 재해 복구 계획 설정](disaster-recovery.md)을 참조하세요.
+- Azure Virtual Desktop에 대한 모든 재해 복구 계획은 보조 장애 조치(failover) 위치에 MSIX 앱 연결 파일 공유 복제를 포함해야 합니다. 재해 복구에 대해 자세히 알아보려면 [비즈니스 연속성 및 재해 복구 계획 설정](disaster-recovery.md)을 참조하세요.
 
 ## <a name="how-to-set-up-the-file-share"></a>파일 공유를 설정하는 방법
 
@@ -104,7 +104,7 @@ Azure Files에서 MSIX 애플리케이션을 저장하는 경우 세션 호스�
 
 완료되면 다음과 같은 도움이 될 수 있는 몇 가지 다른 리소스를 확인할 수 있습니다.
 
-- [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 이 기능에 대해 질문합니다.
-- [Windows Virtual Desktop 피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)에서 Windows Virtual Desktop에 대한 피드백을 남길 수도 있습니다.
-- [MSIX 앱 연결 용어집](app-attach-glossary.md)
-- [MSIX 앱 연결 FAQ](app-attach-faq.md)
+- [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 이 기능에 대해 커뮤니티에 질문합니다.
+- [Azure Virtual Desktop 피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)에서 Azure Virtual Desktop에 대한 피드백을 남길 수도 있습니다.
+- [MSIX 앱 연결 용어](app-attach-glossary.md)
+- [MSIX 앱 연결 FAQ](app-attach-faq.yml)

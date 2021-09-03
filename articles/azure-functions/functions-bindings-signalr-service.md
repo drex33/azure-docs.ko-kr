@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 9e60fd9a20720d75f96a0b78ee783bd5509a8f90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34460fb0076c4cb666242d996add913cc2b74d22
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97763492"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108642"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
@@ -53,6 +53,10 @@ Java 함수에서 SignalR Service 주석을 사용하려면 *pom.xml* 파일의 
     <version>1.0.0</version>
 </dependency>
 ```
+
+## <a name="connection-string-settings"></a>연결 문자열 설정
+
+연결 문자열을 사용하여 애플리케이션 설정을 가리키는 _host.json_ 파일에 `AzureSignalRConnectionString` 키를 추가합니다. 로컬 개발의 경우 이 값은 _local.settings.json_ 파일에 있을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

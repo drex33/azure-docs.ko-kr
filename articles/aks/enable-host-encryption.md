@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 04/26/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41f0a9beda1c72b778d4f238cc5aa629e10b6d7e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3eb2f0023cbd0bbe36b466ecf4a1380aa20a2c5c
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094279"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531194"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 호스트 기반 암호화
 
@@ -26,9 +26,30 @@ ms.locfileid: "110094279"
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-
 - CLI 확장 v2.23 이상 버전이 설치되어 있는지 확인합니다.
+- `Microsoft.Compute` 아래에 `EncryptionAtHost` 기능 플래그가 사용하도록 설정되어 있는지 확인합니다.
 
+### <a name="register-encryptionathost--preview-features"></a>`EncryptionAtHost` 미리 보기 기능 등록
+
+호스트 기반 암호화를 사용하는 AKS 클러스터를 만들려면 구독에서 `EncryptionAtHost` 기능 플래그를 사용하도록 설정해야 합니다.
+
+다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 `EncryptionAtHost` 기능 플래그를 등록합니다.
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
+```
+
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
+```
+
+준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 `Microsoft.Compute` 리소스 공급자 등록을 새로 고칩니다.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
 
 ### <a name="limitations"></a>제한 사항
 

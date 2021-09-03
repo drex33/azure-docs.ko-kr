@@ -1,7 +1,7 @@
 ---
-title: Blob 인덱서 구성
+title: Azure Blob Storage의 데이터 인덱싱
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에서 전체 텍스트 검색 작업에 대한 Blob 콘텐츠 인덱싱을 자동화하도록 Azure Blob 인덱서를 설정합니다.
+description: Azure Cognitive Search에서 전체 텍스트 검색 작업과 정보 마이닝에 대한 Blob 콘텐츠 인덱싱을 자동화하도록 Azure Blob 인덱서를 설정합니다.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
@@ -9,18 +9,26 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 848ffc1d4352d464a9afb1c65a0a8c60eb3cffa3
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 5c19cfd69352d898c6f47c7256b8433164cd7eb9
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558893"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112982999"
 ---
-# <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Cognitive Search에서 Blob 인덱싱을 구성하는 방법
+# <a name="index-data-from-azure-blob-storage"></a>Azure Blob Storage의 데이터 인덱싱
 
-Blob 인덱서는 Azure Blob Storage에서 Cognitive Search 인덱스로 콘텐츠를 수집하는 데 사용됩니다. Blob 인덱서는 [AI 보강](cognitive-search-concept-intro.md)에서 자주 사용됩니다. AI 보강에서 연결된 [기술 세트](cognitive-search-working-with-skillsets.md)는 이미지 및 자연어 처리를 추가하여 검색 가능한 콘텐츠를 만듭니다. 그러나 AI 보강 없이 Blob 인덱서를 사용하여 PDF, Microsoft Office 문서 및 파일 형식과 같은 텍스트 기반 문서에서 콘텐츠를 수집할 수도 있습니다.
+이 문서에서는 콘텐츠를 추출하고 Azure Cognitive Search에서 검색할 수 있도록 Azure Blob 인덱서를 구성하는 방법을 보여 줍니다. 이 워크플로는 Azure Cognitive Search에 대한 검색 인덱스를 만들고 Azure Blob Storage에서 추출한 기존 콘텐츠 및 메타데이터와 함께 로드합니다.
 
-이 문서에서는 두 시나리오 모두에 대해 Blob 인덱서를 구성하는 방법을 보여 줍니다. 인덱서 개념을 잘 모르는 경우 Blob 인덱싱을 자세히 알아보기 전에 [Azure Cognitive Search의 인덱서](search-indexer-overview.md) 및 [검색 인덱서 만들기](search-howto-create-indexers.md)부터 살펴봅니다.
+Blob 인덱서는 [AI 보강](cognitive-search-concept-intro.md)에서 자주 사용됩니다. AI 보강에서 연결된 [기술 세트](cognitive-search-working-with-skillsets.md)는 이미지 및 자연어 처리를 추가하여 Blob 컨테이너의 검색할 수 없는 콘텐츠 유형에서 검색 가능한 콘텐츠를 만듭니다.
+
+이 문서에서는 텍스트 중심 인덱싱을 위해 Azure Blob 인덱서를 구성하는 방법을 보여 줍니다. 다음 클라이언트를 사용하여 Azure Blob Storage 인덱서를 설정할 수 있습니다.
+
+* [Azure Portal](https://ms.portal.azure.com)
+* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
+
+이 문서에서는 REST API를 사용합니다. 
 
 ## <a name="supported-access-tiers"></a>지원되는 액세스 계층
 
@@ -63,7 +71,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 
 **전체 액세스 스토리지 계정 연결 문자열**: `{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`.
 
-Azure Portal에서 스토리지 계정 블레이드 &gt; 설정 &gt; 키(클래식 스토리지 계정) 또는 설정 &gt; 액세스 키(Azure Resource Manager 스토리지 계정)로 이동하여 연결 문자열을 가져올 수 있습니다.
+Azure Portal에서 스토리지 계정 블레이드 > 설정 > 키(클래식 스토리지 계정) 또는 보안 + 네트워킹 > 액세스 키(Azure Resource Manager 스토리지 계정)로 이동하여 연결 문자열을 가져올 수 있습니다.
 
 **스토리지 계정 공유 액세스 서명**(SAS) 연결 문자열: `{ "connectionString" : "BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl;" }`
 
@@ -299,7 +307,7 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 인덱싱 중에 일반적으로 발생하는 오류에는 지원되지 않는 콘텐츠 형식, 누락된 콘텐츠 또는 크기가 너무 큰 Blob이 포함됩니다.
 
-기본적으로 Blob 인덱서는 지원되지 않는 콘텐츠 형식(예: 이미지)을 포함하는 Blob을 발견하는 즉시 중지됩니다. `excludedFileNameExtensions` 매개 변수를 사용하여 특정 콘텐츠 형식을 건너뛸 수 있습니다. 그러나 오류가 발생한 경우에도 인덱싱을 진행하고, 나중에 개별 문서를 디버그하려고 할 수 있습니다. 인덱서 오류에 대한 자세한 내용은 [일반적인 인덱서 문제 해결](search-indexer-troubleshooting.md) 및 [인덱서 오류 및 경고](cognitive-search-common-errors-warnings.md)를 참조하세요.
+기본적으로 Blob 인덱서는 지원되지 않는 콘텐츠 형식(예: 이미지)을 포함하는 Blob을 발견하는 즉시 중지됩니다. `excludedFileNameExtensions` 매개 변수를 사용하여 특정 콘텐츠 형식을 건너뛸 수 있습니다. 그러나 오류가 발생한 경우에도 인덱싱을 진행하고, 나중에 개별 문서를 디버그하려고 할 수 있습니다. 인덱서 오류에 관한 자세한 내용은 [인덱서 문제 해결 지침](search-indexer-troubleshooting.md)과 [인덱서 오류 및 경고](cognitive-search-common-errors-warnings.md)를 참조하세요.
 
 ### <a name="respond-to-errors"></a>오류에 대응
 

@@ -9,13 +9,13 @@ ms.custom: sqldbrb=1
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma, moslake
-ms.date: 02/09/2021
-ms.openlocfilehash: e0f2ffbb09929a919f90fdec50fe72173af78606
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 07/26/2021
+ms.openlocfilehash: aad6da736bde6a50d3bf0b0164830333823f444b
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411866"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114709757"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>DTU 기반 모델에서 vCore 기반 모델로 Azure SQL Database 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,9 +35,9 @@ vCore 모델에서 마이그레이션된 데이터베이스에 대한 서비스 
 > [!TIP]
 > 규칙에 따라 도출한 값은 DTU 데이터베이스 또는 탄력적 풀에 사용되는 하드웨어 생성을 고려하지 않은 근사치입니다. 
 
-DTU 모델에서는 사용 가능한 모든 [하드웨어 생성](purchasing-models.md#hardware-generations-in-the-dtu-based-purchasing-model)을 데이터베이스 또는 탄력적 풀에 사용할 수 있습니다. 또한 더 높거나 낮은 DTU 또는 eDTU 값을 선택하여 vCore(논리 CPU) 수를 간접적으로 제어할 수 있습니다. 
+DTU 모델에서 시스템은 데이터베이스 또는 탄력적 풀에 대해 사용 가능한 모든 [하드웨어 생성](purchasing-models.md#hardware-generations-in-the-dtu-based-purchasing-model)을 선택할 수 있습니다. 또한 DTU 모델에서 더 높거나 낮은 DTU 또는 eDTU 값을 선택하여 vCore(논리 CPU) 수를 간접적으로 제어할 수 있습니다. 
 
-vCore 모델을 사용하는 경우 고객은 하드웨어 생성과 vCore(논리 CPU) 수를 모두 명시적으로 선택해야 합니다. DTU 모델에서는 해당 선택 항목을 제공하지 않지만, 모든 데이터베이스 및 탄력적 풀에 사용되는 논리 CPU 수와 하드웨어 생성은 동적 관리 보기를 통해 표시됩니다. 이렇게 하면 일치하는 vCore 서비스 목표를 보다 정확하게 확인할 수 있습니다. 
+vCore 모델에서 고객은 하드웨어 생성과 vCore(논리 CPU) 수를 모두 명시적으로 선택해야 합니다. DTU 모델에서는 해당 선택 항목을 제공하지 않지만, 모든 데이터베이스 및 탄력적 풀에 사용되는 논리 CPU 수와 하드웨어 생성은 동적 관리 보기를 통해 표시됩니다. 이렇게 하면 일치하는 vCore 서비스 목표를 보다 정확하게 확인할 수 있습니다. 
 
 다음에서는 해당 정보를 사용하여 vCore 모델로 마이그레이션한 후 비슷한 수준의 성능을 얻을 수 있도록 비슷한 리소스 할당을 통해 vCore 서비스 목표를 결정합니다.
 
@@ -65,7 +65,7 @@ SELECT rg.slo_name,
 FROM sys.dm_user_db_resource_governance AS rg
 CROSS JOIN (SELECT COUNT(1) AS scheduler_count FROM sys.dm_os_schedulers WHERE status = 'VISIBLE ONLINE') AS s
 CROSS JOIN sys.dm_os_job_object AS jo
-WHERE dtu_limit > 0
+WHERE rg.dtu_limit > 0
       AND
       DB_NAME() <> 'master'
       AND
@@ -103,18 +103,18 @@ FROM dtu_vcore_map;
 vCore(논리 CPU) 수와 하드웨어 생성 외에도 몇 가지 다른 요인이 vCore 서비스 목표의 선택에 영향을 줄 수 있습니다.
 
 - 매핑 T-SQL 쿼리는 CPU 용량 측면에서 DTU 및 vCore 서비스 목적과 일치하므로 CPU 바인딩된 작업에 대한 결과는 더욱 정확합니다.
-- 동일한 하드웨어 생성과 동일한 수의 vCore에 대해, vCore 데이터베이스의 IOPS 및 트랜잭션 로그 처리량 리소스는 DTU 데이터베이스 보다 더욱 제한됩니다. IO 바인딩 워크로드의 경우 동일한 수준의 성능을 얻기 위해 vCore 모델에서 vCore 수를 줄일 수 있습니다. DTU 및 vCore 데이터베이스에 대한 리소스 제한은 절대값으로 [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 보기에 표시됩니다. 마이그레이션할 DTU 데이터베이스와 대략적으로 일치하는 서비스 목표를 사용하는 vCore 데이터베이스의 값을 비교하면 vCore 서비스 목표를 보다 정확하게 선택할 수 있습니다.
+- 동일한 하드웨어 생성과 동일한 수의 vCore에 대해, vCore 데이터베이스의 IOPS 및 트랜잭션 로그 처리량 리소스는 DTU 데이터베이스 보다 더욱 제한됩니다. IO 바인딩 워크로드의 경우 동일한 수준의 성능을 얻기 위해 vCore 모델에서 vCore 수를 줄일 수 있습니다. DTU 및 vCore 데이터베이스에 대한 실제 리소스 제한은 [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 뷰에 표시됩니다. 마이그레이션할 DTU 데이터베이스 또는 풀과 대략적으로 일치하는 서비스 목표를 사용하는 vCore 데이터베이스 또는 풀의 값을 비교하면 vCore 서비스 목표를 보다 정확하게 선택할 수 있습니다.
 - 또한 매핑 쿼리는 마이그레이션할 DTU 데이터베이스 또는 탄력적 풀에 대한 코어 당 메모리 양과 vCore 모델의 각 하드웨어 생성을 반환합니다. 데이터 캐시 또는 쿼리 처리에 큰 메모리가 필요한 작업이나 워크로드가 성능을 충분히 발휘하기 위해서는 vCore로 마이그레이션한 후에도 전체 메모리를 유사하거나 더 높게 유지하는 것이 중요합니다. 해당 워크로드의 경우 실제 성능에 따라 충분한 총 메모리를 얻기 위해 vCore 수를 늘려야 할 수 있습니다.
 - vCore 서비스 목표를 선택할 때 DTU 데이터베이스의 [과거 리소스 사용률](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)을 고려해야 합니다. 일관되게 CPU 리소스를 적게 활용하는 DTU 데이터베이스는 매핑 쿼리에서 반환된 수보다 적은 vCore가 필요할 수 있습니다. 이와 대조적으로, 일관되게 CPU 리소스를 많이 사용하는 DTU 데이터베이스는 부적절한 워크로드 성능의 원인이 되어 쿼리에서 반환된 수보다 더 많은 vCore가 필요할 수 있습니다.
-- 간헐적이거나 예측할 수 없는 사용 패턴의 데이터베이스를 마이그레이션하는 경우 [서버리스](serverless-tier-overview.md) 컴퓨팅 계층을 사용하는 것이 좋습니다. 최대 서버리스 동시 작업자(요청된) 수는 구성된 최대 vCore 값과 동일한 수에 대해 75% 한도 내에서 프로비전된 컴퓨팅입니다. 또한 서버리스에서 사용할 수 있는 최대 메모리는 3GB를 구성된 최대 vCore 수에 곱한 값으로, 예를 들면 구성된 최대 vCore가 40일 때 최대 메모리는 120GB가 됩니다.   
+- 간헐적이거나 예측할 수 없는 사용 패턴의 데이터베이스를 마이그레이션하는 경우 [서버리스](serverless-tier-overview.md) 컴퓨팅 계층을 사용하는 것이 좋습니다. 최대 서버리스 동시 작업자(요청된) 수는 구성된 최대 vCore 값과 동일한 수에 대해 75% 한도 내에서 프로비전된 컴퓨팅입니다. 또한 서버리스에서 사용 가능한 최대 메모리는 구성된 최대 vCore 수의 3GB로 프로비저닝된 컴퓨팅의 코어당 메모리보다 낮습니다. 예를 들어, Gen5에서 최대 메모리는 40개의 vCore가 서버리스로 구성된 경우 120GB이고 40개의 vCore 프로비저닝된 컴퓨팅의 경우 204GB입니다.
 - vCore 모델에서 지원되는 최대 데이터베이스 크기는 하드웨어 생성에 따라 다를 수 있습니다. 대량 데이터베이스의 경우 [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대한 vCore 모델에서 지원되는 최대 크기를 확인합니다.
 - 탄력적 풀의 경우 [DTU](resource-limits-dtu-elastic-pools.md) 및 [vCore](resource-limits-vcore-elastic-pools.md) 모델은 풀 당 지원되는 최대 데이터베이스 수에 차이가 있습니다. 여러 데이터베이스로 탄력적 풀을 마이그레이션할 때 해당 차이를 고려해야 합니다.
-- 일부 하드웨어 생성은 하위 지역에 따라 지원되지 않을 수 있습니다. [SQL Database용 하드웨어 생성](./service-tiers-sql-database-vcore.md#hardware-generations) 또는 [SQL Managed Instance용 하드웨어 생성](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations)에서 가용성을 확인하세요.
+- 일부 하드웨어 생성은 하위 지역에 따라 지원되지 않을 수 있습니다. [SQL Database에 대한 하드웨어 생성](./service-tiers-sql-database-vcore.md#hardware-generations)에서 가용성을 확인하세요.
 
 > [!IMPORTANT]
 > 위의 DTU에서 vCore 크기 조정 지침은 대상 데이터베이스 서비스 목표를 초기 예측하는 데 도움이 됩니다.
 >
-> 대상 데이터베이스에 대한 최적의 구성은 워크로드에 따라 달라집니다. 따라서 마이그레이션 후 최적의 가격/성능 비율을 얻기 위해 vCore 모델의 유연성을 활용하여 vCore, 하드웨어 생성, 서비스 및 컴퓨팅 계층의 수를 조정하며, [최대 병렬 처리 수준](/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing)과 같은 다른 데이터베이스 구성 매개 변수 조정을 필요로 할 수 있습니다.
+> 대상 데이터베이스에 대한 최적의 구성은 워크로드에 따라 달라집니다. 따라서 마이그레이션 후 최적의 가격/성능 비율을 달성하려면 vCore 모델의 유연성을 활용하여 vCore 수, 하드웨어 생성, 서비스 및 컴퓨팅 계층을 조정해야 할 수 있습니다. 또한 [최대 병렬 처리 수준](configure-max-degree-of-parallelism.md)과 같은 데이터베이스 구성 매개 변수를 조정하거나 데이터베이스 엔진의 최근 개선 사항을 사용하도록 데이터베이스 [호환성 수준](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)을 변경해야 할 수도 있습니다.
 > 
 
 ### <a name="dtu-to-vcore-migration-examples"></a>DTU에서 vCore로의 마이그레이션 예제
@@ -198,7 +198,7 @@ DTU 기반 모델에서 vCore 기반 모델로 마이그레이션하는 것은 �
 
 ## <a name="use-database-copy-to-migrate-from-dtu-to-vcore"></a>데이터베이스 복사본을 사용하여 DTU에서 vCore로 마이그레이션
 
-대상 컴퓨팅 크기가 원본 데이터베이스의 최대 데이터베이스 크기를 지원하는 경우 제한 또는 특별한 순서 지정 없이 DTU 기반 컴퓨팅 크기의 데이터베이스를 vCore 기반 컴퓨팅 크기의 데이터베이스에 복사할 수 있습니다. 데이터베이스 복사본은 복사 작업을 시작할 때 데이터의 스냅샷을 만들고 원본 데이터와 대상 데이터를 동기화하지 않습니다.
+대상 컴퓨팅 크기가 원본 데이터베이스의 최대 데이터베이스 크기를 지원하는 경우 제한 또는 특별한 순서 지정 없이 DTU 기반 컴퓨팅 크기의 데이터베이스를 vCore 기반 컴퓨팅 크기의 데이터베이스에 복사할 수 있습니다. 데이터베이스 복사본은 복사 작업이 시작한 후의 시점으로 데이터의 트랜잭션 일치 스냅샷을 만듭니다. 해당 시점 이후에는 원본과 대상 간에 데이터를 동기화하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,13 +3,13 @@ title: Azure Portal을 사용하여 VM 복원
 description: 지역 간 복원 기능을 포함한 Azure Portal을 사용하여 복구 지점에서 Azure 가상 머신을 복원합니다.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 05/01/2021
-ms.openlocfilehash: 26efe6cafc5829cedcb7bb74f8ea796256d45d10
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/06/2021
+ms.openlocfilehash: 75320c54c9496b1c978fdabb8a0a7560087f777c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966795"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528788"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원하는 방법
 
@@ -120,6 +120,9 @@ VM을 복원(새 VM 만들기)하려면 VM 복원 작업에 대한 올바른 Azu
 1. **복원** 에서 **템플릿 배포** 를 선택하여 템플릿 배포를 시작합니다.
 
     ![복원 작업 드릴 다운](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
+   
+   >[!Note]
+   >**스토리지 계정 키 액세스 허용** 이 사용되지 않는 SAS(공유 액세스 서명)의 경우 **템플릿 배포** 를 선택하면 템플릿이 배포되지 않습니다.
 
 1. 템플릿에 제공된 VM 설정을 사용자 지정하려면 **템플릿 편집** 을 선택합니다. 사용자 지정을 추가하려면 **매개 변수 편집** 을 선택합니다.
     - 사용자 지정 템플릿에서 리소스를 배포하는 방법에 대해 [자세히 알아보세요](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
@@ -227,6 +230,51 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 **단일 포리스트에 여러 도메인 복원** | [포리스트 복구](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)를 사용하는 것이 좋습니다.
 
 자세한 내용은 [Active Directory 도메인 컨트롤러 백업 및 복원](active-directory-backup-restore.md)을 참조하세요.
+
+## <a name="restore-vms-with-managed-identities"></a>관리 ID를 통해 VM 복원
+
+관리 ID를 사용하면 사용자가 자격 증명을 유지할 필요가 없습니다. 관리 ID는 Azure AD(Azure Active Directory) 인증을 지원하는 리소스에 연결할 때 사용할 애플리케이션의 ID를 제공합니다.  
+
+Azure Backup은 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 관리되는 Azure VM을 복원할 수 있는 유연성을 제공합니다. 아래 그림과 같이 [시스템 관리 ID](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 또는 사용자 관리 ID를 선택할 수 있습니다. 이는 Azure VM의 [**구성 복원** 블레이드](#create-a-vm)에서 입력 매개 변수 중 하나로 도입되었습니다. 입력 매개 변수 중 하나로 사용되는 관리 ID는 스토리지 계정에 액세스하는 데만 사용되며, 다른 Azure 리소스 제어가 아니라 복원 중에 준비 위치로 사용됩니다. 이러한 관리 ID는 자격 증명 모음에 연결되어야 합니다.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-system-managed-identities-or-user-managed-identities.png" alt-text="시스템 관리 ID 또는 사용자 관리 ID의 선택을 보여 주는 스크린샷":::
+
+시스템이 할당한 또는 사용자가 할당한 관리 ID를 선택하려는 경우 대상 준비 스토리지 계정에서 관리 ID에 대해 아래 작업을 확인합니다.
+
+```json
+"permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+                ],
+                "notDataActions": []
+            }
+```
+
+또는 성공적인 복원 작업을 위한 [스토리지 계정 백업 기여자](./blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts) 및 [스토리지 Blob 데이터 기여자](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)를 둘 수 있도록 준비 위치(스토리지 계정)에 역할 할당을 추가합니다.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/add-role-assignment-on-staging-location.png" alt-text="스테이징 위치에 역할 할당을 추가하는 스크린샷.":::
+
+아래 그림에 제공된 대로 MSI 리소스 ID로 입력을 제공하여 [사용자 관리 ID](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 선택할 수도 있습니다.   
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-user-managed-identity-by-providing-input-as-msi-resource-id.png" alt-text="MSI 리소스 ID로 입력을 제공하여 사용자 관리 ID를 선택하는 스크린샷":::
+
+>[!Note]
+>지원은 관리되는 VM에만 사용할 수 있으며, 클래식 VM 및 관리되지 않는 VM은 지원되지 않습니다. [방화벽으로 제한된 스토리지 계정](../storage/common/storage-network-security.md?tabs=azure-portal)의 경우 시스템 MSI만 지원됩니다.
+>
+>지역 간 복원은 관리 ID에서 지원되지 않습니다.
+>
+>현재 모든 Azure 퍼블릭 및 국가별 클라우드 지역에서 사용할 수 있습니다.
 
 ## <a name="track-the-restore-operation"></a>복원 작업 추적
 

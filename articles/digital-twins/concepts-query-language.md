@@ -4,24 +4,24 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 쿼리 언어의 기본 사항을 이해합니다.
 author: baanders
 ms.author: baanders
-ms.date: 4/22/2021
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8a5a092da37b453b719669109bd4924b032c0604
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 00bc85b06bd734a075ff9a9ca2baf3fe58e95623
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616226"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530474"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Azure Digital Twins 쿼리 언어 정보
 
 Azure Digital Twins의 중심은 디지털 트윈과 관계로 생성된 [트윈 그래프](concepts-twins-graph.md)입니다. 
 
-이 그래프를 쿼리하여 포함된 디지털 트윈과 관계에 대한 정보를 확인할 수 있습니다. 이러한 쿼리는 **Azure Digital Twins 쿼리 언어** 라고도 하는 SQL 같은 사용자 지정 쿼리 언어로 작성합니다. 이는 많은 유사한 기능을 갖춘 [IoT Hub 쿼리 언어](../iot-hub/iot-hub-devguide-query-language.md)와 비슷합니다.
+이 그래프를 쿼리하여 포함된 디지털 트윈과 관계에 대한 정보를 확인할 수 있습니다. 이러한 쿼리는 **Azure Digital Twins 쿼리 언어** 라고도 하는 SQL 같은 사용자 지정 쿼리 언어로 작성합니다. 이 언어는 많은 유사한 기능을 갖춘 [IoT Hub 쿼리 언어](../iot-hub/iot-hub-devguide-query-language.md)와 비슷합니다.
 
-이 문서에서는 쿼리 언어 및 해당 기능에 대한 기본 사항을 설명합니다. 쿼리 구문에 대한 자세한 예와 쿼리 요청을 실행하는 방법은 [방법: 트윈 그래프 쿼리](how-to-query-graph.md)를 참조하세요.
+이 문서에서는 쿼리 언어 및 해당 기능에 대한 기본 사항을 설명합니다. 쿼리 구문에 대한 자세한 예와 쿼리 요청을 실행하는 방법은 [트윈 그래프 쿼리](how-to-query-graph.md)를 참조하세요.
 
 ## <a name="about-the-queries"></a>쿼리 정보
 
@@ -47,4 +47,4 @@ Azure Digital Twins에 대한 쿼리를 작성하는 경우 다음 고려 사항
 
 ## <a name="next-steps"></a>다음 단계
 
-[방법: 트윈 그래프 쿼리](how-to-query-graph.md)에서 쿼리를 작성하는 방법을 알아보고 클라이언트 코드 예를 확인하세요.
+[트윈 그래프 쿼리](how-to-query-graph.md)에서 쿼리를 작성하는 방법을 알아보고 클라이언트 코드 예를 확인하세요.

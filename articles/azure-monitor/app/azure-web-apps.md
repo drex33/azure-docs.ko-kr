@@ -2,21 +2,21 @@
 title: Azure App Services 성능 모니터링 | Microsoft Docs
 description: Azure App Services에 대한 애플리케이션 성능 모니터링입니다. 차트 로드 및 응답 시간, 종속성 정보, 성능에 관해 설정된 경고입니다.
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-dotnet, devx-track-azurepowershell
-ms.openlocfilehash: 5557031080ddb7d625cc31be48c496bcbf30b7b4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9fac3e79b62a1f354b4120afc965e331b0185e98
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967179"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539102"
 ---
 # <a name="application-monitoring-for-azure-app-service"></a>Azure App Service에 대한 애플리케이션 모니터링
 
 이제 [Azure App Services](../../app-service/index.yml)에서 실행되는 ASP.NET, ASP.NET Core, Java, Node.js 기반 웹 애플리케이션에 대한 모니터링을 사용하도록 설정하는 것이 훨씬 쉬워졌습니다. 이전에는 수동으로 앱을 계측해야 했지만 이제 최신 확장/에이전트가 기본적으로 App Service 이미지에 기본 제공됩니다. 이 문서에서는 Azure Monitor Application Insights 모니터링을 사용하도록 설정하는 과정을 안내하고 대규모 배포 프로세스를 자동화하기 위한 예비 지침을 제공합니다.
 
 > [!NOTE]
-> Windows의 .Net에만 해당: **개발 도구** > **확장** 을 통해 Application Insights 사이트 확장을 수동으로 추가하는 기능은 더 이상 사용되지 않습니다. 이 확장 설치 방법은 각 새 버전의 수동 업데이트에 따라 달랐습니다. 확장의 안정적인 최신 릴리스는 이제 App Service 이미지의 일부로  [미리 설치](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)됩니다. 파일은 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`에 있으며 각 안정적인 릴리스로 자동 업데이트됩니다. 에이전트 기반 지침에 따라 아래 모니터링을 사용하는 경우 사용되지 않는 확장이 자동으로 제거됩니다.
+> Windows의 .NET에만 해당: **개발 도구** > **확장** 을 통해 Application Insights 사이트 확장을 수동으로 추가하는 기능은 더 이상 사용되지 않습니다. 이 확장 설치 방법은 각 새 버전의 수동 업데이트에 따라 달랐습니다. 확장의 안정적인 최신 릴리스는 이제 App Service 이미지의 일부로  [미리 설치](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)됩니다. 파일은 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`에 있으며 각 안정적인 릴리스로 자동 업데이트됩니다. 에이전트 기반 지침에 따라 아래 모니터링을 사용하는 경우 사용되지 않는 확장이 자동으로 제거됩니다.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
@@ -27,31 +27,34 @@ Azure App Services 호스트된 애플리케이션에 대해 애플리케이션 
 
 * Application Insights SDK를 설치하여 **코드를 통해 애플리케이션을 수동으로 계측** 합니다.
 
-    * 이 접근 방식은 사용자 지정 가능성이 훨씬 더 높지만 [Application Insights SDK NuGet 패키지에 대한 종속성을 추가](./asp-net.md)해야 합니다. 또한 이 방법은 최신 버전의 패키지에 대한 업데이트를 직접 관리해야 함을 의미합니다.
+    * 이 방식은 훨씬 더 사용자 지정이 가능하지만 다음 방식이 필요합니다. [.NET Core용](./asp-net-core.md) SDK, [.NET](./asp-net.md), [Node.js](./nodejs.md), [Python](./opencensus-python.md) 및 [Java](./java-in-process-agent.md)용 독립형 에이전트. 또한 이 방법은 최신 버전의 패키지에 대한 업데이트를 직접 관리해야 함을 의미합니다.
 
-    * 에이전트 기반 모니터링을 사용하여 기본적으로 캡처되지 않는 이벤트/종속성을 추적하기 위해 사용자 지정 API 호출을 수행해야 하는 경우 이 방법을 사용해야 합니다. 자세한 내용은 [사용자 지정 이벤트 및 메트릭용 API 문서](./api-custom-events-metrics.md)를 확인하세요. 이 옵션은 현재 Linux 기반 워크로드에 대해 유일하게 지원되는 옵션입니다.
+    * 에이전트 기반 모니터링을 사용하여 기본적으로 캡처되지 않는 이벤트/종속성을 추적하기 위해 사용자 지정 API 호출을 수행해야 하는 경우 이 방법을 사용해야 합니다. 자세한 내용은 [사용자 지정 이벤트 및 메트릭용 API 문서](./api-custom-events-metrics.md)를 확인하세요. 
 
 > [!NOTE]
-> 에이전트 기반 모니터링과 수동 SDK 기반 계측이 둘 다 검색된 경우에는 수동 계측 설정만 적용됩니다. 이를 통해 중복 데이터가 전송되는 것을 방지합니다. 이 기능에 관한 자세한 내용은 아래 [문제 해결 섹션](#troubleshooting)을 확인하세요.
+> 에이전트 기반 모니터링과 수동 SDK 기반 계측이 모두 감지되면 .NET에서는 수동 계측 설정만 적용되는 반면 Java에서는 에이전트 기반 계측만 원격 분석을 내보냅니다. 이를 통해 중복 데이터가 전송되는 것을 방지합니다. 이 기능에 관한 자세한 내용은 아래 [문제 해결 섹션](#troubleshooting)을 확인하세요.
+
+> [!NOTE]
+> 스냅샷 디버거 및 프로파일러는 .NET 및 .Net Core에서만 사용할 수 있습니다.
 
 ## <a name="enable-agent-based-monitoring"></a>에이전트 기반 모니터링 사용
 
 # <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 > [!NOTE]
-> APPINSIGHTS_JAVASCRIPT_ENABLED 및 urlCompression의 조합은 지원되지 않습니다. 자세한 내용은 [문제 해결 섹션](#troubleshooting)의 설명을 참조하세요.
-
+> APPINSIGHTS_JAVASCRIPT_ENABLED 및 urlCompression의 조합은 지원되지 않습니다. 자세한 내용은 [문제 해결 섹션](#appinsights_javascript_enabled-and-urlcompression-is-not-supported)의 설명을 참조하세요.
 
 1. App Service의 Azure 제어판에서 **Application Insights를 선택** 합니다.
 
     ![설정에서 Application Insights 선택](./media/azure-web-apps/settings-app-insights-01.png)
 
-   * 이 애플리케이션에 대한 Application Insights 리소스를 설정하지 않은 경우 새 리소스 만들기를 선택합니다. 
+   * 새 리소스를 만들도록 선택하거나 이 애플리케이션에 대한 기존 Application Insights 리소스를 선택합니다. 
 
-     > [!NOTE]
-     > **확인** 을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용** 할지 묻는 메시지가 표시됩니다. **계속** 을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거** 됩니다. 
+    > [!NOTE]
+    > **확인** 을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용** 할지 묻는 메시지가 표시됩니다. **계속** 을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거** 됩니다. 
 
-     ![웹앱 계측](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![웹앱 계측](./media/azure-web-apps/ai-create-new.png)
 
 2. 사용할 리소스를 지정한 후 Application Insights에서 애플리케이션에 대한 플랫폼별 데이터를 수집하는 방법을 선택할 수 있습니다. ASP.NET 앱 모니터링은 기본적으로 두 가지 수준의 수집을 사용하여 설정됩니다.
 
@@ -75,31 +78,55 @@ Azure App Services 호스트된 애플리케이션에 대해 애플리케이션 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
+### <a name="windows"></a>Windows
 > [!IMPORTANT]
-> ASP.NET Core 2.1, 3.1, 5.0 버전이 지원됩니다. 버전 2.0, 2.2, 3.0은 사용 중지되었으며 더 이상 지원되지 않습니다. 자동 계측을 사용하려면 .NET Core의 [지원되는 버전](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)으로 업그레이드하세요.
+> Windows에서 자동 계측을 위해 지원되는 ASP.NET Core 버전은 ASP.NET Core 3.1 및 5.0입니다. 버전 2.0, 2.1, 2.2, 3.0은 사용 중지되었으며 더 이상 지원되지 않습니다. 자동 계측을 사용하려면 .NET Core의 [지원되는 버전](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)으로 업그레이드하세요.
 
-ASP.NET Core, 자체 포함된 배포, Linux 기반 애플리케이션에서 전체 프레임워크를 대상으로 지정하는 기능은 현재 에이전트/확장 기반 모니터링에서 **지원되지 않습니다**. 코드를 통한 [수동 계측](./asp-net-core.md)은 모든 이전 시나리오에서 작동합니다.
+
+ASP.NET Core에서 전체 프레임워크를 대상으로 지정하는 것은 Windows에서 **지원되지 않습니다**. 대신 코드를 통한 [수동 계측](./asp-net-core.md)을 사용합니다.
+
+Windows에서는 프레임워크 종속 배포만 지원됩니다.
+
+App Service 리소스로 Application Insights 설정을 시작하려면 아래의 [모니터링 사용 섹션](#enable-monitoring )을 참조하세요. 
+
+### <a name="linux"></a>Linux 
+
+> [!IMPORTANT]
+> Linux의 자동 계측에는 ASP.NET Core 6.0(미리 보기)만 지원됩니다.
+
+> [!NOTE]
+> Linux 자동 계측 App Services 포털 사용은 공개 미리 보기 상태입니다. 이러한 미리 보기 버전은 서비스 수준 계약 없이 제공됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+
+ASP.NET Core에서 전체 프레임워크를 대상으로 지정하는 것은 Linux에서 **지원되지 않습니다**. 대신 코드를 통한 [수동 계측](./asp-net-core.md)을 사용합니다.
+
+ Linux에서는 프레임워크 종속 배포 및 자체 포함 배포가 지원됩니다. 
+
+App Service 리소스로 Application Insights 설정을 시작하려면 아래의 [모니터링 사용 섹션](#enable-monitoring )을 참조하세요. 
+
+### <a name="enable-monitoring"></a>모니터링 사용 
 
 1. App Service의 Azure 제어판에서 **Application Insights를 선택** 합니다.
 
     ![설정에서 Application Insights 선택](./media/azure-web-apps/settings-app-insights-01.png)
 
-   * 이 애플리케이션에 대한 Application Insights 리소스를 설정하지 않은 경우 새 리소스 만들기를 선택합니다. 
+   * 새 리소스를 만들도록 선택하거나 이 애플리케이션에 대한 기존 Application Insights 리소스를 선택합니다.
 
-     > [!NOTE]
-     > **확인** 을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용** 할지 묻는 메시지가 표시됩니다. **계속** 을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거** 됩니다. 
+    > [!NOTE]
+    > **확인** 을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용** 할지 묻는 메시지가 표시됩니다. **계속** 을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거** 됩니다. 
 
-    ![웹앱 계측](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![웹앱 계측](./media/azure-web-apps/ai-create-new.png)
 
-2. 사용할 리소스를 지정한 후 Application Insights에서 애플리케이션에 대한 플랫폼별 데이터를 수집하는 방법을 선택할 수 있습니다. ASP.NET Core는 ASP.NET Core 2.1 및 3.1에 대해 **권장 수집** 또는 **사용 안 함** 을 제공합니다.
+2. 사용할 리소스를 지정한 후 Application Insights에서 애플리케이션에 대한 플랫폼별 데이터를 수집하는 방법을 선택할 수 있습니다. ASP.NET Core는 ASP.NET Core 3.1에 대해 **권장 수집** 또는 **사용 안 함** 을 제공합니다.
 
     ![플랫폼별 옵션을 선택합니다.](./media/azure-web-apps/choose-options-new-net-core.png)
 
+
+
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-Windows 에이전트 기반 모니터링은 지원되지 않습니다. Linux에서 사용하려면 [Node.js App Service 설명서](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights)를 참조하세요.
-
-몇 가지 간단한 단계를 수행하여 코드를 변경하지 않고도 Azure App Service에서 실행되는 Node.js 앱을 모니터링할 수 있습니다. Node.js용 Application Insights 애플리케이션은 코드 기반 및 사용자 지정 컨테이너의 경우 둘 다 App Service on Linux와 통합되고 코드 기반 앱의 경우 App Service on Windows와 통합됩니다. 통합은 퍼블릭 미리 보기 상태입니다. 통합은 GA에 있는 Node.js SDK를 추가합니다. 
+몇 가지 간단한 단계를 수행하여 코드를 변경하지 않고도 Azure App Service에서 실행되는 Node.js 앱을 모니터링할 수 있습니다. Node.js용 Application Insights 애플리케이션은 코드 기반 및 사용자 지정 컨테이너의 경우 둘 다 App Service on Linux와 통합되고 코드 기반 앱의 경우 App Service on Windows와 통합됩니다.
 
 1. App Service의 Azure 제어판에서 **Application Insights를 선택** 합니다.
 
@@ -108,33 +135,37 @@ Windows 에이전트 기반 모니터링은 지원되지 않습니다. Linux에�
 
    * 이 애플리케이션에 대한 Application Insights 리소스를 설정하지 않은 경우 새 리소스 만들기를 선택합니다. 
 
-     > [!NOTE]
-     > **확인** 을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용** 할지 묻는 메시지가 표시됩니다. **계속** 을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거** 됩니다. 
+    > [!NOTE]
+    > **확인** 을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용** 할지 묻는 메시지가 표시됩니다. **계속** 을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거** 됩니다. 
 
-    ![웹앱을 계측합니다.](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![웹앱을 계측합니다.](./media/azure-web-apps/ai-create-new.png)
 
 2. 사용할 리소스를 지정하면 모두 준비된 것입니다. 
 
     > [!div class="mx-imgBorder"]
     > ![플랫폼별 옵션을 선택합니다.](./media/azure-web-apps/app-service-node.png)
 
+
+
 # <a name="java"></a>[Java](#tab/java)
 
-코드를 변경할 필요 없이 한 번 클릭만으로 Azure App Service에서 실행되는 Java 앱의 모니터링을 켤 수 있습니다. Java용 Application Insights는 코드 기반 및 사용자 지정 컨테이너의 경우 둘 다 App Service on Linux와 통합되고 코드 기반 앱의 경우 App Service on Windows와 통합됩니다. 통합은 퍼블릭 미리 보기 상태입니다. 애플리케이션을 모니터링하는 방법을 알고 있어야 합니다. 통합은 GA에 있는 [Application Insights Java 3.0](./java-in-process-agent.md)을 추가합니다. 자동으로 수집되는 모든 원격 분석을 가져옵니다.
+코드를 변경할 필요 없이 한 번 클릭만으로 Azure App Service에서 실행되는 Java 앱의 모니터링을 켤 수 있습니다. Java용 Application Insights는 코드 기반 및 사용자 지정 컨테이너의 경우 둘 다 App Service on Linux와 통합되고 코드 기반 앱의 경우 App Service on Windows와 통합됩니다. 애플리케이션을 모니터링하는 방법을 알고 있어야 합니다. 통합에서 [Application Insights Java 3.x](./java-in-process-agent.md)를 추가하면 자동 수집하는 모든 원격 분석을 가져올 수 있습니다.
 
 1. App Service의 Azure 제어판에서 **Application Insights를 선택** 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![설정에서 Application Insights를 선택합니다.](./media/azure-web-apps/ai-enable.png)
 
-   * 이 애플리케이션에 대해 Application Insights 리소스를 설정하지 않은 경우 새 리소스 만들기를 선택합니다. 
+   * 새 리소스를 만들도록 선택하거나 이 애플리케이션에 대한 기존 Application Insights 리소스를 선택합니다.
 
-     > [!NOTE]
-     > **확인** 을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용** 할지 묻는 메시지가 표시됩니다. **계속** 을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거** 됩니다. 
+    > [!NOTE]
+    > **확인** 을 클릭하여 새 리소스를 만들 경우 **모니터링 설정을 적용** 할지 묻는 메시지가 표시됩니다. **계속** 을 선택하면 새 Application Insights 리소스가 App Service에 연결됩니다. 또한 이로 인해 **App Service 다시 시작이 트리거** 됩니다. 
 
-    ![웹앱을 계측합니다.](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![웹앱을 계측합니다.](./media/azure-web-apps/ai-create-new.png)
 
-2. 사용할 리소스를 지정한 후 Java 에이전트를 구성할 수 있습니다. 전체 [구성 세트](./java-standalone-config.md)를 사용할 수 있습니다. 연결 문자열을 지정하지 않고 유효한 json 파일을 붙여넣으면 됩니다. 연결할 Application Insights 리소스를 이미 선택했습니다. 
+2. 이 단계는 필요 하지 않습니다. 사용할 리소스를 지정한 후 Java 에이전트를 구성할 수 있습니다. Java 에이전트를 구성하지 않으면 기본 구성이 적용됩니다. 전체 [구성 집합](./java-standalone-config.md)을 사용할 수 있으며 유효한 json 파일을 붙여넣기만 하면 됩니다. 미리 보기에 있는 연결 문자열 및 구성을 제외합니다. 일반적으로 사용할 수 있게 되면 추가할 수 있습니다.
 
     > [!div class="mx-imgBorder"]
     > ![플랫폼별 옵션을 선택합니다.](./media/azure-web-apps/create-app-service-ai.png)
@@ -201,7 +232,7 @@ Application Insights를 통해 원격 분석 컬렉션을 사용하도록 설정
 
 |앱 설정 이름 |  정의 | 값 |
 |-----------------|:------------|-------------:|
-|ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어하는 기본 확장입니다. | `~2` |
+|ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어하는 기본 확장입니다. | Windows의 경우 `~2` 또는 Linux의 경우 `~3` |
 |XDT_MicrosoftApplicationInsights_Mode |  기본 모드에서는 최적 성능을 보장하기 위해 필수 기능만 사용됩니다. | `default` 또는 `recommended` |
 |InstrumentationEngine_EXTENSION_VERSION | 이진 다시 쓰기 엔진 `InstrumentationEngine`을 켤지 여부를 제어합니다. 이 설정은 성능에 영향을 주며 콜드 부팅/시작 시간에 영향을 줍니다. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | SQL 및 Azure 테이블 텍스트를 종속성 호출과 함께 캡처할지 여부를 제어합니다. 성능 경고: 애플리케이션 콜드 부팅 작동 시간이 영향을 받습니다. 이 설정에는 `InstrumentationEngine`이 필요합니다. | `~1` |
@@ -360,7 +391,7 @@ $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable t
 $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
 
-## <a name="upgrade-monitoring-extensionagent"></a>모니터링 확장/에이전트 업그레이드
+## <a name="upgrade-monitoring-extensionagent---net"></a>모니터링 확장/에이전트 업그레이드 - .NET 
 
 ### <a name="upgrading-from-versions-289-and-up"></a>버전 2.8.9 이상에서 업그레이드
 
@@ -385,28 +416,31 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 ## <a name="troubleshooting"></a>문제 해결
 
+### <a name="aspnet-and-aspnet-core"></a>ASP.NET 및 ASP.NET CORE
+
 다음은 Azure App Services에서 실행되는 ASP.NET 및 ASP.NET Core 기반 애플리케이션의 확장/에이전트 기반 모니터링에 관한 단계별 문제 해결 가이드입니다.
 
-
-1. `ApplicationInsightsAgent`를 통해 애플리케이션이 모니터링되는지 확인합니다.
-    * `ApplicationInsightsAgent_EXTENSION_VERSION` 앱 설정이 “~2” 값으로 설정되어 있는지 확인합니다.
-2. 애플리케이션이 모니터링하기 위한 요구 사항을 충족하는지 확인합니다.
-    * `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`으로 이동
+#### <a name="windows-troubleshooting"></a>Windows 문제 해결 
+1. `ApplicationInsightsAgent_EXTENSION_VERSION` 앱 설정이 “~2” 값으로 설정되어 있는지 확인합니다.
+2. [https://www.microsoft.com]\(`https://yoursitename.scm.azurewebsites.net/ApplicationInsights`) 로 이동합니다.  
 
     ![https://yoursitename.scm.azurewebsites/applicationinsights 결과 페이지의 스크린샷](./media/azure-web-apps/app-insights-sdk-status.png)
+    
+    - `Application Insights Extension Status`가 `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.`인지 확인합니다. 
+    
+         실행되고 있지 않으면 [Application Insights 모니터링 사용 지침](#enable-application-insights)을 따릅니다.
 
-    * `Application Insights Extension Status`가 `Pre-Installed Site Extension, version 2.8.12.1527, is running.`인지 확인합니다. 
-    * 실행되고 있지 않으면 [Application Insights 모니터링 사용 지침](#enable-application-insights)을 따릅니다.
+    - 상태 원본이 존재하고 다음과 같이 표시되는지 확인합니다. `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
 
-    * 상태 원본이 존재하고 다음과 같이 표시되는지 확인합니다. `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
-        * 유사한 값이 없는 경우에는 애플리케이션이 현재 실행되고 있지 않거나 지원되지 않음을 의미합니다. 애플리케이션이 실행되고 있는지 확인하려면 런타임 정보가 제공될 수 있도록 애플리케이션 URL/애플리케이션 엔드포인트를 수동으로 방문해 봅니다.
+         유사한 값이 없는 경우에는 애플리케이션이 현재 실행되고 있지 않거나 지원되지 않음을 의미합니다. 애플리케이션이 실행되고 있는지 확인하려면 런타임 정보가 제공될 수 있도록 애플리케이션 URL/애플리케이션 엔드포인트를 수동으로 방문해 봅니다.
 
-    * `IKeyExists`가 `true`인지 확인
-        * `false`인 경우 ikey guid를 사용하여 애플리케이션 설정에 `APPINSIGHTS_INSTRUMENTATIONKEY` 및 `APPLICATIONINSIGHTS_CONNECTION_STRING`을 추가합니다.
+    - `IKeyExists`가 `true`인지 확인합니다. `false`인 경우 ikey guid를 사용하여 애플리케이션 설정에 `APPINSIGHTS_INSTRUMENTATIONKEY` 및 `APPLICATIONINSIGHTS_CONNECTION_STRING`을 추가합니다.
 
-    * `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly`, `AppContainsAspNetTelemetryCorrelationAssembly`에 해당하는 항목이 없는지 확인합니다.
-        * 해당 항목이 있는 경우 애플리케이션에서 `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation` 패키지를 제거합니다.
-        * ASP.NET Core 앱에만 해당: 애플리케이션이 Application Insights 패키지를 참조하는 경우(예: 이전에 [ASP.NET Core SDK](./asp-net-core.md)를 사용하여 앱을 계측했거나 계측하려고 시도한 경우) App Service 통합이 사용하도록 설정되지 않을 수 있고 데이터가 Application Insights에 표시되지 않을 수 있습니다. 이 문제를 해결하려면 포털에서 “Application Insights SDK와 상호 운용”을 켭니다. 그러면 Application Insights에 데이터가 표시되기 시작합니다. 
+    - **ASP.NET 앱만 해당** `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly` 및 `AppContainsAspNetTelemetryCorrelationAssembly`에 해당하는 항목이 없는지 확인합니다.
+
+         해당 항목이 있는 경우 애플리케이션에서 `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation` 패키지를 제거합니다.
+
+    - **ASP.NET Core 앱에만 해당**: 애플리케이션이 Application Insights 패키지를 참조하는 경우(예: 이전에 [ASP.NET Core SDK](./asp-net-core.md)를 사용하여 앱을 계측했거나 계측하려고 시도한 경우) App Service 통합이 사용하도록 설정되지 않을 수 있고 데이터가 Application Insights에 표시되지 않을 수 있습니다. 이 문제를 해결하려면 포털에서 “Application Insights SDK와 상호 운용”을 켭니다. 그러면 Application Insights에 데이터가 표시되기 시작합니다. 
         > [!IMPORTANT]
         > 이 기능은 미리 보기 상태입니다. 
 
@@ -416,6 +450,96 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
         > [!IMPORTANT]
         > 애플리케이션이 Application Insights SDK를 사용하여 원격 분석을 보낸 경우 해당 원격 분석은 사용하도록 설정되지 않습니다. 즉, 사용자 지정 원격 분석(있는 경우, 예: Track*() 메서드) 및 사용자 지정 설정(예: 샘플링)이 사용하지 않도록 설정됩니다. 
+
+#### <a name="linux-troubleshooting"></a>Linux 문제 해결
+
+1. `ApplicationInsightsAgent_EXTENSION_VERSION` 앱 설정이 “~3” 값으로 설정되어 있는지 확인합니다.
+2. */home\LogFiles\ApplicationInsights\status* 로 이동하여 *status_557de146e7fa_27_1.json* 을 엽니다.
+
+    `AppAlreadyInstrumented`가 false로, `AiHostingStartupLoaded`가 true로, `IKeyExists`가 true로 설정되어 있는지 확인합니다.
+
+    다음은 JSON 파일의 예입니다.
+
+    ```json
+        "AppType":".NETCoreApp,Version=v6.0",
+                
+        "MachineName":"557de146e7fa",
+                
+        "PID":"27",
+                
+        "AppDomainId":"1",
+                
+        "AppDomainName":"dotnet6demo",
+                
+        "InstrumentationEngineLoaded":false,
+                
+        "InstrumentationEngineExtensionLoaded":false,
+                
+        "HostingStartupBootstrapperLoaded":true,
+                
+        "AppAlreadyInstrumented":false,
+                
+        "AppDiagnosticSourceAssembly":"System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+                
+        "AiHostingStartupLoaded":true,
+                
+        "IKeyExists":true,
+                
+        "IKey":"00000000-0000-0000-0000-000000000000",
+                
+        "ConnectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/"
+    
+    ```
+    
+    `AppAlreadyInstrumented`가 true이면 확장에서 SDK의 일부 측면이 애플리케이션에 이미 있고 백오프될 것임을 검색했음을 나타냅니다.
+
+##### <a name="no-data-for-linux"></a>Linux용 데이터 없음 
+
+1. 앱을 호스팅하는 프로세스를 나열하고 식별합니다. 터미널로 이동하고 명령줄에 `ps ax`를 입력합니다. 
+    
+    출력은 다음과 비슷해야 합니다. 
+
+   ```bash
+     PID TTY      STAT   TIME COMMAND
+    
+        1 ?        SNs    0:00 /bin/bash /opt/startup/startup.sh
+    
+       19 ?        SNs    0:00 /usr/sbin/sshd
+    
+       27 ?        SNLl   5:52 dotnet dotnet6demo.dll
+    
+       50 ?        SNs    0:00 sshd: root@pts/0
+    
+       53 pts/0    SNs+   0:00 -bash
+    
+       55 ?        SNs    0:00 sshd: root@pts/1
+    
+       57 pts/1    SNs+   0:00 -bash
+   ``` 
+
+
+1. 그런 다음 앱 프로세스에서 환경 변수를 나열합니다. 명령줄에서 `cat /proc/27/environ | tr '\0' '\n`을 입력합니다.
+    
+    출력은 다음과 비슷해야 합니다. 
+
+    ```bash
+    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.ApplicationInsights.StartupBootstrapper
+    
+    DOTNET_STARTUP_HOOKS=/DotNetCoreAgent/2.8.39/StartupHook/Microsoft.ApplicationInsights.StartupHook.dll
+    
+    APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/
+    
+    ```
+    
+
+1. `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_STARTUP_HOOKS` 및 `APPLICATIONINSIGHTS_CONNECTION_STRING`이 설정되었는지 확인합니다.
+
+
+#### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>웹앱으로 배포된 기본 웹 사이트에서 자동 클라이언트 쪽 모니터링을 지원하지 않음
+
+Azure App Services에서 `ASP.NET` 또는 `ASP.NET Core` 런타임을 사용하여 웹앱을 만들면 단일 정적 HTML 페이지가 시작 웹 사이트로 배포됩니다. 또한 정적 웹 페이지는 IIS에서 ASP.NET 관리형 웹 파트를 로드합니다. 이를 통해 코드리스 서버 쪽 모니터링을 테스트할 수 있지만 자동 클라이언트 쪽 모니터링은 지원하지 않습니다.
+
+Azure App Services 웹앱에서 ASP.NET 또는 ASP.NET Core에 대한 코드리스 서버와 클라이언트 쪽 모니터링을 테스트하려면 [ASP.NET Core 웹앱 만들기](../../app-service/quickstart-dotnetcore.md) 및 [ASP.NET Framework 웹앱 만들기](../../app-service/quickstart-dotnetcore.md?tabs=netframework48)의 공식 가이드를 따른 후 현재 문서의 지침을 사용하여 모니터링을 사용하도록 설정하는 것이 좋습니다.
 
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP 및 WordPress가 지원되지 않음
@@ -440,15 +564,10 @@ PHP 및 WordPress 사이트가 지원되지 않습니다. 현재 이 워크로�
 - 500 URL 다시 쓰기 오류
 - HTTP 응답의 콘텐츠를 인코딩할 때 메시지 아웃바운드 다시 쓰기 규칙과 관련된 500.53 URL 다시 쓰기 모듈 오류를 적용할 수 없습니다(‘gzip’). 
 
-원인은 APPINSIGHTS_JAVASCRIPT_ENABLED 애플리케이션 설정이 true로 설정되고 콘텐츠 인코딩이 동시에 제공되기 때문입니다. 이 시나리오는 아직 지원되지 않습니다. 해결 방법은 애플리케이션 설정에서 APPINSIGHTS_JAVASCRIPT_ENABLED를 제거하는 것입니다. 안타깝게도 이는 클라이언트/브라우저 쪽 JavaScript 계측이 계속 필요한 경우 웹 페이지에 대한 수동 SDK 참조가 필요함을 의미합니다. JavaScript SDK를 사용한 수동 계측에 관한 [지침](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup)을 따르세요.
+원인은 APPINSIGHTS_JAVASCRIPT_ENABLED 애플리케이션 설정이 true로 설정되고 콘텐츠 인코딩이 동시에 제공되기 때문입니다. 이 시나리오는 아직 지원되지 않습니다. 해결 방법은 애플리케이션 설정에서 APPINSIGHTS_JAVASCRIPT_ENABLED를 제거하는 것입니다. 안타깝게도 이는 클라이언트/브라우저 쪽 JavaScript 계측이 계속 필요한 경우 웹 페이지에 대한 수동 SDK 참조가 필요함을 의미합니다. JavaScript SDK를 사용한 수동 계측에 관한 [지침](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup)을 따릅니다.
 
 Application Insights 에이전트/확장에 관한 최신 정보는 [릴리스 정보](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)를 확인하세요.
 
-### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>웹앱으로 배포된 기본 웹 사이트에서 자동 클라이언트 쪽 모니터링을 지원하지 않음
-
-Azure App Services에서 `ASP.NET` 또는 `ASP.NET Core` 런타임을 사용하여 웹앱을 만들면 단일 정적 HTML 페이지가 시작 웹 사이트로 배포됩니다. 또한 정적 웹 페이지는 IIS에서 ASP.NET 관리형 웹 파트를 로드합니다. 이를 통해 코드리스 서버 쪽 모니터링을 테스트할 수 있지만 자동 클라이언트 쪽 모니터링은 지원하지 않습니다.
-
-Azure App Services 웹앱에서 ASP.NET 또는 ASP.NET Core에 대한 코드리스 서버와 클라이언트 쪽 모니터링을 테스트하려면 [ASP.NET Core 웹앱 만들기](../../app-service/quickstart-dotnetcore.md) 및 [ASP.NET Framework 웹앱 만들기](../../app-service/quickstart-dotnetcore.md?tabs=netframework48)의 공식 가이드를 따른 후 현재 문서의 지침을 사용하여 모니터링을 사용하도록 설정하는 것이 좋습니다.
 
 ### <a name="connection-string-and-instrumentation-key"></a>연결 문자열 및 계측 키
 

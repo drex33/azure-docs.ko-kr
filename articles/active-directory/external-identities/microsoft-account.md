@@ -5,22 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 08/09/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d3380277d0e653fd5cb03069b7d91cb363dd95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2333ba6aec10d124d960dfc746bc9df2c449f3bb
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101693144"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529791"
 ---
-# <a name="microsoft-account-msa-identity-provider-for-external-identities-preview"></a>외부 ID에 대한 MSA(Microsoft 계정) ID 공급자(미리 보기)
-
-> [!NOTE]
-> Microsoft 계정 ID 공급자는 Azure Active Directory의 퍼블릭 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="microsoft-account-msa-identity-provider-for-external-identities"></a>외부 ID에 대한 MSA(Microsoft 계정) ID 공급자
 
 B2B 게스트 사용자는 자신들의 B2B 협업용 개인 Microsoft 계정을 추가 구성 없이 사용할 수 있습니다. 게스트 사용자는 내 B2B 협업 초대를 사용하거나 개인 Microsoft 계정을 사용하여 등록 사용자 흐름을 완료할 수 있습니다.
 
@@ -43,6 +40,14 @@ B2B 협업을 위하여 [게스트 사용자를 초대](add-users-administrator.
 Microsoft 계정은 셀프 서비스 등록 사용자 흐름에 대한 ID 공급자 옵션 중 하나입니다. 사용자는 자신의 Microsoft 계정을 사용하여 내 애플리케이션에 등록할 수 있습니다. 먼저 테넌트에 대하여 [셀프 서비스 등록을 사용하도록 설정](self-service-sign-up-user-flow.md)하여야 합니다. 그런 다음 해당 애플리케이션을 위한 사용자 흐름을 설정하고 Microsoft 계정을 로그인 옵션 가운데 하나로 선택합니다.
 
 ![셀프 서비스 등록 사용자 흐름의 Microsoft 계정](media/microsoft-account/microsoft-account-user-flow.png)
+
+## <a name="verifying-the-applications-publisher-domain"></a>애플리케이션의 게시자 도메인 확인
+2020년 11월부터 [애플리케이션의 게시자 도메인이 확인](../develop/howto-configure-publisher-domain.md)되고 회사 ID가 Microsoft 파트너 네트워크로 확인되고 애플리케이션과 연결되지 않는 한 새 애플리케이션 등록이 사용자 동의 프롬프트에 확인되지 않은 것으로 표시됩니다. (이 변경 사항에 대해 [자세히 알아보기](../develop/publisher-verification-overview.md)) Azure AD 사용자 흐름의 경우 게시자 도메인은 [Microsoft 계정](azure-ad-account.md) 또는 기타 Azure AD 테넌트를 ID 공급자로 사용할 때만 나타납니다. 이러한 새로운 요구 사항을 충족하려면 다음을 수행합니다.
+
+1. [MPN(Microsoft 파트너 네트워크) 계정을 사용하여 회사 ID를 확인](/partner-center/verification-responses)합니다. 이 프로세스는 회사 및 회사의 기본 연락처에 대한 정보를 확인합니다.
+1. 다음 옵션 중 하나를 사용하여 MPN 계정을 앱 등록과 연결하려면 게시자 확인 프로세스를 완료합니다.
+   - Microsoft 계정 ID 공급자에 대한 앱 등록이 Azure AD 테넌트에 있는 경우 [앱 등록 포털에서 앱을 확인](../develop/mark-app-as-publisher-verified.md)합니다.
+   - Microsoft 계정 ID 공급자에 대한 앱 등록이 Azure AD B2C 테넌트에 있는 경우 [Microsoft Graph API를 사용하여 앱을 게시자 확인으로 표시](../develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls)합니다(예: Graph Explorer 사용).
 
 ## <a name="next-steps"></a>다음 단계
 

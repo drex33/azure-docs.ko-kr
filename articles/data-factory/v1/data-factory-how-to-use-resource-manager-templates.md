@@ -7,16 +7,16 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ec2e7d2f80e19d2e001fec0a3949f469b33149d2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f527b33445ed55fbc64a08144a94ba9a05f38092
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957146"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112554481"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>템플릿을 사용하여 Azure Data Factory 엔터티 만들기
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 
+> 이 아티클은 Data Factory 버전 1에 적용됩니다.
 
 ## <a name="overview"></a>개요
 데이터 통합 요구에 Azure Data Factory를 사용하면서 다양한 환경에서 동일한 패턴을 재사용하거나 동일한 작업을 동일한 솔루션에서 반복적으로 구현하는 상황이 발생할 수 있습니다. 템플릿을 사용하면 이러한 시나리오에서 간편하게 구현 및 관리할 수 있습니다. Azure Data Factory의 템플릿은 재사용 및 반복이 관계된 시나리오에 적합합니다.
@@ -39,12 +39,12 @@ Resource Manager 템플릿을 사용하여 데이터 팩터리 엔터티를 만�
 ## <a name="data-factory-templates-on-github"></a>GitHub의 Data Factory 템플릿
 GitHub에서 다음 Azure 빠른 시작 템플릿을 확인하세요.
 
-* [Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 데이터 팩터리 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
-* [Azure HDInsight 클러스터에서 Hive 활동으로 데이터 팩터리 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
-* [Salesforce에서 Azure Blob으로 데이터를 복사하는 데이터 팩터리 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
-* [작업을 연결하는 Data Factory 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob): 데이터를 FTP 서버에서 Azure Blob으로 복사하고, 주문형 HDInsight 클러스터의 하이브 스크립트를 호출하여 데이터를 변환하며, Azure SQL Database에 결과를 복사합니다.
+* [Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 데이터 팩터리 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-blob-to-sql-copy)
+* [Azure HDInsight 클러스터에서 Hive 활동으로 데이터 팩터리 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-hive-transformation)
+* [Salesforce에서 Azure Blob으로 데이터를 복사하는 데이터 팩터리 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-salesforce-to-blob-copy)
+* [작업을 연결하는 Data Factory 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-ftp-hive-blob): 데이터를 FTP 서버에서 Azure Blob으로 복사하고, 주문형 HDInsight 클러스터의 하이브 스크립트를 호출하여 데이터를 변환하며, Azure SQL Database에 결과를 복사합니다.
 
-[Azure 빠른 시작](https://azure.microsoft.com/documentation/templates/)에서 Azure Data Factory 템플릿을 자유롭게 공유할 수 있습니다. 이 리포지토리를 통해 공유할 수 있는 템플릿을 개발할 때는 [기여 가이드](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE)를 참조하세요.
+[Azure 빠른 시작](https://azure.microsoft.com/resources/templates/)에서 Azure Data Factory 템플릿을 자유롭게 공유할 수 있습니다. 이 리포지토리를 통해 공유할 수 있는 템플릿을 개발할 때는 [기여 가이드](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE)를 참조하세요.
 
 다음 섹션에서는 Resource Manager 템플릿에서 데이터 팩터리 리소스를 정의하는 것과 관련한 세부 정보를 제공합니다.
 
@@ -107,7 +107,7 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
 }
 ```
 
-배포하려는 특정 연결 서비스의 JSON 속성과 관련한 자세한 내용은 [스토리지 연결 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [Compute 연결 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. "DependsOn" 매개 변수는 해당 데이터 팩터리의 이름을 지정합니다. Azure Storage의 연결 서비스 정의 예제는 다음 JSON 정의에 나와 있습니다.
+배포하려는 특정 연결 서비스의 JSON 속성과 관련한 자세한 내용은 [스토리지 연결 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [Compute 연결 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. “dependsOn” 매개 변수는 해당 데이터 팩터리의 이름을 지정합니다. Azure Storage의 연결 서비스 정의 예제는 다음 JSON 정의에 나와 있습니다.
 
 ### <a name="define-datasets"></a>데이터 세트 정의
 
@@ -123,7 +123,7 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
     ...
 }
 ```
-배포할 특정 데이터 세트 형식의 JSON 속성에 관한 자세한 내용은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. &quot;DependsOn&quot; 매개 변수는 해당 데이터 팩터리와 스토리지 연결 서비스의 이름을 지정합니다. Azure 스토리지 서비스는 Blob Storage, Table Storage, Queue Storage 및 File Storage 등의 4가지 서비스를 제공합니다.
+배포할 특정 데이터 세트 형식의 JSON 속성에 관한 자세한 내용은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. “dependsOn” 매개 변수는 해당 데이터 팩터리와 스토리지 연결된 서비스의 이름을 지정합니다. Azure 스토리지 서비스는 Blob Storage, Table Storage, Queue Storage 및 File Storage 등의 4가지 서비스를 제공합니다.
 
 ```JSON
 "type": "datasets",
@@ -169,7 +169,7 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
 }
 ```
 
-배포할 특정 파이프라인과 활동의 JSON 속성에 대한 자세한 내용은 [파이프라인 정의](data-factory-create-pipelines.md#pipeline-json)를 참조하세요. &quot;dependsOn&quot; 매개 변수는 데이터 팩터리와 해당 연결 서비스 또는 스토리지 집합의 이름을 지정합니다. Azure Blob Storage의 데이터를 Azure SQL Database에 복사하는 파이프라인 예제는 다음 JSON 코드 조각에 있습니다.
+배포할 특정 파이프라인과 활동의 JSON 속성에 대한 자세한 내용은 [파이프라인 정의](data-factory-create-pipelines.md#pipeline-json)를 참조하세요. “dependsOn” 매개 변수는 데이터 팩터리와 해당 연결된 서비스 또는 데이터 세트의 이름을 지정합니다. Azure Blob Storage의 데이터를 Azure SQL Database에 복사하는 파이프라인 예제는 다음 JSON 코드 조각에 있습니다.
 
 ```JSON
 "type": "datapipelines",

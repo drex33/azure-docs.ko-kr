@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 07/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 176c36ee5c3addf655503e3a371767764e0d9968
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a7041f343eec34f16f4cfd7b32ae56157963dd09
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738056"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439363"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -719,6 +719,44 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 - 출력 클레임:
     - **domain**: outlook.com
 
+## <a name="setclaimifbooleansmatch"></a>SetClaimIfBooleansMatch
+
+부울 클레임이 `true`인지 또는 `false`인지 확인합니다. 예인 경우 출력 클레임을 `outputClaimIfMatched` 입력 매개 변수에 있는 값으로 설정합니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | claimToMatch | 문자열 | 확인할 클레임 형식입니다. null 값은 예외를 throw합니다. |
+| InputParameter | matchTo | 문자열 | `claimToMatch` 입력 클레임과 비교할 값입니다. 가능한 값은 `true` 또는 `false`입니다.  |
+| InputParameter | outputClaimIfMatched | 문자열 | 입력 클레임이 `matchTo` 입력 매개 변수와 같으면 설정할 값입니다. |
+| OutputClaim | outputClaim | 문자열 | `claimToMatch` 입력 클레임이 `matchTo` 입력 매개 변수와 같으면 이 출력 클레임에는 `outputClaimIfMatched` 입력 매개 변수의 값이 포함됩니다. |
+
+예를 들어 다음 클레임 변환에서는 **hasPromotionCode** 클레임의 값이 `true`와 같은지 확인합니다. 예인 경우 *Promotion code not found* 에 값을 반환합니다.
+
+```xml
+<ClaimsTransformation Id="GeneratePromotionCodeError" TransformationMethod="SetClaimIfBooleansMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="hasPromotionCode" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="true" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="Promotion code not found." />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="promotionCode" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>예제
+
+- 입력 클레임:
+    - **claimToMatch**: true
+- 입력 매개 변수:
+    - **matchTo**: true
+    - **outputClaimIfMatched**: “Promotion code not found.”
+- 출력 클레임:
+    - **outputClaim**: “Promotion code not found.”
+
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 
 문자열 클레임 `claimToMatch` 및 `matchTo` 입력 매개 변수가 같은지 확인하고 `outputClaimIfMatched` 입력 매개 변수에 있는 값을 사용하여 출력 클레임을 설정하는 동시에 비교 결과 출력 클레임(비교 결과에 따라 `true` 또는 `false`로 설정됨)도 설정합니다.
@@ -1077,7 +1115,7 @@ GetLocalizedStringsTransformation 클레임 변환을 사용하려면 다음을 
 ## <a name="string-claim-transformations-expressions"></a>문자열 클레임 변환 식
 Azure AD B2C 사용자 지정 정책의 클레임 변환 식은 테넌트 ID 및 기술 프로필 ID에 대한 컨텍스트 정보를 제공합니다.
 
-  | 식 | Description | 예제 |
+  | 식 | 설명 | 예제 |
  | ----- | ----------- | --------|
  | `{TechnicalProfileId}` | 기술 프로필 ID 이름입니다. | Facebook-OAUTH |
  | `{RelyingPartyTenantId}` | 신뢰 당사자 정책의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |

@@ -1,18 +1,18 @@
 ---
 title: 가상 네트워크에 Azure Spring Cloud 배포
 description: Azure Spring Cloud를 Azure 가상 네트워크에 배포합니다(VNet 삽입).
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
-ms.openlocfilehash: 0921c3d9bf254e3d486ec381c3243a8035bb6f50
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6822514e6bcbb5a232f7ee7f22ec8b0ee8a21e10
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750356"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530762"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>가상 네트워크에 Azure Spring Cloud 배포
 
@@ -25,6 +25,12 @@ ms.locfileid: "111750356"
 * 회사 네트워크의 인터넷에서 Azure Spring Cloud 앱 및 서비스 런타임 격리
 * Azure Spring Cloud에서 온-프레미스 데이터 센터의 시스템 또는 다른 가상 네트워크의 Azure 서비스와 상호 작용
 * Azure Spring Cloud에 대한 인바운드 및 아웃바운드 네트워크 통신을 제어하는 고객의 역량 강화
+
+다음 비디오에서는 관리 가상 네트워크를 사용하여 Spring Boot 애플리케이션을 보호하는 방법을 설명합니다.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/LbHD0jd8DTQ?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
 > [!Note]
 > 새 Azure Spring Cloud 서비스 인스턴스를 만드는 경우에만 Azure 가상 네트워크를 선택할 수 있습니다. Azure Spring Cloud를 만든 후에는 다른 가상 네트워크를 사용하도록 변경할 수 없습니다.
@@ -88,22 +94,24 @@ Azure Spring Cloud에는 추가 배포 및 유지 관리를 위해 가상 네트
 
     ![액세스 제어 화면을 보여 주는 스크린샷](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. **Azure Spring Cloud 리소스 공급자** 에 *소유자* 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+1. **Azure Spring Cloud 리소스 공급자** 에 *소유자* 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-pane)을 참조하세요.
 
-또한 다음 Azure CLI 명령을 실행하여 이 단계를 수행할 수도 있습니다.
+    ![리소스 공급자에 대한 소유자 할당을 보여 주는 스크린샷.](./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png)
 
-```azurecli
-VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
-    --name ${NAME_OF_VIRTUAL_NETWORK} \
-    --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
-    --query "id" \
-    --output tsv`
+    또한 다음 Azure CLI 명령을 실행하여 이 단계를 수행할 수도 있습니다.
 
-az role assignment create \
-    --role "Owner" \
-    --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
-    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
-```
+    ```azurecli
+    VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+        --name ${NAME_OF_VIRTUAL_NETWORK} \
+        --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
+        --query "id" \
+        --output tsv`
+
+    az role assignment create \
+        --role "Owner" \
+        --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+        --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+    ```
 
 ## <a name="deploy-an-azure-spring-cloud-instance"></a>Azure Spring Cloud 인스턴스 배포
 
@@ -167,7 +175,7 @@ Azure Spring Cloud 인스턴스를 가상 네트워크에 배포하려면 다음
 | /25             | 128       | 120           | <p> 1개 코어를 사용하는 앱:  500<br> 2개 코어를 사용하는 앱:  500<br>  3개 코어를 사용하는 앱:  480<br>  4개 코어를 사용하는 앱: 360</p> |
 | /24             | 256       | 248           | <p> 1개 코어를 사용하는 앱:  500<br/> 2개 코어를 사용하는 앱:  500<br/>  3개 코어를 사용하는 앱: 500<br/>  4개 코어를 사용하는 앱: 500</p> |
 
-서브넷의 경우 Azure에서 5개의 IP 주소를 예약하며, Azure Spring Cloud에는 4개 이상의 주소가 필요합니다. 따라서 9개 이상의 IP 주소가 필요하므로 /29 및 /30은 작동하지 않습니다.
+서브넷의 경우 Azure에서 5개의 IP 주소를 예약하며, Azure Spring Cloud에는 3개 이상의 IP 주소가 필요합니다. 따라서 8개 이상의 IP 주소가 필요하므로 /29 및 /30은 작동하지 않습니다.
 
 서비스 런타임 서브넷의 경우 최소 크기는 /28입니다. 이 크기는 앱 인스턴스 수와 관련이 없습니다.
 
@@ -177,9 +185,8 @@ Azure Spring Cloud는 기존 서브넷 및 경로 테이블 사용을 지원합�
 
 사용자 지정 서브넷에 경로 테이블이 포함되어 있지 않은 경우 Azure Spring Cloud는 각 서브넷에 대해 테이블을 만들고 인스턴스 수명 주기 동안 규칙을 추가합니다. 사용자 지정 서브넷에 경로 테이블이 포함되어 있는 경우 Azure Spring Cloud는 인스턴스 작업 중에 기존 경로 테이블을 확인하고 작업에 따라 추가/업데이트 및/또는 규칙을 추가합니다.
 
-> [!Warning] 
+> [!Warning]
 > 사용자 지정 규칙을 사용자 지정 경로 테이블에 추가하고 업데이트할 수 있습니다. 그러나 규칙은 Azure Spring Cloud에서 추가되며 업데이트하거나 제거하면 안됩니다. 0\.0.0.0/0과 같은 규칙은 항상 지정된 경로 테이블에 존재해야 하며 NVA 또는 다른 송신 게이트웨이와 같은 인터넷 게이트웨이의 대상에 매핑되어야 합니다. 사용자 지정 규칙만 수정되는 경우 규칙을 업데이트할 때 주의해야 합니다.
-
 
 ### <a name="route-table-requirements"></a>경로 테이블 요구 사항
 
@@ -193,9 +200,6 @@ Azure Spring Cloud는 기존 서브넷 및 경로 테이블 사용을 지원합�
 
 ## <a name="next-steps"></a>다음 단계
 
-[VNet에서 애플리케이션을 Azure Spring Cloud에 배포](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
-
-## <a name="see-also"></a>참고 항목
-
+- [VNet에서 애플리케이션을 Azure Spring Cloud에 배포](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 - [VNET에서 Azure Spring Cloud 문제 해결](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [VNET에서 Azure Spring Cloud를 실행하는 고객의 책임](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

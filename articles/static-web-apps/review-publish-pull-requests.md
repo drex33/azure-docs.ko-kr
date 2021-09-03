@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: d061eed42280fffa1ff7f53e43adb7b85a94ae0d
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 3869b18f580d0a12b2581554acf63258cb08f64a
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813221"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380683"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps"></a>Azure Static Web Apps의 사전 프로덕션 환경에서 끌어오기 요청 검토
 
@@ -33,7 +33,7 @@ Azure Static Web Apps를 사용하는 동시에 여러 사전 프로덕션 환�
 - 프로덕션 환경에 배포하기 전에 온전성 검사를 수행합니다.
 
 > [!NOTE]
-> 한 번에 허용되는 [최대 3개의 스테이징 환경](quotas.md)이 있습니다.
+> 끌어오기 요청과 사전 프로덕션 환경은 현재 GitHub Actions 배포에서만 지원됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -104,12 +104,16 @@ URL을 자세히 살펴보면 다음과 같이 구성된 것을 볼 수 있습�
 
 ## <a name="limitations"></a>제한 사항
 
-애플리케이션의 스테이징된 버전은 GitHub 리포지토리가 개인인 경우에도 현재 해당 URL에서 공개적으로 액세스할 수 있습니다.
+- 애플리케이션의 스테이징된 버전은 GitHub 리포지토리가 개인인 경우에도 현재 해당 URL에서 공개적으로 액세스할 수 있습니다.
 
-> [!WARNING]
-> 사전 프로덕션 환경에 대한 액세스는 제한되지 않으므로 중요한 콘텐츠를 스테이징된 버전에 게시할 때는 주의해야 합니다.
+    > [!WARNING]
+    > 사전 프로덕션 환경에 대한 액세스는 제한되지 않으므로 중요한 콘텐츠를 스테이징된 버전에 게시할 때는 주의해야 합니다.
 
-Static Web Apps로 배포된 각 앱에 사용할 수 있는 사전 프로덕션 환경 수는 사용 중인 SKU 계층에 따라 달라집니다. 예를 들어 무료 계층을 사용하는 경우 프로덕션 환경 외에도 세 개의 사전 프로덕션 환경을 사용할 수 있습니다.
+- Static Web Apps로 배포된 각 앱에 사용할 수 있는 사전 프로덕션 환경 수는 사용 중인 [호스팅 플랜](plans.md)에 따라 다릅니다. 예를 들어 무료 계층을 사용하는 경우 프로덕션 환경 외에도 세 개의 사전 프로덕션 환경을 사용할 수 있습니다.
+
+- 사전 프로덕션 환경은 지리적으로 분산되지 않습니다.
+
+- 현재 GitHub Actions 배포에서만 사전 프로덕션 환경을 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

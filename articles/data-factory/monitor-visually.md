@@ -1,18 +1,19 @@
 ---
 title: Azure Data Factory를 시각적으로 모니터링
 description: Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: d177513af9f0ee4fcadb1ea316edf1ad8cb89e5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 07/30/2021
+ms.openlocfilehash: 81649565955d1de031e4eefca548c5d58f7e28c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783662"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535838"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Azure Data Factory를 시각적으로 모니터링
 
@@ -95,7 +96,19 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 ![사용자 속성의 열을 포함한 활동 실행 목록](media/monitor-visually/view-user-properties.png)
 
+
 ## <a name="rerun-pipelines-and-activities"></a>파이프라인 및 작업 다시 실행
+ 
+ 컨테이너 작업의 재실행 동작은 다음과 같습니다.
+ 
+- `Wait` - 작업이 이전과 같이 작동합니다.
+- `Set Variable` - 작업이 이전과 같이 작동합니다.
+- `Filter` - 작업이 이전과 같이 작동합니다.
+- `Until` 활동은 표현식을 평가하고 조건이 충족될 때까지 반복됩니다. 다시 실행 규칙에 따라 내부 활동을 계속 건너뛸 수 있습니다.
+- `Foreach` 활동이 수신하는 항목에서 항상 반복됩니다. 다시 실행 규칙에 따라 내부 활동을 계속 건너뛸 수 있습니다.
+- `If and switch` - 조건이 항상 평가됩니다. 다시 실행 규칙에 따라 내부 활동을 계속 건너뛸 수 있습니다.
+- `Execute pipeline activity` - 하위 파이프라인이 트리거되지만 다시 실행 규칙에 따라 하위 파이프라인의 모든 작업을 건너뛸 수 있습니다.
+
 
 이전에 처음부터 실행된 파이프라인을 다시 실행하려면 특정 파이프라인 실행을 마우스로 가리키고 **다시 실행** 을 선택합니다. 여러 파이프라인을 선택하는 경우 **다시 실행** 단추를 사용하여 모든 파이프라인을 실행할 수 있습니다.
 
@@ -186,7 +199,7 @@ Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있�
 
     ![알림 추가 옵션](media/monitor-visually/configure-notification-2.png)
 
-1.  경고 규칙을 생성합니다.
+1.  경고 규칙을 만듭니다.
 
     ![경고 규칙을 만드는 옵션](media/monitor-visually/create-alert-rule.png)
 

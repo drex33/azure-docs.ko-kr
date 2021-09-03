@@ -6,19 +6,22 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 5cc19531f076d3b630faced7fef4ea5cb05be9f1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 071672c5c2d3c741abd14dad94c8c150e427a3ce
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751382"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464777"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql-flexible--server-preview"></a>Azure Database for MySQL Flexible Server(미리 보기)에 데이터 복제
+
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 입력 데이터 복제를 사용하면 외부 MySQL 서버에서 Azure Database for MySQL Flexible 서비스로 데이터를 동기화할 수 있습니다. 외부 서버는 온-프레미스, 가상 머신, Azure Database for MySQL Single Server 또는 다른 클라우드 공급자가 호스트하는 데이터베이스 서비스에 있을 수 있습니다. 입력 데이터 복제는 위치 기반의 이진 로그(binlog) 파일을 기반으로 합니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.
 
 > [!Note]
-> GTID 기반 복제는 현재 Azure Database for MySQL Flexible Server에 지원되지 않습니다. 
+> GTID 기반 복제는 현재 Azure Database for MySQL Flexible Server에 지원되지 않습니다.<br>
+> 영역 중복 고가용성 서버에 대한 입력 데이터 복제 구성은 지원되지 않습니다. 
 
 ## <a name="when-to-use-data-in-replication"></a>입력 데이터 복제를 사용하는 경우
 
@@ -36,11 +39,12 @@ ms.locfileid: "111751382"
 
 원본 서버의 [*mysql 시스템 데이터베이스*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)는 복제되지 않습니다. 또한 원본 서버에서 계정 및 사용 권한에 대해 변경한 내용은 복제되지 않습니다. 원본 서버에서 계정을 만들고 이 계정으로 복제 서버에 액세스해야 하는 경우 복제 서버에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 포함된 테이블을 이해하려면 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)를 참조합니다.
 
+### <a name="data-in-replication-not-supported-on-ha-enabled-servers"></a>HA 사용 서버에서는 입력 데이터 복제가 지원되지 않음 
+영역 중복 고가용성 서버에 대한 입력 데이터 복제 구성은 지원되지 않습니다. HA 사용 서버에서는 복제용 저장 프로시저 `mysql.az_replication_*`를 사용할 수 없습니다. 
+
 ### <a name="filtering"></a>필터링
 
-원본 서버(온-프레미스에 호스트되거나, 가상 머신에 있거나 또는 다른 클라우드 공급자가 호스트하는 데이터베이스 서비스)에서 테이블을 복제하는 것을 건너뛰기 위해 `replicate_wild_ignore_table` 매개 변수가 지원됩니다. 필요에 따라 [Azure Portal](how-to-configure-server-parameters-portal.md) 또는 [Azure CLI](how-to-configure-server-parameters-cli.md)를 사용하여 Azure에서 호스트되는 복제본 서버에서 이 매개 변수를 업데이트합니다.
-
-이 매개 변수에 대해 자세히 알아보려면 [MySQL 설명서](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table)를 검토합니다.
+테이블용 복제 필터를 만드는 데 사용된 `replicate_wild_ignore_table` 매개 변수는 현재 Azure Database for MySQL 유연한 서버에서 수정할 수 없습니다. 
 
 ### <a name="requirements"></a>요구 사항
 
@@ -49,9 +53,11 @@ ms.locfileid: "111751382"
 - 각 테이블에 기본 키를 포함하는 것을 권장합니다. 기본 키가 없는 테이블이 있는 경우 복제 시 속도가 저하될 수도 있습니다.
 - 원본 서버는 MySQL InnoDB 엔진을 사용해야 합니다.
 - 사용자는 이진 로깅을 구성하고 원본 서버에서 새 사용자를 만들 수 있는 권한이 있어야 합니다.
-- 원본 서버에 SSL을 사용하도록 설정한 경우 도메인에 제공된 SSL CA 인증서가 `mysql.az_replication_change_master` 저장 프로시저에 포함되어 있는지 확인합니다. 다음 [예](./how-to-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) 및 `master_ssl_ca` 매개 변수를 참조합니다.
+- 원본 서버에서 SSL을 사용하는 경우 도메인에 제공된 SSL CA 인증서가 `mysql.az_replication_change_master` 저장 프로시저에 포함되어 있는지 확인합니다. 다음 [예](./how-to-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) 및 `master_ssl_ca` 매개 변수를 참조합니다.
 - 원본 서버를 호스트하는 컴퓨터에서 포트 3306에 대한 인바운드 및 아웃바운드 트래픽을 둘 다 허용하는지 확인합니다.
 - 원본 서버에 DNS에 공개적으로 액세스할 수 있는 **공용 IP 주소** 가 있는지 또는 원본 서버에 FQDN(정규화된 도메인 이름)이 있는지 확인합니다.
+- 퍼블릭 액세스의 경우, 공용 IP 주소가 원본 서버에 있는지, DNS에 공개적으로 액세스할 수 있는지 또는 FQDN(정규화된 도메인 이름)이 원본 서버에 있는지 확인합니다.
+- 프라이빗 액세스의 경우, 원본 서버 이름을 확인할 수 있고 Azure Database for MySQL 인스턴스가 실행되고 있는 VNet에서 원본 서버 이름에 액세스할 수 있는지 확인합니다. 자세한 내용은 [Azure 가상 네트워크의 리소스 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

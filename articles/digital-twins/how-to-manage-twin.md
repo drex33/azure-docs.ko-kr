@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2c83ac769cc4a8aec6148e1a45ec6435f117d73a
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: b670c244c502049cc9eb419aa6570ad40e5aafa7
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812053"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114689928"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
 사용자 환경의 엔터티는 [디지털 트윈](concepts-twins-graph.md)으로 표현됩니다. 디지털 트윈 관리에는 만들기, 수정 및 제거가 포함될 수 있습니다.
 
-이 문서에서는 디지털 트윈을 관리하는 방법을 중점적으로 설명합니다. 관계 및 [트윈 그래프](concepts-twins-graph.md) 전체를 사용하려면 [방법: 관계를 사용하여 트윈 그래프 관리](how-to-manage-graph.md)를 참조하세요.
+이 문서에서는 디지털 트윈을 관리하는 방법을 중점적으로 설명합니다. 관계 및 [트윈 그래프](concepts-twins-graph.md) 전체를 사용하려면 [트윈 그래프 및 관계 관리](how-to-manage-graph.md)를 참조하세요.
 
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공됩니다.
@@ -40,7 +40,7 @@ ms.locfileid: "111812053"
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwinCall":::
 
 디지털 트윈을 만들려면 다음을 제공해야 합니다.
-* 원하는 디지털 트윈 ID
+* 이 단계에서 정의하는, 원하는 디지털 트윈 ID
 * 사용하려는 [모델](concepts-models.md)
 
 필요에 따라 디지털 트윈의 모든 속성에 대해 초기 값을 제공할 수 있습니다. 속성은 선택 사항으로 처리되고 나중에 설정할 수 있지만 **설정될 때까지 트윈의 일부로 표시되지 않습니다.**
@@ -57,7 +57,7 @@ ms.locfileid: "111812053"
 
 트윈이 생성될 때 트윈의 속성을 초기화할 수 있습니다. 
 
-트윈 생성 API는 트윈 속성의 유효한 JSON 설명으로 직렬화된 개체를 허용합니다. 트윈의 JSON 형식에 대한 설명은 [개념: 디지털 트윈 및 트윈 그래프](concepts-twins-graph.md)를 참조하세요. 
+트윈 생성 API는 트윈 속성의 유효한 JSON 설명으로 직렬화된 개체를 허용합니다. 트윈의 JSON 형식에 대한 설명은 [디지털 트윈 및 트윈 그래프](concepts-twins-graph.md)를 참조하세요. 
 
 먼저 트윈 및 해당 속성 데이터를 나타내는 데이터 개체를 만들 수 있습니다. 매개 변수 개체는 수동으로 만들거나 제공된 도우미 클래스를 사용하여 만들 수 있습니다. 각각의 예는 다음과 같습니다.
 
@@ -86,7 +86,12 @@ ms.locfileid: "111812053"
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwinCall":::
 
-이 호출은 `BasicDigitalTwin`과 같은 강력한 형식의 개체 형식으로 트윈 데이터를 반환합니다. `BasicDigitalTwin`은 SDK에 포함된 serialization 도우미 클래스로, 이 클래스는 미리 구문 분석된 형식으로 핵심 트윈 메타데이터 및 속성을 반환합니다. 다음은 이를 사용하여 트윈 세부 정보를 보는 방법에 대한 예입니다.
+이 호출은 `BasicDigitalTwin`과 같은 강력한 형식의 개체 형식으로 트윈 데이터를 반환합니다. `BasicDigitalTwin`은 SDK에 포함된 serialization 도우미 클래스로, 이 클래스는 미리 구문 분석된 형식으로 핵심 트윈 메타데이터 및 속성을 반환합니다. `System.Text.Json` 또는 `Newtonsoft.Json`과 같이 선택한 JSON 라이브러리를 사용하여 언제든지 트윈 데이터를 역직렬화할 수 있습니다. 그러나 트윈에 대한 기본 액세스의 경우 도우미 클래스를 사용하면 더 편리합니다.
+
+> [!NOTE]
+> `BasicDigitalTwin`에서 `System.Text.Json` 특성을 사용합니다. `BasicDigitalTwin`을 [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true)와 함께 사용하려면 기본 생성자를 사용하여 클라이언트를 초기화해야 합니다. 또는 직렬 변환기 옵션을 사용자 지정하려면 [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true)를 사용합니다.
+
+`BasicDigitalTwin` 도우미 클래스는 `Dictionary<string, object>`를 통해 트윈에 정의된 속성에 액세스할 수 있습니다. 트윈의 속성을 나열하려면 다음을 사용할 수 있습니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
@@ -95,7 +100,7 @@ ms.locfileid: "111812053"
 >[!TIP]
 >트윈의 `displayName`은 해당 모델 메타데이터의 일부이므로 트윈 인스턴스에 대한 데이터를 가져올 때 표시되지 않습니다. 이 값은 [모델에서 검색](how-to-manage-model.md#retrieve-models)하여 확인할 수 있습니다.
 
-단일 API 호출을 사용하여 여러 트윈을 검색하려면 [방법: 트윈 그래프 쿼리](how-to-query-graph.md)의 쿼리 API 예를 참조하세요.
+단일 API 호출을 사용하여 여러 트윈을 검색하려면 [트윈 그래프 쿼리](how-to-query-graph.md)의 쿼리 API 예제를 참조하세요.
 
 Moon을 정의하는 다음 모델([DTDL(디지털 트윈 정의 언어](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL))로 작성됨)을 고려합니다.
 
@@ -137,7 +142,7 @@ Moon을 정의하는 다음 모델([DTDL(디지털 트윈 정의 언어](https:/
   - 쓰기 가능한 각 속성의 동기화 상태입니다. 디바이스에 가장 유용합니다. 이 경우 서비스와 디바이스에 분기된 상태가 있을 수 있습니다(예: 디바이스가 오프라인 상태인 경우). 현재 이 속성은 IoT Hub에 연결된 물리적 디바이스에만 적용됩니다. 메타데이터 섹션의 데이터를 사용하여 마지막으로 수정한 타임스탬프뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대한 자세한 내용은 디바이스 상태 동기화에 대한 이 [IoT Hub 자습서](../iot-hub/tutorial-device-twins.md)를 참조하세요.
   - IoT Hub 또는 Azure Digital Twins와 같은 서비스별 메타데이터. 
 
-[개념: Azure Digital Twins API 및 SDK](concepts-apis-sdks.md)에서 `BasicDigitalTwin`과 같은 serialization 도우미 클래스에 대해 자세히 알아볼 수 있습니다.
+[Azure Digital Twins API 및 SDK](concepts-apis-sdks.md#serialization-helpers)에서 `BasicDigitalTwin`과 같은 serialization 도우미 클래스에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="view-all-digital-twins"></a>모든 디지털 트윈 보기
 
@@ -162,7 +167,7 @@ Moon을 정의하는 다음 모델([DTDL(디지털 트윈 정의 언어](https:/
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true)를 사용하여 패치를 만들 수 있습니다. 다음은 예제입니다.
+트윈 및 관계에 대한 업데이트 호출은 [JSON 패치](http://jsonpatch.com/) 구조를 사용합니다. Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true)를 사용하여 패치를 만들 수 있습니다. 다음은 예제입니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
@@ -184,15 +189,7 @@ Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=a
 
 다음과 같이 JSON 패치 `add` 작업을 수행할 수 있습니다.
 
-```json
-[
-  {
-    "op": "add", 
-    "path": "/ObjectProperty", 
-    "value": {"StringSubProperty":"<string-value>"}
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-object-sub-property-1.json":::
 
 >[!NOTE]
 > `ObjectProperty`에 속성이 둘 이상 있는 경우 하나만 업데이트하는 경우에도 이 작업의 `value` 필드에 속성을 모두 포함해야 합니다.
@@ -203,15 +200,7 @@ Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=a
 
 이 작업을 한 번 수행한 후에는 `StringSubProperty`에 대한 경로가 존재하며, 이제부터는 일반적인 `replace` 작업을 통해 직접 업데이트할 수 있습니다.
 
-```json
-[
-  {
-    "op": "replace",
-    "path": "/ObjectProperty/StringSubProperty",
-    "value": "<string-value>"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-object-sub-property-2.json":::
 
 트인이 생성될 때 `ObjectProperty`가 인스턴스화된 경우에는 첫 번째 단계가 필요하지 않지만, 개체 속성이 처음에 인스턴스화되었는지 여부를 항상 알 수는 없기 때문에 하위 속성을 처음 업데이트할 때마다 사용하는 것이 좋습니다.
 
@@ -257,7 +246,7 @@ Twin1을 수정하는 두 호출이 차례로 실행되며 각 변경 내용에 
 
 ### <a name="delete-all-digital-twins"></a>모든 디지털 트윈 삭제
 
-한 번에 모든 트윈을 삭제하는 방법에 대한 예를 보려면 [자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기](tutorial-command-line-app.md)에서 사용된 샘플 앱을 다운로드합니다. *CommandLoop.cs* 파일은 `CommandDeleteAllTwins()` 함수에서 이를 수행합니다.
+한 번에 모든 트윈을 삭제하는 방법의 예제를 보려면 [샘플 클라이언트 앱으로 기본 사항 살펴보기](tutorial-command-line-app.md)에서 사용된 샘플 앱을 다운로드합니다. *CommandLoop.cs* 파일은 `CommandDeleteAllTwins()` 함수에서 이를 수행합니다.
 
 ## <a name="runnable-digital-twin-code-sample"></a>실행 가능한 디지털 트윈 코드 샘플
 
@@ -299,4 +288,4 @@ Twin1을 수정하는 두 호출이 차례로 실행되며 각 변경 내용에 
 ## <a name="next-steps"></a>다음 단계
 
 디지털 트윈 간의 관계를 만들고 관리하는 방법을 참조하세요.
-* [방법: 관계를 사용하여 쌍 그래프 관리](how-to-manage-graph.md)
+* [쌍 그래프 및 관계 관리](how-to-manage-graph.md)

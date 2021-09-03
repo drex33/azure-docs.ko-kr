@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: duau
-ms.openlocfilehash: 3602c3944e8731263fbb55f024c276783950329f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dcf58dce7b87862c2f01ad76db8aff66366ee4b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92202364"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528613"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>ExpressRoute를 사용한 고가용성을 위한 설계
 
@@ -50,23 +50,31 @@ ExpressRoute 회로의 기본 및 보조 연결을 활성-수동 모드로 실�
 
 또는 ExpressRoute 회로의 기본 및 보조 연결을 활성-활성 모드로 실행하면 ExpressRoute 연결 실패 후에 흐름의 절반만 실패하고 다시 라우팅됩니다. 따라서 활성-활성 모드는 MTTR(평균 복구 시간)을 개선하는 데 큰 도움이 됩니다.
 
+> [!NOTE]
+> 유지 관리 작업 중이거나 하나의 연결에 영향을 미치는 계획되지 않은 이벤트의 경우 트래픽을 정상 연결로 드레이닝하기 위해 AS 경로 앞에 추가하는 것이 좋습니다. Microsoft에서 경로 앞에 추가를 구성하고 서비스 중단을 방지하기 위해 필요한 경로 보급을 적절하게 구성한 경우 트래픽이 정상적인 경로를 통해 라우팅할 수 있는지 확인해야 합니다. 
+> 
+
 ### <a name="nat-for-microsoft-peering"></a>Microsoft 피어링을 위한 NAT 
 
 Microsoft 피어링은 퍼블릭 엔드포인트 간 통신을 위해 설계되었습니다. 따라서 일반적으로 온-프레미스 프라이빗 엔드포인트는 Microsoft 피어링을 통해 통신하기 전에 고객 또는 파트너 네트워크의 공용 IP를 사용하여 NAT(Network Address Translation)로 연결됩니다. 기본 및 보조 연결을 모두 활성-활성 모드로 사용한다고 가정할 경우 NAT 연결 위치와 방법은 ExpressRoute 연결 중 하나에서 오류 발생 후의 복구 속도에 영향을 줍니다. 다음 그림에는 두 가지 NAT 옵션이 나와 있습니다.
 
 [![3]][3]
 
-옵션 1에서는 ExpressRoute의 기본 연결과 보조 연결 간에 트래픽을 분할한 후 NAT가 적용됩니다. NAT의 상태 저장 요구 사항을 충족하기 위해 기본 및 보조 디바이스 간에 독립 NAT 풀이 사용되므로 흐름이 송신되는 동일한 에지 디바이스에 반환 트래픽이 도착합니다.
+#### <a name="option-1"></a>옵션 1:
 
-옵션 2에서는 ExpressRoute의 기본 연결과 보조 연결 간에 트래픽을 분할하기 전에 공통 NAT 풀이 사용됩니다. 트래픽을 분할하기 전에 공통 NAT 풀을 사용하더라도 단일 실패 지점이 도입되어 고가용성이 손상되는 것은 아닙니다.
+ExpressRoute 회로의 기본 연결과 보조 연결 간에 트래픽을 분할한 후 NAT가 적용됩니다. NAT의 상태 저장 요구 사항을 충족하기 위해 기본 및 보조 디바이스에 독립 NAT 풀이 사용됩니다. 반환 트래픽은 흐름이 송신된 동일한 에지 디바이스에 도착합니다.
 
-옵션 1을 사용하면 ExpressRoute 연결 실패 후에 해당 NAT 풀에 연결할 수 없게 됩니다. 따라서 해당 기간 제한 시간 후에 TCP 또는 애플리케이션 계층을 통해 끊어진 모든 흐름을 다시 설정해야 합니다. NAT 풀 중 하나를 사용하여 온-프레미스 서버를 프런트 엔드에 배치하고 해당 연결이 실패한 경우 연결을 수정할 때까지 Azure에서 온-프레미스 서버에 연결할 수 없습니다.
+ExpressRoute 연결이 실패하면 해당 NAT 풀에 연결하는 기능이 중단됩니다. 그렇기 때문에 끊어진 모든 네트워크 흐름은 해당 시간 초과 후 TCP 또는 애플리케이션 계층에 의해 다시 설정되어야 합니다. 오류가 발생하는 동안 Azure는 ExpressRoute 회로의 기본 또는 보조 연결에 대한 연결이 복원될 때까지 해당 NAT를 사용하여 온-프레미스 서버에 연결할 수 없습니다.
 
-옵션 2를 사용하면 기본 또는 보조 연결이 실패한 후에도 NAT에 연결할 수 있습니다. 따라서 네트워크 계층 자체에서 패킷을 다시 라우팅할 수 있으며 실패 후 보다 신속한 복구에 도움이 됩니다. 
+#### <a name="option-2"></a>옵션 2:
+
+ExpressRoute 회로의 기본 연결과 보조 연결 간에 트래픽을 분할하기 전에 공통 NAT 풀이 사용됩니다. 트래픽을 분할하기 전에 공통 NAT 풀이 고가용성을 손상시키는 것과 같은 단일 실패 지점을 도입하는 것은 아닙니다.
+
+기본 또는 보조 연결이 실패한 후에도 NAT 풀에 연결할 수 있습니다. 따라서 네트워크 계층 자체가 패킷을 다시 라우팅할 수 있고 오류 발생 후 보다 신속한 복구에 도움이 됩니다. 
 
 > [!NOTE]
-> NAT 옵션 1(기본 및 보조 ExpressRoute 연결에 독립 NAT 풀 사용)을 사용하고 NAT 풀 중 하나에서 온-프레미스 서버로 IP 주소의 포트를 매핑하는 경우 해당 연결이 실패할 때 ExpressRoute 회로를 통해 서버에 연결할 수 없습니다.
-> 
+> * NAT 옵션 1(기본 및 보조 ExpressRoute 연결에 독립 NAT 풀 사용)을 사용하고 NAT 풀 중 하나에서 온-프레미스 서버로 IP 주소의 포트를 매핑하는 경우 해당 연결이 실패할 때 ExpressRoute 회로를 통해 서버에 연결할 수 없습니다.
+> * 상태 저장 디바이스에서 ExpressRoute BGP 연결을 종료하면 Microsoft 또는 ExpressRoute 공급자의 계획되거나 계획되지 않은 유지 관리 중에 장애 조치(failover) 문제가 발생할 수 있습니다. 트래픽이 올바르게 장애 조치(failover)되는지 확인하고 가능한 경우 상태 비저장 디바이스에서 BGP 세션을 종료하도록 설정을 테스트해야 합니다.
 
 ## <a name="fine-tuning-features-for-private-peering"></a>프라이빗 피어링을 위한 미세 조정 기능
 

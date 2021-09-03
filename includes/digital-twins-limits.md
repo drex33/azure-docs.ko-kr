@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 4/8/2021
 ms.author: baanders
-ms.openlocfilehash: 460176dd8c86abc59d2f82948a6a35655b9eef84
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: fae919afc12afd5a6169dd119b57ae72ae7c14f0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530519"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472881"
 ---
 ### <a name="functional-limits"></a>기능 제한
 
@@ -58,4 +58,4 @@ ms.locfileid: "111530519"
 
 Azure Digital Twins 모델의 DTDL 문서 내에 있는 데이터 형식 및 필드에 대한 제한은 GitHub: [DTDL(Digital Twins 정의 언어) - 버전 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)의 사양 설명서 내에서 찾을 수 있습니다.
  
-쿼리 대기 시간 세부 정보는 [개념: 쿼리 언어](../articles/digital-twins/concepts-query-language.md#considerations-for-querying)에 설명되어 있습니다. 특정 쿼리 언어 기능의 제한 사항은 [쿼리 참조 문서](../articles/digital-twins/concepts-query-language.md#reference-documentation)에서 확인할 수 있습니다.
+쿼리 대기 시간 세부 정보는 [쿼리 언어](../articles/digital-twins/concepts-query-language.md#considerations-for-querying)에 설명되어 있습니다. 특정 쿼리 언어 기능의 제한 사항은 [쿼리 참조 문서](../articles/digital-twins/concepts-query-language.md#reference-documentation)에서 확인할 수 있습니다.

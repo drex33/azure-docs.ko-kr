@@ -4,13 +4,13 @@ description: Docker Hub 및 기타 퍼블릭 콘텐츠에서 퍼블릭 이미지
 author: dlepow
 ms.topic: article
 ms.author: danlep
-ms.date: 11/20/2020
-ms.openlocfilehash: 0c92899528d417f9c91f8f8930ca4932dc74e850
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/17/2021
+ms.openlocfilehash: 806cb6b49824db65744bc653c6c467c7a816a21e
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95024741"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983701"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Azure Container Registry를 사용하여 퍼블릭 콘텐츠 관리
 
@@ -85,9 +85,16 @@ az acr import \
 
 조직의 요구 사항에 따라 전용 레지스트리 또는 공유 레지스트리의 리포지토리로 가져올 수 있습니다.
 
-## <a name="automate-application-image-updates"></a>애플리케이션 이미지 업데이트 자동화
+## <a name="update-image-references"></a>이미지 참조 업데이트
 
-애플리케이션 이미지 개발자는 코드에서 로컬 콘텐츠를 참조하는 과정을 제어할 수 있어야 합니다. 예를 들어, Dockerfile의 `Docker FROM` 문은 퍼블릭 레지스트리 대신 프라이빗 기본 이미지 레지스트리의 이미지를 참조해야 합니다. 
+애플리케이션 이미지 개발자는 코드에서 로컬 콘텐츠를 참조하는 과정을 제어할 수 있어야 합니다.
+
+* 프라이빗 레지스트리를 사용하도록 이미지 참조를 업데이트합니다. 예를 들어, Dockerfile의 `FROM baseimage:v1` 문을 `FROM myregistry.azurecr.io/mybaseimage:v1`로 업데이트합니다.
+* 프라이빗 레지스트리를 사용하도록 자격 증명이나 인증 메커니즘을 구성합니다. 정확한 메커니즘은 레지스트리에 액세스하는 데 사용하는 도구와 사용자 액세스 관리 방법에 따라 달라집니다.
+    * Kubernetes 클러스터나 Azure Kubernetes Service를 사용하여 레지스트리에 액세스하는 경우 [인증 시나리오](authenticate-kubernetes-options.md)를 참조하세요.
+    * Azure Container Registry로 [인증하는 옵션](container-registry-authentication.md)에 관해 자세히 알아보세요.
+
+## <a name="automate-application-image-updates"></a>애플리케이션 이미지 업데이트 자동화
 
 이미지 가져오기를 확장한 후, 기본 이미지가 업데이트될 때 애플리케이션 이미지 빌드를 자동화하도록 [Azure Container Registry 작업](container-registry-tasks-overview.md)을 설정합니다. 자동화된 빌드 작업은 [기본 이미지 업데이트](container-registry-tasks-base-images.md)와 [소스 코드 업데이트](container-registry-tasks-overview.md#trigger-task-on-source-code-update)를 모두 추적할 수 있습니다.
 
@@ -97,7 +104,6 @@ az acr import \
 > 하나의 미리 구성된 작업을 통해 종속된 기본 이미지를 참조하는 모든 애플리케이션 이미지를 자동으로 다시 빌드할 수 있습니다. 
  
 ## <a name="next-steps"></a>다음 단계
- 
 * Azure에서 컨테이너 이미지를 빌드, 실행, 푸시 및 패치하는 [ACR 작업](container-registry-tasks-overview.md)에 대해 자세히 알아봅니다.
 * 환경에 기본 이미지를 업데이트하는 자동화된 제어 워크플로에 대해서는 [Azure Container Registry 작업을 사용하여 퍼블릭 콘텐츠를 사용하고 유지 관리하는 방법](tasks-consume-public-content.md)을 참조하세요. 
 * 이미지 빌드 및 업데이트를 자동화하는 더 많은 예제는 [ACR 작업 자습서](container-registry-tutorial-quick-task.md)를 참조하세요.

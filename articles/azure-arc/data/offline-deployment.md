@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5fa0b6ca41349d20614a64006536e78d8ee71844
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e81ccc8ef133cdf7c454a7a50610a1bfdf2be442
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955368"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113731273"
 ---
 # <a name="offline-deployment-overview"></a>오프라인 배포 개요
 
-일반적으로 Azure Arc 데이터 컨트롤러, SQL 관리형 인스턴스, PostgreSQL 하이퍼스케일 서버 그룹을 만드는 데 사용되는 컨테이너 이미지는 MCR(Microsoft Container Registry)에서 직접 가져옵니다. 경우에 따라 배포하는 환경이 Microsoft Container Registry에 연결되지 않습니다.  이와 같은 상황에서는 Microsoft Container Registry에 액세스할 수 ‘있는’ 컴퓨터를 사용하여 컨테이너 이미지를 끌어온 다음, 태그를 지정하고, Azure Arc 지원 데이터 서비스를 배포할 환경에 ‘연결할 수 있는’ 프라이빗 컨테이너 레지스트리로 푸시하면 됩니다. 
+일반적으로 Azure Arc 데이터 컨트롤러, SQL 관리형 인스턴스, PostgreSQL 하이퍼스케일 서버 그룹을 만드는 데 사용되는 컨테이너 이미지는 MCR(Microsoft Container Registry)에서 직접 가져옵니다. 경우에 따라 배포하는 환경이 Microsoft Container Registry에 연결되지 않습니다.  이와 같은 상황에서는 Microsoft Container Registry에 액세스할 수 ‘있는’ 컴퓨터를 사용하여 컨테이너 이미지를 끌어온 다음, 태그를 지정하고, Azure Arc 지원 데이터 서비스를 배포할 환경에 연결할 수 ‘있는’ 프라이빗 컨테이너 레지스트리로 푸시하면 됩니다. 
 
-Azure Arc 지원 데이터 서비스 대한 월별 업데이트가 제공되며 많은 수의 컨테이너 이미지가 있으므로 스크립트를 사용하여 컨테이너 이미지를 끌어와 태그를 지정하고 프라이빗 컨테이너 레지스트리로 푸시하는 이 프로세스를 수행하는 것이 가장 좋습니다.  스크립트는 자동화하거나 수동으로 실행할 수 있습니다.
+Azure Arc 지원 데이터 서비스에 대한 월별 업데이트가 제공되며 많은 수의 컨테이너 이미지가 있으므로 스크립트를 사용하여 컨테이너 이미지를 끌어오고, 태그를 지정하고, 프라이빗 컨테이너 레지스트리로 푸시하는 이 프로세스를 수행하는 것이 가장 좋습니다.  스크립트는 자동화하거나 수동으로 실행할 수 있습니다.
 
 [샘플 스크립트](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py)는 Azure Arc GitHub 리포지토리에서 찾을 수 있습니다.
 

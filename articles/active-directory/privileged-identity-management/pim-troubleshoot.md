@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management - Azure Active Directory로 문제 해결 | Microsoft Docs
+title: Privileged Identity Management에서 리소스 액세스 거부 문제 해결 - Azure Active Directory | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 역할과 관련된 시스템 오류 문제를 해결하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/18/2019
+ms.date: 06/30/2021
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcbebcb32e912abdf0112007c743c6890fae36e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26c3129e463ffaad01db48fa0a15cfd1fadefb29
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92372398"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113127979"
 ---
-# <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Privileged Identity Management로 문제 해결
+# <a name="troubleshoot-access-to-azure-resources-denied-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 액세스 거부 문제 해결
 
 Azure AD(Azure Active Directory)의 PIM(Privileged Identity Management)과 관련하여 문제가 있나요? 다음에 나오는 정보는 작업을 다시 수행하는 데 도움이 될 수 있습니다.
 

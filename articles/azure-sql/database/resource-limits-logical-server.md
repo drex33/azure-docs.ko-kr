@@ -1,6 +1,6 @@
 ---
-title: Azure의 논리 서버에 대한 리소스 한도
-description: 이 문서에서는 Azure SQL Database와 Azure Synapse Analytics에서 사용하는 Azure의 논리 서버의 리소스 한도에 대한 개요를 제공합니다. 또한 이러한 리소스 한도에 도달하거나 초과할 때 발생하는 사항에 대한 정보도 제공합니다.
+title: Azure SQL Database의 리소스 관리
+description: 이 문서에서는 Azure SQL Database의 리소스 관리에 대한 개요를 제공합니다. 또한 이러한 리소스 제한에 도달할 때 발생하는 사항에 대한 정보도 제공합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
@@ -10,48 +10,48 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 04/16/2021
-ms.openlocfilehash: fa5e8bc8ec3e0ebbc93d682d8ff9988f110ffe69
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 08/18/2021
+ms.openlocfilehash: 20ede2b8f12dfdb41d9b07f09f29596876809606
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708363"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568139"
 ---
-# <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL Database 및 Azure Synapse Analytics 서버에 대한 리소스 한도
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+# <a name="resource-management-in-azure-sql-database"></a>Azure SQL Database의 리소스 관리
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-이 문서에서는 Azure SQL Database와 Azure Synapse Analytics에서 사용하는 Azure의 [논리 서버](logical-servers.md)의 리소스 한도에 대한 개요를 제공합니다. 리소스 한도에 도달하거나 한도를 초과할 때 발생하는 사항에 대한 정보를 제공하고 해당 한도를 적용하는 데 사용되는 리소스 거버넌스 메커니즘을 설명합니다.
+이 문서에서는 Azure SQL Database의 리소스 관리에 대한 개요를 제공합니다. 리소스 제한에 도달할 때 발생하는 사항에 대한 정보를 제공하고 해당 한도를 적용하는 데 사용되는 리소스 거버넌스 메커니즘을 설명합니다.
 
-> [!NOTE]
+단일 데이터베이스에 대한 가격 책정 계층별 리소스 제한(서비스 목표라고도 함)은 [DTU 기반 단일 데이터베이스 리소스 제한](resource-limits-dtu-single-databases.md) 또는 [vCore 기반 단일 데이터베이스 리소스 제한](resource-limits-vcore-single-databases.md)을 참조하세요. 탄력적 풀 리소스 제한은 [DTU 기반 탄력적 풀 리소스 제한](resource-limits-dtu-elastic-pools.md) 또는 [vCore 기반 탄력적 풀 리소스 제한](resource-limits-vcore-elastic-pools.md)을 참조하세요.
+
+> [!TIP]
 > Azure SQL Managed Instance 한도는 [관리되는 인스턴스에 대한 리소스 한도](../managed-instance/resource-limits.md)를 참조하세요.
+>
+> Azure Synapse Analytics 전용 SQL 풀 제한은 [용량 제한](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits)과 [메모리 및 동시성 제한](/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits)을 참조하세요.
 
-## <a name="maximum-resource-limits"></a>최대 리소스 한도
+## <a name="logical-server-limits"></a>논리 서버 제한
 
 | 리소스 | 제한 |
 | :--- | :--- |
-| 논리 서버당 데이터베이스 | 5,000 |
+| [논리 서버](logical-servers.md)당 데이터베이스 | 5,000 |
 | 한 지역에서 구독당 논리 서버의 기본 수 | 20 |
-| 한 지역에서 구독당 논리 서버의 최대 수 | 200 |  
-| 논리 서버당 DTU/eDTU 할당량 | 54,000 |  
+| 한 지역에서 구독당 논리 서버의 최대 수 | 200 |
+| 논리 서버당 DTU/eDTU 할당량 | 54,000 |
 | 논리 서버당 vCore 할당량 | 540 |
-| 논리 서버당 풀의 최대 수 | DTU 또는 vCore의 수로 제한됩니다. 예를 들어 각 풀에 DTU가 1000개인 경우 서버는 54개 풀을 지원할 수 있습니다.|
+| 논리 서버당 최대 탄력적 풀 | DTU 또는 vCore의 수로 제한됩니다. 예를 들어 각 풀에 DTU가 1000개인 경우 서버는 54개 풀을 지원할 수 있습니다.|
 |||
 
 > [!IMPORTANT]
 > 데이터베이스 수가 논리 서버당 한도에 근접하면 다음이 발생할 수 있습니다.
 >
-> - 마스터 데이터베이스에 대해 쿼리를 실행할 때 대기 시간이 증가합니다.  여기에는 `sys.resource_stats` 같은 리소스 사용률 통계 보기도 포함됩니다.
+> - 마스터 데이터베이스에 대해 쿼리를 실행할 때 대기 시간이 증가합니다. 여기에는 `sys.resource_stats` 같은 리소스 사용률 통계 보기도 포함됩니다.
 > - 관리 작업을 수행하고 서버의 데이터베이스 열거와 관련된 포털 뷰 포인트를 렌더링할 때 대기 시간이 증가합니다.
 
 > [!NOTE]
-> 기본량보다 더 많은 DTU/eDTU 할당량, vCore 할당량 또는 논리 서버를 얻으려면 Azure Portal에서 새 지원 요청을 제출하세요. 자세한 내용은 [Azure SQL Database에 대한 할당량 증가 요청](quota-increase-request.md)을 참조하세요.
+> 기본 수보다 더 많은 DTU/eDTU 할당량, vCore 할당량 또는 논리 서버를 얻으려면 Azure Portal에서 새 지원 요청을 제출하세요. 자세한 내용은 [Azure SQL Database에 대한 할당량 증가 요청](quota-increase-request.md)을 참조하세요.
 
-### <a name="storage-size"></a>스토리지 크기
-
-단일 데이터베이스 리소스 스토리지 크기의 경우 가격 책정 계층당 스토리지 크기 제한(서비스 목표라고도 함)은 [DTU 기반 리소스 제한](resource-limits-dtu-single-databases.md) 또는 [vCore 기반 리소스 제한](resource-limits-vcore-single-databases.md)을 참조하세요.
-
-## <a name="what-happens-when-database-resource-limits-are-reached"></a>데이터베이스 리소스 한계에 도달하면 어떻게 되나요?
+## <a name="what-happens-when-resource-limits-are-reached"></a>리소스 제한에 도달하면 어떻게 되나요?
 
 ### <a name="compute-cpu"></a>컴퓨팅 CPU
 
@@ -73,22 +73,22 @@ ms.locfileid: "110708363"
 - 데이터베이스가 탄력적 풀에 속하는 경우 데이터베이스를 풀 외부로 이동하여 스토리지 공간이 다른 데이터베이스와 공유되지 않도록 할 수 있습니다.
 - 데이터베이스를 축소하여 사용하지 않는 공간을 회수합니다. 탄력적 풀에서 데이터베이스를 축소하면 풀의 다른 데이터베이스에 더 많은 스토리지가 제공됩니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](file-space-manage.md)를 참조하세요.
 - 높은 공간 사용률이 PVS(영구 버전 저장소) 크기의 스파이크 때문인지 확인합니다. PVS는 각 데이터베이스의 일부이며 [가속 데이터베이스 복구](../accelerated-database-recovery.md)를 구현하는 데 사용됩니다. 현재 PVS 크기를 확인하려면 [PVS 문제 해결](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting)을 참조하세요. PVS 크기가 큰 일반적인 이유는 트랜잭션이 장시간(시) 열려 있어서 PVS의 이전 버전을 정리하지 못했기 때문입니다.
-- 프리미엄 및 중요 비즈니스용 서비스 계층의 데이터베이스의 경우 데이터베이스에서 사용된 공간이 최대 크기 제한보다 낮은 경우에도 공간 부족 오류가 발생할 수 있습니다. 이는 tempdb 또는 트랜잭션 로그가 최대 로컬 스토리지 제한에 대해 많은 양의 스토리지를 사용하는 경우에 발생할 수 있습니다. 데이터베이스 또는 탄력적 풀을 [장애 조치(failover)](high-availability-sla.md#testing-application-fault-resiliency)하여 tempdb를 초기 더 작은 크기로 재설정하거나 트랜잭션 로그를 [축소](file-space-manage.md#shrinking-transaction-log-file)하여 로컬 스토리지 소비를 줄입니다.
+- 프리미엄 및 중요 비즈니스용 서비스 계층의 데이터베이스의 경우 데이터베이스에서 사용된 공간이 최대 데이터 크기 제한보다 낮은 경우에도 공간 부족 오류가 발생할 수 있습니다. 이는 tempdb 또는 트랜잭션 로그가 최대 로컬 스토리지 제한에 대해 많은 양의 스토리지를 사용하는 경우에 발생할 수 있습니다. 데이터베이스 또는 탄력적 풀을 [장애 조치(failover)](high-availability-sla.md#testing-application-fault-resiliency)하여 tempdb를 초기 더 작은 크기로 재설정하거나 트랜잭션 로그를 [축소](file-space-manage.md#shrinking-transaction-log-file)하여 로컬 스토리지 소비를 줄입니다.
 
 ### <a name="sessions-and-workers-requests"></a>세션 및 작업자(요청)
 
-세션 및 작업자의 최대 수는 서비스 계층 및 컴퓨팅 크기(DTU/eDTU 또는 vCore)에 따라 결정됩니다. 세션 또는 작업자 제한에 도달하면 새 요청이 거부되고 클라이언트에 오류 메시지가 표시됩니다. 사용할 수 있는 연결의 수는 애플리케이션에서 쉽게 제어할 수 있지만, 동시 작업자 수는 예측하고 제어하기가 어렵습니다. 이는 최고 부하 기간에 특히 심하며 이때는 오랫동안 실행 중인 쿼리나 큰 차단 체인, 또는 과도한 쿼리 병렬화 때문에 데이터베이스 리소스 한도에 도달하고 작업자가 누적됩니다.
+세션 및 작업자의 최대 수는 서비스 계층 및 컴퓨팅 크기에 따라 결정됩니다. 세션 또는 작업자 제한에 도달하면 새 요청이 거부되고 클라이언트에 오류 메시지가 표시됩니다. 사용할 수 있는 연결의 수는 애플리케이션에서 쉽게 제어할 수 있지만, 동시 작업자 수는 예측하고 제어하기가 어렵습니다. 이는 최고 부하 기간에 특히 심하며 이때는 오랫동안 실행 중인 쿼리나 큰 차단 체인, 또는 과도한 쿼리 병렬화 때문에 데이터베이스 리소스 한도에 도달하고 작업자가 누적됩니다.
 
 높은 세션 또는 작업자 사용률에 도달할 경우 완화하는 방법에는 다음이 포함됩니다.
 
 - 데이터베이스 또는 탄력적 풀의 서비스 계층 또는 컴퓨팅 크기를 늘립니다. [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요.
 - 컴퓨팅 리소스에 대한 경합 때문에 작업자 사용률이 증가할 경우 쿼리를 최적화하여 각 쿼리의 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
-- [MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines)(최대 병렬 처리 수준) 설정을 줄입니다.
+- [MAXDOP](configure-max-degree-of-parallelism.md)(최대 병렬 처리 수준) 설정을 줄입니다.
 - 쿼리 워크로드를 최적화하여 쿼리 차단 발생 횟수와 기간을 줄입니다. 자세한 내용은 [Azure SQL 차단 문제 이해 및 해결](understand-resolve-blocking.md)을 참조하세요.
 
 ### <a name="memory"></a>메모리
 
-다른 리소스(CPU, 작업자, 스토리지)와 달리 메모리는 한도에 도달해도 쿼리 성능에 부정적인 영향을 미치지 않으며 오류와 실패를 일으키지 않습니다. [메모리 관리 아키텍처 가이드](/sql/relational-databases/memory-management-architecture-guide)에 자세히 설명된 대로 SQL Server 데이터베이스 엔진은 종종 의도적으로 사용 가능한 모든 메모리를 사용합니다. 메모리는 주로 데이터를 캐싱하는 데 사용되어 비용이 많이 드는 스토리지 액세스를 방지합니다. 스토리지에서 읽는 속도에 비해 메모리에서 읽는 속도가 빠르기 때문에 메모리 사용률이 높으면 대체로 쿼리 성능이 향상됩니다.
+다른 리소스(CPU, 작업자, 스토리지)와 달리 메모리는 한도에 도달해도 쿼리 성능에 부정적인 영향을 미치지 않으며 오류와 실패를 일으키지 않습니다. [메모리 관리 아키텍처 가이드](/sql/relational-databases/memory-management-architecture-guide)에 자세히 설명된 대로 데이터베이스 엔진은 종종 의도적으로 사용 가능한 모든 메모리를 사용합니다. 메모리는 주로 데이터를 캐싱하는 데 사용되어 비용이 많이 드는 스토리지 액세스를 방지합니다. 스토리지에서 읽는 속도에 비해 메모리에서 읽는 속도가 빠르기 때문에 메모리 사용률이 높으면 대체로 쿼리 성능이 향상됩니다.
 
 데이터베이스 엔진이 시작되고 워크로드가 스토리지에서 데이터를 읽기 시작하면 데이터베이스 엔진은 메모리의 데이터를 적극적으로 캐시합니다. 특히 데이터베이스가 유휴 상태가 아니고 메모리에 완전히 들어가지 않는 경우 이 초기 램프업 기간 후에 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)의 `avg_memory_usage_percent` 열과 `avg_instance_memory_percent` 열이 100%에 근접하거나 도달하는 게 일반적으로 예상됩니다.
 
@@ -106,36 +106,35 @@ ms.locfileid: "110708363"
 |쿼리 계획 캐시 크기 줄이기|데이터베이스 엔진은 쿼리를 실행할 때마다 쿼리 계획을 컴파일하지 않으려고 메모리에 쿼리 계획을 캐시합니다. 한 번만 사용되는 캐싱 계획으로 인한 쿼리 계획 캐시 블로트를 방지하려면 OPTIMIZE_FOR_AD_HOC_WORKLOADS [데이터베이스 범위 구성](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)을 사용합니다.|
 |잠금 메모리 크기 줄이기|데이터베이스 엔진은 [잠금](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#Lock_Engine)에 메모리를 사용합니다. 가능한 경우, 많은 수의 잠금을 가져오고 잠금 메모리 사용량을 늘릴 수 있는 큰 트랜잭션은 피하세요.|
 
-
 ## <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>사용자 워크로드 및 내부 프로세스별 리소스 사용량
-
-각 데이터베이스의 사용자 워크로드에 의한 CPU와 메모리 사용량은 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 보기, `avg_cpu_percent` 및 `avg_memory_usage_percent` 열에 보고됩니다. 탄력적 풀의 경우 풀 수준 리소스 사용량이 [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) 보기에 보고됩니다. 사용자 워크로드의 CPU 사용량은 [단일 데이터베이스](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases)와 풀 수준의 [탄력적 풀](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools)에 대해서도 `cpu_percent` Azure Monitor 메트릭을 통해 보고됩니다.
 
 Azure SQL Database는 핵심 서비스 기능(예: 고가용성 및 재해 복구, 데이터베이스 백업 및 복원, 모니터링, 쿼리 저장소, 자동 튜닝 등)을 구현하기 위해 컴퓨팅 리소스를 필요로 합니다. 시스템은 [리소스 거버넌스](#resource-governance) 메커니즘을 사용하여 해당 내부 프로세스를 위해 전체 리소스의 일정 부분을 제한적으로 확보해 두고, 나머지 리소스는 사용자 워크로드에 사용될 수 있게 합니다. 내부 프로세스에서 컴퓨팅 리소스를 사용하지 않는 경우, 시스템은 사용자 워크로드에서 컴퓨팅 리소스를 사용할 수 있도록 합니다.
 
 사용자 워크로드와 내부 프로세스에 의한 CPU와 메모리의 총사용량은 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 보기, `avg_instance_cpu_percent` 및 `avg_instance_memory_percent` 열에 보고됩니다. 이 데이터는 [단일 데이터베이스](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases)와 풀 수준의 [탄력적 풀](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools)에 대해서도 `sqlserver_process_core_percent` 및 `sqlserver_process_memory_percent` Azure Monitor 메트릭을 통해 보고됩니다.
 
+각 데이터베이스의 사용자 워크로드에 의한 CPU와 메모리 사용량은 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 보기, `avg_cpu_percent` 및 `avg_memory_usage_percent` 열에 보고됩니다. 탄력적 풀의 경우 풀 수준 리소스 사용량이 [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) 보기에 보고됩니다. 사용자 워크로드의 CPU 사용량은 [단일 데이터베이스](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases)와 풀 수준의 [탄력적 풀](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools)에 대해서도 `cpu_percent` Azure Monitor 메트릭을 통해 보고됩니다.
+
 사용자 워크로드 및 내부 프로세스의 최근 리소스 사용량에 대한 자세한 내역은 [sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) 및 [sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database) 보기에 보고됩니다. 해당 보기에서 참조되는 리소스 풀과 작업 그룹에 대한 자세한 내용은 [리소스 거버넌스](#resource-governance)를 참조하세요. 해당 보기는 관련 리소스 풀과 작업 그룹에 있는 사용자 워크로드와 특정 내부 프로세스의 리소스 사용률을 보고합니다.
 
 성능 모니터링 및 문제 해결의 컨텍스트에서 **사용자 CPU 사용량**(`avg_cpu_percent`, `cpu_percent`)과 사용자 워크로드 및 내부 프로세스에 의한 **CPU 총사용량**(`avg_instance_cpu_percent`, `sqlserver_process_core_percent`)을 모두 고려하는 것이 중요합니다.
 
-**사용자 CPU 사용량** 은 각 서비스 목표에서 사용자 워크로드 한도의 백분율로 계산됩니다. 100%의 **사용자 CPU 사용률** 은 사용자 워크로드가 서비스 목표 한도에 도달했음을 나타냅니다. 하지만 **CPU 총사용량** 이 70-100% 범위에 도달하면, 보고된 **사용자 CPU 사용량** 이 100%에 훨씬 미치지 못하더라도 사용자 워크로드 처리량이 줄어들고 쿼리 대기 시간이 증가하는 것을 볼 수 있습니다. 이는 컴퓨팅 리소스가 적당히 할당된 소규모 서비스 목표를 사용하면서, [조밀한 탄력적 풀](elastic-pool-resource-management.md)처럼 비교적 강력한 사용자 워크로드를 수행할 때 발생할 가능성이 높습니다. 또한 데이터베이스의 새 복제본을 만드는 등 내부 프로세스에 추가 리소스가 일시적으로 필요한 경우에도 소규모 서비스 목표에서 이와 같은 문제가 발생할 수 있습니다.
+**사용자 CPU 사용량** 은 각 서비스 목표에서 사용자 워크로드 한도의 백분율로 계산됩니다. 100%의 **사용자 CPU 사용률** 은 사용자 워크로드가 서비스 목표 한도에 도달했음을 나타냅니다. 하지만 **CPU 총사용량** 이 70-100% 범위에 도달하면, 보고된 **사용자 CPU 사용량** 이 100%에 훨씬 미치지 못하더라도 사용자 워크로드 처리량이 줄어들고 쿼리 대기 시간이 증가하는 것을 볼 수 있습니다. 이는 컴퓨팅 리소스가 적당히 할당된 소규모 서비스 목표를 사용하면서, [조밀한 탄력적 풀](elastic-pool-resource-management.md)처럼 비교적 강력한 사용자 워크로드를 수행할 때 발생할 가능성이 높습니다. 또한 데이터베이스의 새 복제본을 만들거나 데이터베이스를 백업할 때 등 내부 프로세스에 추가 리소스가 일시적으로 필요한 경우에도 소규모 서비스 목표에서 이와 같은 문제가 발생할 수 있습니다.
 
-**CPU 총사용량** 높은 경우, 완화하는 방법은 앞에서 설명한 것과 동일하며 서비스 목표 증가 및/또는 사용자 워크로드 최적화도 이에 포함됩니다.
+**CPU 총사용량** 이 높은 경우, 완화하는 방법은 [컴퓨팅 CPU](#compute-cpu) 섹션에서 설명한 것과 동일하며 서비스 목표 증가 및/또는 사용자 워크로드 최적화도 이에 포함됩니다.
 
 ## <a name="resource-governance"></a>리소스 거버넌스
 
-Azure SQL Database는 리소스 한도를 적용하기 위해 Azure SQL Database에서 실행되도록 수정 및 확장된 SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor)를 기반으로 한 리소스 거버넌스 구현을 사용합니다. SQL Database에서는 풀 수준과 그룹 수준에서 모두 리소스 한도가 설정된 여러 [리소스 풀](/sql/relational-databases/resource-governor/resource-governor-resource-pool)과 [작업 그룹](/sql/relational-databases/resource-governor/resource-governor-workload-group)이 [균형 잡힌 Database-as-a-Service](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/)를 제공합니다. 사용자 워크로드와 내부 워크로드는 별도의 리소스 풀과 작업 그룹으로 분류됩니다. 지역 복제본을 포함하여 주 복제본과 읽기 가능한 보조 복제본의 사용자 워크로드는 `SloSharedPool1` 리소스 풀과 `UserPrimaryGroup.DBId[N]` 작업 그룹으로 분류됩니다. 여기서 `N`은 데이터베이스 ID 값을 나타냅니다. 또한 다양한 내부 워크로드를 위한 여러 리소스 풀과 작업 그룹이 있습니다.
+Azure SQL Database는 리소스 제한을 적용하기 위해 클라우드에서 실행되도록 수정 및 확장된 SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor)를 기반으로 한 리소스 거버넌스 구현을 사용합니다. SQL Database에서는 풀 수준과 그룹 수준에서 모두 리소스 한도가 설정된 여러 [리소스 풀](/sql/relational-databases/resource-governor/resource-governor-resource-pool)과 [작업 그룹](/sql/relational-databases/resource-governor/resource-governor-workload-group)이 [균형 잡힌 Database-as-a-Service](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/)를 제공합니다. 사용자 워크로드와 내부 워크로드는 별도의 리소스 풀과 작업 그룹으로 분류됩니다. 지역 복제본을 포함하여 주 복제본과 읽기 가능한 보조 복제본의 사용자 워크로드는 `SloSharedPool1` 리소스 풀과 `UserPrimaryGroup.DBId[N]` 작업 그룹으로 분류됩니다. 여기서 `N`은 데이터베이스 ID 값을 나타냅니다. 또한 다양한 내부 워크로드를 위한 여러 리소스 풀과 작업 그룹이 있습니다.
 
-Resource Governor를 사용하여 SQL 프로세스 내의 리소스를 관리하는 것 외에도 Azure SQL Database는 프로세스 수준 리소스 거버넌스를 위해 Windows [작업 개체](/windows/win32/procthread/job-objects)를 사용하고, 스토리지 할당량 관리를 위해 Windows [FSRM(파일 서버 리소스 관리자)](/windows-server/storage/fsrm/fsrm-overview)을 사용합니다.
+Resource Governor를 사용하여 데이터베이스 엔진 내의 리소스를 관리하는 것 외에도 Azure SQL Database는 프로세스 수준 리소스 거버넌스를 위해 Windows [작업 개체](/windows/win32/procthread/job-objects)를 사용하고, 스토리지 할당량 관리를 위해 Windows [FSRM(파일 서버 리소스 관리자)](/windows-server/storage/fsrm/fsrm-overview)을 사용합니다.
 
-Azure SQL Database 리소스 거버넌스는 본질적으로 계층적입니다. OS 수준과 스토리지 볼륨 수준에서 운영 체제 리소스 거버넌스 메커니즘을 사용하여, 그다음에는 리소스 풀 수준에서 Resource Governor를 사용하여, 그다음에는 작업 그룹 수준에서 Resource Governor를 사용하여, 위에서 아래로 한도가 적용됩니다. 현재 데이터베이스 또는 탄력적 풀에 적용되고 있는 리소스 거버넌스 한도는 [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 보기에 표시됩니다.
+Azure SQL Database 리소스 거버넌스는 본질적으로 계층적입니다. OS 수준과 스토리지 볼륨 수준에서 운영 체제 리소스 거버넌스 메커니즘을 사용하여, 그다음에는 리소스 풀 수준에서 Resource Governor를 사용하여, 그다음에는 작업 그룹 수준에서 Resource Governor를 사용하여, 위에서 아래로 한도가 적용됩니다. 현재 데이터베이스 또는 탄력적 풀에 적용되고 있는 리소스 거버넌스 제한은 [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 뷰에 보고됩니다.
 
 ### <a name="data-io-governance"></a>데이터 IO 거버넌스
 
 데이터 IO 거버넌스는 데이터베이스의 데이터 파일에 대해 읽기 및 쓰기 물리적 IO를 제한하는 데 사용되는 Azure SQL Database의 프로세스입니다. IOPS 한도는 각 서비스 수준에서 설정되어 “시끄러운 이웃” 효과를 최소화하고, 멀티 테넌트 서비스에서 리소스를 공정하게 할당하며, 기본 하드웨어 및 스토리지의 기능을 유지합니다.
 
-단일 데이터베이스의 경우, 워크로드 그룹 한도는 데이터베이스에 대한 모든 스토리지 IO에 적용되는 반면, 리소스 풀 한도는 tempdb 데이터베이스를 비롯하여 동일한 전용 SQL 풀에 있는 모든 데이터베이스에 대한 모든 스토리지 IO에 적용됩니다. 탄력적 풀의 경우, 워크로드 그룹 한도는 풀의 각 데이터베이스에 적용되는 반면, 리소스 풀 한도는 풀의 모든 데이터베이스 간에 공유되는 tempdb 데이터베이스를 비롯한 탄력적 풀 전체에 적용됩니다. 일반적으로 작업 그룹 한도가 리소스 풀 한도보다 낮고 IOPS/처리량을 더 빨리 제한하므로 데이터베이스(단일 또는 풀)에 대한 워크로드로 리소스 풀 한도를 달성하지 못할 수 있습니다. 그러나 동일한 풀에 있는 여러 데이터베이스에 대한 결합된 워크로드로 풀의 한도에 도달할 수 있습니다.
+단일 데이터베이스의 경우, 워크로드 그룹 제한은 데이터베이스에 대한 모든 스토리지 IO에 적용되는 반면, 리소스 풀 제한은 tempdb 데이터베이스를 비롯하여 동일한 탄력적인 풀에 있는 모든 데이터베이스에 대한 모든 스토리지 IO에 적용됩니다. 탄력적 풀의 경우, 워크로드 그룹 한도는 풀의 각 데이터베이스에 적용되는 반면, 리소스 풀 한도는 풀의 모든 데이터베이스 간에 공유되는 tempdb 데이터베이스를 비롯한 탄력적 풀 전체에 적용됩니다. 일반적으로 작업 그룹 한도가 리소스 풀 한도보다 낮고 IOPS/처리량을 더 빨리 제한하므로 데이터베이스(단일 또는 풀)에 대한 워크로드로 리소스 풀 한도를 달성하지 못할 수 있습니다. 그러나 동일한 풀에 있는 여러 데이터베이스에 대한 결합된 워크로드로 풀의 한도에 도달할 수 있습니다.
 
 예를 들어 IO 리소스 거버넌스 없이 쿼리가 1,000IOPS를 생성하는데 작업 그룹의 IOPS 최대한도가 900IOPS로 설정되었다면, 쿼리는 900IOPS를 초과할 수 없습니다. 하지만 리소스 풀의 IOPS 최대한도가 1,500IOPS로 설정되어 있고 리소스 풀과 연결된 모든 작업 그룹의 총 IO가 1,500IOPS를 초과하는 경우, 동일한 쿼리의 IO가 작업 그룹 한도인 900IOPS 미만으로 감소할 수 있습니다.
 
@@ -145,11 +144,11 @@ Azure Storage의 데이터 파일을 사용하는 기본, 표준, 범용 데이�
 
 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) 보기에 보고된 `avg_data_io_percent`와 `avg_log_write_percent` 같은 리소스 사용률 값은 리소스 거버넌스 최대한도의 백분율로 계산됩니다. 따라서 리소스 거버넌스를 제외한 다른 요소가 IOPS/처리량을 제한하면, 보고된 리소스 사용률이 100% 밑으로 유지되더라도 워크로드가 증가함에 따라 IOPS/처리량이 줄어들고 대기 시간이 증가하는 것을 확인할 수 있습니다.
 
-데이터베이스 파일당 대기 시간, 읽기 및 쓰기 IOPS, 처리량을 확인하려면 [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 함수를 사용합니다. 이 함수는 `avg_data_io_percent`에 계산되지 않는 백그라운드 IO를 비롯하여, 데이터베이스에 대한 모든 IO를 표시하지만, 기본 스토리지의 IOPS 및 처리량을 사용하며, 관찰된 스토리지 대기 시간에 영향을 줄 수 있습니다. 이 함수는 읽기 및 쓰기에 대한 IO 리소스 거버넌스에 의해 도입될 수 있는 추가 대기 시간을 각각 `io_stall_queued_read_ms` 열과 `io_stall_queued_write_ms` 열에서 보여 줍니다.
+데이터베이스 파일당 대기 시간, 읽기 및 쓰기 IOPS, 처리량을 확인하려면 [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 함수를 사용합니다. 이 함수는 `avg_data_io_percent`에 계산되지 않는 백그라운드 IO를 비롯하여, 데이터베이스에 대한 모든 IO를 표시하지만, 기본 스토리지의 IOPS 및 처리량을 사용하며, 관찰된 스토리지 대기 시간에 영향을 줄 수 있습니다. 이 함수는 읽기 및 쓰기에 대한 IO 리소스 거버넌스에 의해 도입될 수 있는 추가 대기 시간을 각각 `io_stall_queued_read_ms` 열과 `io_stall_queued_write_ms` 열에서 보고합니다.
 
 ### <a name="transaction-log-rate-governance"></a>트랜잭션 로그 속도 거버넌스
 
-트랜잭션 로그 속도 거버넌스는 Azure SQL Database의 프로세스이며, 대량 삽입, SELECT INTO, 인덱스 빌드 같은 워크로드에 대한 높은 수집 속도를 제한하는 데 사용됩니다. 해당 한도는 로그 레코드 생성 속도에 맞춰 초 단위 미만의 수준에서 추적되고 적용되므로 데이터 파일에 대해 발급될 수 있는 IO 수와 관계없이 처리량을 제한합니다.  트랜잭션 로그 생성 속도는 현재 하드웨어에 의존하는 지점까지 선형적으로 확장되며, 최대 로그 속도는 vCore 구매 모델에서 96MB/s가 될 수 있습니다.
+트랜잭션 로그 속도 거버넌스는 Azure SQL Database의 프로세스이며, 대량 삽입, SELECT INTO, 인덱스 빌드 같은 워크로드에 대한 높은 수집 속도를 제한하는 데 사용됩니다. 해당 한도는 로그 레코드 생성 속도에 맞춰 초 단위 미만의 수준에서 추적되고 적용되므로 데이터 파일에 대해 발급될 수 있는 IO 수와 관계없이 처리량을 제한합니다.  트랜잭션 로그 생성 속도는 현재 하드웨어 종속 및 서비스 계층 종속 지점까지 선형으로 확장됩니다.
 
 > [!NOTE]
 > 트랜잭션 로그 파일에 대한 실제 물리적 IO는 통제되거나 제한되지 않습니다.
@@ -174,9 +173,9 @@ Azure Storage의 데이터 파일을 사용하는 기본, 표준, 범용 데이�
 
 원하는 확장성을 방해하는 로그 속도 제한이 발생하는 경우 다음 옵션을 고려하세요.
 
-- 최대 96MB/s의 로그 속도를 얻으려면 더 높은 서비스 수준으로 스케일 업하거나 다른 서비스 계층으로 전환하세요. [Hyperscale](service-tier-hyperscale.md) 서비스 계층은 선택한 서비스 수준과 관계없이 100MB/s의 로그 속도를 제공합니다.
+- 서비스 계층의 최대 로그 속도를 얻으려면 더 높은 서비스 수준으로 스케일 업하거나 다른 서비스 계층으로 전환하세요. [Hyperscale](service-tier-hyperscale.md) 서비스 계층은 선택한 서비스 수준과 관계없이 100MB/s의 로그 속도를 제공합니다.
 - 로드 중인 데이터가 ETL 프로세스의 준비 데이터와 같이 임시 데이터인 경우 tempdb(최소 로그됨)로 로드할 수 있습니다.
-- 분석 시나리오의 경우 클러스터된 columnstore 대상 테이블로 로드합니다. 이렇게 하면 압축으로 인해 필요한 로그 속도가 줄어듭니다. 이 기술은 CPU 사용률을 높이므로 클러스터된 columnstore 인덱스의 이점을 누리는 데이터 세트에만 적용됩니다.
+- 분석 시나리오의 경우 클러스터된 [columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview) 테이블 또는 [데이터 압축](/sql/relational-databases/data-compression/data-compression)을 사용하는 색인이 있는 테이블에 로드합니다. 이렇게 하면 필요한 로그 속도가 줄어듭니다. 이 기술은 CPU 사용률을 높이므로 클러스터된 columnstore 인덱스 또는 데이터 압축의 이점을 누리는 데이터 세트에만 적용됩니다.
 
 ### <a name="storage-space-governance"></a>스토리지 공간 거버넌스
 
@@ -186,7 +185,7 @@ Azure Storage의 데이터 파일을 사용하는 기본, 표준, 범용 데이�
 
 다음 쿼리를 사용하여 이 값 및 지정된 데이터베이스 또는 탄력적 풀에서 현재 사용하는 로컬 스토리지의 양을 확인할 수도 있습니다.
 
-```tsql
+```sql
 SELECT server_name, database_name, slo_name, user_data_directory_space_quota_mb, user_data_directory_space_usage_mb
 FROM sys.dm_user_db_resource_governance
 WHERE database_id = DB_ID();

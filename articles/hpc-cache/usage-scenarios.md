@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.author: v-erkel
-ms.openlocfilehash: 36e0135102fbede5505e96fb1aa255588b2f2ae2
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 84d5948cd4d3fbf69c3e8e983dedc280f1f7d950
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259918"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113585738"
 ---
 # <a name="is-your-job-a-good-fit-for-azure-hpc-cache"></a>작업이 Azure HPC Cache에 적합한가요?
 
@@ -19,7 +19,7 @@ Azure HPC Cache는 다양한 분야에서의 고성능 컴퓨팅 작업을 위�
 
 또한 [개요](hpc-cache-overview.md) 문서에서는 Azure HPC Cache를 사용하는 시기와 사용 사례의 몇 가지 예에 대한 간략한 개요를 제공합니다.
 
-또한 미리 보기 상태인 [NFS 탑재 BLOB 스토리지](../storage/blobs/network-file-system-protocol-support.md)를 효과적으로 사용하는 방법에 대해서는 [이 문서](nfs-blob-considerations.md)를 참조하세요.
+또한 [NFS 탑재 BLOB 스토리지](../storage/blobs/network-file-system-protocol-support.md)를 효과적으로 사용하는 방법에 대해서는 [이 문서](nfs-blob-considerations.md)를 참조하세요.
 
 ## <a name="nfs-version-30-applications"></a>NFS 버전 3.0 애플리케이션
 
@@ -54,4 +54,4 @@ Azure HPC Cache를 사용하면 Azure BLOB 스토리지로 기본 호출이 진�
 ## <a name="next-steps"></a>다음 단계
 
 * 캐시의 계획 및 구성 방법에 대한 자세한 내용은 [개요](hpc-cache-overview.md) 및 [필수 구성 요소](hpc-cache-prerequisites.md) 문서를 참조하세요.
-* Azure HPC Cache로 [NFS 사용 BLOB 스토리지](nfs-blob-considerations.md)(미리 보기)를 사용할 때의 고려 사항을 확인하세요.
+* Azure HPC Cache로 [NFS 사용 BLOB 스토리지](nfs-blob-considerations.md)를 사용할 때의 고려 사항을 확인하세요.

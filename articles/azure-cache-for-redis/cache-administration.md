@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7654e3a405d8baeb2e8fc598d49cc7fff014efed
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: c2006c71a9ba9ff24662f27a9f2e4015786197e7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653923"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567037"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure Cache for Redis를 관리하는 방법
 
@@ -24,15 +24,15 @@ ms.locfileid: "110653923"
 
 왼쪽의 **다시 부팅** 을 사용하면 하나 이상의 캐시 노드를 다시 부팅할 수 있습니다. 이 다시 부팅 기능을 사용하면 캐시 노드에 오류가 발생하는 경우 애플리케이션의 복원력을 테스트할 수 있습니다.
 
-![다시 부팅 메뉴 옵션이 강조 표시된 스크린샷](./media/cache-administration/redis-cache-administration-reboot.png)
+:::image type="content" source="media/cache-administration/cache-administration-reboot-2.png" alt-text="다시 부팅 메뉴 옵션이 강조 표시된 스크린샷":::
 
 다시 부팅할 노드를 선택하고 **다시 부팅** 을 선택합니다.
 
-![다시 부팅할 수 있는 노드를 보여주는 스크린샷](./media/cache-administration/redis-cache-reboot.png)
+:::image type="content" source="media/cache-administration/redis-cache-reboot-2.png" alt-text="다시 부팅할 수 있는 노드를 보여주는 스크린샷":::
 
 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 재부팅할 캐시 분할을 선택할 수 있습니다.
 
-![다시 부팅](./media/cache-administration/redis-cache-reboot-cluster.png)
+:::image type="content" source="media/cache-administration/redis-cache-reboot-cluster-2.png" alt-text="분할된 데이터베이스 옵션 스크린샷":::
 
 하나 이상의 캐시 노드를 다시 부팅하려면 노드를 선택하고 **다시 부팅** 을 선택합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 재부팅할 분할을 선택하고 **다시 부팅** 을 클릭합니다. 몇 분 후 선택된 노드가 다시 부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
 
@@ -83,11 +83,11 @@ ms.locfileid: "110653923"
 > 현재는 엔터프라이즈 계층 캐시에 대해 다시 부팅 또는 예약된 업데이트를 구성하는 옵션을 사용할 수 없습니다.
 >
 
-![업데이트를 예약](./media/cache-administration/redis-schedule-updates.png)
+:::image type="content" source="media/cache-administration/redis-schedule-updates-2.png" alt-text="일정 업데이트를 보여 주는 스크린샷":::
 
 유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정합니다. 그런 다음 **확인** 을 선택합니다. 유지 관리 기간은 UTC 단위입니다.
 
-업데이트를 위한 기본 및 최소 유지 관리 기간은 5시간입니다. 이 값은 Azure Portal에서는 구성할 수 없지만 PowerShell에서 [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet의 `MaintenanceWindow` 매개 변수를 사용하여 구성할 수 있습니다. 자세한 내용은 PowerShell, CLI 또는 기타 관리 도구를 사용하여 예약된 업데이트를 관리할 수 있나요?를 참조하세요.
+업데이트를 위한 기본 및 최소 유지 관리 기간은 5시간입니다. 이 값은 Azure Portal에서는 구성할 수 없지만 PowerShell에서 [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet의 `MaintenanceWindow` 매개 변수를 사용하여 구성할 수 있습니다. 자세한 내용은 [PowerShell, CLI 또는 기타 관리 도구를 사용하여 예약된 업데이트를 관리할 수 있나요?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)를 참조하세요.
 
 ## <a name="schedule-updates-faq"></a>업데이트 예약 FAQ
 

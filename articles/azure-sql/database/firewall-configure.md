@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: sstein
-ms.date: 06/17/2020
-ms.openlocfilehash: 6367a697d33a4d658dea6e68b3a7c9d75e3d8b1a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.reviewer: mathoma
+ms.date: 07/14/2021
+ms.openlocfilehash: c1bb51ff65e7239fc758553288c84a4a52f90740
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675365"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528457"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database 및 Azure Synapse IP 방화벽 규칙
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -103,7 +103,7 @@ Azure Portal, PowerShell 또는 Transact-SQL 문을 사용하여 서버 수준 I
 
 Azure 내에 호스트된 애플리케이션을 SQL Server에 연결할 수 있게 하려면 Azure 연결을 사용하도록 설정해야 합니다. Azure 연결을 사용하도록 설정하려면 시작 및 끝 IP 주소를 0.0.0.0으로 설정한 방화벽 규칙이 있어야 합니다.
 
-Azure의 애플리케이션이 서버에 연결하려고 하면 방화벽은 이 방화벽 규칙이 있는지 확인하여 Azure 연결이 허용되는지 확인합니다. 이 기능은 **방화벽 및 가상 네트워크** 설정에서 **Azure 서비스 및 리소스가 이 서버에 액세스하도록 허용** 을 **켜기** 로 전환하여 Azure Portal 블레이드에서 직접 켤 수 있습니다. 켜기로 설정하면 이름이 **AllowAllWindowsIP** 인 IP 0.0.0.0-0.0.0.0에 대한 인바운드 방화벽 규칙이 생성됩니다. Portal을 사용하지 않는 경우 PowerShell 또는 Azure CLI를 사용하여 시작 및 끝 IP 주소가 0.0.0.0인 방화벽 규칙을 만듭니다. 
+Azure의 애플리케이션이 서버에 연결하려고 하면 방화벽은 이 방화벽 규칙이 있는지 확인하여 Azure 연결이 허용되는지 확인합니다. 이 기능은 **방화벽 및 가상 네트워크** 설정에서 **Azure 서비스 및 리소스가 이 서버에 액세스하도록 허용** 을 **켜기** 로 전환하여 Azure Portal 블레이드에서 직접 켤 수 있습니다. 설정을 켜기로 전환하면 이름이 **AllowAllWindowsAzureIps** 인 IP 0.0.0.0~0.0.0.0에 대한 인바운드 방화벽 규칙이 생성됩니다. master 데이터베이스 [sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database) 뷰에서 규칙을 볼 수 있습니다. Portal을 사용하지 않는 경우 PowerShell 또는 Azure CLI를 사용하여 시작 및 끝 IP 주소가 0.0.0.0인 방화벽 규칙을 만듭니다. 
 
 > [!IMPORTANT]
 > 이 옵션은 다른 고객 구독에서의 연결을 포함하여 Azure에서의 모든 연결을 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
@@ -157,7 +157,7 @@ Azure Portal에서 서버 수준 IP 방화벽 규칙을 설정하려면 데이�
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Transact-SQL을 사용하여 IP 방화벽 규칙 관리
 
-| 카탈로그 뷰 또는 저장 프로시저 | Level | Description |
+| 카탈로그 뷰 또는 저장 프로시저 | Level | 설명 |
 | --- | --- | --- |
 | [sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database) |서버 |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
 | [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database) |서버 |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |
@@ -191,7 +191,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
-| Cmdlet | Level | Description |
+| Cmdlet | Level | 설명 |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |서버 |현재 서버 수준 방화벽 규칙 반환 |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |서버 |새 서버 수준 방화벽 규칙 만들기 |
@@ -213,7 +213,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>CLI를 사용하여 서버 수준 IP 방화벽 규칙 관리
 
-| Cmdlet | Level | Description |
+| Cmdlet | Level | 설명 |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|서버|서버 IP 방화벽 규칙을 만듭니다.|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|서버|서버의 IP 방화벽 규칙을 나열합니다.|
@@ -235,7 +235,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>REST API를 사용하여 서버 수준 IP 방화벽 규칙 관리
 
-| API | Level | Description |
+| API | Level | 설명 |
 | --- | --- | --- |
 | [방화벽 규칙 나열](/rest/api/sql/firewallrules/listbyserver) |서버 |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
 | [방화벽 규칙 만들기 또는 업데이트](/rest/api/sql/firewallrules/createorupdate) |서버 |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |

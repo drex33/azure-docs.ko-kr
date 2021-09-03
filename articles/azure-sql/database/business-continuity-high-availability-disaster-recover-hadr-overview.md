@@ -9,18 +9,18 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 06/25/2019
-ms.openlocfilehash: 7bd991bd709bb4be69325afe967d7e5600a9e1a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4a7228662d1070f001b5cbe9d2199639362bccb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222567"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465645"
 ---
-# <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
+# <a name="overview-of-business-continuity-with-azure-sql-database--azure-sql-managed-instance"></a>Azure SQL Database와 Azure SQL Managed Instance를 사용한 비즈니스 연속성 개요
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 **비즈니스 연속성** 은 Azure SQL Database 및 SQL Managed Instance가 특히 컴퓨팅 인프라가 중단되는 상황에서도 비즈니스를 계속 운영할 수 있도록 하는 메커니즘, 정책 및 절차를 나타냅니다. 대부분의 경우 SQL Database와 SQL Managed Instance는 클라우드 환경에서 발생할 수 있는 중단 이벤트에 대처하고 응용 프로그램 및 비즈니스 프로세스를 계속 실행합니다. 그러나 SQL Database에서 자동으로 처리할 수 없는 몇 가지 중단 이벤트가 있습니다.

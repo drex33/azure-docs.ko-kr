@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: 789233ce1ede751276f965143716694c6feca3ca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 320f9ef1285f16a3f7b38b3b4be3e5c51eff269f
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105032798"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113729807"
 ---
 # <a name="system-requirements"></a>시스템 요구 사항
 
@@ -96,7 +96,6 @@ Remote Rendering 가상 머신은 다음 IP 범위의 공유 IP 주소를 사용
 | 8266              | UDP      | 나가는 포트 | 데이터 전송 |
 | 5000, 5433, 8443  | TCP      | 나가는 포트 | [ArrInspector 도구](../resources/tools/arr-inspector.md)에 필요|
 
-
 ## <a name="software"></a>소프트웨어
 
 다음 소프트웨어가 설치되어 있어야 합니다.
@@ -111,10 +110,26 @@ Remote Rendering 가상 머신은 다음 IP 범위의 공유 IP 주소를 사용
 
 ## <a name="unity"></a>Unity
 
-Unity를 사용하여 개발하려면 현재 버전의 Unity 2019.3 또는 2019.4 LTS[(다운로드)](https://unity3d.com/get-unity/download)를 설치합니다. 설치 관리를 위해 Unity Hub를 사용하는 것이 좋습니다.
+Unity를 사용하여 개발하려면 지원되는 버전의 Unity[(다운로드)](https://unity3d.com/get-unity/download)를 설치합니다. 설치 관리를 위해 Unity Hub를 사용하는 것이 좋습니다.
 Unity 설치에 다음 모듈을 포함해야 합니다.
 * **UWP** - 유니버설 Windows 플랫폼 빌드 지원
 * **IL2CPP** - Windows 빌드 지원(IL2CPP)
+
+### <a name="unity-2019"></a>Unity 2019
+
+Unity 2019의 경우 버전 2019.3 또는 2019.4 LTS가 지원됩니다. 그러나 OpenXR 버전의 플러그 인을 사용하려면 2020 기반 버전이 필요합니다.
+
+Unity 2019용 ARR은 Windows Mixed Reality를 위한 레거시 **기본 제공 XR** 통합과 새로운 **XR SDK** 플러그 인 프레임워크를 둘 다 지원합니다.
+
+### <a name="unity-2020"></a>Unity 2020
+
+Unity 2020의 경우 최신 버전의 Unity 2020.3을 사용합니다.
+
+> [!IMPORTANT]
+> OpenXR 버전의 플러그 인을 사용하는 경우 URP(‘유니버설 렌더링 파이프라인’)의 버전이 10.5.1 이상인지 확인해야 합니다. 이를 확인하려면 Unity ‘창’ 메뉴에서 ‘패키지 관리자’를 열고 ‘유니버설 RP’ 섹션인 ![유니버설 RP 버전](./media/unity-universal-rp-version-10-5-1.png)을 참조하세요.  
+
+> [!IMPORTANT]
+> **Unity 2020.3용 WMR(Windows Mixed Reality) 플러그 인** 은 현재 ARR에서 성능이 저하되었습니다. 더 나은 환경을 위해 Unity 2019.X를 유지하거나 OpenXR 버전으로 전환하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

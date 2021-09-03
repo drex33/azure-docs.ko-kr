@@ -1,14 +1,14 @@
 ---
 title: Windows PowerShell DSC를 사용하여 Connected Machine 에이전트 설치
 description: 이 문서에서는 Windows PowerShell DSC로 Azure Arc 사용 서버를 사용하여 컴퓨터를 Azure에 연결하는 방법을 알아봅니다.
-ms.date: 09/24/2020
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: c0ae9c97afe14559aa36c1b8387f07897aa4c43b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a6e955df43e3589c97091cb111699ce402723d0
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587649"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538738"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Windows PowerShell DSC를 사용하여 Connected Machine 에이전트 설치 방법
 
@@ -44,7 +44,7 @@ ms.locfileid: "100587649"
 
 이 모듈의 리소스는 Azure Connected Machine 에이전트 구성을 관리하도록 설계되었습니다. PowerShell 스크립트 `AzureConnectedMachineAgent.ps1`도 포함되어 있습니다(`AzureConnectedMachineDsc\examples` 폴더에 있음). 이 스크립트는 커뮤니티 리소스를 사용하여 다운로드 및 설치를 자동화하고, Azure Arc와의 연결을 설정합니다. 이 스크립트는 [Azure Portal에서 Azure에 하이브리드 컴퓨터 연결](onboard-portal.md) 문서에 설명된 것과 유사한 단계를 수행합니다.
 
-컴퓨터가 프록시 서버를 통해 서비스와 통신해야 하는 경우 에이전트를 설치한 후 [여기](manage-agent.md#update-or-remove-proxy-settings)에서 설명하는 명령을 실행해야 합니다. 그러면 `https_proxy` 프록시 서버 시스템 환경 변수가 설정됩니다. 명령을 수동으로 실행하는 대신 [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc) 모듈을 사용하여 DSC로 이 단계를 수행할 수 있습니다.
+컴퓨터가 프록시 서버를 통해 서비스와 통신해야 하는 경우 에이전트를 설치한 후 [여기](manage-agent.md#update-or-remove-proxy-settings)에서 설명하는 명령을 실행해야 합니다. 그러면 `https_proxy` 프록시 서버 시스템 환경 변수가 설정됩니다. 명령을 수동으로 실행하는 대신 [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc) 모듈을 사용하여 DSC로 이 단계를 수행할 수 있습니다. 이 구성을 사용하여 에이전트는 HTTP 프로토콜을 사용하는 프록시 서버를 통해 통신합니다.
 
 >[!NOTE]
 >DSC를 실행할 수 있도록 하려면 localhost 구성을 실행하는 경우에도 PowerShell 원격 명령을 수신하도록 Windows를 구성해야 합니다. 환경을 올바르게 구성하려면 관리자 권한 PowerShell 터미널에서 `Set-WsManQuickConfig -Force`를 실행하면 됩니다.
@@ -88,6 +88,6 @@ PowerShell 갤러리의 [CompositeResource](https://www.powershellgallery.com/pa
 
 * 문제 해결 정보는 [Connected Machine 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)에서 찾을 수 있습니다.
 
-* [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 등).
+* [계획 및 배포 가이드](plan-at-scale-deployment.md)를 검토하여 모든 규모의 Azure Arc 지원 서버 배포를 계획하고 중앙 집중식 관리와 모니터링을 구현합니다.
 
-* [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)에 대해 자세히 알아보세요. 머신에서 실행되는 OS 및 워크로드를 사전에 모니터링하거나, 자동화 Runbook 또는 업데이트 관리 같은 솔루션을 사용하여 관리하거나, [Azure Security Center](../../security-center/security-center-introduction.md) 같은 다른 Azure 서비스를 사용하려는 경우에는 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.
+* [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM 인사이트](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 등).

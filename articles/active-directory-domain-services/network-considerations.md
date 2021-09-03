@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 08/12/2021
 ms.author: justinha
-ms.openlocfilehash: d1a3ab5face03754bf84f442ac0fa73768b0fc80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 533d663b478ddd362ef18f81528afbe1b9393095
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97615821"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567537"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -96,7 +96,7 @@ VPN(가상 사설망)을 사용하는 방법에 대한 자세한 내용은 [Azur
 | 네트워크 인터페이스 카드                  | Azure AD DS는 Windows Server에서 Azure VM으로 실행되는 두 개의 DC(도메인 컨트롤러)에서 관리되는 도메인을 호스트합니다. 각 VM에는 가상 네트워크 서브넷에 연결하는 가상 네트워크 인터페이스가 있습니다. |
 | 동적 표준 공용 IP 주소      | Azure AD DS는 표준 SKU 공용 IP 주소를 사용하여 동기화 및 관리 서비스와 통신합니다. 공용 IP 주소에 대한 자세한 내용은 [Azure의 IP 주소 유형과 할당 메서드](../virtual-network/public-ip-addresses.md)를 참조하세요. |
 | Azure 표준 부하 분산 장치            | Azure AD DS는 NAT(Network Address Translation) 및 부하 분산(보안 LDAP와 함께 사용되는 경우)에 표준 SKU 부하 분산 장치를 사용합니다. Azure 부하 분산 장치에 대한 자세한 내용은 [Azure Load Balancer란?](../load-balancer/load-balancer-overview.md)을 참조하세요. |
-| NAT(Network Address Translation) 규칙 | Azure AD DS는 부하 분산 장치에서 세 가지 NAT 규칙을 만들고 사용합니다. 하나는 보안 HTTP 트래픽에 대한 규칙이고 두 개는 보안 PowerShell 원격에 대한 규칙입니다. |
+| NAT(Network Address Translation) 규칙 | Azure AD DS는 부하 분산 장치에서 보안 PowerShell 원격에 대한 두 개의 인바운드 NAT 규칙을 만들고 사용합니다. 표준 SKU 부하 분산 장치를 사용하는 경우 아웃바운드 NAT 규칙도 있습니다. 기본 SKU 부하 분산 장치의 경우 아웃바운드 NAT 규칙이 필요하지 않습니다. |
 | 부하 분산 장치 규칙                     | TCP 포트 636에서 보안 LDAP에 대해 관리되는 도메인을 구성하면 부하 분산 장치에서 세 가지 규칙이 만들어지고 트래픽을 분산하는 데 사용됩니다. |
 
 > [!WARNING]
@@ -104,11 +104,15 @@ VPN(가상 사설망)을 사용하는 방법에 대한 자세한 내용은 [Azur
 
 ## <a name="network-security-groups-and-required-ports"></a>네트워크 보안 그룹과 필수 포트
 
-[NSG(네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)에는 Azure 가상 네트워크의 트래픽에 대한 네트워크 트래픽을 허용하거나 거부하는 규칙 목록이 포함되어 있습니다. 네트워크 보안 그룹은 서비스에서 인증과 관리 기능을 제공할 수 있는 규칙 집합이 포함된 관리되는 도메인을 배포할 때 만들어집니다. 이 기본 네트워크 보안 그룹은 관리되는 도메인이 배포되는 가상 네트워크 서브넷과 연결됩니다.
+[NSG(네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)에는 Azure 가상 네트워크의 네트워크 트래픽을 허용하거나 거부하는 규칙 목록이 포함되어 있습니다. 관리되는 도메인을 배포할 때 서비스에서 인증 및 관리 기능을 제공할 수 있는 규칙 집합이 포함된 네트워크 보안 그룹이 만들어집니다. 이 기본 네트워크 보안 그룹은 관리되는 도메인이 배포되는 가상 네트워크 서브넷과 연결됩니다.
 
-관리되는 도메인에서 인증 및 관리 서비스를 제공하려면 다음 네트워크 보안 그룹 규칙이 필요합니다. 관리되는 도메인이 배포된 가상 네트워크 서브넷에 대한 네트워크 보안 그룹 규칙을 편집하거나 삭제하지 마세요.
+다음 섹션에서는 네트워크 보안 그룹과 인바운드 및 아웃바운드 포트 요구 사항을 다룹니다.
 
-| 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 목적 |
+### <a name="inbound-connectivity"></a>인바운드 연결
+
+관리되는 도메인에서 인증 및 관리 서비스를 제공하려면 다음 네트워크 보안 그룹 인바운드 규칙이 필요합니다. 관리되는 도메인이 배포된 가상 네트워크 서브넷에 대한 네트워크 보안 그룹 규칙을 편집하거나 삭제하지 마세요.
+
+| 인바운드 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 목적 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | 예      | 도메인 관리 |
 | 3389        | TCP      | CorpNetSaw                         | 모두         | Allow  | Optional      | 지원 디버깅 |
@@ -118,13 +122,29 @@ VPN(가상 사설망)을 사용하는 방법에 대한 자세한 내용은 [Azur
 필요한 경우 [Azure PowerShell을 사용하여 필요한 네트워크 보안 그룹 및 규칙을 만들](powershell-create-instance.md#create-a-network-security-group) 수 있습니다.
 
 > [!WARNING]
-> 네트워크 리소스 및 구성을 수동으로 편집하지 마세요. 잘못 구성된 네트워크 보안 그룹 또는 사용자 정의 경로 테이블을 관리되는 도메인이 배포된 서브넷과 연결하면 도메인을 서비스하고 관리하는 Microsoft의 기능을 방해할 수 있습니다. Azure AD 테넌트와 관리되는 도메인 간의 동기화도 중단됩니다.
+> 잘못 구성된 네트워크 보안 그룹 또는 사용자 정의 경로 테이블을 관리되는 도메인이 배포된 서브넷과 연결하면 도메인을 서비스하고 관리하는 Microsoft의 기능을 방해할 수 있습니다. Azure AD 테넌트와 관리되는 도메인 간의 동기화도 중단됩니다. 동기화, 패치 또는 관리를 중단할 수 있는 지원되지 않는 구성을 방지하려면 나열된 모든 요구 사항을 따르세요.
 >
 > 보안 LDAP를 사용하는 경우 외부 트래픽을 허용하는 데 필요한 TCP 포트 636 규칙을 추가할 수도 있습니다. 이 규칙을 추가하더라도 네트워크 보안 그룹 규칙에 대한 지원이 끊기지 않습니다. 자세한 내용은 [인터넷을 통한 보안 LDAP 액세스 잠금](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)을 참조하세요.
 >
-> *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*, *DenyAllOutBound* 에 대한 기본 규칙이 네트워크 보안 그룹에도 존재합니다. 기본 규칙을 편집하거나 삭제하지 마세요.
->
-> 부적절하게 구성된 네트워크 보안 그룹 또는 사용자 정의 경로 테이블이 적용되어 Azure AD DS에서 도메인을 업데이트하고 관리하는 것을 차단하는 배포에는 Azure SLA가 적용되지 않습니다.
+> Azure SLA는 잘못 구성된 네트워크 보안 그룹 또는 사용자 정의 경로 테이블에 의해 업데이트 또는 관리가 차단된 배포에는 적용되지 않습니다. 네트워크 구성이 손상되면 보안 패치가 적용되지 않을 수도 있습니다.
+
+### <a name="outbound-connectivity"></a>아웃바운드 연결
+
+아웃바운드 연결의 경우 **AllowVnetOutbound** 및 **AllowInternetOutBound** 를 유지하거나 다음 표에 나열된 ServiceTags를 사용하여 아웃바운드 트래픽을 제한할 수 있습니다. AzureUpdateDelivery용 ServiceTag는 [PowerShell](powershell-create-instance.md)을 통해 추가해야 합니다.
+
+필터링된 아웃바운드 트래픽은 클래식 배포에서 지원되지 않습니다.
+
+
+| 아웃바운드 포트 번호 | 프로토콜 | 원본 | 대상   | 작업 | 필수 | 용도 |
+|:--------------------:|:--------:|:------:|:-------------:|:------:|:--------:|:-------:|
+| 443 | TCP   | 모두    | AzureActiveDirectoryDomainServices| Allow  | 예      | Azure AD Domain Services 관리 서비스와의 통신. |
+| 443 | TCP   | 모두    | AzureMonitor                      | 허용  | 예      | 가상 머신 모니터링. |
+| 443 | TCP   | 모두    | 스토리지                           | 허용  | 예      | Azure Storage와의 통신.   | 
+| 443 | TCP   | 모두    | AzureActiveDirectory              | Allow  | 예      | Azure Active Directory와의 통신.  |
+| 443 | TCP   | 모두    | AzureUpdateDelivery               | Allow  | 예      | Windows 업데이트와 통신.  | 
+| 80  | TCP   | 모두    | AzureFrontDoor.FirstParty         | Allow  | 예      | Windows 업데이트에서 패치 다운로드.    |
+| 443 | TCP   | 모두    | GuestAndHybridManagement          | Allow  | 예      | 보안 패치의 자동화된 관리.   |
+
 
 ### <a name="port-5986---management-using-powershell-remoting"></a>포트 5986 - PowerShell 원격을 사용하여 관리
 
@@ -146,12 +166,14 @@ VPN(가상 사설망)을 사용하는 방법에 대한 자세한 내용은 [Azur
     * 액세스는 관리 또는 문제 해결 시나리오와 같은 비즈니스 타당성이 있는 경우에만 허용됩니다.
 * 이 규칙은 ‘거부’로 설정하고 필요한 경우에만 ‘허용’으로 설정할 수 있습니다.  대부분의 관리와 모니터링 작업은 PowerShell 원격을 사용하여 수행됩니다. RDP는 Microsoft가 고급 문제 해결을 위해 관리되는 도메인에 원격으로 연결해야 하는 드문 경우에만 사용됩니다.
 
-> [!NOTE]
-> 이 네트워크 보안 그룹 규칙을 편집하려고 하는 경우 포털에서 *CorpNetSaw* 서비스 태그를 수동으로 선택할 수 없습니다. *CorpNetSaw* 서비스 태그를 사용하는 규칙을 수동으로 구성하려면 Azure PowerShell 또는 Azure CLI를 사용해야 합니다.
->
-> 예를 들어 다음 스크립트를 사용하여 RDP를 허용하는 규칙을 만들 수 있습니다. 
->
-> `Get-AzureRmNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzureRmNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "" -DestinationPortRange "3389" -DestinationAddressPrefix "" | Set-AzureRmNetworkSecurityGroup`
+
+이 네트워크 보안 그룹 규칙을 편집하려고 하는 경우 포털에서 *CorpNetSaw* 서비스 태그를 수동으로 선택할 수 없습니다. *CorpNetSaw* 서비스 태그를 사용하는 규칙을 수동으로 구성하려면 Azure PowerShell 또는 Azure CLI를 사용해야 합니다.
+
+예를 들어 다음 스크립트를 사용하여 RDP를 허용하는 규칙을 만들 수 있습니다. 
+
+```powershell
+Get-AzNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "*" -DestinationPortRange "3389" -DestinationAddressPrefix "*" | Set-AzNetworkSecurityGroup
+```
 
 ## <a name="user-defined-routes"></a>사용자 정의 경로
 

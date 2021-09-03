@@ -1,15 +1,15 @@
 ---
 title: PowerShell을 사용하여 Azure에 하이브리드 머신 연결
 description: 해당 문서에서는 Azure Arc 지원 서버를 사용하여 에이전트를 설치하고 머신을 Azure에 연결하는 방법을 설명합니다. 이 작업은 PowerShell을 사용하여 수행할 수 있습니다.
-ms.date: 10/28/2020
+ms.date: 07/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d6963a53ac14c9d6727a8d53e781bc8b8389b76e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: e1ca9528af5b529dd844e566905b6aa7f92429d2
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831621"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530730"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>PowerShell을 사용하여 Azure에 하이브리드 머신 연결
 
@@ -54,6 +54,8 @@ Install-Module -Name Az.ConnectedMachine
         ```azurepowershell
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -Proxy http://<proxyURL>:<proxyport>
         ```
+
+      이 구성을 사용하여 에이전트는 HTTP 프로토콜을 사용하는 프록시 서버를 통해 통신합니다.
 
 설치가 완료된 후 에이전트가 시작되지 않으면 자세한 오류 정보를 로그에서 확인합니다. Windows에서 다음 파일을 확인합니다. *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*. Linux에서 다음 파일을 확인합니다. */var/opt/azcmagent/log/himds.log*.
 
@@ -104,6 +106,6 @@ Azure Arc에서 지원 서버를 사용하여 하나 이상의 Windows server를
 
 * 필요한 경우 [Connected Machine 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)를 참조하세요.
 
-* [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다. VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md)을 사용하여 머신이 예상 Log Analytics 작업 영역에 보고를 하는지 확인하고 [Azure Monitor with VMs](../../azure-monitor/vm/vminsights-enable-policy.md)으로 모니터링 기능을 사용하도록 설정할 수 있습니다.
+* [계획 및 배포 가이드](plan-at-scale-deployment.md)를 검토하여 모든 규모의 Azure Arc 지원 서버 배포를 계획하고 중앙 집중식 관리와 모니터링을 구현합니다.
 
-* [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux용 Log Analytics 에이전트는 운영 체제 및 워크로드 모니터링 데이터를 수집하거나 Azure Automation Runbook 또는 업데이트 관리와 같은 기능을 사용하여 해당 데이터를 관리하는 데 필요합니다. 또한 해당 에이전트는 [Azure Security Center](../../security-center/security-center-introduction.md)와 같은 기타 Azure 서비스를 사용하는 데에도 필요합니다.
+* [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다. VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md)을 사용하여 머신이 예상 Log Analytics 작업 영역에 보고를 하는지 확인하고 [VM 인사이트](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 기능을 사용하도록 설정할 수 있습니다.

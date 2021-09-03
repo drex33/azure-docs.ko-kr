@@ -4,14 +4,14 @@ description: Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/21/2021
 ms.author: thweiss
-ms.openlocfilehash: 246f21bb0cd4718b08c8d8a872b1707a1fea5994
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d83d6ad6834ea38b293054e59eb39a35be5c507e
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958923"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111508"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용하여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,9 +43,9 @@ Azure Cosmos DB 데이터 평면 RBAC는 [Azure RBAC](../role-based-access-contr
 > 이 권한 모델은 데이터 읽기 및 쓰기를 수행할 수 있게 해주는 데이터베이스 작업만 지원합니다. 컨테이너 만들기 또는 처리량 변경과 같은 관리 작업은 지원하지 **않습니다**. 즉, **Azure Cosmos DB 데이터 평면 SDK** 를 사용하여 AAD ID로 관리 작업을 인증할 수 없습니다. 그 대신, 다음을 통해 [Azure RBAC](role-based-access-control.md)를 사용해야 합니다.
 > - [ARM(Azure Resource Manager) 템플릿](manage-with-templates.md)
 > - [Azure PowerShell 스크립트](manage-with-powershell.md),
-> - [Azure CLI 스크립트](manage-with-cli.md),
+> - [Azure CLI 스크립트](sql/manage-with-cli.md),
 > - 다음에서 사용할 수 있는 Azure 관리 라이브러리
->   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
 
@@ -278,7 +278,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/createupdatesqlroledefinition)를 참조해 Azure Resource Manager를 사용해 역할 정의를 만드는 예제를 확인하세요.
+[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-definition)를 참조해 Azure Resource Manager를 사용해 역할 정의를 만드는 예제를 확인하세요.
 
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> 역할 할당 만들기
 
@@ -333,7 +333,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/createupdatesqlroleassignment)를 참조해 Azure Resource Manager 템플릿을 사용하여 역할 할당을 만드는 예제를 확인하세요.
+[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-assignment)를 참조해 Azure Resource Manager 템플릿을 사용하여 역할 할당을 만드는 예제를 확인하세요.
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Azure AD로 SDK 초기화
 
@@ -349,7 +349,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### <a name="in-net"></a>.NET
 
-Azure Cosmos DB RBAC는 현재 [.NET SDK V3](sql-api-sdk-dotnet-standard.md)의 `preview` 버전으로 지원됩니다.
+Azure Cosmos DB RBAC는 현재 [.NET SDK V3](sql-api-sdk-dotnet-standard.md)에서 지원됩니다.
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
@@ -393,7 +393,7 @@ const client = new CosmosClient({
 
 ## <a name="authenticate-requests-on-the-rest-api"></a>REST API에서 요청 인증
 
-Azure Cosmos DB RBAC는 현재 REST API의 `2021-03-15` 버전에서 지원됩니다. [인증 헤더](/rest/api/cosmos-db/access-control-on-cosmosdb-resources)를 생성할 때 다음 예제와 같이 **유형** 매개 변수를 **aad** 로 설정하고, 해시 서명 **(sig)** 을 **oauth 토큰** 으로 설정합니다.
+[REST API 인증 헤더](/rest/api/cosmos-db/access-control-on-cosmosdb-resources)를 생성할 때 다음 예제와 같이 **유형** 매개 변수를 **aad** 로 설정하고, 해시 서명 **(sig)** 을 **oauth 토큰** 으로 설정합니다.
 
 `type=aad&ver=1.0&sig=<token-from-oauth>`
 
@@ -415,6 +415,28 @@ Azure Cosmos DB RBAC를 사용하면, [진단 로그](cosmosdb-monitor-resource-
 
 - `aadPrincipalId_g`는 요청을 인증하기 위해 사용된 AAD ID의 보안 주체 ID를 보여줍니다.
 - `aadAppliedRoleAssignmentId_g`는 요청을 인증할 때 적용된 [역할 할당](#role-assignments)을 보여줍니다.
+
+## <a name="enforcing-rbac-as-the-only-authentication-method"></a><a id="disable-local-auth"></a> 유일한 인증 방법으로 RBAC 적용
+
+클라이언트가 RBAC를 통해서만 Azure Cosmos DB에 연결하도록 하려는 상황에서는 계정의 기본/보조 키를 사용하지 않도록 설정하는 옵션이 있습니다. 이렇게 하면 기본/보조 키 또는 리소스 토큰을 사용하는 모든 수신 요청이 적극적으로 거부됩니다.
+
+### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
+
+Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정을 만들거나 업데이트할 때 `disableLocalAuth` 속성을 `true`로 설정합니다.
+
+```json
+"resources": [
+    {
+        "type": " Microsoft.DocumentDB/databaseAccounts",
+        "properties": {
+            "disableLocalAuth": true,
+            // ...
+        },
+        // ...
+    },
+    // ...
+ ]
+```
 
 ## <a name="limits"></a>제한
 
@@ -443,7 +465,7 @@ Azure Cosmos DB RBAC를 사용하면, [진단 로그](cosmosdb-monitor-resource-
 
 ### <a name="is-it-possible-to-disable-the-usage-of-the-account-primarysecondary-keys-when-using-rbac"></a>RBAC를 사용할 때 계정의 기본/보조 키를 사용하지 않도록 설정할 수 있나요?
 
-현재는 계정 기본/보조 키를 사용하지 않도록 설정할 수 없습니다.
+예, [유일한 인증 방법으로 RBAC 적용](#disable-local-auth)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

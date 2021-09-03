@@ -1,26 +1,27 @@
 ---
-title: Azure AD 앱에 대한 고급 SAML 토큰 인증서 서명 옵션
+title: SAML 토큰의 고급 인증서 서명 옵션
+titleSuffix: Azure AD
 description: Azure Active Directory에서 사전 통합된 앱에 대한 SAML 토큰의 고급 인증서 서명 옵션을 사용하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.author: mtillman
-ms.reviewer: jeedes
+ms.date: 07/30/2021
+ms.author: davidmu
+ms.reviewer: saumadan
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a3ca6af6a70abd1781a62337ba67ea1d3f4961a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8c44d2a346dcd77352715b63937e5bad5274f2d1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080240"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536244"
 ---
-# <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Azure Active Directory의 갤러리 앱에 대한 SAML 토큰의 고급 인증서 서명 옵션
+# <a name="advanced-certificate-signing-options-in-a-saml-token"></a>SAML 토큰의 고급 인증서 서명 옵션
 
 현재 Azure AD(Azure Active Directory)는 Azure Active Directory 앱 갤러리에서 수천 개의 사전 통합 애플리케이션을 지원합니다. [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) 애플리케이션과 같은 500개가 넘는 애플리케이션에서 [SAML(Security Assertion Markup Language)](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) 2.0 프로토콜을 사용하여 Single Sign-On을 지원합니다. 고객이 SAML을 사용하여 Azure AD를 통해 애플리케이션을 인증하면 Azure AD는 애플리케이션에 토큰을 보냅니다(HTTP POST를 통해). 그런 다음, 애플리케이션은 사용자 이름과 암호를 묻는 대신 토큰의 유효성을 검사하고 사용하여 사용자를 로그인합니다. 이러한 SAML 토큰은 Azure AD 및 특정 표준 알고리즘에서 생성된 고유한 인증서로 서명됩니다.
 
@@ -52,7 +53,7 @@ Azure AD는 SAML 응답에 서명하기 위해 두 서명 알고리즘 또는 SH
 
 1. [Azure Active Directory 포털](https://aad.portal.azure.com/)에서 계정에 로그인합니다. **Azure Active Directory 관리 센터** 페이지가 나타납니다.
 1. 왼쪽 창에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 계정의 엔터프라이즈 애플리케이션 목록이 표시됩니다.
-1. 애플리케이션을 선택합니다. 애플리케이션에 대한 개요 페이지가 표시됩니다.
+1. 애플리케이션을 선택합니다. 애플리케이션에 대한 개요 페이지가 표시됩니다. 이 예에서는 Salesforce 애플리케이션이 사용됩니다.
 
    ![예제: 애플리케이션 개요 페이지](./media/certificate-signing-options/application-overview-page.png)
 

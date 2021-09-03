@@ -3,12 +3,12 @@ title: Azure Arc를 사용하여 대규모 하이브리드 인프라 관리
 description: Azure Lighthouse를 사용하면 Azure 외부에서 고객의 컴퓨터와 Kubernetes 클러스터를 효과적으로 관리할 수 있습니다.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: edb9553288ff909e5a5f51bf1440c29914672cb9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 926ec6d3fdca6b31ee5296832e12a63a2dfa9d65
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082085"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538267"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Azure Arc를 사용하여 대규모 하이브리드 인프라 관리
 
@@ -46,7 +46,7 @@ Azure에서 실행되는 것처럼 [Azure Arc를 사용하여 고객 구독에 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Arc GitHub 리포지토리](https://github.com/microsoft/azure_arc)에서 빠른 시작 및 샘플을 살펴봅니다.
-- [Azure Arc 사용 서버에 지원되는 시나리오](../../azure-arc/servers/overview.md#supported-scenarios)에 대해 알아봅니다.
+- [Azure Arc 사용 서버에 지원되는 시나리오](../../azure-arc/servers/overview.md#supported-cloud-operations)에 대해 알아봅니다.
 - [Azure Arc에서 지원하는 Kubernetes 배포판](../../azure-arc/kubernetes/overview.md#supported-kubernetes-distributions)에 대해 알아봅니다.
 - [대규모로 정책을 배포](policy-at-scale.md)하는 방법에 대해 알아봅니다.
 - [대규모로 Azure Monitor 로그를 사용](monitor-at-scale.md)하는 방법에 대해 알아봅니다.

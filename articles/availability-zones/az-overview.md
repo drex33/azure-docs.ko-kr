@@ -8,12 +8,12 @@ ms.date: 04/09/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: a15a94694f3c0623830650a8b5bbb00dc4c4cb6b
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 8d2198c4c2c2dd100d7bbf88eebc4e521d6ace04
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285516"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529234"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Azure의 지역 및 가용성 영역
 
@@ -38,7 +38,7 @@ Azure의 지역 및 가용성 영역을 더 잘 이해할 수 있도록 주요 �
 
 ## <a name="regions"></a>영역
 
-지역은 대기 시간이 정의된 경계 내에 배치되고, 지역별 짧은 대기 시간 네트워크를 통해 연결된 데이터 센터 집합입니다. Azure는 여러 지역에 지역 간 복원력을 제공하는 등, 필요한 곳에 애플리케이션을 유연하게 배포할 수 있게 해줍니다. 자세한 내용은 [복원력 핵심 요소](/azure/architecture/framework/resiliency/overview)를 참조하세요.
+지역은 대기 시간이 정의된 경계 내에 배치되고, 지역별 짧은 대기 시간 네트워크를 통해 연결된 데이터 센터 집합입니다. Azure는 여러 지역에 지역 간 복원력을 제공하는 등, 필요한 곳에 애플리케이션을 유연하게 배포할 수 있게 해줍니다. 자세한 내용은 [복원력 핵심 요소](/azure/architecture/framework/resiliency/principles)를 참조하세요.
 
 ## <a name="availability-zones"></a>가용성 영역
 
@@ -50,6 +50,9 @@ Azure 지역의 가용성 영역은 장애 도메인과 업데이트 도메인�
 
 - **영역 서비스** - 리소스가 특정 영역(예: 가상 머신, 관리 디스크, 표준 IP 주소)에 고정됩니다.
 - **영역 중복 서비스** – Azure 플랫폼이 영역(예: 영역 중복 스토리지, SQL Database)에서 자동으로 복제됩니다.
+
+> [!NOTE]
+> 표준 SKU 공용 IP 주소 및 공용 IP 주소 접두사 리소스 종류 모두에는 “영역 없음” 옵션도 있습니다.  이를 통해 고객은 표준 SKU 공용 IP를 활용하고 표준 SKU만 허용하는 리소스에 연결할 수 있지만, 중복성 보장은 제공되지 않습니다.  (기본에서 표준 SKU로 [업그레이드된](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) 모든 공용 IP 주소는 “영역 없음” 유형이 됩니다.)
 
 Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 쌍과 가용성 영역의 조합을 사용하여 애플리케이션 아키텍처를 빌드하십시오. 고가용성에 대한 Azure 지역 내의 가용성 영역을 사용하여 애플리케이션 및 데이터를 동기적으로 복제하고 재해 복구 보호에 대한 Azure 지역에서 비동기적으로 복제할 수 있습니다.
  

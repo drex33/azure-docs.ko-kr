@@ -7,13 +7,12 @@ ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: bcda4ca252101ed1505f71a1b5f9fe9a0d8d16b9
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 46b8cdc7fa33c8ddd382decb49eaa148093c99fe
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728395"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567015"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central 아키텍처
 
@@ -52,7 +51,8 @@ IoT Central은 IoT Edge 디바이스에 대해 다음 기능을 지원합니다.
   - 각 모듈이 응답하는 명령
   - IoT Edge 게이트웨이 디바이스와 다운스트림 디바이스 간의 관계
   - IoT Edge 디바이스에 저장되지 않는 클라우드 속성
-  - IoT Central 애플리케이션의 일부인 사용자 지정, 대시보드 및 양식
+  - UI가 디바이스 기능을 표시하는 방식을 변경하는 사용자 지정
+  - 디바이스 보기 및 양식
 
   자세한 내용은 [Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 연결](./concepts-iot-edge.md) 문서를 참조하세요.
 
@@ -69,6 +69,9 @@ IoT Central은 다음과 같이 IoT Edge 디바이스 유형을 분류합니다.
 - 다운스트림 디바이스를 사용하는 게이트웨이 디바이스 게이트웨이 디바이스와 다운스트림 디바이스 둘 다 IoT Central에 프로비저닝됩니다.
 
 ![IoT Edge가 있는 IoT Central 개요](./media/concepts-architecture/gatewayedge.png)
+
+> [!NOTE]
+> IoT Central은 현재 IoT Edge 디바이스를 IoT Edge 게이트웨이에 대한 다운스트리밍 디바이스로 연결하는 것을 지원하지 않습니다. IoT Central에 연결하는 모든 디바이스는 DPS(디바이스 프로비저닝 서비스)를 사용하여 프로비저닝되고 DPS는 중첩된 IoT Edge 시나리오를 지원하지 않기 때문입니다.
 
 ### <a name="iot-edge-patterns"></a>IoT Edge 패턴
 
@@ -121,7 +124,7 @@ Azure IoT Central 애플리케이션에서 데이터를 Azure Event Hubs 및 Azu
 
 ## <a name="batch-device-updates"></a>배치 디바이스 업데이트
 
-Azure IoT Central 애플리케이션에서 [작업을 만들고 실행](howto-run-a-job.md)하여 연결된 디바이스를 관리할 수 있습니다. 이러한 작업을 통해 디바이스 속성 또는 설정에 대한 대량 업데이트를 수행하거나 명령을 실행할 수 있습니다. 예를 들어 여러 냉장 자동 판매기의 팬 속도를 높이기 위한 작업을 만들 수 있습니다.
+Azure IoT Central 애플리케이션에서 [작업을 만들고 실행](howto-manage-devices-in-bulk.md)하여 연결된 디바이스를 관리할 수 있습니다. 이러한 작업을 통해 디바이스 속성 또는 설정에 대한 대량 업데이트를 수행하거나 명령을 실행할 수 있습니다. 예를 들어 여러 냉장 자동 판매기의 팬 속도를 높이기 위한 작업을 만들 수 있습니다.
 
 ## <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
 

@@ -1,24 +1,24 @@
 ---
-title: Azure Data Explorer 인사이트(ADX 인사이트 미리 보기) | Microsoft Docs
+title: Azure Data Explorer 인사이트(ADX 인사이트) | Microsoft Docs
 description: 이 문서에서는 ADX 인사이트(Azure Data Explorer 인사이트)에 대해 설명합니다.
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 274d907c4fd8d09e444b938447365a4df64af3e4
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 872c1e29b6c85f24c4e9841dca359a9429b92321
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061635"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458122"
 ---
-# <a name="azure-data-explorer-insights-preview"></a>Azure Data Explorer 인사이트(미리 보기)
+# <a name="azure-data-explorer-insights"></a>Azure Data Explorer 인사이트
 
-Azure Data Explorer 인사이트(미리 보기)는 클러스터 성능, 작업, 사용 및 오류에 대한 통합 보기를 제공하여 클러스터에 대한 포괄적인 모니터링을 할 수 있습니다.
-이 문서는 Azure Data Explorer 인사이트(미리 보기)를 등록하고 사용하는 방법을 이해하는 데 도움이 됩니다.
+Azure Data Explorer 인사이트는 클러스터 성능, 작업, 사용량, 오류에 대한 통합 보기를 통해 포괄적인 클러스터 모니터링을 제공합니다.
+이 문서는 Azure Data Explorer 인사이트를 온보딩하고 사용하는 방법을 이해하는 데 도움이 됩니다.
 
-## <a name="introduction-to-azure-data-explorer-insights-preview"></a>Azure Data Explorer 인사이트 소개(미리 보기)
+## <a name="introduction-to-azure-data-explorer-insights"></a>Azure Data Explorer 인사이트 소개
 
 이 환경을 살펴보기 전에, 이 환경에서 어떤 방식으로 정보가 제공되고 시각화되는지 이해해야 합니다.
 -    **대규모 관점**, 쿼리, 수집 및 내보내기 작업의 성능을 쉽게 추적할 수 있도록 클러스터의 기본 메트릭에 대한 스냅샷 보기를 보여 줍니다.
@@ -33,7 +33,7 @@ Azure Monitor에서 클러스터에 대한 주요 성능 메트릭(구독의 여
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 왼쪽 창에서 **모니터링** 을 선택하고, 인사이트 허브 섹션에서 **Azure Data Explorer 클러스터(미리 보기)** 를 선택합니다.
+2. Azure Portal의 왼쪽 창에서 **모니터링** 을 선택한 다음, 인사이트 허브 섹션에서 **Azure Data Explorer 클러스터** 를 선택합니다.
 
 ![여러 그래프가 있는 개요 환경의 스크린샷](./media/data-explorer/insights-hub.png)
 
@@ -77,7 +77,7 @@ Azure Data Explorer 클러스터에서 직접 Azure Data Explorer 인사이트�
 
 1. Azure Portal에서 **Azure Data Explorer 클러스터** 를 선택합니다.
 
-2. 목록에서 Azure Data Explorer 클러스터를 선택합니다. 모니터링 섹션에서 **인사이트(미리 보기)** 를 선택합니다.
+2. 목록에서 Azure Data Explorer 클러스터를 선택합니다. 모니터링 섹션에서 **인사이트** 를 선택합니다.
 
 Azure Monitor 인사이트 보기에서 Azure Data Explorer 클러스터의 리소스 이름을 선택하여 이런 보기에 액세스할 수도 있습니다.
 
@@ -114,7 +114,7 @@ Azure Data Explorer 인사이트는 로그와 메트릭을 결합하여 글로�
 
 **테이블** 탭에서는 클러스터에 있는 테이블의 최신 및 기록 속성을 표시합니다. 가장 많은 공간을 사용하는 테이블을 확인하고, 테이블 크기, 핫 데이터 및 행 수를 기준으로 시간이 지남에 따른 증가 기록을 추적할 수 있습니다.
 
-사용자는 **캐시** 탭을 통해 실제 쿼리의 조회 기간 패턴을 분석하고 각 테이블에 대해 구성된 캐시 정책과 비교할 수 있습니다. 쿼리되지 않은 대부분의 쿼리 및 테이블에서 사용하는 테이블을 식별하고 이에 따라 캐시 정책을 적용할 수 있습니다. 지난 30일 동안의 실제 쿼리 조회 기간과 최소 95% 쿼리에 대한 최적화되지 않은 캐시 정책을 기반으로 하여 Azure Advisor의 특정 테이블에 대한 특정 캐시 정책 권장 사항을 확인할 수 있습니다. 현재는 [기본 Azure Advisor 대시보드](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)에서만 캐시 권장 사항을 사용할 수 있습니다. Azure Advisor의 캐시 감소 권장 사항은 "데이터에 제한된" 클러스터에 사용할 수 있습니다. 이는 클러스터의 CPU와 수집 사용률이 낮다는 것을 의미하며, 데이터 용량이 높기 때문에 클러스터가 스케일 인하거나 스케일 다운할 수 없습니다.
+사용자는 **캐시** 탭을 통해 실제 쿼리의 조회 기간 패턴을 분석하고 각 테이블에 대해 구성된 캐시 정책과 비교할 수 있습니다. 쿼리되지 않은 대부분의 쿼리 및 테이블에서 사용하는 테이블을 식별하고 이에 따라 캐시 정책을 적용할 수 있습니다. 지난 30일 동안의 실제 쿼리 조회 기간과 최소 95% 쿼리에 대한 최적화되지 않은 캐시 정책을 기반으로 하여 Azure Advisor의 특정 테이블에 대한 특정 캐시 정책 권장 사항을 확인할 수 있습니다. 현재는 [기본 Azure Advisor 대시보드](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)에서만 캐시 권장 사항을 사용할 수 있습니다. Azure Advisor의 캐시 감소 권장 사항은 "데이터에 제한된" 클러스터에 사용할 수 있습니다. 이는 클러스터의 CPU와 수집 사용률이 낮다는 것을 의미하며, 데이터 용량이 높기 때문에 클러스터가 스케일 인하거나 스케일 다운할 수 없습니다.
 
 [![캐시 세부 정보의 스크린샷](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
@@ -148,7 +148,7 @@ Azure Data Explorer 인사이트는 로그와 메트릭을 결합하여 글로�
 
 일반적인 문제 해결 지침은 전용 통합 문서 기반 인사이트 [문제 해결 문서](troubleshoot-workbooks.md)를 참조하세요.
 
-이 섹션에서는 Data Explorer 인사이트(미리 보기)를 사용할 때 발생할 수 있는 몇 가지 일반적인 문제를 진단하고 해결하는 데 도움이 되는 정보를 제공합니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
+이 섹션에서는 Azure Data Explorer 인사이트를 사용할 때 발생할 수 있는 몇 가지 일반적인 문제를 진단하고 해결하는 데 도움이 되는 정보를 제공합니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
 
 ### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>구독 선택기에 내 구독이 전부 표시되지 않는 이유는 무엇인가요?
 

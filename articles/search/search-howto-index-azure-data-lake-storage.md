@@ -1,25 +1,24 @@
 ---
-title: Azure Data Lake Storage Gen2에서 콘텐츠 및 메타데이터를 가져오도록 인덱서를 구성하는 방법
+title: Azure Data Lake Storage Gen2의 데이터 인덱싱
 titleSuffix: Azure Cognitive Search
-description: Azure Data Lake Storage Gen2에서 콘텐츠 및 메타데이터를 인덱싱하는 방법을 알아봅니다.
-manager: luisca
+description: Azure Cognitive Search에서 전체 텍스트 검색을 위해 콘텐츠와 메타데이터의 인덱싱을 자동화하도록 Azure Data Lake Storage Gen2 인덱서를 설정합니다.
 author: markheff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/17/2021
-ms.openlocfilehash: 0d5feeb8098016e126e243305babab9746343504
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: e0364b3242a0be3e4704ade75f2514c8c63aa779
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752480"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983233"
 ---
-# <a name="how-to-configure-an-indexer-to-pull-content-and-metadata-from-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 콘텐츠 및 메타데이터를 가져오도록 인덱서를 구성하는 방법
+# <a name="index-data-from-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 데이터 인덱싱
 
-Azure Storage 계정을 설정할 때 [계층 구조 네임스페이스](../storage/blobs/data-lake-storage-namespace.md)를 사용하도록 설정할 수 있습니다. 이를 통해 계정의 콘텐츠 컬렉션을 디렉터리 및 중첩된 하위 디렉터리의 계층 구조로 구성할 수 있습니다. 계층 구조 네임스페이스를 사용하도록 설정하여 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)를 활성화합니다.
+이 문서에서는 콘텐츠를 추출하고 Azure Cognitive Search에서 검색할 수 있도록 Azure Data Lake Storage Gen2 인덱서를 구성하는 방법을 보여 줍니다. 이 워크플로는 Azure Cognitive Search에 대한 검색 인덱스를 만들고 Azure Data Lake Storage Gen2에서 추출한 기존 콘텐츠와 함께 로드합니다.
 
-이 문서에서는 Azure Data Lake Storage Gen2에 있는 문서를 인덱싱하는 방법을 설명합니다.
+Azure Data Lake Storage Gen2는 Azure Storage를 통해 사용할 수 있습니다. Azure Storage 계정을 설정할 때 [계층 구조 네임스페이스](../storage/blobs/data-lake-storage-namespace.md)를 사용하도록 설정할 수 있습니다. 이를 통해 계정의 콘텐츠 컬렉션을 디렉터리 및 중첩된 하위 디렉터리의 계층 구조로 구성할 수 있습니다. 계층 구조 네임스페이스를 사용하도록 설정하여 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)를 활성화합니다.
 
 ## <a name="supported-access-tiers"></a>지원되는 액세스 계층
 
@@ -338,7 +337,7 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 인덱싱 중에 일반적으로 발생하는 오류에는 지원되지 않는 콘텐츠 형식, 누락된 콘텐츠 또는 크기가 너무 큰 Blob이 포함됩니다.
 
-기본적으로 Blob 인덱서는 지원되지 않는 콘텐츠 형식(예: 이미지)을 포함하는 Blob을 발견하는 즉시 중지됩니다. `excludedFileNameExtensions` 매개 변수를 사용하여 특정 콘텐츠 형식을 건너뛸 수 있습니다. 그러나 오류가 발생한 경우에도 인덱싱을 진행하고, 나중에 개별 문서를 디버그하려고 할 수 있습니다. 인덱서 오류에 대한 자세한 내용은 [일반적인 인덱서 문제 해결](search-indexer-troubleshooting.md) 및 [인덱서 오류 및 경고](cognitive-search-common-errors-warnings.md)를 참조하세요.
+기본적으로 Blob 인덱서는 지원되지 않는 콘텐츠 형식(예: 이미지)을 포함하는 Blob을 발견하는 즉시 중지됩니다. `excludedFileNameExtensions` 매개 변수를 사용하여 특정 콘텐츠 형식을 건너뛸 수 있습니다. 그러나 오류가 발생한 경우에도 인덱싱을 진행하고, 나중에 개별 문서를 디버그하려고 할 수 있습니다. 인덱서 오류에 관한 자세한 내용은 [인덱서 문제 해결 지침](search-indexer-troubleshooting.md)과 [인덱서 오류 및 경고](cognitive-search-common-errors-warnings.md)를 참조하세요.
 
 ### <a name="respond-to-errors"></a>오류에 대응
 

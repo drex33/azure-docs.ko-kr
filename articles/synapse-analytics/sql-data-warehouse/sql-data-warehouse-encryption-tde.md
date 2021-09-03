@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/30/2019
+ms.date: 06/23/2021
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: da4be6f4bc8335e0976a0a4a87c4d232b2a2285f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddaa7656b5d926b3bf7fdb34548eafe99e9bcf89
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98676309"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113092062"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에 있는 전용 SQL 풀(이전 SQL DW)의 TDE(투명한 데이터 암호화) 시작
 
@@ -26,6 +26,9 @@ ms.locfileid: "98676309"
 > * [인증](sql-data-warehouse-authentication.md)
 > * [암호화(포털)](sql-data-warehouse-encryption-tde.md)
 > * [암호화(T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+
+> [!NOTE]
+> 이 문서는 Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics(전용 SQL 풀(이전의 SQL DW))에 적용됩니다. Synapse 작업 영역 내의 전용 SQL 풀을 위한 투명한 데이터 암호화에 관한 설명서는 [Azure Synapse Analytics 암호화](../security/workspaces-encryption.md)를 참조하세요.
 
 ## <a name="required-permissions"></a>필요한 권한
 

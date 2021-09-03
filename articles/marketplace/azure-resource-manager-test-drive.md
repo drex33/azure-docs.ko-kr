@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 0d9c849ce7454e2875c4f00e73cc3b3edc37ad7e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b1ca1b1caa1da1c38e0a7af8ec714c3734ca1191
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971566"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110298"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 
@@ -26,7 +26,7 @@ ARM 템플릿이 무엇인지 잘 모르는 경우 [Azure Resource Manager란?](
 
 배포 템플릿에는 솔루션을 구성하는 모든 Azure 리소스가 포함되어 있습니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용합니다. 파트너 센터에서 다음 속성을 설정합니다.
 
-- **지역**(필수) - 현재 시험 사용을 사용할 수 있는 26개의 Azure 지원 지역이 있습니다. 최상의 성능을 위해 일반적으로 고객 수가 가장 많은 지역에서 시험 사용을 사용할 수 있도록 하여 가장 가까운 지역을 선택할 수 있게 합니다. 구독에서 선택한 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인해야 합니다.
+- **지역**(필수) - 현재 시험 사용을 사용할 수 있는 26개의 Azure 지원 지역이 있습니다. 최상의 성능을 위해 가장 많은 수의 고객이 있을 것으로 예상되는 지역 하나를 선택하는 것이 좋습니다. 구독에서 선택한 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인해야 합니다.
 
 - **인스턴스** – 유형(핫 또는 콜드)을 선택하고, 제품을 사용할 수 있는 지역 수를 곱하여 사용 가능한 인스턴스 수를 선택합니다.
 
@@ -194,9 +194,9 @@ ARM 템플릿이 무엇인지 잘 모르는 경우 [Azure Resource Manager란?](
 
 ### <a name="deployment-location"></a>배포 위치
 
-여러 Azure 지역에서 시험 사용을 제공할 수 있습니다. 사용자가 최상의 사용자 경험을 제공하는 가장 가까운 지역을 선택하도록 허용하면 됩니다.
+여러 Azure 지역에서 시험 사용을 제공할 수 있습니다.
 
-시험 사용에서 랩 인스턴스를 만드는 경우 항상 사용자가 선택한 지역에 리소스 그룹을 만든 다음, 이 그룹 컨텍스트에서 배포 템플릿을 실행합니다. 따라서 템플릿은 리소스 그룹에서 배포 위치를 선택해야 합니다.
+시험 사용에서 랩 인스턴스를 만드는 경우 항상 선택된 지역 중 하나에 리소스 그룹을 만든 다음, 이 그룹 컨텍스트에서 배포 템플릿을 실행합니다. 따라서 템플릿은 리소스 그룹에서 배포 위치를 선택해야 합니다.
 
 ```JSON
 "variables": {

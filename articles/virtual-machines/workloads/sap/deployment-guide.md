@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 5d6ea75936383388a57a7822f054e0ea7297471e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f8d58388715b6bd43676ca7e98cf47901f6409a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695518"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285054"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 
@@ -71,8 +71,8 @@ ms.locfileid: "101695518"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
-[azure-cli]:../../../cli-install-nodejs.md
-[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli
+[azure-cli]:/cli/azure/install-classic-cli
+[azure-cli-2]:/cli/azure/install-azure-cli
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -128,6 +128,8 @@ ms.locfileid: "101695518"
 [deployment-guide-5.1-new]:deployment-guide.md#7bf24f59-7347-4c7a-b094-4693e4687ee5 (새 SAP용 Azure 확장 관련 준비 검사)
 [deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (SAP용 Azure 확장 구성 관련 상태 검사)
 [deployment-guide-5.2-new]:deployment-guide.md#464ac96d-7d3c-435d-a5ae-3faf3bfef4b3 (새 SAP용 Azure 확장 구성 관련 상태 검사)
+
+
 [deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (SAP용 Azure 확장 문제 해결)
 [deployment-guide-5.3-new]:deployment-guide.md#b7afb8ef-a64c-495d-bb37-2af96688c530 (새 SAP용 Azure 확장 문제 해결)
 [deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (SAP용 Azure 확장 문제 해결 - 지원에 문의)
@@ -242,16 +244,16 @@ ms.locfileid: "101695518"
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
 [sap-pam]:https://support.sap.com/pam (SAP 제품 가용성 매트릭스)
-[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
-[sap-templates-2-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image-md%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image-md%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
-[sap-templates-2-tier-os-disk-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk-md%2Fazuredeploy.json
+[sap-templates-2-tier-os-disk-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-user-disk-md%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
-[sap-templates-2-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image-md%2Fazuredeploy.json
+[sap-templates-2-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-user-image-md%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
-[sap-templates-3-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-md%2Fazuredeploy.json
+[sap-templates-3-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-md%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[sap-templates-3-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image-md%2Fazuredeploy.json
+[sap-templates-3-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-user-image-md%2Fazuredeploy.json
 [storage-azure-cli]:../../../storage/common/storage-azure-cli.md
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
@@ -262,7 +264,7 @@ ms.locfileid: "101695518"
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
-[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
+[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
 [virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
@@ -438,7 +440,7 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 머신을 만드는
    * **위치**: 새 가상 머신을 배포할 위치입니다. 온-프레미스 네트워크에 가상 머신을 연결하려는 경우 온-프레미스 네트워크에 Azure를 연결하는 가상 네트워크의 위치를 선택해야 합니다. 자세한 내용은 [SAP NetWeaver용 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Microsoft Azure 네트워킹][planning-guide-microsoft-azure-networking]을 참조하세요.
 1. **Size**:
 
-     지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [스토리지: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks]와 [SAP용 Azure storage 워크로드](./planning-guide-storage.md)를 참조하세요.
+   지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [스토리지: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks]와 [SAP용 Azure storage 워크로드](./planning-guide-storage.md)를 참조하세요.
 
 1. **설정**:
    * **스토리지**
@@ -578,7 +580,7 @@ Managed Disk 이미지에서 새 가상 머신을 만드는 가장 쉬운 방법
    * **위치**: 새 가상 머신을 배포할 위치입니다. 온-프레미스 네트워크에 가상 머신을 연결하려는 경우 온-프레미스 네트워크에 Azure를 연결하는 가상 네트워크의 위치를 선택해야 합니다. 자세한 내용은 [SAP NetWeaver용 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Microsoft Azure 네트워킹][planning-guide-microsoft-azure-networking]을 참조하세요.
 1. **Size**:
 
-     지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [스토리지: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks]와 [SAP용 Azure storage 워크로드](./planning-guide-storage.md)를 참조하세요.
+   지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [스토리지: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks]와 [SAP용 Azure storage 워크로드](./planning-guide-storage.md)를 참조하세요.
 
 1. **설정**:
    * **스토리지**
@@ -962,9 +964,8 @@ SAP용 Azure 확장의 새 버전을 출시하는 중입니다. 새 확장은 �
 
 #### <a name="azure-cli-for-linux-vms"></a><a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Linux VM용 Azure CLI
 
-다음은 Azure CLI를 사용하여 SAP용 Azure 확장을 설치하는 방법입니다.
-
-   1. [Azure 클래식 CLI 설치][azure-cli]의 설명대로 Azure 클래식 CLI를 설치합니다.
+1. Azure CLI를 사용하여 SAP용 Azure 확장을 설치합니다.
+   1. [Azure 클래식 CLI][azure-cli]를 설치합니다.
    1. Azure 계정으로 로그인합니다.
 
       ```console
@@ -977,28 +978,27 @@ SAP용 Azure 확장의 새 버전을 출시하는 중입니다. 새 확장은 �
       azure config mode arm
       ```
 
-   1. SAP용 Azure 확장을 사용하도록 설정합니다.
+   1. 확장 사용:
 
       ```console
       azure vm enable-aem <resource-group-name> <vm-name>
       ```
 
-1. Azure CLI 2.0을 사용하여 설치
-
-   1. [Azure CLI 2.0 설치][azure-cli-2]의 설명대로 Azure CLI 2.0을 설치합니다.
+1. Azure CLI 2.0을 사용하여 Azure CLI AEM 확장을 설치합니다.
+   1. [Azure CLI 2.0][azure-cli-2]을 설치합니다. 버전 2.19.1 이상을 사용해야 합니다(최신 버전 사용).
    1. Azure 계정으로 로그인합니다.
 
       ```azurecli
       az login
       ```
 
-   1. Azure CLI AEM 확장 설치
-  
+   1. Azure CLI AEM 확장을 설치합니다. 버전 0.2.2 이상을 사용해야 합니다.
+    
       ```azurecli
       az extension add --name aem
       ```
   
-   1. 다음을 사용하여 확장 설치
+   1. 확장 사용:
   
       ```azurecli
       az vm aem set -g <resource-group-name> -n <vm name>
@@ -1021,7 +1021,7 @@ SAP용 Azure 확장의 새 버전을 출시하는 중입니다. 새 확장은 �
 
 #### <a name="configure-the-new-azure-extension-for-sap-with-azure-powershell"></a><a name="2ad55a0d-9937-4943-9dd2-69bc2b5d3de0"></a>Azure PowerShell을 사용하여 새 SAP용 Azure 확장 구성
 
-새 SAP용 VM 확장은 VM에 할당된 관리 ID를 사용하여 VM의 모니터링 및 구성 데이터에 액세스합니다. PowerShell을 사용하여 새 SAP용 VM 확장을 설치하려면 먼저 이러한 ID를 VM에 할당하고 해당 VM에서 사용 중인 모든 리소스(예: 디스크 및 네트워크 인터페이스)에 해당 ID 액세스 권한을 부여해야 합니다.
+새 SAP용 VM 확장은 VM에 할당된 관리 ID를 사용하여 VM의 모니터링 및 구성 데이터에 액세스합니다. PowerShell을 사용하여 새 SAP용 Azure 확장을 설치하려면 먼저 이 ID를 VM에 할당하고 VM에서 사용 중인 모든 리소스(예: 디스크 및 네트워크 인터페이스)에 해당 ID 액세스 권한을 부여해야 합니다.
 
 > [!NOTE]
 > 다음 단계를 수행하려면 리소스 그룹 또는 개별 리소스(가상 머신, 데이터 디스크 등)에 대한 소유자 권한이 있어야 합니다.
@@ -1042,28 +1042,27 @@ SAP용 Azure 확장의 새 버전을 출시하는 중입니다. 새 확장은 �
 
 #### <a name="configure-the-new-azure-extension-for-sap-with-azure-cli"></a><a name="c8749c24-fada-42ad-b114-f9aae2dc37da"></a>Azure CLI를 사용하여 새 SAP용 Azure 확장 구성
 
-새 SAP용 VM 확장은 VM에 할당된 관리 ID를 사용하여 VM의 모니터링 및 구성 데이터에 액세스합니다. Azure CLI를 사용하여 새 SAP용 VM 확장을 설치하려면 먼저 이러한 ID를 VM에 할당하고 해당 VM에서 사용 중인 모든 리소스(예: 디스크 및 네트워크 인터페이스)에 해당 ID 액세스 권한을 부여해야 합니다.
+새 SAP용 VM 확장은 VM에 할당된 관리 ID를 사용하여 VM의 모니터링 및 구성 데이터에 액세스합니다. Azure CLI를 사용하여 새 SAP용 Azure 확장을 설치하려면 먼저 이 ID를 VM에 할당하고 VM에서 사용 중인 모든 리소스(예: 디스크 및 네트워크 인터페이스)에 해당 ID 액세스 권한을 부여해야 합니다.
 
 > [!NOTE]
 > 다음 단계를 수행하려면 리소스 그룹 또는 개별 리소스(가상 머신, 데이터 디스크 등)에 대한 소유자 권한이 있어야 합니다.
 
 1. SAP Host Agent 7.21 PL 47 이상을 사용해야 합니다.
-1. 최신 버전의 SAP용 VM 확장을 제거해야 합니다. 동일한 가상 머신에 SAP용 VM 확장의 두 버전을 모두 설치할 수는 없습니다.
-1. [Azure CLI 2.0 설치][azure-cli-2]의 설명대로 Azure CLI 2.0을 설치합니다.
-
+1. 현재 버전의 SAP용 VM 확장을 제거해야 합니다. 동일한 VM에 SAP용 VM 확장의 두 버전을 모두 설치할 수는 없습니다. 
+1. 최신 버전의 [Azure CLI 2.0][azure-cli-2](버전 2.19.1 이상)을 설치합니다.
 1. Azure 계정으로 로그인합니다.
 
    ```azurecli
    az login
    ```
 
-1. Azure CLI AEM 확장을 설치합니다. 버전 0.2.0 이상을 사용해야 합니다.
+1. Azure CLI AEM 확장을 설치합니다. 버전 0.2.2 이상을 사용해야 합니다.
   
    ```azurecli
    az extension add --name aem
    ```
   
-1. 다음으로 새 확장을 설치합니다.
+1. 새 확장을 사용하도록 설정합니다.
   
    ```azurecli
    az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension

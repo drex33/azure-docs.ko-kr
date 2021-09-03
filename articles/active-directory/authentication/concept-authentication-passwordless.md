@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 06/28/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34fdc2ba8880a0da3324fce07eb1fc3763424cee
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: 115f792c82f2e3eea42636c788c3461f7cc55f77
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017724"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537434"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory의 암호 없는 인증 옵션
 
@@ -110,21 +110,23 @@ FIDO2 보안 키를 사용하여 Azure AD 또는 하이브리드 Azure AD에 가
 
 FIDO Alliance에서 인증하는 FIDO2 키가 많지만 Microsoft는 최대 보안과 최상의 환경을 보장하기 위해 업체에서 시행하는 FIDO2 CTAP(Client-to-Authenticator Protocol) 사양의 일부 선택적 확장을 요구합니다.
 
-보안 키는 FIDO2 CTAP 프로토콜에서 다음 기능 및 확장을 Microsoft 호환으로 구현 **해야 합니다**. Authenticator 공급업체는 FIDO_2_0 및 FIDO_2_1 버전의 사양을 모두 구현해야 합니다. 자세한 내용은 [Authenticator 프로토콜에 대한 클라이언트](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html)를 참조하세요.
+보안 키는 FIDO2 CTAP 프로토콜에서 다음 기능 및 확장을 Microsoft 호환으로 구현해야 합니다. Authenticator 공급업체는 FIDO_2_0 및 FIDO_2_1 버전의 사양을 모두 구현해야 합니다. 자세한 내용은 [Authenticator 프로토콜에 대한 클라이언트](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html)를 참조하세요.
 
 | # | 기능/확장 신뢰 | 이 기능 또는 확장이 필요한 이유는 무엇인가요? |
 | --- | --- | --- |
 | 1 | 상주/검색 가능 키 | 이 기능을 사용하면 보안 키를 이동할 수 있습니다. 여기서 자격 증명이 보안 키에 저장되고 검색 가능하므로 사용자 이름 없는 흐름이 가능합니다. |
-| 2 | 클라이언트 pin | 이 기능을 사용하면 두 번째 인증 단계로 자격 증명을 보호할 수 있으며, 사용자 인터페이스가 없는 보안 키에 적용할 수 있습니다.<br>[PIN 프로토콜 1](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#pinProto1) 및 [PIN 프로토콜 2](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#pinProto2)를 모두 **구현해야** 합니다. |
+| 2 | 클라이언트 pin | 이 기능을 사용하면 두 번째 인증 단계로 자격 증명을 보호할 수 있으며, 사용자 인터페이스가 없는 보안 키에 적용할 수 있습니다.<br>[PIN 프로토콜 1](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#pinProto1) 및 [PIN 프로토콜 2](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#pinProto2)를 모두 구현해야 합니다. |
 | 3 | hmac-secret | 이 확장을 통해 오프라인에서 또는 비행기 모드에서 디바이스에 로그인할 수 있습니다. |
 | 4 | RP당 여러 계정 | 이 기능을 사용하면 Microsoft 계정 및 Azure Active Directory 같은 여러 서비스에서 동일한 보안 키를 사용할 수 있습니다. |
-| 5 | 자격 증명 관리    | 이 기능을 통해 사용자는 플랫폼의 보안 키에 대한 자격 증명을 관리하고 이 기능이 기본 제공되지 않는 보안 키에 적용할 수 있습니다.  |
-| 6 | 바이오 등록           | 이 기능을 통해 사용자는 자신의 인증자에 생체 인식을 등록하고 이 기능이 기본 제공되지 않는 보안 키에 적용할 수 있습니다.<br> Authenticator는 이 기능에 대해 [authenicatorBioEnrollment](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#authenticatorBioEnrollment) 명령을 **구현해야** 합니다. Authenticator 공급업체가 [userVerificationMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#prototypeAuthenticatorBioEnrollment) 명령을 구현하여 사용자가 모든 이전 OS 버전에서 바이오 템플릿을 등록할 수 있도록 적극 권장합니다. |
+| 5 | 자격 증명 관리    | 이 기능을 통해 사용자는 플랫폼의 보안 키에 대한 자격 증명을 관리하고 이 기능이 기본 제공되지 않는 보안 키에 적용할 수 있습니다.<br>인증자는 이 기능에 대해 [authenticatorCredentialManagement](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#authenticatorCredentialManagement) 및 [credentialMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#prototypeAuthenticatorCredentialManagement) 명령을 구현해야 합니다.  |
+| 6 | 바이오 등록           | 이 기능을 통해 사용자는 자신의 인증자에 생체 인식을 등록하고 이 기능이 기본 제공되지 않는 보안 키에 적용할 수 있습니다.<br> 인증자는 이 기능에 대해 [authenicatorBioEnrollment](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#authenticatorBioEnrollment) 및 [userVerificationMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#prototypeAuthenticatorBioEnrollment) 명령을 구현해야 합니다. |
 | 7 | pinUvAuthToken           | 이 기능을 통해 플랫폼에서 PIN 또는 BIO 일치를 사용하여 인증 토큰을 가질 수 있습니다. 그러면 인증자에 여러 자격 증명이 있는 경우 사용자 환경을 개선하는 데 도움이 됩니다.  |
 | 8 | forcePinChange           | 이 기능을 통해 엔터프라이즈에서 원격 배포에서 사용자에게 PIN을 변경하도록 요청할 수 있습니다.  |
-| 9 | setMinPINLength          | 이 기능을 통해 엔터프라이즈에서 사용자에 대해 사용자 지정 최소 PIN 길이를 사용할 수 있습니다. Authenticator는 minPinLength 확장도 구현해야 합니다.  |
-| 10 | alwaysUV                | 이 기능을 통해 엔터프라이즈 또는 사용자가 이 보안 키를 사용하기 위해 항상 사용자 확인을 요구할 수 있습니다. Authenticator는 toggleAlwaysUv 하위 명령을 구현해야 합니다.  |
-| 11 | credBlob                | 이 확장을 사용하면 웹 사이트에서 보안 키와 함께 작은 정보를 저장할 수 있습니다.  |
+| 9 | setMinPINLength          | 이 기능을 통해 엔터프라이즈에서 사용자에 대해 사용자 지정 최소 PIN 길이를 사용할 수 있습니다. 인증자는 minPinLength 확장을 구현하고 maxRPIDsForSetMinPINLength 값이 최소 1이어야 합니다.  |
+| 10 | alwaysUV                | 이 기능을 통해 엔터프라이즈 또는 사용자가 이 보안 키를 사용하기 위해 항상 사용자 확인을 요구할 수 있습니다. Authenticator는 toggleAlwaysUv 하위 명령을 구현해야 합니다. alwaysUV의 기본값을 결정하는 것은 공급업체에 달려 있습니다. 이 시점에서 다양한 RP 채택 및 OS 버전의 특성으로 인해 생체 인식 기반 인증자의 권장 값은 true이고 비 생체 인식 기반 인증자는 false입니다.  |
+| 11 | credBlob                | 이 확장을 사용하면 웹 사이트에서 보안 키와 함께 작은 정보를 저장할 수 있습니다. maxCredBlobLength는 32바이트 이상이어야 합니다.  |
+| 12 | largeBlob               | 이 확장을 사용하면 웹 사이트에서 보안 키에 인증서와 같은 더 큰 정보를 저장할 수 있습니다. maxSerializedLargeBlobArray는 1024바이트 이상이어야 합니다.  |
+
 
 ### <a name="fido2-security-key-providers"></a>FIDO2 보안 키 공급자
 
@@ -134,17 +136,18 @@ FIDO Alliance에서 인증하는 FIDO2 키가 많지만 Microsoft는 최대 보�
 |---------------------------|:-----------------:|:---:|:---:|:---:|:--------------:|-----------------------------------------------------------------------------------------------------|
 | AuthenTrend               | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://authentrend.com/about-us/#pg-35-3                                                           |
 | Ensurity                  | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.ensurity.com/contact                                                                    |
-| Excelsecu                 | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://www.excelsecu.com/productdetail/esecufido2secu.html                                         |
-| Feitian                   | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://shop.ftsafe.us/pages/microsoft                                                                   |
-| Gemalto(Thales Group)    | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://safenet.gemalto.com/access-management/authenticators/fido-devices                           |
+| Excelsecu                 | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://www.excelsecu.com/productdetail/esecufido2secu.html                                         |
+| Feitian                   | ![y]              | ![y]| ![y]| ![y]| ![y]           | https://shop.ftsafe.us/pages/microsoft                                                              |
 | GoTrustID Inc.            | ![n]              | ![y]| ![y]| ![y]| ![n]           | https://www.gotrustid.com/idem-key                                                                  |
 | HID                       | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://www.hidglobal.com/contact-us                                                                |
 | Hypersecu                 | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://www.hypersecu.com/hyperfido                                                                 |
 | IDmelon Technologies Inc. | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://www.idmelon.com/#idmelon                                                                    |
 | Kensington                | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.kensington.com/solutions/product-category/why-biometrics/                               |
 | KONA I                    | ![y]              | ![n]| ![y]| ![y]| ![n]           | https://konai.com/business/security/fido                                                            |
-| Nymi                      | ![y]              | ![n]| ![y]| ![y]| ![n]           | https://www.nymi.com/product                                                                        | 
+| Nymi                      | ![y]              | ![n]| ![y]| ![n]| ![n]           | https://www.nymi.com/product                                                                      | 
 | OneSpan Inc.              | ![y]              | ![n]| ![n]| ![y]| ![n]           | https://www.onespan.com/products/fido                                                               |
+| Thales 그룹              | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://cpl.thalesgroup.com/access-management/authenticators/fido-devices                           |
+| Thetis                    | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://thetis.io/collections/fido2                                                                 |
 | Token2 Switzerland        | ![y]              | ![y]| ![y]| ![n]| ![n]           | https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key               |
 | TrustKey Solutions        | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.trustkeysolutions.com/security-keys/                                                    |
 | VinCSS                    | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://passwordless.vincss.net                                                                     |
@@ -158,7 +161,7 @@ FIDO Alliance에서 인증하는 FIDO2 키가 많지만 Microsoft는 최대 보�
 > [!NOTE]
 > NVC 기반 보안 키를 구매하여 사용할 경우에는 보안 키에 지원되는 NFC 판독기 필요합니다. NFC 판독기는 Azure 요구 사항이나 제한 사항이 아닙니다. 지원되는 NFC 리더 목록은 NFC 기반 보안 키 공급업체에 문의하세요.
 
-공급업체이고 지원되는 디바이스 목록에 디바이스를 추가하려는 경우 [Microsoft 호환 FIDO2 보안 키 공급업체가 되는 방법](/security/zero-trust/isv/fido2-hardware-vendor)에 대한 안내를 확인하세요.
+공급업체이고 지원되는 디바이스 목록에 디바이스를 추가하려는 경우 [Microsoft 호환 FIDO2 보안 키 공급업체가 되는 방법](concept-fido2-hardware-vendor.md)에 대한 안내를 확인하세요.
 
 FIDO2 보안 키를 시작하려면 다음 방법을 완료하세요.
 

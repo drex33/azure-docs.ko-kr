@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c356ea88d23bf431df2b7785003ef23d28b5c598
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: bcf66b905b1944a160a19c35ff8d8e00c9a52e67
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572448"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446037"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Windows용 AMD GPU 드라이버 확장
 
 이 문서에서는 Windows [NVv4 시리즈](../nvv4-series.md) VM에 AMD GPU 드라이버를 배포하기 위한 VM 확장에 대한 개요를 제공합니다. 이 확장을 사용하여 AMD 드라이버를 설치하면 [AMD 최종 사용자 사용권 계약](https://amd.com/radeonsoftwarems)을 수락하고 이에 동의하게 됩니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
 
-드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침은 [여기](../windows/n-series-amd-driver-setup.md)에서 확인할 수 있습니다.
+드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침을 확인할 수 있습니다. 자세한 내용은 [Windows용 Azure N 시리즈 AMD GPU 드라이버 설정](../windows/n-series-amd-driver-setup.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

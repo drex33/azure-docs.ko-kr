@@ -1,15 +1,15 @@
 ---
 title: Azure PowerShell을 통해 VM 확장 사용
 description: 이 문서에서는 Azure PowerShell을 사용하여 하이브리드 클라우드 환경에서 실행되는 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
-ms.date: 05/06/2021
+ms.date: 08/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 59e33a8e4e5a2bc0cc8f620bd4b7fb8b65c5d7e9
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 9a626e42b5447cafcf0fe99876eb0146a02c25f3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803209"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536043"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Azure PowerShell을 통해 Azure VM 확장 사용
 
@@ -51,12 +51,12 @@ PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
 PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute"  -Settings $Setting -ExtensionType CustomScriptExtension
 ```
 
-### <a name="key-vault-vm-extension-preview"></a>Key Vault VM 확장(미리 보기)
+### <a name="key-vault-vm-extension"></a>Key Vault VM 확장 
 
 > [!WARNING]
-> PowerShell 클라이언트는 종종 settings.json의 `"`에 `\`를 추가하는데 이렇게 하면 다음 오류로 인해 akvvm_service가 실패합니다. `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
+> PowerShell 클라이언트는 오류와 함께 akvvm_service에 실패를 일으키는 settings.json에서 `"`에 `\`를 추가하는 경우가 많습니다.`[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
-다음 예제에서는 Arc 지원 서버에서 Key Vault VM 확장(미리 보기)을 사용하도록 설정합니다.
+다음 예제에서는 Arc 지원 서버에서 Key Vault VM 확장을 사용하도록 설정합니다.
 
 ```powershell
 # Build settings

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 그룹의 역할 할당 제거 | Microsoft Docs
-description: ID 관리를 위임하기 위한 사용자 지정 Azure AD 역할을 미리 봅니다. Azure Portal, PowerShell 또는 Graph API에서 Azure 역할을 관리합니다.
+title: Azure Active Directory에서 그룹의 역할 할당 제거
+description: Azure Portal, PowerShell 또는 Microsoft Graph API를 사용하여 Azure Active Directory의 그룹에서 역할 할당을 제거합니다.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 05/14/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c56c6597e7ff2553089b62cabb84b24168b7cabf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: add87a653c977c1378feeaa6d204a7bce0184431
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085729"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566550"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹의 역할 할당 제거
 
@@ -28,16 +28,16 @@ ms.locfileid: "110085729"
 
 - Azure AD Premium P1 또는 P2 라이선스
 - 권한 있는 역할 관리자 또는 전역 관리자
-- PowerShell 사용 시 AzureADPreview 모듈
+- PowerShell을 사용하는 경우 AzureAD 모듈
 - Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
 
 자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
 
 ## <a name="azure-portal"></a>Azure portal
 
-1. [Azure AD 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
-1. **역할 및 관리자** > **_역할 이름_** 을 선택합니다.
+1. **Azure Active Directory** > **역할 및 관리자** > *역할 이름* 을 선택합니다.
 
 1. 역할 할당을 제거할 그룹을 선택하고 **할당 제거** 를 선택합니다.
 
@@ -115,5 +115,5 @@ DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 
 ## <a name="next-steps"></a>다음 단계
 
-- [클라우드 그룹을 사용하여 역할 할당 관리](groups-concept.md)
-- [클라우드 그룹에 할당된 역할 문제 해결](groups-faq-troubleshooting.md)
+- [Azure AD 그룹을 사용하여 역할 할당 관리](groups-concept.md)
+- [그룹에 할당된 Azure AD 역할 문제 해결](groups-faq-troubleshooting.yml)

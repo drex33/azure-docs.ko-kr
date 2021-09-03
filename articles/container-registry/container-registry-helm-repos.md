@@ -2,33 +2,61 @@
 title: Helm 차트 저장
 description: Azure Container Registry의 리포지토리를 사용하여 Kubernetes 애플리케이션에 대한 Helm 차트를 저장하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 04/15/2021
-ms.openlocfilehash: c7dcdf222e9628daedb7e1c3617efb0b9c7af185
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 07/19/2021
+ms.openlocfilehash: cdc4b0c6fb5aabdb96597cfbbe151598b16a2cc0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772382"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438911"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Azure 컨테이너 레지스트리에 Helm 차트 푸시 및 끌어오기
 
 Kubernetes용 애플리케이션을 빠르게 관리하고 배포하려는 경우 [오픈 소스 Helm 패키지 관리자][helm]를 사용할 수 있습니다. Helm 사용 시 애플리케이션 패키지는 [Helm 차트 리포지토리](https://helm.sh/docs/topics/chart_repository/)에 수집되고 저장되는 [차트](https://helm.sh/docs/topics/charts/)로 정의됩니다.
 
-이 문서에서는 Helm 3 명령을 사용하여 Azure 컨테이너 레지스트리에서 Helm 차트 리포지토리를 호스트하는 방법을 보여 줍니다. 대부분의 시나리오에서는 개발하는 애플리케이션용으로 차트를 직접 작성하여 업로드합니다. 사용자 고유의 Helm 차트를 작성하는 방법에 대한 자세한 내용은 [차트 템플릿 개발자 가이드][develop-helm-charts]를 참조하세요. 다른 Helm 리포지토리의 기존 Helm 차트를 저장할 수도 있습니다.
+이 문서에서는 Helm 3 명령을 사용하고 차트를 [OCI 아티팩트](container-registry-image-formats.md#oci-artifacts)로 저장하여 Azure Container Registry에서 Helm 차트 리포지토리를 호스트하는 방법을 보여 줍니다. 대부분의 시나리오에서는 개발하는 애플리케이션용으로 차트를 직접 작성하여 업로드합니다. 사용자 고유의 Helm 차트를 작성하는 방법에 대한 자세한 내용은 [차트 템플릿 개발자 가이드][develop-helm-charts]를 참조하세요. 다른 Helm 리포지토리의 기존 Helm 차트를 저장할 수도 있습니다.
 
 ## <a name="helm-3-or-helm-2"></a>Helm 3 또는 Helm 2?
 
-Helm 차트를 저장, 관리 및 설치하려면 Helm 클라이언트 및 Helm CLI를 사용합니다. Helm 클라이언트의 주요 릴리스에는 Helm 3 및 Helm 2가 포함됩니다. 버전 차이점에 대한 자세한 내용은 [버전 FAQ](https://helm.sh/docs/faq/)를 참조하세요. 
+Helm 차트를 저장, 관리 및 설치하려면 Helm CLI에서 명령을 사용합니다. 주요 Helm 릴리스에는 Helm 3 및 Helm 2가 포함됩니다. 버전 차이점에 대한 자세한 내용은 [버전 FAQ](https://helm.sh/docs/faq/)를 참조하세요. 
 
 Helm 3은 Azure Container Registry에서 Helm 차트를 호스트하는 데 사용해야 합니다. Helm 3을 사용하여 다음을 수행합니다.
 
-* Azure 컨테이너 레지스트리에서 하나 이상의 Helm 리포지토리를 만들 수 있습니다.
-* 레지스트리에서 Helm 3 차트를 [OCI 아티팩트](container-registry-image-formats.md#oci-artifacts)로 저장합니다. Azure Container Registry는 Helm 차트를 포함하여 [OCI 아티팩트](container-registry-oci-artifacts.md)에 대한 GA 지원을 제공합니다.
-* `helm registry login` 명령을 사용하여 레지스트리로 인증합니다.
-* Helm CLI의 `helm chart` 명령을 사용하여 레지스트리에서 Helm 차트를 푸시, 풀 및 관리합니다.
+* Azure Container Registry의 리포지토리에 Helm 차트를 저장하고 관리할 수 있습니다.
+* Helm 차트를 레지스트리에 [OCI 아티팩트](container-registry-image-formats.md#oci-artifacts)로 저장합니다. Azure Container Registry는 Helm 차트를 포함하여 OCI 아티팩트에 대한 GA 지원을 제공합니다.
+* `helm registry login` 또는 `az acr login` 명령을 사용하여 레지스트리로 인증합니다.
+* `helm chart` 명령을 사용하여 레지스트리에서 Helm 차트 푸시, 풀 및 관리
 * `helm install`을 사용하여 로컬 리포지토리 캐시에서 Kubernetes 클러스터에 차트를 설치합니다.
+
+### <a name="feature-support"></a>기능 지원
+
+Azure Container Registry는 Helm 3(현재) 또는 Helm 2(더 이상 사용되지 않음)를 사용하는지 여부에 따라 특정 Helm 차트 관리 기능을 지원합니다.
+
+| 기능 | Helm 2 | Helm 3 |
+| ---- | ---- | ---- |
+| `az acr helm` 명령을 사용하여 차트 관리 | :heavy_check_mark: | |
+| 차트를 OCI 아티팩트로 저장 | | :heavy_check_mark:  |
+| Azure Portal에서 `az acr repository` 명령과 **리포지토리** 블레이드를 사용하여 차트 관리| | :heavy_check_mark:  |
+
+
 > [!NOTE]
-> Helm 3부터 Helm 2 클라이언트와 함께 사용하기 위한 [az acr helm][az-acr-helm] 명령은 더 이상 사용되지 않습니다. 명령 제거 전에 최소 3개월의 알림이 제공됩니다. 이전에 Helm 2 차트를 배포한 경우 [Helm v2에서 v3으로 마이그레이션](https://helm.sh/docs/topics/v2_v3_migration/)을 참조하세요.
+> Helm 3부터 Helm 2 클라이언트와 함께 사용하기 위한 [az acr helm][az-acr-helm] 명령은 더 이상 사용되지 않습니다. 명령 제거 전에 최소 3개월의 알림이 제공됩니다.
+
+### <a name="chart-version-compatibility"></a>차트 버전 호환성
+
+다음 Helm [차트 버전](https://helm.sh/docs/topics/charts/#the-apiversion-field)은 Azure Container Registry에 저장할 수 있으며 Helm 2 및 Helm 3 클라이언트에서 설치할 수 있습니다. 
+
+| 버전 | Helm 2 | Helm 3 |
+| ---- | ---- | ---- |
+| apiVersion v1 | :heavy_check_mark: | :heavy_check_mark: |
+| apiVersion v2 | | :heavy_check_mark: |
+
+### <a name="migrate-from-helm-2-to-helm-3"></a>Helm 2에서 Helm 3으로 마이그레이션
+
+이전에 Helm 2 및 Azure Container Registry를 사용하여 차트를 저장하고 배포한 경우 Helm 3으로 마이그레이션하는 것이 좋습니다. 참조
+
+* Helm 문서의 [Helm 2에서 3으로 마이그레이션](https://helm.sh/docs/topics/v2_v3_migration/)
+* [레지스트리를 마이그레이션하여 Helm OCI 아티팩트 저장](#migrate-your-registry-to-store-helm-oci-artifacts)(이 문서 뒷부분)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -47,7 +75,7 @@ Helm 3은 Azure Container Registry에서 Helm 차트를 호스트하는 데 사�
 helm version
 ```
 
-다음 환경 변수를 설정하여 Helm 3 클라이언트에서 OCI 지원을 사용하도록 설정합니다. 현재 이 지원은 실험적입니다. 
+다음 환경 변수를 설정하여 Helm 3 클라이언트에서 OCI 지원을 사용하도록 설정합니다. 현재 이 지원은 실험적이며 변경될 수 있습니다. 
 
 ```console
 export HELM_EXPERIMENTAL_OCI=1
@@ -90,25 +118,25 @@ EOF
 
 디렉터리를 `hello-world` 하위 디렉터리로 변경합니다. 그런 다음, `helm chart save`를 실행하여 차트의 복사본을 로컬에 저장하고 레지스트리의 정규화된 이름(모두 소문자)과 대상 리포지토리 및 태그를 사용하여 별칭을 만듭니다. 
 
-다음 예제에서는 레지스트리 이름이 *mycontainerregistry* 이고, 대상 리포지토리는 *hello-world* 이며 대상 차트 태그는 *v1* 이지만 사용자 환경에 대한 값을 대체합니다.
+다음 예에서 레지스트리 이름은 *mycontainerregistry*, 대상 리포지토리는 *helm/hello-world*, 대상 차트 태그는 *0.1.0* 입니다. 종속성을 성공적으로 가져오려면 대상 차트 이미지 이름 및 태그가 `Chart.yaml`의 이름 및 버전과 일치해야 합니다.
 
 ```console
 cd ..
-helm chart save . hello-world:v1
-helm chart save . mycontainerregistry.azurecr.io/helm/hello-world:v1
+helm chart save . hello-world:0.1.0
+helm chart save . mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 ```
 
 `helm chart list`를 실행하여 로컬 레지스트리 캐시에 차트를 저장했는지 확인합니다. 출력은 다음과 비슷합니다.
 
 ```console
 REF                                                      NAME            VERSION DIGEST  SIZE            CREATED
-hello-world:v1                                           hello-world       0.1.0   5899db0 3.2 KiB        2 minutes 
-mycontainerregistry.azurecr.io/helm/hello-world:v1       hello-world       0.1.0   5899db0 3.2 KiB        2 minutes
+hello-world:0.1.0                                        hello-world      0.1.0   5899db0 3.2 KiB        2 minutes 
+mycontainerregistry.azurecr.io/helm/hello-world:0.1.0    hello-world      0.1.0   5899db0 3.2 KiB        2 minutes
 ```
 
 ## <a name="authenticate-with-the-registry"></a>레지스트리로 인증
 
-사용자 시나리오에 적합한 자격 증명을 사용하여 [레지스트리로 인증](container-registry-authentication.md)하도록 Helm 3 CLI에서 `helm registry login` 명령을 실행합니다.
+`helm registry login`을 실행하여 레지스트리로 인증 서비스 주체 자격 증명 또는 리포지토리 범위 토큰과 같은 시나리오에 적합한 [레지스트리 자격 증명](container-registry-authentication.md)을 전달할 수 있습니다.
 
 예를 들어 레지스트리에 대한 [끌어오기 및 푸시 권한(AcrPush 역할)으로 Azure Active Directory 서비스 주체](container-registry-auth-service-principal.md#create-a-service-principal)를 만듭니다. 그런 다음, 서비스 주체 자격 증명을 `helm registry login`에 제공합니다. 다음 예제에서는 환경 변수를 사용하여 암호를 제공합니다.
 
@@ -118,19 +146,22 @@ echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
   --password-stdin
 ```
 
+> [!TIP]
+> [개별 Azure AD ID](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad)로 레지스트리에 로그인하여 Helm 차트를 푸시하고 풀할 수도 있습니다.
+
 ## <a name="push-chart-to-registry"></a>레지스트리에 차트 푸시
 
 Helm 3 CLI에서 `helm chart push` 명령을 실행하여 차트를 정규화된 대상 리포지토리로 푸시합니다.
 
 ```console
-helm chart push mycontainerregistry.azurecr.io/helm/hello-world:v1
+helm chart push mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 ```
 
 푸시가 성공적으로 완료되면 출력은 다음과 유사합니다.
 
 ```output
 The push refers to repository [mycontainerregistry.azurecr.io/helm/hello-world]
-ref:     mycontainerregistry.azurecr.io/helm/hello-world:v1
+ref:     mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
 size:    3.2 KiB
 name:    hello-world
@@ -189,22 +220,22 @@ az acr repository show-manifests \
     "lastUpdateTime": "2020-03-20T18:11:37.7167893Z",
     "mediaType": "application/vnd.oci.image.manifest.v1+json",
     "tags": [
-      "v1"
+      "0.1.0"
     ]
 ```
 
 ## <a name="pull-chart-to-local-cache"></a>로컬 캐시로 차트 끌어오기
 
-Kubernetes에 Helm 차트를 설치하려면 차트가 로컬 캐시에 있어야 합니다. 이 예제에서는 먼저 `helm chart remove`를 실행하여 `mycontainerregistry.azurecr.io/helm/hello-world:v1`이라는 기존 로컬 차트를 제거합니다.
+Kubernetes에 Helm 차트를 설치하려면 차트가 로컬 캐시에 있어야 합니다. 이 예제에서는 먼저 `helm chart remove`를 실행하여 `mycontainerregistry.azurecr.io/helm/hello-world:0.1.0`이라는 기존 로컬 차트를 제거합니다.
 
 ```console
-helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:v1
+helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 ```
 
 `helm chart pull`을 실행하여 Azure 컨테이너 레지스트리에서 로컬 캐시로 차트를 다운로드합니다.
 
 ```console
-helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:v1
+helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
 ```
 
 ## <a name="export-helm-chart"></a>Helm 차트 내보내기
@@ -212,7 +243,7 @@ helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:v1
 차트를 추가로 작업하려면 `helm chart export`를 사용하여 로컬 디렉터리로 내보냅니다. 예를 들어 끌어온 차트를 `install` 디렉터리로 내보냅니다.
 
 ```console
-helm chart export mycontainerregistry.azurecr.io/helm/hello-world:v1 \
+helm chart export mycontainerregistry.azurecr.io/helm/hello-world:0.1.0 \
   --destination ./install
 ```
 
@@ -272,7 +303,82 @@ helm uninstall myhelmtest
 컨테이너 레지스트리에서 차트를 삭제하려면 [az acr repository delete][az-acr-repository-delete] 명령을 사용합니다. 다음 명령을 실행하고 메시지가 표시되면 작업을 확인합니다.
 
 ```azurecli
-az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
+az acr repository delete --name mycontainerregistry --image helm/hello-world:0.1.0
+```
+
+## <a name="migrate-your-registry-to-store-helm-oci-artifacts"></a>Helm OCI 아티팩트를 저장하도록 레지스트리 마이그레이션
+
+이전에 Helm 2 및 `az acr helm` 명령을 사용하여 Azure Container Registry를 차트 리포지토리로 설정한 경우 Helm 3 클라이언트로 [업그레이드][helm-install]하는 것이 좋습니다. 그런 후 다음 단계에 따라 차트를 레지스트리에 OCI 아티팩트로 저장합니다. 
+
+> [!IMPORTANT]
+> * Helm 2 스타일(index.yaml 기반) 차트 리포지토리에서 OCI 아티팩트 리포지토리로 마이그레이션을 완료한 후 Helm CLI 및 `az acr repository` 명령을 사용하여 차트를 관리합니다. 이 문서의 이전 섹션을 참조하세요. 
+> * Helm OCI 아티팩트 리포지토리는 `helm search` 및 `helm repo list`와 같은 Helm 명령을 사용하여 검색할 수 없습니다. 차트를 OCI 아티팩트로 저장하는 데 사용되는 Helm 명령에 대한 자세한 내용은 [Helm 문서](https://helm.sh/docs/topics/registries/)를 참조하세요.
+
+### <a name="enable-oci-support"></a>OCI 지원 사용
+
+Helm 3 클라이언트를 사용 중인지 확인합니다.
+
+```console
+helm version
+```
+
+Helm 3 클라이언트에서 OCI 지원을 사용하도록 설정합니다. 현재 이 지원은 실험적이며 변경될 수 있습니다.
+
+```console
+export HELM_EXPERIMENTAL_OCI=1
+```
+
+### <a name="list-current-charts"></a>현재 차트 나열
+
+현재 *myregistry* 라는 이름의 레지스트리에 저장된 차트를 나열합니다.
+
+```console
+helm search repo myregistry
+```
+
+출력에 차트 및 차트 버전이 표시됩니다.
+
+```
+NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+myregistry/ingress-nginx        3.20.1          0.43.0          Ingress controller for Kubernetes...
+myregistry/wordpress            9.0.3           5.3.2           Web publishing platform for building...
+[...]
+```
+
+### <a name="save-charts-as-oci-artifacts"></a>차트를 OCI 아티팩트로 저장
+
+리포지토리의 각 차트에 대해 차트를 로컬로 가져와 OCI 아티팩트로 저장합니다. 예:
+
+```console 
+helm pull myregisry/ingress-nginx --untar
+cd ingress-nginx
+helm chart save . myregistry.azurecr.io/ingress-nginx:3.20.1
+```
+
+### <a name="push-charts-to-registry"></a>차트를 레지스트리에 푸시
+
+레지스트리에 로그인:
+
+```azurecli
+az acr login --name myregistry
+```
+
+각 차트를 레지스트리에 푸시합니다.
+
+```console
+helm chart push myregistry.azurecr.io/ingress-nginx:3.20.1
+```
+
+차트를 푸시한 후 레지스트리에 저장되었는지 확인합니다.
+
+```azurecli
+az acr repository list --name myregistry
+```
+
+모든 차트를 푸시한 후 선택적으로 레지스트리에서 Helm 2 스타일 차트 리포지토리를 제거합니다. 이렇게 하면 레지스트리의 스토리지가 줄어듭니다.
+
+```console
+helm repo remove myregistry
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -285,18 +391,15 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 [helm]: https://helm.sh/
 [helm-install]: https://helm.sh/docs/intro/install/
 [develop-helm-charts]: https://helm.sh/docs/chart_template_guide/
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-quickstart]: ../aks/kubernetes-walkthrough.md
 [acr-bestpractices]: container-registry-best-practices.md
-[az-configure]: /cli/azure/reference-index#az_configure
 [az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-helm]: /cli/azure/acr/helm
 [az-acr-repository]: /cli/azure/acr/repository
 [az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [acr-tasks]: container-registry-tasks-overview.md

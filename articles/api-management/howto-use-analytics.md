@@ -6,12 +6,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 11/24/2020
 ms.author: apimpm
-ms.openlocfilehash: ca7bd70bbf99a6d0079717a7a02328b11528d2e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da8b462eba7b5f68e345ffe5e73bd4096831935f
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96841514"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114713057"
 ---
 # <a name="get-api-analytics-in-azure-api-management"></a>Azure API Management API 분석 사용
 
@@ -25,6 +25,9 @@ Azure API Management는 API에 대한 기본 분석을 제공합니다. 다음�
 * Subscriptions
 * 사용자
 * 요청
+
+> [!NOTE]
+> 지리 값은 IP 주소 매핑을 기반으로 하는 대략적인 값입니다.
 
 :::image type="content" source="media/howto-use-analytics/analytics-report-portal.png" alt-text="포털의 타임라인 분석":::
 
@@ -46,7 +49,7 @@ Azure Portal을 사용하여 API Management 인스턴스에 대한 분석 데이
 
 ## <a name="analytics---rest-api"></a>분석 - REST API
 
-API Management REST API의 [보고서](/rest/api/apimanagement/2019-12-01/reports) 작업을 사용하여 API Management 인스턴스에 대한 분석 데이터를 검색하고 필터링합니다.
+API Management REST API의 [보고서](/rest/api/apimanagement/2020-12-01/reports) 작업을 사용하여 API Management 인스턴스에 대한 분석 데이터를 검색하고 필터링합니다.
 
 지원되는 작업은 API, 지역, API 작업, 제품, 요청, 구독, 시간 또는 사용자별로 보고서 레코드를 반환합니다.
 

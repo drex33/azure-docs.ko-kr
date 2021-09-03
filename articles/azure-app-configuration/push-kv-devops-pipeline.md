@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: a3b3c8760c3bf7d6bf4bee444bef7ed77134fb5a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 61b50f8e3c5b32401b4f7339627b9b704a4b94fd
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748307"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122973"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용하여 설정을 App Configuration으로 밀어넣기
 
@@ -99,6 +99,10 @@ ms.locfileid: "108748307"
 **여러 구성 파일을 업로드하려면 어떻게 하나요?**
 
 동일한 파이프라인 내에 Azure App Configuration Push 작업의 여러 인스턴스를 만들어 여러 구성 파일을 App Configuration 저장소에 밀어넣습니다.
+
+**이 작업을 사용하여 Key Vault 참조를 만들려면 어떻게 해야 하나요?**
+
+Key Vault 참조를 만들려면 "콘텐츠 유형" 매개 변수를 *application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8* 로 설정합니다. 구성 파일의 모든 키-값이 Key Vault 참조가 아닌 경우 Key Vault 참조 및 일반 키-값을 별도의 구성 파일에 넣고 별도로 푸시합니다.
 
 **구성 저장소에 키-값을 밀어넣으려고 할 때 409 오류가 발생하는 이유는 무엇인가요?**
 

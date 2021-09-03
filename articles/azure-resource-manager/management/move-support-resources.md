@@ -3,12 +3,12 @@ title: 리소스 종류별 이동 작업 지원
 description: 새 리소스 그룹, 구독 또는 지역으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
 ms.date: 04/23/2021
-ms.openlocfilehash: 3a43ea09dd4986d1f2d0e2679e81f5b25b590f7e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: f00acadf42c3767814850db59c64ab76b30de2ea
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968321"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297006"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
@@ -911,7 +911,7 @@ ms.locfileid: "111968321"
 > | 리소스 유형 | Resource group | Subscription | 지역 이동 |
 > | ------------- | ----------- | ---------- | ----------- |
 > | controllers | 예 | 예 | 아니요 |
-> | AKS 클러스터 | **보류 중** | **보류 중** | 아니요<br/><br/> 다른 지역으로 이동에 대해 [자세히 알아보세요.](../../dev-spaces/index.yml)
+> | AKS 클러스터 | **보류 중** | **보류 중** | 아니요<br/><br/> 다른 지역으로 이동에 대해 [자세히 알아보세요.](/previous-versions/azure/dev-spaces/)
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -1104,7 +1104,7 @@ ms.locfileid: "111968321"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription | 지역 이동 |
 > | ------------- | ----------- | ---------- | ----------- |
-> | 계정 | 예 | 예 | 아니요. [자세히 알아보세요](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
+> | 계정 | 예 | 예 | 아니요. [자세히 알아보세요](../../azure-monitor/faq.yml#how-do-i-move-an-application-insights-resource-to-a-new-region-). |
 > | actiongroups | 예 | 예 | 아니요 |
 > | activitylogalerts | 아니요 | 아니요 | 아니요 |
 > | alertrules | 예 | 예 | 아니요 |
@@ -2082,4 +2082,4 @@ ms.locfileid: "111968321"
 
 - 리소스를 이동하는 명령은 [새 리소스 그룹 또는 구독으로 리소스 이동](move-resource-group-and-subscription.md)을 참조하세요.
 - Resource Mover 서비스에 대해 [자세히 알아보세요](../../resource-mover/overview.md).
-- 쉼표로 구분된 값 파일과 동일한 데이터를 가져오려면 [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) 파일을 다운로드합니다.
+- 쉼표로 구분된 값의 파일과 동일한 데이터를 가져오려면 리소스 그룹 및 구독 이동 지원을 위해 [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv)를 다운로드합니다. 이러한 속성 및 지역 이동을 지원하려면 [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv)를 다운로드합니다.

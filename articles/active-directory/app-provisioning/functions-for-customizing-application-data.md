@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/11/2021
+ms.date: 07/29/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 3cd910cac906af54e039e38c9ccdd9d563cd9b8c
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 9736bee99483a7e4fbb5a5f02a3f415a74c9f76f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570318"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528328"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory에서 특성 매핑에 대한 식을 작성하기 위한 참조
 
@@ -38,7 +38,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 ## <a name="list-of-functions"></a>함수 목록
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Append
@@ -55,7 +55,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 | **접미사** |필수 |String |원본 값의 끝에 추가하려는 문자열입니다. |
 
 
-### <a name="append-constant-suffix-to-user-name"></a>사용자 이름에 상수 접미사 추가
+#### <a name="append-constant-suffix-to-user-name"></a>사용자 이름에 상수 접미사 추가
 예: Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사용자 이름에 추가 접미사를 추가해야 할 수 있습니다.
 
 **식:**  
@@ -66,6 +66,18 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 * **입력**: (userPrincipalName): “John.Doe@contoso.com”
 * **출력**:  “John.Doe@contoso.com.test”
 
+---
+### <a name="approleassignmentscomplex"></a>AppRoleAssignmentsComplex
+
+**함수:** AppRoleAssignmentsComplex([appRoleAssignments])
+
+**설명:** 사용자에 대해 여러 역할을 프로비저닝하는 데 사용됩니다. 자세한 사용 방법은 [자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정](customize-application-attributes.md#provisioning-a-role-to-a-scim-app)을 참조하세요.
+
+**매개 변수:** 
+
+| 이름 | 필수/ 반복 | Type | 참고 |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |필수 |String |**[appRoleAssignments]** 개체. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -109,6 +121,44 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 두개의 속성이 같은 동일한 값을 가지면 True로 반환합니다.
 
 ---
+### <a name="cdate"></a>CDate
+**함수:**  
+`CDate(expression)`
+
+**설명:**  
+CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. DateTime은 네이티브 특성 형식이 아니지만 [FormatDateTime](#formatdatetime) 및 [DateAdd](#dateadd)와 같은 날짜 함수 내에서 사용할 수 있습니다.
+
+**매개 변수:** 
+
+| 이름 | 필수/ 반복 | Type | 메모 |
+| --- | --- | --- | --- |
+| **expression** |필수 | 식 | 날짜/시간을 나타내는 유효한 문자열입니다. 지원되는 형식은 [.NET 사용자 지정 날짜 및 시간 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. |
+
+**설명:**  
+반환된 문자열은 항상 UTC이며 **M/d/yyyy h:mm:ss tt** 형식을 따릅니다.
+
+**예제 1:** <br> 
+`CDate([StatusHireDate])`  
+**샘플 입/출력:** 
+
+* **입력**(StatusHireDate): "2020-03-16-07:00"
+* **출력**: "3/16/2020 7:00:00 AM" <-- *위의 DateTime에 해당하는 UTC가 반환됩니다.*
+
+**예 2:** <br> 
+`CDate("2021-06-30+08:00")`  
+**샘플 입/출력:** 
+
+* **입력**: "2021-06-30+08:00"
+* **출력**: "6/29/2021 4:00:00 PM" <-- *위의 DateTime에 해당하는 UTC가 반환됩니다.*
+
+**예제 3:** <br> 
+`CDate("2009-06-15T01:45:30-07:00")`  
+**샘플 입/출력:** 
+
+* **입력**: "2009-06-15T01:45:30-07:00"
+* **출력**: "6/15/2009 8:45:30 AM" <-- *위의 DateTime에 해당하는 UTC가 반환됩니다.*
+
+---
 ### <a name="coalesce"></a>Coalesce
 **함수:** Coalesce(source1, source2, ..., defaultValue)
 
@@ -121,7 +171,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 | **source1  … sourceN** | 필수 | String |필수, 가변 횟수. 대개는 원본 개체의 특성 이름입니다. |
 | **defaultValue** | 선택 | 문자열 | 모든 원본 값이 NULL일 때 사용할 기본값입니다. 빈 문자열("")일 수 있습니다.
 
-### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>mail 값이 NULL이 아닌 경우 userPrincipalName을 전달
+#### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>mail 값이 NULL이 아닌 경우 userPrincipalName을 전달
 예: mail 특성이 있는 경우 이를 전달하고 그렇지 않은 경우에는 userPrincipalName 값을 대신 전달하려고 합니다.
 
 **식:**  
@@ -198,6 +248,60 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 “cn=Joe,dc=contoso,dc=com”을 반환
 
 ---
+### <a name="dateadd"></a>DateAdd
+**함수:**  
+`DateAdd(interval, value, dateTime)`
+
+**설명:**  
+지정된 시간 간격이 추가된 날짜를 나타내는 날짜/시간 문자열을 반환합니다. 반환된 날짜는 **M/d/yyyy h:mm:ss tt** 형식입니다.
+
+**매개 변수:** 
+
+| 이름 | 필수/ 반복 | Type | 참고 |
+| --- | --- | --- | --- |
+| **interval** |필수 | String | 추가하려는 시간 간격입니다. 이 표 아래에서 허용되는 값을 참조하세요. |
+| **value** |필수 | Number | 추가하려는 단위 수 입니다. 양수(미래 날짜) 또는 음수(과거 날짜)가 될 수 있습니다. |
+| **dateTime** |필수 | DateTime | 간격이 추가되는 날짜를 나타내는 날짜/시간입니다. |
+
+**interval** 문자열은 다음 값 중 하나가 있어야 합니다. 
+ * yyyy 년 
+ * q 분기
+ * m 월
+ * y 연간 일자
+ * d 일
+ * w 요일
+ * ww 주
+ * h 시간
+ * n 분
+ * s 초
+
+**예 1: 고용 날짜에 7일 추가**  
+`DateAdd("d", 7, CDate([StatusHireDate]))`
+* **입력**(StatusHireDate): 2012-03-16-07:00
+* **출력**: 3/23/2012 7:00:00 AM
+
+**예 2: 고용 날짜 10일 전 날짜 가져오기**  
+`DateAdd("d", -10, CDate([StatusHireDate]))`
+* **입력**(StatusHireDate): 2012-03-16-07:00
+* **출력**: 3/6/2012 7:00:00 AM
+
+**예 3: 고용 날짜에 2주 추가**  
+`DateAdd("ww", 2, CDate([StatusHireDate]))`
+* **입력**(StatusHireDate): 2012-03-16-07:00
+* **출력**: 3/30/2012 7:00:00 AM
+
+**예 4: 고용 날짜에 10개월 추가**  
+`DateAdd("m", 10, CDate([StatusHireDate]))`
+* **입력**(StatusHireDate): 2012-03-16-07:00
+* **출력**: 1/16/2013 7:00:00 AM
+
+**예 5: 고용 날짜에 2년 추가**  
+`DateAdd("yyyy", 2, CDate([StatusHireDate]))`
+* **입력**(StatusHireDate): 2012-03-16-07:00
+* **출력**: 3/16/2014 7:00:00 AM
+
+---
+
 ### <a name="datefromnum"></a>DateFromNum
 **함수:** DateFromNum(value)
 
@@ -228,12 +332,12 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 | --- | --- | --- | --- |
 | **source** |필수 |String |대개는 원본 개체의 특성 이름입니다. |
 | **dateTimeStyles** | 선택 | 문자열 | 이 함수를 사용하여 일부 날짜 및 시간 구문 분석 메서드에 대해 문자열 구문 분석을 사용자 지정하는 서식 옵션을 지정할 수 있습니다. 지원되는 값은 [DateTimeStyles 문서](/dotnet/api/system.globalization.datetimestyles)를 참조하세요. 빈 상태로 두면 사용되는 기본값은 DateTimeStyles.RoundtripKind, DateTimeStyles.AllowLeadingWhite, DateTimeStyles.AllowTrailingWhite입니다.  |
-| **inputFormat** |필수 |String |원본 값의 예상된 형식입니다. 지원되는 형식은 [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings)를 참조하세요. |
+| **inputFormat** |필수 |String |원본 값의 예상된 형식입니다. 지원되는 형식은 [.NET 사용자 지정 날짜 및 시간 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. |
 | **outputFormat** |필수 |String |출력 날짜의 형식입니다. |
 
 
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
+#### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
 예: ServiceNow와 같은 SaaS 애플리케이션에 특정 형식으로 된 날짜를 보내려고 합니다. 이때 다음 식의 사용을 고려할 수 있습니다. 
 
 **식:** 
@@ -251,6 +355,31 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 **함수:** Guid()
 
 **설명:** Guid 함수는 임의의 새 GUID를 생성합니다.
+
+**예:** <br>
+`Guid()`<br>
+샘플 출력: "1088051a-cd4b-4288-84f8-e02042ca72bc"
+
+---
+### <a name="ignoreflowifnullorempty"></a>IgnoreFlowIfNullOrEmpty
+**함수:** IgnoreFlowIfNullOrEmpty(expression)
+
+**설명:** IgnoreFlowIfNullOrEmpty 함수는 묶은 함수 또는 특성이 NULL이거나 비어 있는 경우 특성을 무시하고 흐름에서 삭제하도록 프로비저닝 서비스에 지시합니다.
+
+**매개 변수:** 
+
+| 이름 | 필수/ 반복 | Type | 메모 |
+| --- | --- | --- | --- |
+| **expression** | 필수 | 식 | 계산할 식 |
+
+**예 1: 특성이 Null인 경우 전달하지 않음** <br>
+`IgnoreFlowIfNullOrEmpty([department])` <br>
+위 식은 부서 특성이 Null이거나 비어 있는 경우 프로비저닝 흐름에서 삭제합니다. <br>
+
+**예 2: 식 매핑이 빈 문자열 또는 Null로 평가되는 경우 특성을 전달하지 않음** <br>
+SuccessFactors 특성 *prefix* 가 다음 식 매핑을 사용하여 온-프레미스 Active Directory 특성 *personalTitle* 에 매핑된다고 가정해 보겠습니다. <br>
+`IgnoreFlowIfNullOrEmpty(Switch([prefix], "", "3443", "Dr.", "3444", "Prof.", "3445", "Prof. Dr."))` <br>
+위 식은 먼저 [Switch](#switch) 함수를 평가합니다. *prefix* 특성에 *Switch* 함수 내에 나열된 값이 없으면 *Switch* 는 빈 문자열을 반환하고 *personalTitle* 은 온-프레미스 Active Directory에 대한 프로비저닝 흐름에 포함되지 않습니다.
 
 ---
 ### <a name="iif"></a>IIF
@@ -434,7 +563,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 | **source** |필수 |String | 일반적으로 이름 또는 성 특성입니다. |
 
 
-### <a name="remove-diacritics-from-a-string"></a>문자열에서 분음 부호 제거
+#### <a name="remove-diacritics-from-a-string"></a>문자열에서 분음 부호 제거
 예: 악센트 기호를 포함하지 않는 해당 문자로 악센트 기호를 포함하는 문자를 바꿔야 합니다.
 
 **식:** NormalizeDiacritics([givenName])
@@ -456,6 +585,17 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 | 이름 | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
 | **source** |필수 |부울 문자열 |필요한 **source** 값은 "True"나 "False"입니다. |
+
+---
+### <a name="now"></a>지금
+**함수:** Now()
+
+**설명:**  
+Now 함수는 현재 UTC DateTime을 나타내는 문자열을 **M/d/yyyy h:mm:ss tt** 형식으로 반환합니다.
+
+**예:** 
+`Now()` <br>
+반환 값 예 *7/2/2021 3:33:38 PM*
 
 ---
 ### <a name="numfromdate"></a>NumFromDate
@@ -527,7 +667,7 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 | **replacementAttributeName** |선택 |문자열 |대체 값에 사용할 특성의 이름입니다. |
 | **template** |선택 |문자열 |**template** 값이 제공되는 경우 템플릿 내에서 **oldValue** 를 찾아서 **source** 값으로 바꿉니다. |
 
-### <a name="replace-characters-using-a-regular-expression"></a>정규식을 사용하여 문자를 바꿈
+#### <a name="replace-characters-using-a-regular-expression"></a>정규식을 사용하여 문자를 바꿈
 예: 정규식 값과 일치하는 문자를 찾아 제거해야 합니다.
 
 **식:** 
@@ -559,7 +699,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |String | 평가할 고유한 값 생성 규칙 목록입니다. |
 
-### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>UPN(userPrincipalName) 특성의 고유한 값 생성
+#### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>UPN(userPrincipalName) 특성의 고유한 값 생성
 예: 사용자의 이름, 중간 이름, 성에 따라, UPN 특성에 값을 할당하려면 먼저 해당 UPN 특성에 대해 값을 생성하고 대상 AD 디렉터리에서 해당 값이 고유한지 확인해야 합니다.
 
 **식:** 
@@ -607,7 +747,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 | **source** |필수 |String |업데이트할 **source** 값입니다. |
 | **delimiter** |필수 |String |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
 
-### <a name="split-a-string-into-a-multi-valued-array"></a>문자열을 다중 값 배열로 분할
+#### <a name="split-a-string-into-a-multi-valued-array"></a>문자열을 다중 값 배열로 분할
 예: 문자열의 쉼표로 구분된 목록을 가져와 Salesforce의 PermissionSets 특성과 같은 다중 값 특성에 연결할 수 있는 배열로 분할해야 합니다. 이 예의 경우 Azure AD에서 사용 권한 세트의 목록을 extensionAttribute5에 채웠습니다.
 
 **식:** Split([extensionAttribute5], ",")
@@ -645,7 +785,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 | **key** |필수 |String |**원본** 값과 비교할 **Key** 입니다. |
 | **value** |필수 |String |키와 일치하는 **원본** 의 대체 값입니다. |
 
-### <a name="replace-a-value-based-on-predefined-set-of-options"></a>미리 정의된 옵션 집합을 기반으로 값 바꾸기
+#### <a name="replace-a-value-based-on-predefined-set-of-options"></a>미리 정의된 옵션 집합을 기반으로 값 바꾸기
 예: Azure AD에 저장된 상태 코드를 기반으로 사용자의 표준 시간대를 정의해야 합니다.  상태 코드가 미리 정의된 옵션 중 하나와 일치하지 않으면 기본값인 "오스트레일리아/시드니"를 사용합니다.
 
 **식:**  
@@ -663,6 +803,8 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 
 **설명:** ‘원본’ 문자열 값을 가져와서 지정된 문화권 규칙을 사용하여 소문자로 변환합니다. 지정된 *문화권* 정보가 없는 경우 고정 문화권을 사용합니다.
 
+대상 시스템의 기존 값을 소문자로 설정하려면 [대상 애플리케이션의 스키마를 업데이트](./customize-application-attributes.md#editing-the-list-of-supported-attributes)하고 관심 있는 특성에 대해 caseExact 속성을 'true'로 설정합니다. 
+
 **매개 변수:** 
 
 | 이름 | 필수/ 반복 | Type | 참고 |
@@ -670,7 +812,7 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 | **source** |필수 |String |대개는 원본 개체의 특성 이름 |
 | **culture** |선택 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2* 이며, 여기서 *languagecode2* 는 2자 언어 코드이고 *country/regioncode2* 는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>생성된 userPrincipalName(UPN) 값을 소문자로 변환
+#### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>생성된 userPrincipalName(UPN) 값을 소문자로 변환
 예: PreferredFirstName 및 PreferredLastName 원본 필드를 결합하고 모든 문자를 소문자로 변환하여 UPN 값을 생성하려고 합니다. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -687,6 +829,8 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 **함수:** ToUpper(source, culture)
 
 **설명:** ‘원본’ 문자열 값을 가져와서 지정된 문화권 규칙을 사용하여 대문자로 변환합니다. 지정된 *문화권* 정보가 없는 경우 고정 문화권을 사용합니다.
+
+대상 시스템의 기존 값을 대문자로 설정하려면 [대상 애플리케이션의 스키마를 업데이트](./customize-application-attributes.md#editing-the-list-of-supported-attributes)하고 관심 있는 특성에 대해 caseExact 속성을 'true'로 설정합니다. 
 
 **매개 변수:** 
 

@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 04/27/2021
-ms.openlocfilehash: 09c27d77c80b7c9178fbbe9f7c5e01b3bc67c567
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 675c90218f456fc0f238fcf3b1fb93d2e5a7bc44
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969047"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114296312"
 ---
 # <a name="onboard-on-premises-servers-in-vmware-virtual-environment-to-azure-arc"></a>VMware 가상 환경의 온-프레미스 서버를 Azure Arc에 온보딩   
 
@@ -21,19 +21,22 @@ Azure Arc를 사용하면 Azure 관리 환경을 마이그레이션에 적합하
 
 ## <a name="before-you-get-started"></a>시작하기 전에
 
-- Azure Migrate: 검색 및 평가 도구를 사용하여 VMware 환경에서 실행되는 서버를 검색하기 위한 [요구 사항을 검토](/azure/migrate/tutorial-discover-vmware#prerequisites)합니다.  
-- 사용할 [VMware vCenter](/azure/migrate/tutorial-discover-vmware#prepare-vmware)를 준비하고 소프트웨어 인벤토리를 수행하기 위한 [VMware 요구 사항](migrate-support-matrix-vmware.md#vmware-requirements)을 검토합니다. 검색된 서버를 Azure Arc에 온보딩하기 시작하려면 소프트웨어 인벤토리가 완료되어야 합니다.   
-- 서버에서 소프트웨어 인벤토리를 시작하기 전에 [애플리케이션 검색 요구 사항](migrate-support-matrix-vmware.md#application-discovery-requirements)을 검토합니다. Windows 서버에는 PowerShell 버전 3.0 이상이 설치되어 있어야 합니다. 
-- 검색된 서버의 인벤토리에 대한 원격 연결을 허용하는 포트 액세스 요구 사항을 확인합니다. 
-    - **Windows:** WinRM 포트 5985(HTTP)의 인바운드 연결. <br/>
-    - **Linux:** 포트 22(TCP)의 인바운드 연결. 
-- [Azure Arc의 필수 조건](/azure/azure-arc/servers/agent-overview#prerequisites)을 확인하고 다음 고려 사항을 검토해야 합니다.
+- Azure Migrate: 검색 및 평가 도구를 사용하여 VMware 환경에서 실행되는 서버를 검색하기 위한 [요구 사항을 검토](./tutorial-discover-vmware.md#prerequisites)합니다.  
+- 사용할 [VMware vCenter](./tutorial-discover-vmware.md#prepare-vmware)를 준비하고 소프트웨어 인벤토리를 수행하기 위한 [VMware 요구 사항](migrate-support-matrix-vmware.md#vmware-requirements)을 검토합니다. 검색된 서버를 Azure Arc에 온보딩하기 시작하려면 소프트웨어 인벤토리가 완료되어야 합니다.   
+- 서버에서 소프트웨어 인벤토리를 시작하기 전에 [애플리케이션 검색 요구 사항](migrate-support-matrix-vmware.md#software-inventory-requirements)을 검토합니다. Windows 서버에는 PowerShell 버전 3.0 이상이 설치되어 있어야 합니다. 
+- Azure Arc에 온보딩하기 위해 검색된 서버의 인벤토리에 대한 원격 연결을 허용하기 위한 필수 조건을 확인합니다. 
+    1. 검색된 서버에 대한 인바운드 원격 연결 허용 
+        - _Windows:_ WinRM 포트 5985(HTTP)의 인바운드 연결. 모든 대상 Windows 서버에서 “winrm qc” 명령을 실행하여 로컬 컴퓨터에서 WS-Management 프로토콜을 사용하도록 설정합니다. 
+        - _Linux의 경우:_ 모든 대상 Linux 서버에서 포트 22(SSH)에서 인바운드 연결을 허용합니다.
+        - 원격 시스템(검색된 서버)의 IP 주소를 어플라이언스의 WinRM TrustedHosts 목록에 추가할 수도 있습니다. 
+    2. Azure Migrate 어플라이언스에는 대상 서버에 대한 네트워크 가시선이 있어야 합니다. 
+- [Azure Arc의 필수 조건](../azure-arc/servers/agent-overview.md#prerequisites)을 확인하고 다음 고려 사항을 검토해야 합니다.
     - vCenter Server 검색 및 소프트웨어 인벤토리가 완료되어야 Azure Arc에 온보딩하기 시작할 수 있습니다. 소프트웨어 인벤토리가 켜진 후 완료될 때까지 최대 6시간이 걸릴 수 있습니다.
-    -  [Azure Arc 하이브리드 연결 머신 에이전트](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm)는 Arc 온보딩 프로세스 중에 검색된 서버에 설치됩니다. 에이전트를 설치하고 구성하려면 서버에 대한 관리자 권한이 있는 자격 증명을 제공해야 합니다. Linux에서는 루트 계정을 제공하고 Windows에서는 로컬 관리자 그룹의 멤버인 계정을 제공합니다. 
-    - 서버에서 [지원되는 운영 체제](/azure/azure-arc/servers/agent-overview#supported-operating-systems)를 실행하고 있는지 확인합니다.
-    - Azure 계정에 [필요한 Azure 역할](/azure/azure-arc/servers/agent-overview#required-permissions)에 대한 할당이 부여되었는지 확인합니다.
-    - 검색된 서버가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버를 통해 연결하는 경우 [필요한 URL](/azure/azure-arc/servers/agent-overview#networking-configuration)이 차단되지 않는지 확인합니다.
-    - Azure Arc에 대해 [지원되는 지역](/azure/azure-arc/servers/overview#supported-regions)을 검토합니다. 
+    -  [Azure Arc 하이브리드 연결 머신 에이전트](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)는 Arc 온보딩 프로세스 중에 검색된 서버에 설치됩니다. 에이전트를 설치하고 구성하려면 서버에 대한 관리자 권한이 있는 자격 증명을 제공해야 합니다. Linux에서는 루트 계정을 제공하고 Windows에서는 로컬 관리자 그룹의 멤버인 계정을 제공합니다. 
+    - 서버에서 [지원되는 운영 체제](../azure-arc/servers/agent-overview.md#supported-operating-systems)를 실행하고 있는지 확인합니다.
+    - Azure 계정에 [필요한 Azure 역할](../azure-arc/servers/agent-overview.md#required-permissions)에 대한 할당이 부여되었는지 확인합니다.
+    - 검색된 서버가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버를 통해 연결하는 경우 [필요한 URL](../azure-arc/servers/agent-overview.md#networking-configuration)이 차단되지 않는지 확인합니다.
+    - Azure Arc에 대해 [지원되는 지역](../azure-arc/servers/overview.md#supported-regions)을 검토합니다. 
     - Azure Arc 지원 서버는 리소스 그룹에서 최대 5000개의 컴퓨터 인스턴스를 지원합니다.
 
 
@@ -132,12 +135,13 @@ Azure Migrate 어플라이언스를 사용하여 Azure Arc에 온보딩하는 �
 서버에 연결하기 위한 [필수 조건](./migrate-support-matrix-physical.md)이 충족되지 않았거나 서버에 연결할 때 네트워크 문제가 있습니다(예: 일부 프록시 설정).
 
 **권장 작업**   
-- 서버가 [여기](https://go.microsoft.com/fwlink/?linkid=2134728)에 설명된 필수 조건 및 포트 액세스 요구 사항을 충족하는지 확인합니다. 
-- Azure Migrate 어플라이언스의 WinRM TrustedHosts 목록에 원격 머신(검색된 서버)의 IP 주소를 추가하고 작업을 다시 시도합니다. 
+- 서버가 [필수 조건](#before-you-get-started) 및 [포트 액세스 요구 사항](./migrate-support-matrix-physical.md)을 충족하는지 확인합니다. 
+- Azure Migrate 어플라이언스의 WinRM TrustedHosts 목록에 원격 머신(검색된 서버)의 IP 주소를 추가하고 작업을 다시 시도합니다. 이는 서버(_Windows:_ WinRM 포트 5985(HTTP) 및 _Linux:_ SSH 포트 22(TCP))에서 원격 인바운드 연결을 허용하기 위한 것입니다.
 - 서버에 연결할 어플라이언스에서 올바른 인증 방법을 선택했는지 확인합니다. 
    > [!Note] 
    > Azure Migrate는 Linux 서버에 대해 암호 기반 및 SSH 키 기반 인증을 둘 다 지원합니다.
-- 문제가 지속되면 Microsoft 지원 사례를 제출하여 어플라이언스 머신 ID(어플라이언스 구성 관리자의 바닥글에서 사용 가능)를 제공합니다.    
+- 문제가 지속되면 Microsoft 지원 사례를 제출하여 어플라이언스 머신 ID(어플라이언스 구성 관리자의 바닥글에서 사용 가능)를 제공합니다.     
+   
 
 ### <a name="error-60002---invalidservercredentials"></a>오류 60002 - InvalidServerCredentials  
 
@@ -157,7 +161,7 @@ Azure Migrate 어플라이언스를 사용하여 Azure Arc에 온보딩하는 �
 **권장 작업**  
 - 영향을 받는 서버에 최신 커널 및 OS 업데이트가 설치되어 있는지 확인합니다.
 - 어플라이언스와 서버 간에 네트워크 대기 시간이 없는지 확인합니다. 대기 시간 문제를 방지하려면 어플라이언스와 원본 서버를 동일한 도메인에 포함하는 것이 좋습니다.
-- 어플라이언스에서 영향을 받는 서버에 연결하고 [여기에 설명된](./troubleshoot-appliance-discovery.md) 명령을 실행하여 null 또는 빈 데이터를 반환하는지 확인합니다.
+- 어플라이언스에서 영향을 받는 서버에 연결하고 [여기에 설명된](./troubleshoot-appliance.md) 명령을 실행하여 null 또는 빈 데이터를 반환하는지 확인합니다.
 - 문제가 지속되면 Microsoft 지원 사례를 제출하여 어플라이언스 머신 ID(어플라이언스 구성 관리자의 바닥글에서 사용 가능)를 제공합니다.  
 
 ### <a name="error-60108---softwareinventorycredentialnotassociated"></a>오류 60108 - SoftwareInventoryCredentialNotAssociated  

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 8a1eb1c21663e0294cd384daa0ba644adf78007a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbe0fe6d0dadea6e99b406f2de6e16ed4d667741
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673214"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461541"
 ---
 # <a name="oracle-database-in-azure-linux-vm-backup-strategies"></a>Azure Linux VM 백업 전략에서 Oracle Database
 
@@ -36,7 +36,7 @@ Azure Storage 서비스에서 다음과 같은 이점을 제공합니다.
 
 -  관리됨. 하드웨어 유지 관리, 업데이트 및 중요한 문제를 Azure에서 처리합니다.
 
--  액세스 가능 Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 완성도 높은 REST API 뿐만 아니라 .NET, Java, Node.js, Python, PHP, Ruby, Go 등을 포함한 다양한 언어로 Azure Storage용 클라이언트 라이브러리를 제공합니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage Explorer는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.
+-  액세스 가능 Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 완성도 높은 REST API뿐만 아니라 .NET, Java, Node.js, Python, PHP, Ruby, Go 등 기타 다양한 언어로 Azure Storage용 클라이언트 라이브러리를 제공합니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage Explorer는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.
 
 Azure Storage 플랫폼에는 Oracle 데이터베이스용 백업 미디어로 사용하기에 적합한 다음과 같은 데이터 서비스가 포함되어 있습니다.
 
@@ -103,7 +103,7 @@ Azure Files는 SMB(서버 메시지 블록) 프로토콜 및 NFS(네트워크 �
 
 #### <a name="azure-files-nfs-v41-preview"></a>Azure Files NFS v4.1(미리 보기)
 
-Azure 파일 공유는 NFS(네트워크 파일 시스템) v4.1 프로토콜을 사용하여 Linux 배포판에 탑재할 수 있습니다. 미리 보기에는 지원되는 기능에 대한 몇 가지 제한 사항이 있습니다. 자세한 내용은 [여기](../../../storage/files/storage-files-how-to-mount-nfs-shares.md)에 설명되어 있습니다. 
+Azure 파일 공유는 NFS(네트워크 파일 시스템) v4.1 프로토콜을 사용하여 Linux 배포판에 탑재할 수 있습니다. 미리 보기에서는 지원되는 기능에 여러 제한이 있습니다. 자세한 내용은 [Azure NFS 파일 공유 탑재(미리 보기)](../../../storage/files/storage-files-how-to-mount-nfs-shares.md)를 참조하세요. 
 
 미리 보기에서는 Azure Files NFS v4.1이 다음 [지역](../../../storage/files/storage-files-how-to-mount-nfs-shares.md)으로 제한됩니다.
 - 미국 동부(LRS 및 ZRS)
@@ -120,7 +120,7 @@ Azure 파일 공유는 SMB 커널 클라이언트를 사용하여 Linux 배포�
 
 Azure Files SMB는 모든 Azure 지역에서 일반적으로 공급되며 NFS v3.0 및 v4.1 프로토콜과 동일한 성능 특징을 보여 줍니다. 따라서 현재 Azure Linux VM에 백업 스토리지 미디어를 제공하는 권장 방법입니다.  
 
-SMB 2.1과 SMB 3.0의 두 가지 SMB 버전이 지원되며, SMB 3.0이 전송 중에 암호화를 지원하므로 권장됩니다. 그러나 다른 Linux 커널 버전은 SMB 2.1 및 3.0에 대한 지원이 서로 다르므로 [여기](../../../storage/files/storage-how-to-use-files-linux.md)에서 표를 확인하여 애플리케이션에서 SMB 3.0을 지원하는지 확인해야 합니다. 
+SMB 2.1과 SMB 3.0의 두 가지 SMB 버전이 지원되며, SMB 3.0이 전송 중에 암호화를 지원하므로 권장됩니다. 그러나 Linux 커널 버전에 따라 SMB 2.1 및 3.0에 대한 지원이 다릅니다. 자세한 내용은 [Linux에서 SMB Azure 파일 공유 탑재](../../../storage/files/storage-how-to-use-files-linux.md)를 참조하여 애플리케이션이 SMB 3.0을 지원하는지 확인하세요. 
 
 Azure Files는 다중 사용자 파일 공유 서비스로 사용되도록 설계되었기 때문에 백업 스토리지 미디어로 더 적합하게 만들려면 특정 특성을 조정해야 합니다. 캐싱을 끄고 생성된 파일에 대한 사용자 및 그룹 ID를 설정하는 것이 좋습니다.
 
@@ -152,5 +152,3 @@ Azure Backup 서비스는 애플리케이션 일관성 스냅샷이라고 하는
 - [Oracle Database 빠른 시작 만들기](oracle-database-quick-create.md)
 - [Azure Files로 Oracle Database 백업](oracle-database-backup-azure-storage.md)
 - [Azure Backup 서비스를 사용하여 Oracle Database 백업](oracle-database-backup-azure-backup.md)
-
-

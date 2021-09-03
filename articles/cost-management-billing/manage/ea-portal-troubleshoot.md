@@ -3,23 +3,23 @@ title: Azure EA Portal 액세스 문제 해결
 description: 이 문서에서는 Azure EA Portal에서 Azure 기업계약(EA)에 발생할 수 있는 몇 가지 일반적인 문제에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/26/2021
+ms.date: 07/26/2021
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 852fb85607318772870a8b6826c934997b84ff6d
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: e18c4707a0de97c696aa4ca93ce4c3ca818eb929
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726469"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707534"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Azure EA Portal 액세스 문제 해결
 
 이 문서에서는 Azure 기업계약(EA)에 발생할 수 있는 몇 가지 일반적인 문제에 대해 설명합니다. Azure EA Portal은 기업계약 사용자 및 비용을 관리하는 데 사용됩니다. Azure EA Portal 액세스를 구성하거나 업데이트하는 경우 이러한 문제가 발생할 수 있습니다.
 
-## <a name="issues-adding-an-admin-to-an-enrollment"></a>등록에 관리자 추가와 관련된 문제
+## <a name="issues-adding-a-user-to-an-enrollment"></a>등록에 사용자 추가 문제
 
 기업 등록에 대한 다양한 유형의 인증 수준이 있습니다. 인증 수준이 잘못 적용되면 Azure EA Portal에 로그인하려고 할 때 문제가 발생할 수 있습니다.
 

@@ -2,21 +2,22 @@
 title: Microsoft Cloud App Security에서 제공하는 앱 표시 유형 및 제어
 description: 앱 위험 수준을 식별하고, 위반 및 유출을 실시간으로 차단하고, 앱 커넥터를 사용하여 표시 유형 및 거버넌스를 위한 공급자 API를 활용하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/03/2020
-ms.author: mtillman
+ms.date: 07/29/2021
+ms.author: davidmu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb26310861df38ba743bf39c42344278da288ef3
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.reviewer: bokacevi, dacurwin
+ms.openlocfilehash: ffc4a35aef2304a650f5673a26f0e4fd532e23be
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078063"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528816"
 ---
 # <a name="cloud-app-visibility-and-control"></a>클라우드 앱 표시 유형 및 제어
 
@@ -33,39 +34,41 @@ Microsoft Cloud App Discovery(Azure Active Directory Premium P1 기능)를 사�
 - 앱 관리
 - 고급 섀도 IT 검색 보고
 - 사용 권한 앱 제어
- 
+
 ### <a name="learn-more"></a>자세한 정보
 
-- [네트워크의 섀도 IT 검색 및 관리](/cloud-app-security/tutorial-shadow-it)
+- [네트워크에서 섀도 IT 검색 및 관리](/cloud-app-security/tutorial-shadow-it)
 - [Cloud App Security를 사용하여 검색된 앱](/cloud-app-security/discovered-apps)
- 
-## <a name="user-session-visibility-and-control"></a>사용자 세션 표시 유형 및 제어 
 
-오늘날의 작업 공간에서는 사후에 클라우드 환경의 현황을 파악하는 것만으로는 충분하지 않은 경우가 많습니다. 직원들이 의도적으로 또는 실수로 데이터와 조직을 위험에 노출시키기 전에 위반 및 유출을 실시간으로 차단하는 것이 좋습니다. Microsoft Cloud App Security는 Azure AD(Azure Active Directory)와 함께 조건부 액세스 앱 제어를 사용하여 전체적이고 통합된 환경에서 이러한 기능을 제공합니다. 
+## <a name="user-session-visibility-and-control"></a>사용자 세션 표시 유형 및 제어
+
+오늘날의 작업 공간에서는 사후에 클라우드 환경의 현황을 파악하는 것만으로는 충분하지 않은 경우가 많습니다. 직원들이 의도적으로 또는 실수로 데이터와 조직을 위험에 노출시키기 전에 위반 및 유출을 실시간으로 차단하는 것이 좋습니다. Microsoft Cloud App Security는 Azure AD(Azure Active Directory)와 함께 조건부 액세스 앱 제어를 사용하여 전체적이고 통합된 환경에서 이러한 기능을 제공합니다.
 
 세션 제어는 역방향 프록시 아키텍처를 사용하며 Azure AD 조건부 액세스와 고유하게 통합됩니다. Azure AD 조건부 액세스를 사용하면 특정 조건에 따라 조직의 앱에 대한 액세스 제어를 적용할 수 있습니다. 조건은 조건부 액세스 정책이 누구에게(사용자 또는 사용자 그룹), 무엇에(클라우드 앱), 어디에(위치 및 네트워크) 적용되는지 정의합니다. 조건을 지정한 후에는 데이터를 실시간으로 보호할 수 있는 Cloud App Security로 사용자를 라우팅할 수 있습니다.  
 
-이 제어를 통해 다음을 수행할 수 있습니다.  
+이 제어를 통해 다음을 수행할 수 있습니다.
+
 - 파일 다운로드 제어
 - B2B 시나리오 모니터링  
 - 파일에 대한 액세스 제어  
 - 다운로드 시 문서 보호  
- 
+
 ### <a name="learn-more"></a>자세한 정보
 
 - [Cloud App Security에서 세션 제어로 앱 보호](/cloud-app-security/proxy-intro-aad)
- 
-## <a name="advanced-app-visibility-and-controls"></a>고급 앱 표시 유형 및 제어 
 
-앱 커넥터는 앱 공급자의 API를 사용하여 연결하는 앱에 대한 Microsoft Cloud App Security의 표시 유형과 제어를 강화할 수 있습니다. Cloud App Security는 클라우드 공급자가 제공하는 API를 활용합니다. 각 서비스에는 제한, API 제한, 동적 시간 이동 API 기간 등의 고유한 프레임워크 및 API 제한 사항이 있습니다. Cloud App Security 제품 팀은 이러한 서비스와 협력하여 API 사용을 최적화하고 최상의 성능을 제공합니다. Cloud App Security 엔진은 서비스에서 API에 적용하는 다양한 제한 사항을 고려하여 허용된 최대 용량을 사용합니다. 테넌트의 모든 파일 검사와 같은 일부 작업은 다양 한 API 호출이 필요하므로 더 오랜 기간 동안 진행됩니다. 일부 정책은 몇 시간 또는 며칠 동안 실행될 것으로 예상하세요. 
- 
-### <a name="learn-more"></a>자세한 정보  
+## <a name="advanced-app-visibility-and-controls"></a>고급 앱 표시 유형 및 제어
+
+앱 커넥터는 앱 공급자의 API를 사용하여 연결하는 앱에 대한 Microsoft Cloud App Security의 표시 유형과 제어를 강화할 수 있습니다.
+Cloud App Security는 클라우드 공급자가 제공하는 API를 활용합니다. 각 서비스에는 제한, API 제한, 동적 시간 이동 API 기간 등의 고유한 프레임워크 및 API 제한 사항이 있습니다. Cloud App Security 제품 팀은 이러한 서비스와 협력하여 API 사용을 최적화하고 최상의 성능을 제공합니다. Cloud App Security 엔진은 서비스에서 API에 적용하는 다양한 제한 사항을 고려하여 허용된 최대 용량을 사용합니다. 테넌트의 모든 파일 검사와 같은 일부 작업은 다양 한 API 호출이 필요하므로 더 오랜 기간 동안 진행됩니다. 일부 정책은 몇 시간 또는 며칠 동안 실행될 것으로 예상하세요.
+
+### <a name="learn-more"></a>자세한 정보
 
 - [Cloud App Security에서 앱 연결](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [네트워크의 섀도 IT 검색 및 관리](/cloud-app-security/tutorial-shadow-it)
+- [네트워크에서 섀도 IT 검색 및 관리](/cloud-app-security/tutorial-shadow-it)
 - [Cloud App Security를 사용하여 검색된 앱](/cloud-app-security/discovered-apps)
 - [Cloud App Security에서 세션 제어로 앱 보호](/cloud-app-security/proxy-intro-aad)
 - [Cloud App Security에서 앱 연결](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)

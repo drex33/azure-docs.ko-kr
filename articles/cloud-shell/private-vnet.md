@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 58f6c7a3b5d68d2825cead545ba1b683d1faf1af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2ce108b7f36b7f7d4caf5133aafe99eb837df1ce
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222805"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536465"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Azure Virtual Network에 Cloud Shell 배포
 
@@ -62,7 +63,7 @@ Cloud Shell에 사용되는 Azure Relay 인스턴스는 컨테이너 리소스�
 ## <a name="virtual-network-deployment-limitations"></a>가상 네트워크 배포 제한 사항
 * 관련된 추가 네트워킹 리소스로 인해 가상 네트워크에서 Cloud Shell을 시작하는 것이 일반적으로 표준 Cloud Shell 세션보다 느립니다.
 
-* 현재 인도 중부를 제외한 모든 Cloud Shell 지역에서 지원됩니다. 
+* 현재 인도 중부를 제외한 모든 Cloud Shell 주 지역에서 지원됩니다. 
 
 * [Azure Relay](../azure-relay/relay-what-is-it.md)가 무료 서비스가 아닌 경우 [가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)을 확인하세요. Cloud Shell 시나리오에서는 각 관리자가 Cloud Shell을 사용하는 동안 하나의 하이브리드 연결이 사용됩니다. Cloud Shell 세션이 완료되면 연결이 자동으로 종료됩니다.
 
@@ -89,7 +90,7 @@ ResourceTypes                             RegistrationState
 Azure Portal에서 또는 Azure CLI, Azure PowerShell 등을 사용하여 새 리소스 그룹에 리소스 그룹 및 가상 네트워크를 만들려면 **리소스 그룹 및 가상 네트워크는 동일한 지역에 있어야 합니다**.
 
 ### <a name="arm-templates"></a>ARM 템플릿
-[Azure 빠른 시작 템플릿](https://aka.ms/cloudshell/docs/vnet/template)을 사용하여 가상 네트워크에 Cloud Shell 리소스를 만들고, 필요한 저장소를 만들기 위해 [Azure 빠른 시작 템플릿](https://aka.ms/cloudshell/docs/vnet/template/storage)을 활용합니다. 리소스 이름(주로 파일 공유 이름)을 기록해 둡니다.
+[Azure 빠른 시작 템플릿](https://aka.ms/cloudshell/docs/vnet/template)을 사용하여 가상 네트워크에 Cloud Shell 리소스를 만들고, 필요한 저장소를 만들기 위해 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/)을 활용합니다. 리소스 이름(주로 파일 공유 이름)을 기록해 둡니다.
 
 ### <a name="open-relay-firewall"></a>오픈 릴레이 방화벽
 위의 템플릿을 사용하여 만든 릴레이로 이동하고, 설정에서 "네트워킹"을 선택하고 브라우저 네트워크에서 릴레이로의 액세스를 허용합니다. 기본적으로 릴레이는 생성된 가상 네트워크에서만 액세스할 수 있습니다. 

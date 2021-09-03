@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio(클래식): 실험 보기 및 다시 실행 - Azure'
-description: Azure Machine Learning Studio(클래식)에서 실험 실행을 관리합니다. 이전 가정에 도전하고 다시 수행하여 궁극적으로 이전 가정을 확인하거나 세분화하기 위해 언제든 이전에 실행된 실험을 검토할 수 있습니다.
+description: Machine Learning Studio(클래식)에서 실험 실행 관리 이전 가정에 도전하고 다시 수행하여 궁극적으로 이전 가정을 확인하거나 세분화하기 위해 언제든 이전에 실행된 실험을 검토할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,14 +9,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 419a696da1244afab7aa03cd8c4521ea819a5298
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28fc0941c69d9cf874a5f17c4d714f96369a1eed
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100515957"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581289"
 ---
-# <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 실험 실행 관리
+# <a name="manage-experiment-runs-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 실험 실행 관리
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 

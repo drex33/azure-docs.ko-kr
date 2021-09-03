@@ -17,15 +17,15 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d55c8541bc0ef3fc73b9848c2fd51feb1ea99e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89279655"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535631"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
-이 문서에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
+이 문서의 목적은 Azure AD Connect를 구성하는 동안 고려해야 하는 영역을 설명하는 것입니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
 
 ## <a name="sourceanchor"></a>sourceAnchor
 sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성* 으로 정의됩니다. 온-프레미스와 Azure AD의 동일한 개체처럼 개체를 고유하게 식별합니다. 이 특성은 **immutableId** 라고도 하며 두 이름을 서로 바꿔 사용할 수 있습니다.

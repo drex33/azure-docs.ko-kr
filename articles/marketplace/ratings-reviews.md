@@ -4,15 +4,16 @@ description: Microsoft AppSource 및 Azure Marketplace에서 제품에 대한 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/03/2021
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 66b3254fd8079f555a7ba2b981df6d4c60262ad0
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/06/2021
+ms.openlocfilehash: d1a4f749e883ecc184ac54e16a7eeb5d83686ad6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542720"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535937"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>파트너 센터의 평점 및 리뷰 분석 대시보드
 
@@ -22,7 +23,7 @@ ms.locfileid: "111542720"
 - 리뷰는 Azure Marketplace 또는 AppSource 제품의 제품 표시 페이지에 있는 리뷰 탭에 게시됩니다. 고객은 이름을 포함하거나 익명으로 게시할 수 있습니다.  
 
 >[!NOTE]
-> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.md)를 참조하세요.
+> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.yml)를 참조하세요.
 
 ## <a name="access-the-dashboard"></a>대시보드에 액세스
 
@@ -54,7 +55,7 @@ ms.locfileid: "111542720"
 
 ### <a name="responding-to-a-review"></a>리뷰에 대한 응답
 
-사용자의 리뷰에 응답할 수 있으며 응답은 Azure Marketplace 또는 AppSource 상점에 표시됩니다. 리뷰에 응답하려면 다음 단계를 수행합니다.
+사용자의 리뷰에 응답할 수 있으며 응답은 Azure Marketplace 또는 AppSource 상점에 표시됩니다. 이 기능은 Azure 애플리케이션, Azure Container, Azure 가상 머신, Dynamics 365 Business Central, Dynamics 365 Customer Engagement & Power Apps, Dynamics 365 Operations, IoT Edge 모듈, 관리형 서비스, Power BI 앱 및 SaaS(Software as a Service)와 같은 제품 유형에 적용됩니다. 리뷰에 응답하려면 다음 단계를 수행합니다.
 
 1. **평점 및 리뷰** 탭을 선택한 다음 **Azure Marketplace** 또는 **AppSource** 를 선택합니다. **필터** 를 선택하여 리뷰 목록의 범위를 좁히고 예를 들어 특정 별점을 받은 리뷰만 표시할 수 있습니다.
 

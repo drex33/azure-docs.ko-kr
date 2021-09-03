@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 07/26/2021
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5356273bba64afb7e3e42e1daa99fd69eb0f162e
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92282537"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114711102"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>내 앱 포털에서 컬렉션 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "92282537"
 
 ## <a name="access-apps-using-collections"></a>컬렉션을 사용하여 앱 액세스
 
-**내 앱** 포털의 컬렉션 목록에는 기본적으로 사용자에게 액세스 권한이 있는 모든 앱이 포함된 **모든 앱** 이 표시됩니다.
+**내 앱** 포털의 컬렉션 목록에는 기본적으로 **앱** 이라는 이름의 컬렉션이 표시됩니다.
 
 ![내 앱 포털의 모든 앱 페이지](media/my-applications-portal-workspaces/my-apps-all-apps.png)
 

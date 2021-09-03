@@ -4,25 +4,27 @@ description: 이 문서에서는 구독의 여러 작업 영역과 특정 App In
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/11/2021
-ms.openlocfilehash: 19cc85751fc5e4a165b646ac89d9d6b6e90c4408
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.date: 06/30/2021
+ms.openlocfilehash: ef7a917b504df521f087e5a2729d5c431e84fd62
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379556"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114295892"
 ---
-# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>작업 영역 및 앱에 걸쳐 있는 Azure Monitor에서 로그 쿼리 수행
+# <a name="perform-log-queries-in-azure-monitor-that-span-across-workspaces-and-apps"></a>작업 영역 및 앱에 걸쳐 있는 Azure Monitor에서 로그 쿼리 수행
 
 Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 여러 Log Analytics 작업 영역 및 Application Insights 앱에서 쿼리를 지원합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다.
 
+[Azure Lighthouse](../../lighthouse/overview.md)를 통해 다른 Azure AD(Azure Active Directory) 테넌트의 구독을 관리하는 경우 쿼리에 [해당 고객 테넌트에서 만들어진 Log Analytics 작업 영역](../../lighthouse/how-to/monitor-at-scale.md)을 포함할 수 있습니다.
+
 여러 작업 영역 및 앱에 저장된 데이터는 두 가지 방법으로 쿼리할 수 있습니다.
+
 1. 작업 영역 및 앱 세부 정보를 명시적으로 지정. 이 기술은 이 문서에서 자세히 설명합니다.
 2. [리소스-컨텍스트 쿼리](./design-logs-deployment.md#access-mode)를 암시적으로 사용. 특정 리소스, 리소스 그룹 또는 구독의 컨텍스트에서 쿼리하면 해당 리소스에 대한 데이터가 포함된 모든 작업 영역에서 관련 데이터를 가져옵니다. 앱에 저장된 Application Insights 데이터는 가져오지 않습니다.
 
 > [!IMPORTANT]
 > [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md)를 사용하는 경우 원격 분석은 다른 모든 로그 데이터와 함께 Log Analytics 작업 영역에 저장됩니다. workspace() 식을 사용하여 여러 작업 영역에 애플리케이션을 포함하는 쿼리를 작성합니다. 동일한 작업 영역에 있는 여러 애플리케이션의 경우 작업 영역 간 쿼리가 필요하지 않습니다.
-
 
 ## <a name="cross-resource-query-limits"></a>리소스 간 쿼리 한도 
 
@@ -136,7 +138,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
-> 작업 영역 및 애플리케이션을 포함한 경고 규칙 리소스의 액세스 유효성 검사는 경고 생성 시 수행되므로, 이 메서드는 로그 경고와 함께 사용할 수 없습니다. 경고를 만든 후에는 함수에 새 리소스를 추가할 수 없습니다. 로그 경고에서 리소스 범위를 지정하는 함수를 사용하려면 포털이나 Resource Manager 템플릿에서 경고 규칙을 편집하여 범위가 지정된 리소스를 업데이트해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
+> 작업 영역 및 애플리케이션을 포함한 경고 규칙 리소스의 액세스 유효성 검사는 경고 생성 시 수행되므로, 이 메서드는 로그 경고와 함께 사용할 수 없습니다. 경고를 만든 후에는 함수에 새 리소스를 추가할 수 없습니다. 로그 경고에 리소스 범위를 지정하는 함수를 사용하려면 포털에서 경고 규칙을 편집하거나 Resource Manager 템플릿으로 범위가 지정된 리소스를 업데이트해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
 
 
 ![Timechart](media/cross-workspace-query/chart.png)

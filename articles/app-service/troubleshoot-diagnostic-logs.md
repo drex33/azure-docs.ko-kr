@@ -3,14 +3,14 @@ title: 진단 로깅 사용
 description: 진단 로그를 사용하도록 설정하는 방법, 애플리케이션에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법에 대해 알아봅니다.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 07/06/2021
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: b12b3db9266284509e88cef85a33a1a43b500907
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: b7bf1d7353917808fca222a7027dda74f89aff70
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075486"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536105"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -104,13 +104,15 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 **자세한 오류 로깅** 또는 **실패한 요청 추적** 에서 **켜기** 를 선택한 다음, **저장** 을 선택합니다.
 
-두 로그 유형 모두 App Service 파일 시스템에 저장됩니다. 최대 50건의 오류(파일/폴더)가 보존됩니다. HTML 파일 수가 50개를 초과하면 가장 오래된 26개 오류가 자동으로 삭제됩니다.
+두 로그 유형 모두 App Service 파일 시스템에 저장됩니다. 최대 50건의 오류(파일/폴더)가 보존됩니다. HTML 파일 수가 50개를 초과하면 가장 오래된 오류 파일이 자동으로 삭제됩니다.
+
+실패한 요청 추적 기능은 기본적으로 400에서 600 사이의 HTTP 상태 코드로 실패한 요청 로그를 캡처합니다. 사용자 지정 규칙을 지정하려면 *web.config* 파일의 `<traceFailedRequests>` 섹션을 재정의할 수 있습니다.
 
 ## <a name="add-log-messages-in-code"></a>코드에 로그 메시지 추가
 
-애플리케이션 코드에서 일반적인 로깅 기능을 사용해 애플리케이션 로그에 로그 메시지를 보냅니다. 다음은 그 예입니다.
+애플리케이션 코드에서 일반적인 로깅 기능을 사용해 애플리케이션 로그에 로그 메시지를 보냅니다. 예를 들면 다음과 같습니다.
 
-- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 다음은 그 예입니다.
+- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -141,7 +143,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-HTTP와 같은 특정 로그 유형을 필터링하려면 **--Provider** 매개 변수를 사용합니다. 다음은 그 예입니다.
+HTTP와 같은 특정 로그 유형을 필터링하려면 **--Provider** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --provider http
@@ -190,14 +192,14 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 | AppServiceEnvironmentPlatformLogs | 예 | 해당 없음 | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
 | AppServiceAuditLogs | 예 | 예 | 예 | 예 | FTP 및 Kudu를 통한 로그인 작업 |
 | AppServiceFileAuditLogs | 예 | 예 | TBA | TBA | 사이트 콘텐츠 대상의 파일 변경 내용(**프리미엄 계층 이상에서만 사용 가능**) |
-| AppServiceAppLogs | ASP .NET & Tomcat <sup>1</sup> | ASP .NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images<sup>2</sup> | Java SE & Tomcat Blessed Images<sup>2</sup> | 애플리케이션 로그 전송 사용 |
+| AppServiceAppLogs | ASP.NET & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images<sup>2</sup> | Java SE & Tomcat Blessed Images<sup>2</sup> | 애플리케이션 로그 전송 사용 |
 | AppServiceIPSecAuditLogs  | 예 | 예 | 예 | 예 | IP 규칙에서 보낸 요청 |
 | AppServicePlatformLogs  | TBA | 예 | 예 | 예 | 컨테이너 작업 로그 |
 | AppServiceAntivirusScanAuditLogs | 예 | 예 | 예 | 예 | Microsoft Defender를 사용한 [바이러스 백신 검사 로그](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html)(**프리미엄 계층만 사용 가능**) | 
 
-<sup>1</sup> Tomcat 앱의 경우 앱 설정에 "TOMCAT_USE_STARTUP_BAT"를 추가하고 false 또는 0으로 설정합니다. *최신* Tomcat 버전에 있어야 하며 *java.util.logging* 을 사용해야 합니다.
+<sup>1</sup> Tomcat 앱의 경우 앱 설정에 `TOMCAT_USE_STARTUP_BAT`를 추가하고 `false` 또는 `0`으로 설정합니다. *최신* Tomcat 버전에 있어야 하며 *java.util.logging* 을 사용해야 합니다.
 
-<sup>2</sup> Java SE 앱의 경우 앱 설정에 "$WEBSITE_AZMON_PREVIEW_ENABLED"를 추가하고 true 또는 1로 설정합니다.
+<sup>2</sup> Java SE 앱의 경우 앱 설정에 `WEBSITE_AZMON_PREVIEW_ENABLED`를 추가하고 `true` 또는 `1`로 설정합니다.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> 다음 단계
 * [Azure Monitor를 사용하여 로그 쿼리](../azure-monitor/logs/log-query-overview.md)

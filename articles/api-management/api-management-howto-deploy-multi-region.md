@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 9546813173e72b1f264c3668ee889bbeea07ce7f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c98a3d930d1fcacdc1281c139b020652e4138ac1
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534093"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540117"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
 

@@ -7,14 +7,13 @@ ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 77bc1b435e92861cdabce7b0ce0ac7e9b4212138
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: ed0985778f27f17292428dddadaf4d0dedc9cd46
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326708"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566874"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Azure Maps Weather Services를 사용하여 실시간 및 예측 날씨 데이터 요청
 
@@ -50,17 +49,15 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 
 이 예제에서는 [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions)를 사용하여 워싱턴주 시애틀에 위치한 좌표에서 현재 날씨 상황을 검색합니다.
 
-1. Postman 앱을 엽니다. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다. 이 문서의 나머지 예제에서는 이 컬렉션을 사용합니다.
+1. Postman 앱을 엽니다. **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 
 
-2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
-
-3. 작성기 탭에서 HTTP 매서드 **가져오기** 를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
     https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. 파란색 **보내기** 단추를 클릭합니다. 응답 본문에는 현재 날씨 정보가 포함됩니다.
+3. 파란색 **보내기** 단추를 클릭합니다. 응답 본문에는 현재 날씨 정보가 포함됩니다.
 
     ```json
     {
@@ -242,9 +239,9 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 >[!NOTE]
 >이 예제에서는 작성 시의 심각한 날씨 경보를 검색합니다. 요청된 위치에 더 이상 심각한 날씨 경보가 없을 수 있습니다. 이 예제를 실행할 때 실제 심각한 경보 데이터를 검색하려면 다른 좌표 위치에서 데이터를 검색해야 합니다.
 
-1. Postman 앱을 열고 **새로 만들기** 를 클릭한 다음 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 섹션에서 만든 컬렉션을 선택하거나 새 컬렉션을 만든 다음 **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
-2. 작성기 탭에서 HTTP 매서드 **가져오기** 를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
     https://atlas.microsoft.com/weather/severe/alerts/json?api-version=1.0&query=41.161079,-104.805450&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -294,9 +291,9 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 
 이 예제에서는 [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast)를 사용하여 워싱턴주 시애틀에 위치한 좌표에 대한 5일간의 일기예보를 검색합니다.
 
-1. Postman 앱을 열고 **새로 만들기** 를 클릭한 다음 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 섹션에서 만든 컬렉션을 선택하거나 새 컬렉션을 만든 다음 **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
-2. 작성기 탭에서 HTTP 매서드 **가져오기** 를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
     https://atlas.microsoft.com/weather/forecast/daily/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -542,9 +539,9 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
 
 이 예제에서는 [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast)를 사용하여 워싱턴주 시애틀에 위치한 좌표에 대한 향후 12시간 동안의 시간별 일기예보를 검색합니다.
 
-1. Postman 앱을 열고 **새로 만들기** 를 클릭한 다음 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 섹션에서 만든 컬렉션을 선택하거나 새 컬렉션을 만든 다음 **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
-2. 작성기 탭에서 HTTP 매서드 **가져오기** 를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
     https://atlas.microsoft.com/weather/forecast/hourly/json?api-version=1.0&query=47.60357,-122.32945&duration=12&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -643,15 +640,16 @@ Azure Maps [Weather Services](/rest/api/maps/weather)는 개발자가 매우 동
     ]
     }
     ```
+
 ## <a name="request-minute-by-minute-weather-forecast-data"></a>분 단위 일기예보 데이터 요청
 
  [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast)는 다음 120분 동안 지정된 위치에 대한 분 단위 예측을 반환합니다. 사용자는 1분, 5분, 15분 간격으로 일기예보를 요청할 수 있습니다. 응답에는 강수 유형(비, 눈 또는 둘 다 포함), 시작 시각 및 강수 강도 값 (dBZ)과 같은 세부 정보가 포함됩니다.
 
 이 예제에서는 [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast)를 사용하여 워싱턴주 시애틀에 위치한 좌표에 대한 분 단위 일기예보를 검색합니다. 다음 120분 동안 일기예보가 제공됩니다. 쿼리는 15분 간격으로 예측이 제공되도록 요청하지만 매개 변수를 1분 또는 5분으로 조정할 수 있습니다.
 
-1. Postman 앱을 열고 **새로 만들기** 를 클릭한 다음 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 섹션에서 만든 컬렉션을 선택하거나 새 컬렉션을 만든 다음 **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
-2. 작성기 탭에서 HTTP 매서드 **가져오기** 를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
     https://atlas.microsoft.com/weather/forecast/minute/json?api-version=1.0&query=47.60357,-122.32945&interval=15&subscription-key={Azure-Maps-Primary-Subscription-key}

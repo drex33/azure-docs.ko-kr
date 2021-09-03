@@ -1,19 +1,19 @@
 ---
 title: OCP GTM에서 Microsoft AppSource용 파트너 센터로 공동 판매 솔루션 마이그레이션
-description: OCP GTM에서 Microsoft AppSource용 파트너 센터로 공동 판매 솔루션을 마이그레이션하는 방법에 대해 알아봅니다.
+description: OCP GTM에서 파트너 센터로 공동 판매 솔루션을 마이그레이션합니다(Azure Marketplace).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 05/18/2021
-ms.openlocfilehash: d4eb677b0f55a8ccd2cda33e6026e01238deb9b3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/13/2021
+ms.openlocfilehash: 6ca8c75e5cf6f5290736cf01a20db63a8fb2d077
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971527"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389086"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>공동 판매 솔루션을 OCP GTM에서 상업용 Marketplace로 마이그레이션
 
@@ -36,7 +36,7 @@ Microsoft는 게시 환경을 바꾸고 있습니다. [상업용 Marketplace](ov
 
 ## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>공동 판매를 바로 수행할 수 있는 상태를 실현하기 위한 업데이트 게시
 
-솔루션이 Microsoft 판매자와 파트너에 노출되려면 [공동 판매 준비 요구 사항](./co-sell-overview.md)을 충족해야 합니다. Microsoft 판매자가 인센티브를 받으려면 [인센티브 자격 요구 사항](./co-sell-overview.md)을 충족해야 합니다. 파트너 센터의 공동 판매 탭에서 요구 사항을 충족하세요(이 문서 뒷부분의 [이 이미지](#action-2-merge) 참조).
+솔루션이 Microsoft 판매자와 파트너에 노출되려면 [공동 판매 준비 요구 사항](./co-sell-overview.md)을 충족해야 합니다. Microsoft 판매자가 공동 판매 인센티브를 받으려면 [인센티브 자격 요구 사항](./co-sell-overview.md)을 충족해야 합니다. 파트너 센터의 공동 판매 탭에서 요구 사항을 충족하세요(이 문서 뒷부분의 [이 이미지](#action-2-merge) 참조).
 
 > [!NOTE]
 > 상업용 Marketplace에서 솔루션은 게시 환경 전체에서 “제품”으로 간주됩니다.
@@ -45,8 +45,8 @@ Microsoft는 게시 환경을 바꾸고 있습니다. [상업용 Marketplace](ov
 
 OCP GTM에서 솔루션을 가져오기 전에 다음 단계를 수행합니다.
 
-1. 회사의 [게시자 목록](https://partner.microsoft.com/dashboard/account/v3/publishers/list)에 접속합니다. 게시자에는 게시 액세스 권한이 있는 계정 소유자, 관리자 및 개발자가 포함됩니다. 자세한 정보는 [파트너 센터 사용자 역할](user-roles.md)에서 알아보세요.
-2. 해당 역할들로만 솔루션을 편집 및 게시할 수 있으므로 나열된 연락처 중 하나를 통해 *관리자* 또는 *개발자* 로서 상업용 Marketplace에 [사용자를 추가](https://partner.microsoft.com/dashboard/account/usermanagement)하도록 요청합니다.
+1. 회사의 [게시자 목록](https://go.microsoft.com/fwlink/?linkid=2165704)에 접속합니다. 게시자에는 게시 액세스 권한이 있는 계정 소유자, 관리자 및 개발자가 포함됩니다. 자세한 정보는 [파트너 센터 사용자 역할](user-roles.md)에서 알아보세요.
+2. 해당 역할들로만 솔루션을 편집 및 게시할 수 있으므로 나열된 연락처 중 하나를 통해 *관리자* 또는 *개발자* 로서 상업용 Marketplace에 [사용자를 추가](https://go.microsoft.com/fwlink/?linkid=2166003)하도록 요청합니다.
 3. 개발자와 협력하여 OCP GTM 계정에서 상업용 Marketplace로 솔루션을 이동합니다.
 4. 수행할 작업을 결정합니다.
     1. OCP GTM에 파트너 센터로 마이그레이션할 솔루션이 있는 경우 조회 파이프라인, 참고 자료, 공동 판매 상태 및 성과급을 유지하려면 다음 두 가지 시나리오 중에서 선택할 수 있습니다.
@@ -66,7 +66,7 @@ OCP GTM에서 솔루션을 가져오기 전에 다음 단계를 수행합니다.
 
 ## <a name="begin-the-migration-of-your-solutions-from-ocp-gtm"></a>OCP GTM에서 솔루션 마이그레이션 시작
 
-1. [여기](https://partner.microsoft.com/solutions/migration#)에서 마이그레이션을 시작합니다.
+1. [여기](https://go.microsoft.com/fwlink/?linkid=2165807)에서 마이그레이션을 시작합니다.
 2. **개요** 페이지를 선택하고 **여기를 클릭하여 시작하세요**.
 
     :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="개요 페이지 표시":::
@@ -152,7 +152,7 @@ OCP GTM의 솔루션을 병합할 제품이 상용 마켓플레이스에 아직 
 
 ### <a name="discard-this-solution"></a>이 솔루션을 삭제합니다
 
-고객의 요구를 충족하는 고품질 제품으로 상용 마켓플레이스에서의 현재 존재감 및 검색 가능성을 최적화하기 위해 솔루션의 실행 가능성 및 관련성을 평가하는 것이 좋습니다.
+고객의 요구를 충족하는 고품질 제품으로 상업용 Marketplace에서의 현재 존재감 및 검색 가능성을 최적화하기 위해 솔루션의 실행 가능성 및 관련성을 평가하는 것이 좋습니다.
 
 OCP GTM 솔루션의 솔루션이 더 이상 상관이 없는 경우 이 옵션을 선택합니다. 삭제를 확인하라는 메시지가 표시되며 나중에 삭제를 취소할 수도 있습니다.
 

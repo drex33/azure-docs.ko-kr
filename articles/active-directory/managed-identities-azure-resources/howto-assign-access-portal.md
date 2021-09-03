@@ -6,21 +6,22 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: ''
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 06/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6584754edf3ff7ae31c3b9ace72baf16459dbc44
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eeff666af9d680baa037415cedb19077de9c061f
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93359997"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966359"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure Portal을 사용하여 리소스에 관리 ID 액세스 권한 할당
 
@@ -41,9 +42,13 @@ ms.locfileid: "93359997"
 
 2. 액세스 제어를 수정하려는 리소스로 이동합니다. 이 예제에서는 Azure 가상 머신 액세스 권한을 스토리지 계정에 제공하므로 스토리지 계정으로 이동합니다.
 
-3. 리소스의 **액세스 제어(IAM)** 페이지를 선택하고 **+ 역할 할당 추가** 를 선택합니다. 그런 다음, **역할** 을 지정하고, **액세스를 할당** 하고, 해당 **구독** 을 지정합니다. 검색 기준 영역 아래에 리소스가 표시되어야 합니다. 리소스를 선택하고 **저장** 을 선택합니다. 
+1. **액세스 제어(IAM)** 를 선택합니다.
 
-   ![액세스 제어(IAM) 스크린샷](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
+
+1. 역할 및 관리 ID를 선택합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
      
 ## <a name="next-steps"></a>다음 단계
 

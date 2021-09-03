@@ -2,13 +2,13 @@
 title: Arc 지원 서버를 사용하는 Azure 리소스에 대해 인증
 description: 이 문서에서는 Arc 지원 서버에 대한 Azure Instance Metadata Service 지원과 비밀을 사용하여 Azure 리소스 및 로컬에 대해 인증하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: 49b70928ae972da8e0a0d14d711e4b6f246cca6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/16/2021
+ms.openlocfilehash: 76f7174792f751322545b1d30bb51476c5339e26
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96939157"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389913"
 ---
 # <a name="authenticate-against-azure-resources-with-arc-enabled-servers"></a>Arc 지원 서버를 사용하는 Azure 리소스에 대해 인증
 

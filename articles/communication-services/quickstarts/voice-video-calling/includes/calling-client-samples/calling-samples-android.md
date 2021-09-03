@@ -2,16 +2,16 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.author: mikben
-ms.openlocfilehash: 31fd56299fb88a0f30843dade782743085ffe852
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ef54504f0299e9726de384f5bbf88bef72a83cf7
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560523"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339783"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../../create-communication-resource.md).
@@ -409,12 +409,6 @@ CallDirection callDirection = call.getCallDirection();
 boolean muted = call.isMuted();
 ```
 
-현재 통화가 녹음되고 있는지 확인하려면 `isRecordingActive` 속성을 검사합니다.
-
-```java
-boolean recordingActive = call.isRecordingActive();
-```
-
 활성 비디오 스트림을 검사하려면 `localVideoStreams` 컬렉션을 검사합니다.
 
 ```java
@@ -430,7 +424,21 @@ Context appContext = this.getApplicationContext();
 call.mute(appContext).get();
 call.unmute(appContext).get();
 ```
+### <a name="change-the-volume-of-the-call"></a>통화 볼륨 변경
+    
+통화 중일 때 전화기의 하드웨어 볼륨 키를 사용하여 사용자가 통화 볼륨을 변경할 수 있어야 합니다.
+이는 통화가 이루어지는 작업에서 스트리밍 유형이 `AudioManager.STREAM_VOICE_CALL`인 `setVolumeControlStream` 메서드를 사용하여 수행됩니다.
+이렇게 하면 하드웨어 볼륨 키가 통화 볼륨(전화 아이콘 또는 볼륨 슬라이더에 이와 유사한 것으로 표시됨)을 변경할 수 있어 경보, 미디어 또는 시스템 전체 볼륨과 같은 다른 사운드 프로필의 볼륨을 변경할 수 없습니다. 자세한 내용은 [오디오 출력의 변경 사항 처리 | Android Developers](https://developer.android.com/guide/topics/media-apps/volume-and-earphones)를 확인할 수 있습니다.
+    
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    ...
+    setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
+}
+```
 
+    
 ### <a name="start-and-stop-sending-local-video"></a>로컬 비디오 보내기 시작 및 중지
 
 비디오를 시작하려면 `deviceManager` 개체의 `getCameraList` API를 사용하여 카메라를 열거해야 합니다. 그런 다음, 원하는 카메라를 전달하는 새 `LocalVideoStream` 인스턴스를 만들고, 이 인스턴스를 `startVideo` API에서 인수로 전달합니다.
@@ -668,6 +676,95 @@ VideoStreamRendererView uiView = previewRenderer.createView(new RenderingOptions
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 ```
+
+## <a name="record-calls"></a>통화 녹음
+> [!WARNING]
+> ACS 호출 Android SDK의 버전 1.1.0 및 베타 릴리스 버전 1.1.0-beta.1까지는 `isRecordingActive` 및 `addOnIsRecordingActiveChangedListener`가 `Call` 개체의 일부입니다. 새 베타 릴리스의 경우 해당 API는 아래 설명과 같이 `Call`의 확장 기능으로 이동되었습니다.
+
+> [!NOTE]
+> 이 API는 개발자를 위한 미리 보기로 제공되며 수신한 피드백을 기반으로 변경될 수 있습니다. 프로덕션 환경에서 이 API를 사용하지 마세요. 이 API를 사용하려면 ACS 통화 Android SDK의 '베타' 릴리스를 사용하세요.
+
+통화 레코딩은 핵심 `Call` API의 확장 기능입니다. 먼저 레코딩 기능 API 개체를 가져와야 합니다.
+
+```java
+RecordingFeature callRecordingFeature = call.api(RecordingFeature.class);
+```
+
+그런 다음, 통화가 녹음되고 있는지 확인하려면 `callRecordingFeature`의 `isRecordingActive` 속성을 검사합니다. `boolean`를 반환합니다.
+
+```java
+boolean isRecordingActive = callRecordingFeature.isRecordingActive();
+```
+
+레코딩 변화를 구독할 수도 있습니다.
+
+```java
+private void handleCallOnIsRecordingChanged(PropertyChangedEvent args) {
+    boolean isRecordingActive = callRecordingFeature.isRecordingActive();
+}
+
+callRecordingFeature.addOnIsRecordingActiveChangedListener(handleCallOnIsRecordingChanged);
+
+```
+
+애플리케이션에서 녹음/녹화를 시작하려면 먼저 [통화 녹음/녹화 개요](../../../../concepts/voice-video-calling/call-recording.md)에 따라 통화 녹음/녹화를 설정하는 단계를 따르세요.
+
+서버에 통화 녹음/녹화를 설정하고 나면 Android 애플리케이션에서 통화에서 `ServerCallId` 값을 얻은 다음 이를 서버로 보내 녹음/녹화 프로세스를 시작해야 합니다. `ServerCallId` 값은 `getInfo()`를 사용하여 클래스 개체에서 찾을 수 있는 `CallInfo` 클래스의 `getServerCallId()`를 사용하여 찾을 수 있습니다.
+
+```java
+try {
+    String serverCallId = call.getInfo().getServerCallId().get();
+    // Send serverCallId to your recording server to start the call recording.
+} catch (ExecutionException | InterruptedException e) {
+} catch (UnsupportedOperationException unsupportedOperationException) {
+}
+```
+
+서버에서 녹음/녹화가 시작되면 `handleCallOnIsRecordingChanged` 이벤트가 트리거되고 `callRecordingFeature.isRecordingActive()`의 값은 `true`가 됩니다.
+
+통화 녹음/녹화를 시작하는 것과 마찬가지로 통화 녹음/녹화를 중지하려면 `ServerCallId`를 가져와 녹음/녹화 서버로 보내 통화 녹음/녹화를 중지해야 합니다.
+
+```java
+try {
+    String serverCallId = call.getInfo().getServerCallId().get();
+    // Send serverCallId to your recording server to stop the call recording.
+} catch (ExecutionException | InterruptedException e) {
+} catch (UnsupportedOperationException unsupportedOperationException) {
+}
+```
+
+서버에서 녹음/녹화가 중지되면 `handleCallOnIsRecordingChanged` 이벤트가 트리거되고 `callRecordingFeature.isRecordingActive()` 값은 `false`가 됩니다.
+
+
+## <a name="call-transcription"></a>통화 대화 내용 기록
+> [!WARNING]
+> ACS 호출 Android SDK의 버전 1.1.0 및 베타 릴리스 버전 1.1.0-beta.1까지는 `isTranscriptionActive` 및 `addOnIsTranscriptionActiveChangedListener`가 `Call` 개체의 일부입니다. 새 베타 릴리스의 경우 해당 API는 아래 설명과 같이 `Call`의 확장 기능으로 이동되었습니다.
+    
+> [!NOTE]
+> 이 API는 개발자를 위한 미리 보기로 제공되며 수신한 피드백을 기반으로 변경될 수 있습니다. 프로덕션 환경에서 이 API를 사용하지 마세요. 이 API를 사용하려면 ACS 통화 Android SDK의 '베타' 릴리스를 사용하세요.
+
+통화 대화 내용 기록은 핵심 `Call` API의 확장 기능입니다. 먼저 대화 내용 기록 기능 API 개체를 가져와야 합니다.
+
+```java
+TranscriptionFeature callTranscriptionFeature = call.api(TranscriptionFeature.class);
+```
+
+그런 다음, 통화 대화 내용이 기록되고 있는지 확인하려면 `callTranscriptionFeature`의 `isTranscriptionActive` 속성을 검사합니다. `boolean`를 반환합니다.
+
+```java
+boolean isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive();
+```
+
+또한 대화 내용 기록의 변경 사항을 구독할 수 있습니다.
+
+```java
+private void handleCallOnIsTranscriptionChanged(PropertyChangedEvent args) {
+    boolean isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive();
+}
+
+callTranscriptionFeature.addOnIsTranscriptionActiveChangedListener(handleCallOnIsTranscriptionChanged);
+
+```    
 
 ## <a name="eventing-model"></a>이벤트 모델
 값이 변경될 때 알림을 받도록 대부분의 속성 및 컬렉션을 구독할 수 있습니다.

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 00e44185c938c94903e9b85a4748906721dac27f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0f3e3b927f5f3aed0a29473af4046fb5c09cf4f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571691"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465076"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -225,7 +225,7 @@ Azure Migrate에서는 성능 기반 크기 조정을 위해 다음이 필요합
 4. 작업 영역 ID와 키를 복사합니다. 이 옵션은 온-프레미스 컴퓨터에 MMA를 설치할 때 필요합니다.
 
 > [!NOTE]
-> 에이전트의 설치를 자동화하려면 Configuration Manager와 같은 배포 도구 또는 [Intigua](https://www.intigua.com/intigua-for-azure-migration)와 같이 Azure Migrate용 에이전트 배포 솔루션을 제공하는 파트너 도구를 사용할 수 있습니다.
+> 에이전트의 설치를 자동화하려면 Configuration Manager와 같은 배포 도구 또는 Intigua와 같이 Azure Migrate용 에이전트 배포 솔루션을 제공하는 파트너 도구를 사용할 수 있습니다.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Windows 머신에 MMA 에이전트 설치

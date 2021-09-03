@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: ac4e8d93e2e729db387b0f9cf81017b6c58b6750
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10fe758bf11f0452ef07d30329d7d48914fbb4bf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951337"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566822"
 ---
 # <a name="deployment-best-practices"></a>배포 모범 사례
 
@@ -152,8 +152,12 @@ App Service 계획에서 사용 가능한 CPU 또는 메모리의 90%를 초과�
 모범 사례에 대한 자세한 내용은 [App Service 진단](./overview-diagnostics.md)을 참조하세요. 리소스와 관련된 적용 가능한 모범 사례를 확인합니다.
 
 - [Azure Portal](https://portal.azure.com)에서 해당 웹앱으로 이동합니다.
-- 왼쪽 탐색에서 **문제 진단 및 해결** 을 클릭하면 App Service 진단이 열립니다.
+- 왼쪽 탐색 영역에서 **문제 진단 및 해결** 을 클릭하면 App Service 진단이 열립니다.
 - **모범 사례** 홈페이지 타일을 선택합니다.
 - **가용성 및 성능을 위한 모범 사례** 또는 **최적의 구성을 위한 모범 사례** 를 클릭하여 이러한 모범 사례에 관련된 앱의 현재 상태를 확인합니다.
 
-또한 이 링크(`https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`)를 사용하여 리소스에 대한 App Service 진단을 직접 열 수 있습니다.
+이 링크(`https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`)를 사용하여 리소스에 대한 App Service 진단을 직접 열 수도 있습니다.
+
+## <a name="more-resources"></a>추가 리소스
+
+[환경 변수 및 앱 설정 참조](reference-app-settings.md)

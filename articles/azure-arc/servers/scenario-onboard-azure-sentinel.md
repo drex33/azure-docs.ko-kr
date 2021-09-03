@@ -1,18 +1,18 @@
 ---
-title: Azure Arc 지원 서버를 Azure Sentinel에 등록
+title: Azure Arc 지원 서버를 Azure Sentinel에 온보딩
 description: Azure Arc 지원 서버를 Azure Sentinel에 추가하고 해당 보안 상태를 사전에 모니터링하는 방법에 대해 알아봅니다.
-ms.date: 11/16/2020
+ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2364ba72ac5b10ec4e1f433cc6d591c3ca389ecd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c0af2c48db12eca6453415767e611b0993554ee
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584735"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608270"
 ---
-# <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Azure Arc 지원 서버를 Azure Sentinel에 등록
+# <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Azure Arc 지원 서버를 Azure Sentinel에 온보딩
 
-이 문서는 Azure Arc 지원 서버를 [Azure Sentinel](../../sentinel/overview.md)에 등록하고 보안 관련 이벤트 수집을 시작하는 데 도움을 주기 위해 작성되었습니다. Azure Sentinel은 기업 전체에서 경고 검색, 위협 표시, 사전 예방식 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다.
+이 문서는 Azure Arc 지원 서버를 [Azure Sentinel](../../sentinel/overview.md)에 온보딩하고 보안 관련 이벤트 수집을 시작하는 데 도움을 주기 위해 작성되었습니다. Azure Sentinel은 기업 전체에서 경고 검색, 위협 표시, 사전 예방식 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -24,13 +24,13 @@ ms.locfileid: "100584735"
 
 - 머신 또는 서버가 Azure Arc 지원 서버에 연결되어 있습니다.
 
-## <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Azure Arc 지원 서버를 Azure Sentinel에 등록
+## <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Azure Arc 지원 서버를 Azure Sentinel에 온보딩
 
 Azure Sentinel은 기본 제공되고 실시간 통합을 제공하는 Microsoft 솔루션을 위한 다양한 커넥터와 함께 제공됩니다. 실제 및 가상 머신의 경우 로그를 수집하고 Azure Sentinel에 전달하는 Log Analytics 에이전트를 설치할 수 있습니다. Arc 지원 서버는 다음 방법을 사용한 Log Analytics 에이전트 배포를 지원합니다.
 
 - VM 확장 프레임워크 사용.
 
-    Azure Arc 지원 서버의 이 기능을 사용하면 Log Analytics 에이전트 VM 확장을 비 Azure Windows 및/또는 Linux 서버에 배포할 수 있습니다. 하이브리드 머신 또는 Arc 지원 서버에서 관리하는 서버에서 다음 방법을 사용하여 VM 확장을 관리할 수 있습니다.
+    Azure Arc 지원 서버의 이 기능을 사용하면 Log Analytics 에이전트 VM 확장을 비 Azure Windows 및/또는 Linux 서버에 배포할 수 있습니다. VM 확장은 하이브리드 컴퓨터 또는 Arc 사용 서버에 의해 관리되는 서버에서 다음 방법을 이용하여 관리할 수 있습니다.
 
     - [Azure Portal](manage-vm-extensions-portal.md)
     - [Azure CLI](manage-vm-extensions-cli.md)
@@ -39,12 +39,12 @@ Azure Sentinel은 기본 제공되고 실시간 통합을 제공하는 Microsoft
 
 - Azure Policy 사용.
 
-    이 방식을 사용하면 [Linux 또는 Windows Azure Arc 머신에 Log Analytics 에이전트 배포](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책을 사용하여 Arc 지원 서버에 Log Analytics 에이전트가 설치되어 있는지 감사합니다. 에이전트가 설치되지 않은 경우에는 재구성 작업을 사용하여 에이전트를 자동으로 배포합니다. 또는 VM용 Azure Monitor를 사용하는 머신을 모니터링하려는 경우에는 [VM용 Azure Monitor 사용](../../governance/policy/samples/built-in-initiatives.md#monitoring)을 대신 사용하여 Log Analytics 에이전트를 설치하고 구성합니다.
+    이 방식을 사용하면 Azure Policy [Linux 또는 Windows Azure Arc 머신에 Log Analytics 에이전트 배포](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책을 사용하여 Arc 지원 서버에 Log Analytics 에이전트가 설치되어 있는지 감사합니다. 에이전트가 설치되지 않은 경우에는 재구성 작업을 사용하여 에이전트를 자동으로 배포합니다. 또는 VM용 Azure Monitor를 사용하는 머신을 모니터링하려는 경우에는 [VM용 Azure Monitor 사용](../../governance/policy/samples/built-in-initiatives.md#monitoring)을 대신 사용하여 Log Analytics 에이전트를 설치하고 구성합니다.
 
 Azure Policy를 사용하여 Windows 또는 Linux용 Log Analytics 에이전트를 설치하는 것이 좋습니다.
 
-Arc 지원 서버가 연결되면 데이터는 Azure Sentinel로 스트리밍되기 시작하고 작업을 시작할 준비가 됩니다. [기본 제공 통합 문서](../../sentinel/quickstart-get-visibility.md)에서 로그를 확인하고 Log Analytics에서 쿼리를 작성하여 [데이터를 조사](../../sentinel/tutorial-investigate-cases.md)할 수 있습니다.
+Arc 지원 서버가 연결되면 데이터는 Azure Sentinel로 스트리밍되기 시작하고 작업을 시작할 준비가 됩니다. [기본 제공 통합 문서](/azure/sentinel/get-visibility)에서 로그를 확인하고 Log Analytics에서 쿼리를 작성하여 [데이터를 조사](/azure/sentinel/investigate-cases)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Sentinel을 사용하여 위협 검색](../../sentinel/tutorial-detect-threats-built-in.md)을 시작합니다.
+[Azure Sentinel을 사용하여 위협 검색](/azure/sentinel/detect-threats-built-in)을 시작합니다.

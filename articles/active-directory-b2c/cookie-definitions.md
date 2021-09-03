@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/23/2020
+ms.date: 08/12/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5e44e2e1eb37e808e60134a6fba5051552e84029
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b2cae7f3c338ea5966ea8e37821e7ae0ebd746d
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85389346"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530538"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Azure AD B2C 쿠키 정의
 
@@ -44,7 +44,7 @@ Microsoft Azure AD B2C 서비스는 `Secure` 특성을 사용하는 `SameSite=No
 | `x-ms-cpim-admin` | main.b2cadmin.ext.azure.com | [브라우저 세션](session-behavior.md) 종료 | 테넌트의 사용자 멤버 자격 데이터를 보존합니다. 사용자가 구성원인 테넌트 및 멤버 자격 수준(관리자 또는 사용자)입니다. |
 | `x-ms-cpim-slice` | b2clogin.com, login.microsoftonline.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 종료 | 요청을 적절한 프로덕션 인스턴스로 라우팅하는 데 사용됩니다. |
 | `x-ms-cpim-trans` | b2clogin.com, login.microsoftonline.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 종료 | 트랜잭션(Azure AD B2C에 대한 인증 요청 수) 및 현재 트랜잭션을 추적하는 데 사용됩니다. |
-| `x-ms-cpim-sso:{Id}` | b2clogin.com, login.microsoftonline.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 종료 | SSO 세션을 유지 관리하는 데 사용됩니다. |
+| `x-ms-cpim-sso:{Id}` | b2clogin.com, login.microsoftonline.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 종료 | SSO 세션을 유지 관리하는 데 사용됩니다. 이 쿠키는 [로그인 유지](session-behavior.md#enable-keep-me-signed-in-kmsi)가 사용하도록 설정된 경우 `persistent`로 설정됩니다.|
 | `x-ms-cpim-cache:{id}_n` | b2clogin.com, login.microsoftonline.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 종료, 인증 성공 | 요청 상태를 유지 관리하는 데 사용됩니다. |
 | `x-ms-cpim-csrf` | b2clogin.com, login.microsoftonline.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 종료 | CRSF 보호에 사용되는 교차 사이트 요청 위조 토큰입니다. |
 | `x-ms-cpim-dc` | b2clogin.com, login.microsoftonline.com, 브랜드 도메인 | [브라우저 세션](session-behavior.md) 종료 | Azure AD B2C 네트워크 라우팅에 사용됩니다. |

@@ -11,12 +11,12 @@ ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e2bdaa2c7a7648124fbe0be60e5a0af2f83238f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 2ef5d481cebcdd4c7f08813e8523a03fd45d777b
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226564"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768084"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Azure AD Connect 구성 설정 가져오기 및 내보내기 
 
@@ -46,6 +46,9 @@ Azure AD Connect 마법사에서 구성이 변경될 때마다 새 시간 스탬
 
 > [!NOTE]
 > LocalDB 대신 SQL Server를 사용하거나 기본 VSA 대신 기존 서비스 계정을 사용하는 것과 같이 이 페이지의 설정을 재정의합니다. 이러한 설정은 구성 설정 파일에서 가져오지 않습니다. 정보 및 비교 목적으로 제공됩니다.
+
+>[!NOTE]
+>내보낸 JSON 파일을 수정하여 구성을 변경하는 것은 지원되지 않습니다.
 
 ### <a name="import-installation-experience"></a>설치 경험 가져오기 
 

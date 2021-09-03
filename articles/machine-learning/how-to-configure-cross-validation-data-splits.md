@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 02/23/2021
-ms.openlocfilehash: 00c3cd6f6a4e5878a3a426aa5622cc53487f2bdd
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 82ea26a5522d44bb39adc30f388f996688cb1ad5
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131407"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529931"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화된 Machine Learning에서 데이터 분할 및 교차 유효성 검사 구성
 
@@ -44,6 +44,8 @@ Azure Machine Learning에서 자동화된 ML을 사용하여 여러 ML 모델을
     * [기계 학습의 학습, 유효성 검사 및 테스트 데이터 정보](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
     * [기계 학습의 교차 유효성 검사 이해](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
+
+[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
 ## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>기계 학습의 기본 데이터 분할 및 교차 유효성 검사
 
@@ -74,7 +76,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 이 경우 단일 데이터 파일로 시작하고 학습 데이터 및 유효성 검사 데이터 세트로 분할하거나 유효성 검사 집합을 위한 별도의 데이터 파일을 제공할 수 있습니다. 어느 방법을 사용하든 `AutoMLConfig` 개체의 `validation_data` 매개 변수가 유효성 검사 집합으로 사용할 데이터를 할당합니다. 이 매개 변수는 [Azure Machine Learning 데이터 세트](how-to-create-register-datasets.md) 또는 pandas 데이터 프레임 형식의 데이터 세트만 허용합니다.   
 
 > [!NOTE]
-> `validation_size` 매개 변수는 예측 시나리오에서 지원되지 않습니다.
+> `validation_data` 매개 변수를 사용하려면 `training_data` 및 `label_column_name` 매개 변수도 설정해야 합니다. 유효성 검사 매개 변수는 하나만 설정할 수 있습니다. 즉, `validation_data` 또는 `n_cross_validations` 중 하나만 지정할 수 있고 둘 다 지정할 수는 없습니다.
 
 다음 코드 예제에서는 `dataset`의 제공된 데이터 중에서 학습 및 유효성 검사에 사용할 부분을 명시적으로 정의합니다.
 

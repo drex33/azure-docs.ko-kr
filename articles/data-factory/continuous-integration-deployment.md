@@ -2,18 +2,19 @@
 title: Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 description: 지속적인 통합 및 지속적인 업데이트를 사용하여 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b8502363d7868b32bf2576742ca443b673c5123
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d85659730ae78277056ec88c8a35c545646b38ab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971975"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536211"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -97,9 +98,9 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
 
     d.  **작업** 목록에서 **리소스 그룹 만들기 또는 업데이트** 를 선택합니다.
 
-    e.  **템플릿** 상자 옆에 있는 줄임표 단추( **...** )를 선택합니다. 구성된 Git 리포지토리의 게시 분기에 생성된 Azure Resource Manager 템플릿을 찾습니다. adf_publish 분기의 <FactoryName> 폴더에서 `ARMTemplateForFactory.json` 파일을 찾습니다.
+    e.  **템플릿** 상자 옆에 있는 줄임표 단추( **...** )를 선택합니다. 구성된 Git 리포지토리의 게시 분기에 생성된 Azure Resource Manager 템플릿을 찾습니다. adf_publish 분기의 &lt;FactoryName&gt; 폴더에서 `ARMTemplateForFactory.json` 파일을 찾습니다.
 
-    f.  **템플릿 매개 변수 재정의** 필드 **템플릿 매개 변수** 상자 옆에서 매개 변수 파일을 선택합니다. adf_publish 분기의 <FactoryName> 폴더에서 `ARMTemplateParametersForFactory.json` 파일을 찾습니다.
+    f.  **템플릿 매개 변수 재정의** 필드 **템플릿 매개 변수** 상자 옆에서 매개 변수 파일을 선택합니다. adf_publish 분기의 &gt;FactoryName&lt; 폴더에서 `ARMTemplateParametersForFactory.json` 파일을 찾습니다.
 
     g.  **템플릿 매개 변수 재정의** 필드 **템플릿 매개 변수 재정의** 상자 옆에서 대상 Data Factory에 대해 원하는 매개 변수 값을 입력합니다. Azure Key Vault에서 제공하는 자격 증명의 경우 큰따옴표 사이에 비밀 이름을 입력합니다. 예를 들어 비밀 이름이 cred1인 경우 이 값에 대한 **"$(cred1)"** 을 입력합니다.
 

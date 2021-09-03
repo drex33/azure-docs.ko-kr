@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0916d4107fdcf97875d1c6a428bbfa75164a65
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0947f9924e97532b087940ecde08e8a0f8d7e005
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068509"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114449109"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금을 사용하여 공격으로부터 사용자 계정 보호
 
@@ -90,7 +90,7 @@ AD FS 2016 및 AF FS 2019를 사용하는 페더레이션된 배포는 [AD FS �
 
 *무단 사용을 방지하기 위해 회원님의 계정을 일시적으로 잠갔습니다. 나중에 다시 시도하세요. 이 문제가 계속되면 관리자에게 문의하세요.*
 
-스마트 잠금을 테스트하는 경우 Azure AD 인증 서비스의 지리적으로 분산되고 부하가 분산된 특성으로 인해 로그인 요청은 다른 데이터 센터에서 처리될 수 있습니다. 이 시나리오에서 각 Azure AD 데이터 센터가 독립적으로 잠금을 추적하기 때문에 잠금을 유발하는 잠금 임계값 시도 횟수를 정의하는 것보다 더 많은 시간이 걸릴 수 있습니다. 잠금이 발생하기 전에 사용자가 각 데이터 센터에 도달하면 사용자는 잘못된 시도 횟수(*threshold_limit * datacenter_count*)를 갖게 됩니다.
+스마트 잠금을 테스트하는 경우 Azure AD 인증 서비스의 지리적으로 분산되고 부하가 분산된 특성으로 인해 로그인 요청은 다른 데이터 센터에서 처리될 수 있습니다. 이 시나리오에서 각 Azure AD 데이터 센터가 독립적으로 잠금을 추적하기 때문에 잠금을 유발하는 잠금 임계값 시도 횟수를 정의하는 것보다 더 많은 시간이 걸릴 수 있습니다. 사용자는 완전히 잠기기 전에 최대 (*threshold_limit * datacenter_count*)번의 잘못된 시도를 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

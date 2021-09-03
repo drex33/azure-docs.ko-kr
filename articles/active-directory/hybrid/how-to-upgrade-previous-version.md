@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b7fce2e2ccb6f331e42e8052ef4fb75d35e831
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b79e8d07c2d7ed93be0a4cd77a07ae72454f78a
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98729993"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652187"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다.  [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
@@ -57,10 +57,10 @@ Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 �
 
 현재 위치 업그레이드 중 도입된 변경 내용으로 인해 업그레이드가 완료된 후 특정 동기화 작업(전체 가져오기 단계 및 전체 동기화 단계 포함)이 실행되어야 할 수도 있습니다. 이러한 작업을 연기하려면 [업그레이드 후 전체 동기화를 연기하는 방법](#how-to-defer-full-synchronization-after-upgrade) 섹션을 참조하세요.
 
-Azure AD Connect를 비표준 커넥터(예: 일반 LDAP 커넥터 및 일반 SQL 커넥터)와 함께 사용하는 경우 현재 위치 업그레이드 후 [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md)에서 해당 커넥터 구성을 새로 고쳐야 합니다. 커넥터 구성을 새로 고치는 방법에 대한 자세한 내용은 [커넥터 버전 릴리스 내역 - 문제 해결](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting) 문서 섹션을 참조하세요. 구성을 새로 고치지 않으면 커넥터에 대해 가져오기 및 내보내기 실행 단계가 올바르게 작동하지 않습니다. 애플리케이션 이벤트 로그에 *"Assembly version in AAD Connector configuration (&quot;X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"*("AAD 커넥터 구성의 어셈블리 버전("XXXXX.X")이 C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll의 실제 버전("X.X.XXX.X")보다 이전 버전입니다")라는 오류 메시지가 표시됩니다.
+Azure AD Connect를 비표준 커넥터(예: 일반 LDAP 커넥터 및 일반 SQL 커넥터)와 함께 사용하는 경우 현재 위치 업그레이드 후 [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md)에서 해당 커넥터 구성을 새로 고쳐야 합니다. 커넥터 구성을 새로 고치는 방법에 대한 자세한 내용은 [커넥터 버전 릴리스 내역 - 문제 해결](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting) 문서 섹션을 참조하세요. 구성을 새로 고치지 않으면 커넥터에 대해 가져오기 및 내보내기 실행 단계가 올바르게 작동하지 않습니다. 애플리케이션 이벤트 로그에 *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"*("AAD 커넥터 구성의 어셈블리 버전("XXXXX.X")이 C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll의 실제 버전("X.X.XXX.X")보다 이전 버전입니다")라는 오류 메시지가 표시됩니다.
 
 ## <a name="swing-migration"></a>스윙 마이그레이션
-배포가 복잡하거나 개체가 많은 경우에는 라이브 시스템에서 전체 업그레이드를 수행하는 것이 적절하지 않을 수 있습니다. 일부 고객의 경우 처리하는 데 며칠이 걸리고 이 시간 동안 델타 변경이 처리되지 않습니다. 이 방법은 구성을 크게 변경하고 클라우드로 푸시하기 전에 시도하려는 경우에도 사용할 수 있습니다.
+배포가 복잡하거나 개체가 많거나 Windows Server 운영 체제를 업그레이드해야 하는 경우 라이브 시스템에서 전체 업그레이드를 수행하는 것이 불가능할 수 있습니다. 일부 고객의 경우 처리하는 데 며칠이 걸리고 이 시간 동안 델타 변경이 처리되지 않습니다. 이 방법은 구성을 크게 변경하고 클라우드로 푸시하기 전에 시도하려는 경우에도 사용할 수 있습니다.
 
 이 시나리오에서 권장되는 방법은 스윙 마이그레이션을 사용하는 것입니다. 활성 서버 하나와 스테이징 서버 하나, (적어도) 두 개의 서버가 필요합니다. 활성 서버(아래 그림에 파란색 실선으로 표시됨)는 활성 프로덕션 부하를 담당합니다. 스테이징 서버(자주색 파선으로 표시됨)는 새 릴리스 또는 구성으로 준비됩니다. 완벽하게 준비되면 이 서버가 활성 상태가 됩니다. 이제 이전 버전 또는 구성이 설치된 이전 활성 서버가 스테이징 서버가 되며 업그레이드됩니다.
 
@@ -137,6 +137,10 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
    > 가능한 한 빨리 필수 동기화 단계를 실행해야 합니다. Synchronization Service Manager를 사용하여 수동으로 이 단계를 실행하거나, ADSyncSchedulerConnectorOverride cmdlet을 사용하여 재정의를 다시 추가할 수 있습니다.
 
 임의 커넥터에서 전체 가져오기 및 전체 동기화 둘 다에 대해 재정의를 추가하려면 다음 cmdlet을 실행합니다. `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+
+## <a name="upgrading-the-server-operating-system"></a>서버 운영 체제 업그레이드
+
+Azure AD Connect 서버의 운영 체제를 업그레이드해야 하는 경우 OS의 현재 위치 업그레이드를 사용하지 마세요. 대신 원하는 운영 체제로 새 서버를 준비하고 [스윙 마이그레이션](#swing-migration)을 수행합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 다음 섹션에는 Azure AD Connect 업그레이드 문제가 발생할 때 사용할 수 있는 문제 해결 정보가 포함되어 있습니다.

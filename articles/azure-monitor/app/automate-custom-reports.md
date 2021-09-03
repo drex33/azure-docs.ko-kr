@@ -1,17 +1,17 @@
 ---
-title: Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
-description: Azure Application Insights 데이터를 사용하여 사용자 지정 일간/주간/월간 보고서 자동화
+title: Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
+description: Azure Monitor Application Insights 데이터를 사용하여 사용자 지정 일간/주간/월간 보고서 자동화
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1579874f77a41abbfef6a9ba44f997d1ec06bb76
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590049"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567768"
 ---
-# <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
+# <a name="automate-custom-reports-with-application-insights-data"></a>Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
 정기 간행물 보고서는 팀이 중요한 비즈니스 서비스가 어떻게 진행되고 있는지 정보를 받을 수 있도록 도와줍니다. 개발자, DevOps/SRE 팀 및 관리자는 모두가 포털에 로그인할 필요 없이 안정적으로 인사이트를 제공하는 자동화된 보고서로 생산적일 수 있습니다. 이런 보고서는 어떤 경고 규칙도 트리거하지 않을 수 있는 대기 시간, 부하 또는 실패율의 점진적인 증가를 식별하는 데 도움이 될 수 있습니다.
 

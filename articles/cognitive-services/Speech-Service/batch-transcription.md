@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 06/17/2021
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e48fead4d4364fd84f178388dbfb9158296e687b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8b201b3717d3ba82882131d49add020a8e6b2a9
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98659974"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529588"
 ---
 # <a name="how-to-use-batch-transcription"></a>Batch Transcription을 사용하는 방법
 
@@ -37,7 +37,8 @@ Batch Transcription REST API를 사용하여 다음 메서드를 호출할 수 �
 [Swagger 문서](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)로 제공되는 자세한 API를 검토하고 테스트할 수 있습니다.
 
 Batch Transcription 작업은 최선의 노력으로 예약됩니다.
-작업이 실행 중 상태로 변경되는 시기를 예측할 수는 없지만 정상적인 시스템 로드에서 몇 분 내에 발생해야 합니다. 실행 중 상태가 되면 전사가 오디오 런타임 재생 속도보다 빠르게 발생합니다.
+작업이 실행 중 상태로 변경되는 시기를 예측할 수는 없지만 정상적인 시스템 로드에서 몇 분 내에 발생해야 합니다.
+실행 중 상태가 되면 전사가 오디오 런타임 재생 속도보다 빠르게 발생합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -49,7 +50,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
 모델을 사용자 지정하려는 경우 [음향 사용자 지정](./how-to-custom-speech-train-model.md) 및 [언어 사용자 지정](./how-to-custom-speech-train-model.md) 단계를 따르세요. 생성된 모델을 Batch Transcription에 사용하려면 모델 위치가 필요합니다. 모델의 세부 정보를 검사할 때 모델 위치를 검색할 수 있습니다(`self` 속성). Batch Transcription 서비스에는 배포된 사용자 지정 엔드포인트가 *필요하지 않습니다*.
 
 >[!NOTE]
-> REST API의 일부인 Batch Transcription에는 일련의 [할당량 및 제한](speech-services-quotas-and-limits.md#batch-transcription)이 있으므로 이를 검토하는 것이 좋습니다. 대량의 오디오 파일을 효율적으로 전사하는 Batch Transcription 기능을 최대한 활용하려면 항상 요청당 여러 파일을 전송하거나 전사할 오디오 파일이 있는 Blob Storage 컨테이너를 가리키는 것이 좋습니다. 이 서비스는 파일을 동시에 전사하여 처리 시간을 줄입니다. 단일 요청에서 여러 파일을 사용하는 것은 매우 쉽고 간단합니다. [구성](#configuration) 섹션을 참조하세요. 
+> REST API의 일부인 Batch Transcription에는 일련의 [할당량 및 제한](speech-services-quotas-and-limits.md#batch-transcription)이 있으므로 이를 검토하는 것이 좋습니다. 대량의 오디오 파일을 효율적으로 전사하는 Batch Transcription 기능을 최대한 활용하려면 항상 요청당 여러 파일을 전송하거나 전사할 오디오 파일이 있는 Blob Storage 컨테이너를 가리키는 것이 좋습니다. 이 서비스는 파일을 동시에 전사하여 처리 시간을 줄입니다. 단일 요청에서 여러 파일을 사용하는 것은 매우 쉽고 간단합니다. [구성](#configuration) 섹션을 참조하세요.
 
 ## <a name="batch-transcription-api"></a>Batch Transcription API
 
@@ -66,7 +67,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 ### <a name="configuration"></a>구성
 
-구성 매개 변수는 JSON으로 제공됩니다. 
+구성 매개 변수는 JSON으로 제공됩니다.
 
 **하나 이상의 개별 파일 전사.** 전사할 파일이 두 개 이상 있는 경우 하나의 요청으로 여러 파일을 보내는 것이 좋습니다. 다음 예에서는 세 개의 파일을 사용합니다.
 
@@ -187,7 +188,8 @@ Batch Transcription은 공개적으로 표시되는 인터넷 URI에서 오디�
 ## <a name="batch-transcription-result"></a>Batch Transcription 결과
 
 각 오디오 입력에 대해 하나의 전사 결과 파일이 생성됩니다.
-[전사 파일 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles) 작업은 이 전사에 대한 결과 파일 목록을 반환합니다. 특정 입력 파일에 대한 전사 파일을 찾으려면 반환된 모든 파일을 `kind` == `Transcription` 및 `name` == `{originalInputName.suffix}.json`으로 필터링합니다.
+[전사 파일 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles) 작업은 이 전사에 대한 결과 파일 목록을 반환합니다.
+특정 입력 파일에 대한 전사 파일을 찾으려면 반환된 모든 파일을 `kind` == `Transcription` 및 `name` == `{originalInputName.suffix}.json`으로 필터링합니다.
 
 각 전사 결과 파일의 형식은 다음과 같습니다.
 
@@ -208,10 +210,10 @@ Batch Transcription은 공개적으로 표시되는 인터넷 URI에서 오디�
   ],
   "recognizedPhrases": [                // results for each phrase and each channel individually
     {
-      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"          
+      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"
       "speaker": 1,                     // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
       "channel": 0,                     // channel number of the result
-      "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration 
+      "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration
       "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
       "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
       "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
@@ -320,13 +322,16 @@ Batch Transcription은 공개적으로 표시되는 인터넷 URI에서 오디�
 Batch Transcription 서비스는 제출된 많은 전사를 처리할 수 있습니다. [전사 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions)를 사용하여 전사 상태를 쿼리할 수 있습니다.
 결과를 검색한 후 서비스에서 정기적으로 [전사 삭제](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)를 호출합니다. 또는 결과가 최종적으로 삭제되도록 `timeToLive` 속성을 설정합니다.
 
+> [!TIP]
+> [수집 클라이언트](ingestion-client.md) 도구와 그에 따른 솔루션을 사용하여 대용량 오디오를 처리할 수 있습니다.
+
 ## <a name="sample-code"></a>샘플 코드
 
 전체 샘플은 `samples/batch` 하위 디렉터리의 [GitHub 샘플 스토리지](https://aka.ms/csspeech/samples)에서 사용할 수 있습니다.
 
 사용자 지정 모델을 사용하는 경우 구독 정보, 서비스 지역, 전사할 오디오 파일을 가리키는 URI 및 모델 위치로 샘플 코드를 업데이트합니다.
 
-[!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptiondefinition)]
+[!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/batchclient/program.cs#transcriptiondefinition)]
 
 샘플 코드는 클라이언트를 설정하고 전사 요청을 제출합니다. 그런 다음, 상태 정보를 폴링하고 전사 진행 상황에 대한 세부 정보를 출력합니다.
 

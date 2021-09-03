@@ -2,13 +2,13 @@
 title: 보안 개요
 description: Azure Arc 지원 서버에 대한 보안 정보입니다.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: aa8653b783e7eb3e211b7514831604dd5642cfbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/16/2021
+ms.openlocfilehash: 113eaaf779409cd77e66b253074146dfaa0ff0ab
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98117030"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390222"
 ---
 # <a name="azure-arc-for-servers-security-overview"></a>서버용 Azure Arc 보안 개요
 
@@ -56,4 +56,6 @@ Azure Connected Machine Agent는 공개 키 인증을 사용하여 Azure 서비�
 
 ## <a name="next-steps"></a>다음 단계
 
-여러 하이브리드 머신에서 Arc 지원 서버를 평가하거나 활성화하기 전에 [연결된 머신 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 이해하세요.
+* 여러 하이브리드 머신에서 Arc 지원 서버를 평가하거나 사용하도록 설정하기 전에 [연결된 머신 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보, 배포 방법을 파악합니다.
+
+* [계획 및 배포 가이드](plan-at-scale-deployment.md)를 검토하여 모든 규모의 Azure Arc 지원 서버 배포를 계획하고 중앙 집중식 관리와 모니터링을 구현합니다.

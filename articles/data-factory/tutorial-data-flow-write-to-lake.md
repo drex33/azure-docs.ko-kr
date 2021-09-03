@@ -4,15 +4,16 @@ description: 이 자습서에서는 데이터 흐름을 사용하여 데이터 �
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 04/01/2021
-ms.openlocfilehash: 8010f3f95c9358714b659df5821a375bd8488ad8
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 06/04/2021
+ms.openlocfilehash: 91eb5d1072f1385c025d9d93b89466aaa9320ecd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106582098"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642252"
 ---
 # <a name="best-practices-for-writing-to-files-to-data-lake-with-data-flows"></a>데이터 흐름을 사용하여 데이터 레이크에 파일 쓰기 모범 사례
 
@@ -24,7 +25,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정**. ADLS 스토리지를 원본 및 싱크 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
+* **Azure Storage 계정**. ADLS 스토리지를 *원본* 및 *싱크* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
 이 자습서의 단계에서는 다음과 같다고 가정합니다. 
 
@@ -52,12 +53,12 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 이 단계에서는 데이터 흐름 작업을 포함하는 파이프라인을 만듭니다.
 
-1. **시작** 페이지에서 **파이프라인 만들기** 를 선택합니다.
+1. Azure Data Factory 홈페이지에서 **오케스트레이션** 을 선택합니다.
 
-   ![파이프라인 만들기](./media/doc-common-process/get-started-page.png)
+   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
 
 1. 파이프라인의 **일반** 탭에서 파이프라인의 **이름** 으로 **DeltaLake** 를 입력합니다.
-1. 팩터리의 위쪽 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 먼저 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
+1. 팩터리의 위쪽 막대에서 **데이터 흐름 디버그** 슬라이더를 밉니다. 디버그 모드에서는 라이브 Spark 클러스터에 대한 변환 논리의 대화형 테스트를 수행할 수 있습니다. 데이터 흐름 클러스터는 준비하는 데 5~7분 정도 걸리며, 데이터 흐름 개발을 수행할 계획이라면 우선 디버그를 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조하세요.
 
     ![데이터 흐름 작업](media/tutorial-data-flow/dataflow1.png)
 1. **작업** 창에서 **이동 및 변환** 아코디언을 확장합니다. **데이터 흐름** 작업을 창에서 파이프라인 캔버스로 끌어다 놓습니다.

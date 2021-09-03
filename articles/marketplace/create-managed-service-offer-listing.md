@@ -1,21 +1,21 @@
 ---
-title: Microsoft 파트너 센터에서 관리되는 서비스 제품 목록 세부 정보를 구성하는 방법
-description: 파트너 센터를 사용하여 Azure Marketplace에 대한 관리되는 서비스 제품 목록 세부 정보를 구성하는 방법을 알아봅니다.
+title: Microsoft 파트너 센터에서 관리되는 서비스 제품 목록 세부 정보 구성
+description: Azure Marketplace에서 관리되는 서비스 제품 목록 세부 정보를 구성합니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
-ms.openlocfilehash: 5ab831ae6ab761804fc7a4665000a13ab61acadc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/12/2021
+ms.openlocfilehash: 1b2171c300fd52403da29d23f9f34d3f94961b3d
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97918298"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204502"
 ---
-# <a name="how-to-configure-your-managed-service-offer-listing-details"></a>관리되는 서비스 제품 목록 세부 정보를 구성하는 방법
+# <a name="configure-managed-service-offer-listing-details"></a>관리되는 서비스 제품 목록 세부 정보 구성
 
 파트너 센터의 **제품 목록** 페이지에 제공하는 정보는 Azure Marketplace에 표시됩니다. 해당 정보에는 제품 이름, 설명, 미디어, 기타 마케팅 자산이 포함됩니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "97918298"
 4. **설명** 필드에서 관리되는 서비스 제품을 설명합니다. 이 상자에 HTML 태그와 공백을 포함하여 최대 2,000자까지 텍스트를 입력할 수 있습니다. HTML 서식 지정에 대한 자세한 내용은 [제품 설명에서 지원되는 HTML 태그](./supported-html-tags.md)를 참조하세요.
 5. **개인정보처리방침 링크** 상자에 조직의 개인 정보 처리 방침에 대한 링크(https로 시작)를 입력합니다. 게시자는 제품이 개인정보법 및 규정을 준수하는지 확인하고 유효한 개인정보처리방침을 제공할 의무가 있습니다.
 
-## <a name="useful-links"></a>유용한 링크
+## <a name="product-information-links"></a>제품 정보 링크
 
 솔루션에 대한 추가 온라인 문서를 제공하는 옵션이 있습니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "97918298"
 
 회사에 소속된 두 사람(귀하가 포함될 수 있음)의 이름, 메일 주소 및 전화 번호를 입력합니다. 고객 지원팀 및 엔지니어링 담당자의 연락처입니다. 해당 정보를 사용하여 제품에 대한 의견을 교환합니다. 해당 정보는 고객에게 표시되지 않지만, CSP(클라우드 솔루션 공급자) 파트너에게 제공될 수 있습니다.
 
-## <a name="support-urls"></a>지원 URL
+## <a name="support-link"></a>지원 링크
 
 Azure 글로벌 고객 및/또는 Azure Government 고객에 대한 지원 웹 사이트가 있는 경우 https로 시작하는 URL을 입력합니다.
 
@@ -56,9 +56,9 @@ Azure 글로벌 고객 및/또는 Azure Government 고객에 대한 지원 웹 �
 
 **로고** 에서 216 x 216, 350 x 350 픽셀 사이의 PNG 형식으로 **큰** 로고를 업로드합니다. 파트너 센터는 자동으로 **중간** 및 **작은** 로고를 자동으로 만듭니다. 이러한 로고는 나중에 바꿀 수 있습니다.
 
-* Azure Marketplace의 제품 목록에 대형 로고(216 x 216 ~ 350 x 350픽셀)가 표시됩니다.
-* 새 리소스를 만들 때 중형 로고(90 x 90픽셀)가 표시됩니다.
-* 소형 로고(48 x 48픽셀)는 Azure Marketplace의 검색 결과에 사용됩니다.
+- Azure Marketplace의 제품 목록에 대형 로고(216 x 216 ~ 350 x 350픽셀)가 표시됩니다.
+- 새 리소스를 만들 때 중형 로고(90 x 90픽셀)가 표시됩니다.
+- 소형 로고(48 x 48픽셀)는 Azure Marketplace의 검색 결과에 사용됩니다.
 
 ### <a name="add-screenshots-optional"></a>스크린샷 추가(선택 사항)
 
@@ -78,8 +78,8 @@ Azure 글로벌 고객 및/또는 Azure Government 고객에 대한 지원 웹 �
 3. 회색 **썸네일** 상자로 .PNG 파일(1280 x 720 픽셀)을 끌어서 놓습니다.
 4. 다른 비디오를 추가하려면 1~3단계를 반복합니다.
 
-다음 탭인 **미리 보기 대상 그룹** 으로 진행하기 전에 **초안 저장** 을 선택합니다.
+다음 탭인 **미리 보기 대상** 그룹으로 진행하기 전에 **초안 저장** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [미리 보기 대상 추가](create-managed-service-offer-preview.md)
+- [미리 보기 대상 추가](create-managed-service-offer-preview.md)

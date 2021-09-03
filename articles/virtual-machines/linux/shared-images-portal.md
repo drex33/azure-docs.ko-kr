@@ -8,15 +8,15 @@ ms.subservice: shared-image-gallery
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/04/2020
+ms.date: 06/21/2021
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: bf788466b57193e2191ef2d93d76bd948ec206f7
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 254fb1b4c21f8dd956c271e75ddf29f25c2bce15
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026618"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204451"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>포털을 사용하여 Shared Image Gallery 만들기
 
@@ -32,9 +32,6 @@ Shared Image Gallery를 사용하면 조직, 지역, Azure AD 테넌트의 다�
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 <br>
-
-
-
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -60,6 +57,7 @@ Shared Image Gallery를 사용하면 조직, 지역, Azure AD 테넌트의 다�
 1. **크기** 의 경우 사용 가능한 크기 목록에서 VM 크기를 고른 다음 **선택** 을 선택합니다.
 1. **관리자 계정** 에서 원본 VM이 일반화된 경우 **사용자 이름** 과 **SSH 공개 키** 를 입력합니다. 원본 VM이 특수화된 경우 원본 VM의 정보가 사용되므로 이러한 옵션이 회색으로 표시됩니다.
 1. VM에 원격으로 액세스할 수 있도록 하려면 **퍼블릭 인바운드 포트** 에서 **선택한 포트 허용** 을 선택한 다음 드롭다운에서 **SSH(22)** 를 선택합니다. VM에 대한 원격 액세스를 허용하지 않으려면 **퍼블릭 인바운드 포트** 에 대해 **안 함** 을 선택한 상태로 둡니다.
+1. 이미지가 RedHat 또는 SLES를 기반으로 하지 않는 경우 라이선스에서 **기타** 를 선택합니다.
 1. 작업을 마치면 페이지 하단의 **검토 + 만들기** 단추를 선택합니다.
 1. VM이 유효성 검사를 통과하면 페이지 하단에서 **만들기** 를 선택하여 배포를 시작합니다.
 
@@ -77,6 +75,5 @@ Shared Image Gallery를 사용하면 조직, 지역, Azure AD 테넌트의 다�
 - [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 공유 이미지 갤러리에 대한 자세한 내용은 [개요](../shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](../troubleshooting-shared-images.md)을 참조하세요.

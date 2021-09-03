@@ -1,16 +1,16 @@
 ---
-title: Azure VMware Solution에서 퍼블릭 인터넷 액세스 사용
+title: Azure VMware Solution 워크로드에 대해 공용 인터넷 사용
 description: 이 문서에서는 Azure Virtual WAN에서 공용 IP 기능을 사용하는 방법을 설명합니다.
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: c3900462862bea94bbad4f21cb2dcd7e439ba674
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 06/25/2021
+ms.openlocfilehash: bae760da5da39118f32b5d0b4dfa661a81727f3c
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954389"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567907"
 ---
-# <a name="enable-public-internet-access-in-azure-vmware-solution"></a>Azure VMware Solution에서 퍼블릭 인터넷 액세스 사용
+# <a name="enable-public-internet-for-azure-vmware-solution-workloads"></a>Azure VMware Solution 워크로드에 대해 공용 인터넷 사용
 
 공용 IP는 Azure VMware Solution 연결의 기능입니다. 웹 서버, VM(가상 머신) 및 공용 네트워크를 통해 액세스할 수 있는 호스트와 같은 리소스를 만듭니다. 
 
@@ -40,7 +40,7 @@ Azure VMware Solution 프라이빗 클라우드 배포의 일부로 공용 IP �
 
 ## <a name="reference-architecture"></a>참조 아키텍처
 
-:::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="공용 IP 아키텍처 다이어그램" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
+:::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Azure VMware Solution의 공용 IP 아키텍처를 보여 주는 다이어그램." border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
 아키텍처 다이어그램은 Azure VMware Solution 환경에서 호스트되고 RFC1918 개인 IP 주소를 사용하여 구성된 웹 서버를 보여 줍니다.  웹 서비스는 Virtual WAN 공용 IP 기능을 통해 인터넷에서 활성화됩니다.  공용 IP는 일반적으로 Azure Firewall에서 변환되는 대상 NAT입니다. DNAT 규칙을 사용하는 방화벽 정책은 공용 IP 주소 요청을 포트를 사용하는 프라이빗 주소(웹 서버)로 변환합니다.
 
@@ -60,15 +60,15 @@ Azure VMware Solution 프라이빗 클라우드 배포의 일부로 공용 IP �
 
 1. Azure VMware Solution 프라이빗 클라우드를 선택합니다.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Azure VMware Solution 프라이빗 클라우드의 스크린샷." border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Azure VMware Solution 프라이빗 클라우드의 스크린샷." lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
 1. **관리** 에서 **연결** 을 선택합니다.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="연결 섹션의 스크린샷." border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="연결 섹션의 스크린샷." lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
 1. **공용 IP** 탭을 선택한 다음 **구성** 을 선택합니다.
 
-   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="공용 IP 구성 시작 위치를 보여 주는 스크린샷" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
+   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="공용 IP 구성 시작 위치를 보여 주는 스크린샷" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
 1. 기본값을 그대로 적용하거나 변경하고 **만들기** 를 선택합니다.
 
@@ -93,7 +93,7 @@ Azure VMware Solution 프라이빗 클라우드 배포의 일부로 공용 IP �
 
 1. 배포된 방화벽을 선택하고 **Azure Firewall Manager를 방문하여 이 방화벽을 구성하고 관리** 를 선택합니다.
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="방화벽을 구성하고 관리하는 옵션을 보여 주는 스크린샷" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="방화벽을 구성하고 관리하는 옵션을 보여 주는 스크린샷" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. **보안 가상 허브** 를 선택하고, 목록에서 가상 허브를 선택합니다.
 
@@ -101,11 +101,11 @@ Azure VMware Solution 프라이빗 클라우드 배포의 일부로 공용 IP �
 
 1. 가상 허브 페이지에서 **공용 IP 구성** 을 선택하고, 공용 IP 주소를 더 추가하려면 **추가** 를 선택합니다. 
 
-   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Firewall Manager에서 공용 IP 구성을 추가하는 방법의 스크린샷" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
+   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Firewall Manager에서 공용 IP 구성을 추가하는 방법의 스크린샷" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
 
 1. 필요한 IP 수를 제공하고 **추가** 를 선택합니다.
 
-   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="지정된 수의 공용 IP 구성을 추가하는 스크린샷" border="true":::
+   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="지정된 수의 공용 IP 구성을 추가하는 스크린샷":::
 
 
 ## <a name="create-firewall-policies"></a>방화벽 정책 만들기
@@ -116,22 +116,22 @@ Azure VMware Solution 프라이빗 클라우드 배포의 일부로 공용 IP �
 
 1. 배포된 방화벽을 선택하고 **Azure Firewall Manager를 방문하여 이 방화벽을 구성하고 관리** 를 선택합니다.
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="방화벽을 구성하고 관리하는 옵션을 보여 주는 스크린샷" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="방화벽을 구성하고 관리하는 옵션을 보여 주는 스크린샷" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. **Azure Firewall 정책** 을 선택하고 **Azure Firewall 정책 만들기** 를 선택합니다.
 
-   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Firewall Manager에서 방화벽 정책을 만드는 방법의 스크린샷" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
+   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Firewall Manager에서 방화벽 정책을 만드는 방법의 스크린샷" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
 1. **기본 사항** 탭에서 필요한 세부 정보를 입력하고 **다음: DNS 설정** 을 선택합니다. 
 
 1. **DNS** 탭에서 **사용 안 함** 을 선택하고 **다음: 규칙** 을 선택합니다.
 
-1. **규칙 컬렉션 추가** 를 선택하고 아래 세부 정보를 입력한 후 **추가** 를 선택하고 **다음: 위협 인텔리전스** 를 선택합니다.
+1. **규칙 컬렉션 추가** 를 선택하고 아래 세부 정보를 제공한 다음 **추가** 를 선택합니다. 그런 후 **다음: 위협 인텔리전스** 를 선택합니다.
 
-   -  속성
-   -  규칙 컬렉션 형식 - DNAT
+   -  Name
+   -  규칙 컬렉션 유형 - **DNAT**
    -  우선 순위
-   -  규칙 컬렉션 작업 – 허용
+   -  규칙 컬렉션 작업 – **허용**
    -  규칙 이름
    -  원본 유형- **IPaddress**
    -  원본 - **\***
@@ -148,7 +148,7 @@ Azure VMware Solution 프라이빗 클라우드 배포의 일부로 공용 IP �
 
 1. 목록에서 허브를 선택한 다음, **추가** 를 선택합니다.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="보안 가상 허브로 변환될 선택된 허브를 보여 주는 스크린샷." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="보안 가상 허브로 변환될 선택된 허브를 보여 주는 스크린샷." lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
 1. 완료되면 **다음: 태그** 를 선택합니다. 
 

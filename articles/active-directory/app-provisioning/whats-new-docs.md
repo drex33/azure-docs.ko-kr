@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 애플리케이션 프로비저닝의 새로운 기능
 description: Azure Active Directory 애플리케이션 프로비저닝을 위한 새로운 설명서 및 업데이트된 설명서입니다.
-ms.date: 06/02/2021
+ms.date: 08/03/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,47 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: mtillman
-ms.openlocfilehash: 77f09b6285a5fcb3539c377b65d333141384c81e
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 23d3c074ee1a4cb07b4770b27ee1ead145bae28a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409040"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566556"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Active Directory 애플리케이션 프로비저닝: 새로운 기능
 
 Azure Active Directory 애플리케이션 프로비저닝 설명서의 새로운 기능을 시작합니다. 이 문서에서는 지난 3달 동안 추가된 새 문서와 중요한 업데이트가 있는 문서를 나열합니다. 프로비저닝 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조하세요.
+
+## <a name="july-2021"></a>2021년 7월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory에서 특성 매핑에 대한 식을 작성하기 위한 참조](functions-for-customizing-application-data.md)
+- [Microsoft Graph API를 사용하여 프로비저닝 구성](application-provisioning-configuration-api.md)
+- [Azure Active Directory 자동 사용자 프로비전 배포 계획](plan-auto-user-provisioning.md)
+- [Azure Active Directory 사용자 프로비저닝을 위한 클라우드 HR 애플리케이션 계획](plan-cloud-hr-provision.md)
+- [Azure Active Directory에서의 애플리케이션 프로비저닝에 대해 알려진 문제](known-issues.md)
+- [Azure AD ECMA 커넥터 호스트 일반 SQL 커넥터 자습서](tutorial-ecma-sql-connector.md)
+- [Azure Active Directory에서 앱 프로비저닝이란?](user-provisioning.md)
+- [ECMA 커넥터 호스트 문제 해결](on-premises-ecma-troubleshoot.md)
+- [Azure AD ECMA 커넥터 호스트에서 사용할 Microsoft Identity Manager 커넥터 내보내기](on-premises-migrate-microsoft-identity-manager.md)
+- [SCIM 지원 앱으로의 Azure AD 온-프레미스 애플리케이션 프로비저닝](on-premises-scim-provisioning.md)
+- [Azure AD ECMA 커넥터 호스트 일반 SQL 커넥터 구성](on-premises-sql-connector-configure.md)
+
+
+## <a name="june-2021"></a>2021년 6월
+
+### <a name="new-articles"></a>새 문서
+
+- [Microsoft Graph API를 사용하여 프로비저닝 구성](application-provisioning-configuration-api.md)
+- [애플리케이션 프로비저닝에서 식 작성기가 작동하는 방식 이해](expression-builder.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory에서 애플리케이션 프로비전이 작동하는 방식](how-provisioning-works.md)
+- [Azure Active Directory 사용자 프로비저닝을 위한 클라우드 HR 애플리케이션 계획](plan-cloud-hr-provision.md)
+- [Azure Active Directory 프로비저닝이 Workday와 통합되는 방법](workday-integration-reference.md)
+
 
 ## <a name="may-2021"></a>2021년 5월
 

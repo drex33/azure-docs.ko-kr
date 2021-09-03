@@ -2,7 +2,6 @@
 title: SAS 토큰을 사용하여 IoT Hub에 대한 액세스 제어 | Microsoft Docs
 description: 공유 액세스 서명 토큰을 사용하여 디바이스 앱 및 백 엔드 앱의 IoT Hub에 대한 액세스를 제어하는 방법입니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -16,12 +15,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 0724a1281475ffc9cbeaa4480bd45aa69f9d4857
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: aec64f22cf0af9de9b99c914d972f45f3dfefe1d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967809"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528384"
 ---
 # <a name="control-access-to-iot-hub-using-shared-access-signatures-and-security-tokens"></a>공유 액세스 서명 및 보안 토큰을 사용하여 IoT Hub에 대한 액세스 제어
 
@@ -362,13 +361,13 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 
 IoT Hub [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 사용하여 [토큰](iot-hub-dev-guide-sas.md#security-tokens)을 통해 디바이스/모듈별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. IoT 솔루션에 이미 사용자 지정 ID 레지스트리 및/또는 인증 체계가 있는 경우 *토큰 서비스* 를 만들어 이 인프라를 IoT Hub와 통합할 수 있습니다. 이러한 방식으로 솔루션에서 다른 IoT 기능을 사용할 수 있습니다.
 
-토큰 서비스는 사용자 지정 클라우드 서비스입니다. **DeviceConnect** 또는 **ModuleConnect** 권한으로 IoT Hub *공유 액세스 정책* 을 사용하여 *device-scoped* 또는 *module-scoped* 토큰을 만듭니다. 이러한 토큰은 디바이스 및 모듈에서 IoT Hub에 연결할 수 있게 해줍니다.
+토큰 서비스는 사용자 지정 클라우드 서비스입니다. **DeviceConnect** 권한으로 IoT Hub *공유 액세스 정책* 을 사용하여 *device-scoped* 또는 *module-scoped* 토큰을 만듭니다. 이러한 토큰은 디바이스 및 모듈에서 IoT Hub에 연결할 수 있게 해줍니다.
 
 ![토큰 서비스 패턴의 단계](./media/iot-hub-devguide-security/tokenservice.png)
 
 토큰 서비스 패턴의 주요 단계는 다음과 같습니다.
 
-1. IoT Hub에 대한 **DeviceConnect** 또는 **ModuleConnect** 권한으로 IoT Hub 공유 액세스 정책을 만듭니다. [Azure Portal](https://portal.azure.com)에서 또는 프로그래밍 방식으로 이 정책을 만들 수 있습니다. 토큰 서비스는 이 정책을 사용하여 만들어지는 토큰을 서명합니다.
+1. IoT Hub에 대한 **DeviceConnect** 권한으로 IoT Hub 공유 액세스 정책을 만듭니다. [Azure Portal](https://portal.azure.com)에서 또는 프로그래밍 방식으로 이 정책을 만들 수 있습니다. 토큰 서비스는 이 정책을 사용하여 만들어지는 토큰을 서명합니다.
 
 2. 디바이스/모듈에서 IoT Hub에 액세스해야 하는 경우 토큰 서비스에 서명된 토큰을 요청합니다. 디바이스는 사용자 지정 ID 레지스트리/인증 체계로 인증하여 토큰 서비스가 토큰을 만드는 데 사용하는 디바이스/모듈 ID를 확인할 수 있습니다.
 
@@ -416,6 +415,6 @@ IoT Hub 액세스를 제어하는 방법에 대해 알아봤으니 다음과 같
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
-* [Azure IoT Hub 시작](quickstart-send-telemetry-node.md)
+* [Azure IoT Hub 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 * [IoT Hub를 사용하여 클라우드와 디바이스 간에 메시지를 보내는 방법](iot-hub-csharp-csharp-c2d.md)
 * [IoT Hub 디바이스와 클라우드 간의 메시지를 처리하는 방법](tutorial-routing.md)

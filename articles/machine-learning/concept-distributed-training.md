@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: f87175500fcf5bdbcf9a5c2f499f6bab96b37b63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 517eb0a0abfc00349b42e1948192ad53baca9c8b
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102498968"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122603702"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Azure Machine Learning을 사용한 분산 학습
 
@@ -24,11 +24,12 @@ ms.locfileid: "102498968"
 
 ## <a name="deep-learning-and-distributed-training"></a>딥 러닝 및 분산 학습 
 
-분산 학습에는 [데이터 병렬 처리](#data-parallelism)와 [모델 병렬 처리](#model-parallelism)라는 두 가지 주요 유형이 있습니다. 딥 러닝 모델에 대한 분산 학습의 경우 [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)에서 인기 있는 프레임워크, PyTorch 및 TensorFlow와의 통합을 지원합니다. 두 프레임워크는 분산 학습에 데이터 병렬 처리를 사용하고 계산 속도를 최적화하기 위해 [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html)를 활용할 수 있습니다. 
+분산 학습에는 [데이터 병렬 처리](#data-parallelism)와 [모델 병렬 처리](#model-parallelism)라는 두 가지 주요 유형이 있습니다. 딥 러닝 모델에 대한 분산 학습의 경우 [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)에서 인기 있는 프레임워크, PyTorch 및 TensorFlow와의 통합을 지원합니다. 두 프레임워크는 분산 학습에 데이터 병렬 처리를 사용하고 계산 속도를 최적화하기 위해 [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html)를 활용할 수 있습니다.
 
-* [PyTorch를 사용하여 분산 학습](how-to-train-pytorch.md#distributed-training)
 
-* [TensorFlow를 사용한 분산 학습](how-to-train-tensorflow.md#distributed-training)
+* [PyTorch를 사용하여 분산 학습](how-to-train-distributed-gpu.md#pytorch)
+
+* [TensorFlow를 사용한 분산 학습](how-to-train-distributed-gpu.md#tensorflow)
 
 분산 학습이 필요하지 않은 ML 모델의 경우 [Azure Machine Learning을 사용한 모델 학습](concept-train-machine-learning-model.md#python-sdk)을 참조하여 Python SDK를 사용하여 모델을 학습하는 다양한 방법을 확인하세요.
 
@@ -52,5 +53,4 @@ ms.locfileid: "102498968"
 
 * Python SDK를 사용하여 [모델 학습에 컴퓨팅 대상을 사용](how-to-set-up-training-targets.md)하는 방법을 알아봅니다.
 * 기술 예제를 보려면 [참조 아키텍처 시나리오](/azure/architecture/reference-architectures/ai/training-deep-learning)를 참조하세요.
-* [TensorFlow를 사용하여 ML 모델을 학습](how-to-train-tensorflow.md)합니다.
-* [PyTorch를 사용하여 ML 모델을 학습](how-to-train-pytorch.md)합니다.
+* [분산 GPU 교육 가이드](how-to-train-distributed-gpu.md)에서 MPI, TensorFlow 및 PyTorch에 대한 팁 찾기 

@@ -1,32 +1,34 @@
 ---
 title: 파이프라인 내 사용자 지정 작업 사용
-description: .NET을 사용하여 사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: .NET을 사용하여 사용자 지정 작업을 만들고 Azure Data Factory 또는 Azure Synapse Analytics 파이프라인에서 사용하는 방법에 대해 알아봅니다.
 ms.service: data-factory
+ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ms.date: 11/26/2018
-ms.openlocfilehash: 3b5370baacc2bf82ae0575d44d00d1535a4549de
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e2b8ab8dd06bb290993ce80ad98d3e07ff727a49
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665435"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567891"
 ---
-# <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
+# <a name="use-custom-activities-in-an-azure-data-factory-or-azure-synapse-analytics-pipeline"></a>Azure Data Factory 또는 Azure Synapse Analytics 파이프라인에서 사용자 지정 작업 사용
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-use-custom-activities.md)
 > * [현재 버전](transform-data-using-dotnet-custom-activity.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
+Azure Data Factory 또는 Synapse 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
 
 - [데이터 이동 작업](copy-activity-overview.md)은 [지원되는 원본 및 싱크 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 간에 데이터를 이동하는 작업입니다.
-- [데이터 변환 작업](transform-data.md)은 Azure HDInsight, Azure Batch, Azure Machine Learning과 같은 컴퓨팅 서비스를 사용하여 데이터를 변환하는 작업입니다.
+- [데이터 변환 작업](transform-data.md)은 Azure HDInsight, Azure Batch, ML Studio(클래식)와 같은 Compute Services를 사용하여 데이터를 변환하는 작업입니다.
 
-Data Factory에서 지원하지 않는 데이터 저장소 간에 데이터를 이동하거나, Data Factory에서 지원하지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 이동 또는 변환 논리가 포함된 **사용자 지정 작업** 을 만들어서 파이프라인에 해당 작업을 사용하면 됩니다. 사용자 지정 작업은 사용자 지정된 코드 논리를 가상 머신의 **Azure Batch** 풀에서 실행합니다.
+서비스에서 지원하지 않는 데이터 저장소 간에 데이터를 이동하거나, 서비스에서 지원하지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 이동 또는 변환 논리가 포함된 **사용자 지정 작업** 을 만들어서 파이프라인에 해당 작업을 사용하면 됩니다. 사용자 지정 작업은 사용자 지정된 코드 논리를 가상 머신의 **Azure Batch** 풀에서 실행합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,7 +43,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 연결된 서비스
 
-다음 JSON은 샘플 Azure Batch 연결된 서비스를 정의합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 컴퓨팅 환경](compute-linked-services.md)을 참조하세요.
+다음 JSON은 샘플 Azure Batch 연결된 서비스를 정의합니다. 자세한 내용은 [지원되는 컴퓨팅 환경](compute-linked-services.md)을 참조하세요.
 
 ```json
 {
@@ -100,7 +102,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다.
 
-| 속성              | Description                              | 필수 |
+| 속성              | 설명                              | 필수 |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | 파이프라인의 작업 이름입니다.     | 예      |
 | description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
@@ -109,7 +111,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 | 명령을 사용합니다.               | 실행할 사용자 지정 애플리케이션의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 애플리케이션이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 예      |
 | resourceLinkedService | 사용자 지정 애플리케이션이 저장된 스토리지 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요 &#42;       |
 | folderPath            | 사용자 지정 애플리케이션 및 모든 해당 종속성 폴더에 대한 경로입니다.<br/><br/>종속성이 하위 폴더(즉, *folderPath* 아래의 계층 폴더 구조)에 저장된 경우, 해당 파일이 Azure Batch에 복사될 때 폴더 구조가 손쉽게 평면화됩니다. 즉, 모든 파일이 하위 폴더가 없는 단일 폴더에 복사됩니다. 이 동작을 해결하려면 파일을 압축하고 압축 파일을 복사한 다음, 원하는 위치에서 사용자 지정 코드로 압축을 푸세요. | 아니요 &#42;       |
-| referenceObjects      | 기존 연결된 서비스 및 데이터 세트의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 세트는 JSON 형식으로 사용자 지정 애플리케이션에 전달됩니다. | 예       |
+| referenceObjects      | 기존 연결된 서비스 및 데이터 세트의 배열입니다. 사용자 지정 코드가 서비스의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 세트는 JSON 형식으로 사용자 지정 애플리케이션에 전달됩니다. | 예       |
 | extendedProperties    | 사용자 지정 코드가 추가 속성을 참조할 수 있도록 사용자 정의 속성은 JSON 형식으로 사용자 지정 애플리케이션에 전달될 수 있습니다. | 예       |
 | retentionTimeInDays | 사용자 지정 작업에 대해 제출된 파일의 보존 시간입니다. 기본값은 30일입니다. | 예 |
 
@@ -148,7 +150,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 ## <a name="passing-objects-and-properties"></a>개체 및 속성 전달
 
-이 샘플에서는 referenceObjects 및 extendedProperties를 사용하여 Data Factory 개체 및 사용자 정의 속성을 사용자 지정 애플리케이션에 전달하는 방법을 보여줍니다.
+이 샘플에서는 referenceObjects 및 extendedProperties를 사용하여 개체 및 사용자 지정 속성을 서비스에서 사용자 지정 애플리케이션에 전달하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -306,11 +308,11 @@ Activity Error section:
 
 ## <a name="pass-outputs-to-another-activity"></a>다른 활동으로 출력 전달
 
-사용자 지정 활동의 코드에서 사용자 지정 값을 다시 Azure Data Factory에 보낼 수 있습니다. 그럼으로써 사용자 애플리케이션에서 `outputs.json`에 해당 값을 작성할 수 있습니다. Data Factory는 `outputs.json`의 콘텐츠를 복사하여 `customOutput` 속성 값으로 작업 출력에 추가합니다. (크기 제한은 2MB) 다운스트림 작업에서 `outputs.json`의 콘텐츠를 사용하려는 경우 `@activity('<MyCustomActivity>').output.customOutput` 식을 사용하여 값을 가져올 수 있습니다.
+사용자 지정 활동의 코드에서 사용자 지정 값을 다시 서비스에 보낼 수 있습니다. 그럼으로써 사용자 애플리케이션에서 `outputs.json`에 해당 값을 작성할 수 있습니다. 서비스는 `outputs.json`의 콘텐츠를 복사하여 `customOutput` 속성 값으로 작업 출력에 추가합니다. (크기 제한은 2MB) 다운스트림 작업에서 `outputs.json`의 콘텐츠를 사용하려는 경우 `@activity('<MyCustomActivity>').output.customOutput` 식을 사용하여 값을 가져올 수 있습니다.
 
 ## <a name="retrieve-securestring-outputs"></a>SecureString 출력 검색
 
-이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 예를 들면 다음과 같습니다.
+이 문서의 일부 예에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 "extendedProperties": {
@@ -321,7 +323,7 @@ Activity Error section:
 }
 ```
 
-이 serialization은 실제로 안전하지 않으며 보안이 되지 않습니다. 이는 모니터링 탭에서 값을 마스크하기 위해 Data Factory에 힌트를 보내기 위한 것입니다.
+이 serialization은 실제로 안전하지 않으며 보안이 되지 않습니다. 의도는 모니터링 탭의 값을 마스킹하는 서비스에 대한 힌트입니다.
 
 사용자 지정 활동에서 *SecureString* 유형의 속성에 액세스하려면 .EXE와 같은 폴더에 있는 `activity.json` 파일을 읽고 JSON을 역직렬화한 다음, JSON 특성(extendedProperties =&gt; [propertyName] =&gt; 값)에 액세스하세요.
 
@@ -329,13 +331,13 @@ Activity Error section:
 
 Azure Data Factory 버전 1에서는 `IDotNetActivity` 인터페이스의 `Execute` 메서드를 구현하는 클래스를 통해 .NET 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업을 구현합니다. (사용자 지정) DotNet 작업의 JSON 페이로드에 있는 연결된 서비스, 데이터 세트 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 버전 1 동작에 대한 자세한 내용은 [버전 1(사용자 지정) DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이 구현 때문에, 버전 1 DotNet Activity 코드의 대상이 .NET Framework 4.5.2여야 합니다. 버전 1 DotNet 활동은 Windows 기반 Azure Batch 풀 노드에서도 실행되어야 합니다.
 
-Azure Data Factory V2 사용자 지정 작업에서는 .NET 인터페이스를 구현할 필요가 없습니다. 이제 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 이 구현을 구성하려면 `Command` 속성과 `folderPath` 속성을 함께 지정합니다. 사용자 지정 작업은 `folderpath`에서 실행 파일 및 종속성을 업로드하고 명령을 실행합니다.
+Azure Data Factory V2 및 Synapse 파이프라인 사용자 지정 작업에서는 .NET 인터페이스를 구현할 필요가 없습니다. 이제 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 이 구현을 구성하려면 `Command` 속성과 `folderPath` 속성을 함께 지정합니다. 사용자 지정 작업은 `folderpath`에서 실행 파일 및 종속성을 업로드하고 명령을 실행합니다.
 
-Data Factory v2 사용자 지정 작업의 JSON 페이로드에 정의된 연결된 서비스, 데이터 세트(referenceObjects에 정의됨) 및 확장된 속성은 실행 파일에서 JSON 파일로서 액세스할 수 있습니다. 위의 SampleApp.exe 코드 샘플에 나와 있는 것처럼 JSON 직렬 변환기를 사용하여 필요한 속성에 액세스할 수 있습니다.
+Data Factory v2 및 Synapse 파이프라인 사용자 지정 작업의 JSON 페이로드에 정의된 연결된 서비스, 데이터 세트(referenceObjects에 정의됨) 및 확장된 속성은 실행 파일에서 JSON 파일로서 액세스할 수 있습니다. 위의 SampleApp.exe 코드 샘플에 나와 있는 것처럼 JSON 직렬 변환기를 사용하여 필요한 속성에 액세스할 수 있습니다.
 
-Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 언어로 사용자 지정 코드 논리를 쓰고, Azure Batch에서 지원하는 Windows 및 Linux 운영 체제에서 해당 코드를 실행할 수 있습니다.
+Data Factory V2 및 Synapse 파이프라인 사용자 지정 작업이 변경되면서 이제 기본 설정 언어로 사용자 지정 코드 논리를 쓰고, Azure Batch에서 지원하는 Windows 및 Linux 운영 체제에서 해당 코드를 실행할 수 있습니다.
 
-다음 표에서는 Data Factory V2 사용자 지정 작업과 Data Factory 버전 1 (사용자 지정) DotNet 작업 간의 차이점을 설명합니다.
+다음 표에서는 Data Factory V2 및 Synapse 파이프라인 사용자 지정 작업과 Data Factory 버전 1 (사용자 지정) DotNet 작업 간의 차이점을 설명합니다.
 
 |차이점      | 사용자 지정 작업      | 버전 1 (사용자 지정) DotNet 작업      |
 | ---- | ---- | ---- |
@@ -356,7 +358,7 @@ Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 
   - Microsoft.Azure.Management.DataFactories NuGet 패키지는 더 이상 필요하지 않습니다.
   - 코드를 컴파일하고 실행 파일 및 종속성을 Azure Storage에 업로드한 후 `folderPath` 속성에 경로를 정의합니다.
 
-Data Factory 버전 1 문서에서 설명된 엔드투엔드 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](./v1/data-factory-use-custom-activities.md)은 Data Factory 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample)을 참조하세요.
+Data Factory 버전 1 문서에서 설명된 엔드투엔드 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](./v1/data-factory-use-custom-activities.md)은 Data Factory v2 및 Synapse 파이프라인의 사용자 지정 작업으로 다시 작성될 수 있습니다. [사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample)을 참조하세요.
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch의 자동 확장
 
@@ -387,5 +389,5 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 * [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
-* [Azure Machine Learning Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
+* [ML Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

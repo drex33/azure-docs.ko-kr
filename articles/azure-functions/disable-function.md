@@ -3,22 +3,19 @@ title: Azure Functions에서 함수를 사용하지 않도록 설정하는 방�
 description: Azure Functions에서 함수를 사용하지 않도록 설정하고 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 1ad484804f66a2e2d4d0f1da4a37cf0d6c485f38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.openlocfilehash: 9563c0843c56d9eff43c826298295ff0aedb9da1
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104584740"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487582"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Azure Functions에서 함수를 사용하지 않도록 설정하는 방법
 
 이 문서에서는 Azure Functions에서 함수를 사용하지 않도록 설정하는 방법을 설명합니다. 함수를 *사용하지 안도록 설정* 하는 것은 함수에 대해 정의된 자동 트리거를 런타임에서 무시하도록 하는 것입니다. 이렇게 하면 전체 함수 앱을 중지하지 않고도 특정 함수가 실행되지 않도록 할 수 있습니다.
 
 함수를 사용하지 않도록 설정하는 권장 방법은 앱 설정을 형식 `AzureWebJobs.<FUNCTION_NAME>.Disabled`에서 `true`로 설정하는 것입니다. [Azure CLI](/cli/azure/)를 사용하고 [Azure Portal](https://portal.azure.com)의 함수 **개요** 탭에서 다양한 방법으로 이 애플리케이션 설정을 만들고 수정할 수 있습니다. 
-
-> [!NOTE]  
-> 이 문서에서 설명하는 방법을 사용하여 HTTP 트리거 함수를 사용하지 않도록 설정하면 로컬 컴퓨터에서 실행 중일 때도 엔드포인트에 계속 액세스할 수 있습니다.  
 
 ## <a name="disable-a-function"></a>기능 사용 안 함
 
@@ -35,7 +32,7 @@ ms.locfileid: "104584740"
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
-Azure CLI에서 [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령을 사용하여 앱 설정을 만들고 수정합니다. 다음 명령을 사용하여 `true`로 설정된 `AzureWebJobs.QueueTrigger.Disabled`라는 앱 설정을 만들어 `QueueTrigger`라는 함수를 사용하지 않도록 설정합니다. 
+Azure CLI에서 [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) 명령을 사용하여 앱 설정을 만들고 수정합니다. 다음 명령을 사용하여 `true`로 설정된 `AzureWebJobs.QueueTrigger.Disabled`라는 앱 설정을 만들어 `QueueTrigger`라는 함수를 사용하지 않도록 설정합니다. 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
@@ -174,6 +171,13 @@ public static class QueueFunctions
 >[!IMPORTANT]  
 >포털에서 애플리케이션 설정을 사용하여 v1.x 함수를 사용하지 않도록 설정합니다. 애플리케이션 설정이 function.json 파일과 충돌하면 오류가 발생할 수 있습니다. 오류를 방지하려면 function.json 파일에서 `disabled` 속성을 제거해야 합니다. 
 
+## <a name="considerations"></a>고려 사항
+
+함수를 사용하지 않도록 설정할 때 다음 고려 사항을 확인합니다.
+
++ 이 문서에서 설명하는 방법을 사용하여 HTTP 트리거 함수를 사용하지 않도록 설정하면 로컬 컴퓨터에서 실행 중일 때도 엔드포인트에 계속 액세스할 수 있습니다.  
+
++ 현재 하이픈(`-`)이 포함된 함수 이름은 전용(App Service) 계획의 Linux에서 실행할 때 사용하지 않도록 설정할 수 없습니다. Linux에서 Dedicated 플랜을 실행할 때 함수를 사용하지 않도록 설정해야 하는 경우 함수 이름에 하이픈을 사용하지 마세요.
 
 ## <a name="next-steps"></a>다음 단계
 

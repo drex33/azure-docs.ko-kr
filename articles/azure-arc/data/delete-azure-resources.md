@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: bde1b1f84847c3ebf05f14312b89ae8227908948
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 5a2b51573e4b639c80fd36b69cef667b9ea6eff5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411182"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567057"
 ---
 # <a name="delete-resources-from-azure"></a>Azure에서 리소스 삭제
 
@@ -48,7 +48,6 @@ Azure Arc SQL Managed Instance 또는 Azure Arc 데이터 컨트롤러와 같은
     - [Azure CLI를 사용하여 Azure Arc 데이터 컨트롤러 리소스 삭제](#delete-azure-arc-data-controller-resources-using-the-azure-cli)
     - [Azure CLI를 사용하여 리소스 그룹 삭제](#delete-a-resource-group-using-the-azure-cli)
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="delete-an-entire-resource-group"></a>전체 리소스 그룹 삭제
 

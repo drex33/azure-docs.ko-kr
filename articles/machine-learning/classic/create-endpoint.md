@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio(클래식): 웹 서비스 엔드포인트 만들기 - Azure'
-description: Azure Machine Learning Studio(클래식)에서 웹 서비스 엔드포인트를 만듭니다. 웹 서비스의 각 엔드포인트는 독립적으로 처리, 제한 및 관리됩니다.
+description: Machine Learning Studio(클래식)에서 웹 서비스 엔드포인트를 만듭니다. 웹 서비스의 각 엔드포인트는 독립적으로 처리, 제한 및 관리됩니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,14 +9,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 36eb6a67aa2a8da80894c27937994afd4f263ecd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a050425cec6062bdf4d62c6ace3c61d84eaede5d
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517113"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582819"
 ---
-# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>배포된 Azure Machine Learning Studio(클래식) 웹 서비스에 대한 엔드포인트 만들기
+# <a name="create-endpoints-for-deployed-machine-learning-studio-classic-web-services"></a>배포된 Machine Learning Studio(클래식) 웹 서비스에 대한 엔드포인트 만들기
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -29,23 +29,23 @@ ms.locfileid: "100517113"
 
 ## <a name="add-endpoints-to-a-web-service"></a>웹 서비스에 엔드포인트 추가
 
-Azure Machine Learning 웹 서비스 포털을 사용하여 웹 서비스에 엔드포인트를 추가할 수 있습니다. 엔드포인트가 만들어지면 동기 API, 일괄 처리 API 및 Excel 워크시트를 통해 엔드포인트를 사용할 수 있습니다.
+Machine Learning 웹 서비스 포털을 사용하여 웹 서비스에 엔드포인트를 추가할 수 있습니다. 엔드포인트가 만들어지면 동기 API, 일괄 처리 API 및 Excel 워크시트를 통해 엔드포인트를 사용할 수 있습니다.
 
 > [!NOTE]
 > 웹 서비스에 엔드포인트를 더 추가한 경우 기본 엔드포인트는 삭제할 수 없습니다.
 
 1. Machine Learning Studio(클래식)의 왼쪽 탐색 열에서 웹 서비스를 클릭합니다.
-2. 웹 서비스 대시보드 아래쪽에서 **엔드포인트 관리** 를 클릭합니다. Azure Machine Learning 웹 서비스 포털에 웹 서비스 엔드포인트 페이지가 열립니다.
+2. 웹 서비스 대시보드 아래쪽에서 **엔드포인트 관리** 를 클릭합니다. Machine Learning 웹 서비스 포털에 웹 서비스 엔드포인트 페이지가 열립니다.
 3. **새로 만들기** 를 클릭합니다.
 4. 새 엔드포인트에 대한 이름 및 설명을 입력합니다. 엔드포인트 이름은 길이가 24자 이하이고 알파벳 소문자 또는 숫자로 구성되어야 합니다. 로깅 수준 및 예제 데이터 사용 여부를 선택합니다. 자세한 내용은 [Machine Learning 웹 서비스에 대해 로깅 사용](web-services-logging.md)을 참조하세요.
 
 ## <a name="scale-a-web-service-by-adding-additional-endpoints"></a><a id="scaling"></a> 엔드포인트를 더 추가하여 웹 서비스 확장
 
-기본적으로 게시된 각각의 웹 서비스는 20개의 동시 요청을 지원하고 최대 200개의 동시 요청을 지원할 수 있도록 구성됩니다. Azure Machine Learning Studio(클래식)는 웹 서비스에 대한 최상의 성능을 제공하기 위해 설정을 자동으로 최적화하고 포털 값은 무시됩니다.
+기본적으로 게시된 각각의 웹 서비스는 20개의 동시 요청을 지원하고 최대 200개의 동시 요청을 지원할 수 있도록 구성됩니다.  Machine Learning Studio(클래식)는 웹 서비스에 대한 최상의 성능을 제공하기 위해 설정을 자동으로 최적화하고 포털 값은 무시됩니다.
 
 최대 동시 호출 값인 200에서 지원하는 것보다 많은 부하를 사용하여 API를 호출하려는 경우 동일한 웹 서비스에서 여러 엔드포인트를 만들어야 합니다. 그런 다음 모든 끝점에 부하를 무작위로 분산해야 합니다.
 
-웹 서비스의 크기를 조정하는 것은 일반적인 작업입니다. 크기를 조정하는 몇 가지 이유는 200개 이상의 동시 요청을 지원하거나, 여러 엔드포인트를 통해 가용성을 높이거나, 웹 서비스에 대한 별도의 엔드포인트를 제공하기 위해서 입니다. [Azure Machine Learning 웹 서비스](https://services.azureml.net/) 포털을 통해 동일한 웹 서비스에 대한 추가 엔드포인트를 추가하여 규모를 증가시킬 수 있습니다.
+웹 서비스의 크기를 조정하는 것은 일반적인 작업입니다. 크기를 조정하는 몇 가지 이유는 200개 이상의 동시 요청을 지원하거나, 여러 엔드포인트를 통해 가용성을 높이거나, 웹 서비스에 대한 별도의 엔드포인트를 제공하기 위해서 입니다. [Machine Learning 웹 서비스](https://services.azureml.net/) 포털을 통해 동일한 웹 서비스에 대한 추가 엔드포인트를 추가하여 규모를 증가시킬 수 있습니다.
 
 해당하는 높은 속도로 API를 호출하지 않을 경우 매우 높은 동시성 개수를 사용하는 것은 바람직하지 않습니다. 높은 부하로 구성된 API에 상대적으로 낮은 부하를 배치할 경우 가끔 시간 초과 및/또는 대기 시간 급증이 나타날 수 있습니다.
 
@@ -53,4 +53,4 @@ Azure Machine Learning 웹 서비스 포털을 사용하여 웹 서비스에 엔
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md).
+[Machine Learning 웹 서비스를 사용하는 방법](consume-web-services.md)

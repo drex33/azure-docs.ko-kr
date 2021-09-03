@@ -1,24 +1,34 @@
 ---
 title: Azure Image Builder Service 문제 해결
 description: Azure VM Image Builder Service를 사용할 때 발생하는 일반적인 문제와 오류를 해결합니다.
-author: cynthn
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 85296a7b7de8e1bce03d39ab8c96c8444fe1dffb
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 32de7c963a7b82c70f4225e35a4e9acb8d429717
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440955"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568206"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Azure Image Builder Service 문제 해결
-
 이 문서는 Azure Image Builder Service를 사용할 때 발생할 수 있는 일반적인 문제를 확인하고 해결하는 데 도움이 됩니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+빌드를 만들 때 빌드가 다음 필수 구성 요소를 충족하는지 확인합니다.
+    
+- 이미지 빌더 서비스는 WinRM 또는 SSH를 사용하여 빌드 VM과 통신합니다. 빌드의 일부로 이러한 설정을 사용하지 마세요.
+- Image Builder는 빌드의 일부로 리소스를 만듭니다. Azure Policy가 AIB가 필요한 리소스를 만들거나 사용하지 못하도록 하는지 확인합니다.
+  - IT_ 리소스 그룹 만들기
+  - 방화벽 없이 스토리지 계정 만들기
+- Azure Policy가 Azure Extensions와 같은 빌드 VM에 의도하지 않은 기능을 설치하지 않는지 확인합니다.
+-   Image Builder에 이미지 읽기/쓰기 및 Azure Storage 연결에 대한 올바른 권한이 있는지 확인합니다. [CLI](./image-builder-permissions-cli.md) 또는 [PowerShell](./image-builder-permissions-powershell.md)에 대한 권한 문서를 검토하세요.
+- 스크립트/인라인 명령이 오류(0이 아닌 종료 코드)와 함께 실패하면 Image Builder가 빌드에 실패합니다. 사용자 지정 스크립트가 오류(종료 코드 0) 없이 실행되는지 또는 사용자 입력을 필요로 하는지 테스트 및 확인해야 합니다. 자세한 내용은 다음 [문서](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images)를 참조하세요.
 
 AIB 오류는 다음 두 영역에서 발생할 수 있습니다.
 - 이미지 템플릿 전송
@@ -525,6 +535,25 @@ Image Builder Service는 22 포트(Linux) 또는 5986 포트(Windows)를 사용�
 
 #### <a name="solution"></a>해결 방법
 스크립트를 검토하여 방화벽 변경/사용 또는 SSH 또는 WinRM에 대한 변경을 확인하고, 모든 변경이 위의 포트에서 서비스와 빌드 VM 간의 지속적인 연결을 허용하는지 확인합니다. Image Builder 네트워킹에 대한 자세한 내용은 [요구 사항](./image-builder-networking.md)을 검토하세요.
+
+### <a name="jwt-errors-in-log-early-in-the-build"></a>빌드 초기에 로그의 JWT 오류
+
+#### <a name="error"></a>오류
+빌드 프로세스 초기에 빌드가 실패하고 로그에 JWT 오류가 표시됩니다.
+
+```text
+PACKER OUT Error: Failed to prepare build: "azure-arm"
+PACKER ERR 
+PACKER OUT 
+PACKER ERR * client_jwt will expire within 5 minutes, please use a JWT that is valid for at least 5 minutes
+PACKER OUT 1 error(s) occurred:
+```
+
+#### <a name="cause"></a>원인
+템플릿의 `buildTimeoutInMinutes` 값은 1분에서 5분 사이로 설정됩니다.
+
+#### <a name="solution"></a>솔루션
+[Azure Image Builder 템플릿 만들기](./image-builder-json.md)에 설명된 대로 기본값을 사용하려면 시간 제한을 0으로 설정하고 기본값을 재정의하려면 5분 이상으로 설정해야 합니다.  템플릿의 시간 제한을 0으로 변경하여 기본값을 사용하거나 최소 6분으로 변경합니다.
 
 ## <a name="devops-task"></a>DevOps 작업 
 

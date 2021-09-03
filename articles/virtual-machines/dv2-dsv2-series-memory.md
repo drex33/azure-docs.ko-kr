@@ -1,5 +1,5 @@
 ---
-title: 메모리 최적화된 Dv2 및 DSv2 시리즈 VM - Azure Virtual Machines
+title: 메모리 최적화된 Dv2 및 Dsv2 시리즈 VM - Azure Virtual Machines
 description: Dv2 및 DSv2 시리즈 VM의 사양입니다.
 author: joelpelley
 ms.service: virtual-machines
@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f07e4542e380e4e8057d9011a6b613e9ad55a058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3a3feb844d9c29aa63c0a85d3b3391c8ab654a6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560330"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566957"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>메모리 최적화된 Dv2 및 DSv2 시리즈
 
@@ -28,7 +28,7 @@ Dv2 시리즈 크기는 Intel® Xeon® Platinum 8272CL(Cascade Lake), Intel® Xe
 [실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
 [VM 생성 지원](generation-2.md): 1세대<br>
-[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(*최소 4개의 vCPU 필요*)<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br> 
 
@@ -40,7 +40,7 @@ Dv2 시리즈 크기는 Intel® Xeon® Platinum 8272CL(Cascade Lake), Intel® Xe
 | Standard_D14_v2 | 16 | 112 | 800 | 48000/750/375 | 64/64x500 | 8|12000 |
 | Standard_D15_v2 <sup>1</sup> | 20 | 140 | 1000 | 60000/937/468 | 64/64x500 | 8|25000 <sup>2</sup> |
 
-<sup>1</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
+<sup>1</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.<br>
 <sup>2</sup> 가속 네트워킹 사용 시 25,000Mbps
 
 ## <a name="dsv2-series-11-15"></a>DSv2 시리즈 11-15
@@ -53,7 +53,7 @@ DSv2 시리즈 크기는 Intel® Xeon® Platinum 8272CL(Cascade Lake), Intel® X
 [실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
-[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(*최소 4개의 vCPU 필요*)<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨 <br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
 <br> 
 
@@ -68,7 +68,7 @@ DSv2 시리즈 크기는 Intel® Xeon® Platinum 8272CL(Cascade Lake), Intel® X
 <sup>1</sup> DSv2 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [고성능을 위한 디자인](./premium-storage-performance.md)을 참조하세요.
 <sup>2</sup>  인스턴스는 Intel Haswell 기반 하드웨어로 격리되며 단일 고객 전용입니다.  
 <sup>3</sup> 사용 가능한 코어 크기 제한  
-<sup>4</sup> 가속 네트워킹 사용 시 25,000Mbps
+<sup>4</sup> 가속 네트워킹 사용 시 25,000Mbps<br>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -7,42 +7,35 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/12/2020
+ms.date: 06/18/2021
 ms.author: aahi
-ms.openlocfilehash: 2deb67f5a569ed6283bfe4a99bef795ffbf13bac
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 47a7059e21f1c9b9d6d72644bc08c62b66afc772
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110162953"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339407"
 ---
 ## <a name="install-the-container"></a>컨테이너 설치
 
 Text Analytics for Health 컨테이너를 설치하고 실행할 수 있는 여러 가지 방법이 있습니다. 
 
 - [Azure Portal](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare)을 사용하여 Text Analytics 리소스를 만들고 Docker를 사용하여 컨테이너를 가져옵니다.
+- Docker와 함께 Azure VM을 사용하여 컨테이너를 실행합니다. [Azure의 Docker](../../../docker/index.yml)를 참조하세요.
 - 다음 PowerShell 및 Azure CLI 스크립트를 사용하여 리소스 배포 및 컨테이너 구성을 자동화할 수 있습니다.
 
 ### <a name="run-the-container-locally"></a>컨테이너를 로컬로 실행
 
-컨테이너 이미지를 다운로드한 후 사용자 환경에서 컨테이너를 실행하려면 해당 이미지 ID를 찾습니다.
- 
-```bash
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
-
-다음 `docker run` 명령을 실행합니다. 다음 자리 표시자를 고유한 값으로 바꿉니다.
+컨테이너 이미지를 다운로드한 후 자신의 환경에서 컨테이너를 실행하려면 다음 `docker run` 명령어를 실행하세요. 다음 자리 표시자를 고유한 값으로 바꿉니다.
 
 | 자리 표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
 | **{API_KEY}** | Text Analytics 리소스의 키입니다. Azure Portal의 리소스 **키 및 엔드포인트** 페이지에서 이 값을 찾을 수 있습니다. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | Text Analytics API에 액세스하기 위한 엔드포인트입니다. Azure Portal의 리소스 **키 및 엔드포인트** 페이지에서 이 값을 찾을 수 있습니다. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| **{IMAGE_ID}** | 컨테이너의 이미지 ID입니다. | `1.1.011300001-amd64-preview` |
-| **{INPUT_DIR}** | 컨테이너의 입력 디렉터리입니다. | Windows: `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
---mount type=bind,src={INPUT_DIR},target=/output {IMAGE_ID} \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest \
 Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
@@ -52,8 +45,7 @@ Logging:Disk:Format=json
 
 이 명령은 다음을 수행합니다.
 
-- 호스트 컴퓨터에 입력 디렉터리가 존재한다고 가정합니다.
-- 컨테이너 이미지에서 Text Analytics for Health 컨테이너를 실행합니다.
+- 컨테이너 이미지에서 *Text Analytics for Health* 컨테이너를 실행합니다.
 - 6코어 CPU 및 12GB(기가바이트) 메모리를 할당합니다.
 - 5000 TCP 포트 표시 및 컨테이너에 의사-TTY 할당
 - EULA(최종 사용자 사용권 계약) 및 RAI(책임 있는 AI) 사용 약관에 동의합니다.
@@ -73,7 +65,7 @@ http://<serverURL>:5000/demo
 아래 cURL 요청 예제를 사용하여 배포한 컨테이너에 쿼리를 제출하고 `serverURL` 변수를 적절한 값으로 바꿉니다.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.5/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/26/2021
 ms.author: justinha
-ms.openlocfilehash: f1f2499c49c4adf16b632bc75c246a28330ad27b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67eeae96e7965db1eb92f34f23ca6d8745aaac3a
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619388"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707977"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인에서 그룹 정책 관리
 
@@ -34,7 +34,7 @@ Azure AD DS(Azure Active Directory Domain Services)의 사용자 및 컴퓨터 �
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
-    * 필요한 경우 자습서를 완료하여 [Azure Active Directory Domain Services의 관리되는 도메인을 만들고 구성][create-azure-ad-ds-instance]합니다.
+    * 필요한 경우 자습서를 완료하여 [Azure Active Directory Domain Services 관리되는 도메인을 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리되는 도메인에 연결된 Windows Server 관리 VM입니다.
     * 필요한 경우 자습서를 완료하여 [Windows Server VM을 만들어 관리되는 도메인에 조인시킵니다][create-join-windows-vm].
 * Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
@@ -43,8 +43,6 @@ Azure AD DS(Azure Active Directory Domain Services)의 사용자 및 컴퓨터 �
 > 관리 워크스테이션에 새 템플릿을 복사하여 그룹 정책 관리 템플릿을 사용할 수 있습니다. *.admx* 파일을 `%SYSTEMROOT%\PolicyDefinitions`로 복사하고 로캘 관련 *.adml* 파일을 `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`으로 복사합니다. 여기서 `Language-CountryRegion`은 *.adml* 파일의 언어 및 지역과 일치합니다.
 >
 > 예를 들어 영어, 미국 버전의 *.adml* 파일을 `\en-us` 폴더에 복사합니다.
->
-> 또는 관리되는 도메인의 일부인 도메인 컨트롤러에 그룹 정책 관리 템플릿을 중앙에서 저장할 수 있습니다. 자세한 내용은 [Windows에서 그룹 정책 관리 템플릿용 중앙 스토리지를 만들고 관리하는 방법](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)을 참조하세요.
 
 ## <a name="install-group-policy-management-tools"></a>그룹 정책 관리 도구 설치
 

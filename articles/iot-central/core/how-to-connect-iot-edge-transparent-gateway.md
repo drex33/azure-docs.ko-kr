@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 2703e5f92ad0756ece8088c4948170ea13fa0e06
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: c0e63d0aee60ae81c14fa8971369c3a50f9b2bde
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683446"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461403"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>IoT Edge 투명 게이트웨이를 통해 디바이스를 연결하는 방법
 
@@ -70,7 +70,7 @@ IoT Edge는 [*투명* 및 *변환* 게이트웨이 패턴](../../iot-edge/iot-ed
 
 :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/device-template-relationship.png" alt-text="자동 온도 조절기 다운스트림 디바이스 템플릿과의 IoT Edge 게이트웨이 디바이스 템플릿 관계를 보여 주는 스크린샷":::
 
-위의 스크린샷은 모듈이 정의되지 않은 IoT Edge 게이트웨이 디바이스 템플릿을 보여 줍니다. IoT Edge 런타임이 다운스트림 디바이스에서 IoT Central로 메시지를 전달하기 때문에 투명 게이트웨이에는 모듈이 필요하지 않습니다. 게이트웨이 자체에서 원격 분석을 보내거나, 속성을 동기화하거나, 명령을 처리해야 하는 경우 기본 구성 요소 또는 모듈에서 이러한 기능을 정의할 수 있습니다.
+위의 스크린샷은 모듈이 정의되지 않은 IoT Edge 게이트웨이 디바이스 템플릿을 보여 줍니다. IoT Edge 런타임이 다운스트림 디바이스에서 IoT Central로 메시지를 전달하기 때문에 투명 게이트웨이에는 모듈이 필요하지 않습니다. 게이트웨이 자체에서 원격 분석을 보내거나, 속성을 동기화하거나, 명령을 처리해야 하는 경우 루트 구성 요소 또는 모듈에서 이러한 기능을 정의할 수 있습니다.
 
 게이트웨이 및 다운스트림 디바이스 템플릿을 게시하기 전에 필요한 클라우드 속성 및 보기를 추가합니다.
 

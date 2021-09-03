@@ -10,12 +10,13 @@ ms.topic: reference
 ms.date: 04/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2a8aabac6960909f2a3d90fcee01cebb0ad7a832
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.custom: b2c-support
+ms.openlocfilehash: 5c27384e58a23501224e279e987115e4981ebf99
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256942"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633610"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Azure AD B2C 사용자 지정 정책 개요
 
@@ -34,6 +35,8 @@ Azure AD B2C 사용자 지정 정책 [스타터 팩](tutorial-create-user-flows.
 - **SocialAndLocalAccounts** - 로컬 계정과 소셜 계정을 모두 사용할 수 있습니다. 대부분의 샘플이 이 정책을 참조합니다.
 - **SocialAndLocalAccountsWithMFA** - 소셜, 로컬 및 다단계 인증 옵션을 사용할 수 있습니다.
 
+[Azure AD B2C 샘플 GitHub 리포지토리](https://github.com/azure-ad-b2c/samples)에서 로컬 계정 정책 향상, 소셜 계정 정책 향상, MFA 향상, 사용자 인터페이스 향상, 일반 향상, 앱 마이그레이션, 사용자 마이그레이션, 조건부 액세스, 웹 테스트 및 CI/CD와 같은 향상된 몇 가지 Azure AD B2C 사용자 지정 CIAM 사용자 경험에 대한 샘플을 찾을 수 있습니다.
+ 
 ## <a name="understanding-the-basics"></a>기본 사항 이해 
 
 ### <a name="claims"></a>클레임

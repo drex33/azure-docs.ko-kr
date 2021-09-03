@@ -1,27 +1,30 @@
 ---
-title: Azure Data Factory의 식과 함수
-description: 이 문서에서는 Data Factory 엔터티 만들기에 사용할 수 있는 식과 함수에 대한 정보를 제공합니다.
+title: 식 및 함수
+titleSuffix: Azure Data Factory & Azure Synapse
+description: 이 문서에서는 Azure Data Factory 및 Azure Synapse Analytics 파이프라인 엔터티를 만드는 데 사용할 수 있는 식 및 함수에 대한 정보를 제공합니다.
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/28/2021
-ms.openlocfilehash: 275c77107faf8fd639d714b92828ab8efe623f26
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 07/16/2021
+ms.openlocfilehash: 2e5fead1f110be10e806292a67c208b275959a83
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164906"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642399"
 ---
-# <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
+# <a name="expressions-and-functions-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 식 및 함수
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-functions-variables.md)
-> * [현재 버전](control-flow-expression-language-functions.md)
+> * [현재 버전/Synapse 버전](control-flow-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory에서 지원하는 식과 함수에 대한 정보를 제공합니다. 
+이 문서에서는 Azure Data Factory 및 Azure Synapse Analytics에서 지원하는 식과 함수에 대한 정보를 제공합니다. 
 
 ## <a name="expressions"></a>식
 
@@ -60,12 +63,28 @@ ms.locfileid: "108164906"
 |“\@concat(‘Answer is: ’, string(pipeline().parameters.myNumber))”| `Answer is: 42` 문자열을 반환합니다.|  
 |"대답은 다음과 같습니다. \@\@{pipeline().parameters.myNumber}"| `Answer is: @{pipeline().parameters.myNumber}` 문자열을 반환합니다.|  
 
+ForEach 작업과 같은 제어 흐름 작업에서 속성 항목에 대해 반복할 배열을 제공하고 @item()을 사용하여 ForEach 작업의 단일 열거를 반복할 수 있습니다. 예를 들어 항목이 배열: [1, 2, 3]인 경우 @item()은 첫 번째 반복에서 1, 두 번째 반복에서 2, 세 번째 반복에서 3을 반환합니다. @range(0,10)과 같은 식을 사용하여 0부터 9까지 10회 반복할 수도 있습니다.
+
+@activity('작업 이름')를 사용하여 작업의 출력을 캡처하고 결정을 내릴 수 있습니다. Web1이라는 웹 작업을 고려합니다. 첫 번째 작업의 출력을 두 번째 작업의 본문에 배치하는 경우 식은 일반적으로 다음과 같습니다. @activity('Web1').output 또는 @activity('Web1').output.data 또는 첫 번째 작업의 출력에 따라 유사하게 표시됩니다. 
+
 ## <a name="examples"></a>예
 
 ### <a name="complex-expression-example"></a>복합 식 예
-아래 예에서 작업 출력의 심층 하위 필드를 참조하는 복잡한 예를 보여 줍니다. 하위 필드로 계산되는 파이프라인 매개 변수를 참조하려면 subfield1 및 subfield2의 경우와 같이 점(.) 연산자 대신 [] 구문을 사용합니다.
+아래 예에서 작업 출력의 심층 하위 필드를 참조하는 복잡한 예를 보여 줍니다. 하위 필드로 계산되는 파이프라인 매개 변수를 참조하려면 subfield1 및 subfield2의 경우와 같이 작업 출력의 일부로 점(.) 연산자 대신 [] 구문을 사용합니다.
 
 `@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
+
+파일을 동적으로 만들고 이름을 지정하는 것은 일반적인 패턴입니다. 몇 가지 동적 파일 이름 지정 예를 살펴보겠습니다.
+
+  1. 파일 이름에 날짜 추가: `@concat('Test_',  formatDateTime(utcnow(), 'yyyy-dd-MM'))` 
+  
+  2. 고객 시간대에 DateTime 추가: `@concat('Test_',  convertFromUtc(utcnow(), 'Pacific Standard Time'))`
+  
+  3. 트리거 시간 추가:` @concat('Test_',  pipeline().TriggerTime)`
+  
+  4. 날짜가 `'Test_' + toString(currentDate()) + '.csv'`인 단일 파일로 출력할 때 매핑 데이터 흐름에서 사용자 지정 파일 이름을 출력합니다.
+
+위의 경우 Test_로 시작하는 4개의 동적 파일 이름이 만들어집니다. 
 
 ### <a name="dynamic-content-editor"></a>동적 콘텐츠 편집기
 
@@ -186,8 +205,7 @@ Baba's book store
 ```
 
 ### <a name="tutorial"></a>자습서
-이 [자습서](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf)에서는 매개 변수를 작업 간에 전달하는 방법뿐만 아니라 파이프라인과 작업 간에 전달하는 방법을 안내합니다.
-
+이 [자습서](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf)에서는 매개 변수를 작업 간에 전달하는 방법뿐만 아니라 파이프라인과 작업 간에 전달하는 방법을 안내합니다.  이 자습서에서는 Synapse 작업 영역에 대한 단계가 거의 동일하지만 사용자 인터페이스가 약간 다른 경우를 제외하고 Azure Data Factory에 대한 단계를 구체적으로 보여 줍니다.
   
 ## <a name="functions"></a>Functions
 

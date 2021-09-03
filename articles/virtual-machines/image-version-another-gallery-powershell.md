@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bf5a3e753f3110fd07b6ab6bcde4b40bd2940153
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e7ac7408405e0e77b29cf48a16d91725332ca3f5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669498"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445850"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>PowerShell을 사용하여 다른 갤러리에서 이미지 복사
 
@@ -61,7 +61,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
 
 ## <a name="create-the-image-definition"></a>이미지 정의 만들기 
 
-원본의 이미지 정의와 일치하는 새 이미지 정의를 만들어야 합니다. [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition)을 사용하여 이미지 정의를 다시 만드는 데 필요한 모든 정보를 볼 수 있습니다.
+운영 체제, 운영 체제 상태 및 원본 이미지 버전이 포함된 이미지 정의의 Hyper-V 생성과 일치하는 새 이미지 정의를 만들어야 합니다. [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition)을 사용하여 이미지 정의를 다시 만드는 데 필요한 모든 정보를 볼 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzGalleryImageDefinition `
@@ -121,10 +121,14 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
    -Sku 'mySKU'
 ```
 
+> [!NOTE]
+> 타사 이미지에서 파생된 이미지를 포함할 이미지 정의의 경우 계획 정보는 타사 이미지의 계획 정보와 정확히 일치해야 합니다. 이미지 정의를 만들 때 `-PurchasePlanName`, `-PurchasePlanProduct` 및 `-PurchasePlanPublisher`를 추가하여 이미지 정의에 계획 정보를 포함합니다.
+>
+
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기
 
-[New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 버전을 만듭니다. 대상 갤러리에서 이미지 버전을 만들기 위해 `-Source`매개 변수에서 원본 이미지의 ID를 전달해야 합니다. 
+[New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 버전을 만듭니다. 대상 갤러리에서 이미지 버전을 만들기 위해 `-SourceImageId`매개 변수에서 원본 이미지의 ID를 전달해야 합니다. 
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -143,7 +147,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName myDestinationRG `
    -Location WestUS `
    -TargetRegion $targetRegions  `
-   -Source $sourceImgVer.Id.ToString() `
+   -SourceImageId $sourceImgVer.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01' `
    -asJob 
 ```

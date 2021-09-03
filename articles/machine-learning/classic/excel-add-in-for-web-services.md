@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio(클래식): 웹 서비스용 Excel 추가 기능 -Azure'
-description: 코드를 작성하지 않고 Excel에서 직접 Azure Machine Learning 웹 서비스를 사용하는 방법입니다.
+description: 코드를 작성하지 않고 Excel에서 직접 Machine Learning 웹 서비스를 사용하는 방법입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,14 +9,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 45d9e494b9f885cfa0680bec595aefcd4074d41e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee1c55fdfe1ab184853546fd8bb3b293e27fe734
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100520003"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581590"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Azure Machine Learning Studio(클래식) 웹 서비스용 Excel 추가 기능
+# <a name="excel-add-in-for-machine-learning-studio-classic-web-services"></a>Machine Learning Studio(클래식) 웹 서비스용 Excel 추가 기능
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -29,7 +29,7 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
  
     > [!NOTE]
     > - 파일과 관련된 웹 서비스 목록이 보이고 하단에 "자동 예측" 확인란이 표시됩니다. 자동 예측을 사용하도록 설정하면 입력이 변경될 때마다 **모든** 서비스의 예측이 업데이트됩니다. 선택하지 않는 경우 새로 고치려면 "모두 예측"을 클릭해야 합니다. 서비스 수준에서 자동 예측을 사용하도록 설정하려면 6단계로 이동합니다.
-    > - Azure Machine Learning Excel 추가 기능에서 Office 추가 기능 스토어를 호출하여 로드합니다. 조직에서 Office 추가 기능 스토어에 대한 액세스를 금지하는 경우 추가 기능을 로드할 때 오류가 표시됩니다. 이 경우 Microsoft 365 관리 센터에서 Azure Machine Learning Excel 추가 기능을 배포하세요. 그런 다음 추가 기능을 호출하고 URL 및 API 키를 붙여넣어 웹 서비스를 수동으로 추가합니다.
+    > - Machine Learning Excel 추가 기능에서 Office 추가 기능 스토어를 호출하여 로드합니다. 조직에서 Office 추가 기능 스토어에 대한 액세스를 금지하는 경우 추가 기능을 로드할 때 오류가 표시됩니다. 이 경우 Microsoft 365 관리 센터에서 Machine Learning Excel 추가 기능을 배포하세요. 그런 다음 추가 기능을 호출하고 URL 및 API 키를 붙여넣어 웹 서비스를 수동으로 추가합니다.
 
  
 
@@ -59,13 +59,13 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 4. **요청 URI** 섹션을 찾습니다.  URL을 복사하고 저장합니다.
 
 > [!NOTE]
-> 이제 [Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에 로그인하여 기존 Machine Learning 웹 서비스에 대한 API 키를 가져올 수 있습니다.
+> 이제 [Machine Learning 웹 서비스](https://services.azureml.net) 포털에 로그인하여 기존 Machine Learning 웹 서비스에 대한 API 키를 가져올 수 있습니다.
 > 
 > 
 
 **새 웹 서비스 사용**
 
-1. [Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에서 **웹 서비스** 를 클릭한 다음 웹 서비스를 선택합니다. 
+1. [Machine Learning 웹 서비스](https://services.azureml.net) 포털에서 웹 서비스를 클릭한 다음 사용자의 **웹 서비스** 를 선택합니다. 
 2. **사용** 을 클릭합니다.
 3. **기본 사용량 정보** 섹션을 찾습니다. **기본 키** 및 **요청-응답** URL을 복사하여 저장합니다.
 

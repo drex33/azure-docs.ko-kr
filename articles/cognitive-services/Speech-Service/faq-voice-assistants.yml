@@ -1,0 +1,80 @@
+### YamlMime:FAQ
+metadata:
+  title: 음성 도우미 질문과 대답
+  titleSuffix: Azure Cognitive Services
+  description: 사용자 지정 명령 또는 Direct Line Speech 채널을 사용하여 음성 도우미에 대해 가장 인기 있는 질문에 대한 답변을 받으세요.
+  services: cognitive-services
+  author: trrwilson
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: speech-service
+  ms.topic: conceptual
+  ms.date: 11/05/2019
+  ms.author: travisw
+  ms.openlocfilehash: ff618ef0dfc427c81efe97aa3e49f1e1f163c6c3
+  ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/13/2021
+  ms.locfileid: "113652747"
+title: 음성 도우미 질문과 대답
+summary: >
+  이 문서에서 질문에 대한 답변을 찾을 수 없는 경우 [다른 지원 옵션](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)을 확인하세요.
+sections:
+- name: 일반
+  questions:
+  - question: >
+      음성 도우미란?
+    answer: >
+      Cortana와 마찬가지로 음성 도우미는 사용자의 음성 발화를 수신하고, 해당 발화의 콘텐츠를 분석하고, 발화의 의도에 대한 응답으로 하나 이상의 작업을 수행한 다음, 주로 음성 구성 요소를 포함하는 응답을 사용자에게 제공하는 솔루션입니다. 시스템과의 상호 작용을 위한 "음성 입력, 음성 출력" 환경입니다. 음성 도우미 작성자는 음성 SDK의 `DialogServiceConnector`를 사용하는 디바이스 내 애플리케이션을 만들어 [사용자 지정 명령](custom-commands.md) 또는 Bot Framework의 [Direct Line Speech](direct-line-speech.md) 채널을 사용하여 생성된 도우미와 통신합니다. 이러한 도우미는 사용자 지정 키워드, 사용자 지정 음성을 사용하여 브랜드 또는 제품에 맞게 조정된 환경을 제공할 수 있습니다.
+  - question: >
+      사용자 지정 명령을 사용해야 하나요? 아니면 직접 행 음성을 사용해야 하나요? 차이점은 무엇인가요?
+    answer: >
+      [사용자 지정 명령](custom-commands.md)은 작업 완료 시나리오에 적합한 도우미를 쉽게 만들고 호스트할 수 있는 복잡하지 않은 도구 집합입니다. [Direct Line Speech](direct-line-speech.md)는 강력한 대화 시나리오를 사용할 수 있도록 더욱 풍부하고 정교한 기능을 제공합니다. 자세한 내용은 [도우미 솔루션 비교](voice-assistants.md#choosing-an-assistant-solution)를 참조하세요.
+  - question: >
+      시작하려면 어떻게 해야 하나요?
+    answer: >
+      가장 좋은 방법은 사용자 지정 명령(미리 보기) 애플리케이션 또는 기본 Bot Framework 봇을 만드는 것입니다.
+
+
+      - [사용자 지정 명령(미리 보기) 애플리케이션 만들기](./quickstart-custom-commands-application.md)
+
+      - [기본 Bot Framework 봇 만들기](/azure/bot-service/bot-builder-tutorial-basic-deploy)
+
+      - [Direct Line Speech 채널에 봇 연결](/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- name: 디버깅
+  questions:
+  - question: >
+      내 채널 비밀은 어디에 있나요?
+    answer: >
+      Direct Line Speech의 미리 보기 버전을 사용한 적이 있거나 관련 설명서를 읽고 있는 경우 Direct Line Speech 등록 페이지에서 비밀 키를 찾을 수 있습니다. 음성 SDK의 v1.7 `DialogServiceConfig` 팩터리 메서드 `FromBotSecret`에서도 이 값을 필요로 합니다.
+
+
+      Direct Line Speech의 최신 버전은 디바이스에서 봇에 연결하는 프로세스를 간소화합니다. 채널 등록 페이지 상단의 드롭다운은 Direct Line Speech 채널 등록과 음성 리소스를 연결합니다. 연결된 후에 v1.8 음성 SDK는 `BotFrameworkConfig::FromSubscription` 팩터리 메서드를 포함하여 구독에 연결한 봇과 연결하도록 `DialogServiceConnector`를 구성합니다.
+
+
+      여전히 클라이언트 애플리케이션을 v1.7에서 v1.8로 마이그레이션하는 경우 `DialogServiceConfig::FromBotSecret`에서 계속해서 채널 암호 매개 변수에 비어 있지 않고 null이 아닌 값을 사용합니다(예: 이전에 사용한 비밀). 최신 채널 등록과 연결된 음성 구독을 사용하는 경우에는 무시됩니다. 이 값은 _반드시_ null이 아니어야 하고 비어 있어서는 안 됩니다. 서버 측 연결이 관련되기 전에 디바이스에서 확인되기 때문입니다.
+
+
+      자세한 안내는 채널 등록을 안내하는 [자습서 섹션](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel)을 참조하세요.
+  - question: >
+      연결할 때 401 오류가 발생하고 아무 것도 작동하지 않습니다. 내 음성 구독 키가 유효하다는 것을 알고 있습니다. 왜 그럴까요?
+    answer: >
+      Azure Portal에서 구독을 관리할 때 Cognitive Services 리소스(Microsoft.CognitiveServicesAllInOne, "모든 **Cognitive Services**")가 _아닌_ **음성** 리소스(Microsoft.CognitiveServicesSpeechServices, "음성")를 사용해야 합니다. 또한 [음성 도우미에 대한 Speech Service 지역 지원](regions.md#voice-assistants)을 확인하세요.
+
+
+      ![Direct Line Speech에 대한 올바른 구독](media/voice-assistants/faq-supported-subscription.png "호환되는 음성 구독의 예제")
+  - question: >
+      내 `DialogServiceConnector`에서 인식 텍스트를 다시 가져왔지만 '1011' 오류가 표시되고 봇에는 아무 것도 없습니다. 그 이유는
+    answer: >
+      이 오류는 도우미와 음성 도우미 서비스 사이의 통신 문제를 나타냅니다.
+
+
+      - 사용자 지정 명령의 경우 사용자 지정 명령 애플리케이션이 게시되었는지 확인
+
+      - Direct Line Speech의 경우 [봇을 Direct Line Speech 채널에 연결](/azure/bot-service/bot-service-channel-connect-directlinespeech)하고, 봇에 [스트리밍 프로토콜 지원을 추가](/azure/bot-service/directline-speech-bot)(관련 웹 소켓 지원 포함)했는지 확인한 다음, 봇이 채널의 수신 요청에 응답하는지 확인해야 합니다.
+  - question: >
+      이 코드가 여전히 작동하지 않으며 `DialogServiceConnector` 사용 시 다른 오류가 발생합니다.   어떻게 해야 합니까?
+    answer: >
+      파일 기반 로깅은 상당한 정보를 제공하며 지원 요청을 가속화하는 데 도움이 될 수 있습니다. 이 기능을 사용하도록 설정하려면 [파일 로깅 사용 방법](how-to-use-logging.md)을 참조하세요.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n- [문제 해결](troubleshooting.md)\n- [릴리스 정보](releasenotes.md)"

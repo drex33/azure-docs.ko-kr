@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6e5de3cdec7a9c503f4b7bf7056bd62f1ddf682d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e1348040bb496448d85c8d1bec3b9621025bf22
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594019"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653596"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -19,12 +19,13 @@ App Service(Web Apps, API Apps 또는 Mobile Apps)에서 앱은 항상 _App Serv
 
 특정 영역(예: 서유럽)에서 App Service 계획을 만들 때 해당 지역에서 해당 계획에 대한 컴퓨팅 리소스 세트를 만듭니다. App Service 계획에 정의된 대로 이 App Service 계획에 추가한 모든 앱은 이러한 컴퓨팅 리소스에서 실행됩니다. 각 App Service 계획은 다음을 정의합니다.
 
+- 운영 체제(Windows, Linux)
 - 지역(미국 서부, 미국 동부 등)
 - VM 인스턴스 수
 - VM 인스턴스 크기(소량, 중간, 대규모)
 - 가격 책정 계층(무료, 공유, 기본, 표준, 프리미엄, PremiumV2, PremiumV3, 격리)
 
-App Service 계획의 _가격 책정 계층_ 은 가져올 App Service 기능 및 계획에 대한 지불액을 결정합니다. 가격 책정 계층의 몇 가지 범주가 있습니다.
+App Service 계획의 _가격 책정 계층_ 은 가져올 App Service 기능 및 계획에 대한 지불액을 결정합니다. App Service 계획에 사용할 수 있는 가격 책정 계층은 생성 시 선택한 운영 체제에 따라 다릅니다. 가격 책정 계층의 몇 가지 범주가 있습니다.
 
 - **공유 컴퓨팅**: **체험** 및 **공유** 라는 두 개의 기본 계층은 다른 고객의 앱을 비롯한 다른 App Service 앱과 동일한 Azure VM에서 앱을 실행합니다. 이러한 계층은 CPU 할당량을 공유 리소스에서 실행되는 각 앱에 할당하고 리소스는 확장할 수 없습니다.
 - **전용 컴퓨팅**: **기본**, **표준**, **프리미엄**, **PremiumV2** 및 **PremiumV3** 계층은 전용 Azure VM에서 앱을 실행합니다. 동일한 App Service 계획의 앱만이 동일한 컴퓨팅 리소스를 공유합니다. 계층이 높을수록 스케일 아웃을 위해 더 많은 VM 인스턴스가 제공됩니다.

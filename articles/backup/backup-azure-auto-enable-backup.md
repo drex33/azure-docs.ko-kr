@@ -3,12 +3,12 @@ title: Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
 description: Azure Policy 사용하여 지정된 범위에서 만든 모든 VM에 대한 백업을 자동으로 사용하는 방법을 설명하는 문서
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: dfa4364eeaa9f5b60af3f5d6a19aaeb188d4f65e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe70ba544bb75cee7faf3a4eb3aa2f5ef440909e
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707305"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113300613"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
 
@@ -20,13 +20,13 @@ ms.locfileid: "101707305"
 
 조직에 응용 프로그램 팀 간의 백업을 관리하는 중앙 백업 팀이 있는 경우 이 정책을 사용하여 관리되는 VM과 동일한 구독 및 위치에 있는 기존 중앙 Recovery Services 자격 증명 모음에 백업을 구성할 수 있습니다. 이 정책의 범위에서 특정 태그가 포함된 VM을 **제외** 하도록 선택할 수 있습니다.
 
-## <a name="policy-2---preview-configure-backup-on-vms-with-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>정책 2 - [미리 보기] 동일한 위치에 있는 기존 복구 서비스 자격 증명 모음에 대해 지정된 태그가 있는 VM의 백업 구성
+## <a name="policy-2---configure-backup-on-vms-with-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>정책 2 - 동일한 위치에 있는 기존 Recovery Services 자격 증명 모음에 대해 지정된 태그가 있는 VM의 백업 구성
 이 정책은 위의 정책 1과 동일하게 작동합니다. 유일한 차이점은 이 정책의 범위에서 특정 태그를 포함하는 VM을 **포함** 하는 데 이 정책을 사용할 수 있다는 것입니다. 
 
-## <a name="policy-3---preview-configure-backup-on-vms-without-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>정책 3 - [미리 보기] 기본 정책을 사용하여 새 복구 서비스 자격 증명 모음에 대해 제공된 태그가 없는 VM의 백업 구성
+## <a name="policy-3---configure-backup-on-vms-without-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>정책 3 - 기본 정책을 사용하여 새 Recovery Services 자격 증명 모음에 대해 제공된 태그가 없는 VM의 백업 구성
 전용 리소스 그룹에서 응용 프로그램을 구성하고 동일한 자격 증명 모음에서 응용 프로그램을 백업하려는 경우 이 정책을 사용하면 이 작업을 자동으로 관리할 수 있습니다. 이 정책의 범위에서 특정 태그가 포함된 VM을 **제외** 하도록 선택할 수 있습니다.
 
-## <a name="policy-4---preview-configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>정책 4 - [미리 보기] 기본 정책을 사용하여 새 복구 서비스 자격 증명 모음에 대해 지정된 태그가 있는 VM의 백업 구성
+## <a name="policy-4---configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>정책 4 - 기본 정책을 사용하여 새 Recovery Services 자격 증명 모음에 대해 지정된 태그가 있는 VM의 백업 구성
 이 정책은 위의 정책 3과 동일하게 작동합니다. 유일한 차이점은 이 정책의 범위에서 특정 태그를 포함하는 VM을 **포함** 하는 데 이 정책을 사용할 수 있다는 것입니다. 
 
 Azure Backup은 위의 기능 외에 [감사 전용](../governance/policy/concepts/effects.md#audit) 정책도 제공합니다. **Virtual Machines에 대해 Azure Backup을 사용하도록 설정해야 합니다**. 이 정책은 백업을 사용하도록 설정하지 않은 가상 머신을 식별하지만 이러한 VM에 대한 백업을 자동으로 구성하지는 않습니다. 이는 VM의 전반적인 규정 준수를 평가만 하고 즉시 조치를 취하지는 않으려는 경우에 유용합니다.
@@ -40,8 +40,6 @@ Azure Backup은 위의 기능 외에 [감사 전용](../governance/policy/concep
 * 정책 1과 2의 경우 현재 관리 그룹 범위가 지원되지 않습니다.
 
 * 정책 1과 2의 경우 지정된 자격 증명 모음과 백업을 위해 구성된 VM은 다른 리소스 그룹에 있을 수 있습니다.
-
-* 현재 국가 클라우드에서는 정책 1, 2, 3, 4를 사용할 수 없습니다.
 
 * 정책 3과 4는한 번에 하나의 구독(또는 구독 내의 리소스 그룹)에 할당할 수 있습니다.
 

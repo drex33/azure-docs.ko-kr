@@ -1,19 +1,20 @@
 ---
-title: Postman으로 요청하기
+title: Postman으로 API 요청 만들기
 titleSuffix: Azure Digital Twins
-description: Postman을 구성하고 사용하여 Azure Digital Twins API를 테스트하는 방법을 알아봅니다.
+description: Postman을 구성하고 사용하여 Azure Digital Twins API를 호출하는 방법을 알아봅니다.
 ms.author: baanders
 author: baanders
 ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
-ms.date: 11/10/2020
-ms.openlocfilehash: 839ce4df4a79b34890a19d3beb470b77fef1f19d
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.date: 6/16/2021
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: 3974b080c2a763db4ffa0f344ef18ce129959a53
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110617659"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459456"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Postman을 사용하여 Azure Digital Twins API에 요청을 보내는 방법
 
@@ -27,7 +28,7 @@ ms.locfileid: "110617659"
     1. [자체 컬렉션을 처음부터 만듭니다](#create-your-own-collection).
 1. [구성된 컬렉션에 요청을 추가](#add-an-individual-request)하고 이를 Azure Digital Twins API로 보냅니다.
 
-Azure Digital Twins에는 사용할 수 있는 두 가지 API 집합(**데이터 평면** 및 **컨트롤 플레인**)이 있습니다. 이러한 API 집합 간의 차이점에 대한 자세한 내용은 [개념: Azure Digital Twins API 및 SDK](concepts-apis-sdks.md)를 참조하세요. 이 문서에는 두 API 집합에 대한 정보가 모두 포함되어 있습니다.
+Azure Digital Twins에는 사용할 수 있는 두 가지 API 집합(**데이터 평면** 및 **컨트롤 플레인**)이 있습니다. 이러한 API 집합 간의 차이점에 대한 자세한 내용은 [Azure Digital Twins API 및 SDK](concepts-apis-sdks.md)를 참조하세요. 이 문서에는 두 API 집합에 대한 정보가 모두 포함되어 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -78,7 +79,7 @@ Postman을 사용하여 Azure Digital Twins API에 액세스하는 작업을 계
     ---
 
     >[!NOTE]
-    > 인스턴스와 다른 Azure Active Directory 테넌트에 속한 사용자 계정 또는 서비스 주체를 사용하여 Azure Digital Twins 인스턴스에 액세스해야 하는 경우 Azure Digital Twins 인스턴스의 "home" 테넌트에서 **토큰** 을 요청해야 합니다. 이 프로세스에 대한 자세한 내용은 [방법: 앱 인증 코드 작성](how-to-authenticate-client.md#authenticate-across-tenants)을 참조하세요.
+    > 인스턴스와 다른 Azure Active Directory 테넌트에 속한 사용자 계정 또는 서비스 주체를 사용하여 Azure Digital Twins 인스턴스에 액세스해야 하는 경우 Azure Digital Twins 인스턴스의 "home" 테넌트에서 **토큰** 을 요청해야 합니다. 이 프로세스에 대한 자세한 내용은 [앱 인증 코드 작성](how-to-authenticate-client.md#authenticate-across-tenants)을 참조하세요.
 
 3. 결과에서 `accessToken` 값을 복사하고 다음 섹션에서 사용할 수 있도록 저장합니다. 이 값은 요청에 권한을 부여하기 위해 Postman에 제공할 **토큰 값** 입니다.
 
@@ -288,7 +289,7 @@ Azure Digital Twins API 중 하나에 대한 Postman 요청을 만들려면 API 
 
    :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Postman의 본문 탭에 새 요청의 세부 정보가 표시된 스크린샷. 'SELECT * FROM DIGITALTWINS' 쿼리를 사용하는 원시 JSON 본문이 포함되어 있습니다." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
-   Azure Digital Twins 쿼리를 작성하는 방법에 대한 자세한 내용은 [방법: 트윈 그래프 쿼리](how-to-query-graph.md)를 참조하세요.
+   Azure Digital Twins 쿼리를 작성하는 방법에 대한 자세한 내용은 [트윈 그래프 쿼리](how-to-query-graph.md)를 참조하세요.
 
 1. 요청 유형에 필요할 수 있는 다른 필드에 대한 참조 설명서를 확인합니다. 쿼리 API의 경우 Postman 요청에서 모든 요구 사항이 충족되었으므로 이 단계가 완료됩니다.
 1. **보내기** 단추를 사용하여 완료된 요청을 보냅니다.
@@ -302,4 +303,4 @@ Azure Digital Twins API 중 하나에 대한 Postman 요청을 만들려면 API 
 
 ## <a name="next-steps"></a>다음 단계
 
-Digital Twins API에 대한 자세한 내용은 [개념: Azure Digital Twins API 및 SDK](concepts-apis-sdks.md) 또는 [REST API에 대한 참조 설명서](/rest/api/azure-digitaltwins/)를 참조하세요.
+Digital Twins API에 대한 자세한 내용은 [Azure Digital Twins API 및 SDK](concepts-apis-sdks.md) 또는 [REST API에 대한 참조 설명서](/rest/api/azure-digitaltwins/)를 참조하세요.

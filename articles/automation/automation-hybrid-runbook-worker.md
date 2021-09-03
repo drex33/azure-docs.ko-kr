@@ -3,15 +3,15 @@ title: Azure Automation Hybrid Runbook Worker 개요
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 공급자의 머신에서 Runbook을 실행하는 데 사용할 수 있는 Hybrid Runbook Worker에 대한 개요를 제공합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/22/2021
+ms.date: 07/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8716b8ddb267aa76dec7950026027442bf438e65
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 9600a4c38fa2a6f4956e9b1bceb730580c6ce382
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853553"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114653082"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
@@ -29,6 +29,15 @@ Runbook Worker에는 시스템과 사용자라는 두 가지 유형이 있습니
 Hybrid Runbook Worker는 Windows 또는 Linux 운영 체제에서 실행할 수 있으며, 이 역할은 Azure Monitor [Log Analytics 작업 영역](../azure-monitor/logs/design-logs-deployment.md)에 대한 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md) 보고를 사용합니다. 작업 영역은 지원되는 운영 체제의 컴퓨터를 모니터링하는 것뿐만 아니라 Hybrid Runbook Worker를 설치하는 데 필요한 구성 요소를 다운로드하기 위한 것입니다.
 
 Azure Automation [업데이트 관리](./update-management/overview.md)를 사용하도록 설정하면 Log Analytics 작업 영역에 연결된 모든 컴퓨터가 시스템 Hybrid Runbook Worker로 자동으로 구성됩니다. 이 컴퓨터를 사용자 Windows Hybrid Runbook Worker로 구성하려면 [Windows Hybrid Runbook Worker 배포](automation-windows-hrw-install.md)를 참조하고, Linux의 경우에는 [Linux Hybrid Runbook Worker 배포](automation-linux-hrw-install.md)를 참조하세요.
+
+## <a name="runbook-worker-limits"></a>Runbook Worker 한도
+
+다음 표에서는 Automation 계정의 최대 시스템 및 사용자 하이브리드 runbook worker 수를 보여 줍니다. 관리할 컴퓨터가 4,000대 이상인 경우 또 다른 Automation 계정을 만드는 것이 좋습니다.
+
+|작업자 유형| Automation 계정당 지원되는 최대 수입니다.|
+|---|---|
+|시스템|4000|
+|사용자 |4000|
 
 ## <a name="how-does-it-work"></a>작동 원리
 
@@ -95,10 +104,6 @@ Azure Automation Hybrid Runbook Worker를 Azure Government에서 사용하여 �
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 Azure Automation State Configuration
 
 [Hybrid Runbook Worker의 Azure Automation State Configuration](automation-dsc-overview.md)을 실행할 수 있습니다. Hybrid Runbook Worker를 지원하는 서버 구성을 관리하려면 서버를 DSC 노드로 추가해야 합니다. [머신에 Azure Automation State Configuration을 통한 관리 사용](automation-dsc-onboarding.md)을 참조하세요.
-
-## <a name="runbook-worker-limits"></a>Runbook Worker 한도
-
-Automation 계정당 최대 하이브리드 작업자 그룹 수는 4,000개이고, 시스템 및 사용자 하이브리드 작업자 모두에 적용됩니다. 관리할 컴퓨터가 4,000대 이상인 경우 또 다른 Automation 계정을 만드는 것이 좋습니다.
 
 ## <a name="runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 Runbook
 

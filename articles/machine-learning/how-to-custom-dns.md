@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 06/04/2021
+ms.date: 08/03/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
-ms.openlocfilehash: 616354174f5eb4bdae8e4b76379106e309c0dd14
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 3ed8a3623163ef5f596508cd7073a68eec3fe297
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969098"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566798"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
@@ -25,7 +25,16 @@ ms.locfileid: "111969098"
 > [!IMPORTANT]
 > 이 문서에서는 DNS 솔루션에 DNS 레코드를 수동으로 등록하려는 경우 해당 항목의 FQDN(정규화된 도메인 이름) 및 IP 주소를 찾는 방법을 설명합니다. 또한 이 문서에서는 FQDN을 올바른 IP 주소로 자동으로 확인하도록 사용자 지정 DNS 솔루션을 구성하는 방법의 아키텍처 권장 사항을 제공합니다. 이 문서에서는 해당 항목의 DNS 레코드를 구성하는 방법에 관한 정보를 제공하지 않습니다. 레코드를 추가하는 방법에 대한 자세한 내용은 DNS 소프트웨어에 대한 문서를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!TIP]
+> 이 문서는 Azure Machine Learning 워크플로 보안에 대한 시리즈의 일부입니다. 이 시리즈의 다른 문서를 참조하세요.
+>
+> * [Virtual Network 개요](how-to-network-security-overview.md)
+> * [작업 영역 리소스 보호](how-to-secure-workspace-vnet.md)
+> * [학습 환경 보호](how-to-secure-training-vnet.md)
+> * [보안 유추 환경](how-to-secure-inferencing-vnet.md)
+> * [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+> * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [자체 DNS 서버](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)를 사용하는 Azure Virtual Network입니다.
 
@@ -50,6 +59,7 @@ Azure Machine Learning에 대한 자동화된 DNS 서버 통합을 사용하는 
 
 사용 중인 아키텍처가 이 예제와 다를 수 있지만 예제를 참조 지점으로 사용할 수 있습니다. 두 예제 아키텍처는 모두 잘못 구성될 수 있는 구성 요소를 식별하는 데 도움이 되는 문제 해결 단계를 제공합니다.
 
+또 다른 옵션은 작업 영역이 포함된 Azure VNet(Virtual Network)에 연결하는 클라이언트에서 `hosts` 파일을 수정하는 것입니다. 자세한 내용은 [호스트 파일](#hosts) 섹션을 참조하세요.
 ### <a name="workspace-dns-resolution-path"></a>작업 영역 DNS 확인 경로
 
 프라이빗 링크를 통해 지정된 Azure Machine Learning 작업 영역에 액세스하는 작업은 아래 나열된 다음 정규화된 도메인(작업 영역 FQDN이라고 함)과 통신하여 수행됩니다.
@@ -86,7 +96,7 @@ Azure Machine Learning에 대한 자동화된 DNS 서버 통합을 사용하는 
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.privatelink.api.ml.azure.us```
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.privatelink.notebooks.usgovcloudapi.net```
 
-FQDN은 해당 지역에서 Azure Machine Learning 작업 영역의 IP 주소로 확인됩니다. 그러나 위에서 설명한 대로 생성된 프라이빗 DNS 영역에 연결된 Virtual Network에서 Azure DNS 가상 서버 IP 주소를 사용하여 확인할 때 작업 영역 프라이빗 링크 FQDN의 확인이 재정의됩니다.
+FQDN은 해당 지역에서 Azure Machine Learning 작업 영역의 IP 주소로 확인됩니다. 그러나 가상 네트워크에서 호스팅되는 사용자 지정 DNS 서버를 사용하여 작업 영역 Private Link FQDN의 확인을 재정의할 수 있습니다. 이 아키텍처의 예는 [VNET에서 호스팅되는 사용자 지정 DNS 서버](#example-custom-dns-server-hosted-in-vnet) 예를 참조하세요.
 
 ## <a name="manual-dns-server-integration"></a>수동 DNS 서버 통합
 
@@ -147,10 +157,37 @@ VNet에서 FQDN의 내부 IP 주소를 찾으려면 다음 방법 중 하나를 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```azurecli
-az network private-endpoint show --endpoint-name <endpoint> --resource-group <resource-group> --query 'customDnsConfigs[*].{FQDN: fqdn, IPAddress: ipAddresses[0]}' --output table
-```
+1. 프라이빗 엔드포인트 네트워크 인터페이스의 ID를 가져오려면 다음 명령을 사용합니다.
 
+    ```azurecli
+    az network private-endpoint show --endpoint-name <endpoint> --resource-group <resource-group> --query 'networkInterfaces[*].id' --output table
+    ```
+
+1. IP 주소 및 FQDN 정보를 얻으려면 다음 명령을 사용합니다. `<resource-id>`를 이전 단계의 ID로 바꿉니다.
+
+    ```azurecli
+    az network nic show --ids <resource-id> --query 'ipConfigurations[*].{IPAddress: privateIpAddress, FQDNs: privateLinkConnectionProperties.fqdns}'
+    ```
+
+    출력은 다음 텍스트와 비슷합니다.
+
+    ```json
+    [
+        {
+            "FQDNs": [
+            "fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms",
+            "fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms"
+            ],
+            "IPAddress": "10.1.0.5"
+        },
+        {
+            "FQDNs": [
+            "ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net"
+            ],
+            "IPAddress": "10.1.0.6"
+        }
+    ]
+    ```
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -234,7 +271,10 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
 
 2. **DNS 서버 가상 네트워크에 연결된 프라이빗 DNS 영역을 대상으로 하는 프라이빗 DNS 통합을 사용하여 프라이빗 엔드포인트를 만듭니다**.
 
-    다음 단계는 Azure Machine Learning 작업 영역에 대한 프라이빗 엔드포인트를 만드는 것입니다. 프라이빗 엔드포인트는 프라이빗 DNS 통합이 사용되는지 확인합니다. 프라이빗 엔드포인트는 1단계에서 만든 두 프라이빗 DNS 영역을 모두 대상으로 합니다. 이렇게 하면 작업 영역에 대한 모든 통신이 Azure Machine Learning 가상 네트워크에서 프라이빗 엔드포인트를 통해 수행됩니다.
+    다음 단계는 Azure Machine Learning 작업 영역에 대한 프라이빗 엔드포인트를 만드는 것입니다. 프라이빗 엔드포인트는 1단계에서 만든 두 프라이빗 DNS 영역을 모두 대상으로 합니다. 이렇게 하면 작업 영역에 대한 모든 통신이 Azure Machine Learning 가상 네트워크에서 프라이빗 엔드포인트를 통해 수행됩니다.
+
+    > [!IMPORTANT]
+    > 이 예가 올바르게 작동하려면 프라이빗 엔드포인트에 프라이빗 DNS 통합이 사용하도록 설정되어 있어야 합니다.
 
 3. **DNS 서버에서 Azure DNS에 전달할 조건부 전달자를 만듭니다**. 
 
@@ -243,16 +283,16 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
     조건부로 전달할 영역은 아래에 나열됩니다. Azure DNS 가상 서버 IP 주소는 168.63.129.16입니다.
 
     **Azure 퍼블릭 지역**:
-    - ``` privatelink.api.azureml.ms```
-    - ``` privatelink.notebooks.azure.net```
+    - ```api.azureml.ms```
+    - ```notebooks.azure.net```
     
     **Azure 중국 지역**:
-    - ```privatelink.api.ml.azure.cn```
-    - ```privatelink.notebooks.chinacloudapi.cn```
+    - ```api.ml.azure.cn```
+    - ```notebooks.chinacloudapi.cn```
     
     **Azure US Government 지역**:
-    - ```privatelink.api.ml.azure.us```
-    - ```privatelink.notebooks.usgovcloudapi.net```
+    - ```api.ml.azure.us```
+    - ```notebooks.usgovcloudapi.net```
 
     > [!IMPORTANT]
     > DNS 서버의 구성 단계는 여기에 포함되지 않습니다. 사용자 지정 DNS 서버로 사용할 수 있는 많은 DNS 솔루션이 사용 가능하기 때문입니다. 조건부 전달을 적절하게 구성하는 방법은 DNS 솔루션에 관한 설명서를 참조하세요.
@@ -274,9 +314,9 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
     - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.usgovcloudapi.net```
 
-5. **퍼블릭 DNS는 CNAME을 사용하여 응답합니다**.
+5. **Azure DNS는 CNAME에 대한 작업 영역 도메인을 재귀적으로 확인합니다.**
 
-    DNS 서버는 퍼블릭 DNS에서 4단계의 FQDN을 확인합니다. 퍼블릭 DNS는 1단계의 정보 섹션에 나열된 도메인 중 하나를 사용하여 응답합니다.
+    DNS 서버는 Azure DNS 4단계의 FQDN을 확인합니다. Azure DNS는 1단계에 나열된 도메인 중 하나로 응답합니다.
 
 6. **DNS 서버는 Azure DNS에서 작업 영역 도메인 CNAME 레코드를 재귀적으로 확인합니다**.
 
@@ -361,7 +401,10 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
 
 2. **DNS 서버 가상 네트워크에 연결된 프라이빗 DNS 영역을 대상으로 하는 프라이빗 DNS 통합을 사용하여 프라이빗 엔드포인트를 만듭니다**.
 
-    다음 단계는 Azure Machine Learning 작업 영역에 대한 프라이빗 엔드포인트를 만드는 것입니다. 프라이빗 엔드포인트는 프라이빗 DNS 통합이 사용되는지 확인합니다. 프라이빗 엔드포인트는 1단계에서 만든 두 프라이빗 DNS 영역을 모두 대상으로 합니다. 이렇게 하면 작업 영역에 대한 모든 통신이 Azure Machine Learning 가상 네트워크에서 프라이빗 엔드포인트를 통해 수행됩니다.
+    다음 단계는 Azure Machine Learning 작업 영역에 대한 프라이빗 엔드포인트를 만드는 것입니다. 프라이빗 엔드포인트는 1단계에서 만든 두 프라이빗 DNS 영역을 모두 대상으로 합니다. 이렇게 하면 작업 영역에 대한 모든 통신이 Azure Machine Learning 가상 네트워크에서 프라이빗 엔드포인트를 통해 수행됩니다.
+
+    > [!IMPORTANT]
+    > 이 예가 올바르게 작동하려면 프라이빗 엔드포인트에 프라이빗 DNS 통합이 사용하도록 설정되어 있어야 합니다.
 
 3. **DNS 서버에서 Azure DNS에 전달할 조건부 전달자를 만듭니다**.
 
@@ -370,16 +413,16 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
     조건부로 전달할 영역은 아래에 나열됩니다. Azure DNS 가상 서버 IP 주소는 168.63.129.16입니다.
 
     **Azure 퍼블릭 지역**:
-    - ``` privatelink.api.azureml.ms```
-    - ``` privatelink.notebooks.azure.net```
+    - ```api.azureml.ms```
+    - ```notebooks.azure.net```
     
     **Azure 중국 지역**:
-    - ```privatelink.api.ml.azure.cn```
-    - ```privatelink.notebooks.chinacloudapi.cn```
+    - ```api.ml.azure.cn```
+    - ```notebooks.chinacloudapi.cn```
     
     **Azure US Government 지역**:
-    - ```privatelink.api.ml.azure.us```
-    - ```privatelink.notebooks.usgovcloudapi.net```
+    - ```api.ml.azure.us```
+    - ```notebooks.usgovcloudapi.net```
 
     > [!IMPORTANT]
     > DNS 서버의 구성 단계는 여기에 포함되지 않습니다. 사용자 지정 DNS 서버로 사용할 수 있는 많은 DNS 솔루션이 사용 가능하기 때문입니다. 조건부 전달을 적절하게 구성하는 방법은 DNS 솔루션에 관한 설명서를 참조하세요.
@@ -391,16 +434,16 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
     조건부로 전달할 영역은 아래에 나열됩니다. 전달할 IP 주소는 DNS 서버의 IP 주소입니다.
 
     **Azure 퍼블릭 지역**:
-    - ``` privatelink.api.azureml.ms```
-    - ``` privatelink.notebooks.azure.net```
+    - ```api.azureml.ms```
+    - ```notebooks.azure.net```
     
     **Azure 중국 지역**:
-    - ```privatelink.api.ml.azure.cn```
-    - ```privatelink.notebooks.chinacloudapi.cn```
+    - ```api.ml.azure.cn```
+    - ```notebooks.chinacloudapi.cn```
     
     **Azure US Government 지역**:
-    - ```privatelink.api.ml.azure.us```
-    - ```privatelink.notebooks.usgovcloudapi.net```
+    - ```api.ml.azure.us```
+    - ```notebooks.usgovcloudapi.net```
 
     > [!IMPORTANT]
     > DNS 서버의 구성 단계는 여기에 포함되지 않습니다. 사용자 지정 DNS 서버로 사용할 수 있는 많은 DNS 솔루션이 사용 가능하기 때문입니다. 조건부 전달을 적절하게 구성하는 방법은 DNS 솔루션에 관한 설명서를 참조하세요.
@@ -423,26 +466,62 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
     - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
     - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>. notebooks.usgovcloudapi.net```
 
-6. **퍼블릭 DNS는 CNAME을 사용하여 응답합니다**.
+6. **온-프레미스 DNS 서버가 작업 영역 도메인을 재귀적으로 확인합니다.**
 
-    DNS 서버는 퍼블릭 DNS에서 4단계의 FQDN을 확인합니다. 퍼블릭 DNS는 1단계의 정보 섹션에 나열된 도메인 중 하나를 사용하여 응답합니다.
+    온-프레미스 DNS 서버는 DNS 서버 5단계의 FQDN을 확인합니다. 조건부 전달자 설정(4단계)이 있었으므로 온-프레미스 DNS 서버는 확인을 위해 DNS 서버로 요청을 보냅니다.
 
-7. **온-프레미스 DNS 서버는 DNS 서버에서 작업 영역 도메인 CNAME 레코드를 재귀적으로 확인합니다**.
+7. **DNS 서버가 작업 영역 도메인을 Azure DNS에서 CNAME으로 해결합니다.**
 
-    온-프레미스 DNS 서버는 6단계에서 수신한 CNAME을 재귀적으로 확인합니다. 4단계에서 조건부 전달자 설정이 있었으므로 온-프레미스 DNS 서버는 확인을 위해 DNS 서버로 요청을 보냅니다.
+    DNS 서버는 Azure DNS 5단계의 FQDN을 확인합니다. Azure DNS는 1단계에 나열된 도메인 중 하나로 응답합니다.
 
-8. **DNS 서버는 Azure DNS에서 작업 영역 도메인 CNAME 레코드를 재귀적으로 확인합니다**.
+8. **온-프레미스 DNS 서버는 DNS 서버에서 작업 영역 도메인 CNAME 레코드를 재귀적으로 확인합니다**.
 
-    DNS 서버는 5단계에서 수신한 CNAME을 재귀적으로 확인합니다. 3단계에서 조건부 전달자 설정이 있었으므로 DNS 서버는 확인을 위해 Azure DNS 가상 서버 IP 주소로 요청을 보냅니다.
+    온-프레미스 DNS 서버는 7단계에서 수신한 CNAME을 재귀적으로 확인합니다. 4단계에서 조건부 전달자 설정이 있었으므로 온-프레미스 DNS 서버는 확인을 위해 DNS 서버로 요청을 보냅니다.
 
-9. **Azure DNS는 프라이빗 DNS 영역에서 레코드를 반환합니다**.
+9. **DNS 서버는 Azure DNS에서 작업 영역 도메인 CNAME 레코드를 재귀적으로 확인합니다**.
+
+    DNS 서버는 7단계에서 수신한 CNAME을 재귀적으로 확인합니다. 3단계에서 조건부 전달자 설정이 있었으므로 DNS 서버는 확인을 위해 Azure DNS 가상 서버 IP 주소로 요청을 보냅니다.
+
+10. **Azure DNS는 프라이빗 DNS 영역에서 레코드를 반환합니다**.
 
     프라이빗 DNS 영역에 저장된 해당 레코드는 DNS 서버에 반환됩니다. 이는 Azure DNS 가상 서버가 프라이빗 엔드포인트의 IP 주소를 반환하는 것을 의미합니다.
 
-10. **온-프레미스 DNS 서버는 작업 영역 도메인 이름을 프라이빗 엔드포인트 주소로 확인합니다**.
+11. **온-프레미스 DNS 서버는 작업 영역 도메인 이름을 프라이빗 엔드포인트 주소로 확인합니다**.
 
-    7단계에서 온-프레미스 DNS 서버에서 DNS 서버로 이루어진 쿼리는 궁극적으로 Azure Machine Learning 작업 영역에 대한 프라이빗 엔드포인트와 연결된 IP 주소를 반환합니다. 이 IP 주소는 원래 클라이언트에 반환되므로 이제 1단계에서 구성된 프라이빗 엔드포인트를 통해 Azure Machine Learning 작업 영역과 통신합니다.
+    8단계에서 온-프레미스 DNS 서버에서 DNS 서버로 이루어진 쿼리는 궁극적으로 Azure Machine Learning 작업 영역에 대한 프라이빗 엔드포인트와 연결된 IP 주소를 반환합니다. 이 IP 주소는 원래 클라이언트에 반환되므로 이제 1단계에서 구성된 프라이빗 엔드포인트를 통해 Azure Machine Learning 작업 영역과 통신합니다.
 
+<a id="hosts"></a>
+## <a name="example-hosts-file"></a>예: 호스트 파일
+
+`hosts` 파일은 Linux, macOS 및 Windows가 모두 로컬 컴퓨터의 이름 확인을 재정의하는 데 사용하는 텍스트 문서입니다. 파일에는 IP 주소 목록과 해당 호스트 이름이 포함되어 있습니다. 로컬 컴퓨터가 호스트 이름을 확인하려고 할 때 호스트 이름이 `hosts` 파일에 나열되어 있으면 이름이 해당 IP 주소로 확인됩니다.
+
+> [!IMPORTANT]
+> `hosts` 파일은 로컬 컴퓨터의 이름 확인만 재정의합니다. 여러 컴퓨터에서 `hosts` 파일을 사용하려면 각 컴퓨터에서 개별적으로 수정해야 합니다.
+
+다음 표에는 `hosts` 파일의 위치가 나와 있습니다.
+
+| 운영 체제 | 위치 |
+| ----- | ----- |
+| Linux | `/etc/hosts` |
+| macOS | `/etc/hosts` |
+| Windows | `%SystemRoot%\System32\drivers\etc\hosts` |
+
+> [!TIP]
+> 파일 이름은 확장자가 없는 `hosts`입니다. 파일 편집 시 관리자 권한을 사용하세요. 예를 들어 Linux 또는 macOS에서는 `sudo vi`를 사용할 수 있습니다. Windows에서 메모장을 관리자 권한으로 실행합니다.
+
+다음은 Azure Machine Learning에 대한 `hosts` 파일 항목의 예입니다.
+
+```
+# For core Azure Machine Learning hosts
+10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms
+10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms
+10.1.0.6    ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net
+
+# For a compute instance named 'mycomputeinstance'
+10.1.0.5    mycomputeinstance.eastus.instances.azureml.ms
+```
+
+`hosts` 파일에 대한 자세한 내용은 [https://wikipedia.org/wiki/Hosts_(file)](https://wikipedia.org/wiki/Hosts_(file))을 참조하세요.
 
 #### <a name="troubleshooting"></a>문제 해결
 
@@ -477,6 +556,15 @@ FQDN 및 해당 IP 주소 목록을 수집하고 나면 구성된 DNS 서버에�
 
 ## <a name="next-steps"></a>다음 단계
 
-가상 네트워크에서 Azure Machine Learning을 사용하는 방법에 대한 자세한 내용은 [가상 네트워크 개요](how-to-network-security-overview.md)를 참조하세요.
+이 문서는 Azure Machine Learning 워크플로 보안에 대한 시리즈의 일부입니다. 이 시리즈의 다른 문서를 참조하세요.
+
+* [Virtual Network 개요](how-to-network-security-overview.md)
+* [작업 영역 리소스 보호](how-to-secure-workspace-vnet.md)
+* [학습 환경 보호](how-to-secure-training-vnet.md)
+* [보안 유추 환경](how-to-secure-inferencing-vnet.md)
+* [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+* [방화벽 사용](how-to-access-azureml-behind-firewall.md)
 
 프라이빗 엔드포인트를 DNS 구성에 통합하는 방법에 대한 자세한 내용은 [Azure 프라이빗 엔드포인트 DNS 구성](../private-link/private-endpoint-dns.md)을 참조하세요.
+
+사용자 지정 DNS 이름 또는 TLS 보안을 사용하여 모델을 배포하는 방법에 대한 자세한 내용은 [TLS를 사용하여 웹 서비스 보호](how-to-secure-web-service.md)를 참조하세요.

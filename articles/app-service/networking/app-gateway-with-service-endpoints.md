@@ -1,6 +1,6 @@
 ---
-title: 서비스 엔드포인트가 있는 Application Gateway 통합 -Azure App Service | Microsoft Docs
-description: Application Gateway가 서비스 엔드포인트로 보안이 구성된 Azure App Service와 통합되는 방법을 설명합니다.
+title: Application Gateway 통합 - Azure App Service | Microsoft Docs
+description: Application Gateway가 Azure App Service와 통합되는 방법을 설명합니다.
 services: app-service
 documentationcenter: ''
 author: madsd
@@ -11,18 +11,18 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 08/04/2021
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: b383c28ca5097a6a30dc43f48213b0793ccdee11
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 50de997203357f86cae4a684eb55b5e30e97b712
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110096385"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566758"
 ---
-# <a name="application-gateway-integration-with-service-endpoints"></a>서비스 엔드포인트와 Application Gateway 통합
-Azure Application Gateway와 통합하는 데 약간 다른 구성을 필요로 하는 세 가지 App Service 변형이 있습니다. 이러한 변형에는 다중 테넌트라고도 하는 일반 App Service, ILB(내부 Load Balancer) ASE(App Service Environment) 및 외부 ASE가 포함됩니다. 이 문서에서는 App Service(다중 테넌트)를 사용하여 구성하는 방법을 설명하고 ILB 및 외부 ASE에 대한 고려 사항을 살펴봅니다.
+# <a name="application-gateway-integration"></a>Application Gateway 통합
+Azure Application Gateway와 통합하는 데 약간 다른 구성을 필요로 하는 세 가지 App Service 변형이 있습니다. 이러한 변형에는 다중 테넌트라고도 하는 일반 App Service, ILB(내부 Load Balancer) ASE(App Service Environment) 및 외부 ASE가 포함됩니다. 이 문서에서는 트래픽을 보호하기 위해 서비스 엔드포인트를 사용하여 App Service(다중 테넌트)로 구성하는 방법을 안내합니다. 또한 이 문서에서는 프라이빗 엔드포인트 사용과 ILB 및 외부 ASE와의 통합에 대한 고려 사항에 대해 설명합니다. 마지막으로 이 문서에는 scm/kudu 사이트에 대한 고려 사항이 있습니다.
 
 ## <a name="integration-with-app-service-multi-tenant"></a>App Service(다중 테넌트)와 통합
 App Service(다중 테넌트)에는 공용 인터넷 연결 엔드포인트가 있습니다. [서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)를 사용하여 Azure Virtual Network 내의 특정 서브넷에서만 트래픽을 허용하고 다른 모든 것은 차단할 수 있습니다. 다음 시나리오에서는 이 기능을 사용하여 App Service 인스턴스가 특정 Application Gateway 인스턴스의 트래픽만 받을 수 있게 합니다.
@@ -40,7 +40,7 @@ Azure Portal을 사용하여 설치를 프로비전하고 구성하는 네 가�
 
 이제 Application Gateway를 통해 App Service에 액세스할 수 있지만, App Service에 직접 액세스를 시도하면 웹 사이트가 중지되었음을 나타내는 403 HTTP 오류가 표시될 것입니다.
 
-![‘오류 403 - 사용할 수 없음’ 텍스트를 보여주는 스크린샷](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
+:::image type="content" source="./media/app-gateway-with-service-endpoints/website-403-forbidden.png" alt-text="‘오류 403 - 사용할 수 없음’ 텍스트를 보여주는 스크린샷":::
 
 ## <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 [Resource Manager 배포 템플릿][template-app-gateway-app-service-complete]은 전체 시나리오를 프로비전합니다. 이 시나리오는 Application Gateway에서만 트래픽을 수신하는 액세스 제한 사항과 서비스 엔드포인트로 잠긴 App Service 인스턴스로 구성됩니다. 템플릿에는 편의를 위해 리소스 이름에 추가되는 고유한 접미사와 스마트 기본값이 다수 포함되어 있습니다. 이를 재정의하려면 리포지토리를 복제하거나 템플릿을 다운로드하여 편집해야 합니다.
@@ -55,6 +55,12 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 기본 구성에서는 이 명령으로 서브넷에 있는 서비스 엔드포인트 구성과 App Service의 액세스 제한 설정을 모두 확인할 수 있습니다.
+
+## <a name="considerations-when-using-private-endpoint"></a>프라이빗 엔드포인트 사용 시 고려 사항
+
+서비스 엔드포인트의 대안으로 프라이빗 엔드포인트를 사용하여 Application Gateway와 App Service(다중 테넌트) 간의 트래픽을 보호할 수 있습니다. Application Gateway가 App Service 앱의 개인 IP를 DNS로 확인할 수 있는지 또는 백 엔드 풀에서 개인 IP를 사용하고 http 설정에서 호스트 이름을 재정의하는지 확인해야 합니다.
+
+:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="다이어그램은 Azure Virtual Network에서 Application Gateway로 이동하여 프라이빗 엔드포인트를 통해 App Service의 앱 인스턴스로 이동하는 트래픽을 보여줍니다.":::
 
 ## <a name="considerations-for-ilb-ase"></a>ILB ASE 고려 사항
 ILB ASE는 인터넷에 노출되지 않으므로, 인스턴스와 Application Gateway 간의 트래픽이 이미 Virtual Network와 격리되어 있습니다. 다음 [방법 가이드](../environment/integrate-with-application-gateway.md)에서는 ILB ASE를 구성하고 Azure Portal을 사용하여 Application Gateway와 통합합니다.

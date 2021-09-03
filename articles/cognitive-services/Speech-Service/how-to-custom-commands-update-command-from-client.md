@@ -1,21 +1,21 @@
 ---
-title: 클라이언트 앱에서 명령 업데이트
+title: 클라이언트 앱에서 명령 매개 변수 업데이트
 titleSuffix: Azure Cognitive Services
 description: 클라이언트 애플리케이션에서 명령을 업데이트하는 방법을 알아봅니다.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: nitinme
-ms.openlocfilehash: 08c674a7a7ec060a4273836064cb1c21e979e725
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: lajanuar
+ms.openlocfilehash: 9ae8d43be88558469165e926994f994aa0fe5736
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97560290"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531219"
 ---
 # <a name="update-a-command-from-a-client-app"></a>클라이언트 앱에서 명령 업데이트
 
@@ -53,7 +53,8 @@ ms.locfileid: "97560290"
 
 | attribute | 설명 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **type** | 작업 유형은 `"event"`이고 이벤트 이름은 `"RemoteUpdate"`여야 합니다. |
+| **type** | 이 작업은 `"event"` 유형입니다. |
+| **name** | 이벤트 이름은 `"RemoteUpdate"`여야 합니다. |
 | **value** | `"value"` 특성에는 현재 명령을 업데이트하는 데 필요한 특성이 있습니다. |
 | **updatedCommand** | `"updatedCommand"` 특성에는 명령 이름이 포함됩니다. 해당 특성 내에서 `"updatedParameters"`는 매개 변수 이름과 업데이트된 값이 있는 맵입니다. |
 | **cancel** | 진행 중인 명령을 취소해야 하는 경우 `"cancel"` 특성을 `true`로 설정합니다. |
@@ -68,7 +69,7 @@ ms.locfileid: "97560290"
 1. 사이드 패널을 열고 **작업 편집기** 를 선택합니다.
 1. 이전 섹션에서 지정한 `RemoteCommand` 이벤트를 입력하고 보냅니다.
     > [!div class="mx-imgBorder"]
-    > ![원격 명령에 대한 이벤트를 보여 주는 스크린샷](media/custom-commands/send-remote-command-activity.png)
+    > ![원격 명령에 대한 이벤트를 보여 주는 스크린샷](media/custom-commands/send-remote-command-activity-no-mic.png)
 
 `"OnOff"` 매개 변수의 값이 음성 또는 텍스트가 아니라, 클라이언트의 작업을 통해 `"on"`으로 설정되는 것을 확인합니다.
 
@@ -140,7 +141,7 @@ ms.locfileid: "97560290"
     }
     ```
 1. `get device info` 텍스트를 보냅니다.
-   ![클라이언트 컨텍스트를 보내기 위한 작업을 보여 주는 스크린샷](media/custom-commands/send-client-context-activity.png)
+   ![클라이언트 컨텍스트를 보내기 위한 작업을 보여 주는 스크린샷](media/custom-commands/send-client-context-activity-no-mic.png)
 
 다음 몇 가지 사항을 참고하세요.
 - 이 작업은 한 번만 보내면 됩니다(이상적으로는 연결을 시작한 직후).

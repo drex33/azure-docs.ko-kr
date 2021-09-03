@@ -11,13 +11,13 @@ ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 03/12/2019
-ms.openlocfilehash: 9c43cb7bb60b758230664571fd7d7e592009fff2
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 06/23/2021
+ms.openlocfilehash: c14d209f5f4b846b51a99ac875e2304129b4e765
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667189"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090280"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>TDE(투명한 데이터 암호화) 보호기 회전
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -32,6 +32,9 @@ ms.locfileid: "110667189"
 
 > [!IMPORTANT]
 > 롤오버 후 키의 이전 버전은 삭제하지 마세요. 키가 롤오버될 때 구 데이터베이스 백업 같은 일부 데이터는 이전 키로 계속 암호화되어 있습니다.
+
+> [!NOTE]
+> 이 문서는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics(전용 SQL 풀(이전의 SQL DW))에 적용됩니다. Synapse 작업 영역 내의 전용 SQL 풀을 위한 투명한 데이터 암호화에 대한 문서는 [Azure Synapse Analytics 암호화](../../synapse-analytics/security/workspaces-encryption.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

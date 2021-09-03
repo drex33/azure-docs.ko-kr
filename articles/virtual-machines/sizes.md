@@ -8,20 +8,23 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 8bc6c76ac02de4832597c46e2d8c54081b96b216
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 1da0acf71d8f3f806ec42dcb61c4d74127892c27
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072472"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567867"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Azure에서 가상 머신에 대한 크기
+
+> [!TIP]
+> 워크로드에 가장 적합한 다른 크기를 찾으려면 **[가상 머신 선택 도구](https://aka.ms/vm-selector)** 를 사용해 보세요.
 
 이 문서에서는 앱 및 워크로드를 실행하는 데 사용할 수 있는 Azure 가상 머신에 대한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 
 
 :::image type="content" source="media/sizes/azurevmsthumb.jpg" alt-text="VM의 올바른 크기 선택을 위한 YouTube 비디오" link="https://youtu.be/zOSvnJFd3ZM":::
 
-| Type | 크기 | Description |
+| Type | 크기 | 설명 |
 |------|-------|-------------|
 | [범용](sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
 | [컴퓨팅 최적화](sizes-compute.md) | F, Fs, Fsv2, FX | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 애플리케이션 서버에 적합합니다. |

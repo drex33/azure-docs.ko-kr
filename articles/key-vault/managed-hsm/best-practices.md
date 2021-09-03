@@ -2,19 +2,19 @@
 title: Azure Key Vault 관리형 HSM을 사용하는 모범 사례
 description: 이 문서에서는 Key Vault를 사용하는 몇 가지 모범 사례를 설명합니다.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.author: ambapat
-ms.openlocfilehash: a7cccecc47973d372453ce86d0d5d12c8d773b3a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/21/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 99a313f64e9f5bafd13dbbf45a6881e1c6e2f275
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413972"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114459699"
 ---
 # <a name="best-practices-when-using-managed-hsm"></a>관리형 HSM을 사용하는 경우의 모범 사례
 
@@ -44,6 +44,13 @@ ms.locfileid: "111413972"
 
 - [일시 삭제](soft-delete-overview.md)는 기본적으로 켜져 있습니다. 7~90일 사이의 보존 기간을 선택할 수 있습니다.
 - 제거 보호를 켜서 HSM 또는 키의 영구 삭제를 즉시 방지합니다. 제거 보호가 HSM 또는 키에 있는 경우 보존일이 지날 때까지 삭제된 상태로 유지됩니다.
+
+## <a name="generate-and-import-keys-from-on-premise-hsm"></a>온-프레미스 HSM에서 키 생성 및 가져오기
+
+> [!NOTE]
+> 관리형 HSM으로 만들거나 가져온 키는 내보낼 수 없습니다.
+
+- 장기적인 이식성과 키 내구성을 보장하려면 온-프레미스 HSM에서 키를 생성하고 [관리형 HSM으로 가져옵니다](hsm-protected-keys-byok.md). 나중에 사용할 수 있도록 온-프레미스 HSM에 키 복사본이 안전하게 저장됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

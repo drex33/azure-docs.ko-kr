@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: d1bb111bbaa909c52261a0dbafe6d6e0a24390ac
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: e9e233aa5a4d32a1f298889b0a98c3a85d9cf4e5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007265"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456320"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure Dedicated Host
 
@@ -127,7 +127,7 @@ Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습�
 
 할당량 증가를 요청하려면 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)에서 지원 요청을 만듭니다.
 
-전용 호스트를 프로비저닝하면 전용 호스트 vCPU와 VM 패밀리 vCPU 할당량이 모두 사용되지만 지역 vCPU는 사용되지 않습니다.
+전용 호스트를 프로비저닝하면 전용 호스트 vCPU와 VM 패밀리 vCPU 할당량이 모두 사용되지만 지역 vCPU는 사용되지 않습니다. 전용 호스트에 배치된 VM은 VM 제품군 vCPU 할당량에 포함되지 않습니다. VM이 전용 호스트에서 다중 테넌트 환경으로 이동되는 경우 VM은 VM 제품군 vCPU 할당량을 사용합니다.
 
 
 ![포털의 사용 및 할당량 페이지 스크린샷](./media/virtual-machines-common-dedicated-hosts/quotas.png)

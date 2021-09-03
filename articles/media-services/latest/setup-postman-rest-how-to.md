@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1266e10f6d8bf69c6e72a236ecde27623ad1cf12
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: b96a2ad95d126feaa8def5a2cddea4702ff823ff
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281460"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122642230"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Media Services v3 REST API 호출을 위한 Postman 구성
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-이 문서에서는 AMS(Azure Media Services) REST API를 호출하는 데 사용할 수 있도록 **Postman** 을 구성하는 방법을 보여 줍니다. 이 문서에서는 환경 및 컬렉션 파일을 **Postman** 으로 가져오는 방법을 보여 줍니다. 컬렉션에는 AMS(Azure Media Services) REST API를 호출하는 HTTP 요청의 그룹화된 정의가 포함되어 있습니다. 환경 파일에는 컬렉션에 사용되는 변수가 포함되어 있습니다.
+이 문서에서는 AMS(Azure Media Services) REST API를 호출하는 데 사용할 수 있도록 **Postman** 을 구성하는 방법을 보여 줍니다. 이는 학습 도구로 제공되며 프로덕션 애플리케이션에는 권장되지 않습니다. 프로덕션 애플리케이션은 기본 제공되는 Azure Resource Management 재시도 정책을 기본 제공하는 지원되는 클라이언트 SDK를 사용해야 합니다.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
+이 문서에서는 환경 및 컬렉션 파일을 **Postman** 으로 가져오는 방법을 보여 줍니다. 컬렉션에는 AMS(Azure Media Services) REST API를 호출하는 HTTP 요청의 그룹화된 정의가 포함되어 있습니다. 환경 파일에는 컬렉션에 사용되는 변수가 포함되어 있습니다.
 
 개발을 시작하기 전에 [Media Services v3 API를 사용하여 개발](media-services-apis-overview.md)을 검토하세요.
 
@@ -99,7 +103,7 @@ AMS v3 리소스 조작을 시작하려면 먼저 서비스 주체 인증을 위
 * 애플리케이션이 "HTTP 504: 게이트웨이 시간 초과"로 인해 실패하는 경우 위치 변수가 Media Services 계정의 예상 위치 이외의 값으로 명시적으로 설정되지 않았는지 확인합니다. 
 * "계정을 찾을 수 없음" 오류가 발생하는 경우 본문 JSON 메시지의 위치 속성이 Media Services 계정이 있는 위치로 설정되었는지 확인합니다. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Media Services로 필터 만들기 - REST](filters-dynamic-manifest-rest-howto.md)
 - [Azure Resource Manager 기반 REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)

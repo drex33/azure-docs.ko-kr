@@ -3,22 +3,24 @@ title: AKS(Azure Kubernetes Service) 클러스터 배포 시작 및 중지
 description: AKS(Azure Kubernetes Service) 클러스터를 시작하고 중지하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 08/09/2021
 author: palma21
-ms.openlocfilehash: 734986d2c9b372214a54c1308e4ca445940c5f65
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fefdb4619c017d7c43e4dfa84c8099450310ca2f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111808928"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529058"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 중지 및 시작
 
-업무 시간에만 사용되는 개발 클러스터와 같이 AKS 워크로드를 지속적으로 실행할 필요가 없을 수도 있습니다. 이로 인해 AKS(Azure Kubernetes Service) 클러스터가 유휴 상태가 되어 시스템 구성 요소만 실행되는 시기가 발생합니다. [모든 `User` 노드 풀을 0으로 확장](scale-cluster.md#scale-user-node-pools-to-0)하여 클러스터 공간을 줄일 수 있지만, 클러스터가 실행되는 동안에는 시스템 구성 요소를 실행 하는 데에도 [ `System` 풀이](use-system-pools.md) 필요 합니다. 이러한 기간 동안 비용을 더 최적화 하려면 클러스터를 완전히 해제(중지) 할 수 있습니다. 이 작업을 수행하면 제어 평면과 에이전트 노드가 모두 중지 되므로 모든 계산 비용을 절감할 수 있을 뿐만 아니라 다시 시작할 때에 저장된 모든 개체 및 클러스터 상태를 유지할 수 있습니다. 그러면 주말 이후, 중지한 지점에서 바로 다시 시작하거나 일괄 작업을 실행하는 동안에만 클러스터를 실행할 수 있습니다.
+업무 시간에만 사용되는 개발 클러스터와 같이 AKS 워크로드를 지속적으로 실행할 필요가 없을 수도 있습니다. 이로 인해 AKS(Azure Kubernetes Service) 클러스터가 유휴 상태가 되어 시스템 구성 요소만 실행되는 시기가 발생합니다. [모든 `User` 노드 풀을 0으로 확장](scale-cluster.md#scale-user-node-pools-to-0)하여 클러스터 공간을 줄일 수 있지만, 클러스터가 실행되는 동안에는 시스템 구성 요소를 실행 하는 데에도 [ `System` 풀이](use-system-pools.md) 필요 합니다.
+이러한 기간 동안 비용을 더 최적화 하려면 클러스터를 완전히 해제(중지) 할 수 있습니다. 이 작업을 수행하면 제어 평면과 에이전트 노드가 모두 중지 되므로 모든 계산 비용을 절감할 수 있을 뿐만 아니라 다시 시작할 때에 저장된 모든 개체 및 클러스터 상태를 유지할 수 있습니다. 그러면 주말 이후, 중지한 지점에서 바로 다시 시작하거나 일괄 작업을 실행하는 동안에만 클러스터를 실행할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli], [Azure PowerShell 사용][kubernetes-walkthrough-powershell] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -30,6 +32,8 @@ ms.locfileid: "111808928"
 - 프라이빗 클러스터에 연결된 고객이 프로비전한 PrivateEndpoints는 중지된 AKS 클러스터를 시작할 때 삭제하고 다시 만들어야 합니다.
 
 ## <a name="stop-an-aks-cluster"></a>AKS 클러스터 중지
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 명령을 사용하여 `az aks stop` 실행 중인 AKS 클러스터의 노드 및 제어 평면을 중지할 수 있습니다. 다음 예제에서는 *myAKSCluster* 라는 클러스터를 중지합니다.
 
@@ -55,12 +59,35 @@ az aks stop --name myAKSCluster --resource-group myResourceGroup
 
 `provisioningState` `Stopping` 이 표시되면 클러스터가 아직 완전히 중지 되지 않았음을 의미 합니다.
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+[Stop-AzAksCluster][stop-azakscluster] cmdlet을 사용하여 실행 중인 AKS 클러스터의 노드 및 컨트롤 플레인을 중지할 수 있습니다. 다음 예제에서는 *myAKSCluster* 라는 클러스터를 중지합니다.
+
+```azurepowershell-interactive
+Stop-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
+```
+
+[Get-AzAksCluster][get-azakscluster] cmdlet을 사용하여 클러스터가 중지되었는지 확인하고 다음 출력과 같이 `ProvisioningState`가 `Stopped`로 표시되는지 확인할 수 있습니다.
+
+```Output
+ProvisioningState       : Stopped
+MaxAgentPools           : 100
+KubernetesVersion       : 1.20.7
+...
+```
+
+`ProvisioningState` `Stopping` 이 표시되면 클러스터가 아직 완전히 중지 되지 않았음을 의미 합니다.
+
+---
+
 > [!IMPORTANT]
 > [Pod 중단 예산을](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) 사용하는 경우 드레이닝 프로세스를 완료 하는 데 시간이 더 오래 걸릴 수 있으므로 중지 작업에 시간이 더 오래 걸릴 수 있습니다.
 
 ## <a name="start-an-aks-cluster"></a>AKS 클러스터 시작
 
-명령을 사용하여 `az aks start` 중지 된 AKS 클러스터의 노드 및 제어 평면을 시작할 수 있습니다. 클러스터가 이전 컨트롤 플레인 상태 및 에이전트 노드 수로 다시 시작됩니다.  
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+명령을 사용하여 `az aks start` 중지 된 AKS 클러스터의 노드 및 제어 평면을 시작할 수 있습니다. 클러스터가 이전 컨트롤 플레인 상태 및 에이전트 노드 수로 다시 시작됩니다.
 다음 예제에서는 *myAKSCluster* 라는 클러스터를 시작합니다.
 
 ```azurecli-interactive
@@ -85,8 +112,33 @@ az aks start --name myAKSCluster --resource-group myResourceGroup
 
 `provisioningState` `Starting` 이 표시되면 클러스터가 아직 완전히 시작 되지 않았음을 의미 합니다.
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+[Start-AzAksCluster][start-azakscluster] cmdlet을 사용하여 중지된 AKS 클러스터의 노드 및 컨트롤 플레인을 시작할 수 있습니다. 클러스터가 이전 컨트롤 플레인 상태 및 에이전트 노드 수로 다시 시작됩니다.
+다음 예제에서는 *myAKSCluster* 라는 클러스터를 시작합니다.
+
+```azurepowershell-interactive
+Start-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
+```
+
+다음 출력과 같이 [Get-AzAksCluster][get-azakscluster] cmdlet을 사용하여 클러스터가 시작되고 `ProvisioningState`에 `Succeeded`가 표시되는지 확인할 수 있습니다.
+
+```Output
+ProvisioningState       : Succeeded
+MaxAgentPools           : 100
+KubernetesVersion       : 1.20.7
+...
+```
+
+`ProvisioningState` `Starting` 이 표시되면 클러스터가 아직 완전히 시작 되지 않았음을 의미 합니다.
+
+---
+
 > [!NOTE]
-> 클러스터 자동 크기 조정기를 사용하는 경우 클러스터 백업을 시작할 때 현재 노드 수가 설정한 최소 및 최대 범위 값 사이에 없을 수 있습니다. 이는 정상적인 동작입니다. 클러스터는 워크로드를 실행하는 데 필요한 노드 수로 시작하며, 자동 크기 조정기 설정의 영향을 받지 않습니다. 클러스터가 크기 조정 작업을 수행하는 경우 최솟값 및 최댓값은 현재 노드 수에 영향을 줍니다. 클러스터는 클러스터를 중지할 때까지 원하는 범위에 진입하여 유지됩니다.
+> 클러스터 백업을 시작할 때 예상되는 동작은 다음과 같습니다.
+>
+> * API 서버의 IP 주소는 변경될 수 있습니다.
+> * 클러스터 자동 크기 조정기를 사용하는 경우 클러스터 백업을 시작할 때 현재 노드 수가 설정한 최소 및 최대 범위 값 사이에 없을 수 있습니다. 클러스터는 워크로드를 실행하는 데 필요한 노드 수로 시작하며, 자동 크기 조정기 설정의 영향을 받지 않습니다. 클러스터가 크기 조정 작업을 수행하는 경우 최솟값 및 최댓값은 현재 노드 수에 영향을 줍니다. 클러스터는 클러스터를 중지할 때까지 원하는 범위에 진입하여 유지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -106,3 +158,7 @@ az aks start --name myAKSCluster --resource-group myResourceGroup
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-show]: /cli/azure/aks#az_aks_show
+[kubernetes-walkthrough-powershell]: kubernetes-walkthrough-powershell.md
+[stop-azakscluster]: /powershell/module/az.aks/stop-azakscluster
+[get-azakscluster]: /powershell/module/az.aks/get-azakscluster
+[start-azakscluster]: /powershell/module/az.aks/start-azakscluster

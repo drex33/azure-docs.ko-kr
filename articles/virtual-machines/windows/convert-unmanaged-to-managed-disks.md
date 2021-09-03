@@ -7,16 +7,17 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 64d5f46d167b0707c2257f29c5d5cb1950aaa046
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 7b1c270f83565e2968e6677f07b81968dcf61ac7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029211"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528637"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
-비관리 디스크를 사용하는 기존 Windows VM(가상 머신)이 있는 경우 [Azure Managed Disks](../managed-disks-overview.md) 서비스를 통해 관리 디스크를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS 디스크와 연결된 데이터 디스크를 변환합니다.
+비관리 디스크를 사용하는 기존 Windows VM(가상 머신)이 있는 경우 [Azure Managed Disks](../managed-disks-overview.md) 서비스를 통해 관리 디스크를 사용하도록 VM을 변환할 수 있습니다. 이 프로세스는 OS(운영 체제) 디스크와 연결된 데이터 디스크를 변환합니다.
+
 
  
 
@@ -88,8 +89,11 @@ ms.locfileid: "112029211"
 
 ## <a name="troubleshooting"></a>문제 해결
 
-변환하는 동안 오류가 발생한 경우 또는 이전 변환에서의 문제로 인해 VM 상태가 실패인 경우 `ConvertTo-AzVMManagedDisk` cmdlet을 다시 실행합니다. 다시 시도만으로 상황이 해결되는 경우가 많습니다.
-변환하기 전에 모든 VM 확장이 '프로비전 성공' 상태에 있는지 확인합니다. 그렇지 않으면 변환이 오류 코드 409로 실패합니다.
+- 변환하기 전에 모든 VM 확장이 '프로비전 성공' 상태에 있는지 확인합니다. 그렇지 않으면 변환이 오류 코드 409로 실패합니다.
+- 변환하는 동안 오류가 발생한 경우 또는 이전 변환에서의 문제로 인해 VM 상태가 실패인 경우 `ConvertTo-AzVMManagedDisk` cmdlet을 다시 실행합니다. 다시 시도만으로 상황이 해결되는 경우가 많습니다.
+- Linux VM을 관리 디스크로 변환하는 경우 최신 버전의 Azure Linux 에이전트를 사용하세요. Azure Linux 에이전트 버전 '2.2.0' 이하를 사용하는 작업은 실패할 수 있습니다. 일반화된 VM 또는 클래식 가용성 집합에 속하는 VM에서 변환을 실행하는 것도 지원되지 않습니다.
+- "SnapshotCountExceeded" 오류와 함께 변환이 실패하면 일부 스냅샷을 삭제하고 작업을 다시 시도합니다.
+
 
 ## <a name="convert-using-the-azure-portal"></a>Azure Portal을 사용하여 변환
 

@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 8bcf300c9e17bd809a0dc35443917dee2a908e27
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 0e252a1822d36bf1d8aecbac7f38a0d315d38351
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075586"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371842"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Azure Firewall을 사용하여 프라이빗 엔드포인트로 향하는 트래픽 검사
 
@@ -29,7 +29,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link를 만드는 데 사용
 다음과 같은 제한 사항이 적용됩니다.
 
 * 프라이빗 엔드포인트에서 들어오는 트래픽은 NSG(네트워크 보안 그룹)를 우회함
-* 프라이빗 엔드포인트에서 들어오는 트래픽은 UDR(사용자 정의 경로)을 우회함
+* 프라이빗 엔드포인트에서 들어오는 트래픽은 UDR(사용자 정의 경로)을 바이패스합니다. 사용자 정의 경로를 사용하여 프라이빗 엔드포인트로 향하는 트래픽을 재정의할 수 있습니다.
 * 단일 경로 테이블을 서브넷에 연결할 수 있습니다.
 * 경로 테이블은 최대 400개의 경로를 지원합니다.
 

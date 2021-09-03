@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/26/2021
+ms.date: 06/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9a1771dd6f312129d418cac3ddac8ef2411e95c6
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 0ce866514aef703f3b79980d94fba156c83b10f5
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110496137"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981469"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -130,7 +130,7 @@ ms.locfileid: "110496137"
 
 **DefaultUserJourney** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책의 사용자 경험 식별자입니다. 자세한 내용은 [사용자 경험](userjourneys.md)을 참조하세요. |
 
@@ -152,10 +152,10 @@ ms.locfileid: "110496137"
 
 **SingleSignOn** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 범위 | 예 | Single Sign-On 동작의 범위입니다. 가능한 값은 `Suppressed`, `Tenant`, `Application` 또는 `Policy`입니다. `Suppressed` 값은 동작이 억제되며 사용자에게 ID 공급자를 선택하라는 메시지가 항상 표시됨을 나타냅니다.  `Tenant` 값은 테넌트의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 테넌트의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Application` 값은 요청을 수행하는 애플리케이션의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 애플리케이션의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Policy` 값은 동작이 한 정책에만 적용됨을 나타냅니다. 예를 들어 보안 프레임워크의 두 공용 경험 간을 이동하는 사용자가 정책 간을 전환할 때 ID 공급자를 선택하라는 메시지가 표시됩니다. |
-| KeepAliveInDays | 예 | 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 값을 0으로 설정하면 KMSI 기능이 해제됩니다. 자세한 내용은 [로그인 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi)를 참조하세요. |
+| KeepAliveInDays | 예 | 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 값을 0으로 설정하면 KMSI 기능이 해제됩니다. 기본값은 `0`(사용 안 함)입니다. 최솟값은 `1`일입니다. 최댓값은 `90`일입니다. 자세한 내용은 [로그인 유지](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi)를 참조하세요. |
 |EnforceIdTokenHintOnLogout| 예|  이전에 발급된 ID 토큰을 클라이언트와 최종 사용자의 현재 인증된 세션에 대한 힌트로 로그아웃 엔드포인트에 전달합니다. 가능한 값은 `false`(기본값) 또는 `true`입니다. 자세한 내용은 [OpenID Connect를 사용하여 웹 로그인](openid-connect.md)을 참조하세요.  |
 
 
@@ -190,9 +190,9 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **ContentDefinitionParameter** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 속성 | 예 | 키 값 쌍의 이름입니다. |
+| 이름 | 예 | 키 값 쌍의 이름입니다. |
 
 자세한 내용은 [사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)을 참조하세요.
 
@@ -200,7 +200,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **JourneyFraming** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 사용 | 예 | Iframe 내에서 이 정책을 로드할 수 있습니다. 가능한 값은 `false`(기본값) 또는 `true`입니다. |
 | 원본 | 예 | 호스트 iframe을 로드할 도메인을 포함합니다. 자세한 내용은 [iframe에서 Azure B2C 로드](embedded-login.md)를 참조하세요. |
@@ -226,9 +226,9 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 속성 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OpenIdConnect` 또는 `SAML2`입니다. `OpenIdConnect` 값은 OpenID Foundation 사양에 따른 OpenID Connect 1.0 프로토콜 표준을 나타냅니다. `SAML2`는 OASIS 사양에 따른 SAML 2.0 프로토콜 표준을 나타냅니다. |
+| 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OpenIdConnect` 또는 `SAML2`입니다. `OpenIdConnect` 값은 OpenID Foundation 사양에 따른 OpenID Connect 1.0 프로토콜 표준을 나타냅니다. `SAML2`는 OASIS 사양에 따른 SAML 2.0 프로토콜 표준을 나타냅니다. |
 
 ### <a name="metadata"></a>메타데이터
 
@@ -249,13 +249,13 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | 신뢰 당사자가 구독하는 정책에 대해 지원되는 목록에 필요한 클레임 형식의 이름입니다. 이 클레임은 기술 프로필의 출력으로 사용됩니다. |
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일의 **ClaimsSchema** 섹션에 이미 정의되어 있는 **ClaimType** 에 대한 참조입니다. |
 | DefaultValue | 예 | 클레임 값이 비어 있는 경우 사용할 수 있는 기본값입니다. |

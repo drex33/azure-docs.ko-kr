@@ -7,12 +7,12 @@ ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 4f3ef03e3561cf054102b5f5c15ff571c3d4d28d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 988f32cae16a026ddef0294815ffd21ba0d81760
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742628"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991742"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
@@ -514,6 +514,13 @@ Azure Monitor로 전송되기 전에 추적된 원격 분석을 수정하는 방
 - `max_batch_size`: 한 번에 내보내지는 원격 분석의 최대 크기를 지정합니다.
 - `proxies`: Azure Monitor에 데이터를 보내는 데 사용할 프록시 시퀀스를 지정합니다. 자세한 내용은 [프록시](https://requests.readthedocs.io/en/master/user/advanced/#proxies)를 참조하세요.
 - `storage_path`: 로컬 스토리지 폴더가 있는 위치에 대한 경로입니다(보내지 않은 원격 분석). `opencensus-ext-azure` v1.0.3부터 기본 경로는 OS 임시 디렉터리 + `opencensus-python` + `your-ikey`입니다. v1.0.3 이전에는 기본 경로가 $USER + `.opencensus` + `.azure` + `python-file-name`입니다.
+
+## <a name="authentication-preview"></a>인증(미리 보기)
+> [!NOTE]
+> 인증 기능은 `opencensus-ext-azure` v1.1b0부터 사용할 수 있습니다.
+
+각 Azure Monitor 내보내기 도구는 AAD(Azure Active Directory)를 사용한 OAuth 인증을 통해 원격 분석 페이로드를 안전하게 보내는 구성을 지원합니다.
+자세한 내용은 [인증](./azure-ad-authentication.md) 문서를 확인하세요.
 
 ## <a name="view-your-data-with-queries"></a>쿼리를 사용하여 데이터 보기
 

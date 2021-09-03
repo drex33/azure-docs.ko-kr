@@ -1,14 +1,14 @@
 ---
 title: 효과 작동 방식 이해
 description: Azure Policy 정의는 규정 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
-ms.date: 04/19/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6025451779ba04b3a20307d35ca8a939c7762d64
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 22838cd661e64d4a85debfb4c5ce556a142dc2c2
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474373"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538859"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -172,6 +172,12 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - _ResourceGroup_ 의 경우 **ResourceGroupName** 에서 지정된 **if** 조건 리소스의 리소스 그룹 또는 리소스 그룹으로 제한합니다.
   - _Subscription_ 의 경우 관련된 리소스에 대한 전체 구독을 쿼리합니다.
   - 기본값은 _ResourceGroup_ 입니다.
+- **EvaluationDelay**(선택 사항)
+  - 관련 리소스의 존재를 평가해야 하는 시기를 지정합니다. 지연은 리소스 만들기 또는 업데이트 요청의 결과인 평가에만 사용됩니다.
+  - 허용되는 값은 `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure` 또는 10분에서 360분 사이의 ISO 8601 기간입니다.
+  - _AfterProvisioning_ 값은 정책 규칙의 IF 조건에서 평가된 리소스의 프로비저닝 결과를 검사합니다. `AfterProvisioning`은 결과에 관계없이 프로비저닝이 완료된 후 실행됩니다. 프로비저닝이 6시간보다 오래 걸리는 경우 _AfterProvisioning_ 평가 지연을 결정할 때 실패로 처리됩니다.
+  - 기본값은 `PT10M`(10분)입니다.
+  - 긴 평가 지연을 지정하면 기록된 리소스의 규정 준수 상태가 다음 [평가 트리거](../how-to/get-compliance-data.md#evaluation-triggers)까지 업데이트되지 않을 수 있습니다.
 - **ExistenceCondition**(옵션)
   - 지정되지 않은 경우 **type** 의 모든 관련 리소스는 효과를 충족하고 감사를 트리거하지 않습니다.
   - **if** 조건에 대해 정책 규칙과 동일한 언어를 사용하지만 관련된 각 리소스에 대해 개별적으로 평가됩니다.
@@ -267,7 +273,7 @@ AuditIfNotExists와 마찬가지로 DeployIfNotExists 정책 정의는 조건이
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 평가
 
-리소스 공급자가 만들기 또는 업데이트 구독인 리소스 요청을 처리하고 성공 상태 코드를 반환한 후 DeployIfNotExists는 약 15분 동안 실행됩니다. 관련 리소스가 없거나 **ExistenceCondition** 에서 정의된 리소스가 true로 평가되지 않는 경우 템플릿 배포가 발생합니다. 배포 기간은 템플릿에 포함된 리소스의 복잡성에 따라 달라집니다.
+DeployIfNotExists는 리소스 공급자가 구독 또는 리소스 요청 만들기 또는 업데이트를 처리하고 성공 상태 코드를 반환한 경우 구성 가능한 지연 후에 실행됩니다. 관련 리소스가 없거나 **ExistenceCondition** 에서 정의된 리소스가 true로 평가되지 않는 경우 템플릿 배포가 발생합니다. 배포 기간은 템플릿에 포함된 리소스의 복잡성에 따라 달라집니다.
 
 평가 주기 중 리소스와 일치하는 DeployIfNotExists 효과가 포함된 정책 정의는 비준수로 표시되지만 해당 리소스에서 작업이 수행되지 않습니다. 기존 비준수 리소스는 [수정 작업](../how-to/remediate-resources.md)을 통해 수정할 수 있습니다.
 
@@ -293,6 +299,12 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - _ResourceGroup_ 의 경우 **ResourceGroupName** 에서 지정된 **if** 조건 리소스의 리소스 그룹 또는 리소스 그룹으로 제한합니다.
   - _Subscription_ 의 경우 관련된 리소스에 대한 전체 구독을 쿼리합니다.
   - 기본값은 _ResourceGroup_ 입니다.
+- **EvaluationDelay**(선택 사항)
+  - 관련 리소스의 존재를 평가해야 하는 시기를 지정합니다. 지연은 리소스 만들기 또는 업데이트 요청의 결과인 평가에만 사용됩니다.
+  - 허용되는 값은 `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure` 또는 0분에서 360분 사이의 ISO 8601 기간입니다.
+  - _AfterProvisioning_ 값은 정책 규칙의 IF 조건에서 평가된 리소스의 프로비저닝 결과를 검사합니다. `AfterProvisioning`은 결과에 관계없이 프로비저닝이 완료된 후 실행됩니다. 프로비저닝이 6시간보다 오래 걸리는 경우 _AfterProvisioning_ 평가 지연을 결정할 때 실패로 처리됩니다.
+  - 기본값은 `PT10M`(10분)입니다.
+  - 긴 평가 지연을 지정하면 기록된 리소스의 규정 준수 상태가 다음 [평가 트리거](../how-to/get-compliance-data.md#evaluation-triggers)까지 업데이트되지 않을 수 있습니다.
 - **ExistenceCondition**(옵션)
   - 지정되지 않은 경우 **type** 의 모든 관련 리소스는 효과를 충족하고 배포를 트리거하지 않습니다.
   - **if** 조건에 대해 정책 규칙과 동일한 언어를 사용하지만 관련된 각 리소스에 대해 개별적으로 평가됩니다.
@@ -308,6 +320,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - 기본값은 _ResourceGroup_ 입니다.
 - **Deployment**(필수)
   - 이 속성은 `Microsoft.Resources/deployments` PUT API로 전달되므로 전체 템플릿 배포를 포함해야 합니다. 자세한 내용은 [배포 REST API](/rest/api/resources/deployments)를 참조하세요.
+  - 템플릿 내의 중첩된 `Microsoft.Resources/deployments`는 여러 정책 평가 간의 경합을 피하기 위해 고유한 이름을 사용해야 합니다. 상위 배포의 이름은 `[concat('NestedDeploymentName-', uniqueString(deployment().name))]`을 통해 중첩된 배포 이름의 일부로 사용할 수 있습니다.
 
   > [!NOTE]
   > **배포** 속성 내부의 모든 함수는 정책이 아닌 템플릿의 구성 요소로 평가됩니다. 예외는 정책에서 템플릿으로 값을 전달하는 **parameters** 속성입니다. 템플릿 매개 변수 이름 아래에 있는 이 섹션의 **값** 은 이 값의 전달을 수행하는 데 사용됩니다(DeployIfNotExists 예제의 _fullDbName_ 참조).
@@ -327,6 +340,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
+        "evaluationDelay": "AfterProvisioning",
         "roleDefinitionIds": [
             "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
@@ -489,7 +503,7 @@ Modify에는 다음 작업이 지원됩니다.
 
 - 리소스 태그를 추가, 바꾸기 또는 제거합니다. 대상 리소스가 리소스 그룹이 아닌 한, Modify 정책에서 태그의 `mode`는 항상 _Indexed_ 로 설정되어 있어야 합니다.
 - 가상 머신 및 가상 머신 확장 세트의 관리 ID 형식(`identity.type`) 값을 추가하거나 바꿉니다.
-- 특정 별칭(미리 보기)의 값을 추가하거나 바꿉니다.
+- 특정 별칭의 값을 추가하거나 바꿉니다.
   - `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }` 사용
     Azure PowerShell **4.6.0** 이상에서 Modify와 함께 사용할 수 있는 별칭 목록을 가져옵니다.
 

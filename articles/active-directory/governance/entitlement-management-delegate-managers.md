@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a33170fecab6efbe86568eb81b87637ca5da24
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 95c875c1a4ded86686120bb4de67904ef69a53c6
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714299"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286556"
 ---
 # <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지 관리자에게 액세스 거버넌스 위임
 
@@ -36,6 +36,8 @@ ms.locfileid: "109714299"
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq08]
 
+카탈로그 소유자 및 액세스 패키지 관리자 역할 외에도 카탈로그에 대한 보기 전용 액세스를 제공하는 카탈로그 읽기 권한자 역할 또는 사용자가 할당을 변경하지만 액세스 패키지 또는 정책은 변경할 수 없도록 하는 액세스 패키지 할당 관리자 역할에 사용자를 추가할 수도 있습니다.
+
 ## <a name="as-a-catalog-owner-delegate-to-an-access-package-manager"></a>카탈로그 소유자가 액세스 패키지 관리자에게 위임
 
 액세스 패키지 관리자 역할에 사용자를 할당하려면 다음 단계를 수행합니다.
@@ -44,7 +46,7 @@ ms.locfileid: "109714299"
 
 1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
-1. 왼쪽 메뉴에서 **카탈로그** 를 클릭한 후 관리자를 추가할 카탈로그를 엽니다.
+1. 왼쪽 메뉴에서 **카탈로그** 를 클릭한 다음 관리자를 추가하려는 카탈로그를 엽니다.
 
 1. 왼쪽 메뉴에서 **역할 및 관리자** 를 클릭합니다.
 
@@ -62,7 +64,7 @@ ms.locfileid: "109714299"
 
 1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
-1. 왼쪽 메뉴에서 **카탈로그** 를 클릭한 후 관리자를 추가할 카탈로그를 엽니다.
+1. 왼쪽 메뉴에서 **카탈로그** 를 클릭한 다음 관리자를 추가하려는 카탈로그를 엽니다.
 
 1. 왼쪽 메뉴에서 **역할 및 관리자** 를 클릭합니다.
 

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a369ed26ca91dbf951b28b99250c6307608c5eb3
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 88ac65c35b29c2113576594788f820973331d64b
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749081"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122531271"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>자격 증명 모음 액세스 정책에서 Azure 역할 기반 액세스 제어 권한 모델로 마이그레이션
 
@@ -24,7 +24,7 @@ Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure 리소스의 세밀한
 Azure RBAC로 마이그레이션하기 전에 이점 및 제한 사항을 이해하는 것이 중요합니다.
 
 자격 증명 모음 액세스 정책과 비교 시 Azure RBAC의 주요 이점:
-- Azure 리소스에 대한 통합된 액세스 제어 모델을 제공 - Azure 서비스 전반에서 동일한 API를 사용합니다.
+- Azure 서비스 전반에서 동일한 API를 사용하여 Azure 리소스에 대한 통합된 액세스 제어 모델을 제공합니다.
 - 관리자용 중앙 집중식 액세스 관리 - 한 보기에서 모든 Azure 리소스를 관리합니다.
 - 시간 기반 액세스 제어를 위해 [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)와 통합합니다.
 - 거부 할당 - 특정 범위에서 보안 주체를 제외할 수 있습니다. 자세한 내용은 [Azure 거부 할당 이해](../../role-based-access-control/deny-assignments.md)를 참조하세요.
@@ -65,7 +65,7 @@ Azure RBAC는 사용자, 그룹, 서비스 주체 및 관리 ID에 할당할 수
 - SharePoint Online 고객 키
 - Azure Information BYOK
 
-### <a name="access-policies-templates-to-azure-roles-mapping"></a>Azure 역할 매핑에 대한 액세스 정책 템플릿
+### <a name="access-policy-templates-to-azure-roles-mapping"></a>Azure 역할 매핑에 대한 액세스 정책 템플릿
 | 액세스 정책 템플릿 | 작업 | Azure 역할 |
 | --- | --- | --- |
 | 키, 비밀, 인증서 관리 | 키: 모든 작업 <br>인증서: 모든 작업<br>비밀: 모든 작업 | 키 자격 증명 모음 관리자 |
@@ -76,7 +76,7 @@ Azure RBAC는 사용자, 그룹, 서비스 주체 및 관리 ID에 할당할 수
 | 인증서 관리 | 인증서: 모든 작업 | 키 자격 증명 모음 인증서 책임자|
 | SQL Server 커넥터 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | 키 자격 증명 모음 암호화 서비스 암호화 사용자|
 | Azure Data Lake Storage 또는 Azure Storage | 키: 가져오기, 나열, 키 래핑 해제 | 해당 없음<br> 사용자 지정 역할 필요|
-| Azure Backup | 키: 가져오기, 나열, 백업<br> 인증서: 가져오기, 나열, 백업 | 해당 없음<br> 사용자 지정 역할 필요|
+| Azure Backup | 키: 가져오기, 나열, 백업<br> 비밀: 가져오기, 나열, 백업 | 해당 없음<br> 사용자 지정 역할 필요|
 | Exchange Online 고객 키 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | 키 자격 증명 모음 암호화 서비스 암호화 사용자|
 | Exchange Online 고객 키 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | 키 자격 증명 모음 암호화 서비스 암호화 사용자|
 | Azure Information BYOK | 키: 가져오기, 암호 해독, 서명 | 해당 없음<br>사용자 지정 역할 필요|
@@ -86,12 +86,12 @@ Azure RBAC는 사용자, 그룹, 서비스 주체 및 관리 ID에 할당할 수
 
 키 자격 증명 모음용 Azure RBAC를 사용하면 다음 범위에서 역할을 할당할 수 있습니다.
 - 관리 그룹
-- Subscription
+- 구독
 - Resource group
 - 키 자격 증명 모음 리소스
 - 개별 키, 비밀 및 인증서
 
-자격 증명 모음 액세스 정책 권한 모델은 키 자격 증명 모음 리소스 수준 정책 할당으로 제한됩니다. 
+자격 증명 모음 액세스 정책 권한 모델은 키 자격 증명 모음 리소스 수준 정책 할당으로 제한됩니다.
 
 일반적으로 애플리케이션당 하나의 키 자격 증명 모음을 사용하고 키 자격 증명 모음 수준에서 액세스를 관리하는 것이 좋습니다. 다른 범위에서 액세스를 관리하면 액세스 관리를 간소화할 수 있는 시나리오가 있습니다.
 

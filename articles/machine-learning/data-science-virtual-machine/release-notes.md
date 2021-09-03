@@ -2,23 +2,48 @@
 title: Data Science Virtual Machine의 새로운 기능
 titleSuffix: Azure Data Science Virtual Machine
 description: Azure Data Science Virtual Machine의 릴리스 정보
-author: timoklimmer
+author: michalmar
 ms.service: data-science-vm
-ms.author: tklimmer
-ms.date: 05/25/2021
+ms.author: mimarusa
+ms.date: 07/16/2021
 ms.topic: reference
-ms.openlocfilehash: a3bb8f3c7174fe301a8c81396bb46b6762e70796
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b74b535a6d6e00f83dd659728bb1ed930e1fb7dd
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409850"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371383"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Azure Data Science Virtual Machine 릴리스 정보
 
 본 문서에서는 Azure Data Science Virtual Machine 릴리스에 대해 알아봅니다. 버전 번호와 함께 포함된 도구 전체 목록은 [관련 페이지](./tools-included.md)를 확인하세요.
 
 알려진 버그 및 해결 방법에 대해 알아보려면 [알려진 문제 목록](reference-known-issues.md)을 참조하세요.
+
+## <a name="2021-07-12"></a>2021-07-12
+
+[Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview)용 새로운 이미지입니다.
+
+주요 변경 사항은 다음과 같습니다.
+
+- PyTorch 1.9.0으로 업데이트
+- Azure CLI를 2.26.1로 업데이트
+- Azure CLI Azure Machine Learning 확장을 1.29.0으로 업데이트
+- VS 코드 버전 1.58.1 업데이트
+- 안정성 개선 및 사소한 버그 수정 
+
+
+## <a name="2021-06-22"></a>2021-06-22
+
+[Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)용 새로운 이미지입니다.
+
+버전: 21.06.22
+
+주요 변경 사항은 다음과 같습니다.
+
+- PyTorch 1.9.0으로 업데이트
+- git을 사용할 수 없는 버그 수정
+
 
 ## <a name="2021-06-01"></a>2021-06-01
 
@@ -41,8 +66,6 @@ ms.locfileid: "111409850"
 ## <a name="2021-05-22"></a>2021-05-22
 
 [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)용 새로운 이미지입니다.
-
-선택한 버전 업데이트는 다음과 같습니다.
 
 버전: 21.05.22
 
@@ -73,9 +96,6 @@ Firefox, Apache Drill, Microsoft Integration Runtime이 제거되었습니다.
 
 <br/>
 다크 모드, 바탕 화면의 아이콘, 배경 화면이 변경되었습니다.
-
-<br/>
-Gen2 가상 머신에서 사용할 이미지를 사용하도록 설정했습니다.
 
 ## <a name="2021-05-12"></a>2021-05-12
 

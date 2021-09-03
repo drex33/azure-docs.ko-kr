@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0341e00e51c5d1c112451142d2e48f9707d525ed
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f2aff30007da50ff1670f239a83f20fe6d8cfa33
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669123"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597177"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Windows VM에 대한 Azure Disk Encryption 시나리오
 
@@ -84,13 +84,10 @@ key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
-- **디스크 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다. OS와 데이터 디스크가 모두 암호화되었을 때 Windows VM에서 데이터 디스크 암호화를 비활성화하면 예상대로 작동하지 않습니다. 대신 모든 디스크에 암호화를 사용하지 않도록 설정하십시오.
-
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
-     ```
+암호화를 사용하지 않도록 설정하려면 [암호화 사용 안 함 및 암호화 확장 제거](#disable-encryption-and-remove-the-encryption-extension)를 참조하세요.
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with-the-azure-cli"></a>Azure CLI를 통해 기존 또는 실행 중인 VM에서 암호화 사용
+
 Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable) 명령을 사용하여 실행 중인 IaaS 가상 머신에서 암호화를 사용하도록 설정합니다.
 
 - **실행 중인 VM 암호화:**
@@ -115,11 +112,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) 명령을 사용합니다. OS와 데이터 디스크가 모두 암호화되었을 때 Windows VM에서 데이터 디스크 암호화를 비활성화하면 예상대로 작동하지 않습니다. 대신 모든 디스크에 암호화를 사용하지 않도록 설정하십시오.
-
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
-     ```
+암호화를 사용하지 않도록 설정하려면 [암호화 사용 안 함 및 암호화 확장 제거](#disable-encryption-and-remove-the-encryption-extension)를 참조하세요.
 
 ### <a name="using-the-resource-manager-template"></a>Resource Manager 템플릿 사용
 
@@ -232,6 +225,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]입니다.
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Azure CLI를 사용하여 새로 추가된 디스크에서 암호화 사용
+
  암호화를 사용하도록 설정하는 명령을 실행하는 경우 Azure CLI 명령은 자동으로 새 순서 버전을 제공합니다. 이 예제에서는 volume-type 매개 변수에 "All"을 사용합니다. OS 디스크만 암호화하는 경우에는 volume-type 매개 변수를 OS로 변경해야 합니다. PowerShell 구문과 달리 CLI에서는 사용자가 암호화를 사용하도록 설정할 때 고유 시퀀스 버전을 제공하지 않아도 됩니다. CLI는 고유 시퀀스 버전 값을 자동으로 생성하여 사용합니다.
 
 -  **실행 중인 VM 암호화:**
@@ -246,9 +240,56 @@ key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "All"
      ```
 
+## <a name="disable-encryption-and-remove-the-encryption-extension"></a>암호화 사용 안 함 및 암호화 확장 제거
 
-## <a name="disable-encryption"></a>암호화 사용 안 함
-[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-powershell.md)]
+Azure Disk Encryption 확장을 사용하지 않도록 설정하고 Azure Disk Encryption 확장을 제거할 수 있습니다. 이는 두 가지 별개의 작업입니다. 
+
+ADE를 제거하려면 먼저 암호화를 사용하지 않도록 설정한 다음 확장을 제거하는 것이 좋습니다. 사용하지 않도록 설정하지 않고 암호화 확장을 제거하면 디스크가 계속 암호화됩니다. 확장을 제거한 **후** 암호화를 사용하지 않도록 설정하면 암호 해독 작업을 수행하기 위해 확장이 다시 설치되고 두 번째 제거되어야 합니다.
+
+### <a name="disable-encryption"></a>암호화 사용 안 함
+
+Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 암호화를 사용하지 않도록 설정할 수 있습니다. 암호화를 사용하지 않도록 설정해도 확장은 제거되지 **않습니다**([암호화 확장 제거](#remove-the-encryption-extension) 참조).
+
+> [!WARNING]
+> OS와 데이터 디스크가 모두 암호화된 경우 데이터 디스크 암호화를 사용하지 않도록 설정하면 예기치 않은 결과가 발생할 수 있습니다. 대신 모든 디스크에 암호화를 사용하지 않도록 설정하십시오.
+>
+> 암호화를 사용하지 않도록 설정하면 BitLocker의 백그라운드 프로세스가 시작되어 디스크의 암호를 해독합니다. 이 프로세스는 암호화를 다시 사용하도록 설정하기 전에 완료할 수 있는 충분한 시간이 주어져야 합니다.  
+
+- **Azure PowerShell을 사용하여 디스크 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다.
+
+     ```azurepowershell-interactive
+     Disable-AzVMDiskEncryption -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM" -VolumeType "all"
+     ```
+
+- **Azure CLI를 사용하여 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) 명령을 사용합니다. 
+
+     ```azurecli-interactive
+     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
+     ```
+
+- **Resource Manager 템플릿으로 암호화를 사용하지 않도록 설정:** 
+
+    1. [실행중인 Windows VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-windows-vm-without-aad) 템플릿에서 **Azure에 배포** 를 클릭합니다.
+    2. 구독, 리소스 그룹, 위치, VM, 볼륨 유형, 약관 및 규약을 선택합니다.
+    3.  **구매** 를 클릭하여 실행 중인 Windows VM에서 디스크 암호화를 사용하지 않도록 설정합니다.
+
+### <a name="remove-the-encryption-extension"></a>암호화 확장 제거
+
+디스크의 암호를 해독하고 암호화 확장을 제거하려면 확장을 제거하기 **전에** 암호화를 사용하지 않도록 설정해야 합니다. [암호화 사용 안 함](#disable-encryption)을 참조하세요.
+
+Azure PowerShell 또는 Azure CLI를 사용하여 암호화 확장을 제거할 수 있습니다. 
+
+- **Azure PowerShell로 디스크 암호화 사용 안 함:** 암호화를 제거하려면 [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) cmdlet을 사용합니다.
+
+     ```azurepowershell-interactive
+     Remove-AzVMDiskEncryptionExtension -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM"
+     ```
+
+- **Azure CLI로 암호화 사용 안 함:** 암호화를 제거하려면 [az vm extension delete](/cli/azure/vm/extension#az_vm_extension_delete) 명령을 사용합니다.
+
+     ```azurecli-interactive
+     az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryptionForWindows"
+     ```
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 

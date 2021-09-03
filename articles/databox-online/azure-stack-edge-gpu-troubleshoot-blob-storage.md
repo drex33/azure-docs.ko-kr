@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 06/10/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: b54fcdc25e6278aa4e98eebde948b5f67525d080
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 2a77d4992d5ee2e505f9e3f29112d45c3776d8d2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111987857"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438765"
 ---
 # <a name="troubleshoot-blob-storage-issues-for-an-azure-stack-edge-device"></a>Azure Stack Edge 장치의 Blob Storage 문제 해결 
 
@@ -40,7 +40,7 @@ ms.locfileid: "111987857"
 |HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다.|Azure Stack Edge에서 Python용 Microsoft Azure Storage 라이브러리의 설치된 버전이 지원되지 않습니다. 지원되는 라이브러리 버전은 [지원되는 Azure 클라이언트 라이브러리](azure-stack-edge-gpu-system-requirements-rest.md#supported-azure-client-libraries)를 참조하세요.|
 |… [SSL: 인증서_검증_실패]...| Python을 실행하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 Base64로 인코딩된 SSL 인증서 파일의 경로로 설정합니다([인증서 다운로드](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates) 방법 참조). 예를 들어 다음을 실행합니다.<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 인증서를 시스템의 인증서 저장소에 추가한 다음 이 환경 변수를 해당 저장소의 경로로 설정합니다. 예를 들어 Ubuntu에서 다음을 실행합니다.<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`|
 |연결 시간 초과|디바이스에 로그인한 후 잠금 해제 여부를 확인합니다. 디바이스가 다시 시작될 때마다 사용자가 로그인할 때까지 잠긴 상태로 유지됩니다.|
-
+|스토리지 계정을 만들거나 업데이트할 수 없습니다. 스토리지 계정의 액세스 키가 유효한지 확인합니다. 필요한 경우 디바이스의 키를 업데이트합니다.|스토리지 계정 키 동기화 [여기](azure-stack-edge-gpu-manage-storage-accounts.md#sync-storage-keys)에서 설명하는 단계를 수행합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

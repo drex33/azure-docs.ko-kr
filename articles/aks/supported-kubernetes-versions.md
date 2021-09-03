@@ -3,19 +3,20 @@ title: Azure Kubernetes Service에서 지원되는 Kubernetes 버전
 description: AKS(Azure Kubernetes Service)의 Kubernetes 버전 지원 정책 및 클러스터 수명 주기에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: c86166c2e38e3fec251707626f5cf9ebab938299
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8e883c92e2ce8d64c30aeb6c8a747c18935d36e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209214"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536850"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
-Kubernetes 커뮤니티에서는 대략 3개월마다 부 버전을 릴리스합니다. 최근에 Kubernetes 커뮤니티에서 1.19 버전부터 [각 버전에 대한 지원 기간을 9개월에서 12개월로 늘렸습니다](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). 
+Kubernetes 커뮤니티에서는 대략 3개월마다 부 버전을 릴리스합니다. 최근에 Kubernetes 커뮤니티에서 1.19 버전부터 [각 버전에 대한 지원 기간을 9개월에서 12개월로 늘렸습니다](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/).
 
 부 버전 릴리스에는 새로운 기능과 향상된 기능이 포함됩니다. 패치는 더 자주 릴리스되며(매주 릴리스되기도 함), 부 버전의 중요한 버그 수정용으로만 제공됩니다. 패치 릴리스에는 보안 취약성 또는 주요 버그에 대한 수정이 포함됩니다.
 
@@ -100,7 +101,15 @@ New Supported Version List
 
 예를 들어 *kube-apiserver* 가 *1.17* 에 있으면 해당 *kube-apiserver* 와 함께 `kubectl`의 *1.16* ~ *1.18* 버전을 사용할 수 있습니다.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 `kubectl`의 버전을 설치하거나 업데이트하려면 `az aks install-cli`를 실행합니다.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+`kubectl` 버전을 설치하거나 업데이트하려면 [Install-AzAksKubectl][install-azakskubectl]을 실행하세요.
+
+---
 
 ## <a name="release-and-deprecation-process"></a>릴리스 및 사용 중단 프로세스
 
@@ -113,7 +122,7 @@ New Supported Version List
 
     > [!NOTE]
     > 구독 관리자 또는 변경하려는 사용자를 확인하려면 [Azure 구독 관리](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)를 참조하세요.
-    
+
   * 사용자는 버전 제거 후 **30일 동안** 지원되는 부 버전 릴리스로 업그레이드하여 지원을 계속 받을 수 있습니다.
 
 새 Kubernetes **패치** 버전의 경우
@@ -129,7 +138,9 @@ AKS에는 사전에 알리지 않고 프로덕션에 영향을 주는 하나 이
 
 ## <a name="azure-portal-and-cli-versions"></a>Azure Portal 및 CLI 버전
 
-포털 또는 Azure CLI를 사용하여 AKS 클러스터를 배포하는 경우 클러스터는 기본적으로 N-1 부 버전 및 최신 패치로 설정됩니다. 예를 들어 AKS에서 *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* 및 *1.15.f* 를 지원하는 경우 선택된 기본 버전은 *1.16.c* 입니다.
+포털, Azure CLI 또는 Azure PowerShell을 사용하여 AKS 클러스터를 배포하는 경우 클러스터는 기본적으로 N-1 부 버전 및 최신 패치로 설정됩니다. 예를 들어 AKS에서 *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* 및 *1.15.f* 를 지원하는 경우 선택된 기본 버전은 *1.16.c* 입니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 사용자의 구독과 지역에 현재 제공되는 버전을 알아보려면 [az aks get-versions][az-aks-get-versions] 명령을 사용합니다. 다음 예제에는 *EastUS* 지역에 제공되는 Kubernetes 버전이 나열되어 있습니다.
 
@@ -137,28 +148,45 @@ AKS에는 사전에 알리지 않고 프로덕션에 영향을 주는 하나 이
 az aks get-versions --location eastus --output table
 ```
 
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+사용자의 구독과 지역에 현재 제공되는 버전을 알아보려면 [Get-AzAksVersion][get-azaksversion] cmdlet을 사용합니다. 다음 예제에는 *EastUS* 지역에 제공되는 Kubernetes 버전이 나열되어 있습니다.
+
+```azurepowershell-interactive
+Get-AzAksVersion -Location eastus
+```
+
+---
+
 ## <a name="aks-kubernetes-release-calendar"></a>AKS Kubernetes 릴리스 달력
 
 이전 릴리스 기록은 [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History)를 참조하세요.
 
 |  K8s 버전 | 업스트림 릴리스  | AKS 미리 보기  | AKS GA  | 수명 종료 |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.18  | 2020년 3월 23일  | 2020년 5월   | 2020년 8월  | 1.21 GA | 
-| 1.19  | 2020년 8월 4일  | 2020년 9월   | 2020년 11월  | 1.22 GA | 
+| 1.18  | 2020년 3월 23일  | 2020년 5월   | 2020년 8월  | *1.21 GA |
+| 1.19  | 2020년 8월 4일  | 2020년 9월   | 2020년 11월  | 1.22 GA |
 | 1.20  | 2020년 12월 8일  | 2021년 1월   | 2021년 3월  | 1.23 GA |
-| 1.21  | 2021년 4월 8일 | 2021년 5월   | 2021년 6월  | 1.24 GA |
+| 1.21  | 2021년 4월 8일 | 2021년 5월   | 2021년 7월  | 1.24 GA |
+| 1.22  | 2021년 8월 4일 | 2021년 9월   | 2021년 10월  | 1.25 GA |
+| 1.23  | 2021년 12월 | 2022년 1월   | 2022년 2월  | 1.26 GA |
 
-
+>[!NOTE]
+>AKS 버전 1.18은 2021년 7월 31일까지 계속 사용할 수 있습니다. 이 날짜가 지나면 AKS는 일반 3가지 버전의 창 지원으로 돌아갑니다. 2021년 6월 30일부터 7월 31일까지 지원 범위가 제한되므로 다음 사항에 유의해야 합니다. 다음은 사용자가 제한할 수 있는 항목을 나열한 것입니다.
+> - 1\.18에서 새 클러스터 및 노드 풀 만들기.
+> - 1\.18 클러스터에서 CRUD 작업.
+> - Kubernetes와 관련이 없는 플랫폼 문제에 대한 Azure 지원. 플랫폼 문제에는 Azure에서 실행되는 네트워킹, 스토리지 또는 컴퓨팅 문제가 포함됩니다. K8s 패치 및 문제 해결에 대한 모든 지원 요청은 지원되는 버전으로 업그레이드하기 위해 요청됩니다.
 
 ## <a name="faq"></a>FAQ
 
 **Microsoft에서 새 Kubernetes 버전을 알리는 방법은 무엇인가요?**
 
-AKS 팀에서 지원이 중단되는 클러스터를 소유한 구독 관리자에게 보내는 이메일뿐만 아니라 설명서, [GitHub](https://github.com/Azure/AKS/releases)에도 새 Kubernetes 버전의 계획된 날짜가 포함된 사전 공지를 게시합니다.  공지 외에도 AKS는 [Azure Advisor](../advisor/advisor-overview.md)를 사용하여 지원되지 않는 경우 사용자에게 경고하도록 Azure Portal 내의 고객에게 알리고, 애플리케이션 또는 개발 프로세스에 영향을 주는 사용되지 않는 API에 대해 경고합니다. 
+AKS 팀에서 지원이 중단되는 클러스터를 소유한 구독 관리자에게 보내는 이메일뿐만 아니라 설명서, [GitHub](https://github.com/Azure/AKS/releases)에도 새 Kubernetes 버전의 계획된 날짜가 포함된 사전 공지를 게시합니다.  공지 외에도 AKS는 [Azure Advisor](../advisor/advisor-overview.md)를 사용하여 지원되지 않는 경우 사용자에게 경고하도록 Azure Portal 내의 고객에게 알리고, 애플리케이션 또는 개발 프로세스에 영향을 주는 사용되지 않는 API에 대해 경고합니다.
 
 **계속 지원받으려면 Kubernetes 버전을 얼마나 자주 업그레이드해야 하나요?**
 
-Kubernetes 1.19부터 [오픈 소스 커뮤니티의 지원이 1년으로 확장되었습니다](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS는 전적으로 업스트림 약정과 일치하는 패치 및 지원을 사용하도록 설정합니다. 1\.19 이상의 AKS 클러스터의 경우 지원되는 버전을 유지하기 위해 1년에 한 번 이상 업그레이드할 수 있습니다. 
+Kubernetes 1.19부터 [오픈 소스 커뮤니티의 지원이 1년으로 확장되었습니다](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS는 전적으로 업스트림 약정과 일치하는 패치 및 지원을 사용하도록 설정합니다. 1\.19 이상의 AKS 클러스터의 경우 지원되는 버전을 유지하기 위해 1년에 한 번 이상 업그레이드할 수 있습니다.
 
 1\.18 이하 버전의 경우 지원 기간은 9개월로 유지되며, 지원되는 버전을 유지하기 위해 9개월마다 한 번씩 업그레이드해야 합니다. Kubernetes 내에서 안정적인 최신의 향상된 기능을 캡처하기 위해 정기적으로 새 버전을 테스트하고 최신 버전으로 업그레이드하도록 준비합니다.
 
@@ -175,7 +203,7 @@ Kubernetes 1.19부터 [오픈 소스 커뮤니티의 지원이 1년으로 확장
 
 '지원되지 않음'은 다음을 의미합니다.
 * 실행하는 버전이 지원되는 버전 목록에 없습니다.
-* 버전 사용 중단 후 30일의 유예 기간 내에 있는 경우를 제외하고는 지원을 요청할 때 클러스터를 지원되는 버전으로 업그레이드하라는 메시지가 표시됩니다. 
+* 버전 사용 중단 후 30일의 유예 기간 내에 있는 경우를 제외하고는 지원을 요청할 때 클러스터를 지원되는 버전으로 업그레이드하라는 메시지가 표시됩니다.
 
 또한 AKS는 지원되는 버전 목록에 해당하지 않는 클러스터에 대한 런타임 또는 다른 보증을 수행하지 않습니다.
 
@@ -210,7 +238,7 @@ AKS에서 지원하지 않는 부 버전의 경우 규모 축소 또는 규모 �
 
 **새로 사용되지 않는 버전을 사용하고 있지만 새 노드 풀을 추가할 수 있나요? 아니면 업그레이드를 해야 하나요?**
 
-아니요. 사용되지 않는 버전의 노드 풀을 클러스터에 추가할 수는 없습니다. 새 버전의 노드 풀은 추가할 수 있습니다. 그러나 이렇게 하려면 먼저 컨트롤 플레인을 업데이트해야 할 수 있습니다. 
+아니요. 사용되지 않는 버전의 노드 풀을 클러스터에 추가할 수는 없습니다. 새 버전의 노드 풀은 추가할 수 있습니다. 그러나 이렇게 하려면 먼저 컨트롤 플레인을 업데이트해야 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -224,3 +252,5 @@ AKS에서 지원하지 않는 부 버전의 경우 규모 축소 또는 규모 �
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
+[get-azaksversion]: /powershell/module/az.aks/get-azaksversion

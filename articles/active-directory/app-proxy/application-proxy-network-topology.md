@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e26522130d98d5e2f706a6c48002ad75b537d32a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a9b12750ec16ee5fe79c91e4ed931426f8dbaa36
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964775"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539258"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용하여 트래픽 흐름 최적화
 
@@ -27,7 +27,7 @@ ms.locfileid: "111964775"
 Azure AD 애플리케이션 프록시를 통해 애플리케이션을 게시할 때 사용자에게서 애플리케이션으로 이동하는 트래픽은 다음 3가지 연결을 통과합니다.
 
 1. 사용자가 Azure의 Azure AD 애플리케이션 프록시 공용 엔드포인트에 연결
-1. 애플리케이션 프록시 서비스에서 애플리케이션 프록시 커넥터에 연결
+1. 애플리케이션 프록시 커넥터에서 애플리케이션 프록시 서비스(아웃바운드)에 연결
 1. 애플리케이션 프록시 커넥터에서 대상 애플리케이션에 연결
 
 :::image type="content" source="./media/application-proxy-network-topology/application-proxy-three-hops.png" alt-text="사용자에서 대상 애플리케이션으로 트래픽 흐름을 보여 주는 다이어그램." lightbox="./media/application-proxy-network-topology/application-proxy-three-hops.png":::

@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 543beb95fd5f207ae7e9a9076feceef42cc854b4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2918a9dc1bbf514b6ab915d9e1d691b9ae4f95d3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130074"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535778"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대한 Azure Monitor Application Insights 에이전트 시작하기
 
@@ -51,11 +51,17 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ``` 
 
+> [!NOTE]
+> `Install-Module` cmdlet의 `AllowPrerelease` 스위치를 사용하면 베타 릴리스를 설치할 수 있습니다. 
+>
+> 자세한 내용은 [설치 모듈](/powershell/module/powershellget/install-module?view=powershell-7.1#parameters)을 참조하세요.
+>
+
 ### <a name="enable-monitoring"></a>모니터링 사용
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
     
         
@@ -74,7 +80,7 @@ Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ### <a name="enable-monitoring"></a>모니터링 사용
 
 ```powershell
-Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 07/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 3b323bf920bd884e821d03bf2def37471775e720
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: cb0a7ede9ee4b4a5f6fbb2312026211784fa486c
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312708"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301567"
 ---
 # <a name="azure-stack-edge-pro-r-technical-specifications"></a>Azure Stack Edge Pro R 기술 사양
 
@@ -31,7 +31,7 @@ Azure Stack Edge Pro R 디바이스에는 계산 및 메모리에 대한 다음�
 | CPU: 사용 가능    | 32개 vCPU                                          |
 | 메모리 유형    | Dell 호환 16GB RDIMM, 2666MT/s, 이중 랭크 |
 | 메모리: 원시    | 256GB RAM(16 x 16GB)                           |
-| 메모리: 사용 가능 | 230GB RAM                                        |
+| 메모리: 사용 가능 | 217GB RAM                                        |
 
 ## <a name="compute-acceleration-specifications"></a>컴퓨팅 가속 사양
 

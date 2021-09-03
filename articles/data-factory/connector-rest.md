@@ -1,24 +1,28 @@
 ---
-title: Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 클라우드 또는 온-프레미스 REST 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하거나 지원되는 원본 데이터 저장소에서 REST 싱크로 복사하는 방법에 대해 알아봅니다.
+title: REST 엔드포인트에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 또는 Azure Synapse Analytics 파이프라인의 복사 작업을 사용하여 클라우드 또는 온-프레미스 REST 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하거나 지원되는 원본 데이터 저장소에서 REST 싱크로 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.author: jianleishen
-ms.openlocfilehash: 24269fcfe7c60140c3d0fe9497eefeba71338bd7
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 07/27/2021
+ms.author: makromer
+ms.openlocfilehash: 5d0c7587b379393976e7229757dc011c6c6aed95
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487082"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642591"
 ---
-# <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
+# <a name="copy-data-from-and-to-a-rest-endpoint-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 REST 엔드포인트에서 데이터 복사
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 REST 엔드포인트에서 그리고 REST 엔드포인트로 데이터를 복사하는 방법을 간략히 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Azure Synapse Analytics 파이프라인에서 복사 작업을 사용하여 REST 엔드포인트에서 데이터를 복사하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory 및 Azure Synapse 파이프라인의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
 
-이 REST 커넥터와 [HTTP 커넥터](connector-http.md)와 [웹 테이블 커넥터](connector-web-table.md)의 차이점은 다음과 같습니다.
+이 REST 커넥터, [HTTP 커넥터](connector-http.md)와 [웹 테이블 커넥터](connector-web-table.md)의 차이점은 다음과 같습니다.
 
 - **REST 커넥터** 는 특히 RESTful API에서 데이터를 복사하는 것을 지원합니다. 
 - **HTTP 커넥터** 는 파일을 다운로드하는 등 모든 HTTP 엔드포인트에서 데이터를 검색하는 데 일반적입니다. 이 REST 커넥터 전에는 HTTP 커넥터를 사용하여 지원은 되지만 REST 커넥터와 비교할 때 기능이 적은 RESTful API에서 데이터를 복사할 수도 있습니다.
@@ -36,7 +40,7 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 - 원본인 REST에 REST JSON 응답을 [있는 그대로](#export-json-response-as-is) 복사하거나 [스키마 매핑](copy-activity-schema-and-type-mapping.md#schema-mapping)을 사용하여 구문 분석합니다. **JSON** 의 응답 페이로드만 지원됩니다.
 
 > [!TIP]
-> Data Factory에서 REST 커넥터를 구성하기 전에 데이터 검색을 위한 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
+> REST 커넥터를 구성하기 전에 데이터 검색을 위한 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -46,13 +50,13 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 REST 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+다음 섹션에서는 REST 커넥터에 한정된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 REST 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성은 **RestService** 로 설정되어야 합니다. | 예 |
 | url | REST 서비스의 기본 URL입니다. | 예 |
@@ -65,10 +69,10 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **Basic** 으로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | userName | REST 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
-| password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
+| password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
 
 **예제**
 
@@ -98,13 +102,13 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **AadServicePrincipal** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
-| servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
-| azureCloudType | 서비스 주체 인증의 경우 AAD 애플리케이션이 등록된 Azure 클라우드 환경의 형식을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용됩니다. | 예 |
+| azureCloudType | 서비스 주체 인증의 경우 AAD 애플리케이션이 등록된 Azure 클라우드 환경의 형식을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 데이터 팩토리 또는 Synapse 파이프라인의 클라우드 환경이 사용됩니다. | 예 |
 
 **예제**
 
@@ -132,11 +136,11 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Azure 리소스 인증에 관리 ID 사용
+### <a name="use-system-assigned-managed-identity-authentication"></a><a name="managed-identity"></a> 시스템 할당 관리 ID 인증 사용
 
 **authenticationType** 속성을 **ManagedServiceIdentity** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
 
@@ -151,6 +155,39 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="use-user-assigned-managed-identity-authentication"></a>사용자 할당 관리 ID 인증 사용
+**authenticationType** 속성을 **ManagedServiceIdentity** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
+| 자격 증명 | 사용자 할당 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
+
+
+**예제**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "ManagedServiceIdentity",
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }    
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -197,7 +234,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **RestResource** 로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터가 결합된 URL(`[URL specified in linked service]/[relative URL specified in dataset]`)에서 데이터를 복사합니다. | 예 |
@@ -233,7 +270,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **RestSource** 로 설정해야 합니다. | 예 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET**(기본값) 또는 **POST** 입니다. | 예 |
@@ -322,7 +359,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **RestSink** 로 설정해야 합니다. | 예 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **POST**(기본값), **PUT**, **PATCH** 입니다. | 예 |
@@ -376,6 +413,57 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
         }
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
+
+REST는 통합 데이터 세트와 인라인 데이터 세트 모두에 대한 데이터 흐름에서 지원됩니다.
+
+### <a name="source-transformation"></a>원본 변환
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 및 **POST** 입니다. | 예 |
+| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터가 결합된 URL(`[URL specified in linked service]/[relative URL specified in dataset]`)에서 데이터를 복사합니다. | 예 |
+| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 쓰는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다.  | 예 |
+| requestInterval | 여러 요청 간의 간격 시간(밀리초)입니다. 요청 간격 값은 [10, 60000] 사이의 숫자여야 합니다. |  예 |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에 있는 하나의 쿼리 매개 변수 이름을 참조하는 사용자 정의 항목입니다. | No |
+
+### <a name="sink-transformation"></a>싱크 변환
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 쓰는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다.  | 예 |
+| requestInterval | 여러 요청 간의 간격 시간(밀리초)입니다. 요청 간격 값은 [10, 60000] 사이의 숫자여야 합니다. |  예 |
+| httpCompressionType | 최적의 압축 수준으로 데이터를 전송하는 동안 사용할 HTTP 압축 형식. 허용되는 값은 **none** 및 **gzip** 입니다. | 예 |
+| writeBatchSize | 일괄 처리당 REST 싱크에 쓸 레코드 수입니다. 기본값은 10000입니다. | 예 |
+
+CRUD 작업을 위해 REST 싱크로 보낼 상대 행 데이터와 함께 delete, insert, update 및 upsert 메서드를 설정할 수 있습니다.
+
+![데이터 흐름 REST 싱크](media/data-flow/data-flow-sink.png)
+
+## <a name="sample-data-flow-script"></a>샘플 데이터 흐름 스크립트
+
+싱크 이전에 행 변경 변환을 사용하여 ADF에 REST 싱크로 수행할 작업 유형을 알려 줍니다. 즉. insert, update, upsert, delete.
+
+```
+AlterRow1 sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:true,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    rowRelativeUrl: 'periods',
+    insertHttpMethod: 'PUT',
+    deleteHttpMethod: 'DELETE',
+    upsertHttpMethod: 'PUT',
+    updateHttpMethod: 'PATCH',
+    timeout: 30,
+    requestFormat: ['type' -> 'json'],
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> sink1
 ```
 
 ## <a name="pagination-support"></a>페이지 매김 지원
@@ -538,4 +626,4 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
+Azure Data Factory 및 Synapse 파이프라인의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.

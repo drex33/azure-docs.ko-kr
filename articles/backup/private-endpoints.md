@@ -1,43 +1,25 @@
 ---
-title: 프라이빗 엔드포인트
-description: Azure Backup에 대한 프라이빗 엔드포인트를 만드는 프로세스와 프라이빗 엔드포인트를 사용하여 리소스의 보안을 유지하는 시나리오를 이해합니다.
+title: Azure Backup에 대한 프라이빗 엔드포인트 만들기 및 사용
+description: 프라이빗 엔드포인트를 사용하여 리소스의 보안을 유지하는 Azure Backup에 대한 프라이빗 엔드포인트를 만드는 프로세스를 이해합니다.
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a44d6d31edb6329c11103e99f0b21aa1ea686ca3
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: df65aad1247f21c4deda3f7ee71f657a3b288168
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678326"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568163"
 ---
-# <a name="private-endpoints-for-azure-backup"></a>Azure Backup 프라이빗 엔드포인트
+# <a name="create-and-use-private-endpoints-for-azure-backup"></a>Azure Backup에 대한 프라이빗 엔드포인트 만들기 및 사용
 
-Azure Backup에서는 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 사용하여 Recovery Services 자격 증명 모음에서 데이터를 안전하게 백업하고 복원할 수 있습니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 하나 이상 사용하여 VNet에 서비스를 효과적으로 제공합니다.
-
-이 문서는 Azure Backup에 대한 프라이빗 엔드포인트를 만드는 프로세스와 프라이빗 엔드포인트를 사용하여 리소스의 보안을 유지하는 시나리오를 이해하는 데 도움이 됩니다.
+이 문서에서는 [Azure Backup에 대한 프라이빗 엔드포인트](private-endpoints-overview.md)를 만드는 프로세스와 프라이빗 엔드포인트를 사용하여 리소스의 보안을 유지하는 시나리오에 대한 정보를 제공합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-- 프라이빗 엔드포인트는 자격 증명 모음에 등록된 항목이 없는 새 Recovery Services 자격 증명 모음에 대해서만 만들 수 있습니다. 따라서 자격 증명 모음에 대한 항목을 보호하려면 프라이빗 엔드포인트를 만들어야 합니다.
-- 한 개의 가상 네트워크에는 여러 Recovery Services 자격 증명 모음에 대한 프라이빗 엔드포인트가 포함될 수 있습니다. 또한 하나의 Recovery Services 자격 증명 모음에는 여러 가상 네트워크에 이 자격 증명 모음에 대한 프라이빗 엔드포인트가 포함될 수 있습니다. 그러나 자격 증명 모음에 대해 만들 수 있는 최대 프라이빗 엔드포인트 수는 12입니다.
-- 자격 증명 모음에 대한 프라이빗 엔드포인트를 만들면 자격 증명 모음이 잠깁니다. 자격 증명 모음에 대한 프라이빗 엔드포인트가 포함된 네트워크 이외의 네트워크에서 액세스할 수 없습니다(백업 및 복원의 경우). 자격 증명 모음에 대한 모든 프라이빗 엔드포인트를 제거하는 경우 모든 네트워크에서 자격 증명 모음에 액세스할 수 있습니다.
-- 백업을 위한 프라이빗 엔드포인트 연결에는 Azure Backup에서 스토리지에 사용하는 IP를 포함하여 서브넷에 총 11개의 개인 IP가 사용됩니다. 이 숫자는 특정 Azure 지역의 경우 더 클 수 있습니다(최대 25개). 따라서 백업용 프라이빗 엔드포인트를 만들려는 경우 사용할 수 있는 충분한 개인 IP가 있는 것이 좋습니다.
-- Recovery Services 자격 증명 모음은 Azure Backup 및 Azure Site Recovery에서 모두 사용하지만 이 문서에서는 Azure Backup 전용 프라이빗 엔드포인트를 사용하는 방법을 설명합니다.
-- Azure Active Directory는 현재 프라이빗 엔드포인트를 지원하지 않습니다. 따라서 Azure Active Directory가 지역에서 작동하는 데 필요한 IP 및 FQDN은 Azure VMs에서 데이터베이스의 백업을 수행하고 MARS 에이전트를 사용하여 백업할 때 보안 네트워크에서의 아웃바운드 액세스가 허용되어야 합니다. 해당하는 경우 Azure AD 액세스를 허용하기 위해 NSG 태그 및 Azure Firewall 태그를 사용할 수도 있습니다.
-- 프라이빗 엔드포인트에서는 네트워크 정책을 사용하는 가상 네트워크가 지원되지 않습니다. 계속하려면 [네트워크 정책을 사용하지 않도록 설정](../private-link/disable-private-endpoint-network-policy.md)해야 합니다.
-- 2020년 5월 1일 이전에 등록한 경우 구독에 Recovery Services 리소스 공급 기업을 다시 등록해야 합니다. 공급 기업을 다시 등록하려면 Azure Portal에서 구독으로 이동하고, 왼쪽 탐색 모음에서 **리소스 공급자** 로 이동한 다음 **Microsoft.RecoveryServices** 를 선택하고, **다시 등록** 을 선택합니다.
-- 자격 증명 모음에 프라이빗 엔드포인트를 사용하도록 설정된 경우 SQL 및 SAP HANA 데이터베이스 백업에 대한 [지역 간 복원](backup-create-rs-vault.md#set-cross-region-restore)이 지원되지 않습니다.
-- 프라이빗 엔드포인트를 사용하여 이미 Recovery Services 자격 증명 모음을 새 테넌트로 이동하는 경우 자격 증명 모음의 관리 ID를 다시 만들고 구성하고 필요에 따라 새 프라이빗 엔드포인트를 만들기 위해 Recovery Services 자격 증명 모음을 업데이트해야 합니다. 이 작업을 수행하지 않으면 백업 및 복원 작업이 실패하기 시작합니다. 또한 구독 내에서 설정된 모든 RBAC(역할 기반 액세스 제어) 권한을 다시 구성해야 합니다.
+프라이빗 엔드포인트 만들기를 진행하기 전에 [필수 조건](private-endpoints-overview.md#before-you-start) 및 [지원되는 시나리오](private-endpoints-overview.md#recommended-and-supported-scenarios)를 읽었는지 확인하세요.
 
-## <a name="recommended-and-supported-scenarios"></a>권장 및 지원되는 시나리오
-
-자격 증명 모음에 프라이빗 엔드포인트를 사용하도록 설정하면 Azure VM 및 MARS 에이전트 백업에서만 SQL 및 SAP HANA 워크로드의 백업 및 복원에 사용됩니다. 다른 워크로드의 백업에도 자격 증명 모음을 사용할 수 있습니다. 그러나 프라이빗 엔드포인트는 필요하지 않습니다. 프라이빗 엔드포인트는 SQL 및 SAP HANA 워크로드 백업 및 MARS 에이전트를 사용한 백업 외에도 Azure VM 백업을 위한 파일 복구를 수행하는 데 사용됩니다. 자세한 내용은 다음 표를 참조하세요.
-
-| Azure VM에서 워크로드 백업(SQL, SAP HANA), MARS 에이전트를 사용하여 백업 | 가상 네트워크에서 Azure Backup 또는 Azure Storage에 대해 허용 목록에 IP/FQDN을 추가하지 않고도 백업 및 복원을 허용하려면 프라이빗 엔드포인트를 사용하는 것이 좋습니다. 해당 시나리오에서는 SQL Database를 호스트하는 VMs에서 Azure AD IP 또는 FQDN에 연결할 수 있는지 확인합니다. |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Azure VM 백업**                                         | VM 백업을 위해 IP 또는 FQDN에 액세스하지 않아도 됩니다. 따라서 디스크 백업 및 복원용 프라이빗 엔드포인트가 필요하지 않습니다.  <br><br>   그러나 프라이빗 엔드포인트가 포함된 자격 증명 모음에서 파일 복구는 자격 증명 모음에 대한 프라이빗 엔드포인트가 포함된 가상 네트워크로 제한됩니다. <br><br>    ACL로 지정된 비관리 디스크를 사용하는 경우 디스크가 포함된 스토리지 계정이 **신뢰할 수 있는 Microsoft 서비스** 에 대한 액세스를 허용하는지 확인합니다(ACL로 지정된 경우). |
-| **Azure Files 백업**                                      | Azure Files 백업은 로컬 스토리지 계정에 저장됩니다. 따라서 백업 및 복원을 위한 프라이빗 엔드포인트가 필요하지 않습니다. |
+이러한 세부 정보는 자격 증명 모음에 대한 프라이빗 엔드포인트를 만들기 전에 충족해야 하는 제한 사항 및 조건을 이해하는 데 도움이 됩니다.
 
 ## <a name="get-started-with-creating-private-endpoints-for-backup"></a>백업용 프라이빗 엔드포인트 만들기 시작
 
@@ -135,6 +117,8 @@ Azure Resource Manager 클라이언트를 사용하여 프라이빗 엔드포인
 ## <a name="manage-dns-records"></a>DNS 레코드 관리
 
 앞에서 설명한 것처럼 비공개로 연결하려면 프라이빗 DNS 영역 또는 서버에 필수 DNS 레코드가 필요합니다. 사용자의 네트워크 기본 설정에 따라 프라이빗 엔드포인트를 Azure 프라이빗 DNS 영역에 직접 통합하거나 사용자 지정 DNS 서버를 사용하여 이 작업을 수행할 수 있습니다. 백업, Blob, 큐의 세 가지 서비스 모두에 대해 이 작업을 수행해야 합니다.
+
+또한 DNS 영역 또는 서버가 프라이빗 엔드포인트가 포함된 구독과 다른 구독에 있는 경우 [DNS 서버/DNS 영역이 다른 구독에 있을 때 DNS 항목 만들기](#create-dns-entries-when-the-dns-serverdns-zone-is-present-in-another-subscription)도 참조하세요. 
 
 ### <a name="when-integrating-private-endpoints-with-azure-private-dns-zones"></a>Azure 프라이빗 DNS 영역과 프라이빗 엔드포인트를 통합하는 경우
 
@@ -534,28 +518,122 @@ $privateEndpoint = New-AzPrivateEndpoint `
     }
     ```
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+### <a name="set-up-proxy-server-for-recovery-services-vault-with-private-endpoint"></a>프라이빗 엔드포인트가 있는 Recovery Services 자격 증명 모음에 대한 프록시 서버 설정
 
-17. 기존 백업 자격 증명 모음에 대한 프라이빗 엔드포인트를 만들 수 있나요?<br>
-A. 아니요. 프라이빗 엔드포인트는 새 백업 자격 증명 모음에 대해서만 만들 수 있습니다. 따라서 자격 증명 모음에는 보호된 항목이 없어야 합니다. 실제로 프라이빗 엔드포인트를 만들기 전에 자격 증명 모음에 대한 항목을 보호하려는 시도를 할 수 없습니다.
+Azure VM 또는 온-프레미스 컴퓨터에 대한 프록시 서버를 구성하려면 다음 단계를 따르세요.
 
-17. 자격 증명 모음에 대한 항목을 보호하려고 했지만 실패했고 자격 증명 모음에 보호된 항목이 아직 포함되어 있지 않습니다. 이 자격 증명 모음에 대한 프라이빗 엔드포인트를 만들 수 있나요?<br>
-A. 아니요, 자격 증명 모음은 과거에 항목을 보호하려고 시도한 적이 없어야 합니다.
+1. 예외에 다음 도메인을 추가하고 프록시 서버를 바이패스합니다.
+   
+   | 서비스 | 도메인 이름 | 포트 |
+   | ------- | ------ | ---- |
+   | Azure Backup | *.backup.windowsazure.com | 443 |
+   | Azure Storage | *.blob.core.windows.net <br><br> *.queue.core.windows.net <br><br> *.blob.storage.azure.net | 443 |
+   | Azure Active Directory <br><br> [Microsoft 365 Common 및 Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online)의 섹션 56 및 59에 언급된 도메인 URL이 업데이트되었습니다. | *.msftidentity.com, *.msidentity.com, account.activedirectory.windowsazure.com, accounts.accesscontrol.windows.net, adminwebservice.microsoftonline.com, api.passwordreset.microsoftonline.com, autologon.microsoftazuread-sso.com, becws.microsoftonline.com, clientconfig.microsoftonline-p.net, companymanager.microsoftonline.com, device.login.microsoftonline.com, graph.microsoft.com, graph.windows.net, login.microsoft.com, login.microsoftonline.com, login.microsoftonline-p.com, login.windows.net, logincert.microsoftonline.com, loginex.microsoftonline.com, login-us.microsoftonline.com, nexus.microsoftonline-p.com, passwordreset.microsoftonline.com, provisioningapi.microsoftonline.com <br><br> 20.190.128.0/18, 40.126.0.0/18, 2603:1006:2000::/48, 2603:1007:200::/48, 2603:1016:1400::/48, 2603:1017::/48, 2603:1026:3000::/48, 2603:1027:1::/48, 2603:1036:3000::/48, 2603:1037:1::/48, 2603:1046:2000::/48, 2603:1047:1::/48, 2603:1056:2000::/48, 2603:1057:2::/48 <br><br> *.hip.live.com, *.microsoftonline.com, *.microsoftonline-p.com, *.msauth.net, *.msauthimages.net, *.msecnd.net, *.msftauth.net, *.msftauthimages.net, *.phonefactor.net, enterpriseregistration.windows.net, management.azure.com, policykeyservice.dc.ad.msft.net | 경우에 따라 |
 
-17. 백업 및 복원을 위해 프라이빗 엔드포인트를 사용하는 자격 증명 모음이 있습니다. 백업 항목이 보호된 경우에도 나중에 이 자격 증명 모음에 대한 프라이빗 엔드포인트를 추가하거나 제거할 수 있나요?<br>
-A. 예. 자격 증명 모음 및 보호된 백업 항목에 대한 프라이빗 엔드포인트를 이미 만든 경우 나중에 필요에 따라 프라이빗 엔드포인트를 추가하거나 제거할 수 있습니다.
+1. 프록시 서버에서 이러한 도메인에 대한 액세스를 허용하고 프록시 서버가 만들어진 VNET과 프라이빗 DNS 영역(`*.privatelink.<geo>.backup.windowsazure.com`, `*.privatelink.blob.core.windows.net`, `*.privatelink.queue.core.windows.net`)을 연결하거나 해당 DNS 항목이 있는 사용자 지정 DNS 서버를 사용합니다. <br><br> 프록시 서버가 실행 중인 VNET과 프라이빗 엔드포인트 NIC가 생성되는 VNET을 피어링해야 프록시 서버가 요청을 개인 IP로 리디렉션할 수 있습니다. 
 
-17. Azure Backup에 대한 프라이빗 엔드포인트를 Azure Site Recovery에도 사용할 수 있나요?<br>
-A. 아니요, 백업용 프라이빗 엔드포인트는 Azure Backup에만 사용할 수 있습니다. 서비스에서 지원하는 경우 Azure Site Recovery에 대한 새 프라이빗 엔드포인트를 만들어야 합니다.
+다음 다이어그램에서는 VNet이 필수 DNS 항목이 있는 프라이빗 DNS 영역에 연결된 프록시 서버의 설정을 보여 줍니다. 프록시 서버는 자체 사용자 지정 DNS 서버를 가질 수도 있으며 위의 도메인은 169.63.129.16에 조건부로 전달될 수 있습니다.
 
-17. 이 문서의 단계 중 하나를 누락했고 데이터 원본을 보호하는 데 문제가 발생했습니다. 여전히 프라이빗 엔드포인트를 사용할 수 있나요?<br>
-A. 이 문서의 단계를 따르지 않고 항목 보호를 계속하면 자격 증명 모음에서 프라이빗 엔드포인트를 사용하지 못할 수 있습니다. 따라서 항목 보호를 계속하기 전에 검사 목록을 참조하는 것이 좋습니다.
+:::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="프록시 서버 설정을 보여 주는 다이어그램." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
 
-17. Azure 프라이빗 DNS 영역 또는 통합된 프라이빗 DNS 영역을 사용하는 대신 자체 DNS 서버를 사용할 수 있나요?<br>
-A. 예, 고유한 DNS 서버를 사용할 수 있습니다. 그러나 이 섹션에서 제안한 대로 필수 DNS 레코드가 모두 추가되었는지 확인합니다.
+### <a name="create-dns-entries-when-the-dns-serverdns-zone-is-present-in-another-subscription"></a>DNS 서버/DNS 영역이 다른 구독에 있는 경우 DNS 항목 만들기
 
-17. 이 문서의 프로세스를 따른 후 서버에서 추가 단계를 수행해야 하나요?<br>
-A. 이 문서에 자세히 설명된 프로세스를 따른 후에는 백업 및 복원에 프라이빗 엔드포인트를 사용하기 위해 추가 작업을 수행할 필요가 없습니다.
+이 섹션에서는 구독에 있는 DNS 영역을 사용하거나 허브 및 스포크 토폴로지와 같은 Recovery Services 자격 증명 모음에 대한 프라이빗 엔드포인트를 포함하는 것과 다른 리소스 그룹을 사용하는 경우에 대해 자세히 설명합니다. 프라이빗 엔드포인트(및 DNS 항목) 만들기에 사용되는 관리 ID에는 프라이빗 엔드포인트가 만들어진 리소스 그룹에 대한 권한만 있으므로 필요한 DNS 항목이 추가로 필요합니다. 다음 PowerShell 스크립트를 사용하여 DNS 항목을 만듭니다.
+  
+>[!Note]
+>필요한 결과를 얻으려면 아래에 설명된 전체 프로세스를 참조하세요. 프로세스를 두 번 반복해야 합니다. 첫 번째 검색 동안 한 번(통신 스토리지 계정에 필요한 DNS 항목 만들기), 첫 번째 백업 동안 한 번(백 엔드 스토리지 계정에 필요한 DNS 항목 만들기).
+
+#### <a name="step-1-get-required-dns-entries"></a>1단계: 필요한 DNS 항목 가져오기
+
+[PrivateIP.ps1](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/PrivateIP.ps1) 스크립트를 사용하여 만들어야 하는 모든 DNS 항목을 나열합니다.
+
+>[!Note]
+>아래 구문의 `subscription`은 자격 증명 모음의 프라이빗 엔드포인트가 만들어질 구독을 나타냅니다.
+
+**스크립트 사용 구문**
+
+```azurepowershell
+./PrivateIP.ps1 -Subscription "<VaultPrivateEndpointSubscriptionId>" -VaultPrivateEndpointName "<vaultPrivateEndpointName>" -VaultPrivateEndpointRGName <vaultPrivateEndpointRGName> -DNSRecordListFile dnsentries.txt
+```
+
+**샘플 출력**
+
+```
+ResourceName                                                                 DNS                                                                       PrivateIP
+<vaultId>-ab-pod01-fc1         privatelink.eus.backup.windowsazure.com         10.12.0.15
+<vaultId>-ab-pod01-fab1        privatelink.eus.backup.windowsazure.com         10.12.0.16
+<vaultId>-ab-pod01-prot1       privatelink.eus.backup.windowsazure.com         10.12.0.17
+<vaultId>-ab-pod01-rec2        privatelink.eus.backup.windowsazure.com         10.12.0.18
+<vaultId>-ab-pod01-ecs1        privatelink.eus.backup.windowsazure.com         10.12.0.19
+<vaultId>-ab-pod01-id1         privatelink.eus.backup.windowsazure.com         10.12.0.20
+<vaultId>-ab-pod01-tel1        privatelink.eus.backup.windowsazure.com         10.12.0.21
+<vaultId>-ab-pod01-wbcm1       privatelink.eus.backup.windowsazure.com         10.12.0.22
+abcdeypod01ecs114        privatelink.blob.core.windows.net       10.12.0.23
+abcdeypod01ecs114        privatelink.queue.core.windows.net      10.12.0.24
+abcdeypod01prot120       privatelink.blob.core.windows.net       10.12.0.28
+abcdeypod01prot121       privatelink.blob.core.windows.net       10.12.0.32
+abcdepod01prot110       privatelink.blob.core.windows.net       10.12.0.36
+abcdeypod01prot121       privatelink.blob.core.windows.net       10.12.0.30
+abcdeypod01prot122       privatelink.blob.core.windows.net       10.12.0.34
+abcdepod01prot120       privatelink.blob.core.windows.net       10.12.0.26
+
+```
+
+#### <a name="step-2-create--dns-entries"></a>2단계: DNS 항목 만들기
+
+위 항목에 해당하는 DNS 항목을 만듭니다. 사용 중인 DNS 유형에 따라 DNS 항목을 만들기 위한 두 가지 대안이 있습니다.
+
+**사례 1**: 사용자 지정 DNS 서버를 사용하는 경우 위의 스크립트에서 각 레코드에 대한 항목을 수동으로 만들고 FQDN(ResourceName.DNS)이 VNET 내의 개인 IP로 확인되는지 확인해야 합니다.
+
+**사례 2**: Azure 프라이빗 DNS 영역을 사용하는 경우 [CreateD SEntries.ps1](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/CreateDNSEntries.ps1) 스크립트를 사용하여 프라이빗 DNS 영역에 DNS 항목을 자동으로 만들 수 있습니다. 다음 구문에서 `subscription`은 프라이빗 DNS 영역이 있는 구문입니다.
+
+**스크립트 사용 구문**
+
+```azurepowershell
+/CreateDNSEntries.ps1 -Subscription <PrivateDNSZoneSubId> -DNSResourceGroup <PrivateDNSZoneRG> -DNSRecordListFile dnsentries.txt
+```
+
+#### <a name="summary-of-the-entire-process"></a>전체 프로세스 요약
+
+이 해결 방법을 통해 RSV에 대한 프라이빗 엔드포인트를 올바르게 설정하려면 다음을 수행해야 합니다.
+
+1. 이 문서의 앞부분에서 설명한 대로 자격 증명 모음에 대한 프라이빗 엔드포인트를 만듭니다.
+1. 검색을 트리거합니다. 통신 스토리지 계정에 대한 DNS 항목이 없기 때문에 SQL/HANA 검색이 _UserErrorVMInternetConnectivityIssue_ 와 함께 실패합니다.
+1. 스크립트를 실행하여 DNS 항목을 가져오고 이 섹션의 앞부분에서 언급한 통신 스토리지 계정에 대한 DNS 항목을 만듭니다.
+1. 검색을 다시 트리거합니다. 이번에는 검색에 성공해야 합니다.
+1. 백업을 트리거합니다. 이 섹션의 앞부분에서 언급한 것처럼 백 엔드 스토리지 계정에 대한 DNS 항목이 없기 때문에 SQL/HANA 및 MARS에 대한 백업이 실패할 수 있습니다.
+1. 스크립트를 실행하여 백 엔드 스토리지 계정에 대한 DNS 항목을 만듭니다.
+1. 백업을 다시 트리거합니다. 이번에는 백업이 성공해야 합니다.
+
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
+
+### <a name="can-i-create-a-private-endpoint-for-an-existing-backup-vaultbr"></a>기존 백업 자격 증명 모음에 대한 프라이빗 엔드포인트를 만들 수 있나요?<br>
+
+아니요. 프라이빗 엔드포인트는 새 백업 자격 증명 모음에 대해서만 만들 수 있습니다. 따라서 자격 증명 모음에는 보호된 항목이 없어야 합니다. 실제로 프라이빗 엔드포인트를 만들기 전에 자격 증명 모음에 대한 항목을 보호하려는 시도를 할 수 없습니다.
+
+### <a name="i-tried-to-protect-an-item-to-my-vault-but-it-failed-and-the-vault-still-doesnt-contain-any-items-protected-to-it-can-i-create-private-endpoints-for-this-vaultbr"></a>자격 증명 모음에 대한 항목을 보호하려고 했지만 실패했고 자격 증명 모음에 보호된 항목이 아직 포함되어 있지 않습니다. 이 자격 증명 모음에 대한 프라이빗 엔드포인트를 만들 수 있나요?<br>
+
+아니요, 자격 증명 모음은 과거에 항목을 보호하려고 시도한 적이 없어야 합니다.
+
+### <a name="i-have-a-vault-thats-using-private-endpoints-for-backup-and-restore-can-i-later-add-or-remove-private-endpoints-for-this-vault-even-if-i-have-backup-items-protected-to-itbr"></a>백업 및 복원을 위해 프라이빗 엔드포인트를 사용하는 자격 증명 모음이 있습니다. 백업 항목이 보호된 경우에도 나중에 이 자격 증명 모음에 대한 프라이빗 엔드포인트를 추가하거나 제거할 수 있나요?<br>
+
+예. 자격 증명 모음 및 보호된 백업 항목에 대한 프라이빗 엔드포인트를 이미 만든 경우 나중에 필요에 따라 프라이빗 엔드포인트를 추가하거나 제거할 수 있습니다.
+
+### <a name="can-the-private-endpoint-for-azure-backup-also-be-used-for-azure-site-recoverybr"></a>Azure Backup에 대한 프라이빗 엔드포인트를 Azure Site Recovery에도 사용할 수 있나요?<br>
+
+아니요, 백업용 프라이빗 엔드포인트는 Azure Backup에만 사용할 수 있습니다. 서비스에서 지원하는 경우 Azure Site Recovery에 대한 새 프라이빗 엔드포인트를 만들어야 합니다.
+
+### <a name="i-missed-one-of-the-steps-in-this-article-and-went-on-to-protect-my-data-source-can-i-still-use-private-endpointsbr"></a>이 문서의 단계 중 하나를 누락했고 데이터 원본을 보호하는 데 문제가 발생했습니다. 여전히 프라이빗 엔드포인트를 사용할 수 있나요?<br>
+
+이 문서의 단계를 따르지 않고 항목 보호를 계속하면 자격 증명 모음에서 프라이빗 엔드포인트를 사용하지 못할 수 있습니다. 따라서 항목 보호를 계속하기 전에 검사 목록을 참조하는 것이 좋습니다.
+
+### <a name="can-i-use-my-own-dns-server-instead-of-using-the-azure-private-dns-zone-or-an-integrated-private-dns-zonebr"></a>Azure 프라이빗 DNS 영역 또는 통합된 프라이빗 DNS 영역을 사용하는 대신 자체 DNS 서버를 사용할 수 있나요?<br>
+
+예, 고유한 DNS 서버를 사용할 수 있습니다. 그러나 이 섹션에서 제안한 대로 필수 DNS 레코드가 모두 추가되었는지 확인합니다.
+
+### <a name="do-i-need-to-perform-any-additional-steps-on-my-server-after-ive-followed-the-process-in-this-articlebr"></a>이 문서의 프로세스를 따른 후 서버에서 추가 단계를 수행해야 하나요?<br>
+
+이 문서에 자세히 설명된 프로세스를 따른 후에는 백업 및 복원에 프라이빗 엔드포인트를 사용하기 위해 추가 작업을 수행할 필요가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

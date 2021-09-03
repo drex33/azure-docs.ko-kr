@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 505a160ee677815c5619fad47fd0d1b9ced7d68d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 282c463f1045cda63abec0358da38f294e41b05a
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669446"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205152"
 ---
 # <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>Shared Image Gallery 이미지에 관리형 이미지 복제
 
@@ -71,6 +71,10 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
+
+> [!NOTE]
+> 타사 이미지에서 파생된 이미지를 포함할 이미지 정의의 경우 계획 정보는 타사 이미지의 계획 정보와 정확히 일치해야 합니다. 이미지 정의를 만들 때 `-PurchasePlanName`, `-PurchasePlanProduct` 및 `-PurchasePlanPublisher`를 추가하여 이미지 정의에 계획 정보를 포함합니다.
+>
 
 ## <a name="get-the-managed-image"></a>관리되는 이미지 가져오기
 

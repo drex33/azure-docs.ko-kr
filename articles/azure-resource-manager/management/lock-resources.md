@@ -2,14 +2,14 @@
 title: 변경을 방지하기 위해 리소스 잠그기
 description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용자가 Azure 리소스를 업데이트하거나 삭제하지 못하도록 합니다.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5d8af2529039aa6e9435243249d7724d996b119d
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 27ab9d607f3b8fad669682e980bc0178e8dfad42
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634800"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567780"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -43,7 +43,9 @@ ms.locfileid: "109634800"
 
 - **스토리지 계정** 에 읽기 전용 잠금을 설정하면 사용자가 키를 나열할 수 없습니다. Azure Storage [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업은 POST 요청을 통해 처리되어 계정 키에 대한 액세스를 보호하며 스토리지 계정의 데이터에 대한 모든 액세스 권한을 제공합니다. 스토리지 계정에 대한 읽기 전용 잠금을 구성하는 경우 계정 키를 소유하지 않은 사용자는 Azure AD 자격 증명을 사용하여 Blob 또는 큐 데이터에 액세스해야 합니다. 또한 읽기 전용 잠금은 스토리지 계정 또는 데이터 컨테이너(Blob 컨테이너 또는 큐)로 범위가 지정된 Azure RBAC 역할의 할당을 방지합니다.
 
-- **스토리지 계정** 에 대한 삭제 불가 잠금은 해당 계정 내의 데이터가 삭제되거나 수정되는 것을 방지하지 않습니다. 이 유형의 잠금은 스토리지 계정 자체를 삭제하지 않도록 보호하고 해당 스토리지 계정 내에서 Blob, 큐, 테이블 또는 파일 데이터를 보호하지 않습니다.
+- **스토리지 계정** 에 대한 삭제 불가 잠금은 해당 계정 내의 데이터가 삭제되거나 수정되는 것을 방지하지 않습니다. 이 유형의 잠금은 스토리지 계정 자체가 삭제되지 않도록 보호합니다. 요청이 [데이터 영역 작업](control-plane-and-data-plane.md#data-plane)을 사용하는 경우 스토리지 계정에 대한 잠금은 해당 스토리지 계정 내의 Blob, 큐, 테이블 또는 파일 데이터를 보호하지 않습니다. 그러나 요청이 [컨트롤 플레인 작업](control-plane-and-data-plane.md#control-plane)을 사용하는 경우 잠금이 해당 리소스를 보호합니다.
+
+  예를 들어 요청에서 컨트롤 플레인 작업인 [파일 공유 - 삭제](/rest/api/storagerp/file-shares/delete)를 사용하는 경우 삭제가 거부됩니다. 요청에서 데이터 영역 작업인 [공유 삭제](/rest/api/storageservices/delete-share)를 사용하는 경우 삭제가 성공합니다. 컨트롤 플레인 작업을 사용하는 것이 좋습니다.
 
 - **스토리지 계정** 에 대한 읽기 전용 잠금을 설정해도 해당 계정의 데이터는 삭제되거나 수정되지 않습니다. 이 잠금 유형은 스토리지 계정 자체를 삭제 또는 수정하지 않도록 보호하고 해당 스토리지 계정 내에서 Blob, 큐, 테이블 또는 파일 데이터를 보호하지 않습니다.
 
@@ -60,6 +62,10 @@ ms.locfileid: "109634800"
 - **리소스 그룹** 에 대한 삭제할 수 없는 잠금의 경우 **Azure Machine Learning** 이 [Azure Machine Learning 컴퓨팅 클러스터](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed)를 자동 크기 조정하여 사용하지 않는 노드를 제거하지 못합니다.
 
 - **구독** 에 대해 읽기 전용 잠금을 설정하면 **Azure Advisor** 가 제대로 작동하지 않습니다. Advisor가 쿼리 결과를 저장할 수 없습니다.
+
+- **Application Gateway** 에 대한 읽기 전용 잠금은 애플리케이션 게이트웨이의 백 엔드 상태를 가져오지 못하게 합니다. 이 [작업은 읽기 전용 잠금으로 차단된 POST](/rest/api/application-gateway/application-gateways/backend-health)를 사용합니다.
+
+- **AKS 클러스터** 에 대한 읽기 전용 잠금은 모든 사용자가 Azure Portal에 있는 AKS 클러스터 왼쪽 블레이드의 **Kubernetes 리소스** 섹션에서 클러스터 리소스에 액세스하는 것을 방지합니다. 이러한 작업에는 인증을 위한 POST 요청이 필요합니다.
 
 ## <a name="who-can-create-or-delete-locks"></a>잠금을 만들거나 삭제할 수 있는 사람
 
@@ -195,7 +201,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-주 Bicep 파일은 리소스 그룹을 만들고 [모듈](../templates/bicep-modules.md)을 사용하여 잠금을 만듭니다.
+주 Bicep 파일은 리소스 그룹을 만들고 [모듈](../bicep/modules.md)을 사용하여 잠금을 만듭니다.
 
 ```Bicep
 targetScope = 'subscription'

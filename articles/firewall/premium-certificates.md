@@ -1,28 +1,24 @@
 ---
-title: Azure Firewall 프리미엄 미리 보기 인증서
-description: Azure Firewall 프리미엄 미리 보기에서 TLS 검사를 적절히 구성하려면 중간 CA 인증서를 구성하고 설치해야 합니다.
+title: Azure Firewall 프리미엄 인증서
+description: Azure Firewall 프리미엄에서 TLS 검사를 적절히 구성하려면 중간 CA 인증서를 구성하고 설치해야 합니다.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 08/02/2021
 ms.author: victorh
-ms.openlocfilehash: 47ebc752dedd72bbdedc02908911f1686584acda
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0826e58f4b61e0a99064226a8488f1c3fb499cd7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102615502"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536191"
 ---
-# <a name="azure-firewall-premium-preview-certificates"></a>Azure Firewall 프리미엄 미리 보기 인증서 
+# <a name="azure-firewall-premium-certificates"></a>Azure Firewall 프리미엄 인증서 
 
-> [!IMPORTANT]
-> Azure Firewall 프리미엄은 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+Azure Firewall 프리미엄 TLS 검사를 올바르게 구성하려면 유효한 중간 CA 인증서를 제공하고 Azure Key Vault에 보관해야 합니다.
 
- Azure Firewall 프리미엄 미리 보기 TLS 검사를 올바르게 구성하려면 유효한 중간 CA 인증서를 제공하고 Azure Key Vault에 보관해야 합니다.
-
-## <a name="certificates-used-by-azure-firewall-premium-preview"></a>Azure Firewall 프리미엄 미리 보기에서 사용하는 인증서
+## <a name="certificates-used-by-azure-firewall-premium"></a>Azure Firewall 프리미엄에서 사용하는 인증서
 
 일반적인 배포에는 다음과 같은 세 가지 유형의 인증서가 사용됩니다.
 
@@ -42,7 +38,7 @@ ms.locfileid: "102615502"
 
    인증 기관은 트리 구조 형식으로 여러 인증서를 발급할 수 있습니다. 루트 인증서는 트리의 최상위 인증서입니다.
 
-Azure Firewall 프리미엄 미리 보기는 아웃바운드 HTTP/S 트래픽을 가로막고 `www.website.com`에 대한 서버 인증서를 자동으로 만들 수 있습니다. 이 인증서는 사용자가 제공하는 중간 CA 인증서를 사용하여 만들어집니다. 이 프로시저를 수행하려면 최종 사용자 브라우저 및 클라이언트 애플리케이션이 조직의 루트 CA 인증서 또는 중간 CA 인증서를 신뢰해야 합니다. 
+Azure Firewall 프리미엄은 아웃바운드 HTTP/S 트래픽을 가로막고 `www.website.com`에 대한 서버 인증서를 자동으로 만들 수 있습니다. 이 인증서는 사용자가 제공하는 중간 CA 인증서를 사용하여 만들어집니다. 이 프로시저를 수행하려면 최종 사용자 브라우저 및 클라이언트 애플리케이션이 조직의 루트 CA 인증서 또는 중간 CA 인증서를 신뢰해야 합니다. 
 
 :::image type="content" source="media/premium-certificates/certificate-process.png" alt-text="인증서 프로세스":::
 
@@ -82,7 +78,7 @@ Azure Firewall이 사용자 대신 Key Vault에서 인증서를 검색하는 데
 
 ## <a name="configure-a-certificate-in-your-policy"></a>정책에서 인증서 구성
 
-방화벽 프리미엄 정책에서 CA 인증서를 구성하려면 정책을 선택한 다음 **TLS 검사(미리 보기)** 를 선택하세요. **TLS 검사** 페이지에서 **사용** 을 선택합니다. 그리고 Azure Key Vault에서 다음 그림과 같이 CA 인증서를 선택합니다.
+방화벽 프리미엄 정책에서 CA 인증서를 구성하려면 정책을 선택한 다음 **TLS 검사** 를 선택하세요. **TLS 검사** 페이지에서 **사용** 을 선택합니다. 그리고 Azure Key Vault에서 다음 그림과 같이 CA 인증서를 선택합니다.
 
 :::image type="content" source="media/premium-certificates/tls-inspection.png" alt-text="Azure Firewall 프리미엄 개요 다이어그램":::
  
@@ -90,13 +86,12 @@ Azure Firewall이 사용자 대신 Key Vault에서 인증서를 검색하는 데
 > Azure Portal에서 인증서를 확인하고 구성하려면 Azure 사용자 계정을 Key Vault 액세스 정책에 추가해야 합니다. **비밀 사용 권한** 아래에서 사용자 계정에 **가져오기** 및 **목록** 을 지정합니다.
    :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Azure Key Vault 액세스 정책":::
 
-
 ## <a name="create-your-own-self-signed-ca-certificate"></a>자체 서명된 CA 인증서 만들기
 
-TLS 검사를 테스트하고 확인하는 데 도움이 되도록 다음 스크립트를 사용하여 자체 서명된 루트 CA 및 중간 CA를 생성할 수 있습니다.
+자체 인증서를 만들어 TLS 검사를 테스트하고 확인하는 데 도움이 되려면 다음 스크립트를 사용하여 자체 서명된 루트 CA 및 중간 CA를 생성할 수 있습니다.
 
 > [!IMPORTANT]
-> 프로덕션의 경우 기업 PKI를 사용하여 중간 CA 인증서를 생성해야 합니다. 기업 PKI는 기존 인프라를 활용하고 모든 엔드포인트 머신에 루트 CA를 배포합니다. 자세한 내용은 [Azure Firewall 미리 보기에 대한 Enterprise CA 인증서 배포 및 구성](premium-deploy-certificates-enterprise-ca.md)을 참조하세요.
+> 프로덕션의 경우 기업 PKI를 사용하여 중간 CA 인증서를 생성해야 합니다. 기업 PKI는 기존 인프라를 활용하고 모든 엔드포인트 머신에 루트 CA를 배포합니다. 자세한 내용은 [Azure Firewall에 대한 Enterprise CA 인증서 배포 및 구성](premium-deploy-certificates-enterprise-ca.md)을 참조하세요.
 
 이 스크립트에는 두 가지 버전이 있습니다.
 - bash 스크립트 `cert.sh` 
@@ -202,6 +197,18 @@ Write-Host "   - interCA.pfx - Intermediate CA pkcs12 package which could be upl
 Write-Host "================"
 
 ```
+
+## <a name="certificate-auto-generation-preview"></a>인증서 자동 생성(미리 보기)
+
+비프로덕션 배포의 경우 다음 세 가지 리소스를 자동으로 만드는 Azure Firewall 프리미엄 인증 자동 생성 메커니즘을 사용할 수 있습니다.
+
+- 관리 ID
+- Key Vault
+- 자체 서명된 루트 CA 인증서
+
+새로운 미리 보기 관리 ID를 선택하기만 하면 프리미엄 정책에서 세 가지 리소스를 함께 연결하고 TLS 검사를 설정합니다. 
+
+:::image type="content" source="media/premium-certificates/auto-gen-certs.png" alt-text="자동 생성된 인증서":::
 
 ## <a name="troubleshooting"></a>문제 해결
 

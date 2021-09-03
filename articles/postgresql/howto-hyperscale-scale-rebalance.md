@@ -6,17 +6,17 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/09/2021
-ms.openlocfilehash: 63322fac4c6ad5b705deedcd8a80466ddd803814
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 07/20/2021
+ms.openlocfilehash: 19b44306185dcfcdd3675898b9066019f686dc75
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305704"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463560"
 ---
 # <a name="rebalance-shards-in-hyperscale-citus-server-group"></a>하이퍼스케일(Citus) 서버 그룹의 분할된 데이터베이스 리밸런스
 
-새로 추가된 노드를 활용하려면 분산 테이블 [분할된 데이터베이스](concepts-hyperscale-distributed-data.md#shards)를 리밸런스해야 합니다. 이는 일부 분할된 데이터베이스를 기존 노드에서 새 노드로 이동하는 것을 의미합니다.
+새로 추가된 노드를 활용하려면 분산 테이블 [분할된 데이터베이스](concepts-hyperscale-distributed-data.md#shards)를 리밸런스해야 합니다. 이는 일부 분할된 데이터베이스를 기존 노드에서 새 노드로 이동하는 것을 의미합니다. 하이퍼스케일(Citus)은 가동 중지 시간이 없는 리밸런싱을 제공하므로 분할된 데이터베이스 리밸런싱 중에 쿼리를 중단 없이 실행할 수 있습니다.
 
 ## <a name="determine-if-the-server-group-needs-a-rebalance"></a>서버 그룹에 리밸런스가 필요한지 확인
 

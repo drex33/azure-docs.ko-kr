@@ -2,13 +2,13 @@
 title: IoT Edge for Linux on Windows에 배포 - Azure
 description: 이 문서에서는 IoT Edge for Linux on Windows 디바이스에 배포하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: 2907318f7d1c49c4aea247880a9880e724b46ca6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: e80721375cf4b0c912fe47ec76c2cebe92359f90
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387461"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536512"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>IoT EFLOW(Edge for Linux on Windows) 디바이스에 배포
 
@@ -25,19 +25,17 @@ ms.locfileid: "110387461"
 
 다음은 문서의 전반적인 흐름을 보여주고 5개의 간단한 단계에서는 EFLOW가 있는 Windows 디바이스에서 Azure Video Analyzer를 실행하도록 모두 설정해야 합니다.
 
-![IoT EFLOW(Edge for Linux on Windows) 다이어그램](./media/deploy-iot-edge-linux-on-windows/eflow.png)
+![IoT Edge for Linux on Windows(E FLOW) 다이어그램.](./media/deploy-iot-edge-linux-on-windows/eflow.png)
 
-1. Windows 디바이스에 [EFLOW를 설치](../../iot-edge/how-to-install-iot-edge-on-windows.md)합니다. 
+1. PowerShell을 사용하여 Windows 디바이스에 [EFLOW를 설치](../../iot-edge/how-to-install-iot-edge-on-windows.md)합니다.
 
-    1. Windows PC를 사용하는 경우 [Windows Admin Center](/windows-server/manage/windows-admin-center/overview) 시작 페이지의 연결 목록 아래에 Windows Admin Center를 실행하는 PC를 나타내는 로컬 호스트 연결이 표시됩니다. 
-    1. 관리하는 모든 추가 서버, PC 또는 클러스터도 여기에 표시됩니다.
-    1. Windows Admin Center를 통해 로컬 디바이스나 원격 관리 디바이스에서 Azure EFLOW를 설치하고 관리할 수 있습니다. 이 안내선에서 로컬 호스트 연결은 Azure IoT Edge for Linux on Windows를 배포하기 위한 대상 디바이스로 역할을 했습니다. 따라서 localhost가 IoT Edge 디바이스로도 나열됩니다.
 
-    ![배포 단계 - Windows Admin Center](./media/deploy-iot-edge-linux-on-windows/windows-admin-center.png) 
-1. IoT Edge 디바이스를 클릭하여 연결하면 개요 및 명령 셸 탭이 표시됩니다. 명령 셸 탭에서는 에지 디바이스에 대한 명령을 실행할 수 있습니다.
+1. EFLOW가 설치되면 PowerShell에 `Connect-EflowVm` 명령을 입력하여(관리자 권한으로) 연결합니다. 그러면 EFLOW VM을 제어하기 위해 PowerShell 내에 bash 터미널이 표시되며, 여기서 Top 및 Nano와 같은 유틸리티를 포함한 Linux 명령을 실행할 수 있습니다. 
 
-    ![배포 단계 - Azure IoT Edge Manager](./media/deploy-iot-edge-linux-on-windows/azure-iot-edge-manager.png)
-1. 명령 셸로 이동하고 다음 명령을 입력합니다.
+    > [!TIP] 
+    > EFLOW VM을 종료하려면 터미널 내에 `exit`를 입력합니다.
+
+1. PowerShell을 통해 EFLOW VM에 로그인하고 다음 명령을 입력합니다.
 
     `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
 
@@ -51,18 +49,22 @@ ms.locfileid: "110387461"
     * `/var/media`
 
     분석할 입력 파일 역할을 하는 /home/localedgeuser/samples/input 폴더에 있는 비디오 파일(*.mkv)을 확인합니다. 
-1. 에지 디바이스를 설정하고, 허브에 등록하고, 생성된 올바른 폴더 구조를 사용하여 성공적으로 실행했으므로 다음 단계는 다음과 같은 추가 Azure 리소스를 설정하고 AVA 모듈을 배포하는 것입니다. 
-
-    * 스토리지 계정
-    * Azure Media Services 계정
+1. 에지 디바이스를 설정하고, 허브에 등록하고, 생성된 올바른 폴더 구조를 사용하여 성공적으로 실행했으므로 다음 단계는 다음과 같은 추가 Azure 리소스를 설정하고 AVA 모듈을 배포하는 것입니다. 다음 배포 템플릿은 리소스 만들기를 처리합니다.
 
     [![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+    
+    배포 프로세스는 약 20분이 걸립니다. 배포 프로세스가 완료되면 Azure 구독에 다음을 비롯한 특정 Azure 리소스가 배포됩니다.
+
+    * Video Analyzer 계정 - 이 클라우드 서비스는 Video Analyzer 에지 모듈을 등록하고 녹화된 비디오 및 비디오 분석을 재생하는 데 사용됩니다.
+    * 스토리지 계정 - 녹화된 비디오 및 비디오 분석을 저장하는 데 사용됩니다.
+    * 관리 ID - 위의 스토리지 계정에 대한 액세스를 관리하는 데 사용되는 사용자 할당 관리 ID입니다.
+    * IoT Hub - IoT 애플리케이션, IoT Edge 및 관리하는 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다.
 
     템플릿에서 에지 디바이스가 필요한지 묻는 메시지가 표시되면 이전에 디바이스와 IoT Hub를 모두 만들었으므로 "사용 및 기존 에지 디바이스" 옵션을 선택합니다. 또한 후속 단계에서 IoT Hub 이름 및 IoT Edge 디바이스 ID를 입력하라는 메시지가 표시됩니다.  
     
     ![기존 디바이스 사용](./media/deploy-iot-edge-linux-on-windows/use-existing-device.png) 
 
-    완료되면 IoT Edge 디바이스 명령 셸에 다시 로그인하여 다음 명령을 실행할 수 있습니다.
+    완료되면 EFLOW VM에 다시 로그인하고 다음 명령을 실행할 수 있습니다.
 
     **`sudo iotedge list`**
 

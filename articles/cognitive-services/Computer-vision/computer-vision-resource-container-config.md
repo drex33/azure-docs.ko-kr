@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 3e6c4b73e8aeb26c6ac4025ef3c07fb4f8d48eaf
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d5e405447a93f23f4845a018a74229aacbbad09c
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308645"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302125"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>읽기 OCR Docker 컨테이너 구성
 
@@ -41,6 +41,9 @@ ms.locfileid: "107308645"
 |예|Storage:ObjectStore:AzureBlob:ConnectionString| v3.x 컨테이너 전용입니다. Azure Blob 스토리지 연결 문자열. |
 |예|Storage:TimeToLiveInDays| v3.x 컨테이너 전용입니다. 결과 만료 기간(일)입니다. 이 설정은 시스템이 인식 결과를 지워야 하는 시기를 지정합니다. 기본값은 2일(48시간)입니다. 즉, 해당 기간보다 더 길게 지속되는 결과는 성공적으로 검색되지 않을 수 있습니다. |
 |예|Task:MaxRunningTimeSpanInMinutes| v3.x 컨테이너 전용입니다. 단일 요청에 대한 최대 실행 시간입니다. 기본값은 60분입니다. |
+|No|EnableSyncNTPServer| v3.x 컨테이너 전용입니다. 시스템 시간과 예상 작업 런타임 간의 동기화를 보장하는 NTP 서버 동기화 메커니즘을 사용하도록 설정합니다. 이를 위해서는 외부 네트워크 트래픽이 필요합니다. 기본값은 `true`입니다. |
+|예|NTPServerAddress| v3.x 컨테이너 전용입니다. 시간 동기화를 위한 NTP 서버입니다. 기본값은 `time.windows.com`입니다. |
+|예|Mounts::Shared| v3.x 컨테이너 전용입니다. 인식 결과를 저장하기 위한 로컬 폴더입니다. 기본값은 `/share`입니다. Azure Blob Storage를 사용하지 않고 컨테이너를 실행하는 경우 인식 결과를 위한 충분한 공간이 있는지 확인하기 위해 이 폴더에 볼륨을 탑재하는 것이 좋습니다. |
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
@@ -92,7 +95,7 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](computer-vision-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
-|선택 사항| Name | 데이터 형식 | Description |
+|선택 사항| 이름 | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | String | Computer Vision 컨테이너에는 사용되지 않습니다.|
 |선택| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -159,7 +162,7 @@ ApiKey={API_KEY}
 
 ```
 
-### <a name="logging-example"></a>로깅 예제 
+### <a name="logging-example"></a>로깅 예 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \

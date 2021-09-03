@@ -4,13 +4,13 @@ description: Azure Portal에서 비용 분석을 사용하여 Azure App Service�
 ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
-ms.date: 01/01/2021
-ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 3f2ae25c3f2e1076cf714aa56f7ecdf867d6dd8f
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100593984"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112554192"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Azure App Service에 대한 비용 계획 및 관리
 
@@ -27,25 +27,33 @@ ms.locfileid: "100593984"
 
 이 문서에서는 Azure App Service의 비용을 플랜 및 관리하는 방법을 설명합니다. 비용을 예측하는 서비스에 대한 리소스를 추가하기 전에 Azure 요금 계산기를 사용하여 App Service 비용을 계획할 수 있습니다. 그런 다음 Azure 리소스를 추가할 때 예상 비용을 검토합니다. App Service 리소스 사용을 시작한 후에는 [Cost Management](../cost-management-billing/index.yml?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 기능을 통해 예산을 설정하고 비용을 모니터링합니다. 예상 비용을 검토하고 지출 추세를 파악하여 작업할 수 있는 영역을 식별할 수도 있습니다. Azure App Service 비용은 Azure 청구서의 월간 비용 중에 일부에 불과합니다. 이 문서에서는 App Service에 대한 비용을 계획하고 관리하는 방법을 설명하지만, 사용자에게는 타사 서비스를 비롯한 Azure 구독에 사용되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구됩니다.
 
-## <a name="relevant-costs-for-app-service"></a>App Service 관련 비용
+## <a name="understand-the-full-billing-model-for-azure-app-service"></a>Azure App Service에 대한 전체 청구 모델 이해
 
-App Service는 비용을 발생시키는 Azure 인프라에서 실행됩니다. 추가 인프라가 비용을 발생시킨다는 것을 이해하는 것이 중요합니다. 배포된 리소스를 변경할 때 해당 비용을 관리해야 합니다.
+Azure App Service는 새 리소스를 배포할 때 비용이 발생하는 Azure 인프라에서 실행됩니다. 다른 추가 인프라 비용이 발생할 수도 있다는 점을 이해하는 것이 중요합니다.
 
-### <a name="costs-that-accrue-with-azure-app-service"></a>Azure App Service로 발생하는 비용
+### <a name="how-youre-charged-for-azure-app-service"></a>Azure App Service 요금 청구 방식
 
-App Service에서 사용하는 기능에 따라 다음과 같은 비용 발생 리소스가 만들어질 수 있습니다.
+App Service 리소스를 만들거나 사용할 때 다음 측정 단위에 대해 요금이 청구됩니다.
 
-- **App Service 플랜**  App Service 앱을 호스트하는 데 필요합니다.
-- **격리 계층**  App Service 환경에 필요한 [Virtual Network](../virtual-network/index.yml)입니다.
-- **백업**  백업을 수행하려면 [스토리지 계정](../storage/index.yml)이 필요합니다.
-- **진단 로그**  [스토리지 계정](../storage/index.yml)을 로깅 옵션으로 선택하거나 [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)와 통합할 수 있습니다.
-- **App Service 인증서**  Azure에서 구입한 인증서는 [Azure Key Vault](../key-vault/index.yml)에서 유지 관리해야 합니다.
+- App Service 계획의 가격 책정 계층에 따라 시간당 요금이 청구되며, 초 단위로 비례 배분하여 계산됩니다.
+- 요금은 VM 인스턴스가 할당된 시간에 따라 계획의 각 확장 인스턴스에 적용됩니다. 
 
 App Service에 대한 기타 비용 리소스(세부 정보는 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/) 참조):
 
 - [App Service 도메인](manage-custom-dns-buy-domain.md)  자동 갱신을 사용하도록 설정하는 경우 구독에는 매년 도메인 등록 요금이 청구됩니다.
 - [App Service 인증서](configure-ssl-certificate.md#import-an-app-service-certificate)  구매 시점에 일회성으로 요금이 부과됩니다. 보호할 하위 도메인이 여러 개 있는 경우 여러 표준 인증서 대신 하나의 와일드카드 인증서를 구매하여 비용을 절감할 수 있습니다.
 - [IP 기반 인증서 바인딩](configure-ssl-bindings.md#create-binding)  해당 바인딩은 앱 수준의 인증서에 대해 구성됩니다. 비용은 각 바인딩에 대해 발생합니다. **표준** 계층 이상의 경우 첫 번째 IP 기반 바인딩에는 요금이 부과되지 않습니다.
+
+청구 주기가 끝날 때 각 VM 인스턴스의 요금이 청구됩니다. 청구서에는 모든 App Service 비용에 대한 섹션이 표시됩니다. 각 측정 단위에 대한 별도의 줄 항목이 있습니다.
+
+### <a name="other-costs-that-might-accrue-with-azure-app-service"></a>Azure App Service로 인해 발생할 수 있는 기타 비용
+
+App Service에서 사용하는 기능에 따라 다음과 같은 비용 발생 리소스가 만들어질 수 있습니다.
+
+- **격리 계층** App Service Environment에는 [가상 네트워크](../virtual-network/index.yml)가 필요하며 별도의 요금이 청구됩니다.
+- **백업** 백업하려면 [스토리지 계정](../storage/index.yml)이 필요하며 별도로 청구됩니다.
+- **진단 로그**  [스토리지 계정](../storage/index.yml)을 로깅 옵션으로 선택하거나 [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)와 통합할 수 있습니다. 이러한 서비스는 별도로 청구됩니다.
+- **App Service 인증서** Azure에서 구입한 인증서는 [Azure Key Vault](../key-vault/index.yml)에서 유지 관리해야 하며 요금은 별도로 청구됩니다.
 
 ### <a name="costs-that-might-accrue-after-resource-deletion"></a>리소스 삭제 후 발생할 수 있는 비용
 
@@ -59,9 +67,9 @@ Azure App Service 리소스를 삭제한 후에도 관련 Azure 서비스의 리
 - 진단 로그를 발송하기 위해 만든 Log Analytics 네임스페이스
 - 아직 만료되지 않은 App Service에 대한 [인스턴스 또는 스탬프 예약](#azure-reservations)
 
-### <a name="using-monetary-credit-with-azure-app-service"></a>Azure App Service로 금액 크레딧 사용
+### <a name="using-azure-prepayment-with-azure-app-service"></a>Azure App Service와 함께 Azure 선불 사용
 
-Azure 선불(이전에는 현금 약정 금액이라고 함) 크레딧을 사용하여 Azure App Service 요금을 지불할 수 있습니다. 그러나 Azure Marketplace에서 구매한 서비스를 포함하여 타사 제품 및 서비스에 대한 요금은 Azure 선불 크레딧을 사용하여 지불할 수 없습니다.
+Azure 선불 크레딧을 사용하여 Azure App Service 요금을 지불할 수 있습니다. 그러나 Azure Marketplace에서 구매한 서비스를 포함하여 타사 제품 및 서비스에 대한 요금은 Azure 선불 크레딧을 사용하여 지불할 수 없습니다.
 
 ## <a name="estimate-costs"></a>비용 예측
 
@@ -84,7 +92,7 @@ App Service 앱 또는 App Service 플랜을 만드는 경우 예상 비용을 �
 
     ![포털에서 각 가격 책정 계층에 대한 예상 비용 검토](media/overview-manage-costs/pricing-estimates.png)
 
-Azure 구독에 지출 한도가 있는 경우 Azure는 크레딧 금액을 초과하여 지출하지 못하도록 합니다. Azure 리소스를 만들고 사용할 경우 크레딧이 사용됩니다. 크레딧 한도에 도달하면 배포한 리소스는 해당 청구 기간의 나머지 기간 동안 사용하지 않도록 설정됩니다. 크레딧 한도는 변경할 수 없지만 제거할 수는 있습니다. 지출 한도에 대한 자세한 내용은 [Azure 지출 한도](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 참조하세요.
+Azure 구독에 지출 한도가 있는 경우 Azure는 크레딧 금액을 초과하여 지출하지 못하도록 합니다. Azure 리소스를 만들고 사용할 때 크레딧이 사용됩니다. 신용 한도에 도달하면 배포한 리소스는 해당 청구 기간의 나머지 기간 동안 사용하지 않도록 설정됩니다. 신용 한도를 변경할 수 없지만 제거할 수는 있습니다. 지출 한도에 대한 자세한 내용은 [Azure 지출 한도](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 참조하세요.
 
 ## <a name="optimize-costs"></a>비용 최적화
 
@@ -155,21 +163,21 @@ App Service에 대한 비용만을 보여 주는 예제는 다음과 같습니�
 
 <!-- Note to Azure service writer: Modify the following as needed for your service. -->
 
-[예산](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대한 예산 및 경고가 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
+[예산](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. 예산 및 경고는 Azure 구독 및 리소스 그룹에 대해 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
 
 모니터링에 더 많은 세분성을 제공하려는 경우 Azure의 특정 리소스 또는 서비스에 대한 필터를 사용하여 예산을 만들 수 있습니다. 필터는 추가 비용이 드는 새 리소스를 실수로 만들지 않도록 도움을 줍니다. 예산을 만들 때 사용할 수 있는 필터 옵션에 대한 자세한 내용은 [그룹 및 필터 옵션](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
 
 ## <a name="export-cost-data"></a>비용 데이터 내보내기
 
-스토리지 계정으로 [비용 데이터를 내보낼](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 수도 있습니다. 비용에 대한 데이터 분석이 필요한 경우나 다른 사용자가 비용에 대한 더 많은 데이터 분석을 수행해야 하는 경우에 유용합니다. 예를 들어 재무 팀은 Excel 또는 Power BI를 사용하여 데이터를 분석할 수 있습니다. 매일, 매주 또는 매월 일정에 대한 비용을 내보내고 사용자 지정 날짜 범위를 설정할 수 있습니다. 비용 데이터를 내보내는 것은 비용 데이터 세트를 검색하는 데 권장되는 방법입니다.
+스토리지 계정으로 [비용 데이터를 내보낼](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 수도 있습니다. 비용에 대한 데이터 분석이 필요한 경우나 다른 사용자가 비용에 대한 더 많은 데이터 분석을 수행해야 하는 경우에 유용합니다. 예를 들어 재무 팀은 Excel 또는 Power BI를 사용하여 데이터를 분석할 수 있습니다. 매일, 매주 또는 매월 일정으로 비용을 내보내고 사용자 지정 날짜 범위를 설정할 수 있습니다. 비용 데이터 세트를 검색하려면 비용 데이터를 내보내는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Storage에서 가격 책정을 사용하는 방법에 대한 자세한 정보. [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 - [Azure Cost Management를 사용해 클라우드 투자를 최적화하는 방법](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)에 대해 알아봅니다.
-- [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 통한 비용 관리에 대한 자세한 정보.
-- [예기치 않은 비용을 방지](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)하는 방법에 대해 알아봅니다.
-- [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 단계별 학습 과정을 수행하세요.
+- [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 통한 비용 관리에 대해 알아봅니다.
+- [예기치 않은 비용을 방지](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)하는 방법을 알아봅니다.
+- [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 단계별 학습 과정을 수강합니다.
 
 <!-- Insert links to other articles that might help users save and manage costs for you service here.
 

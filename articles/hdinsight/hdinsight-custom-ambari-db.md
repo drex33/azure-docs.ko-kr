@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 0d5b67bb25f6f2425016824e5b73783a8db8e806
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d2ab2609338daff846797834be7694a8b1f220e6
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072157"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113600942"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>사용자 지정 Ambari DB를 사용하여 HDInsight 클러스터 설정
 
@@ -62,19 +62,25 @@ az deployment group create --name HDInsightAmbariDBDeployment \
     --parameters azuredeploy.parameters.json
 ```
 
-## <a name="database-sizing"></a>데이터베이스 크기 조정
+
+> [!WARNING]
+> HDInsight 클러스터에 대해 다음 권장 SQL DB 및 Headnode VM을 사용하세요. 모든 프로덕션 환경에 기본 Ambari DB(S0)를 사용하지 마세요. 
+>
+
+
+## <a name="database-and-headnode-sizing"></a>데이터베이스 및 헤드 노드 크기 조정
 
 다음 표에서는 HDInsight 클러스터의 크기에 따라 선택할 Azure SQL DB 계층에 대한 지침을 제공합니다.
 
-| 작업자 노드의 수 | 필수 DB 계층 |
-|---|---|
-| <=4 | S0 |
-| >4 && <=8 | S1 |
-| >8 && <=16 | S2 |
-| >16 && <=32 | S3 |
-| >32 && <=64 | S4 |
-| >64 && <=128 | P2 |
-| >128 | 지원에 문의 |
+| 작업자 노드의 수 | 필수 DB 계층 | 필수 헤드 노드 VM |
+|---|---|---|
+| <=4 | S0 | 4코어/28GB RAM 이상 |
+| >4 && <=8 | S1 | 4코어/28GB RAM 이상 |
+| >8 && <=16 | S2 | 4코어/28GB RAM 이상 |
+| >16 && <=32 | S3 | 8코어/56GB RAM 이상 |
+| >32 && <=64 | S4 | 8코어/56GB RAM 이상 |
+| >64 && <=128 | P2 | 16코어/112GB RAM 이상 |
+| >128 | 지원에 문의 | 지원에 문의 |
 
 ## <a name="next-steps"></a>다음 단계
 

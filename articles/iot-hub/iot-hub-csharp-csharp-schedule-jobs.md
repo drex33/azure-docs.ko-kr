@@ -2,19 +2,18 @@
 title: Azure IoT Hub(.NET/.NET)를 사용하여 작업 예약 | Microsoft Docs
 description: 여러 디바이스에서 직접 메서드를 호출하여 Azure IoT Hub 작업을 예약하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 시뮬레이션된 디바이스 앱 및 작업을 실행하는 서비스 앱을 구현합니다.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5c068f9c6810551a768b801b065cf526e0565ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92142466"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536188"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>작업 예약 및 브로드캐스트(.NET)
 
@@ -34,7 +33,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 * 디바이스 쌍 및 속성: [ 디바이스 쌍 시작](iot-hub-csharp-csharp-twin-getstarted.md) 및 [자습서: 디바이스 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
 
-* 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드](iot-hub-devguide-direct-methods.md) 및 [자습서: 직접 메서드 사용](quickstart-control-device-dotnet.md)
+* 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드](iot-hub-devguide-direct-methods.md) 및 [빠른 시작: 직접 메서드 사용](./quickstart-control-device.md?pivots=programming-language-csharp)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

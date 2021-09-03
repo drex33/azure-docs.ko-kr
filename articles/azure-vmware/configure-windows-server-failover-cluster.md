@@ -3,12 +3,12 @@ title: Azure VMware Solution vSAN에서 Windows Server 장애 조치(Failover) �
 description: 네이티브 공유 디스크를 사용하여 Azure VMware Solution vSAN에서 WSFC(Windows Server 장애 조치(Failover) 클러스터)를 구성하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 05/04/2021
-ms.openlocfilehash: d74ae5d699f965c4899c6e21c78cd2dec720de4e
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: fcde65b98b3774ee1ef9b15bfa6da3836aaa8a1b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632316"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538674"
 ---
 # <a name="configure-windows-server-failover-cluster-on-azure-vmware-solution-vsan"></a>Azure VMware Solution vSAN에서 Windows Server 장애 조치(Failover) 클러스터 구성
 
@@ -17,7 +17,7 @@ ms.locfileid: "109632316"
 >[!IMPORTANT]
 >이 문서의 구현은 개념 증명 및 파일럿 목적을 위한 것입니다. 배치 정책을 사용할 수 있을 때까지 CIB(Cluster-in-a-Box) 구성을 사용하는 것이 좋습니다.
 
-이전에 MSCS(Microsoft Service Cluster Service)로 알려진 Windows Server 장애 조치(Failover) 클러스터는 Windows Server OS(운영 체제)의 기능입니다. WSFC는 업무상 중요한 기능이며 많은 애플리케이션에 필요합니다. 예를 들어 WSFC는 다음과 같은 구성에 필요 합니다.
+이전에 MSCS(Microsoft Service Cluster Service)로 알려진 Windows Server 장애 조치(Failover) 클러스터는 Windows Server OS(운영 체제) 기능입니다. WSFC는 업무상 중요한 기능이며 많은 애플리케이션에 필요합니다. 예를 들어 WSFC는 다음과 같은 구성에 필요 합니다.
 
 - 다음과 같이 구성된 SQL 서버:
   - 인스턴스 수준 고가용성을 위한 Always On FCI(장애 조치(Failover) 클러스터 인스턴스).
@@ -31,9 +31,9 @@ WSFC 클러스터는 다양한 Azure VMware Solution 인스턴스(CAB(Cluster-Ac
 
 지원되는 WSFC 구성을 배포하는 것이 중요합니다. Azure VMware Solution을 사용하여 vSphere에서 솔루션을 지원받고자 합니다. VMware는 vSphere 6.7, [장애 조치(Failover) 클러스터링 및 Microsoft 클러스터 서비스를 위한 설치](https://docs.vmware.com/en/VMware-vSphere/6.7/vsphere-esxi-vcenter-server-67-setup-mscs.pdf)에서 WSFC에 대한 자세한 문서를 제공합니다.
 
-이 문서에서는 Windows Server 2016 및 Windows Server 2019의 WSFC에 초점을 맞춥니다. 이전 Windows Server 버전은 [기본 지원을 제공](https://support.microsoft.com/lifecycle/search?alpha=windows%20server)하지 않으므로 여기서 고려하지 않습니다.
+이 문서에서는 Windows Server 2016 및 Windows Server 2019의 WSFC에 초점을 맞춥니다. 안타깝게도 이전 Windows Server 버전은 [기본 지원을 제공](https://support.microsoft.com/lifecycle/search?alpha=windows%20server)하지 않으므로 여기서 고려하지 않습니다.
 
-먼저 [WSFC를 만들어야](/windows-server/failover-clustering/create-failover-cluster) 합니다. Azure VMware Solution의 WSFC 배포에 대한 세부 사항은 이 문서에서 제공하는 정보를 사용하세요.
+먼저 [WSFC를 만들어야 합니다](/windows-server/failover-clustering/create-failover-cluster). 그런 다음 이 문서에서 제공하는 정보를 사용하여 Azure VMware Solution의 WSFC 배포를 지정합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -42,11 +42,11 @@ WSFC 클러스터는 다양한 Azure VMware Solution 인스턴스(CAB(Cluster-Ac
 
 ## <a name="reference-architecture"></a>참조 아키텍처
 
-Azure VMware Solution은 가상화된 WSFC에 대한 기본 지원을 제공합니다. 가상 디스크 수준에서 SCSI3PR(SCSI-3 영구 예약)을 지원합니다. 이 지원은 WSFC에서 노드 간 공유 디스크에 대한 액세스를 조정하는 데 필요합니다. SCSI3PR 지원을 통해 vSAN 데이터 저장소에 있는 VM 간에 디스크 리소스를 공유하는 WSFC를 구성할 수 있습니다.
+Azure VMware Solution은 가상화된 WSFC에 대한 기본 지원을 제공합니다. 가상 디스크 수준에서 SCSI3PR(SCSI-3 영구 예약)을 지원합니다. WSFC는 노드 간 공유 디스크에 대한 액세스를 중재하기 위해 이 지원이 필요합니다. SCSI3PR 지원을 통해 vSAN 데이터 저장소에 있는 VM 간에 디스크 리소스를 공유하는 WSFC를 구성할 수 있습니다.
 
-다음 다이어그램은 Azure VMware Solution 프라이빗 클라우드에서 WSFC 가상 노드의 아키텍처를 보여 줍니다. 광범위한 Azure 플랫폼과 관련하여 WSFC 가상 서버(빨간색 상자)를 비롯하여 Azure VMware Solution이 상주하는 위치를 보여 줍니다. 이 다이어그램은 일반적인 허브-스포크 아키텍처를 보여주지만 Azure Virtual WAN을 사용하는 경우에도 유사한 설정이 가능합니다. 둘 다 다른 Azure 서비스에서 가져올 수 있는 모든 값을 제공합니다.
+다음 다이어그램은 Azure VMware Solution 프라이빗 클라우드에서 WSFC 가상 노드의 아키텍처를 보여 줍니다. 광범위한 Azure 플랫폼과 관련하여 WSFC 가상 서버(빨간색 상자)를 비롯하여 Azure VMware Solution이 상주하는 위치를 보여 줍니다. 이 다이어그램은 일반적인 허브-스포크 아키텍처를 보여 주지만 Azure Virtual WAN을 사용하여 유사한 설정이 가능합니다. 둘 다 다른 Azure 서비스에서 가져올 수 있는 모든 값을 제공합니다.
 
-:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Azure VMware Solution 프라이빗 클라우드에 있는 Windows Server 장애 조치(Failover) 클러스터 가상 노드의 아키텍처 다이어그램." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
+:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Azure VMware Solution 프라이빗 클라우드에 있는 Windows Server 장애 조치(Failover) 클러스터 가상 노드의 다이어그램." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
 
 ## <a name="supported-configurations"></a>지원되는 구성
 
@@ -126,13 +126,13 @@ Azure VMware Solution은 가상화된 WSFC에 대한 기본 지원을 제공합�
 
 1. Active Directory 환경을 사용할 수 있는지 확인합니다.
 2. vSAN 데이터 저장소에서 VM(가상 머신)을 만듭니다.
-3. 모든 VM의 전원을 켜고, 호스트 이름, IP 주소를 구성하고, 모든 VM을 Active Directory 도메인에 가입하고, 사용 가능한 최신 OS 업데이트를 설치합니다.
+3. 모든 VM의 전원을 켜고, 호스트 이름 및 IP 주소를 구성하고, 모든 VM을 Active Directory 도메인에 가입하고, 사용 가능한 최신 OS 업데이트를 설치합니다.
 4. 최신 VMware 도구를 설치합니다.
 5. 각 VM에서 Windows Server 장애 조치(Failover) 클러스터 기능을 사용하도록 설정하고 구성합니다.
 6. 쿼럼에 대한 클러스터 감시를 구성합니다. 파일 공유 감시는 정상적으로 작동합니다.
 7. WSFC 클러스터의 모든 노드 전원을 끕니다.
 8. WSFC의 각 VM 부분에 하나 이상의 Paravirtual SCSI 컨트롤러(최대 4개)를 추가합니다. 이전 단락의 설정을 사용합니다.
-9. 첫 번째 클러스터 노드에서 **새 디바이스 추가** > **하드 디스크** 를 사용하여 필요한 모든 공유 디스크를 추가합니다. 디스크 공유는 **지정되지 않음**(기본값) 및 디스크 모드를 **독립적 - 영구적** 으로 유지해야 합니다. 이전 단계에서 만든 컨트롤러에 연결합니다.
+9. 첫 번째 클러스터 노드에서 **새 디바이스 추가** > **하드 디스크** 를 사용하여 필요한 모든 공유 디스크를 추가합니다. 디스크 공유는 **지정되지 않음**(기본값)으로 유지하고 디스크 모드는 **독립적 - 영구적** 으로 유지합니다. 그런 다음 이전 단계에서 만든 컨트롤러에 연결합니다.
 10. 나머지 WSFC 노드로 계속 진행합니다. **새 디바이스 추가** > **기존 하드 디스크** 를 선택하여 이전 단계에서 만든 디스크를 추가합니다. 모든 WSFC 노드에서 동일한 디스크 SCSI ID를 유지 관리해야 합니다.
 11. 첫 번째 WSFC 노드의 전원을 켜고 로그인하여 디스크 관리 콘솔(mmc)을 엽니다. 추가된 공유 디스크를 OS에서 관리할 수 있고 초기화되었는지 확인합니다. 디스크를 포맷하고 드라이브 문자를 할당합니다.
 12. 다른 WSFC 노드의 전원을 켭니다.
@@ -144,7 +144,7 @@ Azure VMware Solution은 가상화된 WSFC에 대한 기본 지원을 제공합�
 
        - **스토리지 공간 영구 예약의 유효성을 검사** 합니다. 클러스터에서 스토리지 공간을 사용하지 않는 경우(예: Azure VMware Solution vSAN) 이 테스트는 적용되지 않습니다. 이 경고를 포함하여 스토리지 공간 영구 예약 테스트 유효성 검사의 결과를 무시할 수 있습니다. 경고를 방지하기 위해 이 테스트를 제외할 수 있습니다.
         
-      - **네트워크 통신의 유효성을 검사** 합니다. 클러스터 유효성 검사 테스트에서는 클러스터 노드당 하나의 네트워크 인터페이스만 사용할 수 있다는 경고를 throw합니다. 이 경고는 무시해도 됩니다. 노드가 NSX-T 세그먼트 중 하나에 연결되어 있기 때문에 Azure VMware Solution은 필수 가용성과 필요한 성능을 제공합니다. 단, 이 항목을 클러스터 유효성 검사 테스트의 일부로 유지하면 네트워크 통신의 다른 측면에 대한 유효성을 검사할 수 있습니다.
+      - **네트워크 통신의 유효성을 검사** 합니다. 클러스터 유효성 검사 테스트에서는 클러스터 노드당 하나의 네트워크 인터페이스만 사용할 수 있다는 경고를 표시합니다. 이 경고는 무시해도 됩니다. 노드가 NSX-T 세그먼트 중 하나에 연결되어 있기 때문에 Azure VMware Solution은 필수 가용성과 필요한 성능을 제공합니다. 단, 이 항목을 클러스터 유효성 검사 테스트의 일부로 유지하면 네트워크 통신의 다른 측면에 대한 유효성을 검사할 수 있습니다.
 
 16. WSFC VM을 동일한 Azure VMware Solution 노드에 배치하는 DRS 규칙을 만듭니다. 이렇게 하려면 호스트-VM 선호도 규칙이 필요합니다. 이러한 방식으로 클러스터 노드는 동일한 Azure VMware Solution 호스트에서 실행됩니다. 다시 말해서 이는 배치 정책을 사용할 수 있을 때까지 파일럿 용도로 사용됩니다.
 
@@ -165,5 +165,5 @@ Azure VMware Solution은 가상화된 WSFC에 대한 기본 지원을 제공합�
 
 - WSFC 기능이 필요한 애플리케이션을 더 추가하여 새 WSFC를 설정합니다. 예를 들어 SQL Server 및 SAP ASCS가 있습니다.
 - 백업 솔루션 설정.
-  - [Azure VMware Solution에 대한 Azure Backup Server 설정](/azure/backup/backup-azure-microsoft-azure-backup?context=/azure/azure-vmware/context/context)
-  - [Azure VMware Solution 가상 머신용 백업 솔루션](/azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context)
+  - [Azure VMware Solution에 대한 Azure Backup Server 설정](set-up-backup-server-for-azure-vmware-solution.md)
+  - [Azure VMware Solution 가상 머신용 백업 솔루션](backup-azure-vmware-solution-virtual-machines.md)

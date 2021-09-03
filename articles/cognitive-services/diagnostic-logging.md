@@ -6,19 +6,19 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 06/14/2019
+ms.topic: conceptual
+ms.date: 07/19/2021
 ms.author: erhopf
-ms.openlocfilehash: a2005ca7b32136ff0032d27e04035c46b2e4e904
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: deb5db6f205c02812330539c403fbe7b80d4784c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100595360"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536730"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 진단 로깅 사용
 
-이 가이드에서는 Azure Cognitive Service에 대한 진단 로깅을 사용하는 단계별 지침을 제공합니다. 이러한 로그는 문제를 식별하고 디버그하는 데 사용되는 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 계속하기 전에 Azure 계정에서 [Bing Web Search](./bing-web-search/overview.md), [Speech Services](./speech-service/overview.md) 또는 [LUIS](./luis/what-is-luis.md)와 같이 Cognitive Service 중 하나 이상을 구독해야 합니다.
+이 가이드에서는 Azure Cognitive Service에 대한 진단 로깅을 사용하는 단계별 지침을 제공합니다. 이러한 로그는 문제를 식별하고 디버그하는 데 사용되는 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 계속하기 전에 Azure 계정에서 [Speech Services](./speech-service/overview.md) 또는 [LUIS](./luis/what-is-luis.md)와 같이 Cognitive Service 중 하나 이상을 구독해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -28,7 +28,8 @@ ms.locfileid: "100595360"
 * [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) - Azure 리소스에서 생성된 원시 로그를 분석할 수 있는 유연한 로그 검색 및 분석 도구입니다.
 
 > [!NOTE]
-> 추가 구성 옵션이 사용 가능합니다. 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/essentials/platform-logs-overview.md)을 참조하세요.
+> * 추가 구성 옵션이 사용 가능합니다. 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/essentials/platform-logs-overview.md)을 참조하세요.
+> * 진단 로깅의 "추적"은 [사용자 지정 질문 답변](./qnamaker/how-to/get-analytics-knowledge-base.md?tabs=v2)에만 사용할 수 있습니다.
 
 ## <a name="enable-diagnostic-log-collection"></a>진단 로그 수집 사용 설정  
 
@@ -37,7 +38,7 @@ ms.locfileid: "100595360"
 > [!NOTE]
 > PowerShell 또는 Azure CLI를 사용하여 이 기능을 사용 설정하려면 [Azure 리소스에서 로그 데이터 수집 및 소비](../azure-monitor/essentials/platform-logs-overview.md)에 제공된 지침을 사용하세요.
 
-1. Azure Portal로 이동합니다. 그런 다음, Cognitive Services 리소스를 찾아 선택합니다. 예를 들어 Bing Web Search 구독을 선택합니다.   
+1. Azure Portal로 이동합니다. 그런 다음, Cognitive Services 리소스를 찾아 선택합니다. 예를 들어, Speech Services에 대한 구독입니다.   
 2. 다음으로 왼쪽 탐색 메뉴에서 **모니터링** 을 찾고, **진단 설정** 을 선택합니다. 이 화면에는 이 리소스에 대해 이전에 만든 모든 진단 설정이 포함되어 있습니다.
 3. 이전에 만든 리소스를 사용하려는 경우 지금 선택할 수 있습니다. 그렇지 않은 경우 **+진단 설정 추가** 를 선택합니다.
 4. 설정의 이름을 입력합니다. 그런 다음, **스토리지 계정에 보관** 및 **Log Analytics에 보내기** 를 선택합니다.

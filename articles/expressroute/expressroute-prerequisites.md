@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 1fad1bca18d16ac3b6a654a3c289d0a14e3cd2e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f5b3cc109d3583defce78c3ae52848188fca900
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92204795"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114284554"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 필수 구성 요소 및 검사 목록
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 다음 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
@@ -46,6 +46,7 @@ ExpressRoute에서 Microsoft 365를 사용하도록 설정하려는 경우 Micro
 * [Microsoft 365에 대한 네트워크 계획 및 성능 튜닝](/microsoft-365/enterprise/network-planning-and-performance)
 * [Microsoft 365에 대한 네트워크 및 마이그레이션 계획](/microsoft-365/enterprise/network-and-migration-planning)
 * [온-프레미스 환경과 Microsoft 365 통합](/microsoft-365/enterprise/microsoft-365-integration)
+* [Office 365 IP 주소 변경 사항에 대한 최신 정보 유지](/microsoft-365/enterprise/microsoft-365-ip-web-service?view=o365-worldwide)
 * [Office 365 고급 교육 비디오의 ExpressRoute](https://channel9.msdn.com/series/aer/)
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ebe6a96c88d061138eb629f50aa37ea90fe40eb4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 45df0eb8bfc6ab5b181b8bc103c4a4a47f3196f6
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475882"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122530946"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Azure Digital Twins에 대해 업계 표준 온톨로지를 DTDL로 변환
 
@@ -37,7 +37,7 @@ RDF 기반 모델을 DTDL로 변환할 때 사용할 수 있는 여러 타사 �
 
 다음 C# 코드 조각에서는 [dotNetRDF](https://www.dotnetrdf.org/) 라이브러리를 사용하여 RDF 모델 파일이 그래프로 로드되고 DTDL로 변환되는 방법을 보여 줍니다. 
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/convertRDF.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/other/csharp/convertRDF.cs":::
 
 ## <a name="converter-samples"></a>변환기 샘플
 
@@ -61,6 +61,6 @@ RDF 기반 모델 파일을 [DTDL(버전 2)](https://github.com/Azure/opendigita
 
 ## <a name="next-steps"></a>다음 단계 
 
-* 사양에 맞게 업계 표준 온톨로지를 확장하는 것에 대해 자세히 알아봅니다([개념: 업계 온톨로지 확장](concepts-ontologies-extend.md)).
+* 사양에 맞게 업계 표준 온톨로지를 확장하는 것에 대해 자세히 알아봅니다([업계 온톨로지 확장](concepts-ontologies-extend.md)).
 
 * 또는 온톨로지 기반의 모델 개발을 위해 경로를 계속합니다([모델 개발 경로에서 온톨로지 전략 사용](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path)).

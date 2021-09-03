@@ -4,16 +4,16 @@ description: Azure에서 가용성과 복원력이 높은 애플리케이션을 
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 08/04/2021
 ms.author: prsandhu
-ms.reviewer: cynthn
+ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 07f0e87b77d359d9bc1009ccc7e5176795e12cd5
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 6271fcb1702d14913578f6cc535b1dd74ba3205b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029012"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567344"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
@@ -53,14 +53,14 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | 브라질 남부       | 프랑스 중부       | 남아프리카 북부* | 오스트레일리아 동부 |
 | 캐나다 중부     | 독일 중서부 |                     | 인도 중부* |
 | 미국 중부         | 북유럽         |                     | 일본 동부     |
-| 미국 동부            | 영국 남부             |                     | 한국 중부* |
-| 미국 동부 2          | 서유럽          |                     | 동남아시아 |
-| 미국 중남부 |                      |                     |                |
+| 미국 동부            | 노르웨이 동부*         |                     | 한국 중부* |
+| 미국 동부 2          | 영국 남부             |                     | 동남아시아 |
+| 미국 중남부 | 서유럽          |                     |                |
 | US Gov 버지니아    |                      |                     |                |
 | 미국 서부 2        |                      |                     |                |
-| 미국 서부 3*       |                      |                     |                |
+| 미국 서부 3        |                      |                     |                |
 
-\* 이 지역에서 가용성 영역 및 사용 가능한 서비스 지원에 대한 자세한 내용은 Microsoft 영업 담당자나 고객 담당자에게 문의하세요. 가용성 영역을 지원할 예정된 지역에 대해서는 [Azure 지역](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)을 참조하세요.
+\* 이 지역에서 가용성 영역 및 사용 가능한 서비스 지원에 대한 자세한 내용은 Microsoft 영업 담당자나 고객 담당자에게 문의하세요. 가용성 영역을 지원할 예정된 지역에 대해서는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)을 참조하세요.
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
@@ -123,6 +123,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 |     [App Service Environment](../app-service/environment/zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)                      | :large_blue_diamond:  |
 |     [Azure API Management](../api-management/zone-redundancy.md)                      | :large_blue_diamond:  |
+|     [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability)   | :large_blue_diamond:  |    
 |     [Azure Bastion](../bastion/bastion-overview.md)                                               | :large_blue_diamond:  |
 |     [Azure Cache for Redis](../azure-cache-for-redis/cache-high-availability.md)                              | :large_blue_diamond:  |
 |     [Azure Cognitive Search](../search/search-performance-optimization.md#availability-zones)               | :large_blue_diamond:  |
@@ -131,11 +132,12 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 |     [Azure Data Factory](../data-factory/index.yml)                               | :large_blue_diamond:  |
 |     Azure Database for MySQL - [유연한 서버](../mysql/flexible-server/concepts-high-availability.md)                  | :large_blue_diamond:  |
 |     Azure Database for PostgreSQL – [유연한 서버](../postgresql/flexible-server/overview.md)             | :large_blue_diamond:  |
-|     [Azure DDoS Protection](../ddos-protection/ddos-faq.md)                                       | :large_blue_diamond:  |
+|     [Azure DDoS Protection](../ddos-protection/ddos-faq.yml)                                       | :large_blue_diamond:  |
 |     [Azure 디스크 암호화](../virtual-machines/disks-redundancy.md)                                       | :large_blue_diamond:  |
 |     [Azure Firewall](../firewall/deploy-availability-zone-powershell.md)                                              | :large_blue_diamond:  |
 |     [Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md)                                      | :large_blue_diamond:  |
 |     [AKS(Azure Kubernetes Service)](../aks/availability-zones.md)                              | :large_blue_diamond:  |
+|     [AMS(Azure Media Services)](../media-services/latest/concept-availability-zones.md)        | :large_blue_diamond:  |
 |     [Azure Private Link](../private-link/private-link-overview.md)                                          | :large_blue_diamond:  |
 |     [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)                                         | :large_blue_diamond:  |
 |     Azure SQL: [가상 머신](../azure-sql/database/high-availability-sla.md)                                  | :large_blue_diamond:  |

@@ -12,16 +12,16 @@ ms.date: 05/25/2021
 ms.author: lajanuar
 recommendations: false
 keywords: 온-프레미스, Docker, 컨테이너, 식별
-ms.openlocfilehash: 4cbc6e65eb72050726a0da5969aab07bf06358f2
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 680f1f6f1bfddc5bf525ae06b61bcf9098dc850f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961711"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567130"
 ---
 # <a name="install-and-run-translator-containers-preview"></a>Transaltor 컨테이너 설치 및 실행(미리 보기)
 
-  컨테이너를 사용하면 고유한 환경에서 Translator 서비스의 일부 기능을 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 Translator 컨테이너를 다운로드, 설치 및 실행하는 방법을 알아봅니다.
+  컨테이너를 사용하면 고유한 환경에서 Translator 서비스의 몇몇 기능을 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 Translator 컨테이너를 다운로드, 설치 및 실행하는 방법을 알아봅니다.
 
 Translator 컨테이너를 사용하면 강력한 클라우드 기능과 에지 위치 모두에 최적화된 번역기 애플리케이션 아키텍처를 빌드할 수 있습니다.
 
@@ -36,7 +36,7 @@ Translator 컨테이너를 사용하면 강력한 클라우드 기능과 에지 
 
 시작하려면 활성 [**Azure 계정**](https://azure.microsoft.com/free/cognitive-services/)이 필요합니다.  계정이 없는 경우 [**체험 계정을 만들 수 있습니다**](https://azure.microsoft.com/free/).
 
-또한 Translator 컨테이너를 사용하려면 다음이 필요합니다.
+다음 구성 요소도 필요합니다.
 
 | 필수 | 목적 |
 |--|--|
@@ -165,7 +165,7 @@ curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=zh-HANS
 
 #### <a name="english-leftrightarrow-german"></a>영어 &leftrightarrow; 독일어
 
-swagger 페이지(<http://localhost:5000/swagger/index.html>)로 이동합니다.
+swagger 페이지(`<http://localhost:5000/swagger/index.html>`)로 이동합니다.
 
 1. **POST /translate** 를 선택합니다.
 1. **사용해 보기** 를 선택합니다.

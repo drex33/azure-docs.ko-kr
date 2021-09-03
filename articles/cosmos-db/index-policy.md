@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/13/2021
 ms.author: tisande
-ms.openlocfilehash: 20798fc438f037ca7372822ea8bd54117b8936ee
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: c2f380e92693e6ef2d16e74001b2d22d76e6d941
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456586"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567760"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Azure Cosmos DB에서 모든 컨테이너에는 컨테이너 항목을 인덱싱
 사용자 요구 사항에 맞게 이 자동 동작을 재정의할 수 있는 상황이 있습니다. *인덱싱 모드* 를 설정하여 컨테이너의 인덱싱 정책을 사용자 지정하고, *속성 경로* 를 포함하거나 제외할 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서 설명하는 인덱싱 정책 업데이트 방법은 Azure Cosmos DB의 SQL(Core) API에만 적용됩니다. [Azure Cosmos DB의 API for MongoDB](mongodb-indexing.md)에서의 인덱싱에 대해 알아보세요.
+> 이 문서에서 설명하는 인덱싱 정책 업데이트 방법은 Azure Cosmos DB의 SQL(Core) API에만 적용됩니다. [Azure Cosmos DB의 API for MongoDB](mongodb/mongodb-indexing.md)에서의 인덱싱에 대해 알아보세요.
 
 ## <a name="indexing-mode"></a>인덱싱 모드
 
@@ -32,7 +32,7 @@ Azure Cosmos DB는 다음 두 가지 연결 모드를 지원합니다.
 - **없음**: 컨테이너에서 인덱싱을 사용하지 않습니다. 이 모드는 보조 인덱스 없이 컨테이너를 순수 키-값 저장소로 사용하는 경우에 일반적으로 사용됩니다. 이를 사용하여 대량 작업의 성능을 향상시킬 수도 있습니다. 대량 작업이 완료되면 인덱스 모드를 일관성으로 설정한 다음 완료될 때까지 [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk)를 사용하여 모니터링할 수 있습니다.
 
 > [!NOTE]
-> Azure Cosmos DB는 지연 인덱싱 모드도 지원합니다. 지연 인덱싱은 엔진이 다른 작업을 수행하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행합니다. 이로 인해 **불일치 또는 불완전** 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택하지 않아야 합니다. 새 컨테이너는 지연 인덱싱을 선택할 수 없습니다. [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하여 예외를 요청할 수 있습니다(지연 인덱싱을 지원하지 않는 [서버리스](serverless.md) 모드에서 Azure Cosmos 계정을 사용하는 경우 제외).
+> Azure Cosmos DB는 지연 인덱싱 모드도 지원합니다. 지연 인덱싱은 엔진이 다른 작업을 수행하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행합니다. 이로 인해 **불일치 또는 불완전** 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택하지 않아야 합니다. 새 컨테이너는 지연 인덱싱을 선택할 수 없습니다. cosmoslazyindexing@microsoft.com에 문의하여 예외를 요청할 수 있습니다(지연 인덱싱을 지원하지 않는 [서버리스](serverless.md) 모드에서 Azure Cosmos 계정을 사용하는 경우 제외).
 
 기본적으로 인덱싱 정책은 `automatic`으로 설정됩니다. 인덱싱 정책에서 `automatic` 속성을 `true`로 설정하면 됩니다. 이 속성을 `true`로 설정하면 작성되는 문서를 Azure CosmosDB가 자동으로 인덱싱할 수 있습니다.
 
@@ -329,7 +329,7 @@ ORDER BY c.firstName, c.lastName
 | ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
 | ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
 
-## <a name="index-transformationmodifying-the-indexing-policy"></a><index-transformation>인덱싱 정책 수정
+## <a name="modifying-the-indexing-policy"></a><a id=index-transformation></a>인덱싱 정책 수정
 
 컨테이너의 인덱싱 정책은 [Azure Portal 또는 지원되는 SDK 중 하나를 사용](how-to-manage-indexing-policy.md)하여 언제든지 업데이트할 수 있습니다. 인덱싱 정책에 대한 업데이트는 이전 인덱스에서 새 인덱스로의 변환을 트리거합니다. 이 변환은 온라인 및 현재 위치에서 수행되므로 작업 중에 추가 스토리지 공간이 사용되지 않습니다. 이전 인덱싱 정책은 컨테이너의 쓰기 가용성, 읽기 가용성 또는 프로비전된 처리량에 영향을 주지 않고 새 인덱싱 정책으로 효율적으로 변환됩니다. 인덱스 변환은 비동기 작업이며, 완료하는 데 걸리는 시간은 프로비전된 처리량, 항목 수 및 크기에 따라 달라집니다.
 
@@ -341,9 +341,11 @@ ORDER BY c.firstName, c.lastName
 
 인덱스를 변환하는 동안에는 쓰기 가용성에 영향이 없습니다. 인덱스 변환은 프로비전된 RU를 사용하지만 CRUD 작업 또는 쿼리보다 낮은 우선 순위로 사용합니다.
 
-새 인덱스를 추가하는 경우 읽기 가용성에는 영향을 주지 않습니다. 인덱스 변환이 완료되면 쿼리에서 새 인덱스만 활용합니다. 인덱스를 변환하는 동안 쿼리 엔진은 기존 인덱스를 계속 사용하므로 인덱싱 변경을 시작하기 전에 관찰한 내용에 대한 인덱싱 변환 중에 유사한 읽기 성능을 확인할 수 있습니다. 새 인덱스를 추가하는 경우 쿼리 결과가 불완전하거나 일치하지 않을 위험도 없습니다.
+새 인덱스 경로를 추가하는 경우 읽기 가용성에는 영향을 주지 않습니다. 인덱스 변환이 완료되면 쿼리에서 새 인덱스 경로만 활용합니다. 즉, 새 인덱싱된 경로를 추가할 때 해당 인덱싱된 경로를 활용하는 쿼리는 인덱스 변환 전과 도중에 동일한 성능을 갖습니다. 인덱스 변환이 완료된 후 쿼리 엔진은 새 인덱싱된 경로를 사용하기 시작합니다.
 
-인덱스를 제거하고 삭제된 인덱스를 필터링하는 쿼리를 즉시 실행하는 경우 일관되거나 완전한 쿼리 결과가 보장되지 않습니다. 여러 인덱스를 제거하고 하나의 단일 인덱싱 정책 변경에서 이를 수행하는 경우 쿼리 엔진은 인덱스 변환 전체에서 일관되고 완전한 결과를 제공합니다. 하지만 여러 인덱싱 정책 변경을 통해 인덱스를 제거하는 경우 쿼리 엔진은 모든 인덱스 변환이 완료될 때까지 일관되거나 완전한 결과를 제공하지 않습니다. 대부분의 개발자는 인덱스를 삭제한 다음 이러한 인덱스를 활용하는 쿼리를 즉시 실행하려 하지 않으므로 실제로 이 상황은 가능성이 낮습니다.
+인덱싱된 경로를 제거할 때 모든 변경 사항을 하나의 인덱싱 정책 변환으로 그룹화해야 합니다. 여러 인덱스를 제거하고 하나의 단일 인덱싱 정책 변경에서 이를 수행하는 경우 쿼리 엔진은 인덱스 변환 전체에서 일관되고 완전한 결과를 제공합니다. 하지만 여러 인덱싱 정책 변경을 통해 인덱스를 제거하는 경우 쿼리 엔진은 모든 인덱스 변환이 완료될 때까지 일관되거나 완전한 결과를 제공하지 않습니다. 대부분의 개발자는 인덱스를 삭제한 다음 이러한 인덱스를 활용하는 쿼리를 즉시 실행하려 하지 않으므로 실제로 이 상황은 가능성이 낮습니다.
+
+인덱싱된 경로를 삭제하면 쿼리 엔진이 즉시 사용을 중지하고 대신 전체 검사를 수행합니다.
 
 > [!NOTE]
 > 가능하면 항상 여러 인덱싱 변경 내용을 하나의 단일 인덱싱 정책 수정으로 그룹화해야 합니다.

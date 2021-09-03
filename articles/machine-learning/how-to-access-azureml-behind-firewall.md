@@ -6,85 +6,74 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: aashishb
-author: aashishb
+ms.author: jhirono
+author: jhirono
 ms.reviewer: larryfr
-ms.date: 05/11/2021
+ms.date: 08/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 9eb8d8b5bd7b840314b2943a6696b8b4e989b2b8
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 790b5a3e34d36d674511507bc5e9ed452c5ba74e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814355"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567113"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Azure Machine Learning에 대해 방화벽 뒤의 작업 영역 사용
 
 이 문서에서는 Azure Machine Learning 작업 영역 및 공용 인터넷에 대한 액세스를 제어하도록 Azure Firewall을 구성하는 방법에 대해 알아봅니다. Azure Machine Learning 보안 설정에 대한 자세한 내용은 [Azure Machine Learning 엔터프라이즈 보안](concept-enterprise-security.md)을 참조하세요.
 
-> [!WARNING]
-> 방화벽 뒤에 있는 데이터 스토리지에 대한 액세스는 코드 우선 환경에서만 지원됩니다. [Azure Machine Learning 스튜디오](overview-what-is-machine-learning-studio.md)를 사용하여 방화벽 뒤에 있는 데이터에 액세스하는 것은 지원되지 않습니다. 스튜디오를 사용하여 개인 네트워크에서 데이터 스토리지를 사용하려면 먼저 [가상 네트워크를 설정](../virtual-network/quick-create-portal.md)하고 [가상 네트워크 내에 저장된 데이터에 대한 액세스 권한을 스튜디오에 부여](how-to-enable-studio-virtual-network.md)해야 합니다.
+> [!NOTE]
+> 이 문서의 정보는 프라이빗 엔드포인트 또는 서비스 엔드포인트를 사용하는지 여부에 관계없이 Azure Machine Learning 작업 영역에 적용됩니다.
+
+> [!TIP]
+> 이 문서는 Azure Machine Learning 워크플로 보안에 대한 시리즈의 일부입니다. 이 시리즈의 다른 문서를 참조하세요.
+>
+> * [Virtual Network 개요](how-to-network-security-overview.md)
+> * [작업 영역 리소스 보호](how-to-secure-workspace-vnet.md)
+> * [학습 환경 보호](how-to-secure-training-vnet.md)
+> * [보안 유추 환경](how-to-secure-inferencing-vnet.md)
+> * [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+> * [사용자 지정 DNS 사용](how-to-custom-dns.md)
+
+## <a name="required-public-internet-access"></a>필수 공용 인터넷 액세스
+
+[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
-Azure Firewall을 사용하는 경우에는 __DNAT(대상 네트워크 주소 변환)__ 를 사용하여 인바운드 트래픽에 대한 NAT 규칙을 만듭니다. 아웃바운드 트래픽의 경우 __네트워크__ 및/또는 __애플리케이션__ 규칙을 만듭니다. 이러한 규칙 컬렉션은 [몇 가지 Azure Firewall 개념](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts)에 대해 자세히 설명합니다.
+> [!IMPORTANT]
+> Azure Firewall은 _Azure Virtual Network 리소스_ 에 대한 보안을 제공합니다. Azure Storage 계정과 같은 일부 Azure 서비스에는 _해당 특정 서비스 인스턴스의 퍼블릭 엔드포인트에 적용_ 되는 자체 방화벽 설정이 있습니다. 이 문서의 정보는 Azure Firewall에만 해당됩니다.
+> 
+> 서비스 인스턴스 방화벽 설정에 대한 자세한 내용은 [가상 네트워크에서 스튜디오 사용](how-to-enable-studio-virtual-network.md#firewall-settings)을 참조하세요.
+
+* Azure Machine Learning 컴퓨팅 클러스터 및 컴퓨팅 인스턴스에 대한 __인바운드__ 트래픽의 경우 [UDR(사용자 정의 경로)](../virtual-network/virtual-networks-udr-overview.md)을 사용하여 방화벽을 건너뜁니다.
+
+* __아웃바운드__ 트래픽의 경우 __네트워크__ 및/또는 __애플리케이션__ 규칙을 만듭니다. 
+
+이러한 규칙 컬렉션은 [몇 가지 Azure Firewall 개념](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts)에 대해 자세히 설명합니다.
 
 ### <a name="inbound-configuration"></a>인바운드 구성
 
-Azure Machine Learning __컴퓨팅 인스턴스__ 또는 __컴퓨팅 클러스터__ 를 사용하는 경우 Azure Machine Learning 리소스를 포함하는 서브넷에 대해 [UDR(사용자 정의 경로)](../virtual-network/virtual-networks-udr-overview.md)을 추가합니다. 이 경로는 `BatchNodeManagement` 및 `AzureMachineLearning` 리소스의 IP 주소 __에서__ 컴퓨팅 인스턴스 및 컴퓨팅 클러스터의 공용 IP에 대한 트래픽을 강제로 적용합니다.
-
-이러한 UDR을 사용하면 Batch 서비스가 작업 예약을 위해 컴퓨팅 노드와 통신할 수 있습니다. 컴퓨팅 인스턴스에 액세스하는 데 필요하므로 Azure Machine Learning Service의 IP 주소도 추가합니다. Azure Machine Learning Service에 대한 IP를 추가하는 경우 __주 및 보조__ Azure 지역에 대한 IP를 추가해야 합니다. 작업 영역이 있는 주 지역입니다.
-
-보조 지역을 찾으려면 [Azure 쌍을 이루는 지역을 사용하여 비즈니스 연속성 및 재해 복구 확인](../best-practices-availability-paired-regions.md#azure-regional-pairs)을 참조하세요. 예를 들어 Azure Machine Learning Service가 미국 동부 2에 있는 경우 보조 지역은 미국 중부입니다. 
-
-Batch 서비스 및 Azure Machine Learning Service의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용합니다.
-
-* [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드하고 파일에서 `BatchNodeManagement.<region>` 및 `AzureMachineLearning.<region>`을 검색합니다. 여기서 `<region>`은 Azure 지역입니다.
-
-* [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 정보를 다운로드합니다. 다음 예제는 IP 주소 정보를 다운로드하고 미국 동부 2 지역(주) 및 미국 중부 지역(보조)에 대한 정보를 필터링합니다.
-
-    ```azurecli-interactive
-    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
-    # Get primary region IPs
-    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
-    # Get secondary region IPs
-    az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
-    ```
-
-    > [!TIP]
-    > 미국 버지니아, 미국 아리조나 지역 또는 중국 동부 2 지역을 사용하는 경우 이러한 명령은 IP 주소를 반환하지 않습니다. 대신 다음 링크 중 하나를 사용하여 IP 주소 목록을 다운로드합니다.
-    >
-    > * [Azure Government에 대한 Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=57063)
-    > * [Azure 중국에 대한 Azure IP 범위 및 서비스 태그](https://www.microsoft.com//download/details.aspx?id=57062)
-
-UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 __다음 홉 유형__ 을 __인터넷__ 으로 설정합니다. 다음 이미지는 Azure Portal에서 UDR의 예를 보여 줍니다.
-
-![주소 접두사에 대한 UDR 예](./media/how-to-enable-virtual-network/user-defined-route.png)
-
-> [!IMPORTANT]
-> IP 주소는 시간이 지남에 따라 변경될 수 있습니다.
-
-자세한 내용은 [가상 네트워크에서 Azure Batch 풀 만들기](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling)를 참조하세요.
+[!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
 
 ### <a name="outbound-configuration"></a>아웃바운드 구성
 
 1. 다음 서비스 태그로 __들어오고__ __나가는__ 트래픽을 허용하는 __네트워크 규칙__ 을 추가합니다.
 
-    * AzureActiveDirectory
-    * AzureMachineLearning
-    * AzureResourceManager
-    * Storage.region
-    * KeyVault.region
-    * ContainerRegistry.region
+    | 서비스 태그 | 프로토콜 | 포트 |
+    | ----- |:-----:|:-----:|
+    | AzureActiveDirectory | TCP | * |
+    | AzureMachineLearning | TCP | 443 |
+    | AzureResourceManager | TCP | 443 |
+    | Storage.region       | TCP | 443 |
+    | AzureFrontDoor.FrontEnd</br>* Azure 중국에서는 필요하지 않습니다. | TCP | 443 | 
+    | ContainerRegistry.region  | TCP | 443 |
+    | MicrosoftContainerRegistry.region | TCP | 443 |
 
-    Microsoft에서 제공하는 기본 Docker 이미지를 사용하고 사용자 관리 종속성을 사용하도록 계획하는 경우 다음 서비스 태그도 추가해야 합니다.
-
-    * MicrosoftContainerRegistry.region
-    * AzureFrontDoor.FirstParty
-
-    `region`이 포함된 항목의 경우 사용 중인 Azure 지역으로 바꿉니다. 예들 들어 `keyvault.westus`입니다.
-
-    __프로토콜__ 에 대해 `TCP`를 선택합니다. 원본 및 대상 __포트__ 에 대해 `*`를 선택합니다.
+    > [!TIP]
+    > * ContainerRegistry.region은 사용자 지정 Docker 이미지에만 필요합니다. 여기에는 Microsoft에서 제공하는 기본 이미지에 대한 약간의 수정(예: 추가 패키지)이 포함됩니다.
+    > * MicrosoftContainerRegistry.region은 _Microsoft에서 제공하는 기본 Docker 이미지_ 를 사용하고 _사용자 관리 종속성을 사용하도록 설정_ 하려는 경우에만 필요합니다.
+    > * `region`이 포함된 항목의 경우 사용 중인 Azure 지역으로 바꿉니다. `ContainerRegistry.westus`)을 입력합니다.
 
 1. 다음 호스트에 대한 __애플리케이션 규칙__ 을 추가합니다.
 
@@ -100,12 +89,15 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
     | **cloud.r-project.org** | R 개발용 CRAN 패키지를 설치할 때 사용됩니다. |
     | **\*pytorch.org** | PyTorch를 기반으로 하는 일부 예제에서 사용됩니다. |
     | **\*.tensorflow.org** | Tensorflow를 기반으로 하는 일부 예제에서 사용됩니다. |
+    | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | 설정 스크립트를 통해 컴퓨팅 인스턴스에 설치된 VS Code 서버 비트를 검색하는 데 사용됩니다.|
+    | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | 컴퓨팅 인스턴스에 설치된 WebSocket 서버 비트를 검색하는 데 사용됩니다. WebSocket 서버는 Visual Studio Code 클라이언트(데스크톱 애플리케이션)의 요청을 컴퓨팅 인스턴스에서 실행 중인 Visual Studio Code 서버로 전송하는 데 사용됩니다.|
+    
 
     __프로토콜:포트__ 에 대해 __http, https__ 사용을 선택합니다.
 
     애플리케이션 규칙을 구성하는 방법에 대한 자세한 내용은 [Azure Firewall 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule)을 참조하세요.
 
-1. AKS(Azure Kubernetes Service)에 배포된 모델에 대한 액세스를 제한하려면 [Azure Kubernetes Service에서 송신 트래픽 제한](../aks/limit-egress-traffic.md)을 참조하세요.
+1. AKS(Azure Kubernetes Service)에 배포된 모델의 아웃바운드 트래픽을 제한하려면 [Azure Kubernetes Service에서 송신 트래픽 제한](../aks/limit-egress-traffic.md) 및 [Azure Kubernetes Service에 ML 모델 배포](how-to-deploy-azure-kubernetes-service.md#connectivity) 문서를 참조하세요.
 
 ### <a name="diagnostics-for-support"></a>지원을 위한 진단
 
@@ -121,13 +113,13 @@ Microsoft 지원으로 작업할 때 진단 정보를 수집해야 하는 경우
     Azure Monitor 호스트의 IP 주소 목록은 [Azure Monitor에서 사용하는 IP 주소](../azure-monitor/app/ip-addresses.md)를 참조하세요.
 ## <a name="other-firewalls"></a>기타 방화벽
 
-각 방화벽에는 고유한 용어 및 특정 구성이 있으므로 이 섹션의 지침은 일반적입니다. 방화벽을 통한 통신을 허용하는 방법에 대한 질문이 있는 경우 사용 중인 방화벽에 대한 문서를 참조하세요.
+각 방화벽에는 고유한 용어 및 특정 구성이 있으므로 이 섹션의 지침은 일반적입니다. 질문이 있는 경우 사용 중인 방화벽에 대한 설명서를 확인합니다.
 
 올바르게 구성되지 않은 경우 방화벽에서 작업 영역 사용에 문제를 일으킬 수 있습니다. Azure Machine Learning 작업 영역에서 사용되는 다양한 호스트 이름이 있습니다. 다음 섹션에서는 Azure Machine Learning에 필요한 호스트를 나열합니다.
 
 ### <a name="microsoft-hosts"></a>Microsoft 호스트
 
-이 섹션의 호스트는 Microsoft에서 소유하며 작업 영역의 적절한 기능에 필요한 서비스를 제공합니다. 다음 표에는 Azure 공용, Azure Government 및 Azure 중국 21Vianet 지역에 대한 호스트 이름이 나열되어 있습니다.
+다음 표의 호스트는 Microsoft에서 소유하며 작업 영역의 적절한 기능에 필요한 서비스를 제공합니다. 표에는 Azure 공용, Azure Government 및 Azure 중국 21Vianet 지역에 대한 호스트가 나열되어 있습니다.
 
 **일반 Azure 호스트**
 
@@ -139,14 +131,17 @@ Microsoft 지원으로 작업할 때 진단 정보를 수집해야 하는 경우
 
 **Azure Machine Learning 호스트**
 
+> [!IMPORTANT]
+> 다음 표에서 `<storage>`를 Azure Machine Learning 작업 영역의 기본 스토리지 계정 이름으로 바꿉니다.
+
 | **필수** | **Azure 공용** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning Studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
 | API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn |
 | 통합 Notebook | \*.notebooks.azure.net | \*.notebooks.usgovcloudapi.net |\*.notebooks.chinacloudapi.cn |
-| 통합 Notebook | \*.file.core.windows.net | \*.file.core.usgovcloudapi.net | \*.file.core.chinacloudapi.cn |
-| 통합 Notebook | \*.dfs.core.windows.net | \*.dfs.core.usgovcloudapi.net | \*.dfs.core.chinacloudapi.cn |
-| 통합 Notebook | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | \*.blob.core.chinacloudapi.cn |
+| 통합 Notebook | \<storage\>.file.core.windows.net | \<storage\>.file.core.usgovcloudapi.net | \<storage\>.file.core.chinacloudapi.cn |
+| 통합 Notebook | \<storage\>.dfs.core.windows.net | \<storage\>.dfs.core.usgovcloudapi.net | \<storage\>.dfs.core.chinacloudapi.cn |
+| 통합 Notebook | \<storage\>.blob.core.windows.net | \<storage\>.blob.core.usgovcloudapi.net | \<storage\>.blob.core.chinacloudapi.cn |
 | 통합 Notebook | graph.microsoft.com | graph.microsoft.us | graph.chinacloudapi.cn |
 | 통합 Notebook | \*.aznbcontent.net |  | |
 
@@ -160,30 +155,32 @@ Microsoft 지원으로 작업할 때 진단 정보를 수집해야 하는 경우
 | 컴퓨팅 인스턴스 | \*.instances.azureml.ms |  |  |
 
 > [!IMPORTANT]
-> 방화벽은 __TCP__ 포트 __18881__ 을 통해 \*.instances.azureml.ms와의 통신을 허용해야 합니다.
+> 방화벽은 __TCP__ 포트 __18881, 443 및 8787__ 을 통해 \*.instances.azureml.ms와의 통신을 허용해야 합니다.
 
 **Azure Machine Learning에서 사용하는 연결된 리소스**
 
 | **필수** | **Azure 공용** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Azure Storage 계정 | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
-| Azure Key Vault | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
-
+| Azure Machine Learning 미리 빌드된 이미지 | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
 
 > [!TIP]
-> 페더레이션된 ID를 사용하려는 경우 [Active Directory Federation Services 보안 설정에 대한 모범 사례](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) 문서를 따르세요.
+> * 모든 사용자 지정 Docker 이미지에는 __Azure Container Registry__ 가 필요합니다. 여기에는 Microsoft에서 제공하는 기본 이미지에 대한 약간의 수정(예: 추가 패키지)이 포함됩니다.
+> * __Microsoft Container Registry__ 는 _Microsoft에서 제공하는 기본 Docker 이미지_ 를 사용하고 _사용자 관리 종속성을 사용하도록 설정_ 하려는 경우에만 필요합니다.
+> * 페더레이션된 ID를 사용하려는 경우 [Active Directory Federation Services 보안 설정에 대한 모범 사례](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) 문서를 따르세요.
 
-또한 [강제 터널링](how-to-secure-training-vnet.md#forced-tunneling)의 정보를 사용하여 `BatchNodeManagement` 및 `AzureMachineLearning`에 대한 IP 주소를 추가합니다.
+또한 [인바운드 구성](#inbound-configuration) 섹션의 정보를 사용하여 `BatchNodeManagement` 및 `AzureMachineLearning`에 대한 IP 주소를 추가합니다.
 
-AKS(Azure Kubernetes Service)에 배포된 모델에 대한 액세스 제한에 대한 자세한 내용은 [Azure Kubernetes Service에서 송신 트래픽 제한](../aks/limit-egress-traffic.md)을 참조하세요.
+AKS에 배포된 모델에 대한 액세스 제한에 대한 자세한 내용은 [Azure Kubernetes Service에서 송신 트래픽 제한](../aks/limit-egress-traffic.md)을 참조하세요.
 
 > [!TIP]
 > Microsoft 지원을 사용하여 진단 정보를 수집하는 경우 Azure Monitor 호스트에서 사용하는 IP 주소에 대한 아웃바운드 트래픽을 허용해야 합니다. Azure Monitor 호스트의 IP 주소 목록은 [Azure Monitor에서 사용하는 IP 주소](../azure-monitor/app/ip-addresses.md)를 참조하세요.
+
 ### <a name="python-hosts"></a>Python 호스트
 
-이 섹션의 호스트는 Python 패키지를 설치하는 데 사용됩니다. 개발, 학습 및 배포 중에 필요합니다. 
+이 섹션의 호스트는 Python 패키지를 설치하는 데 사용되며 개발, 교육 및 배포 중에 필요합니다. 
 
 > [!NOTE]
 > 인터넷의 모든 Python 리소스에 필요한 호스트의 전체 목록이 아니라 가장 일반적으로 사용됩니다. 예를 들어 GitHub 리포지토리 또는 다른 호스트에 대한 액세스 권한이 필요한 경우 해당 시나리오에 필요한 호스트를 식별하고 추가해야 합니다.
@@ -198,7 +195,7 @@ AKS(Azure Kubernetes Service)에 배포된 모델에 대한 액세스 제한에 
 
 ### <a name="r-hosts"></a>R 호스트
 
-이 섹션의 호스트는 R 패키지를 설치하는 데 필요합니다. 개발, 학습 및 배포 중에 필요합니다.
+이 섹션의 호스트는 R 패키지를 설치하는 데 사용되며 개발, 교육 및 배포 중에 필요합니다.
 
 > [!NOTE]
 > 인터넷의 모든 R 리소스에 필요한 호스트의 전체 목록이 아니라 가장 일반적으로 사용됩니다. 예를 들어 GitHub 리포지토리 또는 다른 호스트에 대한 액세스 권한이 필요한 경우 해당 시나리오에 필요한 호스트를 식별하고 추가해야 합니다.
@@ -207,9 +204,31 @@ AKS(Azure Kubernetes Service)에 배포된 모델에 대한 액세스 제한에 
 | ---- | ---- |
 | **cloud.r-project.org** | CRAN 패키지를 설치할 때 사용됩니다. |
 
-> [!IMPORTANT]
-> 내부적으로 Azure Machine Learning용 R SDK는 Python 패키지를 사용합니다. 따라서 방화벽을 통해 Python 호스트도 허용해야 합니다.
+### <a name="azure-kubernetes-services-hosts"></a>Azure Kubernetes Services 호스트
+
+AKS가 통신해야 하는 호스트에 대한 정보는 [Azure Kubernetes Service에서 송신 트래픽 제한](../aks/limit-egress-traffic.md) 및 [Azure Kubernetes Service에 ML 모델 배포](how-to-deploy-azure-kubernetes-service.md#connectivity) 문서를 참조하세요.
+
+### <a name="visual-studio-code-hosts"></a>Visual Studio Code 호스트
+
+이 섹션의 호스트는 Visual Studio Code 패키지를 설치하여 Visual Studio Code와 Azure Machine Learning 작업 영역의 컴퓨팅 인스턴스 간의 원격 연결을 설정하는 데 사용됩니다.
+
+> [!NOTE]
+> 인터넷의 모든 Visual Studio Code 리소스에 필요한 호스트의 전체 목록이 아니라 가장 일반적으로 사용됩니다. 예를 들어 GitHub 리포지토리 또는 다른 호스트에 대한 액세스 권한이 필요한 경우 해당 시나리오에 필요한 호스트를 식별하고 추가해야 합니다.
+
+| **호스트 이름** | **용도** |
+| ---- | ---- |
+|  **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | 설정 스크립트를 통해 컴퓨팅 인스턴스에 설치된 VS Code 서버 비트를 검색하는 데 사용됩니다.|
+| **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** |컴퓨팅 인스턴스에 설치된 WebSocket 서버 비트를 검색하는 데 사용됩니다. WebSocket 서버는 Visual Studio Code 클라이언트(데스크톱 애플리케이션)의 요청을 컴퓨팅 인스턴스에서 실행 중인 Visual Studio Code 서버로 전송하는 데 사용됩니다. |
+
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md)
-* [Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호](how-to-network-security-overview.md)
+이 문서는 Azure Machine Learning 워크플로 보안에 대한 시리즈의 일부입니다. 이 시리즈의 다른 문서를 참조하세요.
+
+* [Virtual Network 개요](how-to-network-security-overview.md)
+* [작업 영역 리소스 보호](how-to-secure-workspace-vnet.md)
+* [학습 환경 보호](how-to-secure-training-vnet.md)
+* [보안 유추 환경](how-to-secure-inferencing-vnet.md)
+* [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
+* [사용자 지정 DNS 사용](how-to-custom-dns.md)
+
+Azure Firewall 구성에 대한 자세한 내용은 [자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md)을 참조하세요.

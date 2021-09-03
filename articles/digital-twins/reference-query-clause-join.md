@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 7dc6827f7ebd7b034ffc00906629bafe04036fbd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6e018985b231e67e519968c0057754c7f3383ee4
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789572"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731945"
 ---
 # <a name="azure-digital-twins-query-language-reference-join-clause"></a>Azure Digital Twins 쿼리 언어 참조: JOIN 절
 
@@ -23,9 +23,9 @@ ms.locfileid: "109789572"
 이 절은 쿼리하는 동안 선택 사항입니다.
 
 ## <a name="core-syntax-join--related"></a>핵심 구문: JOIN ... RELATED 
-Azure Digital Twins의 관계는 독립 엔터티가 아닌 디지털 트윈의 일부이므로 `RELATED` 키워드는 트윈 컬렉션의 특정 형식의 관계 세트를 참조하는 `JOIN` 쿼리에 사용됩니다. 이 관계 세트에는 컬렉션 이름을 할당할 수 있습니다.
+Azure Digital Twins의 관계는 독립 엔터티가 아니라 디지털 트윈의 일부이므로 `JOIN` 쿼리에서 `RELATED` 키워드를 사용하여 트윈 컬렉션에서 특정 유형의 관계 집합을 참조하세요(유형은 [DTDL 정의](concepts-models.md#basic-relationship-example)에서 관계의 **이름** 필드를 사용하여 지정됨). 쿼리 내에서 관계 집합에 컬렉션 이름을 할당할 수 있습니다.
 
-그런 다음, `WHERE` 절을 사용하여 관계 쿼리를 지 원하는 데 사용되는 특정 트윈 또는 트윈을 지정해야 합니다. 이 작업은 원본 또는 대상 트윈의 `$dtId` 값을 기준으로 필터링하여 수행됩니다.
+그런 다음 쿼리는 `WHERE` 절을 사용하여 관계 쿼리를 지원하는 데 사용되는 특정 트윈을 지정해야 합니다. 이 작업은 원본 또는 대상 트윈의 `$dtId` 값을 필터링하여 수행됩니다.
 
 ### <a name="syntax"></a>구문
 
@@ -58,7 +58,7 @@ Azure Digital Twins의 관계는 독립 엔터티가 아닌 디지털 트윈의 
 * [OUTER JOIN 의미 체계 없음](#no-outer-join-semantics)
 * [원본 트윈 필요](#twins-required)
 
-자세한 내용은 아래 섹션을 참조하세요.
+자세한 내용은 다음 섹션을 참조하세요.
 
 ### <a name="depth-limit-of-five"></a>5개의 깊이 제한
 
@@ -66,7 +66,7 @@ Azure Digital Twins의 관계는 독립 엔터티가 아닌 디지털 트윈의 
 
 #### <a name="example"></a>예제
 
-다음 쿼리는 Azure Digital Twins 쿼리에서 가능한 최대 `JOINs` 개수를 보여줍니다. Buliding1의 모든 LightBulbs를 가져옵니다.
+다음 쿼리는 Azure Digital Twins 쿼리에서 가능한 최대 `JOIN` 절 수를 보여 줍니다. Buliding1의 모든 LightBulbs를 가져옵니다.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MaxJoinExample":::
 
@@ -84,6 +84,6 @@ Building1에 층이 없는 경우 이 쿼리는 빈 결과 집합을 반환합�
 
 ### <a name="twins-required"></a>트윈 필요
 
-Azure Digital Twins의 관계는 독립 엔터티로 쿼리할 수 없습니다. 또한 관계의 원본 트윈에 대한 정보를 제공해야 합니다. 이는 `RELATED` 키워드를 통해 Azure Digital Twins에서 기본 `JOIN` 사용의 일부로 포함됩니다. 
+Azure Digital Twins의 관계는 독립 엔터티로 쿼리할 수 없습니다. 또한 관계의 원본 트윈에 대한 정보를 제공해야 합니다. 이 기능은 `RELATED` 키워드를 통해 Azure Digital Twins에서 기본 `JOIN` 사용의 일부로 포함됩니다. 
 
 또한 `JOIN` 절이 있는 쿼리는 `WHERE` 절에서 트윈의 `$dtId` 속성으로 필터링하여 관계 쿼리를 지원하는 데 사용되는 트윈을 명확하게 해야 합니다.

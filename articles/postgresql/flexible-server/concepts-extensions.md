@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 59cb8290809df877e6faf374026db5aa3011e81b
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 07/30/2021
+ms.openlocfilehash: 3ccbe4cfa7b6e4f485d16ffecbda5c3b7042b8e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984197"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529110"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 PostgreSQL 확장
 
@@ -49,6 +49,7 @@ Azure Database for PostgreSQL은 아래에 나열된 대로 주요 확장의 일
 > |[intagg](https://www.postgresql.org/docs/13/intagg.html)                     | 1.1             | 정수 집계 및 열거자 (사용되지 않음)|
 > |[intarray](https://www.postgresql.org/docs/13/intarray.html)                     | 1.3             | 정수의 1차원 배열에 대한 함수, 연산자 및 인덱스 지원|
 > |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | 국제 제품 번호 지정 표준에 대한 데이터 형식|
+> |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | LOB(Large Object) 유지 관리 |
 > |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | 계층적 트리 구조에 대한 데이터 형식|
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | 낮은 수준에서 데이터베이스 페이지의 내용 검사|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | 공유 버퍼 캐시를 검사합니다|
@@ -61,6 +62,7 @@ Azure Database for PostgreSQL은 아래에 나열된 대로 주요 확장의 일
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | VM(표시 유형 맵) 및 페이지 수준 표시 유형 정보 검사|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | 암호화 함수 제공| 
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | 논리적 스트리밍 복제 |
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | 튜플 수준 통계 표시|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
@@ -100,6 +102,7 @@ Azure Database for PostgreSQL은 아래에 나열된 대로 주요 확장의 일
 > |[intagg](https://www.postgresql.org/docs/12/intagg.html)                     | 1.1             | 정수 집계 및 열거자 (사용되지 않음)|
 > |[intarray](https://www.postgresql.org/docs/12/intarray.html)                     | 1.2             | 정수의 1차원 배열에 대한 함수, 연산자 및 인덱스 지원|
 > |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | 국제 제품 번호 지정 표준에 대한 데이터 형식|
+> |[lo](https://www.postgresql.org/docs/12/lo.html)                            | 1.1             | LOB(Large Object) 유지 관리 |
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | 계층적 트리 구조에 대한 데이터 형식|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | 낮은 수준에서 데이터베이스 페이지의 내용 검사|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | 공유 버퍼 캐시를 검사합니다|
@@ -112,6 +115,7 @@ Azure Database for PostgreSQL은 아래에 나열된 대로 주요 확장의 일
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | VM(표시 유형 맵) 및 페이지 수준 표시 유형 정보 검사|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | 암호화 함수 제공|
+>|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | 논리적 스트리밍 복제 |
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | 튜플 수준 통계 표시|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
@@ -151,6 +155,7 @@ Azure Database for PostgreSQL은 아래에 나열된 대로 주요 확장의 일
 > |[intagg](https://www.postgresql.org/docs/11/intagg.html)                     | 1.1             | 정수 집계 및 열거자 (사용되지 않음)|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | 정수의 1차원 배열에 대한 함수, 연산자 및 인덱스 지원|
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | 국제 제품 번호 지정 표준에 대한 데이터 형식|
+> |[lo](https://www.postgresql.org/docs/11/lo.html)                            | 1.1             | LOB(Large Object) 유지 관리 |
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | 계층적 트리 구조에 대한 데이터 형식|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | 낮은 수준에서 데이터베이스 페이지의 내용 검사|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | 공유 버퍼 캐시를 검사합니다|
@@ -163,6 +168,7 @@ Azure Database for PostgreSQL은 아래에 나열된 대로 주요 확장의 일
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | VM(표시 유형 맵) 및 페이지 수준 표시 유형 정보 검사|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | 암호화 함수 제공|
+>|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | 논리적 스트리밍 복제 |
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | 튜플 수준 통계 표시|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|

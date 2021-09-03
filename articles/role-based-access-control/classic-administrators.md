@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/20/2021
+ms.date: 07/17/2021
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d1f997ff34703e95c498a0f3c1646bf3acb0129e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8a9ef41dcb85ddd8478078a927759190a6475840
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469994"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652110"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
@@ -133,6 +133,26 @@ Azure Portal에서 서비스 관리자를 변경하려면 다음 단계를 수�
 계정 관리자가 Azure AD 계정인 경우에는 서비스 관리자를 동일한 디렉터리의 Azure AD 계정으로 변경할 수 있지만 다른 디렉터리의 Azure AD 계정으로는 변경할 수 없습니다. 예를 들어 abby@contoso.com은 서비스 관리자를 bob@contoso.com으로 변경할 수 있지만, john@notcontoso.com이 contoso.com 디렉터리에 존재하지 않는 경우에는 서비스 관리자를 john@notcontoso.com으로 변경할 수 없습니다.
 
 Microsoft 계정 및 Azure AD 계정에 대한 자세한 내용은 [Azure Active Directory란?](../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
+
+## <a name="remove-the-service-administrator"></a>서비스 관리자 제거
+
+예를 들어 서비스 관리자가 더 이상 회사에 없는 경우 해당 서비스 관리자를 제거할 수 있습니다. 서비스 관리자를 제거하는 경우 구독이 분리되지 않도록 구독 범위에서 [소유자](built-in-roles.md#owner) 역할이 할당된 사용자가 있어야 합니다. 구독 소유자는 서비스 관리자와 동일한 액세스 권한을 갖습니다.
+
+1. 구독 소유자 또는 공동 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
+
+1. **액세스 제어(IAM)** 를 클릭합니다.
+
+1. **클래식 관리자** 탭을 클릭합니다.
+
+1. 서비스 관리자 옆에 확인 표시를 추가합니다.
+
+1. **제거** 를 클릭합니다.
+
+1. 표시되는 메시지 상자에서 **예** 를 클릭합니다.
+
+    ![서비스 관리자를 제거하는 스크린샷.](./media/classic-administrators/service-admin-remove.png)
 
 ## <a name="view-the-account-administrator"></a>계정 관리자 보기
 

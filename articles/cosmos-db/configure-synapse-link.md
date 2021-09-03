@@ -4,15 +4,15 @@ description: Azure Cosmos DB 계정에 대해 Synapse 링크를 사용하도록 
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
-ms.openlocfilehash: bba594a6b0482457acad8bead382099a1e8e3a5b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 86f27f08bd7495e558cd81b122f1daa243dbe313
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968046"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566398"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -29,7 +29,15 @@ Azure Synapse Link는 Azure Cosmos DB SQL API 컨테이너 또는 Azure Cosmos D
 * [서버리스 SQL 풀을 사용하여 분석 저장소 쿼리](#query-analytical-store-sql-on-demand)
 * [서버리스 SQL 풀을 사용하여 Power BI에서 데이터 분석 및 시각화](#analyze-with-powerbi)
 
+[Azure Cosmos DB용 Azure Synapse Link를 구성](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/)하는 방법에 대한 학습 모듈을 확인할 수도 있습니다.
+
 ## <a name="enable-azure-synapse-link-for-azure-cosmos-db-accounts"></a><a id="enable-synapse-link"></a>Azure Cosmos DB 계정에 대해 Azure Synapse Link를 사용하도록 설정
+
+> [!NOTE]
+> Azure Synapse Link에서 고객 관리형 키를 사용하려면 계정에서 Synapse Link를 사용하기 전에 Azure Key Vault 액세스 정책에서 계정의 관리 ID를 구성해야 합니다. 자세한 내용은 [Azure Cosmos DB 계정의 관리 ID를 사용하여 고객 관리형 키 구성](how-to-setup-cmk.md#using-managed-identity) 문서를 참조하세요.
+
+> [!NOTE]
+> SQL(CORE) API 계정에 대한 전체 충실도 스키마를 사용하려는 경우 Azure Portal에서 Synapse Link를 사용하도록 설정할 수 없습니다. 계정에서 Synapse Link가 사용하도록 설정된 후에는 이 옵션을 변경할 수 없으며 이를 설정하려면 Azure CLI 또는 PowerShell을 사용해야 합니다. 자세한 내용은 [분석 저장소 스키마 표현 문서](analytical-store-introduction.md#schema-representation)를 확인하세요. 
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -200,15 +208,13 @@ except exceptions.CosmosResourceExistsError:
 Azure Portal을 통해 분석 저장소를 사용하도록 설정된 컨테이너를 만든 경우 -1의 기본 분석 TTL이 포함됩니다. 다음 단계를 사용하여 이 값을 업데이트합니다.
 
 1. [Azure Portal](https://portal.azure.com/) 또는 [Azure Cosmos DB 탐색기](https://cosmos.azure.com/)에 로그인합니다.
-
 1. Azure Cosmos DB 계정으로 이동하여 **데이터 탐색기** 탭을 엽니다.
-
 1. 분석 저장소가 사용하도록 설정된 기존 컨테이너를 선택합니다. 확장하고 다음 값을 수정합니다.
+   1. **배율 및 설정** 창을 엽니다.
+   1. **설정** 에서 **분석 스토리지 Time to Live** 를 찾습니다.
+   1. **설정(기본값 없음)** 를 선택하거나 **켜기** 를 선택하고 TTL 값을 설정합니다.
+   1. **저장** 을 클릭하여 변경 내용을 저장합니다.
 
-  * **배율 및 설정** 창을 엽니다.
-  * **설정** 에서 **분석 스토리지 Time to Live** 를 찾습니다.
-  * **설정(기본값 없음)** 를 선택하거나 **켜기** 를 선택하고 TTL 값을 설정합니다.
-  * **저장** 을 클릭하여 변경 내용을 저장합니다.
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -285,7 +291,7 @@ Azure Cosmos DB용 Synapse Link를 통해 서버리스 SQL 풀 데이터베이�
 
 자세히 알아보려면 다음 문서를 참조하세요.
 
-* [Azure Cosmos DB용 Azure Synapse Link](synapse-link.md)
+* [Azure Cosmos DB용 Azure Synapse Link 구성](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/) 방법에 대한 학습 모듈을 확인하세요.
 
 * [Azure Cosmos DB 분석 저장소 개요](analytical-store-introduction.md)
 

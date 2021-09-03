@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/04/2021
 ms.author: phjensen
-ms.openlocfilehash: 857bcba07b281f58d7c7c044a56763b61b5d4456
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 6650554c92f42a8b5c25a26be5f4ea41947105e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810069"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535996"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅숏 도구 사용을 위한 팁과 요령
 
@@ -139,7 +139,7 @@ cron 및 crontab 파일의 형식에 대한 자세한 설명은 <https://en.wiki
 
 ## <a name="delete-a-snapshot"></a>스냅샷 삭제
 
-스냅샷을 삭제하려면 `azacsnap -c delete` 명령을 실행합니다. OS 수준에서 스냅샷 삭제는 불가능합니다. 스토리지 스냅샷을 삭제하려면 올바른 명령(`azacsnap -c delete`)을 사용해야 합니다.
+스냅샷을 삭제하려면 `azacsnap -c delete` 명령을 사용합니다. OS 수준에서 스냅샷 삭제는 불가능합니다. 스토리지 스냅샷을 삭제하려면 올바른 명령(`azacsnap -c delete`)을 사용해야 합니다.
 
 > [!IMPORTANT]
 > 스냅샷을 삭제하는 경우 유의하세요. 삭제한 후에 삭제된 스냅샷 복구는 **불가능** 합니다.
@@ -162,30 +162,56 @@ Azure Large Instance의 경우 서비스 요청을 시작해 Microsoft 작업 �
 > [!IMPORTANT]
 > 이 작업은 Azure Large Instance에만 적용됩니다.
 
-일부 경우에는 고객이 이미 SAP HANA를 보호하고 ‘부팅’ 볼륨 스냅샷을 구성할 수 있는 도구를 소유하고 있을 수 있습니다.  이 경우 작업이 간소화되며 다음 단계를 수행해야 합니다.
+일부 경우에는 고객이 이미 SAP HANA를 보호하고 ‘부팅’ 볼륨 스냅샷을 구성할 수 있는 도구를 소유하고 있을 수 있습니다.  이 경우 다음 단계만 완료하면 됩니다.
 
 1. 설치를 위한 사전 필수 구성 요소 1-4단계를 완료합니다.
 1. 스토리지와의 통신을 사용합니다.
 1. 설치 프로그램을 다운로드하고 실행해서 스냅샷 도구를 설치합니다.
 1. 스냅샷 도구의 설치를 완료합니다.
-1. 다음과 같이 새 구성 파일을 만듭니다. 부팅 볼륨 세부 정보는 OtherVolume stanza(사용자 항목 위치는 <span style="color:red">red</span>)에 있어야 합니다.
+1. azacsnap 구성 파일에 추가할 볼륨 목록을 가져옵니다. 이 예에서 스토리지 사용자 이름은 `cl25h50backup`이고 스토리지 IP 주소는 `10.1.1.10`입니다. 
+    ```bash
+    ssh cl25h50backup@10.1.1.10 "volume show -volume *boot*"
+    ```
     ```output
-    > <span style="color:red">azacsnap -c configure --configuration new --configfile BootVolume.json</span>
+    Last login time: 7/20/2021 23:54:03
+    Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+    --------- ------------ ------------ ---------- ---- ---------- ---------- -----
+    ams07-a700s-saphan-1-01v250-client25-nprod t250_sles_boot_sollabams07v51_vol aggr_n01_ssd online RW 150GB 57.24GB  61%
+    ams07-a700s-saphan-1-01v250-client25-nprod t250_sles_boot_sollabams07v52_vol aggr_n01_ssd online RW 150GB 81.06GB  45%
+    ams07-a700s-saphan-1-01v250-client25-nprod t250_sles_boot_sollabams07v53_vol aggr_n01_ssd online RW 150GB 79.56GB  46%
+    3 entries were displayed.
+    ```
+    > [!NOTE] 
+    > 이 예에서 이 호스트는 3개 노드 스케일 아웃 시스템의 일부이며 이 호스트에서 3개의 부팅 볼륨을 모두 볼 수 있습니다.  즉, 3개의 부팅 볼륨이 모두 이 호스트에서 스냅샷될 수 있으며 다음 단계에서 3개 모두를 구성 파일에 추가해야 합니다.
+
+1. 다음과 같이 새 구성 파일을 만듭니다. 부팅 볼륨 세부 정보는 OtherVolume stanza에 있어야 합니다.
+    ```bash
+    azacsnap -c configure --configuration new --configfile BootVolume.json
+    ```
+    ```output
     Building new config file
-    Add comment to config file (blank entry to exit adding comments):<span style="color:red">Boot only config file.</span>
+    Add comment to config file (blank entry to exit adding comments): Boot only config file.
     Add comment to config file (blank entry to exit adding comments):
-    Add database to config? (y/n) [n]: <span style="color:red">y</span>
-    HANA SID (for example, H80): <span style="color:red">X</span>
-    HANA Instance Number (for example, 00): <span style="color:red">X</span>
-    HANA HDB User Store Key (for example, `hdbuserstore List`): <span style="color:red">X</span>
-    HANA Server's Address (hostname or IP address): <span style="color:red">X</span>
+    Add database to config? (y/n) [n]: y
+    HANA SID (for example, H80): X
+    HANA Instance Number (for example, 00): X
+    HANA HDB User Store Key (for example, `hdbuserstore List`): X
+    HANA Server's Address (hostname or IP address): X
     Add ANF Storage to database section? (y/n) [n]:
-    Add HLI Storage to database section? (y/n) [n]: <span style="color:red">y</span>
+    Add HLI Storage to database section? (y/n) [n]: y
     Add DATA Volume to HLI Storage section of Database section? (y/n) [n]:
-    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: <span style="color:red">y</span>
-    Storage User Name (for example, clbackup25): <span style="color:red">shoasnap</span>
-    Storage IP Address (for example, 192.168.1.30): <span style="color:red">10.1.1.10</span>
-    Storage Volume Name (for example, hana_data_soldub41_t250_vol): <span style="color:red">t210_sles_boot_azsollabbl20a31_vol</span>
+    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: y
+    Storage User Name (for example, clbackup25): cl25h50backup
+    Storage IP Address (for example, 192.168.1.30): 10.1.1.10
+    Storage Volume Name (for example, hana_data_soldub41_t250_vol): t250_sles_boot_sollabams07v51_vol
+    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: y
+    Storage User Name (for example, clbackup25): cl25h50backup
+    Storage IP Address (for example, 192.168.1.30): 10.1.1.10
+    Storage Volume Name (for example, hana_data_soldub41_t250_vol): t250_sles_boot_sollabams07v52_vol
+    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: y
+    Storage User Name (for example, clbackup25): cl25h50backup
+    Storage IP Address (for example, 192.168.1.30): 10.1.1.10
+    Storage Volume Name (for example, hana_data_soldub41_t250_vol): t250_sles_boot_sollabams07v53_vol
     Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]:
     Add HLI Storage to database section? (y/n) [n]:
     Add database to config? (y/n) [n]:
@@ -221,9 +247,19 @@ Azure Large Instance의 경우 서비스 요청을 시작해 Microsoft 작업 �
                 "dataVolume": [],
                 "otherVolume": [
                   {
-                    "backupName": "shoasnap",
+                    "backupName": "cl25h50backup",
                     "ipAddress": "10.1.1.10",
-                    "volume&quot;: &quot;t210_sles_boot_azsollabbl20a31_vol"
+                    "volume&quot;: &quot;t250_sles_boot_sollabams07v51_vol"
+                  },
+                  {
+                    "backupName": "cl25h50backup",
+                    "ipAddress": "10.1.1.10",
+                    "volume&quot;: &quot;t250_sles_boot_sollabams07v52_vol"
+                  },
+                  {
+                    "backupName": "cl25h50backup",
+                    "ipAddress": "10.1.1.10",
+                    "volume&quot;: &quot;t250_sles_boot_sollabams07v53_vol"
                   }
                 ]
               }
@@ -251,11 +287,15 @@ Azure Large Instance의 경우 서비스 요청을 시작해 Microsoft 작업 �
     ```output
     List snapshot details called with snapshotFilter 'TestBootVolume'
     #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
-    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
-    , t210_sles_boot_azsollabbl20a31_vol, , , Size used by Snapshots, 1.31GB
+    #1, t250_sles_boot_sollabams07v51_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
+    , t250_sles_boot_sollabams07v51_vol, , , Size used by Snapshots, 1.31GB
+    #1, t250_sles_boot_sollabams07v52_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
+    , t250_sles_boot_sollabams07v52_vol, , , Size used by Snapshots, 1.31GB
+    #1, t250_sles_boot_sollabams07v53_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
+    , t250_sles_boot_sollabams07v53_vol, , , Size used by Snapshots, 1.31GB
     ```
 
-1. 자동 스냅샷 백업을 설정합니다.
+1. *선택 사항* `crontab` 또는 `azacsnap` 백업 명령을 실행할 수 있는 적절한 스케줄러를 사용하여 자동 스냅샷 백업을 설정합니다.
 
 > [!NOTE]
 > SAP HANA와의 통신 설정은 필요하지 않습니다.

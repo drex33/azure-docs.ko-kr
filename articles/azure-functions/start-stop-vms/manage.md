@@ -3,14 +3,14 @@ title: VM v2 시작/중지(미리 보기) 관리
 description: 이 문서에서는 VM v2 시작/중지(미리 보기) 기능을 통해 관리되는 Azure VM의 상태를 모니터링하고 기타 관리 작업을 수행하는 방법을 설명합니다.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/16/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: e9d6f7a93f2bd59b120be059d7f9c254d1bde56b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 40c3d2dba3d41c7651846d09d01dd7afdce15af9
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073165"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112967064"
 ---
 # <a name="how-to-manage-startstop-vms-v2-preview"></a>VM v2 시작/중지(미리 보기)를 관리하는 방법
 
@@ -21,6 +21,9 @@ VM v2 시작/중지(미리 보기)에는 VM에 대한 관리 범위 및 최근 �
 지정된 시각화에서 **새로 고침** 아이콘을 클릭하거나 전체 대시보드를 새로 고쳐 요청 시 수동 새로 고침 옵션을 사용하면 대시보드의 각 타일이 표시하는 로그 데이터가 매시간 새로 고침됩니다.
 
 로그 기반 대시보드를 사용하는 방법에 대한 자세한 내용은 다음 [자습서](../../azure-monitor/visualize/tutorial-logs-dashboards.md)를 참조하세요.
+
+> [!NOTE]
+> 배포 중에 문제가 발생하면 VM v2 시작/중지(미리 보기)를 사용할 때 문제가 발생하거나 관련 질문이 있는 경우 [GitHub](https://github.com/microsoft/startstopv2-deployments/issues)에서 문제를 제출할 수 있습니다. 이 미리 보기 버전에서는 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)에서 Azure 지원 인시던트를 제출할 수 없습니다. 
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 

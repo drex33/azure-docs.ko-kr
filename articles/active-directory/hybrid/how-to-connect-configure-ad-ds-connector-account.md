@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/20/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: adea0e63c9e285a751a1a0508e84c5b83a10e994
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 52ddd2968b84f14d4873f61eec5ab94b073ebda0
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074694"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633941"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
@@ -84,7 +84,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 
 `<ADAccountName>`, `<ADDomainName>` 및 `<ADAccountDN>`을 사용자 환경에 적합한 값으로 바꿔야 합니다.
 
-AdminSDHolder 컨테이너에 대한 권한을 수정하지 않으려면 `-SkipAdminSdHolders` 스위치를 사용합니다. 
+AdminSDHolder 컨테이너에 대한 권한을 수정하려면 `-IncludeAdminSdHolders` 스위치를 사용합니다. 이것은 권장되지 않습니다.
 
 기본적으로 모든 권한 설정 cmdlet은 포리스트에 있는 각 도메인의 루트에 AD DS 권한을 설정하려고 합니다. 즉, PowerShell 세션을 실행하는 사용자에게 포리스트의 각 도메인에 대한 도메인 관리자 권한이 필요합니다.  이 요구 사항에 따라 포리스트 루트에서 엔터프라이즈 관리자를 사용하는 것이 좋습니다. Azure AD Connect 배포에 여러 AD DS 커넥터가 있는 경우 AD DS 커넥터가 있는 각 포리스트에서 동일한 cmdlet을 실행해야 합니다. 
 
@@ -253,7 +253,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 |Allow |AD DS 커넥터 계정 |모든 속성 읽기/쓰기 |하위 Group 개체| 
 |Allow |AD DS 커넥터 계정 |모든 속성 읽기/쓰기 |하위 Contact 개체| 
 
-### <a name="permissions-for-exchange-mail-public-folders-preview"></a>Exchange 메일 공용 폴더(미리 보기)에 대한 권한 
+### <a name="permissions-for-exchange-mail-public-folders"></a>Exchange 메일 공용 폴더에 대한 권한
 Exchange 메일 공용 폴더 기능을 사용하는 경우 AD DS 커넥터 계정에 대한 권한을 설정하려면 다음을 실행합니다. 
 
 ``` powershell

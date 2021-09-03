@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/24/2019
+ms.date: 08/12/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 51194dbcdfd967a40da96842cf58d373fd28f96f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 04dde4560a9b03208d4c0f234d475ddce7265343
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468291"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567453"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 구성
 
@@ -40,11 +40,13 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 
 요구 사항에 따라 DNS 구성을 설정하기 위한 몇 가지 옵션이 있습니다.
 
+
 ### <a name="same-internal-and-external-url-different-internal-and-external-behavior"></a>동일한 내부 및 외부 URL, 서로 다른 내부 및 외부 동작 
 
 내부 사용자를 애플리케이션 프록시를 통해 이동시키지 않으려는 경우 *스플릿 브레인(Split-Brain) DNS* 를 설정할 수 있습니다. 분할 DNS 인프라는 이름 확인을 위해 내부 호스트를 내부 도메인 이름 서버에, 외부 호스트를 외부 도메인 이름 서버에 전달합니다. 
 
 ![스플릿 브레인(Split-Brain) DNS](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
+
 
 ### <a name="different-internal-and-external-urls"></a>다른 내부 및 외부 URL 
 
@@ -107,6 +109,9 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
    ![CNAME DNS 항목 추가](./media/application-proxy-configure-custom-domain/dns-info.png)
    
 10. [Azure Portal을 사용하여 DNS 레코드 및 레코드 세트 관리](../../dns/dns-operations-recordsets-portal.md)의 지침에 따라 새 외부 URL을 *msappproxy.net* 도메인으로 리디렉션하는 DNS 레코드를 추가합니다.
+
+   > [!IMPORTANT] 
+   > *msappproxy.net* 도메인을 가리키는 CNAME 레코드를 올바르게 사용하고 있는지 확인합니다. IP 주소나 서버 DNS 이름은 고정되어 있지 않고 서비스의 복원력에 영향을 미칠 수 있으므로 레코드가 IP 주소나 서버 DNS 이름을 가리키지 않아야 합니다.
    
 11. DNS 레코드가 올바르게 구성되었는지 확인하려면 [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) 명령을 사용하여 외부 URL에 연결되는지와 *msapproxy.net* 도메인이 별칭으로 표시되는지를 확인합니다.
 

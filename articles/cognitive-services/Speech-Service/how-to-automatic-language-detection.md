@@ -3,20 +3,20 @@ title: 언어 식별을 사용하는 방법
 titleSuffix: Azure Cognitive Services
 description: 언어 식별은 제공된 언어 목록과 비교했을 때 Speech SDK에 전달되는 오디오에서 사용되는 언어를 결정하는 데 사용됩니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.author: trbye
+ms.author: lajanuar
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 2c9adacbb9e333c81c4f90868a69f8a23a3c15a7
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e24a24b54d31a98497bfba453b6677ebf0f560a9
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962921"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530615"
 ---
 # <a name="how-to-use-language-identification"></a>언어 식별을 사용하는 방법
 
@@ -33,7 +33,7 @@ ms.locfileid: "111962921"
 현재 언어 식별에는 1단계 인식을 위한 **4개의 언어** 와 연속 인식을 위한 **10개의 언어** 로 제한되어 있습니다. `AutoDetectSourceLanguageConfig` 개체를 구성할 때 이러한 제한을 염두에 두세요. 아래 샘플에서는 `AutoDetectSourceLanguageConfig`를 사용하여 식별할 수 있는 언어 목록을 정의한 다음, 음성 인식을 실행할 때 이러한 언어를 참조합니다.
 
 > [!IMPORTANT]
-> 연속 언어 식별은 현재 **미리 보기** 로 제공되며 C# 및 C++에서만 지원됩니다.
+> 연속 언어 식별은 C#, C++ 및 Python에서만 지원됩니다.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -155,14 +155,11 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
 ```
 
 > [!NOTE]
-> `Latency` 및 `Accuracy` 모드 및 다국어 연속 인식은 현재 C# 및 C++에서만 지원됩니다.
+> `Latency` 및 `Accuracy` 모드 및 다국어 연속 인식은 현재 C#, C++ 및 Python에서만 지원됩니다.
  
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-
-> [!IMPORTANT]
-> 아래와 같이 이 기능은 현재 **미리 보기** 로 제공됩니다.
 
 다음 예제에서는 1단계 인식을 실행하고 `Latency`의 우선 순위를 지정합니다. 사용 사례에 대한 우선 순위에 따라 이 속성을 `Accuracy`로 설정할 수도 있습니다. `Latency`는 대기 시간이 짧은 결과가 필요하지만(예: 라이브 스트리밍 사례) 오디오 샘플에서 언어를 모를 경우 사용하기에 가장 좋은 옵션입니다. 
 
@@ -265,7 +262,7 @@ recognizer->StopContinuousRecognitionAsync().get();
 ```
 
 > [!NOTE]
-> `Latency` 및 `Accuracy` 모드 및 다국어 연속 인식은 현재 C# 및 C++에서만 지원됩니다.
+> `Latency` 및 `Accuracy` 모드 및 다국어 연속 인식은 현재 C#, C++ 및 Python에서만 지원됩니다.
 
 ::: zone-end
 
@@ -406,22 +403,22 @@ if (result->Reason == ResultReason::RecognizedSpeech)
 
 ::: zone pivot="programming-language-java"
 > [!IMPORTANT]
-> 이 기능은 현재 C# 및 C++에서만 지원됩니다.
+> 이 기능은 현재 C#, C++ 및 Python에서만 지원됩니다.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 > [!IMPORTANT]
-> 이 기능은 현재 C# 및 C++에서만 지원됩니다.
+> 이 기능은 현재 C#, C++ 및 Python에서만 지원됩니다.
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
 > [!IMPORTANT]
-> 이 기능은 현재 C# 및 C++에서만 지원됩니다.
+> 이 기능은 현재 C#, C++ 및 Python에서만 지원됩니다.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 > [!IMPORTANT]
-> 이 기능은 현재 C# 및 C++에서만 지원됩니다.
+> 이 기능은 현재 C#, C++ 및 Python에서만 지원됩니다.
 ::: zone-end
 
 ## <a name="use-a-custom-model-for-language-identification"></a>언어 식별에 사용자 지정 모델 사용

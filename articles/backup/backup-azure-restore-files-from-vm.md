@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 76d81aa92643002bc5cd2b8859941af8e7440c87
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: dd1a5ff9fbf85fbce4c4ae7a79b745589b3596e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421871"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528391"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -133,13 +133,13 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 제한된 액세스를 포함하는 컴퓨터에서 스크립트를 실행하는 경우 다음에 대한 액세스 권한이 있는지 확인합니다.
 
-- NSG의 `download.microsoft.com` 또는 `AzureFrontDoor.FirstParty` 서비스 태그
-- Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 GEO-NAME)
+- 포트 443(아웃바운드)의 NSG에 있는 `download.microsoft.com` 또는 `AzureFrontDoor.FirstParty` 서비스 태그
+- 포트 3260(아웃바운드)의 Recovery Service URL(Recovery Services 자격 증명 모음이 있는 지역을 참조하는 GEO-NAME)
   - NSG의 `https://pod01-rec2.GEO-NAME.backup.windowsazure.com`(Azure 공용 지역의 경우) 또는 `AzureBackup` 서비스 태그
   - NSG의 `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn`(Azure 중국 21Vianet의 경우) 또는 `AzureBackup` 서비스 태그
   - NSG의 `https://pod01-rec2.GEO-NAME.backup.windowsazure.us`(Azure 미국 정부의 경우) 또는 `AzureBackup` 서비스 태그
   - NSG의 `https://pod01-rec2.GEO-NAME.backup.windowsazure.de`(Azure 독일의 경우) 또는 `AzureBackup` 서비스 태그
-- 아웃바운드 포트 53(DNS), 443, 3260
+- 포트 53(아웃바운드)의 공용 DNS 확인
 
 > [!NOTE]
 >
@@ -159,6 +159,12 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 또한 [ILR 스크립트를 실행하고](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) [OS 요구 사항](#step-3-os-requirements-to-successfully-run-the-script)을 충족하는 적절한 컴퓨터가 있는지 확인합니다.
 
 ## <a name="step-5-running-the-script-and-identifying-volumes"></a>5단계: 스크립트 실행 및 볼륨 식별
+
+> [!NOTE]
+>
+> 스크립트는 영어로만 생성되며 현지화되지 않습니다. 따라서 스크립트가 제대로 실행되려면 시스템 로캘이 영어로 되어 있어야 합니다.
+> 
+
 
 ### <a name="for-windows"></a>Windows의 경우
 

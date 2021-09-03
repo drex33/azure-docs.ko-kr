@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: arvindshmicrosoft
 ms.author: arvindsh
 ms.reviewer: mathoma
-ms.date: 12/9/2020
-ms.openlocfilehash: 014f3e80446e514fcce20cc0dbc82f6f1d3a063e
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 06/23/2021
+ms.openlocfilehash: a3847bb1ac435779e50ce8cc41a3940bb6adfab7
+ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708784"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112965133"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>탄력적 풀이 Azure SQL Database의 여러 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -101,6 +101,10 @@ VCore 구매 모델에서 탄력적 풀에 대한 vCore의 단가는 단일 데�
 
 > [!IMPORTANT]
 > 풀의 데이터베이스 수가 지원되는 최대치에 도달하는 경우에는 [고밀도 탄력적 풀에서 리소스 관리](elastic-pool-resource-management.md)를 고려해야 합니다.
+
+### <a name="per-database-properties"></a>데이터베이스 속성별
+
+선택적으로 "데이터베이스별" 속성을 설정하여 탄력적 풀의 리소스 사용 패턴을 수정할 수 있습니다. 자세한 내용은 [DTU](resource-limits-dtu-elastic-pools.md#database-properties-for-pooled-databases) 및 [vCore](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases) 탄력적 풀에 대한 리소스 제한 문서를 참조하세요.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>탄력적 풀과 기타 SQL Database 기능 사용
 

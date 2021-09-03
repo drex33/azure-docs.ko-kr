@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 06/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee850765006af15d8e323831d70dfcd7849d1287
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5dec171c299bdd8ea6c5989794539b6c79e7d3fe
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145964"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114229692"
 ---
 # <a name="azure-ad-connect-single-object-sync"></a>Azure AD Connect 단일 개체 동기화 
 
@@ -54,9 +54,11 @@ HTML 보고서에는 다음이 포함됩니다.
 |수정된 속성|이전 값과 새 값을 표시합니다. 이전 값이 없거나 새 값이 삭제된 경우 해당 셀은 비어 있습니다. 다중값 특성의 경우 개수를 표시합니다. 특성 이름은 단계 탭: Azure Active Directory Connector 공간에서 Azure Active Directory로 개체 내보내기: 이름, 다중값, 유형, 값, 값 추가, 값 삭제, 작업, 동기화 규칙, 매핑 유형 및 데이터 원본 등의 특성에 대한 추가 세부 정보를 포함하는 특성 정보에 대한 링크입니다.| 
 |요약|발생한 상황에 대한 개요와 원본 및 대상 시스템의 개체에 대한 식별자를 제공합니다.| 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
-단일 개체 동기화 도구를 사용하려면 2021년 3월 릴리스 이상의 Azure AD Connect를 사용해야 합니다. 
+단일 개체 동기화 도구를 사용하려면 다음을 사용해야 합니다.  
+ - 2021년 3월 릴리스([1.6.4.0](reference-connect-version-history.md#1640)) 이상의 Azure AD Connect
+ -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50?view=powershell-7.1)
 
 ### <a name="run-the-single-object-sync-tool"></a>단일 개체 동기화 도구 실행 
 

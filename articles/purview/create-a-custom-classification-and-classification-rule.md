@@ -1,30 +1,33 @@
 ---
 title: 사용자 지정 분류 및 분류 규칙 만들기(미리 보기)
 description: Azure Purview에서 조직에 고유한 데이터 자산의 데이터 형식을 정의하는 사용자 지정 분류를 만드는 방법을 알아봅니다.
-author: anmuk601
-ms.author: anmuk
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 3/24/2021
-ms.openlocfilehash: e54535449ddf9605bc483b9a309a717b22d8398d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: fff9f128e6a533d8a8926093ca58a79ef2e974d3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071500"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536782"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Azure Purview의 사용자 지정 분류
 
 이 문서에서는 사용자 지정 분류를 만들어 조직에 고유한 데이터 자산의 데이터 형식을 정의하는 방법을 설명합니다. 또한 데이터 자산 전체에서 지정된 데이터를 찾을 수 있는 사용자 지정 분류 규칙 만들기에 대해서도 설명합니다.
 
-## <a name="default-classifications"></a>기본 분류
+## <a name="default-system-classifications"></a>기본 시스템 분류
 
-Azure Purview Data Catalog는 데이터 자산에 있을 수 있는 일반적인 개인 데이터 형식을 나타내는 대규모 기본 분류 세트를 제공합니다.
+Azure Purview Data Catalog는 데이터 자산에 있을 수 있는 일반적인 개인 데이터 형식을 나타내는 대규모 기본 시스템 분류 세트를 제공합니다. 사용 가능한 시스템 분류의 전체 목록은 [Azure Purview에서 지원되는 분류](supported-classifications.md)를 참조하세요.
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="분류 선택" border="true":::
 
 또한 기본 분류가 요구 사항을 충족하지 않는 경우 사용자 지정 분류를 만들 수 있습니다.
+
+> [!Note]
+> 당사 [데이터 샘플링 규칙](sources-and-scans.md#sampling-within-a-file)은 시스템 분류와 사용자 지정 분류 모두에 적용됩니다.  
 
 ## <a name="steps-to-create-a-custom-classification"></a>사용자 지정 분류를 만드는 단계
 
@@ -94,7 +97,7 @@ Contoso는 사용자 지정 분류 규칙을 만들어 이러한 ID의 인스턴
 
 5. **새 분류 규칙** 대화 상자가 열립니다. 필드를 입력하고 **정규식 규칙** 또는 **사전 규칙** 을 만들지 여부를 결정합니다.
 
-   |필드     |Description  |
+   |필드     |설명  |
    |---------|---------|
    |속성   |    필수 사항입니다. 최대 100자입니다.    |
    |Description      |선택 사항입니다. 최대 256자입니다.    |
@@ -118,16 +121,12 @@ Contoso는 사용자 지정 분류 규칙을 만들어 이러한 ID의 인스턴
    |데이터 패턴    |선택 사항입니다. 데이터 필드에 저장된 데이터를 나타내는 정규식입니다. 제한이 매우 큽니다. 이전 예제에서 데이터 패턴은 문자 그대로 `Employee{GUID}`라는 단어인 직원 ID를 테스트합니다.  |
    |열 패턴    |선택 사항입니다. 일치시킬 열 이름을 나타내는 정규식입니다. 제한이 매우 큽니다. |
 
-1. **데이터 패턴** 에는 설정할 수 있는 두 가지 임계값이 있습니다.
+1. **데이터 패턴** 에서 **최소 일치 임계값** 을 사용하여 분류를 적용하기 위해 스캐너가 찾아야 하는 열에서 고유 데이터 값 일치의 최소 백분율을 설정할 수 있습니다. 제안 값은 60%입니다. 여러 데이터 패턴을 지정하는 경우 이 설정은 사용하지 않도록 설정되고 값은 60%로 고정됩니다.
 
-   - **고유 일치 임계값**: 스캐너가 데이터 패턴을 실행하기 전에 열에서 찾아야 하는 고유 데이터 값의 총 수입니다. 제안 값은 8입니다. 이 값은 2에서 32 사이의 범위에서 수동으로 조정할 수 있습니다. 스캐너에서 정확히 분류할 수 있을 만큼 충분한 데이터가 열에 포함되어 있는지 확인하려면 시스템에서 이 값이 필요합니다. 예를 들어 값 1만 포함하는 여러 행이 있는 열은 분류되지 않습니다. 한 행에 값이 있고 나머지 행은 null 값인 열도 분류되지 않습니다. 여러 패턴을 지정하는 경우 이 값이 각 패턴에 적용됩니다.
-
-   - **최소 일치 임계값**: 이 설정을 사용하여 분류를 적용하기 위해 스캐너가 찾아야 하는 열에서 고유 데이터 값 일치의 최소 백분율을 설정할 수 있습니다. 제안 값은 60%입니다. 이 설정에 주의해야 합니다. 수준을 60% 미만으로 낮추면 카탈로그에 가양성 분류를 도입할 수 있습니다. 여러 데이터 패턴을 지정하는 경우 이 설정은 사용하지 않도록 설정되고 값은 60%로 고정됩니다.
+   > [!Note]
+   > 최소 일치 임계값은 1% 이상이어야 합니다.
 
 1. 이제 규칙을 확인하고 **만들** 수 있습니다.
-
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="만들기 전에 규칙 확인" border="true":::
-
 1. 만들기 프로세스를 완료하기 전에 분류 규칙을 테스트하여 자산에 태그가 적용되는지 유효성을 검사합니다. 규칙의 분류는 스캔에서와 마찬가지로 업로드된 샘플 데이터에 적용됩니다. 즉, 모든 시스템 분류 및 사용자 지정 분류가 파일의 데이터와 일치합니다.
 
    입력 파일에는 구분된 파일(CSV, PSV, SSV, TSV), JSON 또는 XML 콘텐츠가 포함될 수 있습니다. 콘텐츠는 입력 파일의 파일 확장명에 따라 구문 분석됩니다. 구분된 데이터는 언급된 형식과 일치하는 파일 확장명을 가질 수 있습니다. 예를 들어, TSV 데이터는 MySampleData.csv라는 파일에 존재할 수 있습니다. 또한 구분된 콘텐츠에는 최소 3개의 열이 있어야 합니다.
@@ -142,9 +141,7 @@ Contoso는 사용자 지정 분류 규칙을 만들어 이러한 ID의 인스턴
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="사전 규칙 만들기" border="true":::
 
-1. 사전이 생성된 후에는 고유 일치 임계값 및 최소 일치 임계값을 조정하고 규칙을 제출할 수 있습니다.
-
-- **고유 일치 임계값**: 스캐너가 데이터 패턴을 실행하기 전에 열에서 찾아야 하는 고유 데이터 값의 총 수입니다. 고유 일치 임계값은 패턴 일치와 관련이 없지만 패턴 일치를 위한 필수 조건입니다. 제안 값은 8입니다. 이 값은 2에서 32 사이의 범위에서 수동으로 조정할 수 있습니다. 스캐너에서 정확히 분류할 수 있을 만큼 충분한 데이터가 열에 포함되어 있는지 확인하려면 시스템에서 이 값이 필요합니다. 예를 들어 값 1만 포함하는 여러 행이 있는 열은 분류되지 않습니다. 한 행에 값이 있고 나머지 행은 null 값인 열도 분류되지 않습니다. 여러 패턴을 지정하는 경우 이 값이 각 패턴에 적용됩니다.
+1. 사전이 생성된 후 최소 일치 임계값을 조정하고 규칙을 제출할 수 있습니다.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="사전 생성 확인 표시가 있는 사전 규칙을 만듭니다." border="true":::
 

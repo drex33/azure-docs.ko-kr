@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: mathoma
 ms.date: 3/23/2021
-ms.openlocfilehash: 7de0db8245908e8342abbbe6a8f7cc4f2359e7f5
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: a697c0a3095963760d6a95159790c02cbab14d71
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112017868"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112121620"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 유지 관리 이벤트 계획하기
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,6 +40,10 @@ Azure SQL Database 및 Azure SQL Managed Instance 서비스의 안전, 규정 �
 ## <a name="retry-logic"></a>재시도 논리
 
 클라우드 데이터베이스 서비스에 연결하는 모든 클라이언트 프로덕션 애플리케이션은 강력한 연결 [재시도 논리](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)를 구현해야 합니다. 이렇게 하면 최종 사용자에게 투명하게 재구성하거나, 적어도 부정적 효과를 최소화하는 데 도움이 됩니다.
+
+### <a name="service-health-alert"></a>서비스 상태 경고
+
+서비스 문제 또는 계획된 유지 관리 활동에 대한 경고를 받으려면 적절한 이벤트 유형 및 작업 그룹과 함께 Azure Portal에서 Service Health 경고를 사용할 수 있습니다. 자세한 내용은 이 [Azure 서비스 알림에 대한 경고 수신](../../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal)을 참조하세요.
 
 ## <a name="resource-health"></a>리소스 상태
 

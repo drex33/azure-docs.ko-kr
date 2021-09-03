@@ -4,13 +4,13 @@ description: 모듈을 정의하고 사용하는 방법과 모듈 범위를 사�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 85f345cfd7085f34f28e4b219c4f379abff74bff
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.date: 07/15/2021
+ms.openlocfilehash: 5e092a0b7f27379cf9fdc488c7a56a295ce17d25
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421421"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529460"
 ---
 # <a name="use-bicep-modules"></a>Bicep 모듈 사용
 
@@ -102,8 +102,21 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
     ]
     ...
     ```
+- **_params_** 속성에는 모듈 파일에 전달할 매개 변수가 포함됩니다. 이러한 매개 변수는 Bicep 파일에 정의된 매개 변수와 일치합니다.
+
+리소스와 마찬가지로 모듈은 다른 모듈이나 리소스 배포에 의존하지 않는 한 병렬로 배포됩니다. 종속성에 대한 자세한 내용은 [리소스 종속성 설정](resource-declaration.md#set-resource-dependencies)을 참조하세요.
 
 모듈에서 출력 값을 가져오려면 `stgModule.outputs.storageEndpoint`와 같은 구문을 사용하여 속성 값을 검색합니다. 여기서, `stgModule`은 모듈의 식별자입니다.
+
+모듈을 조건부로 배포할 수 있습니다. [리소스를 조건부로 배포](conditional-resource-deployment.md)할 때와 동일한 **if** 구문을 사용합니다.
+
+```bicep
+param deployZone bool
+
+module dnsZone 'dnszones.bicep' = if (deployZone) {
+  name: 'myZoneModule'
+}
+```
 
 ## <a name="configure-module-scopes"></a>모듈 범위 구성
 

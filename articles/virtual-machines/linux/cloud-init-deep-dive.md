@@ -8,12 +8,12 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.subservice: cloud-init
-ms.openlocfilehash: 63bc821648348c2936d437fef7fdd89314fad3c5
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 4ca42c259e10742e61fbd7f36b73f332cba5a8db
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783228"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445833"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>cloud-init에 대해 자세히 알아보기
 [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html)에 대해 자세히 알아보거나 심층적으로 문제를 해결하려면 작동 방식을 이해해야 합니다. 이 문서에서는 중요한 부분을 강조하고 Azure 사양에 대해 설명합니다.
@@ -22,7 +22,7 @@ cloud-init이 범용 이미지에 포함되고 해당 이미지에서 VM이 생�
 
 
 ## <a name="understand-cloud-init-configuration"></a>Cloud-Init 구성 이해
-플랫폼에서 실행되도록 VM을 구성한다는 것은 cloud-init이 여러 구성을 적용해야 함을 의미합니다. 이미지 소비자가 상호 작용할 기본 구성은 여러 형식을 지원하는 `User data`(customData)이며 [여기](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats)에서 관련 문서가 제공됩니다. 추가 구성을 위해 스크립트(/var/lib/cloud/scripts)를 추가하고 실행할 수도 있습니다. 이에 대한 자세한 내용은 아래에서 설명합니다.
+플랫폼에서 실행되도록 VM을 구성한다는 것은 cloud-init이 여러 구성을 적용해야 함을 의미합니다. 이미지 소비자가 상호 작용할 기본 구성은 여러 형식을 지원하는 `User data`(customData)입니다. 자세한 내용은 [사용자 데이터 형식 및 cloud-init 21.2 문서](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). 추가 구성을 위해 스크립트(/var/lib/cloud/scripts)를 추가하고 실행할 수도 있습니다. 이에 대한 자세한 내용은 아래에서 설명합니다.
 
 일부 구성은 cloud-init과 함께 제공되는 Azure Marketplace 이미지로 이미 준비되어 있습니다. 예를 들면 다음과 같습니다.
 

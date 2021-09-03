@@ -4,33 +4,27 @@ description: 이 문서에서는 상업용 Marketplace 거래 옵션에 대한 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 08/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: f68b940dfdb8c166102f1b4c8957f5233aa83ea4
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: f75d3872d0125e210edcd33ca85978901468bfe8
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007772"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567919"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
-이 문서에서는 Microsoft 상업용 Marketplace에 대한 가격 책정, 청구, 송장 처리 및 지급 고려 사항에 대해 설명합니다.
+이 문서에서는 상업용 Marketplace를 통해 *거래 가능* 제품 판매에 대한 가격 책정, 청구, 송장 작성 및 지급 고려 사항에 대해 설명합니다. 거래 불가능한(무료 또는 BYOL) 제품 게시에 대한 자세한 내용은 [목록 옵션 소개](determine-your-listing-type.md)를 참조하세요.
 
 ## <a name="transactions-by-listing-option"></a>게시 옵션별 트랜잭션
 
 게시자나 Microsoft는 상업용 Marketplace의 제품에 대한 소프트웨어 라이선스 트랜잭션을 관리할 책임이 있습니다. 제품에 대해 선택하는 목록 옵션에 따라 트랜잭션 관리자가 결정됩니다. 각 게시 옵션의 가용성 및 설명은 [목록 옵션 소개](determine-your-listing-type.md)를 참조하세요.
 
-### <a name="contact-me-free-trial-and-byol-options"></a>연락처, 평가판 및 BYOL 옵션
-
-게시자는 홍보 및 사용자 확보를 위한 옵션인 _연착처_ 및 _평가판_ 을 선택할 수 있습니다. 일부 제품 유형의 경우 게시자는 _BYOL(Bring Your Own License)_ 옵션을 선택하여 고객이 사용자로부터 직접 구매한 라이선스를 사용하여 제품 구독을 구매할 수 있습니다. 이러한 옵션을 사용할 때 Microsoft는 게시자의 소프트웨어 라이선스 트랜잭션에 직접 참여하지 않으며 연결된 트랜잭션 요금은 없기 때문에, 게시자가 모든 수익을 가집니다.
-
-이러한 옵션을 통해 게시자는 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원할 책임이 있습니다. 여기에는 주문, 이행, 계량, 청구, 송장 처리, 결제 및 수금이 포함되지만 이에 국한되지는 않습니다. 연락처 목록 옵션을 사용할 때 게시자는 고객으로부터 수금된 게시자 소프트웨어 라이선스 요금을 100% 보유합니다.
-
 ### <a name="transact-publishing-option"></a>거래 게시 옵션
 
-Microsoft를 통한 판매를 선택하면 Microsoft 상거래 기능을 활용하고 검색 및 평가에서 구매 및 구현에 이르는 엔드투엔드 경험을 제공합니다. _거래 가능한_ 제품은 Microsoft가 게시자를 대신하여 소프트웨어 라이선스에 대해 현금 교환을 용이하게 하기 위한 것입니다. 거래 제품은 기존 Microsoft 구독 또는 신용 카드로 요금이 청구되므로 Microsoft에서는 게시자를 대신해 클라우드 Marketplace 트랜잭션을 호스트할 수 있습니다.
+Microsoft를 통한 판매를 선택하면 Microsoft 상거래 기능을 활용하고 검색 및 평가에서 구매 및 구현에 이르는 엔드투엔드 경험을 제공합니다. *거래 가능한* 제품은 Microsoft가 게시자를 대신하여 소프트웨어 라이선스에 대해 현금 교환을 용이하게 하기 위한 것입니다. 거래 제품은 기존 Microsoft 구독 또는 신용 카드로 요금이 청구되므로 Microsoft에서는 게시자를 대신해 클라우드 Marketplace 트랜잭션을 호스트할 수 있습니다.
 
 파트너 센터에서 새 제품을 만들 때 거래 옵션을 선택합니다. 이 옵션은 제품 형식에 대해 거래를 사용할 수 있는 경우에만 표시됩니다.
 
@@ -42,16 +36,16 @@ Microsoft를 통한 판매를 선택하면 Microsoft 상거래 기능을 활용�
 
 | 제품 유형 | 청구 주기 | 요금제 청구 | 가격 책정 모델 |
 | ------------ | ------------- | ------------- | ------------- |
-| Azure 애플리케이션<br>(관리형 애플리케이션) | 매월 | 예 | 사용량 기준 |
+| Azure 애플리케이션 <br>(관리형 애플리케이션) | 매월 | 예 | 사용량 기준 |
 | Azure Virtual Machine | 매월* | 아니요 | 사용량 기준, BYOL |
 | SaaS(Software as a Service) | 매월 및 매년 | 예 | 정액제, 사용자당, 사용량 기준. |
 |||||
 
-`*` Azure Virtual Machine은 사용량 기반 청구 플랜을 제공합니다. 이러한 플랜은 코어, 코어 크기 또는 시장 및 코어 크기 사용량에 따라 구독 사용 시간에 대해 매월 청구됩니다.
+\* Azure Virtual Machine은 사용량 기반 청구 플랜을 제공합니다. 이러한 플랜은 코어, 코어 크기 또는 시장 및 코어 크기 사용량에 따라 구독 사용 시간에 대해 매월 청구됩니다.
 
 ### <a name="metered-billing"></a>요금제 청구
 
-_Marketplace 계량 서비스_ 를 사용하면 계약(권한)에 포함된 월간 또는 연간 요금 외에 종량제(소비 기반) 요금을 지정할 수 있습니다. 대역폭, 티켓 또는 처리된 이메일 등 지정한 Marketplace 계량 서비스 차원에 대한 사용 비용을 청구 할 수 있습니다. SaaS 제품의 요금제에 대한 자세한 내용은 [상업용 Marketplace 계량 서비스를 사용하여 SaaS 요금제 청구](./partner-center-portal/saas-metered-billing.md)를 참조하세요. Azure 애플리케이션 제품의 요금제 청구에 대한 자세한 내용은 [관리되는 애플리케이션 요금제 청구](marketplace-metering-service-apis.md)를 참조하세요.
+*Marketplace 계량 서비스* 를 사용하면 계약(권한)에 포함된 월간 또는 연간 요금 외에 종량제(소비 기반) 요금을 지정할 수 있습니다. 대역폭, 티켓 또는 처리된 이메일 등 지정한 Marketplace 계량 서비스 차원에 대한 사용 비용을 청구 할 수 있습니다. SaaS 제품의 요금제에 대한 자세한 내용은 [상업용 Marketplace 계량 서비스를 사용하여 SaaS 요금제 청구](./partner-center-portal/saas-metered-billing.md)를 참조하세요. Azure 애플리케이션 제품의 요금제 청구에 대한 자세한 내용은 [관리되는 애플리케이션 요금제 청구](marketplace-metering-service-apis.md)를 참조하세요.
 
 ### <a name="billing-infrastructure-costs"></a>인프라 비용 청구
 
@@ -63,21 +57,27 @@ _Marketplace 계량 서비스_ 를 사용하면 계약(권한)에 포함된 월�
 
 사용되는 트랜잭션 옵션에 따라 구독 요금은 다음과 같습니다.
 
-- **지금 받기(무료)** : 소프트웨어 라이선스에 대한 요금이 청구되지 않습니다. 체험판 제품은 유료 제품으로 변환할 수 없습니다. 고객은 유료 제품을 주문해야 합니다.
-- **BYOL(Bring your own license)** : 제품이 상업용 Marketplace에 등록된 경우 소프트웨어 라이선스에 적용되는 모든 요금은 게시자와 고객 간에 직접 관리됩니다. Microsoft는 고객의 Azure 구독 계정에 적용되는 Azure 인프라 사용 요금만 청구합니다.
 - **구독 가격 책정**: 소프트웨어 라이선스 요금은 정액 요금 또는 사용자 단위로 청구되는 월간 또는 연간 정기 구독 요금으로 표시됩니다. 정기 구독 요금은 고객의 중도 취소 또는 사용하지 않은 서비스에 대해 비례 배분되어 계산되지 않습니다. 고객이 구독 기간 중 구독을 업그레이드하거나 다운그레이드하는 경우 정기 구독 요금은 비례 배부되어 계산될 수 있습니다.
 - **사용량 기반 가격 책정**: Azure Virtual Machine 제품의 경우 제품 사용 범위에 따라 고객에게 청구됩니다. 가상 머신 이미지의 경우 VM 이미지에서 배포하는 가상 머신 사용량에 대해 게시자가 설정한 시간당 Azure Marketplace 요금이 고객에게 부과됩니다. 시간당 요금은 가상 머신 크기에 관계없이 균일할 수도 있고 크기별로 다를 수 있습니다. 1시간 미만은 분 단위로 요금이 청구됩니다. 플랜은 매월 청구됩니다.
 - **요금제 가격 책정**: Azure 애플리케이션 제품 및 SaaS 제품의 경우 게시자는 [ Marketplace 계량 서비스](marketplace-metering-service-apis.md)를 사용하여 구성한 사용자 지정 미터 측정 기준에 따라 사용량에 대해 청구할 수 있습니다. 이러한 변경 사항은 계약(권한)에 포함된 월간 또는 연간 요금에 추가됩니다. 사용자 지정 미터 측정 기준의 예로는 대역폭, 티켓 또는 처리된 이메일이 있습니다. 게시자는 각 플랜에 대해 하나 이상의 측정 기준을 정의할 수 있지만 제품당 최대 30 개입니다. 게시자는 제품에서 각 미터를 정의하여 개별 사용자의 사용량을 추적해야 합니다. 이벤트는 한 시간 이내에 Microsoft에 보고해야 합니다. Microsoft는 해당 청구 기간에 대해 게시자가 보고한 사용량 정보를 토대로 고객에게 요금을 부과합니다.
-- **평가판**: 제품 유형에 따라 30일에서 6개월까지 소프트웨어 라이선스에 대한 요금이 청구되지 않습니다. 게시자가 동일한 제품 내에서 여러 요금제에 대한 평가판을 제공하는 경우, 고객은 다른 플랜의 평가판으로 전환할 수 있지만 평가 기간이 다시 시작되지는 않습니다. 가상 머신 제품의 경우, 무료 평가 기간 동안 제품 사용에 대해 고객에게 Azure 인프라 비용이 청구됩니다. 무료 평가 기간 종료 전에 취소하지 않는 경우, 평가판 기간 종료와 동시에 표준 요금 기준으로 마지막 사용한 요금제에 해당하는 요금이 자동으로 청구됩니다.
 
 > [!NOTE]
 > 솔루션을 사용한 후 사용량에 따라 청구된 제품은 환불되지 않습니다.
 
-제품과 관련된 사용 요금을 변경하려는 게시자는 먼저 상업용 Marketplace에서 제품(또는 제품 내의 특정 플랜)을 제거해야 합니다. 제거는 [Microsoft 게시자 계약](/legal/marketplace/msft-publisher-agreement)의 요구 사항에 따라 수행해야 합니다. 그런 다음, 게시자는 새로운 사용 요금이 포함된 새 제품(또는 제품 내 플랜)을 게시할 수 있습니다. 제품 또는 플랜 삭제에 대한 자세한 내용은 [제품 또는 플랜 판매 중지](./update-existing-offer.md#stop-selling-an-offer-or-plan)를 참조하세요.
+제품과 관련된 사용 요금을 변경하려는 게시자는 먼저 상업용 Marketplace에서 제품(또는 제품 내의 특정 플랜)을 제거해야 합니다. 제거는 [Microsoft 게시자 계약](/legal/marketplace/msft-publisher-agreement)의 요구 사항에 따라 수행해야 합니다. 그런 다음, 게시자는 새로운 사용 요금이 포함된 새 제품(또는 제품 내 플랜)을 게시할 수 있습니다. 제품 또는 플랜 삭제에 대한 자세한 내용은 [제품 또는 플랜 배포 중지](./update-existing-offer.md#stop-distribution-of-an-offer-or-plan)를 참조하세요.
 
-### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>무료, 연락처 및 BYOL(사용자 라이선스 필요) 가격 책정
+### <a name="determine-offer-type-and-pricing-plan"></a>제품 유형 및 가격 책정 플랜 결정
 
-지금 받기(무료), 연락처 또는 BYOL 옵션을 사용하여 제품을 게시할 때 Microsoft는 소프트웨어 라이선스 요금에 대한 판매 트랜잭션을 촉진하는 역할을 하지 않습니다. 게시자는 소프트웨어 라이선스 요금의 100%를 가집니다.
+이 순서도를 사용하여 상업용 Marketplace에서 소프트웨어를 판매하기 위한 적절한 *거래 가능한* 제품 유형과 가격 책정 플랜을 결정합니다. 이 차트는 게시자가 소프트웨어 제공 및 라이선스/청구 모델을 명확하게 이해하고 있다고 가정합니다.
+
+일반적으로 SaaS 제품은 고객이 서비스에 가입하여 온라인으로 사용하려는 경우에 적합합니다. SaaS를 사용하면 게시자가 클라우드 인프라에서 소프트웨어를 호스팅하고 기술 인프라, 앱 소프트웨어 및 데이터 관리 책임을 관리하게 됩니다.
+
+가상 머신 및 Azure 애플리케이션 제품은 고객이 자체 클라우드 인프라에서 패키지된 앱 또는 서비스(ARM 템플릿의 VM 이미지 및/또는 기타 Azure 서비스로)를 배포, 관리 및 실행하도록 하려는 경우에 적합합니다.
+
+[![제품 유형 및 가격 책정 플랜을 결정하기 위한 순서도를 보여 줍니다.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
+&nbsp;&nbsp;&nbsp;<sup>(1)</sup> [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) 또는 [고객 지원팀](/azure/marketplace/support)에 문의하세요.<br>
+&nbsp;&nbsp;&nbsp;<sup>(2)</sup> VM 제품 이미지를 Azure 앱 제품에 포함하여 가격 책정의 유연성을 높일 수 있습니다.<br>
+&nbsp;&nbsp;&nbsp;<sup>(3)</sup> Azure 서비스는 VM 및 Azure 앱 제품에 대한 고객 테넌트에 배포되므로 고객은 인프라 비용을 지불합니다.
 
 ### <a name="usage-based-and-subscription-pricing"></a>사용량 기반 및 구독 가격 책정
 
@@ -98,15 +98,15 @@ Microsoft를 통해 고객은 Microsoft의 상업용 Marketplace 및 최종 사�
 | **라이선스 비용** | **시간당 $1.00** |
 |---------|---------|
 | Azure 사용량 비용(D1/1개 코어) | 시간당 $0.14 |
-| _Microsoft에서 고객에게 청구하는 요금_ | _시간당 $1.14_ |
+| *Microsoft에서 고객에게 청구하는 요금* | *시간당 $1.14* |
 ||
 
 이 시나리오에서 Microsoft는 게시된 VM 이미지 사용에 대해 시간당 $1.14를 청구합니다.
 
 | **Microsoft에 청구되는 요금** | **시간당 $1.14**  |
 |---------|---------|
-| Microsoft는 라이선스 비용의 80%를 지불합니다. | 시간당 $0.80 |
-| Microsoft는 라이선스 비용의 20%를 유지합니다.  |  시간당 $0.20 |
+| Microsoft는 라이선스 비용의 97%를 지불합니다. | 시간당 $0.97 |
+| Microsoft은 라이선스 비용의 3%를 유지합니다.  |  시간당 $0.03 |
 | Microsoft는 Azure 사용 비용의 100%를 유지합니다. | 시간당 $0.14 |
 ||
 
@@ -117,7 +117,7 @@ BYOL의 비용 구조는 다음과 같습니다.
 | **라이선스 비용** | **사용자가 라이선스 요금을 협상하고 청구합니다.** |
 |---------|---------|
 |Azure 사용량 비용(D1/1개 코어)    |   시간당 $0.14     |
-| _Microsoft에서 고객에게 청구하는 요금_ | _시간당 $0.14_ |
+| *Microsoft에서 고객에게 청구하는 요금* | *시간당 $0.14* |
 ||
 
 이 시나리오에서 Microsoft는 게시된 VM 이미지 사용에 대해 시간당 $0.14를 청구합니다.
@@ -135,23 +135,19 @@ SaaS 구독은 정액 요금으로 또는 사용자당 월간 또는 연간 단�
 | **라이선스 비용** | **매월 $100.00** |
 |--------------|---------|
 | Azure 사용량 비용(D1/1개 코어) | 고객이 아닌 게시자에게 직접 청구됩니다. |
-| _Microsoft에서 고객에게 청구하는 요금_ | _월간 $100.00(참고: 게시자는 발생하거나 통과된 인프라 비용을 라이선스 요금으로 계산해야 함)_ |
+| *Microsoft에서 고객에게 청구하는 요금* | *월간 $100.00(참고: 게시자는 발생하거나 통과된 인프라 비용을 라이선스 요금으로 계산해야 함)* |
 ||
 
-이 시나리오에서 Microsoft는 소프트웨어 라이선스에 대해 $100.00를 청구하고 할인된 스토어 서비스 요금 자격 여부에 따라 사용자에게 $80.00 또는 $90.00를 지불합니다.
+이 시나리오에서 Microsoft는 소프트웨어 라이선스에 대해 $100.00를 청구하고 $97.00를 지급합니다.
 
 | **Microsoft에 청구되는 요금** | **매월 $100.00** |
 |---------|---------|
-| Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 90%의 라이선스 비용을 지급합니다. | 매월 $80.00 <br> \* 매월 $90.00 |
-| Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 10%의 라이선스 비용을 유지합니다. | 매월 $20.00 <br> \* $10.00 |
+| Microsoft는 라이선스 비용의 97%를 지불합니다.  | 매월 $97.00 |
+| Microsoft은 라이선스 비용의 3%를 유지합니다. | 매월 $3.00 |
 
 ### <a name="commercial-marketplace-service-fees"></a>상업용 Marketplace 서비스 요금
 
-고객이 상업용 Marketplace에서 거래 제품을 구매할 때 20% 표준 스토어 서비스 요금을 부과합니다. 이 요금에 대한 자세한 내용은 [Microsoft 게시자 계약 ](/legal/marketplace/msft-publisher-agreement)의 섹션 5c를 참조하세요.
-
-상업용 Marketplace에 게시하는 특정 거래 제품의 경우 10%의 할인된 스토어 서비스 요금을 받을 수 있습니다. 자격을 얻으려면 Microsoft에서 _Azure IP 공동 판매 인센티브_ 로 지정해야 합니다. 할인된 Marketplace 서비스 요금을 받으려면 각 매월 월말 전 최소 5 영업일 전에 자격이 충족되어야 합니다. 자격이 충족되면 _Azure IP 공동 판매 인센티브_ 상태를 상실할 때까지 다음 달 1일부터 유효한 모든 거래에 대해 할인된 서비스 요금이 지급됩니다. IP 공동 판매 자격에 대한 자세한 내용은 [공동 판매 상태의 요구 사항](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)을 참조하세요.
-
-줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 인센티브화된 SaaS, VM, 관리형 앱 및 상업용 Marketplace를 통해 제공되는 기타 거래 가능한 적격 IaaS 솔루션에 적용됩니다. 하나의 Microsoft Teams 앱 또는 두 개 이상의 Microsoft 365 추가 기능(Excel, PowerPoint, Word, Outlook 및 SharePoint)과 연결되고 Microsoft AppSource에 게시된 유료 SaaS 제품도 이 할인을 받을 수 있습니다.
+고객이 상업용 Marketplace에서 거래 제품을 구매할 때 3% 표준 스토어 서비스 요금을 부과합니다.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>고객 처리 작성, 결제, 청구 및 수금
 
@@ -169,7 +165,7 @@ SaaS 구독은 정액 요금으로 또는 사용자당 월간 또는 연간 단�
 
 ### <a name="publisher-payout-and-reporting"></a>게시자 지급 및 보고
 
-Microsoft가 에이전트로서 수금한 모든 소프트웨어 라이선스 요금은 달리 지정하지 않은 경우 20% 거래 요금이 적용되고 게시자 지급 시점에 차감됩니다.
+Microsoft가 에이전트로서 수금한 모든 소프트웨어 라이선스 요금은 달리 지정하지 않은 경우 3% 저장소 서비스 요금이 적용되고 게시자 지급 시점에 차감됩니다.
 
 고객은 일반적으로 기업 계약 또는 종량제 계약이 활성화된 신용 카드를 사용하여 구매합니다. 계약 유형에 따라 청구, 송장 처리, 수금 및 지급 시점이 결정됩니다.
 
@@ -211,3 +207,4 @@ Microsoft를 통한 거래 기능은 다음 상업용 Marketplace 제품 유형�
 
 - 솔루션이 제품 유형 및 구성에 매핑되는 방법에 대한 예는 온라인 스토어별 게시 패턴을 검토하세요.
 - [제품 유형별 게시 가이드](publisher-guide-by-offer-type.md)
+- [상업용 마켓플레이스 제품에 대한 요금제 및 가격 책정](/azure/marketplace/plans-pricing)

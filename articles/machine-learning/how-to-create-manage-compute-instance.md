@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 10/02/2020
-ms.openlocfilehash: c678c36ff653d8975f7a0fe1a82395c3093758f6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/06/2021
+ms.openlocfilehash: eabe675bd3d1ecc488490604b7c06abae3dacf60
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458555"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605302"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스 만들고 관리
 
@@ -26,11 +26,10 @@ Azure Machine Learning 작업 영역에서 [컴퓨팅 인스턴스](concept-comp
 
 이 문서에서는 다음 방법을 설명합니다.
 
-* 컴퓨팅 인스턴스 생성
-* 컴퓨팅 인스턴스 관리(시작, 중지, 다시 시작, 삭제)
-* 터미널 창 액세스
-* R 또는 Python 패키지 설치
-* 새 환경 만들기 또는 Jupyter 커널
+* 컴퓨팅 인스턴스 [만들기](#create)
+* 컴퓨팅 인스턴스 [관리](#manage)(시작, 중지, 다시 시작, 삭제)
+* 컴퓨팅 인스턴스를 자동으로 시작 및 중지하는 [일정 만들기](#schedule)(미리 보기)
+* [설정 스크립트를 사용](#setup-script)하여 컴퓨팅 인스턴스 사용자 지정 및 구성
 
 컴퓨팅 인스턴스를 사용하면 기업에서 SSH 포트를 열지 않아도 [가상 네트워크 환경](how-to-secure-training-vnet.md)에서 작업을 안전하게 실행할 수 있습니다. 작업은 컨테이너화된 환경에서 실행되며 모델 종속성을 Docker 컨테이너로 패키지합니다.
 
@@ -49,11 +48,11 @@ Azure Machine Learning 작업 영역에서 [컴퓨팅 인스턴스](concept-comp
 
 **예상 시간**: 약 5분이 소요됩니다.
 
-컴퓨팅 인스턴스 만들기는 작업 영역에 대한 일회성 프로세스입니다. 컴퓨팅을 개발 워크스테이션으로 다시 사용하거나 학습을 위한 계산 대상으로 재사용할 수 있습니다. 여러 컴퓨팅 인스턴스를 작업 영역에 연결할 수 있습니다.
+컴퓨팅 인스턴스 만들기는 작업 영역에 대한 일회성 프로세스입니다. 컴퓨팅을 개발 워크스테이션으로 다시 사용하거나 학습을 위한 계산 대상으로 재사용할 수 있습니다. 여러 컴퓨팅 인스턴스를 작업 영역에 연결할 수 있습니다. 
 
 컴퓨팅 인스턴스 만들기에 적용되는 VM 제품군 할당량 및 총 지역 할당량당 지역별 전용 코어는 Azure Machine Learning 학습 컴퓨팅 클러스터 할당량과 통합 및 공유됩니다. 컴퓨팅 인스턴스를 중지해도 컴퓨팅 인스턴스를 다시 시작할 수 있도록 할당량이 해제되지 않습니다. 컴퓨팅 인스턴스를 만든 후에는 가상 머신 크기를 변경할 수 없습니다.
 
-다음 예에서는 컴퓨팅 인스턴스를 만드는 방법을 보여줍니다.
+<a name="create-instance"></a> 다음 예에서는 컴퓨팅 인스턴스를 만드는 방법을 보여줍니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -98,39 +97,172 @@ except ComputeTargetException:
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-자세한 내용은 [az ml computetarget create computeinstance](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance) 참조를 확인하세요.
+자세한 내용은 [az ml computetarget create computeinstance](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_computeinstance) 참조를 확인하세요.
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 
-Azure Machine Learning 스튜디오의 작업 영역에서 노트북 중 하나를 실행할 준비가 되면 **계산** 섹션이나 **노트북** 섹션에서 새 계산 인스턴스를 만듭니다.
+1. [Azure Machine Learning 스튜디오](https://ml.azure.com)로 이동합니다.
+1. __관리__ 에서 __컴퓨팅__ 을 선택합니다.
+1. 상단에서 **컴퓨팅 인스턴스** 를 선택합니다.
+1. 컴퓨팅 인스턴스가 없으면 페이지 중간에 있는 **만들기** 를 선택합니다.
+  
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="컴퓨팅 대상 만들기":::
 
-스튜디오에서 컴퓨팅 인스턴스를 만드는 방법에 대한 자세한 내용은 [Azure Machine Learning 스튜디오에서 컴퓨팅 대상 만들기](how-to-create-attach-compute-studio.md#compute-instance)를 참조하세요.
+1. 컴퓨팅 리소스 목록이 표시되면 목록 위에 있는 **+새로 만들기** 를 선택합니다.
+
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="새로 만들기 선택":::
+1. 양식을 작성합니다.
+
+    |필드  |Description  |
+    |---------|---------|
+    |컴퓨팅 이름     |  <ul><li>이름은 필수이며 길이는 3~24자여야 합니다.</li><li>유효한 문자는 대소문자, 숫자 및 **-** 문자입니다.</li><li>이름은 문자로 시작해야 합니다.</li><li>이름은 Azure 지역 내 모든 기존 컴퓨팅에서 고유해야 합니다. 선택한 이름이 고유하지 않으면 경고가 표시됩니다.</li><li>이름에 **-** 문자가 사용된 경우 뒤에 문자가 최소 하나 이상 있어야 합니다.</li></ul>     |
+    |가상 머신 유형 |  CPU 또는 GPU를 선택합니다. 이 영역은 생성되면 변경될 수 없습니다.     |
+    |가상 머신 크기     |  지원되는 가상 머신 크기는 지역에서 제한될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)을 확인합니다.     |
+
+1. 컴퓨팅 인스턴스에 대한 고급 설정을 구성하지 않으려면 **만들기** 를 선택합니다.
+1. <a name="advanced-settings"></a> 다음을 수행하려면 **다음: 고급 설정** 을 선택합니다.
+
+    * SSH 액세스를 사용하도록 설정합니다.  아래의 [자세한 SSH 액세스 지침](#enable-ssh)을 따르세요.
+    * Virtual Network를 사용하도록 설정합니다. **리소스 그룹**, **가상 네트워크** 및 **서브넷** 을 지정하여 Azure VNet(Azure Virtual Network) 내에 컴퓨팅 인스턴스를 만듭니다. 자세한 내용은 VNet의 [네트워크 요구 사항](./how-to-secure-training-vnet.md)을 참조하세요. 
+    * 컴퓨터를 다른 사용자에게 할당합니다. 다른 사용자에게 할당하는 방법에 대한 자세한 내용은 [대신 만들기](#on-behalf)를 참조하세요.
+    * 설정 스크립트로 프로비저닝(미리 보기) - 설정 스크립트를 만들고 사용하는 방법에 대한 자세한 내용은 [스크립트로 컴퓨팅 인스턴스 사용자 지정](#setup-script)을 참조하세요.
+    * 일정을 추가합니다(미리 보기). 컴퓨팅 인스턴스가 자동으로 시작 및/또는 종료되는 시간을 예약합니다. 아래의 [일정 세부 정보](#schedule)를 참조하세요.
 
 ---
 
 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance)을 사용하여 계산 인스턴스를 만들 수도 있습니다.
 
+## <a name="enable-ssh-access"></a><a name="enable-ssh"></a> SSH 액세스 사용
 
+SSH 액세스는 기본적으로 사용하지 않도록 설정되어 있습니다.  SSH 액세스는 만든 후에는 변경할 수 없습니다. [VS Code 원격](how-to-set-up-vs-code-remote.md)을 사용하여 대화형으로 디버깅하려면 액세스를 사용하도록 설정해야 합니다.  
+
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+
+컴퓨팅 인스턴스가 만들어져 실행되면 [SSH 액세스로 연결](how-to-create-attach-compute-studio.md#ssh-access)을 참조하세요.
 
 ## <a name="create-on-behalf-of-preview"></a><a name="on-behalf"></a> 대신 만들기(미리 보기)
 
 관리자는 데이터 과학자를 대신하여 컴퓨팅 인스턴스를 만들고 다음을 통해 해당 인스턴스를 할당할 수 있습니다.
 
-* [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  이 템플릿에 필요한 TenantID 및 ObjectID를 찾는 방법에 대한 자세한 내용은 [인증 구성에 대한 ID 개체 ID 찾기](../healthcare-apis/fhir/find-identity-object-ids.md)를 참조하세요.  Azure Active Directory 포털에서 이러한 값을 찾을 수도 있습니다.
+* 스튜디오, [고급 설정](?tabs=azure-studio#advanced-settings) 사용
+
+* [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  이 템플릿에 필요한 TenantID 및 ObjectID를 찾는 방법에 대한 자세한 내용은 [인증 구성에 대한 ID 개체 ID 찾기](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md)를 참조하세요.  Azure Active Directory 포털에서 이러한 값을 찾을 수도 있습니다.
 
 * REST API
 
 컴퓨팅 인스턴스를 만드는 데이터 과학자에게는 다음과 같은 [Azure RBAC(Azure Role-based Access Control)](../role-based-access-control/overview.md) 사용 권한이 필요합니다.
+
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action*
 
 데이터 과학자는 컴퓨팅 인스턴스를 시작, 중지, 다시 시작할 수 있습니다. 다음에 대해 컴퓨팅 인스턴스를 사용할 수 있습니다.
 * Jupyter
 * JupyterLab
 * RStudio
 * 통합 Notebook
+
+## <a name="schedule-automatic-start-and-stop-preview"></a><a name="schedule"></a> 자동 시작 및 중지 예약하기(미리 보기)
+
+자동 종료 및 자동 시작에 대한 여러 일정을 정의합니다. 예를 들어 월요일~목요일에는 오전 9시에 시작하여 오후 6시에 중지하는 일정을 만들고 금요일의 경우 오전 9시에 시작하여 오후 4시에 중지하는 두 번째 일정을 만듭니다.  컴퓨팅 인스턴스당 총 4개의 일정을 만들 수 있습니다.
+
+컴퓨팅 인스턴스 [대신 만들기](#on-behalf)에 대한 일정도 정의할 수 있습니다. 중지된 상태에서 컴퓨팅 인스턴스를 만들도록 일정을 만들 수 있습니다. 이는 사용자가 다른 사용자를 대신하여 컴퓨팅 인스턴스를 만들 때 특히 유용합니다.
+
+### <a name="create-a-schedule-in-studio"></a>스튜디오에서 일정 만들기
+
+1. [양식을 작성합니다](?tabs=azure-studio#create-instance).
+1. 양식의 두 번째 페이지에서 **고급 설정 표시** 를 엽니다.
+1. 새 일정을 추가하려면 **일정 추가** 를 선택합니다.
+
+    :::image type="content" source="media/how-to-create-attach-studio/create-schedule.png" alt-text="스크린샷: 고급 설정에서 일정 추가":::
+
+1. **컴퓨팅 인스턴스 시작** 또는 **컴퓨팅 인스턴스 중지** 를 선택합니다.
+1. **표준 시간대** 를 선택합니다.
+1. **시작 시간** 또는 **종료 시간** 을 선택합니다.
+1. 이 일정이 활성화되는 날짜를 선택합니다.
+
+    :::image type="content" source="media/how-to-create-attach-studio/stop-compute-schedule.png" alt-text="스크린샷: 종료할 컴퓨팅 인스턴스를 예약합니다.":::
+
+1. 다른 일정을 만들려면 **일정 추가** 를 다시 선택합니다.
+
+컴퓨팅 인스턴스가 만들어지면 컴퓨팅 인스턴스 세부 정보 섹션에서 새 일정을 보거나 편집하거나 추가할 수 있습니다.
+표준 시간대 레이블은 일광 절약 시간을 고려하지 않습니다. 예를 들어 UTC+01:00인 암스테르담, 베를린, 베른, 로마, 스톡홀름, 비엔나는 실제로 일광 절약 시간 동안 UTC+02:00입니다.
+
+### <a name="create-a-schedule-with-a-resource-manager-template"></a>Resource Manager 템플릿으로 일정 만들기
+
+Resource Manager 템플릿을 사용하여 컴퓨팅 인스턴스의 자동 시작 및 중지를 예약할 수 있습니다.  Resource Manager 템플릿에서 cron 또는 LogicApps 식을 사용하여 인스턴스를 시작하거나 중지하는 일정을 정의합니다.  
+
+```json
+"schedules": {
+  "computeStartStop": [
+      {
+      "triggerType": "Cron",
+      "cron": {
+          "startTime": "2021-03-10T21:21:07",
+          "timeZone": "Pacific Standard Time",
+          "expression": "0 18 * * *"
+      },
+      "action": "Stop",
+      "status": "Enabled"
+      },
+      {
+      "triggerType": "Cron",
+      "cron": {
+          "startTime": "2021-03-10T21:21:07",
+          "timeZone": "Pacific Standard Time",
+          "expression": "0 8 * * *"
+      },
+      "action": "Start",
+      "status": "Enabled"
+      },
+      { 
+      "triggerType": "Recurrence", 
+      "recurrence": { 
+          "frequency": "Day", 
+          "interval": 1,
+          "timeZone": "Pacific Standard Time", 
+        "schedule": { 
+          "hours": [18], 
+          "minutes": [0], 
+          "weekDays": [ 
+              "Saturday", 
+              "Sunday"
+          ] 
+          } 
+      }, 
+      "action": "Stop", 
+      "status": "Enabled" 
+      } 
+  ]
+}
+```
+
+* 작업은 시작 또는 중지 값을 가질 수 있습니다.
+* `Recurrence` 트리거 유형의 경우 이 [반복 스키마](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)와 함께 논리 앱과 동일한 구문을 사용합니다.
+* `cron` 트리거 유형의 경우 표준 크론 구문을 사용합니다.  
+
+    ```cron
+    // Crontab expression format: 
+    // 
+    // * * * * * 
+    // - - - - - 
+    // | | | | | 
+    // | | | | +----- day of week (0 - 6) (Sunday=0) 
+    // | | | +------- month (1 - 12) 
+    // | | +--------- day of month (1 - 31) 
+    // | +----------- hour (0 - 23) 
+    // +------------- min (0 - 59) 
+    // 
+    // Star (*) in the value field above means all legal values as in 
+    // braces for that column. The value column can have a * or a list 
+    // of elements separated by commas. An element is either a number in 
+    // the ranges shown above or two numbers in the range separated by a 
+    // hyphen (meaning an inclusive range). 
+    ```
+
+Azure Policy를 사용하여 구독의 모든 컴퓨팅 인스턴스에 대해 종료 일정이 존재하도록 하거나 아무것도 없는 경우 일정을 기본값으로 설정합니다.
 
 ## <a name="customize-the-compute-instance-with-a-script-preview"></a><a name="setup-script"></a> 스크립트를 사용하여 컴퓨팅 인스턴스 사용자 지정(미리 보기)
 
@@ -178,7 +310,7 @@ pip install "$PACKAGE"
 conda deactivate
 EOF
 ```
-*sudo -u azureuser* 는 현재 작업 디렉터리를 */home/azureuser* 로 변경합니다. 또한 이 블록의 스크립트 인수에 액세스할 수 없습니다.
+*sudo -u azureuser* 명령은 현재 작업 디렉터리를 */home/azureuser* 로 변경합니다. 또한 이 블록의 스크립트 인수에 액세스할 수 없습니다.
 
 스크립트에서 다음 환경 변수를 사용할 수도 있습니다.
 
@@ -187,6 +319,8 @@ EOF
 3. CI_NAME
 4. CI_LOCAL_UBUNTU_USER. azureuser를 가리킵니다.
 
+Azure Policy와 함께 설정 스크립트를 사용하여 모든 컴퓨팅 인스턴스 생성에 대해 설정 스크립트를 적용하거나 기본 설정할 수 있습니다.
+
 ### <a name="use-the-script-in-the-studio"></a>스튜디오에서 스크립트 사용
 
 스크립트를 저장한 후 컴퓨팅 인스턴스를 만드는 동안 지정합니다.
@@ -194,9 +328,9 @@ EOF
 1. [스튜디오](https://ml.azure.com/)에 로그인하고 작업 영역을 선택합니다.
 1. 왼쪽에서 **Compute** 를 선택합니다.
 1. 새 컴퓨팅 인스턴스를 만들려면 **+ 새로 만들기** 를 선택합니다.
-1. [양식을 작성합니다](how-to-create-attach-compute-studio.md#compute-instance).
+1. [양식을 작성합니다](?tabs=azure-studio#create-instance).
 1. 양식의 두 번째 페이지에서 **고급 설정 표시** 를 엽니다.
-1. **설치 스크립트를 사용하여 프로비전** 켜기
+1. **설치 스크립트를 사용하여 프로비저닝** 켜기
 1. 저장한 셸 스크립트를 찾습니다.  또는 컴퓨터에서 스크립트를 업로드합니다.
 1. 필요에 따라 명령 인수를 추가합니다.
 
@@ -241,12 +375,15 @@ Resource Manager [템플릿](https://github.com/Azure/azure-quickstart-templates
 
 설치 스크립트 실행의 로그는 컴퓨팅 인스턴스 세부 정보 페이지의 로그 폴더에 나타납니다. 로그는 Logs\<compute instance name> 폴더 아래의 Notebooks 파일 공유에 다시 저장됩니다. 특정 컴퓨팅 인스턴스에 대한 스크립트 파일 및 명령 인수가 세부 정보 페이지에 표시됩니다.
 
+
 ## <a name="manage"></a>관리
 
-컴퓨팅 인스턴스를 시작, 중지 다시 시작, 삭제합니다. 컴퓨팅 인스턴스는 자동으로 축소되지 않으므로 리소스를 중지하여 지속적으로 요금이 청구되지 않도록 방지해야 합니다. 컴퓨팅 인스턴스를 중지하면 할당을 취소합니다. 그런 다음, 필요할 때 다시 시작합니다. 컴퓨팅 인스턴스를 중지하면 컴퓨팅 시간에 대한 청구는 중지되지만 디스크, 공용 IP, 표준 부하 분산 장치에 대한 비용은 여전히 청구됩니다.
+컴퓨팅 인스턴스를 시작, 중지 다시 시작, 삭제합니다. 컴퓨팅 인스턴스는 자동으로 축소되지 않으므로 리소스를 중지하여 지속적으로 요금이 청구되지 않도록 방지해야 합니다. 컴퓨팅 인스턴스를 중지하면 할당을 취소합니다. 그런 다음, 필요할 때 다시 시작합니다. 컴퓨팅 인스턴스를 중지하면 컴퓨팅 시간에 대한 청구는 중지되지만 디스크, 공용 IP, 표준 부하 분산 장치에 대한 비용은 여전히 청구됩니다. 
+
+컴퓨팅 인스턴스가 시간과 요일에 따라 자동으로 시작 및 중지되도록 [일정을 만들](#schedule) 수 있습니다.
 
 > [!TIP]
-> 컴퓨팅 인스턴스에 120GB OS 디스크가 있습니다. 디스크 공간이 부족한 경우에는 [터미널을 사용](how-to-access-terminal.md)하여 최소 1~2GB를 지운 후 컴퓨팅 인스턴스를 중지하거나 다시 시작해야 합니다.
+> 컴퓨팅 인스턴스에 120GB OS 디스크가 있습니다. 디스크 공간이 부족한 경우에는 [터미널을 사용](how-to-access-terminal.md)하여 최소 1~2GB를 지운 후 컴퓨팅 인스턴스를 중지하거나 다시 시작해야 합니다. 터미널에서 sudo shutdown을 실행하여 컴퓨팅 인스턴스를 중지하지 마세요.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -299,7 +436,7 @@ Resource Manager [템플릿](https://github.com/Azure/azure-quickstart-templates
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget stop computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop)를 참조하세요.
+    자세한 내용은 [az ml computetarget stop computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop)를 참조하세요.
 
 * 시작
 
@@ -307,7 +444,7 @@ Resource Manager [템플릿](https://github.com/Azure/azure-quickstart-templates
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget start computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start)를 참조하세요.
+    자세한 내용은 [az ml computetarget start computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_start)를 참조하세요.
 
 * 재시작
 
@@ -315,7 +452,7 @@ Resource Manager [템플릿](https://github.com/Azure/azure-quickstart-templates
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget restart computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart)를 참조하세요.
+    자세한 내용은 [az ml computetarget restart computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart)를 참조하세요.
 
 * DELETE
 
@@ -323,9 +460,10 @@ Resource Manager [템플릿](https://github.com/Azure/azure-quickstart-templates
     az ml computetarget delete -n instance -v
     ```
 
-    자세한 내용은 [az ml computetarget delete computeinstance](/cli/azure/ml/computetarget#az_ml_computetarget_delete)를 참조하세요.
+    자세한 내용은 [az ml computetarget delete computeinstance](/cli/azure/ml(v1)/computetarget#az_ml_computetarget_delete)를 참조하세요.
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
+<a name="schedule"></a>
 
 Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한 다음, 맨 위에 있는 **컴퓨팅 인스턴스** 를 선택합니다.
 
@@ -335,15 +473,17 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한
 
 * 새 컴퓨팅 인스턴스 만들기
 * 컴퓨팅 인스턴스 탭을 새로 고침합니다.
-* 컴퓨팅 인스턴스를 시작, 중지, 다시 시작합니다.  인스턴스가 실행될 때마다 비용을 지불해야 합니다. 비용을 줄이기 위해 컴퓨팅 인스턴스를 사용하지 않을 때는 이를 중지합니다. 컴퓨팅 인스턴스를 중지하면 할당을 취소합니다. 그런 다음, 필요할 때 다시 시작합니다.
+* 컴퓨팅 인스턴스를 시작, 중지, 다시 시작합니다.  인스턴스가 실행될 때마다 비용을 지불해야 합니다. 비용을 줄이기 위해 컴퓨팅 인스턴스를 사용하지 않을 때는 이를 중지합니다. 컴퓨팅 인스턴스를 중지하면 할당을 취소합니다. 그런 다음, 필요할 때 다시 시작합니다. 컴퓨팅 인스턴스가 시작 및 중지되는 시간을 예약할 수도 있습니다.
 * 컴퓨팅 인스턴스를 삭제합니다.
 * 생성한 컴퓨팅 인스턴스만 표시하도록 컴퓨팅 인스턴스 목록을 필터링합니다.
 
 사용자가 만들었거나 사용자를 위해 만들어진 작업 영역의 각 계산 인스턴스에 대해 다음을 수행할 수 있습니다.
 
 * 컴퓨팅 인스턴스에서 Jupyter, JupyterLab, RStudio에 액세스합니다.
-* SSH를 컴퓨팅 인스턴스로 실행합니다. SSH 액세스는 기본적으로 사용하지 않도록 설정되어 있지만 컴퓨팅 인스턴스 생성 시 사용하도록 설정할 수 있습니다. SSH 액세스에는 공개/프라이빗 키 메커니즘이 사용됩니다. 탭에 IP 주소, 사용자 이름 및 포트 번호와 같은 SSH 연결에 대한 세부 정보가 제공됩니다.
-* 특정 컴퓨팅 인스턴스에 대한 세부 정보(예: IP 주소 및 지역)를 가져옵니다.
+* SSH를 컴퓨팅 인스턴스로 실행합니다. SSH 액세스는 기본적으로 사용하지 않도록 설정되어 있지만 컴퓨팅 인스턴스 생성 시 사용하도록 설정할 수 있습니다. SSH 액세스에는 공개/프라이빗 키 메커니즘이 사용됩니다. 탭에 IP 주소, 사용자 이름 및 포트 번호와 같은 SSH 연결에 대한 세부 정보가 제공됩니다. 가상 네트워크 배포에서 SSH를 비활성화하면 공용 인터넷에서 SSH에 액세스할 수 없지만 컴퓨팅 인스턴스 노드의 개인 IP 주소와 포트 22를 사용하여 가상 네트워크 내에서 여전히 SSH를 사용할 수 있습니다.
+* 컴퓨팅 이름을 선택하여 다음을 수행합니다.
+    * 특정 컴퓨팅 인스턴스에 대한 세부 정보(예: IP 주소 및 지역)를 봅니다.
+    * 컴퓨팅 인스턴스(미리 보기) 시작 및 중지 일정을 만들거나 수정합니다.  일정을 수정하려면 페이지 하단으로 스크롤합니다.
 
 ---
 
@@ -356,6 +496,7 @@ Azure RBAC는 다음 작업을 제어할 수 있습니다.
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action*
 
 컴퓨팅 인스턴스를 만들려면 다음 작업에 대한 사용 권한이 있어야 합니다.
 * *Microsoft.MachineLearningServices/workspaces/computes/write*

@@ -4,12 +4,12 @@ description: Azure Monitor Application Insights 클래식 리소스를 새 작�
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3d6092d694d1c99ff7755dfcbec5c0edbfb7567f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3eea51b69bbb1138ac7c5418370759d1777b482c
+ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077305"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114361840"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스로 마이그레이션
 
@@ -26,7 +26,7 @@ ms.locfileid: "110077305"
 * [CMK(고객 관리형 키)](../logs/customer-managed-keys.md)는 사용자만 액세스할 수 있는 암호화 키를 사용하여 미사용 데이터에 대한 암호화를 제공합니다.
 * [Azure Private Link](../logs/private-link-security.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다.
 * [프로파일러 및 스냅샷 디버거에 대한 BYOS(사용자 고유 스토리지)](./profiler-bring-your-own-storage.md)를 사용하면 Application Insights Profiler 및 스냅샷 디버거와 연결된 모든 데이터에 대한 미사용 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 완벽하게 제어할 수 있습니다. 
-* [용량 예약 계층](../logs/manage-cost-storage.md#pricing-model)을 사용하면 종량제 가격에 비해 비용을 25%를 절약할 수 있습니다. 
+* [약정 계층](../logs/manage-cost-storage.md#pricing-model)을 사용하면 종량제 가격에 비해 비용을 30%를 절약할 수 있습니다. 
 * Log Analytics 스트리밍 수집을 통해 데이터를 더 빨리 수집합니다.
 
 ## <a name="migration-process"></a>마이그레이션 프로세스
@@ -49,8 +49,11 @@ ms.locfileid: "110077305"
 
     - 기존 Log Analytics 작업 영역이 아직 없는 경우 [Log Analytics 작업 영역 만들기 설명서를 참조하세요](../logs/quick-create-workspace.md).
     
-- 연속 내보내기는 작업 영역 기반 리소스에 지원되지 않으므로 사용하지 않도록 설정해야 합니다.
+- **연속 내보내기는 작업 영역 기반 리소스에 지원되지 않으므로** 사용하지 않도록 설정해야 합니다.
 마이그레이션이 완료되면 [진단 설정](../essentials/diagnostic-settings.md)을 사용하여 스토리지 계정으로의 데이터 보관 또는 Azure 이벤트 허브로의 스트리밍을 구성할 수 있습니다.  
+
+    > [!CAUTION]
+    > 진단 설정은 연속 내보내기와 다른 내보내기 형식/스키마를 사용하므로 마이그레이션하면 Stream Analytics와의 기존 통합이 중단됩니다.
 
 - Log Analytics 작업 영역의 **일반** > **사용량 및 예상 비용** > **데이터 보존** 에서 현재 보존 설정을 확인합니다. 이 설정은 Application Insights 리소스를 마이그레이션한 후 새로 수집된 데이터가 저장되는 기간에 영향을 줍니다. 현재 Application Insights 데이터를 기본 90일보다 오래 저장하고 있고, 이 긴 보존 기간을 유지하려는 경우에는 작업 영역 보존 설정을 조정해야 할 수 있습니다.
 

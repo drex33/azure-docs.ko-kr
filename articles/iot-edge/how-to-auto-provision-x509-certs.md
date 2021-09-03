@@ -2,20 +2,18 @@
 title: X.509 인증서를 사용하여 DPS에 디바이스를 자동으로 프로비저닝 - Azure IoT Edge | Microsoft Docs
 description: X.509 인증서를 사용하여 Device Provisioning Service로 Azure IoT Edge에 대한 자동 디바이스 프로비저닝 테스트
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.reviewer: kevindaw
-ms.date: 03/01/2021
+ms.date: 06/18/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 180226741d77defb0a9f0d00165cf858cb65ecbb
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 4095207fbc4fbbf4cb3f6463e3091717fcd3921a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906515"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536353"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝
 
@@ -110,7 +108,7 @@ Device Provisioning Service의 등록에 대한 자세한 내용은 [디바이�
 
    * **이 디바이스를 할당할 수 있는 IoT 허브 선택**: 디바이스를 연결하려는 연결된 IoT 허브를 선택합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 허브 중 하나에 디바이스가 할당됩니다.
 
-   * **초기 디바이스 쌍 상태**: 원하는 경우 디바이스 쌍에 태그 값을 추가합니다. 태그를 사용하여 자동 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들어:
+   * **초기 디바이스 쌍 상태**: 원하는 경우 디바이스 쌍에 태그 값을 추가합니다. 태그를 사용하여 자동 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들면 다음과 같습니다.
 
       ```json
       {
@@ -195,7 +193,7 @@ Device Provisioning Service의 등록에 대한 자세한 내용은 [디바이�
 
    * **이 디바이스를 할당할 수 있는 IoT 허브 선택**: 디바이스를 연결하려는 연결된 IoT 허브를 선택합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 허브 중 하나에 디바이스가 할당됩니다.
 
-   * **초기 디바이스 쌍 상태**: 원하는 경우 디바이스 쌍에 태그 값을 추가합니다. 태그를 사용하여 자동 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들어:
+   * **초기 디바이스 쌍 상태**: 원하는 경우 디바이스 쌍에 태그 값을 추가합니다. 태그를 사용하여 자동 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들면 다음과 같습니다.
 
       ```json
       {
@@ -216,7 +214,28 @@ Device Provisioning Service의 등록에 대한 자세한 내용은 [디바이�
 
 IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 디바이스에 추가 컨테이너의 배포를 허용합니다.
 
+<!-- 1.1 -->
+:::moniker range="=iotedge-2018-06"
+
+운영 체제에 따라 Azure IoT Edge를 설치하려면 적절한 단계를 따르세요.
+
+* [Linux용 IoT Edge 설치](how-to-install-iot-edge.md)
+* [IoT Edge for Linux on Windows 디바이스 설치](how-to-install-iot-edge-on-windows.md)
+  * 이 시나리오는 Windows 디바이스에서 IoT Edge를 실행하는 데 권장되는 방법입니다.
+* [Windows 컨테이너로 IoT Edge 설치](how-to-install-iot-edge-windows-on-windows.md)
+
+디바이스에 IoT Edge가 설치되면 이 문서로 돌아와 디바이스를 프로비저닝합니다.
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
 [Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 단계를 수행한 다음 이 문서로 돌아와서 디바이스를 프로비저닝합니다.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 DPS로 X.509를 프로비저닝하는 것은 IoT Edge 버전 1.0.9 이상에서만 지원됩니다.
 
@@ -230,7 +249,7 @@ DPS로 X.509를 프로비저닝하는 것은 IoT Edge 버전 1.0.9 이상에서�
 * 디바이스에 있는 디바이스 ID 인증서 체인 파일.
 * 디바이스에 있는 디바이스 ID 키 파일.
 
-### <a name="linux-device"></a>Linux 디바이스
+# <a name="linux"></a>[Linux](#tab/linux)
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -338,7 +357,57 @@ DPS로 X.509를 프로비저닝하는 것은 IoT Edge 버전 1.0.9 이상에서�
 :::moniker-end
 <!-- end 1.2 -->
 
-### <a name="windows-device"></a>Windows 디바이스
+# <a name="linux-on-windows"></a>[Windows의 Linux](#tab/eflow)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+PowerShell 또는 Windows Admin Center를 사용하여 IoT Edge 디바이스를 프로비저닝할 수 있습니다.
+
+### <a name="powershell"></a>PowerShell
+
+PowerShell의 경우 자체 값으로 업데이트된 자리 표시자 값을 사용하여 다음 명령을 실행합니다.
+
+```powershell
+Provision-EflowVm -provisioningType DPSX509 -scopeId <ID_SCOPE_HERE> -identityCertPath <ABSOLUTE_CERT_DEST_PATH_ON_WINDOWS_HOST> -identityPrivKeyPath <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_WINDOWS_HOST>
+```
+
+### <a name="windows-admin-center"></a>Windows Admin Center
+
+Windows Admin Center의 경우 다음 단계를 사용합니다.
+
+1. **Azure IoT Edge 디바이스 프로비전** 창의 프로비전 방법 드롭다운에서 **X.509 인증서(DPS)** 를 선택합니다.
+
+1. [Azure Portal](https://ms.portal.azure.com/)에서 DPS 인스턴스로 이동합니다.
+
+1. **개요** 탭에서 **ID 범위** 값을 복사합니다. Windows Admin Center의 범위 ID 필드에 붙여넣습니다.
+
+1. Windows Admin Center의 등록 ID 필드에서 디바이스의 등록 ID를 제공합니다.
+
+1. 인증서 및 프라이빗 키 파일을 업로드합니다.
+
+1. **선택한 방법을 통한 프로비전** 을 선택합니다.
+
+   ![X.509 인증서 프로비전에 필요한 필드를 입력한 후 선택한 방법을 통한 프로비전을 선택함](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-x509-certs.png)
+
+1. 프로비전이 완료되면 **마침** 을 선택합니다. 기본 대시보드로 돌아갑니다. 이제 유형이 `IoT Edge Devices`인 새 디바이스가 표시됩니다. 연결할 IoT Edge 디바이스를 선택할 수 있습니다. **개요** 페이지에서 디바이스의 **IoT Edge 모듈 목록** 및 **IoT Edge 상태** 가 표시됩니다.
+
+:::moniker-end
+<!-- end 1.1. -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>현재 Windows용 IoT Edge for Linux에서 실행되는 IoT Edge 버전 1.2는 지원되지 않습니다.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 1. 관리자 모드에서 PowerShell 창을 엽니다. PowerShell(x86)이 아닌 IoT Edge를 설치하는 경우 PowerShell의 AMD64 세션을 사용해야 합니다.
 
@@ -358,15 +427,29 @@ DPS로 X.509를 프로비저닝하는 것은 IoT Edge 버전 1.0.9 이상에서�
    >[!TIP]
    >구성 파일은 인증서 및 키 정보를 파일 URI로 저장합니다. 그러나 Initialize-IoTEdge 명령이 사용자 대신 이 형식 지정 단계를 처리하므로 디바이스의 인증서 및 키 파일에 대한 절대 경로를 제공할 수 있습니다.
 
+:::moniker-end
+<!-- end 1.1. -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>현재 Windows에서 실행되는 IoT Edge 버전 1.2에 대한 지원은 없습니다.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+---
+
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
 런타임이 성공적으로 시작한 경우 IoT Hub로 이동하고 디바이스에 IoT Edge 모듈 배포를 시작할 수 있습니다.
 
 Device Provisioning Service에서 만든 개별 등록이 사용되었는지 확인할 수 있습니다. Azure Portal에서 Device Provisioning Service 인스턴스로 이동합니다. 만든 개별 등록의 등록 세부 정보를 엽니다. 등록 상태가 **할당됨** 이며 디바이스 ID가 나열된 것을 확인할 수 있습니다.
 
-디바이스에서 다음 명령을 사용하여 런타임이 성공적으로 설치되고 시작되는지 확인합니다.
+디바이스에서 다음 명령을 사용하여 IoT Edge가 성공적으로 설치되고 시작되는지 확인합니다.
 
-### <a name="linux-device"></a>Linux 디바이스
+# <a name="linux"></a>[Linux](#tab/linux)
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -388,6 +471,7 @@ journalctl -u iotedge --no-pager --no-full
 ```cmd/sh
 iotedge list
 ```
+
 :::moniker-end
 
 <!-- 1.2 -->
@@ -410,9 +494,53 @@ sudo iotedge system logs
 ```cmd/sh
 sudo iotedge list
 ```
+
 :::moniker-end
 
-### <a name="windows-device"></a>Windows 디바이스
+# <a name="linux-on-windows"></a>[Windows의 Linux](#tab/eflow)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+IoT Edge for Linux on Windows 가상 머신에 연결합니다.
+
+```powershell
+Connect-EflowVM
+```
+
+IoT Edge 서비스의 상태를 확인합니다.
+
+```cmd/sh
+sudo systemctl status iotedge
+```
+
+서비스 로그를 검사합니다.
+
+```cmd/sh
+sudo journalctl -u iotedge --no-pager --no-full
+```
+
+실행 중인 모듈을 나열합니다.
+
+```cmd/sh
+sudo iotedge list
+```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>현재 Windows용 IoT Edge for Linux에서 실행되는 IoT Edge 버전 1.2는 지원되지 않습니다.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+<!-- 1.1 -->
+:::moniker range="=iotedge-2018-06"
 
 IoT Edge 서비스의 상태를 확인합니다.
 
@@ -431,6 +559,19 @@ Get-Service iotedge
 ```powershell
 iotedge list
 ```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>현재 Windows에서 실행되는 IoT Edge 버전 1.2에 대한 지원은 없습니다.
+
+:::moniker-end
+<!-- end 1.2 -->
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 584e421b6beac0e4ecfab5b3e3cb735b8465e1b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: caa9d95d57cb8ef6bfe6223a09376614bd254336
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102503524"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122604034"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인이란?
 
@@ -47,7 +47,7 @@ Azure Machine Learning 파이프라인은 기계 학습 작업 전체에 대한 
 
 파이프라인을 사용하여 작업마다 다른 하드웨어를 사용하도록 선택할 수 있습니다. Azure는 사용하는 다양한 [컴퓨팅 대상](concept-azure-machine-learning-architecture.md)을 조정하므로 중간 데이터가 다운스트림 컴퓨팅 대상으로 원활하게 흐릅니다.
 
-Azure Portal 또는 [작업 영역 방문 페이지(미리 보기)](https://ml.azure.com)에서 직접 [파이프라인 실험의 메트릭을 추적](./how-to-track-experiments.md)할 수 있습니다. 파이프라인이 게시된 후에는 모든 플랫폼 또는 스택에서 파이프라인을 다시 실행할 수 있는 REST 엔드포인트를 구성할 수 있습니다.
+Azure Portal 또는 [작업 영역 방문 페이지(미리 보기)](https://ml.azure.com)에서 직접 [파이프라인 실험의 메트릭을 추적](./how-to-log-view-metrics.md)할 수 있습니다. 파이프라인이 게시된 후에는 모든 플랫폼 또는 스택에서 파이프라인을 다시 실행할 수 있는 REST 엔드포인트를 구성할 수 있습니다.
 
 간단히 말해서, 기계 학습 수명 주기의 모든 복잡한 작업은 파이프라인을 통해 도움을 받을 수 있습니다. 다른 Azure 파이프라인 기술에는 고유의 강점이 있습니다. [Azure Data Factory 파이프라인](../data-factory/concepts-pipelines-activities.md)은 데이터 작업에 탁월하며, [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)는 연속 통합과 지속적인 배포에 적합한 도구입니다. 그러나 기계 학습에 초점을 맞추고 있다면 Azure Machine Learning 파이프라인이 워크플로 요구에 가장 적합한 선택이 될 수 있습니다. 
 
@@ -55,7 +55,7 @@ Azure Portal 또는 [작업 영역 방문 페이지(미리 보기)](https://ml.a
 
 많은 프로그래밍 에코시스템에는 리소스, 라이브러리 또는 컴파일 종속성을 오케스트레이션하는 도구가 있습니다. 일반적으로 이러한 도구는 파일 타임스탬프를 사용하여 종속성을 계산합니다. 파일이 변경되면 그 파일과 해당 종속 파일만 업데이트(다운로드, 다시 컴파일 또는 패키지화)됩니다. Azure Machine Learning 파이프라인은 이 개념을 확장합니다. 기존 빌드 도구와 마찬가지로 파이프라인은 단계 간의 종속성을 계산하고 필요한 재계산만 수행합니다. 
 
-그러나 Azure Machine Learning 파이프라인에서 종속성 분석은 단순한 타임스탬프보다 더 정교합니다. 모든 단계는 서로 다른 하드웨어 및 소프트웨어 환경에서 실행될 수 있습니다. 데이터 준비는 시간이 많이 소요되는 프로세스지만, 강력한 GPU가 있는 하드웨어에서 실행할 필요는 없습니다. 특정 단계에는 OS 관련 소프트웨어가 필요할 수 있으며, 분산 학습 등을 사용하고자 할 수 있습니다. 
+그러나 Azure Machine Learning 파이프라인에서 종속성 분석은 단순한 타임스탬프보다 더 정교합니다. 모든 단계는 서로 다른 하드웨어 및 소프트웨어 환경에서 실행될 수 있습니다. 데이터 준비는 시간이 많이 소요되는 프로세스지만, 강력한 GPU가 있는 하드웨어에서 실행할 필요는 없습니다. 특정 단계에는 OS 관련 소프트웨어가 필요할 수 있으며, [분산 학습](how-to-train-distributed-gpu.md) 등을 사용하고자 할 수 있습니다. 
 
 Azure Machine Learning은 파이프라인 단계 간의 모든 종속성을 자동으로 오케스트레이션합니다. 이 오케스트레이션에는 Docker 이미지를 위/아래로 회전, 컴퓨팅 리소스 연결 및 분리, 일관된 자동 방식의 단계 간 데이터 이동이 포함될 수 있습니다.
 

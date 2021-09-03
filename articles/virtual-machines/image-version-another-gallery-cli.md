@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: bc4af87ca560c19af47a877d05a34a33c74a67bb
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 1ae8d59934bdcd0dc2dcf2178f61f7bcaa3e5fc8
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111437931"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205289"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Azure CLI를 사용하여 다른 갤러리에서 이미지 복사
 
@@ -75,7 +75,7 @@ az sig image-version show \
 
 ## <a name="create-the-image-definition"></a>이미지 정의 만들기 
 
-원본 이미지 버전의 이미지 정의와 일치하는 이미지 정의를 만들어야 합니다. [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show)를 사용하여 새 갤러리에 이미지 정의를 다시 만드는 데 필요한 모든 정보를 표시할 수 있습니다.
+운영 체제, 운영 체제 상태 및 원본 이미지 버전이 포함된 이미지 정의의 Hyper-V 만들기와 일치하는 이미지 정의를 만들어야 합니다. [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show)를 사용하여 새 갤러리에 이미지 정의를 다시 만드는 데 필요한 모든 정보를 표시할 수 있습니다.
 
 ```azurecli-interactive
 az sig image-definition show \
@@ -129,6 +129,10 @@ az sig image-definition create \
    --hyper-v-generation V1 \
    --os-state specialized 
 ```
+
+> [!NOTE]
+> 타사 이미지에서 파생된 이미지를 포함할 이미지 정의의 경우 계획 정보는 타사 이미지의 계획 정보와 정확히 일치해야 합니다. 이미지 정의를 만들 때 `--plan-name`, `--plan-product` 및 `--plan-publisher`를 추가하여 이미지 정의에 계획 정보를 포함합니다.
+>
 
 
 ## <a name="create-the-image-version"></a>이미지 버전 만들기

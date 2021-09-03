@@ -4,14 +4,14 @@ description: 고객 관리형 키를 구성하여 Azure Key Vault 키를 사용�
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/21/2021
+ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: fc66f79e09021a10c2dde3cc973cd608baeedc32
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: ef47a97381c0c01afb13b66495167795c49b03c3
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061617"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531095"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -27,9 +27,9 @@ Azure Monitor를 사용하면 모든 데이터 및 저장된 쿼리가 MMK(Micro
 
 고객 관리형 키는 더 높은 보호 수준과 제어를 제공하는 [전용 클러스터](./logs-dedicated-clusters.md)에서 전달됩니다. 전용 클러스터에 수집된 데이터는 두 번 암호화됩니다. 즉, Microsoft 관리형 키 또는 고객 관리형 키를 사용하는 서비스 수준에서 한 번, 두 가지 암호화 알고리즘과 두 가지 키를 사용하는 인프라 수준에서 한 번 암호화됩니다. [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)는 암호화 알고리즘 또는 키 중 하나가 손상될 수 있는 시나리오로부터 보호합니다. 이 경우 추가 암호화 계층은 계속해서 데이터를 보호합니다. 전용 클러스터를 사용하면 [Lockbox](#customer-lockbox-preview) 제어로 데이터를 보호할 수도 있습니다.
 
-또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이 데이터는 고객 관리형 키 구성에 관계없이 Microsoft 키로 암호화된 상태를 유지하지만 SSD 데이터에 대한 제어는 [키 해지](#key-revocation)를 따릅니다. 2021년의 상반기 중에 고객 관리형 키로 SSD 데이터를 암호화하기 위해 노력하고 있습니다.
+또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이 데이터는 고객 관리형 키 구성에 관계없이 Microsoft 키로 암호화된 상태를 유지하지만 SSD 데이터에 대한 제어는 [키 해지](#key-revocation)를 따릅니다. 2021년의 하반기 중에 고객 관리형 키로 SSD 데이터를 암호화하기 위해 노력하고 있습니다.
 
-Log Analytics 전용 클러스터는 1000GB/일부터 시작하는 용량 예약 [가격 모델](./logs-dedicated-clusters.md#cluster-pricing-model)을 사용합니다.
+Log Analytics 전용 클러스터 [가격 책정 모델](./logs-dedicated-clusters.md#cluster-pricing-model)에는 500GB/일부터 시작하는 약정 계층이 필요하며 500, 1000, 2000 또는 5000GB/일 값을 가질 수 있습니다.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Azure Monitor에서 고객 관리형 키가 작동하는 방식
 
@@ -93,12 +93,12 @@ Azure Monitor는 관리 ID를 사용하여 Azure Key Vault에 대한 액세스 �
 
 REST를 사용할 때 응답은 처음에 HTTP 상태 코드 202(수락됨) 및 *Azure-AsyncOperation* 속성이 있는 헤더를 반환합니다.
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
 ```
 
 GET 요청을 *Azure-AsyncOperation* 헤더의 엔드포인트로 보내 비동기 작업의 상태를 확인할 수 있습니다.
 ```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
@@ -117,8 +117,7 @@ Authorization: Bearer <token>
 
 ## <a name="create-cluster"></a>클러스터 만들기
 
-클러스터는 두 가지 [관리 ID 유형](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)(시스템 할당 및 사용자 할당)을 지원하지만 시나리오에 따라 클러스터에서 단일 ID를 정의할 수 있습니다. 
-- 시스템이 할당한 관리 ID는 더 간단하며 ID `type`이 "*SystemAssigned*"로 설정된 경우 클러스터 생성과 함께 자동으로 생성됩니다. 나중에 이 ID를 사용하여 래핑 및 래핑 해제 작업을 위해 키 자격 증명 모음에 스토리지 액세스 권한을 부여할 수 있습니다. 
+클러스터는 시스템 할당 관리 ID를 지원하며 ID `type` 속성은 `SystemAssigned`로 설정되어야 합니다. ID는 클러스터 만들기와 함께 자동으로 만들어지며 나중에 래핑 및 래핑 해제 작업을 위해 Key Vault에 대한 스토리지 액세스 권한을 부여하는 데 사용할 수 있습니다. 
   
   시스템이 할당한 관리 ID에 대한 클러스터의 ID 설정
   ```json
@@ -129,23 +128,7 @@ Authorization: Bearer <token>
   }
   ```
 
-- 클러스터 생성 시 고객 관리형 키를 구성하려면 키 자격 증명 모음에 키와 사용자가 할당한 ID가 미리 부여되어 있어야 하며 다음 설정으로 클러스터를 생성해야 합니다. ID `type`은 "*사용자 할당*"으로, `UserAssignedIdentities`는 ID의 *리소스 ID* 로 지정됩니다.
-
-  사용자가 할당한 관리 ID에 대한 클러스터의 ID 설정
-  ```json
-  {
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
-      }
-  }
-  ```
-
-> [!IMPORTANT]
-> 키 자격 증명 모음이 프라이빗-링크(vNet)에 있는 경우 사용자가 할당한 관리 ID를 사용할 수 없습니다. 이 시나리오에서는 시스템이 할당한 관리 ID를 사용할 수 있습니다.
-
-[전용 클러스터 문서](./logs-dedicated-clusters.md#creating-a-cluster)에 설명된 절차를 따르세요. 
+[전용 클러스터 문서](./logs-dedicated-clusters.md#create-a-dedicated-cluster)에 설명된 절차를 따르세요. 
 
 ## <a name="grant-key-vault-permissions"></a>Key Vault 권한 부여
 
@@ -192,7 +175,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 # <a name="rest"></a>[REST (영문)](#tab/rest)
 
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -205,14 +188,14 @@ Content-type: application/json
   },
   "sku": {
     "name": "CapacityReservation",
-    "capacity": 1000
+    "capacity": 500
   }
 }
 ```
 
 **응답**
 
-키의 전파를 완료하는 데 몇 분 정도 걸립니다. 업데이트 상태는 다음 두 가지 방법으로 확인할 수 있습니다.
+키 전파를 완료하는 데 시간이 걸립니다. 업데이트 상태는 다음 두 가지 방법으로 확인할 수 있습니다.
 1. 응답에서 Azure-AsyncOperation URL 값을 복사하고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행합니다.
 2. 클러스터의 GET 요청을 보내고 *KeyVaultProperties* 값을 확인합니다. 최근 업데이트된 키가 응답에서 반환되어야 합니다.
 
@@ -222,13 +205,12 @@ Content-type: application/json
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principle-id"
-    },
+    "principalId": "principal-id"
+  },
   "sku": {
-    "name": "capacityReservation",
-    "capacity": 1000,
-    "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-    },
+    "name": "capacityreservation",
+    "capacity": 500
+  },
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
@@ -236,13 +218,21 @@ Content-type: application/json
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
-    "billingType": "cluster",
-    "clusterId": "cluster-id"
+    "clusterId": "cluster-id",
+    "billingType": "Cluster",
+    "lastModifiedDate": "last-modified-date",
+    "createdDate": "created-date",
+    "isDoubleEncryptionEnabled": false,
+    "isAvailabilityZonesEnabled": false,
+    "capacityReservationProperties": {
+      "lastSkuUpdate": "last-sku-modified-date",
+      "minCapacity": 500
+    }
   },
   "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
   "name": "cluster-name",
   "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
+  "location": "cluster-region"
 }
 ```
 
@@ -255,7 +245,7 @@ Content-type: application/json
 
 이 작업을 수행하려면 작업 영역 및 클러스터에 대한 '쓰기' 권한이 있어야 합니다. 여기에는 `Microsoft.OperationalInsights/workspaces/write` 및 `Microsoft.OperationalInsights/clusters/write`가 포함됩니다.
 
-[전용 클러스터 문서](./logs-dedicated-clusters.md#link-a-workspace-to-cluster)에 설명된 절차를 따르세요.
+[전용 클러스터 문서](./logs-dedicated-clusters.md#link-a-workspace-to-a-cluster)에 설명된 절차를 따르세요.
 
 ## <a name="key-revocation"></a>키 해지
 
@@ -319,7 +309,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 # <a name="rest"></a>[REST (영문)](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -363,7 +353,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 # <a name="rest"></a>[REST (영문)](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -424,10 +414,10 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결된 작업 영역
 - 현재 중국에서는 Lockbox를 사용할 수 없습니다. 
 
 - [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)는 지원되는 지역에서 2020년 10월부터 만들어진 클러스터에 자동으로 구성됩니다. 클러스터에서 GET 요청을 보내고 이중 암호화가 사용 가능한 클러스터의 `isDoubleEncryptionEnabled` 값이 `true`인지 관찰하여 클러스터가 이중 암호화로 구성되었는지 확인할 수 있습니다. 
-  - 클러스터를 만들 때 "<지역-이름>은 클러스터에 대한 이중 암호화를 지원하지 않습니다. "오류가 발생하는 경우 REST 요청 본문에 `"properties": {"isDoubleEncryptionEnabled": false}`를 추가하여 이중 암호화 없이 클러스터를 만들 수 있습니다.
+  - 클러스터를 만들 때 "region-name은 클러스터의 이중 암호화를 지원하지 않습니다" 오류가 발생하는 경우 REST 요청 본문에 `"properties": {"isDoubleEncryptionEnabled": false}`를 추가하여 이중 암호화 없이 클러스터를 만들 수 있습니다.
   - 클러스터를 만든 후에는 이중 암호화 설정을 변경할 수 없습니다.
 
-  - 클러스터의 `identity` `type`을 `None` acks로 설정하면 데이터에 대한 액세스도 철회되지만, 이 접근 방식은 지원 담당자에게 문의하지 않고 되돌릴 수 없기 때문에 권장되지 않습니다. 데이터에 대한 액세스를 철회하는 데 권장되는 방법은 [키 해지](#key-revocation)입니다.
+  - 클러스터의 `identity` `type`을 `None`으로 설정하면 데이터에 대한 액세스도 철회되지만, 이 접근 방식은 지원 담당자에게 문의하지 않고 되돌릴 수 없기 때문에 권장되지 않습니다. 데이터에 대한 액세스를 철회하는 데 권장되는 방법은 [키 해지](#key-revocation)입니다.
 
   - Key Vault가 Private-Link(vNet)에 있는 경우 사용자가 할당한 관리형 ID와 함께 고객 관리형 키를 사용할 수 없습니다. 이 시나리오에서는 시스템이 할당한 관리 ID를 사용할 수 있습니다.
 
@@ -436,11 +426,9 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결된 작업 영역
 - Key Vault 가용성과 관련된 동작
   - 정상 작업에서 - 스토리지에서 AEK를 짧은 시간 동안 캐시하고, Key Vault로 돌아가서 래핑을 주기적으로 해제합니다.
     
-  - 일시적인 연결 오류 - 스토리지에서 키를 짧은 시간 동안 캐시에서 유지할 수 있도록 하여 일시적인 오류(시간 제한, 연결 실패, DNS 문제)를 처리하고, 이로 인한 사소한 가용성 문제도 해결합니다. 쿼리 및 수집 기능은 중단 없이 계속됩니다.
+  - Key Vault 연결 오류 -- 스토리지는 가용성 문제가 지속되는 동안 키가 캐시에 유지되도록 허용하여 일시적인 오류(시간 초과, 연결 실패, DNS 문제)를 처리하며 이는 일시적 오류 및 가용성 문제를 해결합니다. 쿼리 및 수집 기능은 중단 없이 계속됩니다.
     
-  - 라이브 사이트 - 약 30분 동안 사용할 수 없으면 스토리지 계정을 사용할 수 없게 됩니다. 쿼리 기능을 사용할 수 없으며, 수집된 데이터는 데이터 손실을 방지하기 위해 Microsoft 키를 사용하여 몇 시간 동안 캐시됩니다. Key Vault에 대한 액세스가 복원되면 쿼리를 사용할 수 있게 되고, 임시로 캐시된 데이터가 데이터 저장소에 수집되어 고객 관리형 키를 사용하여 암호화됩니다.
-
-  - Key Vault 액세스 속도 - 래핑 및 래핑 해제 작업을 위해 Azure Monitor 스토리지에서 Key Vault에 액세스하는 빈도는 6-60초입니다.
+- Key Vault 액세스 속도 - 래핑 및 래핑 해제 작업을 위해 Azure Monitor 스토리지에서 Key Vault에 액세스하는 빈도는 6-60초입니다.
 
 - 클러스터를 프로비저닝하거나 상태를 업데이트하는 동안 클러스터를 업데이트하는 경우 업데이트는 실패합니다.
 
@@ -467,10 +455,9 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결된 작업 영역
   -  400 -- 요청 본문이 null이거나 형식이 잘못되었습니다.
   -  400 -- SKU 이름이 잘못되었습니다. SKU 이름을 capacityReservation으로 설정합니다.
   -  400 -- 용량이 제공되었지만 SKU가 capacityReservation이 아닙니다. SKU 이름을 capacityReservation으로 설정합니다.
-  -  400 -- SKU의 용량이 누락되었습니다. 단계에서 용량 값을 1000(100GB) 이상으로 설정합니다.
-  -  400 -- SKU의 용량이 범위에 없습니다. 최소 1000에서 사용 중인 작업 영역의 '사용량 및 예상 비용'의 최대 허용 용량까지 설정해야 입니다.
+  -  400 -- SKU의 용량이 누락되었습니다. 용량 값을 500, 1000, 2000 또는 5000GB/일로 설정합니다.
   -  400 -- 용량이 30일 동안 잠겨 있습니다. 업데이트 30일 후에는 용량을 줄일 수 있습니다.
-  -  400 -- SKU가 설정되지 않았습니다. 단계에서 SKU 이름을 capacityReservation으로 설정하고 용량 값을 1000(100GB) 이상으로 설정합니다.
+  -  400 -- SKU가 설정되지 않았습니다. SKU 이름을 capacityReservation으로 설정하고 용량 값을 500, 1000, 2000 또는 5000GB/일로 설정합니다.
   -  400 -- ID가 null이거나 비어 있습니다. SystemAssigned 유형으로 ID를 설정합니다.
   -  400 -- KeyVaultProperties는 만들 때 설정됩니다. 클러스터를 만든 후 KeyVaultProperties를 업데이트합니다.
   -  400 -- 지금은 작업을 실행할 수 없습니다. 비동기 작업이 성공함 이외의 상태에 있습니다. 업데이트 작업을 수행하기 전에 클러스터에서 해당 작업을 완료해야 합니다.

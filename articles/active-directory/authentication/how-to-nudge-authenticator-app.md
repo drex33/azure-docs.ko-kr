@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/26/2021
 ms.author: justinha
 author: mjsantani
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d8599554918af41ead7c862ee2c84f2afd4b18a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: c83c4c60028c77033227411d68aeb576a9b43a46
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786242"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114707870"
 ---
 # <a name="how-to-nudge-users-to-set-up-microsoft-authenticator-preview---microsoft-authenticator-app"></a>Microsoft Authenticator 앱(미리 보기)을 설치하도록 사용자를 유도하는 방법 - Microsoft Authenticator 앱
 
@@ -70,7 +70,7 @@ ms.locfileid: "110786242"
 
 ## <a name="enable-the-nudge-policy"></a>유도 정책 사용
 
-유도를 사용하도록 설정하려면 Graph API 또는 PowerShell 명령을 사용하여 인증 방법 정책을 사용해야 합니다. **전역 관리자** 및 **인증 방법 정책 관리자** 가 정책을 업데이트할 수 있습니다. 
+유도를 사용하도록 설정하려면 Graph API를 사용하여 인증 방법 정책을 사용해야 합니다. **전역 관리자** 및 **인증 방법 정책 관리자** 가 정책을 업데이트할 수 있습니다. 
 
 Graph Explorer를 사용하여 정책을 구성하려면:
 

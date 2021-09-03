@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 717d98591fe5dc8326e6ee311c569bdca83eaa19
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 4e01f431ab9074286c701a6661e2bf58db125e56
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960945"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446020"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -233,7 +233,7 @@ ms.locfileid: "111960945"
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
-[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
@@ -247,8 +247,8 @@ ms.locfileid: "111960945"
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
-[templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
-[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
+[templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows
+[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
 [virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
@@ -349,7 +349,7 @@ Microsoft Azure Virtual Machine 서비스와 함께 Microsoft는 포괄적인 Ia
 
 
 ### <a name="resources"></a><a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>리소스
-Azure 설명서에서 SAP 워크로드에 대한 진입점은 [여기](./get-started.md)에 나옵니다. 이 진입점으로 시작하면 다음 토픽을 다루는 문서가 많이 있습니다.
+Azure 문서의 SAP 워크로드에 대한 진입점은 [Azure VM의 SAP 시작하기](./get-started.md)에 있습니다. 이 진입점으로 시작하면 다음 토픽을 다루는 문서가 많이 있습니다.
 
 - Azure의 SAP NetWeaver 및 Business One
 - Azure의 다양한 DBMS 시스템에 대한 SAP DBMS 가이드
@@ -591,7 +591,7 @@ Azure Virtual Network 내의 VM에 고정 또는 예약된 IP 주소를 할당�
 
 
 ##### <a name="secondary-ip-addresses-for-sap-hostname-virtualization"></a>SAP 호스트 이름 가상화를 위한 보조 IP 주소
-각 Azure 가상 머신의 네트워크 인터페이스 카드에는 여러 IP 주소가 할당되어 있을 수 있습니다. 이러한 보조 IP는 필요한 경우 DNS A/PTR 레코드에 매핑되는 SAP 가상 호스트 이름에 사용할 수 있습니다. 보조 IP 주소는 [본 문서](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md)에 따라 Azure vNIC IP 구성에 할당되어야 하며, 보조 IP가 DHCP를 통해 할당되지 않기 때문에 OS 내에서도 구성되어야 합니다. 각 보조 IP는 vNIC가 바인딩된 동일한 서브넷에 있어야 합니다. Azure Load Balancer 부동 IP 사용은 Pacemaker 클러스터와 같은 보조 IP 구성에 대해 보조로 [지원되지 않습니다.](../../../load-balancer/load-balancer-multivip-overview.md#limitations) 이러한 경우 Load Balancer IP를 통해 SAP 가상 호스트 이름을 사용할 수 있습니다. 가상 호스트 이름을 사용하는 방법에 대한 일반적인 지침은 SAP의 참고 사항 [#962955](https://launchpad.support.sap.com/#/notes/962955)를 참조하세요.
+각 Azure 가상 머신의 네트워크 인터페이스 카드에는 여러 IP 주소가 할당되어 있을 수 있습니다. 이러한 보조 IP는 필요한 경우 DNS A/PTR 레코드에 매핑되는 SAP 가상 호스트 이름에 사용할 수 있습니다. 보조 IP 주소는 [본 문서](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md)에 따라 Azure vNIC IP 구성에 할당되어야 하며, 보조 IP가 DHCP를 통해 할당되지 않기 때문에 OS 내에서도 구성되어야 합니다. 각 보조 IP는 vNIC가 바인딩된 동일한 서브넷에 있어야 합니다. Azure Load Balancer 부동 IP 사용은 Pacemaker 클러스터와 같은 보조 IP 구성에 대해 보조로 [지원되지 않습니다.](../../../load-balancer/load-balancer-multivip-overview.md#limitations) 이러한 경우 부하 분산 장치 IP를 통해 SAP 가상 호스트 이름을 사용할 수 있습니다. 가상 호스트 이름을 사용하는 방법에 대한 일반적인 참고 자료는 SAP Note [#962955](https://launchpad.support.sap.com/#/notes/962955)를 참조하세요.
 
 
 ##### <a name="multiple-nics-per-vm"></a>VM당 여러 NIC
@@ -685,7 +685,7 @@ SAP 시스템이 Azure Virtual Machine 서비스 및 해당 기능에 적합한�
 
 ![Azure에서 SAP를 배포하는 기능을 결정하는 의사 결정 트리][planning-guide-figure-700]
 
-1. 시작하기 위한 가장 중요한 정보는 지정된 SAP 시스템의 SAPS 요구 사항입니다. SAP 시스템이 이미 2계층 구성으로 온-프레미스에 배포되더라도 SAPS 요구 사항을 DBMS 부분과 SAP 애플리케이션 부분으로 구분해야 합니다. 기존 시스템의 경우 사용 중인 하드웨어 관련된 SAPS를 기존 SAP 벤치마크를 기준으로 결정하거나 예측할 수 있습니다. 결과는 [여기](https://sap.com/about/benchmark.html)에서 확인할 수 있습니다. 새로 배포된 SAP 시스템의 경우 시스템의 SAPS 요구 사항을 결정해야 하는 크기 조정 연습 과정을 거쳐야 합니다.
+1. 시작하기 위한 가장 중요한 정보는 지정된 SAP 시스템의 SAPS 요구 사항입니다. SAP 시스템이 이미 2계층 구성으로 온-프레미스에 배포되더라도 SAPS 요구 사항을 DBMS 부분과 SAP 애플리케이션 부분으로 구분해야 합니다. 기존 시스템의 경우 사용 중인 하드웨어 관련된 SAPS를 기존 SAP 벤치마크를 기준으로 결정하거나 예측할 수 있습니다. 결과는 [SAP 표준 애플리케이션 벤치마크 정보](https://sap.com/about/benchmark.html) 페이지에서 확인할 수 있습니다. 새로 배포된 SAP 시스템의 경우 시스템의 SAPS 요구 사항을 결정해야 하는 크기 조정 연습 과정을 거쳐야 합니다.
 1. 기존 시스템의 경우 DBMS 서버의 I/O 볼륨 및 초당 I/O 작업 수를 측정해야 합니다. 새로 예정된 시스템의 경우는 새 시스템에 대한 크기 조정 연습 과정을 진행하면서 DBMS에 대한 I/O 요구 사항을 대략적으로 알 수 있습니다. 확실하지 않은 경우 결국 개념 증명을 수행해야 합니다.
 1. DBMS 서버의 SAPS 요구 사항과 여러 다른 VM 형식의 Azure가 제공할 수 있는 SAPS를 비교합니다. 다른 Azure VM 형식의 SAPS 관련 정보는 SAP 정보 [1928533]에 나와 있습니다. 데이터베이스 계층이 대부분의 배포에서는 확장되지 않는 SAP NetWeaver 시스템의 계층이므로 먼저 DBMS VM을 중점적으로 설명합니다. 반면 SAP 애플리케이션 계층은 확장될 수 있습니다. SAP 지원 Azure VM 유형 중 어떤 유형도 필요한 SAPS를 제공할 수 없는 경우 계획된 SAP 시스템의 작업을 Azure에서 실행할 수 없습니다. 따라서 온-프레미스에 시스템을 배포해야 하거나 시스템에 대한 작업 볼륨을 변경해야 합니다.
 1. [여기(Linux)][virtual-machines-sizes-linux]와 [여기(Windows)][virtual-machines-sizes-windows]서 설명하는 대로 Azure에서는 사용자가 Standard Storage 또는 Premium Storage 중 어느 것을 사용하든지 간에 디스크당 IOPS 할당량을 적용합니다. VM 유형에 따라 탑재 가능한 데이터 디스크 수가 달라집니다. 따라서 각 VM 유형에서 얻을 수 있는 최대 IOPS 수를 계산할 수 있습니다. 데이터베이스 파일 레이아웃에 따라 게스트 OS에서 단일 볼륨이 되도록 디스크를 스트라이프할 수 있습니다. 그러나 배포된 SAP 시스템의 현재 IOPS 볼륨이 Azure의 가장 큰 VM 유형에 대해 계산된 제한을 초과하고 더 많은 메모리로 보상할 수 없으면 SAP 시스템의 작업은 심각한 영향을 받을 수 있습니다. 이러한 경우 Azure에 시스템을 배포하지 않아야 하는 상황이 올 수 있습니다.
@@ -907,7 +907,7 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 
 * PowerShell 또는 Azure CLI를 사용하여 VHD 업로드
 * (선택 사항) PowerShell, Azure CLI 또는 Azure Portal을 사용하여 VHD에서 관리 디스크 만들기
-* [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json)에 표시된 대로 VHD를 참조하는 JSON 템플릿을 사용하거나, [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json)에 표시된 대로 관리 디스크를 사용하여 VM 배포
+* [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json)에 표시된 대로 VHD를 참조하는 JSON 템플릿을 사용하거나, [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/application-workloads/sap/sap-2-tier-user-image-md/azuredeploy.json)에 표시된 대로 관리 디스크를 사용하여 VM 배포
 
 #### <a name="deployment-of-a-vm-image"></a>VM 이미지 배포
 Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 기존 VM 또는 VHD를 업로드하려면 이러한 VM 또는 VHD가 이 문서의 [SAP용 고객별 이미지를 사용하여 VM 배포 준비][planning-guide-5.2.2] 챕터에서 나열한 요구 사항을 충족해야 합니다.
@@ -936,7 +936,7 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 * Windows의 *sysprep* 또는 Linux의 *waagent -deprovision* 을 사용하여 VM 일반화 - [Sysprep 기술 참조](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10))(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
 * PowerShell 또는 Azure CLI를 사용하여 VHD 업로드
 * (선택 사항) PowerShell, Azure CLI 또는 Azure Portal을 사용하여 VHD에서 관리 디스크 이미지 만들기
-* [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json)에 표시된 대로 이미지 VHD를 참조하는 JSON 템플릿을 사용하거나, [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json)에 표시된 대로 관리 디스크 이미지를 사용하여 VM 배포
+* [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json)에 표시된 대로 이미지 VHD를 참조하는 JSON 템플릿을 사용하거나, [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/application-workloads/sap/sap-2-tier-user-image-md/azuredeploy.json)에 표시된 대로 관리 디스크 이미지를 사용하여 VM 배포
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>온-프레미스에 VHD 또는 관리 디스크 다운로드
 Azure Infrastructure as a Services는 VHD 및 SAP 시스템을 업로드만 할 수 있는 단방향 경로가 아닙니다. Azure에서 온-프레미스 환경으로도 SAP 시스템을 다시 이동할 수 있습니다.

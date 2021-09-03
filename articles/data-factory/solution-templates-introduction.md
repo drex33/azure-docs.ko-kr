@@ -2,17 +2,18 @@
 title: 템플릿 개요
 description: 미리 정의된 템플릿을 사용하여 Azure Data Factory를 빠르게 시작하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.author: susabat
 author: ssabat
 ms.custom: seo-lt-2019
-ms.date: 01/04/2019
-ms.openlocfilehash: a95ef6e04f7a49f33f2bb0551110d7aa0f9bd581
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/04/2021
+ms.openlocfilehash: bfd63e048d2783d84dbc37710851492134b6d0e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905615"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566808"
 ---
 # <a name="templates"></a>템플릿
 
@@ -24,9 +25,9 @@ ms.locfileid: "107905615"
 
 다음 두 가지 방법으로 템플릿에서 Data Factory 파이프라인 생성을 시작할 수 있습니다.
 
-1.  개요 페이지에서, **템플릿에서 파이프라인 만들기** 를 선택하여 템플릿 갤러리를 엽니다.
+1.  Data Factory 홈페이지의 **자세히 알아보기** 섹션에서 **파이프라인 템플릿** 을 선택하여 템플릿 갤러리를 엽니다.
 
-    ![개요 페이지에서 템플릿 갤러리 열기](media/solution-templates-introduction/templates-intro-image1.png)
+    ![개요 페이지에서 템플릿 갤러리 열기](media/doc-common-process/home-page-pipeline-templates-tile.png)
 
 1.  리소스 탐색기의 작성자 탭에서 **+** , **템플릿에서 파이프라인 만들기** 를 차례로 선택하여 템플릿 갤러리를 엽니다.
 

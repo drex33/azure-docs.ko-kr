@@ -2,7 +2,6 @@
 title: Azure IoT Hub 디바이스 쌍 시작(.NET/.NET) | Microsoft Docs
 description: Azure IoT Hub 디바이스 쌍을 사용하여 태그를 추가한 다음, IoT Hub 쿼리를 사용하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 시뮬레이트된 디바이스 앱을 구현하고 .NET용 Azure IoT 서비스 SDK를 사용하여 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53a2d4ef83f20633c227c5d1a0e23de5bb45c81d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89013761"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536187"
 ---
 # <a name="get-started-with-device-twins-net"></a>디바이스 쌍 시작(.NET)
 
@@ -250,8 +249,8 @@ ms.locfileid: "89013761"
 
 다음 리소스에서 자세히 알아볼 수 있습니다.
 
-* 디바이스에서 원격 분석 데이터를 보내는 방법을 알아보려면 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md) 자습서를 참조하세요.
+* 디바이스에서 원격 분석 데이터를 보내는 방법을 알아보려면 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) 자습서를 참조하세요.
 
 * 디바이스 쌍의 desired 속성을 사용하여 디바이스를 구성하는 방법을 알아보려면 [desired 속성을 사용하여 디바이스 구성](tutorial-device-twins.md) 자습서를 참조하세요.
 
-* 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 디바이스를 제어하는 방법을 알아보려면 [직접 메서드 사용](quickstart-control-device-dotnet.md) 자습서를 참조하세요.
+* 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 디바이스를 제어하는 방법을 알아보려면 [직접 메서드 사용](./quickstart-control-device.md?pivots=programming-language-csharp) 빠른 시작을 참조하세요.

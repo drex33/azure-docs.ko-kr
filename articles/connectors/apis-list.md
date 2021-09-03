@@ -1,31 +1,33 @@
 ---
-title: Azure Logic Apps용 커넥터
-description: 커넥터를 사용하여 Azure Logic Apps로 자동화된 워크플로를 빌드하는 방법에 대한 개요입니다. 여러 트리거, 작업 및 커넥터의 작동 방식에 대해 알아봅니다.
+title: Azure Logic Apps에 대한 커넥터 개요
+description: 커넥터에 대해 알아보고 커넥터를 통해 Azure Logic Apps를 사용하여 자동화된 통합 워크플로를 빠르고 쉽게 구축하는 방법을 알아봅니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 07/01/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e6841afabe36667070ca595810c423c61db03837
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f8db25d79784b1a2ca2b63ace57f729271271a43
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377042"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218874"
 ---
-# <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
+# <a name="about-connectors-in-azure-logic-apps"></a>Azure Logic Apps의 커넥터 정보
 
-Azure Logic Apps에서 *커넥터* 는 다른 앱, 서비스, 시스템, 프로토콜 및 플랫폼의 데이터, 이벤트 및 기타 리소스에 빠르게 액세스하는 데 도움이 됩니다. 커넥터를 사용하는 경우 종종 코드를 작성할 필요 없이 클라우드 기반, 온-프레미스 및 하이브리드 환경에서 정보를 사용, 처리 및 통합하는 논리 앱 워크플로를 빌드할 수 있습니다.
+Azure Logic Apps를 사용하여 워크플로를 빌드할 때 *커넥터* 를 사용하면 종종 코드를 작성하지 않고도 다른 앱, 서비스, 시스템, 프로토콜 및 플랫폼의 데이터, 이벤트 및 리소스에 빠르고 쉽게 액세스할 수 있습니다. 커넥터는 워크플로의 단계로 사용할 수 있는 미리 빌드된 작업을 제공합니다. Azure Logic Apps는 사용할 수 있는 수백 개의 커넥터를 제공합니다. 액세스하려는 리소스에 사용할 수 있는 커넥터가 없는 경우 일반 HTTP 작업을 사용하여 서비스와 통신하거나 [사용자 지정 커넥터를 만들 수 있습니다](#custom-apis-and-connectors).
 
-워크플로에 사용할 수백 개의 커넥터 중에서 선택할 수 있습니다. 결과적으로 이 설명서에서는 Logic Apps에 일반적으로 사용되는 인기 커넥터에 중점을 둡니다. Logic Apps, Microsoft Power Automate 및 Microsoft Power Apps의 커넥터에 대한 자세한 내용은 [커넥터 문서](/connectors)를 검토하세요. 가격 책정에 대한 자세한 내용은 [Logic Apps 가격 모델](../logic-apps/logic-apps-pricing.md) 및 [Logic Apps 가격 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/)를 검토하세요.
+이 개요에서는 커넥터, 일반 작동 방식 및 Azure Logic Apps에서 더 많이 사용되는 커넥터를 소개합니다. 자세한 내용은 다음 설명서를 검토하세요.
 
-> [!NOTE]
-> 워크플로를 커넥터가 없는 서비스 또는 API와 통합하려면 HTTP와 같은 프로토콜을 통해 서비스를 호출하거나 [사용자 지정 커넥터를 만들 수 있습니다](#custom-apis-and-connectors).
+* [Azure Logic Apps, Microsoft Power Automate 및 Microsoft Power Apps에 대한 커넥터 개요](/connectors)
+* [Azure Logic Apps에 대한 커넥터 참조](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Azure Logic Apps의 가격 책정 및 청구 모델](../logic-apps/logic-apps-pricing.md)
+* [Azure Logic Apps 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/)
 
 ## <a name="what-are-connectors"></a>커넥터란 무엇인가요?
 
-커넥터는 논리 앱의 워크플로에서 작업을 수행하는 데 사용하는 *트리거* 및 *작업* 을 제공합니다. 각 트리거와 작업에는 구성할 수 있는 속성이 있습니다. 일부 트리거 및 작업의 경우 워크플로가 특정 서비스 또는 시스템에 액세스할 수 있도록 [연결을 만들고 구성해야 합니다](#connection-configuration).
+기술적으로 커넥터는 기본 서비스가 Azure Logic Apps와 통신하는 데 사용하는 API 주변의 프록시 또는 래퍼입니다. 이 커넥터는 작업을 수행하기 위해 워크플로에서 사용하는 작업을 제공합니다. 작업은 구성할 수 있는 속성이 있는 *트리거* 또는 *작업* 으로 사용할 수 있습니다. 또한 일부 트리거 및 작업에서는 사용자 계정에 대한 액세스를 인증할 수 있도록 먼저 기본 서비스 또는 시스템에 대한 [연결을 만들고 구성](#connection-configuration)해야 합니다.
 
 ### <a name="triggers"></a>트리거
 
@@ -44,7 +46,7 @@ Azure Logic Apps에서 *커넥터* 는 다른 앱, 서비스, 시스템, 프로�
 
 ## <a name="connector-categories"></a>커넥터 범주
 
-Logic Apps에서 대부분의 트리거 및 작업은 *기본 제공* 버전 또는 *관리 커넥터* 버전에서 사용할 수 있습니다. 두 버전에서 적은 수의 트리거와 작업을 사용할 수 있습니다. 사용 가능한 버전은 현재 [단일 테넌트 Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)에서만 사용할 수 있는 다중 테넌트 논리 앱을 만드는지 아니면 단일 테넌트 논리 앱을 만드는지에 따라 다릅니다.
+Logic Apps에서 대부분의 트리거 및 작업은 *기본 제공* 버전 또는 *관리 커넥터* 버전에서 사용할 수 있습니다. 두 버전 모두에서 몇 가지 트리거와 작업을 사용할 수 있습니다. 사용 가능한 버전은 현재 [단일 테넌트 Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)에서만 사용할 수 있는 다중 테넌트 논리 앱을 만드는지 아니면 단일 테넌트 논리 앱을 만드는지에 따라 다릅니다.
 
 [내장된 트리거 및 작업](built-in.md)은 기본적으로 Logic Apps 런타임에서 실행되며 연결을 만들 필요가 없으며 다음과 같은 유형의 작업을 수행합니다.
 
@@ -119,7 +121,7 @@ Office 365 Outlook과 같은 되풀이 연결 기반 트리거에서 일정으�
 
 * DST가 적용되면 워크플로가 예상 시간에 계속 실행되도록 되풀이를 수동으로 조정합니다. 그렇지 않으면 DST가 시작될 때 시작 시간이 1시간 앞으로 이동하고, DST가 종료되면 1시간 뒤로 이동합니다. 자세한 내용과 예는 [일광 절약 시간 및 표준 시간에 대한 반복](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time)을 검토하세요.
 
-* **되풀이** 트리거를 사용하는 경우 시간대, 시작 날짜 및 시간을 지정합니다. 또한 **시간 선택** 및 **분 선택** 속성에서 이후 되풀이를 실행할 특정 시간을 구성합니다. 여기서는 **일** 및 **주** 빈도만 가능합니다. 그러나 시간이 이동하면 일부 기간에서 문제가 발생할 수 있습니다.
+* **되풀이** 트리거를 사용하는 경우 시간대, 시작 날짜 및 시작 시간을 지정합니다. 또한 **시간 선택** 및 **분 선택** 속성에서 이후 되풀이를 실행할 특정 시간을 구성합니다. 여기서는 **일** 및 **주** 빈도만 가능합니다. 그러나 시간이 이동하면 일부 기간에서 문제가 발생할 수 있습니다.
 
 * 되풀이 누락을 방지하려면 **되풀이** 트리거 대신 [**슬라이딩 윈도우** 트리거](connectors-native-sliding-window.md)를 사용하는 것이 좋습니다.
 
@@ -133,7 +135,7 @@ Azure 가상 네트워크의 리소스에 직접 액세스해야 하는 워크�
 
 ISE 내부에서 만든 사용자 지정 커넥터는 온-프레미스 데이터 게이트웨이에서 작동하지 않습니다. 하지만 이러한 커넥터는 ISE를 호스트하는 Azure 가상 네트워크에 연결된 온-프레미스 데이터 원본에 직접 액세스할 수 있습니다. 따라서 ISE의 논리 앱은 이러한 리소스와 통신할 때 데이터 게이트웨이가 필요하지 않을 수 있습니다. 온-프레미스 데이터 게이트웨이를 필요로 하는 ISE 외부에서 만든 사용자 지정 커넥터가 있는 경우 ISE의 논리 앱이 이러한 커넥터를 사용할 수 있습니다.
 
-Logic Apps 디자이너에서 ISE의 논리 앱에 사용할 기본 제공 트리거 및 작업 또는 관리 커넥터를 찾으면 **CORE** 레이블이 기본 제공 트리거 및 작업에 표시되며 **ISE** 레이블은 ISE와 함께 작동하도록 특별히 설계된 관리 커넥터에 표시됩니다.
+Logic Apps 디자이너에서 ISE의 논리 앱에 사용할 기본 제공 트리거 및 작업 또는 관리형 커넥터를 찾으면 **CORE** 레이블이 기본 제공 트리거 및 작업에 표시되며 **ISE** 레이블은 ISE와 함께 작동하도록 설계된 관리 커넥터에 표시됩니다.
 
 :::row:::
     :::column:::
@@ -184,4 +186,4 @@ Logic Apps 디자이너에서 ISE의 논리 앱에 사용할 기본 제공 트�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기](/logic-apps/logic-apps-create-api-app)
+> [Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기](../logic-apps/logic-apps-create-api-app.md)

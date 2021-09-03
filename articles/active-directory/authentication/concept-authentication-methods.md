@@ -5,26 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 07/01/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: b6071370d510881d06c5b81f8660781169596a72
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5adc3bd8ef03b2613198518fc22284686c2bfee9
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764420"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730754"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
-Azure AD(Azure Active Directory)의 계정에 대한 로그인 환경에는 사용자가 스스로 인증할 수 있는 다양한 방법이 있습니다. 사용자 이름 및 암호는 사용자가 자격 증명을 기록으로 제공하는 가장 일반적인 방법입니다. Azure AD의 최신 인증 및 보안 기능을 사용하면 기본 암호를 보완하거나 추가 보안 인증 방법으로 대체해야 합니다.
+Microsoft는 Windows Hello, FIDO2 보안 키 및 Microsoft Authenticator 앱과 같은 암호 없는 인증 방법이 가장 안전한 로그인 환경을 제공하기 때문에 권장합니다. 사용자는 사용자 이름 및 암호와 같은 다른 일반적인 방법을 사용하여 로그인할 수 있지만 암호는 보다 안전한 인증 방법으로 대체해야 합니다.
 
 ![Azure AD의 장점 및 기본 설정 인증 방법에 관한 표](media/concept-authentication-methods/authentication-methods.png)
-
-Windows Hello, FIDO2 보안 키, Microsoft Authenticator 앱 등의 암호 없는 인증 방법은 가장 안전한 로그인 이벤트를 제공합니다.
 
 Azure AD MFA(Multi-Factor Authentication)는 사용자가 로그인할 때 암호만 사용하는 것보다 더 보안을 강화합니다. 푸시 알림에 응답하거나, 소프트웨어 또는 하드웨어 토큰에서 코드를 입력하거나, SMS 또는 전화 통화에 응답하는 등의 추가 인증 양식을 입력하라는 메시지가 사용자에게 표시될 수 있습니다.
 
@@ -68,8 +66,8 @@ Azure AD MFA(Multi-Factor Authentication)는 사용자가 로그인할 때 암�
 | 비즈니스용 Windows Hello     | 예                    | MFA                       |
 | Microsoft Authenticator 앱    | 예                    | MFA 및 SSPR              |
 | FIDO2 보안 키             | 예                    | MFA                       |
-| OATH 하드웨어 토큰(미리 보기) | 예                     | MFA                       |
-| OATH 소프트웨어 토큰           | 예                     | MFA                       |
+| OATH 하드웨어 토큰(미리 보기) | 예                     | MFA 및 SSPR              |
+| OATH 소프트웨어 토큰           | 예                     | MFA 및 SSPR              |
 | sms                            | 예                    | MFA 및 SSPR              |
 | 음성 통화                     | 예                     | MFA 및 SSPR              |
 | 암호                       | 예                    |                           |
@@ -89,9 +87,6 @@ Azure AD MFA(Multi-Factor Authentication)는 사용자가 로그인할 때 암�
 
 > [!NOTE]
 > Azure AD에서 암호는 대개 기본 인증 방법 중 하나입니다. 암호 인증 방법을 사용하지 않도록 설정할 수는 없습니다. 암호를 기본 인증 요소로 사용하는 경우 Azure AD Multi-Factor Authentication을 사용하여 로그인 이벤트의 보안을 강화합니다.
-
-> [!IMPORTANT]
-> FIDO2는 MFA의 형태로 사용되는 데 필요한 요구 사항을 충족하지만 FIDO2는 암호가 없는 인증 형식으로만 사용할 수 있습니다.
 
 특정 시나리오에서 다음 추가 인증 방법을 사용할 수 있습니다.
 

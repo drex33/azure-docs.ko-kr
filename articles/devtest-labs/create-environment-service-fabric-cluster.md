@@ -5,18 +5,18 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e85e4dd34a63500b569b75bb953a4c6061aefe5e
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85484012"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586008"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Azure DevTest Labs에서 자체 포함 Service Fabric 클러스터로 환경 만들기
 이 문서에서는 Azure DevTest Labs에서 자체 포함 Service Fabric 클러스터로 환경을 만드는 방법에 대한 정보를 제공합니다. 
 
 ## <a name="overview"></a>개요
-DevTest Labs는 Azure 리소스 관리 템플릿에서 정의한 대로 자체 포함 테스트 환경을 만들 수 있습니다. 이 환경에는 가상 머신 같은 IaaS 리소스와 Service Fabric 같은 PaaS 리소스가 모두 포함됩니다. DevTest Labs를 사용하면 가상 머신을 제어하는 명령을 제공하여 환경에서 가상 머신을 관리할 수 있습니다. 명령은 일정에 따라 가상 머신을 시작하거나 중지하는 기능을 제공합니다. 마찬가지로, DevTest Labs는 환경에서 Service Fabric 클러스터를 관리하는 데도 도움이 될 수 있습니다. 환경에서 수동으로 또는 일정을 통해 Service Fabric 클러스터를 시작하거나 중지할 수 있습니다.
+DevTest Labs는 Azure Resource Manager 템플릿에서 정의한 대로 자체 포함 테스트 환경을 만들 수 있습니다. 이 환경에는 가상 머신 같은 IaaS 리소스와 Service Fabric 같은 PaaS 리소스가 모두 포함됩니다. DevTest Labs를 사용하면 가상 머신을 제어하는 명령을 제공하여 환경에서 가상 머신을 관리할 수 있습니다. 명령은 일정에 따라 가상 머신을 시작하거나 중지하는 기능을 제공합니다. 마찬가지로, DevTest Labs는 환경에서 Service Fabric 클러스터를 관리하는 데도 도움이 될 수 있습니다. 환경에서 수동으로 또는 일정을 통해 Service Fabric 클러스터를 시작하거나 중지할 수 있습니다.
 
 ## <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
 Service Fabric 클러스터는 DevTest Labs에서 환경을 사용하여 만들어집니다. 각 환경은 Git 리포지토리의 Azure Resource Manager 템플릿에 의해 정의됩니다. DevTest Labs의 [퍼블릭 Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Environments/)에는 Service Fabric 클러스터를 만드는 Resource Manager 템플릿이 [ServiceFabric-Cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) 폴더에 있습니다. 
@@ -119,7 +119,7 @@ Service Fabric 클러스터는 일정에 따라 시작되거나 중지될 수도
     ![Service Fabric 클러스터 홈페이지](./media/create-environment-service-fabric-cluster/service-fabric-cluster-page.png)
 
 ## <a name="next-steps"></a>다음 단계
-환경에 대한 자세한 내용은 다음 문서를 참조하세요. 
+환경에 관한 자세한 내용은 다음 문서를 참조하세요. 
 
 - [Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기](devtest-lab-create-environment-from-arm.md)
 - [Azure DevTest Labs에서 공용 환경 구성 및 사용](devtest-lab-configure-use-public-environments.md)

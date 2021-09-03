@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: cb3c503000e895344368f09dfdceac1156628bb9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: dd32e421b678b9cfc6277bdc593a06f93fab447f
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969977"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136115"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 보안
 
@@ -40,18 +40,6 @@ Azure Private Link Service를 사용하면 가상 네트워크의 프라이빗 �
 - HTTPS 프로토콜을 사용하면 클라이언트가 TLS 협상에 참여할 수 있습니다. **클라이언트는 최신 버전의 TLS를 적용할 수 있으며** 클라이언트가 해당 작업을 수행할 때마다 전체 연결에서 해당하는 수준 보호를 사용합니다. Key Vault에서 여전히 이전 TLS 버전을 지원한다는 점이 최신 TLS 버전을 사용하는 연결 보안을 약화하지 않습니다.
 - TLS 프로토콜의 알려진 취약성에도 불구하고 공격자가 취약성이 있는 TLS 버전과의 연결을 시작할 때 악성 에이전트가 키 자격 증명 모음에서 어떤 정보든 추출할 수 있도록 하는 알려진 공격은 없습니다. 공격자는 자신을 인증하고 권한을 부여해야 하며 합법적인 클라이언트가 항상 최신 TLS 버전에 연결하는 한 이전 TLS 버전의 취약성으로 인해 자격 증명이 누출되지 않습니다.
 
-## <a name="identity-management"></a>ID 관리
-
-Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 자동으로 연결됩니다. 자격 증명 모음에서 콘텐츠를 관리하거나 검색하려는 사용자는 Azure AD의 인증을 받은 사용자여야 합니다. 두 경우 모두 애플리케이션에서 다음과 같은 두 가지 방법으로 Key Vault에 액세스할 수 있습니다.
-
-- **애플리케이션 전용**: 애플리케이션은 서비스 주체 또는 관리 ID를 나타냅니다. 해당 ID는 주기적으로 키 자격 증명 모음에서 인증서, 키 또는 암호에 액세스해야 하는 애플리케이션에 가장 일반적으로 사용되는 시나리오입니다. 해당 시나리오가 작동하려면 액세스 정책에서 애플리케이션의 `objectId`가 지정되어야 하며 `applicationId`는 지정되지 _않거나_ `null`이어야 합니다.
-- **사용자 전용**: 사용자는 테넌트에 등록된 애플리케이션에서 키 자격 증명 모음에 액세스합니다. Azure PowerShell과 Azure Portal이 이러한 액세스 유형의 예제입니다. 해당 시나리오가 작동하려면 액세스 정책에서 사용자의 `objectId`가 지정되어야 하며 `applicationId`는 지정되지 _않거나_ `null`이어야 합니다.
-- **애플리케이션 + 사용자**(_복합 ID_ 라고도 함): 사용자는 특정 애플리케이션에서 키 자격 증명 모음에 액세스해야 _하며_ 애플리케이션은 사용자로 가장하기 위해 OBO(On-Behalf-Of 인증) 흐름을 사용해야 합니다. 해당 시나리오가 작동하려면 액세스 정책에서 `applicationId` 및 `objectId` 모두 지정되어야 합니다. `applicationId`는 필수 애플리케이션을 식별하고 `objectId`는 사용자를 식별합니다. 현재 해당 옵션은 데이터 평면 Azure RBAC에서 사용할 수 없습니다.
-
-모든 유형의 액세스에서 애플리케이션은 Microsoft Azure AD를 사용하여 인증합니다. 애플리케이션은 애플리케이션 유형에 따라 [지원되는 인증 방법](../../active-directory/develop/authentication-vs-authorization.md)을 사용합니다. 애플리케이션은 액세스 권한을 부여하기 위해 평면의 리소스에 대해 토큰을 획득합니다. 리소스는 Azure 환경에 따라 관리 또는 데이터 평면의 엔드포인트입니다. 애플리케이션은 해당 토큰을 사용하고 REST API 요청을 Key Vault에 보냅니다. 자세한 내용은 [전체 인증 흐름](../../active-directory/develop/v2-oauth2-auth-code-flow.md)을 참조하세요.
-
-자세한 내용은 [Key Vault 인증 기본 사항](/azure/key-vault/general/authentication.md)을 참조하세요.
-
 ## <a name="key-vault-authentication-options"></a>Key Vault 인증 옵션
 
 Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 자동으로 연결됩니다. 두 평면의 모든 호출자가 이 테넌트에 등록해야 하고, 해당 Key Vault에 액세스하기 위해 인증을 받아야 합니다. 두 경우 모두 애플리케이션에서 다음과 같은 두 가지 방법으로 Key Vault에 액세스할 수 있습니다.
@@ -67,6 +55,8 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 - 조직에서는 조직의 모든 Key Vault에 대한 액세스를 중앙에서 제어할 수 있습니다.
 - 사용자가 떠나는 경우 곧바로 조직의 모든 Key Vault에 대한 액세스 권한을 잃게 됩니다.
 - 조직은 Azure AD에 있는 옵션(예: 추가 보안을 위해 다단계 인증 사용)을 사용하여 인증을 사용자 지정할 수 있습니다.
+
+자세한 내용은 [키 자격 증명 모음 인증 기본 사항](authentication.md)을 참조하세요.
 
 ## <a name="access-model-overview"></a>액세스 모델 개요
 

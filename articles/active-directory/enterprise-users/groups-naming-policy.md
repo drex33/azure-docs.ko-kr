@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/11/2021
+ms.date: 08/06/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc67b0b038abda37c591162caad9b3b94e6c440
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 58884d2905feda1f3827ae72866c1c69384178ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027482"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567351"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹에 대한 명명 정책 적용
 
@@ -28,9 +28,9 @@ ms.locfileid: "112027482"
 > [!IMPORTANT]
 > Microsoft 365 그룹에 대한 Azure AD 명명 정책을 사용하려면 하나 이상의 Microsoft 365 그룹의 멤버인 각 고유 사용자에 대해 Azure Active Directory Premium P1 라이선스 또는 Azure AD Basic EDU 라이선스를 소유해야 하지만 반드시 할당해야 하는 것은 아닙니다.
 
-명명 정책은 그룹을 만드는 데 적용되거나 워크로드(예: Outlook, Microsoft Team, SharePoint, Exchange 또는 Planner)에서 만든 그룹을 편집하는 데 적용됩니다. 이 정책은 그룹 이름 및 그룹 별칭 둘 다에 적용됩니다. Azure AD에서 명명 정책을 설정했는데 기존 Exchange 그룹 명명 정책이 있는 경우에는 Azure AD 명명 정책이 조직에 적용됩니다.
+명명 정책은 변경 사항 편집이 없더라도 그룹을 만드는 데 적용되거나 워크로드(예: Outlook, Microsoft Teams, SharePoint, Exchange 또는 Planner)에서 만든 그룹을 만들거나 편집하는 데 적용됩니다. 이 정책은 그룹 이름 및 그룹 별칭 둘 다에 적용됩니다. Azure AD에서 명명 정책을 설정했는데 기존 Exchange 그룹 명명 정책이 있는 경우에는 Azure AD 명명 정책이 조직에 적용됩니다.
 
-그룹 명명 정책이 구성되면 최종 사용자가 만든 새 Microsoft 365 그룹에 정책이 적용됩니다. 전역 관리자 또는 사용자 관리자와 같은 특정 디렉터리 역할에는 명명 정책이 적용되지 않습니다. 그룹 명명 정책에서 제외된 역할의 전체 목록은 아래를 참조하세요. 기존 Microsoft 365 그룹의 경우 정책이 구성 시점에 즉시 적용되지 않습니다. 그룹 소유자가 이러한 그룹의 그룹 이름을 편집하면 명명 정책이 적용됩니다.
+그룹 명명 정책이 구성되면 최종 사용자가 만든 새 Microsoft 365 그룹에 정책이 적용됩니다. 전역 관리자 또는 사용자 관리자와 같은 특정 디렉터리 역할에는 명명 정책이 적용되지 않습니다. 그룹 명명 정책에서 제외된 역할의 전체 목록은 아래를 참조하세요. 기존 Microsoft 365 그룹의 경우 정책이 구성 시점에 즉시 적용되지 않습니다. 그룹 소유자가 이러한 그룹의 그룹 이름을 편집하면 변경 사항이 없더라도 명명 정책이 적용됩니다.
 
 ## <a name="naming-policy-features"></a>명명 정책 기능
 
@@ -42,9 +42,9 @@ ms.locfileid: "112027482"
 
 ### <a name="prefix-suffix-naming-policy"></a>접두사-접미사 명명 정책
 
-명명 규칙의 일반 구조는 ‘접두사[GroupName]접미사’입니다. 여러 접두사 및 접미사를 정의할 수 있지만 설정에서는 [GroupName]의 인스턴스가 하나만 있을 수 있습니다. 접두사 또는 접미사는 그룹을 만든 사용자를 기반으로 대체되는 \[부서\]와 같은 사용자 속성 또는 고정 문자열일 수 있습니다. 그룹 이름을 포함하여 접두사 및 접미사 문자열에 허용되는 총 문자 수는 53자입니다. 
+명명 규칙의 일반 구조는 ‘접두사[GroupName]접미사’입니다. 여러 접두사 및 접미사를 정의할 수 있지만 설정에서는 [GroupName]의 인스턴스가 하나만 있을 수 있습니다. 접두사 또는 접미사는 그룹을 만든 사용자를 기반으로 대체되는 \[부서\]와 같은 사용자 속성 또는 고정 문자열일 수 있습니다. 그룹 이름을 포함하여 접두사 및 접미사 문자열에 허용되는 총 문자 수는 53자입니다.
 
-접두사 및 접미사에는 그룹 이름 및 그룹 별칭에서 지원되는 특수 문자를 포함할 수 있습니다. 그룹 별칭에서 지원되지 않는 접두사 또는 접미사의 문자는 그룹 이름에는 계속해서 표시되지만 그룹 별칭에서는 제거됩니다. 이러한 제한 사항으로 인해 그룹 이름에 적용된 접두사 및 접미사는 그룹 별칭에 적용된 접미부와 다를 수 있습니다. 
+접두사 및 접미사에는 그룹 이름 및 그룹 별칭에서 지원되는 특수 문자를 포함할 수 있습니다. 그룹 별칭에서 지원되지 않는 접두사 또는 접미사의 문자는 그룹 이름에는 계속해서 표시되지만 그룹 별칭에서는 제거됩니다. 이러한 제한 사항으로 인해 그룹 이름에 적용된 접두사 및 접미사는 그룹 별칭에 적용된 접미부와 다를 수 있습니다.
 
 #### <a name="fixed-strings"></a>고정 문자열
 
@@ -100,7 +100,7 @@ ms.locfileid: "112027482"
 
     ![명명 정책에서 차단된 단어 목록 편집 및 업로드](./media/groups-naming-policy/blockedwords.png)
 
-1. **다운로드** 를 선택하여 사용자 지정 차단 단어의 현재 목록을 보거나 편집합니다.
+1. **다운로드** 를 선택하여 사용자 지정 차단 단어의 현재 목록을 보거나 편집합니다. 기존 항목에 새 항목을 추가해야 합니다.
 1. 파일 아이콘을 선택하여 사용자 지정 차단 단어의 새로운 목록을 업로드합니다.
 1. **저장** 을 선택하여 적용되도록 새 정책에 대한 변경 내용을 저장합니다.
 
@@ -248,7 +248,7 @@ Planner | Planner는 명명 정책을 준수합니다. 계획 이름을 입력�
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement는 명명 정책을 준수합니다. 사용자가 그룹 이름 또는 그룹 메일 별칭을 입력하면 Dynamics 365에는 명명 규칙이 적용된 이름이 표시됩니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 SDS(학교 데이터 동기화) | SDS를 통해 만든 그룹은 명명 정책을 준수하지만 명명 정책이 자동으로 적용되지 않습니다. SDS 관리자는 그룹을 작성한 다음, SDS로 업로드해야 하는 그룹의 클래스 이름에 접두사 및 접미사를 추가해야 합니다. 그렇지 않으면 그룹 작성 또는 편집이 실패하지 않습니다.
 교실 앱 | 교실 앱에서 만든 그룹은 명명 정책을 준수하지만 명명 정책은 자동으로 적용되지 않으며 교실 그룹 이름을 입력하는 동안 명명 정책 미리 보기가 사용자에게 표시되지 않습니다. 사용자는 접두사 및 접미사와 함께 적용된 교실 그룹 이름을 입력해야 합니다. 그렇지 않으면 교실 그룹 생성 또는 편집 작업에 실패하고 오류가 발생합니다.
-Power BI | Power BI 작업 공간은 명명 정책을 준수합니다.    
+Power BI | Power BI 작업 공간은 명명 정책을 준수합니다.
 Yammer | Azure Active Directory 계정을 사용하여 Yammer에 로그인한 사용자가 그룹을 만들거나 그룹 이름을 편집할 때는 그룹 이름이 이름 지정 정책을 준수해야 합니다. 이것은 Microsoft 365 연결 그룹 및 다른 모든 Yammer 그룹에 적용됩니다.<br>Microsoft 365 연결 그룹이 이름 지정 정책이 적용되기 이전에 생성된 경우 이 그룹 이름은 자동으로 이름 지정 규칙을 따르지 않습니다. 사용자가 해당 그룹 이름을 편집할 때 접두사와 접미사를 추가하라는 메시지가 표시됩니다.
 StaffHub  | StaffHub 팀은 명명 정책을 따르지 않지만 기본 Microsoft 365 그룹은 따릅니다. StaffHub 팀 이름은 접두사 및 접미사를 적용하지 않으며 사용자 정의 차단 단어를 확인하지 않습니다. 그러나 StaffHub는 접두사 및 접미사를 적용하고 기본 Microsoft 365 그룹에서 차단된 단어를 제거합니다.
 Exchange PowerShell | Exchange PowerShell cmdlet은 명명 정책을 준수합니다. 그룹 이름 및 그룹 별칭(mailNickname)의 명명 정책을 따르지 않는 경우 제안되는 접두사 및 접미사와 함께 사용자 정의 차단 단어에 해당하는 오류 메시지가 표시됩니다.

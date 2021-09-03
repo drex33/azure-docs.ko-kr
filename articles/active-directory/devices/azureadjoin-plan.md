@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eb74dccb01bb599a40bbf9c606661d4661a37f3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: bdaef1c746ca23f2badf657e6e72e6e3988bcfa4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953635"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566294"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -164,6 +164,9 @@ AD FS를 사용하는 경우 [AD FS를 사용하여 Single Sign-On 확인 및 �
 
 디바이스가 도메인 컨트롤러에 액세스할 수 있는 경우 사용자는 Azure AD 조인 디바이스에서 SSO를 얻습니다. 
 
+> [!NOTE]
+> Azure AD 조인 디바이스는 온-프레미스 및 클라우드 애플리케이션에 대한 액세스를 원활하게 제공할 수 있습니다. 자세한 내용은 [온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식](azuread-join-sso.md)을 참조하세요.
+
 **권장 사항:** 이러한 애플리케이션에 안전하게 액세스할 수 있도록 [Azure AD 앱 프록시](../app-proxy/application-proxy.md)를 배포합니다.
 
 ### <a name="on-premises-network-shares"></a>온-프레미스 네트워크 공유
@@ -240,7 +243,7 @@ Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 �
 
 ### <a name="require-multi-factor-authentication-mfa-to-join-devices"></a>디바이스에 조인하려면 MFA(다단계 인증) 필요
 
-디바이스를 Azure AD에에 조인하는 동안 사용자에게 MFA를 요구하려면 **"예"** 를 선택합니다. MFA를 사용하여 디바이스를 Azure AD에 조인하는 사용자의 경우 디바이스 자체가 두 번째 요소입니다.
+디바이스를 Azure AD에에 조인하는 동안 사용자에게 MFA를 요구하려면 **"예"** 를 선택합니다.
 
 ![디바이스를 조인하려면 다단계 인증 필요](./media/azureadjoin-plan/03.png)
 

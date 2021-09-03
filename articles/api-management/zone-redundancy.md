@@ -4,15 +4,15 @@ description: 영역 중복을 사용하도록 설정하여 지역에서 Azure AP
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 08/11/2021
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 6e8352a93575ec6222be463daea14aee28f08a7c
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 2415a07a215c99a1775593aae403af6f84b308fa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634818"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537239"
 ---
 # <a name="availability-zone-support-for-azure-api-management"></a>Azure API Management의 가용성 영역 지원 
 
@@ -29,19 +29,26 @@ ms.locfileid: "109634818"
 * 오스트레일리아 동부
 * 브라질 남부
 * 캐나다 중부
-* 인도 중부
+* 인도 중부(*)
 * 미국 중부
 * 미국 동부
 * 미국 동부 2
 * 프랑스 중부
+* 독일 중서부
 * 일본 동부
+* 한국 중부(*)
 * 북유럽
+* 노르웨이 동부(*)
+* 남아프리카 북부(*)
 * 미국 중남부
 * 동남아시아
 * 영국 남부
 * 서유럽
 * 미국 서부 2
 * 미국 서부 3
+
+> [!IMPORTANT]
+> *가 있는 지역은 Azure 구독에서 가용성 영역 지원을 사용하도록 설정하기 위해 제한된 액세스 권한을 갖습니다. Microsoft 영업 또는 고객 담당자와 협력합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,6 +77,6 @@ ms.locfileid: "109634818"
 ## <a name="next-steps"></a>다음 단계
 
 * [여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포](api-management-howto-deploy-multi-region.md)하는 방법에 관해 알아봅니다.
-* [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-api-management-simple-zones)을 사용하여 영역 중복을 사용하도록 설정할 수도 있습니다.
+* [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones)을 사용하여 영역 중복을 사용하도록 설정할 수도 있습니다.
 * [가용성 영역을 지원하는 Azure 서비스](../availability-zones/az-region.md)에 관해 자세히 알아봅니다.
-* Azure에서 [안정성](/azure/architecture/framework/resiliency/overview)을 보장하도록 빌드하는 방법을 자세히 알아봅니다.
+* Azure에서 [안정성](/azure/architecture/framework/resiliency/app-design)을 보장하도록 빌드하는 방법을 자세히 알아봅니다.

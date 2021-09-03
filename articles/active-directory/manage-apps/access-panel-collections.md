@@ -2,24 +2,22 @@
 title: Azure Active Directory에서 내 앱 포털에 대한 컬렉션 만들기 | Microsoft Docs
 description: 내 앱 컬렉션을 사용하여 최종 사용자에게 더 간단한 내 앱 환경을 위해 내 앱 페이지를 사용자 지정할 수 있습니다. 별도의 탭을 사용하여 애플리케이션을 그룹으로 구성합니다.
 services: active-directory
-documentationcenter: ''
-author: mtillman
+author: davidmu1
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.author: mtillman
-ms.reviewer: kasimpso
+ms.author: davidmu
+ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 239bd084a1a593211a544b86ba8b24ed9c13624a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e47e7900fd6d678e07b4fb4ccfe02b17f734c67f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077685"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566384"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>내 앱 포털에서 컬렉션 만들기
 
@@ -71,15 +69,13 @@ ms.locfileid: "112077685"
 
 11. **검토 + 생성** 를 선택합니다. 새 컬렉션의 속성이 표시됩니다.
 
-
 ## <a name="view-audit-logs"></a>감사 로그 보기
 
 감사 로그는 컬렉션 생성 최종 사용자 작업을 포함하여 내 앱 컬렉션 작업을 기록합니다. 내 앱에서 생성되는 이벤트는 다음과 같습니다.
 
-* 컬렉션 만들기
-* 컬렉션 편집
-* 컬렉션 삭제
-* 애플리케이션 시작(최종 사용자)
+* 관리 컬렉션 만들기
+* 관리 컬렉션 수정
+* 관리 컬렉션 삭제
 * 셀프 서비스 애플리케이션 추가(최종 사용자)
 * 셀프 서비스 애플리케이션 삭제(최종 사용자)
 
@@ -89,11 +85,12 @@ ms.locfileid: "112077685"
 
 내 앱 페이지에서 사용자는 **내 계정** > **내 계정 보기** 를 선택하여 계정 설정을 열 수 있습니다. Azure AD **내 계정** 페이지에서 사용자는 보안 정보, 디바이스, 암호 등을 관리할 수 있습니다. 또한 Office 계정 설정에 액세스할 수 있습니다.
 
-Azure AD 계정 페이지 또는 Office 계정 페이지에서 문제에 대한 지원 요청을 제출해야 하는 경우 다음 단계를 따르면 요청이 적절히 라우팅됩니다. 
+Azure AD 계정 페이지 또는 Office 계정 페이지에서 문제에 대한 지원 요청을 제출해야 하는 경우 다음 단계를 따르면 요청이 적절히 라우팅됩니다.
 
 * **Azure AD "내 계정"** 페이지 문제의 경우 Azure Portal 내에서 지원 요청을 여세요. **Azure Portal** > **Azure Active Directory** > **새 지원 요청** 으로 이동합니다.
 
-* **Office "내 계정"** 페이지 문제의 경우 Microsoft 365 관리 센터 내에서 지원 요청을 여세요. **Microsoft 365 관리 센터** > **지원** 으로 이동합니다. 
+* **Office "내 계정"** 페이지 문제의 경우 Microsoft 365 관리 센터 내에서 지원 요청을 여세요. **Microsoft 365 관리 센터** > **지원** 으로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 [Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경](end-user-experiences.md)

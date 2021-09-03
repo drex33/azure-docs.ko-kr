@@ -12,12 +12,12 @@ ms.date: 04/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2e4dbc5178bec3a5b1f0931267465879f604f36f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: b663904df2d116bdfa92a0dcef4b05c0806fec14
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226011"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112199145"
 ---
 # <a name="user-flows-and-custom-policies-overview"></a>사용자 흐름 및 사용자 지정 정책 비교
 
@@ -76,7 +76,7 @@ Azure AD B2C에서는 ID 사용자 환경을 제공하기 위한 두 가지 방�
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>사용자 흐름 및 사용자 지정 정책 비교
 
-아래 표에서는 Azure AD B2C 사용자 흐름 및 사용자 지정 정책을 사용하여 구현할 수 있는 시나리오를 자세히 비교합니다.
+아래 표에서는 Azure AD B2C 사용자 흐름 및 사용자 지정 정책을 사용하도록 설정할 수 있는 시나리오를 자세히 비교합니다.
 
 | 컨텍스트 | 사용자 흐름 | 사용자 지정 정책 |
 |-|-------------------|-----------------|

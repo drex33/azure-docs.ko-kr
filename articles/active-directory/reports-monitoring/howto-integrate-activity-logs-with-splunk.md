@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/10/2021
+ms.date: 08/05/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ff9a6c989446c2cee074485ba02fddd40cbfc83
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a91a5df939ee55b37369b73e02fa0921a9e4688c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953311"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566551"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Azure Monitor를 사용한 Splunk와 Azure Active Directory 로그 통합 방법
 
@@ -42,16 +42,16 @@ ms.locfileid: "111953311"
 
     !["데이터 요약" 단추](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
 
-2. **Sourcetypes** 탭을 선택한 다음, **amal: aadal:audit** 을 선택
+2. **Sourcetypes** 탭을 선택한 다음 **mscs:azure:eventhub** 를 선택합니다.
 
-    ![데이터 요약 Sourcetypes 탭](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
+    ![데이터 요약 Sourcetypes 탭](./media/howto-integrate-activity-logs-with-splunk/source-eventhub.png)
 
-    Azure AD 활동 로그가 다음 그림에 표시됩니다.
+검색에 **body.records.category=AuditLogs** 를 추가합니다. Azure AD 활동 로그가 다음 그림에 표시됩니다.
 
-    ![활동 로그](./media/howto-integrate-activity-logs-with-splunk/activitylogs.png)
+   ![활동 로그](./media/howto-integrate-activity-logs-with-splunk/activity-logs.png)
 
 > [!NOTE]
-> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우(예: 프록시를 사용 중이거나 Splunk Cloud에서 실행 중인 경우) 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다. 이렇게 하려면 이벤트 허브에서 새 메시지에 의해 트리거되는 이 [Azure 함수](https://github.com/Microsoft/AzureFunctionforSplunkVS)를 사용합니다. 
+> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우(예: 프록시를 사용 중이거나 Splunk Cloud에서 실행 중인 경우) 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다. 이렇게 하려면 이벤트 허브에서 새 메시지에 의해 트리거되는 이 [Azure 함수](https://github.com/splunk/azure-functions-splunk)를 사용합니다. 
 >
 
 ## <a name="next-steps"></a>다음 단계

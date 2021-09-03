@@ -9,16 +9,24 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b3fc9f12dfa6ad4edcc120ac7c9592c9435a0e4
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 2f7af8ebc054b49df03a7f03c512db08a5098f2b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830181"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528128"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>새 가상 머신에 대한 핫패치(미리 보기)
 
-핫패칭은 설치 후 다시 부팅할 필요가 없는 새 Windows Server Azure 버전 VM(가상 머신)에 업데이트를 설치하는 새로운 방법입니다. 이 문서에서는 다음과 같은 이점을 제공하는 Windows Server Azure Edition VM에 대한 핫패치 정보를 다룹니다.
+> [!IMPORTANT]
+> Windows Server 서비스용 Automanage는 현재 공개 미리 보기 상태입니다. 아래에 설명된 핫패치 기능을 사용하려면 옵트인 절차가 필요합니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+> [!NOTE]
+> 핫패치 기능은 다음 _Windows Server Azure 버전_ 이미지 중 하나에서 찾을 수 있습니다. Windows Server 2019 Datacenter: Azure 버전(Core), Windows Server 2022 Datacenter: Azure 버전(Core)
+
+핫패칭은 설치 후 다시 부팅할 필요가 없는 지원되는 _Windows Server Azure 버전_ VM(가상 머신)에 업데이트를 설치하는 새로운 방법입니다. 이 문서에서는 다음과 같은 이점을 제공하는 지원되는 _Windows Server Azure 버전_ VM에 대한 핫패치 정보를 다룹니다.
 * 더 적은 다시 부팅으로 인해 워크로드 영향을 줄입니다.
 * Azure 업데이트 관리자를 사용하여 패키지 크기가 더 작아지고, 더 빠르게 설치되며, 패치 오케스트레이션이 더 쉬워지므로 업데이트를 더 빠르게 배포할 수 있습니다.
 * 핫패치 업데이트 패키지는 다시 부팅하지 않고 더 빠르게 설치되는 Windows 보안 업데이트로 범위가 지정되므로 보호 기능이 향상됩니다.
@@ -41,16 +49,16 @@ ms.locfileid: "107830181"
 ## <a name="how-to-get-started"></a>시작하는 방법
 
 > [!NOTE]
-> 미리 보기 단계 중에는 [이 링크](https://aka.ms/AzureAutomanageHotPatch)를 사용해야만 Azure Portal을 시작할 수 있습니다.
+> 미리 보기 단계 중에는 [이 링크](https://aka.ms/AutomanageWindowsServerPreview)를 사용해야 Azure Portal을 시작할 수 있습니다.
 
 새 VM에서 핫패치 사용을 시작하려면 다음 단계를 수행합니다.
 1.  미리 보기 액세스 사용
     * 구독 당 일회성 미리 보기 액세스를 사용해야 합니다.
     * 미리 보기 액세스는 다음 섹션에 설명된 대로 API, PowerShell 또는 CLI를 통해 사용하도록 설정할 수 있습니다.
 1.  Azure Portal에서 VM 생성
-    * 미리 보기 중에는 [이 링크](https://aka.ms/AzureAutomanageHotPatch)를 사용하여 시작해야 합니다.
+    * 미리 보기 중에는 [이 링크](https://aka.ms/AutomanageWindowsServerPreview)를 사용하여 시작해야 합니다.
 1.  VM 세부 정보 제공
-    * 이미지 드롭다운에서 _Windows Server 2019 Datacenter: Azure Edition_ 이 선택되어 있는지 확인
+    * 이미지 드롭다운에서 사용하려는 지원되는 _Windows Server Azure 버전_ 이미지가 선택되어 있는지 확인합니다.  지원되는 이미지는 이 문서 상단에 나열되어 있습니다.
     * 관리 탭 단계에서 '게스트 OS 업데이트' 섹션까지 아래로 스크롤합니다. 핫패칭을 켜기로 설정하고 패치 설치를 Azure 오케스트레이션 패치로 설정하는 것을 볼 수 있습니다.
     * Automanage VM 모범 사례는 기본적으로 사용하도록 설정됩니다
 1. 새 VM 만들기
@@ -75,7 +83,7 @@ GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/M
 GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/InGuestPatchVMPreview?api-version=2015-12-01`
 ```
 
-기능이 구독에 등록되면 변경 사항을 Compute 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
+기능이 구독에 등록되면 변경 내용을 Compute 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
 
 ```
 POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
@@ -99,7 +107,7 @@ Get-AzProviderFeature -FeatureName InGuestAutoPatchVMPreview -ProviderNamespace 
 Get-AzProviderFeature -FeatureName InGuestPatchVMPreview -ProviderNamespace Microsoft.Compute
 ```
 
-기능이 구독에 등록되면 변경 사항을 Compute 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
+기능이 구독에 등록되면 변경 내용을 Compute 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
 
 ``` PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
@@ -130,21 +138,21 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="patch-installation"></a>패치 설치
 
-미리 보기 중에는 [자동 VM 게스트 패치가](../virtual-machines/automatic-vm-guest-patching.md)가 _Windows Server 2019 Datacenter: Azure Edition_ 을 사용하여 만들어진 모든 VM에 대해 자동으로 사용하도록 설정됩니다. 자동 VM 게스트 패치를 사용하는 경우:
+미리 보기 중에는 [자동 VM 게스트 패치가](../virtual-machines/automatic-vm-guest-patching.md)가 지원되는 _Windows Server Azure 버전_ 이미지를 사용하여 만들어진 모든 VM에 대해 자동으로 사용하도록 설정됩니다. 자동 VM 게스트 패치를 사용하는 경우:
 * 중요 또는 보안으로 분류된 패치가 자동으로 다운로드되어 VM에 적용됩니다.
 * 패치는 VM의 표준 시간대에서 사용량이 적은 시간에 적용됩니다.
-* 패치 오케스트레이션은 Azure에서 관리되며 [가용성 우선 원칙](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching)에 따라 패치가 적용됩니다.
+* 패치 오케스트레이션은 Azure에서 관리되며 [가용성 우선 원칙](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates)에 따라 패치가 적용됩니다.
 * 패치 실패를 검색하기 위해 플랫폼 상태 신호를 통해 결정되는 가상 머신 상태를 모니터링합니다.
 
 ### <a name="how-does-automatic-vm-guest-patching-work"></a>자동 VM 게스트 패치는 어떻게 작동하나요?
 
 VM에서 [자동 VM 게스트 패치](../virtual-machines/automatic-vm-guest-patching.md)를 사용하도록 설정하면 사용 가능한 중요 및 보안 패치가 자동으로 다운로드되고 적용됩니다. 이 프로세스는 새 패치가 릴리스될 때마다 매월 자동으로 시작됩니다. 패치 평가 및 설치는 자동으로 이루어지며, 필요에 따라 이 프로세스 중 VM을 다시 부팅해야 합니다.
 
-_Windows Server 2019 Datacenter: Azure Edition_ VM에서 핫패치를 사용하는 경우: Azure 버전 VM, 대부분의 월간 보안 업데이트는 다시 부팅이 필요하지 않은 핫패치로 제공됩니다. 계획되거나 계획되지 않은 기준 월에 전송된 최신 누적 업데이트의 경우 VM을 다시 부팅해야 합니다. 정기적으로 이용할 수 있는 추가 중요 또는 보안 패치의 경우 VM을 다시 부팅해야 할 수도 있습니다.
+지원되는 _Windows Server Azure 버전_ VM에서 핫패치를 사용하는 경우: Azure 버전 VM, 대부분의 월간 보안 업데이트는 다시 부팅이 필요하지 않은 핫패치로 제공됩니다. 계획되거나 계획되지 않은 기준 월에 전송된 최신 누적 업데이트의 경우 VM을 다시 부팅해야 합니다. 정기적으로 이용할 수 있는 추가 중요 또는 보안 패치의 경우 VM을 다시 부팅해야 할 수도 있습니다.
 
 VM은 해당 VM에 대해 적용 가능한 패치를 결정하기 위해 며칠마다 자동으로, 30일 동안 여러 번 평가됩니다. 이러한 자동 평가를 통해 누락된 패치를 언제 가장 빠르게 적용할 수 있는지 검색됩니다.
 
-패치는 [가용성 우선 원칙](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching)에 따라 월별 패치 릴리스 30일 이내에 설치됩니다. 패치는 VM의 표준 시간대에 따라 VM 사용률이 낮은 시간에만 설치됩니다. 패치를 자동으로 설치하려면 사용량이 많지 않은 시간 중 VM이 실행 중이어야 합니다. 정기적으로 평가하는 동안 VM의 전원이 꺼져 있는 경우 VM이 평가되고, VM의 전원이 켜지면 다음 주기 평가 중 적용 가능한 패치가 자동으로 설치됩니다. 다음 주기적 평가는 일반적으로 며칠 이내에 발생합니다.
+패치는 [가용성 우선 원칙](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates)에 따라 월별 패치 릴리스 30일 이내에 설치됩니다. 패치는 VM의 표준 시간대에 따라 VM 사용률이 낮은 시간에만 설치됩니다. 패치를 자동으로 설치하려면 사용량이 많지 않은 시간 중 VM이 실행 중이어야 합니다. 정기적으로 평가하는 동안 VM의 전원이 꺼져 있는 경우 VM이 평가되고, VM의 전원이 켜지면 다음 주기 평가 중 적용 가능한 패치가 자동으로 설치됩니다. 다음 주기적 평가는 일반적으로 며칠 이내에 발생합니다.
 
 중요 또는 보안으로 분류되지 않은 정의 업데이트 및 기타 패치는 자동 VM 게스트 패치를 통해 설치되지 않습니다.
 
@@ -165,14 +173,14 @@ VM에 대한 패치 상태를 보려면 Azure Portal에서 VM에 대한 **게스
 
 핫패치는 Windows 보안 업데이트를 포함하며, 일반(핫패치 외) Windows 업데이트 채널에 생성된 보안 업데이트 콘텐츠의 패리티를 유지 관리합니다.
 
-핫패치를 사용하도록 설정된 Windows Server Azure 버전 VM을 실행하려면 몇 가지 중요한 사항을 고려해야 합니다. 핫패치 프로그램에 포함되지 않은 업데이트를 설치하려면 다시 부팅해야 합니다. 새 기준을 설치한 후에도 정기적으로 다시 부팅해야 합니다. 이러한 재부팅을 통해 VM은 최신 누적 업데이트에 포함된 비보안 패치와 동기화된 상태로 유지됩니다.
+핫패치를 사용하도록 설정된 지원되는 _Windows Server Azure 버전_ VM을 실행하려면 몇 가지 중요한 사항을 고려해야 합니다. 핫패치 프로그램에 포함되지 않은 업데이트를 설치하려면 다시 부팅해야 합니다. 새 기준을 설치한 후에도 정기적으로 다시 부팅해야 합니다. 이러한 재부팅을 통해 VM은 최신 누적 업데이트에 포함된 비보안 패치와 동기화된 상태로 유지됩니다.
 * 현재 핫패치 프로그램에 포함되지 않은 패치에는 Windows 용으로 릴리스된 비보안 업데이트 및 비 Windows 업데이트(예: .NET 패치)가 포함됩니다.  이러한 유형의 패치는 기준 월에 설치해야 하며 다시 부팅해야 합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="what-is-hotpatching"></a>핫패칭이란?
 
-* 핫패칭은 설치 후 다시 부팅할 필요가 없는 새 Windows Server 2019 Datacenter: Azure Edition Azure VM에 업데이트를 설치하는 새로운 방법입니다. 프로세스를 다시 시작할 필요 없이 실행 중인 프로세스의 메모리 내 코드를 패치하는 방식으로 작동합니다.
+* 핫패칭은 Azure에서 설치 후 다시 부팅할 필요가 없는 지원되는 _Windows Server Azure 버전_ VM에 업데이트를 설치하는 새로운 방법입니다. 프로세스를 다시 시작할 필요 없이 실행 중인 프로세스의 메모리 내 코드를 패치하는 방식으로 작동합니다.
 
 ### <a name="how-does-hotpatching-work"></a>핫패칭 작동 방식
 
@@ -180,7 +188,7 @@ VM에 대한 패치 상태를 보려면 Azure Portal에서 VM에 대한 **게스
 
 ### <a name="why-should-i-use-hotpatch"></a>핫패치를 사용해야하는 이유
 
-* Windows Server 2019 Datacenter: Azure Edition에서 핫패치를 사용하는 경우 VM은 더 높은 가용성(더 적은 수의 재부팅)을 제공하고 더 빠른 업데이트(프로세스를 다시 시작하지 않고 더 빠르게 설치되는 더 작은 패키지)를 제공합니다. 이 프로세스를 통해 항상 최신 상태로 유지되는 VM이 생성됩니다.
+* 지원되는 _Windows Server Azure 버전_ 이미지에서 핫패치를 사용하는 경우 VM은 더 높은 가용성(더 적은 수의 재부팅)을 제공하고 더 빠른 업데이트(프로세스를 다시 시작하지 않고 더 빠르게 설치되는 더 작은 패키지)를 제공합니다. 이 프로세스를 통해 항상 최신 상태로 유지되는 VM이 생성됩니다.
 
 ### <a name="what-types-of-updates-are-covered-by-hotpatch"></a>핫패치에서 적용되는 업데이트 유형
 
@@ -210,7 +218,7 @@ VM에 대한 패치 상태를 보려면 Azure Portal에서 VM에 대한 **게스
 
 ### <a name="can-i-upgrade-from-my-existing-windows-server-os"></a>기존 Windows Server OS에서 업그레이드할 수 있나요?
 
-* 기존 버전의 Windows Server에서 업그레이드하는 경우(즉, Windows Server 2016 또는 2019 비 Azure 버전) 현재 지원되지 않습니다. 이후의 Windows Server Azure 버전으로 업그레이드는 지원됩니다.
+* 기존 버전의 Windows Server(즉, Windows Server 2016 또는 2019 비 Azure 버전)에서 _Windows Server 2022 Datacenter: Azure 버전_ 으로의 업그레이드가 지원됩니다. _Windows Server 2019 Datacenter: Azure 버전_ 으로의 업그레이드는 지원되지 않습니다.
 
 ### <a name="can-i-use-hotpatch-for-production-workloads-during-the-preview"></a>미리 보기 중에 프로덕션 작업에 핫패치를 사용할 수 있나요?
 
@@ -218,7 +226,7 @@ VM에 대한 패치 상태를 보려면 Azure Portal에서 VM에 대한 **게스
 
 ### <a name="will-i-be-charged-during-the-preview"></a>미리 보기 기간 중에 요금이 청구되나요?
 
-* Windows Server Azure 버전에 대한 라이선스는 미리 보기 기간 동안 무료입니다. 그러나 VM에 설정된 기본 인프라(스토리지, 컴퓨팅, 네트워킹 등)의 비용은 여전히 구독에 청구됩니다.
+* _Windows Server Azure 버전_ 에 대한 라이선스는 미리 보기 기간 동안 무료입니다. 그러나 VM에 설정된 기본 인프라(스토리지, 컴퓨팅, 네트워킹 등)의 비용은 여전히 구독에 청구됩니다.
 
 ### <a name="how-can-i-get-troubleshooting-support-for-hotpatching"></a>핫패칭에 대한 문제 해결 지원을 받으려면 어떻게 해야 하나요?
 

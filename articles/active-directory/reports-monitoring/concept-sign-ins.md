@@ -13,25 +13,25 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/06/2021
+ms.date: 07/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85c6d8520938ffc859a7116d1dc9e61cb26534e4
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f9ed7b31625275c808555534fcd49314444ab0ad
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030560"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114388150"
 ---
 # <a name="sign-in-logs-in-azure-active-directory"></a>Azure Active Directory 로그인 로그
 
-IT 관리자가 IT 환경의 운영 상태를 파악하려고 합니다. 시스템 상태 정보를 사용하여 잠재적 문제에 대응해야 하는지 여부와 방법을 평가할 수 있습니다. 
+IT 관리자가 IT 환경의 운영 상태를 파악하려고 합니다. 시스템 상태 정보를 사용하여 잠재적 이슈에 대응해야 하는지 여부와 방법을 평가할 수 있습니다. 
 
 이 목표를 지원하기 위해 Azure Active Directory 포털은 다음 세 가지 활동 로그에 대한 액세스를 제공합니다.
 
 - **[로그인](concept-sign-ins.md)** – 로그인 및 사용자가 리소스를 사용하는 방법에 대한 정보입니다.
-- **[감사](concept-audit-logs.md)** – 사용자 및 그룹 관리 또는 테넌트 리소스에 적용된 업데이트와 같이 테넌트에 적용된 변경 내용에 대한 정보입니다.
+- **[감사](concept-audit-logs.md)** – 사용자 및 그룹 관리 또는 테넌트 리소스에 적용된 업데이트와 같이 테넌트에 적용된 변경 사항에 대한 정보입니다.
 - **[프로비저닝](concept-provisioning-logs.md)** – ServiceNow의 그룹 생성 또는 Workday에서 가져온 사용자와 같이 프로비저닝 서비스에서 수행하는 활동입니다.
 
 이 항목에서는 로그인 보고서에 대한 개요를 제공합니다.
@@ -164,6 +164,10 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 ![클라이언트 앱 필터](./media/concept-sign-ins/client-app-filter.png)
 
 
+> [!NOTE]
+> 개인 정보 보호 약정으로 인해 Azure AD는 테넌트 간 시나리오의 경우 이 필드를 홈 테넌트에 채우지 않습니다.
+
+
 |이름|최신 인증|설명|
 |---|:-:|---|
 |인증된 SMTP| |POP 및 IMAP 클라이언트에서 메일 메시지를 보낼 때 사용합니다.|
@@ -182,6 +186,10 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 |POP3| |POP3를 사용하여 메일을 검색하는 레거시 메일 클라이언트입니다.|
 |보고 웹 서비스| |Exchange Online에서 보고서 데이터를 검색할 때 사용합니다.|
 |기타 클라이언트| |클라이언트 앱이 포함되어 있지 않거나 알 수 없는 사용자의 로그인 시도를 모두 표시합니다.|
+
+
+
+
 
 
 
@@ -296,7 +304,7 @@ Azure AD와 Azure Portal은 모두 로그인 데이터를 위한 추가 진입�
 >- 처음에는 **기본 인증** 행이 로그되지 않습니다. 
 
 
-## <a name="usage-of-managed-applications&quot;></a>관리되는 애플리케이션의 사용량
+## <a name="usage-of-managed-applications"></a>관리되는 애플리케이션의 사용량
 
 로그인 데이터의 애플리케이션 중심 보기를 사용하여 다음과 같은 질문에 대답할 수 있습니다.
 
@@ -306,7 +314,7 @@ Azure AD와 Azure Portal은 모두 로그인 데이터를 위한 추가 진입�
 
 이 데이터에 대한 진입점은 조직에서 상위 3개의 애플리케이션입니다. 데이터는 **엔터프라이즈 애플리케이션** 의 **개요** 섹션에 있는 지난 30일간의 보고서에 포함되어 있습니다.
 
-![개요를 선택할 수 있는 곳을 보여주는 스크린샷.](./media/concept-sign-ins/10.png &quot;로그인 작업")
+![개요를 선택할 수 있는 곳을 보여주는 스크린샷.](./media/concept-sign-ins/10.png "로그인 작업")
 
 앱 사용 그래프에는 지정된 기간 동안 상위 3개 애플리케이션에 대한 로그인의 주간 집계가 있습니다. 시간에 대한 기본값은 30일입니다.
 

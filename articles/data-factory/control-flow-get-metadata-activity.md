@@ -1,23 +1,26 @@
 ---
-title: Azure Data Factory에서 메타데이터 가져오기 작업
-description: Data Factory 파이프라인에서 메타데이터 가져오기 작업을 사용하는 방법을 알아봅니다.
+title: 메타데이터 가져오기 작업
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 또는 Azure Synapse Analytics 파이프라인에서 메타데이터 가져오기 작업을 사용하는 방법을 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jianleishen
-ms.openlocfilehash: 6c375143217379b7ec795778f8947d88b70aa4bc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 15d7f6372982222e5bd2ecb4cfe4a784a9fda0b1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062815"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642395"
 ---
-# <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타데이터 가져오기 작업
+# <a name="get-metadata-activity-in-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics에서 메타데이터 가져오기 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-메타데이터 가져오기 작업을 사용하여 Azure Data Factory에서 데이터의 메타데이터를 검색할 수 있습니다. 조건식에서 메타데이터 가져오기 작업의 출력을 사용하여 유효성 검사를 수행하거나 후속 작업에서 메타데이터를 사용할 수 있습니다.
+메타데이터 가져오기 작업을 사용하여 Azure Data Factory 또는 Synapse 파이프라인에서 데이터의 메타데이터를 검색할 수 있습니다. 조건식에서 메타데이터 가져오기 작업의 출력을 사용하여 유효성 검사를 수행하거나 후속 작업에서 메타데이터를 사용할 수 있습니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -224,7 +227,7 @@ storeSettings | 형식 유형 데이터 세트를 사용할 때 적용합니다.
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 지원하는 다른 제어 흐름에 대해 알아봅니다.
+지원되는 다른 제어 흐름 작업에 대해 알아봅니다.
 
 - [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)

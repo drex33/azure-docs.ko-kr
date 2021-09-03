@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e86c9afcdb68aa6ad030405a2b5cbe59dc92e6f0
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99989076"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112201630"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Azure Cognitive Services 가상 네트워크 구성
 
@@ -40,7 +40,7 @@ Cognitive Services 리소스를 보호하려면 먼저 모든 네트워크(인�
 
 ## <a name="supported-regions-and-service-offerings"></a>지원되는 지역 및 서비스 제공 사항
 
-VNET(가상 네트워크)는 [Cognitive Services를 사용할 수 있는 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 지원됩니다. Cognitive Services는 네트워크 규칙 구성에 대한 서비스 태그를 지원합니다. 아래 나열된 서비스는 **CognitiveServicesManagement** 서비스 태그에 포함되어 있습니다.
+VNET(가상 네트워크)는 [Cognitive Services를 사용할 수 있는 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 지원됩니다. 현재 다중 서비스 리소스는 VNET을 지원하지 않습니다. Cognitive Services는 네트워크 규칙 구성에 대한 서비스 태그를 지원합니다. 아래 나열된 서비스는 **CognitiveServicesManagement** 서비스 태그에 포함되어 있습니다.
 
 > [!div class="checklist"]
 > * Anomaly Detector

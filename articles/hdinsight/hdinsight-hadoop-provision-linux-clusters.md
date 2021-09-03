@@ -1,22 +1,22 @@
 ---
 title: Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
-description: 브라우저, Azure 클래식 CLI, Azure PowerShell, REST 또는 SDK에서 Hadoop, Kafka, Spark, HBase, R Server 또는 HDInsight의 Storm 클러스터를 설정합니다.
+description: 브라우저, Azure 클래식 CLI, Azure PowerShell, REST 또는 SDK에서 HDInsight에 대한 Hadoop, Kafka, Spark, HBase 또는 Storm 클러스터를 설정합니다.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
 ms.date: 08/06/2020
-ms.openlocfilehash: 4f412e4a8f85f10efcaaf8a7ec45562d298f4bb5
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 95d61f99dcfac8161a24806afbccfbbf80327274
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890668"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280558"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
-HDInsight에서 Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, ML 서비스 또는 Apache Storm을 설정하고 구성하는 방법에 대해 알아봅니다. 또한, 도메인에 조인하여 클러스터 및 보안을 사용자 지정하는 방법을 알아봅니다.
+HDInsight에서 Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase 또는 Apache Storm을 설정하고 구성하는 방법에 대해 알아봅니다. 또한, 도메인에 조인하여 클러스터 및 보안을 사용자 지정하는 방법을 알아봅니다.
 
 Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머신(노드)로 구성됩니다. Azure HDInsight는 개별 노드의 설치 및 구현에 대한 세부 구현을 처리하므로 일반적인 구성 정보만 제공해야 합니다.
 
@@ -31,16 +31,16 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 
 | 다음을 사용하여 만든 클러스터 | 웹 브라우저 | 명령줄 | REST API | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |âœ” |&nbsp; |&nbsp; |&nbsp; |
-| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |âœ” |âœ” |âœ” |âœ” |
-| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |âœ” |&nbsp; |&nbsp; |
-| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |âœ” |&nbsp; |&nbsp; |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |âœ” |âœ” |&nbsp; |
-| [Azure 리소스 관리자 템플릿](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |âœ” |&nbsp; |&nbsp; |
+| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✅ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✅ |✅ |✅ |✅ |
+| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
+| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✅ |✅ |&nbsp; |
+| [Azure 리소스 관리자 템플릿](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
 
 이 문서는 HDInsight 클러스터를 만들 수 있는 [Azure Portal](https://portal.azure.com)의 설정에 대해 안내합니다.
 
-## <a name="basics"></a>기본
+## <a name="basics"></a>기본 사항
 
 :::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="HDInsight 만들기 옵션 사용자 지정 빨리 만들기":::
 
@@ -77,7 +77,6 @@ Azure HDInsight는 현재 각각이 특정 기능을 제공하는 구성 요소 
 | [HBase](hbase/apache-hbase-overview.md) |많은 양의 스키마 없는 NoSQL 데이터에 대한 처리 |
 | [대화형 쿼리](./interactive-query/apache-interactive-query-get-started.md) |대화형 및 더 빠른 Hive 쿼리에 대한 메모리 내 캐싱 |
 | [Kafka](kafka/apache-kafka-introduction.md) | 실시간 스트리밍 데이터 파이프라인과 애플리케이션을 만드는 데 사용할 수 있는 분산형 스트리밍 플랫폼 |
-| [ML Services](r-server/r-server-overview.md) |다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 기능 |
 | [Spark](spark/apache-spark-overview.md) |메모리 내 처리, 대화형 쿼리, 마이크로 배치 스트림 처리 |
 | [Storm](storm/apache-storm-overview.md) |실시간 이벤트 처리 |
 
@@ -126,7 +125,7 @@ HDInsight의 스토리지 옵션에 대한 자세한 내용은 [Azure HDInsight 
 
 구성하는 동안 기본 스토리지 엔드포인트에 대해 Azure Storage 계정 또는 Data Lake Storage의 Blob 컨테이너를 지정합니다. 기본 스토리지에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 연결된 Azure Storage 계정 및 Data Lake Storage 계정을 지정할 수 있습니다. HDInsight 클러스터와 종속된 스토리지 계정은 같은 Azure 위치에 있어야 합니다.
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 > [!IMPORTANT]
 > 클러스터를 만든 후 보안 스토리지 전송을 사용하도록 설정하면 스토리지 계정을 사용하여 오류가 발생할 수 있으므로 권장하지 않습니다. 보안 전송을 이미 사용하는 것으로 설정된 스토리지 계정으로 새 클러스터를 만드는 것이 좋습니다.

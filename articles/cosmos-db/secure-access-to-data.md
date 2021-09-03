@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 06/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 696d8c1a775f67271a7c7b4fa81789e7b0775bb1
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: a7b43f52fee66579beb0c91f0b76d313cd4bcdaa
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110654268"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112522212"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -128,7 +128,7 @@ User user = await database.CreateUserAsync("User 1");
 
 ### <a name="permissions"></a>사용 권한<a id="permissions"></a>
 
-권한 리소스는 사용자와 연결되며 컨테이너 및 파티션 키 수준에서 할당됩니다. 각 사용자는 0개 이상의 권한을 포함할 수 있습니다. 권한 리소스는 사용자가 특정 파티션 키의 특정 컨테이너 또는 데이터에 액세스하려고 시도할 때 필요한 보안 토큰에 대한 액세스 권한을 제공합니다. 권한 리소스에서 제공될 수 있는 사용 가능한 액세스 수준은 다음 두 가지입니다.
+권한 리소스는 사용자와 연결되고 특정 리소스에 할당됩니다. 각 사용자는 0개 이상의 권한을 포함할 수 있습니다. 권한 리소스는 사용자가 특정 파티션 키의 특정 컨테이너 또는 데이터에 액세스하려고 시도할 때 필요한 보안 토큰에 대한 액세스 권한을 제공합니다. 권한 리소스에서 제공될 수 있는 사용 가능한 액세스 수준은 다음 두 가지입니다.
 
 - 전체: 사용자가 리소스에 대한 모든 권한을 갖습니다.
 - 읽기: 사용자가 리소스 내용을 읽을 수만 있고 리소스에 대해 쓰기, 업데이트 또는 삭제 작업을 수행할 수 없습니다.
@@ -153,7 +153,7 @@ user.CreatePermissionAsync(
     new PermissionProperties(
         id: "permissionUser1Orders",
         permissionMode: PermissionMode.All,
-        container: benchmark.container,
+        container: container,
         resourcePartitionKey: new PartitionKey("012345")));
 ```
 

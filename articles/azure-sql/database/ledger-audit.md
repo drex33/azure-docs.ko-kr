@@ -1,29 +1,29 @@
 ---
 title: 원장 사용 테이블이 포함된 Azure SQL Database 감사 이벤트
 description: Azure SQL Database 원장 감사 기능 개요
-ms.custom: ''
-ms.date: 05/25/2021
+ms.custom: references_regions
+ms.date: 07/23/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: eafca78dc22a01784eee79293fb7a2ec798818ad
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d032b311809449d35a017fdd053fb97447b8479c
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388402"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666746"
 ---
 # <a name="azure-sql-database-audit-events-with-ledger-enabled-tables"></a>원장 사용 테이블이 포함된 Azure SQL Database 감사 이벤트
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database 원장은 현재 **공개 미리 보기** 로 제공됩니다.
+> Azure SQL Database 원장은 현재 퍼블릭 미리 보기로 제공되며 서유럽, 브라질 남부 및 미국 중서부에서 사용할 수 있습니다.
 
-원장 사용 테이블이 포함된 포렌식 활동을 수행할 때, 원장 보기 및 데이터베이스 원장에서 캡처된 데이터 외에도 추가 작업 ID가 SQL 감사 로그에 추가됩니다.  다음 표는 이벤트를 트리거하는 조건과 함께 이러한 새 감사 로깅 이벤트를 간략히 정리한 것입니다.
+원장 사용 테이블을 사용하여 포렌식 활동을 수행하면 원장 보기 및 데이터베이스 원장에 데이터가 캡처됩니다. 다른 작업 ID도 SQL 감사 로그에 추가됩니다. 다음 표에서는 이러한 새로운 감사 로깅 이벤트를 간략하게 설명합니다. 이벤트를 트리거하는 조건은 각 테이블을 따릅니다.
 
 ## <a name="enable-ledger"></a>원장 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "110388402"
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**이벤트 트리거 조건**: 새 원장 테이블을 만들거나 일반 테이블을 원장 테이블로 변환합니다.
+**이벤트를 트리거하는 조건**: 새 원장 테이블을 만들거나 일반 테이블을 원장 테이블로 변환하는 경우.
 
 ## <a name="alter-ledger"></a>원장 변경
 
@@ -55,7 +55,7 @@ ms.locfileid: "110388402"
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**이벤트 트리거 조건**: 원장 테이블 삭제 또는 이름 바꾸기, 원장 테이블을 일반 테이블로 변환, 원장 테이블의 열 추가, 삭제 또는 이름 바꾸기
+**이벤트를 트리거하는 조건**: 원장 테이블을 삭제 또는 이름을 변경하거나, 원장 테이블을 일반 테이블로 변환하거나, 원장 테이블의 열을 추가, 삭제 또는 이름을 변경하는 경우.
 
 
 ## <a name="generate-ledger-digest"></a>원장 다이제스트 생성
@@ -72,7 +72,7 @@ ms.locfileid: "110388402"
 | **configuration_group_name** | LEDGER_OPERATION_GROUP  |
 | **action_in_log** | 1 |
 
-**이벤트 트리거 조건**: 원장 다이제스트 생성
+**이벤트를 트리거하는 조건**: 원장 다이제스트를 생성하는 경우.
 
 ## <a name="verify-ledger"></a>원장 확인
 
@@ -88,7 +88,7 @@ ms.locfileid: "110388402"
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**이벤트 트리거 조건**: 원장 다이제스트 확인
+**이벤트를 트리거하는 조건**: 원장 다이제스트를 확인하는 경우.
 
 ## <a name="ledger-operation-group"></a>원장 작업 그룹
 
@@ -104,7 +104,7 @@ ms.locfileid: "110388402"
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 0 |
 
-**이벤트 트리거 조건**: 해당 없음
+**이벤트를 트리거하는 조건**: 해당 사항 없음
 
 | 열 | 값 |
 |--|--|
@@ -118,10 +118,10 @@ ms.locfileid: "110388402"
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 0 |
 
-**이벤트 트리거 조건**: 해당 없음 
+**이벤트를 트리거하는 조건**: 해당 사항 없음 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure SQL Database 및 Azure Synapse Analytics에 대한 감사](auditing-overview.md)
 - [Azure SQL Database 원장 개요](ledger-overview.md)
-- [빠른 시작: 원장 사용 Azure SQL Database 만들기](ledger-create-a-single-database-with-ledger-enabled.md)
+- [빠른 시작: 원장이 활성화된 Azure SQL Database에서 데이터베이스 만들기](ledger-create-a-single-database-with-ledger-enabled.md)

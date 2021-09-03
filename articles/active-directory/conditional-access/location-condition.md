@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 06/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, olhuan
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: fff7512523b50c7bb0e7652832cfa27db688fff0
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 46e256aaac608d65211aa4575fc14faa9824a4bb
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111570838"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112574069"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>조건부 액세스 정책에서 위치 조건 사용 
 
@@ -87,6 +87,9 @@ IPv4/IPv6 주소 범위로 정의된 명명된 위치는 다음과 같은 제한
 다음 24시간 동안 사용자가 여전히 리소스에 액세스하고 백그라운드에서 실행할 수 있는 앱 권한을 부여한 경우 디바이스의 위치는 시간당 한 번 자동으로 공유됩니다. 24시간 후 사용자는 앱을 열고 알림을 승인해야 합니다. 사용자가 GPS 위치를 공유할 때마다 앱은 탈옥 검색을 수행합니다(Intune MAM SDK와 동일한 논리 사용). 디바이스가 탈옥된 경우 위치가 유효한 것으로 간주되지 않고 사용자에게 액세스 권한이 부여되지 않습니다. 
 
 GPS 기반 명명된 위치가 보고서 전용 모드인 조건부 액세스 정책은 사용자가 로그인이 차단되지 않더라도 GPS 위치를 공유하라는 메시지를 표시합니다.
+
+> [!IMPORTANT]
+> 사용자는 Azure AD가 Authenticator 앱에서 자신의 위치를 확인하고 있음을 알리는 메시지를 매시간 수신할 수 있습니다. 미리 보기는 이러한 동작이 허용되거나 특정 국가/지역으로 액세스를 제한해야 하는 매우 중요한 앱을 보호하는 데만 사용해야 합니다.
 
 #### <a name="include-unknown-countriesregions"></a>알 수 없는 국가/지역 포함
 

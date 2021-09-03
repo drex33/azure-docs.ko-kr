@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 04/30/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 2ae52b60b425f113c57950e816d93d1adc2f52ea
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 6a69e1eeeb1861f7d2a14e1a96c959c18a090682
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616277"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438748"
 ---
 # <a name="azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK
 
@@ -24,7 +24,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리하기 위한 **�
 
 ## <a name="overview-control-plane-apis"></a>개요: 컨트롤 플레인 API
 
-컨트롤 플레인 API는 전체 인스턴스를 만들거나 삭제하는 것과 같은 작업을 수행하기 위해 Azure Digital Twins 인스턴스 전체를 관리하는 데 사용되는 [ARM](../azure-resource-manager/management/overview.md) API입니다. 또한 엔드포인트를 만들고 삭제하는 데도 사용합니다.
+컨트롤 플레인 API는 전체 인스턴스를 만들거나 삭제하는 것과 같은 작업을 수행하기 위해 Azure Digital Twins 인스턴스 전체를 관리하는 데 사용되는 [ARM](../azure-resource-manager/management/overview.md) API입니다. 또한 엔드포인트를 만들고 삭제하는 이러한 API를 사용합니다.
 
 최신 컨트롤 플레인 API 버전은 _**2020-12-01**_ 입니다.
 
@@ -41,7 +41,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리하기 위한 **�
 
 ## <a name="overview-data-plane-apis"></a>개요: 데이터 평면 API
 
-데이터 평면 API는 Azure Digital Twins 인스턴스 내에서 요소를 관리하는 데 사용되는 Azure Digital Twins API입니다. 여기에는 경로 만들기, 모델 업로드, 관계 만들기, 트윈 관리 등의 작업이 포함됩니다. 차이점은 다음 범주로 구분됩니다.
+데이터 평면 API는 Azure Digital Twins 인스턴스 내에서 요소를 관리하는 데 사용되는 Azure Digital Twins API입니다. 여기에는 경로 만들기, 모델 업로드, 관계 만들기 및 트윈 관리와 같은 작업이 포함되며 다음 범주로 크게 나눌 수 있습니다.
 * **DigitalTwinModels** - DigitalTwinModels 범주에는 Azure Digital Twins 인스턴스에서 [모델](concepts-models.md)을 관리하는 API가 포함되어 있습니다. 관리 작업에는 DTDL에서 작성된 모델의 업로드, 유효성 검사, 검색 및 삭제가 포함됩니다.
 * **DigitalTwins** - DigitalTwins 범주에는 개발자가 Azure Digital Twins 인스턴스에서 [디지털 트윈](concepts-twins-graph.md) 및 해당 관계를 만들고, 수정하고, 삭제할 수 있도록 하는 API가 포함되어 있습니다.
 * **쿼리** - 쿼리 범주를 통해 개발자는 관계 전반에 걸쳐 [트윈 그래프에서 디지털 트윈 집합을 찾을](how-to-query-graph.md) 수 있습니다.
@@ -80,43 +80,13 @@ Azure Digital Twins .NET(C#) SDK는 .Net용 Azure SDK의 일부입니다. 오픈
 > [!NOTE]
 > SDK 설계에 대한 자세한 내용은 일반적인 [Azure SDK 디자인 원칙](https://azure.github.io/azure-sdk/general_introduction.html) 및 특정 [.NET 설계 지침](https://azure.github.io/azure-sdk/dotnet_introduction.html)을 참조하세요.
 
-SDK를 사용하려면 NuGet 패키지 **Azure.DigitalTwins.Core** 를 프로젝트에 포함합니다. 최신 버전의 **Azure.Identity** 패키지도 필요합니다. Visual Studio에서 NuGet 패키지 관리자를 사용하여 이러한 패키지를 추가할 수 있습니다(*도구 > Nuget 패키지 관리자 > 솔루션에 대한 Nuget 패키지 관리* 를 통해 액세스). 또는 아래 NuGet 패키지 링크에 있는 명령과 함께 .NET 명령줄 도구를 사용하여 프로젝트에 추가할 수 있습니다.
-* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지입니다. 
-* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity). 이 라이브러리는 Azure에 대한 인증에 유용한 도구를 제공합니다.
+SDK를 사용하려면 NuGet 패키지 **Azure.DigitalTwins.Core** 를 프로젝트에 포함합니다. 최신 버전의 **Azure.Identity** 패키지도 필요합니다. Visual Studio에서 NuGet 패키지 관리자를 사용하여 이러한 패키지를 추가할 수 있습니다(*도구 > Nuget 패키지 관리자 > 솔루션에 대한 Nuget 패키지 관리* 를 통해 액세스). 또한 아래 NuGet 패키지 링크에 있는 명령과 함께 .NET 명령줄 도구를 사용하여 프로젝트에 추가할 수 있습니다.
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core): [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)용 패키지입니다. 
+* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity): Azure에 대한 인증에 도움이 되는 도구를 제공하는 라이브러리입니다.
 
-실제로 API를 사용하는 방법에 대한 자세한 연습은 [자습서: 클라이언트 앱 코딩](tutorial-code.md)을 참조하세요. 
+실제로 API를 사용하는 방법에 대한 자세한 연습은 [클라이언트 앱 코딩](tutorial-code.md)을 참조하세요. 
 
-### <a name="net-sdk-usage-examples"></a>.NET SDK 사용 예
-
-다음은 .NET SDK 사용을 보여 주는 몇 가지 코드 샘플입니다.
-
-서비스에 대한 인증:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_basic":::
-
-[!INCLUDE [Azure Digital Twins: local credentials note](../../includes/digital-twins-local-credentials-note.md)] 
-
-모델 업로드:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
-
-모델 나열:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
-
-트윈 만들기:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
-
-트윈 쿼리 및 결과 반복:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="FullQuerySample":::
-
-이 샘플 앱 코드의 연습을 보려면 [자습서: 클라이언트 앱 코딩](tutorial-code.md)을 참조하세요. 
-
-[.NET(C#) SDK용 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples)에서 추가 샘플을 찾을 수도 있습니다.
-
-#### <a name="serialization-helpers"></a>Serialization 도우미
+### <a name="serialization-helpers"></a>Serialization 도우미
 
 Serialization 도우미는 기본 정보에 대한 액세스를 위해 트윈 데이터를 신속하게 만들거나 역직렬화하기 위해 SDK 내에서 사용할 수 있는 도우미 함수입니다. 핵심 SDK 메서드는 기본적으로 트윈 데이터를 JSON으로 반환하므로 이러한 도우미 클래스를 사용하여 트윈 데이터를 더 분할하는 것이 유용할 수 있습니다.
 
@@ -126,49 +96,6 @@ Serialization 도우미는 기본 정보에 대한 액세스를 위해 트윈 �
 * `BasicRelationship`: 일반적으로 관계의 핵심 데이터를 나타냅니다.
 * `DigitalTwinsJsonPropertyName`: 사용자 지정 디지털 트윈 유형에 대한 JSON serialization 및 deserialization에 사용되는 문자열 상수를 포함합니다.
 
-##### <a name="deserialize-a-digital-twin"></a>디지털 트윈 역직렬화
-
-`System.Text.Json` 또는 `Newtonsoft.Json`과 같이 선택한 JSON 라이브러리를 사용하여 언제든지 트윈 데이터를 역직렬화할 수 있습니다. 트윈에 대한 기본 액세스의 경우 도우미 클래스를 사용하면 더 편리합니다.
-
-`BasicDigitalTwin` 도우미 클래스는 `Dictionary<string, object>`를 통해 트윈에 정의된 속성에 액세스할 수 있습니다. 트윈의 속성을 나열하려면 다음을 사용할 수 있습니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
-
-> [!NOTE]
-> `BasicDigitalTwin`에서 `System.Text.Json` 특성을 사용합니다. `BasicDigitalTwin`을 [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true)와 함께 사용하려면 기본 생성자를 사용하여 클라이언트를 초기화해야 합니다. 또는 직렬 변환기 옵션을 사용자 지정하려면 [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true)를 사용합니다.
-
-##### <a name="create-a-digital-twin"></a>디지털 트윈 만들기
-
-`BasicDigitalTwin` 클래스를 사용하여 트윈 인스턴스를 만들기 위한 데이터를 준비할 수 있습니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
-
-위의 코드는 다음 "수동" 변형과 동일합니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
-
-##### <a name="deserialize-a-relationship"></a>관계 역직렬화
-
-언제든지 관계 데이터를 선택한 형식으로 역직렬화할 수 있습니다. 관계에 대한 기본 액세스를 위해 `BasicRelationship` 형식을 사용합니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
-
-`BasicRelationship` 도우미 클래스는 `IDictionary<string, object>`를 통해 관계에 정의된 속성에 액세스할 수 있습니다. 속성을 나열하려면 다음을 사용할 수 있습니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
-
-##### <a name="create-a-relationship"></a>관계 만들기
-
-`BasicRelationship` 클래스를 사용하여 트윈 인스턴스에서 관계를 만들기 위해 데이터를 준비할 수도 있습니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
-
-##### <a name="create-a-patch-for-twin-update"></a>트윈 업데이트를 위한 패치 만들기
-
-트윈 및 관계에 대한 업데이트 호출은 [JSON 패치](http://jsonpatch.com/) 구조를 사용합니다. JSON 패치 작업 목록을 만들려면 아래와 같이 `JsonPatchDocument`를 사용할 수 있습니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
-
 ## <a name="general-apisdk-usage-notes"></a>일반 API/SDK 사용 메모
 
 > [!NOTE]
@@ -176,10 +103,10 @@ Serialization 도우미는 기본 정보에 대한 액세스를 위해 트윈 �
 
 다음 목록에서는 API 및 SDK 사용에 대한 추가 세부 정보 및 일반적인 지침을 제공합니다.
 
-* Postman과 같은 HTTP REST 테스트 도구를 사용하여 Azure Digital Twins API에 대한 직접 호출을 수행할 수 있습니다. 이 프로세스에 대한 자세한 내용은 [방법: Postman을 사용하여 요청 만들기](how-to-use-postman.md)를 참조하세요.
-* SDK를 사용하려면 `DigitalTwinsClient` 클래스를 인스턴스화합니다. 생성자에는 `Azure.Identity` 패키지의 다양한 인증 방법을 사용하여 얻을 수 있는 자격 증명이 필요합니다. `Azure.Identity`에 대한 자세한 내용은 [네임스페이스 설명서](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)를 참조하세요. 
+* Postman과 같은 HTTP REST 테스트 도구를 사용하여 Azure Digital Twins API에 대한 직접 호출을 수행할 수 있습니다. 이 프로세스에 대한 자세한 내용은 [Postman을 사용하여 API 요청 만들기](how-to-use-postman.md)를 참조하세요.
+* SDK를 사용하려면 `DigitalTwinsClient` 클래스를 인스턴스화합니다. 생성자에는 `Azure.Identity` 패키지의 다양한 종류의 인증 방법을 사용하여 얻을 수 있는 자격 증명이 필요합니다. `Azure.Identity`에 대한 자세한 내용은 [네임스페이스 설명서](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)를 참조하세요. 
 * 시작하는 동안 유용한 `InteractiveBrowserCredential`을 찾을 수 있지만, Azure Digital Twins에 대해 [MSI로 설정된 Azure 함수](../app-service/overview-managed-identity.md?tabs=dotnet)를 인증하는 데 사용할 수 있는 [관리 ID](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true)에 대한 자격 증명을 비롯하여 몇 가지 다른 옵션이 있습니다. `InteractiveBrowserCredential`에 대한 자세한 내용은 [클래스 설명서](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true)를 참조하세요.
-* Azure Digital Twins API에 대한 요청에는 Azure Digital Twins 인스턴스가 있는 동일한 [Azure AD](../active-directory/fundamentals/active-directory-whatis.md)(Azure Active Directory) 테넌트의 일부인 사용자 또는 서비스 주체가 필요합니다. Azure Digital Twins 엔드포인트의 악의적인 검색을 방지하기 위해 원래 테넌트 외부에서 액세스 토큰이 있는 요청은 "404 하위 도메인을 찾을 수 없음" 오류 메시지가 반환됩니다. Azure AD B2B 협업을 통해 사용자나 서비스 주체가 Azure Digital Twins 데이터 소유자나 Azure Digital Twins 데이터 Reader [역할](../active-directory/external-identities/what-is-b2b.md)을 확보 *했더라도* 해당 오류는 반환됩니다. 여러 테넌트 간 액세스를 구현하는 방법에 대한 자세한 내용은 [방법: 앱 인증 코드 작성](how-to-authenticate-client.md#authenticate-across-tenants)을 참조하세요.
+* Azure Digital Twins API에 대한 요청에는 Azure Digital Twins 인스턴스가 있는 동일한 [Azure AD](../active-directory/fundamentals/active-directory-whatis.md)(Azure Active Directory) 테넌트의 일부인 사용자 또는 서비스 주체가 필요합니다. Azure Digital Twins 엔드포인트의 악의적인 검색을 방지하기 위해 원래 테넌트 외부에서 액세스 토큰이 있는 요청은 "404 하위 도메인을 찾을 수 없음" 오류 메시지가 반환됩니다. Azure AD B2B 협업을 통해 사용자나 서비스 주체가 Azure Digital Twins 데이터 소유자나 Azure Digital Twins 데이터 Reader [역할](../active-directory/external-identities/what-is-b2b.md)을 확보 *했더라도* 해당 오류는 반환됩니다. 여러 테넌트 간 액세스를 구현하는 방법에 대한 자세한 내용은 [앱 인증 코드 작성](how-to-authenticate-client.md#authenticate-across-tenants)을 참조하세요.
 * 모든 서비스 API 호출은 `DigitalTwinsClient` 클래스에서 멤버 함수로 노출됩니다.
 * 모든 서비스 함수는 동기 및 비동기 버전으로 존재합니다.
 * 모든 서비스 함수는 400 이상의 반환 상태에 대한 예외를 throw합니다. `try` 섹션으로 호출을 래핑하고 최소한의 `RequestFailedExceptions`를 catch해야 합니다. 이러한 형식의 예외에 대한 자세한 내용은 해당 [참조 설명서](/dotnet/api/azure.requestfailedexception?view=azure-dotnet&preserve-view=true)를 참조하세요.
@@ -204,7 +131,7 @@ Serialization 도우미는 기본 정보에 대한 액세스를 위해 트윈 �
 ## <a name="next-steps"></a>다음 단계
 
 Postman을 사용하여 API에 대한 직접 요청을 만드는 방법을 참조하세요.
-* [방법: Postman으로 요청 만들기](how-to-use-postman.md)
+* [Postman으로 API 요청 만들기](how-to-use-postman.md)
 
 또는 다음 자습서를 사용하여 클라이언트 앱을 만들어 .NET SDK 사용을 연습합니다.
-* [자습서: 클라이언트 앱 코딩](tutorial-code.md)
+* [클라이언트 앱 코딩](tutorial-code.md)

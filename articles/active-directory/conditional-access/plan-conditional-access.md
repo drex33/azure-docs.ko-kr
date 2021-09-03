@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13460fad0ed106f5c0590df961ceca54cb04cd7b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 17b69d4473529f585d6a0c997bafca42516e91a2
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102427184"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114203165"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -24,7 +24,7 @@ ms.locfileid: "102427184"
 
 모바일 우선, 클라우드 우선 환경에서 사용자는 다양한 디바이스와 앱을 사용하여 어디서나 조직의 리소스에 액세스합니다. 따라서 리소스에 액세스할 수 있는 사용자에게만 초점을 맞추는 것은 더 이상 충분하지 않습니다. 또한 사용자의 위치, 사용하는 디바이스, 액세스하는 리소스 등을 고려해야 합니다. 
 
-Azure AD (Azure Active Directory) 조건부 액세스는 사용자, 장치 및 위치와 같은 신호를 분석 하 여 결정을 자동화 하 고 리소스에 대 한 조직 액세스 정책을 적용 합니다. 조건부 액세스 정책을 사용 하 여 Multi-Factor Authentication (MFA)와 같은 액세스 제어를 적용할 수 있습니다. 조건부 액세스 정책을 사용 하면 보안을 위해 필요할 때 사용자에 게 MFA를 요청 하는 메시지를 표시 하 고 필요 하지 않은 사용자의 방식으로 사용자를 제거할 수 있습니다.
+Azure AD(Azure Active Directory) 조건부 액세스는 사용자, 디바이스 및 위치와 같은 신호를 분석하여 결정을 자동화하고 리소스에 대한 조직의 액세스 정책을 적용합니다. 조건부 액세스 정책을 사용하여 MFA(Multi-Factor Authentication)와 같은 액세스 제어를 적용할 수 있습니다. 조건부 액세스 정책을 사용하면 보안이 필요한 경우 사용자에게 MFA를 요청하는 메시지를 표시하고, 필요하지 않은 경우 사용자를 방해하지 않을 수 있습니다.
 
 ![조건부 액세스 개요](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
@@ -38,7 +38,7 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 
 조건부 액세스를 배포하는 경우 다음과 같은 이점이 있습니다.
 
-* 생산성을 향상시킵니다. 하나 이상의 신호에서 보증하는 경우 MFA와 같은 로그인 조건을 사용하는 사용자만 중단합니다. 조건부 액세스 정책을 사용 하면 사용자에 게 MFA에 대 한 메시지가 표시 되는 시기, 액세스가 차단 된 시간 및 신뢰할 수 있는 장치를 사용 해야 하는 시기를 제어할 수 있습니다.
+* 생산성을 향상시킵니다. 하나 이상의 신호에서 보증하는 경우 MFA와 같은 로그인 조건을 사용하는 사용자만 중단합니다. 조건부 액세스 정책을 사용하면 사용자에게 MFA를 요구하는 메시지가 표시되는 경우, 액세스가 차단되는 경우 및 신뢰할 수 있는 디바이스를 사용해야 하는 경우를 제어할 수 있습니다.
 
 * 위험을 관리합니다. 정책 조건을 사용하여 위험 평가를 자동화하면 위험한 로그인을 한 번에 식별하여 수정하거나 차단할 수 있습니다. 비정상 이벤트 및 의심스러운 이벤트를 검색하는 [ID 보호](../identity-protection/overview-identity-protection.md)와 조건부 액세스를 결합하면 리소스에 대한 액세스가 차단되거나 제어될 때 대상을 지정할 수 있습니다. 
 
@@ -50,7 +50,7 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 
 [조건부 액세스 라이선스 요구 사항](overview.md)을 참조하세요.
 
-추가 기능이 필요한 경우 관련 라이선스도 필요할 수 있습니다. 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
+추가 기능이 필요한 경우 관련 라이선스도 필요할 수 있습니다. 자세한 내용은 [Azure Active Directory 가격 책정](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)을 참조하세요.
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
@@ -71,10 +71,10 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 
 * [조건부 액세스란?](https://youtu.be/ffMAw2IVO7A)
 * [조건부 액세스를 배포하는 방법](https://youtu.be/c_izIRNJNuk)
-* [최종 사용자에 게 조건부 액세스 정책을 배포 하는 방법](https://youtu.be/0_Fze7Zpyvc)
-* [조건부 액세스 정책의 사용자를 포함 하거나 제외 하는 방법](https://youtu.be/5DsW1hB3Jqs)
+* [최종 사용자에게 조건부 액세스 정책을 롤아웃하는 방법](https://youtu.be/0_Fze7Zpyvc)
+* [조건부 액세스 정책에서 사용자를 포함하거나 제외하는 방법](https://youtu.be/5DsW1hB3Jqs)
 * [디바이스 컨트롤을 사용하는 조건부 액세스](https://youtu.be/NcONUf-jeS4)
-* [Azure AD MFA를 사용 하 여 조건부 액세스](https://youtu.be/Tbc-SU97G-w)
+* [Azure AD MFA를 사용하여 조건부 액세스](https://youtu.be/Tbc-SU97G-w)
 * [Enterprise Mobility + Security의 조건부 액세스](https://youtu.be/A7IrxAH87wc)
 
 
@@ -104,22 +104,22 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 > 관리자와 관련되지 않은 새 정책을 롤아웃하려면 모든 관리자를 제외합니다. 이렇게 하면 관리자가 정책에 계속 액세스하여 변경하거나, 심각한 영향이 있으면 철회할 수 있습니다. 모든 사용자에게 적용하기 전에 항상 작은 사용자 그룹을 사용하여 정책의 유효성을 검사합니다.
 
 ## <a name="understand-conditional-access-policy-components"></a>조건부 액세스 정책 구성 요소 이해
-조건부 액세스 정책은 if then 문: 할당이 충족 되는 경우이 액세스 제어를 적용 합니다.
+조건부 액세스 정책은 if-then 문입니다. 할당이 충족되면 해당 액세스 제어를 적용합니다.
 
-조건부 액세스 정책을 구성할 때 조건을 *할당* 이라고 합니다. 조건부 액세스 정책을 사용 하면 특정 할당에 따라 조직의 앱에 대 한 액세스 제어를 적용할 수 있습니다.
+조건부 액세스 정책을 구성하는 경우 조건은 *할당* 이라고 합니다. 조건부 액세스 정책을 사용하면 특정 할당에 따라 조직의 앱에 대한 액세스 제어를 적용할 수 있습니다.
 
 
-자세한 내용은 [조건부 액세스 정책 빌드](concept-conditional-access-policies.md)를 참조 하세요.
+자세한 내용은 [조건부 액세스 정책 구성](concept-conditional-access-policies.md)을 참조하세요.
 
 ![정책 만들기 화면](media/plan-conditional-access/create-policy.png)
 
 [할당](concept-conditional-access-policies.md#assignments)은 다음을 정의합니다.
 
-* 정책의 영향을 받을 [사용자 및 그룹](concept-conditional-access-users-groups.md)
+* 정책의 영향을 받는 [사용자 및 그룹](concept-conditional-access-users-groups.md)
 
-* 정책이 적용 될 [클라우드 앱 또는 작업](concept-conditional-access-cloud-apps.md) 
+* 정책이 적용되는 [클라우드 앱 또는 작업](concept-conditional-access-cloud-apps.md) 
 
-* 정책이 적용 되는 [조건](concept-conditional-access-conditions.md) 입니다.
+* 정책이 적용되는 [조건](concept-conditional-access-conditions.md)
 
 [액세스 제어](concept-conditional-access-policies.md) 설정에 따라 정책을 적용하는 방법이 결정됩니다.
 
@@ -196,7 +196,7 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 ![액세스 토큰 발급 다이어그램](media/plan-conditional-access/CA-policy-token-issuance.png)
 
 > [!NOTE]
-> 할당이 필요 하지 않고 조건부 액세스 정책이 적용 되지 않는 경우 기본 동작은 액세스 토큰을 발급 하는 것입니다. 
+> 할당이 필요하지 않고 유효한 조건부 액세스 정책이 적용되지 않는 경우 기본 동작은 액세스 토큰을 발급하는 것입니다. 
 
 예를 들어 다음과 같은 정책을 살펴보겠습니다.
 
@@ -210,14 +210,14 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 
 ### <a name="apply-conditional-access-policies-to-every-app"></a>모든 앱에 조건부 액세스 정책 적용
 
-액세스 토큰은 조건부 액세스 정책 조건이 액세스 제어를 트리거하지 않는 경우 기본적으로 발급 됩니다. 모든 앱에 하나 이상의 조건부 액세스 정책이 적용되어 있는지 확인합니다.
+조건부 액세스 정책 조건에서 액세스 제어를 트리거하지 않으면 액세스 토큰이 기본적으로 발급됩니다. 모든 앱에 하나 이상의 조건부 액세스 정책이 적용되어 있는지 확인합니다.
 
 > [!IMPORTANT]
 > 단일 정책에서 차단 및 모든 앱을 사용하는 경우 매우 주의해야 합니다. 이로 인해 관리자가 Azure 관리 포털에서 잠길 수 있으며 Microsoft Graph와 같은 중요한 엔드포인트에 대한 제외를 구성할 수 없습니다.
 
 ### <a name="minimize-the-number-of-conditional-access-policies"></a>조건부 액세스 정책 수 최소화
 
-각 앱에 대한 정책을 만드는 것은 비효율적이며 관리가 어려워집니다. 조건부 액세스는 사용자당 초기 195개 정책만 적용합니다. 앱을 분석하여 동일한 사용자에 대한 동일한 리소스 요구 사항이 있는 애플리케이션으로 그룹화하는 것이 좋습니다. 예를 들어 모든 Microsoft 365 apps 또는 모든 HR 앱에 동일한 사용자에 대 한 동일한 요구 사항이 있으면 단일 정책을 만들고이 정책을 적용 하는 모든 앱을 포함 합니다. 
+각 앱에 대한 정책을 만드는 것은 비효율적이며 관리가 어려워집니다. 조건부 액세스는 사용자당 초기 195개 정책만 적용합니다. 앱을 분석하여 동일한 사용자에 대한 동일한 리소스 요구 사항이 있는 애플리케이션으로 그룹화하는 것이 좋습니다. 예를 들어 모든 Microsoft 365 앱 또는 모든 HR 앱에 동일한 사용자에 대한 동일한 요구 사항이 있는 경우 단일 정책을 만들고 해당 정책이 적용되는 모든 앱을 포함합니다. 
 
 ### <a name="set-up-emergency-access-accounts"></a>응급 액세스 계정 설정
 
@@ -233,9 +233,9 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 * MFA 요구
 * 로그인 위험 정책 구현
 
-관리자는 [보고서 전용 모드](concept-conditional-access-report-only.md) 를 사용 하 여 환경에서 조건부 액세스 정책의 영향을 평가할 수 있습니다.
+[보고 전용 모드](concept-conditional-access-report-only.md)를 사용하면 관리자가 환경에서 조건부 액세스 정책을 사용하도록 설정하기 전에 해당 정책의 영향을 평가할 수 있습니다.
 
-[조건부 액세스 정책에서 보고서 전용 모드를 구성](howto-conditional-access-insights-reporting.md)하는 방법에 대해 알아봅니다.
+[조건부 액세스 정책에 대한 보고 전용 모드 구성](howto-conditional-access-insights-reporting.md) 방법을 알아봅니다.
 
 ### <a name="plan-for-disruption"></a>중단 계획
 
@@ -255,7 +255,7 @@ MFA 또는 네트워크 위치와 같은 단일 액세스 제어를 사용하여
 
 * 정책이 적용되는 시기(해당하는 경우)
 
-![정책에 대 한 명명 표준을 보여 주는 스크린샷](media/plan-conditional-access/11.png)
+![정책의 명명 표준을 보여 주는 스크린샷.](media/plan-conditional-access/11.png)
 
 **예**: 외부 네트워크에서 Dynamics CRP 앱에 액세스하는 마케팅 사용자에게 MFA를 요구하는 정책은 다음과 같을 수 있습니다.
 
@@ -288,12 +288,12 @@ Azure Active Directory를 사용하면 [명명된 위치](location-condition.md)
 
 ## <a name="common-policies"></a>일반 정책
 
-조건부 액세스 정책 솔루션을 계획할 때 다음 결과를 얻기 위해 정책을 만들어야 하는지 여부를 평가 합니다.
+조건부 액세스 정책 솔루션을 계획할 때 다음 결과를 달성하기 위해 정책을 만들어야 하는지 여부를 평가합니다.
 
 * [MFA 요구](#require-mfa)
 * [잠재적으로 손상된 계정에 대한 대응](#respond-to-potentially-compromised-accounts)
 * [관리 디바이스 필요](#require-managed-devices)
-* [승인 된 클라이언트 응용 프로그램 필요](#require-approved-client-apps)
+* [승인된 클라이언트 애플리케이션 필요](#require-approved-client-apps)
 * [액세스 차단](#block-access)
 
 ### <a name="require-mfa"></a>MFA 요구
@@ -312,11 +312,11 @@ MFA 액세스를 요구하는 일반적인 사용 사례:
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>잠재적으로 손상된 계정에 대한 대응
 
-조건부 액세스 정책을 사용 하 여 잠재적으로 손상 된 id로 로그인 하기 위한 자동화 된 응답을 구현할 수 있습니다. 계정이 손상되는 확률은 위험 수준 형태로 표현됩니다. ID 보호에서 계산되는 두 가지 위험 수준으로 로그인 위험 및 사용자 위험이 있습니다. 사용하도록 설정될 수 있는 세 가지 기본 정책은 다음과 같습니다.
+조건부 액세스 정책을 사용하면 잠재적으로 손상된 ID의 로그인에 대한 자동화된 응답을 구현할 수 있습니다. 계정이 손상되는 확률은 위험 수준 형태로 표현됩니다. ID 보호에서 계산되는 두 가지 위험 수준으로 로그인 위험 및 사용자 위험이 있습니다. 사용하도록 설정될 수 있는 세 가지 기본 정책은 다음과 같습니다.
 
 * [모든 사용자에게 MFA 등록 요구](howto-conditional-access-policy-risk.md)
 
-* [위험 수준이 높은 사용자에게 암호 변경 요구](howto-conditional-access-policy-risk.md)
+* [위험 수준이 높은 사용자에게 암호 변경 요구](howto-conditional-access-policy-risk-user.md)
 
 * [로그인 위험 수준이 중간이거나 높은 사용자에게 MFA 요구](howto-conditional-access-policy-risk.md)
 
@@ -367,14 +367,14 @@ MFA 액세스를 요구하는 일반적인 사용 사례:
 
 ### <a name="create-a-test-plan"></a>테스트 계획 만들기
 
-테스트 계획은 예상 결과와 실제 결과 간에 비교하는 것이 중요합니다. 그러므로 항상 테스트 전에 결과를 예상해야 합니다. 다음 표에는 예제 테스트 사례의 개요가 나와 있습니다. 조건부 액세스 정책을 구성 하는 방법에 따라 시나리오 및 예상 결과를 조정 합니다.
+테스트 계획은 예상 결과와 실제 결과 간에 비교하는 것이 중요합니다. 그러므로 항상 테스트 전에 결과를 예상해야 합니다. 다음 표에는 예제 테스트 사례의 개요가 나와 있습니다. 조건부 액세스 정책이 구성된 방식에 따라 시나리오와 예상 결과를 조정합니다.
 
 | 정책| 시나리오| 예상 결과 |
 | - | - | - |
 | [직장이 아닐 때 MFA 요구](untrusted-networks.md)| 권한 있는 사용자가 신뢰할 수 있는 위치/회사에 있는 상태에서 앱에 로그인함| 사용자에게 MFA를 요구하는 메시지가 표시되지 않음 |
 | [직장이 아닐 때 MFA 요구](untrusted-networks.md)| 권한 있는 사용자가 신뢰할 수 있는 위치/회사에 있지 않은 상태에서 앱에 로그인함| 사용자에게 MFA에 대한 메시지가 표시되고 성공적으로 로그인할 수 있음 |
 | [MFA 요구(관리자의 경우)](../fundamentals/concept-fundamentals-security-defaults.md)| 전역 관리자가 앱에 로그인함| 관리자에게 MFA에 대한 메시지가 표시됨 |
-| [위험한 로그인](../identity-protection/howto-identity-protection-configure-risk-policies.md)| 사용자가 승인 되지 않은 브라우저를 사용 하 여 앱에 로그인| 관리자에게 MFA에 대한 메시지가 표시됨 |
+| [위험한 로그인](../identity-protection/howto-identity-protection-configure-risk-policies.md)| 사용자가 승인되지 않은 브라우저를 사용하여 앱에 로그인| 관리자에게 MFA에 대한 메시지가 표시됨 |
 | [디바이스 관리](require-managed-devices.md)| 권한 있는 사용자가 권한 있는 디바이스에서 로그인하려고 시도함| 액세스 권한 부여됨 |
 | [디바이스 관리](require-managed-devices.md)| 권한 있는 사용자가 권한 없는 디바이스에서 로그인하려고 시도함| 액세스 차단됨 |
 | [위험한 사용자에 대한 암호 변경](../identity-protection/howto-identity-protection-configure-risk-policies.md)| 권한 있는 사용자가 손상된 자격 증명을 사용하여 로그인하려고 시도함(높은 위험 로그인)| 사용자에게 암호를 변경하라는 메시지가 표시되거나 정책에 따라 액세스가 차단됨 |
@@ -382,9 +382,9 @@ MFA 액세스를 요구하는 일반적인 사용 사례:
 
 ### <a name="configure-the-test-policy"></a>테스트 정책 구성
 
-[Azure Portal](https://portal.azure.com/)에서 Azure Active Directory > 보안 > 조건부 액세스에서 조건부 액세스 정책을 구성 합니다.
+조건부 액세스 정책은 [Azure Portal](https://portal.azure.com/)의 Azure Active Directory > 보안 > 조건부 액세스 아래에서 구성합니다.
 
-조건부 액세스 정책을 만드는 방법에 대 한 자세한 내용은 [사용자가 Azure Portal에 로그인 할 때 MFA를 확인 하는 조건부 액세스 정책](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json)예제를 참조 하세요. 이 빠른 시작은 다음을 수행하는 데 도움이 됩니다.
+조건부 액세스 정책을 만드는 방법에 대해 자세히 알아보려면 [사용자가 Azure Portal에 로그인할 때 MFA를 묻는 조건부 액세스 정책](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) 예를 참조하세요. 이 빠른 시작은 다음을 수행하는 데 도움이 됩니다.
 
 * 사용자 인터페이스를 숙지합니다.
 
@@ -408,7 +408,7 @@ MFA 액세스를 요구하는 일반적인 사용 사례:
 조건부 액세스 정책의 유효성을 검사하는 또 다른 방법은 [what-if 도구](troubleshoot-conditional-access-what-if.md)를 사용하여 가상 환경에서 로그인하는 사용자에게 적용할 정책을 시뮬레이션하는 것입니다. 테스트하려는 로그인 특성(예: 사용자, 애플리케이션, 디바이스 플랫폼 및 위치)을 선택하고 적용할 정책을 확인합니다.
 
 > [!NOTE] 
-> 시뮬레이션 된 실행은 조건부 액세스 정책에 미치는 영향을 이해 하는 데 유용 하지만 실제 테스트 실행을 대체 하지는 않습니다.
+> 시뮬레이션된 실행을 통해 조건부 액세스 정책이 미치는 영향에 대한 좋은 아이디어를 제공하지만 실제 테스트 실행을 대체하지는 않습니다.
 
 ### <a name="test-your-policy"></a>정책 테스트
 
@@ -435,14 +435,14 @@ MFA 액세스를 요구하는 일반적인 사용 사례:
 
 ## <a name="manage-access-to-cloud-apps"></a>클라우드 앱에 대한 액세스 관리
 
-다음 관리 옵션을 사용 하 여 조건부 액세스 정책을 제어 하 고 관리 합니다.
+다음 관리 옵션을 사용하여 조건부 액세스 정책을 제어하고 관리합니다.
 
-![스크린샷에서는 명명 된 위치, 사용자 지정 컨트롤, 사용 약관, V P N 연결, 선택한 클래식 정책 등의 C 정책에 대 한 관리 옵션을 보여 줍니다.](media/plan-conditional-access/manage-access.png)
+![스크린샷은 명명된 위치, 사용자 지정 컨트롤, 사용 약관, V P N 연결 및 선택한 클래식 정책을 포함하여 CA 정책에 대한 관리 옵션을 보여 줍니다.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>명명된 위치
 
-조건부 액세스 정책의 위치 조건을 사용 하 여 액세스 제어 설정을 사용자의 네트워크 위치에 연결할 수 있습니다. [명명된 위치](location-condition.md)를 사용하면 IP 주소 범위 또는 국가/지역의 논리적 그룹을 만들 수 있습니다.
+조건부 액세스 정책의 위치 조건을 사용하여 사용자의 네트워크 위치에 액세스 제어 설정을 연결할 수 있습니다. [명명된 위치](location-condition.md)를 사용하면 IP 주소 범위 또는 국가/지역의 논리적 그룹을 만들 수 있습니다.
 
 ### <a name="custom-controls"></a>사용자 지정 컨트롤
 
@@ -454,7 +454,7 @@ MFA 액세스를 요구하는 일반적인 사용 사례:
 
 ## <a name="troubleshoot-conditional-access"></a>조건부 액세스 문제 해결
 
-사용자에 게 조건부 액세스 정책에 대 한 문제가 있는 경우 다음 정보를 수집 하 여 문제 해결을 용이 하 게 합니다.
+사용자에게 조건부 액세스 정책과 관련된 문제가 있는 경우 문제를 쉽게 해결할 수 있도록 다음 정보를 수집합니다.
 
 * 사용자 계정 이름
 
@@ -486,4 +486,4 @@ MFA 액세스를 요구하는 일반적인 사용 사례:
 
 [ID 보호에 대해 자세히 알아보기](../identity-protection/overview-identity-protection.md)
 
-[Microsoft Graph API를 사용 하 여 조건부 액세스 정책 관리](/graph/api/resources/conditionalaccesspolicy)
+[Microsoft Graph API를 사용하여 조건부 액세스 정책 관리](/graph/api/resources/conditionalaccesspolicy)

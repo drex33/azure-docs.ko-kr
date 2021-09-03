@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate 물리적 검색 및 평가 지원
 description: Azure Migrate 검색 및 평가를 통해 물리적 검색과 평가 지원에 대해 알아봅니다.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: aad800a710a1bc3942efc128f8350044a513d44f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 2d68a74332ef77694d44597e6f879858fa0051bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472027"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535652"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>물리적 서버 검색 및 평가를 위한 지원 매트릭스 
 
@@ -38,10 +38,44 @@ ms.locfileid: "110472027"
 
 **사용 권한:**
 
-- Windows 서버의 경우 도메인 조인된 서버에는 도메인 계정을 사용하고, 도메인 조인이 아닌 서버에는 로컬 계정을 사용합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자.
+어플라이언스가 물리적 서버에 액세스하는 데 사용할 수 있는 계정을 설정합니다.
+
+**Windows 서버**
+
+- Windows 서버의 경우 도메인 조인된 서버에는 도메인 계정을 사용하고, 도메인 조인이 아닌 서버에는 로컬 계정을 사용합니다. 
+- 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자. 
+- 원격 관리 사용자 그룹이 없는 경우 **WinRMRemoteWMIUsers_** 그룹에 사용자 계정을 추가합니다.
+- 어플라이언스가 서버에 대한 CIM 연결을 만들고 [여기](migrate-appliance.md#collected-data---physical)에 나열된 WMI 클래스에서 필요한 구성 및 성능 메타데이터를 가져오려면 계정에 이러한 권한이 필요합니다.
+- 계정이 [UAC](/windows/win32/wmisdk/user-account-control-and-wmi)에서 필터링될 수 있으므로 그룹에 계정을 추가해도 WMI 클래스에서 필요한 데이터가 반환되지 않는 경우도 있습니다. UAC 필터링을 방지하려면 대상 서버의 CIMV2 네임스페이스와 하위 네임스페이스에서 사용자 계정에 필요한 권한이 있어야 합니다. [여기](troubleshoot-appliance.md#access-is-denied-when-connecting-to-physical-servers-during-validation)에 설명된 단계를 수행하면 필요한 권한을 사용하도록 설정할 수 있습니다.
+
     > [!Note]
-    > Windows Server 2008 및 2008 R2의 경우 서버에 WMF 3.0이 설치되어 있고 서버에 액세스하는 데 사용되는 도메인/로컬 계정이 성능 모니터 사용자, 성능 로그 사용자 및 WinRMRemoteWMIUsers 그룹에 추가되어 있는지 확인합니다.
-- Linux 서버의 경우, 검색하려는 Linux 서버의 루트 계정이 필요합니다. 또는 다음 명령을 사용하여 필요한 기능이 있는 비루트 계정을 설정할 수 있습니다.
+    > Windows Server 2008과 2008 R2의 경우 서버에 WMF 3.0이 설치되어 있는지 확인합니다.
+
+**Linux 서버**
+
+- 검색하려는 서버의 루트 계정이 필요합니다. 또는 sudo 권한이 있는 사용자 계정을 제공할 수 있습니다.
+- sudo 액세스 권한이 있는 사용자 계정 추가 지원은 2021년 7월 20일 이후에 포털에서 다운로드한 새 어플라이언스 설치 관리자 스크립트를 통해 기본적으로 제공됩니다.
+- 이전 어플라이언스의 경우 다음 단계를 수행하여 기능을 사용하도록 설정할 수 있습니다.
+    1. 어플라이언스를 실행하는 서버에서 레지스트리 편집기를 엽니다.
+    1. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance로 이동합니다.
+    1. DWORD 값이 1인 ‘isSudo’ 레지스트리 키를 만듭니다.
+
+    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="sudo 지원을 사용하도록 설정하는 방법을 보여 주는 스크린샷":::
+
+- 대상 서버에서 구성 및 성능 메타데이터를 검색하려면 [여기](migrate-appliance.md#linux-server-metadata)에 나열된 명령에 대한 sudo 액세스를 사용하도록 설정해야 합니다. sudo 명령이 호출될 때마다 암호를 묻는 메시지를 표시하지 않고 필수 명령을 실행하려면 계정에 대해 ‘NOPASSWD’를 사용하도록 설정했는지 확인합니다.
+- 다음 Linux OS 배포에서는 sudo 액세스 권한이 있는 계정을 사용한 Azure Migrate 검색이 지원됩니다.
+
+    운영 체제 | 버전 
+    --- | ---
+    Red Hat Enterprise Linux | 6, 7, 8
+    Cent OS | 6.6, 8.2
+    Ubuntu | 14.04, 16.04, 18.04
+    SUSE Linux | 11.4, 12.4
+    Debian | 7, 10
+    Amazon Linux | 2.0.2021
+    CoreOS Container | 2345.3.0
+
+- 루트 계정이나 sudo 액세스 권한이 있는 사용자 계정을 제공할 수 없는 경우 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance 레지스트리에서 ‘isSudo’ 레지스트리 키를 값 ‘0’으로 설정하고 다음 명령을 사용하여 필요한 기능을 포함하는 루트가 아닌 계정을 제공할 수 있습니다.
 
 **명령** | **용도**
 --- | --- |

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 07/19/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a01566341a1c5aa1700b68938410ee0c08c17ddd
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: a23fd4f764773dfa29e1abd20f4952cc86049c42
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747548"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464081"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft ID 플랫폼 및 OpenID Connect 프로토콜
 
@@ -26,6 +26,7 @@ OIDC(OpenID Connect)는 웹 애플리케이션에 사용자가 안전하게 로�
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 OAuth를 사용하여 Single Sign-On을 수행할 수 있도록 OAuth 2.0 *권한 부여* 프로토콜을 확장하여 *인증* 프로토콜로 사용합니다. OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 *ID 토큰* 의 개념을 소개합니다. ID 토큰은 사용자에 대한 기본 프로필 정보도 가져옵니다. 또한 사용자에 대한 정보를 반환하는 API인 [UserInfo 엔드포인트](userinfo.md)를 소개합니다. 
 
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram-sign-in"></a>프로토콜 다이어그램: 로그인
 
@@ -116,9 +117,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=678910
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
-| `tenant` | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본 사항](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
+| `tenant` | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본 사항](active-directory-v2-protocols.md#endpoints)을 참조하세요. 한 테넌트의 사용자를 다른 테넌트로 로그인하는 게스트 시나리오의 경우, 리소스 테넌트로 올바르게 로그인하려면 테넌트 식별자를 *반드시* 제공해야 합니다.|
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
 | `response_type` | 필수 | OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `code`와 같은 다른 `response_type` 값을 포함할 수도 있습니다. |
 | `redirect_uri` | 권장 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. 없는 경우, 엔드포인트가 사용자를 돌려보낼 하나의 등록된 redirect_uri를 임의로 선택합니다. |
@@ -127,7 +128,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | 권장 | 결과 권한 부여 코드를 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. `form_post` 또는 `fragment`일 수 있습니다. 웹 애플리케이션의 경우 애플리케이션에 대한 가장 안전한 토큰 전송을 보장하기 위해 `response_mode=form_post`를 사용하는 것이 좋습니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
 | `prompt` | 옵션 | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none`, `consent`, `select_account`뿐입니다. `prompt=login` 클레임은 사용자가 해당 요청에 자격 증명을 입력하도록 하여 Single-Sign On을 무효화합니다. `prompt=none` 매개 변수는 반대이며 로그인해야 하는 사용자를 나타내기 위해 `login_hint`와 쌍을 이루어야 합니다. 이러한 매개 변수는 사용자에게 어떤 대화형 메시지도 표시하지 않습니다. Single Sign-On을 통해 요청을 자동으로 완료할 수 없는 경우(사용자가 로그인하지 않았거나, 힌트가 지정된 사용자가 로그인하지 않았거나, 로그인한 사용자가 여러 명 있거나, 제공된 힌트가 없음) Microsoft ID 플랫폼에서 오류를 반환합니다. `prompt=consent` 클레임은 사용자가 로그인 한 후 OAuth 동의 대화 상자를 트리거합니다. 이 대화 상자에서는 앱에 권한을 부여하도록 사용자에게 요청합니다. 마지막으로 `select_account`는 사용자에게 계정 선택기를 표시하고 자동 SSO를 무효화하지만 사용자가 자격 증명을 입력하지 않고도 로그인할 계정을 선택할 수 있도록 합니다. `login_hint` 및 `select_account`는 함께 사용할 수 없습니다.|
-| `login_hint` | 옵션 | 사용자 이름을 미리 알고 있는 경우 이 매개 변수를 사용하여 사용자를 위해 로그인 페이지의 사용자 이름 및 전자 메일 주소 필드를 미리 채울 수 있습니다. 앱에서는 종종 `preferred_username` 클레임을 사용하여 이전 로그인에서 사용자 이름을 이미 추출한 후 재인증 과정에서 이 매개 변수를 사용합니다. |
+| `login_hint` | 옵션 | 사용자 이름을 미리 알고 있는 경우 이 매개 변수를 사용하여 사용자를 위해 로그인 페이지의 사용자 이름 및 전자 메일 주소 필드를 미리 채울 수 있습니다. 종종 앱은 이전 로그인에서 `login_hint` [선택적 클레임](active-directory-optional-claims.md)을 이미 추출한 후 재인증 과정에서 이 매개 변수를 사용합니다. |
 | `domain_hint` | 옵션 | 페더레이션된 디렉터리에 있는 사용자의 영역입니다.  사용자 경험을 보다 간소화하기 위해 로그인 페이지에서 사용자가 거치는 메일 기반 검색 프로세스를 건너뜁니다. AD FS와 같은 온-프레미스 디렉터리를 통해 페더레이션된 테넌트의 경우, 기존 로그인 세션으로 인해 원활한 로그인이 이루어지는 경우가 많습니다. |
 
 이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다. Microsoft ID 플랫폼은 사용자가 `scope` 쿼리 매개 변수에 표시된 사용 권한에 동의했는지 확인합니다. 사용자가 이러한 사용 권한에 동의하지 않은 경우 Microsoft ID 플랫폼은 필요한 사용 권한에 동의하라는 메시지를 표시합니다. [권한, 동의 및 다중 테넌트 앱](v2-permissions-and-consent.md)에 대해 자세히 알아볼 수 있습니다.
@@ -247,7 +248,7 @@ Content-Type: application/x-www-form-urlencoded
 
 응답 매개 변수는 해당 매개 변수를 획득하는 데 사용되는 흐름과 상관없이 동일한 작업을 의미합니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `access_token` | UserInfo 엔드포인트를 호출하는 데 사용되는 토큰입니다.|
 | `token_type` | 항상 “전달자”입니다. |
@@ -255,6 +256,8 @@ Content-Type: application/x-www-form-urlencoded
 | `scope` | 액세스 토큰에 부여되는 권한입니다.  UserInfo 엔드포인트는 MS Graph에서 호스트되므로 앱에 이전에 부여된 경우 여기에 나열된 추가 그래프 범위(예: user.읽기)가 있을 수 있음을 유의하세요.  지정된 리소스에 대한 토큰에는 항상 현재 클라이언트에 부여된 모든 사용 권한이 포함되기 때문입니다.  |
 | `id_token` | 앱이 요청한 ID 토큰입니다. ID 토큰을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. ID 토큰 및 해당 내용에 대한 자세한 내용은 [`id_tokens` 참조](id-tokens.md)에서 확인할 수 있습니다. |
 | `state` | state 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 앱은 요청 및 응답의 상태 값이 동일한지 확인해야 합니다. |
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### <a name="error-response"></a>오류 응답
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 546537003d599dc66f77ace31471e04c8cef2d43
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: d7424b6ad88bc7e77a4b7d191feb54658f67ff21
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854831"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220680"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Windows용 Key Vault 가상 머신 확장
 
@@ -110,7 +110,7 @@ Key Vault VM 확장은 Windows Server 2019 core 설치를 사용하여 Azure에�
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |
@@ -254,9 +254,9 @@ Azure CLI는 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vaul
 
    ```azurecli
         # Start the deployment
-        az vmss extension set -name "KeyVaultForWindows" `
+        az vmss extension set --name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -resource-group "<resourcegroup>" `
+         --resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
@@ -288,10 +288,16 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
 #### <a name="logs-and-configuration"></a>로그 및 구성
+Key Vault VM 확장 로그는 VM에 로컬로만 존재하며 문제 해결과 관련하여 가장 유용한 정보입니다.
 
-```
-%windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<version>\akvvm_service_<date>.log
-```
+|위치|Description|
+|--|--|
+| C:\WindowsAzure\Logs\WaAppAgent.log | 확장에 대한 업데이트가 발생한 시간을 표시합니다. |
+| C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\ | 인증서 다운로드 상태를 표시합니다. 다운로드 위치는 항상 Windows 컴퓨터의 MY 저장소(certlm.msc)입니다. |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\RuntimeSettings\ |   Key Vault VM 확장 서비스 로그는 akvvm_service 서비스의 상태를 표시합니다. |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\Status\  | Key Vault VM 확장 서비스의 구성 및 이진 파일 |
+|||  
+
 
 ### <a name="support"></a>지원
 

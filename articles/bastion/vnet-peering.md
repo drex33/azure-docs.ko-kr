@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 07/13/2021
 ms.author: cherylmc
-ms.openlocfilehash: d7f888c5bbb47a3690aee9b139d2516eb956a35f
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: ccbee86e8f5ae2ab514c8ec7ece4d41e1e890e4e
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110540388"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733289"
 ---
 # <a name="vnet-peering-and-azure-bastion"></a>VNet 피어링 및 Azure Bastion
 
@@ -48,7 +48,7 @@ VNet 피어링이 구성되면 Azure Bastion을 허브 및 스포크 또는 전�
 3. **연결** 드롭다운 메뉴에서 Bastion을 보려면 **구독 > 전역 구독** 에서 액세스할 수 있는 하위 항목을 선택해야 합니다.
 4. 연결할 가상 머신을 선택합니다.
 5. Azure Bastion은 피어링된 VNet에서 원활하게 검색됩니다.
-6. 한 번의 클릭으로 RDP/SSH 세션이 브라우저에서 열립니다. RDP 및 SSH 동시 세션 제한은 [RDP 및 SSH 세션](bastion-faq.md#limits)을 참조하세요.
+6. 한 번의 클릭으로 RDP/SSH 세션이 브라우저에서 열립니다.
 
   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="연결":::
 
@@ -59,7 +59,7 @@ VNet 피어링이 구성되면 Azure Bastion을 허브 및 스포크 또는 전�
 
 ## <a name="faq"></a>FAQ
 
-[!INCLUDE [FAQ for VNet peering](../../includes/bastion-faq-peering-include.md)]
+질문과 대답은 Bastion VNet 피어링 [FAQ](bastion-faq.md#peering)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

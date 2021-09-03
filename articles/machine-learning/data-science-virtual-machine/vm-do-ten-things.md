@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 9df1304cd127f15d948fba3e498f6fbfbce30557
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e4e4a7169d7550523fb2e712560d1bdf86197558
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701012"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112679137"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Windows Data Science Virtual Machine을 사용하는 데이터 과학
 
@@ -49,7 +49,7 @@ DSVM은 Azure 서비스와 긴밀하게 작동합니다. 이미 Azure, Azure Syn
 
 
 ## <a name="use-jupyter-notebooks"></a>Jupyter Notebook 사용
-Jupyter Notebook은 데이터 검색 및 모델링을 위한 브라우저 기반 "IDE"를 제공합니다. Python 2, Python 3 또는 R(오픈 소스 및 Microsoft R Server 모두)은 Jupyter Notebook에서 사용할 수 있습니다.
+Jupyter Notebook은 데이터 검색 및 모델링을 위한 브라우저 기반 "IDE"를 제공합니다. Jupyter Notebook에서 Python 2, Python 3 또는 R을 사용할 수 있습니다.
 
 Jupyter Notebook을 시작하려면 **시작** 메뉴 또는 바탕 화면에서 **Jupyter Notebook** 아이콘을 선택합니다. DSVM 명령 프롬프트에서 기존 Notebook이 있거나 새 Notebook을 만들려는 디렉터리에서 ```jupyter notebook``` 명령을 실행할 수도 있습니다.  
 
@@ -68,6 +68,10 @@ Jupyter가 시작되면 DSVM에 미리 패키지된 예제 Notebook에 대한 `/
 Notebook에 있는 경우 선택한 라이브러리를 사용하여 데이터를 검색하고, 모델을 빌드하고, 모델을 테스트할 수 있습니다.
 
 ## <a name="explore-data-and-develop-models-with-microsoft-machine-learning-server"></a>Microsoft Machine Learning Server를 사용하여 데이터 검색 및 모델 개발
+
+> [!NOTE]
+> Machine Learning Server 독립 실행형에 대한 지원은 2021년 7월 1일에 종료됩니다. 6월 30일 이후에 DSVM 이미지에서 이를 제거합니다. 기존 배포는 계속해서 소프트웨어에 액세스할 수 있지만, 2021년 7월 1일 이후에는 지원이 종료되기 때문에 이를 지원하지 않습니다.
+
 R 및 Python 같은 언어를 사용하여 DSVM에서 바로 데이터를 분석할 수 있습니다.
 
 R의 경우 시작 메뉴 또는 바탕 화면에서 찾을 수 있는 RStudio와 같은 IDE를 사용할 수 있습니다. 또는 Visual Studio용 R 도구를 사용할 수 있습니다. Microsoft는 확장 가능한 분석 및 병렬 청크 분석에서 허용되는 메모리 크기보다 큰 데이터를 분석할 수 있는 기능을 사용할 수 있도록 오픈 소스 CRAN R 기반의 추가 라이브러리를 제공했습니다. 
@@ -254,7 +258,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ### <a name="azure-synapse-analytics-and-databases"></a>Azure Synapse Analytics 및 데이터베이스
 Azure Synapse Analytics는 엔터프라이즈급 SQL Server 환경을 갖춘 탄력적인 서비스 제공 데이터 웨어하우스입니다.
 
-[이 문서](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)의 지침에 따라 Azure Synapse Analytics를 프로비저닝할 수 있습니다. Azure Synapse Analytics가 프로비저닝되면 [이 연습](../team-data-science-process/sqldw-walkthrough.md)을 통해 Azure Synapse Analytics 내에서 데이터를 사용하여 데이터 업로드, 검색 및 모델링을 수행할 수 있습니다.
+[이 문서](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)의 지침에 따라 Azure Synapse Analytics를 프로비저닝할 수 있습니다. Azure Synapse Analytics가 프로비저닝되면 [이 연습](/azure/architecture/data-science-process/sqldw-walkthrough)을 통해 Azure Synapse Analytics 내에서 데이터를 사용하여 데이터 업로드, 검색 및 모델링을 수행할 수 있습니다.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB는 클라우드의 NoSQL 데이터베이스입니다. 이를 사용하여 JSON과 같은 문서로 작업하고, 이러한 문서를 저장 및 쿼리할 수 있습니다.

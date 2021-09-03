@@ -1,5 +1,5 @@
 ---
-title: MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 요약
+title: 'MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 요약'
 description: 이 문서에서는 온-프레미스 MySQL에서 Azure Database for MySQL로 애플리케이션을 마이그레이션하는 것과 관련된 몇 가지 항목을 설명했습니다.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 06885636d299fa406550f9bd332724e2e01d775f
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: b06b7700bb1781f400bae11633bb0d9bff00202a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112083012"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113084505"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-summary"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 요약
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-summary"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 요약
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

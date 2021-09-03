@@ -4,12 +4,12 @@ description: 새 Azure Monitor Application Insights 작업 영역 기반 리소�
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0ae01212eaa73deeac4774f7e13f5b46976ee7e2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 21cf89c7d89e310f98fea4421076d298405b6fc3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075595"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114464463"
 ---
 # <a name="workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스
 
@@ -24,10 +24,10 @@ ms.locfileid: "110075595"
 
 작업 영역 기반 Application Insights를 사용하면 다음과 같은 Azure Monitor 및 Log Analytics의 최신 기능을 활용할 수 있습니다.
 
-* [CMK](../logs/customer-managed-keys.md)(고객 관리형 키)는 사용자만 액세스할 수 있는 암호화 키를 사용하여 미사용 데이터에 대한 암호화를 제공합니다.
+* [CMK(고객 관리형 키)](../logs/customer-managed-keys.md)는 사용자만 액세스할 수 있는 암호화 키를 사용하여 미사용 데이터에 대한 암호화를 제공합니다.
 * [Azure Private Link](../logs/private-link-security.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다.
 * [프로파일러 및 스냅샷 디버거에 대한 BYOS(사용자 고유 스토리지)](./profiler-bring-your-own-storage.md)를 사용하면 Application Insights Profiler 및 스냅샷 디버거와 연결된 모든 데이터에 대한 미사용 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 완벽하게 제어할 수 있습니다. 
-* [용량 예약 계층](../logs/manage-cost-storage.md#pricing-model)을 사용하면 종량제 가격에 비해 비용을 25%를 절약할 수 있습니다. 
+* [약정 계층](../logs/manage-cost-storage.md#pricing-model)을 사용하면 종량제 가격에 비해 비용을 30%를 절약할 수 있습니다. 
 * Log Analytics 스트리밍 수집을 통해 데이터를 더 빨리 수집합니다.
 
 ## <a name="create-workspace-based-resource"></a>작업 영역 기반 리소스 만들기

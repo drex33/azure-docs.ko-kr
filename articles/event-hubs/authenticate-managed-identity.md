@@ -2,14 +2,14 @@
 title: Azure Active Directory를 사용하여 관리 ID 인증
 description: 이 문서에서는 Azure Event Hubs 리소스에 액세스하기 위해 Azure Active Directory를 사용하여 관리 ID를 인증하는 방법을 설명합니다
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/14/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 85648a5448420f3f25061142bf1f23e06de492b2
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98805280"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119965"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Azure Active Directory를 사용해 관리 ID를 인증하여 Event Hubs 리소스에 액세스
 Azure Event Hubs는 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하는 Azure Active Directory (Azure AD) 인증을 지원합니다. Azure 리소스에 대한 관리 ID는 Azure Virtual Machines(VM), 함수 앱, Virtual Machine Scale Sets 및 기타 서비스에서 실행되는 응용 프로그램의 Azure AD 자격 증명을 사용하여 Event Hubs 리소스에 대한 액세스 권한을 부여할 수 있습니다. Azure AD 인증과 함께 Azure 리소스에 대한 관리 ID를 사용하면 클라우드에서 실행되는 응용 프로그램에 자격 증명을 저장할 필요가 없습니다.
@@ -33,11 +33,11 @@ Azure 역할을 할당하는 방법에 대한 자세한 내용은 [Event Hubs �
 ## <a name="use-event-hubs-with-managed-identities"></a>Event Hubs에서 관리 ID 사용
 관리 ID에 Event Hubs를 사용하려면 ID에 역할 및 적절한 범위를 할당해야 합니다. 이 섹션의 절차에서는 관리 ID로 실행되고 Event Hubs 리소스에 액세스하는 간단한 응용 프로그램을 사용합니다.
 
-여기서는 [Azure App Service](https://azure.microsoft.com/services/app-service/)에서 호스팅되는 샘플 웹 응용 프로그램을 사용합니다. 웹 응용 프로그램을 만드는 방법에 대한 단계별 지침은 [Azure에서 ASP.NET Core 웹앱 만들기](../app-service/quickstart-dotnetcore.md) 를 참조하세요
+여기서는 [Azure App Service](https://azure.microsoft.com/services/app-service/)에서 호스팅되는 샘플 웹 응용 프로그램을 사용합니다. 웹 애플리케이션을 만드는 방법에 대한 단계별 지침은 [Azure에서 ASP.NET Core 웹앱 만들기](../app-service/quickstart-dotnetcore.md)를 참조하세요.
 
-응용 프로그램이 생성되면 다음 단계를 수행합니다. 
+애플리케이션이 생성되면 다음 단계를 수행합니다. 
 
-1. **설정으로** 이동하고 **ID** 를 선택합니다. 
+1. **설정** 으로 이동하고 **ID** 를 선택합니다. 
 1. **상태** 를 **켜짐** 으로 선택합니다. 
 1. **저장** 을 선택하여 설정을 저장합니다. 
 
@@ -49,28 +49,10 @@ Azure 역할을 할당하는 방법에 대한 자세한 내용은 [Event Hubs �
     이제 Event Hubs 리소스에서 필요한 범위의 역할에 이 서비스 ID를 할당합니다.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할을 할당하려면
-Event Hubs 리소스에 역할을 할당하려면 Azure Portal에서 해당 리소스로 이동합니다. 리소스에 대한 액세스 제어(IAM) 설정을 표시하고 다음 지침에 따라 역할 할당을 관리합니다.
+원하는 범위(Event Hubs 네임스페이스, 리소스 그룹, 구독)에서 관리 ID에 [Event Hubs 역할](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) 중 하나를 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 > [!NOTE]
-> 다음 단계에서는 Event Hubs 네임스페이스에 서비스 ID 역할을 할당합니다. 동일한 단계를 수행하여 Event Hubs 리소스에 범위가 지정된 역할을 할당할 수 있습니다. 
-
-1. Azure Portal에서 Event Hubs 네임스페이스로 이동하여 네임스페이스의 **개요** 를 표시합니다. 
-1. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택하여 이벤트 허브에 대한 액세스 제어 설정을 표시합니다.
-1.  **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
-3.  **추가** 를 선택한 다음 **역할 할당 추가***를 선택합니다.
-4.  **역할 할당 추가** 페이지에서 다음 단계를 수행합니다.
-    1. **역할** 에서 할당하려는 Event Hubs 역할을 선택합니다. 이 예제에서는 **Azure Event Hubs 데이터 소유자** 입니다.
-    1. **액세스 할당** 필드에서는 **App Service** 를 **시스템이 할당한 관리 ID** 아래에서 선택합니다. 
-    1. 웹앱의 관리 ID가 생성된 **구독** 을 선택합니다.
-    1. 만든 웹앱에 대한 **관리 ID** 를 선택합니다. ID의 기본 이름은 웹앱의 이름과 동일합니다. 
-    1. 그런 다음 **저장** 을 선택합니다. 
-    
-        ![역할 할당 추가 페이지](./media/authenticate-managed-identity/add-role-assignment-page.png)
-
-    역할을 할당하면 웹 응용 프로그램은 정의된 범위에서 Event Hubs 리소스에 액세스할 수 있습니다. 
-
-    > [!NOTE]
-    > 관리 ID를 지원하는 서비스 목록은 [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 참조하세요.
+> 관리 ID를 지원하는 서비스 목록은 [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 참조하세요.
 
 ### <a name="test-the-web-application"></a>웹 애플리케이션 테스트
 1. Event Hubs 네임스페이스 및 이벤트 허브 만들기 

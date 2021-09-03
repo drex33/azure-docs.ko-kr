@@ -2,23 +2,22 @@
 title: Azure에서 BareMetal Infrastructure 인스턴스 연결
 description: Azure Portal 또는 Azure CLI에서 BareMetal 인스턴스를 식별하고 상호 작용하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.subservice: workloads
-ms.date: 04/06/2021
-ms.openlocfilehash: 8f28579a83c45692e5d1eade2e4632ff8c1c8e42
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 07/13/2021
+ms.openlocfilehash: b9f5de92ed213d987c7dfac5b3e48f9b565bfff5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139618"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113767146"
 ---
 # <a name="connect-baremetal-infrastructure-instances-in-azure"></a>Azure에서 BareMetal Infrastructure 인스턴스 연결
 
-이 문서에서는 [Azure Portal](https://portal.azure.com/)에 [BareMetal 인스턴스](concepts-baremetal-infrastructure-overview.md)를 표시하는 방법을 보여줍니다. 이 문서에서는 배포된 BareMetal Infrastructure 인스턴스를 사용하여 Azure Portal에서 수행할 수 있는 작업도 보여줍니다. 
+이 문서에서는 배포된 BareMetal Infrastructure 인스턴스를 사용하여 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있는 작업을 보여 줍니다. 
  
 ## <a name="register-the-resource-provider"></a>리소스 공급자 등록
-BareMetal 인스턴스에 대한 Azure 리소스 공급자는 Azure Portal의 인스턴스를 표시합니다. 기본적으로 BareMetal 인스턴스 배포에 사용하는 Azure 구독에서는 *BareMetalInfrastructure* 리소스 공급자를 등록합니다. 배포된 BareMetal 인스턴스가 표시되지 않는 경우 구독에 리소스 공급자를 등록해야 합니다. 
+BareMetal 인스턴스에 대한 Azure 리소스 공급자를 사용하면 Azure Portal에서 인스턴스를 볼 수 있습니다. 기본적으로 BareMetal 인스턴스 배포에 사용하는 Azure 구독에서는 *BareMetalInfrastructure* 리소스 공급자를 등록합니다. 배포된 BareMetal 인스턴스가 표시되지 않는 경우 구독에 리소스 공급자를 등록합니다. 
 
-Azure Portal 또는 Azure CLI를 사용하여 BareMetal 인스턴스 리소스 공급자를 등록할 수 있습니다.
+Azure Portal 또는 Azure CLI(명령줄 인터페이스)를 사용하여 BareMetal 인스턴스 리소스 공급자를 등록할 수 있습니다.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
  
@@ -61,11 +60,11 @@ az provider register --namespace Microsoft.BareMetalInfrastructure
  
 BareMetal 인스턴스 배포 요청을 제출하는 경우 BareMetal 인스턴스에 연결할 Azure 구독을 지정합니다. BareMetal 인스턴스에 대해 작동하는 애플리케이션 계층을 배포하는 데 사용하는 것과 동일한 구독을 사용합니다.
  
-BareMetal 인스턴스를 배포하는 동안 배포 요청에 사용한 Azure 구독에 새 [Azure 리소스 그룹](../azure-resource-manager/management/manage-resources-portal.md)이 생성됩니다. 이 새 리소스 그룹에는 해당 구독에 배포한 모든 BareMetal 인스턴스가 나열됩니다.
+BareMetal 인스턴스를 배포하는 동안 배포 요청에 사용한 Azure 구독에 새 [Azure 리소스 그룹](../azure-resource-manager/management/manage-resources-portal.md)이 만들어집니다. 이 새 리소스 그룹에는 해당 구독에 배포한 모든 BareMetal 인스턴스가 나열됩니다.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. BareMetal 구독의 Azure Portal에서 **리소스 그룹** 을 선택합니다.
+1. Azure Portal의 BareMetal 구독에서 **리소스 그룹** 을 선택합니다.
  
    :::image type="content" source="media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="리소스 그룹 목록을 보여주는 스크린샷":::
 
@@ -120,7 +119,7 @@ BareMetal 인스턴스 목록에서 보려는 단일 인스턴스를 선택합�
 >Rev 4.2는 기존 Rev 4 아키텍처를 사용하는 완전히 새로워진 최신 BareMetal 인프라입니다. Rev 4는 Azure VM(가상 머신) 호스트에 더 가까운 근접성을 제공합니다. Azure VM과 SAP HANA 인스턴스 간의 네트워크 대기 시간이 크게 향상되었습니다. Azure Portal을 통해 BareMetal 인스턴스에 액세스하고 이를 관리할 수 있습니다. 자세한 내용은 [Azure 기반 BareMetal 인프라](concepts-baremetal-infrastructure-overview.md)를 참조하세요.
 
  
-또한 오른쪽에는 배포된 각 BareMetal 인스턴스에 대해 자동으로 생성되는 [Azure 근접 배치 그룹](../virtual-machines/co-location.md)의 이름이 있습니다. 애플리케이션 계층을 호스트하는 Azure VM을 배포할 때 근접 배치 그룹을 참조합니다. BareMetal 인스턴스와 연결된 근접 배치 그룹을 사용하는 경우 Azure VM이 BareMetal 인스턴스에 가깝게 배포되도록 합니다.
+또한 오른쪽에 [Azure 근접 배치 그룹](../virtual-machines/co-location.md)의 이름이 있습니다. 배치 그룹 이름은 각 배치 Bare Metal 인스턴스에 대해 자동으로 만들어집니다. 애플리케이션 계층을 호스트하는 Azure VM을 배포할 때 근접 배치 그룹을 참조합니다. BareMetal 인스턴스와 연결된 근접 배치 그룹을 사용하여 Azure VM이 BareMetal 인스턴스에 가깝게 배포되도록 합니다.
  
 >[!TIP]
 >수정 버전 4.x와 동일한 Azure 데이터 센터에서 애플리케이션 계층을 찾으려면 [최적의 네트워크 대기 시간을 위한 Azure 근접 배치 그룹](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md)을 참조하세요.
@@ -143,7 +142,7 @@ az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabds
  
 :::image type="content" source="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="BareMetal 인스턴스 활동을 보여주는 스크린샷" lightbox="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
  
-Azure의 인스턴스 메타데이터에 대한 변경 내용도 활동 로그에 기록됩니다. 다시 시작하는 것 외에도 **BareMetallnstances 쓰기** 활동을 볼 수 있습니다. 이 활동은 BareMetal 인스턴스 자체를 변경하지 않고 Azure에서 장치의 메타데이터에 대한 변경 내용을 문서화합니다.
+Azure의 인스턴스 메타데이터에 대한 변경 내용도 활동 로그에 기록됩니다. 다시 시작 외에도 **BareMetalInstances 쓰기** 작업을 볼 수 있습니다. 이 활동은 BareMetal 인스턴스 자체를 변경하지 않고 Azure에서 장치의 메타데이터에 대한 변경 내용을 문서화합니다.
  
 [태그](../azure-resource-manager/management/tag-resources.md)를 인스턴스에 추가하거나 삭제하는 경우에도 활동이 기록됩니다.
  
@@ -153,7 +152,7 @@ Azure의 인스턴스 메타데이터에 대한 변경 내용도 활동 로그�
  
 BareMetal 인스턴스에 Azure 태그를 추가하거나 삭제할 수 있습니다. 태그는 VM에 태그를 할당할 때와 마찬가지로 할당됩니다. VM과 마찬가지로 태그는 Azure 메타데이터에 존재합니다. 태그에는 BareMetal 인스턴스에 대해 VM과 동일한 제한이 있습니다.
  
-태그 삭제도 VM과 동일한 방식으로 작동합니다. 태그를 적용하고 삭제하는 작업이 BareMetal 인스턴스의 활동 로그에 나열됩니다.
+태그 삭제도 VM과 동일한 방식으로 작동합니다. 태그를 적용하는 작업 및 삭제하는 작업이 BareMetal 인스턴스의 활동 로그에 나열됩니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -175,9 +174,16 @@ az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllab
 
 ## <a name="check-properties-of-an-instance"></a>인스턴스의 속성 확인
  
-인스턴스를 획득할 때 속성 섹션으로 이동하여 인스턴스에 대해 수집된 데이터를 볼 수 있습니다. 수집된 데이터에는 Azure 연결, 스토리지 백 엔드, ExpressRoute 회로 ID, 고유 리소스 ID, 구독 ID가 포함됩니다. 이 정보는 지원 요청에 사용하거나 스토리지 스냅샷 구성을 설정할 때 사용합니다.
+인스턴스를 획득할 때 속성 섹션으로 이동하여 인스턴스에 대해 수집된 데이터를 볼 수 있습니다. 수집된 데이터에는 다음이 포함됩니다.
+- Azure 연결
+- 스토리지 백 엔드
+- ExpressRoute 회로 ID
+- 고유 리소스 ID
+- 구독 ID가 표시됩니다. 
+
+이 정보는 지원 요청에 사용하거나 스토리지 스냅샷 구성을 설정할 때 사용합니다.
  
-표시되는 또 다른 중요한 부분은 스토리지 NFS IP 주소입니다. 이것은 BareMetal 인스턴스 스택에서 스토리지를 **테넌트** 로 격리합니다. [스토리지 스냅샷 백업을 위한 구성 파일](../virtual-machines/workloads/sap/hana-backup-restore.md#set-up-storage-snapshots)을 편집할 때 이 IP 주소를 사용합니다.
+표시되는 또 다른 중요한 부분은 스토리지 NFS IP 주소입니다. 이것은 BareMetal 인스턴스 스택에서 스토리지를 **테넌트** 로 격리합니다. [Azure 애플리케이션 일치 스냅샷 도구 구성](../azure-netapp-files/azacsnap-cmd-ref-configure.md)을 편집할 때 이 IP 주소를 사용합니다.
  
 :::image type="content" source="media/connect-baremetal-infrastructure/baremetal-instance-properties.png" alt-text="BareMetal 인스턴스 속성 설정을 보여주는 스크린샷" lightbox="media/connect-baremetal-infrastructure/baremetal-instance-properties.png":::
  
@@ -241,6 +247,7 @@ BareMetal 인스턴스에 대해 지원 요청을 제출할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-워크로드에 대해 자세히 알아보기:
+BareMetal 인프라의 워크로드에 대해 자세히 알아봅니다.
 
-- [SAP HANA on Azure(대규모 인스턴스)란?](../virtual-machines/workloads/sap/hana-overview-architecture.md)
+> [!div class="nextstepaction"]
+> [SAP HANA on Azure(대규모 인스턴스)란?](../virtual-machines/workloads/sap/hana-overview-architecture.md)

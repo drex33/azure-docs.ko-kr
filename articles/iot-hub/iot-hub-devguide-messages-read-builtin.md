@@ -2,21 +2,20 @@
 title: Azure IoT Hub 기본 제공 엔드포인트 이해 | Microsoft Docs
 description: 개발자 가이드에서는 기본 제공 Event Hub 호환 엔드포인트를 사용하여 디바이스-클라우드 메시지를 읽는 방법을 설명합니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/16/2021
 ms.custom:
 - amqp
 - 'Role: Cloud Development'
-ms.openlocfilehash: f98bf2cc4fb4946f6e4609db7a1428dd153cbc84
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: eb90f48c78e98284268806aa6f1698a94f57fb4c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787332"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566436"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
 
@@ -53,7 +52,7 @@ IoT Hub를 인식하지 않는 Event Hubs SDK 또는 제품 통합을 사용하�
 
 포털에서 Event Hub 호환 엔드포인트 필드에는 다음과 같은 전체 Event Hubs 연결 문자열이 포함되어 있습니다. **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456** 사용하는 SDK에 다른 값이 필요한 경우 다음과 같습니다.
 
-| 속성 | 값 |
+| Name | 값 |
 | ---- | ----- |
 | 엔드포인트 | sb://abcd1234namespace.servicebus.windows.net/ |
 | Hostname | abcd1234namespace.servicebus.windows.net |
@@ -65,25 +64,36 @@ IoT Hub에서 공개하는 기본 제공 Event Hub 호환 엔드포인트에 연
 
 | 언어 | SDK) | 예제 |
 | -------- | --- | ------ |
-| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [빠른 시작](quickstart-send-telemetry-dotnet.md) |
-| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [빠른 시작](quickstart-send-telemetry-java.md) |
-| Node.js | https://www.npmjs.com/package/@azure/event-hubs | [빠른 시작](quickstart-send-telemetry-node.md) |
-| Python | https://pypi.org/project/azure-eventhub/ | [빠른 시작](quickstart-send-telemetry-python.md) |
+| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [빠른 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [빠른 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) |
+| Node.js | https://www.npmjs.com/package/@azure/event-hubs | [빠른 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) |
+| Python | https://pypi.org/project/azure-eventhub/ | [빠른 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) |
 
 IoT Hub에서 공개하는 기본 제공 Event Hub 호환 엔드포인트에 사용할 수 있는 제품 통합은 다음과 같습니다.
 
-* [Azure Functions](../azure-functions/index.yml). [Azure Functions를 사용하여 IoT Hub에서 데이터 처리](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/) 참조
+* [Azure Functions](../azure-functions/index.yml). [Azure Functions에 대한 Azure IoT Hub 바인딩](../azure-functions/functions-bindings-event-iot.md)을 참조하세요.
 * [Azure Stream Analytics](../stream-analytics/index.yml) - [Stream Analytics에 입력으로 데이터 스트리밍](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub) 참조
 * [Time Series Insights](../time-series-insights/index.yml). [Time Series Insights 환경에 IoT 허브 이벤트 원본 추가](../time-series-insights/how-to-ingest-data-iot-hub.md) 참조
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). GitHub의 [spout 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 을 볼 수 있습니다.
 * [Apache Spark 통합](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Azure Databricks](/azure/azure-databricks/).
 
+## <a name="use-amqp-ws-or-a-proxy-with-event-hubs-sdks"></a>AMQP-WS 또는 Event Hubs SDK와 함께 프록시 사용
+
+Event Hubs SDK를 사용하여 WebSocket을 통한 AMQP 또는 프록시를 통한 읽기가 필요한 환경에서 기본 제공 엔드포인트에서 읽을 수 있습니다. 자세한 내용은 다음 샘플을 참조하세요.
+
+| 언어 | 샘플 |
+| -------- | ------ |
+| .NET | [ReadD2cMessages .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Quickstarts/ReadD2cMessages) |
+| Java | [read-d2c-messages Java](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
+| Node.js | [read-d2c-messages Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
+| Python | [read-dec-messages Python](https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
+
 ## <a name="next-steps"></a>다음 단계
 
 * IoT Hub 엔드포인트에 대한 자세한 내용은 [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md)를 참조하세요.
 
-* [빠른 시작](quickstart-send-telemetry-node.md)에서는 시뮬레이트된 디바이스에서 디바이스-클라우드 메시지를 보내고 기본 제공 엔드포인트에서 메시지를 읽는 방법을 보여 줍니다. 
+* [빠른 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)에서는 시뮬레이트된 디바이스에서 디바이스-클라우드 메시지를 보내고 기본 제공 엔드포인트에서 메시지를 읽는 방법을 보여 줍니다. 
 
 자세한 내용은 [경로를 사용하여 IoT Hub 디바이스-클라우드 메시지 처리](tutorial-routing.md) 자습서를 참조하세요.
 

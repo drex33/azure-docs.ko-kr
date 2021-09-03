@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: kegorman
 ms.reviewer: tigorman
-ms.openlocfilehash: 6e59d0065dfa74979bf3bbc72458bda516e3b641
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28c4e7ce7b6910ec1950350ee301e16fa54d4c02
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669980"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461609"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
@@ -154,7 +154,7 @@ VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요
 - 네트워크 성능을 향상시키려면 [가속화된 네트워킹](../../../virtual-network/create-vm-accelerated-networking-cli.md)을 사용하는 Virtual Machines를 사용합니다.
 - 특정 Linux 배포판의 경우 [TRIM/UNMAP 지원](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support)을 사용하도록 설정하는 것이 좋습니다.
 - 별도의 Virtual Machine에 [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html)를 설치합니다.
-- 기본적으로 큰 페이지는 linux에서 사용하도록 설정되지 않습니다. 큰 페이지를 사용하도록 설정하고 Oracle DB에 `use_large_pages = ONLY`를 설정하는 것이 좋습니다. 이렇게 하면 성능을 향상시킬 수 있습니다. 자세한 내용은 [여기](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)를 참조하세요.
+- 기본적으로 큰 페이지는 linux에서 사용하도록 설정되지 않습니다. 큰 페이지를 사용하도록 설정하고 Oracle DB에 `use_large_pages = ONLY`를 설정하는 것이 좋습니다. 이렇게 하면 성능을 향상시킬 수 있습니다. 자세한 내용은 [USE_LARGE_PAGES](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)를 참조하세요.
 
 ### <a name="disk-types-and-configurations"></a>디스크 형식 및 구성
 

@@ -10,12 +10,12 @@ ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2e0f0dfbd834e5ca8e339057a002259d35eefc1e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f48e40ca5f3bc440350fb92d778295c43c9ba5ef
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669344"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205135"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>PowerShell을 사용하여 Shared Image Gallery에서 관리 디스크 또는 스냅샷에서 이미지 만들기
 
@@ -107,6 +107,10 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
+
+> [!NOTE]
+> 타사 이미지에서 파생된 이미지를 포함할 이미지 정의의 경우 계획 정보는 타사 이미지의 계획 정보와 정확히 일치해야 합니다. 이미지 정의를 만들 때 `-PurchasePlanName`, `-PurchasePlanProduct` 및 `-PurchasePlanPublisher`를 추가하여 이미지 정의에 계획 정보를 포함합니다.
+>
 
 ### <a name="purchase-plan-information"></a>구매 계획 정보
 

@@ -11,12 +11,12 @@ ms.topic: guide
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 04/16/2019
-ms.openlocfilehash: 155c87c1f5343e583beb226c2eb5416d782fcfb9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: dafe702121934a1267f01a861932dc49361e5258
+ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963188"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114688553"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Azure SQL Managed Instance 콘텐츠 참조
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "111963188"
 
 ## <a name="load-data"></a>데이터 로드
 
-- [Azure SQL Managed Instance로 마이그레이션](migrate-to-instance-from-sql-server.md): Azure SQL Managed Instance로 마이그레이션하기 위한 권장되는 마이그레이션 프로세스와 도구에 대해 알아봅니다.
+- [SQL Server에서 Azure SQL Managed Instance로 마이그레이션 가이드](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md): Azure SQL Managed Instance로 마이그레이션하기 위한 권장되는 마이그레이션 프로세스와 도구에 대해 알아봅니다.
 - [Azure SQL Managed Instance로 TDE 인증서 마이그레이션](tde-certificate-migrate.md): SQL Server 데이터베이스가 TDE(투명한 데이터 암호화)로 보호되는 경우 Azure에서 복원하려는 백업의 암호를 해독하는 데 SQL Managed Instance가 사용할 수 있는 인증서를 마이그레이션해야 합니다.
 - [BACPAC에서 DB 가져오기](../database/database-import.md)
 - [BACPAC로 DB 내보내기](../database/database-export.md)

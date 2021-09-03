@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: 36d45cf5b972feaecb8563f28e931cb344dcc36d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a01687cc518659e7efedd51749b305fc3ce50de3
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080384"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568152"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 프라이빗 엔드포인트 DNS 구성
 
@@ -44,8 +44,10 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 |---|---|---|
 | Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database(Microsoft.Sql/servers) / sqlServer | privatelink.database.windows.net | database.windows.net |
-| Azure Synapse Analytics(Microsoft.Sql/servers) / sqlServer  | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
+| Azure Synapse Analytics(Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sql.azuresynapse.net | sqlondemand.azuresynapse.net |
+| Azure Synapse Analytics(Microsoft.Synapse/workspaces) / Dev  | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
+| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) / Web | privatelink.azuresynapse.net | azuresynapse.net |
 | 스토리지 계정(Microsoft.Storage/storageAccounts) / Blob(blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
 | 스토리지 계정(Microsoft Storage/storageAccounts) / 테이블(table, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
 | 스토리지 계정(Microsoft.Storage/storageAccounts) / 큐(queue, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |
@@ -57,6 +59,7 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Cosmos DB(Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
 | Azure Cosmos DB(Microsoft.AzureCosmosDB/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
 | Azure Cosmos DB(Microsoft.AzureCosmosDB/databaseAccounts) / Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+| Azure Batch(Microsoft.Batch/batchAccounts) / 배치 계정 | privatelink.{region}.batch.azure.com | {region}.batch.azure.com |
 | Azure Database for PostgreSQL - 단일 서버(Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 | Azure Database for MySQL(Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Azure Database for MariaDB(Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
@@ -65,8 +68,8 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Search(Microsoft.Search/searchServices)/searchService | privatelink.search.windows.net | search.windows.net |
 | Azure Container Registry(Microsoft.ContainerRegistry/registries) / 레지스트리 | privatelink.azurecr.io | azurecr.io |
 | Azure App Configuration(Microsoft.AppConfiguration/configurationStores) / configurationStores | privatelink.azconfig.io | azconfig.io |
-| Azure Backup(Microsoft.RecoveryServices/vaults) / 자격 증명 모음 | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
-| Azure Site Recovery(Microsoft.RecoveryServices/vaults) / 자격 증명 모음 | {region}.privatelink.siterecovery.windowsazure.com | {region}.hypervrecoverymanager.windowsazure.com |
+| Azure Backup (Microsoft.RecoveryServices/vaults) / AzureBackup | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
+| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | {region}.privatelink.siterecovery.windowsazure.com | {region}.hypervrecoverymanager.windowsazure.com |
 | Azure Event Hubs(Microsoft.EventHub/namespaces) / 네임스페이스 | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus(Microsoft.ServiceBus/namespaces) / 네임스페이스 | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure IoT Hub(Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
@@ -76,12 +79,16 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Web Apps(Microsoft.Web/sites) / 사이트 | privatelink.azurewebsites.net | azurewebsites.net |
 | Azure Machine Learning(Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net |
 | SignalR(Microsoft.SignalRService/SignalR) / signalR | privatelink.service.signalr.net | service.signalr.net |
-| Azure Monitor(Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
+| Azure Monitor(Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net |
 | Cognitive Services(Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Azure 파일 동기화(Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.net  |  afs.azure.net  |
 | Azure Data Factory(Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
 | Azure Data Factory(Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Azure Cache for Redis(Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
+| Azure Cache for Redis Enterprise(Microsoft.Cache/RedisEnterprise)/redisCache | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
+| Azure Purview(Microsoft.Purview)| privatelink.purview.azure.com | purview.azure.com |
+| Azure Digital Twins (Microsoft.DigitalTwins) / digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
+
 
 <sup>1</sup>IoT Hub의 기본 제공 Event Hub 호환 엔드포인트에 사용합니다. 자세한 내용은 [IoT Hub의 기본 제공 엔드포인트에 대한 프라이빗 링크](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)를 참조하세요.
 

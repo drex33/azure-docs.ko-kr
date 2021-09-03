@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e51cb6faf51484944fc3f8fa739b76d50411feac
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 92e9c22712fdbfae5ab13a23cf72e282a225288a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745346"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535990"
 ---
 # <a name="specify-a-face-recognition-model"></a>얼굴 인식 모델 지정
 
@@ -39,7 +39,7 @@ AI 얼굴 감지 및 식별의 개념에 대해 잘 알고 있어야 합니다. 
 
 * [얼굴 감지 개념](../concepts/face-detection.md)
 * [얼굴 인식 개념](../concepts/face-recognition.md)
-* [이미지에서 얼굴을 감지하는 방법](HowtoDetectFacesinImage.md)
+* [검색 API 호출](HowtoDetectFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>지정된 모델을 사용하여 얼굴 감지
 
@@ -116,7 +116,7 @@ await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognit
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 다양한 Face 서비스 API와 함께 사용할 인식 모델을 지정하는 방법을 배웠습니다. 다음에는 얼굴 감지 사용을 시작하는 빠른 시작을 진행하세요.
+이 문서에서는 다양한 Face 서비스 API와 함께 사용할 인식 모델을 지정하는 방법을 배웠습니다. 다음에는 얼굴 감지로 시작하는 빠른 시작을 진행하세요.
 
 * [Face .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)

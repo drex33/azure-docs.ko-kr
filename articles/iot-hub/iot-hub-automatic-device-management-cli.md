@@ -5,20 +5,20 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 07/08/2021
 ms.author: robinsh
-ms.openlocfilehash: 0b8b499613f8234f449e6d72f6ed6ec1f2f21287
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abbef6e0e244f7cfc937f738c7c2d0acd89549dd
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92545415"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114205203"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Azure CLI를 사용한 자동 IoT 디바이스 및 모듈 관리
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 디바이스 관리를 사용하여 해당 속성을 기반으로 디바이스 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때 IoT Hub에서 디바이스를 업데이트하도록 할 수 있습니다. 이 업데이트는 완료 및 규정 준수를 요약하고, 병합 및 충돌을 처리하고, 단계별 방식으로 구성을 롤아웃할 수 있는 _자동 디바이스 구성_ 또는 _자동 모듈 구성_ 을 사용하여 수행됩니다.
+Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 디바이스 관리를 사용하여 해당 속성을 기반으로 디바이스 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때 IoT Hub에서 디바이스를 업데이트하도록 할 수 있습니다. 이 업데이트는 완료 및 규정 준수를 요약하고, 병합 및 충돌을 처리하고, 단계별 방식으로 구성을 롤아웃할 수 있는 *자동 디바이스 구성* 또는 *자동 모듈 구성* 을 사용하여 수행됩니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -28,7 +28,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 
 * **대상 콘텐츠** 는 대상으로 지정된 디바이스 쌍 또는 모듈 쌍에 추가하거나 업데이트할 원하는 속성을 정의합니다. 콘텐츠에는 변경할 원하는 속성의 섹션에 대한 경로가 포함됩니다.
 
-* **메트릭** 은 **성공**, **진행 중** 및 **오류** 와 같은 다양한 구성 상태의 요약 횟수를 정의합니다. 사용자 지정 메트릭은 보고된 쌍 속성에서 쿼리로 지정됩니다.  시스템 메트릭은 대상으로 지정된 쌍의 수 및 성공적으로 업데이트된 쌍의 수와 같은 쌍 업데이트 상태를 측정하는 기본 메트릭입니다.
+* **메트릭** 은 **성공**, **진행 중** 및 **오류** 와 같은 다양한 구성 상태의 요약 횟수를 정의합니다. 사용자 지정 메트릭은 보고된 쌍 속성에서 쿼리로 지정됩니다. 시스템 메트릭은 대상으로 지정된 쌍의 수 및 성공적으로 업데이트된 쌍의 수와 같은 쌍 업데이트 상태를 측정하는 기본 메트릭입니다.
 
 자동 구성은 구성이 생성된 후 즉시 실행되며 그 이후에는 5분 간격으로 실행됩니다. 메트릭 쿼리는 자동 구성이 실행될 때마다 실행됩니다.
 

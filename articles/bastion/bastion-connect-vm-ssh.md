@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: a6f9add11b6632d1ee26041ade0ade45ec58716d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 56cbcf841d26cc7f8f26235728ef0dd1c596daa0
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110538084"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114289186"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Azure Bastion을 사용하여 Linux 가상 머신에 SSH를 통해 연결
 
@@ -83,10 +83,6 @@ SSH를 통해 Linux VM에 연결하려면 VM에 다음 포트가 열려 있어�
 
 ## <a name="connect-using-a-private-key-stored-in-azure-key-vault"></a><a name="akv"></a>연결: Azure Key Vault에 저장된 프라이빗 키 사용
 
->[!NOTE]
->이 기능에 대한 포털 업데이트는 현재 지역으로 롤아웃 중입니다.
->
-
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 연결하려는 가상 머신으로 이동한 다음, **연결** 을 클릭하고 드롭다운에서 **Bastion** 을 선택합니다.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="연결이 선택된 Azure Portal의 가상 머신에 대한 개요를 보여주는 스크린샷":::
@@ -94,14 +90,18 @@ SSH를 통해 Linux VM에 연결하려면 VM에 다음 포트가 열려 있어�
 1. **Azure Bastion을 사용하여 연결** 페이지에서 **사용자 이름** 을 입력하고 **Azure Key Vault의 SSH 프라이빗 키** 를 선택합니다.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh/ssh-key-vault.png" alt-text="Azure Key Vault의 SSH 프라이빗 키":::
-1. **Azure Key Vault** 드롭다운을 선택하고 SSH 프라이빗 키를 저장한 리소스를 선택합니다. Azure Key Vault 리소스를 설정하지 않은 경우 [키 자격 증명 모음 만들기](../key-vault/general/quick-create-portal.md)를 참조하고 SSH 프라이빗 키를 새 키 자격 증명 비밀의 값으로 저장합니다.
+1. **Azure Key Vault** 드롭다운을 선택하고 SSH 프라이빗 키를 저장한 리소스를 선택합니다. Azure Key Vault 리소스를 설정하지 않은 경우 [키 자격 증명 모음 만들기](../key-vault/secrets/quick-create-powershell.md)를 참조하고 SSH 프라이빗 키를 새 키 자격 증명 비밀의 값으로 저장합니다.
+
+   >[!NOTE]
+   >**PowerShell** 또는 **Azure CLI** 환경을 사용하여 SSH 프라이빗 키를 Azure Key Vault에 비밀로 저장하세요. Azure Key Vault 포털 환경을 통해 프라이빗 키를 저장하면 형식 지정을 방해하여 로그인에 실패합니다. 포털 환경을 사용하여 프라이빗 키를 비밀로 저장했고 더 이상 원본 프라이빗 키 파일에 액세스할 수 없는 경우 [SSH 키 업데이트](../virtual-machines/extensions/vmaccess.md#update-ssh-key)를 참조하여 새 SSH 키 쌍으로 대상 VM에 대한 액세스를 업데이트합니다.
+   >
 
    :::image type="content" source="./media/bastion-connect-vm-ssh/key-vault.png" alt-text="Azure Key Vault":::
 
    키 자격 증명 리소스에 저장된 비밀에 대한 **List** 및 **Get** 권한이 있는지 확인합니다. 키 자격 증명 모음 리소스에 대한 액세스 정책을 할당하고 수정하려면 [키 자격 증명 모음 액세스 정책 할당](../key-vault/general/assign-access-policy-portal.md)을 참조하세요.
 1. **Azure Key Vault Secret** 드롭다운을 선택하고 SSH 프라이빗 키의 값이 포함된 키 자격 증명 모음 비밀을 선택합니다.
-1. **연결** 을 선택하여 VM에 연결합니다. **연결** 을 클릭하면 이 가상 머신에 대한 SSH가 Azure Portal에서 바로 열립니다. 이 연결은 가상 머신의 개인 IP를 통해 Bastion 서비스에서 포트 443을 사용하여 HTML5를 통해 연결됩니다.
+3. **연결** 을 선택하여 VM에 연결합니다. **연결** 을 클릭하면 이 가상 머신에 대한 SSH가 Azure Portal에서 바로 열립니다. 이 연결은 가상 머신의 개인 IP를 통해 Bastion 서비스에서 포트 443을 사용하여 HTML5를 통해 연결됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Bastion에 대한 자세한 내용은 [Bastion FAQ](bastion-faq.md)를 참조하세요. 
+Azure Bastion에 대한 자세한 내용은 [Bastion FAQ](bastion-faq.md)를 참조하세요.

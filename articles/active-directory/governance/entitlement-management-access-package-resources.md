@@ -16,12 +16,12 @@ ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a275b1c43f8a7c5526209f943e48a1d943eca149
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 389bf4438fa31b0c1174441cd62f814f18b271d2
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713687"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729519"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지의 리소스 역할 변경
 
@@ -109,7 +109,7 @@ ms.locfileid: "109713687"
 
 ## <a name="add-an-application-resource-role"></a>애플리케이션 리소스 역할 추가
 
-사용자에게 액세스 패키지가 할당된 경우 Azure AD에 페더레이션된 SaaS 애플리케이션 및 조직의 애플리케이션을 포함한 Azure AD 엔터프라이즈 애플리케이션에 대한 사용자 액세스 권한을 Azure AD가 자동으로 할당하도록 할 수 있습니다. 페더레이션 Single Sign-On을 통해 Azure AD와 통합되는 애플리케이션의 경우 Azure AD는 해당 애플리케이션에 할당된 사용자를 위한 페더레이션 토큰을 발급합니다.
+사용자에게 액세스 패키지가 할당된 경우 Azure AD와 통합된 SaaS 애플리케이션 및 조직의 애플리케이션을 포함한 Azure AD 엔터프라이즈 애플리케이션에 대한 사용자 액세스 권한을 Azure AD가 자동으로 할당하도록 할 수 있습니다. 페더레이션 Single Sign-On을 통해 Azure AD와 통합되는 애플리케이션의 경우 Azure AD는 해당 애플리케이션에 할당된 사용자를 위한 페더레이션 토큰을 발급합니다.
 
 애플리케이션에는 여러 역할이 있을 수 있습니다. 애플리케이션을 액세스 패키지에 추가할 때 해당 애플리케이션에 둘 이상의 역할이 있는 경우 해당 사용자에 적절한 역할을 지정해야 합니다. 애플리케이션을 개발 중인 경우 [방법: 엔터프라이즈 애플리케이션용 SAML 토큰에서 발급된 역할 클레임 구성](../develop/active-directory-enterprise-app-role-management.md)에서 애플리케이션에 해당 역할을 추가하는 방법에 대해 자세히 알아볼 수 있습니다.
 

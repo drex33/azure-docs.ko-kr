@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 314e2cf6991a33fb50ee14b9e54f9d47069dc20c
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: d8ba75ce068d7d2b604e9cafa4cde76393175c30
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027896"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114298160"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션 - Java용 Azure Monitor Application Insights
 
@@ -181,8 +181,6 @@ ms.locfileid: "112027896"
 > 버전 3.0.2부터 `service.version`이라는 사용자 지정 차원을 추가하는 경우 값은 사용자 지정 차원이 아닌 Application Insights Logs 테이블의 `application_Version` 열에 저장됩니다.
 
 ## <a name="telemetry-processors-preview"></a>원격 분석 프로세서(미리 보기)
-
-이 기능은 미리 보기 상태입니다.
 
 이를 통해 요청, 종속성 및 추적 원격 분석에 적용되는 규칙을 구성할 수 있습니다. 예를 들면 다음과 같습니다.
  * 중요한 데이터 마스크
@@ -400,6 +398,13 @@ Application Insights Java 3.x는 설정된 경우 전역 `https.proxyHost` 및 `
 [//]: # "}"
 [//]: # "```"
 
+## <a name="authentication-preview"></a>인증(미리 보기)
+> [!NOTE]
+> 인증 기능은 버전 3.2.0-BETA부터 사용 가능합니다.
+
+이를 통해 Azure Active Directory 인증에 필요한 [토큰 자격 증명](/java/api/overview/azure/identity-readme#credentials)을 생성하도록 에이전트를 구성할 수 있습니다.
+자세한 내용은 [인증](./azure-ad-authentication.md) 문서를 확인하세요.
+
 ## <a name="self-diagnostics"></a>자체 진단
 
 “자체 진단”은 Application Insights Java 3.x의 내부 로깅을 참조합니다.
@@ -443,7 +448,7 @@ Application Insights Java 3.x는 설정된 경우 전역 `https.proxyHost` 및 `
 {
   "connectionString": "InstrumentationKey=...",
   "role": {
-    "name&quot;: &quot;my cloud role name"
+    "name": "my cloud role name"
   },
   "sampling": {
     "percentage": 100
@@ -454,7 +459,7 @@ Application Insights Java 3.x는 설정된 경우 전역 `https.proxyHost` 및 `
   },
   "instrumentation": {
     "logging": {
-      "level&quot;: &quot;INFO"
+      "level": "INFO"
     },
     "micrometer": {
       "enabled": true

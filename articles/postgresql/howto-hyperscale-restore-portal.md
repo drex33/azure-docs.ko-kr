@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/14/2021
-ms.openlocfilehash: 99e507fed35e5b74aa44bc2713550f7cf9d7b2e5
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 07/09/2021
+ms.openlocfilehash: fc52bac390763418d21cb001e5ae224acbaaa906
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518884"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113595528"
 ---
 # <a name="point-in-time-restore-of-a-hyperscale-citus-server-group"></a>하이퍼스케일(Citus) 서버 그룹의 지정 시간 복원
 
@@ -27,7 +27,7 @@ ms.locfileid: "107518884"
 2.  왼쪽 패널에서 **개요** 를 클릭하고 **복원** 을 클릭합니다.
 
     > [!IMPORTANT]
-    > 서버 그룹에 아직 **복원** 단추가 없는 경우 Azure 지원 요청을 여세요.
+    > 서버 그룹에 아직 **복원** 단추가 없는 경우 서버 그룹을 복원하기 위해 Azure 지원 요청을 여세요.
 
 3.  복원 페이지에서 **가장 빠른** 복원 지점과 **사용자 지정** 복원 지점 중 선택하라는 메시지가 나타나며 가장 빠른 날짜가 표시됩니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "107518884"
 2.  왼쪽 패널에서 **개요** 를 클릭하고 **복원** 을 클릭합니다.
 
     > [!IMPORTANT]
-    > 서버 그룹에 아직 **복원** 단추가 없는 경우 Azure 지원 요청을 여세요.
+    > 서버 그룹에 아직 **복원** 단추가 없는 경우 서버 그룹을 복원하기 위해 Azure 지원 요청을 여세요.
 
 3.  복원 페이지에서 **가장 빠른** 복원 지점과 **사용자 지정** 복원 지점 중 선택하라는 메시지가 나타나며 가장 빠른 날짜가 표시됩니다.
 

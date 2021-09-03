@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 08/02/2017
-ms.openlocfilehash: a274435d6e0fc32bdf5b2ab04702ed971d7c5175
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: da94bc47a5d7796e0b13bcdaa0dc5e30db55722c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558987"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445867"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>VM에서 Azure Linux 에이전트를 업데이트하는 방법
 
@@ -397,7 +397,7 @@ cd WALinuxAgent-2.2.14
 
 ### <a name="2-install-the-azure-linux-agent"></a>2. Azure Linux 에이전트 설치
 
-버전 2.2.x의 경우 다음을 사용합니다. 먼저 `setuptools` 패키지를 설치해야 할 수 있습니다. [여기](https://pypi.python.org/pypi/setuptools)를 참조하세요. 다음을 실행합니다.
+버전 2.2.x의 경우 다음을 사용합니다. 먼저 `setuptools` 패키지를 설치해야 할 수 있습니다--[setuptools](https://pypi.python.org/pypi/setuptools)를 참조하세요. 다음을 실행합니다.
 
 ```bash
 sudo python setup.py install

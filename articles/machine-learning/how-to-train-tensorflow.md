@@ -9,12 +9,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 09/28/2020
 ms.topic: how-to
-ms.openlocfilehash: c1c0ac3d95a005a55d3b334a1f68add072b75700
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8e53d67dacff8337d4a6832fc5febe3b83ec6126
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764768"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606829"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대규모로 TensorFlow 모델 학습
 
@@ -265,82 +265,7 @@ Azure Machine Learning은 학습 워크로드를 스케일링할 수 있도록 �
 
 Azure ML에서는 Horovod 및 TensorFlow의 기본 제공 분산 학습 API를 사용하여 분산 TensorFlow 작업을 실행할 수 있습니다.
 
-### <a name="horovod"></a>Horovod
-[Horovod](https://github.com/uber/horovod)는 Uber에서 개발한 분산 학습을 위한 오픈 소스 allreduce 프레임워크입니다. 학습을 위해 분산 TensorFlow 코드를 작성할 수 있는 쉬운 경로를 제공합니다.
-
-학습 코드는 분산 학습을 위해 Horovod를 사용하여 계측해야 합니다. TensorFlow에서 Horovod를 사용하는 방법에 대한 자세한 내용은 Horovod 설명서를 참조하세요.
-
-TensorFlow에서 Horovod를 사용하는 방법에 대한 자세한 내용은 Horovod 설명서를 참조하세요.
-
-* [TensorFlow를 사용하는 Horovod](https://github.com/horovod/horovod/blob/master/docs/tensorflow.rst)
-* [TensorFlow의 Keras API를 사용하는 Horovod](https://github.com/horovod/horovod/blob/master/docs/keras.rst)
-
-또한 **horovod** 패키지가 학습 환경에 포함되어 있는지 확인합니다. TensorFlow 큐레이팅된 환경을 사용하는 경우 horovod는 이미 종속성 중 하나로 포함되어 있습니다. 사용자 고유의 환경을 사용하는 경우 다음과 같이 horovod 종속성이 포함되어 있는지 확인합니다.
-
-```yaml
-channels:
-- conda-forge
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-defaults
-  - tensorflow-gpu==2.2.0
-  - horovod==0.19.5
-```
-
-Azure ML에서 MPI/Horovod를 사용하여 분산 작업을 실행하려면 [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration)을 ScriptRunConfig 생성자의 `distributed_job_config` 매개 변수에 지정해야 합니다. 아래 코드에서는 노드당 하나의 프로세스를 실행하는 2노드 분산 작업을 구성합니다. 또한 노드당 여러 프로세스를 실행하려면(즉, 클러스터 SKU에 여러 GPU가 있는 경우) MpiConfiguration에서 `process_count_per_node` 매개 변수(기본값: `1`)를 추가로 지정합니다.
-
-```python
-from azureml.core import ScriptRunConfig
-from azureml.core.runconfig import MpiConfiguration
-
-src = ScriptRunConfig(source_directory=project_folder,
-                      script='tf_horovod_word2vec.py',
-                      arguments=['--input_data', dataset.as_mount()],
-                      compute_target=compute_target,
-                      environment=tf_env,
-                      distributed_job_config=MpiConfiguration(node_count=2))
-```
-
-Azure ML에서 Horovod를 사용하여 분산 TensorFlow를 실행하는 방법에 대한 전체 자습서는 [Horovod를 사용하는 분산 TensorFlow](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/distributed-tensorflow-with-horovod)를 참조하세요.
-
-### <a name="tfdistribute"></a>tf.distribute
-
-학습 코드에서 [네이티브 분산 TensorFlow](https://www.tensorflow.org/guide/distributed_training)를 사용하는 경우(예: TensorFlow 2.x의 `tf.distribute.Strategy` API) Azure ML을 통해 분산 작업을 시작할 수도 있습니다. 
-
-이렇게 하려면 ScriptRunConfig 생성자의 `distributed_job_config` 매개 변수에 [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration)을 지정합니다. `tf.distribute.experimental.MultiWorkerMirroredStrategy`를 사용하는 경우 학습 작업의 노드 수에 해당하는 TensorflowConfiguration에서 `worker_count`를 지정합니다.
-
-```python
-import os
-from azureml.core import ScriptRunConfig
-from azureml.core.runconfig import TensorflowConfiguration
-
-distr_config = TensorflowConfiguration(worker_count=2, parameter_server_count=0)
-
-model_path = os.path.join("./outputs", "keras-model")
-
-src = ScriptRunConfig(source_directory=source_dir,
-                      script='train.py',
-                      arguments=["--epochs", 30, "--model-dir", model_path],
-                      compute_target=compute_target,
-                      environment=tf_env,
-                      distributed_job_config=distr_config)
-```
-
-TensorFlow에서 `TF_CONFIG` 환경 변수는 여러 머신에서 학습하는 데 필요합니다. Azure ML은 학습 스크립트를 실행하기 전에 각 작업자에 대해 `TF_CONFIG` 변수를 적절하게 구성하고 설정합니다. 필요한 경우 `os.environ['TF_CONFIG']`를 통해 학습 스크립트에서 `TF_CONFIG`에 액세스할 수 있습니다.
-
-최고 작업자 노드에 설정된 `TF_CONFIG`의 구조 예제:
-```JSON
-TF_CONFIG='{
-    "cluster": {
-        "worker": ["host0:2222", "host1:2222"]
-    },
-    "task": {"type": "worker", "index": 0},
-    "environment": "cloud"
-}'
-```
-
-학습 스크립트가 분산 학습에 매개 변수 서버 전략(예: 레거시 TensorFlow 1.x)을 사용하는 경우 작업에 사용할 매개 변수 서버 수(예: `distr_config = TensorflowConfiguration(worker_count=2, parameter_server_count=1)`)도 지정해야 합니다.
+분산 학습에 대한 자세한 내용은 [분산 GPU 학습 가이드](how-to-train-distributed-gpu.md)를 참조하세요.
 
 ## <a name="deploy-a-tensorflow-model"></a>TensorFlow 모델 배포
 

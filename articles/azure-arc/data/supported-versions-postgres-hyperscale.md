@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 0f3f9e7f4566800bdea6871cae1c5bafb3b37b95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a00475eacdeb741eca20d4a6c43282df9cfd17d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90939184"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536403"
 ---
 # <a name="supported-versions-of-postgres-with-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에서 지원되는 Postgres 버전
 
@@ -33,7 +33,7 @@ ms.locfileid: "90939184"
 ## <a name="how-to-create-a-particular-version-in-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에서 특정 버전을 만드는 방법
 만들 때 _--engine-version_ 매개 변수를 전달하여 만들려는 버전을 지정할 수 있습니다. 버전 정보를 지정하지 않으면 기본적으로 Postgres 버전 12의 서버 그룹이 생성됩니다.
 
-## <a name="how-do-be-notified-when-other-versions-are-available"></a>다른 버전을 사용할 수 있을 때 알림을 받는 방법
+## <a name="how-can-i-be-notified-when-other-versions-are-available"></a>다른 버전을 사용할 수 있을 때 알림을 받으려면 어떻게 해야 하나요?
 돌아와서 이 문서를 확인합니다. 문서가 적절하게 업데이트됩니다. Kubernetes 클러스터의 Arc 데이터 컨트롤러에 있는 CRD(사용자 지정 리소스 정의) 종류를 나열할 수도 있습니다.
 다음 명령 실행:
 ```console

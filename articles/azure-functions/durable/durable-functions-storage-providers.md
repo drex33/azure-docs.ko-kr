@@ -5,21 +5,23 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.author: azfuncdf
-ms.openlocfilehash: bf50f0bdc3c8e654a3d2f780bb7f0c32533948eb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: bbeb730b0e22bd555f06514870448a229fccfbc6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465803"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438104"
 ---
 # <a name="durable-functions-storage-providers"></a>Durable Functions 스토리지 공급자
 
 Durable Functions는 안정적인 실행을 보장하기 위해 함수 매개 변수, 반환 값 및 기타 상태를 지속성 스토리지에 자동으로 유지합니다. Durable Functions의 기본 구성은 이 런타임 상태를 Azure Storage(클래식) 계정에 저장합니다. 그러나 대체 지속성 스토리지 공급자를 사용하도록 Durable Functions v2.0 이상을 구성할 수 있습니다.
 
-Durable Functions는 내부적으로 [Durable Task Framework](https://github.com/Azure/durabletask)(DTFx)로 구동하는 Azure Functions 트리거 및 바인딩 세트입니다. DTFx는 Durable Functions에서 사용하는 Azure Storage 공급자를 포함하여 다양한 백 엔드 스토리지 공급자를 지원합니다. Durable Functions **v2.4.3** 부터 사용자는 Azure Storage 공급자 대신 DTFx 스토리지 공급자를 사용하도록 함수 앱을 구성할 수 있습니다.
+Durable Functions는 내부적으로 [Durable Task Framework](https://github.com/Azure/durabletask)(DTFx)로 구동하는 Azure Functions 트리거 및 바인딩 세트입니다. DTFx는 Durable Functions에서 사용하는 Azure Storage 공급자를 포함하여 다양한 백 엔드 스토리지 공급자를 지원합니다. Durable Functions **v2.5.0** 부터 사용자는 Azure Storage 공급자 대신 DTFx 스토리지 공급자를 사용하도록 함수 앱을 구성할 수 있습니다.
 
 > [!NOTE]
 > Azure Storage 대신 다른 스토리지 공급자를 사용하도록 선택할 때에는 신중해야 합니다. Azure에서 실행되는 대부분의 함수 앱은 기본 Azure Storage 공급자를 Durable Functions에 사용해야 합니다. 그러나 대체 스토리지 공급자를 사용할지 여부를 결정할 때 고려해야 하는 중요한 비용, 확장성 및 데이터 관리 측면의 득과 실이 있습니다. 이 문서에서는 이러한 득실에 대해 자세히 설명합니다.
+>
+> 또한 현재 한 스토리지 공급자에서 다른 스토리지 공급자로 데이터를 마이그레이션할 수 없습니다. 새 스토리지 공급자를 사용하려면 새 스토리지 공급자로 구성된 새 앱을 만들어야 합니다.
 
 두 가지 대체 DTFx 스토리지 공급자는 Durable Functions, _Netherite_ 스토리지 공급자 및 _MSSQL(Microsoft SQL Server)_ 스토리지 공급자와 함께 사용하도록 개발되었습니다. 이 문서에서는 지원되는 세 가지 공급자를 모두 설명하고, 서로 비교하고, 시작하는 방법에 대한 기본 정보를 제공합니다.
 

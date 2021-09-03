@@ -11,28 +11,32 @@ ms.topic: conceptual
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 10/12/2020
-ms.openlocfilehash: f93d65b4d10c1a8454a8e24b5cb081dae4d6943e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 06/23/2021
+ms.openlocfilehash: 16886e185d27a67cdea64c4214ca6132e714e9d9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812807"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528906"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance, Azure Synapse Analytics에 대한 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-[TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption)는 미사용 데이터를 암호화하여 악의적인 오프라인 작업의 위협으로부터 Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics를 보호하는 데 도움이 됩니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 새로 배포된 모든 SQL 데이터베이스에 대해 사용하도록 설정되며, Azure SQL Database, Azure SQL Managed Instance의 이전 데이터베이스에 대해서는 수동으로 사용하도록 설정해야 합니다. Azure Synapse Analytics에 대해 TDE를 수동으로 사용하도록 설정해야 합니다.
+[TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption)는 미사용 데이터를 암호화하여 악의적인 오프라인 작업의 위협으로부터 Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics를 보호하는 데 도움이 됩니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 새로 배포된 모든 Azure SQL 데이터베이스에 대해 사용하도록 설정되며, Azure SQL Database의 이전 데이터베이스에 대해서는 수동으로 사용하도록 설정해야 합니다. Azure SQL Managed Instance의 경우 TDE는 인스턴스 수준 및 새로 만들어진 데이터베이스에서 사용하도록 설정됩니다. Azure Synapse Analytics에 대해 TDE를 수동으로 사용하도록 설정해야 합니다. 
+
+> [!NOTE]
+> 이 문서는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics(전용 SQL 풀(이전의 SQL DW))에 적용됩니다. Synapse 작업 영역 내의 전용 SQL 풀을 위한 투명한 데이터 암호화에 대한 문서는 [Azure Synapse Analytics 암호화](../../synapse-analytics/security/workspaces-encryption.md)를 참조하세요.
 
 TDE를 통해 페이지 수준에서 데이터의 실시간 I/O 암호화 및 암호 해독을 수행합니다. 각 페이지는 메모리로 읽을 때 해독된 다음, 디스크에 쓰기 전에 암호화됩니다. TDE는 DEK(데이터베이스 암호화 키)라는 대칭 키를 사용하여 전체 데이터베이스의 스토리지를 암호화합니다. 데이터베이스 시작 시 암호화된 DEK는 암호 해독된 후 SQL Server 데이터베이스 엔진 프로세스의 데이터베이스 파일을 암호 해독 및 재암호화하는 데 사용됩니다. DEK는 TDE 보호기에 의해 보호됩니다. TDE 보호기는 서비스 관리 인증서(서비스 관리 투명한 데이터 암호화) 또는 [Azure Key Vault](../../key-vault/general/security-features.md) 고객 관리형 투명한 데이터 암호화에 저장된 비대칭 키(Bring Your Own Key)입니다.
 
 Azure SQL Database와 Azure Synapse의 경우 TDE 보호기는 [서버](logical-servers.md) 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. Azure SQL Managed Instance의 경우 TDE 보호기는 인스턴스 수준에서 설정되며 해당 인스턴스의 모든 암호화된 데이터베이스에 의해 상속됩니다. *서버* 라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
 
 > [!IMPORTANT]
-> 새로 만든 모든 SQL Database의 데이터베이스는 기본적으로 서비스 관리 투명한 데이터 암호화를 사용하여 암호화됩니다. 2017년 5월 이전에 만든 기존 SQL 데이터베이스와 복원, 지리적 복제 및 데이터베이스 복사를 통해 만든 SQL 데이터베이스는 기본적으로 암호화되지 않습니다. 2019년 2월 이전에 만든 기존 SQL Managed Instance 데이터베이스는 기본적으로 암호화되지 않습니다. 복원을 통해 만든 SQL Managed Instance 데이터베이스는 원본에서 암호화 상태를 상속합니다.
+> 새로 만든 모든 SQL Database의 데이터베이스는 기본적으로 서비스 관리 투명한 데이터 암호화를 사용하여 암호화됩니다. 2017년 5월 이전에 만든 기존 SQL 데이터베이스와 복원, 지리적 복제 및 데이터베이스 복사를 통해 만든 SQL 데이터베이스는 기본적으로 암호화되지 않습니다. 2019년 2월 이전에 만든 기존 SQL Managed Instance 데이터베이스는 기본적으로 암호화되지 않습니다. 복원을 통해 만든 SQL Managed Instance 데이터베이스는 원본에서 암호화 상태를 상속합니다. 기존 TDE로 암호화된 데이터베이스를 복원하려면 먼저 필요한 TDE 인증서를 SQL Managed Instance로 [가져와야 합니다](../managed-instance/tde-certificate-migrate.md). 
 
 > [!NOTE]
 > TDE는 Azure SQL Database 및 Azure SQL Managed Instance에서 **master** 데이터베이스와 같은 시스템 데이터베이스를 암호화하는 데 사용할 수 없습니다. **master** 데이터베이스에는 사용자 데이터베이스에서 TDE 작업을 수행하는 데 필요한 개체가 포함되어 있습니다. 중요한 데이터를 시스템 데이터베이스에 저장하지 않는 것이 좋습니다. [인프라 암호화](transparent-data-encryption-byok-overview.md#doubleencryption)는 이제 master를 포함하여 시스템 데이터베이스 암호화를 롤아웃합니다. 
+
 
 ## <a name="service-managed-transparent-data-encryption"></a>서비스 관리 투명한 데이터 암호화
 

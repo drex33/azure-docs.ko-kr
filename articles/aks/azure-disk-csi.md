@@ -5,15 +5,14 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 29bac1ea9de7fb81797733bbccce24688b4acc10
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 19606a1b529fcd7e6140d81361c5434324836198
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164348"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535575"
 ---
-# <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크 CSI(Container Storage Interface) 드라이버 사용(미리 보기)
-
+# <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크 CSI(Container Storage Interface) 드라이버 사용
 Azure 디스크 CSI(Container Storage Interface) 드라이버는 Azure 디스크의 수명 주기를 관리하기 위해 AKS(Azure Kubernetes Service)에서 사용하는 [CSI 사양](https://github.com/container-storage-interface/spec/blob/master/spec.md) 규격 드라이버입니다.
 
 CSI는 임의 블록과 파일 스토리지 시스템을 Kubernetes의 컨테이너화된 워크로드에 공개하는 표준입니다. CSI를 채택하고 사용하면 AKS는 플러그 인을 작성, 배포 및 반복하여 핵심 Kubernetes 코드를 조정하고 릴리스 주기를 기다릴 필요 없이 Kubernetes에서 새로운 스토리지 시스템을 공개하거나 기존 스토리지 시스템을 개선할 수 있습니다.
@@ -26,8 +25,6 @@ CSI 드라이버를 지원하는 AKS 클러스터를 만들려면 [AKS에서 Azu
 ## <a name="use-csi-persistent-volumes-with-azure-disks"></a>Azure 디스크가 포함된 CSI 영구 볼륨 사용
 
 PV([영구 볼륨](concepts-storage.md#persistent-volumes))는 Kubernetes Pod와 함께 사용하기 위해 프로비저닝된 스토리지 부분을 나타냅니다. PV는 하나 이상의 Pod에서 사용할 수 있으며 동적 또는 정적으로 프로비저닝할 수 있습니다. 이 문서에서는 AKS 클러스터에서 한 Pod에 사용할 Azure 디스크가 포함된 PV를 동적으로 만드는 방법을 설명합니다. 고정 프로비저닝의 경우 [Azure 디스크를 사용하여 수동으로 볼륨 만들기 및 사용](azure-disk-volume.md)을 참조하세요.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 
@@ -70,7 +67,7 @@ test.txt
 
 ## <a name="create-a-custom-storage-class"></a>사용자 지정 스토리지 클래스 만들기
 
-기본 스토리지 클래스는 가장 일반적인 시나리오에 적합하지만, 전부는 아닙니다. 경우에 따라 고유한 매개 변수를 사용하여 고유 스토리지 클래스를 사용자 지정해야 할 수 있습니다. 예를 들어 `volumeBindingMode` 클래스를 변경하려는 시나리오가 있습니다.
+기본 스토리지 클래스는 가장 일반적인 시나리오에 적합하지만, 일부는 아닙니다. 경우에 따라 고유한 매개 변수를 사용하여 고유 스토리지 클래스를 사용자 지정해야 할 수 있습니다. 예를 들어 `volumeBindingMode` 클래스를 변경하려는 시나리오가 있습니다.
 
 PVC를 만든 직후 발생하도록 `volumeBindingMode: Immediate` 클래스를 사용할 수 있습니다. 예를 들어 가용성 영역을 사용하는 경우와 같이 노드 풀의 토폴로지가 제약된 경우, PV는 Pod의 예약 요구 사항(이 경우 특정 영역에 있음)에 관한 지식 없이 바인딩되거나 프로비저닝됩니다.
 
@@ -207,7 +204,7 @@ test.txt
 
 ## <a name="resize-a-persistent-volume"></a>영구 볼륨 크기 조정
 
-대신 더 큰 용량의 PVC를 요청할 수 있습니다. PVC 개체를 편집하고 더 큰 크기를 지정합니다. 이 변경 때문에 PV를 지원하는 기본 볼륨의 확장이 트리거됩니다.
+대신 더 큰 용량의 PVC를 요청할 수 있습니다. PVC 개체를 편집하고 더 큰 크기를 지정합니다. 이 변경때문에 PV를 지원하는 기본 볼륨의 확장이 트리거됩니다.
 
 > [!NOTE]
 > 클레임을 충족하기 위해 새 PV를 만들지 않습니다. 대신 기존 볼륨의 크기가 조정됩니다.

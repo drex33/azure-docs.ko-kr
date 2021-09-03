@@ -7,22 +7,24 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 604adeb3eeb716027ba821b4e230285602680e00
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962046"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433169"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>인증서 및 App Service Environment 
-
+> [!NOTE]
+> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 
 ASE(App Service Environment)는 Azure VNet(Virtual Network) 내에서 실행되는 Azure App Service의 배포입니다. 인터넷 액세스 가능 애플리케이션 엔드포인트 또는 VNet에 있는 애플리케이션 엔드포인트를 사용하여 배포할 수 있습니다. 인터넷 액세스 가능 엔드포인트를 사용하여 ASE를 배포하는 경우 해당 배포를 외부 ASE라고 합니다. VNet에 엔드포인트가 있는 ASE를 배포하면 해당 배포를 ILB ASE라고 합니다. [ILB ASE 만들기 및 사용](./create-ilb-ase.md) 문서에서 ILB ASE에 대해 자세히 알아볼 수 있습니다.
 
 ASE는 단일 테넌트 시스템입니다. 단일 테넌트이므로 다중 테넌트 App Service에서 사용할 수 없는 ASE에서만 사용할 수 있는 일부 기능이 있습니다. 
 
 ## <a name="ilb-ase-certificates"></a>ILB ASE 인증서 
 
-외부 ASE를 사용하는 경우 앱이 [appname].[asename].p.azurewebsites.net에서 연결됩니다. 기본적으로 모든 ASE, 심지어 ILB ASE도 해당 형식에 따라 인증서를 사용하여 만들어집니다. ILB ASE가 있는 경우 ILB ASE를 만들 때 지정한 도메인 이름에 따라 앱이 연결됩니다. 앱에서 TLS을 지원하려면 인증서를 업로드해야 합니다. 내부 인증 기관을 사용하거나, 외부 발급자로부터 인증서를 구입하거나, 자체 서명된 인증서를 사용하는 등의 방법으로 유효한 TLS/SSL 인증서를 구합니다. 
+외부 ASE를 사용하는 경우 앱이 &lt;appname&gt;.&lt;asename&gt;.p.azurewebsites.net에서 연결됩니다. 기본적으로 모든 ASE, 심지어 ILB ASE도 해당 형식에 따라 인증서를 사용하여 만들어집니다. ILB ASE가 있는 경우 ILB ASE를 만들 때 지정한 도메인 이름에 따라 앱이 연결됩니다. 앱에서 TLS을 지원하려면 인증서를 업로드해야 합니다. 내부 인증 기관을 사용하거나, 외부 발급자로부터 인증서를 구입하거나, 자체 서명된 인증서를 사용하는 등의 방법으로 유효한 TLS/SSL 인증서를 구합니다. 
 
 ILB ASE를 사용하여 인증서를 구성하는 두 가지 옵션이 있습니다.  ILB ASE에 대한 와일드카드 기본 인증서를 설정하거나 ASE의 개별 웹앱에 인증서를 설정할 수 있습니다.  선택한 항목에 관계없이 다음 인증서 특성을 올바르게 구성해야 합니다.
 
@@ -35,7 +37,7 @@ ILB ASE를 사용하여 인증서를 구성하는 두 가지 옵션이 있습니
 
 ILB ASE가 포털에서 만들어지면 ILB ASE에 대한 인증서를 설정해야 합니다. 인증서가 설정될 때까지 ASE에는 인증서를 설정하지 않았다는 배너가 표시됩니다.  
 
-업로드하는 인증서는 .pfx 파일이어야 합니다. 인증서가 업로드되면 ASE에서 인증서를 설정하는 크기 조정 작업을 수행합니다. 
+업로드하는 인증서는 .pfx 파일이어야 합니다. 인증서가 업로드된 후 인증서가 사용되기까지 약 20분의 시간 지연이 있습니다. 
 
 ASE를 만들고 포털 또는 하나의 템플릿에서 인증서를 하나의 작업으로 업로드할 수 없습니다. 별도의 작업으로 [템플릿에서 ASE 만들기](./create-from-template.md) 문서에서 설명한 대로 템플릿을 사용하여 인증서를 업로드할 수 있습니다.  
 

@@ -1,14 +1,14 @@
 ---
 title: YAML 참조 - ACR 작업
 description: 작업 속성, 단계 유형, 단계 속성 및 기본 제공 변수를 포함하여 YAML로 ACR 작업에 대한 작업을 정의하기 위한 참조입니다.
-ms.topic: article
+ms.topic: reference
 ms.date: 07/08/2020
-ms.openlocfilehash: 126fcbce0569b2be6d9302cbbb718fa11e3e8046
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 31e96c64ef8209e5e18add9508fe379f1eb0f414
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780950"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302666"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 작업 참조: YAML
 
@@ -63,12 +63,12 @@ YAML은 현재 ACR 작업에서 지원되는 유일한 파일 형식입니다. �
 az acr run -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-샘플 명령의 형식은 Azure CLI에서 기본 레지스트리를 구성했다고 가정하므로 `--registry` 매개 변수를 생략합니다. 기본 레지스트리를 구성하려면  값을 사용하는  매개 변수와 함께 [az configure`--defaults``acr=REGISTRY_NAME`][az-configure] 명령을 사용합니다.
+샘플 명령의 형식은 Azure CLI에서 기본 레지스트리를 구성했다고 가정하므로 `--registry` 매개 변수를 생략합니다. 기본 레지스트리를 구성하려면 `defaults.acr=REGISTRY_NAME` 키 값 쌍을 허용하는 `set` 명령과 함께 [az config][az-config] 명령을 사용합니다.
 
 예를 들어, “myregistry”라는 기본 레지스트리를 사용하여 Azure CLI를 구성하려면 다음 명령을 사용합니다.
 
 ```azurecli
-az configure --defaults acr=myregistry
+az config set defaults.acr=myregistry
 ```
 
 ## <a name="task-properties"></a>작업 속성
@@ -78,7 +78,7 @@ az configure --defaults acr=myregistry
 | 속성 | Type | 옵션 | Description | 재정의 지원 여부 | 기본값 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | 문자열 | 예 | ACR 작업 서비스에서 구문 분석한 `acr-task.yaml` 파일의 버전입니다. ACR 작업은 이전 버전과의 호환성을 유지하려고 하지만, 이 값을 사용하면 ACR 작업이 정의된 버전 내에서 호환성을 유지할 수 있습니다. 지정하지 않으면 최신 버전이 기본값으로 사용됩니다. | 예 | None |
-| `stepTimeout` | int(초) | 예 | 단계를 실행할 수 있는 최대 시간(초)입니다. 작업에 속성이 지정되면 모든 단계의 기본 `timeout` 속성을 설정합니다. `timeout` 속성이 단계에 지정되면 작업에서 제공된 속성이 재정의됩니다. | 예 | 600(10분) |
+| `stepTimeout` | int(초) | 예 | 단계를 실행할 수 있는 최대 시간(초)입니다. 작업에 `stepTimeout` 속성이 지정되면 모든 단계의 기본 `timeout` 속성을 설정합니다. `timeout` 속성이 단계에 지정되면 작업에서 제공된 `stepTimeout` 속성이 재정의됩니다.<br/><br/>작업에 대한 단계 시간 초과 값의 합계는 작업의 실행 `timeout` 속성 값과 같아야 합니다(예: `--timeout`을 `az acr task create` 명령에 전달하여 설정). 작업의 실행 `timeout` 값이 작을수록 우선 순위가 높습니다.  | 예 | 600(10분) |
 | `workingDirectory` | 문자열 | 예 | 런타임 중의 컨테이너 작업 디렉터리입니다. 작업에 속성이 지정되면 모든 단계의 기본 `workingDirectory` 속성을 설정합니다. 단계에 지정되면 작업에서 제공된 속성이 재정의됩니다. | 예 | `c:\workspace` Windows 또는 `/workspace` Linux |
 | `env` | [string, string, ...] | 예 |  작업의 환경 변수를 정의하는 `key=value` 형식의 문자열 배열입니다. 작업에 속성이 지정되면 모든 단계의 기본 `env` 속성을 설정합니다. 단계에 지정된 경우 작업에서 상속된 모든 환경 변수를 재정의합니다. | 예 | 없음 |
 | `secrets` | [secret, secret, ...] | 예 | [비밀](#secret) 개체의 배열. | 예 | None |
@@ -224,7 +224,7 @@ steps:
 
 `push` 단계 유형은 다음 속성을 지원합니다. 이 문서의 [작업 단계 속성](#task-step-properties) 섹션에서 해당 속성의 세부 정보를 확인할 수 있습니다.
 
-| 속성 | Type | 필수 |
+| 속성 | 형식 | 필수 |
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | 선택 |
 | `id` | 문자열 | 옵션 |
@@ -269,7 +269,7 @@ steps:
 
 `cmd` 단계 유형은 다음 속성을 지원합니다.
 
-| 속성 | Type | 필수 |
+| 속성 | 형식 | 필수 |
 | -------- | ---- | -------- |
 | `detach` | 부울 | 선택 |
 | `disableWorkingDirectoryOverride` | 부울 | 선택 |
@@ -631,4 +631,4 @@ alias:
 <!-- LINKS - Internal -->
 [az-acr-run]: /cli/azure/acr#az_acr_run
 [az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
-[az-configure]: /cli/azure/reference-index#az_configure
+[az-config]: /cli/azure/reference-index#az_config

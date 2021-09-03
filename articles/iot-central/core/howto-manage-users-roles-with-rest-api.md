@@ -7,12 +7,12 @@ ms.date: 03/24/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 34be4920b343117ed895313c45a66e54b2de9ab3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: df4476177175fd5aadc57c3d68bedc97531aee0c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950586"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448499"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-manage-users-and-roles"></a>IoT Central REST API를 사용하여 사용자 및 역할을 관리하는 방법
 
@@ -183,6 +183,8 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-vers
 }
 ```
 
+REST API 호출에 서비스 주체 인증을 사용해야 하는 경우에 유용한 서비스 주체 사용자를 추가할 수도 있습니다. 자세한 내용은 [서비스 주체 사용자 추가 또는 업데이트](/rest/api/iotcentral/1.0/users/create#add-or-update-a-service-principal-user)를 참조하세요.
+
 ### <a name="change-the-role-of-a-user"></a>사용자의 역할 변경
 
 다음 요청을 사용하여 사용자에게 할당된 역할을 변경합니다. 이 예에서는 이전에 검색한 작성기 역할의 ID를 사용합니다.
@@ -228,4 +230,4 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-v
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 REST API를 사용하여 사용자 및 역할을 관리하는 방법을 살펴보았으므로, 제안된 다음 단계는 [REST API를 사용하여 IoT Central 애플리케이션을 관리](/learn/modules/manage-iot-central-apps-with-rest-api/)하는 것입니다.
+REST API로 사용자 및 역할을 관리하는 방법을 배웠으므로 이제 제안된 다음 단계는 [IoT Central REST API를 사용하여 디바이스를 제어하는 방법](howto-control-devices-with-rest-api.md)입니다.

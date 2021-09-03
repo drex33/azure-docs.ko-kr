@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: aa377547f7f4961e199ec8d62bf0f1435296f983
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cc264171c6c2dc5588156af2d3d0deb21e4fe94
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104669307"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228088"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹앱: 코드 구성
 
@@ -387,7 +387,7 @@ def authorized():
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-ASP.NET Core 자습서에서는 종속성 주입을 사용하여 애플리케이션에 대한 Startup.cs 파일에서 토큰 캐시 구현을 결정할 수 있습니다. Microsoft.Identity.Web에는 [토큰 캐시 직렬화](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application)에 설명된 미리 작성된 토큰 캐시 직렬 변환기가 제공됩니다. ASP.NET Core [분산 메모리 캐시](/aspnet/core/performance/caching/distributed#distributed-memory-cache)를 선택할 수도 있습니다.
+ASP.NET Core 자습서에서는 종속성 주입을 사용하여 애플리케이션에 대한 Startup.cs 파일에서 토큰 캐시 구현을 결정할 수 있습니다. Microsoft.Identity.Web에는 [토큰 캐시 직렬화](msal-net-token-cache-serialization.md)에 설명된 미리 작성된 토큰 캐시 직렬 변환기가 제공됩니다. ASP.NET Core [분산 메모리 캐시](/aspnet/core/performance/caching/distributed#distributed-memory-cache)를 선택할 수도 있습니다.
 
 ```csharp
 // Use a distributed token cache by adding:
@@ -416,32 +416,60 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-토큰 캐시 공급자에 대한 자세한 내용은 Microsoft.Identity.Web의 [토큰 캐시 serialization](https://aka.ms/ms-id-web/token-cache-serialization) 문서와 웹앱 자습서의 [ASP.NET Core 웹앱 자습서 | 토큰 캐시 ](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) 단계를 참조하세요.
+토큰 캐시 공급자에 대한 자세한 내용은 Microsoft.Identity.Web의 [토큰 캐시 직렬화](https://aka.ms/ms-id-web/token-cache-serialization) 문서와 웹앱 자습서의 [ASP.NET Core 웹앱 자습서 | 토큰 캐시 ](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) 단계를 참조하세요.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 웹앱 또는 웹 API에 대한 토큰 캐시 구현은 데스크톱 애플리케이션에 대한 구현과 다르며, 이는 종종 [파일 기반](scenario-desktop-acquire-token.md#file-based-token-cache)입니다.
 
-웹앱 구현에서는 ASP.NET 세션 또는 서버 메모리를 사용할 수 있습니다. 예를 들어 [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Utils/MsalAppBuilder.cs#L39-L51)에서 MSAL.NET 애플리케이션을 만든 후 캐시 구현이 후크되는 방법을 참조하세요.
+웹앱 구현에서는 ASP.NET 세션 또는 서버 메모리를 사용할 수 있습니다. 예를 들어 [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/79e3e1f084cd78f9170a8ca4077869f217735a1a/WebApp/Utils/MsalAppBuilder.cs#L57-L58)에서 MSAL.NET 애플리케이션을 만든 후 캐시 구현이 후크되는 방법을 참조하세요.
+
+
+먼저 이러한 구현을 사용하려면 다음을 수행합니다.
+- Microsoft.Identity.Web Nuget 패키지를 추가합니다. 이러한 토큰 캐시 직렬 변환기는 원치 않는 종속성을 피하기 위해 MSAL.NET에서 직접 가져오지 않습니다. ASP.NET Core의 상위 수준 외에도 Microsoft.Identity.Web은 MSAL.NET용 도우미 클래스를 제공합니다. 
+- 코드에서 Microsoft.Identity.Web 네임스페이스를 사용합니다.
+
+  ```csharp
+  #using Microsoft.Identity.Web
+  ```
+- 기밀 클라이언트 애플리케이션을 구축했으면 원하는 토큰 캐시 직렬화를 추가합니다.
 
 ```csharp
 public static class MsalAppBuilder
 {
- // Omitted code
-    public static IConfidentialClientApplication BuildConfidentialClientApplication(ClaimsPrincipal currentUser)
+  private static IConfidentialClientApplication clientapp;
+
+  public static IConfidentialClientApplication BuildConfidentialClientApplication()
+  {
+    if (clientapp == null)
     {
-      IConfidentialClientApplication clientapp = ConfidentialClientApplicationBuilder.Create(AuthenticationConfig.ClientId)
+      clientapp = ConfidentialClientApplicationBuilder.Create(AuthenticationConfig.ClientId)
             .WithClientSecret(AuthenticationConfig.ClientSecret)
             .WithRedirectUri(AuthenticationConfig.RedirectUri)
             .WithAuthority(new Uri(AuthenticationConfig.Authority))
             .Build();
 
-      // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache with our implementation.
-      MSALPerUserMemoryTokenCache userTokenCache = new MSALPerUserMemoryTokenCache(clientapp.UserTokenCache, currentUser ?? ClaimsPrincipal.Current);
-
-      return clientapp;
+      // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache serialization with our implementation
+      clientapp.AddInMemoryTokenCache();
+    }
+    return clientapp;
   }
 ```
+
+`clientapp.AddInMemoryTokenCache()` 대신 Redis, SQL, CosmosDB 또는 분산 메모리와 같은 고급 캐시 직렬화 구현을 사용할 수도 있습니다. 다음은 Redis 예제입니다.
+
+```csharp
+  clientapp.AddDistributedTokenCache(services =>
+  {
+    services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = "localhost";
+        options.InstanceName = "SampleInstance";
+    });
+  });
+```
+
+자세한 내용은 [MSAL.NET의 토큰 캐시 직렬화](./msal-net-token-cache-serialization.md)를 참조하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 

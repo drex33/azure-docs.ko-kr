@@ -1,19 +1,19 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 VM 확장 사용하기
-description: 본 문서에서는 Azure Resource Manager 템플릿을 통하여 하이브리드 클라우드 환경에서 실행 중인 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
-ms.date: 04/13/2021
+description: 이 문서에서는 Azure Resource Manager 템플릿을 통하여 하이브리드 클라우드 환경에서 실행 중인 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
+ms.date: 07/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ad2cd02393404b419bc7028e54571d2db285982
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: f1ea92383242cb5b1b1a1d09f33f947ff07113c5
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802453"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114389810"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>ARM 템플릿을 사용하여 Azure VM 확장 사용하기
 
-본 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Arc 지원 서버가 지원하는 Azure VM 확장을 배포하는 방법을 보여 줍니다.
+이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Arc 지원 서버가 지원하는 Azure VM 확장을 배포하는 방법을 보여 줍니다.
 
 Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. Arc 지원 서버가 지원하는 VM 확장을 통하여 Azure PowerShell을 사용하여 Linux나 Windows 컴퓨터에서 지원되는 VM 확장을 배포할 수 있습니다. 아래 각각의 샘플에는 템플릿에 제공할 샘플 값이 입력된 템플릿 파일과 매개 변수 파일이 들어 있습니다.
 
@@ -383,7 +383,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 ## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Azure Key Vault VM 확장 배포하기(미리 보기)
 
-다음 JSON은 키 자격 증명 모음 VM 확장에 대한 스키마를 보여 줍니다(미리 보기). 해당 확장에는 보호됨 설정이 필요 없습니다. 모든 설정이 퍼블릭 정보로 간주됩니다. 해당 확장에는 모니터링 되는 인증서, 폴링 빈도, 대상 인증서 저장소 목록이 필요합니다. 특히:
+다음 JSON은 키 자격 증명 모음 VM 확장에 대한 스키마를 보여 줍니다(미리 보기). 해당 확장에는 보호됨 설정이 필요 없습니다. 모든 설정이 퍼블릭 정보로 간주됩니다. 해당 확장에는 모니터링되는 인증서, 폴링 빈도, 대상 인증서 저장소 목록이 필요합니다. 특히:
 
 ### <a name="template-file-for-linux"></a>Linux용 템플릿 파일
 
@@ -558,7 +558,7 @@ Azure Defender 통합 스캐너 확장을 사용하기 위하여 Windows와 Linu
       },
       "resources": [
         {
-          "type": "resourceType/providers/WindowsAgent.AzureSecurityCenter",
+          "type": "Microsoft.HybridCompute/machines/providers/serverVulnerabilityAssessments",
           "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
           "apiVersion": "[parameters('apiVersionByEnv')]"
         }
@@ -595,7 +595,7 @@ Azure Defender 통합 스캐너 확장을 사용하기 위하여 Windows와 Linu
       },
       "resources": [
         {
-          "type": "resourceType/providers/LinuxAgent.AzureSecurityCenter",
+          "type": "Microsoft.HybridCompute/machines/providers/serverVulnerabilityAssessments",
           "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
           "apiVersion": "[parameters('apiVersionByEnv')]"
         }

@@ -1,19 +1,20 @@
 ---
 title: 대규모 Azure Video Analyzer for Media(이전의 Video Indexer)를 사용할 때 고려해야 할 사항 - Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: 이 항목에서는 대규모 Azure Video Analyzer for Media(이전의 Video Indexer)를 사용할 때 고려해야 할 사항에 대해 설명합니다.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: how-to
+ms.subservice: azure-video-analyzer-media
 ms.date: 11/13/2020
 ms.author: juliako
-ms.openlocfilehash: bfad40e55deae4ebad930907221517ae3ef4e5f4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8784b82c59575a569730949d71473027cd30479a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387722"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566649"
 ---
 # <a name="things-to-consider-when-using-video-analyzer-for-media-at-scale"></a>Video Analyzer for Media를 대규모로 사용 시 고려 사항
 
@@ -48,21 +49,11 @@ URL을 사용하여 비디오를 업로드하는 경우 미디어 파일 위치�
 > [!TIP]
 > 비디오 업로드 API의 `videoUrl` 선택적 매개 변수를 사용합니다.
 
-URL을 사용하여 비디오를 업로드하는 방법의 예제를 보려면 [이 예제](upload-index-videos.md#code-sample)를 확인하세요. 또는 [SAS URL](../../storage/common/storage-sas-overview.md)을 사용하여 Video Analyzer for Media에 콘텐츠를 제출할 수 있는 스토리지 계정에 콘텐츠를 가져오는 빠르고 안정적인 방법으로 [AzCopy](../../storage/common/storage-use-azcopy-v10.md)를 사용할 수 있습니다.
+URL을 사용하여 비디오를 업로드하는 방법의 예제를 보려면 [이 예제](upload-index-videos.md#code-sample)를 확인하세요. 또는 [SAS URL](../../storage/common/storage-sas-overview.md)을 사용하여 Video Analyzer for Media에 콘텐츠를 제출할 수 있는 스토리지 계정에 콘텐츠를 가져오는 빠르고 안정적인 방법으로 [AzCopy](../../storage/common/storage-use-azcopy-v10.md)를 사용할 수 있습니다. Video Analyzer for Media는 *읽기 전용* SAS URL 사용을 권장합니다.
 
-## <a name="increase-media-reserved-units-if-needed"></a>필요한 경우 미디어 예약 단위 늘리기
+## <a name="automatic-scaling-of-media-reserved-units"></a>미디어 예약 단위의 자동 크기 조정 
 
-일반적으로 Video Analyzer for Media 사용을 바로 시작하는 개념 증명 단계에서는 많은 컴퓨팅 성능이 필요하지 않습니다. 인덱싱해야 하는 비디오의 보관이 증가하기 시작하고 사용 사례에 맞는 속도로 프로세스를 진행하려는 경우에는 Video Analyzer for Media 사용량을 스케일 업해야 합니다. 따라서 현재 컴퓨팅 성능이 충분하지 않은 경우 사용하는 컴퓨팅 리소스 수를 늘리는 것을 고려해야 합니다.
-
-Azure Media Services에서 컴퓨팅 성능과 병렬 처리를 늘리려면 미디어 RU([예약 단위](../../media-services/latest/concept-media-reserved-units.md))에 주의해야 합니다. RU는 미디어 처리 작업의 매개 변수를 결정하는 컴퓨팅 단위입니다. RU 수는 각 계정에서 동시에 처리할 수 있는 미디어 작업 수에 영향을 주며, 해당 유형에 따라 처리 속도가 결정되고, 인덱싱이 복잡한 경우 한 비디오에 둘 이상의 RU가 필요할 수 있습니다. RU가 사용 중인 경우에는 또 다른 리소스를 사용할 수 있을 때까지 새 작업이 큐에 저장됩니다.
-
-효율적으로 작업하고 리소스의 유휴 상태를 방지하기 위해 Video Indexer는 처리가 덜 필요할 때 RU를 스핀 다운하고 사용량이 많은 시간에 RU를 스핀 업하는(모든 RU의 전체 사용까지) 자동 스케일링 시스템을 제공합니다. 이 기능은 계정 설정에서 [자동 스케일링을 켜거나](manage-account-connected-to-azure.md#autoscale-reserved-units) [Update-Paid-Account-Azure-Media-Services API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Paid-Account-Azure-Media-Services)를 사용하여 사용하도록 설정할 수 있습니다.
-
-:::image type="content" source="./media/considerations-when-use-at-scale/second-consideration.jpg" alt-text="대규모 Video Analyzer for Media 사용에 대한 두 번째 고려 사항":::
-
-:::image type="content" source="./media/considerations-when-use-at-scale/reserved-units.jpg" alt-text="AMS 예약 단위":::
-
-인덱싱 기간 및 낮은 처리량을 최소화하려면 S3 형식의 10개 RU로 시작하는 것이 좋습니다. 나중에 더 많은 콘텐츠 또는 더 높은 동시성을 지원하기 위해 스케일 업하고 이를 위해 더 많은 리소스가 필요한 경우 [지원 시스템을 사용하여 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)(유료 계정에만 해당)하여 추가 RU 할당을 요청할 수 있습니다.
+2021년 8월 1일부터 Azure Video Analyzer for Media(이전 이름 Video Indexer)는 [AMS(Azure Media Services)](../../media-services/latest/media-services-overview.md)에 의한 [예약 단위](../../media-services/latest/concept-media-reserved-units.md)(MRU) 자동 스케일링을 사용하도록 설정했습니다. 따라서 이제 Azure Video Analyzer for Media를 통해 관리할 필요가 없습니다. 따라서 자동 스케일링이 수행되므로, 비즈니스 요구 사항에 따라 가격 최적화(예: 많은 경우 가격 인하)가 가능합니다. 
 
 ## <a name="respect-throttling"></a>제한 준수
 

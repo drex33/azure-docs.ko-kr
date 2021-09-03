@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: b66011ff41e1dd4a7439105862ca61355a95bd71
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: e90c33f63eb360bae4182ac1f9ed32eb9b8aa0c8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042711"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114439092"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 에이전트를 사용하여 사용자 지정 로그 수집
 
-Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 데이터 원본을 사용 하 여 Windows 및 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다. 많은 애플리케이션이 Windows 이벤트 로그 또는 Syslog 같은 표준 로깅 서비스 대신 텍스트 파일에 정보를 기록합니다. 수집된 데이터를 쿼리의 개별 필드로 구문 분석하거나 수집 중에 데이터를 개별 필드로 추출할 수 있습니다.
+Azure Monitor의 Log Analytics 에이전트에 대한 사용자 지정 로그 데이터 원본을 통해 Windows 및 Linux 컴퓨터 모두의 텍스트 파일에서 이벤트를 수집할 수 있습니다. 많은 애플리케이션이 Windows 이벤트 로그 또는 Syslog 같은 표준 로깅 서비스 대신 텍스트 파일에 정보를 기록합니다. 수집된 데이터를 쿼리의 개별 필드로 구문 분석하거나 수집 중에 데이터를 개별 필드로 추출할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](./log-analytics-agent.md) 를 사용 하 여 사용자 지정 로그를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](../agents/agents-overview.md) 를 참조 하세요.
+> 이 문서에서는 Azure Monitor에서 사용하는 에이전트 중 하나인 [Log Analytics 에이전트](./log-analytics-agent.md)를 사용하여 사용자 지정 로그를 수집하는 방법을 설명합니다. 다른 에이전트는 다른 데이터를 수집하고 다르게 구성됩니다. 사용 가능한 에이전트 및 수집할 수 있는 데이터 목록은 [Azure Monitor 에이전트 개요](../agents/agents-overview.md)를 참조하세요.
 
 ![사용자 지정 로그 수집](media/data-sources-custom-logs/overview.png)
 
@@ -29,7 +29,7 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 
 - 로그 파일은 새 항목으로 파일을 덮어쓰는 순환 로깅 또는 로그 회전을 허용하지 말아야 합니다.
 - 로그 파일은 ASCII 또는 UTF-8 인코딩을 사용해야 합니다.  UTF-16 등의 다른 형식은 지원되지 않습니다.
-- Linux의 경우 로그의 타임 스탬프에 대해 표준 시간대 변환이 지원 되지 않습니다.
+- Linux의 경우 로그에서 타임스탬프에 대한 표준 시간대 변환이 지원되지 않습니다.
 
 >[!NOTE]
 > 로그 파일에 중복된 항목이 있는 경우 Azure Monitor에서 수집합니다. 그러나 쿼리 결과는 필터 결과가 결과 개수보다 더 많은 이벤트를 표시하는 위치에서 일치하지 않습니다. 이를 만드는 애플리케이션에서 이 문제를 일으키는지 확인하도록 로그의 유효성을 검사하고 가능한 경우 사용자 지정 로그 컬렉션 정의를 만들기 전에 해결하는 것이 중요합니다.  
@@ -44,7 +44,7 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 >
 
 >[!IMPORTANT]
->사용자 지정 로그를 수집 하려면 로그 파일을 작성 하는 응용 프로그램에서 로그 콘텐츠를 주기적으로 디스크에 플러시합니다. 이는 사용자 지정 로그 수집이 추적 중인 로그 파일에 대 한 파일 시스템 변경 알림을 사용 하기 때문입니다.
+>사용자 지정 로그 수집을 사용하려면 로그 파일을 작성하는 애플리케이션이 로그 콘텐츠를 주기적으로 디스크에 플러시해야 합니다. 이는 사용자 지정 로그 수집이 추적 중인 로그 파일에 대한 파일 시스템 변경 알림에 의존하기 때문입니다.
 
 ## <a name="defining-a-custom-log"></a>사용자 지정 로그 정의
 다음 절차에 따라 사용자 지정 로그 파일을 정의합니다.  사용자 지정 로그를 추가하는 샘플에 대한 연습을 보려면 이 문서의 끝으로 스크롤합니다.
@@ -52,8 +52,8 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 ### <a name="step-1-open-the-custom-log-wizard"></a>1단계. Custom Log Wizard(사용자 지정 로그 마법사) 열기
 사용자 지정 로그 마법사는 Azure Portal에서 실행되며 수집할 새 사용자 지정 로그를 정의할 수 있습니다.
 
-1. Azure Portal에서 **Log Analytics 작업 영역** > 작업 영역 > **고급 설정** 을 선택합니다.
-2. **데이터**  >  **사용자 지정 로그** 를 클릭 합니다.
+1. Azure Portal에서 **Log Analytics 작업 영역** > 작업 영역 > **설정** 을 선택합니다.
+2. **사용자 지정 로그** 를 클릭합니다.
 3. 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다. Linux 에이전트에서, 구성 파일은 Fluentd 데이터 수집기로 전송됩니다.
 4. **추가+** 를 클릭하여 Custom Log Wizard(사용자 지정 로그 마법사)를 엽니다.
 
@@ -77,7 +77,7 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 
 다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 
-| 설명 | 경로 |
+| Description | 경로 |
 |:--- |:--- |
 | Windows 에이전트에서 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\\\*.txt |
 | Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 *C:\Logs* 내 모든 파일 |C:\Logs\log\*.txt |
@@ -85,13 +85,13 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 | Linux 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 */var/log/audit* 내 모든 파일 |/var/log/audit/log\*.txt |
 
 1. Windows 또는 Linux를 선택하여 추가하는 경로 형식을 지정합니다.
-2. 경로를 입력 하 고 단추를 클릭 **+** 합니다.
+2. 경로를 입력하고 **+** 단추를 클릭합니다.
 3. 경로가 더 있으면 이 프로세스를 반복합니다.
 
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4단계. 로그의 이름과 설명을 제공합니다.
 지정한 이름은 위의 설명처럼 로그 유형에 사용됩니다.  파일을 사용자 지정 로그로 구분하기 위해 항상_CL로 끝납니다.
 
-1. 로그의 이름을 입력합니다.  **\_ CL** 접미사가 자동으로 제공 됩니다.
+1. 로그의 이름을 입력합니다.  **\_CL** 접미사가 자동으로 제공됩니다.
 2. 선택적인 **설명** 을 추가합니다.
 3. **다음** 을 클릭하여 사용자 지정 로그 정의를 저장합니다.
 
@@ -145,7 +145,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ![샘플 로그 업로드 및 구문 분석](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>로그 수집 경로 추가
-로그 파일은 *C:\MyApp\Logs* 에 배치됩니다.  *appYYYYMMDD.log* 패턴의 날짜를 포함하는 이름으로 매일 새 파일이 생성됩니다.  이 로그에 대 한 충분 한 패턴은 *C:\myapp\logs \\ \* .log* 입니다.
+로그 파일은 *C:\MyApp\Logs* 에 배치됩니다.  *appYYYYMMDD.log* 패턴의 날짜를 포함하는 이름으로 매일 새 파일이 생성됩니다.  이 로그에 충분한 패턴은 *C:\MyApp\Logs\\\*.log* 입니다.
 
 ![로그 수집 경로](media/data-sources-custom-logs/collection-path.png)
 
@@ -155,13 +155,13 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 ![로그 이름](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>사용자 지정 로그를 수집 중인지 유효성을 검사합니다.
-*MyApp_CL* 에 대 한 간단한 쿼리를 사용 하 여 수집 된 로그의 모든 레코드를 반환 합니다.
+*MyApp_CL* 의 간단한 쿼리를 사용하여 수집된 로그의 모든 레코드를 반환합니다.
 
 ![사용자 지정 필드가 없는 로그 쿼리](media/data-sources-custom-logs/query-01.png)
 
 
 ## <a name="alternatives-to-custom-logs"></a>사용자 지정 로그 대신 사용할 수 있는 방법
-데이터가 위에 나열 된 조건에 맞는 경우에는 사용자 지정 로그가 유용 하지만, 다음과 같은 경우에는 다른 전략이 필요 합니다.
+데이터가 위에 나열된 기준에 맞는 경우 사용자 지정 로그가 유용하지만 다음과 같이 다른 전략이 필요한 경우가 있습니다.
 
 - 데이터가 다른 형식의 타임스탬프를 포함하는 등 필요한 구조에 맞지 않는 경우
 - 로그 파일이 파일 인코딩 등의 요구 사항을 충족하지 않거나 폴더 구조가 지원되지 않는 경우

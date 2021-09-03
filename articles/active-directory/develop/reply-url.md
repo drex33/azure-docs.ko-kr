@@ -1,22 +1,22 @@
 ---
-title: 리디렉션 URI(회신 URL) 제한 사항 | Azure
+title: 리디렉션 URI(회신 URL) 제한 사항 | Azure AD
 titleSuffix: Microsoft identity platform
 description: Microsoft ID 플랫폼에서 적용하는 리디렉션 URI(회신 URL) 형식의 제한 사항에 대한 설명입니다.
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 11/23/2020
+ms.date: 06/23/2021
 ms.topic: conceptual
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: contperf-fy21q4-portal, aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9484973e724246db76ccc927437fccf2c4c7be1
+ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99582811"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112966467"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>리디렉션 URI(회신 URL) 제한 사항
 
@@ -27,6 +27,10 @@ ms.locfileid: "99582811"
 * 리디렉션 URI는 스키마 `https`로 시작해야 합니다. [Localhost 리디렉션 URI에 대한 몇 가지 예외](#localhost-exceptions)가 있습니다.
 
 * 리디렉션 URI는 대/소문자를 구분합니다. 해당 사례는 실행 중인 애플리케이션의 URL 경로에 대한 대/소문자와 일치해야 합니다. 예를 들어 애플리케이션의 경로 `.../abc/response-oidc`의 일부로 포함하는 경우 리디렉션 URI에 `.../ABC/response-oidc`를 지정하지 마세요. 웹 브라우저는 경로를 대/소문자 구분으로 처리하므로 `.../abc/response-oidc`와 연결된 쿠키는 대/소문자가 일치하지 않는 `.../ABC/response-oidc` URL로 리디렉션되는 경우 제외될 수 있습니다.
+
+* 패스 세그먼트가 없는 리디렉션 URI는 응답의 URI에 후행 슬래시를 추가합니다. 예를 들어 https://contoso.com 및 http://localhost:7071 과 같은 URI는 각각 https://contoso.com/ 및 http://localhost:7071/ 로 반환됩니다. 이는 응답 모드가 쿼리 또는 조각일 때만 적용됩니다.
+
+* 패스 세그먼트를 포함하는 리디렉션 URI는 후행 슬래시를 추가하지 않습니다. (예: https://contoso.com/abc , https://contoso.com/abc/response-oidc 는 응답에 그대로 사용됨)
 
 ## <a name="maximum-number-of-redirect-uris"></a>최대 리디렉션 URI 수
 
@@ -76,7 +80,7 @@ HTTP 스키마를 사용하는 리디렉션 URI를 회사 또는 학교 계정�
 
 :::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="허용되지 않는 http 기반 루프백 리디렉션 URI를 표시하는 Azure Portal의 오류 대화 상자":::
 
-`127.0.0.1` 루프백 주소를 사용하여 `http` 스키마를 사용하는 리디렉션 URI를 추가하려면 현재 [애플리케이션 매니페스트](reference-app-manifest.md)에서 [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) 특성을 수정해야 합니다.
+`127.0.0.1` 루프백 주소를 사용하여 `http` 스키마를 사용하는 리디렉션 URI를 추가하려면 현재 애플리케이션 매니페스트에서 [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) 특성을 수정해야 합니다.
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>리디렉션 URI의 와일드카드에 대한 제한 사항
 
@@ -84,9 +88,9 @@ HTTP 스키마를 사용하는 리디렉션 URI를 회사 또는 학교 계정�
 
 와일드카드 URI는 현재 개인 Microsoft 계정과 회사 또는 학교 계정에 로그인하도록 구성된 앱 등록에서 지원되지 않습니다. 그러나 조직의 Azure AD 테넌트에서 회사 또는 학교 계정에만 로그인하도록 구성된 앱에는 와일드카드 URI를 사용할 수 있습니다.
 
-와일드카드를 사용하는 리디렉션 URI를 회사 또는 학교 계정에 로그인하는 앱 등록에 추가하려면 Azure Portal에서 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908)의 애플리케이션 매니페스트 편집기를 사용합니다. 매니페스트 편집기를 사용하여 와일드카드로 리디렉션 URI를 설정할 수 있지만, [RFC 6749의 3.1.2 섹션](https://tools.ietf.org/html/rfc6749#section-3.1.2)을 준수하고 절대 URI만 사용하는 것이 *좋습니다*.
+와일드카드를 사용하는 리디렉션 URI를 회사 또는 학교 계정에 로그인하는 앱 등록에 추가하려면 Azure Portal에서 **앱 등록** 의 애플리케이션 매니페스트 편집기를 사용합니다. 매니페스트 편집기를 사용하여 와일드카드로 리디렉션 URI를 설정할 수 있지만, RFC 6749의 3.1.2 섹션을 *준수하고* 절대 URI만 사용하는 것이 좋습니다.
 
-시나리오에 허용되는 최대 제한보다 많은 리디렉션 URI가 필요한 경우 와일드카드 리디렉션 URI를 추가하는 대신 다음, [상태 매개 변수 방법](#use-a-state-parameter)을 고려합니다.
+시나리오에 허용되는 최대 제한보다 많은 리디렉션 URI가 필요한 경우 와일드카드 리디렉션 URI를 추가하는 대신 다음, 상태 매개 변수 방법을 고려합니다.
 
 #### <a name="use-a-state-parameter"></a>상태 매개 변수 사용
 

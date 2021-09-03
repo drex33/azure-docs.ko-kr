@@ -8,20 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/21/2021
+ms.date: 07/06/2021
 ms.author: aahi
-ms.openlocfilehash: 4edd78b89ed30d6458eee94e328b8c05f141bfd6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e10c1f8622e1bbb60a3fbb4f5d6fd5bd3da46255
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457708"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550447"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Text Analytics API 버전 3.x로 마이그레이션
 
-Text Analytics API 버전 2.1을 사용하는 경우 이 문서를 참조하여 버전 3.x를 사용하도록 애플리케이션을 업그레이드할 수 있습니다. 버전 3.0은 일반적으로 사용할 수 있으며 확장된 [NER(명명된 엔터티 인식)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) 및 [모델 버전 관리](concepts/model-versioning.md)와 같은 새로운 기능을 소개합니다. 또한 [오피니언 마이닝](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)과 같은 기능을 추가하는 v3.1의 미리 보기 버전(v3.1-preview.x)을 사용할 수 있습니다. v2에서 사용되는 모델은 향후 업데이트를 받지 못합니다. 
+Text Analytics API 버전 2.1을 사용하는 경우 이 문서를 참조하여 버전 3.x를 사용하도록 애플리케이션을 업그레이드할 수 있습니다. 버전 3.1 및 3.0은 일반적으로 사용할 수 있으며 확장된 [NER(명명된 엔터티 인식)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) 및 [모델 버전 관리](concepts/model-versioning.md)와 같은 새로운 기능을 소개합니다. [오피니언 마이닝](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) 및 [프라이빗 식별 정보](how-tos/text-analytics-how-to-entity-linking.md?tabs=version-3-1#personally-identifiable-information-pii) 감지와 같은 기능이 추가된 v3.1 버전도 사용할 수 있습니다. v2 또는 3.1-preview.x에서 사용된 모델은 향후 업데이트를 받지 않습니다. 
 
 ## <a name="sentiment-analysis"></a>[감정 분석](#tab/sentiment-analysis)
+
+> [!TIP]
+> 애플리케이션에서 최신 버전의 API를 사용하려고 하나요? API의 현재 버전에 대한 정보는 [감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md) 방법 도움말 및 [빠른 시작](quickstarts/client-libraries-rest-api.md)을 참조하세요. 
 
 ### <a name="feature-changes"></a>기능 변경 
 
@@ -31,12 +34,12 @@ Text Analytics API 버전 2.1을 사용하는 경우 이 문서를 참조하여 
 
 #### <a name="rest-api"></a>REST API
 
-애플리케이션에서 REST API를 사용하는 경우 감정 분석을 위해 해당 요청 엔드포인트를 v3 엔드포인트로 업데이트합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`. 또한 [API의 응답](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results)에서 반환된 감정 레이블을 사용하려면 애플리케이션을 업데이트해야 합니다. 
+애플리케이션에서 REST API를 사용하는 경우 감정 분석을 위해 해당 요청 엔드포인트를 v3 엔드포인트로 업데이트합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment`. 또한 [API의 응답](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results)에서 반환된 감정 레이블을 사용하려면 애플리케이션을 업데이트해야 합니다. 
 
 JSON 응답의 예제는 참조 설명서를 참조하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Sentiment)
+* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
 
 #### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -44,9 +47,12 @@ JSON 응답의 예제는 참조 설명서를 참조하세요.
 
 ## <a name="ner-and-entity-linking"></a>[NER 및 엔터티 링크 설정](#tab/named-entity-recognition)
 
+> [!TIP]
+> 애플리케이션에서 최신 버전의 API를 사용하려고 하나요? API의 현재 버전에 대한 정보는 [NER 및 엔터티 연결](how-tos/text-analytics-how-to-entity-linking.md) 방법 도움말 및 [빠른 시작](quickstarts/client-libraries-rest-api.md)을 참조하세요. 
+
 ### <a name="feature-changes"></a>기능 변경
 
-버전 2.1에서 Text Analytics API는 NER(명명된 엔터티 인식) 및 엔터티 링크 설정에 대해 하나의 엔드포인트를 사용합니다. 버전 3은 확장된 명명된 엔터티 검색을 제공하고 NER 및 엔터티 링크 설정 요청에 대해 별도의 엔드포인트를 사용합니다. v3.1-preview.1부터 NER에서 개인 `pii` 및 상태 `phi` 정보를 추가로 검색할 수 있습니다. 
+버전 2.1에서 Text Analytics API는 NER(명명된 엔터티 인식) 및 엔터티 링크 설정에 대해 하나의 엔드포인트를 사용합니다. 버전 3은 확장된 명명된 엔터티 검색을 제공하고 NER 및 엔터티 링크 설정 요청에 대해 별도의 엔드포인트를 사용합니다. v3.1에서 NER은 개인 `pii` 및 상태 `phi` 정보를 추가로 검색할 수 있습니다. 
 
 ### <a name="steps-to-migrate"></a>마이그레이션 단계
 
@@ -55,17 +61,17 @@ JSON 응답의 예제는 참조 설명서를 참조하세요.
 애플리케이션에서 REST API를 사용하는 경우 NER 및/또는 엔터티 링크 설정을 위해 해당 요청 엔드포인트를 v3 엔드포인트로 업데이트합니다.
 
 엔터티 연결
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/linking`
 
 NER
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/general`
 
 또한 [API의 응답](how-tos/text-analytics-how-to-entity-linking.md#view-results)에서 반환된 [엔터티 범주](named-entity-types.md)를 사용하려면 애플리케이션을 업데이트해야 합니다.
 
 JSON 응답의 예제는 참조 설명서를 참조하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/EntitiesRecognitionGeneral)
+* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral)
 
 #### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -102,6 +108,9 @@ JSON 응답의 예제는 참조 설명서를 참조하세요.
 
 ## <a name="language-detection"></a>[언어 감지](#tab/language-detection)
 
+> [!TIP]
+> 애플리케이션에서 최신 버전의 API를 사용하려고 하나요? API의 현재 버전에 대한 정보는 [언어 감지](how-tos/text-analytics-how-to-language-detection.md) 방법 도움말 및 [빠른 시작](quickstarts/client-libraries-rest-api.md)을 참조하세요. 
+
 ### <a name="feature-changes"></a>기능 변경 
 
 언어 감지 기능 출력이 v3에서 변경되었습니다. JSON 응답에는 `score` 대신 `ConfidenceScore`가 포함됩니다. 또한 V3는 각 문서의 `detectedLanguage` 특성에서 하나의 언어만 반환합니다.
@@ -110,18 +119,21 @@ JSON 응답의 예제는 참조 설명서를 참조하세요.
 
 #### <a name="rest-api"></a>REST API
 
-애플리케이션에서 REST API를 사용하는 경우 언어 감지를 위해 해당 요청 엔드포인트를 v3 엔드포인트로 업데이트합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`. 또한 [API의 응답](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results)에서 `score` 대신 `ConfidenceScore`를 사용하도록 애플리케이션을 업데이트해야 합니다. 
+애플리케이션에서 REST API를 사용하는 경우 언어 감지를 위해 해당 요청 엔드포인트를 v3 엔드포인트로 업데이트합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/languages`. 또한 [API의 응답](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results)에서 `score` 대신 `ConfidenceScore`를 사용하도록 애플리케이션을 업데이트해야 합니다. 
 
 JSON 응답의 예제는 참조 설명서를 참조하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Languages)
+* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Languages)
 
 #### <a name="client-libraries"></a>클라이언트 라이브러리
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 ## <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/key-phrase-extraction)
+
+> [!TIP]
+> 애플리케이션에서 최신 버전의 API를 사용하려고 하나요? API의 현재 버전에 대한 정보는 [핵심 구 추출](how-tos/text-analytics-how-to-keyword-extraction.md) 방법 도움말 및 [빠른 시작](quickstarts/client-libraries-rest-api.md)을 참조하세요. 
 
 ### <a name="feature-changes"></a>기능 변경 
 
@@ -136,7 +148,7 @@ JSON 응답의 예제는 참조 설명서를 참조하세요.
 JSON 응답의 예제는 참조 설명서를 참조하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
-* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/KeyPhrases)
+* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases)
 
 #### <a name="client-libraries"></a>클라이언트 라이브러리
 

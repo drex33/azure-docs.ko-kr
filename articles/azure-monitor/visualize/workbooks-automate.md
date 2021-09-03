@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 48766e51e3408e11c264b77c43b066f3fedc6c28
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d48cefcae16829bc0a58cdb4f4a43f52d78f8460
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080509"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567397"
 ---
 # <a name="programmatically-manage-workbooks"></a>프로그래밍 방식으로 통합 문서 관리
 
@@ -193,7 +193,7 @@ ms.locfileid: "110080509"
 | `workbookType` | 통합 문서가 표시되는 갤러리입니다. 지원되는 값에는 통합 문서, `tsg`, Azure Monitor 등이 있습니다. |
 | `workbookSourceId` | 통합 문서를 연결할 리소스 인스턴스의 ID입니다. 새 통합 문서는 이 리소스 인스턴스와 관련되어 표시됩니다. 예를 들어 _통합 문서_ 에 있는 리소스의 목차에 있습니다. 통합 문서가 Azure Monitor의 통합 문서 갤러리에 표시되도록 하려면 리소스 ID 대신 문자열 _Azure Monitor_ 를 사용합니다. |
 | `workbookId` | 이 통합 문서 인스턴스의 고유 guid _[newGuid()]_ 를 사용하여 새 guid를 자동으로 만듭니다. |
-| `kind` | 만든 통합 문서가 공유 문서인지 프라이빗 문서인지를 지정하는 데 사용됩니다. 공유 통합 문서에는 _공유_ 값을, 프라이빗 문서에는 _사용자_ 값을 사용합니다. |
+| `kind` | 만든 통합 문서가 공유 문서인지 지정하는 데 사용됩니다. 모든 새 통합 문서는 _shared_ 값을 사용합니다. |
 | `location` | 통합 문서가 생성될 Azure 위치 _[resourceGroup().location]_ 을 사용하여 리소스 그룹과 같은 위치에 만듭니다. |
 | `serializedData` | 통합 문서에 사용할 콘텐츠나 페이로드를 포함합니다. 통합 문서 UI의 Resource Manager 템플릿을 사용하여 값을 가져옵니다. |
 
@@ -307,4 +307,4 @@ Azure 통합 문서용 Azure Resource Manager 템플릿을 내보낼 때 내보�
 
 ## <a name="next-steps"></a>다음 단계
 
-통합 문서를 사용하여 새로운 [Storage 인사이트 환경](../insights/storage-insights-overview.md)을 강화하는 방법을 살펴보세요.
+통합 문서를 사용하여 새로운 [Storage 인사이트 환경](../../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)을 강화하는 방법을 살펴보세요.

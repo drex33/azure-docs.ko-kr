@@ -3,17 +3,18 @@ title: Azure 이미지 작성기로 Windows VM 만들기
 description: Azure Image Builder로 Windows VM을 만듭니다.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 04/23/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: 6eaa59521a864b3d93d4c79706ca8ec7ff100d70
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 651a67414c34bcfae45663dd1bcfbd9d97e63598
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030974"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531071"
 ---
 # <a name="create-a-windows-vm-with-azure-image-builder"></a>Azure 이미지 작성기로 Windows VM 만들기
 
@@ -28,7 +29,7 @@ ms.locfileid: "112030974"
 - ID - Azure Image Builder가 빌드 중에 사용할 ID를 제공합니다.
 
 
-`buildTimeoutInMinutes`도 지정할 수 있습니다. 기본값은 240분이며 빌드를 더 오래 실행하려면 빌드 시간을 연장할 수 있습니다.
+`buildTimeoutInMinutes`도 지정할 수 있습니다. 기본값은 240분이며 빌드를 더 오래 실행하려면 빌드 시간을 연장할 수 있습니다. 최소 허용 값은 6분입니다. 이 값이 더 짧으면 오류가 발생합니다.
 
 이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용할 .json 파일은 [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json)입니다. 
 
@@ -40,7 +41,7 @@ ms.locfileid: "112030974"
 
 ## <a name="register-the-features"></a>기능 등록
 
-Azure Image Builder를 사용하려면 해당 기능을 등록해야 합니다.
+Azure Image Builder를 사용하려면 이 기능을 등록해야 합니다.
 
 등록을 확인합니다.
 
@@ -125,7 +126,7 @@ az role definition create --role-definition ./aibRoleImageCreation.json
 # grant role definition to the user assigned identity
 az role assignment create \
     --assignee $imgBuilderCliId \
-    --role $imageRoleDefName \
+    --role "$imageRoleDefName" \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 

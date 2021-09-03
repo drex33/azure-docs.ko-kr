@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 클러스터를 업그레이드하여
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 772cb9d33c9bf9307ca0dc16536933fc9123de4b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 9dcbe21ccddb13037cbd7633127880320da9ff2b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085801"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537310"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -136,6 +136,12 @@ myAKSCluster  eastus      myResourceGroup  1.18.10              Succeeded       
 AKS 클러스터에 대한 클러스터 자동 업그레이드는 미리 보기 기능입니다.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+`az cli`에 대해 다음 확장자를 추가합니다.
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
 
 `AutoUpgradePreview`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 기능 플래그를 등록 합니다.
 

@@ -3,19 +3,19 @@ title: Custom Voice에 대한 데이터를 준비하는 방법 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Service를 사용하여 자체 브랜드의 사용자 지정 음성을 만듭니다. 스튜디오 레코딩 및 관련 스크립트를 제공하면 서비스가 녹음된 음성에 맞게 튜닝된 고유한 음성 모델을 생성합니다. 이 음성을 사용하여 제품, 도구 및 애플리케이션에서 음성을 합성할 수 있습니다.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: b745a5673aa5cebe62be4c0571d90839399668d6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.author: lajanuar
+ms.openlocfilehash: 74f23dd6a7629e98189f73ebc305755d70f3c7a1
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479273"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529639"
 ---
 # <a name="prepare-training-data"></a>학습 데이터 준비
 
@@ -44,7 +44,7 @@ ms.locfileid: "110479273"
 | 데이터 형식 | Description | 사용 시기 | 필요한 추가 처리 |
 | --------- | ----------- | ----------- | --------------------------- |
 | **개별 발화 + 일치하는 대본** | 개별 발화 오디오 파일(.wav)의 컬렉션(.zip)입니다. 각 오디오 파일의 길이는 15초 이하여야 하며 서식 있는 대본(.txt)과 페어링됩니다. | 일치하는 대본이 있는 전문 레코딩 | 학습용으로 준비. |
-| **긴 오디오 + 대본(베타)** | 긴 분할되지 않은 오디오 파일(20초 이상)의 컬렉션(.zip)으로, 모든 음성이 포함된 대본(.txt)과 페어링됩니다. | 오디오 파일 및 일치하는 대본이 있지만 발화로 분할되어 있지 않습니다. | 구분(일괄 처리 대본 사용).<br>오디오 형식 변환(필요한 경우). |
+| **긴 오디오 + 대본(베타)** | 긴 분할되지 않은 오디오 파일(20초 이상)의 컬렉션(.zip)으로, 모든 음성이 포함된 대본의 컬렉션(.zip)과 페어링됩니다. | 오디오 파일 및 일치하는 대본이 있지만 발화로 분할되어 있지 않습니다. | 구분(일괄 처리 대본 사용).<br>오디오 형식 변환(필요한 경우). |
 | **오디오만(베타)** | 대본이 없는 오디오 파일의 컬렉션(.zip)입니다. | 오디오 파일만 사용할 수 있으며 대본이 없습니다. | 분할 + 대본 생성(일괄 처리 대본 사용)<br>오디오 형식 변환(필요한 경우).|
 
 파일은 형식에 따라 데이터 세트로 그룹화되고 zip 파일로 업로드되어야 합니다. 각 데이터 세트는 단일 데이터 형식만 포함할 수 있습니다.

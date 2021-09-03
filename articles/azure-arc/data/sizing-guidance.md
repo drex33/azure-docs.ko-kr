@@ -7,18 +7,17 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bbd778eabf150b734b04e004006dfeea2254ec4
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 6ac2397823dffd2c31cbe534c8fea1886e84558d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077485"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566625"
 ---
 # <a name="sizing-guidance"></a>크기 조정 지침
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="overview-of-sizing-guidance"></a>크기 조정 지침 개요
 
@@ -31,7 +30,7 @@ Azure Arc 데이터 서비스 배포를 계획할 때 Azure Arc 데이터 컨트
 
 코어 수는 1보다 크거나 같은 정수 값이어야 합니다.
 
-배포에 azdata를 사용하는 경우 메모리값은 두 숫자의 거듭제곱으로 지정해야 합니다. 즉, 접미사: Ki, Mi 또는 Gi를 사용합니다.
+배포에 Azure CLI(az)를 사용하는 경우 메모리 값은 두 숫자의 거듭제곱으로 지정해야 합니다. 즉, 접미사: Ki, Mi 또는 Gi를 사용합니다.
 
 제한 값은 지정된 경우 항상 요청 값보다 커야 합니다.
 
@@ -39,7 +38,7 @@ Azure Arc 데이터 서비스 배포를 계획할 때 Azure Arc 데이터 컨트
 
 ## <a name="minimum-deployment-requirements"></a>최소 배포 요구 사항
 
-최소 크기의 Azure Arc 지원 데이터 서비스 배포는 Azure Arc 데이터 컨트롤러와 하나의 SQL 관리형 인스턴스 및 두 개의 작업자 노드를 포함하는 하나의 PostgreSQL 하이퍼스케일 서버 그룹으로 간주할 수 있습니다.  해당 구성에서는 Kubernetes 클러스터에서 _사용 가능한_ 16GB의 RAM 및 코어 4개 이상의 용량이 필요합니다.  최소한 Kubernetes 노드 크기가 8GB RAM 및 코어 4개이고, 모든 Kubernetes 노드에서 총 16GB RAM을 사용할 수 있어야 합니다.  예를 들어 32GB RAM 및 4개 코어에 1개의 노트를 가질 수 있으며, 16GB RAM 및 4개 코어에 2개의 노드를 가질 수 있습니다.
+최소 크기의 Azure Arc 지원 데이터 서비스 배포는 Azure Arc 데이터 컨트롤러와 하나의 SQL Managed Instance 및 두 개의 작업자 노드를 포함하는 하나의 PostgreSQL 하이퍼스케일 서버 그룹으로 간주할 수 있습니다.  해당 구성에서는 Kubernetes 클러스터에서 _사용 가능한_ 16GB의 RAM 및 코어 4개 이상의 용량이 필요합니다.  최소한 Kubernetes 노드 크기가 8GB RAM 및 코어 4개이고, 모든 Kubernetes 노드에서 총 16GB RAM을 사용할 수 있어야 합니다.  예를 들어 32GB RAM 및 4개 코어에 1개의 노트를 가질 수 있으며, 16GB RAM 및 4개 코어에 2개의 노드를 가질 수 있습니다.
 
 스토리지 크기 조정에 관한 자세한 내용은 [스토리지 구성](storage-configuration.md) 문서를 참조하세요.
 
@@ -52,13 +51,11 @@ Azure Arc 데이터 서비스 배포를 계획할 때 Azure Arc 데이터 컨트
 |**부트스트래퍼**|100m|100Mi|200m|200Mi||
 |**control**|400m|2Gi|1800m|2Gi||
 |**controldb**|200m|3Gi|800m|6Gi||
-|**controlwd**|10m|100Mi|100m|200Mi||
 |**logsdb**|200m|1600Mi|2|1600Mi||
 |**logsui**|100m|500Mi|2|2Gi||
 |**metricsdb**|200m|800Mi|400m|2Gi||
 |**metricsdc**|100m|200Mi|200m|300Mi|Metricsdc는 클러스터의 각 Kubernetes 노드에 생성되는 DaemonSet입니다.  여기에 있는 표의 숫자는 _노드당_ 입니다. 데이터 컨트롤러를 만들기 전에 배포 프로필 파일에서 allowNodeMetricsCollection = false를 설정하는 경우 metricsdc daemonset가 생성되지 않습니다.|
 |**metricsui**|20m|200Mi|500m|200Mi||
-|**mgmtproxy**|200m|250Mi|500m|500Mi||
 
 배포 프로필 파일 또는 datacontroller YAML 파일에서 controldb 및 컨트롤 Pod의 기본 설정을 재정의할 수 있습니다.  예:
 
@@ -84,9 +81,14 @@ Azure Arc 데이터 서비스 배포를 계획할 때 Azure Arc 데이터 컨트
 
 ## <a name="sql-managed-instance-sizing-details"></a>SQL 관리형 인스턴스 크기 조정 정보
 
-각 SQL 관리형 인스턴스에는 다음과 같은 최소 리소스 요청이 있어야 합니다.
-- 메모리: 2Gi
-- 코어: 1개
+각 SQL Managed Instance에는 다음과 같은 최소 리소스 요청 및 제한이 있어야 합니다.
+
+|서비스 계층|범용|중요 비즈니스용(미리 보기)|
+|---|---|---|
+|CPU 요청|최소: 1; 최대: 24; 기본값: 2|최소: 1; 최대: 무제한; 기본값: 4|
+|CPU 제한|최소: 1; 최대: 24; 기본값: 2|최소: 1; 최대: 무제한; 기본값: 4|
+|메모리 요청|최소: 2Gi; 최대: 128Gi; 기본값: 4Gi|최소: 2Gi; 최대: 무제한; 기본값: 4Gi|
+|메모리 제한|최소: 2Gi; 최대: 128Gi; 기본값: 4Gi|최소: 2Gi; 최대: 무제한; 기본값: 4Gi|
 
 생성된 각 SQL 관리형 인스턴스 Pod에는 세 개의 컨테이너가 있습니다.
 
@@ -146,7 +148,7 @@ Azure Arc 지원 데이터 서비스에 필요한 환경의 전체 크기는 주
 
 코어 또는 RAM용 지정된 데이터베이스 인스턴스 크기 요청은 클러스터에서 사용 가능한 Kubernetes 노드의 용량을 초과할 수 없습니다.  예를 들어 Kubernetes 클러스터에 있는 가장 큰 Kubernetes 노드가 256GB의 RAM과 24개 코어인 경우 512GB의 RAM 및 48개 코어 요청을 사용하여 데이터베이스 인스턴스를 만들 수 없습니다.  
 
-Kubernetes에서 Pod 생성을 효율적으로 예약하고 필요에 따라 탄력적으로 스케일링하고 장기적으로 늘릴 수 있도록 Kubernetes 노드에서 사용 가능한 용량의 25% 이상을 유지하는 것이 좋습니다.  
+Kubernetes에서 Pod 생성을 효율적으로 예약하고, 탄력적으로 스케일링하고, Kubernetes 노드의 롤링 업그레이드를 허용하고, 필요에 따라 장기적으로 늘릴 수 있도록 Kubernetes 노드에서 사용 가능한 용량의 25% 이상을 유지하는 것이 좋습니다.
 
 크기 조정 계산에서 Kubernetes 시스템 Pod의 리소스 요구 사항 및 동일한 Kubernetes 클러스터에서 Azure Arc 지원 데이터 서비스와 용량을 공유할 수 있는 다른 워크로드를 반드시 추가해야 합니다.
 

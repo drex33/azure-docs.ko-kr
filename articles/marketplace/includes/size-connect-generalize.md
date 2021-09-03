@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: 7d94bd0a4a9fb50cb211fd227c3022a46beef502
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: b1eb954626570d7feb2af7fe0980e4f7a10e70c6
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527547"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113279871"
 ---
 ## <a name="generalize-the-image"></a>이미지 일반화
 
@@ -23,11 +23,9 @@ Azure Marketplace의 모든 이미지는 일반적으로 다시 사용할 수 �
 Windows OS 디스크는 [sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) 도구를 사용하여 일반화됩니다. 나중에 OS를 업데이트하거나 재구성하는 경우 sysprep을 다시 실행해야 합니다.
 
 > [!WARNING]
-> sysprep을 실행한 후 업데이트가 자동으로 실행될 수 있으므로 배포될 때까지 VM을 끕니다. 이렇게 종료하면 이후 업데이트에서 운영 체제 또는 설치된 서비스에 대한 인스턴스 관련 변경이 수행되지 않습니다. sysprep 실행에 대한 자세한 내용은 [VHD를 일반화하는 단계](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)를 참조하세요.
+> sysprep을 실행한 후 업데이트가 자동으로 실행될 수 있으므로 배포될 때까지 VM을 끕니다. 이렇게 종료하면 이후 업데이트에서 운영 체제 또는 설치된 서비스에 대한 인스턴스 관련 변경이 수행되지 않습니다. sysprep 실행에 대한 자세한 내용은 [Windows VM 일반화](../../virtual-machines/generalize.md#windows)를 참조하세요.
 
 ### <a name="for-linux"></a>Linux의 경우
-
-다음 프로세스에서 Linux VM을 일반화하여 별도의 VM으로 다시 배포합니다. 자세한 내용은 [가상 머신 또는 VHD의 이미지를 만드는 방법](../../virtual-machines/linux/capture-image.md)을 참조하세요. "캡처된 이미지에서 VM 만들기"라는 섹션에서 중지할 수 있습니다.
 
 1. Azure Linux 에이전트를 제거합니다.
     1. SSH 클라이언트를 사용하여 Linux VM에 연결합니다.
@@ -57,13 +55,13 @@ VM이 준비되면 Azure Shared Image Gallery에서 이를 캡처할 수 있습�
 
 ## <a name="set-the-right-permissions"></a>올바른 권한 설정
 
-파트너 센터 계정이 Shared Image Gallery를 호스트하는 구독의 소유자인 경우, 다른 권한이 필요하지 않습니다.
+파트너 센터 계정이 Shared Image Gallery를 호스팅하는 구독의 소유자인 경우 추가 권한이 더 이상 필요하지 않습니다.
 
 구독에 대한 읽기 권한만 있는 경우 다음 두 가지 옵션 중 하나를 사용합니다.
 
-### <a name="option-one--ask-the-owner-to-grant-owner-permission"></a>옵션 1 - 소유자에게 소유자 권한을 부여하도록 요청
+### <a name="option-one--ask-the-owner-to-grant-owner-permission"></a>옵션 1 – 소유자에게 소유자 권한을 부여하도록 요청
 
-소유자가 소유자 권한을 부여하기 위한 단계는 다음과 같습니다.
+소유자가 소유자 권한을 부여하는 단계:
 
 1. SIG(Shared Image Gallery)로 이동합니다.
 2. 왼쪽 패널에서 **액세스 제어**(IAM)를 선택합니다.
@@ -71,12 +69,12 @@ VM이 준비되면 Azure Shared Image Gallery에서 이를 캡처할 수 있습�
     :::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="역할 할당 추가 창이 표시됩니다.":::
 1. **역할** 에 대해 **소유자** 를 선택합니다.
 1. **다음에 대한 액세스 할당** 에서 **사용자, 그룹 또는 서비스 주체** 를 선택합니다.
-1. **선택** 에서 이미지를 게시할 사용자의 Azure 메일을 입력합니다.
+1. **선택** 에서 이미지를 게시할 사용자의 Azure 이메일을 입력합니다.
 1. **저장** 을 선택합니다.
 
-### <a name="option-two--run-a-command"></a>옵션 2 - 명령 실행
+### <a name="option-two--run-a-command"></a>옵션 2 – 명령 실행
 
-소유자에게 다음 명령 중 하나를 실행하도록 요청합니다. 두 경우 모두 공유 이미지 갤러리를 만든 구독의 SusbscriptionId를 사용합니다.
+소유자에게 이러한 명령 중 하나를 실행하도록 요청합니다(두 경우 모두 공유 이미지 갤러리를 만든 구독의 SusbscriptionId 사용).
 
 ```azurecli
 az login

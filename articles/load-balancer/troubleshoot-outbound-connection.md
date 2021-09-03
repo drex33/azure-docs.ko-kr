@@ -2,21 +2,27 @@
 title: Azure Load Balance에서 아웃바운드 연결 문제 해결
 description: Azure Load Balancer를 통한 아웃바운드 연결의 일반적인 문제에 대한 해결 방법입니다.
 services: load-balancer
-author: erichrt
+author: anavinahar
 ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
-ms.author: errobin
-ms.openlocfilehash: 1f52900086afef09d69b80bf44474d5514e25235
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.author: anavin
+ms.openlocfilehash: 71472a89b2aa3138c83dac1f5c2dfc5649c9b9ce
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748883"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112583170"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> 아웃바운드 연결 실패 문제 해결
 
-이 문서는 Azure Load Balancer의 아웃바운드 연결에서 발생할 수 있는 일반적인 문제에 대한 해결 방법을 제공하기 위한 것입니다. 고객이 경험하는 대부분의 아웃바운드 연결 문제는 SNAT 포트 소모 및 연결 시간 초과로 인해 패킷이 삭제되기 때문입니다. 이 문서에서는 이러한 각 문제를 완화하는 단계를 제공합니다.
+이 문서는 Azure Load Balancer의 아웃바운드 연결에서 발생할 수 있는 일반적인 문제에 대한 해결 방법을 제공하기 위한 것입니다. 고객이 경험하는 대부분의 아웃바운드 연결 문제는 SNAT(원본 네트워크 주소 변환) 포트 소모 및 연결 시간 초과로 인해 패킷이 삭제되기 때문입니다. 이 문서에서는 이러한 각 문제를 완화하는 단계를 제공합니다.
+
+## <a name="avoid-snat"></a>SNAT 피하기
+
+SNAT 포트를 모두 소모하지 않도록 하는 가장 좋은 방법은 가능하면 우선 SNAT의 필요성을 제거하는 것입니다. 경우에 따라 이러한 공간 확보가 불가능할 수 있습니다. 예를 들어 공개 엔드포인트에 연결할 때. 그러나 어떤 경우에는 이것이 가능하며 리소스에 비공개로 연결하여 달성할 수 있습니다. Storage, SQL, Cosmos DB 또는 기타 [여기에 나열된 Azure 서비스](../private-link/availability.md)와 같은 Azure 서비스에 연결하는 경우 Azure Private Link를 활용하면 SNAT이 필요하지 않습니다. 결과적으로 SNAT 포트 고갈로 인한 잠재적인 연결 문제의 위험이 없습니다.
+
+프라이빗 링크 서비스는 Snowflake, MongoDB, Confluent, Elastic 및 기타 서비스에서도 지원됩니다.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> SNAT(PAT) 포트 고갈 관리
 [PAT](load-balancer-outbound-connections.md)에 사용되는 [삭제 포트](load-balancer-outbound-connections.md)는 [공용 IP 주소가 없는 독립 실행형 VM](load-balancer-outbound-connections.md) 및 [공용 IP 주소가 없는 부하 분산 VM](load-balancer-outbound-connections.md)에 설명된 것처럼 고갈될 수 있는 리소스입니다. [이](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) 가이드를 사용하여 임시 포트의 사용을 모니터링하고 현재 할당과 비교하여 SNAT 소모의 위험을 확인하거나 SNAT 소모를 확인할 수 있습니다.

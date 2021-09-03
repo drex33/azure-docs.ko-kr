@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 305b37d4b4ae67be79c095ee42810876770bb239
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 220b2da56791fde38301bd1f69f5e134be77982c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673315"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446009"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
@@ -26,7 +26,7 @@ ms.locfileid: "110673315"
 
 이 확장은 Windows N 시리즈 VM에 NVIDIA GPU 드라이버를 설치합니다. 확장은 VM 제품군에 따라 CUDA 또는 GRID 드라이버를 설치합니다. 이 확장을 사용하여 NVIDIA 드라이버를 설치하면 [NVIDIA 최종 사용자 사용권 계약](https://go.microsoft.com/fwlink/?linkid=874330)을 수락하고 이에 동의하게 됩니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
 
-드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침은 [여기](../windows/n-series-driver-setup.md)에서 확인할 수 있습니다.
+드라이버의 수동 설치 및 현재 지원되는 버전에 대한 지침을 확인할 수 있습니다. 자세한 내용은 [Windows용 Azure N 시리즈 NVIDIA GPU 드라이버 설정](../windows/n-series-driver-setup.md)을 참조하세요.
 또한 [Linux N 시리즈 VM](hpccompute-gpu-linux.md)에 NVIDIA GPU 드라이버를 설치할 수 있는 확장도 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소

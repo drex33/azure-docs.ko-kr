@@ -1,26 +1,23 @@
 ---
-title: Azure Firewall 프리미엄 미리 보기 배포 및 구성
+title: Azure Firewall 프리미엄 배포 및 구성
 description: Azure Firewall 프리미엄을 배포 및 구성하는 방법에 대해 알아봅니다.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: 7984cff6b6cf0f70fc50493fd680d7203e09a81b
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 9358852dd8b16f495d5123b59ea3ae0f4c29b00f
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110585857"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441151"
 ---
-# <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Azure Firewall 프리미엄 미리 보기 배포 및 구성
+# <a name="deploy-and-configure-azure-firewall-premium"></a>Azure Firewall 프리미엄 배포 및 구성
 
-> [!IMPORTANT]
-> Azure Firewall 프리미엄은 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
- Azure Firewall 프리미엄 미리 보기는 매우 중요하고 규정을 준수하는 환경에 필요한 기능을 갖춘 차세대 방화벽입니다. 이 관리 팩에는 다음과 같은 기능이 포함되어 있습니다.
+ Azure Firewall 프리미엄은 매우 민감하고 통제된 환경에 필요한 기능을 갖춘 차세대 방화벽입니다. 이 관리 팩에는 다음과 같은 기능이 포함되어 있습니다.
 
 - **TLS 검사** - 아웃바운드 트래픽을 해독하고, 데이터를 처리한 다음 데이터를 암호화하고 대상에 보냅니다.
 - **IDPS** - 네트워크 침입 감지 및 방지 시스템(IDPS)을 사용하면 악의적인 활동의 네트워크 활동을 모니터링 하고, 이 활동에 대한 정보를 기록하고, 보고하고, 필요 시 차단할 수 있습니다.
@@ -75,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="idps-tests"></a>IDPS 테스트
 
-IDPS를 테스트하려면 적절한 서버 인증서를 사용하여 자체 내부 웹 서버를 배포해야 합니다. Azure Firewall 프리미엄 미리 보기 인증서 요구 사항에 대한 자세한 내용은 [Azure Firewall Premium 미리 보기 인증서](premium-certificates.md)를 참조하세요.
+IDPS를 테스트하려면 적절한 서버 인증서를 사용하여 자체 내부 웹 서버를 배포해야 합니다. Azure Firewall 프리미엄 인증서 요구 사항에 대한 자세한 내용은 [Azure Firewall 프리미엄 인증서](premium-certificates.md)를 참조하세요.
 
 `curl`을 사용하여 다양한 HTTP 헤더를 제어하고 악의적인 트래픽을 시뮬레이션할 수 있습니다.
 
@@ -94,7 +91,7 @@ IDPS를 테스트하려면 적절한 서버 인증서를 사용하여 자체 내
    > 데이터가 로그에 표시되기 시작하는 데 다소 시간이 걸릴 수 있습니다. 데이터가 로그에 표시되기 시작하는 데 20분 이상 걸릴 수 있습니다.
 5. 서명 2008983에 대한 서명 규칙을 추가합니다.
 
-   1. **DemoFirewallPolicy** 를 선택하고 **설정** 에서 **IDPS(미리 보기)** 를 선택합니다.
+   1. **DemoFirewallPolicy** 를 선택하고 **설정** 에서 **IDPS** 를 선택합니다.
    1. **서명 규칙** 탭을 선택합니다.
    1. **서명 ID** 에서 열린 텍스트 상자에 *2008983* 을 입력합니다.
    1. **모드** 에서 **거부** 를 선택합니다.
@@ -131,7 +128,7 @@ HTTP 테스트와 동일한 결과가 표시되어야 합니다.
 
 URL 필터링을 사용하여 TLS 검사를 테스트하려면 다음 단계를 따릅니다.
 
-1. 방화벽 정책 애플리케이션 규칙을 편집하고 `AllowURL`이라는 새 규칙을 `AllowWeb` 규칙 컬렉션에 추가합니다. 대상 URL(`www.nytimes.com/section/world`), 원본 IP 주소 **\*‘_, 대상 유형 _’URL(미리 보기)** 을 구성하고 **TLS 검사(미리 보기)** 및 프로토콜(**http, https**)을 선택합니다.
+1. 방화벽 정책 애플리케이션 규칙을 편집하고 `AllowURL`이라는 새 규칙을 `AllowWeb` 규칙 컬렉션에 추가합니다. 대상 URL(`www.nytimes.com/section/world`), 원본 IP 주소 **\* *_, 대상 유형 _* URL** 을 구성하고 **TLS 검사** 및 프로토콜(**http, https**)을 선택합니다.
 
 3. 배포가 완료되면 WorkerVM에서 브라우저를 열고 `https://www.nytimes.com/section/world`로 이동하여 브라우저에서 HTML 응답이 예상대로 표시되는지 확인합니다.
 4. Azure Portal에서는 애플리케이션 규칙 모니터링 로그에서 전체 URL을 볼 수 있습니다.
@@ -153,7 +150,7 @@ URL 필터링을 사용하여 TLS 검사를 테스트하려면 다음 단계를 
 1. 포털에서 리소스 그룹을 열고 **DemoFirewallPolicy** 를 선택합니다.
 2. **애플리케이션 규칙** 을 선택한 다음 **규칙 컬렉션을 추가** 합니다.
 3. **이름** 에 *GeneralWeb*, **우선 순위** *103*, **규칙 컬렉션 그룹** 을 입력하고 **DefaultApplicationRuleCollectionGroup** 을 입력합니다.
-4. **규칙** 에서 **이름** 에 *AllowSports*, **원본** *\** , **프로토콜** *http, https* 를 입력하고 **TLS 검사**, **대상 유형** 을 선택하고 ‘웹 범주(미리 보기)’, **대상** 을 선택하고 ‘스포츠’를 선택합니다. 
+4. **규칙** 에서 **이름** 에 *AllowSports*, **원본** *\** , **프로토콜** *http, https* 를 입력하고 **TLS 검사**, **대상 유형** 을 선택하고 *웹 범주*, **대상** 을 선택하고 *스포츠* 를 선택합니다.
 5. **추가** 를 선택합니다.
 
       :::image type="content" source="media/premium-deploy/web-categories.png" alt-text="스포츠 웹 범주":::
@@ -163,4 +160,4 @@ URL 필터링을 사용하여 TLS 검사를 테스트하려면 다음 단계를 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal의 Azure Firewall 프리미엄 미리 보기](premium-portal.md)
+- [Azure Portal의 Azure Firewall 프리미엄](premium-portal.md)

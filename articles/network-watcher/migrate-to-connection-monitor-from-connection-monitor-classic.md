@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: fc5bcc7f0cd11160b33bb6501526fce9f29d710b
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: c9130b83d0d4491152e05157c9cb52dfb89231a1
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366388"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105744"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>연결 모니터(클래식)에서 연결 모니터로 마이그레이션
 
@@ -67,8 +67,23 @@ ms.locfileid: "107366388"
 * 마이그레이션된 연결 모니터는 더 이상 이전 연결 모니터 솔루션으로 표시되지 않습니다. 이제 연결 모니터에서만 사용 가능한 상태가 됩니다.
 * SIEM(보안 정보 및 이벤트 관리) 시스템과의 통합 및 모든 외부 통합(예: Power BI 및 Grafana의 대시보드)은 수동으로 마이그레이션해야 합니다. 이는 설정을 마이그레이션하려면 수행해야 하는 유일한 수동 단계입니다.
 
+## <a name="common-errors-encountered"></a>일반적인 오류 발생
+
+다음은 마이그레이션 중에 발생하는 몇 가지 일반적인 오류입니다. 
+
+| Error  |    이유   |
+|---|---|
+|하나 이상의 구독/지역 조합에 Network Watcher가 사용하도록 설정되어 있지 않으므로 다음 연결 모니터를 가져올 수 없습니다. Network Watcher를 사용하도록 설정하고 새로 고침을 클릭하여 가져옵니다. 연결 모니터 목록 - {0}   |  이 오류는 사용자가 CM(클래식)에서 연결 모니터로 테스트를 마이그레이션하고 CM(클래식)의 하나 이상의 구독 및 지역에서 Network Watcher 확장이 사용하도록 설정되지 않은 경우 발생합니다. 사용자는 구독에서 NW 확장을 사용하도록 설정하고 새로 고침하여 다시 마이그레이션하기 전에 가져와야 합니다.   |
+|하나 이상의 Azure Virtual Machines에 Network Watcher 확장이 설치되어 있지 않으므로 다음 테스트가 있는 연결 모니터를 가져올 수 없습니다. Network Watcher 확장을 설치하고 새로 고침을 클릭하여 가져옵니다. 테스트 목록 - {0} |    이 오류는 사용자가 CM(클래식)에서 연결 모니터로 테스트를 마이그레이션하고 있고 CM(클래식)의 하나 이상의 Azure VM에 Network Watcher 확장이 설치되어 있지 않을 때 발생합니다. 사용자는 다시 마이그레이션하기 전에 Azure VM에 NW 확장을 설치하고 새로 고쳐야 합니다. |
+|표시할 행 없음   |  이 오류는 사용자가 CM(클래식)에서 CM으로 구독을 마이그레이션하려고 하지만 구독에 CM(클래식)이 만들어지지 않은 경우 발생합니다. |
+
 ## <a name="next-steps"></a>다음 단계
 
 연결 모니터에 대해 자세히 알아보려면 다음을 참조하세요.
 * [네트워크 성능 모니터에서 연결 모니터로 마이그레이션](./migrate-to-connection-monitor-from-network-performance-monitor.md)
 * [Azure Portal을 사용하여 연결 모니터 만들기](./connection-monitor-create-using-portal.md)
+
+
+    
+ 
+    

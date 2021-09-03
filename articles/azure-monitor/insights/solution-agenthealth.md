@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 171230dc2ce6189e36c601c6c7d3b3612fce160c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24797f6524cd9a129f8eafb5b13e4bd1a26cf803
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711062"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432197"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure Monitor의 에이전트 상태 솔루션
 Azure의 에이전트 상태 솔루션은 응답이 없고 작동 데이터를 제출하는 Azure Monitor의 Log Analytics 작업 영역에 직접 보고하는 모든 에이전트 또는 Azure Monitor에 연결된 System Center Operations Manager 관리 그룹을 이해하는 데 도움이 됩니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
@@ -78,6 +78,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 | `SCAgentChannel` | 값은 *직접* 및/또는 *SCManagementServer* 합니다.|
 | `IsGatewayInstalled` | Log Analytics 게이트웨이가 설치된 경우 값은 *true* 이거나, 그렇지 않으면 *false* 입니다.|
 | `ComputerIP` | 컴퓨터의 공용 IP 주소입니다. 공용 IP가 있는 경우 Azure VM에 이를 표시합니다. 개인 IP를 사용하는 VM의 경우에는 개인 IP 주소가 아닌 Azure SNAT 주소가 표시됩니다. |
+| `ComputerPrivateIPs` | 컴퓨터의 개인 IP 목록입니다. |
 | `RemoteIPCountry` | 컴퓨터가 배포된 지리적 위치입니다.|
 | `ManagementGroupName` | Operations Manager 관리 그룹의 이름입니다.|
 | `SourceComputerId` | 컴퓨터의 고유 ID입니다.|

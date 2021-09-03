@@ -2,19 +2,18 @@
 title: Azure IoT Hub 클라우드-디바이스 메시징 이해 | Microsoft Docs
 description: 이 개발자 가이드에서는 IoT Hub에서 클라우드-디바이스 메시징을 사용하는 방법을 설명합니다. 메시지 수명 주기 및 구성 옵션에 대한 정보를 포함합니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 7bb3ca2b31eaef5c0639f30e0f2a329a37dfe7e0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: cc681d843d1fc68b3da6918724c7ad3e3ca5e37e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107761784"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528331"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT Hub에서 클라우드-디바이스 메시지 보내기
 
@@ -95,7 +94,7 @@ IoT Hub의 **최대 배달 횟수** 속성은 *큐에 넣음* 및 *숨김* 상�
 
 본문은 각각 다음과 같은 속성이 있는 레코드의 JSON으로 직렬화된 배열입니다.
 
-| 속성           | Description |
+| 속성           | 설명 |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | 메시지의 결과가 발생한 시간을 나타내는 타임스탬프입니다(예를 들어 허브에서 피드백 메시지를 받았거나 원래 메시지가 만료됨). |
 | OriginalMessageId  | 이 피드백 정보와 관련된 클라우드-디바이스 메시지의 *MessageId* 입니다. |
@@ -135,13 +134,13 @@ IoT Hub의 **최대 배달 횟수** 속성은 *큐에 넣음* 및 *숨김* 상�
 
 각 IoT Hub는 클라우드-디바이스 메시징에 다음 구성 옵션을 노출합니다.
 
-| 속성                  | Description | 범위 및 기본값 |
+| 속성                  | 설명 | 범위 및 기본값 |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | 클라우드-디바이스 메시지에 대한 기본 TTL | ISO_8601 간격은 최대 2일(최소 1분)입니다. 기본값: 1시간 |
 | maxDeliveryCount          | 클라우드-디바이스 디바이스 단위 큐에 대한 최대 전달 수입니다. | 1~100, 기본값: 10 |
 | feedback.ttlAsIso8601     | 서비스 바인딩 피드백 메시지에 대한 보존 기간입니다. | ISO_8601 간격은 최대 2일(최소 1분)입니다. 기본값: 1시간 |
 | feedback.maxDeliveryCount | 피드백 큐에 대한 최대 전달 수입니다. | 1~100, 기본값: 10 |
-| feedback.lockDurationAsIso8601 | 피드백 큐에 대한 최대 전달 수입니다. | ISO_8601 간격은 5초에서 300초(최소 5초) 사이입니다. 기본값: 60초 |
+| feedback.lockDurationAsIso8601 | 피드백 큐의 잠금 기간 | ISO_8601 간격은 5초에서 300초(최소 5초) 사이입니다. 기본값: 60초 |
 
 다음 방법의 하나로 구성 옵션을 설정할 수 있습니다.
 

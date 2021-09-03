@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
-ms.openlocfilehash: 0930024a791fe8b76c90e8ab4249a070b22a1c16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68ae3735fc1f58ebbf8d7afd6a098e7520880058
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98898039"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114228759"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
-Custom Translator는 Translator 서비스의 기능으로, 사용자가 Translator(버전 3만 해당)를 사용하여 텍스트를 번역할 때 Microsoft Translator의 고급 인공신경망 기계 번역을 사용자 지정할 수 있도록 합니다.
+커스텀 번역기는 번역기 서비스의 기능으로, 사용자가 번역기(버전 3만 해당)를 사용하여 텍스트를 번역할 때 Microsoft 번역기의 고급 인공신경망 기계 번역을 사용자 지정할 수 있도록 합니다.
 
 이 기능은 [Cognitive Services Speech](../speech-service/index.yml)에서 사용될 경우 음성 번역을 사용자 지정하는 데도 사용될 수 있습니다.
 

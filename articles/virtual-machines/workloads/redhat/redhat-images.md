@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 42e0788a25efa5124f24a77b48469d6ed8265dfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 970e0931556a787b461b8c614b41fd88271bdf1c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694685"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114469123"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
 
@@ -101,7 +101,7 @@ RHEL 7.x 이미지의 경우 몇 가지 다른 이미지 형식이 있습니다.
 ## <a name="rhel-8-image-types"></a>RHEL 8 이미지 형식
 
 >[!NOTE]
-> Red Hat은 Grubby를 사용하여 RHEL 8+에서 커널 명령줄 매개 변수를 구성할 것을 권장합니다. 세부 정보는 [여기](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel)에서 확인할 수 있습니다.
+> Red Hat은 Grubby를 사용하여 RHEL 8+에서 커널 명령줄 매개 변수를 구성할 것을 권장합니다. 자세한 내용은 [5장. 커널 명령줄 매개 변수 구성 Red Hat Enterprise Linux 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel)을 참조하세요.
 
 RHEL 8 이미지 형식에 대한 세부 정보는 다음과 같습니다.
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: fb0cca1859a8e4fcc456bb3815f0e03f4f0311d1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3720ac243fd90be23c18f760977dc2a0d13e0412
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459404"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112989114"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Java 및 Eclipse를 사용하여 첫 함수 만들기 
 
@@ -51,7 +51,7 @@ Maven은 이름이 _artifactId_ 인 새 폴더에 프로젝트 파일을 만듭�
 > 로컬에서 함수를 실행하고 디버그하려면 [Azure Functions Core Tools 버전 2](functions-run-local.md#v2)를 설치해야 합니다.
 
 1. 생성된 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Run As**(다음으로 실행)와 **Maven build** 를 선택합니다.
-1. **Edit Configuration**(구성 편집) 대화 상자에서 **Goals**(목표) 및 **Name**(이름) 필드에 `package`를 입력한 다음, **Run**(실행)을 선택합니다. 그러면 함수 코드가 빌드되고 패키지됩니다.
+1. **구성 편집** 대화 상자에서 **목표** 에 `package`를 입력한 다음, **실행** 을 선택합니다. 그러면 함수 코드가 빌드되고 패키지됩니다.
 1. 빌드가 완료되면 `azure-functions:run`을 목표 및 이름으로 사용하여 위와 같이 다른 실행 구성을 만듭니다. **Run**(실행)을 선택하여 IDE에서 함수를 실행합니다.
 
 함수 테스트가 끝나면 콘솔 창에서 런타임을 종료합니다. 한 번에 하나의 함수 호스트만 활성화되고 로컬로 실행될 수 있습니다.

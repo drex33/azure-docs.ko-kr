@@ -2,22 +2,22 @@
 title: Azure AD에서 페더레이션 인증서 관리 | Microsoft Docs
 description: 페더레이션 인증서에 대한 만료 날짜를 사용자 지정하는 방법 및 곧 만료되는 인증서를 갱신하는 방법에 대해 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: mtillman
-ms.reviewer: jeedes
+ms.author: davidmu
+ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 538307a4ffe9970960a4f8cea32ed8052bb87bf9
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5217f358e7977d8414204c48d82dd6b4f1554b1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080618"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536863"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 
@@ -60,7 +60,7 @@ ms.locfileid: "112080618"
 1. **새 인증서** 를 선택합니다. 인증서 목록 아래에 새 행이 나타납니다. 여기에서 만료 날짜의 기본값은 현재 날짜부터 정확히 3년 이후입니다. 변경 내용이 아직 저장되지 않았으므로 만료 날짜를 수정할 수 있습니다.
 1. 새 인증서 행에서 만료 날짜 열 위로 마우스를 이동하고 **날짜 선택** 아이콘(달력)을 선택합니다. 새 행의 현재 만료 날짜를 표시하는 달력 컨트롤이 나타납니다.
 1. 달력 컨트롤을 사용하여 새 날짜를 설정할 수 있습니다. 현재 날짜와 현재 날짜로부터 3년 기간 이내의 아무 날짜나 설정할 수 있습니다.
-1. **저장** 을 선택합니다. 이제 새 인증서에 **비활성** 상태, 선택한 만료 날짜 및 지문이 표시됩니다.
+1. **저장** 을 선택합니다. 이제 새 인증서에 **비활성** 상태, 선택한 만료 날짜 및 지문이 표시됩니다. **참고**- 이미 만료된 기존 인증서가 있고 새 인증서를 만들면 아직 활성화하지 않았더라도 새 인증서가 서명 토큰에 대해 고려됩니다.
 1. **X** 를 선택하여 **SAML로 Single Sign-On 설정 - 미리 보기** 페이지로 돌아갑니다.
 
 ### <a name="upload-and-activate-a-certificate"></a>인증서 업로드 및 활성화
@@ -77,6 +77,8 @@ ms.locfileid: "112080618"
 1. 새 인증서로 롤오버하려면 **SAML 서명 인증서** 페이지로 돌아가 새로 저장된 인증서 행에서 줄임표( **...** )를 선택하고 **인증서 활성화** 를 선택합니다. 새 인증서의 상태가 **활성** 으로 변경되고 이전에 활성화된 인증서가 **비활성** 상태로 변경됩니다.
 1. 앞에서 표시한 애플리케이션의 SAML 로그온 구성 지침에 따라 SAML 서명 인증서를 올바른 인코딩 형식으로 업로드할 수 있습니다.
 
+애플리케이션에 인증서 만료에 대한 유효성 검사가 없고 Azure Active Directory와 애플리케이션 모두에서 인증서가 일치하는 경우 만료된 인증서가 있어도 앱에 계속 액세스할 수 있습니다. 애플리케이션에서 인증서의 만료 날짜를 확인할 수 있는지 확인합니다.
+
 ## <a name="add-email-notification-addresses-for-certificate-expiration"></a>인증서 만료에 대한 메일 알림 주소 추가
 
 Azure AD에서는 SAML 인증서가 만료되기 60일, 30일 및 7일 전에 이메일 알림을 보냅니다. 알림을 받을 이메일 주소를 둘 이상 추가할 수 있습니다. 알림을 보낼 메일 주소를 지정하려면 다음을 수행합니다.
@@ -89,7 +91,7 @@ Azure AD에서는 SAML 인증서가 만료되기 60일, 30일 및 7일 전에 �
 
 알림 목록에 최대 5개의 메일 주소를 추가할 수 있습니다(애플리케이션을 추가한 관리자의 메일 주소 포함). 더 많은 사용자에게 알림이 필요한 경우 배포 목록 메일을 사용합니다.
 
-aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 메일이 스팸 위치로 이동하지 않도록 방지하려면 이 메일을 연락처에 추가해야 합니다.
+azure-noreply@microsoft.com으로부터 알림 이메일을 받습니다. 메일이 스팸 위치로 이동하지 않도록 방지하려면 이 메일을 연락처에 추가해야 합니다.
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>곧 만료되는 인증서 갱신
 
@@ -102,8 +104,10 @@ aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 메�
    1. 다음 두 단계를 건너뜁니다.
 
 1. 앱이 한 번에 하나의 인증서만 처리할 수 있는 경우에는 다음 단계를 수행할 가동 중지 시간 간격을 선택합니다. 애플리케이션이 새 인증서를 자동으로 선택하지 않고 둘 이상의 서명 인증서를 처리할 수 있는 경우에는 언제든지 다음 단계를 수행할 수 있습니다.
-1. 이전 인증서가 만료되기 전에 앞에 나오는 [인증서 업로드 및 활성화](#upload-and-activate-a-certificate) 섹션의 지침을 따르세요.
+1. 이전 인증서가 만료되기 전에 앞에 나오는 [인증서 업로드 및 활성화](#upload-and-activate-a-certificate) 섹션의 지침을 따르세요. Azure Active Directory 새 인증서가 업데이트된 후 애플리케이션 인증서가 업데이트되지 않으면 앱에서 인증이 실패할 수 있습니다.
 1. 애플리케이션에 로그인하여 인증서가 제대로 작동하는지 확인합니다.
+
+애플리케이션이 Azure Active Directory에 구성된 인증서 만료의 유효성을 검사하지 않고 인증서가 Azure Active Directory와 애플리케이션 모두에서 일치하는 경우 만료된 인증서가 있어도 앱에 계속 액세스할 수 있습니다. 애플리케이션에서 인증서 만료의 유효성을 검사할 수 있는지 확인합니다.
 
 ## <a name="related-articles"></a>관련된 문서
 

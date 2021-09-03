@@ -7,20 +7,20 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/20/2020
+ms.date: 07/27/2021
 ms.author: banders
-ms.openlocfilehash: fbb69a4449c32f85cc4be438645b654608aa7489
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: fb37278a30e935d2bb65a7b132177a1bd588117d
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026559"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731217"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Azure에 대한 신용 카드 추가 또는 업데이트
 
 이 문서는 신용 카드로 Azure 온라인에 등록한 고객에게 적용됩니다.
 
-Azure Portal에서 기본 결제 방법을 새 신용 카드로 변경하고 신용 카드 세부 정보를 업데이트할 수 있습니다. 이러한 변경을 수행하려면 [계정 관리자](../understand/subscription-transfer.md#whoisaa)이거나 올바른 [MCA 권한](understand-mca-roles.md)이 있어야 합니다.
+Azure Portal에서 기본 결제 방법을 새 신용 카드로 변경하고 신용 카드 세부 정보를 업데이트할 수 있습니다. 이러한 변경을 수행하려면 [계정 관리자](../understand/subscription-transfer.md#whoisaa)이거나 올바른 [MCA 권한](understand-mca-roles.md)이 있어야 합니다. 모든 구독에 대해 현재 신용 카드를 바꿀 수도 있습니다.
 
 신용 카드를 삭제하려면 [Azure 청구 결제 방법 삭제](delete-azure-payment-method.md)를 참조하세요.
 
@@ -28,43 +28,53 @@ Microsoft Azure에 지원되는 결제 방법은 신용 카드와 수표/전신 
 
 Microsoft 고객 계약을 통해 결제 방법이 청구 프로필과 연결됩니다. [Microsoft 고객 계약에 대한 액세스 확인](#check-the-type-of-your-account) 방법을 알아보세요. MCA가 있는 경우 [Microsoft 고객 계약의 신용 카드 관리](#manage-credit-cards-for-a-microsoft-customer-agreement)로 건너뜁니다.
 
+>[!NOTE]
+> 새 구독을 만들 때 새 신용 카드를 지정할 수 있습니다. 그렇게 하면 다른 구독이 새 신용 카드와 연결되지 않습니다. 그러나 나중에 다음 중 하나라도 변경하면 *모든 구독* 에서 선택한 결제 방법이 사용됩니다.
+  >- **활성화 설정** 옵션을 사용하여 결제 방법을 활성화합니다.
+  >- 모든 구독에 대해 **바꾸기** 결제 옵션을 사용합니다.
+  >- 기본 결제 방법 변경
+
 <a id="addcard"></a>
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Azure 구독의 신용 카드 관리
 
 다음 섹션은 Microsoft Online Services 프로그램 청구 계정이 있는 고객에게 적용됩니다. [청구 계정 유형을 확인](#check-the-type-of-your-account)하는 방법을 알아보세요. 청구 계정 유형이 Microsoft Online Services 프로그램인 경우 결제 방법이 개별 Azure 구독과 연결됩니다. 신용 카드를 추가한 후 오류가 표시되면 [Azure 등록 시 신용 카드 거부](./troubleshoot-declined-card.md)를 참조하세요.
 
-### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>새 신용 카드를 추가하여 구독에 대한 신용 카드 변경
+### <a name="change-credit-card-for-all-subscriptions-by-adding-a-new-credit-card"></a>새 신용 카드를 추가하여 모든 구독에 대한 신용 카드 변경
 
-Azure 구독의 기본 신용 카드를 새 신용 카드 또는 Azure Portal에서 이전에 저장한 신용 카드로 변경할 수 있습니다. 신용 카드를 변경하려면 계정 관리자여야 합니다. 여러 구독에 동일한 활성 결제 방법이 있는 경우 이러한 구독 중에서 활성 결제 방법을 변경하면 다른 구독에 대한 활성 결제 방법도 업데이트됩니다.
+Azure 구독의 기본 신용 카드를 새 신용 카드 또는 Azure Portal에서 이전에 저장한 신용 카드로 변경할 수 있습니다. 신용 카드를 변경하려면 계정 관리자여야 합니다. 
+
+여러 구독에 동일한 활성 결제 방법이 있는 경우 이러한 구독 중에서 기본 결제 방법을 변경하면 다른 구독에 대한 활성 결제 방법도 업데이트됩니다.
 
 다음 단계를 수행하여 구독의 기본 신용 카드를 새 신용 카드로 변경할 수 있습니다.
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구** 를 검색합니다.  
-    ![검색을 보여주는 스크린샷](./media/change-credit-card/search.png)
+    :::image type="content" source="./media/change-credit-card/search.png" alt-text="검색을 보여 주는 스크린샷." lightbox="./media/change-credit-card/search.png" :::
 1. 신용 카드를 추가하려는 구독을 선택합니다.
 1. **결제 방법** 을 선택합니다.  
-    ![선택한 결제 방법 관리 옵션을 보여 주는 스크린샷](./media/change-credit-card/payment-methods-blade-x.png)
-1. 왼쪽 위 모서리에서 "+" 기호를 선택하여 카드를 추가합니다. 오른쪽에 신용 카드 양식이 나타납니다.
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="선택한 결제 방법 관리 옵션을 보여 주는 스크린샷" lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+1. 왼쪽 위 모서리에서 **+ 추가** 를 선택하여 카드를 추가합니다. 오른쪽에 신용 카드 양식이 나타납니다.
 1. 신용 카드 세부 정보를 입력합니다.  
-    ![새 카드 추가를 보여주는 스크린샷](./media/change-credit-card/sub-add-new-x.png)
-1. 이 카드를 활성 결제 방법으로 만들려면 양식 위쪽에서 **이 방법을 내 활성 결제 방법으로 설정** 옆에 있는 확인란을 선택합니다. 이 카드는 선택한 구독과 동일한 카드를 사용하는 모든 구독의 활성 결제 방법이 됩니다.
+    :::image type="content" source="./media/change-credit-card/sub-add-new-default.png" alt-text="새 카드 추가를 보여 주는 스크린샷" lightbox="./media/change-credit-card/sub-add-new-default.png" :::
+1. 이 카드를 기본 결제 방법으로 설정하려면 양식 위의 **이 카드를 기본 결제 방법으로 설정** 을 선택합니다. 이 카드는 선택한 구독과 동일한 카드를 사용하는 모든 구독의 활성 결제 방법이 됩니다.
 1. **다음** 을 선택합니다.
 
-### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>이전에 저장한 신용 카드로 구독하기 위한 신용 카드 변경
+### <a name="replace-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>이전에 저장한 신용 카드로 구독하기 위한 신용 카드 바꾸기
 
-다음 단계를 수행하여 구독의 기본 신용 카드를 계정에 이미 저장된 신용 카드로 변경할 수도 있습니다.
+다음 단계를 수행하여 구독의 기본 신용 카드를 계정에 이미 저장된 신용 카드로 바꿀 수도 있습니다. 이 절차는 다른 모든 구독에 대한 신용 카드를 변경합니다.
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구** 를 검색합니다.  
-    ![검색을 보여주는 스크린샷](./media/change-credit-card/search.png)
+    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Cost Management + Billing 검색을 보여 주는 스크린샷." lightbox="./media/change-credit-card/search.png" :::
 1. 신용 카드를 추가하려는 구독을 선택합니다.
 1. **결제 방법** 을 선택합니다.
-    ![선택한 결제 방법 관리 옵션을 보여 주는 스크린샷](./media/change-credit-card/payment-methods-blade-x.png)
-1. 활성 결제 방법으로 설정할 카드 옆에 있는 확인란을 선택합니다.
-1. **활성 설정** 을 선택합니다.
-    ![선택한 신용 카드 및 활성 설정을 보여주는 스크린샷](./media/change-credit-card/sub-change-active-x.png)
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="결제 방법 관리 옵션을 보여 주는 스크린샷." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+1. 현재 신용카드를 선택한 신용카드로 변경하려면 **바꾸기** 를 선택합니다.
+    :::image type="content" source="./media/change-credit-card/replace-credit-card.png" alt-text="바꾸기 옵션을 보여 주는 스크린샷." lightbox="./media/change-credit-card/replace-credit-card.png" :::
+1. **기본 결제 방법 바꾸기** 에서 기본 신용 카드를 바꿀 다른 신용 카드를 선택한 후 **다음** 을 선택합니다.
+    :::image type="content" source="./media/change-credit-card/replace-default-payment-method.png" alt-text="기본 결제 방법 바꾸기 상자를 보여 주는 스크린샷." lightbox="./media/change-credit-card/replace-default-payment-method.png" :::
+1. 잠시 후 결제 방법이 변경되었다는 확인 메시지가 표시됩니다.
 
 ### <a name="edit-credit-card-details"></a>신용 카드 세부 정보 입력
 
@@ -72,13 +82,13 @@ Azure 구독의 기본 신용 카드를 새 신용 카드 또는 Azure Portal에
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구** 를 검색합니다.
-    ![검색을 보여주는 스크린샷](./media/change-credit-card/search.png)
+    :::image type="content" source="./media/change-credit-card/search.png" alt-text="검색 스크린샷" lightbox="./media/change-credit-card/search.png" :::
 1. **결제 방법** 을 선택합니다.
-    ![선택한 결제 방법 관리 옵션을 보여 주는 스크린샷](./media/change-credit-card/payment-methods-blade-x.png)
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="결제 방법 관리를 보여 주는 스크린샷." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
 1. 편집하려는 신용 카드를 선택합니다. 오른쪽에 신용 카드 양식이 나타납니다.
-    ![선택한 신용 카드를 보여주는 스크린샷](./media/change-credit-card/edit-card-x.png)
+    :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="결제 방법 편집을 보여 주는 스크린샷." lightbox="./media/change-credit-card/edit-card-x.png" :::
 1. 신용 카드 세부 정보를 업데이트합니다.
-1. **저장** 을 선택합니다.
+1. **다음** 을 선택합니다.
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약의 신용 카드 관리
 
@@ -97,9 +107,9 @@ Microsoft 고객 계약의 경우 신용 카드가 청구 프로필과 연결됩
 1. 왼쪽 메뉴에서 **청구 프로필** 을 선택합니다.
 1. 청구 프로필을 선택합니다.
 1. 왼쪽 메뉴에서 **결제 방법** 을 선택합니다.  
-   ![메뉴의 결제 방법을 보여주는 스크린샷](./media/change-credit-card/payment-methods-tab-mca.png)
+    :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="메뉴의 결제 방법을 보여 주는 스크린샷." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
 1. **기본 결제 방법** 섹션에서 **바꾸기** 를 선택합니다.  
-    :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="교체 옵션을 보여주는 스크린샷" :::
+    :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="바꾸기를 보여 주는 스크린샷" lightbox="./media/change-credit-card/change-payment-method-mca.png" :::
 1. 오른쪽의 새 영역에 있는 드롭다운에서 기존 카드를 선택하거나 파란색 **새 결제 방법 추가** 링크를 선택하여 새 카드를 추가합니다.
 
 ### <a name="edit-a-credit-card"></a>신용 카드 편집
@@ -113,10 +123,10 @@ Azure Portal에서 신용 카드 세부 정보(예: 만료 날짜 업데이트)�
 1. 왼쪽 메뉴에서 **청구 프로필** 을 선택합니다.
 1. 청구 프로필을 선택합니다.
 1. 왼쪽 메뉴에서 **결제 방법** 을 선택합니다.  
-   ![메뉴의 결제 방법을 보여주는 스크린샷](./media/change-credit-card/payment-methods-tab-mca.png)
+    :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="메뉴의 결제 방법을 보여 주는 스크린샷." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
 1. **신용 카드** 섹션에서 편집할 신용 카드를 찾습니다.
 1. 행 끝에 있는 줄임표(`...`)를 선택합니다.  
-    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="줄임표를 보여 주는 스크린샷" :::
+    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="줄임표를 보여 주는 스크린샷." lightbox="./media/change-credit-card/edit-delete-credit-card-mca.png" :::
 1. 신용 카드 세부 정보를 편집하려면 바로 가기 메뉴에서 **편집** 을 선택합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -131,9 +141,13 @@ Azure는 가상 카드 또는 선불 카드를 지원하지 않습니다. 유효
 
 로그아웃하고 다시 로그인했는데도 이 오류 메시지가 계속 표시되는 경우 프라이빗 브라우징 세션으로 다시 시도해 보세요.
 
-### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>보유한 각 구독에 대해 서로 다른 카드를 사용하려면 어떻게 할까요?
+### <a name="how-do-i-use-a-different-card-for-each-subscription"></a>각 구독에 대해 서로 다른 카드를 사용하려면 어떻게 해야 하나요?
 
-아쉽게도 구독이 동일한 카드를 이미 사용 중인 경우 서로 다른 카드를 사용하도록 구분할 수 없습니다. 그러나 새 구독에 등록할 때 해당 구독에 대해 새 지불 방법을 사용하도록 선택할 수 있습니다.
+이전에 언급했듯이 새 구독을 만들 때 새 신용 카드를 지정할 수 있습니다. 그렇게 하면 다른 구독이 새 신용 카드와 연결되지 않습니다. 각각 고유한 신용 카드를 사용하여 여러 개의 새 구독을 추가할 수 있습니다. 그러나 나중에 다음 중 하나라도 변경하면 *모든 구독* 에서 선택한 결제 방법이 사용됩니다.
+
+- **활성화 설정** 옵션을 사용하여 결제 방법을 활성화합니다.
+- 모든 구독에 대해 **바꾸기** 결제 옵션을 사용합니다.
+- 기본 결제 방법 변경
 
 ### <a name="how-do-i-make-payments"></a>지불하려면 어떻게 해야 할까요?
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: b8eefda763765fd17fbf86bcf3205e854459a9f6
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: c1e60ae792921ef4e218918f093001ee9947975d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656250"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535541"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Azure Purview에서 데이터 원본 관리(미리 보기)
 
@@ -38,7 +38,7 @@ ms.locfileid: "109656250"
 
 ## <a name="view-sources"></a>원본 보기
 
-Azure Purview Studio의 **원본** 탭에서 등록된 모든 원본을 볼 수 있습니다. 지도 보기와 목록 보기의 두 가지 보기 형식이 있습니다.
+Azure Purview Studio의 **데이터 맵** 탭에서 등록된 모든 원본을 볼 수 있습니다. 지도 보기와 목록 보기의 두 가지 보기 형식이 있습니다.
 
 ### <a name="map-view"></a>맵 보기
 

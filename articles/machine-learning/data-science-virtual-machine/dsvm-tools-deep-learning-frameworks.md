@@ -6,16 +6,16 @@ keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python
-author: timoklimmer
-ms.author: tklimmer
+author: michalmar
+ms.author: mimarusa
 ms.topic: conceptual
-ms.date: 05/12/2021
-ms.openlocfilehash: 3272c2584d03c6f13d2ffb85eb0b37bf3c29000a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/27/2021
+ms.openlocfilehash: a757151d17456c7ee9646bc0730a51f34088b255
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081625"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729192"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Azure Data Science VM의 딥 러닝 및 AI 프레임워크
 DSVM의 딥 러닝 프레임워크는 아래에 나열되어 있습니다.
@@ -53,16 +53,16 @@ DSVM의 딥 러닝 프레임워크는 아래에 나열되어 있습니다.
 
 | 범주 | 값 |
 |--|--|
-| 지원되는 버전 | 1.8.1(Ubuntu 18.04, Windows 2019) |
+| 지원되는 버전 | 1.9.0(Ubuntu 18.04, Windows 2019) |
 | 지원되는 DSVM 버전 | Windows Server 2019<br>Ubuntu 18.04 |
-| DSVM에 구성/설치 방법 | Python, Conda 환경 'py38_pytorch'에 설치되었습니다. |
+| DSVM에 구성/설치 방법 | Python, conda 환경 'py38_default', 'py38_pytorch'에 설치됨 |
 | 실행 방법 | 터미널: 올바른 환경을 활성화한 다음, Python을 실행합니다.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): 샘플에 대한 PyTorch 디렉터리에 연결하여 엽니다. |
 
 ## <a name="tensorflow"></a>[Tensorflow](https://www.tensorflow.org/)
 
 | 범주 | 값 |
 |--|--|
-| 지원되는 버전 | 2.4 |
+| 지원되는 버전 | 2.5 |
 | 지원되는 DSVM 버전 | Windows Server 2019<br>Ubuntu 18.04 |
-| DSVM에 구성/설치 방법 | Python, Conda 환경 'py38_tensorflow'에 설치되었습니다. |
+| DSVM에 구성/설치 방법 | Python, conda 환경 'py38_default', 'py38_tensorflow'에 설치됨 |
 | 실행 방법 | 터미널: 올바른 환경을 활성화한 다음, Python을 실행합니다. <br/> * Jupyter: [Jupyter](provision-vm.md) 또는 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)에 연결한 다음, 샘플에 대한 TensorFlow 디렉터리를 엽니다. |

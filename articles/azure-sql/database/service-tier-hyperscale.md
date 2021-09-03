@@ -3,22 +3,23 @@ title: 하이퍼스케일 서비스 계층이란?
 description: 이 문서에서는 Azure SQL Database의 vCore 기반 구매 모델에 있는 하이퍼스케일 서비스 계층에 대해 설명하고, 범용 및 중요 비즈니스용 서비스 계층의 차이점도 설명합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
-ms.date: 3/31/2021
-ms.openlocfilehash: a32c839479b71f09663cc80f5b1a1b2af260ba0a
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 7/8/2021
+ms.openlocfilehash: ca9bfaa6155c2d0f4600ed56bf5a3cab3880274c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124764"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535494"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 보장하기 위해 클라우드 환경에 대해 조정되는 SQL Server 데이터베이스 엔진 아키텍처를 기반으로 합니다. Azure SQL Database에 사용되는 세 가지 아키텍처 모델이 있습니다.
 
@@ -41,10 +42,10 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 - 컴퓨팅 리소스에 대한 I/O에 영향을 주지 않으면서 크기에 관계없이 거의 즉각적인 데이터베이스 백업(Azure Blob 스토리지에 저장된 파일 스냅샷 기반)  
 - 몇 시간 또는 며칠이 아닌 몇 분 내에(데이터베이스 작업의 규모가 아닌) 빠른 데이터베이스 복원(파일 스냅샷 기반)
 - 데이터 볼륨에 관계없이 더 높은 로그 처리량 및 더 빠른 트랜잭션 커밋 시간이 보장되므로 전반적인 성능 개선
-- 빠른 스케일 아웃 - 읽기 워크로드를 오프로드하고 핫 대기로 사용하기 위해 하나 이상의 읽기 전용 노드를 프로비전할 수 있습니다.
+- 빠른 스케일 아웃 - 읽기 워크로드를 오프로드하고 핫 대기로 사용하기 위해 하나 이상의 [읽기 전용 복제본](service-tier-hyperscale-replicas.md)을 프로비저닝할 수 있습니다.
 - 빠른 스케일 업 - 필요할 때 과도한 워크로드를 수용하도록 컴퓨팅 리소스를 지속적으로 스케일 업한 다음, 필요하지 않을 때 컴퓨팅 리소스를 다시 스케일 다운할 수 있습니다.
 
-하이퍼스케일 서비스 계층은 클라우드 데이터베이스에서 기존에 확인되던 많은 실제 제한을 없애줍니다. 대부분의 다른 데이터베이스가 단일 노드에서 사용할 수 있는 리소스로 제한되지만 하이퍼스케일 서비스 계층의 데이터베이스에는 이러한 제한이 없습니다. 스토리지 아키텍처가 유연하기 때문에 필요에 따라 스토리지가 증가합니다. 실제로 하이퍼스케일 데이터베이스는 정의된 최대 크기로 만들어지지 않습니다. 하이퍼스케일 데이터베이스는 필요에 따라 확장되며, 사용하는 용량에 대해서만 요금이 청구됩니다. 읽기 집약적 워크로드의 경우 하이퍼스케일 서비스 계층에서 읽기 워크로드를 오프로드하는 데 필요한 추가 읽기 복제본을 프로비전하여 신속한 스케일 아웃을 제공합니다.
+하이퍼스케일 서비스 계층은 클라우드 데이터베이스에서 기존에 확인되던 많은 실제 제한을 없애줍니다. 대부분의 다른 데이터베이스가 단일 노드에서 사용할 수 있는 리소스로 제한되지만 하이퍼스케일 서비스 계층의 데이터베이스에는 이러한 제한이 없습니다. 스토리지 아키텍처가 유연하기 때문에 필요에 따라 스토리지가 증가합니다. 실제로 하이퍼스케일 데이터베이스는 정의된 최대 크기로 만들어지지 않습니다. 하이퍼스케일 데이터베이스는 필요에 따라 확장되며, 사용하는 용량에 대해서만 요금이 청구됩니다. 읽기 집약적 워크로드의 경우 하이퍼스케일 서비스 계층에서 읽기 워크로드를 오프로드하는 데 필요한 추가 복제본을 프로비저닝하여 신속한 스케일 아웃을 제공합니다.
 
 또한 데이터베이스 백업을 만들거나 규모 확대 또는 축소에 필요한 시간이 더 이상 데이터베이스의 데이터 볼륨과 관련되지 않습니다. 하이퍼스케일 데이터베이스는 거의 동시에 백업할 수 있습니다. 몇 분 안에 수십 테라바이트의 데이터베이스 규모를 확대 또는 축소할 수도 있습니다. 이 기능은 초기 구성 선택에 따른 여러 가지 우려를 해소해줍니다.
 
@@ -69,7 +70,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 - **컴퓨팅**:
 
-  하이퍼스케일 컴퓨팅 단위 가격은 복제본별로 정해집니다. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/) 가격은 읽기 확장 복제본에 자동으로 적용됩니다. 기본적으로 주 복제본 및 하이퍼스케일 데이터베이스당 하나의 읽기 전용 복제본을 만듭니다.  사용자는 1~5개의 주 복제본을 포함하여 총 복제본 수를 조정할 수 있습니다.
+  하이퍼스케일 컴퓨팅 단위 가격은 복제본별로 정해집니다. [Azure Hybrid 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/) 가격은 이름이 지정된 고가용성 복제본에 자동으로 적용됩니다. 기본적으로 Hyperscale 데이터베이스당 기본 복제본과 하나의 보조 [고가용성 복제본](service-tier-hyperscale-replicas.md)을 만듭니다.  사용자는 필요한 [SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/)에 따라 총 고가용성 복제본 수를 0-4로 조정할 수 있습니다. 
 
 - **스토리지**:
 
@@ -79,7 +80,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 ## <a name="distributed-functions-architecture"></a>분산 함수 아키텍처
 
-모든 데이터 관리 기능을 하나의 위치/프로세스에 중앙 집중식으로 배치하는 기존 데이터베이스 엔진과 달리(소위 말하는 프로덕션의 분산 데이터베이스에도 모놀리식 데이터 엔진의 여러 복사본이 있음), 하이퍼스케일 데이터베이스는 여러 데이터 엔진의 의미 체계가 구분되어 있는 쿼리 처리 엔진을 데이터에 대한 장기 스토리지 및 지속성을 제공하는 구성 요소와 구분합니다. 이러한 방식으로 스토리지 용량을 필요한 만큼 원활하게 스케일 아웃할 수 있습니다(초기 목표는 100TB). 읽기 전용 복제본은 동일한 스토리지 구성 요소를 공유하므로 읽기 가능한 새 복제본을 스핀업하는 데 데이터 복사본이 필요하지 않습니다.
+모든 데이터 관리 기능을 하나의 위치/프로세스에 중앙 집중식으로 배치하는 기존 데이터베이스 엔진과 달리(소위 말하는 프로덕션의 분산 데이터베이스에도 모놀리식 데이터 엔진의 여러 복사본이 있음), 하이퍼스케일 데이터베이스는 여러 데이터 엔진의 의미 체계가 구분되어 있는 쿼리 처리 엔진을 데이터에 대한 장기 스토리지 및 지속성을 제공하는 구성 요소와 구분합니다. 이러한 방식으로 스토리지 용량을 필요한 만큼 원활하게 스케일 아웃할 수 있습니다(초기 목표는 100TB). 이름이 지정된 고가용성 복제본은 동일한 스토리지 구성 요소를 공유하므로 새 복제본을 스핀업하는 데 데이터 복사본이 필요하지 않습니다.
 
 다음 다이어그램은 하이퍼스케일 데이터베이스에 있는 여러 유형의 노드를 보여 줍니다.
 
@@ -141,22 +142,11 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>하이퍼스케일 데이터베이스의 읽기 확장 복제본에 연결
-
-하이퍼스케일 데이터베이스에서 클라이언트가 제공하는 연결 문자열의 `ApplicationIntent` 인수는 연결이 쓰기 복제본으로 라우팅되는지, 아니면 읽기 전용 보조 복제본으로 라우팅되는지 여부를 나타냅니다. `ApplicationIntent`가 `READONLY`로 설정되고 데이터베이스에 보조 복제본이 없는 경우 연결은 주 복제본으로 라우팅되고 기본값은 `ReadWrite` 동작으로 설정됩니다.
-
-```cmd
--- Connection string with application intent
-Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
-```
-
-하이퍼스케일 보조 복제본은 모두 동일하며, 주 복제본과 동일한 서비스 수준 목표를 사용합니다. 둘 이상의 보조 복제본이 있는 경우 워크로드는 사용 가능한 모든 보조 복제본에 분산됩니다. 각 보조 복제본은 독립적으로 업데이트됩니다. 따라서 복제본마다 주 복제본에 비해 데이터 대기 시간이 다를 수 있습니다.
-
 ## <a name="database-high-availability-in-hyperscale"></a>하이퍼스케일의 데이터베이스 고가용성
 
-다른 모든 서비스 계층에서와 마찬가지로 하이퍼스케일은 컴퓨팅 복제본 가용성에 관계없이 커밋된 트랜잭션에 대한 데이터 내구성을 보장합니다. 사용할 수 없게 된 주 복제본으로 인한 가동 중지의 정도는 장애 조치(failover) 유형(계획된 유형 및 계획되지 않은 유형) 및 하나 이상의 보조 복제본이 있는지 여부에 따라 달라집니다. 계획된 장애 조치(failover)(즉, 유지 관리 이벤트)에서 시스템은 장애 조치(failover)를 시작하기 전에 새 주 복제본을 만들거나 기존 보조 복제본을 장애 조치(failover) 대상으로 사용합니다. 계획되지 않은 장애 조치(failover)(즉, 주 복제본의 하드웨어 오류)에서 시스템은 보조 복제본이 있는 경우 이를 장애 조치(failover) 대상으로 사용하거나 사용 가능한 컴퓨팅 용량 풀에서 새 주 복제본을 만듭니다. 후자의 경우 새 주 복제본을 만드는 데 필요한 추가 단계로 인해 가동 중지 기간이 더 길어집니다.
+다른 모든 서비스 계층에서와 마찬가지로 하이퍼스케일은 컴퓨팅 복제본 가용성에 관계없이 커밋된 트랜잭션에 대한 데이터 내구성을 보장합니다. 사용할 수 없게 된 주 복제본으로 인한 가동 중지의 정도는 장애 조치(failover) 유형(계획된 유형 및 계획되지 않은 유형) 및 하나 이상의 고가용성 복제본이 있는지 여부에 따라 달라집니다. 계획된 장애 조치(failover)(즉, 유지 관리 이벤트)에서 시스템은 장애 조치(failover)를 시작하기 전에 새 주 복제본을 만들거나 기존 고가용성 복제본을 장애 조치(failover) 대상으로 사용합니다. 계획되지 않은 장애 조치(failover)(즉, 주 복제본의 하드웨어 오류)에서 시스템은 고가용성 복제본이 있는 경우 이를 장애 조치(failover) 대상으로 사용하거나 사용 가능한 컴퓨팅 용량 풀에서 새 주 복제본을 만듭니다. 후자의 경우 새 주 복제본을 만드는 데 필요한 추가 단계로 인해 가동 중지 기간이 더 길어집니다.
 
-하이퍼스케일 SLA는 [Azure SQL Database에 대한 SLA](https://azure.microsoft.com/support/legal/sla/sql-database/)를 참조하세요.
+하이퍼스케일 SLA는 [Azure SQL Database에 대한 SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database)를 참조하세요.
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>하이퍼스케일 데이터베이스에 대한 재해 복구
 
@@ -175,7 +165,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 Azure SQL Database 하이퍼스케일 계층은 모든 지역에서 사용할 수 있지만, 기본적으로 아래에 나열된 지역에서 사용하도록 설정되어 있습니다. 하이퍼스케일이 기본적으로 사용하도록 설정되지 않은 지역에서 하이퍼스케일 데이터베이스를 만들려는 경우 Azure Portal을 통해 온보딩 요청을 보낼 수 있습니다. 지침은 [Azure SQL Database에 대한 할당량 증가 요청](quota-increase-request.md)을 참조하세요. 요청을 제출하는 경우 다음 지침을 사용합니다.
 
 - [지역 액세스](quota-increase-request.md#region) SQL Database 할당량 유형을 사용합니다.
-- 설명에서 읽기 가능한 복제본을 포함하여 컴퓨팅 SKU/총 코어 수를 추가하고, 하이퍼스케일 용량을 요청하고 있음을 나타냅니다.
+- 설명에서 이름이 지정된 고가용성 복제본을 포함하여 컴퓨팅 SKU/총 코어 수를 추가하고, 하이퍼스케일 용량을 요청하고 있음을 나타냅니다.
 - 또한 시간 경과에 따른 모든 데이터베이스의 전체 크기(TB)에 대한 예측을 지정합니다.
 
 사용하도록 설정된 지역:
@@ -230,11 +220,11 @@ Azure SQL Database 하이퍼스케일 계층은 모든 지역에서 사용할 �
 | 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스가 하이퍼스케일로 마이그레이션되면 하이퍼스케일이 아닌 서비스 계층으로 직접 마이그레이션할 수 없습니다. 현재 하이퍼스케일 데이터베이스에서 하이퍼스케일이 아닌 데이터베이스로 마이그레이션하는 유일한 방법은 bacpac 파일 또는 기타 데이터 이동 기술(대량 복사, Azure Data Factory, Azure Dataricks, SSIS 등)을 사용하여 내보내거나 가져오는 것입니다. bacpac 내보내기/가져오기는 Azure Portal, PowerShell([New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) 또는 [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) 사용), Azure CLI([az sql db export](/cli/azure/sql/db#az_sql_db_export) 및 [az sql db import](/cli/azure/sql/db#az_sql_db_import) 사용) 및[REST API](/rest/api/sql/)에서 지원되지 않습니다. 소형 하이퍼스케일 데이터베이스(최대 200GB)에 대한 bacpac 가져오기/내보내기는 SSMS 및 [SqlPackage](/sql/tools/sqlpackage) 버전 18.4 이상을 사용하여 지원됩니다. 대형 데이터베이스의 경우 bacpac 내보내기/가져오기에 시간이 오래 걸릴 수 있으며, 여러 가지 이유로 실패할 수 있습니다.|
 | 메모리 내 OLTP 개체가 포함된 데이터베이스 마이그레이션 | 하이퍼스케일은 메모리 최적화 테이블 형식, 테이블 변수 및 고유하게 컴파일된 모듈을 포함하여 메모리 내 OLTP 개체의 하위 집합을 지원합니다. 그러나 마이그레이션되는 데이터베이스에 모든 종류의 메모리 내 OLTP 개체가 있는 경우 프리미엄 및 중요 비즈니스용 서비스 계층에서 하이퍼스케일로의 마이그레이션은 지원되지 않습니다. 이러한 데이터베이스를 하이퍼스케일로 마이그레이션하려면 모든 메모리 내 OLTP 개체 및 해당 종속성을 삭제해야 합니다. 데이터베이스가 마이그레이션되면 이러한 개체를 다시 만들 수 있습니다. 내구성 및 비내구성 메모리 최적화 테이블은 현재 하이퍼스케일에서 지원되지 않으며, 디스크 테이블로 변경해야 합니다.|
 | 지역에서 복제  | 하이퍼스케일의 [지역 복제](active-geo-replication-overview.md)가 현재 공개 미리 보기로 제공됩니다. |
-| 데이터베이스 복사 | 하이퍼스케일의 [데이터베이스 복사본](database-copy.md)은 현재 공개 미리 보기로 제공됩니다. |
 | 인텔리전트 데이터베이스 기능 | "계획 강제 적용" 옵션을 제외하고 다른 모든 자동 튜닝 옵션은 아직 하이퍼스케일에서 지원되지 않습니다. 이 옵션은 사용하도록 설정된 것처럼 보일 수 있지만 권장 사항 또는 작업이 수행되지 않습니다. |
 | Query Performance Insight | Query Performance Insights는 현재 하이퍼스케일 데이터베이스를 지원하지 않습니다. |
 | 데이터베이스 축소 | DBCC SHRINKDATABASE 또는 DBCC SHRINKFILE은 현재 하이퍼스케일 데이터베이스를 지원하지 않습니다. |
 | 데이터베이스 무결성 검사 | DBCC CHECKDB는 현재 하이퍼스케일 데이터베이스를 지원하지 않습니다. 해결 방법으로 DBCC CHECKFILEGROUP 및 DBCC CHECKTABLE을 사용할 수 있습니다. Azure SQL Database의 데이터 무결성 관리에 대한 자세한 내용은 [Azure SQL Database의 데이터 무결성](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)을 참조하세요. |
+| 탄력적 작업 | 하이퍼스케일 데이터베이스를 작업 데이터베이스로 사용하는 것은 지원되지 않습니다. 그러나 탄력적 작업은 다른 Azure SQL 데이터베이스와 동일한 방식으로 하이퍼스케일 데이터베이스를 대상으로 할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

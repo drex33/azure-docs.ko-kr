@@ -1,24 +1,24 @@
 ---
 title: Azure Percept Audio 음성 도우미 애플리케이션 삭제
 description: 이 문서에서는 이전에 만든 음성 도우미 애플리케이션을 삭제하는 방법을 보여 줍니다.
-author: NabilaBabar
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e7f9f9dd0bf1caead19151eb8081e967963fae9a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0b62ba69695606e04e7044109818c18d30ca21c1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224957"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566745"
 ---
-# <a name="delete-your-azure-percept-audio-voice-assistant-application"></a>Azure Percept Audio 음성 도우미 애플리케이션 삭제
+# <a name="delete-your-voice-assistant-application"></a>음성 도우미 애플리케이션 삭제
 
 이 지침은 Azure Percept Audio 디바이스에서 음성 도우미 애플리케이션을 삭제하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [이전에 만든 음성 도우미 애플리케이션](./tutorial-no-code-speech.md)
 - Azure Percept DK의 전원이 켜져 있고 Azure Percept Audio 액세서리가 USB 케이블을 통해 연결되어 있습니다.

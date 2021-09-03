@@ -9,20 +9,17 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
-ms.openlocfilehash: ccf4d00aa48edfc5cbe8df894d7d1a28387ecff2
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 07/14/2021
+ms.openlocfilehash: bed170c4dbf61006c7d2aca14117f8946563f357
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411572"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727295"
 ---
 # <a name="plan-for-intel-sgx-enclaves-and-attestation-in-azure-sql-database"></a>Azure SQL Database의 Intel SGX Enclave 및 증명 계획
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Azure SQL Database용 보안 enclave를 사용한 Always Encrypted는 현재 **공개 미리 보기** 상태입니다.
 
 Azure SQL Database의 [보안 Enclave를 사용한 Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-enclaves)는 [Intel SGX(Intel Software Guard Extensions)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) Enclave를 사용하고 [Microsoft Azure Attestation](/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation)이 필요합니다.
 
@@ -38,13 +35,9 @@ Intel SGX는 하드웨어 기반의 신뢰할 수 있는 실행 환경 기술입
 
 ## <a name="plan-for-attestation-in-azure-sql-database"></a>Azure SQL Database의 증명 계획
 
-[Microsoft Azure Attestation](../../attestation/overview.md)(미리 보기)은 DC 시리즈 하드웨어 세대를 사용하는 Azure SQL Database의 Intel SGX Enclave를 포함한 TEE(Trusted Execution Environment)를 증명하기 위한 솔루션입니다.
+[Microsoft Azure Attestation](../../attestation/overview.md)은 DC 시리즈 하드웨어 세대를 사용하는 Azure SQL Database의 Intel SGX Enclave를 포함한 TEE(Trusted Execution Environment)를 증명하기 위한 솔루션입니다.
 
-Azure SQL Database의 Intel SGX Enclave를 증명하기 위해 Azure Attestation을 사용하려면 다음을 수행해야 합니다.
-
-1. [증명 공급자](../../attestation/basic-concepts.md#attestation-provider)를 만들고 증명 정책을 사용하여 구성합니다. 
-
-2. 생성된 증명 공급자에 대한 액세스 권한을 Azure SQL 논리 서버에 부여합니다.
+Azure SQL Database에서 Intel SGX Enclave를 증명하는 데 Azure Attestation을 사용하려면 [증명 공급자](../../attestation/basic-concepts.md#attestation-provider)를 만들고 Microsoft에서 제공하는 증명 정책을 사용하여 구성해야 합니다. [Azure Attestation을 사용하여 Always Encrypted에 대한 증명 구성](always-encrypted-enclaves-configure-attestation.md)을 참조하세요.
 
 ## <a name="roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation"></a>SGX Enclave 및 증명을 구성할 때의 역할 및 책임
 

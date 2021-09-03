@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 07/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b6ea85cfaf32ab9ba2c04c40befbe1fbf8ce915
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97387057"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114445474"
 ---
 # <a name="display-controls"></a>표시 컨트롤
 
@@ -124,17 +124,15 @@ ms.locfileid: "97387057"
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1:n | 참조하는 기술 프로필의 표시 클레임 일부 또는 전부의 유효성을 검사하는 데 사용되는 기술 프로필입니다. |
+| ValidationClaimsExchangeTechnicalProfile | 1:n | 참조하는 기술 프로필의 표시 클레임 일부 또는 전부의 유효성을 검사하는 데 사용되는 기술 프로필입니다. |
 
-**ValidationTechnicalProfile** 요소에 포함되는 특성은 다음과 같습니다.
+**ValidationClaimsExchangeTechnicalProfile** 요소에 포함되는 특성은 다음과 같습니다.
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 참조 | 예 | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
-|ContinueOnError|예| 이 유효성 검사 기술 프로필에서 오류가 발생하는 경우 후속 유효성 검사 기술 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값: `true` 또는 `false`(기본값, 추가 유효성 프로필의 처리가 중지되고 오류가 반환됨) |
-|ContinueOnSuccess | 예 | 이 유효성 검사 기술 프로필이 성공하는 경우 후속 유효성 검사 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 즉 추가 유효성 검사 프로필의 처리가 계속됩니다. |
+| TechnicalProfileReferenceId | 예 | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
 
-**ValidationTechnicalProfile** 요소에 에 포함되는 요소는 다음과 같습니다.
+**ValidationClaimsExchangeTechnicalProfile** 요소에 포함되는 요소는 다음과 같습니다.
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |

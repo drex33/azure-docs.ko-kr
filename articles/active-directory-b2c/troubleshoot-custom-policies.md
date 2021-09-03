@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 05/25/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6298c8483c44472fe6f52f3e48b5c529c2d978a5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0a2f1e40b85eea5f02aec93a0cac97acc5dfeaf9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457496"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535912"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies"></a>Azure AD B2C 사용자 지정 정책 문제 해결
 
@@ -31,7 +31,7 @@ Azure AD B2C 상관 관계 ID는 권한 부여 요청에 연결된 고유 식별
 - 로그인 요청의 Azure Application Insights 로그를 찾습니다.
 - REST API에 상관 관계 ID를 전달하고 이를 사용하여 로그인 흐름을 식별합니다. 
 
-상관 관계 ID는 새 세션이 설정될 때마다 변경됩니다. 정책을 디버그할 때는 기존 브라우저 탭을 닫아야 합니다. 또는 새로운 InPrivate 모드 브라우저를 엽니다.
+상관 관계 ID는 새 세션이 설정될 때마다 변경됩니다. 정책을 디버그할 때 기존 브라우저 탭을 닫거나 새 비공개 모드 브라우저를 열어야 합니다.
 
 ### <a name="get-the-azure-ad-b2c-correlation-id"></a>Azure AD B2C 상관 관계 ID 가져오기
 

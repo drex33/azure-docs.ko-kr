@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fade080e631385acec46fc59c41e6624280ae9e7
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726413"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529649"
 ---
 # <a name="orchestrator-function-code-constraints"></a>오케스트레이터 함수 코드 제약 조건
 
@@ -30,7 +30,7 @@ Durable Functions는 상태 저장 앱을 빌드하도록 지원하는 [Azure Fu
 
 | API 범주 | 이유 | 해결 방법 |
 | ------------ | ------ | ---------- |
-| 날짜 및 시간  | 현재 날짜 또는 시간을 반환하는 API는 반환되는 값이 각 재생마다 다르므로 비결정적입니다. | 재생하기에 안전한 .NET의 [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) 속성, JavaScript의 `currentUtcDateTime` API 또는 Python의 `current_utc_datetime` API를 사용합니다. |
+| 날짜 및 시간  | 현재 날짜 또는 시간을 반환하는 API는 반환되는 값이 각 재생마다 다르므로 비결정적입니다. | 재생하기에 안전한 .NET의 [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) 속성, JavaScript의 `currentUtcDateTime` API 또는 Python의 `current_utc_datetime` API를 사용합니다. 마찬가지로, "스톱워치" 유형 개체(예: [.NET의 스톱워치 클래스](/dotnet/api/system.diagnostics.stopwatch))를 피하세요. 경과 시간을 측정해야 하는 경우 실행 시작 시 `CurrentUtcDateTime` 값을 저장하고 실행 종료 시 `CurrentUtcDateTime`에서 해당 값을 뺍니다. |
 | GUID 및 UUID  | 임의의 GUID 또는 UUID를 반환하는 API는 각 재생마다 다른 값이 생성되기 때문에 비결정적입니다. | .NET의 [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid), JavaScript의 `newGuid`, Python의 `new_guid`를 사용하여 임의의 GUID를 안전하게 생성합니다. |
 | 난수 | 난수를 반환하는 API는 각 재생마다 다른 값이 생성되기 때문에 비결정적입니다. | 작업 함수를 사용하여 오케스트레이션에 난수를 반환합니다. 작업 함수의 반환 값은 항상 재생하기에 안전합니다. |
 | 바인딩 | 입력 및 출력 바인딩은 일반적으로 I/O를 수행하며 비결정적입니다. 오케스트레이터 함수는 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 및 [엔터티 클라이언트](durable-functions-bindings.md#entity-client) 바인딩을 직접 사용하지 않아야 합니다. | 클라이언트 또는 작업 함수 내에서 입력 및 출력 바인딩을 사용합니다. |

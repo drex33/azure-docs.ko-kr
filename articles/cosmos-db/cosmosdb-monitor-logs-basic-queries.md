@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: esarroyo
-ms.openlocfilehash: 51ab68d77e6d5f7e69701b7bc36eaf58f51bf48d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 769db1b447c6f5ce31a1ed23ddf5d7ef973bcad5
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966359"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112553147"
 ---
 # <a name="troubleshoot-issues-with-diagnostics-queries"></a>진단 쿼리 관련 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "111966359"
 
 Azure Diagnostics 테이블의 경우 모든 데이터가 하나의 단일 테이블에 기록되며 사용자는 쿼리할 범주를 지정해야 합니다.
 
-리소스 관련 테이블(현재 SQL API에서 미리 보기로 제공)의 경우 리소스 범주별로 개별 테이블에 데이터가 기록됩니다. 데이터를 훨씬 쉽게 다룰 수 있고 스키마를 더 정확하게 검색할 수 있으며 수집 대기 시간과 쿼리 시간 모두에서 성능이 향상되므로 이 모드를 사용하는 것이 좋습니다.
+리소스별 테이블의 경우 데이터는 리소스의 각 범주에 대한 개별 테이블에 기록됩니다(테이블 API에는 사용할 수 없음). 데이터를 훨씬 쉽게 다룰 수 있고 스키마를 더 정확하게 검색할 수 있으며 수집 대기 시간과 쿼리 시간 모두에서 성능이 향상되므로 이 모드를 사용하는 것이 좋습니다.
 
 ## <a name="azurediagnostics-queries"></a><a id="azure-diagnostics-queries"></a> AzureDiagnostics 쿼리
 
@@ -328,7 +328,7 @@ Azure Diagnostics 테이블의 경우 모든 데이터가 하나의 단일 테�
    | summarize by OperationName 
    ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계 
 * Cosmos DB용 진단 설정을 만드는 방법에 대한 자세한 내용은 [진단 설정 만들기](cosmosdb-monitor-resource-logs.md) 문서를 참조하세요.
 
 * Azure Portal, CLI 또는 PowerShell을 사용하여 진단 설정을 만드는 방법에 대한 자세한 내용은 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md) 문서를 참조하세요.

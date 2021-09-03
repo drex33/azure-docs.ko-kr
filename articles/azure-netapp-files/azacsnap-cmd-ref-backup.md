@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 4e0091d1d94a173df07f956959580f7f862ec08f
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 5fd588cc9ff36f4213d62ee47ce296e9eadfc40e
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930032"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113296760"
 ---
 # <a name="back-up-using-azure-application-consistent-snapshot-tool"></a>Azure Application Consistent Snapshot Tool을 사용한 백업
 
@@ -85,9 +85,11 @@ azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
 
 명령은 콘솔에 출력되지 않지만 로그 파일, 결과 파일 및 `/var/log/messages`에만 기록됩니다.
 
-*로그 파일* 은 명령 이름 + -c 옵션 + 구성 파일 이름으로 구성됩니다. 기본적으로 `-c backup`에 대한 로그 파일 이름은 기본 구성 파일 이름 `azacsnap-backup-azacsnap.log`로 실행됩니다.
+이 예에서 *로그 파일* 이름은 `azacsnap-backup-azacsnap.log`입니다([로그 파일](#log-files) 참조).
 
-*결과* 파일은 로그 파일과 동일한 기본 이름을 사용하며 `.result`를 접미사로 사용합니다. 예를 들면 다음 출력을 포함하는 `azacsnap-backup-azacsnap.result`입니다.
+`-c backup`을 `--volume data` 옵션과 함께 실행하면 백업 결과를 빠르게 확인할 수 있도록 결과 파일도 파일로 생성됩니다.  *결과* 파일의 기본 이름은 로그 파일과 같으며 접미사로 `.result`가 있습니다.
+
+이 예에서 *결과 파일* 이름은 `azacsnap-backup-azacsnap.result`이고 다음 출력을 포함합니다.
 
 ```bash
 cat logs/azacsnap-backup-azacsnap.result
@@ -124,7 +126,7 @@ azacsnap -c backup --volume other --prefix logs_TEST --retention 9
 
 명령은 콘솔에 출력되지 않지만 로그 파일에만 기록됩니다.  결과 파일 또는 `/var/log/messages`에는 기록되지 _않습니다_.
 
-*로그 파일* 은 명령 이름 + -c 옵션 + 구성 파일 이름으로 구성됩니다. 기본적으로 `-c backup`에 대한 로그 파일 이름은 기본 구성 파일 이름 `azacsnap-backup-azacsnap.log`로 실행됩니다.
+이 예에서 *로그 파일* 이름은 `azacsnap-backup-azacsnap.log`입니다([로그 파일](#log-files) 참조).
 
 ## <a name="example-with-other-parameter-to-backup-host-os"></a>`other` 매개 변수를 사용한 예(호스트 OS 백업)
 
@@ -135,15 +137,17 @@ azacsnap -c backup --volume other --prefix logs_TEST --retention 9
 azacsnap -c backup --volume other --prefix boot_TEST --retention 9 --configfile bootVol.json
 ```
 
+> [!IMPORTANT]
+> Azure 대규모 인스턴스의 경우 부팅 볼륨에 대한 구성 파일 볼륨 매개 변수가 호스트 운영 체제 수준에서 표시되지 않을 수 있습니다.
+> 이 값은 Microsoft Operations에서 제공할 수 있습니다.
+
 명령은 콘솔에 출력되지 않지만 로그 파일에만 기록됩니다.  결과 파일 또는 `/var/log/messages`에는 기록되지 _않습니다_.
 
-이 예에서 *로그 파일* 이름은 `azacsnap-backup-bootVol.log`입니다.
+이 예에서 *로그 파일* 이름은 `azacsnap-backup-bootVol.log`입니다([로그 파일](#log-files) 참조).
 
-> [!NOTE]
-> 로그 파일은 "(명령 이름-(`-c` 옵션)-(구성 파일 이름)"으로 구성됩니다.  예를 들어 `-c backup` 옵션을 `h80.json` 로그 파일 이름과 함께 사용하는 경우 로그 파일은 `azacsnap-backup-h80.log`이 됩니다.  또는 `-c test` 옵션을 동일한 구성 파일과 사용하는 경우 로그 파일은 `azacsnap-test-h80.log`가 됩니다.
+## <a name="log-files"></a>로그 파일
 
-- HANA 대규모 인스턴스 유형: HANA 대규모 인스턴스 단위에 종속된 `TYPEI` 또는 `TYPEII`의 두 유효한 값이 있습니다.
-- 사용 가능한 SKU를 확인하려면 [HANA 대규모 인스턴스에 사용할 수 있는 SKU](../virtual-machines/workloads/sap/hana-available-skus.md)를 참조하세요.
+로그 파일 이름은 "(명령 이름)-(`-c` 옵션)-(구성 파일 이름)"으로 구성됩니다.  예를 들어, `azacsnap -c backup --configfile h80.json --retention 5 --prefix one-off` 명령을 실행하는 경우 로그 파일은 `azacsnap-backup-h80.log`라고 합니다.  또는 `-c test` 옵션을 동일한 구성 파일(예: `azacsnap -c test --configfile h80.json`)과 사용하는 경우 로그 파일은 `azacsnap-test-h80.log`가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

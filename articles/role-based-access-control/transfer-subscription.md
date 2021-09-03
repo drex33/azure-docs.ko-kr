@@ -8,20 +8,22 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/06/2021
+ms.date: 07/14/2021
 ms.author: rolyon
-ms.openlocfilehash: a12f3ca25df2d4473361e0a1ef596384813dc6a8
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 64f164c7d5e60e92e30986f8a39b34e92b1fdce4
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854741"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202482"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>다른 Azure AD 디렉터리로 Azure 구독 양도
 
 조직에는 여러 Azure 구독이 있을 수 있습니다. 각 구독은 특정 Azure AD(Azure Active Directory) 디렉터리와 연결됩니다. 관리를 용이하게 하기 위해 구독을 다른 Azure AD 디렉터리로 양도하려 할 수 있습니다. 다른 Azure AD 디렉터리로 구독을 양도하는 경우 일부 리소스는 대상 디렉터리에 전송되지 않습니다. 예를 들어 Azure RBAC(역할 기반 액세스 제어)의 모든 역할 할당 및 사용자 지정 역할은 소스 디렉터리에서 **영구적으로** 삭제되며 대상 디렉터리로 전송되지 않습니다.
 
 이 문서에서는 다른 Azure AD 디렉터리로 구독을 양도하고 전송 후 일부 리소스를 다시 만들기 위해 수행할 수 있는 기본 단계를 설명합니다.
+
+조직의 여러 디렉터리에 대한 구독 전송을 대신 **차단** 하려는 경우 구독 정책을 구성할 수 있습니다. 자세한 내용은 [Azure 구독 정책 관리](../cost-management-billing/manage/manage-azure-subscription-policy.md)를 참조하세요.
 
 > [!NOTE]
 > Azure CSP(클라우드 솔루션 공급자) 구독의 경우 해당 구독에 대한 Azure AD 디렉터리를 변경하는 것은 지원되지 않습니다.
@@ -249,18 +251,19 @@ ms.locfileid: "111854741"
 
 ### <a name="list-other-known-resources"></a>기타 알려진 리소스 나열
 
-1. [az account show](/cli/azure/account#az_account_show)를 사용하여 구독 ID를 가져옵니다.
+1. [az account show](/cli/azure/account#az_account_show)를 사용하여 구독 ID를 가져옵니다(`bash`에서).
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//' -e 's/\r$//')
     ```
-
-1. [az graph](/cli/azure/graph) 확장을 사용하여 알려진 Azure AD 디렉터리 종속성이 있는 다른 Azure 리소스를 나열합니다.
+    
+1. [az graph](/cli/azure/graph) 확장을 사용하여 알려진 Azure AD 디렉터리 종속성이 있는 다른 Azure 리소스를 나열합니다(`bash`에서).
 
     ```azurecli
-    az graph query -q \
-    'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
-    --subscriptions $subscriptionId --output table
+    az graph query -q 'resources 
+        | where type != "microsoft.azureactivedirectory/b2cdirectories" 
+        | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true 
+        | project name, type, kind, identity, tenantId, properties.tenantId' --subscriptions $subscriptionId --output yaml
     ```
 
 ## <a name="step-2-transfer-the-subscription"></a>2단계: 구독 양도

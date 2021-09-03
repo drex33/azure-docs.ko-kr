@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights 스마트 검색을 경고로 업그�
 description: Azure Monitor Application Insights 스마트 검색을 경고 규칙으로 업그레이드하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/30/2021
-ms.openlocfilehash: 09f895af10ae6d16303ce8afb140a49c3a508cef
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: d0995c05af707c5a4fb94305ca1211e38ca59e3a
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542757"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587484"
 ---
 # <a name="migrate-azure-monitor-application-insights-smart-detection-to-alerts-preview"></a>Azure Monitor Application Insights 스마트 검색을 경고로 마이그레이션(미리 보기)
 
@@ -323,7 +323,7 @@ Application Insights 리소스의 스마트 검색 피드에서도 사용 가능
 
 ### <a name="managing-alert-rule-settings-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 경고 규칙 설정 관리
 
-마이그레이션을 완료한 후 Azure Resource Management 템플릿을 사용하여 스마트 검색 경고 규칙 설정에 대한 설정을 구성할 수 있습니다.
+마이그레이션을 완료한 후 Azure Resource Manager 템플릿을 사용하여 스마트 검색 경고 규칙 설정에 대한 설정을 구성할 수 있습니다.
 
 > [!NOTE]
 > 마이그레이션이 완료되면 스마트 검색 경고 규칙 템플릿을 사용하여 스마트 검색 설정을 구성해야 하며 더 이상 [Application Insights Resource Manager 템플릿](../app/proactive-arm-config.md#smart-detection-rule-configuration)을 사용하여 구성할 수 없습니다.

@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)에서 클러스터 보안 및 업그
 services: container-service
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 5cb103d843aafbb7f72c03d65b45fe3a84f8d1cd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7560e9aaabf8b21729e1e9d8e008c0b6a0e8cefb
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782984"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112453325"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -279,38 +279,19 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 
 AKS의 업그레이드에 대한 자세한 내용은 [AKS의 지원되는 Kubernetes 버전][aks-supported-versions] 및 [AKS 클러스터 업그레이드][aks-upgrade]를 참조하세요.
 
-## <a name="process-linux-node-updates-and-reboots-using-kured"></a>kured를 사용하여 노드 업데이트 및 다시 부팅 처리
+## <a name="process-linux-node-updates"></a>Linux 노드 업데이트 처리
 
-> **모범 사례 지침** 
-> 
-> AKS는 각 Linux 노드에 보안 수정 사항을 자동으로 다운로드하고 설치하지만 자동으로 다시 부팅되지는 않습니다. 
-> 1. `kured`를 사용하여 보류 중인 재부팅을 확인합니다.
-> 1. 노드가 다시 부팅될 수 있도록 노드를 안전하게 차단하고 드레이닝합니다.
-> 1. 업데이트를 적용합니다.
-> 1. OS와 관련하여 최대한 안전해야 합니다. 
+매일 저녁 AKS의 Linux 노드는 배포판 업데이트 채널을 통해 보안 패치를 받습니다. 이 동작은 노드가 AKS 클러스터에 배포되면 자동으로 구성됩니다. 실행 중인 워크로드 중단 및 잠재적인 영향을 최소화하기 위해 보안 패치 또는 커널 업데이트에 필요한 경우에도 노드가 자동으로 다시 부팅되지 않습니다. 노드 다시 부팅을 처리하는 방법에 대한 자세한 내용은 [AKS에서 노드에 보안 및 커널 업데이트 적용][aks-kured]을 참조하세요.
 
-Windows Server 노드의 경우 AKS 업그레이드 작업을 정기적으로 수행하여 안전하게 pod를 차단 및 드레이닝하고 업데이트된 노드를 배포합니다.
+### <a name="node-image-upgrades"></a>노드 이미지 업그레이드
 
-매일 저녁 AKS의 Linux 노드는 배포판 업데이트 채널을 통해 보안 패치를 받습니다. 이 동작은 노드가 AKS 클러스터에 배포되면 자동으로 구성됩니다. 실행 중인 워크로드 중단 및 잠재적인 영향을 최소화하기 위해 보안 패치 또는 커널 업데이트에 필요한 경우에도 노드가 자동으로 다시 부팅되지 않습니다.
+자동 업그레이드는 Linux 노드 OS에 업데이트를 적용하지만 클러스터에 대한 노드를 만드는 데 사용되는 이미지는 변경되지 않습니다. 새 Linux 노드가 클러스터에 추가되면 원래 이미지를 사용하여 노드를 만듭니다. 이 새 노드는 매일 밤 자동 검사 중에 사용 가능한 모든 보안 및 커널 업데이트를 받지만 모든 검사와 다시 시작이 완료될 때까지 패치되지 않습니다. 노드 이미지 업그레이드를 사용하여 클러스터에서 사용하는 노드 이미지를 검사하고 업데이트할 수 있습니다. 노드 이미지 업그레이드에 관한 자세한 내용은 [AKS(Azure Kubernetes Service) 노드 이미지 업그레이드][node-image-upgrade]를 참조하세요.
 
-Weaveworks의 오픈 소스 [kured(KUbernetes REboot Daemon)][kured] 프로젝트는 보류 중인 노드 다시 부팅을 감시합니다. Linux 노드가 다시 부팅해야 하는 업데이트를 적용할 경우, 안전하게 차단되었다가 드레이닝되어 클러스터의 다른 노드에서 pod를 이동하고 예약합니다. 노드가 다시 부팅되면 클러스터에 다시 추가되고, Kubernetes는 Pod 예약을 다시 시작합니다. 중단을 최소화하기 위해 한 번에 하나의 노드만 `kured`에서 다시 부팅되도록 허용됩니다.
+## <a name="process-windows-server-node-updates"></a>Windows Server 노드 업데이트 처리
 
-![kured를 사용하는 AKS 노드 다시 부팅 프로세스](media/operator-best-practices-cluster-security/node-reboot-process.png)
-
-다시 부팅을 보다 세부적으로 제어하려는 경우, `kured`를 Prometheus와 통합하여 다른 유지 관리 이벤트 또는 클러스터 문제가 진행 중인 경우에는 다시 부팅을 방지할 수 있습니다. 이러한 통합은 다른 문제를 해결하는 동안, 노드를 다시 부팅하여 복잡성을 줄여줍니다.
-
-노드 다시 부팅을 처리하는 방법에 대한 자세한 내용은 [AKS에서 노드에 보안 및 커널 업데이트 적용][aks-kured]을 참조하세요.
-
-## <a name="next-steps"></a>다음 단계
-
-이 문서에서는 AKS 클러스터의 보안을 유지하는 방법을 중점적으로 설명했습니다. 이러한 일부 영역을 구현하려면 다음 문서를 참조하세요.
-
-* [AKS와 Azure Active Directory 통합][aks-aad]
-* [AKS 클러스터를 최신 버전의 Kubernetes로 업그레이드][aks-upgrade]
-* [Kured를 사용하여 보안 업데이트 및 노드 다시 부팅 처리][aks-kured]
+Windows Server 노드의 경우 노드 이미지 업그레이드 작업을 정기적으로 수행하여 안전하게 pod를 차단 및 드레이닝하고 업데이트된 노드를 배포합니다.
 
 <!-- EXTERNAL LINKS -->
-[kured]: https://github.com/weaveworks/kured
 [k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
 [seccomp]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -330,3 +311,4 @@ Weaveworks의 오픈 소스 [kured(KUbernetes REboot Daemon)][kured] 프로젝�
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
 [security-center-aks]: ../security-center/defender-for-kubernetes-introduction.md
+[node-image-upgrade]: node-image-upgrade.md

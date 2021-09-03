@@ -3,18 +3,18 @@ title: Azure Cost Management 데이터에 대한 액세스 할당
 description: 이 문서에서는 다양한 액세스 범위에 맞게 Azure Cost Management 데이터에 대한 권한을 할당하는 방법을 안내합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 06/27/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: cb54c5f7334120f6cd01ed1704939c5c1a55e7c6
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 9ee0f7f854363389f3e6594946411f05b1b8b790
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645292"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988700"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
@@ -140,45 +140,24 @@ EA 포털에서 옵션을 사용하려면 다음을 수행합니다.
 
 관리 그룹 범위를 보기 위해 액세스하려면 Cost Management Reader(또는 Reader) 이상의 권한이 필요합니다. Azure Portal에서 관리 그룹에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 관리 그룹에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 그리고 Azure EA 계정의 경우 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-2. 사이드바에서 **모든 서비스** 를 선택하고, _관리 그룹_ 을 검색한 다음,  **관리 그룹** 을 선택합니다.
-3. 계층 구조에서 관리 그룹을 선택합니다.
-4. 관리 그룹 이름 옆에 있는 **세부 정보** 를 선택합니다.
-5. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
-6. **추가** 를 선택합니다.
-7. **역할** 아래에서 **Cost Management 읽기 권한자** 를 선택합니다.
-8. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션** 을 선택합니다.
-9. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
-10. **저장** 을 선택합니다.  
-    ![관리 그룹에 대한 사용 권한 추가 상자의 예제 정보](./media/assign-access-acm-data/add-permissions.png)
+
+- Cost Management 읽기 권한자 역할을 관리 그룹 범위의 사용자에게 할당합니다.  
+     세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ## <a name="assign-subscription-scope-access"></a>구독 범위 액세스 할당
 
 구독에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 구독에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 구독에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 그리고 Azure EA 계정의 경우 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-2. 사이드바에서 **모든 서비스** 를 선택하고, _구독_ 을 검색한 다음, **구독** 을 선택합니다.
-3. 구독을 선택합니다.
-4. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
-5. **추가** 를 선택합니다.
-6. **역할** 아래에서 **Cost Management 읽기 권한자** 를 선택합니다.
-7. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션** 을 선택합니다.
-8. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
-9. **저장** 을 선택합니다.
+- 구독 범위의 사용자에게 Cost Management 읽기 권한자 역할을 할당합니다.  
+     세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ## <a name="assign-resource-group-scope-access"></a>리소스 그룹 범위 액세스 할당
 
 리소스 그룹에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 리소스 그룹에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 리소스 그룹에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 그리고 Azure EA 계정의 경우 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-2. 사이드바에서 **모든 서비스** 를 선택하고, _리소스 그룹_ 을 검색한 다음, **리소스 그룹** 을 선택합니다.
-3. 리소스 그룹을 선택합니다.
-4. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
-5. **추가** 를 선택합니다.
-6. **역할** 아래에서 **Cost Management 읽기 권한자** 를 선택합니다.
-7. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션** 을 선택합니다.
-8. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
-9. **저장** 을 선택합니다.
+
+- 리소스 그룹 범위의 사용자에게 Cost Management 읽기 권한자 역할을 할당합니다.  
+     세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ## <a name="cross-tenant-authentication-issues"></a>테넌트 간 인증 문제
 

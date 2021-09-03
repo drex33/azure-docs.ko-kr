@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 06/27/2021
 ms.author: banders
-ms.openlocfilehash: 10956953f9ab3a9e32b9da4ab8a3501d38b0e2c3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b4bd2615dd99145bd75fd7c1095056961d3b2d80
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369661"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988358"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
@@ -44,29 +44,12 @@ Azure RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>관리자 권한으로 사용자를 할당하려면
 
-1. 구독 소유자로 Azure Portal에 로그인하고 [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 엽니다.
+- 구독 범위에서 사용자에게 소유자 역할을 할당합니다.  
+     세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-1. 액세스 권한을 부여하려는 구독을 클릭합니다.
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
-1. **액세스 제어(IAM)** 를 클릭합니다.
-
-1. **역할 할당** 탭을 클릭하여 이 구독의 모든 역할 할당을 봅니다.
-
-    ![역할 할당을 보여주는 스크린샷](./media/add-change-subscription-administrator/role-assignments.png)
-
-1. **추가** > **역할 할당 추가** 를 클릭하여 **역할 할당 추가** 창을 엽니다.
-
-    역할을 할당할 수 있는 권한이 없으면 옵션이 비활성화됩니다.
-
-1. **역할** 드롭다운 목록에서 **소유자** 역할을 선택합니다.
-
-1. **선택** 목록에서 사용자를 선택합니다. 목록에 사용자가 표시되지 않으면 **선택** 상자에 직접 입력하여 표시 이름 및 이메일 주소에 대한 디렉터리를 검색할 수 있습니다.
-
-    ![선택한 소유자 역할을 보여 주는 스크린샷](./media/add-change-subscription-administrator/add-role.png)
-
-1. **저장** 을 클릭하여 역할을 할당합니다.
-
-    몇 분이 지나면 사용자에게는 구독 범위의 소유자 역할이 할당됩니다.
+추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -74,7 +57,3 @@ Azure RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 
 * [Azure의 다양한 역할 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Azure Active Directory의 관리자 역할 사용 권한](../../active-directory/roles/permissions-reference.md)
-
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
-
-추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

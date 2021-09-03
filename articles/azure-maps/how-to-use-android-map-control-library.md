@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: a60ee8faf8d19afba59e46c52aaba9395c3a5292
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 237888e1ee635a68a4603bfa63f5bfe4618c018a
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604450"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093502"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
@@ -28,7 +28,7 @@ Azure Maps Android SDK는 Android용 벡터 지도 라이브러리입니다. 이
 
 Azure Maps Android SDK는 맵의 언어 및 지역 보기를 설정하는 세 가지 방법을 제공합니다. 다음 코드에서는 언어를 프랑스어(“fr-FR”)로 설정하고 지역 보기를 “Auto”로 설정하는 방법을 보여 줍니다.
 
-첫 번째 옵션은 정적 `setLanguage` 및 `setView` 메서드를 전역적으로 사용하여 `AzureMaps` 클래스에 언어를 전달하고 지역 정보를 보는 것입니다. 이렇게 하면 앱에 로드된 모든 Azure Maps 컨트롤에서 기본 언어 및 지역 보기가 설정됩니다.
+첫 번째 옵션은 정적 `setLanguage` 및 `setView` 메서드를 전역적으로 사용하여 `AzureMaps` 클래스에 언어를 전달하고 지역 정보를 보는 것입니다. 이 코드는 앱에 로드된 모든 Azure Maps 컨트롤에서 기본 언어 및 지역 보기를 설정합니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -75,16 +75,16 @@ companion object {
 두 번째 옵션은 언어 및 보기 정보를 지도 컨트롤 XML에 전달하는 것입니다.
 
 ```XML
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/myMap"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_language="fr-FR"
-    app:mapcontrol_view="Auto"
+    app:azure_maps_language="fr-FR"
+    app:azure_maps_view="Auto"
     />
 ```
 
-세 번째 옵션은 맵 `setStyle` 메서드를 사용하여 맵의 언어 및 지역 보기를 프로그래밍 방식으로 설정하는 것입니다. 언제든지 이 작업을 수행하여 맵의 언어 및 지역 보기를 변경할 수 있습니다.
+세 번째 옵션은 맵 `setStyle` 메서드를 사용하여 맵의 언어 및 지역 보기를 프로그래밍 방식으로 설정하는 것입니다. 언제든지 이 방법으로 지도의 언어 및 지역 보기를 변경할 수 있습니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -118,7 +118,7 @@ mapControl.onReady(OnReady { map: AzureMap ->
 
 지원되는 언어 및 지역 보기의 전체 목록은 [여기](supported-languages.md)에 설명되어 있습니다.
 
-## <a name="navigating-the-map&quot;></a>맵 탐색
+## <a name="navigating-the-map"></a>맵 탐색
 
 여러 가지 방식으로 맵을 확대/축소, 이동, 회전 및 피치할 수 있습니다. 다음에서 맵을 탐색하는 다양한 방법을 자세히 설명합니다.
 
@@ -141,7 +141,7 @@ mapControl.onReady(OnReady { map: AzureMap ->
 
 * 두 손가락으로 맵을 터치하고 위나 아래로 함께 끕니다.
 
-## <a name=&quot;azure-government-cloud-support&quot;></a>Azure Government 클라우드 지원
+## <a name="azure-government-cloud-support"></a>Azure Government 클라우드 지원
 
 Azure Maps Android SDK는 Azure Government 클라우드를 지원합니다. Azure Maps Android SDK는 동일한 Maven 리포지토리에서 액세스됩니다. Azure Maps 플랫폼의 Azure Government 클라우드 버전에 연결하려면 다음 작업을 수행해야 합니다.
 
@@ -150,7 +150,7 @@ Azure Maps 인증 세부 정보가 지정된 위치에서 다음 코드 줄을 �
 ::: zone pivot="programming-language-java-android"
 
 ```java
-AzureMaps.setDomain(&quot;atlas.azure.us");
+AzureMaps.setDomain("atlas.azure.us");
 ```
 
 ::: zone-end
@@ -164,6 +164,44 @@ AzureMaps.setDomain("atlas.azure.us")
 ::: zone-end
 
 맵과 서비스를 인증하는 경우 Azure Government 클라우드 플랫폼에서 Azure Maps 인증 세부 정보를 사용해야 합니다.
+
+## <a name="migrating-from-a-preview-version"></a>미리 보기 버전에서 마이그레이션
+
+미리 보기에서 일반 공급으로 이동하면서 몇 가지 호환성이 손상되는 변경이 Azure Maps Android SDK에 도입되었습니다. 주요 세부 정보는 다음과 같습니다.
+
+* Maven 식별자가 `"com.microsoft.azure.maps:mapcontrol:0.7"`에서 `"com.azure.android:azure-maps-control:1.0.0"`으로 변경되었습니다. 네임스페이스 및 주 버전 번호가 변경되었습니다.
+* 가져오기 네임스페이스가 `com.microsoft.azure.maps.mapcontrol`에서 `com.azure.android.maps.control`로 변경되었습니다.
+* XML 옵션, 색 리소스 및 이미지 리소스의 리소스 이름에서 텍스트 `mapcontrol_`이 `azure_maps_`로 바뀌었습니다.
+
+    **이전:**
+
+    ```xml
+    <com.microsoft.azure.maps.mapcontrol.MapControl
+        android:id="@+id/myMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:mapcontrol_language="fr-FR"
+        app:mapcontrol_view="Auto"
+        app:mapcontrol_centerLat="47.602806"
+        app:mapcontrol_centerLng="-122.329330"
+        app:mapcontrol_zoom="12"
+    />
+    ```
+
+    **이후:**
+
+    ```xml
+    <com.azure.android.maps.control.MapControl
+        android:id="@+id/myMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:azure_maps_language="fr-FR"
+        app:azure_maps_view="Auto"
+        app:azure_maps_centerLat="47.602806"
+        app:azure_maps_centerLng="-122.329330"
+        app:azure_maps_zoom="12"
+    />
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 

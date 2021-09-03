@@ -2,16 +2,16 @@
 title: 'Azure Monitor: Application Insights Java'
 description: 코드를 수정할 필요 없이 모든 환경에서 실행되는 Java 애플리케이션에 대한 애플리케이션 성능 모니터링입니다. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
-ms.date: 03/29/2020
+ms.date: 06/24/2021
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 7ca2f037c274519a00db8d39350656f31b5c4487
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 83cccb8e586973cf575cf1fcd3c70a3166aeb905
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069169"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112913728"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드리스 애플리케이션 모니터링 Azure Monitor Application Insights
 
@@ -45,15 +45,13 @@ Application Insights Java 3.x 에이전트가 요청, 종속성 및 로그를 �
 > 이전 접두사가 없는 값을 사용하는 경우 사용자 지정 대시보드 또는 경고에 영향을 줄 수 있습니다.
 > 자세한 내용은 [3.1.0 릴리스 정보](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)를 참조하세요.
 
-[applicationinsights-agent-3.1.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.0/applicationinsights-agent-3.1.0.jar) 다운로드
+[applicationinsights-agent-3.1.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.1/applicationinsights-agent-3.1.1.jar) 다운로드
 
 **2. JVM을 에이전트로 지정**
 
-애플리케이션의 JVM 인수에 `-javaagent:path/to/applicationinsights-agent-3.1.0.jar` 추가
+애플리케이션의 JVM 인수에 `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` 추가 
 
-일반적인 JVM 인수에는 `-Xmx512m` 및 `-XX:+UseG1GC`가 포함됩니다. 따라서 이러한 인수를 추가할 위치를 알고 있으면 이를 추가할 위치를 이미 알고 있는 것입니다.
-
-애플리케이션의 JVM 인수 구성에 대한 추가 도움말은 [JVM 인수 업데이트를 위한 팁](./java-standalone-arguments.md)을 참조하세요.
+애플리케이션의 JVM 인수 구성에 관한 도움말은 [JVM 인수 업데이트를 위한 팁](./java-standalone-arguments.md)을 참조하세요.
 
 **3. 에이전트를 Application Insights 리소스로 지정**
 
@@ -65,7 +63,7 @@ Application Insights 리소스가 아직 없는 경우 [리소스 생성 가이�
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-또는 `applicationinsights.json`이라는 구성 파일을 작성하고 다음 내용으로 `applicationinsights-agent-3.1.0.jar`과 동일한 디렉터리에 배치합니다.
+또는 `applicationinsights.json`이라는 구성 파일을 작성하고 다음 내용으로 `applicationinsights-agent-3.1.1.jar`과 동일한 디렉터리에 배치합니다.
 
 ```json
 {
@@ -150,8 +148,10 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 * [Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0 이상
 * [Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0 이상
 * [Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0 이상
+* [Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0 이상
 * [Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0 이상
 * [Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0 이상
 * [Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
 * [Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0 이상
 * [Event Hubs - Azure Blob Storage 검사점 저장소](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
@@ -161,6 +161,13 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 * [Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6 이상
 * [Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6 이상
 * [Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Storage - Blobs](/java/api/overview/azure/storage-blob-readme) 12.11.0 이상
+* [Storage - Blobs Batch](/java/api/overview/azure/storage-blob-batch-readme) 12.9.0 이상
+* [Storage - Blobs Cryptography](/java/api/overview/azure/storage-blob-cryptography-readme) 12.11.0 이상
+* [Storage - Common](/java/api/overview/azure/storage-common-readme) 12.11.0 이상
+* [Storage - Files Data Lake](/java/api/overview/azure/storage-file-datalake-readme) 12.5.0 이상
+* [Storage - Files Shares](/java/api/overview/azure/storage-file-share-readme) 12.9.0 이상
+* [Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0 이상
 * [Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4 이상
 
 [//]: # "https://azure.github.io/azure-sdk/releases/latest/java.html"에서 스크랩한 위의 이름 및 링크
@@ -177,7 +184,7 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 [//]: # "  }"
 [//]: # "  var version = versionBadge.textContent.trim()"
 [//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
-[//]: # "  str += '* [' + name + '](' + link + ') ' + version"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version + '\n'"
 [//]: # "}"
 [//]: # "console.log(str)"
 

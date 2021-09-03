@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
-ms.date: 06/02/2021
+ms.date: 07/14/2021
 ms.custom: references_regions
-ms.openlocfilehash: a78622aaccfaeb372d67ef4575e2bd923ab6cb58
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 3e80c1153737514575017685310b6e5306a47167
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415463"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113730846"
 ---
 # <a name="vcore-purchase-model-overview---azure-sql-database"></a>vCore 구매 모델 개요 - Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -104,9 +104,6 @@ To enable M-series hardware for a subscription and region, a support request mus
 -->
 
 ### <a name="dc-series"></a>DC 시리즈
-
-> [!NOTE]
-> DC 시리즈는 현재 **공개 미리 보기** 로 제공됩니다.
 
 - DC 시리즈 하드웨어는 Intel SGX(Software Guard Extensions) 기술을 사용합니다.
 - DC 시리즈는 다른 하드웨어 구성에서 지원되지 않는 [보안 Enclave를 사용한 Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-enclaves)에 필요합니다.
@@ -205,12 +202,16 @@ Approved support requests are typically fulfilled within 5 business days.
 
 #### <a name="dc-series"></a>DC 시리즈
 
-> [!NOTE]
-> DC 시리즈는 현재 **공개 미리 보기** 로 제공됩니다.
-
 DC 시리즈는 캐나다 중부, 캐나다 동부, 미국 동부, 북유럽, 영국 남부, 서유럽, 미국 서부 지역에서 사용할 수 있습니다.
 
-현재 지원되지 않는 지역에서 DC 시리즈가 필요한 경우 [Azure SQL Database 및 SQL Managed Instance에 대한 요청 할당량 향상](quota-increase-request.md)의 지침에 따라 [지원 티켓을 제출](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)합니다.
+현재 지원되지 않는 지역에서 DC 시리즈가 필요한 경우 [지원 티켓을 제출](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)합니다. **기본 사항** 페이지에서 다음 값을 제공합니다.
+
+1. **문제 유형** 에서 **기술** 을 선택합니다.
+1. **서비스 유형** 에서 **SQL Database** 를 선택합니다.
+1. **문제 유형** 에서 **보안, 프라이빗 및 규정 준수** 를 선택합니다.
+1. **문제 하위 유형** 에서 **Always Encrypted** 를 선택합니다.
+
+:::image type="content" source="./media/service-tiers-vcore/request-dc-series.png" alt-text="새 지역에서 DC 시리즈 요청" loc-scope="azure-portal":::
 
 ## <a name="next-steps"></a>다음 단계
 

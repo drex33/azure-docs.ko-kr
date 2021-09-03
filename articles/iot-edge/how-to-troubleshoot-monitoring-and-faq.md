@@ -2,7 +2,6 @@
 title: 모니터링 문제 해결 및 FAQ - Azure IoT Edge
 description: Azure Monitor 통합 및 FAQ 문제 해결
 author: veyalla
-manager: philmea
 ms.author: veyalla
 ms.date: 06/09/2021
 ms.topic: conceptual
@@ -10,12 +9,12 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 zone_pivot_groups: how-to-troubleshoot-monitoring-and-faq-zpg
-ms.openlocfilehash: 09475cf4ee2c78596e3c93f408fc88c16e1a751e
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 9d3e89ee74dd1f0274ad742cae4a9706f54b7780
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904541"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537458"
 ---
 # <a name="faq-and-troubleshooting"></a>FAQ 및 문제 해결
 
@@ -31,22 +30,26 @@ ms.locfileid: "111904541"
 
 ### <a name="verify-that-httpsettings__enabled-environment-variable-isnt-set-to-false"></a>*httpSettings__enabled* 환경 변수가 *false* 로 설정되어 있지 않은지 확인합니다.
 
-기본 제공 메트릭 엔드포인트는 http 프로토콜을 사용합니다. 환경 변수 설정을 통해 http를 명시적으로 사용하지 않도록 설정한 경우 모듈 네트워크 내에서도 사용할 수 없습니다.
+IoT Edge 시스템 모듈에서 노출되는 기본 제공 메트릭 엔드포인트는 http 프로토콜을 사용합니다. Edge Hub 또는 Edge Agent 모듈에서 환경 변수 설정을 통해 http를 명시적으로 사용하지 않도록 설정한 경우 모듈 네트워크 내에서도 사용할 수 없습니다.
 
 ### <a name="set-no_proxy-environment-variable-if-using-http-proxy-server"></a>http 프록시 서버를 사용하는 경우 *NO_PROXY* 환경 변수 설정
 
 자세한 내용은 [프록시 고려 사항](how-to-collect-and-transport-metrics.md#proxy-considerations)을 참조하세요.
 
+### <a name="update-moby-engine"></a>Moby 엔진 업데이트
+
+Linux 호스트에서 최신 버전의 컨테이너 엔진을 사용하고 있는지 확인합니다. [설치 지침](how-to-install-iot-edge.md#install-a-container-engine)에 따라 최신 버전으로 업데이트하는 것이 좋습니다.
+
 ## <a name="how-do-i-collect-logs-along-with-metrics"></a>로그를 메트릭과 함께 수집하려면 어떻게 해야 하나요?
 
-[기본 제공 로그 끌어오기 기능](how-to-retrieve-iot-edge-logs.md)을 사용할 수 있습니다. 기본 제공 로그 검색 기능을 사용하는 샘플 솔루션은 [ **https://aka.ms/iot-elms** ](https://aka.ms/iot-elms)에서 사용할 수 있습니다.
+[기본 제공 로그 끌어오기 기능](how-to-retrieve-iot-edge-logs.md)을 사용할 수 있습니다. 기본 제공 로그 검색 기능을 사용하는 샘플 솔루션은 [ **https://aka.ms/iot-elms**](https://aka.ms/iot-elms)에서 사용할 수 있습니다.
 
 ## <a name="why-cant-i-see-device-metrics-in-the-metrics-page-in-azure-portal"></a>Azure Portal의 메트릭 페이지에서 디바이스 메트릭이 표시되지 않는 이유는 무엇인가요?
 
 Azure Monitor의 [기본 메트릭](../azure-monitor/essentials/data-platform-metrics.md) 기술은 아직 Prometheus 데이터 형식을 직접 지원하지 않습니다. 로그 기반 메트릭은 현재 다음과 같은 이유로 IoT Edge 메트릭에 더 적합합니다.
 
 * 표준 *InsightsMetrics* 테이블을 통해 Prometheus 메트릭 형식을 기본적으로 지원합니다.
-* 시각화 및 경고를 위해 [KQL](https://aka.ms/kql)을 통한 고급 데이터 처리.
+* 시각화 및 경고를 위해 [KQL](/azure/data-explorer/kusto/query/)을 통한 고급 데이터 처리.
 
 메트릭 데이터베이스로 Log Analytics를 사용하는 것은 **메트릭** 이 아닌 Azure Portal의 **로그** 페이지에 메트릭이 표시되는 이유입니다.
 
@@ -86,7 +89,7 @@ Azure Monitor의 [기본 메트릭](../azure-monitor/essentials/data-platform-me
 
 ## <a name="my-device-isnt-showing-up-in-the-monitoring-workbook"></a>내 디바이스가 모니터링 통합 문서에 표시되지 않습니다.
 
-통합 문서는 *ResourceId* 를 사용하여 올바른 IoT 허브에 연결되는 디바이스 메트릭을 사용합니다. 메트릭 수집기가 올바른 *ResourceId* 로 [구성](how-to-collect-and-transport-metrics.md#metrics-collector-configuration)되어 있는지 확인합니다.
+통합 문서는 *ResourceId* 를 사용하여 올바른 IoT Hub 또는 IoT Central 애플리케이션에 연결되는 디바이스 메트릭에 따라 다릅니다. 메트릭 수집기가 올바른 *ResourceId* 로 [구성](how-to-collect-and-transport-metrics.md#metrics-collector-configuration)되어 있는지 확인합니다.
 
 메트릭 수집기 모듈 로그를 사용하여 선택한 시간 범위 동안 디바이스가 메트릭을 보냈는지 확인합니다.
 
@@ -100,7 +103,7 @@ Azure Monitor의 [기본 메트릭](../azure-monitor/essentials/data-platform-me
 
 ## <a name="i-cannot-see-the-workbooks-in-the-public-templates"></a>공용 템플릿에서 통합 문서를 볼 수 없습니다.
 
-Log Analytics 작업 영역이 아닌 포털의 IoT 허브 페이지에 있는 **통합 문서** 페이지를 보고 있는지 확인합니다.
+Log Analytics 작업 영역이 아닌 포털의 IoT 허브 또는 IoT Central 애플리케이션 페이지에 있는 **통합 문서** 페이지를 보고 있는지 확인합니다.
 
 그래도 통합 문서를 볼 수 없다면 사전 프로덕션 Azure Portal 환경([`https://ms.portal.azure.com`](https://ms.portal.azure.com))을 사용해 보세요. 통합 문서 업데이트가 프로덕션 환경에 표시되는 데 추가 시간이 걸리는 경우가 있지만 사전 프로덕션 환경에서 사용할 수 있습니다.
 

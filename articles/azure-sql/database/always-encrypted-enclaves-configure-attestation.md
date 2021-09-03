@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 논리 서버의 Azure Attestation 구성
+title: Azure Attestation을 사용하여 Always Encrypted에 대한 증명 구성
 description: Azure SQL Database에서 보안 enclave를 사용하여 Always Encrypted에 대한 Azure Attestation을 구성합니다.
 keywords: 데이터 암호화, SQL 암호화, 데이터베이스 암호화, 중요한 데이터, Always Encrypted, 보안 enclave, SGX, 증명
 services: sql-database
@@ -10,21 +10,18 @@ ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 05/01/2021
+ms.date: 07/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e2e6bc57a830b5257d246a4229e174cf8612d3c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6a27acf96b42a4a963b88e281fd692a91616b7e4
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662525"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113727204"
 ---
-# <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Azure SQL 논리 서버의 Azure Attestation 구성
+# <a name="configure-attestation-for-always-encrypted-using-azure-attestation"></a>Azure Attestation을 사용하여 Always Encrypted에 대한 증명 구성
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Azure SQL Database용 보안 enclave를 사용한 Always Encrypted는 현재 **공개 미리 보기** 상태입니다.
 
 [Microsoft Azure Attestation](../../attestation/overview.md)은 Intel Software Guard Extensions(Intel SGX) enclave를 포함하는 TEE(신뢰 실행 환경) 증명을 위한 솔루션입니다. 
 
@@ -42,6 +39,9 @@ Azure SQL Database에서 [보안 enclave를 사용한 Always Encrypted](/sql/rel
 [증명 공급자](../../attestation/basic-concepts.md#attestation-provider)는 [증명 정책](../../attestation/basic-concepts.md#attestation-request)에 대해 [증명 요청](../../attestation/basic-concepts.md#attestation-request)을 평가하고 [증명 토큰](../../attestation/basic-concepts.md#attestation-token)을 발급하는 Azure Attestation의 리소스입니다. 
 
 증명 정책은 [클레임 규칙 문법](../../attestation/claim-rule-grammar.md)을 사용하여 지정됩니다.
+
+> [!IMPORTANT]
+> 증명 공급자는 Intel SGX enclave에 대한 기본 정책으로 생성되며, 이 정책은 enclave 내에서 실행되는 코드의 유효성을 검사하지 않습니다. Microsoft는 보안 enclave를 사용하는 Always Encrypted에 대해 아래 권장 정책을 설정하고 기본 정책은 사용하지 않는 것을 강력하게 권고합니다.
 
 Azure SQL Database에서 Always Encrypted에 사용되는 증명 Intel SGX enclave에 대해 다음 정책을 권장합니다.
 
@@ -69,7 +69,7 @@ authorizationrules
   > 증명의 주요 목표 중 하나는 enclave에서 실행 중인 이진이 실행되어야 하는 이진임을 클라이언트에게 확신시키는 것입니다. 증명 정책은 이러한 용도로 두 가지 메커니즘을 제공합니다. 하나는 enclave에서 실행되어야 하는 이진의 해시인 **mrenclave** 클레임입니다. **mrenclave** 의 문제는 이진 해시가 코드의 사소한 변경에도 불구하고 변경되기 때문에 enclave에서 실행 중인 코드를 수정하기가 어렵다는 것입니다. 따라서 enclave 이진에 서명하는 데 사용되는 키의 해시인 **mrsigner** 를 사용하는 것이 좋습니다. Microsoft가 enclave를 수정할 때 서명 키가 변경되지 않는 한 **mrsigner** 가 동일하게 유지됩니다. 이러한 방식으로 고객의 애플리케이션을 중단하지 않고 업데이트된 이진을 배포하는 것이 실현됩니다. 
 
 > [!IMPORTANT]
-> 증명 공급자는 Intel SGX enclave에 대한 기본 정책으로 생성되며, 이 정책은 enclave 내에서 실행되는 코드의 유효성을 검사하지 않습니다. Microsoft는 보안 enclave를 사용하는 Always Encrypted에 대해 위의 권장 정책을 설정하고 기본 정책은 사용하지 않는 것을 강력하게 권고합니다.
+> 드문 경우지만 Microsoft는 Always Encrypted enclave 이진에 서명하는 데 사용되는 키를 회전해야 할 수 있습니다. 새 키로 서명된 새 버전의 enclave 이진이 Azure SQL Database에 배포되기 전에 이 문서는 새롭게 권장되는 증명 정책 및 애플리케이션이 중단 없이 계속 작동하도록 증명 공급자에서 정책을 업데이트하는 방법에 대한 지침을 제공하도록 업데이트됩니다.
 
 다음을 사용하여 증명 공급자를 만들고 증명 정책을 구성하는 방법에 대한 자세한 내용을 참조하세요.
 
@@ -82,6 +82,7 @@ authorizationrules
 - [빠른 시작: Azure CLI를 사용하여 Azure Attestation 설정](../../attestation/quickstart-azure-cli.md)
     > [!IMPORTANT]
     > Azure CLI를 사용하여 증명 정책을 구성하는 경우 `attestation-type` 매개 변수를 `SGX-IntelSDK`로 설정합니다.
+
 
 ## <a name="determine-the-attestation-url-for-your-attestation-policy"></a>증명 정책의 증명 URL 확인
 

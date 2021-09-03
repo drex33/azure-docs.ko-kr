@@ -3,20 +3,20 @@ title: SSML(Speech Synthesis Markup Language) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Synthesis Markup Language를 사용하여 텍스트 음성 변환의 발음 및 운율을 제어합니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3ba2dad93778e9d4482fa00c854a73dbc616d290
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: b71d0d114388c25f3f14c85d37f0568ceed49337
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750410"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530919"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML(Speech Synthesis Markup Language)을 사용하여 합성 향상
 
@@ -59,7 +59,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `version` | 문서 태그를 해석하는 데 사용되는 SSML 사양의 버전을 나타냅니다. 현재 버전은 1.0입니다. | 필수 |
 | `xml:lang` | 루트 문서의 언어를 지정합니다. 이 값에는 소문자 2자 언어 코드(예: `en`) 또는 언어 코드와 대문자 국가/지역(예: `en-US`)이 포함될 수 있습니다. | 필수 |
@@ -79,18 +79,18 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용되는 음성을 식별합니다. 지원되는 전체 음성 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요. | 필수 |
 
 **예제**
 
 > [!NOTE]
-> 이 예제에서는 `en-US-JennyNeural` 음성을 사용합니다. 지원되는 전체 음성 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
+> 이 예제에서는 `en-US-ChristopherNeural` 음성을 사용합니다. 지원되는 전체 음성 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -102,7 +102,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용되는 음성을 식별합니다. 지원되는 전체 음성 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요. | 필수 |
 
@@ -113,7 +113,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
     <voice name="en-US-JennyNeural">
         Good morning!
     </voice>
-    <voice name="en-US-GuyNeural">
+    <voice name="en-US-ChristopherNeural">
         Good morning to you too Jenny!
     </voice>
 </speak>
@@ -161,7 +161,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `style` | 말하기 스타일을 지정합니다. 현재 말하기 스타일은 음성에만 적용됩니다. | 인공신경망 음성의 말하기 스타일을 조정하는 경우에 필요합니다. `mstts:express-as`를 사용하는 경우 스타일을 제공해야 합니다. 잘못된 값을 제공하면 이 요소가 무시됩니다. |
 | `styledegree` | 말하기 스타일의 강도를 지정합니다. **허용되는 값**: 0.01~2(포함). 기본값은 미리 정의된 스타일 강도를 의미하는 1입니다. 최소 단위인 0.01은 대상 스타일의 성향을 약간 보입니다. 값이 2이면 기본 스타일 강도는 두 배가 됩니다.  | 선택 사항(현재 `styledegree`는 중국어(북경어, 간체) 인공신경망 음성만 지원)|
@@ -319,7 +319,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `lang` | 말하기 언어를 지정합니다. 현재 다른 언어로 말하는 것은 음성에 따라 다릅니다. | 인공신경망 음성의 말하기 언어를 조정하는 경우에 필요합니다. `lang xml:lang`을 사용하는 경우 로캘을 제공해야 합니다. |
 
@@ -377,7 +377,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `strength` | 다음 값 중 하나를 사용하여 일시 중지의 상대 기간을 지정합니다.<ul><li>없음</li><li>x-weak</li><li>weak</li><li>medium(기본값)</li><li>강력</li><li>x-strong</li></ul> | Optional |
 | `time` | 일시 중지의 절대 기간을 초 또는 밀리초 단위로 지정합니다. 이 값은 5000ms 미만으로 설정해야 합니다. 예를 들어 `2s` 및 `500ms`는 유효한 값입니다. | Optional |
@@ -395,7 +395,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-ChristopherNeural">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -416,7 +416,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `type` | 무언이 추가되는 위치를 지정합니다. <ul><li>`Leading` – 텍스트의 시작 부분 </li><li>`Tailing` – 텍스트 끝 </li><li>`Sentenceboundary` – 인접한 문장 사이 </li></ul> | 필수 |
 | `Value` | 일시 중지의 절대 기간을 초 또는 밀리초 단위로 지정합니다. 이 값은 5000ms 미만으로 설정해야 합니다. 예를 들어 `2s` 및 `500ms`는 유효한 값입니다. | 필수 |
@@ -424,7 +424,7 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 **예** 이 예제에서는 `mtts:silence`를 사용하여 두 문장 사이에 200밀리초의 무언을 추가합니다.
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-<voice name="en-US-AriaNeural">
+<voice name="en-US-ChristopherNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
@@ -451,7 +451,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -481,7 +481,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `alphabet` | `ph` 특성의 문자열 발음을 합성할 때 사용되는 발음 기호를 지정합니다. 알파벳을 지정하는 문자열은 소문자로 지정해야 합니다. 다음은 지정할 수 있는 알파벳입니다.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 기호</a></li><li>`sapi` &ndash; [Speech Service 발음 기호](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> 범용 음성 세트</a></li></ul><br>알파벳은 요소의 `phoneme`에만 적용됩니다. | Optional |
 | `ph` | `phoneme` 요소에 있는 단어의 발음을 지정하는 음을 포함하는 문자열입니다. 지정된 문자열에 인식할 수 없는 음이 들어 있는 경우 TTS(텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부하고 문서에 지정된 음성 출력을 하나도 생성하지 않습니다. | 음소를 사용하는 경우 필수입니다. |
@@ -490,7 +490,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <phoneme alphabet="ipa" ph="təˈmeɪtoʊ"> tomato </phoneme>
     </voice>
 </speak>
@@ -498,7 +498,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -506,7 +506,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -531,7 +531,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 **특성**
 
-| attribute | Description                               | 필수/선택 |
+| attribute | 설명                               | 필수/선택 |
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | 외부 PLS 문서의 주소입니다. | 필수 요소.           |
 
@@ -603,7 +603,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
           xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <lexicon uri="http://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -660,7 +660,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `pitch` | 텍스트의 기준 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자에 "Hz"(헤르츠)를 붙여서 표현하는 절대값. 예들 들어 `<prosody pitch="600Hz">some text</prosody>`입니다.</li><li>"+" 또는 "-" 기호 뒤에 숫자를 붙이고 그 뒤에 "Hz" 또는 "st"를 붙여서 피치를 변경하는 양을 지정하는 상대값. 예를 들어 `<prosody pitch="+80Hz">some text</prosody>` 또는 `<prosody pitch="-2st">some text</prosody>`입니다. "st"는 변경 단위가 반음, 즉, 표준 온음계 톤의 절반(반음)임을 나타냅니다.</li><li>상수 값:<ul><li>x-low</li><li>low</li><li>중간</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional |
 | `contour` |이제 피치 곡선은 인공신경망 음성과 표준 음성을 모두 지원합니다. 피치 곡선은 피치의 변화를 나타냅니다. 이러한 변화는 음성 출력에서 특정 시간 위치에 있는 대상의 배열로 정의됩니다. 각 대상은 매개 변수 쌍 세트로 정의됩니다. 예를 들면 다음과 같습니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 세트의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정합니다. 두 번째 값은 피치에 대한 상대값 또는 열거형 값을 사용하여 피치를 높이거나 낮출 크기를 지정합니다(`pitch` 참조). | Optional |
@@ -677,7 +677,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-GuyNeural">
+    <voice name="en-US-ChristopherNeural">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -693,7 +693,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -709,7 +709,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-ChristopherNeural">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>
@@ -724,7 +724,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-ChristopherNeural">
         <prosody contour="(60%,-60%) (100%,+80%)" >
             Were you the only person in the room?
         </prosody>
@@ -743,7 +743,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `interpret-as` | 요소 텍스트의 콘텐츠 형식을 나타냅니다. 형식 목록은 아래 표를 참조하세요. | 필수 |
 | `format` | 형식이 모호할 수 있는 콘텐츠 형식에 대한 요소 텍스트의 정확한 서식 지정 정보를 제공합니다. SSML은 이러한 형식을 사용하는 콘텐츠 형식의 형식을 정의합니다(아래 표 참조). | Optional |
@@ -764,6 +764,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 | `ordinal` | | 텍스트를 서수로 읽습니다. 음성 합성 엔진이 다음과 같이 읽습니다.<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />"Select the third option"으로 읽습니다. |
 | `telephone` | | 텍스트를 전화 번호로 읽습니다. `format` 특성에 국가 번호를 나타내는 숫자가 포함될 수 있습니다. 예를 들어 미국을 나타내는 "1" 또는 이탈리아를 나타내는 "39"가 포함될 수 있습니다. 음성 합성 엔진은 이 정보를 사용하여 전화 번호 발음을 안내할 수 있습니다. 전화 번호에 국가 번호도 포함될 수 있으며, 이 경우 `format`에서 국가 코드보다 우선적으로 적용됩니다. 음성 합성 엔진이 다음과 같이 읽습니다.<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />"My number is area code eight eight eight five five five one two one two"로 읽습니다. |
 | `time` | hms12, hms24 | 텍스트를 시간으로 읽습니다. `format` 특성은 시간을 지정할 때 12시간제(hms12)를 사용할 것인지 아니면 24시간제(hms24)를 사용할 것인지 지정합니다. 콜론을 사용하여 시간, 분, 초를 나타내는 숫자를 구분합니다. 예를 들어 12:35, 1:14:32, 08:15 및 02:50:45는 유효한 시간입니다. 음성 합성 엔진이 다음과 같이 읽습니다.<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />"The train departs at four A M"으로 읽습니다. |
+| `name` | | 텍스트는 사람 이름으로 읽힙니다. 음성 합성 엔진이 다음과 같이 읽습니다.<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />[æd]와 같이. <br />중국어 이름에서는 일부 문자가 성에 나타날 때 다르게 발음됩니다. 예를 들어 음성 합성 엔진은 仇를 다음과 같이 읽습니다. <br /><br />`<say-as interpret-as="address">仇先生</say-as>`<br /><br /> [chóu] 대신 [qiú]와 같이. |
 
 **사용 현황**
 
@@ -775,7 +776,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -805,7 +806,7 @@ SSML 문서에 포함된 오디오는 다음 요구 사항을 충족해야 합�
 
 **특성**
 
-| attribute | Description                                   | 필수/선택                                        |
+| attribute | 설명                                   | 필수/선택                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 | `src`     | 오디오 파일의 위치/URL을 지정합니다. | SSML 문서에서 audio 요소를 사용하는 경우 필수입니다. |
 
@@ -813,7 +814,7 @@ SSML 문서에 포함된 오디오는 다음 요구 사항을 충족해야 합�
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-ChristopherNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -841,7 +842,7 @@ SSML 문서에 포함된 오디오는 다음 요구 사항을 충족해야 합�
 
 **특성**
 
-| attribute | Description | 필수/선택 |
+| attribute | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `src` | 백그라운드 오디오 파일의 위치/URL을 지정합니다. | SSML 문서에서 백그라운드 오디오를 사용하는 경우 필수입니다. |
 | `volume` | 백그라운드 오디오 파일의 볼륨을 지정합니다. **허용되는 값** 은 `0`~`100`(포함)입니다. 기본값은 `1`입니다. | Optional |
@@ -853,7 +854,7 @@ SSML 문서에 포함된 오디오는 다음 요구 사항을 충족해야 합�
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
@@ -876,7 +877,7 @@ bookmark 요소는 텍스트 또는 태그 시퀀스의 특정 위치를 참조�
 
 **특성**
 
-| attribute | Description                                   | 필수/선택                                        |
+| attribute | 설명                                   | 필수/선택                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 |  `mark`   | `bookmark` 요소의 참조 텍스트를 지정합니다. | 필수 요소. |
 

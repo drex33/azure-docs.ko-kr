@@ -3,22 +3,22 @@ title: 식의 함수에 대한 참조 가이드
 description: Azure Logic Apps 및 Power Automate용 식의 함수에 대한 참조 가이드
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 03/30/2021
-ms.openlocfilehash: 71a8dc9c72672ae0bee18be159631daba3d88a39
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 08/16/2021
+ms.openlocfilehash: 74bfdabbbd145e7409d070e9bb432ad4f62759d5
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062005"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866583"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Power Automate](/flow/getting-started)의 워크플로 정의에서, 일부 [식](../logic-apps/logic-apps-workflow-definition-language.md#expressions)은 워크플로가 실행되기 시작할 때 존재하지 않을 수도 있는 런타임 작업에서 값을 가져옵니다. 식에서 이러한 값을 참조하거나 처리하려면 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에서 제공하는 *함수* 를 사용하면 됩니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Power Automate](/power-automate/getting-started)의 워크플로 정의에서, 일부 [식](../logic-apps/logic-apps-workflow-definition-language.md#expressions)은 워크플로가 실행되기 시작할 때 존재하지 않을 수도 있는 런타임 작업에서 값을 가져옵니다. 식에서 이러한 값을 참조하거나 처리하려면 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에서 제공하는 *함수* 를 사용하면 됩니다.
 
 > [!NOTE]
-> 이 참조 페이지는 Azure Logic Apps 및 Power Automate에 모두 적용되지만, Azure Logic Apps 설명서에 표시됩니다. 이 페이지는 구체적으로 논리 앱을 참조하지만, 이러한 함수는 흐름과 논리 앱 모두에서 작동합니다. Power Automate의 함수 및 식에 대한 자세한 내용은 [조건에 식 사용](/flow/use-expressions-in-conditions)을 참조하세요.
+> 이 참조 페이지는 Azure Logic Apps 및 Power Automate에 모두 적용되지만, Azure Logic Apps 설명서에 표시됩니다. 이 페이지는 구체적으로 논리 앱 워크플로를 참조하지만, 이러한 함수는 흐름과 논리 앱 워크플로 모두에서 작동합니다. Power Automate의 함수 및 식에 대한 자세한 내용은 [조건에 식 사용](/power-automate/use-expressions-in-conditions)을 참조하세요.
 
 예를 들어 정수 또는 부동 소수점의 합계를 원하는 경우 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) 함수 같은 수식 함수를 사용하여 값을 계산할 수 있습니다. 다음은 함수로 수행할 수 있는 다른 작업의 예입니다.
 
@@ -62,9 +62,11 @@ ms.locfileid: "110062005"
 
 두 예제 중 어느 경우든 결과를 `customerName` 속성에 할당합니다.
 
-다음은 식의 함수에 대한 기타 참고 사항입니다.
+## <a name="considerations-for-using-functions"></a>함수 사용 시 고려 사항
 
 * 함수 매개 변수는 왼쪽에서 오른쪽으로 계산됩니다.
+
+* 디자이너는 디자인 타임에 함수 매개 변수로 사용되는 런타임 식을 평가하지 않습니다. 디자이너는 디자인 타임에 모든 식을 완전히 평가할 수 있어야 합니다.
 
 * 매개 변수 정의 구문에서 매개 변수 뒤에 나오는 물음표(?)는 해당 매개 변수가 선택 사항임을 의미합니다. 예를 들어 [getFutureTime()](#getFutureTime)을 참조하세요.
 
@@ -202,7 +204,7 @@ Logic Apps는 자동으로 또는 암시적으로 base64 인코딩 또는 디코
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> 예를 들어 식 편집기를 사용하여 논리 앱 디자이너를 통해 워크플로에 이러한 함수를 수동으로 추가하는 경우 디자이너에서 나갔다가 돌아오면 함수가 디자이너에서 사라지고 매개 변수 값만 남게 됩니다. 함수의 매개 변수 값을 편집하지 않고 이 함수를 사용하는 트리거 또는 작업을 선택하는 경우에도 마찬가지입니다. 이 결과는 함수의 표시 유형에만 영향을 주고 효과에는 영향을 주지 않습니다. 코드 보기에서 함수는 영향을 받지 않습니다. 그러나 함수의 매개 변수 값을 편집하면 함수와 그 효과가 코드 보기에서 모두 제거되어 함수의 매개 변수 값만 남게 됩니다.
+> 워크플로 디자이너를 사용하는 동안 트리거나 작업에 직접 또는 식 편집기를 사용하여 이러한 함수를 수동으로 추가하고 디자이너에서 다른 곳으로 이동한 다음 디자이너로 돌아오면 함수가 디자이너에서 사라지고 매개 변수 값만 뒤에 남게 됩니다. 함수의 매개 변수 값을 편집하지 않고 이 함수를 사용하는 트리거 또는 작업을 선택하는 경우에도 마찬가지입니다. 이 결과는 함수의 표시 유형에만 영향을 주고 효과에는 영향을 주지 않습니다. 코드 보기에서 함수는 영향을 받지 않습니다. 그러나 함수의 매개 변수 값을 편집하면 함수와 그 효과가 코드 보기에서 모두 제거되어 함수의 매개 변수 값만 남게 됩니다.
 
 <a name="math-functions"></a>
 
@@ -1044,7 +1046,7 @@ base64ToString('aGVsbG8=')
 
 ### <a name="binary"></a>binary
 
-문자열에 대한 이진 버전을 반환합니다.
+문자열의 base64로 인코딩된 이진 버전을 반환합니다.
 
 ```
 binary('<value>')
@@ -1057,20 +1059,12 @@ binary('<value>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-input-value*> | String | 지정한 문자열에 대한 이진 버전 |
+| <*binary-for-input-value*> | String | 지정된 문자열에 대한 base64 인코딩 이진 버전 |
 ||||
 
 *예제*
 
-이 예제는 "hello" 문자열을 이진 문자열로 변환합니다.
-
-```
-binary('hello')
-```
-
-그리고 다음 결과를 반환합니다.
-
-`"0110100001100101011011000110110001101111"`
+예를 들어 이미지 또는 동영상 파일을 반환하는 HTTP 작업을 사용하고 있습니다. `binary()`를 사용하여 값을 base-64로 인코딩된 콘텐츠 봉투 모델로 변환할 수 있습니다. 그런 다음 `Compose`와 같은 다른 작업에서 콘텐츠 봉투를 다시 사용할 수 있습니다.
 
 <a name="body"></a>
 
@@ -1226,6 +1220,9 @@ concat('Hello', 'World')
 ```
 
 그리고 다음 결과를 반환합니다. `"HelloWorld"`
+  
+> [!NOTE]
+> 문자열의 길이는 104,857,600자를 넘지 않아야 합니다.
 
 <a name="contains"></a>
 
@@ -2703,6 +2700,9 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 그리고 다음 결과를 반환합니다. `"a.b.c"`
+  
+> [!NOTE]
+> 문자열의 길이는 104,857,600자를 넘지 않아야 합니다.
 
 <a name="last"></a>
 
@@ -3324,6 +3324,9 @@ range(1, 4)
 ```
 
 그리고 다음 결과를 반환합니다. `[1, 2, 3, 4]`
+  
+> [!NOTE]
+> `count` 매개 변수 값은 100,000을 초과하지 않는 양의 정수여야 합니다. `startIndex` 및 `count` 값의 합계는 2,147,483,647을 초과할 수 없습니다.
 
 <a name="replace"></a>
 

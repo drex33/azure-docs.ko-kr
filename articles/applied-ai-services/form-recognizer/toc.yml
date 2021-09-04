@@ -57,12 +57,11 @@
         - name: 컨테이너 구성
           href: containers/form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
+        - name: 컨테이너 이미지 태그
+          href: containers/form-recognizer-container-image-tags.md
         - name: 컨테이너 인스턴스 사용
           maintainContext: true
           href: ../../cognitive-services/containers/azure-container-instance-recipe.md
-        - name: 모든 Cognitive Services 컨테이너 설명서
-          href: ../../cognitive-services/containers/index.yml
-          maintainContext: true
     - name: 모델 백업 및 복구
       href: disaster-recovery.md
     - name: 엔터프라이즈 준비

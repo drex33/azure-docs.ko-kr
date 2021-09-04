@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Azure Route Server(미리 보기)란?
+    - name: Azure Route Server란?
       href: overview.md
 - name: 빠른 시작
   items:
@@ -50,10 +50,10 @@
     - name: 네트워킹 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking/'
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/'
+      href: 'https://azure.microsoft.com/pricing/route-server'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=routeserver'
     - name: SLA
-      href: 'https://azure.microsoft.com/support/legal/sla/'
+      href: 'https://azure.microsoft.com/support/legal/sla/route-server/v1_0/'

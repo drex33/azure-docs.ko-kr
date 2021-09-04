@@ -22,13 +22,10 @@
     - name: Microsoft Learn - Bicep
       href: learn-bicep.md
 - name: 방법
-  expanded: true
   items:
     - name: 작성자
-      expanded: true
       items:
         - name: 리소스
-          expanded: true
           items:
             - name: 리소스 선언
               href: resource-declaration.md

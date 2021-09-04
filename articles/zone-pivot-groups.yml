@@ -252,6 +252,16 @@ groups:
     title: JavaScript
   - id: programming-language-curl
     title: REST (영문)
+- id: programming-languages-cs-cpp-py
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-twenty-three
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 또는 CLI 선택
@@ -1141,7 +1151,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: rest-api
-    title: REST (영문)
+    title: REST
 - id: app-service-webjob
   title: WebJob 형식
   prompt: WebJob 유형 선택
@@ -1273,9 +1283,9 @@ groups:
   - id: identity-mi-methods-sub-powershell
     title: PowerShell
 metadata:
-  ms.openlocfilehash: 1e0342c1c36d88218ca7ad9daccb7a9e1ea7e9fa
-  ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+  ms.openlocfilehash: 6043c9ad329e91e258a57df19cb0a6e4ccb3ac93
+  ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/28/2021
-  ms.locfileid: "114730995"
+  ms.lasthandoff: 09/04/2021
+  ms.locfileid: "123471447"

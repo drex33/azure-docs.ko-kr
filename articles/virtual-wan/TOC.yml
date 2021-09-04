@@ -195,11 +195,11 @@
           href: howto-private-link.md
         - name: 리소스에 대한 액세스 관리 - Spoke VNet P2S
           href: manage-secure-access-resources-spoke-p2s.md
-    - name: 상태 모니터링
+    - name: 모니터링
       items:
         - name: Virtual WAN 모니터링
           href: monitor-virtual-wan.md
-        - name: Virtual WAN용 Azure Monitor Insights
+        - name: Azure Monitor Insights
           href: azure-monitor-insights.md
 - name: 참조
   items:

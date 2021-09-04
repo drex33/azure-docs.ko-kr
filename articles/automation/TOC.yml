@@ -12,26 +12,18 @@
       href: whats-new-archive.md
 - name: 빠른 시작
   items:
-    - name: Automation 계정 만들기 - 포털
-      href: automation-quickstart-create-account.md
-    - name: PowerShell Runbook 만들기
-      href: automation-quickstart-create-runbook.md
+    - name: Automation 계정 만들기 - Azure Portal
+      href: quickstarts/create-account-portal.md
     - name: 머신의 Desired State Configuration 사용
-      href: automation-quickstart-dsc-configuration.md
+      href: quickstarts/dsc-configuration.md
 - name: 자습서
   items:
-    - name: 그래픽 Runbook 만들기
-      href: learn/automation-tutorial-runbook-graphical.md
-    - name: PowerShell Runbook 만들기
-      href: learn/automation-tutorial-runbook-textual-powershell.md
-    - name: PowerShell 워크플로 Runbook 만들기
-      href: learn/automation-tutorial-runbook-textual.md
-    - name: Python Runbook 만들기
-      href: learn/automation-tutorial-runbook-textual-python2.md
-    - name: Python 3 Runbook 만들기
-      href: learn/automation-tutorial-runbook-textual-python-3.md
     - name: PowerShell Runbook에서 관리 ID 사용
       href: learn/powershell-runbook-managed-identity.md
+    - name: PowerShell 워크플로 Runbook 만들기
+      href: learn/automation-tutorial-runbook-textual.md
+    - name: Python 3 Runbook 만들기
+      href: learn/automation-tutorial-runbook-textual-python-3.md
 - name: 개념
   items:
     - name: Automation 계정 인증 개요

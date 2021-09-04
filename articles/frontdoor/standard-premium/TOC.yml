@@ -39,6 +39,8 @@
           href: concept-rule-set-actions.md
         - name: URL 리디렉션 및 URL 재작성
           href: concept-rule-set-url-redirect-and-rewrite.md
+    - name: 지역 필터링
+      href: geo-filtering.md
     - name: 상태 프로브
       href: concept-health-probes.md
     - name: Private Link

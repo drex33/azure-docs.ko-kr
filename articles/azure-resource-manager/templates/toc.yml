@@ -407,6 +407,14 @@
         - name: 중요한 값 전달
           displayname: key vault
           href: key-vault-parameter.md
+    - name: 템플릿 내보내기
+      items:
+        - name: Azure CLI
+          href: export-template-cli.md
+        - name: 포털
+          href: export-template-portal.md
+        - name: PowerShell
+          href: export-template-powershell.md
     - name: 테스트 템플릿
       items:
         - name: 테스트 도구 키트
@@ -431,12 +439,6 @@
           href: add-template-to-azure-pipelines.md
         - name: 배포 - GitHub Actions
           href: deploy-github-actions.md
-    - name: 템플릿 속성 검색
-      items:
-        - name: 템플릿 내보내기
-          href: export-template-portal.md
-        - name: 리소스 검색
-          href: view-resources.md
     - name: 제작 도구 사용
       items:
         - name: Visual Studio
@@ -505,7 +507,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources

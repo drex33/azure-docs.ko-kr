@@ -10,12 +10,12 @@ metadata:
   author: TheovanKraay
   ms.author: thvankra
   ms.date: 01/18/2021
-  ms.openlocfilehash: 39bc78471ea363372aef1d6fad2eee3a8acbf5d6
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: 7c91c2e1b01f6ee96805ee69cc66cd8a62677905
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121749442"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123430957"
 landingContent:
 - title: Apache Cassandra용 Azure Managed Instance 정보
   linkLists:
@@ -27,6 +27,12 @@ landingContent:
     links:
     - text: Apache Cassandra용 Azure Managed Instance 대 Azure Cosmos DB Cassandra API
       url: compare-cosmosdb-managed-instance.md
+  - linkListType: tutorial
+    links:
+    - text: 실시간 마이그레이션
+      url: dual-write-proxy-migration.md
+    - text: 오프라인 마이그레이션
+      url: spark-migration.md
 - title: 클러스터 만들기 및 배포
   linkLists:
   - linkListType: quickstart

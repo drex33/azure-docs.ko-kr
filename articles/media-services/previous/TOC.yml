@@ -2,411 +2,566 @@
   href: index.yml
 - name: 개요
   href: media-services-overview.md
+  displayName: 'media services v2, v2, version 2'
   items:
     - name: 일반적인 시나리오
       href: scenarios-and-availability.md
+      displayName: 'media services v2, v2, version 2'
     - name: 국가별 가용성
       href: availability-regions-v-2.md
+      displayName: 'media services v2, v2, version 2'
     - name: 개념
       href: media-services-concepts.md
+      displayName: 'media services v2, v2, version 2'
 - name: 시작하기
   items:
     - name: 계정 만들기 및 관리
       href: media-services-portal-create-account.md
+      displayName: 'media services v2, v2, version 2'
     - name: 개발 환경 설정
       href: media-services-set-up-computer.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: .NET
           href: media-services-dotnet-how-to-use.md
+          displayName: 'media services v2, v2, version 2'
         - name: REST (영문)
           href: media-services-rest-how-to-use.md
+          displayName: 'media services v2, v2, version 2'
     - name: Azure AD 인증을 사용하여 API 액세스
       href: media-services-use-aad-auth-to-access-ams-api.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: 포털을 사용하여 Azure AD 인증 관리
           href: media-services-portal-get-started-with-aad.md
+          displayName: 'media services v2, v2, version 2'
         - name: .NET으로 API 액세스
           href: media-services-dotnet-get-started-with-aad.md
+          displayName: 'media services v2, v2, version 2'
         - name: REST로 API 액세스
           href: media-services-rest-connect-with-aad.md
+          displayName: 'media services v2, v2, version 2'
         - name: Azure CLI를 사용하여 Azure AD 앱 만들기 및 구성
           href: media-services-cli-create-and-configure-aad-app.md
+          displayName: 'media services v2, v2, version 2'
         - name: Azure PowerShell을 사용하여 Azure AD 앱 만들기 및 구성
           href: media-services-powershell-create-and-configure-aad-app.md
+          displayName: 'media services v2, v2, version 2'
     - name: 주문형 비디오 제공
       items:
         - name: Azure portal
           href: media-services-portal-vod-get-started.md
+          displayName: 'media services v2, v2, version 2'
         - name: .NET SDK
           href: media-services-dotnet-get-started.md
+          displayName: 'media services v2, v2, version 2'
         - name: Java
           href: media-services-java-how-to-use.md
+          displayName: 'media services v2, v2, version 2'
         - name: REST (영문)
           href: media-services-rest-get-started.md
+          displayName: 'media services v2, v2, version 2'
     - name: 라이브 스트리밍 수행
       items:
         - name: Azure portal
           href: media-services-portal-live-passthrough-get-started.md
+          displayName: 'media services v2, v2, version 2'
         - name: .NET
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
+          displayName: 'media services v2, v2, version 2'
 - name: 방법
   items:
     - name: 레거시 구성 요소
-      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      displayName: 'deprecated, deprecation, retired, retirement, legacy, media services v2, v2, version 2'
       href: legacy-components.md
       items:
         - name: Azure Media Encoder에서 마이그레이션
           href: migrate-azure-media-encoder.md
-          displayName: AME
+          displayName: 'AME, media services v2, v2, version 2'
         - name: Windows Azure Media Encoder에서 마이그레이션
           href: migrate-windows-azure-media-encoder.md
-          displayName: WAME
+          displayName: 'WAME, media services v2, v2, version 2'
         - name: 인덱서 v1 및 v2에서 마이그레이션
           href: migrate-indexer-v1-v2.md
+          displayName: 'media services v2, v2, version 2'
     - name: 관리
       items:
         - name: 계정
-          displayName: subscription
           href: media-services-account-concept.md
+          displayName: 'media services v2, v2, version 2, subscription, account'
         - name: 엔터티
           items:
             - name: .NET
               href: media-services-dotnet-manage-entities.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST (영문)
               href: media-services-rest-manage-entities.md
+              displayName: 'media services v2, v2, version 2'
         - name: 스트리밍 엔드포인트
           href: media-services-streaming-endpoints-overview.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: Azure portal
               href: media-services-portal-manage-streaming-endpoints.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-manage-streaming-endpoints.md
+              displayName: 'media services v2, v2, version 2'
         - name: 스토리지
           items:
             - name: 스토리지 액세스 키 롤링 후 Media Services 업데이트
               href: media-services-roll-storage-access-keys.md
+              displayName: 'media services v2, v2, version 2'
             - name: 여러 스토리지 계정 간 자산 관리
               href: media-services-managing-multiple-storage-accounts.md
+              displayName: 'media services v2, v2, version 2'
         - name: 할당량 및 제한 사항
           href: media-services-quotas-and-limitations.md
+          displayName: 'media services v2, v2, version 2'
     - name: Postman 구성
       href: media-rest-apis-with-postman.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: 주문형 스트리밍 컬렉션
           href: postman-collection.md
+          displayName: 'media services v2, v2, version 2'
         - name: 라이브 스트리밍 컬렉션
           href: postman-live-streaming-collection.md
+          displayName: 'media services v2, v2, version 2'
         - name: Environment
           href: postman-environment.md
+          displayName: 'media services v2, v2, version 2'
     - name: 콘텐츠 업로드
       items:
         - name: 계정에 파일 업로드
           items:
             - name: Azure portal
               href: media-services-portal-upload-files.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-upload-files.md
-              displayName: invalid character
+              displayName: 'invalid character, media services v2, v2, version 2'
             - name: REST (영문)
               href: media-services-rest-upload-files.md
-              displayName: invalid character
+              displayName: 'media services v2, v2, version 2, invalid character'
         - name: StorSimple을 사용하여 파일 업로드
           href: media-services-upload-files-from-storsimple.md
+          displayName: 'media services v2, v2, version 2'
         - name: 기존 Blob 복사
           href: media-services-copying-existing-blob.md
+          displayName: 'media services v2, v2, version 2'
     - name: 콘텐츠 인코딩
       href: media-services-encode-asset.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: 인코딩 속도 및 동시성 관리
           href: media-services-manage-encoding-speed.md
+          displayName: 'media services v2, v2, version 2'
         - name: MES(Media Encoder Standard)
           items:
             - name: 미디어 인코더 표준 형식 및 코덱
               href: media-services-media-encoder-standard-formats.md
+              displayName: 'media services v2, v2, version 2'
             - name: MES를 사용하여 비트 전송률 사다리 자동 생성
               href: media-services-autogen-bitrate-ladder-with-mes.md
+              displayName: 'media services v2, v2, version 2'
             - name: Media Encoder Standard로 인코딩
               items:
                 - name: Azure portal
                   href: media-services-portal-encode.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: .NET
                   href: media-services-dotnet-encode-with-media-encoder-standard.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: REST (영문)
                   href: media-services-rest-encode-asset.md
+                  displayName: 'media services v2, v2, version 2'
             - name: MES로 고급 인코딩
               href: media-services-advanced-encoding-with-mes.md
+              displayName: 'media services v2, v2, version 2'
               items:
                 - name: Media Encoder Standard 사전 설정 사용자 지정
                   href: media-services-custom-mes-presets-with-dotnet.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: .NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법
                   href: media-services-dotnet-generate-thumbnail-with-mes.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: 미디어 인코더 표준으로 비디오 자르기
                   href: media-services-crop-video.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: 썸네일 스프라이트 생성
                   href: generate-thumbnail-sprite.md
+                  displayName: 'media services v2, v2, version 2'
             - name: MES 스키마
               items:
                 - name: Media Encoder Standard 스키마
                   href: media-services-mes-schema.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: 입력 메타데이터
                   href: media-services-input-metadata-schema.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: 출력 메타데이터
                   href: media-services-output-metadata-schema.md
+                  displayName: 'media services v2, v2, version 2'
             - name: MES 기본 설정
               href: media-services-mes-presets-overview.md
+              displayName: 'media services v2, v2, version 2'
               items:
                 - name: H264 다중 비트 전송률 1080p Audio 5.1
                   href: media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 다중 비트 전송률 1080p
                   href: media-services-mes-preset-H264-Multiple-Bitrate-1080p.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 다중 비트 전송률 16x9 SD Audio 5.1
                   href: media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 다중 비트 전송률 16x9 SD
                   href: media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: iOS용 H264 다중 비트 전송률 16x9
                   href: media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 다중 비트 전송률 4K Audio 5.1
                   href: media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 다중 비트 전송률 4K
                   href: media-services-mes-preset-H264-Multiple-Bitrate-4K.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 다중 비트 전송률 4x3 SD Audio 5.1
                   href: media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 다중 비트 전송률 4x3 SD
                   href: media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: iOS용 H264 다중 비트 전송률 4x3
                   href: media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 다중 비트 전송률 720p Audio 5.1
                   href: media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 다중 비트 전송률 720p
                   href: media-services-mes-preset-H264-Multiple-Bitrate-720p.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 단일 비트 전송률 1080p Audio 5.1
                   href: media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 단일 비트 전송률 1080p
                   href: media-services-mes-preset-H264-Single-Bitrate-1080p.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 단일 비트 전송률 16x9 SD Audio 5.1
                   href: media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 단일 비트 전송률 16x9 SD
                   href: media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 단일 비트 전송률 4K Audio 5.1
                   href: media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 단일 비트 전송률 4K
                   href: media-services-mes-preset-H264-Single-Bitrate-4K.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 단일 비트 전송률 4x3 SD Audio 5.1
                   href: media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 단일 비트 전송률 4x3 SD
                   href: media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 단일 비트 전송률 720p Audio 5.1
                   href: media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: H264 단일 비트 전송률 720p
                   href: media-services-mes-preset-H264-Single-Bitrate-720p.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: Android용 H264 단일 비트 전송률 720p
                   href: media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: Android용 H264 단일 비트 전송률 고품질 SD
                   href: media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md
+                  displayName: 'media services v2, v2, version 2'
                 - name: Android용 H264 단일 비트 전송률 저품질 SD
                   href: media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md
+                  displayName: 'media services v2, v2, version 2'
         - name: fMP4 청크를 생성하는 작업 만들기
           href: media-services-generate-fmp4-chunks.md
+          displayName: 'media services v2, v2, version 2'
         - name: 미디어 프로세서
           items:
             - name: .NET
               href: media-services-get-media-processor.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST (영문)
               href: media-services-rest-get-media-processor.md
+              displayName: 'media services v2, v2, version 2'
         - name: 오류 코드
           href: media-services-encoding-error-codes.md
+          displayName: 'media services v2, v2, version 2'
         - name: 사용되지 않음
           items:
             - name: 정적 패키징 및 암호화
               href: media-services-static-packaging.md
+              displayName: 'media services v2, v2, version 2'
     - name: 라이브 스트리밍
       href: media-services-manage-channels-overview.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: 온-프레미스 인코더
           href: media-services-live-streaming-with-onprem-encoders.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: 권장 온-프레미스 인코더
               href: media-services-recommended-encoders.md
+              displayName: 'media services v2, v2, version 2'
             - name: Azure portal
               href: media-services-portal-live-passthrough-get-started.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-live-encode-with-onpremises-encoders.md
+              displayName: 'media services v2, v2, version 2'
         - name: 클라우드 인코더를 사용한 라이브 스트리밍
           href: media-services-manage-live-encoder-enabled-channels.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: Azure portal
               href: media-services-portal-creating-live-encoder-enabled-channel.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-creating-live-encoder-enabled-channel.md
+              displayName: 'media services v2, v2, version 2'
         - name: 클라우드 인코더와 함께 사용할 온-프레미스 인코더 구성
           href: media-services-live-encoders-overview.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: Haivision KB 인코더
               href: media-services-configure-kb-live-encoder.md
+              displayName: 'media services v2, v2, version 2'
             - name: Wirecast 인코더
               href: media-services-configure-wirecast-live-encoder.md
+              displayName: 'media services v2, v2, version 2'
         - name: 장기 실행 작업 처리
           href: media-services-dotnet-long-operations.md
+          displayName: 'media services v2, v2, version 2'
         - name: 분할된 MP4 라이브 수집 사양
-          href: ../media-services-fmp4-live-ingest-overview.md
+          href: media-services-fmp4-live-ingest-overview.md
+          displayName: 'media services v2, v2, version 2'
     - name: 콘텐츠 보호
       href: media-services-content-protection-overview.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: 스토리지 암호화
           href: media-services-rest-storage-encryption.md
+          displayName: 'media services v2, v2, version 2'
         - name: AES-128 암호화
           href: media-services-protect-with-aes128.md
+          displayName: 'media services v2, v2, version 2'
         - name: 스트리밍용 PlayReady/Widevine
           href: media-services-protect-with-playready-widevine.md
+          displayName: 'media services v2, v2, version 2'
         - name: 스트리밍용 FairPlay
           href: media-services-protect-hls-with-fairplay.md
+          displayName: 'media services v2, v2, version 2'
         - name: Windows 10용 오프라인 PlayReady
           href: offline-playready-streaming-windows-10.md
+          displayName: 'media services v2, v2, version 2'
         - name: iOS용 오프라인 FairPlay
           href: media-services-protect-hls-with-offline-fairplay.md
+          displayName: 'media services v2, v2, version 2'
         - name: Android용 오프라인 Widevine
           href: offline-widevine-for-android.md
+          displayName: 'media services v2, v2, version 2'
         - name: Azure Portal에서 구성
           href: media-services-portal-protect-content.md
+          displayName: 'media services v2, v2, version 2'
         - name: DRM 라이선스 제공
           href: media-services-deliver-keys-and-licenses.md
+          displayName: 'media services v2, v2, version 2'
         - name: Contentkey 만들기
           items:
             - name: .NET
               href: media-services-dotnet-create-contentkey.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST (영문)
               href: media-services-rest-create-contentkey.md
+              displayName: 'media services v2, v2, version 2'
         - name: 라이선스 템플릿 개요
           items:
             - name: PlayReady 라이선스 템플릿
               href: media-services-playready-license-template-overview.md
+              displayName: 'media services v2, v2, version 2'
             - name: Widevine 라이선스 템플릿
               href: media-services-widevine-license-template-overview.md
+              displayName: 'media services v2, v2, version 2'
         - name: 자산 배달 정책 구성
           items:
             - name: .NET
               href: media-services-dotnet-configure-asset-delivery-policy.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST (영문)
               href: media-services-rest-configure-asset-delivery-policy.md
+              displayName: 'media services v2, v2, version 2'
         - name: 콘텐츠 키 인증 정책 구성
           items:
             - name: Azure portal
               href: media-services-portal-configure-content-key-auth-policy.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-configure-content-key-auth-policy.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST (영문)
               href: media-services-rest-configure-content-key-auth-policy.md
+              displayName: 'media services v2, v2, version 2'
         - name: AMS로 인증 토큰 전달
           href: media-services-pass-authentication-tokens.md
+          displayName: 'media services v2, v2, version 2'
         - name: 참조 디자인
           items:
             - name: 하이브리드 DRM 시스템 디자인
               href: hybrid-design-drm-sybsystem.md
+              displayName: 'media services v2, v2, version 2'
             - name: 참조 다중 DRM 디자인
               href: media-services-cenc-with-multidrm-access-control.md
+              displayName: 'media services v2, v2, version 2'
     - name: 콘텐츠 분석
       items:
         - name: Indexer를 사용하여 처리
           href: media-services-index-content.md
+          displayName: 'media services v2, v2, version 2'
         - name: 태스크 사전 설정
           href: indexer-task-preset.md
+          displayName: 'media services v2, v2, version 2'
         - name: Face Redactor를 사용하여 처리
           href: media-services-face-redaction.md
+          displayName: 'media services v2, v2, version 2'
         - name: Face Redactor 연습
           href: media-services-redactor-walkthrough.md
+          displayName: 'media services v2, v2, version 2'
     - name: 원격 분석 구성
       href: media-services-telemetry-overview.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: .NET
           href: media-services-dotnet-telemetry.md
+          displayName: 'media services v2, v2, version 2'
         - name: REST (영문)
           href: media-services-rest-telemetry.md
+          displayName: 'media services v2, v2, version 2'
     - name: 확장
       items:
         - name: 미디어 처리
           href: media-services-scale-media-processing-overview.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: Azure portal
               href: media-services-portal-scale-media-processing.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-dotnet-encoding-units.md
+              displayName: 'media services v2, v2, version 2'
         - name: 스트리밍 엔드포인트
           items:
             - name: Azure portal
               href: media-services-portal-scale-streaming-endpoints.md
+              displayName: 'media services v2, v2, version 2'
     - name: 콘텐츠 배달
       href: media-services-deliver-content-overview.md
+      displayName: 'media services v2, v2, version 2'
       items:
         - name: 동적 패키징
           href: media-services-dynamic-packaging-overview.md
+          displayName: 'media services v2, v2, version 2'
         - name: 필터 및 동적 매니페스트 개요
           href: media-services-dynamic-manifest-overview.md
+          displayName: 'media services v2, v2, version 2'
           items:
             - name: .NET을 사용하여 필터 만들기
               href: media-services-dotnet-dynamic-manifest.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST를 사용하여 필터 만들기
               href: media-services-rest-dynamic-manifest.md
+              displayName: 'media services v2, v2, version 2'
         - name: Media Services 확장의 CDN 캐싱 정책
           href: ../../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json
+          displayName: 'media services v2, v2, version 2'
         - name: 콘텐츠 게시
           items:
             - name: Azure portal
               href: media-services-portal-publish.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-deliver-streaming-content.md
+              displayName: 'media services v2, v2, version 2'
             - name: REST (영문)
               href: media-services-rest-deliver-streaming-content.md
+              displayName: 'media services v2, v2, version 2'
         - name: 다운로드로 배달
           href: media-services-deliver-asset-download.md
+          displayName: 'media services v2, v2, version 2'
         - name: 장애 조치 스트리밍 시나리오
           href: media-services-implement-failover.md
-          displayName: 'HA, high availability'
+          displayName: 'media services v2, v2, version 2, HA, high availability'
     - name: 사용
       items:
         - name: 기존 플레이어로 미디어 재생
           href: media-services-playback-content-with-existing-players.md
+          displayName: 'media services v2, v2, version 2'
         - name: 기타 재생 옵션
           items:
             - name: 부드러운 스트리밍 Windows 스토어 애플리케이션
               href: media-services-build-smooth-streaming-apps.md
+              displayName: 'media services v2, v2, version 2'
             - name: DASH.js 사용 HTML5 애플리케이션
               href: media-services-embed-mpeg-dash-in-html5.md
+              displayName: 'media services v2, v2, version 2'
             - name: Adobe 오픈 소스 미디어 프레임 워크 플레이어
               href: media-services-use-osmf-smooth-streaming-client-plugin.md
+              displayName: 'media services v2, v2, version 2'
         - name: 클라이언트 쪽에 광고 삽입
           href: media-services-inserting-ads-on-client-side.md
+          displayName: 'media services v2, v2, version 2'
         - name: Microsoft 부드러운 스트리밍 클라이언트 이식 키트 라이선스
           href: media-services-sspk.md
+          displayName: 'media services v2, v2, version 2'
     - name: 통합
       items:
         - name: Media Services에서 Azure Functions 사용
           href: media-services-dotnet-how-to-use-azure-functions.md
+          displayName: 'media services v2, v2, version 2'
         - name: Media Services에서 사용하는 Azure Functions 예제
           href: 'https://github.com/Azure-Samples/media-services-dotnet-functions-integration'
+          displayName: 'media services v2, v2, version 2'
     - name: 모니터
       items:
         - name: 작업 진행 상태 확인
           items:
             - name: REST (영문)
               href: media-services-rest-check-job-progress.md
+              displayName: 'media services v2, v2, version 2'
             - name: Azure portal
               href: media-services-portal-check-job-progress.md
+              displayName: 'media services v2, v2, version 2'
             - name: .NET
               href: media-services-check-job-progress.md
+              displayName: 'media services v2, v2, version 2'
         - name: Queue Storage와 함께 작업 알림 모니터링
           href: media-services-dotnet-check-job-progress-with-queues.md
+          displayName: 'media services v2, v2, version 2'
         - name: 웹후크와 함께 작업 알림 모니터링
           href: media-services-dotnet-check-job-progress-with-webhooks.md
+          displayName: 'media services v2, v2, version 2'
     - name: 문제 해결
       items:
         - name: 질문과 대답
           href: media-services-frequently-asked-questions.yml
+          displayName: 'media services v2, v2, version 2'
         - name: 라이브 스트리밍 문제 해결 가이드
           href: media-services-troubleshooting-live-streaming.md
+          displayName: 'media services v2, v2, version 2'
         - name: 오류 코드
           href: media-services-error-codes.md
+          displayName: 'media services v2, v2, version 2'
         - name: 재시도 논리
           href: media-services-retry-logic-in-dotnet-sdk.md
+          displayName: 'media services v2, v2, version 2'
 - name: 참조
   items:
     - name: 코드 샘플
@@ -422,11 +577,11 @@
     - name: 사양
       items:
         - name: 라이브 수집 - 분할된 MP4 라이브 수집 사양
-          href: ../media-services-fmp4-live-ingest-overview.md
+          href: media-services-fmp4-live-ingest-overview.md
         - name: 라이브 수집 - 라이브 스트리밍에서 신호 타이밍 메타데이터
-          href: ../media-services-specifications-live-timed-metadata.md
+          href: media-services-specifications-live-timed-metadata.md
         - name: 부드러운 스트리밍 HEVC
-          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+          href: media-services-specifications-ms-sstr-amendment-hevc.md
     - name: 레거시 구성 요소
       displayName: 'deprecated, deprecation, retired, retirement, legacy'
       href: legacy-components.md

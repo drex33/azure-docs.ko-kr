@@ -1,5 +1,5 @@
 ---
-title: MySQL 온-프레미스에서 Azure Database for MySQL로의 마이그레이션 가이드 마이그레이션 후 관리
+title: 'MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 마이그레이션 후 관리'
 description: 마이그레이션이 성공적으로 완료되면 다음 단계로 새 클라우드 기반 데이터 워크로드 리소스를 관리합니다.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 85a30571491f08adee55d2c0f19641eb838b69e8
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: bed5253a1d5948e7d016bca9e46236d6b57bac57
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082908"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114292951"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-post-migration-management"></a>MySQL 온-프레미스에서 Azure Database for MySQL로의 마이그레이션 가이드 마이그레이션 후 관리
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-post-migration-management"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 마이그레이션 후 관리
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -28,7 +30,7 @@ ms.locfileid: "112082908"
 
 Azure Database for MySQL은 [Azure Monitor](../../../azure-monitor/overview.md), [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) 및 [Azure Sentinel](../../../sentinel/overview.md)과 같은 Azure 기반 도구를 사용하여 이러한 유형의 작업 활동을 모두 모니터링할 수 있는 기능을 제공합니다. Azure 기반 도구 외에도 이러한 로그를 사용하도록 SIEM(보안 정보 및 이벤트 관리) 시스템을 구성할 수 있습니다.
 
-새 클라우드 기반 워크로드를 모니터링하는 데 어떤 도구를 사용하더라도 Azure 및 데이터베이스 관리자에게 의심스러운 활동을 알리기 위해 경고를 만들어야 합니다. 특정 경고 이벤트에 잘 정의된 수정 경로가 있는 경우 이벤트 해결을 위해 경고가 자동화된 [Azure Runbook](/azure/automation/automation-quickstart-create-runbook)을 발생할 수 있습니다.
+새 클라우드 기반 워크로드를 모니터링하는 데 어떤 도구를 사용하더라도 Azure 및 데이터베이스 관리자에게 의심스러운 활동을 알리기 위해 경고를 만들어야 합니다. 특정 경고 이벤트에 잘 정의된 수정 경로가 있는 경우 이벤트 해결을 위해 경고가 자동화된 [Azure Runbook](../../../automation/automation-quickstart-create-runbook.md)을 발생할 수 있습니다.
 
 완벽하게 모니터링되는 환경을 만드는 첫 번째 단계는 MySQL 로그 데이터가 Azure Monitor로 이동될 수 있도록 하는 것입니다. 자세한 내용은 [Azure Portal에서 Azure Database for MySQL에 대한 감사 로그 구성 및 액세스](../../howto-configure-audit-logs-portal.md)를 참조하세요.
 
@@ -56,11 +58,11 @@ AzureMetrics
 | project TimeGenerated, Total, Maximum, Minimum, TimeGrain, UnitName 
 | top 1 by TimeGenerated
 ```
-KQL 쿼리를 만든 후에는 이러한 쿼리를 기준으로 [로그 경고](/azure/azure-monitor/platform/alerts-unified-log)를 만듭니다.
+KQL 쿼리를 만든 후에는 이러한 쿼리를 기준으로 [로그 경고](../../../azure-monitor/alerts/alerts-unified-log.md)를 만듭니다.
 
 ## <a name="server-parameters"></a>서버 매개 변수
 
-마이그레이션의 일부로 온-프레미스 [서버 매개 변수](/azure/mysql/concepts-server-parameters)가 빠른 송신을 지원하도록 수정되었을 가능성이 높습니다. 또한 빠른 수신을 지원하기 위해 Azure Database for MySQL 매개 변수를 수정했습니다. 마이그레이션 후 Azure 서버 매개 변수를 원래의 온-프레미스 워크로드에 최적화된 값으로 다시 설정해야 합니다.
+마이그레이션의 일부로 온-프레미스 [서버 매개 변수](../../concepts-server-parameters.md)가 빠른 송신을 지원하도록 수정되었을 가능성이 높습니다. 또한 빠른 수신을 지원하기 위해 Azure Database for MySQL 매개 변수를 수정했습니다. 마이그레이션 후 Azure 서버 매개 변수를 원래의 온-프레미스 워크로드에 최적화된 값으로 다시 설정해야 합니다.
 
 그러나 서버 매개 변수를 검토하고 워크로드 및 환경에 적절하게 변경해야 합니다. 온-프레미스 환경에 적합한 일부 값이 클라우드 기반 환경에 최적화된 값은 아닐 수 있습니다. 또한 현재 온-프레미스 매개 변수를 Azure로 마이그레이션할 계획인 경우 실제로 설정할 수 있는지 확인합니다.
 
@@ -93,16 +95,16 @@ Azure Database for MySQL은 PaaS 제품이므로 관리자가 운영 체제 또�
 > [!NOTE]
 > 이 스타일의 장애 조치(failover) 아키텍처에서는 이러한 유형의 장애 조치 시나리오를 지원하기 위해 애플리케이션 데이터 계층을 변경해야 할 수 있습니다. 읽기 복제본이 읽기 복제본으로 유지 관리되고 승격되지 않을 경우 애플리케이션은 데이터를 읽을 수만 있으며 데이터베이스에 정보를 쓰려고 하는 작업은 실패할 수 있습니다.
 
-[계획된 유지 관리 알림](/azure/mysql/concepts-monitoring#planned-maintenance-notification) 기능은 업데이트 또는 중요 보안 패치를 설치하기 최대 72시간 전에 리소스 소유자에게 알립니다. 데이터베이스 관리자는 계획되거나 계획되지 않은 유지 관리를 애플리케이션 사용자에게 알려야 할 수 있습니다.
+[계획된 유지 관리 알림](../../concepts-monitoring.md#planned-maintenance-notification) 기능은 업데이트 또는 중요 보안 패치를 설치하기 최대 72시간 전에 리소스 소유자에게 알립니다. 데이터베이스 관리자는 계획되거나 계획되지 않은 유지 관리를 애플리케이션 사용자에게 알려야 할 수 있습니다.
 
 > [!NOTE]
 > Azure Database for MySQL 유지 관리 알림은 매우 중요합니다. 데이터베이스 유지 관리에서는 일정 기간 동안 데이터베이스 및 연결된 애플리케이션을 사용할 수 있습니다.
 
 ## <a name="wwi-scenario"></a>WWI 시나리오
 
-WWI는 Azure 활동 로그를 활용하고 MySQL 로깅이 [Log Analytics 작업 영역](../../../azure-monitor/logs/design-logs-deployment.md)으로 이동되게 하기로 결정했습니다. 이 작업 영역은 [위협 분석](/azure/mysql/concepts-data-access-and-security-threat-protection) 이벤트가 표시되고 인시던트가 생성될 수 있도록 [Azure Sentinel](../../../sentinel/index.yml)의 일부로 구성됩니다.
+WWI는 Azure 활동 로그를 활용하고 MySQL 로깅이 [Log Analytics 작업 영역](../../../azure-monitor/logs/design-logs-deployment.md)으로 이동되게 하기로 결정했습니다. 이 작업 영역은 [위협 분석](../../concepts-security.md#threat-protection) 이벤트가 표시되고 인시던트가 생성될 수 있도록 [Azure Sentinel](../../../sentinel/index.yml)의 일부로 구성됩니다.
 
-MySQL DBA는 MySQL Server 관리를 자동화하여 매번 Azure Portal에 로깅할 필요가 없도록 하기 위해 Azure Database for [MySQL Azure PowerShell cmdlet](/azure/mysql/quickstart-create-mysql-server-database-using-azure-powershell)을 설치했습니다.
+MySQL DBA는 MySQL Server 관리를 자동화하여 매번 Azure Portal에 로깅할 필요가 없도록 하기 위해 Azure Database for [MySQL Azure PowerShell cmdlet](../../quickstart-create-mysql-server-database-using-azure-powershell.md)을 설치했습니다.
 
 ## <a name="management-checklist"></a>관리 검사 목록
 
@@ -114,6 +116,8 @@ MySQL DBA는 MySQL Server 관리를 자동화하여 매번 Azure Portal에 로�
 
   - 업그레이드 및 패치와 같은 유지 관리 이벤트에 대한 알림을 설정합니다. 필요에 따라 사용자에게 알립니다.  
 
+
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [최적화](./11-optimization.md)

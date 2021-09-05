@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 9b4d896edea86d85b650325ac5efb7f3cf439b17
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9617fc3cc7668d8449a9ec3b46e6c82228783e9d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953938"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447152"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Azure Digital Twins 인스턴스를 다른 Azure 지역으로 이동
 
@@ -79,7 +79,7 @@ Azure Digital Twins Explorer 지침에 따라 [그래프 및 모델을 내보냅
 
 ### <a name="create-a-new-instance"></a>새 인스턴스 만들기
 
-먼저, 새 Azure Digital Twines 인스턴스를 대상 지역에 만듭니다. [방법: 인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)의 지침을 따릅니다. 다음 사항에 유의하세요.
+먼저, 새 Azure Digital Twines 인스턴스를 대상 지역에 만듭니다. [인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)의 단계를 따릅니다. 다음 사항에 유의하세요.
 
 * 다른 리소스 그룹에 있는 *경우* 새 인스턴스에 대해 동일한 이름을 유지할 수 있습니다. 원래 인스턴스가 포함된 리소스 그룹을 사용해야 하는 경우 새 인스턴스에는 고유한 이름이 필요합니다.
 * 위치를 묻는 메시지가 표시되면 새 대상 지역을 입력합니다.
@@ -110,7 +110,7 @@ Azure Digital Twins Explorer 지침에 따라 [그래프 및 모델을 내보냅
 
 원래 인스턴스의 엔드포인트 또는 경로가 있는 경우 새 인스턴스에서 이를 다시 만들어야 합니다. 원래 인스턴스의 엔드포인트 또는 경로가 없거나 새 인스턴스로 이동하지 않으려면 [다음 섹션](#relink-connected-resources)으로 건너뛸 수 있습니다.
 
-그렇지 않으면 새 인스턴스를 사용하여 [방법: 엔드포인트 및 경로 관리](how-to-manage-routes-portal.md)의 단계를 따릅니다. 다음 사항에 유의하세요.
+그렇지 않으면 새 인스턴스를 사용하여 [엔드포인트 및 경로 관리](how-to-manage-routes.md)의 단계를 따릅니다. 다음 사항에 유의하세요.
 
 * 엔드포인트에 사용하는 Event Grid, Event Hubs 또는 Service Bus 리소스를 다시 만들 필요가 *없습니다*. 자세한 내용은 엔드포인트 지침의 "필수 구성 요소" 섹션을 참조하세요. Azure Digital Twins 인스턴스에서 엔드포인트를 다시 만들기만 하면 됩니다.
 * 범위가 다른 인스턴스로 지정되므로 엔드포인트 및 경로 이름은 다시 사용할 수 있습니다.
@@ -132,7 +132,7 @@ Azure Digital Twins Explorer 지침에 따라 [그래프 및 모델을 내보냅
 * Time Series Insights
 * Azure Maps
 * IoT Hub Device Provisioning Service
-* 인스턴스에 연결하고 Azure Digital Twins API를 호출하는 Azure 외부의 개인 또는 회사 앱(예: [자습서: 클라이언트 앱 코딩](tutorial-code.md)에서 만든 클라이언트 앱)
+* 인스턴스에 연결하고 Azure Digital Twins API를 호출하는 Azure 외부의 개인 또는 회사 앱(예: [클라이언트 앱 코딩](tutorial-code.md)에서 만든 클라이언트 앱).
 * Azure AD 앱 등록을 다시 만들 필요가 *없습니다*. [앱 등록](./how-to-create-app-registration-portal.md)을 사용하여 Azure Digital Twins API에 연결하는 경우 동일한 앱 등록을 새 인스턴스에 다시 사용할 수 있습니다.
 
 이 단계가 완료되면 대상 지역의 새 인스턴스가 원래 인스턴스의 복사본이 됩니다.

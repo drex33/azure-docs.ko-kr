@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.custom: troubleshooting
+ms.custom: troubleshooting, devplatv2
 ms.reviewer: laobri
 ms.author: tracych
 author: tracych
 ms.date: 05/05/2021
-ms.openlocfilehash: dfdf13d36a3d60c0f544cfda7b74cdba1dcc16ec
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9fbbc2af3681b6f91ec3c1e0f6adfd46a8598c17
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383029"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448317"
 ---
 # <a name="troubleshooting-batch-endpoints-preview"></a>일괄 처리 엔드포인트(미리 보기) 문제 해결
 
@@ -50,7 +50,7 @@ MLflow가 아닌 모델을 사용하는 경우 채점 스크립트를 제공해�
 
 ### <a name="get-logs"></a>로그 가져오기
 
-CLI 또는 REST를 사용하여 일괄 처리 엔드포인트를 호출하면 일괄 처리 채점 작업이 비동기적으로 실행됩니다. 일괄 처리 채점 작업에 대한 로그를 가져오기 위한 두 가지 옵션이 있습니다.
+Azure CLI 또는 REST를 사용하여 일괄 처리 엔드포인트를 호출하면 일괄 처리 채점 작업이 비동기적으로 실행됩니다. 일괄 처리 채점 작업에 대한 로그를 가져오기 위한 두 가지 옵션이 있습니다.
 
 옵션 1: 로컬 콘솔에 로그 스트리밍
 

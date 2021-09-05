@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 06/10/2021
+ms.date: 08/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: 0e8c63827ba6e2e022e0d7876952b0a159c1e569
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: eef2a1eb5f17864074ac346ac7a89a59d1d59778
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984629"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037293"
 ---
 # <a name="azure-machine-learning-feature-availability-across-clouds-regions"></a>Azure Machine Learning 클라우드 지역 간 기능 가용성
 
@@ -57,15 +57,14 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 
 | Jupyter, JupyterLab 통합                                            | GA                   | YES                | YES         |
 | 가상 네트워크(VNet) 지원                                             | 공개 미리 보기       | YES                | YES         |
 | **SDK 지원** |  |  | | 
-| [R SDK 지원](https://azure.github.io/azureml-sdk-for-r/reference/index.html)                                                              | 공개 미리 보기       | YES                | YES         |
 | [Python SDK 지원](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
 | **[보안](concept-enterprise-security.md)** |   | | | 
 | 학습을 위한 VNet(Virtual Network) 지원                                | GA                   | YES                | YES         |
 | 유추를 위한 VNet(Virtual Network) 지원                               | GA                   | YES                | YES         |
 | 엔드포인트 인증 점수 매기기                                            | 공개 미리 보기       | YES                | YES         |
-| 작업 영역 프라이빗 엔드포인트                                                 | 공개 미리 보기       | 아니요                 | 아니요          |
+| 작업 영역 프라이빗 엔드포인트                                                 | GA  |  GA  |  GA |
 | VNet 뒤에 있는 ACI                                                            | 공개 미리 보기       | 아니요                 | 아니요          |
-| VNet 뒤에 있는 ACR                                                            | 공개 미리 보기       | 아니요                 | 아니요          |
+| VNet 뒤에 있는 ACR                                                            | GA       | YES                 | YES          |
 | AKS 클러스터의 개인 IP                                                  | 공개 미리 보기       | 아니요                 | 아니요          |
 | **컴퓨팅** |   | | |
 | [작업 영역에서 할당량 관리](how-to-manage-quotas.md)                                         | GA                   | YES                | YES         |
@@ -101,9 +100,8 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 
 | [일괄 처리 추론](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
 | [FPGA를 사용하여 Data Box Edge](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | 공개 미리 보기       | 아니요                 | 아니요          |
 | **기타** |   | | |
-| [Open Datasets](/azure/open-datasets/samples)                                                              | 공개 미리 보기       | YES                | YES         |
+| [Open Datasets](../open-datasets/samples.md)                                                              | 공개 미리 보기       | YES                | YES         |
 | [사용자 지정 Cognitive Search](how-to-deploy-model-cognitive-search.md)                                                    | 공개 미리 보기       | YES                | YES         |
-| [많은 모델 솔루션 가속기](https://github.com/microsoft/solution-accelerator-many-models)                                                                | 공개 미리 보기       | 아니요                 | 아니요          |
 
 
 ### <a name="azure-government-scenarios"></a>Azure Government 시나리오
@@ -111,15 +109,14 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 
 | 시나리오                                                    | 미국 버지니아 | 미국 애리조나| 제한 사항  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **일반 보안 설정** |   | | |
-| 서비스 간 개인 네트워크 통신                                     | 아니요 | 아니요 | 현재 프라이빗 링크 없음 | 
-| 인터넷 액세스 사용 안 함/제어(인바운드 및 아웃바운드) 및 특정 VNet | PARTIAL| PARTIAL   | VNet 뒤의 ACR은 Azure Government에서 사용할 수 없습니다. ACI에서 더블 검사 | 
+| 인터넷 액세스 사용 안 함/제어(인바운드 및 아웃바운드) 및 특정 VNet | PARTIAL| PARTIAL   |  | 
 | 연결된 모든 리소스/서비스의 배치  | YES | YES |  |
 | 미사용 암호화 및 전송 중                                                 | YES | YES |  |
 | 컴퓨팅 리소스에 대한 루트 및 SSH 액세스                                          | YES | YES |  |
-| 엔드포인트 보호, 패치 및 로깅을 포함하여 배포된 시스템(인스턴스, 엔드포인트 등)의 보안 유지 |  PARTIAL|  PARTIAL |현재 VNet 및 프라이빗 엔드포인트 뒤에 있는 ACI를 사용할 수 없음 |                                  
-| ACI/AKS 통합 사용 제어(사용 안 함/한도/제한)                    | PARTIAL| PARTIAL |현재 VNet 및 프라이빗 엔드포인트 뒤에 있는 ACI를 사용할 수 없음|
+| 엔드포인트 보호, 패치 및 로깅을 포함하여 배포된 시스템(인스턴스, 엔드포인트 등)의 보안 유지 |  PARTIAL|  PARTIAL |VNet 뒤에 있는 ACI는 현재 사용할 수 없습니다. |                                  
+| ACI/AKS 통합 사용 제어(사용 안 함/한도/제한)                    | PARTIAL| PARTIAL |VNet 뒤에 있는 ACI는 현재 사용할 수 없습니다.|
 | Azure RBAC(Azure 역할 기반 액세스 제어) - 사용자 지정 역할 만들기                           | YES | YES |  |
-| ML 서비스에서 사용하는 ACR 이미지에 대한 액세스 제어(Azure 제공/유지 관리 및 사용자 지정)  |PARTIAL|  PARTIAL | Azure Government에서 지원되지 않는 프라이빗 엔드포인트 및 VNet 뒤의 ACR |
+| ML 서비스에서 사용하는 ACR 이미지에 대한 액세스 제어(Azure 제공/유지 관리 및 사용자 지정)  |PARTIAL|  PARTIAL |  |
 | **일반 Machine Learning Service 사용** |  | | |
 | 모델을 작성하고, 해당 모델을 학습하고, 엔드포인트로 호스트하고, 웹앱을 통해 사용하도록 개발 환경을 구축하는 기능     | YES | YES |  |
 | ADLS에서 데이터를 끌어오는 기능(Data Lake Storage)                                 |YES | YES |  |
@@ -132,7 +129,7 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 
 * Azure Machine Learning 컴퓨팅 인스턴스의 경우 24시간 이상 지속되는 토큰을 새로 고치는 기능은 Azure Government에서 사용할 수 없습니다.
 * 모델 프로파일링은 US 애리조나 지역에서 4개의 CPU를 지원하지 않습니다.   
 * 샘플 Notebook은 공용 데이터에 액세스해야 하는 경우 Azure Government에서 작동하지 않을 수 있습니다.
-* IP 주소: [VNet 및 강제 터널링](how-to-secure-training-vnet.md#forced-tunneling) 명령에 사용된 CLI 명령은 IP 범위를 반환하지 않습니다. 대신 [Azure Government에 대한 Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=57063)를 사용합니다.
+* IP 주소: [필수 공용 인터넷 액세스](how-to-secure-training-vnet.md#required-public-internet-access) 지침에 사용된 CLI 명령은 IP 범위를 반환하지 않습니다. 대신 [Azure Government에 대한 Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=57063)를 사용합니다.
 * 또한 예약된 파이프라인의 경우 Blob 기반 트리거 메커니즘도 제공합니다. CMK 작업 영역에 대해서는 이 메커니즘이 지원되지 않습니다. CMK 작업 영역에 대한 Blob 기반 트리거를 사용하도록 설정하려면 추가 설치를 수행해야 합니다. 자세한 내용은 [논리 앱에서 기계 학습 파이프라인 실행 트리거](how-to-trigger-published-pipeline.md)를 참조하세요.
 * 방화벽: Azure Government 영역을 사용하는 경우 방화벽 설정에 다음과 같은 호스트를 추가합니다.
 
@@ -166,19 +163,18 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 
 | R 및 Python 지원                                                       | GA               | YES       | 해당 없음        |
 | Virtual Network 지원                                                    | 공개 미리 보기   | 아니요        | 해당 없음        |
 | **컴퓨팅 인스턴스** |    | | |
-| 통합 Notebook에 대한 관리되는 컴퓨팅 인스턴스                         | GA               | 아니요        | 해당 없음        |
+| 통합 Notebook에 대한 관리되는 컴퓨팅 인스턴스                         | GA               | YES        | 해당 없음        |
 | Jupyter, JupyterLab 통합                                            | GA               | YES       | 해당 없음        |
 | 가상 네트워크(VNet) 지원                                             | 공개 미리 보기   | YES       | 해당 없음        |
 | **SDK 지원** |    | | |
-| R SDK 지원                                                              | 공개 미리 보기   | YES       | 해당 없음        |
 | Python SDK 지원                                                         | GA               | YES       | 해당 없음        |
 | **보안** |   | | |
 | 학습을 위한 VNet(Virtual Network) 지원                                | GA               | YES       | 해당 없음        |
 | 유추를 위한 VNet(Virtual Network) 지원                               | GA               | YES       | 해당 없음        |
 | 엔드포인트 인증 점수 매기기                                            | 공개 미리 보기   | YES       | 해당 없음        |
-| 작업 공간 프라이빗 링크                                                     | GA               | 아니요        | 해당 없음        |
+| 작업 영역 프라이빗 엔드포인트                                                 | GA               | 아니요        | 해당 없음        |
 | VNet 뒤에 있는 ACI                                                            | 공개 미리 보기   | 아니요        | 해당 없음        |
-| VNet 뒤에 있는 ACR                                                            | 공개 미리 보기   | 아니요        | 해당 없음        |
+| VNet 뒤에 있는 ACR                                                            | GA   | YES       | 해당 없음        |
 | AKS 클러스터의 개인 IP                                                  | 공개 미리 보기   | 아니요        | 해당 없음        |
 | **컴퓨팅** |   | | |
 | 작업 영역에서 할당량 관리                                         | GA               | YES       | 해당 없음        |
@@ -216,7 +212,6 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 
 | **기타** |    | | |
 | Open Datasets                                                              | 공개 미리 보기   | YES       | 해당 없음        |
 | 사용자 지정 Cognitive Search                                                    | 공개 미리 보기   | YES       | 해당 없음        |
-| 많은 모델                                                                | 공개 미리 보기   | 아니요        | 해당 없음        |
 
 
 
@@ -232,8 +227,8 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * 공용 데이터에 액세스해야 하는 경우 샘플 Notebook이 작동하지 않을 수 있습니다.
-* IP 주소 범위: [VNet 강제 터널링](how-to-secure-training-vnet.md#forced-tunneling) 명령에 사용된 CLI 명령은 IP 범위를 반환하지 않습니다. 대신 [Azure 중국에 대한 Azure IP 범위 및 서비스 태그](https://www.microsoft.com//download/details.aspx?id=57062)를 사용합니다.
-* 현재는 프라이빗 링크가 사용하도록 설정된 작업 영역에서는 Azure Machine Learning 컴퓨팅 인스턴스 미리 보기가 지원되지 않지만, CI는 모든 AML 지역으로의 서비스 확장을 위한 다음 배포에서 지원됩니다.
+* IP 주소 범위: [필수 공용 인터넷 액세스](how-to-secure-training-vnet.md#required-public-internet-access) 지침에 사용된 CLI 명령은 IP 범위를 반환하지 않습니다. 대신 [Azure 중국에 대한 Azure IP 범위 및 서비스 태그](https://www.microsoft.com//download/details.aspx?id=57062)를 사용합니다.
+* 현재는 프라이빗 엔드포인트가 사용하도록 설정된 작업 영역에서는 Azure Machine Learning 컴퓨팅 인스턴스 미리 보기가 지원되지 않지만, CI는 모든 AML 지역으로의 서비스 확장을 위한 다음 배포에서 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

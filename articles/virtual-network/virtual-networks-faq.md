@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 61076b49d396c83a67635e46eb4f1b928b3f9e1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec65980e3886b62b8718799d1566a11d5c13a679
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933972"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528077"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -80,10 +80,10 @@ VNet을 다음에 사용합니다.
 - x.x.x.0: 네트워크 주소
 - x.x.x.1: 기본 게이트웨이로 Azure에서 예약됨
 - x.x.x.2, x.x.x.3: Azure DNS IP를 VNet 공간에 매핑하기 위해 Azure에서 예약됨
-- x.x.x.255: 네트워크 브로드캐스트 주소
+- x.x.x.255: /25 이상 크기의 서브넷에 대한 네트워크 브로드캐스트 주소입니다. 이 주소는 더 작은 서브넷에서 다른 주소가 됩니다. 
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 및 서브넷은 얼마나 크고 얼마나 작을 수 있습니까?
-지원되는 가장 작은 IPv4 서브넷은 /29이며 가장 큰 서브넷은 /8(CIDR 서브넷 정의 사용)입니다.  IPv6 서브넷의 크기는 정확히 /64여야 합니다.  
+지원되는 가장 작은 IPv4 서브넷은 /29이며 가장 큰 서브넷은 /2(CIDR 서브넷 정의 사용)입니다.  IPv6 서브넷의 크기는 정확히 /64여야 합니다.  
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>VNet을 사용하여 내 VLAN을 Azure에 가져올 수 있습니까?
 아니요. VNet은 계층 3 오버레이입니다. Azure는 모든 계층 2 의미 체계를 지원하지 않습니다.
@@ -419,7 +419,7 @@ Azure AD(Azure Active Directory )는 서비스 엔드포인트를 기본적으�
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure Synapse Analytics|   128|
-|Azure KeyVault|    127|
+|Azure KeyVault|    200 |
 |Azure Cosmos DB|   64|
 |Azure Event Hub|   128|
 |Azure Service Bus| 128|

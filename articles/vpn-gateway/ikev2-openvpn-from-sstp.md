@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 06/04/2021
 ms.author: alzam
-ms.openlocfilehash: c9b6671a2baa807d8def27a78d7776eb6fec2c1a
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: af136cab65034be5cd0f3ec18d22492a826678d0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559433"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536870"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환
 
-P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 문서는 Resource Manager 배포 모델에 적용 되며, OpenVPN 프로토콜 또는 IKEv2로 전환하여 SSTP의 128 동시 연결 제한을 해결하는 방법에 대해 설명합니다.
+P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 문서는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 적용되며, OpenVPN 프로토콜 또는 IKEv2로 전환하여 SSTP의 128 동시 연결 제한을 해결하는 방법에 대해 설명합니다.
 
 ## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>P2S는 어떤 프로토콜을 사용합니까?
 
@@ -31,7 +31,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 
 >[!NOTE]
->P2S용 IKEv2 및 OpenVPN은 Resource Manager 배포 모델에서만 사용할 수 있습니다. 클래식 배포 모델에서는 사용할 수 없습니다. 기본 게이트웨이 SKU는 IKEv2 또는 OpenVPN 프로토콜을 지원하지 않습니다. 기본 SKU를 사용하고 있는 경우, 프로덕션 SKU Virtual Network Gateway를 삭제하고 다시 만들어야 합니다.
+>P2S용 IKEv2 및 OpenVPN은 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에서만 사용할 수 있습니다. 클래식 배포 모델에서는 사용할 수 없습니다. 기본 게이트웨이 SKU는 IKEv2 또는 OpenVPN 프로토콜을 지원하지 않습니다. 기본 SKU를 사용하고 있는 경우, 프로덕션 SKU Virtual Network Gateway를 삭제하고 다시 만들어야 합니다.
 >
 
 ## <a name="migrating-from-sstp-to-ikev2-or-openvpn"></a>SSTP에서 IKEv2 또는 OpenVPN으로 마이그레이션

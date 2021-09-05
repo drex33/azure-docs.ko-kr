@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 6abe0ed88adbdf8263aa27d340fb2fff156d98e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: edb3b0bdcd5d8e9f80493267cad3ccbfa07a576f
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90089346"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665213"
 ---
 # <a name="drawing-tool-events"></a>그리기 도구 이벤트
 
@@ -24,6 +24,7 @@ ms.locfileid: "90089346"
 | `drawingchanged` | 셰이프의 모든 좌표가 추가되거나 변경되었을 때 발생합니다. | 
 | `drawingchanging` | 셰이프의 미리 보기 좌표가 표시될 때 발생합니다. 예를 들어 이 이벤트는 좌표를 끌 때 여러 번 발생합니다. | 
 | `drawingcomplete` | 셰이프 그리기를 완료했거나 편집 모드를 벗어났을 때 발생합니다. |
+| `drawingerased` | `erase-geometry` 모드에 있을 때 그리기 관리자에서 셰이프가 지워지면 발생합니다. |
 | `drawingmodechanged` | 그리기 모드가 변경될 때 발생합니다. 새 그리기 모드가 이벤트 처리기에 전달됩니다. |
 | `drawingstarted` | 사용자가 도형 그리기를 시작하거나 셰이프를 편집 모드로 전환할 때 발생합니다.  |
 

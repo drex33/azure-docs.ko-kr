@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 7807659a30127f39bb79ad99bdb733c12eb1d25d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c5a3b9b312e093d7bee5c0c555e8e2eab0c531b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100548691"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535867"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Azure Purview에서 데이터에 대한 검사 인사이트
 
@@ -62,7 +62,7 @@ Azure Purview에서 원본 유형을 등록하고 검사할 수 있습니다. Sc
 
     :::image type="content" source="./media/scan-insights/main-graph.png" alt-text="시간별 검사 상태 보기":::
 
-4. Azure Purview의 **원본** 경험 내에서 검사 기록과 연결되는 **검사 이름** 을 클릭하여 특정 검사를 추가로 검색할 수 있습니다. 실행 기록 페이지에서 추가적인 오류 조사에 도움이 되는 실행 ID를 가져올 수 있습니다.
+4. Azure Purview의 **데이터 맵** 환경 내에서 검사 기록과 연결되는 **검사 이름** 을 클릭하여 특정 검사를 추가로 검색할 수 있습니다. 실행 기록 페이지에서 추가적인 오류 조사에 도움이 되는 실행 ID를 가져올 수 있습니다.
 
     :::image type="content" source="./media/scan-insights/scan-status.png" alt-text="검사 세부 정보 보기":::
 
@@ -74,4 +74,4 @@ Azure Purview에서 원본 유형을 등록하고 검사할 수 있습니다. Sc
 
 * [데이터 인사이트](./concept-insights.md)를 통해 Azure Purview **인사이트** 에 대한 자세한 정보 알아보기.
 
-* [데이터 원본 관리](./manage-data-sources.md)를 통해 Azure Purview의 **원본** 경험에 대한 자세한 정보 알아보기.
+* [데이터 원본 관리](./manage-data-sources.md)를 통해 Azure Purview의 **데이터 맵** 환경에 대해 자세히 알아보기

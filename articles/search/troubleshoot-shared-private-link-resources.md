@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/30/2021
-ms.openlocfilehash: 82a5135f23293d0fe9bbaaf0eeb0543b4fdb598f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 81bae18cdc4a977ef03ddf807f9277037d939bd0
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744776"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567770"
 ---
 # <a name="troubleshooting-common-issues-with-shared-private-link-resources"></a>공유 프라이빗 링크 리소스 일반 문제 해결
 
@@ -23,7 +23,7 @@ ms.locfileid: "111744776"
 
 공유 프라이빗 링크 리소스를 만드는 네 가지 고유한 단계는 다음과 같습니다.
 
-1. 고객이 검색 리소스 공급자(RP)에서 만들어야 하는 공유 프라이빗 링크 세부 정보를 사용하여 관리 평면 [CreateOrUpdate API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate)를 호출합니다.
+1. 고객이 검색 리소스 공급자(RP)에서 만들어야 하는 공유 프라이빗 링크 세부 정보를 사용하여 관리 평면 [CreateOrUpdate API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update)를 호출합니다.
 
 2. 검색 RP는 요청의 유효성을 검사하고 유효한 경우 비동기 Azure Resource Manager 작업을 수행합니다(고객이 진행 상황을 쿼리할 수 있음).
 
@@ -70,15 +70,15 @@ ms.locfileid: "111744776"
 | Azure Key Vault | `Microsoft.KeyVault/vaults` | `2020-08-01` |
 | Azure Functions(미리 보기) | `Microsoft.Web/sites` | `2020-08-01-Preview` |
 
-추가로 지정된 리소스 종류에 대해 지정된 `groupId`가 유효해야 합니다. 예를 들어 `groupId` “BLOB”은 “Microsoft.Storage/storageAccounts” 종류에 유효하며, 다른 리소스 종류에는 사용할 수 없습니다. 지정된 검색 관리 API 버전의 경우 고객은 [List supported API](/rest/api/searchmanagement/privatelinkresources/listsupported)를 활용하여 지원되는 `groupId` 및 리소스 종류 세부 정보를 확인할 수 있습니다.
+추가로 지정된 리소스 종류에 대해 지정된 `groupId`가 유효해야 합니다. 예를 들어 `groupId` “BLOB”은 “Microsoft.Storage/storageAccounts” 종류에 유효하며, 다른 리소스 종류에는 사용할 수 없습니다. 지정된 검색 관리 API 버전의 경우 고객은 [List supported API](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported)를 활용하여 지원되는 `groupId` 및 리소스 종류 세부 정보를 확인할 수 있습니다.
 
 + 할당량 한도 적용: 검색 서비스에는 만들 수 있는 공유 프라이빗 링크 리소스의 고유한 수와 사용되는 다양한 대상 리소스 종류(`groupId` 기반)의 수에 대한 할당량이 적용됩니다. 이는 Azure Cognitive Search 서비스 제한 페이지의 [공유 프라이빗 링크 리소스 제한 섹션](search-limits-quotas-capacity.md#shared-private-link-resource-limits)에서 설명되어 있습니다.
 
 ### <a name="azure-resource-manager-deployment-failures"></a>Azure Resource Manager 배포 모델
 
-검색에서 공유 프라이빗 링크 리소스 만들기 요청을 수락하고 나면 여러 가지 이유로 인해 실행하는 Azure Resource Manager 배포도 실패할 수 있습니다. 모든 경우에서 고객이 비동기 작업([여기](search-indexer-howto-access-private.md#step-1-create-a-shared-private-link-resource-to-the-storage-account)에서 설명)의 상태를 쿼리하면 해당 오류 메시지와 사용 가능한 모든 세부 정보가 표시됩니다.
+검색 서비스는 공유 프라이빗 링크를 만드는 요청을 시작하지만 Azure Resource Manager가 실제 작업을 수행합니다. 포털 또는 쿼리를 통해 [배포 상태를 확인](search-indexer-howto-access-private.md#step-3-check-the-status-of-the-private-endpoint-creation)하고 발생할 수 있는 오류를 해결할 수 있습니다.
 
-Azure Resource Manager 배포가 실패한 공유 프라이빗 링크 리소스는 [List](/rest/api/searchmanagement/sharedprivatelinkresources/listbyservice) 및 [Get](/rest/api/searchmanagement/sharedprivatelinkresources/get) API 호출에 표시되지만 “프로비전 상태”는 `Failed`입니다. Azure Resource Manager 배포 실패 사유가 확인되면 `Failed` 리소스를 삭제하고 아래 표에서 적절한 해결 방법을 적용한 후 리소스를 다시 만듭니다.
+Azure Resource Manager 배포가 실패한 공유 프라이빗 링크 리소스는 [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) 및 [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) API 호출에 표시되지만 “프로비전 상태”는 `Failed`입니다. Azure Resource Manager 배포 실패 사유가 확인되면 `Failed` 리소스를 삭제하고 다음 표에서 적절한 해결 방법을 적용한 후 리소스를 다시 만듭니다.
 
 | 배포 실패 사유 | Description | 해결 방법 |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ Azure Resource Manager 배포가 실패한 공유 프라이빗 링크 리소스�
 
 ## <a name="updating-a-shared-private-link-resource"></a>공유 프라이빗 링크 리소스 업데이트하기
 
-기존 공유 프라이빗 링크 리소스는 [Create 또는 Update API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate)를 사용하여 업데이트할 수 있습니다. 검색 RP는 공유 프라이빗 링크 리소스에 대한 좁은 업데이트만을 허용하므로 요청 메시지는 이 API를 통해서만 수정할 수 있습니다.
+기존 공유 프라이빗 링크 리소스는 [Create 또는 Update API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update)를 사용하여 업데이트할 수 있습니다. 검색 RP는 공유 프라이빗 링크 리소스에 대한 좁은 업데이트만을 허용하므로 요청 메시지는 이 API를 통해서만 수정할 수 있습니다.
 
 + 기존 공유 프라이빗 링크 리소스(예: `privateLinkResourceId` 또는 `groupId`)의 “핵심” 속성을 업데이트할 수 없으며, 이는 항상 지원되지 않습니다. 요청 메시지 외에 다른 속성을 변경해야 하는 경우 공유 프라이빗 링크 리소스를 삭제하고 다시 만드는 것이 좋습니다.
 
@@ -105,7 +105,7 @@ Azure Resource Manager 배포가 실패한 공유 프라이빗 링크 리소스�
 
 ## <a name="deleting-a-shared-private-link-resource"></a>공유 프라이빗 링크 리소스 삭제하기
 
-고객은 [Delete API](/rest/api/searchmanagement/sharedprivatelinkresources/delete)를 통해 기존 공유 프라이빗 링크 리소스를 삭제할 수 있습니다. 만들기(또는 업데이트) 프로세스와 마찬가지로, 이 작업은 네 단계로 이루어진 비동기 작업이기도 합니다.
+고객은 [Delete API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/delete)를 통해 기존 공유 프라이빗 링크 리소스를 삭제할 수 있습니다. 만들기(또는 업데이트) 프로세스와 마찬가지로, 이 작업은 네 단계로 이루어진 비동기 작업이기도 합니다.
 
 1. 고객은 검색 RP에 공유 프라이빗 링크 리소스 삭제를 요청합니다.
 
@@ -113,7 +113,7 @@ Azure Resource Manager 배포가 실패한 공유 프라이빗 링크 리소스�
 
 3. 작업 완료에 대해 쿼리를 검색합니다(일반적으로 몇 분 정도 소요됨). 이 시점에서 공유 프라이빗 링크 리소스의 프로비전 상태는 “삭제 중”입니다.
 
-4. 작업이 성공적으로 완료되면 지원되는 프라이빗 엔드포인트와 연결된 DNS 매핑이 제거됩니다. 리소스는 [List](/rest/api/searchmanagement/sharedprivatelinkresources/listbyservice) 작업의 일부로 표시되지 않으며 이 리소스에 [Get](/rest/api/searchmanagement/sharedprivatelinkresources/get) 작업을 시도하면 404 찾을 수 없음 오류가 발생합니다.
+4. 작업이 성공적으로 완료되면 지원되는 프라이빗 엔드포인트와 연결된 DNS 매핑이 제거됩니다. 리소스는 [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) 작업의 일부로 표시되지 않으며 이 리소스에 [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) 작업을 시도하면 404 찾을 수 없음 오류가 발생합니다.
 
 ![공유 프라이빗 링크 리소스 삭제하기의 단계 ](media\troubleshoot-shared-private-link-resources\shared-private-link-delete-states.png)
 
@@ -131,4 +131,4 @@ Azure Resource Manager 배포가 실패한 공유 프라이빗 링크 리소스�
 공유 프라이빗 링크 리소스 및 이를 사용하여 보호되는 콘텐츠에 대해 보안 액세스를 하는 방법을 자세히 알아보세요.
 
 + [인덱서를 통해 보호된 콘텐츠에 액세스](search-indexer-howto-access-private.md)
-+ [REST API 참조](/rest/api/searchmanagement/sharedprivatelinkresources)
++ [REST API 참조](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources)

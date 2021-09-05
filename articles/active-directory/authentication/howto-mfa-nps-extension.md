@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 08/17/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 29f8e1e3b89ef68c3ead4841cfba7b5e44f09a36
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 04f922d747ef535402baf664f5232e376f43cff2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744650"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531062"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>기존 NPS(네트워크 정책 서버) 인프라와 Azure AD Multi-Factor Authentication 통합
 
@@ -117,6 +117,7 @@ NPS 서버는 포트 80 및 443을 통해 다음 URL로 통신할 수 있어야 
 * *https:\//provisioningapi.microsoftonline.com*
 * *https:\//aadcdn.msauth.net*
 * *https:\//www.powershellgallery.com*
+* *https:\//go.microsoft.com*
 * *https:\//aadcdn.msftauthimages.net*
 
 ## <a name="prepare-your-environment"></a>환경 준비
@@ -173,7 +174,7 @@ NPS 확장을 배포 및 사용하려면 Azure AD Multi-Factor Authentication을
 
 1. 테스트 계정으로 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 로그인합니다.
 2. 지시에 따라 확인 방법을 설정합니다.
-3. Azure Portal에서 관리자 권한으로 테스트 계정에 대해 다단계 인증을 요구하는 [조건부 액세스 정책을 만듭니다](howto-mfa-getstarted.md#create-conditional-access-policy).
+3. Azure Portal에서 관리자 권한으로 테스트 계정에 대해 다단계 인증을 요구하는 [조건부 액세스 정책을 만듭니다](howto-mfa-getstarted.md#plan-conditional-access-policies).
 
 > [!IMPORTANT]
 >

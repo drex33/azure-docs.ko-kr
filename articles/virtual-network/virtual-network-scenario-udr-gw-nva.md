@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1d84a09ddd758f333ccb588ac341dce607509d8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86231712"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536871"
 ---
 # <a name="virtual-appliance-scenario"></a>가상 어플라이언스 시나리오
 대규모 Azure 고객 간에 일반적인 시나리오는 온-프레미스 데이터 센터에서 후면 계층에 액세스를 허용하는 동안 인터넷에 노출된 2계층 애플리케이션을 제공해야 하는 경우입니다. 이 문서에서는 UDR(사용자 정의 경로), VPN Gateway 및 네트워크 가상 어플라이언스를 사용하여 다음 요구 사항을 충족하는 2계층 환경을 배포하는 시나리오를 설명합니다.
@@ -144,8 +144,12 @@ AZF1은 다음 규칙을 포함하는 Azure 가상 어플라이언스를 나타�
 ### <a name="azf2"></a>AZF2
 AZF2는 다음 규칙을 포함하는 Azure 가상 어플라이언스를 나타냅니다.
 
-* **경로**: 10.0.0.0/16(**onpremvnet**)에 대한 모든 트래픽을 **포트1** 을 통해 Azure 게이트웨이 IP 주소(즉, 10.0.0.1)로 전송해야 합니다.
 * **정책**: **port1** 및 **port2** 간의 모든 양방향 트래픽을 허용합니다.
+
+### <a name="azf3"></a>AZF3
+AZF3은 다음 규칙을 포함하는 Azure 가상 어플라이언스를 나타냅니다.
+
+* **경로**: 192.168.0.0/16(**onpremvnet**)에 대한 모든 트래픽을 **포트1** 을 통해 Azure 게이트웨이 IP 주소(즉, 10.0.0.1)로 전송해야 합니다.
 
 ## <a name="network-security-groups-nsgs"></a>NSG(네트워크 보안 그룹)
 이 시나리오에서 NSG는 사용되지 않습니다. 그러나 들어오고 나가는 트래픽을 제한하기 위해 각 서브넷에 NSG를 적용할 수 있습니다. 예를 들어 외부 FW 서브넷에 다음 NSG 규칙을 적용할 수 있습니다.
@@ -167,4 +171,3 @@ AZF2는 다음 규칙을 포함하는 Azure 가상 어플라이언스를 나타�
 3. **AZURERG** 에 포함된 리소스를 프로비전합니다.
 4. **onpremvnet** 에서 **azurevnet** 으로 터널을 프로비전합니다.
 5. 모든 리소스를 프로비저닝한 후 **onpremvm2** 로그인하고 10.0.3.101을 ping하여 **onpremsn2** 와 **azsn3** 사이의 연결을 테스트합니다.
-

@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: 55745c022038fa85f5b114f2bc347ed7292665eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f6b46425954d8befaef396c66b023565310ec36
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589653"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528950"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -32,6 +32,14 @@ Azure Stream Analytics는 코드를 작성할 필요가 없는 워크플로를 �
 
 클라우드 또는 IoT Edge에서 Stream Analytics 모듈을 만드는 개발자는 사용자 지정 C# 함수를 작성하거나 다시 사용할 수 있으며, [사용자 정의 함수](stream-analytics-edge-csharp-udf-methods.md)를 통해 쿼리에서 직접 호출할 수 있습니다.
 
+## <a name="debug-queries-locally-using-job-diagram-in-visual-studio-code"></a>Visual Studio Code에서 작업 다이어그램을 사용하여 로컬로 쿼리 디버그
+
+쿼리를 로컬로 테스트하는 동안 작업 다이어그램을 사용하여 각 단계에 대한 중간 결과 집합 및 메트릭을 검사할 수 있습니다.
+
+## <a name="explore-jobs-in-visual-studio-code"></a>Visual Studio Code에서 작업 살펴보기
+
+Visual Studio Code Extension의 Stream Analytics Explorer는 개발자에게 Stream Analytics 작업을 관리하기 위한 간단한 환경을 제공합니다. Stream Analytics Explorer에서 작업을 쉽게 관리하고, 작업 다이어그램을 보고, 작업 모니터에서 디버그할 수 있습니다.
+
 ## <a name="debug-query-steps-in-visual-studio"></a>Visual Studio에서의 쿼리 디버그 단계
 
 Visual Studio용 Azure Stream Analytics 도구에서 로컬 테스트를 수행할 때 데이터 다이어그램의 중간 행 세트를 손쉽게 미리 볼 수 있습니다. 
@@ -41,11 +49,4 @@ Visual Studio용 Azure Stream Analytics 도구에서 로컬 테스트를 수행�
 
 Azure Stream Analytics용 Visual Studio 도구는 이벤트 허브 또는 IoT 허브 등의 클라우드 원본에서 실시간 이벤트 스트림에 대한 쿼리를 테스트할 수 있는 로컬 테스트 기능을 향상합니다. [Azure Stream Analytics Tools for Visual Studio를 사용하여 로컬로 라이브 데이터 테스트](stream-analytics-live-data-local-testing.md) 방법을 알아보세요.
 
-## <a name="visual-studio-code-for-azure-stream-analytics"></a>Azure Stream Analytics용 Visual Studio Code
-
-Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. [VS Code 시작 자습서](./quick-create-visual-studio-code.md)를 참조하세요.
-
-## <a name="local-testing-with-live-data-in-visual-studio-code"></a>Visual Studio Code의 라이브 데이터를 사용하여 로컬 테스트
-
-Azure에 작업을 제출하기 전에 로컬 컴퓨터의 라이브 데이터에 대해 쿼리를 테스트할 수 있습니다. 각 테스트 반복은 평균 2 ~ 3초 미만이 소요되므로 개발 프로세스가 매우 효율적입니다.
 

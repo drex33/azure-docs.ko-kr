@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: ba973bd5609dacf05eca842025d4e828d8a9f841
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc8cd7e3c52f6d9dd247c62590bef358afe06306
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550950"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528538"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해
 Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](../cost-management-billing/understand/review-individual-bill.md)로 이동합니다.
 
 ## <a name="download-your-usage-details"></a>사용 세부 정보 다운로드
-먼저 [사용 세부 정보를 다운로드](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal)합니다. 다음 표에서는 Azure Resource Manager를 통해 배포된 Virtual Machines의 정의 및 예제 값을 제공합니다. 이 문서에는 클래식 모델을 통해 배포된 VM에 대한 상세 정보는 없습니다.
+먼저 [사용 세부 정보를 다운로드](../cost-management-billing/understand/download-azure-daily-usage.md)합니다. 다음 표에서는 Azure Resource Manager를 통해 배포된 Virtual Machines의 정의 및 예제 값을 제공합니다. 이 문서에는 클래식 모델을 통해 배포된 VM에 대한 상세 정보는 없습니다.
 
 
 | 필드 | 의미 | 예제 값 | 
@@ -38,7 +38,7 @@ Azure 사용량 현황 데이터를 분석하면 조직 전체의 비용 관리�
 | 리소스 그룹 | 배포된 리소스가 실행되는 리소스 그룹입니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요.|`MyRG`|
 | 인스턴스 ID | 리소스에 대한 식별자입니다. 식별자를 만들 때 리소스에 대해 지정한 이름을 포함합니다. VM의 경우 인스턴스 ID는 SubscriptionId, ResourceGroupName 및 VMName(또는 확장 집합 사용에 대한 확장 집합 이름)을 포함합니다.| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>또는<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
 | 태그들| 리소스에 할당하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다. [CLI](./tag-cli.md) 또는 [PowerShell](./tag-portal.md)을 사용하여 Virtual Machines에 태그를 지정하는 방법을 알아봅니다. Resource Manager VM에만 사용할 수 있습니다.| `{"myDepartment":"RD","myUser":"myName"}`|
-| 추가 정보 | 서비스 특정 메타데이터입니다. VM에 대해 추가 정보 필드에 다음 데이터를 채웁니다. <br><br> 이미지 형식 - 실행한 특정 이미지. 이미지 형식 아래에서 지원되는 문자열의 전체 목록을 찾습니다.<br><br> 서비스 형식: 배포한 크기입니다.<br><br> VMName: VM 이름입니다. 이 필드는 확장 집합 VM에 대해서만 채워집니다. 확장 집합 VM에 VM 이름이 필요한 경우 위의 인스턴스 ID 문자열에서 확인할 수 있습니다.<br><br> UsageType: 이 항목이 나타내는 사용 유형을 지정합니다.<br><br> ComputeHR은 Standard_D1_v2 같은 기본 VM의 컴퓨팅 시간 사용입니다.<br><br> ComputeHR_SW는 Microsoft R Server처럼 VM이 프리미엄 소프트웨어를 사용할 경우 프리미엄 소프트웨어 요금입니다. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>프리미엄 소프트웨어<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
+| 추가 정보 | 서비스 특정 메타데이터입니다. VM에 대해 추가 정보 필드에 다음 데이터를 채웁니다. <br><br> 이미지 형식 - 실행한 특정 이미지. 이미지 형식 아래에서 지원되는 문자열의 전체 목록을 찾습니다.<br><br> 서비스 형식: 배포한 크기입니다.<br><br> VMName: VM 이름입니다. 이 필드는 확장 집합 VM에 대해서만 채워집니다. 확장 집합 VM에 VM 이름이 필요한 경우 위의 인스턴스 ID 문자열에서 확인할 수 있습니다.<br><br> UsageType: 이 항목이 나타내는 사용 유형을 지정합니다.<br><br> ComputeHR은 Standard_D1_v2 같은 기본 VM의 컴퓨팅 시간 사용입니다.<br><br> ComputeHR_SW는 VM이 프리미엄 소프트웨어를 사용할 경우 프리미엄 소프트웨어 요금입니다. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>프리미엄 소프트웨어<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>이미지 형식
 Azure 갤러리의 일부 이미지의 경우 추가 정보 필드에 이미지 형식이 채워집니다. 이를 통해 사용자는 자신의 가상 머신에 배포된 항목을 이해하고 추적할 수 있습니다. 배포한 이미지에 따라 이 필드에 다음 값이 채워집니다.
@@ -130,7 +130,7 @@ Microsoft.ClassicCompute는 Azure Service Manager를 통해 배포된 클래식 
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>내 Virtual Machine 사용에 대해 InstanceID 필드가 비어 있는 이유는 무엇인가요?
 클래식 배포 모델을 통해 배포할 경우 InstanceID 문자열을 사용할 수 없습니다.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>내 VM에 대한 태그가 사용 세부 정보에 전달되지 않는 이유는 무엇인가요?
-태그는 Resource Manager VM에 대해서만 사용 CSV로 전달됩니다. 클래식 리소스 태그는 사용 세부 정보에서 사용할 수 없습니다.
+태그는 Resource Manager VM에 대해서만 사용 CSV로 흐릅니다. 클래식 리소스 태그는 사용 세부 정보에서 사용할 수 없습니다.
 ### <a name="how-can-the-consumed-quantity-be-more-than-24-hours-one-day"></a>어떻게 사용 크기가 하루 24시간보다 커질 수 있나요?
 클래식 모델에서 리소스 요금 청구는 클라우드 서비스 수준에서 집계됩니다. 동일한 요금 청구 미터를 사용하는 클라우드 서비스에 여러 VM이 있는 경우 사용이 한꺼번에 집계됩니다. Resource Manager를 통해 배포된 VM은 VM 수준에서 청구되므로 이 집계가 적용되지 않습니다.
 ### <a name="why-is-pricing-not-available-for-dsfsgsls-sizes-on-the-pricing-page"></a>가격 책정 페이지에서 DS/FS/GS/LS 크기에 대한 가격 책정을 왜 사용할 수 없나요?

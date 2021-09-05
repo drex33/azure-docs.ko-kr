@@ -8,15 +8,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 07/15/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56d0116217f8db76131ccecc884312fb5296d1ed
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: ad09c97b784dcfabfe0dfa3e531fc789ba6fc956
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331721"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297361"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Azure 체험 계정 또는 Azure for Students Starter 계정 업그레이드
 
@@ -25,6 +25,9 @@ Azure Portal에서 [Azure 체험 계정](https://azure.microsoft.com/free/)을 [
 [Azure for Students Starter 계정](https://azure.microsoft.com/offers/ms-azr-0144p/)이 있고 [Azure 체험 계정](https://azure.microsoft.com/free/)에 대한 자격이 있으면 [Azure 체험 계정](https://azure.microsoft.com/free/)으로 업그레이드할 수 있습니다. 업그레이드 시 청구 통화와 12개월 무료 서비스의 200달러 Azure 크레딧이 제공됩니다. 체험 계정에 대한 자격이 없으면 [지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 통해 [종량제 요율](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다.
 
 [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) 계정이 있으면 [지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 통해 [종량제 요율](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다.
+
+>[!NOTE]
+>무료가 아닌 리소스를 사용하고 크레딧이 부족하여 구독을 사용하지 않도록 설정한 다음, 구독을 업그레이드하면 업그레이드 후에 리소스가 사용하도록 설정됩니다. 이 경우 사용된 리소스에 대한 요금이 청구됩니다.
 
 <a id="freetrial"></a>
 

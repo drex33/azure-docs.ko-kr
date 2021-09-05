@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d44e73b7d4c2988fb26c947100faac2ebcbe8f8f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6f64791df0c564183900fd75c718ac4e5f9d0976
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474615"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468847"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Azure Digital Twins 인스턴스 및 인증 설정(CLI)
 
@@ -21,8 +21,8 @@ ms.locfileid: "110474615"
 이 문서에서는 인스턴스를 만들고 인증을 설정하는 등 **새 Azure Digital Twins 인스턴스를 설정** 하는 단계에 대해 설명합니다. 이 문서를 완료한 후에는 Azure Digital Twins 인스턴스에 대한 프로그래밍을 시작할 수 있습니다.
 
 이 문서의 버전은 CLI를 사용하여 이러한 단계를 하나씩 수동으로 진행합니다.
-* Azure Portal을 사용하여 이러한 단계를 수동으로 진행하려면 이 문서의 포털 버전 [방법: 인스턴스 및 인증 설정(포털)](how-to-set-up-instance-portal.md) 을 참조하세요.
-* 배포 스크립트 샘플을 사용하여 자동화된 설정을 실행하려면 이 문서의 스크립팅된 버전 [방법: 인스턴스 및 인증 설정(스크립팅됨)](how-to-set-up-instance-scripted.md) 을 참조하세요.
+* Azure Portal을 사용하여 이러한 단계를 수동으로 진행하려면 [인스턴스 및 인증 설정(포털)](how-to-set-up-instance-portal.md)에서 이 문서의 포털 버전을 참조하세요.
+* 배포 스크립트 샘플을 사용하여 자동화된 설정을 실행하려면 [인스턴스 및 인증 설정(스크립팅됨)](how-to-set-up-instance-scripted.md)에서 이 문서의 스크립팅된 버전을 참조하세요.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -41,7 +41,7 @@ ms.locfileid: "110474615"
 * 배포 지역. Azure Digital Twins를 지원하는 지역을 확인하려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조하세요.
 * 인스턴스의 이름. 이미 지정된 이름을 사용하고 있는 지역에 다른 Azure Digital Twins 인스턴스가 있는 구독의 경우 다른 이름을 선택하라는 메시지가 표시됩니다.
 
-다음 명령의 값을 사용하여 인스턴스를 만듭니다.
+다음 [az dt 명령](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)에서 이러한 값을 사용하여 인스턴스를 만듭니다.
 
 ```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
@@ -101,7 +101,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 Azure Digital Twins CLI 명령을 사용하여 인스턴스에서 개별 REST API 호출을 테스트합니다. 
 * [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
-* [개념: Azure Digital Twins CLI 명령 집합](concepts-cli.md)
+* [Azure Digital Twins CLI 명령 집합](concepts-cli.md)
 
 또는 인증 코드를 사용하여 인스턴스에 클라이언트 애플리케이션을 연결하는 방법을 참조하세요.
-* [방법: 앱 인증 코드 작성](how-to-authenticate-client.md)
+* [앱 인증 코드 쓰기](how-to-authenticate-client.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: c0c939a6a8323dfdfafddb46ccdb7d7ef3dd2f2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77f30c26b500f98429039710d84f77b87fb6a654
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89653020"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112992210"
 ---
 # <a name="application-gateway-http-settings-configuration"></a>Application Gateway HTTP 설정 구성
 
@@ -76,7 +76,7 @@ Application Gateway는 요청을 백 엔드 서버로 라우팅할 때 HTTP와 H
 
 ## <a name="use-for-app-service"></a>App Service에 사용
 
-Azure App Service 백 엔드에 대한 두 가지 필수 설정을 선택하는 UI 전용 바로 가기입니다. 이 바로 가기를 사용하여 **백 엔드 주소에서 호스트 이름을 선택** 할 수 있으며, 아직 없는 경우 새 사용자 지정 프로브가 생성됩니다. 자세한 내용은 이 문서의 [백 엔드 주소에서 호스트 이름 선택 설정](#pick-host-name-from-back-end-address) 섹션을 참조하세요. 새 프로브가 생성되고 프로브 헤더는 백 엔드 멤버의 주소에서 선택됩니다.
+Azure App Service 백 엔드에 대한 두 가지 필수 설정을 선택하는 UI 전용 바로 가기입니다. 이 바로 가기를 사용하여 **백 엔드 주소에서 호스트 이름을 선택** 할 수 있으며, 아직 없는 경우 새 사용자 지정 프로브가 생성됩니다. (자세한 내용은 이 문서의 [백 엔드 주소에서 호스트 이름 선택 설정](#pick-host-name-from-back-end-address) 섹션을 참조하세요.) 새 프로브가 생성되고 프로브 헤더는 백 엔드 멤버의 주소에서 선택됩니다.
 
 ## <a name="use-custom-probe"></a>사용자 지정 프로브 사용
 

@@ -7,14 +7,18 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0931d5668835229be858a8725fd1a2d90c81081d
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95997344"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432953"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
+
+> [!NOTE]
+> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 
 
 ## <a name="overview"></a>개요 ##
 
@@ -127,7 +131,7 @@ ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 아래에 �
 - **공용 인바운드 IP 주소**: 외부 ASE의 앱 트래픽 및 외부 ASE와 ILB ASE 둘 다의 관리 트래픽에 사용됩니다.
 - **아웃바운드 공용 IP**: VNet에서 시작되는 ASE로부터의 아웃바운드 연결(VPN으로 라우팅되지 않음)의 "시작" IP로 사용됩니다.
 - **ILB IP 주소**: ILB IP 주소는 ILB ASE에만 존재합니다.
-- **앱에 할당된 IP 기반 SSL 주소**: 외부 ASE를 사용하며 IP 기반 SSL이 구성되어 있을 때만 사용 가능합니다.
+- **앱 할당 IP 기반 TLS/SSL 주소**: 외부 ASE와 IP 기반 TLS/SSL 바인딩이 구성된 경우에만 사용 가능합니다.
 
 이러한 모든 IP 주소는 ASE UI의 Azure Portal에서 확인할 수 있습니다. ILB ASE를 사용하는 경우 ILB용 IP가 나열됩니다.
 

@@ -3,12 +3,12 @@ title: Azure Lab Services에서 공유 이미지 갤러리 연결 또는 분리 
 description: 이 문서에서는 Azure Lab Services의 클래스룸 랩에 공유 이미지 갤러리를 연결하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: 2a460e25d59d2c5fcde341212e7912882f5fe111
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 62020f30b000292bf3e6af4cab61364e99ce4b5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190700"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566851"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Azure Lab Services에서 공유 이미지 갤러리 연결 또는 분리
 이 문서에서는 공유 이미지 갤러리를 랩 계정에 연결하거나 분리하는 방법을 보여줍니다. 
@@ -89,6 +89,6 @@ ms.locfileid: "110190700"
 ## <a name="next-steps"></a>다음 단계
 랩 이미지를 공유 이미지 갤러리에 저장하거나 공유 이미지 갤러리의 이미지를 사용하여 VM을 만드는 방법을 알아보려면, [공유 이미지 갤러리를 사용하는 방법](how-to-use-shared-image-gallery.md)을 참조하세요.
 
-랩 컨텍스트 외부의 공유 이미지 갤러리로 Windows 사용자 지정 이미지를 가져오려면 [공유 이미지 갤러리로 사용자 지정 이미지 가져오기](upload-custom-image-shared-image-gallery.md)를 참조하세요.
+랩 컨텍스트 외부의 공유 이미지 갤러리에 사용자 지정 이미지를 가져오기 위한 다른 옵션을 살펴보려면 [사용자 지정 이미지를 만들기 위한 권장 방법](approaches-for-custom-image-creation.md)을 참조하세요.
 
 일반적인 공유 이미지 갤러리에 대한 자세한 내용은 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)를 참조하세요.

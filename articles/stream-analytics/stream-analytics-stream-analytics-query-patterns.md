@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 8fcda77858b3feb78a04971a7ad1f20c0ea51fa1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18c396d753b1320cdfc3e67e6949d6feb2612074
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019995"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566835"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Azure Stream Analytics의 일반적인 쿼리 패턴
 
@@ -548,12 +548,12 @@ WHERE
 
 | deviceId | Time | attribute | 값 |
 | --- | --- | --- | --- |
-| 1 |2018-07-27T00:00:01.0000000Z |온도 |50 |
-| 1 |2018-07-27T00:00:01.0000000Z |온도 |50 |
-| 2 |2018-07-27T00:00:01.0000000Z |온도 |40 |
-| 1 |2018-07-27T00:00:05.0000000Z |온도 |60 |
-| 2 |2018-07-27T00:00:05.0000000Z |온도 |50 |
-| 1 |2018-07-27T00:00:10.0000000Z |온도 |100 |
+| 1 |2018-07-27T00:00:01Z |온도 |50 |
+| 1 |2018-07-27T00:00:01Z |온도 |50 |
+| 2 |2018-07-27T00:00:01Z |온도 |40 |
+| 1 |2018-07-27T00:00:05Z |온도 |60 |
+| 2 |2018-07-27T00:00:05Z |온도 |50 |
+| 1 |2018-07-27T00:00:10Z |온도 |100 |
 
 **출력**:  
 
@@ -716,14 +716,14 @@ End_fault는 이전 이벤트에 오류가 발생했던 현재 오류가 발생�
 
 | LicensePlate | 계정을 | Time | TollId |
 | --- | --- | --- | --- |
-| DXE 5291 |Make1 |2015-07-27T00:00:01.0000000Z | 1 |
+| DXE 5291 |Make1 |2015-07-27T00:00:01Z | 1 |
 | YHN 6970 |Make2 |2015-07-27T00:오전 12:05.0000000Z | 1 |
-| QYF 9358 |Make1 |2015-07-27T00:00:01.0000000Z | 2 |
-| GXF 9462 |Make3 |2015-07-27T00:00:04.0000000Z | 2 |
-| VFE 1616 |Make2 |2015-07-27T00:00:10.0000000Z | 1 |
-| RMV 8282 |Make1 |2015-07-27T00:00:03.0000000Z | 3 |
-| MDR 6128 |Make3 |2015-07-27T00:00:11.0000000Z | 2 |
-| YZK 5704 |Make4 |2015-07-27T00:00:07.0000000Z | 3 |
+| QYF 9358 |Make1 |2015-07-27T00:00:01Z | 2 |
+| GXF 9462 |Make3 |2015-07-27T00:00:04Z | 2 |
+| VFE 1616 |Make2 |2015-07-27T00:00:10Z | 1 |
+| RMV 8282 |Make1 |2015-07-27T00:00:03Z | 3 |
+| MDR 6128 |Make3 |2015-07-27T00:00:11Z | 2 |
+| YZK 5704 |Make4 |2015-07-27T00:00:07Z | 3 |
 
 **출력**:
 
@@ -761,18 +761,18 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 | User_id | Time | URL |
 | --- | --- | --- |
-| 0 | 2017-01-26T00:00:00.0000000Z | "www.example.com/a.html" |
-| 0 | 2017-01-26T00:00:20.0000000Z | "www.example.com/b.html" |
-| 1 | 2017-01-26T00:00:55.0000000Z | "www.example.com/c.html" |
-| 0 | 2017-01-26T00:01:10.0000000Z | "www.example.com/d.html" |
-| 1 | 2017-01-26T00:01:15.0000000Z | "www.example.com/e.html" |
+| 0 | 2017-01-26T00:00:00Z | "www.example.com/a.html" |
+| 0 | 2017-01-26T00:00:20Z | "www.example.com/b.html" |
+| 1 | 2017-01-26T00:00:55Z | "www.example.com/c.html" |
+| 0 | 2017-01-26T00:01:10Z | "www.example.com/d.html" |
+| 1 | 2017-01-26T00:01:15Z | "www.example.com/e.html" |
 
 **출력**:
 
 | User_id | StartTime | EndTime | Duration_in_seconds |
 | --- | --- | --- | --- |
-| 0 | 2017-01-26T00:00:00.0000000Z | 2017-01-26T00:01:10.0000000Z | 70 |
-| 1 | 2017-01-26T00:00:55.0000000Z | 2017-01-26T00:01:15.0000000Z | 20 |
+| 0 | 2017-01-26T00:00:00Z | 2017-01-26T00:01:10Z | 70 |
+| 1 | 2017-01-26T00:00:55Z | 2017-01-26T00:01:15Z | 20 |
 
 **쿼리**:
 
@@ -847,18 +847,18 @@ From
 
 | ATM_id | Operation_id | Return_Code | Time |
 | --- | --- | --- | --- |
-| 1 | "Entering Pin" | "Success" | 2017-01-26T00:10:00.0000000Z |
-| 2 | "Opening Money Slot" | "Success" | 2017-01-26T00:10:07.0000000Z |
-| 2 | "Closing Money Slot" | "Success" | 2017-01-26T00:10:11.0000000Z |
-| 1 | "Entering Withdraw Quantity" | "Success" | 2017-01-26T00:10:08.0000000Z |
-| 1 | "Opening Money Slot" | "Warning" | 2017-01-26T00:10:14.0000000Z |
-| 1 | "Printing Bank Balance" | "Warning" | 2017-01-26T00:10:19.0000000Z |
+| 1 | "Entering Pin" | "Success" | 2017-01-26T00:10:00Z |
+| 2 | "Opening Money Slot" | "Success" | 2017-01-26T00:10:07Z |
+| 2 | "Closing Money Slot" | "Success" | 2017-01-26T00:10:11Z |
+| 1 | "Entering Withdraw Quantity" | "Success" | 2017-01-26T00:10:08Z |
+| 1 | "Opening Money Slot" | "Warning" | 2017-01-26T00:10:14Z |
+| 1 | "Printing Bank Balance" | "Warning" | 2017-01-26T00:10:19Z |
 
 **출력**:
 
 | ATM_id | First_Warning_Operation_id | Warning_Time |
 | --- | --- | --- |
-| 1 | "Opening Money Slot" | 2017-01-26T00:10:14.0000000Z |
+| 1 | "Opening Money Slot" | 2017-01-26T00:10:14Z |
 
 ```SQL
 SELECT *
@@ -871,16 +871,16 @@ MATCH_RECOGNIZE (
         First(Warning.Operation_Id) AS First_Warning_Operation_id,
         First(Warning.Time) AS Warning_Time
     AFTER MATCH SKIP TO NEXT ROW
-    PATTERN (Success* Warning{2,})
+    PATTERN (Success+ Warning{2,})
     DEFINE
         Success AS Succes.Return_Code = 'Success',
-        Failure AS Warning.Return_Code <> 'Success'
+        Warning AS Warning.Return_Code <> 'Success'
 ) AS patternMatch
 ```
 
 이 쿼리는 두 개 이상의 연속된 고장 이벤트를 일치시키고 조건이 충족되면 경보를 생성합니다.
-**PATTERN** 은 일치에 사용할 정규식을 정의합니다. 이 경우에는 성공한 작업 수와 관계없이 두 번 이상 연속 고장이 발생하는 것입니다.
-성공 및 실패는 Return_Code 값을 사용하여 정의되고, 조건이 충족되면 **MEASURES** 는 첫 번째 경고 작업 및 첫 번째 경고 시간인 *ATM_id* 로 프로젝션됩니다.
+**PATTERN** 은 일치에 사용할 정규식을 정의합니다. 이 경우에는 한 번의 성공한 작업 후 두 번 이상 연속 경고가 발생합니다.
+성공 및 경고는 Return_Code 값을 사용하여 정의되고, 조건이 충족되면 **MEASURES** 는 첫 번째 경고 작업 및 첫 번째 경고 시간인 *ATM_id* 로 프로젝션됩니다.
 
 자세한 내용은 [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics)를 참조하세요.
 
@@ -895,10 +895,10 @@ Azure Stream Analytics는 차량 관리, 차량 공유, 연결된 자동차 및 
 
 | Equipment_id | Equipment_current_location | Time |
 | --- | --- | --- |
-| 1 | "POINT(-122.13288797982818 47.64082002051315)" | 2017-01-26T00:10:00.0000000Z |
-| 1 | "POINT(-122.13307252987875 47.64081350934929)" | 2017-01-26T00:11:00.0000000Z |
-| 1 | "POINT(-122.13308862313283 47.6406508603241)" | 2017-01-26T00:12:00.0000000Z |
-| 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000Z |
+| 1 | "POINT(-122.13288797982818 47.64082002051315)" | 2017-01-26T00:10:00Z |
+| 1 | "POINT(-122.13307252987875 47.64081350934929)" | 2017-01-26T00:11:00Z |
+| 1 | "POINT(-122.13308862313283 47.6406508603241)" | 2017-01-26T00:12:00Z |
+| 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00Z |
 
 **참조 데이터 입력**:
 
@@ -910,7 +910,7 @@ Azure Stream Analytics는 차량 관리, 차량 공유, 연결된 자동차 및 
 
 | Equipment_id | Equipment_alert_location | Time |
 | --- | --- | --- |
-| 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000Z |
+| 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00Z |
 
 ```SQL
 SELECT

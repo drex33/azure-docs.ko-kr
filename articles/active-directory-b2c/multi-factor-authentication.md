@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 08/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 601eec9c65ee7e9bc3c163da78a81a372f26507d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 42feac542760bbebc703cabc4ecc114b0ab4259d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061699"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535633"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 다단계 인증 사용 | Microsoft Docs
 
@@ -29,6 +29,14 @@ Azure AD B2C(Azure Active Directory B2C)는 [Azure AD Multi-Factor Authenticatio
 
 - 하나의 애플리케이션에 액세스하려는 경우 다단계 인증이 필요하지 않지만 다른 애플리케이션에 액세스하려면 다단계 인증이 필요합니다. 예를 들어 고객이 소셜 또는 로컬 계정을 사용하여 자동차 보험 애플리케이션에 로그인할 수 있지만 동일한 디렉터리에 등록된 주택 보험 애플리케이션에 액세스하기 전에 전화번호를 확인해야 합니다.
 - 일반적으로 애플리케이션에 액세스하는 데 다단계 인증이 필요하지 않지만 그 안에 중요한 부분에 액세스하려면 다단계 인증이 필요합니다. 예를 들어 고객이 소셜 또는 로컬 계정으로 은행 애플리케이션에 로그인하고 계정 잔액을 확인할 수 있지만 유선 전송을 시도하기 전에 전화번호를 확인해야 합니다.
+
+### <a name="verification-methods"></a>확인 방법
+
+[조건부 액세스](conditional-access-identity-protection-overview.md)를 사용하면 관리자로서 결정할 수 있는 구성에 따라 사용자에게 MFA에 대한 문제가 발생할 수도 있고 그렇지 않을 수도 있습니다. 다단계 인증의 방법은 다음과 같습니다.
+
+- 메일
+- sms
+- 전화 통화
 
 ## <a name="set-multi-factor-authentication"></a>다단계 인증 설정
 
@@ -46,8 +54,8 @@ Azure AD B2C(Azure Active Directory B2C)는 [Azure AD Multi-Factor Authenticatio
    - **Always On** - 조건부 액세스 설정에 관계없이 MFA가 항상 필요합니다. 등록하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시됩니다. 로그인하는 동안 사용자가 아직 MFA에 등록하지 않은 경우 등록하라는 메시지가 표시됩니다.
    - **조건부** - 등록 및 로그인하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시됩니다(새 사용자와 MFA에 등록되지 않은 기존 사용자 모두). 로그인하는 동안 MFA는 활성 조건부 액세스 정책 평가에 필요한 경우에만 적용됩니다.
 
-      - 결과가 위험이 없는 MFA 체인지인 경우 MFA가 적용됩니다. 사용자가 MFA에 아직 등록되지 않은 경우 등록하라는 메시지가 표시됩니다.
-      - 위험 *및* MFA에 등록하지 않은 사용자로 인해 결과가 MFA 챌린지이면 로그인이 차단됩니다.
+    - 결과가 위험이 없는 MFA 체인지인 경우 MFA가 적용됩니다. 사용자가 MFA에 아직 등록되지 않은 경우 등록하라는 메시지가 표시됩니다.
+    - 위험 *및* MFA에 등록하지 않은 사용자로 인해 결과가 MFA 챌린지이면 로그인이 차단됩니다.
 
    > [!NOTE]
    >

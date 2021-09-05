@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 8120bcb030f5a1ff6948757d8f65e3a21d31898f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: bd0e89e1967842e8167c3da1fc3d2a716a5f7bd6
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955404"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633780"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>상업용 Marketplace를 대상으로 한 Azure 애플리케이션 제품 계획
 
@@ -35,7 +35,7 @@ Azure 애플리케이션 제품을 디자인, 빌드 및 테스트하려면 Azur
 
 - [Azure Resource Manager 템플릿 이해](../azure-resource-manager/templates/syntax.md)
 - 빠른 시작:
-    - [Azure Quickstart 템플릿](https://azure.microsoft.com/documentation/templates/)
+    - [Azure Quickstart 템플릿](https://azure.microsoft.com/resources/templates/)
     - [Azure 템플릿 모범 사례 가이드](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     - [애플리케이션 정의 게시](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
     - [서비스 카탈로그 앱 배포](../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
@@ -95,7 +95,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 
 ## <a name="categories-and-subcategories"></a>범주 및 하위 범주
 
-1~2개의 범주를 선택하여 적절한 상업용 Marketplace 검색 영역으로 제품을 그룹화할 수 있습니다. 기본 범주와 보조 범주마다 최대 두 개의 하위 범주를 선택할 수 있습니다. 범주와 하위 범주의 전체 목록은 [제품 목록 모범 사례](gtm-offer-listing-best-practices.md#categories)를 참조하세요.
+1~2개의 범주를 선택하여 적절한 상업용 Marketplace 검색 영역으로 제품을 그룹화할 수 있습니다. 기본 범주와 보조 범주마다 최대 두 개의 하위 범주를 선택할 수 있습니다. 범주와 하위 범주의 전체 목록은 [제품 목록 모범 사례](marketplace-categories-industries.md#categories)를 참조하세요.
 
 ## <a name="legal-contracts"></a>법적 계약
 
@@ -131,7 +131,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 #### <a name="call-out-descriptions"></a>설명
 
 1. 제목
-2. Description
+2. 설명
 3. 유용한 링크
 4. 스크린샷
 
@@ -148,7 +148,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
     이 텍스트 상자에는 보다 설득력 있는 설명을 도와주는 다양한 텍스트 편집기 컨트롤이 들어 있습니다. HTML 태그를 사용하여 설명의 서식을 지정할 수도 있습니다. 이 상자에는 HTML 태그와 공백을 포함하여 최대 3,000자의 텍스트를 입력할 수 있습니다. 추가 팁은 [유용한 앱 설명 작성](/windows/uwp/publish/write-a-great-app-description)과 [상업용 Marketplace 제품 설명에서 지원되는 HTML 태그](supported-html-tags.md)를 참조하세요.
 
 - **검색 키워드**(선택 사항): 고객이 온라인 스토어에서 제품을 찾는 데 사용할 수 있는 최대 3개의 검색 키워드를 입력합니다. 최상의 결과를 얻기 위해 이 키워드를 설명에도 사용합니다. 제품 **이름** 과 **설명** 을 포함할 필요가 없습니다. 해당 텍스트는 검색에 자동으로 포함됩니다.
-- **개인정보처리방침**: 회사의 개인정보처리방침에 대한 URL입니다. 파트너는 유효한 개인정보처리방침을 제공해야 하며 앱이 개인정보 관련 법률 및 규정을 준수하도록 관리할 책임이 있습니다.
+- **개인정보처리방침 링크**: 회사의 개인정보처리방침에 대한 URL입니다. 파트너는 유효한 개인정보처리방침을 제공해야 하며 앱이 개인정보 관련 법률 및 규정을 준수하도록 관리할 책임이 있습니다.
 - **유용한 링크**(선택 사항): 제품 사용자를 위한 다양한 리소스의 링크를 제공할 수 있습니다. 예를 들어 포럼, FAQ, 릴리스 정보 등이 있습니다.
 - **연락처 정보**: 조직의 다음 연락처를 지정해야 합니다.
   - **고객 지원팀 연락처**: 고객이 티켓을 열 때 사용할 Microsoft 파트너의 이름, 전화 번호 및 이메일을 제공합니다. 고객 지원팀 웹 사이트의 URL도 포함해야 합니다.

@@ -5,20 +5,20 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
+ms.reviewer: estfan, azla
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: b795e4b0df35d731181934bdec6966fc1af0b94c
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 699bc3b15c47e1dc80dbb8a4defd27adad298ba0
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026744"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539573"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
 
 > [!IMPORTANT]
-> 원래 AS2 커넥터는 사용되지 않으므로 추적 기능이 필요하지 않는 한 **AS2(v2)** 커넥터를 대신 사용합니다. 추적을 제외하고 v2 커넥터는 원래 버전과 동일한 기능을 제공하고 Logic Apps 런타임의 기본 기능을 제공하며, 메시지 크기, 처리량 및 대기 시간이 크게 향상되었습니다. 또한, v2 커넥터는 통합 계정에 대한 연결을 만들 필요가 없습니다. 대신, 사전 요구 사항에 설명된 대로 커넥터를 사용하려는 논리 앱에 통합 계정을 연결해야 합니다.
+> 원래 AS2 커넥터는 사용되지 않으므로 추적 기능이 필요하지 않는 한 **AS2(v2)** 커넥터를 대신 사용합니다. 추적을 제외하고 v2 커넥터는 원래 버전과 동일한 기능 및 더 나은 성능을 제공하고 Azure Logic Apps 런타임의 기본 기능을 제공하며, 메시지 크기, 처리량 및 대기 시간이 크게 향상되었습니다. 또한, v2 커넥터는 통합 계정에 대한 연결을 만들 필요가 없습니다. 대신, 사전 요구 사항에 설명된 대로 커넥터를 사용하려는 논리 앱에 통합 계정을 연결해야 합니다.
 
 Azure Logic Apps에서 AS2 메시지를 작업하려면 AS2(버전 1.2) 통신을 지원하고 관리하는 트리거 및 작업을 제공하는 AS2 커넥터를 사용하면 됩니다. 예를 들어, 메시지를 전송할 때 보안 및 안정성을 설정하려면 다음 작업을 사용할 수 있습니다.
 
@@ -115,7 +115,7 @@ Azure Logic Apps에서 AS2 메시지를 작업하려면 AS2(버전 1.2) 통신�
 
 ## <a name="sample"></a>샘플
 
-완벽하게 작동하는 논리 앱 및 샘플 AS2 시나리오를 배포하려면 [AS2 논리 앱 템플릿 및 시나리오](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive)를 참조하세요.
+완벽하게 작동하는 논리 앱 및 샘플 AS2 시나리오를 배포하려면 [AS2 논리 앱 템플릿 및 시나리오](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive/)를 참조하세요.
 
 ## <a name="connector-reference"></a>커넥터 참조
 

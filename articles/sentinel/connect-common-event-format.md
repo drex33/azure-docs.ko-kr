@@ -1,5 +1,5 @@
 ---
-title: Azure Sentinel 미리 보기에 CEF 데이터 연결| Microsoft Docs
+title: Azure Sentinel에 CEF 데이터 연결 | Microsoft Docs
 description: Linux 컴퓨터를 로그 전달자로 사용하여 CEF(Common Event Format) 메시지를 Azure Sentinel로 전송하는 외부 솔루션을 연결합니다.
 services: sentinel
 documentationcenter: na
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 07/26/2021
 ms.author: yelevin
-ms.openlocfilehash: 54fd6c0c085c0055f3114fde606f8f7d2f2e055e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccf05bb51c64a94c07a0277ed901912f9e4dda3e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772062"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529020"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Common Event Format을 사용하여 외부 솔루션 연결
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 CEF 메시지를 전송하는 외부 솔루션을 연결하는 경우 Azure Sentinel에 연결하는 세 단계는 다음과 같습니다.
 
@@ -49,6 +51,8 @@ CEF 메시지를 전송하는 외부 솔루션을 연결하는 경우 Azure Sent
 Syslog 원본과 Syslog Forwarder 간에 TLS 통신을 사용하려면 TLS로 통신하도록 Syslog 디먼을 구성해야 합니다(rsyslog 또는 syslog-ng). [TLS를 사용하는 Syslog 트래픽 암호화 -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html) 및 [TLS를 사용하는 로그 메시지 암호화 –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)를 참조하세요.
  
 ## <a name="prerequisites"></a>필수 구성 요소
+
+Log Analytics로 CEF 데이터를 수집하려면 Azure Sentinel 작업 영역이 필요합니다.
 
 로그 전달자로 사용할 Linux 머신이 다음 운영 체제 중 하나를 실행하고 있는지 확인합니다.
 
@@ -101,5 +105,5 @@ Syslog 원본과 Syslog Forwarder 간에 TLS 통신을 사용하려면 TLS로 �
 Azure Sentinel에서 수집한 데이터로 수행할 작업에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
 - [CEF 및 CommonSecurityLog 필드 매핑](cef-name-mapping.md)에 대해 알아봅니다.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](./tutorial-detect-threats-built-in.md)을 시작합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](./detect-threats-built-in.md)을 시작합니다.

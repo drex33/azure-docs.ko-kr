@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 869693765463589c3e94aef9a1cee17867117c5d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 1244959bac7a2c530444e3d4b36691d4f760529a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072681"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535863"
 ---
 # <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>자동화 규칙을 사용하여 Azure Sentinel에서 인시던트 처리 자동화
 
@@ -42,7 +42,7 @@ ms.locfileid: "112072681"
 
 인시던트를 만들면 자동화 규칙이 트리거됩니다. 
 
-검토를 위해 여러 유형의 분석 규칙에 따라 경고에서 인시던트가 생성됩니다. 이러한 규칙은 [Azure Sentinel에서 기본 제공 분석 규칙을 사용하여 위협 감지](tutorial-detect-threats-built-in.md) 자습서에 설명되어 있습니다.
+검토를 위해 여러 유형의 분석 규칙에 따라 경고에서 인시던트가 생성됩니다. 이러한 규칙은 [Azure Sentinel에서 기본 제공 분석 규칙을 사용하여 위협 감지](detect-threats-built-in.md) 자습서에 설명되어 있습니다.
 
 ### <a name="conditions"></a>조건
 
@@ -54,7 +54,7 @@ ms.locfileid: "112072681"
 
 - 인시던트 상태를 변경하여 워크플로를 최신 상태로 유지합니다.
 
-  - "종료됨"으로 변경할 때 [종료 이유](tutorial-investigate-cases.md#closing-an-incident)를 지정하고 주석을 추가합니다. 이렇게 하면 성능 및 효율성을 추적하고 미세 조정하여 [가양성](false-positives.md)을 줄일 수 있습니다.
+  - "종료됨"으로 변경할 때 [종료 이유](investigate-cases.md#closing-an-incident)를 지정하고 주석을 추가합니다. 이렇게 하면 성능 및 효율성을 추적하고 미세 조정하여 [가양성](false-positives.md)을 줄일 수 있습니다.
 
 - 인시던트의 심각도 변경 – 인시던트에 포함된 엔터티의 존재, 부재, 값 또는 특성에 따라 다시 평가하고 우선 순위를 다시 지정할 수 있습니다.
 
@@ -122,7 +122,14 @@ Microsoft 보안 경고에 다음이 포함됩니다.
 
 자동화 규칙은 지정하는 순서에 따라 순차적으로 실행됩니다. 각 자동화 규칙은 이전 실행이 완료된 후 실행됩니다. 자동화 규칙 내에서 모든 작업은 정의된 순서대로 순차적으로 실행됩니다.
 
-플레이북 작업의 경우 플레이북 작업이 시작되고 2분 지연된 뒤 목록의 다음 작업이 시작됩니다.
+자동화 규칙 내의 플레이북 작업은 다음 기준에 따라 일부 상황에서 다르게 처리될 수 있습니다.
+
+| 플레이북 런타임 | 자동화 규칙이 다음 작업으로 진행됩니다... |
+| ----------------- | --------------------------------------------------- |
+| 1초 미만 | 플레이북이 완료된 직후 |
+| 2분 미만 | 플레이북 실행이 시작된 후 최대 2분<br>하지만 플레이북이 완료된 후 10초 이내 |
+| 2분 초과 | 플레이북 실행이 시작된 후 2분<br>완료 여부와 관계없이 |
+|
 
 ### <a name="permissions-for-automation-rules-to-run-playbooks"></a>플레이북을 실행할 자동화 규칙에 대한 권한
 

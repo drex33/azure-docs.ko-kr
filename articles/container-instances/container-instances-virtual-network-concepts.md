@@ -3,12 +3,12 @@ title: 가상 네트워크를 사용하는 시나리오
 description: Azure 가상 네트워크에 컨테이너 그룹을 배포하는 시나리오, 리소스 및 제한 사항입니다.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 6de99c68c3f05e4734dd46a579d28a6f1a3b824e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4d56ba43480182077acc114200ebc69569835bca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763778"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536462"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>가상 네트워크 시나리오 및 리소스
 
@@ -45,9 +45,9 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 * 가상 네트워크에 배포된 컨테이너 그룹의 [관리 ID](container-instances-managed-identity.md)를 사용할 수 없습니다.
 * 가상 네트워크에 배포된 컨테이너 그룹에서 [활동성 프로브](container-instances-liveness-probe.md)나 [준비 상태 프로브](container-instances-readiness-probe.md)를 사용하도록 설정할 수 없습니다.
 * 가상 네트워크에 배포할 때는 네트워킹 리소스가 추가로 사용되므로 대개 표준 컨테이너 인스턴스를 배포할 때보다 속도가 느립니다.
+* 포트 25에 대한 아웃바운드 연결은 현재 지원되지 않습니다.
 * 컨테이너 그룹을 Azure Storage 계정에 연결하는 경우 해당 리소스에 [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 추가해야 합니다.
-
-[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
+* 현재 [IPv6 주소](../virtual-network/ipv6-overview.md)는 지원되지 않습니다. 
 
 ## <a name="required-network-resources"></a>필요한 네트워크 리소스
 
@@ -67,7 +67,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 Azure 리소스용 네트워크 구성 템플릿인 네트워크 프로필은 리소스를 배포해야 하는 서브넷 등 리소스의 특정 네트워크 속성을 지정합니다. 처음 [az container create][az-container-create] 명령을 사용하여 서브넷(가상 네트워크)에 컨테이너 그룹을 배포하는 경우 Azure가 사용자를 위해 네트워크 프로필을 만듭니다. 그러면 다음에 컨테이너 그룹을 서브넷에 배포할 때 해당 네트워크 프로필을 사용할 수 있습니다. 
 
-Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용하여 서브넷에 컨테이너 그룹을 배포하려면 네트워크 프로필의 전체 Resource Manager 리소스 ID를 제공해야 합니다. [az container create][az-container-create]를 사용하여 이전에 만든 프로필을 사용할 수도 있고 Resource Manager 템플릿을 사용하여 프로필을 만들 수도 있습니다([템플릿 예제](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) 및 [참조](/azure/templates/microsoft.network/networkprofiles) 참조). 이전에 만든 프로필의 ID를 가져오려면 [az network profile list][az-network-profile-list] 명령을 사용합니다. 
+Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용하여 서브넷에 컨테이너 그룹을 배포하려면 네트워크 프로필의 전체 Resource Manager 리소스 ID를 제공해야 합니다. [az container create][az-container-create]를 사용하여 이전에 만든 프로필을 사용할 수도 있고 Resource Manager 템플릿을 사용하여 프로필을 만들 수도 있습니다([템플릿 예제](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet) 및 [참조](/azure/templates/microsoft.network/networkprofiles) 참조). 이전에 만든 프로필의 ID를 가져오려면 [az network profile list][az-network-profile-list] 명령을 사용합니다. 
 
 아래 다이어그램에서는 Azure Container Instances에 위임된 서브넷에 컨테이너 그룹이 여러 개 배포되어 있습니다. 컨테이너 그룹 하나를 서브넷에 배포한 후에는 같은 네트워크 프로필을 지정하여 추가 컨테이너 그룹을 배포할 수 있습니다.
 
@@ -76,7 +76,7 @@ Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용�
 ## <a name="next-steps"></a>다음 단계
 
 * Azure CLI를 사용하는 배포 예제는 [Azure Virtual Network에 컨테이너 인스턴스 배포](container-instances-vnet.md)를 참조하세요.
-* Resource Manager 템플릿을 사용하여 새 가상 네트워크, 서브넷, 네트워크 프로필 및 컨테이너 그룹을 배포하려면 [VNet을 사용하여 Azure 컨테이너 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+* Resource Manager 템플릿을 사용하여 새 가상 네트워크, 서브넷, 네트워크 프로필 및 컨테이너 그룹을 배포하려면 [VNet을 사용하여 Azure 컨테이너 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 )를 참조하세요.
 * [Azure Portal](container-instances-quickstart-portal.md)을 사용하여 컨테이너 인스턴스를 만들 때 **네트워킹** 탭에서 새 가상 네트워크 또는 기존 가상 네트워크에 대한 설정을 제공할 수도 있습니다.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 1084951d63d8d7766dcf275336340e7ec93a7e9d
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: bdc1822422f3e8ff7a9ca63b7bcf4627cd0e8470
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890621"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535823"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>디바이스 쌍 시작(Node.js)
 
@@ -233,8 +233,8 @@ ms.locfileid: "107890621"
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* [IoT Hub 시작](quickstart-send-telemetry-node.md) 자습서를 참조하여 디바이스에서 원격 분석을 보냅니다.
+* [IoT Hub 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) 자습서를 참조하여 디바이스에서 원격 분석을 보냅니다.
 
 * [desired 속성을 사용하여 디바이스 구성](tutorial-device-twins.md) 자습서를 참조하여 디바이스 쌍의 desired 속성을 사용하여 디바이스 구성,
 
-* [직접 메서드 사용](quickstart-control-device-node.md) 자습서를 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 디바이스를 제어합니다.
+* [직접 메서드 사용](./quickstart-control-device.md?pivots=programming-language-nodejs) 빠른 시작을 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 디바이스를 제어합니다.

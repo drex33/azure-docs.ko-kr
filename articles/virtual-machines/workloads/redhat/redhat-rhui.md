@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 968377ed09996b9a717e0739a3de8355d1c8d88d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 519cba1a0be8b0bac154c09f9376e752f14b644d
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677148"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122539079"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
 
 RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세스하도록 미리 구성됩니다. 추가 구성은 필요하지 않습니다. 최신 업데이트를 가져오려면 RHEL 인스턴스가 준비된 후 `sudo yum update`를 실행합니다. 이 서비스는 RHEL PAYG 소프트웨어 요금의 일부로 포함됩니다.
 
-게시 및 재방문 주기 정책을 포함하여 Azure에서 RHEL 이미지에 추가 정보가 [여기](./redhat-images.md)에 제공됩니다.
+게시 및 재방문 주기 정책을 포함하여 Azure의 RHEL 이미지에 대한 추가 정보는 [Azure의 Red Hat Enterprise Linux 이미지 개요](./redhat-images.md)에서 확인할 수 있습니다.
 
 모든 RHEL 버전에 대한 Red Hat 지원 정책 관련 정보는 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 확인할 수 있습니다.
 
@@ -79,7 +79,7 @@ RedHat:RHEL:7.6:7.6.2019062116
 EUS(확장 업데이트 지원) 리포지토리는 VM을 프로비저닝한 후에 RHEL VM을 특정 RHEL 부 릴리스로 잠그려는 고객에게 제공됩니다. Extended Update Support 리포지토리에 연결하도록 리포지토리를 업데이트하여 RHEL VM을 특정 부 버전으로 버전을 잠글 수 있습니다. EUS 버전 잠금 작업을 실행 취소할 수도 있습니다.
 
 >[!NOTE]
-> EUS는 RHEL Extras에서 지원되지 않습니다. 즉, 일반적으로 RHEL 특별 채널에서 사용할 수 있는 패키지를 설치하는 경우 EUS에서 이 작업을 수행할 수 없습니다. Red Hat Extras 제품 수명 주기는 [여기](https://access.redhat.com/support/policy/updates/extras/)에 자세히 설명되어 있습니다.
+> EUS는 RHEL Extras에서 지원되지 않습니다. 즉, 일반적으로 RHEL 특별 채널에서 사용할 수 있는 패키지를 설치하는 경우 EUS에서 이 작업을 수행할 수 없습니다. Red Hat Extras 제품 수명 주기는 [Red Hat Enterprise Linux Extras 제품 수명 주기 - Red Hat 고객 포털](https://access.redhat.com/support/policy/updates/extras/) 페이지에 자세히 설명되어 있습니다.
 
 이 문서 작성 당시에는 RHEL 7.4 이하 버전에 대한 EUS 지원이 종료되었습니다. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/support/policy/updates/errata/#Long_Support)의 “Red Hat Enterprise Linux 유지 관리 연장” 섹션을 참조하세요.
 * RHEL 7.4 EUS 지원이 2019년 8월 31일에 종료됩니다.
@@ -231,7 +231,7 @@ RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제
 >2020년 1월부로 새로운 Azure 미국 정부 이미지가 위의 Azure Global 헤더에 언급된 공용 IP를 사용하게 됩니다.
 
 >[!NOTE]
->또한, 퍼블릭 독일 지역에서 Azure 독일은 사용 중지됩니다. Azure 독일 고객들은 [여기](#manual-update-procedure-to-use-the-azure-rhui-servers)의 단계에 따라 퍼블릭 RHUI를 시작하는 것이 좋습니다.
+>또한, 퍼블릭 독일 지역에서 Azure 독일은 사용 중지됩니다. Azure 독일 고객들은 [Red Hat 업데이트 인프라](#manual-update-procedure-to-use-the-azure-rhui-servers) 페이지의 단계를 사용하여 공용 RHUI를 시작하는 것이 좋습니다.
 
 ## <a name="azure-rhui-infrastructure"></a>Azure RHUI 인프라
 
@@ -287,16 +287,14 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
 - RHEL 8의 경우:
     1. 구성 파일 만들기:
         ```bash
-        vi rhel8.config
-        ```
-    1. 구성 파일에 다음 내용을 추가합니다.
-        ```bash
+        cat <<EOF > rhel8.config
         [rhui-microsoft-azure-rhel8]
         name=Microsoft Azure RPMs for Red Hat Enterprise Linux 8
         baseurl=https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-2.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-3.microsoft.com/pulp/repos/microsoft-azure-rhel8
         enabled=1
         gpgcheck=1
         gpgkey=https://rhelimage.blob.core.windows.net/repositories/RPM-GPG-KEY-microsoft-azure-release sslverify=1
+        EOF
         ```
     1. 파일을 저장하고 다음 명령을 실행합니다.
         ```bash

@@ -7,26 +7,21 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 1c74b716c6a22748a330fb3d325be3202ed89abc
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 08/12/2021
+ms.openlocfilehash: 4baadea0d78db64d97d1ae94317d7d506a141f41
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542771"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537315"
 ---
 # <a name="sentiment-cognitive-skill-v3"></a>감성 인식 기술(V3)
 
-> [!IMPORTANT] 
-> 이 기술은 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 현재 포털 또는 .NET SDK는 지원되지 않습니다.
-
-V3 **감정** 기술은 구조화되지 않은 텍스트를 평가하고, 각 레코드에 대해 문장 및 문서 수준에서 서비스에서 찾은 가장 높은 신뢰도 점수를 기반으로 감정 레이블(예: "부정", "중립" 및 "긍정")을 제공합니다. 이 기술은 Cognitive Services의 [Text Analytics](../cognitive-services/text-analytics/overview.md) 버전 3에서 제공하는 기계 학습 모델을 사용합니다.
+V3 **감정** 기술은 구조화되지 않은 텍스트를 평가하고, 각 레코드에 대해 문장 및 문서 수준에서 서비스에서 찾은 가장 높은 신뢰도 점수를 기반으로 감정 레이블(예: "부정", "중립" 및 "긍정")을 제공합니다. 이 기술은 Cognitive Services의 [Text Analytics](../cognitive-services/text-analytics/overview.md) 버전 3에서 제공하는 기계 학습 모델을 사용합니다. 제품 또는 서비스의 특성과 관련된 의견에 대한 보다 세부적인 정보를 텍스트로 제공하는 [Text Analytics API의 오피니언 마이닝 기능](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)도 제공합니다.
 
 > [!NOTE]
-> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 이 기술은 Cognitive Services에 바인딩되며, 하루에 인덱서당 20개의 문서를 초과하는 트랜잭션에 대해 [청구 가능한 리소스](cognitive-search-attach-cognitive-services.md)를 필요로 합니다. 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에 설명되어 있습니다.
-
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.V3.SentimentSkill

@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 07/12/2021
 ms.reviewer: sngun
-ms.openlocfilehash: f714a70a0d9eb971498fc2f9fe648804a59b5136
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 55ec61dc83aa9821433cd3a53230d9e5c5d545ec
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475017"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113664912"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Azure Cosmos DB 리소스 모델
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -155,6 +155,7 @@ Azure Cosmos 항목은 다음 작업을 지원합니다. Azure Cosmos API를 사
 
 Azure Cosmos 계정 및 기타 개념을 관리하는 방법을 알아봅니다.
 
+* 자세히 알아보려면 [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/) 학습 모듈을 참조하세요.
 * [Azure Cosmos 계정을 관리하는 방법](how-to-manage-database-account.md)
 * [글로벌 분포](distribute-data-globally.md)
 * [일관성 수준](consistency-levels.md)

@@ -2,18 +2,17 @@
 title: 조건부 인식 기술
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 조건부 기술을 사용하면 기술 세트 정의에서 필터링, 기본값 생성, 값 병합이 가능합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: f47ca56fa1b40422edeb0d4e11c24be6f60e49e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: acd3a42051fa42821013424ab0410814968b6131
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666360"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537271"
 ---
 # <a name="conditional-cognitive-skill"></a>조건부 인식 기술
 
@@ -29,7 +28,7 @@ else
 ```
 
 > [!NOTE]
-> 이 기술은 Azure Cognitive Services API에 바인딩되지 않으며 사용 요금이 부과되지 않습니다. 그렇지만 “무료” 리소스 옵션을 재정의하여 일별 보강 횟수를 낮게 제한하려면 계속해서 [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다.
+> 이 기술은 Cognitive Services에 바인딩되지 않습니다. 청구할 수 없으며 Cognitive Services 키 요구 사항이 없습니다.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ConditionalSkill

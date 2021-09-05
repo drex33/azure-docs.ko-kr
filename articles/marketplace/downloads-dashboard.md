@@ -4,32 +4,33 @@ description: Marketplace 제품에 대한 다운로드 요청에 액세스하는
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: b014fd1a63865b8faac82a72dae25cadeadef280
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.reviewer: sroy
+ms.date: 08/21/2020
+ms.openlocfilehash: b0771ee85fc486d4fbcc4fb181b1ce0b7b7d47dd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542624"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528492"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>상업용 Marketplace 분석의 다운로드 대시보드
 
 이 문서에서는 파트너 센터의 다운로드 대시보드에 대한 정보를 제공합니다. 이 대시보드에는 지난 30일 동안의 다운로드 요청 목록이 표시됩니다.
 
-다운로드 대시보드에 액세스하려면 상업용 Marketplace에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 대시보드를 엽니다.
-
 >[!NOTE]
-> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.md)를 참조하세요.
+> 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.yml)를 참조하세요.
 
 ## <a name="downloads-dashboard"></a>다운로드 대시보드
 
-**분석** 메뉴의 **다운로드** 대시보드에는 1000개 이상의 고객 또는 주문 데이터 행이 포함된 다운로드 요청이 표시됩니다.
+[다운로드 대시보드](https://go.microsoft.com/fwlink/?linkid=2165766)에는 1000개 이상의 고객 또는 주문 데이터 행이 포함된 다운로드 요청이 표시됩니다.
 
 1000개 이상의 데이터 행이 포함된 다운로드를 요청할 때마다 **다운로드** 대시보드 링크가 포함된 팝업 알림을 받게 됩니다. 이러한 데이터 다운로드는 30일 동안 사용할 수 있으며 이후 제거됩니다.
 
 ## <a name="lifetime-export-of-commercial-marketplace-analytics-reports"></a>상업용 Marketplace 분석 보고서의 수명 내보내기
+
+다운로드 대시보드에 액세스하려면 상업용 Marketplace에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 대시보드를 엽니다.
 
 다운로드 페이지에서 최종 사용자는 다음을 수행할 수 있습니다.
 
@@ -59,4 +60,4 @@ ms.locfileid: "111542624"
 - VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 마켓플레이스 분석의 사용량 대시보드](usage-dashboard.md)를 참조하세요.
 - 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 마켓플레이스 분석의 고객 대시보드](customer-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 보려면 [상업용 Marketplace 분석의 평가 및 검토 대시보드](ratings-reviews.md)를 참조하세요.
-- 상업용 마켓플레이스 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.md)를 참조하세요.
+- 상업용 마켓플레이스 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.yml)를 참조하세요.

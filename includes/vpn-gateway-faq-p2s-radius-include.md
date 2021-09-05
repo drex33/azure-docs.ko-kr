@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d0d0bbd1cea6d1af016aa46569171bd2bcd8ac4f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6bead4346bdb23dd725fa474ef1bd8a982d2b61a
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110721594"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122336093"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -24,6 +24,9 @@ RADIUS 인증은 VpnGw1, VpnGw2 및 VpnGw3 SKU에서 사용할 수 있습니다.
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>클래식 배포 모델에 RADIUS 인증이 지원되나요?
  
 아니요. RADIUS 인증은 클래식 배포 모델에서 사용할 수 없습니다.
+
+### <a name="what-is-the-timeout-period-for-radius-requests-sent-to-the-radius-server"></a>RADIUS 서버로 전송된 RADIUS 요청의 제한 시간은 얼마인가요?
+RADIUS 요청은 30초 후에 시간 제한으로 설정됩니다. 사용자 정의 시간 제한 값은 현재 지원되지 않습니다.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>타사 RADIUS 서버가 지원되나요?
 

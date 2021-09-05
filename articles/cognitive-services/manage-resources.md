@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 07/02/2021
 ms.author: nitinme
-ms.openlocfilehash: 9136db7a40958af2e6b0711595bce4d5e7988af6
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 90071be491fa16d483d1348feabb7a1180c333e8
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111810916"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297414"
 ---
 # <a name="recover-deleted-cognitive-services-resources"></a>삭제된 Cognitive Services 리소스 복구
 
@@ -30,6 +30,8 @@ ms.locfileid: "111810916"
 * 삭제된 리소스를 복구하기 전에 해당 계정의 리소스 그룹이 있는지 확인하세요. 리소스 그룹을 삭제한 경우 다시 생성해야 합니다. 리소스 그룹을 복구할 수 없습니다. 자세한 내용은  [리소스 그룹 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조하세요.
 * 삭제된 리소스에서 Azure Key Vault와 함께 고객 관리형 키를 사용하고 키 자격 증명 모음도 삭제된 경우, Cognitive Services 리소스를 복원하기 전에 키 자격 증명 모음을 복원해야 합니다. 자세한 내용은 [Azure Key Vault 복구 관리](../key-vault/general/key-vault-recovery.md)를 참조하세요.
 * 삭제된 리소스에서 고객 관리형 스토리지를 사용하고 스토리지 계정도 삭제된 경우 Cognitive Services 리소스를 복원하기 전에 스토리지 계정을 복원해야 합니다. 지침은 [삭제된 스토리지 계정 복구](../storage/common/storage-account-recover.md)를 참조하세요.
+
+구독에는 [Cognitive Services 기여자](../role-based-access-control/built-in-roles.md#cognitive-services-contributor) 또는 [기여자](../role-based-access-control/built-in-roles.md#contributor)와 같은 리소스를 삭제할 수 있는 `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` 권한이 있어야 합니다. 
 
 ## <a name="recover-a-deleted-resource"></a>삭제된 리소스 복구 
 
@@ -73,6 +75,11 @@ New-AzResource -Location {location}-Properties @{restore=$true} -ResourceId /sub
 Get-AzResource -ResourceId /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/deletedAccounts -ApiVersion 2021-04-30 
 ```
 
+### <a name="using-the-azure-cli"></a>Azure CLI 사용
+
+```azurecli-interactive
+az resource create --subscription {subscriptionID} -g {resourceGroup} -n {resourceName} --location {location} --namespace Microsoft.CognitiveServices --resource-type accounts --properties "{\"restore\": true}"
+```
 
 ## <a name="purge-a-deleted-resource"></a>삭제된 리소스 제거 
 
@@ -105,7 +112,7 @@ Remove-AzResource -ResourceId /subscriptions/{subscriptionID}/providers/Microsof
 ### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
 ```azurecli-interactive
-az resource delete /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}
+az resource delete --ids /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}
 ```
 
 ## <a name="see-also"></a>참조

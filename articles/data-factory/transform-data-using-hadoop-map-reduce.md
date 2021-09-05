@@ -1,18 +1,20 @@
 ---
 title: Hadoop MapReduce 활동을 사용하여 데이터 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure HDInsight 클러스터에서 Azure Data Factory의 Hadoop MapReduce 프로그램을 실행하여 데이터를 처리하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/08/2020
-ms.openlocfilehash: f03906586d6226c92cfa69e1a139d4c876cbf723
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20ac921650f980127f24a48a5dc4e80602b5ef91
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375887"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530546"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop MapReduce 활동을 사용하여 데이터 변환
 
@@ -120,5 +122,5 @@ HDInsight MapReduce 작업을 사용하여 HDInsight 클러스터에서 모든 M
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [Azure Machine Learning 스튜디오(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
+* [ML Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

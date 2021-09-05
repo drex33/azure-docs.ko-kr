@@ -5,16 +5,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jpalma
-ms.openlocfilehash: 83d7d48922806334e2b49494fe0ef1d15e1a7a6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05d957fac23f1fd9d33a44fa74642eb162550880
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96531482"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529419"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>AKS(Azure Kubernetes Service) 노드 이미지 업그레이드
 
-AKS는 노드 이미지 업그레이드를 지원하여 최신 OS와 런타임 업데이트를 최신 상태로 유지합니다. AKS는 일주일에 하나의 최신 업데이트가 포함된 새 이미지를 제공하므로 Linux 또는 Windows 패치를 비롯하여 최신 기능을 위해 노드의 이미지를 정기적으로 업그레이드하는 것이 유용합니다. 이 문서에서는 AKS 클러스터 노드 이미지를 업그레이드하는 방법 및 Kubernetes 버전을 업그레이드하지 않고 노드 풀 이미지를 업데이트하는 방법을 보여줍니다.
+AKS는 노드 이미지 업그레이드를 지원하여 최신 OS와 런타임 업데이트를 최신 상태로 유지합니다. AKS는 일주일에 하나의 최신 업데이트가 포함된 새 이미지를 제공하므로 Linux 또는 Windows 패치를 비롯하여 최신 기능을 위해 노드의 이미지를 정기적으로 업그레이드하는 것이 유용합니다. AKS 릴리스 노트를 통해 이미지 업그레이드에 대한 알림이 고객에게 제공되더라도 모든 지역에서 업데이트가 롤아웃되는 데 최대 1주일이 걸릴 수 있습니다. 이 문서에서는 AKS 클러스터 노드 이미지를 업그레이드하는 방법 및 Kubernetes 버전을 업그레이드하지 않고 노드 풀 이미지를 업데이트하는 방법을 보여줍니다.
 
 AKS에서 제공하는 최신 이미지에 대한 자세한 내용은 [AKS 릴리스 정보](https://github.com/Azure/AKS/releases)를 확인하세요.
 
@@ -166,5 +166,5 @@ az aks nodepool show \
 [github-schedule]: node-upgrade-github-actions.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update

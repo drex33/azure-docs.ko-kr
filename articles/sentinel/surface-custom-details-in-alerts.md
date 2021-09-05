@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 45f0ef5366d97c275c40d4d436020dbaf3501d42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18e176f11da9c8dca86c5f3477cb282c478664cf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102456257"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536766"
 ---
 # <a name="surface-custom-event-details-in-alerts-in-azure-sentinel"></a>Azure Sentinel의 경고에서 사용자 지정 이벤트 세부 정보 노출 
 
@@ -29,7 +29,7 @@ ms.locfileid: "102456257"
 
 ## <a name="introduction"></a>소개
 
-[예약된 쿼리 분석 규칙](tutorial-detect-threats-custom.md)은 Azure Sentinel에 연결된 데이터 원본의 **이벤트** 를 분석하고 이러한 이벤트의 콘텐츠가 보안 관점에서 중요할 때 **경고** 를 생성합니다. 이러한 경고는 Azure Sentinel의 다양한 엔진에 의해 추가로 분석, 그룹화 및 필터링되며 SOC 분석가의 주의가 필요한 **인시던트** 로 분류됩니다. 그러나 분석가가 인시던트를 볼 때는 구성 요소 경고 자체의 속성만 즉시 표시됩니다. 실제 콘텐츠, 즉 이벤트에 포함된 정보를 찾으려면 탐색이 필요합니다.
+[예약된 쿼리 분석 규칙](detect-threats-custom.md)은 Azure Sentinel에 연결된 데이터 원본의 **이벤트** 를 분석하고 이러한 이벤트의 콘텐츠가 보안 관점에서 중요할 때 **경고** 를 생성합니다. 이러한 경고는 Azure Sentinel의 다양한 엔진에 의해 추가로 분석, 그룹화 및 필터링되며 SOC 분석가의 주의가 필요한 **인시던트** 로 분류됩니다. 그러나 분석가가 인시던트를 볼 때는 구성 요소 경고 자체의 속성만 즉시 표시됩니다. 실제 콘텐츠, 즉 이벤트에 포함된 정보를 찾으려면 탐색이 필요합니다.
 
 **분석 규칙 마법사** 의 **사용자 지정 세부 정보** 기능을 사용하면 이러한 이벤트로 구성된 경고에 이벤트 데이터를 표시하여 이벤트 데이터를 경고 속성의 일부로 만들 수 있습니다. 실제로 이 기능은 인시던트에 대한 즉각적인 이벤트 콘텐츠 가시성을 제공하여 사용자가 심사하고, 조사하고, 결론을 내리고, 훨씬 더 빠르고 효율적으로 응답할 수 있도록 합니다.
 
@@ -39,13 +39,13 @@ ms.locfileid: "102456257"
 
 1. Azure Sentinel 탐색 메뉴에서 **Analytics** 를 선택합니다.
 
-1. 예약된 쿼리 규칙을 선택하고 **수정** 을 클릭합니다. 또는 화면 상단의 **만들기 &#10132; 예약된 쿼리 규칙** 을 클릭해 새로운 규칙을 만듭니다.
+1. 예약된 쿼리 규칙을 선택하고 **편집** 을 클릭합니다. 또는 화면 맨 위에서 **만들기 > 예약된 쿼리 규칙** 을 클릭하여 새 규칙을 만듭니다.
 
 1. **규칙 논리 설정** 탭을 클릭합니다.
 
-1. **경고 개선** 섹션에서 **사용자 지정 세부 정보** 를 선택합니다.
+1. **경고 보강(미리 보기)** 섹션에서 **사용자 지정 세부 정보** 를 확장합니다.
 
-    :::image type="content" source="media/surface-custom-details-in-alerts/alert-enhancement.png" alt-text="사용자 지정 세부 정보 찾기 및 선택":::
+    :::image type="content" source="media/surface-custom-details-in-alerts/alert-enrichment.png" alt-text="사용자 지정 세부 정보 찾기 및 선택":::
 
 1. 이제 확장된 **사용자 지정 세부 정보** 섹션에서 표시하려는 세부 정보에 해당하는 키-값 쌍을 추가합니다.
 
@@ -63,12 +63,12 @@ ms.locfileid: "102456257"
 
     > [!NOTE]
     > 
-    >**서비스 제한**
+    > **서비스 제한**
     > - 단일 분석 규칙에서 **최대 20개의 사용자 지정 세부 정보** 를 정의할 수 있습니다.
     >
     > - 모든 사용자 지정 세부 정보의 크기 제한은 전체적으로 **2KB** 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Sentinel 분석 규칙을 사용하여 경고에 사용자 지정 세부 정보를 표시하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [예약된 쿼리 분석 규칙](tutorial-detect-threats-custom.md)을 전체적으로 파악합니다.
+- [예약된 쿼리 분석 규칙](detect-threats-custom.md)을 전체적으로 파악합니다.
 - [Azure Sentinel의 엔터티](entities-in-azure-sentinel.md)에 대해 자세히 알아봅니다.

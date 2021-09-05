@@ -2,14 +2,14 @@
 title: Microsoft Azure Backup Server v3 릴리스 정보
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server) v3에 대해 알려진 이슈와 해결 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/27/2021
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 87bc415c125a387d98ac88255d77fb1867564acf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b570442fb439c73886b23b07b39ecefb553c0ecf
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91254264"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720752"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
 
@@ -74,6 +74,9 @@ ms.locfileid: "91254264"
 ## <a name="after-installing-ur1-the-mabs-reports-arent-updated-with-new-rdl-files"></a>UR1을 설치한 후 MABS 보고서가 새 RDL 파일로 업데이트되지 않음
 
 **설명**: UR1에서는 MABS 보고서 서식 이슈가 업데이트된 RDL 파일로 해결되었습니다. 기존 파일은 새 RDL 파일로 자동으로 대체되지 않습니다.
+
+>[!NOTE]
+>이 문제는 MABS v3 UR2에서 수정되었습니다.
 
 **해결 방법**: RDL 파일을 바꾸려면 아래 단계를 수행합니다.
 

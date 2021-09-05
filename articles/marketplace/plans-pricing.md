@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: 21f8109fa1db49af8f2e84833466ed204d2f59fa
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 07/05/2021
+ms.openlocfilehash: f222245af177380a59f4c2adc9987b144a1c9b6f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536532"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864671"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>상업용 마켓플레이스 제품에 대한 요금제 및 가격 책정
 
@@ -42,7 +42,7 @@ ms.locfileid: "111536532"
 
 - 컨설팅 서비스
 - Dynamics 365 Business Central
-- Dynamics 365 Customer Engagement 및 PowerApps
+- Dynamics 365 Customer Engagement 및 Power Apps
 - Dynamics 365 for Operations
 - Power BI 앱
 
@@ -68,7 +68,7 @@ ms.locfileid: "111536532"
 플랜을 만든 후 **플랜 개요** 페이지에는 플랜의 이름, ID, 기타 세부 정보, 현재 게시 상태 및 사용 가능한 모든 작업의 목록이 표시됩니다. 사용 가능한 작업은 계획의 상태에 따라 달라지며 다음이 포함될 수 있습니다.
 
 - 플랜 상태가 **초안** 인 경우 - 초안을 삭제합니다.
-- 플랜 상태가 **라이브** 인 경우 - 플랜 판매를 중지하거나 프라이빗 대상을 동기화합니다.
+- 플랜 상태가 **라이브** 인 경우 - 플랜 배포를 중지하거나 프라이빗 대상을 동기화합니다.
 
 다음 스크린샷은 두 가지 초안 제품을 보여 줍니다.
 
@@ -146,7 +146,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 > - Azure 가상 머신 
 > - SaaS 
 > - Dynamics 365 Business Central
-> - Dynamics 365 for Customer Engagement 및 PowerApps
+> - Dynamics 365 for Customer Engagement 및 Power Apps
 > - Dynamics 365 for Operations
 >
 > 옵션을 나열하는 방법에 대한 자세한 내용은 [게시 옵션 확인](determine-your-listing-type.md)을 참조하세요.

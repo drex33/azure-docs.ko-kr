@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: c3ee643d525cb5394369aba3b0e803bd1a94c852
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4d725375cb964cb8bc2893f5f8365416e29e5541
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036239"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536014"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>청구 계정을 사용자 지정하여 비용 구성
 
@@ -125,7 +125,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
     |---------|---------|
     |Name     | Azure Portal에서 청구 프로필을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
     |PO 번호    | 선택적 구매 주문 번호입니다. PO 번호는 청구 프로필에 대해 생성된 청구서에 표시됩니다. |
-    |청구 주소   | 청구 주소는 청구 프로필에 대해 생성된 청구서에 표시됩니다. |
+    |청구지  | 청구 대상은 청구 프로필에 대해 생성된 청구서에 표시됩니다. |
     |이메일 청구서   | 이메일 청구서 상자를 선택하면 이 청구 프로필에 대한 청구서를 이메일로 받습니다. 옵트인하지 않은 경우 Azure Portal에서 청구서를 보고 다운로드할 수 있습니다.|
 
 5. **만들기** 를 선택합니다.
@@ -162,10 +162,6 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 기존 Azure 구독 또는 기타 제품(예: Azure Marketplace 및 앱 원본 리소스)이 있는 경우 기존 청구서 섹션에서 다른 청구서 섹션으로 이동하여 비용을 재구성할 수 있습니다.
 
-> [!IMPORTANT]
->
-> 구독 및 기타 제품은 동일한 청구 프로필에 속한 청구서 섹션 간에만 이동할 수 있습니다. 다른 청구 프로필의 청구서 섹션 간에 구독 및 제품을 이동하는 것은 지원되지 않습니다.
-
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **Cost Management + 청구** 를 검색합니다.
@@ -174,11 +170,11 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 3. 구독을 새 청구서 섹션에 연결하려면 화면 왼쪽에서 **Azure 구독** 을 선택합니다. Azure Marketplace 및 앱 원본 리소스와 같은 다른 제품의 경우 **반복 청구 요금** 을 선택합니다.
 
-   [![청구서 섹션을 변경하는 옵션을 보여주는 스크린샷](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section.png#lightbox)
+   [![청구서 섹션을 변경하는 옵션을 보여주는 스크린샷](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section-zoomed-in.png#lightbox)
 
 4. 페이지에서 새 청구서 섹션에 연결하려는 구독 또는 제품에 대한 줄임표(...)를 클릭합니다. **청구서 섹션 변경** 을 선택합니다.
 
-5. 드롭다운에서 새 청구서 섹션을 선택합니다. 드롭다운에는 기존 청구서 섹션과 동일한 청구 프로필에 연결된 청구서 섹션만 표시됩니다.
+5. 드롭다운에서 새 청구 프로필 및 청구서 섹션을 선택합니다.
 
     [![새 청구서 섹션 선택을 보여주는 스크린샷](./media/mca-section-invoice/mca-select-new-invoice-section.png)](./media/mca-section-invoice/mca-select-new-invoice-section-zoomed-in.png#lightbox)
 

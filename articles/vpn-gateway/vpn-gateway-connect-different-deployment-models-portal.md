@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ddf94f100503a5571e8ab23c28347480872b97bb
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b50fd13be06e3186e3ce3d3fc90bd60bf6d6e474
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678703"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535792"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -222,7 +222,7 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 
 ### <a name="1-connect-to-your-azure-account"></a>1. Azure 계정에 연결
 
-관리자 권한으로 PowerShell 콘솔을 열고 Azure 계정에 로그인합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정이 다운로드됩니다. 다음 cmdlet은 Resource Manager 배포 모델의 Azure 계정에 대한 로그인 자격 증명을 묻습니다.
+관리자 권한으로 PowerShell 콘솔을 열고 Azure 계정에 로그인합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정이 다운로드됩니다. 다음 cmdlet은 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)의 Azure 계정에 대한 로그인 자격 증명을 묻는 메시지를 표시합니다.
 
 ```powershell
 Connect-AzAccount

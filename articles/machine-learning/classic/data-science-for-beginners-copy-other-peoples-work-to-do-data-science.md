@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 2410e5fed48b7ab206360debc3bbeb174b3943cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b36d7bbde524bf3ddcaed2e096f9403caf16ea3c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517062"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536444"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 ## <a name="video-5-data-science-for-beginners-series"></a>비디오 5: 초급자를 위한 데이터 과학 시리즈
@@ -49,9 +49,9 @@ ms.locfileid: "100517062"
 
 ## <a name="find-examples-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 예제 찾기
 
-Microsoft에는 [Azure Machine Learning Studio(클래식)](https://azure.microsoft.com/services/machine-learning-studio/)이라는 클라우드 기반 서비스가 있습니다. 이 서비스는 여러 다른 기계 학습 알고리즘을 시험해 볼 수 있는 작업 영역을 제공하며, 솔루션을 계획할 때 웹 서비스로 실행될 수 있습니다.
+Microsoft에는 [Machine Learning Studio(클래식)](https://azure.microsoft.com/services/machine-learning-studio/)라는 클라우드 기반 서비스가 있습니다. 이 서비스는 여러 다른 기계 학습 알고리즘을 시험해 볼 수 있는 작업 영역을 제공하며, 솔루션을 계획할 때 웹 서비스로 실행될 수 있습니다.
 
-이 서비스의 일부를 **[Azure AI 갤러리](https://gallery.azure.ai/)** 라고 합니다. 여기에는 사용자들이 빌드한 후 다른 사용자를 위해 제공한 Azure Machine Learning Studio(클래식) 실험 또는 모델 컬렉션을 비롯한 리소스가 포함되어 있습니다. 이러한 실험은 다른 사람이 생각한 내용과 힘들게 작업한 결과를 자신의 솔루션에 활용할 수 있는 좋은 방법입니다. 누구나 검색할 수 있습니다.
+이 서비스의 일부를 **[Azure AI 갤러리](https://gallery.azure.ai/)** 라고 합니다. 여기에는 사용자들이 빌드한 후 다른 사용자를 위해 제공한 Machine Learning Studio(클래식) 실험 또는 모델 컬렉션을 비롯한 리소스가 포함되어 있습니다. 이러한 실험은 다른 사람이 생각한 내용과 힘들게 작업한 결과를 자신의 솔루션에 활용할 수 있는 좋은 방법입니다. 누구나 검색할 수 있습니다.
 
 ![Azure AI 갤러리](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -74,7 +74,7 @@ Microsoft에는 [Azure Machine Learning Studio(클래식)](https://azure.microso
 
 ![Studio(클래식)에서 열기 단추](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-이 링크를 클릭하면 **Azure Machine Learning Studio(클래식)** 로 바로 이동됩니다. 실험 복사본이 만들어진 후 내 작업 영역에 배치됩니다. 여기에는 참여자의 데이터 세트, 수행된 모든 처리, 사용된 모든 알고리즘 및 결과 저장 방법이 포함됩니다.
+이 링크를 클릭하면 **Machine Learning Studio(클래식)** 로 바로 이동됩니다. 실험 복사본이 만들어진 후 내 작업 영역에 배치됩니다. 여기에는 참여자의 데이터 세트, 수행된 모든 처리, 사용된 모든 알고리즘 및 결과 저장 방법이 포함됩니다.
 
 ![Machine Learning Studio(클래식) - 클러스터링 알고리즘 예제에서 갤러리 실험을 엽니다.](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 
@@ -87,8 +87,8 @@ Microsoft에는 [Azure Machine Learning Studio(클래식)](https://azure.microso
 
 [Azure AI 갤러리](https://gallery.azure.ai)에서는 자체 솔루션에 대한 시작점으로 사용할 수 있는 작동 중인 실험을 찾을 수 있습니다.
 
-Microsoft Azure Machine Learning Studio(클래식)의 '초급자를 위한 데이터 과학'에 포함된 다른 동영상도 확인해 보세요.
+Machine Learning Studio(클래식)의 '초급자를 위한 데이터 과학'에 포함된 다른 동영상도 확인해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](../overview-what-is-azure-ml.md)
+* [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
+* [Azure Machine Learning 소개 가져오기](../overview-what-is-azure-machine-learning.md)

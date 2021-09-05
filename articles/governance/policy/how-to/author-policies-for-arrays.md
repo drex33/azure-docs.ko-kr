@@ -1,14 +1,14 @@
 ---
 title: 리소스의 배열 속성에 대한 작성자 정책
 description: 배열 매개 변수 및 배열 언어 식을 사용하고, [*] 별칭을 평가하고, Azure Policy 정의 규칙을 사용하여 요소를 추가하는 방법을 알아봅니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 26fdc6c5b5dd09e77413285a8632d91e580e7162
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aefa5439e7176457494d6c21ffb9aa79acc4fd3c
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752636"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538746"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대한 작성자 정책
 
@@ -236,7 +236,7 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용하는 경우 매개 변수
 
 ### <a name="referencing-array-fields"></a>배열 필드 참조
 
-배열 리소스 속성은 일반적으로 두 가지 별칭 형식으로 표시됩니다. 하나의 '정상' 별칭 및 `[*]`가 연결된 [배열 별칭](../concepts/definition-structure.md#understanding-the--alias):
+배열 리소스 속성은 두 가지 다른 형식의 별칭으로 표시됩니다. 하나의 '정상' 별칭 및 `[*]`가 연결된 [배열 별칭](../concepts/definition-structure.md#understanding-the--alias):
 
 - `Microsoft.Test/resourceType/stringArray`
 - `Microsoft.Test/resourceType/stringArray[*]`

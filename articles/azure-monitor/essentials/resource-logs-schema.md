@@ -3,12 +3,12 @@ title: Azure 리소스 로그 지원 서비스 및 스키마
 description: Azure 리소스 로그에 대해 지원되는 서비스 및 이벤트 스키마에 대해 알아봅니다.
 ms.topic: reference
 ms.date: 05/10/2021
-ms.openlocfilehash: 5d9ae1cd9ca1d5f71d4ad2baff95159bf0e2e7f8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 621c606313fa68de24100e8c6214b56ee42b2f03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026438"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567027"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 리소스 로그에 대한 공통 및 서비스별 스키마
 
@@ -56,7 +56,7 @@ ms.locfileid: "112026438"
 | Azure Batch |[Azure Batch 로깅](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Azure Cognitive Services에 대한 로깅](../../cognitive-services/diagnostic-logging.md) |
 | Container Instances | [Azure Container Instances에 대한 로깅](../../container-instances/container-instances-log-analytics.md#log-schema) |
-| Container Registry | [Azure Container Registry에 대한 로깅](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Container Registry | [Azure Container Registry에 대한 로깅](../../container-registry/monitor-service.md) |
 | Content Delivery Network | [CDN에 대한 Azure 로그](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 로깅](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Azure Monitor를 사용하여 데이터 팩터리 모니터링](../../data-factory/monitor-using-azure-monitor.md) |
@@ -66,16 +66,17 @@ ms.locfileid: "112026438"
 | Azure Database for MySQL | [Azure Database for MySQL 진단 로그](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL 로그](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Azure Databricks의 진단 로깅](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Azure Machine Learning | [Azure Machine Learning의 진단 로깅](../../machine-learning/monitor-resource-reference.md) |
 | DDoS Protection | [Azure DDoS Protection 표준에 대한 로깅](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Azure Digital Twins | [Azure Digital Twins 진단 설정](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Azure Event Hubs 로그](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express 경로 | 스키마를 사용할 수 없음 |
-| Azure Firewall | 스키마를 사용할 수 없음 |
+| Azure Firewall | [Azure Firewall에 대한 로깅](../../firewall/logs-and-metrics.md#diagnostic-logs) |
 | Front Door | [Front Door에 대한 로깅](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [IoT Hub 작업](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Azure Key Vault 로깅](../../key-vault/general/logging.md) |
-| Kubernetes Service |[Azure Kubernetes 로깅](../../aks/view-control-plane-logs.md#log-event-schema) |
-| Load Balancer |[Azure Load Balancer에 대한 Log analytics](../../load-balancer/load-balancer-monitor-log.md) |
+| Kubernetes Service |[Azure Kubernetes 로깅](../../aks/monitor-aks-reference.md#resource-logs) |
+| Load Balancer |[Azure Load Balancer에 대한 Log analytics](../../load-balancer/monitor-load-balancer.md) |
 | Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Media Services | [미디어 서비스 모니터링 스키마](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../../virtual-network/virtual-network-nsg-manage-log.md) |
@@ -85,7 +86,7 @@ ms.locfileid: "112026438"
 | Service Bus |[Azure Service Bus 로그](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 로깅](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[작업 로그](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| 스토리지 | [Blob](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [파일](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [큐](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview), [테이블](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
+| Storage | [Blob](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [파일](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [큐](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview), [테이블](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Traffic Manager | [Traffic Manager 로그 스키마](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | 가상 네트워크 | 스키마를 사용할 수 없음 |
 | Virtual Network 게이트웨이 | 스키마를 사용할 수 없음 |

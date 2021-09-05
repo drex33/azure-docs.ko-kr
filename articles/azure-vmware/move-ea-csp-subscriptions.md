@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure VMware Solution 구독을 다른 구독�
 ms.custom: subject-moving-resources
 ms.topic: how-to
 ms.date: 04/26/2021
-ms.openlocfilehash: 02f35efe90d4670c4ab38155f129ec0d61c1b03d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b4541bf1cf13a8b4c090365c31c2403685a69c7f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966706"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530590"
 ---
 # <a name="move-azure-vmware-solution-subscription-to-another-subscription"></a>Azure VMware Solution 구독을 다른 구독으로 이동
 
@@ -39,13 +39,13 @@ ms.locfileid: "111966706"
 
    :::image type="content" source="media/move-subscriptions/move-resources-subscription-target.png" alt-text="대상 리소스 스크린샷입니다.":::
 
-1. 이동하도록 선택한 리소스의 유효성 검사를 확인합니다.  이동하도록 선택한 모든 리소스의 유효성을 검사합니다. 선택한 리소스의 유효성을 검사하는 동안에는 유효성 검사 상태가 **유효성 검사 보류 중** 으로 표시됩니다. 
+1. 이동하도록 선택한 리소스의 유효성 검사를 확인합니다. 유효성 검사 중에 상태에 대한 **유효성 검사가 보유 중** 임을 볼 수 있습니다. 
 
    :::image type="content" source="media/move-subscriptions/pending-move-resources-subscription-target.png" alt-text="이동되는 리소스를 보여 주는 스크린샷입니다.":::
 
 1. 유효성 검사가 성공적으로 완료되면 **다음** 을 선택하여 프라이빗 클라우드 마이그레이션을 시작합니다.
 
-   :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text=" 성공 유효성 검사 상태를 보여 주는 스크린샷입니다.":::
+   :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text="성공 유효성 검사 상태를 보여주는 스크린샷.":::
 
 1. 새 리소스 ID를 사용하도록 업데이트할 때까지 연결된 도구와 스크립트가 작동하지 않는 것을 알고 있음을 나타내는 확인란을 선택합니다. 그런 다음, **이동** 을 선택합니다.
 

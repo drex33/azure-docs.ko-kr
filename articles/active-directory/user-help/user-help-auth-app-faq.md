@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/30/2021
+ms.date: 06/21/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 6cc64c9b3ad3f177d50f3e659e8ea628ba485159
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f593141d425573888458b4b00858b17888c28e52
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764174"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537242"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대한 FAQ(자주 묻는 질문)
 
@@ -50,6 +50,12 @@ Android에서는 앱이 항상 위치에 액세스할 수 있도록 허용하는
 **Q**: 내 위치 정보는 어떻게 사용되고 저장되나요?
 
 **A**: Authenticator 앱은 GPS 정보를 수집하여 사용자가 거주하는 국가를 확인합니다. 보호된 리소스에 액세스할 수 있는지 확인하기 위해 국가 이름 및 위치 좌표가 시스템으로 다시 전송됩니다. 국가 이름이 저장되고 IT 관리자에게 다시 보고되지만 실제 좌표는 Microsoft 서버에 저장되지 않습니다.
+
+### <a name="notification-blocks-sign-in"></a>알림 블록 로그인
+
+**Q**: 로그인하려면 로그인 화면에 표시되는 내 앱의 번호를 선택해야 합니다. 그러나 Authenticator의 알림 프롬프트가 로그인 화면을 차단하고 있습니다. 어떻게 해야 합니까?  
+
+**A**: 알림에서 "숨기기" 옵션을 선택하면 로그인 화면과 선택해야 하는 번호를 볼 수 있습니다. 5초 후에 프롬프트가 다시 나타나고 올바른 번호를 선택할 수 있습니다.
 
 ### <a name="registering-a-device"></a>디바이스 등록
 
@@ -93,7 +99,7 @@ Android에서는 앱이 항상 위치에 액세스할 수 있도록 허용하는
 
 **A**: Authenticator 앱은 다음 세 가지 유형의 정보를 수집합니다.
 
-- 사용자 계정을 추가할 때 제공하는 계정 정보 계정을 제거하여 이 데이터를 제거할 수 있습니다.
+- 사용자 계정을 추가할 때 제공하는 계정 정보 계정을 추가한 후 계정에 대해 사용하도록 설정한 기능에 따라 계정 데이터가 앱에 동기화될 수 있습니다. 계정을 제거하여 이 데이터를 제거할 수 있습니다.
 - 앱의 상단 메뉴에서 **피드백 보내기** 를 통해 Microsoft에 로그를 보낼 때까지만 앱에 남아 있는 진단 로그 데이터. 해당 로그에는 메일 주소, 서버 주소, IP 주소 등의 개인 데이터가 포함될 수 있습니다. 또한 디바이스 이름 및 운영 체제 버전과 같은 디바이스 데이터를 포함할 수 있습니다. 수집하는 모든 개인 데이터는 앱 문제를 해결하는 데 필요한 정보로 제한됩니다. 수집된 정보를 확인하려면 언제든지 앱에서 해당 로그 파일을 찾아볼 수 있습니다. 로그 파일을 보내는 경우 인증 앱 엔지니어는 고객이 보고한 문제를 해결하는 데만 해당 파일을 사용합니다.
 - "계정 흐름 추가 시작됨/성공적으로 계정을 추가함" 또는 "알림 승인됨"과 같은 비-개인 식별이 가능한 사용량 데이터. 해당 데이터는 엔지니어링 결정의 필수적인 부분입니다. 사용량에 따라 사용자에게 중요한 방식으로 앱을 개선할 수 있는 부분을 결정하는 데 도움이 됩니다. 앱을 처음 사용하는 경우 해당 데이터 수집에 대한 알림이 표시됩니다. 앱의  **설정** 페이지에서 해당 기능을 해제할 수 있음을 알려줍니다. 언제든지 해당 설정을 켜거나 끌 수 있습니다.
 

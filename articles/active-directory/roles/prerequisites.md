@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 05/13/2021
+ms.date: 08/06/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b67f3514246bcac1185370393ac469f8c96cf3
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ef457948a28d9d07464b96bfaea4df6a6f2a8723
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890621"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536753"
 ---
 # <a name="prerequisites-to-use-powershell-or-graph-explorer-for-azure-ad-roles"></a>Azure AD 역할에 PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소
 
@@ -35,7 +35,7 @@ PowerShell 명령을 사용하여 다음을 수행합니다.
 
 다음 모듈이 설치되어 있어야 합니다.
 
-- [AzureAD](https://www.powershellgallery.com/packages/AzureAD) 버전 2.0.2.130 이상
+- [AzureAD](https://www.powershellgallery.com/packages/AzureAD) 버전 2.0.2.137 이상
 
 
 #### <a name="check-azuread-version"></a>AzureAD 버전 확인
@@ -51,7 +51,7 @@ Get-InstalledModule -Name AzureAD
 ```powershell
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-2.0.2.130  AzureAD                             PSGallery            Azure Active Directory V2 General Availability M...
+2.0.2.137  AzureAD                             PSGallery            Azure Active Directory V2 General Availability M...
 ```
 
 #### <a name="install-azuread"></a>AzureAD 설치
@@ -97,7 +97,7 @@ AzureAD를 사용하려면 다음 단계에 따라 현재 세션으로 가져와
     ```powershell
     ModuleType Version    Name                                ExportedCommands
     ---------- -------    ----                                ----------------
-    Binary     2.0.2.130  AzureAD                             {Add-AzureADApplicationOwner, Add-AzureADDeviceRegisteredO...
+    Binary     2.0.2.137  AzureAD                             {Add-AzureADApplicationOwner, Add-AzureADDeviceRegisteredO...
     ```
 
 ## <a name="azureadpreview-module"></a>AzureADPreview 모듈
@@ -111,7 +111,7 @@ PowerShell 명령을 사용하여 다음을 수행합니다.
 
 다음 모듈이 설치되어 있어야 합니다.
 
-- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) 버전 2.0.2.129 이상
+- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) 버전 2.0.2.138 이상
 
 
 #### <a name="check-azureadpreview-version"></a>AzureADPreview 버전 확인
@@ -127,7 +127,7 @@ Get-InstalledModule -Name AzureADPreview
 ```powershell
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-2.0.2.129  AzureADPreview                      PSGallery            Azure Active Directory V2 Preview Module. ...
+2.0.2.138  AzureADPreview                      PSGallery            Azure Active Directory V2 Preview Module. ...
 ```
 
 #### <a name="install-azureadpreview"></a>AzureADPreview 설치
@@ -156,7 +156,7 @@ AzureADPreview를 사용하려면 다음 단계에 따라 현재 세션으로 �
     Get-Module -Name AzureADPreview
     ```
 
-1. 이전 단계에서 출력이 표시되지 않으면 [Import-Module](/powershell/module/powershellget/import-module)을 사용하여 AzureADPreview를 가져옵니다. `-Force` 매개 변수는 로드된 모듈을 제거한 후 다시 가져옵니다.
+1. 이전 단계에서 출력이 표시되지 않으면 [Import-Module](/powershell/module/microsoft.powershell.core/import-module)을 사용하여 AzureADPreview를 가져옵니다. `-Force` 매개 변수는 로드된 모듈을 제거한 후 다시 가져옵니다.
 
     ```powershell
     Import-Module -Name AzureADPreview -Force
@@ -173,22 +173,22 @@ AzureADPreview를 사용하려면 다음 단계에 따라 현재 세션으로 �
     ```powershell
     ModuleType Version    Name                                ExportedCommands
     ---------- -------    ----                                ----------------
-    Binary     2.0.2.129  AzureADPreview                      {Add-AzureADAdministrativeUnitMember, Add-AzureADApplicati...
+    Binary     2.0.2.138  AzureADPreview                      {Add-AzureADAdministrativeUnitMember, Add-AzureADApplicati...
     ```
 
 ## <a name="graph-explorer"></a>그래프 탐색기
 
 [Microsoft Graph API](/graph/overview) 및 [Graph 탐색기](/graph/graph-explorer/graph-explorer-overview)를 사용하여 Azure AD 역할을 관리하려면 다음을 수행해야 합니다.
 
-1. Azure Portal에서 **Azure Active Directory** 를 엽니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
-1. **엔터프라이즈 애플리케이션** 을 클릭합니다.
+1. **Azure Active Directory** > **Enterprise 애플리케이션** 을 선택합니다.
 
-1. 애플리케이션 목록에서 **Graph 탐색기** 를 찾아 클릭합니다.
+1. 애플리케이션 목록에서 **Graph 탐색기** 를 찾아 선택합니다.
 
-1. **사용 권한** 을 클릭합니다.
+1. **권한** 을 선택합니다.
 
-1. **Graph 탐색기 관리자 동의 허용** 을 클릭합니다.
+1. **Graph 탐색기에 관리자 동의 부여** 를 선택합니다.
 
     ![“Graph 탐색기에 대한 관리자 동의 허용” 링크를 보여 주는 스크린샷.](./media/prerequisites/select-graph-explorer.png)
 

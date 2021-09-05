@@ -9,18 +9,18 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: d54824a29f84159f4d26ba20c5b50d9c1edae4c6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 1477e81d3809a0712913c95f54d4c073f08bb362
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761563"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113550770"
 ---
 [의료용 Text Analytics](../../how-tos/text-analytics-for-health.md)는 비정형 의료 데이터에서 정보를 처리하고 추출합니다. 서비스는 의료 개념을 검색 및 표시하고, 개념에 어설션을 할당하고, 개념 간의 의미 관계를 유추하고, 공통 의료 온톨로지에 연결합니다.
 
-의료용 Text Analytics는 다음 범주의 의료 개념을 검색합니다. 이 미리 보기에서는 영어 텍스트만 지원되며 단일 모델 버전만 사용할 수 있습니다.
+의료용 Text Analytics는 다음 범주의 의료 개념을 검색합니다. 현재 영어 텍스트만 지원됩니다.
 
-| Category  | Description  |
+| 범주  | Description  |
 |---------|---------|
 | [해부학](#anatomy) | 신체 및 해부학적 체계, 부위, 위치 또는 영역에 대한 정보를 캡처하는 개념입니다. |
  | [인구 통계](#demographics) | 성별 및 연령에 관한 정보를 캡처하는 개념입니다. |

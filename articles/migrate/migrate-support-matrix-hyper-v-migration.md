@@ -6,12 +6,12 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 14660ca026dc51bc6e722559a28ef4a77361100b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1e203fb70bd13d1ab6681d0b579ffff8458d400d
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094567"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721166"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Hyper-V 마이그레이션을 위한 지원 매트릭스
 
@@ -31,8 +31,7 @@ ms.locfileid: "110094567"
 | **호스트 운영 체제** | 최신 업데이트가 포함된 Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2 이러한 운영 체제의 Server Core 설치도 지원됩니다. |
 | **기타 소프트웨어 요구 사항** | .NET Framework 4.7 이상 |
 | **포트 액세스** |  VM 복제 데이터를 보내기 위한 HTTPS 포트 443의 아웃바운드 연결.
-| **사용 가능한 디스크 공간(캐시)** |  600GB |
-| **사용 가능한 디스크 공간(보존 디스크)** |  600GB |
+
 
 
 ## <a name="hyper-v-vms"></a>Hyper-V VM
@@ -41,7 +40,7 @@ ms.locfileid: "110094567"
 | :----------------------------- | :------------------- |
 | **운영 체제** | Azure에서 지원하는 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](../virtual-machines/linux/endorsed-distros.md) 운영 체제 |
 **Windows Server 2003** | Windows Server 2003을 실행하는 VM의 경우 마이그레이션하기 전에 [Hyper-V 통합 서비스를 설치](prepare-windows-server-2003-migration.md)해야 합니다. | 
-**Azure의 Linux VM** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다.<br/><br/> Linux의 경우, Azure Migrate는 다음 운영 체제에 대해 자동으로 변경합니다.<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS  7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> 다른 운영 체제의 경우 [필요한 변경](prepare-for-migration.md#verify-required-changes-before-migrating) 작업을 수동으로 수행합니다.
+**Azure의 Linux VM** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다.<br/><br/> Linux의 경우, Azure Migrate는 다음 운영 체제에 대해 자동으로 변경합니다.<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS  7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> 다른 운영 체제의 경우 [필요한 변경](prepare-for-migration.md#verify-required-changes-before-migrating) 작업을 수동으로 수행합니다.
 | **Azure의 필수 변경 사항** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다. 마이그레이션하기 전에 수동으로 조정합니다. 관련 문서에는 이를 수행하는 방법에 대한 지침이 포함되어 있습니다. |
 | **Linux 부팅**                 | /boot가 전용 파티션에 있는 경우, OS 디스크에 상주해야 하며 여러 디스크에 분산되면 안 됩니다.<br/> /boot가 루트(/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 포함되지 않아야 합니다. |
 | **UEFI 부팅**                  | 지원됨. UEFI 기반 VM은 Azure 2세대 VM으로 마이그레이션됩니다.  |

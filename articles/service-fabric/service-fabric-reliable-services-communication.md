@@ -4,12 +4,12 @@ description: 서비스에서 수신기 열기, 엔드포인트 확인 및 서비
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d6f9d3ca44161674a829c4839e0a889c227b6f2
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97912617"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113597850"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Reliable Services 통신 API를 사용하는 방법
 플랫폼인 Azure 서비스 패브릭은 서비스 간에 이루어지는 통신을 전혀 알 수 없습니다. UDP에서 HTTP까지 모든 프로토콜 및 스택이 허용됩니다. 서비스 개발자가 서비스가 통신하는 방법을 선택합니다. Reliable Services 애플리케이션 프레임워크는 사용자 지정 통신 구성 요소를 빌드하는 데 사용할 수 있는 API 뿐만 아니라 기본 제공 통신 스택을 제공합니다.
@@ -86,7 +86,7 @@ public class MyStatefulService : StatefulService
 }
 ```
 
-두 경우 모두 수신기의 컬렉션을 반환합니다. 이렇게 하면 서비스가 여러 수신기를 사용하여 서로 다른 프로토콜을 잠재적으로 사용하는 다수의 엔드포인트에서 수신할 수 있게 됩니다. 예를 들어 HTTP 수신기 및 별도의 WebSocket 수신기가 있을 수 있습니다. 각 수신기는 이름을 가져오며 *이름 : 주소* 쌍의 결과 콜렉션은 클라이언트가 서비스 인스턴스 또는 파티션에 대한 수신 주소를 요청하는 경우 JSON 개체로 표현됩니다.
+두 경우 모두 수신기의 컬렉션을 반환합니다. 여러 수신기를 사용하면 서로 다른 프로토콜을 잠재적으로 사용하는 다수의 엔드포인트에서 수신할 수 있게 됩니다. 예를 들어 HTTP 수신기 및 별도의 WebSocket 수신기가 있을 수 있습니다. 먼저 보안되지 않은 수신기와 보안 수신기를 모두 사용하여 두 시나리오를 활성화하여 보안되지 않은 원격에서 보안 원격으로 마이그레이션할 수 있습니다. 각 수신기는 이름을 가져오며 *이름 : 주소* 쌍의 결과 콜렉션은 클라이언트가 서비스 인스턴스 또는 파티션에 대한 수신 주소를 요청하는 경우 JSON 개체로 표현됩니다.
 
 상태 비저장 서비스에서는 재정의가 ServiceInstanceListeners의 컬렉션을 반환합니다. `ServiceInstanceListener`에는 `ICommunicationListener(C#) / CommunicationListener(Java)`를 만들고 이름을 부여하는 함수가 포함되어 있습니다. 상태 저장 서비스에서는 재정의가 ServiceReplicaListeners의 컬렉션을 반환합니다. 이는 `ServiceReplicaListener`에 보조 복제본에서 `ICommunicationListener`를 여는 옵션이 있기 때문에 해당 상태 비저장에 상응하는 것과는 약간 다릅니다. 서비스에서 여러 통신 수신기를 사용할 수 있을 뿐만 아니라 보조 복제본에서 요청을 수락하는 수신기와 주 복제본에서만 수신하는 수신기를 지정할 수도 있습니다.
 

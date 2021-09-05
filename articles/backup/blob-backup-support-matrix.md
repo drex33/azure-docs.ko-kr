@@ -2,14 +2,14 @@
 title: Azure Blob 백업의 지원 매트릭스
 description: Azure Blob을 백업할 경우의 지원 설정 및 제한 사항에 대한 요약입니다.
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 07/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 06e6d193ec929961dd4eeb192045a217aefa4ab2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ba2798ff464720379326ee56098f840a06e2c042
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475104"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535487"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Azure Blob 백업의 지원 매트릭스
 
@@ -32,6 +32,7 @@ Blob의 운영 백업은 Blob 특정 시점 복원, Blob 버전 관리, Blob에 
 - [Put Block](/rest/api/storageservices/put-block) 또는 [Put Block from URL](/rest/api/storageservices/put-block-from-url)을 통해 업로드되었지만 [Put Block List](/rest/api/storageservices/put-block-list)를 통해 커밋되지 않은 블록은 Blob에 속하지 않으므로 복원 작업의 일부로 복원되지 않습니다.
 - 활성 임대가 있는 BLOB은 복원할 수 없습니다. 활성 임대가 있는 BLOB이 복원할 BLOB 범위에 포함된 경우 복원 작업이 자동으로 실패합니다. 복원 작업을 시작하기 전에 활성 임대를 중단합니다.
 - 스냅샷은 복원 작업의 일부로 생성되거나 삭제되지 않습니다. 기본 BLOB만 이전 상태로 복원됩니다.
+- 복원 중인 항목 사이에 [변경할 수 없는 Blob](../storage/blobs/immutable-storage-overview.md#about-immutable-storage-for-blobs)이 있는 경우 이러한 변경할 수 없는 Blob은 선택한 복구 지점에 따라 해당 상태로 복원되지 않습니다. 그러나 불변성을 사용하지 않는 다른 Blob은 예상대로 선택한 복구 지점으로 복원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

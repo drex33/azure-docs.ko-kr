@@ -7,21 +7,18 @@ ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 8ffedc18ba331733723a6293756b60b733cc32cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a64049ab544b2ec790d3625dad9137ae539f3020
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904723"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566620"
 ---
 # <a name="data-structures-in-azure-maps-mobility-services-preview"></a>Azure Maps Mobility Services(미리 보기)의 데이터 구조 
 
 > [!IMPORTANT]
-> Azure Maps Mobility Services는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-
+> Azure Maps Mobility Services 미리 보기는 사용 중지되었으며 2021년 10월 5일 이후에는 더 이상 사용할 수 없으며 지원되지 않습니다. 다른 모든 Azure Maps API 및 서비스는 이 만료 공지의 영향을 받지 않습니다.
+> 자세한 내용은 [Azure Maps Mobility 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/)를 참조하세요.
 
 이 문서에서는 [Azure Maps Mobility Services](/rest/api/maps/mobility)의 지하철 영역에 대한 개념을 소개합니다. 이 서비스가 대중 교통 정류장 및 노선에 대해 쿼리될 때 반환되는 일반적인 필드 중 일부에 대해 설명합니다. Mobility Services API를 사용하여 개발하기 전에 이 문서를 읽어 보는 것이 좋습니다.
 

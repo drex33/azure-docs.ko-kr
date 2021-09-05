@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: sideeksh
-ms.openlocfilehash: c334eee34eb878135d3d81ab15d03618c6604846
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f96ba97537763bb4aec0ce558a12d675369ad57
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86135172"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567761"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Azure Backup에서 Site Recovery 사용에 대한 지원
 
@@ -25,4 +25,4 @@ ms.locfileid: "86135172"
 **디스크 복원** | 현재 지원 없음 | 백업된 디스크를 복원하는 경우 VM에 대한 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 **VM 복원** | 현재 지원 없음 | VM 또는 VM 그룹을 복원하는 경우 VM에 대한 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.  
 
-
+위의 표는 지원되는 모든 Azure Site Recovery 시나리오에 적용됩니다.

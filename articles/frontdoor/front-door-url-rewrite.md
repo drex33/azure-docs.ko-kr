@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4aedc6e92b02cf81003ecf4b40a5096bf80c7448
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91445481"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441049"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>URL 다시 쓰기(사용자 지정 전달 경로)
 Azure Front Door는 백 엔드에 전달할 요청을 생성할 때 사용할 선택적 **사용자 지정 전달 경로** 를 구성하여 URL 다시 쓰기를 지원합니다. 기본적으로 사용자 지정 전달 경로를 제공하지 않으면 Front Door는 들어오는 URL 경로를 전달된 요청에서 사용된 URL에 복사합니다. 전달된 요청의 호스트 헤더는 선택한 백 엔드에 맞게 구성됩니다. 호스트 헤더의 역할 및 구성 방법은 [백 엔드 호스트 헤더](front-door-backend-pool.md#hostheader)를 참조하세요.
@@ -48,6 +48,10 @@ URL 다시 쓰기가 강력한 이유는 사용자 지정 전달 경로가 들�
 | www\.contoso.com/foo         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
 | www\.contoso.com/foo/        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
 | www\.contoso.com/foo/**bar** | /foo/\*                  | /**bar**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
+
+> [!NOTE]
+> Azure Front Door는 고정 경로에서 다른 고정 경로에 대한 URL 재작성만 지원합니다. 일치하지 않는 경로 유지는 Azure Front Door Standard/Premium SKU에서 지원됩니다. 자세한 내용은 [일치하지 않는 경로 유지](standard-premium/concept-rule-set-url-redirect-and-rewrite.md#preserve-unmatched-path)를 참조하세요.
+> 
 
 ## <a name="optional-settings"></a>선택적 설정
 특정 회람 규칙 설정에 대해 지정할 수 있는 추가 옵션 설정이 있습니다.

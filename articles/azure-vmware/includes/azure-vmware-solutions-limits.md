@@ -3,12 +3,15 @@ title: Azure VMware Solution 제한
 description: Azure VMware Solution 제한 사항.
 ms.topic: include
 ms.date: 03/24/2021
-ms.openlocfilehash: ce0f346c66c7eb982f0891b82e710affdcc956a8
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
+ms.openlocfilehash: 02840f5d74a1490b0af71933f795385b70467d7b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109719327"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535757"
 ---
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md and concepts-networking.md -->
 
@@ -17,9 +20,9 @@ ms.locfileid: "109719327"
 | **리소스** | **제한** |
 | :-- | :-- |
 | 프라이빗 클라우드당 클러스터 수 | 12 |
-| 클러스터당 최소 노드 수 | 3 |
-| 클러스터당 최대 노드 수 | 16 |
-| 프라이빗 클라우드당 노드 수 | 96 |
+| 클러스터당 최소 호스트 수 | 3 |
+| 클러스터당 최대 호스트 수 | 16 |
+| 프라이빗 클라우드당 호스트 수 | 96 |
 | 프라이빗 클라우드당 vCenter | 1  |
 | HCX 사이트 페어링 | 3개(고급 버전 포함), 10개(엔터프라이즈 버전 포함) |
 | AVS ExpressRoute 최대 연결된 프라이빗 클라우드 | 4<br />사용된 가상 네트워크 게이트웨이는 실제 최대 연결된 프라이빗 클라우드를 결정합니다.  자세한 내용은 [ExpressRoute 가상 네트워크 게이트웨이 정보](../../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요. | 
@@ -27,4 +30,4 @@ ms.locfileid: "109719327"
 | vWAN을 통해 노출되는 공용 IP | 100 |
 | vSAN 용량 제한 | 총 가용의 75%(SLA에 25% 사용 가능)  |
 
-다른 VMware 특정 제한에 대해서는 [VMware 구성 최대 도구](https://configmax.vmware.com/)를 사용하세요.
+다른 VMware 관련 제한에 대해서는 [VMware 구성 최대 도구](https://configmax.vmware.com/)를 사용하세요.

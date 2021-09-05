@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 내에서, 다른 Azure 서비스로 이벤트를 라우팅하는 방법에 대해 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 10/12/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a63390073f92625788dfbf43fc1183cc1812024a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b9038840142be64918b22f1aefc32d505252d71d
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460330"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538531"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -46,7 +46,7 @@ Azure Digital Twins 데이터를 전송하는 두 가지 주요 사례는 다음
 
 또한 컴퓨팅 리소스는 보안 및 액세스 권한을 독립적으로 설정해야 합니다.
 
-디지털 트윈 이벤트를 처리하도록 Azure 함수를 설정하는 프로세스를 안내하려면 [방법: 데이터 처리를 위한 Azure 함수 설정](how-to-create-azure-function.md)을 참조하세요.
+디지털 트윈 이벤트를 처리하도록 Azure 함수를 설정하는 프로세스를 살펴보려면 [트윈 간 이벤트 처리 설정](how-to-send-twin-to-twin-events.md)을 참조하세요.
 
 ## <a name="create-an-endpoint"></a>엔드포인트 만들기
 
@@ -55,7 +55,7 @@ Azure Digital Twins 데이터를 전송하는 두 가지 주요 사례는 다음
 * 이벤트 허브
 * Service Bus
 
-엔드포인트를 만들려면 Azure Digital Twins [REST API, CLI 명령](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) 또는 [Azure Portal](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins)을 사용할 수 있습니다.
+[엔드포인트를 만들](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins)려면 Azure Digital Twins REST API, CLI 명령 또는 Azure Portal을 사용할 수 있습니다.
 
 엔드포인트를 정의하는 경우 다음을 제공해야 합니다.
 * 엔드포인트의 이름
@@ -71,7 +71,7 @@ Azure Digital Twins 데이터를 전송하는 두 가지 주요 사례는 다음
 
 ## <a name="create-an-event-route"></a>이벤트 경로 만들기
  
-이벤트 경로를 만들려면 Azure Digital Twins [REST API, CLI 명령](how-to-manage-routes-apis-cli.md#create-an-event-route) 또는 [Azure Portal](how-to-manage-routes-portal.md#create-an-event-route)을 사용할 수 있습니다.
+[이벤트 경로를 만들](how-to-manage-routes.md#create-an-event-route)려면 Azure Digital Twins REST API, CLI 명령 또는 Azure Portal을 사용할 수 있습니다.
 
 다음은 `CreateOrReplaceEventRouteAsync` [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 호출을 사용하여 클라이언트 애플리케이션 내에서 이벤트 경로를 만드는 예제입니다. 
 
@@ -79,7 +79,7 @@ Azure Digital Twins 데이터를 전송하는 두 가지 주요 사례는 다음
 
 1. 먼저 `DigitalTwinsEventRoute` 개체가 만들어지고 생성자는 엔드포인트의 이름을 사용합니다. 이 `endpointName` 필드는 Event Hub, Event Grid 또는 Service Bus 등의 엔드포인트를 식별합니다. 이러한 엔드포인트는 구독에서 생성되고 이 등록을 호출하기 전에 컨트롤 플레인 API를 사용하여 Azure Digital Twins에 연결되어야 합니다.
 
-2. 이벤트 경로 개체에는 이 경로를 따르는 이벤트 유형을 제한하는 데 사용할 수 있는 [필터](how-to-manage-routes-apis-cli.md#filter-events) 필드도 있습니다. `true` 필터는 추가 필터링 없이 경로를 사용하도록 설정합니다. `false` 필터는 경로를 사용하지 않도록 설정합니다. 
+2. 이벤트 경로 개체에는 이 경로를 따르는 이벤트 유형을 제한하는 데 사용할 수 있는 [필터](how-to-manage-routes.md#filter-events) 필드도 있습니다. `true` 필터는 추가 필터링 없이 경로를 사용하도록 설정합니다. `false` 필터는 경로를 사용하지 않도록 설정합니다. 
 
 3. 그런 다음, 이 이벤트 경로 개체는 경로에 대한 이름과 함께 `CreateOrReplaceEventRouteAsync`에 전달됩니다.
 
@@ -99,7 +99,7 @@ Azure Digital Twins 데이터를 전송하는 두 가지 주요 사례는 다음
 
 SAS 토큰에 대해 자세히 알아보려면 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../storage/common/storage-sas-overview.md)를 참조하세요.
 
-배달 못한 편지를 사용하여 엔드포인트를 설정하는 방법을 알아보려면 [방법: Azure Digital Twins(API 및 CLI)에서 엔드포인트 및 경로 관리](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)를 참조하세요.
+배달 못한 편지를 사용하여 엔드포인트를 설정하는 방법을 알아보려면 [Azure Digital Twins에서 엔드포인트 및 경로 관리](how-to-manage-routes.md#create-an-endpoint-with-dead-lettering)를 참조하세요.
 
 ### <a name="types-of-event-messages"></a>이벤트 메시지 형식
 
@@ -110,7 +110,7 @@ IoT Hub의 다양한 이벤트 유형 및 Azure Digital Twins는 아래에 설�
 ## <a name="next-steps"></a>다음 단계
 
 이벤트 경로를 설정하고 관리하는 방법을 참조하세요.
-* [방법: 엔드포인트 및 경로 관리](how-to-manage-routes-apis-cli.md)
+* [엔드포인트 및 경로 관리](how-to-manage-routes.md)
 
 또는 Azure Functions를 사용하여 Azure Digital Twins 내에서 이벤트를 라우팅하는 방법을 참조하세요.
-* [방법: 데이터 처리를 위한 Azure Function 설정](how-to-create-azure-function.md)
+* [트윈 간 이벤트 처리를 설정](how-to-send-twin-to-twin-events.md)합니다.

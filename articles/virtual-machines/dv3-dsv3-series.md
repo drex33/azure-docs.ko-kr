@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 22400164ac82df3ec0e0e24daf6d823eae219837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac0282a6726f0f2bcdc5fa2e19eef1555281ba2e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566433"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529430"
 ---
 # <a name="dv3-and-dsv3-series"></a>Dv3 및 Dsv3 시리즈
 
@@ -34,19 +34,21 @@ Dv3 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 [실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
 [VM 생성 지원](generation-2.md): 1세대<br>
-[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(*최소 4개의 vCPU 필요*)<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 NIC 수/네트워크 대역폭 |
 |---|---|---|---|---|---|---|
-| Standard_D2_v3  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1000  |
+| Standard_D2_v3<sup>1</sup>  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1000  |
 | Standard_D4_v3  | 4  | 16  | 100  | 8  | 6000/93/46     | 2/2000  |
 | Standard_D8_v3  | 8  | 32  | 200  | 16 | 12000/187/93   | 4/4000  |
 | Standard_D16_v3 | 16 | 64  | 400  | 32 | 24000/375/187  | 8/8000  |
 | Standard_D32_v3 | 32 | 128 | 800  | 32 | 48000/750/375  | 8/16000 |
 | Standard_D48_v3 | 48 | 192 | 1200 | 32 | 96000/1000/500 | 8/24000 |
 | Standard_D64_v3 | 64 | 256 | 1600 | 32 | 96000/1000/500 | 8/30000 |
+
+<sup>1</sup> 가속화된 네트워킹은 단일 NIC에만 적용할 수 있습니다. 
 
 ## <a name="dsv3-series"></a>Dsv3 시리즈
 
@@ -60,13 +62,13 @@ Dsv3 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 [실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
-[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(*최소 4개의 vCPU 필요*)<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 버스트 캐시된 임시 스토리지 처리량: IOPS/MBps<sup>1</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 NIC 수/예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 버스트 캐시된 임시 스토리지 처리량: IOPS/MBps<sup>2</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 NIC 수/예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v3  | 2  | 8   | 16  | 4  | 4000/32 (50)       | 4000/100    |3200/48    | 4000/100   | 2/1000  |
+| Standard_D2s_v3<sup>3</sup>  | 2  | 8   | 16  | 4  | 4000/32 (50)       | 4000/100    |3200/48    | 4000/100   | 2/1000  |
 | Standard_D4s_v3  | 4  | 16  | 32  | 8  | 8000/64 (100)      | 8000/200    |6400/96    | 8000/200   | 2/2000  |
 | Standard_D8s_v3  | 8  | 32  | 64  | 16 | 16000/128 (200)    | 16000/400   |12800/192  | 16000/400  | 4/4000  |
 | Standard_D16s_v3 | 16 | 64  | 128 | 32 | 32000/256 (400)    | 32000/800   |25600/384  | 32000/800  | 8/8000  |
@@ -74,7 +76,9 @@ Dsv3 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 | Standard_D48s_v3 | 48 | 192 | 384 | 32 | 96000/768 (1200)   | 96000/2000  |76800/1152 | 80000/2000 | 8/24000 |
 | Standard_D64s_v3 | 64 | 256 | 512 | 32 | 128000/1024 (1600) | 128000/2000 |80000/1200 | 80000/2000 | 8/30000 |
 
-<sup>1</sup>  Dsv3 시리즈 VM은 디스크 성능을 [버스트](./disk-bursting.md)하고, 한 번에 최대 30분 동안 최대 버스트를 얻을 수 있습니다.
+<sup>1</sup>  Dsv3 시리즈 VM은 디스크 성능을 [버스트](./disk-bursting.md)하고, 한 번에 최대 30분 동안 최대 버스트를 얻을 수 있습니다.<br>
+<sup>2</sup> 가속화된 네트워킹은 단일 NIC에만 적용할 수 있습니다. 
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

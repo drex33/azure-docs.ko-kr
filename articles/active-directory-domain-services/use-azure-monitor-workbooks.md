@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 9a126fe4676f340fb45677382a3aeeed79291f0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5aab12a0d3c24ef7bef9eee6c02b244e33c11e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574209"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535706"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 Azure Active Directory Domain Services의 보안 감사 이벤트 검토
 
@@ -54,7 +54,7 @@ Azure AD DS에는 다음과 같은 두 개의 통합 문서 템플릿이 있습�
 
 보안 개요 보고서의 통합 문서 템플릿에 액세스하려면 다음 단계를 완료합니다.
 
-1. Azure Portal에서 **Azure Active Directory Domain Services** 를 검색하고 선택합니다.
+1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다.
 1. 관리형 도메인(예: *aaddscontoso.com*)을 선택합니다.
 1. 왼쪽 메뉴에서 **모니터링 > 통합 문서** 를 선택합니다.
 
@@ -83,7 +83,7 @@ Azure AD DS에는 다음과 같은 두 개의 통합 문서 템플릿이 있습�
 
 계정 작업 보고서의 통합 문서 템플릿에 액세스하려면 다음 단계를 완료합니다.
 
-1. Azure Portal에서 **Azure Active Directory Domain Services** 를 검색하고 선택합니다.
+1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택합니다.
 1. 관리형 도메인(예: *aaddscontoso.com*)을 선택합니다.
 1. 왼쪽 메뉴에서 **모니터링 > 통합 문서** 를 선택합니다.
 1. **계정 작업 보고서** 를 선택합니다.

@@ -1,35 +1,42 @@
 ---
 title: 관리 ID Azure Stream Analytics로 Blob 출력 인증
 description: 이 문서에서는 관리 ID를 사용하여 Azure Blob storage 출력에 대해 Azure Stream Analytics 작업을 인증하는 방법을 설명합니다.
-author: kim-ale
-ms.author: kimal
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/15/2020
-ms.openlocfilehash: 369348133f7395f5db5b5923bd438cec8e4ad733
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/07/2021
+ms.openlocfilehash: 708871f620614f893a641f20098f6ed58af464f5
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954381"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113486106"
 ---
-# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>관리 ID(미리 보기)를 사용하여 Azure Blob Storage에 Azure Stream Analytics 작업 인증
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>관리 ID를 사용하여 Azure Blob Storage에 Azure Stream Analytics 작업 인증
 
-Azure Blob Storage에 출력하기 위한 [관리 ID 인증](../active-directory/managed-identities-azure-resources/overview.md)(미리 보기)을 사용하면 Stream Analytics 작업은 연결 문자열을 사용하는 대신 스토리지 계정에 직접 액세스할 수 있습니다. 이 기능을 사용하면 보안이 개선되는 것 이외에도 Azure 내의 VNET(가상 네트워크)에서 스토리지 계정에 데이터를 쓰는 것이 가능해집니다.
+Azure Blob Storage에 출력하기 위한 [관리 ID 인증](../active-directory/managed-identities-azure-resources/overview.md)을 사용하면 Stream Analytics 작업은 연결 문자열을 사용하는 대신 스토리지 계정에 직접 액세스할 수 있습니다. 이 기능을 사용하면 보안이 개선되는 것 이외에도 Azure 내의 VNET(가상 네트워크)에서 스토리지 계정에 데이터를 쓰는 것이 가능해집니다.
 
 이 문서에서는 Azure Portal 및 Azure Resource Manager 배포를 통해 Stream Analytics 작업의 Blob 출력에 대해 관리 ID를 사용하도록 설정하는 방법을 표시합니다.
 
 ## <a name="create-the-stream-analytics-job-using-the-azure-portal"></a>Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
-1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 엽니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성** 아래에 있는 **관리 ID** 를 선택합니다. "시스템 할당 관리 ID 사용"이 선택 되어 있는지 확인하고 화면 아래쪽에 있는 **저장** 단추를 클릭합니다.
+먼저 Azure Stream Analytics 작업의 관리 ID를 만듭니다.  
 
-   ![Stream Analytics 관리 ID 구성](./media/common/stream-analytics-enable-managed-identity.png)
+1. Azure Portal에서 Azure Stream Analytics 작업을 엽니다.  
 
-2. Azure Blob Storage 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 선택하고 **관리 ID** 를 선택합니다. 다른 출력 속성에 대한 자세한 정보는 [Azure Stream Analytics 출력 이해](./stream-analytics-define-outputs.md)를 참조하세요. 작업을 마쳤으면 **저장** 을 클릭합니다.
+2. 왼쪽 탐색 메뉴에서  *구성* 아래에 있는  **관리 ID** 를 선택합니다. 그런 다음,  **시스템이 할당한 관리 ID 사용** 옆에 있는 확인란을 선택하고  **저장** 을 선택합니다.
 
-   ![Azure Blob Storage 출력 구성](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
+   :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="시스템 할당 관리 ID":::  
 
-3. 작업이 만들어졌으므로 이 문서의 [스토리지 계정에 대한 Stream Analytics 작업 액세스 권한 부여](#give-the-stream-analytics-job-access-to-your-storage-account) 섹션을 참조하세요.
+3. Azure Active Directory에서 Stream Analytics 작업의 ID에 대한 서비스 주체가 생성됩니다. 새로 생성된 ID의 수명 주기는 Azure에서 관리합니다. Stream Analytics 작업을 삭제하면 연결된 ID(즉, 서비스 주체)는 Azure에서 자동으로 삭제합니다.  
+
+   구성을 저장하면 서비스 주체의 OID(개체 ID)가 아래와 같이 보안 주체 ID로 나열됩니다.  
+
+   :::image type="content" source="media/event-hubs-managed-identity/principal-id.png" alt-text="보안 주체 ID":::
+
+   서비스 주체에는 Stream Analytics 작업과 동일한 이름이 사용됩니다. 예를 들어, 작업 이름이  `MyASAJob`이면 서비스 주체 이름도  `MyASAJob`입니다. 
+
 
 ## <a name="azure-resource-manager-deployment"></a>Azure Resource Manager 배포
 
@@ -160,6 +167,9 @@ Stream Analytics 작업에 부여할 수 있는 액세스 수준은 두 가지�
 
 **컨테이너 수준 액세스** 옵션은 작업에 필요한 최소 액세스 수준을 부여하기 때문에 사용자를 대신하여 컨테이너를 만드는 작업이 필요하지 않을 경우 이 옵션을 선택해야 합니다. Azure Portal 및 명령줄에 대한 두 옵션이 아래에 설명되어 있습니다.
 
+> [!NOTE]
+> 글로벌 복제 또는 캐싱 대기 시간으로 인해 권한이 취소되거나 부여될 때 지연이 발생할 수 있습니다. 변경 내용은 8분 내에 반영되어야 합니다.
+
 ### <a name="grant-access-via-the-azure-portal"></a>Azure Portal를 통해 액세스 권한 부여
 
 #### <a name="container-level-access"></a>컨테이너 수준 액세스
@@ -213,6 +223,15 @@ Stream Analytics 작업에 부여할 수 있는 액세스 수준은 두 가지�
    ```azurecli
    az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
    ```
+   
+## <a name="create-a-blob-input-or-output"></a>Blob 입력 또는 출력 만들기  
+
+관리 ID를 구성했으므로 이제 Blob 리소스를 Stream Analytics 작업에 입력이나 출력으로 추가할 수 있습니다.
+
+1. Azure Blob Storage 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 선택하고 **관리 ID** 를 선택합니다. 다른 출력 속성에 대한 자세한 정보는 [Azure Stream Analytics 출력 이해](./stream-analytics-define-outputs.md)를 참조하세요. 작업을 마쳤으면 **저장** 을 클릭합니다.
+
+   ![Azure Blob Storage 출력 구성](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
+
 
 ## <a name="enable-vnet-access"></a>VNET 액세스 사용
 
@@ -235,7 +254,7 @@ Stream Analytics 작업에 대해 생성된 관리 ID는 작업이 삭제된 경
 
 2. Azure Active Directory가 없는 Azure 계정
 
-3. 다중 테넌트 액세스는 지원되지 않습니다. 주어진 Stream Analytics 작업에 대해 생성된 서비스 보안 주체는 작업이 만들어진 동일한 Azure Active Directory 테넌트에 상주해야 하며 다른 Azure Active Directory 테넌트에 있는 리소스에 대해 사용할 수 없습니다.
+3. 다중 테넌트 액세스는 지원되지 않습니다. 주어진 Stream Analytics 작업에 대해 생성된 서비스 주체는 작업이 만들어진 동일한 Azure Active Directory 테넌트에 상주해야 하며 다른 Azure Active Directory 테넌트에 있는 리소스에 대해 사용할 수 없습니다.
 
 4. [사용자 할당 ID](../active-directory/managed-identities-azure-resources/overview.md)는 지원되지 않습니다. 즉, 사용자는 자신의 Stream Analytics 작업에서 사용할 자체 서비스 보안 주체를 입력할 수 없습니다. 서비스 보안 주체는 Azure Stream Analytics에서 생성해야 합니다.
 

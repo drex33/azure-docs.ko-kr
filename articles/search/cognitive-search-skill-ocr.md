@@ -2,18 +2,17 @@
 title: OCR 인식 기술
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 보강 파이프라인에서 OCR(광학 인식)을 사용하여 이미지 파일에서 텍스트를 추출합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 12b6c8e71052d8d821d4b253d5f921bbff82e02d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/12/2021
+ms.openlocfilehash: b0ed1860abe3d8a85e87e2bf2746812e1ca67d2e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473881"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537254"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 
@@ -32,10 +31,10 @@ ms.locfileid: "110473881"
 + .TIFF
 
 > [!NOTE]
-> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 이 기술은 Cognitive Services에 바인딩되며, 하루에 인덱서당 20개의 문서를 초과하는 트랜잭션에 대해 [청구 가능한 리소스](cognitive-search-attach-cognitive-services.md)를 필요로 합니다. 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다.
+> 
+> 또한 이미지 추출은 [Azure Cognitive Search를 통해 청구](https://azure.microsoft.com/pricing/details/search/)할 수 있습니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에 설명되어 있습니다.
-
 
 ## <a name="skill-parameters"></a>기술 매개 변수
 
@@ -51,7 +50,7 @@ ms.locfileid: "110473881"
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | Description                                          |
+| 입력 이름      | 설명                                          |
 |---------------|------------------------------------------------------|
 | `image`         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
 
@@ -209,6 +208,8 @@ ms.locfileid: "110473881"
 ```
 
 ## <a name="see-also"></a>참고 항목
+
++ [광학 문자 인식이란?](../cognitive-services/computer-vision/overview-ocr.md)
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
 + [TextMerger 기술](cognitive-search-skill-textmerger.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

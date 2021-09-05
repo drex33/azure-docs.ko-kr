@@ -1,22 +1,24 @@
 ---
 title: Azure Data Factory의 삭제 작업
-description: Azure Data Factory에서 삭제 작업을 사용하여 다양한 파일 저장소에서 파일을 삭제하는 방법을 알아봅니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics에서 삭제 작업을 사용하여 다양한 파일 저장소에서 파일을 삭제하는 방법을 알아봅니다.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 569e42643642a435ba8fbd56f11d7ffcbea9249e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 08/24/2021
+ms.openlocfilehash: f185df57226f438a8f40ef6889f1945b21b8540b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065173"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252925"
 ---
-# <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory의 삭제 작업
+# <a name="delete-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics에서 작업 삭제
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 삭제 작업을 사용하여 Azure Data Factory에서 온-프레미스 스토리지 저장소나 클라우드 스토리지 저장소의 파일이나 폴더를 삭제할 수 있습니다. 파일이 더 이상 필요하지 않을 때 파일을 정리하거나 보관하려면 이 작업을 사용합니다.
 
@@ -29,7 +31,7 @@ ms.locfileid: "110065173"
 
 -   나중에 복원해야 하는 파일은 삭제 작업을 사용하여 삭제하기 전에 백업합니다.
 
--   Data Factory에 스토리지 저장소에서 폴더 또는 파일을 삭제하기 위한 쓰기 권한이 있는지 확인합니다.
+-   서비스에 스토리지 저장소에서 폴더 또는 파일을 삭제하기 위한 쓰기 권한이 있는지 확인합니다.
 
 -   쓰고 있는 파일을 동시에 삭제하지 않아야 합니다. 
 
@@ -40,7 +42,7 @@ ms.locfileid: "110065173"
 -   [Azure Blob Storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Azure File Storage](connector-azure-file-storage.md)
+-   [Azure 파일](connector-azure-file-storage.md)
 -   [파일 시스템](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
@@ -80,7 +82,7 @@ ms.locfileid: "110065173"
 
 ## <a name="type-properties"></a>형식 속성
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | 데이터 세트 | 삭제할 파일이나 폴더를 결정하기 위한 데이터 세트 참조를 제공합니다. | 예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 파일을 재귀적으로 삭제할지 여부를 나타냅니다.  | 아니요. 기본값은 `false`입니다. |
@@ -142,7 +144,7 @@ Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ### <a name="periodically-clean-up-the-time-partitioned-folder-or-files"></a>시간 분할 폴더 또는 파일을 주기적으로 정리
 
-시간 분할 폴더 또는 파일을 주기적으로 정리하기 위한 파이프라인을 만들 수 있습니다.  예를 들어 폴더 구조는 `/mycontainer/2018/12/14/*.csv`와 비슷합니다.  각 파이프라인 실행에서 삭제해야 하는 폴더 또는 파일을 식별하기 위해 일정 트리거에서 사용할 수 있는 ADF 시스템 변수를 활용할 수 있습니다. 
+시간 분할 폴더 또는 파일을 주기적으로 정리하기 위한 파이프라인을 만들 수 있습니다.  예를 들어 폴더 구조는 `/mycontainer/2018/12/14/*.csv`와 비슷합니다.  각 파이프라인 실행에서 삭제해야 하는 폴더 또는 파일을 식별하기 위해 일정 트리거에서 사용할 수 있는 서비스 시스템 변수를 활용할 수 있습니다. 
 
 #### <a name="sample-pipeline"></a>샘플 파이프라인
 
@@ -765,6 +767,6 @@ GetMetadata 작업에서 파일 목록을 열거하는 데 사용하는 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Data Factory에서 파일을 이동하는 방법에 대한 자세한 정보를 알아봅니다.
+Azure Data Factory 및 Synapse 파이프라인에서 파일을 이동하는 방법에 대해 자세히 알아봅니다.
 
--   [Azure Data Factory의 데이터 복사 도구](copy-data-tool.md)
+-   [데이터 복사 도구](copy-data-tool.md)

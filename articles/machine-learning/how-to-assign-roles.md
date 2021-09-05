@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: d18d674c47d3e337ce5c789d1dc038acbf6792ba
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 2e0b503cd305697a808c08a2fe903d0f27972448
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886085"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529117"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "107886085"
 >
 > * [Azure Kubernetes 클러스터 리소스에 대한 액세스 제어](../aks/azure-ad-rbac.md)
 > * [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
-> * [Blob 데이터에 액세스하기 위해 Azure RBAC 사용](../storage/common/storage-auth-aad-rbac-portal.md)
+> * [Blob 데이터에 액세스하기 위해 Azure RBAC 사용](../storage/blobs/assign-azure-role-data-access.md)
 
 > [!WARNING]
 > 일부 역할을 적용하면 다른 사용자에 대해 Azure Machine Learning 스튜디오의 UI 기능이 제한될 수 있습니다. 예를 들어 사용자의 역할에 컴퓨팅 인스턴스를 만들 수 없는 경우 스튜디오에서 컴퓨팅 인스턴스를 생성하는 옵션을 사용할 수 없습니다. 이 동작은 예상된 것이며, 사용자가 액세스 거부 오류를 반환하는 작업을 시도하지 못하게 합니다.
@@ -121,7 +121,7 @@ az role definition create --role-definition data_scientist_role.json
 배포 후 지정된 작업 영역에서 이 역할을 사용할 수 있게 됩니다. 이제 Azure Portal에서 이 역할을 추가하고 할당할 수 있습니다. 또는 `az ml workspace share` CLI 명령을 사용하여 사용자에게 이 역할을 할당할 수 있습니다.
 
 ```azurecli-interactive
-az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist Custom" --user jdoe@contoson.com
 ```
 
 사용자 지정 역할에 대한 자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요. 
@@ -163,7 +163,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 ## <a name="use-azure-resource-manager-templates-for-repeatability"></a>반복성을 위해 Azure Resource Manager 템플릿 사용
 
-복잡한 역할 할당을 다시 만들어야 할 것으로 예상되는 경우 Azure Resource Manager 템플릿이 큰 도움이 될 수 있습니다. [201-machine-learning-dependencies-role-assignment 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment)은 재사용을 위해 소스 코드에서 역할 할당을 지정하는 방법을 보여줍니다. 
+복잡한 역할 할당을 다시 만들어야 할 것으로 예상되는 경우 Azure Resource Manager 템플릿이 큰 도움이 될 수 있습니다. [machine-learning-dependencies-role-assignment 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment)은 재사용을 위해 소스 코드에서 역할 할당을 지정하는 방법을 보여줍니다. 
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 
@@ -182,7 +182,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 | 파이프라인 및 엔드포인트 게시 | 필요 없음 | 필요 없음 | 다음을 허용하는 소유자, 기여자 또는 사용자 지정 역할: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | AKS/ACI 리소스에 등록된 모델 배포 | 필요 없음 | 필요 없음 | 다음을 허용하는 소유자, 기여자 또는 사용자 지정 역할: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | 배포된 AKS 엔드포인트에 대한 점수 매기기 | 필요 없음 | 필요 없음 | 다음을 허용하는 소유자, 기여자 또는 사용자 지정 역할: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"`(Azure Active Directory 인증을 사용하지 않는 경우) 또는 `"/workspaces/read"`(토큰 인증을 사용하는 경우) |
-| 대화형 Notebook을 사용하여 스토리지에 액세스 | 필요 없음 | 필요 없음 | 다음을 허용하는 소유자, 기여자 또는 사용자 지정 역할: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
+| 대화형 Notebook을 사용하여 스토리지에 액세스 | 필요 없음 | 필요 없음 | 다음을 허용하는 소유자, 기여자 또는 사용자 지정 역할: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listStorageAccountKeys/action"` |
 | 새 사용자 지정 역할 만들기 | 다음을 허용하는 소유자, 기여자 또는 사용자 지정 역할: `Microsoft.Authorization/roleDefinitions/write` | 필요 없음 | 다음을 허용하는 소유자, 기여자 또는 사용자 지정 역할: `/workspaces/computes/write` |
 
 > [!TIP]
@@ -196,7 +196,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 Azure Machine Learning 작업 영역에서 MLflow 작업을 수행하려면 사용자 지정 역할의 다음 범위를 사용합니다.
 
-| MLflow 작업 | Scope |
+| MLflow 작업 | 범위 |
 | --- | --- |
 | 작업 영역 추적 저장소의 모든 실험 나열, ID로 실험 가져오기, 이름으로 실험 가져오기 | `Microsoft.MachineLearningServices/workspaces/experiments/read` |
 | 이름으로 실험을 만들기, 실험에서 태그 설정, 삭제하도록 표시된 실험 복원| `Microsoft.MachineLearningServices/workspaces/experiments/write` | 
@@ -453,6 +453,42 @@ Azure Machine Learning 작업 영역에서 MLflow 작업을 수행하려면 사�
 }
 ```
 
+### <a name="labeling-team-lead"></a>팀 잠재 고객 레이블 지정
+
+레이블이 지정된 데이터 세트를 검토 및 거부하고 레이블 지정 사이트를 볼 수 있습니다. 그 밖에 이 역할을 통해 레이블 지정자의 역할을 수행할 수도 있습니다.
+
+`labeling_team_lead_custom_role.json` :
+```json
+{
+    "properties": {
+        "roleName": "Labeling Team Lead",
+        "description": "Team lead for Labeling Projects",
+        "assignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+                ],
+                "notActions": [
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
+                ],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ## <a name="troubleshooting"></a>문제 해결
 
 다음은 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하는 동안 유의해야 할 사항입니다.
@@ -465,7 +501,7 @@ Azure Machine Learning 작업 영역에서 MLflow 작업을 수행하려면 사�
 
 - VNet 내에서 컴퓨팅 리소스를 배포하려면 다음 작업에 대한 권한이 명시적으로 있어야 합니다.
     - VNet 리소스의 `Microsoft.Network/virtualNetworks/*/read`
-    - 서브넷 리소스의 `Microsoft.Network/virtualNetworks/subnet/join/action`
+    - 서브넷 리소스의 `Microsoft.Network/virtualNetworks/subnets/join/action`
     
     네트워킹과 Azure RBAC에 관한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking)을 참조하세요.
 

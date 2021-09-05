@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/26/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e9bf7d7d61ad05726ca8dcaad06d63902273f6f8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d30ce268c7e117e5673af51ee32bea3b8923576b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085063"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536358"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용하는 Azure Stack Edge Pro의 시스템 요구 사항 
 
@@ -82,7 +82,7 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 
 | 포트 번호 | 인 또는 아웃 | 포트 범위 | 필수 | 지침 |
 |----------|-----------|------------|----------|----------|
-| TCP 443(HTTPS)| 아웃       | WAN        | 예      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
+| TCP 443(HTTPS)| 아웃       | WAN        | Yes      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
 
 전체 정보를 보려면 [IoT Edge 배포에 대한 방화벽 및 포트 구성 규칙](../iot-edge/troubleshoot.md)으로 이동하세요.
 
@@ -115,9 +115,9 @@ Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 사용하는
 
 | URL 패턴 | 포트 | 구성 요소 또는 기능 |
 |-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.com | 443 | 데이터 수집 |
-| http://\*.oms.opinsights.azure.com | 443 | OMS(Operations Management Suite) 온보딩 |
-| http://\*.dc.services.visualstudio.com | 443 | Azure 퍼블릭 클라우드 Application Insights를 사용하는 에이전트 원격 분석 |
+| https://\*ods.opinsights.azure.com | 443 | 데이터 수집 |
+| https://\*.oms.opinsights.azure.com | 443 | OMS(Operations Management Suite) 온보딩 |
+| https://\*.dc.services.visualstudio.com | 443 | Azure 퍼블릭 클라우드 Application Insights를 사용하는 에이전트 원격 분석 |
 
 자세한 내용은 [컨테이너 정보를 모니터링하기 위한 네트워크 방화벽 요구 사항](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements)을 참조하세요.
 
@@ -139,9 +139,9 @@ Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 사용하는
 
 | URL 패턴 | 포트 | 구성 요소 또는 기능 |
 |-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.us | 443 | 데이터 수집 |
-| http://\*.oms.opinsights.azure.us | 443 | OMS(Operations Management Suite) 온보딩 |
-| http://\*.dc.services.visualstudio.com | 443 | Azure 퍼블릭 클라우드 Application Insights를 사용하는 에이전트 원격 분석 |
+| https://\*ods.opinsights.azure.us | 443 | 데이터 수집 |
+| https://\*.oms.opinsights.azure.us | 443 | OMS(Operations Management Suite) 온보딩 |
+| https://\*.dc.services.visualstudio.com | 443 | Azure 퍼블릭 클라우드 Application Insights를 사용하는 에이전트 원격 분석 |
 
 
 ## <a name="internet-bandwidth"></a>인터넷 대역폭
@@ -154,10 +154,10 @@ Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 사용하는
 
 고려해야 할 요소는 다음과 같습니다.
 
-- **컨테이너 관련 사항** - 고려할 사항은 다음과 같습니다.
+- **컨테이너 관련 사항** - 다음 사항을 고려하십시오.
 
     - 컨테이너 공간이 얼마인가요? 컨테이너가 소비하는 메모리, 스토리지 및 CPU의 양이 얼마인가요?
-    - 워크로드에 있는 컨테이너가 몇 개인가요? 여러 개의 경량 컨테이너나 리소스 집약적인 컨테이너를 사용할 수 있습니다.
+    - 워크로드에 있는 컨테이너가 몇 개인가요? 여러 개의 경량 컨테이너를 사용하거나 리소스를 많이 사용하는 컨테이너를 사용할 수 있습니다.
     - 컨테이너에 할당되는 리소스와 컨테이너가 소비하는 리소스(메모리 공간)는 무엇인가요?
     - 컨테이너는 몇 개의 계층을 공유하나요? 컨테이너 이미지는 계층의 스택으로 구성된 파일 번들입니다. 컨테이너 이미지의 경우 리소스 사용량 계산을 위한 계층 수와 개별 크기를 결정합니다.
     - 사용하지 않는 컨테이너가 있나요? 중지된 컨테이너도 디스크 공간을 차지합니다.

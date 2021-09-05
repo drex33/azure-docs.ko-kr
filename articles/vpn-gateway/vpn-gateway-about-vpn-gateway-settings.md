@@ -5,27 +5,29 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 07/26/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3829202dab08b2f0a18db7d6092623cccd336e6a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ce7cd023527f18015d460727c54f0c04dae9df31
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662073"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535795"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
 VPN Gateway는 공용 연결을 통해 가상 네트워크와 온-프레미스 위치 간에 암호화된 트래픽을 전송하는 가상 네트워크 게이트웨이의 유형입니다. 또한 VPN Gateway를 사용하여 Azure 백본에 있는 가상 네트워크 간에 트래픽을 전송할 수 있습니다.
 
-VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 리소스의 구성에 따라 좌우됩니다. 이 문서의 섹션에서는 Resource Manager 배포 모델에서 생성된 가상 네트워크의 VPN Gateway와 관련된 리소스 및 설정에 대해 설명합니다. [VPN Gateway 정보](vpn-gateway-about-vpngateways.md) 문서에서 각 연결 솔루션에 대한 설명 및 토폴로지 다이어그램을 찾을 수 있습니다.
+VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 리소스의 구성에 따라 좌우됩니다. 이 문서의 섹션에서는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에서 생성된 가상 네트워크의 VPN 게이트웨이와 관련된 리소스 및 설정에 대해 설명합니다. [VPN Gateway 정보](vpn-gateway-about-vpngateways.md) 문서에서 각 연결 솔루션에 대한 설명 및 토폴로지 다이어그램을 찾을 수 있습니다.
 
 이 문서에 나오는 값은 VPN 게이트웨이(-GatewayType Vpn을 사용하는 가상 네트워크 게이트웨이)에 적용됩니다. 이 문서에서는 게이트웨이 유형 또는 영역 중복 게이트웨이 중 일부를 다룹니다.
 
 * -GatewayType 'ExpressRoute'에 적용되는 값에 대해서는 [ExpressRoute에 대한 가상 네트워크 게이트웨이](../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요.
 
 * 영역 중복 게이트웨이에 대한 내용은 [영역 중복 게이트웨이 정보](about-zone-redundant-vnet-gateways.md)를 참조하세요.
+
+* 활성-활성 게이트웨이의 경우 [고가용성 연결 정보](vpn-gateway-highlyavailable.md)를 참조하세요.
 
 * Virtual WAN에 대한 내용은 [Virtual WAN 정보](../virtual-wan/virtual-wan-about.md)를 참조하세요.
 
@@ -76,7 +78,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizing-or-changing-a-sku"></a><a name="resizechange"></a>SKU 크기 조정 또는 변경
 
-VPN 게이트웨이가 있는데 다른 게이트웨이 SKU를 사용하려는 경우 게이트웨이 SKU 크기를 조정하거나 다른 SKU로 변경할 수 있습니다. 다른 게이트웨이 SKU로 변경할 때는 기존 게이트웨이를 완전히 삭제하고 새로 작성하게 됩니다. 게이트웨이 구축에 최대 45분이 소요될 수 있습니다. 이에 비해 게이트웨이 SKU 크기를 조정할 경우 게이트웨이를 삭제하고 재구성할 필요가 없기 때문에 가동 중지 시간이 길지 않습니다. 게이트웨이 SKU를 변경하지 않고 크기를 조정할 수 있다면 그렇게 하는 것이 좋습니다. 그러나 크기 조정에 대한 규칙이 있습니다.
+VPN 게이트웨이가 있는데 다른 게이트웨이 SKU를 사용하려는 경우 게이트웨이 SKU 크기를 조정하거나 다른 SKU로 변경할 수 있습니다. 다른 게이트웨이 SKU로 변경할 때는 기존 게이트웨이를 완전히 삭제하고 새로 작성하게 됩니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다. 이에 비해 게이트웨이 SKU 크기를 조정할 경우 게이트웨이를 삭제하고 재구성할 필요가 없기 때문에 가동 중지 시간이 길지 않습니다. 게이트웨이 SKU를 변경하지 않고 크기를 조정할 수 있다면 그렇게 하는 것이 좋습니다. 그러나 크기 조정에 대한 규칙이 있습니다.
 
 1. 기본 SKU를 제외하고 동일한 세대(Generation1 또는 Generation2) 내에서 VPN Gateway SKU의 크기를 다른 VPN Gateway SKU로 크기로 조정할 수 있습니다. 예를 들어, Generation1의 VpnGw1의 크기는 Generation1의 VpnGw2로 크기로 조정될 수 있지만 Generation2 VpnGw2의 크기로 조정될 수 없습니다.
 2. 이전 게이트웨이 SKU로 작동하는 경우 Basic, Standard 및 HighPerformance SKU 간에 크기를 조정할 수 있습니다.
@@ -98,7 +100,7 @@ VPN 게이트웨이가 있는데 다른 게이트웨이 SKU를 사용하려는 �
 
 ## <a name="connection-types"></a><a name="connectiontype"></a>연결 유형
 
-Resource Manager 배포 모델에서 각 구성이 작동하려면 특정 가상 네트워크 게이트웨이 연결 유형이 필요합니다. `-ConnectionType` 에 대해 사용 가능한 Resource Manager PowerShell 값은 다음과 같습니다.
+[Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에서 각 구성이 작동하려면 특정 가상 네트워크 게이트웨이 연결 유형이 필요합니다. `-ConnectionType` 에 대해 사용 가능한 Resource Manager PowerShell 값은 다음과 같습니다.
 
 * IPsec
 * Vnet2Vnet

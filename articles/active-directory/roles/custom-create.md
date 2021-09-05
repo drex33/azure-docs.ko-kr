@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bef0dc016b2b216d51a4844c469d14a24e11068b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 3d7ece742e211715c27a4bb81b67c51a7910552f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111437769"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536657"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 만들기 및 할당
 
@@ -39,7 +39,8 @@ ms.locfileid: "111437769"
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>앱 등록 관리에 대한 액세스 권한을 부여하는 새 사용자 지정 역할 만들기
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
 1. **Azure Active Directory** > **역할 및 관리자** > **새 사용자 지정 역할** 을 선택합니다.
 
    ![역할 및 관리자 페이지에서 역할 만들기 또는 편집](./media/custom-create/new-custom-role.png)
@@ -165,8 +166,10 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
 기본 제공 역할과 마찬가지로 사용자 지정 역할은 기본적으로 조직 전체의 기본 범위에서 할당되어 조직의 모든 앱 등록에 대한 액세스 권한을 부여합니다. 또한 Azure AD 리소스의 유형에 따라 사용자 지정 역할 및 일부 관련 기본 제공 역할은 단일 Azure AD 리소스의 범위에서 할당될 수도 있습니다. 이를 통해 두 번째 사용자 지정 역할을 만들지 않고도 단일 앱의 자격 증명 및 기본 속성을 업데이트할 수 있는 권한을 사용자에게 부여할 수 있습니다.
 
-1. 애플리케이션 개발자 권한으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
-1. **앱 등록** 을 선택합니다.
+1. 애플리케이션 개발자 권한으로 [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **앱 등록** 을 선택합니다.
+
 1. 관리 권한을 부여하는 앱 등록을 선택합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 애플리케이션** 을 선택해야 할 수도 있습니다.
 
     ![역할 할당에 대한 리소스 범위로 앱 등록을 선택합니다.](./media/custom-create/appreg-all-apps.png)
@@ -174,6 +177,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 1. 앱 등록에서 **역할 및 관리자** 를 선택합니다. 아직 만들지 않은 경우 지침은 [이전 절차](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations)에 있습니다.
 
 1. 역할을 선택하여 **할당** 페이지를 엽니다.
+
 1. **할당 추가** 를 선택하여 사용자를 추가합니다. 사용자에게는 선택한 앱 등록에 대해서만 권한이 부여됩니다.
 
 ## <a name="next-steps"></a>다음 단계

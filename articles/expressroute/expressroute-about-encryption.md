@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc123580b5402b5a6daf9fc601b5f6c68ff1b1f6
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92899862"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567905"
 ---
 # <a name="expressroute-encryption"></a>ExpressRoute 암호화
  
@@ -31,7 +31,13 @@ MACsec은 [IEEE 표준](https://1.ieee802.org/security/802-1ae/)입니다. MAC(�
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>ExpressRoute Direct의 MACsec을 사용하도록 설정하면 네트워크 성능이 저하되나요?
 MACsec 암호화 및 암호 해독은 사용하는 라우터의 하드웨어에서 발생합니다. Microsoft 쪽 성능에는 영향을 미치지 않습니다. 그러나 사용하는 디바이스를 네트워크 공급업체에 문의하고 MACsec이 성능에 영향을 미치는지 확인해야 합니다.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>암호화에 지원되는 암호 도구 모음은 무엇인가요?
-[확장 패킷 번호 매기기](https://1.ieee802.org/security/802-1aebw/) 버전 AES-128 및 AES-256만 지원합니다. 또한 디바이스의 MACsec 구성에서 [SCI(보안 채널 식별자)](https://wikipedia.org/wiki/IEEE_802.1AE)를 사용하지 않도록 설정해야 합니다. 
+다음 [표준 암호화](https://1.ieee802.org/security/802-1ae/)를 지원합니다.
+* GCM-AES-128
+* GCM-AES-256
+* GCM-AES-XPN-128
+* GCM-AES-XPN-256
+
+또한 디바이스의 MACsec 구성에서 [SCI(보안 채널 식별자)](https://en.wikipedia.org/wiki/IEEE_802.1AE)를 사용하지 않도록 설정해야 합니다.
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>IPsec별 엔드투엔드 암호화 FAQ
 IPsec은 [IETF 표준](https://tools.ietf.org/html/rfc6071)입니다. IP(인터넷 프로토콜) 수준 또는 네트워크 계층 3에서 데이터를 암호화합니다. IPsec을 사용하여 온-프레미스 네트워크와 Azure의 VNET(가상 네트워크) 간 엔드투엔드 연결을 암호화할 수 있습니다. 아래에 나오는 다른 FAQ를 참조하세요.

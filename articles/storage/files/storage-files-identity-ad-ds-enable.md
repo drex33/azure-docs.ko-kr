@@ -5,15 +5,15 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/13/2020
+ms.date: 07/20/2021
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 624f97e8d2ed7a5bfe2564e64eb787671ac10ca5
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: cb66ed6c1a00c049c2fff6d9fccb22acbcb9fbee
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527463"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462509"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>1부: Azure 파일 공유에 대한 AD DS 인증 사용 설정 
 
@@ -23,15 +23,23 @@ AD DS(Active Directory Domain Services) 인증을 사용하도록 설정하기 �
 
 스토리지 계정을 AD DS에 등록하려면 AD DS에서 해당 계정을 나타내는 계정을 만듭니다. 이 프로세스는 AD DS에서 온-프레미스 Windows 파일 서버를 나타내는 계정을 만드는 것과 같다고 볼 수 있습니다. 스토리지 계정에서 해당 기능을 사용하도록 설정하면 계정에 있는 모든 신규 및 기존 파일 공유에 적용됩니다.
 
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+
 ## <a name="option-one-recommended-use-azfileshybrid-powershell-module"></a>옵션 1(권장): AzFilesHybrid PowerShell 모듈 사용
 
 AzFilesHybrid PowerShell 모듈의 cmdlet은 필요한 수정 작업을 수행하고 기능을 사용하도록 설정합니다. cmdlet의 일부는 온-프레미스 AD DS와 상호 작용하여 cmdlet이 수행하는 작업을 설명하기 때문에 변경 내용이 규정 준수 및 보안 정책과 일치하는지 확인하고 cmdlet을 실행할 수 있는 적절한 권한이 있는지 확인할 수 있습니다. AzFilesHybrid 모듈을 사용하는 것이 좋지만, 모듈을 사용할 수 없는 경우 수동으로 수행할 수 있도록 단계를 제공합니다.
 
 ### <a name="download-azfileshybrid-module"></a>AzFilesHybrid 모듈 다운로드
 
-- [AzFilesHybrid 모듈(GA 모듈: v0.2.0+)을 다운로드하고 압축을 풉니다.](https://github.com/Azure-Samples/azure-files-samples/releases) 참고로 AES 256 Kerberos 암호화는 v0.2.2 이상에서만 지원됩니다. v0.2.2 미만의 AzFilesHybrid 버전에서 기능을 사용하도록 설정하고 AES 256 Kerberos 암호화를 지원하도록 업데이트하려는 경우 [이 문서](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption)를 참조하세요. 
+- [.Net Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472)가 설치되어 있지 않으면 지금 설치합니다. 모듈을 성공적으로 가져오기 위해 필요합니다.
+- [AzFilesHybrid 모듈(GA 모듈: v0.2.0+)을 다운로드하고 압축을 풉니다.](https://github.com/Azure-Samples/azure-files-samples/releases) 참고로 AES 256 Kerberos 암호화는 v0.2.2 이상에서만 지원됩니다. v0.2.2 미만의 AzFilesHybrid 버전에서 기능을 사용하도록 설정하고 AES 256 Kerberos 암호화를 지원하도록 업데이트하려는 경우 [이 문서](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption)를 참조하세요.
 - 대상 AD에서 서비스 로그온 계정 또는 컴퓨터 계정을 만들 수 있는 권한이 있는 AD DS 자격 증명을 사용하여 온-프레미스 AD DS에 도메인 가입된 디바이스에 모듈을 설치하고 실행합니다.
--  Azure AD에 동기화된 온-프레미스 AD DS 자격 증명을 사용하여 스크립트를 실행합니다. 온-프레미스 AD DS 자격 증명에는 Azure 스토리지 계정 소유자 또는 참여자 역할 권한이 있어야 합니다.
+-  Azure AD에 동기화된 온-프레미스 AD DS 자격 증명을 사용하여 스크립트를 실행합니다. 온-프레미스 AD DS 자격 증명에는 스토리지 계정에 **소유자** 또는 **기여자** Azure 역할이 있어야 합니다.
 
 ### <a name="run-join-azstorageaccountforauth"></a>Join-AzStorageAccountForAuth 실행
 
@@ -92,13 +100,13 @@ Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -Stor
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
-## <a name="option-2-manually-perform-the-enablement-actions"></a>옵션2: 수동으로 사용 설정 작업 수행
+## <a name="option-two-manually-perform-the-enablement-actions"></a>옵션 2: 수동으로 사용 설정 작업 수행
 
 위의 `Join-AzStorageAccountForAuth` 스크립트를 이미 실행한 경우 [기능을 사용하도록 설정되었는지 확인](#confirm-the-feature-is-enabled) 섹션으로 이동합니다. 이 경우 다음 수동 단계를 수행할 필요가 없습니다.
 
 ### <a name="checking-environment"></a>환경 확인
 
-먼저, 환경의 상태를 확인해야 합니다. 특히 [Active Directory PowerShell](/powershell/module/activedirectory/)이 설치되어 있고 셸이 관리자 권한으로 실행되고 있는지 확인해야 합니다. 그런 다음 [Az.Storage 2.0 모듈](https://www.powershellgallery.com/packages/Az.Storage/2.0.0)이 설치되어 있는지 확인하고, 그렇지 않으면 설치합니다. 해당 검사를 완료한 후 AD DS를 확인하여 이미 SPN/UPN을 사용하여 “cifs/your-storage-account-name-here.file.core.windows.net”으로 생성된 [컴퓨터 계정](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory)(기본값) 또는 [서비스 로그온 계정](/windows/win32/ad/about-service-logon-accounts)이 있는지 확인합니다. 계정이 존재하지 않는 경우 다음 섹션에 설명된 대로 계정을 만듭니다.
+먼저, 환경의 상태를 확인해야 합니다. 특히 [Active Directory PowerShell](/powershell/module/activedirectory/)이 설치되어 있고 셸이 관리자 권한으로 실행되고 있는지 확인해야 합니다. 그런 다음, [Az.Storage 2.0 모듈(또는 이상)](https://www.powershellgallery.com/packages/Az.Storage/2.0.0)이 설치되어 있는지 확인하고, 그렇지 않으면 설치합니다. 해당 검사를 완료한 후 AD DS를 확인하여 이미 SPN/UPN을 사용하여 “cifs/your-storage-account-name-here.file.core.windows.net”으로 생성된 [컴퓨터 계정](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory)(기본값) 또는 [서비스 로그온 계정](/windows/win32/ad/about-service-logon-accounts)이 있는지 확인합니다. 계정이 존재하지 않는 경우 다음 섹션에 설명된 대로 계정을 만듭니다.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>수동으로 AD에서 스토리지 계정을 나타내는 ID 만들기
 

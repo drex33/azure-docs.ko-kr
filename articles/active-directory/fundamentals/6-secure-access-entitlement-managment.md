@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89744b63a555cc02d35815b4066ce572b7f77e38
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: ccd033ec224762fef984e98971334ec93bff931f
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531887"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113231677"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>권한 관리를 사용하여 외부 액세스 관리 
 
@@ -37,7 +37,7 @@ ms.locfileid: "107531887"
 
 * Salesforce 같은 사용자 지정 사내 및 SaaS 앱을 포함하는 엔터프라이즈 애플리케이션
 
-* Microsoft Teams 채널
+* Microsoft Teams.
 
 * Microsoft 365 그룹 
 
@@ -151,15 +151,15 @@ ms.locfileid: "107531887"
 
 ### <a name="next-steps"></a>다음 단계
 
-리소스에 대한 외부 액세스 보안에 관해서는 다음 문서를 참조하세요. 작업은 나열된 순서대로 수행하는 것이 좋습니다.
+리소스에 대한 외부 액세스 보안에 관해 다음 문서를 참조하세요. 나열된 순서대로 작업을 수행하는 것이 좋습니다.
 
-1. [외부 액세스를 위한 보안 상태 결정](1-secure-access-posture.md)
+1. [외부 액세스에 대한 보안 태세 결정](1-secure-access-posture.md)
 
-2. [현재 상태 파악](2-secure-access-current-state.md)
+2. [현재 상태 검색](2-secure-access-current-state.md)
 
 3. [거버넌스 계획 만들기](3-secure-access-plan.md)
 
-4. [보안을 위한 그룹 사용](4-secure-access-groups.md)
+4. [보안을 위해 그룹 사용](4-secure-access-groups.md)
 
 5. [Azure AD B2B로 전환](5-secure-access-b2b.md)
 
@@ -167,7 +167,7 @@ ms.locfileid: "107531887"
 
 7. [조건부 액세스 정책을 통한 보안 액세스](7-secure-access-conditional-access.md)
 
-8. [민감도 레이블을 통한 보안 액세스](8-secure-access-sensitivity-labels.md)
+8. [민감도 레이블을 사용한 보안 액세스](8-secure-access-sensitivity-labels.md)
 
 9. [Microsoft Teams, OneDrive 및 SharePoint에 대한 보안 액세스](9-secure-access-teams-sharepoint.md)
 

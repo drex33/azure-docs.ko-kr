@@ -4,17 +4,17 @@ description: Bicep에서 리소스를 조건부로 배포하는 방법을 설명
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 9636444af81b000443dc72cf6e3fc1d8d6da5093
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 07/30/2021
+ms.openlocfilehash: f3c845757d6cd251905e39999c9858224ee67269
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537079"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566285"
 ---
 # <a name="conditional-deployment-in-bicep"></a>Bicep의 조건부 배포
 
-Bicep에서 리소스를 선택적으로 배포해야 하는 경우도 있습니다. 리소스 배포 여부를 지정하려면 `if` 키워드를 사용합니다. 조건 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
+Bicep에서 리소스 또는 모듈을 선택적으로 배포해야 하는 경우도 있습니다. `if` 키워드를 사용하여 리소스 또는 모듈이 배포되는지 여부를 지정합니다. 조건 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스 또는 모듈에만 적용할 수 있습니다.
 
 > [!NOTE]
 > 조건부 배포는 [하위 리소스](child-resource-name-type.md)로 연결되지 않습니다. 리소스 및 해당 자식 리소스를 조건부로 배포하려면 각 리소스 종류에 동일한 조건을 적용해야 합니다.
@@ -32,7 +32,17 @@ resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
 }
 ```
 
-조건은 종속성 선언에 사용할 수 있습니다. 조건부 리소스의 식별자가 다른 리소스의 `dependsOn`에 지정된 경우(명시적 종속성) 템플릿 배포 시 조건이 false로 평가되면 종속성이 무시됩니다. 조건이 true로 평가되면 종속성이 반영됩니다. 조건부 리소스(암시적 종속성)의 속성을 참조하는 것은 허용되지만 런타임 오류가 발생하는 경우도 있습니다.
+다음 예제에서는 조건부로 모듈을 배포합니다.
+
+```bicep
+param deployZone bool
+
+module dnsZone 'dnszones.bicep' = if (deployZone) {
+  name: 'myZoneModule'
+}
+```
+
+조건은 종속성 선언에 사용할 수 있습니다. [명시적 종속성](resource-declaration.md#set-resource-dependencies)의 경우 리소스가 배포되지 않으면 Azure Resource Manager가 필수 종속성에서 해당 종속성을 자동으로 제거합니다. 암시적 종속성의 경우 조건부 리소스의 속성을 참조하는 것은 허용되지만 배포 오류가 발생할 수 있습니다.
 
 ## <a name="new-or-existing-resource"></a>신규 또는 기존 리소스
 
@@ -64,8 +74,6 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 
 `newOrExisting` 매개 변수가 **new** 로 설정되면 조건이 true로 평가됩니다. 스토리지 계정이 배포됩니다. 그러나 `newOrExisting`이 **existing** 으로 설정되면 조건이 false로 평가되고 스토리지 계정이 배포되지 않습니다.
 
-`condition` 요소를 사용하는 전체 예제 템플릿은 [신규 또는 기존 가상 네트워크, 스토리지 및 공용 IP를 사용하는 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-new-or-existing-conditions)을 참조하세요.
-
 ## <a name="runtime-functions"></a>런타임 기능
 
 조건부로 배포된 리소스와 함께 [reference](./bicep-functions-resource.md#reference) 또는 [list](./bicep-functions-resource.md#list) 함수를 사용하는 경우 리소스가 배포되지 않은 경우에도 함수가 평가됩니다. 함수가 존재하지 않는 리소스를 참조하면 오류가 발생합니다.
@@ -96,8 +104,6 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
 
 output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
 ```
-
-다른 리소스와 마찬가지로 조건부 리소스에 대해 [리소스를 종속 리소스로 설정](./resource-declaration.md#set-resource-dependencies)합니다. 조건부 리소스가 배포되지 않으면 Azure Resource Manager가 필요한 종속성에서 해당 리소스를 자동으로 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

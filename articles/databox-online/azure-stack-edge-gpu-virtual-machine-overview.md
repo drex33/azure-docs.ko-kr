@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: how-to
-ms.date: 04/28/2021
+ms.topic: conceptual
+ms.date: 07/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 775cb6f7cfc19b0009fc92cc5afbd3ac383b3ea3
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 73cb44dd3564f56f8edd5304a344a50f1e4b5c9d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663862"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536356"
 ---
 # <a name="virtual-machines-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 가상 머신
 
@@ -53,13 +53,14 @@ VM을 배포하려는 경우 VM 크기를 알고 있어야 합니다. 디바이�
 |마스터 VM|4 코어, 4-GB RAM|
 |작업자 VM|12 코어, 32-GB RAM|
 
-
 디바이스에서 사용할 수 있는 컴퓨팅 및 메모리는 해당 디바이스 모델의 [컴퓨팅 및 메모리 사양](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications)을 참조하세요. 
+
+GPU 가상 머신의 경우 [NCasT4-v3 시리즈의 VM 크기](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview)를 사용해야 합니다.
 
 
 ### <a name="vm-limits"></a>VM 한도
 
-디바이스에서 최대 24 개의 VM을 실행할 수 있습니다. 이는 워크로드를 배포할 때 고려해야 할 또 다른 요소입니다.
+디바이스에서 최대 24개의 VM을 실행할 수 있습니다. 이는 워크로드를 배포할 때 고려해야 할 또 다른 요소입니다.
 
 ### <a name="operating-system-disks-and-images"></a>운영 체제 디스크 및 이미지
 

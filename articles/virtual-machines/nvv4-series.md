@@ -7,23 +7,23 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: 68b6ea79425bcd3e0d016c67eb9a0de839f3d8d6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6f2a70e932c1b810e9fef2bca75f1ff9b6e92048
+ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744266"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113353974"
 ---
 # <a name="nvv4-series"></a>NVv4 시리즈 
 
-NVv4 시리즈 가상 머신은 [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPU 및 AMD Epyc 7V12(Rome) CPU로 구동됩니다. NVv4 시리즈 Azure는 부분 GPU를 사용하는 가상 머신을 소개합니다. GPU 가속화된 그래픽 애플리케이션 및 가상 데스크톱에 적합한 크기의 가상 머신을 2GiB 프레임 버퍼가 있는 GPU의 1/8에서 시작하여 16GiB 프레임 버퍼가 있는 전체 GPU까지 선택하세요. NVv4 가상 머신은 현재 Windows 게스트 운영 체제만 지원합니다.
+NVv4 시리즈 가상 머신은 기본 주파수 2.45GHz, 3.1GHz의 모든 코어 최대 주파수 및 3.3GHz의 단일 코어 최고 주파수를 사용하는 [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPU 및 AMD EPYC 7V12(Rome) CPU를 통해 구동됩니다. NVv4 시리즈 Azure는 부분 GPU를 사용하는 가상 머신을 소개합니다. GPU 가속화된 그래픽 애플리케이션 및 가상 데스크톱에 적합한 크기의 가상 머신을 2GiB 프레임 버퍼가 있는 GPU의 1/8에서 시작하여 16GiB 프레임 버퍼가 있는 전체 GPU까지 선택하세요. NVv4 가상 머신은 현재 Windows 게스트 운영 체제만 지원합니다.
 
 <br>
 
 [ACU](acu.md): 230-260<br>
 [Premium Storage](premium-storage-performance.md): 지원됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
-[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대한 [자세한 정보](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
+[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대해 [자세히 알아보기](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>

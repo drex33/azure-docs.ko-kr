@@ -1,29 +1,29 @@
 ---
-title: Azure Service Bus 항목 및 구독 시작 | Microsoft Docs
+title: .NET(이전 버전)에서 Azure Service Bus 토픽 및 구독 사용
 description: Service Bus 메시징 항목 및 구독을 사용하는 C# .NET Core 콘솔 애플리케이션을 작성합니다.
-ms.topic: quickstart
+ms.topic: how-to
 ms.tgt_pltfrm: dotnet
-ms.date: 09/02/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a64ccec49248f48a85782cfe9537513a97b2bdfc
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 4644cc6ed4c3f668c7a53ad963e7779740f0b771
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868162"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736272"
 ---
-# <a name="get-started-with-service-bus-topics"></a>Service Bus 큐 항목 시작
-이 자습서에서 다루는 단계는 다음과 같습니다.
+# <a name="use-service-bus-topics-and-subscriptions-with-net-old-package"></a>.NET(이전 패키지)에서 Service Bus 토픽 및 구독 사용
+이 문서에서는 다음 단계를 다룹니다.
 
 1. 항목에 일련의 메시지를 보내도록 .NET Core 콘솔 애플리케이션을 작성합니다.
 2. 구독에서 해당 메시지를 수신하도록 .NET Core 콘솔 애플리케이션을 작성합니다.
 
 > [!WARNING]
-> 이 빠른 시작에서는 이전 Microsoft.Azure.ServiceBus 패키지를 사용합니다. 최신 Azure.Messaging.ServiceBus 패키지를 사용하는 빠른 시작은 [Azure.Messaging.ServiceBus 패키지를 사용하여 메시지 보내기 및 받기](service-bus-dotnet-how-to-use-topics-subscriptions.md)를 참조하세요. 이전 라이브러리를 사용하는 애플리케이션을 새 라이브러리로 이동하려면 [Microsoft.Azure.ServiceBus에서 Azure.Messaging.ServiceBus로 마이그레이션하기 위한 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md)를 참조하세요. 
+> 이 문서에서는 이전 Microsoft.Azure.ServiceBus 패키지를 사용합니다. 최신 Azure.Messaging.ServiceBus 패키지를 사용하는 문서는 [Azure.Messaging.ServiceBus 패키지를 사용하여 메시지 보내기 및 받기](service-bus-dotnet-how-to-use-topics-subscriptions.md)를 참조하세요. 이전 라이브러리를 사용하는 애플리케이션을 새 라이브러리로 이동하려면 [Microsoft.Azure.ServiceBus에서 Azure.Messaging.ServiceBus로 마이그레이션하기 위한 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+1. Azure 구독 이 문서의 단계를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 2. [빠른 시작: Azure Portal을 사용하여 Service Bus 항목 및 해당 항목에 대한 하나 이상의 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md): 다음 작업을 수행합니다.
     1. Service Bus **네임스페이스** 를 만듭니다.
     2. **연결 문자열** 을 가져옵니다.

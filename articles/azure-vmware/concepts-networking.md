@@ -2,13 +2,13 @@
 title: 개념 - Network 상호 연결
 description: Azure VMware Solution에서 네트워킹 및 상호 연결의 주요 측면과 사용 사례에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: b3107ff85302e24e3c047ef0ea08f7a4b879b3be
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 06/28/2021
+ms.openlocfilehash: 91bd1bfc207a2fb08b644e4ecf54be7b254c39fa
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089599"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537623"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware Solution 네트워킹 및 상호 연결 개념
 
@@ -20,7 +20,7 @@ Azure VMware Solution 프라이빗 클라우드에서 상호 연결하는 방법
 
 - [**온-프레미스에서 프라이빗 클라우드로의 완전한 상호 연결**](#on-premises-interconnectivity)은 기본 Azure 전용 구현을 확장하여 온-프레미스와 Azure VMware Solution 프라이빗 클라우드 간 상호 연결을 포함합니다.
  
-이 문서에서는 요구 사항 및 제한 사항을 포함하여 네트워킹 및 상호 연결을 설정하는 주요 개념을 다룹니다. 이 문서에서는 Azure VMware Solution과 함께 작동하도록 네트워킹을 구성하는 데 필요한 정보를 제공합니다.
+이 문서에서는 요구 사항 및 제한 사항을 포함하여 네트워킹 및 상호 연결을 설정하는 주요 개념을 다룹니다. 또한 이 문서에서는 Azure VMware Solution을 사용하여 네트워킹을 구성하는 데 필요한 정보를 제공합니다.
 
 ## <a name="azure-vmware-solution-private-cloud-use-cases"></a>Azure VMware Solution 프라이빗 클라우드 사용 사례
 
@@ -45,7 +45,7 @@ Azure 가상 네트워크를 Azure VMware Solution 프라이빗 클라우드 구
 - 프라이빗 클라우드에서 실행되는 워크로드의 인바운드 액세스.
 
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="기본 가상 네트워크와 프라이빗 클라우드 연결" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="Azure VMware Solution 프라이빗 클라우드 배포 시 설정된 기본 네트워크 상호 연결을 보여주는 다이어그램." border="false":::
 
 ## <a name="on-premises-interconnectivity"></a>온-프레미스 상호 연결
 
@@ -56,7 +56,7 @@ Azure 가상 네트워크를 Azure VMware Solution 프라이빗 클라우드 구
 - 온-프레미스와 Azure VMware Solution 간의 핫/콜드 vCenter vMotion.
 - 온-프레미스에서 Azure VMware Solution으로의 프라이빗 클라우드 관리 액세스.
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="가상 네트워크 및 온-프레미스 전체 프라이빗 클라우드 연결" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="가상 네트워크 및 온-프레미스에서 프라이빗 클라우드 간 상호 연결을 보여주는 다이어그램." border="false":::
 
 프라이빗 클라우드에 대한 전체 상호 연결을 위해 ExpressRoute Global Reach를 사용하고 Azure Portal에서 Global Reach에 대한 인증 키 및 개인 피어링 ID를 요청해야 합니다. 권한 부여 키와 피어링 ID는 구독의 ExpressRoute 회로와 프라이빗 클라우드의 ExpressRoute 회로 간에 Global Reach를 설정하는 데 사용됩니다. 연결되면 두 개의 ExpressRoute 회로에서 온-프레미스 환경 간의 네트워크 트래픽을 프라이빗 클라우드로 라우팅합니다. 절차에 대한 자세한 내용은 [프라이빗 클라우드로 ExpressRoute Global Reach 피어링 만들기에 대한 자습서](tutorial-expressroute-global-reach-private-cloud.md)를 참조하세요.
 
@@ -69,7 +69,7 @@ Azure VMware Solution 네트워크 및 상호 연결 개념을 살펴보았으�
 
 - [Azure VMware Solution 스토리지 개념](concepts-storage.md)
 - [Azure VMware Solution ID 개념](concepts-identity.md)
-- [Azure VMware Solution 리소스를 사용하는 방법](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
+- [Azure VMware Solution 리소스 공급자 사용](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

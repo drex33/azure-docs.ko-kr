@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: d900ffa4481ba2b6deb21a8325f3f8def8084f84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 63c1e21b95971abf74abe47e07619c257f13e499
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714734"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114665110"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure 스토리지 분석 메트릭(클래식)
 
@@ -80,7 +80,7 @@ Storage Explorer 도구를 사용하여 이 메트릭 데이터를 구분된 형
 ## <a name="billing-on-storage-metrics"></a>스토리지 메트릭에 대한 청구
 메트릭용 테이블 엔터티 작성을 위한 쓰기 요청에는 모든 Azure Storage 작업에 적용되는 표준 요금이 부과됩니다.  
 
-클라이언트의 메트릭 데이터 읽기 및 삭제 요청 역시 표준 요금이 청구됩니다. 데이터 보존 정책을 구성한 경우에는 Azure Storage에서 이전 메트릭 데이터를 삭제할 때 요금이 부과되지 않습니다. 분석 데이터를 삭제하는 경우 계정에 대해 삭제 작업 요금이 부과됩니다.  
+클라이언트의 메트릭 데이터 읽기 요청도 표준 요금이 청구됩니다. 
 
 메트릭 테이블에 사용되는 용량도 청구됩니다. 다음 정보를 통해 메트릭 데이터 저장에 사용되는 용량을 예상할 수 있습니다.  
 

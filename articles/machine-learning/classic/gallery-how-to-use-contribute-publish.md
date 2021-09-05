@@ -9,19 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 935d0149a4a6b33c5272e57aab5f1cc9c3bb2924
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42327bc0d3acd8f3afbd99814fa2687372a564d1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519850"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688829"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 
-**적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이는 이 문서가 Azure Machine Learning에 적용됨을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:** ![이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이 문서가 Azure Machine Learning에 적용되지 않음을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-
-
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 **[Azure AI Gallery](https://gallery.azure.ai)**.
 갤러리에는 자체 분석 솔루션을 개발하는 데 사용할 수 있는 다양한 리소스가 있습니다.
@@ -30,7 +29,7 @@ ms.locfileid: "100519850"
 
 Azure AI Gallery는 Microsoft에서 참여한 다양한 리소스와 데이터 과학 커뮤니티의 멤버를 포함합니다. 여기에는 다음이 포함됩니다.
 
-* **실험** - 이 Gallery에는 갤러리에는 Azure Machine Learning Studio(클래식)에서 개발된 매우 다양한 실험이 들어 있습니다. 이러한 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
+* **실험** - 이 갤러리에는 Machine Learning Studio(클래식)에서 개발된 매우 다양한 실험이 들어 있습니다. 이러한 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
 * **자습서** - Machine Learning 기술 및 개념을 안내하거나 다양한 Machine Learning 문제를 해결하기 위한 고급 방법을 설명하는 다양한 자습서가 있습니다.
 * **컬렉션** - 컬렉션을 사용하면 특정한 솔루션 또는 개념을 다루는 실험, API 및 기타 갤러리 항목을 그룹화할 수 있습니다.
 * **사용자 지정 모듈** - 자신의 실험에서 사용할 수 있도록 사용자 지정 모듈을 Studio(클래식) 작업 영역에 다운로드할 수 있습니다.

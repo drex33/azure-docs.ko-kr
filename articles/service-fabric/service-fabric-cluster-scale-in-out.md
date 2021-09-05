@@ -3,12 +3,13 @@ title: Azure에서 Service Fabric 클러스터 스케일 인 또는 스케일 �
 description: 각 노드 형식/가상 머신 확장 집합에 대한 자동 크기 조정 규칙을 설정하여 수요에 따라 Service Fabric 클러스터의 크기를 조정합니다. 서비스 패브릭 클러스터에 노드 추가 또는 제거
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: e7f11aa5fee2b339ea8466dac93e8629419847f0
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bf54e6efe6de64bc02a9ba43dfae3f91c0b4ec7b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018550"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294142"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>클러스터 규모 확장 또는 규모 감축
 
@@ -64,7 +65,7 @@ Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale se
 > 
 
 ### <a name="add-vms-using-a-template"></a>템플릿을 사용하여 VM 추가
-[빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) 의 샘플/지침에 따라 각 노드 형식의 VM 수를 변경합니다. 
+[빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-scale-existing) 의 샘플/지침에 따라 각 노드 형식의 VM 수를 변경합니다. 
 
 ### <a name="add-vms-using-powershell-or-cli-commands"></a>PowerShell 또는 CLI 명령을 사용하여 VM 추가
 다음 코드는 이름별로 확장 집합을 가져오고 확장 집합의 **용량** 을 1단위로 늘립니다.

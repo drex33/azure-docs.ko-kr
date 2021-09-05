@@ -3,12 +3,12 @@ title: 백업 센터 지원 매트릭스
 description: 이 문서에서는 백업 센터에서 각 워크로드 유형에 대해 지원하는 시나리오를 요약합니다.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: d6e5d34e201edda4fd1e9fda85f210fb88211e28
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b922f2e320f9b41186f5a6397af5cd5f4b3f7750
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504510"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567672"
 ---
 # <a name="support-matrix-for-backup-center"></a>백업 센터 지원 매트릭스
 
@@ -31,14 +31,15 @@ ms.locfileid: "102504510"
 | 자세한 정보 | Backup 보고서 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Virtual Machine의 SQL <br><br> <li> Azure Virtual Machine의 SAP HANA <br><br> <li> Azure 파일 <br><br> <li> System Center Data Protection Manager <br><br> <li> Azure Backup 에이전트(MARS) <br><br> <li> Azure Backup 서버(MABS) | [Backup 보고서에 대해 지원되는 시나리오](./configure-reports.md#supported-scenarios) 참조 |
 | 거버넌스 | '백업' 범주에서 기본 제공 및 사용자 지정 Azure 정책 조회 및 할당 | 해당 없음 | 해당 없음 |
 | 거버넌스 | 백업에 대해 구성되지 않은 데이터 원본 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | 해당 없음 |
+| 모니터링 | 대규모 Azure Monitor 경고 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA <br><br> <li> Azure 파일<br/><br/> <li>Azure Blob<br/><br/> <li>Azure Managed Disks | [경고](./backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview) 설명서 참조 |
+| 동작 | 백업 센터에서 지역 간 복원 작업 실행 | <li> Azure Virtual Machine <br><br> <li> Azure VM의 SQL <br><br> <li> Azure VM의 SAP HANA | [지역 간 복원](./backup-create-rs-vault.md#set-cross-region-restore) 설명서 참조 |
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
 | **범주** | **시나리오**  |
 |--------------|---------------|
-| 모니터링 | 대규모로 경고 보기 |
-| 동작 | 대규모로 자격 증명 모음 설정 구성 |
-| 동작 | 백업 센터에서 지역 간 복원 작업 실행 |
+| 동작 | 대규모 자격 증명 모음 설정 구성은 현재 백업 센터에서 지원되지 않습니다. |
+| 가용성 | 백업 센터는 현재 국가별 클라우드에서 사용할 수 없습니다. | 
 
 ## <a name="next-steps"></a>다음 단계
 

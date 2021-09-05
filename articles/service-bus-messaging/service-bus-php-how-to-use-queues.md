@@ -1,21 +1,21 @@
 ---
 title: PHP에서 Azure Service Bus 큐를 사용하는 방법
-description: 이 자습서에서는 Service Bus 큐와 메시지를 주고 받는 PHP 애플리케이션을 만드는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Service Bus 큐와 메시지를 주고 받는 PHP 애플리케이션을 만드는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 ms.devlang: PHP
-ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: 46f2f4a532b8b2e3001ec7f0411498f74919a36b
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.topic: how-to
+ms.date: 07/23/2021
+ms.openlocfilehash: d0909c4e2ea5ef53a1438ce05f5ddad485c80248
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302569"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725134"
 ---
-# <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>빠른 시작: PHP에서 Service Bus 큐를 사용하는 방법
+# <a name="how-to-use-service-bus-queues-with-php"></a>PHP에서 Service Bus 큐를 사용하는 방법
 [!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
 
-이 자습서에서는 Service Bus 큐와 메시지를 주고 받는 PHP 애플리케이션을 만드는 방법에 대해 알아봅니다. 
+이 문서에서는 Service Bus 큐와 메시지를 주고 받는 PHP 애플리케이션을 만드는 방법에 대해 알아봅니다. 
 
 > [!IMPORTANT]
 > 2021년 2월부터 PHP용 Azure SDK는 사용 중지 단계로 전환되었으며 더 이상 Microsoft에서 공식적으로 지원되지 않습니다. 자세한 내용은 GitHub의 [공지](https://github.com/Azure/azure-sdk-for-php#important-annoucement)를 참조하세요. 이 문서는 곧 사용 중지됩니다. 
@@ -28,7 +28,7 @@ ms.locfileid: "113302569"
     3. **연결 문자열** 을 가져옵니다. 
 
         > [!NOTE]
-        > 이 자습서에서는 PHP를 사용하여 Service Bus 네임스페이스에 **큐** 를 만들 것입니다. 
+        > 이 문서에서는 PHP를 사용하여 Service Bus 네임스페이스에 **큐** 를 만들 것입니다. 
 3. [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)
 
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기

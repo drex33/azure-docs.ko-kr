@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 05/03/2021
 ms.author: memildin
-ms.openlocfilehash: bc9c12338610b81e23d5b850fe53aa3c5731a03a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ecedf0854d7d670cf88a8dcb729a01adaa88b646
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770284"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529363"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Security Center 트리거에 대한 응답 자동화
 
@@ -28,7 +28,7 @@ ms.locfileid: "108770284"
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free|
 |필요한 역할 및 권한:|리소스 그룹의 **보안 관리자 역할** 또는 **소유자**<br>대상 리소스에 대한 쓰기 권한도 있어야 함<br><br>Azure Logic Apps 워크플로를 사용하려면 다음 Logic Apps 역할/권한도 있어야 합니다.<br> - [Logic App 운영자](../role-based-access-control/built-in-roles.md#logic-app-operator) 권한이 필요하거나 Logic App 읽기/트리거 액세스(이 역할은 논리 앱을 만들거나 편집할 수 없으며 기존 앱만 *실행*)<br> - [Logic App 기여자](../role-based-access-control/built-in-roles.md#logic-app-contributor) 권한은 Logic App 생성 및 수정에 필요합니다.<br>Logic App 커넥터를 사용하려면 해당 서비스(예: Outlook/Teams/Slack 인스턴스)에 로그인하기 위해 추가 자격 증명이 필요할 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
 
@@ -37,7 +37,7 @@ ms.locfileid: "108770284"
 
 1. Azure Security Center의 사이드바에서 **워크플로 자동화** 를 선택합니다.
 
-    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="워크플로 자동화 목록":::
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="워크플로 자동화 목록.":::
 
     이 페이지에서 새 자동화 규칙을 만들거나 기존 규칙을 사용/사용하지 않도록 설정하거나 삭제할 수 있습니다.
 
@@ -52,13 +52,13 @@ ms.locfileid: "108770284"
 
     1. 트리거 조건이 충족될 때 실행되는 논리 앱입니다. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="워크플로 자동화 추가 창":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="워크플로 자동화 추가 창.":::
 
 1. 작업 섹션에서 **새 앱 만들기** 를 클릭하여 Logic App 생성 프로세스를 시작합니다.
 
     Azure Logic Apps로 이동합니다.
 
-    [![새 Logic App 만들기](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
+    [![새 Logic App 만들기.](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
 1. 이름, 리소스 그룹, 위치를 입력하고 **만들기** 를 클릭합니다.
 
@@ -78,11 +78,11 @@ ms.locfileid: "108770284"
     > [!NOTE]
     > 레거시 트리거 "Azure Security Center 경고에 대한 응답이 트리거되는 경우"를 사용하면 논리 앱이 워크플로 자동화 기능으로 실행되지 않습니다. 대신 위에서 언급한 트리거 중 하나를 사용하세요. 
 
-    [![논리 앱 샘플](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
+    [![논리 앱 샘플.](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
 1. 논리 앱을 정의한 후 워크플로 자동화 정의 창(‘워크플로 자동화 추가’)으로 돌아갑니다. **새로 고침** 을 클릭하여 새 Logic App을 선택할 수 있는지 확인합니다.
 
-    ![새로 고침](media/workflow-automation/refresh-the-list-of-logic-apps.png)
+    ![새로 고침.](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
 1. 논리 앱을 선택하여 자동화를 저장합니다. Logic App 드롭다운에는 위에서 언급한 Security Center 커넥터를 지원하는 Logic Apps만 표시됩니다.
 
@@ -93,7 +93,7 @@ ms.locfileid: "108770284"
 
 Logic App을 수동으로 실행하려면, 경고 또는 권장 사항을 연 다음 **논리 앱 트리거** 를 선택합니다.
 
-[![Logic App을 수동으로 트리거](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
+[![Logic App을 수동으로 트리거합니다.](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
 
 ## <a name="configure-workflow-automation-at-scale-using-the-supplied-policies"></a>제공된 정책을 사용하여 대규모 워크플로 자동화 구성
@@ -118,11 +118,11 @@ Logic App을 수동으로 실행하려면, 경고 또는 권장 사항을 연 �
     > [!TIP]
     > 또한 Azure Policy를 검색하여 찾을 수 있습니다.
     > 1. Azure Policy를 엽니다.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Azure Policy에 액세스":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Azure Policy에 액세스.":::
     > 2. Azure Policy 메뉴에서 **정의** 를 선택하고 이름으로 검색합니다. 
 
 1. 관련 Azure Policy 페이지에서 **할당** 을 선택합니다.
-    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Azure Policy 할당":::
+    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Azure Policy 할당.":::
 
 1. 각 탭을 열고 원하는 대로 매개 변수를 설정합니다.
     1. **기본** 탭에서 정책 범위를 설정합니다. 중앙 집중식 관리를 사용하려면 워크플로 자동화 구성을 사용할 구독이 포함된 관리 그룹에 정책을 할당합니다. 
@@ -131,7 +131,7 @@ Logic App을 수동으로 실행하려면, 경고 또는 권장 사항을 연 �
         > 각 매개 변수에는 제공되는 옵션을 알려 주는 도구 설명이 있습니다.
         >
         > Azure Policy의 매개 변수 탭(1)을 통해 Security Center의 워크플로 자동화 페이지(2)와 유사한 구성 옵션에 액세스할 수 있습니다.
-        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Azure Policy를 사용하여 워크플로 자동화의 매개 변수 비교" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Azure Policy를 사용하여 워크플로 자동화의 매개 변수 비교." lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
 
     1. 필요한 경우 이 할당을 기존 구독에 적용하려면 **수정** 탭을 열고 수정 작업을 만드는 옵션을 선택합니다.
 
@@ -143,7 +143,7 @@ Logic App을 수동으로 실행하려면, 경고 또는 권장 사항을 연 �
 Logic App 인스턴스에 전달된 보안 경고 또는 권장 사항 이벤트의 원시 이벤트 스키마를 보려면 [워크플로 자동화 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)를 참조하세요. 위에서 언급한 Security Center의 기본 제공 Logic App 커넥터를 사용하지 않고 대신 Logic App의 일반 HTTP 커넥터를 사용하는 경우 유용할 수 있습니다. 이벤트 JSON 스키마를 사용하여 적절하게 수동으로 구문 분석할 수 있습니다.
 
 
-## <a name="faq-for-workflow-automation"></a>워크플로 자동화에 대한 FAQ
+## <a name="faq---workflow-automation"></a>FAQ - 워크플로 자동화
 
 ### <a name="does-workflow-automation-support-any-business-continuity-or-disaster-recovery-bcdr-scenarios"></a>워크플로 자동화는 BCDR(비즈니스 연속성 또는 재해 복구) 시나리오를 지원하나요?
 

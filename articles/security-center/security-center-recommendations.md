@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 3453d1a0d06fd9918f3f1ae49a519d676ab26785
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5921ad250934121223c35012d2278165b3dcc262
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110468442"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237180"
 ---
 # <a name="review-your-security-recommendations"></a>보안 권장 사항 검토
 
@@ -24,11 +24,11 @@ ms.locfileid: "110468442"
 
 1. Security Center의 메뉴에서 **권장 사항** 페이지를 열어 환경에 적용할 수 있는 권장 사항을 확인합니다. 권장 사항은 보안 컨트롤로 그룹화됩니다.
 
-    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="보안 컨트롤별로 그룹화된 권장 사항" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="보안 컨트롤별로 그룹화된 권장 사항." lightbox="./media/security-center-recommendations/view-recommendations.png":::
 
 1. 리소스 종류, 심각도, 환경 또는 중요한 기타 기준에 대한 권장 사항을 찾으려면 권장 사항 목록 위의 선택적 필터를 사용합니다.
 
-    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Azure Security Center 권장 사항 목록을 구체화하는 필터":::
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Azure Security Center 권장 사항 목록을 구체화하는 필터.":::
 
 1. 컨트롤을 확장하고 특정 권장 사항을 선택하여 권장 사항 세부 정보 페이지를 표시합니다.
 
@@ -79,7 +79,7 @@ ARG는 강력한 필터링, 그룹화, 정렬 기능을 통해 클라우드 환�
 
 미리 보기 추천 사항의 예는 다음과 같습니다.
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그가 있는 추천 사항":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그가 있는 권장 사항.":::
  
 ## <a name="next-steps"></a>다음 단계
 

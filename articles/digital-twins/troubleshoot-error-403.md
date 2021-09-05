@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 63b02b66b68e40ae9ae209979d6464d97c30caf3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9a5191533b336d9d0cbefcf9b58f56d6648a60df
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967913"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456157"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>서비스 요청에 실패했습니다. 상태: 403(사용할 수 없음)
 
@@ -86,12 +86,12 @@ Azure AD 앱 등록을 사용하여 클라이언트 앱을 인증하는 경우 �
 
 #### <a name="fix-issues"></a>문제 해결
 
-설명된 것과 다르게 표시되는 경우 [방법: 앱 등록 만들기](./how-to-create-app-registration-portal.md)에서 앱 등록을 설정하는 방법에 대한 지침을 따르세요.
+이 중 하나라도 설명된 것과 다르게 표시되는 경우 [앱 등록 만들기](./how-to-create-app-registration-portal.md)에서 앱 등록을 설정하는 방법에 대한 지침을 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 새 Azure Digital Twins 인스턴스를 만들고 인증하는 방법에 대한 설치 단계를 읽어보세요.
-* [방법: 인스턴스 및 인증 설정(CLI)](how-to-set-up-instance-cli.md)
+* [인스턴스 및 인증 설정(CLI)](how-to-set-up-instance-cli.md)
 
 Azure Digital Twins의 보안 및 사용 권한에 대해 자세히 알아보세요.
-* [개념: Azure Digital Twins 솔루션 보안](concepts-security.md)
+* [Azure Digital Twins 솔루션에 대한 보안](concepts-security.md)

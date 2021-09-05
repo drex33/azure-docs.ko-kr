@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: d31e52763ed69303ee6ea9bf44fd85403c810179
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 8ae8608592ee540e227e0b23ef708b605647a667
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111993267"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593457"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
 다음 제한은 구독당 지역별로 **Azure Resource Manager** 를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
@@ -76,8 +76,8 @@ ms.locfileid: "111993267"
 | NIC당 규칙(NIC의 모든 IP에서) | 300                           |
 | 프런트 엔드 IP 구성              | 600                           |
 | 백 엔드 풀 크기                       | 1,000 IP 구성, 단일 가상 네트워크 |
-| Load Balancer당 백 엔드 리소스 <sup>1<sup> | 1,200                   |
-| 고가용성 포트                 | 내부 프런트 엔드당 1       |
+| Load Balancer당 백 엔드 리소스 <sup>1<sup> | 1,200                 |
+| 고가용성 포트 규칙            | 내부 프런트 엔드당 1       |
 | Load Balancer당 아웃바운드 규칙        | 600                           |
 | VM당 Load Balancer 수                   | 2개(공용 1개 및 내부용 1개)   |
 

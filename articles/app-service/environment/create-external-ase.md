@@ -7,23 +7,22 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c953c31792b8d01199d409cbd91124138a6ebb15
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 118c91ec204a2e207b28343fe0535c67b89b03b7
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92927450"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113433349"
 ---
 # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기
 
-Azure App Service Environment는 Azure App Service를 Azure VNet(Virtual Network)의 서브넷에 배포한 것입니다.
-
 > [!NOTE]
-> 각 App Service Environment에는 App Service Environment에 연결하는 데 사용할 수 있는 가상 IP(VIP )가 있습니다.
+> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 
 
-ASE(App Service Environment)에는 두 가지 배포 방법이 있습니다.
+Azure App Service Environment는 Azure App Service를 Azure VNet(Virtual Network)의 서브넷에 배포한 것입니다. ASE(App Service Environment)에는 두 가지 배포 방법이 있습니다.
 
-- 외부 ASE라고도 하는 외부 IP 주소의 VIP 사용
+- 외부 ASE라고도 하는 외부 공개 IP 주소의 VIP를 사용합니다.
 - 내부 엔드포인트가 ILB(내부 부하 분산 장치)이기 때문에 ILB ASE라고도 하는 내부 IP 주소의 VIP 사용
 
 이 문서에서는 외부 ASE를 만드는 방법을 보여줍니다. ASE의 개요는 [App Service Environment에 대한 소개][Intro]를 참조하세요. ILB ASE를 만드는 방법에 대한 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.

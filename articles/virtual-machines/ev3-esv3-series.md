@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: mimckitt
-ms.openlocfilehash: e96c54fb5e0bab71a68bd6a9749a358843b76a0c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5920a7c0aecd02e4d5b7bbcac9c5254a14d7f192
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083317"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529427"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3 및 Esv3 시리즈
 
@@ -32,13 +32,13 @@ Ev3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 [실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
 [VM 생성 지원](generation-2.md): 1세대<br>
-[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(*최소 4개의 vCPU 필요*)<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 NIC 수/네트워크 대역폭 |
 |---|---|---|---|---|---|---|
-| Standard_E2_v3  | 2  | 16  | 50   | 4  | 3000/46/23     | 2/1000  |
+| Standard_E2_v3<sup>1</sup>  | 2  | 16  | 50   | 4  | 3000/46/23     | 2/1000  |
 | Standard_E4_v3  | 4  | 32  | 100  | 8  | 6000/93/46     | 2/2000  |
 | Standard_E8_v3  | 8  | 64  | 200  | 16 | 12000/187/93   | 4/4000  |
 | Standard_E16_v3 | 16 | 128 | 400  | 32 | 24000/375/187  | 8/8000  |
@@ -48,6 +48,7 @@ Ev3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 | Standard_E64_v3 | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
 | Standard_E64i_v3 <sup>2</sup> | 64 | 432 | 1600 | 32 | 96000/1000/500 | 8/30000 |
 
+<sup>1</sup> 가속화된 네트워킹은 단일 NIC에만 적용할 수 있습니다. 
 <sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
 ## <a name="esv3-series"></a>Esv3 시리즈
@@ -62,13 +63,13 @@ Esv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 [실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
-[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(*최소 4개의 vCPU 필요*)<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 버스트 캐시된 임시 스토리지 처리량: IOPS/MBps<sup>3</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps |  버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>3</sup>| 최대 NIC 수/예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2s_v3                | 2  | 16  | 32  | 4  | 4000/32 (50)       | 4000/100    | 3200/48    | 4000/100 | 2/1000 |
+| Standard_E2s_v3<sup>4</sup>                | 2  | 16  | 32  | 4  | 4000/32 (50)       | 4000/100    | 3200/48    | 4000/100 | 2/1000 |
 | Standard_E4s_v3 <sup>1</sup>   | 4  | 32  | 64  | 8  | 8000/64 (100)      | 8000/200    | 6400/96    | 8000/200 | 2/2000 |
 | Standard_E8s_v3 <sup>1</sup>   | 8  | 64  | 128 | 16 | 16000/128 (200)    | 16000/400   | 12800/192  | 16000/400 | 4/4000 |
 | Standard_E16s_v3 <sup>1</sup>  | 16 | 128 | 256 | 32 | 32000/256 (400)    | 32000/800   | 25600/384  | 32000/800 | 8/8000 |
@@ -78,11 +79,11 @@ Esv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 | Standard_E64s_v3 <sup>1</sup>  | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 128000/2000 | 80000/1200 | 80000/2000 | 8/30000 |
 | Standard_E64is_v3 <sup>2</sup> | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 128000/2000 | 80000/1200 | 80000/2000 | 8/30000 |
 
-<sup>1</sup> [사용 가능한 코어 크기 제한](./constrained-vcpu.md).
+<sup>1</sup> [사용 가능한 코어 크기 제한](./constrained-vcpu.md).<br>
+<sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.<br>
+<sup>3</sup> Esv3 시리즈 VM은 디스크 성능을 [버스트](./disk-bursting.md)하고 한 번에 최대 30분 동안 최대 버스트를 얻을 수 있습니다.<br>
+<sup>4</sup> 가속화된 네트워킹은 단일 NIC에만 적용할 수 있습니다. 
 
-<sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
-
-<sup>3</sup> Esv3 시리즈 VM은 디스크 성능을 [버스트](./disk-bursting.md)하고 한 번에 최대 30분 동안 최대 버스트를 얻을 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

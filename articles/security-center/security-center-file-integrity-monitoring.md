@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/25/2021
+ms.date: 08/19/2021
 ms.author: memildin
-ms.openlocfilehash: e14307207ddbe9f1b89bd05d7015dafd76b10d51
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: 8757ed6631d688248efe7efa873e344b44119bad
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992497"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568278"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
@@ -23,15 +23,15 @@ ms.locfileid: "107992497"
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md)가 필요합니다.<br>FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.|
+|가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md)가 필요합니다.<br>FIM은 Log Analytics 에이전트를 사용하여 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.|
 |필요한 역할 및 권한:|**작업 영역 소유자** 는 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대한 Azure 역할](/services-hub/health/azure-roles#azure-roles)을 참조하세요.<br>**읽기 권한자** 는 결과를 볼 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)<br>Azure Automation의 변경 내용 추적 솔루션을 사용할 수 있는 지역에서만 지원됩니다.<br>![예 ](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/servers/overview.md) 지원 디바이스입니다.<br>[연결된 Log Analytics 작업 영역에 대해 지원되는 지역](../automation/how-to/region-mappings.md)을 참조하세요.<br>[변경 내용 추적에 대해 자세히 알아보세요](../automation/change-tracking/overview.md).|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)<br>Azure Automation의 변경 내용 추적 솔루션을 사용할 수 있는 지역에서만 지원됩니다.<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/servers/overview.md) 지원 디바이스입니다.<br>[연결된 Log Analytics 작업 영역에 대해 지원되는 지역](../automation/how-to/region-mappings.md)을 참조하세요.<br>[변경 내용 추적에 대해 자세히 알아보세요](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>Security Center의 FIM이란?
 변경 모니터링이라고도 하는 FIM(파일 무결성 모니터링)은 운영 체제 파일, Windows 레지스트리, 애플리케이션 소프트웨어, Linux 시스템 파일 등을 검토하여 공격을 나타낼 수 있는 변경 사항을 찾습니다. 
 
-Security Center는 FIM을 사용하여 모니터링할 엔터티를 권장하며 사용자 고유의 FIM 정책 또는 모니터링할 엔터티를 정의할 수도 있습니다. FIM은 다음과 같은 의심스러운 활동을 경고합니다.
+Security Center는 FIM을 사용하여 모니터링할 엔터티를 권장하며 사용자 고유의 FIM 정책 또는 모니터링할 엔터티를 정의할 수도 있습니다. FIM은 다음과 같은 의심스러운 활동에 대해 알려줍니다.
 
 - 파일 및 레지스트리 키 만들기 또는 제거
 - 파일 수정(파일 크기, 액세스 제어 목록 및 콘텐츠 해시의 변경)
@@ -48,7 +48,7 @@ Security Center는 FIM을 사용하여 모니터링할 엔터티를 권장하며
 
 ## <a name="how-does-fim-work"></a>FIM 작동 방식
 
-FIM은 이러한 항목의 현재 상태와 이전 검색 중의 상태를 비교하여 의심스러운 수정을 수행되었을 때 경고를 표시합니다.
+Log Analytics 에이전트는 Log Analytics 작업 영역에 데이터를 업로드합니다. 이러한 항목의 현재 상태와 이전 검색 중의 상태를 비교하여 의심스러운 수정을 수행되었을 때 FIM에게 알려줍니다.
 
 FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용하도록 설정하면 **솔루션** 형식의 **변경 내용 추적** 리소스 종류가 있습니다. 데이터 수집 빈도에 대한 자세한 내용은 [변경 내용 추적 데이터 수집 세부 정보](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection)를 참조하세요.
 
@@ -100,7 +100,7 @@ FIM은 Azure Portal Security Center 페이지에서만 사용할 수 있습니�
 
 1. **Azure Defender** 대시보드의 **고급 보호** 영역에서 **파일 무결성 모니터링** 을 선택합니다.
 
-   :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="FIM 시작" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
+   :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="FIM 시작." lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
 
     **파일 무결성 모니터링** 구성 페이지가 열립니다.
 
@@ -115,11 +115,11 @@ FIM은 Azure Portal Security Center 페이지에서만 사용할 수 있습니�
 
     - 각 작업 영역의 상태 및 설정에 액세스 및 보기
 
-    - ![업그레이드 계획 아이콘][4] Azure Defender를 사용하도록 작업 영역을 업그레이드합니다. 이 아이콘은 작업 영역 또는 구독이 Azure Defender에서 보호되지 않음을 나타냅니다. FIM 기능을 사용하려면 Azure Defender에서 구독을 보호해야 합니다. 자세한 내용은 [Azure Security Center 무료 및 Azure Defender 사용 비교](security-center-pricing.md)를 참조하세요.
+    - ![업그레이드 계획 아이콘.][4] Azure Defender를 사용하도록 작업 영역을 업그레이드합니다. 이 아이콘은 작업 영역 또는 구독이 Azure Defender에서 보호되지 않음을 나타냅니다. FIM 기능을 사용하려면 Azure Defender에서 구독을 보호해야 합니다. 자세한 내용은 [Azure Security Center 무료 및 Azure Defender 사용 비교](security-center-pricing.md)를 참조하세요.
 
     - ![사용 아이콘:][3] 작업 영역 아래의 모든 머신에서 FIM을 사용하도록 설정하고 FIM 옵션을 구성합니다. 이 아이콘은 작업 영역에 대해 FIM을 사용할 수 없음을 나타냅니다.
 
-        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="특정 작업 영역에 대해 FIM 사용":::
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="특정 작업 영역에 대해 FIM을 사용하도록 설정합니다.":::
 
 
     > [!TIP]
@@ -128,7 +128,7 @@ FIM은 Azure Portal Security Center 페이지에서만 사용할 수 있습니�
 
 1. **사용** 을 선택합니다. 작업 영역 아래에 Windows 및 Linux 머신 수를 포함하여 작업 영역의 세부 정보가 표시됩니다.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="FIM 작업 영역 세부 정보 페이지":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="FIM 작업 영역 세부 정보 페이지.":::
 
    또한 Windows 및 Linux에 권장되는 설정도 나열됩니다.  권장 항목의 전체 목록을 보려면 **Windows 파일**, **레지스트리** 및 **Linux 파일** 을 펼칩니다.
 
@@ -145,7 +145,7 @@ FIM은 Azure Portal Security Center 페이지에서만 사용할 수 있습니�
 
 FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** 대시보드가 표시됩니다. 작업 영역에서 FIM을 사용하도록 설정한 후이거나 FIM이 이미 사용되는 **파일 무결성 모니터링** 창에서 작업 영역을 선택하면 FIM 대시보드가 열립니다.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="FIM 대시보드 및 다양한 정보 패널":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="FIM 대시보드 및 다양한 정보 패널.":::
 
 작업 영역에 대한 FIM 대시보드에서 표시하는 세부 항목은 다음과 같습니다.
 
@@ -156,7 +156,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 
 대시보드 맨 위에서 **필터** 를 선택하여 변경 내용이 표시되는 기간을 변경합니다.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="FIM 대시보드의 기간 필터":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="FIM 대시보드의 기간 필터.":::
 
 **서버** 탭에는 이 작업 영역에 보고하는 모든 머신이 나열됩니다. 대시보드에서 각 컴퓨터에 대해 나열하는 항목은 다음과 같습니다.
 
@@ -184,7 +184,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 
 1. 작업 영역에 대한 **파일 무결성 모니터링 대시보드** 의 도구 모음에서 **설정** 을 선택합니다. 
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png" alt-text="작업 영역에 대한 파일 무결성 모니터링 설정 액세스" lightbox="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png" alt-text="작업 영역에 대한 파일 무결성 모니터링 설정 액세스." lightbox="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png":::
 
    모니터링할 수 있는 각 요소 유형에 대한 탭이 있는 **작업 영역 구성** 이 열립니다.
 
@@ -196,7 +196,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 
       각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. Security Center에서는 나열된 각 엔터티에 대해 FIM을 사용하거나(true) 사용하지 않도록(false) 설정되었는지를 식별합니다.  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-workspace-configuration.png" alt-text="Azure Security Center에서 파일 무결성 모니터링에 대한 작업 영역 구성":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-workspace-configuration.png" alt-text="Azure Security Center에서 파일 무결성 모니터링에 대한 작업 영역 구성.":::
 
 1. 탭 중 하나에서 항목을 선택하고 **변경 내용 추적 편집** 창에서 사용 가능한 필드를 편집합니다. 다음 옵션을 사용할 수 있습니다.
 
@@ -242,7 +242,7 @@ FIM을 사용하지 않도록 설정하려면:
 
 1. 작업 영역에 대한 **파일 무결성 모니터링 대시보드** 에서 **사용 안 함** 을 선택합니다.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/disable-file-integrity-monitoring.png" alt-text="설정 페이지에서 파일 무결성 모니터링 사용 안 함":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/disable-file-integrity-monitoring.png" alt-text="설정 페이지에서 파일 무결성 모니터링을 비활성화합니다.":::
 
 1. **제거** 를 선택합니다.
 

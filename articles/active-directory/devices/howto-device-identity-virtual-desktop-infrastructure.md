@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a122c5dc10600b612c20d3a742f3500944562357
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: e4eac73f756268af21cbb97c8c5c2bf53c2322bc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407996"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536003"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>디바이스 ID 및 데스크톱 가상화
 
@@ -54,9 +54,9 @@ VDI 환경을 위한 Azure AD에서 디바이스 ID를 구성하기 전에 지�
 |   | 관리형<sup>4</sup> | Windows 현재 및 Windows 하위 수준 | 영구적 | 예 |
 |   |   | Windows 현재 | 비영구적 | 아니요 |
 |   |   | Windows 하위 수준 | 비영구적 | 예<sup>6</sup> |
-| Azure AD 가입 | 페더레이션 | Windows 현재 | 영구적 | 아니요 |
+| Azure AD 가입 | 페더레이션 | Windows 현재 | 영구적 | Limited<sup>7</sup> |
 |   |   |   | 비영구적 | 아니요 |
-|   | 관리 | Windows 현재 | 영구적 | 아니요 |
+|   | 관리 | Windows 현재 | 영구적 | Limited<sup>7</sup> |
 |   |   |   | 비영구적 | 아니요 |
 | Azure AD 등록됨 | 페더레이션된/관리형 | Windows 현재/Windows 하위 수준 | 영구/비영구 | 해당 사항 없음 |
 
@@ -71,6 +71,7 @@ VDI 환경을 위한 Azure AD에서 디바이스 ID를 구성하기 전에 지�
 
 <sup>6</sup> **Windows 하위 수준을 위한 비지속성 지원** 은 아래 참고 자료 섹션에서 설명하는 추가 고려 사항이 필요합니다.
 
+<sup>7</sup> **Azure AD 조인 지원** 은 Azure Virtual Desktop 및 Windows 365에서만 사용할 수 있습니다.
 
 ## <a name="microsofts-guidance"></a>Microsoft 참고 자료
 
@@ -96,7 +97,7 @@ VDI 환경을 위한 Azure AD에서 디바이스 ID를 구성하기 전에 지�
    - Windows 현재 및 하위 수준에서 비영구 VDI를 배포하는 경우 **ApproximateLastLogonTimestamp** 가 15일 이상인 디바이스를 삭제해야 합니다.
 
 > [!NOTE]
-> 비영구 VDI를 사용하는 경우 디바이스 조인 상태를 방지하려면 다음 레지스트리 키를 설정해야 합니다.  
+> 비영구 VDI를 사용하는 경우 회사 또는 학교 계정 추가를 방지하려면 다음 레지스트리 키를 설정해야 합니다.  
 > `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
 >
 > Windows 10 버전 1803 이상을 실행하고 있는지 확인합니다.  
@@ -109,7 +110,9 @@ VDI 환경을 위한 Azure AD에서 디바이스 ID를 구성하기 전에 지�
 > * `%localappdata%\Microsoft\TokenBroker`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WorkplaceJoin`
 >
+> 작업 계정의 디바이스 인증서 로밍은 지원되지 않습니다. "MS-Organization-Access"에서 발급한 인증서는 현재 사용자의 개인(MY) 인증서 저장소 및 로컬 컴퓨터에 저장됩니다.
 
 
 ### <a name="persistent-vdi"></a>영구적 VDI

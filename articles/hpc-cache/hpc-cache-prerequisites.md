@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 05/06/2021
 ms.author: v-erkel
-ms.openlocfilehash: 59b83132f4de25886494bdc5c23819243240e962
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 202f942bc4fb47b2c71802667e31e08de7cfe13e
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737333"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588816"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC Cache의 필수 조건
 
@@ -93,7 +93,7 @@ Blob Storage만 사용하는 경우 Azure에서 기본 제공하는 DNS 서버�
 ## <a name="storage-infrastructure"></a>스토리지 인프라
 <!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-캐시는 Azure Blob 컨테이너, NFS 하드웨어 스토리지 내보내기, NFS 탑재 ADLS Blob 컨테이너(현재 미리 보기 상태)를 지원합니다. 캐시를 만든 후 스토리지 대상을 추가합니다.
+캐시는 Azure Blob 컨테이너, NFS 하드웨어 스토리지 내보내기 및 NFS 탑재 ADLS Blob 컨테이너를 지원합니다. 캐시를 만든 후 스토리지 대상을 추가합니다.
 
 캐시 크기는 지원할 수 있는 스토리지 대상 수를 결정합니다. 대부분의 캐시에 대해 최대 10개의 스토리지 대상 또는 가장 큰 크기에 대해 최대 20개의 스토리지 대상이 지원됩니다. 자세한 내용은 [스토리지 대상을 지원하도록 캐시 크기를 올바르게 조정](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets)을 참조하세요.
 
@@ -104,7 +104,7 @@ Blob Storage만 사용하는 경우 Azure에서 기본 제공하는 DNS 서버�
 캐시에 Azure Blob Storage를 사용하려면 [Azure Blob Storage로 데이터 이동](hpc-cache-ingest.md)에서 설명한 대로 호환되는 스토리지 계정 및 빈 Blob 컨테이너 또는 Azure HPC Cache 형식의 데이터로 채워진 컨테이너가 필요합니다.
 
 > [!NOTE]
-> NFS 탑재 Blob Storage에는 다른 요구 사항이 적용됩니다. 자세한 내용은 [ADLS-NFS 스토리지 요구 사항](#nfs-mounted-blob-adls-nfs-storage-requirements-preview)을 참조하세요.
+> NFS 탑재 Blob Storage에는 다른 요구 사항이 적용됩니다. 자세한 내용은 [ADLS-NFS 스토리지 요구 사항](#nfs-mounted-blob-adls-nfs-storage-requirements)을 참조하세요.
 
 스토리지 대상 추가를 시도하기 전에 계정을 만듭니다. 대상을 추가할 때 새 컨테이너를 만들 수 있습니다.
 
@@ -122,7 +122,7 @@ Blob Storage만 사용하는 경우 Azure에서 기본 제공하는 DNS 서버�
 또한 위의 [권한](#permissions)에서 설명한 대로 Azure 스토리지 계정에 대한 캐시 애플리케이션 액세스 권한을 부여해야 합니다. [스토리지 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)의 절차에 따라 캐시에 필요한 액세스 역할을 제공합니다. 스토리지 계정 소유자가 아닌 경우 소유자가 이 단계를 수행하도록 합니다.
 
 ### <a name="nfs-storage-requirements"></a>NFS 스토리지 요구 사항
-<!-- linked from configuration.md -->
+<!-- linked from configuration.md and add storage -->
 
 NFS 스토리지 시스템(예: 온-프레미스 하드웨어 NAS 시스템)을 사용하는 경우 관련 요구 사항을 충족하도록 조치합니다. 해당 설정을 확인하기 위해 스토리지 시스템(또는 데이터 센터) 담당 네트워크 관리자 또는 방화벽 관리자와 협력해야 할 수도 있습니다.
 
@@ -171,14 +171,11 @@ NFS 스토리지 시스템(예: 온-프레미스 하드웨어 NAS 시스템)을 
 
 * NFS 백 엔드 스토리지는 호환되는 하드웨어/소프트웨어 플랫폼이어야 합니다. 자세한 내용은 Azure HPC Cache 팀에 문의하세요.
 
-### <a name="nfs-mounted-blob-adls-nfs-storage-requirements-preview"></a>NFS 탑재 Blob(ADLS-NFS) Storage 요구 사항(미리 보기)
+### <a name="nfs-mounted-blob-adls-nfs-storage-requirements"></a>NFS 탑재 Blob(ADLS-NFS) 스토리지 요구 사항
 
 Azure HPC Cache는 NFS 프로토콜과 함께 탑재된 Blob 컨테이너를 스토리지 대상으로 사용할 수 있습니다.
 
-> [!NOTE]
-> Azure Blob Storage에 대한 NFS 3.0 프로토콜 지원은 공개 미리 보기 상태입니다. 가용성이 제한되며, 현재 기능과 정식 출시 기능에는 차이가 있을 수 있습니다. 프로덕션 시스템에서는 미리 보기 기술을 사용하지 마세요.
->
-> [Azure Blob Storage에서 NFS 3.0 프로토콜 지원](../storage/blobs/network-file-system-protocol-support.md)에서 이 미리 보기 기능에 대해 자세히 알아보세요.
+[Azure Blob Storage에서 NFS 3.0 프로토콜 지원](../storage/blobs/network-file-system-protocol-support.md)에서 이 기능에 대해 자세히 알아보세요.
 
 스토리지 계정 요구 사항은 ADLS-NFS Blob Storage 대상 및 표준 Blob Storage 대상에 따라 다릅니다. NFS 사용 스토리지 계정을 만들고 구성할 때에는 [NFS(네트워크 파일 시스템) 3.0 프로토콜을 사용하여 Blob Storage 탑재](../storage/blobs/network-file-system-protocol-support-how-to.md)의 지침을 주의를 기울여 따릅니다.
 

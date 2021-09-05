@@ -1,18 +1,18 @@
 ---
 title: Micrometer로 Spring Cloud Resilience4J 회로 차단기 메트릭 수집
 description: Azure Spring Cloud에서 Micrometer를 사용하여 Spring Cloud Resilience4J 회로 차단기 메트릭을 수집하는 방법입니다.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: be67e2fb1bafaecd538f6fc671c006ac013cc849
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: dae08798aa7b3bc1937295e0cd7701446bd7259e
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135278"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567530"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Micrometer로 Spring Cloud Resilience4J 회로 차단기 메트릭 수집(미리 보기)
 
@@ -20,12 +20,10 @@ ms.locfileid: "108135278"
 
 [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo)를 사용하여 작동 방식을 보여드리겠습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* [Application Insights 가이드용 Java In Process 에이전트](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights)에서 Java In Process 에이전트를 사용합니다. 
-
+* [Application Insights 가이드용 Java In Process 에이전트](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights)에서 Java In Process 에이전트를 사용합니다.
 * [Application Insights 가이드](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)에서 Resilience4j 메트릭용 차원 수집을 사용합니다.
-
 * 개발 컴퓨터에서 이미 사용하고 있지 않은 경우 git, Maven, Java를 설치합니다.
 
 ## <a name="build-and-deploy-apps"></a>앱 빌드 및 배포
@@ -73,6 +71,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >       <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 >   </dependency>
 >   ```
+>
 > * 고객 코드는 `CircuitBreakerFactory`의 API를 사용해야 합니다. 이 API는 Spring Cloud 회로 차단기 스타터를 포함하는 경우 자동으로 생성되는 `bean`으로 구현됩니다. 에 대한 자세한 내용은 [Spring Cloud 회로 차단기](https://spring.io/projects/spring-cloud-circuitbreaker#overview)를 참조하세요.
 >
 > * 다음 2개의 종속성은 위의 resilient4j 패키지와 충돌합니다.  고객이 이를 포함하지 않도록 해야 합니다.
@@ -99,7 +98,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## <a name="locate-resilence4j-metrics-from-portal"></a>포털에서 Resilence4j 메트릭 찾기
 
-1. Azure 스프링 클라우드 포털에서 **Application Insights** 블레이드를 선택하고 **Application Insights** 를 클릭합니다.
+1. Azure Spring Cloud 포털에서 **Application Insights** 블레이드를 선택하고 **Application Insights** 를 선택합니다.
 
    [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 
@@ -111,11 +110,11 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [ ![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.png)](media/spring-cloud-resilience4j/resilience4J-2.PNG)
 
-4. **resilience4j_circuitbreaker_calls** 메트릭과 **평균** 을 선택합니다.  **필터 추가** 를 클릭한 다음 이름을 **createNewAccount** 로 선택합니다.
+4. **resilience4j_circuitbreaker_calls** 메트릭과 **평균** 을 선택합니다. **필터 추가** 를 선택한 다음, 이름을 **createNewAccount** 로 선택합니다.
 
    [ ![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.png)](media/spring-cloud-resilience4j/resilience4J-3.PNG)
 
-5. **resilience4j_circuitbreaker_calls** 메트릭과 **평균** 을 선택합니다.  그 다음 **분할 적용** 을 클릭하고 **종류** 를 선택합니다.
+5. **resilience4j_circuitbreaker_calls** 메트릭과 **평균** 을 선택합니다.  그런 다음, **분할 적용** 을 선택하고 **종류** 를 선택합니다.
 
    [ ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.png)](media/spring-cloud-resilience4j/resilience4J-4.PNG)
 
@@ -123,7 +122,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [ ![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.png)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [애플리케이션 인사이트](./how-to-application-insights.md)
 * [분산된 추적](./how-to-distributed-tracing.md)

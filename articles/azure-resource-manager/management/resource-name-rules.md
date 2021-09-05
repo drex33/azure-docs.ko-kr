@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: a7d0d934549d1dd06099bc02105cf2dcfdaa0109
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.date: 07/08/2021
+ms.openlocfilehash: 4beb484a6f3e81fe6baa7cbeba33c0f18639fb18
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202860"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531098"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -39,39 +39,39 @@ ms.locfileid: "108202860"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 서비스 | 글로벌 | 1-50 | 영숫자 및 하이픈.<br><br>문자로 시작하고 영숫자로 끝납니다. |
-> | service / apis | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / apis / issues | api | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / apis / issues / attachments | 이슈 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / apis / issues / comments | 이슈 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / apis / operations | api | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / apis / operations / tags | operation(작업) | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
+> | 서비스 | 글로벌 | 1-50 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / apis | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / apis / issues | api | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / apis / issues / attachments | 이슈 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / apis / issues / comments | 이슈 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / apis / operations | api | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / apis / operations / tags | operation(작업) | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
 > | service / apis / releases | api | 1-80 | 영숫자, 밑줄 및 하이픈<br><br>영숫자 또는 밑줄로 시작하고 끝납니다. |
-> | service / apis / schemas | api | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / apis / tagDescriptions | api | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / apis / tags | api | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / api-version-sets | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / authorizationServers | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / backends | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / certificates | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / diagnostics | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / groups | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / groups / users | group | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / identityProviders | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / loggers | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / notifications | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / notifications / recipientEmails | 알림 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / openidConnectProviders | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / policies | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / products | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / products / apis | product | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / products / groups | product | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / products / tags | product | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / properties | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / subscriptions | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / tags | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / templates | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
-> | service / users | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
+> | service / apis / schemas | api | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / apis / tagDescriptions | api | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / apis / tags | api | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / api-version-sets | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / authorizationServers | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / backends | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / certificates | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / diagnostics | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / groups | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / groups / users | group | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / identityProviders | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / loggers | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / notifications | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / notifications / recipientEmails | 알림 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / openidConnectProviders | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / policies | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / products | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / products / apis | product | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / products / groups | product | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / products / tags | product | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / properties | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / subscriptions | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / tags | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / templates | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | service / users | 서비스 | 1-80 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -171,6 +171,7 @@ ms.locfileid: "108202860"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | availabilitySets | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
+> | cloudservices | 리소스 그룹 | 1-15 <br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
 > | diskEncryptionSets | 리소스 그룹 | 1-80 | 영숫자 및 밑줄 |
 > | disks | 리소스 그룹 | 1-80 | 영숫자, 밑줄 및 하이픈 |
 > | galleries | 리소스 그룹 | 1-80 | 영숫자 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
@@ -192,6 +193,13 @@ ms.locfileid: "108202860"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | communicationServices | 글로벌 | 1-63 | 영숫자, 하이픈 및 밑줄 |
+
+## <a name="microsoftconsumption"></a>Microsoft.Consumption
+
+> [!div class="mx-tableFixed"]
+> | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
+> | --- | --- | --- | --- |
+> | budgets | 구독 또는 리소스 그룹 | 1-63 | 영숫자, 하이픈 및 밑줄 |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
@@ -261,7 +269,7 @@ ms.locfileid: "108202860"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | workspaces | 리소스 그룹 | 3-30 | 영숫자, 밑줄 및 하이픈 |
+> | workspaces | 리소스 그룹 | 3-64 | 영숫자, 밑줄 및 하이픈 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -405,7 +413,7 @@ ms.locfileid: "108202860"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | actionGroups | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`/&%\?` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
+> | actionGroups | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`:<>+/&%\?` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
 > | components | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`%&\?/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
 > | scheduledQueryRules | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`*<>%{}&:\\?/#` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |
 > | metricAlerts | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`*#&+:<>?@%{}\/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  |

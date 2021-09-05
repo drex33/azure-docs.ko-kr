@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: cd87d2261ab89b521829d1049a0c17db125a14f3
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: cc38ad6ee6dfc958be405db2969bd5c083e1c5c0
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063417"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530226"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
 
@@ -39,7 +39,7 @@ Azure 서비스를 가상 네트워크에 통합하는 방법 및 제공되는 �
 
 ### <a name="subnets"></a>서브넷
 
-서브넷은 가상 네트워크를 서브넷에 배치하는 Azure 리소스가 사용할 수 있는 개별 주소 공간으로 구분합니다. 전용 HSM은 가상 네트워크의 서브넷에 배포됩니다. 고객의 서브넷에 배포되는 각 전용 HSM 디바이스는 이 서브넷에서 개인 IP 주소를 수신합니다. HSM 디바이스를 배포하는 서브넷은 명시적으로 서비스(Microsoft.HardwareSecurityModules/dedicatedHSMs)에 위임되어야 합니다. 그러면 서브넷에 배포를 위해 HSM 서비스에 특정 권한이 부여됩니다. 전용 HSM에 위임하면 서브넷에 특정 정책 제한을 적용합니다. NSG(네트워크 보안 그룹) 및 UDR(사용자 정의 경로)은 현재 위임된 서브넷에서 지원되지 않습니다. 결과적으로 전용 HSM에 위임되는 서브넷은 HSM 리소스를 배포하는 데만 사용될 수 있습니다. 따라서 다른 고객의 모든 리소스를 서브넷에 배포하지 못합니다.
+서브넷은 가상 네트워크를 서브넷에 배치하는 Azure 리소스가 사용할 수 있는 개별 주소 공간으로 구분합니다. 전용 HSM은 가상 네트워크의 서브넷에 배포됩니다. 고객의 서브넷에 배포되는 각 전용 HSM 디바이스는 이 서브넷에서 개인 IP 주소를 수신합니다. HSM 디바이스를 배포하는 서브넷은 명시적으로 서비스(Microsoft.HardwareSecurityModules/dedicatedHSMs)에 위임되어야 합니다. 그러면 서브넷에 배포를 위해 HSM 서비스에 특정 권한이 부여됩니다. 전용 HSM에 위임하면 서브넷에 특정 정책 제한을 적용합니다. NSG(네트워크 보안 그룹) 및 UDR(사용자 정의 경로)은 현재 위임된 서브넷에서 지원되지 않습니다. 결과적으로 전용 HSM에 위임되는 서브넷은 HSM 리소스를 배포하는 데만 사용될 수 있습니다. 따라서 다른 고객의 모든 리소스를 서브넷에 배포하지 못합니다.  이는 전용 HSM에 대한 서브넷의 크기에 대한 요구 사항은 아니지만 각 HSM 디바이스는 하나의 개인 IP를 사용하므로 서브넷이 배포에 필요한 수 만큼의 HSM 디바이스를 수용할 수 있을 만큼 충분히 커야 합니다.
 
 ### <a name="expressroute-gateway"></a>ExpressRoute 게이트웨이
 

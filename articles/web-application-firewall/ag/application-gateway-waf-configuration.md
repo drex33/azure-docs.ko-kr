@@ -4,15 +4,16 @@ description: 이 문서에서는 Azure Portal을 사용하는 Application Gatewa
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/20/2020
+ms.date: 07/06/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3b6042ec28e7b774f57be19809c585ad919b25b0
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93040249"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113432521"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web Application Firewall 요청 크기 제한 및 제외 목록
 
@@ -96,7 +97,12 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    - v1 대형 WAF 게이트웨이의 경우 500MB
    - v2 WAF 게이트웨이의 경우 750MB 
 
- 파일 업로드 제한의 기본값은 100MB입니다.
+파일 업로드 제한의 기본값은 100MB입니다.
+
+CRS 3.2(WAF_v2 SKU) 이상에서 이러한 제한은 다음과 같습니다.
+   
+   - 2MB 요청 본문 크기 제한
+   - 4GB 파일 업로드 제한 
 
 WAF는 요청 본문 검사를 설정하거나 해제할 수 있는 구성 가능한 노브도 제공합니다. 요청 본문 검사는 기본적으로 사용됩니다. 요청 본문 검사를 끄면 WAF는 HTTP 메시지 본문의 콘텐츠를 평가하지 않습니다. 이러한 경우에도 헤더, 쿠키 및 URI에는 WAF 규칙이 계속 적용됩니다. 요청 본문 검사를 해제하는 경우에는 최대 요청 본문 크기 필드가 적용되지 않으며 설정할 수 없습니다. 요청 본문 검사를 해제하면 128KB보다 큰 메시지를 WAF로 전송할 수 있지만 메시지 본문에서 취약성을 검사하지는 않습니다.
 

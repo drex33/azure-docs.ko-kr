@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 07/16/2021
 ms.author: b-juche
-ms.openlocfilehash: e16e95bbb65bde6c4c0b38b9c68c0f7287b8b9b3
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 13a63da9abf37f57842b34f32c3ff442f4214062
+ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795585"
+ms.lasthandoff: 07/18/2021
+ms.locfileid: "114402778"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Azure NetApp Files에 대한 메트릭
 
@@ -101,28 +101,26 @@ Azure NetApp Files는 할당된 스토리지, 실제 스토리지 사용량, 볼
 
 ## <a name="throughput-metrics-for-capacity-pools"></a>용량 풀에 대한 처리량 메트릭   
 
-* *볼륨 처리량에 할당된 풀*    
-    지정된 용량 풀의 볼륨에 할당된 총 처리량입니다. 즉, 용량 풀에서 볼륨에 할당된 처리량의 합계입니다.   
+* *풀 할당 처리량*    
+    풀에 속한 모든 볼륨의 처리량 합계.
+    
+* *풀에 프로비전된 처리량*   
+    이 풀의 프로비전된 처리량.
 
-* *풀 사용 처리량*   
-    지정된 용량 풀의 볼륨에서 소비하는 총 처리량입니다.   
-
-* *볼륨에 할당된 풀 처리량 비율*   
-    볼륨에 할당된 용량 풀 프로비전 처리량의 백분율입니다.   
-
-* *풀 사용 처리량 비율*    
-    볼륨에서 소비한 용량 풀 프로비전 처리량의 백분율입니다.
 
 ## <a name="throughput-metrics-for-volumes"></a>볼륨에 대한 처리량 메트릭   
 
-*  *볼륨 할당 처리량*    
-    볼륨에 할당된 부모 용량 풀 처리량(MiB/s)입니다. 볼륨에서 소비할 수 있는 최대 처리량입니다.
+* *읽기 처리량*   
+    읽기 처리량(바이트/초).
+    
+* *총 처리량*   
+    모든 처리량 합계(바이트/초).
 
-* *볼륨 소비 처리량*    
-    볼륨이 활용하는 실제 처리량(MiB/s)입니다.
+* *쓰기 처리량*    
+    쓰기 처리량(바이트/초).
 
-* *볼륨 소비 처리량 비율*   
-    볼륨이 소비하는 할당된 처리량의 백분율입니다. 즉, *볼륨 소비 처리량* 을 *볼륨 할당 처리량* 의 백분율로 나타낸 것입니다.
+* *기타 처리량*   
+    읽기 또는 쓰기를 제외한 기타 처리량(바이트/초).
 
 
 ## <a name="next-steps"></a>다음 단계

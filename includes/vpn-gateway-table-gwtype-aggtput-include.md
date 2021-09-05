@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7205fa7095608084140f7ac6e1c3965b1296a8fe
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96010771"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122336313"
 ---
 |**VPN<br>게이트웨이<br>생성** |**SKU**   | **S2S/VNet 간<br>터널** | **P2S<br> SSTP 연결** | **P2S<br> IKEv2/OpenVPN 연결** | **집계<br>처리량 벤치마크** | **BGP** | **Zone-redundant** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -48,7 +48,7 @@ ms.locfileid: "96010771"
 
 고객이 다른 알고리즘을 사용하여 SKU의 상대 성능을 파악할 수 있도록, 공개적으로 사용 가능한 iPerf 및 CTSTraffic 도구를 사용하여 성능을 측정했습니다. 아래 표에서는 생성 1, VpnGw SKU의 성능 테스트 결과를 보여줍니다. 여기서 확인할 수 있듯이, IPsec 암호화와 무결성에 모두 GCMAES256 알고리즘을 사용했을 때 최고 성능을 얻었습니다. IPsec 암호화에 AES256을 사용하고 무결성에 SHA256을 사용했을 때는 평균 성능을 얻었습니다. IPsec 암호화에 DES3을 사용하고 무결성에 SHA256을 사용했을 때 성능이 가장 낮았습니다.
 
-|**생성**|**SKU**   | **사용된<br>알고리즘** | **관찰된<br>처리량** | **관찰된<br>초당 패킷 수** |
+|**생성**|**SKU**   | **사용된<br>알고리즘** | **관찰된<br>처리량** | **관찰된<br>터널별 초당 패킷 수** |
 |---           |---       | ---                 | ---            | ---                    |
 |**생성 1**|**VpnGw1**| GCMAES256<br>AES256, SHA256<br>DES3, SHA256| 650Mbps<br>500Mbps<br>120Mbps   | 58,000<br>50,000<br>50,000|
 |**생성 1**|**VpnGw2**| GCMAES256<br>AES256, SHA256<br>DES3, SHA256| 1Gbps<br>500Mbps<br>120Mbps | 90,000<br>80,000<br>55,000|

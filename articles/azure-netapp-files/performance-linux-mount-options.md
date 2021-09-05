@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.author: b-juche
-ms.openlocfilehash: f62c22c5615b1494ad8c1ebb966db9f1c25a8df7
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 445920e1846e668f0baa3567111f169fd6dd7508
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111442127"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113232523"
 ---
 # <a name="linux-nfs-mount-options-best-practices-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Linux NFS 탑재 옵션 모범 사례
 
@@ -36,7 +36,7 @@ ms.locfileid: "111442127"
 | `nconnect` 아님 | 8시간 |
 | `nconnect=8`  | 5.5시간 | 
 
-두 테스트 세트 모두 15MiB로 readahead를 설정한 RHEL8.3 및 E32-8_v4 가상 머신을 동일하게 사용했습니다.
+두 테스트 세트 모두 미리 읽기가 15MiB로 설정된 RHEL8.3 및 E32-8_v4 가상 머신을 동일하게 사용했습니다.
 
 `nconnect`를 사용하는 경우 다음 규칙을 염두에 두어야 합니다.
 
@@ -90,7 +90,7 @@ sudo vi /etc/fstab
 10.23.1.4:/HN1-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
 ```
  
-또한 예를 들어 SAS Viya는 256KiB 읽기 및 쓰기 크기를 권장하며, [SAS GRID](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/606973/highlight/true#M17740)는 `r/wsize`를 64KiB로 제한하는 동시에, NFS 탑재에 대한 readahead가 개선되어 읽기 성능을 향상시킵니다.  <!-- For more information on readahead, see the article “NFS Readahead”. --> 
+또한 예를 들어 SAS Viya는 256KiB 읽기 및 쓰기 크기를 권장하며, [SAS GRID](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/606973/highlight/true#M17740)는 `r/wsize`를 64KiB로 제한하는 동시에, NFS 탑재에 대한 미리 읽기가 개선되어 읽기 성능을 향상시킵니다. 자세한 내용은 [Azure NetApp Files에 대한 NFS 미리 읽기 모범 사례](performance-linux-nfs-read-ahead.md)를 참조하세요.
 
 `rsize` 및 `wsize` 사용에 적용되는 고려 사항은 다음과 같습니다.
 
@@ -138,5 +138,9 @@ close-to-open 일관성이 사용되지 않는(`nocto`) 경우 클라이언트�
 
 ## <a name="next-steps"></a>다음 단계  
 
+* [Azure NetApp Files에 대한 Linux 직접 I/O 모범 사례](performance-linux-direct-io.md)
+* [Azure NetApp Files에 대한 Linux 파일 시스템 캐시 모범 사례](performance-linux-filesystem-cache.md)
 * [Azure NetApp Files를 위한 Linux 동시성 모범 사례](performance-linux-concurrency-session-slots.md)
+* [Linux NFS 미리 읽기 모범 사례](performance-linux-nfs-read-ahead.md)
+* [Azure 가상 머신 SKU 모범 사례](performance-virtual-machine-sku.md) 
 * [Linux용 성능 벤치마크](performance-benchmarks-linux.md) 

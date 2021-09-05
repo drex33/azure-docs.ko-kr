@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3474d14b84e41fdf808b5a5b5c612b3a872f2c6
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5e35f88ef38367a9c25da6a77b556f4009880af0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753506"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566826"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션
 
@@ -87,7 +87,7 @@ ms.locfileid: "111753506"
 
 - 단계적 롤아웃에 대한 보안 그룹을 처음 추가하면 UX 시간 제한을 방지하기 위해 사용자 수가 200명으로 제한됩니다. 그룹을 추가한 후에는 필요한 만큼 사용자를 그룹에 추가할 수 있습니다.
 
-- 사용자가 단계적 롤아웃 상태에 있으며 EnforceCloudPasswordPolicyForPasswordSyncedUsers가 활성화되어 있는 경우 암호 만료 정책은 사용자 지정 옵션 없이 90일로 설정됩니다. 
+- 사용자가 단계적 롤아웃 상태일 때 암호 만료 정책은 사용자 정의 옵션 없이 90일로 설정됩니다. 
 
 - 1903 이후 Windows 10 버전에서 Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 리프레시 토큰을 획득하는 경우입니다. 이 시나리오는 로그인한 사용자가 단계적 롤아웃 범위에 있더라도 페더레이션 서버의 WS-Trust 엔드포인트로 대체됩니다.
 
@@ -98,7 +98,7 @@ ms.locfileid: "111753506"
 - 등록 기관 또는 스마트 카드 사용자 역할을 하는 페더레이션 서버를 통해 발급된 인증서가 포함된 비즈니스용 Windows Hello 하이브리드 인증서 트러스트가 있는 경우에는 단계적 롤아웃에서 이 시나리오가 지원되지 않습니다. 
 
   >[!NOTE]
-  >여전히 Azure AD Connect 또는 PowerShell을 사용하여 페더레이션 인증에서 클라우드 인증으로 최종적으로 전환해야 합니다. 단계적 롤아웃은 도메인을 페더레이션형에서 관리형으로 전환하지 않습니다.  도메인 컷오버에 대한 자세한 내용은 [페더레이션에서 암호 해시 동기화로 마이그레이션](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) 및 [페더레이션에서 통과 인증으로 마이그레이션](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso)을 참조하세요.
+  >여전히 Azure AD Connect 또는 PowerShell을 사용하여 페더레이션 인증에서 클라우드 인증으로 최종적으로 전환해야 합니다. 단계적 롤아웃은 도메인을 페더레이션형에서 관리형으로 전환하지 않습니다.  도메인 컷오버에 대한 자세한 내용은 [페더레이션에서 암호 해시 동기화로 마이그레이션](./migrate-from-federation-to-cloud-authentication.md) 및 [페더레이션에서 통과 인증으로 마이그레이션](./migrate-from-federation-to-cloud-authentication.md)을 참조하세요.
   
 ## <a name="get-started-with-staged-rollout"></a>단계적 롤아웃 시작
 
@@ -266,7 +266,6 @@ A: 예. PowerShell을 사용하여 단계적 롤아웃을 수행하는 방법을
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure AD 2.0 미리 보기](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
-- [로그인 방법을 암호 해시 동기화로 변경](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
-- [로그인 방법을 통과 인증으로 변경](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [로그인 방법을 암호 해시 동기화로 변경](./migrate-from-federation-to-cloud-authentication.md)
+- [로그인 방법을 통과 인증으로 변경](./migrate-from-federation-to-cloud-authentication.md)
 - [단계적 롤아웃 대화형 가이드](https://mslearn.cloudguides.com/en-us/guides/Test%20migration%20to%20cloud%20authentication%20using%20staged%20rollout%20in%20Azure%20AD)
-

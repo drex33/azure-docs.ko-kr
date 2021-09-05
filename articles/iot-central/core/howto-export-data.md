@@ -8,12 +8,12 @@ ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 914fd683c45415db4af1f932404bc2cc2cf35716
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 0435fece7394c0a1494e51581bce263cbf1e068a
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111814552"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461182"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용하여 IoT 데이터를 클라우드 대상으로 내보내기
 
@@ -31,7 +31,7 @@ ms.locfileid: "111814552"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-데이터 내보내기 기능을 사용하려면 [V3 애플리케이션](howto-get-app-info.md)이 있어야 하며 [데이터 내보내기](howto-manage-users-roles.md) 권한이 있어야 합니다.
+데이터 내보내기 기능을 사용하려면 [V3 애플리케이션](howto-faq.yml#how-do-i-get-information-about-my-application-)이 있어야 하며 [데이터 내보내기](howto-manage-users-roles.md) 권한이 있어야 합니다.
 
 V2 애플리케이션이 있는 경우 [V2를 V3 IoT Central 애플리케이션으로 마이그레이션](howto-migrate.md)을 참조하세요.
 
@@ -89,13 +89,13 @@ V2 애플리케이션이 있는 경우 [V2를 V3 IoT Central 애플리케이션�
 
 내보낼 기존 Azure 스토리지 계정이 없는 경우 다음 단계를 수행합니다.
 
-1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. 새 [Azure Blob 스토리지 계정](../../storage/blobs/storage-quickstart-blobs-portal.md) 또는 [Azure Data Lake Storage v2 스토리지 계정](../../storage/common/storage-account-create.md)을 만드는 방법에 대해 자세히 알아볼 수 있습니다. 데이터 내보내기는 블록 Blob을 지원하는 스토리지 계정에만 데이터를 쓸 수 있습니다. 다음 목록에는 알려진 호환되는 스토리지 계정 유형이 나와 있습니다.
+1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. 새 [Azure Blob Storage 계정](../../storage/blobs/storage-quickstart-blobs-portal.md) 또는 [Azure Data Lake Storage v2 스토리지 계정](../../storage/common/storage-account-create.md)을 만드는 방법에 대해 자세히 알아볼 수 있습니다. 데이터 내보내기는 블록 Blob을 지원하는 스토리지 계정에만 데이터를 쓸 수 있습니다. 다음 목록에는 알려진 호환되는 스토리지 계정 유형이 나와 있습니다.
 
     |성능 계층|계정 유형|
     |-|-|
     |Standard|범용 V2|
     |Standard|범용 V1|
-    |Standard|Blob 스토리지|
+    |Standard|Blob Storage|
     |Premium|블록 Blob 스토리지|
 
 1. 스토리지 계정에서 컨테이너를 만들려면 스토리지 계정으로 이동합니다. **Blob 서비스** 에서 **Blob 찾아보기** 를 선택합니다. 맨 위에서 **+ 컨테이너** 를 선택하여 새 컨테이너를 만듭니다.
@@ -174,7 +174,7 @@ IoT Central에서 내보내기 상태를 확인할 수 있을 뿐만 아니라 [
 - 대상으로 성공적으로 내보낸 메시지의 수
 - 오류가 발생한 횟수입니다.
 
-자세한 내용은 [IoT Central 애플리케이션의 전반적인 상태 모니터링](howto-monitor-application-health.md)을 참조하세요.
+자세히 알아보려면 [애플리케이션 상태 모니터링](howto-manage-iot-central-from-portal.md#monitor-application-health)을 참조하세요.
 
 ## <a name="destinations"></a>대상
 
@@ -209,7 +209,7 @@ Azure Portal에서 내보낸 파일을 찾아보려면 해당 파일로 이동�
 - `enqueuedTime`: IoT Central에서 이 메시지를 받은 시간
 - `enrichments`: 내보내기에 설정된 모든 보강
 - `module`: 이 메시지를 보낸 IoT Edge 모듈 이 필드는 메시지가 IoT Edge 모듈에서 온 경우에만 나타납니다.
-- `component`: 이 메시지를 보낸 구성 요소 이 필드는 메시지에 전송된 기능이 [디바이스 템플릿의 구성 요소](howto-set-up-template.md#create-a-component)로 모델링된 경우에만 나타납니다.
+- `component`: 이 메시지를 보낸 구성 요소 이 필드는 메시지에 전송된 기능이 디바이스 템플릿의 구성 요소로 모델링된 경우에만 나타납니다.
 - `messageProperties`: 디바이스에서 메시지와 함께 보낸 추가 속성. 이러한 속성은 *애플리케이션 속성* 이라고도 합니다. [IoT Hub 문서에서 자세히 알아보세요](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Event Hubs 및 Service Bus의 경우 IoT Central은 디바이스로부터 메시지를 받은 후 새 메시지를 빠르게 내보냅니다. 각 메시지의 사용자 속성(애플리케이션 속성이라고도 함)에는 `iotcentral-device-id`, `iotcentral-application-id` 및 `iotcentral-message-source`가 자동으로 포함됩니다.
@@ -349,7 +349,7 @@ async def send_telemetry_from_thermostat(device_client, telemetry_msg):
 
 ## <a name="property-changes-format"></a>속성 변경 형식
 
-각 메시지 또는 레코드는 디바이스 또는 클라우드 속성에 대한 변경 내용을 나타냅니다. 디바이스 속성의 경우 reported 값의 변경 내용만 별도의 메시지로 내보냅니다. 내보낸 메시지에 포함되는 정보는 다음과 같습니다.
+각 메시지 또는 레코드는 디바이스 및 클라우드 속성에 대한 변경 내용을 나타냅니다. 내보낸 메시지에 포함되는 정보는 다음과 같습니다.
 
 - `applicationId`: IoT Central 애플리케이션의 ID
 - `messageSource`: 메시지의 원본(`properties`)
@@ -358,8 +358,9 @@ async def send_telemetry_from_thermostat(device_client, telemetry_msg):
 - `schema`: 페이로드 스키마의 이름 및 버전
 - `enqueuedTime`: IoT Central에서 이 변경을 검색한 시간
 - `templateId`: 디바이스와 연결된 디바이스 템플릿의 ID
+- `properties`: 변경된 속성 및 값의 이름을 포함하여 변경된 속성의 배열입니다. 속성이 구성 요소 또는 IoT Edge 모듈 내에서 모델링되는 경우 구성 요소 및 모듈 정보가 포함됩니다.
 - `enrichments`: 내보내기에 설정된 모든 보강
-
+- 
 Event Hubs 및 Service Bus의 경우 IoT Central은 새 메시지 데이터를 이벤트 허브 또는 Service Bus 큐 또는 토픽으로 거의 실시간으로 내보냅니다. 각 메시지의 사용자 속성(애플리케이션 속성이라고도 함)에는 `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source` 및 `iotcentral-message-type`이 자동으로 포함됩니다.
 
 Blob 스토리지의 경우 메시지는 1분에 한 번씩 일괄 처리하여 내보냅니다.
@@ -377,13 +378,13 @@ Blob 스토리지의 경우 메시지는 1분에 한 번씩 일괄 처리하여 
     "enqueuedTime": "2020-08-05T22:37:32.942Z",
     "properties": [{
         "name": "MachineSerialNumber",
-        "value": "abc"
+        "value": "abc",
+        "module": "VitalsModule",
+        "component": "DeviceComponent"
     }],
     "enrichments": {
         "userSpecifiedKey" : "sampleValue"
-    },
-    "module": "VitalsModule",
-    "component": "DeviceComponent"
+    }
 }
 ```
 ## <a name="device-connectivity-changes-format"></a>디바이스 연결 변경 형식

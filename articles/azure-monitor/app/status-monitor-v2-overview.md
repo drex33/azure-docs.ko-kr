@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 69f80856150e461c6edfafdf0aa89de77c4ab0fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fcdca5aaedb9d3b0e86e02e931eb7e38c16cc25
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100583819"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731859"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버용 Azure Monitor Application Insights 에이전트 배포
 
@@ -18,11 +18,11 @@ ms.locfileid: "100583819"
 > 이 지침은 Application Insights 에이전트의 온-프레미스 및 비 Azure 클라우드 배포에 권장됩니다. [Azure 가상 머신 및 가상 머신 확장 집합 배포](./azure-vm-vmss-apps.md)에 권장되는 방법은 여기에 나와 있습니다.
 
 Application Insights 에이전트(이전 이름은 상태 모니터 V2)는 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)에 게시된 PowerShell 모듈입니다.
-Application Insights 에이전트는 [상태 모니터](./monitor-performance-live-website-now.md)를 대체합니다.
+Application Insights 에이전트는 상태 모니터를 대체합니다.
 원격 분석은 앱을 [모니터링](./app-insights-overview.md)할 수 있는 Azure Portal로 전송됩니다.
 
 > [!NOTE]
-> 이 모듈은 현재 IIS로 호스트되는 .NET 웹앱의 코드 없는 계측만 지원합니다. ASP.NET Core, Java 및 Node.js 애플리케이션을 계측하려면 SDK를 사용하세요.
+> 이 모듈은 현재 IIS로 호스트되는 .NET 및 .NET Core 웹앱의 코드 없는 계측을 지원합니다. SDK를 사용하여 Java 및 Node.js 애플리케이션을 계측합니다.
 
 ## <a name="powershell-gallery"></a>PowerShell 갤러리
 
@@ -60,7 +60,7 @@ Application Insights 에이전트는 여기(https://www.powershellgallery.com/pa
 
 - 상태 모니터 V2는 ASP.NET Core 애플리케이션을 지원하나요?
 
-  *아니요*. ASP.NET Core 애플리케이션 모니터링을 사용하도록 설정하는 지침은 [ASP.NET Core 애플리케이션용 Application Insights](./asp-net-core.md)를 참조하세요. ASP.NET Core 애플리케이션용 상태 모니터를 설치할 필요는 없습니다. ASP.NET Core 애플리케이션이 IIS에서 호스트되는 경우에도 마찬가지입니다.
+  *예*. [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1)부터 IIS에서 호스트되는 ASP.NET Core 애플리케이션이 지원됩니다.
 
 - 사용이 성공했는지 어떻게 확인하나요?
 

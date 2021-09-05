@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dd14da92eedc14a3da8e9eb0a29b08d96acd204
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2cd749289b9a389b495481517a56b2652fb2026f
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790786"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531083"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Azure Active Directory에서 앱 등록 권한 위임
 
@@ -46,29 +46,11 @@ ms.locfileid: "110790786"
 
 ### <a name="grant-individual-permissions-to-create-and-consent-to-applications-when-the-default-ability-is-disabled"></a>기본값 기능이 사용하지 않도록 설정된 경우 애플리케이션을 만들고 동의할 수 있는 개별 사용 권한 부여
 
-**사용자가 애플리케이션을 등록할 수 있습니다** 설정이 아니오로 설정된 경우 애플리케이션 등록을 만들 수 있는 기능을 부여하도록 애플리케이션 개발자 역할을 할당합니다. 또한 이 역할은 **사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음** 에 대한 설정이 ‘아니오’로 된 경우 대신 동의할 수 있는 권한을 부여합니다. 시스템 동작으로, 사용자가 새 애플리케이션 등록을 만들면 자동으로 첫 번째 소유자로 추가됩니다. 소유권 사용 권한은 사용자가 소유하고 있는 애플리케이션 등록 또는 엔터프라이즈 애플리케이션의 모든 측면을 관리할 수 있는 기능을 제공합니다.
+**사용자가 애플리케이션을 등록할 수 있습니다** 설정이 아니오로 설정된 경우 애플리케이션 등록을 만들 수 있는 기능을 부여하도록 애플리케이션 개발자 역할을 할당합니다. 또한 이 역할은 **사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음** 에 대한 설정이 ‘아니오’로 된 경우 대신 동의할 수 있는 권한을 부여합니다.
 
 ## <a name="assign-application-owners"></a>애플리케이션 소유자 할당
 
-소유자 할당은 특정 애플리케이션 등록 또는 엔터프라이즈 애플리케이션에 대한 Azure AD 구성의 모든 측면을 관리하는 기능을 부여하는 간단한 방법입니다. 시스템 동작으로 사용자가 새 애플리케이션 등록을 만들 때 첫 번째 소유자로 자동으로 추가됩니다. 소유권 사용 권한은 사용자가 소유하고 있는 애플리케이션 등록 또는 엔터프라이즈 애플리케이션의 모든 측면을 관리할 수 있는 기능을 제공합니다. 원래 소유자를 제거하고 추가적인 소유자를 추가할 수 있습니다.
-
-### <a name="enterprise-application-owners"></a>엔터프라이즈 애플리케이션 소유자
-
-소유자인 사용자는 Single Sign-On 구성, 프로비저닝, 사용자 할당과 같은 엔터프라이즈 애플리케이션의 조직 특정 구성을 관리할 수 있습니다. 소유자는 다른 소유자를 추가하거나 제거할 수도 있습니다. 전역 관리자와 달리, 소유자는 자신이 소유한 엔터프라이즈 애플리케이션만 관리할 수 있습니다.
-
-경우에 따라 애플리케이션 갤러리에서 생성된 엔터프라이즈 애플리케이션에는 엔터프라이즈 애플리케이션과 애플리케이션 등록이 모두 포함됩니다. 이 속성이 참인 경우, 엔터프라이즈 애플리케이션에 소유자를 추가하면 해당 애플리케이션 등록에 소유자가 자동으로 추가됩니다.
-
-### <a name="to-assign-an-owner-to-an-enterprise-application"></a>엔터프라이즈 애플리케이션 등록에 소유자를 할당하려면
-
-1. 조직의 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자에 적합한 계정으로 [Azure AD 조직](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
-1. 조직의 [앱 등록 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)에서 앱을 선택하여 앱에 대한 개요 페이지를 엽니다.
-1. **소유자** 를 선택하여 앱의 소유자 목록을 확인합니다.
-1. **추가** 를 선택하여 앱에 추가할 소유자를 하나 이상 선택합니다.
-
-> [!IMPORTANT]
-> 사용자 및 서비스 주체는 애플리케이션 등록을 소유할 수 있습니다. 엔터프라이즈 애플리케이션의 소유자가 되려면 사용자여야 합니다. 그룹은 소유자로 할당할 수 없습니다.
->
-> 소유자는 애플리케이션에 자격 증명을 추가하고 이러한 자격 증명을 사용하여 애플리케이션의 ID를 가장할 수 있습니다. 애플리케이션은 소유자보다 많은 권한을 가질 수 있으므로 소유자가 사용자 또는 서비스 사용자로 액세스할 수 있는 권한 상승을 갖습니다. 애플리케이션 소유자는 애플리케이션의 권한에 따라 애플리케이션을 가장하는 동안 사용자 또는 다른 개체를 만들거나 업데이트할 수 있습니다.
+소유자 할당은 특정 애플리케이션 등록 또는 엔터프라이즈 애플리케이션에 대한 Azure AD 구성의 모든 측면을 관리하는 기능을 부여하는 간단한 방법입니다. 자세한 내용은 [엔터프라이즈 애플리케이션 소유자 할당](../manage-apps/assign-app-owners.md)을 참조하세요.
 
 ## <a name="assign-built-in-application-admin-roles"></a>기본 제공 애플리케이션 관리자 역할 할당
 
@@ -96,7 +78,7 @@ Azure AD에는 모든 애플리케이션에 대해 Azure AD의 구성 관리에 
 
 애플리케이션 관리 권한 위임에 있어 사용자 지정 역할을 만들고 사용하는 경우에서의 팁
 - 사용자 지정 역할은 Azure Portal의 최신 앱 등록 블레이드에만 액세스 권한을 부여합니다. 레거시 앱 등록 블레이드에는 액세스 권한을 부여하지 않습니다.
-- 사용자 지정 역할은 “Restrict access to Azure AD administration portal(Azure AD 관리 포털에 대한 액세스 제한)” 사용자 설정이 예로 설정된 경우 Azure Portal에 대한 액세스 권한을 부여하지 않습니다.
+- 사용자 지정 역할은 “[Azure AD 관리 포털에 대한 액세스 제한](../fundamentals/users-default-permissions.md)” 사용자 설정이 예로 설정된 경우 Azure Portal에 대한 액세스 권한을 부여하지 않습니다.
 - 사용자가 역할 할당을 사용하여 액세스할 수 있는 앱 등록은 앱 등록 페이지의 ‘모든 애플리케이션’ 탭에만 표시됩니다. ‘소유한 애플리케이션’ 탭에는 표시되지 않습니다.
 
 사용자 지정 역할의 기본 사항에 대한 자세한 내용은 [사용자 지정 역할 개요](custom-overview.md)를 참조하고 [사용자 지정 역할을 만들기](custom-create.md) 및 [역할 할당](custom-assign-powershell.md) 방법을 참조하세요.

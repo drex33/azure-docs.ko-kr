@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: a040200c5746defcaee84a951521d5919c0c4d28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26784222d49e6f48ed324ce345dcb1f2ba7d4cf1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91660679"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528931"
 ---
 # <a name="delete-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 삭제
 
@@ -22,48 +22,41 @@ ms.locfileid: "91660679"
 
 계속 진행하기 전에 다음과 같이 데이터 컨트롤러에서 생성된 데이터 서비스가 모두 제거되었는지 확인합니다.
 
-## <a name="log-in-to-the-data-controller"></a>데이터 컨트롤러에 로그인
-
-삭제할 데이터 컨트롤러에 로그인합니다.
-
-```
-azdata login
-```
-
 ## <a name="list--delete-existing-data-services"></a>기존 데이터 서비스 나열 및 삭제
 
 다음 명령을 실행하여 생성된 SQL 관리형 인스턴스가 있는지 확인합니다.
 
-```
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 위의 목록에 있는 각 SQL 관리형 인스턴스에 대해 다음과 같이 delete 명령을 실행합니다.
 
-```
-azdata arc sql mi delete -n <name>
-# for example: azdata arc sql mi delete -n sqlinstance1
+```azurecli
+az sql mi-arc delete -n <name> --k8s-namespace <namespace> --use-k8s
+# for example: az sql mi-arc delete -n sqlinstance1 --k8s-namespace <namespace> --use-k8s
 ```
 
 마찬가지로, PostgreSQL 하이퍼스케일 인스턴스를 확인하려면 다음을 실행합니다.
 
-```
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 또한 각 PostgreSQL 하이퍼스케일 인스턴스에 대해 다음과 같이 delete 명령을 실행합니다.
-```
-azdata arc postgres server delete -n <name>
-# for example: azdata arc postgres server delete -n pg1
+
+```azurecli
+az postgres arc-server delete -n <name> --k8s-namespace <namespace> --use-k8s
+# for example: az postgres arc-server delete -n pg1 --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="delete-controller"></a>컨트롤러 삭제
 
 모든 SQL 관리형 인스턴스 및 PostgreSQL 하이퍼스케일 인스턴스를 제거한 후에는 다음과 같이 데이터 컨트롤러를 삭제할 수 있습니다.
 
-```
-azdata arc dc delete -n <name> -ns <namespace>
-# for example: azdata arc dc delete -ns arc -n arcdc
+```azurecli
+az arcdata dc delete -n <name> -ns <namespace>
+# for example: az arcdata dc delete -ns arc -n arcdc
 ```
 
 ### <a name="remove-sccs-red-hat-openshift-only"></a>SCC 제거(Red Hat OpenShift만 해당)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 0b29c9ceb5ad8cd7adb38582d087e91c2fe6e8b1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 86a5d327e00ee7c9595cc586aa7e63023a386bba
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743474"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586548"
 ---
 # <a name="iot-central-operator-guide"></a>Azure IoT Central 운영자 가이드
 
@@ -35,7 +35,7 @@ IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 
 
 운영자는 개별 디바이스를 관리하기 위해 디바이스 보기를 사용하여 디바이스 및 클라우드 속성을 설정하고 디바이스 명령을 호출할 수 있습니다. 예를 들어 이전 스크린샷에서 **디바이스 관리** 및 **명령** 보기를 포함합니다.
 
-디바이스를 대량으로 관리하기 위해 운영자는 작업을 만들고 예약할 수 있습니다. 작업은 속성을 업데이트하고 여러 디바이스에서 명령을 실행할 수 있습니다. 더 자세한 정보는 [Azure IoT Central 애플리케이션에서 작업 만들기 및 실행](howto-run-a-job.md)을 참고하여 주십시오.
+디바이스를 대량으로 관리하기 위해 운영자는 작업을 만들고 예약할 수 있습니다. 작업은 속성을 업데이트하고 여러 디바이스에서 명령을 실행할 수 있습니다. 더 자세한 정보는 [Azure IoT Central 애플리케이션에서 작업 만들기 및 실행](howto-manage-devices-in-bulk.md)을 참고하여 주십시오.
 
 ## <a name="troubleshoot-and-remediate-issues"></a>문제 해결 및 수정
 
@@ -43,11 +43,11 @@ IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 
 
 ## <a name="add-and-remove-devices"></a>디바이스 추가 및 제거
 
-운영자는 개별적으로 또는 대량으로 IoT Central 애플리케이션에 디바이스를 추가하고 제거할 수 있습니다. 더 자세한 정보는 [Azure IoT Central 애플리케이션에서 디바이스 관리](howto-manage-devices.md)를 참고하여 주십시오.
+운영자는 개별적으로 또는 대량으로 IoT Central 애플리케이션에 디바이스를 추가하고 제거할 수 있습니다. 더 자세한 정보는 [Azure IoT Central 애플리케이션에서 디바이스 관리](howto-manage-devices-individually.md)를 참고하여 주십시오.
 
 ## <a name="personalize"></a>개인 설정
 
-운영자는 자주 사용하는 리소스에 대한 링크를 포함하는 IoT Central 애플리케이션에서 개인 설정된 대시보드를 만들 수 있습니다. 자세한 내용은 [대시보드 관리](howto-create-personal-dashboards.md#manage-dashboards)를 참조하세요.
+운영자는 자주 사용하는 리소스에 대한 링크를 포함하는 IoT Central 애플리케이션에서 개인 대시보드를 만들 수 있습니다. 자세한 내용은 [대시보드 관리](howto-manage-dashboards.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

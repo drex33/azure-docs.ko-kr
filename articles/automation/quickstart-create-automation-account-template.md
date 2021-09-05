@@ -1,26 +1,26 @@
 ---
-title: '빠른 시작: Automation 계정 만들기 - Azure 템플릿'
+title: Automation 계정 만들기 - Azure 템플릿
 titleSuffix: Azure Automation
-description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Automation 계정을 만드는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Automation 계정을 만드는 방법을 보여줍니다.
 services: automation
 ms.author: magoedte
 ms.date: 07/20/2021
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.custom:
 - mvc
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 17183bffcfe9607a774d1205180c284d49cd7503
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: b17bb61230fa06acc988129bd593ab5c25332e84
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652013"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727382"
 ---
-# <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Automation 계정 만들기
+# <a name="create-an-automation-account-by-using-arm-template"></a>ARM 템플릿을 사용하여 Automation 계정 만들기
 
-Azure Automation은 Azure 및 Azure 이외의 환경에서 일관된 관리를 지원하는 클라우드 기반 자동화 및 구성 서비스를 제공하며, 이 빠른 시작에서는 Automation 계정을 만드는 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하는 방법을 보여 줍니다. ARM 템플릿을 사용하면 다른 배포 방법과 비교하여 단계가 줄어듭니다.
+Azure Automation은 Azure 및 Azure 이외의 환경에서 일관된 관리를 지원하는 클라우드 기반 자동화 및 구성 서비스를 제공하며, 이 문서에서는 Automation 계정을 만드는 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하는 방법을 보여줍니다. ARM 템플릿을 사용하면 다른 배포 방법과 비교하여 단계가 줄어듭니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이러한 단계를 완료한 후에는 Automation 계정에 대한 [진단 설정을 구성](automation-manage-send-joblogs-log-analytics.md)하여 Runbook 작업 상태 및 작업 스트림을 연결된 Log Analytics 작업 영역으로 보내도록 해야 합니다.
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-automation/)에서 나온 것입니다.
+이 문서에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-automation/)에서 가져온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.automation/101-automation/azuredeploy.json":::
 
@@ -132,7 +132,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Automation 계정, Log Analytics 작업 영역을 만들고 함께 연결했습니다.
+이 문서에서는 Automation 계정, Log Analytics 작업 영역을 만들고 함께 연결했습니다.
 
 자세히 알아보려면 Azure Automation에 대한 자습서로 계속 진행하세요.
 

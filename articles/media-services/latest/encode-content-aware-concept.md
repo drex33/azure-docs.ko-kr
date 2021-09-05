@@ -3,23 +3,23 @@ title: 콘텐츠 인식 인코딩 사전 설정
 description: 이 문서에서는 Microsoft Azure Media Services v3의 콘텐츠 인식 인코딩에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: jiayali-ms
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 08/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8b48c6b0ef84458fa54692994d8e295d25114dd8
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 5f333b4ca86e24c845a8a91c621a2b3f7c8c984e
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111241"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531046"
 ---
-# <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>콘텐츠 인식 인코딩 사전 설정을 사용하여 지정된 해상도에 대한 최적의 비트 전송률 값 찾기
+# <a name="content-aware-encoding-preset"></a>콘텐츠 인식 인코딩 사전 설정
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -29,7 +29,7 @@ ms.locfileid: "106111241"
 
 Microsoft의 [적응 스트리밍](encode-autogen-bitrate-ladder.md) 사전 설정은 원본 비디오 품질 및 해상도의 가변성 문제를 부분적으로 해결합니다. 고객은 다양한 콘텐츠를 다양한 해상도로 보유합니다. 콘텐츠는 1080p, 720p, 심지어 SD 또는 그 이하의 해상도입니다. 또한 모든 원본 콘텐츠가 필름 또는 TV 스튜디오의 고품질 mezzanine인 것은 아닙니다. 적응 스트리밍 사전 설정은 비트 전송률 사다리가 입력된 mezzanine의 해상도 또는 평균 비트 전송률을 초과하지 않도록 하여 이러한 문제를 해결합니다. 그러나 이 사전 설정은 해상도 및 비트 전송률 이외의 원본 속성을 검사하지 않습니다.
 
-## <a name="the-content-aware-encoding"></a>콘텐츠 인식 인코딩
+## <a name="the-content-aware-encoding-preset"></a>콘텐츠 인식 인코딩 사전 설정
 
 콘텐츠 인식 인코딩 사전 설정은 인코더가 지정된 해상도에서 최적의 비트 전송률 값을 검색할 수 있도록 하는 사용자 지정 논리를 통합하여 '적응 비트 전송률 스트리밍' 메커니즘을 확장하지만 광범위한 계산 분석은 필요하지 않습니다. 이 기본 설정은 GOP 정렬 MP4 파일을 생성합니다. 입력 콘텐츠에 따라 서비스가 입력 콘텐츠의 초기 경량 분석을 수행하고 그 결과를 사용하여 적응 스트리밍으로 전송을 위해 최적 레이어 수, 적합한 비트 전송률 및 해상도 설정을 결정합니다. 이 사전 설정은 출력 파일이 적응 스트리밍 사전 설정보다 낮은 비트 전송률로 제공되지만 시청자에게 여전히 좋은 환경을 제공하는 품질로 유지되어 복잡도가 중저수준인 비디오에 특히 효과적입니다. 출력에는 비디오 및 오디오가 인터리브된 MP4 파일이 포함됩니다.
 
@@ -53,33 +53,11 @@ Microsoft의 [적응 스트리밍](encode-autogen-bitrate-ladder.md) 사전 설�
 
 **그림 4: 저품질 입력(1080p)에 대한 VMAF 사용 RD 곡선**
 
-## <a name="how-to-use-the-content-aware-encoding-preset"></a>내용 인식 인코딩 사전 설정을 사용하는 방법 
+## <a name="8-bit-hevc-h265-support"></a>8비트 HEVC(H.265) 지원
 
-다음과 같이 이 사전 설정을 사용하는 변환을 만들 수 있습니다. 
+Azure Media Services의 표준 인코더는 이제 8비트 HEVC(H.265) 인코딩 지원을 제공합니다. HEVC 콘텐츠는 ‘hev1’ 형식을 사용하여 동적 패키지 작성 도구를 통해 전달 및 패키지할 수 있습니다.
 
-변환 출력을 사용하는 자습서는 [다음 단계](#next-steps) 섹션을 참조하세요. 출력 자산은 자습서에 표시된 것처럼 MPEG-DASH 및 HLS와 같은 프로토콜로 Media Services 스트리밍 엔드포인트에서 배달할 수 있습니다.
-
-> [!NOTE]
-> ContentAwareEncodingExperimental이 아닌 **ContentAwareEncoding** 사전 설정을 사용해야 합니다.
-
-```csharp
-TransformOutput[] output = new TransformOutput[]
-{
-   new TransformOutput
-   {
-      // The preset for the Transform is set to one of Media Services built-in sample presets.
-      // You can customize the encoding settings by changing this to use "StandardEncoderPreset" class.
-      Preset = new BuiltInStandardEncoderPreset()
-      {
-         // This sample uses the new preset for content-aware encoding
-         PresetName = EncoderNamedPreset.ContentAwareEncoding
-      }
-   }
-};
-```
-
-> [!NOTE]
-> `ContentAwareEncoding` 사전 설정을 사용하는 인코딩 작업은 출력 시간(분)을 기준으로 요금이 청구됩니다. 
+HEVC 샘플을 사용하는 새 .NET 사용자 지정 인코딩은 [media-services-v3-dotnet Git Hub 리포지토리](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC)에서 사용할 수 있습니다. 사용자 지정 인코딩 외에도 AMS는 [2021년 2월 릴리스 정보](https://docs.microsoft.com/azure/media-services/latest/release-notes#february-2021)에서 볼 수 있는 다른 새로운 기본 제공 HEVC 인코딩 사전 설정도 지원합니다.
   
 ## <a name="next-steps"></a>다음 단계
 

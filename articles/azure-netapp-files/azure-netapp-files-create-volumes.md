@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 08/06/2021
 ms.author: b-juche
-ms.openlocfilehash: d8e8daba3806ad651f66324f362eb2573111dd80
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: ed67984dac9d1beb7106c78a8ffa35d778f69d59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112070906"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535619"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
-Azure NetApp Files에서는 NFS(NFSv3 및 NFSv4.1), SMB3 또는 이중 프로토콜(NFSv3 및 SMB)을 사용하여 볼륨을 만들 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 
+Azure NetApp Files에서는 NFS(NFSv3 또는 NFSv4.1), SMB3 또는 이중 프로토콜(NFSv3 및 SMB 또는 NFSv4.1 및 SMB)을 사용하여 볼륨 만들기를 지원합니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 
 
 이 문서에서는 NFS 볼륨을 만드는 방법을 보여줍니다. SMB 볼륨에 대해서는 [SMB 볼륨 만들기](azure-netapp-files-create-volumes-smb.md)를 참조하세요. 이중 프로토콜 볼륨의 경우 [이중 프로토콜 볼륨 만들기](create-volumes-dual-protocol.md)를 참조하세요.
 
@@ -62,7 +62,7 @@ Azure NetApp Files에서는 NFS(NFSv3 및 NFSv4.1), SMB3 또는 이중 프로토
     * **볼륨 이름**      
         만들고 있는 볼륨의 이름을 지정합니다.   
 
-        볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 영숫자 문자를 사용할 수 있습니다.   
+        볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 이름은 문자로 시작해야 합니다. 문자, 숫자, 밑줄('_') 및 하이픈('-')만 포함할 수 있습니다.
 
         `default` 또는 `bin`을 볼륨 이름으로 사용할 수 없습니다.
 
@@ -109,7 +109,7 @@ Azure NetApp Files에서는 NFS(NFSv3 및 NFSv4.1), SMB3 또는 이중 프로토
         - 문자, 숫자 또는 대시(`-`)만 사용할 수 있습니다. 
         - 길이가 80자를 초과해서는 안 됩니다.
 
-    * 볼륨의 NFS 버전(**NFSv3** 또는 **NFSv4.1**)을 선택합니다.  
+    * 볼륨의 **버전**(**NFSv3** 또는 **NFSv4.1**)을 선택합니다.  
 
     * NFSv4.1을 사용하는 경우 볼륨에 **Kerberos** 암호화를 사용할지 여부를 지정합니다.  
 
@@ -117,6 +117,9 @@ Azure NetApp Files에서는 NFS(NFSv3 및 NFSv4.1), SMB3 또는 이중 프로토
 
     * Active Directory LDAP 사용자 및 확장 그룹(최대 1024개 그룹)을 사용하여 볼륨에 액세스하려면 **LDAP** 옵션을 선택합니다. [NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성](configure-ldap-extended-groups.md)의 지침에 따라 필요한 구성을 완료합니다. 
  
+    *  필요에 따라 **Unix 권한** 을 사용자 지정하여 탑재 경로에 대한 변경 권한을 지정합니다. 탑재 경로 아래에 있는 파일에는 설정이 적용되지 않습니다. 기본 설정은 `0770`입니다. 이 기본 설정은 소유자 및 그룹에 읽기, 쓰기 및 실행 권한을 부여하지만 다른 사용자에게는 권한이 부여되지 않습니다.     
+        등록 요구 사항 및 고려 사항은 **Unix 권한** 설정에 적용됩니다. [Unix 권한 구성 및 소유권 모드 변경](configure-unix-permissions-change-ownership-mode.md)의 지침을 따릅니다.   
+
     * 필요에 따라 [NFS 볼륨에 대한 내보내기 정책을 구성](azure-netapp-files-configure-export-policy.md)합니다.
 
     ![NFS 프로토콜 지정](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
@@ -135,5 +138,6 @@ Azure NetApp Files에서는 NFS(NFSv3 및 NFSv4.1), SMB3 또는 이중 프로토
 * [NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성](configure-ldap-extended-groups.md)
 * [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [NFS 볼륨에 대한 내보내기 정책 구성](azure-netapp-files-configure-export-policy.md)
+* [Unix 권한을 구성하고 소유권 모드를 변경](configure-unix-permissions-change-ownership-mode.md)합니다. 
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](../virtual-network/virtual-network-for-azure-services.md)

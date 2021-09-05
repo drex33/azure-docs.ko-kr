@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 01/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2650e3a9ce58b611c1aff1a569cc1e8f0980fd4
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 622bff79d48ae707e2b32556e05dad658a0322bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833493"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528464"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Runbook에서 이메일 보내기
 
@@ -20,16 +20,17 @@ PowerShell을 통해 [SendGrid](https://sendgrid.com/solutions)를 사용하여 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [체험 계정에 가입](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)할 수 있습니다.
-* [SendGrid 계정](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account)
+* [SendGrid 계정](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-sendgrid-account)
+* Send Grid에서 보낸 사람 확인이 구성되었습니다. [도메인 또는 단일 보낸 사람](https://sendgrid.com/docs/for-developers/sending-email/sender-identity/) 
 * **Az** 모듈이 있는 [Automation 계정](./index.yml)
 * Runbook을 저장하고 실행하는 [실행 계정](./automation-security-overview.md#run-as-accounts)
 
 ## <a name="create-an-azure-key-vault"></a>Azure Key Vault 만들기
 
-다음 PowerShell 스크립트를 사용하여 Azure Key Vault를 만들 수 있습니다. 변수 값을 사용자 환경에 맞는 값으로 바꿉니다. 코드 블록의 오른쪽 위에 있는 **사용해 보세요.** 단추를 통해 포함된 Azure Cloud Shell을 사용합니다. [Az 모듈](/powershell/azure/install-az-ps)이 로컬 머신에 설치되어 있는 경우 로컬에서 코드를 복사하고 실행할 수도 있습니다.
+다음 PowerShell 스크립트를 사용하여 Azure Key Vault를 만들 수 있습니다. 변수 값을 사용자 환경에 맞는 값으로 바꿉니다. 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보기** 단추를 통해 포함된 Azure Cloud Shell을 사용합니다. [Az 모듈](/powershell/azure/install-az-ps)이 로컬 머신에 설치되어 있는 경우 로컬에서 코드를 복사하고 실행할 수도 있습니다. 또한 이 스크립트는 실행 계정이 지정된 키 자격 증명 모음에서 키 자격 증명 모음 비밀을 가져오고 설정할 수 있도록 하는 [Key Vault 액세스 정책](../key-vault/general/assign-access-policy-portal.md)을 만듭니다.
 
 > [!NOTE]
-> API 키를 검색하려면 [SendGrid API 찾기](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key)에 있는 단계를 사용합니다.
+> API 키를 검색하려면 [SendGrid API 찾기](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key)에 있는 단계를 사용합니다.
 
 ```azurepowershell-interactive
 $SubscriptionId  =  "<subscription ID>"
@@ -100,8 +101,8 @@ Key Vault를 만들고 `SendGrid` API 키를 저장한 후에는 API 키를 검�
 
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
     Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
-    $VaultName = "<Enter your vault name>&quot;
-    $SENDGRID_API_KEY = (Get-AzKeyVaultSecret -VaultName $VaultName -Name &quot;SendGridAPIKey").SecretValue
+    $VaultName = "<Enter your vault name>"
+    $SENDGRID_API_KEY = Get-AzKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey" -AsPlainText
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Authorization", "Bearer " + $SENDGRID_API_KEY)
     $headers.Add("Content-Type", "application/json")

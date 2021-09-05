@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Operations'
 - 'Role: Technical Support'
 - contperf-fy21q4
-ms.openlocfilehash: 127e511769a7c2aface1531c9f888e9ce213b999
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: f0c07da859ae34a030058ee2c99d2c7b72378f5d
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407024"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135630"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -70,7 +70,7 @@ ms.locfileid: "111407024"
 
 *  **할당량** 은 ‘하루에’ 허브에서 보낼 수 있는 메시지의 총 수입니다. [IoT Hub 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-hub/)의 **총 메시지 수/일** 열 아래에서 허브의 할당량 한도를 확인할 수 있습니다.
 
-*  클라우드-디바이스 및 디바이스-클라우드 제한은 메시지를 보낼 수 있는 최대 ‘속도’(4KB 청크와 상관없이 메시지의 수)를 결정합니다. 각 메시지의 크기는 최대 256KB([최대 메시지 크기](iot-hub-devguide-quotas-throttling.md#other-limits))까지 가능합니다.
+*  클라우드-디바이스 및 디바이스-클라우드 제한은 메시지를 보낼 수 있는 최대 ‘속도’(4KB 청크와 상관없이 메시지의 수)를 결정합니다. D2C 메시지는 최대 256KB일 수 있습니다. C2D 메시지는 최대 64KB일 수 있습니다. 각 메시지 유형에 대한 [최대 메시지 크기]입니다.
 
 *  조정 제한에 도달하거나 초과하지 않도록 호출을 조정하는 것이 좋습니다. 제한에 도달하면 IoT Hub는 오류 코드 429로 응답하고 클라이언트는 백오프 했다가 다시 시도합니다. 이러한 제한은 허브마다 적용됩니다(또는 일부 경우에는 허브/단위마다 적용됨). 자세한 내용은 [연결 및 신뢰할 수 있는 메시징/재시도 패턴 관리](iot-hub-reliability-features-in-sdks.md#retry-patterns)를 참조하세요.
 

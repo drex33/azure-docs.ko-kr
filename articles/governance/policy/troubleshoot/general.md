@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: 정책 정의 만들기, 다양한 SDK 및 Kubernetes에 대한 추가 항목에서 발생하는 문제를 해결하는 방법을 알아봅니다.
-ms.date: 04/19/2021
+ms.date: 06/29/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6f369b16755c09468dbdae2076cc7828a53c8a17
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 45c5b420ddd4eab70e381f31e7c46eeeb380b2b5
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752168"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113087093"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Azure Policy를 사용한 오류 해결
 
@@ -142,6 +142,20 @@ The policy definition '{0}' targets multiple resource types, but the policy rule
 #### <a name="resolution"></a>해결 방법
 
 별칭을 사용하는 경우 그 앞에 형식 조건을 추가하여 별칭이 속한 리소스 종류에 대해서만 별칭이 평가되는지 확인합니다. 대안은 정책 정의를 여러 정의로 분할하여 여러 리소스 종류를 대상으로 지정하지 않도록 하는 것입니다.
+
+### <a name="scenario-subscription-limit-exceeded"></a>시나리오: 구독 제한 초과
+
+#### <a name="issue"></a>문제
+
+정책 할당에 대한 규정 준수를 검색할 때 Azure Portal의 규정 준수 페이지에 오류 메시지가 표시됩니다.
+
+#### <a name="cause"></a>원인
+
+요청에서 선택한 범위 아래의 구독 수가 5,000개 구독 제한을 초과했습니다. 규정 준수 결과가 부분적으로 표시될 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+자식 구독 수가 적은 보다 세부적인 범위를 선택하여 전체 결과를 확인합니다.
 
 ## <a name="template-errors"></a>템플릿 오류
 

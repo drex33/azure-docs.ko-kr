@@ -3,21 +3,21 @@ title: Azure Maps 그리기 오류 시각화 도우미 사용
 description: 이 문서에서는 Creator Conversion API에서 반환되는 경고 및 오류를 시각화하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/21/2021
+ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: dcd9ccbcbc2372b5648bf6d5367b2c364a34eb0f
-ms.sourcegitcommit: 5c136a01bddfccb2cc9f7e7e7741e2cf2651ddbe
+ms.openlocfilehash: c541a35bf2ef79fd058a58713afd927413ec8fcf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111352438"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536222"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer-with-creator"></a>Creator와 함께 Azure Maps 그리기 오류 시각화 도우미 사용
 
-그리기 오류 시각화 도우미는 변환 프로세스 중에 감지된 [그리기 패키지 경고 및 오류](drawing-conversion-error-codes.md)를 표시하는 독립 실행형 웹 애플리케이션입니다. 오류 시각화 도우미 웹 애플리케이션은 인터넷에 연결하지 않고 사용할 수 있는 정적 페이지로 구성됩니다.  오류 시각화 도우미를 사용하여 [그리기 패키지 요구 사항](drawing-requirements.md)에 따라 오류 및 경고를 해결할 수 있습니다. [Azure Maps 변환 API](/rest/api/maps/v2/conversion)는 오류가 감지된 경우에만 오류 시각화 도우미에 대한 링크가 있는 응답만 반환합니다.
+
+그리기 오류 시각화 도우미는 변환 프로세스 중에 감지된 [그리기 패키지 경고 및 오류](drawing-conversion-error-codes.md)를 표시하는 독립 실행형 웹 애플리케이션입니다. 오류 시각화 도우미 웹 애플리케이션은 인터넷에 연결하지 않고 사용할 수 있는 정적 페이지로 구성됩니다.  오류 시각화 도우미를 사용하여 [그리기 패키지 요구 사항](drawing-requirements.md)에 따라 오류 및 경고를 해결할 수 있습니다. [Azure Maps 변환 API](/rest/api/maps/v2/conversion)는 오류가 감지된 경우에만 오류 시각화 도우미에 대한 링크가 있는 응답을 반환합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -45,9 +45,8 @@ ms.locfileid: "111352438"
         "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Failed",
-        "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
         "properties": {
-            "diagnosticPackageLocation": "https://atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=1.0"
+            "diagnosticPackageLocation": "https://us.atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=2.0"
         }
     }
     ```

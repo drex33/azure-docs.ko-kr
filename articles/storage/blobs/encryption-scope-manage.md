@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1419dcba2dbf1732760848738c6f50c4168ac545
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a44666d8378b13f7ac8498ae4256507705ffc42b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664986"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528165"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>암호화 범위 만들기 및 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "110664986"
 
 ## <a name="create-an-encryption-scope"></a>암호화 범위 만들기
 
-Azure Key Vault 또는 Azure Key Vault 관리되는 HSM(Hardware Security Model)에 저장된 Microsoft 관리형 키 또는 고객 관리형 키로 보호되는 암호화 범위를 만들 수 있습니다(미리 보기). 고객 관리형 키를 사용하여 암호화 범위를 만들려면 먼저 키 자격 증명 모음 또는 관리되는 HSM을 만들고 범위에 사용하려는 키를 추가해야 합니다. 키 자격 증명 모음 또는 관리되는 HSM은 제거 보호를 사용하도록 설정해야 하며 스토리지 계정과 동일한 지역에 있어야 합니다.
+Azure Key Vault 또는 Azure Key Vault 관리형 HSM(Hardware Security Model)에 저장된 Microsoft 관리형 키 또는 고객 관리형 키로 보호되는 암호화 범위를 만들 수 있습니다. 고객 관리형 키를 사용하여 암호화 범위를 만들려면 먼저 키 자격 증명 모음 또는 관리되는 HSM을 만들고 범위에 사용하려는 키를 추가해야 합니다. 키 자격 증명 모음 또는 관리되는 HSM은 제거 보호를 사용하도록 설정해야 하며 스토리지 계정과 동일한 지역에 있어야 합니다.
 
 암호화 범위는 만들 때 자동으로 사용하도록 설정됩니다. 암호화 범위를 만든 후에는 BLOB를 만들 때 암호화 범위를 지정할 수 있습니다. 컨테이너를 만들 때 기본 암호화 범위를 지정할 수도 있습니다. 이 범위는 컨테이너의 모든 BLOB에 자동으로 적용됩니다.
 
@@ -65,7 +65,7 @@ $accountName = "<storage-account>"
 $scopeName1 = "customer1scope"
 
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName1 `
     -StorageEncryption
 ```
@@ -105,7 +105,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ```powershell
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName2 `
     -KeyUri $keyUri `
     -KeyvaultEncryption
@@ -181,7 +181,7 @@ az storage account encryption-scope create \
 키 자격 증명 모음 또는 관리되는 HSM에서 고객 관리형 키를 사용하여 Azure Storage 암호화를 구성하는 방법에 대해 알아보려면 다음 문서를 참조하십시오.
 
 - [Azure Key Vault에 저장된 고객 관리형 키를 사용하여 암호화 구성](../common/customer-managed-keys-configure-key-vault.md)
-- [Azure Key Vault 관리되는 HSM에 저장된 고객 관리형 키를 사용하여 암호화 구성(미리 보기)](../common/customer-managed-keys-configure-key-vault-hsm.md).
+- [Azure Key Vault 관리형 HSM에 저장된 고객 관리형 키를 사용하여 암호화를 구성합니다](../common/customer-managed-keys-configure-key-vault-hsm.md).
 
 인프라 암호화에 대한 자세한 내용은 [데이터 이중 암호화를 위한 인프라 암호화 사용](../common/infrastructure-encryption-enable.md)을 참조하세요.
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 7d64684b5e8e73e82b6d778a193de617301a14eb
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 8f11c6d02649f85eddc39aa151ab7df3d8b72ab6
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123200"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797685"
 ---
 # <a name="live-event-types-comparison"></a>라이브 이벤트 유형 비교
 
@@ -45,7 +45,7 @@ Azure Media Services에서 [라이브 이벤트](/rest/api/media/liveevents)는 
 | 기여 피드의 최대 집계 대역폭|60Mbps|해당 없음|
 | 기여에서 단일 계층의 최대 전송률 |20Mbps|20Mbps|
 | 여러 언어 오디오 트랙 지원|예|예|
-| 지원되는 입력 비디오 코덱 |H.264/AVC 및 H.265/HEVC|H.264/AVC|
+| 지원되는 입력 비디오 코덱 |H.264/AVC(RTMP 및 Smooth) 또는 H.265/HEVC(부드러운 스트리밍 수집 전용)|H.264/AVC(RTMP 및 부드러운 스트리밍 수집)|
 | 지원되는 출력 비디오 코덱|입력과 같음|H.264/AVC|
 | 지원되는 비디오 비트 수준, 입력 및 출력|HDR 10/HLG를 포함하여 최대 10비트|8비트|
 | 지원되는 입력 오디오 코덱|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|

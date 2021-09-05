@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 08/09/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 12e8222ad59aae31baa7a549519c97550b711703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 324e494271287824c09030eaf918cd7f3881bc01
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579946"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567579"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인
 
@@ -33,6 +33,14 @@ ms.locfileid: "104579946"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+### <a name="verify-the-applications-publisher-domain"></a>애플리케이션의 게시자 도메인 확인
+2020년 11월부터 [애플리케이션의 게시자 도메인이 확인](../active-directory/develop/howto-configure-publisher-domain.md)***되고*** 회사 ID가 Microsoft 파트너 네트워크로 확인되고 애플리케이션과 연결되지 않는 한 새 애플리케이션 등록이 사용자 동의 프롬프트에 확인되지 않은 것으로 표시됩니다. (이 변경 사항에 대해 [자세히 알아보기](../active-directory/develop/publisher-verification-overview.md)) Azure AD B2C 사용자 흐름의 경우 게시자 도메인은 [Microsoft 계정](../active-directory-b2c/identity-provider-azure-ad-single-tenant.md) 또는 기타 Azure AD 테넌트를 ID 공급자로 사용할 때만 나타납니다. 이러한 새로운 요구 사항을 충족하려면 다음을 수행합니다.
+
+1. [MPN(Microsoft 파트너 네트워크) 계정을 사용하여 회사 ID를 확인](/partner-center/verification-responses)합니다. 이 프로세스는 회사 및 회사의 기본 연락처에 대한 정보를 확인합니다.
+1. 다음 옵션 중 하나를 사용하여 MPN 계정을 앱 등록과 연결하려면 게시자 확인 프로세스를 완료합니다.
+   - Microsoft 계정 ID 공급자에 대한 앱 등록이 Azure AD 테넌트에 있는 경우 [앱 등록 포털에서 앱을 확인](../active-directory/develop/mark-app-as-publisher-verified.md)합니다.
+   - Microsoft 계정 ID 공급자에 대한 앱 등록이 Azure AD B2C 테넌트에 있는 경우 [Microsoft Graph API를 사용하여 앱을 게시자 확인으로 표시합니다](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls)(예: Graph Explorer 사용). 앱의 확인된 게시자를 설정하기 위한 UI는 현재 Azure AD B2C 테넌트에서 사용할 수 없습니다.
 
 ## <a name="create-a-microsoft-account-application"></a>Microsoft 계정 애플리케이션 만들기
 
@@ -109,7 +117,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
 1. **옵션** 으로는 `Manual`을 선택합니다.
-1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `MSASecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. 정책 키의 **이름** 을 입력합니다. `MSASecret`)을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
 1. **암호** 에 이전 섹션에서 기록한 클라이언트 암호를 입력합니다.
 1. **키 사용** 에서 `Signature`를 선택합니다.
 1. **만들기** 를 클릭합니다.
@@ -196,7 +204,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 ## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
 
 1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
-1. **애플리케이션** 에서 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 에서 [이전에 등록된](tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **Microsoft** 를 선택하여 Microsoft 계정으로 로그인합니다.
 

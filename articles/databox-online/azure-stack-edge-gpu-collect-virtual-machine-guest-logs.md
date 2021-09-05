@@ -6,20 +6,24 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 07/30/2021
 ms.author: alkohli
-ms.openlocfilehash: 7ffb96cdc3fbb561009b7f545a3b9a1da9eef729
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: 1c25ea8c35b81169119b0f10025b36319d4dc2c9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111421007"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536541"
 ---
 # <a name="collect-vm-guest-logs-on-an-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에서 VM 게스트 로그 수집
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Azure Stack Edge Pro GPU 디바이스에서 VM 프로비전 실패를 진단하려면 실패한 가상 머신에 대한 게스트 로그를 검토합니다. 이 문서에서는 지원 패키지에서 VM에 대한 게스트 로그를 수집하는 방법을 설명합니다.
+
+> [!NOTE]
+> Azure Portal에서 가상 머신에 대한 활동 로그를 모니터링할 수도 있습니다. 자세한 내용은 [디바이스에서 VM 작업 모니터링](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)을 참조하세요.
+
 
 ## <a name="collect-vm-guest-logs-in-support-package"></a>지원 패키지에서 VM 게스트 로그 수집
 
@@ -48,4 +52,5 @@ Azure Stack Edge Pro GPU 디바이스에서 실패한 가상 머신에 대한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack Edge Pro GPU에서 VM 프로비전 문제 해결](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
+- [VM 활동 로그를 모니터링](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)합니다.
+- [Azure Stack Edge Pro GPU에서 VM 프로비저닝 문제 해결](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md).

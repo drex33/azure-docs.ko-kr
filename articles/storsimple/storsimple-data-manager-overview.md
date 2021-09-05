@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/11/2021
 ms.author: alkohli
-ms.openlocfilehash: d683f49cadb384ef59d3bae819156733691813cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81a906e6d1a5630ed7b40092d997ba0f81c7220b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88183499"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536995"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
 
@@ -27,7 +27,7 @@ ms.locfileid: "88183499"
 
 Microsoft Azure StorSimple은 클라우드 스토리지를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드에서 데이터를 계층화합니다. 최대 효율성 및 비용 절감을 위해 데이터는 중복 제거 및 압축된 형식으로 클라우드에 저장됩니다. 데이터가 StorSimple 형식으로 저장되면 사용하려고 할 수 있는 다른 클라우드 애플리케이션에서 쉽게 사용할 수 없게 됩니다.
 
-StorSimple 데이터 관리자를 사용하면 클라우드의 StorSimple 형식 데이터를 원활하게 액세스하고 사용할 수 있습니다. StorSimple 형식을 기본 Blob 및 파일로 변환하여 Azure Media Services, Azure HDInsights, Azure Machine Learning 등의 다른 서비스에서 사용할 수 있도록 합니다.
+StorSimple 데이터 관리자를 사용하면 클라우드의 StorSimple 형식 데이터를 원활하게 액세스하고 사용할 수 있습니다. StorSimple 형식을 기본 Blob 및 파일로 변환하여 Azure Media Services, Azure HDInsight, Azure Machine Learning 등의 다른 서비스에서 사용할 수 있도록 합니다.
 
 이 문서에서는 StorSimple 데이터 관리자 솔루션을 대략적으로 설명합니다. 또한 이 서비스를 사용하여 클라우드에서 StorSimple 데이터 및 기타 Azure 서비스를 사용하는 애플리케이션을 작성하는 방법을 설명합니다.
 
@@ -92,9 +92,11 @@ StorSimple Data Manager는 개인 정보를 수집하거나 표시하지 않습�
 
 서비스에는 현재 다음과 같은 제한 사항이 있습니다.
 - StorSimple Data Manager는 현재 BitLocker 암호화된 볼륨으로 작동되지 않습니다. 암호화된 드라이브를 사용하여 서비스를 실행하려는 경우 작업 오류가 표시됩니다.
+- StorSimple 백업이 저장된 스토리지 계정에서는 방화벽을 사용하도록 설정할 수 없습니다. 스토리지 계정에서 방화벽을 사용하도록 설정하면 작업이 실패합니다. 
 - 파일의 일부 메타데이터(ACL 포함)는 변환된 데이터 내에 유지되지 않습니다.
 - 이 서비스는 NTFS 볼륨에서만 작동합니다.
-- 파일 경로 길이는 256자 이하이어야 하며 그렇지 않은 경우 작업이 실패합니다.
+- StorSimple Data Manager는 VHD(가상 하드 디스크)의 마이그레이션을 지원하지 않습니다. VHD를 마이그레이션하려면 Azure Data Box 또는 Azure 파일 동기화 서비스를 사용할 수 있습니다.
+- 파일 경로 길이는 256자 미만이어야 하며 그렇지 않은 경우 작업이 실패합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 83d10a7a6e9eb14379d32cc88800a2c443feac60
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: c08d0f561e743b33720258ce5d6886411f3859f0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503051"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462526"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -151,7 +151,9 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--log-level** 문자열      `INFO`(모든 요청 및 응답), `WARNING`(느린 응답), `ERROR`(실패한 요청만) 및 `NONE`(출력 로그 없음) 등 로그 파일의 로그 세부 정보 표시 수준을 정의합니다. (기본값 `INFO`). 
 
-**--preserve-smb-info**   기본적으로 false입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
+**--mirror-mode**  마지막 수정 시간 기반 비교를 사용하지 않도록 설정하고 이 플래그가 `true`로 설정된 경우 대상에서 충돌하는 파일 및 Blob을 덮어씁니다. 기본값은 `false`입니다.
+
+**--preserve-smb-info**: 기본적으로 false입니다. SMB 인식 리소스(Windows 및 Azure Files) 간에 SMB 속성 정보(마지막으로 쓴 시간, 만든 시간, 특성 비트)를 유지합니다. 이 플래그는 파일 전용 필터(예: include-pattern)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다. 폴더에 대해 전송되는 정보는 폴더에 대해 유지되지 않는 마지막으로 쓴 시간을 제외하면 파일에 대해 전송되는 정보와 동일합니다.
 
 **--preserve-smb-permissions**   기본적으로 false입니다. 인식 리소스(Windows 및 Azure Files) 간에 SMB ACL을 유지합니다. 이 플래그는 파일 전용 필터(예: `include-pattern`)가 지정되지 않는 한 파일과 폴더에 모두 적용됩니다.
 
@@ -165,10 +167,10 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 |옵션|Description|
 |---|---|
-|--cap-mbps uint32|전송 속도(초당 메가비트)의 한도를 지정합니다. 시간 경과별 처리량은 한도와 약간 다를 수 있습니다. 이 옵션이 0으로 설정되거나 생략되는 경우 처리량이 제한되지 않습니다.|
-|--output-type string|명령의 출력 형식입니다. text, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
-|--trusted-microsoft-suffixes string   |Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ' *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net'입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에는 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분됩니다.|
+|--cap-mbps uint32|전송 속도(초당 메가비트)의 한도를 지정합니다. 순간 처리량은 거의 한도에 가까울 수 있습니다. 이 옵션을 0으로 설정하거나 생략하면 처리량이 제한되지 않습니다.|
+|--output-type string|명령 출력의 형식을 지정합니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 “text”입니다.|
+|--trusted-microsoft-suffixes string   |Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 ‘ *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net’입니다. 여기에 나열된 모든 항목은 기본값에 추가됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

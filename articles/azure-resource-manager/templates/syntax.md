@@ -2,13 +2,13 @@
 title: 템플릿 구조 및 구문
 description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿(ARM 템플릿)의 구조와 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 05/17/2021
-ms.openlocfilehash: 9a1ead39ed680921f444068e8e52136247272ac5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/16/2021
+ms.openlocfilehash: ee60651da5cee986a19cba9940c068679b342c53
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959918"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530302"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>ARM 템플릿의 구조 및 구문 이해
 
@@ -33,7 +33,7 @@ ms.locfileid: "111959918"
 }
 ```
 
-| 요소 이름 | 필수 | Description |
+| 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | $schema |예 |템플릿 언어의 버전을 설명하는 JSON(JavaScript Object Notation) 스키마 파일의 위치입니다. 사용할 버전 번호는 배포 범위 및 JSON 편집기에 따라 다릅니다.<br><br>[Azure Resource Manager 도구 확장과 함께 Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md)를 사용하는 경우, 최신 버전의 리소스 그룹 배포를 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>다른 편집기(Visual Studio 포함)로는 스키마를 처리하지 못할 수 있습니다. 이러한 편집기의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>구독 배포의 경우 을 사용합니다.<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>관리 그룹 배포의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>테넌트 배포의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |예 |템플릿의 버전입니다(예: 1.0.0.0). 이 요소에 값을 제공할 수 있습니다. 이 값을 사용하여 템플릿에서 중요한 변경 내용을 문서화할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다. |
@@ -185,6 +185,12 @@ ms.locfileid: "111959918"
           "<tag-name1>": "<tag-value1>",
           "<tag-name2>": "<tag-value2>"
       },
+      "identity": {
+        "type": "<system-assigned-or-user-assigned-identity>",
+        "userAssignedIdentities": {
+          "<resource-id-of-identity>": {}
+        }
+      },
       "sku": {
           "name": "<sku-name>",
           "tier": "<sku-tier>",
@@ -224,7 +230,7 @@ ms.locfileid: "111959918"
 ]
 ```
 
-| 요소 이름 | 필수 | Description |
+| 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | condition(조건) | 예 | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. [조건](conditional-resource-deployment.md)을 참조하세요. |
 | type |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 유형의 조합(예: `Microsoft.Storage/storageAccounts`)입니다. 사용 가능한 값을 확인하려면 [템플릿 참조](/azure/templates/)를 참조하세요. 하위 리소스의 경우 유형의 형식은 상위 리소스 내에 중첩되어 있는지, 상위 리소스 외부에 정의되어 있는지에 따라 달라집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |
@@ -234,6 +240,7 @@ ms.locfileid: "111959918"
 | 위치 |상황에 따라 다름 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치 중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. [리소스 위치 설정](resource-location.md)을 참조하세요. |
 | dependsOn |예 |이 리소스를 배포하기 전에 배포해야 하는 리소스입니다. Resource Manager는 리소스 간의 종속성을 평가한 후 올바른 순서에 따라 리소스를 배포합니다. 리소스는 서로 종속되지 않을 경우, 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. 이 템플릿에 배포된 리소스만 나열합니다. 이 템플릿에 정의되지 않은 리소스는 이미 존재해야 합니다. 불필요한 종속성은 배포 속도를 느리게 만들고 순환 종속성을 만들기 때문에 추가하지 않습니다. 설정 종속성에 대한 지침은 [ARM 템플릿에서 리소스를 배포하는 순서 정의](./resource-dependency.md)를 참조하세요. |
 | tags |예 |리소스와 연결된 태그입니다. 태그를 적용하여 구독에서 리소스를 논리적으로 구성합니다. |
+| identity | No | 일부 리소스는 [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 지원합니다. 이러한 리소스에는 리소스 선언의 루트 수준에 ID 개체가 있습니다. ID가 사용자 할당인지 아니면 시스템 할당인지를 설정할 수 있습니다. 사용자 할당 ID의 경우 ID에 대한 리소스 ID 목록을 제공합니다. 키를 리소스 ID로 설정하고 값을 빈 개체로 설정합니다. 자세한 내용은 [템플릿을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)을 참조하세요. |
 | sku | 예 | 일부 리소스에서는 SKU를 정의하는 값을 허용합니다. 예를 들어 스토리지 계정에 대한 중복 유형을 지정할 수 있습니다. |
 | kind | 예 | 일부 리소스에서는 배포하는 리소스 종류를 정의하는 값을 허용합니다. 예를 들어 만들 Cosmos DB 종류를 지정할 수 있습니다. |
 | scope | 예 | 범위 속성은 [확장 리소스 형식](../management/extension-resource-types.md)에서만 사용할 수 있습니다. 이는 배포 범위와 다른 범위를 지정할 때 사용합니다. [ARM 템플릿에서 확장 리소스의 범위 설정](scope-extension-resources.md)을 참조하세요. |
@@ -284,9 +291,7 @@ ms.locfileid: "111959918"
 
 > [!NOTE]
 >
-> 주석이 있는 템플릿을 배포하려면 Azure PowerShell 또는 Azure CLI를 사용합니다. CLI의 경우 버전 2.3.0 이상을 사용하고 `--handle-extended-json-format` 스위치를 지정합니다.
->
-> Azure Portal, DevOps 파이프라인 또는 REST API를 통해 템플릿을 배포하는 경우에는 설명이 지원되지 않습니다.
+> Azure CLI를 사용하여 주석이 있는 템플릿을 배포하는 경우 버전 2.3.0 이상을 사용하고 `--handle-extended-json-format` 스위치를 지정합니다.
 
 ```json
 {
@@ -406,8 +411,8 @@ Visual Studio Code에서 [Azure Resource Manager 도구 확장](quickstart-creat
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
+* 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)을 참조하세요.
 * 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [ARM 템플릿 함수](template-functions.md)를 참조하세요.
 * 배포하는 동안 여러 템플릿을 결합하려면 [Azure 리소스를 배포할 때 연결/중첩된 템플릿 사용](linked-templates.md)을 참조하세요.
 * 템플릿을 만드는 방법에 대한 권장 사항은 [Azure 템플릿 모범 사례](./best-practices.md)를 참조하세요.
-* 일반적인 질문에 대한 답변은 [ARM 템플릿에 대한 질문과 대답](frequently-asked-questions.md)을 참조하세요.
+* 일반적인 질문에 대한 답변은 [ARM 템플릿에 대한 질문과 대답](frequently-asked-questions.yml)을 참조하세요.

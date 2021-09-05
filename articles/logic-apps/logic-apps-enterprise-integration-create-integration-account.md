@@ -5,40 +5,43 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 11/04/2020
-ms.openlocfilehash: ae5ca6ac822dabd32b6463c3a742901f32b34323
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 4df6a84cd3402a934dc64ca8b8ac1a79ef7f0c22
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862258"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666144"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대한 통합 계정 만들기 및 관리
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 [엔터프라이즈 통합 및 B2B 솔루션](../logic-apps/logic-apps-enterprise-integration-overview.md)을 빌드하려면 먼저 통합 계정을 만들어야 합니다. 이 계정은 논리 앱 워크플로에서 정의하고 사용할 수 있는 통합 아티팩트에 대한 안전하고 확장 가능하며 관리할 수 있는 컨테이너를 제공하는 별도의 Azure 리소스입니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 [엔터프라이즈 통합 및 B2B 솔루션](../logic-apps/logic-apps-enterprise-integration-overview.md)을 빌드하려면 먼저 통합 계정을 만들어야 합니다. 이 계정은 논리 앱 워크플로에서 정의하고 사용할 수 있는 통합 아티팩트에 대한 안전하고 확장 가능하며 관리할 수 있는 컨테이너를 제공하는 별도의 Azure 리소스입니다. 예를 들어 거래 업체, 계약, 맵, 스키마, 인증서 및 일괄 처리 구성과 같은 B2B 아티팩트를 만들고, 저장하고, 관리할 수 있습니다.
 
-예를 들어 거래 업체, 계약, 맵, 스키마, 인증서 및 일괄 처리 구성과 같은 B2B 아티팩트를 만들고, 저장하고, 관리할 수 있습니다. 또한 논리 앱이 이러한 아티팩트로 작업하고 Logic Apps B2B 커넥터를 사용할 수 있으려면 먼저 논리 앱에 [통합 계정을 연결](#link-account)해야 합니다. 통합 계정 및 논리 앱 모두 *동일한* 위치 또는 지역에 있어야 합니다.
+다음 표에서는 [가격 책정에 따라 달라](https://azure.microsoft.com/pricing/details/logic-apps/)지는 사용 가능한 통합 계정 수준 또는 계층에 대해 설명합니다.
+
+| 계층 | Description |
+|------|-------------|
+| **기본** | 메시지 처리만 원하는 시나리오 또는 대규모 비즈니스 엔터티와 거래 업체 관계를 맺고 있는 소규모 비즈니스 파트너 역할을 수행하는 시나리오의 경우. <p><p>Logic Apps SLA에서 지원됩니다. |
+| **Standard** | 더 복잡한 B2B 관계가 있고 관리해야 하는 엔터티 수가 늘어난 시나리오의 경우. <p><p>Logic Apps SLA에서 지원됩니다. |
+| **Free** | 프로덕션 시나리오가 아닌 예비 시나리오에 적합합니다. 이 계층에는 지역 가용성, 처리량 및 사용량에 대한 한도가 있습니다. 예를 들어, 무료 계층은 Azure의 공용 지역(예: 미국 서부 또는 동남 아시아)에서만 사용할 수 있고, [Azure 중국 21Vianet](/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)에서는 사용할 수 없습니다. <p><p>**참고**: Logic Apps SLA에서 지원되지 않습니다. |
+|||
 
 > [!IMPORTANT]
-> 선택한 통합 계정 유형에 따라 통합 계정을 만들 때 비용이 발생합니다. 자세한 내용은 [Logic Apps 가격 책정 및 청구 모델](logic-apps-pricing.md#integration-accounts)과 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요.
+> 통합 계정 계층에 따라 통합 계정을 만들면 비용이 발생합니다. 자세한 내용은 [Logic Apps 가격 책정 및 청구 모델](logic-apps-pricing.md#integration-accounts)과 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 검토하세요. 또한 논리 앱 워크플로가 통합 계정, B2B 아티팩트 및 B2B 커넥터를 사용할 수 있으려면 먼저 논리 앱에 [통합 계정을 연결](#link-account)해야 합니다. 통합 계정 및 논리 앱 모두 *동일한* 위치 또는 지역에 있어야 합니다.
 
-이 토픽에서는 다음 작업의 수행 방법을 보여줍니다.
+이 토픽에서는 다음 작업을 완료하는 방법을 보여 줍니다.
 
 * 통합 계정을 만듭니다.
 
   > [!TIP]
-  > [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 내에서 통합 계정을 만들려면 [ISE에서 통합 계정 만들기](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 참조하세요.
+  > [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 내에서 통합 계정을 만들려면 [ISE에서 통합 계정 만들기](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 검토하세요.
 
 * 통합 계정을 논리 앱에 연결합니다.
-
 * 통합 계정의 가격 책정 계층을 변경합니다.
-
 * 논리 앱에서 통합 계정 연결을 해제합니다.
-
 * 통합 계정을 다른 Azure 리소스 그룹 또는 구독으로 이동합니다.
-
 * 통합 계정을 삭제합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -65,7 +68,7 @@ ms.locfileid: "107862258"
 
    ![통합 계정 세부 정보 제공](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **이름** | 예 | <*integration-account-name*> | 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 매개 변수(`(`, `)`) 및 기간(`.`)만 포함할 수 있는 통합 계정의 이름입니다. 이 예제에서는 "Fabrikam-Integration"이 사용됩니다. |
    | **구독** | 예 | <*Azure-subscription-name*> | Azure 구독의 이름 |

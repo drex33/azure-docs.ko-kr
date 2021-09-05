@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffe851cc39ab8856133a5ac24508bc9b6df53a8f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 00b0585e19a4a081502a6b93b79be7ed293a4b1c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110782334"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567350"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
 
@@ -76,7 +76,7 @@ ms.locfileid: "110782334"
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>그룹 라이선스와 공존하는 직접 라이선스
 
-사용자가 그룹의 라이선스를 상속하면 사용자 속성에서 해당 라이선스 할당을 바로 제거하거나 수정할 수 없습니다. 그룹에서만 라이선스 할당을 변경할 수 있으며 변경 내용이 모든 사용자에게 전파됩니다. 그러나 동일한 제품 라이선스를 사용자에게 직접 할당하고 그룹 라이선스 할당을 통해 할당할 수 있습니다. 이러한 방식으로 다른 사용자에게 영향을 주지 않고 한 사용자만 제품에서 추가 서비스를 사용하도록 설정할 수 있습니다.
+사용자가 그룹의 라이선스를 상속하면 사용자 속성에서 해당 라이선스 할당을 바로 제거하거나 수정할 수 없습니다. 그룹에서만 라이선스 할당을 변경할 수 있으며 변경 내용이 모든 사용자에게 전파됩니다. 그룹 라이선스 할당에서 라이선스가 있는 사용자에게 추가 기능을 할당해야 하는 경우 다른 그룹을 만들어 사용자에게 추가 기능을 할당해야 합니다.
 
 직접 할당된 라이선스는 제거할 수 있으며 사용자의 상속된 라이선스에 영향을 주지 않습니다. 그룹에서 Office 365 Enterprise E3 라이선스를 상속받는 사용자를 생각해보겠습니다.
 

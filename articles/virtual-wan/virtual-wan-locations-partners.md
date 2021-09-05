@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: references_regions
-ms.openlocfilehash: bdcb675e379b5ab94f8404966477f4d2df56400c
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: ff6e928c5f50c2f0a15936b190f0191da67b81c3
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163934"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530930"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>가상 WAN 파트너 및 가상 허브 위치
 
@@ -21,7 +21,7 @@ ms.locfileid: "108163934"
 
 Azure Virtual WAN은 Azure를 통해 최적화 및 자동화된 분기 간 연결을 제공하는 네트워킹 서비스입니다. Virtual WAN을 사용하여 Azure와 통신하도록 분기 디바이스를 연결 및 구성할 수 있습니다. 연결과 구성은 수동으로 수행하거나 또는 Virtual WAN 파트너를 통해 공급자 디바이스를 사용하여 수행할 수 있습니다. 파트너 디바이스는 쉽게 사용할 수 있고 간편하게 연결할 수 있으며 구성을 관리할 수 있습니다.
 
-온-프레미스 디바이스에서 가상 허브로의 연결은 자동화된 방식으로 설정됩니다. 가상 허브는 Microsoft에서 관리하는 가상 네트워크입니다. 허브는 온-프레미스 네트워크(vpnsite)에서 연결을 활성화하는 다양한 서비스 엔드포인트를 포함합니다. 지역당 허브는 하나만 있을 수 있습니다.
+온-프레미스 디바이스에서 가상 허브로의 연결은 자동화된 방식으로 설정됩니다. 가상 허브는 Microsoft에서 관리하는 가상 네트워크입니다. 허브는 온-프레미스 네트워크(vpnsite)에서 연결을 활성화하는 다양한 서비스 엔드포인트를 포함합니다. 
 
 ## <a name="branch-ipsec-connectivity-automation-from-partners"></a><a name="automation"></a>파트너의 분기 IPsec 연결 자동화
 
@@ -60,7 +60,7 @@ Virtual WAN 허브에서 NVA를 제공하는 파트너는 다음을 준수해야
 |파트너|구성/방법/배포 가이드|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN 배포 가이드](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[Cisco CSR(Cloud Service Router) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Cisco CSR(Cloud Service Router) WAN을 VWAN 허브로 퍼블릭 미리 보기 중, Cisco는 최종 고객에게 vwan_public_preview@external.cisco.com으로 메일을 보내고 vManage Deployment Guide를 요청하여 Cisco EFT(Early Field Trial) 고객으로 등록하도록 요청합니다. 
+|[Cisco CSR(Cloud Service Router) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| Cisco SD-WAN 솔루션을 Azure Virtual WAN과 통합하면 다중 클라우드 배포를 위한 Cloud OnRamp가 향상되고 Azure Virtual WAN Hubs에서 Cisco Catalyst 8000V Edge Software(Cisco Catalyst 8000V)를 NVA(네트워크 가상 어플라이언스)로 구성할 수 있습니다. [Cisco SD-WAN Cloud OnRamp, Cisco IOS XE 릴리스 17.x 구성 가이드 보기](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) 
 |[Virtual WAN 허브의 VMware SD-WAN](https://sdwan.vmware.com/partners/microsoft) | VMware SD-WAN을 VWAN 허브로 퍼블릭 미리 보기 중, VMware는 고객에게 vhubsupport@vmware.com으로 메일을 보내 등록하도록 요청합니다. [Virtual WAN 허브 배포 가이드의 VMware SD-WAN](https://kb.vmware.com/s/article/82746)|
 
 다음 파트너는 가까운 미래에 Aviatrix, Citrix Versa Networks와 같은 가상 허브 제품에 NVA를 제공할 계획입니다.

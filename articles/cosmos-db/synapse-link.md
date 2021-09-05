@@ -5,22 +5,22 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 07/12/2021
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: c9c751338db45a7d9df3f6e63e3d53e4e1ef4f74
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 41aa8efe93970205faad1bc621061aa8cdf9adaa
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903239"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122530978"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Microsoft Azure Cosmos DB용 Synapse Link란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Microsoft Azure Cosmos DB용 Synapse Link는 클라우드 네이티브 HTAP(하이브리드 트랜잭션 및 분석 처리) 기능으로, 이를 통해 Microsoft Azure Cosmos DB의 작동 데이터에 대해 근 실시간 분석을 실행할 수 있습니다. Azure Synapse Link를 통해 Microsoft Azure Cosmos DB와 Azure Synapse Analytics가 긴밀하게 통합됩니다.
 
-Azure Synapse Link는 완전 격리된 열 저장소인 [ Microsoft Azure Cosmos DB 분석 저장소](analytical-store-introduction.md)를 사용하여 [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md)에서 대규모 작동 데이터에 대해 ETL(추출, 변환 및 로드) 분석을 수행할 수 없습니다. 비즈니스 분석가, 데이터 엔지니어 및 데이터 과학자는 이제 Synapse Spark나 Synapse SQL을 혼용하여 근 실시간 비즈니스 인텔리전스, 분석 및 기계 학습 파이프라인을 실행할 수 있습니다. Microsoft Azure Cosmos DB의 트랜잭션 워크로드 성능에 영향을 주지 않고 이를 달성할 수 있습니다. 
+Azure Synapse Link는 완전 격리된 열 저장소인 [ Microsoft Azure Cosmos DB 분석 저장소](analytical-store-introduction.md)를 사용하여 [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md)에서 대규모 작동 데이터에 대해 ETL(추출, 변환 및 로드) 분석을 수행할 수 없습니다. 비즈니스 분석가, 데이터 엔지니어 및 데이터 과학자는 이제 Synapse Spark나 Synapse SQL을 혼용하여 근 실시간 비즈니스 인텔리전스, 분석 및 기계 학습 파이프라인을 실행할 수 있습니다. Microsoft Azure Cosmos DB의 트랜잭션 워크로드 성능에 영향을 주지 않고 이를 달성할 수 있습니다.
 
 다음 이미지에서는 Microsoft Azure Cosmos DB 및 Azure Synapse Analytics와의 Azure Synapse Link 통합을 보여줍니다. 
 
@@ -121,7 +121,9 @@ Synapse Link는 다음과 같은 경우에 권장됩니다.
 
 * 현재, 분석 저장소가 설정된 컨테이너의 경우 분석 저장소에서 데이터의 자동 백업 및 복원이 지원되지 않습니다. 데이터베이스 계정에서 Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 항상 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소(전용)에 있는 데이터의 [백업](./online-backup-and-restore.md)을 계속해서 자동으로 수행합니다. 분석 저장소가 설정된 컨테이너가 새 계정으로 복원되면 컨테이너는 트랜잭션 저장소로만 복원되고 분석 저장소는 사용하도록 설정되지 않습니다.
 
-* Synapse SQL 프로비저닝을 사용한 Microsoft Azure Cosmos DB 분석 저장소 액세스는 현재 제공되지 않습니다.
+* Azure Synapse Dedicated SQL 풀을 사용하여 Azure Cosmos DB 분석 저장소에 액세스하는 것은 현재 지원되지 않습니다.
+
+* 현재 Azure Cosmos DB 서버리스 계정은 지원되지 않습니다.
 
 ## <a name="security"></a>보안
 
@@ -129,7 +131,7 @@ Synapse Link를 사용하면 Azure Cosmos DB에서 중요 업무용 데이터를
 
 * **프라이빗 엔드포인트를 사용한 네트워크 격리** - 트랜잭션 및 분석 저장소에 있는 데이터에 대한 네트워크 액세스를 독립적으로 제어할 수 있습니다. 네트워크 격리는 Azure Synapse 작업 영역의 관리형 가상 네트워크 내에서 각 저장소마다 별도의 관리형 프라이빗 엔드포인트를 사용하여 수행됩니다. 자세히 알아보려면 [분석 저장소에 대한 프라이빗 엔드포인트 구성](analytical-store-private-endpoints.md) 방법에 대한 문서를 참조하세요.
 
-* **고객 관리형 키를 통한 데이터 암호화** - 자동화되고 투명한 방식으로 동일한 고객 관리형 키를 사용하여 트랜잭션 및 분석 저장소에서 데이터를 원활하게 암호화할 수 있습니다. 자세히 알아보려면 [고객 관리형 키 구성](how-to-setup-cmk.md) 방법에 대한 문서를 참조하세요.
+* **고객 관리형 키를 통한 데이터 암호화** - 자동화되고 투명한 방식으로 동일한 고객 관리형 키를 사용하여 트랜잭션 및 분석 저장소에서 데이터를 원활하게 암호화할 수 있습니다. Azure Synapse Link는 Azure Cosmos DB 계정의 관리 ID를 사용하여 고객 관리형 키 구성만 지원합니다. 계정에서 Azure Synapse Link](configure-synapse-link.md#enable-synapse-link)를 활성화하기 전에 Azure Key Vault 액세스 정책에서 계정의 관리 ID를 구성해야 합니다. 자세한 내용은 [Azure Cosmos DB 계정의 관리 ID를 사용하여 고객 관리형 키 구성](how-to-setup-cmk.md#using-managed-identity) 문서를 참조하세요.
 
 * **보안 키 관리** - Synapse Analytics 및 Synapse 서버리스 SQL 풀에서 분석 저장소에 있는 데이터에 액세스하려면 Synapse Analytics 작업 영역 내의 Azure Cosmos DB 키를 관리해야 합니다. Spark 작업 또는 SQL 스크립트에서 Azure Cosmos DB 계정 키를 인라인으로 사용하는 대신 Azure Synapse Link에서 더 안전한 기능을 제공합니다.
 
@@ -147,6 +149,8 @@ Azure Synapse Link의 청구 모델은 Microsoft Azure Cosmos DB 분석 저장�
 자세히 알아보려면 다음 문서를 참조하세요
 
 * [Microsoft Azure Cosmos DB 분석 저장소 개요](analytical-store-introduction.md)
+
+* [Azure Synapse Analytics를 사용하여 하이브리드 트랜잭션 및 분석 처리를 디자인](/learn/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)하는 방법에 대한 학습 모듈을 확인하세요.
 
 * [Microsoft Azure Cosmos DB용 Azure Synapse Link 시작하기](configure-synapse-link.md)
  

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 4fb4025d10990c0f499a16bbb6bc308eb74c00cf
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: f9c6f8cc3c973d3172166514815018979f744173
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655173"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536565"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Azure Cache for Redis 사용에서 TLS 1.0과 1.1 제거
 
@@ -23,7 +23,7 @@ ms.locfileid: "110655173"
 * **2단계:** TLS 1.1 및 TLS 1.0 지원은 중단됩니다. 이러한 변경 후 애플리케이션은 TLS 1.2 이상을 사용하여 캐시와 통신해야 합니다. Azure Cache for Redis 서비스는 TLS 1.2 이상만 지원하도록 마이그레이션하는 동안 사용할 수 있습니다.
 
   > [!NOTE]
-  > 2단계는 2020년 12월 31일 이전에 시작되도록 임시로 계획됩니다. 그러나 지금 이 변경에 대한 계획을 시작하고 TLS 1.2 이상을 지원하도록 클라이언트를 사전에 업데이트하는 것이 좋습니다. 
+  > 2단계는 코로나19로 인해 연기되었습니다. 지금 이 변경에 대한 계획을 시작하고 TLS 1.2 이상을 지원하도록 클라이언트를 사전에 업데이트하는 것이 좋습니다. 
   >
 
 이 변경의 일환으로, 안전하지 않은 이전 암호 제품군에 대한 지원도 제거합니다. 캐시가 최소 TLS 1.2로 구성된 경우 지원되는 암호화 제품군은 다음 제품군으로 제한됩니다.
@@ -43,7 +43,7 @@ ms.locfileid: "110655173"
 | Azure China 21Vianet |  2020년 3월 13일    | 코로나19로 인해 연기 됨  |
 
 > [!NOTE]
-> 2단계는 2020년 12월 31일 이전에 시작되도록 임시로 계획됩니다. 이 문서는 특정 날짜가 설정될 때 업데이트됩니다.
+> 2단계는 코로나19로 인해 연기되었습니다. 이 문서는 특정 날짜가 설정될 때 업데이트됩니다.
 >
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>애플리케이션이 이미 규격에 맞는지 확인

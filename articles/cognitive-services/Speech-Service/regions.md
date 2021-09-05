@@ -3,20 +3,20 @@ title: 지역 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 음성 텍스트 변환, 텍스트 음성 변환 및 음성 번역을 포함하여 Speech Service에 사용할 수 있는 지역 및 엔드포인트 목록입니다.
 services: cognitive-services
-author: mahilleb-msft
+author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 07/01/2021
 ms.author: panosper
 ms.custom: seodec18,references_regions
-ms.openlocfilehash: ab3e61a9c6593f8ee3075dd0ef6f0dee62c3a9c2
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 002f8ce7311d59a101f676908453fb1493b6dd39
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315258"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114710411"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service 지원 지역
 
@@ -29,6 +29,9 @@ ms.locfileid: "108315258"
 * 애플리케이션에서 [Speech SDK](speech-sdk.md)를 사용하는 경우 Speech 구성을 만들 때 `westus`와 같은 지역 식별자를 제공합니다.
 * 애플리케이션에서 Speech 서비스의 [REST API](./overview.md#reference-docs) 중 하나를 사용하는 경우 지역은 요청 시 사용하는 엔드포인트 URI의 일부가 됩니다.
 * 지역에 대해 만든 키는 해당 지역에서만 유효합니다. 다른 지역에서 사용하려고 하면 인증 오류가 발생합니다.
+
+> [!NOTE]
+> Speech Services에서는 고객이 서비스 인스턴스를 배포하는 지역 외부에서 고객 데이터를 저장하거나 처리하지 않습니다.
 
 ## <a name="speech-sdk"></a>Speech SDK
 

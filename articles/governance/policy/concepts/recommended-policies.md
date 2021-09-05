@@ -1,15 +1,15 @@
 ---
 title: Azure 서비스에 대한 권장된 정책
 description: Azure Virtual Machines와 같은 Azure 서비스에 권장된 정책을 찾고 적용하는 방법을 설명합니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: generated
-ms.openlocfilehash: a505a94e580b24c19a96ea86b1237870e49a6442
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 06f68dec2c2a1ec8fa717dc721916c070a653b10
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752618"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538662"
 ---
 # <a name="recommended-policies-for-azure-services"></a>Azure 서비스에 대한 권장된 정책
 
@@ -25,7 +25,7 @@ Azure Policy를 처음 접하는 고객은 리소스를 관리하는 일반 정�
 
 ### <a name="azure-virtual-machines-recommended-policies"></a>Azure Virtual Machines 권장 정책
 
-|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[재해 복구가 구성되어 있지 않은 가상 머신 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |재해 복구가 구성되지 않은 가상 머신을 감사합니다. 재해 복구에 대한 자세한 내용은 [https://aka.ms/asr-doc](../../../site-recovery/index.yml)를 참조하세요. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json) |
 |[관리 디스크를 사용하지 않는 VM 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06a78e20-9358-41c9-923c-fb736d382a4d) |이 정책은 관리 디스크를 사용하지 않는 VM을 감사합니다. |감사 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json) |

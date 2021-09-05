@@ -1,19 +1,20 @@
 ---
 title: Synapse 작업 영역에서 관리 ID에 사용 권한 부여
 description: Azure Synapse 작업 영역에서 관리 ID에 대한 사용 권한을 구성하는 방법을 설명하는 문서입니다.
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 46fe27205a2c30d6cb2319bf620c6fe1ee34c31e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 10244038ca2dee9551def5e0abcd102d42daa235
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96459008"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535805"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity"></a>작업 영역 관리 ID에 권한 부여
 
@@ -72,41 +73,26 @@ Azure Portal에서 ADLS Gen2 스토리지 계정을 열고 왼쪽 탐색 영역�
 *Storage Blob 데이터 참가자* 역할을 관리 ID에 부여하려면 동일한 컨테이너 또는 파일 시스템을 선택합니다.
 ![선택해야 하는 컨테이너 또는 파일 시스템을 보여주는 스크린샷입니다.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
-#### <a name="step-3-navigate-to-access-control"></a>3단계: 액세스 제어로 이동
+#### <a name="step-3-open-access-control-and-add-role-assignment"></a>3단계: 액세스 제어 열기 및 역할 할당 추가
 
-**Access Control(IAM)** 을 선택합니다.
+1. **액세스 제어(IAM)** 를 선택합니다.
 
-![IAM(액세스 제어)](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-8.png)
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
 
-#### <a name="step-4-add-a-new-role-assignment"></a>4단계: 새 역할 할당 추가
+1. 다음 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | Storage Blob 기여자 |
+    | 다음에 대한 액세스 할당 | MANAGEDIDENTITY |
+    | 멤버 | 관리 ID 이름  |
 
-**+추가** 를 선택합니다.
+    > [!NOTE]
+    > 관리 ID 이름은 작업 영역 이름이기도 합니다.
 
-![새 역할 할당 추가](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-#### <a name="step-5-select-the-azure-role"></a>5단계: Azure 역할 선택
-
-**Storage Blob 데이터 참가자** 역할을 선택합니다.
-
-![Azure 역할 선택](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
-
-#### <a name="step-6-select-the-azure-ad-security-principal"></a>6단계: Azure AD 보안 주체 선택
-
-**액세스 할당 대상** 드롭다운에서 **Azure AD 사용자, 그룹 또는 서비스 사용자** 를 선택합니다.
-
-![AAD 보안 주체 선택](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
-
-#### <a name="step-7-search-for-the-managed-identity"></a>7단계: 관리 ID 검색
-
-관리 ID의 이름은 작업 영역 이름이기도 합니다. **선택** 에 Azure Synapse 작업 영역 이름을 입력하여 관리 ID를 검색합니다. 그러면 관리 ID가 나열됩니다.
-
-![관리 ID 찾기](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-12.png)
-
-#### <a name="step-8-select-the-managed-identity"></a>8단계: 관리 ID 선택
-
-**선택한 멤버** 에 대한 관리 ID를 선택합니다. **저장** 을 선택하여 역할 할당을 추가합니다.
-
-![관리 ID 선택](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-13.png)
+1. **저장** 을 선택하여 역할 할당을 추가합니다.
 
 #### <a name="step-9-verify-that-the-storage-blob-data-contributor-role-is-assigned-to-the-managed-identity"></a>9단계: Storage Blob 데이터 참가자 역할이 관리 ID에 할당되었는지 확인
 

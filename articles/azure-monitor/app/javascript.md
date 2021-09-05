@@ -4,12 +4,12 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 61b7aa455cf9b782ca10d749344c26f5d15caa40
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2d2cf6f53b295d5ac138f86deb765892fd34d907
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110072517"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234576"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -108,7 +108,7 @@ SDK가 로드되지 않을 뿐 아니라 오류 보고 자체도 비활성화되
 
 사용 가능한 구성 옵션은 다음과 같습니다.
  
-| 이름 | Type | 설명
+| 이름 | 유형 | 설명
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가된 &lt;script /&gt; 태그의 'src' 특성에 사용됩니다. 공용 CDN 위치 또는 비공개로 호스트된 위치를 사용할 수 있습니다.
 | name | 문자열 *[선택 사항]* | 초기화된 SDK의 전역 이름이며 기본값은 `appInsights`입니다. 따라서 ```window.appInsights```는 초기화된 인스턴스에 대한 참조입니다. 참고: 사용자가 이름 값을 제공하거나 이전 인스턴스가 할당된 것으로 나타나는 경우(전역 이름 appInsightsSDK를 통해) 이 이름 값도 전역 네임스페이스에서 ```window.appInsightsSDK=<name value>```로 정의됩니다. 이 이름 값은 SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화하고 업데이트하는 데 필요합니다.
@@ -186,7 +186,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | loggingLevelTelemetry | **내부** Application Insights 오류를 원격 분석으로 전송합니다. <br>0: 꺼짐, <br>1: 심각한 오류만, <br>2: 모든 항목(오류 및 경고) | numeric<br/> 1 |
 | diagnosticLogInterval | 내부 로깅 큐의 (내부) 폴링 간격(밀리초)입니다. | numeric<br/> 10000 |
 | samplingPercentage | 전송할 이벤트의 백분율입니다. 기본값은 100입니다. 즉, 모든 이벤트가 전송됩니다. 대규모 애플리케이션에 대한 데이터 상한을 유지하려는 경우에 설정합니다. | numeric<br/>100 |
-| autoTrackPageVisitTime | True인 경우 페이지 보기에서 이전에 계측된 페이지의 보기 시간이 추적되어 원격 분석으로 전송되고 현재 페이지 보기에 대해 새 타이머가 시작됩니다. | boolean<br/>false |
+| autoTrackPageVisitTime | True인 경우 페이지 보기에서 _이전_ 에 계측된 페이지의 보기 시간이 추적되어 원격 분석으로 전송되고 현재 페이지 보기에 대해 새 타이머가 시작됩니다. `milliseconds`에서 `PageVisitTime`이라는 사용자 지정 메트릭으로 전송되고 Date [now()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now) 함수(사용 가능한 경우)를 통해 계산되고 (새 Date())로 돌아갑니다. now()를 사용할 수 없는 경우(IE8 이하) [getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime)입니다. 기본값은 false입니다. | boolean<br/>false |
 | disableAjaxTracking | True인 경우 Ajax 호출이 자동으로 수집되지 않습니다. | boolean<br/> false |
 | disableFetchTracking | True인 경우 페치 요청이 자동으로 수집되지 않습니다.|boolean<br/>true |
 | overridePageViewDuration | True인 경우 trackPageView의 기본 동작이 trackPageView가 호출될 때 페이지 보기 기간의 끝을 기록하도록 변경됩니다. False로 설정하고 trackPageView에 사용자 지정 기간을 제공하지 않는 경우 페이지 보기 성능이 탐색 타이밍 API를 사용하여 계산됩니다. |boolean<br/>

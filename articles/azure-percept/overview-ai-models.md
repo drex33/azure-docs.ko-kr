@@ -1,20 +1,20 @@
 ---
-title: Azure Percept AI 모델
+title: Azure Percept 샘플 AI 모델
 description: 프로토타입 및 배포에 사용할 수 있는 AI 모델에 대해 자세히 알아봅니다.
-author: mimcco
-ms.author: mimcco
+author: tsampige
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: f10a330de52d40f728cd628a1d7cb83b54ad1ff6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 78eb20b0229faef9c067b4bab475759badccd19e
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557363"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221274"
 ---
-# <a name="azure-percept-ai-models"></a>Azure Percept AI 모델
+# <a name="azure-percept-sample-ai-models"></a>Azure Percept 샘플 AI 모델
 
 Azure Percept를 사용하면 AI 모델을 개발하고 [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)에서 [Azure Percept DK](./overview-azure-percept-dk.md)로 직접 배포할 수 있습니다. 모델 배포는 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 및 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview)를 활용합니다.
 

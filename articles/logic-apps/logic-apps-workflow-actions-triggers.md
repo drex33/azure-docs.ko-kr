@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 07/19/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 95f2e47d3cf0b967f42b988b565da3643796534d
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: d45d17d8978134024cd41f49675fbe37b1a0dfe6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490763"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440144"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Azure Logic Apps의 트리거 및 작업 형식에 대한 스키마 참조 가이드
 
@@ -2403,6 +2403,8 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 | `IncludeAuthorizationHeadersInOutputs` | 문자열 | [Azure AD OAuth(Azure Active Directory 공개 인증)를 사용하도록 설정](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth)하여 요청 기반 트리거 엔드포인트의 인바운드 호출에 대한 액세스 권한을 부여하는 논리 앱의 경우 OAuth 액세스 토큰의 `Authorization` 헤더를 트리거 출력에 포함합니다. 자세한 내용은 [요청 트리거 출력에 'Authorization' 헤더 포함](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header)을 참조하세요. | 트리거: <p>[Request](#request-trigger), <br>[HTTP 웹후크](#http-webhook-trigger) | 
 | `Sequential` | 문자열 | "for each" 루프 반복을 모두 동시에 병렬로 실행하지 않고 한 번에 하나씩 실행합니다. <p>이 옵션은 `runtimeConfiguration.concurrency.repetitions` 속성을 `1`로 설정할 때와 동일하게 작동합니다. 두 속성 중 하나만 설정할 수 있습니다. <p><p>이 옵션을 설정하려면 ["for each" 루프를 순차적으로 실행](#sequential-for-each)을 참조하세요.| 작업: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | 문자열 | 각 논리 앱 인스턴스에 대한 트리거를 순차적으로 실행하고, 다음 논리 앱 인스턴스를 트리거하기 전에 이전에 활성 상태이던 실행이 완료될 때까지 기다립니다. <p><p>이 옵션은 `runtimeConfiguration.concurrency.runs` 속성을 `1`로 설정할 때와 동일하게 작동합니다. 두 속성 중 하나만 설정할 수 있습니다. <p>이 옵션을 설정하려면 [인스턴스를 순차적으로 트리거](#sequential-trigger)를 참조하세요. | 모든 트리거 | 
+| `SuppressWorkflowHeaders` | String | 아웃바운드 요청에 `x-ms-*` 메타데이터 헤더를 보내지 마세요. 기본적으로 Azure Logic Apps 서비스에는 아웃바운드 요청의 일부로 헤더 이름에 `x-ms-` 접두사가 있는 추가 메타데이터 헤더가 포함되어 있습니다. 그러나 일부 레거시 서비스에서는 알 수 없는 헤더가 추가된 요청을 수락하지 않아 요청이 실패합니다. | 작업: <p>[HTTP](#http-action), <br>[함수](#function-action), <br>APIManagement | 
+| `SuppressWorkflowHeadersOnResponse` | String | 인바운드 트리거 요청에 대한 응답으로 `x-ms-*` 메타데이터 헤더를 보내지 마세요. 기본적으로 Azure Logic Apps 서비스는 헤더 이름에 `x-ms-` 접두사가 있는 추가 메타데이터 헤더가 포함된 인바운드 요청에 응답을 보냅니다. 그러나 일부 레거시 서비스에서는 알 수 없는 헤더가 추가된 요청 또는 응답을 수락하지 않아 요청이 실패합니다. | 트리거: <p>[Request](#request-trigger), <br>[HTTP 웹후크](#http-webhook-trigger) | 
 ||||
 
 <a name="change-trigger-concurrency"></a>

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/27/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3f6557397985f4d329fc496e5f81046eeed195b
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 096cee4aca9830acf9e74d3d60d08e6a79590cb4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440865"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536579"
 ---
 # <a name="query-delta-lake-files-preview-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 Delta Lake 파일 쿼리(미리 보기)
 
@@ -36,10 +36,10 @@ Azure Synapse에서 Apache Spark 풀을 사용하면 데이터 엔지니어는 S
 `DELTA` 파일 콘텐츠를 가장 쉽게 확인하는 방법은 파일 URL을 [OPENROWSET](develop-openrowset.md) 함수에 제공하고 `DELTA` 형식을 지정하는 것입니다. 파일을 공개적으로 사용할 수 있거나 Azure AD ID에서 이 파일에 액세스할 수 있으면 다음 예제와 같이 쿼리를 사용하여 파일 콘텐츠를 확인할 수 있습니다.
 
 ```sql
-select top 10 *
-from openrowset(
-    bulk 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/',
-    format = 'delta') as rows
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/',
+    FORMAT = 'delta') as rows;
 ```
 
 열 이름 및 데이터 형식을 Delta Lake 파일에서 자동으로 읽습니다. `OPENROWSET` 함수는 문자열 열의 VARCHAR(1000)와 같은 최고의 추측 형식을 사용합니다.
@@ -84,16 +84,16 @@ deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlon
 데이터베이스를 만들고 컨텍스트를 데이터베이스로 전환한 경우(`USE database_name` 문 또는 드롭다운을 사용하여 일부 쿼리 편집기에서 데이터베이스 선택) 데이터 세트에 대한 루트 URI가 포함된 외부 데이터 원본을 만들어 Delta Lake 파일을 쿼리하는 데 사용할 수 있습니다.
 
 ```sql
-create external data source DeltaLakeStorage
-with ( location = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
-go
+CREATE EXTERNAL DATA SOURCE DeltaLakeStorage
+WITH ( LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
+GO
 
-select top 10 *
-from openrowset(
-        bulk 'covid',
-        data_source = 'DeltaLakeStorage',
-        format = 'delta'
-    ) as rows
+SELECT TOP 10 *
+FROM OPENROWSET(
+        BULK 'covid',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT = 'delta'
+    ) as rows;
 ```
 
 데이터 원본이 SAS 키 또는 사용자 지정 ID를 통해 보호되는 경우, [데이터베이스 범위 자격 증명을 사용하여 데이터 원본](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential)을 구성할 수 있습니다.
@@ -103,16 +103,16 @@ from openrowset(
 `OPENROWSET`을 사용하면 `WITH` 절을 사용하여 파일에서 읽을 열을 명시적으로 지정할 수 있습니다.
 
 ```sql
-select top 10 *
-from openrowset(
-        bulk 'covid',
-        data_source = 'DeltaLakeStorage',
-        format = 'delta'
+SELECT TOP 10 *
+FROM OPENROWSET(
+        BULK 'covid',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT = 'delta'
     )
-    with ( date_rep date,
+    WITH ( date_rep date,
            cases int,
            geo_id varchar(6)
-           ) as rows
+           ) as rows;
 ```
 
 결과 집합 스키마의 명시적 사양을 사용하면 형식 크기를 최소화하고 문자열 열에 비관적 VARCHAR(1000) 대신 더욱 정밀한 VARCHAR(6) 형식을 사용할 수 있습니다. 형식을 최소화하면 쿼리 성능이 크게 향상될 수 있습니다.
@@ -167,15 +167,14 @@ ORDER BY
 ```python
 %%pyspark
 from delta.tables import *
-deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/yellow`&quot;, &quot;year INT, month INT")
+deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/yellow`", "year INT, month INT")
 ```
 
 `DeltaTable.convertToDeltaLake` 함수의 두 번째 인수는 폴더 패턴의 한 부분(이 예제에서는 `year=*/month=*`)이자 해당 형식인 분할 열(year 및 month)을 나타냅니다.
 
 ## <a name="limitations"></a>제한 사항
 
-- 데이터 형식이 복잡하면 스키마 유추가 작동하지 않습니다. 데이터 형식이 복잡한 경우 명시적 `WITH` 스키마를 사용하여 `VARCHAR(MAX)` 형식을 지정합니다. 
-- `OPENROWSET` 함수는 Delta Lake 파일이나 시간 이동 업데이트를 지원하지 않습니다. Apache Spark 엔진을 사용하여 이러한 작업을 수행합니다.
+이 기능은 공개 미리 보기로 제공되며 몇 가지 알려진 문제와 제한 사항이 있습니다. [Synapse 서버리스 SQL 풀 자가 진단 페이지](resources-self-help-sql-on-demand.md#delta-lake)에서 알려진 문제를 검토합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -188,3 +187,4 @@ Delta Lake 솔루션을 계속 빌드하려면 Delta Lake 폴더에서 [보기](
 - [Azure Synapse Analytics용 Apache Spark 풀에서 Delta Lake를 사용하는 방법 알아보기](../spark/apache-spark-delta-lake-overview.md)
 - [Azure Databricks Delta Lake 모범 사례](/azure/databricks/best-practices-index)
 - [Delta Lake 문서 페이지](https://docs.delta.io/latest/delta-intro.html)
+- [알려진 문제 및 제한 사항](resources-self-help-sql-on-demand.md#delta-lake)

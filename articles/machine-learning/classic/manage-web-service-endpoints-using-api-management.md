@@ -9,20 +9,20 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 293643ab5354c51142baaf281b1845cfc9fa6f23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2897507270d5f87be01bc87173f48e713b1b791b
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100518031"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581379"
 ---
-# <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio(클래식) 웹 서비스 관리
+# <a name="manage-machine-learning-studio-classic-web-services-using-api-management"></a>API Management를 사용하여 Machine Learning Studio(클래식) 웹 서비스 관리
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 ## <a name="overview"></a>개요
-이 가이드에서는 API Management를 빠르게 시작하여 Azure Machine Learning Studio(클래식) 웹 서비스를 관리하는 방법을 보여줍니다.
+이 가이드에서는 API Management를 빠르게 시작하여 Machine Learning Studio(클래식) 웹 서비스를 관리하는 방법을 보여줍니다.
 
 ## <a name="what-is-azure-api-management"></a>Azure API Management란?
 Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리할 수 있는 Azure 서비스입니다. 자세한 내용은 [Azure API management 사이트](https://azure.microsoft.com/services/api-management/)를 참조하세요. Azure API Management를 시작하려면 [가져오기 및 게시 가이드](../../api-management/import-and-publish.md)를 참조하세요. 이 가이드를 기반으로 하는 이 다른 가이드에서는 알림 구성, 가격 책정 계층, 응답 처리, 사용자 인증, 제품 생산, 개발자 구독 및 사용량 대시보딩을 포함하는 다양한 주제를 다룹니다.
@@ -36,7 +36,7 @@ Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모�
 
 ## <a name="create-an-api-management-instance"></a>API Management 인스턴스 만들기
 
-API Management 인스턴스를 사용하여 Azure Machine Learning 웹 서비스를 관리할 수 있습니다.
+API Management 인스턴스를 사용하여 Machine Learning 웹 서비스를 관리할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **+ 리소스 만들기** 를 선택합니다.

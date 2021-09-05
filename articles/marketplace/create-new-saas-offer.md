@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/19/2021
-ms.openlocfilehash: 05512c247f26dc8e6d41876bc3a09acdd278caac
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/30/2021
+ms.openlocfilehash: 4a0ebea8d0fb8d5b9ae5fa78004c071a348615e4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559271"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535871"
 ---
 # <a name="create-a-saas-offer"></a>SaaS 제품 만들기
 
@@ -54,6 +54,9 @@ ms.locfileid: "111559271"
    + 제품에 대한 무료 구독을 제공하려면 **지금 받기(무료)** 를 선택합니다. 그런 다음, 표시되는 **제품 URL** 입력란에 *http* 또는 *https* 로 시작하는 URL을 입력합니다. 고객은 여기서 [Azure AD(Azure Active Directory)를 사용하여 원클릭 인증](azure-ad-saas.md)을 통해 평가판을 받을 수 있습니다. 예들 들어 `https://contoso.com/saas-app`입니다.
    + 30일 평가판을 제공하려면 **평가판** 을 선택한 다음, 표시되는 **평가판 URL** 상자에 *http* 또는 *https* 로 시작하는 URL을 입력합니다. 고객은 여기서 [Azure AD(Azure Active Directory)를 사용하여 원클릭 인증](azure-ad-saas.md)을 통해 평가판에 액세스할 수 있습니다. 예들 들어 `https://contoso.com/trial/saas-app`입니다.
    + 잠재 고객이 게시자에게 연락해서 제품을 구매할 수 있도록 하려면 **문의처** 를 선택합니다.
+
+    > [!NOTE]
+    > 상황이 변경되면 게시된 목록 전용 제품을 상업용 Marketplace 제품을 통해 판매로 변환할 수 있지만 게시된 거래 가능한 제품을 목록 전용 제품으로 변환할 수는 없습니다. 대신 새 목록 전용 제품을 만들고 게시된 거래 가능한 제품의 배포를 중지해야 합니다.
 
 ## <a name="enable-a-test-drive-optional"></a>시험 사용 지원(선택 사항)
 

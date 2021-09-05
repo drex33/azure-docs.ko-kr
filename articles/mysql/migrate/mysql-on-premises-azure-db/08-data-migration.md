@@ -1,5 +1,5 @@
 ---
-title: MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 데이터 마이그레이션
+title: 'MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 데이터 마이그레이션'
 description: 데이터를 업그레이드하거나 마이그레이션하기 전 신중한 단계로, 업그레이드 전에 MySQL Workbench를 사용하거나 mysqldump 명령을 통해 수동으로 데이터베이스를 내보냅니다.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: 44b2c8aa22944cdf31c9f111a32856e5095d369d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 9e53243424f4cb0b289c0ebba9c82cb9fb4853cc
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082945"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113084945"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-data-migration"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 데이터 마이그레이션
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-data-migration"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 데이터 마이그레이션
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -321,6 +323,8 @@ PowerShell을 사용하여 Azure Database for MySQL에서 사용자를 만들 �
 
   - 마이그레이션이 실행될 때 모든 작업이 문서화되고 체크아웃되었는지 확인합니다.  
 
+
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [MySQL Workbench를 사용한 데이터 마이그레이션](./09-data-migration-with-mySQL-workbench.md)

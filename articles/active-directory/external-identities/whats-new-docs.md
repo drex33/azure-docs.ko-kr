@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 외부 ID의 새로운 기능
 description: Azure Active Directory 외부 ID에 대한 신규 및 업데이트된 설명서입니다.
-ms.date: 06/02/2021
+ms.date: 08/03/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,60 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: fb492dd8bcc9f1c9ea3866e48ebd13277f8910ea
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 81a25af5dfa73cbeefdf5fc677da80515f20a2f1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411200"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536660"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory 외부 ID: 새로운 기능
 
 Azure Active Directory 외부 ID 설명서의 새로운 기능을 시작합니다. 이 문서에는 추가된 새 문서와 지난 3개월 동안 중요한 업데이트를 수행한 문서가 나열되어 있습니다. 외부 ID 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조하세요.
+
+## <a name="july-2021"></a>2021년 7월
+
+### <a name="new-articles"></a>새 문서
+
+- [Azure AD External Identities 셀프 서비스 등록 사용자 흐름에서 API 커넥터를 사용한 API 보안 유지](self-service-sign-up-secure-api-connector.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [외부 ID용 ID 공급자](identity-providers.md)
+- [External Identities에 대한 MSA(Microsoft 계정) ID 공급자](microsoft-account.md)
+- [이메일 일회용 암호 인증](one-time-passcode.md)
+- [앱에 셀프 서비스 가입 사용자 흐름 추가](self-service-sign-up-user-flow.md)
+- [Azure Active Directory B2B 협업 사용자 속성](user-properties.md)
+- [Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가](google-federation.md)
+- [Azure Active Directory B2B 협업 초대 상환](redemption-experience.md)
+- [Azure Active Directory B2B 협업 문제 해결](troubleshoot.md)
+- [사용자 흐름에 API 커넥터 추가](self-service-sign-up-add-api-connector.md)
+- [셀프 서비스 등록에 사용자 지정 승인 워크플로 추가](self-service-sign-up-add-approvals.md)
+- [Azure Active Directory의 외부 ID란?](compare-with-b2c.md)
+- [Azure AD 외부 ID에 대한 청구 모델](external-identities-pricing.md)
+- [동적 그룹 및 Azure Active Directory B2B 협업](use-dynamic-groups.md)
+- [Azure Active Directory B2B의 게스트 사용자 액세스란?](what-is-b2b.md)
+- [API 커넥터를 사용하여 셀프 서비스 등록 사용자 지정 및 확장](api-connectors-overview.md)
+- [게스트 사용자를 위한 SAML/WS-Fed ID 공급자와의 페더레이션(미리 보기)](direct-federation.md)
+- [Azure Active Directory B2B 협업 초대 이메일의 요소](invitation-email-elements.md)
+- [B2B Collaboration 사용자에 대한 조건부 액세스](conditional-access.md)
+
+
+## <a name="june-2021"></a>2021년 6월
+
+### <a name="new-articles"></a>새 문서
+
+- [외부 ID에 대한 Azure AD(Azure Active Directory) ID 공급자](azure-ad-account.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [자습서: B2B 게스트 사용자에 다단계 인증 적용](b2b-tutorial-require-mfa.md)
+- [앱에 셀프 서비스 가입 사용자 흐름 추가](self-service-sign-up-user-flow.md)
+- [빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가](b2b-quickstart-add-guest-users-portal.md)
+- [게스트 사용자를 위한 SAML/WS-Fed ID 공급자와의 페더레이션(미리 보기)](direct-federation.md)
+- [Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가](google-federation.md)
+- [게스트 사용자로써 조직 나가기](leave-the-organization.md)
+- [Azure Active Directory B2B 협업 초대 상환](redemption-experience.md)
 
 ## <a name="may-2021"></a>2021년 5월
 
@@ -63,7 +107,7 @@ Azure Active Directory 외부 ID 설명서의 새로운 기능을 시작합니�
 
 ### <a name="new-articles"></a>새 문서
 
-- [외부 ID에 대한 MSA(Microsoft 계정) ID 공급자(미리 보기)](microsoft-account.md)
+- [External Identities에 대한 MSA(Microsoft 계정) ID 공급자](microsoft-account.md)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 

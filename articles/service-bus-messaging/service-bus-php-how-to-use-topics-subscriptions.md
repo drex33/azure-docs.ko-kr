@@ -1,17 +1,17 @@
 ---
 title: PHP에서 Azure Service Bus 항목을 사용하는 방법
-description: 이 자습서에서는 PHP 애플리케이션에서 Azure Service Bus 항목 및 구독을 사용하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 PHP 애플리케이션에서 Azure Service Bus 항목 및 구독을 사용하는 방법에 대해 알아봅니다.
 ms.devlang: PHP
-ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: 7cdb6ca30b2c9abf2c2525057a90888b2c5d1c78
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.topic: how-to
+ms.date: 07/27/2021
+ms.openlocfilehash: 0265b138b2f6f44961d085ca8492ba125b9a36b2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302539"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725118"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>빠른 시작: PHP에서 Service Bus 토픽 및 구독을 사용하는 방법
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>PHP에서 Service Bus 토픽 및 구독을 사용하는 방법
 
 이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)를 사용합니다. 다루는 시나리오는 다음과 같습니다.
 
@@ -26,11 +26,11 @@ ms.locfileid: "113302539"
  
 
 ## <a name="prerequisites"></a>필수 조건
-1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+1. Azure 구독 이 문서의 단계를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 2. [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 Service Bus **네임스페이스** 를 만들고 **연결 문자열** 을 가져옵니다.
 
     > [!NOTE]
-    > 이 빠른 시작에서는 **PHP** 를 사용하여 **토픽** 및 해당 토픽에 대한 **구독** 을 만들 것입니다. 
+    > 이 문서에서는 **PHP** 를 사용하여 **토픽** 및 해당 토픽에 대한 **구독** 을 만들 것입니다. 
 
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
 Azure Blob service에 액세스하는 PHP 애플리케이션을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)의 클래스를 참조하는 것입니다. 어떠한 개발 도구를 사용해도 애플리케이션 또는 메모장을 만들 수 있습니다.

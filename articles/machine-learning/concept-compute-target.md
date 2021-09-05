@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/29/2020
-ms.openlocfilehash: 389460e79dbcc9c6ba9480540d7f361382ef5987
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.date: 07/27/2021
+ms.openlocfilehash: bb7baa20b5bc7e47e231e3e15937dde941ac0e03
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021090"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608261"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 컴퓨팅 대상은 무엇인가요?
 
@@ -23,14 +23,14 @@ ms.locfileid: "112021090"
 일반적인 모델 개발 수명 주기에서 다음을 수행할 수 있습니다.
 
 1. 적은 양의 데이터에서 개발 및 실험하여 시작합니다. 이 단계에서는 로컬 컴퓨터나 클라우드 기반 VM(가상 머신)과 같은 로컬 환경을 컴퓨팅 대상으로 사용합니다.
-1. 이러한 [학습 컴퓨터 대상](#train) 중 하나를 사용하여 데이터를 크게 스케일 업하거나 분산 학습을 수행합니다.
-1. 모델이 준비되면 이러한 [배포 컴퓨팅 대상](#deploy) 중 하나를 사용하여 웹 호스팅 환경이나 IoT 디바이스에 배포합니다.
+1. 이러한 [학습 컴퓨팅 대상](#train) 중 하나를 사용하여 데이터를 크게 스케일 업하거나 [분산 학습](how-to-train-distributed-gpu.md)을 수행합니다.
+1. 모델이 준비되면 이러한 [배포 컴퓨팅 대상](#deploy) 중 하나를 사용하여 웹 호스팅 환경에 배포합니다.
 
 컴퓨팅 대상에 사용하는 컴퓨팅 리소스는 [작업 영역](concept-workspace.md)에 연결됩니다. 작업 영역의 사용자가 로컬 컴퓨터 이외의 컴퓨팅 리소스를 공유합니다.
 
 ## <a name="training-compute-targets"></a><a name="train"></a> 컴퓨팅 대상 학습
 
-Azure Machine Learning에는 다양한 컴퓨팅 대상에 대한 다양한 지원이 포함되어 있습니다. 일반적인 모델 개발 수명 주기는 적은 양의 데이터에서 개발 또는 실험으로 시작합니다. 이 단계에서는 로컬 컴퓨터나 클라우드 기반 VM과 같은 로컬 환경을 사용합니다. 더 큰 데이터 세트에서 학습을 스케일 업하거나 분산 학습을 수행하는 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 크기가 자동 조정되는 단일 또는 다중 노드 클러스터를 만듭니다. 고유한 컴퓨팅 리소스도 연결할 수 있지만 시나리오마다 지원이 다를 수 있습니다.
+Azure Machine Learning에는 다양한 컴퓨팅 대상에 대한 다양한 지원이 포함되어 있습니다. 일반적인 모델 개발 수명 주기는 적은 양의 데이터에서 개발 또는 실험으로 시작합니다. 이 단계에서는 로컬 컴퓨터나 클라우드 기반 VM과 같은 로컬 환경을 사용합니다. 더 큰 데이터 세트에서 학습을 스케일 업하거나 [분산 학습](how-to-train-distributed-gpu.md)을 수행하는 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 크기가 자동 조정되는 단일 또는 다중 노드 클러스터를 만듭니다. 고유한 컴퓨팅 리소스도 연결할 수 있지만 시나리오마다 지원이 다를 수 있습니다.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -52,10 +52,9 @@ Azure Machine Learning에는 다양한 컴퓨팅 대상에 대한 다양한 지�
 다음에서 Azure Machine Learning 컴퓨팅 인스턴스나 컴퓨팅 클러스터를 만들 수 있습니다.
 
 * [Azure Machine Learning 스튜디오](how-to-create-attach-compute-studio.md)
-* Python SDK 및 CLI:
+* Python SDK 및 Azure CLI:
     * [컴퓨팅 인스턴스](how-to-create-manage-compute-instance.md)
     * [컴퓨팅 클러스터](how-to-create-attach-compute-cluster.md)
-* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)(미리 보기)
 * Azure Resource Manager 템플릿 예제 템플릿은 [Azure Machine Learning 컴퓨팅 클러스터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute)를 참조하세요.
 * [Azure CLI용 기계 학습 확장](reference-azure-machine-learning-cli.md#resource-management)
 
@@ -64,7 +63,7 @@ Azure Machine Learning에는 다양한 컴퓨팅 대상에 대한 다양한 지�
 
 |기능  |컴퓨팅 클러스터  |컴퓨팅 인스턴스  |
 |---------|---------|---------|
-|단일 또는 다중 노드 클러스터     |    **&check;**       |         |
+|단일 또는 다중 노드 클러스터     |    **&check;**       |    단일 노드 클러스터     |
 |실행을 제출할 때마다 자동 크기 조정     |     **&check;**      |         |
 |자동 클러스터 관리 및 작업 예약     |   **&check;**        |     **&check;**      |
 |CPU와 GPU 리소스에 대한 지원     |  **&check;**         |    **&check;**       |
@@ -107,8 +106,8 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 | [NDv2](../virtual-machines/ndv2-series.md) | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
 | [NV](../virtual-machines/nv-series.md) | 없음 | GPU | 컴퓨팅 클러스터와 인스턴스 |
 | [NVv3](../virtual-machines/nvv3-series.md) | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
-| [NCT4_v3](../virtual-machines/nct4-v3-series.md) | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
-| [NDA100_v4](../virtual-machines/nda100-v4-series.md) | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
+| [NCasT4_v3](../virtual-machines/nct4-v3-series.md) | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
+| [NDasrA100_v4](../virtual-machines/nda100-v4-series.md) | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
 
 
 Azure Machine Learning에서 이러한 VM 시리즈를 지원하지만 모든 Azure 지역에서 사용할 수 있는 것은 아닙니다. VM 시리즈 사용 가능 여부를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)을 참조하세요.
@@ -152,7 +151,20 @@ Azure Machine Learning 컴퓨팅은 특정 하드웨어 형식에서 격리되�
 
 ## <a name="unmanaged-compute"></a>관리되지 않는 컴퓨팅
 
-관리되지 않는 컴퓨팅 대상은 Azure Machine Learning에서 관리되지 *않습니다*. Azure Machine Learning 외부에 이 형식의 컴퓨팅 대상을 만든 다음, 작업 영역에 연결합니다. 관리되지 않는 컴퓨팅 리소스에는 기계 학습 워크로드 성능을 유지하거나 향상시키는 추가 단계가 필요할 수 있습니다.
+관리되지 않는 컴퓨팅 대상은 Azure Machine Learning에서 관리되지 *않습니다*. Azure Machine Learning 외부에 이 형식의 컴퓨팅 대상을 만든 다음, 작업 영역에 연결합니다. 관리되지 않는 컴퓨팅 리소스에는 기계 학습 워크로드 성능을 유지하거나 향상시키는 추가 단계가 필요할 수 있습니다. 
+
+Azure Machine Learning은 다음과 같은 관리되지 않은 컴퓨팅 유형을 지원합니다.
+
+* 로컬 컴퓨터
+* 원격 가상 머신
+* Azure HDInsight
+* Azure Batch
+* Azure Databricks
+* Azure 데이터 레이크 분석
+* Azure Container Instance
+* Azure Kubernetes Service 및 Azure Arc 지원 Kubernetes(미리 보기)
+
+자세한 내용은 [모델 학습 및 배포를 위한 컴퓨팅 대상 설정](how-to-attach-compute-targets.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

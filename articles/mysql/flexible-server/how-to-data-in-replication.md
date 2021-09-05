@@ -6,20 +6,21 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 041e6e2b3a79fa639a00506c81fc3e7ab0a98cec
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ee0bafdfe7d7caae2d4ba65e9967d9c46e6b3e3c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746774"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536118"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-flexible-server-data-in-replication"></a>Azure Database for MySQL Flexible Server 입력 데이터 복제를 구성하는 방법
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 이 문서에서는 원본 및 복제본 서버를 구성하여 Azure Database for MySQL Flexible Server에서 [입력 데이터 복제](concepts-data-in-replication.md)를 설정하는 방법을 설명합니다. 이 문서에서는 이전에 MySQL 서버 및 데이터베이스를 사용한 경험이 있다고 가정합니다.
 
 > [!NOTE]
 > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 _슬레이브_ 라는 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
->
 
 Azure Database for MySQL Flexible 서비스에서 복제본을 만들기 위해 [입력 데이터 복제](concepts-data-in-replication.md)가 온-프레미스, VM(가상 머신) 또는 클라우드 데이터베이스 서비스에서 원본 MySQL 서버의 데이터를 동기화합니다. 입력 데이터 복제는 위치 기반의 이진 로그(binlog) 파일을 기반으로 합니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.
 
@@ -44,7 +45,7 @@ Azure Database for MySQL Flexible 서비스에서 복제본을 만들기 위해 
 
     * 개인 액세스를 사용 중인 경우 원본 서버와 복제본 서버가 호스트되는 Vnet 간에 연결되어 있어야 합니다. 
     * [ExpressRoute](../../expressroute/expressroute-introduction.md) 또는 [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 대한 사이트 간 연결이 제공되는지 확인하세요. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
-    * 복제본 서버에서 개인 액세스가 사용되고 원본이 Azure VM인 경우 VNet 간 연결이 설정되어 있는지 확인합니다. 지역 내의 VNet-Vnet 피어링이 지원됩니다. **글로벌 피어링은 현재 지원되지 않습니다.** VNet 간 연결과 같이 여러 지역에서 VNet 간에 통신하려면 다른 연결 방법을 사용해야 합니다. 자세한 내용은 [VNet 간 VPN 게이트웨이](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)를 참조하세요.
+    * 복제본 서버에서 개인 액세스가 사용되고 원본이 Azure VM인 경우 VNet 간 연결이 설정되어 있는지 확인합니다. VNet-Vnet 피어링이 지원됩니다. 다른 연결 방법을 사용하여 VNet 간 연결과 같이 여러 지역에서 VNet 간에 통신할 수도 있습니다. 자세한 내용은 [VNet 간 VPN 게이트웨이](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)를 참조하세요.
     * 가상 네트워크 네트워크 보안 그룹 규칙이 아웃바운드 포트 3306(MySQL이 Azure VM에서 실행 중인 경우에도 인바운드)을 차단하지 않는지 확인합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
     * 복제 서버 IP 주소를 허용하도록 원본 서버의 방화벽 규칙을 구성합니다.
 
@@ -215,16 +216,7 @@ Azure Database for MySQL Flexible 서비스에서 복제본을 만들기 위해 
       ```sql
       CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
       ```
-
-2. 필터링을 설정합니다.
-
-   마스터 서버에서 일부 테이블 복제를 건너뛰려면 복제본 서버에서 `replicate_wild_ignore_table` 서버 매개 변수를 업데이트합니다. 쉼표로 구분된 목록을 사용하여 둘 이상의 테이블 패턴을 제공할 수 있습니다.
-
-   이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table)를 참조하세요.
-
-   매개 변수를 업데이트하려면 [Azure Portal](how-to-configure-server-parameters-portal.md) 또는 [Azure CLI](how-to-configure-server-parameters-cli.md)를 사용할 수 있습니다.
-
-3. 복제를 시작합니다.
+2. 복제를 시작합니다.
 
    `mysql.az_replication_start` 저장 프로시저를 호출하여 복제를 시작합니다.
 
@@ -232,7 +224,7 @@ Azure Database for MySQL Flexible 서비스에서 복제본을 만들기 위해 
    CALL mysql.az_replication_start;
    ```
 
-4. 복제 상태를 확인합니다.
+3. 복제 상태를 확인합니다.
 
    복제본 서버에서 [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) 명령을 호출하여 복제 상태를 확인합니다.
 

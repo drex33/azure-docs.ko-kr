@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58ef522f5b048db0ef120625d9e894c8e14c070e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d3c159c615d928a8d56d3913c8e1cab846c7580
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724410"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462096"
 ---
 # <a name="resilient-interfaces-with-external-processes"></a>외부 프로세스를 사용하는 복원력 있는 인터페이스
 
@@ -38,7 +38,7 @@ IEF(Identity Experience Framework) 정책을 사용하면 [RESTful API 기술 �
 
 - 가능하면 사전 인증 경로에서 API 호출을 제거합니다. 사용할 수 없는 경우에는 API에 대한 향후의 DoS(서비스 거부) 공격과 DDoS(분산 서비스 거부) 공격에 대비해 엄격한 보호를 적용해야 합니다. 공격자는 로그인 페이지를 로드하고 DoS 공격으로 API 폭주를 일으켜 애플리케이션에 심각한 손상을 줄 수 있습니다. 예를 들어 로그인에 CAPTCHA를 사용하면 등록 흐름이 도움이 될 수 있습니다.
 
-- [기본 제공 사용자 등록 흐름의 API 커넥터](../../active-directory-b2c/api-connectors-overview.md)를 사용하면 단계에 구애받지 않고 ID 공급자를 통해 로그인한 후 또는 사용자를 만들기 전에 웹 API와 통합할 수 있습니다. 사용자 흐름은 이미 널리 테스트되었으므로 사용자 흐름 수준의 기능, 성능 또는 규모를 테스트할 필요가 없을 수 있습니다. 그러나 애플리케이션의 기능, 성능, 규모는 테스트해야 합니다.
+- [기본 제공 사용자 등록 흐름의 API 커넥터](../../active-directory-b2c/api-connectors-overview.md)를 사용하면 단계에 구애받지 않고 등록하는 동안 ID 공급자를 통해 페더레이션한 후 또는 사용자를 만들기 전에 웹 API와 통합할 수 있습니다. 사용자 흐름은 이미 널리 테스트되었으므로 사용자 흐름 수준의 기능, 성능 또는 규모를 테스트할 필요가 없을 수 있습니다. 그러나 애플리케이션의 기능, 성능, 규모는 테스트해야 합니다.
 
 - Azure AD RESTFul API [기술 프로필](../../active-directory-b2c/restful-technical-profile.md)은 캐싱 동작을 제공하지 않습니다. 대신 RESTFul API 프로필은 정책에 기본 제공되는 다시 시도 논리와 시간 제한을 구현합니다.
 

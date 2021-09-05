@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 07/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0119d9b1938698ed27d9c1539c1366859d0fc7f9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 0252305167f0f77d310810af0a147106fae9e0c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411956"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528483"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub"></a>Azure Virtual WAN 허브에서 네트워크 가상 어플라이언스를 만드는 방법
 
@@ -93,6 +93,8 @@ Azure Virtual WAN 내의 **VMware SD-WAN** 배포 설명서는 [Deployment Guide
 1. 이 페이지에 공동 관리자 액세스 계약 약관에 동의하라는 메시지가 표시됩니다. 게시자가 이 배포의 일부 리소스에 액세스할 수 있는 관리형 애플리케이션에서는 이러한 메시지가 기본적으로 표시됩니다. **위의 사용 약관에 동의함** 확인란을 선택하고 **만들기** 를 선택합니다.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>허브에 VNet 연결
+
+이 섹션에서는 허브와 VNet 간의 연결을 만듭니다.
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 

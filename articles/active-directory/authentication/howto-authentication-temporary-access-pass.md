@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 08/11/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 471cf0ae11910b74f6aabd8fd858ed6f6dd2f31c
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 6eb911bb58413e6551224d98371cf56ecbd8e01f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029768"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528745"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>암호 없는 인증 방법을 등록하기 위해 Azure AD에서 임시 액세스 패스 구성(미리 보기)
 
@@ -118,6 +118,7 @@ c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True        
 >페더레이션된 도메인의 경우 페더레이션보다 임시 액세스 패스가 우선적으로 사용됩니다. 임시 액세스 패스가 있는 사용자는 Azure AD에서 인증을 완료하고 IdP(페더레이션된 ID 공급자)로 리디렉션되지 않습니다.
 
 이제 사용자가 로그인되어 FIDO2 보안 키와 같은 방법을 업데이트하거나 등록할 수 있습니다. 자격 증명이나 디바이스가 손실되어 인증 방법을 업데이트하는 사용자는 이전 인증 방법을 제거해야 합니다.
+사용자는 암호를 사용하여 계속 로그인할 수도 있습니다. TAP는 사용자의 암호를 대체하지 않습니다.
 
 사용자는 자신의 임시 액세스 패스를 사용하여 Authenticator 앱에서 직접 암호 없는 휴대폰 로그인을 등록할 수도 있습니다. 자세한 내용은 [Microsoft Authenticator 앱에 회사 또는 학교 계정 추가](../user-help/user-help-auth-app-add-work-school-account.md)를 참조하세요.
 
@@ -154,7 +155,7 @@ Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -
 - 게스트 사용자는 임시 액세스 패스를 사용하여 로그인할 수 없습니다.
 - 임시 액세스 패스는 퍼블릭 미리 보기로 제공되며 현재 미국 정부용 Azure에서 사용할 수 없습니다.
 - SSPR(셀프 서비스 암호 재설정) 등록 정책 *또는* [ID 보호 Multi-Factor Authentication 등록 정책](../identity-protection/howto-identity-protection-configure-mfa-policy.md) 범위에 있는 사용자는 임시 액세스 패스를 사용하여 로그인한 후 인증 방법을 등록해야 합니다. 이러한 정책에 대한 범위에 있는 사용자는 [결합된 등록의 인터럽트 모드](concept-registration-mfa-sspr-combined.md#combined-registration-modes)로 리디렉션됩니다. 이 환경은 현재 FIDO2 및 휴대폰 로그인 등록을 지원하지 않습니다. 
-- 임시 액세스 패스는 NPS(네트워크 정책 서버) 확장 및 AD FS(Active Directory Federation Services) 어댑터와 함께 사용하거나 Windows 설치/OOBE(첫 실행 경험) 및 Autopilot 동안 사용할 수 없습니다. 
+- 임시 액세스 패스는 NPS(네트워크 정책 서버) 확장 및 AD FS(Active Directory Federation Services) 어댑터와 함께 사용하거나 Windows 설치/OOBE(Out-of-Box-Experience), Autopilot 또는 비즈니스용 Windows Hello를 배포하는 데 사용할 수 없습니다. 
 - 테넌트에서 Seamless SSO를 사용하도록 설정하면 암호를 입력하라는 메시지가 표시됩니다. 사용자가 임시 액세스 패스를 사용하여 로그인할 수 있도록 하는 **대신 임시 액세스 패스 사용** 링크를 사용할 수 있습니다.
 
   ![대신 임시 액세스 패스 사용 스크린샷](./media/how-to-authentication-temporary-access-pass/alternative.png)
@@ -167,6 +168,7 @@ Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -
 - 임시 액세스 패스를 사용하여 로그인하는 동안 **사용자 자격 증명 정책으로 인해 임시 액세스 패스 로그인이 차단됨** 이 표시됩니다.
   - 인증 방법 정책에는 일회성 임시 액세스 단계가 필요하지만 사용자에게 다용도 임시 액세스 패스가 있습니다.
   - 일회성 임시 액세스 패스는 이미 사용되었습니다.
+- 사용자 자격 증명 정책으로 인해 임시 액세스 패스 로그인이 차단된 경우 사용자가 TAP 정책의 범위 내에 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

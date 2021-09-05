@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 08aad681160a4f0d369fd312ba58c3ea6c7e8780
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 31dd21a7c525bd1e5dc659b611f72c2c33c6f043
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454126"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535632"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -42,7 +42,7 @@ ms.locfileid: "110454126"
 | 아웃바운드 트래픽에 대한 TLS 검사를 필터링하거나 사용하지 않도록 설정합니다. | 네트워크 계층에서 아웃바운드 트래픽에 대해 TLS 검사 또는 종료가 이루어지는 경우 에이전트 등록 단계 또는 데이터 업로드 작업이 실패할 수 있습니다. 자세한 내용은 [TLS 검사 설정](/previous-versions/tn-archive/ee796230(v=technet.10))을 참조하세요. |
 | 서버의 방화벽 포트에서 에이전트를 실행 중입니다. |에이전트는 Azure AD Connect Health 서비스 엔드포인트와 통신할 수 있도록 다음 방화벽 포트가 열려 있어야 합니다. <br /><li>TCP 포트 443</li><li>TCP 포트 5671</li> <br />최신 버전의 에이전트에는 포트 5671이 필요하지 않습니다. 포트 443만 필요하도록 최신 버전으로 업그레이드합니다. 자세한 내용은 [포트 및 프로토콜이 필요한 하이브리드 ID](./reference-connect-ports.md)를 참조하세요. |
 | Internet Explorer 보안 강화가 사용하도록 설정된 경우 지정된 웹 사이트를 허용합니다.  |Internet Explorer 보안 강화가 사용하도록 설정된 경우 에이전트를 설치한 서버에서 다음 웹 사이트를 허용합니다.<br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>Azure AD에서 신뢰할 수 있는 조직의 페더레이션 서버(예: https:\//sts.contoso.com)</li> <br />자세한 내용은 [Internet Explorer를 구성하는 방법](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing)을 참조하세요. 네트워크에 프록시가 있는 경우 이 표 끝에 나오는 정보를 참조하세요.|
-| PowerShell 버전 4.0 이상이 설치되어 있습니다. | Windows Server 2012에는 PowerShell 버전 3.0이 포함되어 있습니다. 이 버전은 에이전트에 충분하지 ‘않습니다’.</br></br> Windows Server 2012 R2 이상에는 PowerShell 최신 버전이 포함됩니다.|
+| PowerShell 버전 5.0 이상이 설치되어 있습니다. | Windows Server 2016에는 PowerShell 버전 5.0이 포함되어 있습니다. 
 |FIPS(Federal Information Processing Standard)가 사용하지 않도록 설정되어 있습니다.|Azure AD Connect Health 에이전트는 FIPS를 지원하지 않습니다.|
 
 > [!IMPORTANT]
@@ -174,7 +174,7 @@ PowerShell 창이 열리고 에이전트 등록 프로세스가 시작됩니다.
 3. 오른쪽에서 **현재 로그 필터링** 을 선택합니다.
 4. **이벤트 원본** 에 **AD FS 감사** 를 선택합니다.
 
-    감사 로그에 대한 자세한 내용은 [작업 질문](reference-connect-health-faq.md#operations-questions)을 참조하세요.
+    감사 로그에 대한 자세한 내용은 [작업 질문](/azure/active-directory/hybrid/reference-connect-health-faq#operations-questions)을 참조하세요.
 
     ![현재 로그 필터링 창을 보여 주는 스크린샷. “이벤트 원본” 필드에 “AD FS 감사”가 선택되었습니다.](./media/how-to-connect-health-agent-install/adfsaudit.png)
 
@@ -407,5 +407,5 @@ Test-AzureADConnectHealthConnectivity -Role ADFS
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
 * [동기화에 대한 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
 * [Azure AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)
 * [Azure AD Connect Health 버전 내역](reference-connect-health-version-history.md)

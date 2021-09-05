@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d710038c00dff56d4840f7252dcb992dcb1b8c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596300"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536874"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>Azure Virtual Machines의 상태 및 청구
 
@@ -43,10 +43,10 @@ Azure 리소스 탐색기는 VM 실행 상태를 보기 위한 간단한 UI를 �
 
 | 전원 상태 | Description | 결제 |  
 |---|---|---|
-| 시작 중| 가상 머신이 켜지는 중입니다. |청구되지 않음* | 
+| 시작 중| 가상 머신이 켜지는 중입니다. | 청구됨 | 
 | 실행 중 | 가상 머신이 완전히 작동합니다. 이는 표준 작업 상태입니다. | 청구됨 | 
 | 중지 중 | 이는 실행 중과 중지됨 간의 전환 상태입니다. | 청구됨| 
-|중지됨 | 가상 머신이 게스트 OS 내에서 또는 PowerOff API를 사용하여 종료되었습니다. 이 상태에서 가상 머신은 계속 기본 하드웨어를 임대합니다. 이 상태를 ‘중지됨(할당됨)’이라고도 합니다. | 청구됨 | 
+|중지됨 | Virtual Machine이 호스트에 할당되었지만 실행되고 있지 않습니다. PoweredOff 상태 또는 *중지됨(할당됨)* 이라고도 합니다. 이는 PowerOff API 작업을 호출하거나 게스트 OS 내에서 종료를 호출한 결과일 수 있습니다. 중지됨 상태는 VM을 만드는 동안 또는 할당 해제된 상태에서 VM을 시작하는 동안 잠시 관찰될 수도 있습니다.  | 청구됨 | 
 | 할당 취소 중 | 실행 중과 할당 취소됨 간의 전환 상태입니다. | 청구되지 않음* | 
 | 할당 취소됨 | 가상 머신이 기본 하드웨어 임대를 해제하고 완전히 꺼졌습니다. 이 상태를 ‘중지됨(할당 취소됨)’이라고도 합니다. | 청구되지 않음* | 
 

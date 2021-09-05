@@ -2,13 +2,13 @@
 title: 관리 ID를 사용하여 인증
 description: 사용자 할당 또는 시스템 할당 관리 Azure ID를 사용하여 프라이빗 컨테이너 레지스트리의 이미지에 액세스할 수 있습니다.
 ms.topic: article
-ms.date: 01/16/2019
-ms.openlocfilehash: 88952a032b9c4439620de05f181402f29639a5b2
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.date: 06/30/2021
+ms.openlocfilehash: 84f7d76eb763c8116390501dfbe2a6568849f10f
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440667"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286541"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
 
@@ -34,7 +34,7 @@ Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요
 그런 다음, 해당 ID를 사용하면 모든 [Azure AD 인증을 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다. 시나리오에 따라 관리 ID를 사용하여 인증하는 방법을 선택합니다. ID를 사용하여 가상 머신에서 Azure Container Registry에 액세스하려면 Azure Resource Manager를 사용하여 인증합니다. 
 
 > [!NOTE]
-> 현재 Azure Web App for Containers 또는 Azure Container Instances와 같은 서비스는 컨테이너 리소스 자체를 배포하기 위해 컨테이너 이미지를 끌어올 때 관리 ID를 사용하여 Azure Container Registry를 인증할 수 없습니다. ID는 컨테이너가 실행된 후에만 사용할 수 있습니다. Azure Container Registry의 이미지를 사용하여 이러한 리소스를 배포하려면 [서비스 주체](container-registry-auth-service-principal.md)와 같은 다른 인증 방법을 사용하는 것이 좋습니다.
+> 현재 컨테이너 그룹을 만들 때 Azure Container Instances에서 관리 ID를 사용하여 Azure Container Registry에서 이미지를 끌어올 수 없습니다. ID는 실행 중인 컨테이너 내에서만 사용할 수 있습니다. Azure Container Registry의 이미지를 사용하여 Azure Container Instances에 컨테이너 그룹을 배포하려면 [서비스 주체](container-registry-auth-service-principal.md)와 같은 다른 인증 방법을 사용하는 것이 좋습니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -232,6 +232,7 @@ docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 > * 관리 ID를 사용하여 레지스트리에 액세스하고 컨테이너 이미지 가져오기
 
 * [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/index.yml)에 대해 자세히 알아보세요.
+* App Service 및 Azure Container Registry에서 [시스템 할당](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md) 또는 [사용자 할당](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md) 관리 ID를 사용하는 방법을 알아봅니다.
 
 
 <!-- LINKS - external -->

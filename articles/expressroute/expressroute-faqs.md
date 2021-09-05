@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 50ae89aefda00f21d07a19051c9aaa6e85726f8a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 108c7c30ad84c83e895cade79bc8a6ad30029199
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741386"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538598"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -60,7 +60,9 @@ ExpressRoute 게이트웨이는 Azure VNet의 *주소 공간* 을 보급하며, 
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>ExpressRoute 개인 피어링의 VNet에서 온-프레미스로 보급할 수 있는 접두사는 몇 개입니까?
 
-단일 ExpressRoute 연결에서 또는 게이트웨이 전송을 사용하는 VNet 피어링을 통해 보급되는 접두사는 최대 1,000개입니다. 예를 들어 ExpressRoute 회로에 연결된 단일 VNet에 999개의 주소 공간이 있는 경우 해당 접두사의 모든 999개 주소 공간은 온-프레미스에 보급됩니다. 또는 "원격 게이트웨이 허용" 옵션을 사용하여 1개의 주소 공간과 500개의 스포크 Vnet이 설정된 게이트웨이 전송을 VNet에서 허용하도록 설정한 경우 이 게이트웨이를 사용하여 배포된 VNet은 501개의 접두사를 온-프레미스에 보급합니다.
+단일 ExpressRoute 연결에서 또는 게이트웨이 전송을 사용하는 VNet 피어링을 통해 보급되는 IPv4 접두사는 최대 1000개입니다. 예를 들어 ExpressRoute 회로에 연결된 단일 VNet에 999개의 주소 공간이 있는 경우 해당 접두사의 모든 999개 주소 공간은 온-프레미스에 보급됩니다. 또는 "원격 게이트웨이 허용" 옵션을 사용하여 1개의 주소 공간과 500개의 스포크 Vnet이 설정된 게이트웨이 전송을 VNet에서 허용하도록 설정한 경우 이 게이트웨이를 사용하여 배포된 VNet은 501개의 접두사를 온-프레미스에 보급합니다.
+
+이중 스택 회로를 사용하는 경우 단일 ExpressRoute 연결 또는 게이트웨이 전송을 사용하는 VNet 피어링을 통해 최대 100개의 IPv6 접두사가 있습니다. 이는 위에서 설명한 제한에 추가됩니다.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>ExpressRoute 연결에서 접두사 제한을 초과하면 어떻게 되나요?
 
@@ -240,7 +242,7 @@ BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>하나의 가상 네트워크를 둘 이상의 ExpressRoute 회로에 연결할 수 있나요?
 
-예. 단일 가상 네트워크를 동일하거나 다른 피어링 위치에 있는 최대 4개의 ExpressRoute 회로와 연결할 수 있습니다. 
+예. 단일 가상 네트워크를 동일한 위치에 있는 최대 4개의 ExpressRoute 회로 또는 다른 피어링 위치에 있는 최대 16개의 ExpressRoute 회로와 연결할 수 있습니다. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>ExpressRoute 회로에 연결된 가상 네트워크에서 인터넷에 액세스할 수 있나요?
 
@@ -297,7 +299,7 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
 
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>ExpressRoute 회로의 대역폭을 변경하려면 어떻게 해야 하나요?
 
-REST API 및 PowerShell cmdlet을 사용하여 ExpressRoute 회로의 대역폭을 업데이트할 수 있습니다.
+Azure Portal, REST API, PowerShell 또는 Azure CLI를 사용하여 ExpressRoute 회로의 대역폭을 업데이트할 수 있습니다.
 
 ### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>내 ExpressRoute 회로에서 유지 관리에 대한 알림을 받았습니다. 이 유지 관리의 기술적 영향은 무엇인가요?
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 476355f41de5e0e6aaffdedea8947cab5221767a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da2f34014f3c789762cc2743b971aa76ad1049a9
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200740"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112574437"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Azure Purview Data Catalog 클라이언트의 데이터 계보
 
@@ -43,7 +43,7 @@ Purview Data Catalog는 다른 데이터 처리, 스토리지 및 분석 시스�
 
 ## <a name="lineage-granularity"></a>계보 세분성
 
-이 섹션에서는 데이터 카탈로그에서 계보 정보를 수집하는 세분성에 대한 세부 정보를 다룹니다. 이 세분성은 데이터 시스템에 따라 다를 수 있습니다.
+다음 섹션에서는 Purview로 수집되는 계보 정보의 세분성에 대한 세부 정보를 다룹니다. 이 세분성은 Purview에서 지원되는 데이터 시스템에 따라 다를 수 있습니다.
 
 ### <a name="entity-level-lineage-sources--process--targets"></a>엔터티 수준 계보: 원본 > 프로세스> 대상 
 

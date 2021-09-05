@@ -2,22 +2,22 @@
 title: Azure AD를 사용해 그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성
 description: 그룹 및 팀 소유자가 그룹 또는 팀의 데이터에 액세스할 수 있는 애플리케이션에 동의할 수 있는지를 관리하는 방법을 알아봅니다.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 46b6d91846b2498ce046da7a80bc3c9bc6110929
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 1ce7254f92c4cc3d2a7dcf77885be88eda37099b
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076063"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113567993"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성
 
@@ -74,7 +74,7 @@ Azure AD PowerShell Preview 모듈 [AzureADPreview](/powershell/module/azuread/?
 
 1. 설정 값을 이해합니다. 앱에서 해당 그룹의 데이터에 액세스하도록 허용할 수 있는 사용자를 정의하는 두 가지 설정 값이 있습니다.
 
-    | 설정       | Type         | Description  |
+    | 설정       | 유형         | Description  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | 부울 | 그룹 소유자가 그룹 관련 권한을 부여할 수 있는지 여부를 나타내는 플래그입니다. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | _EnableGroupSpecificConsent_ 를 "True"로 설정하고 이 값을 그룹의 개체 ID로 설정하면 식별된 그룹의 멤버가 자신이 소유한 그룹에 대한 그룹 관련 권한을 부여할 수 있습니다. |
@@ -113,6 +113,9 @@ Azure AD PowerShell Preview 모듈 [AzureADPreview](/powershell/module/azuread/?
 
 ---
 
+> [!NOTE]
+> "사용자를 대신하여 회사 데이터에 액세스하는 앱에 동의할 수 있습니다." 설정을 끄면 "사용자가 소유한 그룹의 회사 데이터에 액세스하는 앱에 동의할 수 있습니다." 옵션을 사용하지 않도록 설정합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 자세히 알아보려면 다음을 수행합니다.
@@ -124,4 +127,5 @@ Azure AD PowerShell Preview 모듈 [AzureADPreview](/powershell/module/azuread/?
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
+
 * [Microsoft Azure AD Q&A](/answers/topics/azure-active-directory.html)

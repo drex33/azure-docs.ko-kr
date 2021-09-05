@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: b7aefa537c9b822572f38501920afdaa45bc01c3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c1fa9d27bbdfe91eebb74186e69cf707166384fd
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955049"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530291"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory Authentication 관리 작업 참조 가이드
 
@@ -27,7 +27,7 @@ ms.locfileid: "111955049"
 
 ## <a name="key-operational-processes"></a>주요 운영 프로세스
 
-### <a name="assign-owners-to-key-tasks"></a>키 작업에 소유자 할당
+### <a name="assign-owners-to-key-tasks"></a>주요 작업에 소유자 할당
 
 Azure Active Directory를 관리하려면 출시 프로젝트의 일부가 아닐 수 있는 주요 운영 작업 및 프로세스를 지속해서 실행해야 합니다. 환경을 최적화하기 위해 이 작업을 설정하는 것도 여전히 중요합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
@@ -42,7 +42,7 @@ Azure Active Directory를 관리하려면 출시 프로젝트의 일부가 아�
 | Azure AD ID 보호에서 위험 및 취약성 보고서에 대해 플래그가 지정된 사용자를 심사하고 조사 | InfoSec 운영 팀 |
 
 > [!NOTE]
-> Azure AD ID 보호에는 Azure AD Premium P2 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Azure AD Free 및 Azure AD Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+> Azure AD ID 보호에는 Azure AD Premium P2 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Azure AD Free 및 Azure AD Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)를 참조하세요.
 
 목록을 검토할 때 소유자가 누락된 작업에 대해 소유자를 할당하거나 위의 권장 사항에 맞지 않는 소유자가 있는 작업에 대한 소유권을 조정해야 할 수도 있습니다.
 
@@ -249,7 +249,7 @@ BYOD(Bring Your Own Device)가 지원되는 환경에서 직원이 Office 모바
 - 여러 애플리케이션에 적용할 수 있는 작은 핵심 정책 세트가 있음
 - 비어 있는 예외 그룹을 정의하고 정책에 추가하여 예외 전략 포함
 - MFA 제어가 없는 [비상](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) 계정 플랜
-- Exchange Online 및 Sharepoint Online과 같은 서비스용으로 같은 제어 세트를 구현하여 Microsoft 365 클라이언트 애플리케이션(예: Teams, OneDrive, Outlook 등)에서 일관된 경험을 보장
+- Exchange Online 및 SharePoint Online과 같은 서비스용으로 동일한 제어 세트를 구현하여 Microsoft 365 클라이언트 애플리케이션(예: Teams, OneDrive, Outlook 등)에서 일관된 환경을 보장합니다.
 - 정책에 대한 할당은 개인이 아닌 그룹을 통해 구현해야 함
 - 정책에 사용된 예외 그룹을 정기적으로 검토하여 사용자가 보안 태세를 벗어나는 시간을 제한합니다. Azure AD P2를 소유하는 경우 액세스 검토를 사용하여 프로세스를 자동화할 수 있음
 
@@ -328,7 +328,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 #### <a name="user-settings"></a>사용자 설정
 
-- **외부 사용자**- Teams, Power BI, Sharepoint Online 및 Azure Information Protection과 같은 서비스를 사용하여 기업에서 외부 협업을 유기적으로 진행할 수 있습니다. 사용자가 시작한 외부 협업을 제어하는 명시적 제약 조건이 있으면 [Azure AD Entitlement 관리](../governance/entitlement-management-overview.md)를 사용하거나 지원 센터를 통하는 등의 제어된 작업을 사용하여 외부 사용자를 사용하도록 설정하는 것이 좋습니다. 서비스에 대한 유기적인 외부 협업을 허용하지 않으려면 [멤버가 외부 사용자를 초대하지 못하도록 완전히 차단](../external-identities/delegate-invitations.md)할 수 있습니다. 또는 외부 사용자 초대에서 [특정 도메인을 허용하거나 차단](../external-identities/allow-deny-list.md)할 수도 있습니다.
+- **외부 사용자** - Teams, Power BI, SharePoint Online 및 Azure Information Protection과 같은 서비스를 사용하여 기업에서 외부 협업을 유기적으로 진행할 수 있습니다. 사용자가 시작한 외부 협업을 제어하는 명시적 제약 조건이 있으면 [Azure AD Entitlement 관리](../governance/entitlement-management-overview.md)를 사용하거나 지원 센터를 통하는 등의 제어된 작업을 사용하여 외부 사용자를 사용하도록 설정하는 것이 좋습니다. 서비스에 대한 유기적인 외부 협업을 허용하지 않으려면 [멤버가 외부 사용자를 초대하지 못하도록 완전히 차단](../external-identities/delegate-invitations.md)할 수 있습니다. 또는 외부 사용자 초대에서 [특정 도메인을 허용하거나 차단](../external-identities/allow-deny-list.md)할 수도 있습니다.
 - **앱 등록** - 앱 등록이 사용되면 최종 사용자가 직접 애플리케이션을 온보딩하고 데이터에 대한 액세스 권한을 부여할 수 있습니다. 앱 등록의 일반적인 예는 Outlook 플러그인을 사용으로 설정하는 사용자 또는 Alexa 및 Siri와 같은 음성 도우미가 메일 및 일정을 읽거나, 대신 메일을 보내는 것입니다. 고객이 앱 등록을 해제하기로 결정한 경우 InfoSec 및 IAM 팀은 관리자 계정으로 애플리케이션을 등록해야 하기 때문에 예외(비즈니스 요구 사항에 따라 필요한 앱 등록) 관리에 참여해야 하며 프로세스를 운영하기 위한 프로세스를 디자인해야 합니다.
 - **관리 포털** - 관리자가 아닌 사용자가 Azure Portal에서 Azure AD 관리에 액세스할 수 없어 혼동을 받을 수 있도록 조직에서 Azure Portal의 Azure AD 블레이드를 잠글 수 있습니다. Azure AD 관리 포털의 사용자 설정으로 이동하여 액세스를 제한합니다.
 

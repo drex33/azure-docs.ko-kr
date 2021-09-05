@@ -6,14 +6,14 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 9/06/2020
+ms.date: 08/18/2021
 ms.author: allensu
-ms.openlocfilehash: 6e433950c04c4494201b090063b17a10e54a4822
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06d0e35534db97f1de48c55f9cc6f46f979514fa
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685774"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531107"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Azure CDN 엔드포인트 다중 원본
 
@@ -83,6 +83,12 @@ Azure CDN 엔드포인트 내에서 여러 원본을 선택하면 제공된 중�
 3. **추가** 를 선택합니다.
 
 4. 모든 원본에 대한 원본 경로를 설정하려면 **원본 구성** 을 선택합니다.
+
+    원본 경로는 원본에 전달된 요청을 구성할 때 Microsoft CDN이 사용할 URL을 다시 작성하는데 사용됩니다. 또한 들어오는 요청의 나머지 부분도 모두 전달합니다. 기본값으로 이 경로는 제공되지 않습니다. 따라서 Microsoft CDN은 원본에 대한 요청의 수신 URL 경로를 사용합니다.
+
+    원본 경로: `/fwd/`
+
+    수신 URL 경로: `/foo/a/b/image1.jpg` </br> Microsoft CDN에서 원본으로의 URL: `fwd/foo/a/b/image1.jpg.`
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="원본 경로 구성" border="true":::
 

@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 지원 정책, 공유 책임 및 미�
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 3e4f5e4411eb81ab14d844adf03433e9de0d73b2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1e85effa5a8efca59bfc88aada050ee5ddcc7fcf
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368113"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666444"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대한 지원 정책
 
@@ -127,7 +127,7 @@ AKS의 관리되는 구성 요소 중 하나 이상에 보안 결함이 발견�
 
 ## <a name="network-ports-access-and-nsgs"></a>네트워크 포트, 액세스 및 NSG
 
-사용자 지정 서브넷에서만 NSG를 사용자 지정할 수 있습니다. 관리되는 서브넷의 NSG 또는 에이전트 노드의 NIC 수준에 있는 NSG는 사용자 지정할 수 없습니다. AKS는 특정 엔드포인트에 대한 송신 요구 사항이 있으며, 송신을 제어하고 필요한 연결을 보장하려면 [송신 트래픽 제한](limit-egress-traffic.md)을 참조하세요.
+사용자 지정 서브넷에서만 NSG를 사용자 지정할 수 있습니다. 관리되는 서브넷의 NSG 또는 에이전트 노드의 NIC 수준에 있는 NSG는 사용자 지정할 수 없습니다. AKS는 특정 엔드포인트에 대한 송신 요구 사항이 있으며, 송신을 제어하고 필요한 연결을 보장하려면 [송신 트래픽 제한](limit-egress-traffic.md)을 참조하세요. 수신의 경우 요구 사항은 클러스터에 배포한 애플리케이션을 기반으로 합니다.
 
 ## <a name="stopped-or-de-allocated-clusters"></a>중지 또는 할당 취소된 클러스터
 

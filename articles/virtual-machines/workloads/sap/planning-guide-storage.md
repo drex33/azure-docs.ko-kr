@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/26/2021
+ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c76ffbbaf6bbbb2afb5d84e92b6fe9ce04dc4a30
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0af6df954dda4e5af6335776b1f93f929da5834e
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128706"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530670"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>SAP 워크로드에 대한 Azure Storage 형식
 Azure는 용량, 처리량, 대기 시간, 가격이 다양한 수많은 스토리지 유형을 제공합니다. 일부 스토리지 형식은 또는 SAP 시나리오에 사용할 수 없거나 제한적으로 사용할 수 있습니다. 반면, 몇 가지 Azure Storage 유형은 특정 SAP 워크로드 시나리오에 적합하거나 최적화되어 있습니다. 특히 SAP HANA의 경우 일부 Azure Storage 유형은 SAP HANA 사용에 대해 인증을 받았습니다. 이 문서에서는 다양한 유형의 스토리지를 살펴보고 SAP 워크로드 및 SAP 구성 요소를 통해 기능 및 유용성에 대해 설명합니다.
@@ -86,9 +86,9 @@ S/4HANA의 SAP NetWeaver/애플리케이션 계층용 Azure Storage 유형에 �
 | DBMS 로그 볼륨 SAP HANA M/Mv2 VM 제품군 | 지원되지 않음 | 지원되지 않음 | 권장<sup>1</sup> | 권장 | 권장<sup>2</sup> | 
 | DBMS 데이터 볼륨 SAP HANA Esv3/Edsv4 VM 제품군 | 지원되지 않음 | 지원되지 않음 | 권장 | 권장 | 권장<sup>2</sup> |
 | DBMS 로그 볼륨 SAP HANA Esv3/Edsv4 VM 제품군 | 지원되지 않음 | 지원되지 않음 | 지원되지 않음 | 권장 | 권장<sup>2</sup> | 
-| DBMS 데이터 볼륨 비 HANA | 지원되지 않음 | 제한적 적합(비프로덕션) | 권장 | 권장 | Oracle Linux의 특정 Oracle 릴리스에만 해당 |
-| DBMS 로그 볼륨 비 HANA M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 권장<sup>1</sup> | 권장 | Oracle Linux의 특정 Oracle 릴리스에만 해당 |
-| DBMS 로그 볼륨 비 HANA 비 M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 중간 규모 워크로드까지 적합 | 권장 | Oracle Linux의 특정 Oracle 릴리스에만 해당 |
+| DBMS 데이터 볼륨 비 HANA | 지원되지 않음 | 제한적 적합(비프로덕션) | 권장 | 권장 | Oracle Linux의 특정 Oracle 릴리스 및 Linux의 Db2에만 해당 |
+| DBMS 로그 볼륨 비 HANA M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 권장<sup>1</sup> | 권장 | Oracle Linux의 특정 Oracle 릴리스 및 Linux의 Db2에만 해당 |
+| DBMS 로그 볼륨 비 HANA 비 M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 중간 규모 워크로드까지 적합 | 권장 | Oracle Linux의 특정 Oracle 릴리스 및 Linux의 Db2에만 해당 |
 
 
 <sup>1</sup> 로그/다시 실행 로그 볼륨에 대해 M/Mv2 VM 제품군에 [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) 사용 <sup>2</sup> ANF를 사용하려면 /hana/data는 물론 /hana/log가 ANF에 있어야 함 
@@ -241,6 +241,7 @@ ANF 스토리지는 현재 다음과 같은 몇 가지 SAP 워크로드 시나�
     - [SAP 애플리케이션용 Azure NetApp Files를 사용하여 SUSE Linux Enterprise Server에서 Azure VM의 SAP NetWeaver 고가용성 실현](./high-availability-guide-suse-netapp-files.md)
     - [SAP 애플리케이션용 Azure NetApp Files를 사용하는 Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성](./high-availability-guide-rhel-netapp-files.md)
 - /hana/shared 볼륨에 NFS v4.1 또는 NFS v3 및/또는 /hana/data 및 /hana/log 볼륨에 NFS v4.1 공유를 사용하는 SAP HANA 배포(자세한 내용은 [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md) 문서 참조)
+- Suse 또는 Red Hat Linux 게스트 OS의 IBM Db2
 - Oracle 데이터 및 다시 실행 로그 볼륨에 대해 [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA)를 사용하는 Oracle Linux 게스트 OS에서의 Oracle 배포 자세한 내용은 [SAP 워크로드에 대한 Azure Virtual Machines ORACLE DBMS 배포](./dbms_guide_oracle.md) 문서에서 확인할 수 있습니다.
 
 > [!NOTE]

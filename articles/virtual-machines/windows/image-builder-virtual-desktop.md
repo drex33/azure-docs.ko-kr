@@ -1,8 +1,8 @@
 ---
 title: Image Builder - Windows Virtual Desktop 이미지 만들기
 description: PowerShell에서 Azure Image Builder를 사용하여 Windows Virtual Desktop의 Azure VM 이미지를 만듭니다.
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
 ms.reviewer: cynthn
 ms.date: 05/12/2021
 ms.topic: article
@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 20f50ccfcbfce7a4e70722feaef4d245e11336f8
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 45748ac5c21993e6df69950e03de9e90180c4ab0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031118"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472080"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Azure VM Image Builder 및 PowerShell을 사용하여 Windows Virtual Desktop 이미지 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "112031118"
 
 * [Fslogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1) 설치
 * 커뮤니티 리포지토리에서 [Windows Virtual Desktop 최적화 스크립트](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) 실행
-* [Microsoft Teams](../../virtual-desktop/teams-on-wvd.md) 설치
+* [Microsoft Teams](../../virtual-desktop/teams-on-avd.md) 설치
 * [다시 시작](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
 * [Windows 업데이트](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer) 실행
 
@@ -74,7 +74,7 @@ Image Builder 구성의 배포를 간소화하기 위해 이 예제에서는 Azu
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-최신 Azure PowerShell Cmdlet이 설치되어 있어야 합니다. 설치 세부 정보는 [여기](/powershell/azure/overview)를 참조하세요.
+최신 Azure PowerShell CmdLet이 설치되어 있어야 합니다. 자세한 설치 세부 정보는 [Azure PowerShell 개요](/powershell/azure/overview)를 참조하세요.
 
 ```PowerShell
 # check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
@@ -162,8 +162,7 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 ```
 
 > [!NOTE] 
-> 오류 'New-AzRoleDefinition: 역할 정의 한도가 초과되었습니다. 역할 정의를 더 이상 만들 수 없습니다.'가 표시되면 https://docs.microsoft.com/azure/role-based-access-control/troubleshooting 문서를 참조하여 해결하세요.
-
+> 오류 'New-AzRoleDefinition: 역할 정의 한도가 초과되었습니다. 역할 정의를 더 이상 만들 수 없습니다.'가 표시되면 [Azure RBAC 문제 해결](../../role-based-access-control/troubleshooting.md)을 참조하세요.
 
 
 ## <a name="create-the-shared-image-gallery"></a>Shared Image Gallery 만들기 
@@ -273,7 +272,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## <a name="create-a-vm"></a>VM 만들기
-이제 빌드가 완료되었으므로 이미지에서 VM을 빌드할 수 있습니다. [여기](/powershell/module/az.compute/new-azvm#examples)에 제공되는 예제를 사용하세요.
+이제 빌드가 완료되었으므로 이미지에서 VM을 빌드할 수 있습니다. [New-AzVM(Az.Compute)](/powershell/module/az.compute/new-azvm#examples)의 예제를 사용하세요.
 
 ## <a name="clean-up"></a>정리
 
@@ -306,3 +305,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 ## <a name="next-steps"></a>다음 단계
 
 [GitHub](https://github.com/azure/azvmimagebuilder/tree/master/quickquickstarts)에 제공되는 추가 예제를 진행해볼 수 있습니다.
+

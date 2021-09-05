@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: 3445ca559dc54e693912e1d796caeb1f940ab23e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d9de6322ac84a86902b5ef218df9abe8528b95a9
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474894"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113231488"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -37,7 +37,7 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 
 - **단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
 - **단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.
-- **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다.
+- **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. 구독이 다른 청구 컨텍스트로 이동된 경우 혜택은 이 구독에 더 이상 적용되지 않으며 청구 컨텍스트의 다른 구독에 계속 적용됩니다.
     - 기업계약 고객의 경우 청구 컨텍스트는 등록입니다. 예약 공유 범위에는 등록 시 여러 Active Directory 테넌트가 포함됩니다.
     - Microsoft 고객 계약 고객의 경우 청구 범위는 청구 프로필입니다.
     - 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.

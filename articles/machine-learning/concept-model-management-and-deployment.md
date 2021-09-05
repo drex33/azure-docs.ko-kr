@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 author: jpe316
 ms.author: jordane
-ms.date: 03/17/2020
+ms.date: 07/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 88a2dc2e38861cff540cfa1fcdc0b3f6e9651b04
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 0ef4715bb854905f8076ee116f672eee2d33a059
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111439911"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537303"
 ---
 # <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 통한 모델 관리, 배포, 계보 추적 및 모니터링
 
@@ -39,6 +39,7 @@ Azure Machine Learning은 다음과 같은 MLOps 기능을 제공합니다.
 - **ML 애플리케이션을 모니터링하여 운영 및 ML 관련 문제를 해결** 합니다. 학습 및 추론 간에 모델 입력을 비교하고, 모델별 메트릭을 탐색하고, ML 인프라에 대한 모니터링 및 경고를 제공합니다.
 - **Azure Machine Learning 및 Azure Pipelines를 통해 ML 수명 주기 전체를 자동화** 합니다. 파이프라인을 사용하면 모델을 자주 업데이트하고, 새 모델을 테스트하고, 다른 애플리케이션 및 서비스와 함께 새 ML 모델을 지속적으로 배포할 수 있습니다.
 
+MLOps에 대한 자세한 내용은 [MLOps(Machine Learning DevOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops)를 참조하세요.
 ## <a name="create-reproducible-ml-pipelines"></a>재현 가능한 ML 파이프라인 만들기
 
 Azure Machine Learning의 ML 파이프라인을 사용하여 모델 학습 프로세스와 관련된 모든 단계를 연결합니다.
@@ -94,9 +95,9 @@ ONNX with Azure Machine Learning에 대한 자세한 내용은 [ML 모델 만들
 
 ### <a name="use-models"></a>모델 사용
 
-학습된 기계 학습 모델은 클라우드 또는 로컬에서 웹 서비스로 배포됩니다. 또한 Azure IoT Edge 디바이스에 모델을 배포할 수 있습니다. 배포는 추론에 CPU, GPU 또는 FPGA(필드 프로그래머블 게이트 어레이)를 사용합니다. Power BI의 모델을 사용할 수도 있습니다.
+학습된 기계 학습 모델은 클라우드 또는 로컬에서 웹 서비스로 배포됩니다. 배포는 추론에 CPU, GPU 또는 FPGA(필드 프로그래머블 게이트 어레이)를 사용합니다. Power BI의 모델을 사용할 수도 있습니다.
 
-모델을 웹 서비스 또는 IoT Edge 디바이스로 사용하는 경우 다음 항목을 제공합니다.
+모델을 웹 서비스로 사용하는 경우 다음 항목을 제공합니다.
 
 * 서비스/디바이스에 제출된 데이터의 점수를 매기는 데 사용되는 모델입니다.
 * 항목 스크립트. 이 스크립트는 요청을 수락하고, 모델을 사용하여 데이터의 점수를 매기고, 응답을 반환합니다.
@@ -105,7 +106,7 @@ ONNX with Azure Machine Learning에 대한 자세한 내용은 [ML 모델 만들
 
 또한 대상 배포 플랫폼의 구성도 제공합니다. 예를 들어 Azure Kubernetes Service에 배포 시 VM 제품군 유형, 사용 가능한 메모리, 코어 수가 있습니다.
 
-이미지를 만들 때 Azure Machine Learning에 필요한 구성 요소도 추가됩니다. 예를 들어, 웹 서비스를 실행하고 IoT Edge와 상호 작용하는 데 필요한 자산이 있습니다.
+이미지를 만들 때 Azure Machine Learning에 필요한 구성 요소도 추가됩니다. 예를 들어, 웹 서비스를 실행하는 데 필요한 자산이 있습니다.
 
 #### <a name="batch-scoring"></a>일괄 처리 점수 매기기
 일괄 처리 채점은 ML 파이프라인을 통해 지원됩니다. 자세한 내용은 [빅 데이터의 일괄 예측](./tutorial-pipeline-batch-scoring-classification.md)을 참조하세요.
@@ -135,12 +136,6 @@ Azure Kubernetes Service에 배포하는 경우 제어된 롤아웃을 사용하
 * 엔드포인트 구성에서 트래픽 비율을 업데이트하여 엔드포인트 버전을 변경합니다.
 
 자세한 내용은 [ML 모델의 제어된 롤아웃](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview)을 참조하세요.
-
-#### <a name="iot-edge-devices"></a>IoT Edge 디바이스
-
-**Azure IoT Edge 모듈** 을 통해 IoT 디바이스에서 모델을 사용할 수 있습니다. IoT Edge 모듈은 디바이스에서 추론 또는 모델 채점을 사용하도록 설정하는 하드웨어 디바이스에 배포됩니다.
-
-자세한 내용은 [모델 배포](how-to-deploy-and-where.md)를 참조하세요.
 
 ### <a name="analytics"></a>분석
 

@@ -7,20 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: fa90099a6da79135ae53eecc4996a26649ffa7cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83354dd53d36dee93af943e0238ac6393d20b1cf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90939154"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528932"
 ---
 # <a name="troubleshooting-resources"></a>문제 해결 리소스
 
 이 문서에서는 Azure Arc 지원 데이터 서비스의 문제 해결 리소스를 식별합니다.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="resources-by-type"></a>유형별 리소스
 

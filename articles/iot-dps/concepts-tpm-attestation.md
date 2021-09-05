@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub Device Provisioning Service - TPM 증명
 description: 이 문서에서는 IoT DPS(Device Provisioning Service)를 사용하여 TPM 증명 흐름의 개념을 개괄적으로 설명합니다.
-author: nberdy
-ms.author: nberdy
-ms.date: 04/04/2019
+author: wesmc7777
+ms.author: wesmc
+ms.date: 06/21/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 12860629d78391ed271306daba29a51aeb326c1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e670b0feabfe785712dc7140bcc594b770783e74
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90531596"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457879"
 ---
 # <a name="tpm-attestation"></a>TPM 증명
 
@@ -68,4 +68,5 @@ TPM이 있는 디바이스를 디바이스 프로비저닝 서비스에 처음 �
 이제 디바이스는 IoT Hub에 연결되고, 디바이스의 키가 안전하게 저장되었다는 정보로 안전이 유지됩니다. 이제 디바이스 프로비저닝 서비스에서 TPM을 사용하여 디바이스의 ID를 안전하게 확인하는 방법을 배웠습니다. 자세히 알아보려면 다음 문서를 참조하세요.
 
 * [프로비저닝 개념에 대한 자세한 정보](about-iot-dps.md#provisioning-process)
-* 흐름을 처리하도록 SDK를 사용하여 [자동 프로비전 사용을 시작합니다](./quick-setup-auto-provision.md).
+* [자동 프로비전 사용 시작](./quick-setup-auto-provision.md) 
+* [SDK를 사용하여 TPM 등록 만들기](./quick-enroll-device-tpm-java.md)

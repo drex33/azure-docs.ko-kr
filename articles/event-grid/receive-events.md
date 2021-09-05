@@ -2,14 +2,14 @@
 title: Azure Event Grid로부터 HTTP 엔드포인트로 이벤트 수신
 description: HTTP 엔드포인트의 유효성을 검사한 다음, Azure Event Grid로부터 이벤트를 수신하고 역직렬화하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 07/16/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 93494bc35099c2ef9cbc93ed6713d8a2608f2c4c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f655982203c81ef6ff32a01566e37c346cf78138
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473442"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730282"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
@@ -24,44 +24,29 @@ HTTP 트리거 함수가 있는 함수 앱이 필요합니다.
 
 ## <a name="add-dependencies"></a>종속성 추가
 
-.NET에서 개발할 때는 함수에 `Microsoft.Azure.EventGrid` [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)의 [종속성을 추가](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies)합니다. 이 문서의 예제에는 버전 1.4.0 이상이 필요합니다.
+.NET에서 개발할 때는 함수에 `Azure.Messaging.EventGrid` [NuGet 패키지](https://www.nuget.org/packages/Azure.Messaging.EventGrid)의 [종속성을 추가](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies)합니다.
 
 다른 언어에 대한 SDK는 [SDK 게시](./sdk-overview.md#data-plane-sdks) 참조에서 제공합니다. 이 패키지에는 `EventGridEvent`, `StorageBlobCreatedEventData`, `EventHubCaptureFileCreatedEventData` 같은 원시 이벤트 형식의 모델이 있습니다.
-
-Azure Function에서 "파일 보기" 링크를 클릭하고(Azure 함수 포털의 가장 오른쪽 창) 이름이 project.json인 파일을 만듭니다. 다음 콘텐츠를 `project.json` 파일에 추가하고 저장합니다.
-
- ```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.Azure.EventGrid": "2.0.0"
-      }
-    }
-   }
-}
-```
-
-![추가된 NuGet 패키지](./media/receive-events/add-dependencies.png)
 
 ## <a name="endpoint-validation"></a>엔드포인트 유효성 검사
 
 먼저 수행할 작업은 `Microsoft.EventGrid.SubscriptionValidationEvent` 이벤트를 처리하는 것입니다. 누군가가 이벤트를 구독할 때마다 Event Grid는 유효성 검사 이벤트를 데이터 페이로드에 `validationCode`가 있는 엔드포인트에 보냅니다. 엔드포인트는 응답 본문에서 [엔드포인트가 유효하며 자신의 소유임을 증명하기 위해](webhook-event-delivery.md) 이를 다시 에코하는 데 필요합니다. WebHook 트리거 함수가 아닌 [Event Grid 트리거](../azure-functions/functions-bindings-event-grid.md)를 사용할 경우 엔드포인트 유효성 검사가 자동으로 처리됩니다. 타사 API 서비스를 사용하는 경우(예: [Zapier](https://zapier.com/home) 또는 [IFTTT](https://ifttt.com/)) 프로그래밍 방식으로 유효성 검사 코드를 에코하지 못할 수 있습니다. 이러한 서비스의 경우 구독 유효성 검사 이벤트에 전송된 유효성 검사 URL을 사용하여 수동으로 구독의 유효성을 검사할 수 있습니다. `validationUrl` 속성에 해당 URL을 복사하고 REST 클라이언트 또는 웹 브라우저를 통해 GET 요청을 보냅니다.
 
-C#에서 `DeserializeEventGridEvents()` 함수는 Event Grid 이벤트를 역직렬화합니다. 이벤트 데이터를 StorageBlobCreatedEventData와 같은 적절한 형식으로 역직렬화합니다. `Microsoft.Azure.EventGrid.EventTypes` 클래스를 사용하여 지원되는 이벤트 형식 및 이름을 가져옵니다.
+C#에서 `ParseMany()` 메서드는 하나 이상의 이벤트를 포함하는 `BinaryData` 인스턴스를 `EventGridEvent` 배열로 역직렬화하는 데 사용됩니다. 단일 이벤트만 역직렬화하는 것을 미리 알고 있는 경우 `Parse` 메서드를 대신 사용할 수 있습니다.
 
-프로그래밍 방식으로 유효성 검사 코드를 에코하려면 다음 코드를 사용합니다. [Event Grid 소비자 예제](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer)에서 관련 샘플을 찾을 수 있습니다.
+프로그래밍 방식으로 유효성 검사 코드를 에코하려면 다음 코드를 사용합니다.
 
-```csharp
-using System.IO;
+```c#
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.EventGrid;
+using System;
+using Azure.Messaging.EventGrid;
+using Azure.Messaging.EventGrid.SystemEvents;
+
 namespace Function1
 {
     public static class Function1
@@ -73,31 +58,33 @@ namespace Function1
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
             string response = string.Empty;
-            string requestContent = await new StreamReader(req.Body).ReadToEndAsync();
-            log.LogInformation($"Received events: {requestContent}");
+            BinaryData events = await BinaryData.FromStreamAsync(req.Body);
+            log.LogInformation($"Received events: {events}");
 
-            EventGridSubscriber eventGridSubscriber = new EventGridSubscriber();
-
-            EventGridEvent[] eventGridEvents = eventGridSubscriber.DeserializeEventGridEvents(requestContent);
+            EventGridEvent[] eventGridEvents = EventGridEvent.ParseMany(events);
 
             foreach (EventGridEvent eventGridEvent in eventGridEvents)
             {
-                if (eventGridEvent.Data is SubscriptionValidationEventData)
+                // Handle system events
+                if (eventGridEvent.TryGetSystemEventData(out object eventData))
                 {
-                    var eventData = (SubscriptionValidationEventData)eventGridEvent.Data;
-                    log.LogInformation($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
-                    // Do any additional validation (as required) and then return back the below response
-
-                    var responseData = new SubscriptionValidationResponse()
+                    // Handle the subscription validation event
+                    if (eventData is SubscriptionValidationEventData subscriptionValidationEventData)
                     {
-                        ValidationResponse = eventData.ValidationCode
-                    };
-                    return new OkObjectResult(responseData);
+                        log.LogInformation($"Got SubscriptionValidation event data, validation code: {subscriptionValidationEventData.ValidationCode}, topic: {eventGridEvent.Topic}");
+                        // Do any additional validation (as required) and then return back the below response
+
+                        var responseData = new SubscriptionValidationResponse()
+                        {
+                            ValidationResponse = subscriptionValidationEventData.ValidationCode
+                        };
+                        return new OkObjectResult(responseData);
+                    }
                 }
             }
             return new OkObjectResult(response);
         }
-   }
+    }
 }
 ```
 
@@ -148,55 +135,59 @@ module.exports = function (context, req) {
 
 ## <a name="handle-blob-storage-events"></a>Blob Storage 이벤트 처리
 
-이제 함수를 확장하여 `Microsoft.Storage.BlobCreated`를 처리해 보겠습니다.
+이제 함수를 확장하여 `Microsoft.Storage.BlobCreated` 시스템 이벤트를 처리해 보겠습니다.
 
-```cs
-using System.IO;
+```c#
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Azure.EventGrid;
-using Microsoft.Azure.EventGrid.Models;
+using System;
+using Azure.Messaging.EventGrid;
+using Azure.Messaging.EventGrid.SystemEvents;
 
-namespace FunctionApp1
+namespace Function1
 {
     public static class Function1
     {
         [FunctionName("Function1")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation($"C# HTTP trigger function begun");
+            log.LogInformation("C# HTTP trigger function processed a request.");
             string response = string.Empty;
+            BinaryData events = await BinaryData.FromStreamAsync(req.Body);
+            log.LogInformation($"Received events: {events}");
 
-            string requestContent = await new StreamReader(req.Body).ReadToEndAsync();
-            log.LogInformation($"Received events: {requestContent}");
-
-            EventGridSubscriber eventGridSubscriber = new EventGridSubscriber();
-
-            EventGridEvent[] eventGridEvents = eventGridSubscriber.DeserializeEventGridEvents(requestContent);
+            EventGridEvent[] eventGridEvents = EventGridEvent.ParseMany(events);
 
             foreach (EventGridEvent eventGridEvent in eventGridEvents)
             {
-                if (eventGridEvent.Data is SubscriptionValidationEventData)
+                // Handle system events
+                if (eventGridEvent.TryGetSystemEventData(out object eventData))
                 {
-                    var eventData = (SubscriptionValidationEventData)eventGridEvent.Data;
-                    log.LogInformation($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
-                    // Do any additional validation (as required) and then return back the below response
-
-                    var responseData = new SubscriptionValidationResponse()
+                    // Handle the subscription validation event
+                    if (eventData is SubscriptionValidationEventData subscriptionValidationEventData)
                     {
-                        ValidationResponse = eventData.ValidationCode
-                    };
+                        log.LogInformation($"Got SubscriptionValidation event data, validation code: {subscriptionValidationEventData.ValidationCode}, topic: {eventGridEvent.Topic}");
+                        // Do any additional validation (as required) and then return back the below response
 
-                    return new OkObjectResult(responseData);
+                        var responseData = new SubscriptionValidationResponse()
+                        {
+                            ValidationResponse = subscriptionValidationEventData.ValidationCode
+                        };
+                        return new OkObjectResult(responseData);
+                    }
+                    // Handle the storage blob created event
+                    else if (eventData is StorageBlobCreatedEventData storageBlobCreatedEventData)
+                    {
+                        log.LogInformation($"Got BlobCreated event data, blob URI {storageBlobCreatedEventData.Url}");
+                    }
                 }
             }
-
             return new OkObjectResult(response);
         }
     }
@@ -268,77 +259,69 @@ Blob Storage 계정이나 GPv2(General Purpose V2) 스토리지 계정을 만들
 
 ![함수 URL](./media/receive-events/function-url.png)
 
-## <a name="handle-custom-events"></a>사용자 지정 이벤트 처리
+## <a name="handle-custom-events&quot;></a>사용자 지정 이벤트 처리
 
 마지막으로, 사용자 지정 이벤트를 처리할 수 있도록 함수를 더 확장할 수 있습니다. 
 
-C#에서 SDK는 이벤트 형식 이름을 이벤트 데이터 형식에 매핑하는 기능을 지원합니다. `AddOrUpdateCustomEventMapping()` 함수를 사용하여 사용자 지정 이벤트를 매핑합니다.
-
 이벤트 `Contoso.Items.ItemReceived`에 대한 검사를 추가합니다. 최종 코드는 다음과 같이 표시됩니다.
 
-```cs
-using System.IO;
+```c#
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.EventGrid;
-using Newtonsoft.Json;
+using System;
+using Azure.Messaging.EventGrid;
+using Azure.Messaging.EventGrid.SystemEvents;
 
-namespace FunctionApp1
+namespace Function1
 {
-    class ContosoItemReceivedEventData
-    {
-        [JsonProperty("itemSku")]
-        public string ItemSku { get; set; }
-    }
     public static class Function1
     {
-        [FunctionName("Function1")]
+        [FunctionName(&quot;Function1")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation($"C# HTTP trigger function begun");
+            log.LogInformation("C# HTTP trigger function processed a request.");
             string response = string.Empty;
+            BinaryData events = await BinaryData.FromStreamAsync(req.Body);
+            log.LogInformation($"Received events: {events}");
 
-            string requestContent = await new StreamReader(req.Body).ReadToEndAsync();
-            log.LogInformation($"Received events: {requestContent}");
-
-            EventGridSubscriber eventGridSubscriber = new EventGridSubscriber();
-            eventGridSubscriber.AddOrUpdateCustomEventMapping("Contoso.Items.ItemReceived", typeof(ContosoItemReceivedEventData));
-            EventGridEvent[] eventGridEvents = eventGridSubscriber.DeserializeEventGridEvents(requestContent);
+            EventGridEvent[] eventGridEvents = EventGridEvent.ParseMany(events);
 
             foreach (EventGridEvent eventGridEvent in eventGridEvents)
             {
-                if (eventGridEvent.Data is SubscriptionValidationEventData)
+                // Handle system events
+                if (eventGridEvent.TryGetSystemEventData(out object eventData))
                 {
-                    var eventData = (SubscriptionValidationEventData)eventGridEvent.Data;
-                    log.LogInformation($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
-                    // Do any additional validation (as required) and then return back the below response
-
-                    var responseData = new SubscriptionValidationResponse()
+                    // Handle the subscription validation event
+                    if (eventData is SubscriptionValidationEventData subscriptionValidationEventData)
                     {
-                        ValidationResponse = eventData.ValidationCode
-                    };
+                        log.LogInformation($"Got SubscriptionValidation event data, validation code: {subscriptionValidationEventData.ValidationCode}, topic: {eventGridEvent.Topic}");
+                        // Do any additional validation (as required) and then return back the below response
 
-                    return new OkObjectResult(responseData);
+                        var responseData = new SubscriptionValidationResponse()
+                        {
+                            ValidationResponse = subscriptionValidationEventData.ValidationCode
+                        };
+                        return new OkObjectResult(responseData);
+                    }
+                    // Handle the storage blob created event
+                    else if (eventData is StorageBlobCreatedEventData storageBlobCreatedEventData)
+                    {
+                        log.LogInformation($"Got BlobCreated event data, blob URI {storageBlobCreatedEventData.Url}");
+                    }
                 }
-                else if (eventGridEvent.Data is StorageBlobCreatedEventData)
+                // Handle the custom contoso event
+                else if (eventGridEvent.EventType == "Contoso.Items.ItemReceived")
                 {
-                    var eventData = (StorageBlobCreatedEventData)eventGridEvent.Data;
-                    log.LogInformation($"Got BlobCreated event data, blob URI {eventData.Url}");
-                }
-                else if (eventGridEvent.Data is ContosoItemReceivedEventData)
-                {
-                    var eventData = (ContosoItemReceivedEventData)eventGridEvent.Data;
-                    log.LogInformation($"Got ContosoItemReceived event data, item SKU {eventData.ItemSku}");
+                    var contosoEventData = eventGridEvent.Data.ToObjectFromJson<ContosoItemReceivedEventData>();
+                    log.LogInformation($"Got ContosoItemReceived event data, item SKU {contosoEventData.ItemSku}");
                 }
             }
-
             return new OkObjectResult(response);
         }
     }
@@ -397,7 +380,7 @@ module.exports = function (context, req) {
 
 [포털의 CURL로 사용자 지정 이벤트를 보내거나](./custom-event-quickstart-portal.md), [Postman](https://www.getpostman.com/)처럼 엔드포인트에 POST할 수 있는 서비스나 애플리케이션을 사용하여 [사용자 지정 토픽에 게시하여](./post-to-custom-topic.md) 이 기능을 라이브로 테스트할 수도 있습니다. 함수 URL로 설정된 엔드포인트를 통해 사용자 지정 토픽과 이벤트 구독을 만듭니다.
 
-[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
+[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

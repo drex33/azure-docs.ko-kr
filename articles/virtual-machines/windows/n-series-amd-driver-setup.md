@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 62723a0fee6a3f696c517bc642fdac8cfa80a6b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec4f09249bda14eb29d7dc9704a6096848a78557
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557423"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530206"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM에 AMD GPU 드라이버 설치
 
@@ -33,7 +33,9 @@ Microsoft에서 게시하는 GPU 드라이버만 NVv4 VM에서 지원됩니다. 
 
 | OS | 드라이버 |
 | -------- |------------- |
-| Windows 10 Enterprise 다중 세션 - 빌드 1909 <br/><br/>Windows 10 - 빌드 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe) |
+| Windows 10 - 빌드 2009, 2004, 1909 <br/><br/>Windows 10 Enterprise 다중 세션 - 빌드 2009, 2004, 1909 <br/><br/>Windows Server 2016(버전 1607)<br/><br/>Windows Server 2019(버전 1909) | [21.Q2](https://download.microsoft.com/download/3/4/8/3481cf8d-1706-49b0-aa09-08c9468305ab/AMD-Azure-NVv4-Windows-Driver-21Q2.exe)(.exe) |
+
+1909까지 Windows 빌드에 대해 지원되는 이전 드라이버 버전은 [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe)(.exe)입니다.
 
  > [!NOTE]
    >  빌드 1903/1909를 사용하는 경우, 최적의 성능을 위해 다음 그룹 정책을 업데이트해야 할 수 있습니다. 이러한 변경 내용은 다른 Windows 빌드에는 필요하지 않습니다.
@@ -41,12 +43,12 @@ Microsoft에서 게시하는 GPU 드라이버만 NVv4 VM에서 지원됩니다. 
    >  [컴퓨터 구성->정책->Windows 설정->관리 템플릿->Windows 구성 요소->원격 데스크톱 서비스->원격 데스크톱 세션 호스트->원격 세션 환경], 정책 [원격 데스크톱 연결에 WDDM 그래픽 디스플레이 드라이버 사용]을 사용하지 않도록 설정합니다.
    >  
 
-
+ 
 ## <a name="driver-installation"></a>드라이버 설치
 
 1. 원격 데스크톱을 통해 각 NVv4 시리즈 VM에 연결합니다.
 
-2. 이전 드라이버 버전을 제거해야 하는 경우에는 [여기](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe)에서 AMD 정리 유틸리티를 다운로드합니다. 이전 버전의 드라이버와 함께 제공되는 유틸리티는 사용하지 마세요.
+2. 이전 드라이버 버전을 제거해야 하는 경우에는 [AMD 정리 유틸리티](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe)를 다운로드합니다. 이전 버전의 드라이버와 함께 제공되는 유틸리티는 사용하지 마세요.
 
 3. 최신 드라이버를 다운로드하여 설치합니다.
 

@@ -2,19 +2,18 @@
 title: 기본 제공 메트릭 액세스 - Azure IoT Edge
 description: IoT Edge 런타임 구성 요소에서 기본 제공 메트릭에 대한 원격 액세스
 author: v-tcassi
-manager: philmea
 ms.author: v-tcassi
-ms.date: 10/05/2020
+ms.date: 06/25/2021
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a78db821c0fab01ad5d6752216a8f7682fb2c46
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ee4c39b7dfc4097480588620465eedd40eba53f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200491"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536503"
 ---
 # <a name="access-built-in-metrics"></a>기본 제공 메트릭 액세스
 
@@ -22,11 +21,13 @@ ms.locfileid: "103200491"
 
 IoT Edge 런타임 구성 요소, IoT Edge 허브, IoT Edge 에이전트는 기본 제공 메트릭을 [Prometheus 표시 형식](https://prometheus.io/docs/instrumenting/exposition_formats/)으로 생성합니다. 해당 메트릭에 원격으로 액세스하여 IoT Edge 디바이스의 상태를 모니터링 및 파악합니다.
 
+자체 솔루션을 사용하여 이러한 메트릭에 액세스할 수 있습니다. 또는 기본 제공 메트릭을 수집하여 Azure Monitor 또는 Azure IoT Hub로 보내는 작업을 처리하는 [메트릭 수집기 모듈](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.metrics-collector)을 사용할 수 있습니다. 자세한 내용은 [메트릭 수집 및 전송](how-to-collect-and-transport-metrics.md)을 참조하세요.
+
 릴리스 1.0.10부터, 메트릭은 기본적으로 **edgeHub** 및 **edgeAgent** 모듈(`http://edgeHub:9600/metrics` 및 `http://edgeAgent:9600/metrics`)의 **포트 9600** 에서 자동으로 노출됩니다. 기본적으로 호스트에 매핑된 포트는 아닙니다.
 
 모듈의 `createOptions`에서 메트릭 포트를 노출 및 매핑하여 호스트에서 메트릭에 액세스합니다. 아래 예제에서는 기본 메트릭 포트를 호스트의 포트 9601에 매핑합니다.
 
-```
+```json
 {
   "ExposedPorts": {
     "9600/tcp": {}
@@ -116,5 +117,6 @@ Prometheus 표시 형식에는 카운터, 계기, 히스토그램, 요약의 네
 
 ## <a name="next-steps"></a>다음 단계
 
+* [메트릭 수집 및 전송](how-to-collect-and-transport-metrics.md)
 * [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)
 * [IoT Edge 에이전트 및 IoT Edge 허브 모듈 쌍의 속성](module-edgeagent-edgehub.md)

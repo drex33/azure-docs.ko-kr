@@ -1,7 +1,7 @@
 ---
 title: Anomaly Detector 다변량 API란?
 titleSuffix: Azure Cognitive Services
-description: 새 Anomaly Detector 퍼블릭 미리 보기 다변량 API의 개요입니다.
+description: 새 Anomaly Detector 미리 보기 다변량 API의 개요입니다.
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
-ms.openlocfilehash: e913cc4738b0f58a411e80f3e2b602a072f28665
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 2e74edb0f716862925bb19140a4425366ebab894
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005990"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587664"
 ---
-# <a name="multivariate-time-series-anomaly-detection-public-preview"></a>다변량 시계열 변칙 검색(퍼블릭 미리 보기)
+# <a name="multivariate-time-series-anomaly-detection-preview"></a>다변량 시계열 변칙 검색(미리 보기)
 
 새로운 **다변량 변칙 검색** API를 사용하는 개발자는 기계 학습 지식 또는 레이블이 지정된 데이터 없이도 메트릭 그룹에서 변칙을 검색하는 고급 AI를 쉽게 통합할 수 있습니다. 이제 최대 300가지 신호 간 종속성 및 상관 관계가 자동으로 키 요소로 계산됩니다. 이 새로운 기능을 통해 소프트웨어 애플리케이션, 서버, 공장 기계, 우주선 또는 비즈니스 도구와 같은 복잡한 시스템의 장애를 사전에 방지할 수 있습니다.
 
@@ -38,10 +38,9 @@ Anomaly Detector API(다변량)를 호출하는 방법을 알아보려면 이 [N
 
 Notebook을 실행하려면 유효한 Anomaly Detector API **구독 키** 와 **API 엔드포인트** 를 가져와야 합니다. Notebook에서 유효한 Anomaly Detector API 구독 키를 `subscription_key` 변수에 추가하고 `endpoint` 변수를 사용자의 엔드포인트로 변경합니다.
 
-
 ## <a name="region-support"></a>지역 지원
 
-Anomaly Detector 다변량의 공개 미리 보기는 현재 미국 서부2, 서유럽, 미국 동부2, 미국 중남부, 미국 동부 및 영국 남부의 6개 지역에서 사용할 수 있습니다.
+Anomaly Detector 다변량의 미리 보기는 현재 10개 Azure 지역(동남 아시아, 오스트레일리아 동부, 캐나다 중부, 북유럽, 서유럽, 미국 동부, 미국 동부 2, 미국 중남부, 미국 서부 2 및 영국 남부)에서 사용할 수 있습니다.
 
 ## <a name="algorithms"></a>알고리즘
 
@@ -60,5 +59,6 @@ Anomaly Detector 다변량의 공개 미리 보기는 현재 미국 서부2, 서
 
 ## <a name="next-steps"></a>다음 단계
 
+- [자습서](./tutorials/learn-multivariate-anomaly-detection.md): 이 문서는 다변량 API를 사용하는 방법에 대한 엔드투엔드 자습서입니다.
 - [빠른 시작](./quickstarts/client-libraries-multivariate.md).
 - [모범 사례](./concepts/best-practices-multivariate.md): 이 문서는 다변량 API에서 사용할 권장 패턴과 관련이 있습니다.

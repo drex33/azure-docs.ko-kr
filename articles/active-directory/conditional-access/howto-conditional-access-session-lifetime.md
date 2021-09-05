@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6116ab543d6dfc886e44206c2a60e4456b39fbc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50c168bffad24646aad0badcdb849d9d3408725b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558188"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566387"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스로 인증 세션 관리 구성
 
@@ -135,6 +135,10 @@ What-If 도구를 사용하여 사용자의 로그인을 대상 애플리케이�
 ## <a name="policy-deployment"></a>정책 배포
 
 정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다. 자세한 내용은 [조건부 액세스 배포 계획](plan-conditional-access.md) 문서를 참조하세요.
+
+## <a name="known-issues"></a>알려진 문제
+- 모바일 디바이스에 대한 로그인 빈도를 구성하는 경우 내부 로그인 빈도에 따라 인증 속도가 느려집니다(평균 30초 정도 걸릴 수 있음). 또한 다양한 앱에서 동시에 발생할 수 있습니다. 
+- iOS 디바이스에서 앱이 첫 번째 인증 단계로 인증서를 구성하고 앱에 로그인 빈도와 [Intune 모바일 애플리케이션 관리](/mem/intune/apps/app-lifecycle) 정책이 적용된 경우 정책이 트리거될 때 최종 사용자가 앱에 로그인하지 못하도록 차단됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

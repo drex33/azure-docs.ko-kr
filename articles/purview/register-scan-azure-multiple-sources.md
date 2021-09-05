@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: ce78b36a07a0648e869a2a382554fdc41b408f96
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: ee5151b31e691b43d1d0df1694c636c3c35f9bc2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656329"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536495"
 ---
 # <a name="register-and-scan-multiple-sources-in-azure-purview"></a>Azure Purview에서 여러 원본 등록 및 검사
 
@@ -59,7 +59,7 @@ Azure에서는 다음 두 가지 방법으로 여러 원본에 대한 인증을 
 데이터 카탈로그에 새 여러 원본을 등록하려면 다음과 같이 합니다.
 
 1. Azure Purview 계정으로 이동합니다.
-1. 왼쪽 메뉴에서 **원본** 을 선택합니다.
+1. 왼쪽 메뉴에서 **데이터 맵** 을 선택합니다.
 1. **등록** 을 선택합니다.
 1. **원본 등록** 에서 **Azure(다중)** 를 선택합니다.
 
@@ -80,7 +80,7 @@ Azure에서는 다음 두 가지 방법으로 여러 원본에 대한 인증을 
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. **원본** 섹션으로 이동합니다.
+1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 1. 등록한 데이터 원본을 선택합니다.
 1. **세부 정보 보기** >  **+ 새 검사** 를 선택하거나 원본 타일에 **검사** 빠른 작업 아이콘을 사용합니다.
 1. **이름** 에 이름을 입력합니다.
@@ -112,7 +112,7 @@ Azure에서는 다음 두 가지 방법으로 여러 원본에 대한 인증을 
 
 ## <a name="view-your-scans-and-scan-runs"></a>검사 및 검사 실행 보기
 
-1. **원본** 섹션 아래 타일에서 **세부 정보 보기** 를 클릭하면 원본 세부 정보를 볼 수 있습니다. 
+1. **데이터 맵** 섹션 아래에 있는 타일에서 **세부 정보 보기** 를 선택하여 원본 세부 정보를 봅니다. 
 
     :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-detail.png" alt-text="원본 세부 정보를 보여주는 스크린샷."::: 
 

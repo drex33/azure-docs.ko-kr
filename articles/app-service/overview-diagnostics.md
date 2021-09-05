@@ -2,17 +2,15 @@
 title: 진단 및 해결 도구
 description: Azure Portal의 진단 및 해결 도구를 사용하여 Azure App Service에서 앱 문제를 해결하는 방법에 대해 알아봅니다.
 keywords: App Service, Azure App Service, 진단, 지원, 웹앱, 문제 해결, 자가 진단
-author: jen7714
 ms.topic: article
 ms.date: 10/18/2019
-ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf044baf233c159ff271221522f0f9faf15cc1ed
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962811"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114451591"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요
 
@@ -28,7 +26,7 @@ App Service 진단에 액세스하려면 [Azure Portal](https://portal.azure.com
 
 Azure Functions의 경우 함수 앱으로 이동한 후 위쪽 탐색 메뉴에서 **플랫폼 기능** 을 클릭하고 **리소스 관리** 섹션에서 **진단 및 문제 해결** 을 선택합니다.
 
-App Service 진단 홈페이지에서 각 홈페이지 타일의 키워드를 사용하여 앱에 대한 문제를 가장 잘 설명하는 범주를 선택할 수 있습니다. 또한 이 페이지에서는 Windows 앱에 대한 **진단 도구** 를 찾을 수 있습니다. [진단 도구(Windows 앱에만 해당)](#diagnostic-tools-only-for-windows-app)를 참조하세요.
+App Service 진단 홈페이지에서 각 홈페이지 타일의 키워드를 사용하여 앱에 대한 문제를 가장 잘 설명하는 범주를 선택할 수 있습니다. 또한 이 페이지에서는 **진단 도구** 를 찾을 수 있습니다. [진단 도구](#diagnostic-tools)를 참조하세요.
 
 ![홈페이지](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
@@ -83,21 +81,23 @@ Application Insights 예외 및 종속성을 보려면 **웹앱 다운** 또는 
 
 ![Application Insights 및 문제 해결 그리고 다음 단계](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
 
-## <a name="diagnostic-tools-only-for-windows-app"></a>진단 도구(Windows 앱에만 해당)
+## <a name="diagnostic-tools"></a>진단 도구 
 
 진단 도구에는 애플리케이션 코드 문제, 속도 저하, 연결 문자열 등을 조사하는 데 도움이 되는 고급 진단 도구 및 CPU 사용량, 요청 및 메모리와 관련된 문제를 완화하는 데 도움이 되는 자동 관리 도구가 포함되어 있습니다.
 
-### <a name="proactive-cpu-monitoring"></a>자동 관리 CPU 모니터링
+### <a name="proactive-cpu-monitoring-only-for-windows-app"></a>자동 관리 CPU 모니터링(Windows 앱에만 해당)
 
 앱 또는 앱에 대한 자식 프로세스가 높은 CPU 리소스를 사용하는 경우 자동 관리 CPU 모니터링을 통해 간편한 자동 관리 방식으로 작업을 수행할 수 있습니다. 예기치 않은 문제에 대한 실제 원인이 발견될 때까지 높은 CPU 문제를 일시적으로 완화하도록 사용자 고유의 CPU 임계값 규칙을 설정할 수 있습니다. 자세한 내용은 [CPU 문제가 발생하기 전에 완화](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html)를 참조하세요.
 
 ![자동 관리 CPU 모니터링](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
-### <a name="auto-healing-and-proactive-auto-healing"></a>자동 복구 및 자동 관리 자동 복구
+### <a name="auto-healing"></a>자동 복구 
 
-자동 복구는 앱에 예기치 않은 동작이 있을 때 수행할 수 있는 완화 작업입니다. 요청 수, 저속 요청, 메모리 제한 및 HTTP 상태 코드에 따라 사용자 고유의 규칙을 설정하여 완화 작업을 트리거할 수 있습니다. 이 도구를 사용하여 근본 원인을 찾을 때까지 예기치 않은 동작을 일시적으로 완화할 수 있습니다. 자세한 내용은 [App Service 진단에서 새로운 자동 복구 환경 발표](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html)를 참조하세요.
+자동 복구는 앱에 예기치 않은 동작이 있을 때 수행할 수 있는 완화 작업입니다. 요청 수, 저속 요청, 메모리 제한 및 HTTP 상태 코드에 따라 사용자 고유의 규칙을 설정하여 완화 작업을 트리거할 수 있습니다. 이 도구를 사용하여 근본 원인을 찾을 때까지 예기치 않은 동작을 일시적으로 완화할 수 있습니다. 이 도구는 현재 Windows Web Apps, Linux Web Apps 및 Linux 사용자 지정 컨테이너에서 사용할 수 있습니다. 지원되는 조건 및 완화는 웹앱의 유형에 따라 달라집니다. 자세한 내용은 [앱 서비스 진단에서 새로운 자동 복구 환경 발표](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html) 및 [Linux용 자동 복구 발표](https://azure.github.io/AppService/2021/04/21/Announcing-Autoheal-for-Azure-App-Service-Linux.html)를 참조하세요.
 
 ![자동 복구](./media/app-service-diagnostics/auto-healing-10.png)
+
+### <a name="proactive-auto-healing-only-for-windows-app"></a>자동 관리 자동 복구(Windows 앱에만 해당)
 
 자동 관리 CPU 모니터링과 마찬가지로 자동 관리 자동 복구는 앱의 예기치 않은 동작을 완화하기 위한 턴키 방식의 솔루션입니다. App Service에서 앱이 복구할 수 없는 상태라고 판단하면 자동 관리 자동 복구가 앱을 다시 시작합니다. 자세한 내용은 [자동 관리 자동 복구 소개](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html)를 참조하세요.
 

@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cdcf22a42375949cc4d6be0b4f3062cee26219d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c15c4e2f269791dfce80d89edf22d5041be636b9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101704857"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536044"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
@@ -47,7 +47,7 @@ App Service 도메인의 가격 책정 정보를 확인하려면 [App Service �
 
 1. **기본** 탭에서 다음 테이블에 따라 설정을 구성합니다.  
 
-   | 설정  | Description |
+   | 설정  | 설명 |
    | -------- | ----------- |
    | **구독** | 도메인 구매에 사용할 구독입니다. |
    | **리소스 그룹** | 도메인을 배치할 리소스 그룹입니다. 예를 들면, 앱이 있는 리소스 그룹입니다. |
@@ -244,13 +244,11 @@ App Service 도메인을 구매한 후 5일 이내에 구매를 취소하고 전
 
 1. **App Service 도메인** 섹션에서 구성하려는 도메인을 선택합니다.
 
-1. 도메인 왼쪽 탐색 영역에서 **호스트 이름 바인딩** 을 선택합니다. 모든 Azure 서비스의 호스트 이름 바인딩이 여기에 나열됩니다.
+1. 도메인 왼쪽 탐색 영역에서 **잠금** 을 선택합니다. 
 
-    ![호스트 이름 바인딩 페이지를 보여 주는 스크린샷](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+    도메인에 대한 삭제 잠금이 생성되었습니다. 삭제 잠금이 존재하는 한 App Service 도메인을 삭제할 수 없습니다.
 
-1. **...**  > **삭제** 를 선택하여 각 호스트 이름 바인딩을 삭제합니다. 모든 바인딩을 삭제한 후 **저장** 을 선택합니다.
-
-    <!-- ![Screenshot that shows where to delete the hostname bindings.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png) -->
+1. **삭제** 를 클릭하여 잠금을 제거합니다.
 
 1. 도메인 왼쪽 탐색 영역에서 **개요** 를 선택합니다. 
 

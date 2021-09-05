@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2bf603d29b5e949ef83c872017bae49e71b2fcb0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 3e8c2846b58499e5aabdec80f8fcd75cab3e6eb5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204876"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535785"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
@@ -21,7 +21,7 @@ ms.locfileid: "108204876"
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet 간 다이어그램":::
 
-이 문서의 단계는 Azure Resource Manager 배포 모델에 적용되며 Azure Portal을 사용합니다. 다음 문서에 설명된 옵션을 사용하여 다른 배포 도구 또는 모델을 통해 이 구성을 만들 수 있습니다.
+이 문서의 단계는 [Azure Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 적용되며 Azure Portal을 사용합니다. 다음 문서에 설명된 옵션을 사용하여 다른 배포 도구 또는 모델을 통해 이 구성을 만들 수 있습니다.
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -87,10 +87,10 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * **가상 네트워크 게이트웨이 설정**
   * **이름**: VNet1GW
   * **리소스 그룹**: 미국 동부
-  * **세대**: 1세대
+  * **세대**: 2세대
   * **게이트웨이 유형**: **VPN** 을 선택합니다.
-  * **VPN 유형**: **경로*기반** 을 선택합니다.
-  * **SKU**: VpnGw1
+  * **VPN 유형**: **경로 기반** 을 선택합니다.
+  * **SKU**: VpnGw2
   * **가상 네트워크**: VNet1
   * **게이트웨이 서브넷 주소 범위**: 10.1.255.0/27
   * **공용 IP 주소**: 새로 만들기
@@ -115,10 +115,10 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * **가상 네트워크 게이트웨이 설정**
   * **이름**: VNet4GW
   * **리소스 그룹**: 미국 서부
-  * **세대**: 1세대
+  * **세대**: 2세대
   * **게이트웨이 유형**: **VPN** 을 선택합니다.
   * **VPN 유형**: **경로 기반** 을 선택합니다.
-  * **SKU**: VpnGw1
+  * **SKU**: VpnGw2
   * **가상 네트워크**: VNet4
   * **게이트웨이 서브넷 주소 범위**: 10.41.255.0/27
   * **공용 IP 주소**: 새로 만들기
@@ -146,7 +146,10 @@ VNet이 이미 있는 경우 설정이 VPN 게이트웨이 설계와 호환되�
 
 ### <a name="to-create-a-virtual-network-gateway"></a>가상 네트워크 게이트웨이를 만들려면
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+배포 상태는 게이트웨이에 대한 [개요] 페이지에서 확인할 수 있습니다. 게이트웨이에서 완전히 만들고 배포하는 데 45분 이상 걸릴 수 있습니다. 게이트웨이를 만든 후 포털에서 가상 네트워크를 살펴보면 게이트웨이에 할당된 IP 주소를 볼 수 있습니다. 게이트웨이가 연결된 디바이스로 표시됩니다.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -161,10 +164,10 @@ VNet1을 구성한 후 이전 단계를 반복하고 값을 VNet4 값으로 대�
 1. Azure Portal에서 **모든 리소스** 를 선택하고, 검색 상자에 *가상 네트워크 게이트웨이* 를 입력하고, VNet의 가상 네트워크 게이트웨이로 이동합니다. 예를 들어 **VNet1GW** 입니다. 게이트웨이를 선택하여 **가상 네트워크 게이트웨이** 페이지를 엽니다.
 1. 게이트웨이 페이지에서 **설정->연결** 로 이동합니다. 그런 다음, **+추가** 를 선택합니다.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="연결 페이지":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="연결 페이지를 보여주는 스크린샷." border="false":::
 1. **연결 추가** 페이지가 열립니다.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="연결 추가":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="연결 추가 페이지를 보여주는 스크린샷.":::
 
    **연결 추가** 페이지에서 연결의 값을 입력합니다.
 
@@ -176,7 +179,7 @@ VNet1을 구성한 후 이전 단계를 반복하고 값을 VNet4 값으로 대�
 
    * **두 번째 가상 네트워크 게이트웨이**: 이 필드는 연결을 만들고자 하는 VNet의 가상 네트워크 게이트웨이입니다. **다른 가상 네트워크 게이트웨이 선택** 을 선택하여 **선택 가상 네트워크 게이트웨이** 페이지를 엽니다.
 
-      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="게이트웨이 선택":::
+      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="다른 게이트웨이가 선택된 가상 네트워크 게이트웨이 선택 페이지를 보여주는 스크린샷.":::
 
      * 이 페이지에 나열된 가상 네트워크 게이트웨이를 봅니다. 구독에 있는 가상 네트워크 게이트웨이만 나열되어 있는지 확인합니다. 구독에 없는 가상 네트워크 게이트웨이에 연결하려면 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)을 사용합니다.
 
@@ -194,10 +197,10 @@ VNet1을 구성한 후 이전 단계를 반복하고 값을 VNet4 값으로 대�
 1. Azure Portal에서 가상 네트워크 게이트웨이를 찾습니다. 
 1. **가상 네트워크 게이트웨이** 페이지에서 **연결** 을 선택하여 가상 네트워크 게이트웨이에 대한 **연결** 페이지를 봅니다. 연결이 설정되면 **상태** 값이 **연결됨** 으로 변경됩니다.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="연결 확인":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="연결을 확인하는 연결 페이지를 보여주는 스크린샷." border="false":::
 1. **이름** 열 아래에서 연결 중 하나를 선택하여 자세한 정보를 확인합니다. 데이터 흐름이 시작되면 **데이터 입력** 및 **데이터 출력** 값이 보입니다.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="스크린샷은 데이터 입력 및 데이터 출력 값이 있는 리소스 그룹을 보여줍니다.":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="스크린샷은 데이터 입력 및 데이터 출력 값이 있는 리소스 그룹을 보여줍니다." border="false":::
 
 ## <a name="add-additional-connections"></a>연결 추가
 

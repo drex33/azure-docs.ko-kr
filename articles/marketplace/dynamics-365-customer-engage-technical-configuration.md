@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.custom: references_regions
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/29/2021
-ms.openlocfilehash: 51ef78575a6987c3ac1537f1bb9d35e98e294ab6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 06/29/2021
+ms.openlocfilehash: 6d58fbdd2f6b4b89d2584b9f82e0f0fd0417ad35
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971423"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085113"
 ---
 # <a name="set-up-dynamics-365-for-customer-engagement--power-apps-offer-technical-configuration"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제안 기술 구성 설정
 
@@ -43,9 +43,9 @@ ms.locfileid: "111971423"
 
 ## <a name="crm-package-availability"></a>CRM 패키지 가용성
 
-**+ 지역 추가** 를 선택하여 CRM 패키지를 고객에게 제공할 지리적 지역을 지정합니다. 인증 프로세스에서 특별 권한 및 유효성 검사가 있어야 [독일](../germany/index.yml), [US Government 클라우드](../azure-government/documentation-government-welcome.md)및 TIP 자치 지역에 배포할 수 있습니다.
+**+ 지역 추가** 를 선택하여 CRM 패키지를 고객에게 제공할 지리적 지역을 지정합니다. US Gov Cloud 소버린, 중국 Cloud 소버린, 독일 소버린, US Gov High Cloud 소버린, 프로덕션 소버린 테스트 또는 US DoD Cloud 소버린과 같은 소버린 지역을 선택하지 마세요.
 
-기본적으로 위에 입력한 **애플리케이션 구성 URL** 이 각 지역에 사용됩니다. 원할 경우 하나 이상의 특정 지역에 대해 별도의 애플리케이션 구성 URL을 입력할 수 있습니다.
+기본적으로 위에 입력한 **애플리케이션 구성 URL** 이 각 지역에 사용됩니다. 애플리케이션 구성 URL 필드를 비워 둡니다.
 
 왼쪽 탐색 메뉴 **Microsoft와 공동 판매** 에서 다음 탭을 계속 진행하려면 **초안 저장** 을 선택하세요. Microsoft와 공동 판매를 설정하는 방법(선택 사항)에 관한 자세한 내용은 [Microsoft 영업 팀 및 파트너와 공동 판매 개요](./co-sell-overview.md)를 참조하세요. 공동 판매를 설정하지 않거나 완료한 경우 아래 **다음 단계** 를 계속 진행합니다.
 

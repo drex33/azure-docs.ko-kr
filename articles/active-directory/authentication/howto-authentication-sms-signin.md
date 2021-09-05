@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 08/18/2021
 ms.author: justinha
 author: justinha
 manager: daveba
-ms.reviewer: rateller
+ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ee91482ac17ac5e91715f5dfe6191c6ed4007a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 284a1c9d8b79a0d4e9c479afea9713a09c8c0fa4
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982707"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531022"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Azure Active Directory를 사용한 SMS 기반 인증 구성 및 사용자 활성화 
 
 애플리케이션 및 서비스에 대한 로그인을 단순화하고 보호하기 위해 Azure AD(Azure Active Directory)는 여러 인증 옵션을 제공합니다. SMS 기반 인증을 사용하면 사용자는 사용자 이름 및 암호를 제공하지 못하거나 심지어 알지 못해도 로그인할 수 있습니다. ID 관리자가 계정을 만든 후 로그인 프롬프트에 전화 번호를 입력할 수 있습니다. 로그인을 완료하기 위해 제공할 수 있는 문자 메시지를 통해 인증 코드를 수신합니다. 해당 인증 방법을 사용하면 특히 일선 작업자가 애플리케이션 및 서비스에 간편하게 액세스할 수 있습니다.
 
-이 문서에서는 Azure AD에서 일부 사용자 또는 그룹에 대해 SMS 기반 인증을 사용하도록 설정하는 방법을 보여 줍니다.
+이 문서에서는 Azure AD에서 일부 사용자 또는 그룹에 대해 SMS 기반 인증을 사용하도록 설정하는 방법을 보여 줍니다. SMS 기반 로그인 사용을 지원하는 앱 목록은 [SMS 기반 인증을 위한 앱 지원](how-to-authentication-sms-supported-apps.md)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -34,8 +34,9 @@ ms.locfileid: "111982707"
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * SMS 기반 인증을 사용하도록 설정하려면 Azure AD 테넌트에 전역 관리자 권한이 필요합니다.
 * 문자 메시지 인증 방법 정책에서 설정된 각 사용자는 이 방법을 사용하지 않더라도 라이선스가 있어야 합니다. 설정된 각 사용자에게는 다음 Azure AD, EMS Microsoft 365 라이선스 중 하나가 있어야 합니다.
-    * [M365(Microsoft 365) F1 또는 F3][m365-firstline-workers-licensing]
-    * [EMS(Enterprise Mobility + Security) E3 또는 E5][ems-licensing] 또는 [M365(Microsoft 365) E3 또는 E5][m365-licensing]
+    * [Microsoft 365 F1 또는 F3][m365-firstline-workers-licensing]
+    * [Azure Active Directory Premium P1 또는 P2][azure-ad-pricing]
+    * [EMS(Enterprise Mobility + Security) E3 또는 E5][ems-licensing] 또는 [Microsoft 365 E3 또는 E5][m365-licensing]
     * [Office 365 F3][o365-f3]
 
 ## <a name="known-issues"></a>알려진 문제
@@ -124,9 +125,11 @@ SMS 서명에 대해 설정된 전화 번호는 [Azure AD Multi-Factor Authentic
 
 1. 이제 사용자가 사용자 이름 또는 암호를 입력할 필요 없이 로그인됩니다.
 
+
 ## <a name="troubleshoot-sms-based-sign-in"></a>SMS 기반 로그인 문제 해결
 
-SMS 기반 로그인을 설정 및 사용하는 데 문제가 있는 경우 다음 시나리오 및 문제 해결 단계를 사용할 수 있습니다.
+SMS 기반 로그인을 설정 및 사용하는 데 문제가 있는 경우 다음 시나리오 및 문제 해결 단계를 사용할 수 있습니다. SMS 기반 로그인 사용을 지원하는 앱 목록은 [SMS 기반 인증을 위한 앱 지원](how-to-authentication-sms-supported-apps.md)을 참조하세요.
+
 
 ### <a name="phone-number-already-set-for-a-user-account"></a>사용자 계정에 이미 전화 번호가 설정됨
 
@@ -148,9 +151,10 @@ Azure Portal에서 사용자 계정에 전화 번호를 설정하려고 할 때 
 
 ## <a name="next-steps"></a>다음 단계
 
-암호 없이 Azure AD에 로그인하는 다른 방법(예: Microsoft Authenticator App 또는 FIDO2 보안 키)은 [암호 없는 인증 옵션][concepts-passwordless]을 참조하세요.
+- SMS 기반 로그인 사용을 지원하는 앱 목록은 [SMS 기반 인증을 위한 앱 지원](how-to-authentication-sms-supported-apps.md)을 참조하세요.
+- 암호 없이 Azure AD에 로그인하는 다른 방법(예: Microsoft Authenticator App 또는 FIDO2 보안 키)은 [암호 없는 인증 옵션][concepts-passwordless]을 참조하세요.
+- Microsoft Graph REST API를 사용하여 SMS 기반 로그인을 [사용][rest-enable]하거나 [사용하지 않을][rest-disable] 수도 있습니다.
 
-Microsoft Graph REST API를 사용하여 SMS 기반 로그인을 [사용][rest-enable]하거나 [사용하지 않을][rest-disable] 수도 있습니다.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
@@ -170,3 +174,4 @@ Microsoft Graph REST API를 사용하여 SMS 기반 로그인을 [사용][rest-e
 [m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans
 [o365-f1]: https://www.microsoft.com/microsoft-365/business/office-365-f1?market=af
 [o365-f3]: https://www.microsoft.com/microsoft-365/business/office-365-f3?activetab=pivot%3aoverviewtab
+[azure-ad-pricing]: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing

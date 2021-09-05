@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 03/25/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 39f1245883c7d296de5b2bad77f1558be9b49910
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: c162a782965156545cf238f8f0489409433a0345
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111887423"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535576"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)로 마이그레이션
 
@@ -53,7 +53,7 @@ ms.locfileid: "111887423"
 Azure Migrate는 온-프레미스 서버, 인프라, 애플리케이션 및 데이터를 평가하고 Azure로 마이그레이션할 수 있는 통합 플랫폼을 제공합니다. AKS의 경우 다음과 같은 작업에 Azure Migrate를 사용할 수 있습니다.
 
 * [ASP.NET 애플리케이션 컨테이너화 및 AKS로 마이그레이션](../migrate/tutorial-app-containerization-aspnet-kubernetes.md)
-* [Java 웹 애플리케이션 컨테이너화 및 AKS로 마이그레이션](../migrate/tutorial-containerize-java-kubernetes.md)
+* [Java 웹 애플리케이션 컨테이너화 및 AKS로 마이그레이션](../migrate/tutorial-app-containerization-java-kubernetes.md)
 
 ## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>Azure 표준 Load Balancer AKS 및 Virtual Machine Scale Sets
 
@@ -182,11 +182,13 @@ az aks create \
 
 기존 지속적인 통합(CI) 및 지속적인 배달(CD) 파이프라인을 사용하여 AKS에 알려진 양호한 구성을 배포하는 것이 좋습니다. Azure Pipelines를 사용하여 [애플리케이션을 빌드하고 AKS에 배포](/azure/devops/pipelines/ecosystems/kubernetes/aks-template)할 수 있습니다. 기존 배포 작업을 복제하고 `kubeconfig`에서 새 AKS 클러스터를 가리키는지 확인합니다.
 
-불가능한 경우 기존 Kubernetes 클러스터에서 리소스 정의를 내보낸 다음 AKS에 적용합니다. `kubectl`을 사용하여 개체를 내보낼 수 있습니다.
+불가능한 경우 기존 Kubernetes 클러스터에서 리소스 정의를 내보낸 다음 AKS에 적용합니다. `kubectl`을 사용하여 개체를 내보낼 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```console
-kubectl get deployment -o=yaml --export > deployments.yaml
+kubectl get deployment -o yaml > deployments.yaml
 ```
+
+출력을 검사하고 불필요한 라이브 데이터 필드를 제거해야 합니다.
 
 ### <a name="moving-existing-resources-to-another-region"></a>기존 리소스를 다른 영역으로 이동
 

@@ -4,19 +4,21 @@ description: Azure Site Recovery를 사용한 Hyper-V VM과 Azure 간 재해 복
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.openlocfilehash: b36711e9249764df5d170fa955b8d72d1a2656f1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+author: Sharmistha-Rai
+ms.author: sharrai
+ms.openlocfilehash: 7c64aee5177adf7ee1d5f5d47ba80c5e25a53002
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960864"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539250"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 Hyper-V VM을 Azure로 재해 복구하는 데 지원되는 구성 요소와 설정의 요약 정보를 제공합니다.
 
 >[!NOTE]
-> Site Recovery는 원본 머신에 대해 재해 복구가 설정된 대상 지역에서 고객 데이터를 이동하거나 저장하지 않습니다. 고객이 선택하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음에는 메타데이터가 포함되지만 실제 고객 데이터는 포함되지 않습니다.
+> Site Recovery는 원본 머신에 대해 재해 복구가 설정된 대상 지역에서 고객 데이터를 이동하거나 저장하지 않습니다. 고객이 원하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음에는 메타데이터가 포함되지만 실제 고객 데이터는 포함되지 않습니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -24,6 +26,9 @@ ms.locfileid: "111960864"
 --- | ---
 Hyper-V(Virtual Machine Manager 있음) <br> <br>| System Center Virtual Machine Manager 패브릭에서 관리되는 Hyper-V 호스트에서 실행 중인 VM에 대해 Azure로의 재해 복구를 수행할 수 있습니다.<br/><br/> Azure Portal에서 또는 PowerShell을 사용하여 이 시나리오를 배포할 수 있습니다.<br/><br/> Virtual Machine Manager에서 Hyper-V 호스트를 관리하는 경우에는 보조 온-프레미스 사이트로의 재해 복구도 수행할 수 있습니다. 이 시나리오에 대해 자세히 알아보려면 [이 자습서](hyper-v-vmm-disaster-recovery.md)를 읽어보세요.
 Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리하지 않는 Hyper-V 호스트에서 실행 중인 VM에 대해 Azure로의 재해 복구를 수행할 수 있습니다.<br/><br/> Azure Portal에서 또는 PowerShell을 사용하여 이 시나리오를 배포할 수 있습니다.
+
+> [!NOTE]
+> 동일한 Hyper-V 호스트에서 Azure Backup과 Azure Site Recovery를 모두 구성하면 복제와 관련된 문제가 발생할 수 있으며 지원되지 않습니다.
 
 ## <a name="on-premises-servers"></a>온-프레미스 서버
 
@@ -92,7 +97,7 @@ Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 �
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 스토리지
 
 **스토리지** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
---- | --- | --- 
+--- | --- | ---
 NFS | 해당 없음 | 해당 없음
 SMB 3.0 | 예 | 예
 SAN(ISCSI) | 예 | 예
@@ -148,6 +153,7 @@ Standard Storage | 예 | 예
 **기능** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 가용성 집합 | 예 | 예
+가용성 영역 | 예 | 예
 HUB | 예 | 예  
 관리 디스크 | 예, 장애 조치(failover)용<br/><br/> 관리 디스크 장애 복구(failback)는 지원되지 않음 | 예, 장애 조치(failover)용<br/><br/> 관리 디스크 장애 복구(failback)는 지원되지 않음
 
@@ -187,7 +193,7 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 배포가 이 문서에 나와 있는 설정과 호환되도록 하려면 최신 공급자 및 에이전트 버전을 실행 중인지 확인합니다.
 
 **이름** | **설명** | **세부 정보**
---- | --- | --- 
+--- | --- | ---
 Azure Site Recovery 공급자 | 온-프레미스 서버와 Azure 간 통신 조정 <br/><br/> Virtual Machine Manager가 있는 Hyper-V : Virtual Machine Manager 서버에 설치됨<br/><br/> Virtual Machine Manager가 없는 Hyper-V: Hyper-V 호스트에 설치됨| [최신 기능 및 수정](./site-recovery-whats-new.md)
 Microsoft Azure Recovery Services 에이전트 | Hyper-V VM과 Azure 간 복제 조정<br/><br/> 온-프레미스 Hyper-V 서버에 설치됨(Virtual Machine Manager 있음/없음) | 포털에서 사용할 수 있는 최신 에이전트
 

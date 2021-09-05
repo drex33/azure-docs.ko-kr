@@ -3,8 +3,7 @@ title: Azure Active Directory 보고서 FAQ | Microsoft Docs
 description: Azure Active Directory 보고서 관련 자주 묻는 질문입니다.
 services: active-directory
 documentationcenter: ''
-author: cawrites
-manager: MarkusVi
+author: MarkusVi
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
@@ -12,22 +11,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 05/12/2020
+ms.date: 07/28/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4da0083a236900037b388798d825515e94613c20
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: b64c33619eae16cb08b9ccdc1b4fd5265813d9ed
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533716"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536311"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
 이 문서에는 Azure AD(Azure Active Directory) 보고에 대한 질문과 대답이 포함되어 있습니다. 자세한 내용은 [Azure Active Directory 보고](overview-reports.md)를 참조하세요. 
 
 ## <a name="getting-started"></a>시작 
+
+**Q: 보고용 라이선스는 어떻게 작동하나요?**
+
+**A:** 모든 Azure AD 라이선스를 사용하면 Azure Portal에서 활동 로그를 볼 수 있습니다. 
+
+테넌트과 다음과 같은 경우:
+
+- Azure AD 무료 라이선스는 포털에서 최대 7일 동안의 활동 로그 데이터를 볼 수 있습니다. 
+- Azure AD Premium 라이선스는 Azure Portal에서 최대 30일 동안의 데이터를 볼 수 있습니다. 
+
+해당 로그 데이터를 Azure Monitor, Azure Event Hubs 및 Azure Storage로 내보내거나 Microsoft Graph API를 통해 작업 데이터를 쿼리할 수도 있습니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 업그레이드 전에 데이터 활동이 없는 프리미엄 라이선스로 업그레이드한 후 로그에 데이터가 표시되려면 며칠이 걸립니다.
+
 
 **Q: 현재 `https://graph.windows.net/<tenant-name>/reports/` 엔드포인트 API를 사용하여 Azure AD 감사 및 통합 애플리케이션 사용 보고서를 프로그래밍 방식으로 보고 시스템에 풀하고 있습니다. 어떤 방식으로 전환해야 하나요?**
 

@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 257f3473da4284080d7977021cb97c6dbce0fbde
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 6b115971104699775e9a58a7b25addefe4d12d1d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535171"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535848"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -62,7 +62,7 @@ Pod가 해당 모드에서 중단되는 이유는 다양할 수 있습니다. �
 * `kubectl describe pod <pod-name>`를 사용하여 pod 자체
 * `kubectl logs <pod-name>`을 사용하여 로그
 
-Pod 문제를 해결하는 방법에 대한 자세한 내용은 [애플리케이션 디버그](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods)를 참조하세요.
+Pod 문제를 해결하는 방법에 대한 자세한 내용은 Kubernetes 설명서의 [Pod 디버깅](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods)을 참조하세요.
 
 ## <a name="im-receiving-tcp-timeouts-when-using-kubectl-or-other-third-party-tools-connecting-to-the-api-server"></a>`kubectl`이나 API 서버에 연결하는 기타 타사 도구를 사용하는 경우 `TCP timeouts`이 발생합니다.
 AKS에는 SLO(서비스 수준 목표) 및 SLA(서비스 수준 약정)를 보장하기 위해 코어 수에 따라 수직으로 확장되는 HA 컨트롤 플레인이 있습니다. 연결 시간 초과가 발생하는 경우 아래를 확인합니다.
@@ -456,5 +456,5 @@ AKS는 이 완화를 개선하기 위해 노드 풀에서 활성 레이블을 �
 
 
 <!-- LINKS - internal -->
-[view-master-logs]: ./view-control-plane-logs.md
+[view-master-logs]: monitor-aks-reference.md#resource-logs
 [cluster-autoscaler]: cluster-autoscaler.md

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: ab99d4aec732d2bc6b42576d30b59b0f8c0067c3
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 828dd2cc5b83737a313156876c54c290a2a67d73
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772044"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238846"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>사용자 지정 보안 이니셔티브 및 정책 만들기
 
@@ -34,18 +34,18 @@ ms.locfileid: "108772044"
 
 1. 사용자 지정 이니셔티브를 추가할 구독이나 관리 그룹을 선택합니다.
 
-    [![사용자 지정 정책을 만들 구독 선택](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
+    [![사용자 지정 정책을 만들 구독 선택.](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
     > Security Center에서 평가하고 표시하려면 구독 수준 이상에서 사용자 지정 이니셔티브를 추가해야 합니다. 사용 가능한 가장 넓은 범위를 선택하는 것이 좋습니다.
 
 1. 보안 정책 페이지의 사용자 지정 이니셔티브에서 **사용자 지정 이니셔티브 추가** 를 클릭합니다.
 
-    [![사용자 지정 이니셔티브 추가 클릭](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![사용자 지정 이니셔티브 추가를 클릭합니다.](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
     다음 페이지가 나타납니다.
 
-    ![정책 만들기 또는 추가](media/custom-security-policies/create-or-add-custom-policy.png)
+    ![정책을 만들거나 추가합니다.](media/custom-security-policies/create-or-add-custom-policy.png)
 
 1. 사용자 지정 이니셔티브 추가 페이지에서 조직에 이미 생성된 사용자 지정 정책 목록을 검토합니다. 구독에 할당하려는 사용자 지정 이니셔티브가 있으면 **추가** 를 클릭합니다. 목록에 요구 사항에 맞는 이니셔티브가 없으면 이 단계를 건너뜁니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "108772044"
 
 1. 정책에 대한 결과 권장 사항을 보려면 사이드바에서 **권장 사항** 을 클릭하여 권장 사항 페이지를 엽니다. 권장 사항이 "사용자 지정" 레이블과 함께 표시되고 약 1시간 내에 사용할 수 있습니다.
 
-    [![사용자 지정 권장 사항](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+    [![사용자 지정 권장 사항.](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
 ::: zone-end
 

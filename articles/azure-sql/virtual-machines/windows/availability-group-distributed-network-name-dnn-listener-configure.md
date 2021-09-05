@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7d637a98a0f250936fa8c9024ae1302d3aaa536
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 50984f7a22caa6e1340b6ed4d927d9450eccdf9e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572369"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567427"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>가용성 그룹에 대한 DNN 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -179,7 +179,7 @@ DNN 수신기에 연결하도록 애플리케이션에 대한 연결 문자열�
 
 ## <a name="port-considerations"></a>포트 고려 사항
 
-DNN 수신기는 모든 IP 주소에서 수신 대기하고 특정한 고유 포트에서 수신하도록 설계되었습니다. 수신기 이름에 대한 DNS 항목은 가용성 그룹에 있는 모든 복제본의 주소로 확인되어야 합니다. 이는 [스크립트 만들기](#create-script) 섹션에 제공된 PowerShell 스크립트를 통해 자동으로 수행됩니다. DNN 수신기는 모든 IP 주소에 대한 연결을 허용하므로 수신기 포트가 고유하고 가용성 그룹의 다른 복제본에서는 사용되지 않는 것이 중요합니다. SQL Server는 직접 또는 SQL Browser 서비스를 통해 포트 1433에서 수신 대기하므로 DNN 수신기에는 포트 1433을 사용할 수 없습니다.
+DNN 수신기는 모든 IP 주소에서 수신 대기하고 특정한 고유 포트에서 수신하도록 설계되었습니다. 수신기 이름에 대한 DNS 항목은 가용성 그룹에 있는 모든 복제본의 주소로 확인되어야 합니다. 이는 [스크립트 만들기](#create-script) 섹션에 제공된 PowerShell 스크립트를 통해 자동으로 수행됩니다. DNN 수신기는 모든 IP 주소에 대한 연결을 허용하므로 수신기 포트가 고유하고 가용성 그룹의 다른 복제본에서는 사용되지 않는 것이 중요합니다. SQL Serve는 기본적으로 직접 또는 SQL Browser 서비스를 통해 포트 1433을 수신 대기하므로 DNN 수신기에 포트 1433을 사용하는 것은 권장되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -191,4 +191,3 @@ DNN 수신기는 모든 IP 주소에서 수신 대기하고 특정한 고유 포
 - [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
 - [Azure VM에서 SQL Server를 사용하는 Always On 가용성 그룹](availability-group-overview.md)
 - [Always On 가용성 그룹 개요](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-

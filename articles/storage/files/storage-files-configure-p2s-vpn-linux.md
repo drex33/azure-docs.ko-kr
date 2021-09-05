@@ -7,21 +7,28 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9608e3bdaab033d58796a3841e8cd92d7a8a81ef
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 120f76666fb8ef55fd0cb51fe0c04b1d8448ce82
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777980"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538294"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Azure Files에서 사용하기 위한 Linux의 P2S(지점 및 사이트 간) VPN 구성
-P2S(지점 및 사이트 간) VPN 연결을 사용하여 포트 445을 열지 않고 Azure 외부에서 SMB를 통해 Azure 파일 공유를 탑재할 수 있습니다. 지점 및 사이트 간 VPN 연결은 Azure와 개별 클라이언트 간의 VPN 연결입니다. Azure Files에서 P2S VPN 연결을 사용하려면 연결하려는 각 클라이언트에 대해 P2S VPN 연결을 구성해야 합니다. 온-프레미스 네트워크에서 Azure 파일 공유에 연결해야 하는 클라이언트가 많은 경우에는 각 클라이언트에 대해 지점 및 사이트 간 연결 대신 S2S(사이트 간) VPN 연결을 사용할 수 있습니다. 자세한 내용은 [Azure Files에서 사용하기 위한 사이트 간 VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
+P2S(지점 및 사이트 간) VPN 연결을 사용하여 개방형 인터넷을 통해 데이터를 보내지 않고도 Azure 외부에서 Azure 파일 공유를 탑재할 수 있습니다. 지점 및 사이트 간 VPN 연결은 Azure와 개별 클라이언트 간의 VPN 연결입니다. Azure Files에서 P2S VPN 연결을 사용하려면 연결하려는 각 클라이언트에 대해 P2S VPN 연결을 구성해야 합니다. 온-프레미스 네트워크에서 Azure 파일 공유에 연결해야 하는 클라이언트가 많은 경우에는 각 클라이언트에 대해 지점 및 사이트 간 연결 대신 S2S(사이트 간) VPN 연결을 사용할 수 있습니다. 자세한 내용은 [Azure Files에서 사용하기 위한 사이트 간 VPN 구성](storage-files-configure-s2s-vpn.md)을 참조하세요.
 
 Azure Files에 사용할 수 있는 네트워킹 옵션에 대해 자세히 알아보려면 이 방법 문서를 계속하기 전에 먼저 [Azure Files 네트워킹 개요](storage-files-networking-overview.md)를 참조하는 것이 좋습니다.
 
-이 문서에서는 Linux에서 지점 및 사이트 간 VPN을 구성하여 Azure 파일 공유를 온-프레미스에 직접 탑재하는 단계를 자세히 설명합니다. VPN을 통해 Azure 파일 동기화 트래픽을 라우팅하는 경우 [Azure 파일 동기화 프록시 및 방화벽 설정 구성](../file-sync/file-sync-firewall-and-proxy.md)을 참조하세요.
+이 문서에서는 Linux에서 지점 및 사이트 간 VPN을 구성하여 Azure 파일 공유를 온-프레미스에 직접 탑재하는 단계를 자세히 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
+
+## <a name="prerequisites"></a>필수 구성 요소
 - 최신 버전의 Azure CLI. Azure CLI를 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell CLI 설치](/cli/azure/install-azure-cli)를 참조하고 해당 운영 체제를 선택합니다. Linux에서 Azure PowerShell 모듈을 사용하려는 경우에는 Azure CLI에 대한 아래 지침이 제공될 수 있습니다.
 
 - 온-프레미스에 탑재하려는 Azure 파일 공유. Azure 파일 공유는 스토리지 계정 내에 배포됩니다. 스토리지 계정은 여러 파일 공유뿐만 아니라 다른 스토리지 리소스(예: Blob 컨테이너 또는 큐)도 배포할 수 있는 공유 스토리지 풀을 나타내는 관리 구조입니다. [Azure 파일 공유 만들기](storage-how-to-create-file-share.md)에서 Azure 파일 공유 및 스토리지 계정을 배포하는 방법에 대해 자세히 알아봅니다.
@@ -34,7 +41,8 @@ Azure 가상 네트워크 게이트웨이는 IPsec 및 OpenVPN을 비롯한 여�
 > Ubuntu 18.10에서 확인됩니다.
 
 ```bash
-sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils cifs-utils
+sudo apt update
+sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils cifs-utils unzip
 
 installDir="/etc/"
 ```
@@ -193,22 +201,7 @@ sudo ipsec up $virtualNetworkName
 ```
 
 ## <a name="mount-azure-file-share"></a>Azure 파일 공유 탑재
-지점 및 사이트 간 VPN을 설정했으므로 Azure 파일 공유를 탑재할 수 있습니다. 다음 예제에서는 영구적이지 않은 공유를 탑재합니다. 영구적으로 탑재하려면 [Linux에서 Azure 파일 공유 사용](storage-how-to-use-files-linux.md)을 참조하세요. 
-
-```bash
-fileShareName="myshare"
-
-mntPath="/mnt/$storageAccountName/$fileShareName"
-sudo mkdir -p $mntPath
-
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
-
-smbPath="//$storageAccountPrivateIP/$fileShareName"
-sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
-```
+지점 및 사이트 간 VPN을 설정했으므로 Azure 파일 공유를 탑재할 수 있습니다. 다음 예제에서는 영구적이지 않은 공유를 탑재합니다. 지속적으로 탑재하려면 [Linux에 SMB 파일 공유 탑재](storage-how-to-use-files-linux.md) 또는 [Linux에 NFS 파일 공유 탑재](storage-files-how-to-mount-nfs-shares.md)를 참조하세요. 
 
 ## <a name="see-also"></a>참조
 - [Azure Files 네트워킹 개요](storage-files-networking-overview.md)

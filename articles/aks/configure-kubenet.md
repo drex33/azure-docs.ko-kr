@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c373e45c8607f10c36f40a23c776bd081bf13207
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 59eb3874a7f0de9eba1f5b75204618c887cb9bb2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789522"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122530202"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "107789522"
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
@@ -34,7 +34,7 @@ ms.locfileid: "107789522"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure CLI 버전 2.0.65 이상을 설치하고 구성해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
+Azure CLI 버전 2.0.65 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>고유한 서브넷을 사용한 Kubenet 네트워킹 개요
 
@@ -54,6 +54,7 @@ Azure는 UDR에서 최대 300개의 경로를 지원하므로 400개 노드보�
 * kubenet을 사용하려면 경로 테이블 및 사용자 정의 경로가 필요하며 이는 작업에 복잡성을 더합니다.
 * Kubenet 디자인으로 인해 kubenet에 직접 Pod 주소 지정은 지원되지 않습니다.
 * Azure CNI 클러스터와 달리 여러 kubenet 클러스터는 서브넷을 공유할 수 없습니다.
+* 자체 서브넷을 제공하는 경우 해당 서브넷과 연결된 NSG(네트워크 보안 그룹)를 관리해야 합니다. AKS는 해당 서브넷과 연결된 NSG를 수정하지 않습니다. 또한 NSG의 보안 규칙이 노드와 Pod CIDR 간의 트래픽을 허용하는지 확인해야 합니다.
 * **kubenet에서 지원되지 않는** 기능은 다음과 같습니다.
    * [Azure 네트워크 정책](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy). 하지만 Calico 네트워크는 kubenet에서 지원됩니다.
    * [Windows 노드 풀](./windows-faq.md)
@@ -75,7 +76,7 @@ Azure는 UDR에서 최대 300개의 경로를 지원하므로 400개 노드보�
   - 이 노드 수로 최대 *240* 개의 pod만 지원할 수 있습니다(*Azure CNI* 를 사용할 경우 노드당 최대 pod 기본값이 30개임).
 
 > [!NOTE]
-> 이러한 최대값에는 업그레이드 또는 크기 조정 작업이 고려되지 않습니다. 실제로 서브넷 IP 주소 범위가 지원하는 최대 노드 수를 실행할 수는 없습니다. 업그레이드 작업의 크기 조정 동안 사용할 수 있는 일부 IP 주소를 남겨 두어야 합니다.
+> 이러한 최대값에는 업그레이드 또는 크기 조정 작업이 고려되지 않습니다. 실제로 서브넷 IP 주소 범위가 지원하는 최대 노드 수를 실행할 수는 없습니다. 크기 조정 또는 업그레이드 작업 중에 사용할 수 있는 일부 IP 주소를 남겨 두어야 합니다.
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>가상 네트워크 피어링 및 ExpressRoute 연결
 

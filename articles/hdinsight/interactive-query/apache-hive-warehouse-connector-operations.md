@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/22/2020
-ms.openlocfilehash: 1799aff8bff96d404ddcbefbf58a5f5014cdba6a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b876cd702a2398e8dcb0e1a0be5fffce0615e58d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871591"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529373"
 ---
 # <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight의 Hive Warehouse Connector에서 지원하는 Apache Spark 작업
 
@@ -74,7 +74,7 @@ Spark는 기본적으로 Hive의 관리되는 ACID 테이블에 쓰기를 지원
     hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
     ```
 
-1. 열 `state`가 `Colorado`와 일치하는 테이블 `hivesampletable`을 필터링합니다. 이 hive 쿼리는 `write` 함수를 사용하여 `sampletable_colorado` Hive 테이블에 저장된 Spark DataFrame ans sis를 반환합니다.
+1. 열 `state`가 `Colorado`와 일치하는 테이블 `hivesampletable`을 필터링합니다. 이 하이브 쿼리는 Spark DataFrame을 반환하고 결과는 `write` 함수를 사용하여 Hive 테이블 `sampletable_colorado`에 저장됩니다.
 
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format("com.hortonworks.spark.sql.hive.llap.HiveWarehouseConnector").mode("append").option("table","sampletable_colorado").save()
@@ -106,7 +106,7 @@ Hive Warehouse Connector를 사용하여 Spark 스트리밍을 사용해 데이�
 
 1. 다음 단계를 통해 만든 Spark 스트림에 대한 데이터를 생성합니다.
     1. 동일한 Spark 클러스터에서 두 번째 SSH 세션을 엽니다.
-    1. 명령 프롬프트에서 `nc -lk 9999`를 입력합니다. 이 명령은 netcat 유틸리티를 사용하여 데이터를 명령줄에서 지정된 포트로 보냅니다.
+    1. 명령 프롬프트에서 `nc -lk 9999`를 입력합니다. 이 명령은 `netcat` 유틸리티를 사용하여 데이터를 명령줄에서 지정된 포트로 보냅니다.
 
 1. 첫 번째 SSH 세션으로 돌아가서 스트리밍 데이터를 보관할 새 Hive 테이블을 만듭니다. Spark 셸에서 다음 명령을 입력합니다.
 
@@ -137,10 +137,11 @@ Hive Warehouse Connector를 사용하여 Spark 스트리밍을 사용해 데이�
     hive.table("stream_table").show()
     ```
 
-**Ctrl + C** 를 사용하여 두 번째 SSH 세션에서 netcat을 중지합니다. `:q`를 사용하여 첫 번째 SSH 세션에서 Spark 셸을 종료합니다.
+**Ctrl + C** 를 사용하여 두 번째 SSH 세션에서 `netcat`을 중지합니다. `:q`를 사용하여 첫 번째 SSH 세션에서 Spark 셸을 종료합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Apache Spark 및 Apache Hive와 HWC 통합](./apache-hive-warehouse-connector.md)
 * [HDInsight에서 대화형 쿼리 사용](./apache-interactive-query-get-started.md)
 * [Apache Zeppelin와 HWC 통합](./apache-hive-warehouse-connector-zeppelin.md)
+* [HWC 지원 API](./hive-warehouse-connector-apis.md)

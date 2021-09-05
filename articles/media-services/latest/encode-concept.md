@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: cd37175bd85e31ddc18c8267cdf01f7dc6249a0b
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 7b4b3806ed00955096939c4b996c9a9d3daec004
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491919"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530678"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Media Services를 사용하여 비디오 및 오디오 인코딩
 
@@ -31,7 +31,7 @@ Media Services에서 인코딩은 (a) 파일 크기를 줄이기 위해 및/또�
 > Media Services는 취소되었거나 오류가 발생한 작업에 대해 요금을 청구하지 않습니다. 예를 들어 진행률 50%에 도달한 후 취소된 작업은 작업 시간 50%에 해당하는 요금이 청구되지 않습니다. 완료된 작업에 대해서만 요금이 청구됩니다.
 
 * 점진적 다운로드로 전달하기 위해서는 Azure Media Services를 사용하여 [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) 코덱으로 인코딩된 비디오와 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) 코덱으로 인코딩된 오디오가 포함된 [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) 파일로 디지털 미디어 파일(mezzanine)을 변환할 수 있습니다. 이 MP4 파일은 스토리지 계정에 있는 자산에 기록됩니다. Azure Storage API 또는 SDK(예를 들어 [Storage REST API](../../storage/common/storage-rest-api-auth.md) 또는 [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md))를 사용하여 파일을 직접 다운로드할 수 있습니다. 스토리지에서 특정 컨테이너 이름을 사용하여 출력 자산을 만든 경우 이 위치를 사용합니다. 그렇지 않으면 Media Services를 사용하여 [자산 컨테이너 URL을 나열](/rest/api/media/assets/listcontainersas)할 수 있습니다. 
-* 적응 비트 전송률 스트리밍으로 콘텐츠 전달을 준비하려면 mezzanine 파일을 다중 비트 전송률(높은 수준에서 낮은 수준)로 인코딩해야 합니다. 정상적인 품질 전환을 위해 비트 전송률이 낮아지면 비디오 해상도가 낮아집니다. 그 결과 인코딩 표라고 부르는 해상도 및 비트 전송률 사다리가 생성됩니다([자동 생성된 적응 비트 전송률 표](encode-autogen-bitrate-ladder.md) 참조). Media Services를 사용하여 mezzanine 파일을 여러 비트 전송률로 인코딩할 수 있습니다. 이렇게 하면 MP4 파일과 스토리지 계정의 자산에 기록되는 연관된 스트리밍 구성 파일 집합을 얻을 수 있습니다. 그런 후 Media Services의 [동적 패키징](encode-dynamic-packaging-concept.md) 기능을 사용하여 [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) 및 [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming)와 같은 스트리밍 프로토콜을 통해 비디오를 전달할 수 있습니다. 이렇게 하려면 [스트리밍 로케이터](stream-streaming-locators-concept.md)를 만들고 지원되는 프로토콜에 따라 스트리밍 URL을 빌드할 수 있습니다. 그런 후 해당 기능에 따라 디바이스/앱으로 이를 전달할 수 있습니다.
+* 적응 비트 전송률 스트리밍으로 콘텐츠 전달을 준비하려면 mezzanine 파일을 다중 비트 전송률(높은 수준에서 낮은 수준)로 인코딩해야 합니다. 정상적인 품질 전환을 위해 비트 전송률이 낮아지면 비디오 해상도가 낮아집니다. 그 결과 인코딩 표라고 부르는 해상도 및 비트 전송률 사다리가 생성됩니다([자동 생성된 적응 비트 전송률 사다리](encode-autogen-bitrate-ladder.md) 참조 또는 권장 콘텐츠 인식 인코딩 사전 설정 사용). Media Services를 사용하여 mezzanine 파일을 여러 비트 전송률로 인코딩할 수 있습니다. 이렇게 하면 MP4 파일과 스토리지 계정의 자산에 기록되는 연관된 스트리밍 구성 파일 집합을 얻을 수 있습니다. 그런 후 Media Services의 [동적 패키징](encode-dynamic-packaging-concept.md) 기능을 사용하여 [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) 및 [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming)와 같은 스트리밍 프로토콜을 통해 비디오를 전달할 수 있습니다. 이렇게 하려면 [스트리밍 로케이터](stream-streaming-locators-concept.md)를 만들고 지원되는 프로토콜에 따라 스트리밍 URL을 빌드할 수 있습니다. 그런 후 해당 기능에 따라 디바이스/앱으로 이를 전달할 수 있습니다.
 
 다음 다이어그램은 동적 패키징을 사용하는 주문형 인코딩의 워크플로를 보여줍니다.
 
@@ -100,8 +100,8 @@ Media Services는 다음과 같은 기본 제공 인코딩 사전 설정을 지�
 - **EncoderNamedPreset.AACGoodQualityAudio**: 192kbps로 인코딩된 스테레오 오디오만 포함된 단일 MP4 파일을 만듭니다.
 - **EncoderNamedPreset.AdaptiveStreaming**(권장): H.264 적응 비트 전송률 인코딩을 지원합니다. 자세한 내용은 [비트 전송률 사다리 자동 생성](encode-autogen-bitrate-ladder.md)을 참조하세요.
 - **EncoderNamerPreset.H265AdaptiveStreaming**: AdaptiveStreaming 사전 설정과 비슷하지만 HEVC(H.265) 코덱이 사용됩니다. H.265 비디오 및 스테레오 AAC 오디오가 포함된 GOP 정렬 MP4 파일 집합을 만듭니다. 입력, 해상도, 비트 전송률 및 프레임 속도를 기준으로 비트 전송률 사다리를 자동 생성합니다. 자동 생성된 사전 설정은 입력 해상도를 초과하지 않습니다. 예를 들어 입력이 720p일 때 출력은 아무리 높아도 720p로 유지됩니다.
-- **EncoderNamedPreset.ContentAwareEncoding**: H.264 콘텐츠 인식 인코딩을 위한 사전 설정을 제공합니다. 입력 콘텐츠에 따라 서비스가 적응 스트리밍으로 전송을 위해 최적 레이어 수, 적합한 비트 전송률 및 해상도 설정을 자동으로 결정하려고 시도합니다. 기본 알고리즘은 시간에 따라 계속 발전합니다. 출력에는 비디오 및 오디오가 인터리브된 MP4 파일이 포함됩니다. 자세한 내용은 [콘텐츠 인식 인코딩](encode-content-aware-concept.md)을 참조하세요.
-- **EncoderNamedPreset.H265ContentAwareEncoding**: HEVC(H.265) 콘텐츠 인식 인코딩에 대한 사전 설정을 제공합니다. 콘텐츠 인식 인코딩을 사용하여 GOP 정렬 MP4 집합을 생성합니다. 입력 콘텐츠에 따라 서비스가 입력 콘텐츠의 초기 경량 분석을 수행하고 그 결과를 사용하여 적응 스트리밍으로 전송을 위해 최적 레이어 수, 적합한 비트 전송률 및 해상도 설정을 결정합니다. 이 사전 설정은 출력 파일이 낮은 비트 전송률로 제공되지만 시청자에게 여전히 좋은 경험을 제공하는 품질로 유지되는 낮은 품질 및 중간 품질의 복합 비디오에 특히 효과적입니다. 출력에는 비디오 및 오디오가 인터리브된 MP4 파일이 포함됩니다.
+- **EncoderNamedPreset.ContentAwareEncoding**: H.264 콘텐츠 인식 인코딩을 위한 사전 설정을 제공합니다. 콘텐츠 인식 인코딩을 사용하여 GOP 맞춤 MP4 세트를 생성합니다. 입력 콘텐츠에 따라 서비스가 입력 콘텐츠의 초기 경량 분석을 수행하고 그 결과를 사용하여 적응 스트리밍으로 전송을 위해 최적 레이어 수, 적합한 비트 전송률 및 해상도 설정을 결정합니다. 이 사전 설정은 출력 파일이 낮은 비트 전송률로 제공되지만 시청자에게 여전히 좋은 경험을 제공하는 품질로 유지되는 낮은 품질 및 중간 품질의 복합 비디오에 특히 효과적입니다. 출력에는 비디오 및 오디오가 인터리브된 MP4 파일이 포함됩니다. 이 사전 설정은 최대 1080P HD의 출력만 생성합니다. 4K 출력이 필요한 경우 "maxBitrateBps" 속성을 사용하여 [PresetConfigurations](https://github.com/Azure/azure-rest-api-specs/blob/7026463801584950d4ccbaa6b05b15d29555dd3a/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01/Encoding.json#L2397)로 사전 설정을 구성할 수 있습니다. 자세한 내용은 [콘텐츠 인식 인코딩](encode-content-aware-concept.md)을 참조하세요.
+- **EncoderNamedPreset.H265ContentAwareEncoding**: HEVC(H.265) 콘텐츠 인식 인코딩을 위한 사전 설정을 제공합니다. 콘텐츠 인식 인코딩을 사용하여 GOP 맞춤 MP4 세트를 생성합니다. 입력 콘텐츠에 따라 서비스가 입력 콘텐츠의 초기 경량 분석을 수행하고 그 결과를 사용하여 적응 스트리밍으로 전송을 위해 최적 레이어 수, 적합한 비트 전송률 및 해상도 설정을 결정합니다. 이 사전 설정은 출력 파일이 낮은 비트 전송률로 제공되지만 시청자에게 여전히 좋은 경험을 제공하는 품질로 유지되는 낮은 품질 및 중간 품질의 복합 비디오에 특히 효과적입니다. 출력에는 비디오 및 오디오가 인터리브된 MP4 파일이 포함됩니다. 이 사전 설정은 최대 4K HD의 출력을 생성합니다. 8K 출력이 필요한 경우 "maxBitrateBps" 속성을 사용하여 [PresetConfigurations](https://github.com/Azure/azure-rest-api-specs/blob/7026463801584950d4ccbaa6b05b15d29555dd3a/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01/Encoding.json#L2397)로 사전 설정을 구성할 수 있습니다.
   > [!NOTE]
   > 이제 사용되지 않는 ContentAwareEncodingExperimental 대신 **ContentAwareEncoding** 을 사용해야 합니다.
 
@@ -128,7 +128,7 @@ Media Services는 다음과 같은 기본 제공 인코딩 사전 설정을 지�
 사용자 지정 사전 설정을 만들 때 다음 고려 사항이 적용됩니다.
 
 - AVC 콘텐츠의 높이 및 너비에 대한 모든 값은 4의 배수여야 합니다.
-- Azure Media Services v3에서 모든 인코딩 비트 전송률은 비트/초입니다. 이는 킬로비트/초를 단위로 사용하는 v2 API의 사전 설정과 다릅니다. 예를 들어 v2의 비트 전송률이 128(킬로비트/초)로 지정된 경우 v3에서는 128000(비트/초)으로 설정됩니다.
+- Azure Media Services v3에서 모든 인코딩 비트 전송률은 비트/초입니다. 이는 킬로비트/초를 단위로 사용한 v2 API의 사전 설정과는 다릅니다. 예를 들어 v2의 비트 전송률이 128(킬로비트/초)로 지정된 경우 v3에서는 128000(비트/초)으로 설정됩니다.
 
 ### <a name="customizing-presets"></a>사전 설정 사용자 지정
 

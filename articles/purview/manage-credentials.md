@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 61f10707231e88130cffbfffa1c06f33084bfbbd
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 14b11cca3eca6f3d0b89889a4eb1abf3f04f5715
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792147"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487654"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Azure Purview에서 원본 인증을 위한 자격 증명
 
@@ -77,7 +77,7 @@ Purview 관리 ID에 대한 액세스 권한을 할당하기 전에 먼저 메�
 
 :::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Azure Key Vault 권한 모델"::: 
 
-### <a name="option-1---assign-access-using-using-key-vault-access-policy"></a>옵션 1 - Key Vault 액세스 정책을 사용하여 액세스 할당  
+### <a name="option-1---assign-access-using-key-vault-access-policy"></a>옵션 1 - Key Vault 액세스 정책을 사용하여 액세스 할당  
 
 Azure Key Vault 리소스의 권한 모델이 **자격 증명 모음 액세스 정책** 으로 설정된 경우에만 다음 단계를 수행합니다.
 

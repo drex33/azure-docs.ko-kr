@@ -2,30 +2,30 @@
 title: 명명된 엔터티 인식 기술
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search AI 보강 파이프라인의 텍스트에서 사람, 위치 및 조직에 대해 명명된 엔터티를 추출합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: e598f16c6b441cf986c7ac82d67c037f75be8982
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: 0b9de4c1abc492a24dee26dd05e7a164239c8f9b
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547444"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529467"
 ---
-#    <a name="named-entity-recognition-cognitive-skill"></a>명명된 엔터티 인식 기술
+#   <a name="named-entity-recognition-cognitive-skill"></a>명명된 엔터티 인식 기술
 
 **명명된 엔터티 인식** 기술은 텍스트에서 명명된 엔터티를 추출합니다. 사용 가능한 엔터티는 `person`, `location` 및 `organization` 형식을 포함합니다.
 
 > [!IMPORTANT]
-> 명명된 엔터티 인식 기술은 [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)로 대체되어 사용되지 않습니다. 지원은 2019년 2월 15일에 중지되었으며 API는 2019년 5월 2일에 제품에서 제거되었습니다. [사용되지 않는 인지 검색 기술](cognitive-search-skill-deprecated.md)의 권장 사항에 따라 지원되는 기술로 마이그레이션하세요.
+> 명명된 엔터티 인식 기술은 [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md)로 대체되어 사용되지 않습니다. [사용되지 않는 인지 검색 기술](cognitive-search-skill-deprecated.md)의 권장 사항에 따라 지원되는 기술로 마이그레이션하세요.
 
-> [!NOTE]
-> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+ > [!NOTE]
+> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다. 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다.
+> 
+> 이미지 추출은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에 설명된 대로 Azure Cognitive Search에서 측정된 추가 요금입니다. 텍스트 추출은 무료입니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에 설명되어 있습니다.
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -157,4 +157,4 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md)
++ [엔터티 인식 기술(V3)](cognitive-search-skill-entity-recognition-v3.md)

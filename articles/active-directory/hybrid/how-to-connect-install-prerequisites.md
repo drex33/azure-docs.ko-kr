@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 06/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afb12328a02a08bfcde4c431ff584a85dc48d31e
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 3e01dd7c32c822f03b8f47147826e085321eeacf
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613650"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472403"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD(Azure Active Directory) Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -42,7 +42,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 
 ### <a name="on-premises-active-directory"></a>온-프레미스 Active Directory
 * Active Directory 스키마의 버전 및 포리스트 기능 수준은 Windows Server 2003 이상이어야 합니다. 도메인 컨트롤러는 스키마 버전 및 포리스트 수준 요구 사항이 충족되는 한 모든 버전을 실행할 수 있습니다.
-* ‘비밀번호 쓰기 저장’ 기능을 사용하려면 도메인 컨트롤러가 Windows Server 2012 이상에 있어야 합니다.
+* *비밀번호 쓰기 저장* 기능을 사용하려면 도메인 컨트롤러가 Windows Server 2016 이상에 있어야 합니다.
 * Azure AD에서 사용되는 도메인 컨트롤러는 쓰기 가능해야 합니다. RODC(읽기 전용 도메인 컨트롤러)를 사용하는 것은 지원되지 않으며 Azure AD Connect가 쓰기 리디렉션을 따르지 않습니다.
 * NetBIOS 이름에 온-프레미스 포리스트를 사용하거나 "점"(이름에 마침표(".") 포함)을 사용하는 것은 지원되지 않습니다.
 * [Active Directory 휴지통을 사용](how-to-connect-sync-recycle-bin.md)하는 것이 좋습니다.
@@ -64,7 +64,7 @@ Active Directory 환경 보안에 대한 자세한 내용은 [Active Directory �
 
 #### <a name="installation-prerequisites"></a>설치 필수 조건
 
-- Azure AD Connect는 반드시 도메인에 가입된 Windows Server 2012 이상 버전에 설치해야 합니다. 
+- Azure AD Connect는 도메인에 조인된 Windows Server 2016 이상 버전에 설치해야 합니다. 
 - Azure AD Connect는 Small Business Server 또는 2019 이전 Windows Server Essentials에 설치할 수 없습니다(Windows Server Essentials 2019는 지원됨). 서버는 Windows Server Standard 이상을 사용해야 합니다. 
 - Azure AD Connect 서버에는 전체 GUI가 설치되어 있어야 합니다. Windows Server Core에 Azure AD Connect를 설치하는 것은 지원되지 않습니다. 
 - Azure AD Connect 마법사를 사용하여 AD FS(Active Directory Federation Services) 구성을 관리하는 경우 Azure AD Connect 서버에서 PowerShell 기록 그룹 정책을 사용하도록 설정하지 않아야 합니다. Azure AD Connect 마법사를 사용하여 동기화 구성을 관리하는 경우 PowerShell 기록을 사용하도록 설정할 수 있습니다. 
@@ -86,10 +86,11 @@ IT 환경의 이 중요한 구성 요소에 대한 보안 공격 노출 영역�
 - 모든 머신에 고유한 로컬 관리자 암호가 있는지 확인합니다. 자세한 내용은 [LAPS(로컬 관리자 암호 솔루션)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps)을 참조하세요. 이 기능을 사용하여 각 워크스테이션과 서버에서 고유한 임의의 암호를 구성함으로써 ACL로 보호되는 Active Directory에 저장할 수 있습니다. 권한 있는 적격 사용자만이 이러한 로컬 관리자 계정 암호를 읽거나 재설정을 요청할 수 있습니다. 워크스테이션 및 서버에 사용할 LAPS는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=46899)에서 받을 수 있습니다. LAPS 및 PAW(권한 있는 액세스 워크스테이션)를 사용하여 환경을 운영하는 방법에 대한 추가 지침은 [클린 소스 원칙을 기반으로 하는 운영 표준](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle)에서 찾을 수 있습니다. 
 - 조직의 정보 시스템에 대해 권한 있는 액세스가 있는 모든 직원에 대해 전용 [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)을 구현합니다. 
 - 이러한 [추가 지침](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)에 따라 Active Directory 환경의 공격 표면을 줄입니다.
+- [페더레이션 구성에 대한 변경 내용 모니터링](how-to-connect-monitor-federation-changes.md)에 따라 경고를 설정하여 Idp와 Azure AD 간에 설정된 트러스트의 변경 내용을 모니터링합니다. 
 
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect에서 사용하는 SQL Server
-* Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 합니다. SQL Server 설치 유형은 [Azure AD Connect 성능](./plan-connect-performance-factors.md#sql-database-factors)에 영향을 줄 수 있습니다.
+* Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2019 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 합니다. SQL Server 설치 유형은 [Azure AD Connect 성능](./plan-connect-performance-factors.md#sql-database-factors)에 영향을 줄 수 있습니다.
 * 다른 SQL Server 설치를 사용하는 경우 다음 요구 사항이 적용됩니다.
   * Azure AD Connect는 SQL Server 2012(최신 서비스 팩)에서 SQL Server 2019까지 모든 SQL Server 버전을 지원합니다. Azure SQL Database는 데이터베이스로 지원되지 않습니다.
   * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 \_CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은 *지원되지 않습니다*.
@@ -106,7 +107,7 @@ IT 환경의 이 중요한 구성 요소에 대한 보안 공격 노출 영역�
 * 인트라넷에 방화벽이 있고 Azure AD Connect 서버와 도메인 컨트롤러 사이에서 포트를 열어야 하는 경우 자세한 내용은 [Azure AD Connect 포트](reference-connect-ports.md)를 참조하세요.
 * 프록시 또는 방화벽에 액세스할 수 있는 URL을 제한하는 경우 [Office 365 URL 및 IP 주소 범위 ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에서 설명한 URL이 열려야 합니다. [방화벽 또는 프록시 서버에서 Azure Portal URL 수신 허용 목록](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud)도 참조하세요.
   * 독일의 Microsoft Cloud 또는 Microsoft Azure Government 클라우드를 사용하는 경우 URL은 [Azure AD Connect 동기화 서비스 인스턴스가 고려 사항](reference-connect-instances.md)을 참조하세요.
-* Azure AD Connect(1.1.614.0 버전 이상)는 기본적으로 TLS 1.2를 사용하여 동기화 엔진과 Azure AD 간의 통신을 암호화합니다. 기본 운영 체제에서 TLS 1.2를 사용할 수 없는 경우 Azure AD Connect에 이전 프로토콜(TLS 1.1 및 TLS 1.0)이 점차적으로 다시 적용됩니다.
+* Azure AD Connect(1.1.614.0 버전 이상)는 기본적으로 TLS 1.2를 사용하여 동기화 엔진과 Azure AD 간의 통신을 암호화합니다. 기본 운영 체제에서 TLS 1.2를 사용할 수 없는 경우 Azure AD Connect에 이전 프로토콜(TLS 1.1 및 TLS 1.0)이 점차적으로 다시 적용됩니다. Azure AD Connect 버전 2.0 이상부터 TLS 1.0 및 1.1은 더 이상 지원되지 않으며 TLS 1.2를 사용할 수 없으면 설치가 실패합니다.
 * 1.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진과 Azure AD 간의 통신을 암호화합니다. TLS 1.2로 변경하려면 [Azure AD Connect에 TLS 1.2 사용](#enable-tls-12-for-azure-ad-connect)의 단계를 수행합니다.
 * 인터넷에 연결하는 데 아웃바운드 프록시를 사용하는 경우 설치 마법사 및 Azure AD Connect 동기화에서 인터넷 및 Azure AD에 연결하려면 **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** 파일에 다음 설정을 추가해야 합니다. 이 텍스트는 파일의 맨 아래에 입력해야 합니다. 이 코드에서 *&lt;PROXYADDRESS&gt;* 는 실제 프록시 IP 주소 또는 호스트 이름을 나타냅니다.
 
@@ -147,15 +148,7 @@ IT 환경의 이 중요한 구성 요소에 대한 보안 공격 노출 영역�
 
 ## <a name="component-prerequisites"></a>구성 요소 필수 조건
 ### <a name="powershell-and-net-framework"></a>PowerShell 및 .NET Framework
-Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다릅니다. 서버에 이 버전 이상을 설치해야 합니다. Windows Server 버전에 따라 다음 작업을 수행합니다.
-
-* Windows Server 2012 R2
-  * Microsoft PowerShell은 기본적으로 설치되므로 사용자가 조치할 필요는 없습니다.
-  * .NET Framework 4.5.1 이후 릴리스는 Windows 업데이트를 통해 제공됩니다. 제어판에서 Windows Server에 최신 업데이트를 설치했는지 확인합니다.
-* Windows Server 2012
-  * 최신 버전의 Microsoft PowerShell은 Windows Management Framework 4.0에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](https://www.microsoft.com/downloads)에서 찾을 수 있습니다.
-  * .NET Framework 4.5.1과 이후 릴리스는 [Microsoft 다운로드 센터](https://www.microsoft.com/downloads)에서 찾을 수 있습니다.
-
+Azure AD Connect는 Microsoft PowerShell 5.0 및 .NET Framework 4.5.1에 따라 다릅니다. 서버에 이 버전 이상을 설치해야 합니다. 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Azure AD Connect에 TLS 1.2 사용
 1.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진 서버와 Azure AD 간의 통신을 암호화합니다. 서버에서 기본적으로 TLS 1.2를 사용하도록 .NET 애플리케이션을 구성할 수 있습니다. TLS 1.2에 대한 자세한 내용은 [Microsoft 보안 공지 2960358](/security-updates/SecurityAdvisories/2015/2960358)을 참조하세요.
@@ -218,10 +211,10 @@ Azure AD Connect를 사용하여 AD FS 또는 WAP(웹 애플리케이션 프록�
 Azure AD Connect는 Azure AD Connect가 설치된 서버에서 다음 구성 요소를 설치합니다. 이 목록은 기본 Express 설치에 해당합니다. **동기화 서비스 설치** 페이지에서 다른 SQL Server를 사용하도록 선택하는 경우 SQL Express LocalDB는 로컬로 설치되지 않습니다.
 
 * Azure AD Connect Health
-* Microsoft SQL Server 2012 명령줄 유틸리티
-* Microsoft SQL Server 2012 Express LocalDB
-* Microsoft SQL Server 2012 Native Client
-* Microsoft Visual C++ 2013 재배포 패키지
+* Microsoft SQL Server 2019 명령줄 유틸리티
+* Microsoft SQL Server 2019 Express LocalDB
+* Microsoft SQL Server 2019 Native Client
+* Microsoft Visual C++ 14 재배포 패키지
 
 ## <a name="hardware-requirements-for-azure-ad-connect"></a>Azure AD Connect의 하드웨어 요구 사항
 다음 표는 Azure AD Connect 동기화 컴퓨터의 최소 요구 사항을 보여 줍니다.

@@ -4,20 +4,22 @@ description: Azure Data Lake Storage Gen1을 Azure Blob Storage를 기반으로 
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 03/11/2020
+ms.date: 07/13/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 485f0a19c5cb87b358f1723664425619b5d2c6aa
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: d6d173188c147e04a688ff7c373a1a253393ee87
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903314"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204519"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
 
 데이터, 워크로드 및 애플리케이션을 Data Lake Storage Gen1에서 Data Lake Storage Gen2로 마이그레이션할 수 있습니다.
+
+**2024년 2월 29일** Azure Data Lake Storage Gen1은 사용 중지됩니다. 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/)를 참조하세요. Azure Data Lake Storage Gen1을 사용하는 경우 해당 날짜 이전에 Azure Data Lake Storage Gen2로 마이그레이션해야 합니다. 이 문서에서 이 작업을 수행하는 방법을 보여 줍니다.
 
 Azure Data Lake Storage Gen2는 [Azure Blob Storage](storage-blobs-introduction.md)를 기반으로 하며, 빅 데이터 분석 전용 기능 집합을 제공합니다. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/)는 파일 시스템 의미 체계, 디렉터리 및 파일 수준 보안 및 크기 조정과 같은 [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml)의 기능을 [Azure Blob Storage](storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 고가용성/재해 복구 기능과 결합합니다.
 
@@ -69,13 +71,22 @@ Gen2로 마이그레이션하려면 다음 방법을 사용하는 것이 좋습�
 
 원하는 패턴을 사용하여 데이터, 워크로드 및 애플리케이션을 마이그레이션합니다. 시나리오를 증분 방식으로 검증하는 것이 좋습니다.
 
-1. [스토리지 계정을 생성](../common/storage-account-create.md)하고 계층 구조 네임스페이스 기능을 사용하도록 설정합니다. 
+1. [스토리지 계정을 생성](create-data-lake-storage-account.md)하고 계층 구조 네임스페이스 기능을 사용하도록 설정합니다. 
 
 2. 데이터를 마이그레이션합니다. 
 
 3. Gen2 엔드포인트를 가리키도록 [워크로드의 서비스](./data-lake-storage-supported-azure-services.md)를 구성합니다. 
    
-4. Gen2 API를 사용하도록 애플리케이션을 업데이트합니다. [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), [JavaScript](data-lake-storage-directory-file-acl-javascript.md) 및 [REST](/rest/api/storageservices/data-lake-storage-gen2)에 대한 가이드를 참조하세요. 
+4. Gen2 API를 사용하도록 애플리케이션을 업데이트합니다. 다음 가이드를 참조하세요.
+
+| 환경 | 아티클 |
+|--------|-----------|
+|Azure Storage Explorer |[Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2에서 디렉터리 및 파일 관리](data-lake-storage-explorer.md)|
+|.NET |[Azure Data Lake Storage Gen2에서 .NET을 사용하여 디렉터리 및 파일 관리](data-lake-storage-directory-file-acl-dotnet.md)|
+|Java|[Azure Data Lake Storage Gen2에서 Java를 사용하여 디렉터리 및 파일 관리](data-lake-storage-directory-file-acl-java.md)|
+|Python|[Python을 사용하여 Azure Data Lake Storage Gen2에서 디렉터리 및 파일 관리](data-lake-storage-directory-file-acl-python.md)|
+|JavaScript(Node.js)|[Node.js에서 JavaScript SDK를 사용하여 Azure Data Lake Storage Gen2의 디렉터리 및 파일 관리](data-lake-storage-directory-file-acl-javascript.md)|
+|REST API |[Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)|
    
 5. Data Lake Storage Gen2 [PowerShell cmdlet](data-lake-storage-directory-file-acl-powershell.md) 및 [Azure CLI 명령](data-lake-storage-directory-file-acl-cli.md)을 사용하도록 스크립트를 업데이트합니다.
    
@@ -126,7 +137,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용하는 것이 좋습�
 
 1. Gen1에 대한 모든 쓰기를 중지합니다.
 
-2. Gen1에서 Gen2로 데이터를 이동합니다. [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md)를 권장합니다. ACL이 데이터와 함께 복사됩니다.
+2. Gen1에서 Gen2로 데이터를 이동합니다. [Azure Data Factory](../../data-factory/connector-azure-data-lake-storage.md) 또는 [Azure Portal](data-lake-storage-migrate-gen1-to-gen2-azure-portal.md)을 사용하는 것이 좋습니다. ACL이 데이터와 함께 복사됩니다.
 
 3. 수집 작업 및 워크로드를 Gen2로 전환합니다.
 
@@ -144,6 +155,9 @@ Gen2로 마이그레이션하려면 다음 방법을 사용하는 것이 좋습�
 :heavy_check_mark: 마이그레이션 및 전환 기간 동안 가동 중지 시간이 발생합니다.
 
 :heavy_check_mark: 가동 중지 시간을 감당할 수 있는 파이프라인에 이상적이며 모든 앱을 한 번에 업그레이드할 수 있습니다.
+
+> [!TIP]
+> [Azure Portal](data-lake-storage-migrate-gen1-to-gen2-azure-portal.md)을 사용하여 가동 중지 시간을 줄이고 마이그레이션을 완료하는 데 필요한 단계 수를 줄이는 것이 좋습니다.
 
 ### <a name="incremental-copy-pattern"></a>증분 복사 패턴
 

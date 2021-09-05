@@ -4,7 +4,7 @@ description: Azure Active Directory Connect 동기화를 사용하여 Microsoft 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 06/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5c528b61f4d590c0402ac7c89d97f545911d883
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: edbc8c0151be2bc65dd653e996413d4c7877b1ef
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627945"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114229763"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect 동기화: Microsoft 365 리소스에 대한 기본 데이터 위치 구성
 이 토픽의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. 누군가 Microsoft 365에서 Multi-Geo 기능을 사용하는 경우 이 특성으로 사용자의 Microsoft 365 데이터의 지리적 위치를 지정합니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
+
+## <a name="supported-multi-geo-locations"></a>지원되는 다중 지역 위치
+Azure AD Connect에서 지원하는 모든 지역 목록은 [Microsoft 365 다중 지역 가용성](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability)을 참조하세요.
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>기본 데이터 위치의 동기화 사용
 기본적으로 사용자를 위한 Microsoft 365 리소스는 Azure AD 테넌트와 같은 지역에 있습니다. 예를 들어 테넌트가 북아메리카에 있는 경우 사용자의 Exchange 사서함도 북아메리카에 있습니다. 다국적 조직의 경우 이 상황은 최적이 아닐 수 있습니다.
@@ -34,31 +37,10 @@ ms.locfileid: "109627945"
 > [!IMPORTANT]
 > 다중 지역은 현재 활성 기업 계약이 있고 최소 250개의 Microsoft 365 Services 구독이 있는 고객이 사용할 수 있습니다. 자세한 내용은 Microsoft 담당자에게 문의하세요.
 >
->
+> Azure AD Connect에서 지원하는 모든 지역 목록은 [Microsoft 365 다중 지역 가용성](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability)을 참조하세요.
 
-Microsoft 365의 모든 지역 목록은 [데이터 위치](/microsoft-365/enterprise/o365-data-locations)에서 찾을 수 있습니다.
 
-다중 지역에 사용할 수 있는 Microsoft 365의 지역은 다음과 같습니다.
 
-| 지역 | preferredDataLocation value |
-| --- | --- |
-| 아시아 태평양 | APC |
-| 오스트레일리아 | AUS |
-| 캐나다 | CAN |
-| 유럽 연합 | EUR |
-| 프랑스 | FRA |
-| 인도 | IND |
-| 일본 | JPN |
-| 한국 | KOR |
-| 남아프리카 공화국 | ZAF |
-| 스위스 | CHE |
-| 아랍에미리트연합국 | ARE |
-| 영국 | GBR |
-| 미국 | NAM |
-
-* 지역이 이 표에 없는 경우(예: 남아메리카) 다중 지역에 사용할 수 없습니다.
-
-* 일부 Microsoft 365 워크로드는 사용자의 지역 설정 사용을 지원하지 않습니다.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect 동기화 지원
 

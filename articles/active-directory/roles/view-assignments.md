@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8fe57b5b6df03e135bf77e9064e14f376c57ac9
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 947e2b83c409f7e592fd112e20f64b70cc7db070
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796361"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529061"
 ---
 # <a name="list-azure-ad-role-assignments"></a>Azure AD 역할 할당 나열
 
@@ -34,27 +34,48 @@ ms.locfileid: "110796361"
 
 자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
 
-## <a name="list-role-assignments-in-the-azure-portal"></a>Azure Portal에 역할 할당 나열
+## <a name="azure-portal"></a>Azure portal
 
 이 절차에서는 조직 차원의 범위에서 이루어진 역할 할당을 나열하는 방법을 설명합니다.
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** 를 선택하고 **역할 및 관리자** 를 선택한 다음 역할을 선택해 열고 해당 속성을 확인합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **역할 및 관리자** 를 선택한 다음, 역할을 선택해 열고 해당 속성을 확인합니다.
+
 1. **할당** 을 선택하여 역할 할당을 나열합니다.
 
     ![목록에서 역할을 열 때 역할 할당 및 권한 나열](./media/view-assignments/role-assignments.png)
 
-## <a name="list-my-role-assignments"></a>내 역할 할당 나열
+### <a name="list-my-role-assignments"></a>내 역할 할당 나열
 
 자신의 권한도 쉽게 나열할 수 있습니다. **역할 및 관리자** 페이지에서 **내 역할** 을 선택하면 현재 나에게 할당된 역할을 볼 수 있습니다.
 
-## <a name="download-role-assignments"></a>역할 할당 다운로드
+### <a name="download-role-assignments"></a>역할 할당 다운로드
 
 특정 역할에 대한 모든 할당을 다운로드하려면 **역할 및 관리자** 페이지에서 역할을 선택한 다음 **역할 할당 다운로드** 를 선택합니다. 해당 역할의 모든 범위에서 이루어진 할당을 나열하는 CSV 파일이 다운로드됩니다.
 
 ![역할에 대한 모든 할당 다운로드](./media/view-assignments/download-role-assignments.png)
 
-## <a name="list-role-assignments-using-powershell"></a>Azure AD PowerShell을 사용하여 역할 할당 나열
+### <a name="list-role-assignments-with-single-application-scope"></a>단일 애플리케이션 범위에서 이루어진 역할 할당 나열
+
+이 섹션에서는 단일 애플리케이션 범위에서 이루어진 역할 할당을 나열하는 방법을 설명합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
+
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **앱 등록** 을 선택한 다음, 해당 앱 등록을 선택하여 관련 속성을 확인합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 애플리케이션** 을 선택해야 할 수도 있습니다.
+
+    ![앱 등록 페이지에서 앱 등록 만들기 또는 편집](./media/view-assignments/app-reg-all-apps.png)
+
+1. 앱 등록에서 **역할 및 관리자** 를 선택한 다음 해당 속성을 볼 수 있는 역할을 선택합니다.
+
+    ![앱 등록 페이지에서 앱 등록 역할 할당 나열](./media/view-assignments/app-reg-assignments.png)
+
+1. **할당** 을 선택하여 역할 할당을 나열합니다. 앱 등록 내에서 할당 페이지를 열면 이 Azure AD 리소스로 범위가 지정된 역할 할당이 표시됩니다.
+
+    ![앱 등록 속성에서 앱 등록 역할 할당 나열](./media/view-assignments/app-reg-assignments-2.png)
+
+
+## <a name="powershell"></a>PowerShell
 
 이 섹션에서는 조직 차원의 범위에서 이루어진 역할 할당을 보는 방법을 설명합니다. 이 문서에서는 [Azure Active Directory PowerShell 버전 2](/powershell/module/azuread/#directory_roles) 모듈을 사용합니다. PowerShell을 사용하여 단일 애플리케이션 범위에서 이루어진 할당을 보기 위해 [PowerShell을 사용하여 사용자 지정 역할 할당](custom-assign-powershell.md)에 나오는 cmdlet을 사용할 수 있습니다.
 
@@ -71,7 +92,7 @@ $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## <a name="list-role-assignments-using-the-microsoft-graph-api"></a>Microsoft Graph API를 사용하여 역할 할당 나열
+## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 이 섹션에서는 조직 차원의 범위에서 이루어진 역할 할당을 나열하는 방법을 설명합니다.  Graph API를 사용하여 단일 애플리케이션 범위에서 이루어진 역할 할당을 나열하기 위해 [Graph API를 사용하여 사용자 지정 역할 할당](custom-assign-graph.md)에 나오는 작업을 사용할 수 있습니다.
 
@@ -88,29 +109,12 @@ https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filte
 ``` HTTP
 HTTP/1.1 200 OK
 {
-    "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
+    "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
     "resourceScopes":["/"]
 }
 ```
-
-## <a name="list-role-assignments-with-single-application-scope"></a>단일 애플리케이션 범위에서 이루어진 역할 할당 나열
-
-이 섹션에서는 단일 애플리케이션 범위에서 이루어진 역할 할당을 나열하는 방법을 설명합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
-
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
-1. **앱 등록** 을 선택한 다음 해당 앱 등록을 선택하여 관련 속성을 확인합니다. Azure AD 조직에서 앱 등록의 전체 목록을 보려면 **모든 애플리케이션** 을 선택해야 할 수도 있습니다.
-
-    ![앱 등록 페이지에서 앱 등록 만들기 또는 편집](./media/view-assignments/app-reg-all-apps.png)
-
-1. 앱 등록에서 **역할 및 관리자** 를 선택한 다음 해당 속성을 볼 수 있는 역할을 선택합니다.
-
-    ![앱 등록 페이지에서 앱 등록 역할 할당 나열](./media/view-assignments/app-reg-assignments.png)
-
-1. **할당** 을 선택하여 역할 할당을 나열합니다. 앱 등록 내에서 할당 페이지를 열면 이 Azure AD 리소스로 범위가 지정된 역할 할당이 표시됩니다.
-
-    ![앱 등록 속성에서 앱 등록 역할 할당 나열](./media/view-assignments/app-reg-assignments-2.png)
 
 ## <a name="next-steps"></a>다음 단계
 

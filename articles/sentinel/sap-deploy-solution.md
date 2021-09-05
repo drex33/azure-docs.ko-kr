@@ -4,16 +4,16 @@ description: SAP 환경에 대한 Azure Sentinel 솔루션을 배포하는 방�
 author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: a77fc691692d3eb6672e2cd80e52a90c117bc9ab
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7bddb61bbbab008fad4e538400bbe4396ac744b4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114439919"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121723459"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>SAP 지속적인 위협 모니터링 배포(퍼블릭 미리 보기)
 
@@ -87,8 +87,8 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
 
 1. Azure Sentinel GitHub 리포지토리(https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR: )에서 다음 SAP 변경 요청 중 하나를 다운로드하여 설치합니다.
 
-    - **SAP 버전 750 이상**: SAP 변경 요청 *141(NPLK900141)* 설치
-    - **SAP 버전 740**: SAP 변경 요청 *142(NPLK900142)* 설치
+    - **SAP 버전 750 이상**: SAP 변경 요청 *144(NPLK900144)* 설치
+    - **SAP 버전 740**: SAP 변경 요청 *146(NPLK900146)* 설치
 
     이 단계를 수행하는 경우 이진 모드를 사용하여 파일을 SAP 시스템으로 전송하고 **STMS_IMPORT** SAP 트랜잭션 코드를 사용해야 합니다.
 
@@ -96,7 +96,7 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
     > SAP **가져오기 옵션** 영역에 **Ignore Invalid Component Version**(잘못된 구성 요소 버전 무시) 옵션이 표시될 수 있습니다. 표시되면 이 옵션을 선택한 후 계속합니다.
     >
 
-1. SAP 변경 요청 *14(NPLK900114)* 를 가져와 **/MSFTSEN/SENTINEL_CONNECTOR** 라는 새 SAP 역할을 만듭니다. **STMS_IMPORT** SAP 트랜잭션 코드를 사용합니다.
+1. SAP 변경 요청 *14(NPLK900140)* 를 가져와 **/MSFTSEN/SENTINEL_CONNECTOR** 라는 새 SAP 역할을 만듭니다. **STMS_IMPORT** SAP 트랜잭션 코드를 사용합니다.
 
     다음과 같이 필요한 권한으로 역할이 만들어졌는지 확인합니다.
 
@@ -259,7 +259,7 @@ Azure Sentinel 작업 영역에 SAP 관련 관심 목록을 수동으로 추가�
 
     새로 배포된 콘텐츠를 표시하려면 다음으로 이동합니다.
 
-    - **위협 관리** > **통합 문서** 로 이동하여 [SAP - 시스템 애플리케이션 및 제품 - 미리 보기](sap-solution-security-content.md#sap---system-applications-and-products-workbook) 통합 문서를 찾습니다.
+    - **위협 관리** > **통합 문서** > **내 통합 문서** 에서 [기본 제공 SAP 통합 문서](sap-solution-security-content.md#built-in-workbooks)를 찾습니다.
     - **구성** > **분석** 으로 이동하여 일련의 [SAP 관련 분석 규칙](sap-solution-security-content.md#built-in-analytics-rules)을 찾습니다.
 
 1. 검색, 검색 규칙, 위협 헌팅 및 응답 플레이북에서 사용할 SAP 관련 관심 목록을 추가합니다. 이러한 관심 목록은 Azure Sentinel SAP 지속적인 위협 모니터링 솔루션에 대한 구성을 제공합니다.
@@ -282,95 +282,6 @@ Azure Sentinel 작업 영역에 SAP 관련 관심 목록을 수동으로 추가�
 
     자세한 내용은 [Azure Sentinel SAP 솔루션 로그 참조(퍼블릭 미리 보기)](sap-solution-log-reference.md)를 참조하세요.
 
-## <a name="sap-solution-deployment-troubleshooting"></a>SAP 솔루션 배포 문제 해결
-
-SAP 데이터 커넥터와 보안 콘텐츠를 모두 배포하면 다음과 같은 오류나 문제가 발생할 수 있습니다.
-
-|문제  |해결 방법  |
-|---------|---------|
-|SAP 환경 또는 Azure Sentinel에 대한 네트워크 연결 문제     |  필요에 따라 네트워크 연결을 확인하세요.       |
-|잘못된 SAP ABAP 사용자 자격 증명     |자격 증명을 확인하고 Azure Key Vault에서 **ABAPUSER** 및 **ABAPPASS** 값에 올바른 값을 적용하여 수정하세요.         |
-|권한 없음(예: 필요에 따라 SAP 사용자에게 **/MSFTSEN/SENTINEL_CONNECTOR** 역할이 할당되지 않았거나 비활성 상태임)     |역할을 할당하고 SAP 시스템에서 활성화되어 있는지 확인하여 오류를 해결하세요.         |
-|SAP 변경 요청 누락     | [SAP 시스템 구성](#configure-your-sap-system)에 설명된 대로 올바른 SAP 변경 요청을 가져왔는지 확인하세요.        |
-|배포 스크립트에 입력한 Azure Sentinel 작업 영역 ID 또는 키가 잘못됨     |  이 오류를 해결하려면 Azure KeyVault에 올바른 자격 증명을 입력하세요.       |
-|SAP SDK 파일이 손상되거나 누락됨     | SAP SDK를 다시 설치하고 올바른 Linux 64비트 버전을 사용하고 있는지 확인하여 오류를 해결하세요.        |
-|통합 문서 또는 경고에서 데이터 누락     |    **Auditlog** 정책이 SAP 쪽에서 올바르게 사용하도록 설정되고 로그 파일에 오류가 없는지 확인하세요. 이 단계에는 **RSAU_CONFIG_LOG** 트랜잭션을 사용합니다.     |
-|     |         |
-
-> [!TIP]
-> 데이터 커넥터를 설치한 후에는 시스템 로그를 검토하는 것이 좋습니다. 다음을 실행합니다.
->
-> ```bash
-> docker logs -f sapcon-[SID]
-> ```
->
-자세한 내용은 다음을 참조하세요.
-
-- [모든 Docker 실행 로그 보기](#view-all-docker-execution-logs)
-- [SAP 데이터 커넥터 구성 검토 및 업데이트](#review-and-update-the-sap-data-connector-configuration)
-- [유용한 Docker 명령](#useful-docker-commands)
-
-### <a name="view-all-docker-execution-logs"></a>모든 Docker 실행 로그 보기
-
-Azure Sentinel SAP 데이터 커넥터 배포에 대한 모든 Docker 실행 로그를 보려면 다음 명령 중 하나를 실행합니다.
-
-```bash
-docker exec -it sapcon-[SID] bash && cd /sapcon-app/sapcon/logs
-```
-
-또는
-
-```bash
-docker exec –it sapcon-[SID] cat /sapcon-app/sapcon/logs/[FILE_LOGNAME]
-```
-
-다음과 유사한 출력이 표시 됩니다.
-
-```bash
-Logs directory:
-root@644c46cd82a9:/sapcon-app# ls sapcon/logs/ -l
-total 508
--rwxr-xr-x 1 root root      0 Mar 12 09:22 ' __init__.py'
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPAppLog.log
--rw-r--r-- 1 root root   1056 Mar 12 16:01  ABAPAuditLog.log
--rw-r--r-- 1 root root    465 Mar 12 16:01  ABAPCRLog.log
--rw-r--r-- 1 root root    515 Mar 12 16:01  ABAPChangeDocsLog.log
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPJobLog.log
--rw-r--r-- 1 root root    480 Mar 12 16:01  ABAPSpoolLog.log
--rw-r--r-- 1 root root    525 Mar 12 16:01  ABAPSpoolOutputLog.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  ABAPTableDataLog.log
--rw-r--r-- 1 root root    495 Mar 12 16:01  ABAPWorkflowLog.log
--rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Azure Sentinel
--rw-r--r-- 1 root root      0 Mar 12 15:51  LogsDeltaManager.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  PersistenceManager.log
--rw-r--r-- 1 root root   4830 Mar 12 16:01  RFC.log
--rw-r--r-- 1 root root   5595 Mar 12 16:03  SystemAdmin.log
-```
-
-### <a name="review-and-update-the-sap-data-connector-configuration"></a>SAP 데이터 커넥터 구성 검토 및 업데이트
-
-SAP 데이터 커넥터 구성 파일을 확인하고 수동으로 업데이트하려면 다음 단계를 수행합니다.
-
-1. VM의 사용자 홈 디렉터리에서 **~/sapcon/[SID]/systemconfig.ini** 파일을 엽니다.
-1. 필요한 경우 구성을 업데이트한 다음, 컨테이너를 다시 시작합니다.
-
-    ```bash
-    docker restart sapcon-[SID]
-    ```
-
-### <a name="useful-docker-commands"></a>유용한 Docker 명령
-
-SAP 데이터 커넥터 문제를 해결할 때 다음 명령이 유용할 수 있습니다.
-
-|함수  |명령  |
-|---------|---------|
-|**Docker 컨테이너 중지**     |  `docker stop sapcon-[SID]`       |
-|**Docker 컨테이너 시작**     |`docker start sapcon-[SID]`         |
-|**Docker 시스템 로그 보기**     |  `docker logs -f sapcon-[SID]`       |
-|**Docker 컨테이너 실행**     |   `docker exec -it sapcon-[SID] bash`      |
-|     |         |
-
-자세한 내용은 [Docker CLI 설명서](https://docs.docker.com/engine/reference/commandline/docker/)를 참조하세요.
 
 ## <a name="update-your-sap-data-connector"></a>SAP 데이터 커넥터 업데이트
 
@@ -379,7 +290,7 @@ Docker 컨테이너가 이전 버전의 SAP 데이터 커넥터에서 이미 실
 1. Azure Sentinel github 리포지토리에서 최신 버전의 관련 배포 스크립트를 사용해야 합니다. 다음을 실행합니다.
 
     ```azurecli
-    - wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
+    wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
     ```
 
 1. SAP 데이터 커넥터 머신에서 다음 명령을 실행합니다.
@@ -425,9 +336,10 @@ Syslog를 사용하여 SAP HANA 데이터베이스 감사 로그를 구성한 �
 
 Azure Sentinel SAP 솔루션에 대해 자세히 알아보세요.
 
-- [대체 배포를 사용하여 Azure Sentinel SAP 솔루션 배포](sap-solution-deploy-alternate.md)
+- [전문가 구성 옵션, 온-프레미스 배포 및 SAPControl 로그 원본](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
 - [Azure Sentinel SAP 솔루션: 기본 제공 보안 콘텐츠](sap-solution-security-content.md)
+- [Azure Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)
 
 자세한 내용은 [Azure Sentinel 솔루션](sentinel-solutions.md)을 참조하세요.

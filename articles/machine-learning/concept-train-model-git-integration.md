@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 04/08/2021
-ms.openlocfilehash: 60dca43f95b190791c8fb593042ed612340a3af5
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 37c7d94bfb645e444b4fb937823dcb8d56bcb9c7
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874552"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112457736"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대한 Git 통합
 
@@ -153,7 +153,7 @@ Python SDK 또는 Machine Learning CLI에서 학습 실행을 제출하면 모�
 
 ## <a name="view-the-logged-information"></a>로깅된 정보 보기
 
-git 정보는 학습 실행을 위한 속성에 저장됩니다. Azure Portal, Python SDK 및 CLI를 사용하여 이 정보를 볼 수 있습니다. 
+git 정보는 학습 실행을 위한 속성에 저장됩니다. Azure Portal, Python SDK 및 Azure CLI를 사용하여 이 정보를 볼 수 있습니다. 
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -189,7 +189,7 @@ git 정보는 학습 실행을 위한 속성에 저장됩니다. Azure Portal, P
 run.properties['azureml.git.commit']
 ```
 
-### <a name="cli"></a>CLI
+### <a name="azure-cli"></a>Azure CLI
 
 `az ml run` CLI 명령은 실행에서 속성을 검색하는 데 사용할 수 있습니다. 예를 들어 다음 명령은 `train-on-amlcompute`라는 실험에서 마지막으로 실행된 속성을 반환합니다.
 
@@ -197,7 +197,7 @@ run.properties['azureml.git.commit']
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-자세한 내용은 [az ml run](/cli/azure/ml/run) 참조 설명서를 참조하세요.
+자세한 내용은 [az ml run](/cli/azure/ml(v1)/run) 참조 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0f45a1481661aa350815560d795ab7411f99545
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1b944480ce7c09676b65216da4c74f4ffdacdcf
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92317839"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292342"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리의 일반적인 시나리오
 
@@ -154,7 +154,7 @@ ms.locfileid: "92317839"
 
 ## <a name="programmatic-administration"></a>프로그래매틱 관리
 
-Microsoft Graph를 사용하여 액세스 패키지, 카탈로그, 정책, 요청, 할당을 관리할 수 있습니다.  위임된 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션을 사용하는 적절한 역할의 사용자는 [권한 관리 API](/graph/tutorial-access-package-api?view=graph-rest-beta)를 호출할 수 있습니다.
+Microsoft Graph를 사용하여 액세스 패키지, 카탈로그, 정책, 요청, 할당을 관리할 수 있습니다.  위임된 `EntitlementManagement.Read.All` 또는 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션을 사용하는 적절한 역할의 사용자는 [권한 관리 API](/graph/tutorial-access-package-api)를 호출할 수 있습니다.  이러한 애플리케이션 권한이 있는 애플리케이션은 카탈로그 및 액세스 패키지의 리소스 관리를 제외하고 이러한 API 함수를 많이 사용할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

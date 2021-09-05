@@ -6,16 +6,18 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 48aef337326d58b2a503dc48862571efde0d37ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 659f62cb8e42a4e2aba2e51dfcfee9826a614923
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034523"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588331"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버의 제한 사항(미리 보기)
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 이 문서에서는 Azure Database for MySQL 유연한 서버 서비스의 제한 사항을 설명합니다. MySQL 데이터베이스 엔진의 [일반 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html)도 적용됩니다. 리소스(컴퓨팅, 메모리, 스토리지) 계층에 대해 알아보려면 [컴퓨팅 및 스토리지](concepts-compute-storage.md) 문서를 참조하세요.
@@ -45,21 +47,21 @@ MySQL은 많은 스토리지 엔진을 지원합니다. Azure Database for MySQL
 
 ## <a name="privileges--data-manipulation-support"></a>권한 및 데이터 조작 지원
 
-서버 매개 변수 및 설정이 많으면 실수로 서버 성능이 저하되거나 MySQL 서버의 ACID 속성이 무효화될 수 있습니다. 제품 수준에서 서비스 무결성 및 SLA를 유지하기 위해 이 서비스는 여러 역할을 노출하지 않습니다. 
+서버 매개 변수 및 설정이 많으면 실수로 서버 성능이 저하되거나 MySQL 서버의 ACID 속성이 무효화될 수 있습니다. 제품 수준에서 서비스 무결성 및 SLA를 유지하기 위해 이 서비스에서는 여러 역할이 노출되지 않습니다. 
 
 MySQL 서비스는 기본 파일 시스템에 대한 직접 액세스를 허용하지 않습니다. 일부 데이터 조작 명령은 지원되지 않습니다. 
 
 ### <a name="unsupported"></a>지원되지 않음
 
-다음은 지원되지 않습니다.
-- DBA 역할: 제한됨. 또는 관리자 사용자(새 서버를 만드는 동안 만들어짐)를 사용하면 대부분의 DDL 및 DML 문을 수행할 수 있습니다. 
+다음 항목은 지원되지 않습니다.
+- DBA 역할: 제한됨 또는 관리자 사용자(새 서버를 만드는 동안 만들어짐)를 사용하면 대부분의 DDL 및 DML 문을 수행할 수 있습니다. 
 - SUPER 권한: 마찬가지로 [SUPER 권한](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)도 제한됩니다.
 - DEFINER: 생성하려면 SUPER 권한이 필요하며, 제한됩니다. 백업을 사용하여 데이터를 가져올 경우 mysqldump를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
-- 시스템 데이터베이스: [mysql 시스템 데이터베이스](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)는 읽기 전용이며 다양한 PaaS 기능을 지원하는 데 사용됩니다. `mysql` 시스템 데이터베이스로 변경할 수 없습니다.
+- 시스템 데이터베이스: [mysql 시스템 데이터베이스](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)는 읽기 전용이며 다양한 PaaS 기능을 지원하는 데 사용됩니다. `mysql` 시스템 데이터베이스를 변경할 수 없습니다.
 - `SELECT ... INTO OUTFILE`: 서비스에서 지원되지 않습니다.
 
 ### <a name="supported"></a>지원됨
-- `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure Storage)로 전달해야 합니다.
+- `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure Storage)로 전달해야 합니다. 또한 MySQL 클라이언트 버전 >= 8.0을 사용하는 경우 연결 문자열에 `-–local-infile=1` 매개 변수를 포함해야 합니다.
 
 ## <a name="functional-limitations"></a>기능 제한 사항
 

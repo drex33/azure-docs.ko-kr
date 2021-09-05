@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f7e7e9261eb0ea2969dbfb752426ca16dd3b33c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95999451"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528359"
 ---
 이 기능은 쉽게 설정할 수 있지만 그렇다고 해서 환경에 문제가 발생하지 않는 것은 아닙니다. 원하는 엔드포인트에 액세스하다가 문제가 발생하는 경우, 앱 콘솔에서 연결을 테스트하는 데 사용할 수 있는 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이고, 다른 하나는 Azure Portal의 콘솔입니다. 앱에서 Kudu 콘솔에 연결하려면 **도구** > **Kudu** 로 차례로 이동합니다. [sitename].scm.azurewebsites.net에서 Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드된 후 **디버그 콘솔** 탭으로 이동합니다. Azure Portal에서 호스트되는 콘솔에 연결하려면 앱에서 **도구** > **콘솔** 로 이동합니다.
 
@@ -43,7 +43,7 @@ tcpping.exe hostname [optional: port]
 해당 항목이 문제에 응답하지 않는 경우 먼저 다음과 같은 사항을 확인합니다.
 
 **지역 VNet 통합**
-* 대상이 RFC1918 주소가 아니고 WEBSITE_VNET_ROUTE_ALL이 1로 설정되어 있지 않나요?
+* 대상이 RFC1918 주소가 아니고 Route All이 활성화되어 있지 않나요?
 * 통합 서브넷에서 송신을 차단하는 NSG가 있나요?
 * Azure ExpressRoute 또는 VPN을 통하는 경우 온-프레미스 게이트웨이가 Azure로 트래픽을 다시 라우팅하도록 구성되어 있나요? 가상 네트워크의 엔드포인트에 연결할 수 있지만 온-프레미스에는 연결할 수 없는 경우 경로를 확인하세요.
 * 통합 서브넷에 대한 위임을 설정할 충분한 권한이 있나요? 지역 VNet 통합 구성 중에 통합 서브넷이 Microsoft.Web/serverFarms에 위임됩니다. VNet 통합 UI는 서브넷을 Microsoft.Web/serverFarms에 자동으로 위임합니다. 계정에 위임 설정을 위한 충분한 네트워킹 권한이 없는 경우 통합 서브넷에 특성을 설정하여 서브넷을 위임할 수 있는 사용자가 필요합니다. 통합 서브넷을 수동으로 위임하려면 Azure Virtual Network 서브넷 UI로 이동하여 Microsoft.Web/serverFarms에 대한 위임을 설정합니다.

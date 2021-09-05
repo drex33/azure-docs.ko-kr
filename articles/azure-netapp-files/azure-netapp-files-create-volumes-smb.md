@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 08/17/2021
 ms.author: b-juche
-ms.openlocfilehash: dab6415e27239e9140cce7c03bae9a2e3a95ca7d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: bf38602fdbc2c6fb1f7beba5a374c641963651a0
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072130"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539187"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
-Azure NetApp Files에서는 NFS(NFSv3 및 NFSv4.1), SMB3 또는 이중 프로토콜(NFSv3 및 SMB)을 사용하여 볼륨을 만들 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 
+Azure NetApp Files에서는 NFS(NFSv3 또는 NFSv4.1), SMB3 또는 이중 프로토콜(NFSv3 및 SMB 또는 NFSv4.1 및 SMB)을 사용하여 볼륨 만들기를 지원합니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 
 
 이 문서에서는 SMBv3 볼륨을 만드는 방법을 보여줍니다. NFS 볼륨에 대해서는 [NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)를 참조하세요. 이중 프로토콜 볼륨의 경우 [이중 프로토콜 볼륨 만들기](create-volumes-dual-protocol.md)를 참조하세요.
 
@@ -49,7 +49,7 @@ SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다
     * **볼륨 이름**      
         만들고 있는 볼륨의 이름을 지정합니다.   
 
-        볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 영숫자 문자를 사용할 수 있습니다.   
+        볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 이름은 문자로 시작해야 합니다. 문자, 숫자, 밑줄('_') 및 하이픈('-')만 포함할 수 있습니다. 
 
         `default` 또는 `bin`은 볼륨 이름으로 사용할 수 없습니다.
 
@@ -98,7 +98,7 @@ SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다
         - 문자, 숫자 또는 대시(`-`)만 사용할 수 있습니다. 
         - 길이가 80자를 초과해서는 안 됩니다.   
         
-    * SMB3에 대한 암호화를 사용하도록 설정하려면 **SMB3 프로토콜 암호화 사용** 을 선택합니다.   
+    * <a name="smb3-encryption"></a>SMB3에 대한 암호화를 사용하도록 설정하려면 **SMB3 프로토콜 암호화 사용** 을 선택합니다.   
         이 기능을 통해 전송 중인 SMB3 데이터에 대한 암호화를 사용할 수 있습니다. SMB3 암호화를 사용하지 않는 SMB 클라이언트는 이 볼륨에 액세스할 수 없습니다.  미사용 데이터는 이 설정에 관계없이 암호화됩니다.  
         자세한 내용은 [SMB 암호화](azure-netapp-files-smb-performance.md#smb-encryption)를 참조하세요. 
 
@@ -111,14 +111,14 @@ SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다
         기능 등록 상태를 확인합니다. 
 
         > [!NOTE]
-        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`이 될 때까지 기다린 후에 계속하세요.
+        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`가 될 때까지 기다린 후 계속합니다.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
         ```
         
         [Azure CLI 명령](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` 및 `az feature show`를 사용하여 기능을 등록하고 등록 상태를 표시할 수도 있습니다.  
-    * SMB 볼륨에 대한 지속적인 가용성을 사용하도록 설정하려면 **지속적인 가용성 사용** 을 선택합니다.    
+    * <a name="continuous-availability"></a>SMB 볼륨에 대한 지속적인 가용성을 사용하도록 설정하려면 **지속적인 가용성 사용** 을 선택합니다.    
 
         > [!IMPORTANT]   
         > SMB 지속적인 가용성 기능은 현재 공개 미리 보기로 제공됩니다. **[Azure NetApp Files SMB 지속적인 가용성 공유 공개 미리 보기 대기 목록 제출 페이지](https://aka.ms/anfsmbcasharespreviewsignup)** 를 통해 기능에 액세스하기 위한 대기 목록 요청을 제출해야 합니다. 지속적인 가용성 기능을 사용하기 전에 Azure NetApp Files 팀의 공식 확인 메일을 기다리세요.   
@@ -153,16 +153,7 @@ SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다
 
 ## <a name="control-access-to-an-smb-volume"></a>SMB 볼륨에 대한 액세스 제어  
 
-SMB 볼륨에 대한 액세스는 사용 권한을 통해 관리합니다.  
-
-### <a name="share-permissions"></a>공유 사용 권한  
-
-기본적으로 새 볼륨에는 **모든 사람/모든 권한** 공유 권한이 있습니다. Domain Admins 그룹의 구성원은 다음과 같이 공유 권한을 변경할 수 있습니다.  
-
-1. 드라이브에 공유를 매핑합니다.  
-2. 드라이브를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택한 다음, **보안** 탭으로 이동합니다.
-
-[ ![공유 권한 설정](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
+SMB 볼륨에 대한 액세스는 사용 권한을 통해 관리합니다. 
 
 ### <a name="ntfs-file-and-folder-permissions"></a>NTFS 파일 및 폴더 사용 권한  
 
@@ -175,7 +166,7 @@ Windows SMB 클라이언트에서 개체 속성의 **보안** 탭을 사용하�
 * [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files에 대해 TLS를 통한 ADDS LDAP 구성](configure-ldap-over-tls.md) 
-* [지속적인 가용성을 사용하도록 기존 SMB 볼륨 변환](convert-smb-continuous-availability.md)
+* [기존 SMB 볼륨에서 지속적인 가용성 사용](enable-continuous-availability-existing-SMB.md)
 * [SMB 암호화](azure-netapp-files-smb-performance.md#smb-encryption)
 * [SMB 또는 이중 프로토콜 볼륨 문제 해결](troubleshoot-dual-protocol-volumes.md)
 * [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](../virtual-network/virtual-network-for-azure-services.md)

@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 04/19/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 564b193a355ecc7bc11bef874c80ddc881c362cb
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: e51e537beb44271d5a1c63e8bc1952455f9a35d9
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895953"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530682"
 ---
 # <a name="start-monitor-and-track-run-history"></a>실행 기록 시작, 모니터링 및 추적
 
@@ -25,6 +25,7 @@ ms.locfileid: "111895953"
 이 문서에서는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 * 실행 성능 모니터링하기.
+* 실행 표시 이름을 추가합니다. 
 * 사용자 지정 보기 만들기. 
 * 실행 설명을 추가하기. 
 * 태그 및 찾기 실행하기.
@@ -36,13 +37,13 @@ ms.locfileid: "111895953"
 
 > [!TIP]
 > Azure Machine Learning Service 및 연결된 Azure 서비스를 모니터링하는 방법에 대한 정보를 찾는다면 [Azure Machine Learning 모니터링 방법](monitor-azure-machine-learning.md)을 참조하세요.
-> 웹 서비스로 배포된 모델 또는 IoT Edge 모듈을 모니터링하는 방법에 대한 정보를 찾고 있는 경우 [모델 데이터 수집](how-to-enable-data-collection.md) 및 [Application Insights로 모니터링](how-to-enable-app-insights.md)을 참조하세요.
+> 웹 서비스로 배포된 모델을 모니터링하는 방법에 대한 정보를 찾고 있는 경우 [모델 데이터 수집](how-to-enable-data-collection.md) 및 [Application Insights로 모니터링](how-to-enable-app-insights.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 다음 항목이 필요합니다.
 
-* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
@@ -101,7 +102,7 @@ ms.locfileid: "111895953"
     
         이 명령은 예제 runconfig 및 conda 환경 파일을 포함하는 `.azureml` 하위 디렉터리를 만듭니다. 또한 Azure Machine Learning 작업 영역과 통신하는 데 사용되는 `config.json` 파일을 포함합니다.
     
-        자세한 내용은 [az ml folder attach](/cli/azure/ml/folder?preserve-view=true&view=azure-cli-latest#az_ml_folder_attach)를 참조하세요.
+        자세한 내용은 [az ml folder attach](/cli/azure/ml(v1)/folder#az_ml_folder_attach)를 참조하세요.
     
     2. 다음 명령을 사용하여 실행을 시작합니다. 이 명령을 사용하는 경우 -c 매개 변수에 대해 runconfig 파일의 이름(파일 시스템을 보고 있는 경우 \*.runconfig 앞의 텍스트)을 지정합니다.
     
@@ -116,7 +117,7 @@ ms.locfileid: "111895953"
         >
         > runconfig 파일 예제에 대한 자세한 정보는 [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/)을 참조하세요.
     
-        자세한 내용은 [az ml run submit-script](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_submit-script)를 참조하세요.
+        자세한 내용은 [az ml run submit-script](/cli/azure/ml(v1)/run#az_ml_run_submit-script)를 참조하세요.
 
     # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 
@@ -167,7 +168,7 @@ ms.locfileid: "111895953"
     
         이 명령은 이 실험의 실행에 대한 정보를 나열하는 JSON 문서를 반환합니다.
     
-        자세한 내용은 [az ml experiment list](/cli/azure/ml/experiment?preserve-view=true&view=azure-cli-latest#az_ml_experiment_list)를 참조하세요.
+        자세한 내용은 [az ml experiment list](/cli/azure/ml(v1)/experiment#az_ml_experiment_list)를 참조하세요.
     
     * 특정 실행에 대한 정보를 보려면 다음 명령을 사용합니다. `runid`를 실행 ID로 바꾸기:
     
@@ -177,13 +178,24 @@ ms.locfileid: "111895953"
     
         이 명령은 실행 관련 정보를 나열하는 JSON 문서를 반환합니다.
     
-        자세한 정보는 [az ml run show](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_show)를 참조하세요.
+        자세한 정보는 [az ml run show](/cli/azure/ml(v1)/run#az_ml_run_show)를 참조하세요.
     
     
     # <a name="studio"></a>[스튜디오](#tab/azure-studio)
     
     ---    
    
+## <a name="run-display-name"></a>실행 표시 이름 
+실행 표시 이름은 실행을 위해 제공할 수 있는 선택적인 사용자 지정이 가능한 이름입니다. 실행 표시 이름을 편집하려면 다음을 수행합니다.
+
+1. 실행 목록으로 이동합니다. 
+
+2. 실행을 선택하여 실행 세부 정보 페이지에서 표시 이름을 편집합니다.
+
+3. 실행 표시 이름을 **편집** 하려면 편집 단추를 선택합니다. 
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="스크린샷: 표시 이름 편집":::
+
 ## <a name="custom-view"></a>사용자 지정 보기 
     
 스튜디오에서 실행을 보려면 다음을 수행합니다. 
@@ -261,7 +273,7 @@ Azure Machine Learning에서는 속성과 태그를 사용하여 실행을 구�
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    자세한 정보는 [az ml run update](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_update)를 참조하세요.
+    자세한 정보는 [az ml run update](/cli/azure/ml(v1)/run#az_ml_run_update)를 참조하세요.
     
     # <a name="studio"></a>[스튜디오](#tab/azure-studio)
     
@@ -339,7 +351,7 @@ CLI를 사용하여 실행을 취소하려면 다음 명령을 사용합니다. 
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-자세한 정보는 [az ml run cancel](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_cancel)을 참조하세요.
+자세한 정보는 [az ml run cancel](/cli/azure/ml(v1)/run#az_ml_run_cancel)을 참조하세요.
 
 # <a name="studio"></a>[스튜디오](#tab/azure-studio)
 

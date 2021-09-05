@@ -4,12 +4,12 @@ description: Kubernetes의 기본 클러스터 및 워크로드 구성 요소와
 services: container-service
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: b8a342730a6f37a5498e59e883b0f77b8bfabbb2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 4db6ee6d117f7743147dad43dcfff98dd99fd76d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372433"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536001"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -153,7 +153,7 @@ AKS에서 여러 노드 풀을 사용하는 방법에 대한 자세한 내용은
 
 노드 선택기를 사용하면 Pod를 예약해야 하는 위치를 제어하는 노드 OS와 같은 다양한 매개 변수를 정의할 수 있습니다.
 
-다음 기본 예제에서는 *"beta.kubernetes.io/os": linux* 노드 선택기를 사용하여 Linux 노드에서 NGINX 인스턴스를 예약합니다.
+다음 기본 예제에서는 *"kubernetes.io/os": linux* 노드 선택기를 사용하여 Linux 노드에서 NGINX 인스턴스를 예약합니다.
 
 ```yaml
 kind: Pod
@@ -165,7 +165,7 @@ spec:
     - name: myfrontend
       image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
-    "beta.kubernetes.io/os": linux
+    "kubernetes.io/os": linux
 ```
 
 Pod가 예약되는 위치를 제어하는 방법에 대한 자세한 내용은 [AKS의 고급 스케줄러 기능 모범 사례][operator-best-practices-advanced-scheduler]를 참조하세요.
@@ -261,7 +261,7 @@ StatefulSet의 복제본은 AKS 클러스터의 사용 가능한 모든 노드�
 
 ### <a name="daemonsets"></a>DaemonSets
 
-특정 로그 수집 또는 모니터링의 경우 모든 노드 또는 선택한 노드에서 Pod를 실행해야 할 수 있습니다. *DaemonSet* 는 하나 이상의 동일한 Pod를 배포하는 데 사용할 수 있지만, DaemonSet 컨트롤러는 지정된 각 노드에서 Pod의 인스턴스를 실행하도록 합니다.
+특정 로그 수집 또는 모니터링의 경우 모든 노드 또는 선택한 노드에서 Pod를 실행해야 할 수 있습니다. 하나 이상의 동일한 Pod에서 *DaemonSet* 배포를 사용할 수 있지만, DaemonSet 컨트롤러는 지정된 각 노드에서 Pod의 인스턴스를 실행하도록 합니다.
 
 기본 Kubernetes 스케줄러가 시작되기 전에 DaemonSet 컨트롤러에서 클러스터 부팅 프로세스의 초기에 Pod를 노드에 예약할 수 있습니다. 이 기능은 Deployment 또는 StatefulSet의 기존 Pod가 예약되기 전에 DaemonSet의 Pod가 시작되도록 합니다.
 

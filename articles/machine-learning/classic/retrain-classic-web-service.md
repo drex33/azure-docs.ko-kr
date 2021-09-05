@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio(클래식): 클래식 웹 서비스 다시 학습 - Azure'
-description: Azure Machine Learning Studio(클래식)에서 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 클래식 웹 서비스를 업데이트하는 방법을 알아봅니다.
+description: Machine Learning Studio(클래식)에서 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 클래식 웹 서비스를 업데이트하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -9,16 +9,16 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 90c968ee953e80238775639964cb09a25741b33d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9b249dff4bbb6f5c3aa688986bf470e3d449372
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517572"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112579543"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>클래식 Studio(클래식) 웹 서비스 학습 및 배포
 
-**적용 대상:**  ![녹색 확인 표시.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요를 나타내는 X.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:** ![적용 대상.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요를 나타내는 X.](../../../includes/media/aml-applies-to-skus/no.png)[적용되지 않는 대상.](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 클래식 Studio(클래식) 웹 서비스를 다시 학습하는 방법을 보여줍니다. 새로운 Studio(클래식) 웹 서비스를 다시 학습하는 방법에 대한 가이드는 [이 방법 문서를 참조](retrain-machine-learning-model.md)하세요.

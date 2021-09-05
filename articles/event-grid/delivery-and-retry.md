@@ -2,59 +2,21 @@
 title: Azure Event Grid 배달 및 다시 시도
 description: Azure Event Grid에서 이벤트를 배달하는 방법 및 배달되지 않은 메시지를 처리하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: e24b7540ea1ac41774e2c23781265f9a61940cb1
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.date: 07/27/2021
+ms.openlocfilehash: a6055a99e717dd379dc6bd43411c73456bdaede8
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276742"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114730334"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도
-
-이 문서에서는 배달이 승인되지 않는 경우 Azure Event Grid에서 이벤트를 처리하는 방법을 설명합니다.
-
-Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지를 각 구독에 대해 **최소 한 번** 배달합니다. 이벤트는 각 구독에 등록된 엔드포인트로 즉시 전송됩니다. 엔드포인트가 이벤트 수신을 확인하지 않는 경우 Event Grid는 이벤트 전달을 재시도합니다.
+Event Grid는 지속성이 있는 배달을 제공합니다. 일치하는 구독마다 즉각적으로 각 메시지를 **한 번 이상** 전송하려고 시도합니다. 구독자 엔드포인트에서 이벤트 수신을 승인하지 않거나 오류가 있는 경우 Event Grid는 고정된 [다시 시도 일정](#retry-schedule) 및 [재시도 정책](#retry-policy)에 따라 전송을 다시 시도합니다. 기본적으로 Event Grid 모듈은 한 번에 하나의 이벤트를 구독자에게 전송합니다. 하지만 페이로드는 단일 이벤트가 포함된 배열입니다.
 
 > [!NOTE]
 > Event Grid는 이벤트 배달 순서를 보장하지 않으므로 구독자가 잘못된 순서로 메시지를 받을 수 있습니다. 
 
-## <a name="batched-event-delivery"></a>일괄 이벤트 배달
-
-Event Grid는 기본적으로 각 이벤트를 구독자에게 개별적으로 보냅니다. 구독자는 단일 이벤트로 배열을 받습니다. 처리량이 높은 시나리오에서 향상된 HTTP 성능으로 배달하기 위해 이벤트를 일괄 처리하도록 Event Grid를 구성할 수 있습니다.
-
-일괄 배달에는 두 가지 설정이 있습니다.
-
-* **일괄 처리당 최대 이벤트 수** - Event Grid에서 일괄 처리당 배달할 최대 이벤트 수입니다. 이 숫자는 절대로 초과되지 않지만 게시할 때 다른 이벤트를 사용할 수 없는 경우에는 더 적은 이벤트가 배달될 수 있습니다. 사용할 수 있는 이벤트 수가 더 적으면 Event Grid가 이벤트를 지연시켜 일괄 처리를 만들 수 없습니다. 1에서 5,000 사이여야 합니다.
-* **기본 일괄 처리 크기(KB)** - 일괄 처리 크기의 목표 상한(KB)입니다. 최대 이벤트와 마찬가지로, 게시할 때 더 많은 이벤트를 사용할 수 없는 경우 일괄 처리 크기가 더 작아질 수 있습니다. 단일 이벤트가 기본 크기보다 큰 *경우*, 일괄 처리가 기본 일괄 처리 크기보다 클 수 있습니다. 예를 들어 기본 크기가 4KB인데 10KB의 이벤트가 Event Grid로 푸시되더라도 10KB 이벤트는 삭제되지 않고 자체 일괄 처리로 배달됩니다.
-
-포털, CLI, PowerShell 또는 SDK를 통해 이벤트 구독별로 구성된 일괄 배달
-
-### <a name="azure-portal"></a>Azure Portal: 
-![일괄 배달 설정](./media/delivery-and-retry/batch-settings.png)
-
-### <a name="azure-cli"></a>Azure CLI
-이벤트 구독을 만들 때 다음 매개 변수를 사용 합니다. 
-
-- **max-events-per-batch** - 일괄 처리의 최대 이벤트 수입니다. 값은 1에서 5000 사이의 숫자여야 합니다.
-- **preferred-batch-size-in-kilobytes** - 기본 일괄 처리 크기(KB)입니다. 값은 1에서 1024 사이의 숫자여야 합니다.
-
-```azurecli
-storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
-endpoint=https://$sitename.azurewebsites.net/api/updates
-
-az eventgrid event-subscription create \
-  --resource-id $storageid \
-  --name <event_subscription_name> \
-  --endpoint $endpoint \
-  --max-events-per-batch 1000 \
-  --preferred-batch-size-in-kilobytes 512
-```
-
-Event Grid에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 웹 엔드포인트로 스토리지 이벤트 라우팅](../storage/blobs/storage-blob-event-quickstart.md)을 참조하세요.
-
-## <a name="retry-schedule-and-duration"></a>예약 및 기간 재시도
-
+## <a name="retry-schedule"></a>다시 시도 일정
 EventGrid는 이벤트 배달 시도에 대한 오류를 수신하면 해당 오류 유형에 따라 배달을 다시 시도하거나, 이벤트를 배달 못한 편지로 처리하거나, 이벤트를 삭제할지 여부를 결정합니다. 
 
 구독한 엔드포인트에서 반환된 오류가 다시 시도로 해결할 수 없는 구성 관련 오류인 경우(예: 엔드포인트가 삭제된 경우) EventGrid는 이벤트를 배달 못한 편지로 처리하고, 배달 못한 편지가 구성되지 않은 경우에는 이벤트를 삭제합니다.
@@ -89,12 +51,68 @@ Event Grid는 메시지 전달 후 30초 동안 응답을 기다립니다. 30초
 
 Event Grid는 모든 재시도 단계에 작은 임의 설정을 추가하고, 엔드포인트가 일관되게 비정상 상태이거나, 오랜 기간 동안 다운되거나, 과부하가 발생한 것처럼 보이는 경우 특정 재시도를 선택적으로 건너뛸 수 있습니다.
 
-결정적 동작의 경우 [구독 재시도 정책](manage-event-delivery.md)에 이벤트의 TTL(Time to Live) 및 최대 배달 시도 횟수를 설정합니다.
+## <a name="retry-policy"></a>재시도 정책
+다음 두 가지 구성을 사용하여 이벤트 구독을 만들 때 재시도 정책을 사용자 지정할 수 있습니다. 재시도 정책 한도 중 하나에 도달하면 이벤트가 삭제됩니다. 
 
-기본적으로 Event Grid는 24시간 이내에 배달되지 않는 모든 이벤트를 만료합니다. 이벤트 구독을 만들 때 [재시도 정책을 사용자 지정](manage-event-delivery.md)할 수 있습니다. 최대 배달 시도 횟수(기본값: 30)와 이벤트 TTL(Time to Live, 기본값: 1440분)을 제공합니다.
+- **최대 시도 횟수** - 값은 1에서 30 사이의 정수여야 합니다. 기본값은 30입니다.
+- **이벤트 TTL(Time-to-Live)** - 값은 1에서 1440 사이의 정수여야 합니다. 기본값은 1440분입니다.
+
+이러한 설정을 구성하는 샘플 CLI 및 PowerShell 명령은 [다시 시도 정책 설정](manage-event-delivery.md#set-retry-policy)을 참조하세요.
+
+## <a name="output-batching"></a>출력 일괄 처리 
+Event Grid는 기본적으로 각 이벤트를 구독자에게 개별적으로 보냅니다. 구독자는 단일 이벤트로 배열을 받습니다. 처리량이 높은 시나리오에서 향상된 HTTP 성능으로 배달하기 위해 이벤트를 일괄 처리하도록 Event Grid를 구성할 수 있습니다. 일괄 처리는 기본적으로 해제되어 있으며 구독별로 설정할 수 있습니다.
+
+### <a name="batching-policy"></a>일괄 처리 정책
+일괄 배달에는 두 가지 설정이 있습니다.
+
+* **일괄 처리당 최대 이벤트 수** - Event Grid에서 일괄 처리당 배달할 최대 이벤트 수입니다. 이 숫자는 절대로 초과되지 않지만 게시할 때 다른 이벤트를 사용할 수 없는 경우에는 더 적은 이벤트가 배달될 수 있습니다. 사용할 수 있는 이벤트 수가 더 적으면 Event Grid가 이벤트를 지연시켜 일괄 처리를 만들 수 없습니다. 1에서 5,000 사이여야 합니다.
+* **기본 일괄 처리 크기(KB)** - 일괄 처리 크기의 목표 상한(KB)입니다. 최대 이벤트와 마찬가지로, 게시할 때 더 많은 이벤트를 사용할 수 없는 경우 일괄 처리 크기가 더 작아질 수 있습니다. 단일 이벤트가 기본 크기보다 큰 *경우*, 일괄 처리가 기본 일괄 처리 크기보다 클 수 있습니다. 예를 들어 기본 크기가 4KB인데 10KB의 이벤트가 Event Grid로 푸시되더라도 10KB 이벤트는 삭제되지 않고 자체 일괄 처리로 배달됩니다.
+
+포털, CLI, PowerShell 또는 SDK를 통해 이벤트 구독별로 구성된 일괄 배달
+
+### <a name="batching-behavior"></a>일괄 처리 동작
+
+* 모두 성공 또는 실패
+
+  Event Grid는 모두 성공 또는 실패 의미 체계로 작동합니다. 일괄 처리 전송에서는 일부 성공이 지원되지 않습니다. 구독자는 합리적으로 60초 이내에 처리할 수 있는 만큼의 일괄 처리당 이벤트만 요청하도록 주의해야 합니다.
+
+* 최적 일괄 처리
+
+  일괄 처리 정책 설정은 일괄 처리 동작을 엄격하게 제한하지 않으며 가장 효율적인 방식으로 적용됩니다. 이벤트율이 낮은 경우 일괄 처리 크기가 일괄 처리당 요청된 최대 이벤트 수보다 작은 경우가 많습니다.
+
+* 기본적으로 해제로 설정
+
+  기본적으로 Event Grid는 전송 요청마다 이벤트를 하나만 추가합니다. 일괄 처리를 설정하는 방법은 이벤트 구독 JSON에서 이 문서 앞부분에 언급된 설정 중 하나를 지정하는 것입니다.
+
+* 기본값
+
+  이벤트 구독을 만들 때 설정(일괄 처리당 최대 이벤트 수 및 대략적인 일괄 처리 크기(킬로바이트))을 둘 다 지정할 필요는 없습니다. 설정이 하나만 지정되면 Event Grid에서 (구성 가능한) 기본값을 사용합니다. 기본값과 기본값을 재정의하는 방법은 다음 섹션을 참조하세요.
+
+### <a name="azure-portal"></a>Azure Portal: 
+![일괄 배달 설정](./media/delivery-and-retry/batch-settings.png)
+
+### <a name="azure-cli"></a>Azure CLI
+이벤트 구독을 만들 때 다음 매개 변수를 사용 합니다. 
+
+- **max-events-per-batch** - 일괄 처리의 최대 이벤트 수입니다. 값은 1에서 5000 사이의 숫자여야 합니다.
+- **preferred-batch-size-in-kilobytes** - 기본 일괄 처리 크기(KB)입니다. 값은 1에서 1024 사이의 숫자여야 합니다.
+
+```azurecli
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+endpoint=https://$sitename.azurewebsites.net/api/updates
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint $endpoint \
+  --max-events-per-batch 1000 \
+  --preferred-batch-size-in-kilobytes 512
+```
+
+Event Grid에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 웹 엔드포인트로 스토리지 이벤트 라우팅](../storage/blobs/storage-blob-event-quickstart.md)을 참조하세요.
+
 
 ## <a name="delayed-delivery"></a>지연된 배달
-
 엔드포인트에 배달 오류가 발생하면 Event Grid는 해당 엔드포인트에 대한 배달 및 이벤트 재시도를 지연시키기 시작합니다. 예를 들어 엔드포인트에 게시된 처음 10개의 이벤트가 실패할 경우, Event Grid는 엔드포인트에 문제가 발생한 것으로 가정하고, 모든 후속 재시도 *및 신규* 배달을 얼마 동안(경우에 따라 최대 몇 시간) 지연시킵니다.
 
 지연된 배달의 기능상 목적은 비정상 엔드포인트와 Event Grid 시스템을 보호하는 것입니다. 비정상 엔드포인트에 대한 배달 백오프 및 지연 없이 Event Grid의 재시도 정책 및 볼륨 기능을 사용하면 시스템에 쉽게 과부하가 발생할 수 있습니다.

@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/25/2020
+ms.date: 08/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f4cf4c0109d524d0a8fe62ae1930165173db170
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 6d66d030514f121fabe8de36783d879afe0b5ea9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407060"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528242"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Azure Database for PostgreSQL 버전 관리 정책
 
@@ -24,14 +24,12 @@ Azure Database for PostgreSQL는 현재 다음 버전을 지원합니다.
 
 | 버전 | 단일 서버 | 유연한 서버(미리 보기) | 하이퍼스케일(Citus) |
 | ----- | :------: | :----: | :----: |
-| PostgreSQL 13 |  | X  | X\* |
-| PostgreSQL 12 |  | X  | X\* |
+| PostgreSQL 13 |  | X  | X |
+| PostgreSQL 12 |  | X  | X |
 | PostgreSQL 11 | X | X | X |
 | PostgreSQL 10 | X |  |  |
 | PostgreSQL 9.6 | X |  |  |
 | PostgreSQL 9.5(사용 중지됨) | X |  |  |
-
-(\* PostgreSQL 12 및 13은 하이퍼스케일(Citus)에서 미리 보기 기능으로 사용할 수 있습니다.)
 
 ## <a name="major-version-support"></a>주 버전 지원
 PostgreSQL의 각 주 버전은 Azure가 해당 버전에 대한 지원을 시작하는 날짜부터 [PostgreSQL 커뮤니티 버전 관리 정책](https://www.postgresql.org/support/versioning/)에 규정된 대로 PostgreSQL 커뮤니티에서 해당 버전이 사용 중지될 때까지 Azure Database for PostgreSQL에 의해 지원됩니다.
@@ -55,7 +53,7 @@ Azure Database for PostgreSQL은 정기적 유지 관리의 일환으로 Azure �
 
 Azure Database for PostgreSQL에서 사용 중지된 버전을 계속 실행할 수 있습니다. 그러나 각 PostgreSQL 데이터베이스 버전에 대한 사용 중지 날짜가 경과한 이후에는 다음 제한 사항에 유의하세요.
 - 커뮤니티가 더 이상 버그 수정 또는 보안 픽스를 릴리스하지 않으므로 Azure Database for PostgreSQL이 사용 중지된 데이터베이스 엔진에 버그 또는 보안 문제 관련 패치를 적용하거나 사용 중지된 데이터베이스 엔진에 대한 보안 조치를 취하지 않습니다. 따라서 보안 취약성 또는 기타 문제가 발생할 수 있습니다. 그러나 Azure는 호스트, OS, 컨테이너 및 기타 서비스 관련 구성 요소에 대해 정기적으로 유지 관리 및 패치를 계속 수행합니다.
-- PostgreSQL 데이터베이스와 관련된 지원 문제가 발생하는 경우 지원을 제공받지 못할 수 있습니다. 이러한 경우에는 지원을 제공받기 위해 데이터베이스를 업그레이드해야 할 수 있습니다.
+- 커뮤니티에서 더 이상 패치를 제공하지 않기 때문에 PostgreSQL 엔진 자체와 관련하여 발생할 수 있는 지원 문제가 있는 경우 지원을 제공하지 못할 수 있습니다. 이러한 경우 데이터베이스를 지원되는 버전 중 하나로 업그레이드해야 합니다.
 - 사용 중지된 버전에서는 새 데이터베이스 서버를 만들 수 없습니다. 그러나 기존 서버에 대해 특정 시점 복구를 수행하고 읽기 복제본을 만들 수 있습니다.
 - Azure Database for PostgreSQL에서 개발한 새 서비스 기능은 지원되는 데이터베이스 서버 버전에서만 사용할 수 있습니다.
 - 작동 시간 SLA는 Azure Database for PostgreSQL 서비스 관련 문제에만 적용되며 데이터베이스 엔진 관련 버그로 인한 가동 중지 시간에는 적용되지 않습니다.  

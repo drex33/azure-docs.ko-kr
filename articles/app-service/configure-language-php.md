@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 94cbe0fa6669546cee8e989a6db2fcbb428cb9d0
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 7d663345a5980d32a59d3185226e48dc75ef96c2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829443"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528741"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Azure App Service용 PHP 앱 구성
 
@@ -119,11 +119,11 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 ```
 
-모든 변경 내용을 커밋하고 빌드 자동화를 사용하도록 설정하여 Git 또는 Zip 배포를 통해 코드를 배포합니다. 이제 Composer가 배포 자동화의 일부로 실행됩니다.
+모든 변경 내용을 커밋하고 [빌드 자동화를 사용하도록 설정](deploy-zip.md#enable-build-automation)하여 Git 또는 Zip 배포를 통해 코드를 배포합니다. 이제 Composer가 배포 자동화의 일부로 실행됩니다.
 
 ## <a name="run-gruntbowergulp"></a>Grunt/Bower/Gulp 실행
 
-배포 시 App Service에서 Grunt, Bower 또는 Gulp와 같은 인기 자동화 도구를 실행하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공해야 합니다. 빌드 자동화를 사용하도록 설정하여 Git 또는 [Zip 배포](deploy-zip.md)를 통해 배포하면 App Service에서 이 스크립트를 실행합니다. 
+배포 시 App Service에서 Grunt, Bower 또는 Gulp와 같은 인기 자동화 도구를 실행하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공해야 합니다. [빌드 자동화를 사용하도록 설정](deploy-zip.md#enable-build-automation)하여 Git 또는 [Zip 배포](deploy-zip.md)를 통해 배포하면 App Service에서 이 스크립트를 실행합니다. 
 
 리포지토리가 해당 도구를 실행할 수 있게 하려면 *package.json* 의 종속성에 도구를 추가해야 합니다. 예를 들면 다음과 같습니다.
 
@@ -153,7 +153,7 @@ kuduscript --node --scriptType bash --suppressPrompt
 # ----------
 ```
 
-이 섹션은 `npm install --production` 실행으로 끝납니다. 필요한 도구를 실행하는 데 필요한 코드 섹션을 `Deployment` 섹션의 ‘끝’에 추가합니다.
+이 섹션은 `npm install --production` 실행으로 끝납니다. 필요한 도구를 실행하는 데 필요한 코드 섹션을 `Deployment` 섹션의 '끝'에 추가합니다.
 
 - [Bower](#bower)
 - [Gulp](#gulp)
@@ -206,7 +206,7 @@ fi
 
 ## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
 
-빌드 자동화가 설정된 상태에서 Git 또는 zip 패키지를 사용하여 앱을 배포하는 경우 App Service는 다음 시퀀스를 통해 자동화 단계를 빌드합니다.
+Git을 사용하거나 [빌드 자동화가 활성화](deploy-zip.md#enable-build-automation)된 zip 패키지를 사용하여 앱을 배포하는 경우 App Service는 다음 시퀀스를 통해 자동화 단계를 빌드합니다.
 
 1. `PRE_BUILD_SCRIPT_PATH`에 지정된 경우 사용자 지정 스크립트를 실행합니다.
 1. `php composer.phar install`을 실행합니다.
@@ -279,7 +279,7 @@ App Service용 기본 PHP 이미지는 Apache를 사용하며 앱에 맞게 사�
 
 ## <a name="detect-https-session"></a>HTTPS 세션 검색
 
-App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
+App Service에서 [TLS/SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
 
 ```php
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
@@ -495,6 +495,10 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+또는 다음 추가 리소스를 참조하세요.
+
+[환경 변수 및 앱 설정 참조](reference-app-settings.md)

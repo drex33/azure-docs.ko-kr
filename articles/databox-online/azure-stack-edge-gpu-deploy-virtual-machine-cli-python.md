@@ -6,14 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/19/2021
+ms.date: 06/30/2021
 ms.author: alkohli
-ms.openlocfilehash: d7dd4a3920e947469c85df0d9ab440d95ab7712d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: has-adal-ref
+ms.openlocfilehash: 453d42adca16593dfdc567d114b8dc7eb7e34143
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466928"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531026"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Azure CLI 및 Python을 사용하여 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
@@ -49,7 +50,7 @@ ms.locfileid: "110466928"
 
 Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM 만들기 및 관리를 시작하기 전에, 다음 단계에 나열된 사전 요구 사항을 완료했는지 확인해야 합니다.
 
-1. [1단계: Azure Stack Edge Pro 디바이스 구성](azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device)의 설명대로 Azure Stack Edge Pro 디바이스에서 네트워크 설정을 완료했습니다.
+1. [1단계: Azure Stack Edge Pro 디바이스 구성](azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-device)의 설명대로 Azure Stack Edge Pro 디바이스에서 네트워크 설정을 완료했습니다.
 
 2. 컴퓨팅용 네트워크 인터페이스를 사용하도록 설정했습니다. 이 네트워크 인터페이스 IP는 VM 배포를 위한 가상 스위치를 만드는 데 사용됩니다. 이 프로세스를 안내하는 단계는 다음과 같습니다.
 
@@ -283,7 +284,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
 3. 환경을 등록합니다. 다음 매개 변수를 [az cloud register](/cli/azure/cloud?view=azure-cli-latest&preserve-view=true#az_cloud_register)가 작동할 때 사용합니다.
 
-    | 값 | Description | 예 |
+    | 값 | 설명 | 예 |
     | --- | --- | --- |
     | 환경 이름 | 연결하려는 환경의 이름 | 이름 제공(예: `aze-environ`) |
     | Resource Manager 엔드포인트 | URL은 `https://Management.<appliancename><dnsdomain>`입니다. <br> 이 URL을 얻으려면 디바이스의 로컬 웹 UI에서 **디바이스** 페이지로 이동합니다. |예: `https://management.team3device.teatraining1.com`  |
@@ -355,7 +356,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
    $ENV:ARM_TENANT_ID = "c0257de7-538f-415c-993a-1b87a031879d"
    $ENV:ARM_CLIENT_ID = "cbd868c5-7207-431f-8d16-1cb144b50971"
    $ENV:ARM_CLIENT_SECRET - "<Your Azure Resource Manager password>"
-   $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
+   $ENV:ARM_SUBSCRIPTION_ID = "<Your subscription ID>"
    ```
 
    Azure Resource Manager 클라이언트 ID는 하드 코딩됩니다. Azure Resource Manager 테넌트 ID와 Azure Resource Manager 구독 ID는 모두 이전에 실행한 `az login` 명령의 출력에 표시됩니다. Azure Resource Manager 클라이언트 암호는 내가 설정한 Azure Resource Manager 암호입니다.
@@ -404,7 +405,7 @@ VM을 생성하도록 Python 스크립트가 제공됩니다. 사용자로 로�
             ubuntu13.vhd
     
     VM image resource id:
-                /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/azure-sample-group-virtual-machines118/providers/Microsoft.Compute/images/UbuntuImage
+                /subscriptions/.../resourceGroups/azure-sample-group-virtual-machines118/providers/Microsoft.Compute/images/UbuntuImage
     
     Create Vnet
     Create Subnet

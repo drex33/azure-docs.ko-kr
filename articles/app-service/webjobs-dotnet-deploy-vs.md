@@ -5,15 +5,15 @@ author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
 ms.custom: devx-track-csharp, vs-azure
-ms.date: 07/30/2020
+ms.date: 06/24/2021
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b65475b6f1558930ca8c91c7d1283745bc1b80b8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89226032"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536655"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "89226032"
 Azure WebJobs SDK 버전 3.x를 사용하여 WebJobs를 .NET Core 콘솔 앱으로 만들고 게시할 수 있습니다. .NET Core 콘솔 앱을 WebJob으로 만들고 Azure에 게시하는 단계별 지침은 [이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작](webjobs-sdk-get-started.md)을 참조 하세요.
 
 > [!NOTE]
-> .NET Core WebJobs는 웹 프로젝트와 연결할 수 없습니다. 웹앱을 사용하여 WebJob을 배포해야 하는 경우 [.NET Framework 콘솔 앱으로 WebJobs을 만듭니다](#webjobs-as-net-framework-console-apps).  
+> .NET Core Web Apps 및/또는 .NET Core WebJobs는 웹 프로젝트와 연결할 수 없습니다. 웹앱을 사용하여 WebJob을 배포해야 하는 경우 [.NET Framework 콘솔 앱으로 WebJobs을 만듭니다](#webjobs-as-net-framework-console-apps).  
 
 ### <a name="deploy-to-azure-app-service"></a>Azure App Service에 배포
 

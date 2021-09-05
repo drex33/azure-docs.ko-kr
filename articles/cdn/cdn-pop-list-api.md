@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 07/06/2021
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 4197b1a5f047190872d055dc2ba8ccaa11efbe6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 155f3817b913e38e503d0a8fcaa6083922067ebd
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376346"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113487618"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대한 현재 POP IP 목록 검색
 
@@ -36,11 +36,7 @@ Microsoft Azure CDN의 트래픽만 허용하도록 애플리케이션을 잠그
 
 백 엔드에 IP ACL을 구성하여 Microsoft Azure CDN의 백 엔드 IP 주소 공간 및 Azure 인프라 서비스의 트래픽만 허용합니다. 
 
-* Microsoft Azure CDN의 IPv4 백 엔드 IP 공간: 147.243.0.0/16
-* Microsoft Azure CDN의 IPv6 백 엔드 IP 공간: 2a01:111:2050::/44
-
-Microsoft Azure CDN에서 서비스 태그를 사용하려면 Azure Front Door 태그를 사용하세요. Microsoft 서비스용 IP 범위 및 서비스 태그는 [여기](https://www.microsoft.com/download/details.aspx?id=56519)에서 확인할 수 있습니다.
-
+Microsoft의 Azure CDN과 함께 Azure Front Door [서비스 태그](../virtual-network/service-tags-overview.md)를 사용하여 Microsoft의 백 엔드 IP 범위를 구성합니다. 전체 목록은 Microsoft 서비스용 [IP 범위 및 서비스 태그](https://www.microsoft.com/en-us/download/details.aspx?id=56519)를 참조하세요.
 
 ## <a name="typical-use-case"></a>일반적인 사용 사례
 

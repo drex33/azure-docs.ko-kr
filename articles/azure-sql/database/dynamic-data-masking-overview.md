@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 01/25/2021
+ms.date: 06/24/2021
 tags: azure-synpase
-ms.openlocfilehash: b44248732891163bc2630cdfe5b297a06f3cf730
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 869498111df151f78cb0a1d9ad7ede1dd84aaf42
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001019"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582624"
 ---
 # <a name="dynamic-data-masking"></a>동적 데이터 마스킹 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -84,6 +84,7 @@ REST API를 사용하여 데이터 마스킹 정책 및 규칙을 프로그래�
 
 동적 데이터 마스킹은 Azure SQL Database 관리자, 서버 관리자 또는 RBAC(역할 기반 액세스 제어) [SQL 보안 관리자](../../role-based-access-control/built-in-roles.md#sql-security-manager) 역할로 구성할 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
-[동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)
+- SQL Server용 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking).
+- 채널 9의 [Azure SQL 동적 데이터 마스킹에 대한 세분화된 권한](https://channel9.msdn.com/Shows/Data-Exposed/Granular-Permissions-for-Azure-SQL-Dynamic-Data-Masking)에 관한 데이터 노출 에피소드입니다.

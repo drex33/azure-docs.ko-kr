@@ -11,21 +11,21 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/17/2021
+ms.date: 08/16/2021
 tags: azure-synapse
-ms.openlocfilehash: d6b51d32b691919e0f0947d3ddb58d184424b9ad
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e61660a5c559012cbf4940356bd1a204f3203db6
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534413"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538250"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 데이터 검색 및 분류는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 기본 제공됩니다. 데이터베이스에서 중요한 데이터의 검색, 분류, 레이블 지정 및 보고를 위한 기본 기능을 제공합니다.
 
-가장 중요한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함될 수 있습니다. 이 데이터를 검색하고 분류하면 조직의 정보 보호 방식에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
+가장 중요한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함될 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
 
 - 규정 준수를 위한 데이터 개인 정보 및 요구 사항에 대한 표준을 충족하는 데 도움이 됩니다.
 - 중요한 데이터에 대한 액세스 모니터링(감사)과 같은 다양한 보안 시나리오
@@ -36,11 +36,11 @@ ms.locfileid: "110534413"
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>데이터 검색 및 분류란?
 
-데이터 검색 및 분류는 데이터베이스뿐만 아니라 데이터를 보호하기 위한 SQL Database, SQL Managed Instance, Azure Synapse에 대해 새로운 정보 보호 패러다임을 형성합니다. 현재는 다음 기능을 지원합니다.
+데이터 검색 및 분류는 현재 다음 기능을 지원합니다.
 
 - **검색 및 권장 사항:** 분류 엔진은 데이터베이스를 검사하여 잠재적으로 중요한 데이터가 포함된 열을 확인합니다. 그런 다음, Azure Portal을 통해 권장되는 분류를 검토하고 적용하는 쉬운 방법을 제공합니다.
 
-- **레이블 지정:** SQL Server 데이터베이스 엔진에 추가된 새 메타데이터 특성을 사용하여 민감도 분류 레이블을 열에 영구적으로 적용할 수 있습니다. 그런 다음, 이 메타데이터는 민감도 기반 감사 및 보호 시나리오에 사용될 수 있습니다.
+- **레이블 지정:** SQL Server 데이터베이스 엔진에 추가된 새 메타데이터 특성을 사용하여 민감도 분류 레이블을 열에 영구적으로 적용할 수 있습니다. 그런 다음, 이 메타데이터는 민감도 기반 감사 시나리오에 사용될 수 있습니다.
 
 - **쿼리 결과 집합 민감도:** 쿼리 결과 집합의 민감도는 감사 목적으로 실시간 계산됩니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "110534413"
 
 전체 Azure 조직에 대해 중앙의 한 위치에서 분류 체계를 정의하고 사용자 지정합니다. 해당 위치는 보안 정책의 일부로 [Azure Security Center](../../security-center/security-center-introduction.md)에 있습니다. 조직의 루트 관리 그룹에 대한 관리 권한이 있는 사람만이 이 작업을 수행할 수 있습니다.
 
-정보 관리에 대한 정책 관리의 일환으로, 사용자 지정 레이블을 정의하고, 순위를 지정하고, 선택한 정보 유형 집합과 연결할 수 있습니다. 사용자 고유의 사용자 지정 정보 유형을 추가하고 문자열 패턴을 사용하여 구성할 수도 있습니다. 패턴은 데이터베이스에서 이러한 유형의 데이터를 식별하기 위한 검색 논리에 추가됩니다.
+정책 관리의 일환으로, 사용자 지정 레이블을 정의하고, 순위를 지정하고, 선택한 정보 유형 세트와 연결할 수 있습니다. 사용자 고유의 사용자 지정 정보 유형을 추가하고 문자열 패턴을 사용하여 구성할 수도 있습니다. 패턴은 데이터베이스에서 이러한 유형의 데이터를 식별하기 위한 검색 논리에 추가됩니다.
 
 자세한 내용은 [Azure Security Center에서 SQL 정보 보호 정책 사용자 지정(미리 보기)](../../security-center/security-center-info-protection-policy.md)을 참조하세요.
 
@@ -112,7 +112,7 @@ ms.locfileid: "110534413"
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>중요한 데이터에 대한 액세스 감사
 
-정보 보호 패러다임의 중요한 측면은 중요한 데이터에 대한 액세스를 모니터링하는 기능입니다. [Azure SQL 감사](../../azure-sql/database/auditing-overview.md) 기능이 개선되어 `data_sensitivity_information`이라는 감사 로그에 새 필드가 포함되었습니다. 이 필드는 쿼리에 의해 반환된 데이터의 민감도 분류(레이블)를 기록합니다. 예를 들면 다음과 같습니다.
+분류의 중요한 측면은 중요한 데이터에 대한 액세스를 모니터링하는 기능입니다. [Azure SQL 감사](../../azure-sql/database/auditing-overview.md) 기능이 개선되어 `data_sensitivity_information`이라는 감사 로그에 새 필드가 포함되었습니다. 이 필드는 쿼리에 의해 반환된 데이터의 민감도 분류(레이블)를 기록합니다. 예를 들면 다음과 같습니다.
 
 ![감사 로그](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 

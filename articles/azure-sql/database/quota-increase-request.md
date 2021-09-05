@@ -3,18 +3,18 @@ title: 할당량 증가 요청
 description: 이 페이지에서는 Azure SQL Database 및 Azure SQL Managed Instance에 대한 할당량을 늘리는 지원 요청을 만드는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/04/2020
-ms.openlocfilehash: 27719663acfbdbcd7293defc4b746153359adb61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5530becdcbe150ddc7ab2608bdf964ac269ed99
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251858"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409022"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대한 할당량 증가 요청
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Azure Portal에서 SQL Database에 대한 새 지원 요청을 만들려면 다�
 
    ![세부 정보 입력 링크](./media/quota-increase-request/provide-details-link.png)
 
-**세부 정보 입력** 을 선택하면 정보를 추가할 수 있는 **할당량 세부 정보** 창이 표시됩니다. 다음 섹션에서는 **SQL Database** 및 **SQL Database Managed Instance** 할당량 유형의 다양한 옵션을 설명합니다.
+**세부 정보 입력** 을 선택하면 정보를 추가할 수 있는 **할당량 세부 정보** 창이 표시됩니다. 다음 섹션에서는 **SQL Database** 및 **SQL Managed Instance** 할당량 유형의 다양한 옵션을 설명합니다.
 
 ## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a>SQL Database 할당량 유형
 
@@ -110,7 +110,7 @@ Azure Portal에서 SQL Database에 대한 새 지원 요청을 만들려면 다�
 
 ### <a name="request-enabling-specific-hardware-in-a-region"></a>지역에서 특정 하드웨어를 사용하도록 요청
 
-사용하려는 [하드웨어 생성](service-tiers-vcore.md#hardware-generations)을 해당 지역에서 사용할 수 없는 경우( [하드웨어 가용성](service-tiers-vcore.md#hardware-availability) 참조) 다음 단계를 수행하여 요청할 수 있습니다.
+사용하려는 하드웨어 세대를 해당 지역에서 사용할 수 없는 경우 다음 단계를 수행하여 요청할 수 있습니다. 하드웨어 세대 및 지역별 가용성에 대한 자세한 내용은 [SQL Database용 하드웨어 세대](./service-tiers-sql-database-vcore.md#hardware-generations) 또는 [SQL Managed Instance용 하드웨어 세대](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations)를 참조하세요.
 
 1. **다른 할당량 요청** 할당량 유형을 선택합니다.
 

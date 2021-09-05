@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 04/07/2021
-ms.openlocfilehash: fa09a03a9ffda04e09bbd5708e97334304013078
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 2bd5ae6696c5ce1c2d4ea3be974245fde1053b71
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006584"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416293"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 계정 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "112006584"
 - 소유자
 - Manager
 
-[파트너 센터 계정을 만들면](./create-account.md) [상업용 Marketplace 대시보드](https://go.microsoft.com/fwlink/?linkid=2165290)를 사용하여 계정과 제안을 관리할 수 있습니다.
+[파트너 센터 계정을 만들면](./create-account.md) [상업용 Marketplace 대시보드](https://go.microsoft.com/fwlink/?linkid=2166002)를 사용하여 계정과 제안을 관리할 수 있습니다.
 
 ## <a name="access-your-account-settings"></a>계정 설정에 액세스
 
@@ -122,7 +122,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 지급 프로필을 설정하려면
 
-1. 파트너 센터에서 [상업용 Marketplace 개요 페이지](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)로 이동합니다.
+1. 파트너 센터에서 [상업용 Marketplace 개요](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 페이지로 이동합니다.
 2. **프로필** 섹션에서 **지급 프로필** 옆에 있는 **업데이트** 를 선택합니다.
 3. **결제 방법 선택**: 은행 계좌 또는 PayPal
 4. **결제 정보 추가**: 여기에는 계좌 유형(당좌 예금 또는 보통 예금)을 선택하고 계좌 소유자 이름과 계좌 번호, 은행 식별 기호, 청구 주소, 전화 번호 또는 PayPal 전자 메일 주소를 입력하는 일이 포함될 수 있습니다. PayPal을 계좌 결제 방법으로 사용하고 PayPal이 현지 시장 또는 지역에서 지원되는지 여부를 확인하는 방법에 대한 자세한 내용은 [PayPal 정보](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info)를 참조하세요.

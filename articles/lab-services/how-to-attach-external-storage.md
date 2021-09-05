@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 5b136a95d841775861c0e4d7c0bba1feec101f0d
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 9d59e8eab9aff857991a886838cc1063a36de00c
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110493783"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112120108"
 ---
 # <a name="use-external-file-storage-in-lab-services"></a>Lab Services에서 외부 파일 스토리지 사용
 
@@ -46,9 +46,9 @@ Azure Files 공유에 프라이빗 엔드포인트를 사용하는 경우 다음
 - 이 방법을 사용하려면 파일 공유 가상 네트워크가 랩 계정에 피어링되어야 합니다. 랩을 만들려면 먼저 Azure Storage 계정의 가상 네트워크를 랩 계정의 가상 네트워크로 피어링해야 합니다.
 
 > [!NOTE]
-> 5TB보다 큰 파일 공유는 [로컬 중복 스토리지 계정](../storage/files/storage-files-how-to-create-large-file-share.md#restrictions)에서만 사용할 수 있습니다.
+> 기본적으로 표준 파일 공유는 최대 5TiB까지 확장할 수 있습니다. 최대 100TiB에 걸쳐 있는 파일 공유를 만드는 방법에 대한 자세한 내용은 [Azure 파일 공유 만들기](../storage/files/storage-how-to-create-file-share.md)를 참조하세요.
 
-Azure Files 공유에 연결된 VM을 만들려면 다음 단계를 수행합니다.
+Azure 파일 공유에 연결된 VM을 만들려면 다음 단계를 수행합니다.
 
 1. [Azure Storage 계정](../storage/files/storage-how-to-create-file-share.md)을 만듭니다. **연결 방법** 페이지에서 **퍼블릭 엔드포인트** 또는 **프라이빗 엔드포인트** 를 선택합니다.
 2. 비공개 방법을 선택한 경우 가상 네트워크에서 파일 공유에 액세스할 수 있도록 [프라이빗 엔드포인트](../private-link/tutorial-private-endpoint-storage-portal.md)를 만듭니다. [프라이빗 DNS 영역](../dns/private-dns-privatednszone.md)을 만들거나 기존 영역을 사용합니다. Private Azure DNS 영역은 가상 네트워크 내에서 이름 확인을 제공합니다.

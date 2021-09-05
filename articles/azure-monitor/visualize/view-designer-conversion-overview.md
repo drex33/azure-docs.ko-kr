@@ -5,12 +5,12 @@ author: shijatsu
 ms.author: shijain
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 44c838fcb0728797aa3781da0ad98b37cc2c25a5
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: b86e90298bc753cdea5c0fb5f255e88fcc26dc5c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317976"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440759"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Azure Monitor 뷰 디자이너에서 통합 문서로 전환 가이드
 [뷰 디자이너](view-designer.md)는 차트, 목록 및 타임라인을 사용하여 Log Analytics 작업 영역의 데이터를 시각화하는 데 도움이 되는 사용자 지정 뷰를 만들 수 있게 하는 Azure Monitor 기능입니다. Azure Portal 내에서 데이터 분석 및 풍부한 시각적 보고서 생성을 위한 유연한 캔버스를 제공하기 위해 통합 문서로 전환되었습니다. 이 문서는 뷰 디자이너에서 통합 문서로 전환하는 데 도움이 됩니다. 
@@ -60,9 +60,7 @@ ms.locfileid: "108317976"
 새 통합 문서를 시작하려면 **빠른 시작** 에서 **빈** 템플릿을 선택하거나 위쪽 탐색 모음에서 **새로 만들기** 아이콘을 선택합니다. 템플릿을 보거나 저장된 통합 문서로 돌아가려면 갤러리에서 항목을 선택하거나 검색 창에서 이름을 검색합니다.
 
 통합 문서를 저장하려면 특정 제목, 구독, 리소스 그룹 및 위치로 보고서를 저장해야 합니다.
-통합 문서는 같은 구독, 리소스 그룹을 사용하여 LA 작업 영역과 동일한 설정으로 자동으로 채워지지만 사용자는 이러한 보고서 설정을 변경할 수 있습니다. 통합 문서는 기본적으로 개별 사용자만 액세스할 수 있는 *내 보고서* 에 저장됩니다. 공유 보고서에 직접 저장하거나 나중에 공유할 수도 있습니다.
-
-![통합 문서 저장](media/view-designer-conversion-overview/workbooks-save.png)
+통합 문서는 같은 구독, 리소스 그룹을 사용하여 LA 작업 영역과 동일한 설정으로 자동으로 채워지지만 사용자는 이러한 보고서 설정을 변경할 수 있습니다. 통합 문서는 저장할 부모 리소스 그룹에 대한 쓰기 권한이 필요한 공유 리소스입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: babd628280ebaee408d44dfacfaf6a5e14f57019
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: ea3bc751d91e72c68bd9900f07c3c2e8aae38212
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481825"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528414"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽이란?
 
@@ -41,7 +41,7 @@ Application Gateway의 향상된 보안 기능으로는 TLS 정책 관리와 엔
 
 * 동일한 WAF 뒤에 있는 다른 사이트에 대한 사용자 지정 WAF 정책을 만듭니다. 
 
-* IP 신뢰도 규칙 세트를 사용하여 악의적인 봇으로부터 웹 애플리케이션을 보호합니다(미리 보기).
+* IP 평판 규칙 세트를 사용하여 악의적인 봇으로부터 웹 애플리케이션 보호
 
 ### <a name="monitoring"></a>모니터링
 
@@ -69,8 +69,8 @@ Application Gateway의 향상된 보안 기능으로는 TLS 정책 관리와 엔
 - 하한값과 상한값이 있는 구성 가능한 요청 크기 제한
 - WAF 평가에서 특정 요청 특성을 생략할 수 있는 제외 목록. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다.
 - 애플리케이션의 특정 요구 사항에 맞는 사용자 지정 규칙 만들기
-- 특정 국가/지역의 애플리케이션에 대한 액세스를 허용하거나 차단하기 위한 지역 필터 트래픽. (미리 보기)
-- 봇 완화 규칙 세트를 사용하여 봇으로부터 애플리케이션 보호 (미리 보기)
+- 특정 국가/지역의 애플리케이션에 대한 액세스를 허용하거나 차단하기 위한 지역 필터 트래픽.
+- 봇 완화 규칙 세트를 사용하여 봇으로부터 애플리케이션 보호
 - 요청 본문에서 JSON 및 XML 검사
 
 ## <a name="waf-policy-and-rules"></a>WAF 정책 및 규칙
@@ -99,19 +99,13 @@ Application Gateway는 세 가지 규칙 세트 CRS 3.1, CRS 3.0 및 CRS 2.2.9�
 
 Application Gateway는 사용자 지정 규칙도 지원합니다. 사용자 지정 규칙을 사용하면 WAF를 통해 전달되는 각 요청에 대해 평가되는 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙은 관리형 규칙 세트의 나머지 규칙보다 높은 우선 순위를 갖습니다. 조건 세트가 충족되면 허용 또는 차단 작업을 수행합니다. 
 
-이제 geomatch 연산자는 사용자 지정 규칙에 대한 공개 미리 보기에서 사용할 수 있습니다. 자세한 내용은 [geomatch 사용자 지정 규칙](custom-waf-rules-overview.md#geomatch-custom-rules-preview)을 참조하세요.
-
-> [!NOTE]
-> 사용자 지정 규칙에 대한 geomatch 연산자는 현재 공개 미리 보기 상태이며 미리 보기 서비스 수준 계약과 함께 제공됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+이제 geomatch 연산자는 사용자 지정 규칙에 사용할 수 있습니다. 자세한 내용은 [geomatch 사용자 지정 규칙](custom-waf-rules-overview.md#geomatch-custom-rules)을 참조하세요.
 
 사용자 지정 규칙에 대한 자세한 내용은 [Application Gateway에 대한 사용자 지정 규칙](custom-waf-rules-overview.md)을 참조하세요.
 
-### <a name="bot-mitigation-preview"></a>봇 완화(미리 보기)
+### <a name="bot-mitigation"></a>봇 완화
 
 관리형 규칙 세트와 함께 관리형 봇 보호 규칙 세트를 WAF에 사용하도록 설정하여 알려진 악성 IP 주소의 요청을 차단하거나 기록할 수 있습니다. IP 주소는 Microsoft 위협 인텔리전스 피드에서 제공됩니다. Intelligent Security Graph는 Microsoft 위협 인텔리전스를 구동하며 Azure Security Center를 비롯한 여러 서비스에서 사용됩니다.
-
-> [!NOTE]
-> 봇 보호 규칙 세트는 현재 공개 미리 보기이며 미리 보기 서비스 수준 계약과 함께 제공됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 봇 보호를 사용하면 악의적 봇의 클라이언트 IP와 일치하는 수신 요청이 방화벽 로그에 기록됩니다. 자세한 내용은 아래를 참조하세요. 스토리지 계정, 이벤트 허브 또는 로그 분석에서 WAF 로그에 액세스할 수 있습니다. 
 

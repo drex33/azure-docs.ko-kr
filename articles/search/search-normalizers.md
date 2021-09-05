@@ -8,17 +8,17 @@ ms.author: ishansri
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.openlocfilehash: 3e7a33d9213d7af44d2cfc50baa847534618f7e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9142f03f5f23e843018f7d9b702ef8da3d650758
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609528"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112578687"
 ---
 # <a name="text-normalization-for-case-insensitive-filtering-faceting-and-sorting"></a>대/소문자를 구분하지 않는 필터링, 패싯 및 정렬에 대한 텍스트 정규화
 
- > [!IMPORTANT]
- > Normalizer는 공개 미리 보기에 있으며 **2020-06-30-preview REST API** 를 통해 사용할 수 있습니다. 미리 보기 기능은 추가 사용 약관에 따라 그대로 제공됩니다.
+> [!IMPORTANT] 
+> 이 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. [미리 보기 REST API](/rest/api/searchservice/index-preview)에서 이 기능을 지원합니다.
 
 Azure Cognitive Search 인덱스에서 문서를 검색하고 찾아오려면 문서의 내용과 쿼리가 일치해야 합니다. `search` 매개 변수가 사용되는 경우와 같이 일치하는 토큰을 생성하기 위해 콘텐츠를 분석하거나 `$filter`, `facets` 및 `$orderby`와 같이 엄격한 키워드 일치를 위해 그대로 사용할 수 있습니다. 이 양자택일식 접근 방식은 대부분의 시나리오에 적용되지만 전체 분석 체인을 거치지 않고 대소문자 구분, 액센트 제거, asciifolding 등과 같은 간단한 전처리가 필요한 경우에는 부족합니다.
 

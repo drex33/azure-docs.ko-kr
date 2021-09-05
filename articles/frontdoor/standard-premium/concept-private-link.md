@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 38bd02f478ebe34f3c5708e1df9cc7da1e885058
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 53c719bb451b6bc8239fbd0f68bb6ad423b37b11
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715217"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607141"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄(미리 보기)에서 Private Link를 사용하여 원본 보호
 
@@ -51,5 +51,6 @@ Azure Front Door 프라이빗 엔드포인트는 플랫폼 및 Azure Front Door 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Private Link 서비스를 통해 Azure Front Door 프리미엄을 웹앱에 연결하려면 [프라이빗 엔드포인트를 사용하여 웹앱에 연결](../../private-link/tutorial-private-endpoint-webapp-portal.md)을 참조하세요.
-* 프라이빗 링크 서비스를 통해 Azure Front Door 프리미엄을 스토리지 계정에 연결하려면 [프라이빗 엔드포인트를 사용하여 스토리지 계정에 연결](../../private-link/tutorial-private-endpoint-storage-portal.md)을 참조하세요.
+* Private Link 서비스를 통해 Azure Front Door 프리미엄을 웹앱에 연결하려면 [Private Link를 사용하여 Azure Front Door 프리미엄을 웹앱 원본에 연결](../../frontdoor/standard-premium/how-to-enable-private-link-web-app.md)을 참조하세요.
+* 프라이빗 링크 서비스를 통해 Azure Front Door 프리미엄을 스토리지 계정에 연결하려면 [Private Link를 사용하여 Azure Front Door 프리미엄을 스토리지 계정 원본에 연결](../../frontdoor/standard-premium/how-to-enable-private-link-storage-account.md)을 참조하세요.
+* Private Link 서비스를 통해 Azure Front Door 프리미엄을 내부 부하 분산 장치 원본에 연결하려면 [Private Link를 사용하여 Azure Front Door 프리미엄을 내부 부하 분산 장치 원본에 연결](../../frontdoor/standard-premium/how-to-enable-private-link-internal-load-balancer.md)을 참조하세요.

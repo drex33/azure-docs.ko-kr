@@ -1,14 +1,14 @@
 ---
 title: Azure Policy 상태 변경 이벤트에 대응
 description: Azure Event Grid를 사용하여 앱 정책 이벤트를 구독하면 복잡한 코드 없이 애플리케이션이 상태 변경에 대응할 수 있습니다.
-ms.date: 03/29/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 197dfbe410874541c38334b169c526bac63a614e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 4cd443882b3d1f9ffdcf0c317b6012654e0780c2
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752906"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538855"
 ---
 # <a name="reacting-to-azure-policy-state-change-events"></a>Azure Policy 상태 변경 이벤트에 대응
 
@@ -41,13 +41,13 @@ Event Grid는 [이벤트 구독](../../../event-grid/concepts.md#event-subscript
 Azure Policy 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. `eventType` 속성이 “Microsoft.PolicyInsights”로 시작되면 Azure Policy 이벤트를 식별할 수 있습니다.
 Event Grid 이벤트 속성 사용에 대한 추가 정보는 [Event Grid 이벤트 스키마](../../../event-grid/event-schema.md)에 설명되어 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `id` | 문자열 | 이벤트에 대한 고유 식별자입니다. |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 리소스 이름과 리소스 형식을 포함하여 준수 상태 변경이 적용되는 리소스의 정규화된 ID입니다. `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>` 형식 사용 |
 | `data` | object | Azure Policy 이벤트 데이터. |
-| `data.timestamp` | 문자열 | Azure Policy에서 리소스를 스캔한 시간(UTC)입니다. 이벤트 순서 지정을 위해 최상위 수준 `eventTime`이나 `time` 속성이 아니라 이 속성을 사용합니다. |
+| `data.timestamp` | 문자열 | Azure Policy에서 리소스를 스캔한 시간(UTC)입니다. 이벤트 순서 지정을 위해 최상위 수준 `eventTime`이나 `time` 속성이 대신 이 속성을 사용합니다. |
 | `data.policyAssignmentId` | 문자열 | 정책 할당의 리소스 ID입니다. |
 | `data.policyDefinitionId` | 문자열 | 정책 정의의 리소스 ID입니다. |
 | `data.policyDefinitionReferenceId` | 문자열 | 이니셔티브의 정책 할당이면 이니셔티브 정의에 있는 정책 정의의 참조 ID입니다. 비어 있을 수 있습니다. |

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 06/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8f9f6dc1abd08c5e53f3d44a8f6ec1b3e20786ed
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 76832f02f1c1337a705f33d26de97b0b5823c2c1
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717444"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112981112"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 HTML 템플릿을 사용하여 사용자 인터페이스 사용자 지정
 
@@ -92,6 +92,10 @@ Azure AD B2C는 [CORS(원본 간 리소스 공유)](https://www.w3.org/TR/cors/)
 
 Azure AD B2C 테넌트에서 [사용자 언어 지정](language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용하도록 설정하면 Azure AD B2C가 OpenID Connect 매개 변수 `ui_locales`를 엔드포인트로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
 
+> [!NOTE]
+> Azure AD B2C는 `ui_locales`와 같은 OpenID Connect 매개 변수를 [예외 페이지](page-layout.md#exception-page-globalexception)로 전달하지 않습니다.
+
+
 사용되는 로캘에 따라 다른 위치에서 콘텐츠를 끌어올 수 있습니다. CORS 사용 엔드포인트에서 특정 언어에 대한 콘텐츠를 호스트하도록 폴더 구조를 설정합니다. 와일드 카드 값 `{Culture:RFC5646}`을 사용하는 경우 적합한 구조를 호출합니다.
 
 예를 들어 사용자 지정 페이지 URI는 다음과 같은 모습일 수 있습니다.
@@ -116,7 +120,7 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 1. 웹앱에 대한 CORS(원본 간 리소스 공유) 설정
 1. 정책에서 사용자 지정 정책 콘텐츠 URI를 가리킵니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 

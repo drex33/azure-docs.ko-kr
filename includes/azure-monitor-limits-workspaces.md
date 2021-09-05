@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 704697a88a723182c2dbbcb2f25eb18df7be34c1
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.openlocfilehash: b8ada581eabe0a2fedda08d0fbb1fa9585da0cca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111429932"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121800935"
 ---
 **데이터 컬렉션 볼륨 및 보존** 
 
@@ -47,7 +47,7 @@ ms.locfileid: "111429932"
 | 단일 게시물의 최대 크기 | 30MB | 더 큰 용량은 여러 개의 게시물로 분할하세요. |
 | 필드 값의 최대 크기  | 32KB | 32KB보다 긴 필드는 잘립니다. |
 
-**API 검색**
+**쿼리 API**
 
 | 범주 | 제한 | 주석 |
 |:---|:---|:---|
@@ -60,8 +60,8 @@ ms.locfileid: "111429932"
 
 | 범주 | 제한 | 주석 |
 |:---|:---|:---|
+| 데이터의 최대 크기 | ~16.7MB(~16MiB) | 커넥터 인프라는 제한이 쿼리 API 제한보다 낮게 설정되어 있음을 나타냅니다. |
 | 최대 레코드 수 | 500,000 | |
-| 반환되는 데이터의 최대 크기 | ~104MB(~100MiB) | |
 | 최대 쿼리 제한 시간 | 110초 | |
 | 차트 | | 로그 페이지 및 커넥터의 시각화는 다른 차트 라이브러리를 사용하고 있으며 현재 커넥터에서 일부 기능을 사용할 수 없습니다. |
 

@@ -6,13 +6,13 @@ author: bwren
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 174f372f9dbe8dc0449c7f9b9f5b34c6206f92de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 71b54db0df20ea1bfe630639fb5e60bea62712b2
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708563"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112200279"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>WAD(Windows Azure Diagnostics) 확장 설치 및 구성
 [Azure Diagnostics 확장](diagnostics-extension-overview.md)은 게스트 운영 체제에서 모니터링 데이터를 수집하고 Azure 가상 머신 및 기타 계산 리소스의 워크로드를 수집하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 진단 확장 설치 및 구성에 대한 자세한 내용을 알아보고 데이터가 저장되는 방법과 Azure Storage 계정에 대해 설명합니다.
@@ -71,13 +71,13 @@ Azure Portal에서 개별 가상 머신에 진단 확장을 설치하고 구성�
 10. 구성을 저장하려면 **Save** 를 클릭합니다. 
 
 > [!NOTE]
-> JSON 또는 XML에서 진단 확장에 대한 구성을 포맷할 수 있지만 Azure Portal에서 수행되는 모든 구성은 항상 JSON으로 저장됩니다. 다른 구성 방법과 함께 XML을 사용하는 경우 Azure Portal을 사용하여 구성을 변경하면 설정이 JSON으로 변경됩니다.
+> JSON 또는 XML에서 진단 확장에 대한 구성을 포맷할 수 있지만 Azure Portal에서 수행되는 모든 구성은 항상 JSON으로 저장됩니다. 다른 구성 방법과 함께 XML을 사용하는 경우 Azure Portal을 사용하여 구성을 변경하면 설정이 JSON으로 변경됩니다. 또한 이러한 로그에 대한 보존 기간을 설정하는 옵션이 없습니다.
 
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿
 Azure Resource Manager 템플릿을 사용하여 진단 확장을 배포하는 방법에 대한 자세한 내용은 [Windows VM 및 Azure Resource Manager를 사용하여 모니터링 및 진단 사용](../../virtual-machines/extensions/diagnostics-template.md)을 참조하세요. 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
-Azure CLI를 사용하여 다음 예와 같이 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set)를 사용하여 기존 가상 머신에 Azure Diagnostics 확장을 배포할 수 있습니다. 
+Azure CLI를 사용하여 다음 예와 같이 [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)를 사용하여 기존 가상 머신에 Azure Diagnostics 확장을 배포할 수 있습니다. 
 
 ```azurecli
 az vm extension set \

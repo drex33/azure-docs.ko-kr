@@ -1,35 +1,31 @@
 ---
-title: Azure Firewall 프리미엄 미리 보기에 대한 엔터프라이즈 CA 인증서 배포 및 구성
-description: Azure Firewall 프리미엄 미리 보기에 대한 엔터프라이즈 CA 인증서를 배포 및 구성하는 방법을 알아봅니다.
+title: Azure Firewall 프리미엄에 대한 엔터프라이즈 CA 인증서 배포 및 구성
+description: Azure Firewall 프리미엄에 대한 엔터프라이즈 CA 인증서를 배포 및 구성하는 방법을 알아봅니다.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/18/2021
+ms.date: 07/15/2021
 ms.author: victorh
-ms.openlocfilehash: 38d83186c06eac0fc3a49834172c2a4b8542caff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 067daef5782697357d08edc0a6c09bea8af085f6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590469"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114441076"
 ---
-# <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall-preview"></a>Azure Firewall 미리 보기에 대한 엔터프라이즈 CA 인증서 배포 및 구성
-
-> [!IMPORTANT]
-> Azure Firewall 프리미엄은 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall"></a>Azure Firewall에 대한 엔터프라이즈 CA 인증서 배포 및 구성
 
 
-Azure Firewall 프리미엄 미리 보기에는 인증서 인증 체인이 필요한 TLS 검사 기능이 포함되어 있습니다. 프로덕션 배포의 경우 엔터프라이즈 PKI를 사용하여 Azure Firewall 프리미엄에서 사용하는 인증서를 생성해야 합니다. 이 문서를 사용하여 Azure Firewall 프리미엄 미리 보기에 대한 중간 CA 인증서를 만들고 관리합니다.
+Azure Firewall 프리미엄에는 인증서 인증 체인이 필요한 TLS 검사 기능이 포함되어 있습니다. 프로덕션 배포의 경우 엔터프라이즈 PKI를 사용하여 Azure Firewall 프리미엄에서 사용하는 인증서를 생성해야 합니다. 이 문서를 사용하여 Azure Firewall 프리미엄에 대한 중간 CA 인증서를 만들고 관리합니다.
 
-Azure Firewall 프리미엄 미리 보기에서 사용하는 인증서에 대한 자세한 내용은 [Azure Firewall 프리미엄 미리 보기 인증서](premium-certificates.md)를 참조하세요.
+Azure Firewall 프리미엄에서 사용하는 인증서에 대한 자세한 내용은 [Azure Firewall 프리미엄 인증서](premium-certificates.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-엔터프라이즈 CA를 사용하여 Azure Firewall 프리미엄 미리 보기에서 사용할 인증서를 생성하려면 다음 리소스가 있어야 합니다. 
+엔터프라이즈 CA를 사용하여 Azure Firewall 프리미엄에서 사용할 인증서를 생성하려면 다음 리소스가 있어야 합니다. 
 
 - Active Directory 포리스트 
 - 웹 등록을 사용하도록 설정한 Active Directory 인증 서비스 루트 CA 
@@ -57,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Azure Portal에서 Key Vault의 인증서 페이지로 이동하고 **생성/가져오기** 를 선택합니다.
 1. 만들기 방법으로 **가져오기** 를 선택하고, 인증서 이름을 지정한 후, 내보낸 .pfx 파일을 선택하고, 암호를 입력한 다음, **만들기** 를 선택합니다.
-1. 방화벽 정책의 **TLS 검사(미리 보기)** 페이지로 이동하고 관리 ID, Key Vault 및 인증서를 선택합니다. 
+1. 방화벽 정책의 **TLS 검사** 페이지로 이동하고 관리 ID, Key Vault 및 인증서를 선택합니다. 
 1. **저장** 을 선택합니다.
    :::image type="content" source="media/premium-deploy-certificates-enterprise-ca/tls-inspection.png" alt-text="TLS 조사":::
 
@@ -79,4 +75,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Portal의 Azure Firewall 프리미엄 미리 보기](premium-portal.md)
+[Azure Portal의 Azure Firewall 프리미엄](premium-portal.md)

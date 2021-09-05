@@ -2,14 +2,14 @@
 title: 지속성 함수의 바인딩 - Azure
 description: Azure Functions의 Durable Functions 확장에 트리거 및 바인딩을 사용하는 방법입니다.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 08/03/2021
 ms.author: azfuncdf
-ms.openlocfilehash: a07748f996788825b21b5c23a117954085dadcbf
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 097527dbbf4363365e609a1f5aac1d851eb5dc60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656941"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567031"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -123,7 +123,7 @@ public static async Task<string> Run(
 ```
 
 > [!NOTE]
-> 이전 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -397,6 +397,21 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
 > 엔터티 트리거는 Durable Functions 2.x부터 사용할 수 있습니다.
 
 내부적으로 이 트리거 바인딩은 실행해야 할 새 엔터티 작업에 대해 구성된 지속성 저장소를 폴링합니다.
+
+.NET에서 함수를 작성하는 경우 [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.entitytriggerattribute) .NET 특성을 사용하여 엔터티 트리거가 구성됩니다.
+
+JavaScript, Python 또는 PowerShell을 사용하는 경우 엔터티 트리거는 *function.json* 의 `bindings` 배열에서 다음 JSON 개체에 의해 정의됩니다.
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "entityName": "<Optional - name of the entity>",
+    "type": "entityTrigger",
+    "direction": "in"
+}
+```
+
+기본적으로 엔터티의 이름은 함수의 이름입니다.
 
 ### <a name="trigger-behavior"></a>트리거 동작
 

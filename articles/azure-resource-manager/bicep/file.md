@@ -2,13 +2,13 @@
 title: Bicep 파일 구조 및 구문
 description: 선언 구문을 사용하여 Bicep 파일의 구조 및 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: a9dcb83b54a665a71c8f1095a682c9dabcafd039
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/02/2021
+ms.openlocfilehash: 5401aebb0b0a82a04a2b78f9af1dc6d133915c0b
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026687"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113286631"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Bicep 파일의 구조 및 구문 이해
 
@@ -297,6 +297,10 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 출력은 매개 변수, 변수, 모듈 또는 리소스와 동일한 이름을 가질 수 없습니다.
 
 자세한 내용은 [Bicep의 출력](./outputs.md)을 참조하세요.
+
+## <a name="whitespace"></a>공백
+
+Bicep 파일을 작성할 때 공백과 탭은 무시됩니다. 그러나 새 줄에는 [개체](./data-types.md#objects) 및 [배열](./data-types.md#arrays) 선언 등의 의미 체계가 있습니다.
 
 ## <a name="comments"></a>주석
 

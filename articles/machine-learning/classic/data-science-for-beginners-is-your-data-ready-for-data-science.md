@@ -9,14 +9,17 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 07db1f1c8021759fbd5702ad9353f74fcd1524c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cc7334d225f706610aacfed0cce8e15b4da21c1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100516977"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694815"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## <a name="video-2-data-science-for-beginners-series"></a>비디오 2: 초급자를 위한 데이터 과학 시리즈
 데이터를 평가하여 데이터가 데이터 과학의 기본 조건을 충족하는지 확인하는 방법을 알아봅니다.
 
@@ -99,8 +102,8 @@ ms.locfileid: "100516977"
 
 관련성이 있고, 연결되고, 정확하고, 충분한 데이터가 있으면 고품질의 데이터 과학을 수행하는 데 필요한 모든 재료를 갖추게 되는 것입니다.
 
-Microsoft Azure Machine Learning 스튜디오(클래식)의 *초급자를 위한 데이터 과학* 에 포함된 네 개의 다른 비디오도 확인해보세요.
+Machine Learning Studio(클래식)의 *초급자를 위한 데이터 과학'* 에 포함된 다른 4개 비디오도 확인해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](../overview-what-is-azure-ml.md)
+* [Azure Machine Learning 소개 가져오기](../overview-what-is-azure-machine-learning.md)

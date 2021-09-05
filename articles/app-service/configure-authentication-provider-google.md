@@ -7,12 +7,12 @@ ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: f6bec32fa928e840569ed95c35a056db91ea9737
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 46ccfd04722cb9333a8f6e546505ed1e10f657af
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077995"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537235"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Google 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -44,8 +44,9 @@ ms.locfileid: "106077995"
     
     이러한 옵션은 애플리케이션이 인증되지 않은 요청에 응답하는 방법을 결정하며 기본 선택 항목은 이 새 공급자를 사용하여 로그인하도록 모든 요청을 리디렉션합니다. 지금 이 동작의 사용자 지정을 변경하거나, 나중에 기본 **인증** 화면에서 **인증 설정** 옆의 **편집** 을 선택하여 이 설정을 조정할 수 있습니다. 이러한 옵션에 대한 자세한 정보는 [인증 흐름](overview-authentication-authorization.md#authentication-flow)을 참조하세요.
 
-1. (선택 사항) **다음: 범위** 를 클릭하고 애플리케이션에 필요한 모든 범위를 추가합니다. 해당 요청은 브라우저 기반 흐름의 로그인 시 요청됩니다.
 1. **추가** 를 클릭합니다.
+
+> [참고] 범위를 추가하는 경우: 공급자의 등록 포털에서 애플리케이션에 어떤 권한이 있는지 정의할 수 있습니다. 앱은 로그인 시 이러한 권한을 활용하는 범위를 요청할 수 있습니다.
 
 이제 앱에서 Google을 인증에 사용할 준비가 되었습니다. 공급자는 **인증** 화면에 나열됩니다. 여기에서 공급자 구성을 편집하거나 삭제할 수 있습니다.
 

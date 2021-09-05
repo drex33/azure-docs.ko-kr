@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 908d9492a6eb699c999fe93b92697dc511dca082
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 0967e440a661d6bf51dc5206e5c21cdda45db073
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110189295"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113565133"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -57,7 +57,7 @@ Application Insights 통합을 사용하도록 설정하면 원격 분석 데이
 
 ### <a name="custom-telemetry-data"></a>사용자 지정 원격 분석 데이터
 
-[C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions) 및 [JavaScript](functions-reference-node.md#log-custom-telemetry)에서 Application Insights SDK를 사용하여 사용자 지정 원격 분석 데이터를 작성할 수 있습니다.
+[C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#log-custom-telemetry) 및 [Python](functions-reference-python.md#log-custom-telemetry)에서 Application Insights SDK를 사용하여 사용자 지정 원격 분석 데이터를 작성할 수 있습니다.
 
 ### <a name="dependencies"></a>종속성
 
@@ -80,6 +80,7 @@ Application Insights는 수집된 종속성 데이터의 _애플리케이션 맵
 
 + [C# 함수의 사용자 지정 원격 분석 로깅](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
 + [JavaScript 함수의 사용자 지정 원격 분석 로깅](functions-reference-node.md#log-custom-telemetry) 
++ [Python 함수의 사용자 지정 원격 분석 로깅](functions-reference-python.md#log-custom-telemetry)
 
 ## <a name="writing-to-logs"></a>로그에 작성 
 
@@ -123,6 +124,10 @@ Application Insights를 사용하여 원격 분석 데이터를 장기 스토리
 [Azure Functions 크기 조정 컨트롤러](./event-driven-scaling.md#runtime-scaling)는 앱이 실행되는 Azure Functions 호스트의 인스턴스를 모니터링합니다. 이 컨트롤러는 현재 성능에 따라 인스턴스를 추가하거나 제거할 시기에 대한 결정을 내립니다. 크기 조정 컨트롤러가 함수 앱에 대해 내리는 결정을 더 잘 이해하기 위해 크기 조정 컨트롤러가 Application Insights에 로그를 내보내도록 할 수 있습니다. 다른 서비스에서 분석을 위해 생성된 로그를 Blob 스토리지에 저장할 수도 있습니다. 
 
 이 기능을 사용하도록 설정하려면 `SCALE_CONTROLLER_LOGGING_ENABLED`라는 애플리케이션 설정을 함수 앱 설정에 추가합니다. 이 방법을 알아보려면 [크기 조정 컨트롤러 로그 구성](configure-monitoring.md#configure-scale-controller-logs)을 참조하세요.
+
+## <a name="azure-monitor-metrics"></a>Azure Monitor 메트릭
+
+Application Insights에서 수집한 로그 기반 원격 분석 데이터 외에도 [Azure Monitor 메트릭](../azure-monitor/essentials/data-platform-metrics.md)에서 함수 앱이 실행되는 방법에 대한 데이터도 가져올 수 있습니다. 자세한 내용은 [Azure Functions에서 Azure Monitor 메트릭 사용](monitor-metrics.md)을 참조하세요.
 
 ## <a name="report-issues"></a>문제 보고
 

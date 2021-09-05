@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4b47a311513a1216555583b64095d4bc46e4b48e
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: ff22ed8c1ef96d1839767ac56a7215737ae18c14
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107895904"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530679"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 흐름 버전
 
@@ -27,7 +27,7 @@ Azure AD B2C(Azure Active Directory B2C)의 사용자 흐름은 고객 ID 환경
 >- **권장** 사용자 흐름은 최신 기능이 있는 일반 제공 차세대 사용자 흐름입니다. 레거시 **V1**, **V1.1** 및 **V2** 버전의 모든 기능을 결합합니다. 앞으로는 **권장** 사용자 흐름이 유지되고 업데이트됩니다. 새로운 권장 사용자 흐름으로 이동하면 출시되는 새로운 기능에 액세스할 수 있습니다.
 >- 이전의 **V1** 이라고 하는 **표준(레거시)** 사용자 흐름은 레거시 사용자 흐름입니다. 특정 비즈니스가 필요한 경우가 아니면 이러한 버전의 사용자 흐름은 유지 관리 또는 업데이트되지 않으므로 사용하지 않는 것이 좋습니다.
 >
->모든 레거시 미리 보기 사용자 흐름(V1.1 및 V2)은 **2021년 8월 1일** 에 사용 중단될 예정입니다. 가능하면 항상 최신 기능과 업데이트를 활용할 수 있도록 최대한 빨리 [ **권장** 버전으로 전환](#how-to-switch-to-a-recommended-user-flow)하는 것이 좋습니다. *이러한 변경 사항은 Azure 퍼블릭 클라우드에만 적용됩니다. 다른 환경에서는 [레거시 사용자 흐름 버전 관리](user-flow-versions-legacy.md)를 계속 사용합니다.*
+>퍼블릭 클라우드에서 모든 레거시 미리 보기 사용자 흐름(V1.1 및 V2)은 더 이상 사용되지 않습니다. *이러한 변경 사항은 Azure 퍼블릭 클라우드에만 적용됩니다. 다른 환경에서는 [레거시 사용자 흐름 버전 관리](user-flow-versions-legacy.md)를 계속 사용합니다.*
 
 ## <a name="recommended-user-flows"></a>권장 사용자 흐름
 
@@ -85,4 +85,4 @@ Azure AD B2C(Azure Active Directory B2C)의 사용자 흐름은 고객 ID 환경
 
 ### <a name="will-microsoft-still-support-my-legacy-v2-or-v11-user-flow-policy"></a>Microsoft에서 레거시 V2 또는 V1.1 사용자 흐름 정책을 계속 지원하나요?
 
-퍼블릭 클라우드에서 모든 레거시 미리 보기 사용자 흐름(V1.1 및 V2)은 2021년 8월 1일에 사용 중단될 예정입니다. 가능하면 항상 최신 기능과 업데이트를 활용할 수 있도록 최대한 빨리 [ **권장** 버전으로 전환](#how-to-switch-to-a-recommended-user-flow)하는 것이 좋습니다. *이러한 변경 사항은 Azure 퍼블릭 클라우드에만 적용됩니다. 다른 환경에서는 [레거시 사용자 흐름 버전 관리](user-flow-versions-legacy.md)를 계속 사용합니다.*
+퍼블릭 클라우드에서 모든 레거시 미리 보기 사용자 흐름(V1.1 및 V2)은 더 이상 사용되지 않습니다. *이러한 변경 사항은 Azure 퍼블릭 클라우드에만 적용됩니다. 다른 환경에서는 [레거시 사용자 흐름 버전 관리](user-flow-versions-legacy.md)를 계속 사용합니다.*

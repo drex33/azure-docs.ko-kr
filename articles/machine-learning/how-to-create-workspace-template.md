@@ -10,12 +10,12 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/21/2021
-ms.openlocfilehash: afb0d487d43b2a04aa298d9ec4249a6855d06544
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9a8272d6b21130f253046ef3ffe05db8b00d4b79
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967746"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038673"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -28,11 +28,9 @@ ms.locfileid: "111967746"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning의 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 * CLI에서 템플릿을 사용하려면 [Azure PowerShell](/powershell/azure/) 또는 [Azure CLI](/cli/azure/install-azure-cli)가 필요합니다.
-
-* 일부 시나리오에서는 지원 티켓을 열어야 합니다. 예를 들어 고객 관리형 키로 Private Link를 사용하도록 설정된 작업 영역을 사용합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -278,9 +276,6 @@ New-AzResourceGroupDeployment `
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>프라이빗 엔드포인트 뒤에 작업 영역만 배포
 
 연결된 리소스가 가상 네트워크 뒤에 있지 않은 경우 **privateEndpointType** 매개 변수를 `AutoAproval` 또는 `ManualApproval`로 설정하여 작업 영역을 프라이빗 엔드포인트 뒤에 배포할 수 있습니다. 새 작업 영역과 기존 작업 영역 모두에 대해 이 작업을 수행할 수 있습니다. 기존 작업 영역을 업데이트할 때 기존 작업 영역의 정보를 사용하여 템플릿 매개 변수를 입력합니다.
-
-> [!IMPORTANT]
-> Azure Government 지역에서는 프라이빗 링크로 Azure Machine Learning 작업 영역을 사용할 수 없습니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
@@ -541,7 +536,7 @@ New-AzResourceGroupDeployment `
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 1. [사용자 지정 템플릿에서 리소스 배포](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 선택__ 화면이 나타나면 **빠른 시작** 항목을 선택합니다. 표시되면 "템플릿 리포지토리를 열려면 여기를 클릭하세요."라고 레이블이 지정된 링크를 선택합니다. 이 링크를 통해 Azure 빠른 시작 템플릿 리포지토리의 `quickstarts` 디렉터리로 이동합니다.
-1. 빠른 시작 템플릿 목록에서 `microsoft.machinelearningservices'. Finally, select ` Azure에 배포`를 선택합니다.
+1. 빠른 시작 템플릿 목록에서 `microsoft.machinelearningservices`를 선택합니다. 마지막으로 `Deploy to Azure`를 선택합니다.
 1. 템플릿이 표시되면 배포 시나리오에 따라 다음과 같은 필수 정보 및 기타 매개 변수를 입력합니다.
 
    * 구독: 이러한 리소스에 사용할 Azure 구독을 선택합니다.

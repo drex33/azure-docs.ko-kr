@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932fc71617846f2839767546a8fac00a3d16008c
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2b34eafac248bc0fd06076550e784a061573a712
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792258"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536048"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>관리 단위에 범위가 지정된 역할 할당
 
@@ -28,9 +28,9 @@ Azure AD(Azure Active Directory)에서 보다 세부적인 관리 제어를 위�
 ## <a name="prerequisites"></a>필수 조건
 
 - 각 관리 단위 관리자에 대한 Azure AD Premium P1 또는 P2 라이선스
-- 관리 단위 멤버에 대한 Azure AD Free 라이선스
+- 관리 단위 구성원에 대한 Azure AD Free 라이선스
 - 권한 있는 역할 관리자 또는 전역 관리자
-- PowerShell 사용 시 AzureAD 모듈
+- PowerShell을 사용하는 경우 AzureAD 모듈
 - Microsoft Graph API용 Graph 탐색기 사용 시 관리자 동의
 
 자세한 내용은 [PowerShell 또는 Graph 탐색기를 사용하기 위한 필수 구성 요소](prerequisites.md)를 참조하세요.
@@ -52,7 +52,7 @@ Azure AD(Azure Active Directory)에서 보다 세부적인 관리 제어를 위�
 관리 단위 범위가 있는 역할에는 다음 보안 주체를 할당할 수 있습니다.
 
 * 사용자
-* 역할 할당 가능한 클라우드 그룹(미리 보기)
+* 역할 할당 Azure AD 그룹
 * SPN(서비스 주체 이름)
 
 ## <a name="assign-a-scoped-role"></a>범위 지정 역할 할당
@@ -61,9 +61,9 @@ Azure Portal, PowerShell 또는 Microsoft Graph를 사용하여 범위 지정 �
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Azure Portal에서 **Azure AD** 로 이동합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
-1. **관리 단위** 를 선택한 다음 사용자 역할 범위를 할당하려는 관리 단위를 선택합니다. 
+1. **Azure Active Directory** > **관리 단위** 를 선택한 다음, 사용자 역할 범위를 할당하려는 관리 단위를 선택합니다. 
 
 1. 왼쪽 창에서 **역할 및 관리자** 를 선택하여 사용 가능한 모든 역할을 나열합니다.
 
@@ -118,9 +118,9 @@ Azure Portal, PowerShell 또는 Microsoft Graph를 사용하여 범위가 지정
 
 [Azure AD의 관리 단위 섹션](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit)에서 관리 단위 범위를 사용하여 만든 모든 역할 할당을 볼 수 있습니다. 
 
-1. Azure Portal에서 **Azure AD** 로 이동합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 창에서 **관리 단위** 를 선택한 다음 확인하려는 역할 할당 목록에 대한 관리 단위를 선택합니다. 
+1. **Azure Active Directory** > **관리 단위** 를 선택한 다음, 확인하려는 역할 할당 목록에 대한 관리 단위를 선택합니다. 
 
 1. **역할 및 관리자** 를 선택한 다음 역할을 열어 관리 단위의 할당을 확인합니다.
 
@@ -149,5 +149,5 @@ GET /directory/administrativeUnits/{admin-unit-id}/scopedRoleMembers
 
 ## <a name="next-steps"></a>다음 단계
 
-- [클라우드 그룹을 사용하여 역할 할당 관리](groups-concept.md)
-- [클라우드 그룹에 할당된 역할 문제 해결](groups-faq-troubleshooting.md)
+- [Azure AD 그룹을 사용하여 역할 할당 관리](groups-concept.md)
+- [그룹에 할당된 Azure AD 역할 문제 해결](groups-faq-troubleshooting.yml)

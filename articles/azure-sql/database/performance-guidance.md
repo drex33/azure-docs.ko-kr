@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: 40657ad2f3b69d62e0e0d9c7d9e0f0be7343547b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: mathoma
+ms.date: 07/26/2021
+ms.openlocfilehash: 6446470baf321fa46eab4a68a13cc6e09fdd2e59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96490604"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566946"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 성능을 위해 애플리케이션과 데이터베이스 튜닝
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -264,6 +264,12 @@ Azure SQL Database 및 Azure SQL Managed Instance 내에서 스케일 아웃 아
 ### <a name="application-tier-caching"></a>애플리케이션 계층 캐싱
 
 일부 데이터베이스 애플리케이션에는 읽기 작업이 많은 워크로드가 포함되어 잇습니다. 캐싱 계층을 통해 데이터베이스의 부하를 줄이고 Azure SQL Database 및 Azure SQL Managed Instance를 사용하여 데이터베이스를 지원하는 데 필요한 컴퓨팅 크기를 줄일 수 있습니다. [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)를 사용하면 읽기 작업이 많은 워크로드에서 데이터를 한 번만(또는 구성 방식에 따라 애플리케이션 계층 머신당 한 번만) 읽고 해당 데이터를 데이터베이스 외부에 저장할 수 있습니다. 그러면 데이터베이스 부하(CPU 및 읽기 IO)가 감소하지만, 캐시에서 읽는 데이터가 데이터베이스에 있는 데이터와 동기화되지 않을 수 있어 트랜잭션 일관성에 영향을 미칠 수 있습니다. 많은 애플리케이션에서 비일관성이 어느 정도 허용되지만 모든 워크로드에 대해 허용되는 것은 아닙니다. 애플리케이션 계층 캐싱 전략을 구현할 경우 애플리케이션 요구 사항을 완전히 이해해야 합니다.
+
+## <a name="get-configuration-and-design-tips"></a>구성 및 디자인 팁 가져오기
+
+Azure SQL Database를 사용하는 경우 오픈 소스 T-SQL [스크립트](https://aka.ms/sqldbtips)를 실행하여 요청 시 데이터베이스를 분석하고 데이터베이스 성능 및 상태를 개선하기 위한 팁을 제공할 수 있습니다. 일부 팁은 모범 사례에 따라 구성 및 운영 변경을 제안하는 반면, 다른 팁은 고급 데이터베이스 엔진 기능을 사용하도록 설정하는 등 워크로드에 적합한 디자인 변경을 권장합니다.
+
+스크립트에 대해 자세히 알아보고 시작하려면 [wiki](https://aka.ms/sqldbtipswiki) 페이지를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

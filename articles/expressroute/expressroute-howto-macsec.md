@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: duau
-ms.openlocfilehash: 8ee7f42a4b05def7c2239c7a1e5bcef54f6f7e50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 445010e345e92913f32705fc801a6521703ba84f
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89395777"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538246"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>ExpressRoute Direct 포트에서 MACsec 구성
 
@@ -72,6 +73,16 @@ ms.locfileid: "89395777"
     $MACsecCAKSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CAK_name" -SecretValue $CAK
     $MACsecCKNSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CKN_name" -SecretValue $CKN
     ```
+   > [!NOTE]
+   > CKN은 64자리의 16진수(0-9, A-f)까지의 짝수 길이 문자열이어야 합니다.
+   >
+   > CAK 길이는 지정된 암호 제품군에 따라 달라집니다.
+   >
+   > * GcmAes128의 경우 CAK는 32자리의 16진수(0-9, A-f)까지의 짝수 길이 문자열이어야 합니다.
+   >
+   > * GcmAes256의 경우 CAK는 64자리의 16진수(0-9, A-f)까지의 짝수 길이 문자열이어야 합니다.
+   >
+
 4. 사용자 ID에 GET 권한을 할당합니다.
 
     ```azurepowershell-interactive

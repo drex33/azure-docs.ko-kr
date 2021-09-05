@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 35aa53def1a72f98309e7616ce64194dd77c5a4d
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 53940c21a96da9b763a0b2f25400fb13cbba7098
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331289"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112119682"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>SQL 인사이트 문제 해결(미리 보기)
 SQL 인사이트의 데이터 수집 문제를 해결하려면 **프로필 관리** 탭에서 모니터링 컴퓨터의 상태를 확인합니다. 상태는 다음 중 하나입니다.
@@ -85,7 +85,7 @@ telegraf service의 오류 메시지를 확인하려면 다음 명령을 사용�
 
 ### <a name="mdsd-service-logs"></a>mdsd 서비스 로그 
 
-Azure Monitor 에이전트에 대한 [현재 제한 사항을](../agents/azure-monitor-agent-overview.md#current-limitations) 확인하십시오. 
+Azure Monitor 에이전트의 [필수 구성 요소](../agents/azure-monitor-agent-install.md#prerequisites)를 확인합니다. 
 
 
 서비스 로그:  

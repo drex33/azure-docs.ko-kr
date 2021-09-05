@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
-ms.date: 11/06/2020
-ms.openlocfilehash: 61f169c447b61c6c072971fb5913b37a3752e09e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 06/25/2021
+ms.openlocfilehash: 9d1ae8214467d38958597136877baca0309b2ffc
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790265"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114675268"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>마이그레이션 가이드: SQL Server를 Azure SQL Managed Instance로
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -59,11 +59,24 @@ SQL Server를 Azure SQL Managed Instance로 마이그레이션하려면 다음�
 
 검색 단계에서 사용할 수 있는 도구에 대한 자세한 내용은 [데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구](../../../dms/dms-tools-matrix.md)를 참조하세요. 
 
+데이터 원본을 검색한 후에는 Azure SQL Managed Instance로 마이그레이션할 수 있는 온-프레미스 SQL Server 인스턴스를 평가하여 마이그레이션 차단 또는 호환성 문제를 식별합니다.
+다음 단계를 진행하여 데이터베이스를 평가하고 Azure SQL Managed Instance로 마이그레이션합니다.
+
+:::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-sql-managed-instance-steps.png" alt-text="Azure SQL Managed Instance로 마이그레이션하는 단계":::
+
+- [SQL Managed Instance 호환성을 평가](#assess)합니다. 여기서, 마이그레이션을 방해할 수 있는 차단 문제가 없는지 확인해야 합니다.
+  이 단계에는 원본 SQL Server 인스턴스의 리소스 사용량을 판별하기 위한 [성능 기준](sql-server-to-managed-instance-performance-baseline.md#create-a-baseline) 만들기도 포함됩니다. 이 단계는 적절한 크기의 관리형 인스턴스를 배포하고 마이그레이션 후 성능이 영향을 받지 않는지 확인하려는 경우 필요합니다.
+- [앱 연결 옵션을 선택](../../managed-instance/connect-application-instance.md)합니다.
+- [최적으로 크기가 조정된 관리형 인스턴스에 배포](#deploy-to-an-optimally-sized-managed-instance)합니다. 여기서, 관리형 인스턴스의 기술적 특성(vCore 수, 메모리 크기)과 성능 계층(중요 비즈니스용, 범용)을 선택합니다.
+- 오프라인 마이그레이션 또는 온라인 마이그레이션 옵션을 사용하여 데이터베이스를 마이그레이션하는 [마이그레이션 방법을 선택하고 마이그레이션](sql-server-to-managed-instance-overview.md#compare-migration-options)합니다.
+- [애플리케이션을 모니터링 수정](#monitor-and-remediate-applications)하여 성능이 예상과 같은지 확인합니다.
+
+
 ### <a name="assess"></a>평가 
 
 [!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
-데이터 원본을 검색한 후에는 Azure SQL Managed Instance로 마이그레이션할 수 있는 온-프레미스 SQL Server 인스턴스를 평가하여 마이그레이션 차단 또는 호환성 문제를 식별합니다. 
+SQL Managed Instance가 애플리케이션의 데이터베이스 요구 사항과 호환되는지 확인합니다. SQL Managed Instance는 SQL Server를 사용하는 대부분의 기존 애플리케이션에서 리프트 앤 시프트 방식으로 쉽게 마이그레이션할 수 있도록 설계되었습니다. 그러나 경우에 따라 아직 지원되지 않는 기능이 필요할 수 있으며 해결 방법을 구현하는 데 드는 비용이 너무 큽니다. 
 
 Data Migration Assistant(버전 4.1 이상)를 사용하여 다음 데이터베이스를 평가할 수 있습니다. 
 
@@ -86,7 +99,7 @@ Database Migration Assessment를 사용하여 환경을 평가하려면 다음 �
 
 자세히 알아보려면 [Data Migration Assistant를 사용하여 SQL Server 마이그레이션 평가 수행](/sql/dma/dma-assesssqlonprem)을 참조하세요.
 
-SQL Managed Instance가 워크로드에 적합한 대상이 아닌 경우 Azure VM의 SQL Server가 비즈니스의 실행 가능한 대체 대상이 될 수 있습니다. 
+SQL Managed Instance가 워크로드에 적합한 대상이 아닌 경우 Azure VM의 SQL Server가 비즈니스의 실행 가능한 대체 대상이 될 수 있습니다.
 
 #### <a name="scaled-assessments-and-analysis"></a>스케일링된 평가 및 분석
 
@@ -98,22 +111,47 @@ Data Migration Assistant에서는 분석을 위해 평가 보고서의 스케일
 > [!IMPORTANT]
 >추가 분석 및 대상의 준비 상태를 위해 결과를 [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results)로 업로드하는 것을 허용하는 [DMA 명령줄 유틸리티](/sql/dma/dma-commandline)를 사용하여 여러 데이터베이스에 대한 대규모 평가 실행을 자동화할 수도 있습니다.
 
-### <a name="create-a-performance-baseline"></a>성능 기준 만들기
+### <a name="deploy-to-an-optimally-sized-managed-instance"></a>최적 크기의 관리되는 인스턴스에 배포
 
-SQL Managed Instance의 워크로드 성능을 SQL Server에서 실행 중인 원래 워크로드와 비교해야 하는 경우 비교에 사용할 성능 기준을 만들어야 합니다. 자세히 알아보려면 [성능 기준](sql-server-to-managed-instance-performance-baseline.md)을 참조하세요. 
+검색 및 평가 단계의 정보에 따라 적절한 크기의 대상 SQL Managed Instance를 만듭니다. [Azure Portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)또는 [ARM(Azure Resource Manager) 템플릿](../../managed-instance/create-template-quickstart.md)을 사용하여 해당 작업을 수행할 수 있습니다.
 
-### <a name="create-sql-managed-instance"></a>SQL Managed Instance 만들기 
+SQL Managed Instance는 클라우드로 이동할 온-프레미스 워크로드에 맞게 조정됩니다. 작업에 적합한 수준의 리소스를 선택할 때 유연성이 높은 [구매 모델](../../database/service-tiers-vcore.md)이 도입되었습니다. 온-프레미스 환경에서는 실제 코어 및 IO 대역폭을 사용하여 이러한 작업의 크기를 조정하는 데 익숙할 것입니다. 관리형 인스턴스에 대한 구매 모델은 가상 코어 수 또는 “vCore 수”를 기반으로 하며, 추가 스토리지 및 IO를 별도로 사용할 수 있습니다. vCore 모델은 현재 온-프레미스에서 사용하는 제품과 비교하여 클라우드의 컴퓨팅 요구 사항을 더 쉽게 이해할 수 있는 방법입니다. 이 구매 모델을 사용하면 클라우드에서 대상 환경의 크기를 올바르게 조정할 수 있습니다. 올바른 서비스 계층 및 특성을 선택하는 데 도움이 될 수 있는 몇 가지 일반적인 지침이 여기에 설명되어 있습니다.
 
-검색 및 평가 단계의 정보에 따라 적절한 크기의 대상 SQL Managed Instance를 만듭니다. [Azure Portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)또는 [ARM(Azure Resource Manager) 템플릿](../../managed-instance/create-template-quickstart.md)을 사용하여 해당 작업을 수행할 수 있습니다. 
+- [관리형 인스턴스가 설치된 VM 특성](../../managed-instance/resource-limits.md#hardware-generation-characteristics)과 일치하도록 CPU 특성을 스케일링해야 할 수도 있다는 점에 유의하여 기준 CPU 사용량을 기반으로 SQL Server에서 사용 중인 코어 수와 일치하는 관리형 인스턴스를 프로비저닝합니다.
+- 기준 메모리 사용량에 따라 [ 일치하는 메모리가 있는 서비스 계층](../../managed-instance/resource-limits.md#hardware-generation-characteristics)을 선택합니다. 메모리 크기는 직접 선택할 수 없으므로 메모리가 일치하는 vCore 크기를 사용하여 관리형 인스턴스를 선택해야 합니다(예: Gen5의 5.1GB/vCore).
+- 파일 하위 시스템의 기준 IO 대기 시간을 기반으로 범용(대기 시간이 5ms 초과) 및 중요 비즈니스용(대기 시간이 3ms 미만) 서비스 계층 중에서 선택합니다.
+- 예상 IO 성능을 얻도록 기준 처리량을 기반으로 데이터 또는 로그 파일의 크기를 미리 할당합니다.
 
+배포 시 컴퓨팅 및 스토리지 리소스를 선택한 다음, 나중에 [Azure Portal](../../database/scale-resources.md)을 사용하여 애플리케이션의 가동 중지 시간을 도입하지 않고 변경할 수 있습니다.
+
+:::image type="content" source="media/sql-server-to-managed-instance-overview/managed-instance-sizing.png" alt-text="관리되는 인스턴스 크기 조정":::
+
+VNet 인프라와 관리되는 인스턴스를 만드는 방법을 알아보려면 [관리되는 인스턴스 만들기](../../managed-instance/instance-create-quickstart.md)를 참조하세요.
+
+> [!IMPORTANT]
+> 대상 VNet 및 서브넷을 [관리형 인스턴스 VNet 요구 사항](../../managed-instance/connectivity-architecture-overview.md#network-requirements)에 따라 유지해야 합니다. 호환되지 않는 경우 새 인스턴스를 만들거나 이미 만든 인스턴스를 사용하지 못할 수 있습니다. [새 네트워크 만들기](../../managed-instance/virtual-network-subnet-create-arm-template.md) 및 [기존 네트워크 구성](../../managed-instance/vnet-existing-add-subnet.md)에 대해 자세히 알아보세요.
 
 ## <a name="migrate"></a>마이그레이션
 
 마이그레이션 전 단계와 관련된 작업을 완료하면 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다. 
 
-선택한 [마이그레이션 방법](sql-server-to-managed-instance-overview.md#compare-migration-options)을 사용하여 데이터를 마이그레이션합니다. 
+선택한 [마이그레이션 방법](sql-server-to-managed-instance-overview.md#compare-migration-options)을 사용하여 데이터를 마이그레이션합니다.
 
-이 가이드에서는 가장 인기 있는 두 가지 옵션인 Azure DMS(Database Migration Service), 그리고 네이티브 백업 및 복원에 대해 설명합니다. 
+SQL Managed Instance는 온-프레미스 또는 Azure VM 데이터베이스 구현에서 대량의 데이터베이스 마이그레이션이 필요한 사용자 시나리오를 대상으로 합니다. 인스턴스 수준 및/또는 데이터베이스 간 기능을 정기적으로 사용하는 애플리케이션의 백 엔드를 리프트 앤 시프트 방식으로 이동해야 하는 경우에 최적의 선택입니다. 이러한 시나리오의 경우 애플리케이션을 다시 구성하지 않고도 Azure에서 전체 인스턴스를 해당 환경으로 이동할 수 있습니다.
+
+SQL 인스턴스를 이동하려면 다음을 신중하게 계획해야 합니다.
+
+- 배치해야 하는 모든 데이터베이스(같은 인스턴스에서 실행되는 데이터베이스)의 마이그레이션.
+- 로그인, 자격 증명, SQL 에이전트 작업 및 연산자, 서버 수준 트리거를 포함하여 애플리케이션이 종속된 인스턴스 수준 개체의 마이그레이션.
+
+SQL Managed Instance는 정기적인 DBA 작업의 일부를 기본 제공되는 플랫폼에 위임할 수 있도록 하는 관리되는 서비스입니다. 따라서 [고가용성](../../database/high-availability-sla.md)이 기본 제공되므로 정기 백업을 위한 유지 관리 작업 또는 Always On 구성과 같이 일부 인스턴스 수준 데이터는 마이그레이션할 필요가 없습니다.
+
+SQL Managed Instance에서 지원하는 데이터베이스 마이그레이션 옵션은 다음과 같습니다(현재 지원되는 유일한 마이그레이션 방법임).
+
+- Azure Database Migration Service - 거의 제로에 가까운 가동 중지 시간으로 마이그레이션.
+- 네이티브 `RESTORE DATABASE FROM URL` - SQL Server의 네이티브 백업을 사용하며 약간의 가동 중지 시간 필요
+
+이 가이드에서는 가장 인기 있는 두 가지 옵션인 Azure DMS(Database Migration Service), 그리고 네이티브 백업 및 복원에 대해 설명합니다.
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
@@ -132,7 +170,6 @@ DMS를 사용하여 마이그레이션을 수행하려면 다음 단계를 수�
 이 마이그레이션 옵션에 대한 자세한 단계별 자습서는 [DMS를 사용하여 SQL Server를 Azure SQL Managed Instance로 온라인 마이그레이션](../../../dms/tutorial-sql-server-managed-instance-online.md)을 참조하세요. 
    
 
-
 ### <a name="backup-and-restore"></a>백업 및 복원 
 
 신속하고 간편한 데이터베이스 마이그레이션을 가능하게 하는 Azure SQL Managed Instance의 주요 기능 중 하나는 [Azure Storage](https://azure.microsoft.com/services/storage/)에 저장된 데이터베이스 백업(`.bak`) 파일의 네이티브 복원입니다. 백업 및 복원은 데이터베이스의 크기를 기반으로 하는 비동기 작업입니다. 
@@ -144,6 +181,19 @@ DMS를 사용하여 마이그레이션을 수행하려면 다음 단계를 수�
 > [!NOTE]
 > 백업을 수행하고 백업을 Azure Storage에 업로드하고 Azure SQL Managed Instance에 네이티브 복원 작업을 수행하는 데 소요되는 시간은 데이터베이스 크기에 따라 다릅니다. 대규모 데이터베이스의 경우 작업을 수용할 수 있도록 충분한 가동 중지 시간을 확보하세요. 
 
+다음 표에서는 실행되는 원본 SQL Server 버전에 따라 사용할 수 있는 방법에 대한 자세한 정보를 제공합니다.
+
+|단계|SQL 엔진 및 버전|백업/복원 방법|
+|---|---|---|
+|Azure Storage에 백업 저장|2012 SP1 CU2 이전|Azure Storage에 .bak 파일 직접 업로드|
+| |2012 SP1 CU2~2016|사용되지 않는 [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql) 구문을 사용하여 직접 백업|
+| |2016 이상|[WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 구문을 사용하여 직접 백업|
+|Azure Storage에서 관리형 인스턴스로 복원| |[SAS CREDENTIAL을 사용하여 URL에서 복원](../../managed-instance/restore-sample-database-quickstart.md)|
+
+> [!IMPORTANT]
+>
+> - 원시 복원 옵션을 사용하여 [투명한 데이터 암호화](../../database/transparent-data-encryption-tde-overview.md)로 보호된 데이터베이스를 관리형 인스턴스로 마이크레이션하는 경우에는 데이터베이스를 복원하기 전에 온-프레미스 또는 Azure VM SQL Server의 해당 인증서를 마이그레이션해야 합니다. 자세한 단계는 [TDE 인증서를 관리형 인스턴스로 마이그레이션](../../managed-instance/tde-certificate-migrate.md)을 참조하세요.
+> - 시스템 데이터베이스의 복원은 지원되지 않습니다. master 또는 msdb 데이터베이스에 저장된 인스턴스 수준 개체를 마이그레이션하려면, 해당 개체를 스크립팅하고 대상 인스턴스에서 T-SQL 스크립트를 실행하는 것이 좋습니다.
 
 백업 및 복원을 사용하여 마이그레이션하려면 다음 단계를 수행합니다. 
 
@@ -171,7 +221,6 @@ DMS를 사용하여 마이그레이션을 수행하려면 다음 단계를 수�
 > 데이터베이스 복원 작업은 비동기로 진행되며 다시 시도할 수 있습니다. 연결이 끊어지거나 제한 시간이 만료되는 경우 SQL Server Management Studio에서 오류가 발생할 수 있습니다. Azure SQL Database는 백그라운드에서 데이터베이스 복원을 계속 시도하며, [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 보기를 사용하여 복원 진행률을 추적할 수 있습니다.
 
 
-
 ## <a name="data-sync-and-cutover"></a>데이터 동기화 및 중단
 
 원본에서 대상으로 데이터의 변경 내용을 지속적으로 복제/동기화하는 마이그레이션 옵션을 사용하는 경우 원본 데이터와 스키마가 대상에서 변경되고 드리프트될 수 있습니다. 데이터 동기화를 진행할 때, 마이그레이션 프로세스 도중에 원본에 대한 모든 변경 내용이 대상에 캡처되고 적용되었는지 확인하세요. 
@@ -188,9 +237,11 @@ DMS를 사용하여 마이그레이션을 수행하려면 다음 단계를 수�
 
 마이그레이션 후 단계는 데이터 정확도 문제를 조정하고 완성도를 확인할 뿐만 아니라 워크로드 관련 성능 문제를 해결하는 데 매우 중요합니다. 
 
-### <a name="remediate-applications"></a>애플리케이션 수정 
+### <a name="monitor-and-remediate-applications"></a>애플리케이션 모니터링 및 수정 
+관리형 인스턴스로의 마이그레이션을 완료하고 나면 워크로드의 애플리케이션 동작 및 성능을 추적해야 합니다. 이 프로세스에는 다음 작업이 포함됩니다.
 
-데이터가 대상 환경으로 마이그레이션된 후 이전에 원본을 사용한 모든 애플리케이션이 대상 사용을 시작해야 합니다. 이를 위해 애플리케이션을 변경해야 하는 경우도 있습니다.
+- [관리형 인스턴스에서 실행 중인 워크로드의 성능을](sql-server-to-managed-instance-performance-baseline.md#compare-performance) [원본 SQL Server 인스턴스에서 만든 성능 기준과 비교합니다](sql-server-to-managed-instance-performance-baseline.md#create-a-baseline).
+- 지속해서 [워크로드의 성능을 모니터링](sql-server-to-managed-instance-performance-baseline.md#monitor-performance)하여 잠재적인 문제와 개선 사항을 식별합니다.
 
 ### <a name="perform-tests"></a>테스트 수행
 
@@ -206,7 +257,7 @@ DMS를 사용하여 마이그레이션을 수행하려면 다음 단계를 수�
 
 SQL Managed Instance에서 제공하는 고급 클라우드 기반 기능(예:[기본 제공되는 고가용성](../../database/high-availability-sla.md), [위협 탐지](../../database/azure-defender-for-sql.md), [워크로드 모니터링 및 튜닝](../../database/monitor-tune-overview.md))을 활용하는 것이 좋습니다. 
 
-[Azure SQL 분석](../../../azure-monitor/insights/azure-sql.md)을 사용하여 중앙 집중 방식으로 관리되는 인스턴스의 거대한 집합을 모니터링할 수 있습니다.
+[Azure SQL 분석](../../../azure-sql/database/monitor-tune-overview.md)을 사용하여 중앙 집중 방식으로 관리되는 인스턴스의 거대한 집합을 모니터링할 수 있습니다.
 
 일부 SQL Server 기능은 [데이터베이스 호환성 수준](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database)이 최신 호환성 수준(150)으로 변경된 후에만 사용할 수 있습니다. 
 

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 2233e6f40c1023f1b02543f4e234b00422f6f77f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0b1cf7d0dbf7456d01f6530355e6943c8ead54db
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077197"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529565"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 연결
 
@@ -48,6 +48,9 @@ IoT Edge 디바이스는 네트워크의 다른 다운스트림 디바이스와 
 다음과 같은 두 가지 게이트웨이 패턴이 있습니다.
 
 * *투명 게이트웨이* 패턴에서 IoT Edge 허브 모듈은 IoT Central처럼 작동하며, IoT Central에 등록된 디바이스에서 들어오는 연결을 처리합니다. 메시지는 중간에 게이트웨이가 없는 것처럼 다운스트림 디바이스에서 IoT Central로 전달됩니다.
+
+    > [!NOTE]
+    > IoT Central은 현재 IoT Edge 디바이스를 IoT Edge 투명 게이트웨이에 대한 다운스트리밍 디바이스로 연결하는 것을 지원하지 않습니다. IoT Central에 연결하는 모든 디바이스는 DPS(디바이스 프로비저닝 서비스)를 사용하여 프로비전되고 DPS는 중첩된 IoT Edge 시나리오를 지원하지 않기 때문입니다.
 
 * *변환 게이트웨이* 패턴에서 IoT Central에 직접 연결할 수 없는 디바이스는 사용자 지정 IoT Edge 모듈에 대신 연결합니다. IoT Edge 디바이스의 모듈은 들어오는 다운스트림 디바이스 메시지를 처리한 다음, IoT Central로 전달합니다.
 
@@ -281,6 +284,10 @@ IoT Edge 런타임을 실행할 수 있는 위치에 대한 자세한 내용은 
 IoT Edge 디바이스를 게이트웨이 디바이스로 선택한 경우 게이트웨이 디바이스에 연결하려는 디바이스의 디바이스 모델에 다운스트림 관계를 추가할 수 있습니다.
 
 자세한 내용은 [IoT Edge 투명 게이트웨이를 통해 디바이스를 연결하는 방법](how-to-connect-iot-edge-transparent-gateway.md)을 참조하세요.
+
+## <a name="monitor-your-iot-edge-devices"></a>IoT Edge 디바이스 모니터링
+
+Azure Monitor 및 기본 제공 메트릭 통합을 사용하여 IoT Edge 집합을 원격으로 모니터링하는 방법을 알아보려면 [메트릭 수집 및 전송](../../iot-edge/how-to-collect-and-transport-metrics.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

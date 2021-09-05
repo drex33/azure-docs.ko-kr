@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5b84526f6f3193fc47bc211fcdec71bb5e27390f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 86aa53be03e8e79cdf4e909dda632749028f03f0
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077683"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597186"
 ---
-# <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
+# <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption
 
 Azure Disk Encryption을 사용하여 고객 조직의 보안 및 규정 준수 약정에 맞게 데이터를 안전하게 보호할 수 있습니다. 이 기능은 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용하여 Azure VM(Virtual Machines)의 OS 및 데이터 디스크에 볼륨 암호화를 제공하며, 디스크 암호화 키 및 비밀을 제어하고 관리하는 데 유용한 [Azure Key Vault](../../key-vault/index.yml)와 통합됩니다.
 
@@ -38,7 +38,7 @@ Azure Disk Encryption은 Virtual Machines와 동일한 방식으로 영역 복�
 
 Linux VM은 [다양한 크기](../sizes.md)로 사용할 수 있습니다. Azure Disk Encryption은 1세대 및 2세대 VM에서 지원됩니다. Azure Disk Encryption은 Premium Storage가 있는 VM에 사용할 수도 있습니다.
 
-[로컬 임시 디스크가 없는 Azure VM 크기](../azure-vms-no-temp-disk.md)를 참조하세요.
+[로컬 임시 디스크가 없는 Azure VM 크기](../azure-vms-no-temp-disk.yml)를 참조하세요.
 
 Azure Disk Encryption은 [Basic, A 시리즈 VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/) 또는 이러한 최소 메모리 요구 사항을 충족하지 않는 가상 머신에서도 사용할 수 없습니다.
 
@@ -63,6 +63,10 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 
 | 게시자 | 제안 | SKU | URN | 암호화에 지원되는 볼륨 유형 |
 | --- | --- |--- | --- |
+| Canonical | Ubuntu | 20.04-LTS | Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest | OS 및 데이터 디스크 |
+| Canonical | Ubuntu | 20.04-DAILY-LTS | Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts:latest | OS 및 데이터 디스크 |
+| Canonical | Ubuntu | 20.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest | OS 및 데이터 디스크 |
+| Canonical | Ubuntu | 20.04-DAILY-LTS Gen2 |Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts-gen2:latest | OS 및 데이터 디스크 |
 | Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | OS 및 데이터 디스크 |
 | Canonical | Ubuntu 18.04 | 18.04-DAILY-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:latest | OS 및 데이터 디스크 |
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS 및 데이터 디스크 |

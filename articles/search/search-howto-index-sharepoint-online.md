@@ -1,35 +1,31 @@
 ---
-title: SharePoint Online 인덱서 구성(미리 보기)
+title: SharePoint Online의 데이터 인덱싱(미리 보기)
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search에서 문서 라이브러리 콘텐츠의 인덱싱을 자동화하도록 SharePoint Online 인덱서를 설정합니다.
-manager: luisca
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: ea65011a27b7dab65ea75b5365bdcdf2be67d8b2
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 61e9787c0a85ad412d3e70cfb2452d288a48d36a
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747134"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983053"
 ---
-# <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Cognitive Search에서 SharePoint Online 인덱싱을 구성하는 방법(미리 보기)
+# <a name="index-data-from-sharepoint-online"></a>SharePoint Online의 데이터 인덱싱
 
 > [!IMPORTANT] 
-> SharePoint Online 지원은 현재 **제어된 퍼블릭 미리 보기** 로 제공됩니다. [이 양식](https://aka.ms/azure-cognitive-search/indexer-preview)을 작성하여 제어된 미리 보기에 대한 액세스를 요청할 수 있습니다.
->
-> 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-> 
-> 이 기능은 [REST API 버전 2020-06-30-미리 보기](search-api-preview.md)에서 제공됩니다. 현재 포털 또는 SDK는 지원되지 않습니다.
+> SharePoint Online 지원은 현재 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. 이 기능에 대한 [액세스를 요청](https://aka.ms/azure-cognitive-search/indexer-preview)하고 액세스가 활성화된 후 [미리 보기 REST API(2020-06-30-preview 이상)](search-api-preview.md)를 사용하여 콘텐츠를 인덱싱합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
+
+이 문서에서는 Azure Cognitive Search를 사용하여 SharePoint Online 문서 라이브러리에 저장된 문서(예: PDF, Microsoft Office 문서 및 기타 일반적인 형식)를 Azure Cognitive Search 인덱스로 인덱싱하는 방법을 설명합니다. 먼저, 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
 
 > [!NOTE]
 > SharePoint Online은 문서 수준에서 사용자별 액세스를 결정하는 세분화된 권한 부여 모델을 지원합니다. SharePoint Online 인덱서는 이러한 권한을 검색 인덱스에 가져오지 않으며 Cognitive Search는 문서 수준 권한 부여를 지원하지 않습니다. 문서가 SharePoint Online에서 검색 서비스로 인덱싱되는 경우 인덱스에 대한 읽기 액세스 권한이 있는 사용자는 누구든지 해당 콘텐츠를 사용할 수 있습니다. 문서 수준 사용 권한이 필요한 경우에는 보안 필터를 조사하여 권한 없는 콘텐츠의 결과를 트리밍합니다. 자세한 내용은 [Active Directory ID를 사용한 보안 트리밍](search-security-trimming-for-azure-search-with-aad.md)을 참조하세요.
 
-이 문서에서는 Azure Cognitive Search를 사용하여 SharePoint Online 문서 라이브러리에 저장된 문서(예: PDF, Microsoft Office 문서 및 기타 일반적인 형식)를 Azure Cognitive Search 인덱스로 인덱싱하는 방법을 설명합니다. 먼저, 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
-
 ## <a name="functionality"></a>기능
+
 Azure Cognitive Search의 인덱서는 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하는 크롤러입니다. SharePoint Online 인덱서는 SharePoint Online 사이트에 연결한 후 하나 이상의 문서 라이브러리에 있는 문서를 인덱싱합니다. 인덱서는 다음과 같은 기능을 제공합니다.
 + 하나 이상의 SharePoint Online 문서 라이브러리에 있는 콘텐츠를 인덱싱합니다.
 + Azure Cognitive Search 서비스와 동일한 테넌트에 있는 SharePoint Online 문서 라이브러리의 콘텐츠를 인덱싱합니다. 인덱서는 Azure Cognitive Search 서비스와는 다른 테넌트에 있는 SharePoint 사이트에서 작동하지 않습니다. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/4/2021
 ms.author: damaerte
-ms.openlocfilehash: 250e4bc171950bb643a75bdc9d80bdb2941cb97a
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: f380db2502a34115b071c3aa3e70f18a67d2ca6b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539293"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536839"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
 
@@ -113,8 +113,8 @@ Cloud Shell 머신은 일시적이지만 파일은 디스크 이미지를 통해
 
 [Azure Cloud Shell의 Bash](features.md)와 [Azure Cloud Shell의 PowerShell](./features.md)에 들어 있는 기능에 대해 자세히 알아 보세요.
 
-## <a name="complaince"></a>준수
-### <a name="encryption-at-rest"></a>미사용 암호화
+## <a name="compliance"></a>규정 준수
+### <a name="encryption-at-rest"></a>저장 데이터 암호화
 모든 Cloud Shell 인프라는 기본적으로 미사용 이중 암호화를 준수합니다. 사용자가 수행할 작업은 없습니다.
 
 ## <a name="pricing"></a>가격 책정

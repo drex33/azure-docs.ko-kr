@@ -4,13 +4,13 @@ description: app 식은 동일한 리소스 그룹, 다른 리소스 그룹 또�
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/09/2019
-ms.openlocfilehash: 9d60857503402554381068fc36121fa3f7b61622
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.date: 08/11/2021
+ms.openlocfilehash: 1c7659d8b566649291e135c68c677b3f3a074d9f
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107283561"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122531323"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 쿼리에서 app() 식
 
@@ -41,9 +41,9 @@ ms.locfileid: "107283561"
 * 애플리케이션에 대한 읽기 권한이 있어야 합니다.
 * 애플리케이션을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
 * 관련된 식 [작업 영역](../logs/workspace-expression.md)을 사용하여 Log Analytics 작업 영역 전체를 쿼리합니다.
-* 앱() 식은 현재 Application Insights 애플리케이션이 경고 규칙에 대한 리소스로 사용되지 않는 한 Azure Portal을 사용하여 [사용자 지정 로그 검색 경고 규칙](../alerts/alerts-log.md)을 만들 때 검색 쿼리에서 지원되지 않습니다.
+* 앱() 식은 현재 Application Insights 애플리케이션이 경고 규칙에 대한 리소스로 사용되지 않는 한 Azure Portal을 사용하여 [사용자 지정 로그 쿼리 경고 규칙](../alerts/alerts-log.md)을 만들 때 로그 쿼리에서 지원되지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ```Kusto
 app("fabrikamapp").requests | count

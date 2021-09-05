@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 58ad863c1133ee7be984fe723b567ce43a8ef6ad
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: ba31710e13ef786f2e4ede68541f1a5884306669
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534826"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535843"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Bastion 리소스 로그 사용 및 작업
 
@@ -40,7 +40,7 @@ ms.locfileid: "110534826"
 1. 스토리지 계정 리소스, **컨테이너** 로 차례로 이동합니다. 스토리지 계정 Blob 컨테이너에 **insights-logs-bastionauditlogs** Blob이 생성된 것을 확인할 수 있습니다.
 
    ![진단 설정](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. 컨테이너 내부로 이동하면 블로그에 다양한 폴더가 있는 것을 확인할 수 있습니다. 해당 폴더는 Azure Bastion 리소스의 리소스 계층 구조를 나타냅니다.
+2. 컨테이너 내부로 이동하면 Blob에 다양한 폴더가 표시됩니다. 해당 폴더는 Azure Bastion 리소스의 리소스 계층 구조를 나타냅니다.
 
    ![진단 설정 추가](./media/diagnostic-logs/2-resource-h.png)
 3. 진단 로그를 액세스/확인하려는 Azure Bastion 리소스의 전체 계층 구조로 이동합니다. ‘y=’, ‘m=’, ‘d=’, ‘h=’, ‘m=’은 리소스 로그의 연도, 월, 일, 시간, 분을 각각 나타냅니다.

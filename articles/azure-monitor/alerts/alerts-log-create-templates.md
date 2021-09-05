@@ -4,13 +4,13 @@ description: Resource Manager 템플릿을 사용하여 로그 경고를 만드�
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: f31371c3d33354c4d8e6c849c9739eb9001c7641
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/12/2021
+ms.openlocfilehash: d3414b0de4a173b08815fc274e06e67814f6c887
+ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961779"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113687518"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 로그 경고 만들기
 
@@ -200,7 +200,7 @@ ms.locfileid: "111961779"
 
 이 JSON은 [Azure Portal의 Azure Resource Manager](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)를 사용하여 저장하고 배포할 수 있습니다.
 
-## <a name="template-for-all-resource-types-from-api-version-2020-05-01-preview"></a>모든 리소스 종류에 대한 템플릿(API 버전 2020-05-01-preview)
+## <a name="template-for-all-resource-types-from-api-version-2021-02-01-preview"></a>모든 리소스 유형에 대한 템플릿(API 버전 2021-02-01-preview)
 
 모든 리소스 유형에 대한 [예약된 쿼리 규칙 생성](/rest/api/monitor/scheduledqueryrules/createorupdate) 템플릿(변수로 설정된 샘플 데이터):
 
@@ -249,6 +249,20 @@ ms.locfileid: "111961779"
             "defaultValue": true,
             "metadata": {
                 "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "autoMitigate": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert will automatically resolve"
+            }
+        },
+        "checkWorkspaceAlertsStorageConfigured": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
@@ -360,7 +374,7 @@ ms.locfileid: "111961779"
         },
         "muteActionsDuration": {
             "type": "string",
-            "defaultValue": "PT5M",
+            "defaultValue": null,
             "allowedValues": [
                 "PT1M",
                 "PT5M",
@@ -389,7 +403,7 @@ ms.locfileid: "111961779"
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2020-05-01-preview",
+            "apiVersion": "2021-02-01-preview",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -416,11 +430,15 @@ ms.locfileid: "111961779"
                     ]
                 },
                 "muteActionsDuration": "[parameters('muteActionsDuration')]",
-                "actions": [
-                    {
-                        "actionGroupId": "[parameters('actionGroupId')]"
+                "autoMitigate": "[parameters('autoMitigate')]",
+                "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
+                "actions": {
+                    "actionGroups": "[parameters('actionGroupId')]",
+                    "customProperties": {
+                        "key1": "value1",
+                        "key2": "value2"
                     }
-                ]
+                }
             }
         }
     ]

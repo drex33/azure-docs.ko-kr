@@ -4,15 +4,16 @@ description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 5269267f0fa786163b6c1fa1a4d4bfc8d0ff9af5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.date: 07/05/2021
+ms.openlocfilehash: 0d2bdda7cacc07b84c8136eb63d282d55a4a0806
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483518"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642698"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 로드
 
@@ -59,15 +60,15 @@ Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로
 3. **만들기** 를 선택합니다.
 4. 만들기가 완료되면 데이터 팩터리로 이동합니다. 다음 그림과 같이 **데이터 팩터리** 홈페이지가 표시됩니다. 
    
-   ![데이터 팩터리 홈페이지](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Azure Data Factory Studio 열기 타일이 있는 Azure Data Factory 홈페이지":::
 
-   **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
+   **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
 
 ## <a name="load-data-into-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 데이터 로드
 
-1. **시작** 페이지에서 **데이터 복사** 타일을 선택하여 데이터 복사 도구를 시작합니다. 
+1. 홈페이지에서 **수집** 타일을 선택하여 데이터 복사 도구를 시작합니다. 
 
-   ![데이터 복사 도구 타일](./media/load-data-into-azure-data-lake-store/copy-data-tool-tile.png)
+   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
 2. **속성** 페이지에서 **작업 이름** 필드를 **CopyFromAmazonS3ToADLS** 로 지정하고 **다음** 을 선택합니다.
 
     ![속성 페이지](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)

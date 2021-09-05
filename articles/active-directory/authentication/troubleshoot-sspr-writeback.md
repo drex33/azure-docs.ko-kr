@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/26/2020
+ms.date: 08/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b03b93c09ebe1c8361379dba018d7c756f409d4
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: ccc9b6dffd6fa18fc18a9d16bc702553d277193d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745154"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866601"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 비밀번호 재설정 쓰기 저장 문제 해결
 
@@ -49,6 +49,18 @@ Azure [GOV 엔드포인트](../../azure-government/compare-azure-government-glob
 * *\*.servicebus.usgovcloudapi.net*
 
 더 자세한 내용이 필요한 경우 [Microsoft Azure 데이터 센터 IP 범위 목록](https://www.microsoft.com/download/details.aspx?id=41653)을 참조하세요. 이 목록은 수요일마다 업데이트되며 다음 월요일에 적용됩니다.
+
+URL 및 포트에 대한 액세스가 환경에서 제한되는지 확인하려면 다음 cmdlet을 실행합니다.
+
+```powershell
+Test-NetConnection -ComputerName ssprdedicatedsbprodscu.servicebus.windows.net -Port 443
+```
+
+또는 다음을 실행합니다.
+
+```powershell
+Invoke-WebRequest -Uri https://ssprdedicatedbprodscu.servicebus.windows.net -Verbose
+```
 
 자세한 내용은 [Azure AD Connect에 대한 연결 사전 요구 사항](../hybrid/how-to-connect-install-prerequisites.md)을 참조하세요.
 
@@ -185,6 +197,7 @@ Azure AD Connect를 다시 설치하면 Azure AD와 로컬 Active Directory Doma
 | 31017| AuthTokenSuccess| 이 이벤트는 오프보딩 또는 온보딩 프로세스를 시작하기 위해 Azure AD Connect 설치 중에 지정된 전역 관리자에 대한 권한 부여 토큰을 성공적으로 검색했음을 나타냅니다.|
 | 31018| KeyPairCreationSuccess| 이 이벤트는 암호 암호화 키가 생성되었음을 나타냅니다. 이 키는 클라우드의 암호를 온-프레미스 환경으로 전송하는 데 사용됩니다.|
 | 31034| ServiceBusListenerError| 이 이벤트는 테넌트의 Service Bus 수신기에 연결하는 동안 오류가 발생했음을 나타냅니다. 오류 메시지에 “원격 인증서가 유효하지 않습니다"가 포함된 경우 Azure AD Connect 서버에 [Azure TLS 인증서 변경](../../security/fundamentals/tls-certificate-changes.md)에 설명된 대로 필요한 모든 루트 CA가 있는지 확인합니다. |
+| 31044| PasswordResetService| 이 이벤트는 비밀 번호 쓰기 저장이 작동하지 않음을 나타냅니다. Service Bus는 중복성을 위해 두 개의 개별 릴레이에서 요청을 수신 대기합니다. 각 릴레이 연결은 고유한 Service Host에 의해 관리됩니다. Service Host 중 하나가 실행되고 있지 않으면 쓰기 저장 클라이언트에서 오류를 반환합니다.|
 | 32000| UnknownError| 이 이벤트는 암호 관리 작업을 하는 동안 알 수 없는 오류가 발생했음을 나타냅니다. 자세한 내용은 이벤트에서 예외 텍스트를 확인합니다. 문제가 발생하는 경우 비밀번호 쓰기 저장 기능을 사용하지 않도록 설정했다가 다시 사용하도록 설정합니다. 이렇게 해도 도움이 되지 않는 경우 지원 요청을 열 때 지정된 추적 ID와 함께 이벤트 로그 사본을 포함합니다.|
 | 32001| ServiceError| 이 이벤트는 클라우드 암호 재설정 서비스에 연결하는 동안 오류가 발생했음을 나타냅니다. 이 오류는 일반적으로 온-프레미스 서비스가 암호 재설정 웹 서비스에 연결할 수 없는 경우에 발생합니다.|
 | 32002| ServiceBusError| 이 이벤트는 테넌트의 Service Bus 인스턴스에 연결하는 동안 오류가 발생했음을 나타냅니다. 이는 온-프레미스 환경에서 아웃바운드 연결을 차단하기 때문에 발생할 수 있습니다. TCP 443을 통해 https://ssprdedicatedsbprodncu.servicebus.windows.net 으로 연결을 허용하도록 방화벽을 확인하고 다시 시도하세요. 여전히 문제가 발생하는 경우 비밀번호 쓰기 저장 기능을 비활성화하고 재활성화하여 시도하세요.|

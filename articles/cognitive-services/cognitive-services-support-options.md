@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
-ms.openlocfilehash: dd0ceb00b80a045d60de562fbf9ac01b91e41e68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7e0b0a3023147fc12c0133f7fb0c78b943c09ced
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720188"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529609"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure Cognitive Services 지원 및 도움말 옵션
 
@@ -106,13 +106,9 @@ Stack Overflow에 새 질문을 제출하는 경우 질문을 만들 때 다음 
 * [Metrics Advisor(미리 보기)](https://stackoverflow.com/search?q=azure+metrics+advisor)
 * [Personalizer](https://stackoverflow.com/search?q=azure+personalizer)
 
-## <a name="submit-feedback-on-user-voice"></a>사용자 음성에 대한 피드백 제출
+## <a name="submit-feedback"></a>피드백 제출
 
-<div class='icon is-large'>
-    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
-</div>
-
-새로운 기능을 요청하려면 UserVoice에 게시합니다. Cognitive Services를 만드는 아이디어를 공유하세요. 해당 API는 개발하는 애플리케이션에서 더 잘 작동합니다. 
+새로운 기능을 요청하려면 https://feedback.azure.com 에 게시합니다. Cognitive Services를 만드는 아이디어를 공유하세요. 해당 API는 개발하는 애플리케이션에서 더 잘 작동합니다. 
 
 * [Cognitive Services](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737)
 

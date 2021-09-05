@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 1625c4a73252f202a45dbdefba1576776ea843a0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 7acca746acf17a6ef6dd837907a159cddb20be10
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209549"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004199"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>일반적인 Automanage 온보딩 오류 문제 해결
 Automanage에서 컴퓨터를 서비스에 온보딩하지 못할 수 있습니다. 이 문서에서는 배포 실패 문제를 해결하는 방법, 배포가 실패할 수 있는 몇 가지 일반적인 이유, 잠재적인 완화 단계를 설명합니다.
@@ -23,18 +23,18 @@ Automanage에 컴퓨터를 온보딩하면 Azure Resource Manager 배포가 생�
 
 :::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Automanage 실패 세부 정보 플라이아웃.":::
 
-### <a name="check-the-deployments-for-the-resource-group-containing-the-failed-vm"></a>실패한 VM을 포함하는 리소스 그룹의 배포를 확인합니다.
+### <a name="check-the-deployments-for-the-resource-group-containing-the-failed-machine"></a>실패한 머신이 포함된 리소스 그룹의 배포를 확인합니다.
 실패 플라이아웃에는 온보딩에 실패한 컴퓨터를 포함한 리소스 그룹의 배포에 대한 링크가 포함됩니다. 또한 플라이아웃에는 배포를 필터링하는 데 사용할 수 있는 접두사 이름이 포함됩니다. 배포 링크를 클릭하면 배포 블레이드로 이동하며, 여기에서 배포를 필터링하여 컴퓨터에 대한 Automanage 배포를 확인할 수 있습니다. 여러 지역에 걸쳐 배포하는 경우 올바른 지역에서 배포를 클릭해야 합니다.
 
-### <a name="check-the-deployments-for-the-subscription-containing-the-failed-vm"></a>실패한 VM을 포함하는 구독의 배포를 확인합니다.
-리소스 그룹 배포에 실패가 표시되지 않으면 다음 단계는 온보딩에 실패한 VM을 포함하는 구독의 배포를 확인하는 것입니다. 실패 플라이아웃의 **구독에 대한 배포** 링크를 클릭하고 **Automanage-DefaultResourceGroup** 필터를 사용하여 배포를 필터링합니다. 실패 블레이드의 리소스 그룹 이름을 사용하여 배포를 필터링합니다. 배포 이름 뒤에는 지역 이름이 붙습니다. 여러 지역에 걸쳐 배포하는 경우 올바른 지역에서 배포를 클릭해야 합니다.
+### <a name="check-the-deployments-for-the-subscription-containing-the-failed-machine"></a>실패한 머신이 포함된 구독의 배포를 확인합니다.
+리소스 그룹 배포에 실패가 표시되지 않으면 다음 단계는 온보딩에 실패한 머신을 포함하는 구독의 배포를 확인하는 것입니다. 실패 플라이아웃의 **구독에 대한 배포** 링크를 클릭하고 **Automanage-DefaultResourceGroup** 필터를 사용하여 배포를 필터링합니다. 실패 블레이드의 리소스 그룹 이름을 사용하여 배포를 필터링합니다. 배포 이름 뒤에는 지역 이름이 붙습니다. 여러 지역에 걸쳐 배포하는 경우 올바른 지역에서 배포를 클릭해야 합니다.
 
 ### <a name="check-deployments-in-a-subscription-linked-to-a-log-analytics-workspace"></a>Log Analytics 작업 영역에 연결된 구독에서 배포 확인
-실패한 VM을 포함하는 리소스 그룹 또는 구독에서 실패한 배포가 표시되지 않고, 실패한 VM이 다른 구독의 Log Analytics 작업 영역에 연결된 경우 Log Analytics 작업 영역에 연결된 구독으로 이동하여 실패한 배포를 확인합니다.
+실패한 머신을 포함하는 리소스 그룹 또는 구독에서 실패한 배포가 표시되지 않고, 실패한 머신이 다른 구독의 Log Analytics 작업 영역에 연결된 경우 Log Analytics 작업 영역에 연결된 구독으로 이동하여 실패한 배포를 확인합니다.
 
 ## <a name="common-deployment-errors"></a>일반적인 배포 오류
 
-Error |  완화 방법
+오류 |  완화 방법
 :-----|:-------------|
 Automanage 계정 권한 부족 오류 | 이 오류는 최근에 새 Automanage 계정을 포함한 구독을 새 테넌트로 이동한 경우에 발생할 수 있습니다. 이 오류를 해결하는 단계는 [여기](./repair-automanage-account.md)에 있습니다.
 지역 매핑 요구 사항이 일치하지 않는 작업 영역 | 컴퓨터가 현재 연결되어 있는 Log Analytics 작업 영역이 지원되는 Automation 지역에 매핑되어 있지 않으므로 Automanage에서 컴퓨터를 온보딩할 수 없습니다. 기존 Log Analytics 작업 영역 및 Automation 계정이 [지원되는 지역 매핑](../automation/how-to/region-mappings.md)에 있는지 확인합니다.
@@ -51,4 +51,4 @@ ASC 작업 영역: Automanage에서 현재 _위치_ 에서 Log Analytics 서비�
 * [Azure Automation 자세히 알아보기](./automanage-virtual-machines.md)
 
 > [!div class="nextstepaction"]
-> [Azure Portal에서 가상 머신용 Automanage 사용](quick-create-virtual-machines-portal.md)
+> [Azure Portal에서 머신용 Automanage 사용](quick-create-virtual-machines-portal.md)

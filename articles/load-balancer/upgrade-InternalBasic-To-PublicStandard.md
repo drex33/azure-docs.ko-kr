@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 3394754f2829018f7862b3775f8ab2cb2d07d005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b76ffc9c0c8d061e63636f40f696cc41a1238b1a
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98051363"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437777"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드 - 아웃바운드 연결 필요
 [Azure 표준 Load Balancer](load-balancer-overview.md)는 영역 중복을 통해 다양한 기능 및 고가용성 집합을 제공합니다. Load Balancer SKU에 대한 자세한 내용은 [비교 표](./skus.md#skus)를 참조하세요. 표준 내부 Load Balancer는 아웃바운드 연결을 제공하지 않으므로 표준 공용 Load Balancer를 대신 만들 수 있는 솔루션을 제공합니다.
@@ -50,7 +50,7 @@ ms.locfileid: "98051363"
 * Azure Az 모듈이 설치되어 있지 않거나 Azure Az 모듈을 제거해도 상관없는 경우 `Install-Script` 옵션을 사용하여 스크립트를 실행하는 것이 가장 좋습니다.
 * Azure Az 모듈을 유지해야 하는 경우에는 스크립트를 다운로드하여 직접 실행하는 것이 가장 좋습니다.
 
-Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -Name az`을(를) 실행합니다. 설치된 Az modules가 표시되지 않으면 `Install-Script` 메서드를 사용할 수 있습니다.
+Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -Name az`를 실행합니다. 설치된 Az modules가 표시되지 않으면 `Install-Script` 메서드를 사용할 수 있습니다.
 
 ### <a name="install-using-the-install-script-method"></a>Install-Script 메서드를 사용한 설치
 
@@ -58,7 +58,7 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -
   
 다음 명령을 사용하여 스크립트를 실행합니다.
 
-`Install-Script -Name AzurePublicLBUpgrade`
+`Install-Script -Name AzureLBUpgrade`
 
 또한 이 명령은 필요한 Az 모듈을 설치합니다.  
 
@@ -68,7 +68,7 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -
 
 스크립트를 실행하려면
 
-1. `Connect-AzAccount`을(를) 사용하여 Azure에 연결합니다.
+1. `Connect-AzAccount`를 사용하여 Azure에 연결합니다.
 
 1. `Import-Module Az`을(를) 사용하여 Az 모듈을 가져옵니다.
 
@@ -84,18 +84,18 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -
     **예제**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg&quot; -oldLBName &quot;LBForPublic&quot; -newrgName &quot;test_userInput3_rg&quot; -newlocation &quot;centralus&quot; -newLbName &quot;LBForUpgrade"
+   AzureLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg&quot; -oldLBName &quot;LBForPublic&quot; -newrgName &quot;test_userInput3_rg&quot; -newlocation &quot;centralus&quot; -newLbName &quot;LBForUpgrade"
    ```
 
 ### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>표준 Load Balancer 백 엔드 풀에 VM 추가
 
-먼저 스크립트가 기본 공용 Load Balancer에서 마이그레이션할 정확한 구성을 사용하여 새 표준 공용 Load Balancer를 성공적으로 만들었는지 확인합니다. Azure Portal에서 이 작업을 확인할 수 있습니다.
+먼저 스크립트가 기본 내부 Load Balancer에서 마이그레이션할 정확한 구성을 사용하여 새 표준 공용 Load Balancer를 성공적으로 만들었는지 다시 확인합니다. Azure Portal에서 이 작업을 확인할 수 있습니다.
 
 표준 Load Balancer를 통해 적은 양의 트래픽을 수동 테스트로 보내야 합니다.
   
 새로 만든 표준 공용 Load Balancer의 백 엔드 풀에 VM을 추가하는 방법에 대한 몇 가지 시나리오 및 각 시나리오에 대한 우리의 권장 사항은 다음과 같습니다.
 
-* **기존 VM을 이전 기본 공용 Load Balancer의 백 엔드 풀에서 새로 만든 표준 공용 Load Balancer의 백 엔드 풀로 이동합니다**.
+* **기존 VM을 이전 기본 내부 Load Balancer의 백 엔드 풀에서 새로 만든 표준 공용 Load Balancer의 백 엔드 풀로 이동합니다**.
     1. 이 빠른 시작의 작업을 수행하려면 [Azure Portal](https://portal.azure.com)에 로그인해야 합니다.
  
     1. 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, 리소스 목록에서 **새로 만든 표준 Load Balancer** 를 선택합니다.

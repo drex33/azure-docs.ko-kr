@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 01/27/2020
+ms.date: 07/12/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4c8e18979ff1575e1a050244a96e7858cdce46b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 9afabe40426a5e86fdd3c6ef76969e1392a9b051
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530245"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649587"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -57,7 +57,7 @@ Azure AD 사용 약관 정책에는 다음과 같은 기능이 있습니다.
 Azure AD 사용 약관 정책을 사용하고 구성하려면 다음이 필요합니다.
 
 - Azure AD Premium P1, P2, EMS E3 또는 EMS E5 구독.
-   - 이러한 구독 중 하나가 없는 경우 [Azure AD Premium을 받거나](../fundamentals/active-directory-get-started-premium.md)[Azure AD Premium 평가판을 사용](https://azure.microsoft.com/trial/get-started-active-directory/)할 수 있습니다.
+   - 해당 구독이 없는 경우 [Azure AD Premium을 구매](../fundamentals/active-directory-get-started-premium.md)하거나 [Azure AD Premium 평가판을 사용](https://azure.microsoft.com/trial/get-started-active-directory/)할 수 있습니다.
 - 구성하려는 디렉터리에 대한 다음 관리자 계정 중 하나:
    - 전역 관리자
    - 보안 관리자
@@ -201,16 +201,10 @@ ToU 정책을 만들고 적용한 후에는 로그인하는 동안 범위 내에
 
 사용자는 다음 절차를 사용하여 동의한 사용 정책 사용 약관 정책을 검토하고 확인할 수 있습니다.
 
-1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.
-1. 오른쪽 위 모서리에서 자신의 이름을 클릭하고 **프로필** 을 선택합니다.
-
-    ![사용자 창이 열려 있는 MyApps 사이트](./media/terms-of-use/tou14.png)
-
-1. 프로필 페이지에서 **사용 약관 검토** 를 클릭합니다.
-
-    ![사용 약관 링크 검토를 표시하는 사용자의 프로필 페이지](./media/terms-of-use/tou13a.png)
-
-1. 여기서 사용자가 동의한 사용 약관 정책을 검토할 수 있습니다.
+1. [https://myaccount.microsoft.com/](https://myaccount.microsoft.com/)에 로그인합니다.
+1. **설정 및 개인 정보** 를 선택합니다.
+1. **개인 정보** 를 선택합니다.
+1. **조직의 알림** 에서 검토할 사용 약관 옆에 있는 **보기** 를 선택합니다.
 
 ## <a name="edit-terms-of-use-details"></a>사용 약관 세부 정보 편집
 
@@ -222,7 +216,7 @@ ToU 정책을 만들고 적용한 후에는 로그인하는 동안 범위 내에
 1. 사용 약관 편집 창에서 다음을 변경할 수 있습니다.
     - **이름** – 최종 사용자와 공유되지 않는 사용 약관의 내부 이름입니다.
     - **표시 이름** – 최종 사용자가 볼 수 있는 사용 약관의 이름입니다.
-    - **사용자가 사용 약관을 확장하도록 함** – **켜기로 설정하면** 최종 사용자가 사용 약관 정책에 동의하기 전 사용 약관 정책을 확장하도록 합니다.
+    - **사용자에게 사용 약관을 확장하도록 요구** – **켜기** 로 설정하면 최종 사용자가 동의하기 전에 사용 약관 정책 문서를 확장하도록 합니다.
     - (미리 보기) **기존 사용 약관 문서를 업데이트** 할 수 있습니다.
     - 기존 사용 약관에 언어를 추가할 수 있습니다.
 
@@ -242,7 +236,7 @@ ToU 정책을 만들고 적용한 후에는 로그인하는 동안 범위 내에
     ![이름 및 확장 옵션을 보여 주는 사용 약관 창 편집](./media/terms-of-use/edit-terms-use.png)
 
 5.  오른쪽 창에서 새 버전에 대한 PDF를 업로드합니다.
-6.  또한 사용자가 다음 번에 로그인할 때 이 새 버전에 동의하도록 요구하려는 경우에는 이 옵션을 다시 **동의해야 합니다**. 사용자가 다음에 다시 동의해야 하는 경우 사용자가 조건부 액세스 정책에 정의된 리소스에 액세스하려고 할 때 이 새 버전을 동의하라는 메시지가 표시됩니다. 사용자가 다시 동의하지 않아도 되는 경우 이전의 동의는 현재 상태를 유지하고 이전에 동의하지 않은 새로운 사용자 또는 동의가 만료된 사용자만 새 버전을 보게 됩니다.
+6.  또한 사용자가 다음 번에 로그인할 때 이 새 버전에 동의하도록 요구하려는 경우에는 이 옵션을 다시 **동의해야 합니다**. 사용자가 다음에 다시 동의해야 하는 경우 사용자가 조건부 액세스 정책에 정의된 리소스에 액세스하려고 할 때 이 새 버전을 동의하라는 메시지가 표시됩니다. 사용자가 다시 동의하지 않아도 되는 경우 이전의 동의는 현재 상태를 유지하고 이전에 동의하지 않은 새로운 사용자 또는 동의가 만료된 사용자만 새 버전을 보게 됩니다. 세션이 만료될 때까지 **재승인 필요** 는 사용자가 새 TOU를 수락할 필요가 없습니다. 이 경우에 삭제 및 재생성 또는 새 TOU를 만들려면 다시 동의해야 합니다.
 
     ![사용 약관 다시 동의 편집 옵션 강조 표시](./media/terms-of-use/re-accept.png)
 
@@ -402,12 +396,6 @@ A: 사용 약관 보고서에 있는, 사용 약관에 동의/거부한 사용�
 
 **Q: 사용 약관 보고서와 Azure AD 감사 로그에 표시되는 동의 수가 다른 이유는 무엇인가요?**<br />
 A: 사용 약관 보고서는 사용 약관 정책의 수명 기간 동안 저장되는 반면, Azure AD 감사 로그는 30일 동안 저장됩니다. 또한 사용 약관 보고서에는 사용자의 현재 동의 상태만 표시됩니다. 예를 들어, 사용자가 거부한 후 동의할 경우, 사용 약관 보고서에는 해당 사용자의 동의만 표시됩니다. 기록을 확인해야 하는 경우, Azure AD 감사 로그를 사용할 수 있습니다.
-
-**Q: 사용 약관 정책에 대한 세부 정보를 편집하는 경우 사용자가 다시 동의해야 하나요?**<br />
-A: 아니요. 관리자가 사용 약관 정책의 세부 정보(이름, 표시 이름, 사용자 확장 또는 언어 추가 필요)를 편집한 경우 사용자가 새 사용 약관에 다시 동의할 필요가 없습니다.
-
-**Q: 기존 사용 약관 정책 문서는 업데이트할 수 있나요?**<br />
-A: 기존 사용 약관 정책 문서는 현재 업데이트할 수 없습니다. 사용 약관 정책 문서를 변경하려면 새 사용 약관 정책 인스턴스를 만들어야 합니다.
 
 **Q: 사용 약관 정책 PDF 문서에 하이퍼링크가 있는 경우, 최종 사용자가 하이퍼링크를 클릭할 수 있나요?**<br />
 A: 예, 최종 사용자는 추가 페이지에 대한 하이퍼링크를 선택할 수 있지만 문서 내의 섹션에 대한 링크는 지원되지 않습니다. 또한 Azure AD MyApps/MyAccount 포털에서 액세스할 때 사용 약관 정책 PDF의 하이퍼링크가 작동하지 않습니다.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 7a903b63ad1da2dbb029fdbeba1106d3090ba3ef
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 8e25c921b390211f159e7f845dca9c7cbc9168c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554825"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528828"
 ---
 # <a name="rest-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search용 REST 코드 샘플
 
@@ -37,7 +37,7 @@ Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여줍니
 | [디버그 세션](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Debug-sessions) | [자습서: 기술 세트에 대한 변경 내용 진단, 수정 및 적용](cognitive-search-tutorial-debug-sessions.md)에 대한 소스 코드입니다. 이 문서에서는 Azure Portal에서 기술 세트 디버그 세션을 사용하는 방법을 보여 줍니다. REST는 디버그하는 동안 사용되는 개체를 만드는 데 사용됩니다.|
 | [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) | [자습서: 전화 번호에 대한 사용자 지정 분석기 만들기](tutorial-create-custom-analyzer.md)에 대한 소스 코드입니다. 이 문서에서는 분석기를 사용하여 검색 가능한 콘텐츠에서 패턴 및 특수 문자를 유지하는 방법을 설명합니다.|
 | [knowledge-store](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) | [REST 및 Postman을 사용하여 지식 저장소 만들기](knowledge-store-create-rest.md)에 대한 소스 코드입니다. 이 문서에서는 지식 마이닝 워크플로에 사용되는 기술 자료 저장소를 채우는 데 필요한 단계를 설명합니다. |
-| [projections](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) | [강화 셰이프 및 내보내기 방법](knowledge-store-projections-examples.md)에 대한 소스 코드입니다. 이 문서에서는 기술 자료 저장소에서 물리적 데이터 구조를 지정하는 방법을 설명합니다.|
+| [projections](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) | [지식 저장소의 프로젝션 정의](knowledge-store-projections-examples.md)에 대한 소스 코드. 이 문서에서는 기술 자료 저장소에서 물리적 데이터 구조를 지정하는 방법을 설명합니다.|
 | [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | [Blob 인덱서 및 기술 세트를 사용하여 암호화된 Blob을 인덱싱하는 방법](search-howto-index-encrypted-blobs.md)에 대한 소스 코드입니다. 이 문서에서는 Azure Key Vault를 사용하여 이전에 암호화된 Azure Blob Storage의 문서를 인덱싱하는 방법을 보여 줍니다. |
 
 > [!Tip]

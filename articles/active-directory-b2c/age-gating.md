@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 71a3b38da6a63824a42f64052bf16a5fe0e25483
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7aac30ec8cb5aa2707217183a7612f4eb5b27c3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522434"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530594"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 나이 제한 사용
 
@@ -43,6 +43,7 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 
 사용자 흐름에서 나이 제한을 사용하려면 추가 속성을 포함하도록 테넌트를 구성해야 합니다.
 
+1. [이 링크](https://portal.azure.com/?Microsoft_AAD_B2CAdmin_agegatingenabled=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementMenuBlade/overview)를 사용하여 연령 제한 미리 보기를 사용해 보세요.
 1. 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하여 Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스** 를 선택하고, **Azure AD B2C** 를 검색하여 선택합니다.
 1. 왼쪽 메뉴에서 테넌트에 대한 **속성** 을 선택합니다.
@@ -69,7 +70,7 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 ## <a name="test-your-user-flow"></a>사용자 흐름 테스트
 
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 에서 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 단추를 선택합니다.
 1. 로컬 또는 소셜 계정으로 로그인합니다. 그런 다음, 거주 국가를 선택하고 미성년자의 생년월일을 선택합니다. 
 1. 테스트를 반복하여 성인의 생년월일을 선택합니다.  
@@ -82,7 +83,7 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 
 ## <a name="enable-age-gating-in-your-custom-policy"></a>사용자 지정 정책에서 나이 제한 사용
 
-1. [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/age-gating)에서 나이 제한 정책의 예를 가져옵니다.
+1. [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies)에서 나이 제한 정책의 예를 가져옵니다.
 1. 각 파일에서 `yourtenant` 문자열을 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예를 들어 B2C 테넌트의 이름이 *contosob2c* 인 경우 모든 `yourtenant.onmicrosoft.com` 인스턴스는 `contosob2c.onmicrosoft.com`이 됩니다.
 1. 정책 파일을 업로드합니다.
 
@@ -91,4 +92,3 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD B2C에서 사용자 액세스를 관리](manage-user-access.md)하는 방법을 알아봅니다.
-

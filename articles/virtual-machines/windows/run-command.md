@@ -1,31 +1,28 @@
 ---
 title: Azure의 Windows VM에서 PowerShell 스크립트 실행
 description: 이 항목에서는 실행 명령 기능을 사용하여 Azure Windows 가상 머신 내에서 PowerShell 스크립트를 실행하는 방법을 설명합니다.
-services: automation
 ms.service: virtual-machines
 ms.collection: windows
 author: bobbytreed
 ms.author: robreed
-ms.date: 04/26/2019
+ms.date: 06/22/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-manager: carmonm
-ms.openlocfilehash: de84372a6d9e6aa2c506427cd601859bf1ac00f0
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 81ffce59b1f99628580418836d690d650ea94a1c
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672669"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113566249"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>실행 명령을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
 실행 명령 기능은 VM(가상 머신) 에이전트를 사용하여 Azure Windows VM 내에서 PowerShell 스크립트를 실행합니다. 이러한 스크립트는 일반 머신 또는 애플리케이션 관리에 사용할 수 있습니다. 이를 통해 VM 액세스 및 네트워크 문제를 신속하게 진단 및 수정하고 VM을 정상 상태로 되돌릴 수 있습니다.
 
 
-
 ## <a name="benefits"></a>이점
 
-여러 가지 방법으로 가상 머신에 액세스할 수 있습니다. 실행 명령은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. Windows VM용 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)을 통해 실행 명령을 사용합니다.
+여러 가지 방법으로 가상 머신에 액세스할 수 있습니다. 실행 명령은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. Windows VM용 Azure Portal, [REST API](/rest/api/compute/virtual-machines-run-commands/run-command) 또는 [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)을 통해 실행 명령을 사용합니다.
 
 이 기능은 가상 머신 내에서 스크립트를 실행하려는 모든 시나리오에서 유용합니다. 네트워크 또는 관리 사용자 구성이 잘못되어 RDP 또는 SSH 포트가 열려 있지 않은 가상 머신의 문제를 해결 및 수정하는 유일한 방법 중 하나입니다.
 
@@ -45,6 +42,8 @@ ms.locfileid: "110672669"
 
 > [!NOTE]
 > 제대로 작동하려면 실행 명령이 Azure 공용 IP 주소에 연결(포트 443)되어야 합니다. 확장이 이러한 엔드포인트에 대해 액세스 권한이 없는 경우 스크립트는 성공적으로 실행되지만 결과를 반환하지는 않습니다. 가상 머신에서 트래픽을 차단하는 경우 `AzureCloud` 태그를 사용하여 Azure 공용 IP 주소로 트래픽을 허용하도록 [서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags)를 사용할 수 있습니다.
+> 
+> VM 에이전트 상태가 준비되지 않은 경우 명령 실행 기능이 작동하지 않습니다. Azure Portal의 VM 속성에서 에이전트 상태를 확인합니다.
 
 ## <a name="available-commands"></a>사용 가능한 명령
 
@@ -53,16 +52,21 @@ ms.locfileid: "110672669"
 ```error
 The entity was not found in this Azure location
 ```
+<br>
 
-|**이름**|**설명**|
+| **이름** | **설명** |
 |---|---|
-|**RunPowerShellScript**|PowerShell 스크립트를 실행합니다.|
-|**EnableRemotePS**|원격 PowerShell을 사용하도록 설정하려면 컴퓨터를 구성합니다.|
-|**EnableAdminAccount**|로컬 관리자 계정이 비활성화됐는지 확인하여 그렇다면 활성화합니다.|
-|**IPConfig**| TCP/IP에 바인딩된 각 어댑터의 IP 주소, 서브넷 마스크 및 기본 게이트웨이에 대한 자세한 정보를 표시합니다.|
-|**RDPSettings**|레지스트리 설정 및 도메인 정책 설정을 확인합니다. 머신이 도메인의 일부이거나 설정을 기본값으로 수정하는 경우 정책 작업을 제안합니다.|
-|**ResetRDPCert**|RDP 수신기에 연결된 TLS/SSL 인증서를 제거하고 RDP 수신기 보안을 기본값으로 복원합니다. 인증서에 문제가 있는 경우 이 스크립트를 사용합니다.|
-|**SetRDPPort**|원격 데스크톱 연결에 대한 기본 또는 사용자 지정 포트 번호를 설정합니다. 포트에 인바운드 액세스를 위한 방화벽 규칙을 사용하도록 설정합니다.|
+| **RunPowerShellScript** | PowerShell 스크립트 실행 |
+| **DisableNLA** | 네트워크 수준 인증 사용 안 함 |
+| **DisableWindowsUpdate** | Windows 업데이트 자동 업데이트 사용 안 함 |
+| **EnableAdminAccount** | 로컬 관리자 계정이 비활성화됐는지 확인하여 그렇다면 활성화합니다. |
+| **EnableEMS** | EnableS EMS |
+| **EnableRemotePS** | 원격 PowerShell을 사용하도록 설정하려면 컴퓨터를 구성합니다. |
+| **EnableWindowsUpdate** | Windows 업데이트 자동 업데이트 사용 |
+| **IPConfig** | TCP/IP에 바인딩된 각 어댑터의 IP 주소, 서브넷 마스크 및 기본 게이트웨이에 대한 자세한 정보를 표시합니다. |
+| **RDPSetting** | 레지스트리 설정 및 도메인 정책 설정을 확인합니다. 머신이 도메인의 일부이거나 설정을 기본값으로 수정하는 경우 정책 작업을 제안합니다. |
+| **ResetRDPCert** | RDP 수신기에 연결된 TLS/SSL 인증서를 제거하고 RDP 수신기 보안을 기본값으로 복원합니다. 인증서에 문제가 있는 경우 이 스크립트를 사용합니다. |
+| **SetRDPPort** | 원격 데스크톱 연결에 대한 기본 또는 사용자 지정 포트 번호를 설정합니다. 포트에 인바운드 액세스를 위한 방화벽 규칙을 사용하도록 설정합니다. |
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -82,7 +86,7 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
 
 ## <a name="azure-portal"></a>Azure portal
 
-[Azure Portal](https://portal.azure.com)에서 VM으로 이동하여 **작업** 아래에서 **실행 명령** 을 선택합니다. VM에서 실행에 사용할 수 있는 명령 목록이 표시됩니다.
+[Azure Portal](https://portal.azure.com)의 VM으로 이동하여 왼쪽 메뉴의 **작업** 아래에서 **실행 명령** 을 선택합니다. VM에서 실행에 사용할 수 있는 명령 목록이 표시됩니다.
 
 ![명령 목록](./media/run-command/run-command-list.png)
 

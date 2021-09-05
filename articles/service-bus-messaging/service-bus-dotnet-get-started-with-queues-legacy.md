@@ -1,28 +1,28 @@
 ---
-title: Azure Service Bus 큐 시작 | Microsoft Docs
-description: 이 자습서에서는 Service Bus 큐에서 메시지를 보내고 받는 .NET Core 콘솔 애플리케이션을 만듭니다.
-ms.topic: quickstart
+title: .NET(이전 버전)에서 Azure Service Bus 큐 사용
+description: 이 문서에서는 Service Bus 큐에서 메시지를 보내고 받는 .NET Core 콘솔 애플리케이션을 만듭니다.
+ms.topic: how-to
 ms.tgt_pltfrm: dotnet
-ms.date: 09/01/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d92a5e0b0d1a6953d0043f85ff98f6740aaacebb
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 86ff3608a0575413b6c5c30eec05ec0bb898247e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864017"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748064"
 ---
-# <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
-이 자습서에서는 Service Bus 큐에서 메시지를 보내고 받는 .NET Core 콘솔 애플리케이션을 만듭니다.
+# <a name="send-and-receive-messages-from-azure-service-bus-queues-using-net-old-package"></a>.NET(이전 패키지)을 사용하여 Azure Service Bus 큐에서 메시지 보내기 및 받기
+이 문서에서는 Service Bus 큐에서 메시지를 보내고 받는 .NET Core 콘솔 애플리케이션을 만듭니다.
 
 > [!WARNING]
-> 이 빠른 시작에서는 이전 Microsoft.Azure.ServiceBus 패키지를 사용합니다. 최신 Azure.Messaging.ServiceBus 패키지를 사용하는 빠른 시작은 [Azure.Messaging.ServiceBus 패키지를 사용하여 이벤트 보내기 및 받기](service-bus-dotnet-get-started-with-queues.md)를 참조하세요. 
+> 이 문서에서는 이전 Microsoft.Azure.ServiceBus 패키지를 사용합니다. 최신 Azure.Messaging.ServiceBus 패키지를 사용하는 문서는 [Azure.Messaging.ServiceBus 패키지를 사용하여 이벤트 보내기 및 받기](service-bus-dotnet-get-started-with-queues.md)를 참조하세요. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://dotnet.microsoft.com/download) 버전 2.0 이상
-- Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+- Azure 구독 이 문서의 단계를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
 
   - Service Bus 큐의 빠른 개요를 읽습니다.

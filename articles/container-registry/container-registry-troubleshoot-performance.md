@@ -3,12 +3,12 @@ title: 쿼리 성능 문제 해결
 description: 레지스트리 성능의 일반 문제에 대한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8557c8c342919073099a14be91c743b65c4d7fbc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4a93df09c8ceb587815227c073ec69dcd1205451
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069079"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528108"
 ---
 # <a name="troubleshoot-registry-performance"></a>쿼리 성능 문제 해결
 
@@ -21,6 +21,7 @@ ms.locfileid: "110069079"
 * Docker CLI를 사용하는 풀 또는 푸시 이미지가 예상보다 오래 걸립니다.
 * Azure Kubernetes Service와 같은 서비스에 이미지를 배포하는 데 예상보다 오래 걸립니다.
 * 예상 시간 내에 많은 수의 동시 풀 또는 푸시 작업을 완료할 수 없습니다.
+* `Too many requests`와 유사한 HTTP 429 오류가 표시됩니다.
 * 지역에서 복제된 레지스트리에서 풀 또는 푸시 작업이 예상보다 오래 걸리거나 `Error writing blob` 또는 `Error writing manifest` 오류로 인해 푸시가 실패합니다.
 
 ## <a name="causes"></a>원인
@@ -46,7 +47,7 @@ ms.locfileid: "110069079"
 관련 링크:
 
 * [Azure Container Registry 서비스 계층](container-registry-skus.md)    
-* [컨테이너 레지스트리 FAQ](container-registry-faq.md)
+* [컨테이너 레지스트리 FAQ](container-registry-faq.yml)
 * [Azure Blob Storage의 성능 및 확장성 목표](../storage/blobs/scalability-targets.md)
 
 ### <a name="check-client-hardware"></a>클라이언트 하드웨어 확인
@@ -103,8 +104,8 @@ nslookup myregistry.azurecr.io
 
 관련 링크:
 
-* [Azure Container Registry 모니터링](monitor-service.md)
-* [컨테이너 레지스트리 FAQ](container-registry-faq.md)
+* [진단 평가 및 감사를 위한 로그](./monitor-service.md)
+* [컨테이너 레지스트리 FAQ](container-registry-faq.yml)
 * [Azure Container Registry의 모범 사례](container-registry-best-practices.md)
 
 ## <a name="next-steps"></a>다음 단계

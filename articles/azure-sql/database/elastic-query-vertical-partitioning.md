@@ -9,21 +9,21 @@ ms.devlang: ''
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84e7618232c38f8686e7b21e4a0660d812d9638f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792092"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528733"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 ![다른 데이터베이스에서 테이블에 대한 쿼리][1]
 
-수직 분할 데이터베이스는 서로 다른 데이터베이스에서 다양한 테이블 집합을 사용합니다. 즉 스키마가 데이터베이스마다 서로 다릅니다. 예를 들어, 재고의 모든 테이블은 한 데이터베이스 안에 있지만 모든 회계 관련 테이블은 보조 데이터베이스에 있습니다.
+수직 분할 데이터베이스는 서로 다른 데이터베이스에서 다양한 테이블 세트를 사용합니다. 즉 스키마가 데이터베이스마다 서로 다릅니다. 예를 들어, 재고의 모든 테이블은 한 데이터베이스 안에 있지만 모든 회계 관련 테이블은 보조 데이터베이스에 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -47,9 +47,8 @@ ms.locfileid: "92792092"
 
 ```sql
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
-CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
-SECRET = '<password>'
-[;]
+CREATE DATABASE SCOPED CREDENTIAL [<credential_name>]  WITH IDENTITY = '<username>',  
+SECRET = '<password>';
 ```
 
 > [!NOTE]
@@ -59,9 +58,15 @@ SECRET = '<password>'
 
 구문
 
-<External_Data_Source> ::= CREATE EXTERNAL DATA SOURCE <data_source_name> WITH(TYPE = RDBMS, LOCATION = ’<fully_qualified_server_name>’, DATABASE_NAME = ‘<remote_database_name>’,  
-    CREDENTIAL = <credential_name> ) [;]
-
+```syntaxsql
+<External_Data_Source> ::=
+CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
+    (TYPE = RDBMS,
+    LOCATION = ’<fully_qualified_server_name>’,
+    DATABASE_NAME = ‘<remote_database_name>’,  
+    CREDENTIAL = <credential_name>
+    ) [;]
+```
 > [!IMPORTANT]
 > TYPE 매개 변수는 **RDBMS** 로 설정해야 합니다.
 
@@ -90,10 +95,17 @@ select * from sys.external_data_sources;
 
 구문
 
+```syntaxsql
 CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
-    ( { <column_definition> } [ ,...n ]) { WITH( <rdbms_external_table_options> ) } )[;]
+    ( { <column_definition> } [ ,...n ])
+    { WITH ( <rdbms_external_table_options> ) }
+    )[;]
 
-<rdbms_external_table_options> ::= DATA_SOURCE = <External_Data_Source>, [ SCHEMA_NAME = N'nonescaped_schema_name',] [ OBJECT_NAME = N'nonescaped_object_name',]
+<rdbms_external_table_options> ::=
+    DATA_SOURCE = <External_Data_Source>,
+    [ SCHEMA_NAME = N'nonescaped_schema_name',]
+    [ OBJECT_NAME = N'nonescaped_object_name',]
+```
 
 ### <a name="example"></a>예제
 
@@ -125,9 +137,9 @@ select * from sys.external_tables;
 
 이전 섹션에서 설명한 대로 외부 데이터 소스를 사용하여 외부 테이블을 만드는 구문은 다음과 같습니다.
 
-DATA_SOURCE 절은 외부 테이블에 사용하는 외부 데이터 원본(즉, 수직 분할의 경우 원격 데이터베이스)을 정의합니다.  
+DATA_SOURCE 절은 외부 테이블에 사용하는 외부 데이터 원본(즉, 수직 분할의 원격 데이터베이스)을 정의합니다.  
 
-SCHEMA_NAME 및 OBJECT_NAME 절은 각각 외부 테이블 정의를 원격 데이터베이스에 있는 다른 스키마 또는 다른 이름의 테이블에 매핑하는 기능을 제공합니다. 이 기능은 원격 데이터베이스에서 카탈로그 뷰나 DMV에 대해 외부 테이블을 정의하거나, 원격 테이블 이름을 이미 로컬로 사용하는 경우 등의 다른 상황에 유용합니다.  
+SCHEMA_NAME 및 OBJECT_NAME 절을 사용하면 각각 외부 테이블 정의를 원격 데이터베이스에 있는 다른 스키마 또는 다른 이름의 테이블에 매핑할 수 있습니다. 이 매핑은 원격 데이터베이스에서 카탈로그 뷰나 DMV에 대해 외부 테이블을 정의하거나, 원격 테이블 이름을 이미 로컬로 사용하는 경우 등의 다른 상황에 유용합니다.  
 
 다음 DDL 문은 로컬 카탈로그에서 기존 외부 테이블 정의를 삭제합니다. 원격 데이터베이스에는 영향을 주지 않습니다.
 
@@ -139,7 +151,7 @@ DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
-외부 테이블에 대한 액세스 권한이 있는 사용자는 외부 데이터 원본 정의에서 제공한 자격 증명에 따라 자동으로 기본 원격 테이블에 액세스할 수 있습니다. 외부 데이터 원본의 자격 증명을 통해 원치 않는 권한 상승을 방지하려면 외부 테이블에 대한 액세스 관리에 주의가 필요합니다. 일반 SQL 권한을 사용하여 일반 테이블에서처럼 외부 테이블에 대한 액세스를 부여하거나 취소할 수 있습니다.  
+외부 테이블에 대한 액세스 권한이 있는 사용자는 외부 데이터 원본 정의에서 제공한 자격 증명에 따라 자동으로 기본 원격 테이블에 액세스할 수 있습니다. 외부 데이터 원본의 자격 증명을 통해 원치 않는 권한 상승을 방지하려면 외부 테이블에 대한 액세스를 신중하게 관리합니다. 일반 SQL 권한을 사용하여 일반 테이블에서처럼 외부 테이블에 대한 액세스를 부여하거나 취소할 수 있습니다.  
 
 ## <a name="example-querying-vertically-partitioned-databases"></a>예: 수직 분할된 데이터베이스 쿼리
 

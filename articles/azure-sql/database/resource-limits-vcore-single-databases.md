@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 06/04/2021
-ms.openlocfilehash: 4a400417fef8ac89ccf30799f4969ba8f789e260
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/21/2021
+ms.openlocfilehash: d3980a490a5ce61d7c428f76b8503fc49a62fbb3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555311"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566871"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>vCore 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "111555311"
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](file-space-manage.md)를 참조하세요.
 
-각 읽기 전용 복제본에는 vCores, 메모리, 데이터 IOPS, TempDB, 작업자, 세션과 같은 자체 리소스가 있습니다. 각 읽기 전용 복제본에는 이 문서의 뒷부분에서 설명하는 리소스 한도가 적용됩니다.
+데이터베이스의 각 읽기 전용 복제본에는 vCore, 메모리, 데이터 IOPS, TempDB, 작업자, 세션과 같은 자체 리소스가 있습니다. 각 읽기 전용 복제본에는 이 문서의 뒷부분에서 설명하는 리소스 한도가 적용됩니다.
 
 다음을 사용하여 단일 데이터베이스의 서비스 계층, 컴퓨팅 크기(서비스 목표), 스토리지 용량을 설정할 수 있습니다.
 
@@ -195,7 +195,7 @@ ms.locfileid: "111555311"
 
 ### <a name="gen5-compute-generation-part-1"></a>Gen5 컴퓨팅 세대(1부)
 
-|컴퓨팅 크기(서비스 목표)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
+|컴퓨팅 크기(서비스 목표)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen5_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |컴퓨팅 세대|5세대|5세대|5세대|5세대|5세대|5세대|5세대|
 |vCore 수|2|4|6|8|10|12|14|
@@ -651,7 +651,7 @@ ms.locfileid: "111555311"
 |메모리 내 OLTP 스토리지(GB)|172|216|304|704|1768|
 |최대 데이터 크기(GB)|1280|1536|2048|4096|4096|
 |최대 로그 크기(GB) <sup>1</sup>|427|512|683|1024|1024|
-|TempDB 최대 데이터 크기(GB)|4096|2048|1024|768|640|
+|TempDB 최대 데이터 크기(GB)|640|768|1024|2048|4096|
 |[최대 로컬 스토리지 크기](resource-limits-logical-server.md#storage-space-governance)(GB)|13836|13836|13836|13836|13836|
 |스토리지 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|

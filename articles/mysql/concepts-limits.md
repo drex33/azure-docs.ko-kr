@@ -6,14 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: f71084e9c13bd1a30f5d5f01a04172671074db03
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 5ba7559cdcfbb4f02ee99be6dce7997d7451f3e1
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525213"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114674421"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 제한 사항
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 다음 섹션에서는 데이터베이스 서비스의 용량, 스토리지 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
 
 ## <a name="server-parameters"></a>서버 매개 변수
@@ -58,7 +61,8 @@ MySQL 서비스는 기본 파일 시스템에 대한 직접 액세스를 허용�
 - `LOAD_FILE(file_name)`: 서비스에서 지원되지 않습니다.
 
 ### <a name="supported"></a>지원됨
-- `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure Storage)로 전달해야 합니다.
+- `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure Storage)로 전달해야 합니다. 또한 MySQL 클라이언트 버전 >= 8.0을 사용하는 경우 연결 문자열에 `-–local-infile=1` 매개 변수를 포함해야 합니다.
+
 
 ## <a name="functional-limitations"></a>기능 제한 사항
 
@@ -66,8 +70,8 @@ MySQL 서비스는 기본 파일 시스템에 대한 직접 액세스를 허용�
 - 기본 가격 책정 계층 간의 동적 크기 조정은 현재 지원되지 않습니다.
 - 서버 스토리지 크기를 줄이는 것은 지원되지 않습니다.
 
-### <a name="server-version-upgrades"></a>서버 버전 업그레이드
-- 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다. 다음의 주 버전으로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 주 버전을 [덤프 및 복원](./concepts-migrate-dump-restore.md)합니다.
+### <a name="major-version-upgrades"></a>주 버전 업그레이드
+- [주 버전 업그레이드는 v5.6에서 v5.7로 업그레이드하는 경우에만 지원됩니다](how-to-major-version-upgrade.md). v8.0으로의 업그레이드는 아직 지원되지 않습니다.
 
 ### <a name="point-in-time-restore"></a>특정 시점 복원
 - PITR 기능을 사용하면 새 서버가 기반으로 하는 서버와 동일한 구성으로 새 서버가 만들어집니다.
@@ -77,7 +81,7 @@ MySQL 서비스는 기본 파일 시스템에 대한 직접 액세스를 허용�
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
 ### <a name="storage-size"></a>스토리지 크기
-- 가격 책정 계층당 스토리지 크기 제한에 대한 [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
+- 가격 책정 계층당 스토리지 크기 제한에 대한 [가격 책정 계층](concepts-pricing-tiers.md#storage)을 참조하세요.
 
 ## <a name="current-known-issues"></a>현재 알려진 문제
 - 연결이 설정된 후에 MySQL 서버 인스턴스에서 잘못된 서버 버전을 표시합니다. 올바른 서버 인스턴스 엔진 버전을 설치하려면 `select version();` 명령을 사용합니다.

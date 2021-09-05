@@ -7,17 +7,17 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 05/07/2021
-ms.openlocfilehash: 35bcff2615ab9b31f077a13c1cae7fbe38518575
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.date: 08/06/2021
+ms.openlocfilehash: f930c52c4b913e9411c6f619231fb50d0bb6cc5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109628251"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535994"
 ---
 # <a name="configure-export-policy-for-nfs-or-dual-protocol-volumes"></a>NFS 또는 이중 프로토콜 볼륨에 대한 내보내기 정책 구성
 
-NFS 프로토콜(NFSv3 및 NFSv 4.1) 또는 이중 프로토콜(NFSv3 및 SMB)을 사용하는 Azure NetApp Files 볼륨에 대한 액세스를 제어하도록 내보내기 정책을 구성할 수 있습니다. 
+NFS 프로토콜(NFSv3 및 NFSv4.1) 또는 이중 프로토콜(NFSv3 및 SMB 또는 NFSv4.1 및 SMB)을 사용하는 Azure NetApp Files 볼륨에 대한 액세스를 제어하도록 내보내기 정책을 구성할 수 있습니다. 
 
 최대 5개의 내보내기 정책 규칙을 만들 수 있습니다.
 
@@ -48,6 +48,16 @@ NFS 프로토콜(NFSv3 및 NFSv 4.1) 또는 이중 프로토콜(NFSv3 및 SMB)�
 
       ![내보내기 정책](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
+    * **Chown 모드**: 필요에 따라 소유권 변경 모드를 수정하여 파일 및 디렉터리 소유권 관리 기능을 설정합니다.  2가지 옵션을 사용할 수 있습니다.   
+
+      * `Restricted`(기본값) - 루트 사용자만 파일 및 디렉터리의 소유권을 변경할 수 있습니다.
+      * `Unrestricted` - 루트가 아닌 사용자는 자신이 소유하는 파일 및 디렉터리에 대한 소유권을 변경할 수 있습니다.  
+
+        등록 요구 사항 및 고려 사항은 **`Chown Mode`** 설정에 적용됩니다. [Unix 권한 구성 및 소유권 모드 변경](configure-unix-permissions-change-ownership-mode.md)의 지침을 따릅니다.  
+
+      ![소유권 모드 변경 옵션을 보여주는 스크린샷.](../media/azure-netapp-files/chown-mode-export-policy.png) 
+
 ## <a name="next-steps"></a>다음 단계 
 * [볼륨 탑재 또는 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Unix 권한 구성 및 소유권 모드 변경](configure-unix-permissions-change-ownership-mode.md) 
 * [스냅샷 관리](azure-netapp-files-manage-snapshots.md)

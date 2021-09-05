@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8a67cb97487e1082aed976712ded5383008531b1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ae3f62141fdcdb1185f493eceeef7124fe11f869
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957129"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535712"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -244,7 +244,9 @@ Azure는 명령줄에서 애플리케이션 및 서비스를 관리하는 두 �
 
 * 구성 가능한 대시보드
 * Azure 리소스 관리 도구
-* 구독 설정 및 청구 정보에 액세스 자세한 내용은 [Azure Portal 개요](https://azure.microsoft.com/features/azure-portal/)를 참조하세요.
+* 구독 설정 및 청구 정보에 액세스
+
+자세한 내용은 [Azure Portal 개요](https://azure.microsoft.com/features/azure-portal/)를 참조하세요.
 
 ### <a name="rest-apis"></a>REST API
 
@@ -338,4 +340,4 @@ Azure는 Azure 구독에 대한 메타데이터 정보 및 리소스 사용에 �
 
 비용을 미리 예측하는 것은 어려운 일이지만 Azure에는 이러한 작업에 도움이 되는 도구가 있습니다. 배포된 리소스의 비용을 예측하는 데 유용한 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)가 있습니다. 또한 포털의 청구 리소스 및 청구 REST API를 사용하여 현재 사용량을 기반으로 향후 비용을 예측할 수 있습니다.
 
->**시작하기**: [Azure 사용량 API 개요](../../cost-management-billing/manage/consumption-api-overview.md)를 참조하세요.
+>**시작하기**: 자세히 알아보려면 [Azure 사용량 API 개요](../../cost-management-billing/manage/consumption-api-overview.md)를 참조하세요.

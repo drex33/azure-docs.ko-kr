@@ -7,18 +7,18 @@ ms.date: 01/18/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0868720668f5db09748e6976327f1500bc8a4781
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 8d85f5f18ad21b5a27a7fdb48e9ee14ab751f5d5
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733358"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113757909"
 ---
 # <a name="migrate-your-v2-iot-central-application-to-v3"></a>V2 IoT Central 애플리케이션을 V3에 마이그레이션하기
 
 현재, IoT Central 애플리케이션을 새로 만드는 경우, V3 애플리케이션이 됩니다. 이전에 애플리케이션을 만들었다면 그 시기에 따라 V2일 수 있습니다. 본 문서에서는 IoT Central의 최신 기능을 사용하도록 V2 애플리케이션을 V3 애플리케이션으로 마이그레이션하는 방법을 설명합니다.
 
-IoT Central 애플리케이션 버전 확인 방법에 대하여서는 [애플리케이션 정보](howto-get-app-info.md)를 확인하세요.
+IoT Central 애플리케이션의 버전을 식별하는 방법을 알아보려면 [내 애플리케이션에 대한 정보를 가져오려면 어떻게 해야 하나요?](howto-faq.yml#how-do-i-get-information-about-my-application-)를 참조하세요.
 
 V2 애플리케이션을 V3 애플리케이션으로 마이그레이션하려면 다음 단계를 거칩니다.
 
@@ -72,7 +72,7 @@ IoT Central은 기존 V3 애플리케이션으로의 마이그레이션은 지�
 
 다음은 고려하면 좋을 몇 가지 구성 단계입니다.
 
-- [대시보드 구성](howto-add-tiles-to-your-dashboard.md)
+- [대시보드 구성](howto-manage-dashboards.md)
 - [데이터 내보내기 구성](howto-export-data.md)
 - [규칙 및 작업 구성](quick-configure-rules.md)
 - [애플리케이션 UI 사용자 지정](howto-customize-ui.md)

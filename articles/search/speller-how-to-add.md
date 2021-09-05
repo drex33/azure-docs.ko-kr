@@ -7,23 +7,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 28dc63729a946e7b14b950f5082752d78c5992f4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3da9051a1f089d487be7021bf9341a95bae62b08
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110452687"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614374"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Cognitive Search에서 쿼리에 대한 맞춤법 검사 추가
 
 > [!IMPORTANT]
-> 맞춤법 교정 기능은 공개 미리 보기로 제공되며 미리 보기 REST API를 통해서만 이용할 수 있습니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 있는 그대로 제공됩니다. 처음 미리 보기를 시작할 때에는 맞춤법 검사기 요금이 청구되지 않습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
+> 맞춤법 수정은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. Azure Portal 및 미리 보기 REST API를 통해서만 사용할 수 있습니다.
 
 검색 엔진에 도달하기 전에 개별 검색 쿼리 용어의 맞춤법을 교정하여 재현율을 개선할 수 있습니다. **맞춤법 검사기** 매개 변수는 모든 쿼리 유형([단순](query-simple-syntax.md), [전체](query-lucene-syntax.md), 현재 공개 미리 보기로 제공되는 새로운 [의미 체계](semantic-how-to-query-request.md) 옵션)에서 지원됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
+맞춤법 검사기는 [의미 체계 검색 미리 보기](semantic-search-overview.md)와 함께 릴리스되었습니다. 따라서 [등록](https://aka.ms/SemanticSearchPreviewSignup)이 필수지만 이용 요금은 없으며 계층 제한도 없습니다. 맞춤법 검사기는 의미 체계 검색과 [동일한 지역](semantic-search-overview.md#availability-and-pricing)에서 사용할 수 있습니다.
+
+등록이 처리되면 다음이 필요합니다.
 
 + [지원되는 언어](#supported-languages)로 된 콘텐츠가 있는 기존 검색 인덱스 현재 맞춤법 수정 기능이 [동의어](search-synonyms.md)를 사용하여 작동하지는 않습니다. 모든 필드 정의에서 동의어 맵을 지정하는 인덱스에는 사용하지 마세요.
 
@@ -32,9 +36,6 @@ ms.locfileid: "110452687"
   검색 클라이언트는 쿼리 요청에 대한 미리 보기 REST API를 지원해야 합니다. 미리 보기 API에 대한 REST 호출을 수행하도록 수정한 [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md)또는 코드를 사용할 수 있습니다.
 
 + 맞춤법 교정을 호출하는 [쿼리 요청](/rest/api/searchservice/preview-api/search-documents)에는 "api-version = 2020-06 -30-Preview", "speller=lexicon" 및 "queryLanguage"가 [지원되는 언어](#supported-languages)로 설정되어 있어야 합니다.
-
-> [!Note]
-> 맞춤법 검사기 매개 변수는 의미 체계 검색을 제공하는 동일한 지역의 모든 계층에서 사용할 수 있습니다. 등록이 필수지만 무료이며 계층 제한은 없습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
 
 ## <a name="spell-correction-with-simple-search"></a>단순 검색으로 맞춤법 수정
 

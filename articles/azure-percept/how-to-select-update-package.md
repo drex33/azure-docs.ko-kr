@@ -1,18 +1,18 @@
 ---
-title: Azure Percept DK에 가장 적합한 업데이트 패키지 선택
+title: Azure Percept DK 업데이트 패키지 선택
 description: Azure Percept DK 버전을 식별하고 가장 적합한 업데이트 패키지를 선택하는 방법
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 07/23/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 7528e11e24485fecc3e83773d98e119d98ca63cf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e2256ba6ad1f2f125b21e7cb59ab74b44864bce6
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968751"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529656"
 ---
 # <a name="how-to-determine-and-download-the-best-update-package-for-ota-and-usb-updates"></a>OTA 및 USB 업데이트에 가장 적합한 업데이트 패키지를 확인하고 다운로드하는 방법
 
@@ -50,9 +50,9 @@ ms.locfileid: "111968751"
 
 |model  |swVersion  |Update 메서드  |다운로드 링크  |참고  |
 |---------|---------|---------|---------|---------|
-|PE-101     |2020.108.101.105, <br>2020.108.114.120, <br>2020.109.101.122, <br>2020.109.116.120, <br>2021.101.106.118        |**USB만**         |[2021.105.111.112 USB 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2155734)         |5월 릴리스(2105)         |
-|PE-101     |2021.102.108.112, <br>         |OTA 또는 USB        |[2021.105.111.112 OTA 매니페스트(PE-101)](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[2021.105.111.112 OTA 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2161538)<br>[2021.105.111.112 USB 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2155734)          |5월 릴리스(2105)         |
-|APDK-101     |모든 swVersion        |OTA 또는 USB       | [2021.105.111.112 OTA 매니페스트(APDK-101)](https://go.microsoft.com/fwlink/?linkid=2163554)<br>[2021.105.111.112 OTA 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2163555)        |5월 릴리스(2105)         |
+|PE-101     |모든 swVersion       |**USB만**         |[2021.107.129.116 USB 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2169086)         |7월 릴리스(2107)         |
+|APDK-101     |2021.106.111.115 이전의 모든 swVersion |**USB만**         |[2021.107.129.116 USB 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2169086)         |7월 릴리스(2107)         |
+|APDK-101     |2021.106.111.115        |OTA 또는 USB       |[2021.107.129.116 OTA 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2169245)<br>[2021.107.129.116 USB 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2169086)        |7월 릴리스(2107)         |
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,12 +11,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd2d660a0591506b59aaa1b11526175582d2785b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9dc0eed20ee392b668078425946b39ac6c6440c4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758774"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536485"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화에 대한 필수 구성 요소
 이 문서에서는 ID 솔루션으로 Azure AD(Azure Active Directory) Connect 클라우드 동기화를 선택하고 사용하는 방법에 대한 지침을 제공합니다.
@@ -109,6 +109,9 @@ TLS 1.2를 사용하도록 설정하려면 다음 단계를 수행합니다.
     ```
 
 1. 서버를 다시 시작합니다.
+## <a name="ntlm-requirement"></a>NTLM 요구 사항
+
+Azure AD Connect 프로비저닝 에이전트를 실행하는 Windows Server에서 NTLM을 활성화하면 안 됩니다. 활성화된 경우에는 비활성화해야 합니다. 
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 

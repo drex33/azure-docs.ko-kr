@@ -1,18 +1,18 @@
 ---
-title: Azure Arc 사용 서버 VM 확장 문제 해결
-description: 이 문서에서는 Azure Arc 사용 서버에서 발생하는 Azure VM 확장 문제를 해결하는 방법을 설명합니다.
-ms.date: 09/24/2020
+title: Azure Arc 지원 서버 VM 확장 문제 해결
+description: 이 문서에서는 Azure Arc 지원 서버에서 발생하는 Azure VM 확장 문제를 해결하는 방법을 설명합니다.
+ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 799e5c8ec00a894c6a54c64494edd8f259faf2dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 690b92389d86ca497801af79c6930677c19178fe
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584670"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114390205"
 ---
-# <a name="troubleshoot-arc-enabled-servers-vm-extension-issues"></a>Arc 사용 서버 VM 확장 문제 해결
+# <a name="troubleshoot-arc-enabled-servers-vm-extension-issues"></a>Arc 지원 서버 VM 확장 문제 해결
 
-이 문서에서는 Arc 사용 서버에서 Azure VM 확장을 배포 또는 제거를 시도하는 동안 발생할 수 있는 문제를 해결하는 방법에 대한 정보를 제공합니다. 일반 정보는 [Azure VM 확장 관리 및 사용](./manage-vm-extensions.md)을 참조하세요.
+이 문서에서는 Arc 지원 서버에서 Azure VM 확장을 배포 또는 제거를 시도하는 동안 발생할 수 있는 문제를 해결하는 방법에 대한 정보를 제공합니다. 일반 정보는 [Azure VM 확장 관리 및 사용](./manage-vm-extensions.md)을 참조하세요.
 
 ## <a name="general-troubleshooting"></a>일반적인 문제 해결
 
@@ -32,11 +32,11 @@ ms.locfileid: "100584670"
 
 ### <a name="vm-insights"></a>VM 인사이트
 
-- Azure Arc 사용 서버에 대해 VM Insights를 사용하도록 설정하면 종속성 및 Log Analytics 에이전트가 설치됩니다. 저속 머신이거나 네트워크 연결 속도가 느린 머신에서는 설치 프로세스 중 시간 초과가 표시될 수 있습니다. Microsoft는 이 조건을 해결하는 데 도움이 되도록 연결된 머신 에이전트에서 이 문제를 해결하는 단계를 수행합니다. 중간에 설치를 다시 시도하면 성공할 수 있습니다.
+- Azure Arc 지원 서버에 대해 VM Insights를 사용하도록 설정하면 종속성 및 Log Analytics 에이전트가 설치됩니다. 저속 머신이거나 네트워크 연결 속도가 느린 머신에서는 설치 프로세스 중 시간 초과가 표시될 수 있습니다. Microsoft는 이 조건을 해결하는 데 도움이 되도록 연결된 머신 에이전트에서 이 문제를 해결하는 단계를 수행합니다. 중간에 설치를 다시 시도하면 성공할 수 있습니다.
 
 ### <a name="log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트
 
-- Log Analytics 에이전트 버전 1.13.9(해당 확장 버전은 1.13.15)가 Azure Arc 사용 서버의 리소스 ID로 업로드된 데이터를 올바르게 표시하지 않습니다. 로그가 서비스로 전송되기는 하지만, **로그** 또는 **정보** 를 선택한 후 선택한 사용 가능한 서버에서 데이터를 보려고 하면 데이터가 반환되지 않습니다. Azure Monitor Logs 또는 작업 영역으로 범위가 지정된 VM용 Azure Monitor에서 쿼리를 실행하여 해당 데이터를 볼 수 있습니다.
+- Log Analytics 에이전트 버전 1.13.9(해당 확장 버전은 1.13.15)가 Azure Arc 지원 서버의 리소스 ID로 업로드된 데이터를 올바르게 표시하지 않습니다. 로그가 서비스로 전송되기는 하지만, **로그** 또는 **정보** 를 선택한 후 선택한 사용 가능한 서버에서 데이터를 보려고 하면 데이터가 반환되지 않습니다. Azure Monitor Logs 또는 작업 영역으로 범위가 지정된 VM용 Azure Monitor에서 쿼리를 실행하여 해당 데이터를 볼 수 있습니다.
 
 - 일부 배포판은 Linux용 Log Analytics 에이전트에서 현재 지원되지 않습니다. 에이전트를 설치하려면 Python 2를 포함한 추가 종속성이 필요합니다. [여기](../../azure-monitor/agents/agents-overview.md#supported-operating-systems)에서 지원 매트릭스 및 필수 구성 요소를 검토합니다.
 

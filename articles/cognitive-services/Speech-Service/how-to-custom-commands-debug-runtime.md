@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 명령 애플리케이션 실행 시 오류 디버그
+title: 런타임 시 사용자 지정 명령 애플리케이션에 대한 문제 해결 가이드
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 사용자 지정 명령 애플리케이션에서 런타임 오류를 디버깅하는 방법에 대해 알아봅니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: b41bcda7381e5811ef1e1f91c102d8c85f50b3b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7577a1c2666c8b5d34920e3827a9f4549b69edd2
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103196922"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539546"
 ---
-# <a name="debug-errors-when-running-a-custom-commands-application"></a>사용자 지정 명령 애플리케이션 실행 시 오류 디버그
+# <a name="troubleshoot-a-custom-commands-application-at-runtime"></a>런타임 시 사용자 지정 명령 애플리케이션 문제 해결
 
 이 문서에서는 사용자 지정 명령 애플리케이션을 실행하는 동안 오류가 표시될 때 디버깅하는 방법에 대해 설명합니다. 
 

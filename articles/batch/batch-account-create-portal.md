@@ -2,14 +2,14 @@
 title: Azure Portal에서 계정 만들기
 description: 클라우드에서 대규모 병렬 작업을 실행하도록 Azure Portal에서 Azure Batch 계정을 만드는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 02/23/2021
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36759a0caef41af9307bf621a1b6b634ddf586cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/01/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 745a2fc2e1279d05fa380b7bc053171d20a3fa4c
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101703667"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213276"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -83,13 +83,11 @@ Batch 계정 및 시나리오에 대한 자세한 내용은 [Batch 서비스 워
 
     :::image type="content" source="media/batch-account-create-portal/register_provider.png" alt-text="Microsoft.Batch 리소스 공급자를 보여 주는 스크린샷":::
 
-1. **구독** 페이지로 돌아온 다음, **액세스 제어(IAM)**  > **역할 할당을 선택하고** >  > **역할 할당 추가** 를 **추가합니다**.
+1. **구독** 페이지에서 **액세스 제어(IAM)** 를 선택합니다.
 
-    :::image type="content" source="media/batch-account-create-portal/subscription_iam.png" alt-text="구독에 대한 역할 할당 페이지 스크린샷":::
+1. Batch API에 **기여자** 또는 **소유자** 역할을 할당합니다. **Microsoft Azure Batch** 또는 **MicrosoftAzureBatch** 를 검색하여 이 계정을 찾을 수 있습니다. (Batch API의 개체 ID는 **f520d84c-3fd3-4cc8-88d4-2ed25b00d27a** 이고 애플리케이션 ID는 **ddbf3205-c6bd-46ae-8127-60eb93363864** 입니다.)
 
-1. **역할 할당 추가** 페이지에서 **Contributor** 또는 **소유자** 역할을 선택하고, Batch API를 검색합니다. **Microsoft Azure Batch** 또는 **MicrosoftAzureBatch** 를 검색하여 API를 찾습니다. (**ddbf3205-c6bd-46ae-8127-60eb93363864** 는 해당 Batch API의 애플리케이션 ID입니다.)
-
-1. Batch API를 찾았으면 해당 API를 선택하고 **저장** 을 선택합니다.
+   세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ### <a name="create-a-key-vault"></a>주요 자격 증명 모음 만들기
 

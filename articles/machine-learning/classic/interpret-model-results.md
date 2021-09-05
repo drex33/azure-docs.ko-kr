@@ -8,20 +8,22 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: f824cf6e30ed795ef0fe4468542ae16c801bd61b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 882939a08a3a90cffd0b4eb25711d71159a91eb9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100516127"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689685"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 모델 결과 해석
+# <a name="interpret-model-results-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 모델 결과 해석
 
-**적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이는 이 문서가 Azure Machine Learning에 적용됨을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:** ![이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이 문서가 Azure Machine Learning에 적용되지 않음을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-이 항목에서는 Azure Machine Learning 스튜디오(클래식)에서 예측 결과를 시각화하고 해석하는 방법에 대해 설명합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
-Azure Machine Learning 스튜디오(클래식)에는 다음 네 가지 주요 기계 학습 모델 종류가 있습니다.
+이 항목에서는 Machine Learning Studio(클래식)에서 예측 결과를 시각화하고 해석하는 방법에 대해 설명합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
+
+Machine Learning Studio(클래식)에는 다음 네 가지 주요 기계 학습 모델 종류가 있습니다.
 
 * 분류
 * Clustering
@@ -46,12 +48,12 @@ ML 스튜디오(클래식)을 처음 접하는 경우 [간단한 실험을 만�
 * 2클래스에만 문제가 있음(2클래스 또는 이진 분류)
 * 세 개 이상의 클래스에 문제가 있음(다중 클래스 분류)
 
-Azure Machine Learning 스튜디오(클래식)에는 각 분류 유형을 처리하는 다양한 모듈이 있지만 예측 결과를 해석하는 방법은 비슷합니다.
+Machine Learning Studio(클래식)에는 각 분류 유형을 처리하는 다양한 모듈이 있지만 예측 결과를 해석하는 방법은 비슷합니다.
 
 ### <a name="two-class-classification"></a>2클래스 분류
 **예제 실험**
 
-2클래스 분류 문제의 예로 붓꽃 분류를 들 수 있습니다. 이 작업은 특징에 따라 붓꽃을 분류하는 것입니다. Azure Machine Learning 스튜디오(클래식)에서 제공하는 아이리스 데이터 집합은 널리 사용되는 [아이리스 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set)의 하위 집합입니다. 이 집합에는 꽃의 종류가 두 가지(클래스 0과 1)뿐입니다. 각 꽃에는 네 가지 특징이 있습니다(꽃받침 길이, 꽃받침 너비, 꽃잎 길이 및 꽃잎 너비).
+2클래스 분류 문제의 예로 붓꽃 분류를 들 수 있습니다. 이 작업은 특징에 따라 붓꽃을 분류하는 것입니다. Machine Learning Studio(클래식)에서 제공하는 아이리스 데이터 세트는 두 가지 꽃 종류(클래스 0 및 1)의 인스턴스만 포함하는 인기 있는 [아이리스 데이터 세트](https://en.wikipedia.org/wiki/Iris_flower_data_set)의 하위 집합입니다. 각 꽃에는 네 가지 특징이 있습니다(꽃받침 길이, 꽃받침 너비, 꽃잎 길이 및 꽃잎 너비).
 
 ![붓꽃 실험의 스크린샷](./media/interpret-model-results/1.png)
 
@@ -225,7 +227,7 @@ Azure Machine Learning 스튜디오(클래식)에는 각 분류 유형을 처리
 * 고객 특징 데이터
 * 음식점 기능 데이터
 
-Azure Machine Learning 스튜디오(클래식)의 [매치박스 추천 학습][train-matchbox-recommender] 모듈을 사용하여 여러 가지를 작업을 할 수 있습니다.
+Machine Learning Studio(클래식)의 [매치박스 추천 학습][train-matchbox-recommender] 모듈을 사용하여 여러 가지를 작업을 할 수 있습니다.
 
 * 지정된 사용자와 항목의 등급 예측
 * 지정된 사용자를 위한 항목 추천
@@ -236,7 +238,7 @@ Azure Machine Learning 스튜디오(클래식)의 [매치박스 추천 학습][t
 
 ![매치박스 추천](./media/interpret-model-results/19_1.png)
 
-추천 시스템에 대한 일반적인 Azure Machine Learning 스튜디오(클래식) 실험은 그림 20과 같습니다. 추천 시스템 모듈 사용 방법에 대한 자세한 내용은 [매치박스 추천 학습][train-matchbox-recommender] 및 [매치박스 추천 점수 매기기][score-matchbox-recommender]를 참조하세요.
+추천 시스템에 대한 일반적인 Machine Learning Studio(클래식) 실험은 그림 20과 같습니다. 추천 시스템 모듈 사용 방법에 대한 자세한 내용은 [매치박스 추천 학습][train-matchbox-recommender] 및 [매치박스 추천 점수 매기기][score-matchbox-recommender]를 참조하세요.
 
 ![추천 시스템 실험](./media/interpret-model-results/20.png)
 

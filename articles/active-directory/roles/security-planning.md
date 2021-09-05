@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe8024650909ef3f48057c572fba2a70f2d611e2
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 0e45240d9d1a957765dfd362bf612ae2ea93919c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796396"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567068"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -66,13 +66,13 @@ ms.locfileid: "110796396"
 
 ### <a name="general-preparation"></a>일반적인 준비
 
-#### <a name="turn-on-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 설정
+#### <a name="use-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 사용
 
-Azure AD 프로덕션 환경에서 Azure AD PIM(Privileged Identity Management)을 설정하는 것이 좋습니다. PIM이 설정되면 권한 있는 액세스 역할 변경 내용에 대한 알림 메일 메시지를 받게 됩니다. 추가 사용자가 권한이 높은 역할에 추가되면 알림에서 조기에 경고합니다.
+Azure AD 프로덕션 환경에서 Azure AD PIM(Privileged Identity Management)을 사용하는 것이 좋습니다. PIM을 사용하면 권한 있는 액세스 역할 변경 내용에 대한 알림 이메일 메시지를 받게 됩니다. 추가 사용자가 권한이 높은 역할에 추가되면 알림에서 조기에 경고합니다.
 
 Azure AD Privileged Identity Management는 Azure AD Premium P2 또는 EMS E5에 포함되어 있습니다. 온-프레미스와 클라우드에서 애플리케이션 및 리소스에 대한 액세스를 보호하려면 [Microsoft Enterprise Mobility + Security 90일 평가판](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)에 가입합니다. Azure AD Privileged Identity Management 및 Azure AD ID 보호는 Azure AD 보고, 감사 및 경고를 사용하여 보안 활동을 모니터링합니다.
 
-Azure AD Privileged Identity Management가 설정되면 다음을 수행합니다.
+Azure AD Privileged Identity Management 사용을 시작한 후:
 
 1. Azure AD 프로덕션 조직의 전역 관리자 계정으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -86,7 +86,7 @@ Azure AD Privileged Identity Management가 설정되면 다음을 수행합니�
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>권한이 높은 역할이 있는 계정 식별 및 분류
 
-Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할에 있는 사용자를 확인합니다.
+Azure AD Privileged Identity Management 사용을 시작한 후 다음 Azure AD 역할에 있는 사용자를 확인합니다.
 
 * 전역 관리자
 * 권한 있는 역할 관리자
@@ -425,7 +425,7 @@ Microsoft 365를 사용하지 않는 경우 이 단계를 건너뜁니다.
 
 8. 잠재적인 법의학 및 법적 조사를 위해 관련 로그의 백업을 저장해야 합니다.
 
-Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 자세한 내용은 [Microsoft Office 365의 보안 인시던트 관리](https://aka.ms/Office365SIM)를 참조하세요.
+Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 자세한 내용은 [Microsoft Office 365의 보안 인시던트 관리](/compliance/assurance/assurance-security-incident-management)를 참조하세요.
 
 ## <a name="faq-answers-for-securing-privileged-access"></a>FAQ: 권한 있는 액세스 보안에 대한 대답  
 

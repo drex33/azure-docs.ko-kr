@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 02/23/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 7648482fcf1d3618c02e4c8c8cf18aa521013baf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 22a953058084b4f828160cc9ba99c14a5313c9fb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078276"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536751"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
@@ -233,7 +233,7 @@ PowerShell에서:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_MEMORY_LIMIT_MB"=2000}
 ```
 
-값은 MB 단위로 정의되며, 호스트의 총 실제 메모리보다 작거나 같아야 합니다. 예를 들어 RAM이 8GB인 App Service 요금제에서 모든 앱에 대한 `WEBSITE_MEMORY_LIMIT_MB`의 누적 합계는 8GB를 초과하지 않아야 합니다. 각 가격 책정 계층에서 사용할 수 있는 메모리 양에 대한 정보는 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/windows/)의 **프리미엄 컨테이너(Windows) 플랜** 섹션에서 확인할 수 있습니다.
+값은 MB 단위로 정의되며, 호스트의 총 실제 메모리보다 작거나 같아야 합니다. 예를 들어 RAM이 8GB인 App Service 요금제에서 모든 앱에 대한 `WEBSITE_MEMORY_LIMIT_MB`의 누적 합계는 8GB를 초과하지 않아야 합니다. 각 가격 책정 계층에서 사용할 수 있는 메모리 양에 대한 정보는 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/windows/)의 **Premium v3 서비스 플랜** 섹션에서 확인할 수 있습니다.
 
 ## <a name="customize-the-number-of-compute-cores"></a>컴퓨팅 코어 수 사용자 지정
 
@@ -259,7 +259,7 @@ Get-ComputerInfo | ft CsNumberOfLogicalProcessors # Total number of enabled logi
 Get-ComputerInfo | ft CsNumberOfProcessors # Number of physical processors.
 ```
 
-프로세서는 다중 코어 또는 하이퍼스레딩 프로세서일 수 있습니다. 각 가격 책정 계층에서 사용할 수 있는 코어 수에 대한 정보는 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/windows/)의 **프리미엄 컨테이너(Windows) 플랜** 섹션에서 확인할 수 있습니다.
+프로세서는 다중 코어 또는 하이퍼스레딩 프로세서일 수 있습니다. 각 가격 책정 계층에서 사용할 수 있는 코어 수에 대한 정보는 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/windows/)의 **Premium v3 서비스 플랜** 섹션에서 확인할 수 있습니다.
 
 ## <a name="customize-health-ping-behavior"></a>상태 ping 동작 사용자 지정
 
@@ -386,6 +386,7 @@ wordpress:
 - 관리 ID
 - CORS
 - Docker Compose 시나리오에서는 VNET 통합이 지원되지 않습니다.
+- 현재 Azure App Services의 Docker Compose는 4,000자로 제한되어 있습니다.
 
 ### <a name="docker-compose-options"></a>Docker Compose 옵션
 
@@ -431,4 +432,5 @@ wordpress:
 
 또는 다음 추가 리소스를 참조하세요.
 
-[Windows/Linux 컨테이너에서 인증서 로드](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)
+- [환경 변수 및 앱 설정 참조](reference-app-settings.md)
+- [Windows/Linux 컨테이너에서 인증서 로드](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)

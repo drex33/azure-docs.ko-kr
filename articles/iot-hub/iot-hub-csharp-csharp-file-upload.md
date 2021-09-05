@@ -2,20 +2,19 @@
 title: .NET을 사용하여 디바이스에서 Azure IoT Hub로 파일 업로드 | Microsoft Docs
 description: .NET용 Azure IoT 디바이스 SDK를 사용하여 디바이스에서 클라우드로 파일을 업로드 하는 방법입니다. 업로드된 파일은 Azure Storage blob 컨테이너에 저장됩니다.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 07/04/2017
+ms.date: 07/18/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: df460ba4163b414ad954dce73125a6376f4cad6f
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 41cf392fb4b50c06e6af1f20e0c53570589b4090
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004586"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528768"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(.NET)
 
@@ -23,7 +22,7 @@ ms.locfileid: "112004586"
 
 이 자습서에서는 .NET 파일 업로드 샘플을 사용하여 IoT Hub의 파일 업로드 기능을 사용하는 방법을 보여줍니다. 
 
-[디바이스에서 IoT Hub로 원격 분석 보내기](quickstart-send-telemetry-dotnet.md) 빠른 시작 및 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 자습서는 IoT Hub의 기본적인 디바이스-클라우드 및 클라우드-디바이스 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 디바이스-클라우드 메시지를 Microsoft Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들면 다음과 같습니다.
+[디바이스에서 IoT Hub로 원격 분석 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) 빠른 시작 및 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 자습서는 IoT Hub의 기본적인 디바이스-클라우드 및 클라우드-디바이스 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 디바이스-클라우드 메시지를 Microsoft Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들면 다음과 같습니다.
 
 * 이미지가 포함된 대형 파일
 
@@ -46,9 +45,17 @@ ms.locfileid: "112004586"
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
-* [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
+* 이 문서에서 실행하는 샘플 애플리케이션은 C#을 사용하여 작성되었습니다. Azure IoT C# 샘플의 경우 개발 머신에 .NET Core SDK 3.1 이상이 설치되어 있는 것이 좋습니다.
 
-* Visual Studio Code에서 *FileUploadSample* 폴더를 열고 *FileUploadSample.cs* 파일을 엽니다.
+    [.NET](https://dotnet.microsoft.com/download)에서 여러 플랫폼에 대한 .NET Core SDK를 다운로드할 수 있습니다.
+
+    다음 명령을 사용하여 개발 머신에서 .NET Core SDK의 현재 버전을 확인할 수 있습니다.
+
+    ```cmd/sh
+    dotnet --version
+    ```
+
+* [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 * 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
@@ -56,15 +63,15 @@ ms.locfileid: "112004586"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
 
-## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## <a name="examine-the-application"></a>애플리케이션 검사
 
-.NET 샘플 다운로드의 *FileUploadSample* 폴더로 이동합니다. Visual Studio Code에서 폴더를 엽니다. 폴더에는 *parameters.cs* 라는 파일이 포함되어 있습니다. 해당 파일을 열면 매개 변수 *p* 가 필요하고 연결 문자열이 포함되어 있음을 알 수 있습니다. 전송 프로토콜을 변경하려는 경우 매개 변수 *t* 를 지정할 수 있습니다. 기본 프로토콜은 mqtt입니다. 파일 *program.cs* 에는 *main* 함수가 포함되어 있습니다. *FileUploadSample.cs* 파일에는 기본 샘플 논리가 포함되어 있습니다. *TestPayload.txt* 는 Blob 컨테이너에 업로드할 파일입니다.
+Visual Studio Code에서 .NET 샘플 다운로드에 있는 *azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample* 폴더를 엽니다. 폴더에는 *parameters.cs* 라는 파일이 포함되어 있습니다. 해당 파일을 열면 매개 변수 *p* 가 필요하고 디바이스 연결 문자열이 포함되어 있음을 알 수 있습니다. 디바이스를 등록할 때 이 연결 문자열을 복사하고 저장했습니다. 전송 프로토콜을 변경하려는 경우 매개 변수 *t* 를 지정할 수 있습니다. 기본 프로토콜은 mqtt입니다. 파일 *program.cs* 에는 *main* 함수가 포함되어 있습니다. *FileUploadSample.cs* 파일에는 기본 샘플 논리가 포함되어 있습니다. *TestPayload.txt* 는 Blob 컨테이너에 업로드할 파일입니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
@@ -74,7 +81,7 @@ ms.locfileid: "112004586"
 1. 다음 명령을 입력합니다.
     ```cmd/sh
     dotnet restore
-    dotnet run --p "{Your connection string}"
+    dotnet run --p "{Your device connection string}"
     ```
 
 출력은 다음과 유사합니다.

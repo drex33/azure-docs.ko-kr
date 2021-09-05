@@ -6,14 +6,14 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
 ms.custom: mvc
-ms.date: 05/12/2021
+ms.date: 07/21/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 42cd84387d1b5b67a09afcc072c897d6980b3d49
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: f2a634aa73cf9b9cb2b379887f9a677a79c39b57
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109815286"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536582"
 ---
 # <a name="azure-sentinel-sap-solution-logs-reference-public-preview"></a>Azure Sentinel SAP 솔루션 로그 참조(공개 미리 보기)
 
@@ -38,7 +38,7 @@ ms.locfileid: "109815286"
 
 - **로그 용도**: 나중에 필요에 따라 재구성할 수 있도록 애플리케이션 실행 진행률을 기록합니다.
 
-    XBP 인터페이스의 표준 서비스를 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다.
+    XBP 인터페이스의 표준 서비스를 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다. 이 로그는 클라이언트별로 생성됩니다.
 
 
 ### <a name="abapapplog_cl-log-schema"></a>ABAPAppLog_CL 로그 스키마
@@ -90,9 +90,9 @@ ms.locfileid: "109815286"
 
     - SAP 시스템의 다른 엔터티(예: 사용자 데이터, 역할, 주소)
 
-    표준 서비스를 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다.
+    표준 서비스를 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다. 이 로그는 클라이언트별로 생성됩니다.
 
-### <a name="abapauditlog_cl-log-schema"></a>ABAPAuditLog_CL 로그 스키마
+### <a name="abapchangedocslog_cl-log-schema"></a>ABAPChangeDocsLog_CL 로그 스키마
 
 
 | 필드                    | Description                 |
@@ -134,7 +134,7 @@ ms.locfileid: "109815286"
 
 - **로그 용도**: 변경된 디렉터리 개체 및 사용자 지정을 비롯한 CTS(변경 및 전송 시스템) 로그를 포함합니다.
 
-    표준 테이블 및 표준 서비스를 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다.
+    표준 테이블 및 표준 서비스를 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
 > [!NOTE]
 > 애플리케이션 로깅, 변경 문서 및 테이블 기록 외에도 변경 및 전송 시스템을 사용하여 프로덕션 시스템에 적용한 모든 변경 사항은 CTS 및 TMS 로그에 문서화됩니다.
@@ -143,7 +143,7 @@ ms.locfileid: "109815286"
 
 ### <a name="abapcrlog_cl-log-schema"></a>ABAPCRLog_CL 로그 스키마
 
-| 필드        | Description                       |
+| 필드        | 설명                       |
 | ------------ | --------------------------------- |
 | 범주     | 범주(워크벤치, 사용자 지정) |
 | ClientID     | ABAP 클라이언트 ID(MANDT)            |
@@ -170,7 +170,7 @@ ms.locfileid: "109815286"
 
 - **로그 용도**: 중요하거나 감사에 취약한 테이블에 대한 로깅을 제공합니다.
 
-    사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다.
+    사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
 ### <a name="abaptabledatalog_cl-log-schema"></a>ABAPTableDataLog_CL 로그 스키마
 
@@ -196,13 +196,13 @@ ms.locfileid: "109815286"
 
 ## <a name="abap-gateway-log"></a>ABAP 게이트웨이 로그
 
-- **Azure Sentinel의 이름**: `GW_CL`
+- **Azure Sentinel의 이름**: `ABAPOS_GW_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.5.7/en-US/48b2a710ca1c3079e10000000a42189b.html)
 
-- **로그 용도**: 게이트웨이 활동을 모니터링합니다. SAP Control 웹 서비스에서 사용할 수 있습니다.
+- **로그 용도**: 게이트웨이 활동을 모니터링합니다. SAP Control 웹 서비스에서 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
-### <a name="gw_cl-log-schema"></a>GW_CL 로그 스키마
+### <a name="abapos_gw_cl-log-schema"></a>ABAPOS_GW_CL 로그 스키마
 
 | 필드        | 설명      |
 | ------------ | ---------------- |
@@ -216,15 +216,15 @@ ms.locfileid: "109815286"
 
 ## <a name="abap-icm-log"></a>ABAP ICM 로그
 
-- **Azure Sentinel의 이름**: `ICM_CL`
+- **Azure Sentinel의 이름**: `ABAPOS_ICM_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.52.4/en-US/a10ec40d01e740b58d0a5231736c434e.html)
 
 - **로그 용도**: 인바운드 및 아웃바운드 요청을 기록하고 HTTP 요청의 통계를 컴파일합니다.
 
-    SAP Control 웹 서비스에서 사용할 수 있습니다.
+    SAP Control 웹 서비스에서 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
-### <a name="icm_cl-log-schema"></a>ICM_CL 로그 스키마
+### <a name="abapos_icm_cl-log-schema"></a>ABAPOS_ICM_CL 로그 스키마
 
 | 필드        | 설명      |
 | ------------ | ---------------- |
@@ -244,7 +244,7 @@ ms.locfileid: "109815286"
 
 - **로그 용도**: 모든 백그라운드 처리 작업 로그를 결합합니다(SM37).
 
-    XBP 인터페이스의 표준 서비스를 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다.
+    XBP 인터페이스의 표준 서비스를 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
 ### <a name="abapjoblog_cl-log-schema"></a>ABAPJobLog_CL 로그 스키마
 
@@ -292,7 +292,7 @@ ms.locfileid: "109815286"
     - 성공 및 실패 로그인 시도와 같은 더 높은 수준의 데이터를 제공하는 정보
     - 성공 또는 실패 트랜잭션 시작과 같은 일련의 이벤트를 재구성하는 데 사용할 수 있는 정보
 
-    RFC XAL/SAL 인터페이스를 통해 사용할 수 있습니다. SAL은 버전 7.50부터 사용할 수 있습니다.
+    RFC XAL/SAL 인터페이스를 통해 사용할 수 있습니다. SAL은 버전 7.50부터 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
 ### <a name="abapauditlog_cl-log-schema"></a>ABAPAuditLog_CL 로그 스키마
 
@@ -338,7 +338,7 @@ ms.locfileid: "109815286"
 
 - **로그 용도**: 스풀 요청 기록이 있는 SAP 인쇄의 기본 로그 역할을 합니다. (SP01).
 
-    표준 테이블을 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다.
+    표준 테이블을 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
 ### <a name="abapspoollog_cl-log-schema"></a>ABAPSpoolLog_CL 로그 스키마
 
@@ -397,7 +397,7 @@ ms.locfileid: "109815286"
 
 - **로그 용도**: 스풀 출력 요청 기록이 있는 SAP 인쇄의 기본 로그 역할을 합니다. (SP02).
 
-    표준 테이블을 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다.
+    표준 테이블을 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
 ### <a name="abapspooloutputlog_cl-log-schema"></a>ABAPSpoolOutputLog_CL 로그 스키마
 
@@ -442,15 +442,15 @@ ms.locfileid: "109815286"
 
 ## <a name="abap-syslog"></a>ABAP SysLog
 
-- **Azure Sentinel의 이름**: `SysLog_CL`
+- **Azure Sentinel의 이름**: `ABAPOS_Syslog_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcbaf36611d3a6510000e835363f.html)
 
 - **로그 용도**: 모든 SAP NetWeaver AS(SAP NetWeaver Application Server) ABAP 시스템 오류, 경고, 알려진 사용자의 로그인 시도 실패로 인한 사용자 잠금 및 프로세스 메시지를 기록합니다.
 
-    SAP Control 웹 서비스에서 사용할 수 있습니다.
+    SAP Control 웹 서비스에서 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
-### <a name="syslog_cl-log-schema"></a>SysLog_CL 로그 스키마
+### <a name="abapos_syslog_cl-log-schema"></a>ABAPOS_Syslog_CL 로그 스키마
 
 
 | 필드            | Description            |
@@ -479,7 +479,7 @@ ms.locfileid: "109815286"
 
     예를 들어 매핑되지 않은 비즈니스 프로세스는 간단한 릴리스 또는 승인 절차일 수 있거나, 기본 자료를 만든 다음 관련 부서를 조정하는 등 더 복잡한 비즈니스 프로세스일 수 있습니다.
 
-    표준 테이블 및 표준 서비스를 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다.
+    표준 테이블 및 표준 서비스를 기반으로 하는 사용자 지정 서비스와 함께 RFC를 통해 사용할 수 있습니다. 이 로그는 클라이언트별로 생성됩니다.
 
 ### <a name="abapworkflowlog_cl-log-schema"></a>ABAPWorkflowLog_CL 로그 스키마
 
@@ -526,15 +526,15 @@ ms.locfileid: "109815286"
 
 ## <a name="abap-workprocess-log"></a>ABAP 작업 프로세스 로그
 
-- **Azure Sentinel의 이름**: `WP_CL`
+- **Azure Sentinel의 이름**: `ABAPOS_WP_CL`
 
 - **관련 SAP 문서**: [SAP 도움말 포털](https://help.sap.com/viewer/d0739d980ecf42ae9f3b4c19e21a4b6e/7.3.15/en-US/46fb763b6d4c5515e10000000a1553f6.html)
 
 - **로그 용도**: 모든 작업 프로세스 로그를 결합합니다. (기본값 `dev_*`)
 
-    SAP Control 웹 서비스에서 사용할 수 있습니다.
+    SAP Control 웹 서비스에서 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
-### <a name="wp_cl-log-schema"></a>WP_CL 로그 스키마
+### <a name="abapos_wp_cl-log-schema"></a>ABAPOS_WP_CL 로그 스키마
 
 
 | 필드        | 설명         |
@@ -557,7 +557,7 @@ ms.locfileid: "109815286"
 
 - **로그 용도**: SAP HANA 데이터베이스에 사용자 작업 또는 시도한 작업을 기록합니다. 예를 들어 이를 통해 중요한 데이터에 대한 읽기 액세스를 기록하고 모니터링할 수 있습니다.
 
-    Syslog용 Sentinel Linux 에이전트에서 사용할 수 있습니다.
+    Syslog용 Sentinel Linux 에이전트에서 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
 ### <a name="syslog-log-schema"></a>Syslog 로그 스키마
 
@@ -581,7 +581,7 @@ ms.locfileid: "109815286"
 
 - **로그 용도**: 보안 감사 로그, 시스템(클러스터 및 서버 프로세스), 성능 및 게이트웨이 로그를 포함한 모든 Java 파일 기반 로그를 결합합니다. 개발자 추적 및 기본 추적 로그도 포함합니다.
 
-    SAP Control 웹 서비스에서 사용할 수 있습니다.
+    SAP Control 웹 서비스에서 사용할 수 있습니다. 이 로그는 모든 클라이언트에서 데이터를 사용하여 생성됩니다.
 
 ### <a name="javafileslogscl-log-schema"></a>JavaFilesLogsCL 로그 스키마
 
@@ -618,7 +618,8 @@ ms.locfileid: "109815286"
 
 자세한 내용은 다음을 참조하세요.
 
-- [자습서: SAP용 Azure Sentinel 솔루션 배포](sap-deploy-solution.md)
-- [Azure Sentinel SAP 솔루션 세부 SAP 요구 사항](sap-solution-detailed-requirements.md)
-- [온-프레미스에 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-alternate.md)
+- [SAP용 Azure Sentinel 솔루션 배포](sap-deploy-solution.md)
+- [Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
+- [전문가 구성 옵션, 온-프레미스 배포 및 SAPControl 로그 원본](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP 솔루션: 기본 제공 보안 콘텐츠](sap-solution-security-content.md)
+- [Azure Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)

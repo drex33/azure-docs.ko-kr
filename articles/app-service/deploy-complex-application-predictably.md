@@ -1,16 +1,16 @@
 ---
 title: ARM을 사용하여 예측 가능한 앱 배포
-description: Azure 리소스 관리 템플릿 및 PowerShell 스크립팅을 사용하여 여러 Azure App Service 앱을 예측 가능한 방식과 단일 유닛으로 배포하는 방법에 대해 알아봅니다.
+description: Azure Resource Manager 템플릿 및 PowerShell 스크립팅을 사용하여 여러 Azure App Service 앱을 예측 가능한 방식과 단일 유닛으로 배포하는 방법에 대해 알아봅니다.
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 636b6d7a15e80e725cadbfb07ed1dd0c5ef0347e
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 757c76482062679c7ad8470a2423754cbc64c213
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111888683"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113566519"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
 이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](https://azure.microsoft.com/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 애플리케이션의 프로비전 및 배포하는 방법을 보여줍니다. 
@@ -29,7 +29,7 @@ ms.locfileid: "111888683"
 이 자습서에서는 다음 도구를 사용합니다. 도구에 대한 포괄적인 설명이 아니기 때문에 엔드투엔드 시나리오를 그대로 유지하고 각각에 대해 간단히 소개하고 이에 대한 자세한 정보를 찾을 수 있는 곳을 알려드립니다. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure 리소스 관리자 템플릿(JSON)
-예를 들어 Azure App Service에서 앱을 만들 때마다 Azure Resource Manager는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [Azure Marketplace](../marketplace/index.yml)의 복잡한 템플릿은 데이터베이스, 스토리지 계정, App Service 계획, 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 등을 포함할 수 있으며 이러한 템플릿은 PowerShell을 통해 제공됩니다. Azure 리소스 관리자 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/templates/syntax.md)
+예를 들어 Azure App Service에서 앱을 만들 때마다 Azure Resource Manager는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [Azure Marketplace](../marketplace/index.yml)의 복잡한 템플릿은 데이터베이스, 스토리지 계정, App Service 계획, 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 등을 포함할 수 있으며 이러한 템플릿은 PowerShell을 통해 제공됩니다. Azure Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/templates/syntax.md)을 참조하세요.
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Visual Studio용 Azure SDK 2.6
 최신 SDK는 JSON 편집기에서 리소스 관리자 템플릿 지원에 향상된 기능을 포함합니다. 이것을 사용하여 신속하게 리소스 그룹 템플릿을 처음부터 만들고, 수정을 위한 기존 JSON 템플릿(예: 다운로드한 갤러리 템플릿)을 열고, 매개 변수 파일을 채우고, Azure 리소스 그룹 솔루션에서 직접 리소스 그룹을 배포할 수 있습니다.

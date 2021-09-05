@@ -1,18 +1,20 @@
 ---
 title: Hadoop Hive 작업을 사용하여 데이터 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure 데이터 공장에서 Hive 활동을 사용하여 필요 시/사용자 고유의 HDInsight 클러스터에서 Hive 쿼리를 실행하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/08/2019
-ms.openlocfilehash: 7d312e4a00cdd2b62ee219df807f30c22f0c9790
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 337c7d15ba042a49031697e2bc6ea6a54101dbf3
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773949"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538542"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop Hive 작업을 사용하여 데이터 변환
 
@@ -54,7 +56,7 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 }
 ```
 ## <a name="syntax-details"></a>구문 세부 정보
-| 속성            | Description                                                  | 필수 |
+| 속성            | 설명                                                  | 필수 |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | name                | 작업의 이름                                         | 예      |
 | description         | 작업이 무엇에 사용되는지 설명하는 텍스트입니다.                | 예       |
@@ -79,5 +81,5 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [Azure Machine Learning 스튜디오(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
+* [ML Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

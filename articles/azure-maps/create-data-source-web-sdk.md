@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9964c99ddfb59811fc67df634b41cede5847ede0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d20be688ccd13e7f053c4633a91cc5ce7a6cc34f
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97678849"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114669075"
 ---
 # <a name="create-a-data-source"></a>데이터 소스 만들기
 
@@ -83,10 +83,10 @@ source.setShapes(geoJsonData);
 
 Azure Maps는 [Mapbox Vector 타일 사양](https://github.com/mapbox/vector-tile-spec)(개방형 표준)을 준수합니다. Azure Maps는 플랫폼의 일부로 다음 벡터 타일 서비스를 제공합니다.
 
-- 도로 타일 [설명서](/rest/api/maps/renderv2/getmaptilepreview) | [데이터 형식 세부 정보](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- 도로 타일 [설명서](/rest/api/maps/render-v2/get-map-tile) | [데이터 형식 세부 정보](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
 - 트래픽 인시던트 [설명서](/rest/api/maps/traffic/gettrafficincidenttile) | [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
 - 트래픽 흐름 [설명서](/rest/api/maps/traffic/gettrafficflowtile) | [데이터 형식 세부 정보](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps Creator(미리 보기)를 사용하면 [Tile Render V2 가져오기](/rest/api/maps/renderv2/getmaptilepreview)를 통해 사용자 지정 벡터 타일을 만들고 액세스할 수도 있습니다.
+- Azure Maps Creator를 사용하면 [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-tile)를 통해 사용자 지정 벡터 타일을 만들고 액세스할 수도 있습니다.
 
 > [!TIP]
 > Web SDK를 사용하여 Azure Maps 렌더링 서비스에서 벡터 또는 래스터 이미지 타일을 사용하는 경우 `atlas.microsoft.com`을 자리 표시자 `{azMapsDomain}`르로 바꿀 수 있습니다. 이 자리 표시자는 지도에서 사용하는 동일한 도메인으로 대체되고 동일한 인증 세부 정보도 자동으로 추가됩니다. 이를 통해 Azure Active Directory 인증을 사용할 때 렌더링 서비스에 대한 인증이 크게 간소화됩니다.

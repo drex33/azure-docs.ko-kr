@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: bce09fad6ffa169a019628498a686226eff266c7
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: f21dc3251a64a3a432320e1d7a1f64abc124b61e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384982"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537203"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에 대한 필수 구성 요소
 
@@ -35,6 +35,7 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
        <Subnet name="<subnet-name>"/> 
      </Subnets> 
     </InstanceAddress> 
+  </AddressAssignments> 
 ```
 
 #### <a name="virtual-network-located-in-different-resource-group"></a>다른 리소스 그룹에 있는 Virtual Network
@@ -46,6 +47,7 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
         <Subnet name="<subnet-name>"/> 
        </Subnets> 
      </InstanceAddress> 
+   </AddressAssignments>
 ```
 ### <a name="2-remove-the-old-plugins"></a>2) 이전 플러그 인 제거
 
@@ -110,6 +112,9 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
+## <a name="access-control"></a>Access Control
+
+네트워킹 리소스를 포함하는 구독에는 Cloud Services(추가 지원)에 대한 [네트워크 기여자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 액세스 권한이 있어야 합니다. 자세한 내용은 [RBAC 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 ## <a name="key-vault-creation"></a>Key Vault 생성 
 
@@ -118,5 +123,5 @@ Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하�
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.
-- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.
 - [Cloud Services(추가 지원) 샘플 리포지토리](https://github.com/Azure-Samples/cloud-services-extended-support)를 방문합니다.

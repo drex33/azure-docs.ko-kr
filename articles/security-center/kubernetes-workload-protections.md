@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 06/15/2021
 ms.author: memildin
-ms.openlocfilehash: fefbc605702539cb882aba4c7802d284b4291a9c
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 3dbf8b3e15380b1e267be4f1b4af382aa9097a48
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062301"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567103"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -39,7 +39,7 @@ Security Center는 Azure Defender를 사용하도록 설정하는 경우 더 많
 | 가격 책정:                        | Free                                                                                                                                         |
 | 필요한 역할 및 권한: | 할당을 편집하기 위한 **소유자** 또는 **보안 관리자**<br>권장 사항을 보기 위한 **읽기 권한자**                                              |
 | 환경 요구 사항:       | Kubernetes v1.14 이상이 필요합니다.<br>클러스터에 PodSecurityPolicy 리소스(이전 PSP 모델)가 없습니다.<br>Windows 노드는 지원되지 않습니다. |
-| 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부) |
+| 클라우드:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet) |
 |                                 |                                                                                                                                              |
 
 
@@ -80,29 +80,36 @@ Azure Security Center에는 **Kubernetes용 Azure Policy 추가 기능** 을 설
 
     | 권장 사항 이름                                                         | 보안 컨트롤                         | 구성이 필요함 |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격으로부터 애플리케이션 보호 | 예                     |
-    | 권한 있는 컨테이너를 피해야 함                                     | 액세스 및 사용 권한 관리            | 예                     |
-    | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | 예                     |
-    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | 예                     |
-    | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | 예                     |
-    | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | 예                     |
-    | 최소 권한 Linux 기능을 컨테이너에 적용해야 함       | 액세스 및 사용 권한 관리            | **예**                |
-    | Pod HostPath 볼륨 탑재 사용은 알려진 목록으로 제한되어야 함    | 액세스 및 사용 권한 관리            | **예**                |
     | 컨테이너는 허용되는 포트에서만 수신 대기해야 함                              | 무단 네트워크 액세스 제한     | **예**                |
     | 서비스는 허용되는 포트에서만 수신 대기해야 함                                | 무단 네트워크 액세스 제한     | **예**                |
     | 호스트 네트워킹 및 포트 사용을 제한해야 함                     | 무단 네트워크 액세스 제한     | **예**                |
     | 컨테이너 AppArmor 프로필의 재정의 또는 비활성화를 제한해야 함 | 보안 구성 수정        | **예**                |
     | 컨테이너 이미지는 신뢰할 수 있는 레지스트리에서만 배포해야 함            | 취약성 해결                | **예**                |
-    |||
+    | 최소 권한 Linux 기능을 컨테이너에 적용해야 함       | 액세스 및 사용 권한 관리            | **예**                |
+    | Pod HostPath 볼륨 탑재 사용은 알려진 목록으로 제한되어야 함    | 액세스 및 사용 권한 관리            | **예**                |
+    | 권한 있는 컨테이너를 피해야 함                                     | 액세스 및 사용 권한 관리            | 예                     |
+    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | 예                     |
+    | Kubernetes 클러스터는 자동 탑재 API 자격 증명을 사용하지 않도록 설정해야 함             | 액세스 및 사용 권한 관리            | 예                     |
+    | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | 예                     |
+    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | 예                     |
+    | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | 예                     |
+    | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | 예                     |
+    | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격으로부터 애플리케이션 보호 | 예                     |
+    | Kubernetes 클러스터는 HTTPS를 통해서만 액세스할 수 있어야 함                    | 전송 중인 데이터 암호화                  | No                     |
+    | Kubernetes 클러스터는 기본 네임스페이스를 사용하지 않아야 함                    | 보안 모범 사례 구현        | No                     |
+    ||||
 
 
-1. 매개 변수가 포함된 권장 사항을 사용자 지정해야 하는 경우 다음과 같이 매개 변수를 설정합니다.
+1. 사용자 지정해야 하는 매개 변수가 있는 권장 사항의 경우 다음과 같이 매개 변수를 설정합니다.
 
     1. Security Center의 메뉴에서 **보안 정책** 을 선택합니다.
     1. 관련 구독을 선택합니다.
     1. **Security Center 기본 정책** 섹션에서 **실제 정책 보기** 를 선택합니다.
-    1. "ASC 기본값"을 선택합니다.
+    1. 업데이트하는 범위에 대한 기본 정책을 선택합니다.
     1. **매개 변수** 탭을 열고 필요에 따라 값을 수정합니다.
+
+        :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Kubernetes 워크로드 보호 번들의 권장 사항 중 하나에 대한 매개 변수 수정.":::
+
     1. **검토 후 저장** 을 선택합니다.
     1. **저장** 을 선택합니다.
 
@@ -111,7 +118,7 @@ Azure Security Center에는 **Kubernetes용 Azure Policy 추가 기능** 을 설
 
     1. 권장 사항 세부 정보 페이지를 열고 **거부** 를 선택합니다.
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Azure Policy 매개 변수에 대한 거부 옵션":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Azure Policy 매개 변수에 대한 거부 옵션.":::
 
         그러면 범위를 설정하는 창이 열립니다. 
 
@@ -125,7 +132,7 @@ Azure Security Center에는 **Kubernetes용 Azure Policy 추가 기능** 을 설
 
 1. 워크로드 보호 집합에서 권장 사항을 볼 때 클러스터와 함께 나열된 영향을 받는 Pod("Kubernetes 구성 요소") 수가 표시됩니다. 특정 Pod 목록을 보려면 클러스터를 선택하고 **작업 수행** 을 선택합니다.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="K8s 권장 사항에 대해 영향을 받는 Pod 보기"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="K8s 권장 사항에 대해 영향을 받는 Pod 보기."::: 
 
 1. 적용을 테스트하려면 아래의 두 Kubernetes 배포를 사용합니다.
 
@@ -158,7 +165,7 @@ spec:
     spec:
       containers:
       - name: redis
-        image: healthyClusterRegistry.azurecr.io/redis:latest
+        image: <customer-registry>.azurecr.io/redis:latest
         ports:
         - containerPort: 80
         resources:
@@ -191,25 +198,25 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-unhealthy-deployment
+  name: redis-unhealthy-deployment
   labels:
-    app: nginx
+    app: redis
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: redis
   template:
     metadata:      
       labels:
-        app: nginx
+        app: redis
     spec:
       hostNetwork: true
       hostPID: true 
       hostIPC: true
       containers:
-      - name: nginx
-        image: nginx:1.15.2
+      - name: redis
+        image: redis:latest
         ports:
         - containerPort: 9001
           hostPort: 9001
@@ -234,11 +241,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-unhealthy-service
+  name: redis-unhealthy-service
 spec:
   type: LoadBalancer
   selector:
-    app: nginx
+    app: redis
   ports:
   - port: 6001
     targetPort: 9001

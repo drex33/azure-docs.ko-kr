@@ -9,13 +9,14 @@ ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.date: 05/25/2021
-ms.openlocfilehash: bc1983a16ba2ec85dc943e10d7b2220b0de1dc88
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.custom: devplatv2
+ms.date: 06/17/2021
+ms.openlocfilehash: 8ce9241e11bd9aa259c8b7a1bf3114be677a01bd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408536"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114447655"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>Azure Machine Learning 엔드포인트(미리 보기)란? 
 
@@ -28,12 +29,12 @@ Azure Machine Learning 엔드포인트(미리 보기)를 사용하여 실시간 
 > * 엔드포인트
 > * 배포
 > * 관리형 온라인 엔드포인트
-> * AKS 온라인 엔드포인트
+> * AKS(Azure Kubernetes Service) 온라인 엔드포인트
 > * 일괄 처리 유추 엔드포인트
 
 ## <a name="what-are-endpoints-and-deployments-preview"></a>엔드포인트 및 배포(미리 보기)란?
 
-기계 학습 모델을 학습한 후에는 다른 사용자가 유추를 수행하는 데 사용할 수 있도록 모델을 배포해야 합니다. Azure Machine Learning에서 **엔드포인트**(미리 보기) 및 **배포**(미리 보기)를 사용하여 이 작업을 수행할 수 있습니다.
+기계 학습 모델을 학습한 후에는 다른 사용자가 유추를 수행하는 데 사용할 수 있도록 모델을 배포해야 합니다. Azure Machine Learning에서는 **엔드포인트**(미리 보기) 및 **배포**(미리 보기)를 사용하여 이 작업을 수행할 수 있습니다.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="트래픽을 두 배포로 분할하는 엔드포인트를 보여주는 다이어그램":::
 
@@ -44,7 +45,7 @@ Azure Machine Learning 엔드포인트(미리 보기)를 사용하여 실시간 
 - 안정적인 채점 URI(endpoint-name.region.inference.ml.azure.com)
 
 
-**배포** 는 실제 유추를 수행하는 모델을 호스트하는 컴퓨팅 리소스의 집합입니다. 다음과 같이 구성됩니다. 
+**배포** 는 실제 유추를 수행하는 모델을 호스트하는 컴퓨팅 리소스의 세트입니다. 다음과 같이 구성됩니다. 
 - 모델 세부 정보(코드, 모델, 환경) 
 - 컴퓨팅 리소스 및 크기 조정 설정 
 - 고급 설정(예: 요청 및 프로브 설정)
@@ -56,11 +57,11 @@ Azure Machine Learning은 엔드포인트 및 배포 개념을 사용하여 [**�
 ### <a name="multiple-developer-interfaces"></a>여러 개발자 인터페이스
 
 여러 개발자 도구를 사용하여 배포 및 온라인 엔드포인트를 만들고 관리합니다.
-- CLI
+- Azure CLI
 - ARM/REST API
 - Azure Machine Learning 스튜디오 웹 포털
 - Azure Portal(IT/관리자)
-- CLI 인터페이스 및 REST/ARM 인터페이스를 사용하여 CI/CD MLOps 파이프라인 지원
+- Azure CLI 인터페이스 및 REST/ARM 인터페이스를 사용하여 CI/CD MLOps 파이프라인 지원
 
 ## <a name="what-are-online-endpoints-preview"></a>온라인 엔드포인트(미리 보기)란?
 
@@ -109,7 +110,7 @@ Azure Machine Learning은 엔드포인트 및 배포 개념을 사용하여 [**�
 
 |  | 관리형 온라인 엔드포인트 | AKS 온라인 엔드포인트 |
 |-|-|-|
-| **권장 사용자** | 관리 모델 배포 및 향상된 MLOps 환경을 원하는 사용자 | AKS(Azure Kubernetes Service)를 선호하고 인프라 요구 사항을 관리할 수 있는 사용자 |
+| **권장 사용자** | 관리 모델 배포 및 향상된 MLOps 환경을 원하는 사용자 | AKS(Azure Kubernetes Service)를 선호하고 인프라 요구 사항을 자체 관리할 수 있는 사용자 |
 | **인프라 관리** | 관리형 컴퓨팅 프로비전, 크기 조정, 호스트 OS 이미지 업데이트 및 보안 강화 | 사용자 책임 |
 | **컴퓨팅 형식** | 관리(AmlCompute) | AKS |
 | **기본 모니터링** | [Azure 모니터링](how-to-monitor-online-endpoints.md) <br> (대기 시간 및 처리량과 같은 주요 메트릭 포함) | 지원되지 않음 |
@@ -189,5 +190,7 @@ MLflow 모델을 사용하는 일괄 처리 엔드포인트의 경우 다음을 
 - [Azure CLI를 사용하여 관리형 온라인 엔드포인트를 배포하는 방법](how-to-deploy-managed-online-endpoints.md)
 - [Azure CLI 사용하여 일괄 처리 엔드포인트를 배포하는 방법](how-to-use-batch-endpoint.md)
 - [스튜디오를 사용하여 관리형 온라인 엔드포인트를 배포하는 방법](how-to-use-managed-online-endpoint-studio.md)
+- [REST를 사용하여 모델 배포(미리 보기)](how-to-deploy-with-rest.md)
 - [관리형 온라인 엔드포인트를 모니터링하는 방법](how-to-monitor-online-endpoints.md)
 - [온라인 엔드포인트 비용을 보는 방법](how-to-view-online-endpoints-costs.md)
+- [Azure Machine Learning을 사용하여 리소스 할당량 관리 및 증가](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

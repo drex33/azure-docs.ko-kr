@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f1325141ecd9220e3564c402c5fa75fa690fe29
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: bb48d72c892723e7b6c3ca2009ea874f788bb5ee
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110661970"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535797"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>가상 네트워크 게이트웨이 SKU(레거시 SKU) 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "110661970"
 
 ### <a name="resource-manager"></a>리소스 관리자
 
-PowerShell을 사용하여 Resource Manager 배포 모델의 게이트웨이 크기를 조정하려면 다음 명령을 사용합니다.
+PowerShell을 사용하여 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)의 게이트웨이 크기를 조정하려면 다음 명령을 사용합니다.
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg

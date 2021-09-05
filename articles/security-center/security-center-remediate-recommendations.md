@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: dc279ea48472ac86dd9502e37788e8b2aad4f37c
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: f0caaea2296a8981df4717497cb641676b43dea1
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906809"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237078"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Azure Security Center의 권장 사항 교정
 
@@ -26,7 +26,7 @@ ms.locfileid: "107906809"
 
 1. **수정 단계** 섹션의 지침을 따릅니다. 각 권장 사항에는 고유한 지침이 있습니다. 다음 스크린샷에서는 HTTPS를 통한 트래픽만 허용하도록 애플리케이션을 구성하는 수정 단계를 보여 줍니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="권장 사항에 대한 수동 수정 단계" lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="권장 사항에 대한 수동 수정 단계." lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
 
 1. 완료되면 문제가 해결되었는지 알려 주는 알림이 표시됩니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "107906809"
 
 1. 확인 상자에서 수정 세부 정보 및 영향을 확인합니다.
 
-    ![빠른 수정](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
+    ![빠른 수정.](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
     > **수정** 을 클릭하면 열리는 **리소스 수정** 창에서 회색 상자에 영향이 나열됩니다. 영향에는 **수정** 작업을 진행할 때 발생하는 변경 내용이 나열됩니다.

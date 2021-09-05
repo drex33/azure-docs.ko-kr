@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 6/8/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: c6c39a7ef0404a0e78e5b8ed0b41bf54156b488a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f00f98ac9e6350aa09d3fa67c1c87677fef2db6f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032666"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536259"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
 
@@ -27,7 +27,7 @@ Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하�
 - Azure RBAC를 사용하여 구독 간은 물론 AD(Active Directory) 테넌트 간에도 공유합니다.
 - 각 지역에서 이미지 복제본으로 배포 스케일링
 
-공유 이미지 갤러리를 사용하면 조직 내의 여러 사용자, 서비스 주체 또는 AD 그룹에게 이미지를 공유할 수 있습니다. 배포의 크기를 더 빠르게 조정하기 위해 여러 지역에 공유 이미지를 복제할 수 있습니다.
+공유 이미지 갤러리를 사용하면 조직 내부 및 외부의 다른 사용자, 서비스 주체 또는 AD 그룹과 이미지를 공유할 수 있습니다. 배포의 크기를 더 빠르게 조정하기 위해 여러 지역에 공유 이미지를 복제할 수 있습니다.
 
 이미지는 생성 방식에 따라 완전한 VM(연결된 데이터 디스크 포함)의 복사본일 수도 있고 단순한 OS 디스크의 복사본일 수도 있습니다. 이미지에서 VM을 만드는 경우 이미지의 VHD 복사본을 사용하여 새 VM의 디스크를 만듭니다. 이미지는 스토리지에 유지되며 새 VM을 만들 때 계속 반복해서 사용할 수 있습니다.
 
@@ -35,7 +35,7 @@ Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하�
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
 
-| 리소스 | Description|
+| 리소스 | 설명|
 |----------|------------|
 | **이미지 원본** | 이는 이미지 갤러리에서 **이미지 버전** 을 만드는 데 사용할 수 있는 리소스입니다. 이미지 소스는 [일반화 또는 특수화](#generalized-and-specialized-images)된 기존 Azure VM, 관리형 이미지, 스냅샷, VHD 또는 다른 이미지 갤러리의 이미지 버전일 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리** 는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
@@ -133,7 +133,7 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 
 [Azure ZRS(영역 중복 스토리지)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/)는 지역에서 가용성 영역에 문제가 발생할 때 복원력을 제공합니다. 이제 Shared Image Gallery가 일반 공급되므로, 가용성 영역을 지원하는 지역의 ZRS 계정에 이미지를 저장하도록 선택할 수 있습니다. 
 
-각 대상 지역의 계정 유형을 선택할 수도 있습니다. 기본 스토리지 계정 유형은 Standard_LRS지만, 가용성 영역이 지원되는 지역에는 Standard_ZRS를 선택할 수 있습니다. [여기](../storage/common/storage-redundancy.md)서 지역별 ZRS 가용성을 확인하세요.
+각 대상 지역의 계정 유형을 선택할 수도 있습니다. 기본 스토리지 계정 유형은 Standard_LRS지만, 가용성 영역이 지원되는 지역에는 Standard_ZRS를 선택할 수 있습니다. ZRS의 지역별 가용성에 대한 자세한 내용은 [데이터 중복성](../storage/common/storage-redundancy.md)을 참조하세요.
 
 ![ZRS를 보여주는 그래픽](./media/shared-image-galleries/zrs.png)
 
@@ -190,7 +190,7 @@ Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스�
 
 - [.NET](/dotnet/api/overview/azure/virtualmachines/management)
 - [Java](/java/azure/)
-- [Node.JS](/javascript/api/@azure/arm-compute)
+- [Node.JS](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)
 - [Go](/azure/go/)
 
@@ -201,7 +201,6 @@ Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스�
 - [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>질문과 대답 
 

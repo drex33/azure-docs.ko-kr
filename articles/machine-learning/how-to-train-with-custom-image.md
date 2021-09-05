@@ -7,21 +7,21 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 10/20/2020
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 31b1ac989e90b525f754f49ccf2f6d5fd254ff58
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 12da538cfbf258aa8e447d5b5832cbc1865600ab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110098599"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567110"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용하여 모델 학습
 
 이 문서에서는 Azure Machine Learning를 사용하여 모델을 학습하는 경우 사용자 지정 Docker 이미지를 사용하는 방법에 대해 알아봅니다. 이 문서의 예제 스크립트를 사용하여 나선형 신경망을 만들어 pet 이미지를 분류합니다. 
 
-Azure Machine Learning은 기본 Docker 기본 이미지를 제공합니다. Azure Machine Learning 환경을 사용하여 관리된 [Azure Machine Learning 다른 기본 이미지](https://github.com/Azure/AzureML-Containers) 중 하나 또는 사용자의 고유한 [사용자 지정 이미지](how-to-deploy-custom-docker-image.md#create-a-custom-base-image)를 지정할 수도 있습니다. 사용자 지정 기반 이미지를 사용하면 종속성을 면밀히 관리하며 학습 작업을 실행할 때 구성 요소 버전을 통해 긴밀한 제어를 유지할 수 있습니다.
+Azure Machine Learning은 기본 Docker 기본 이미지를 제공합니다. Azure Machine Learning 환경을 사용하여 관리된 [Azure Machine Learning 다른 기본 이미지](https://github.com/Azure/AzureML-Containers) 중 하나 또는 사용자의 고유한 [사용자 지정 이미지](./how-to-deploy-custom-container.md)를 지정할 수도 있습니다. 사용자 지정 기반 이미지를 사용하면 종속성을 면밀히 관리하며 학습 작업을 실행할 때 구성 요소 버전을 통해 긴밀한 제어를 유지할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -88,7 +88,7 @@ fastai_env.docker.base_image_registry.password = "password"
 ```python 
 # Specify Docker steps as a string. 
 dockerfile = r"""
-FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1
 RUN echo "Hello from custom container!"
 """
 
@@ -103,8 +103,8 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 
 >[!IMPORTANT]
 > Azure Machine Learning은 다음 소프트웨어를 제공하는 Docker 이미지만 지원합니다.
-> * Ubuntu 16.04 이상.
-> * Conda 4.5.# 이상.
+> * Ubuntu 18.04 이상.
+> * Conda 4.7.# 이상.
 > * Python 3.6 이상.
 > * /bin/sh에서 사용할 수 있는 POSIX 규격 셸은 학습에 사용되는 모든 컨테이너 이미지에 필요합니다. 
 
@@ -142,6 +142,11 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
+
+>[!IMPORTANT]
+>컴퓨팅 기반 이미지 빌드에 CPU SKU를 사용합니다. 
+
+
 ## <a name="configure-your-training-job"></a>학습 작업 구성
 
 이 자습서의 경우 [GitHub](https://github.com/Azure/azureml-examples/blob/main/python-sdk/workflows/train/fastai/pets/src/train.py)에서 학습 스크립트 *train.py* 를 사용합니다. 실제로 사용자 지정 학습 스크립트를 사용하고 Azure Machine Learning을 사용하여 실행할 수 있습니다.
@@ -174,4 +179,4 @@ run.wait_for_completion(show_output=True)
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 사용자 지정 Docker 이미지를 사용하여 모델을 학습했습니다. Azure Machine Learning에 대한 자세한 내용은 다음 문서를 참조하세요.
 * 학습 중에 [메트릭 실행 추적](how-to-log-view-metrics.md)
-* 사용자 지정 Docker 이미지를 사용하여 [모델을 배포](how-to-deploy-custom-docker-image.md)합니다.
+* 사용자 지정 Docker 이미지를 사용하여 [모델을 배포](./how-to-deploy-custom-container.md)합니다.

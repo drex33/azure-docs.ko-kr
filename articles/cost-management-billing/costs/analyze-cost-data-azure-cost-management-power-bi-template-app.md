@@ -3,17 +3,17 @@ title: Power BI 앱을 사용하여 Azure 비용 분석
 description: 이 문서에서는 Azure Cost Management Power BI 앱을 설치하고 사용하는 방법에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/19/2021
+ms.date: 08/19/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: b08ff57f964ef7bc3712c930c222a10ed0f89ef4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b500bd2b97c262739902c5e1b8af51b013ad4ecb
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045101"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122531278"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Azure Cost Management Power BI 앱을 사용하여 EA(기업계약) 비용 분석
 
@@ -45,11 +45,14 @@ Azure Cost Management Power BI 앱은 현재 [기업계약](https://azure.micros
 1. 시작 페이지에서 **데이터 연결** 을 선택합니다.
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" alt-text="데이터 연결 링크를 강조 표시하는 스크린샷." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" :::
 1. 표시되는 대화 상자의 **BillingProfileIdOrEnrollmentNumber** 에서 EA 등록 번호를 입력합니다. 가져올 데이터의 개월 수를 지정합니다. 기본 **범위** 값의 **등록 번호** 를 그대로 유지하고, **다음** 을 선택합니다.  
+    >[!NOTE]
+    > 범위의 기본값은 `Enrollment Number`입니다. 값을 변경하지 마세요. 그렇지 않으면 초기 데이터 연결이 실패합니다.  
+
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="EA 등록 정보를 입력하는 위치를 보여주는 스크린샷." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
-1. 다음 대화 상자는 Azure에 연결하여 데이터를 가져옵니다. *기본값을 구성된 대로 그대로 유지* 하고 **로그인 및 계속 진행** 을 선택합니다.  
-    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="기본값이 있는 Azure Cost Management 앱에 연결 대화 상자를 보여주는 스크린샷." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
-1. 최종 설치 단계가 EA 등록에 연결되며, [엔터프라이즈 관리자](../manage/understand-ea-roles.md) 계정을 요구합니다. 모든 기본값을 그대로 둡니다. **로그인 및 연결** 을 선택합니다.  
+1. 다음 설치 단계가 EA 등록에 연결되며, [엔터프라이즈 관리자](../manage/understand-ea-roles.md) 계정을 요구합니다. 모든 기본값을 그대로 둡니다. **로그인 및 연결** 을 선택합니다.  
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="연결할 기본값이 있는 Azure Cost Management 앱에 연결 대화 상자를 보여주는 스크린샷." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
+1. 최종 대화 상자가 Azure에 연결되어 데이터를 가져옵니다. *기본값을 구성된 대로 그대로 유지* 하고 **로그인 및 계속 진행** 을 선택합니다.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="기본값이 있는 Azure Cost Management 앱에 연결 대화 상자를 보여주는 스크린샷." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
 1. EA자 등록을 사용하여 인증하라는 메시지가 표시됩니다. Power BI를 사용하여 인증합니다. 인증되면 Power BI 데이터 새로 고침이 시작됩니다.
     > [!NOTE]
     > 데이터 새로 고침 프로세스를 완료하는 데 시간이 오래 걸릴 수 있습니다. 소요 시간은 지정된 개월 수 및 동기화하는 데 필요한 데이터 양에 따라 달라집니다.

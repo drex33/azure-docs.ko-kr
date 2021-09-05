@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 330a6e54ee88781f71c4a861051aab94f8eef81f
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.date: 07/23/2021
+ms.openlocfilehash: 6c51a118b0581759f456b243b6dde25890b36f39
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587904"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668479"
 ---
 # <a name="understanding-resource-sets"></a>리소스 집합 이해
 
@@ -27,7 +27,7 @@ ms.locfileid: "107587904"
 
 ## <a name="how-azure-purview-detects-resource-sets"></a>Azure Purview에서 리소스 집합을 검색하는 방법
 
-Azure Purview는 Azure Blob Storage, ADLS Gen1, ADLS Gen2에서의 리소스 집합 검색을 지원합니다.
+Azure Purview는 Azure Blob Storage, ADLS Gen1, ADLS Gen2, Azure Files 및 Amazon S3에서 리소스 집합 검색을 지원합니다.
 
 Azure Purview는 검사할 때 리소스 집합을 자동으로 검색합니다. 이 기능은 검사를 통해 수집하는 모든 데이터를 확인하고 정의된 패턴 집합과 비교합니다.
 
@@ -84,7 +84,7 @@ Azure Purview는 다음과 같은 리소스 집합 패턴을 지원합니다. �
 
 Azure Purview는 자산 그룹을 리소스 집합으로 일치시킬 때 카탈로그에서 표시 이름으로 사용하기에 가장 유용한 정보를 추출하려고 시도합니다. 적용되는 기본 명명 규칙의 몇 가지 예는 다음과 같습니다. 
 
-### <a name="example-1"></a>예 1
+### <a name="example-1"></a>예제 1
 
 정규화된 이름: `https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}`
 
@@ -104,7 +104,7 @@ Azure Purview는 자산 그룹을 리소스 집합으로 일치시킬 때 카탈
 
 ## <a name="customizing-resource-set-grouping-using-pattern-rules"></a>패턴 규칙을 사용하여 리소스 집합 그룹화 사용자 지정
 
-스토리지 계정을 스캔하는 경우 Azure Purview는 정의된 패턴 세트를 사용하여 자산 그룹이 리소스 집합인지 여부를 확인합니다. 경우에 따라 Azure Purview의 리소스 집합 그룹화에서 데이터 자산을 정확하게 반영하지 못할 수도 있습니다. 이러한 문제에는 다음이 포함될 수 있습니다.
+스토리지 계정을 스캔하는 경우 Azure Purview는 정의된 패턴 집합을 사용하여 자산 그룹이 리소스 집합인지 여부를 확인합니다. 경우에 따라 Azure Purview의 리소스 집합 그룹화에서 데이터 자산을 정확하게 반영하지 못할 수도 있습니다. 이러한 문제에는 다음이 포함될 수 있습니다.
 
 - 자산을 리소스 집합으로 잘못 표시
 - 잘못된 리소스 집합에 자산 배치

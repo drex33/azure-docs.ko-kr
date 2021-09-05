@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05713c5a27a8b42ce9b6967212bf1414c841788c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6307c99c0796fb4159da7563c951304ceef6ece2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474580"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529378"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins 고가용성 및 재해 복구
 
@@ -70,7 +70,7 @@ Service Health 이벤트를 보려면...
 ## <a name="best-practices"></a>모범 사례
 
 HA/DR에 대한 모범 사례는 이 항목에 대한 다음 Azure 지침을 참조하세요. 
-* [Azure 비즈니스 연속성 기술 지침](/azure/architecture/framework/resiliency/overview) 문서는 비즈니스 연속성과 재해 복구에 대해 고민해 볼 수 있는 일반 프레임워크를 설명합니다. 
+* [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/framework/resiliency/app-design) 문서에서는 비즈니스 연속성과 재해 복구에 대해 고민해 볼 수 있는 일반 프레임워크를 설명합니다. 
 * [Azure 애플리케이션에 대한 재해 복구 및 고가용성](/azure/architecture/framework/resiliency/backup-and-recovery) 문서는 Azure 애플리케이션에서 HA(고가용성) 및 DR(재해 복구)을 수행하는 전략에 대한 아키텍처 지침을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계 
@@ -78,4 +78,4 @@ HA/DR에 대한 모범 사례는 이 항목에 대한 다음 Azure 지침을 참
 Azure Digital Twins 솔루션 시작하기에 대해 자세히 알아봅니다.
  
 * [Azure Digital Twins란?](overview.md)
-* [빠른 시작: Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md)
+* [Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md)

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 06/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c64a712cc916cad0f6f6fec77f33fcb422f834fb
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: a6005c267423787fed61f2fb9badfea5769137d2
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982973"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113565367"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -70,6 +70,7 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털
 * Runbook에서는 [병렬 처리](automation-powershell-workflow.md#use-parallel-processing)를 사용하여 여러 작업을 병렬로 실행할 수 없습니다.
 * Runbook에서는 오류 발생 시 [검사점](automation-powershell-workflow.md#use-checkpoints-in-a-workflow)을 사용하여 Runbook을 다시 시작할 수 없습니다.
 * 새 작업을 만드는 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet을 사용하여 자식 Runbook으로서의 PowerShell 워크플로 Runbook 및 그래픽 Runbook만 포함할 수 있습니다.
+* Runbook은 PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) 문을 사용할 수 없으며, Azure 샌드박스 또는 Hybrid Runbook Workers에서 지원되지 않으며 작업이 실패합니다.
 
 ### <a name="known-issues"></a>알려진 문제
 

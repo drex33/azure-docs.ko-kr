@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: ae919a12dc1c50fcb30d08128e4ebf2faa2b2ccb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e6cd43e61389596be9b134ab2ad62bbf324a5cd
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674158"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693569"
 ---
 # <a name="table-data-types-in-synapse-sql"></a>Synapse SQL의 테이블 데이터 형식
 
-해당 문서에서는, Synapse SQL의 테이블 데이터 형식을 정의하기 위한 권장 사항을 확인할 수 있습니다. 
+해당 문서에서는 Synapse SQL Dedicated 풀의 테이블 데이터 형식을 정의하기 위한 권장 사항을 확인할 수 있습니다. 
 
 ## <a name="data-types"></a>데이터 형식
 
-Synapse SQL은 가장 일반적으로 사용되는 데이터 형식을 지원합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문에서 [데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes&preserve-view=true)을 참조하세요. 
+Synapse SQL Dedicated 풀은 가장 일반적으로 사용되는 데이터 형식을 지원합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문에서 [데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes&preserve-view=true)을 참조하세요. Synapse SQL 서버리스의 경우 [Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일 쿼리](./query-data-storage.md) 및 [Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET을 사용하는 방법](./develop-openrowset.md) 문서를 참조하세요.
 
 ## <a name="minimize-row-length"></a>행 길이 최소화
 
@@ -33,6 +33,7 @@ Synapse SQL은 가장 일반적으로 사용되는 데이터 형식을 지원합
 - 문자 열을 큰 기본 길이로 정의하지 마세요. 예를 들어 가장 긴 값이 25자인 경우 열을 VARCHAR(25)로 정의합니다.
 - VARCHAR만 필요한 경우 [NVARCHAR][NVARCHAR]를 사용하지 마세요.
 - 가능한 경우 NVARCHAR(MAX) 또는 VARCHAR(MAX) 대신 NVARCHAR(4000) 또는 VARCHAR(8000)를 사용합니다.
+- 소수 자릿수가 0인 부동 소수점과 소수를 사용하지 마십시오.  TINYINT, SMALLINT, INT 또는 BIGINT여야 합니다.
 
 > [!NOTE]
 > PolyBase 외부 테이블을 사용하여 Synapse SQL 테이블을 로드하는 경우, 정의된 테이블 행 길이는 1 MB를 초과할 수 없습니다. 가변 길이 데이터가 있는 행이 1MB를 초과하는 경우 행을 PolyBase가 아닌 BCP로 로드할 수 있습니다.
@@ -47,7 +48,7 @@ FROM sys.tables  t
 JOIN sys.columns c on t.[object_id]    = c.[object_id]
 JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
 WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','xml')
- AND  y.[is_user_defined] = 1;
+ OR  y.[is_user_defined] = 1;
 ```
 
 ## <a name="workarounds-for-unsupported-data-types"></a><a name="unsupported-data-types"></a>지원되지 않는 데이터 형식에 대한 해결 방법

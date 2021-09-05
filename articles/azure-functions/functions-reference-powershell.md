@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 9877f50fe7bb06cb33a38f8ee89fa09ad12c0693
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 297d8af86f22cc588060cb90f327ad6dd335437d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672481"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528929"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
 
@@ -74,7 +74,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 속성   | Description                                     | Type     |
+| 속성   | 설명                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | UTC에서 함수가 실행된 경우        | DateTime |
 | MethodName | 실행된 함수의 이름     | 문자열   |
@@ -295,7 +295,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 스크립트에 전달되는 요청 개체의 형식은 다음 속성을 가진 `HttpRequestContext` 형식입니다.
 
-| 속성  | Description                                                    | Type                      |
+| 속성  | 설명                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body`는 데이터에 따라 가장 적합한 형식으로 직렬화됩니다. 예를 들어 데이터가 JSON인 경우, 해시 테이블로 전달됩니다. 데이터가 문자열인 경우 문자열로 전달됩니다. | object |
 | **`Headers`** | 요청 헤더를 포함하는 사전입니다.                | Dictionary<string,string><sup>*</sup> |
@@ -310,7 +310,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 다시 전송해야 하는 응답 개체는 다음과 같은 속성을 포함하는 `HttpResponseContext` 형식입니다.
 
-| 속성      | Description                                                 | Type                      |
+| 속성      | 설명                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | object                    |
 | **`ContentType`** | 응답의 콘텐츠 형식을 설정하는 데 사용할 축약형입니다. | 문자열                    |
@@ -393,6 +393,8 @@ Visual Studio Code 및 Azure Functions Core Tools와 같은 도구를 사용하�
 
 함수에서 `$PSVersionTable`을 인쇄하여 현재 버전을 볼 수 있습니다.
 
+Azure Functions 런타임 지원 정책에 대한 자세한 내용은 이 [문서](./language-support-policy.md)를 참조하세요.
+
 ### <a name="running-local-on-a-specific-version"></a>특정 버전에서 로컬 실행
 
 로컬로 실행하는 경우 Azure Functions 런타임은 기본값은 PowerShell Core 6를 사용합니다. 로컬에서 실행할 때 PowerShell 7을 사용하려면 설정 `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"`을 프로젝트 루트의 local.setting.json 파일에 있는 `Values` 배열에 추가해야 합니다. PowerShell 7에서 로컬로 실행하는 경우 local.settings.json 파일은 다음 예제와 같습니다. 
@@ -411,6 +413,7 @@ Visual Studio Code 및 Azure Functions Core Tools와 같은 도구를 사용하�
 ### <a name="changing-the-powershell-version"></a>PowerShell 버전 변경
 
 PowerShell Core 6에서 PowerShell 7로 업그레이드하려면 함수 앱이 버전 3.x에서 실행되어야 합니다. 해당 방법을 알아보려면 [현재 런타임 버전 확인 및 업데이트](set-runtime-version.md#view-and-update-the-current-runtime-version)를 참조하세요.
+
 
 함수 앱에서 사용하는 PowerShell 버전을 변경하려면 다음 단계를 사용합니다. Azure Portal에서 또는 PowerShell을 사용하여 이렇게 할 수 있습니다.
 
@@ -568,7 +571,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-로컬로 실행하는 경우 앱 설정은 [local.settings.json](functions-run-local.md#local-settings-file) 프로젝트 파일에서 읽습니다.
+로컬로 실행하는 경우 앱 설정은 [local.settings.json](functions-develop-local.md#local-settings-file) 프로젝트 파일에서 읽습니다.
 
 ## <a name="concurrency"></a>동시성
 

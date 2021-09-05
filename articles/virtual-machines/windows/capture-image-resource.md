@@ -9,65 +9,22 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: f1c67f9d4fda2e0ca26d8125f30e2f71213b0749
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: aa377267fb522de03ee181db99963498b5075fc4
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853085"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112574347"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
 스토리지 계정에 관리 디스크 또는 비관리 디스크로 저장되는 일반화된 VM(가상 머신)에서 관리 이미지 리소스를 만들 수 있습니다. 여러 VM을 만드는 데 이미지를 사용할 수 있습니다. 관리형 이미지의 청구 방법에 대한 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요. 
 
-관리형 이미지 하나는 최대 20개의 동시 배포를 지원합니다. 동일한 관리형 이미지에서 20개가 넘는 VM을 동시에 만들려고 하면 단일 VHD의 스토리지 성능 제한으로 인해 프로비저닝 시간이 초과될 수 있습니다. 20개가 넘는 VM을 동시에 만들려면 20개의 동시 VM 배포마다 복제본 1개로 구성된 [Shared Image Gallery](../shared-image-galleries.md) 이미지를 사용합니다.
+관리형 이미지 하나는 최대 20개의 동시 배포를 지원합니다. 동일한 관리형 이미지에서 20개가 넘는 VM을 동시에 만들려고 하면 단일 VHD의 스토리지 성능 제한으로 인해 프로비저닝 시간이 초과될 수 있습니다. 20개 이상의 VM을 동시에 만들려면 20개의 동시 VM 배포마다 1개의 복제본으로 구성된 [공유 이미지 갤러리](../shared-image-galleries.md) 이미지를 사용합니다.
 
-## <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep을 사용하여 Windows VM 일반화
+## <a name="prerequisites"></a>필수 구성 요소
 
-Sysprep은 모든 개인 계정 및 보안 정보를 제거한 다음 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 개요](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조하세요.
-
-가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) 및 [지원되지 않는 시나리오](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios)를 참조하세요. 
-
-> [!IMPORTANT]
-> VM에서 Sysprep을 실행하고 나면 해당 VM은 *일반화* 된 것으로 간주되므로 다시 시작할 수 없습니다. VM 일반화 프로세스는 되돌릴 수 없습니다. 원래 VM을 작동하는 상태로 유지해야 하는 경우에는 [VM의 복사본](create-vm-specialized.md#option-3-copy-an-existing-azure-vm)을 만들고 복사본을 일반화해야 합니다. 
->
->Sysprep을 사용하려면 드라이브의 암호를 완전히 해독해야 합니다. VM에서 암호화를 사용하도록 설정한 경우 Sysprep를 실행하기 전에 Azure에서 암호화를 사용하지 않도록 설정합니다. 
->
->PowerShell을 사용하여 Azure Disk Encryption을 사용하지 않도록 설정하려면 Disable-AzVMDiskEncryption 및 Remove-AzVMDiskEncryptionExtension을 차례로 사용합니다. 암호화를 사용하지 않도록 설정하기 전에 Remove-AzVMDiskEncryptionExtension을 실행하면 실패합니다. 상위 수준의 명령은 VM 내에서 디스크의 암호를 해독할 뿐만 아니라 VM 외부에서 중요한 플랫폼 수준 암호화 설정 및 VM에 연결된 확장 설정도 업데이트합니다. 이러한 설정이 그대로 유지되지 않으면 플랫폼이 암호화 상태를 보고하거나 VM을 올바르게 프로비저닝할 수 없습니다.
->
-> Azure에 VHD(가상 하드 디스크)를 처음으로 업로드하기 전에 Sysprep을 실행하려는 경우 [VM을 준비](prepare-for-upload-vhd-image.md)해야 합니다.  
-> 
-> 
-
-Windows VM을 일반화하려면 다음 단계를 수행합니다.
-
-1. Windows VM에 로그인합니다.
-   
-2. 관리자로 명령 프롬프트 창을 엽니다. 
-
-3. Panther 디렉터리(C:\Windows\Panther)를 삭제합니다. 디렉터리를 %windir%\system32\sysprep으로 변경한 다음, `sysprep.exe`를 실행합니다.
-   
-4. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 시작** 을 선택하고 **일반화** 확인란을 선택합니다.
-   
-5. **종료 옵션** 에서 **종료** 를 선택합니다.
-   
-6. **확인** 을 선택합니다.
-   
-    ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
-
-6. Sysprep은 작업을 완료하면 VM을 종료합니다. VM을 다시 시작하지 않습니다.
-
-> [!TIP]
-> **선택적** [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options)을 사용하여 이미지를 최적화하고 VM의 첫 번째 부팅 시간을 줄입니다.
->
-> 이미지를 최적화하려면 Windows 탐색기에서 VHD를 두 번 클릭하여 탑재한 다음 `/optimize-image` 매개 변수를 사용하여 DISM을 실행합니다.
->
-> ```cmd
-> DISM /image:D:\ /optimize-image /boot
-> ```
-> 여기서 D:는 탑재된 VHD의 경로입니다.
->
-> `DISM /optimize-image`를 실행하는 경우 VHD를 마지막으로 수정해야 합니다. 배포하기 전에 VHD를 변경하는 경우 `DISM /optimize-image`를 다시 실행해야 합니다.
+이미지를 생성하려면 [일반화](../generalize.md)된 VM이 필요합니다.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>포털에서 관리 이미지 만들기 
 

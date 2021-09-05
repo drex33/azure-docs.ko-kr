@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 06/17/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e4f54f736a47cc6b351ff02b8fb7f8bad1c5c56
+ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94952049"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112552697"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C에서 사용할 수 있는 애플리케이션 형식
  
@@ -139,7 +139,7 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 
 장기 실행 프로세스를 포함하거나 사용자 없이 작동하는 애플리케이션은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요합니다. 이러한 애플리케이션은 사용자의 위임된 ID 대신 애플리케이션의 ID를 사용하거나 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 인증하고 토큰을 가져올 수 있습니다. 클라이언트 자격 증명 흐름은 대리 흐름과 동일하지 않으며 대리 흐름은 서버 간 인증에 사용하지 않아야 합니다.
 
-OAuth 2.0 클라이언트 자격 증명 권한 부여 흐름은 현재 Azure AD B2C 인증 서비스를 통해 직접 지원되지 않지만, Azure AD B2C 테넌트에서 애플리케이션에 대해 Azure AD 및 Microsoft ID 플랫폼/토큰 엔드포인트를 사용하여 클라이언트 자격 증명 흐름을 설정할 수 있습니다. Azure AD B2C 테넌트는 Azure AD Enterprise 테넌트와 일부 기능을 공유합니다.
+OAuth 2.0 클라이언트 자격 증명 권한 부여 흐름은 현재 Azure AD B2C 인증 서비스를 통해 직접 지원되지 않지만, Azure AD B2C 테넌트에서 애플리케이션에 대해 Azure AD 및 Microsoft ID 플랫폼/토큰 https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token) 엔드포인트를 사용하여 클라이언트 자격 증명 흐름을 설정할 수 있습니다. Azure AD B2C 테넌트는 Azure AD Enterprise 테넌트와 일부 기능을 공유합니다.
 
 클라이언트 자격 증명 흐름을 설정하려면 [Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)을 참조하세요. 인증에 성공하면 [Azure AD 토큰 참조](../active-directory/develop/id-tokens.md)에 설명된 대로 Azure AD에서 사용할 수 있도록 형식이 지정된 토큰을 수신합니다.
 
@@ -150,17 +150,6 @@ OAuth 2.0 클라이언트 자격 증명 권한 부여 흐름은 현재 Azure AD 
 많은 아키텍처에는 다른 다운스트림 Web API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 Azure AD B2C로 보안됩니다. 웹 API 백 엔드를 포함하는 네이티브 클라이언트에서 일반적으로 수행되는 이 시나리오에서는 Microsoft Graph API 등의 Microsoft 온라인 서비스를 호출합니다.
 
 On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다.  그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다.
-
-### <a name="faulted-apps"></a>오류가 발생한 앱
-
-다음과 같은 방식으로 Azure AD B2C 애플리케이션을 편집하지 마세요.
-
-- [애플리케이션 등록 포털](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)과 같은 다른 애플리케이션 관리 포털.
-- Graph API 또는 PowerShell 사용
-
-Azure Portal 외부에서 Azure AD B2C 애플리케이션을 편집하는 경우 오류가 발생한 애플리케이션이 되며 더 이상 Azure AD B2C에 사용할 수 없습니다. 이러한 경우에는 애플리케이션을 삭제한 후에 다시 만드세요.
-
-애플리케이션을 삭제하려면 [애플리케이션 등록 포털](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)로 이동하고 거기에서 애플리케이션을 삭제합니다. 애플리케이션을 표시하려면 애플리케이션의 소유자여야 합니다(테넌트의 관리자가 아님).
 
 ## <a name="next-steps"></a>다음 단계
 

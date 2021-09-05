@@ -1,17 +1,20 @@
 ---
 title: Common Data Model 형식
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Common Data Model 메타데이터 시스템을 사용하여 데이터 변환
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: makromer
-ms.openlocfilehash: 45f5334ebee3365c17bfa52c8d47ed75b82bdfa1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 612faa714f6a31bb464d30cc5b30766734782d41
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387702"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642702"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Azure Data Factory의 Common Data Model 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,22 +34,22 @@ Common Data Model은 원본 및 싱크로서의 매핑 데이터 흐름에서 [�
 
 다음 표에는 CDM 원본에서 지원하는 속성이 나열되어 있습니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 형식 | 형식은 `cdm`여야 합니다. | 예 | `cdm` | format |
+| 서식 | 형식은 `cdm`여야 합니다. | 예 | `cdm` | format |
 | 메타데이터 형식 | 데이터에 대한 엔터티 참조가 있는 위치입니다. CDM 버전 1.0을 사용하는 경우 매니페스트를 선택합니다. 1\.0보다 이전의 CDM 버전을 사용하는 경우 model.json을 선택합니다. | 예 | `'manifest'` 또는 `'model'` | manifestType |
 | 루트 위치: 컨테이너 | CDM 폴더의 컨테이너 이름입니다. | 예 | String | fileSystem |
 | 루트 위치: 폴더 경로 | CDM 폴더의 루트 폴더 위치입니다. | 예 | String | folderPath |
 | 매니페스트 파일: 엔터티 경로 | 루트 폴더 안에 있는 엔터티의 폴더 경로입니다. | 아니요 | String | entityPath |
 | 매니페스트 파일: 매니페스트 이름 | 매니페스트 파일의 이름입니다. 기본값은 'default'입니다.  | 예 | String | manifestName |
-| 마지막으로 수정한 시간으로 필터링 | 마지막으로 수정된 시간에 따라 파일을 필터링하도록 선택합니다. | 아니요 | 타임스탬프 | modifiedAfter <br> modifiedBefore | 
+| 마지막으로 수정한 시간으로 필터링 | 마지막으로 변경된 시간에 따라 파일을 필터링하도록 선택합니다. | 아니요 | 타임스탬프 | modifiedAfter <br> modifiedBefore | 
 | 스키마 연결된 서비스 | 모음이 위치하는 연결된 서비스입니다. | 예(매니페스트를 사용하는 경우) | `'adlsgen2'` 또는 `'github'` | corpusStore | 
 | 엔터티 참조 컨테이너 | 모음이 위치하는 컨테이너입니다. | 예(매니페스트를 사용하고 모음이 ADLS Gen2에 있는 경우) | String | adlsgen2_fileSystem |
 | 엔터티 참조 리포지토리 | GitHub 리포지토리 이름 | 예(매니페스트를 사용하고 모음이 GitHub에 있는 경우) | String | github_repository |
 | 엔터티 참조 분기 | GitHub 리포지토리 분기입니다. | 예(매니페스트를 사용하고 모음이 GitHub에 있는 경우) | String |  github_branch |
 | 모음 폴더 | 모음의 루트 위치입니다. | 예(매니페스트를 사용하는 경우) | String | corpusPath |
 | 모음 엔터티 | 엔터티 참조의 경로입니다. | 예 | String | 엔터티 |
-| 파일을 찾을 수 없음 허용 | True면 파일이 없는 경우 오류가 발생하지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
+| 파일을 찾을 수 없음 허용 | true이면 파일이 없는 경우 오류가 throw되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
 
 원본 및 싱크 변환에서 '엔터티 참조'를 선택하는 경우 다음 세 가지 옵션 중에서 엔터티 참조 위치를 선택할 수 있습니다.
 
@@ -84,7 +87,7 @@ CDM은 인라인 데이터 세트로만 사용할 수 있으며 기본적으로 
 2. partitions.Location 속성을 찾습니다. 
 3. 'blob.core.windows.net'을 'dfs.core.windows.net'으로 변경합니다.
 4. URL에서 '%2F' 인코딩을 모두 '/'로 수정합니다.
-5. ADF 데이터 흐름을 사용하는 경우 파티션 파일 경로의 특수 문자를 영숫자 값으로 바꾸거나 Synapse 데이터 흐름으로 전환해야 합니다.
+5. ADF 데이터 흐름을 사용하는 경우 파티션 파일 경로의 특수 문자를 영숫자 값으로 바꾸거나 Azure Synapse 데이터 흐름으로 전환해야 합니다.
 
 ### <a name="cdm-source-data-flow-script-example"></a>CDM 원본 데이터 흐름 스크립트 예제
 
@@ -114,9 +117,9 @@ source(output(
 
 다음 표에는 CDM 싱크에서 지원하는 속성이 나열되어 있습니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 형식 | 형식은 `cdm`여야 합니다. | 예 | `cdm` | format |
+| 서식 | 형식은 `cdm`여야 합니다. | 예 | `cdm` | format |
 | 루트 위치: 컨테이너 | CDM 폴더의 컨테이너 이름입니다. | 예 | String | fileSystem |
 | 루트 위치: 폴더 경로 | CDM 폴더의 루트 폴더 위치입니다. | 예 | String | folderPath |
 | 매니페스트 파일: 엔터티 경로 | 루트 폴더 안에 있는 엔터티의 폴더 경로입니다. | 아니요 | String | entityPath |

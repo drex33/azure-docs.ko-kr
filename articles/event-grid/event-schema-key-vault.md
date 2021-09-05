@@ -3,12 +3,12 @@ title: Event Grid 원본으로 사용되는 Azure Key Vault
 description: Azure Event Grid를 사용한 Azure Key Vault 이벤트에 대해 제공되는 속성과 스키마를 설명합니다.
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.openlocfilehash: 48f4df660a17c36030b6b6d2396bd96cfec48edc
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 31a5e77cc238dcfc774ebc851e864c916206fd9e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110794089"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536811"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Event Grid 원본으로 사용되는 Azure Key Vault
 
@@ -23,13 +23,13 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 | ---------- | ----------- |---|
 | Microsoft.KeyVault.CertificateNewVersionCreated | 인증서 새 버전이 생성됨 | 새 인증서 또는 새 인증서 버전이 만들어질 때 트리거됩니다. |
 | Microsoft.KeyVault.CertificateNearExpiry | 인증서 만료 임박 | 현재 버전의 인증서가 만료될 때 트리거됩니다. (이 이벤트는 만료일 30일 전에 트리거됩니다.) |
-| Microsoft.KeyVault.CertificateExpired | 인증서 만료됨 | 인증서가 만료되면 트리거됩니다. |
+| Microsoft.KeyVault.CertificateExpired | 인증서 만료됨 | 현재 버전의 인증서가 만료되면 트리거됩니다. |
 | Microsoft.KeyVault.KeyNewVersionCreated | 새로 만든 주요 버전 | 새 키 또는 새 키 버전이 만들어질 때 트리거됩니다. |
 | Microsoft.KeyVault.KeyNearExpiry | 만료 임박 키 | 현재 버전의 키가 만료될 때 트리거됩니다. (이 이벤트는 만료일 30일 전에 트리거됩니다.) |
-| Microsoft.KeyVault.KeyExpired | 키가 만료됨 | 키가 만료되면 트리거됩니다. |
+| Microsoft.KeyVault.KeyExpired | 키가 만료됨 | 현재 버전의 키가 만료되면 트리거됩니다. |
 | Microsoft.KeyVault.SecretNewVersionCreated | 새 비밀 버전이 생성됨 | 새 비밀 또는 새 비밀 버전이 만들어질 때 트리거됩니다. |
 | Microsoft.KeyVault.SecretNearExpiry | 비밀 만료 임박 | 현재 버전의 비밀이 만료될 때 트리거됩니다. (이 이벤트는 만료일 30일 전에 트리거됩니다.) |
-| Microsoft.KeyVault.SecretExpired | 비밀 만료됨 | 비밀이 만료되면 트리거됩니다. |
+| Microsoft.KeyVault.SecretExpired | 비밀 만료됨 | 현재 버전의 비밀이 만료되면 트리거됩니다. |
 | Microsoft.KeyVault.VaultAccessPolicyChanged | Vault 액세스 정책이 변경됨 | Key Vault에 대한 액세스 정책이 변경될 때 트리거됩니다. 여기에는 Key Vault 권한 모델이 Azure 역할 기반 액세스 제어로/에서 변경되는 시나리오가 포함됩니다.   |
 
 ## <a name="event-examples"></a>이벤트 예제
@@ -94,7 +94,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 # <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -110,7 +110,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -125,7 +125,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | ---------- | ----------- |---|
 | `id` | 문자열 | 이 이벤트를 트리거한 개체의 ID |
 | `VaultName` | 문자열 | 이 이벤트를 트리거한 개체의 키 자격 증명 모음 이름 |

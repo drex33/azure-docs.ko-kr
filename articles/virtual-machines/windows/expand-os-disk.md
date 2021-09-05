@@ -17,12 +17,12 @@ ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7bbea4fabcfce3a8f73045ab1f5071b7df0855b8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 74ce4cf27f8a8be8fd86bad3e3f03589cf3640ea
+ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670343"
+ms.lasthandoff: 07/11/2021
+ms.locfileid: "113600535"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
 
@@ -57,7 +57,7 @@ ms.locfileid: "110670343"
 5. **크기 + 성능** 에서 원하는 디스크 크기를 선택합니다.
    
    > [!WARNING]
-   > 새 크기가 기존 디스크 크기보다 커야 합니다. OS 디스크에 허용되는 최대 크기는 2,048GB입니다. (VHD Blob은 이 크기 이상으로 확장할 수 있지만, OS가 처음 2,048GB의 공간에서만 작동됩니다.)
+   > 새 크기가 기존 디스크 크기보다 커야 합니다. OS 디스크에 허용되는 최대 크기는 4,095GB입니다. (VHD Blob은 이 크기 이상으로 확장할 수 있지만, OS가 처음 4,095GB의 공간에서만 작동됩니다.)
    > 
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="디스크 크기가 선택된 크기 및 성능 창을 보여주는 스크린샷입니다.":::
@@ -105,7 +105,7 @@ ms.locfileid: "110670343"
     Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
     ```   
     > [!WARNING]
-    > 새 크기가 기존 디스크 크기보다 커야 합니다. OS 디스크에 허용되는 최대 크기는 2,048GB입니다. (VHD Blob은 이 크기 이상으로 확장할 수 있지만, OS가 처음 2,048GB의 공간에서만 작동됩니다.)
+    > 새 크기가 기존 디스크 크기보다 커야 합니다. OS 디스크에 허용되는 최대 크기는 4,095GB입니다. (VHD Blob은 이 크기 이상으로 확장할 수 있지만, OS가 처음 4,095GB의 공간에서만 작동됩니다.)
     > 
          
 6. VM이 업데이트될 때까지 몇 초 정도 걸릴 수 있습니다. 명령 실행이 완료되면 VM을 다시 시작합니다.

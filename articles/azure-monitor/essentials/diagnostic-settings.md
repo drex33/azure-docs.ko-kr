@@ -6,12 +6,12 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2021
-ms.openlocfilehash: bb820be289aa2ddcec2183094e819083dde8c1d8
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 0a161c2341137abc047d81b408058ca56e192526
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902790"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531110"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함한 Azure의 [플랫폼 로그](./platform-logs-overview.md)에서 Azure 리소스 및 이에 따른 Azure 플랫폼에 대한 자세한 진단 및 감사 정보를 제공합니다. [플랫폼 메트릭](./data-platform-metrics.md)은 기본적으로 수집되며 일반적으로 Azure 모니터 메트릭 데이터베이스에 저장됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성하는 방법에 대한 세부 정보를 제공합니다.
@@ -51,13 +51,13 @@ Azure 활동 로그 및 리소스 로그를 포함한 Azure의 [플랫폼 로그
 
 ### <a name="destination-requirements"></a>대상 요구 사항
 
-진단 설정을 만들기 전에 진단 설정의 대상을 만들어야 합니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 Azure RBAC 액세스를 가진 경우 대상은 로그를 전송하는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다. 다음 표에는 지역 제한을 포함하여 각 대상에 대한 고유한 요구 사항이 나타나 있습니다.
+진단 설정을 만들기 전에 진단 설정의 대상을 만들어야 합니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 Azure RBAC 액세스를 가진 경우 대상은 로그를 전송하는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다. Azure Lighthouse를 사용하여 진달 설정을 다른 Azure Active Directory 테넌트의 작업 영역으로 보낼 수도 있습니다. 다음 표에는 지역 제한을 포함하여 각 대상에 대한 고유한 요구 사항이 나타나 있습니다.
 
 | 대상 | 요구 사항 |
 |:---|:---|
 | Log Analytics 작업 영역 | 작업 영역이 모니터링되는 리소스와 동일한 지역에 있을 필요는 없습니다.|
 | 이벤트 허브(영문) | 네임스페이스에 대한 공유 액세스 정책은 스트리밍 메커니즘에서 보유하는 권한을 정의합니다. Event Hubs로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요합니다. 스트리밍을 포함하도록 진단 설정을 업데이트하려면 해당 Event Hubs 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다.<br><br>지역별 리소스인 경우 이벤트 허브 네임스페이스가 모니터링되는 리소스와 동일한 지역에 있어야 합니다. |
-| Azure Storage 계정 | 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 스토리지 계정을 사용하지 않아야 합니다. 활동 로그와 리소스 로그를 함께 보관하는 경우, 동일한 스토리지 계정을 사용하여 모든 모니터링 데이터를 중앙 위치에서 보관할 수 있습니다.<br><br>변경이 불가능한 스토리지로 데이터를 보내려면 [Blob Storage에 대한 불변성 정책 설정 및 관리](../../storage/blobs/storage-blob-immutability-policies-manage.md)에서 설명하는 것과 같이 스토리지 계정에 대해 불변성 정책을 설정합니다. 보호된 추가 BLOB 쓰기 사용을 비롯하여 이 문서의 모든 단계를 따라야 합니다.<br><br>지역별 리소스인 경우 스토리지 계정이 모니터링되는 리소스와 동일한 지역에 있어야 합니다. |
+| Azure Storage 계정 | 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 스토리지 계정을 사용하지 않아야 합니다. 활동 로그와 리소스 로그를 함께 보관하는 경우, 동일한 스토리지 계정을 사용하여 모든 모니터링 데이터를 중앙 위치에서 보관할 수 있습니다.<br><br>변경이 불가능한 스토리지로 데이터를 보내려면 [Blob Storage에 대한 불변성 정책 설정 및 관리](../../storage/blobs/immutable-policy-configure-version-scope.md)에서 설명하는 것과 같이 스토리지 계정에 대해 불변성 정책을 설정합니다. 보호된 추가 BLOB 쓰기 사용을 비롯하여 이 문서의 모든 단계를 따라야 합니다.<br><br>지역별 리소스인 경우 스토리지 계정이 모니터링되는 리소스와 동일한 지역에 있어야 합니다. |
 
 > [!NOTE]
 > Azure Data Lake Storage Gen2 계정은 현재 Azure Portal에서 유효한 옵션으로 나열될 수 있지만 진단 설정의 대상으로 지원되지 않습니다.

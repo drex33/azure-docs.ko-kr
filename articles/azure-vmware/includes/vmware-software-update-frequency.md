@@ -3,16 +3,19 @@ title: VMware 소프트웨어 업데이트 빈도
 description: Azure VMware Solution에 대해 지원되는 VMware 소프트웨어 업데이트 빈도.
 ms.topic: include
 ms.date: 04/23/2021
-ms.openlocfilehash: 5adf381e3c27197b6791dbd389d3b7359fa30248
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
+ms.openlocfilehash: 3295ab9da93b1e1ec1cace62653670de366c880d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951007"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324319"
 ---
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
 
-호스트 유지 관리 및 수명 주기 관리는 프라이빗 클라우드 클러스터의 용량 또는 성능에 영향을 주지 않습니다.  프라이빗 클라우드 소프트웨어는 VMware의 소프트웨어 번들 릴리스를 따르는 일정에 따라 업그레이드됩니다. 프라이빗 클라우드는 업그레이드로 인한 가동 중지 시간이 없습니다.
+호스트 유지 관리 및 수명 주기 관리는 프라이빗 클라우드 클러스터의 용량 또는 성능에 영향을 주지 않습니다. 프라이빗 클라우드 소프트웨어로의 업그레이드는 VMware의 소프트웨어 번들 릴리스를 따르는 일정에 따라 진행됩니다.  따라서 프라이빗 클라우드는 업그레이드로 인한 가동 중지 시간이 없습니다.
 
 프라이빗 클라우드 소프트웨어 번들 업그레이드는 VMware의 최신 소프트웨어 번들 릴리스의 한 버전 내에서 소프트웨어를 유지합니다. 프라이빗 클라우드 소프트웨어 버전은 개별 소프트웨어 구성 요소(ESXi, NSX-T, vCenter, vSAN)의 최신 버전과 다를 수 있습니다. 업데이트에는 드라이버, 네트워크 스위치의 소프트웨어 및 운영 체제 미설치 노드의 펌웨어도 포함됩니다.
 

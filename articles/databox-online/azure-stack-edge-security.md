@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 7019a1cde8548083834d467031a09ae0072ee478
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b2c6ee6e1bc494f0bef4a04b07115c400c8ce1ec
+ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460534"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112914052"
 ---
-# <a name="azure-stack-edge-pro-fpga-security-and-data-protection"></a>Azure Stack Edge Pro FPGA 보안 및 데이터 보호
+# <a name="azure-stack-edge-security-and-data-protection"></a>Azure Stack Edge 보안 및 데이터 보호
 
-보안은 새로운 기술을 채택할 때, 특히 해당 기술이 기밀 또는 재산적 가치를 가지는 데이터에 사용되는 경우 중요한 관심사입니다. Azure Stack Edge Pro FPGA를 사용하면 권한 있는 엔터티만 데이터를 확인, 수정, 삭제할 수 있습니다.
+보안은 새로운 기술을 채택할 때, 특히 해당 기술이 기밀 또는 재산적 가치를 가지는 데이터에 사용되는 경우 중요한 관심사입니다. Azure Stack Edge를 사용하면 권한 있는 엔터티만 데이터를 확인, 수정 또는 삭제할 수 있습니다.
 
-이 문서에서는 각 솔루션 구성 요소와 여기에 저장된 데이터를 보호하는 데 도움이 되는 Azure Stack Edge Pro FPGA 보안 기능에 대해 설명합니다.
+이 문서에서는 각 솔루션 구성 요소와 여기에 저장된 데이터를 보호하는 데 도움이 되는 Azure Stack Edge 보안 기능에 대해 설명합니다.
 
-Azure Stack Edge Pro FPGA는 서로 상호 작용하는 다음 네 가지 기본 구성 요소로 이루어져 있습니다.
+Azure Stack Edge는 상호 작용하는 다음 네 가지 기본 구성 요소로 이루어져 있습니다.
 
 - **Azure에서 호스트된 Azure Stack Edge 서비스**. 디바이스 주문을 작성하고 디바이스를 구성한 다음, 완료까지 주문을 추적하는 데 사용되는 관리 리소스입니다.
 - **Azure Stack Edge Pro FPGA 디바이스**. 온-프레미스 데이터를 Azure로 가져올 수 있도록 사용자에게 제공되는 전송 디바이스입니다.
@@ -34,9 +34,9 @@ Azure Stack Edge 서비스는 Azure에서 호스트된 관리 서비스입니다
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## <a name="azure-stack-edge-pro-fpga-device-protection"></a>Azure Stack Edge Pro FPGA 디바이스 보호
+## <a name="azure-stack-edge-device-protection"></a>Azure Stack Edge 디바이스 보호
 
-Azure Stack Edge Pro FPGA 디바이스는 데이터를 로컬에서 처리한 다음 Azure에 전송하여 데이터 변환을 지원하는 온-프레미스 디바이스입니다. 사용자 디바이스는 다음 특징이 있습니다.
+Azure Stack Edge 디바이스는 데이터를 로컬에서 처리한 다음, Azure에 전송하여 데이터 변환을 지원하는 온-프레미스 디바이스입니다. 사용자 디바이스는 다음 특징이 있습니다.
 
 - Azure Stack Edge 서비스에 액세스하기 위해 활성화 키가 있어야 합니다.
 - 디바이스 암호로 항상 보호됩니다.
@@ -46,7 +46,7 @@ Azure Stack Edge Pro FPGA 디바이스는 데이터를 로컬에서 처리한 �
 
 ### <a name="protect-the-device-via-activation-key"></a>활성화 키를 통해 디바이스 보호
 
-권한 있는 Azure Stack Edge Pro FPGA 디바이스만 Azure 구독에서 직접 만든 Azure Stack Edge 서비스에 조인할 수 있습니다. 디바이스에 권한을 부여하려면 활성화 키를 사용하여 Azure Stack Edge 서비스에서 디바이스를 활성화해야 합니다.
+권한 있는 Azure Stack Edge 디바이스만 Azure 구독에서 직접 만든 Azure Stack Edge 서비스에 조인할 수 있습니다. 디바이스에 권한을 부여하려면 활성화 키를 사용하여 Azure Stack Edge 서비스에서 디바이스를 활성화해야 합니다.
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
 
@@ -54,7 +54,7 @@ Azure Stack Edge Pro FPGA 디바이스는 데이터를 로컬에서 처리한 �
 
 ### <a name="protect-the-device-via-password"></a>암호를 통해 디바이스 보호
 
-암호는 권한 있는 사용자만 데이터에 액세스할 수 있도록 보장합니다. Azure Stack Edge Pro FPGA 디바이스는 잠긴 상태로 부팅됩니다.
+암호는 권한 있는 사용자만 데이터에 액세스할 수 있도록 보장합니다. Azure Stack Edge 디바이스는 잠긴 상태로 부팅됩니다.
 
 다음을 할 수 있습니다.
 

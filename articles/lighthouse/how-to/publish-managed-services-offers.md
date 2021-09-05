@@ -1,14 +1,14 @@
 ---
 title: Azure Marketplace에 관리형 서비스 제안 게시
 description: Azure Lighthouse에 고객을 온보딩하는 관리형 서비스 제안을 게시하는 방법을 알아봅니다.
-ms.date: 03/31/2021
+ms.date: 08/10/2021
 ms.topic: how-to
-ms.openlocfilehash: 014386c6c4676abbc441cc2e23bdfcf90f3adc09
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: af5ca37d312f5bdfcfae179997b920a466f01462
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965115"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536449"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 제안 게시
 
@@ -63,6 +63,9 @@ Azure Marketplace에 제안을 게시하지 않으려는 경우 또는 일부 �
 > 위임은 온보딩하려는 구독(또는 온보딩하려는 리소스 그룹을 포함하는 구독)에 대해 [소유자](../../role-based-access-control/built-in-roles.md#owner)와 같이 `Microsoft.Authorization/roleAssignments/write` 권한을 갖는 역할이 있는 고객의 테넌트에서 게스트가 아닌 계정으로 수행해야 합니다. 구독을 위임할 수 있는 사용자를 찾기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 사용자를 볼](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription) 수 있습니다.
 
 고객이 구독 또는 구독 내의 여러 리소스 그룹을 위임하면 해당 구독에 대해 **Microsoft.ManagedServices** 리소스 공급자가 등록되고 테넌트의 사용자는 제안의 권한 부여에 따라 위임된 리소스에 액세스할 수 있습니다.
+
+> [!NOTE]
+> 나중에 추가 구독 또는 리소스 그룹을 동일한 제품에 위임하려면 고객은 위임하기 전에 각 구독에 대해 [**Microsoft.ManagedServices** 리소스 공급자를 수동으로 등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)해야 합니다.
 
 제안의 업데이트된 버전을 게시하면 고객은 [Azure Portal에서 변경 내용을 검토하고 새 버전을 수락](view-manage-service-providers.md#update-service-provider-offers)할 수 있습니다.
 

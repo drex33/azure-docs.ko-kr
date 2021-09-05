@@ -1,17 +1,17 @@
 ---
 title: 물리적 서버용 Azure Migrate 어플라이언스 설정
 description: 물리적 서버의 검색 및 평가를 위해 Azure Migrate 어플라이언스를 설정하는 방법에 대해 알아봅니다.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 2c185fc20c68dab549461f64d9ff8f0540a2b06a
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 7dd11143e3852d17787de5e20ebe53290f5af96f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753100"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528491"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
 
@@ -29,11 +29,11 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 
 어플라이언스를 설정하려면 다음을 수행합니다.
 
-- 포털에서 어플라이언스 이름을 제공하고, 프로젝트 키를 생성합니다.
-- Azure Portal에서 Azure Migrate 설치 프로그램 스크립트가 포함된 압축 파일을 다운로드합니다.
-- 압축 파일의 콘텐츠를 추출합니다. 관리자 권한으로 PowerShell 콘솔을 시작합니다.
-- PowerShell 스크립트를 실행하여 어플라이언스 웹 애플리케이션을 시작합니다.
-- 어플라이언스를 처음으로 구성하고, 프로젝트 키를 사용하여 어플라이언스를 프로젝트에 등록합니다.
+1. 포털에서 어플라이언스 이름을 제공하고, 프로젝트 키를 생성합니다.
+2. Azure Portal에서 Azure Migrate 설치 프로그램 스크립트가 포함된 압축 파일을 다운로드합니다.
+3. 압축 파일의 콘텐츠를 추출합니다. 관리자 권한으로 PowerShell 콘솔을 시작합니다.
+4. PowerShell 스크립트를 실행하여 어플라이언스 구성 관리자를 시작합니다.
+5. 어플라이언스를 처음으로 구성하고, 프로젝트 키를 사용하여 어플라이언스를 프로젝트에 등록합니다.
 
 ### <a name="generate-the-project-key"></a>프로젝트 키 생성
 
@@ -44,14 +44,11 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 1. Azure 리소스가 성공적으로 만들어지면 **프로젝트 키** 가 생성됩니다.
 1. 어플라이언스를 구성하는 동안 어플라이언스 등록을 완료하는 데 필요하므로 키를 복사합니다.
 
+   ![키 생성 선택](./media/tutorial-assess-physical/generate-key-physical-1.png)
+
 ### <a name="download-the-installer-script"></a>설치 프로그램 스크립트 다운로드
 
 **2: Azure Migrate 어플라이언스 다운로드** 에서 **다운로드** 를 클릭합니다.
-
-   ![머신 검색 옵션](./media/tutorial-assess-physical/servers-discover.png)
-
-
-   ![키 생성 선택](./media/tutorial-assess-physical/generate-key-physical.png)
 
 ### <a name="verify-security"></a>보안 확인
 
@@ -60,41 +57,44 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
 1. 파일을 다운로드한 서버에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 퍼블릭 클라우드의 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - 정부 클라우드의 사용 예: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  최신 버전의 어플라이언스 및 [해시 값](tutorial-discover-physical.md#verify-security) 설정을 확인합니다.
- 
+    - 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+3.  최신 어플라이언스 버전 및 해시 값을 확인합니다.
 
-## <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
-설치 프로그램 스크립트는 다음을 수행합니다.
+    **다운로드** | **해시 값**
+    --- | ---
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
 
-- 물리적 서버 검색 및 평가를 위한 에이전트와 웹 애플리케이션을 설치합니다.
-- Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다.
-- Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
-- 지정된 경로에 다음 파일을 만듭니다.
-    - **구성 파일**: %Programdata%\Microsoft Azure\Config
-    - **로그 파일**: %Programdata%\Microsoft Azure\Logs
+> [!NOTE]
+> 동일한 스크립트를 사용하여 Azure 퍼블릭 또는 Azure Government 클라우드용 물리적 어플라이언스를 설정할 수 있습니다.
 
-스크립트를 다음과 같이 실행합니다.
+### <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
 
 1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다.
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.
 
-    - 퍼블릭 클라우드의 경우: 
     
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - Azure Government의 경우: 
-    
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다.
+5. 시나리오, 클라우드, 연결 옵션 중에서 선택하여 원하는 구성으로 어플라이언스를 배포합니다. 예를 들어 아래와 같이 선택하면 **Azure 퍼블릭 클라우드** 에서 **기본 ‘(퍼블릭 엔드포인트)’ 연결** 이 있는 Azure Migrate 프로젝트에 대한 **물리적 서버**‘(또는 AWS, GCP, Xen 등의 다른 클라우드에서 실행되는 서버)’를 검색하고 평가하도록 어플라이언스가 설정됩니다. 
 
-문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그에 액세스할 수 있습니다.
+    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-1.png" alt-text="원하는 구성으로 어플라이언스를 설정하는 방법을 보여주는 스크린샷.":::
 
+6. 설치 프로그램 스크립트는 다음을 수행합니다.
 
+    - 에이전트 및 웹 애플리케이션을 설치합니다.
+    - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
+    - IIS 재작성 모듈을 다운로드하여 설치합니다.
+    - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
+    - 지정된 경로에 다음 파일을 만듭니다.
+        - **구성 파일**: %Programdata%\Microsoft Azure\Config
+        - **로그 파일**: %Programdata%\Microsoft Azure\Logs
+
+스크립트를 성공적으로 실행하면 어플라이언스 구성 관리자가 자동으로 시작됩니다.
+
+> [!NOTE]
+> 문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그에 액세스할 수 있습니다.
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 

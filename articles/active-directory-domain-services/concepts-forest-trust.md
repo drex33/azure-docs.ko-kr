@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 06/18/2021
 ms.author: justinha
-ms.openlocfilehash: 5c72ab7d085de558ee95f3c602ccc6be6160b322
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d7c3eeb184f7ceb09541ca9533203f4b45194bb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96620208"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566519"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 리소스 포리스트에 대해 트러스트 관계가 작동하는 방식
 
@@ -37,7 +37,7 @@ Azure AD DS에서 트러스트 사용을 시작하려면 [포리스트 트러스
 
 트러스트를 통한 통신의 흐름은 트러스트 방향에 따라 결정됩니다. 트러스트는 단방향 또는 양방향일 수 있으며 전이적이거나 비전이적일 수 있습니다.
 
-다음 다이어그램에서는 ‘트리 1’ 및 ‘트리 2’의 모든 도메인이 기본적으로 전이적 트러스트 관계를 포함하고 있음을 보여 줍니다.  따라서 ‘트리 1’의 사용자는 ‘트리 2’의 도메인에 있는 리소스에 액세스할 수 있으며, ‘트리 1’의 사용자는 리소스에 적절한 사용 권한이 할당된 경우 ‘트리 2’의 리소스에 액세스할 수 있습니다.   
+다음 다이어그램에서는 ‘트리 1’ 및 ‘트리 2’의 모든 도메인이 기본적으로 전이적 트러스트 관계를 포함하고 있음을 보여 줍니다.  따라서 *트리 1* 의 사용자는 *트리 2* 의 도메인에 있는 리소스에 액세스할 수 있으며, *트리 2* 의 사용자는 리소스에 적절한 사용 권한이 할당된 경우 *트리 1* 의 리소스에 액세스할 수 있습니다.
 
 ![두 포리스트 간의 트러스트 관계 다이어그램](./media/concepts-forest-trust/trust-relationships.png)
 
@@ -108,7 +108,7 @@ AD DS 포리스트의 모든 도메인 트러스트는 양방향 전이적 트�
 
 포리스트 트러스트를 만들려면 포리스트 루트 도메인에 있는 도메인 관리자 그룹의 구성원 또는 Active Directory에 있는 엔터프라이즈 관리자 그룹의 구성원이어야 합니다. 각 트러스트에는 두 포리스트의 관리자가 알고 있어야 하는 암호가 할당됩니다. 두 포리스트의 엔터프라이즈 관리자 구성원은 두 포리스트에서 한 번에 트러스트를 만들 수 있습니다. 이 시나리오에서는 암호화된 임의의 암호가 자동으로 생성되어 두 포리스트에 작성됩니다.
 
-Azure AD Domain Services에 대한 아웃바운드 포리스트 트러스트가 Azure Portal에 생성됩니다. 관리되는 도메인 자체를 사용하여 트러스트를 수동으로 만들지는 않습니다. 들어오는 포리스트 트러스트는 온-프레미스 Active Directory에 이전에 언급한 권한이 있는 사용자가 구성해야 합니다.
+관리되는 도메인 리소스 포리스트는 온-프레미스 포리스트에 대해 최대 5개의 단방향 아웃바운드 포리스트 트러스트를 지원합니다. Azure AD Domain Services에 대한 아웃바운드 포리스트 트러스트가 Azure Portal에 생성됩니다. 관리되는 도메인 자체를 사용하여 트러스트를 수동으로 만들지는 않습니다. 들어오는 포리스트 트러스트는 온-프레미스 Active Directory에 이전에 언급한 권한이 있는 사용자가 구성해야 합니다. 
 
 ## <a name="trust-processes-and-interactions"></a>트러스트 프로세스 및 상호 작용
 

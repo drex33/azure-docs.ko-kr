@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: c57f66eca5d15024c6b10e8fad12ddb575b9f894
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a611daf290bda8d6511cb4217e411de2886ce822
+ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765902"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112370854"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>유지 관리 제어 및 Azure CLI를 사용하여 업데이트 제어
 
@@ -47,7 +47,7 @@ az maintenance configuration list --query "[].{Name:name, ID:id}" -o table
 ```
 
 ### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>예약된 기간을 사용하여 유지 관리 구성 만들기
-Azure가 리소스에서 업데이트를 적용하는 예약된 기간을 선언할 수도 있습니다. 이 예제에서는 매월 네 번째 월요일에 예약된 기간 5시간 동안 myConfig라는 유지 관리 구성을 만듭니다. 예약된 기간을 만든 후에는 더 이상 수동으로 업데이트를 적용하지 않아도 됩니다.
+Azure가 리소스에 대한 업데이트를 적용하는 예약된 기간을 선언할 수도 있습니다. 이 예제에서는 매달 네 번째 월요일에 5시간 동안 예약된 myConfig라는 유지 관리 구성을 만듭니다. 예약된 기간을 만든 후에는 더 이상 수동으로 업데이트를 적용할 필요가 없습니다.
 
 ```azurecli-interactive
 az maintenance configuration create \
@@ -62,7 +62,7 @@ az maintenance configuration create \
 ```
 
 > [!IMPORTANT]
-> 유지 관리 **기간** 은 ‘2시간’ 이상이어야 합니다. 유지 관리 **되풀이** 는 35일에 한 번 이상 수행되도록 설정해야 합니다.
+> 유지 관리 **기간** 은 *2시간* 이상이어야 합니다. 유지 관리 **되풀이** 는 35일에 한 번 이상 수행되도록 설정해야 합니다.
 
 유지 관리 되풀이는 매일, 매주 또는 매월로 표시될 수 있습니다. 몇 가지 예는 다음과 같습니다.
 - **매일** - maintenance-window-recur-every: “일” **또는** “3일”
@@ -162,7 +162,7 @@ az maintenance assignment list \
 
 ### <a name="isolated-vm"></a>격리된 VM
 
-격리된 VM의 보류 중인 업데이트를 확인합니다. 이 예제에서는 가독성을 위해 출력이 표 형식으로 지정됩니다.
+격리된 VM에 대해 보류 중인 업데이트를 확인합니다. 이 예제에서 가독성을 위해 출력이 테이블 형식으로 지정됩니다.
 
 ```azurecli-interactive
 az maintenance update list \
@@ -175,7 +175,7 @@ az maintenance update list \
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트의 보류 중인 업데이트를 확인합니다. 이 예제에서는 가독성을 위해 출력이 표 형식으로 지정됩니다. 리소스 값을 고유한 값으로 바꿉니다.
+전용 호스트에 대한 보류 중인 업데이트를 확인합니다. 이 예제에서 가독성을 위해 출력이 테이블 형식으로 지정됩니다. 리소스에 대한 값을 고유한 값으로 대체합니다.
 
 ```azurecli-interactive
 az maintenance update list \
@@ -191,7 +191,7 @@ az maintenance update list \
 
 ## <a name="apply-updates"></a>업데이트 적용
 
-`az maintenance apply update`를 사용하여 보류 중인 업데이트를 적용합니다. 성공할 경우 이 명령은 업데이트의 세부 정보를 포함하는 JSON을 반환합니다.
+`az maintenance apply update`를 사용하여 보류 중인 업데이트를 적용합니다. 성공할 경우 이 명령은 업데이트의 세부 정보를 포함하는 JSON을 반환합니다. 업데이트 호출 적용은 완료하는 데 최대 2시간이 걸릴 수 있습니다.
 
 ### <a name="isolated-vm"></a>격리된 VM
 
@@ -238,7 +238,7 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
-LastUpdateTime은 셀프 유지 관리 기간이 사용되지 않은 경우 사용자 또는 플랫폼에 의해 시작된 업데이트가 완료된 시간입니다. 유지 관리 제어를 통해 업데이트를 적용한 적이 없는 경우 기본값을 표시합니다.
+LastUpdateTime은 셀프 유지 관리 기간이 사용되지 않은 경우 사용자 또는 플랫폼에 의해 시작된 업데이트가 완료된 시간입니다. 유지 관리 제어를 통해 업데이트를 적용한 적이 없는 경우 기본값을 보여줍니다.
 
 ### <a name="isolated-vm"></a>격리된 VM
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Automation State Configuration, Azure Aut
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 36331e9c07926d4d3ffff136aefa2f9a77d47cb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c3b00a3d60db16c3b768494f8630587a16033d8
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708886"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114465802"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Azure Automation 네트워크 구성 세부 정보
 
@@ -36,7 +36,7 @@ Azure Automation과 커뮤니케이션하기 위해 Hybrid Runbook Worker 및 [A
 
 [WaitFor * 리소스](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource)와 같이 노드 간에 통신하는 DSC 리소스를 사용하는 경우에는 노드 간 트래픽만 허용해야 합니다. 이러한 네트워크 요구 사항을 이해하려면 각 DSC 리소스에 대한 문서를 참조하세요.
 
-TLS 1.2에 대한 클라이언트 요구 사항을 이해하려면 [Azure Automation에 대한 TLS 1.2 적용](automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조하세요.
+TLS 1.2에 대한 클라이언트 요구 사항을 이해하려면 [Azure Automation용 TLS 1.2](automation-managing-data.md#tls-12-for-azure-automation)를 참조하세요.
 
 ## <a name="update-management-and-change-tracking-and-inventory"></a>업데이트 관리와 변경 내용 추적 및 인벤토리
 

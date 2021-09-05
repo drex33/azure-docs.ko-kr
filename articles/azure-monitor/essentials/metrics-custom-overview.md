@@ -5,13 +5,13 @@ author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/13/2021
-ms.openlocfilehash: e6db49d34c39df2e1863dfa51914e30e9f1e1636
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.date: 06/01/2021
+ms.openlocfilehash: a456db938d1607565525aea7ab2e9b43bc368aeb
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897094"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530222"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Azure Monitor의 사용자 지정 메트릭(미리 보기)
 
@@ -192,10 +192,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 |Azure 지역 |지역별 엔드포인트 접두사|
 |---|---|
 | 모든 퍼블릭 클라우드 지역 | https://<azure_region_code>.monitoring.azure.com |
-| **Azure Government** | |
-| US Gov 애리조나 | https:\//usgovarizona.monitoring.azure.us |
-| **중국** | |
-| 중국 동부 2 | https:\//chinaeast2.monitoring.azure.cn |
+
 
 ## <a name="latency-and-storage-retention"></a>대기 시간 및 스토리지 보존
 
@@ -234,9 +231,9 @@ Azure Monitor는 사용자 지정 메트릭에 대해 다음과 같은 사용량
 
 이름 또는 높은 카디널리티 차원에 변수가 있는 경우 다음 문제가 발생할 수 있습니다.
 - 제한으로 인해 불안정한 메트릭
-- 메트릭 탐색기 작동 불가
+- 메트릭 탐색기가 작동하지 않음
 - 예측이 불가능한 경고 및 알림
-- 비용은 예기치 않게 증가할 수 있습니다. 차원이 포함된 사용자 지정 메트릭이 공개 미리 보기로 제공되는 동안 Microsoft는 요금을 청구하지 않습니다. 그러나 나중에 요금이 청구되기 시작하면 예기치 않은 요금이 발생합니다. 계획은 모니터링되는 시계열 수 및 API 호출 수에 따라 메트릭 사용에 대한 비용을 청구하는 것입니다.  
+- 비용은 예기치 않게 증가할 수 있습니다. 이 기능이 공개 미리 보기로 제공되는 동안 Microsoft는 차원이 있는 사용자 지정 메트릭에 대해 요금을 청구하지 않습니다. 그러나 나중에 요금이 청구되기 시작하면 예기치 않은 요금이 발생합니다. 계획은 모니터링되는 시계열 수 및 API 호출 수에 따라 메트릭 사용에 대한 비용을 청구하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음과 같은 다양한 서비스의 사용자 지정 메트릭을 사용합니다. 

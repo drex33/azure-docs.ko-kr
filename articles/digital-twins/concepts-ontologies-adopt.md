@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 73b115ad6f49d943c423c7490df347afce7c5869
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e31ee4ed9b7baa074f59bc615b9044cbf314a47d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668425"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114438517"
 ---
 # <a name="adopting-an-industry-ontology"></a>업계 온톨로지 채택
 
-빈 페이지에서 시작하는 것보다 오픈 소스 DTDL 온톨로지로 시작하는 것이 더 쉬울 수 있으므로 Microsoft는 도메인 전문가와 협력하여 널리 승인된 업계 규칙을 나타내고 다양한 고객 사용 사례를 지원하는 온톨로지를 게시합니다. 
+빈 페이지에서 시작하는 것보다 오픈 소스 DTDL 온톨로지로 시작하는 것이 더 쉬울 수 있기 때문에 Microsoft는 도메인 전문가와 협력하여 온톨로지를 게시하고 있습니다. 이러한 온톨로지는 널리 허용되는 업계 규칙을 나타내며 다양한 고객 사용 사례를 지원합니다. 
 
-그 결과 업계 표준을 빌드, 학습 또는 직접 사용하는 오픈 소스 DTDL 기반 온톨로지 세트가 만들어졌습니다. 온톨로지는 다운스트림 개발자의 요구 사항을 충족하도록 설계되었으며, 업계에서 널리 채택 및/또는 확장될 수 있습니다.
+그 결과 업계 표준을 빌드 또는 직접 사용하는 오픈 소스 DTDL 기반 온톨로지 세트가 만들어졌습니다. 온톨로지는 업계에서 널리 채택하고 확장할 수 있는 다운스트림 개발자의 요구 사항을 충족하도록 설계되었습니다.
 
 현재 Microsoft는 파트너와 협력하여 [스마트 빌딩](#realestatecore-smart-building-ontology), [스마트 도시](#smart-cities-ontology) 및 [에너지 그리드](#energy-grid-ontology)를 위한 온톨로지를 개발했습니다. 이 온톨로지는 재귀의 필요성을 피하기 위해 이러한 업계 표준에 기초한 모델링을 위한 공통 기반을 제공합니다. 
 
@@ -50,7 +50,7 @@ Microsoft는 [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim)부터 스마
 
 *다음 리포지토리에서 온톨로지 가져오기:*  [에너지 그리드에 대한 DTDL(Digital Twins 정의 언어) 온톨로지](https://github.com/Azure/opendigitaltwins-energygrid/).
 
-이 온톨로지는 솔루션 공급자가 에너지 사용 사례(그리드 자산 모니터링, 가동 중단 및 영향 분석, 시뮬레이션 및 예측 유지 관리)에 대한 디지털 트윈 솔루션 개발을 가속화하고 에너지 그리드의 디지털 변환 및 현대화를 용이하게 하기 위해 만들어졌습니다. 에너지 그리드 자산 관리, 전원 시스템 운영 모델링 및 물리적 에너지 상품 시장용 글로벌 표준인 [CIM(Common Information Model)](https://cimug.ucaiug.org/)에서 채택되었습니다.
+이 온톨로지는 솔루션 공급자가 에너지 사용 사례(그리드 자산 모니터링, 가동 중단 및 영향 분석, 시뮬레이션 및 예측 유지 관리)에 대한 디지털 트윈 솔루션 개발을 가속화하고 에너지 그리드의 디지털 변환 및 현대화를 지원하기 하기 위해 만들어졌습니다. 에너지 그리드 자산 관리, 전원 시스템 운영 모델링 및 물리적 에너지 상품 시장용 글로벌 표준인 [CIM(Common Information Model)](https://cimug.ucaiug.org/)에서 채택되었습니다.
 
 온톨로지, 사용 방법 및 기여 방법에 대해 자세히 알아보려면 GitHub의 온톨로지의 리포지토리인 [Azure/opendigitaltwins-energygrid](https://github.com/Azure/opendigitaltwins-energygrid/)를 방문하세요. 
 
@@ -58,6 +58,6 @@ Microsoft는 [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim)부터 스마
 
 ## <a name="next-steps"></a>다음 단계
 
-* 사양에 맞게 업계 표준 온톨로지를 확장하는 것에 대해 자세히 알아봅니다([개념: 업계 온톨로지 확장](concepts-ontologies-extend.md)).
+* 사양에 맞게 업계 표준 온톨로지를 확장하는 것에 대해 자세히 알아봅니다([업계 온톨로지 확장](concepts-ontologies-extend.md)).
 
 * 또는 온톨로지 기반의 모델 개발을 위해 경로를 계속합니다([모델 개발 경로에서 온톨로지 전략 사용](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path)).

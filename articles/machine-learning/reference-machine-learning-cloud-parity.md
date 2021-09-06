@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2021
+ms.date: 07/16/2021
 ms.custom: references_regions
-ms.openlocfilehash: eef2a1eb5f17864074ac346ac7a89a59d1d59778
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1c26761fe23fb1a7558100dea3cb74d7b078550d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037293"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536895"
 ---
 # <a name="azure-machine-learning-feature-availability-across-clouds-regions"></a>Azure Machine Learning 클라우드 지역 간 기능 가용성
 
@@ -62,7 +62,7 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet 지역에서 사용할 
 | 학습을 위한 VNet(Virtual Network) 지원                                | GA                   | YES                | YES         |
 | 유추를 위한 VNet(Virtual Network) 지원                               | GA                   | YES                | YES         |
 | 엔드포인트 인증 점수 매기기                                            | 공개 미리 보기       | YES                | YES         |
-| 작업 영역 프라이빗 엔드포인트                                                 | GA  |  GA  |  GA |
+| 작업 영역 프라이빗 엔드포인트                                                 | GA  |  공개 미리 보기  |  공개 미리 보기 |
 | VNet 뒤에 있는 ACI                                                            | 공개 미리 보기       | 아니요                 | 아니요          |
 | VNet 뒤에 있는 ACR                                                            | GA       | YES                 | YES          |
 | AKS 클러스터의 개인 IP                                                  | 공개 미리 보기       | 아니요                 | 아니요          |

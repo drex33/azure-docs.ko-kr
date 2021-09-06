@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4eac73f756268af21cbb97c8c5c2bf53c2322bc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4973dabe12f56105ab0eefdac485311d8f4df10b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536003"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864293"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>디바이스 ID 및 데스크톱 가상화
 
@@ -61,6 +61,7 @@ VDI 환경을 위한 Azure AD에서 디바이스 ID를 구성하기 전에 지�
 | Azure AD 등록됨 | 페더레이션된/관리형 | Windows 현재/Windows 하위 수준 | 영구/비영구 | 해당 사항 없음 |
 
 <sup>1</sup> **Windows 현재** 디바이스는 Windows 10, Windows Server 2016 v1803 이상, Windows Server 2019를 의미합니다.
+
 <sup>2</sup> **Windows 하위 수준** 디바이스는 Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2를 나타냅니다. Windows 7에 관한 지원 정보는[Windows 7 지원 종료](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)를 참조하세요. Windows Server 2008 R2에 관한 지원 정보는 [Windows Server 2008 지원 종료 준비](https://www.microsoft.com/cloud-platform/windows-server-2008)를 참조하세요.
 
 <sup>3</sup> **페더레이션** ID 인프라 환경은 AD FS 또는 기타 타사 IDP와 같은 ID 공급자를 사용하는 환경을 나타냅니다.

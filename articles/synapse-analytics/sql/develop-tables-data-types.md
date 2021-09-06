@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 1e6cd43e61389596be9b134ab2ad62bbf324a5cd
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 32a85b4409f36846a14e21d2f3894b7dbae1ec30
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693569"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528163"
 ---
 # <a name="table-data-types-in-synapse-sql"></a>Synapse SQL의 테이블 데이터 형식
 
@@ -48,7 +48,7 @@ FROM sys.tables  t
 JOIN sys.columns c on t.[object_id]    = c.[object_id]
 JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
 WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','xml')
- OR  y.[is_user_defined] = 1;
+ AND  y.[is_user_defined] = 1;
 ```
 
 ## <a name="workarounds-for-unsupported-data-types"></a><a name="unsupported-data-types"></a>지원되지 않는 데이터 형식에 대한 해결 방법

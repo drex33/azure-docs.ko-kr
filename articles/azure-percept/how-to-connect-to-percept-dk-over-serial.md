@@ -1,20 +1,20 @@
 ---
 title: Azure Percept DK에 직렬 연결
 description: USB-TTL 직렬 케이블을 사용하여 Azure Percept DK에 직렬 연결을 설정하는 방법
-author: MrHamlet
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: fa28fc845e8f15f06170a31d1d22892eca061bb7
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: a9b864f5d8341253c70fbde6d111b04a4d924f1d
+ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220409"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114371467"
 ---
-# <a name="connect-to-azure-percept-dk-over-serial"></a>Azure Percept DK에 직렬 연결
+# <a name="connect-to-your-azure-percept-dk-over-serial"></a>Azure Percept DK에 직렬 연결
 
 아래 단계를 따라 [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)를 통해 Azure Percept DK에 대한 직렬 연결을 설정합니다.
 

@@ -10,12 +10,12 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/21/2021
-ms.openlocfilehash: 9a8272d6b21130f253046ef3ffe05db8b00d4b79
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 7714adf00a40953301cf3f13eb8d6e403cd8c7a3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038673"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528715"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -276,6 +276,9 @@ New-AzResourceGroupDeployment `
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>프라이빗 엔드포인트 뒤에 작업 영역만 배포
 
 연결된 리소스가 가상 네트워크 뒤에 있지 않은 경우 **privateEndpointType** 매개 변수를 `AutoAproval` 또는 `ManualApproval`로 설정하여 작업 영역을 프라이빗 엔드포인트 뒤에 배포할 수 있습니다. 새 작업 영역과 기존 작업 영역 모두에 대해 이 작업을 수행할 수 있습니다. 기존 작업 영역을 업데이트할 때 기존 작업 영역의 정보를 사용하여 템플릿 매개 변수를 입력합니다.
+
+> [!IMPORTANT]
+> Azure Government 지역에서는 프라이빗 엔드포인트로 Azure Machine Learning 작업 영역을 사용할 수 없습니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

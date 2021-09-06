@@ -9,17 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 2897507270d5f87be01bc87173f48e713b1b791b
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: fe5f9fc42a33b4a6bdc9bceb3885ac8bfeb1ef2c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581379"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693672"
 ---
 # <a name="manage-machine-learning-studio-classic-web-services-using-api-management"></a>API Management를 사용하여 Machine Learning Studio(클래식) 웹 서비스 관리
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 ## <a name="overview"></a>개요
 이 가이드에서는 API Management를 빠르게 시작하여 Machine Learning Studio(클래식) 웹 서비스를 관리하는 방법을 보여줍니다.

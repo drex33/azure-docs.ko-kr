@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 4d15aa4801e55f583d8c77199105c207f1af8fe7
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 5fc4e858dbc39f13b3f07405c262086b2b789830
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224415"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528522"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Azure App Service용 ASP.NET 앱 구성
 
@@ -75,7 +75,7 @@ App Service와 *web.config* 에서 이름이 같은 앱 설정을 구성하면 A
 
 ## <a name="deploy-multi-project-solutions"></a>다중 프로젝트 솔루션 배포
 
-Visual Studio 솔루션에 여러 프로젝트가 포함된 경우 Visual Studio 게시 프로세스에는 배포할 프로젝트 선택이 이미 포함되어 있습니다. Git 또는 [빌드 자동화가 활성화](deploy-zip.md#enable-build-automation-for-zip-deploy)된 ZIP 배포와 같이 App Service 배포 엔진에 배포하는 경우 App Service 배포 엔진은 App Service 앱으로 찾은 첫 번째 웹 사이트 또는 웹 애플리케이션 프로젝트를 선택합니다. `PROJECT` 앱 설정을 지정하여 App Service가 사용해야 하는 프로젝트를 지정할 수 있습니다. 예를 들어 [Cloud Shell](https://shell.azure.com)에서 다음을 실행합니다.
+Visual Studio 솔루션에 여러 프로젝트가 포함된 경우 Visual Studio 게시 프로세스에는 배포할 프로젝트 선택이 이미 포함되어 있습니다. Git 또는 [빌드 자동화가 활성화](deploy-zip.md#enable-build-automation)된 ZIP 배포와 같이 App Service 배포 엔진에 배포하는 경우 App Service 배포 엔진은 App Service 앱으로 찾은 첫 번째 웹 사이트 또는 웹 애플리케이션 프로젝트를 선택합니다. `PROJECT` 앱 설정을 지정하여 App Service가 사용해야 하는 프로젝트를 지정할 수 있습니다. 예를 들어 [Cloud Shell](https://shell.azure.com)에서 다음을 실행합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"

@@ -9,14 +9,17 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: b36d7bbde524bf3ddcaed2e096f9403caf16ea3c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5151b00c0ef07b929df30c67e1e27d24245fcf13
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536444"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694553"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## <a name="video-5-data-science-for-beginners-series"></a>비디오 5: 초급자를 위한 데이터 과학 시리즈
 데이터 과학의 비밀 중 하나는 다른 사람들이 사용자의 작업을 수행하도록 하는 것입니다. Azure AI 갤러리에서 사용자 고유의 Machine Learning 실험에 사용할 클러스터링 알고리즘 예제를 찾습니다.
 

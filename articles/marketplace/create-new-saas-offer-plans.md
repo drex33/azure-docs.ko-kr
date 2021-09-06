@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
-ms.openlocfilehash: 714197288708691cb35e887975d1fabbe27cb406
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/05/2021
+ms.openlocfilehash: ce68d4161762d47b8754cb69633a3918848085d0
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555383"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113593836"
 ---
 # <a name="create-plans-for-a-saas-offer"></a>SaaS 제품에 대한 플랜 만들기
 
@@ -144,7 +144,7 @@ Microsoft 상업용 Marketplace를 통해 판매되는 제품에는 플랜이 �
 **플랜 개요** 탭의 **작업** 열에서 사용할 수 있는 작업은 플랜의 상태에 따라 달라지며, 다음을 포함할 수 있습니다.
 
 - 플랜 상태가 **초안** 인 경우 **작업** 열의 링크가 **초안 삭제** 라고 표시됩니다.
-- 플랜 상태가 **실시간** 인 경우 **작업** 열의 링크가 **플랜 판매 중지** 또는 **프라이빗 대상 그룹 동기화** 중 하나가 됩니다. **프라이빗 대상 그룹 동기화** 링크는 제품에 적용된 다른 업데이트를 게시하지 않고 프라이빗 대상 그룹에 대한 변경 내용만 게시합니다.
+- 플랜 상태가 **라이브** 인 경우 **작업** 열의 링크는 **플랜 배포 중지** 또는 **프라이빗 대상 그룹 동기화** 중 하나가 됩니다. **프라이빗 대상 그룹 동기화** 링크는 제품에 적용된 다른 업데이트를 게시하지 않고 프라이빗 대상 그룹에 대한 변경 내용만 게시합니다.
 
 ## <a name="before-you-publish-your-offer"></a>제품을 게시하기 전에
 

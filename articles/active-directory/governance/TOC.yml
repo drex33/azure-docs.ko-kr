@@ -29,13 +29,13 @@
           href: entitlement-management-process.md
     - name: ID 수명 주기 관리
       items:
-        - name: 프로비저닝이란?
+        - name: 프로비전이란?
           href: what-is-provisioning.md
-        - name: HR 기반 프로비저닝이란?
+        - name: HR 기반 프로비전이란?
           href: what-is-hr-driven-provisioning.md
-        - name: 앱 프로비저닝이란?
+        - name: 앱 프로비전이란?
           href: what-is-app-provisioning.md
-        - name: 디렉터리 간 프로비저닝이란?
+        - name: 디렉터리 간 프로비전이란?
           href: what-is-inter-directory-provisioning.md
     - name: 액세스 검토
       items:
@@ -132,22 +132,14 @@
               href: review-your-access.md
             - name: 액세스 검토 완료
               href: complete-access-review.md
-        - name: Azure AD 역할
+        - name: Azure AD 역할과 Azure 리소스 역할
           items:
             - name: 액세스 검토 만들기
-              href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-            - name: 액세스 검토
-              href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+              href: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: 액세스 검토 수행
+              href: ../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
             - name: 액세스 검토 완료
-              href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-        - name: Azure 리소스 역할
-          items:
-            - name: 액세스 검토 만들기
-              href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-            - name: 액세스 검토
-              href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-            - name: 액세스 검토 완료
-              href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+              href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
 - name: 참조
   expanded: true
   items:

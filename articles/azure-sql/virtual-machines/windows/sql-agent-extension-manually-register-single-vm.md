@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 07/21/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 7890d87730aa65e09e3bbc5a79fd22eb68610939
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 649bf52c48867f4508a7071cb1443b62eae36010
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079718"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537255"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>SQL IaaS Agent 확장에 SQL Server VM 등록
 
@@ -57,8 +57,8 @@ SQL IaaS Agent 확장에 SQL Server VM을 등록하려면 먼저 구독을 **Mic
 
 1. Azure Portal을 열고 **모든 서비스** 로 이동합니다.
 1. **구독** 으로 이동하여 원하는 구독을 선택합니다.
-1. **구독** 페이지에서 **확장** 으로 이동합니다.
-1. 필터에 **sql** 을 입력하여 SQL 관련 리소스 확장을 표시합니다.
+1. **구독** 페이지의 **설정** 에서 **리소스 공급자** 를 선택합니다.
+1. 필터에 **sql** 을 입력하여 SQL 관련 리소스 공급자를 표시합니다.
 1. 원하는 작업에 따라 **Microsoft.SqlVirtualMachine** 공급자에 대해 **등록**, **다시 등록** 또는 **등록 해제** 를 선택합니다.
 
    ![공급자 수정](./media/sql-agent-extension-manually-register-single-vm/select-resource-provider-sql.png)
@@ -167,9 +167,11 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ---
 
-## <a name="verify-mode"></a>확인 모드
+## <a name="check-extension-mode"></a>확장 모드 확인
 
-Azure PowerShell을 사용하여 SQL Server IaaS Agent의 현재 모드를 확인할 수 있습니다.
+Azure PowerShell을 사용하여 SQL Server IaaS 에이전트 확장이 있는 모드를 확인합니다. 
+
+확장의 모드를 확인하려면 다음 Azure PowerShell cmdlet을 사용합니다. 
 
 ```powershell-interactive
 # Get the SqlVirtualMachine
@@ -189,7 +191,7 @@ $sqlvm.SqlManagementType
 Azure Portal을 사용하여 확장을 전체 모드로 업그레이드하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. [SQL 가상 머신](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) 리소스로 이동합니다.
+1. [SQL 가상 머신](manage-sql-vm-portal.md#access-the-resource) 리소스로 이동합니다.
 1. SQL Server VM을 선택하고 **개요** 를 선택합니다.
 1. SQL Server VM이 에이전트 없음 또는 경량 IaaS 모드인 경우 **SQL IaaS 확장에서는 라이선스 유형 및 버전 업데이트만 사용할 수 있습니다** 메시지를 선택합니다.
 
@@ -239,6 +241,8 @@ Azure Portal을 사용하여 등록 상태를 확인하려면 다음 단계를 �
 
    ![SQL RP 등록 상태 확인](./media/sql-agent-extension-manually-register-single-vm/verify-registration-status.png)
 
+또는 **SQL 가상 머신** 리소스의 **지원 + 문제 해결** 창에서 **복구** 를 선택하여 상태를 확인할 수 있습니다. SQL IaaS 에이전트 확장에 대한 프로비저닝 상태는 **성공** 또는 **실패** 일 수 있습니다. 
+
 ### <a name="command-line"></a>명령 줄
 
 Azure CLI 또는 Azure PowerShell을 사용하여 현재 SQL Server VM 등록 상태를 확인합니다. 등록이 성공하면 `ProvisioningState`가 `Succeeded`로 표시됩니다.
@@ -262,6 +266,23 @@ Azure PowerShell을 사용하여 등록 상태를 확인하려면 다음 코드 
 ---
 
 오류가 발생하면 SQL Server VM이 확장에 등록되지 않은 것입니다.
+
+## <a name="repair-extension"></a>확장 복구
+
+SQL IaaS 에이전트 확장이 실패한 상태일 수 있습니다. Azure Portal을 사용하여 SQL IaaS 에이전트 확장을 복구합니다. 이렇게 하려면 다음 단계를 따르십시오. 
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [SQL Server VM](manage-sql-vm-portal.md)으로 이동합니다.
+1. 목록에서 SQL Server VM을 선택합니다. SQL Server VM이 여기에 나열되지 않는 경우 SQL IaaS Agent 확장에 등록되지 않았을 수 있습니다.
+1. **SQL 가상 머신** 리소스 페이지의 **지원 + 문제 해결** 에서 **복구** 를 선택합니다. 
+
+   :::image type="content" source="media/sql-agent-extension-manually-register-single-vm/repair-extension.png" alt-text="*SQL 가상 머신** 리소스 페이지의 **지원 + 문제 해결**에서 **복구** 선택":::   
+
+1. 프로비저닝 상태가 **실패** 로 표시되는 경우 **복구** 를 선택하여 확장을 복구합니다. 상태가 **성공** 인 경우 **강제 복구** 옆에 있는 확인란을 선택하여 상태에 관계없이 확장을 복구할 수 있습니다. 
+
+   ![프로비저닝 상태가 **실패**로 표시되는 경우 **복구**를 선택하여 확장을 복구합니다. 상태가 **성공**인 경우 **강제 복구** 옆에 있는 확인란을 선택하여 상태에 관계없이 확장을 복구할 수 있습니다.](./media/sql-agent-extension-manually-register-single-vm/force-repair-extension.png)
+
+
 
 ## <a name="unregister-from-extension"></a>확장에서 등록 취소
 

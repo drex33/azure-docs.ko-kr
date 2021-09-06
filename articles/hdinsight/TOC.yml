@@ -1020,6 +1020,8 @@
           href: ./domain-joined/ldap-sync.md
         - name: 전송 중 이중 암호화
           href: ./domain-joined/encryption-in-transit.md
+        - name: 가용성 영역 사용
+          href: ./hdinsight-use-availability-zones.md
     - name: 방법 가이드
       items:
         - name: 자격 증명 관리에 ID 브로커 사용
@@ -1054,3 +1056,7 @@
               href: ./domain-joined/domain-joined-authentication-issues.md
             - name: DomainNotFound를 사용하여 클러스터 생성에 실패함
               href: ./domain-joined/troubleshoot-domainnotfound.md
+- name: Azure Synapse 통합
+  items:
+    - name: Synapse Spark와 Hive 메타스토어 공유
+      href: share-hive-metastore-with-synapse.md

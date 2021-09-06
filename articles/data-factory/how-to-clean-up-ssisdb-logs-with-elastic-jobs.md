@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure Data Factory, Azure SQL Managed Instance 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 08/28/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6df8c978957bfcbeef87d36d14647ad1caeeb699
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3e793f7a1c2e927be9b0431df05bdc228355429f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566357"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110199"
 ---
 # <a name="how-to-clean-up-ssisdb-logs-automatically"></a>SSISDB 로그를 자동으로 정리하는 방법
 
@@ -46,10 +46,10 @@ SSIS IR 작업 로그를 정리하려면 관련 SSISDB 저장 프로시저 `[int
 
 | SSISDB 저장 프로시저 | 정리하는 SSISDB 테이블 |
 |--------------------------|---------------------------|
-| `[internal].[cleanup_server_retention_window_exclusive]` | `[internal].[operations]`<br/><br/>`[internal].[operation_messages_scaleout]`<br/><br/>`[internal].[event_messages_scaleout]`<br/><br/>`[internal].[event_message_context_scaleout]` |
-| `[internal].[cleanup_completed_jobs_exclusive]` | `[internal].[jobs]`<br/><br/>`[internal].[tasks]`<br/><br/>`[internal].[job_worker_agents]` |
+| `[internal].[cleanup_server_retention_window_exclusive]` | `[internal].[event_message_context_scaleout]`<br/>`[internal].[event_messages_scaleout]`<br/>`[internal].[executable_statistics]`<br/>`[internal].[execution_component_phases]`<br/>`[internal].[execution_data_statistics]`<br/>`[internal].[execution_data_taps]`<br/>`[internal].[execution_parameter_values]`<br/>`[internal].[execution_parameter_values_noncatalog]`<br/>`[internal].[execution_property_override_values]`<br/>`[internal].[execution_property_override_values_noncatalog]`<br/>`[internal].[executions]`<br/>`[internal].[executions_noncatalog]`<br/>`[internal].[extended_operation_info]`<br/>`[internal].[operation_messages]`<br/>`[internal].[operation_messages_scaleout]`<br/>`[internal].[operation_permissions]`<br/>`[internal].[operations]`<br/>`[internal].[validations]` |
+| `[internal].[cleanup_completed_jobs_exclusive]` | `[internal].[job_worker_agents]`<br/>`[internal].[jobs]`<br/>`[internal].[tasks]` |
 | `[internal].[cleanup_expired_worker]` | `[internal].[worker_agents]` |
- 
+
 이러한 SSISDB 저장 프로시저는 ADF, Azure SQL Managed Instance 에이전트 또는 탄력적 데이터베이스 작업을 통해 일정에 따라 자동으로 호출할 수도 있습니다.
 
 ## <a name="clean-up-ssisdb-logs-automatically-via-adf"></a>ADF를 통해 자동으로 SSISDB 로그 정리

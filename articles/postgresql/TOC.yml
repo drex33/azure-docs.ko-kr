@@ -245,7 +245,7 @@
               displayName: 'scale server, reset password'
         - name: 서버 다시 시작
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
@@ -253,7 +253,7 @@
               href: howto-restart-server-powershell.md
         - name: 방화벽 규칙
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: Azure CLI
@@ -308,7 +308,7 @@
           displayName: 'application development, TLS'
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI
@@ -319,7 +319,7 @@
               displayName: 'application development, server parameters'
         - name: 자동 증가 스토리지
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Azure CLI
@@ -515,7 +515,10 @@
                   href: flexible-server/concepts-intelligent-tuning.md
         - name: 복제
           href: flexible-server/concepts-logical.md
-          displayName: logical decoding
+    - name: 문제 해결
+      items:
+        - name: CLI 오류 문제 해결
+          href: flexible-server/how-to-troubleshoot-cli-errors.md
     - name: 방법 가이드
       items:
         - name: 서버 관리
@@ -558,7 +561,7 @@
                   href: flexible-server/how-to-connect-scram.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI
@@ -576,7 +579,7 @@
               href: flexible-server/how-to-restart-server-cli.md
         - name: 서버 복원
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-restore-server-portal.md
             - name: Azure CLI
               href: flexible-server/how-to-restore-server-cli.md

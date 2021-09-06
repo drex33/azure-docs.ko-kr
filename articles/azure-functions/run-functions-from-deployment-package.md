@@ -3,12 +3,12 @@ title: 패키지 파일에서 Azure Functions를 실행합니다.
 description: 함수 앱 프로젝트 파일을 포함하는 배포 패키지 파일을 탑재하여 Azure Functions 런타임이 함수를 실행하게 합니다.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: aad6991d0ddd5c439d03e41adec63837a21db87b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0be037d5a9270d60c16f8fc128030705be8b81ef
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104581595"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113136889"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
@@ -35,7 +35,7 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 | 값  | Description  |
 |---------|---------|
 | **`1`**  | Windows에서 실행되는 함수 앱에 권장됩니다. 함수 앱의 `d:\home\data\SitePackages` 폴더의 패키지 파일에서 실행합니다. [zip 배포를 통해 배포](#integration-with-zip-deployment)하지 않는 경우 이 옵션을 사용하려면 폴더에 `packagename.txt` 파일이 있어야 합니다. 이 파일에는 공백 없이 폴더에 패키지 파일 이름만 포함됩니다. |
-|**`<URL>`**  | 실행하려는 특정 패키지 파일의 위치입니다. Blob Storage를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)가 포함된 프라이빗 컨테이너를 사용하여 Functions 런타임이 패키지에 액세스할 수 있게 해야 합니다. [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다. 또한 URL을 지정할 때 업데이트된 패키지를 게시한 후 [트리거를 동기화](functions-deployment-technologies.md#trigger-syncing)해야 합니다. |
+|**`<URL>`**  | 실행하려는 특정 패키지 파일의 위치입니다. 또한 URL을 지정할 때 업데이트된 패키지를 게시한 후 [트리거를 동기화](functions-deployment-technologies.md#trigger-syncing)해야 합니다. <br/>Blob Storage를 사용하는 경우 일반적으로 공용 Blob을 사용해서는 안 됩니다. 대신 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)가 포함된 프라이빗 컨테이너를 사용하거나 [관리 ID를 사용](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity)하여 Functions 런타임이 패키지에 액세스할 수 있도록 해야 합니다. [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다. |
 
 > [!CAUTION]
 > Windows에서 함수 앱을 실행하는 경우 외부 URL 옵션의 콜드 부팅 성능이 저하됩니다. Windows에 함수 앱을 배포할 때 `WEBSITE_RUN_FROM_PACKAGE`를 `1`로 설정하고 zip 배포를 사용하여 게시해야 합니다.
@@ -46,6 +46,10 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 > [!NOTE]
 > 현재는 .zip 패키지 파일만 지원됩니다.
+
+### <a name="fetch-a-package-from-azure-blob-storage-using-a-managed-identity"></a>관리 ID를 사용하여 Azure Blob Storage에서 패키지 페치
+
+[!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
 
 ## <a name="integration-with-zip-deployment"></a>Zip 배포와 통합
 

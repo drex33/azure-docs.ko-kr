@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 07859dbd7f662a4d567bf9854e6ea7b0187e62e0
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 537820e30ed3860e9b9dd23ea9c68acdb502fa57
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609562"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106706"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |SQL 서버에 대한 Azure Active Directory 관리자 프로비전을 감사하여 Azure AD 인증을 활성화합니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 |[SQL 서버에 대한 감사가 사용되도록 설정되어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |서버의 모든 데이터베이스에서 데이터베이스 활동을 추적하고 감사 로그에 저장하려면 SQL Server에서의 감사를 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
@@ -21,7 +21,7 @@ ms.locfileid: "122609562"
 |[Azure SQL Database는 Azure Active Directory 전용 인증을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabda6d70-9778-44e7-84a8-06713e6db027) |로컬 인증 방법을 사용하지 않도록 설정하고 Azure Active Directory 인증만 허용하면 Azure Active Directory ID를 통해서만 Azure SQL Database에 액세스할 수 있도록 하여 보안이 향상됩니다. aka.ms/adonlycreate에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_ADOnlyEnabled_Deny.json) |
 |[Azure SQL Database는 최소 TLS 버전 1.2를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32e6bbec-16b6-44c2-be37-c5b672d103cf) |최소 TLS 버전을 1.2로 설정하면 TLS 1.2를 사용하는 클라이언트에서만 Azure SQL Database에 액세스할 수 있으므로 보안이 향상됩니다. 1\.2 미만의 TLS 버전은 보안 취약성이 잘 문서화되었기 때문에 사용하지 않는 것이 좋습니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_MiniumTLSVersion_Audit.json) |
 |[Azure SQL Managed Instance는 Azure Active Directory 전용 인증을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F78215662-041e-49ed-a9dd-5385911b3a1f) |로컬 인증 방법을 사용하지 않도록 설정하고 Azure Active Directory 인증만 허용하면 Azure Active Directory ID를 통해서만 Azure SQL Managed Instances에 액세스할 수 있도록 하여 보안이 향상됩니다. aka.ms/adonlycreate에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_ADOnlyEnabled_Deny.json) |
-|[SQL Managed Instances에서 Azure Defender를 사용하도록 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5a62eb0-c65a-4220-8a4d-f70dd4ca95dd) |Azure SQL Managed Instances에서 Azure Defender를 사용하도록 설정하여 비정상이고 잠재적으로 위험한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/TdOnManagedInstances_Deploy.json) |
+|[SQL Managed Instances에서 Azure Defender를 사용하도록 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5a62eb0-c65a-4220-8a4d-f70dd4ca95dd) |Azure SQL Managed Instances에서 Azure Defender를 사용하도록 설정하여 비정상이고 잠재적으로 위험한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다. |DeployIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/TdOnManagedInstances_Deploy.json) |
 |[SQL 서버에서 Azure Defender를 사용하도록 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F36d49e87-48c4-4f2e-beed-ba4ed02b71f5) |Azure SQL Servers에서 Azure Defender를 사용하도록 설정하여 비정상이고 잠재적으로 위험한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다. |DeployIfNotExists |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/TdOnSqlServers_Deploy.json) |
 |[Azure SQL 데이터베이스 서버에 대한 진단 설정을 Log Analytics 작업 영역으로 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ea8a143-05e3-4553-abfe-f56bef8b0b70) |이 감사가 누락된 SQL Server가 만들어지거나 업데이트되면 Azure SQL Database 서버의 감사 로그를 활성화하고 로그를 Log Analytics 작업 영역으로 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/DataConnectosSqServerLogs_PolicyAssignment.json) |
 |[공용 네트워크 액세스를 사용하지 않도록 Azure SQL Server 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F28b0b1e5-17ba-4963-a7a4-5a1ab4400a0b) |공용 네트워크 액세스 속성을 사용하지 않도록 설정하면 프라이빗 엔드포인트에서만 Azure SQL Server에 액세스할 수 있도록 공용 연결이 종료됩니다. 이 구성은 Azure SQL Server의 모든 데이터베이스에 대한 공용 네트워크 액세스를 사용하지 않도록 설정합니다. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_PublicNetworkAccess_Modify.json) |

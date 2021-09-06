@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: f480f7821ea3443c76c551f45ac74d136f417060
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7c4db2326ab8e325dfdfa759ec7f5fdc71f17df1
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277303"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633724"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -118,6 +118,6 @@ Media Services v3에서 라이브 스트리밍 워크플로를 이해하려면 �
 - [상태 및 청구](live-event-states-billing-concept.md)
 - [대기 시간](live-event-latency-reference.md)
 
-## <a name="live-streaming-questions"></a>라이브 스트리밍 질문
+## <a name="live-streaming-faq"></a>라이브 스트리밍 FAQ
 
-[라이브 스트리밍 질문](questions-collection.md#live-streaming) 문서를 참조하세요.
+[FAQ에서 라이브 스트리밍 질문](frequently-asked-questions.yml)을 참조하세요.

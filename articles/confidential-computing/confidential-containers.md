@@ -8,12 +8,12 @@ ms.date: 2/11/2020
 ms.author: amgowda
 ms.service: container-service
 ms.subservice: confidential-computing
-ms.openlocfilehash: 35bf2fc96f93d1eed2b15c4ea87aa1f2a3aaa0a5
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 7b225fa68b9a280ef4a1c7145ab691b82168202a
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113002891"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967414"
 ---
 # <a name="confidential-containers"></a>기밀 컨테이너
 
@@ -97,7 +97,7 @@ Occlum은 AKS 배포를 지원합니다. [여기](https://github.com/occlum/occl
 
 간단히 말해, Marblerun은 단일 Enclave의 기밀성, 무결성 및 검증 가능성 속성을 Kubernetes 클러스터로 확장합니다. 
 
-Marblerun은 Graphene, Occlum 및 EGo를 통해 만든 기밀 컨테이너를 지원합니다. [여기](https://www.marblerun.sh/docs/examples/)에는 각 SDK의 예가 나와 있습니다. Marblerun은 Kubernetes 및 기존 클라우드 네이티브 도구와 함께 실행하도록 빌드되었습니다. 사용하기 쉬운 CLI 및 helm 차트가 함께 제공됩니다. AKS의 기밀 컴퓨팅 노드에 대한 고급 지원을 제공합니다. AKS에서 Marblerun을 배포하는 방법에 대한 정보는 [여기](https://www.marblerun.sh/docs/deployment/cloud/)에서 찾을 수 있습니다.
+Marblerun은 Graphene, Occlum 및 EGo를 통해 만든 기밀 컨테이너를 지원합니다. [여기](https://docs.edgeless.systems/marblerun/#/examples?id=examples)에는 각 SDK의 예가 나와 있습니다. Marblerun은 Kubernetes 및 기존 클라우드 네이티브 도구와 함께 실행하도록 빌드되었습니다. 사용하기 쉬운 CLI 및 helm 차트가 함께 제공됩니다. AKS의 기밀 컴퓨팅 노드에 대한 고급 지원을 제공합니다. AKS에서 Marblerun을 배포하는 방법에 대한 정보는 [여기](https://docs.edgeless.systems/marblerun/#/deployment/cloud?id=cloud-deployment)에서 찾을 수 있습니다.
 
 ## <a name="confidential-containers-demo"></a>기밀 컨테이너 데모
 기밀 컨테이너를 사용하는 기밀 의료 데모를 봅니다. 샘플은 [여기](/azure/architecture/example-scenario/confidential/healthcare-inference)에서 사용할 수 있습니다. 

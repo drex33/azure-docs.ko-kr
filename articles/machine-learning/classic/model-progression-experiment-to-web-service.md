@@ -9,18 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 47845c8768e807dff7b12f401feeab3d35a9d81b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 036cbd0582cf8364fa3398c55d693610800271b5
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696696"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112582783"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Machine Learning Studio(클래식) 모델이 실험에서 웹 서비스로 진행되는 방법
 
 **적용 대상:** ![이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이 문서가 Azure Machine Learning에 적용되지 않음을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Machine Learning Studio(클래식)는 예측 분석 모델을 대신하는 ***실험*** 을 개발, 실행, 테스트 및 반복할 수 있는 대화형 캔버스를 제공합니다. 다음 작업에 사용할 수 있는 모듈을 매우 다양하게 갖추고 있습니다.
 

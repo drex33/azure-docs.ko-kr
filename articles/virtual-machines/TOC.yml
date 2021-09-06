@@ -356,15 +356,9 @@
         - name: 개요
           displayName: 'Dedicated hosts, ADH'
           href: dedicated-hosts.md
-        - name: CLI
-          displayName: 'Dedicated hosts, ADH'
-          href: ./linux/dedicated-hosts-cli.md
-        - name: 포털
-          displayName: 'Dedicated hosts, ADH'
-          href: dedicated-hosts-portal.md
-        - name: PowerShell
-          displayName: 'Dedicated hosts, ADH'
-          href: ./windows/dedicated-hosts-powershell.md
+        - name: 방법
+          displayName: dedicated adh
+          href: dedicated-hosts-how-to.md
     - name: Azure Spot Virtual Machines
       items:
         - name: 개요
@@ -713,7 +707,7 @@
         - name: 개요
           displayName: 'Linux custom images, custom, image'
           href: ./linux/imaging.md
-        - name: Linux 프로비저닝
+        - name: Linux 프로비전
           href: ./linux/provisioning.md
         - name: Linux 배포 관련 요구 사항
           items:
@@ -772,12 +766,10 @@
             - name: 기존 Bash 스크립트 실행
               href: ./linux/cloudinit-bash-script.md
               displayname: cloud-init
-        - name: 프로비저닝 에이전트 없이 Linux 이미지 만들기
+        - name: 프로비전 에이전트 없이 Linux 이미지 만들기
           href: ./linux/no-agent.md
-        - name: Linux 에이전트 프로비저닝 비활성화
+        - name: Linux 에이전트 프로비전 비활성화
           href: ./linux/disable-provisioning.md
-        - name: 관리되는 이미지에 VM 캡처
-          href: ./linux/capture-image.md
     - name: Windows 사용자 지정 이미지
       items:
         - name: 업로드할 VHD 준비
@@ -801,89 +793,35 @@
         - name: 개요
           displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
           href: ./shared-image-galleries.md
-        - name: CLI
+        - name: 갤러리 만들기
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: create-gallery.md
+        - name: 갤러리 공유
+          href: share-gallery.md
+        - name: 포털에서 VM 캡처
+          href: capture-image-portal.md
+        - name: 이미지 만들기
+          displayName: 'VM, image, VHD, storage account'
+          href: image-version.md
+        - name: VM 만들기
           items:
-            - name: 갤러리 만들기
+            - name: 일반화
               displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: shared-images-cli.md
-            - name: 이미지 만들기
-              items:
-                - name: VM에서
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-vm-cli.md
-                - name: Managed Disk 또는 스냅샷에서
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-snapshot-cli.md
-                - name: 관리되는 이미지 복제
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-managed-image-cli.md
-                - name: 다른 갤러리에서 복사
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: image-version-another-gallery-cli.md
-            - name: VM 만들기
-              items:
-                - name: 일반화
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: vm-generalized-image-version-cli.md
-                - name: 특수화
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: vm-specialized-image-version-cli.md
-            - name: 이미지 리소스 업데이트
+              href: vm-generalized-image-version.md
+            - name: 특수화
               displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: update-image-resources-cli.md
-            - name: 공유용 앱 등록
-              items:
-                - name: Linux
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
-                  href: ./linux/share-images-across-tenants.md
-                - name: Windows
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
-                  href: ./windows/share-images-across-tenants.md
-        - name: PowerShell
+              href: vm-specialized-image-version.md
+        - name: 이미지 리소스 업데이트
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: update-image-resources.md
+        - name: 공유용 앱 등록
           items:
-            - name: 갤러리 만들기
-              displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-              href: shared-images-powershell.md
-            - name: 이미지 버전 만들기
-              items:
-                - name: VM에서
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, version'
-                  href: image-version-vm-powershell.md
-                - name: Managed Disk 또는 스냅샷에서
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, managed disk, snapshot'
-                  href: image-version-snapshot-powershell.md
-                - name: 관리되는 이미지 복제
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, clone, copy'
-                  href: image-version-managed-image-powershell.md
-                - name: 다른 갤러리에서 복사
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, copy, clone'
-                  href: image-version-another-gallery-powershell.md
-            - name: VM 만들기
-              items:
-                - name: 일반화
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, generalized'
-                  href: vm-generalized-image-version-powershell.md
-                - name: 특수화
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, specialized'
-                  href: vm-specialized-image-version-powershell.md
-                - name: 이미지 리소스 업데이트
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: update-image-resources-powershell.md
-                - name: 공유용 앱 등록
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
-                  href: windows/share-images-across-tenants.md
-        - name: 포털
-          items:
-            - name: '갤러리, 이미지 및 VM 만들기'
-              items:
-                - name: Linux
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, create'
-                  href: ./linux/shared-images-portal.md
-                - name: Windows
-                  displayName: 'Shared Image Gallery, SIG, sig, gallery, image, create'
-                  href: ./windows/shared-images-portal.md
-            - name: 포털에서 VM 캡처
-              href: capture-image-portal.md
+            - name: Linux
+              displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
+              href: ./linux/share-images-across-tenants.md
+            - name: Windows
+              displayName: 'Shared Image Gallery, SIG, sig, gallery, image, app registration'
+              href: ./windows/share-images-across-tenants.md
         - name: Resource Manager 템플릿
           items:
             - name: Shared Image Gallery 만들기

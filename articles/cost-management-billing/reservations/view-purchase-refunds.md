@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 06/14/2021
 ms.author: banders
-ms.openlocfilehash: 8366ba41ee302747fd5ede3cddc72814f29d30ec
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 402f2b9b8d4e7528e6578f9735e0360b4a049878
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147459"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112114519"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>예약 구매 및 환불 트랜잭션 보기
 
@@ -46,7 +46,7 @@ ms.locfileid: "108147459"
 
 ## <a name="view-reservation-transactions-in-power-bi"></a>Power BI에서 예약 트랜잭션 보기
 
-기업 등록 또는 Microsoft 고객 계약 청구 관리자는 Cost Management Power BI 앱을 사용하여 예약 트랜잭션을 볼 수 있습니다.
+기업 등록 관리자는 Cost Management Power BI 앱을 사용하여 예약 트랜잭션을 볼 수 있습니다.
 
 1. [Cost Management Power BI 앱](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)을 가져옵니다.
 1. RI 구매 보고서로 이동합니다.

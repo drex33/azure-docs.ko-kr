@@ -238,58 +238,44 @@
           href: virtual-machine-scale-sets-design-overview.md
         - name: 인스턴스 ID 이해
           href: virtual-machine-scale-sets-instance-ids.md
-    - name: 이미지 사용
-      displayName: 'SIG, AMI, image'
+    - name: 공유 이미지 갤러리
       items:
-        - name: 공유 이미지 갤러리
+        - name: 개요
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: ../virtual-machines/shared-image-galleries.md
+        - name: 갤러리 만들기
+          displayName: 'Shared Image Gallery, SIG, sig, gallery, image'
+          href: ../virtual-machines/create-gallery.md
+        - name: 갤러리 공유
+          href: ../virtual-machines/share-gallery.md
+        - name: 이미지 만들기
+          displayName: 'VM, image, VHD, storage account'
+          href: ../virtual-machines/image-version.md
+        - name: 포털에서 VM 캡처
+          href: ../virtual-machines/capture-image-portal.md
+        - name: 확장 집합 만들기
           items:
             - name: PowerShell
               items:
-                - name: 갤러리 만들기
-                  href: ../virtual-machines/shared-images-powershell.md
-                - name: 이미지 만들기
-                  items:
-                    - name: VM에서
-                      href: ../virtual-machines/image-version-vm-powershell.md
-                    - name: 관리형 이미지에서 마이그레이션
-                      href: ../virtual-machines/image-version-managed-image-powershell.md
-                    - name: 다른 갤러리에서 복사
-                      href: ../virtual-machines/image-version-another-gallery-powershell.md
-                - name: 확장 집합 만들기
-                  items:
-                    - name: 특수화
-                      href: instance-specialized-image-version-powershell.md
-                    - name: 일반화
-                      href: instance-generalized-image-version-powershell.md
-                - name: 이미지 리소스 업데이트
-                  href: ../virtual-machines/update-image-resources-powershell.md
+                - name: 특수화
+                  href: instance-specialized-image-version-powershell.md
+                - name: 일반화
+                  href: instance-generalized-image-version-powershell.md
             - name: CLI
               items:
-                - name: 갤러리 만들기
-                  href: ../virtual-machines/shared-images-cli.md
-                - name: 이미지 만들기
-                  items:
-                    - name: VM에서
-                      href: ../virtual-machines/image-version-vm-cli.md
-                    - name: 관리형 이미지에서 마이그레이션
-                      href: ../virtual-machines/image-version-managed-image-cli.md
-                    - name: 다른 갤러리에서 복사
-                      href: ../virtual-machines/image-version-another-gallery-cli.md
-                - name: 확장 집합 만들기
-                  items:
-                    - name: 특수화
-                      href: instance-specialized-image-version-cli.md
-                    - name: 일반화
-                      href: instance-generalized-image-version-cli.md
-                - name: 이미지 리소스 업데이트
-                  href: ../virtual-machines/update-image-resources-cli.md
-            - name: 공유 이미지 문제 해결
-              href: ../virtual-machines/troubleshooting-shared-images.md
-            - name: 고객 관리형 키 사용
-              displayName: 'SSE, CMK, encrypt'
-              href: ../virtual-machines/image-version-encryption.md
-            - name: 공유용 앱 등록
-              href: share-images-across-tenants.md
+                - name: 특수화
+                  href: instance-specialized-image-version-cli.md
+                - name: 일반화
+                  href: instance-generalized-image-version-cli.md
+        - name: 이미지 리소스 업데이트
+          href: ../virtual-machines/update-image-resources.md
+        - name: 공유 이미지 문제 해결
+          href: ../virtual-machines/troubleshooting-shared-images.md
+        - name: 고객 관리형 키 사용
+          displayName: 'SSE, CMK, encrypt'
+          href: ../virtual-machines/image-version-encryption.md
+        - name: 공유용 앱 등록
+          href: share-images-across-tenants.md
     - name: 템플릿 만들기
       items:
         - name: 확장 집합 템플릿에 대해 알아보기
@@ -343,15 +329,12 @@
         - name: 확장 집합 템플릿을 변환하여 관리 디스크 사용
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: 전용 호스트 사용
+          displayName: 'sole-tenant, sole tenant, isolated, isolation'
           items:
             - name: 개요
               href: ../virtual-machines/dedicated-hosts.md
-            - name: CLI
-              href: ../virtual-machines/linux/dedicated-hosts-cli.md
-            - name: PowerShell
-              href: ../virtual-machines/windows/dedicated-hosts-powershell.md
-            - name: 포털
-              href: ../virtual-machines/dedicated-hosts-portal.md
+            - name: 방법
+              href: ../virtual-machines/dedicated-hosts.md
         - name: Azure Spot Virtual Machines
           href: use-spot.md
         - name: Linux용 Azure 하이브리드 혜택

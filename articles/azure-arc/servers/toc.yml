@@ -6,6 +6,8 @@
       href: overview.md
     - name: Connected Machine 에이전트의 새로운 기능
       href: agent-release-notes.md
+    - name: Connected Machine 에이전트 릴리스 정보 보관
+      href: agent-release-notes-archive.md
 - name: 빠른 시작
   items:
     - name: Arc 지원 서버 에이전트 사용

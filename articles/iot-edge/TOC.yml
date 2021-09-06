@@ -121,7 +121,7 @@
       items:
         - name: IoT Hub에 디바이스 등록
           href: how-to-register-device.md
-        - name: IoT Edge 설치 및 프로비저닝
+        - name: IoT Edge 설치 및 프로비전
           items:
             - name: Linux용 IoT Edge 설치
               href: how-to-install-iot-edge.md
@@ -267,6 +267,8 @@
           href: troubleshoot-common-errors.md
 - name: 참조
   items:
+    - name: 런타임 모듈 환경 변수
+      href: 'https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md'
     - name: PowerShell 함수
       items:
         - name: Windows의 Linux용 IoT Edge

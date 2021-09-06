@@ -17,14 +17,7 @@
       href: configure-hybrid-cluster.md
     - name: Databricks를 사용하여 Spark 클러스터 배포
       href: deploy-cluster-databricks.md
-- name: 개념
-  items:
-    - name: 질문과 대답
-      displayName: 'cost, region, monitor, backup'
-      href: faq.md
-    - name: 관리되는 인스턴스 대 Azure Cosmos DB Cassandra API
-      href: compare-cosmosdb-managed-instance.md
-- name: 방법 가이드
+- name: 자습서
   items:
     - name: 마이그레이션
       items:
@@ -36,6 +29,15 @@
           items:
             - name: Apache Spark 사용
               href: spark-migration.md
+- name: 개념
+  items:
+    - name: 질문과 대답
+      displayName: 'cost, region, monitor, backup'
+      href: faq.md
+    - name: 관리되는 인스턴스 대 Azure Cosmos DB Cassandra API
+      href: compare-cosmosdb-managed-instance.md
+- name: 방법 가이드
+  items:
     - name: Azure CLI로 관리
       displayName: 'az managed-cassandra, cluster, datacenter'
       href: manage-resources-cli.md

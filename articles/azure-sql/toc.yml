@@ -153,8 +153,6 @@
                   href: database/xevent-code-ring-buffer.md
     - name: 공유 방법
       items:
-        - name: 할당량 증가 요청
-          href: database/quota-increase-request.md
         - name: 탄력적 작업을 사용한 작업 자동화
           href: database/job-automation-overview.md
         - name: SQL 에이전트를 사용한 작업 자동화
@@ -479,6 +477,8 @@
               href: database/private-endpoint-overview.md
             - name: VNet 엔드포인트
               href: database/vnet-service-endpoint-rule-overview.md
+            - name: 서버 역할
+              href: database/security-server-roles.md
         - name: 분할된 데이터베이스
           items:
             - name: 분할된 데이터베이스
@@ -1361,7 +1361,7 @@
       href: /dotnet/api/microsoft.azure.management.sql.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/sql/
     - name: SQL용 Resource Manager 템플릿
       displayName: ARM
@@ -1422,6 +1422,8 @@
       href: 'https://stackoverflow.com/questions/tagged/sql-azure'
     - name: 문제 해결
       items:
+        - name: 배포 중 용량 오류
+          href: capacity-errors-troubleshoot.md
         - name: 연결 오류
           href: database/troubleshoot-common-errors-issues.md
         - name: 일반적인 연결 문제
@@ -1430,6 +1432,8 @@
           href: database/database-import-export-hang.md
         - name: 트랜잭션 로그 오류
           href: database/troubleshoot-transaction-log-errors-issues.md
+        - name: 할당량 증가 요청
+          href: database/quota-increase-request.md
     - name: 서비스 업데이트
       items:
         - name: SSL 루트 인증서 만료

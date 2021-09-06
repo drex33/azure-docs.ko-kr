@@ -2,13 +2,14 @@
 title: Azure Service Bus 엔터티에 액세스하는 애플리케이션 인증
 description: 이 문서에서는 Azure Service Bus 엔터티(큐, 토픽 등)에 액세스하기 위해 Azure Active Directory를 사용한 애플리케이션 인증에 대한 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: fc009c5a84c577c5904b3e0fc834295aa355e802
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/14/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 8a28b13a8cde8c908d01d2f0eb2160ba7decb6f6
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123108"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112122609"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Azure Service Bus 엔터티에 액세스하기 위해 Azure Active Directory를 사용하여 애플리케이션 인증 및 권한 부여
 Azure Service Bus에서는 Azure AD(Azure Active Directory)를 사용하여 Service Bus 엔터티(큐, 주제, 구독 또는 필터)에 대한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용하면 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자, 그룹 또는 애플리케이션 서비스 주체일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대한 자세한 내용은 [다양한 역할 이해](../role-based-access-control/overview.md)를 참조하세요.
@@ -55,31 +56,9 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당  
-Azure RBAC와 Azure Portal을 통해 Azure 리소스에 대한 액세스를 관리하는 방법에 대한 자세한 정보는 [이 문서](..//role-based-access-control/role-assignments-portal.md)를 참조하세요. 
+원하는 범위(Service Bus 네임스페이스, 리소스 그룹, 구독)에서 애플리케이션의 서비스 주체에 [Service Bus 역할](#azure-built-in-roles-for-azure-service-bus) 중 하나를 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-역할 할당에 적절한 범위를 결정한 후 Azure Portal에서 해당 리소스로 이동합니다. 리소스에 대한 액세스 제어(IAM) 설정을 표시하고 다음 지침에 따라 역할 할당을 관리합니다.
-
-> [!NOTE]
-> 아래에서 설명하는 단계에서는 Service Bus 네임스페이스에 역할을 할당합니다. 동일한 단계에 따라 지원되는 다른 범위(리소스 그룹, 구독 등)에서 역할을 할당할 수 있습니다.
-
-1. [Azure portal](https://portal.azure.com/)에서 Service Bus 네임스페이스로 이동합니다. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택하여 네임스페이스에 대한 액세스 제어 설정을 표시합니다. Service Bus 네임스페이스를 만들어야 하는 경우 이 문서([Service Bus Messaging 네임스페이스 만들기](service-bus-create-namespace-portal.md))를 참조하세요.
-
-    ![왼쪽 메뉴에서 액세스 제어 선택](./media/authenticate-application/select-access-control-menu.png)
-1. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다. 도구 모음에서 **추가** 단추를 선택한 다음 **역할 할당 추가** 를 선택합니다. 
-
-    ![도구 모음의 추가 단추](./media/authenticate-application/role-assignments-add-button.png)
-1. **역할 할당 추가** 페이지에서 다음 단계를 수행합니다.
-    1. 할당하려는 **Service Bus 역할** 을 선택합니다. 
-    1. 역할을 할당하려는 **보안 주체**(사용자, 그룹, 서비스 주체)를 검색합니다.
-    1. **저장** 을 선택하여 역할 할당을 저장합니다. 
-
-        ![사용자에게 역할 할당](./media/authenticate-application/assign-role-to-user.png)
-    4. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지는 Azure 사용자에게 Azure Service Bus 데이터 소유자 역할이 할당되었음을 보여 줍니다. 
-        
-        ![목록의 사용자](./media/authenticate-application/user-in-list.png)
-
-비슷한 단계에 따라 리소스 그룹 또는 구독에 범위가 지정된 역할을 할당할 수 있습니다. 역할 및 해당 범위를 정의하면 [GitHub의 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)을 사용하여 이 동작을 테스트할 수 있습니다.
-
+역할 및 해당 범위를 정의하면 [GitHub의 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)을 사용하여 이 동작을 테스트할 수 있습니다.
 
 ## <a name="authenticate-from-an-application"></a>애플리케이션에서 인증
 Service Bus에서 Azure AD를 사용하는 주요 이점은 사용자의 자격 증명을 코드에 저장할 필요가 없다는 점입니다. 대신 Microsoft ID 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD는 애플리케이션을 실행하는 보안 주체(사용자, 그룹, 서비스 주체)를 인증합니다. 인증이 성공하면 Azure AD는 애플리케이션에 액세스 토큰을 반환하고, 애플리케이션은 액세스 토큰을 사용하여 Azure Service Bus에 대한 요청 권한을 부여할 수 있습니다.
@@ -130,17 +109,20 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
 토큰 획득이 지원되는 시나리오 목록은 [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub 리포지토리의 [시나리오](https://aka.ms/msal-net-scenarios) 섹션을 참조하세요.
 
-# <a name="net"></a>[.NET](#tab/dotnet)
-최신 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) 라이브러리를 사용하여 [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) 라이브러리에 정의된 [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential)을 통해 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient)를 인증할 수 있습니다.
+<!-- TAB -- # [.NET](#tab/dotnet) -  -->
+
+최신 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) 라이브러리를 사용하는 경우 [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) 라이브러리에 정의된 [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential)을 통해 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient)를 인증할 수 있습니다.
+
 ```cs
 TokenCredential credential = new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>");
 var client = new ServiceBusClient("<fully_qualified_namespace>", credential);
 ```
 
-이전 .NET 패키지를 사용하는 경우 아래 샘플을 참조하세요.
+이전 .NET 패키지를 사용하는 경우에는 다음 샘플을 참조하세요.
 - [Microsoft.Azure.ServiceBus의 RoleBasedAccessControl](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/RoleBasedAccessControl)
 - [WindowsAzure.ServiceBus의 RoleBasedAccessControl](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
----
+
+<!-- CLOSE TAB --- -->
 
 ## <a name="next-steps"></a>다음 단계
 - Azure RBAC에 대한 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../role-based-access-control/overview.md)을 참조하세요.

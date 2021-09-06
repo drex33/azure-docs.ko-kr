@@ -144,6 +144,16 @@
           href: migrate-application-authentication-to-azure-active-directory.md
         - name: AD FS 애플리케이션 작업 보고서 사용
           href: migrate-adfs-application-activity.md
+        - name: Okta에서 Azure AD로 애플리케이션 마이그레이션
+          items:
+            - name: Okta에서 Azure AD로 애플리케이션 마이그레이션
+              href: migrate-applications-from-okta-to-azure-active-directory.md
+            - name: Okta 로그온 정책을 Azure AD 조건부 액세스로 마이그레이션
+              href: migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md
+            - name: Okta 동기화 프로비전을 Azure AD Connect 기반 동기화로 마이그레이션
+              href: migrate-okta-sync-provisioning-to-azure-active-directory.md
+            - name: Okta 페더레이션을 Azure AD 관리 인증으로 마이그레이션
+              href: migrate-okta-federation-to-azure-active-directory.md
     - name: 레거시 앱 보호
       items:
         - name: Azure AD를 사용하여 하이브리드 액세스 보호

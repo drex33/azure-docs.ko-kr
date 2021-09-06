@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 08/30/2021
+ms.date: 03/15/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b5406fa20d0ca01f75e23e2bf1c7836943c4833e
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8cfe26f3f1718acde32c34f00b0f50a79b963d35
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226312"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593279"
 ---
 Event Hubs는 이벤트 허브로 전송되는 이벤트 시퀀스를 하나 이상의 파티션으로 구성합니다. 최신 이벤트가 도착하면 이 시퀀스의 끝에 추가됩니다. 
 

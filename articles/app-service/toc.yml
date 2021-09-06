@@ -315,6 +315,10 @@
           href: webjobs-sdk-get-started.md
         - name: WebJobs SDK 사용
           href: webjobs-sdk-how-to.md
+    - name: 고가용성
+      items:
+        - name: 고가용성 구성
+          href: how-to-zone-redundancy.md
 - name: 참조
   items:
     - name: 데이터 모니터링
@@ -376,16 +380,18 @@
           href: troubleshoot-performance-degradation.md
         - name: 도메인 및 인증서 문제 해결
           href: troubleshoot-domain-ssl-certificates.md
-        - name: FAQ
-          items:
-            - name: '가용성, 성능 및 애플리케이션 FAQ'
-              href: faq-availability-performance-application-issues.yml
-            - name: 배포 FAQ
-              href: faq-deployment.yml
-            - name: 오픈 소스 기술 FAQ
-              href: faq-open-source-technologies.yml
-            - name: 구성 및 관리 FAQ
-              href: faq-configuration-and-management.yml
+    - name: FAQ
+      items:
+        - name: '가용성, 성능 및 애플리케이션 FAQ'
+          href: faq-availability-performance-application-issues.yml
+        - name: 배포 FAQ
+          href: faq-deployment.yml
+        - name: 오픈 소스 기술 FAQ
+          href: faq-open-source-technologies.yml
+        - name: 구성 및 관리 FAQ
+          href: faq-configuration-and-management.yml
+        - name: Linux의 App Service
+          href: faq-app-service-linux.yml
     - name: IP 주소 변경
       items:
         - name: 인바운드 IP 주소

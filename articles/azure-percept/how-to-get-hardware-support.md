@@ -1,25 +1,25 @@
 ---
-title: ASUS에서 Azure Percept DK 하드웨어 지원을 받는 방법
+title: ASUS에서 Azure Percept 하드웨어 지원 받기
 description: 이 가이드에서는 Azure Percept DK 하드웨어에 대한 기술 지원을 위해 ASUS에 문의하는 방법을 보여 줍니다.
-author: mimcco
-ms.author: mimcco
+author: juniem
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 07/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: b93063660ea9be76cd862498506bef586018d3cd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: de5d55ebceb5ede8a33e73584631048ba30f27fc
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535684"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223370"
 ---
-# <a name="get-support-for-your-azure-percept-dk-hardware-from-asus"></a>ASUS에서 Azure Percept DK 하드웨어에 대한 지원 받기
+# <a name="get-azure-percept-hardware-support-from-asus"></a>ASUS에서 Azure Percept 하드웨어 지원 받기
 
 Azure Percept DK에 대한 OEM으로 ASUS는 디바이스를 구매한 모든 고객에게 기술 지원을 제공하고 디바이스 구매에 관심이 있는 고객을 위한 비즈니스 지원을 제공합니다. 이 문서에서는 ASUS에 문의하여 지원을 받는 방법을 보여 줍니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 최상의 지원 환경을 위해 개발자 보드의 뒷면에서 찾은 디바이스 일련 번호를 제공할 준비가 되어 있어야 합니다.
 

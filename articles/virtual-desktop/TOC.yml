@@ -26,8 +26,12 @@
       href: set-up-service-alerts.md
 - name: 방법
   items:
-    - name: 수동으로 마이그레이션
-      href: manual-migration.md
+    - name: 배포 마이그레이션
+      items:
+        - name: 자동으로 마이그레이션
+          href: automatic-migration.md
+        - name: 수동으로 마이그레이션
+          href: manual-migration.md
     - name: Azure Virtual Desktop 리소스에 연결
       items:
         - name: Windows Desktop 클라이언트와 연결

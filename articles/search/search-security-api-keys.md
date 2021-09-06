@@ -7,19 +7,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: 6954ce289cb3cf219f8c4024a112411fd60d70e0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 06/25/2021
+ms.openlocfilehash: f452aa6ababd338ccc86b7c7c40854367ed46e41
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310668"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114460627"
 ---
-# <a name="create-and-manage-api-keys-for-authentication-to-azure-cognitive-search"></a>Azure Cognitive Search에 대한 인증용 API 키 만들기 및 관리
+# <a name="use-api-keys-for-azure-cognitive-search-authentication"></a>Azure Cognitive Search 인증에 대해 API 키 사용
 
-검색 서비스에 연결할 때 모든 요청에는 서비스용으로 특별히 생성된 읽기 전용 API 키가 포함되어야 합니다. 이 API 키는 검색 서비스 엔드포인트에 대한 인바운드 요청을 인증하는 유일한 방법으로, 모든 요청에 필요합니다. 
+Cognitive Search는 기본 인증 방법으로 API 키를 사용합니다. 인덱스를 만들거나 쿼리하는 요청과 같은 검색 서비스에 대한 인바운드 요청의 경우 API 키만 인증 옵션으로 사용할 수 있습니다. 몇 가지 아웃바운드 요청 시나리오, 특히 인덱서와 관련된 시나리오는 Azure Active Directory ID 및 역할을 사용할 수 있습니다.
 
-+ [REST 솔루션](search-get-started-rest.md)에서 `api-key`는 일반적으로 요청 헤더에 지정됩니다.
+API 키는 서비스가 만들어질 때 생성됩니다. 요청에 유효한 API 키를 전달하는 것은 요청이 권한 있는 클라이언트에서 온 것으로 간주됩니다. 키에는 다음 두 가지 종류가 있습니다. *관리 키* 는 서비스에 대한 쓰기 권한을 전달하고 시스템 정보를 쿼리하는 권한도 부여합니다. *쿼리 키* 는 읽기 권한을 전달하며 앱에서 특정 인덱스를 쿼리하는 데 사용할 수 있습니다. 
+
+> [!NOTE]
+> Azure RBAC(역할 기반 액세스 제어)를 사용하는 데이터 평면 작업에 대한 권한 부여는 현재 미리 보기로 제공됩니다. 이 미리 보기 기능을 사용하여 API 키를 추가하거나 [검색을 위해 Azure 역할로](search-security-rbac.md) 바꿀 수 있습니다. 
+
+## <a name="using-api-keys-in-search"></a>검색에서 API 키 사용
+
+검색 서비스에 연결할 때 모든 요청에는 서비스용으로 특별히 생성된 API 키가 포함되어야 합니다.
+
++ [REST 솔루션](search-get-started-rest.md)에서 API 키는 일반적으로 요청 헤더에 지정됩니다.
 
 + [.NET 솔루션](search-howto-dotnet-sdk.md)에서 키는 보통 구성 설정으로 지정된 다음 [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)로 전달됩니다.
 
@@ -29,7 +38,7 @@ ms.locfileid: "107310668"
 
 ## <a name="what-is-an-api-key"></a>API 키란?
 
-API 키는 임의로 생성 된 숫자와 문자로 구성된 고유한 문자열로, 검색 서비스에 대한 모든 요청에 전달됩니다. 요청 자체와 키가 모두 유효한 경우 서비스는 요청을 수락합니다. 
+API 키는 임의로 생성된 숫자와 문자로 구성된 고유한 문자열로, 검색 서비스에 대한 모든 요청에 전달됩니다. 요청 자체와 키가 모두 유효한 경우 서비스는 요청을 수락합니다. 
 
 검색 서비스에 액세스하는 데 사용되는 두 가지 키 유형은 다음과 같습니다. 관리자(읽기-쓰기) 및 쿼리(읽기 전용)
 
@@ -89,13 +98,13 @@ API 키는 임의로 생성 된 숫자와 문자로 구성된 고유한 문자�
 
 ## <a name="secure-api-keys"></a>API 키 보안
 
-[역할 기반 권한](search-security-rbac.md)을 통해 키를 삭제하거나 읽을 수 있지만 사용자 정의 암호로 키를 대체하거나 검색 작업에 액세스하기 위한 기본 인증 방법으로 Active Directory를 사용할 수 없습니다. 
+[역할 할당](search-security-rbac.md)에서 키를 읽고 관리할 수 있는 사용자를 결정합니다. 다음 역할의 멤버는 키를 보고 다시 생성할 수 있습니다. 소유자, 기여자, [Search Service 기여자](../role-based-access-control/built-in-roles.md#search-service-contributor) 읽기 권한자 역할은 API 키에 액세스할 수 없습니다.
 
-키 보안은 포털 또는 Resource Manager 인터페이스를 통해 액세스를 제한하여 보장됩니다(PowerShell 또는 명령줄 인터페이스). 설명한 것처럼 구독 관리자는 모든 API 키를 보고 다시 생성할 수 있습니다. 예방 조치로 역할 할당을 검토하여 관리 키에 대한 액세스 권한이 있는 사용자를 파악할 수 있습니다.
+구독 관리자는 모든 API 키를 보고 다시 생성할 수 있습니다. 예방 조치로 역할 할당을 검토하여 관리 키에 대한 액세스 권한이 있는 사용자를 파악할 수 있습니다.
 
-+ 서비스 대시보드에서 **액세스 제어(IAM)**, **역할 할당** 탭을 차례로 클릭하여 서비스에 대한 역할 할당을 봅니다.
-
-다음 역할의 멤버는 키를 보고 다시 생성할 수 있습니다. 소유자, 참가자 [Search Service 참가자](../role-based-access-control/built-in-roles.md#search-service-contributor)
+1. Azure Portal의 검색 서비스 페이지로 이동합니다.
+1. 왼쪽 탐색 창에서 **액세스 제어(IAM)** , **역할 할당** 탭을 차례로 선택합니다.
+1. **범위** 를 **이 리소스** 로 설정하여 서비스에 대한 역할 할당을 확인합니다.
 
 ## <a name="see-also"></a>참조
 

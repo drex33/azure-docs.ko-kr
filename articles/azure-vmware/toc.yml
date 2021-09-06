@@ -124,6 +124,8 @@
       items:
         - name: JetStream DR 배포
           href: deploy-disaster-recovery-using-jetstream.md
+        - name: Zerto DR 배포
+          href: deploy-zerto-disaster-recovery.md
         - name: 재해 복구를 위한 VMware HCX 배포
           href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: 재해 복구를 위한 VMware SRM 배포
@@ -156,9 +158,9 @@
           href: deploy-vm-content-library.md
         - name: 재해 복구
           items:
-            - name: VMware SRM을 사용하여 재해 복구 배포
+            - name: 재해 복구를 위한 VMware SRM
               href: disaster-recovery-using-vmware-site-recovery-manager.md
-            - name: VMware HCX를 사용하여 재해 복구 배포
+            - name: 재해 복구를 위한 VMware HCX
               href: deploy-disaster-recovery-using-vmware-hcx.md
         - name: VMware HCX 어플라이언스 업그레이드
           href: 'https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html'

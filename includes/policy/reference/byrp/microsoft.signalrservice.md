@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/20/2021
+ms.date: 08/27/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 0baadb27853581435a821854c87ea1f0481ef500
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 3b3a97a7cb0a3b39e0abe5bd90216f6f27eefb6f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122604178"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100017"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure SignalR Service는 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21a9766a-82a5-4747-abb5-650b6dbba6d0) |Azure SignalR Service 리소스의 보안을 향상하려면 공용 인터넷에 노출되지 않고 프라이빗 엔드포인트에서만 액세스할 수 있는지 확인합니다. [https://aka.ms/asrs/networkacls](../../../../articles/azure-signalr/howto-network-access-control.md)에 설명된 대로 공용 네트워크 액세스 속성을 사용하지 않도록 설정합니다. 이 옵션은 Azure IP 범위를 벗어나는 공용 주소 공간에서의 액세스를 사용하지 않도록 설정하고, IP 또는 가상 네트워크 기반 방화벽 규칙과 일치하는 모든 로그인을 거부합니다. 이로 인해 데이터 누출 위험이 줄어듭니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PublicNetworkAccessDisabled_AuditDeny.json) |
 |[Azure SignalR Service는 로컬 인증 방법을 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff70eecba-335d-4bbc-81d5-5b17b03d498f) |로컬 인증 방법을 사용하지 않도록 설정하면 Azure SignalR Service에서 인증 시 Azure Active Directory ID만 필요하므로 보안이 향상됩니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_DisableLocalAuth_AuditDeny.json) |

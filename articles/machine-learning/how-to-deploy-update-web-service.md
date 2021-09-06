@@ -10,18 +10,18 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: 5a586d29fd25ee7332f11737345aef8209de8824
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: ed3b0512a7f73ae9e387b41871e2ee59607e731d
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889343"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597501"
 ---
 # <a name="update-a-deployed-web-service"></a>배포된 웹 서비스 업데이트
 
 이 문서에서는 Azure Machine Learning을 사용하여 배포된 웹 서비스를 업데이트하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 Azure Machine Learning을 사용하여 웹 서비스를 이미 배포했다고 가정합니다. 웹 서비스를 배포하는 방법을 알아보려면 [다음 단계](how-to-deploy-and-where.md)를 따르세요.
 
@@ -37,6 +37,14 @@ ms.locfileid: "107889343"
 > 모델의 새 버전을 만들 때 이를 사용할 각 서비스를 수동으로 업데이트해야 합니다.
 >
 > Azure Machine Learning 디자이너로부터 게시된 웹 서비스는 SDK를 사용하여 업데이트할 수 없습니다.
+
+> [!IMPORTANT]
+> Azure Kubernetes Service는 버전 1.16 이상의 [Blobfuse FlexVolume 드라이버](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md)와 버전 1.17 이상의 [Blob CSI 드라이버](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md)를 사용합니다. 
+>
+> 따라서 클러스터 버전에 올바른 blobfuse 방법으로 배포하려면 클러스터 업그레이드 후 웹 서비스를 다시 배포하거나 업데이트하는 것이 중요합니다.
+
+> [!NOTE]
+> 작업이 이미 진행 중인 경우 동일한 웹 서비스에 대한 새 작업은 모두 409 충돌 오류로 응답합니다. 예를 들어, 웹 서비스 만들기 또는 업데이트 작업이 진행 중인데 새 삭제 작업을 트리거하면 오류가 발생합니다.
 
 **SDK 사용**
 
@@ -86,14 +94,14 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > 새 항목 스크립트나 환경을 사용하도록 서비스를 업데이트하려면 [유추 구성 파일](./reference-azure-machine-learning-cli.md#inference-configuration-schema)을 만들고 `ic` 매개 변수를 사용하여 해당 파일을 지정합니다.
 
-자세한 내용은 [az ml service update](/cli/azure/ml/service#az_ml_service_update) 설명서를 참조하세요.
+자세한 내용은 [az ml service update](/cli/azure/ml(v1)/service?view=azure-cli-latest#az_ml_v1__service_update) 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스를 사용하는 클라이언트 애플리케이션 만들기](how-to-consume-web-service.md)
-* [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](how-to-deploy-custom-docker-image.md)
+* [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](./how-to-deploy-custom-container.md)
 * [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)

@@ -2,13 +2,13 @@
 title: Azure Monitor 리소스 로그 지원 서비스 및 범주
 description: Azure Monitor 참조. Azure 리소스 로그에 대해 지원되는 서비스 및 이벤트 스키마를 이해합니다.
 ms.topic: reference
-ms.date: 03/30/2021
-ms.openlocfilehash: b9bac212a8be040349a8d78c64d7beab291e1f9e
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.date: 08/04/2021
+ms.openlocfilehash: 2cbe701f3fbedacf29124c823743966be1f7ba32
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016025"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122530158"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원되는 범주
 
@@ -23,9 +23,9 @@ ms.locfileid: "108016025"
 
 ## <a name="costs"></a>비용
 
-Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내고 저장하는 것과 관련된 비용이 있습니다. 해당 위치에 데이터를 가져오고 보관하기 위한 비용을 지불할 수 있습니다.  리소스 로그는 해당 위치에 보낼 수 있는 데이터의 한 가지 유형입니다. 
+[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), [이벤트 허브](https://azure.microsoft.com/pricing/details/event-hubs/) 및 Azure Monitor와 직접 통합되는 파트너(예: [Datadog](../../partner-solutions/datadog/overview.md))에는 데이터 수집 및 데이터 저장과 관련된 비용이 있습니다. 이러한 비용을 파악하려면 해당 서비스에 대한 가격 책정 페이지의 이전 링크를 확인하세요. 리소스 로그는 해당 위치에 보낼 수 있는 데이터의 유형 중 하나일 뿐입니다. 
 
-리소스 로그의 일부 범주를 해당 위치로 내보내려면 추가 비용이 발생합니다. 내보내기 비용이 포함된 로그는 아래 표에 나열되어 있습니다. 관련 가격 책정에 대한 자세한 내용은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)의 플랫폼 로그 섹션을 참조하세요.
+또한 리소스 로그의 일부 범주를 해당 위치로 내보내는 데 비용이 발생할 수 있습니다. 내보내기 비용이 포함된 로그는 아래 표에 나열되어 있습니다. 내보내기 가격 책정에 대한 자세한 내용은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)의 *플랫폼 로그* 섹션을 참조하세요.
 
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
 
@@ -34,6 +34,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 일부 범주는 특정 리소스 종류만 지원할 수 있습니다. 리소스가 누락된 것으로 생각되는 경우 리소스 관련 설명서를 참조하세요. 예를 들어 일부 유형의 데이터베이스에서는 Microsoft.Sql/servers/databases 범주를 사용할 수 없습니다. 자세한 내용은 [SQL Database 진단 로깅에 대한 정보](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md)를 참조하세요. 
 
 누락된 내용이 있다고 생각되는 경우 이 문서의 맨 아래에 있는 GitHub 주석을 열 수 있습니다.
+
 
 ## <a name="microsoftaaddomainservices"></a>Microsoft.AAD/DomainServices
 
@@ -76,6 +77,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
+|감사|감사|Yes|
 |HttpRequest|HTTP 요청|Yes|
 
 
@@ -112,6 +114,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |---|---|---|
 |감사|감사|Yes|
 |작동|작동|Yes|
+|요청|요청|Yes|
 
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
@@ -119,15 +122,6 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |ServiceLog|서비스 로그|예|
-
-
-## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
-
-|범주|범주 표시 이름|내보낼 비용|
-|---|---|---|
-|BaiClusterEvent|BaiClusterEvent|No|
-|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
-|BaiJobEvent|BaiJobEvent|예|
 
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
@@ -199,9 +193,18 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |AuthOperational|운영 인증 로그|Yes|
+|CallDiagnosticsPRIVATEPREVIEW|진단 로그 호출 - 프라이빗 미리 보기|Yes|
+|CallSummaryPRIVATEPREVIEW|요약 로그 호출 - 프라이빗 미리 보기|Yes|
 |ChatOperational|운영 채팅 로그|No|
 |SMSOperational|운영 SMS 로그|No|
 |사용량|사용량 레코드|예|
+
+
+## <a name="microsoftconnectedvehicleplatformaccounts"></a>Microsoft.ConnectedVehicle/platformAccounts
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|로그|MCVP 로그|Yes|
 
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
@@ -247,10 +250,18 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |계정|Databricks 계정|예|
 |clusters|Databricks 클러스터|No|
 |dbfs|Databricks 파일 시스템|No|
+|featureStore|Databricks 기능 저장소|Yes|
+|genie|Databricks Genie|Yes|
+|globalInitScripts|Databricks 글로벌 init 스크립트|Yes|
+|iamRole|Databricks IAM 역할|Yes|
 |instancepools|인스턴스 풀|예|
 |jobs|Databricks 작업|No|
+|mlflowAcledArtifact|Databricks MLFlow Acled 아티팩트|Yes|
+|mlflowExperiment|Databricks MLFlow 실험|Yes|
 |Notebook|Databricks Notebook|예|
+|RemoteHistoryService|Databricks 원격 기록 서비스|예|
 |secrets|Databricks 비밀|No|
+|sqlanalytics|Databricks SQL Analytics|Yes|
 |sqlPermissions|Databricks SQLPermissions|No|
 |ssh|Databricks SSH|No|
 |작업 영역|Databricks 작업 영역|No|
@@ -451,9 +462,10 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |EventRoutesOperation|EventRoutesOperation|No|
 |ModelsOperation|ModelsOperation|No|
 |QueryOperation|QueryOperation|예|
+|ResourceProviderOperation|ResourceProviderOperation|Yes|
 
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/DatabaseAccounts
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -465,6 +477,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |PartitionKeyRUConsumption|PartitionKeyRUConsumption|No|
 |PartitionKeyStatistics|PartitionKeyStatistics|No|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|예|
+|TableApiRequests|TableApiRequests|Yes|
 
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
@@ -525,11 +538,18 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |요청|요청|No|
 
 
-## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
+## <a name="microsofthealthcareapisworkspacesdicomservices"></a>Microsoft.HealthcareApis/workspaces/dicomservices
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|AuditLogs|감사 로그|No|
+|AuditLogs|감사 로그|Yes|
+
+
+## <a name="microsofthealthcareapisworkspacesfhirservices"></a>Microsoft.HealthcareApis/workspaces/fhirservices
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|AuditLogs|FHIR 감사 로그|Yes|
 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>microsoft.insights/autoscalesettings
@@ -584,14 +604,14 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |TableUsageStatistics|테이블 사용량 통계|No|
 
 
-## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/integrationAccounts
+## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/IntegrationAccounts
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |IntegrationAccountTrackingEvents|통합 계정 이벤트 추적|예|
 
 
-## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
+## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/Workflows
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -607,6 +627,27 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|No|
 |AmlComputeJobEvent|AmlComputeJobEvent|No|
 |AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|예|
+|ComputeInstanceEvent|ComputeInstanceEvent|Yes|
+|DataLabelChangeEvent|DataLabelChangeEvent|Yes|
+|DataLabelReadEvent|DataLabelReadEvent|Yes|
+|DataSetChangeEvent|DataSetChangeEvent|Yes|
+|DataSetReadEvent|DataSetReadEvent|Yes|
+|DataStoreChangeEvent|DataStoreChangeEvent|Yes|
+|DataStoreReadEvent|DataStoreReadEvent|Yes|
+|DeploymentEventACI|DeploymentEventACI|Yes|
+|DeploymentEventAKS|DeploymentEventAKS|Yes|
+|DeploymentReadEvent|DeploymentReadEvent|Yes|
+|EnvironmentChangeEvent|EnvironmentChangeEvent|Yes|
+|EnvironmentReadEvent|EnvironmentReadEvent|Yes|
+|InferencingOperationACI|InferencingOperationACI|Yes|
+|InferencingOperationAKS|InferencingOperationAKS|Yes|
+|ModelsActionEvent|ModelsActionEvent|Yes|
+|ModelsChangeEvent|ModelsChangeEvent|Yes|
+|ModelsReadEvent|ModelsReadEvent|Yes|
+|PipelineChangeEvent|PipelineChangeEvent|Yes|
+|PipelineReadEvent|PipelineReadEvent|Yes|
+|RunEvent|RunEvent|Yes|
+|RunReadEvent|RunReadEvent|Yes|
 
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
@@ -614,9 +655,10 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |KeyDeliveryRequests|키 전송 요청|예|
+|MediaAccount|미디어 계정 상태|Yes|
 
 
-## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -634,7 +676,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |AzureFirewallNetworkRule|Azure Firewall 네트워크 규칙|No|
 
 
-## <a name="microsoftnetworkbastionhosts"></a>Microsoft.Network/bastionHosts
+## <a name="microsoftnetworkbastionhosts"></a>microsoft.network/bastionHosts
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -656,6 +698,14 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |FrontdoorWebApplicationFirewallLog|Frontdoor 웹 애플리케이션 방화벽 로그|No|
 
 
+## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|LoadBalancerAlertEvent|부하 분산 장치 경고 이벤트|No|
+|LoadBalancerProbeHealthStatus|부하 분산 장치 프로브 상태|No|
+
+
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft.Network/networksecuritygroups
 
 |범주|범주 표시 이름|내보낼 비용|
@@ -665,7 +715,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |NetworkSecurityGroupRuleCounter|네트워크 보안 그룹 규칙 카운터|No|
 
 
-## <a name="microsoftnetworkp2svpngateways"></a>Microsoft.Network/p2sVpnGateways
+## <a name="microsoftnetworkp2svpngateways"></a>microsoft.network/p2svpngateways
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -690,7 +740,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |ProbeHealthStatusEvents|Traffic Manager 프로브 상태 결과 이벤트|예|
 
 
-## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
+## <a name="microsoftnetworkvirtualnetworkgateways"></a>microsoft.network/virtualnetworkgateways
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -708,7 +758,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |VMProtectionAlerts|VM 보호 경고|No|
 
 
-## <a name="microsoftnetworkvpngateways"></a>Microsoft.Network/vpnGateways
+## <a name="microsoftnetworkvpngateways"></a>microsoft.network/vpngateways
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -729,7 +779,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|감사|감사 로그|No|
+|감사|감사|Yes|
 
 
 ## <a name="microsoftpowerbitenants"></a>Microsoft.PowerBI/tenants
@@ -737,7 +787,6 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |엔진|엔진|No|
-
 
 ## <a name="microsoftpowerbitenantsworkspaces"></a>Microsoft.PowerBI/tenants/workspaces
 
@@ -757,6 +806,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
+|DataSensitivityLogEvent|DataSensitivity|Yes|
 |ScanStatusLogEvent|ScanStatus|No|
 
 
@@ -949,14 +999,14 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |관리|관리|No|
 
 
-## <a name="microsoftwebhostingenvironments"></a>microsoft.web/hostingenvironments
+## <a name="microsoftwebhostingenvironments"></a>Microsoft.Web/hostingEnvironments
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |AppServiceEnvironmentPlatformLogs|App Service Environment 플랫폼 로그|No|
 
 
-## <a name="microsoftwebsites"></a>microsoft.web/sites
+## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -979,6 +1029,7 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 |AppServiceAppLogs|App Service 애플리케이션 로그|No|
 |AppServiceAuditLogs|액세스 감사 로그|No|
 |AppServiceConsoleLogs|App Service 콘솔 로그|No|
+|AppServiceDiagnosticToolsLogs|보고서 진단 도구 로그|Yes|
 |AppServiceFileAuditLogs|사이트 콘텐츠 변경 감사 로그|No|
 |AppServiceHTTPLogs|HTTP 로그|No|
 |AppServiceIPSecAuditLogs|IPSecurity 감사 로그|No|
@@ -992,4 +1043,3 @@ Log Analytics, Azure Storage 및/또는 이벤트 허브에 데이터를 보내�
 * [**Event Hubs** 로 리소스 로그 스트리밍](./resource-logs.md#send-to-azure-event-hubs)
 * [Azure Monitor REST API를 사용하여 리소스 로그 진단 설정 변경](/rest/api/monitor/diagnosticsettings)
 * [Azure Storage에서 Log Analytics를 사용하여 로그 분석](./resource-logs.md#send-to-log-analytics-workspace)
-

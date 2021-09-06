@@ -5,66 +5,71 @@ services: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/12/2021
-ms.openlocfilehash: a7b2e6ee4b54427f33ba9701ae13f139341a1941
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 07/22/2021
+ms.openlocfilehash: 204c7a75eed5be4b6c3aca91d59011fd2b1327b5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030956"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536970"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
 가상 머신 및 기타 컴퓨팅 리소스에는 게스트 운영 체제 및 워크로드의 성능 및 가용성을 측정하는 데 필요한 모니터링 데이터를 수집하기 위한 에이전트가 필요 합니다. 이 문서에서는 Azure Monitor에서 사용하는 에이전트를 설명하고 특정 환경에 대한 요구 사항을 충족하는 데 필요한 사항을 결정하는 데 도움을 줍니다.
 
 > [!NOTE]
-> 현재 Azure Monitor 및 Log Analytics의 최근 통합으로 인해 현재 Azure Monitor에는 여러 개의 에이전트가 있습니다. 기능이 겹칠 수 있지만 각각에는 고유한 기능이 있습니다. 요구 사항에 따라 머신에 하나 이상의 에이전트가 필요할 수 있습니다. 
-
-특정 머신에 대해 단일 에이전트로 완전히 충족될 수 없는 특정 요구 사항 세트가 있을 수 있습니다. 예를 들어, Azure 진단 확장이 필요한 메트릭 경고뿐만 아니라 Log Analytics 에이전트와 종속성 에이전트가 필요한 VM 인사이트의 기능을 사용하려고 할 수 있습니다. 이와 같은 경우 여러 에이전트를 사용할 수 있으며, 각각의 기능이 필요한 고객을 위한 일반적인 시나리오입니다.
+> 최근 Azure Monitor는 게스트 운영 체제 모니터링 데이터를 수집하는 데 필요한 모든 기능을 제공하는 새 에이전트인 Azure Monitor 에이전트를 출시했습니다. Azure Monitor 및 Log Analytics의 통합으로 인해 존재하는 여러 레거시 에이전트가 있으며, 각각은 중복된 고유한 기능이 있으므로 기존 모든 에이전트의 기능을 통합하는 새 에이전트를 사용하고 추가 혜택을 제공하는 것이 좋습니다. [자세한 내용](./azure-monitor-agent-overview.md)
 
 ## <a name="summary-of-agents"></a>에이전트 요약
 
 다음 표에서는 Windows용 Azure Monitor 에이전트와 Linux용 Azure Monitor 에이전트를 간단히 비교해서 보여 줍니다. 각각에 대한 자세한 내용은 아래 섹션에 나와 있습니다.
 
-> [!NOTE]
-> Azure Monitor 에이전트는 현재 제한된 기능의 미리 보기로 제공됩니다. 이 표는 업데이트될 예정입니다. 
-
 ### <a name="windows-agents"></a>Windows 에이전트
 
-| | Azure Monitor 에이전트(미리 보기) | 진단<br>확장(WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
+| | Azure Monitor 에이전트 | 진단<br>확장(WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|
 | **지원되는 환경** | Azure<br>기타 클라우드(Azure Arc)<br>온-프레미스(Azure Arc)  | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
-| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요합니다. |
+| **에이전트 요구 사항**  | 없음 | None | 없음 | Log Analytics 에이전트가 필요합니다. |
 | **수집되는 데이터** | 이벤트 로그<br>성능 | 이벤트 로그<br>ETW 이벤트<br>성능<br>파일 기반 로그<br>IIS 로그<br>.NET 앱 로그<br>크래시 덤프<br>에이전트 진단 로그 | 이벤트 로그<br>성능<br>파일 기반 로그<br>IIS 로그<br>인사이트 및 솔루션<br>기타 서비스 | 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭 | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
 | **서비스 및**<br>**features**<br>**지원** | Log Analytics<br>메트릭 탐색기 | 메트릭 탐색기 | VM 인사이트<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM 인사이트<br>서비스 맵 |
 
 ### <a name="linux-agents"></a>Linux 에이전트
 
-| | Azure Monitor 에이전트(미리 보기) | 진단<br>확장(LAD) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
+| | Azure Monitor 에이전트 | 진단<br>확장(LAD) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|:---|
-| **지원되는 환경**(지원되는 운영 체제는 아래의 표 참조) | Azure<br>기타 클라우드(Azure Arc)<br>온-프레미스(Azure Arc) | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
-| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요합니다. |
+| **지원되는 환경** | Azure<br>기타 클라우드(Azure Arc)<br>온-프레미스(Azure Arc) | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
+| **에이전트 요구 사항**  | 없음 | None | None | 없음 | Log Analytics 에이전트가 필요합니다. |
 | **수집되는 데이터** | Syslog<br>성능 | Syslog<br>성능 | 성능 | Syslog<br>성능| 프로세스 종속성<br>네트워크 연결 메트릭 |
-| **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭 | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
+| **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭<sup>1</sup> | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
 | **서비스 및**<br>**features**<br>**지원** | Log Analytics<br>메트릭 탐색기 | | 메트릭 탐색기 | VM 인사이트<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM 인사이트<br>서비스 맵 |
 
+<sup>1</sup> 현재 Linux용 Azure Monitor 에이전트에는 Azure Monitor 메트릭을 *유일한* 대상으로 사용하도록 지원할 수 없는 제한이 있습니다. Azure Monitor 로그와 함께 사용하면 작동합니다. 이러한 제한은 다음 확장 업데이트에서 해결됩니다.
 
-## <a name="azure-monitor-agent-preview"></a>Azure Monitor 에이전트(미리 보기)
+## <a name="azure-monitor-agent"></a>Azure Monitor 에이전트
 
-[Azure Monitor 에이전트](azure-monitor-agent-overview.md)는 현재 미리 보기로 제공되며, Windows 및 Linux 머신에 대한 Log Analytics 에이전트 및 Telegraf 에이전트를 대체합니다. Azure Monitor 로그와 Azure Monitor 메트릭 모두에 데이터를 보낼 수 있으며, 각 에이전트에 대한 데이터 수집 및 대상을 구성하는 보다 스케일링 가능한 방법을 제공하는 [DCR(데이터 수집 규칙)](data-collection-rule-overview.md)을 사용합니다.
+[Azure Monitor 에이전트](azure-monitor-agent-overview.md)는 Windows 및 Linux 머신 모두에 대한 Log Analytics 에이전트, Azure 진단 확장 및 Telegraf 에이전트를 대체합니다. Azure Monitor 로그와 Azure Monitor 메트릭 모두에 데이터를 보낼 수 있으며, 각 에이전트에 대한 데이터 수집 및 대상을 구성하는 보다 스케일링 가능한 방법을 제공하는 [DCR(데이터 수집 규칙)](data-collection-rule-overview.md)을 사용합니다.
 
 다음 작업을 수행해야 하는 경우 Azure Monitor 에이전트를 사용합니다.
 
 - Azure의 모든 머신, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집합니다. (Azure 외부 머신에 대해 [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)가 필요합니다.) 
+- [데이터 수집 규칙](./data-collection-rule-overview.md)을 사용하여 중앙에서 데이터 수집 구성을 관리하고 전체 관리를 위해 ARM(Azure Resource Manager) 템플릿 또는 정책을 사용합니다.
 - Azure Monitor를 사용하여 분석을 위해 Azure Monitor 로그 및 Azure Monitor 메트릭으로 데이터를 보냅니다. 
-- 보관을 위해 Azure Storage로 데이터를 보냅니다.
-- [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md)를 사용하여 타사 도구로 데이터를 보냅니다.
-- [Azure Security Center](../../security-center/security-center-introduction.md) 또는 [Azure Sentinel](../../sentinel/overview.md)을 사용하여 머신의 보안을 관리합니다. (미리 보기에서 사용할 수 없습니다.)
-
+- Windows 및 Linux에서 로그에 대한 Windows 이벤트 필터링 또는 멀티 호밍 활용
+<!--- Send data to Azure Storage for archiving.
+- Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
+- Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md). (Available in private preview.)
+- Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
+- Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
+- Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application. */
+-->
 Azure Monitor 에이전트의 제한 사항은 다음과 같습니다.
+- 프로덕션에서 Log Analytics 솔루션을 사용할 수 없습니다(미리 보기에서만 사용 가능, [지원되는 기능 보기](./azure-monitor-agent-overview.md#supported-services-and-features)).
+- 프라이빗 링크와 관련된 네트워킹 시나리오는 아직 지원되지 않습니다. 
+- 사용자 지정 로그(파일) 또는 IIS 로그 파일 수집은 아직 지원되지 않습니다. 
+- 대상으로 Event Hubs 및 Storage 계정을 지원하지 않습니다.
+- Hybrid Runbook 작업자를 지원하지 않습니다.
 
-- 현재 퍼블릭 미리 보기로 제공됩니다. 퍼블릭 미리 보기 동안 제한 사항 목록은 [현재 제한 사항](azure-monitor-agent-overview.md#current-limitations)을 참조하세요.
 
 ## <a name="log-analytics-agent"></a>Log Analytics 에이전트
 
@@ -127,9 +132,9 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
-[Windows](../../virtual-machines/extensions/oms-windows.md) 및 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics 확장은 Azure 가상 머신에 Log Analytics 에이전트를 설치합니다. [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) 및 [Linux](../../virtual-machines/extensions/agent-dependency-linux.md)용 Azure Monitor 종속성 확장은 Azure 가상 머신에 종속성 에이전트를 설치합니다. 이러한 에이전트는 위에서 설명한 것과 동일한 에이전트이지만 [가상 머신 확장](../../virtual-machines/extensions/overview.md)을 통해 관리할 수 있습니다. 가능하면 언제든지 확장을 사용하여 에이전트를 설치하고 관리하는 것이 좋습니다.
+[Azure Monitor 에이전트](./azure-monitor-agent-install.md#virtual-machine-extension-details)는 가상 머신 확장으로만 사용할 수 있습니다. [Windows](../../virtual-machines/extensions/oms-windows.md) 및 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics 확장은 Azure 가상 머신에 Log Analytics 에이전트를 설치합니다. [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) 및 [Linux](../../virtual-machines/extensions/agent-dependency-linux.md)용 Azure Monitor 종속성 확장은 Azure 가상 머신에 종속성 에이전트를 설치합니다. 이러한 에이전트는 위에서 설명한 것과 동일한 에이전트이지만 [가상 머신 확장](../../virtual-machines/extensions/overview.md)을 통해 관리할 수 있습니다. 가능하면 언제든지 확장을 사용하여 에이전트를 설치하고 관리하는 것이 좋습니다.
 
-하이브리드 머신에서 [Azure Arc 지원 서버](../../azure-arc/servers/manage-vm-extensions.md)를 사용하여 Log Analytics 및 Azure Monitor 종속성 VM 확장을 배포합니다.
+하이브리드 머신에서 [Azure Arc 지원 서버](../../azure-arc/servers/manage-vm-extensions.md)를 사용하여 Azure Monitor 에이전트, Log Analytics 및 Azure Monitor 종속성 VM 확장을 배포합니다.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -146,7 +151,8 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
-| Windows Server 2008 R2                                   |   | X | X | X |
+| Windows Server 2008 R2                                   |   |   | X | X |
+| Windows Server 2008 SP2                                   |   | X |  |  |
 | Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro<br>(서버 시나리오에만 해당)  | X | X | X | X |
 | Windows 8 Enterprise 및 Pro<br>(서버 시나리오에만 해당)  |   | X | X |   |
 | Windows 7 SP1<br>(서버 시나리오에만 해당)                 |   | X | X |   |
@@ -169,7 +175,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4 이상                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8.3                         | X <sup>3</sup> | X | X |   |
+| Red Hat Enterprise Linux Server 8.2, 8.3, 8.4               | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
@@ -227,6 +233,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 각 에이전트에 대한 자세한 내용은 다음을 참조하세요.
 
+- [Azure Monitor 에이전트 개요](./azure-monitor-agent-overview.md)
 - [Log Analytics 에이전트 개요](./log-analytics-agent.md)
 - [Azure Diagnostics 확장 개요](./diagnostics-extension-overview.md)
 - [InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집](../essentials/collect-custom-metrics-linux-telegraf.md)

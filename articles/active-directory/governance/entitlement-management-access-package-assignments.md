@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 04/12/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 245781f22db75d27f335c0a81d0ee9793b076c47
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 3ed289789576df7c81368b2b98001968c358c0e0
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713867"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440204"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지에 대한 할당 보기, 추가, 제거
 
@@ -56,9 +56,21 @@ Azure AD 권한 관리를 사용하고 액세스 패키지에 사용자를 할�
 
 1. 필터링된 목록의 CSV 파일을 다운로드하려면 **다운로드** 를 클릭합니다.
 
-### <a name="viewing-assignments-programmatically"></a>프로그래밍 방식으로 할당 보기
+## <a name="view-assignments-programmatically"></a>프로그래밍 방식으로 할당 보기
+### <a name="view-assignments-with-microsoft-graph"></a>Microsoft Graph로 할당 보기
+Microsoft Graph를 사용하여 액세스 패키지에서 할당을 검색할 수도 있습니다.  위임된 `EntitlementManagement.Read.All` 또는 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션의 적절한 역할 사용자는 API를 호출하여 [accessPackageAssignments](/graph/api/accesspackageassignment-list?view=graph-rest-beta&preserve-view=true)를 나열할 수 있습니다. ID 거버넌스 관리자가 여러 카탈로그에서 액세스 패키지를 검색하는 중에, 사용자가 카탈로그별로 위임된 관리 역할에만 할당된 경우 요청에서 `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`처럼 특정 액세스 패키지를 표시하는 필터를 제공해야 합니다. 애플리케이션 권한 `EntitlementManagement.Read.All` 또는 `EntitlementManagement.ReadWrite.All`이 있는 애플리케이션도 이 API를 사용할 수 있습니다.
 
-Microsoft Graph를 사용하여 액세스 패키지에서 할당을 검색할 수도 있습니다.  위임된 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션을 사용하는 적절한 역할의 사용자는 [accessPackageAssignments 나열](/graph/api/accesspackageassignment-list?view=graph-rest-beta&preserve-view=true) API를 호출할 수 있습니다.
+### <a name="view-assignments-with-powershell"></a>PowerShell로 할당 보기
+
+[Identity Governance용 Microsoft Graph PowerShell cmdlet](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) 모듈 버전 1.6.0 이상에서 `Get-MgEntitlementManagementAccessPackageAssignment` cmdlet을 사용하여 PowerShell에서 이 쿼리를 수행할 수 있습니다. 이 cmdlet은 액세스 패키지 ID 매개 변수를 사용하는데, `Get-MgEntitlementManagementAccessPackage` cmdlet의 응답에 포함되어 있습니다.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
+Select-MgProfile -Name "beta"
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign"
+$assignments = Get-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -ExpandProperty target -All -ErrorAction Stop
+$assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
+```
 
 ## <a name="directly-assign-a-user"></a>사용자 직접 할당
 
@@ -76,21 +88,61 @@ Microsoft Graph를 사용하여 액세스 패키지에서 할당을 검색할 �
 
     ![할당 - 액세스 패키지에 사용자 추가](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. **사용자 추가** 를 클릭하여 이 액세스 패키지를 할당할 사용자를 선택합니다.
+1.  **정책 선택** 목록에서 사용자의 향후 요청 및 수명 주기를 관리하고 추적하는 데 사용할 정책을 선택합니다. 선택한 사용자에게 다른 정책 설정을 사용하려는 경우 **새 정책 만들기** 를 클릭하여 새 정책을 추가할 수 있습니다.
 
-1. **정책 선택** 목록에서 사용자의 향후 요청 및 수명 주기를 관리하고 추적하는 데 사용할 정책을 선택합니다. 선택한 사용자에게 다른 정책 설정을 사용하려는 경우 **새 정책 만들기** 를 클릭하여 새 정책을 추가할 수 있습니다.
+1.  정책을 선택한 후에는 사용자를 추가하여, 선택한 정책에서 이 액세스 패키지를 할당할 사용자를 선택할 수 있습니다.
+
+    > [!NOTE]
+    > 질문을 포함한 정책을 선택할 경우 한 번에 한 사용자만 할당할 수 있습니다.
 
 1. 선택한 사용자의 할당을 시작하고 종료할 날짜 및 시간을 설정합니다. 종료 날짜를 지정하지 않으면 정책의 수명 주기 설정이 사용됩니다.
 
-1. 필요에 따라 레코드 보관을 위해 직접 할당의 사유를 제공합니다.
+1.  필요에 따라 레코드 보관을 위해 직접 할당의 사유를 제공합니다.
+
+1.  선택한 정책이 추가적인 요청자 정보를 포함할 경우 **질문 보기** 를 클릭하여 사용자를 대신에 질문에 답한 다음, **저장** 을 클릭합니다.  
+
+     ![할당 - 질문 보기 클릭](./media/entitlement-management-access-package-assignments/assignments-view-questions.png)
+
+    ![할당 - 질문 창](./media/entitlement-management-access-package-assignments/assignments-questions-pane.png)
 
 1. **추가** 를 클릭하여 선택한 사용자를 액세스 패키지에 직접 할당합니다.
 
     잠시 후에 **새로 고침** 을 클릭하여 할당 목록에서 사용자를 확인합니다.
 
-### <a name="directly-assigning-users-programmatically"></a>프로그래밍 방식으로 사용자 직접 할당
+## <a name="directly-assigning-users-programmatically"></a>프로그래밍 방식으로 사용자 직접 할당
+### <a name="assign-a-user-to-an-access-package-with-microsoft-graph"></a>Microsoft Graph로 액세스 패키지에 사용자 할당
+Microsoft Graph를 사용하여 액세스 패키지에 사용자를 직접 할당할 수도 있습니다.  위임된 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션 또는 해당 애플리케이션 권한이 있는 애플리케이션에서 적절한 역할이 있는 사용자는 API를 호출하여 [accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true)를 만들 수 있습니다. 이 요청에서 `requestType` 속성의 값은 `AdminAdd`고, `accessPackageAssignment` 속성은 할당될 사용자의 `targetId`를 포함하는 구조입니다.
 
-Microsoft Graph를 사용하여 액세스 패키지에 사용자를 직접 할당할 수도 있습니다.  위임된 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션을 사용하는 적절한 역할의 사용자는 [accessPackageAssignmentRequest 만들기](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true) API를 호출할 수 있습니다.
+### <a name="assign-a-user-to-an-access-package-with-powershell"></a>PowerShell로 액세스 패키지에 사용자 할당
+
+[Identity Governance용 Microsoft Graph PowerShell cmdlet](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) 모듈 버전 1.6.0 이상에서 `New-MgEntitlementManagementAccessPackageAssignmentRequest` cmdlet을 사용하여 PowerShell에서 액세스 패키지에 사용자를 할당할 수 있습니다. 이 cmdlet은 다음과 같은 매개 변수를 사용합니다.
+* `Get-MgEntitlementManagementAccessPackage` cmdlet의 응답에 포함된 액세스 패키지 ID
+* `Get-MgEntitlementManagementAccessPackageAssignmentPolicy` cmdlet의 응답에 포함된 액세스 패키지 할당 정책 ID
+* 대상 사용자의 개체 ID.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
+$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
+$req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetId "a43ee6df-3cc5-491a-ad9d-ea964ef8e464"
+```
+
+[Identity Governance용 Microsoft Graph PowerShell cmdlet](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) 모듈 버전 1.6.1 이상에서 `New-MgEntitlementManagementAccessPackageAssignment` cmdlet을 사용하여 PowerShell에서 액세스 패키지에 여러 사용자를 할당할 수도 있습니다. 이 cmdlet은 다음과 같은 매개 변수를 사용합니다.
+* `Get-MgEntitlementManagementAccessPackage` cmdlet의 응답에 포함된 액세스 패키지 ID
+* `Get-MgEntitlementManagementAccessPackageAssignmentPolicy` cmdlet의 응답에 포함된 액세스 패키지 할당 정책 ID
+* 대상 사용자의 개체 ID로, 문자열 배열 또는 `Get-MgGroupMember` cmdlet에서 반환한 사용자 멤버 목록 형태입니다.
+
+예를 들어 현재 그룹 멤버인 모든 사용자가 액세스 패키지도 할당 받게 하려면 이 cmdlet을 사용하여 현재 할당이 없는 사용자에 대한 요청을 만들 수 있습니다.  이 cmdlet은 할당을 만들기만 하며 제거하지는 않습니다.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
+Select-MgProfile -Name "beta"
+$members = Get-MgGroupMember -GroupId "a34abd69-6bf8-4abd-ab6b-78218b77dc15"
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
+$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
+$req = New-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -RequiredGroupMember $members
+```
 
 ## <a name="remove-an-assignment"></a>할당 제거
 
@@ -109,6 +161,22 @@ Microsoft Graph를 사용하여 액세스 패키지에 사용자를 직접 할�
     ![할당 - 액세스 패키지에서 사용자 제거](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
 
     할당이 제거되었다는 알림이 표시됩니다. 
+
+## <a name="remove-an-assignment-programmatically"></a>프로그래밍 방식으로 할당 제거
+### <a name="remove-an-assignment-with-microsoft-graph"></a>Microsoft Graph로 할당 제거
+Microsoft Graph를 사용하여 액세스 패키지에 대한 사용자 할당을 제거할 수도 있습니다.  위임된 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션 또는 해당 애플리케이션 권한이 있는 애플리케이션에서 적절한 역할이 있는 사용자는 API를 호출하여 [accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true)를 만들 수 있습니다.  이 요청에서 `requestType` 속성의 값은 `AdminRemove`고, `accessPackageAssignment` 속성은 `accessPackageAssignment` 제거를 식별하는 `id` 속성을 포함하는 구조입니다.
+
+### <a name="remove-an-assignment-with-powershell"></a>PowerShell로 할당 제거
+
+[Identity Governance용 Microsoft Graph PowerShell cmdlet](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) 모듈 버전 1.6.0 이상에서 `New-MgEntitlementManagementAccessPackageAssignmentRequest` cmdlet을 사용하여 PowerShell에서 사용자의 할당을 제거할 수 있습니다.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$assignments = Get-MgEntitlementManagementAccessPackageAssignment -Filter "accessPackageId eq '9f573551-f8e2-48f4-bf48-06efbb37c7b8' and assignmentState eq 'Delivered'" -All -ErrorAction Stop
+$toRemove = $assignments | Where-Object {$_.targetId -eq '76fd6e6a-c390-42f0-879e-93ca093321e7'}
+$req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageAssignmentId $toRemove.Id -RequestType "AdminRemove"
+```
 
 ## <a name="next-steps"></a>다음 단계
 

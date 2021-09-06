@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 792801c568255b471487c14b6a812942298ad0d4
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 925c468ff744df8b543618e4282ec9b6a9dda78a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906551"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528129"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -64,6 +64,8 @@ ms.locfileid: "107906551"
 
 다른 슬롯에서 설정을 복제하더라도 새 배포 슬롯에는 내용이 없습니다. 예를 들어 [Git를 사용하여 이 슬롯에 게시](./deploy-local-git.md)할 수 있습니다. 다른 리포지토리 분기 또는 다른 리포지토리로부터 슬롯에 배포할 수 있습니다.
 
+슬롯의 URL은 `http://sitename-slotname.azurewebsites.net` 형식입니다. 필요한 DNS 제한 내에서 URL 길이를 유지하기 위해 사이트 이름은 40자로 잘리고, 슬롯 이름은 19자로 잘리고, 결과 도메인 이름이 고유하도록 추가로 4개의 임의의 문자가 추가됩니다. 
+
 <a name="AboutConfiguration"></a>
 
 ## <a name="what-happens-during-a-swap"></a>교환하는 동안 어떻게 되나요?
@@ -94,6 +96,9 @@ ms.locfileid: "107906551"
 1. 원본 슬롯에 이전에 대상 슬롯의 사전 교환 앱이 있으므로 모든 설정을 적용하고 인스턴스를 다시 시작하여 동일한 작업을 수행합니다.
 
 교환 작업의 모든 지점에서 교환된 앱을 초기화하는 모든 작업은 원본 슬롯에서 발생합니다. 대상 슬롯은 교환의 성공 또는 실패 위치와 관계없이 원본 슬롯이 준비되고 준비되는 동안 온라인 상태로 유지됩니다. 스테이징 슬롯을 프로덕션 슬롯과 교환하려면 프로덕션 슬롯이 항상 대상 슬롯인지 확인합니다. 이러한 방식으로 교환 작업은 프로덕션 앱에 영향을 주지 않습니다.
+
+> [!NOTE]
+> 이 교환 작업 후 스테이징으로 교체되는 이전 프로덕션 인스턴스의 인스턴스는 교환 프로세스의 마지막 단계에서 신속하게 재활용됩니다. 애플리케이션에 장기 실행 작업이 있는 경우 작업자를 재활용할 때 중단됩니다. 이는 함수 앱에도 적용됩니다. 따라서 애플리케이션 코드는 내결함성 방식으로 작성되어야 합니다. 
 
 ### <a name="which-settings-are-swapped"></a>어떤 설정이 교환되나요?
 
@@ -173,7 +178,7 @@ ms.locfileid: "107906551"
 ## <a name="configure-auto-swap"></a>자동 전환 구성
 
 > [!NOTE]
-> 자동 교환은 Linux의 웹앱에서 지원되지 않습니다.
+> 자동 교환은 Linux의 웹앱 및 Web App for Containers에서 지원되지 않습니다.
 
 자동 교환은 앱의 사용자를 위해 중단 시간 및 콜드 부팅이 발생하지 않는 앱을 지속적으로 배포하려는 Azure DevOps 시나리오를 간소화합니다. 슬롯에서 프로덕션으로 자동 교환되면 코드 변경 내용을 해당 슬롯으로 푸시할 때마다 App Service는 원본 슬롯에서 준비가 끝난 후에 [앱을 프로덕션으로 자동 교환](#swap-operation-steps)합니다.
 

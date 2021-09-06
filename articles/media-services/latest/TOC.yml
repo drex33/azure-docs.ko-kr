@@ -2,8 +2,11 @@
   href: ./index.yml
 - name: 개요
   items:
-    - name: Media Services 정보
+    - name: Media Services v3 정보
       href: media-services-overview.md
+    - name: Media Services v2 설명서
+      href: ../previous/media-services-overview.md
+      displayName: 'media services v2, v2, version 2'
     - name: 릴리스 정보
       href: release-notes.md
       displayName: 'Release Notes, notes, updates, announcements, deprecations'

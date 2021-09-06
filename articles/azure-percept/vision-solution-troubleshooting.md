@@ -1,20 +1,20 @@
 ---
-title: Azure Percept Vision 및 비전 모듈 관련 문제 해결
+title: Azure Percept Vision 및 비전 모듈 문제 해결
 description: 비전 AI 프로토타입 환경에서 발견되는 몇 가지 일반적인 문제를 해결하는 팁을 확인합니다.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 79a9147fde164a672d310a7dea6fb6166ed3a1f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6bc06ed6850c247641423ef365a86dd9d8aec90a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537099"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225984"
 ---
-# <a name="vision-solution-troubleshooting"></a>비전 솔루션 문제 해결
+# <a name="troubleshoot-azure-percept-vision-and-vision-modules"></a>Azure Percept Vision 및 비전 모듈 문제 해결
 
 이 문서에서는 Azure Percept Studio에서 코드 없는 비전 솔루션과 관련된 문제를 해결하는 방법을 설명합니다.
 

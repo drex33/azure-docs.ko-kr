@@ -144,6 +144,8 @@
       items:
         - name: AKS 클러스터 크기 조정
           href: scale-cluster.md
+        - name: 스케일 다운 모드로 노드 중지/할당 취소(미리 보기)
+          href: scale-down-mode.md
         - name: AKS 클러스터 중지
           href: start-stop-cluster.md
         - name: 계획된 유지 관리 사용(미리 보기)
@@ -359,7 +361,31 @@
         - name: 서비스 메시 정보
           href: servicemesh-about.md
         - name: Open Service Mesh AKS 추가 기능(미리 보기)
-          href: servicemesh-osm-about.md
+          items:
+            - name: OSM 개요
+              href: open-service-mesh-about.md
+            - name: OSM AKS 추가 항목 배포
+              href: open-service-mesh-deploy-add-on.md
+            - name: OSM 클라이언트 이진 파일 다운로드
+              href: open-service-mesh-binary.md
+            - name: OSM 자습서
+              items:
+                - name: 새 애플리케이션 배포 관리
+                  href: open-service-mesh-deploy-new-application.md
+                - name: 기존 애플리케이션 배포 관리
+                  href: open-service-mesh-deploy-existing-application.md
+                - name: Azure Application Gateway 수신 사용
+                  href: open-service-mesh-azure-application-gateway-ingress.md
+                - name: NGINX 수신 사용
+                  href: open-service-mesh-nginx-ingress.md
+                - name: 'Prometheus, Grafana 및 Jaeger를 사용하여 관찰 가능성 구성'
+                  href: open-service-mesh-open-source-observability.md
+            - name: Azure Monitor 구성
+              href: open-service-mesh-azure-monitor.md
+            - name: OSM 문제 해결
+              href: open-service-mesh-troubleshoot.md
+            - name: OSM 사용 안 함
+              href: open-service-mesh-disable-add-on.md
     - name: DevOps
       items:
         - name: Ansible을 사용하여 AKS 클러스터 만들기

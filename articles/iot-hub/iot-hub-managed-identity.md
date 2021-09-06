@@ -5,14 +5,14 @@ author: miag
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 08/24/2021
 ms.author: miag
-ms.openlocfilehash: 34b83376a555b5fd06947049f959badc9a1aed67
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 4d5a518bc517b950f5366ba53eadb7284121a5e3
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731081"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866411"
 ---
 # <a name="iot-hub-support-for-managed-identities"></a>관리 ID에 대한 IoT Hub 지원 
 
@@ -273,7 +273,7 @@ IoT Hub의 [파일 업로드](iot-hub-devguide-file-upload.md) 기능에서는 �
     > 관리 ID를 사용하여 파일 업로드를 위해 IoT Hub에 스토리지 계정을 저장하기 전에 관리 ID에 올바른 액세스 권한을 할당하려면 위의 단계를 완료해야 합니다. 역할 할당이 전파되기까지 몇 분 정도 기다려 주세요. 
  
 5. IoT Hub의 리소스 페이지에서 **파일 업로드** 탭으로 이동합니다.
-6. 표시되는 페이지에서 Blob Storage에서 사용할 컨테이너를 선택하고, **파일 알림 설정, SAS TTL, 기본 TTL 및 최대 전달 횟수** 를 원하는 대로 구성합니다. 기본 인증 유형을 선택하고 **저장** 을 클릭합니다.
+6. 표시되는 페이지에서 Blob Storage에서 사용할 컨테이너를 선택하고, **파일 알림 설정, SAS TTL, 기본 TTL 및 최대 전달 횟수** 를 원하는 대로 구성합니다. 기본 인증 유형을 선택하고 **저장** 을 클릭합니다. 이 단계에서 오류가 발생하면 **모든 네트워크** 에서 액세스할 수 있도록 스토리지 계정을 임시로 설정한 다음 다시 시도합니다. 파일 업로드 구성이 완료되면 스토리지 계정에서 방화벽을 구성할 수 있습니다.
 
     :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="msi로 IoT Hub 파일 업로드":::
 

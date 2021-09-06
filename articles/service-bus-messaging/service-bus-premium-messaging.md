@@ -3,12 +3,12 @@ title: Azure Service Bus 프리미엄 및 표준 계층
 description: 이 문서에서는 Azure Service Bus의 표준 및 프리미엄 계층에 대해 설명합니다. 이러한 계층을 비교하고 기술적 차이점을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: f0cc6b6d7b9026d9be23e36a587b7ce667ba1652
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: c6c520219c383a21d8d2e134d0798f3cb5058c2d
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111811265"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202425"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
@@ -24,7 +24,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 애플리케�
 | 예측 가능한 성능 |가변 대기 시간 |
 | 고정된 가격 책정 |종량제 가변 가격 |
 | 작업을 확장 및 축소하는 기능 |해당 없음 |
-| 최대 1MB의 메시지 크기 이 한도는 향후 상향될 수 있습니다. 서비스에 대한 최신 중요 업데이트는 [Azure의 메시징 블로그](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog)를 참조하세요. |최대 256KB의 메시지 크기 |
+| 최대 1MB의 메시지 크기 [최대 100MB의 메시지 페이로드 지원](#large-messages-support-preview)은 현재 미리 보기로 제공됩니다. |최대 256KB의 메시지 크기 |
 
 **Service Bus 프리미엄 메시지** 는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위* 라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 Service Bus 프리미엄 네임스페이스에 대해 1, 2, 4, 8 또는 16 메시징 단위를 구입할 수 있습니다. 단일 워크로드 또는 엔터티는 여러 메시징 단위에 걸쳐 있을 수 있으며 메시징 단위 수는 마음대로 변경할 수 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.
 
@@ -66,7 +66,7 @@ Azure Service Bus 프리미엄 네임스페이스를 프로비저닝할 때 할�
 
 Service Bus 프리미엄 네임스페이스에 할당된 메시징 단위 수는 워크로드의 변경(증가 또는 감소)을 고려하여 **동적으로 조정** 할 수 있습니다.
 
-아키텍처의 메시징 단위 수를 결정할 때 고려해야 할 여러 요인이 있습니다.
+아키텍처의 메시징 단위 수를 결정할 때 고려할 요인이 몇 가지 있습니다.
 
 - 네임스페이스에 할당된 ***1개 또는 2개의 메시징 단위*** 로 시작합니다.
 - 네임스페이스에 대한 [리소스 사용 현황 메트릭](monitor-service-bus-reference.md#resource-usage-metrics) 내에서 CPU 사용 현황 메트릭을 연구합니다.
@@ -89,10 +89,32 @@ Service Bus 프리미엄 네임스페이스에 할당된 메시징 단위 수는
 
 프리미엄 메시징 시작은 간단하며 프로세스는 표준 메시징의 프로세스와 비슷합니다. 먼저 [Azure Portal](https://portal.azure.com)에서 [네임스페이스를 만듭니다](service-bus-create-namespace-portal.md). **가격 책정 계층** 에서 **프리미엄** 을 선택했는지 확인합니다. **전체 가격 책정 세부 정보 보기** 를 클릭하여 각 계층에 대해 자세히 알아봅니다.
 
-![create-premium-namespace][create-premium-namespace]
+:::image type="content" source="./media/service-bus-premium-messaging/select-premium-tier.png" alt-text="네임스페이스를 만들 때 프리미엄 계층을 선택 사항을 보여 주는 스크린샷.":::
 
 [Azure Resource Manager 템플릿을 사용하여 프리미엄 네임스페이스](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/)를 만들 수도 있습니다.
 
+## <a name="large-messages-support-preview"></a>대용량 메시지 지원(미리 보기)
+Azure Service Bus 프리미엄 계층 네임스페이스는 최대 100MB의 대용량 메시지 페이로드를 전송하는 기능을 지원합니다. 이 기능은 주로 다른 엔터프라이즈 메시징 브로커에서 더 큰 용량의 메시지 페이로드를 사용하고 Azure Service Bus로 원활하게 마이그레이션하려는 레거시 워크로드를 대상으로 합니다.
+
+Azure Service Bus에서 대용량 메시지를 보낼 때 고려할 사항은 다음과 같습니다.
+   * Azure Service Bus 프리미엄 계층 네임스페이스에서만 지원됩니다.
+   * AMQP 프로토콜을 사용하는 경우에만 지원됩니다. SBMP 프로토콜을 사용하는 경우에는 지원되지 않습니다.
+   * [JMS(Java Message Service) 2.0 클라이언트 SDK](how-to-use-java-message-service-20.md) 및 기타 언어 클라이언트 SDK를 사용하는 경우 지원됩니다.
+   * 대용량 메시지를 보내면 처리량이 줄어들고 대기 시간이 길어집니다.
+   * 100MB의 메시지 페이로드가 지원되지만, Service Bus 네임스페이스의 안정적인 성능을 보장하려면 메시지 페이로드를 가능한 한 작게 유지하는 것이 좋습니다.
+   * 최대 메시지 크기는 큐 또는 토픽으로 전송된 메시지에만 적용됩니다. 수신 작업에는 크기 제한이 적용되지 않습니다. 지정된 큐(또는 토픽)에 대한 최대 메시지 크기를 업데이트할 수 있습니다.
+
+### <a name="enabling-large-messages-support-for-a-new-queue-or-topic"></a>새 큐(또는 토픽)에 대한 대용량 메시지 지원 사용
+
+대용량 메시지 지원을 사용하도록 설정하려면 아래와 같이 새 큐(또는 토픽)을 만들 때 최대 메시지 크기를 설정합니다. 
+
+:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview.png" alt-text="기존 큐에 대한 대용량 메시지 지원을 사용하도록 설정하는 방법을 보여 주는 스크린샷.":::
+
+### <a name="enabling-large-messages-support-for-an-existing-queue-or-topic"></a>기존 큐(또는 토픽)에 대한 대용량 메시지 지원 사용
+
+또한 아래와 같이 특정 큐(또는 토픽)의 **_개요_** 에서 **최대 메시지 크기** 를 업데이트하여 기존 큐(또는 토픽)에 대한 대용량 메시지 지원을 사용하도록 설정할 수 있습니다.
+
+:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview-update.png" alt-text="대용량 메시지 지원이 사용하도록 설정된 큐 만들기 페이지의 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -102,6 +124,4 @@ Service Bus 메시지에 대해 자세히 알아보려면 다음 링크를 참�
 - [Azure Service Bus 프리미엄 메시징 소개(블로그 게시물)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Azure Service Bus 프리미엄 메시징 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 
-<!--Image references-->
 
-[create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png

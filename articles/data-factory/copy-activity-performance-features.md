@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: 9be8ef1772da6259441a8de4c85fa44d54945c7d
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/24/2020
+ms.openlocfilehash: 57a10687dc3c067bfd96be2cce1d6adfe0959994
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821818"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642455"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>복사 작업 성능 최적화 기능
 
@@ -145,7 +145,7 @@ ms.locfileid: "122821818"
 
 복사 작업에서 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 저장소에 로드하기 전에 스토리지에 데이터를 스테이징할지 여부를 지정합니다. **enableStaging** 을 `TRUE`으로 설정한 경우, 다음 표에 나열된 추가 속성을 지정해야 합니다. 
 
-| 속성 | Description | 기본값 | 필수 |
+| 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
 | linkedServiceName |중간 준비 저장소로 사용할 스토리지 인스턴스를 참조하여 이름을 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)에 연결된 서비스로 지정합니다. |해당 없음 |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |

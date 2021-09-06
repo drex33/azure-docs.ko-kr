@@ -4,14 +4,14 @@ description: Azure Portal 또는 Azure CLI를 사용하여 Azure HPC Cache를 �
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 07/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: a831aa7b2f3b0d438d9db8fefa3d26428fea3680
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: cd4dcb4bac5f2876db9af194abc5835c1d0f5a3c
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862600"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586980"
 ---
 # <a name="manage-your-cache"></a>캐시 관리
 
@@ -33,6 +33,9 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대한 프로젝트 세�
 * [**삭제**](#delete-the-cache) - 캐시를 영구적으로 삭제합니다.
 
 옵션에 대한 자세한 내용은 아래를 참조하세요.
+
+> [!TIP]
+> 개별 스토리지 대상도 관리할 수 있습니다. 자세한 내용은 [스토리지 대상 관리](manage-storage-targets.md)를 참조하세요.
 
 캐시 관리 작업을 보여 주는 [동영상](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)을 시청하려면 아래 이미지를 클릭하세요.
 
@@ -117,7 +120,7 @@ $ az hpc-cache start --name doc-cache0629
 
 [az hpc-cache flush](/cli/azure/hpc-cache#az_hpc_cache_flush)를 사용하여 캐시에서 변경된 모든 데이터를 스토리지 대상에 쓰도록 강제 실행합니다.
 
-예제:
+예:
 
 ```azurecli
 $ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
@@ -229,7 +232,7 @@ Microsoft 서비스 및 지원에서 요청하는 경우 이 컨트롤을 사용
 
 Azure CLI 명령 [az hpc-cache delete](/cli/azure/hpc-cache#az_hpc_cache_delete)를 사용하여 캐시를 영구적으로 제거합니다.
 
-예제:
+예:
 ```azurecli
 $ az hpc-cache delete --name doc-cache0629
  - Running ..
@@ -247,14 +250,6 @@ $
 
 ---
 
-## <a name="cache-metrics-and-monitoring"></a>캐시 메트릭 및 모니터링
-
-개요 페이지에는 몇 가지 기본 캐시 통계인 캐시 처리량, 초당 작업, 대기 시간에 대한 그래프가 표시됩니다.
-
-![샘플 캐시에 대해 위에서 언급한 통계를 보여 주는 세 개의 선 그래프 스크린샷](media/hpc-cache-overview-stats.png)
-
-차트는 Azure의 기본 제공 모니터링 및 분석 도구에 포함됩니다. 추가 도구 및 경고는 포털 사이드바의 **모니터링** 제목 아래에 있는 페이지에서 사용할 수 있습니다. [Azure 모니터링 설명서](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal)의 포털 섹션에서 자세히 알아보세요.
-
 ## <a name="view-warnings"></a>경고 보기
 
 캐시가 비정상 상태가 되면 **경고** 페이지를 확인합니다. 이 페이지는 해당 상태를 이해하는 데 도움이 될 수 있는 캐시 소프트웨어의 알림을 보여 줍니다.
@@ -271,5 +266,5 @@ $
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 메트릭 및 통계 도구](../azure-monitor/index.yml)에 대한 자세한 정보
+* [통계를 사용하여 캐시 모니터링](metrics.md)
 * [Azure HPC Cache 관련 지원](hpc-cache-support-ticket.md) 받기

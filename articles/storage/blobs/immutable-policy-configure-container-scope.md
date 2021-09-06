@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9accd34601ed900ff7600485b1b3007054c4202a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1cdc40b8aebe2d80553a23deec3990d4349ebd79
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566416"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255612"
 ---
 # <a name="configure-immutability-policies-for-containers"></a>컨테이너에 대한 불변성 정책 구성
 

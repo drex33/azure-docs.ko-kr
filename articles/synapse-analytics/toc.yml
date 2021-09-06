@@ -76,6 +76,8 @@ items:
           - name: Azure Data Explorer에 연결
             href: quickstart-connect-azure-data-explorer.md
             displayName: quickstart
+          - name: 파트너 솔루션
+            href: ./partner/browse-partners.md
         '-name': null
       - name: 개념
         items:
@@ -180,7 +182,7 @@ items:
                   - name: 프라이빗 엔드포인트를 사용하여 Azure Synapse 작업 영역에 연결
                     href: security/how-to-connect-to-workspace-with-private-links.md
                     displayname: links
-                  - name: 관리형 VNet을 사용하여 연결된 서비스 프로비저닝 및 보호
+                  - name: 관리형 VNet을 사용하여 연결된 서비스 프로비전 및 보호
                     href: ./data-integration/linked-service.md
                   - name: 제한된 네트워크에서 Synapse 작업 영역에 연결
                     href: security/how-to-connect-to-workspace-from-restricted-network.md
@@ -1240,6 +1242,8 @@ items:
             href: ./catalog-and-governance/quickstart-connect-azure-purview.md
       - name: 방법 가이드
         items:
+          - name: 보안 Azure Purview 계정에 액세스
+            href: ./catalog-and-governance/how-to-access-secured-purview-account.md
           - name: 'Azure Purview를 사용하여 Synapse에서 데이터 검색, 연결 및 탐색'
             href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
   - name: 방법
@@ -1304,14 +1308,14 @@ items:
       - name: 파트너
         items:
           - name: 비즈니스 인텔리전스
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/business-intelligence.md
           - name: 데이터 통합
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-data-integration.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/data-integration.md
           - name: 데이터 관리
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-data-management.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/data-management.md
           - name: 기계 학습 및 AI
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-machine-learning-ai.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/machine-learning-ai.md
           - name: 시스템 통합
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-system-integration.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/system-integration.md
           - name: 타사 애플리케이션의 호환성 문제
-            href: ./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?context=/azure/synapse-analytics/context/context
+            href: ./partner/compatibility-issues.md

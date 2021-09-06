@@ -12,13 +12,13 @@ ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: 2a2708c3d84dd83b752db2a0ae56843ae068aabe
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/15/2020
+ms.openlocfilehash: 3bdf18a9496d7aac7ff69a47849cad9c7e0b942c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822430"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642963"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
 

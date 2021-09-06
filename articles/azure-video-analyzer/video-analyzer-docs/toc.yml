@@ -161,8 +161,8 @@
       href: visual-studio-code-extension.md
 - name: 리소스
   items:
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/updates/?category=media'
+    - name: Azure 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/video-analyzer/'
     - name: 사용 가능한 지역

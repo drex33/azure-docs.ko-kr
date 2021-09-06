@@ -34,7 +34,7 @@
       items:
         - name: Azure Function으로 알림 앱 빌드
           href: tutorial-serverless-notification.md
-        - name: Azure Function으로 채팅 앱 빌드
+        - name: 클라이언트 인증으로 실시간 채팅 앱 빌드
           href: quickstart-serverless.md
     - name: 메시지 게시 및 구독
       href: tutorial-pub-sub-messages.md
@@ -85,6 +85,8 @@
       items:
         - name: JSON WebSocket 하위 프로토콜
           href: reference-json-webpubsub-subprotocol.md
+        - name: Protobuf WebSocket 하위 프로토콜
+          href: reference-protobuf-webpubsub-subprotocol.md
     - name: Azure Web PubSub용 CloudEvents 확장
       href: reference-cloud-events.md
     - name: 함수 트리거 및 바인딩

@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d6922eaec624141c8acab2d8d8e133db5becd66d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d4f48f8a8c573ac03f5637b74b740c5710af92b3
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950054"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597684"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -49,9 +49,6 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 클래식 스토리지 계정은 방화벽 및 가상 네트워크를 지원하지 않습니다.
 
 예외를 만들어서 VM 백업 및 복원에 적용되는 네트워크 규칙이 있는 스토리지 계정에서 관리되지 않는 디스크를 사용할 수 있습니다. 이 프로세스는 이 문서의 [예외](#manage-exceptions) 섹션에서 설명하고 있습니다. 방화벽 예외는 Azure에서 이미 관리되고 있으므로 관리 디스크에는 적용되지 않습니다.
-
-> [!IMPORTANT] 
-> 네트워크 규칙에 포함된 서브넷을 삭제하는 경우 네트워크 규칙에서 해당 서브넷을 제거해야 합니다. 그러지 않고 동일한 이름으로 서브넷을 만드는 경우 스토리지 계정의 네트워크 규칙에서 해당 서브넷을 사용할 수 없습니다. 
 
 ## <a name="change-the-default-network-access-rule"></a>기본 네트워크 액세스 규칙 변경
 
@@ -128,6 +125,9 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 VNet 내의 Azure Storage에 대해 [서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)를 사용하도록 설정합니다. 서비스 엔드포인트는 VNet의 트래픽을 Azure Storage 서비스에 대한 최적의 경로를 통해 라우팅합니다. 서브넷 및 가상 네트워크의 ID 또한 각 요청과 함께 전송됩니다. 그러면 관리자가 VNet의 특정 서브넷에서 요청을 받을 수 있도록 스토리지 계정에 대한 네트워크 규칙을 구성할 수 있습니다. 이러한 네트워크 규칙을 통해 액세스가 허용되는 클라이언트에서 데이터에 액세스하려면 스토리지 계정의 권한 부여 요구 사항을 계속 충족해야 합니다.
 
 각 스토리지 계정은 [IP 네트워크 규칙](#grant-access-from-an-internet-ip-range)과 결합될 수 있는 최대 200개의 가상 네트워크 규칙을 지원합니다.
+
+> [!IMPORTANT] 
+> 네트워크 규칙에 포함된 서브넷을 삭제하면 스토리지 계정에 대한 네트워크 규칙에서 제거됩니다. 동일한 이름으로 새 서브넷을 만들면 스토리지 계정에 액세스할 수 없습니다. 액세스를 허용하려면 스토리지 계정에 대한 네트워크 규칙에서 새 서브넷에 명시적으로 권한을 부여해야 합니다.
 
 ### <a name="available-virtual-network-regions"></a>사용 가능한 가상 네트워크 지역
 
@@ -378,9 +378,9 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 ## <a name="grant-access-from-azure-resource-instances-preview"></a>Azure 리소스 인스턴스에서 액세스 권한 부여(미리 보기)
 
-경우에 따라 애플리케이션은 가상 네트워크 또는 IP 주소 규칙을 통해 격리할 수 없는 Azure 리소스에 종속될 수 있습니다. 그러나 계속 애플리케이션의 Azure 리소스에 대해서만 스토리지 계정 액세스를 보호하고 제한하고 싶을 수도 있습니다. 리소스 인스턴스 규칙을 만들어 일부 Azure 서비스의 특정 리소스 인스턴스에 대한 액세스를 허용하도록 스토리지 계정을 구성할 수 있습니다. 
+경우에 따라 애플리케이션은 가상 네트워크 또는 IP 주소 규칙을 통해 격리할 수 없는 Azure 리소스에 종속될 수 있습니다. 그러나 계속 애플리케이션의 Azure 리소스에 대해서만 스토리지 계정 액세스를 보호하고 제한하고 싶을 수도 있습니다. 리소스 인스턴스 규칙을 만들어 일부 Azure 서비스의 특정 리소스 인스턴스에 대한 액세스를 허용하도록 스토리지 계정을 구성할 수 있습니다.
 
-리소스 인스턴스가 스토리지 계정 데이터에서 수행할 수 있는 작업의 유형은 리소스 인스턴스의 [Azure 역할 할당](storage-auth-aad.md#assign-azure-roles-for-access-rights) 에 의해 결정됩니다. 리소스 인스턴스는 스토리지 계정과 동일한 테넌트에 있어야 하지만 테넌트의 모든 구독에 포함될 수 있습니다.
+리소스 인스턴스가 스토리지 계정 데이터에서 수행할 수 있는 작업의 유형은 리소스 인스턴스의 Azure 역할 할당 에 의해 결정됩니다. 리소스 인스턴스는 스토리지 계정과 동일한 테넌트에 있어야 하지만 테넌트의 모든 구독에 포함될 수 있습니다.
 
 > [!NOTE]
 > 해당 기능은 공개 미리 보기로 제공되며 모든 퍼블릭 클라우드 지역에서 사용할 수 있습니다.
@@ -586,9 +586,9 @@ az storage account network-rule list \
 
 ### <a name="trusted-access-based-on-system-assigned-managed-identity"></a>시스템이 할당한 관리 ID를 기반으로 하는 신뢰할 수 있는 액세스
 
-다음 표에서는 해당 서비스의 리소스 인스턴스에 적절한 권한을 부여하는 경우 스토리지 계정 데이터에 액세스할 수 있는 서비스를 나열합니다. 
+다음 표에서는 해당 서비스의 리소스 인스턴스에 적절한 권한을 부여하는 경우 스토리지 계정 데이터에 액세스할 수 있는 서비스를 나열합니다.
 
-계정에 계층 구조 네임스페이스 기능을 사용하도록 설정하지 않은 경우 각 리소스 인스턴스의 [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 명시적으로 [Azure 역할을 할당](storage-auth-aad.md#assign-azure-roles-for-access-rights)하여 권한을 부여할 수 있습니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다. 
+계정에 계층 구조 네임스페이스 기능을 사용하도록 설정하지 않은 경우 각 리소스 인스턴스의 시스템 할당 관리 ID에 명시적으로 [Azure 역할을 할당](../../active-directory/managed-identities-azure-resources/overview.md)하여 권한을 부여할 수 있습니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다.
 
 계층 구조 네임스페이스 기능이 사용하도록 설정된 계정에 대해 동일한 방법을 사용할 수 있습니다. 그러나 스토리지 계정에 포함된 디렉터리 또는 Blob의 ACL(액세스 제어 목록)에 시스템 할당 관리 ID를 추가하는 경우에는 Azure 역할을 할당할 필요가 없습니다. 이 경우 인스턴스의 액세스 범위는 시스템 할당 관리 ID에 액세스 권한이 부여된 디렉터리나 파일에 해당합니다. Azure 역할 및 ACL을 함께 결합할 수도 있습니다. 액세스 권한을 부여하기 위해 결합하는 방법에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어 모델](../blobs/data-lake-storage-access-control-model.md)을 참조하세요.
 

@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/09/2021
+ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2761262950c2a10709ccfa37b35a2d3e4c556359
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: cdf1208ae6c6661b6d9ad905ecf35ce66efc392d
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903491"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122538995"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -80,6 +80,21 @@ SAP 애플리케이션 계층 및 DBMS의 고가용성은 [SAP NetWeaver에 대�
 이 섹션에서는 Microsoft Power BI를 SAP 데이터 원본에 통합하는 방법과 Azure Data Factory를 SAP BW에 통합하는 방법을 설명하는 문서를 찾을 수 있습니다.
 
 ## <a name="change-log"></a>로그 변경
+- 2021년 8월 17일: ANF에서 호스트되는 NFS 볼륨을 사용하는 IBM Db2를 지원하기 위해 [SAP 워크로드에 대한 IBM Db2 Azure Virtual Machines DBMS 배포](./dbms_guide_ibm.md), [SAP 워크로드에 대한 Azure Storage 형식 변경](./planning-guide-storage.md) 및 [Azure 가상 머신 지원 시나리오에서의 SAP 워크로드](./sap-planning-supported-configurations.md) 변경
+- 2021년 8월 2일: 서버 실패 큐에 넣기를 시뮬레이션하는 테스트 시나리오에 대한 작동(ENSA1/ENSA2)을 명시하기 위해 [SAP 애플리케이션용 SLES의 Azure VM에서 SAP NW의 HA](./high-availability-guide-suse.md), [ANF를 사용한 SLES의 Azure VM에서 SAP NW의 HA](./high-availability-guide-suse-netapp-files.md), [SAP 애플리케이션용 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel.md) 및 [ANF를 사용한 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel-netapp-files.md) 문서 변경     
+- 2021년 8월 11일: 클러스터 리소스 고정, 마이그레이션 임계값, 순서 제약을 조정하기 위해 [SAP 애플리케이션용 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel.md), [ANF를 사용한 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel-netapp-files.md) 및 [RHEL 다중 SID 가이드의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel-multi-sid.md) 변경  
+- 2021년 8월 11일: [Azure의 SAP IQ를 사용한 SAP BW-NLS(니어라인 스토리지) 구현 가이드](./sap-iq-deployment-guide.md) 릴리스 
+- 2021년 7월 29일: [SAP 애플리케이션용 Azure NetApp Files(SMB)가 있는 Windows의 Azure VM에서 SAP NetWeaver의 고가용성](./high-availability-guide-windows-netapp-files-smb.md) 및 [Azure에서 클러스터 공유 디스크를 사용하여 Windows 장애 조치(failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링](./sap-high-availability-guide-wsfc-shared-disk.md)에서 ASCS/SCS 및 DBMS에 대한 결합 2노드 Windows 클러스터 도입 
+- 2021년 7월 26일: Azure Fence Agent에 대한 설정을 설명하는 섹션에서 RBAC 설명서에 대한 링크로 역할 할당 지침을 바꾸기 위해 [Azure의 RHEL에서 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 및 [Azure의 SLES에서 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 변경
+- 2021년 7월 22일: ASCS 클러스터 리소스에 대한 `failure-timeout`을 제거하기 위해(ENSA2만 해당) [SAP 애플리케이션용 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel.md), [ANF를 사용한 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel-netapp-files.md) 및 [RHEL 다중 SID 가이드의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel-multi-sid.md) 변경
+- 2021년 7월 16일: 더 체계적인 탐색을 위해 Azure 설명서 TOC(목차)의 SAP 구조 변경
+- 2021년 7월 2일: azacsnap 도구와, HANA Large Instances의 백업 및 복원에 대한 중복 콘텐츠를 제거하기 위해 [HANA Large Instances에서의 SAP HANA 백업 및 복원](./hana-backup-restore.md) 변경
+- 2021년 7월 2일: 두 노드 Pacemaker 클러스터와 KB 링크 간의 펜스 경합을 방지하는 방법에 대한 정보를 추가하여`fence_kdump`에 선택적 STONITH 구성을 사용할 때 장애 조치(failover) 지연을 줄이는 방법을 설명하기 위해 [Azure의 RHEL에서 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 변경
+- 2021년 7월 1일: [HLI에 사용 가능한 SKU](./hana-available-skus.md)에 새로 인증된 HANA Large Instances SKU 추가 
+- 2021년 6월 30일: 권장 SAP 프로필 매개 변수에 대한 섹션을 추가하도록 [WSFC 및 SMB(Azure NetApp Files)를 사용하는 SAP ASCS/SCS에 대한 HA 가이드](./high-availability-guide-windows-netapp-files-smb.md) 변경 
+- 2021년 6월 29일: fence_kdump가 포함된 선택적 stonith 구성을 추가하기 위해 [Azure에서 RHEL의 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 문서 변경
+- 2021년 6월 28일: SAP 호스트 이름 길이 제한이 발생하지 않도록 SMB 서버(컴퓨터 계정) .접두어가 8자를 초과하지 않아야 한다는 내용을 추가하기 위해 [WSFC 및 SMB(Azure NetApp Files)를 사용하는 SAP ASCS/SCS에 대한 HA 가이드](./high-availability-guide-windows-netapp-files-smb.md) 변경
+- 2020년 6월 17일: HANA 리소스 만들기 명령(RHEL 8.x)에서 메타 키워드를 제거하기 위해 [RHEL의 Azure VM에서 SAP HANA 고가용성](./sap-hana-high-availability-rhel.md) 변경
 - 2021년 6월 9일: [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md)에서 M192---_v2 대한 VM SKU 이름 수정
 - 2021년 5월 26일: [SLES의 Azure VM에서 Pacemaker를 사용한 SAP HANA 스케일 아웃 HSR](./sap-hana-high-availability-scale-out-hsr-suse.md), [RHEL에서 ANF를 사용한 SAP HANA 스케일 업의 HA](./sap-hana-high-availability-netapp-files-red-hat.md), [RHEL의 Azure VM에서 Pacemaker를 사용한 SAP HANA 스케일 아웃 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md) 변경으로 ANF에서 HANA를 실행하기 위한 OS를 준비하는 구성 추가  
 - 2021년 5월 13일: [Azure의 SLES에서 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 변경으로 리소스 에이전트 azure-events의 작동 방식을 명확히 함 

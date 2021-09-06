@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 03/16/2020
-ms.openlocfilehash: c82f68ee35ae95a424c0847be9a9cc770185af43
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 3fe1862f951b83c6514bda061650b912e9230e46
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005738"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537615"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>호스트된 시험 사용에 대한 Azure Marketplace 구독 설정
 
@@ -58,7 +58,7 @@ ms.locfileid: "112005738"
         1. **애플리케이션 관리** 에서 **인증서 및 비밀** 을 선택합니다.
         2. 클라이언트 비밀 아래에서 **+ 새 클라이언트 비밀** 을 선택합니다.
         3. *시험 사용* 과 같은 설명을 입력하고 적절한 기간을 선택합니다. 시험 사용은 이 키가 만료되면 중단됩니다. 이 시점에서 AppSource에 새 키를 생성하고 제공해야 합니다.
-        4. **추가** 를 선택하여 Azure 앱 비밀을 생성합니다. 이 블레이드는 정리되는 대로 숨겨지므로 이 값을 복사합니다. 이 값은 나중에 시험 사용을 구성할 때 필요합니다.
+        4. **추가** 를 선택하여 Azure 앱 비밀을 생성합니다. 이 블레이드는 나가는 대로 숨겨지므로 이 값을 복사합니다. 이 값은 나중에 시험 사용을 구성할 때 필요합니다.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="클라이언트 암호 만들기.":::
 
@@ -72,7 +72,33 @@ ms.locfileid: "112005738"
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="계정에 로그인.":::
 
-6. 위에서 만든 Azure 앱을 시험 사용 CRM 인스턴스에 애플리케이션 사용자로 추가합니다.
+6. 새 보안 그룹을 만들고 캔버스 앱(Power Apps)에 추가합니다. 이 단계는 캔버스 앱(Power Apps) 제품에만 적용됩니다.
+    1. 새 보안 그룹을 만듭니다.
+        1. **Azure Active Directory** 로 이동합니다.
+        1. **관리** 에서 **그룹** 을 선택합니다.
+        1. **+ 새 그룹** 을 선택합니다.
+        1. **보안 그룹** 형식을 선택합니다. 
+        1. **그룹 이름** 에 대해 *TestDriveSecurityGroup* 을 입력합니다.
+        1. **시험 사용에 대한 보안 그룹** 과 같은 설명을 추가합니다.
+        1. 다른 필드는 기본값으로 유지하고 **만들기** 를 선택합니다.
+
+            :::image type="content" source="./media/test-drive/create-new-group.png" alt-text="새 보안 그룹을 만드는 방법을 보여 줍니다.":::
+
+    1. 캔버스 앱(Power Apps)에 만든 보안 그룹을 추가합니다.
+        1. **PowerApps** 포털 페이지를 열고 로그인합니다.
+        1. **앱** 을 선택한 다음, 앱에서 줄임표를 선택합니다.
+        1. **공유** 를 선택합니다.
+        1. 이전 단계에서 만든 **TestDriveSecurityGroup** 보안 그룹을 검색합니다.
+        1. 보안 그룹에 **데이터 권한** 을 추가합니다.
+        1. **이메일 보내기** 초대 확인란의 선택을 취소합니다.
+        1. **공유** 를 선택합니다.
+    
+            > [!NOTE]
+            > 캔버스 앱(Power Apps)에 대한 CE/Dataverse 이외의 백 엔드 데이터 원본을 사용하는 경우:
+            > - 위의 생성된 보안 그룹이 데이터 원본에 액세스할 수 있도록 허용합니다. 예를 들어 SharePoint 데이터 원본입니다.
+            > - SharePoint를 열고 보안 그룹과 데이터 테이블을 공유합니다.
+
+7. 방금 만든 Azure 앱을 시험 사용 CRM 인스턴스에 애플리케이션 사용자로 추가합니다. 이 단계는 Dynamics 365 고객 참여 제품에만 적용됩니다.
     1. **Azure Active Directory** 에 새 사용자를 추가합니다. 사용자를 만드는 데는 동일한 테넌트에 속하는 **이름** 및 **사용자 이름** 값만 필요하며 다른 필드는 기본값으로 둡니다. 사용자 이름 값을 복사합니다.
     2. **CRM 인스턴스** 에 로그인하고 **설정** > **보안** > **사용자** 를 선택합니다.
     3. **애플리케이션 사용자** 로 보기를 변경합니다.
@@ -128,7 +154,7 @@ ms.locfileid: "112005738"
         1. **애플리케이션 관리** 에서 **인증서 및 비밀** 을 선택합니다.
         2. 클라이언트 비밀 아래에서 **+ 새 클라이언트 비밀** 을 선택합니다.
         3. *시험 사용* 과 같은 설명을 입력하고 적절한 기간을 선택합니다. 시험 사용은 이 키가 만료되면 중단됩니다. 이 시점에서 AppSource에 새 키를 생성하고 제공해야 합니다.
-        4. **추가** 를 선택하여 Azure 앱 비밀을 생성합니다. 이 블레이드는 정리되는 대로 숨겨지므로 이 값을 복사합니다. 이 값은 나중에 시험 사용을 구성할 때 필요합니다.
+        4. **추가** 를 선택하여 Azure 앱 비밀을 생성합니다. 이 블레이드는 나가는 대로 숨겨지므로 이 값을 복사합니다. 이 값은 나중에 시험 사용을 구성할 때 필요합니다.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="클라이언트 암호 만들기.":::
 

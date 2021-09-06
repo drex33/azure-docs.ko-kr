@@ -18,6 +18,9 @@ highlightedContent:
     - title: Azure Media Services(v3) 정보
       itemType: overview
       url: ./latest/media-services-overview.md
+    - title: Azure Media Services(v2) 정보
+      itemType: overview
+      url: ./previous/media-services-overview.md
     - title: Azure Media Services(v3) 개념
       itemType: concept
       url: ./latest/concepts-overview.md
@@ -112,13 +115,13 @@ conceptualContent:
           text: 얼굴 감지 및 교정
     - title: 프로토콜 및 사양
       links:
-        - url: media-services-specifications-live-timed-metadata.md
+        - url: ./previous/media-services-specifications-live-timed-metadata.md
           itemType: concept
           text: 라이브 스트리밍의 시간 제한 메타데이터(RTMP 및 부드러운 스트리밍)
-        - url: media-services-specifications-ms-sstr-amendment-hevc.md
+        - url: ./previous/media-services-specifications-ms-sstr-amendment-hevc.md
           itemType: concept
           text: HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항
-        - url: media-services-fmp4-live-ingest-overview.md
+        - url: ./previous/media-services-fmp4-live-ingest-overview.md
           itemType: concept
           text: 부드러운 스트리밍 수집 프로토콜
     - title: v2 API에서 마이그레이션

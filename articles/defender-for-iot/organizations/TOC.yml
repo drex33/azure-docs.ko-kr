@@ -39,8 +39,11 @@
           displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate'
           href: how-to-identify-required-appliances.md
         - name: 네트워크 설정
-          displayName: 'passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, tunnel, monitoring, tuning, QOS, QoS, Quality of Service'
+          displayName: 'passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning, QOS, QoS, Quality of Service, LDAP, tunnel'
           href: how-to-set-up-your-network.md
+        - name: 인증서 배포
+          displayName: 'SSL, TLS, PKI, Locally-signed, CA-signed'
+          href: how-to-deploy-certificates.md
         - name: 소프트웨어 설치
           displayName: 'tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports'
           href: how-to-install-software.md
@@ -71,7 +74,7 @@
     - name: 사용자 및 사용자 액세스 관리
       items:
         - name: 사용자 만들기 및 관리
-          displayName: 'Active Directory, roles, permissions, password'
+          displayName: 'Active Directory, roles, permissions, password, LDAP'
           href: how-to-create-and-manage-users.md
         - name: 전역 사용자 액세스 제어 정의
           href: how-to-define-global-user-access-control.md

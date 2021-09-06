@@ -3,12 +3,12 @@ title: 개념 - 허브 및 스포크 아키텍처에서 Azure VMware Solution �
 description: Azure의 허브 및 스포크 아키텍처에서 Azure VMware Solution 배포를 통합하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: bfc442e569572349b1323500fbd0b2f912ebbc62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ed815904b8bb15b9822fbc9603b65e20ccdce43
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99062748"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529643"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware Solution 통합
 
@@ -32,7 +32,7 @@ ms.locfileid: "99062748"
 
 이 다이어그램은 ExpressRoute Global Reach를 통해 온-프레미스 및 Azure VMware Solution에 연결된 Azure의 허브 및 스포크 배포 예제를 보여 줍니다.
 
-:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution 허브 및 스포크 통합 배포" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
+:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub 및 Spoke 통합 배포를 보여주는 다이어그램." border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
 
 이 아키텍처의 주요 구성 요소는 다음과 같습니다.
 
@@ -52,9 +52,9 @@ ms.locfileid: "99062748"
 
 - **스포크 가상 네트워크**
 
-    - **IaaS 스포크:** IaaS 스포크는 VM 가용성 집합, 가상 머신 확장 집합 및 해당 네트워크 구성 요소를 비롯한 Azure IaaS 기반 워크로드를 호스트합니다.
+    - **IaaS Spoke:** VM 가용성 집합, 가상 머신 확장 집합 및 해당 네트워크 구성 요소를 비롯한 Azure IaaS 기반 워크로드를 호스트합니다.
 
-    - **PaaS 스포크:** PaaS 스포크에서는 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md) 및 [Private Link](../private-link/private-link-overview.md) 덕분에 프라이빗 주소 지정을 사용하여 Azure PaaS 서비스를 호스트합니다.
+    - **PaaS Spok:** [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md) 및 [Private Link](../private-link/private-link-overview.md) 덕분에 프라이빗 주소 지정을 사용하여 Azure PaaS 서비스를 호스트합니다.
 
 - **Azure Firewall:** 스포크와 Azure VMware Solution 간에 트래픽을 분할하는 중앙 부분으로 작동합니다.
 
@@ -68,23 +68,23 @@ ExpressRoute 게이트웨이는 연결된 회로 간에 전이적 라우팅을 �
 
 * **온-프레미스에서 Azure VMware Solution으로의 트래픽 흐름**
 
-  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="온-프레미스에서 Azure VMware Solution으로의 트래픽 흐름" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="온-프레미스에서 Azure VMware Solution으로의 트래픽 흐름을 보여주는 다이어그램." border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Azure VMware Solution에서 허브 VNET으로의 트래픽 흐름**
 
-  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution에서 허브 가상 네트워크로의 트래픽 흐름" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution에서 허브 가상 네트워크로의 트래픽 흐름을 보여주는 다이어그램." border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 Azure VMware Solution 네트워킹 및 연결 개념에 대한 자세한 내용은 [Azure VMware Solution 제품 설명서](./concepts-networking.md)를 참조하세요.
 
 ### <a name="traffic-segmentation"></a>트래픽 구분
 
-[Azure Firewall](../firewall/index.yml)은 허브 가상 네트워크에 배포되는 허브 및 스포크 토폴로지의 중앙 부분입니다. Azure Firewall 또는 다른 Azure 지원 네트워크 가상 어플라이언스를 사용하여 트래픽 규칙을 설정하고 여러 스포크 및 Azure VMware Solution 워크 로드 간에 통신을 구분합니다.
+[Azure Firewall](../firewall/index.yml)은 허브 가상 네트워크에 배포되는 허브 및 스포크 토폴로지의 중앙 부분입니다. Azure Firewall 또는 다른 Azure 지원 NVA(네트워크 가상 어플라이언스)를 사용하여 트래픽 규칙을 설정하고 여러 스포크 및 Azure VMware Solution 워크로드 간에 통신을 구분합니다.
 
 경로 테이블을 만들어 트래픽을 Azure Firewall로 보냅니다.  스포크 가상 네트워크의 경우 기본 경로를 Azure Firewall의 내부 인터페이스로 설정하는 경로를 만듭니다. 이러한 방식으로 Virtual Network의 워크로드가 Azure VMware Solution 주소 공간에 도달해야 하는 경우 방화벽은 이를 평가하고 해당 트래픽 규칙을 적용하여 허용하거나 거부할 수 있습니다.  
 
-:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="경로 테이블을 만들어 트래픽을 Azure Firewall로 보내기" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
+:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Azure Firewall로 트래픽을 보내기 위한 경로 테이블을 보여주는 스크린샷." lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
 
 
 > [!IMPORTANT]
@@ -92,7 +92,7 @@ Azure VMware Solution 네트워킹 및 연결 개념에 대한 자세한 내용�
 
 해당 경로 테이블에 특정 네트워크의 경로를 설정합니다. 스포크 워크로드에서 Azure VMware Solution 관리 및 워크로드 IP 접두사에 도달하는 경로 및 반대 경로를 예로 들 수 있습니다.
 
-:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="해당 경로 테이블에 특정 네트워크의 경로 설정" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
+:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="해당 경로 테이블의 특정 네트워크에 대해 설정된 경로를 보여주는 스크린샷." lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
 
 스포크 및 허브 내의 네트워크 보안 그룹을 사용하여 두 번째 수준의 트래픽 구분을 통해 보다 세분화된 트래픽 정책을 만들 수 있습니다.
 
@@ -105,7 +105,7 @@ Azure Application Gateway V1 및 V2는 백 엔드 풀로 Azure VMware Solution V
 
 자세한 내용은 [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md)에 대한 Azure VMware Solution 관련 문서를 참조하세요.
 
-:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="네트워크 보안 그룹을 사용하는 트래픽 구분의 두 번째 수준" border="false":::
+:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="네트워크 보안 그룹을 사용하는 트래픽 구분의 두 번째 수준을 보여주는 다이어그램." border="false":::
 
 
 ### <a name="jump-box-and-azure-bastion"></a>점프 상자 및 Azure Bastion
@@ -115,13 +115,13 @@ Azure Application Gateway V1 및 V2는 백 엔드 풀로 Azure VMware Solution V
 >[!IMPORTANT]
 >Azure Bastion은 인터넷에 Azure VMware Solution을 노출하지 않도록 점프 상자에 연결하도록 권장되는 서비스입니다. Azure IaaS 개체가 아니므로 Azure Bastion을 사용하여 Azure VMware Solution VM에 연결할 수 없습니다.  
 
-보안 모범 사례로 허브 가상 네트워크 내에 [Microsoft Azure Bastion](../bastion/index.yml) 서비스를 배포합니다. Azure Bastion을 사용하면 공용 IP 주소를 해당 리소스에 프로비저닝할 필요 없이, Azure에 배포된 VM에 RDP 및 SSH를 통해 원활하게 액세스할 수 있습니다. Azure Bastion 서비스를 프로비저닝하면 Azure Portal에서 선택한 VM에 액세스할 수 있습니다. 연결을 설정하면 점프 상자 데스크톱을 표시하는 새 탭이 열리고, 해당 데스크톱에서 Azure VMware Solution 프라이빗 클라우드 관리 평면에 액세스할 수 있습니다.
+보안 모범 사례로 허브 가상 네트워크 내에 [Microsoft Azure Bastion](../bastion/index.yml) 서비스를 배포합니다. Azure Bastion을 사용하면 공용 IP 주소를 해당 리소스에 제공하지 않고도 Azure에 배포된 VM에 RDP 및 SSH를 통해 원활하게 액세스할 수 있습니다. Azure Bastion 서비스를 프로비저닝하면 Azure Portal에서 선택한 VM에 액세스할 수 있습니다. 연결을 설정하면 점프 상자 데스크톱을 표시하는 새 탭이 열리고, 해당 데스크톱에서 Azure VMware Solution 프라이빗 클라우드 관리 평면에 액세스할 수 있습니다.
 
 > [!IMPORTANT]
 > 점프 박스 VM에 공용 IP 주소를 제공하거나 퍼블릭 인터넷에 3389/TCP 포트를 노출하지 마세요. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure Bastion 허브 가상 네트워크" border="false":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure Bastion Hub 가상 네트워크를 보여주는 다이어그램." border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Azure DNS 확인 고려 사항
@@ -134,7 +134,7 @@ Azure DNS 확인을 위해 다음 두 가지 옵션을 사용할 수 있습니�
 
 가장 좋은 방법은 Azure VMware Solution, 온-프레미스 및 Azure에 대해 신뢰할 수 있는 이름 확인을 제공하기 위해 두 가지를 결합하는 것입니다.
 
-일반적인 디자인 권장 사항으로 허브 가상 네트워크에 배포되고 스포크 가상 네트워크에 구성된 두 개 이상의 Azure VM에 배포된 기존 Azure DNS 인프라(이 경우 Active Directory 통합 DNS)를 사용하여 DNS 설정에서 해당 Azure DNS 서버를 사용합니다.
+일반적인 디자인 권장 사항으로 허브 가상 네트워크의 두 개 이상의 Azure VM에 배포되고 Spoke 가상 네트워크에서 구성된 기존 Active Directory 통합 DNS를 사용하여 DNS 설정에서 해당 Azure DNS 서버를 사용합니다.
 
 Azure 프라이빗 DNS를 사용할 수 있습니다. 여기서 Azure 프라이빗 DNS 영역은 가상 네트워크에 연결됩니다.  DNS 서버는 온-프레미스에 대한 조건부 전달 또는 고객 Azure 프라이빗 DNS 인프라를 사용하여 DNS를 실행하는 Azure VMware Solution이 있는 하이브리드 확인자로 사용됩니다. 
 

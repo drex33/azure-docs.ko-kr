@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: cbc5ff51a576cf2c784192bc33b06018c6f116c8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fd364d07202a486bfa47c513af601aeefe595bb5
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472096"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437795"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>아웃바운드 규칙 Azure Load Balancer
 
@@ -22,7 +22,7 @@ ms.locfileid: "110472096"
 이 구성을 사용하면 다음을 수행할 수 있습니다.
 
 * IP 위장
-* 허용 목록 단순화
+* 허용 목록을 단순화합니다.
 * 배포할 공용 IP 리소스의 수 줄이기
 
 아웃바운드 규칙을 사용하여 아웃바운드 인터넷 연결을 완전하게 제어할 수 있습니다. 아웃바운드 규칙을 사용하면 이 기능을 스케일링하고 특정 요구에 맞게 조정할 수 있습니다. 
@@ -122,7 +122,7 @@ NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 
 #### <a name="details"></a>세부 정보
 
 
-이 시나리오를 사용하여 퍼블릭 IP 주소 세트에서 시작되는 아웃바운드 연결을 조정할 수 있습니다. 시작 위치에 따라 허용 또는 거부 목록에 공용 IP 또는 접두사를 추가합니다.
+이 시나리오를 사용하여 퍼블릭 IP 주소 세트에서 시작되는 아웃바운드 연결을 조정할 수 있습니다. 시작 위치에 따라 허용 또는 차단 목록에 공용 IP 또는 접두사를 추가합니다.
 
 
 이 공용 IP 또는 접두사는 부하 분산 규칙에서 사용하는 것과 동일할 수 있습니다. 
@@ -175,13 +175,13 @@ SNAT이 고갈되는 경우 기본값 1024에서 제공되는 [SNAT](load-balanc
 
 
 > [!NOTE]
-> **Azure Virtual Network NAT** 은 부하 분산 장치 없이도 가상 머신에 대한 아웃바운드 연결을 제공할 수 있습니다. 자세한 내용은 [Azure Virtual Network NAT란?](../virtual-network/nat-overview.md)을 참조하세요.
+> **Azure Virtual Network NAT** 은 부하 분산 장치 없이도 가상 머신에 대한 아웃바운드 연결을 제공할 수 있습니다. 자세한 내용은 [Azure Virtual Network NAT란?](../virtual-network/nat-gateway/nat-overview.md)을 참조하세요.
 
 ### <a name="scenario-4-outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>시나리오 4: VM 전용 아웃바운드 NAT(인바운드 없음)
 
 
 > [!NOTE]
-> **Azure Virtual Network NAT** 은 부하 분산 장치 없이도 가상 머신에 대한 아웃바운드 연결을 제공할 수 있습니다. 자세한 내용은 [Azure Virtual Network NAT란?](../virtual-network/nat-overview.md)을 참조하세요.
+> **Azure Virtual Network NAT** 은 부하 분산 장치 없이도 가상 머신에 대한 아웃바운드 연결을 제공할 수 있습니다. 자세한 내용은 [Azure Virtual Network NAT란?](../virtual-network/nat-gateway/nat-overview.md)을 참조하세요.
 
 #### <a name="details"></a>세부 정보
 
@@ -198,7 +198,7 @@ SNAT이 고갈되는 경우 기본값 1024에서 제공되는 [SNAT](load-balanc
 
 
 
-접두사 또는 공용 IP를 사용하여 [SNAT](load-balancer-outbound-connections.md) 포트 크기를 조정합니다. 허용 또는 거부 목록에 아웃바운드 연결의 원본을 추가합니다.
+접두사 또는 공용 IP를 사용하여 [SNAT](load-balancer-outbound-connections.md) 포트 크기를 조정합니다. 허용 또는 차단 목록에 아웃바운드 연결의 원본을 추가합니다.
 
 
 
@@ -206,7 +206,7 @@ SNAT이 고갈되는 경우 기본값 1024에서 제공되는 [SNAT](load-balanc
 
 
 > [!NOTE]
-> **Azure Virtual Network NAT** 는 내부 표준 부하 분산 장치를 활용하는 가상 머신에 대한 아웃바운드 연결을 제공할 수 있습니다. 자세한 내용은 [Azure Virtual Network NAT란?](../virtual-network/nat-overview.md)을 참조하세요.
+> **Azure Virtual Network NAT** 는 내부 표준 부하 분산 장치를 활용하는 가상 머신에 대한 아웃바운드 연결을 제공할 수 있습니다. 자세한 내용은 [Azure Virtual Network NAT란?](../virtual-network/nat-gateway/nat-overview.md)을 참조하세요.
 
 #### <a name="details"></a>세부 정보
 
@@ -255,4 +255,4 @@ SNAT이 고갈되는 경우 기본값 1024에서 제공되는 [SNAT](load-balanc
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 표준 Load Balancer](load-balancer-overview.md)에 대한 자세한 정보
-- [Azure Load Balancer에 대한 질문과 대답](load-balancer-faqs.md) 참조
+- [Azure Load Balancer에 대한 질문과 대답](load-balancer-faqs.yml) 참조

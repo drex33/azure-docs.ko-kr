@@ -291,6 +291,8 @@ items:
             href: storage-blob-pageblob-overview.md
           - name: 정적 웹 사이트
             href: storage-blob-static-website.md
+          - name: Blob Storage 기능 지원
+            href: storage-feature-support-in-storage-accounts.md
       - name: 방법
         items:
           - name: 스토리지 계정 만들기 및 관리
@@ -474,8 +476,12 @@ items:
                     href: archive-rehydrate-to-online-tier.md
                   - name: Blob 리하이드레이션에 대한 이벤트 처리
                     href: archive-rehydrate-handle-event.md
-          - name: 개체 복제 구성
-            href: object-replication-configure.md
+          - name: 개체 복제 관리
+            items:
+              - name: 개체 복제 정책 구성
+                href: object-replication-configure.md
+              - name: 테넌트 간 개체 복제 방지
+                href: object-replication-prevent-cross-tenant-policies.md
           - name: 동시성 관리
             href: concurrency-manage.md
           - name: 스토리지 에뮬레이터 사용
@@ -634,6 +640,8 @@ items:
                 href: ../common/storage-explorer-direct-link.md
               - name: Storage Explorer 보안
                 href: ../common/storage-explorer-security.md
+              - name: Storage Explorer 일시 삭제
+                href: ../common/storage-explorer-soft-delete.md
               - name: Storage Explorer Blob 버전 관리
                 href: ../common/storage-explorer-blob-versioning.md
               - name: Storage Explorer가 Azure Blob 스토리지를 관리
@@ -757,7 +765,7 @@ items:
               - name: 멀티 프로토콜 액세스
                 href: data-lake-storage-multi-protocol-access.md
               - name: 지원되는 Blob 스토리지 기능
-                href: data-lake-storage-supported-blob-storage-features.md
+                href: storage-feature-support-in-storage-accounts.md
               - name: 지원되는 Azure 서비스
                 href: data-lake-storage-supported-azure-services.md
               - name: 지원되는 오픈 소스 플랫폼

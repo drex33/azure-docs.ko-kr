@@ -4,8 +4,6 @@
   items:
     - name: 디바이스 ID란?
       href: overview.md
-    - name: 엔터프라이즈 상태 로밍이란?
-      href: enterprise-state-roaming-overview.md
 - name: 자습서
   expanded: false
   items:
@@ -49,42 +47,44 @@
       href: device-management-azure-portal.md
     - name: 부실 디바이스 관리
       href: manage-stale-devices.md
-    - name: 엔터프라이즈 상태 로밍 사용
-      href: enterprise-state-roaming-enable.md
     - name: Azure Linux VMs 및 Azure AD
       href: howto-vm-sign-in-azure-ad-linux.md
     - name: Azure Windows VM 및 Azure AD
       href: howto-vm-sign-in-azure-ad-windows.md
     - name: 가상 데스크톱 인프라
       href: howto-device-identity-virtual-desktop-infrastructure.md
+    - name: 질문과 대답
+      href: faq.yml
     - name: 디바이스 ID 문제 해결
       items:
         - name: 하이브리드 Azure AD 조인 Windows 현재 디바이스 문제 해결
           href: troubleshoot-hybrid-join-windows-current.md
+        - name: 보류 중인 디바이스 상태 문제 해결
+          href: /troubleshoot/azure/active-directory/pending-devices
         - name: dsregcmd를 사용하여 문제 해결
           href: troubleshoot-device-dsregcmd.md
         - name: Windows 하위 수준 디바이스에 조인된 하이브리드 Azure AD 문제 해결
           href: troubleshoot-hybrid-join-windows-legacy.md
-        - name: 엔터프라이즈 상태 로밍 문제 해결
-          href: enterprise-state-roaming-troubleshooting.md
-    - name: 질문과 대답
+    - name: Enterprise State Roaming
       items:
-        - name: FAQ
-          href: faq.yml
+        - name: 엔터프라이즈 상태 로밍이란?
+          href: enterprise-state-roaming-overview.md
+        - name: 엔터프라이즈 상태 로밍 사용
+          href: enterprise-state-roaming-enable.md
         - name: 엔터프라이즈 상태 사용 FAQ
           href: enterprise-state-roaming-faqs.yml
+        - name: 엔터프라이즈 상태 로밍 문제 해결
+          href: enterprise-state-roaming-troubleshooting.md
+        - name: 엔터프라이즈 상태 로밍 GPO 설정
+          href: enterprise-state-roaming-group-policy-settings.md
+        - name: 엔터프라이즈 상태 로밍 Windows 설정
+          href: enterprise-state-roaming-windows-settings-reference.md
 - name: 참조
   items:
     - name: TLS 1.2 적용
       href: reference-device-registration-tls-1-2.md
-    - name: 엔터프라이즈 상태 로밍 GPO 설정
-      href: enterprise-state-roaming-group-policy-settings.md
-    - name: 엔터프라이즈 상태 로밍 Windows 설정
-      href: enterprise-state-roaming-windows-settings-reference.md
     - name: Graph API
-      items:
-        - name: 디바이스 ID API
-          href: /graph/api/resources/device
+      href: /graph/api/resources/device
 - name: 리소스
   items:
     - name: Azure 피드백 포럼

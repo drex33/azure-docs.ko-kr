@@ -330,6 +330,8 @@
       href: keyword-recognition-guidelines.md
     - name: 지역 지원
       href: keyword-recognition-region-support.md
+- name: 언어 식별
+  href: language-identification.md
 - name: 시나리오 심층 분석
   items:
     - name: 대화 시나리오
@@ -531,6 +533,8 @@
           href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
         - name: 고객 관리형 키 사용
           href: speech-encryption-of-data-at-rest.md
+        - name: 음성 사용자 지정 리소스를 백업 및 복구하는 방법
+          href: resiliency-and-recovery-plan.md
 - name: 디바이스
   items:
     - name: 음성 디바이스 설명서

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Files 설명서
-summary: Azure Files는 클라우드에서 SMB(서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는, 완전 관리형 플랫폼 간 파일 공유를 제공합니다.
+summary: 간단하고 안전한 서버리스 엔터프라이즈급 클라우드 파일 공유
 metadata:
   title: Azure Files 설명서
   description: Windows, Linux 및 macOS의 클라우드 또는 온-프레미스에서 파일 공유를 탑재하세요. Windows Server의 Azure 파일 공유를 Azure 파일 동기화와 함께 캐시하여 로컬 액세스를 이용할 수 있습니다.
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: roygara
   ms.author: rogarana
-  ms.date: 04/19/2021
-  ms.openlocfilehash: 56879a2b6efc0ae5e7278828a474d0197f37f255
-  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.date: 08/31/2021
+  ms.openlocfilehash: b5fb9f3419c4aa54fc7c614da84c62d31d760641
+  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/20/2021
-  ms.locfileid: "107761712"
+  ms.lasthandoff: 09/03/2021
+  ms.locfileid: "123427591"
 landingContent:
 - title: Azure Files 정보
   linkLists:

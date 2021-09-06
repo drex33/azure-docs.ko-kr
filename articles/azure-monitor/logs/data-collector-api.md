@@ -5,33 +5,29 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 7a2af7a050ec0203c0be6f8919309d0c849e7214
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 9c6be388d02ebec99a3ec9ad105cff68c6e3f1bd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752232"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536099"
 ---
-# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
-이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Azure Monitor로 로그 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 애플리케이션에서 수집한 데이터의 서식을 지정하고, 요청에 포함하며, 해당 요청에 대한 Azure Monitor의 인증을 받는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
+# <a name="send-log-data-to-azure-monitor-by-using-the-http-data-collector-api-preview"></a>HTTP 데이터 수집기 API를 사용하여 Azure Monitor에 로그 데이터 전송(미리 보기)
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Azure Monitor로 로그 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 애플리케이션에서 수집한 데이터의 서식을 지정하고, 요청에 포함하고, 해당 요청에 대한 Azure Monitor의 인증을 받는 방법을 설명합니다. Azure PowerShell, C# 및 Python 예제가 제공됩니다.
 
 > [!NOTE]
 > Azure Monitor HTTP 데이터 수집기 API는 공개 미리 보기로 제공되고 있습니다.
 
 ## <a name="concepts"></a>개념
-HTTP 데이터 수집기 API를 사용하여 REST API를 호출할 수 있는 클라이언트에서 Azure Monitor의 Log Analytics 작업 영역으로 로그 데이터를 전송할 수 있습니다.  Azure 또는 다른 클라우드에서 관리 데이터를 수집하는 Azure Automation의 Runbook이거나 Azure Monitor를 사용하여 로그 데이터를 통합하고 분석하는 대체 관리 시스템일 수 있습니다.
+HTTP 데이터 수집기 API를 사용하여 REST API를 호출할 수 있는 클라이언트에서 Azure Monitor의 Log Analytics 작업 영역으로 로그 데이터를 전송할 수 있습니다.  클라이언트는 Azure 또는 다른 클라우드에서 관리 데이터를 수집하는 Azure Automation의 Runbook이거나 Azure Monitor를 사용하여 로그 데이터를 통합하고 분석하는 대체 관리 시스템일 수 있습니다.
 
-Log Analytics 작업 영역의 모든 데이터는 특정 레코드 종류의 레코드로 저장됩니다.  JSON에서 여러 레코드로 HTTP 데이터 수집기 API에 보낼 데이터의 서식을 지정합니다.  데이터를 제출하면 개별 레코드가 요청 페이로드의 각 레코드에 대한 저장소에 만들어집니다.
+Log Analytics 작업 영역의 모든 데이터는 특정 레코드 종류의 레코드로 저장됩니다.  JSON(JavaScript Object Notation)에서 여러 레코드로 HTTP 데이터 수집기 API에 보낼 데이터의 서식을 지정합니다.  데이터를 제출하면 개별 레코드가 요청 페이로드의 각 레코드에 대한 저장소에 만들어집니다.
 
-
-![HTTP 데이터 수집기 개요](media/data-collector-api/overview.png)
-
-
+![HTTP 데이터 수집기 개요를 보여주는 스크린샷](media/data-collector-api/overview.png)
 
 ## <a name="create-a-request"></a>요청 만들기
-HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)에서 전송할 데이터가 포함된 POST 요청을 만듭니다.  다음 세 개 표에는 각 요청에 필요한 속성이 나와 있습니다. 이 문서의 뒷부분에서 각각의 속성에 대해 자세히 설명합니다.
+HTTP 데이터 수집기 API를 사용하려면 JSON에서 전송할 데이터가 포함된 POST 요청을 만듭니다. 다음 세 개 표에는 각 요청에 필요한 속성이 나와 있습니다. 이 문서의 뒷부분에서 각각의 속성에 대해 자세히 설명합니다.
 
 ### <a name="request-uri"></a>요청 URI
 | 특성 | 속성 |
@@ -39,25 +35,28 @@ HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)
 | 메서드 |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | 내용 유형 |application/json |
+| | |
 
 ### <a name="request-uri-parameters"></a>URI 매개 변수 요청
 | 매개 변수 | Description |
 |:--- |:--- |
 | CustomerID |Log Analytics 작업 영역에 대한 고유 식별자입니다. |
 | 리소스 |API 리소스 이름: /api/logs |
-| API 버전 |이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
+| API 버전 |이 요청에 사용하는 API의 버전입니다. 현재 버전은 2016-04-01입니다. |
+| | |
 
 ### <a name="request-headers"></a>요청 헤더
 | 헤더 | Description |
 |:--- |:--- |
 | 권한 부여 |권한 부여 서명입니다. 문서의 뒷부분에 HMAC-SHA256 헤더를 만드는 방법이 나와 있습니다. |
 | Log-Type |제출 중인 데이터의 레코드 종류를 지정합니다. 문자, 숫자 및 밑줄(_)만 포함할 수 있으며 100자를 초과할 수 없습니다. |
-| x-ms-date |RFC 1123 형식의 요청이 처리된 날짜입니다. |
-| x-ms-AzureResourceId | 데이터를 연결해야 하는 Azure 리소스의 리소스 ID입니다. 이렇게 하면 [_ResourceId](./log-standard-columns.md#_resourceid) 속성이 채워지고 데이터가 [리소스 컨텍스트](./design-logs-deployment.md#access-mode) 쿼리에 포함될 수 있습니다. 이 필드를 지정하지 않으면 데이터가 리소스 컨텍스트 쿼리에 포함되지 않습니다. |
+| x-ms-date |RFC 7234 형식의 요청이 처리된 날짜입니다. |
+| x-ms-AzureResourceId | 데이터를 연결해야 하는 Azure 리소스의 리소스 ID입니다. [_ResourceId](./log-standard-columns.md#_resourceid) 속성을 채우고 데이터가 [리소스 컨텍스트](./design-logs-deployment.md#access-mode) 쿼리에 포함되도록 허용합니다. 이 필드를 지정하지 않으면 데이터가 리소스 컨텍스트 쿼리에 포함되지 않습니다. |
 | time-generated-field | 데이터 항목의 타임스탬프가 포함된 데이터의 필드 이름입니다. 필드를 지정하면 그 내용이 **TimeGenerated** 에 사용됩니다. 이 필드를 지정하지 않으면 **TimeGenerated** 의 기본값은 메시지가 수집된 시간입니다. 메시지 필드의 내용은 ISO 8601 형식 YYYY-MM-DDThh:mm:ssZ를 따라야 합니다. |
+| | |
 
 ## <a name="authorization"></a>권한 부여
-Azure Monitor HTTP 데이터 수집기 API에 대한 모든 요청에는 인증 헤더가 포함되어야 합니다. 요청을 인증하려면 요청을 수행하는 작업 영역에 대한 기본 키 또는 보조 키를 통해 요청을 서명해야 합니다. 그런 다음 요청의 일부로 해당 서명을 전달합니다.   
+Azure Monitor HTTP 데이터 수집기 API에 대한 모든 요청에는 인증 헤더가 포함되어야 합니다. 요청을 인증하려면 요청을 수행하는 작업 영역에 대한 기본 키 또는 보조 키를 통해 요청을 서명합니다. 그런 다음 요청의 일부로 해당 서명을 전달합니다.   
 
 권한 부여 헤더의 형식은 다음과 같습니다.
 
@@ -92,7 +91,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 다음 섹션의 샘플은 권한 부여 헤더를 만드는 데 도움이 되는 예제 코드입니다.
 
 ## <a name="request-body"></a>요청 본문
-메시지의 본문은 JSON에 있어야 합니다. 다음 형식으로 속성 이름과 값 쌍을 갖는 하나 이상의 레코드를 포함해야 합니다. 속성 이름은 문자, 숫자 및 밑줄(_)만 포함할 수 있습니다.
+메시지의 본문은 JSON에 있어야 합니다. 다음 형식으로 속성 이름과 값 쌍을 갖는 하나 이상의 레코드를 포함해야 합니다. 속성 이름에는 문자, 숫자 및 밑줄(_)만 사용할 수 있습니다.
 
 ```json
 [
@@ -138,6 +137,7 @@ Azure Monitor HTTP 데이터 수집기 API를 통해 데이터를 제출할 때 
 | Double |_d |
 | 날짜/시간 |_t |
 | GUID(문자열로 저장) |_g |
+| | |
 
 > [!NOTE]
 > GUID로 표시되는 문자열 값에는 _g 접미사가 지정되고 들어오는 값에 대시가 포함되지 않더라도 GUID로 형식이 지정됩니다. 예를 들어 "8145d822-13a7-44ad-859c-36f31a84f6dd" 및 "8145d82213a744ad859c36f31a84f6dd"는 "8145d822-13a7-44ad-859c-36f31a84f6dd"로 저장됩니다. 이 문자열과 다른 문자열의 유일한 차이점은 이름에 _g가 있고 대시가 입력에 없는 경우 삽입된다는 것입니다. 
@@ -147,21 +147,21 @@ Azure Monitor가 각 속성에 사용하는 데이터 형식은 새 레코드의
 * 레코드 종류가 없는 경우 Azure Monitor는 JSON 형식 유추를 통해 새 레코드 종류를 만들어 새 레코드에 포함된 각 속성의 데이터 형식을 결정합니다.
 * 레코드 종류가 있는 경우 Azure Monitor는 기존 속성에 따라 새 레코드를 만들려고 합니다. 새 레코드에 포함된 속성의 데이터 형식이 일치하지 않고 기존 형식으로 변환할 수 없거나, 레코드가 존재하지 않는 속성을 포함하는 경우 Azure Monitor는 관련 접미사가 있는 새 속성을 만듭니다.
 
-예를 들어, 이 제출 항목은 **number_d**, **boolean_b**, **string_s** 등의 세 가지 속성이 있는 레코드를 만듭니다.
+예를 들어 다음 제출 항목은 **number_d**, **boolean_b**, **string_s** 등의 세 가지 속성이 있는 레코드를 만듭니다.
 
-![샘플 레코드 1](media/data-collector-api/record-01.png)
+![샘플 레코드 1의 스크린샷](media/data-collector-api/record-01.png)
 
-이후 모든 값을 문자열 형식으로 지정하여 다음 항목을 제출하면 속성이 변경되지 않습니다. 이러한 값은 기존 데이터 형식으로 변환할 수 있습니다.
+모든 값을 문자열 형식으로 지정하여 다음 항목을 제출하면 속성이 변경되지 않습니다. 값을 기존 데이터 형식으로 변환할 수 있습니다.
 
-![샘플 레코드 2](media/data-collector-api/record-02.png)
+![샘플 레코드 2의 스크린샷](media/data-collector-api/record-02.png)
 
-그러나 이 다음 제출을 실행하면 Azure Monitor가 새 속성 **boolean_d** 및 **string_d** 를 만듭니다. 이 값은 변환할 수 없습니다.
+그러나 이 다음 제출을 실행하면 Azure Monitor가 새 속성 **boolean_d** 및 **string_d** 를 만듭니다. 이러한 값은 변경할 수 없습니다.
 
-![샘플 레코드 3](media/data-collector-api/record-03.png)
+![샘플 레코드 3의 스크린샷](media/data-collector-api/record-03.png)
 
-이후에 다음 항목을 제출한 경우 레코드 종류가 생성되기 전에 Azure Monitor는 **number_s**, **boolean_s** 및 **string_s** 의 세 가지 속성을 가진 레코드를 만듭니다. 이 항목에서 각각의 초기 값은 문자열 형식이 됩니다.
+레코드 종류가 생성되기 전에 다음 항목을 제출하면 Azure Monitor는 **number_s**, **boolean_s** 및 **string_s** 의 세 가지 속성을 가진 레코드를 만듭니다. 이 항목에서 각각의 초기 값은 문자열 형식이 됩니다.
 
-![샘플 레코드 4](media/data-collector-api/record-04.png)
+![샘플 레코드 4의 스크린샷](media/data-collector-api/record-04.png)
 
 ## <a name="reserved-properties"></a>예약된 속성
 다음 속성은 예약되어 있으며 사용자 지정 레코드 형식에서 사용하면 안 됩니다. 페이로드에 이러한 속성 이름이 포함되어 있으면 오류가 발생합니다.
@@ -169,27 +169,27 @@ Azure Monitor가 각 속성에 사용하는 데이터 형식은 새 레코드의
 - tenant
 
 ## <a name="data-limits"></a>데이터 제한
-Azure Monitor 데이터 수집 API에 게시되는 데이터와 관련된 몇 가지 제약 조건이 있습니다.
+Azure Monitor 데이터 수집 API에 게시된 데이터에는 특정 제약 조건이 적용됩니다.
 
-* Azure Monitor 데이터 수집기 API에 대한 게시당 최대 30MB. 이는 단일 게시물에 대한 크기 제한입니다. 단일 게시물의 데이터가 30MB를 초과하는 경우 보다 작은 크기의 청크로 분할하여 동시에 보내야 합니다.
-* 최대 32KB의 필드 값 제한. 필드 값이 32KB보다 크면 데이터가 잘립니다.
-* 지정된 형식의 권장되는 최대 필드 수는 50개입니다. 이는 사용 편의성 및 검색 환경 관점에서의 실용적인 제한입니다.  
-* Log Analytics 작업 영역의 테이블은 최대 500개의 열(이 문서에서는 필드라고 함)만 지원합니다. 
-* 열 이름의 최대 문자 수는 500자입니다.
+* Azure Monitor 데이터 수집기 API에 대한 게시당 최대 30MB. 이는 단일 게시물에 대한 크기 제한입니다. 단일 게시물의 데이터가 30MB를 초과하는 경우 데이터를 보다 작은 크기의 청크로 분할하여 동시에 보내야 합니다.
+* 필드 값은 최대 32KB입니다. 필드 값이 32KB보다 크면 데이터가 잘립니다.
+* 특정 형식에 대해 권장하는 값은 최대 50개 필드입니다. 이는 사용 편의성 및 검색 환경 관점에서의 실용적인 제한입니다.  
+* Log Analytics 작업 영역에 있는 테이블은 최대 500개의 열(이 문서에서는 필드라고 함)만 지원합니다. 
+* 열 이름은 최대 50자입니다.
 
 ## <a name="return-codes"></a>반환 코드
-HTTP 상태 코드 200는 처리를 위한 요청을 받았다는 것을 의미합니다. 이 항목은 작업이 성공적으로 완료되었음을 나타냅니다.
+HTTP 상태 코드 200는 처리를 위한 요청을 받았다는 것을 의미합니다. 이 코드는 작업이 성공적으로 완료되었음을 나타냅니다.
 
-이 표는 서비스에서 반환할 수 있는 전체 상태 코드 집합을 보여 줍니다.
+서비스에서 반환할 수 있는 전체 상태 코드는 다음 표에 나열되어 있습니다.
 
 | 코드 | 상태 | 오류 코드 | Description |
 |:--- |:--- |:--- |:--- |
 | 200 |확인 | |요청이 성공적으로 수락되었습니다. |
 | 400 |잘못된 요청 |InactiveCustomer |작업 영역이 닫혔습니다. |
 | 400 |잘못된 요청 |InvalidApiVersion |지정한 API 버전이 서비스에서 인식되지 않았습니다. |
-| 400 |잘못된 요청 |InvalidCustomerId |지정된 작업 영역 ID가 올바르지 않습니다. |
+| 400 |잘못된 요청 |InvalidCustomerId |지정한 작업 영역 ID가 올바르지 않습니다. |
 | 400 |잘못된 요청 |InvalidDataFormat |잘못된 JSON이 제출되었습니다. 응답 본문에 오류 해결 방법에 관한 추가 정보가 포함될 수 있습니다. |
-| 400 |잘못된 요청 |InvalidLogType |지정한 로그 형식이 특수 문자나 숫자를 포함합니다. |
+| 400 |잘못된 요청 |InvalidLogType |지정한 로그 형식에 특수 문자 또는 숫자가 포함되어 있습니다. |
 | 400 |잘못된 요청 |MissingApiVersion |API 버전을 지정하지 않았습니다. |
 | 400 |잘못된 요청 |MissingContentType |콘텐츠 형식을 지정하지 않았습니다. |
 | 400 |잘못된 요청 |MissingLogType |필요한 값 로그 형식을 지정하지 않았습니다. |
@@ -199,19 +199,20 @@ HTTP 상태 코드 200는 처리를 위한 요청을 받았다는 것을 의미�
 | 429 |너무 많은 요청 | | 서비스 계정에서 많은 양의 데이터가 발생했습니다. 요청을 나중에 다시 시도하세요. |
 | 500 |내부 서버 오류 |UnspecifiedError |서비스에 내부 오류가 발생했습니다. 요청을 다시 시도하세요. |
 | 503 |서비스를 사용할 수 없음 |ServiceUnavailable |현재 서비스가 요청을 받을 수 없습니다. 요청을 다시 시도하세요. |
+| | |
 
 ## <a name="query-data"></a>쿼리 데이터
-Azure Monitor HTTP 데이터 수집기 API에서 제출한 데이터를 쿼리하려면 지정한 **LogType** 값에 **_CL** 을 추가한 형식과 같은 **형식** 의 레코드를 검색합니다. 예를 들어 **MyCustomLog** 를 사용한 경우 `MyCustomLog_CL`이 포함된 레코드를 모두 반환합니다.
+Azure Monitor HTTP 데이터 수집기 API에서 제출한 데이터를 쿼리하려면 **_CL** 에서 지정하고 추가한 **LogType** 과 **형식** 이 같은 레코드를 검색합니다. 예를 들어 **MyCustomLog** 를 사용한 경우 `MyCustomLog_CL`이 포함된 레코드를 모두 반환합니다.
 
 ## <a name="sample-requests"></a>샘플 요청
-다음 섹션에서는 다양한 프로그래밍 언어를 사용하여 Azure Monitor HTTP 데이터 수집기 API에 데이터를 제출하는 방법의 샘플을 제공합니다.
+다음 섹션에서는 다양한 프로그래밍 언어를 사용하여 Azure Monitor HTTP 데이터 수집기 API에 데이터를 제출하는 방법을 보여주는 샘플을 제공합니다.
 
-각각의 샘플에서 다음 절차를 통해 권한 부여 헤더에 대한 변수를 설정합니다.
+각 샘플에서 다음을 수행하여 권한 부여 헤더에 대한 변수를 설정합니다.
 
 1. Azure Portal에서 Log Analytics 작업 영역을 찾습니다.
 2. **에이전트 관리** 를 선택합니다.
-2. **작업 영역 ID** 오른쪽에서 복사 아이콘을 선택한 다음 이 ID를 **고객 ID** 변수의 값으로 붙여넣습니다.
-3. **기본 키** 오른쪽에서 복사 아이콘을 선택한 다음 이 ID를 **공유 키** 변수의 값으로 붙여넣습니다.
+2. **작업 영역 ID** 오른쪽에서 **복사** 아이콘을 선택한 다음, 이 ID를 **고객 ID** 변수의 값으로 붙여넣습니다.
+3. **기본 키** 오른쪽에서 **복사** 아이콘을 선택한 다음, 이 ID를 **공유 키** 변수의 값으로 붙여넣습니다.
 
 또는 로그 형식 및 JSON 데이터에 대한 변수를 변경할 수 있습니다.
 
@@ -597,7 +598,7 @@ public class ApiExample {
     String stringToHash = String
         .join("\n", httpMethod, String.valueOf(json.getBytes(StandardCharsets.UTF_8).length), contentType,
             xmsDate , resource);
-    String hashedString = getHMAC254(stringToHash, sharedKey);
+    String hashedString = getHMAC256(stringToHash, sharedKey);
     String signature = "SharedKey " + workspaceId + ":" + hashedString;
 
     postData(signature, dateString, json);
@@ -605,7 +606,7 @@ public class ApiExample {
 
   private static String getServerTime() {
     Calendar calendar = Calendar.getInstance();
-    SimpleDateFormat dateFormat = new SimpleDateFormat(RFC_1123_DATE);
+    SimpleDateFormat dateFormat = new SimpleDateFormat(RFC_1123_DATE, Locale.US);
     dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
     return dateFormat.format(calendar.getTime());
   }
@@ -626,14 +627,14 @@ public class ApiExample {
     }
   }
 
-  private static String getHMAC254(String input, String key) throws InvalidKeyException, NoSuchAlgorithmException {
+  private static String getHMAC256(String input, String key) throws InvalidKeyException, NoSuchAlgorithmException {
     String hash;
-    Mac sha254HMAC = Mac.getInstance("HmacSHA256");
+    Mac sha256HMAC = Mac.getInstance("HmacSHA256");
     Base64.Decoder decoder = Base64.getDecoder();
     SecretKeySpec secretKey = new SecretKeySpec(decoder.decode(key.getBytes(StandardCharsets.UTF_8)), "HmacSHA256");
-    sha254HMAC.init(secretKey);
+    sha256HMAC.init(secretKey);
     Base64.Encoder encoder = Base64.getEncoder();
-    hash = new String(encoder.encode(sha254HMAC.doFinal(input.getBytes(StandardCharsets.UTF_8))));
+    hash = new String(encoder.encode(sha256HMAC.doFinal(input.getBytes(StandardCharsets.UTF_8))));
     return hash;
   }
 
@@ -644,13 +645,14 @@ public class ApiExample {
 
 
 ## <a name="alternatives-and-considerations"></a>대안 및 고려 사항
-데이터 수집기 API는 Azure Logs에 자유 형식 데이터를 수집해야 하는 대부분의 요구를 충족해야 하지만, API의 일부 제한 사항을 극복하려면 대안이 필요할 수 있는 경우가 있습니다. 모든 옵션은 다음과 같으며 주요 고려 사항이 포함되어 있습니다.
+
+데이터 수집기 API는 Azure Logs에 자유 형식 데이터를 수집해야 하는 대부분의 요구 사항을 충족하지만, API의 일부 제한을 극복하기 위한 대안이 필요할 수도 있습니다. 주요 고려 사항을 비롯한 옵션이 다음 표에 나와 있습니다.
 
 | 대체 | Description | 가장 적합한 용도 |
 |---|---|---|
-| [사용자 지정 이벤트:](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties) Application Insights의 네이티브 SDK 기반 수집 | 일반적으로 애플리케이션 내에서 SDK를 통해 계측되는 Application Insights는 사용자 지정 이벤트를 통해 사용자 지정 데이터를 전송할 수 있는 기능을 제공합니다. | <ul><li> 애플리케이션 내에서 생성되지만 기본 데이터 형식(요청, 종속성, 예외 등) 중 하나를 통해 SDK에서 선택하지 않는 데이터입니다.</li><li> Application Insights의 다른 애플리케이션 데이터와 가장 상관 관계가 있는 데이터 </li></ul> |
-| Azure Monitor Logs의 데이터 수집기 API | Azure Monitor Logs의 데이터 수집기 API는 데이터를 수집하는 완전히 개방형 방식입니다. JSON 개체에 형식이 지정된 모든 데이터는 여기에서 전송할 수 있습니다. 전송되고 나면 Logs의 다른 데이터와 상관 관계를 지정하거나 다른 Application Insights 데이터와 상관 관계를 지정할 수 있습니다. <br/><br/> 이러한 파일을 처리하고 Log Analytics에 업로드하는 위치에서 Azure Blob에 데이터를 파일로 쉽게 업로드할 수 있습니다. 이러한 파이프라인의 샘플 구현에 대해서는 [이](./create-pipeline-datacollector-api.md) 문서를 참조하세요. | <ul><li> Application Insights 내에 계측된 애플리케이션 내에서 생성할 필요가 없는 데이터</li><li> 예: 조회 및 팩트 테이블, 참조 데이터, 미리 집계된 통계 등 </li><li> 다른 Azure Monitor 데이터(Application Insights, 기타 Logs 데이터 형식, Security Center, Container Insights/VM 등)에 대해 상호 참조되는 데이터 </li></ul> |
-| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | ADX(Azure Data Explorer)는 Application Insights Analytics 및 Azure Monitor Logs를 지원하는 데이터 플랫폼입니다. 이제 원시 형식의 일반 공급("GA") 데이터 플랫폼을 사용하면 클러스터(Kubernetes RBAC, 보존률, 스키마 등)를 통해 완전한 유연성을 얻을 수 있지만 관리 오버헤드가 필요합니다. ADX는 [CSV, TSV 및 JSON](/azure/kusto/management/mappings) 파일을 비롯한 다양한 [수집 옵션](/azure/data-explorer/ingest-data-overview#ingestion-methods)을 제공합니다. | <ul><li> Application Insights 또는 Logs의 다른 데이터와 상관 관계가 없는 데이터 </li><li> 현재는 고급 수집 또는 처리 기능을 필요로 하는 데이터를 Azure Monitor Logs에서 사용할 수 없습니다. </li></ul> |
+| [사용자 지정 이벤트:](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties) Application Insights의 네이티브 SDK 기반 수집 | 일반적으로 애플리케이션 내에서 SDK를 통해 계측되는 Application Insights는 사용자 지정 이벤트를 통해 사용자 지정 데이터를 전송할 수 있는 기능을 제공합니다. | <ul><li> 애플리케이션 내에서 생성되지만 기본 데이터 형식(요청, 종속성, 예외 등) 중 하나를 통해 SDK에서 선택하지 않는 데이터</li><li> Application Insights의 다른 애플리케이션 데이터와 가장 상관 관계가 있는 데이터 </li></ul> |
+| Azure Monitor Logs의 데이터 수집기 API | Azure Monitor Logs의 데이터 수집기 API는 데이터를 수집하는 완전히 개방형 방식입니다. JSON 개체에 형식이 지정된 모든 데이터는 여기에서 전송할 수 있습니다. 전송된 데이터는 처리 과정을 거쳐 Monitor Logs의 다른 데이터와 상관 관계를 지정하거나 다른 Application Insights 데이터와 상관 관계를 지정할 수 있게 됩니다. <br/><br/> 데이터를 Azure Blob Storage에 파일로 쉽게 업로드할 수 있으며, 여기에서 파일이 처리되어 Log Analytics에 업로드됩니다. 구현 샘플은 [데이터 수집기 API를 사용하여 데이터 파이프라인 만들기](./create-pipeline-datacollector-api.md)를 참조하세요. | <ul><li> Application Insights 내에서 계측된 애플리케이션 내에서 생성할 필요가 없는 데이터<br>예: 조회 및 팩트 테이블, 참조 데이터, 미리 집계된 통계 등 </li><li> 다른 Azure Monitor 데이터(Application Insights, 기타 Monitor Logs 데이터 형식, Security Center, Container Insights, 가상 머신 등)에 대해 상호 참조되는 데이터 </li></ul> |
+| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | 이제 일반 공급되는 Azure Data Explorer는 Application Insights Analytics 및 Azure Monitor Logs를 구동하는 데이터 플랫폼입니다. 원시 형식의 데이터 플랫폼을 사용하면 클러스터(Kubernetes RBAC(역할 기반 액세스 제어), 보존율, 스키마 등)를 통해 완전한 유연성을 얻을 수 있지만 관리 오버헤드가 필요합니다. Azure Data Explorer는 [CSV, TSV 및 JSON](/azure/kusto/management/mappings) 파일을 비롯한 다양한 [수집 옵션](/azure/data-explorer/ingest-data-overview#ingestion-methods)을 제공합니다. | <ul><li> Application Insights 또는 Monitor Logs의 다른 데이터와 상관 관계가 없는 데이터 </li><li> 현재 Azure Monitor 로그에 없는 고급 수집 또는 처리 기능이 필요한 데이터 </li></ul> |
 
 
 ## <a name="next-steps"></a>다음 단계

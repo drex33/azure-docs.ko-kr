@@ -5,17 +5,17 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: DavidTrigano
-ms.author: datrigan
+author: Rupp29
+ms.author: arupp
 ms.reviewer: vanto
-ms.date: 08/01/2021
+ms.date: 08/25/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 5a911b7855e74b241b2281c1e466f7f9236730af
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 5750192116b9d6008bf1bb903dd36875b6939ffb
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597260"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866484"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -271,10 +271,10 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 **REST API**:
 
-- [데이터베이스 감사 정책 만들기 또는 업데이트](/rest/api/sql/2017-03-01-preview/server-auditing-settings/create-or-update)
-- [서버 감사 정책 만들기 또는 업데이트](/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [데이터베이스 감사 정책 만들기 또는 업데이트](/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [서버 감사 정책 만들기 또는 업데이트](/rest/api/sql/2017-03-01-preview/server-auditing-settings/create-or-update)
 - [데이터베이스 감사 정책 가져오기](/rest/api/sql/database%20auditing%20settings/get)
-- [서버 감사 정책 가져오기](/rest/api/sql/2017-03-01-preview/server-auditing-settings/get) 
+- [서버 감사 정책 가져오기](/rest/api/sql/2017-03-01-preview/server-auditing-settings/get)
 
 WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입니다.
 

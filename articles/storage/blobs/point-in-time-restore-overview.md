@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b959038753dd15282de357da746ef9b0e0cf2be5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d98c239da9c415da0a87f0eecad20af147802aca
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802270"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567788"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>블록 BLOB에 대한 특정 시점 복원
 
@@ -78,9 +78,10 @@ Azure Storage는 요청된 복원 지점(UTC 시간)과 현재 시점 사이의 
 
 블록 BLOB에 대한 특정 시점 복원에는 다음과 같은 제한 사항 및 알려진 문제가 있습니다.
 
-- 표준 범용 v2 스토리지 계정의 블록 BLOB만 특정 시점 복원 작업의 일부로 복원할 수 있습니다. 추가 BLOB, 페이지 BLOB, 프리미엄 블록 BLOB은 복원되지 않습니다. 
-- 보존 기간 중 컨테이너를 삭제한 경우 해당 컨테이너는 특정 시점 복원 작업으로 복원되지 않습니다. 삭제된 컨테이너에 포함된 BLOB이 있는 BLOB 범위의 복원을 시도하면 특정 시점 복원 작업이 실패합니다. 컨테이너 삭제를 방지하는 방법에 대한 자세한 내용은 [컨테이너의 일시 삭제(미리 보기)](soft-delete-container-overview.md)를 참조하세요.
-- BLOB이 현재 시점과 복원 지점 사이에 핫과 쿨 계층 사이를 이동한 경우 BLOB은 이전 계층으로 복원됩니다. 보관 계층에서는 블록 BLOB 복원이 지원되지 않습니다. 예를 들어 핫 계층의 Blob을 2일 전에 보관 계층으로 이동하고 복원 작업이 3일 전 지점으로 복원하면 Blob이 핫 계층으로 복원되지 않습니다. 보관된 BLOB을 복원하려면 먼저 보관 계층 외부로 이동합니다. 자세한 내용은 [보관 계층에서 BLOB 데이터 리하이드레이션](storage-blob-rehydration.md)을 참조하세요.
+- 표준 범용 v2 스토리지 계정의 블록 BLOB만 특정 시점 복원 작업의 일부로 복원할 수 있습니다. 추가 BLOB, 페이지 BLOB, 프리미엄 블록 BLOB은 복원되지 않습니다.
+- 보존 기간 중 컨테이너를 삭제한 경우 해당 컨테이너는 특정 시점 복원 작업으로 복원되지 않습니다. 삭제된 컨테이너에 포함된 BLOB이 있는 BLOB 범위의 복원을 시도하면 특정 시점 복원 작업이 실패합니다. 컨테이너 삭제를 방지하는 방법에 대한 자세한 내용은 [컨테이너의 일시 삭제](soft-delete-container-overview.md)를 참조하세요.
+- BLOB이 현재 시점과 복원 지점 사이에 핫과 쿨 계층 사이를 이동한 경우 BLOB은 이전 계층으로 복원됩니다. 보관 계층에서는 블록 BLOB 복원이 지원되지 않습니다. 예를 들어 핫 계층의 Blob을 2일 전에 보관 계층으로 이동하고 복원 작업이 3일 전 지점으로 복원하면 Blob이 핫 계층으로 복원되지 않습니다. 보관된 BLOB을 복원하려면 먼저 보관 계층 외부로 이동합니다. 자세한 내용은 [보관 계층의 Blob 리하위드레이션 개요](archive-rehydrate-overview.md)를 참조하세요.
+- 불변성 정책을 구성한 경우 복원 작업을 시작할 수 있지만, 불변성 정책에 따라 보호되는 모든 Blob은 수정되지 않습니다. 이 경우 복원 작업 시 지정된 날짜 및 시간에 일관된 상태로 복원되지 않습니다.
 - [블록 배치](/rest/api/storageservices/put-block) 또는 [URL의 블록 배치](/rest/api/storageservices/put-block-from-url)를 통해 업로드되었지만 [블록 목록 배치](/rest/api/storageservices/put-block-list)를 통해 커밋되지는 않은 블록은 BLOB의 일부가 아니므로 복원 작업의 일부로 복원되지 않습니다.
 - 활성 임대가 있는 BLOB은 복원할 수 없습니다. 활성 임대가 있는 BLOB이 복원할 BLOB 범위에 포함된 경우 복원 작업이 원자 방식으로 실패합니다. 복원 작업을 시작하기 전에 활성 임대를 중단합니다.
 - 스냅샷은 복원 작업의 일부로 생성되거나 삭제되지 않습니다. 기본 BLOB만 이전 상태로 복원됩니다.
@@ -91,7 +92,7 @@ Azure Storage는 요청된 복원 지점(UTC 시간)과 현재 시점 사이의 
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
-특정 시점 복원을 사용 설정하는 것은 무료입니다. 그러나 특정 시점 복원을 사용 설정하면 BLOB 버전 관리, 일시 삭제, 변경 피드도 사용 설정되며, 각 서비스에 추가 요금이 부과될 수 있습니다.
+특정 시점 복원을 사용 설정하는 것은 무료입니다. 그러나 특정 시점 복원을 사용하도록 설정하면 Blob 버전 관리, 일시 삭제, 변경 피드도 사용하도록 설정되며, 이에 따라 추가 요금이 부과될 수 있습니다.
 
 특정 시점 복원에 대한 요금은 복원 작업을 수행하기 위해 처리된 데이터의 양에 따라 달라집니다. 처리된 데이터의 양은 복원 지점 및 현재 시점 사이에 발생한 변경 사항의 개수에 따라 달라집니다. 예를 들어 스토리지 계정에서 비교적 일정한 변동률로 BLOB 데이터를 차단하는 경우 1일 전으로 복원하는 작업의 비용은 10일 전으로 복원하는 작업의 1/10입니다.
 

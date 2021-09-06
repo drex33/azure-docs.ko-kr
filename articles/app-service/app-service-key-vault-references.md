@@ -3,15 +3,15 @@ title: Key Vault 참조 사용
 description: Azure App Service 및 Azure Functions를 설정하여 Azure Key Vault 참조를 사용하는 방법을 알아봅니다. 애플리케이션 코드에 Key Vault 비밀을 사용할 수 있게 합니다.
 author: mattchenderson
 ms.topic: article
-ms.date: 05/25/2021
+ms.date: 06/11/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 3300f5fbb5613672d7979f161ca0c92126f26a83
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 15b5974aff53303ca0245fc6100ea22eebc70c6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578119"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537238"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions의 Key Vault 참조 사용
 
@@ -23,26 +23,43 @@ Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 
 
 1. [Key Vault 빠른 시작](../key-vault/secrets/quick-create-cli.md)에 따라 키 자격 증명 모음을 만듭니다.
 
-1. 애플리케이션에 대한 [시스템 할당 관리형 ID](overview-managed-identity.md)를 만듭니다.
+1. 애플리케이션에 대한 [관리 ID](overview-managed-identity.md)를 만듭니다.
 
-   > [!NOTE] 
-   > Key Vault 참조는 현재 시스템 할당 관리형 ID만 지원합니다. 사용자 할당 ID를 사용할 수 없습니다.
+    Key Vault 참조는 기본적으로 앱의 시스템 할당 ID를 사용하지만 [사용자가 할당한 ID를 지정](#access-vaults-with-a-user-assigned-identity)할 수 있습니다.
 
 1. 이전에 만든 애플리케이션 ID에 대한 [Key Vault에서 액세스 정책](../key-vault/general/security-features.md#privileged-access)을 만듭니다. 이 정책에 대한 “가져오기” 비밀 권한을 사용하도록 설정합니다. "권한 있는 애플리케이션" 또는 `applicationId` 설정은 관리 ID와 호환되지 않으므로 구성하지 마세요.
 
 ### <a name="access-network-restricted-vaults"></a>네트워크 제한 자격 증명 모음 액세스
 
-> [!NOTE]
-> Linux 기반 애플리케이션은 현재 [App Service Environment](./environment/intro.md)내에서 호스트되는 경우를 제외하고는 네트워크 제한 키 자격 증명 모음에서 비밀을 확인할 수 없습니다.
-
 자격 증명 모음이 [네트워크 제한](../key-vault/general/overview-vnet-service-endpoints.md)으로 구성된 경우 애플리케이션에 네트워크 액세스 권한이 있는지도 확인해야 합니다.
 
 1. [App Service 네트워킹 기능](./networking-features.md) 및 [Azure Functions 네트워킹 옵션](../azure-functions/functions-networking-options.md)에 설명된 대로 애플리케이션에 아웃바운드 네트워킹 기능이 구성되어 있는지 확인합니다.
 
+    또한 프라이빗 엔드포인트를 사용하려는 Linux 애플리케이션은 가상 네트워크를 통해 모든 트래픽 경로를 갖도록 앱을 명시적으로 구성해야 합니다. 이 요구 사항은 향후 업데이트에서 제거됩니다. 이를 설정하려면 다음 CLI 명령을 사용합니다.
+
+    ```azurecli
+    az webapp config set --subscription <sub> -g <rg> -n <appname> --generic-configurations '{"vnetRouteAllEnabled": true}'
+    ```
+
 2. 애플리케이션에서 액세스할 네트워크 또는 서브넷에 사용할 자격 증명 모음 구성 계정이 있는지 확인합니다.
 
-> [!IMPORTANT]
-> 가상 네트워크 통합을 통해 자격 증명 모음에 액세스하는 것은 현재 [지정된 버전이 없는 비밀의 자동 업데이트](#rotation)와 호환되지 않습니다.
+### <a name="access-vaults-with-a-user-assigned-identity"></a>사용자가 할당한 ID를 사용하여 자격 증명 모음에 액세스
+
+일부 앱은 시스템 할당 ID를 아직 사용할 수 없는 경우 생성 시 비밀을 참조해야 합니다. 이러한 경우 사용자가 할당한 ID를 만들고 자격 증명 모음에 대한 액세스 권한을 미리 부여할 수 있습니다.
+
+사용자가 할당한 ID에 대한 사용 권한을 부여한 후에는 다음 단계를 수행합니다.
+
+1. 아직 없는 경우 애플리케이션에 [ID를 할당](./overview-managed-identity.md#add-a-user-assigned-identity)합니다.
+
+1. `keyVaultReferenceIdentity` 속성을 사용자가 할당한 ID의 리소스 ID로 설정하여 Key Vault 참조 작업에 이 ID를 사용하도록 앱을 구성합니다.
+
+    ```azurecli-interactive
+    userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
+    appResourceId=$(az webapp show -g MyResourceGroupName -n MyAppName --query id -o tsv)
+    az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
+    ```
+
+이 구성은 앱에 대한 모든 참조에 적용됩니다.
 
 ## <a name="reference-syntax"></a>참조 구문
 
@@ -67,9 +84,6 @@ Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여�
 ```
 
 ## <a name="rotation"></a>회전
-
-> [!IMPORTANT]
-> [가상 네트워크 통합을 통해 자격 증명 모음에 액세스](#access-network-restricted-vaults)하는 것은 현재 지정된 버전이 없는 비밀의 자동 업데이트와 호환되지 않습니다.
 
 참조에 버전을 지정하지 않으면 앱은 Key Vault에 있는 최신 버전을 사용합니다. 순환 이벤트와 같이 최신 버전을 사용할 수 있게 되면 앱은 자동으로 업데이트되고 1일 이내에 최신 버전을 사용하기 시작합니다. 앱에 관한 모든 구성 변경으로 인해 참조된 모든 비밀이 최신 버전으로 즉시 업데이트됩니다.
 
@@ -201,7 +215,7 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 ```
 
 > [!NOTE] 
-> 이 예제에서 원본 제어 배포는 애플리케이션 설정에 따라 다릅니다. 일반적으로 앱 설정 업데이트는 비동기적으로 동작하므로 안전하지 않은 동작입니다. 그러나 `WEBSITE_ENABLE_SYNC_UPDATE_SITE` 애플리케이션 설정을 포함했으므로 업데이트가 동기적입니다. 이는 애플리케이션 설정이 완전히 업데이트된 후에만 원본 제어 배포가 시작됨을 의미합니다.
+> 이 예제에서 원본 제어 배포는 애플리케이션 설정에 따라 다릅니다. 일반적으로 앱 설정 업데이트는 비동기적으로 동작하므로 안전하지 않은 동작입니다. 그러나 `WEBSITE_ENABLE_SYNC_UPDATE_SITE` 애플리케이션 설정을 포함했으므로 업데이트가 동기적입니다. 이는 애플리케이션 설정이 완전히 업데이트된 후에만 원본 제어 배포가 시작됨을 의미합니다. 더 많은 앱 설정은 [Azure App Service에서 환경 변수 및 앱 설정](reference-app-settings.md)을 참조하세요.
 
 ## <a name="troubleshooting-key-vault-references"></a>Key Vault 참조 문제 해결
 

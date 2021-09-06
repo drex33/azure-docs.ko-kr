@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1
-ms.openlocfilehash: d83dbfa600638beee684258155d3470889cef967
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 06d86c330e8d8d83688bc1120ebfbf42cadf178a
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528716"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866448"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -170,7 +170,7 @@ else:
     # Add some packages relied on by data prep step
     aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
         conda_packages=['pandas','scikit-learn'], 
-        pip_packages=['azureml-sdk', 'azureml-dataprep[fuse,pandas]'], 
+        pip_packages=['azureml-sdk', 'azureml-dataset-runtime[fuse,pandas]'], 
         pin_sdk_version=False)
 ```
 

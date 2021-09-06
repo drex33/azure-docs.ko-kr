@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 81d4d17b4efdc1dd7d59cb566f8a9ef2e6742aac
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 4a588c2668fee342da074c911ce99fe29a7aa06a
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966769"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606182"
 ---
 # <a name="configure-azure-arc-enabled-machine-learning-preview"></a>Azure Arc 지원 기계 학습 구성(미리 보기)
 
@@ -36,7 +36,7 @@ Azure Arc 지원 기계 학습은 다음의 학습 시나리오를 지원합니�
 * 아웃바운드 프록시 서버를 사용하여 온-프레미스 모델 학습
 * NFS 데이터 저장소를 통해 온-프레미스 모델 학습
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure를 구독하고 있지 않다면 시작하기 전에 [무료 계정을 만듭니다](https://azure.microsoft.com/free).
 * Azure Arc 지원 Kubernetes 클러스터. 자세한 내용은 [Azure Arc에 기존 Kubernetes 클러스터 연결 빠른 시작 가이드](../azure-arc/kubernetes/quickstart-connect-cluster.md)를 참조하세요.
@@ -316,4 +316,4 @@ else:
 - [TensorFlow 모델 학습](how-to-train-tensorflow.md)
 - [PyTorch 모델 학습](how-to-train-pytorch.md)
 - [Azure Machine Learning 파이프라인을 사용하여 학습](how-to-create-machine-learning-pipelines.md)
-- [아웃바운드 프록시 서버를 사용하여 온-프레미스 모델 학습](../azure-arc/kubernetes/quickstart-connect-cluster.md#4a-connect-using-an-outbound-proxy-server)
+- [아웃바운드 프록시 서버를 사용하여 온-프레미스 모델 학습](../azure-arc/kubernetes/quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)

@@ -10,12 +10,12 @@ ms.date: 05/19/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d103e52ec4a2ba105c6eb5c756ac450a15d7538e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9c021b8b0aec025458179ffb4859c351572762ee
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536573"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186986"
 ---
 # <a name="transform-data-by-running-a-synapse-notebook"></a>Synapse Notebook을 실행하여 데이터 변환
 
@@ -57,7 +57,7 @@ Notebook을 매개 변수화하려면 줄임표(...)를 선택하여 셀 도구 
 
 ---
 
-Azure Data Factory는 매개 변수 셀을 찾고 실행 시 전달되는 매개 변수의 기본값으로 이 값을 사용합니다. 실행 엔진은 기본값을 덮어쓰기 위해 입력 매개 변수를 사용하여 매개 변수 셀 아래에 새 셀을 추가합니다. 매개 변수 셀이 지정되지 않은 경우 삽입된 셀이 Notebook의 맨 위에 삽입됩니다.
+Azure Data Factory는 매개 변수 셀을 찾고 실행 시 전달되는 매개 변수의 기본값으로 이 값을 사용합니다. 실행 엔진은 기본값을 덮어쓰기 위해 입력 매개 변수를 사용하여 매개 변수 셀 아래에 새 셀을 추가합니다. 
 
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>파이프라인에서 매개 변수 값 할당

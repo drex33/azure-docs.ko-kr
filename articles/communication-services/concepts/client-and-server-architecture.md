@@ -2,19 +2,19 @@
 title: 클라이언트 및 서버 아키텍처
 titleSuffix: An Azure Communication Services concept document
 description: Communication Services 아키텍처에 관해 알아봅니다.
-author: mikben
+author: probableprime
 manager: mikben
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: a278a83f0a498baef991f75d4dd77a572c4c2470
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 75ab8032d197b00516578f1e0a92f29122126249
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114288392"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966625"
 ---
 # <a name="client-and-server-architecture"></a>클라이언트 및 서버 아키텍처
 

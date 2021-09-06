@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf34223e44ddfb59a72f98d31f0df5d9a882e0eb
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 0f2497e47078f91c1649db107dd105227e219ae2
+ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713597"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113565735"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지에 대한 액세스 검토 만들기
 
@@ -53,16 +53,22 @@ ms.locfileid: "109713597"
 
 1. 검토자의 입력과 관련하여 일련의 되풀이 작업에 대한 각 검토가 열려 있는 일수를 정의하는 **기간** 을 설정합니다. 예를 들어 1월 1일에 시작하고 30일 동안 검토가 열려 있는 연간 검토를 예약하면 검토자는 해당 월이 종료될 때까지 응답할 수 있게 됩니다.
 
-1. **검토자** 옆에서는 사용자가 자체 액세스 검토를 수행하도록 하려면 **자체 검토** 를 선택하고 검토자를 지정하려면 **특정 검토자** 를 선택합니다.
+1. **검토자** 옆에서는 사용자가 자체 액세스 검토를 수행하도록 하려면 **자체 검토** 를 선택하고 검토자를 지정하려면 **특정 검토자** 를 선택합니다. 검토자의 관리자를 검토자로 지정하려는 경우 **관리자** 를 선택할 수도 있습니다. 이 옵션을 선택하는 경우 시스템에서 관리자를 찾을 수 없다면 검토를 전달할 **대체** 인력을 추가해야 합니다.
 
-    ![검토자 추가 선택](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
+1. **특정 검토자** 를 선택한 경우 액세스 검토를 수행할 사용자를 지정합니다. ![검토자 추가를 선택합니다](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png).
 
-1. **특정 검토자** 를 선택한 경우 액세스 검토를 수행할 사용자를 지정합니다.
     1. **검토자 추가** 를 선택합니다.
     1. **검토자 선택** 창에서 검토자로 지정할 사용자를 검색하여 선택합니다.
     1. 검토자를 선택한 경우 **선택** 단추를 클릭합니다.
 
     ![검토자 지정](./media/entitlement-management-access-reviews/access-reviews-select-reviewer.png)
+
+1.  **관리자** 를 선택한 경우 대체 검토자를 지정합니다. 
+    1.  **대체 검토자 추가** 를 선택합니다.
+    1. 대체 검토자 선택 창에서 검토자의 관리자에 대한 대체 검토자가 될 사용자를 검색하여 선택합니다.
+    1. 대체 검토자를 선택한 경우  **선택** 단추를 클릭합니다. 
+
+    ![대체 검토자 추가](./media/entitlement-management-access-reviews/access-reviews-select-manager.png)
 
 1. 페이지 맨 아래에서는 새 액세스 패키지를 만드는 경우 **검토 + 만들기** 를 클릭하고 액세스 패키지를 편집하는 경우 **업데이트** 를 클릭합니다.
 

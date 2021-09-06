@@ -93,22 +93,14 @@
           href: groups-audit.md
     - name: 액세스 검토
       items:
-        - name: Azure AD 역할
+        - name: Azure AD 역할과 Azure 리소스 역할
           items:
             - name: 액세스 검토 만들기
-              href: pim-how-to-start-security-review.md
-            - name: 액세스 검토
-              href: pim-how-to-perform-security-review.md
+              href: pim-create-azure-ad-roles-and-resource-roles-review.md
+            - name: 액세스 검토 수행
+              href: pim-perform-azure-ad-roles-and-resource-roles-review.md
             - name: 액세스 검토 완료
-              href: pim-how-to-complete-review.md
-        - name: Azure 역할
-          items:
-            - name: 액세스 검토 만들기
-              href: pim-resource-roles-start-access-review.md
-            - name: 액세스 검토
-              href: pim-resource-roles-perform-access-review.md
-            - name: 액세스 검토 완료
-              href: pim-resource-roles-complete-access-review.md
+              href: pim-complete-azure-ad-roles-and-resource-roles-review.md
     - name: Azure AD 역할에 대한 검색 및 인사이트
       href: pim-security-wizard.md
     - name: Azure 구독을 관리하도록 액세스 권한 상승

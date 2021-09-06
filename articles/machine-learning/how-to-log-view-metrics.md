@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: ce8fe90a88795c7c08708d6a77246d36f3079e4c
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 4cb94dab1576e6fdb422fc640ae6edfdcdaad119
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889145"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446224"
 ---
 # <a name="log--view-metrics-and-log-files"></a>메트릭 및 로그 파일 로그 및 보기
 
@@ -38,7 +38,7 @@ ms.locfileid: "107889145"
 
 스칼라 값, 목록, 테이블, 이미지, 디렉터리 등을 포함한 여러 데이터 형식을 기록할 수 있습니다. 다양한 데이터 형식에 대한 자세한 내용과 Python 코드 예제는 [Run 클래스 참조 페이지](/python/api/azureml-core/azureml.core.run%28class%29)를 참조하세요.
 
-### <a name="logging-run-metrics"></a>실행 메트릭 로그 
+## <a name="logging-run-metrics"></a>실행 메트릭 로그 
 
 로깅 API에서 다음 메서드를 사용하여 메트릭 시각화에 영향을 줄 수 있습니다. 로그된 메트릭의 [서비스 한도](./resource-limits-quotas-capacity.md#metrics)에 유의하세요. 
 
@@ -50,29 +50,43 @@ ms.locfileid: "107889145"
 |두 개의 숫자 열을 사용하여 테이블 기록|`run.log_table(name='Sine Wave', value=sines)`|두 개의 변수 꺽은선형 차트|
 |이미지 로그|`run.log_image(name='food', path='./breadpudding.jpg', plot=None, description='desert')`|이 메서드는 이미지 파일이나 matplotlib 플롯을 실행에 로그하는 데 사용합니다. 실행 기록에서 해당 이미지를 표시하고 비교할 수 있습니다.|
 
-### <a name="logging-with-mlflow"></a>MLflow를 사용하여 로그
-MLFlowLogger를 사용하여 메트릭을 로그합니다.
+## <a name="logging-with-mlflow"></a>MLflow를 사용하여 로그
 
-```python
-from azureml.core import Run
-# connect to the workspace from within your running code
-run = Run.get_context()
-ws = run.experiment.workspace
+MLflow는 오픈 소스이며 클라우드 이식성에 대한 로컬 모드를 지원하기 때문에 MLflow를 사용하여 모델, 메트릭 및 아티팩트를 로깅하는 것이 좋습니다. 다음 표 및 코드 예제에서는 MLflow를 사용하여 학습 실행에서 메트릭 및 아티팩트를 로그하는 방법을 보여 줍니다. 
+[MLflow의 로깅 메서드 및 디자인 패턴에 대해 자세히 알아봅니다](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
 
-# workspace has associated ml-flow-tracking-uri
-mlflow_url = ws.get_mlflow_tracking_uri()
+`mlflow` 및 `azureml-mlflow` pip 패키지를 작업 영역에 설치해야 합니다. 
 
-#Example: PyTorch Lightning
-from pytorch_lightning.loggers import MLFlowLogger
-
-mlf_logger = MLFlowLogger(experiment_name=run.experiment.name, tracking_uri=mlflow_url)
-mlf_logger._run_id = run.id
+```conda
+pip install mlflow
+pip install azureml-mlflow
 ```
 
-## <a name="view-run-metrics"></a>실행 메트릭 보기
+MLflow 추적 URI가 Azure Machine Learning 백 엔드를 가리키도록 설정하여 메트릭 및 아티팩트가 작업 영역에 로그되도록 합니다. 
 
-## <a name="via-the-sdk"></a>SDK 사용
-```run.get_metrics()```를 사용하여 학습된 모델의 메트릭을 볼 수 있습니다. 아래 예제를 참조하세요. 
+```python
+from azureml.core import Workspace
+import mlflow
+from mlflow.tracking import MlflowClient
+
+ws = Workspace.from_config()
+mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
+
+mlflow.create_experiment("mlflow-experiment")
+mlflow.set_experiment("mlflow-experiment")
+mlflow_run = mlflow.start_run()
+```
+
+|기록된 값|예제 코드| 참고|
+|----|----|----|
+|숫자 값 로그(int 또는 float) | `mlfow.log_metric('my_metric', 1)`| |
+|부울 값 로그 | `mlfow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
+|문자열 로그 | `mlfow.log_text('foo', 'my_string')`| 아티팩트로 로그됨|
+|numpy 메트릭 또는 PIL 이미지 개체 로그|`mlflow.log_image(img, 'figure.png')`||
+|matlotlib 플롯 또는 이미지 파일 로그|` mlflow.log_figure(fig, "figure.png")`||
+
+## <a name="view-run-metrics-via-the-sdk"></a>SDK를 통해 실행 메트릭 보기
+`run.get_metrics()`를 사용하여 학습된 모델의 메트릭을 볼 수 있습니다. 
 
 ```python
 from azureml.core import Run
@@ -80,16 +94,41 @@ run = Run.get_context()
 run.log('metric-name', metric_value)
 
 metrics = run.get_metrics()
-# metrics is of type Dict[str, List[float]] mapping mertic names
+# metrics is of type Dict[str, List[float]] mapping metric names
 # to a list of the values for that metric in the given run.
 
 metrics.get('metric-name')
 # list of metrics in the order they were recorded
 ```
 
+실행 개체의 데이터 및 정보 속성을 통해 MLflow를 사용하여 실행 정보에 액세스할 수도 있습니다. 자세한 내용은 [MLflow.entities.Run object](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) 설명서를 참조하세요. 
+
+실행이 완료되면 MlFlowClient()를 사용하여 검색할 수 있습니다.
+
+```python
+from mlflow.tracking import MlflowClient
+
+# Use MlFlow to retrieve the run that was just completed
+client = MlflowClient()
+finished_mlflow_run = MlflowClient().get_run(mlflow_run.info.run_id)
+```
+
+실행 개체의 데이터 필드에서 실행에 대한 메트릭, 매개 변수 및 태그를 볼 수 있습니다.
+
+```python
+metrics = finished_mlflow_run.data.metrics
+tags = finished_mlflow_run.data.tags
+params = finished_mlflow_run.data.params
+```
+
+>[!NOTE]
+> `mlflow.entities.Run.data.metrics` 아래의 메트릭 사전은 지정된 메트릭 이름에 대해 가장 최근에 로그된 값만 반환합니다. 예를 들어 순서대로 1, 2, 3, 4를 `sample_metric`이라는 메트릭에 로드하는 경우 `sample_metric`의 메트릭 사전에는 4만 있습니다.
+> 
+> 특정 메트릭 이름에 대해 로그된 모든 메트릭을 얻으려면 [`MlFlowClient.get_metric_history()`](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.get_metric_history)를 사용할 수 있습니다.
+
 <a name="view-the-experiment-in-the-web-portal"></a>
 
-## <a name="view-run-metrics-in-aml-studio-ui"></a>AML 스튜디오 UI에서 실행 메트릭 보기
+## <a name="view-run-metrics-in-the-studio-ui"></a>스튜디오 UI에서 실행 메트릭 보기
 
 [Azure Machine Learning 스튜디오](https://ml.azure.com)에서 로그된 메트릭을 비롯한 완료된 실행 기록을 찾아볼 수 있습니다.
 

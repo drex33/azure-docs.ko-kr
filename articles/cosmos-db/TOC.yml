@@ -50,8 +50,10 @@
           href: serverless.md
         - name: 처리량 자동 크기 조정과 표준(수동) 처리량 중에 선택
           href: how-to-choose-offer.md
-        - name: 프로비저닝된 처리량과 서버리스 중에서 선택
+        - name: 프로비전된 처리량과 서버리스 중에서 선택
           href: throughput-serverless.md
+        - name: 프로비전된 처리량 확장의 모범 사례
+          href: scaling-provisioned-throughput-best-practices.md
     - name: 보안
       items:
         - name: 보안 개요
@@ -665,13 +667,13 @@
           items:
             - name: 프로비전된 처리량
               items:
-                - name: 표준(수동) 처리량 프로비저닝 - 컨테이너
+                - name: 표준(수동) 처리량 프로비전 - 컨테이너
                   displayName: 'request units, RUs, RU, collection level'
                   href: sql/how-to-provision-container-throughput.md
-                - name: 표준(수동) 처리량 프로비저닝 - 데이터베이스
+                - name: 표준(수동) 처리량 프로비전 - 데이터베이스
                   displayName: 'request units, RUs, RU, shared throughput, database level'
                   href: sql/how-to-provision-database-throughput.md
-                - name: 자동 크기 조정 처리량 프로비저닝 - 데이터베이스 또는 컨테이너
+                - name: 자동 크기 조정 처리량 프로비전 - 데이터베이스 또는 컨테이너
                   displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
                   href: sql/how-to-provision-autoscale-throughput.md
                 - name: Capacity Planner를 사용하여 RU/s 예측
@@ -1024,7 +1026,7 @@
           href: cassandra/cassandra-change-feed.md
         - name: 컨테이너 만들기 - Cassandra API
           href: cassandra/how-to-create-container-cassandra.md
-        - name: 처리량 프로비저닝 - Cassandra API
+        - name: 처리량 프로비전 - Cassandra API
           displayName: 'request units, RUs, RU, collection level'
           href: cassandra/how-to-provision-throughput-cassandra.md
         - name: 요청 단위 요금 찾기
@@ -1181,7 +1183,7 @@
           href: mongodb/optimize-write-performance.md
         - name: 컨테이너 만들기 - MongoDB API
           href: mongodb/how-to-create-container-mongodb.md
-        - name: 처리량 프로비저닝 - MongoDB API
+        - name: 처리량 프로비전 - MongoDB API
           displayName: 'request units, RUs, RU, collection level'
           href: mongodb/how-to-provision-throughput-mongodb.md
         - name: 요청 단위 요금 찾기
@@ -1266,7 +1268,7 @@
           href: graph/graph-execution-profile.md
         - name: 컨테이너 만들기 - Gremlin API
           href: graph/how-to-create-container-gremlin.md
-        - name: 처리량 프로비저닝 - Gremlin API
+        - name: 처리량 프로비전 - Gremlin API
           displayName: 'request units, RUs, RU, collection level'
           href: graph/how-to-provision-throughput-gremlin.md
         - name: 요청 단위 요금 찾기

@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 10/27/2020
+ms.date: 7/1/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 9652e940674ec7580b006cd38df2a7d17014f939
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e8cfba3c7dc13f6e32d0dd4141832bab475cc5b8
+ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309988"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113138822"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Azure의 공유 이미지 갤러리 문제 해결
 
@@ -296,6 +296,14 @@ ms.locfileid: "107309988"
 **메시지**: *'GalleryImageVersion 원본 리소스 크기 2048이 지원되는 최대 크기 1024를 초과.'하기 때문에 이 지역에서 복제가 실패했습니다.*  
 **원인**: 원본에 있는 데이터 디스크가 1TB보다 큽니다.  
 **해결 방법**: 데이터 디스크의 크기를 1TB 미만으로 조정합니다.
+
+**메시지**: *'갤러리 이미지 버전 업데이트' 작업은 삭제하도록 표시되어 있으므로 <versionNumber>에서 허용되지 않습니다. 삭제 작업을 다시 시도할 수만 있습니다(또는 진행 중인 작업이 완료될 때까지 대기)* .  
+**원인**: 삭제 중인 갤러리 이미지 버전을 업데이트하려고 했습니다.  
+**해결 방법**: 삭제 이벤트가 완료될 때까지 기다렸다가 이미지 버전을 다시 만듭니다.
+
+**메시지**: *원본 리소스 '<sourceID>'에 대해 암호화가 지원되지 않습니다. 암호화를 지원하는 다른 원본 리소스를 사용하거나 암호화 속성을 제거하세요.*  
+**원인**: 현재 Shared Image Gallery는 VM, 디스크, 스냅샷 및 관리형 이미지에 대한 암호화만 지원합니다. 이미지 버전에 대해 제공된 원본 중 하나가 암호화를 지원하는 이전 원본 목록에 없습니다.  
+**해결 방법**: 이미지 버전에서 디스크 암호화 집합을 제거하고 지원 팀에 문의하세요.
 
 ## <a name="creating-or-updating-a-vm-or-scale-sets-from-an-image-version"></a>이미지 버전에서 VM이나 확장 집합 만들기 또는 업데이트 ##
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 84164e95d5b961392787f4011abbe553b2cb5595
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 14197b7974db7697b9718f13ef59ac3e34c22a9b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079880"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568044"
 ---
 # <a name="vm-size-performance-best-practices-for-sql-server-on-azure-vms"></a>VM 크기: Azure VM의 SQL Server에 대한 성능 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,6 +42,7 @@ ms.locfileid: "112079880"
 - 중요 업무용 및 데이터 웨어하우스 워크로드에 대한 메모리 대 vCore 비율을 높이는 것이 좋습니다. 
 - 최적의 SQL Server 성능을 위해 SQL Server 설정 및 스토리지 옵션이 구성되었으므로 Azure Virtual Machine 마켓플레이스 이미지를 사용합니다. 
 - 대상 워크로드의 성능 특성을 수집하고 수집한 정보를 사용하여 비즈니스에 적합한 VM 크기를 결정합니다.
+- [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) [SKU 권장 사항](/sql/dma/dma-sku-recommend-sql-db) 도구를 사용하여 기존 SQL Server 워크로드에 적합한 VM 크기를 찾습니다.
 
 VM 크기 검사 목록을 다른 목록과 비교하려면 포괄적인 [성능 모범 사례 검사 목록](performance-guidelines-best-practices-checklist.md)을 참조하세요. 
 

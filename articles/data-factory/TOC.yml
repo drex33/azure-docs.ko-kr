@@ -794,6 +794,8 @@ items:
         items:
           - name: Azure Purview에 Data Factory 연결
             href: connect-data-factory-to-azure-purview.md
+          - name: 보안 Azure Purview 계정에 액세스
+            href: ./how-to-access-secured-purview-account.md
           - name: Purview를 사용하여 ADF의 데이터 검색 및 살펴보기
             href: how-to-discover-explore-purview-data.md
       - name: 시나리오

@@ -1,18 +1,20 @@
 ---
-title: 데이터 흐름 매핑의 파생된 열 변환
-description: 매핑 데이터 흐름 파생 열 변환을 사용하여 Azure Data Factory에서 대규모로 데이터를 변환하는 방법을 알아봅니다.
+title: 매핑 데이터 흐름에 파생된 열 변환
+titleSuffix: Azure Data Factory & Azure Synapse
+description: 매핑 데이터 흐름 파생 열 변환을 사용하여 Azure Data Factory 및 Azure Synapse Analytics에서 대규모로 데이터를 변환하는 방법을 알아봅니다.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 2e90a8779322cf8967ca9a194c6cc760f7c8b8f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 815410030ffbfece39f5f92a4d6783abb8991eb6
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90532027"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822844"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 파생된 열 변환
 
@@ -85,7 +87,7 @@ ms.locfileid: "90532027"
 
 아래 예제는 들어오는 스트림 `MoviesYear`를 사용하고 두 개의 파생 열을 만드는 `CleanData`라는 파생 열입니다. 첫 번째 파생 열은 `Rating` 열을 정수 형식의 등급 값으로 바꿉니다. 두 번째 파생 열은 이름이 'movies'로 시작하는 각 열과 일치하는 패턴입니다. 일치하는 각 열에 대해 일치하는 열의 값에 'movie_' 접두사를 붙인 값과 같은 `movie` 열을 만듭니다. 
 
-Data Factory UX에서 이 변환은 아래 이미지와 같습니다.
+UI에서 이 변환은 아래 이미지와 같습니다.
 
 ![파생 예제](media/data-flow/derive-script.png "파생 예제")
 

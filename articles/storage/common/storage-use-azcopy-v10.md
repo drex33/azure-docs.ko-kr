@@ -8,12 +8,12 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 34d3bd45d2c0bf0260a4f8524cff6f8ac03b746c
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: e289ad866ba53de761077f22b27ef4ff763451ff
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501722"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468556"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -58,7 +58,7 @@ AD(Azure Active Directory) 또는 SAS(공유 액세스 서명) 토큰을 사용�
 
 | 스토리지 유형 | 현재 지원되는 권한 부여 방법 |
 |--|--|
-|**Azure BLOB Storage** | Azure AD 및 SAS |
+|**Blob Storage** | Azure AD 및 SAS |
 |**Blob Storage(계층 구조 네임스페이스)** | Azure AD 및 SAS |
 |**File Storage** | SAS 전용 |
 
@@ -138,6 +138,9 @@ SAS 토큰 및 SAS 토큰을 얻는 방법에 대한 자세한 내용은 [SAS(�
 |[azcopy make](storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json)|컨테이너 또는 파일 공유를 만듭니다.|
 |[azcopy remove](storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json)|Azure Storage 계정에서 Blob 또는 파일을 삭제합니다.|
 |[azcopy sync](storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json)|원본 위치를 대상 위치로 복제합니다.|
+
+> [!NOTE]
+> AzCopy에는 파일의 이름을 바꾸는 명령이 없습니다. 
 
 ## <a name="use-in-a-script"></a>스크립트에서 사용
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 04/07/2021
-ms.openlocfilehash: de4d934144d6721db8c00d7199061842e518e44f
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 124b8679ad11eb9a39881cdcf39969360e3275a6
+ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031072"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114227814"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Azure 기계 학습 데이터 참조 모니터링
 
@@ -139,12 +139,34 @@ RunType 차원에 대한 유효한 값은 다음과 같습니다.
 | AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
 | AmlComputeJobEvent | AmlComputeJobEvent |
 | AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
+| ModelsChangeEvent | ModelsChangeEvent |
+| ModelsReadEvent | ModelsReadEvent |
+| ModelsActionEvent | ModelsActionEvent |
+| DeploymentReadEvent | DeploymentReadEvent |
+| DeploymentEventACI | DeploymentEventACI |
+| DeploymentEventAKS | DeploymentEventAKS |
+| InferencingOperationAKS | InferencingOperationAKS |
+| InferencingOperationACI | InferencingOperationACI |
+| EnvironmentChangeEvent | EnvironmentChangeEvent |
+| EnvironmentReadEvent | EnvironmentReadEvent |
+| DataLabelChangeEvent | DataLabelChangeEvent |
+| DataLabelReadEvent | DataLabelReadEvent |
+| ComputeInstanceEvent | ComputeInstanceEvent |
+| DataStoreChangeEvent | DataStoreChangeEvent |
+| DataStoreReadEvent | DataStoreReadEvent |
+| DataSetChangeEvent | DataSetChangeEvent |
+| DataSetReadEvent | DataSetReadEvent |
+| PipelineChangeEvent | PipelineChangeEvent |
+| PipelineReadEvent | PipelineReadEvent |
+| RunEvent | RunEvent |
+| RunReadEvent | RunReadEvent |
+
 
 ## <a name="schemas"></a>스키마
 
 Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
-### <a name="amlcomputejobevents-table"></a>AmlComputeJobEvents 테이블
+### <a name="amlcomputejobevent-table"></a>AmlComputeJobEvent 테이블
 
 | 속성 | Description |
 |:--- |:---|
@@ -173,7 +195,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 | JobErrorMessage | 작업 오류에 대한 자세한 메시지 |
 | NodeId | 작업이 실행되는 위치에 생성된 노드의 ID |
 
-### <a name="amlcomputeclusterevents-table"></a>AmlComputeClusterEvents 테이블
+### <a name="amlcomputeclusterevent-table"></a>AmlComputeClusterEvent 테이블
 
 | 속성 | Description |
 |:--- |:--- |
@@ -216,7 +238,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 | ClusterErrorCodes | 클러스터를 만들거나 크기를 조정하는 동안 받은 오류 코드 |
 | CreationApiVersion | 클러스터를 만드는 동안 사용된 API 버전 |
 
-### <a name="amlcomputeclusternodeevents-table"></a>AmlComputeClusterNodeEvents 테이블
+### <a name="amlcomputeclusternodeevent-table"></a>AmlComputeClusterNodeEvent 테이블
 
 | 속성 | Description |
 |:--- |:--- |
@@ -240,6 +262,156 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 | StartTaskStartTime | 태스크가 노드에 할당되고 시작된 시간 |
 | StartTaskEndTime | 태스크가 노드에 할당되고 종료된 시간 |
 | TotalE2ETimeInSeconds | 노드가 활성 상태였던 총 시간 |
+
+### <a name="amlcomputeinstanceevent-table"></a>AmlComputeInstanceEvent 테이블
+
+| 속성 | 설명 |
+|:--- |:--- |
+| 형식 | 로그 이벤트의 이름, AmlComputeInstanceEvent |
+| TimeGenerated | 로그 항목이 생성된 시간(UTC) |
+| Level | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| ResultType | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| CorrelationId | 관련 이벤트 세트를 그룹화하는 데 사용되는 GUID입니다(해당되는 경우). |
+| OperationName | 로그 항목과 연결된 작업의 이름 |
+| ID | 작업을 수행한 사용자 또는 애플리케이션의 ID입니다. |
+| AadTenantId | 작업이 제출된 AAD 테넌트 ID입니다. |
+| AmlComputeInstanceName | 로그 항목과 관련된 컴퓨팅 인스턴스의 이름입니다. |
+
+### <a name="amldatalabelevent-table"></a>AmlDataLabelEvent 테이블
+
+| 속성 | 설명 |
+|:--- |:--- |
+| 형식 | 로그 이벤트의 이름, AmlDataLabelEvent |
+| TimeGenerated | 로그 항목이 생성된 시간(UTC) |
+| Level | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| ResultType | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| CorrelationId | 관련 이벤트 세트를 그룹화하는 데 사용되는 GUID입니다(해당되는 경우). |
+| OperationName | 로그 항목과 연결된 작업의 이름 |
+| ID | 작업을 수행한 사용자 또는 애플리케이션의 ID입니다. |
+| AadTenantId | 작업이 제출된 AAD 테넌트 ID입니다. |
+| AmlProjectId | AML 프로젝트의 고유 ID입니다. |
+| AmlProjectName | AML 프로젝트의 이름입니다. |
+| AmlLabelNames | 프로젝트에 대해 만들어진 레이블 클래스 이름입니다. |
+| AmlDataStoreName | 프로젝트의 데이터가 저장되는 데이터 저장소의 이름입니다. |
+
+### <a name="amldatasetevent-table"></a>AmlDataSetEvent 테이블
+
+| 속성 | 설명 |
+|:--- |:--- |
+| 형식 | 로그 이벤트의 이름, AmlDataSetEvent |
+| TimeGenerated | 로그 항목이 생성된 시간(UTC) |
+| Level | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| ResultType | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| AmlWorkspaceId | AML 작업 영역의 GUID 및 고유 ID입니다. |
+| OperationName | 로그 항목과 연결된 작업의 이름 |
+| ID | 작업을 수행한 사용자 또는 애플리케이션의 ID입니다. |
+| AadTenantId | 작업이 제출된 AAD 테넌트 ID입니다. |
+| AmlDatasetId | AML 데이터 세트의 ID입니다. |
+| AmlDatasetName | AML 데이터 세트의 이름입니다. |
+
+### <a name="amldatastoreevent-table"></a>AmlDataStoreEvent 테이블
+
+| 속성 | 설명 |
+|:--- |:--- |
+| 형식 | 로그 이벤트의 이름, AmlDataStoreEvent |
+| TimeGenerated | 로그 항목이 생성된 시간(UTC) |
+| Level | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| ResultType | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| AmlWorkspaceId | AML 작업 영역의 GUID 및 고유 ID입니다. |
+| OperationName | 로그 항목과 연결된 작업의 이름 |
+| ID | 작업을 수행한 사용자 또는 애플리케이션의 ID입니다. |
+| AadTenantId | 작업이 제출된 AAD 테넌트 ID입니다. |
+| AmlDatastoreName | AML 데이터 저장소의 이름입니다. |
+
+### <a name="amldeploymentevent-table"></a>AmlDeploymentEvent 테이블
+
+| 속성 | 설명 |
+|:--- |:--- |
+| 형식 | 로그 이벤트의 이름, AmlDeploymentEvent |
+| TimeGenerated | 로그 항목이 생성된 시간(UTC) |
+| Level | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| ResultType | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| OperationName | 로그 항목과 연결된 작업의 이름 |
+| ID | 작업을 수행한 사용자 또는 애플리케이션의 ID입니다. |
+| AadTenantId | 작업이 제출된 AAD 테넌트 ID입니다. |
+| AmlServiceName | AML 서비스의 이름입니다. |
+
+### <a name="amlinferencingevent-table"></a>AmlInferencingEvent 테이블
+
+| 속성 | 설명 |
+|:--- |:--- |
+| 형식 | 로그 이벤트의 이름, AmlInferencingEvent |
+| TimeGenerated | 로그 항목이 생성된 시간(UTC) |
+| Level | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| ResultType | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| OperationName | 로그 항목과 연결된 작업의 이름 |
+| ID | 작업을 수행한 사용자 또는 애플리케이션의 ID입니다. |
+| AadTenantId | 작업이 제출된 AAD 테넌트 ID입니다. |
+| AmlServiceName | AML 서비스의 이름입니다. |
+
+### <a name="amlmodelsevent-table"></a>AmlModelsEvent 테이블
+
+| 속성 | 설명 |
+|:--- |:--- |
+| 형식 | 로그 이벤트의 이름, AmlModelsEvent |
+| TimeGenerated | 로그 항목이 생성된 시간(UTC) |
+| Level | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| ResultType | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| OperationName | 로그 항목과 연결된 작업의 이름 |
+| ID | 작업을 수행한 사용자 또는 애플리케이션의 ID입니다. |
+| AadTenantId | 작업이 제출된 AAD 테넌트 ID입니다. |
+| ResultSignature | 이벤트의 HTTP 상태 코드입니다. 일반적인 값에는 200, 201, 202 등이 포함됩니다. |
+| AmlModelName | AML 모델의 이름입니다. |
+
+### <a name="amlpipelineevent-table"></a>AmlPipelineEvent 테이블
+
+| 속성 | 설명 |
+|:--- |:--- |
+| 형식 | 로그 이벤트의 이름, AmlPipelineEvent |
+| TimeGenerated | 로그 항목이 생성된 시간(UTC) |
+| Level | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| ResultType | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| AmlWorkspaceId | AML 작업 영역의 GUID 및 고유 ID입니다. |
+| AmlWorkspaceId | AML 작업 영역의 이름입니다. |
+| OperationName | 로그 항목과 연결된 작업의 이름 |
+| ID | 작업을 수행한 사용자 또는 애플리케이션의 ID입니다. |
+| AadTenantId | 작업이 제출된 AAD 테넌트 ID입니다. |
+| AmlModuleId | 모듈의 GUID 및 고유 ID입니다.|
+| AmlModelName | AML 모델의 이름입니다. |
+| AmlPipelineId | AML 파이프라인의 ID입니다. |
+| AmlParentPipelineId | 부모 AML 파이프라인의 ID입니다(복제의 경우). |
+| AmlPipelineDraftId | AML 파이프라인 초안의 ID입니다. |
+| AmlPipelineDraftName | AML 파이프라인 초안의 이름입니다. |
+| AmlPipelineEndpointId | AML 파이프라인 엔드포인트의 ID입니다. |
+| AmlPipelineEndpointName | AML 파이프라인 엔드포인트의 이름입니다. |
+
+
+### <a name="amlrunevent-table"></a>AmlRunEvent 테이블
+
+| 속성 | 설명 |
+|:--- |:--- |
+| 형식 | 로그 이벤트의 이름, AmlRunEvent |
+| TimeGenerated | 로그 항목이 생성된 시간(UTC) |
+| Level | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| ResultType | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| OperationName | 로그 항목과 연결된 작업의 이름 |
+| AmlWorkspaceId | AML 작업 영역의 GUID 및 고유 ID입니다. |
+| ID | 작업을 수행한 사용자 또는 애플리케이션의 ID입니다. |
+| AadTenantId | 작업이 제출된 AAD 테넌트 ID입니다. |
+| RunId | 실행의 고유 ID입니다. |
+
+### <a name="amlenvironmentevent--table"></a>AmlEnvironmentEvent 테이블
+
+| 속성 | 설명 |
+|:--- |:--- |
+| 형식 | 로그 이벤트의 이름, AmlEnvironmentEvent |
+| TimeGenerated | 로그 항목이 생성된 시간(UTC) |
+| Level | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| OperationName | 로그 항목과 연결된 작업의 이름 |
+| ID | 작업을 수행한 사용자 또는 애플리케이션의 ID입니다. |
+| AadTenantId | 작업이 제출된 AAD 테넌트 ID입니다. |
+| AmlEnvironmentName | AML 환경 구성의 이름입니다. |
+| AmlEnvironmentVersion | AML 환경 구성 버전의 이름입니다. |
 
 
 ## <a name="see-also"></a>참조

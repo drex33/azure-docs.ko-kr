@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 9ed157dad020c69f3243db591ddf494853d793eb
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 31bb35a096845c489b0f141a601ee604253e6ef9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087385"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566906"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Azure Backup을 사용하여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
 
@@ -35,8 +35,9 @@ ms.locfileid: "110087385"
 
 환경을 준비하려면 다음 단계를 완료합니다.
 
-1. VM에 연결합니다.
-1. 데이터베이스를 준비합니다.
+1. [VM에 연결합니다](#connect-to-the-vm).
+1. [Azure Files Storage 설정](#setup-azure-files-storage-for-the-oracle-archived-redo-log-files)
+1. [데이터베이스를 준비합니다](#prepare-the-databases).
 
 ### <a name="connect-to-the-vm"></a>VM에 연결
 
@@ -58,9 +59,21 @@ ms.locfileid: "110087385"
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-### <a name="prepare-the-database"></a>데이터베이스 준비
+### <a name="setup-azure-files-storage-for-the-oracle-archived-redo-log-files"></a>Oracle 보관된 다시 실행 로그 파일용 Azure Files Storage 설정
 
-이 단계에서는 `vmoracle19c`라는 VM에서 실행되는 `test`라는 Oracle 인스턴스가 있다고 가정합니다.
+Oracle 데이터베이스 보관 다시 실행 로그 파일은 과거에 생성된 데이터베이스 스냅샷에서 롤포워드하는 데 필요한 커밋된 트랜잭션을 저장하므로 데이터베이스 복구에서 중요한 역할을 합니다. archivelog 모드에 있을 때 데이터베이스는 온라인 다시 실행 로그 파일이 가득 차고 전환될 때 내용을 보관합니다. 백업과 함께 데이터베이스가 손실되었을 때 지정 시간 복구를 수행하는 데 필요합니다.  
+   
+Oracle은 다시 실행 로그 파일을 다른 위치에 보관하는 기능을 제공하며 업계 모범 사례에서는 이러한 대상 중 하나 이상이 원격 스토리지에 있으므로 호스트 스토리지와 분리되고 독립적인 스냅샷으로 보호할 것을 권장합니다. Azure Files는 이러한 요구 사항에 매우 적합합니다.
+
+Azure Files 파일 공유는 SMB 또는 NFS(미리 보기) 프로토콜을 사용하여 Linux 또는 Windows VM에 일반 파일 시스템 구성 요소로 연결할 수 있는 스토리지입니다. 
+   
+보관 로그 스토리지로 사용하기 위해 SMB 3.0 프로토콜(권장)을 사용하여 Linux에서 Azure Files 파일 공유를 설정하려면 [Linux에서 Azure Files 사용 안내 가이드](../../../storage/files/storage-how-to-use-files-linux.md)를 따르세요. 설치를 완료했으면 이 가이드로 돌아가 나머지 단계를 모두 완료합니다.
+
+### <a name="prepare-the-databases"></a>데이터베이스 준비
+
+이 단계에서는 [Oracle에서 데이터베이스 만들기 빠른 시작](./oracle-database-quick-create.md)에 따라 `oratest1`라는 Oracle 인스턴스가 있고, `vmoracle19c`라는 VM에서 실행되며, 표준 Oracle ‘oraenv’ 스크립트를 표준 Oracle 구성 파일 ‘/etc/oratab’에 대한 종속성과 함께 사용하여 셸 세션에서 환경 변수를 설정한다고 가정합니다.
+
+VM의 각 데이터베이스에서 다음 단계를 수행합니다.
 
 1. 사용자를 *oracle* 사용자로 전환합니다.
  
@@ -68,93 +81,30 @@ ms.locfileid: "110087385"
     sudo su - oracle
     ```
     
-1. 연결하기 전에 환경 변수 ORACLE_SID를 설정해야 합니다.
+1. 연결하기 전에 ORACLE_SID 이름을 입력하라는 `oraenv` 스크립트를 실행하여 ORACLE_SID 환경 변수를 설정해야 합니다.
     
     ```bash
-    export ORACLE_SID=test;
+    $ . oraenv
     ```
 
-    또한 다음 명령을 사용하여 향후 로그인에 사용할 `oracle` 사용자 `.bashrc` 파일에 ORACLE_SID 변수를 추가해야 합니다.
+1.   추가 데이터베이스 보관 로그 파일 대상으로 Azure Files 공유 추가
+     
+     이 단계에서는 Linux VM에 Azure Files 공유를 구성 및 탑재(예: `/backup`라는 탑재 지점 디렉터리 아래)한 것으로 가정합니다.
 
-    ```bash
-    echo "export ORACLE_SID=test" >> ~oracle/.bashrc
-    ```
+     VM에 설치된 각 데이터베이스에서 다음을 예로 사용하여 데이터베이스 SID의 이름을 딴 하위 디렉터리를 만듭니다.
+     
+     이 예에서 탑재 지점 이름은 `/backup`이고 SID는 `oratest1`이므로, `/backup/oratest1` 하위 디렉터리를 만들고 소유권을 oracle 사용자로 변경합니다. 탑재 지점 이름과 데이터베이스 SID를 **/backup/SID** 로 바꾸세요. 
+
+     ```bash
+     sudo mkdir /backup/oratest1
+     sudo chown oracle:oinstall /backup/oratest1
+     ```
     
-1. 아직 실행되지 않은 경우 Oracle 수신기를 시작합니다.
-
-    ```output
-    $ lsnrctl start
-    ```
-
-    출력은 다음 예제와 유사하게 표시됩니다.
-
-    ```bash
-    LSNRCTL for Linux: Version 19.0.0.0.0 - Production on 18-SEP-2020 03:23:49
-
-    Copyright (c) 1991, 2019, Oracle.  All rights reserved.
-
-    Starting /u01/app/oracle/product/19.0.0/dbhome_1/bin/tnslsnr: please wait...
-
-    TNSLSNR for Linux: Version 19.0.0.0.0 - Production
-    System parameter file is /u01/app/oracle/product/19.0.0/dbhome_1/network/admin/listener.ora
-    Log messages written to /u01/app/oracle/diag/tnslsnr/vmoracle19c/listener/alert/log.xml
-    Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=vmoracle19c.eastus.cloudapp.azure.com)(PORT=1521)))
-    Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
-
-    Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=vmoracle19c.eastus.cloudapp.azure.com)(PORT=1521)))
-    STATUS of the LISTENER
-    ------------------------
-    Alias                     LISTENER
-    Version                   TNSLSNR for Linux: Version 19.0.0.0.0 - Production
-    Start Date                18-SEP-2020 03:23:49
-    Uptime                    0 days 0 hr. 0 min. 0 sec
-    Trace Level               off
-    Security                  ON: Local OS Authentication
-    SNMP                      OFF
-    Listener Parameter File   /u01/app/oracle/product/19.0.0/dbhome_1/network/admin/listener.ora
-    Listener Log File         /u01/app/oracle/diag/tnslsnr/vmoracle19c/listener/alert/log.xml
-    Listening Endpoints Summary...
-     (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=vmoracle19c.eastus.cloudapp.azure.com)(PORT=1521)))
-    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
-    The listener supports no services
-    The command completed successfully
-    ```
-
-1.  데이터베이스 FRA(빠른 복구 영역) 위치를 만듭니다. FRA는 백업 및 복구 파일을 위한 중앙 집중식 스토리지 위치입니다.
-
-    ```bash
-    mkdir /u02/fast_recovery_area
-    ```
-
-1. Oracle 보관된 다시 실행 로그 파일에 대한 Azure Files 파일 공유 만들기
-
-   Oracle 데이터베이스 보관 다시 실행 로그 파일은 과거에 생성된 데이터베이스 스냅샷에서 롤포워드하는 데 필요한 커밋된 트랜잭션을 저장하므로 데이터베이스 복구에서 중요한 역할을 합니다. archivelog 모드에 있을 때 데이터베이스는 온라인 다시 실행 로그 파일이 가득 차고 전환될 때 내용을 보관합니다. 백업과 함께 데이터베이스가 손실되었을 때 지정 시간 복구를 수행하는 데 필요합니다.  
-   
-   Oracle은 다시 실행 로그 파일을 다른 위치에 보관하는 기능을 제공하며 업계 모범 사례에서는 이러한 대상 중 하나 이상이 원격 스토리지에 있으므로 호스트 스토리지와 분리되고 독립적인 스냅샷으로 보호할 것을 권장합니다. Azure Files는 이러한 요구 사항에 매우 적합합니다.
-
-   Azure Files 파일 공유는 SMB 또는 NFS(미리 보기) 프로토콜을 사용하여 Linux 또는 Windows VM에 일반 파일 시스템 구성 요소로 연결할 수 있는 스토리지입니다. 보관 로그 스토리지로 사용하기 위해 SMB 3.0 프로토콜(권장)을 사용하여 Linux에서 Azure Files 파일 공유를 설정하려면 [Linux에서 Azure Files 사용 안내 가이드](../../../storage/files/storage-how-to-use-files-linux.md)를 따르세요. 
-   
-   예를 들어 `/backup`이라는 탑재 지점 디렉터리 아래에 Azure Files 공유가 구성되고 Linux VM에 탑재되면 다음과 같이 데이터베이스에서 추가 보관 로그 파일 대상으로 추가할 수 있습니다.
-
-   먼저 Oracle SID의 이름을 확인합니다.
+1. 데이터베이스에 연결합니다.
+    
    ```bash
-   echo $ORACLE_SID
-   test
+   sqlplus / as sysdba
    ```
-
-   데이터베이스 SID를 따라 이름이 지정된 하위 디렉터리를 만듭니다. 이 예에서 탑재 지점 이름은 `/backup`이고 이전 명령에서 반환된 SID는 `test`이므로 하위 디렉터리 `/backup/test`를 만들고 소유권을 oracle 사용자로 변경합니다. 탑재 지점 이름과 데이터베이스 SID를 **/backup/SID** 로 바꾸세요. VM에 여러 데이터베이스가 있는 경우 각 데이터베이스에 대해 하위 디렉터리를 만들고 소유권을 변경합니다.
-
-   ```bash
-   sudo mkdir /backup/test
-   sudo chown oracle:oinstall /backup/test
-   ```
-
-1.  데이터베이스에 연결합니다.
-
-    ```bash
-    sqlplus / as sysdba
-    ```
-    VM에 여러 데이터베이스가 설치된 경우 각 데이터베이스에서 6~15단계를 실행해야 합니다.
 
 1.  아직 실행되지 않은 경우 데이터베이스를 시작합니다. 
    
@@ -162,22 +112,11 @@ ms.locfileid: "110087385"
     SQL> startup
     ```
    
-1. 데이터베이스의 첫 번째 보관 로그 대상을 5단계에서 만든 파일 공유 디렉터리로 설정합니다.
+1. 데이터베이스의 첫 번째 보관 로그 대상을 앞서 만든 파일 공유 디렉터리로 설정합니다.
 
    ```bash
-   sqlplus / as sysdba
-   SQL> alter system set log_archive_dest_1='LOCATION=/backup/test';
-   SQL> 
+   SQL> alter system set log_archive_dest_1='LOCATION=/backup/oratest1' scope=both;
    ```
-
-
-1.  빠른 복구 영역에 대한 데이터베이스 환경 변수를 설정합니다.
-
-    ```bash
-    SQL> alter system set db_recovery_file_dest_size=4096M scope=both;
-    SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
-    ```
-
 
 1. 데이터베이스에 대한 RPO(복구 지점 목표)를 정의합니다.
 
@@ -185,12 +124,11 @@ ms.locfileid: "110087385"
     - 온라인 다시 실행 로그 파일의 크기입니다. 온라인 로그 파일이 가득 차면 전환되고 보관됩니다. 온라인 로그 파일이 클수록 채우는 데 더 오래 걸리므로 보관 생성 빈도가 감소합니다.
     - ARCHIVE_LAG_TARGET 매개 변수의 설정은 현재 온라인 로그 파일이 전환되고 보관되어야 하기 전에 허용되는 최대 시간(초)을 제어합니다. 
 
-    수반되는 검사점 작업과 함께 스위칭 및 보관의 빈도를 최소화하기 위해 Oracle 온라인 다시 실행 로그 파일은 일반적으로 크기가 상당히 커집니다(1024M, 4096M, 8192M 등). 바쁜 데이터베이스 환경에서 로그는 여전히 몇 초 또는 몇 분마다 전환 및 보관될 가능성이 있지만 덜 활성화된 데이터베이스에서는 가장 최근 트랜잭션이 보관되기 몇 시간 또는 며칠 전에 이동하여 보관 빈도를 크게 줄일 수 있습니다. 따라서 일관된 RPO를 달성하려면 ARCHIVE_LAG_TARGET을 설정하는 것이 좋습니다. 5분(300초)의 설정은 ARCHIVE_LAG_TARGET에 대한 적절한 값으로, 모든 데이터베이스 복구 작업이 실패 시간의 5분 이내로 복구될 수 있도록 합니다.
+    수반되는 검사점 작업과 함께 스위칭 및 보관 빈도를 최소화하기 위해 Oracle 온라인 다시 실행 로그 파일은 일반적으로 크기가 상당히 커집니다(1024M, 4096M, 8192M 등). 바쁜 데이터베이스 환경에서 로그는 여전히 몇 초 또는 몇 분마다 전환 및 보관될 가능성이 있지만 덜 활성화된 데이터베이스에서는 가장 최근 트랜잭션이 보관되기 몇 시간 또는 며칠 전에 이동하여 보관 빈도를 크게 줄일 수 있습니다. 따라서 일관된 RPO를 달성하려면 ARCHIVE_LAG_TARGET을 설정하는 것이 좋습니다. 5분(300초)의 설정은 ARCHIVE_LAG_TARGET에 대한 적절한 값으로, 모든 데이터베이스 복구 작업이 실패 시간의 5분 이내로 복구될 수 있도록 합니다.
 
     ARCHIVE_LAG_TARGET을 설정하려면:
 
     ```bash 
-    sqlplus / as sysdba
     SQL> alter system set archive_lag_target=300 scope=both;
     ```
 
@@ -217,59 +155,47 @@ ms.locfileid: "110087385"
      SQL> ALTER DATABASE OPEN;
      SQL> ALTER SYSTEM SWITCH LOGFILE;
      ```
-
-1.  백업 및 복원 작업을 테스트할 테이블을 만듭니다.
-
-     ```bash
-     SQL> create user scott identified by tiger quota 100M on users;
-     SQL> grant create session, create table to scott;
-     SQL> connect scott/tiger
-     SQL> create table scott_table(col1 number, col2 varchar2(50));
-     SQL> insert into scott_table VALUES(1,'Line 1');
-     SQL> commit;
-     SQL> quit
-     ```
-
-1. VM 디스크에 있는 빠른 복구 영역에 데이터베이스를 백업하도록 RMAN을 구성합니다. 스냅샷 제어 파일 구성은 %d 데이터베이스 이름 대체를 허용하지 않으므로 여러 데이터베이스가 동일한 위치에 백업할 수 있도록 파일 이름에 데이터베이스 SID를 명시적으로 포함해야 합니다. 데이터베이스 이름을 `<ORACLE_SID>`로 바꾸세요.
-
-    ```bash
-    $ rman target /
-    RMAN> configure snapshot controlfile name to '/u02/fast_recovery_area/snapcf_<ORACLE_SID>.f';
-    RMAN> configure channel 1 device type disk format '/u02/fast_recovery_area/%d/Full_%d_%U_%T_%s';
-    RMAN> configure channel 2 device type disk format '/u02/fast_recovery_area/%d/Full_%d_%U_%T_%s'; 
-    ```
-
-1. 구성 변경 세부 정보를 확인합니다.
-
-    ```bash
-    RMAN> show all;
-    ```    
-
-1.  이제 백업을 실행합니다. 다음 명령은 보관 로그 파일을 포함하여 전체 데이터베이스 백업을 압축 형식의 백업 세트로 사용합니다.
-
-     ```bash
-     RMAN> backup as compressed backupset database plus archivelog;
-     ```
-
-## <a name="using-azure-backup-preview"></a>Azure Backup 사용(미리 보기)
+1. 백업 및 복원 작업을 테스트할 테이블을 만듭니다.
+   ```bash
+   SQL> create user scott identified by tiger quota 100M on users;
+   SQL> grant create session, create table to scott;
+   SQL> connect scott/tiger
+   SQL> create table scott_table(col1 number, col2 varchar2(50));
+   SQL> insert into scott_table VALUES(1,'Line 1');
+   SQL> commit;
+   SQL> quit
+   ```
+## <a name="using-azure-backup"></a>Azure Backup 사용 
 
 Azure Backup 서비스는 데이터를 백업하고 Microsoft Azure 클라우드에서 복구할 수 있는 간단하고, 안전하며, 비용 효율적인 솔루션을 제공합니다. Azure Backup은 실수로 데이터가 삭제되지 않도록 방지하기 위해 독립적이고 격리된 백업을 제공합니다. 백업은 복구 지점에 대한 기본 제공 관리를 사용하여 Recovery Services 자격 증명 모음에 저장됩니다. 구성 및 확장성이 간단하고, 백업이 최적화되어 있으며, 필요에 따라 쉽게 복원할 수 있습니다.
 
-Azure Backup 서비스는 Oracle, MySQL, Mongo DB 및 PostGreSQL과 같은 다양한 애플리케이션에 대해 Windows 및 Linux VM을 백업하는 동안 애플리케이션 일치를 달성할 수 있는 [프레임워크](../../../backup/backup-azure-linux-app-consistent.md)를 제공합니다. 여기에는 디스크 스냅샷을 만들기 전에 사전 스크립트(애플리케이션 정지)를 호출하고 스냅샷이 완료된 후 사후 스크립트(애플리케이션 고정 해제 명령)를 호출하여 애플리케이션을 정상 모드로 되돌리는 작업이 포함됩니다. 사전 스크립트 및 사후 스크립트 샘플은 GitHub에서 제공되지만, 이러한 스크립트를 만들고 유지 관리하는 것은 사용자의 책임입니다.
+Azure Backup 서비스는 Oracle과 MySQL 같은 다양한 애플리케이션에 대해 Windows 및 Linux VM을 백업하는 동안 애플리케이션 일관성을 달성할 수 있는 [프레임워크](../../../backup/backup-azure-linux-app-consistent.md)를 제공합니다. 여기에는 디스크 스냅샷을 만들기 전에 사전 스크립트(애플리케이션 정지)를 호출하고 스냅샷이 완료된 후 사후 스크립트(애플리케이션 정지 해제)를 호출하는 작업이 포함됩니다. 
 
-이제 Azure Backup은 향상된 사전 스크립트 및 사후 스크립트 프레임워크(**현재 미리 보기 상태**)를 제공합니다. 여기서 Azure Backup 서비스는 선택한 애플리케이션에 대해 패키지된 사전 스크립트 및 사후 스크립트를 제공합니다. Azure Backup 사용자는 애플리케이션 이름만 지정하면 됩니다. 그러면 Azure VM 백업에서 관련 사전 게시 스크립트를 자동으로 호출합니다. 패키지된 사전 스크립트 및 사후 스크립트는 Azure Backup 팀에서 유지 관리하므로 사용자는 이러한 스크립트의 지원, 소유권 및 유효성을 보장할 수 있습니다. 현재 향상된 프레임워크에 지원되는 애플리케이션은 *Oracle* 및 *MySQL* 입니다.
+이제 Oracle처럼 선택한 애플리케이션에 패키지된 사전/사후 스크립트가 Azure Backup 서비스에서 제공되고 Linux 이미지에 미리 로드되므로 설치할 필요가 없도록 프레임워크가 향상되었습니다. Azure Backup 사용자는 애플리케이션 이름만 지정하면 됩니다. 그러면 Azure VM 백업에서 관련 사전/사후 스크립트를 자동으로 호출합니다. 패키지된 사전 스크립트 및 사후 스크립트는 Azure Backup 팀에서 유지 관리하므로 사용자는 이러한 스크립트의 지원, 소유권 및 유효성을 보장할 수 있습니다. 현재 향상된 프레임워크에 지원되는 애플리케이션은 *Oracle* 및 *MySQL* 입니다.
 
-이 섹션에서는 향상된 Azure Backup 프레임워크를 사용하여 실행되는 VM 및 Oracle 데이터베이스의 애플리케이션 일치 스냅샷을 만듭니다. Azure Backup에서 VM 디스크의 스냅샷을 만드는 동안 트랜잭션에서 일관된 온라인 백업을 수행할 수 있도록 데이터베이스가 백업 모드로 전환됩니다. 스냅샷은 증분 또는 쓰기 중 복사 스냅샷이 아니라 스토리지의 전체 복사본이므로 데이터베이스를 복원할 수 있는 효과적인 매체입니다. Azure Backup 애플리케이션 일치 스냅샷을 사용하는 이점은 데이터베이스의 크기에 관계없이 스냅샷을 매우 빠르게 만들 수 있으며, Recovery Services 자격 증명 모음으로 전송될 때까지 기다릴 필요 없이 해당 스냅샷을 만드는 즉시 복원 작업에 사용할 수 있다는 것입니다.
+> [!Note]
+> 향상된 프레임워크는 백업이 실행될 때마다 VM에 설치된 모든 Oracle 데이터베이스에서 사전/사후 스크립트를 실행합니다. 
+>
+> **workload.conf** 파일의 `configuration_path` 매개 변수는 Oracle /etc/oratab 파일(또는 oratab 구문을 따르는 사용자 정의 파일)의 위치를 가리킵니다. 자세한 내용은 [애플리케이션 일치 백업 설정](#set-up-application-consistent-backups)을 참조하세요.
+> 
+> Azure Backup은 #(주석으로 처리) 또는 +ASM(Oracle 자동 스토리지 관리 인스턴스)으로 시작하는 줄을 제외하고, configuration_path에서 가리키는 파일에 나열된 각 데이터베이스에 대해 사전/사후 백업 스크립트를 실행합니다.
+> 
+> Azure Backup 향상된 프레임워크는 ARCHIVELOG 모드에서 작동하는 Oracle 데이터베이스의 온라인 백업을 수행합니다. 사전/사후 스크립트는 ALTER DATABASE BEGIN/END BACKUP 명령을 사용하여 애플리케이션 일관성을 달성합니다. 
+>
+> 데이터베이스 백업이 일관성을 유지하려면 스냅샷이 시작되기 전에 NOARCHIVELOG 모드의 데이터베이스를 완전히 종료해야 합니다.
+
+
+이 섹션에서는 Azure Backup 프레임워크를 사용하여 실행되는 VM 및 Oracle 데이터베이스의 애플리케이션 일치 스냅샷을 만듭니다. Azure Backup에서 VM 디스크의 스냅샷을 만드는 동안 트랜잭션에서 일관된 온라인 백업을 수행할 수 있도록 데이터베이스가 백업 모드로 전환됩니다. 스냅샷은 증분 또는 쓰기 중 복사 스냅샷이 아니라 스토리지의 전체 복사본이므로 데이터베이스를 복원할 수 있는 효과적인 매체입니다. Azure Backup 애플리케이션 일치 스냅샷을 사용하는 이점은 데이터베이스의 크기에 관계없이 스냅샷을 매우 빠르게 만들 수 있으며, Recovery Services 자격 증명 모음으로 전송될 때까지 기다릴 필요 없이 해당 스냅샷을 만드는 즉시 복원 작업에 사용할 수 있다는 데 있습니다.
 
 Azure Backup을 사용하여 데이터베이스를 백업하려면 다음 단계를 완료합니다.
 
-1. 애플리케이션 일치 백업 환경을 준비합니다.
-1. 애플리케이션 일치 백업을 설정합니다.
-1. VM의 애플리케이션 일치 백업을 트리거합니다.
+1. [애플리케이션 일치 백업 환경을 준비합니다](#prepare-the-environment-for-an-application-consistent-backup).
+1. [애플리케이션 일치 백업을 설정합니다](#set-up-application-consistent-backups).
+1. [VM의 애플리케이션 일치 백업을 트리거합니다](#trigger-an-application-consistent-backup-of-the-vm).
 
 ### <a name="prepare-the-environment-for-an-application-consistent-backup"></a>애플리케이션 일치 백업 환경 준비
 
-> [!IMPORTANT] 
+> [!Note] 
 > Oracle 데이터베이스는 최소 권한을 사용하여 업무를 분리하기 위해 작업 역할 분리를 사용합니다. 이는 별도의 운영 체제 그룹을 별도의 데이터베이스 관리 역할과 연결하여 수행됩니다. 그러면 운영 체제 사용자는 운영 체제 그룹의 구성원에 따라 부여된 다른 데이터베이스 권한을 가질 수 있습니다. 
 >
 > `SYSBACKUP` 데이터베이스 역할(일반 이름 OSBACKUPDBA)은 데이터베이스에서 백업 작업을 수행하는 제한된 권한을 제공하는 데 사용되며 Azure Backup에 필요합니다.
@@ -283,7 +209,7 @@ Azure Backup을 사용하여 데이터베이스를 백업하려면 다음 단계
 
 1. Oracle 환경 설정:
    ```bash
-   export ORACLE_SID=test
+   export ORACLE_SID=oratest1
    export ORAENV_ASK=NO
    . oraenv
    ```
@@ -317,12 +243,13 @@ Azure Backup을 사용하여 데이터베이스를 백업하려면 다음 단계
 1. 이전 단계에서 확인하거나 작성한 운영 체제 그룹에 속하는 새 백업 사용자 `azbackup`을 작성합니다. 확인된 그룹의 이름을 \<group name\>으로 바꾸세요.
 
    ```bash
-   sudo useradd -G <group name> azbackup
+   sudo useradd -g <group name> azbackup
    ```
 
 1. 새 백업 사용자에 대한 외부 인증을 설정합니다. 
 
    백업 사용자 `azbackup`은 암호로 인한 문제가 발생하지 않도록 외부 인증을 사용하여 데이터베이스에 액세스할 수 있어야 합니다. 이를 수행하려면 `azbackup`을 통해 외부적으로 인증하는 데이터베이스 사용자를 작성해야 합니다. 데이터베이스는 찾아야 하는 사용자 이름에 접두사를 사용합니다.
+
    VM에 설치된 각 데이터베이스에서 다음 단계를 수행합니다.
  
    sqlplus를 사용하여 데이터베이스에 로그인하고, 외부 인증에 대한 기본 설정을 확인합니다.
@@ -359,15 +286,17 @@ Azure Backup을 사용하여 데이터베이스를 백업하려면 다음 단계
    > 1. 다음 명령을 실행합니다.
    >
    >    ```bash
-   >    mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
-   >    orapwd file=$ORACLE_HOME/dbs/orapwtest input_file=$ORACLE_HOME/dbs/orapwtest.tmp
-   >    rm $ORACLE_HOME/dbs/orapwtest.tmp
+   >    mv $ORACLE_HOME/dbs/orapworatest1 $ORACLE_HOME/dbs/orapworatest1.tmp
+   >    orapwd file=$ORACLE_HOME/dbs/orapworatest1 input_file=$ORACLE_HOME/dbs/orapworatest1.tmp
+   >    rm $ORACLE_HOME/dbs/orapworatest1.tmp
    >    ```
    >
    > 1. sqlplus에서 `GRANT` 작업을 다시 실행합니다.
    >
    
 1. 백업 메시지를 데이터베이스 경고 로그에 기록하는 저장 프로시저를 만듭니다.
+
+   VM에 설치된 각 데이터베이스에서 다음을 수행합니다.
 
    ```bash
    sqlplus / as sysdba
@@ -502,10 +431,10 @@ Azure Backup을 사용하여 데이터베이스를 백업하려면 다음 단계
 
 데이터베이스를 복구하려면 다음 단계를 완료합니다.
 
-1. 데이터베이스 파일을 제거합니다.
-1. Recovery Services 자격 증명 모음에서 복원 스크립트를 생성합니다.
-1. 복원 지점을 탑재합니다.
-1. 복구를 수행합니다.
+1. [데이터베이스 파일을 제거합니다](#remove-the-database-files).
+1. [Recovery Services 자격 증명 모음에서 복원 스크립트를 생성합니다](#generate-a-restore-script-from-the-recovery-services-vault).
+1. [복원 지점을 탑재합니다](#mount-the-restore-point).
+1. [복구를 수행합니다](#perform-recovery).
 
 ### <a name="remove-the-database-files"></a>데이터베이스 파일 제거 
 
@@ -527,7 +456,7 @@ Azure Backup을 사용하여 데이터베이스를 백업하려면 다음 단계
 1.  데이터베이스 데이터 파일과 제어 파일을 제거하여 오류를 시뮬레이션합니다.
 
     ```bash
-    cd /u02/oradata/TEST
+    cd /u02/oradata/ORATEST1
     rm -f *.dbf *.ctl
     ```
 
@@ -701,13 +630,14 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
     ```
 
 ### <a name="perform-recovery"></a>복구 수행
+VM의 각 데이터베이스에서 다음 단계를 수행합니다.
 
 1. 누락된 데이터베이스 파일을 해당 위치로 복원합니다.
 
     ```bash
-    cd /restore/vmoracle19c-2020XXXXXXXXXX/Volume1/oradata/TEST
-    cp * /u02/oradata/TEST
-    cd /u02/oradata/TEST
+    cd /restore/vmoracle19c-2020XXXXXXXXXX/Volume1/oradata/ORATEST1
+    cp * /u02/oradata/ORATEST1
+    cd /u02/oradata/ORATEST1
     chown -R oracle:oinstall *
     ```
 1. oracle 사용자로 다시 전환
@@ -739,13 +669,13 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
    SQL> recover automatic database until cancel using backup controlfile;
    ORA-00279: change 2172930 generated at 04/08/2021 12:27:06 needed for thread 1
    ORA-00289: suggestion :
-   /u02/fast_recovery_area/TEST/archivelog/2021_04_08/o1_mf_1_13_%u_.arc
+   /u02/fast_recovery_area/ORATEST1/archivelog/2021_04_08/o1_mf_1_13_%u_.arc
    ORA-00280: change 2172930 for thread 1 is in sequence #13
    ORA-00278: log file
-   '/u02/fast_recovery_area/TEST/archivelog/2021_04_08/o1_mf_1_13_%u_.arc' no
+   '/u02/fast_recovery_area/ORATEST1/archivelog/2021_04_08/o1_mf_1_13_%u_.arc' no
    longer needed for this recovery
    ORA-00308: cannot open archived log
-   '/u02/fast_recovery_area/TEST/archivelog/2021_04_08/o1_mf_1_13_%u_.arc'
+   '/u02/fast_recovery_area/ORATEST1/archivelog/2021_04_08/o1_mf_1_13_%u_.arc'
    ORA-27037: unable to obtain file status
    Linux-x86_64 Error: 2: No such file or directory
    Additional information: 7
@@ -766,7 +696,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
    Oracle 사용자로 전환하고 Oracle SID를 설정합니다.
    ```bash
    sudo su - oracle
-   export ORACLE_SID=test
+   export ORACLE_SID=oratest1
    ```
    
    데이터베이스에 연결하고 다음 쿼리를 실행하여 온라인 로그 파일을 찾습니다. 
@@ -783,31 +713,34 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
    ```output
    SEQUENCE#  CHK_CHANGE           GROUP# ARC STATUS            MEMBER
    ---------- ---------------- ---------- --- ---------------- ---------------------------------------------
-           13          2172929          1 NO  CURRENT          /u02/oradata/TEST/redo01.log
-           12          2151934          3 YES INACTIVE         /u02/oradata/TEST/redo03.log
-           11          2071784          2 YES INACTIVE         /u02/oradata/TEST/redo02.log
+           13          2172929          1 NO  CURRENT          /u02/oradata/ORATEST1/redo01.log
+           12          2151934          3 YES INACTIVE         /u02/oradata/ORATEST1/redo03.log
+           11          2071784          2 YES INACTIVE         /u02/oradata/ORATEST1/redo02.log
    ```
-   CURRENT 온라인 로그에 대한 로그 파일 경로 및 파일 이름을 복사합니다. 이 예에서는 `/u02/oradata/TEST/redo01.log`입니다. recover 명령을 실행하는 ssh 세션으로 다시 전환하고 로그 파일 정보를 입력한 다음 Return 키를 누릅니다.
+   CURRENT 온라인 로그에 대한 로그 파일 경로 및 파일 이름을 복사합니다. 이 예에서는 `/u02/oradata/ORATEST1/redo01.log`입니다. recover 명령을 실행하는 ssh 세션으로 다시 전환하고 로그 파일 정보를 입력한 다음 Return 키를 누릅니다.
 
    ```bash
    Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
-   /u02/oradata/TEST/redo01.log
+   /u02/oradata/ORATEST1/redo01.log
    ```
 
    로그 파일이 적용되고 복구가 완료된 것을 볼 수 있습니다. CANCEL을 입력하여 복구 명령을 종료합니다.
    ```output
    Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
-   /u02/oradata/TEST/redo01.log
+   /u02/oradata/ORATEST1/redo01.log
    Log applied.
    Media recovery complete.
    ```
 
 1. 데이터베이스 열기
+   
+   > [!IMPORTANT]
+   > RECOVER 명령이 USING BACKUP CONTROLFILE 옵션을 사용하는 경우 RESETLOGS 옵션이 필요합니다. RESETLOGS는 다시 실행 기록을 처음으로 다시 설정하여 데이터베이스의 새 구현을 생성합니다. 이전 데이터베이스 구현 중 복구에서 건너뛴 양을 확인할 방법이 없기 때문입니다.
+
    ```bash
    SQL> alter database open resetlogs;
    ```
-   > [!IMPORTANT]
-   > RECOVER 명령이 USING BACKUP CONTROLFILE 옵션을 사용하는 경우 RESETLOGS 옵션이 필요합니다. RESETLOGS는 다시 실행 기록을 처음으로 다시 설정하여 데이터베이스의 새 구현을 생성합니다. 이전 데이터베이스 구현 중 복구에서 건너뛴 양을 확인할 방법이 없기 때문입니다.
+
    
 1. 데이터베이스 콘텐츠가 완전히 복구되었는지 확인합니다.
 
@@ -817,6 +750,9 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
 
 1. 복원 지점을 분리합니다.
 
+   VM의 모든 데이터베이스가 복구되면 복원 지점을 분리할 수 있습니다. 이 작업은 `unmount` 명령을 사용하여 VM에서 또는 파일 복구 블레이드의 Azure Portal에서 수행할 수 있습니다. **-clean** 옵션을 사용하여 python 스크립트를 다시 실행하여 복구 볼륨을 분리할 수도 있습니다.
+
+   분리를 사용하는 VM에서:
    ```bash
    sudo umount /restore/vmoracle19c-20210107110037/Volume*
    ```
@@ -825,7 +761,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
 
     ![디스크 분리 명령](./media/oracle-backup-recovery/recovery-service-10.png)
     
-    **-clean** 옵션을 사용하여 python 스크립트를 다시 실행하여 복구 볼륨을 분리할 수도 있습니다.
+
 
 ## <a name="restore-the-entire-vm"></a>전체 VM 복원
 
@@ -833,13 +769,12 @@ Recovery Services 자격 증명 모음에서 삭제된 파일을 복원하는 �
 
 전체 VM을 복원하려면 다음 단계를 완료합니다.
 
-1. vmoracle19c를 중지하고 삭제합니다.
-1. VM을 복구합니다.
-1. 공용 IP 주소를 설정합니다.
-1. VM에 연결합니다.
-1. 데이터베이스를 시작하여 단계를 탑재하고 복구를 수행합니다.
+1. [VM을 중지 후 삭제합니다](#stop-and-delete-the-vm).
+1. [VM을 복구합니다](#recover-the-vm).
+1. [공용 IP 주소를 설정합니다](#set-the-public-ip-address).
+1. [데이터베이스 복구를 수행합니다](#perform-database-recovery).
 
-### <a name="stop-and-delete-vmoracle19c"></a>vmoracle19c 중지 및 삭제
+### <a name="stop-and-delete-the-vm"></a>VM 중지 후 삭제
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -1104,27 +1039,42 @@ VM이 복원되면 원래 IP 주소를 새 VM에 다시 할당해야 합니다.
 
 ---
 
-### <a name="connect-to-the-vm"></a>VM에 연결
-
-VM에 연결하려면:
+### <a name="perform-database-recovery"></a>데이터베이스 복구 수행
+먼저 VM에 다시 연결합니다.
 
 ```azurecli
 ssh azureuser@<publicIpAddress>
 ```
 
-### <a name="start-the-database-to-mount-stage-and-perform-recovery"></a>데이터베이스를 시작하여 단계 탑재 및 복구 수행
+전체 VM을 복원한 경우 각각에서 다음 단계를 수행하여 VM의 각 데이터베이스를 복구하는 것이 중요합니다.
 
-1. VM 부팅 시 자동 시작에서 데이터베이스를 시작하려고 할 때 인스턴스가 실행되고 있음을 알 수 있습니다. 그러나 데이터베이스는 복구가 필요하고, 탑재 단계에만 있을 수 있으므로 먼저 사전 종료가 먼저 실행됩니다.
+1. VM 부팅 시 자동 시작에서 데이터베이스를 시작하려고 할 때 인스턴스가 실행되고 있음을 알 수 있습니다. 그러나 데이터베이스는 복구해야 하고 탑재 단계에만 있을 수 있으므로, 준비 종료가 먼저 실행된 후 탑재 단계가 시작됩니다.
 
     ```bash
     $ sudo su - oracle
     $ sqlplus / as sysdba
     SQL> shutdown immediate
     SQL> startup mount
-    SQL> recover automatic database;
-    SQL> alter database open;
     ```
     
+1. 데이터베이스 복구 수행
+   > [!IMPORTANT]
+   > 복원된 데이터베이스 제어 파일에 기록된 Oracle SCN(시스템 변경 번호)에서 복구가 중지되지 않도록 RECOVER AUTOMATIC DATABASE 명령에 알리기 위해 USING BACKUP CONTROLFILE 구문을 지정하는 것이 중요합니다. 복원된 데이터베이스 제어 파일은 나머지 데이터베이스와 함께 스냅샷이었으며 그 안에 저장된 SCN은 스냅샷의 특정 시점에서 가져온 것입니다. 이 시점 이후에 기록된 트랜잭션이 있을 수 있으며 데이터베이스에 커밋된 마지막 트랜잭션의 특정 시점으로 복구하려고 합니다.
+    
+    ```bash
+    SQL> recover automatic database using backup controlfile until cancel;
+    ```
+   마지막으로 사용 가능한 보관 로그 파일을 `CANCEL` 형식에 적용하여 복구를 종료합니다.
+
+1. 데이터베이스 열기
+   > [!IMPORTANT]
+   > RECOVER 명령이 USING BACKUP CONTROLFILE 옵션을 사용하는 경우 RESETLOGS 옵션이 필요합니다. RESETLOGS는 다시 실행 기록을 처음으로 다시 설정하여 데이터베이스의 새 구현을 생성합니다. 이전 데이터베이스 구현 중 복구에서 건너뛴 양을 확인할 방법이 없기 때문입니다.
+   
+    ```bash 
+    SQL> alter database open resetlogs;
+    ```
+   
+
 1. 데이터베이스 콘텐츠가 복구되었는지 확인합니다.
 
     ```bash

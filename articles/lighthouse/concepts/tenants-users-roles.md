@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 description: Azure Lighthouse 시나리오에서 Azure Active Directory 테넌트, 사용자 및 역할을 사용하는 방법을 알아봅니다.
-ms.date: 05/11/2021
+ms.date: 06/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: bcb3c250d0973174e7356bd489b84938238af6e7
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: cdf8c10d52e0add4513d42a99d2054e1af0ed796
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074830"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112542259"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 
@@ -47,6 +47,12 @@ ms.locfileid: "112074830"
 
 > [!NOTE]
 > 새로운 적용 가능한 기본 제공 역할이 Azure에 추가되면 [Azure Resource Manager 템플릿을 사용하여 고객을 온보딩](../how-to/onboard-customer.md)할 때 할당될 수 있습니다. [관리형 서비스 제품을 게시](../how-to/publish-managed-services-offers.md)할 때 파트너 센터에서 새로 추가된 역할을 사용할 수 있게 되기 전에 지연이 발생할 수 있습니다.
+
+## <a name="transferring-delegated-subscriptions-between-azure-ad-tenants"></a>Azure AD 테넌트 간에 위임된 구독 전송
+
+구독이 [다른 Azure AD 테넌트 계정으로 전송](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account)되는 경우 [Azure Lighthouse 온보딩 프로세스](../how-to/onboard-customer.md)를 통해 생성된 [등록 정의 및 등록 할당 리소스](architecture.md#delegation-resources-created-in-the-customer-tenant)가 보존됩니다. 즉, Azure Lighthouse를 통해 테넌트 관리에 부여된 액세스 권한은 해당 구독(또는 해당 구독 내의 위임된 리소스 그룹)에 계속 적용됩니다.
+
+유일한 예외는 구독이 이전에 위임된 Azure AD 테넌트로 전송되는 경우입니다. 이 경우 구독이 Azure Lighthouse를 통해 위임되지 않고 해당 테넌트에 직접 속하기 때문에 해당 테넌트용 위임 리소스가 제거되고 Azure Lighthouse를 통해 부여된 액세스 권한이 더 이상 적용되지 않습니다. 그러나 해당 구독이 다른 관리 테넌트에게도 위임된 경우 다른 관리 테넌트는 구독에 대한 동일한 액세스 권한을 유지합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

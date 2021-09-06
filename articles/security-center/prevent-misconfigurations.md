@@ -5,18 +5,18 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 08/17/2021
 ms.author: memildin
-ms.openlocfilehash: fabbd255f64e5614ae052c9d7c8d65fc35d45856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4316a53675a8a7e51359b041143e8625e1db4f1f
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600499"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606142"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>적용/거부 권장 사항을 사용하여 구성 오류 방지
 
-보안 구성 오류는 보안 인시던트의 주요 원인입니다. 이제 Security Center에는 특정 추천 사항과 관련하여 새 리소스의 구성 오류를 *방지* 하는 데 도움이 되는 기능이 있습니다. 
+보안 구성 오류는 보안 인시던트의 주요 원인입니다. Security Center는 특정 추천 사항과 관련된 새 리소스의 구성 오류를 *방지* 하는 데 도움을 줄 수 있습니다. 
 
 이 기능을 통해 워크로드를 안전하게 유지하고 보안 점수를 안정화할 수 있습니다.
 
@@ -40,18 +40,18 @@ ms.locfileid: "104600499"
     > [!TIP]
     > 행의 끝에 있는 세 개의 점을 사용하여 단일 구독을 변경하거나 확인란을 사용하여 여러 구독 또는 그룹을 선택한 후 **거부로 변경** 을 선택할 수 있습니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Azure Policy 거부에 대한 범위 설정":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Azure Policy 거부 범위 설정.":::
 
 
 ## <a name="enforce-a-secure-configuration"></a>보안 구성 적용
 
 1. 새 리소스가 충족하지 않는 경우 템플릿 배포를 배포할 권장 사항을 열고 페이지 상단에 있는 **적용** 단추를 선택합니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="적용 단추가 강조 표시된 권장 사항 페이지":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="적용 단추가 강조 표시된 권장 사항 페이지.":::
 
     구성 창이 열리고 모든 정책 구성 옵션이 나타납니다. 
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="구성 옵션 적용":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="구성 옵션 적용.":::
 
 1. 범위, 할당 이름, 기타 관련 옵션을 설정합니다.
 
@@ -66,8 +66,19 @@ ms.locfileid: "104600499"
 해당 권장 사항은 **적용** 옵션과 함께 사용할 수 있습니다.
 
 - SQL Server에 대한 감사가 사용되도록 설정되어야 함
+- Azure Arc 사용 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 함
 - Azure Backup을 가상 머신에 사용하도록 설정해야 합니다.
-- SQL 서버에서 SQL용 Azure Defender를 사용하도록 설정해야 함
+- Azure Defender for App Service를 사용해야 합니다
+- 컨테이너 레지스트리용 Azure Defender를 사용해야 합니다.
+- Azure Defender for DNS를 사용하도록 설정해야 함
+- Azure Defender for Key Vault를 사용해야 합니다.
+- Azure Defender for Kubernetes를 사용해야 합니다.
+- Azure Defender for Resource Manager를 사용하도록 설정해야 함
+- 서버용 Azure Defender를 사용해야 합니다.
+- Azure SQL Database 서버용 Azure Defender를 사용해야 합니다.
+- 머신의 SQL 서버용 Azure Defender를 사용해야 합니다.
+- 보호되지 않는 Azure SQL 서버에 대해 SQL용 Azure Defender를 사용하도록 설정해야 함
+- 스토리지용 Azure Defender를 사용해야 합니다.
 - 클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 함
 - Azure Stream Analytics에서 진단 로그를 사용하도록 설정
 - 배치 계정의 진단 로그를 사용하도록 설정해야 합니다.

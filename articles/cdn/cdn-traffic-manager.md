@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: a003becba0bc1e42d8fe0c0c5b199402a430a8e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3eea73559fdf00e8c74f58ea51b1efce5eac694d
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034761"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113651300"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 여러 엔드포인트 간 장애 조치(failover)
 
@@ -96,7 +96,7 @@ CDN 및 Traffic Manager 프로필을 구성한 후 이러한 단계를 수행하
     >
    
     > [!NOTE]
-    > 이 장애 조치(failover) 시나리오를 구현하려면 두 엔드포인트가 서로 다른 프로필에 있어야 하며, 도메인 이름 충돌을 방지하려면 다른 CDN 공급자가 서로 다른 프로필을 사용해야 합니다.
+    > 이 장애 조치(failover) 시나리오를 구현하려면 두 엔드포인트가 서로 다른 프로필에 있어야 하고, 도메인 이름 충돌을 방지하려면 다른 CDN 공급자가 서로 다른 프로필을 사용해야 합니다.
     > 
 
 2.  Azure CDN 프로필에서 첫 번째 CDN 엔드포인트(Akamai에)를 선택합니다. **사용자 지정 도메인 추가** 를 선택하고 **cdndemo101.dustydogpetcare.online** 을 입력합니다. 사용자 지정 도메인의 유효성을 검사하는 확인 표시가 녹색인지 확인합니다. 

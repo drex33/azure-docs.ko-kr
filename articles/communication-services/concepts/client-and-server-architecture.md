@@ -6,73 +6,91 @@ author: mikben
 manager: mikben
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 5ee33c032293329a6af69a0b2be691092c2a8da4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a278a83f0a498baef991f75d4dd77a572c4c2470
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729646"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114288392"
 ---
 # <a name="client-and-server-architecture"></a>클라이언트 및 서버 아키텍처
 
-모든 Azure Communication Services 애플리케이션에는 **서비스** 를 사용하여 사용자 간에 쉽게 연결하는 **클라이언트 애플리케이션** 이 있습니다. 이 페이지에서는 다양한 시나리오의 일반적인 아키텍처 요소를 보여 줍니다.
+이 페이지에서는 여러 Azure Communication Service 시나리오에 포함된 일반적인 아키텍처 구성 요소 및 데이터 흐름을 보여줍니다. 관련 구성 요소는 다음과 같습니다.
+
+1. **클라이언트 애플리케이션.** 이 웹 사이트 또는 네이티브 애플리케이션은 최종 사용자의 커뮤니케이션을 위해 활용됩니다. Azure Communication Services는 여러 브라우저 및 애플리케이션 플랫폼을 위한 [SDK 클라이언트 라이브러리](sdk-options.md)를 제공합니다. 핵심 SDK 외에도 [UI 도구 키트](https://aka.ms/acsstorybook)를 사용하여 브라우저 앱 개발을 가속화할 수 있습니다.
+1. **ID 관리 서비스.**  비즈니스 논리에서 사용자 및 기타 개념을 Azure Communication Services에 매핑하고 필요할 때 사용자에 대해 토큰을 만들기 위해 빌드하는 서비스 기능입니다.
+1. **호출 관리 서비스.**  음성 및 음성 호출을 관리하고 모니터링하기 위해 빌드하는 서비스 기능입니다.  이 서비스는 호출 만들기, 사용자 초대, 전화 번호 호출, 오디오 재생, DMTF 톤 수신을 수행하고, 호출 자동화 SDK 및 REST API를 통해 다른 많은 호출 기능을 활용할 수 있습니다.
+
 
 ## <a name="user-access-management"></a>사용자 액세스 관리
 
-Azure Communication Services SDK에서 Communication Services 리소스에 안전하게 액세스하려면 `user access tokens`이 필요합니다. `User access tokens`은 토큰이 중요하고 토큰을 생성하는 데 필요한 연결 문자열 때문에 신뢰할 수 있는 서비스에서 생성하고 관리해야 합니다. 액세스 토큰을 제대로 관리하지 못하면 리소스를 잘못 사용하여 추가 요금이 부과될 수 있습니다. 신뢰할 수 있는 서비스를 사용하여 사용자 관리를 수행하는 것이 좋습니다. 신뢰할 수 있는 서비스는 토큰을 생성하고 적절한 암호화를 사용하여 클라이언트에 다시 전달합니다. 샘플 아키텍처 흐름은 아래에서 찾을 수 있습니다.
+Azure Communication Services 클라이언트는 Communication Services 리소스에 안전하게 액세스하기 위해 `user access tokens`를 제공해야 합니다. 토큰 및 연결 문자열의 중요성 또는 이를 생성하는 데 필요한 관리 ID로 인해 `User access tokens`는 신뢰할 수 있는 서비스에서 생성되고 관리되어야 합니다. 액세스 토큰을 제대로 관리하지 못하면 리소스를 잘못 사용하여 추가 요금이 부과될 수 있습니다.
 
-:::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="사용자 액세스 토큰 아키텍처를 보여 주는 다이어그램":::
+:::image type="content" source="../media/scenarios/architecture_v2_identity.svg" alt-text="사용자 액세스 토큰 아키텍처를 보여 주는 다이어그램":::
 
-자세한 내용은 [ID 관리 모범 사례](../../security/fundamentals/identity-management-best-practices.md)를 검토하세요.
+### <a name="dataflows"></a>데이터 흐름
+1. 사용자가 클라이언트 애플리케이션을 시작합니다. 이 애플리케이션 및 사용자 인증 체계의 디자인은 사용자가 관리합니다.
+2. 클라이언트 애플리케이션이 ID 관리 서비스에 연결합니다. ID 관리 서비스는 Azure Communication Service ID에 대해 사용자와 기타 주소 지정 가능한 개체(예: 서비스 또는 봇) 사이의 매핑을 유지 관리합니다.
+3. ID 관리 서비스는 적용 가능한 ID에 대해 사용자 액세스 토큰을 만듭니다. 이전에 Azure Communication Services ID가 할당되지 않았으면 새 ID가 생성됩니다.  
 
-## <a name="browser-communication"></a>브라우저 통신
+### <a name="resources"></a>리소스
+- **개념:** [사용자 ID](identity-model.md)
+- **빠른 시작:** [액세스 토큰 만들기 및 관리](../quickstarts/access-tokens.md)
+- **자습서:** [Azure Functions를 사용하여 ID 관리 서비스 빌드](../tutorials/trusted-service-tutorial.md)
 
-Azure Communications JavaScript SDK는 서식 있는 텍스트, 음성 및 동영상 상호 작용을 통해 웹 애플리케이션을 사용으로 설정할 수 있습니다. 애플리케이션은 SDK를 통해 Azure Communication Services와 직접 상호 작용하여 데이터 평면에 액세스하고 실시간 텍스트, 음성 및 비디오 통신을 제공합니다. 샘플 아키텍처 흐름은 아래에서 찾을 수 있습니다.
+> [!IMPORTANT]
+> 간단한 설명을 위해 여기에서는 후속 아키텍처 흐름의 사용자 액세스 관리 및 토큰 배포를 표시하지 않습니다.
 
-:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Communication Services의 브라우저 아키텍처를 보여 주는 다이어그램.":::
 
-## <a name="native-app-communication"></a>원시 앱 통신
+## <a name="calling-a-user-without-push-notifications"></a>푸시 알림 없이 사용자 호출
+가장 간단한 음성 및 음성 호출 시나리오에는 푸시 알림 없이 포그라운드에서 사용자가 다른 사용자를 호출하는 과정이 포함됩니다.
 
-대부분 시나리오는 원시 애플리케이션에서 가장 효과적으로 제공됩니다. Azure Communication Services는 브라우저-앱 및 앱-앱 통신을 모두 지원합니다.  원시 애플리케이션 환경을 빌드할 때 푸시 알림을 사용하면 애플리케이션이 실행되지 않을 때도 사용자가 호출을 받을 수 있습니다. Azure Communication Services를 사용하면 Google Firebase, Apple Push Notification Service 및 Windows Push Notifications에 대한 통합 푸시 알림을 통해 쉽게 수행할 수 있습니다. 샘플 아키텍처 흐름은 아래에서 찾을 수 있습니다.
+:::image type="content" source="../media/scenarios/architecture_v2_calling_without_notifications.svg" alt-text="푸시 알림 없이 호출하는 Communication Services 아키텍처를 보여주는 다이어그램입니다.":::
 
-:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="원시 앱 통신을 위한 Communication Services 아키텍처를 보여 주는 다이어그램.":::
+### <a name="dataflows"></a>데이터 흐름
 
-## <a name="voice-and-sms-over-the-public-switched-telephony-network-pstn"></a>PSTN(퍼블릭 스위치 전화 통신 네트워크)을 통한 음성 및 SMS
+1. 수락 사용자가 수신되는 전화 호출을 받을 수 있도록 호출 클라이언트를 초기화합니다.
+2. 시작 사용자는 호출할 대상 사용자의 Azure Communication Services ID가 필요합니다. 일반적인 환경에는 사용자의 친구들 및 연결된 Azure Communication Service ID를 수집하는 ID 관리 서비스로 유지 관리되는 *친구 목록* 이 포함될 수 있습니다.
+3. 시작 사용자가 호출 클라이언트를 초기화하고 원격 사용자를 호출합니다.
+4. 수락 사용자에게는 호출 SDK를 통해 수신 중인 호출에 대한 알림이 표시됩니다.
+5. 이러한 사용자는 호출 중 음성과 동영상을 사용하여 서로 통신합니다.
 
-전화 시스템을 통해 통신하면 애플리케이션의 도달 범위를 크게 늘릴 수 있습니다. PSTN 음성과 SMS 시나리오를 지원하기 위해 Azure Communication Services를 사용하면 Azure Portal에서 직접 또는 REST API와 SDK를 사용하여 [전화번호를 획득](../quickstarts/telephony-sms/get-phone-number.md)할 수 있습니다. 전화번호를 얻으면 인바운드와 아웃바운드 시나리오에서 PSTN 통화와 SMS를 모두 사용하여 고객에게 도달하는 데 사용할 수 있습니다. 샘플 아키텍처 흐름은 아래에서 찾을 수 있습니다.
+### <a name="resources"></a>리소스
+- **개념:** [호출 개요](voice-video-calling/calling-sdk-features.md)
+- **빠른 시작:** [앱에 음성 호출 추가](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+- **빠른 시작:** [앱에 동영상 호출 추가](../quickstarts/voice-video-calling/get-started-with-video-calling.md)
+- **주인공 샘플:** [Web, iOS 및 Android를 위한 그룹 호출](../samples/calling-hero-sample.md)
 
-> [!Note]
-> 퍼블릭 미리 보기 중에 청구 주소가 미국과 캐나다에 있는 고객은 미국 전화번호를 프로비저닝할 수 있습니다.
 
-:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Communication Services PSTN 아키텍처를 보여 주는 다이어그램.":::
+## <a name="joining-a-user-created-group-call"></a>사용자가 만든 그룹 호출에 참가
+명시적인 초대 없이 사용자가 참가하도록 허용해야 할 수 있습니다. 예를 들어 연결된 호출이 포함된 *소셜 공간* 이 있고, 사용자가 한가할 때 호출에 참가할 수 있습니다. 이 첫 번째 데이터 흐름에서는 클라이언트가 처음에 만드는 호출을 보여줍니다.
 
-PSTN 전화번호에 관한 자세한 내용은 [전화번호 형식](../concepts/telephony-sms/plan-solution.md)을 참조하세요.
+:::image type="content" source="../media/scenarios/architecture_v2_calling_join_client_driven.svg" alt-text="Communication Services 아키텍처 호출의 대역 외 신호 전송을 보여주는 다이어그램입니다.":::
 
-## <a name="humans-communicating-with-bots-and-other-services"></a>봇 및 기타 서비스와 통신하는 사람
+### <a name="dataflows"></a>데이터 흐름
+1. 시작 사용자가 호출 클라이언트를 초기화하고 그룹 호출을 수행합니다.
+2. 시작 사용자가 그룹 호출 ID를 호출 관리 서비스와 공유합니다.
+3. 호출 관리 서비스는 이 호출 ID를 다른 사용자와 공유합니다. 예를 들어 애플리케이션이 예약된 이벤트로부터 발생할 경우 그룹 호출 ID는 예약된 이벤트의 데이터 모델의 특성일 수 있습니다.
+4. 다른 사용자는 그룹 호출 ID를 사용하여 호출에 참가합니다.
+5. 이러한 사용자는 호출 중 음성과 동영상을 사용하여 서로 통신합니다.
 
-Azure Communication Services에서는 Azure Communication Services 데이터 평면에 직접 액세스하는 서비스를 사용하여 텍스트와 음성 채널을 통한 인간-시스템 통신을 지원합니다. 예를 들어 봇이 수신 전화에 응답하거나 웹 채팅에 참여하게 할 수 있습니다. Azure Communication Services는 해당 시나리오에서 통화하고 채팅하는 데 사용할 수 있는 SDK를 제공합니다. 샘플 아키텍처 흐름은 아래에서 찾을 수 있습니다.
 
-:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Communication Services 봇 아키텍처를 보여 주는 다이어그램.":::
+## <a name="joining-a-scheduled-teams-call"></a>예약된 Teams 호출 참가
+Azure Communication Service 애플리케이션은 Teams 호출에 참가할 수 있습니다. 이것은 소비자가 사용자 지정 애플리케이션 및 사용자 지정 ID를 사용하고 비즈니스는 Teams를 사용하는 많은 비즈니스-소비자 시나리오에 이상적입니다.
 
-## <a name="networking"></a>네트워킹
+:::image type="content" source="../media/scenarios/architecture_v2_calling_join_teams_driven.svg" alt-text="Teams 회의에 참가하기 위한 Communication Services 아키텍처를 보여주는 다이어그램입니다.":::
 
-예를 들어 공유 Mixed Reality나 게임 환경을 동기화하기 위해 사용자 간에 임의 데이터를 교환할 수 있습니다. 텍스트, 음성, 비디오 통신에 사용되는 실시간 데이터 평면은 다음 두 가지 방법으로 직접 사용할 수 있습니다.
 
-- **Calling SDK** - 호출 중인 디바이스는 호출 채널을 통해 데이터를 보내고 받는 데 사용하는 API에 액세스합니다. 이 방법은 기존 상호 작용에 데이터 통신을 추가하는 가장 쉬운 방법입니다.
-- **STUN/TURN** - Azure Communication Services는 표준 규격 STUN 및 TURN 서비스를 제공합니다. 그러면 표준화된 기본 형식 위에 고도로 사용자 지정된 전송 계층을 빌드할 수 있습니다. 고유 표준 규격 클라이언트를 작성하거나 [WinRTC](https://github.com/microsoft/winrtc)와 같은 오픈 소스 라이브러리를 사용할 수 있습니다.
+### <a name="dataflows"></a>데이터 흐름
+1. 호출 관리 서비스는 [Graph API](/graph/api/resources/onlinemeeting?view=graph-rest-1.0)를 사용하여 그룹 호출을 만듭니다. 또 다른 패턴에는 [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams 또는 Microsoft 365 에코시스템의 다른 예약 경험을 사용하여 그룹 호출을 만드는 최종 사용자가 포함됩니다.
+2. 호출 관리 서비스는 Teams 호출 세부정보를 Azure Communication Service 클라이언트와 공유합니다.
+3. 일반적으로 Teams 사용자는 호출에 참가하고 외부 사용자가 로비를 통해 참가하도록 허용해야 합니다. 하지만 이러한 경험은 Teams 테넌트 구성 및 특정 회의 설정에 다라 달라집니다.
+4. Azure Communication Service 사용자는 2단계에 수신된 세부정보를 사용해서 호출 클라이언트를 초기화하고 Teams 회의에 참가합니다.
+5. 이러한 사용자는 호출 중 음성과 동영상을 사용하여 서로 통신합니다.
 
-## <a name="next-steps"></a>다음 단계
-
-> [!div class="nextstepaction"]
-> [사용자 액세스 토큰 만들기](../quickstarts/access-tokens.md)
-
-자세한 내용은 다음 문서를 참조하세요.
-
-- [인증](../concepts/authentication.md)에 관한 자세한 내용
-- [전화번호 형식](../concepts/telephony-sms/plan-solution.md)에 관한 자세한 내용
-
-- [앱에 채팅 추가](../quickstarts/chat/get-started.md)
-- [앱에 음성 통화 추가](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+### <a name="resources"></a>리소스
+- **개념:** [Teams 상호 운용성](teams-interop.md)
+- **빠른 시작:** [Teams 회의 참가](../quickstarts/voice-video-calling/get-started-teams-interop.md)

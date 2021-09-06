@@ -4,12 +4,12 @@ description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 �
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 4e5d239416a14d2d769020283f43f2dbcf150e64
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 93ac3458e2d9954c9ec17294fe89199d11cc765f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539794"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536393"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -97,7 +97,7 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 
 함수 프로젝트는 구성 공급자의 이름별로 연결 정보를 참조합니다. 연결 세부 정보를 직접 허용하지 않으므로 환경 간에 변경될 수 있습니다. 예를 들어 트리거 정의에는 `connection` 속성이 포함될 수 있습니다. 이는 연결 문자열을 참조할 수 있지만 `function.json`에서 직접 연결 문자열을 설정할 수 없습니다. 대신 `connection`을 연결 문자열을 포함하는 환경 변수의 이름으로 설정합니다.
 
-기본 구성 공급자는 환경 변수를 사용합니다. Azure Functions 서비스에서 실행 중일 때 [애플리케이션 설정](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings)에서, 또는 로컬에서 개발할 때 [로컬 설정 파일](functions-run-local.md#local-settings-file)에서 설정할 수 있습니다.
+기본 구성 공급자는 환경 변수를 사용합니다. Azure Functions 서비스에서 실행 중일 때 [애플리케이션 설정](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings)에서, 또는 로컬에서 개발할 때 [로컬 설정 파일](functions-develop-local.md#local-settings-file)에서 설정할 수 있습니다.
 
 ### <a name="connection-values"></a>연결 값
 
@@ -126,7 +126,7 @@ ID 기반 연결은 모든 플랜의 다음 트리거 및 바인딩 확장에서
 
 Functions 런타임(`AzureWebJobsStorage`)에서 사용하는 저장소 연결은 ID 기반 연결을 사용하여 구성할 수도 있습니다. 아래의 [ID로 호스트 저장소에 연결](#connecting-to-host-storage-with-an-identity)을 참조하세요.
 
-Azure Functions 서비스에서 호스트되는 경우 ID 기반 연결에 [관리 ID](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json)가 사용됩니다. 시스템 할당 ID가 기본적으로 사용됩니다. 로컬 개발과 같은 다른 컨텍스트에서 실행하는 경우 대체 연결 매개 변수를 사용하여 사용자 지정할 수는 있지만 개발자 ID가 대신 사용됩니다.
+Azure Functions 서비스에서 호스트되는 경우 ID 기반 연결에 [관리 ID](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json)가 사용됩니다. 사용자가 할당한 ID는 `credential` 및 `clientID` 속성을 사용하여 지정할 수 있지만 기본적으로 시스템 할당 ID가 사용됩니다. 로컬 개발과 같은 다른 컨텍스트에서 실행하는 경우 대체 연결 매개 변수를 사용하여 사용자 지정할 수는 있지만 개발자 ID가 대신 사용됩니다.
 
 #### <a name="grant-permission-to-the-identity"></a>ID에 권한 부여
 
@@ -151,12 +151,14 @@ Azure 서비스에 대한 ID 기반 연결은 다음 속성을 허용합니다.
 |---|---|---|---|
 | 서비스 URI | Azure Blob<sup>1</sup>, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` | 연결 중인 서비스의 데이터 평면 URI입니다. |
 | 정규화된 네임스페이스 | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | 정규화된 Event Hubs 및 Service Bus 네임스페이스입니다. |
+| 토큰 자격 증명 | (선택 사항) | `<CONNECTION_NAME_PREFIX>__credential` | 연결을 위해 토큰을 가져오는 방법을 정의합니다. "managedidentity"로 설정해야 하는 사용자가 할당한 ID를 지정할 때만 권장됩니다. 이는 Azure Functions 서비스에서 호스팅되는 경우에만 유효합니다. |
+| 클라이언트 ID | (선택 사항) | `<CONNECTION_NAME_PREFIX>__clientId` | `credential`이 "managedidentity"로 설정된 경우 이 속성은 토큰을 가져올 때 사용할 사용자가 할당한 ID를 지정합니다. 속성은 애플리케이션에 할당된 사용자가 할당한 ID에 해당하는 클라이언트 ID를 허용합니다. 지정하지 않으면 시스템 할당 ID가 사용됩니다. 이 속성은 [이 설정되지 않아야 하는 ](#local-development-with-identity-based-connections)로컬 개발 시나리오`credential`에서 다르게 사용됩니다. |
 
 <sup>1</sup> Azure Blob에는 Blob 및 큐 서비스 URI가 모두 필요합니다.
 
 지정된 연결 유형에 대해 추가 옵션이 지원될 수 있습니다. 연결을 구성하는 구성 요소에 대한 설명서를 참조하세요.
 
-##### <a name="local-development"></a>로컬 개발
+##### <a name="local-development-with-identity-based-connections"></a>ID 기반 연결을 사용하여 로컬 개발
 
 로컬로 실행하는 경우 위의 구성은 런타임에 로컬 개발자 ID를 사용하도록 지시합니다. 연결은 다음 위치에서 토큰을 순서대로 가져오려고 시도합니다.
 

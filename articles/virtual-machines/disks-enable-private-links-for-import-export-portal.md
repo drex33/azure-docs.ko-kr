@@ -1,97 +1,95 @@
 ---
-title: Azure Portal - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
-description: Azure Portal을 사용하여 관리 디스크에 대한 Private Links를 사용하도록 설정합니다. 가상 네트워크 내에서 디스크를 안전하게 내보내고 가져올 수 있습니다.
+title: Azure Portal - 관리 디스크에 대한 가져오기/내보내기 액세스 제한
+description: Azure Portal을 사용하여 관리 디스크에 대한 Private Link를 사용합니다. 가상 네트워크 내에서 디스크를 안전하게 내보내고 가져올 수 있습니다.
 author: roygara
 ms.service: storage
-ms.topic: overview
-ms.date: 07/15/2021
+ms.topic: how-to
+ms.date: 08/19/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: af8b44cbd229fc2bdf28d2885356e219b3a8198a
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 5be3cbb5a43f76959eab47dc89e00ad4e761c11d
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114288306"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598140"
 ---
-# <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure Portal을 사용하여 Private Links로 관리 디스크에 대한 가져오기/내보내기 액세스를 제한합니다.
+# <a name="restrict-importexport-access-for-managed-disks-using-azure-private-link"></a>Azure Private Link를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
 
-관리 디스크에 대한 Private Links 지원을 통해 관리 디스크의 내보내기 및 가져오기를 제한하여 Azure 가상 네트워크 내에서만 발생하도록 할 수 있습니다. 지역 확장을 위해 데이터를 다른 지역으로 내보내고 재해 복구를 수행하고 포렌식 분석을 위해 데이터를 읽을 수 있도록 연결되지 않은 관리 디스크 및 스냅샷에 대한 시간 제한 SAS(공유 액세스 서명) URI를 생성할 수 있습니다. 또한 SAS URI를 사용하여 VHD를 온-프레미스에서 빈 디스크로 직접 업로드할 수 있습니다. 가상 네트워크의 클라이언트와 관리 디스크 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크만 통과하여 공용 인터넷으로부터의 노출을 제거합니다.
+[프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 사용하여 관리 디스크의 내보내기 및 가져오기를 제한하고 Azure 가상 네트워크의 클라이언트에서 [프라이빗 링크](../private-link/private-link-overview.md)를 통해 더 안전하게 데이터에 액세스할 수 있습니다. 프라이빗 엔드포인트는 관리 디스크에 대해 가상 네트워크 주소 공간의 IP 주소를 사용합니다. 가상 네트워크의 클라이언트와 관리 디스크 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크만 통과하여 공용 인터넷으로부터의 노출을 제거합니다.
 
-프라이빗 엔드포인트를 만들어 동일한 구독에서 디스크 액세스 리소스를 만들고 이를 가상 네트워크에 연결할 수 있습니다. Private Link를 통해 데이터를 내보내고 가져오려면 디스크 또는 스냅샷을 디스크 액세스에 연결해야 합니다. 또한 디스크 또는 스냅샷의 NetworkAccessPolicy 속성을 `AllowPrivate`으로 설정해야 합니다. 
-
-다른 사용자가 디스크 또는 스냅샷에 대한 SAS URI를 생성하지 못하도록 NetworkAccessPolicy 속성을 `DenyAll`로 설정할 수 있습니다. NetworkAccessPolicy 속성의 기본값은 `AllowAll`입니다.
+Private Link를 사용하여 관리 디스크를 내보내거나 가져오려면 먼저 디스크 액세스 리소스를 만들고 프라이빗 엔드포인트를 만들어 동일한 구독의 가상 네트워크에 연결합니다. 그런 다음, 디스크 또는 스냅샷을 디스크 액세스 인스턴스와 연결합니다.
 
 ## <a name="limitations"></a>제한 사항
 
 [!INCLUDE [virtual-machines-disks-private-links-limitations](../../includes/virtual-machines-disks-private-links-limitations.md)]
 
-
 ## <a name="create-a-disk-access-resource"></a>디스크 액세스 리소스 만들기
 
-1. Azure Portal에 로그인하고, [이 링크](https://aka.ms/disksprivatelinks)를 사용하여 **디스크 액세스** 로 이동합니다.
+1. Azure Portal에 로그인하고 [이 링크](https://aka.ms/disksprivatelinks)를 사용하여 **디스크 액세스** 로 이동합니다.
 
     > [!IMPORTANT]
-    > [제공된 링크](https://aka.ms/disksprivatelinks)를 사용하여 [디스크 액세스] 블레이드로 이동해야 합니다. 링크를 사용하지 않으면 현재 퍼블릭 포털에 표시되지 않습니다.
+    > [제공된 링크](https://aka.ms/disksprivatelinks)를 사용하여 디스크 액세스 창으로 이동해야 합니다. 링크를 사용하지 않으면 현재 퍼블릭 포털에 표시되지 않습니다.
 
-1. **+ 추가** 를 선택하여 새 디스크 액세스 리소스를 만듭니다.
-1. 만들기 블레이드에서 구독, 리소스 그룹을 선택하고, 이름을 입력하고, 지역을 선택합니다.
+1. **+ 만들기** 를 선택하여 새 디스크 액세스 리소스를 만듭니다.
+1. **디스크 액세스 만들기** 창에서 구독 및 리소스 그룹을 선택합니다. **인스턴스 세부 정보** 에서 이름을 입력하고 지역을 선택합니다.
+
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-create-basics.png" alt-text="디스크 액세스 만들기 창의 스크린샷. 원하는 이름을 입력하고, 지역을 선택하고, 리소스 그룹을 선택하고, 계속 진행합니다.":::
+
 1. **검토 + 만들기** 를 선택합니다.
+1. 리소스가 만들어지면 해당 리소스로 직접 이동합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-create-basics.png" alt-text="디스크 액세스 만들기 블레이드의 스크린샷. 원하는 이름을 입력하고, 지역을 선택하고, 리소스 그룹을 선택하고, 계속 진행합니다.":::
-
-리소스가 만들어지면 해당 리소스로 직접 이동합니다.
-
-:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="포털의 리소스로 이동 단추에 대한 스크린샷":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="포털의 리소스로 이동 단추에 대한 스크린샷":::
 
 ## <a name="create-a-private-endpoint"></a>프라이빗 엔드포인트 만들기
 
-이제 디스크 액세스 리소스가 있으므로 이를 사용하여 디스크 내보내기/가져오기에 대한 액세스를 처리할 수 있습니다. 이 작업은 프라이빗 엔드포인트를 통해 수행됩니다. 따라서 프라이빗 엔드포인트를 만들어 디스크 액세스에 맞도록 구성해야 합니다.
+다음으로 프라이빗 엔드포인트를 만들어 디스크 액세스에 맞도록 구성해야 합니다.
 
-1. 디스크 액세스 리소스에서 **프라이빗 엔드포인트 연결** 을 선택합니다.
+1. 디스크 액세스 리소스의 **설정** 에서 **프라이빗 엔드포인트 연결** 을 선택합니다.
 1. **+ 프라이빗 엔드포인트** 를 선택합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="디스크 액세스 리소스에 대한 개요 블레이드의 스크린샷. 프라이빗 엔드포인트 연결이 강조 표시되어 있습니다.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="디스크 액세스 리소스에 대한 개요 창의 스크린샷. 프라이빗 엔드포인트 연결이 강조 표시됩니다.":::
 
-1. 리소스 그룹 선택
-1. 이름을 입력하고, 디스크 액세스 리소스를 만든 지역과 동일한 지역을 선택합니다.
-1. 완료되면 **다음: 리소스 >** 를 선택합니다.
+1. **프라이빗 엔드포인트 만들기** 창에서 리소스 그룹을 선택합니다.
+1. 이름을 제공하고 디스크 액세스 리소스를 만든 지역과 동일한 지역을 선택합니다.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로(첫 번째 블레이드)의 스크린샷. 적절한 지역을 선택하지 않으면 나중에 문제가 발생할 수 있습니다.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로의 첫 번째 창 스크린샷. 적절한 지역을 선택하지 않으면 나중에 문제가 발생할 수 있습니다.":::
 
+1. 완료되면 **다음: 리소스** 를 선택합니다.
 1. **리소스** 창에서 **내 디렉터리의 Azure 리소스에 연결** 을 선택합니다.
 1. **리소스 종류** 에 대해 **Microsoft.Compute/diskAccesses** 를 선택합니다.
 1. **리소스** 에 대해 이전에 만든 디스크 액세스 리소스를 선택합니다.
 1. **대상 하위 리소스** 를 **디스크** 로 유지합니다.
-1. **다음: 구성 >** 을 클릭합니다.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로의 두 번째 창 스크린샷. 모든 값(리소스 종류, 리소스, 대상 하위 리소스)이 강조 표시되어 있습니다.":::
 
-1. 디스크 내보내기를 제한하려는 가상 네트워크를 선택합니다. 그러면 다른 가상 네트워크에서 디스크를 내보낼 수 없습니다.
+1. **다음: 구성** 을 선택합니다.
+1. 디스크 가져오기 및 내보내기를 제한할 가상 네트워크를 선택합니다. 이렇게 하면 디스크를 다른 가상 네트워크로 가져오고 내보낼 수 없습니다.
 
     > [!NOTE]
-    > 선택한 서브넷에 사용하도록 설정된 NSG(네트워크 보안 그룹)가 있는 경우 이 서브넷의 프라이빗 엔드포인트에만 NSG를 사용하지 않도록 설정됩니다. 이 서브넷의 다른 리소스에는 여전히 NSG가 적용됩니다.
+    > 선택한 서브넷을 사용하는 네트워크 보안 그룹이 있는 경우 이 서브넷의 프라이빗 엔드포인트에만 NSG를 사용하지 않습니다. 이 서브넷의 다른 리소스는 네트워크 보안 그룹 적용을 유지합니다.
 
 1. 적절한 서브넷을 선택합니다.
-1. **검토 + 만들기** 를 선택합니다.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="프라이빗 엔드포인트 만들기 워크플로의 세 번째 창 스크린샷. 가상 네트워크와 서브넷이 강조 표시되어 있습니다.":::
+
+1. **검토 + 만들기** 를 선택합니다.
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>디스크에서 프라이빗 엔드포인트 사용
 
 1. 구성하려는 디스크로 이동합니다.
-1. **네트워킹** 을 선택합니다.
+1. **설정** 에서 **네트워킹** 을 선택합니다.
 1. **프라이빗 엔드포인트(디스크 액세스를 통해)** 를 선택하고, 이전에 만든 디스크 액세스를 선택합니다.
-1. **저장** 을 선택합니다.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="관리 디스크 네트워킹 창 스크린샷. 프라이빗 엔드포인트 선택 항목과 선택한 디스크 액세스가 강조 표시되어 있습니다. 저장하면 이 액세스를 위해 디스크가 구성됩니다.":::
 
-이제 관리 디스크를 가져오거나 내보낼 때 사용할 수 있는 Private Link를 구성하는 작업이 완료되었습니다.
+1. **저장** 을 선택합니다.
+
+이제 관리 디스크를 가져오고 내보내는 데 사용할 수 있는 프라이빗 링크를 구성했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure에 VHD를 업로드하거나 관리 디스크를 다른 지역에 복사 - [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) 또는 [Azure PowerShell 모듈](windows/disks-upload-vhd-to-managed-disk-powershell.md)
 - VHD 다운로드 - [Windows](windows/download-vhd.md) 또는 [Linux](linux/download-vhd.md)
-- [Private Link에 대한 FAQ](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
+- [프라이빗 링크 및 관리 디스크에 대한 FAQ](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [PowerShell을 사용하여 관리 스냅샷을 VHD로 다른 지역의 스토리지 계정에 내보내기/복사](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

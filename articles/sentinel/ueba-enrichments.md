@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 1f782228866d73c84409f394a014bad519d988a9
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 3253a399015e533fc299bc7a338ce091769f4c65
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809637"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721702"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Azure Sentinel UEBA 보강 참조
 
@@ -34,38 +34,42 @@ BehaviorAnalytics 테이블의 다음 세 가지 동적 필드는 [아래 표](#
 
 <a name="baseline-explained"></a>사용자 활동은 사용될 때마다 동적으로 컴파일되는 기준에 따라 분석됩니다. 각 활동에는 동적 기준이 파생되는 정의된 되돌아보기 기간이 있습니다. 되돌아보기 기간은 이 표의 [**기준**](#activityinsights-field) 열에 지정되어 있습니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 모든 [엔터티 보강 필드](#entity-enrichments-dynamic-fields) 표의 **보강 이름** 열에는 두 행의 정보가 표시됩니다. 
-> 
+>
 > - 첫 번째는 보강의 "식별 이름"(**굵게**)입니다.
 > - 두 번째는 [**행동 분석 표**](#behavioranalytics-table)에 저장된 보강의 필드 이름 *(기울임꼴 및 괄호)* 입니다.
 
+> [!IMPORTANT]
+> 언급된 기능은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+>
 ## <a name="behavioranalytics-table"></a>BehaviorAnalytics 테이블
 
 다음 표에서는 Azure Sentinel의 각 [엔터티 세부 정보 페이지](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages)에 표시되는 동작 분석 데이터를 설명합니다.
 
-| 필드                     | Type | Description                                                  |
+| 필드                     | 형식 | Description                                                  |
 |---------------------------|------|--------------------------------------------------------------|
-| **TenantId**              | 문자열 | 테넌트의 고유한 ID 번호                             |
-| **SourceRecordId**        | 문자열 | EBA 이벤트의 고유한 ID 번호                          |
-| **TimeGenerated**         | Datetime | 활동 발생의 타임스탬프                   |
-| **TimeProcessed**         | Datetime | EBA 엔진에서 활동을 처리하는 타임스탬프 |
-| **ActivityType**          | 문자열 | 활동의 상위 수준 범주                        |
-| **ActionType**            | 문자열 | 활동의 정규화된 이름                            |
-| **UserName**              | 문자열 | 활동을 시작한 사용자의 사용자 이름           |
-| **UserPrincipalName**     | 문자열 | 활동을 시작한 사용자의 전체 사용자 이름      |
-| **EventSource**           | 문자열 | 원래 이벤트를 제공한 데이터 원본               |
-| **SourceIPAddress**       | 문자열 | 활동이 시작된 IP 주소               |
-| **SourceIPLocation** | 문자열 | 활동이 시작된 국가이며, IP 주소에서 보강됨 |
-| **SourceDevice**          | 문자열 | 활동을 시작한 디바이스의 호스트 이름         |
-| **DestinationIPAddress**  | 문자열 | 활동 대상의 IP 주소                   |
-| **DestinationIPLocation** | 문자열 | 활동 대상의 국가이며, IP 주소에서 보강됨 |
-| **DestinationDevice**     | 문자열 | 대상 디바이스의 이름                                  |
-| **UsersInsights**         | 동적 | 참여하는 사용자의 상황별 보강([아래 세부 정보](#usersinsights-field)) |
-| **DevicesInsights**       | 동적 | 참여하는 디바이스의 상황별 보강([아래 세부 정보](#devicesinsights-field)) |
-| **ActivityInsights**      | 동적 | 프로파일링을 기반으로 하는 활동의 상황별 분석([아래 세부 정보](#activityinsights-field)) |
-| **InvestigationPriority** | int | 변칙 점수, 0-10 사이(0=무해, 10=매우 비정상)   |
-|
+| **TenantId**              | 문자열 | 테넌트의 고유한 ID 번호입니다.                             |
+| **SourceRecordId**        | 문자열 | EBA 이벤트의 고유한 ID 번호입니다.                          |
+| **TimeGenerated**         | Datetime | 활동 발생의 타임스탬프입니다.                   |
+| **TimeProcessed**         | Datetime | EBA 엔진에서 활동 처리의 타임스탬프입니다. |
+| **ActivityType**          | 문자열 | 활동의 상위 수준 범주입니다.                        |
+| **ActionType**            | 문자열 | 활동의 정규화된 이름입니다.                            |
+| **UserName**              | 문자열 | 활동을 시작한 사용자의 사용자 이름입니다.           |
+| **UserPrincipalName**     | 문자열 | 활동을 시작한 사용자의 전체 사용자 이름입니다.      |
+| **EventSource**           | 문자열 | 원래 이벤트를 제공한 데이터 원본입니다.               |
+| **SourceIPAddress**       | 문자열 | 활동이 시작된 IP 주소입니다.               |
+| **SourceIPLocation** | 문자열 | 활동이 시작된 국가이며, IP 주소에서 보강됩니다. |
+| **SourceDevice**          | 문자열 | 활동을 시작한 디바이스의 호스트 이름입니다.         |
+| **DestinationIPAddress**  | 문자열 | 활동 대상의 IP 주소입니다.                   |
+| **DestinationIPLocation** | 문자열 | 활동 대상의 국가이며, IP 주소에서 보강됩니다. |
+| **DestinationDevice**     | 문자열 | 대상 디바이스의 이름입니다.                                  |
+| **UsersInsights**         | 동적 | 관련 사용자의 상황별 보강입니다([아래 세부 정보](#usersinsights-field)). |
+| **DevicesInsights**       | 동적 | 참여하는 디바이스의 상황별 보강입니다([아래 세부 정보](#devicesinsights-field)). |
+| **ActivityInsights**      | 동적 | 프로파일링을 기반으로 하는 활동의 상황별 분석입니다([아래 세부 정보](#activityinsights-field)). |
+| **InvestigationPriority** | int | 변칙 점수로, 0-10(0=무해, 10=매우 비정상) 범위입니다.   |
+
+
 
 ## <a name="entity-enrichments-dynamic-fields"></a>엔터티 보강 동적 필드
 
@@ -204,6 +208,67 @@ BehaviorAnalytics 테이블의 다음 세 가지 동적 필드는 [아래 표](#
 | **비정상적인 수의 디바이스 삭제**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | 사용자가 비정상적인 수의 디바이스를 삭제했습니다. | True, False |
 | **비정상적인 수의 사용자가 그룹에 추가됨**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | 비정상적인 수의 사용자가 그룹에 추가되었습니다. | True, False |
 |
+
+
+## <a name="identityinfo-table-public-preview"></a>IdentityInfo 테이블(공개 미리 보기)
+
+Azure Sentinel 작업 영역에 대해 [UEBA를 사용하도록 설정](enable-entity-behavior-analytics.md)한 후에는 Azure Active Directory의 데이터가, Azure Sentinel에서의 사용을 위해 Log Analytics의 **IdentityInfo** 테이블에 대해 동기화됩니다. 분석 규칙에서 Azure AD로부터 동기화된 사용자 데이터를 포함하여 사용 사례에 맞게 분석을 향상시키고 가양성을 줄일 수 있습니다.
+
+최초 동기화는 며칠이 걸릴 수도 있으나 데이터가 완전히 동기화된 후에는
+
+- Azure AD의 사용자 프로필에 대한 변경 내용이 15분 이내에 **IdentityInfo** 테이블에서 업데이트됩니다.
+
+- **IdentityInfo** 테이블과 Azure AD 간의 그룹 및 역할 정보는 매일 동기화됩니다.
+
+- Azure Sentinel은 21일마다 전체 Azure AD와의 동기화를 통해 오래된 레코드가 완전히 업데이트될 수 있게 합니다.
+
+- **IdentityInfo** 테이블의 기본 보존 시간은 30일입니다.
+
+
+> [!NOTE]
+> 현재 기본 제공 역할만 지원됩니다.
+>
+> 사용자가 그룹에서 제거된 경우 삭제된 그룹에 대한 데이터는 현재 지원되지 않습니다.
+>
+
+다음 표는 Log Analytics의 **IdentityInfo** 테이블에 포함된 사용자 ID 데이터를 설명합니다.
+
+| 필드                      | 형식     | 설명                                                                                                             |
+| --------------------------- | -------- | -------------------------------------------------------- |
+| **AccountCloudSID**             | 문자열   | 계정의 Azure AD 보안 식별자입니다.       |
+| **AccountCreationTime**         | Datetime | 사용자 계정이 만들어진 날짜(UTC)입니다.    |
+| **AccountDisplayName**          | 문자열   | 사용자 계정의 표시 이름입니다.           |
+| **AccountDomain**               | 문자열   | 사용자 계정의 도메인 이름입니다.  |
+| **AccountName**                 | 문자열   | 사용자 계정의 사용자 이름입니다.      |
+| **AccountObjectId**             | 문자열   | 사용자 계정에 대한 Azure Active Directory 개체 ID입니다.           |
+| **AccountSID**                  | 문자열   | 사용자 계정의 온-프레미스 보안 식별자입니다.      |
+| **AccountTenantId**             | 문자열   | 사용자 계정의 Azure Active Directory 테넌트 ID입니다.    |
+| **AccountUPN**                  | 문자열   | 사용자 계정의 사용자 계정 이름입니다.     |
+| **AdditionalMailAddresses**     | 동적  | 사용자의 추가 이메일 주소입니다.   |
+| **AssignedRoles**               | 동적  | 사용자 계정이 할당된 Azure AD 역할입니다.    |
+| **도시**                        | 문자열   | 사용자 계정의 도시입니다.   |
+| **국가**                     | 문자열   | 사용자 계정의 국가입니다.   |
+| **DeletedDateTime**             | Datetime | 사용자가 삭제된 날짜와 시간입니다.       |
+| **부서**                  | 문자열   | 사용자 계정의 부서입니다.    |
+| **GivenName**                   | 문자열   | 사용자 계정의 이름입니다.     |
+| **GroupMembership**             | 동적  | 사용자 계정이 멤버인 Azure AD 그룹입니다.      |
+| **IsAccountEnabled**            | 부울     | 사용자 계정이 Azure AD에서 사용하도록 설정되었는지 여부를 나타냅니다.    |
+| **JobTitle**                    | 문자열   | 사용자의 직위입니다.    |
+| **MailAddress**                 | 문자열   | 사용자 계정의 기본 이메일 주소입니다.    |
+| **관리자**                     | 문자열   | 사용자 계정의 관리자 별칭입니다.     |
+| **OnPremisesDistinguishedName** | 문자열   | Azure AD DN(고유 이름)입니다. 고유 이름은 쉼표로 연결된 RDN(상대 고유 이름)의 시퀀스입니다. |
+| **전화**                       | 문자열   | 사용자 계정의 전화 번호입니다.       |
+| **SourceSystem**                | 문자열   | 사용자 데이터가 시작된 시스템입니다.   |
+| **State**                       | 문자열   | 사용자 계정의 지리적 상태입니다.  |
+| **StreetAddress**               | 문자열   | 사용자 계정의 사무실 주소입니다.    |
+| **Surname**                     | 문자열   | 사용자의 성입니다. 계정입니다.      |
+| **TenantId**                    | 문자열   |          사용자의 테넌트 ID입니다.   |
+| **TimeGenerated**               | Datetime | 이벤트가 생성된 시간입니다(UTC).       |
+| **형식**                        | 문자열   | 테이블의 이름입니다.          |
+| **UserState**                   | 문자열   | Azure AD에서 사용자 계정의 현재 상태입니다(활성/사용 안 함/유휴/잠금).  |
+| **UserStateChangedOn**          | Datetime | 계정 상태가 마지막으로 변경된 날짜입니다(UTC).     |
+| **UserType**                    | 문자열   | 사용자 유형입니다.         |
+
 
 ## <a name="next-steps"></a>다음 단계
 

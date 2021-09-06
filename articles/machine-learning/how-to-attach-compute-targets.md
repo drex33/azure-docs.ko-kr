@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/02/2020
+ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 9388a6e01885e4a3a0c5aa95c254910c96a4e36a
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 8d9910755162ea1da593f2e9ee50183c0a3eaa60
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902360"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529116"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>모델 학습 및 배포를 위한 컴퓨팅 대상 설정
 
@@ -29,13 +29,12 @@ Azure 컴퓨팅 리소스를 Azure Machine Learning 작업 영역에 연결하�
 * Apache Spark 풀(Azure Synapse Analytics에서 제공)
 * Azure HDInsight
 * Azure Batch
-* Azure Databricks
+* Azure Databricks - [기계 학습 파이프라인](how-to-create-machine-learning-pipelines.md)에서만 학습 컴퓨팅 대상으로 사용됨
 * Azure 데이터 레이크 분석
 * Azure Container Instance
-
+* Azure Kubernetes Service 및 Azure Arc 지원 Kubernetes(미리 보기)
 
 Azure Machine Learning에서 관리하는 컴퓨팅 대상을 사용하려면 다음을 참조하세요.
-
 
 * [Azure Machine Learning 컴퓨팅 인스턴스](how-to-create-manage-compute-instance.md)
 * [Azure Machine Learning 컴퓨팅 클러스터](how-to-create-attach-compute-cluster.md)
@@ -346,9 +345,23 @@ except ComputeTargetException:
 
 ACI(Azure Container Instances)는 모델을 배포할 때 동적으로 생성됩니다. 다른 방법으로는 ACI를 만들거나 작업 영역에 연결할 수 없습니다. 자세한 내용은 [Azure Container Instances에 모델 배포](how-to-deploy-azure-container-instance.md)를 참조하세요.
 
-## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+## <a name="kubernetes-preview"></a><a id="kubernetes"></a>Kubernetes(미리 보기)
 
-AKS(Azure Kubernetes Service)를 사용하면 Azure Machine Learning과 함께 사용하면 다양한 구성 옵션을 사용할 수 있습니다. 자세한 내용은 [Azure Kubernetes Service를 만들고 연결하는 방법](how-to-create-attach-kubernetes.md)을 참조하세요.
+Azure Machine Learning은 학습을 위해 사용자 고유의 Kubernetes 클러스터를 연결하는 다음 옵션을 제공합니다.
+
+* [Azure Kubernetes Service](../aks/intro-kubernetes.md). Azure Kubernetes Service는 Azure에서 관리형 클러스터를 제공합니다.
+* [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md) 클러스터가 Azure 외부에서 호스트되는 경우 Azure Arc 지원 Kubernetes 클러스터를 사용합니다.
+
+[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+
+작업 영역에서 Kubernetes 클러스터를 분리하려면 다음 방법을 사용합니다.
+
+```python
+compute_target.detach()
+```
+
+> [!WARNING]
+> 클러스터를 분리해도 **클러스터는 삭제되지 않습니다**. Azure Kubernetes Service 클러스터를 삭제하려면 [AKS에서 Azure CLI 사용](../aks/kubernetes-walkthrough.md#delete-the-cluster)을 참조하세요. Azure Arc 지원 Kubernetes 클러스터를 삭제하려면 [Azure Arc 빠른 시작](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources)을 참조하세요.
 
 ## <a name="notebook-examples"></a>Notebook 예제
 

@@ -5,28 +5,29 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 06/03/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
+ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26c8df67a8cfed92e478caacca1171b7a48fa9ca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: aa8098192340505ecb7555f407375690c36ecdfb
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932899"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111525807"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multifactor-authentication"></a>Azure AD Multifactor Authentication에 관한 데이터 보존 및 고객 데이터
 
 Azure AD(Azure Active Directory)는 Microsoft 365 또는 Azure와 같은 Microsoft 온라인 서비스를 구독할 때 조직에서 제공하는 주소에 따라 지리적 위치에 고객 데이터를 저장합니다. 고객 데이터를 저장하는 위치에 관한 정보는 Microsoft 보안 센터의 [데이터가 있는 위치](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)를 참조하세요.
 
-클라우드 기반 Azure AD Multifactor Authentication과 Azure Multifactor Authentication 서버는 개인 데이터와 조직 데이터를 처리하고 저장합니다. 이 문서에서는 저장되는 데이터 및 위치를 간략하게 설명합니다.
+클라우드 기반 Azure AD 다단계 인증과 MFA 서버는 개인 데이터와 조직 데이터를 처리하고 저장합니다. 이 문서에서는 저장되는 데이터 및 위치를 간략하게 설명합니다.
 
 Azure AD Multifactor Authentication 서비스는 미국, 유럽 및 아시아 태평양에 데이터 센터가 있습니다. 다음 작업은 명시된 경우를 제외하고 지역 데이터 센터에서 시작됩니다.
 
-* 다단계 인증 전화 통화는 미국 데이터 센터에서 발생하고 글로벌 공급자를 통해 라우팅됩니다.
+* 다단계 인증 전화 통화는 고객 지역의 데이터 센터에서 발생하고 글로벌 공급자를 통해 라우팅됩니다. 사용자 지정 인사말을 사용하는 전화 통화는 항상 미국의 데이터 센터에서 발생합니다.
 * 다른 지역의 범용 사용자 인증 요청은 현재 사용자의 위치를 ​​기반으로 처리됩니다.
 * Microsoft Authenticator 앱을 사용하는 푸시 알림은 현재 사용자의 위치를 기반으로 지역 데이터 센터에서 처리됩니다. Apple Push Notification Service와 같은 공급업체별 디바이스 서비스는 사용자 위치 외부에 있을 수 있습니다.
 
@@ -64,12 +65,12 @@ Microsoft Azure Government, Microsoft Azure 독일, 21Vianet에서 운영하는 
 | 음성 통화                           | 다단계 인증 로그<br/>다단계 인증 작업 보고서 데이터 저장소<br/>차단된 사용자(사기 행위를 보고한 경우) |
 | Microsoft Authenticator 알림 | 다단계 인증 로그<br/>다단계 인증 작업 보고서 데이터 저장소<br/>차단된 사용자(사기 행위를 보고한 경우)<br/>Microsoft Authenticator 디바이스 토큰이 변경될 때 변경 요청 |
 
-### <a name="data-stored-by-azure-multifactor-authentication-server"></a>Azure Multifactor Authentication 서버에서 저장된 데이터
+### <a name="data-stored-by-mfa-server"></a>MFA 서버에서 저장하는 데이터
 
-Azure Multifactor Authentication 서버를 사용하는 경우 다음 개인 데이터가 저장됩니다.
+MFA 서버를 사용하는 경우 다음 개인 데이터가 저장됩니다.
 
 > [!IMPORTANT]
-> 2019년 7월 1일부터 Microsoft는 더는 새 배포를 위한 다단계 인증 서버를 제공하지 않습니다. 사용자의 다단계 인증이 필요한 신규 고객은 클라우드 기반 Azure AD Multifactor Authentication을 사용해야 합니다. 2019년 7월 1일 이전에 다단계 인증 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
+> 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 사용자의 다단계 인증이 필요한 신규 고객은 클라우드 기반 Azure AD Multifactor Authentication을 사용해야 합니다. 2019년 7월 1일 이전에 다단계 인증 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
 
 | 이벤트 유형                           | 데이터 저장소 유형 |
 |--------------------------------------|-----------------|
@@ -87,39 +88,48 @@ Azure Multifactor Authentication 서버를 사용하는 경우 다음 개인 데
 * 공지
 * 전화 통화 설정
 
-Azure Multifactor Authentication 서버의 경우 다음 Azure Portal 페이지에 조직 데이터가 포함될 수 있습니다.
+MFA 서버의 경우 다음 Azure Portal 페이지에 조직 데이터가 포함될 수 있습니다.
 
 * 서버 설정
 * 일회성 바이패스
 * 캐싱 규칙
 * 다단계 인증 서버 상태
 
-## <a name="multifactor-authentication-logs-location"></a>다단계 인증 로그 위치
+## <a name="multifactor-authentication-activity-reports-for-public-cloud"></a>퍼블릭 클라우드에 대한 다단계 인증 활동 보고서
 
-다음 테이블에서는 퍼블릭 클라우드의 서비스 로그 위치를 보여 줍니다.
+다단계 인증 작업 보고서는 온-프레미스 구성 요소(NPS 확장, AD FS 어댑터 및 MFA 서버)에서 작업을 저장합니다. 다단계 인증 서비스 로그는 서비스를 작동하는 데 사용됩니다.
+다음 섹션에서는 다양한 고객 지역의 각 구성 요소에 대한 특정 인증 방법에 대해 활동 보고서 및 서비스 로그가 저장되는 위치를 보여 줍니다. 표준 음성 통화는 다른 지역으로 장애 조치(failover)될 수 있습니다.
 
-| 퍼블릭 클라우드| 로그인 로그 | 다단계 인증 작업 보고서        | 다단계 인증 서비스 로그       |
-|-------------|--------------|----------------------------------------|------------------------|
-| 미국          | 미국           | 미국                                     | 미국                     |
-| 유럽      | 유럽       | 미국                                     | 유럽 <sup>2</sup>    |
-| 오스트레일리아   | 오스트레일리아    | 미국<sup>1</sup>                         | 오스트레일리아 <sup>2</sup> |
+>[!NOTE]
+>다단계 인증 작업 보고서에는 UPN(사용자 계정 이름)과 전체 전화번호와 같은 개인 데이터가 포함됩니다.
 
-<sup>1</sup>OATH 코드 로그는 오스트레일리아에 저장됩니다.
+### <a name="nps-extension-and-ad-fs-adapter"></a>NPS 확장 및 AD FS 어댑터
 
-<sup>2</sup> 음성 통화 다단계 인증 서비스 로그는 미국에 저장됩니다.
+| 인증 방법                                                             | 고객 지역                      | 활동 보고서 위치 | 서비스 로그 위치 |
+|-----------------------------------------------------------------------------------|--------------------------------------|--------------------------|----------------------|
+| OATH 소프트웨어 및 하드웨어 토큰                                                 | 오스트레일리아 및 뉴질랜드            | 오스트레일리아/뉴질랜드    | 지역 내 클라우드      |
+| OATH 소프트웨어 및 하드웨어 토큰                                                 | 오스트레일리아 및 뉴질랜드 외부 | 미국            | 지역 내 클라우드      |
+| OATH 소프트웨어 및 하드웨어 토큰을 제외한 사용자 지정 인사말 및 기타 모든 인증 방법 없이 음성 통화  | 모두                               | 미국            | 지역 내 클라우드      |
+| 사용자 지정 인사말을 사용하여 음성 통화                                         | 모두                                  | 미국            | 미국의 MFA 백 엔드 |
+
+### <a name="mfa-server-and-cloud-based-mfa"></a>MFA 서버 및 클라우드 기반 MFA
+
+| 구성 요소  | 인증 방법                          | 고객 지역                      | 활동 보고서 위치        | 서비스 로그 위치         |
+|------------|------------------------------------------------|--------------------------------------|---------------------------------|------------------------------|
+| MFA 서버 | 모든 방법                                    | 모두                                  | 미국                   | 미국의 MFA 백 엔드 |
+| 클라우드 MFA  | 표준 음성 통화 및 기타 모든 방법     | 모두                                  | 지역 내 Azure AD 로그인 로그 | 지역 내 클라우드              |
+| 클라우드 MFA  | 사용자 지정 인사말을 사용하여 음성 통화              | 모두                                  | 지역 내 Azure AD 로그인 로그 | 미국의 MFA 백 엔드 |
+
+## <a name="multifactor-authentication-activity-reports-for-sovereign-clouds"></a>소버린 클라우드에 대한 다단계 인증 활동 보고서
 
 다음 테이블에서는 소버린 클라우드의 서비스 로그 위치를 보여 줍니다.
 
-| 소버린 클라우드                      | 로그인 로그                         | 다단계 인증 작업 보고서(개인 데이터 포함)| 다단계 인증 서비스 로그 |
-|--------------------------------------|--------------------------------------|-------------------------------|------------------|
-| Microsoft Azure Germany              | 독일                              | 미국                            | 미국               |
-| Azure 중국 21Vianet                 | 중국                                | 미국                            | 미국               |
-| Microsoft Government Cloud           | 미국                                   | 미국                            | 미국               |
-
-다단계 인증 작업 보고서에는 UPN(사용자 계정 이름)과 전체 전화번호와 같은 개인 데이터가 포함됩니다.
-
-다단계 인증 서비스 로그는 서비스를 작동하는 데 사용됩니다.
+| 소버린 클라우드                      | 로그인 로그                         | 다단계 인증 작업 보고서 | 다단계 인증 서비스 로그 |
+|--------------------------------------|--------------------------------------|--------------------------------------------|-----------------------------------------|
+| Microsoft Azure Germany              | 독일                              | 미국                              | 미국                           |
+| Azure 중국 21Vianet                 | 중국                                | 미국                              | 미국                           |
+| Microsoft Government Cloud           | 미국                        | 미국                              | 미국                           |
 
 ## <a name="next-steps"></a>다음 단계
 
-클라우드 기반 Azure AD Multifactor Authentication 및 Azure Multifactor Authentication 서버에서 수집하는 사용자 정보에 관한 자세한 내용은 [Azure AD Multifactor Authentication 사용자 데이터 수집](howto-mfa-reporting-datacollection.md)을 참조하세요.
+클라우드 기반 Azure AD 다단계 인증 및 MFA 서버에서 수집하는 사용자 정보에 관한 자세한 내용은 [Azure AD 다단계 인증 사용자 데이터 수집](howto-mfa-reporting-datacollection.md)을 참조하세요.

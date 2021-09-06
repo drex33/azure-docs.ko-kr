@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: miag
-ms.openlocfilehash: 2dde5858cef4b7c8fa876e4437c4b89c4125a0d0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 34b83376a555b5fd06947049f959badc9a1aed67
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068920"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731081"
 ---
 # <a name="iot-hub-support-for-managed-identities"></a>관리 ID에 대한 IoT Hub 지원 
 
@@ -121,10 +121,10 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 ```
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID 
 이 섹션에서는 Azure Portal을 사용하여 IoT 허브에서 사용자 할당 관리 ID를 추가하고 제거하는 방법을 알아봅니다.
-1.  우선 독립 실행형 리소스로 사용자가 할당한 관리 ID를 만들어야 합니다. [여기](./../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)의 안내에 따라 사용자가 할당한 관리 ID를 만들 수 있습니다.
+1.  우선 독립 실행형 리소스로 사용자가 할당한 관리 ID를 만들어야 합니다. 이렇게 하려면 [사용자가 할당한 관리 ID 만들기](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)의 지침을 따르세요.
 2.  IoT Hub로 이동하고 IoT Hub 포털에서 **ID** 로 이동합니다.
 3.  **사용자 할당** 탭에서 **사용자가 할당한 관리 ID 추가** 를 클릭합니다. 허브에 추가할 사용자가 할당한 관리 ID를 선택한 다음 **선택** 을 클릭합니다. 
-4.  IoT Hub에서 사용자 할당 ID를 제거할 수 있습니다. 제거할 사용자 할당 ID를 선택하고 **제거** 단추를 클릭합니다. IoT Hub에서만 제거하며, 이 제거는 사용자 할당 ID를 리소스로 삭제하지 않습니다. 사용자가 할당한 ID를 리소스로 삭제하려면 [여기](./../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#delete-a-user-assigned-managed-identity)의 안내를 따르세요.
+4.  IoT Hub에서 사용자 할당 ID를 제거할 수 있습니다. 제거할 사용자 할당 ID를 선택하고 **제거** 단추를 클릭합니다. IoT Hub에서만 제거하며, 이 제거는 사용자 할당 ID를 리소스로 삭제하지 않습니다. 사용자가 할당한 ID를 리소스로 삭제하려면 [사용자가 할당한 관리 ID 삭제](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#delete-a-user-assigned-managed-identity)의 지침을 따르세요.
 
     :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="IoT Hub에 대해 사용자가 할당한 관리 ID를 추가하는 방법을 보여 주는 스크린샷":::        
 
@@ -224,14 +224,14 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 ## <a name="egress-connectivity-from-iot-hub-to-other-azure-resources"></a>IoT Hub에서 다른 Azure 리소스로의 송신 연결
 IoT Hub에서 관리 ID는 [메시지 라우팅](iot-hub-devguide-messages-d2c.md), [파일 업로드](iot-hub-devguide-file-upload.md) 및 [대량 디바이스 가져오기/내보내기](iot-hub-bulk-identity-mgmt.md)를 위해 IoT Hub에서 다른 Azure 서비스로의 송신 연결에 사용될 수 있습니다. 스토리지 계정, 이벤트 허브 및 서비스 버스 엔드포인트를 포함하여 고객 소유 엔드포인트에 대한 각 IoT Hub 송신 연결에 사용할 관리 ID를 선택할 수 있습니다. 
 
-### <a name="message-routing"></a>메시지 라우팅
+## <a name="configure-message-routing-with-managed-identities"></a>관리 ID로 메시지 라우팅 구성
 이 섹션에서는 이벤트 허브 사용자 지정 엔드포인트에 대한 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 예로 사용합니다. 다른 라우팅 사용자 지정 엔드포인트에도 동일한 것이 적용됩니다. 
 
 1.  먼저 Azure Portal 이벤트 허브로 이동하여 관리 ID에 올바른 액세스 권한을 할당해야 합니다. 이벤트 허브에서 **액세스 제어(IAM)** 탭으로 이동하고 **추가** 를 클릭한 다음 **역할 할당 추가** 를 클릭합니다.
 3.  **Event Hubs 데이터 보내는 사람을 역할로** 선택합니다.
 
     > [!NOTE] 
-    > 스토리지 계정의 경우 **Storage Blob 데이터 기여자**([기여자 또는 스토리지 계정 기여자가 *아님*](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues))를 **역할** 로 선택합니다. 서비스 버스의 경우 **서비스 버스 데이터 보낸 사람** 을 **역할** 로 선택합니다.
+    > 스토리지 계정의 경우 **Storage Blob 데이터 기여자**([기여자 또는 스토리지 계정 기여자가 *아님*](../storage/blobs/assign-azure-role-data-access.md))를 **역할** 로 선택합니다. 서비스 버스의 경우 **서비스 버스 데이터 보낸 사람** 을 **역할** 로 선택합니다.
 
 4.  사용자 할당의 경우 **다음에 대한 액세스 할당** 에서 **사용자가 할당한 관리 ID** 를 선택합니다. 드롭다운 목록에서 구독 및 사용자가 할당한 관리 ID를 선택합니다. **저장** 단추를 클릭합니다.
 
@@ -258,7 +258,7 @@ IoT Hub에서 관리 ID는 [메시지 라우팅](iot-hub-devguide-messages-d2c.m
 
 10. 이 엔드포인트에 대해 업데이트할 새 인증 유형을 선택하고 **저장** 을 클릭합니다.
 
-### <a name="file-upload"></a>파일 업로드
+## <a name="configure-file-upload-with-managed-identities"></a>관리 ID로 파일 업로드 구성
 IoT Hub의 [파일 업로드](iot-hub-devguide-file-upload.md) 기능에서는 디바이스가 고객 소유 스토리지 계정으로 파일을 업로드할 수 있도록 허용합니다. 파일 업로드가 기능하도록 하려면 IoT Hub가 모두 스토리지 계정에 연결되어 있어야 합니다. 메시지 라우팅과 마찬가지로 Azure Storage 계정에 대한 IoT Hub 송신 연결을 위해 기본 인증 유형 및 관리 ID를 선택할 수 있습니다. 
 
 1. Azure Portal에서 스토리지 계정의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가** 를 클릭합니다.
@@ -277,7 +277,10 @@ IoT Hub의 [파일 업로드](iot-hub-devguide-file-upload.md) 기능에서는 �
 
     :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="msi로 IoT Hub 파일 업로드":::
 
-### <a name="bulk-device-importexport"></a>대량 디바이스 가져오기/내보내기
+    > [!NOTE]
+    > 파일 업로드 시나리오에서 허브와 디바이스는 모두 스토리지 계정에 연결해야 합니다. 위의 단계는 원하는 인증 유형을 사용하여 스토리지 계정에 IoT 허브를 연결하기 위한 것입니다. 계속 SAS URI를 사용하여 디바이스를 스토리지에 연결해야 합니다. 현재 SAS URI는 연결 문자열을 사용하여 생성됩니다. 관리 ID를 사용하여 SAS URI를 생성하는 지원을 곧 추가할 예정입니다. [파일 업로드](iot-hub-devguide-file-upload.md)의 다음 단계를 따르세요.
+
+## <a name="configure-bulk-device-importexport-with-managed-identities"></a>관리 ID로 대량 디바이스 가져오기/내보내기 구성
 
 IoT Hub는 고객이 제공한 스토리지 Blob에서/(으)로 디바이스의 정보를 대량으로 [가져오기/내보내기](iot-hub-bulk-identity-mgmt.md)하는 기능을 지원합니다. 이 기능을 사용하려면 IoT Hub에서 스토리지 계정으로의 연결이 필요합니다. 
 

@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d9d63c7a703987d7b17e6e03d8b5596d5f1dfa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2500d1872c2c70c8d39afa0b564c35a8bb9bcb9b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560619"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536754"
 ---
 # <a name="securing-external-access-with-groups"></a>그룹으로 외부 액세스 보안 
 
-그룹은 액세스 제어 전략에 필수적인 부분입니다. Azure AD(Azure Active Directory) 보안 그룹 및 Microsoft 365(M365) 그룹은 리소스에 대한 액세스 보안의 기초로 사용될 수 있습니다.
+그룹은 액세스 제어 전략에 필수적인 부분입니다. Azure AD(Azure Active Directory) 보안 그룹 및 Microsoft 365 그룹은 리소스에 대한 액세스 보안의 기초로 사용될 수 있습니다.
 
 그룹은 다음 액세스 제어 메커니즘의 기초로 사용되는 최고의 방법입니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "102560619"
 
 * 권한 관리 액세스 패키지 
 
-* M365 리소스, Microsoft Teams 및 SharePoint 사이트 액세스
+* Microsoft 365 리소스, Microsoft Teams 및 SharePoint 사이트에 액세스
 
 그룹에는 다음 역할이 포함됩니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "102560619"
 
       * 또한 [Azure Active Directory에서 셀프 서비스 그룹 관리를 설정](../enterprise-users/groups-self-service-management.md)할 수도 있습니다. 
 
-   * *기본적으로 모든 사용자가 M365 그룹을 만들 수 있고 테넌트에 있는 모든(내부 및 외부) 사용자가 참여하도록 그룹이 열려 있습니다*. 
+   * *기본적으로 모든 사용자가 Microsoft 365 그룹을 만들 수 있고 테넌트에 있는 모든(내부 및 외부) 사용자가 조인할 수 있도록 그룹이 열려 있습니다*. 
 
       * [Microsoft 365 그룹 만들기](/microsoft-365/solutions/manage-creation-of-groups)를 특정 보안 그룹의 멤버로 제한할 수 있습니다. Windows PowerShell을 사용하여 이 설정을 구성합니다. 
 
@@ -98,15 +98,15 @@ ms.locfileid: "102560619"
 
 ### <a name="types-of-groups"></a>그룹 유형
 
-Azure AD 보안 그룹 및 Microsoft 365 그룹 모두 Azure AD 포털 또는 M365 관리 포털에서 생성될 수 있습니다. 두 유형 모두 외부 액세스 보안을 위한 기초로 사용될 수 있습니다.
+Azure AD 보안 그룹 및 Microsoft 365 그룹 모두 Azure AD 포털 또는 Microsoft 365 관리 포털에서 생성될 수 있습니다. 두 유형 모두 외부 액세스 보안을 위한 기초로 사용될 수 있습니다.
 
 |고려 사항 | Azure AD 보안 그룹(수동 및 동적)| Microsoft 365 그룹 |
 | - | - | - |
 | 그룹에 포함 될 수 있는 항목은 무엇인가요?| 사용자<br>그룹<br>서비스 원칙<br>디바이스| 사용자만 |
-| 그룹이 생성되는 위치는 어디인가요?| Azure AD 포털<br>M365 포털(메일을 사용하도록 설정된 경우)<br>PowerShell<br>Microsoft Graph<br>최종 사용자 포털| M365 포털<br>Azure AD 포털<br>PowerShell<br>Microsoft Graph<br>Microsoft 365 애플리케이션 |
+| 그룹이 생성되는 위치는 어디인가요?| Azure AD 포털<br>Microsoft 365 포털(메일을 사용하도록 설정된 경우)<br>PowerShell<br>Microsoft Graph<br>최종 사용자 포털| Microsoft 365 포털<br>Azure AD 포털<br>PowerShell<br>Microsoft Graph<br>Microsoft 365 애플리케이션 |
 | 기본적으로 생성되는 사람은 누구인가요?| 관리자 <br>최종 사용자| 관리자<br>최종 사용자 |
 | 기본적으로 추가될 수 있는 사용자는 누구인가요?| 내부 사용자(멤버)| 모든 조직의 테넌트 멤버 및 게스트 |
-| 액세스 권한을 부여하는 대상은 무엇인가요?| 할당된 리소스만| 모든 그룹 관련 리소스:<br>(그룹 사서함, 사이트, 팀, 채팅 및 기타 포함된 M365 리소스)<br>그룹이 추가되는 다른 모든 리소스 |
+| 액세스 권한을 부여하는 대상은 무엇인가요?| 할당된 리소스만| 모든 그룹 관련 리소스:<br>(그룹 사서함, 사이트, 팀, 채팅 및 기타 포함된 Microsoft 365 리소스)<br>그룹이 추가되는 다른 모든 리소스 |
 | 함께 사용 가능한 항목| 조건부 액세스<br>권한 관리<br>그룹 라이선스| 조건부 액세스<br>권한 관리<br>민감도 레이블 |
 
 
@@ -127,9 +127,9 @@ Microsoft 365 그룹을 사용하여 팀 및 연관된 사이트와 콘텐츠와
 
 다음을 위해 Azure AD 보안 그룹을 사용할 수도 있습니다.
 
-* M365, Dynamics 365와 Enterprise Mobility 및 Security와 같은 서비스의 라이선스를 할당합니다. 자세한 내용은 [그룹 기반 라이선스](./active-directory-licensing-whatis-azure-portal.md)를 참조하세요.
+* Microsoft 365, Dynamics 365와 Enterprise Mobility 및 Security와 같은 서비스의 라이선스를 할당합니다. 자세한 내용은 [그룹 기반 라이선스](./active-directory-licensing-whatis-azure-portal.md)를 참조하세요.
 
-* 승격된 권한을 할당합니다. 자세한 내용은 [클라우드 그룹을 사용하여 역할 할당 관리(미리 보기](../roles/groups-concept.md))를 참조하세요. 
+* 승격된 권한을 할당합니다. 자세한 내용은 [Azure AD 그룹을 사용하여 역할 할당 관리](../roles/groups-concept.md)를 참조하세요. 
 
 [Azure Portal](./active-directory-groups-create-azure-portal.md)에서 그룹을 만들려면 Azure Active Directory로 이동한 후 그룹으로 이동합니다. [PowerShell cmdlet](../enterprise-users/groups-settings-v2-cmdlets.md)을 사용하여 Azure AD 보안 그룹을 만들 수도 있습니다. 
 
@@ -150,9 +150,9 @@ Microsoft 365 그룹을 사용하여 팀 및 연관된 사이트와 콘텐츠와
 
 ## <a name="microsoft-365-groups"></a>Microsoft 365 그룹
 
-[Microsoft 365 그룹](/microsoft-365/admin/create-groups/office-365-groups)은 M365에서 모든 액세스를 구동하는 기본적인 멤버 자격 서비스입니다. 이러한 그룹은 [Azure Portal](https://portal.azure.com/) 또는 [M365 포털](https://admin.microsoft.com/)에서 생성될 수 있습니다. M365 그룹을 만들 때 협업에 사용되는 리소스 그룹에 대한 액세스 권한을 부여합니다. 이러한 리소스의 전체 목록은 [관리자를 위한 Microsoft 365 그룹 개요](/microsoft-365/admin/create-groups/office-365-groups)를 참조하세요.
+[Microsoft 365 그룹](/microsoft-365/admin/create-groups/office-365-groups)은 Microsoft 365에서 모든 액세스를 구동하는 기본적인 멤버 자격 서비스입니다. 이러한 그룹은 [Azure Portal](https://portal.azure.com/) 또는 [Microsoft 365 포털](https://admin.microsoft.com/)에서 생성될 수 있습니다. Microsoft 365 그룹을 만들 때 협업에 사용되는 리소스 그룹에 대한 액세스 권한을 부여합니다. 이러한 리소스의 전체 목록은 [관리자를 위한 Microsoft 365 그룹 개요](/microsoft-365/admin/create-groups/office-365-groups)를 참조하세요.
 
-M365 그룹은 해당 역할에 대해 다음 의미를 갖습니다.
+Microsoft 365 그룹은 해당 역할에 대해 다음 의미를 갖습니다.
 
 * **소유자** - 그룹 소유자가 멤버를 추가하거나 제거할 수 있고 공유 사서함에서 대화를 삭제하거나 그룹 설정을 변경하는 기능 등의 고유한 권한을 갖습니다. 그룹 소유자는 그룹 이름을 바꾸거나, 설명 또는 사진을 업데이트할 수 있습니다.
 
@@ -162,7 +162,7 @@ M365 그룹은 해당 역할에 대해 다음 의미를 갖습니다.
 
  
 
-### <a name="m365-group-settings"></a>M365 그룹 설정
+### <a name="microsoft-365-group-settings"></a>Microsoft 365 그룹 설정
 
 이메일 별칭, 개인 정보, 설정 시 팀의 그룹을 사용할지 여부를 선택할 수 있습니다. 
 
@@ -172,7 +172,7 @@ M365 그룹은 해당 역할에 대해 다음 의미를 갖습니다.
 
 ### <a name="next-steps"></a>다음 단계
 
-리소스의 외부 액세스 보안에 대한 다음 문서를 참조하세요. 이러한 작업은 나열된 순서에 따라 수행하는 것이 좋습니다.
+리소스에 대한 외부 액세스 보안에 관해 다음 문서를 참조하세요. 이러한 작업은 나열된 순서에 따라 수행하는 것이 좋습니다.
 
 1. [외부 액세스에 대해 원하는 보안 태세 결정](1-secure-access-posture.md)
 
@@ -184,10 +184,10 @@ M365 그룹은 해당 역할에 대해 다음 의미를 갖습니다.
 
 5. [Azure AD B2B로 전환](5-secure-access-b2b.md)
 
-6. [권한 관리를 사용하는 보안 액세스](6-secure-access-entitlement-managment.md)
+6. [권한 관리를 사용한 보안 액세스](6-secure-access-entitlement-managment.md)
 
-7. [조건부 액세스 정책을 사용하는 보안 액세스](7-secure-access-conditional-access.md)
+7. [조건부 액세스 정책을 사용한 보안 액세스](7-secure-access-conditional-access.md)
 
-8. [민감도 레이블을 사용하는 보안 액세스](8-secure-access-sensitivity-labels.md)
+8. [민감도 레이블을 사용한 보안 액세스](8-secure-access-sensitivity-labels.md)
 
-9. [Microsoft Teams, OneDrive 및 SharePoint를 사용하는 보안 액세스](9-secure-access-teams-sharepoint.md)
+9. [Microsoft Teams, OneDrive 및 SharePoint에 대한 보안 액세스](9-secure-access-teams-sharepoint.md)

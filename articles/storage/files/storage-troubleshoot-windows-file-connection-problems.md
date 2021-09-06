@@ -8,12 +8,12 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ccaa432de640e7d4bf89675c750e965e0058f847
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b1541acc9ab6871418d1cb750d74d285f3228f92
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676113"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529561"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Windows에서 Azure Files 문제 해결(SMB)
 
@@ -21,6 +21,13 @@ ms.locfileid: "110676113"
 
 > [!IMPORTANT]
 > 이 문서의 내용은 SMB 공유에만 적용됩니다. NFS 공유에 대한 자세한 내용은 [Azure NFS 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md)을 참조하세요.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Azure 파일 공유를 탑재할 때 오류 5 발생
@@ -175,6 +182,49 @@ Azure 파일 공유의 파일 또는 디렉터리에 허용되는 동시 열린 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
 Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 스토리지 계정을 보호하는 방법](../blobs/security-recommendations.md#data-protection)을 참조하세요.
+
+## <a name="unable-to-modify-or-delete-an-azure-file-share-or-share-snapshots-because-of-locks-or-leases"></a>잠금 또는 임대로 인해 Azure 파일 공유(또는 공유 스냅샷)을 수정하거나 삭제할 수 없음
+Azure Files는 Azure 파일 공유 및 공유 스냅샷을 실수로 수정 또는 삭제하는 것을 방지하기 위해 두 가지 방법을 제공합니다. 
+
+- **스토리지 계정 리소스 잠금**: 스토리지 계정을 포함한 모든 Azure 리소스는 [리소스 잠금](../../azure-resource-manager/management/lock-resources.md)을 지원합니다. 관리자 또는 Azure Backup과 같은 부가 가치 서비스에 의해 스토리지 계정에 잠금을 설정할 수 있습니다. 리소스 잠금의 두 가지 변형에는 스토리지 계정 및 해당 리소스에 대한 모든 수정을 방지하는 수정과 스토리지 계정 및 해당 리소스의 삭제만 방지하는 삭제가 있습니다. `Microsoft.Storage` 리소스 공급자를 통해 공유를 수정하거나 삭제하면 Azure 파일 공유 및 공유 스냅샷에 리소스 잠금이 적용됩니다. 대부분의 포털 작업, 이름에 `Rm`이 있는 Azure Files용 Azure PowerShell cmdlet(예: `Get-AzRmStorageShare`) 및 `share-rm` 명령 그룹(예: `az storage share-rm list`)의 Azure CLI 명령은 `Microsoft.Storage` 리소스 공급자를 사용합니다. Storage Explorer, 이름에 `Rm`이 없는 레거시 Azure Files PowerShell 관리 cmdlet(예: `Get-AzStorageShare`) 및 `share` 명령 그룹 아래의 레거시 Azure Files CLI 명령(예: `az storage share list`)과 같은 일부 도구와 유틸리티는 `Microsoft.Storage` 리소스 제공자와 리소스 잠금을 바이패스하는 FileREST API의 레거시 API를 사용합니다. FileREST API에 노출된 레거시 관리 API에 대한 자세한 내용은 [Azure Files의 컨트롤 플레인](/rest/api/storageservices/file-service-rest-api#control-plane)을 참조하세요.
+
+- **공유/공유 스냅샷 임대**: 공유 임대는 Azure 파일 공유 및 파일 공유 스냅샷에 대한 일종의 독점 잠금입니다. 스크립트를 통해 API를 호출하거나 Azure Backup과 같은 부가 가치 서비스를 통해 관리자가 개별 Azure 파일 공유 또는 파일 공유 스냅샷에 임대를 설정할 수 있습니다. Azure 파일 공유 또는 파일 공유 스냅샷에 임대를 설정하는 경우 *임대 ID* 를 통해 파일 공유/공유 스냅샷을 수정하거나 삭제할 수 있습니다. 사용자는 임대 ID가 필요한 수정 작업 전에 임대를 해제하거나 임대 ID가 필요하지 않은 임대를 해제할 수도 있습니다. 공유 임대에 관한 자세한 내용은 [공유 임대](/rest/api/storageservices/lease-share)를 참조하세요.
+
+리소스 잠금 및 임대는 스토리지 계정/Azure 파일 공유에서 의도한 관리자 작업을 방해할 수 있기 때문에 Azure Backup과 같은 부가 가치 서비스에 의해 수동으로 또는 자동으로 리소스에 배치되었을 수 있는 리소스 잠금/임대를 제거할 수 있습니다. 다음 스크립트는 모든 리소스 잠금 및 임대를 제거합니다. `<resource-group>` 및 `<storage-account>`를 사용자 환경에 적합한 값으로 바꿔야 합니다.
+
+다음 스크립트를 실행하려면 Azure Storage PowerShell 모듈의 [3.10.1-preview 버전을 설치](https://www.powershellgallery.com/packages/Az.Storage/3.10.1-preview)해야 합니다.
+
+> [!Important]  
+> Azure Files 리소스에서 리소스 잠금 및 공유/공유 스냅샷 임대를 취하는 부가 가치 서비스는 주기적으로 잠금 및 임대를 다시 적용할 수 있습니다. 부가 가치 서비스를 통해 잠긴 리소스를 수정하거나 삭제하면 Azure Backup에서 관리되는 공유 스냅샷 삭제 같이 해당 서비스의 정기적인 작업에 영향을 줄 수 있습니다.
+
+```PowerShell
+# Parameters for storage account resource
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName
+
+# Remove resource locks
+Get-AzResourceLock `
+        -ResourceType "Microsoft.Storage/storageAccounts" `
+        -ResourceGroupName $storageAccount.ResourceGroupName `
+        -ResourceName $storageAccount.StorageAccountName | `
+    Remove-AzResourceLock -Force | `
+    Out-Null
+
+# Remove share and share snapshot leases
+Get-AzStorageShare -Context $storageAccount.Context | `
+    Where-Object { $_.Name -eq $fileShareName } | `
+    ForEach-Object {
+        try {
+            $leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($_.ShareClient)
+            $leaseClient.Break() | Out-Null
+        } catch { }
+    }
+```
 
 <a id="open-handles"></a>
 ## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>파일 또는 디렉터리를 수정, 이동/이름 변경 또는 삭제할 수 없음
@@ -442,7 +492,6 @@ $StorageAccountName = "<storage-account-name-here>"
 
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 ```
-
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대�
 ms.topic: conceptual
 ms.date: 05/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8feda70f346347a3559e2696d2912d2a976b0a63
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 612493d55adddea82e3e8d1e3d169eee963bfda2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890308"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535572"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -63,7 +63,7 @@ AKS는 가상 머신 확장 집합, 가상 네트워크 및 Managed Disks를 포
 이 아키텍처를 지원하기 위해 각 AKS 배포는 다음 두 리소스 그룹에 걸쳐 있습니다.
 
 1. 첫 번째 리소스 그룹을 만듭니다. 이 그룹에는 Kubernetes 서비스 리소스만 포함됩니다. AKS 리소스 공급자는 배포하는 동안 두 번째 리소스 그룹을 자동으로 만듭니다. 두 번째 리소스 그룹의 예는 *MC_myResourceGroup_myAKSCluster_eastus* 입니다. 이 두 번째 리소스 그룹의 이름을 지정하는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
-1. *노드 리소스 그룹* 으로 알려져 있는 두 번째 리소스 그룹에는 클러스터와 연결된 인프라 리소스의 모든 항목이 포함됩니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 스토리지가 포함됩니다. 기본적으로 노드 리소스 그룹에는 *MC_myResourceGroup_myAKSCluster_eastus* 와 같은 이름이 지정됩니다. AKS는 클러스터가 삭제될 때마다 노드 리소스를 자동으로 삭제하므로, 클러스터의 수명 주기를 공유하는 리소스에만 사용해야 합니다.
+1. *노드 리소스 그룹* 으로 알려져 있는 두 번째 리소스 그룹에는 클러스터와 연결된 인프라 리소스의 모든 항목이 포함됩니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 스토리지가 포함됩니다. 기본적으로 노드 리소스 그룹에는 *MC_myResourceGroup_myAKSCluster_eastus* 와 같은 이름이 지정됩니다. AKS는 클러스터가 삭제될 때마다 노드 리소스 그룹을 자동으로 삭제하므로, 클러스터의 수명 주기를 공유하는 리소스에만 사용해야 합니다.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>AKS 노드 리소스 그룹에 고유한 이름을 지정할 수 있나요?
 
@@ -286,6 +286,11 @@ spec:
 ## <a name="can-i-use-fips-cryptographic-libraries-with-deployments-on-aks"></a>AKS에서 배포에 FIPS 암호화 라이브러리를 사용할 수 있나요?
 
 FIPS 사용 노드는 현재 Linux 기반 노드 풀에서 미리 보기로 제공됩니다. 자세한 내용은 [FIPS 사용 노드 풀 추가(미리 보기)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview)를 참조하세요.
+
+## <a name="can-i-configure-nsgs-with-aks"></a>AKS를 통해 NSG를 구성할 수 있나요?
+
+자체 서브넷을 제공하는 경우 해당 서브넷과 연결된 NSG(네트워크 보안 그룹)를 관리해야 합니다. AKS는 NIC 수준에서만 NSG를 수정하고 해당 서브넷과 연결된 NSG는 수정하지 않습니다. CNI를 사용하는 경우 NSG의 보안 규칙이 노드와 Pod CIDR 범위 간의 트래픽을 허용하는지 확인해야 합니다. kubenet을 사용하는 경우 NSG의 보안 규칙이 노드와 Pod CIDR 간의 트래픽을 허용하는지 확인해야 합니다.
+
 
 <!-- LINKS - internal -->
 

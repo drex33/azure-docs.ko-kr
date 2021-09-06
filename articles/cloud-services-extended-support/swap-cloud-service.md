@@ -8,12 +8,12 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/01/2021
 ms.custom: ''
-ms.openlocfilehash: f5e01075ffb460c7ddd70b40a6b19f7ea70dd776
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: d9e30d77708ad5ae8c5249a15d28685a56fd0216
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748833"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462987"
 ---
 # <a name="swap-or-switch-deployments-in-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에서 배포 교환 또는 전환
 
@@ -24,9 +24,14 @@ Azure Cloud Services(추가 지원)에서는 2개의 독립 클라우드 서비�
 > [!NOTE]
 > Azure Cloud Services(클래식) 배포와 Azure Cloud Services(추가 지원) 배포 간에는 교환할 수 없습니다.
 
-클라우드 서비스 쌍 중 두 번째를 배포할 때 클라우드 서비스를 다른 클라우드 서비스와 교환 가능하도록 설정해야 합니다.
+처음으로 클라우드 서비스 쌍 중 두 번째를 배포할 때 클라우드 서비스를 다른 클라우드 서비스와 교환 가능하도록 설정해야 합니다. 두 번째 클라우드 서비스 쌍이 배포되면 후속 업데이트에서 기존 클라우드 서비스와 교환할 수 없습니다.
 
 Azure Resource Manager 템플릿(ARM 템플릿), Azure Portal 또는 REST API를 사용하여 배포를 교환할 수 있습니다.
+
+두 번째 클라우드 서비스를 배포할 때 두 클라우드 서비스는 서로 가리키도록 해당 SwappableCloudService 속성을 설정합니다. 이러한 클라우드 서비스에 대한 모든 후속 업데이트는 이 속성이 실패하도록 지정해야 하며, SwappableCloudService 속성을 삭제하거나 업데이트할 수 없음을 나타내는 오류가 반환됩니다.
+
+설정되면 SwappableCloudService 속성이 읽기 전용으로 처리됩니다. 삭제하거나 다른 값으로 변경할 수 없습니다. 클라우드 서비스 중 하나(교환 가능한 쌍)를 삭제하면 나머지 클라우드 서비스의 SwappableCloudService 속성이 지워지게 됩니다.
+
 
 ## <a name="arm-template"></a>ARM 템플릿
 
@@ -114,7 +119,7 @@ Azure Cloud Services(추가 지원)에서 배포 교환에 성공하려면 두 �
 ## <a name="next-steps"></a>다음 단계 
 
 * Azure Cloud Services(추가 지원)에 대한 [배포 필수 조건](deploy-prerequisite.md)을 검토합니다.
-* [Azure Cloud Services(추가 지원)에 대한 질문과 대답](faq.md)을 검토합니다.
+* [Azure Cloud Services(추가 지원)에 대한 질문과 대답](faq.yml)을 검토합니다.
 * 다음 옵션 중 하나를 사용하여 Azure Cloud Services(추가 지원) 클라우드 서비스를 배포합니다.
   * [Azure Portal](deploy-portal.md)
   * [PowerShell](deploy-powershell.md)

@@ -5,12 +5,12 @@ ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: b3f356d5a7b0919b6aa44cbe6653625c9e96f3f1
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: f2bb1ebd6e8db80a071dc3f82e1eedded26f6116
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688624"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634488"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>HDInsight 클러스터의 VM 다시 부팅
 
@@ -57,7 +57,7 @@ API 문서의 **체험해 보기** 기능을 사용하여 HDInsight에 요청을
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. 호스트를 다시 시작합니다. 다시 부팅하려는 노드의 이름을 확인한 후 REST API를 사용하여 노드를 다시 부팅함으로써 노드를 다시 시작합니다. 노드 이름은 *NodeType(wn/hn/zk/gw)*  + *x* + *클러스터 이름의 처음 여섯 글자* 패턴을 따릅니다. 자세한 내용은 [HDInsight 호스트 다시 시작 REST API 작업](/rest/api/hdinsight/virtualmachines/restarthosts)을 참조하세요.
+1. 호스트를 다시 시작합니다. 다시 부팅하려는 노드의 이름을 확인한 후 REST API를 사용하여 노드를 다시 부팅함으로써 노드를 다시 시작합니다. 노드 이름은 *NodeType(wn/hn/zk)*  + *x* + *클러스터 이름의 처음 여섯 글자* 패턴을 따릅니다. 자세한 내용은 [HDInsight 호스트 다시 시작 REST API 작업](/rest/api/hdinsight/virtualmachines/restarthosts)을 참조하세요.
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview

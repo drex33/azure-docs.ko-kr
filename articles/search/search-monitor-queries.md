@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: 169a90c12b30e0d083ce5c53ab7c6dd2495c4c23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 01/26/2021
+ms.openlocfilehash: 67ada228d3b4ed95b1247b221f0ad90bbbc74ba0
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592380"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112416968"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 요청 모니터링하기
 
 이 문서에서는 메트릭 및 리소스 로깅을 사용하여 쿼리 성능 및 볼륨을 측정하는 방법을 설명합니다. 또한 검색 모음의 유틸리티 및 효율성을 평가해야 하는 경우 필요한 정보 관련 쿼리에 사용되는 입력 용어를 수집하는 방법을 설명합니다.
 
-메트릭에 피드되는 기록 데이터는 30일 동안 보존됩니다. 보다 긴 보존을 위해 또는 운영 데이터 및 쿼리 문자열을 보고하기 위해서는 로그된 이벤트 및 메트릭을 유지하기 위한 스토리지 옵션을 지정하는 [진단 설정](search-monitor-logs.md)을 사용하도록 설정해야 합니다.
+Azure Portal은 쿼리 대기 시간, 쿼리 로드(QPS) 및 제한에 대한 기본 메트릭을 보여 줍니다. 이러한 메트릭에 피드되는 기록 데이터는 30일간 보존됩니다. 보존 기간을 늘리거나 운영 데이터 및 쿼리 문자열을 보고하려면 로그된 이벤트 및 메트릭을 유지하기 위한 스토리지 옵션을 지정하는 [진단 설정](search-monitor-logs.md)을 사용하도록 설정해야 합니다.
 
 데이터 측정의 무결성을 최대화하는 조건은 다음과 같습니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "100592380"
 
 1. 꺾은선형 차트에서 관심 영역을 확대합니다. 영역의 시작 부분에 마우스 포인터를 놓고 마우스 왼쪽 단추를 누른 채 영역의 반대쪽으로 끈 후 단추를 놓습니다. 그러면 해당 시간 범위에서 차트가 확대됩니다.
 
-## <a name="identify-strings-used-in-queries"></a>쿼리에서 사용되는 문자열 식별
+## <a name="return-query-strings-entered-by-users"></a>사용자가 입력한 쿼리 문자열 반환
 
 리소스 로깅을 사용하도록 설정하면 시스템은 **AzureDiagnostics** 테이블에서 쿼리 요청을 캡처합니다. 필수 요소로서 Log Analytics 작업 영역 또는 다른 스토리지 옵션을 지정하여 [리소스 로깅](search-monitor-logs.md)을 사용하도록 이미 설정해 두었어야 합니다.
 
@@ -124,8 +124,8 @@ ms.locfileid: "100592380"
 
 1. 다음 식을 실행하여 쿼리 검색 작업을 검색하고 작업 이름, 쿼리 문자열, 쿼리된 인덱스 및 찾은 문서 수로 구성된 테이블 형식 결과 집합을 반환합니다. 마지막 두 문은 샘플 인덱스에 대해 비어 있거나 지정되지 않은 검색으로 구성된 쿼리 문자열을 제외하고 결과의 노이즈를 잘라냅니다.
 
-   ```
-   AzureDiagnostics
+   ```kusto
+      AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
    | where Query_s != "?api-version=2020-06-30&search=*"
@@ -144,9 +144,9 @@ ms.locfileid: "100592380"
 
 1. 모니터링 섹션에서 **로그** 를 선택하여 로그 정보를 쿼리합니다.
 
-1. 다음 쿼리를 실행하여 지속 시간(밀리초)로 정렬된 쿼리를 반환합니다. 가장 오래 실행되는 쿼리는 상단에 있습니다.
+1. 다음의 기본 쿼리를 실행하여 기간(밀리초)별로 정렬된 쿼리를 반환합니다. 가장 오래 실행되는 쿼리는 상단에 있습니다.
 
-   ```
+   ```Kusto
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search"
@@ -182,10 +182,6 @@ ms.locfileid: "100592380"
    ![경고 세부 정보](./media/search-monitor-usage/alert-details.png "경고 세부 정보")
 
 메일 알림을 지정한 경우 제목이“Microsoft Azure”에서 “Azure: 활성화된 심각도: 3 `<your rule name>`”인 메일을 받게 됩니다.
-
-<!-- ## Report query data
-
-Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/13/2021
 ms.author: azfuncdf
-ms.openlocfilehash: a91baf110e08794bcf2dedec2a61f0e6c2c734a5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 179eb4c5c380a65374143cf24b2f960458fe62b5
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375880"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112240439"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
 
@@ -234,7 +234,7 @@ Azure Functions는 단일 응용 프로그램 인스턴스 내에서 여러 함�
 > 이러한 설정은 단일 VM의 메모리 및 CPU 사용량을 관리하는 데 유용합니다. 그러나 여러 VM에 걸쳐 스케일 아웃할 경우 각 VM에는 여러 고유한 제한이 설정됩니다. 해당 설정을 전역 수준에서 동시성을 제어하는 데는 사용할 수 없습니다.
 
 > [!NOTE]
-> 오케스트레이션과 엔터티는 이벤트 또는 작업을 적극적으로 처리하는 경우에만 메모리에 로드됩니다. 해당 논리 및 대기는 실행 후(예: 오케스트레이터 함수 코드의 `await`(C#) 또는 `yield`(JavaScript, Python) 문을 실행) 메모리에서 언로드됩니다. 메모리에서 언로드된 오케스트레이션 및 엔터티는 `maxConcurrentOrchestratorFunctions` 스로틀을 계산하는 데 포함되지 않습니다. 수백만 개의 오케스트레이션 또는 엔터티가 ‘실행 중’ 상태인 경우에도 오케스트레이션 또는 엔터티는 활성 메모리에 로드되지 않는 한 스로틀 제한에 포함되지 않습니다. 마찬가지로 작업 함수를 예약하는 오케스트레이션은 오케스트레이션이 작업이 실행 완료를 기다리는 경우 스로틀에 포함되지 않습니다.
+> 오케스트레이션과 엔터티는 이벤트 또는 작업을 적극적으로 처리하는 경우에만 메모리에 로드됩니다. 해당 논리 및 대기는 실행 후(예: 오케스트레이터 함수 코드의 `await`(C#) 또는 `yield`(JavaScript, Python) 문을 실행) 메모리에서 언로드됩니다. 메모리에서 언로드된 오케스트레이션 및 엔터티는 `maxConcurrentOrchestratorFunctions` 스로틀을 계산하는 데 포함되지 않습니다. 수백만 개의 오케스트레이션 또는 엔터티가 ‘실행 중’ 상태인 경우에도 활성 메모리에 로드될 때만 스로틀 제한으로 계산됩니다. 마찬가지로 작업 함수를 예약하는 오케스트레이션은 오케스트레이션이 작업이 실행 완료를 기다리는 경우 스로틀에 포함되지 않습니다.
 
 ### <a name="language-runtime-considerations"></a>언어 런타임 고려 사항
 

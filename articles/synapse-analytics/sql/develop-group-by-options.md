@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: c2e1ddbfb87df40a0e3683e7bca7539c26191a7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e88a1b87dae62b928f2238c6c525b6345b891337
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671302"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112680043"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Synapse SQL의 GROUP BY 옵션
 
@@ -26,7 +26,7 @@ Synapse SQL을 사용하면 다양한 GROUP BY 옵션을 구현하여 솔루션�
 
 [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest&preserve-view=true) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다.
 
-서버리스 SQL 풀은 전체 범위의 GROUP BY 옵션을 지원합니다. 전용 SQL 풀은 제한된 수의 GROUP BY 옵션을 지원합니다.
+서버리스 SQL 풀은 GROUP BY 옵션을 지원하지 않습니다. 전용 SQL 풀은 제한된 수의 GROUP BY 옵션을 지원합니다.
 
 ## <a name="group-by-options-supported-in-dedicated-sql-pool"></a>전용 SQL 풀에서 지원되는 GROUP BY 옵션
 

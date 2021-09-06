@@ -5,48 +5,49 @@ author: ggailey777
 ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 06/24/2021
 ms.author: glenga
-ms.openlocfilehash: 063924dccb7d7b95b962b24ecc1af1870a855194
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b39e73f1920c653f653b686ac50aa1e4253c555
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617134"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "122642221"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
-이 문서에서는 Azure WebJobs SDK 사용 방법을 안내합니다. WebJobs를 즉시 시작하려면 [이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작](webjobs-sdk-get-started.md)을 참조하세요. 
+이 문서에서는 Azure WebJobs SDK 사용 방법을 안내합니다. WebJobs를 즉시 시작하려면 [Azure WebJobs SDK 시작](webjobs-sdk-get-started.md)을 참조하세요. 
 
 ## <a name="webjobs-sdk-versions"></a>WebJobs SDK 버전
 
 다음은 WebJobs SDK 3.*x* 버전과 2.*x* 버전의 주요 차이점입니다.
 
 * 3\.*x* 버전은 .NET Core에 대한 지원을 추가합니다.
-* 3\.*x* 버전에서는 WebJobs SDK에 필요한 Storage 바인딩 확장을 명시적으로 설치해야 합니다. 2\.*x* 버전에서는 Storage 바인딩이 SDK 패키지에 포함되어 있습니다.
-* .NET Core(3.*x*) 프로젝트용 Visual Studio 도구는 .NET Framework(2.*x*) 프로젝트용 도구와 다릅니다. 자세한 내용은 [Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service](webjobs-dotnet-deploy-vs.md)를 참조하세요.
+* 3\.*x* 버전에서는 WebJobs SDK에 필요한 Storage 바인딩 확장을 설치해야 합니다. 2\.*x* 버전에서는 스토리지 바인딩이 SDK에 포함되어 있습니다.
+* .NET Core(3.*x*) 프로젝트용 Visual Studio 2019 도구는 .NET Framework(2.*x*) 프로젝트용 도구와 다릅니다. 자세한 내용은 [Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service](webjobs-dotnet-deploy-vs.md)를 참조하세요.
 
-가능하다면 3.*x* 및 2.*x* 버전의 예제가 제공됩니다.
+이 문서의 몇 가지 설명은 WebJobs 버전 3.*x* 및 WebJobs 버전 2.*x* 에 대한 예제를 제공합니다.
 
-> [!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md)는 WebJobs SDK를 기반으로 하며, 이 문서에서는 일부 토픽에 대한 Azure Functions 설명서의 링크를 제공합니다. Functions와 WebJobs SDK 간에는 다음과 같은 차이점이 있습니다.
-> * Azure Functions 2.*x* 버전은 WebJobs SDK 3.*x* 버전에 해당하고, Azure Functions 1.*x* 버전은 WebJobs SDK 2.*x* 버전에 해당합니다. 소스 코드 리포지토리는 WebJobs SDK 번호 매기기를 사용합니다.
-> * Azure Functions C# 클래스 라이브러리에 대한 샘플 코드는 WebJobs SDK 프로젝트에 `FunctionName` 특성이 필요 없다는 점을 제외하고 WebJobs SDK 코드와 비슷합니다.
-> * HTTP(웹후크), Event Grid(HTTP 기반) 등의 일부 바인딩 형식은 Functions에서만 지원됩니다.
->
-> 자세한 내용은 [WebJobs SDK과 Azure Functions 비교](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs)를 참조하세요.
+[Azure Functions](../azure-functions/functions-overview.md)는 WebJobs SDK를 기반으로 합니다. 
+  
+ * Azure Functions 버전 2.*x* 는 WebJobs SDK 버전 3.*x* 를 기반으로 합니다.
+ * Azure Functions 버전 1.*x* 는 WebJobs SDK 버전 2.*x* 를 기반으로 합니다.
+  
+Azure Functions 및 WebJobs SDK 모두에 대한 소스 코드 리포지토리는 WebJobs SDK 번호 매기기를 사용합니다. 이 방법 문서의 여러 섹션은 Azure Functions 설명서에 연결됩니다. 
+
+자세한 내용은 [WebJobs SDK와 Azure Functions 비교](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs)를 참조하세요. 
 
 ## <a name="webjobs-host"></a>WebJobs 호스트
 
-호스트는 함수의 런타임 컨테이너입니다.  트리거를 수신 대기하고 함수를 호출합니다. 3\.*x* 버전에서 호스트는 `IHost`의 구현입니다. 2\.*x* 버전에서는 `JobHost` 개체를 사용합니다. 사용자는 코드에서 호스트 인스턴스를 만들고 동작을 사용자 지정하는 코드를 작성하게 됩니다.
+호스트는 함수의 런타임 컨테이너입니다. 호스트는 트리거를 수신 대기하고 함수를 호출합니다. 3\.*x* 버전에서 호스트는 `IHost`의 구현입니다. 2\.*x* 버전에서는 `JobHost` 개체를 사용합니다. 사용자는 코드에서 호스트 인스턴스를 만들고 동작을 사용자 지정하는 코드를 작성하게 됩니다.
 
-이것이 WebJobs SDK를 직접 사용할 때와 Azure Functions를 통해 간접적으로 사용할 때의 주요 차이점입니다. Azure Functions에서는 서비스가 호스트를 제어하므로 사용자가 코드를 작성하여 호스트를 사용자 지정할 수 없습니다. Azure Functions에서는 host.json 파일의 설정을 통해 호스트 동작을 사용자 지정할 수 있습니다. 이러한 설정은 코드가 아닌 문자열이며, 따라서 수행 가능한 사용자 지정의 종류가 제한됩니다.
+이것이 WebJobs SDK를 직접 사용할 때와 Azure Functions를 통해 간접적으로 사용할 때의 주요 차이점입니다. Azure Functions에서는 서비스가 호스트를 제어하므로 사용자가 코드를 작성하여 호스트를 사용자 지정할 수 없습니다. Azure Functions에서는 host.json 파일의 설정을 통해 호스트 동작을 사용자 지정할 수 있습니다. 이러한 설정은 코드가 아닌 문자열이며, 이러한 문자열은 수행 가능한 사용자 지정의 종류를 제한합니다.
 
 ### <a name="host-connection-strings"></a>호스트 연결 문자열
 
-WebJobs SDK는 로컬에서 실행할 경우 local.settings.json 파일에서 Azure Storage 및 Azure Service Bus 연결 문자열을 찾고, Azure에서 실행할 경우 WebJob 환경에서 찾습니다. 기본적으로 스토리지 연결 문자열 설정 `AzureWebJobsStorage`는 필수입니다.  
+WebJobs SDK는 로컬에서 실행할 경우 local.settings.json 파일에서 Azure Storage 및 Azure Service Bus 연결 문자열을 찾고, Azure에서 실행할 경우 WebJob 환경에서 찾습니다. 기본적으로 WebJobs SDK에는 이름이 `AzureWebJobsStorage`인 스토리지 연결 문자열 설정이 필요합니다.  
 
-SDK 2.*x* 버전을 사용하면 이러한 연결 문자열에 대해 고유한 이름을 사용하거나 다른 위치에 저장할 수 있습니다. 다음과 같이 코드에서 [`JobHostConfiguration`]을 사용하여 이름을 설정할 수 있습니다.
+SDK의 버전 2.*x* 는 특정 이름이 필요하지 않습니다. 버전 2.*x* 를 이러한 연결 문자열에 대해 고유한 이름을 사용하거나 다른 위치에 저장할 수 있습니다. 다음과 같이 코드에서 [`JobHostConfiguration`]을 사용하여 이름을 설정할 수 있습니다.
 
 ```cs
 static void Main(string[] args)
@@ -71,7 +72,7 @@ static void Main(string[] args)
 
 ### <a name="host-development-settings"></a>호스트 개발 설정
 
-로컬 개발을 보다 효율적으로 수행하기 위해 개발 모드에서 호스트를 실행할 수 있습니다. 다음은 개발 모드에서 실행할 때 변경되는 설정입니다.
+로컬 개발을 보다 효율적으로 수행하기 위해 개발 모드에서 호스트를 실행할 수 있습니다. 다음은 개발 모드에서 실행할 때 자동으로 변경되는 몇 가지 설정입니다.
 
 | 속성 | 개발 설정 |
 | ------------- | ------------- |
@@ -104,7 +105,7 @@ static async Task Main()
 
 #### <a name="version-2x"></a>2\.*x* 버전
 
-`JobHostConfiguration` 클래스에는 개발 모드를 사용하도록 설정하는 `UseDevelopmentSettings` 메서드가 있습니다.  다음 예제에서는 개발 설정을 사용하는 방법을 보여줍니다. 로컬로 실행할 때 `config.IsDevelopment`에서 `true`를 반환하게 하려면 `Development` 값을 사용하여 `AzureWebJobsEnv`라는 로컬 환경 변수를 지정합니다.
+`JobHostConfiguration` 클래스에는 개발 모드를 사용하도록 설정하는 `UseDevelopmentSettings` 메서드가 있습니다. 다음 예제에서는 개발 설정을 사용하는 방법을 보여줍니다. 로컬로 실행할 때 `config.IsDevelopment`에서 `true`를 반환하게 하려면 `Development` 값을 사용하여 `AzureWebJobsEnv`라는 로컬 환경 변수를 지정합니다.
 
 ```cs
 static void Main()
@@ -129,7 +130,7 @@ static void Main()
 
 사용자가 `ServicePointManager`를 통해 `HttpClient` 흐름을 사용하여 함수에서 만드는 모든 발신 HTTP 요청. `DefaultConnectionLimit`에 설정된 값에 도달하면 `ServicePointManager`는 요청을 보내기 전에 큐에 넣기 시작합니다. `DefaultConnectionLimit`가 2로 설정되었고 코드에서 HTTP 요청 1,000개를 만든다고 가정해 봅시다. 처음에는 OS까지 전달되는 요청이 2개밖에 없습니다. 나머지 998개는 공간이 생길 때까지 큐에서 대기합니다. 즉, `HttpClient`는 요청을 만들었지만 OS가 요청을 대상 서버로 보낸 적이 없는 것처럼 보여서 시간이 초과될 수 있습니다. 이와 같은 이유로 로컬 `HttpClient`가 요청을 완료하는 데 10초가 걸리지만 서비스가 200ms 후에 모든 요청을 반환하는 이상한 동작이 관찰될 수 있습니다. 
 
-ASP.NET 애플리케이션의 기본값은 `Int32.MaxValue`이고, Basic 이상 App Service 계획에서 실행되는 WebJobs에서 잘 작동할 것입니다. WebJobs는 일반적으로 Always On 설정이 필요한데, 이 설정은 Basic 이상 App Service 계획에서만 지원됩니다.
+ASP.NET 애플리케이션의 기본값은 `Int32.MaxValue`이고, Basic 이상 App Service 계획에서 실행되는 WebJobs에서 잘 작동할 것입니다. WebJobs는 일반적으로 **Always On** 설정이 필요한데, 이 설정은 Basic 이상 App Service 계획에서만 지원됩니다.
 
 WebJob이 무료 또는 공유 App Service 계획에서 실행되는 경우 애플리케이션이 App Service 샌드박스의 제한을 받으며, 현재 [연결 제한은 300개](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits)입니다. `ServicePointManager`의 바인딩되지 않은 연결 제한 때문에 샌드박스 연결 임계값에 도달하여 사이트가 종료될 가능성이 있습니다. 이 경우 `DefaultConnectionLimit`를 50 또는 100처럼 약간 낮추면 이와 같은 상황을 방지하면서도 충분한 처리량을 계속 제공할 수 있습니다.
 
@@ -148,11 +149,13 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>트리거
 
+WebJobs SDK는 [Azure Functions](../azure-functions/functions-triggers-bindings.md)에서 사용하는 동일한 트리거 및 바인딩 세트를 지원합니다. WebJobs SDK에서 트리거는 함수별로 지정되며 WebJob 배포 유형과 관련이 없습니다. SDK를 사용하여 이벤트 트리거 함수를 생성한 WebJobs는 항상 _연속적인_ WebJob으로 게시되어야 하며 _Always on_ 을 사용하도록 설정해야 합니다.   
+
 함수는 퍼블릭 메서드여야 하고 트리거 특성 또는 [`NoAutomaticTrigger`](#manual-triggers) 특성이 하나만 있어야 합니다.
 
 ### <a name="automatic-triggers"></a>자동 트리거
 
-자동 트리거는 이벤트에 대한 응답으로 함수를 호출합니다. 다음은 Azure Queue storage에 추가된 메시지에 의해 트리거되는 함수의 예입니다. 이 함수는 다음과 같이 Azure Blob Storage에서 BLOB을 읽어 응답합니다.
+자동 트리거는 이벤트에 대한 응답으로 함수를 호출합니다. 다음은 Azure Queue storage에 추가된 메시지에 의해 트리거되는 함수의 예입니다. 함수는 다음과 같이 Azure Blob Storage에서 Blob을 읽어 응답합니다.
 
 ```cs
 public static void Run(
@@ -164,7 +167,7 @@ public static void Run(
 }
 ```
 
-`myqueue-items` 특성은 큐 메시지가 `QueueTrigger` 큐에 나타날 때마다 함수를 호출하도록 런타임에 지시합니다. `Blob` 특성은 큐 메시지를 사용하여 *sample-workitems* 컨테이너의 BLOB을 읽도록 런타임에 지시합니다. `samples-workitems` 컨테이너에 있는 BLOB 항목의 이름은 큐 트리거에서 바인딩 식(`{queueTrigger}`)으로 직접 가져옵니다.
+`QueueTrigger` 특성은 큐 메시지가 `myqueue-items`에 나타날 때마다 함수를 호출하도록 런타임에 지시합니다. `Blob` 특성은 큐 메시지를 사용하여 *sample-workitems* 컨테이너의 BLOB을 읽도록 런타임에 지시합니다. `samples-workitems` 컨테이너에 있는 BLOB 항목의 이름은 큐 트리거에서 바인딩 식(`{queueTrigger}`)으로 직접 가져옵니다.
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
@@ -229,7 +232,7 @@ static void Main(string[] args)
 
 메서드 반환 값에 특성을 적용하여 출력 바인딩에 대한 메서드 반환 값을 사용할 수 있습니다. [Azure 함수 반환 값 사용](../azure-functions/functions-bindings-return-value.md)의 예제를 참조하세요.
 
-## <a name="binding-types"></a>바인딩 형식
+### <a name="binding-types"></a>바인딩 형식
 
 바인딩 형식을 설치하고 관리하는 프로세스는 사용하는 SDK 버전이 3.*x* 인지 아니면 2.*x* 인지에 따라 달라집니다. 특정 바인딩 형식에 대해 설치할 패키지는 해당 형식의 Azure Functions에 대한 [참조](#binding-reference-information) 문서의 "패키지" 섹션에서 찾을 수 있습니다. Azure Functions에서 지원하지 않는 파일 트리거 및 바인딩은 예외입니다(로컬 파일 시스템의 경우).
 
@@ -273,7 +276,7 @@ static async Task Main()
 }
 ```
 
-핵심 서비스의 일부인 타이머 트리거 또는 파일 바인딩을 사용하려면 `AddTimers` 또는 `AddFiles` 확장 메서드를 각각 호출합니다.
+핵심 서비스의 일부인 타이머 트리거 또는 파일 바인딩을 사용하려면 `AddTimers` 또는 `AddFiles` 확장 메서드를 호출합니다.
 
 #### <a name="version-2x"></a>2\.*x* 버전
 
@@ -353,7 +356,7 @@ class Program
 }
 ```
 
-## <a name="binding-configuration"></a>바인딩 구성
+### <a name="binding-configuration"></a>바인딩 구성
 
 일부 트리거와 바인딩의 동작을 구성할 수 있습니다. 동작을 구성하는 프로세스는 SDK 버전에 따라 다릅니다.
 
@@ -370,7 +373,7 @@ class Program
 * [SendGrid 바인딩](#sendgrid-binding-configuration-version-3x)
 * [Service Bus 트리거](#service-bus-trigger-configuration-version-3x)
 
-### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Azure CosmosDB 트리거 구성(버전 3.*x*)
+#### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Azure CosmosDB 트리거 구성(버전 3.*x*)
 
 다음 예제에서는 Azure Cosmos DB 트리거를 구성하는 방법을 보여줍니다.
 
@@ -399,7 +402,7 @@ static async Task Main()
 
 자세한 내용은 [Azure CosmosDB 바인딩](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) 문서를 참조하세요.
 
-### <a name="event-hubs-trigger-configuration-version-3x"></a>Event Hubs 트리거 구성(버전 3.*x*)
+#### <a name="event-hubs-trigger-configuration-version-3x"></a>Event Hubs 트리거 구성(버전 3.*x*)
 
 다음 예제에서는 Event Hubs 트리거를 구성하는 방법을 보여줍니다.
 
@@ -425,11 +428,11 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 [Event Hubs 바인딩](../azure-functions/functions-bindings-event-hubs.md#host-json) 문서를 참조하세요.
+자세한 내용은 [Event Hubs 바인딩](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) 문서를 참조하세요.
 
 ### <a name="queue-storage-trigger-configuration"></a>Queue storage 트리거 구성
 
-다음 예제에서는 Queue storage 트리거를 구성하는 방법을 보여줍니다.
+다음 예제에서는 Queue Storage 트리거를 구성하는 방법을 보여 줍니다.
 
 #### <a name="version-3x"></a>3\.*x* 버전
 
@@ -455,7 +458,7 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 [Queue storage 바인딩](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties) 문서를 참조하세요.
+자세한 내용은 [Queue Storage 바인딩](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties) 문서를 참조하세요.
 
 #### <a name="version-2x"></a>2\.*x* 버전
 
@@ -472,7 +475,7 @@ static void Main(string[] args)
 }
 ```
 
-자세한 내용은 [host.json v1.x 참조](../azure-functions/functions-host-json-v1.md#queues)를 확인하세요.
+자세한 내용은 [host.json v1.x 참조](../azure-functions/functions-host-json-v1.md#queues)를 참조하세요.
 
 ### <a name="sendgrid-binding-configuration-version-3x"></a>SendGrid 바인딩 구성(버전 3.*x*)
 
@@ -526,7 +529,7 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 [Service Bus 바인딩](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) 문서를 참조하세요.
+자세한 내용은 [Service Bus 바인딩](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) 문서를 참조하세요.
 
 ### <a name="configuration-for-other-bindings"></a>다른 바인딩의 구성
 
@@ -567,7 +570,7 @@ static void Main()
 }
 ```
 
-## <a name="binding-expressions"></a>바인딩 식
+### <a name="binding-expressions"></a>바인딩 식
 
 특성 생성자 매개 변수에서는 다양한 소스의 값을 확인하는 식을 사용할 수 있습니다. 예를 들어 다음 코드에서 `BlobTrigger` 특성의 경로는 `filename`이라는 식을 만듭니다. 출력 바인딩에 사용될 경우 `filename`은 트리거 BLOB의 이름으로 확인됩니다.
 
@@ -658,7 +661,7 @@ static async Task Main(string[] args)
 
 Azure Functions가 예제와 같이 앱 설정에서 값을 가져오도록 `INameResolver`를 구현합니다. 사용자는 WebJobs SDK를 직접 사용하는 경우 원하는 소스에서 자리 표시자 대체 값을 가져오는 사용자 지정 구현을 작성할 수 있습니다.
 
-## <a name="binding-at-runtime"></a>런타임에 바인딩
+### <a name="binding-at-runtime"></a>런타임에 바인딩
 
 `Queue`, `Blob` 또는 `Table` 같은 바인딩 특성을 사용하려면 함수에서 약간의 작업을 수행해야 하는 경우 `IBinder` 인터페이스를 사용하면 됩니다.
 
@@ -678,7 +681,7 @@ public static void CreateQueueMessage(
 
 자세한 내용은 Azure Functions 설명서의 [런타임에 바인딩](../azure-functions/functions-dotnet-class-library.md#binding-at-runtime)을 참조하세요.
 
-## <a name="binding-reference-information"></a>바인딩 참조 정보
+### <a name="binding-reference-information"></a>바인딩 참조 정보
 
 Azure Functions 설명서에는 각 바인딩 형식에 대한 참조 정보가 담겨 있습니다. 각 바인딩 참조 문서에서 다음 정보를 확인할 수 있습니다. (이 예제는 Storage 큐를 기반으로 합니다.)
 
@@ -687,10 +690,16 @@ Azure Functions 설명서에는 각 바인딩 형식에 대한 참조 정보가 
 * [특성](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). 바인딩 형식에 사용할 특성입니다.
 * [구성](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). 특성 속성 및 생성자 매개 변수에 대한 설명입니다.
 * [사용 현황](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). 바인딩할 수 있는 형식 및 바인딩의 작동 원리에 대한 정보입니다. 예: 폴링 알고리즘, 포이즌 큐 처리.
-  
-바인딩 참조 문서 목록은 Azure Functions에 대한 [트리거 및 바인딩](../azure-functions/functions-triggers-bindings.md#supported-bindings) 문서의 "지원되는 바인딩"을 참조하세요. 이 목록의 HTTP, Webhook 및 Event Grid 바인딩은 WebJobs SDK가 아닌 Azure Functions에서만 지원됩니다.
 
-## <a name="disable-attribute"></a>Disable 특성 
+> [!NOTE]
+> HTTP, Webhook 및 Event Grid 바인딩은 WebJobs SDK가 아닌 Azure Functions에서만 지원됩니다.
+  
+Azure Functions 런타임에서 지원되는 바인딩의 전체 목록은 [지원되는 바인딩](../azure-functions/functions-triggers-bindings.md#supported-bindings)을 참조하세요.  
+
+## <a name="attributes-for-disable-timeout-and-singleton"></a>사용 안 함, 시간 제한 및 싱글톤에 대한 특성
+이러한 특성을 사용하면 함수 트리거를 제어하고, 함수를 취소하고, 함수의 인스턴스 하나만 실행되도록 할 수 있습니다.
+
+### <a name="disable-attribute"></a>Disable 특성 
 
 [`Disable`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) 특성을 사용하여 함수를 트리거할 수 있는지 여부를 제어할 수 있습니다. 
 
@@ -708,7 +717,7 @@ Azure Portal에서 앱 설정 값을 변경하면 WebJob이 다시 시작되고,
 
 매개 변수, 메서드 또는 클래스 수준에서 특성을 선언할 수 있습니다. 설정 이름에 바인딩 식을 포함할 수도 있습니다.
 
-## <a name="timeout-attribute"></a>Timeout 특성
+### <a name="timeout-attribute"></a>Timeout 특성
 
 [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) 특성은 지정된 시간 내에 함수가 완료되지 않으면 함수를 취소합니다. 다음 예제의 함수는 Timeout 특성이 없으면 하루 동안 실행됩니다. Timeout 특성이 있으면 함수가 15초 후에 취소됩니다.
 
@@ -727,9 +736,9 @@ public static async Task TimeoutJob(
 
 클래스 또는 메서드 수준에서 Timeout 특성을 적용할 수 있으며, `JobHostConfiguration.FunctionTimeout`을 사용하여 글로벌 시간 제한을 지정할 수 있습니다. 클래스 또는 메서드 수준 시간 제한은 글로벌 시간 제한을 재정의합니다.
 
-## <a name="singleton-attribute"></a>Singleton 특성
+### <a name="singleton-attribute"></a>Singleton 특성
 
-[`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) 특성은 호스트 웹앱 인스턴스가 여러 개 있어도 함수의 인스턴스 중 하나만 실행되게 합니다. 이 특성은 이렇게 하기 위해 [분산 잠금](#viewing-lease-blobs)을 사용합니다.
+[`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) 특성은 호스트 웹앱 인스턴스가 여러 개 있어도 함수의 인스턴스 중 하나만 실행되게 합니다. 싱글톤 특성은 인스턴스 하나가 실행되도록 [분산 잠금](#viewing-lease-blobs)을 사용합니다.
 
 다음 예제에서는 `ProcessImage` 함수의 단일 인스턴스만 지정된 시간에 실행됩니다.
 
@@ -741,7 +750,7 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 }
 ```
 
-### <a name="singletonmodelistener"></a>SingletonMode.Listener
+#### <a name="singletonmodelistener"></a>SingletonMode.Listener
 
 일부 트리거는 동시성 관리를 기본적으로 지원합니다.
 
@@ -754,9 +763,9 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 > [!NOTE]
 > SingletonMode.Function의 작동 원리에 대한 자세한 내용은 이 [Github 리포지토리](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs)를 참조하세요.
 
-### <a name="scope-values"></a>범위 값
+#### <a name="scope-values"></a>범위 값
 
-싱글톤에 대한 *범위 식/값* 을 지정할 수 있습니다. 식/값을 지정하면 특정 범위에서 함수의 모든 실행이 직렬화됩니다. 요구 사항에 따라 다른 호출을 직렬화하는 동안 사용자 함수에 대한 병렬 처리의 일정 수준에서 이러한 방식으로 더 세분화된 잠금을 구현할 수 있습니다. 예를 들어 다음 코드의 범위 식은 수신 메시지의 `Region` 값에 바인딩합니다. 큐의 East, East, West 지역에 각각 메시지가 하나씩 포함된 경우 East 지역의 메시지는 직렬로 실행되고 West 지역의 메시지는 East 지역의 메시지와 병렬로 실행됩니다.
+싱글톤에 대한 *범위 식/값* 을 지정할 수 있습니다. 식/값을 지정하면 특정 범위에서 함수의 모든 실행이 직렬화됩니다. 요구 사항에 따라 다른 호출을 직렬화하는 동안 사용자 함수에 대한 병렬 처리의 일정 수준에서 이러한 방식으로 더 세분화된 잠금을 구현할 수 있습니다. 예를 들어 다음 코드의 범위 식은 수신 메시지의 `Region` 값에 바인딩합니다. 큐에 East, East 및 West 지역의 메시지 세 개가 포함된 경우 East 지역이 있는 메시지가 직렬로 실행됩니다. West 지역이 있는 메시지는 East 지역의 메시지와 병렬로 실행됩니다.
 
 ```csharp
 [Singleton("{Region}")]
@@ -774,7 +783,7 @@ public class WorkItem
 }
 ```
 
-### <a name="singletonscopehost"></a>SingletonScope.Host
+#### <a name="singletonscopehost"></a>SingletonScope.Host
 
 잠금의 기본 범위는 `SingletonScope.Function`입니다. 즉, 잠금 범위(BLOB 임대 경로)가 정규화된 함수 이름에 연결됩니다. 모든 함수에서 잠그려면 `SingletonScope.Host`를 지정하고, 동시에 실행하지 않으려는 모든 함수에서 동일한 범위 ID 이름을 사용하세요. 다음 예제에서는 `AddItem` 또는 `RemoveItem`의 인스턴스가 한 번에 하나씩 실행됩니다.
 
@@ -792,7 +801,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 }
 ```
 
-### <a name="viewing-lease-blobs"></a>임대 BLOB 보기
+## <a name="viewing-lease-blobs"></a>임대 BLOB 보기
 
 WebJobs SDK는 분산 잠금을 구현하기 위해 백그라운드에서 [Azure blob 임대](../storage/blobs/concurrency-manage.md#pessimistic-concurrency-for-blobs)를 사용합니다. 싱글톤에서 사용하는 임대 BLOB은 "locks" 경로 아래의 `AzureWebJobsStorage` 스토리지 계정에 있는 `azure-webjobs-host` 컨테이너에서 찾을 수 있습니다. 예를 들어 앞에서 살펴본 첫 번째 `ProcessImage` 예제의 임대 BLOB 경로가 `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`일 수 있습니다. 모든 경로는 JobHost ID(이 예에서는 061851c758f04938a4426aa9ab3869c0)를 포함합니다.
 
@@ -897,7 +906,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### <a name="custom-telemetry-for-application-insights"></a>Application Insights에 대한 사용자 지정 원격 분석​
 
-[Application Insights](../azure-monitor/app/app-insights-overview.md)에 대한 사용자 지정 원격 분석을 구현하는 프로세스는 SDK 버전에 따라 달라집니다. Application Insights를 구성하는 방법을 알아보려면 [Application Insights 로깅 추가](webjobs-sdk-get-started.md#add-application-insights-logging)를 참조하세요.
+[Application Insights](../azure-monitor/app/app-insights-overview.md)에 대한 사용자 지정 원격 분석을 구현하는 프로세스는 SDK 버전에 따라 달라집니다. Application Insights를 구성하는 방법을 알아보려면 [Application Insights 로깅 추가](webjobs-sdk-get-started.md#enable-application-insights-logging)를 참조하세요.
 
 #### <a name="version-3x"></a>3\.*x* 버전
 

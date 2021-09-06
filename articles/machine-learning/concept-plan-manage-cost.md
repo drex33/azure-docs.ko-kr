@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 01c985b0554fe5955010c1c8c286f81f8de6d3ee
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: e48cdb3792a314166a29ced4d3828ba77de46621
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006008"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536439"
 ---
 # <a name="plan-to-manage-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대한 비용 관리 계획
 
@@ -51,10 +51,6 @@ Cost Management에서의 비용 분석은 대부분의 Azure 계정 유형을 �
 Azure Machine Learning은 새 리소스를 배포할 때 Azure Machine Learning과 함께 비용이 누적되는 Azure 인프라에서 실행됩니다. 추가 인프라로 비용이 누적될 수 있다는 것을 이해하는 것이 중요합니다. 배포된 리소스를 변경할 때 비용을 관리해야 합니다. 
 
 
-
-
-
-
 ### <a name="costs-that-typically-accrue-with-azure-machine-learning"></a>일반적으로 Azure Machine Learning으로 누적되는 비용
 
 Azure Machine Learning 작업 영역에 대한 리소스를 만들 때 다른 Azure 서비스에 대한 리소스도 생성됩니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
@@ -62,8 +58,21 @@ Azure Machine Learning 작업 영역에 대한 리소스를 만들 때 다른 Az
 * [Azure Container Registry](https://azure.microsoft.com/pricing/details/container-registry?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 기본 계정
 * [Azure Block Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)(범용 v1)
 * [Key Vault](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-* [Application Insights](https://azure.microsoft.com/en-us/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Application Insights](https://azure.microsoft.com/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+
+[컴퓨팅 인스턴스](concept-compute-instance.md)를 만들 때 VM은 작업에 사용할 수 있도록 유지됩니다.  컴퓨팅 인스턴스(미리 보기)를 자동으로 시작 및 중지하도록 [일정을 설정](how-to-create-manage-compute-instance.md#schedule)하여 사용하지 않을 때 비용을 절감합니다.
  
+### <a name="costs-might-accrue-before-resource-deletion"></a>리소스를 삭제하기 전 비용이 누적될 수 있음
+
+Azure Portal에서 또는 Azure CLI를 사용하여 Azure Machine Learning 작업 영역을 삭제하기 전에 다음 하위 리소스는 작업 영역에서 적극적으로 작업하지 않는 경우에도 누적되는 일반적인 비용입니다. 나중에 Azure Machine Learning 작업 영역으로 돌아가려는 경우 이러한 리소스는 비용이 계속 발생할 수 있습니다.
+
+* VM
+* Load Balancer
+* Virtual Network
+* 대역폭
+
+각 VM은 실행 중인 시간당 요금이 청구됩니다. 비용은 VM 사양에 따라 달라집니다. 실행 중이지만 데이터 세트에서 활발하게 작업하지 않는 VM은 부하 분산 장치를 통해 요금이 청구됩니다. 각 컴퓨팅 인스턴스의 경우 하루에 하나의 부하 분산 장치에 대한 요금이 청구됩니다. 컴퓨팅 클러스터의 노드 50개마다 하나의 표준 부하 분산 장치에 대한 요금이 청구됩니다. 각 부하 분산 장치는 하루에 약 0.33달러의 요금이 청구됩니다. 중지된 컴퓨팅 인스턴스 및 컴퓨팅 클러스터에서 부하 분산 장치 비용을 방지하려면 컴퓨팅 리소스를 삭제합니다. 구독당 및 지역당 하나의 가상 네트워크가 청구됩니다. 가상 네트워크는 지역 또는 구독을 포괄할 수 없습니다. vNet 설정에서 프라이빗 엔드포인트를 설정하면 요금이 발생할 수도 있습니다. 대역폭은 사용량에 따라 청구됩니다. 전송되는 데이터가 많을수록 더 많은 요금이 청구됩니다.
+
 ### <a name="costs-might-accrue-after-resource-deletion"></a>리소스를 삭제한 후 비용이 누적될 수 있음
 
 Azure Portal에서 또는 Azure CLI를 사용하여 Azure Machine Learning 작업 영역을 삭제하면 다음과 같은 리소스가 계속 남아 있습니다. 이를 삭제할 때까지는 계속 비용이 누적됩니다.
@@ -143,7 +152,7 @@ Azure Machine Learning에 대한 비용을 보여 주는 예제는 다음과 같
 
 ## <a name="export-cost-data"></a>비용 데이터 내보내기
 
-스토리지 계정으로 [비용 데이터를 내보낼](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 수도 있습니다. 이는 비용에 대한 추가 데이터 분석을 본인 외에 다른 사용자가 수행해야 하는 경우에 유용합니다. 예를 들어 재무 팀이 Excel 또는 Power BI를 사용하여 데이터를 분석할 수 있습니다. 매일, 매주 또는 매월 일정으로 비용을 내보내고 사용자 지정 날짜 범위를 설정할 수 있습니다. 비용 데이터를 내보내는 것은 비용 데이터 세트를 검색하는 데 권장되는 방법입니다.
+스토리지 계정으로 [비용 데이터를 내보낼](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 수도 있습니다. 이는 비용에 대한 추가 데이터 분석을 직접 수행해야 하거나 다른 사용자가 수행하는 경우에 유용합니다. 예를 들어 재무 팀이 Excel 또는 Power BI를 사용하여 데이터를 분석할 수 있습니다. 매일, 매주 또는 매월 일정으로 비용을 내보내고 사용자 지정 날짜 범위를 설정할 수 있습니다. 비용 데이터를 내보내는 것은 비용 데이터 세트를 검색하는 데 권장되는 방법입니다.
 
 ## <a name="other-ways-to-manage-and-reduce-costs-for-azure-machine-learning"></a>Azure Machine Learning에 대한 비용을 관리하고 절감하는 기타 방법
 
@@ -153,11 +162,13 @@ Azure Machine Learning에 대한 비용을 보여 주는 예제는 다음과 같
 - 구독 및 작업 영역에 대한 할당량 설정
 - 학습 실행에 대한 종료 정책 설정
 - 우선 순위가 낮은 VM(가상 머신) 사용
+- 컴퓨팅 인스턴스가 자동으로 종료 및 시작하도록 예약
 - Azure Reserved VM Instance 사용
 - 로컬에서 학습
 - 학습 병렬화
 - 데이터 보존 및 삭제 정책 설정
 - 동일한 지역에 리소스 배포
+- 가까운 미래에 사용할 계획이 없는 경우 인스턴스 및 클러스터를 삭제합니다.
 
 자세한 내용은 [Azure Machine Learning에서 비용 관리 및 최적화](how-to-manage-optimize-cost.md)를 참조하세요.
 
@@ -168,4 +179,4 @@ Azure Machine Learning에 대한 비용을 보여 주는 예제는 다음과 같
 - [Azure Cost Management를 통해 클라우드 투자를 최적화하는 방법](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 알아봅니다.
 - [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 통한 비용 관리에 대해 알아봅니다.
 - [예기치 않은 비용을 방지](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)하는 방법을 알아봅니다.
-- [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 단계별 학습 과정을 수행합니다.
+- [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 단계별 학습 과정을 수강합니다.

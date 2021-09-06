@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/04/2021
+ms.date: 08/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 9913fc2e3780d9d6ab91be19913238f8002f281a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: e04d3a0a5b7c48117af1f597606658a878a3a6ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983276"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536357"
 ---
 # <a name="troubleshoot-vm-deployment-in-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 VM 배포 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "111983276"
 
 이 문서에서는 Azure Stack Edge Pro GPU 디바이스에 가상 머신을 배포할 때 발생하는 일반적인 오류를 해결하는 방법을 설명합니다. 이 문서에서는 네트워크 인터페이스 및 VM을 만드는 동안 VM 프로비저닝 시간 제한과 문제를 일으키는 가장 일반적인 문제를 조사하기 위한 지침을 제공합니다.
 
-VM 프로비저닝 실패를 진단하려면 실패한 가상 머신에 대한 게스트 로그를 검토합니다. <!--For steps to collect VM guest logs and include them in a Support package, see [Collect guest logs for VMs on Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).-->
+VM 프로비저닝 실패를 진단하려면 실패한 가상 머신에 대한 게스트 로그를 검토합니다. VM 게스트 로그를 수집하고 지원 패키지에 포함하는 단계는 [Azure Stack Edge Pro에서 VM에 대한 게스트 로그 수집](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)을 참조하세요.
 
 VM 배포 전에 VM 이미지를 성공적으로 업로드하지 못하는 문제에 대한 지침은 [Azure Stack Edge Pro GPU에서 가상 머신 이미지 업로드 문제 해결](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md)을 참조하세요.
 
@@ -32,7 +32,7 @@ VM 배포 전에 VM 이미지를 성공적으로 업로드하지 못하는 문�
 
 VM 프로비저닝 시간이 초과되면 다음과 같은 오류가 표시됩니다. 
 
-![VM 프로비저닝 시간이 초과되면 표시되는 Azure Portal 오류의 스크린샷.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
+![Azure Stack Edge VM 프로비저닝 시간이 초과될 때 Azure Portal에 표시되는 오류의 스크린샷.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
 VM 프로비저닝 시간 제한의 가장 높은 원인은 다음과 같습니다.
 - VM에 할당한 IP 주소가 이미 사용 중입니다. [자세한 정보](#vm-provisioning-timeout)
@@ -90,7 +90,7 @@ VM에서 기본 게이트웨이 및 DNS 서버에 연결할 수 있는지 확인
 
    기본 게이트웨이 및 DNS 서버에 대한 IP 주소를 확인하려면 디바이스에 대한 로컬 UI로 이동합니다. 원하는 포트를 선택하고 네트워크 설정을 확인합니다.
 
-   ![Azure Stack Edge Pro GPU 디바이스의 포트에 대한 기본 게이트웨이 및 DNS 서버 설정의 스크린샷.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gateway-dns-server-settings-01.png) 
+   ![포트 2에 대한 네트워크 설정이 표시된 Azure Stack Edge 디바이스의 네트워크 페이지 스크린샷.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gateway-dns-server-settings-01.png) 
 
 
 ### <a name="cloud-init-issues-linux-vms"></a>`cloud init` 문제(Linux VM)
@@ -121,7 +121,7 @@ VM에서 기본 게이트웨이 및 DNS 서버에 연결할 수 있는지 확인
 
    데이터 원본을 *Azure* 로 설정하면 *cloud init* 로그의 항목이 다음과 같이 표시됩니다.
 
-   ![데이터 원본이 Azure로 설정된 VM 이미지에 대한 cloud-init 로그 항목의 그림입니다.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png) 
+   ![데이터 원본이 Azure로 설정된 VM 이미지에 대한 cloud-init 로그 항목의 그림입니다. 식별 텍스트가 강조 표시됩니다.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png)
 
    데이터 원본을 Azure로 설정하지 않은 경우 `cloud init` 스크립트를 수정해야 할 수 있습니다. 자세한 내용은 [cloud-init에 대해 자세히 알아보기](../virtual-machines/linux/cloud-init-deep-dive.md)를 참조하세요.
 
@@ -153,7 +153,7 @@ VM에서 기본 게이트웨이 및 DNS 서버에 연결할 수 있는지 확인
 
 1. 네트워크 인터페이스가 성공적으로 만들어지지 않은 경우 다음과 같은 오류가 표시됩니다.
 
-   ![네트워크 인터페이스를 만들지 못한 경우 포털에 표시되는 오류의 스크린샷.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
+   ![Azure Stack Edge 디바이스에서 VM을 배포하는 동안 네트워크 인터페이스를 만들 수 없는 경우 Azure Portal에 표시되는 오류의 스크린샷.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
 
 **제안된 해결 방법:** VM을 다시 만들고 고정 IP 주소를 할당합니다.
 
@@ -166,7 +166,7 @@ VM에서 기본 게이트웨이 및 DNS 서버에 연결할 수 있는지 확인
 
 **오류 설명:** 메모리가 부족하여 VM을 만들 수 없는 경우 다음 오류가 표시됩니다.
  
-![VM을 만들지 못한 경우 포털에 표시되는 오류의 스크린샷.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)
+![Azure Stack Edge 디바이스에서 VM을 만들 수 없는 경우 Azure Portal에 표시되는 오류의 스크린샷.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)
 
 **제안된 해결 방법:** 디바이스에서 사용 가능한 메모리를 확인하고 적절하게 VM 크기를 선택합니다. 자세한 내용은 [Azure Stack Edge에서 지원되는 가상 머신 크기](azure-stack-edge-gpu-virtual-machine-sizes.md)를 참조하세요.
 
@@ -188,16 +188,15 @@ VM을 배포하는 데 사용할 수 있는 메모리는 다음과 같은 몇 �
 
 이미 Kubernetes를 사용하도록 설정된 GPU 디바이스에서 VM을 배포하려고 하면 GPU를 사용할 수 없으며 다음 오류가 발생하여 VM 프로비저닝에 실패합니다.
 
-![사용할 수 있는 GPU가 없어서 GPU VM을 만들 수 없는 경우 포털에 표시되는 오류의 스크린샷.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)
+![Azure Stack Edge 디바이스에 사용 가능한 GPU가 없어서 GPU VM이 생성되지 않을 때 Azure Portal에 표시되는 오류 스크린샷.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)
 
 **가능한 원인:** VM을 만들기 전에 Kubernetes를 사용하도록 설정하면 Kubernetes는 사용 가능한 모든 GPU를 사용하므로 사용자가 GPU 크기 VM을 만들 수 없습니다. 사용 가능한 GPU 수 만큼 GPU 크기 VM을 여러 개 만들 수 있습니다. Azure Stack Edge 디바이스는 1 또는 2개의 GPU로 장착될 수 있습니다.
 
-**제안된 해결 방법:** Kubernetes가 구성된 1-GPU 또는 2-GPU 디바이스의 VM 배포 옵션에 대해서는 [GPU VM 및 Kubernetes](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#gpu-vms-and-kubernetes)를 참조하세요.
+**제안된 해결 방법:** Kubernetes가 구성된 1-GPU 또는 2-GPU 디바이스의 VM 배포 옵션에 대해서는 [GPU VM 및 Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-<!-- Remove link while cmdlet issue is fixed. - * [Collect a Support package that includes guest logs for a failed VM](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)-->
-* [실패한 GPU 확장 설치 관련 문제 해결](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
-* [Azure Resource Manager로 오류 문제 해결](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)
-
+- [실패한 VM에 대한 게스트 로그를 포함하는 지원 패키지 수집](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)<!--Does a failed VM have a guest log? Does it have GPU and memory metrics?-->
+- [실패한 GPU 확장 설치 관련 문제 해결](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
+- [Azure Resource Manager로 오류 문제 해결](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)

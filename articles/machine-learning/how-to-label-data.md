@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.custom: data4ml
-ms.openlocfilehash: 3fa2276163b054c72ec27901fb28315b648c47c3
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 491ee8134d17eac9e0abb54780f2aa39e1323e6c
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296521"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114446258"
 ---
 # <a name="labeling-images-and-text-documents"></a>이미지 및 텍스트 문서에 레이블 지정
 
@@ -26,7 +26,7 @@ ms.locfileid: "108296521"
 > * 특정 레이블 지정 작업용 도구를 사용하는 방법
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 조직 및 프로젝트에 대한 [Microsoft 계정](https://account.microsoft.com/account) 또는 Azure Active Directory 계정
 * 레이블 지정 프로젝트가 포함된 작업 영역에 대한 기여자 수준 액세스입니다.
@@ -79,6 +79,19 @@ ms.locfileid: "108296521"
 Azure는 페이지의 모든 이미지에 태그를 지정한 후 **전송** 단추를 사용할 수 있습니다. **제출** 을 선택하여 작업을 저장합니다.
 
 현재 데이터에 대한 태그가 제출되면 Azure에서 페이지를 작업 큐의 새 이미지 세트로 새로 고칩니다.
+
+## <a name="medical-image-tasks"></a>의료 이미지 작업
+
+> [!IMPORTANT]
+> DICOM 또는 이와 유사한 이미지 유형에 레이블을 지정하는 기능은 질병 또는 기타 상태의 진단, 치료, 완화, 처치 또는 예방에 사용하기 위한 의료 기기, 임상 지원, 진단 도구 또는 기타 기술로 사용하도록 의도되거나 제공되지 않습니다. 또한 Microsoft는 이러한 목적으로 이 기능을 사용할 수 있는 라이선스나 권한을 부여하지 않습니다. 이 기능은 전문적인 의학적 조언이나 의료 의견, 진단, 치료 또는 의료 전문가의 임상적 판단을 대체하기 위해 구현되거나, 배포되도록 설계되거나, 의도된 것이 아니므로 그렇게 사용해서는 안 됩니다. 고객은 DICOM 또는 이와 유사한 이미지 형식에 대한 데이터 레이블 지정 사용을 전적으로 책임집니다.
+
+이미지 프로젝트는 X-레이 파일 이미지에 대한 DICOM 이미지 형식을 지원합니다.
+
+:::image type="content" source="media/how-to-label-data/x-ray-image.png" alt-text="레이블이 지정될 X-레이 DICOM 이미지입니다.":::
+
+다른 이미지와 동일한 도구를 사용하여 의료 이미지에 레이블을 지정하는 동안 DICOM 이미지에 대한 추가 도구가 있습니다.  **창 및 수준** 도구를 선택하여 이미지의 강도를 변경합니다. 이 도구는 DICOM 이미지에 대해서만 사용할 수 있습니다.
+
+:::image type="content" source="media/how-to-label-data/window-level-tool.png" alt-text="DICOM 이미지용 창 및 수준 도구.":::
 
 ## <a name="tag-images-for-multi-class-classification"></a>다중 클래스 분류를 위한 이미지 레이블 지정
 

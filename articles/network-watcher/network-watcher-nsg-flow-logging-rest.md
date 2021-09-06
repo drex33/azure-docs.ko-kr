@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 0c2725ff58e40bc56aac528a17fe4d66a128d475
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cede3018f8922c6771f81470a714eed430cd5cdf
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146944"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114291875"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>REST API를 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -115,6 +115,9 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
   }
 }
 ```
+> [!NOTE]
+> - 위에서 사용된 API [Network Watchers - 흐름 로그 구성 설정](/rest/api/network-watcher/network-watchers/set-flow-log-configuration)은 오래되었으며 곧 사용되지 않을 수 있습니다.
+> - 대신 새 [흐름 로그 - 만들기 또는 업데이트](/rest/api/network-watcher/flow-logs/create-or-update) REST API를 사용하는 것이 좋습니다.
 
 ## <a name="disable-network-security-group-flow-logs"></a>네트워크 보안 그룹 흐름 로그를 사용하지 않도록 설정
 
@@ -167,6 +170,10 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 }
 ```
 
+> [!NOTE]
+> - 위에서 사용된 API [Network Watchers - 흐름 로그 구성 설정](/rest/api/network-watcher/network-watchers/set-flow-log-configuration)은 오래되었으며 곧 사용되지 않을 수 있습니다.
+> - 새 [흐름 로그 - 만들기 또는 업데이트](/rest/api/network-watcher/flow-logs/create-or-update) REST API를 사용하여 흐름 로그를 사용하지 않도록 설정하고 [흐름 로그 - 삭제](/rest/api/network-watcher/flow-logs/delete)를 사용하여 흐름 로그 리소스를 삭제하는 것이 좋습니다.
+
 ## <a name="query-flow-logs"></a>흐름 로그 쿼리
 
 다음 REST 호출은 네트워크 보안 그룹에서 흐름 로그의 상태를 쿼리합니다.
@@ -204,6 +211,10 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
   }
 }
 ```
+
+> [!NOTE]
+> - 위에서 사용된 API [Network Watchers - 로그 상태 가져오기](/rest/api/network-watcher/network-watchers/get-flow-log-status)에는 Network Watcher의 리소스 그룹에 추가 "리더" 권한이 필요합니다. 또한 이 API는 오래되었으며 곧 사용되지 않을 수 있습니다.
+> - 대신 새 [흐름 로그 - 가져오기](/rest/api/network-watcher/flow-logs/get) REST API를 사용하는 것이 좋습니다.
 
 ## <a name="download-a-flow-log"></a>흐름 로그 다운로드
 

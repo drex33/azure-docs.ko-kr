@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 06/14/2021
+ms.date: 08/17/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 4b3d3b99854a6b4b090e7a36474ccecdf42aa20a
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 49b5ed53aef4de5282e1be0d02df897e8b9921aa
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062078"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530623"
 ---
 <table class="tg">
 <thead>
@@ -23,57 +23,57 @@ ms.locfileid: "112062078"
 <tbody>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">10</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">MFA 사용</p></strong>암호만 사용하여 사용자를 인증하면 공격 노출 영역이 열리게 됩니다. 암호가 약하거나 다른 곳에 노출된 경우 실제로 사용자 이름과 암호를 사용하는 사용자 로그인일까요?<br><a href="https://www.microsoft.com/security/business/identity/mfa">MFA</a>를 사용하도록 설정하면 계정이 더 안전하게 유지되고 사용자는 SSO(Single Sign-On)를 사용하여 거의 모든 애플리케이션에서 인증을 받을 수 있습니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">MFA 사용</p></strong>Security Center에서 MFA(다단계 인증)에 높은 값을 배치합니다. 이러한 권장 사항을 사용하여 구독 사용자를 보호합니다. <br>MFA를 사용하고 권장 사항을 준수하는 세 가지 방법인 보안 기본값, 사용자별 할당, 조건부 액세스 정책이 있습니다. <a href="/azure/security-center/security-center-identity-access">구독에 대한 MFA 적용 관리</a>에서 이러한 옵션에 대해 자세히 알아봅니다.</td>
     <td class="tg-lboi"; width=55%>- 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br />- 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br />- 구독에 대한 쓰기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 합니다.<br />- 구독에 대한 쓰기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">8</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">보안 관리 포트</p></strong>무차별 암호 대입 공격(brute force attack)은 VM에 액세스하기 위해 관리 포트를 대상으로 합니다. 포트는 항상 열려 있어야 하는 것은 아니므로 Just-In-Time 네트워크 액세스 제어, 네트워크 보안 그룹 및 가상 머신 포트 관리를 사용하여 포트에 대한 노출을 줄이는 것이 한 가지 완화 전략입니다.<br>많은 IT 조직이 네트워크에서 SSH 통신 아웃바운드를 차단하지 않으므로 공격자는 감염된 시스템의 RDP 포트가 공격자 명령과 다시 통신하여 서버를 제어하도록 허용하는 암호화된 터널을 만들 수 있습니다. 공격자는 Windows 원격 관리 하위 시스템을 사용하여 사용자 환경에서 수평으로 이동하고 도난 당한 자격 증명을 사용하여 네트워크의 다른 리소스에 액세스할 수 있습니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">보안 관리 포트</p></strong>무차별 암호 대입 공격(brute force attack)은 종종 관리 포트를 대상으로 합니다. 이러한 권장 사항을 사용하여 <a href="/azure/security-center/just-in-time-explained">Just-In-Time VM 액세스</a> 및 <a href="/azure/virtual-network/network-security-groups-overview">네트워크 보안 그룹</a>과 같은 도구로 노출을 줄입니다.</td>
     <td class="tg-lboi"; width=55%>- 네트워크 보안 그룹을 사용하여 인터넷 연결 가상 머신을 보호해야 합니다.<br />- 가상 머신의 관리 포트는 Just-In-Time 네트워크 액세스 제어로 보호해야 합니다.<br />- 가상 머신에서 관리 포트를 닫아야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">6</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">시스템 업데이트 적용</p></strong>시스템 업데이트는 조직에 운영 효율성을 유지하고, 보안 취약성을 줄이고, 최종 사용자에게 보다 안정적인 환경을 제공하는 기능을 제공합니다. 업데이트를 적용하지 않으면 패치가 적용되지 않은 취약한 상태가 되고 공격에 취약한 환경이 발생합니다. 이러한 취약성이 악용될 수 있으며 데이터 손실, 데이터 반출, 랜섬웨어 및 리소스 남용으로 이어질 수 있습니다. 시스템 업데이트를 배포하려면 <a href="/azure/automation/update-management/overview">업데이트 관리 솔루션을 사용하여 가상 머신에 대한 패치 및 업데이트를 관리</a>할 수 있습니다. 업데이트 관리는 소프트웨어 릴리스의 배포 및 유지 관리를 제어하는 프로세스입니다.</td>
-    <td class="tg-lboi"; width=55%>- 머신에서 Log Analytics 에이전트 상태 문제를 해결해야 합니다.<br />- Linux 기반 Azure Arc 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />- 가상 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />-가상 머신 확장 집합에 Log Analytics 에이전트를 설치해야 합니다.<br />- Windows 기반 Azure Arc 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />- 가상 머신 확장 집합에 대한 시스템 업데이트를 설치해야 합니다.<br />- 시스템 업데이트를 머신에 설치해야 합니다.<br />- 머신에 시스템 업데이트를 설치해야 합니다(업데이트 센터에서 제공).</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">시스템 업데이트 적용</p></strong>업데이트를 적용하지 않으면 패치가 적용되지 않은 취약한 상태가 되고 공격에 취약한 환경이 발생합니다. 이러한 권장 사항을 사용하여 운영 효율성을 유지하고, 보안 취약성을 줄이고, 최종 사용자에게 보다 안정적인 환경을 제공합니다. 시스템 업데이트를 배포하려면 <a href="/azure/automation/update-management/overview">업데이트 관리 솔루션을 사용하여 머신에 대한 패치 및 업데이트를 관리</a>할 수 있습니다.</td>
+    <td class="tg-lboi"; width=55%>- Linux 기반 Azure Arc 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />- 가상 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />-가상 머신 확장 집합에 Log Analytics 에이전트를 설치해야 합니다.<br />- Windows 기반 Azure Arc 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />- 가상 머신 확장 집합에 대한 시스템 업데이트를 설치해야 합니다.<br />- 시스템 업데이트를 머신에 설치해야 합니다.<br />- 머신에 시스템 업데이트를 설치해야 합니다(업데이트 센터에서 제공).</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">6</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">취약성 해결</p></strong>취약성은 리소스의 기밀성, 가용성 또는 무결성을 손상시키기 위해 위협 행위자가 활용할 수 있는 약점입니다. <a href="/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt">취약성 관리</a>는 조직의 노출을 줄이고, 엔드포인트 노출 영역을 강화하고, 조직의 복원력을 높이고, 리소스의 공격 노출 영역을 줄입니다. 위협 및 취약성 관리는 소프트웨어 및 보안 구성 오류에 대한 가시성을 제공하고 완화에 대한 권장 사항을 제공합니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">취약성 해결</p></strong>Security Center는 여러 취약성 평가 스캐너를 포함하여 머신, 데이터베이스 및 컨테이너 레지스트리에서 위협 행위자가 활용할 수 있는 약점을 확인합니다. 이러한 권장 사항을 사용하여 이러한 스캐너를 활성화하고 해당 결과를 검토합니다.<br><a href="/azure/security-center/deploy-vulnerability-assessment-vm">머신</a>, <a href="/azure/security-center/defender-for-sql-on-machines-vulnerability-assessment">SQL 서버</a> 및 <a href="/azure/security-center/defender-for-container-registries-usage">컨테이너 레지스트리</a> 검사에 대해 자세히 알아봅니다.</td>
     <td class="tg-lboi"; width=55%>- 가상 머신에서 취약성 평가 솔루션을 사용하도록 설정해야 합니다.<br />- 클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 합니다.<br />- 신뢰할 수 있는 레지스트리의 컨테이너 이미지만 배포해야 합니다.<br />- Azure Container Registry 이미지의 취약성을 수정해야 합니다(Qualys 제공).<br />- 가상 머신의 취약성을 수정해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">4</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">전송 중인 데이터 암호화</p></strong>데이터는 구성 요소, 위치 또는 프로그램 간에 전송될 때 "전송 중" 상태입니다. 전송 중인 데이터 보호에 실패하는 조직은 가로채기(man-in-the-middle) 공격, 도청 및 세션 하이재킹에 대해 취약합니다. SSL/TLS 프로토콜을 사용하여 데이터를 교환하고 VPN을 사용하는 것이 좋습니다. 인터넷을 통해 Azure Virtual Machine과 온-프레미스 위치 간에 암호화된 데이터를 전송하는 경우 <a href="/azure/vpn-gateway/vpn-gateway-about-vpngateways">Azure VPN Gateway</a>와 같은 가상 네트워크 게이트웨이를 사용하여 암호화된 트래픽을 보낼 수 있습니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">전송 중인 데이터 암호화</p></strong>이러한 권장 사항을 사용하여 구성 요소, 위치 또는 프로그램 간에 이동하는 데이터를 보호합니다. 이러한 데이터는 중간자(man-in-the-middle) 공격, 도청 및 세션 하이재킹에 취약합니다.</td>
     <td class="tg-lboi"; width=55%>- API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br />- MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.<br />- PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.<br />- API 앱에서 FTPS를 요구해야 합니다.<br />- 함수 앱에서 FTPS를 요구해야 합니다.<br />- 웹앱에서 FTPS를 요구해야 합니다.<br />- 함수 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br />- Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.<br />- 스토리지 계정에 보안 전송을 사용하도록 설정해야 합니다.<br />- TLS를 최신 API 앱 버전으로 업데이트해야 합니다.<br />- TLS를 최신 함수 앱 버전으로 업데이트해야 합니다.<br />- TLS를 최신 웹앱 버전으로 업데이트해야 합니다.<br />- 웹 애플리케이션은 HTTPS를 통해서만 액세스할 수 있어야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">4</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">무단 네트워크 액세스 제한</p></strong>조직 내의 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공합니다. 서브넷의 가상 머신은 모든 리소스와 통신할 수 있습니다. 서브넷 내의 리소스 간에 통신을 제한하려면 네트워크 보안 그룹을 만들고, 서브넷에 연결합니다. 조직은 인바운드 및 아웃바운드 규칙을 만들어 권한이 없는 트래픽을 제한하고 보호할 수 있습니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">무단 네트워크 액세스 제한</p></strong>Azure는 네트워크를 통해 액세스하는 것이 가장 높은 보안 표준을 충족하도록 설계된 도구 모음을 제공합니다.<br>이러한 권장 사항을 사용하여 <a href="/azure/security-center/security-center-adaptive-network-hardening">Security Center의 적응형 네트워크 강화</a> 설정을 관리하고, 모든 관련 PaaS 서비스에 대해 <a href="/azure/private-link/private-link-overview">Azure Private Link</a>를 구성했는지 확인하고, 가상 네트워크 등에서 <a href="/azure/firewall/overview">Azure Firewall</a>을 활성화합니다.</td>
     <td class="tg-lboi"; width=55%>- 인터넷 연결 가상 머신에 적응형 네트워크 강화 권장 사항을 적용해야 합니다.<br />- 모든 네트워크는 가상 머신과 연결된 네트워크 보안 그룹에서 제한되어야 합니다.<br />- App Configuration은 프라이빗 링크를 사용해야 합니다.<br />- Azure Cache for Redis는 가상 네트워크 내에 있어야 합니다.<br />- Azure Event Grid 도메인은 프라이빗 링크를 사용해야 합니다.<br />- Azure Event Grid 토픽은 프라이빗 링크를 사용해야 합니다.<br />- Azure Machine Learning 작업 영역은 프라이빗 링크를 사용해야 합니다.<br />- 클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 합니다.<br />- Azure SignalR Service는 프라이빗 링크를 사용해야 합니다.<br />- Azure Spring Cloud는 네트워크 주입을 사용해야 합니다.<br />- 컨테이너 레지스트리는 무제한 네트워크 액세스를 허용하지 않아야 합니다.<br />- 컨테이너 레지스트리는 프라이빗 링크를 사용해야 합니다.<br />- 컨테이너는 허용되는 포트에서만 수신 대기해야 합니다.<br />- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br />- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br />- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하면 안 됩니다.<br />- Key Vault에서 방화벽을 사용하도록 설정해야 합니다.<br />- 네트워크 보안 그룹을 사용하여 인터넷 연결 가상 머신을 보호해야 합니다.<br />- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br />- 제한된 액세스 권한으로 Kubernetes Services Management API 서버를 구성해야 합니다.<br />- Key Vault의 프라이빗 엔드포인트를 구성해야 합니다.<br />- 프라이빗 엔드포인트를 MariaDB 서버에서 사용하도록 설정해야 합니다.<br />- 프라이빗 엔드포인트를 MySQL 서버에서 사용하도록 설정해야 합니다.<br />- 프라이빗 엔드포인트를 PostgreSQL 서버에서 사용하도록 설정해야 합니다.<br />- MariaDB 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다.<br />- MySQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다.<br />- PostgreSQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다.<br />- 서비스는 허용되는 포트에서만 수신 대기해야 합니다.<br />- 스토리지 계정은 프라이빗 링크 연결을 사용해야 합니다.<br />- 스토리지 계정은 가상 네트워크 규칙을 사용하여 네트워크 액세스를 제한해야 합니다.<br />- 호스트 네트워킹 및 포트 사용을 제한해야 합니다.<br />- 가상 네트워크는 Azure Firewall로 보호해야 합니다.<br />- VM Image Builder 템플릿은 프라이빗 링크를 사용해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">4</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">저장 데이터 암호화 사용</p></strong><a href="/azure/security/fundamentals/encryption-atrest">미사용 데이터 암호화</a>는 저장된 데이터에 대한 데이터 보호를 제공합니다. 미사용 데이터에 대한 공격에는 데이터가 저장된 하드웨어에 대한 물리적 액세스 권한을 얻습니다. Azures는 대칭 암호화를 사용하여 미사용 데이터를 암호화하고 해독합니다. 데이터가 스토리지에 쓰여질 때 대칭 암호화 키를 사용하여 데이터를 암호화합니다. 암호화 키를 사용하여 메모리에서 사용하도록 준비된 데이터의 암호를 해독합니다. 키는 ID 기반 액세스 제어 및 감사 정책으로 안전하게 보호되는 위치에 저장해야 합니다. 이러한 보안 위치 중 하나는 Azure Key Vault입니다. 공격자가 암호화된 데이터를 획득했지만 암호화 키는 획득하지 못한 경우 암호를 해독하지 않으면 데이터에 액세스할 수 없습니다.</td>
-    <td class="tg-lboi"; width=55%>- 가상 머신에서 디스크 암호화를 적용해야 합니다.<br />- Service Fabric 클러스터는 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정해야 합니다.<br />- SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">저장 데이터 암호화 사용</p></strong>이러한 권장 사항을 사용하여 저장된 데이터의 보호에 대한 잘못된 구성을 완화할 수 있습니다.</td>
+    <td class="tg-lboi"; width=55%>- Service Fabric 클러스터는 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정해야 합니다.<br />- SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.<br />- 가상 머신은 Compute 및 Storage 리소스 간에 임시 디스크, 캐시 및 데이터 흐름을 암호화해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">4</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">액세스 및 사용 권한 관리</p></strong>보안 프로그램의 핵심 부분은 사용자에 게 작업을 수행하는 데 필요한 액세스 권한만 있는지 확인하는 것입니다. 즉, <a href="/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">최소 권한 액세스 모델</a>을 따릅니다.<br><a href="/azure/role-based-access-control/overview">Azure RBAC(Azure 역할 기반 Access Control)</a>에서 역할 할당을 만들어 리소스에 대한 액세스를 제어합니다. 역할 할당은 다음과 같은 세 가지 요소로 구성됩니다.<br>- <strong>보안 주체</strong>: 사용자가 해당 액세스를 요청하는 개체입니다.<br>- <strong>역할 정의</strong>: 사용 권한<br>- <strong>범위</strong>: 권한이 적용되는 리소스 세트입니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">액세스 및 사용 권한 관리</p></strong>보안 프로그램의 핵심 부분은 사용자에게 작업을 수행하는 데 필요한 액세스 권한만 있는지 확인하는 것입니다. 즉, 최소 권한 액세스 모델을 따릅니다. 이러한 권장 사항을 사용하여 ID 및 액세스 요구 사항을 관리합니다.</td>
     <td class="tg-lboi"; width=55%>- Linux 머신에 대한 인증에 SSH 키가 필요합니다.<br />- 클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 합니다.<br />- 권한 상승을 포함하는 컨테이너를 사용하지 않아야 합니다.<br />- 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 합니다.<br />- 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 함수 앱은 클라이언트 인증서(들어오는 클라이언트 인증서)를 사용하도록 설정해야 합니다.<br />- 게스트 구성 확장을 머신에 설치해야 합니다.<br />- 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 합니다.<br />- 최소 권한 Linux 기능을 컨테이너에 적용해야 합니다.<br />- API 앱에서 관리 ID를 사용해야 합니다.<br />- 함수 앱에서 관리 ID를 사용해야 합니다.<br />- 웹앱에서 관리 ID를 사용해야 합니다.<br />- 권한 있는 컨테이너를 피해야 합니다.<br />- Kubernetes 서비스에서 역할 기반 액세스 제어를 사용해야 합니다.<br />- 컨테이너를 루트 사용자로 실행하지 않아야 합니다.<br />- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br />- 관리 인증서 대신 서비스 주체를 사용하여 구독을 보호해야 합니다.<br />- 스토리지 계정 공용 액세스가 허용되지 않아야 합니다.<br />- 손상된 컨테이너에서 노드 액세스를 제한하려면 Pod HostPath 볼륨 탑재 사용을 알려진 목록으로 제한해야 합니다.<br />- 가상 머신의 게스트 구성 확장은 시스템이 할당한 관리 ID를 사용하여 배포해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">4</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">보안 구성 수정</p></strong>잘못 구성된 IT 자산은 공격 당할 위험이 높습니다. 자산을 배포하고 마감일을 충족해야 할 때는 기본 강화 작업을 잊는 경우가 많습니다. 보안 구성 오류는 운영 체제 및 네트워크 어플라이언스에서 클라우드 리소스에 이르는 인프라의 모든 수준에서 나타날 수 있습니다.<br>Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. 조직에 중요한 관련 "규정 준수 패키지"(표준 및 기준)를 구성할 때 나타나는 간격을 토대로 CCEID와 잠재적 보안 영향에 대한 설명을 포함 하는 보안 권장 사항이 제공됩니다.<br>일반적으로 사용되는 패키지는 <a href="/azure/security/benchmarks/introduction">Azure Security 벤치마크</a> 및 <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations 벤치마크 버전 1.1.0</a>입니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">보안 구성 수정</p></strong>잘못 구성된 IT 자산은 공격 당할 위험이 높습니다. 이러한 권장 사항을 사용하여 인프라 전체에서 식별된 잘못된 구성을 강화합니다.</td>
     <td class="tg-lboi"; width=55%>- 클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 합니다.<br />- 머신에서 Log Analytics 에이전트 상태 문제를 해결해야 합니다.<br />- Linux 기반 Azure Arc 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />- 가상 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />-가상 머신 확장 집합에 Log Analytics 에이전트를 설치해야 합니다.<br />- Windows 기반 Azure Arc 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />- 컨테이너 AppArmor 프로필의 재정의 또는 비활성화를 제한해야 합니다.<br />- Kubernetes 서비스에 Pod 보안 정책을 정의해야 합니다(더 이상 사용되지 않음).<br />- SQL 데이터베이스는 발견한 취약성을 해결해야 합니다.<br />- 머신의 SQL Server는 발견한 취약성을 해결해야 합니다.<br />- 컨테이너 보안 구성의 취약성을 수정해야 합니다.<br />- Linux 머신의 보안 구성 취약성을 수정해야 합니다(게스트 구성에서 제공).<br />- 머신 보안 구성의 취약성을 수정해야 합니다.<br />- 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.<br />- Windows 머신의 보안 구성 취약성을 수정해야 해야 합니다(게스트 구성에서 제공).<br />- SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.<br />- SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">3</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">적응형 애플리케이션 제어 적용</p></strong>AAC(적응형 애플리케이션 제어)는 Azure 및 비 Azure 머신에서 실행할 수 있는 애플리케이션을 제어하도록 하는 지능적이고 자동화된 종단 간 솔루션입니다. 또한 맬웨어로부터 머신을 보호하는 데 유용합니다.<br>Security Center는 기계 학습을 사용하여 컴퓨터 그룹에 대해 알려진 안전한 애플리케이션의 목록을 만듭니다.<br>승인된 애플리케이션 목록에 대한 이러한 혁신적인 접근 방식은 관리 복잡성 없이 보안 혜택을 제공합니다.<br>AAC는 특정 애플리케이션 세트를 실행해야 하는 특화된 서버에 특히 적절합니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">적응형 애플리케이션 제어 적용</p></strong>적응형 애플리케이션 제어는 머신에서 실행할 수 있는 애플리케이션을 제어하는 지능적이고 자동화된 엔드투엔드 솔루션입니다. 또한 맬웨어로부터 머신을 보호하는 데 유용합니다.</td>
     <td class="tg-lboi"; width=55%>- 머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.<br />- 적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 합니다.<br />- 머신에서 Log Analytics 에이전트 상태 문제를 해결해야 합니다.<br />- Linux 기반 Azure Arc 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />- 가상 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />- Windows 기반 Azure Arc 머신에 Log Analytics 에이전트를 설치해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">2</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Azure 고급 네트워킹 솔루션으로 애플리케이션 보호</p></strong></td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Azure 고급 네트워킹 솔루션으로 애플리케이션 보호</p></strong>Azure의 고급 네트워킹 솔루션은 <a href="/azure/ddos-protection/ddos-protection-overview"></a>Azure DDoS Protection</a>, <a href="/azure/web-application-firewall/overview"></a>Azure Web Application Firewall</a> 및 <a href="/azure/governance/policy/concepts/policy-for-kubernetes"></a>Kubernetes에 대한 Azure Policy 추가 기능</a>을 포함합니다. 이러한 권장 사항을 사용하여 애플리케이션이 이러한 도구 및 기타 도구로 보호되도록 합니다.</td>
     <td class="tg-lboi"; width=55%>- Azure DDoS Protection 표준을 사용하도록 설정해야 합니다.<br />- 클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 합니다.<br />- 컨테이너 CPU 및 메모리 한도를 적용해야 합니다.<br />- Application Gateway에 WAF(웹 애플리케이션 방화벽)를 사용하도록 설정해야 합니다.<br />- WAF(Web Application Firewall)를 Azure Front Door Service 서비스에 사용하도록 설정해야 합니다.</td>
   </tr>
   <tr>
@@ -98,7 +98,7 @@ ms.locfileid: "112062078"
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">0</p></strong></td>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Advanced Threat Protection 사용</p></strong></td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Azure Defender 사용</p></strong>이러한 권장 사항을 사용하여 <a href="/azure/security-center/azure-defender">Azure Defender</a> 플랜을 활성화합니다.</td>
     <td class="tg-lboi"; width=55%>- Azure Arc 사용 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 합니다.<br />- Azure Defender for App Service를 사용하도록 설정해야 합니다.<br />- Azure SQL Database 서버용 Azure Defender를 사용하도록 설정해야 합니다.<br />- 컨테이너 레지스트리용 Azure Defender를 사용하도록 설정해야 합니다.<br />- Azure Defender for DNS를 사용하도록 설정해야 합니다.<br />- Azure Defender for Key Vault를 사용하도록 설정해야 합니다.<br />- Azure Defender for Kubernetes를 사용하도록 설정해야 합니다.<br />- Azure Defender for Resource Manager를 사용하도록 설정해야 합니다.<br />- 서버용 Azure Defender를 사용하도록 설정해야 합니다.<br />- 머신에서 SQL 서버용 Azure Defender를 사용하도록 설정해야 합니다.<br />- 스토리지용 Azure Defender를 사용하도록 설정해야 합니다.</td>
   </tr>
 </tbody>

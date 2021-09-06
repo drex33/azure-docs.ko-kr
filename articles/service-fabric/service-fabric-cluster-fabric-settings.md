@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 설정 변경
 description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: ef89cb50770eecb7b61798562ba6228f0ecd0071
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5d6f15f4178b9f026be7205832a1f40c3dc01bab
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479824"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720684"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -65,6 +65,7 @@ ms.locfileid: "110479824"
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 |DeployedState |wstring, 기본값: L"Disabled" |정적 |CSS의 2단계 제거 |
+|UpdateEncryptionCertificateTimeout |TimeSpan, 기본값: Common::TimeSpan::MaxValue |정적 |시간 간격은 초 단위로 지정합니다. 기본값이 TimeSpan::MaxValue로 변경되었지만 재정의는 여전히 준수됩니다. 나중에 사용되지 않을 수 있습니다. |
 
 ## <a name="clustermanager"></a>ClusterManager
 
@@ -102,6 +103,7 @@ ms.locfileid: "110479824"
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 |AllowCreateUpdateMultiInstancePerNodeServices |bool, 기본값: false |동적|노드당 서비스의 여러 상태 비저장 인스턴스를 만들 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. |
+|EnableAuxiliaryReplicas |bool, 기본값: false |동적|서비스에서 보조 복제본의 생성 또는 업데이트를 사용합니다. true이면 SF 버전 8.1 이상에서 낮은 targetVersion 업그레이드는 차단됩니다. |
 |PerfMonitorInterval |time(초), 기본값: 1 |동적|시간 간격은 초 단위로 지정합니다. 성능 모니터링 간격입니다. 0 또는 음수 값으로 설정하면 모니터링을 사용하지 않도록 설정됩니다. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
@@ -144,11 +146,14 @@ ms.locfileid: "110479824"
 | **매개 변수** | **허용되는 값** |**업그레이드 정책**| **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 |EnablePartitionedQuery|bool, 기본값: FALSE|정적|분할된 서비스에 대한 DNS 쿼리 지원이 가능하도록 설정하는 플래그입니다. 이 기능은 기본적으로 꺼져 있습니다. 자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요.|
+|ForwarderPoolSize|int, 기본값: 20|정적|전달 풀의 전달자 수|
+|ForwarderPoolStartPort|Int, 기본값: 16700|정적|재귀 쿼리에 사용되는 전달 풀의 시작 주소|
 |InstanceCount|int, 기본값: -1|정적|기본값은 -1이며, DnsService가 모든 노드에서 실행된다는 의미입니다. OneBox는 DnsService에서 잘 알려진 포트 53을 사용하므로 1로 설정되어야 합니다. 따라서 동일한 컴퓨터에 여러 인스턴스를 가질 수 없습니다.|
 |IsEnabled|bool, 기본값: FALSE|정적|DnsService를 활성화하거나 비활성화합니다. DnsService는 기본적으로 비활성화되며, 이 구성을 활성화하도록 설정해야 합니다. |
 |PartitionPrefix|string, 기본값은 "--"입니다.|정적|분할된 서비스에 대한 DNS 쿼리의 파티션 접두사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>빈 문자열일 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요.|
 |PartitionSuffix|string, 기본값: ""|정적|분할된 서비스에 대한 DNS 쿼리의 파티션 접미사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요. |
-|RetryTransientFabricErrors|bool, 기본값: true|정적|설정은 DnsService에서 Service Fabric API를 호출할 때의 재시도 기능을 제어합니다. 사용하도록 설정되면 일시적인 오류가 발생하는 경우 최대 3번 다시 시도합니다.|
+|TransientErrorMaxRetryCount|int, 기본값: 3|정적|SF API(예: 이름 및 엔드포인트를 검색하는 경우)를 호출하는 동안 일시적인 오류가 발생할 때 SF DNS가 다시 시도될 횟수를 제어합니다.|
+|TransientErrorRetryIntervalInMillis|int, 기본값: 0|정적|SF DNS가 SF API를 호출할 때 재시도 사이의 지연 시간(밀리초)을 설정합니다.|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
@@ -356,6 +361,8 @@ ms.locfileid: "110479824"
 |DeploymentRetryBackoffInterval| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(10)|동적|시간 간격은 초 단위로 지정합니다. 배포 실패에 대한 백오프 간격입니다. 모든 연속 배포 실패에서 시스템은 최대 MaxDeploymentFailureCount회까지 배포를 다시 시도합니다. 다시 시도 간격은 연속 배포 실패와 배포 백오프 간격의 곱입니다. |
 |DisableContainers|bool, 기본값: FALSE|정적|컨테이너를 사용하지 않도록 설정하기 위한 구성 - 더 이상 사용되지 않는 DisableContainerServiceStartOnContainerActivatorOpen 구성 대신 사용됩니다. |
 |DisableDockerRequestRetry|bool, 기본값: FALSE |동적| 기본적으로 SF는 전송되는 각 http 요청에 대해 시간 제한 'DockerRequestTimeout' 동안 DD(docker 디먼)와 통신합니다. 이 기간 내에 DD가 응답하지 않으면 SF는 최상위 작업 시간이 아직 남아 있는 경우 요청을 다시 전송합니다.  hyperv 컨테이너 사용 시에는 DD가 컨테이너를 불러오거나 비활성화하는 데 시간이 훨씬 더 많이 걸릴 수도 있습니다. 이러한 경우 SF 측면에서 DD 요청의 시간이 초과되며, SF는 작업을 다시 시도합니다. 이로 인해 DD의 부담이 가중될 수도 있습니다. 이 구성을 사용하면 작업을 다시 시도하지 않도록 설정하고 DD가 응답할 때까지 기다릴 수 있습니다. |
+|DisableLivenessProbes | wstring, 기본값: L"" | 정적 | 클러스터에서 활동성 프로브를 사용하지 않는 구성입니다. SF에 대해 비어 있지 않은 값을 지정하여 프로브를 사용하지 않을 수 있습니다. |
+|DisableReadinessProbes | wstring, 기본값: L"" | 정적 | 클러스터에서 준비 상태 프로브를 사용하지 않는 구성입니다. SF에 대해 비어 있지 않은 값을 지정하여 프로브를 사용하지 않을 수 있습니다. |
 |DnsServerListTwoIps | Bool, 기본값: FALSE | 정적 | 이 플래그는 간헐적인 문제 해결에 유용하도록 로컬 dns 서버를 두 번 추가합니다. |
 | DockerTerminateOnLastHandleClosed | bool, 기본값: TRUE | 정적 | 기본적으로 FabricHost에서 ‘dockerd’를 관리하는 경우(SkipDockerProcessManagement == false 기준) 이 설정은 FabricHost 또는 dockerd 충돌 시 수행되는 작업을 구성합니다. `true`로 설정된 경우 둘 중 한 프로세스가 충돌하면 실행 중인 모든 컨테이너가 HCS에 의해 강제로 종료됩니다. `false`로 설정된 경우 컨테이너가 계속 실행됩니다. 참고: 이 동작은 8.0 이전에서는 의도하지 않게 `false`와 동일했습니다. 여기에서 기본 설정 `true`는 이러한 프로세스를 다시 시작할 때에 대해 예상되는 기본적인 정리 논리의 동작입니다. |
 | DoNotInjectLocalDnsServer | bool, 기본값: FALSE | 정적 | 런타임에서 로컬 IP를 컨테이너의 DNS 서버로 삽입하지 못하게 합니다 |
@@ -536,6 +543,7 @@ ms.locfileid: "110479824"
 |ConstraintFixPartialDelayAfterNewNode | time(초), 기본값: 120 |동적| 시간 간격은 초 단위로 지정합니다. 새 노드를 추가한 이후 이 기간 내에 FaultDomain 및 UpgradeDomain 제약 조건 위반을 수정하면 안됩니다. |
 |ConstraintFixPartialDelayAfterNodeDown | time(초), 기본값: 120 |동적| 시간 간격은 초 단위로 지정합니다. 노드 작동 중단 이후 이 기간 내에 FaultDomain 및 UpgradeDomain 제한 조건 위반을 수정하면 안됩니다. |
 |ConstraintViolationHealthReportLimit | int, 기본값: 50 |동적| 진단을 수행하고 상태 보고서를 내보내기 전에 제약 조건 위반 복제본이 영구적으로 고정되지 않아야 하는 횟수를 정의합니다. |
+|DecisionOperationalTracingEnabled | bool, 기본값: FALSE |동적| 이벤트 저장소에서 CRM 의사 결정 운영 구조 추적을 가능하게 설정하는 구성입니다. |
 |DetailedConstraintViolationHealthReportLimit | int, 기본값: 200 |동적| 진단을 수행하고 자세한 상태 보고서를 내보내기 전에 제약 조건 위반 복제본이 영구적으로 고정되지 않아야 하는 횟수를 정의합니다. |
 |DetailedDiagnosticsInfoListLimit | int, 기본값: 15 |동적| 진단에서 자르기 전에 포함할 제약 조건당 진단 항목 수(세부 정보 포함)를 정의합니다.|
 |DetailedNodeListLimit | int, 기본값: 15 |동적| 배치되지 않은 복제본 보고서에서 자르기 전에 포함할 제약 조건당 노드 수를 정의합니다. |
@@ -581,6 +589,8 @@ ms.locfileid: "110479824"
 |TraceCRMReasons |bool, 기본값: true |동적|CRM에서 작업 이벤트 채널로의 이동을 발급한 이유를 추적할지 여부를 지정합니다. |
 |UpgradeDomainConstraintPriority | int, 기본값: 1| 동적|업그레이드 도메인 제약 조건의 우선 순위를 결정합니다. 0: 하드; 1: 소프트; 음수: 무시. |
 |UseMoveCostReports | bool, 기본값: false | 동적|점수 매기기 함수의 비용 요소를 무시하도록 LB에 지시합니다. 보다 효율적인 분산 배치를 위해 잠재적으로 많은 수의 이동이 발생합니다. |
+|UseSeparateAuxiliaryLoad | bool, 기본값: true | 동적|PLB가 각 노드에서 보조에 대해 서로 다른 부하를 사용해야 하는지 여부를 결정하는 설정 UseSeparateAuxiliaryLoad가 비활성화된 경우: - 한 노드에서 보조 용도로 보고된 부하로 인해 각 보조(다른 모든 노드에서)에 대한 부하를 덮어씁니다. UseSeparateAuxiliaryLoad가 활성화된 경우: - 한 노드에서 보조에 대해 보고된 부하가 해당 보조에만 적용됩니다(다른 노드의 보조에 영향을 미치지 않습니다). - 복제본 충돌이 발생하는 경우 - 모든 나머지 보조의 평균 부하를 사용하여 새 복제본이 생성됩니다. - PLB가 기존 복제본을 이동하는 경우 로드가 함께 이동합니다. |
+|UseSeparateAuxiliaryMoveCost | bool, 기본값: false | 동적|PLB가 각 노드에서 보조에 대해 서로 다른 이동 비용을 사용해야 하는지 여부를 결정하는 설정 UseSeparateAuxiliaryMoveCost가 비활성화된 경우: - 한 노드에서 보조 용도로 보고된 이동 비용이 각 보조의 이동 비용을 덮어씁니다(다른 노드에 모두 적용). UseSeparateAuxiliaryMoveCost가 활성화된 경우: - 한 노드의 보조 복제본에 대해 보고된 이동 비용은 해당 보조 데이터베이스에만 효력이 발생합니다(다른 노드의 보조 복제본에는 영향을 미치지 않습니다). - 복제본 충돌이 발생하는 경우 - 서비스 수준에서 지정된 기본 이동 비용으로 새 복제본이 만들어집니다. - PLB가 기존 복제본을 이동하는 경우 - 이동 비용이 함께 사용됩니다. |
 |UseSeparateSecondaryLoad | bool, 기본값: true | 동적|보조 복제본에 대해 별도의 부하를 사용해야 하는지 여부를 결정하는 설정입니다. |
 |UseSeparateSecondaryMoveCost | bool, 기본값: true | 동적|PLB가 각 노드에서 서로 다른 이동 비용을 보조로 사용해야 하는지 여부를 결정하는 설정입니다. UseSeparateSecondaryMoveCost가 비활성화된 경우: - 한 노드에서 보조 용도로 보고된 이동 비용이 각 보조 노드의 이동 비용을 덮어씁니다(다른 노드에 모두 적용). UseSeparateSecondaryMoveCost가 활성화된 경우: - 한 노드의 보조 복제본에 대해 보고된 이동 비용은 해당 보조 데이터베이스에만 효력이 발생합니다(다른 노드의 보조 복제본에는 영향을 미치지 않습니다). - 복제본 충돌이 발생하는 경우 - 서비스 수준에서 지정된 기본 이동 비용으로 새 복제본이 만들어집니다. - PLB가 기존 복제본을 이동하는 경우 - 이동 비용이 함께 사용됩니다. |
 |ValidatePlacementConstraint | bool, 기본값: true |동적| 서비스의 ServiceDescription을 업데이트할 때 서비스에 대한 PlacementConstraint 식의 유효성을 검사할지 여부를 지정합니다. |
@@ -883,6 +893,7 @@ ms.locfileid: "110479824"
 |MaxSecondaryReplicationQueueMemorySize |uint, 기본값: 0 | 정적 |보조 복제 큐의 최대 값(바이트) |
 |MaxSecondaryReplicationQueueSize |uint, 기본값: 16384 | 정적 |보조 복제 큐에 존재할 수 있는 작업의 최대 수. 2의 거듭제곱이어야 합니다. |
 |ReplicatorAddress |string, 기본값: "localhost:0" | 정적 | Windows Fabric 복제자에서 작업을 보내거나 받기 위해 다른 복제본과의 연결을 설정하는 데 사용되는 문자열 형식의 엔드포인트입니다(예: 'IP:Port'). |
+|ShouldAbortCopyForTruncation |bool, 기본값: FALSE | 정적 | 보류 중인 로그 잘림이 복사 중에 진행되도록 허용합니다. 이 기능을 사용하면 로그가 가득 차서 블록 잘림이 발생하면 빌드의 복사 단계를 취소할 수 있습니다. |
 
 ## <a name="transport"></a>전송
 | **매개 변수** | **허용되는 값** |**업그레이드 정책** |**지침 또는 간단한 설명** |

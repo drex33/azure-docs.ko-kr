@@ -2,17 +2,18 @@
 title: 원본 제어
 description: Azure Data Factory에서 소스 제어를 구성하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/26/2021
-ms.openlocfilehash: 77f5d940c06ef5a2a504033225b42b7ddd2c17c1
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 06/04/2021
+ms.openlocfilehash: 0eb7356542eb7016cd27cc76e048857e8d7f9955
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903275"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598093"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -55,9 +56,9 @@ Azure Repos 및 GitHub 모두에 대한 데이터 팩터리에 Git 리포지토�
 
 ### <a name="configuration-method-1-home-page"></a>구성 방법 1: 홈페이지
 
-Azure Data Factory 홈페이지에서 **코드 리포지토리 설정** 을 선택합니다.
+Azure Data Factory 홈페이지 맨 위에 있는 **코드 리포지토리 설정** 을 선택합니다.
 
-![홈페이지에서 코드 리포지토리 구성](media/author-visually/configure-repo.png)
+![홈페이지에서 코드 리포지토리 구성](media/doc-common-process/set-up-code-repository.png)
 
 ### <a name="configuration-method-2-authoring-canvas"></a>구성 방법 2: 제작 캔버스
 
@@ -93,7 +94,7 @@ Azure Repos Git 통합을 통한 시각적 작성은 데이터 팩터리 파이�
 
 구성 창에 다음 Azure Repos 코드 리포지토리 설정이 표시됩니다.
 
-| 설정 | Description | 값 |
+| 설정 | 설명 | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -240,6 +241,8 @@ Azure Data Factory는 게시 분기를 한 번에 하나만 포함할 수 있습
 > [!IMPORTANT]
 > 기본 분기는 Data Factory 서비스에 배포된 내용을 반영하지 않습니다. 따라서 기본 분기를 *반드시* Data Factory 서비스에 수동으로 게시해야 합니다.
 
+
+
 ## <a name="best-practices-for-git-integration"></a>Git 통합에 대한 모범 사례
 
 ### <a name="permissions"></a>사용 권한
@@ -261,17 +264,34 @@ Key Vault 또는 MSI 인증을 사용해도 연속 통합과 배포가 쉬워집
 
 ### <a name="stale-publish-branch"></a>부실한 게시 분기
 
-게시 분기가 기본 분기와 동기화되지 않고 최근 게시에도 불구하고 오래된 리소스가 포함된 경우에는 다음 단계를 수행합니다.
+다음은 부실한 게시 분기를 유발할 수 있는 상황의 몇 가지 예입니다.
+
+- 사용자에게 분기가 여러 개 있습니다. 하나의 기능 분기에서 AKV와 관련이 없는 연결된 서비스를 삭제한 후(AKV 이외의 연결된 서비스는 Git에 있는지 여부에 관계없이 즉시 게시됨) 기능 분기를 협업 분기에 병합하지 않았습니다.
+- 사용자가 SDK 또는 PowerShell을 사용하여 데이터 팩터리를 수정했습니다.
+- 사용자가 모든 리소스를 새 분기로 이동기고 처음으로 게시하려고 했습니다. 연결된 서비스는 리소스를 가져올 때 수동으로 만들어야 합니다.
+- 사용자가 AKV 이외의 연결된 서비스 또는 Integration Runtime JSON을 수동으로 업로드합니다. 데이터 세트, 연결된 서비스 또는 파이프라인과 같은 다른 리소스에서 해당 리소스를 참조합니다. UX를 통해 만든 AKV 이외의 연결된 서비스는 자격 증명을 암호화해야 하기 때문에 즉시 게시됩니다. 연결된 서비스를 참조하는 데이터 세트를 업로드하고 게시하려고 하면 UX에서 허용됩니다. Git 환경에 존재하기 때문입니다. 하지만 데이터 팩터리 서비스에 존재하지 않기 때문에 게시할 때 거부됩니다.
+
+게시 분기가 기본 분기와 동기화되지 않고 최근 게시에도 불구하고 오래된 리소스가 포함된 경우 아래 솔루션 중 하나를 사용할 수 있습니다.
+
+#### <a name="option-1-use-overwrite-live-mode-functionality"></a>옵션 1: **라이브 모드 덮어쓰기** 기능 사용
+
+협업 분기의 코드를 라이브 모드로 게시하거나 덮어씁습니다. 리포지토리의 코드를 진리 소스로 간주합니다. 
+
+<u>*코드 흐름:*</u>***협업 분기 -> 라이브 모드***
+
+![협업 분기에서 코드 강제 게시](media/author-visually/force-publish-changes-from-collaboration-branch.png)
+
+#### <a name="option-2-disconnect-and-reconnect-git-repository"></a>옵션 2: Git 리포지토리 연결 끊기 및 다시 연결
+
+라이브 모드에서 협업 분기로 코드를 가져옵니다. 라이브 모드의 코드를 진리의 소스로 간주합니다. 
+
+<u>*코드 흐름:*</u>***라이브 모드 -> 협업 분기***  
 
 1. 현재 Git 리포지토리 제거
 1. 동일한 설정으로 Git를 다시 구성하지만 **리포지토리로 기존 Data Factory 리소스 가져오기** 가 선택되어 있는지 확인하고 **새 분기** 를 선택합니다.
 1. 변경 내용을 협업 분기에 병합하는 끌어오기 요청을 만듭니다. 
 
-다음은 부실한 게시 분기를 유발할 수 있는 상황의 몇 가지 예입니다.
-- 사용자에게 분기가 여러 개 있습니다. 하나의 기능 분기에서 AKV와 관련이 없는 연결된 서비스를 삭제한 후(AKV 이외의 연결된 서비스는 Git에 있는지 여부에 관계없이 즉시 게시됨) 기능 분기를 협업 분기에 병합하지 않았습니다.
-- 사용자가 SDK 또는 PowerShell을 사용하여 데이터 팩터리를 수정했습니다.
-- 사용자가 모든 리소스를 새 분기로 이동기고 처음으로 게시하려고 했습니다. 연결된 서비스는 리소스를 가져올 때 수동으로 만들어야 합니다.
-- 사용자가 AKV 이외의 연결된 서비스 또는 Integration Runtime JSON을 수동으로 업로드합니다. 데이터 세트, 연결된 서비스 또는 파이프라인과 같은 다른 리소스에서 해당 리소스를 참조합니다. UX를 통해 만든 AKV 이외의 연결된 서비스는 자격 증명을 암호화해야 하기 때문에 즉시 게시됩니다. 연결된 서비스를 참조하는 데이터 세트를 업로드하고 게시하려고 하면 UX에서 허용됩니다. Git 환경에 존재하기 때문입니다. 하지만 데이터 팩터리 서비스에 존재하지 않기 때문에 게시할 때 거부됩니다.
+필요에 따라 적절한 방법을 선택합니다. 
 
 ## <a name="switch-to-a-different-git-repository"></a>다른 Git 리포지토리로 전환
 

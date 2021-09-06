@@ -2,19 +2,17 @@
 title: 관리 ID를 사용하여 데이터 원본에 대한 연결 설정
 titleSuffix: Azure Cognitive Search
 description: 관리 ID를 사용하여 데이터 원본에 대한 인덱서 연결을 설정하는 방법 알아보기
-manager: luisca
 author: markheff
 ms.author: maheff
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: efb7d0a239d31d82b55b5cd5066e6003391ace45
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/02/2021
+ms.openlocfilehash: bd4d10c32f1c850adf6dc886672b16937b553222
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558792"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537775"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>관리 ID를 사용하여 데이터 원본에 대한 인덱서 연결 설정
 
@@ -31,9 +29,22 @@ Azure Cognitive Search의 [인덱서](search-indexer-overview.md)는 데이터 �
 
 ## <a name="using-managed-identities"></a>관리 ID 사용
 
-[관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 Azure AD(Azure Active Directory)에서 자동으로 관리 ID를 Azure 서비스에 제공하는 기능입니다. Azure Cognitive Search에서 이 기능을 사용하여 자격 증명을 포함하지 않는 연결 문자열을 사용하여 데이터 원본 개체를 만들 수 있습니다. 대신, Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 검색 서비스에 데이터 원본에 대한 액세스 권한이 부여됩니다.
+[관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 Azure AD(Azure Active Directory)에서 자동으로 관리 ID를 애플리케이션에 제공하는 기능입니다. Azure Cognitive Search에서 이 기능을 사용하여 자격 증명을 포함하지 않는 연결 문자열을 사용하여 데이터 원본 개체를 만들 수 있습니다. 대신, Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 검색 서비스에 데이터 원본에 대한 액세스 권한이 부여됩니다.
 
 관리 ID를 사용하여 데이터 원본을 설정할 때 데이터 원본 자격 증명을 변경할 수 있으며, 인덱서는 여전히 데이터 원본에 연결할 수 있습니다. 계정 키를 포함하거나 Key Vault를 사용하여 계정 키를 검색하지 않고도 코드에서 데이터 원본 개체를 만들 수도 있습니다.
+
+두 가지 종류의 관리 ID가 있습니다. Azure Cognitive Search 시스템 할당 관리 ID 및 사용자가 할당한 관리 ID를 지원합니다.
+
+### <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
+
+[시스템 할당 관리 ID](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)는 단일 Azure 서비스에 할당할 수 있습니다. 시스템 할당 관리 ID를 단일 Azure Cognitive Search 서비스에 할당할 수 있으며 해당 검색 서비스의 수명 주기에 연결됩니다.
+
+### <a name="user-assigned-managed-identity-preview"></a>사용자가 할당한 관리 ID(미리 보기)
+
+> [!IMPORTANT]
+>이 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. REST API 버전 2021-04-30-Preview 및 [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)에서 이 기능을 제공합니다.
+
+[사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)는 하나 이상의 Azure 서비스에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 단일 Azure Cognitive Search 서비스에는 하나 이상의 사용자가 할당한 관리 ID가 할당될 수 있습니다. 단일 사용자가 할당한 관리 ID를 여러 검색 서비스에 할당할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 

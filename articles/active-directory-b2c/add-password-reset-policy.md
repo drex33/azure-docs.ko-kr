@@ -8,43 +8,55 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/24/2021
+ms.date: 07/01/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 81bdc8550f57a7c1c4992825cd231a9bb3cad4ce
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1c7d4eeaf7df1764b021cd5914d6f4f4a88a9a1c
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457479"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213474"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 재설정 흐름 설정
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-## <a name="password-reset-flow"></a>암호 재설정 흐름
+## <a name="overview"></a>개요
 
-[가입 및 로그인 경험](add-sign-up-and-sign-in-policy.md)을 통해 사용자는 **암호를 잊으셨나요?** 링크를 사용하여 자신의 암호를 재설정할 수 있습니다. 암호 재설정 흐름에는 다음 단계가 포함됩니다.
+[가입 및 로그인 경험](add-sign-up-and-sign-in-policy.md) 내에서 사용자는 **암호를 잊으셨나요?** 링크를 사용하여 자신의 암호를 재설정할 수 있습니다. 이 셀프 서비스 암호 재설정 흐름은 로그인을 위해 암호와 함께 [이메일 주소](sign-in-options.md#email-sign-in) 또는 [사용자 이름](sign-in-options.md#username-sign-in)을 사용하는 Azure AD B2C의 로컬 계정에 적용됩니다.
 
-1. 가입 및 로그인 페이지에서 사용자가 **암호를 잊으셨나요?** 링크를 클릭합니다. Azure AD B2C가 암호 재설정 흐름을 시작합니다.
-2. 사용자가 이메일 주소를 입력하고 **확인 코드 보내기** 를 선택합니다. 그러면 Azure AD B2C가 사용자에게 확인 코드를 보냅니다.
-
-* 사용자는 메일함을 열고 확인 코드를 복사해야 합니다. 그런 다음 Azure AD B2C 암호 재설정 페이지에서 확인 코드를 입력하고 **코드 확인** 을 선택합니다.
-
-> [!NOTE]
-> 이메일이 확인된 후에도 사용자는 여전히 **이메일 변경** 을 선택하여 다른 이메일을 입력하고 처음부터 이메일 확인을 반복할 수 있습니다.
-3. 그런 다음 사용자는 새 암호를 입력할 수 있습니다.
+암호 재설정 흐름에는 다음 단계가 포함됩니다.
 
 ![암호 재설정 흐름](./media/add-password-reset-policy/password-reset-flow.png)
 
-암호 재설정 흐름은 로그인을 위해 암호와 함께 [이메일 주소](identity-provider-local.md#email-sign-in) 또는 [사용자 이름](identity-provider-local.md#username-sign-in)을 사용하는 Azure AD B2C의 로컬 계정에 적용됩니다.
+**1.** 가입 및 로그인 페이지에서 사용자가 **암호를 잊으셨나요?** 링크를 클릭합니다. Azure AD B2C가 암호 재설정 흐름을 시작합니다.
+
+**2.** 사용자가 이메일 주소를 입력하고 **확인 코드 보내기** 를 선택합니다. Azure AD B2C에서 사용자의 받은 편지함에 확인 코드를 보냅니다. 사용자가 이메일에서 확인 코드를 복사하고, Azure AD B2C 암호 재설정 페이지에 코드를 입력하고, **코드 확인** 을 선택합니다.
+
+**3.** 그런 다음, 사용자는 새 암호를 입력할 수 있습니다. (이메일이 확인된 후 사용자는 여전히 **이메일 변경** 단추를 선택할 수 있습니다. 아래의 [이메일 변경 단추 숨기기](#hiding-the-change-email-button)를 참조하세요.)
 
 > [!TIP]
-> 사용자가 암호를 잊어버렸으며 암호를 재설정하려는 경우 셀프 서비스 암호 재설정을 통해 사용자가 암호를 변경할 수 있습니다. 사용자가 암호를 기억하고 있지만 변경하기를 원하는 경우에 해당 작업을 지원하기 위해 [암호 변경 흐름](add-password-change-policy.md)을 구성하는 것이 좋습니다.
+> 사용자가 암호를 잊어버렸으며 암호를 재설정하려는 경우 셀프 서비스 암호 재설정을 통해 사용자가 암호를 변경할 수 있습니다. 
+> - 사용자가 암호를 기억하고 있지만 변경하기를 원하는 경우 [암호 변경 흐름](add-password-change-policy.md)을 사용합니다. 
+> - 사용자가 자신의 암호를 재설정하도록 강제하려는 경우(예: 처음으로 로그인하는 경우 관리자가 암호를 재설정한 경우 또는 임의 암호로 Azure AD B2C 마이그레이션된 후) [강제 암호 재설정](force-password-reset.md) 흐름을 사용합니다.
 
-임의의 암호로 사용자를 Azure AD B2C로 마이그레이션한 이후의 일반적인 사례는 사용자가 첫 번째 로그인 시에 이메일 주소를 확인하고 암호를 재설정하는 것입니다. 관리자가 암호를 변경한 후에 사용자가 암호를 재설정하도록 하는 것도 일반적인 사례입니다. 이 기능의 사용을 설정하려면 [암호 재설정 강제 적용](force-password-reset.md)을 참조하세요.
+### <a name="hiding-the-change-email-button"></a>이메일 변경 단추 숨기기
+
+이메일이 확인된 후에도 사용자는 여전히 **이메일 변경** 을 선택하여 다른 이메일을 입력하고 처음부터 이메일 확인을 반복할 수 있습니다. **이메일 변경** 단추를 숨기려면 CSS를 수정하여 페이지에서 연결된 HTML 요소를 숨길 수 있습니다. 예를 들어 아래의 CSS 항목을 selfAsserted.HTML에 추가하고 [HTML 템플릿을 사용하여 사용자 인터페이스를 사용자 지정](customize-ui-with-html.md)할 수 있습니다.
+
+```html
+<style type="text/css">
+   .changeClaims
+   {
+     visibility: hidden;
+   }
+</style>
+```
+
+selfasserted.html 페이지의 **이메일 변경** 단추의 기본 이름은 `changeclaims`입니다. 브라우저 도구(예: 검사)를 사용하여 가입 페이지의 페이지 원본을 검사하여 단추 이름을 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -303,8 +315,10 @@ ms.locfileid: "110457479"
 1. **사용자 흐름 만들기** 탭에서 **암호 다시 설정** 사용자 흐름을 선택합니다. 
 1. **버전 선택** 아래에서 **추천** 을 선택한 다음, **만들기** 를 선택합니다.
 1. 사용자 흐름에 대한 **이름** 을 입력합니다. 예를 들어 *passwordreset1* 과 같습니다.
-1. **ID 공급자** 에서 **메일 주소를 사용하여 암호 재설정** 을 사용하도록 설정합니다.
-1. **애플리케이션 클레임** 에서 **자세히 표시** 를 선택하고 애플리케이션에 재전송된 인증 토큰에 반환하려는 클레임을 선택합니다. 예를 들어 **사용자의 개체 ID** 를 선택합니다.
+1. **ID 공급자** 에서 **사용자 이름을 사용하여 암호 재설정** 또는 **이메일 주소를 사용하여 암호 재설정** 을 사용하도록 설정합니다.
+1. **다단계 인증** 에서 사용자가 두 번째 인증 방법으로 ID를 확인하도록 하려면 방법 유형 및 MFA(다단계 인증)를 적용할 시기를 선택해야 합니다. [자세히 알아보기](multi-factor-authentication.md).
+1. **조건부 액세스** 에서 Azure AD B2C 테넌트의 조건부 액세스 정책을 구성했고 이 사용자 흐름에 대해 조건부 액세스 정책을 사용하도록 설정하려면 **조건부 액세스 정책 적용** 확인란을 선택합니다. 정책 이름은 지정하지 않아도 됩니다. [자세히 알아보기](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. 1. **애플리케이션 클레임** 에서 **자세히 표시** 를 선택하고 애플리케이션에 재전송된 인증 토큰에 반환하려는 클레임을 선택합니다. 예를 들어 **사용자의 개체 ID** 를 선택합니다.
 1. **확인** 을 선택합니다.
 1. **만들기** 를 선택하여 사용자 흐름을 추가합니다. 접두사 *B2C_1* 이 이름을 자동으로 추가됩니다.
 

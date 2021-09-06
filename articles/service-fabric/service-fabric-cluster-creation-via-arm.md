@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 Azure에 보안 Service Fabr
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3f3d76b1cea2e1ed06f50bbdfbf4343972bc3945
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 7323f6762fe6c55f1ab548f1c8196ee761014a2d
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671036"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112463880"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
@@ -57,16 +57,14 @@ az account set --subscription $subscriptionId
 
 ### <a name="use-the-default-cluster-template-that-ships-in-the-module"></a>모듈에 제공되는 기본 클러스터 템플릿 사용
 
-기본 템플릿을 사용하여 최소 매개 변수를 지정함으로써 다음 명령을 사용하여 클러스터를 신속하게 만듭니다.
+다음 PowerShell 또는 Azure CLI 명령을 사용하여 기본 템플릿으로 클러스터를 신속하게 만들 수 있습니다.
 
-사용되는 템플릿은 [Azure Service Fabric 템플릿 샘플: Windows 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [Ubuntu 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)에서 사용할 수 있습니다.
+여기에서 [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)용, 여기에서 [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)용 기본 템플릿을 사용할 수 있습니다.
 
-다음 명령은 Windows 또는 Linux 클러스터를 만들 수 있으므로 적절하게 OS를 지정해야 합니다. 또한 PowerShell/CLI 명령은 *CertificateOutputFolder* 에 지정된 인증서를 출력하지만 인증서 폴더가 이미 만들어졌는지 확인합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
+다음 명령은 OS 매개 변수를 지정하는 방법에 따라 Windows 또는 Linux 클러스터를 만들 수 있습니다. PowerShell/CLI 명령은 모두 지정된 *CertificateOutputFolder* 인증서를 출력합니다(명령을 실행하기 전에 지정한 인증서 폴더 위치가 이미 있는지 확인).
 
 > [!NOTE]
-> 다음 PowerShell 명령은 Azure PowerShell `Az` 모듈에만 사용할 수 있습니다. Azure Resource Manager PowerShell 버전의 현재 버전을 확인하려면 다음 PowerShell 명령 "Get-Module Az"를 실행합니다. Azure Resource Manager PowerShell 버전을 업그레이드하려면 [다음 링크](/powershell/azure/install-Az-ps)를 따릅니다. 
->
->
+> 다음 PowerShell 명령은 Azure PowerShell `Az` 모듈에만 사용할 수 있습니다. Azure Resource Manager PowerShell 버전의 현재 버전을 확인하려면 다음 PowerShell 명령 "Get-Module Az"를 실행합니다. Azure Resource Manager PowerShell 버전을 업그레이드하려면 [다음 링크](/powershell/azure/install-Az-ps)를 따릅니다.
 
 PowerShell을 사용하여 클러스터 배포
 
@@ -158,12 +156,13 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ## <a name="create-a-new-cluster-using-your-own-x509-certificate"></a>사용자 고유의 X.509 인증서를 사용하여 새 클러스터 만들기
 
-클러스터를 보호하는 데 사용할 인증서가 있는 경우 다음 명령을 사용하여 클러스터를 만듭니다.
+다음 명령을 사용하여 새 클러스터를 만들고 보호할 기존 인증서를 지정할 수 있습니다.
 
 결국 다른 용도로 사용할 CA 서명 인증서인 경우 키 자격 증명 모음에 특별히 고유한 리소스 그룹을 제공하는 것이 좋습니다. Key Vault를 자체 리소스 그룹에 배치하는 것이 좋습니다. 이렇게 하면 키 및 비밀은 유실하지 않고 Service Fabric 클러스터가 있는 리소스 그룹과 같은 컴퓨팅 및 스토리지 리소스 그룹을 제거할 수 있습니다. **키 자격 증명 모음을 포함하는 리소스 그룹은 해당 그룹을 사용하는 클러스터와 *동일한 지역에 있어야* 합니다.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>모듈에 제공되는 기본 5개 노드 1개 노드 형식 템플릿 사용
-사용되는 템플릿은 [Azure 샘플: Windows 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [Ubuntu 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)에서 사용할 수 있습니다.
+
+여기에서 [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)용, 여기에서 [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)용 기본 템플릿을 사용할 수 있습니다.
 
 PowerShell을 사용하여 클러스터 배포
 
@@ -285,7 +284,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 템플릿을 사용하는 데 필요한 JSON 구문 및 속성은 [Microsoft.ServiceFabric/clusters 템플릿 참조](/azure/templates/microsoft.servicefabric/clusters)에서 확인하세요.
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
+[azure-powershell]:/powershell/azure/install-Az-ps
+[azure-CLI]:/cli/azure/get-started-with-azure-cli
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md

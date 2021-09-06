@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: df8b4534c6da446bd4ceeb18acf70036cd63f83c
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: dbed9883fbddc2efdaaa8ad252578afa928167bd
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061185"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237252"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 응답
 
@@ -46,7 +46,7 @@ Security Center에서 경고를 생성하는 방법에 대한 개요는 [Azure S
 
 1. 경고 목록을 필터링하려면 관련 필터를 선택합니다. 필요에 따라 필터 추가 옵션을 통해 필터를 더 **추가** 할 수 있습니다.
 
-    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="경고 보기에 필터 추가" lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="경고 보기에 필터 추가." lightbox="./media/security-center-managing-and-responding-alerts/alerts-adding-filters-large.png":::
 
     선택한 필터링 옵션에 따라 목록이 업데이트됩니다. 필터링은 매우 유용할 수 있습니다. 예를 들어 시스템에서 잠재적 위반을 조사하고 있기 때문에 최근 24시간 동안 발생한 보안 경고를 해결하려고 할 수 있습니다.
 
@@ -55,7 +55,7 @@ Security Center에서 경고를 생성하는 방법에 대한 개요는 [Azure S
 
 1. **보안 경고** 목록에서 경고를 선택합니다. 사이드 창이 열리고 영향을 받는 모든 리소스 및 경고에 대한 설명이 표시됩니다. 
 
-    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="보안 경고의 미니 세부 정보 보기":::
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="보안 경고의 미니 세부 정보 보기.":::
 
     > [!TIP]
     > 이 측면 창이 열리면 키보드의 위쪽 및 아래쪽 화살표를 사용하여 경고 목록을 빠르게 검토할 수 있습니다.
@@ -66,7 +66,7 @@ Security Center에서 경고를 생성하는 방법에 대한 개요는 [Azure S
 
     오른쪽 창에는 문제를 조사하는 데 도움을 주도록 경고에 대한 자세한 정보를 포함하는 **경고 세부 정보** 탭(IP 주소, 파일, 프로세스 등)이 포함되어 있습니다.
      
-    ![보안 경고에 대해 수행할 작업을 위한 제안 사항](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
+    ![보안 경고와 관련해 수행할 작업의 제안 사항.](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
     또한 오른쪽 창에는 **작업 수행** 탭이 있습니다. 이 탭을 이용해 보안 경고와 관련된 추가 작업을 하세요. 작업은 다음과 같습니다.
     - *위협 완화* - 보안 경고에 대하여 수동으로 수정할 수 있는 단계를 제공합니다.
@@ -74,7 +74,7 @@ Security Center에서 경고를 생성하는 방법에 대한 개요는 [Azure S
     - *자동 응답 트리거* - 보안 경고에 대한 대응으로 논리 앱을 트리거하는 옵션을 제공합니다.
     - 유사한 경고 표시 안 함 - 경고가 조직과 관련이 없는 경우 유사한 특성을 가진 경고는 표시하지 않는 옵션을 제공합니다.
 
-    ![작업 수행 탭](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
+    ![작업 수행 탭.](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
 
 

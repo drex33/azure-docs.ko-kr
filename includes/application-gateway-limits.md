@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 1166585c7291c4fe0d78cbc9540e3f08f985db6c
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 3e2b9ab4eaf794e5cf64861d7c641b82f18b64dc
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107590165"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114201292"
 ---
 | 리소스 | 제한 | 참고 |
 | --- | --- | --- |
@@ -38,9 +38,9 @@ ms.locfileid: "107590165"
 | 동시 WebSocket 연결 |중간 게이트웨이 20,000<sup>2</sup><br> 대형 게이트웨이 50,000<sup>2</sup>| |
 | 최대 URL 길이|32KB| |
 | HTTP/2에 대한 최대 헤더 크기 |16KB| |
-| 최대 파일 업로드 크기, 표준 |2GB | |
-| 최대 파일 업로드 크기 WAF |V1 중간 WAF 게이트웨이, 100MB<br>V1 대형 WAF 게이트웨이, 500MB<br>V2 WAF, 750MB| |
-| WAF 본문 크기 제한(파일 제외)|128KB||
+| 최대 파일 업로드 크기(표준 SKU) |V2 - 4GB<br>V1 - 2GB | |
+| 최대 파일 업로드 크기(WAF SKU) |V1 중형 - 100MB<br>V1 대형 - 500MB<br>V2 - 750MB<br>V2(CRS 3.2 이상 포함) - 4GB| |
+| WAF 본문 크기 제한(파일 없음)|V1 또는 V2(CRS 3.1 이상 포함) - 128KB<br>V2(CRS 3.2 이상 포함) - 2MB| |
 | 최대 WAF 사용자 지정 규칙 수|100||
 | Application Gateway당 최대 WAF 제외 수|40||
 

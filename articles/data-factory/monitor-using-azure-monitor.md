@@ -5,14 +5,15 @@ author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: da0a9b457127400bdeb67c671b2710447b37784e
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 3029f7756d50e509d7bd539dc5fde8de8a075424
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903203"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530554"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Azure Monitor를 사용하여 Data Factory 모니터링 및 경고
 
@@ -438,7 +439,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | Description | 예제 |
+| 속성 | 형식 | 설명 | 예제 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그의 경우 속성 값을 4로 설정합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -484,7 +485,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | Description | 예제 |
+| 속성 | 형식 | 설명 | 예제 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그의 경우 속성 값을 4로 설정합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -527,7 +528,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | Description | 예제 |
+| 속성 | 형식 | 설명 | 예제 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그의 경우 속성 값을 4로 설정합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -564,16 +565,16 @@ SSIS IR 시작/중지/유지 관리 작업의 로그 특성은 다음과 같습�
 }
 ```
 
-| 속성                   | 형식   | Description                                                   | 예제                        |
+| 속성                   | 형식   | 설명                                                   | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간(UTC 형식: `YYYY-MM-DDTHH:MM:SS.00000Z`) | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | SSIS IR 작업의 이름                            | `Start/Stop/Maintenance` |
+| **operationName**          | String | SSIS IR 작업의 이름                            | `Start/Stop/Maintenance/Heartbeat` |
 | **category**               | String | 진단 로그의 범주                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | String | 특정 작업을 추적하기 위한 고유 ID             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
 | **dataFactoryName**        | String | ADF의 이름                                          | `MyADFv2` |
 | **integrationRuntimeName** | String | SSIS IR의 이름                                      | `MySSISIR` |
 | **level**                  | String | 진단 로그의 수준                                  | `Informational` |
-| **resultType**             | String | SSIS IR 작업의 결과                          | `Started/InProgress/Succeeded/Failed` |
+| **resultType**             | String | SSIS IR 작업의 결과                          | `Started/InProgress/Succeeded/Failed/Healthy/Unhealthy` |
 | **message**                | String | SSIS IR 작업의 출력 메시지                  | `The stopping of your SSIS integration runtime has succeeded.` |
 | **resourceId**             | String | ADF 리소스의 고유 ID                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
@@ -604,7 +605,7 @@ SSIS IR에서 SSIS 패키지 실행을 통해 생성되는 이벤트 메시지�
 }
 ```
 
-| 속성                   | 형식   | Description                                                          | 예제                        |
+| 속성                   | 형식   | 설명                                                          | 예제                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간(UTC 형식: `YYYY-MM-DDTHH:MM:SS.00000Z`)        | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | `YourSSISIRName-SSISPackageEventMessageContext`로 설정됩니다.       | `mysqlmissisir-SSISPackageEventMessageContext` |
@@ -654,7 +655,7 @@ SSIS IR에서 SSIS 패키지 실행을 통해 생성되는 이벤트 메시지�
 }
 ```
 
-| 속성                   | 형식   | Description                                                        | 예제                        |
+| 속성                   | 형식   | 설명                                                        | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                   | String | 이벤트 시간(UTC 형식: `YYYY-MM-DDTHH:MM:SS.00000Z`)      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | `YourSSISIRName-SSISPackageEventMessages`로 설정됩니다.           | `mysqlmissisir-SSISPackageEventMessages` |
@@ -703,7 +704,7 @@ SSIS IR에서 SSIS 패키지 실행을 통해 생성되는 실행 파일 통계�
 }
 ```
 
-| 속성                   | 형식   | Description                                                      | 예제                        |
+| 속성                   | 형식   | 설명                                                      | 예제                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간(UTC 형식: `YYYY-MM-DDTHH:MM:SS.00000Z`)    | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | `YourSSISIRName-SSISPackageExecutableStatistics`로 설정됩니다.  | `mysqlmissisir-SSISPackageExecutableStatistics` |
@@ -748,7 +749,7 @@ SSIS IR에서 SSIS 패키지 실행을 통해 생성되는 데이터 흐름 구�
 }
 ```
 
-| 속성                   | 형식   | Description                                                         | 예제                        |
+| 속성                   | 형식   | 설명                                                         | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간(UTC 형식: `YYYY-MM-DDTHH:MM:SS.00000Z`)       | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | `YourSSISIRName-SSISPackageExecutionComponentPhases`로 설정됩니다. | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
@@ -796,7 +797,7 @@ SSIS IR에서 SSIS 패키지 실행을 통해 생성되는 업스트림에서 �
 }
 ```
 
-| 속성                     | 형식   | Description                                                        | 예제                        |
+| 속성                     | 형식   | 설명                                                        | 예제                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                     | String | 이벤트 시간(UTC 형식: `YYYY-MM-DDTHH:MM:SS.00000Z`)      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**            | String | `YourSSISIRName-SSISPackageExecutionDataStatistics`로 설정됩니다. | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
@@ -895,9 +896,20 @@ SSIS 운영 로그 특성/속성에 대한 자세한 내용은 [ADF의 Azure Mon
 
 선택한 SSIS 패키지 실행 로그는 호출 메서드에 관계 없이 항상 Log Analytics로 전송됩니다. 예를 들어, Azure 지원 SSDT에서 패키지 실행은 SSMS, SQL Server 에이전트 또는 기타 지정된 도구의 T-SQL을 통해, ADF 파이프라인에서 SSIS 패키지 실행 활동의 트리거된 실행 또는 디버그 실행으로 호출할 수 있습니다.
 
-Logs Analytics에서 SSIS IR 작업 로그를 쿼리할 때는 각각 `Start/Stop/Maintenance` 및 `Started/InProgress/Succeeded/Failed`로 설정 된 **OperationName** 및 **ResultType** 속성을 사용할 수 있습니다. 
+Logs Analytics에서 SSIS IR 작업 로그를 쿼리할 때는 각각 `Start/Stop/Maintenance/Heartbeat` 및 `Started/InProgress/Succeeded/Failed/Healthy/Unhealthy`로 설정 된 **OperationName** 및 **ResultType** 속성을 사용할 수 있습니다.
 
 ![Log Analytics에서 SSIS IR 작업 로그 쿼리](media/data-factory-monitor-oms/log-analytics-query.png)
+
+SSIS IR 노드 상태를 쿼리하려면 **OperationName** 속성을 `Heartbeat`로 설정하면 됩니다. 각 노드는 일반적으로 상태를 반영하는 **ResultType** 속성을 사용하여 분당 하나의 `Heartbeat` 레코드를 Log Analytics에 보냅니다. 이 속성은 패키지 실행에 사용할 수 있는 경우 `Healthy`이고 그렇지 않은 경우 `Unhealthy`입니다. 예를 들어 SSIS IR에 사용 가능한 노드가 2개 있는 경우 1분 이내에 **ResultType** 속성이 `Healthy`로 설정된 `Heartbeat` 레코드 2개가 항상 표시됩니다.
+
+![Log Analytics에서 SSIS IR 하트비트 쿼리](media/data-factory-monitor-oms/log-analytics-query-3.png)
+
+다음 패턴을 쿼리하여 SSIS IR 노드의 비활성을 검색할 수 있습니다.
+
+* SSIS IR이 아직 실행되고 있는 경우에는 1분 동안 누락된 `Heartbeat` 레코드가 있습니다.
+* SSIS IR이 아직 실행되고 있는 경우에는 1분 동안 **ResultType** 속성이 `Unhealthy`로 설정된 `Heartbeat` 레코드가 있습니다.
+
+위의 쿼리를 [경고](../azure-monitor/alerts/alerts-unified-log.md)로 전환하고 [SSIS IR 모니터링 페이지](monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal)로 이동하여 해당 경고를 받은 시기를 확인할 수 있습니다.
 
 Logs Analytics에서 SSIS 패키지 실행 로그를 쿼리할 때 **OperationId**/**ExecutionId**/**CorrelationId** 속성을 사용하여 조인할 수 있습니다. **OperationId**/**ExecutionId** 는 SSISDB에 저장되지 **않은**/T-SQL을 통해 호출된 패키지와 관련된 모든 작업/실행에 대해 항상 `1`로 설정됩니다.
 

@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에 기본 NGINX 수신 �
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 79267ce3a6a126caa46eb8445551d85c67f7b976
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: cb7ce27f7e4b5816e64898cded2ab9edbd4a3641
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565683"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530698"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 수신 컨트롤러 만들기
 
@@ -18,7 +18,10 @@ ms.locfileid: "111565683"
 
 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 방법을 보여 줍니다. 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
 
-다음도 가능합니다.
+> [!NOTE]
+> Nginx를 기반으로 하는 Kubernetes에는 두 개의 오픈 소스 수신 컨트롤러가 있습니다. 하나는 Kubernetes community([kubernetes/ingress-nginx][nginx-ingress])에 의해 유지 관리되고 하나는 NGINX, Inc.([nginxinc/kubernetes-ingress])에 의해 유지 관리됩니다. 이 문서에서는 Kubernetes 커뮤니티 수신 컨트롤러를 사용합니다. 
+
+또는 다음을 수행할 수 있습니다.
 
 - [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
 - [내부 프라이빗 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]
@@ -31,33 +34,89 @@ ms.locfileid: "111565683"
 
 또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
-## <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
+또한 이 문서에서는 통합 ACR이 있는 기존 AKS 클러스터가 있다고 가정합니다. 통합 ACR을 통해 AKS 클러스터를 만드는 자세한 내용은 [Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증][aks-integrated-acr]을 참조하세요.
+
+## <a name="basic-configuration"></a>기본 구성
+기본값을 사용자 지정하지 않고 간단한 NGINX 수신 컨트롤러를 만들려면 helm을 사용합니다.
+
+```console
+NAMESPACE=ingress-basic
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+
+helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace $NAMESPACE 
+```
+
+위의 구성은 편의상 '기본 제공' 구성을 사용합니다.  필요한 경우 배포를 사용자 지정하기 위한 매개 변수(예: `--set controller.replicaCount=3`)를 추가할 수 있습니다.  다음 섹션에서는 수신 컨트롤러의 고도로 사용자 지정된 예제를 보여 줍니다.
+
+## <a name="customized-configuration"></a>사용자 지정된 구성
+위의 섹션에서 제공하는 기본 구성 대신 다음 단계 세트에서는 사용자 지정 수신 컨트롤러를 배포하는 방법을 보여 줍니다.
+### <a name="import-the-images-used-by-the-helm-chart-into-your-acr"></a>Helm 차트에서 사용하는 이미지를 ACR로 가져오기
+
+이미지 버전을 제어하려면 자신의 Azure Container Registry로 가져와야 합니다.  [NGINX 수신 컨트롤러 Helm 차트][ingress-nginx-helm-chart]는 세 개의 컨테이너 이미지를 사용합니다. `az acr import`를 사용하여 해당 이미지를 ACR로 가져옵니다.
+
+```azurecli
+REGISTRY_NAME=<REGISTRY_NAME>
+CONTROLLER_REGISTRY=k8s.gcr.io
+CONTROLLER_IMAGE=ingress-nginx/controller
+CONTROLLER_TAG=v0.48.1
+PATCH_REGISTRY=docker.io
+PATCH_IMAGE=jettech/kube-webhook-certgen
+PATCH_TAG=v1.5.1
+DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+DEFAULTBACKEND_IMAGE=defaultbackend-amd64
+DEFAULTBACKEND_TAG=1.5
+
+az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+```
+
+> [!NOTE]
+> 컨테이너 이미지를 ACR로 가져오는 것 외에도 Helm 차트를 ACR로 가져올 수도 있습니다. 자세한 내용은 [Azure Container Registry에 Helm 차트 푸시 및 가져오기][acr-helm]를 참조하세요.
+
+### <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 
 수신 컨트롤러를 만들려면 Helm을 사용하여 *nginx-ingress* 를 설치합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
 
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
-> 다음 예제에서는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
-
-> [!TIP]
+> 다음 예제에서는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만들고 해당 네임스페이스 내에서 작동합니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
+>  
 > 클러스터의 컨테이너에 대한 요청에 대해 [클라이언트 원본 IP 유지][client-source-ip]를 사용하도록 설정하려면 `--set controller.service.externalTrafficPolicy=Local`을 Helm 설치 명령에 추가합니다. 클라이언트 원본 IP가 *X-Forwarded-For* 아래 요청 헤더에 저장됩니다. 클라이언트 원본 IP 유지를 사용하는 수신 컨트롤러를 사용하는 경우 SSL 통과는 작동하지 않습니다.
 
 ```console
-# Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
+# Set the namespace to be used 
+NAMESPACE=ingress-basic
 
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
+# Set variable for ACR location to use for pulling images
+ACR_URL=<REGISTRY_URL>
+
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
+    --create-namespace --namespace $NAMESPACE \
     --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.image.registry=$ACR_URL \
+    --set controller.image.image=$CONTROLLER_IMAGE \
+    --set controller.image.tag=$CONTROLLER_TAG \
+     --set controller.image.digest="" \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
+    --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
+    --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+    --set defaultBackend.image.registry=$ACR_URL \
+    --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
 ```
+
+## <a name="check-the-load-balancer-service"></a>부하 분산 장치 서비스 확인
 
 NGINX 수신 컨트롤러에 대해 Kubernetes 부하 분산 장치 서비스를 만든 경우 다음 예제 출력에 표시된 대로 동적 공용 IP 주소를 할당합니다.
 
@@ -68,7 +127,7 @@ NAME                                     TYPE           CLUSTER-IP    EXTERNAL-I
 nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
-아직 수신 규칙이 만들어지지 않았으므로 내부 IP 주소를 검색하면 NGINX 수신 컨트롤러의 기본 404 페이지가 표시됩니다. 수신 규칙은 다음 단계에서 구성됩니다.
+아직 수신 규칙이 만들어지지 않았으므로 외부 IP 주소를 검색하면 NGINX 수신 컨트롤러의 기본 404 페이지가 표시됩니다. 수신 규칙은 다음 단계에서 구성됩니다.
 
 ## <a name="run-demo-applications"></a>데모 애플리케이션 실행
 
@@ -310,6 +369,8 @@ kubectl delete namespace ingress-basic
 [helm]: https://helm.sh/
 [helm-cli]: ./kubernetes-helm.md
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
+[nginxinc/kubernetes-ingress]: https://github.com/nginxinc/kubernetes-ingress
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
@@ -321,3 +382,5 @@ kubectl delete namespace ingress-basic
 [aks-ingress-own-tls]: ingress-own-tls.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [aks-supported versions]: supported-kubernetes-versions.md
+[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
+[acr-helm]: ../container-registry/container-registry-helm-repos.md

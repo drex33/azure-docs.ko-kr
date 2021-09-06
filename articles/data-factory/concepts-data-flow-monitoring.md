@@ -1,24 +1,28 @@
 ---
 title: 매핑 데이터 흐름 모니터링
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory에서 매핑 데이터 흐름을 시각적으로 모니터링하는 방법
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/11/2021
-ms.openlocfilehash: 18481a24bb9e8d5624cb52c9b02833204d4f403d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.custom: synapse
+ms.date: 06/18/2021
+ms.openlocfilehash: b64ed4b59c2aba13640dec2f19dfa4e42696ce59
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112076607"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642974"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-데이터 흐름 빌드 및 디버그를 완료한 후에는 파이프라인의 컨텍스트 내에서 일정에 따라 실행되도록 데이터 흐름을 예약하는 것이 좋습니다. 트리거를 사용하여 Azure Data Factory에서 파이프라인을 예약할 수 있습니다. 또는 Azure Data Factory 파이프라인 작성기에서 지금 트리거 옵션을 사용하여 단일 실행을 수행하여 파이프라인 컨텍스트 내에서 데이터 흐름을 테스트할 수 있습니다.
+데이터 흐름 빌드 및 디버그를 완료한 후에는 파이프라인의 컨텍스트 내에서 일정에 따라 실행되도록 데이터 흐름을 예약하는 것이 좋습니다. 트리거를 사용하여 Azure Data Factory에서 파이프라인을 예약할 수 있습니다. 파이프라인에서 데이터 흐름을 테스트하고 디버깅하려면, Azure Data Factory 파이프라인 작성기에서 도구 모음 리본 또는 지금 트리거 옵션에 있는 디버그 단추를 사용하여 단일 실행을 수행함으로써 파이프라인 컨텍스트 내 데이터 흐름을 테스트하면 됩니다.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4P5pV]
 
 파이프라인을 실행할 때 Data Flow 작업을 비롯하여 파이프라인에 포함된 모든 작업과 파이프라인을 모니터링할 수 있습니다. 왼쪽 Azure Data Factory UI 패널에서 모니터 아이콘을 클릭합니다. 아래와 비슷한 화면이 표시됩니다. 강조 표시된 아이콘을 사용하면 Data Flow 작업을 비롯한 파이프라인의 작업을 드릴할 수 있습니다.
 
@@ -28,7 +32,7 @@ ms.locfileid: "112076607"
 
 ![스크린샷은 데이터 흐름 실행의 세부 정보를 볼 수 있는 안경 아이콘을 보여 줍니다.](media/data-flow/monitoring-details.png "Data Flow 모니터링")
 
-그래픽 노드 모니터링 보기에서는 데이터 흐름 그래프의 간소화된 보기 전용 버전을 볼 수 있습니다.
+그래픽 노드 모니터링 보기에서는 데이터 흐름 그래프의 간소화된 보기 전용 버전을 볼 수 있습니다. 변환 단계 레이블이 포함된 더 큰 그래프 노드를 사용하여 세부 정보 보기를 확인하려면 캔버스 오른쪽에 있는 확대/축소 슬라이더를 사용합니다. 오른쪽 검색 단추를 사용하여 그래프에서 데이터 흐름 논리의 일부를 찾을 수도 있습니다.
 
 ![스크린샷은 그래프의 보기 전용 버전을 보여 줍니다.](media/data-flow/mon003.png "Data Flow 모니터링")
 
@@ -41,6 +45,12 @@ Data Flow가 Spark에서 실행되는 경우 Azure Data Factory는 전체 데이
 * 모니터링 창에서 열린 공간을 선택하면 맨 아래 창의 통계에 변환 계보에 대한 싱크 데이터가 발생한 변환과 각 싱크의 타이밍 및 행 개수가 표시됩니다.
 
 * 개별 변환을 선택하면 파티션 통계, 열 개수, 왜도(파티션 간에 데이터가 균일하게 분산된 정도) 및 첨도(데이터 급증 정도)를 보여 주는 추가 피드백이 오른쪽 패널에 수신됩니다.
+
+* *처리 시간* 을 기준으로 정렬하면 가장 많은 시간이 소요되는 데이터 흐름의 단계를 식별하는 데 도움이 됩니다.
+
+* 각 단계 내에서 가장 많은 시간이 소요되는 변환 작업을 확인하려면 *최고 처리 시간* 을 기준으로 정렬합니다.
+
+* 또한 *작성된 행* 은 데이터 흐름 내에서 가장 많은 데이터를 작성하는 스트림을 식별하는 방법으로 정렬할 수 있습니다.
 
 * 노드 보기에서 싱크를 선택하면 열 계보를 볼 수 있습니다. 데이터 흐름 전체의 열이 누적되어 싱크에 배치되는 세 가지 방법이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 

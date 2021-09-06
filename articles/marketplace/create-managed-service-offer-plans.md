@@ -1,23 +1,23 @@
 ---
-title: Azure Marketplace에서 관리형 서비스 제품 플랜을 만드는 방법
-description: Microsoft Partner Center를 사용하여 Azure Marketplace에서 관리형 서비스 제품 플랜을 만드는 방법에 대해 알아봅니다.
+title: Azure Marketplace에서 관리되는 서비스 제품 플랜 만들기
+description: Azure Marketplace에서 관리되는 서비스 제품 플랜을 만듭니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
-ms.openlocfilehash: a20571e411b2849c3487582a9c316f0f0b35c91d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.date: 07/12/2021
+ms.openlocfilehash: 4443492d19c09100433bf326f197c9405fa11d8e
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790940"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204468"
 ---
-# <a name="how-to-create-plans-for-your-managed-service-offer"></a>관리형 서비스 제품 플랜을 만드는 방법
+# <a name="create-plans-for-a-managed-service-offer"></a>관리되는 서비스 제품 플랜 만들기
 
-Microsoft 상용 마켓플레이스를 통해 판매되는 관리형 서비스 제품에는 하나 이상의 플랜이 있어야 합니다. 동일한 제품 내에서 다양한 옵션을 사용하여 다양한 플랜을 만들 수 있습니다. 해당 플랜(SKU라고도 함)은 버전, 수익 창출 또는 서비스 계층 측면에서 다를 수 있습니다. 플랜에 대한 자세한 참고 자료는 [상용 마켓플레이스 제품에 대한 플랜 및 가격 책정](./plans-pricing.md)을 참조하세요.
+Microsoft 상용 마켓플레이스를 통해 판매되는 관리형 서비스 제품에는 하나 이상의 플랜이 있어야 합니다. 동일한 제품 내에서 다양한 옵션을 사용하여 다양한 플랜을 만들 수 있습니다. 이러한 플랜(SKU라고도 함)은 버전, 수익 창출 또는 서비스 계층 측면에서 다를 수 있습니다. 플랜에 대한 자세한 참고 자료는 [상용 마켓플레이스 제품에 대한 플랜 및 가격 책정](./plans-pricing.md)을 참조하세요.
 
 ## <a name="create-a-plan"></a>계획 만들기
 
@@ -100,24 +100,31 @@ Azure 구독 ID를 사용하여 프라이빗 플랜에 대한 액세스 권한�
 플랜마다 최대 20개의 권한 부여를 만들 수 있습니다.
 
 > [!TIP]
-> 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 역할을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다. Azure AD 그룹에 역할을 할당할 때는 [그룹 유형이 Office 365가 아닌 Security이어야 합니다.](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) 추가 권장 사항은 [Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자](../lighthouse/concepts/tenants-users-roles.md)를 참조하세요.
+> 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 역할을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다. Azure AD 그룹에 역할을 할당할 때는 [그룹 유형](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)이 Office 365가 아닌 Security이어야 합니다. 추가 권장 사항은 [Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자](../lighthouse/concepts/tenants-users-roles.md)를 참조하세요.
 
-각 권한 부여에 대해 다음을 제공해야 합니다. 그런 다음, 사용자 및 역할 정의를 더 추가하는 데 필요한 횟수만큼 **+ 권한 부여 추가** 를 선택할 수 있습니다.
+각 **권한 부여** 에 대해 다음 정보를 제공합니다. 사용자 및 역할 정의를 더 추가하는 데 필요한 만큼 **+ 권한 부여 추가** 를 선택합니다.
 
-* **AAD 개체 ID**: 고객의 리소스에 대한 특정 권한(역할 정의에 정의됨)을 부여할 사용자, 사용자 그룹 또는 애플리케이션의 Azure AD 식별자입니다.
-* **AAD 개체 표시 이름**: 고객이 이 권한 부여의 용도를 이해하는 데 도움이 되는 친숙한 이름입니다. 리소스를 위임할 때 고객에게 이 이름이 표시됩니다.
-* **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택합니다. 이 역할은 **주체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 해당 역할에 대한 설명은 [기본 제공 역할](../role-based-access-control/built-in-roles.md) 및 [Azure Lighthouse에 대한 역할 지원](../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse)을 참조하세요.
-
-> [!NOTE]
-> 적용 가능한 신규 기본 제공 역할이 Azure에 추가되면 해당 역할을 여기에서 사용할 수 있게 됩니다. 표시되기까지 약간의 지연이 있을 수 있습니다.
-
-* **할당 가능한 역할**: 이 옵션은 이 권한 부여의 **역할 정의** 에서 사용자 액세스 관리자를 선택한 경우에만 나타납니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 해당 역할을 수정할 수 있는 정책을 배포하는 데 필요한 [관리형 ID](../lighthouse/how-to/deploy-policy-remediation.md)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다.
+- **표시 이름**: 고객이 이 권한 부여의 용도를 이해하는 데 도움이 되는 친숙한 이름입니다. 리소스를 위임할 때 고객에게 이 이름이 표시됩니다.
+- **보안 주체 ID**: 고객의 리소스에 대한 특정 권한(지정된 **역할** 에 의해 정의됨)을 부여할 사용자, 사용자 그룹 또는 서비스 주체의 Azure AD 식별자입니다.
+- **액세스 유형**:
+  - **활성** 권한 부여에는 항상 역할에 할당된 권한이 있습니다. 각 계획에는 하나 이상의 활성 권한 부여가 있어야 합니다.
+  - **적격** 권한 부여는 시간이 제한되며 사용자의 활성화가 필요합니다.  **적격** 을 선택하는 경우 사용자가 활성화된 후 적격 역할을 보유하는 총 시간을 정의하는 최대 기간을 선택해야 합니다. 최솟값은 30분이고 최댓값은 8시간입니다. 또한 역할을 활성화하기 위해 다단계 인증을 요구할지 여부를 선택할 수도 있습니다. 적격 권한 부여는 현재 공개 미리 보기 상태이며 특정 라이선스 요구 사항이 있습니다. 자세한 내용은 [적격 권한 부여 만들기](../lighthouse/how-to/create-eligible-authorizations.md)를 참조하세요.
+- **역할**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택합니다. 이 역할은 **주체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 해당 역할에 대한 설명은 [기본 제공 역할](../role-based-access-control/built-in-roles.md) 및 [Azure Lighthouse에 대한 역할 지원](../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse)을 참조하세요.
+  > [!NOTE]
+  > 적용 가능한 신규 기본 제공 역할이 Azure에 추가되면 여기에서 사용할 수 있게 됩니다. 다만, 약간의 지연이 있을 수 있습니다.
+- **할당 가능한 역할**: 이 옵션은 이 권한 부여의 **역할 정의** 에서 사용자 액세스 관리자를 선택한 경우에만 나타납니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 역할을 [수정할 수 있는 정책을 배포](../lighthouse/how-to/deploy-policy-remediation.md)하는 데 필요한 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다.
+- **승인자**: 이 옵션은 **액세스 유형** 이 **적격** 으로 설정된 경우에만 나타납니다. 그렇다면 [사용자의 요청을 승인하거나 거부하여 적격 역할을 활성화](../lighthouse/how-to/create-eligible-authorizations.md#approvers)할 수 있는 사용자 또는 사용자 그룹의 목록을 선택적으로 지정할 수 있습니다. 승인이 요청되고 부여된 경우 승인자에게 알림이 제공됩니다. 제공된 항목이 없으면 권한 부여가 자동으로 활성화됩니다.
 
 > [!TIP]
 > 필요한 경우 [위임에 대한 액세스 권한을 제거](../lighthouse/how-to/remove-delegation.md)할 수 있도록 **역할 정의** 가 [관리형 서비스 등록 할당 삭제 역할](../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)로 설정된 **권한 부여** 를 포함합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
 
-플랜의 모든 섹션을 작성한 후에는 필요한 횟수만큼 **+ 새 플랜 만들기** 를 선택하여 플랜을 추가로 만들 수 있습니다. 완료되면 계속하기 전에 **초안 저장** 을 선택합니다.
+플랜의 모든 섹션을 작성한 후에는 **+ 새 플랜 만들기** 를 선택하여 플랜을 추가로 만들 수 있습니다. 완료되면 **초안 저장** 을 선택합니다. 플랜을 만든 후에는 창의 맨 위에 있는 이동 경로 트레일에서 **플랜** 을 선택하여 제품의 왼쪽 탐색 메뉴로 돌아갑니다.
+
+## <a name="updating-an-offer"></a>제품 업데이트
+
+제품을 게시한 후 언제든지 [제품의 업데이트된 버전을 게시](update-existing-offer.md)할 수 있습니다. 예를 들어 이전에 게시된 제품에 새 역할 정의를 추가하려고 할 수 있습니다. 이렇게 하면 제품을 이미 추가한 고객은 Azure Portal의 [**서비스 공급자**](../lighthouse/how-to/view-manage-service-providers.md) 페이지에 업데이트를 사용할 수 있음을 알려 주는 아이콘이 표시됩니다. 각 고객은 변경 내용을 검토하고 새 버전으로 업데이트할지 여부를 결정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [검토 및 게시](review-publish-offer.md)
+- 플랜 설정을 종료하고 선택 사항인 [Microsoft와 공동 판매](./co-sell-overview.md)를 계속합니다. 또는
+- [제품 검토 및 게시](review-publish-offer.md)

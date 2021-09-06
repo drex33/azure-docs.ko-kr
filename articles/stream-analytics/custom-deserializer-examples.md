@@ -5,16 +5,16 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/12/2021
+ms.date: 6/16/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 17dd8ec7a7fcd14d9f72a016a2208e7e37be2f36
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d66879a4f3aac37bb08cfcf916c0cb44027c3729
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950004"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295456"
 ---
-# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>.NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기
+# <a name="read-input-in-any-format-using-net-custom-deserializers-preview"></a>.NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기(미리 보기)
 
 .NET 사용자 지정 역직렬 변환기를 사용하면 Azure Stream Analytics 작업에서 세 가지 [기본 제공 데이터 형식](stream-analytics-parsing-json.md)의 외부 형식으로 데이터를 읽을 수 있습니다. 이 문서에서는 Azure Stream Analytics 클라우드 및 에지 작업에 대한 .NET 사용자 지정 역직렬 변환기를 정의하는 인터페이스 및 직렬화 형식에 대해 설명합니다. 프로토콜 버퍼 및 CSV 형식에 대한 역직렬 변환기 예도 있습니다.
 

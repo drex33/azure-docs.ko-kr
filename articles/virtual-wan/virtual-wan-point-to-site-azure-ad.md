@@ -1,21 +1,22 @@
 ---
-title: '사용자 VPN 연결에 대한 Azure AD 인증 구성: Virtual WAN'
+title: Azure Active Directory 인증을 이용하여 사용자 VPN 연결 구성
+titleSuffix: Azure Virtual WAN
 description: Virtual WAN 사용자 VPN(지점-사이트)에 대해 Azure Active Directory 인증을 구성하는 방법에 대해 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 10/14/2020
-ms.author: alzam
+ms.date: 08/19/2021
+ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 59b93327aae8a400b4d1ab6c9ea3f67e5bd9dd03
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6b1390890b07a5f3dc0493a4e0164a7a53ab143e
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110703369"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597591"
 ---
-# <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>사용자 VPN에 대한 Azure Active Directory 인증 구성
+# <a name="configure-a-user-vpn-connection---azure-active-directory-authentication"></a>사용자 VPN 연결 구성 - Azure Active Directory 인증
 
 이 문서에서는 OpenVPN VPN 연결을 통해 Azure에서 리소스에 연결하도록 Virtual WAN의 사용자 VPN에 대한 Azure AD 인증을 구성하는 방법을 보여 줍니다. Azure Active Directory 인증은 OpenVPN 프로토콜을 사용하는 게이트웨이와 Windows를 실행하는 클라이언트에서만 사용할 수 있습니다.
 

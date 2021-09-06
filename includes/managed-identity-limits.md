@@ -6,20 +6,27 @@ author: daveba
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: include
-ms.date: 05/31/2018
+ms.date: 07/13/2021
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 6e5885e076222cd23ba127f3be41c1218f327ca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ea469c4d549d968745f08a5eff341bbc650854e
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92379744"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "114200994"
 ---
 - 각 관리 ID는 [Azure AD 서비스 한도 및 제한 사항](../articles/active-directory/enterprise-users/directory-service-limits-restrictions.md)에 설명된 대로 Azure AD 테넌트의 개체 할당량 한도 계산에 포함됩니다.
 -   관리 ID를 만들 수 있는 속도에는 다음과 같은 한도가 있습니다.
 
-    1. Azure 지역별 Azure AD 테넌트당: 20초당 200개의 만들기 작업
-    2. Azure 지역별 Azure 구독당: 20초당 40개의 만들기 작업
+    1. Azure 지역별 Azure AD 테넌트당: 20초당 작업 400개 만들기
+    2. Azure 지역별 Azure 구독당: 20초당 작업 80개 만들기
 
-- 사용자 할당 관리 ID를 만드는 경우, 영숫자 문자(0-9, a-z, A-Z) 및 하이픈(-)만 지원됩니다. 가상 머신 또는 가상 머신 확장 집합에 대한 할당이 제대로 작동하려면 이름이 24자로 제한됩니다.
+-   사용자가 할당한 관리 ID가 Azure 리소스와 함께 할당될 수 있는 속도입니다.
+
+    1. Azure 지역별 Azure AD 테넌트당: 20초당 작업 400개 할당
+    2. Azure 지역별 Azure 구독당: 20초당 작업 300개 할당
+
+
+
+

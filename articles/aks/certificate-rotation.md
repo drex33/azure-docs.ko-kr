@@ -3,13 +3,13 @@ title: AKS(Azure Kubernetes Service)에서 인증서 회전
 description: AKS(Azure Kubernetes Service) 클러스터에서 인증서를 회전하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 11/15/2019
-ms.openlocfilehash: b3ab6074dcbf79df8b2b0ff3369b94006343a2a6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 7/13/2021
+ms.openlocfilehash: ea488e281e52949eeb53fdeffb1dc26afb5a9b5e
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089869"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537507"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 인증서 회전
 
@@ -33,17 +33,32 @@ AKS는 다음 인증서, 인증 기관, 서비스 계정을 생성하고 사용�
 * `kubectl` 클라이언트는 AKS 클러스터와 통신하기 위한 인증서를 가지고 있습니다.
 
 > [!NOTE]
-> 2019년 3월 이전에 생성된 AKS 클러스터에는 2년 후에 만료되는 인증서가 있습니다. 2019년 3월 이후에 생성된 클러스터 또는 인증서가 회전된 클러스터에는 30년 후에 만료되는 클러스터 CA 인증서가 있습니다. 그 밖의 모든 인증서는 2년 후에 만료됩니다. 클러스터가 생성된 시기를 확인하려면 `kubectl get nodes`를 사용하여 노드 풀의 ‘사용 기간’을 확인하세요.
+> 2019년 5월 이전에 생성된 AKS 클러스터에는 2년 후에 만료되는 인증서가 있습니다. 2019년 5월 이후에 생성된 클러스터 또는 인증서가 회전된 클러스터에는 30년 후에 만료되는 클러스터 CA 인증서가 있습니다. 서명에 클러스터 CA를 사용하는 다른 모든 AKS 인증서는 2년 후에 만료되며 AKS 버전 업그레이드 중에 자동으로 순환됩니다. 클러스터가 생성된 시기를 확인하려면 `kubectl get nodes`를 사용하여 노드 풀의 ‘사용 기간’을 확인하세요.
 > 
-> 또한 클러스터 인증서의 만료 날짜를 확인할 수 있습니다. 예를 들어 다음 Bash 명령은 *myAKSCluster* 클러스터에 대한 인증서 세부 정보를 표시합니다.
+> 또한 클러스터 인증서의 만료 날짜를 확인할 수 있습니다. 예를 들어 다음 bash 명령은 리소스 그룹 *rg* 의 *myAKSCluster* 클러스터에 대한 클라이언트 인증서 세부 정보를 표시합니다.
 > ```console
-> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
+> kubectl config view --raw -o jsonpath="{.users[?(@.name == 'clusterUser_rg_myAKSCluster')].user.client-certificate-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
+
+* apiserver 인증서의 만료 날짜 확인
+```console
+curl https://{apiserver-fqdn} -k -v 2>&1 |grep expire
+```
+
+* VMAS 에이전트 노드에 있는 인증서의 만료 날짜 확인
+```console
+az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+```
+
+* 하나의 VMSS 에이전트 노드에 있는 인증서의 만료 날짜 확인
+```console
+az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+```
 
 ## <a name="rotate-your-cluster-certificates"></a>클러스터 인증서 회전
 
 > [!WARNING]
-> `az aks rotate-certs`를 사용하여 인증서를 회전하면 AKS 클러스터가 최대 30분 동안 가동 중지될 수 있습니다.
+> `az aks rotate-certs`를 사용하여 인증서를 회전하면 모든 노드가 다시 생성되고 AKS 클러스터가 최대 30분 동안 가동 중지될 수 있습니다.
 
 AKS 클러스터에 로그인하려면 [az aks get-credentials][az-aks-get-credentials]를 사용합니다. 또한 이 명령은 로컬 머신에서 `kubectl` 클라이언트 인증서를 다운로드하고 구성합니다.
 

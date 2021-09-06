@@ -3,12 +3,12 @@ title: Azure Functions에서 지원되는 언어
 description: 지원되는 언어(GA)와 미리 보기에 있는 언어 및 Functions 개발을 다른 언어로 확장하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02a416fa669cd71702e991c79677575bd4563bfb
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98108554"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113493251"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions에서 지원되는 언어
 
@@ -26,6 +26,14 @@ ms.locfileid: "98108554"
 [세 가지 버전의 Azure Functions 런타임](functions-versions.md)을 사용할 수 있습니다. 다음 표는 각 런타임 버전에서 지원되는 언어를 나타냅니다.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
+
+### <a name="language-major-version-support"></a>언어 주 버전 지원
+
+Azure Functions는 지원되는 프로그래밍 언어의 주요 버전에 대한 지원을 보장합니다. 대부분의 언어의 경우 지원되는 주 버전을 업데이트하기 위해 부 버전 또는 패치 버전이 출시되었습니다. 부 버전 또는 패치 버전의 예로는 Python 3.9.1 및 Node 14.17이 있습니다. 지원되는 언어의 새로운 부 버전을 사용할 수 있게 되면 함수 앱에서 사용하는 부 버전이 이러한 최신 부 버전 또는 패치 버전으로 자동 업그레이드됩니다. 
+
+> [!NOTE]
+>Azure Functions는 새로운 부 버전을 사용할 수 있게 되면 언제든지 이전 부 버전의 지원을 제거할 수 있으므로 함수 앱을 프로그래밍 언어의 특정 부/패치 버전에 고정하지 않아야 합니다.  
+>
 
 ## <a name="custom-handlers"></a>사용자 지정 처리기
 

@@ -4,15 +4,16 @@ description: 이러한 샘플 쿼리를 사용하여 Microsoft 상용 마켓플�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
-ms.openlocfilehash: 7d788448fb3f8a849f79e43fcb0737898f4c9e15
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 8/06/2021
+ms.openlocfilehash: ac276f495ac2a5eb3bee6ac0f682185cf8424611
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102584011"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567258"
 ---
 # <a name="sample-queries-for-programmatic-analytics"></a>프로그래밍 분석에 대한 샘플 쿼리
 
@@ -62,6 +63,8 @@ ms.locfileid: "102584011"
 | 최근 6개월의 특정 제품에 대한 주문 보고서 | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OfferName = ‘Example Offer Name’ TIMESPAN LAST_6_MONTHS` |
 | 최근 6개월의 활성 주문의 주문 보고서 | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Active’ TIMESPAN LAST_6_MONTHS` |
 | 지난 6개월의 취소된 주문에 대한 주문 보고서 | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Cancelled’ TIMESPAN LAST_6_MONTHS` |
+| 기간 시작, 기간 종료 날짜 및 예상 요금, 통화가 포함된 주문 보고서 | `SELECT OrderId, TermStartId, TermEndId, estimatedcharges from ISVOrderV2 WHERE OrderStatus = ‘Active’ TIMESPAN LAST_6_MONTHS` |
+| 최근 6개월 동안 활성화된 평가판 주문에 대한 주문 보고서 | `SELECT OrderId from ISVOrderV2 WHERE OrderStatus = ‘Active’ and HasTrial = ‘True’ TIMESPAN LAST_6_MONTHS` |
 |||
 
 ## <a name="next-steps"></a>다음 단계

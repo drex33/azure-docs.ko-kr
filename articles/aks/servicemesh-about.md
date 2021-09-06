@@ -1,16 +1,16 @@
 ---
 title: 서비스 메시 정보
-description: 서비스 메시, 아키텍처 및 기능에 대한 개요 및 배포하기 위한 것을 선택할 때 고려해야 하는 조건을 파악합니다.
-author: paulbouwer
+description: 서비스 메시, 지원되는 시나리오, 선택 조건 및 살펴볼 다음 단계에 대한 개요를 가져옵니다.
+author: pgibson
 ms.topic: article
-ms.date: 10/09/2019
-ms.author: pabouwer
-ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/29/2021
+ms.author: pgibson
+ms.openlocfilehash: b77ee6fb25f45b365003850627276c0ecd47c7b5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77594314"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528941"
 ---
 # <a name="about-service-meshes"></a>서비스 메시 정보
 
@@ -28,48 +28,9 @@ ms.locfileid: "77594314"
 
 - **관찰성** -서비스가 그 사이 흘러가는 트래픽에 서로 연결되는 방법에 대한 통찰력을 얻습니다. 클러스터의 모든 트래픽과 수신/송신에 대한 메트릭, 로그 및 추적을 얻습니다. 애플리케이션에 분산 추적 기능을 추가합니다.
 
-## <a name="architecture"></a>Architecture
-
-서비스 메시는 일반적으로 제어 평면과 데이터 평면으로 구성됩니다.
-
-**제어 평면** 에는 서비스 메시 관리를 지원하는 많은 구성 요소가 있습니다. 일반적으로 UI 또는 API일 수 있는 관리 인터페이스를 포함합니다. 일반적으로 서비스 메시가 특정 기능을 구현하는 방법을 정의하는 규칙 및 정책 정의를 관리하는 구성 요소도 있습니다. mTLS에 대한 강력한 ID 및 인증서와 같은 보안 측면을 관리하는 구성 요소도 있습니다. 서비스 메시에는 일반적으로 워크로드에서 메트릭 및 원격 분석을 수집하고 집계하는 메트릭 또는 관찰성 구성 요소도 있습니다.
-
-**데이터 평면** 은 일반적으로 워크로드에 사이드카로 투명하게 주입되는 프록시로 구성됩니다. 이 프록시는 워크로드가 포함된 Pod로 송수신되는 네트워크 트래픽을 제어하도록 구성됩니다. 이렇게 하면 mTLS를 통해 트래픽을 보호하고, 트래픽을 동적으로 라우팅하고, 트래픽에 정책을 적용하고, 메트릭 및 추적 정보를 수집하도록 프록시를 구성할 수 있습니다. 
-
-![일반적인 서비스 메시 아키텍처](media/servicemesh/typical-architecture.png)
-
-## <a name="capabilities"></a>기능
-
-각 서비스 메시는 자연스럽게 적합하며 특정 시나리오를 지원하는 데 중점을 두지만, 일반적으로 대부분의 경우 다음과 같은 기능을 모두 구현하지는 못할 것입니다.
-
-### <a name="traffic-management"></a>트래픽 관리 
-
-- **프로토콜** – 계층 7(http, grpc)
-- **동적 라우팅** – 조건부, 가중치, 미러링
-- **복원력** – 시간 제한, 재시도, 회로 차단기
-- **정책** – 액세스 제어, 속도 제한, 할당량
-- **테스트** - 오류 주입
-
-### <a name="security"></a>보안
-
-- **암호화** – mTLS, 인증서 관리, 외부 CA
-- **강력한 ID** – SPIFFE 또는 이와 유사
-- **인증** – 인증, 허가
-
-### <a name="observability"></a>가시성
-
-- **메트릭** – 골든 메트릭, prometheus, grafana
-- **추적** - 워크로드 간 추적
-- **트래픽** – 클러스터, 수신/송신
-
-### <a name="mesh"></a>메시
-
-- **지원되는 컴퓨팅** - Kubernetes, 가상 머신
-- **다중 클러스터** - 게이트웨이, 페더레이션
-
 ## <a name="selection-criteria"></a>선택 조건
 
-서비스 메시를 선택하기 전에 요구 사항 및 서비스 메시를 설치하는 이유를 이해해야 합니다. 다음 질문을 해 보세요.
+서비스 메시를 선택하기 전에 요구 사항 및 서비스 메시를 설치하는 이유를 이해해야 합니다. 다음과 같은 질문을 해 보세요.
 
 - **수신 컨트롤러는 사용자의 요구에 충분한가요?** -때때로 a/b 테스트 또는 트래픽 분할과 같은 기능이 요구되는 시나리오를 지원하기에 충분한 경우도 있습니다. 무턱대고 사용자 환경에 복잡성을 추가하지 마세요.
 
@@ -79,41 +40,38 @@ ms.locfileid: "77594314"
 
 - **이는 증분 방식으로 채택될 수 있나요?** - 많은 기능을 제공하는 일부 서비스 메시는 더 큰 증분 방식으로 채택될 수 있습니다. 성공 여부를 확인하는 데 필요한 구성 요소만 설치합니다. 더 확신이 들고 추가적인 기능이 필요한 경우 해당 기능을 탐색합니다. 처음부터 *모든 항목* 을 설치하는 것은 시급하지 않습니다.
 
-신중하게 고려한 후에 필요한 기능을 제공하는 서비스 메시가 필요하다고 판단되면, 다음 결정 사항은 *어떤 서비스 메시입니까?*
-
-다음 영역을 고려하여 요구 사항에 가장 부합하는 것들을 고려합니다. 이를 통해 사용자 환경 및 워크로드에 가장 적합하도록 안내합니다. [다음 단계](#next-steps) 섹션에서는 특정 서비스 메시 및 이러한 영역에 매핑되는 방법에 대한 자세한 정보를 확인할 수 있습니다.
-
-- **기술적** - 트래픽 관리, 정책, 보안, 관찰 가능성
-
-- **비즈니스** - 상용 지원, 기반(CNCF), OSS 라이선스, 거버넌스
-
-- **운영적** – 설치/업그레이드, 리소스 요구 사항, 성능 요구 사항, 통합(메트릭, 원격 분석, 대시보드, 도구, SMI), 혼합 워크로드(Linux 및 Windows 노드 풀), 컴퓨팅(Kubernetes, 가상 머신), 다중 클러스터
-
-- **보안** - 인증, ID, 인증서 관리 및 순환, 플러그형 외부 CA
-
-
 ## <a name="next-steps"></a>다음 단계
 
-다음 설명서에서는 Azure Kubernetes Service (AKS)에서 사용해볼 수 있는 서비스 메시에 대한 자세한 정보를 제공합니다.
+다음 단계로, AKS(Azure Kubernetes Service)에서 OSM(Open Service Mesh)을 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [Istio에 대한 추가 정보...][istio-about]
+> [OSM에 대해 자세히 알아보기 ...][osm-about]
 
-> [!div class="nextstepaction"]
-> [Linkerd에 대한 추가 정보...][linkerd-about]
+각 항목에 대해 사용할 수 있는 포괄적인 프로젝트 설명서를 통해 AKS(Azure Kubernetes Service)에서 다음과 같은 서비스 메시를 탐색할 수도 있습니다.
 
-> [!div class="nextstepaction"]
-> [Consul에 대한 추가 정보...][consul-about]
+- [Istio][istio]
+- [linkerd][linkerd]
+- [Consul 연결][consul]
 
-Kubernetes의 서비스 메시에 대한 표준 인터페이스인 서비스 메시 인터페이스 (SMI)를 탐색할 수도 있습니다.
+서비스 메시 가로, 사용 가능한 다양한 서비스 메시, 도구 및 규정 준수 세트에 대해 자세히 알아보려면 다음을 탐색하세요.
+
+- [레이어 5의 서비스 메시 가로][service-mesh-landscape]
+
+다양한 서비스 메시 표준화 작업을 탐색할 수도 있습니다.
 
 - [서비스 메시 인터페이스 (SMI)][smi]
+- [서비스 메시 페더레이션][smf]
+- [SMP(서비스 메시 성능)][smp]
 
 
 <!-- LINKS - external -->
+[istio]: https://istio.io/latest/docs/setup/install/
+[linkerd]: https://linkerd.io/getting-started/
+[consul]: https://learn.hashicorp.com/tutorials/consul/service-mesh-deploy
+[service-mesh-landscape]: https://layer5.io/service-mesh-landscape
 [smi]: https://smi-spec.io/
+[smf]: https://github.com/vmware/hamlet
+[smp]: https://github.com/service-mesh-performance/service-mesh-performance
 
 <!-- LINKS - internal -->
-[istio-about]: ./servicemesh-istio-about.md
-[linkerd-about]: ./servicemesh-linkerd-about.md
-[consul-about]: ./servicemesh-consul-about.md
+[osm-about]: ./servicemesh-osm-about.md

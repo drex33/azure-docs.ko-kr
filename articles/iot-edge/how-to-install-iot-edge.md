@@ -2,19 +2,18 @@
 title: Azure IoT Edge 설치 | Microsoft Docs
 description: Windows 또는 Linux 디바이스용 Azure IoT Edge 설치 지침
 author: kgremban
-manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 06/28/2021
 ms.author: kgremban
-ms.openlocfilehash: 39e165d862d6e174f763cd58529727fd26b8bd46
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0f0cf8f4ce8f82964a69635debacea772c4310da
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311076"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529368"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Linux용 Azure IoT Edge 설치 또는 제거
 
@@ -113,25 +112,14 @@ IoT Edge 보안 디먼은 IoT Edge 디바이스에서 보안 표준을 제공하
    sudo apt-get update
    ```
 
-사용할 수 있는 IoT Edge 버전을 확인합니다.
-
-   ```bash
-   apt list -a iotedge
-   ```
-
-최신 버전의 보안 디먼을 설치하려는 경우 다음 명령을 사용하여 최신 버전의 **libiothsm-std** 패키지를 설치합니다.
+**libiothsm-std** 패키지와 함께 IoT Edge 버번 1.1.*을 설치합니다.
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-또는 특정 버전의 보안 디먼을 설치하려는 경우 apt 목록 출력에 있는 버전을 지정합니다. 또한 **libiothsm-std** 패키지에 동일한 버전을 지정합니다. 그렇지 않으면 최신 버전이 설치됩니다. 예를 들어 다음 명령은 1.1 릴리스의 최신 버전을 설치합니다.
-
-   ```bash
-   sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
-   ```
-
-설치하려는 버전이 나열되지 않은 경우 이 문서 뒷부분의 [오프라인 또는 특정 버전 설치](#offline-or-specific-version-installation-optional) 단계를 따르세요. 해당 섹션에서는 이전 버전의 IoT Edge 보안 디먼 또는 릴리스 후보 버전을 대상으로 지정하는 방법을 보여 줍니다.
+>[!NOTE]
+>IoT Edge 버전 1.1은 IoT Edge의 장기 지원 분기입니다. 이전 버전을 실행하는 경우 이전 버전이 더 이상 지원되지 않으므로 최신 패치를 설치하거나 업데이트하는 것이 좋습니다.
 
 <!-- end 1.1 -->
 ::: moniker-end
@@ -156,23 +144,19 @@ IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서
    sudo apt-get update
    ```
 
-사용할 수 있는 IoT Edge 버전을 확인합니다.
+사용할 수 있는 IoT Edge 및 IoT ID 서비스 버전을 확인합니다.
 
    ```bash
-   apt list -a aziot-edge
+   apt list -a aziot-edge aziot-identity-service
    ```
 
-최신 버전의 IoT Edge를 설치하려는 경우 다음 명령을 사용하여 최신 버전의 ID 서비스 패키지도 설치합니다.
+최신 버전의 IoT Edge 및 IoT id 서비스 패키지를 설치하려면 다음 명령을 사용합니다.
 
    ```bash
    sudo apt-get install aziot-edge
    ```
 
-또는 특정 버전의 IoT Edge 및 ID 서비스를 설치하려는 경우 apt 목록 출력에서 버전을 지정합니다. 두 서비스에 동일한 버전을 지정합니다. 예를 들어 다음 명령은 1.2 릴리스의 최신 버전을 설치합니다.
-
-   ```bash
-   sudo apt-get install aziot-edge=1.2* aziot-identity-service=1.2*
-   ```
+또는 최신 버전이 아닌 다른 IoT Edge 버전을 설치하도록 선택한 경우 `aziot-edge` 및 `aziot-identity-service` 서비스 모두에 동일한 버전을 설치해야 합니다.
 
 <!-- end 1.2 -->
 ::: moniker-end
@@ -299,10 +283,10 @@ IoT Edge 디바이스에서 구성 파일을 엽니다.
 
 다음 필드를 업데이트합니다.
 
-* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
+* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`.
 * **device_id**: 디바이스를 등록할 때 제공한 ID입니다.
-* **identity_cert**: 디바이스의 ID 인증서에 대한 URI입니다. 예들 들어 `file:///path/identity_certificate.pem`입니다.
-* **identity_pk**: 제공된 ID 인증서의 프라이빗 키 파일에 대한 URI입니다. 예들 들어 `file:///path/identity_key.pem`입니다.
+* **identity_cert**: 디바이스의 ID 인증서에 대한 URI입니다. 예: `file:///path/identity_certificate.pem`.
+* **identity_pk**: 제공된 ID 인증서의 프라이빗 키 파일에 대한 URI입니다. 예: `file:///path/identity_key.pem`.
 
 파일을 저장하고 닫습니다.
 
@@ -351,7 +335,7 @@ IoT Edge 디바이스에서 구성 파일을 엽니다.
 
 다음 필드를 업데이트합니다.
 
-* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
+* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`.
 * **device_id**: 디바이스를 등록할 때 제공한 ID입니다.
 * **identity_cert**: 디바이스의 ID 인증서에 대한 URI입니다(예: `file:///path/identity_certificate.pem`). 또는 EST나 로컬 인증 기관을 사용하여 동적으로 인증서를 발급합니다.
 * **identity_pk**: 제공된 ID 인증서의 프라이빗 키 파일에 대한 URI입니다(예: )`file:///path/identity_key.pem`. 또는 PKCS#11 URI를 제공한 다음 나중에 **PKCS#11** 섹션에 있는 구성 정보를 구성 파일에 제공합니다.

@@ -4,12 +4,12 @@ description: Azure Application Insights에서 데이터를 볼 수 없나요? �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 2a301efe2ea7c6c74d503fda4a9bbf63f8ce7f80
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 828eab154c09e3e623b5cfb84d6fc72d2bd480f5
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061581"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616148"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
 
@@ -38,9 +38,9 @@ IIS(인터넷 정보 서비스)는 IIS에 도달하는 모든 요청의 수를 �
 * 아마도 방화벽 문제일 것입니다. [Application Insights에 대한 방화벽 예외를 설정하여 데이터를 전송합니다](../../azure-monitor/app/ip-addresses.md).
 * IIS 서버에 필수 구성 요소 .NET Extensibility 4.5 또는 ASP.NET 4.5가 없는 것이 원인일 수 있습니다.
 
-기존 앱을 모니터링하려고 웹 서버에 *[상태 모니터를 설치](./monitor-performance-live-website-now.md)했지만 결과가 보이지 않습니다.*
+*기존 앱을 모니터링하려고 웹 서버에 [Azure Monitor Application Insights 에이전트를 설치](./status-monitor-v2-overview.md)했지만 결과가 보이지 않습니다.*
 
-* [상태 모니터 문제 해결](./monitor-performance-live-website-now.md#troubleshoot)을 참조하세요.
+* [상태 모니터 문제 해결](./status-monitor-v2-troubleshoot.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 계측 키보다 [연결 문자열](./sdk-connection-string.md?tabs=net)이 권장됩니다. 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. 연결 문자열은 원격 분석 데이터를 연결할 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
@@ -185,13 +185,13 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 [종속성 원격 분석](./asp-net-dependencies.md) 및 [예외 원격 분석](asp-net-exceptions.md)을 참조하세요.
 
 ## <a name="no-performance-data"></a>성능 데이터 없음
-성능 데이터(CPU, IO 속도 등)는 [Java 웹 서비스](java-2x-collectd.md), [Windows 데스크톱 앱](./windows-desktop.md), [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](./monitor-performance-live-website-now.md) 및 [Azure Cloud Services](./app-insights-overview.md)에 사용할 수 있습니다. 이 내용은 설정, 서버 아래에 있습니다.
+성능 데이터(CPU, IO 속도 등)는 [Java 웹 서비스](java-2x-collectd.md), [Windows 데스크톱 앱](./windows-desktop.md), [IIS 웹앱 및 서비스(Application Insights 에이전트를 설치한 경우)](./status-monitor-v2-overview.md) 및 [Azure Cloud Services](./app-insights-overview.md)에서 사용할 수 있습니다. 이 내용은 설정, 서버 아래에 있습니다.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>내 서버에 앱을 게시한 이후로 (서버) 데이터가 없음
 * 실제로 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll을 포함하여 모든 Microsoft ApplicationInsights DLL을 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll과 함께 서버에 추가합니다.
 * 방화벽에서 [일부 TCP 포트를 열어야](./ip-addresses.md)할 수 있습니다.
 * 회사 네트워크를 벗어나 보내기 위해 프록시를 사용해야 하는 경우, Web.config에서 [defaultProxy](/previous-versions/dotnet/netframework-1.1/aa903360(v=vs.71)) 를 설정하십시오.
-* Windows Server 2008: 다음 업데이트를 설치했는지 확인합니다. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://web.archive.org/web/20150129090641/http://support.microsoft.com/kb/2600217).
+* Windows Server 2008: 다음 업데이트를 설치했는지 확인합니다. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://www.microsoft.com/download/details.aspx?id=28936).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>데이터를 보는 데 중지되었습니다.
 * 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.

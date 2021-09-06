@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: a02be0938b1ab925fb0343351ce1c414cc59c615
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 82d406521ad534c77fc48c095631e07a74bfd080
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044841"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567817"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Azure Sentinel 쿼리 및 활동 감사
 
@@ -226,8 +226,35 @@ LAQueryLogs
 ```
 
 
+## <a name="monitor-azure-sentinel-with-workbooks-rules-and-playbooks"></a>통합 문서, 규칙 및 플레이북을 사용하여 Azure Sentinel 모니터링
+
+Azure Sentinel의 고유한 기능을 사용하여 Azure Sentinel 내에서 발생하는 이벤트 및 작업을 모니터링할 수 있습니다.
+
+- **통합 문서를 사용하여 모니터링** 작업 영역 활동을 모니터링하기 위해 다음 통합 문서가 빌드되었습니다.
+
+    - **작업 영역 감사** 환경에서 작업을 수행하는 사용자, 수행된 작업 등에 대한 정보를 포함합니다.
+    - **분석 효율성** 사용 중인 분석 규칙, 가장 많이 사용되는 MITRE 전술 및 규칙에서 생성된 인시던트에 대한 인사이트를 제공합니다.
+    - **보안 운영 효율성** SOC 팀 성능, 열린 인시던트, 종결되는 인시던트 등에 대한 메트릭을 제공합니다. 이 통합 문서를 사용하면 팀 성능을 표시하고 주의가 필요한 영역을 강조 표시할 수 있습니다.
+    - **데이터 수집 상태 모니터링** 중단되거나 중지된 수집을 감시하는 데 도움이 됩니다. 
+
+    자세한 내용은 [일반적으로 사용되는 Azure Sentinel 통합 문서](top-workbooks.md)를 참조하세요.
+
+- **수집 지연 감시**  수집 지연에 대해 궁금한 사항이 있는 경우 [분석 규칙에서 변수를 설정](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851)하여 지연을 나타냅니다. 
+
+    예를 들어 다음 분석 규칙은 결과에 중복이 포함되지 않도록 하고, 규칙을 실행할 때 로그가 누락되지 않도록 하는 데 도움이 될 수 있습니다.
+
+    ```kusto
+    let ingestion_delay= 2min;let rule_look_back = 5min;CommonSecurityLog| where TimeGenerated >= ago(ingestion_delay + rule_look_back)| where ingestion_time() > (rule_look_back)
+    -   Calculating ingestion delay
+    CommonSecurityLog| extend delay = ingestion_time() - TimeGenerated| summarize percentiles(delay,95,99) by DeviceVendor, DeviceProduct
+    ```
+
+    자세한 내용은 [자동화 규칙을 사용하여 Azure Sentinel에서 인시던트 처리 자동화](automate-incident-handling-with-automation-rules.md)를 참조하세요.
+
+- [커넥터 상태 푸시 알림 솔루션](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Send-ConnectorHealthStatus) 플레이북을 사용하여 **데이터 커넥터 상태를 모니터링** 하여 중단 또는 중지된 수집을 감시하고, 커넥터가 데이터 수집을 중지하거나 머신에서 보고를 중지한 경우 알림을 보냅니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure Sentinel에서 **작업 영역 감사** 통합 문서를 사용하여 SOC 환경에서 활동을 감사합니다.
 
-자세한 내용은 [자습서: 데이터 시각화 및 모니터링](tutorial-monitor-your-data.md)을 참조하세요.
+자세한 내용은 [데이터 시각화 및 모니터링](monitor-your-data.md)을 참조하세요.

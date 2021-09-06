@@ -2,13 +2,13 @@
 title: 복구 지점 관리
 description: Azure Backup 서비스가 가상 머신의 복구 지점을 관리하는 방법을 알아봅니다
 ms.topic: conceptual
-ms.date: 11/08/2020
-ms.openlocfilehash: 256df693aba0f799c24bcba6defe846e5c37ccaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/17/2021
+ms.openlocfilehash: 2dd33b430d5aa117f35f74ff92bb3655a9002803
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94428707"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112300672"
 ---
 # <a name="manage-recovery-points"></a>복구 지점 관리
 
@@ -121,6 +121,12 @@ VM의 총 스토리지가 8TB이고 변동이 5% 라고 가정합니다. 그런 
 |백업 데이터 변동    |   A1- 4 TB      | B1-1 TB; B2-1 TB <br> B3-1 TB; B4-1 TB  |   C1-2 TB; C4-2 TB      |
 
 백업 성능은 VM2>VM3>VM1 순서가 됩니다. 그 이유는 변동된 데이터가 다양한 디스크에 분산되기 때문입니다. 디스크 백업이 병렬로 발생하기 때문에 VM2는 최상의 성능을 보여줍니다.
+
+## <a name="frequently-asked-question"></a>질문과 대답
+
+### <a name="how-can-i-find-the-retention-period-of-an-on-demand-backup"></a>주문형 백업의 보존 기간을 확인하려면 어떻게 해야 하나요?
+
+주문형 백업의 백업 작업에 있는 **복구 지점 만료 시간(UTC)** 필드에 복구 지점의 보존 기간이 표시됩니다. 자세한 내용은 [주문형 백업 작업 실행](backup-azure-manage-vms.md#run-an-on-demand-backup)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,19 +4,20 @@ description: Bicep 파일에서 리소스에 대한 값을 검색하는 데 사�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: e52f46cf6b29af491f3542d13e360ef936251af6
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 08/16/2021
+ms.openlocfilehash: 9b97170e3ff434d40007e46952a52335e5f900b3
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027106"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567792"
 ---
 # <a name="resource-functions-for-bicep"></a>Bicep의 리소스 함수
 
 Resource Manager는 Bicep 파일에서 리소스 값을 가져오기 위해 다음과 같은 기능을 제공합니다.
 
 * [extensionResourceId](#extensionresourceid)
+* [getSecret](#getsecret)
 * [list*](#list)
 * [pickZones](#pickzones)
 * [reference](#reference)
@@ -112,9 +113,11 @@ resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01'
 
 ## <a name="getsecret"></a>getSecret
 
-`getSecret([secretName])`
+`keyVaultName.getSecret(secretName)`
 
-Azure Key Vault 저장된 비밀 값을 반환합니다. getSecret 함수를 사용하여 키 자격 증명 모음 비밀을 얻고 반환 값을 Bicep 모듈의 문자열 매개 변수에 전달할 수 있습니다. getSecret 함수는 `Microsoft.KeyVault/vaults` 리소스에 대해서만 호출할 수 있으며 `@secure()` 데코레이터가 있는 매개 변수에만 사용할 수 있습니다.
+Azure Key Vault에서 비밀 반환 `getSecret` 함수는 `Microsoft.KeyVault/vaults` 리소스에서만 호출될 수 있습니다. 이 함수를 사용하여 Bicep 모듈의 보안 문자열 매개 변수에 비밀을 전달합니다. 함수는 `@secure()` 데코레이터가 있는 매개 변수에서만 사용될 수 있습니다.
+
+Key Vault에는 `true`로 설정된 `enabledForTemplateDeployment`가 있어야 합니다. Bicep 파일을 배포하는 사용자가 비밀에 액세스할 수 있어야 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 Bicep 배포 중에 보안 매개 변수 값 전달](key-vault-parameter.md)을 참조하세요.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -172,16 +175,19 @@ module sql './sql.bicep' = {
 
 ## <a name="list"></a>list*
 
-`list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
+`resourceName.list([apiVersion], [functionValues])`
 
-이 함수의 구문은 목록 작업의 이름에 따라 달라집니다. 각 구현은 목록 작업을 지원하는 리소스 종류의 값을 반환합니다. 작업 이름은 `list`로 시작해야 하고 접미사가 있을 수 있습니다. 일반적으로 사용되는 일부 함수는 `list`, `listKeys`, `listKeyValue` 및 `listSecrets`입니다.
+`list`로 시작하는 작업을 통해 모든 리소스 종류에 대한 목록 함수를 호출할 수 있습니다. 일반적으로 사용되는 일부 함수는 `list`, `listKeys`, `listKeyValue` 및 `listSecrets`입니다. 
+
+이 함수의 구문은 목록 작업의 이름에 따라 다릅니다. 또한 반환된 값은 연산에 따라 달라집니다. Bicep은 현재 `list*` 함수 완성 및 유효성 검사를 지원하지 않습니다.
+
+**Bicep 버전 0.4.412 이상** 에서는 [접근자 연산자](operators-access.md#function-accessor)를 사용하여 목록 함수를 호출합니다. `stg.listKeys()`)을 입력합니다. 
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |예 |문자열 |리소스에 대한 고유 식별자. |
-| apiVersion |예 |문자열 |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| apiVersion |예 |문자열 |이 매개 변수를 제공하지 않으면 리소스에 대한 API 버전이 사용됩니다. 함수를 특정 버전으로 실행해야 하는 경우에만 사용자 지정 API 버전을 제공합니다. **yyyy-mm-dd** 형식을 사용합니다. |
 | functionValues |예 |object | 함수에 대한 값이 있는 개체입니다. 스토리지 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. |
 
 ### <a name="valid-uses"></a>올바른 용도
@@ -189,6 +195,75 @@ module sql './sql.bicep' = {
 list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. Bicep 파일의 출력 섹션에서 중요한 정보를 노출하는 목록 함수를 사용하지 마세요. 출력 값은 배포 기록에 저장되며 악의적인 사용자가 이를 검색할 수 있습니다.
 
 [속성 반복](./loop-properties.md)과 함께 사용하는 경우 식이 리소스 속성에 할당되기 때문에 `input`에 목록 함수를 사용할 수 있습니다. list 함수를 확인하기 전에 개수를 결정해야 하므로 `count`와 함께 사용할 수 없습니다.
+
+조건부로 배포되는 리소스에서 **list** 함수를 사용하는 경우 리소스가 배포되지 않은 경우에도 함수가 평가됩니다. **list** 함수가 존재하지 않는 리소스를 참조하는 경우 오류가 발생합니다. [조건식 **?:** 연산자](./operators-logical.md#conditional-expression--)를 사용하여 리소스가 배포될 때만 함수가 평가되도록 합니다.
+
+### <a name="return-value"></a>반환 값
+
+반환된 개체는 사용하는 list 함수에 따라 다릅니다. 예를 들어 스토리지 계정에 대한 listKeys는 다음 형식을 반환합니다.
+
+```json
+{
+  "keys": [
+    {
+      "keyName": "key1",
+      "permissions": "Full",
+      "value": "{value}"
+    },
+    {
+      "keyName": "key2",
+      "permissions": "Full",
+      "value": "{value}"
+    }
+  ]
+}
+```
+
+다른 list 함수는 다른 반환 형식을 갖습니다. 함수의 형식을 보려면 예제 Bicep 파일에 표시된 것처럼 출력 섹션에 포함합니다.
+
+### <a name="list-example"></a>목록 예제
+
+다음 예제에서는 스토리지 계정을 배포한 다음 해당 스토리지 계정에서 listKeys를 호출합니다. 키는 [배포 스크립트](../templates/deployment-script-template.md) 값을 설정할 때 사용됩니다.
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: 'dscript${uniqueString(resourceGroup().id)}'
+  location: location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+resource dScript 'Microsoft.Resources/deploymentScripts@2019-10-01-preview' = {
+  name: 'scriptWithStorage'
+  location: location
+  ...
+  properties: {
+    azCliVersion: '2.0.80'
+    storageAccountSettings: {
+      storageAccountName: stg.name
+      storageAccountKey: stg.listKeys().keys[0].value
+    }
+    ...
+  }
+}
+```
+
+다음 예제에서는 매개 변수를 사용하는 list 함수를 보여줍니다. 이 경우 함수는 **listAccountSas** 입니다. 만료 시간 동안 개체를 전달합니다. 만료 시간은 미래 시간이어야 합니다.
+
+```bicep
+param accountSasProperties object {
+  default: {
+    signedServices: 'b'
+    signedPermission: 'r'
+    signedExpiry: '2020-08-20T11:00:00Z'
+    signedResourceTypes: 's'
+  }
+}
+...
+sasToken: stg.listAccountSas('2021-04-01', accountSasProperties).accountSasToken
+```
 
 ### <a name="implementations"></a>구현
 
@@ -198,23 +273,23 @@ list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. B
 | ------------- | ------------- |
 | Microsoft.Addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2019-12-01/authorizationserver/listsecrets) |
-| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2019-12-01/gateway/listkeys) |
-| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
-| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
-| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
-| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2019-12-01/subscription/listsecrets) |
+| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/authorization-server/list-secrets) |
+| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2020-06-01-preview/gateway/list-keys) |
+| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/identity-provider/list-secrets) |
+| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2020-06-01-preview/named-value/list-value) |
+| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/openid-connect-provider/list-secrets) |
+| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
-| Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
+| Microsoft.BatchAI/workspaces/experiments/jobs | listoutputfiles |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
-| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
+| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/get-build-source-upload-url) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/agentpools | listQueueStatus |
@@ -244,9 +319,9 @@ list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. B
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/databaseaccounts/listconnectionstrings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/databaseaccounts/listkeys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-03-15/notebookworkspaces/listconnectioninfo) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-connection-strings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-keys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-04-15/notebook-workspaces/list-connection-info) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -273,9 +348,9 @@ list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. B
 | Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/listkeys) |
-| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/listnodes) |
-| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/workspacesandcomputes/workspaces/listkeys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/compute/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/compute/list-nodes) |
+| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/workspaces/list-keys) |
 | Microsoft.Maps/accounts | [listKeys](/rest/api/maps-management/accounts/listkeys) |
 | Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
@@ -292,12 +367,12 @@ list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. B
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
 | Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
-| Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/adminkeys/get) |
-| Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/querykeys/listbysearchservice) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](/rest/api/servicebus/stable/namespaces%20-%20authorization%20rules/listkeys) |
+| Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/2021-04-01-preview/admin-keys/get) |
+| Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) |
+| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](/rest/api/servicebus/stable/namespaces-authorization-rules/list-keys) |
 | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](/rest/api/servicebus/stable/queues%20-%20authorization%20rules/listkeys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys](/rest/api/servicebus/stable/topics%20–%20authorization%20rules/listkeys) |
+| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](/rest/api/servicebus/preview/queues-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys](/rest/api/servicebus/stable/topics%20%E2%80%93%20authorization%20rules/list-keys) |
 | Microsoft.SignalRService/SignalR | [listkeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listkeys](/rest/api/storagerp/storageaccounts/listkeys) |
@@ -338,61 +413,6 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
   ```azurecli
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
-
-### <a name="return-value"></a>반환 값
-
-반환된 개체는 사용하는 list 함수에 따라 다릅니다. 예를 들어 스토리지 계정에 대한 listKeys는 다음 형식을 반환합니다.
-
-```json
-{
-  "keys": [
-    {
-      "keyName": "key1",
-      "permissions": "Full",
-      "value": "{value}"
-    },
-    {
-      "keyName": "key2",
-      "permissions": "Full",
-      "value": "{value}"
-    }
-  ]
-}
-```
-
-다른 list 함수는 다른 반환 형식을 갖습니다. 함수의 형식을 보려면 예제 Bicep 파일에 표시된 것처럼 출력 섹션에 포함합니다.
-
-### <a name="remarks"></a>설명
-
-리소스 이름 또는 [resourceId 함수](#resourceid)를 사용하여 리소스를 지정합니다. 참조된 리소스를 배포하는 동일한 Bicep 파일에서 목록 함수를 사용하는 경우 리소스 이름을 사용합니다.
-
-조건부로 배포되는 리소스에서 **list** 함수를 사용하는 경우 리소스가 배포되지 않은 경우에도 함수가 평가됩니다. **list** 함수가 존재하지 않는 리소스를 참조하는 경우 오류가 발생합니다. [조건식 **?:** 연산자](./operators-logical.md#conditional-expression--)를 사용하여 리소스가 배포될 때만 함수가 평가되도록 합니다.
-
-### <a name="list-example"></a>목록 예제
-
-다음 예제에서는 [배포 스크립트](../templates/deployment-script-template.md)에 대한 값을 설정할 때 listKeys를 사용합니다.
-
-```bicep
-storageAccountSettings: {
-  storageAccountName: storageAccountName
-  storageAccountKey: listKeys(resourceId('Microsoft.Storage/storageAccounts', storageAccountName), '2019-06-01').keys[0].value
-}
-```
-
-다음 예제에서는 매개 변수를 사용하는 list 함수를 보여줍니다. 이 경우 함수는 **listAccountSas** 입니다. 만료 시간 동안 개체를 전달합니다. 만료 시간은 미래 시간이어야 합니다.
-
-```bicep
-param accountSasProperties object {
-  default: {
-    signedServices: 'b'
-    signedPermission: 'r'
-    signedExpiry: '2020-08-20T11:00:00Z'
-    signedResourceTypes: 's'
-  }
-}
-...
-sasToken: listAccountSas(storagename, '2018-02-01', accountSasProperties).accountSasToken
-```
 
 ## <a name="pickzones"></a>pickZones
 
@@ -449,7 +469,7 @@ output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2'
 
 이전 예제의 출력은 3개의 배열을 반환합니다.
 
-| Name | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
 | 지원됨 | array | [ "1" ] |
 | notSupportedRegion | array | [] |
@@ -577,12 +597,6 @@ param builtInRoleType string {
       'description': 'Built-in role to assign'
   }
 }
-param roleNameGuid string {
-  default: newGuid()
-  metadata: {
-    'description': 'A new GUID used to identify the role assignment'
-  }
-}
 
 var roleDefinitionId = {
   Owner: {
@@ -597,7 +611,7 @@ var roleDefinitionId = {
 }
 
 resource myRoleAssignment 'Microsoft.Authorization/roleAssignments@2018-09-01-preview' = {
-  name: roleNameGuid
+  name: guid(resourceGroup().id, principalId, roleDefinitionId[builtInRoleType].id)
   properties: {
     roleDefinitionId: roleDefinitionId[builtInRoleType].id
     principalId: principalId

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 3bf83c31c10245cb64a047c9d856489a4e0ce71a
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 0248491ed8a2fb8459565306249f95b1af92cf09
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030758"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113588901"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>스튜디오 UI를 사용하여 코드 없는 AutoML 학습 설정 
 
@@ -30,7 +30,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 * Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요. 
 
@@ -114,7 +114,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
     **다음** 을 선택합니다.
 
-1. **작업 유형 및 설정** 양식에서 작업 유형(분류, 회귀 또는 예측)을 선택합니다. 자세한 내용은 [지원되는 작업 형식](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)을 참조하세요.
+1. **작업 유형 및 설정** 양식에서 작업 유형(분류, 회귀 또는 예측)을 선택합니다. 자세한 내용은 [지원되는 작업 형식](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting)을 참조하세요.
 
     1. **분류** 의 경우 딥 러닝을 사용할 수도 있습니다.
     
@@ -175,10 +175,13 @@ Included | 학습에 포함할 열을 지정합니다.
 
 ### <a name="view-training-run-details"></a>학습 실행 세부 정보 보기
 
-완료된 모델을 드릴다운하여 **모델** 탭의 모델 요약 또는 **메트릭** 탭의 성능 메트릭 차트와 같은 학습 실행 세부 정보를 확인합니다. [차트에 대해 자세히 알아보세요](how-to-understand-automated-ml.md).
+학습 실행 세부 정보를 보려면 완료된 모델을 드릴다운합니다. **모델** 탭에서 모델 요약 및 선택한 모델에 사용된 하이퍼 매개 변수 등의 세부 정보를 봅니다. 
 
-[![반복 세부 정보](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+[![하이퍼 매개 변수 세부 정보](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png)
 
+ **메트릭** 탭에서 모델 특정 성능 메트릭 차트도 볼 수 있습니다. [차트에 대해 자세히 알아보세요](how-to-understand-automated-ml.md).
+
+![반복 세부 정보](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
 데이터 변환 탭에서 이 모델을 생성하기 위해 적용된 데이터 전처리, 기능 엔지니어링, 크기 조정 기술 및 기계 학습 알고리즘에 대한 다이어그램을 볼 수 있습니다.
 

@@ -1,37 +1,37 @@
 ---
-title: Visual Studio Code를 사용하여 단일 테넌트 Azure Logic Apps에서 워크플로 만들기
-description: 단일 테넌트 Azure Logic Apps와 Visual Studio Code를 사용하여 앱, 데이터, 서비스 및 시스템을 통합하는 자동 워크플로를 만듭니다.
+title: Visual Studio Code에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 워크플로 만들기
+description: Visual Studio Code에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 앱, 데이터, 서비스 및 시스템을 통합하는 자동 워크플로를 만듭니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: 9507f8877be033772acb34fbbbe7996c38fca6ad
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/13/2021
+ms.openlocfilehash: 776068748b9cd7e90b9d9418bdf9a31fe36ff180
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370036"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113733757"
 ---
-# <a name="create-an-integration-workflow-using-single-tenant-azure-logic-apps-and-visual-studio-code"></a>단일 테넌트 Azure Logic Apps와 Visual Studio Code를 사용하여 통합 워크플로 만들기
+# <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Visual Studio Code에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 통합 워크플로 만들기
 
-이 문서에서는 **Logic App(표준)** 리소스 종류, Visual Studio Code 및 **Azure Logic Apps(표준)** 확장을 사용하여 자동 통합 워크플로 예제를 만드는 방법을 보여줍니다. Visual Studio Code에 이 논리 앱 워크플로를 만들면 *로컬* 개발 환경에서 워크플로를 실행하고 테스트할 수 있습니다.
+이 문서에서는 **Azure Logic Apps(표준)** 확장이 포함된 Visual Studio Code를 사용하여 *단일 테넌트* Azure Logic Apps 환경에서 실행되는 자동 통합 워크플로의 예제를 만드는 방법을 설명합니다. 이 확장을 사용하여 만든 논리 앱은 다음 기능을 제공하는 **Logic App(표준)** 리소스 형식을 기반으로 합니다.
 
-Azure Logic Apps 컨테이너화된 런타임이 다시 설계되었으므로 준비되면 *단일 테넌트 Azure Logic Apps 환경* 이나 Azure Functions를 실행할 수 있는 어디에나 배포할 수 있습니다. 다중 테넌트 Azure Logic Apps 환경에서 작동하는 **다중 테넌트 Azure Logic Apps(소비)** 와 비교하면 단일 테넌트 **Azure Logic Apps(표준)** 확장은 다음 특성이 있는 논리 앱을 만들 수 있는 기능을 제공합니다.
+* Visual Studio Code 개발 환경에서 논리 앱 워크플로를 로컬로 실행 및 테스트할 수 있습니다.
 
-* **Logic App(표준)** 리소스 종류는 개발 환경, 단일 테넌트 Azure Logic Apps 환경 또는 컨테이너와 같은 Azure Functions를 실행할 수 있는 어디서나 로컬로 실행하는 [상태 정상 및 상태 비정상 워크플로](single-tenant-overview-compare.md#stateful-stateless) 여러 개를 호스트할 수 있습니다. 이 특성은 워크플로에 유연성과 이식성을 제공합니다.
+* 논리 앱에는 여러 [상태 저장 및 상태 비저장 워크플로](single-tenant-overview-compare.md#stateful-stateless)가 포함될 수 있습니다.
 
-* **Logic App(표준)** 리소스에서 동일한 논리 앱과 테넌트에 있는 워크플로는 다시 설계된 Azure Logic Apps 런타임과 동일한 프로세스에서 실행되므로 같은 리소스를 공유하고 더 우수한 성능을 제공합니다.
+* 동일한 논리 앱과 테넌트에 있는 워크플로는 Azure Logic Apps 런타임과 동일한 프로세스에서 실행되므로 같은 리소스를 공유하고 더 우수한 성능을 제공합니다.
 
-* **Logic App(표준)** 을 Azure 또는 컨테이너를 비롯한 Azure Functions를 실행할 수 있는 어디에나 직접 배포할 수 있습니다.
+* Azure Logic Apps 컨테이너화된 런타임 덕분에 **Logic App(표준)** 리소스 형식을 단일 테넌트 Azure Logic Apps 환경이나 컨테이너를 비롯하여 Azure Functions를 실행할 수 있는 어디에나 배포할 수 있습니다.
 
-**Logic App(표준)** 리소스 종류와 단일 테넌트 모델에 대한 자세한 내용은 [단일 테넌트 및 다중 테넌트와 통합 서비스 환경](single-tenant-overview-compare.md)을 참조하세요.
+단일 테넌트 Azure Logic Apps 제품에 대한 자세한 내용은 [단일 테넌트 및 다중 테넌트 비교와 통합 서비스 환경](single-tenant-overview-compare.md)을 검토하세요.
 
 예제 워크플로는 클라우드 기반이며 두 단계만 포함하지만 클라우드, 온-프레미스 및 하이브리드 환경에서 다양한 앱, 데이터, 서비스 및 시스템을 연결할 수 있는 수백 가지 작업에서 워크플로를 만들 수 있습니다. 예제 워크플로는 기본 제공 요청 트리거로 시작하고 Office 365 Outlook 작업을 따릅니다. 트리거는 호출 가능한 워크플로 엔드포인트를 만들고 호출자의 인바운드 HTTPS 요청을 기다립니다. 트리거가 요청을 수신하고 작동하면, 다음 작업이 트리거에서 선택한 출력과 함께 특정 이메일 주소로 이메일을 전송하여 실행됩니다.
 
 > [!TIP]
 > Office 365 계정이 없으면 이메일 계정(예: Outlook.com)에서 메시지를 보낼 수 있는 사용 가능한 모든 다른 작업을 사용하면 됩니다.
-> 
+>
 > 대신 Azure Portal을 사용하여 예제 워크플로를 만들려면 [단일 테넌트 Azure Logic Apps와 Azure Portal을 사용하여 통합 워크플로 만들기](create-single-tenant-workflows-azure-portal.md)의 단계를 수행합니다. 
 > 두 옵션 모두 동일한 종류의 환경에서 논리 앱 워크플로를 개발, 실행 및 배포하는 기능을 제공합니다. 
 > 하지만 Visual Studio Code를 사용하면 개발 환경에서 *로컬로* 워크플로를 개발, 테스트 및 실행할 수 있습니다.
@@ -114,7 +114,7 @@ Visual Studio Code에서 로컬 개발의 경우 로컬 개발 환경에서 실�
 
 * 로컬에서 [기본 제공 HTTP 웹후크 트리거](../connectors/connectors-native-webhook.md)와 같은 웹후크 기반 트리거와 작업을 실행하려면 Visual Studio Code에서 [콜백 URL의 착신 전환을 설정](#webhook-setup)해야 합니다.
 
-* 이 문서의 예제 워크플로를 테스트하려면 요청 트리거에서 만든 엔드포인트로 호출을 보낼 수 있는 도구가 필요합니다. 해당 도구가 없는 경우 [Postman](https://www.postman.com/downloads/)을 다운로드하여 설치하고 사용할 수 있습니다.
+* 이 문서의 예제 워크플로를 테스트하려면 요청 트리거에서 만든 엔드포인트로 호출을 보낼 수 있는 도구가 필요합니다. 해당 도구가 없는 경우 [Postman](https://www.postman.com/downloads/) 앱을 다운로드하여 설치하여 사용할 수 있습니다.
 
 * [Application Insights](../azure-monitor/app/app-insights-overview.md) 사용을 지원하는 설정으로 논리 앱 리소스를 만드는 경우, 필요에 따라 논리 앱에 진단 로깅 및 추적을 사용하도록 설정할 수 있습니다. 논리 앱을 만들 때 또는 배포 후에 설정할 수 있습니다. Application Insights 인스턴스가 필요하지만, 논리 앱을 만들 때 [미리](../azure-monitor/app/create-workspace-resource.md) 또는 배포 후에 이 리소스를 만들 수 있습니다.
 
@@ -214,43 +214,6 @@ Visual Studio Code에서 로컬 개발의 경우 로컬 개발 환경에서 실�
 
    ![프로젝트 폴더, 워크플로 폴더 및 "workflow.json" 파일이 표시된 탐색기 창을 보여주는 스크린샷입니다.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
 
-1. macOS 또는 Linux를 사용하는 경우 프로젝트를 로컬에서 실행하는 데 필요한 다음 단계를 수행하여 스토리지 계정에 대한 액세스를 설정합니다:
-
-   1. 프로젝트의 루트 폴더에서 **local.settings.json** 파일을 엽니다.
-
-      ![탐색기 창과 프로젝트의 'local.settings.json'파일을 보여주는 스크린샷입니다.](./media/create-single-tenant-workflows-visual-studio-code/local-settings-json-files.png)
-
-   1. `AzureWebJobsStorage` 속성 값을 앞에서 저장한 스토리지 계정의 연결 문자열로 바꿉니다. 예를 들면 다음과 같습니다:
-
-      이전:
-
-      ```json
-      {
-         "IsEncrypted": false,
-         "Values": {
-            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-            "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-          }
-      }
-      ```
-
-      이후:
-
-      ```json
-      {
-         "IsEncrypted": false,
-         "Values": {
-            "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
-           "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-         }
-      }
-      ```
-
-      > [!IMPORTANT]
-      > 프로덕션 시나리오의 경우 키 자격 증명 모음을 사용하는 등 이러한 암호와 중요한 정보를 보호하고 안전하게 지켜야 합니다.
-
-   1. 완료되면 변경 내용을 저장해야 합니다.
-
 <a name="enable-built-in-connector-authoring"></a>
 
 ## <a name="enable-built-in-connector-authoring"></a>기본 제공 커넥터 제작 사용
@@ -315,7 +278,7 @@ Visual Studio Code에서 로컬 개발의 경우 로컬 개발 환경에서 실�
 
    ![탐색기 창 및 리소스 그룹 이름 상자를 보여주는 스크린샷입니다.](./media/create-single-tenant-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. 위치 목록에서 리소스 그룹 및 리소스를 만들 때 사용할 Azure 지역을 찾아 선택합니다. 이 예제에서는 **미국 중서부** 를 사용합니다.
+1. 위치 목록에서 리소스 그룹 및 리소스를 만들 때 사용할 Azure 지역을 선택합니다. 이 예제에서는 **미국 중서부** 를 사용합니다.
 
    ![위치 목록 및 "미국 중서부"가 선택된 탐색기 창을 보여주는 스크린샷입니다.](./media/create-single-tenant-workflows-visual-studio-code/select-azure-region.png)
 
@@ -468,8 +431,8 @@ Visual Studio Code에서 웹후크 기반 트리거 및 작업을 로컬로 실�
    >
    > 프롬프트를 다시 표시하려면 프로젝트 루트 수준에서 **local.settings.json** 파일의 바로 가기 메뉴를 열고 **웹후크 리디렉션 엔드포인트 구성** 을 선택합니다. 이제 전달 URL을 입력할 수 있는 프롬프트가 표시됩니다.
 
-   Visual Studio Code는 프로젝트 루트 폴더에 있는 **local.settings.json** 파일에 전달 URL을 추가합니다. 이제 `Values`개체 속성`Workflows.WebhookRedirectHostUri`에 표시되고 전달 URL로 설정됩니다. 예를 들어 다음과 같습니다:
-   
+   Visual Studio Code는 프로젝트 루트 폴더에 있는 **local.settings.json** 파일에 전달 URL을 추가합니다. 이제 `Values` 개체에서 `Workflows.WebhookRedirectHostUri`라는 속성이 표시되고 전달 URL로 설정됩니다. 예를 들어 다음과 같습니다.
+
    ```json
    {
       "IsEncrypted": false,
@@ -573,7 +536,7 @@ Visual Studio Code에서 웹후크 기반 트리거 및 작업을 로컬로 실�
 
    1. **모든 컬렉션** 에서 요청을 구성하기 위해 만들 컬렉션의 이름을 입력하고 Enter 키를 누른 다음, **<*컬렉션 이름*>에 저장** 을 선택합니다. 이 예제에서는 컬렉션 이름으로 `Logic Apps requests`을(를) 사용합니다.
 
-      요청 트리거의 콜백 URL에 요청을 보낼 수 있도록 Postman의 요청 창이 열립니다.
+      Postman에서 요청 트리거의 콜백 URL에 요청을 보낼 수 있도록 요청 창이 열립니다.
 
       ![요청 창이 열린 Postman을 보여주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
@@ -707,7 +670,7 @@ Visual Studio Code에서 웹후크 기반 트리거 및 작업을 로컬로 실�
 
 <a name="firewall-setup"></a>
 
-##  <a name="find-domain-names-for-firewall-access"></a>방화벽 액세스를 위한 도메인 이름 찾기
+## <a name="find-domain-names-for-firewall-access"></a>방화벽 액세스를 위한 도메인 이름 찾기
 
 Azure Portal에서 논리 앱 워크플로를 배포 및 실행하기 전에 환경에 트래픽을 제한하는 엄격한 네트워크 요구 사항이나 방화벽이 있는 경우 워크플로에 있는 모든 트리거 또는 작업 연결에 대한 권한을 설정해야 합니다.
 
@@ -715,7 +678,7 @@ Azure Portal에서 논리 앱 워크플로를 배포 및 실행하기 전에 환
 
 1. 논리 앱 프로젝트에서 워크플로에 첫 번째 연결 기반 트리거 또는 작업을 추가한 후에 생성되는 **connections.json** 파일을 열고 `managedApiConnections` 개체를 찾습니다.
 
-1. 생성한 각 연결에 대해 이 정보로 방화벽을 설정할 수 있도록 안전한 위치에 `connectionRuntimeUrl` 속성 값을 찾아 복사하고 저장합니다.
+1. 생성한 각 연결에 대해 이 정보로 방화벽을 설정할 수 있도록 안전한 위치에 `connectionRuntimeUrl` 속성 값을 복사하고 저장합니다.
 
    이 예제 **connections.json** 파일에는 AS2 연결과 다음 `connectionRuntimeUrl` 값을 사용하는 Office 365 연결이 포함되어 있습니다:
 
@@ -796,7 +759,7 @@ Visual Studio Code에서 **Logic App(표준)** 리소스 종류를 사용하여 
 
       자세한 내용은 [호스팅 계획과 가격 책정 계층](logic-apps-pricing.md#standard-pricing)을 참조하세요.
 
-   1. 최적의 성능을 위해 배포할 프로젝트와 동일한 리소스 그룹을 찾아 선택합니다.
+   1. 최적의 성능을 위해 배포할 프로젝트와 동일한 리소스 그룹을 선택합니다.
 
       > [!NOTE]
       > 다른 리소스 그룹을 만들거나 사용할 수 있지만 그러면 성능에 영향을 줄 수 있습니다. 다른 리소스 그룹을 만들거나 선택하고 확인 프롬프트가 표시된 후 취소하면 배포도 취소됩니다.
@@ -955,7 +918,7 @@ Visual Studio Code에서는 원래 **Logic Apps** 또는 **Logic App(표준)** �
 
    !["Azure Logic Apps(표준)" 확장 창이 열려 있고 배포된 워크플로가 있는 Visual Studio Code를 보여주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. 논리 앱의 모든 워크플로를 보려면 논리 앱을 확장한 다음 **워크플로** 노드를 확장합니다.
+1. 논리 앱의 모든 워크플로를 보려면 논리 앱을 확장한 다음, **워크플로** 라는 이름의 노드를 확장합니다.
 
 1. 특정 워크플로를 보려면 워크플로의 바로 가기 메뉴를 열고 **디자이너에서 열기** 를 선택하여 읽기 전용 모드로 엽니다.
 
@@ -963,7 +926,7 @@ Visual Studio Code에서는 원래 **Logic Apps** 또는 **Logic App(표준)** �
 
    * Visual Studio Code의 워크플로 디자이너에서 프로젝트의 **workflow.json** 파일을 열고, 편집한 다음 논리 앱을 Azure에 다시 배포합니다.
 
-   * Azure Portal에서 [논리 앱을 찾아서 엽니다](#manage-deployed-apps-portal). 워크플로를 찾고, 편집하고, 저장합니다.
+   * Azure Portal에서 [논리 앱을 엽니다](#manage-deployed-apps-portal). 그런 다음, 워크플로를 열고, 편집하고, 저장할 수 있습니다.
 
 1. Azure Portal에서 배포된 논리 앱을 열려면 논리 앱의 바로 가기 메뉴를 열고 **Portal에서 열기** 를 선택합니다.
 
@@ -991,7 +954,7 @@ Visual Studio Code에서는 원래 **Logic Apps** 또는 **Logic App(표준)** �
 
   1. Visual Studio Code의 왼쪽 도구 모음에서 Azure 아이콘을 선택합니다. 
   1. **Azure: Logic Apps(표준)** 창에서 구독을 확장합니다. 그러면 해당 구독에 배포된 모든 논리 앱이 표시됩니다.
-  1. 논리 앱을 확장한 다음, **워크플로** 노드를 확장합니다.
+  1. 논리 앱을 확장한 다음, **워크플로** 라는 노드를 확장합니다.
   1. 워크플로를 열고 해당 워크플로 트리거의 모든 부분을 편집합니다.
   1. 변경 내용을 저장합니다. 이 단계는 트리거의 현재 상태를 재설정합니다.
   1. 워크플로마다 반복합니다.
@@ -1007,7 +970,7 @@ Visual Studio Code에서는 원래 **Logic Apps** 또는 **Logic App(표준)** �
 
 * Logic Apps 서비스는 새 워크플로 인스턴스를 만들거나 실행하지 않습니다.
 
-* 워크플로를 삭제한 다음, 동일한 워크플로를 다시 만들면 다시 생성된 워크플로에는 삭제된 워크플로와 동일한 메타데이터가 포함되지 않습니다. 삭제된 워크플로를 호출한 모든 워크플로를 다시 저장해야 합니다. 이렇게 하면 호출자가 다시 생성된 워크플로에 대한 올바른 정보를 가져옵니다. 그렇지 않으면 다시 생성된 워크플로에 대한 호출이 `Unauthorized` 오류와 함께 실패합니다. 이 동작은 Azure 함수를 호출하는 워크플로 및 통합 계정에서 아티팩트를 사용하는 워크플로에도 적용됩니다.
+* 워크플로를 삭제한 다음, 동일한 워크플로를 다시 만들면 다시 생성된 워크플로에는 삭제된 워크플로와 동일한 메타데이터가 포함되지 않습니다. 메타데이터를 새로 고치려면 삭제된 워크플로를 호출한 모든 워크플로를 다시 저장해야 합니다. 이렇게 하면 호출자가 다시 생성된 워크플로에 대한 올바른 정보를 가져옵니다. 그렇지 않으면 다시 생성된 워크플로에 대한 호출이 `Unauthorized` 오류와 함께 실패합니다. 이 동작은 Azure 함수를 호출하는 워크플로 및 통합 계정에서 아티팩트를 사용하는 워크플로에도 적용됩니다.
 
 <a name="manage-deployed-apps-portal"></a>
 
@@ -1019,7 +982,7 @@ Visual Studio Code에서는 원래 **Logic Apps** 또는 **Logic App(표준)** �
 
    !["logic apps" 검색 텍스트를 입력한 Azure Portal 검색 상자를 보여주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-resource.png)
 
-1. **Logic App(표준)** 창에서 Visual Studio Code에서 배포한 논리 앱을 찾아 선택합니다.
+1. **Logic App(표준)** 창에서 Visual Studio Code에서 배포한 논리 앱을 선택합니다.
 
    ![Azure Portal과 Azure에서 배포된 Logic App(표준) 리소스를 보여주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/logic-app-resources-pane.png)
 
@@ -1051,7 +1014,7 @@ Visual Studio Code에서는 원래 **Logic Apps** 또는 **Logic App(표준)** �
 
 Azure Portal을 통해 Visual Studio Code에서 배포한 **Logic App(표준)** 리소스에 빈 워크플로를 추가하고 Azure Portal에서 해당 워크플로를 빌드할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 배포된 **Logic App(표준)** 리소스를 찾아 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 배포된 **Logic App(표준)** 리소스를 선택합니다.
 
 1. 논리 앱 메뉴에서 **개요** 를 선택합니다. **워크플로** 창에서 **추가** 를 선택합니다.
 
@@ -1112,7 +1075,7 @@ Azure Portal을 통해 Visual Studio Code에서 배포한 **Logic App(표준)** 
 
 Visual Studio Code에서 Azure로 **Logic App(표준)** 리소스를 배포하면 Azure Portal과 해당 워크플로의 **모니터링** 환경을 사용하여 해당 리소스에 있는 워크플로의 사용 가능한 실행 기록과 세부 정보를 검토할 수 있습니다. 그러나 먼저 해당 논리 앱 리소스에서 **모니터링** 보기 기능을 사용하도록 설정해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 배포된 **Logic App(표준)** 리소스를 찾아 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 배포된 **Logic App(표준)** 리소스를 선택합니다.
 
 1. 해당 리소스의 메뉴의 **API** 에서 **CORS** 를 선택합니다.
 

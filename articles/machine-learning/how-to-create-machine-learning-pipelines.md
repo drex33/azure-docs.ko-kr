@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1
-ms.openlocfilehash: b3f313000bf66162cd4abffa18fd2b7bfbfb0693
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d83dbfa600638beee684258155d3470889cef967
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458572"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528716"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -30,7 +30,7 @@ ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](/azure/devops/pip
 
 ML 파이프라인은 컴퓨팅 대상에서 실행됩니다([Azure Machine Learning에서 컴퓨팅 대상의 개념](./concept-compute-target.md)참조). 파이프라인은 지원되는 [Azure Storage](../storage/index.yml) 위치에서 데이터를 읽고 쓸 수 있습니다.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -111,7 +111,7 @@ output_data_dataset = output_data1.register_on_complete(name = 'prepared_output_
 ## <a name="set-up-a-compute-target"></a>컴퓨팅 대상 설정
 
 
-Azure Machine Learning에서 ‘__컴퓨팅__’(또는 ‘__컴퓨팅 대상__’) 용어는 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다.   컴퓨팅 대상의 전체 목록은 [모델 학습을 위한 컴퓨팅 대상](concept-compute-target.md#train)을 참조하고 컴퓨팅 대상을 만들어 작업 영역에 연결하는 방법은 [컴퓨팅 대상 만들기](how-to-create-attach-compute-studio.md)를 참조하세요.   모델을 학습하든 파이프라인 단계를 실행하든 상관없이 컴퓨팅 대상을 만들고 연결하는 프로세스는 동일합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
+Azure Machine Learning에서 __컴퓨팅__(또는 __컴퓨팅 대상__) 용어는 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다.   컴퓨팅 대상의 전체 목록은 [모델 학습을 위한 컴퓨팅 대상](concept-compute-target.md#train)을 참조하고 컴퓨팅 대상을 만들어 작업 영역에 연결하는 방법은 [컴퓨팅 대상 만들기](how-to-create-attach-compute-studio.md)를 참조하세요.   모델을 학습하든 파이프라인 단계를 실행하든 상관없이 컴퓨팅 대상을 만들고 연결하는 프로세스는 동일합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
 
 > [!IMPORTANT]
 > 컴퓨팅 대상에 대한 관리 작업 수행은 원격 작업 내에서 지원되지 않습니다. 기계 학습 파이프라인은 원격 작업으로 제출되므로 파이프라인 내부에서 컴퓨팅 대상에 관리 작업을 사용하지 마십시오.
@@ -298,6 +298,9 @@ step = PythonScriptStep(name="Hello World",
                         allow_reuse=False,
                         hash_paths=['hello_world.ipynb'])
 ```
+
+> [!Note]
+> 데이터 입력의 이름이 변경되면 기본 데이터가 변경되지 않는 _경우에도_ 단계가 다시 실행됩니다. 입력 데이터의 `name` 필드를 명시적으로 설정해야 합니다(`data.as_input(name=...)`). 이 값을 명시적으로 설정하지 않으면 `name` 필드가 임의 guid로 설정되고 단계의 결과가 다시 사용되지 않습니다.
 
 ## <a name="submit-the-pipeline"></a>파이프라인 제출
 

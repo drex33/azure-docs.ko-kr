@@ -6,14 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 883b76929ac3310dd3089ecb088a4691adbb4ca1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: references_regions
+ms.openlocfilehash: a3ef9a8f56f091e7be93e940f9e359adef15cb7f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010357"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567256"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL은 자동으로 서버 백업을 만들어 사용자가 로컬로 구성한 중복 스토리지 또는 지역 중복 스토리지에 저장합니다. 백업을 사용하여 특정 시점의 서버를 복원할 수 있습니다. 백업 및 복원은 실수로 인한 손상이나 삭제로부터 데이터를 보호하므로 비즈니스 연속성 전략의 필수적인 부분입니다.
 
@@ -21,7 +24,7 @@ Azure Database for MySQL은 자동으로 서버 백업을 만들어 사용자가
 
 Azure Database for MySQL은 데이터 파일과 트랜잭션 로그를 백업합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 [구성](howto-restore-server-portal.md#set-backup-configuration)할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
-이러한 백업 파일은 사용자에게 노출되지 않으며 내보낼 수 없습니다. 이러한 백업은 Azure Database for MySQL의 복원 작업에만 사용될 수 있습니다. [mysqldump](concepts-migrate-dump-restore.md)를 사용하여 데이터베이스를 복사할 수 있습니다.
+이러한 백업 파일은 사용자에게 노출되지 않으며 내보낼 수 없습니다. 이러한 백업은 Azure Database for MySQL의 복원 작업에만 사용할 수 있습니다. [mysqldump](concepts-migrate-dump-restore.md)를 사용하여 데이터베이스를 복사할 수 있습니다.
 
 백업 유형 및 빈도는 서버의 백엔드 스토리지에 따라 달라집니다.
 
@@ -33,20 +36,18 @@ Azure Database for MySQL은 데이터 파일과 트랜잭션 로그를 백업합
 
 트랜잭션 로그 백업은 5분마다 발생합니다.
 
-#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>최대 4TB 스토리지를 지원하는 범용 스토리지 서버
+#### <a name="general-purpose-storage-v1-servers-supports-up-to-4-tb-storage"></a>범용 스토리지 v1 서버(최대 4TB의 스토리지 지원)
 
 범용 스토리지는 [범용](concepts-pricing-tiers.md) 및 [메모리 최적화 계층](concepts-pricing-tiers.md) 서버를 지원하는 백엔드 스토리지입니다. 최대 4TB의 범용 스토리지 서버에서 전체 백업은 매주 한 번 수행됩니다. 차등 백업은 하루 두 번 수행됩니다. 트랜잭션 로그 백업은 5분마다 발생합니다. 최대 4TB 스토리지의 범용 스토리지에 대한 백업은 스냅샷을 기반으로 하지 않으며 백업 시 IO 대역폭을 소비합니다. 4TB 스토리지에서 1TB를 초과하는 대형 데이터베이스의 경우 다음을 고려하는 것이 좋습니다.
 
 - 백업 IO를 고려해서 더 많은 IOPs를 프로비전합니다. 또는
 - 또는 기본 스토리지 인프라를 원하는 [Azure 지역](./concepts-pricing-tiers.md#storage)에서 사용할 수 있는 경우 최대 16TB 스토리지를 지원하는 범용 스토리지로 마이그레이션합니다. 최대 16TB 스토리지를 지원하는 범용 스토리지에는 추가 비용이 없습니다. 16TB 스토리지로의 마이그레이션 지원이 필요하면 Azure Portal에서 지원 티켓을 엽니다.
 
-#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>최대 16TB 스토리지를 지원하는 범용 스토리지 서버
+#### <a name="general-purpose-storage-v2-servers-supports-up-to-16-tb-storage"></a>범용 스토리지 v2 서버(최대 16TB의 스토리지 지원)
 
-[Azure 지역](./concepts-pricing-tiers.md#storage) 하위 집합에서 새로 프로비전되는 모든 서버는 최대 16TB 스토리지의 범용 스토리지를 지원할 수 있습니다. 즉, 최대 16TB 스토리지가 지원되는 모든 [지역](concepts-pricing-tiers.md#storage)의 기본 범용 스토리지입니다. 기본 16TB 스토리지 서버에서의 백업은 스냅샷을 기반으로 합니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅샷 백업은 서버의 기본 백업으로 유지됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다.
+[Azure 지역](./concepts-pricing-tiers.md#storage) 하위 집합에서 새로 프로비전되는 모든 서버는 최대 16TB 스토리지의 범용 스토리지를 지원할 수 있습니다. 즉, 최대 16TB 스토리지가 지원되는 모든 [지역](concepts-pricing-tiers.md#storage)의 기본 범용 스토리지입니다. 기본 16TB 스토리지 서버에서의 백업은 스냅샷을 기반으로 합니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 스냅샷 백업은 매일 한 번 수행됩니다. 트랜잭션 로그 백업은 5분마다 발생합니다.
 
-차등 스냅샷 백업은 하루에 한 번 이상 발생합니다. 차등 스냅샷 백업은 정해진 일정으로 발생하지 않습니다. 차등 스냅샷 백업은 트랜잭션 로그(MySQL의 binlog)가 마지막 차등 백업 이후 50GB를 초과하지 않는 한 24시간마다 수행됩니다. 하루에 최대 6번의 차등 스냅샷이 허용됩니다.
-
-트랜잭션 로그 백업은 5분마다 발생합니다.
+기본/범용 스토리지에 대한 자세한 내용은 [스토리지 설명서](./concepts-pricing-tiers.md#storage)를 참조하세요.
 
 ### <a name="backup-retention"></a>백업 보존
 
@@ -54,8 +55,8 @@ Azure Database for MySQL은 데이터 파일과 트랜잭션 로그를 백업합
 
 백업 보존 기간은 사용 가능한 백업을 기반으로 하기 때문에 특정 시점 복원을 검색할 수 있는 시간을 제어합니다. 백업 보존 기간은 복원 관점에서 복구 기간으로 취급될 수도 있습니다. 백업 보존 기간 내에 지정 시간 복구를 수행하기 위해 필요한 모든 백업이 백업 스토리지에 보존됩니다. 예를 들어 백업 보존 기간이 7일로 설정되었으면 복구 기간이 최근 7일로 간주됩니다. 이 시나리오에서는 최근 7일 동안 서버 복원에 필요한 모든 백업이 보존됩니다. 백업 보존 기간 7일 동안 다음이 수행됩니다.
 
-- 최대 4TB 스토리지 서버의 경우 가장 먼저 수행된 전체 데이터베이스 백업 이후 수행된 최대 2개의 전체 데이터베이스 백업, 모든 차등 백업 및 트랜잭션 로그 백업을 보존합니다.
-- 16TB 스토리지 서버의 경우 이전 8일 동안의 전체 데이터베이스 스냅샷, 모든 차등 스냅샷 및 트랜잭션 로그 백업을 보존합니다.
+- 범용 스토리지 v1 서버(최대 4TB의 스토리지 지원)는 가장 먼저 수행된 전체 데이터베이스 백업 이후 수행된 최대 2개의 전체 데이터베이스 백업과 모든 차등 백업, 트랜잭션 로그 백업을 보존합니다.
+- 범용 스토리지 v2 서버(최대 16TB의 스토리지 지원)는 지난 8일 동안의 전체 데이터베이스 스냅샷과 트랜잭션 로그 백업을 보존합니다.
 
 #### <a name="long-term-retention"></a>장기 보존
 
@@ -64,6 +65,9 @@ Azure Database for MySQL은 데이터 파일과 트랜잭션 로그를 백업합
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 
 Azure Database for MySQL은 범용 및 메모리 최적화 계층에서 로컬로 중복되거나 지리적으로 중복된 백업 스토리지 중에서 선택할 수 있는 유연성을 제공합니다. 백업이 지역 중복 백업 스토리지에 저장되면 서버가 호스팅되는 지역에 저장될 뿐만 아니라 [쌍으로 연결된 데이터 센터](../best-practices-availability-paired-regions.md)에도 복제됩니다. 이러한 지리적 중복성은 재해에 대비하여 다른 지역에서 서버를 복원할 수 있는 기능과 더 나은 보호 기능을 제공합니다. 기본 계층은 로컬 중복 백업 스토리지만 제공합니다.
+
+> [!NOTE]
+>인도 중부, 프랑스 중부, 아랍에미리트 북부, 남아프리카 공화국 북부 지역의 경우 범용 스토리지 v2 스토리지가 공개 미리 보기로 제공됩니다. 위에서 언급한 지역에서 범용 스토리지 v2(최대 16TB의 스토리지 지원)에서 원본 서버를 만드는 경우 지역 중복 백업을 사용하도록 설정할 수 없습니다. 
 
 #### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>로컬 중복성에서 지리적 중복성 백업 스토리지로 이동
 
@@ -119,7 +123,9 @@ select tab.table_schema as database_name, tab.table_name from information_schema
 
 ### <a name="geo-restore"></a>지역 복원
 
-지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 최대 4TB 스토리지를 지원하는 서버는 지리적으로 쌍으로 연결된 지역 또는 최대 16TB 스토리지를 지원하는 지역으로 복원될 수 있습니다. 최대 16TB 스토리지를 지원하는 서버의 경우 지리적 백업은 16TB 서버를 지원하는 지역에서도 복원될 수 있습니다. 지원되는 지역 목록은 [Azure Database for MySQL 가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
+지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 
+- 범용 스토리지 v1 서버(최대 4TM의 스토리지 지원)는 지리적으로 연결된 지역 또는 Azure Database for MySQL 단일 서버 서비스를 지원하는 모든 Azure 지역으로 복원될 수 있습니다.
+- 범용 스토리지 v2 서버(최대 16TB의 스토리지 지원)는 범용 스토리지 v2 서버 인프라를 지원하는 Azure 지역으로만 복원될 수 있습니다. 지원되는 지역 목록은 [Azure Database for MySQL 가격 책정 계층](./concepts-pricing-tiers.md#storage)을 참조하세요.
 
 지역 복원은 서버가 호스팅되는 지역에 사고가 발생하여 서버를 사용할 수 없는 경우에 대비한 기본 복구 옵션입니다. 지역에서 발생한 대규모 사고로 인해 데이터베이스 애플리케이션을 사용할 수 없는 경우 지역 중복 백업에서 다른 지역에 있는 서버로 서버를 복원할 수 있습니다. 지리적 복원에는 서버의 최신 백업이 활용됩니다. 백업을 수행할 때와 다른 지역으로 복제할 때 사이에 지연이 있습니다. 재해가 발생한 경우 최대 1시간 동안의 데이터가 손실되므로 이 지연은 최대 1시간일 수 있습니다.
 

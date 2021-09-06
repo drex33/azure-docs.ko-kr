@@ -1,32 +1,32 @@
 ---
 title: 'Azure SQL Managed Instance: 장기 백업 보존'
-description: PowerShell을 사용하여 Azure SQL Managed Instance에 대해 별도의 Azure Blob Storage 컨테이너에 자동화된 백업을 저장하고 복원하는 방법에 대해 알아봅니다.
+description: Azure Portal 및 PowerShell을 사용하여 별도의 Azure SQL Managed Instance용 저장소 컨테이너에 자동화된 백업을 저장하고 복원하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
 ms.custom: devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: shkale-msft
-ms.author: shkale
-ms.reviewer: mathoma, sstein
-ms.date: 02/25/2021
-ms.openlocfilehash: 1f2988a383620fa1e69b64841b93700f92313a5c
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: mathoma
+ms.date: 07/13/2021
+ms.openlocfilehash: cc25b431c6e1eb4cbb6b31cfc5f9b1a1a26f8a03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592526"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537074"
 ---
-# <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Azure SQL Managed Instance 장기 백업 보존 관리(PowerShell)
+# <a name="manage-azure-sql-managed-instance-long-term-backup-retention"></a>Azure SQL Managed Instance 장기 백업 보존 관리
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Azure SQL Managed Instance에서는 [장기 백업 보존](../database/long-term-retention-overview.md) 정책(LTR)을 공개 미리 보기 기능으로 구성할 수 있습니다. 이를 통해 최대 10년 동안 별도의 Azure Blob Storage 컨테이너에 데이터베이스 백업을 자동으로 보존할 수 있습니다. 그런 다음, PowerShell에서 이러한 백업을 사용하여 데이터베이스를 복구할 수 있습니다.
+Azure SQL Managed Instance에서는 [장기 백업 보존](../database/long-term-retention-overview.md) 정책(LTR)을 공개 미리 보기 기능으로 구성할 수 있습니다. 이를 통해 최대 10년 동안 별도의 Azure Blob Storage 컨테이너에 데이터베이스 백업을 자동으로 보존할 수 있습니다. 그런 다음 Azure Portal과 PowerShell에서 이러한 백업을 사용하여 데이터베이스를 복구할 수 있습니다.
 
    > [!IMPORTANT]
    > 관리되는 인스턴스에 대한 LTR은 현재 Azure 공용 지역의 공개 미리 보기에서 사용할 수 있습니다. 
 
-다음 섹션에서는 PowerShell을 사용하여 장기 백업 보존을 구성하고 Azure SQL 스토리지에서 백업을 확인하고 Azure SQL 스토리지의 백업에서 복원하는 방법을 보여줍니다.
+다음 섹션에는 Azure Portal과 PowerShell을 사용하여 장기 백업 보존을 구성하고, Azure SQL 스토리지에서 백업을 확인하며, Azure SQL 스토리지의 백업에서 복원하는 방법이 나와 있습니다.
 
 
 ## <a name="using-the-azure-portal"></a>Azure Portal 사용

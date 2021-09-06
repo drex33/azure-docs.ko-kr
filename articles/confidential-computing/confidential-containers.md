@@ -8,12 +8,12 @@ ms.date: 2/11/2020
 ms.author: amgowda
 ms.service: container-service
 ms.subservice: confidential-computing
-ms.openlocfilehash: 280f75e8d18d16dd76d0730a90755774af34d6f6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 35bf2fc96f93d1eed2b15c4ea87aa1f2a3aaa0a5
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933579"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113002891"
 ---
 # <a name="confidential-containers"></a>기밀 컨테이너
 
@@ -59,7 +59,7 @@ ms.locfileid: "105933579"
 
 ### <a name="fortanix"></a>Fortanix
 
-[Fortanix](https://www.fortanix.com/)는 개발자에게 애플리케이션을 수정하거나 다시 컴파일하지 않고도 컨테이너화된 애플리케이션을 가져와 SGX 지원 기밀 컨테이너로 변환할 수 있는 포털 및 CLI 기반 환경 옵션을 제공합니다. Fortanix는 기존 애플리케이션, 새로운 enclave 애플리케이션 및 사전 패키징된 애플리케이션을 포함하는 광범위한 애플리케이션을 실행하고 관리할 수 있는 유연성을 제공합니다. 사용자는 [Confidential Computing Manager](https://em.fortanix.com/) UI 또는 [REST API](https://www.fortanix.com/api/em/)로 시작하여 Azure Kubernetes Service에 대한 [빠른 시작](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) 가이드에 따라 기밀 컨테이너를 만들 수 있습니다.
+[Fortanix](https://www.fortanix.com/)는 개발자에게 애플리케이션을 수정하거나 다시 컴파일하지 않고도 컨테이너화된 애플리케이션을 가져와 SGX 지원 기밀 컨테이너로 변환할 수 있는 포털 및 CLI 기반 환경 옵션을 제공합니다. Fortanix는 기존 애플리케이션, 새로운 enclave 애플리케이션 및 사전 패키징된 애플리케이션을 포함하는 광범위한 애플리케이션을 실행하고 관리할 수 있는 유연성을 제공합니다. 사용자는 [Confidential Computing Manager](https://em.fortanix.com/) UI 또는 [REST API](https://www.fortanix.com/api/em/)로 시작하여 Azure Kubernetes Service에 대한 [빠른 시작](https://fortanix.com/blog/2020/10/fortanix-confidential-containers-on-microsoft-azure-kubernetes-service-aks/) 가이드에 따라 기밀 컨테이너를 만들 수 있습니다.
 
 ![Fortanix 배포 프로세스](./media/confidential-containers/fortanix-confidential-containers-flow.png)
 
@@ -89,6 +89,15 @@ AKS를 사용한 기밀 컴퓨팅 노드에 대한 Scone 배포는 완전히 지
 
 Occlum은 AKS 배포를 지원합니다. [여기](https://github.com/occlum/occlum/blob/master/docs/azure_aks_deployment_guide.md)에서 다양한 샘플 앱을 포함하는 배포 지침 따르기
 
+### <a name="marblerun"></a>Marblerun
+
+[Marblerun](https://marblerun.sh/)은 기밀 컨테이너에 대한 오케스트레이션 프레임워크입니다. SGX 지원 Kubernetes에서 기밀 서비스를 쉽게 실행하고 확장할 수 있습니다. Marblerun은 클러스터의 서비스 확인, 해당 서비스의 비밀 관리 및 이들 사이에 enclave 간 mTLS 연결 설정과 같은 상용구 작업을 처리합니다. 또한 Marblerun은 기밀 컨테이너 클러스터가 간단한 JSON에 정의된 매니페스트를 준수하도록 합니다. 원격 증명을 통해 외부 클라이언트에서 매니페스트를 확인할 수 있습니다. 
+
+![Marblerun 흐름](./media/confidential-containers/marblerun-workflow.png)
+
+간단히 말해, Marblerun은 단일 Enclave의 기밀성, 무결성 및 검증 가능성 속성을 Kubernetes 클러스터로 확장합니다. 
+
+Marblerun은 Graphene, Occlum 및 EGo를 통해 만든 기밀 컨테이너를 지원합니다. [여기](https://www.marblerun.sh/docs/examples/)에는 각 SDK의 예가 나와 있습니다. Marblerun은 Kubernetes 및 기존 클라우드 네이티브 도구와 함께 실행하도록 빌드되었습니다. 사용하기 쉬운 CLI 및 helm 차트가 함께 제공됩니다. AKS의 기밀 컴퓨팅 노드에 대한 고급 지원을 제공합니다. AKS에서 Marblerun을 배포하는 방법에 대한 정보는 [여기](https://www.marblerun.sh/docs/deployment/cloud/)에서 찾을 수 있습니다.
 
 ## <a name="confidential-containers-demo"></a>기밀 컨테이너 데모
 기밀 컨테이너를 사용하는 기밀 의료 데모를 봅니다. 샘플은 [여기](/azure/architecture/example-scenario/confidential/healthcare-inference)에서 사용할 수 있습니다. 

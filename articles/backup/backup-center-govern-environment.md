@@ -3,12 +3,12 @@ title: Backup 센터를 사용하여 백업 자산 관리
 description: 백업 센터를 통해 모든 리소스가 백업 관점에서 규정을 준수하는지 확인하기 위해 Azure 환경을 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 283c99c4b17683850f71b25fb2006784e43f3b8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b62c2968dccb8d225e472db84c30f9513dd596d
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506212"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605111"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Backup 센터를 사용하여 백업 자산 관리
 
@@ -26,7 +26,7 @@ ms.locfileid: "102506212"
 
 ## <a name="azure-policies-for-backup"></a>백업용 Azure 정책
 
-백업에 사용할 수 있는 모든 [Azure 정책](../governance/policy/overview.md)을 보려면 **백업용 Azure 정책** 메뉴 항목을 선택합니다. 그러면 구독 및 리소스 그룹에 할당할 수 있는 기본 제공 및 사용자 지정 [백업용 Azure 정책 정의](policy-reference.md)가 모두 표시됩니다.
+백업에 사용할 수 있는 모든 [Azure 정책](../governance/policy/overview.md)을 보려면 **백업용 Azure 정책** 메뉴 항목을 선택합니다. 그러면 구독 및 리소스 그룹에 할당할 수 있는 기본 제공/사용자 지정 [백업용 Azure Policy 정의](policy-reference.md)가 모두 표시됩니다.
 
 정의 중 하나를 선택하면 범위에 [정책을 할당](../governance/policy/tutorials/create-and-manage.md#assign-a-policy)할 수 있습니다.
 

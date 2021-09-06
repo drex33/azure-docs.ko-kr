@@ -7,12 +7,12 @@ ms.author: aapowell
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: e4583c6474872cc1de909d86d812aa9ac9630536
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: b09d1f6d6cdd5838f4c43e7cb05f63d8efd3e7f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854579"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566242"
 ---
 # <a name="custom-authentication-in-azure-static-web-apps"></a>Azure Static Web Apps의 사용자 지정 인증
 
@@ -35,25 +35,31 @@ Azure Static Web Apps는 Azure에서 관리하는 공급자 등록을 사용하�
 
 ### <a name="configuration"></a>구성
 
-다음 표에는 각 공급자에 대한 다양한 구성 옵션이 포함되어 있습니다.
+사용자 지정 인증을 설정하려면 [애플리케이션 설정](./application-settings.md)으로 저장된 몇 가지 비밀을 참조해야 합니다. 
 
 # <a name="azure-active-directory"></a>[Azure Active Directory](#tab/aad)
 
-| 필드 경로                             | Description                                                                                                               |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `registration.openIdIssuer`            | AAD 테넌트의 OpenID 구성에 대한 엔드포인트입니다.                                                  |
-| `registration.clientIdSettingName`     | Azure AD 앱 등록에 대한 애플리케이션(클라이언트) ID를 포함하는 애플리케이션 설정의 이름입니다. |
-| `registration.clientSecretSettingName` | Azure AD 앱 등록에 대한 클라이언트 비밀을 포함하는 애플리케이션 설정의 이름입니다.           |
+Azure Active Directory 공급자는 두 가지 버전으로 제공됩니다. 버전 1은 페이로드가 사용자 정보를 반환할 수 있도록 하는 `userDetailsClaim`을 명시적으로 정의합니다. 반대로 버전 2는 기본적으로 사용자 정보를 반환하고, `openIdIssuer` URL에서 `v2.0`으로 지정됩니다.
+
+등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+
+| 설정 이름 | 값 |
+| --- | --- |
+| `AAD_CLIENT_ID` | Azure AD 앱 등록에 대한 애플리케이션(클라이언트) ID |
+| `AAD_CLIENT_SECRET` | Azure AD 앱 등록에 대한 클라이언트 암호 |
+
+#### <a name="azure-active-directory-version-1"></a>Azure Active Directory 버전 1
 
 ```json
 {
   "auth": {
     "identityProviders": {
       "azureActiveDirectory": {
+        "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
         "registration": {
           "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-          "clientIdSettingName": "<AAD_CLIENT_ID>",
-          "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
+          "clientIdSettingName": "AAD_CLIENT_ID",
+          "clientSecretSettingName": "AAD_CLIENT_SECRET"
         }
       }
     }
@@ -61,23 +67,43 @@ Azure Static Web Apps는 Azure에서 관리하는 공급자 등록을 사용하�
 }
 ```
 
-등록 구성 방식에 영향을 주는 Azure Active Directory 기능 버전이 있는 엔드포인트입니다. AAD v1을 사용하는 경우(발급자 엔드포인트가 "/v2.0"로 끝나지 않음) `"azureActiveDirectory"` 개체의 구성에 다음 `userDetailsClaim` 항목을 추가해야 합니다.
+`<TENANT_ID>`를 Azure Active Directory 테넌트 ID로 바꿉니다.
+
+#### <a name="azure-active-directory-version-2"></a>Azure Active Directory 버전 2
 
 ```json
-"azureActiveDirectory": {
-  "registration": { ... },
-  "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" 
+{
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>/v2.0",
+          "clientIdSettingName": "AAD_CLIENT_ID",
+          "clientSecretSettingName": "AAD_CLIENT_SECRET"
+        }
+      }
+    }
+  }
 }
 ```
 
+`<TENANT_ID>`를 Azure Active Directory 테넌트 ID로 바꿉니다.
+
 Azure Active Directory 구성 방법에 대한 자세한 내용은 [App Service 인증/권한 부여 설명서](../app-service/configure-authentication-provider-aad.md)를 참조하세요.
+
+> [!NOTE]
+> Azure Active Directory에 대한 구성 섹션은 `azureActiveDirectory`이지만 플랫폼은 로그인, 로그아웃 및 사용자 정보 제거를 위해 URL의 `aad`에 별칭을 적용합니다. 자세한 내용은 [인증 및 허가](authentication-authorization.md)를 참조하세요.
 
 # <a name="apple"></a>[Apple](#tab/apple)
 
-| 필드 경로                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | 클라이언트 ID를 포함하는 애플리케이션 설정의 이름입니다.                                       |
-| `registration.clientSecretSettingName` | 클라이언트 암호가 포함된 애플리케이션 설정의 이름입니다.                                   |
+등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+
+| 설정 이름 | 값 |
+| --- | --- |
+| `APPLE_CLIENT_ID` | Apple 클라이언트 ID |
+| `APPLE_CLIENT_SECRET` | Apple 클라이언트 암호 |
+
+다음으로 다음 샘플을 사용하여 공급자를 구성합니다.
 
 ```json
 {
@@ -85,8 +111,8 @@ Azure Active Directory 구성 방법에 대한 자세한 내용은 [App Service 
     "identityProviders": {
       "apple": {
         "registration": {
-          "clientIdSettingName": "<APPLE_CLIENT_ID>",
-          "clientSecretSettingName": "<APPLE_CLIENT_SECRET>"
+          "clientIdSettingName": "APPLE_CLIENT_ID",
+          "clientSecretSettingName": "APPLE_CLIENT_SECRET"
         }
       }
     }
@@ -98,10 +124,14 @@ Apple을 인증 공급자로 구성하는 방법에 대한 자세한 내용은 [
 
 # <a name="facebook"></a>[Facebook](#tab/facebook)
 
-| 필드 경로                          | Description                                                                            |
-| ----------------------------------- | -------------------------------------------------------------------------------------- |
-| `registration.appIdSettingName`     | 앱 ID를 포함하는 애플리케이션 설정의 이름입니다.                             |
-| `registration.appSecretSettingName` | 앱 비밀을 포함하는 애플리케이션 설정의 이름입니다.                         |
+등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+
+| 설정 이름 | 값 |
+| --- | --- |
+| `FACEBOOK_APP_ID` | Facebook 애플리케이션 ID |
+| `FACEBOOK_APP_SECRET` | Facebook 애플리케이션 비밀 |
+
+다음으로 다음 샘플을 사용하여 공급자를 구성합니다.
 
 ```json
 {
@@ -109,8 +139,8 @@ Apple을 인증 공급자로 구성하는 방법에 대한 자세한 내용은 [
     "identityProviders": {
       "facebook": {
         "registration": {
-          "appIdSettingName": "<FACEBOOK_APP_ID>",
-          "appSecretSettingName": "<FACEBOOK_APP_SECRET>"
+          "appIdSettingName": "FACEBOOK_APP_ID",
+          "appSecretSettingName": "FACEBOOK_APP_SECRET"
         }
       }
     }
@@ -122,10 +152,15 @@ Facebook을 인증 공급자로 구성하는 방법에 대한 자세한 내용�
 
 # <a name="github"></a>[GitHub](#tab/github)
 
-| 필드 경로                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | 클라이언트 ID를 포함하는 애플리케이션 설정의 이름입니다.                                |
-| `registration.clientSecretSettingName` | 클라이언트 암호가 포함된 애플리케이션 설정의 이름입니다.                            |
+
+등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+
+| 설정 이름 | 값 |
+| --- | --- |
+| `GITHUB_CLIENT_ID` | GitHub 클라이언트 ID |
+| `GITHUB_CLIENT_SECRET` | GitHub 클라이언트 암호 |
+
+다음으로 다음 샘플을 사용하여 공급자를 구성합니다.
 
 ```json
 {
@@ -133,8 +168,8 @@ Facebook을 인증 공급자로 구성하는 방법에 대한 자세한 내용�
     "identityProviders": {
       "github": {
         "registration": {
-          "clientIdSettingName": "<GITHUB_CLIENT_ID>",
-          "clientSecretSettingName": "<GITHUB_CLIENT_SECRET>"
+          "clientIdSettingName": "GITHUB_CLIENT_ID",
+          "clientSecretSettingName": "GITHUB_CLIENT_SECRET"
         }
       }
     }
@@ -144,10 +179,15 @@ Facebook을 인증 공급자로 구성하는 방법에 대한 자세한 내용�
 
 # <a name="google"></a>[Google](#tab/google)
 
-| 필드 경로                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | 클라이언트 ID를 포함하는 애플리케이션 설정의 이름입니다.                                |
-| `registration.clientSecretSettingName` | 클라이언트 암호가 포함된 애플리케이션 설정의 이름입니다.                            |
+
+등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+
+| 설정 이름 | 값 |
+| --- | --- |
+| `GOOGLE_CLIENT_ID` | Google 클라이언트 ID |
+| `GOOGLE_CLIENT_SECRET` | Google 클라이언트 암호 |
+
+다음으로 다음 샘플을 사용하여 공급자를 구성합니다.
 
 ```json
 {
@@ -155,8 +195,8 @@ Facebook을 인증 공급자로 구성하는 방법에 대한 자세한 내용�
     "identityProviders": {
       "google": {
         "registration": {
-          "clientIdSettingName": "<GOOGLE_CLIENT_ID>",
-          "clientSecretSettingName": "<GOOGLE_CLIENT_SECRET>"
+          "clientIdSettingName": "GOOGLE_CLIENT_ID",
+          "clientSecretSettingName": "GOOGLE_CLIENT_SECRET"
         }
       }
     }
@@ -168,10 +208,14 @@ Google을 인증 공급자로 구성하는 방법에 대한 자세한 내용은 
 
 # <a name="twitter"></a>[Twitter](#tab/twitter)
 
-| 필드 경로                               | Description                                                                                        |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `registration.consumerKeySettingName`    | 소비자 키를 포함하는 애플리케이션 설정의 이름입니다.                                   |
-| `registration.consumerSecretSettingName` | 소비자 비밀을 포함하는 애플리케이션 설정의 이름입니다.                                |
+등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+
+| 설정 이름 | 값 |
+| --- | --- |
+| `TWITTER_CONSUMER_KEY` | Twitter 사용자 키 |
+| `TWITTER_CONSUMER_SECRET` | Twitter 사용자 비밀 |
+
+다음으로 다음 샘플을 사용하여 공급자를 구성합니다.
 
 ```json
 {
@@ -179,8 +223,8 @@ Google을 인증 공급자로 구성하는 방법에 대한 자세한 내용은 
     "identityProviders": {
       "twitter": {
         "registration": {
-          "consumerKeySettingName": "<TWITTER_CONSUMER_KEY>",
-          "consumerSecretSettingName": "<TWITTER_CONSUMER_SECRET>"
+          "consumerKeySettingName": "TWITTER_CONSUMER_KEY",
+          "consumerSecretSettingName": "TWITTER_CONSUMER_SECRET"
         }
       }
     }
@@ -204,12 +248,19 @@ Twitter를 인증 공급자로 구성하는 방법에 대한 자세한 내용은
 
 ID 공급자에 애플리케이션의 세부 정보를 등록해야 합니다. 애플리케이션에 대한 **클라이언트 ID** 및 **클라이언트 암호** 를 생성하는 데 필요한 단계는 공급자에게 문의하세요.
 
+애플리케이션이 ID 공급자에 등록되면 정적 웹앱의 [애플리케이션 설정](application-settings.md)에서 다음 애플리케이션 비밀을 만듭니다.
+
+| 설정 이름 | 값 |
+| --- | --- |
+| `MY_PROVIDER_CLIENT_ID` | 정적 웹앱에 대한 인증 공급자가 생성한 클라이언트 ID |
+| `MY_PROVIDER_CLIENT_SECRET` | 정적 웹앱에 대한 인증 공급자의 사용자 지정 등록에 의해 생성된 클라이언트 암호 |
+
+추가 공급자를 등록하는 경우 각 공급자에는 애플리케이션 설정에 연결된 클라이언트 ID 및 클라이언트 암호 저장소가 필요합니다.
+
 > [!IMPORTANT]
 > 애플리케이션 비밀은 중요한 보안 자격 증명입니다. 이 비밀을 다른 사람과 공유하거나, 클라이언트 애플리케이션 내에 배포하거나, 소스 제어에 체크 인하지 마세요.
 
 등록 자격 증명이 있으면 다음 단계를 사용하여 사용자 지정 등록을 만듭니다.
-
-1. 선택한 설정 이름을 사용하여 클라이언트 ID 및 클라이언트 암호를 앱의 [애플리케이션 설정](application-settings.md)으로 추가합니다. 나중에 사용할 수 있도록 이러한 이름을 기록해 둡니다. 또는 클라이언트 ID를 구성 파일에 포함할 수 있습니다.
 
 1. 또한 공급자에 대한 OpenID Connect 메타데이터가 필요합니다. 이 정보는 일반적으로 공급자의 _발급자 URL_ 에 `/.well-known/openid-configuration`이 접미사로 추가된 [구성 메타데이터 문서](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig)를 통해 노출됩니다. 이 구성 URL을 수집합니다.
 
@@ -222,9 +273,9 @@ ID 공급자에 애플리케이션의 세부 정보를 등록해야 합니다. �
          "customOpenIdConnectProviders": {
            "myProvider": {
              "registration": {
-               "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID_SETTING_NAME>",
+               "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
                "clientCredential": {
-                 "clientSecretSettingName": "<MY_PROVIDER_CLIENT_SECRET_SETTING_NAME>"
+                 "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET"
                },
                "openIdConnectConfiguration": {
                  "wellKnownOpenIdConfiguration": "https://<PROVIDER_ISSUER_URL>/.well-known/openid-configuration"
@@ -242,16 +293,9 @@ ID 공급자에 애플리케이션의 세부 정보를 등록해야 합니다. �
    }
    ```
 
-  코드에서 다음 대체 토큰을 원하는 값으로 변경합니다.
-
-  | 바꿀 원본... | 대상... |
-  | --- | --- |
-  | `<MY_PROVIDER_CLIENT_ID_SETTING_NAME>` | 사용자 지정 등록에서 생성된 클라이언트 ID와 연결된 애플리케이션 설정 이름입니다. |
-  | `<MY_PROVIDER_CLIENT_SECRET_SETTING_NAME>` | 사용자 지정 등록에서 생성된 클라이언트 암호와 연결된 애플리케이션 설정 이름입니다. |
-  | `<PROVIDER_ISSUER_URL>` | 공급자의 _발급자 URL_ 에 대한 경로입니다. |
-
-- 이 예제에서 공급자 이름 `myProvider`는 Azure Static Web Apps에서 사용되는 고유 식별자입니다.
-- `login` 개체를 사용하면 사용자 지정 범위, 로그인 매개 변수 또는 사용자 지정 클레임에 대한 값을 제공할 수 있습니다.
+  - 이 예제에서 공급자 이름 `myProvider`는 Azure Static Web Apps에서 사용되는 고유 식별자입니다.
+  - `<PROVIDER_ISSUER_URL>`을 공급자의 _발급자 URL_ 에 대한 경로로 바꿉니다.
+  - `login` 개체를 사용하면 사용자 지정 범위, 로그인 매개 변수 또는 사용자 지정 클레임에 대한 값을 제공할 수 있습니다.
 
 ### <a name="login-logout-and-purging-user-details"></a>로그인, 로그아웃 및 사용자 세부 정보 제거
 
@@ -263,14 +307,18 @@ ID 공급자에 애플리케이션의 세부 정보를 등록해야 합니다. �
 | Logout             | `/.auth/logout`                          |
 | 사용자 세부 정보 제거 | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
+Azure Active Directory를 사용하는 경우 `aad` 자리 표시자에 대한 값으로 `<AUTHENTICATION_PROVIDER_NAME>`을 사용합니다.
+
 ### <a name="authentication-callbacks"></a>인증 콜백
 
-인증 공급자는 로그인 또는 로그아웃 요청을 완료하려면 리디렉션 URL이 필요합니다. 다음 엔드포인트는 리디렉션 대상으로 사용할 수 있습니다.
+사용자 지정 OIDC 공급자는 로그인 또는 로그아웃 요청을 완료하려면 리디렉션 URL이 필요합니다. 다음 엔드포인트는 리디렉션 대상으로 사용할 수 있습니다.
 
 | Type   | URL 패턴                                                 |
 | ------ | ----------------------------------------------------------- |
 | 로그인  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
 | Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
+
+Azure Active Directory를 사용하는 경우 `aad` 자리 표시자에 대한 값으로 `<AUTHENTICATION_PROVIDER_NAME>`을 사용합니다.
 
 > [!Note]
 > 이러한 URL은 인증 공급자로부터 응답을 받기 위해 Azure Static Web Apps에서 제공하므로 이러한 경로에서 페이지를 만들 필요가 없습니다.

@@ -1,7 +1,6 @@
 ---
 title: Azure AD Connect - Azure AD Connect를 사용하여 Azure AD로 AD FS 신뢰 관리 | Microsoft Docs
 description: Azure AD Connect의 Azure AD 신뢰 처리 운영에 대한 세부 정보.
-keywords: AD FS, ADFS, AD FS 관리, AAD Connect, Connect, Azure AD, 신뢰, AAD, 클레임, 클레임, 클레임 규칙, 발급, 변환, 규칙, 백업, 복원
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
@@ -18,22 +17,23 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8fea0133b7aa93b16a7e65e9e573723e7e21bae
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85360098"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112460291"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Azure AD로 AD FS 신뢰 관리
 
 ## <a name="overview"></a>개요
 
-Azure AD Connect는 온-프레미스 Active Directory Federation Service(AD FS)와 Azure AD 사이의 페더레이션을 관리할 수 있습니다. 이 문서는 다음에 대한 개요를 제공합니다.
+온-프레미스 환경을 Azure AD와 페더레이션하는 경우 온-프레미스 ID 공급자와 Azure AD 간에 트러스트 관계를 설정합니다.  Azure AD Connect는 온-프레미스 Active Directory Federation Service(AD FS)와 Azure AD 사이의 페더레이션을 관리할 수 있습니다. 이 문서는 다음에 대한 개요를 제공합니다.
 
 * Azure AD Connect에서 신뢰에 구성하는 다양한 설정
 * Azure AD Connect에서 설정하는 발급 변환 규칙(클레임 규칙)
 * 업그레이드와 구성 업데이트 간에 클레임 규칙을 백업하고 복원하는 방법. 
+* Azure AD를 통해 AD FS 트러스트를 보호하고 모니터링하는 모범 사례
 
 ## <a name="settings-controlled-by-azure-ad-connect"></a>Azure AD Connect에서 제어하는 설정
 
@@ -118,6 +118,11 @@ Azure AD Connect 버전 1.1.873.0 이상은 Azure AD 신뢰 설정에 대한 업
 
 > [!NOTE]
 > Azure AD Connect에서 구성한 규칙과 추가 규칙이 충돌하지 않도록 합니다.
+
+## <a name="best-practice-for-securing-and-monitoring-the-ad-fs-trust-with-azure-ad"></a>Azure AD를 통해 AD FS 트러스트를 보호하고 모니터링하는 모범 사례
+AD FS를 Azure AD와 페더레이션하는 경우 페더레이션 구성(AD FS와 Azure AD 간에 구성된 트러스트 관계)을 긴밀하게 모니터링하고 비정상적이거나 의심스러운 활동을 캡처하는 것이 중요합니다. 이렇게 하려면 페더레이션 구성이 변경될 때마다 경고를 설정하고 알림을 받는 것이 좋습니다. 경고를 설정하는 방법을 알아보려면 [페더레이션 구성에 대한 변경 내용 모니터링](how-to-connect-monitor-federation-changes.md)을 참조하세요. 
+
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정](how-to-connect-fed-management.md)

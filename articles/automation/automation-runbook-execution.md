@@ -3,15 +3,15 @@ title: Azure Automation에서 Runbook 실행
 description: 이 문서에서는 Azure Automation에서 Runbook을 처리하는 방법에 대한 개요를 제공합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2021
+ms.date: 08/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5fcef44fed77b01e069129a160299f547340c346
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 454c59b5f5f5d0781f99f21b612ac2a3fc904fb9
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964572"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537630"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -21,7 +21,7 @@ Automation은 Runbook 내에 정의된 논리를 기준으로 Runbook을 실행�
 
 Azure Automation에서 Runbook을 시작하면 작업이 생성됩니다. 작업은 Runbook의 단일 실행 인스턴스입니다. 각 작업은 Azure 구독에 대한 연결을 설정하여 Azure 리소스에 액세스합니다. 작업은 데이터 센터의 리소스가 퍼블릭 클라우드에서 액세스할 수 있는 경우에만 데이터 리소스에 액세스할 수 있습니다.
 
-Azure Automation은 Runbook 실행 중에 각 작업에 작업자를 할당합니다. 작업자가 많은 Azure 계정에서 공유되지만 여러 Automation 계정의 작업은 서로 격리됩니다. 작업에서 어느 작업자 서비스를 요청할지는 사용자가 제어할 수 없습니다.
+Azure Automation은 Runbook 실행 중에 각 작업에 작업자를 할당합니다. 작업자가 많은 Automation 계정에서 공유되지만 다른 Automation 계정의 작업은 서로 격리됩니다. 작업에서 어느 작업자 서비스를 요청할지는 사용자가 제어할 수 없습니다.
 
 Azure Portal에서 Runbook 목록을 확인하면 각 Runbook에 대해 시작된 각 작업의 상태가 표시됩니다. Azure Automation은 최대 30일 동안 작업 로그를 저장합니다.
 
@@ -35,10 +35,11 @@ Azure Portal에서 Runbook 목록을 확인하면 각 Runbook에 대해 시작�
 
 Azure Automation의 Runbook은 Azure 샌드박스 또는 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 실행할 수 있습니다. 
 
-Runbook이 Azure의 리소스에 대해 인증되고 실행되도록 설계된 경우, 여러 작업에서 사용할 수 있는 공유 환경인 Azure 샌드박스에서 실행됩니다. 동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다. Azure 샌드박스 환경은 대화형 작업을 지원하지 않으며 모든 Out of Process COM 서버에 대한 액세스를 방지하고 Runbook의 Win32 공급자에 대한 [WMI 호출](/windows/win32/wmisdk/wmi-architecture)을 지원하지 않습니다.  이러한 시나리오는 Windows Hybrid Runbook Worker에서 Runbook을 실행하는 경우에만 지원됩니다.
-
+Runbook이 Azure의 리소스에 대해 인증되고 실행되도록 설계된 경우 Azure 샌드박스에서 실행됩니다. Azure Automation은 샌드박스에서 Runbook을 실행하는 동안 각 작업을 실행할 작업자를 할당합니다. 작업자가 많은 Automation 계정에서 공유되지만 다른 Automation 계정의 작업은 서로 격리됩니다.  동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다. Azure 샌드박스 환경은 대화형 작업을 지원하지 않으며 모든 Out of Process COM 서버에 대한 액세스를 방지하고 Runbook의 Win32 공급자에 대한 [WMI 호출](/windows/win32/wmisdk/wmi-architecture)을 지원하지 않습니다.  이러한 시나리오는 Windows Hybrid Runbook Worker에서 Runbook을 실행하는 경우에만 지원됩니다.
 
 역할을 호스트하는 컴퓨터에서, 그리고 환경의 리소스에 대해 Runbook을 직접 실행하는 데 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 사용할 수도 있습니다. Azure Automation은 Runbook을 저장 및 관리한 후 하나 이상의 할당된 컴퓨터로 전달합니다.
+
+[Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md) 또는 [Azure SQL](../azure-sql/database/firewall-configure.md)에서 Azure Firewall을 사용하도록 설정하면 해당 서비스에 대한 Azure Automation Runbook의 액세스가 차단됩니다. Automation이 신뢰할 수 있는 서비스 목록에 포함되어 있지 않기 때문에, 신뢰할 수 있는 Microsoft 서비스를 허용하는 방화벽 예외가 사용하도록 설정된 경우에도 액세스가 차단됩니다. 방화벽을 사용하도록 설정한 경우에는 Hybrid Runbook Worker 및 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 통해서만 액세스할 수 있습니다.
 
 >[!NOTE]
 >Linux Hybrid Runbook Worker에서 실행하려면 스크립트에 서명이 되어 있고 작업자가 적절하게 구성되어 있어야 합니다. 또는 [서명 유효성 검사가 해제](automation-linux-hrw-install.md#turn-off-signature-validation)되어 있어야 합니다.

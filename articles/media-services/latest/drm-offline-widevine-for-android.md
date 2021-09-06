@@ -9,12 +9,12 @@ ms.workload: media
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: c5d8d5d5dbbe8e79591c735e4a6fa77f47ff9b2f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: a753115db7ae0f0ff3c9939ef4d90018b15b064f
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793358"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633751"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Media Services v3를 사용하는 Android용 오프라인 Widevine 스트리밍
 
@@ -41,7 +41,7 @@ Android 플레이어 앱을 빌드하는 경우 다음 세 가지 옵션을 사�
 > [!NOTE]
 > 오프라인 DRM은 콘텐츠를 다운로드할 때 한 번의 라이선스 요청에 대해서만 청구됩니다. 모든 오류에 대해서는 청구되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Android 디바이스에서 Widevine에 대한 오프라인 DRM을 구현하기 전에 먼저 다음을 수행해야 합니다.
 
@@ -154,6 +154,6 @@ Android 휴대폰에서 모바일 Chrome 브라우저를 v62(또는 이상)로 �
 
 ## <a name="more-information"></a>자세한 정보
 
-자세한 내용은 [질문 컬렉션에서 Widevine](questions-collection.md#widevine-streaming-for-android)을 참조하세요.
+자세한 내용은 [FAQ에서 콘텐츠 보호](frequently-asked-questions.yml)를 참조하세요.
 
 Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.

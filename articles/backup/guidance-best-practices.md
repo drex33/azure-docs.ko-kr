@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크로드를 클라우드로 백업하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 7b507fec6c3f9cd53dd5b775dff2ca43c4dcfd1f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e2d65f256a69b397486675dc71efb71ce3e4263d
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965484"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605036"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크로드를 클라우드로 백업
 
@@ -73,7 +73,7 @@ Azure Backup은 자격 증명 모음(Recovery Services 및 Backup 자격 증명 
 * 워크로드가 여러 구독에 걸쳐 분산된 경우 구독당 하나 이상의 자격 증명 모음을 만들 수 있습니다.
   * 백업 센터를 사용하면 단일 창에서 백업과 관련된 모든 작업을 관리할 수 있습니다. [여기를 참조하세요]().
   * 통합 문서 템플릿을 사용하여 보기를 사용자 지정할 수 있습니다. Backup 탐색기는 Azure VM을 위한 이러한 템플릿 중 하나입니다. [여기를 참조하세요](monitor-azure-backup-with-backup-explorer.md).
-  * 여러 자격 증명 모음에서 일관된 정책을 필요로 하는 경우 Azure Policy를 사용하여 여러 자격 증명 모음에 백업 정책을 전파할 수 있습니다. ['deployifnotexists'](../governance/policy/concepts/effects.md#deployifnotexists) 효과를 사용하여 여러 자격 증명 모음에 백업 정책을 전파하는 사용자 지정 [Azure Policy 정의](../governance/policy/concepts/definition-structure.md)를 작성할 수 있습니다. 또한 이 Azure Policy 정의를 특정 범위(구독 또는 RG)에 [할당](../governance/policy/assign-policy-portal.md)할 수도 있습니다. 그러면 Azure Policy 할당 범위에서 모든 Recovery Services 자격 증명 모음에 '백업 정책' 리소스를 배포할 수 있습니다. 백업 빈도, 보존 등의 백업 정책 설정은 사용자가 Azure Policy 할당에서 매개 변수로 지정해야 합니다.
+  * 여러 자격 증명 모음에서 일관된 정책이 필요한 경우 Azure Policy를 사용하여 여러 자격 증명 모음에 백업 정책을 전파할 수 있습니다. ['deployifnotexists'](../governance/policy/concepts/effects.md#deployifnotexists) 효과를 사용하여 여러 자격 증명 모음에 백업 정책을 전파하는 사용자 지정 [Azure Policy 정의](../governance/policy/concepts/definition-structure.md)를 작성할 수 있습니다. 또한 이 Azure Policy 정의를 특정 범위(구독 또는 RG)에 [할당](../governance/policy/assign-policy-portal.md)할 수도 있습니다. 그러면 Azure Policy 할당 범위에서 모든 Recovery Services 자격 증명 모음에 '백업 정책' 리소스를 배포할 수 있습니다. 백업 빈도, 보존 등의 백업 정책 설정은 사용자가 Azure Policy 할당에서 매개 변수로 지정해야 합니다.
 
 * 조직 규모가 증가함에 따라 백업 정책 정렬, 자격 증명 모음 통합, 비용 절감을 위한 중복 수준 절충(GRS에서 LRS로 이동) 등의 이유로 구독 간에 워크로드를 이동해야 할 수 있습니다.  Azure Backup은 Azure 구독 간에 또는 동일한 구독 내 다른 리소스 그룹으로 Recovery Services 자격 증명 모음 이동을 지원합니다. [여기를 참조하세요](backup-azure-move-recovery-services-vault.md).
 
@@ -184,7 +184,7 @@ Azure Backup을 사용하면 데이터를 워크로드에서 Recovery Services �
 
 Azure [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. Azure Backup에서는 프라이빗 엔드포인트를 사용하여 Recovery Services 자격 증명 모음에서 데이터를 안전하게 백업하고 복원할 수 있습니다.
 
-* 자격 증명 모음에 프라이빗 엔드포인트를 사용하도록 설정하는 경우 Azure VM 및 MARS 에이전트 백업에서 SQL 및 SAP HANA 워크로드의 백업 및 복원에만 사용됩니다.  다른 워크로드의 백업에도 자격 증명 모음을 사용할 수 있습니다. 그러나 프라이빗 엔드포인트는 필요하지 않습니다. 프라이빗 엔드포인트는 SQL 및 SAP HANA 워크로드 백업 및 MARS 에이전트를 사용한 백업 외에도 Azure VM 백업 시 파일 복구를 수행하는 데 사용됩니다. [여기를 참조하세요](private-endpoints.md#recommended-and-supported-scenarios).
+* 자격 증명 모음에 프라이빗 엔드포인트를 사용하도록 설정하는 경우 Azure VM 및 MARS 에이전트 백업에서 SQL 및 SAP HANA 워크로드의 백업 및 복원에만 사용됩니다.  다른 워크로드의 백업에도 자격 증명 모음을 사용할 수 있습니다. 그러나 프라이빗 엔드포인트는 필요하지 않습니다. 프라이빗 엔드포인트는 SQL 및 SAP HANA 워크로드 백업 및 MARS 에이전트를 사용한 백업 외에도 Azure VM 백업 시 파일 복구를 수행하는 데 사용됩니다. [여기를 참조하세요](private-endpoints-overview.md#recommended-and-supported-scenarios).
 
 * Azure Active Directory는 현재 프라이빗 엔드포인트를 지원하지 않습니다. 따라서 Azure Active Directory에 필요한 IP 및 FQDN은 Azure VM에서 데이터베이스의 백업을 수행하고 MARS 에이전트를 사용하여 백업할 때 보안 네트워크에서의 아웃바운드 액세스가 허용되어야 합니다. 해당하는 경우 Azure AD 액세스를 허용하기 위해 NSG 태그 및 Azure Firewall 태그를 사용할 수도 있습니다. [여기에서 필수 구성 요소](./private-endpoints.md#before-you-start)에 대해 자세히 알아보세요.
 
@@ -240,7 +240,7 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리하면서도
 * 기타
   * 데이터(예: 작업, 정책 등)를 **Log Analytics** 작업 영역으로 보낼 수 있습니다. 이렇게 하면 Azure Monitor 로그의 기능을 사용하여 해당 데이터와 Azure Monitor에서 수집된 다른 모니터링 데이터와의 상관 관계를 설정하고, 여러 Azure 구독 및 테넌트의 로그 항목을 함께 분석하도록 단일 위치로 통합하고, 로그 쿼리를 사용하여 복잡한 분석을 수행하고, 로그 항목에 대한 심층적인 통찰을 얻을 수 있습니다. [여기를 참조하세요](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
   * 데이터를 Event Hub로 보내 타사 SIEM(보안 정보 및 이벤트 관리) 또는 다른 로그 분석 솔루션과 같은 Azure 외부에 항목을 보낼 수 있습니다. [여기를 참조하세요](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
-  * 감사, 정적 분석 또는 백업을 위해 90일을 초과하여 로그 데이터를 보존하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그 이벤트는 Azure 플랫폼에 90일 동안 보관되므로 스토리지 계정에 보관을 설정할 필요가 없습니다. [자세히 알아봅니다](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
+  * 감사, 정적 분석 또는 백업을 위해 90일을 초과하여 로그 데이터를 보존하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그 이벤트는 Azure 플랫폼에 90일 동안 보관되므로 스토리지 계정에 보관을 설정할 필요가 없습니다. [자세한 정보를 알아보세요](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>경고
 

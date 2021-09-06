@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: shkale-msft
-ms.author: shkale
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 03/10/2021
-ms.openlocfilehash: 325a2feb0cf29a03a88249e2d0ac3a22f685d498
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 2a725512f3fa18a9af43d2725cda4ce1248e796a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694559"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528734"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 
@@ -30,6 +30,14 @@ Azure SQL Database는 동일한 서버 또는 다른 서버에서 기존 [데이
 
 > [!NOTE]
 > Azure SQL Database 구성 가능한 백업 스토리지 중복은 현재 동남 아시아 Azure 지역에서만 일반 공급되며 브라질 남부에서는 공개 미리 보기로 이용할 수 있습니다. 미리 보기 상태에서는 로컬 중복 또는 영역 중복 백업 스토리지 중복을 사용하여 원본 데이터베이스를 만드는 경우 다른 Azure 지역의 서버에 데이터베이스를 복사하는 것은 지원되지 않습니다. 
+
+## <a name="database-copy-for-azure-sql-hyperscale"></a>Azure SQL 하이퍼스케일용 데이터베이스 복사
+
+Azure SQL 하이퍼스케일의 경우 대상 데이터베이스는 복사본이 빠른 복사인지 아니면 데이터 복사 크기인지를 결정합니다.
+
+빠른 복사: 복사가 원본과 동일한 지역에서 수행되면 Blob의 스냅샷에서 복사본이 만들어집니다. 이 복사본은 데이터베이스 크기에 관계없이 빠른 작업입니다.
+
+데이터 복사 크기: 대상 데이터베이스가 원본과 다른 지역에 있거나 대상의 데이터베이스 백업 스토리지 중복성(로컬, 영역, 지역)이 원본 데이터베이스와 다른 경우 복사 작업은 데이터 작업의 크기가 됩니다. 페이지 서버 Blob이 병렬로 복사되기 때문에 복사 시간은 크기에 직접 비례하지 않습니다.
 
 ## <a name="logins-in-the-database-copy"></a>데이터베이스 복사본에서 로그인
 
@@ -86,7 +94,11 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
 
 > [!NOTE]
 > T-SQL 문을 종료해도 데이터베이스 복사 작업은 종료되지 않습니다. 작업을 종료하려면 대상 데이터베이스를 삭제합니다.
->
+> [!NOTE]
+> 원본 및/또는 대상 서버에 프라이빗 엔드포인트가 구성되어 있고 공용 네트워크 액세스를 사용하지 않는 경우에는 데이터베이스 복사가 지원되지 않습니다. 프라이빗 엔드포인트가 구성되었지만 공용 네트워크 액세스가 허용되는 경우 공용 IP 주소에서 대상 서버에 연결할 때 데이터베이스 복사를 시작하는 데 성공합니다.
+현재 연결의 원본 IP 주소를 확인하려면 `SELECT client_net_address FROM sys.dm_exec_connections WHERE session_id = @@SPID;`를 실행합니다.
+ 
+
 
 > [!IMPORTANT]
 > T-SQL CREATE DATABASE ... AS COPY OF 명령을 사용할 때 백업 스토리지 중복을 선택하는 것은 아직 지원되지 않습니다. 

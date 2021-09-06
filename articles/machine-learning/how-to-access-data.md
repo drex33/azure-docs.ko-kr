@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 11/03/2020
+ms.date: 07/06/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: f0fb8ee681bfb3056547eed712d0197100b8ec08
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: a164fb60dde8ba8e652bab3c99b87ffa84ec8596
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785244"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567478"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Azure에서 스토리지 서비스에 연결
 
@@ -33,7 +33,7 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 - [지원되는 스토리지 형식](#matrix)을 사용하는 Azure 스토리지 계정.
 
@@ -98,7 +98,7 @@ Azure Storage 서비스에 안전하게 연결하려면 Azure Machine Learning�
 
 Azure Machine Learning은 방화벽 뒤 또는 가상 네트워크 내에 있는 스토리지 계정과 통신하기 위한 추가 구성 단계가 필요합니다. 스토리지 계정이 방화벽 뒤에 있는 경우 [Azure Portal을 통해 IP 주소 나열을 허용](../storage/common/storage-network-security.md#managing-ip-network-rules)할 수 있습니다.
 
-Azure Machine Learning은 가상 네트워크 외부의 클라이언트에서 요청을 받을 수 있습니다. 서비스의 데이터를 요청하는 엔터티가 안전한지 확인하려면 [작업 영역에 대한 Azure Private Link를 설정](how-to-configure-private-link.md)합니다.
+Azure Machine Learning은 가상 네트워크 외부의 클라이언트에서 요청을 받을 수 있습니다. 서비스에서 데이터를 요청하는 엔터티가 안전한지 확인하려면 [작업 영역이 포함된 프라이빗 엔드포인트를 사용](how-to-configure-private-link.md)합니다.
 
 **Python SDK 사용자의 경우** 컴퓨팅 대상의 학습 스크립트를 통해 데이터에 액세스하려면 컴퓨팅 대상이 스토리지의 동일한 가상 네트워크 및 서브넷 내부에 있어야 합니다. 
 
@@ -230,7 +230,7 @@ Python SDK 및 스튜디오를 사용하여 데이터 저장소를 만드는 것
 <a name="arm"></a>
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-[https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/)에는 데이터 저장소를 만드는 데 사용할 수 있는 여러 가지 템플릿이 있습니다.
+[https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices)에는 데이터 저장소를 만드는 데 사용할 수 있는 여러 가지 템플릿이 있습니다.
 
 해당 템플릿 사용에 관한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning용 작업 영역 만들기 ](how-to-create-workspace-template.md)를 참조하세요.
 
@@ -282,7 +282,6 @@ Azure Machine Learning은 모델을 채점에 사용할 수 있는 여러 가지
 | ----- | :-----: | ----- |
 | [일괄 처리 예측](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | 대량의 데이터에 대해 비동기적으로 예측합니다. |
 | [웹 서비스](how-to-deploy-and-where.md) | &nbsp; | 모델을 웹 서비스로 배포합니다. |
-| [Azure IoT Edge 모듈](how-to-deploy-and-where.md) | &nbsp; | IoT Edge 디바이스에 모델을 배포합니다. |
 
 SDK가 데이터 저장소에 대한 액세스를 제공하지 않는 경우에는 관련 Azure SDK를 사용하여 데이터에 액세스하는 사용자 지정 코드를 만들 수 있습니다. 예를 들어 [Python용 Azure Storage SDK](https://github.com/Azure/azure-storage-python)는 BLOB 또는 파일에 저장된 데이터에 액세스하는 데 사용할 수 있는 클라이언트 라이브러리입니다.
 

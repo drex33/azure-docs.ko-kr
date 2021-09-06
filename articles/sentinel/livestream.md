@@ -13,16 +13,21 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2020
+ms.date: 07/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a711cca01431346896ac5d0aee5dce8524ed721f
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84783166"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114202499"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Azure Sentinel에서 헌팅 라이브 스트림을 사용하여 위협 감지
+
+> [!IMPORTANT]
+>
+> - 리소스 간 쿼리 환경(아래에 표시된 항목 참조)은 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>
 
 헌팅 라이브 스트림을 사용하여 이벤트가 발생할 때 새로 생성된 쿼리를 테스트하고, 일치 항목이 발견될 때 세션에서 알림을 받고, 필요한 경우 조사를 시작할 수 있는 대화형 세션을 만듭니다. Log Analytics 쿼리를 사용하여 라이브 스트림 세션을 신속하게 만들 수 있습니다.
 
@@ -61,7 +66,10 @@ ms.locfileid: "84783166"
 1. **Livestream** 창에서 다음을 수행합니다.
     
     - 쿼리에서 라이브 스트림을 시작한 경우 쿼리를 검토하고 원하는 변경 작업을 수행합니다.
-    - 라이브 스트림을 처음부터 시작했으면 쿼리를 만듭니다. 
+    - 라이브 스트림을 처음부터 시작했으면 쿼리를 만듭니다.
+
+    > [!NOTE]
+    > Livestream은 Azure Data Explorer의 데이터 **리소스 간 쿼리**(미리 보기)를 지원합니다. [**리소스 간 쿼리에 대해 자세히 알아보세요**](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md#cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer).
 
 1. 명령 모음에서 **재생** 을 선택합니다.
     

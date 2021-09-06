@@ -4,13 +4,13 @@ description: Azure Monitor 메트릭 경고 및 가능한 솔루션에서 발생
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 06/03/2021
-ms.openlocfilehash: cbbecb49acf556dc7a8ce6285d4b1b3581c39b3d
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 08/15/2021
+ms.openlocfilehash: 5aa39240b87f86dfaa1fbd44de8b6889939ec64f
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412903"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530215"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -287,6 +287,21 @@ Resource Manager 템플릿, REST API, PowerShell 또는 Azure CLI(명령줄 인�
 3. 메트릭이 가변성이 큰 불규칙한 동작을 보임(데이터가 급증하거나 급감함)
 
 하한 경계가 음수 값을 갖는 경우 이는 메트릭의 불규칙한 동작을 감안할 때 메트릭이 0의 값에 도달할 수 있다는 것을 의미합니다. 민감도를 더 높게 선택하거나 더 큰 *집계 세분성(기간)* 을 선택하여 모델의 민감성을 낮추세요. *다음 이전의 데이터 무시* 옵션을 사용하여 모델 빌드에 사용된 이전 데이터에서 발생한 최근의 불규칙성을 제외할 수도 있습니다.
+
+## <a name="the-dynamic-thresholds-alert-rule-is-too-noisy-fires-too-much"></a>동적 임계값 경고 규칙에 노이즈가 많음(너무 많이 발생함)
+동적 임계값 경고 규칙의 민감도를 줄이려면 다음 옵션 중 하나를 사용합니다.
+1. 임계값 민감도 - 편차에 대한 내성을 높이기 위해 민감도를 *낮음* 으로 설정합니다.
+2. 위반 횟수(*고급 설정* 아래) - 특정 기간 내에 여러 편차가 발생하는 경우에만 트리거하도록 경고 규칙을 구성합니다. 이렇게 하면 규칙이 일시적인 편차에 덜 취약해질 수 있습니다.
+
+
+## <a name="the-dynamic-thresholds-alert-rule-is-too-insensitive-doesnt-fire"></a>동적 임계값 경고 규칙은 너무 민감하지 않음(발생하지 않음)
+경우에 따라 높은 민감도가 구성된 경우에도 경고 규칙이 트리거되지 않습니다. 이 문제는 일반적으로 메트릭의 분포가 매우 불규칙한 경우에 발생합니다.
+다음 옵션 중 하나를 고려합니다.
+* 시나리오에 적합한 보완 메트릭 모니터링으로 이동합니다(해당하는 경우). 예를 들어 실패율이 아닌 성공률의 변경 내용을 확인합니다.
+* 다른 집계 세분성(기간)을 선택해 봅니다. 
+* 지난 10일 동안 메트릭 동작이 크게 변경되었는지 확인합니다(중단). 급격한 변경은 메트릭에 대해 계산된 상한 및 하한 임계값에 영향을 주고 더 광범위하게 만들 수 있습니다. 중단이 더 이상 임계값 계산에 반영되지 않을 때까지 며칠 동안 기다리거나 *다음 이전의 데이터 무시* 옵션을 사용합니다(*고급 설정* 아래).
+* 데이터에 주간 계절성이 있지만 메트릭에 사용할 수 있는 기록이 충분하지 않은 경우 계산된 임계값으로 인해 광범위한 상한과 하한이 발생할 수 있습니다. 예를 들어 계산은 평일과 주말을 동일한 방식으로 처리하고 항상 데이터에 맞지 않는 넓은 테두리를 빌드할 수 있습니다. 이 문제는 충분한 메트릭 기록을 사용할 수 있게 되면 자체적으로 해결되어야 하며, 이 시점에서 올바른 계절성이 검색되고 계산된 임계값이 그에 따라 업데이트됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

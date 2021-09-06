@@ -7,31 +7,31 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: c24e3473c07759aa256a077d11edb20c616629f6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: dd09279665230062c7a2567784731144ef438c6c
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439513"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237230"
 ---
 # <a name="protect-your-network-resources"></a>네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
 
-네트워킹에 대 한 권장 사항의 전체 목록은 [네트워킹 권장 사항](recommendations-reference.md#recs-networking)을 참조 하세요.
+네트워킹에 대한 권장 사항의 전체 목록은 [네트워킹 권장 사항](recommendations-reference.md#recs-networking)을 참조하세요.
 
-이 문서에서는 네트워크 보안 관점에서 Azure 리소스에 적용되는 권장 사항을 설명합니다. 네트워킹 권장 사항은 차세대 방화벽, 네트워크 보안 그룹, JIT VM 액세스, 과도 하 게 허용 되는 인바운드 트래픽 규칙 등을 중심으로 합니다. 네트워킹 권장 사항 및 수정 작업 목록은 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
+이 문서에서는 네트워크 보안 관점에서 Azure 리소스에 적용되는 권장 사항을 설명합니다. 네트워킹 권장 사항은 차세대 방화벽, 네트워크 보안 그룹, JIT VM 액세스, 허용 범위가 과도하게 큰 인바운드 트래픽 규칙 등에 초점을 맞춥니다. 네트워킹 권장 사항 및 수정 작업 목록은 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 
-Security Center **네트워킹** 기능에는 다음이 포함 됩니다. 
+Security Center의 **네트워킹** 기능은 다음을 포함합니다. 
 
-- 네트워크 맵 (Azure Defender 필요)
-- [적응 네트워크 강화](security-center-adaptive-network-hardening.md) (Azure Defender 필요)
+- 네트워크 맵(Azure Defender 필요)
+- [적응형 네트워크 강화](security-center-adaptive-network-hardening.md)(Azure Defender 필요)
 - 네트워킹 보안 권장 사항
  
 ## <a name="view-your-networking-resources-and-their-recommendations"></a>네트워킹 리소스 및 권장 사항 보기
 
-[자산 인벤토리 페이지](asset-inventory.md)에서 리소스 종류 필터를 사용 하 여 조사 하려는 네트워킹 리소스를 선택 합니다.
+[자산 인벤토리 페이지](asset-inventory.md)에서 리소스 종류 필터를 사용하여 조사할 네트워킹 리소스를 선택합니다.
 
-:::image type="content" source="./media/security-center-network-recommendations/network-filters-inventory.png" alt-text="Asset inventory network 리소스 유형" lightbox="./media/security-center-network-recommendations/network-filters-inventory.png":::
+:::image type="content" source="./media/security-center-network-recommendations/network-filters-inventory.png" alt-text="자산 인벤토리 네트워크 리소스 종류" lightbox="./media/security-center-network-recommendations/network-filters-inventory.png":::
 
 
 ## <a name="network-map"></a>네트워크 맵
@@ -40,26 +40,26 @@ Security Center **네트워킹** 기능에는 다음이 포함 됩니다.
 
 네트워크 맵을 열려면:
 
-1. Security Center의 메뉴에서 Azure Defender 대시보드를 열고 **네트워크 맵** 을 선택 합니다.
+1. Security Center의 메뉴에서 Azure Defender 대시보드를 열고 **네트워크 맵** 을 선택합니다.
 
     :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Azure Defender 대시보드에서 네트워크 맵 열기" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
-1. **계층** 메뉴를 선택 하 여 **토폴로지** 를 선택 합니다.
+1. **레이어** 메뉴를 선택하고 **토폴로지** 를 선택합니다.
  
 토폴로지 맵의 기본 보기에 다음이 표시됩니다.
 
 - Azure에서 선택한 구독입니다. 맵은 여러 구독을 지원합니다.
-- 리소스 관리자 리소스 종류의 Vm, 서브넷 및 Vnet (클래식 Azure 리소스는 지원 되지 않음)
-- 피어 링 Vnet
+- Resource Manager 리소스 종류의 VM, 서브넷 및 VNet(Classic Azure 리소스는 지원되지 않음)
+- 피어링된 VNet
 - [네트워크 권장 사항](security-center-recommendations.md)의 심각도가 높거나 보통인 리소스만  
 - 인터넷 연결 리소스
 - 맵은 Azure에서 선택한 구독에 대해 최적화됩니다. 선택 항목을 수정하는 경우 맵이 다시 계산되고 새 설정을 기반으로 다시 최적화됩니다.  
 
-[![네트워킹 토폴로지 맵](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
+[![네트워킹 토폴로지 맵.](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
 ## <a name="understanding-the-network-map"></a>네트워크 맵 이해
 
-네트워크 맵은 **토폴로지** 보기 및 **트래픽** 보기에 Azure 리소스를 표시할 수 있습니다. 
+네트워크 맵은 Azure 리소스를 **토폴로지** 보기 및 **트래픽** 보기로 표시할 수 있습니다. 
 
 ### <a name="the-topology-view"></a>토폴로지 보기
 
@@ -103,11 +103,11 @@ Security Center **네트워킹** 기능에는 다음이 포함 됩니다.
 리소스로 드릴다운하려면:
 
 1. 맵에서 특정 리소스를 선택하면 오른쪽 창이 열리고 리소스에 대한 일반 정보, 연결된 보안 솔루션(있는 경우) 및 리소스와 관련된 권장 사항을 제공합니다. 선택한 리소스의 각 형식에 대해 동일한 동작 형식입니다. 
-2. 리소스에서 가능한 아웃바운드 및 인바운드 트래픽의 목록을 보려면 **트래픽** 을 클릭합니다. 이 목록은 리소스와 통신할 수 있는 사용자 및 프로토콜과 포트를 통해 리소스가 통신할 수 있는 대상의 포괄적인 목록입니다. 예를 들어 VM을 선택 하면 통신할 수 있는 모든 Vm이 표시 되 고, 서브넷을 선택 하면 통신할 수 있는 모든 서브넷이 표시 됩니다.
+2. 리소스에서 가능한 아웃바운드 및 인바운드 트래픽의 목록을 보려면 **트래픽** 을 클릭합니다. 이 목록은 리소스와 통신할 수 있는 사용자 및 프로토콜과 포트를 통해 리소스가 통신할 수 있는 대상의 포괄적인 목록입니다. 예를 들어 VM을 선택하면 통신할 수 있는 모든 VM이 표시되고, 서브넷을 선택하면 통신할 수 있는 모든 서브넷이 표시됩니다.
 
 **이 데이터는 크로스오버 및 상호 작용을 이해하기 위해 여러 규칙을 분석하는 고급 Machine Learning 알고리즘과 함께 네트워크 보안 그룹의 분석을 기반으로 합니다.** 
 
-[![네트워킹 트래픽 맵](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+[![네트워킹 트래픽 맵.](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
 ## <a name="next-steps"></a>다음 단계

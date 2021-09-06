@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: sgilley
-ms.author: copeters
-author: lostmygithubaccount
+ms.author: wibuchan
+author: buchananwp
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.custom: data4ml, contperf-fy21q2
-ms.openlocfilehash: e73b14e24fffacde11e355ae5a4caf0cb76f07ba
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 5d4c3974bdd1ef90556d19e3ca49cc613d36923d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107884879"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566492"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>데이터 세트에서 데이터 드리프트(미리 보기) 검색
 
@@ -41,7 +41,7 @@ Azure Machine Learning 데이터 세트 모니터(미리 보기)를 사용하여
 ## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 세트 모니터를 만들고 사용하려면 다음이 필요합니다.
-* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 * azureml-datasets 패키지가 포함된 [Python용 Azure Machine Learning SDK가 설치](/python/api/overview/azure/ml/install)되어 있습니다.
 * 데이터의 열, 파일 경로 또는 파일 이름에 타임스탬프가 지정되어 있는 구조화된(테이블 형식) 데이터
@@ -102,7 +102,7 @@ Azure Machine Learning에서는 데이터 세트 모니터를 사용하여 데�
 
 ## <a name="create-target-dataset"></a>대상 데이터 세트 만들기
 
-대상 데이터 세트에는 데이터의 열 또는 파일의 경로 패턴에서 파생된 가상 열에서 타임스탬프 열을 지정하여 `timeseries` 특성 집합이 필요합니다. 타임스탬프가 있는 데이터 세트는 [Python SDK](#sdk-dataset) 또는 [Azure Machine Learning 스튜디오](#studio-dataset)를 통해 만듭니다. 데이터 세트에 `timeseries` 특성을 추가하려면 타임스탬프를 나타내는 열이 지정되어 있어야 합니다. 데이터가 '{yyyy/MM/dd}'와 같은 시간 정보를 사용하여 폴더 구조로 분할된 경우 경로 패턴 설정을 통해 가상 열을 만들고 이것을 '파티션 타임스탬프'로 설정하여 시계열 기능의 중요성을 높입니다.
+대상 데이터 세트에는 데이터의 열 또는 파일의 경로 패턴에서 파생된 가상 열에서 타임스탬프 열을 지정하여 `timeseries` 특성 집합이 필요합니다. 타임스탬프가 있는 데이터 세트는 [Python SDK](#sdk-dataset) 또는 [Azure Machine Learning 스튜디오](#studio-dataset)를 통해 만듭니다. 데이터 세트에 `timeseries` 특성을 추가하려면 타임스탬프를 나타내는 열이 지정되어 있어야 합니다. 데이터가 '{yyyy/MM/dd}'와 같은 시간 정보를 사용하여 폴더 구조로 분할된 경우, 경로 패턴 설정을 통해 가상 열을 만든 다음 '파티션 타임스탬프'로 설정하여 시계열 API 기능을 사용하도록 설정합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 <a name="sdk-dataset"></a>
@@ -147,11 +147,11 @@ Azure Machine Learning 스튜디오를 사용하여 데이터 세트를 만드�
 
 [![파티션 형식](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
 
-**스키마** 설정에서 지정된 데이터 세트에 있는 가상 또는 실제 열의 타임스탬프 열을 지정합니다.
+**스키마** 설정에서 지정된 데이터 세트에 있는 가상 또는 실제 열에서 **타임스탬프** 열을 지정합니다. 이 형식은 데이터에 시간 구성 요소가 있음을 나타냅니다. 
 
 :::image type="content" source="media/how-to-monitor-datasets/timestamp.png" alt-text="타임스탬프 설정":::
 
-아래의 경우처럼, 데이터가 날짜별로 분할된 경우 partition_timestamp를 지정할 수도 있습니다.  그러면 날짜를 보다 효율적으로 처리할 수 있습니다.
+아래의 경우처럼 데이터가 날짜 또는 시간별로 이미 분할된 경우 **파티션 타임스탬프** 를 지정해도 됩니다. 이렇게 하면 날짜 처리 작업의 효율성을 높일 수 있고 학습 중에 활용 가능한 시계열 API를 사용할 수 있습니다.
 
 :::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="파티션 타임스탬프":::
 
@@ -175,7 +175,7 @@ from datetime import datetime
 ws = Workspace.from_config()
 
 # get the target dataset
-dset = Dataset.get_by_name(ws, 'target')
+target = Dataset.get_by_name(ws, 'target')
 
 # set the baseline dataset
 baseline = target.time_before(datetime(2019, 2, 1))

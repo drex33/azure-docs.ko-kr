@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e09f3c8f4691eaf978e0b5245626508e4aa2b961
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 5c9421397b6e5fbfe8688e5ceeff6056de25674a
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746864"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567485"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -196,6 +196,39 @@ Azure Virtual Desktop에서 중첩된 가상화 실행을 지원하는 운영 �
 - Windows Server 2019
 - Windows 10 Enterprise
 - Windows 10 Enterprise 다중 세션
+
+## <a name="windows-defender-application-control"></a>Windows Defender 애플리케이션 제어
+
+다음 운영 체제에서는 Azure Virtual Desktop에서 Windows Defender 애플리케이션 제어 사용을 지원합니다.
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Windows 10 Enterprise 다중 세션
+
+>[!NOTE]
+>Windows Defender Access Control을 사용하는 경우 디바이스 수준의 정책만 대상으로 지정하는 것이 좋습니다. 개별 사용자를 대상으로 정책을 지정할 수 있지만 정책이 적용되면 디바이스의 모든 사용자에게 동일한 영향을 줍니다.
+
+## <a name="ip-virtualization"></a>IP 가상화
+
+Windows Server 2019에서 IP 가상화를 사용하려면 다음 단계를 수행하세요.
+
+1. 관리자 Windows PowerShell 창에서 다음 키의 이름을 바꿉니다. 
+```powershell
+Rename-Item HKLM:\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1 Backup_2C69D9F1
+```
+>[!NOTE]
+>키를 삭제해도 동일한 작업을 수행하지만, 원하는 경우 이름 바꾸기를 통해 보다 쉽게 되돌릴 수 있습니다. 기본적으로 있는 데이터는 다음과 같습니다.
+>       
+>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1\
+>AppFullPath: C:\Windows\System32\svchost.exe\
+>PermittedLspCategories: 0x40000000
+
+2. VM을 다시 시작합니다.
+
+3. **gpedit.msc** 를 열고 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** > **Remote Desktop Services** > **원격 테스크톱 세션 호스트** > **애플리케이션 호환성** 으로 이동하여 IP 가상화 기능을 사용하도록 설정합니다. **원격 데스크톱 IP 가상화 설정** 정책을 실행한 다음, 정책에서 사용할 IP 주소를 지정합니다.
+
+4. VM을 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

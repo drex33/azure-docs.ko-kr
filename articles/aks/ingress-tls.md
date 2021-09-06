@@ -5,12 +5,12 @@ description: 자동 TLS 인증서 생성을 위해 Let's Encrypt를 사용하는
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 0e592e89e208d8a2ddf1b8fc1d30e53609ac7f41
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e93cfd95464d43b70ef8ade7b6380ba2c67cd9d4
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454005"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538694"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -38,6 +38,40 @@ Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 
 
 또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
+또한 이 문서에서는 통합 ACR이 있는 기존 AKS 클러스터가 있다고 가정합니다. 통합 ACR을 통해 AKS 클러스터를 만드는 자세한 내용은 [Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증][aks-integrated-acr]을 참조하세요.
+
+## <a name="import-the-images-used-by-the-helm-chart-into-your-acr"></a>Helm 차트에서 사용하는 이미지를 ACR로 가져오기
+
+이 문서에서는 세 개의 컨테이너 이미지를 사용하는 [NGINX 수신 컨트롤러 Helm 차트][ingress-nginx-helm-chart]를 사용합니다. `az acr import`를 사용하여 해당 이미지를 ACR로 가져옵니다.
+
+```azurecli
+REGISTRY_NAME=<REGISTRY_NAME>
+CONTROLLER_REGISTRY=k8s.gcr.io
+CONTROLLER_IMAGE=ingress-nginx/controller
+CONTROLLER_TAG=v0.48.1
+PATCH_REGISTRY=docker.io
+PATCH_IMAGE=jettech/kube-webhook-certgen
+PATCH_TAG=v1.5.1
+DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+DEFAULTBACKEND_IMAGE=defaultbackend-amd64
+DEFAULTBACKEND_TAG=1.5
+CERT_MANAGER_REGISTRY=quay.io
+CERT_MANAGER_TAG=v1.3.1
+CERT_MANAGER_IMAGE_CONTROLLER=jetstack/cert-manager-controller
+CERT_MANAGER_IMAGE_WEBHOOK=jetstack/cert-manager-webhook
+CERT_MANAGER_IMAGE_CAINJECTOR=jetstack/cert-manager-cainjector
+
+az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CONTROLLER:$CERT_MANAGER_TAG
+az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_WEBHOOK:$CERT_MANAGER_TAG
+az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG --image $CERT_MANAGER_IMAGE_CAINJECTOR:$CERT_MANAGER_TAG
+```
+
+> [!NOTE]
+> 컨테이너 이미지를 ACR로 가져오는 것 외에도 Helm 차트를 ACR로 가져올 수도 있습니다. 자세한 내용은 [Azure Container Registry에 Helm 차트 푸시 및 가져오기][acr-helm]를 참조하세요.
+
 ## <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 
 수신 컨트롤러를 만들려면 `helm` 명령을 사용하여 *nginx-ingress* 를 설치합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
@@ -45,7 +79,7 @@ Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
-> 다음 예제에서는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
+> 다음 예제에서는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만들고 해당 네임스페이스 내에서 작동합니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
 
 > [!TIP]
 > 클러스터의 컨테이너에 대한 요청에 대해 [클라이언트 원본 IP 유지][client-source-ip]를 사용하도록 설정하려면 `--set controller.service.externalTrafficPolicy=Local`을 Helm 설치 명령에 추가합니다. 클라이언트 원본 IP가 *X-Forwarded-For* 아래의 요청 헤더에 저장됩니다. 클라이언트 원본 IP 유지가 활성화된 수신 컨트롤러를 사용하는 경우 TLS 통과는 작동하지 않습니다.
@@ -57,13 +91,26 @@ kubectl create namespace ingress-basic
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
+# Set variable for ACR location to use for pulling images
+ACR_URL=<REGISTRY_URL>
+
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.image.registry=$ACR_URL \
+    --set controller.image.image=$CONTROLLER_IMAGE \
+    --set controller.image.tag=$CONTROLLER_TAG \
+    --set controller.image.digest="" \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
+    --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
+    --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+    --set defaultBackend.image.registry=$ACR_URL \
+    --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
 ```
 
 설치하는 동안 Azure 공용 IP 주소가 수신 컨트롤러에 대해 생성됩니다. 이 공용 IP 주소는 수신 컨트롤러의 수명 동안만 고정됩니다. 수신 컨트롤러를 삭제하면 공용 IP 주소 할당이 손실됩니다. 추가 수신 컨트롤러를 만들면 새 공용 IP 주소가 할당됩니다. 공용 IP 주소를 계속 사용하려는 경우에는 대신 [고정 공용 IP 주소로 수신 컨트롤러를 만들][aks-ingress-static-tls] 수 있습니다.
@@ -87,29 +134,48 @@ nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_I
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
-    --record-set-name * \
+    --record-set-name "*" \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-> [!NOTE]
-> 선택적으로 사용자 지정 도메인 대신 수신 컨트롤러 IP 주소에 대한 FQDN을 구성할 수 있습니다. 이 샘플은 Bash 셸에 대한 것입니다.
-> 
-> ```bash
-> # Public IP address of your ingress controller
-> IP="MY_EXTERNAL_IP"
-> 
-> # Name to associate with public IP address
-> DNSNAME="demo-aks-ingress"
-> 
-> # Get the resource-id of the public ip
-> PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-> 
-> # Update public ip address with DNS name
-> az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
-> 
-> # Display the FQDN
-> az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
-> ```
+### <a name="configure-an-fqdn-for-the-ingress-controller"></a>수신 컨트롤러에 대한 FQDN 구성
+선택적으로 사용자 지정 도메인 대신 수신 컨트롤러 IP 주소에 대한 FQDN을 구성할 수 있습니다.  FQDN은 `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com` 형식입니다.
+
+이 구성에는 아래에 설명된 두 가지 방법이 있습니다.
+
+#### <a name="method-1-set-the-dns-label-using-the-azure-cli"></a>방법 1: Azure CLI를 사용하여 DNS 레이블 설정
+이 샘플은 Bash 셸에 대한 것입니다.
+
+```bash
+# Public IP address of your ingress controller
+IP="MY_EXTERNAL_IP"
+
+# Name to associate with public IP address
+DNSNAME="demo-aks-ingress"
+
+# Get the resource-id of the public ip
+PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
+
+# Update public ip address with DNS name
+az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+
+# Display the FQDN
+az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
+ ```
+
+#### <a name="method-2-set-the-dns-label-using-helm-chart-settings"></a>방법 2: helm 차트 설정을 사용하여 DNS 레이블 설정
+`--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` 매개 변수를 사용하여 주석 설정을 helm 차트 구성에 전달할 수 있습니다.  수신 컨트롤러를 처음 배포할 때 설정하거나 나중에 구성할 수 있습니다.
+다음 예제에서는 컨트롤러가 배포된 후 이 설정을 업데이트하는 방법을 보여 줍니다.
+
+```
+DNS_LABEL="demo-aks-ingress"
+NAMESPACE="nginx-basic"
+
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
+  --namespace $NAMESPACE \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL
+
+```
 
 ## <a name="install-cert-manager"></a>cert-manager 설치
 
@@ -130,10 +196,15 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
+  --version $CERT_MANAGER_TAG \
   --set installCRDs=true \
   --set nodeSelector."kubernetes\.io/os"=linux \
-  --set webhook.nodeSelector."kubernetes\.io/os"=linux \
-  --set cainjector.nodeSelector."kubernetes\.io/os"=linux
+  --set image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_CONTROLLER \
+  --set image.tag=$CERT_MANAGER_TAG \
+  --set webhook.image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_WEBHOOK \
+  --set webhook.image.tag=$CERT_MANAGER_TAG \
+  --set cainjector.image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_CAINJECTOR \
+  --set cainjector.image.tag=$CERT_MANAGER_TAG
 ```
 
 cert-manager 구성에 대한 자세한 내용은 [cert-manager 프로젝트][cert-manager]를 참조합니다.
@@ -451,6 +522,7 @@ kubectl delete namespace ingress-basic
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
+[ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
@@ -467,3 +539,5 @@ kubectl delete namespace ingress-basic
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-supported versions]: supported-kubernetes-versions.md
+[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
+[acr-helm]: ../container-registry/container-registry-helm-repos.md

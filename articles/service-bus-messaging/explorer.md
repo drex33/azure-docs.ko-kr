@@ -2,13 +2,13 @@
 title: Azure Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에서 데이터 작업 수행
 description: 이 문서에서는 포털 기반 Azure Service Bus 탐색기를 사용하여 Azure Service Bus 데이터에 액세스하는 방법에 대한 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 01/20/2020
-ms.openlocfilehash: 0b5274c492a1dfb2523c52d7aea2b7ebf8eae675
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.date: 06/16/2021
+ms.openlocfilehash: 3b561586e77940eda5647aa0ab333ab88937463f
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738959"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294358"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에서 데이터 작업 수행
 
@@ -30,13 +30,13 @@ Azure Service Bus 탐색기는 관리 작업 이상으로 포털 기능을 확�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Service Bus 탐색기 도구를 사용 하려면 다음 작업을 수행 해야 합니다. 
+Service Bus Explorer 도구를 사용하려면 다음 작업을 수행해야 합니다. 
 
-- Azure Service Bus 네임 스페이스를 프로 비전 합니다.
-- 기능을 테스트 하기 위해 구독을 포함 한 토픽 또는 항목에서 메시지를 보내고 받을 큐를 만듭니다. 큐, 토픽 및 구독을 만드는 방법에 대해 알아보려면 다음 문서를 참조 하세요. 
+- Azure Service Bus 네임스페이스를 프로비전합니다.
+- 메시지를 보내고 받을 큐를 만들거나 구독이 있는 토픽을 만들어 기능을 테스트합니다. 큐, 토픽 및 구독을 만드는 방법에 대해 알아보려면 다음 문서를 참조하세요. 
     - [빠른 시작 - 큐 만들기](service-bus-quickstart-portal.md)
     - [빠른 시작 - 토픽 만들기](service-bus-quickstart-topics-subscriptions-portal.md)
-- 네임 스페이스에서 다음 역할 중 하나의 멤버 인지 확인 합니다. 
+- 네임스페이스에서 이러한 역할 중 하나의 멤버인지 확인합니다. 
     - [Service Bus 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
     - [기여자](../role-based-access-control/built-in-roles.md#contributor) 
     - [소유자](../role-based-access-control/built-in-roles.md#owner)
@@ -56,9 +56,12 @@ Azure Service Bus 탐색기를 사용하려면 보내기, 피킹 및 받기 작�
 
 :::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="SB 탐색기 왼쪽 탐색 메뉴":::
 
+> [!NOTE]
+> Service Bus Explorer는 최대 1MB 크기의 메시지를 지원합니다. 
+
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>메시지를 큐 또는 토픽으로 보내기
 
-**큐** 또는 **토픽** 에 메시지를 보내려면 Service Bus 탐색기에서 **_전송_** 탭을 클릭 합니다.
+**큐** 또는 **토픽** 에 메시지를 보내려면 Service Bus Explorer에서 **_보내기_** 탭을 클릭합니다.
 
 메시지를 작성하려면 여기서 다음을 수행합니다. 
 
@@ -98,21 +101,21 @@ Service Bus 탐색기의 receive 함수를 사용하면 한 번에 하나의 메
 
     :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
 
-3. ***Queue** _ 또는 _ *_배달_** 하위 큐 중에서 선택 합니다.
+3. ***큐** _ 또는 _ *_배달 못한 편지_** 하위 큐 중에서 선택합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadLetter":::
 
-4. ***Receive** _ 단추를 클릭 한 다음 _ *_Yes_**를 클릭 하 여 ' 수신 및 삭제 ' 작업을 확인 합니다.
+4. ***수신** _ 단추를 클릭하고 _ *_예_**를 클릭하여 '수신 및 삭제' 작업을 확인합니다.
 
 
 수신 작업이 성공적으로 완료되면 아래와 같이 메시지 정보가 표에 표시됩니다. 표에서 메시지를 선택하여 세부 정보를 표시할 수 있습니다.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="큐에서 선택한 활성 메시지에 대 한 메시지 정보가 표시 된 Azure Service Bus 탐색기의 큐 창 스크린샷":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="큐에서 선택한 활성 메시지에 대한 메시지 세부 정보가 표시된 Azure Service Bus Explorer의 큐 창 스크린샷":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>큐에서 메시지 피킹
 
-피킹(peeking) 기능을 사용하면 Service Bus 탐색기를 사용하여 큐 또는 배달 못한 편지 큐의 상위 32개 메시지를 볼 수 있습니다.
+피킹(peeking) 기능을 사용하면 Service Bus Explorer를 사용하여 큐 또는 배달 못한 편지 큐의 상위 32개 메시지를 볼 수 있습니다.
 
 1. 큐에서 메시지를 피킹하려면 Service Bus 탐색기에서 ***피킹*** 탭을 클릭합니다.
 
@@ -122,9 +125,9 @@ Service Bus 탐색기의 receive 함수를 사용하면 한 번에 하나의 메
 
     :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
 
-3. 그런 다음 ***Queue** _ 또는 _ *_배달_** 하위 큐 중에서 선택 합니다.
+3. 그런 다음, ***큐** _ 또는 _ *_배달 못한 편지_** 하위 큐 중에서 선택합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadLetter":::
 
 4. ***피킹*** 단추를 클릭합니다. 
 
@@ -147,31 +150,31 @@ Service Bus 탐색기의 receive 함수를 사용하면 한 번에 하나의 메
 > 큐에서 메시지를 제거하지 않고 찾아보려면 기능 ***피킹(Peeking)*** 기능을 사용하는 것이 좋습니다.
 >
 
-1. ***Receive** _ 탭을 클릭 하 고 드롭다운 선택기에서 특정 _ *_구독_**을 선택 합니다.
+1. ***수신** _ 탭을 클릭하고 드롭다운 선택기에서 특정 _ *_구독_**을 선택합니다.
 
     :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="ReceiveTabSelected":::
 
-2. ***구독** _ 또는 _ *_배달_** 하위 엔터티를 선택 합니다.
+2. ***구독** _ 또는 _ *_배달 못한 편지_** 하위 엔터티 중에서 선택합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadLetter":::
 
-3. ***Receive** _ 단추를 클릭 한 다음 _ *_Yes_**를 클릭 하 여 ' 수신 및 삭제 ' 작업을 확인 합니다.
+3. ***수신** _ 단추를 클릭하고 _ *_예_**를 클릭하여 '수신 및 삭제' 작업을 확인합니다.
 
 수신 작업이 성공적으로 완료되면 아래와 같이 수신된 메시지가 표에 표시됩니다. 메시지 세부 정보를 보려면 메시지를 클릭합니다.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="받은 활성 메시지에 대 한 메시지 정보가 표시 된 Azure Service Bus 탐색기의 수신 탭 스크린샷":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="받은 활성 메시지에 대한 메시지 세부 정보가 표시된 Azure Service Bus Explorer의 수신 탭 스크린샷":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>구독에서 메시지 선택
 
 구독 또는 배달 못한 편지 하위 엔터티에 대한 메시지를 찾아보기만 하려는 경우 구독에서 ***피킹*** 기능도 활용할 수 있습니다.
 
-1. ***Peek** _ 탭을 클릭 하 고 드롭다운 선택기에서 특정 _ *_구독_**을 선택 합니다.
+1. ***피킹** _ 탭을 클릭하고 드롭다운 선택기에서 특정 _ *_구독_**을 선택합니다.
 
     :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="PeekTabSelected":::
 
-2. ***구독** _ 또는 _ *_배달_** 하위 엔터티를 선택 합니다.
+2. ***구독** _ 또는 _ *_배달 못한 편지_** 하위 엔터티 중에서 선택합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadLetter":::
 
 3. ***피킹*** 단추를 클릭합니다.
 
@@ -181,8 +184,8 @@ Service Bus 탐색기의 receive 함수를 사용하면 한 번에 하나의 메
 
 > [!NOTE]
 >
-> 피킹은 파괴 작업이 아니기 때문에 메시지가 큐에서 제거되지 **않습니다**.
->
+> - 피킹은 파괴 작업이 아니기 때문에 메시지가 큐에서 제거되지 **않습니다**.
+
 
 ## <a name="next-steps"></a>다음 단계
 

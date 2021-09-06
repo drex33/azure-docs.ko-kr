@@ -4,21 +4,21 @@ description: Azure 가상 네트워크로 Azure App Service와 앱 통합
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 08/04/2021
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 42391a073d7cb1d7e6850e298c2be32d550bb813
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 444831d1d8e9982ac0837e90fe04941b5ae928a7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832071"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528361"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
 
 이 문서에서는 Azure App Service VNet 통합 기능 및 앱으로 [Azure App Service](./overview.md) 설정 방법을 설명합니다. [Azure VNet(Virtual Network)][VNETOverview]으로 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다. VNet 통합 기능을 사용하면 앱이 VNet에서 또는 VNet을 통해 리소스에 액세스할 수 있습니다. VNet 통합을 사용하면 앱이 비공개적으로 엑세스할 수 없습니다.
 
-Azure App Service의 VNet 통합 기능에는 두 가지 변형이 있습니다.
+Azure App Service에는 두 가지 종류가 있습니다.
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
@@ -28,39 +28,158 @@ Azure App Service의 VNet 통합 기능에는 두 가지 변형이 있습니다.
 
 1. **VNet 추가** 를 선택합니다.
 
-   ![VNET 통합 선택][1]
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-app.png" alt-text="VNET 통합 선택":::
 
 1. 드롭다운 목록에는 동일한 지역에서 사용자가 구독하는 모든 Azure Resource Manager 가상 네트워크가 포함됩니다. 그 아래에는 다른 모든 지역의 Resource Manager 가상 네트워크가 나열됩니다. 통합하려는 VNet를 선택하세요.
 
-   ![VNet을 선택][2]
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-add-vnet.png" alt-text="VNet을 선택":::
 
-   * VNet이 동일한 지역에 있는 경우 서브넷을 새로 만들거나 기존의 빈 서브넷을 선택하세요.
-   * 다른 지역에서 VNet을 선택하려면 사이트 간 사용이 프로비전된 VNet 게이트웨이가 필요합니다.
-   * 클래식 VNet과 통합하려면 **Virtual Network** 드롭다운 목록을 선택하는 대신 **여기를 클릭 하여 클래식 VNet** 을 선택하세요. 원하는 클래식 가상 네트워크를 선택하세요. 대상 VNet에는 지점 및 사이트 간 사용으로 프로비전된 Virtual Network 게이트웨이가 이미 있어야 합니다.
+    * VNet이 동일한 지역에 있는 경우 서브넷을 새로 만들거나 기존의 빈 서브넷을 선택하세요.
+    * 다른 지역에서 VNet을 선택하려면 사이트 간 사용이 프로비전된 VNet 게이트웨이가 필요합니다.
+    * 클래식 VNet과 통합하려면 **Virtual Network** 드롭다운 목록을 선택하는 대신 **여기를 클릭 하여 클래식 VNet** 을 선택하세요. 원하는 클래식 가상 네트워크를 선택하세요. 대상 VNet에는 지점 및 사이트 간 사용으로 프로비전된 Virtual Network 게이트웨이가 이미 있어야 합니다.
 
-    ![클래식 VNet을 선택][3]
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-classic.png" alt-text="클래식 VNet을 선택":::
 
 통합하는 동안에 앱이 다시 시작됩니다. 통합이 완료되면 통합된 VNet에 대한 세부 정보가 표시됩니다.
 
 ## <a name="regional-vnet-integration"></a>지역 VNet 통합
 
-[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
+지역 VNet 통합은 동일한 지역에 있는 VNet 연결을 지원하며 게이트웨이가 필요하지 않습니다. 지역 VNet 통합을 사용하면 앱에서 다음에 액세스할 수 있습니다.
+
+* 앱과 동일한 지역에 있는 VNet의 리소스
+* 앱이 통합된 VNet에 피어링된 VNet의 리소스
+* 서비스 엔드포인트 보안 서비스
+* Azure ExpressRoute 연결의 리소스
+* 통합된 VNet의 리소스
+* Azure ExpressRoute 연결을 포함하는 피어링된 연결의 리소스
+* 프라이빗 엔드포인트 사용 서비스.
+
+동일한 지역에서 VNet과 VNet 통합을 사용하는 경우 다음과 같은 Azure 네트워킹 기능을 사용할 수 있습니다.
+
+* **NSG(네트워크 보안 그룹)** : 통합 서브넷에 배치된 NSG를 사용하여 아웃바운드 트래픽을 차단할 수 있습니다. 인바운드 규칙은 적용되지 않습니다. VNet 통합을 사용하여 앱에 대한 인바운드 액세스를 제공할 수 없기 때문입니다.
+* **경로 테이블(UDR)** : 통합 서브넷에 경로 테이블을 배치하여 원하는 위치에 아웃바운드 트래픽을 보낼 수 있습니다.
+
+이 기능은 [사용자 지정 컨테이너](./quickstart-custom-container.md)를 포함하여 Windows 및 Linux 앱 모두에서 완벽하게 지원됩니다. 모든 동작은 Windows 앱과 Linux 앱 간에 동일하게 작동합니다.
 
 ### <a name="how-regional-vnet-integration-works"></a>지역 VNet 통합 작동 원리
 
 App Service의 앱은 작업자 역할에서 호스팅 됩니다. 기본 및 더 높은 가격 책정 요금제는 동일한 작업자에서 실행되는 다른 고객의 작업이 없는 전용 호스팅 계획입니다. 지역 VNet 통합은 위임된 서브넷의 주소를 사용하여 가상 인터페이스를 탑재하는 방식으로 작동합니다. 보낸 사람 주소는 VNet에 있기 때문에 VNet의 VM과 마찬가지로 VNet을 통해 액세스하거나, 모든 항목에 액세스할 수 있습니다. 네트워킹 구현은 VNet에서 VM 실행하기와 다릅니다. 이러한 이유로 일부 네트워킹 기능은 현재 이 기능을 사용할 수 없습니다.
 
-![지역 VNet 통합 작동 원리][5]
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-how-regional-works.png" alt-text="지역 VNet 통합 작동 원리":::
 
-지역 VNet 통합을 사용하면 앱에서 평소와 동일한 채널을 통해 인터넷으로 아웃바운드 호출을 수행합니다. 앱 속성 포털에 나열된 아웃바운드 주소는 앱에서 계속 사용하는 주소입니다. 앱 변경 내용은 서비스 엔드포인트 보안 서비스 호출 또는 RFC 1918 주소의 이동입니다. WEBSITE_VNET_ROUTE_ALL을 1로 설정 하면 모든 아웃바운드 트래픽이 VNet으로 전송될 수 있습니다.
-
-> [!NOTE]
-> `WEBSITE_VNET_ROUTE_ALL`은 현재 Windows 컨테이너에서 지원되지 않습니다.
-> 
+지역 VNet 통합을 사용하면 앱에서 VNet을 통해 아웃바운드 호출을 수행합니다. 앱 속성 포털에 나열된 아웃바운드 주소는 앱에서 계속 사용하는 주소입니다. 모든 트래픽 라우팅을 사용하도록 설정하면 모든 아웃바운드 트래픽이 VNet으로 전송됩니다. 모든 트래픽 라우팅을 사용하도록 설정하지 않으면 통합 서브넷에 구성된 프라이빗 트래픽(RFC1918) 및 서비스 엔드포인트만 VNet으로 전송되고 인터넷에 대한 아웃바운드 트래픽은 정상적으로 동일한 채널을 통과합니다.
 
 이 기능은 작업자당 가상 인터페이스 하나만 지원합니다. 작업자당 가상 인터페이스 하나는 App Service 계획당 한 지역 내 VNet 통합을 의미합니다. 동일한 App Service 계획의 모든 앱은 동일한 VNet 통합을 사용할 수 있습니다. 추가로 VNet에 연결할 앱이 필요한 경우 다른 App Service 계획을 만들어야 합니다. 여기에 사용되는 가상 인터페이스는 고객이 직접 액세스할 수 있는 리소스가 아닙니다.
 
 이 기술이 작동하는 방법의 특성상 VNet 통합에 사용되는 트래픽은 Azure Network Watcher 또는 NSG 플로 로그에 표시되지 않습니다.
+
+### <a name="subnet-requirements"></a>서브넷 요구 사항
+
+VNet 통합은 전용 서브넷에 따라 다릅니다. 서브넷을 프로비전할 때 Azure 서브넷은 처음부터 5개의 IP를 잃습니다. 각 플랜 인스턴스에 대해 통합 서브넷에서 하나의 주소가 사용됩니다. 앱을 4개의 인스턴스로 스케일링하면 4개의 주소가 사용됩니다. 
+
+크기를 스케일 업 또는 스케일 다운하면, 짧은 시간 동안 필요한 주소 공간이 2배가 됩니다. 이렇게 되면 지정된 서브넷 크기에 대해 실제로 사용 가능한 지원되는 인스턴스에 영향을 줍니다. 다음 표는 CIDR 블록당 사용 가능한 최대 주소와 이것이 수평 스케일링에 미치는 영향을 보여줍니다.
+
+| CIDR 블록 크기 | 사용 가능한 최대 주소 | 최대 수평 스케일링(인스턴스)<sup>*</sup> |
+|-----------------|-------------------------|---------------------------------|
+| /28             | 11                      | 5                               |
+| /27             | 27                      | 13                              |
+| /26             | 59                      | 29                              |
+
+<sup>*</sup>어느 시점에서든 SKU 또는 크기를 스케일 업 또는 스케일 다운해야 한다고 가정합니다. 
+
+할당 후에는 서브넷 크기를 변경할 수 없으므로 앱이 도달할 수 있는 모든 규모를 수용할 수 있을 정도로 충분히 큰 서브넷을 사용합니다. 서브넷 용량 관련 문제를 방지하려면 주소가 64개인 /26을 사용해야 합니다.
+
+다른 플랜의 앱이 다른 플랜의 앱을 통해 이미 연결된 VNet에 도달하도록 하려면 기존 VNet 통합에서 사용 중인 서브넷과 다른 서브넷을 선택합니다.
+
+### <a name="routes"></a>경로
+
+지역 VNet 통합을 구성할 때 고려해야 할 두 가지 유형의 라우팅이 있습니다. 애플리케이션 라우팅은 애플리케이션에서 VNet으로 라우팅되는 트래픽을 정의합니다. 네트워크 라우팅은 VNet에서 트래픽이 라우팅되는 방식을 제어하는 기능입니다.
+
+#### <a name="application-routing"></a>애플리케이션 라우팅
+
+애플리케이션 라우팅을 구성할 때 모든 트래픽 또는 프라이빗 트래픽([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) 트래픽이라고도 함)만 VNet으로 라우팅할 수 있습니다. 모두 라우팅 설정을 통해 이를 구성합니다. 모두 라우팅을 사용하지 않도록 설정하면 앱은 프라이빗 트래픽만 VNet으로 라우팅합니다. 모든 아웃바운드 트래픽을 VNet으로 라우팅하려면 모두 라우팅을 사용하도록 설정되어 있는지 확인합니다.
+
+> [!NOTE]
+> * 모두 라우팅을 사용하도록 설정하면 모든 트래픽에는 통합 서브넷에 적용되는 NSG 및 UDR이 적용됩니다. 모든 트래픽 라우팅을 사용하도록 설정하면 트래픽을 다른 곳으로 전달하는 경로를 제공하지 않는 한 아웃바운드 트래픽은 앱 속성에 나열된 주소에서 계속 전송됩니다.
+> 
+> * 모두 라우팅은 현재 Windows 컨테이너에서 지원되지 않습니다.
+>
+> * 지역 VNet 통합은 포트 25를 사용할 수 없습니다.
+
+다음 단계를 사용하여 포털을 통해 앱에서 모두 라우팅을 사용하지 않도록 설정할 수 있습니다. 
+
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-enabled.png" alt-text="모두 라우팅 사용":::
+
+1. 앱 포털에서 **VNet 통합** UI로 이동합니다.
+1. **모두 라우팅** 을 사용 안 함으로 설정합니다.
+    
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-disabling.png" alt-text="모두 라우팅 사용 안 함":::
+
+1. **Yes** 를 선택합니다.
+
+CLI를 사용하여 모두 라우팅을 구성할 수도 있습니다(*참고*: 최소 `az version` 2.27.0 필요).
+
+```azurecli-interactive
+az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enabled [true|false]
+```
+
+모두 라우팅 구성 설정이 레거시 `WEBSITE_VNET_ROUTE_ALL` 앱 설정을 대신하여 우선 적용됩니다.
+
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-appsetting.png" alt-text="모두 라우팅 앱 설정":::
+
+#### <a name="network-routing"></a>네트워크 라우팅
+
+경로 테이블을 사용하여 앱의 아웃바운드 트래픽을 원하는 위치로 라우팅할 수 있습니다. 경로 테이블은 대상 트래픽에 영향을 줍니다. [애플리케이션 라우팅](#application-routing)에서 모두 라우팅을 사용하지 않도록 설정하면 프라이빗 트래픽(RFC1918)만 경로 테이블의 영향을 받습니다. 일반적인 대상에는 방화벽 디바이스나 게이트웨이가 포함될 수 있습니다. 통합 서브넷에 설정된 경로는 인바운드 앱 요청에 대한 응답에 영향을 주지 않습니다. 
+
+모든 아웃바운드 트래픽을 온-프레미스로 라우팅하려면 경로 테이블을 사용하여 모든 아웃바운드 트래픽을 ExpressRoute 게이트웨이로 보낼 수 있습니다. 게이트웨이로 트래픽을 라우팅하는 경우에는 응답을 다시 보내도록 외부 네트워크에서 경로를 설정해야 합니다.
+
+BGP(Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. ExpressRoute 게이트웨이와 같은 항목의 BGP 경로가 있는 경우 앱 아웃바운드 트래픽이 영향을 받습니다. 사용자 정의 경로와 마찬가지로 BGP 경로는 라우팅 범위 설정에 따른 트래픽에 영향을 미칩니다.
+
+### <a name="network-security-groups"></a>네트워크 보안 그룹
+
+지역 VNet 통합을 사용하는 앱은 [네트워크 보안 그룹][VNETnsg]을 사용하여 VNet 또는 인터넷의 리소스에 대한 아웃바운드 트래픽을 차단할 수 있습니다. 공용 주소에 대한 트래픽을 차단하려면 VNet에 대해 [모두 라우팅](#application-routing)을 사용하도록 설정해야 합니다. 모두 라우팅을 사용하지 않도록 설정된 경우 NSG는 RFC1918 트래픽에만 적용됩니다.
+
+통합 서브넷에 적용된 NSG는 통합 서브넷에 적용된 경로 테이블과 무관하게 적용됩니다. 
+
+NSG의 인바운드 규칙은 앱에 적용되지 않습니다. VNet 통합은 앱의 아웃바운드 트래픽에만 영향을 미치기 때문입니다. 앱에 대한 인바운드 트래픽을 제어하려면 액세스 제한 기능을 사용합니다.
+
+### <a name="service-endpoints"></a>서비스 엔드포인트
+
+지역 VNet 통합을 사용하면 서비스 엔드포인트로 보안이 유지되는 Azure 서비스에 연결할 수 있습니다. 서비스 엔드포인트 보안 서비스에 액세스하려면 다음을 수행해야 합니다.
+
+* 통합을 위해 특정 서브넷에 연결하도록 웹앱과 지역 VNet 통합을 구성합니다.
+* 대상 서비스로 이동하여 통합 서브넷에 대해 서비스 엔드포인트를 구성합니다.
+
+### <a name="private-endpoints"></a>프라이빗 엔드포인트
+
+[프라이빗 엔드포인트][privateendpoints]를 호출하려면 DNS 조회가 프라이빗 엔드포인트로 확인되는지 확인해야 합니다. 이러한 동작은 다음 방법 중 하나로 적용할 수 있습니다. 
+
+* Azure DNS 프라이빗 영역과 통합합니다. VNet에 사용자 지정 DNS 서버가 없는 경우에는 해당 영역이 VNet에 연결될 때 자동으로 수행됩니다.
+* 앱에서 사용하는 DNS 서버에서 프라이빗 엔드포인트를 관리합니다. 이렇게 하려면 프라이빗 엔드포인트 주소를 알고 있어야 하며, A 레코드를 사용하여 해당 주소에 도달하려는 엔드포인트를 가리켜야 합니다.
+* Azure DNS 프라이빗 영역으로 전달하도록 자체 DNS 서버를 구성합니다.
+
+### <a name="azure-dns-private-zones"></a>Azure DNS 프라이빗 영역 
+
+앱에서 VNet과 통합된 이후 VNet이 구성된 동일한 DNS 서버를 사용하고, 사용자 지정 DNS가 지정되지 않는 경우 Azure 기본 DNS과 VNet에 연결된 프라이빗 영역을 사용합니다.
+
+> [!NOTE]
+> Linux Apps Azure DNS 프라이빗 영역은 모두 라우팅을 사용하는 경우에만 작동합니다.
+
+### <a name="limitations"></a>제한 사항
+
+동일한 지역에서 VNet과 VNet 통합을 사용하는 경우 몇 가지 제한 사항이 있습니다.
+
+* 글로벌 피어링 연결에서 리소스에 연결할 수 없습니다.
+* 클래식 가상 네트워크를 사용하는 피어링 연결에서 리소스에 연결할 수 없습니다.
+* 이 기능은 프리미엄 V2 및 프리미엄 V3의 모든 App Service 배율 단위에서 사용할 수 있습니다. 표준에서도 사용할 수 있지만 최신 App Service 배율 단위에서만 사용할 수 있습니다. 이전 배율 단위를 사용하는 경우 프리미엄 V2 App Service 요금제의 기능만 사용할 수 있습니다. 표준 App Service 요금제에서 이 기능을 사용할 수 있도록 하려면 프리미엄 V3 App Service 요금제에서 앱을 만듭니다. 이러한 플랜은 최신 배율 단위에서만 지원됩니다. 그 후에 원하는 경우 스케일 다운할 수 있습니다.  
+* 통합 서브넷은 App Service 요금제 하나에서만 사용할 수 있습니다.
+* 이 기능은 App Service Environment에 있는 격리 요금제 앱에서 사용할 수 없습니다.
+* 이 기능에는 Azure Resource Manager VNet에서 /28 이상의 사용하지 않는 서브넷이 필요합니다.
+* 앱과 VNet은 동일한 지역에 있어야 합니다.
+* 통합된 앱이 있는 VNet은 삭제할 수 없습니다. VNet을 삭제하기 전에 통합을 제거하세요.
+* 지역 VNet 통합은 App Service 요금제당 하나만 가능합니다. 동일한 App Service 요금제의 여러 앱에서 동일한 VNet을 사용할 수 있습니다.
+* 지역 VNet 통합을 사용하는 앱이 있는 경우에는 앱 또는 플랜의 구독을 변경할 수 없습니다.
+* 앱은 구성 변경 없이 Linux 플랜의 Azure DNS Private Zones에서 주소를 확인할 수 없습니다.
 
 ## <a name="gateway-required-vnet-integration"></a>필수 게이트웨이 VNet 통합
 
@@ -81,7 +200,7 @@ App Service의 앱은 작업자 역할에서 호스팅 됩니다. 기본 및 더
 * 서비스 엔드포인트의 보안 리소스에 액세스합니다.
 * ExpressRoute와 지점 및 사이트 간 또는 사이트 간 VPN을 모두 지원하는 동시 존재 게이트웨이.
 
-### <a name="set-up-a-gateway-in-your-azure-virtual-network"></a>Azure 가상 네트워크에서 게이트웨이 설정 ###
+### <a name="set-up-a-gateway-in-your-azure-virtual-network"></a>Azure 가상 네트워크에서 게이트웨이 설정
 
 게이트웨이를 만들려면,
 
@@ -97,7 +216,7 @@ App Service VNet 통합에 사용할 게이트웨이를 만드는 경우 인증�
 
 필수 게이트웨이 VNet 통합은 지점 및 사이트 간 VPN 기술을 기반으로 합니다. 지점 및 사이트 간 VPN은 앱을 호스트 하는 가상 머신의 네트워크 액세스를 제한합니다. 앱은 하이브리드 연결 또는 VNet 통합을 통해서만 트래픽을 인터넷으로 보내도록 제한됩니다. 앱이 포털을 사용하여 필수 게이트웨이 VNet 통합을 사용하도록 구성된 경우 사용자를 대신해 복잡한 협상을 관리하고 게이트웨이 및 애플리케이션 쪽에서 인증서를 만들고 할당합니다. 따라서 앱을 호스트 하는 데 사용되는 작업자는 선택한 VNet의 가상 네트워크 게이트웨이에 직접 연결할 수 있습니다.
 
-![필수 게이트웨이와 VNet 통합 작동 원리][6]
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-how-gateway-works.png" alt-text="필수 게이트웨이와 VNet 통합 작동 원리":::
 
 ### <a name="access-on-premises-resources"></a>온-프레미스 리소스에 액세스
 
@@ -178,15 +297,6 @@ Commands:
     add    : Add a regional virtual network integration to a webapp.
     list   : List the virtual network integrations on a webapp.
     remove : Remove a regional virtual network integration from webapp.
-
-az appservice vnet-integration --help
-
-Group
-    az appservice vnet-integration : A method that lists the virtual network
-    integrations used in an appservice plan.
-        This command group is in preview. It may be changed/removed in a future release.
-Commands:
-    list : List the virtual network integrations used in an appservice plan.
 ```
 
 지역 VNet 통합을 지원하는 PowerShell도 사용할 수 있습니다. 하지만 서브넷 resourceID의 속성 배열이 있는 일반 리소스를 만들어야 합니다.
@@ -200,12 +310,12 @@ $location = 'myRegion'
 $integrationsubnetname = 'myIntegrationSubnet'
 $subscriptionID = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'
 
-#Property array with the SubnetID
+# Property array with the SubnetID
 $properties = @{
   subnetResourceId = "/subscriptions/$subscriptionID/resourceGroups/$resourcegroupname/providers/Microsoft.Network/virtualNetworks/$VNetname/subnets/$integrationsubnetname"
 }
 
-#Creation of the VNet integration
+# Creation of the VNet Integration
 $vNetParams = @{
   ResourceName = "$sitename/VirtualNetwork"
   Location = $location
@@ -215,18 +325,6 @@ $vNetParams = @{
 }
 New-AzResource @vNetParams
 ```
-
-
-필수 게이트웨이 VNet 통합의 경우, PowerShell을 사용하여 Azure 가상 네트워크와 App Service를 통합할 수 있습니다. 실행 준비 스크립트의 경우, [Azure App Service에서 Azure Virtual Network에 앱 연결](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)을 참조하세요.
-
-
-<!--Image references-->
-[1]: ./media/web-sites-integrate-with-vnet/vnetint-app.png
-[2]: ./media/web-sites-integrate-with-vnet/vnetint-addvnet.png
-[3]: ./media/web-sites-integrate-with-vnet/vnetint-classic.png
-[5]: ./media/web-sites-integrate-with-vnet/vnetint-regionalworks.png
-[6]: ./media/web-sites-integrate-with-vnet/vnetint-gwworks.png
-
 
 <!--Links-->
 [VNETOverview]: ../virtual-network/virtual-networks-overview.md
@@ -245,3 +343,4 @@ New-AzResource @vNetParams
 [VNETRouteTables]: ../virtual-network/manage-route-table.md
 [installCLI]: /cli/azure/install-azure-cli
 [privateendpoints]: networking/private-endpoint.md
+[VNETnsg]: /azure/virtual-network/security-overview/

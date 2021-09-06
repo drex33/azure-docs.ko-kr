@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor Insights를 사용하여 Virtual WAN 모니터링
-description: 이 문서에서는 Azure Monitor Insights를 사용하는 Azure Virtual WAN 모니터링을 알아봅니다.
+description: Azure Monitor Insights를 사용하여 Azure Virtual WAN을 모니터링하는 방법에 대해 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 09/22/2020
+ms.topic: how-to
+ms.date: 06/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 6ead00a0979d81ef11ac81fb13a1abe31317691d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73209f93e2b7fd96dc6ebb540d62624249db5be8
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571314"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112539235"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan"></a>Virtual WAN용 Azure Monitor Insights
 
@@ -88,4 +88,4 @@ Virtual WAN에 대한 **종속성** 보기는 허브 및 스포크 아키텍처�
 ## <a name="next-steps"></a>다음 단계
 
 * 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/essentials/data-platform-metrics.md)을 참조하세요.
-* 모든 Virtual WAN 메트릭에 대한 전체 설명은 [Virtual WAN 로그 및 메트릭](logs-metrics.md)을 참조하세요.
+* 모든 Virtual WAN 메트릭에 대한 전체 설명은 [Virtual WAN 모니터링](monitor-virtual-wan.md)을 참조하세요.

@@ -1,23 +1,24 @@
 ---
 title: 복사 작업 성능 및 확장성 가이드
-description: 복사 작업을 사용할 때 Azure Data Factory의 데이터 이동의 성능에 영향을 주는 주요 요소에 대해 알아봅니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: 복사 작업을 사용할 때 Azure Data Factory 및 Azure Synapse Analytics 파이프라인의 데이터 이동 성능에 영향을 주는 주요 요소를 알아봅니다.
 services: data-factory
 documentationcenter: ''
 ms.author: jianleishen
 author: jianleishen
 manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
+ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/15/2020
-ms.openlocfilehash: 473f0c2c33fff48f945079ad1bd948c35c0826c4
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 2a2708c3d84dd83b752db2a0ae56843ae068aabe
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482600"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822430"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
 
@@ -29,27 +30,27 @@ ms.locfileid: "109482600"
 
 Data lake 또는 EDW(엔터프라이즈 데이터 웨어하우스)에서 Azure로 대규모 데이터 마이그레이션을 수행하려는 경우가 있습니다. 빅 데이터 분석을 위해 다양한 원본에서 Azure로 많은 양의 데이터를 수집하려는 경우도 있습니다. 각 경우에서 최적의 성능 및 확장성을 구현하는 것이 중요합니다.
 
-ADF(Azure Data Factory)는 데이터를 수집하는 메커니즘을 제공합니다. ADF의 장점은 다음과 같습니다.
+Azure Data Factory 및 Azure Synapse Analytics 파이프라인은 데이터를 수집하는 메커니즘을 제공하며, 이점은 다음과 같습니다.
 
 * 대량의 데이터 핸들
 * 고성능
 * 비용 효과적
 
-이러한 이점은 고성능의 확장성 있는 데이터 수집 파이프라인을 구축하려는 데이터 엔지니어에게 적합합니다.
+이러한 이점은 고성능의 확장성 있는 데이터 수집 파이프라인을 구축하려는 데이터 엔지니어에게 매우 적합합니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
-* 데이터 마이그레이션 및 데이터 수집 시나리오에서 ADF 복사 작업을 사용하여 어떤 수준의 성능 및 확장성을 달성할 수 있나요?
-* ADF 복사 작업의 성능을 조정하기 위해 수행해야 하는 단계는 무엇인가요?
-* 단일 복사 작업 실행의 성능을 최적화하기 위해 활용할 수 있는 ADF 성능 최적화 노브는 무엇인가요?
-* ADF 외부에서 복사 성능을 최적화할 때 고려할 다른 요소는 무엇인가요?
+* 데이터 마이그레이션 및 데이터 수집 시나리오에서 복사 작업을 사용하여 어떤 수준의 성능과 확장성을 달성할 수 있나요?
+* 복사 작업의 성능을 조정하기 위해 수행해야 하는 단계는 무엇인가요?
+* 단일 복사 작업을 실행하는 데 활용할 수 있는 성능 최적화 기능은 무엇인가요?
+* 복사 성능을 최적화할 때 고려할 다른 외부 요소는 무엇인가요?
 
 > [!NOTE]
 > 일반적으로 복사 작업에 익숙하지 않은 경우 이 문서를 읽기 전에 [복사 작업 개요](copy-activity-overview.md)를 참조하세요.
 
-## <a name="copy-performance-and-scalability-achievable-using-adf"></a>ADF를 사용하여 달성 가능한 복사 성능 및 확장성
+## <a name="copy-performance-and-scalability-achievable-using-azure-data-factory-and-synapse-pipelines"></a>Azure Data Factory 및 Synapse 파이프라인을 사용하여 달성 가능한 복사 성능과 확장성
 
-ADF는 서로 다른 수준에서 병렬 처리를 허용하는 서버리스 아키텍처를 제공합니다.
+Azure Data Factory 및 Synapse 파이프라인은 여러 수준에서 병렬 처리를 허용하는 서버리스 아키텍처를 제공합니다.
 
 이 아키텍처를 통해 사용자 환경에 대한 데이터 이동 처리량을 최대화하는 파이프라인을 개발할 수 있습니다. 이러한 파이프라인은 다음 리소스를 완벽하게 활용합니다.
 
@@ -65,7 +66,7 @@ ADF는 서로 다른 수준에서 병렬 처리를 허용하는 서버리스 아
 아래 표에서는 데이터 이동 기간의 계산을 보여 줍니다. 각 셀의 기간은 지정된 네트워크 및 데이터 저장소 대역폭과 지정된 데이터 페이로드 크기를 기준으로 계산됩니다.
 
 > [!NOTE]
-> 아래에 제공된 기간은 ForEach를 사용하여 여러 동시 복사 작업을 분할하고 생성하는 것을 포함하여 [복사 성능 최적화 기능](#copy-performance-optimization-features)에 설명된 하나 이상의 성능 최적화 기술을 이용하여 ADF를 사용하여 구현된 엔드투엔드 데이터 통합 솔루션에서 달성할 수 있는 성능을 나타냅니다. 특정 데이터 세트 및 시스템 구성에 대한 복사 성능을 최적화하려면 [성능 튜닝 단계](#performance-tuning-steps)에 나와 있는 단계를 따르는 것이 좋습니다. 성능 튜닝 테스트에서 얻은 숫자를 프로덕션 배포 계획, 용량 계획 및 청구 프로젝션에 사용해야 합니다.
+> 아래에 제공된 기간은 ForEach를 사용해 여러 개의 동시 복사 작업을 분할 및 생성하는 등 [복사 성능 최적화 기능](#copy-performance-optimization-features)에 설명된 성능 최적화 기술을 하나 이상 이용하여 엔드투엔드 데이터 통합 솔루션에서 달성 가능한 성능을 나타냅니다. 특정 데이터 세트 및 시스템 구성에 대한 복사 성능을 최적화하려면 [성능 튜닝 단계](#performance-tuning-steps)에 나와 있는 단계를 따르는 것이 좋습니다. 성능 튜닝 테스트에서 얻은 숫자를 프로덕션 배포 계획, 용량 계획 및 청구 프로젝션에 사용해야 합니다.
 
 &nbsp;
 
@@ -81,11 +82,11 @@ ADF는 서로 다른 수준에서 병렬 처리를 허용하는 서버리스 아
 | **10 PB**                   | 647.3달   | 323.6달  | 64.7달   | 31.6달  | 6.5달   | 3.2달   | 0.6달    |
 | | |  | | |  | | |
 
-ADF 복사본은 다양한 수준에서 확장 가능합니다.
+복사본은 다양한 수준에서 확장 가능합니다.
 
-![ADF 복사본 크기 조정 방법](media/copy-activity-performance/adf-copy-scalability.png)
+![복사본 크기 조정 방법](media/copy-activity-performance/adf-copy-scalability.png)
 
-* ADF 제어 흐름은 여러 복사 작업을 병렬로 시작할 수 있습니다(예: [For Each 루프](control-flow-for-each-activity.md) 사용).
+* 제어 흐름에서는 여러 복사 작업을 병렬로 시작할 수 있습니다(예: [For Each 루프](control-flow-for-each-activity.md) 사용).
 
 * 단일 복사 작업은 확장 가능한 컴퓨팅 리소스를 활용할 수 있습니다.
   * Azure IR(통합 런타임)을 사용하는 경우 각 복사 작업에 대해 [최대 256개의 DIUs(데이터 통합 단위)](#data-integration-units)를 서버를 사용하지 않는 방식으로 지정할 수 있습니다.
@@ -97,7 +98,7 @@ ADF 복사본은 다양한 수준에서 확장 가능합니다.
 
 ## <a name="performance-tuning-steps"></a>성능 튜닝 단계
 
-복사 작업을 사용하여 Azure Data Factory 서비스의 성능을 조정하려면 다음 단계를 수행합니다.
+복사 작업을 사용하여 서비스의 성능을 조정하려면 다음 단계를 수행합니다.
 
 1. **테스트 데이터 집합을 선택하고 기준선을 설정합니다.**
 
@@ -127,7 +128,7 @@ ADF 복사본은 다양한 수준에서 확장 가능합니다.
 
 3. **여러 복사본을 동시에 실행하여 집계 처리량을 최대화하는 방법:**
 
-    이제 단일 복사 작업의 성능을 최대화 했습니다. 환경에 대한 처리량 상한을 아직 달성하지 않은 경우 여러 개의 복사 작업을 병렬로 실행할 수 있습니다. ADF 제어 흐름 구문을 사용하여 병렬로 실행할 수 있습니다. 이러한 구문 중 하나는 [For each 루프](control-flow-for-each-activity.md)입니다. 자세한 내용은 솔루션 템플릿에 대한 다음 문서를 참조하세요.
+    이제 단일 복사 작업의 성능을 최대화 했습니다. 환경에 대한 처리량 상한을 아직 달성하지 않은 경우 여러 개의 복사 작업을 병렬로 실행할 수 있습니다. 제어 흐름 구문을 사용하여 병렬로 실행할 수 있습니다. 이러한 구문 중 하나는 [For each 루프](control-flow-for-each-activity.md)입니다. 자세한 내용은 솔루션 템플릿에 대한 다음 문서를 참조하세요.
 
     * [여러 컨테이너의 파일 복사](solution-template-copy-files-multiple-containers.md)
     * [Amazon s 3에서 ADLS Gen2로 데이터 마이그레이션](solution-template-migration-s3-azure.md)
@@ -139,11 +140,11 @@ ADF 복사본은 다양한 수준에서 확장 가능합니다.
 
 ## <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
-[성능 튜닝 단계](#performance-tuning-steps)를 따라 시나리오에 대한 성능 테스트를 계획하고 수행합니다. 그리고 [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md)의 Azure Data Factory에서 각 복사 작업 실행의 성능 문제를 해결하는 방법에 대해 알아봅니다.
+[성능 튜닝 단계](#performance-tuning-steps)를 따라 시나리오에 대한 성능 테스트를 계획하고 수행합니다. 그리고 [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md)에서 각 복사 작업 실행의 성능 문제를 해결하는 방법에 대해 알아봅니다.
 
 ## <a name="copy-performance-optimization-features"></a>복사 작업 성능 최적화 기능
 
-Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공합니다.
+서비스에서 제공하는 성능 최적화 기능은 다음과 같습니다.
 
 * [데이터 통합 단위](#data-integration-units)
 * [자체 호스팅 통합 런타임 확장성](#self-hosted-integration-runtime-scalability)
@@ -152,7 +153,7 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공합니�
 
 ### <a name="data-integration-units"></a>데이터 통합 단위
 
-DIU(데이터 통합 단위)는 Azure Data Factory내 단일 유닛의 power를 나타내는 단위입니다. 전원은 CPU, 메모리 및 네트워크 리소스 할당의 조합입니다. DIU는 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)에만 적용됩니다. DIU는 [자체 호스팅 통합 런타임](concepts-integration-runtime.md#self-hosted-integration-runtime)에 적용되지 않습니다. [여기를 참조하세요](copy-activity-performance-features.md#data-integration-units).
+DIU(데이터 통합 단위)는 Azure Data Factory 및 Synapse 파이프라인에 있는 단일 유닛의 전원을 나타내는 단위입니다. 전원은 CPU, 메모리 및 네트워크 리소스 할당의 조합입니다. DIU는 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)에만 적용됩니다. DIU는 [자체 호스팅 통합 런타임](concepts-integration-runtime.md#self-hosted-integration-runtime)에 적용되지 않습니다. [여기를 참조하세요](copy-activity-performance-features.md#data-integration-units).
 
 ### <a name="self-hosted-integration-runtime-scalability"></a>자체 호스팅 통합 런타임 확장성
 

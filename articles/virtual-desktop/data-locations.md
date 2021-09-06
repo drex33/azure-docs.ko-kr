@@ -4,15 +4,15 @@ description: Azure Virtual Desktop의 데이터와 메타데이터가 저장되�
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ef72214cf0a5a5d0d65cc13dba88a4776b4240ad
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: bc356e828adbe9b2d93a202f6b58673dd4ec5efc
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745298"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113125909"
 ---
 # <a name="data-locations-for-azure-virtual-desktop"></a>Azure Virtual Desktop의 데이터 위치
 
@@ -49,7 +49,8 @@ Azure Virtual Desktop을 안정적이고 스케일링 가능한 상태로 유지
 
 - 미국(US)(일반적으로 사용 가능)
 - 유럽(EU)(일반적으로 사용 가능)
-- 영국(UK)(퍼블릭 미리 보기)
+- 영국(UK)(일반적으로 사용 가능)
+- 캐나다(CA)(일반적으로 사용 가능)
 
 서비스가 증가함에 따라 더 많은 지리가 추가될 예정입니다. 저장된 메타데이터는 미사용 상태에서 암호화되고 지역 중복 미러는 해당 지리 내에서 유지 관리됩니다. 앱 설정 및 사용자 데이터와 같은 모든 고객 데이터는 고객이 선택한 위치에 상주하며 서비스에서 관리되지 않습니다.
 

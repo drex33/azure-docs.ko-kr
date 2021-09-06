@@ -3,16 +3,16 @@ title: Azure VMware Solution의 예약 인스턴스
 description: Azure VMware Solution에 대한 예약 인스턴스를 구매하는 방법을 알아봅니다. 예약 인스턴스에는 사용자 사용량의 컴퓨팅 부분만 해당되며 소프트웨어 라이선스 비용이 포함됩니다.
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.openlocfilehash: 8407d4e85718660bfcf17b3597710ed5237b41e1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6204e7cade66ee60885db20226981980f4741a76
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745820"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538723"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Azure VMware Solution을 사용하여 비용 절감
 
-[Azure VMware Solution](introduction.md)의 예약 인스턴스를 커밋하면 비용이 절약됩니다.  예약 할인은 예약 범위 및 특성과 일치하는 실행 중인 Azure VMware Solution 호스트에 자동으로 적용됩니다. 예약 인스턴스 구매에는 사용자 사용량의 컴퓨팅 부분만 해당되며 소프트웨어 라이선스 비용이 포함됩니다. 
+[Azure VMware Solution](introduction.md)의 예약 인스턴스를 커밋하면 비용이 절약됩니다. 예약 할인은 예약 범위 및 특성과 일치하는 실행 중인 Azure VMware Solution 호스트에 자동으로 적용됩니다. 또한 예약 인스턴스 구매에는 사용자 사용량의 컴퓨팅 부분만 해당되며 소프트웨어 라이선스 비용이 포함됩니다. 
 
 ## <a name="purchase-restriction-considerations"></a>구매 제한 고려 사항
 
@@ -38,7 +38,7 @@ ms.locfileid: "111745820"
 
 -   EA 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 옵션을 사용하도록 설정해야 합니다. 옵션을 사용하도록 설정하려면 이 구독에 대한 EA 관리자여야 합니다.
 
--   CSP(클라우드 솔루션 공급자) Azure 플랜의 구독을 위해 파트너는 Azure Portal에서 고객에 대한 예약 인스턴스를 구매해야 합니다. 
+-   CSP(클라우드 솔루션 공급자) Azure 플랜에 따른 구독의 경우 파트너는 Azure Portal에서 고객의 예약 인스턴스를 구매해야 합니다. 
 
 ### <a name="buy-reserved-instances-for-an-ea-subscription"></a>EA 구독을 위한 예약 인스턴스 구매
 
@@ -52,10 +52,10 @@ ms.locfileid: "111745820"
 
    EA 계약이 있는 경우 **추가 옵션** 을 사용하여 인스턴스를 빠르게 추가할 수 있습니다. 이 옵션은 다른 구독 유형에 사용할 수 없습니다.
 
-   | 필드        |  Description |
+   | 필드        |  설명 |
    | ------------ | ------------ |
    | Subscription | 예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P), Microsoft 고객 계약, 종량제 요금의 개별 구독(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)이어야 합니다. 가능한 경우, 요금은 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감되거나 초과분에 대해 청구됩니다. 종량제 요금이 적용되는 구독의 경우 요금은 구독의 신용 카드 또는 청구서 결제 방법으로 청구됩니다. |
-   | 범위        | 예약 범위에는 하나의 구독 또는 여러 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우:<br><ul><li><b>단일 리소스 그룹 범위</b> - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li><b>단일 구독 범위</b> - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li><b>공유 범위</b> - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li></ul>       |
+   | 범위        | 예약 범위에는 하나의 구독 또는 여러 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우:<br><ul><li><b>단일 리소스 그룹 범위</b> - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li><b>단일 구독 범위</b> - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li><b>공유 범위</b> - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 따라서 청구 범위는 종량제 요금이 적용되는 개별 구독의 경우 계정 관리자가 만든 모든 적격 구독입니다.</li></ul>       |
    | 지역       | 예약이 적용되는 Azure 지역입니다.   |
    | 호스트 크기    | AV36    |
    | 용어         | 1년 또는 3년입니다.  |
@@ -71,20 +71,20 @@ ms.locfileid: "111745820"
 
 3. 고객 세부 정보를 확장하고 **Microsoft Azure 관리 포털** 을 선택합니다. 
 
-   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Microsoft 파트너 센터 고객 영역" lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
+   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Microsoft Azure 관리 포털이 선택된 Microsoft 파트너 센터 고객 영역을 보여주는 스크린샷." lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
 
 4. Azure Portal에서 **모든 서비스** > **예약** 을 선택합니다.
 
 5. **지금 구매** 를 선택한 다음 **Azure VMware Solution** 을 선택합니다.
 
-   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Microsoft Azure Portal 예약" lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
+   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Microsoft Azure Portal에서 Azure VMware Solution 예약을 구매할 수 있는 위치를 보여주는 스크린샷." lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
 
 6. 필수 필드를 입력합니다. 실행 중인 Azure VMware Solution 호스트와 일치하는 선택된 특성은 예약 할인에 적합합니다.  특성에는 SKU, 지역(해당 하는 경우) 및 범위가 포함됩니다. 예약 범위는 예약 절감액이 적용될 위치를 선택합니다.
 
-   | 필드        |  Description |
+   | 필드        |  설명 |
    | ------------ | ------------ |
-   | Subscription | 예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형이 적합한 유형이어야 합니다. 이 경우에는 CSP 구독입니다.|
-   | 범위        | 예약 범위에는 하나의 구독 또는 여러 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우:<br><ul><li><b>단일 리소스 그룹 범위</b> - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li><b>단일 구독 범위</b> - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li><b>공유 범위</b> - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li></ul>       |
+   | 구독 | 예약 자금을 지원하는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형이 적합한 유형이어야 합니다. 이 경우에는 CSP 구독입니다.|
+   | 범위        | 예약 범위에는 하나의 구독 또는 여러 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우:<br><ul><li><b>단일 리소스 그룹 범위</b> - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li><b>단일 구독 범위</b> - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li><b>공유 범위</b> - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 따라서 청구 범위는 종량제 요금이 적용되는 개별 구독의 경우 계정 관리자가 만든 모든 적격 구독입니다.</li></ul>       |
    | 지역       | 예약이 적용되는 Azure 지역입니다.   |
    | 호스트 크기    | AV36    |
    | 용어         | 1년 또는 3년입니다.  |

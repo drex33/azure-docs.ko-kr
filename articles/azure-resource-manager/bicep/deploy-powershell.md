@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: de7b112540d332216e361d5694f22d21c724ca36
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 27d00d137c2fb178b2bd96732664c08965ce3073
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960396"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634497"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-powershell"></a>Bicep 및 Azure PowerShell로 리소스 배포
 
@@ -25,7 +25,7 @@ Bicep 파일을 배포하려면 [Azure PowerShell 버전 5.6.0 이상](/powershe
 Azure PowerShell을 설치하고 Azure에 연결해야 합니다.
 
 - **로컬 컴퓨터에 Azure PowerShell cmdlet을 설치합니다.** 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/get-started-azureps)을 참조하세요.
-- **[Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)를 사용하여 Azure에 연결합니다**. Azure 구독이 여러 개인 경우 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 실행해야 할 수도 있습니다. 자세한 내용은 [여러 Azure 구독 사용](/powershell/azure/manage-subscriptions-azureps)을 참조하세요.
+- **[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)를 사용하여 Azure에 연결합니다**. Azure 구독이 여러 개인 경우 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 실행해야 할 수도 있습니다. 자세한 내용은 [여러 Azure 구독 사용](/powershell/azure/manage-subscriptions-azureps)을 참조하세요.
 
 PowerShell이 설치되어 있지 않으면 Azure Cloud Shell을 사용할 수 있습니다. 자세한 내용은 [Azure Cloud Shell에서 Bicep 파일 배포](./deploy-cloud-shell.md)를 참조하세요.
 
@@ -50,7 +50,7 @@ PowerShell이 설치되어 있지 않으면 Azure Cloud Shell을 사용할 수 �
 - **관리 그룹** 에 배포하려면 [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment)를 사용합니다.
 
   ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-bicep>
+  New-AzManagementGroupDeployment -ManagementGroupId <management-group-id> -Location <location> -TemplateFile <path-to-bicep>
   ```
 
   관리 그룹 수준 배포에 대한 자세한 내용은 [관리 그룹 수준에서 리소스 만들기](deploy-to-management-group.md)를 참조하세요.
@@ -75,7 +75,7 @@ PowerShell이 설치되어 있지 않으면 Azure Cloud Shell을 사용할 수 �
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-로컬 Bicep 파일을 배포하려면 배포 명령에 `-TemplateFile` 매개 변수를 사용합니다. 다음 예제에서는 Bicep 파일에서 제공되는 매개 변수 값을 설정하는 방법을 보여 줍니다.
+로컬 Bicep 파일을 배포하려면 배포 명령에 `-TemplateFile` 매개 변수를 사용합니다.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -157,7 +157,7 @@ Bicep 파일을 배포하기 전에 Bicep 파일이 환경에 적용할 변경 �
 
 ## <a name="deploy-template-specs"></a>템플릿 사양 배포
 
-현재 Azure PowerShell은 Bicep 파일을 제공하여 템플릿 사양을 만드는 것을 지원하지 않습니다. 그러나 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용하여 Bicep 파일을 만들어 템플릿 사양을 배포할 수 있습니다. 여기에서 [예제](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)를 확인할 수 있습니다. Bicep CLI를 사용하여 ARM 템플릿 JSON에 Bicep 파일을 빌드한 다음, JSON 템플릿을 사용하여 템플릿 사양을 만들 수도 있습니다.
+현재 Azure PowerShell은 Bicep 파일을 제공하여 템플릿 사양을 만드는 것을 지원하지 않습니다. 그러나 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용하여 Bicep 파일을 만들어 템플릿 사양을 배포할 수 있습니다. 여기에서 [예제](https://github.com/Azure/azure-docs-bicep-samples/blob/main/create-template-spec-using-bicep/azuredeploy.bicep)를 확인할 수 있습니다. Bicep CLI를 사용하여 ARM 템플릿 JSON에 Bicep 파일을 빌드한 다음, JSON 템플릿을 사용하여 템플릿 사양을 만들 수도 있습니다.
 
 ## <a name="deployment-name"></a>배포 이름
 
@@ -190,5 +190,5 @@ $deploymentName="ExampleDeployment"+"$today"
 ## <a name="next-steps"></a>다음 단계
 
 - 오류 발생 시 성공적인 배포로 롤백하려면 [오류 발생 시 성공적인 배포로 롤백](../templates/rollback-on-error.md)을 참조하세요.
-- 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [ARM 템플릿의 구조 및 구문 이해](../templates/syntax.md)를 참조하세요.
+- 파일에서 매개 변수를 정의하는 방식을 이해하려면 [Bicep 파일의 구조 및 구문 이해](file.md)를 참조하세요.
 - SAS 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 ARM 템플릿 배포](../templates/secure-template-with-sas-token.md)를 참조하세요.

@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: ffff2c1831aab09a1c622ced98cfe180fe0ec5d7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ea075ec0626c52e7d577784d23de55189110170c
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679204"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539556"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -181,6 +181,33 @@ NTFS 볼륨만 지원되며, ReFS, FAT, FAT32 및 기타 파일 시스템은 지
 | $RECYCLE.BIN| 폴더 |
 | \\SyncShareState | 동기화할 폴더 |
 
+### <a name="consider-how-much-free-space-you-need-on-your-local-disk"></a>로컬 디스크에 필요한 여유 공간의 양을 고려합니다.
+Azure 파일 동기화 사용을 계획할 때 서버 엔드포인트를 사용하려는 로컬 디스크에 필요한 여유 공간의 양을 고려합니다.
+
+Azure 파일 동기화를 사용하면 로컬 디스크에서 다음 공간을 차지해야 합니다.
+- 클라우드 계층화 사용:
+    - 계층화된 파일에 대한 재분석 지점
+    - Azure 파일 동기화 메타데이터 데이터베이스
+    - Azure 파일 동기화 열 저장소
+    - 핫 캐시에서 완전히 다운로드한 파일(있는 경우)
+    - 사용 가능한 볼륨 공간 정책 요구 사항
+
+- 클라우드 계층화 사용하지 않음:  
+    - 완전히 다운로드한 파일
+    - Azure 파일 동기화 열 저장소
+    - Azure 파일 동기화 메타데이터 데이터베이스
+
+예제를 사용하여 로컬 디스크에서 사용 가능한 공간의 양을 예측하는 방법을 보여 줍니다. Azure Windows VM에 Azure 파일 동기화 에이전트를 설치하고 디스크 F에서 서버 엔드포인트를 만들 계획이라고 가정해 보겠습니다. 100만 개의 파일이 있고 모두 10만 개의 디렉터리 및 4KB의 디스크 클러스터 크기로 계층화하려고 합니다. 디스크 크기는 1000GB입니다. 클라우드 계층화를 사용하고 사용 가능한 볼륨 공간 정책을 20%로 설정하려고 합니다. 
+
+1. NTFS는 계층화된 각 파일에 대해 클러스터 크기를 할당합니다. 100만 개의 파일 * 4KB 클러스터 크기 = 400만 KB(4GB)
+> [!Note]  
+> 계층화된 파일이 차지하는 공간은 NTFS에서 할당합니다. 따라서 UI에 표시되지 않습니다.
+3. 동기화 메타데이터는 항목당 클러스터 크기를 차지합니다. (100만 개의 파일 + 10만 개의 디렉터리) * 4KB 클러스터 크기 = 440만 KB(4.4GB)
+4. Azure 파일 동기화 열 저장소는 파일당 1.1KB를 차지합니다. 100만 개의 파일 * 1.1KB = 110만 KB(1.1GB)
+5. 사용 가능한 볼륨 공간 정책은 20%입니다. 1000GB * 0.2 = 200GB
+
+이 경우 Azure 파일 동기화에는 이 네임스페이스에 대한 약 2억 950만 KB(209.5GB)의 공간이 필요합니다. 이 디스크에 필요한 여유 공간이 충분한지 파악하기 위해 원하는 추가 여유 공간에 이 크기를 추가합니다.
+
 ### <a name="failover-clustering"></a>장애 조치(Failover) 클러스터링
 Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버" 배포 옵션의 Azure 파일 동기화에서 지원됩니다. 장애 조치(Failover) 클러스터링은 "애플리케이션 데이터용 스케일 아웃 파일 서버" 또는 "CSV(클러스터된 공유 볼륨)"에서는 지원되지 않습니다.
 
@@ -310,11 +337,6 @@ Azure 스토리지 계정에는 전송 중 암호화를 요구하는 스위치�
 
 ## <a name="storage-tiers"></a>스토리지 계층
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>표준 파일 공유를 최대 100TiB까지 확장하도록 설정
-
-기본적으로, 표준 파일 공유는 최대 5TiB까지만 확장할 수 있지만 공유 한도는 100TiB까지 늘릴 수 있습니다. 공유 제한을 늘리는 방법을 알아보려면 [대용량 파일 공유 사용 설정 및 만들기](../files/storage-files-how-to-create-large-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)를 참조하세요.
-
 
 #### <a name="regional-availability"></a>국가별 가용성
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]

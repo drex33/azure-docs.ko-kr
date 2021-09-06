@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: f401c143f1f5a9352b56b80f9e473bd7fa819245
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: a4b433ed7a2eb0a2a9367f921e63091a823df37d
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968257"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567484"
 ---
 # <a name="azure-monitor-network-insights"></a>Azure Monitor Network Insights
 
@@ -108,9 +108,19 @@ Application Gateway의 종속성 보기를 사용하면 프런트 엔드 IP가 �
 
 ![진단 도구 키트를 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
-## <a name="onboarded-resources"></a>온보딩된 리소스 
+## <a name="availability-of-resources"></a>리소스 가용성 
 
-온보딩된 리소스에는 기본 제공 통합 문서와 종속성 보기가 있습니다. 현재 온보딩된 리소스는 Virtual WAN, Application Gateway, Load Balancer, ExpressRoute입니다.
+기본적으로 모든 네트워킹 리소스를 네트워크 인사이트에서 볼 수 있습니다. 고객은 리소스 종류를 클릭하여 리소스 상태와 메트릭(사용 가능한 경우), 구독 세부 정보, 위치 등을 볼 수 있습니다. 네트워킹 리소스의 하위 집합이 _등록_ 되었습니다. 등록 리소스의 경우, 고객이 리소스별 토폴로지 보기 및 기본 제공 메트릭 통합 문서에 액세스할 수 있습니다. 이러한 기본 환경을 사용하면 더 쉽게 리소스 메트릭을 탐색하고 문제를 해결할 수 있습니다.  
+
+등록된 리소스는 다음과 같습니다. 
+* 가상 WAN
+* Application Gateway
+* Load Balancer
+* ExpressRoute
+* Private Link
+* NAT Gateway
+* 공용 IP
+* NIC
 
 ## <a name="troubleshooting"></a>문제 해결 
 일반적인 문제 해결 지침은 전용 통합 문서 기반 인사이트 [문제 해결 문서](troubleshoot-workbooks.md)를 참조하세요.

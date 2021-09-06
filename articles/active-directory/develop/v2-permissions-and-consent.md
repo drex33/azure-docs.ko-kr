@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/06/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: fed830833e9f68bcf734be65cba16f1cc84c8f89
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
+ms.openlocfilehash: fca6234742958f363d45c02780c2d01246ac58a9
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494355"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539119"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 권한 및 동의
 
@@ -46,6 +46,8 @@ Microsoft ID 플랫폼과 통합된 타사 리소스의 경우도 마찬가지�
 OAuth 2.0에서는 이러한 유형의 권한 집합을 범위라고 합니다. 권한이라고 하는 경우도 있습니다. Microsoft ID 플랫폼에서 권한은 문자열 값으로 표시됩니다. 앱은 `scope` 쿼리 매개 변수에 사용 권한을 지정하여 필요한 권한을 요청합니다. ID 플랫폼은 리소스 기반 권한(각 권한은 리소스의 식별자 또는 애플리케이션 ID URI에 권한 값을 추가하여 표시됨)뿐만 아니라 잘 정의된 여러 [OpenID Connect 범위](#openid-connect-scopes)를 지원합니다. 예를 들어 권한 문자열 `https://graph.microsoft.com/Calendars.Read`는 Microsoft Graph에서 사용자 일정을 읽을 수 있는 권한을 요청하는 데 사용됩니다.
 
 앱은 대부분 Microsoft ID 플랫폼 권한 부여 엔드포인트에 대한 요청에서 범위를 지정하여 이러한 사용 권한을 요청합니다. 그러나 일부 높은 수준의 권한은 관리자의 동의를 통해서만 부여할 수 있습니다. [관리자 동의 엔드포인트](#admin-restricted-permissions)를 사용하여 요청하거나 부여할 수 있습니다. 자세히 알아보려면 계속 읽어보세요.
+
+Microsoft ID 플랫폼에 대한 권한 부여, 토큰 또는 동의 엔드포인트에 대한 요청에서 리소스 식별자가 범위 매개 변수에서 생략되는 경우 리소스를 Microsoft Graph로 간주됩니다. 예를 들어 `scope=User.Read`는 `https://graph.microsoft.com/User.Read`와 같습니다.
 
 ## <a name="permission-types"></a>사용 권한 유형
 
@@ -106,12 +108,36 @@ Microsoft ID 플랫폼(v2.0 엔드포인트에 대한 요청)에서 앱은 새�
 
 새로 고침 토큰을 가져오고 사용하는 방법에 대한 자세한 내용은 [Microsoft ID 플랫폼 프로토콜 참조](active-directory-v2-protocols.md)를 확인하세요.
 
-## <a name="incremental-and-dynamic-consent"></a>증분 및 동적 동의
+## <a name="consent-types"></a>동의 유형
+
+Microsoft ID 플랫폼의 애플리케이션이 필요한 리소스 또는 API에 액세스하려면 동의가 필요합니다. 앱이 성공하기 위해 알아야 할 수 있는 여러 종류의 동의가 있습니다. 권한을 정의하는 경우 사용자가 앱 또는 API에 액세스 권한을 얻는 방법도 이해해야 합니다.
+
+### <a name="static-user-consent"></a>고정적 사용자 동의 
+
+고정적 사용자 동의 시나리오에서 Azure Portal의 앱 구성에 필요한 모든 권한을 지정해야 합니다. 사용자(또는 해당하는 경우 관리자)가 이 앱에 대한 동의를 받지 못한 경우 Microsoft ID 플랫폼은 사용자에게 지금 동의를 제공하라는 메시지를 표시합니다.
+
+또한 정적 사용 권한을 통해 관리자는 조직의 [모든 사용자를 대신하여 동의](#requesting-consent-for-an-entire-tenant)를 얻을 수 있습니다.
+
+Azure Portal에 정의된 앱의 정적 권한은 코드를 멋지고 간단하게 유지했지만, 개발자에게 몇 가지 가능한 문제를 줄 수 있습니다.
+
+- 사용자가 처음 로그인할 때 앞으로 앱에서 필요로 하게 될 모든 권한을 요청해야 합니다. 이로 인해 권한 목록이 매우 길어서 최종 사용자는 처음 로그인 시 앱의 액세스를 승인하지 않을 수 있습니다.
+
+- 앱이 액세스할 수도 있는 모든 리소스를 미리 알아야 합니다. 리소스의 임의 개수에 액세스할 수 있는 앱을 만드는 것은 어렵습니다.
+
+### <a name="incremental-and-dynamic-user-consent"></a>증분 및 동적 사용자 동의
+
 Microsoft ID 플랫폼 엔드포인트를 사용하면 Azure Portal의 앱 등록 정보에 정의된 정적 권한을 무시하고, 대신에 권한을 점진적으로 요청할 수 있습니다.  최소한의 권한 집합을 미리 요구하고 고객이 추가 앱 기능을 사용함에 따라 더 많은 시간을 요청할 수 있습니다. 이렇게 하려면 애플리케이션 등록 정보에 미리 정의할 필요 없이, [액세스 토큰을 요청](#requesting-individual-user-consent)할 때 `scope` 매개 변수에 새 범위를 포함시켜서 언제든지 앱에 필요한 범위를 지정할 수 있습니다. 사용자가 요청에 추가된 새 범위에 아직 동의하지 않은 경우에는 새 권한에만 동의하라는 메시지가 표시됩니다. 증분 또는 동적 동의는 위임된 권한에만 적용되며 애플리케이션 권한에는 적용되지 않습니다.
 
 `scope` 매개 변수를 통해 앱이 동적으로 권한을 요청할 수 있도록 허용하면 개발자가 사용자 환경을 완전히 제어할 수 있습니다. 초기 단계에 동의 환경을 배치하고 하나의 초기 권한 부여 요청으로 모든 권한을 요청할 수도 있습니다. 앱이 많은 권한을 요청하는 경우 시간의 경과에 따라 앱의 특정 기능을 사용하도록 시도하는 것처럼 점진적으로 사용자로부터 권한을 수집할 수 있습니다.
 
-조직 대신 [관리자 동의](#using-the-admin-consent-endpoint)를 수행하려면 앱에 등록된 정적 권한이 필요하므로, 전체 조직을 대신하여 관리자가 동의해야 하는 경우 앱 등록 포털에서 앱에 대한 권한을 설정해야 합니다. 이렇게 하면 조직 관리자가 애플리케이션을 설정하는 데 필요한 주기가 줄어듭니다.
+> [!IMPORTANT]
+> 동적 동의는 편리할 수 있지만 권한에 대해 관리자 동의가 필요한데 관리자 동의 환경은 동의 시간에 해당 권한에 대해 인식하지 못한다는 큰 문제가 있습니다. 관리자 권한이 필요하거나 앱에 동적 동의가 사용되는 경우에는 Azure Portal에 관리자 동의가 필요한 권한의 하위 집합뿐만 아니라 모든 권한을 등록해야 합니다. 이렇게 하면 테넌트 관리자가 모든 사용자를 대신하여 동의할 수 있습니다.
+
+### <a name="admin-consent"></a>관리자 동의
+
+[관리자 동의](#using-the-admin-consent-endpoint)는 앱이 높은 권한의 특정 사용 권한에 액세스해야 하는 경우 필요합니다. 관리자 동의는 관리자가 몇몇 추가 제어를 포함해야 앱 또는 사용자가 조직의 높은 권한 데이터에 액세스하는 것을 인증합니다.
+
+[조직을 대신하여 관리자 동의](#requesting-consent-for-an-entire-tenant)를 얻으려면 앱에 대해 등록된 정적 권한이 있어야 합니다. 전체 조직을 대신하여 동의를 제공할 관리자가 필요한 경우 앱 등폴 포털에서 앱에 대해 해당 권한을 설정합니다. 이렇게 하면 조직 관리자가 애플리케이션을 설정하는 데 필요한 주기가 줄어듭니다.
 
 ## <a name="requesting-individual-user-consent"></a>개별 사용자의 동의 요청
 
@@ -143,7 +169,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 조직에서 애플리케이션의 라이선스나 구독을 구매하면 조직 내 모든 구성원이 사용할 수 있도록 애플리케이션을 사전에 설정하려는 경우가 있습니다. 이러한 프로세스의 일부로, 관리자는 테넌트의 사용자를 대신하여 애플리케이션에 대한 동의를 부여할 수 있습니다. 관리자가 전체 테넌트에 대한 동의를 부여하면 조직의 사용자에게는 애플리케이션에 대한 동의 페이지가 표시되지 않습니다.
 
-테넌트의 모든 사용자에 대한 위임된 권한을 요청하기 위해 앱에서 관리자 동의 엔드포인트를 사용할 수 있습니다.
+조직을 대신하여 관리자 동의를 얻으려면 앱에 대해 등록된 정적 권한이 있어야 합니다. 전체 조직을 대신하여 동의를 제공할 관리자가 필요한 경우 앱 등폴 포털에서 앱에 대해 해당 권한을 설정합니다.
+
+테넌트의 모든 사용자에 대한 위임된 권한에 대한 동의를 요청하기 위해 앱에서 [관리자 동의 엔드포인트](#using-the-admin-consent-endpoint)를 사용할 수 있습니다.
 
 또한 애플리케이션에서는 관리자 동의 엔드포인트를 사용하여 애플리케이션 권한을 요청해야 합니다.
 
@@ -220,7 +248,7 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| 매개 변수        | 조건        | Description                                                                                |
+| 매개 변수        | 조건        | 설명                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID 또는 친숙한 이름 형식으로 제공할 수 있습니다. 또는 예제에서 볼 수 있듯이 일반적으로 조직에서 참조할 수 있습니다. "common"은 사용하지 마십시오. 개인 계정은 테넌트의 컨텍스트를 제외하고 관리자 동의를 제공할 수 없기 때문입니다. 테넌트를 관리하는 개인 계정과 최고의 호환성을 보장하려면 되도록 테넌트 ID를 사용합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 애플리케이션(클라이언트) ID입니다. |

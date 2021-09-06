@@ -7,30 +7,37 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 6/08/2020
+ms.date: 7/23/2021
 ms.author: robinsh
-ms.openlocfilehash: 6ff0a0bb8bc1ca9b26968d002bb44d206c36e158
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 4bfd0f761538516d771fd1bb00eb9dc625f46ce8
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483914"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537491"
 ---
-# <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
+# <a name="tutorial-visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>자습서: Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
-![엔드투엔드 다이어그램](./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png)
+Microsoft Power BI를 사용하여 Azure IoT 허브에서 수신하는 실시간 센서 데이터를 시각화할 수 있습니다. 이렇게 하려면 IoT Hub의 데이터를 사용하고 Power BI의 데이터 세트로 라우팅하는 Azure Stream Analytics 작업을 구성합니다. 
 
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png" alt-text="엔드투엔드 다이어그램" border="false":::
 
-이 문서에서는 Azure IoT 허브에서 Power BI를 통해 받는 실시간 센서 데이터를 시각화하는 방법을 알아봅니다. 웹앱을 사용하여 IoT 허브에서 데이터를 시각화하려면 [웹앱을 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)를 참조하세요.
+ [Microsoft Power BI](https://powerbi.microsoft.com/)는 대용량 데이터 세트를 통해 셀프 서비스 및 엔터프라이즈 BI(비즈니스 인텔리전스)를 수행하는 데 사용할 수 있는 데이터 시각화 도구입니다. [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#overview)는 인사이트를 얻거나, 보고서를 빌드하거나, 경고 및 작업을 트리거하는 데 사용할 수 있는 데이터의 빠른 이동 스트림을 분석하고 처리하는 데 도움이 되도록 설계된 완전 관리형 실시간 분석 서비스입니다. 
 
-## <a name="prerequisites"></a>필수 요건
+이 자습서에서는 다음 작업을 수행합니다.
 
-* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서 중 하나를 완료합니다. 예를 들어 [node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)로 이동하거나 [원격 분석 전송](quickstart-send-telemetry-dotnet.md) 빠른 시작 중 하나로 이동할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
+> [!div class="checklist"]
+> * IoT 허브에서 소비자 그룹 만들기
+> * 소비자 그룹에서 온도 원격 분석을 읽고 Power BI로 보내도록 Azure Stream Analytics 작업을 만들고 구성합니다.
+> * Power BI에서 온도 데이터 보고서를 만들어 웹에 공유합니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* 선택한 개발 언어로 [원격 분석 전송](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) 빠른 시작 중 하나를 완료합니다. 또는 온도 원격 분석을 전송하는 디바이스 앱(예: [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 또는 [포함된 디바이스](../iot-develop/quickstart-devkit-mxchip-az3166.md) 빠른 시작 중 하나)을 사용할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
   
   * 활성화된 Azure 구독.
   * 구독의 Azure IoT 허브.
-  * 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
+  * 메시지를 Azure IoT 허브로 보내는 클라이언트 앱.
 
 * Power BI 계정. ([Power BI를 무료로 사용해 보기](https://powerbi.microsoft.com/))
 
@@ -42,7 +49,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
 ### <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **사물 인터넷** > **Stream Analytics 작업** 을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택합니다. 검색 상자에 *Stream Analytics Job* 을 입력하고 드롭다운 목록에서 선택합니다. **Stream Analytics 작업** 개요 창에서 **만들기** 를 선택합니다.
 
 2. 작업에 대한 다음 정보를 입력합니다.
 
@@ -52,7 +59,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    **위치**: 리소스 그룹과 동일한 위치를 사용합니다.
 
-   ![Azure에서 Stream Analytics 작업 만들기](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png)
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png" alt-text="Azure에서 Stream Analytics 작업 만들기":::
 
 3. **만들기** 를 선택합니다.
 
@@ -82,7 +89,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    다른 모든 필드는 기본값으로 그대로 둡니다.
 
-   ![Azure에서 Stream Analytics 작업에 입력 추가](./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png)
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png" alt-text="Azure에서 Stream Analytics 작업에 입력 추가":::
 
 4. **저장** 을 선택합니다.
 
@@ -90,7 +97,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
 1. **작업 토폴로지** 에서 **출력** 을 선택합니다.
 
-2. **출력** 창에서 **추가** 및 **Power BI** 를 선택합니다.
+2. **출력** 창에서 **추가** 를 선택한 다음, 드롭다운 목록에서 **Power BI** 를 선택합니다.
 
 3. **Power BI - 새 출력** 창에서 **권한 부여** 를 선택하고 프롬프트에 따라 Power BI 계정에 로그인합니다.
 
@@ -106,7 +113,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    **인증 모드**: 기본값으로 유지합니다.
 
-   ![Azure에서 Stream Analytics 작업에 출력 추가](./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job.png)
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job.png" alt-text="Azure에서 Stream Analytics 작업에 출력 추가":::
 
 5. **저장** 을 선택합니다.
 
@@ -118,37 +125,40 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
 3. `[YourOutputAlias]`를 작업의 출력 별칭으로 바꿉니다.
 
-   ![Azure에서 Stream Analytics 작업에 쿼리 추가](./media/iot-hub-live-data-visualization-in-power-bi/add-query-to-stream-analytics-job.png)
+1. 다음 `WHERE` 절을 쿼리의 마지막 줄로 추가합니다. 이 줄은 **온도** 속성이 있는 메시지만 Power BI에 전달되도록 합니다.
 
-4. **쿼리 저장** 을 선택합니다.
+    ```sql
+    WHERE temperature IS NOT NULL
+    ```
+1. 쿼리는 다음 스크린샷과 비슷합니다. **쿼리 저장** 을 선택합니다.
+
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-query-to-stream-analytics-job.png" alt-text="Stream Analytics 작업에 쿼리 추가":::
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
 Stream Analytics 작업에서 **개요** 를 선택한 다음, **시작** > **지금** > **시작** 을 선택합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨** 에서 **실행 중** 으로 변경됩니다.
 
-![Azure에서 Stream Analytics 작업 실행](./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job.png)
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job.png" alt-text="Azure에서 Stream Analytics 작업 실행":::
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Power BI 보고서를 만들고 게시하여 데이터 시각화
 
-다음 단계에서는 Power BI 서비스를 사용하여 보고서를 만들고 게시하는 방법을 보여 줍니다. Power BI에서 “새 모양”을 사용하려는 경우 일부 내용을 수정하여 다음 단계를 수행할 수 있습니다. “새 모양”의 차이점 및 탐색 방법을 이해하려면 [Power BI 서비스의 ‘새 모양’](/power-bi/consumer/service-new-look)을 참조하세요.
+다음 단계에서는 Power BI 서비스를 사용하여 보고서를 만들고 게시하는 방법을 보여 줍니다. Power BI에서 “새 모양”을 사용하려는 경우 일부 내용을 수정하여 다음 단계를 수행할 수 있습니다. “새 모양”의 차이점 및 탐색 방법을 이해하려면 [Power BI 서비스의 ‘새 모양’](/power-bi/fundamentals/desktop-latest-update)을 참조하세요.
 
-1. 애플리케이션 예제가 사용자 디바이스에서 실행 중인지 확인합니다. 그렇지 않은 경우 [사용자 디바이스 설정](./iot-hub-raspberry-pi-kit-node-get-started.md)에 있는 자습서를 참조할 수 있습니다.
+1. 클라이언트 앱이 디바이스에서 실행 중인지 확인합니다.
 
-2. [Power BI](https://powerbi.microsoft.com/en-us/) 계정에 로그인합니다.
+2. [Power BI](https://powerbi.microsoft.com/) 계정에 로그인하고 상단 메뉴에서 **Power BI 서비스** 를 선택합니다.
 
-3. 사용한 작업 영역인 **내 작업 영역** 을 클릭합니다.
+3. **내 작업 영역** 측면 메뉴에서 사용한 작업 영역을 선택합니다.
 
-4. **데이터 세트** 를 선택합니다.
+4. **전체** 탭이나 **데이터 세트 + 데이터 흐름** 탭에 Stream Analytics 작업의 출력을 만들 때 지정한 데이터 세트가 표시됩니다.
 
-   Stream Analytics 작업에 대한 출력을 만들 때 지정한 데이터 세트가 표시됩니다.
+5. 마우스로 만든 데이터 세트를 가리키고 **추가 옵션** 메뉴(데이터 세트 오른쪽에 있는 점 3개)를 선택한 다음, **보고서 만들기** 를 선택합니다.
 
-5. 만든 데이터 세트에 대해 **보고서 추가**(데이터 세트 이름 오른쪽의 첫 번째 아이콘)를 선택합니다.
-
-   ![Microsoft Power BI 보고서 만들기](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-create-report.png)
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-create-report.png" alt-text="Microsoft Power BI 보고서 만들기":::
 
 6. 시간이 지남에 따라 실시간 온도를 표시하는 꺾은선형 차트를 만듭니다.
 
-   1. 보고서 만들기 페이지의 **시각화** 창에서 꺾은선형 차트 아이콘을 선택하여 꺾은선형 차트를 추가합니다.
+   1. 보고서 만들기 페이지의 **시각화** 창에서 꺾은선형 차트 아이콘을 선택하여 꺾은선형 차트를 추가합니다. 차트의 측면과 모서리에 있는 안내선을 사용하여 크기와 위치를 조정합니다.
 
    2. **필드** 창에서 Stream Analytics 작업의 출력을 만들 때 지정한 테이블을 확장합니다.
 
@@ -158,37 +168,64 @@ Stream Analytics 작업에서 **개요** 를 선택한 다음, **시작** > **�
 
       꺾은선형 차트가 만들어집니다. x축은 UTC 표준 시간대의 날짜와 시간을 표시하고, y축은 센서의 온도를 표시합니다.
 
-      ![온도에 대한 꺾은선형 차트를 Microsoft Power BI 보고서에 추가](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temperature.png)
+      :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temperature.png" alt-text="온도에 대한 꺾은선형 차트를 Microsoft Power BI 보고서에 추가":::
 
-7. 시간이 지남에 따라 실시간 습도를 표시하는 꺾은선형 차트를 만듭니다. 이렇게 하려면 캔버스의 빈 부분을 클릭하고 위의 동일한 단계를 수행하여 x축에 **EventEnqueuedUtcTime** 을 배치하고 y축에 **humidity** 를 배치합니다.
+     > [!NOTE]
+     > 원격 분석 데이터를 전송하는 데 사용하는 디바이스나 시뮬레이션된 디바이스에 따라 필드 목록이 약간 다를 수 있습니다.
+     >
 
-   ![습도에 대한 꺾은선형 차트를 Microsoft Power BI 보고서에 추가](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-humidity.png)
+8. **저장** 을 선택하여 보고서를 저장합니다. 메시지가 표시되면 보고서 이름을 입력합니다. 민감도 레이블에 대한 메시지가 표시되면 **공용** 을 선택한 다음, **저장** 을 선택합니다.
 
-8. **저장** 을 선택하여 보고서를 저장합니다.
+10. 보고서 창에서 **파일** > **포함된 보고서** > **웹 사이트 또는 포털** 을 선택합니다.
 
-9. 왼쪽 창에서 **보고서** 를 선택한 다음, 방금 만든 보고서를 선택합니다.
-
-10. **파일** > **웹에 게시** 를 선택합니다.
-
-    ![Microsoft Power BI 보고서에 대해 웹에 게시 선택](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-select-publish-to-web.png)
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-select-embed-report.png" alt-text="Microsoft Power BI 보고서의 embed 보고서 웹 사이트 선택":::
 
     > [!NOTE]
     > Embed 태그 만들기를 사용하려면 관리자에게 문의하라는 알림이 표시되면 관리자에게 문의해야 할 수 있습니다. 이 단계를 완료하려면 먼저 embed 태그 만들기를 사용하도록 설정해야 합니다.
     >
-    > ![관리자에게 문의 알림](./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png)
+    > :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png" alt-text="관리자에게 문의 알림":::
 
-11. **Embed 태그 만들기** 를 선택하고 **게시** 를 선택합니다.
 
-보고서 액세스를 위해 누구와도 공유할 수 있는 보고서 링크 및 보고서를 블로그나 웹 사이트에 통합하는 데 사용할 수 있는 코드 조각이 제공됩니다.
+11. 보고서에 액세스할 수 있도록 모든 사람과 공유할 수 있는 보고서 링크 및 보고서를 블로그나 웹 사이트에 통합하는 데 사용할 수 있는 코드 조각이 제공됩니다. **보안 embed 코드** 창의 링크를 복사한 다음, 창을 닫습니다.
 
-![Microsoft Power BI 보고서 게시](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-web-output.png)
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/copy-secure-embed-code.png" alt-text="embed 보고서 링크 복사":::
 
-모바일 디바이스에서 Power BI 대시보드 및 보고서를 보고 상호 작용할 수 있는 [Power BI 모바일 앱](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/)도 제공합니다.
+12. 웹 브라우저를 열고 주소 표시줄에 링크를 붙여넣습니다.
+
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-web-output.png" alt-text="Microsoft Power BI 보고서 게시":::
+
+모바일 디바이스에서 Power BI 대시보드 및 보고서를 보고 상호 작용할 수 있는 [Power BI 모바일 앱](https://powerbi.microsoft.com/documentation/powerbi-power-bi-apps-for-mobile-devices/)도 제공합니다.
+
+## <a name="cleanup-resources"></a>리소스 정리
+
+이 자습서에서는 Power BI에 리소스 그룹, IoT 허브, Stream Analytics 작업 및 데이터 세트를 만들었습니다. 
+
+다음 자습서를 완료하려면 리소스 그룹과 IoT 허브를 그대로 두고 나중에 다시 사용하면 됩니다. 
+
+더 이상 IoT 허브나 만든 다른 리소스가 필요 없으면 포털에서 리소스 그룹을 삭제할 수 있습니다. 이렇게 하려면 리소스 그룹을 선택한 다음, **리소스 그룹 삭제** 를 선택합니다. IoT 허브를 보관하려면 리소스 그룹의 **개요** 창에서 다른 리소스를 삭제하면 됩니다. 이렇게 하려면 리소스를 마우스 오른쪽 단추로 클릭하고 바로 가기 메뉴에서 **삭제** 를 선택한 다음, 프롬프트를 따릅니다. 
+
+### <a name="use-the-azure-cli-to-clean-up-azure-resources"></a>Azure CLI를 사용하여 Azure 리소스 정리
+
+리소스 그룹과 관련된 모든 리소스를 제거하려면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용합니다.
+
+```azurecli-interactive
+az group delete --name {your resource group}
+```
+
+### <a name="clean-up-power-bi-resources"></a>Power BI 리소스 정리
+
+Power BI에 **PowerBiVisualizationDataSet** 데이터 세트를 만들었습니다. 제거하려면 [Power BI](https://powerbi.microsoft.com/) 계정에 로그인합니다. **작업 영역** 의 왼쪽 메뉴에서 **내 작업 영역** 을 선택합니다. **데이터 세트 + 데이터 흐름** 탭의 데이터 세트 목록에서 마우스로 **PowerBiVisualizationDataSet** 데이터 세트를 가리킵니다. 데이터 세트 오른쪽에 있는 세로로 나열된 점 3개를 선택하여 **추가 옵션** 메뉴를 연 다음, **삭제** 를 선택하고 프롬프트를 따릅니다. 데이터 세트를 제거하면 보고서도 제거됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터를 시각화했습니다.
+이 자습서에서는 다음 작업을 수행함으로써 Power BI를 사용하여 Azure IoT 허브에서 실시간 센서 데이터를 시각화하는 방법을 알아보았습니다.
 
-Azure IoT Hub에서 데이터를 시각화하는 다른 방법은 [웹앱을 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)를 참조하세요.
+> [!div class="checklist"]
+> * IoT 허브에서 소비자 그룹 만들기
+> * 소비자 그룹에서 온도 원격 분석을 읽고 Power BI로 보내도록 Azure Stream Analytics 작업을 만들고 구성합니다.
+> * Power BI에서 온도 데이터 보고서를 구성하고 웹에 공유합니다.
 
-[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+Azure IoT Hub의 데이터를 시각화하는 또 다른 방법은 다음 문서를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [웹앱을 사용하여 Azure IoT Hub의 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)

@@ -1,28 +1,28 @@
 ---
-title: Azure Portal을 사용하여 단일 테넌트 Azure Logic Apps에서 워크플로 만들기
-description: 단일 테넌트 Azure Logic Apps와 Azure Portal을 사용하여 앱, 데이터, 서비스 및 시스템을 통합하는 자동 워크플로를 만듭니다.
+title: Azure Portal에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 워크플로 만들기
+description: Azure Portal에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 앱, 데이터, 서비스 및 시스템을 통합하는 자동 워크플로를 만듭니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 05/25/2021
-ms.openlocfilehash: 63b3de255269d921f38374adc246fb923fdda100
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 2178b3d4ea9c1cc650685b90fa5dc2cdf6551191
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110497111"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116614"
 ---
-# <a name="create-an-integration-workflow-using-single-tenant-azure-logic-apps-and-the-azure-portal"></a>단일 테넌트 Azure Logic Apps와 Azure Portal을 사용하여 통합 워크플로 만들기
+# <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-the-azure-portal"></a>Azure Portal에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 통합 워크플로 만들기
 
-이 문서에서는 **논리 앱(표준)** 리소스 유형을 사용하여 단일 테넌트 Azure Logic Apps 환경에서 실행되는 자동 통합 워크플로 예제를 만드는 방법을 설명합니다. 새 단일 테넌트 모델과 논리 앱 리소스 유형에 익숙하지 않다면 [단일 테넌트와 다중 테넌트 및 통합 서비스 환경 비교](single-tenant-overview-compare.md)를 참조하세요.
+이 문서에서는 **논리 앱(표준)** 리소스 종류 및 Azure Portal을 사용하여 *단일 테넌트* Azure Logic Apps 환경에서 실행되는 자동 통합 워크플로 예제를 만드는 방법을 설명합니다. 이 리소스 종류는 여러 [상태 저장 및 상태 비저장 워크플로](single-tenant-overview-compare.md#stateful-stateless)를 호스트할 수 있습니다. 또한 동일한 논리 앱과 테넌트에 있는 워크플로는 다시 설계된 Azure Logic Apps 런타임과 동일한 프로세스에서 실행되므로 같은 리소스를 공유하고 더 우수한 성능을 제공합니다. 단일 테넌트 Azure Logic Apps 제품에 대한 자세한 내용은 [단일 테넌트 및 다중 테넌트 비교와 통합 서비스 환경](single-tenant-overview-compare.md)을 검토하세요.
 
 이 예제 워크플로는 클라우드 기반이며 두 단계로만 구성되어 있지만, 클라우드, 온-프레미스 및 하이브리드 환경에서 다양한 앱, 데이터, 서비스 및 시스템을 연결할 수 있는 수백 개 작업에서 워크플로를 만들 수 있습니다. 예제 워크플로는 기본 제공 요청 트리거로 시작되며 Office 365 Outlook 작업을 따릅니다. 트리거는 호출 가능한 워크플로 엔드포인트를 만들고 호출자의 인바운드 HTTPS 요청을 기다립니다. 트리거가 요청을 수신하고 작동하면, 다음 작업이 트리거에서 선택한 출력과 함께 특정 이메일 주소로 이메일을 전송하여 실행됩니다.
 
 > [!TIP]
 > Office 365 계정이 없으면 이메일 계정(예: Outlook.com)에서 메시지를 보낼 수 있는 사용 가능한 작업을 사용하면 됩니다.
-> 
-> Visual Studio Code를 사용하여 이 예제 워크플로를 만들려면 [단일 테넌트 Azure Logic Apps와 Visual Studio Code를 사용하여 통합 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md)의 단계를 수행하세요. 
+>
+> Visual Studio Code에서 이 예제 워크플로를 만들려면 [단일 테넌트 Azure Logic Apps와 Visual Studio Code를 사용하여 통합 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md)의 단계를 수행하세요. 
 > 두 옵션 모두 동일한 종류의 환경에서 논리 앱 워크플로를 개발, 실행 및 배포하는 기능을 제공합니다. 
 > 하지만 Visual Studio Code를 사용하면 개발 환경에서 로컬로 워크플로를 개발, 테스트 및 실행할 수 있습니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "110497111"
 
 1. **논리 앱 만들기** 페이지의 **기본** 탭에서 논리 앱 리소스에 대한 다음 정보를 제공합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 논리 앱에 사용할 Azure 구독입니다. |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 논리 앱 및 관련 리소스를 만드는 Azure 리소스 그룹입니다. 이 리소스 이름은 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈( **-** ), 밑줄( **_** ), 괄호( **()** ) 및 마침표( **.** )만 포함할 수 있습니다. <p><p>이 예제에서는 `Fabrikam-Workflows-RG`라는 리소스 그룹을 만듭니다. |
@@ -86,7 +86,7 @@ ms.locfileid: "110497111"
 
 1. **호스팅** 탭에서 논리 앱에 사용할 수 있도록 스토리지 솔루션 및 호스팅 계획에 관한 다음 정보를 제공합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **스토리지 계정** | 예 | <*Azure-storage-account-name*> | 스토리지 트랜잭션에 사용할 [Azure Storage 계정](../storage/common/storage-account-overview.md)입니다. <p><p>이 리소스 이름은 모든 지역에서 고유해야 하며 숫자와 소문자만 포함된 3-24자여야 합니다. 기존 계정을 선택하거나 새 계정을 만듭니다. <p><p>이 예제에서는 `fabrikamstorageacct`라는 스토리지 계정을 만듭니다. |
    | **플랜 유형** | 예 | <호스팅 계획> | 논리 앱을 배포하는 데 사용할 호스팅 계획입니다. <p><p>자세한 내용은 [호스팅 계획과 가격 책정 계층](logic-apps-pricing.md#standard-pricing)을 참조하세요. |
@@ -247,7 +247,7 @@ Azure Portal에서 논리 앱을 배포하고 워크플로를 실행하기 전�
 
    ![Azure Portal 및 API 연결 창에서 "JSON 보기"를 선택한 것을 보여주는 스크린샷](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-view-json.png)
 
-1. 방화벽을 설정할 때 사용할 수 있도록 `connectionRuntimeUrl` 속성 값을 찾아서 복사하고 안전한 위치에 저장합니다.
+1. 방화벽을 설정할 때 이 정보를 사용할 수 있도록 `connectionRuntimeUrl` 속성 값을 복사하고 안전한 위치에 저장합니다.
 
    !["connectionRuntimeUrl" 속성 값을 선택한 스크린샷](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-runtime-url.png)
 
@@ -294,7 +294,7 @@ Azure Portal에서 논리 앱을 배포하고 워크플로를 실행하기 전�
 
    1. **모든 컬렉션** 에서 요청을 구성하기 위해 만들 컬렉션의 이름을 입력하고 Enter 키를 누른 다음, **<*컬렉션 이름*>에 저장** 을 선택합니다. 이 예제에서는 컬렉션 이름으로 `Logic Apps requests`을(를) 사용합니다.
 
-      요청 트리거의 엔드포인트 URL에 요청을 보낼 수 있도록 Postman의 요청 창이 열립니다.
+      Postman에서 요청 트리거의 엔드포인트 URL에 요청을 보낼 수 있도록 요청 창이 열립니다.
 
       ![요청 창이 열린 Postman을 보여주는 스크린샷](./media/create-single-tenant-workflows-azure-portal/postman-request-pane.png)
 
@@ -321,7 +321,7 @@ Azure Portal에서 논리 앱을 배포하고 워크플로를 실행하기 전�
    > [!TIP]
    > 최신 실행 상태가 표시되지 않으면 **개요** 창 도구 모음에서 **새로 고침** 을 선택합니다. 조건이 충족되지 않거나 데이터를 찾을 수 없어 트리거를 건너뛴 경우에는 실행이 발생하지 않습니다.
 
-   | 실행 상태 | Description |
+   | 실행 상태 | 설명 |
    |------------|-------------|
    | **중단됨** | 시스템이 중단되거나 Azure 구독이 만료되는 등의 외부 문제로 인해 실행이 중지되었거나 완료되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작되었지만 취소 요청이 수신되었습니다. |
@@ -412,7 +412,7 @@ Application Insights가 열리면 논리 앱에 대한 다양한 메트릭을 �
 
 상태 비저장 워크플로를 보다 쉽게 디버그하려면 해당 워크플로에 실행 기록을 사용하도록 설정한 다음, 완료되면 실행 기록을 사용하지 않도록 설정하면 됩니다. Azure Portal에서 다음 단계를 수행하거나, Visual Studio Code를 사용하는 경우 [Visual Studio Code에서 상태 저장 및 상태 비저장 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless)를 참조하세요.
 
-1. [Azure Portal](https://portal.azure.com)에서 **논리 앱(표준)** 리소스를 찾아서 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 **논리 앱(표준)** 리소스를 엽니다.
 
 1. 논리 앱 메뉴의 **설정** 에서 **구성** 을 선택합니다.
 
@@ -472,7 +472,7 @@ Application Insights가 열리면 논리 앱에 대한 다양한 메트릭을 �
 
   마지막 실행 후 처리되지 않은 항목에서 각 워크플로가 트리거되지 않게 하려면 다음 단계를 수행하여 트리거 상태를 지운 후에 논리 앱을 다시 시작합니다.
 
-  1. Azure Portal에서 논리 앱을 찾아서 엽니다.
+  1. Azure Portal에서 논리 앱을 엽니다.
   1. 논리 앱 메뉴의 **워크플로** 에서 **워크플로** 를 선택합니다.
   1. 워크플로를 열고 해당 워크플로 트리거의 모든 부분을 편집합니다.
   1. 변경 내용을 저장합니다. 이 단계는 트리거의 현재 상태를 재설정합니다.
@@ -483,7 +483,7 @@ Application Insights가 열리면 논리 앱에 대한 다양한 메트릭을 �
 
 ### <a name="restart-stop-or-start-a-single-logic-app"></a>단일 논리 앱 다시 시작, 중지 또는 시작
 
-1. Azure Portal에서 논리 앱을 찾아서 엽니다.
+1. Azure Portal에서 논리 앱을 엽니다.
 
 1. 논리 앱 메뉴에서 **개요** 를 선택합니다.
 
@@ -585,9 +585,9 @@ Application Insights가 열리면 논리 앱에 대한 다양한 메트릭을 �
 
 * Azure Logic Apps가 새 워크플로 인스턴스를 만들거나 실행하지 않습니다.
 
-* 워크플로를 삭제한 다음, 동일한 워크플로를 다시 만들면 다시 생성된 워크플로에는 삭제된 워크플로와 동일한 메타데이터가 포함되지 않습니다. 삭제된 워크플로를 호출한 모든 워크플로를 다시 저장해야 합니다. 이렇게 하면 호출자가 다시 생성된 워크플로에 대한 올바른 정보를 가져옵니다. 그렇지 않으면 다시 생성된 워크플로에 대한 호출이 `Unauthorized` 오류와 함께 실패합니다. 이 동작은 Azure 함수를 호출하는 워크플로 및 통합 계정에서 아티팩트를 사용하는 워크플로에도 적용됩니다.
+* 워크플로를 삭제한 다음, 동일한 워크플로를 다시 만들면 다시 생성된 워크플로에는 삭제된 워크플로와 동일한 메타데이터가 포함되지 않습니다. 메타데이터를 새로 고치려면 삭제된 워크플로를 호출한 모든 워크플로를 다시 저장해야 합니다. 이렇게 하면 호출자가 다시 생성된 워크플로에 대한 올바른 정보를 가져옵니다. 그렇지 않으면 다시 생성된 워크플로에 대한 호출이 `Unauthorized` 오류와 함께 실패합니다. 이 동작은 Azure 함수를 호출하는 워크플로 및 통합 계정에서 아티팩트를 사용하는 워크플로에도 적용됩니다.
 
-1. Azure Portal에서 논리 앱을 찾아서 엽니다.
+1. Azure Portal에서 논리 앱을 엽니다.
 
 1. 논리 앱 메뉴의 **워크플로** 에서 **워크플로** 를 선택합니다. 확인란 열에서 삭제할 워크플로를 하나 또는 여러 개를 선택합니다.
 

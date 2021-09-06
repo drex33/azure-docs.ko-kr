@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 025ab1ddd9a7b14ac75df762c54fe48e4f665e29
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 790d363a3bd0e961b184cc2511c39833f0eac3d7
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970145"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567861"
 ---
 # <a name="add-an-update-to-device-update-for-iot-hub"></a>Device Update for IoT Hub에 업데이트 추가
 Device Update for IoT Hub에 새 업데이트를 추가하는 방법을 알아봅니다.
@@ -62,7 +62,7 @@ OEM 또는 솔루션 통합자에서 디바이스를 구매한 경우 해당 조
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    신속하게 참조할 수 있도록 위의 매개 변수에 관한 몇 가지 예제 값이 다음과 같이 제공됩니다. 자세한 내용을 보려면 전체 [가져오기 매니페스트 스키마](import-schema.md)도 확인할 수 있습니다.
+    다음 표는 위의 매개 변수를 채우는 방법에 대한 빠른 참조입니다. 자세한 정보가 필요한 경우 전체 [가져오기 매니페스트 스키마](import-schema.md)도 확인할 수 있습니다.
 
     | 매개 변수 | Description |
     | --------- | ----------- |
@@ -72,13 +72,13 @@ OEM 또는 솔루션 통합자에서 디바이스를 구매한 경우 해당 조
     | updateName | 업데이트 클래스의 식별자입니다. 클래스는 사용자가 임의로 선택할 수 있습니다. 디바이스 또는 모델 이름인 경우가 많습니다.
     | updateVersion | 이 업데이트를 공급자와 이름이 같은 다른 업데이트와 구별하는 버전 번호입니다. 디바이스에 있는 개별 소프트웨어 구성 요소의 버전과 일치하지 않습니다(하지만 원하는 경우 가능).
     | updateType | <ul><li>이미지 업데이트의 경우 `microsoft/swupdate:1` 지정</li><li>패키지 업데이트의 경우 `microsoft/apt:1` 지정</li></ul>
-    | installedCriteria | <ul><li>`microsoft/swupdate:1` 업데이트 형식의 경우 SWVersion 값 지정</li><li>**name-version** 을 지정합니다. 여기서, _name_ 은 APT 매니페스트의 이름이고 _version_ 은 APT 매니페스트의 버전입니다. 예: contoso-iot-edge-1.0.0.0.
+    | installedCriteria | 배포 중에 디바이스에 이미 있는 버전을 업데이트 버전과 비교하는 데 사용됩니다. installedCriteria 값이 디바이스에 있는 버전과 일치하지 않으면 디바이스에 업데이트를 배포하면 "실패" 결과가 반환됩니다.<ul><li>`microsoft/swupdate:1` 업데이트 형식의 경우 SWVersion 값을 지정합니다. </li><li>`microsoft/apt:1` 업데이트 형식의 경우 **name-version** 을 지정합니다. 여기서, _name_ 은 APT 매니페스트의 이름이고 _version_ 은 APT 매니페스트의 버전입니다. 예: contoso-iot-edge-1.0.0.0.
     | updateFilePath(s) | 컴퓨터의 업데이트 파일 경로
 
 
 ## <a name="review-the-generated-import-manifest"></a>생성된 가져오기 매니페스트 검토
 
-예제:
+예제 매니페스트 출력은 다음과 같습니다. 항목에 대한 질문이 있는 경우 전체 [가져오기 매니페스트 스키마](import-schema.md)를 확인합니다. 
 ```json
 {
   "updateId": {
@@ -122,7 +122,7 @@ OEM 또는 솔루션 통합자에서 디바이스를 구매한 경우 해당 조
 ## <a name="import-an-update"></a>업데이트 가져오기
 
 > [!NOTE]
-> 아래 지침에서는 Azure Portal UI를 통해 업데이트를 가져오는 방법을 보여 줍니다. [IoT Hub API의 디바이스 업데이트](/rest/api/deviceupdate/updates)를 사용하여 업데이트를 가져올 수도 있습니다. 
+> 아래 지침에서는 Azure Portal UI를 통해 업데이트를 가져오는 방법을 보여 줍니다. [Device Update for IoT Hub API](#if-youre-importing-via-apis-instead)를 사용하여 업데이트를 대신 가져올 수도 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 디바이스 업데이트를 사용하여 IoT Hub로 이동합니다.
 
@@ -138,7 +138,7 @@ OEM 또는 솔루션 통합자에서 디바이스를 구매한 경우 해당 조
 
    :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="새 업데이트 가져오기" lightbox="media/import-update/import-new-update-2.png":::
 
-5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. PowerShell cmdlet을 사용하여 이전에 만든 가져오기 매니페스트를 선택합니다. 다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 업데이트 파일을 선택합니다.
+5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. PowerShell cmdlet을 사용하여 이전에 만든 가져오기 매니페스트를 선택합니다. 다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 가져오기 매니페스트를 만들 때 포함했던 것과 동일한 업데이트 파일을 선택합니다.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="업데이트 파일 선택" lightbox="media/import-update/select-update-files.png":::
 
@@ -161,6 +161,16 @@ OEM 또는 솔루션 통합자에서 디바이스를 구매한 경우 해당 조
 10. 상태 열에 가져오기가 성공했음을 나타내는 경우 "배포할 준비가 됨" 헤더를 선택합니다. 이제 목록에 가져온 업데이트가 표시됩니다.
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="작업 상태" lightbox="media/import-update/update-ready.png":::
+
+## <a name="if-youre-importing-via-apis-instead"></a>대신 API를 통해 가져오는 경우
+
+위의 단계를 사용하여 Azure Portal을 통해 가져오기를 완료한 경우 아래의 다음 단계로 건너뜁니다.
+
+Azure Portal을 통해 가져오는 대신 [Device Update for IoT Hub 업데이트 API](/rest/api/deviceupdate/updates)를 사용하여 업데이트를 가져오려면 다음을 참고하세요.
+  - 업데이트 API를 호출하기 전에 Azure Blob Storage 위치에 업데이트 파일을 업로드해야 합니다.
+  - 위에서 만든 가져오기 매니페스트를 사용하는 이 [샘플 API 호출](import-schema.md#example-import-request-body)을 참조할 수 있습니다.
+  - 테스트하는 동안 동일한 SAS URL을 다시 사용하는 경우 토큰이 만료되면 오류가 발생할 수 있습니다. 이는 가져오기 매니페스트 뿐만 아니라 업데이트 콘텐츠 자체를 제출하는 경우입니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

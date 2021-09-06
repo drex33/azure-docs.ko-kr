@@ -5,16 +5,16 @@ services: iot-edge
 keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 08/07/2019
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: 496a1225d5e9554fc661e0c93ce82a13f6aa11d5
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: cb0c6bd32c2bb1087635ee9ae61c0c569d3575f2
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904031"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567480"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -53,7 +53,7 @@ Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 �
 
 - Node.js: [Node.js](https://nodejs.org). 또한 [Yeoman](https://www.npmjs.com/package/yo) 및 [Azure IoT Edge Node.js 모듈 생성기](https://www.npmjs.com/package/generator-azure-iot-edge-module)를 설치할 수 있습니다.
 
-- Java: [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) 및 [Maven](https://maven.apache.org/). JDK 설치를 가리키려면 [`JAVA_HOME` 환경 변수를 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)해야 합니다.
+- Java: [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-support-on-azure) 및 [Maven](https://maven.apache.org/). JDK 설치를 가리키려면 [`JAVA_HOME` 환경 변수를 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)해야 합니다.
 
 모듈 이미지를 빌드하고 배포하려면 모듈 이미지를 빌드하기 위한 Docker와 모듈 이미지를 저장하기 위한 컨테이너 레지스트리가 필요합니다.
 
@@ -69,7 +69,7 @@ C에서 모듈을 개발하지 않는 한, IoT Edge 솔루션을 디버그, 실�
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
-   
+
 > [!NOTE]
 > 현재 iotedgehubdev는 Python 3.8과 호환되지 않는 docker-py 라이브러리를 사용합니다.
 >
@@ -109,6 +109,8 @@ Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만
 
 - **.env** 파일은 환경 변수를 나열합니다. Azure Container Registry가 레지스트리인 경우 거기에 Azure Container Registry 사용자 이름 및 암호가 있습니다.
 
+  프로덕션 시나리오에서는 서비스 주체를 사용하여 .env 파일 대신 컨테이너 레지스트리에 대한 액세스를 제공하는 것이 좋습니다. 자세한 내용은 [컨테이너 레지스트리에 대한 액세스 관리](production-checklist.md#manage-access-to-your-container-registry)를 참조하세요.
+
   > [!NOTE]
   > 환경 파일은 모듈에 대한 이미지 리포지토리를 제공하는 경우에만 생성됩니다. localhost 기본값을 로컬로 테스트하고 디버그하도록 수락하는 경우 환경 변수를 선언할 필요가 없습니다.
 
@@ -139,16 +141,20 @@ Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만
 
 C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 **ModuleClient** 개체를 사용해야 메시지를 시작, 실행 및 라우팅할 수 있습니다. 또한 모듈이 메시지를 수신할 때 작업을 수행하는 데 기본 입력 채널 **input1** 을 사용합니다.
 
-### <a name="set-up-iot-edge-simulator-for-iot-edge-solution"></a>IoT Edge 솔루션에 대한 IoT Edge 시뮬레이터 설치
+### <a name="set-up-iot-edge-simulator"></a>IoT Edge 시뮬레이터 설정
 
-개발 머신에서 IoT Edge 보안 디먼을 설치하는 대신 IoT Edge 시뮬레이터를 시작하여 IoT Edge 솔루션을 실행할 수 있습니다.
+IoT Edge 모듈을 실행하고 디버그하려면 IoT Edge 환경이 필요합니다. 전체 IoT Edge 보안 디먼 및 런타임을 실행하는 대신 개발 머신에서 IoT Edge 시뮬레이터를 사용할 수 있습니다. 디바이스를 시뮬레이션하여 여러 모듈로 솔루션을 디버그하거나 단일 모듈 애플리케이션을 시뮬레이션할 수 있습니다.
+
+옵션 1: IoT Edge 솔루션 시뮬레이션:
 
 1. 왼쪽의 **탐색기** 탭에서 **Azure IoT Hub** 섹션을 확장합니다. IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭한 다음, **IoT Edge 시뮬레이터 설치** 를 선택하여 디바이스 연결 문자열을 사용해 시뮬레이터를 시작합니다.
 1. 통합 터미널에서 진행 세부 정보를 검토하여 IoT Edge 시뮬레이터가 설치되었는지 확인할 수 있습니다.
 
-### <a name="set-up-iot-edge-simulator-for-single-module-app"></a>단일 모듈 앱에 대한 IoT Edge 시뮬레이터 설치
+옵션 2: 단일 IoT Edge 모듈 시뮬레이션:
 
-시뮬레이터를 설정하고 시작하려면 Visual Studio Code 명령 팔레트에서 **Azure IoT Edge: 단일 모듈용 IoT Edge Hub 시뮬레이터 시작** 명령을 실행합니다. 메시지가 표시되면 기본 모듈 코드의 **input1** 값(또는 사용자 코드의 해당 값)을 애플리케이션의 입력 이름으로 사용합니다. 이 명령은 **iotedgehubdev** CLI를 트리거한 후 IoT Edge 시뮬레이터 및 테스트 유틸리티 모듈 컨테이너를 시작합니다. 시뮬레이터가 단일 모듈 모드에서 성공적으로 시작된 경우 통합 터미널에서 다음과 같은 출력을 볼 수 있습니다. 또한 메시지를 전송하는 데 도움이 되는 `curl` 명령도 볼 수 있습니다. 나중에 필요합니다.
+1. Visual Studio Code 명령 팔레트에서 **Azure IoT Edge: 단일 모듈용 IoT Edge Hub 시뮬레이터 시작** 명령을 실행합니다.
+1. 모듈에서 테스트하려는 입력의 이름을 제공합니다. 기본 샘플 코드를 사용하는 경우 **input1** 값을 사용합니다.
+1. 이 명령은 **iotedgehubdev** CLI를 트리거한 후 IoT Edge 시뮬레이터 및 테스트 유틸리티 모듈 컨테이너를 시작합니다. 시뮬레이터가 단일 모듈 모드에서 성공적으로 시작된 경우 통합 터미널에서 다음과 같은 출력을 볼 수 있습니다. 또한 메시지를 전송하는 데 도움이 되는 `curl` 명령도 볼 수 있습니다. 나중에 필요합니다.
 
    ![단일 모듈 앱에 대한 IoT Edge 시뮬레이터 설치](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
@@ -160,6 +166,8 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
 ### <a name="debug-module-in-launch-mode"></a>시작 모드에서 모듈 디버그
 
+시뮬레이터가 성공적으로 시작된 후 모듈 코드를 디버그할 수 있습니다.
+
 1. 개발 언어의 요구 사항에 따라 디버그할 환경을 준비하고, 모듈에서 중단점을 설정하고, 사용할 디버그 구성을 선택합니다.
    - **C#**
      - Visual Studio Code 통합 터미널에서 디렉터리를 ‘***&lt;모듈 이름&gt;***’ 폴더로 변경한 후 다음 명령을 실행하여 .NET Core 애플리케이션을 빌드합니다.
@@ -170,7 +178,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
      - `Program.cs` 파일을 열고 중단점을 추가합니다.
 
-     - **보기 > 디버그** 를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(.NET Core)** 를 선택합니다.
+     - 왼쪽 메뉴에서 디버그 아이콘을 선택하거나 `Ctrl+Shift+D`를 입력하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(.NET Core)** 를 선택합니다.
 
         > [!NOTE]
         > .NET Core `TargetFramework`이 `launch.json`의 프로그램 경로와 일관성이 없는 경우 .csproj 파일의 `TargetFramework`과 일치하도록 `launch.json`의 프로그램 경로를 수동으로 업데이트하면 Visual Studio Code에서 이 프로그램을 시작할 수 있습니다.
@@ -184,11 +192,11 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
      - `app.js` 파일을 열고 중단점을 추가합니다.
 
-     - **보기 > 디버그** 를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(Node.js)** 를 선택합니다.
+     - 왼쪽 메뉴에서 디버그 아이콘을 선택하거나 `Ctrl+Shift+D`를 입력하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(Node.js)** 를 선택합니다.
    - **Java**
      - `App.java` 파일을 열고 중단점을 추가합니다.
 
-     - **보기 > 디버그** 를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(Java)** 를 선택합니다.
+     - 왼쪽 메뉴에서 디버그 아이콘을 선택하거나 `Ctrl+Shift+D`를 입력하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(Java)** 를 선택합니다.
 
 1. **디버깅 시작** 을 클릭하거나 **F5** 키를 눌러 디버그 세션을 시작합니다.
 

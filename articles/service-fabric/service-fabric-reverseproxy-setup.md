@@ -4,12 +4,12 @@ description: Azure Service Fabric 애플리케이션에 대한 역방향 프록�
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 1d8f290bf1cad13597376d1d7c27cfaa695f9511
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 78ea7b0ec33fe56ca7a3032f98ad272ce622dc2c
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956643"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113094042"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
 역방향 프록시는 Service Fabric 클러스터에서 실행되는 마이크로 서비스를 통해 http 엔드포인트가 있는 다른 서비스를 검색하고 통신할 수 있도록 하는 선택적 Azure Service Fabric 서비스입니다. 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 이 문서에서는 클러스터에서 역방향 프록시를 설정하고 구성하는 방법에 대해 설명합니다. 
@@ -74,7 +74,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
         ...
     }
     ```
-3. 역방향 프록시에 사용하도록 포트에 TLS/SSL 인증서를 구성하려면 _ *Microsoft.ServiceFabric/clusters** [리소스 종류 섹션](../azure-resource-manager/templates/syntax.md)의 ***reverseProxyCertificate** _ 속성에 인증서를 추가합니다.
+3. 역방향 프록시용 포트에 TLS/SSL 인증서를 구성하려면 _ *Microsoft.ServiceFabric/clusters** [리소스](/azure/templates/microsoft.servicefabric/clusters?tabs=json#clusterproperties-object) 템플릿의 ***reverseProxyCertificate** _ 개체에 인증서를 추가합니다.
 
     ```json
     {
@@ -96,6 +96,8 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
         }
     }
     ```
+
+    또한 클러스터 리소스 템플릿에서 **reverseProxyCertificateCommonNames** 개체를 사용하여 [역방향 프록시 인증서의 일반 이름](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample)을 지정할 수 있습니다.
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>클러스터 인증서와 다른 역방향 프록시 인증서 지원
  역방향 프록시 인증서가 클러스터를 보호하는 인증서와 다른 경우 이전에 지정한 인증서를 가상 머신에 설치하고 ACL(액세스 제어 목록)에 추가하여 Service Fabric에서 액세스할 수 있게 합니다. 이 작업은 [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets) [리소스 종류 섹션](../azure-resource-manager/templates/syntax.md)에서 수행할 수 있습니다. 설치하려면 해당 인증서를 osProfile에 추가합니다. 템플릿의 확장 섹션은 ACL의 인증서를 업데이트할 수 있습니다.

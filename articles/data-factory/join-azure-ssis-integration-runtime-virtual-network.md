@@ -2,17 +2,18 @@
 title: Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 description: Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0df96e2c1e238beafabb60aaa00c668f521d0c70
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 55ad870da1b89e24777647613f607038089863e9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670172"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566938"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -55,7 +56,7 @@ Azure-SSIS IR을 가상 네트워크에 조인하는 경우 다음과 같은 중
 
 - Azure-SSIS IR과 다른 위치의 온-프레미스 네트워크에 클래식 가상 네트워크가 이미 연결되어 있는 경우 Azure-SSIS IR을 조인할 [Azure Resource Manager 가상 네트워크](../virtual-network/quick-create-portal.md#create-a-virtual-network)를 만들 수 있습니다. 그런 다음, [클래식-Azure Resource Manager 가상 네트워크](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 연결을 구성합니다. 
  
-- Azure-SSIS IR과 다른 위치의 온-프레미스 네트워크에 Azure Resource Manager 가상 네트워크가 이미 연결되어 있는 경우 먼저 Azure-SSIS IR이 조인할 [Azure Resource Manager 가상 네트워크](../virtual-network/quick-create-portal.md#create-a-virtual-network)를 만들 수 있습니다. 그런 다음 Azure Resource Manager-Azure Resource Manager 가상 네트워크 연결을 구성합니다. 
+- Azure-SSIS IR과 다른 위치의 온-프레미스 네트워크에 Azure Resource Manager 가상 네트워크가 이미 연결되어 있는 경우 먼저 Azure-SSIS IR이 조인할 [Azure Resource Manager 가상 네트워크](../virtual-network/quick-create-portal.md#create-a-virtual-network)를 만들 수 있습니다. 그런 다음 [Azure Resource Manager-Azure Resource Manager 가상 네트워크](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 연결을 구성합니다. 
 
 ## <a name="hosting-the-ssis-catalog-in-sql-database"></a>SQL Database에서 SSIS 카탈로그 호스트
 
@@ -72,7 +73,7 @@ Azure-SSIS IR을 가상 네트워크에 조인하는 경우 다음과 같은 중
 SSIS 패키지가 특정 고정 공용 IP 주소만 허용하는 데이터 저장소/리소스에 액세스하고 Azure-SSIS IR에서 해당 리소스에 대한 액세스를 보호하려는 경우, Azure-SSIS IR을 가상 네트워크에 조인할 때 [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md)를 가상 네트워크에 연결한 다음 해당 IP 주소에서의 액세스를 허용하는 IP 방화벽 규칙을 관련 리소스에 추가할 수 있습니다. 이렇게 하는 두 가지 방법이 있습니다. 
 
 - Azure-SSIS IR을 만들 때 사용자 자체 공용 IP 주소를 가져와서 [Data Factory UI 또는 SDK](#join-the-azure-ssis-ir-to-a-virtual-network)를 통해 지정할 수 있습니다. Azure-SSIS IR의 아웃바운드 인터넷 연결만 제공된 공용 IP 주소를 사용하고, 서브넷의 다른 디바이스는 이를 사용하지 않습니다.
-- Azure-SSIS IR이 조인할 서브넷에 [Virtual Network NAT](../virtual-network/nat-overview.md)를 설정할 수도 있습니다. 그러면 이 서브넷의 모든 아웃바운드 연결이 지정된 공용 IP 주소를 사용합니다.
+- Azure-SSIS IR이 조인할 서브넷에 [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md)를 설정할 수도 있습니다. 그러면 이 서브넷의 모든 아웃바운드 연결이 지정된 공용 IP 주소를 사용합니다.
 
 어느 경우든 가상 네트워크는 Azure Resource Manager 배포 모델을 통해서만 배포할 수 있습니다.
 

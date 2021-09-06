@@ -1,14 +1,24 @@
 ---
-ms.openlocfilehash: 5208f497fc5423cd0e9c2343af2a5757088399b1
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 14d2372defc67b5cd619c888a43d09b5b10af846
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111449942"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122636095"
 ---
 이 문서에서는 릴리스된 Azure Active Directory Connect Provisioning Agent의 버전과 기능을 나열합니다. Azure AD 팀은 새로운 기능과 기능으로 프로비전 에이전트를 정기적으로 업데이트합니다. 
 
 Microsoft에서는 최신 에이전트 버전 및 이전 버전을 직접 지원합니다.
+
+## <a name="download-link"></a>다운로드 링크
+[이 링크](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller)를 사용하여 최신 버전의 에이전트를 다운로드할 수 있습니다.
+
+## <a name="115820"></a>1.1.582.0
+
+2021년 8월 8일 - 다운로드용으로 릴리스됨
+
+>[!NOTE] 
+>Azure AD Connect 보안 업데이트 릴리스입니다. 이 릴리스는 [이 CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949)에 설명된 대로 취약성을 해결합니다. 이 취약성에 대한 자세한 내용은 CVE를 참조하세요.
 
 ## <a name="113590"></a>1.1.359.0
 

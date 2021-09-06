@@ -3,12 +3,12 @@ title: Azure Lab Services에서 Linux VM에 연결 | Microsoft Docs
 description: Azure Lab Services의 랩에서 Linux 가상 머신에 대해 원격 데스크톱을 사용하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d13868477ff2e3378d87d7785789a7498ed17e59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04a86ba98df3e1600ac95d19e690815515eb4c6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85443420"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535818"
 ---
 # <a name="connect-to-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Azure Lab Services의 교실 랩에서 Linux 가상 머신에 연결
 이 문서에서는 학생이 다음을 사용하여 랩에서 Linux VM(가상 머신)에 연결할 수 있는 방법을 보여 줍니다.
@@ -41,8 +41,11 @@ ms.locfileid: "85443420"
 ## <a name="connect-to-the-student-vm-using-gui-remote-desktop"></a>GUI 원격 데스크톱을 사용하여 학생 VM에 연결
 강사는 학생들이 GUI 원격 데스크톱을 사용하여 연결할 수 있도록 VM을 구성하도록 선택할 수 있습니다.  이 경우 학생은 **Microsoft RDP(원격 데스크톱)** 또는 **X2Go** 클라이언트 애플리케이션 중 어떤 방식으로 VM에 연결할지 강사에게 확인해야 합니다.  학생들은 이러한 애플리케이션을 사용하여 VM에 원격으로 연결하고 해당 로컬 컴퓨터에 Linux 그래픽 데스크톱을 표시할 수 있습니다.
 
+> [!WARNING]
+>  [GNOME](https://www.gnome.org/) 이외의 다른 그래픽 데스크톱 환경을 사용하는 것이 좋습니다.  GNOME는 Azure Lab Services에서 VM이 제대로 작동하는 데 필요한 Azure Linux 에이전트와 충돌하므로 랩 VM에 GNOME를 설치하지 않아야 합니다.  예를 들어 XFCE와 같은 그래픽 데스크톱 환경을 사용하는 것이 좋습니다.
+
 ### <a name="connect-to-the-student-vm-using-microsoft-remote-desktop-rdp"></a>Microsoft RDP(원격 데스크톱)를 사용하여 학생 VM에 연결
-학생들은 Linux 그래픽 데스크톱 환경(예: MATE, XFCE 등)을 위해 RDP 및 GUI 패키지를 사용하여 랩을 설정한 후 Microsoft RDP(원격 데스크톱)를 사용하여 Linux VM에 연결할 수 있습니다. 연결 단계는 다음과 같습니다. 
+학생은 Linux 그래픽 데스크톱 환경(예: XFCE, MATE 등)을 위해 RDP 및 GUI 패키지를 사용하여 랩을 설정한 후 Microsoft RDP(원격 데스크톱)를 사용하여 Linux VM에 연결할 수 있습니다. 연결 단계는 다음과 같습니다. 
 
 1. VM에 대한 타일에서 VM이 실행 중인지 확인하고 **연결** 을 클릭합니다. VM에 연결하는 두 가지 옵션이 표시됩니다. **SSH** 및 **RDP**
 
@@ -53,10 +56,10 @@ ms.locfileid: "85443420"
 
     대신 Mac 또는 Chromebook에서 연결하는 경우 다음 단계를 참조하세요.
    - [Mac에서 RDP를 사용하여 VM에 연결](connect-virtual-machine-mac-remote-desktop.md)
-   - [Chromebook에서 RDP를 사용하여 VM에 연결](connect-virtual-machine-chromebook-remote-desktop.md)  
+   - [Chromebook에서 RDP를 사용하여 VM에 연결](connect-virtual-machine-chromebook-remote-desktop.md)
 
 ### <a name="connect-to-the-student-vm-using-x2go"></a>X2Go를 사용하여 학생 VM에 연결
-학생들은 Linux 그래픽 데스크톱 환경(예: MATE, XFCE 등)을 위해 X2Go 및 GUI 패키지를 사용하여 랩을 설정한 후 X2Go를 사용하여 Linux VM에 연결할 수 있습니다.
+학생은 Linux 그래픽 데스크톱 환경(예: XFCE, MATE 등)을 위해 X2Go 및 GUI 패키지를 사용하여 랩을 설정한 후 X2Go를 사용하여 해당 Linux VM에 연결할 수 있습니다.
 
 학생들은 강사가 설치한 Linux 그래픽 데스크톱 환경이 어떤 것인지 확인해야 합니다.  이 정보는 다음 단계에서 X2Go 클라이언트를 사용하여 연결하는 데 필요합니다.
 

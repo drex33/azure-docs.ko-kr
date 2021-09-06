@@ -12,15 +12,15 @@ ms.subservice: security
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/23/2018
+ms.date: 05/30/2021
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a0eca49f600855e3fa092ed45e2ee314284ec474
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 39ef6e17e07833fede323ace8d06fd8b767eafac
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079772"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435491"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,9 +29,29 @@ ms.locfileid: "112079772"
 
 Azure는 가상 머신에서 실행되는 SQL Server로 호환되는 솔루션을 제작할 수 있도록 하는 몇 가지 산업 규정 및 표준을 준수합니다. Azure 규정 준수에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요.
 
+이 항목에서 설명하는 방법 외에도 기존 온-프레미스 보안 방법과 가상 머신 보안 모범 사례 모두에서 보안 모범 사례를 검토하고 구현하는 것이 좋습니다. 
+
+## <a name="azure-defender-for-sql"></a>Azure Defender for SQL 
+
+[Azure Defender for SQL](../../../security-center/defender-for-sql-introduction.md)을 통해 취약성 평가 및 보안 경고와 같은 Azure Security Center 보안 기능을 사용할 수 있습니다. 자세한 내용은 [Azure Defender for SQL 사용](../../../security-center/defender-for-sql-usage.md)을 참조하세요. 
+
+## <a name="portal-management"></a>포털 관리
+
+[SQL IaaS 확장을 사용하여 SQL Server VM을 등록](sql-agent-extension-manually-register-single-vm.md)한 후에는 Azure Portal에서 [SQL 가상 머신 리소스](manage-sql-vm-portal.md)를 사용하여 Azure Key Vault 통합 또는 SQL 인증 사용과 같은 다양한 보안 설정을 구성할 수 있습니다. 
+
+또한 [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md)을 사용하도록 설정한 후에는 Azure Portal의 [SQL 가상 머신 리소스](manage-sql-vm-portal.md) 내에서 취약성 평가 및 보안 경고와 같은 Security Center 기능을 직접 볼 수 있습니다. 
+
+자세한 내용은 [포털에서 SQL Server VM 관리](manage-sql-vm-portal.md)를 참조하세요. 
+
+## <a name="azure-key-vault-integration"></a>Azure Key Vault 통합 
+
+TDE(투명한 데이터 암호화), CLE(열 수준 암호화)백업 암호화 등 여러 SQL Server 암호화 기능이 있습니다. 이러한 형태의 암호화는 암호화에 사용되는 암호화 키를 관리 및 저장해야 합니다. Azure Key Vault 서비스는 안전하고 가용성이 높은 위치에서 이러한 키의 보안 및 관리를 개선하도록 설계되었습니다. SQL Server 커넥터는 SQL Server에서 Azure Key Vault의 키를 사용할 수 있게 합니다.
 자세한 내용은 이 시리즈의 다른 문서([검사 목록](performance-guidelines-best-practices-checklist.md), [VM 크기](performance-guidelines-best-practices-vm-size.md), [스토리지](performance-guidelines-best-practices-storage.md), [HADR 구성](hadr-cluster-best-practices.md), [기준 수집](performance-guidelines-best-practices-collect-baseline.md))를 참조하세요. 
 
-## <a name="control-access-to-the-sql-virtual-machine"></a>SQL 가상 머신에 대한 액세스 제어
+자세한 내용은 [Azure Key Vault 통합](azure-key-vault-integration-configure.md)을 참조하세요.
+
+
+## <a name="access-control"></a>Access Control 
 
 SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 액세스 권한을 갖는 사용자를 신중하게 제어하는 방법을 고려합니다. 일반적으로 다음과 같이 해야 합니다.
 
@@ -60,17 +80,15 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 
 ## <a name="encryption"></a>암호화
 
-관리 디스크는 서버 쪽 암호화 및 Azure Disk Encryption을 제공합니다. [서버 쪽 암호화](../../../virtual-machines/disk-encryption.md)는 저장 데이터 암호화를 제공하고, 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호합니다. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md)은 Bitlocker 또는 DM-Crypt 기술을 사용하고 Azure Key Vault와 통합하여 OS 및 데이터 디스크를 모두 암호화합니다. 
+관리 디스크는 서버 쪽 암호화 및 Azure Disk Encryption을 제공합니다. [서버 쪽 암호화](../../../virtual-machines/disk-encryption.md)는 저장 데이터 암호화를 제공하고, 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호합니다. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md)은 BitLocker 또는 DM-Crypt 기술을 사용하고 Azure Key Vault와 통합하여 OS 및 데이터 디스크를 모두 암호화합니다. 
 
-## <a name="use-a-non-default-port"></a>기본 포트가 아닌 포트 사용
+## <a name="non-default-port"></a>기본이 아닌 포트
 
 기본적으로 SQL Server는 잘 알려진 포트 1433에서 수신 대기합니다. 보안 강화를 위해 기본 포트가 아닌 포트(예: 1401)에서 수신 대기하도록 SQL Server를 구성합니다. Azure Portal에서 SQL Server 갤러리 이미지를 프로비전하는 경우 **SQL Server 설정** 블레이드에서 이 포트를 지정할 수 있습니다.
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
 프로비전한 후 이를 구성할 때 다음과 같은 두 가지 옵션이 있습니다.
 
-- Resource Manager VM의 경우 [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)에서 **보안** 을 선택할 수 있습니다. 그러면 포트를 변경하는 옵션이 제공됩니다.
+- Resource Manager VM의 경우 [SQL 가상 머신 리소스](manage-sql-vm-portal.md#access-the-resource)에서 **보안** 을 선택할 수 있습니다. 그러면 포트를 변경하는 옵션이 제공됩니다.
 
   ![포털에서 TCP 포트 변경](./media/security-considerations-best-practices/sql-vm-change-tcp-port.png)
 
@@ -98,16 +116,14 @@ SQL Server가 기본 포트가 아닌 포트에서 수신 대기하는 경우 �
 
   - **SA** 로그인을 사용해야 하는 경우 프로비전한 후 로그인을 사용하도록 설정하고 새로운 강력한 암호를 할당합니다.
 
-## <a name="additional-best-practices"></a>추가 모범 사례
-
-이 항목에서 설명하는 방법 외에도 기존 온-프레미스 보안 방법과 가상 머신 보안 모범 사례 모두에서 보안 모범 사례를 검토하고 구현하는 것이 좋습니다. 
-
-온-프레미스 보안 방법에 대한 자세한 내용은 [SQL Server 설치에 대한 보안 고려 사항](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) 및 [Security Center](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database)를 참조하세요. 
-
-가상 머신 보안에 대한 자세한 내용은 [가상 머신 보안 개요](../../../security/fundamentals/virtual-machines-overview.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
+
+성능에 대한 모범 사례에도 관심이 있으면 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](./performance-guidelines-best-practices-checklist.md)를 참조하세요.
+
+Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요.
+
 
 자세히 알아보려면 다음 시리즈의 다른 문서를 참조하세요.
 
@@ -118,5 +134,4 @@ SQL Server가 기본 포트가 아닌 포트에서 수신 대기하는 경우 �
 - [HADR 설정](hadr-cluster-best-practices.md)
 - [기준 수집](performance-guidelines-best-practices-collect-baseline.md)
 
-Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요.
 

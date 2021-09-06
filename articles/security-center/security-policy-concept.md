@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: eb6369e89066451779d05a97057acbdd451de192
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e065aa7d3d269632c77a810917ec913c43e518db
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146674"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605275"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>보안 정책, 이니셔티브 및 권장 사항은 무엇인가요?
 
@@ -21,7 +21,7 @@ Security Center는 보안 이니셔티브를 구독에 적용합니다. 이 이�
 
 ## <a name="what-is-a-security-policy"></a>보안 정책이란?
 
-Azure Policy에서 만든 Azure 정책 정의는 제어하려는 특정 보안 조건에 관한 규칙입니다. 기본 제공 정의에는 배포할 수 있는 리소스 종류를 제어하거나 모든 리소스에서 태그 사용을 적용하는 등의 작업이 포함됩니다. 자체적인 사용자 지정 정책 정의를 만들 수도 있습니다.
+Azure Policy에서 만든 Azure Policy 정의는 제어하려는 특정 보안 조건에 관한 규칙입니다. 기본 제공 정의에는 배포할 수 있는 리소스 종류를 제어하거나 모든 리소스에서 태그 사용을 적용하는 등의 작업이 포함됩니다. 자체적인 사용자 지정 정책 정의를 만들 수도 있습니다.
 
 기본 제공 또는 사용자 지정인지 여부에 관계없이 정책 정의를 구현하려면 해당 정책 정의를 할당해야 합니다. Azure Portal, PowerShell 또는 Azure CLI를 통해 이러한 정책 중 하나를 할당할 수 있습니다.
 
@@ -29,7 +29,7 @@ Azure Policy에는 다양한 유형의 정책이 있습니다. Security Center�
 
 ## <a name="what-is-a-security-initiative"></a>보안 이니셔티브란?
 
-Azure 이니셔티브는 특정 목표 및 용도에 맞게 그룹화되는 Azure 정책 정의 또는 규칙의 컬렉션입니다. Azure 이니셔티브는 정책 세트를 단일 항목으로 논리적으로 그룹화하여 정책 관리를 간소화합니다.
+Azure Policy 이니셔티브는 특정 목적이나 의도에 맞게 그룹화되는 Azure Policy 정의 또는 규칙의 컬렉션입니다. Azure 이니셔티브는 정책 세트를 단일 항목으로 논리적으로 그룹화하여 정책 관리를 간소화합니다.
 
 보안 이니셔티브는 원하는 워크로드 구성을 정의하며 회사 또는 규제 당국의 보안 요구 사항을 준수하는지 확인하는 데 도움이 됩니다.
 
@@ -71,13 +71,13 @@ Security Center는 선택한 정책에 따라 보안 권장 사항을 만듭니�
 
 권장 사항에 대한 세부 정보를 검토할 때 기본 정책을 볼 수 있으면 도움이 되는 경우가 많습니다. 정책에서 지원하는 모든 권장 사항에 대해 권장 사항 세부 정보 페이지의 **정책 정의 보기** 링크를 사용하여 관련 정책의 Azure Policy 항목으로 직접 이동합니다.
 
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="권장 사항을 지원하는 특정 정책에 대한 Azure Policy 페이지로 연결":::
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="권장 사항을 지원하는 특정 정책에 대한 Azure Policy 페이지로 연결됩니다.":::
 
 이 링크를 사용하여 정책 정의를 확인하고 평가 논리를 검토합니다. 
 
 [보안 권장 사항 참조 가이드](recommendations-reference.md)에서 권장 사항 목록을 검토하는 경우 정책 정의 페이지에 대한 링크도 표시됩니다.
 
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Azure Security Center 권장 사항 참조 페이지에서 직접 특정 정책에 대한 Azure Policy 페이지에 액세스":::
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Azure Security Center 권장 사항 참조 페이지에서 직접 특정 정책에 대한 Azure Policy 페이지에 액세스합니다.":::
 
 
 ## <a name="next-steps"></a>다음 단계

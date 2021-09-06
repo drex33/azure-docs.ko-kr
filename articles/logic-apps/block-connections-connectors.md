@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f13ffe10ed9ade4e6fe8767ef61b6709747b7d2a
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92310029"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606251"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Azure Logic Apps에서 커넥터로 만든 연결 차단
 
@@ -220,9 +220,9 @@ ms.locfileid: "92310029"
 
 1. 그런 다음 정책을 적용하려는 정책 정의를 할당하려면 [정책 할당을 만듭니다](#create-policy-assignment).
 
-Azure 정책 정의에 대한 자세한 내용은 다음 항목을 참조하세요.
+Azure Policy 정의에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [정책 구조 정의](../governance/policy/concepts/definition-structure.md)
+* [Azure Policy 정의 구조](../governance/policy/concepts/definition-structure.md)
 * [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 * [Azure Logic Apps에 대한 Azure Policy 기본 제공 정책 정의](./policy-reference.md)
 
@@ -307,9 +307,9 @@ Azure 정책 정의에 대한 자세한 내용은 다음 항목을 참조하세�
 
 1. 그런 다음 정책을 적용하려는 정책 정의를 할당하려면 [정책 할당을 만듭니다](#create-policy-assignment).
 
-Azure 정책 정의에 대한 자세한 내용은 다음 항목을 참조하세요.
+Azure Policy 정의에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [정책 구조 정의](../governance/policy/concepts/definition-structure.md)
+* [Azure Policy 정의 구조](../governance/policy/concepts/definition-structure.md)
 * [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 * [Azure Logic Apps에 대한 Azure Policy 기본 제공 정책 정의](./policy-reference.md)
 

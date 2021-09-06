@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 28ac7d0d7079d8ba8c9483e7da816430295941c9
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 79a9147fde164a672d310a7dea6fb6166ed3a1f9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027860"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537099"
 ---
 # <a name="vision-solution-troubleshooting"></a>비전 솔루션 문제 해결
 
@@ -58,11 +58,7 @@ ms.locfileid: "112027860"
 
     :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-device.png" alt-text="삭제 단추가 강조 표시된 IoT Edge 홈페이지 스크린샷":::
 
-## <a name="eye-module-troubleshooting-tips"></a>Eye 모듈 문제 해결 팁
-
-다음 문제 해결 팁은 비전 AI 프로토타입 환경에서 발견되는 몇 가지 일반적인 문제를 해결하는 데 도움이 됩니다.
-
-### <a name="check-the-runtime-status-of-azureeyemodule"></a>azureeyemodule의 런타임 상태를 확인합니다.
+## <a name="check-the-runtime-status-of-azureeyemodule"></a>azureeyemodule의 런타임 상태를 확인합니다.
 
 **WebStreamModule** 에 문제가 있는 경우 비전 모델 추론을 처리하는 **azureeyemodule** 이 실행되고 있는지 확인합니다. 런타임 상태를 확인하려면 다음을 수행합니다.
 
@@ -76,19 +72,20 @@ ms.locfileid: "112027860"
 
     :::image type="content" source="./media/vision-solution-troubleshooting/firmware-desired-status-stopped.png" alt-text="모듈 설정 구성 화면 스크린샷":::
 
-### <a name="update-telemetryintervalneuralnetworkms"></a>TelemetryIntervalNeuralNetworkMs 업데이트
+## <a name="change-how-often-messages-are-sent-from-the-azureeyemodule"></a>azureeyemodule에서 메시지가 전송되는 빈도 변경
 
-다음 개수 제한 오류가 발생하는 경우 azureeyemodule 모듈 쌍 설정에서 TelemetryIntervalNeuralNetworkMs 값을 업데이트해야 합니다.
+구독 계층은 디바이스에서 IoT Hub로 전송되는 메시지 수를 제한할 수 있습니다. 예를 들어 무료 계층은 메시지 수를 하루에 8,000개로 제한합니다. 해당 제한에 도달하면 azureeyemodule의 작동이 중지되고 다음 오류가 표시될 수 있습니다.
 
 |오류 메시지|
 |------|
-|IotHub ' xxxxxxxxx '의 총 메시지 수가 할당량을 초과했습니다. 허용되는 최대 메시지 수: '8,000', 현재 메시지 수: 'xxxx'. 다음 UTC 날까지 해당 허브 관련 송수신 작업이 차단됩니다. 할당량을 늘리려면 허브의 단위를 늘려 보세요.|
+|*Total number of messages on IotHub 'xxxxxxxxx' exceeded the allocated quota. Max allowed message count: '8000', current message count: 'xxxx'. Send and Receive operations are blocked for this hub until the next UTC day. Consider increasing the units for this hub to increase the quota.(IotHub 'xxxxxxxx'의 총 메시지 수가 할당된 할당량을 초과했습니다. 허용된 최대 메시지 수: '8000', 현재 메시지 수: 'xxxx'입니다. 다음 UTC일까지 이 허브에 대한 송수신 작업이 차단됩니다. 할당량을 늘리려면 이 허브의 단위를 늘리는 것이 좋습니다.)*|
 
-TelemetryIntervalNeuralNetworkMs는 신경망에서 메시지를 전송하는 빈도를 결정합니다. 메시지는 밀리초 단위로 전송됩니다. Azure 구독은 일일 메시지 수가 제한됩니다.
+azureeyemodule 모듈 쌍을 사용하면 메시지가 전송되는 빈도에 대한 간격 속도를 변경할 수 있습니다. 간격 비율에 입력한 값은 각 메시지가 전송되는 빈도를 밀리초 단위로 나타냅니다. 숫자가 클수록 각 메시지 사이의 시간이 늘어납니다. 예를 들어, 간격 비율을 12,000으로 설정하면 12초마다 하나의 메시지가 전송된다는 의미입니다. 하루 종일 실행되는 모델의 경우, 이 비율은 무료 계층 제한에 따라 하루에 7,200개의 메시지에 해당합니다. 선택하는 값은 비전 모델의 응답 속도에 따라 다릅니다.
 
-메시지 양은 구독 계층을 기반으로 합니다. 너무 많은 메시지를 전송하여 잠긴 경우에는 메시지 양을 늘립니다. 메시지 양이 12,000이면 12초마다 메시지 1개가 됩니다. 이 메시지 양은 하루에 7,200개의 메시지에 해당하므로 무료 구독의 메시지 한도인 8,000개 미만입니다.
+> [!NOTE]
+> 메시지 간격 비율을 변경해도 각 메시지의 크기에는 영향을 미치지 않습니다. 메시지 크기는 모델 유형 및 각 메시지에서 감지되는 개체 수와 같은 몇 가지 요인에 따라 다릅니다. 따라서 메시지 크기를 결정하기가 어렵습니다.
 
-TelemetryIntervalNeuralNetworkMs 값을 업데이트하려면 다음을 수행합니다.
+메시지 간격을 업데이트하려면 다음 단계를 따릅니다.
 
 1. [Azure Portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home)에 로그인하고 **모든 리소스** 를 엽니다.
 
@@ -102,17 +99,22 @@ TelemetryIntervalNeuralNetworkMs 값을 업데이트하려면 다음을 수행�
 
     :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="모듈 페이지 스크린샷" lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
 
-1. **속성** 으로 스크롤합니다. **실행** 및 **로깅** 속성은 현재 활성화되지 않습니다.
+1. **속성** 으로 스크롤합니다.
+1. **TelemetryInterval** 을 찾아 **TelemetryIntervalNeuralNetworkMs** 로 바꿉니다.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="모듈 ID 쌍 속성 스크린샷" lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline-02.png" alt-text="모듈 ID 쌍 속성 스크린샷" lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
 
-1. **TelemetryIntervalNeuralNetworkMs** 값을 원하는 대로 업데이트하고 **저장** 아이콘을 선택합니다.
+1. **TelemetryIntervalNeuralNetworkMs** 값을 필요한 값으로 업데이트합니다.
+
+1. **저장** 아이콘을 선택합니다.
 
 ## <a name="view-device-rtsp-video-stream"></a>디바이스 RTSP 비디오 스트림 보기
 
 [Azure Percept Studio](./how-to-view-video-stream.md) 또는 [VLC 미디어 플레이어](https://www.videolan.org/vlc/index.html)에서 디바이스의 RTSP 비디오 스트림을 확인합니다.
 
 VLC 미디어 플레이어에서 RTSP 스트림을 열려면 **미디어** > **네트워크 스트림 열기** > **rtsp://[디바이스 IP 주소]:8554/result** 로 이동합니다.
+
+RTSP 스트림이 회색 상자에 의해 부분적으로 차단된 경우 네트워크 연결이 좋지 않은 상태에서 보려고 시도할 수 있습니다. 연결에 비디오 스트림에 필요한 대역푹이 충분한지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

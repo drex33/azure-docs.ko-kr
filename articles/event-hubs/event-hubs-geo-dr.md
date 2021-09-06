@@ -2,13 +2,13 @@
 title: 지리적 재해 복구 - Azure Event Hubs| Microsoft Docs
 description: 지리적 지역을 사용하여 장애 조치(Failover)하고 Azure Event Hubs에서 재해 복구를 수행하는 방법
 ms.topic: article
-ms.date: 04/14/2021
-ms.openlocfilehash: b2cf2b0ebef2b460b626e45d6b52309c9281d6ce
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.date: 06/21/2021
+ms.openlocfilehash: 42057f88d76fb0822207ecaf0ece340101c6ec6d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739245"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536011"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
 
@@ -23,7 +23,8 @@ Event Hubs 지리적 재해 복구 기능은 이러한 규모의 재해로부터
 지리적 재해 복구 기능을 사용하면 기본 네임스페이스와 보조 네임스페이스가 쌍을 이루는 경우 네임스페이스의 전체 구성(Event Hubs, 소비자 그룹, 설정)이 기본 네임스페이스에서 보조 네임스페이스로 지속적으로 복제되고, 언제든지 기본 데이터베이스에서 보조 데이터베이스로 장애 조치를 한 번만 시작할 수 있습니다. 장애 조치 이동은 네임스페이스에 대해 선택한 별칭 이름을 보조 네임스페이스로 다시 가리킨 다음 페어링을 끊습니다. 장애 조치가 시작된 후에는 거의 즉시 이루어집니다. 
 
 > [!IMPORTANT]
-> 이 기능을 사용하면 동일한 구성을 사용하여 작업을 연속적으로 즉시 수행할 수 있지만 **이벤트 데이터가 복제되지 않습니다**. 재해로 인해 모든 영역이 손실된 경우가 아니면 장애 조치 후 기본 Event Hub에 유지되는 이벤트 데이터를 복구할 수 있으며, 액세스를 복원하면 기록 이벤트를 가져올 수 있습니다. 이벤트 데이터를 복제하고 활성/활성 구성에서 해당 네임스페이스를 운영하여 중단 및 재해를 처리할 수 있도록 하려면 이러한 지리적 재해 복구 기능 세트를 사용하지 않고 [복제 지침](event-hubs-federation-overview.md)을 따르세요.  
+> - 이 기능을 사용하면 동일한 구성을 사용하여 작업을 연속적으로 즉시 수행할 수 있지만 **이벤트 데이터가 복제되지 않습니다**. 재해로 인해 모든 영역이 손실된 경우가 아니면 장애 조치 후 기본 Event Hub에 유지되는 이벤트 데이터를 복구할 수 있으며, 액세스를 복원하면 기록 이벤트를 가져올 수 있습니다. 이벤트 데이터를 복제하고 활성/활성 구성에서 해당 네임스페이스를 운영하여 중단 및 재해를 처리할 수 있도록 하려면 이러한 지리적 재해 복구 기능 세트를 사용하지 않고 [복제 지침](event-hubs-federation-overview.md)을 따르세요.  
+> - 기본 네임스페이스의 엔터티에 대한 Azure AD(Azure Active Directory) RBAC(역할 기반 액세스 제어) 할당은 보조 네임스페이스에 복제되지 않습니다. 보조 네임스페이스에서 수동으로 역할 할당을 만들어 액세스를 보호합니다. 
 
 ## <a name="outages-and-disasters"></a>중단 및 재해
 
@@ -37,7 +38,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 재해 복구 기능은 메타데이터 재해 복구를 구현하며 주 및 보조 재해 복구 네임스페이스를 사용합니다. 
 
-지리적 재해 복구 기능은 [표준 및 전용 SKU](https://azure.microsoft.com/pricing/details/event-hubs/)에만 사용할 수 있습니다. 별칭을 통해 연결이 수행되므로 연결 문자열을 변경할 필요가 없습니다.
+지리적 재해 복구 기능은 [표준 및 프리미엄 및 전용 SKU](https://azure.microsoft.com/pricing/details/event-hubs/)에만 사용할 수 있습니다. 별칭을 통해 연결이 수행되므로 연결 문자열을 변경할 필요가 없습니다.
 
 이 문서에서는 다음 용어가 사용됩니다.
 
@@ -50,12 +51,11 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 ## <a name="supported-namespace-pairs"></a>지원되는 네임스페이스 쌍
 기본 및 보조 네임스페이스의 다음과 같은 조합이 지원됩니다.  
 
-| 기본 네임스페이스 | 보조 네임스페이스 | 지원됨 | 
-| ----------------- | -------------------- | ---------- |
-| Standard | Standard | 예 | 
-| Standard | 전용 | 예 | 
-| 전용 | 전용 | 예 | 
-| 전용 | Standard | 예 | 
+| 기본 네임스페이스 계층 | 허용되는 보조 네임스페이스 계층 |
+| ----------------- | -------------------- |
+| Standard | 표준, 전용 | 
+| Premium | Premium | 
+| 전용 | 전용 | 
 
 > [!NOTE]
 > 동일한 전용 클러스터에 있는 네임스페이스는 쌍으로 연결할 수 없습니다. 별도의 클러스터에 있는 네임스페이스는 쌍으로 연결할 수 있습니다. 
@@ -64,7 +64,8 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 다음 섹션은 장애 조치 프로세스의 개요이며 초기 장애 조치를 설정하는 방법을 설명합니다. 
 
-![1][]
+:::image type="content" source="./media/event-hubs-geo-dr/geo1.png" alt-text="장애 조치(failover) 프로세스 개요를 보여주는 이미지":::
+
 
 ### <a name="setup"></a>설치 프로그램
 
@@ -112,7 +113,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 > [!NOTE]
 > 실패 전달 의미 체계만이 지원됩니다. 이 시나리오에서는 새 네임스페이스를 사용하여 장애 조치하고 다시 페어링합니다. 예를 들어 SQL 클러스터에서 장애 복구는 지원되지 않습니다. 
 
-![2][]
+:::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="장애 조치(failover) 흐름을 보여주는 이미지":::
 
 ## <a name="management"></a>관리
 
@@ -137,17 +138,11 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 5. 엔터티를 동기화하는 데 분당 약 50~100개의 엔터티를 처리하므로 다소 시간이 걸릴 수 있습니다.
 
 ## <a name="availability-zones"></a>가용성 영역 
+Event Hubs는 Azure 지역 내에서 오류가 없는 위치를 제공하는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다. 가용성 영역 지원은 [가용성 영역이 있는 Azure 지역](../availability-zones/az-region.md#azure-regions-with-availability-zones)에서만 사용할 수 있습니다. 메타데이터와 데이터(이벤트)가 모두 가용성 영역의 데이터 센터에 복제됩니다. 
 
-Event Hubs 표준 SKU는 Azure 지역 내에서 오류가 없는 위치를 제공하는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다. 
+네임스페이스를 만들 때 가용성 영역이 있는 지역을 선택하면 다음과 같은 강조 표시된 메시지가 표시됩니다. 
 
-> [!NOTE]
-> Azure Event Hubs 표준에 대한 가용성 영역 지원은 가용성 영역이 있는 [Azure 지역](../availability-zones/az-region.md)에서만 사용할 수 있습니다.
-
-Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영역을 사용하도록 설정할 수 있습니다. Event Hubs에서는 기존 네임스페이스의 마이그레이션을 지원하지 않습니다. 네임스페이스를 사용하도록 설정한 후에는 영역 중복성을 사용하지 않도록 설정할 수 없습니다.
-
-가용성 영역을 사용하는 경우 메타데이터와 데이터(이벤트)가 모두 가용성 영역의 데이터 센터에 복제됩니다. 
-
-![3][]
+:::image type="content" source="./media/event-hubs-geo-dr/eh-az.png" alt-text="가용성 영역을 가진 지역이 있는 네임스페이스 만들기 페이지를 보여주는 이미지":::
 
 ## <a name="private-endpoints"></a>프라이빗 엔드포인트
 이 섹션에서는 프라이빗 엔드포인트를 사용하는 네임스페이스에서 지리적 재해 복구를 사용할 때 추가로 고려해야 할 사항에 대해 설명합니다. 일반적인 Event Hubs에서 전용 엔드포인트를 사용하는 방법에 대한 자세한 내용은 [프라이빗 엔드포인트 구성](private-link-service.md)을 참조하세요.
@@ -184,6 +179,9 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 
 > [!NOTE]
 > 가상 네트워크의 지리적 재해 복구에 대한 지침은 [Virtual Network - 비즈니스 연속성](../virtual-network/virtual-network-disaster-recovery-guidance.md)을 참조하세요.
+
+## <a name="role-based-access-control"></a>역할 기반 액세스 제어
+기본 네임스페이스의 엔터티에 대한 Azure AD(Azure Active Directory) RBAC(역할 기반 액세스 제어) 할당은 보조 네임스페이스에 복제되지 않습니다. 보조 네임스페이스에서 수동으로 역할 할당을 만들어 액세스를 보호합니다.
  
 ## <a name="next-steps"></a>다음 단계
 다음 샘플 또는 참조 설명서를 검토합니다. 
@@ -194,10 +192,8 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 - [Java - azure-messaging-eventhubs 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Java - azure-eventhubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
 - [Python 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
-- [JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
-- [TypeScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/javascript)
+- [TypeScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/typescript)
 - [REST API 참조](/rest/api/eventhub/)
 
-[1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
-[3]: ./media/event-hubs-geo-dr/eh-az.png

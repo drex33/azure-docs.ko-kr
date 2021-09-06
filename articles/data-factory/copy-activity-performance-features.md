@@ -1,30 +1,32 @@
 ---
 title: 복사 작업 성능 최적화 기능
-description: Azure Data Factory에서 복사 작업 성능을 최적화하는 데 도움이 되는 주요 기능에 대해 알아봅니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics 파이프라인에서 복사 작업 성능을 최적화하는 데 도움이 되는 주요 기능에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/24/2020
-ms.openlocfilehash: e161ddbeaad0f9e366baa1265622bede93d5b567
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 9be8ef1772da6259441a8de4c85fa44d54945c7d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482618"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821818"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>복사 작업 성능 최적화 기능
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory에서 활용할 수 있는 복사 작업 성능 최적화 기능을 간략하게 설명합니다.
+이 문서에서는 Azure Data Factory 및 Synapse 파이프라인에서 활용할 수 있는 복사 작업 성능 최적화 기능을 간략하게 설명합니다.
 
 ## <a name="data-integration-units"></a>데이터 통합 단위
 
-데이터 통합 단위는 Azure Data Factory 내 단일 단위의 힘(CPU, 메모리 및 네트워크 리소스 할당 조합)을 나타내는 측정값입니다. 데이터 통합 단위는 [Azure 통합 런타임](concepts-integration-runtime.md#azure-integration-runtime)에만 적용되고 [자체 호스팅 통합 런타임](concepts-integration-runtime.md#self-hosted-integration-runtime)에는 적용되지 않습니다.
+데이터 통합 단위는 해당 서비스 내 단일 단위의 힘(CPU, 메모리 및 네트워크 리소스 할당의 조합)을 나타내는 측정값입니다. 데이터 통합 단위는 [Azure 통합 런타임](concepts-integration-runtime.md#azure-integration-runtime)에만 적용되고 [자체 호스팅 통합 런타임](concepts-integration-runtime.md#self-hosted-integration-runtime)에는 적용되지 않습니다.
 
-복사 작업 실행을 강화하는 데 허용되는 DIUs는 **2~256 사이** 입니다. 지정하지 않거나 UI에서 ‘Auto’를 선택하면 Data Factory는 소스 싱크 쌍 및 데이터 패턴에 따라 최적의 DIU 설정을 동적으로 적용합니다. 다음 표에서는 다양한 복사 시나리오의 지원되는 DIU 범위 및 기본 동작을 보여 줍니다.
+복사 작업 실행을 강화하는 데 허용되는 DIUs는 **2~256 사이** 입니다. 지정하지 않거나 UI에서 ‘Auto’를 선택하면 서비스에서 소스 싱크 쌍 및 데이터 패턴에 따라 최적의 DIU 설정을 동적으로 적용합니다. 다음 표에서는 다양한 복사 시나리오의 지원되는 DIU 범위 및 기본 동작을 보여 줍니다.
 
 | 복사 시나리오 | 지원되는 DIU 범위 | 서비스에 따라 결정되는 기본 DIU |
 |:--- |:--- |---- |
@@ -77,10 +79,10 @@ ms.locfileid: "109482618"
 
 병렬 복사는 [데이터 통합 단위](#data-integration-units)나 [자체 호스팅 IR 노드](#self-hosted-integration-runtime-scalability)와 직교합니다. 모든 DIUs 또는 자체 호스팅 IR 노드에 걸쳐 계산됩니다.
 
-각 복사 작업 실행에서 기본적으로 Azure Data Factory는 원본 싱크 쌍 및 데이터 패턴에 따라 최적의 병렬 복사 설정을 동적으로 적용합니다. 
+각 복사 작업 실행 시 서비스는 기본적으로 원본 싱크 쌍 및 데이터 패턴에 따라 최적의 병렬 복사 설정을 동적으로 적용합니다. 
 
 > [!TIP]
-> 병렬 복사의 기본 동작은 일반적으로 원본 싱크 쌍, 데이터 패턴, DIUs 수 또는 자체 호스팅 IR의 CPU/메모리/노드 수를 기반으로 ADF에 의해 자동으로 결정되는 최상의 처리량을 제공합니다. 병렬 복사를 튜닝할 때 [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md)을 참조하세요.
+> 병렬 복사의 기본 동작은 일반적으로 원본 싱크 쌍, 데이터 패턴, DIUs 수 또는 자체 호스팅 IR의 CPU/메모리/노드 수를 기반으로 서비스에서 자동으로 결정되는 최상의 처리량을 제공합니다. 병렬 복사를 튜닝할 때 [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md)을 참조하세요.
 
 다음 표에서는 병렬 복사 동작을 나열합니다.
 
@@ -131,7 +133,7 @@ ms.locfileid: "109482618"
 
 ### <a name="how-staged-copy-works"></a>준비 복사의 작동 방법
 
-준비 기능을 활성화하면 먼저 데이터가 원본 데이터 저장소에서 준비 스토리지(자체 환경 사용 Azure Blob 또는 Azure Data Lake Storage Gen2)로 복사됩니다. 그런 다음 데이터가 준비 프로세스에서 싱크 데이터 저장소로 복사됩니다. Azure Data Factory 복사 작업은 2단계 흐름을 자동으로 관리하여, 데이터 이동 완료 후 준비 스토리지에서 임시 데이터를 정리합니다.
+준비 기능을 활성화하면 먼저 데이터가 원본 데이터 저장소에서 준비 스토리지(자체 환경 사용 Azure Blob 또는 Azure Data Lake Storage Gen2)로 복사됩니다. 그런 다음 데이터가 준비 프로세스에서 싱크 데이터 저장소로 복사됩니다. 복사 작업은 2단계 흐름을 자동으로 관리하여, 데이터 이동이 완료되면 준비 스토리지에서 임시 데이터도 정리합니다.
 
 ![준비된 복사](media/copy-activity-performance/staged-copy.png)
 
@@ -143,7 +145,7 @@ ms.locfileid: "109482618"
 
 복사 작업에서 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 저장소에 로드하기 전에 스토리지에 데이터를 스테이징할지 여부를 지정합니다. **enableStaging** 을 `TRUE`으로 설정한 경우, 다음 표에 나열된 추가 속성을 지정해야 합니다. 
 
-| 속성 | 설명 | 기본값 | 필수 |
+| 속성 | Description | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
 | linkedServiceName |중간 준비 저장소로 사용할 스토리지 인스턴스를 참조하여 이름을 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)에 연결된 서비스로 지정합니다. |해당 없음 |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: e4ae8a09a554afe232091b68888af17dfa096771
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db0f78f2f3aef3295837d921d7d70866ed8b8769
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102426472"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568311"
 ---
 # <a name="what-is-custom-commands"></a>사용자 지정 명령이란?
 
@@ -23,10 +23,7 @@ ms.locfileid: "102426472"
 
 **사용자 지정 명령** 을 사용하면 음성 기반 상호 작용 환경에 최적화된 풍부한 음성 명령 앱을 쉽게 빌드할 수 있습니다. 통합된 작성 환경, 자동 호스팅 모델 및 상대적으로 낮은 복잡성을 제공하여 음성 명령 시나리오에 가장 적합한 솔루션을 구축하는 데 집중할 수 있습니다.
 
-사용자 지정 명령은 작업 완료 또는 명령 및 제어 시나리오에 가장 적합하며, 특히 IoT(사물 인터넷) 디바이스, 주변 및 헤드리스 디바이스와 잘 일치합니다. 예를 들어 숙박, 소매 및 자동차 산업을 위한 솔루션이 포함되어 있어 게스트를 위한 최상의 객실 음성 제어 환경을 구축하고, 스토어의 인벤토리를 관리하고, 이동 중에 차량 내 기능을 제어할 수 있습니다.
-
-> [!TIP]
-> [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands)의 방문 페이지에서 샘플 데모를 봅니다.
+사용자 지정 명령은 작업 완료 또는 명령 및 제어 시나리오에 가장 적합하며, 특히 IoT(사물 인터넷) 디바이스, 주변/헤드리스 디바이스와 잘 일치합니다. 예로는 게스트를 위한 음성 제어 환경, 매장 내 재고 관리 또는 자동차 내 기능이 필요한 병원, 소매, 자동차 산업용 솔루션이 포함됩니다.
 
 복잡한 대화형 앱을 빌드하는 데 관심이 있는 경우 [Virtual Assistant 솔루션](/azure/bot-service/bot-builder-enterprise-template-overview)을 통해 Bot Framework를 사용해 보는 것이 좋습니다. Direct Line Speech를 사용하여 모든 봇 프레임워크 봇에 음성을 추가할 수 있습니다.
 

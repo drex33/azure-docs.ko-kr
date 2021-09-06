@@ -2,13 +2,13 @@
 title: Azure Service Fabric 관리형 클러스터 업그레이드
 description: Azure Service Fabric 관리형 클러스터를 업그레이드하는 옵션에 관해 알아보기
 ms.topic: how-to
-ms.date: 05/10/2021
-ms.openlocfilehash: 478b39a6222906c793d826ab69edeeaddbb096bf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 06/16/2021
+ms.openlocfilehash: 50af042be1dc69f39e61447901d4d5f07da2a1e7
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961005"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290092"
 ---
 # <a name="manage-service-fabric-managed-cluster-upgrades"></a>Service Fabric 관리형 클러스터 업그레이드 관리
 
@@ -22,7 +22,8 @@ Azure Service Fabric 관리형 클러스터는 [웨이브 배포](#wave-deployme
 
 웨이브 배포를 사용하면 기본 제공 ‘베이킹 시간’으로 구분된 테스트, 스테이지 및 프로덕션 클러스터를 순서대로 업그레이드하기 위한 파이프라인을 만들어 프로덕션 클러스터를 업데이트하기 전에 예정된 Service Fabric 버전의 유효성을 검사할 수 있습니다.
 
->참고: 기본적으로 클러스터는 웨이브 0으로 설정됩니다.
+>[!NOTE]
+>기본적으로 클러스터는 웨이브 0으로 설정됩니다.
 
 자동 업그레이드를 위해 웨이브 배포를 선택하려면 먼저 클러스터를 할당할 웨이브를 결정합니다.
 
@@ -56,16 +57,16 @@ Resource Manager 템플릿을 사용하여 클러스터 업그레이드 모드�
 "type": "Microsoft.ServiceFabric/managedClusters",
 "properties": {
         "ClusterUpgradeMode": "Manual",
-        "ClusterCodeVersion": "7.2.457.9590"
+        "ClusterCodeVersion": "8.0.514.9590"
         }
 }
 ```
 
 템플릿이 성공적으로 배포되면 클러스터 업그레이드 모드의 변경 내용이 적용됩니다. 클러스터가 수동 모드이면 클러스터 업그레이드가 자동으로 시작됩니다.
 
-[클러스터 상태 정책](./service-fabric-health-introduction.md#health-policies)(노드 상태 및 클러스터에서 실행 중인 모든 애플리케이션의 상태 조합)은 업그레이드의 기간을 준수합니다. 클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다.
+클러스터 상태 정책(노드 상태 및 클러스터에서 실행되는 모든 애플리케이션의 상태 조합)은 업그레이드 기간을 준수합니다. 클러스터 상태 정책이 충족되지 않는 경우 업그레이드가 롤백됩니다.
 
-롤백을 일으킨 문제를 수정했으면 이전과 같은 단계에 따라 업그레이드를 다시 시작해야 합니다.
+롤백이 발생하면 롤백으로 인해 초래된 문제를 수정하고 이전과 같은 단계에 따라 업그레이드를 다시 시작해야 합니다.
 
 #### <a name="automatic-upgrade-with-wave-deployment"></a>웨이브 배포를 사용하여 자동 업그레이드
 
@@ -84,14 +85,6 @@ Resource Manager 템플릿을 사용하여 클러스터 업그레이드 모드�
 
 업데이트된 템플릿을 배포하면 다음 업그레이드 기간과 그 이후에 지정된 웨이브에 클러스터가 등록됩니다.
 
-## <a name="custom-policies-for-manual-upgrades"></a>수동 업그레이드에 관한 사용자 지정 정책
-
-수동 클러스터 업그레이드에 관한 사용자 지정 상태 정책을 지정할 수 있습니다. 이 정책은 새 런타임 버전을 선택할 때마다 적용되어 클러스터 업그레이드를 시작하도록 시스템을 트리거합니다. 정책을 재정의하지 않으면 기본값이 사용됩니다.
-
-사용자 지정 상태 정책을 지정하거나 **업그레이드 정책** 의 *사용자 지정* 옵션을 선택하여 Azure Portal에 있는 클러스터 리소스의 **패브릭 업그레이드** 섹션에서 현재 설정을 검토할 수 있습니다.
-
-:::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="업그레이드 중에 사용자 지정 상태 정책을 설정하려면 Azure Portal에서 클러스터 리소스의 ‘패브릭 업그레이드’ 섹션에서 ‘사용자 지정’ 업그레이드 정책 옵션 선택":::
-
 ## <a name="query-for-supported-cluster-versions"></a>지원되는 클러스터 버전 쿼리
 
 [Azure REST API](/rest/api/azure/)를 사용하여 지정된 위치와 구독에 사용할 수 있는 모든 Service Fabric 런타임 버전([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list))을 나열할 수 있습니다.
@@ -99,41 +92,31 @@ Resource Manager 템플릿을 사용하여 클러스터 업그레이드 모드�
 지원되는 버전과 운영 체제에 관한 자세한 내용은 [Service Fabric 버전](service-fabric-versions.md)도 참조할 수 있습니다.
 
 ```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2018-02-01
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/managedclusterVersions?api-version=2021-05-01
 
 "value": [
   {
-    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-    "name": "5.0.1427.9490",
-    "type": "Microsoft.ServiceFabric/environments/clusterVersions",
+    "id": "subscriptions/eec8e14e-b47d-40d9-8bd9-23ff5c381b40/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
+    "name": "7.2.477.9590",
+    "type": "Microsoft.ServiceFabric/locations/environments/managedClusterVersions",
     "properties": {
-      "codeVersion": "5.0.1427.9490",
-      "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-      "environment": "Windows"
+      "supportExpiryUtc": "2021-11-30T00:00:00",
+      "osType": "Windows",
+      "clusterCodeVersion": "7.2.477.9590"
     }
   },
   {
-    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-    "name": "5.1.1427.9490",
-    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/8.0.514.9590",
+    "name": "8.0.514.9590",
+    "type": "Microsoft.ServiceFabric/locations/environments/managedClusterVersions",
     "properties": {
-      "codeVersion": "5.1.1427.9490",
       "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-      "environment": "Windows"
-    }
-  },
-  {
-    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-    "name": "4.4.1427.9490",
-    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-    "properties": {
-      "codeVersion": "4.4.1427.9490",
-      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-      "environment": "Linux"
+      "osType": "Windows",
+      "clusterCodeVersion": "8.0.514.9590"
     }
   }
 ]
-}
+
 ```
 
 출력의 `supportExpiryUtc`는 지정된 릴리스가 만료될 시기나 만료된 시기를 보고합니다. 최신 릴리스는 유효한 날짜를 포함하지 않으며 *9999-12-31T23:59:59.9999999* 값을 포함합니다. 이는 만료 날짜가 아직 설정되지 않음을 의미합니다.
@@ -144,10 +127,5 @@ GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.Serv
 * [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->
-[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
-[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
-[AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
-[Upgrade-Wave-Settings]: ./media/service-fabric-cluster-upgrade/manage-upgrade-wave-settings.png
-[ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
-[Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
-[Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
+[Upgrade-Wave-Settings]: ./media/how-to-managed-cluster-upgrades/manage-upgrade-wave-settings.png
+[New-Cluster-Wave-Settings]: ./media/how-to-managed-cluster-upgrades/portal-new-cluster-upgrade-waves-setting.png

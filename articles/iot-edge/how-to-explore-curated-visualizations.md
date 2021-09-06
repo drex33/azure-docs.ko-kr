@@ -2,25 +2,27 @@
 title: 큐레이팅된 시각화 살펴보기 - Azure IoT Edge
 description: Azure 통합 문서를 사용하여 IoT Edge 기본 제공 메트릭 시각화 및 탐색
 author: veyalla
-manager: philmea
 ms.author: veyalla
-ms.date: 06/08/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0ca0d1fb7890f1a1a94419f58587f3a98957f41c
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 7be7260e993f9cc95b542406767d6794f18836f8
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904522"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537499"
 ---
 # <a name="explore-curated-visualizations-preview"></a>큐레이팅된 시각화 살펴보기(미리 보기)
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Azure Monitor 통합 문서를 사용하여 IoT Edge 디바이스로부터 수집된 메트릭을 Azure Portal에서 바로 시각화 및 탐색할 수 있습니다. IoT Edge 디바이스용 큐레이팅된 모니터링 통합 문서는 **통합 문서** 페이지(모니터링 섹션 아래)의 **IoT Hub** 블레이드에서 액세스할 수 있는 퍼블릭 템플릿 형태로 제공됩니다.
+Azure Monitor 통합 문서를 사용하여 IoT Edge 디바이스로부터 수집된 메트릭을 Azure Portal에서 바로 시각화 및 탐색할 수 있습니다. IoT Edge 디바이스에 대한 큐레이팅된 모니터링 통합 문서는 공용 템플릿 형식으로 제공됩니다.
+
+* IoT Hub에 연결된 디바이스의 경우 Azure Portal의 **IoT Hub** 블레이드에서 **모니터링** 섹션의 **통합 문서** 페이지로 이동합니다.
+* IoT Central에 연결된 디바이스의 경우 Azure Portal의 **IoT Central** 블레이드에서 **모니터링** 섹션의 **통합 문서** 페이지로 이동합니다.
 
 큐레이팅된 통합 문서는 IoT Edge 런타임의 [기본 제공 메트릭](how-to-access-built-in-metrics.md)을 사용합니다. 이러한 보기에는 워크로드 모듈의 메트릭 계측이 필요하지 않습니다.
 
@@ -30,15 +32,15 @@ IoT용 Azure Monitor 통합 문서는 메트릭 시각화를 즉시 시작하는
 
 큐레이팅된 통합 문서에 액세스하려면 다음 단계를 따릅니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT 허브 또는 IoT Central 애플리케이션으로 이동합니다.
 
 1. 메뉴의 **모니터링** 섹션에서 **통합 문서** 를 선택합니다.
 
 1. 퍼블릭 템플릿 목록에서 살펴보려는 통합 문서를 선택합니다.
 
-   * **IoT Edge 플릿 보기**: 디바이스 플릿을 모니터링하고 상태 스냅샷을 위한 특정 디바이스로 드릴다운합니다.
-   * **IoT Edge 디바이스 세부 정보**: IoT Edge 디바이스에서 메시징, 모듈, 호스트 구성 요소에 대한 디바이스 세부 정보를 시각화합니다.
-   * **IoT Edge 상태 스냅샷**: 6개의 일반적인 성능 메트릭을 기반으로 디바이스의 상태를 봅니다. 상태 스냅샷 통합 문서에 액세스하려면 플릿 보기 통합 문서에서 시작한 다음, 보려는 특정 디바이스를 선택합니다. 플릿 보기 통합 문서는 몇 가지 필수 매개 변수를 상태 스냅샷 보기에 전달합니다.
+  * **IoT Edge 플릿 보기**: 디바이스 플릿을 모니터링하고 상태 스냅샷을 위한 특정 디바이스로 드릴다운합니다.
+  * **IoT Edge 디바이스 세부 정보**: IoT Edge 디바이스에서 메시징, 모듈, 호스트 구성 요소에 대한 디바이스 세부 정보를 시각화합니다.
+  * **IoT Edge 상태 스냅샷**: 6개의 일반적인 성능 메트릭을 기반으로 디바이스의 상태를 봅니다. 상태 스냅샷 통합 문서에 액세스하려면 플릿 보기 통합 문서에서 시작한 다음, 보려는 특정 디바이스를 선택합니다. 플릿 보기 통합 문서는 몇 가지 필수 매개 변수를 상태 스냅샷 보기에 전달합니다.
 
 통합 문서를 직접 살펴볼 수도 있고, 다음 섹션을 사용하여 각 통합 문서가 제공하는 데이터 및 시각화의 종류를 미리 볼 수도 있습니다.
 
@@ -55,7 +57,7 @@ IoT용 Azure Monitor 통합 문서는 메트릭 시각화를 즉시 시작하는
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif" alt-text="플릿 보기 통합 문서의 디바이스 섹션입니다." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif":::
 
-**디바이스** 보기에서 메트릭을 보내는 활성 디바이스의 개요를 참조하세요. 이 보기에는 현재 IoT Hub와 연결된 디바이스가 표시됩니다.
+**디바이스** 보기에서 메트릭을 보내는 활성 디바이스의 개요를 참조하세요. 이 보기는 현재 IoT 허브 또는 IoT Central 애플리케이션과 연결된 디바이스를 표시합니다.
 
 오른쪽에는 전송된 로컬 및 업스트림 메시지를 보여 주는 복합 막대가 있는 디바이스 목록이 있습니다. 디바이스 이름으로 목록을 필터링하고 디바이스 이름 링크를 클릭하여 자세한 메트릭을 볼 수 있습니다.
 
@@ -65,7 +67,7 @@ IoT용 Azure Monitor 통합 문서는 메트릭 시각화를 즉시 시작하는
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif" alt-text="플릿 보기 통합 문서의 경고 섹션입니다." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif":::
 
-**경고** 보기의 [pre-created alert rules](how-to-create-alerts.md)(미리 만든 경고 규칙)에서 생성된 알림을 확인하세요. 이 보기를 통해 여러 IoT Hub의 경고를 볼 수 있습니다.
+**경고** 보기의 [pre-created alert rules](how-to-create-alerts.md)(미리 만든 경고 규칙)에서 생성된 알림을 확인하세요. 이 보기를 사용하면 여러 IoT 허브 또는 IoT Central 애플리케이션의 경고를 볼 수 있습니다.
 
 왼쪽에는 경고 심각도 목록과 함께 개수가 있습니다. 오른쪽에는 지역당 경고 총계가 표시된 지도가 있습니다.
 
@@ -147,7 +149,7 @@ IoT용 Azure Monitor 통합 문서는 메트릭 시각화를 즉시 시작하는
 
 ## <a name="customize-workbooks"></a>통합 문서 사용자 지정
 
-[Azure Monitor 통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 얼마든지 사용자 지정할 수 있습니다. 요구 사항에 맞게 퍼블릭 템플릿을 편집할 수 있습니다. 모든 시각화는 [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) 테이블의 리소스 중심 [KQL](https://aka.ms/kql) 쿼리에 의해 구현됩니다. 상태 임계값을 편집하는 아래 예제를 참조하세요.
+[Azure Monitor 통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 얼마든지 사용자 지정할 수 있습니다. 요구 사항에 맞게 퍼블릭 템플릿을 편집할 수 있습니다. 모든 시각화는 [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) 테이블의 리소스 중심 [KQL](/azure/data-explorer/kusto/query/) 쿼리에 의해 구현됩니다. 상태 임계값을 편집하는 아래 예제를 참조하세요.
 
 통합 문서의 사용자 지정을 시작하려면 먼저 편집 모드로 들어갑니다. 통합 문서의 메뉴 모음에서 **편집** 단추를 선택합니다.
 

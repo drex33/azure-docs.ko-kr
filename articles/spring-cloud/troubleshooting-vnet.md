@@ -1,18 +1,18 @@
 ---
 title: 가상 네트워크에서 Azure Spring Cloud 문제 해결
 description: Azure Spring Cloud 가상 네트워크에 대한 문제 해결 가이드입니다.
-author: mikedodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/19/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 82ee9b368ecb98d4bb1833ab9a4fc1dc22182e99
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 95b288181180e2409bcb18f4f8233af568bd311c
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968884"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567518"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>가상 네트워크에서 Azure Spring Cloud 문제 해결
 
@@ -46,4 +46,4 @@ Resource Manager 템플릿을 사용하여 Azure Spring Cloud 서비스 인스�
 
 ## <a name="other-issues"></a>기타 문제
 
-[일반적인 Azure Spring Cloud 문제를 해결](./troubleshoot.md)합니다.
+[일반적인 Azure Spring Cloud 문제 해결](./troubleshoot.md)

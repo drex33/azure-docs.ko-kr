@@ -10,13 +10,13 @@ ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 07/31/2020
-ms.openlocfilehash: 9bfe0ad6e94ea40ad5edc97e8b3259bb817df03f
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.date: 07/06/2021
+ms.openlocfilehash: 5443386a8e62d6576d73161519546e368f41ad82
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788340"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537318"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -38,7 +38,7 @@ Azure Machine Learning 데이터 세트를 사용하면 다음을 수행할 수 
 
 데이터 세트를 만들고 작업하려면 다음이 필요합니다.
 
-* Azure 구독 구독이 없으면 시작하기 전에 계정을 만드세요. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독 구독이 없으면 시작하기 전에 계정을 만드세요. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md).
 
@@ -48,10 +48,13 @@ Azure Machine Learning 데이터 세트를 사용하면 다음을 수행할 수 
 
     **OR**
 
-    * 고유 Jupyter Notebook에서 작업하고 [해당 지침](/python/api/overview/azure/ml/install)을 사용하여 직접 SDK를 설치합니다.
+    * 고유한 Jupyter Notebook에서 작업하고 [직접 SDK를 설치](/python/api/overview/azure/ml/install)합니다.
 
 > [!NOTE]
-> 일부 데이터 세트 클래스는 64비트 Python과만 호환되는 [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) 패키지에 종속됩니다. Linux 사용자의 경우 이 클래스는 Red Hat Enterprise Linux(7, 8), Ubuntu(14.04, 16.04, 18.04), Fedora(27, 28), Debian(8, 9) 및 CentOS(7) 배포판에서만 지원됩니다. 지원되지 않는 배포판을 사용하는 경우 [관련 가이드](/dotnet/core/install/linux)에 따라 .NET Core 2.1을 설치하여 진행합니다. 
+> 일부 데이터 세트 클래스는 64비트 Python과만 호환되는 [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) 패키지에 종속됩니다. __Linux__ 에서 개발하는 경우 이러한 클래스는 .NET Core 2.1을 사용하며 특정 배포에서만 지원됩니다. 지원되는 배포판에 대한 자세한 내용은 [Linux에 .NET 설치](/dotnet/core/install/linux) 문서의 .NET Core 2.1 열을 참조하세요.
+
+> [!IMPORTANT]
+> 패키지는 이전 버전의 Linux 배포판에서 작동할 수 있지만 기본 지원이 아닌 배포판을 사용하지 않는 것이 좋습니다. 기본 지원이 아닌 배포판은 최신 업데이트를 받지 못하기 때문에 보안 취약성이 있을 수 있습니다. 다음과 호환되는 최신 버전의 배포판를 사용하는 것이 좋습니다.
 
 ## <a name="compute-size-guidance"></a>컴퓨팅 크기 참고 자료
 
@@ -85,7 +88,7 @@ TabularDatasets를 사용하면 데이터의 열 또는 경로 패턴 데이터�
 
 ## <a name="access-datasets-in-a-virtual-network"></a>가상 네트워크의 데이터 세트에 액세스
 
-작업 영역이 가상 네트워크에 있으면 유효성 검사를 건너뛰도록 데이터 세트를 구성해야 합니다. 가상 네트워크에서 데이터 저장소 및 데이터 세트를 사용하는 방법에 관한 자세한 내용은 [작업 영역 및 연결된 리소스 보호](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets)를 참조하세요.
+작업 영역이 가상 네트워크에 있으면 유효성 검사를 건너뛰도록 데이터 세트를 구성해야 합니다. 가상 네트워크에서 데이터 저장소 및 데이터 세트를 사용하는 방법에 관한 자세한 내용은 [작업 영역 및 연결된 리소스 보호](how-to-secure-workspace-vnet.md#datastores-and-datasets)를 참조하세요.
 
 <a name="datasets-sdk"></a>
 
@@ -111,7 +114,7 @@ Python SDK를 사용하여 데이터 저장소에서 데이터 세트를 만들�
 
 `FileDatasetFactory` 클래스에서 [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true-) 메서드를 사용하여 모든 형식의 파일을 로드하고 등록되지 않은 FileDataset을 만듭니다. 
 
-스토리지가 가상 네트워크 또는 방화벽 뒤에 있으면 `from_files()` 메서드에서 `validate=False` 매개 변수를 설정합니다. 이렇게 하면 초기 유효성 검사 단계를 무시하고 해당 보안 파일에서 데이터 세트를 만들 수 있습니다. [가상 네트워크에서 데이터 저장소 및 데이터 세트를 사용](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets)하는 방법에 관해 자세히 알아봅니다.
+스토리지가 가상 네트워크 또는 방화벽 뒤에 있으면 `from_files()` 메서드에서 `validate=False` 매개 변수를 설정합니다. 이렇게 하면 초기 유효성 검사 단계를 무시하고 해당 보안 파일에서 데이터 세트를 만들 수 있습니다. [가상 네트워크에서 데이터 저장소 및 데이터 세트를 사용](how-to-secure-workspace-vnet.md#datastores-and-datasets)하는 방법에 관해 자세히 알아봅니다.
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -132,11 +135,11 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 
 ### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
-`TabularDatasetFactory` 클래스의 [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) 메서드를 사용하여 .csv 또는 .tsv 형식으로 파일을 읽고 등록되지 않은 TabularDataset을 만듭니다. .parquet 형식에서 파일에 읽어 오려면 [`from_parquet_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) 메서드를 사용합니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표시로 집계됩니다. 
+`TabularDatasetFactory` 클래스의 [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--) 메서드를 사용하여 .csv 또는 .tsv 형식으로 파일을 읽고 등록되지 않은 TabularDataset을 만듭니다. .parquet 형식에서 파일에 읽어 오려면 [`from_parquet_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) 메서드를 사용합니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표시로 집계됩니다. 
 
-지원되는 파일 형식과 구문 및 디자인 패턴에 대한 자세한 내용은 [TabularDatasetFactory 참조 설명서](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory)를 참조하세요. 
+지원되는 파일 형식뿐만 아니라 구문 및 디자인 패턴(예: [여러 줄 지원](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--))에 대한 정보는 [TabularDatasetFactory 참조 설명서](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory)를 참조하세요. 
 
-스토리지가 가상 네트워크 또는 방화벽 뒤에 있으면 `from_delimited_files()` 메서드에서 `validate=False` 매개 변수를 설정합니다. 이렇게 하면 초기 유효성 검사 단계를 무시하고 해당 보안 파일에서 데이터 세트를 만들 수 있습니다. [가상 네트워크에서 데이터 저장소 및 데이터 세트를 사용](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets)하는 방법에 관해 자세히 알아봅니다.
+스토리지가 가상 네트워크 또는 방화벽 뒤에 있으면 `from_delimited_files()` 메서드에서 `validate=False` 매개 변수를 설정합니다. 이렇게 하면 초기 유효성 검사 단계를 무시하고 해당 보안 파일에서 데이터 세트를 만들 수 있습니다. [가상 네트워크에서 데이터 저장소 및 데이터 세트를 사용](how-to-secure-workspace-vnet.md#datastores-and-datasets)하는 방법에 관해 자세히 알아봅니다.
 
 다음 코드는 기존 작업 영역과 원하는 데이터 저장소를 이름별로 가져옵니다. 그런 다음, 데이터 저장소와 파일 위치를 `path` 매개 변수에 전달하여 새 TabularDataset, `weather_ds`를 만듭니다.
 
@@ -280,9 +283,6 @@ new_dataset = ds.partition_by(name="repartitioned_ds", partition_keys=['country'
 partition_keys = new_dataset.partition_keys # ['country']
 ```
 
->[!IMPORTANT]
-> TabularDataset 파티션은 많은 모델 애플리케이션에서 ParallelRunStep에 대한 입력으로 Azure Machine Learning 파이프라인에서 적용될 수도 있습니다. [여러 모델 가속기 설명서](https://github.com/microsoft/solution-accelerator-many-models/blob/master/01_Data_Preparation.ipynb)의 예제를 참조하세요.
-
 ## <a name="explore-data"></a>데이터 살펴보기
 
 데이터 랭글링을 완료하고 나면 데이터 세트를 [등록](#register-datasets)한 다음, 모델 학습 전에 데이터 검색을 위해 Notebook에 로드할 수 있습니다.
@@ -362,7 +362,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 데이터 세트 만들기
 
-[https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/)에는 데이터 세트를 만드는 데 사용할 수 있는 템플릿이 많이 있습니다.
+[https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices)에는 데이터 세트를 만드는 데 사용할 수 있는 템플릿이 많이 있습니다.
 
 해당 템플릿 사용에 관한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning용 작업 영역 만들기 ](how-to-create-workspace-template.md)를 참조하세요.
 

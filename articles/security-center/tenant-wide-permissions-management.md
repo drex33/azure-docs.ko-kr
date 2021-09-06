@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 03/11/2021
-ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99e7e09ac1b73dfb24cea14fe1b407f491e4ade5
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617491"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236898"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>테넌트 전체 표시 허용 및 요청
 
@@ -26,11 +26,11 @@ ms.locfileid: "102617491"
 
 1. 테넌트의 루트 관리 그룹에 할당되지 않은 전역 관리자 사용자는 Security Center의 **개요** 페이지를 열고 배너에서 **테넌트 전체 표시** 링크를 누릅니다. 
 
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Azure Security Center에서 테넌트 수준 권한 사용":::
+    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Azure Security Center에서 테넌트 수준 권한 사용.":::
 
 1. 할당할 새 Azure 역할을 선택합니다. 
 
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="사용자에게 할당할 테넌트 수준 권한을 정의하는 양식":::
+    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="사용자에게 할당할 테넌트 수준 권한을 정의하는 양식.":::
 
     > [!TIP]
     > 일반적으로 보안 관리자 역할은 루트 수준에서 정책을 적용해야 하며, 보안 읽기 권한자는 테넌트 수준 가시성을 제공하는 데 충분합니다. 이러한 역할로 부여되는 권한에 대한 자세한 내용은 [보안 관리자 기본 제공 역할 설명](../role-based-access-control/built-in-roles.md#security-admin) 또는 [보안 읽기 권한자 기본 제공 역할 설명](../role-based-access-control/built-in-roles.md#security-reader)을 참조하세요.
@@ -71,13 +71,13 @@ Security Center에 로그인하여 보기가 제한적이라는 배너가 표시
 
 1. 상세 요청 양식에서 원하는 역할과 권한이 필요한 이유를 선택합니다.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Azure 전역 관리자에게 테넌트 전체 권한을 요청하기 위한 세부 정보 페이지":::
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Azure 전역 관리자에게 테넌트 전체 권한을 요청하기 위한 세부 정보 페이지.":::
 
 1. **액세스 요청** 을 선택합니다.
 
     전역 관리자에게 메일을 보냅니다. 메일에는 요청을 승인하거나 거부할 수 있는 Security Center의 링크가 포함되어 있습니다.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="새 사용 권한을 위해 전역 관리자에게 메일 보내기":::
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="새 권한을 얻기 위해 전역 관리자에게 이메일 보내기.":::
 
     전역 관리자가 **요청 검토** 를 선택하고 프로세스를 완료한 후에는 요청을 보낸 사용자에게 메일이 발송됩니다. 
 

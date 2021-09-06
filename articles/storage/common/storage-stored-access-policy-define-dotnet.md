@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/12/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a68697d6dffad6aad857bb59d66beeb42dec62d2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8c1b6aa0d6bdd98a66a638a216f93a6d81bd6b93
+ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475399"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113726863"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>.NET을 사용하여 저장된 액세스 정책 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "110475399"
 
 ## <a name="create-a-stored-access-policy"></a>저장된 액세스 정책 만들기
 
-저장된 액세스 정책을 만드는 기본 REST 작업은 [컨테이너 ACL 설정](/rest/api/storageservices/set-container-acl)입니다. 연결 문자열에서 계정 액세스 키를 사용하여 공유 키를 통해 저장된 액세스 정책을 만드는 작업 권한을 부여해야 합니다. Azure AD 자격 증명을 사용하여 **컨테이너 ACL 설정** 작업 권한을 부여할 수는 없습니다. 자세한 내용은 [Blob 및 큐 데이터 작업 호출 권한](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요.
+저장된 액세스 정책을 만드는 기본 REST 작업은 [컨테이너 ACL 설정](/rest/api/storageservices/set-container-acl)입니다. 연결 문자열에서 계정 액세스 키를 사용하여 공유 키를 통해 저장된 액세스 정책을 만드는 작업 권한을 부여해야 합니다. Azure AD 자격 증명을 사용하여 **컨테이너 ACL 설정** 작업 권한을 부여할 수는 없습니다. 자세한 내용은 [데이터 작업 호출 권한](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations)을 참조하세요.
 
 다음 코드 예제에서는 컨테이너에 대한 저장된 액세스 정책을 만듭니다. 액세스 정책을 사용하여 컨테이너나 해당 Blob에 서비스 SAS에 대한 제약 조건을 지정할 수 있습니다.
 

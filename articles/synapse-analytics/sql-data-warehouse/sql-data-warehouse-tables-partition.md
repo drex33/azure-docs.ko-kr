@@ -1,5 +1,5 @@
 ---
-title: 테이블 분할
+title: 전용 SQL 풀의 테이블 분할
 description: 전용 SQL 풀에서 테이블 파티션을 사용하기 위한 권장 사항 및 예제
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/18/2019
+ms.date: 08/19/2021
 ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.reviewer: igorstan, wiassaf
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ed9a5c63fa86e1fac6abd9ac023bb48abd2f196d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ea941ae782e7da33cc07932d4b0c79613790b2e8
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459651"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122531275"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 테이블 분할
 
@@ -134,6 +134,8 @@ GROUP BY    s.[name]
 전용 SQL 풀은 파티션 분할, 병합 및 전환을 지원합니다. 이러한 각 함수는 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문을 사용하여 실행됩니다.
 
 두 테이블 간에 파티션을 전환하려면 파티션을 각 해당 경계에 맞추고 테이블 정의와 일치하는지 확인해야 합니다. Check 제약 조건은 테이블에 있는 값의 범위를 적용하는 데 사용할 수 없으므로 원본 테이블은 대상 테이블과 동일한 파티션 경계를 포함해야 합니다. 파티션 경계가 동일하지 않으면 파티션 전환은 파티션 메타데이터가 동기화되지 않아서 실패합니다.
+
+파티션 분할은 테이블에 CCI(클러스터형 columnstore 인덱스)가 있는 경우 해당 파티션(반드시 전체 테이블이 아님)을 비워야 합니다. 동일한 테이블의 다른 파티션에는 데이터가 포함될 수 있습니다. 데이터가 포함된 파티션은 분할할 수 없으며 오류가 발생합니다. `ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.` 데이터를 포함하는 파티션을 분할하는 해결 방법으로 [데이터를 포함하는 파티션을 분할하는 방법](#how-to-split-a-partition-that-contains-data)을 참조하세요. 
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>데이터를 포함하는 파티션을 분할하는 방법
 
@@ -278,6 +280,11 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 ```
 
 ### <a name="table-partitioning-source-control"></a>소스 제어를 분할하는 테이블
+
+> [!NOTE]
+> 파티션 구성표를 무시하도록 원본 제어 도구가 구성되지 않은 경우 테이블의 스키마를 변경하여 파티션을 업데이트하면 배포의 일부로 테이블이 삭제되고 다시 만들어질 수 있으며, 이는 실행 불가능할 수 있습니다. 아래 설명된 대로 이러한 변경을 구현하는 사용자 지정 솔루션이 필요할 수 있습니다. CI/CD(연속 통합/지속적인 배포) 도구에서 이를 허용하는지 확인합니다. SSDT(SQL Server Data Tools)에서 고급 게시 설정 "파티션 구성표 무시"를 찾아 테이블을 삭제하고 다시 만드는 생성된 스크립트를 방지합니다.
+
+이 예제는 빈 테이블의 파티션 구성표를 업데이트할 때 유용합니다. 데이터가 있는 테이블에 파티션 변경 내용을 지속적으로 배포하려면 파티션 분할 범위를 적용하기 전에 배포와 함께 [데이터를 포함하는 파티션을 분할하는 방법](#how-to-split-a-partition-that-contains-data)의 단계에 따라 각 파티션에서 데이터를 임시로 이동합니다. 이는 CI/CD 도구가 데이터가 있는 파티션을 인식하지 못하기 때문에 필요합니다.
 
 소스 제어 시스템에서 테이블 정의가 **부식되지** 않도록 다음 방법을 고려하는 것이 좋습니다.
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/14/2021
+ms.date: 08/01/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: f7bdadaf8570fe06d7573ff622ed921137229ae1
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 5a911b7855e74b241b2281c1e466f7f9236730af
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061563"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597260"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -77,13 +77,14 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 - 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **Blob 추가** 에 기록됩니다.
 - 감사 로그는 .xel 형식이므로 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 열 수 있습니다.
-- 서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경이 불가능한 로그 저장소를 구성하려면 [Azure Storage에서 제공하는 지침](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes)을 따르세요. 변경이 불가능한 Blog Storage를 구성할 때 **추가 허용** 을 선택했는지 확인하세요.
+- 서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경이 불가능한 로그 저장소를 구성하려면 [Azure Storage에서 제공하는 지침](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes)을 따르세요. 변경이 불가능한 Blog Storage를 구성할 때 **추가 허용** 을 선택했는지 확인하세요.
 - VNet 또는 방화벽 뒤의 Azure Storage 계정에 감사 로그를 작성할 수 있습니다. 구체적인 지침은 [VNet 및 방화벽 뒤의 스토리지 계정에 감사 작성](audit-write-storage-account-behind-vnet-firewall.md)을 참조하세요.
 - 로그 형식, 스토리지 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](./audit-log-format.md)를 참조하세요.
 - [읽기 전용 복제본](read-scale-out.md)에 대한 감사는 자동으로 설정됩니다. 스토리지 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [SQL Database 감사 로그 형식](audit-log-format.md)을 참조하세요.
 - Azure AD 인증을 사용하는 경우 실패한 로그인 레코드가 SQL 감사 로그에 나타나지 않습니다. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털](../../active-directory/reports-monitoring/concept-sign-ins.md)을 방문해야 합니다.
 - 로그인이 게이트웨이에 의해 데이터베이스가 있는 특정 인스턴스로 라우팅됩니다.  AAD 로그인의 경우 자격 증명이 확인된 후 해당 사용자로 요청된 데이터베이스에 로그인을 시도합니다.  오류가 발생하는 경우 요청된 데이터베이스는 액세스되지 않으므로 감사가 수행되지 않습니다.  SQL 로그인의 경우 요청된 데이터에서 자격 증명을 확인하므로 해당 사례를 감사할 수 있습니다.  데이터베이스에 연결된 성공적인 로그인은 두 경우 모두 감사됩니다.
 - 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](threat-detection-overview.md)을 참조하세요.
+- 감사를 사용하도록 설정된 데이터베이스를 다른 Azure SQL 논리 서버에 복사한 후 감사가 실패했음을 알리는 이메일을 받을 수 있습니다. 이는 알려진 문제이며 감사는 새로 복사된 데이터베이스에서 예상대로 작동해야 합니다.
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>서버에 대한 감사 설정
 
@@ -118,10 +119,7 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
 
 Azure SQL Server에 대한 Microsoft 지원 작업의 감사를 통해 지원 요청 중에 서버에 액세스해야 하는 경우 Microsoft 지원 엔지니어의 작업을 감사할 수 있습니다. 감사와 함께 이 기능을 사용하여 직원에게 더 많은 투명성을 제공하고 변칙 검색, 추세 시각화, 데이터 손실 방지를 지원합니다.
 
-Microsoft 지원 작업의 감사를 사용하도록 설정하려면 **Azure SQL 서버** 의 보안 제목에서 **감사** 로 이동하여 **Microsoft 지원 작업의 감사** 를 **켜짐** 으로 전환합니다.
-
-  > [!IMPORTANT]
-  > Microsoft 지원 작업의 감사는 스토리지 계정 대상을 지원하지 않습니다. 기능을 사용하도록 설정하려면 Log Analytics 작업 영역 또는 Event Hub 대상을 구성해야 합니다.
+Microsoft 지원 작업의 감사를 사용하도록 설정하려면 Azure **SQL Server** 창의 보안 제목 아래에 있는 **감사** 로 이동하여 **Microsoft 지원 작업의 감사 이용** 을 **켜짐** 으로 전환합니다.
 
 ![Microsoft 지원 작업 스크린샷](./media/auditing-overview/support-operations.png)
 
@@ -131,6 +129,10 @@ Log Analytics 작업 영역에서 Microsoft 지원 작업의 감사 로그를 �
 AzureDiagnostics
 | where Category == "DevOpsOperationsAudit"
 ```
+
+이 감사 로그에 대해 다른 스토리지 대상을 선택하거나 서버에 대해 동일한 감사 구성을 사용할 수 있습니다.
+
+:::image type="content" source="media/auditing-overview/auditing-support-operation-log-destination.png" alt-text="감사 지원 작업에 대한 감사 구성 스크린샷":::
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>스토리지 대상에 감사 작성
 
@@ -269,10 +271,10 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 **REST API**:
 
-- [데이터베이스 감사 정책 만들기 또는 업데이트](/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [데이터베이스 감사 정책 만들기 또는 업데이트](/rest/api/sql/2017-03-01-preview/server-auditing-settings/create-or-update)
 - [서버 감사 정책 만들기 또는 업데이트](/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [데이터베이스 감사 정책 가져오기](/rest/api/sql/database%20auditing%20settings/get)
-- [서버 감사 정책 가져오기](/rest/api/sql/server%20auditing%20settings/get)
+- [서버 감사 정책 가져오기](/rest/api/sql/2017-03-01-preview/server-auditing-settings/get) 
 
 WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입니다.
 
@@ -296,3 +298,9 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 
 > [!NOTE]
 > 연결된 샘플은 외부 공용 리포지토리에 있으며 보증 없이 '있는 그대로' 제공되며 Microsoft 지원 프로그램/서비스에서 지원되지 않습니다.
+
+## <a name="see-also"></a>참고 항목
+
+- 데이터 노출 에피소드 채널 9의 [Azure SQL 감사의 새로운 기능](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing).
+- [SQL Managed Instance 감사](../managed-instance/auditing-configure.md)
+- [SQL Server 감사](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)

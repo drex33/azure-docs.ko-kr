@@ -3,23 +3,19 @@ title: 가상 머신 연결 시작 - Azure
 description: 연결 시 가상 머신 시작 기능을 구성하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7e4ca9a6cfc87844bf74131b145c19aecd964554
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 301a2b0626b6dd40f90a8b693e3284c12d948fa1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752138"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528367"
 ---
-# <a name="start-virtual-machine-on-connect-preview"></a>연결 시 가상 머신 시작(미리 보기)
+# <a name="start-virtual-machine-on-connect"></a>연결 시 Virtual Machine 시작
 
-> [!IMPORTANT]
-> 연결 시 VM 시작 기능은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-연결 시 VM(가상 머신) 시작(미리 보기) 기능을 사용하면 최종 사용자가 필요할 때만 VM을 켤 수 있으므로 비용을 절감할 수 있습니다. 그런 다음 필요하지 않을 때 VM을 끌 수 있습니다.
+연결 시 VM(가상 머신) 시작 기능을 사용하면 최종 사용자가 필요할 때만 VM을 켤 수 있으므로 비용을 절감할 수 있습니다. 그런 다음 필요하지 않을 때 VM을 끌 수 있습니다.
 
 >[!NOTE]
 >Azure Virtual Desktop(클래식)은 이 기능을 지원하지 않습니다.
@@ -30,12 +26,13 @@ PowerShell 및 Azure Portal을 사용하여 개인 또는 풀링된 호스트 �
 
 다음 원격 데스크톱 클라이언트는 연결 시 VM 시작 기능을 지원합니다.
 
-- [웹 클라이언트](connect-web.md)
-- [Windows 클라이언트(버전 1.2748 이상)](connect-windows-7-10.md)
-- [Android 클라이언트(버전 10.0.10 이상)](connect-android.md)
-- [macOS 클라이언트(버전 10.6.4 이상)](connect-macos.md)
-
-[기술 커뮤니티 포럼](https://aka.ms/wvdtc)에서 업데이트 및 클라이언트 지원에 대한 공지를 확인할 수 있습니다.
+- [웹 클라이언트](./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Windows 클라이언트(버전 1.2.2061 이상)](./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Android 클라이언트(버전 10.0.10 이상)](./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [macOS 클라이언트(버전 10.6.4 이상)](./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [iOS 클라이언트(버전 10.2.5 이상)](./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Microsoft Store 클라이언트(버전 10.2.2005.0 이상)](./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [씬 클라이언트 지원](./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)에 나열된 씬 클라이언트
 
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>연결 시 VM 시작에 대한 사용자 지정 역할 만들기
 
@@ -69,7 +66,7 @@ Azure Portal을 사용하여 연결 시 VM 시작에 대한 사용자 지정 역
 
 2. 방금 만든 역할을 선택합니다.
 
-3. 검색 창에서 **Azure Virtual Desktop** 을 입력하고 선택합니다.
+3. 검색 창에 **Windows Virtual Desktop** 을 입력하고 선택합니다(곧 "Azure Virtual Desktop"으로 업데이트됨).
 
       >[!NOTE]
       >Azure Virtual Desktop(클래식)을 배포한 경우 두 개의 앱이 표시될 수 있습니다. 표시되는 두 앱에 역할을 할당합니다.
@@ -79,30 +76,33 @@ Azure Portal을 사용하여 연결 시 VM 시작에 대한 사용자 지정 역
 
 ### <a name="create-a-custom-role-with-a-json-file-template"></a>JSON 파일 템플릿을 사용하여 사용자 지정 역할 만들기
 
-JSON 파일을 사용하여 사용자 지정 역할을 만드는 경우 다음 예제에서는 사용할 수 있는 기본 템플릿을 보여 줍니다. 역할을 할당하려는 구독 ID로 구독 ID 값을 바꿔야 합니다.
+JSON 파일을 사용하여 사용자 지정 역할을 만드는 경우 다음 예제에서는 사용할 수 있는 기본 템플릿을 보여 줍니다. *AssignableScopes* 의 구독 ID 값을 역할을 할당할 구독 ID 값을 바꿔야 합니다.
 
 ```json
 {
-    "properties": {
-        "roleName": "start VM on connect",
-        "description": "Friendly description.",
-        "assignableScopes": [
-            "/subscriptions/<SubscriptionID>"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Compute/virtualMachines/start/action",
-                    "Microsoft.Compute/virtualMachines/read"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
-            }
-        ]
-    }
+  "Name": "Start VM on connect (Custom)",
+  "IsCustom": true,
+  "Description": "Start VM on connect with AVD (Custom)",
+  "Actions": [
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/read"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/00000000-0000-0000-0000-000000000000"
+  ]
 }
 ```
+
+JSON 템플릿을 사용하려면 JSON 파일을 저장하고 관련 구독 정보를 *할당 가능한 범위* 에 추가한 다음, PowerShell에서 다음 cmdlet을 실행합니다.
+
+```powershell
+New-AzRoleDefinition -InputFile "C:\temp\filename"
+```
+
+사용자 지정 역할을 만드는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트](../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template)를 참조하세요.
 
 ## <a name="configure-the-start-vm-on-connect-feature"></a>연결 시 VM 시작 기능 구성
 

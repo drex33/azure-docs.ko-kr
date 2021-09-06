@@ -1,47 +1,64 @@
 ---
-title: B2B용 X12 메시지 송신 및 수신
-description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps를 사용하여 B2B 엔터프라이즈 통합용 X12 메시지 교환
+title: B2B 통합을 위한 X12 메시지 교환
+description: Azure Logic Apps 및 엔터프라이즈 통합 팩으로 B2B 엔터프라이즈 통합 솔루션을 빌드할 때 X12 메시지를 주고받으며 처리합니다.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 04/29/2020
-ms.openlocfilehash: 87a2bcc386ec5688fadb68aabdd2e5239e205516
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.reviewer: estfan, divswa, azla
+ms.topic: how-to
+ms.date: 07/16/2021
+ms.openlocfilehash: 5328fad1530ee8dd7b4a2c79581d443488c44b28
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077474"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453844"
 ---
-# <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 X12 메시지 교환
+# <a name="exchange-x12-messages-for-b2b-enterprise-integration-using-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps과 엔터프라이즈 통합 팩을 사용하여 B2B 엔터프라이즈 통합용 X12 메시지 교환
 
-Azure Logic Apps에서 X12 메시지를 작업하려면 X12 통신을 관리하는 트리거 및 작업을 제공하는 X12 커넥터를 사용하면 됩니다. EDIFACT 메시지에 대한 자세한 내용은 [EDIFACT 메시지 교환](logic-apps-enterprise-integration-edifact.md)을 참조하세요.
+Azure Logic Apps에서는 **X12** 작업을 통해 x12 메시지를 사용하는 워크플로를 만들 수 있습니다. 이러한 작업에는 워크플로에서 X12 통신을 처리하는 데 사용할 수 있는 트리거와 작업이 포함됩니다. 워크플로의 다른 트리거 및 작업과 동일한 방식으로 X12 트리거와 작업을 추가할 수 있지만, X12 작업을 사용하려면 추가 필수 구성 요소를 충족해야 합니다.
+
+이 문서에서는 워크플로에서 X12 트리거와 작업을 사용하기 위한 요구 사항 및 설정을 설명합니다. 대신 EDIFACT 메시지를 찾고 있다면 [Exchange EDIFACT 메시지](logic-apps-enterprise-integration-edifact.md)를 검토합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps란](logic-apps-overview.md)과 [빠른 시작: 다중 테넌트 Azure Logic Apps와 Azure Portal을 사용하여 통합 워크플로 만들기](quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 계정 및 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다.
 
-* X12 커넥터를 사용하려는 논리 앱과 논리 앱의 워크플로를 시작하는 트리거. X12 커넥터는 작업만 제공하고 트리거를 제공하지 않습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+* X12 트리거 또는 작업을 사용하려는 논리 앱 리소스와 워크플로. X12 트리거를 사용하려면 빈 워크플로가 필요합니다. X12 작업을 사용하려면 기존 트리거가 있는 워크플로가 필요합니다.
 
-* Azure 구독과 연결되고 X12 커넥터를 사용하려는 논리 앱에 연결된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). 논리 앱과 통합 계정이 동일한 위치 또는 Azure 지역에 있어야 합니다.
+* 논리 앱 리소스에 연결된 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md). 논리 앱과 통합 계정 모두 동일한 Azure 구독을 사용하고 동일한 Azure 지역 또는 위치에 존재해야 합니다.
 
-* 통합 계정에서 X12 ID 한정자를 사용하여 정의한 두 군데 이상의 [거래 파트너](../logic-apps/logic-apps-enterprise-integration-partners.md)
+  통합 계정에는 다음과 같은 B2B 아티팩트도 포함되어야 합니다.
 
-* 이미 통합 계정에 추가한 XML 유효성 검사에 사용할 [스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md). HIPAA(Health Insurance Portability and Accountability Act) 스키마를 사용하는 경우 [HIPAA 스키마](#hipaa-schemas)를 참조하세요.
+  * X12 ID 한정자를 사용하는 두 개 이상의 [거래 업체](logic-apps-enterprise-integration-partners.md).
 
-* X12 커넥터를 사용하려면 거래 파트너 간에 X12 [규약](../logic-apps/logic-apps-enterprise-integration-agreements.md)을 만들고 통합 계정에 해당 규약을 저장해야 합니다. HIPAA(Health Insurance Portability and Accountability Act) 스키마를 사용하는 경우 `schemaReferences` 섹션을 규약에 추가해야 합니다. 자세한 내용은 [HIPAA 스키마](#hipaa-schemas)를 참조하세요.
+  * 거래 업체 간에 정의된 X12 [규약](logic-apps-enterprise-integration-agreements.md). 메시지를 주고받을 때 사용할 설정에 대한 자세한 내용은 [설정 받기](#receive-settings)와 [설정 보내기](#send-settings)를 검토하세요.
+
+    > [!IMPORTANT]
+    > HIPAA(Health Insurance Portability and Accountability Act) 스키마를 사용하는 경우 `schemaReferences` 섹션을 규약에 추가해야 합니다. 자세한 내용은 [HIPAA 스키마 및 메시지 유형](#hipaa-schemas)을 검토하세요.
+
+  * XML 유효성 검사에 사용할 [스키마](logic-apps-enterprise-integration-schemas.md).
+
+    > [!IMPORTANT]
+    > HIPAA(Health Insurance Portability and Accountability Act) 스키마를 사용하는 경우 [HIPAA 스키마 및 메시지 유형](#hipaa-schemas)을 검토해야 합니다.
+
+## <a name="connector-reference"></a>커넥터 참조
+
+커넥터의 Swagger 파일에 설명된 트리거, 작업, 제한 등 이 커넥터에 대한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/x12/)를 참조하세요.
+
+> [!NOTE]
+> 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에는 [ISE에 대한 B2B 메시지 제한](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)을 사용합니다.
 
 <a name="receive-settings"></a>
 
 ## <a name="receive-settings"></a>수신 설정
 
-규약 속성을 설정한 후에는 이 규약을 통해 파트너로부터 받는 인바운드 메시지를 이 규약에서 어떻게 식별하고 처리할 것인지 구성할 수 있습니다.
+거래 업체 규약에 속성을 설정하면 이 규약을 통해 파트너로부터 받는 인바운드 메시지를 이 규약에서 식별하고 처리하는 방법을 구성할 수 있습니다.
 
 1. **추가** 아래에서 **수신 설정** 을 선택합니다.
 
-1. 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. **수신 설정** 은 다음 섹션으로 구성됩니다.
+1. 메시지를 교환하는 파트너와의 규약에 따라 **수신 설정** 창에서 속성을 설정합니다. 이 창은 다음 섹션으로 구성되어 있습니다.
 
    * [식별자](#inbound-identifiers)
    * [승인](#inbound-acknowledgement)
@@ -50,8 +67,6 @@ Azure Logic Apps에서 X12 메시지를 작업하려면 X12 통신을 관리하�
    * [컨트롤 번호](#inbound-control-numbers)
    * [Validations](#inbound-validations)
    * [내부 설정](#inbound-internal-settings)
-
-   속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
 1. 모두 마쳤으면 **확인** 을 선택하여 설정을 저장합니다.
 
@@ -200,7 +215,7 @@ Azure Logic Apps에서 X12 메시지를 작업하려면 X12 통신을 관리하�
 | 속성 | Description |
 |----------|-------------|
 | **TA1이 예상됨** | 교환 보낸 사람에게 기술 승인(TA1)을 반환합니다. <p>이 설정은 메시지를 보내는 호스트 파트너가 규약의 게스트 파트너로부터 승인을 요청하도록 지정합니다. 규약의 수신 설정에 따라 호스트 파트너에는 이러한 승인이 필요합니다. |
-| **FA가 예상됨** | 교환 보낸 사람에게 기능 승인(FA)을 반환합니다. **FA Version** 속성의 경우 스키마 버전에 따라 997 또는 999 승인을 선택합니다. <p>이 설정은 메시지를 보내는 호스트 파트너가 규약의 게스트 파트너의 승인을 해당 게스트 파트너에게 요청하도록 지정합니다. 규약의 수신 설정에 따라 호스트 파트너에는 이러한 승인이 필요합니다. |
+| **FA가 예상됨** | 교환 보낸 사람에게 기능 승인(FA)을 반환합니다. **FA Version** 속성의 경우 스키마 버전에 따라 997 또는 999 승인을 선택합니다. <p>이 설정은 메시지를 보내는 호스트 파트너가 규약의 게스트 파트너에게 승인을 요청하도록 지정합니다. 규약의 수신 설정에 따라 호스트 파트너에는 이러한 승인이 필요합니다. |
 |||
 
 <a name="outbound-schemas"></a>
@@ -309,7 +324,7 @@ Azure Logic Apps에서 X12 메시지를 작업하려면 X12 통신을 관리하�
 
 ## <a name="hipaa-schemas-and-message-types"></a>HIPAA 스키마 및 메시지 유형
 
-HIPAA 스키마 및 277 또는 837 메시지 유형을 사용하는 경우 몇 가지 추가 단계를 수행해야 합니다. 이러한 메시지 유형의 [문서 버전 번호(GS8)](#outbound-control-version-number)에는 10자 이상의 문자가 포함됩니다(예: "005010X222A1"). 또한 일부 문서 버전 번호는 변형 메시지 유형에 매핑됩니다. 스키마 및 규약에서 올바른 메시지 유형을 참조하지 않으면 다음 오류 메시지가 표시됩니다.
+HIPAA 스키마 및 277 또는 837 메시지 유형을 사용하는 경우 몇 가지 추가 단계를 수행해야 합니다. 이러한 메시지 유형의 [문서 버전 번호(GS8)](#outbound-control-version-number)에는 10자 이상의 문자가 포함됩니다(예: ‘005010X222A1’). 또한 일부 문서 버전 번호는 변형 메시지 유형에 매핑됩니다. 스키마 및 규약에서 올바른 메시지 유형을 참조하지 않으면 다음 오류 메시지가 표시됩니다.
 
 `"The message has an unknown document type and did not resolve to any of the existing schemas configured in the agreement."`
 
@@ -378,13 +393,8 @@ HIPAA 스키마 및 277 또는 837 메시지 유형을 사용하는 경우 몇 �
 
    ![모든 메시지 유형 또는 각 메시지 유형에 유효성 검사를 사용하지 않도록 설정](./media/logic-apps-enterprise-integration-x12/x12-disable-validation.png) 
 
-## <a name="connector-reference"></a>커넥터 참조
-
-커넥터의 Swagger 파일에 설명된 작업 및 제한을 비롯하여 이 커넥터에 대한 추가 기술 정보는 [커넥터의 참조 페이지](/connectors/x12/)에서 확인할 수 있습니다.
-
-> [!NOTE]
-> 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에는 [ISE에 대한 B2B 메시지 제한](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)을 사용합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-* 다른 [Logic Apps용 커넥터](../connectors/apis-list.md)에 대해 알아보세요.
+* [X12 TA1 기술 승인 및 오류 코드](logic-apps-enterprise-integration-x12-ta1-acknowledgment.md)
+* [X12 997 기능 승인 및 오류 코드](logic-apps-enterprise-integration-x12-997-acknowledgment.md)
+* [Azure Logic Apps의 커넥터 정보](../connectors/apis-list.md)

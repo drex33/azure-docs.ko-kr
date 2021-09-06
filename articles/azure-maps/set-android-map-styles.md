@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 4d96d116bc4350a3326722c87f65e887d5a54791
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 84e87593a67bfda512619c5637ffc13c07fa8111
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326546"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091279"
 ---
 # <a name="set-map-style-android-sdk"></a>지도 스타일 설정(Android SDK)
 
 이 문서에서는 Azure Maps Android SDK를 사용하여 지도 스타일을 설정하는 두 가지 방법을 보여 줍니다. Azure Maps에서는 여섯 가지 다른 지도 스타일 중에서 선택할 수 있습니다. 지원되는 지도 스타일에 대한 자세한 내용은 [Azure Maps에서 지원되는 지도 스타일](supported-map-styles.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료해야 합니다.
 
@@ -33,14 +33,14 @@ ms.locfileid: "108326546"
 지도 컨트롤을 추가할 때 활동 클래스의 레이아웃 파일에서 지도 스타일을 설정할 수 있습니다. 다음 코드는 중심 위치, 확대/축소 수준 및 지도 스타일을 설정합니다.
 
 ```XML
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/mapcontrol"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_centerLat="47.602806"
-    app:mapcontrol_centerLng="-122.329330"
-    app:mapcontrol_zoom="12"
-    app:mapcontrol_style="grayscale_dark"
+    app:azure_maps_centerLat="47.602806"
+    app:azure_maps_centerLng="-122.329330"
+    app:azure_maps_zoom="12"
+    app:azure_maps_style="grayscale_dark"
     />
 ```
 
@@ -204,6 +204,47 @@ map.setCamera(
 ::: zone-end
 
 경계 상자의 가로 세로 비율은 지도의 가로 세로 비율과 동일하지 않을 수 있습니다. 이와 같이 지도는 전체 경계 상자 영역을 표시하지만 세로 또는 가로로만 밀집되는 경우가 많습니다.
+
+### <a name="animate-map-view"></a>맵 보기 애니메이션
+
+맵의 카메라 옵션을 설정하는 경우 애니메이션 옵션을 사용하여 현재 맵 보기와 다음 맵 보기 간의 전환을 만들 수도 있습니다. 이 옵션은 애니메이션 유형과 카메라를 이동하는 데 걸리는 시간을 지정합니다.
+
+| 옵션 | 설명 |
+|--------|-------------|
+| `animationDuration(Integer durationMs)` | 카메라가 보기 간에 애니메이션을 적용할 시간(밀리초)을 지정합니다. |
+| `animationType(AnimationType animationType)` | 수행할 애니메이션 전환 유형을 지정합니다.<br/><br/> - `JUMP` - 즉각적인 변경.<br/> - `EASE` - 카메라 설정의 점진적 변경.<br/> - `FLY` - 비행과 유사한 arc에 따라 카메라 설정을 점진적으로 변경합니다. |
+
+다음 코드에서는 3초 동안 `FLY` 애니메이션을 사용하여 맵 보기에 애니메이션을 적용하는 방법을 보여줍니다.
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.6)),
+    zoom(12),
+    animationType(AnimationType.FLY), 
+    animationDuration(3000)
+);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.6)),
+    zoom(12.0),
+    AnimationOptions.animationType(AnimationType.FLY),
+    AnimationOptions.animationDuration(3000)
+)
+```
+
+::: zone-end
+
+다음은 뉴욕에서 시애틀까지의 맵 보기에 애니메이션을 적용하는 위의 코드를 보여줍니다.
+
+![뉴욕에서 시애틀까지 카메라 애니메이션 매핑](media/set-android-map-styles/android-animate-camera.gif)
 
 ## <a name="next-steps"></a>다음 단계
 

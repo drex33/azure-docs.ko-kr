@@ -3,12 +3,12 @@ title: Event Grid 원본으로서의 Azure Media Services
 description: Azure Event Grid에서 Media Services 이벤트에 대해 제공되는 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b5772a2332e1864d0b8df0d4e102006b29b6a61e
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: c3b40f1a40cd0a5ee611a00f2f0361a8a522d3ad
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120115"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529551"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Event Grid 원본으로서의 Azure Media Services
 
@@ -22,26 +22,27 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 ### <a name="monitoring-job-state-changes"></a>작업 상태 변경 모니터링
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| 모든 작업 상태 변경에 대한 이벤트를 가져옵니다. |
 | Microsoft.Media.JobScheduled| 작업이 예약됨 상태로 전환되는 이벤트를 가져옵니다. |
 | Microsoft.Media.JobProcessing| 작업이 처리 중 상태로 전환되는 이벤트를 가져옵니다. |
 | Microsoft.Media.JobCanceling| 작업이 취소 중 상태로 전환되는 이벤트를 가져옵니다. |
+| Microsoft.Media.JobFinished| 작업이 완료됨 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
 | Microsoft.Media.JobCanceled| 작업이 취소됨 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
-| Microsoft.Media.JobErrored | 작업이 오류 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
+| Microsoft.Media.JobErrored| 작업이 오류 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
 
 다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
 
 ### <a name="monitoring-job-output-state-changes"></a>작업 출력 상태 변경 모니터링
 
-(여러 작업 출력이 포함되도록 변환을 구성한 경우) 작업에 여러 작업 출력이 포함될 수 있습니다. 개별 작업 출력의 세부 정보를 추적하려면 작업 출력 변경 이벤트를 수신 대기합니다.
+작업에 여러 작업 출력이 포함될 수 있습니다(여러 작업 출력이 포함되도록 변환을 구성한 경우). 개별 작업 출력의 세부 정보를 추적하려면 작업 출력 변경 이벤트를 수신 대기합니다.
 
 각 **작업** 은 **JobOutput** 보다 더 높은 수준에 있으므로 작업 출력 이벤트는 해당 작업 내에서 실행됩니다. 
 
 `JobFinished`, `JobCanceled`, `JobError`의 오류 메시지는 모든 작업 출력이 완료되면 각 작업 출력에 대한 집계 결과를 출력합니다. 반면 작업(job) 출력 이벤트는 각 작업(task)이 완료될 때 실행됩니다. 예를 들어 인코딩 출력과 그 다음 비디오 분석 출력이 있으면 최종 JobFinished 이벤트가 집계 데이터로 실행되기 전에 작업 출력 이벤트로 발생하는 두 개의 이벤트가 실행됩니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| 모든 작업 출력 상태 변경에 대한 이벤트를 가져옵니다. |
 | Microsoft.Media.JobOutputScheduled| 작업 출력이 예약됨 상태로 전환되는 이벤트를 가져옵니다. |
@@ -55,7 +56,7 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 
 ### <a name="monitoring-job-output-progress"></a>작업 출력 진행률 모니터링
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputProgress| 이 이벤트는 작업 처리 진행 상태를 0%에서 100%까지 반영합니다. 진행 상태 값이 5% 이상 증가했거나 마지막 이벤트(하트비트) 이후 30초가 넘은 경우 서비스에서 이벤트 전송을 시도합니다. 진행률 값은 0%에서 시작하거나 100%에 도달하도록 보장되지 않으며 시간이 지남에 따라 일정한 속도로 증가하도록 보장되지도 않습니다. 처리가 완료되었음을 확인하는 데 이 이벤트를 사용하면 안 됩니다. 대신, 상태 변경 이벤트를 사용해야 합니다.|
 
@@ -69,7 +70,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 스트림 수준 이벤트는 스트림 또는 연결마다 발생합니다. 각 이벤트에는 연결 또는 스트림을 식별하는 `StreamId` 매개 변수가 있습니다. 각 스트림 또는 연결에는 서로 다른 유형의 트랙이 하나 이상 있습니다. 예를 들어, 인코더의 연결 하나에는 하나의 오디오 트랙과 4개의 비디오 트랙이 있을 수 있습니다. 스트림 이벤트 유형은 다음과 같습니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | 인코더의 연결 시도가 거부됩니다. |
 | Microsoft.Media.LiveEventEncoderConnected | 인코더에서 라이브 이벤트와의 연결을 설정합니다. |
@@ -86,13 +87,13 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 트랙 수준 이벤트 유형은 다음과 같습니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | 미디어 서버가 너무 늦거나 타임스탬프가 겹치기 때문에 데이터 청크가 삭제됩니다(새 데이터 청크의 타임스탬프가 이전 데이터 청크의 종료 시간보다 이전임). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | 미디어 서버에서 스트림 또는 연결의 각 트랙에 대한 첫 번째 데이터 청크를 받습니다. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 미디어 서버는 오디오 및 비디오 스트림이 동기화되지 않은 경우를 감지합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 이 이벤트를 경고로 사용합니다. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | 미디어 서버는 외부 인코더에서 들어오는 두 비디오 스트림이 하나라도 동기화되지 않은 경우를 검색합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 이 이벤트를 경고로 사용합니다. |
-| Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다.<br/><br/>인코더가 처음 연결된 후에는 인코더가 계속 연결되어 있는지에 관계없이 하트비트 이벤트는 20초마다 계속 내보냅니다. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 미디어 서버는 오디오 및 비디오 스트림이 동기화되지 않은 경우를 탐지합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 이 이벤트를 경고로 사용합니다. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | 미디어 서버는 외부 인코더에서 들어오는 두 비디오 스트림이 하나라도 동기화되지 않은 경우를 탐지합니다. 사용자 환경이 영향을 받지 않을 수 있으므로 이 이벤트를 경고로 사용합니다. |
+| Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다.<br/><br/>인코더가 처음 연결된 후에는 인코더가 계속 연결되어 있는지에 관계없이 하트비트 이벤트가 20초마다 계속 발생합니다. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | 미디어 서버에서 들어오는 트랙의 불연속성을 감지합니다. |
 
 다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
@@ -148,7 +149,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `previousState` | 문자열 | 이벤트 전의 작업 상태입니다. |
 | `state` | 문자열 | 이 이벤트에서 알리는 직업의 새로운 상태입니다. 예를 들어 “예약됨: 작업을 시작할 준비가 되었습니다.” 또는 “완료됨: 작업이 완료되었습니다.” 등이 있습니다.|
@@ -279,13 +280,11 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `outputs` | Array | 작업 출력을 가져옵니다.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
-
-# <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 
 **JobOutputStateChange** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다.
 
@@ -395,118 +394,9 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 ]
 ```
 
-# <a name="cloud-event-schema"></a>[클라우드 이벤트 스키마](#tab/cloud-event-schema)
-
-**JobOutputStateChange** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다.
-
-```json
-[{
-  "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
-  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
-  "type": "Microsoft.Media.JobOutputStateChange",
-  "time": "2018-10-12T16:25:56.0242854",
-  "id": "dde85f46-b459-4775-b5c7-befe8e32cf90",
-  "data": {
-    "previousState": "Processing",
-    "output": {
-      "@odata.type": "#Microsoft.Media.JobOutputAsset",
-      "assetName": "output-7640689F",
-      "error": null,
-      "label": "VideoAnalyzerPreset_0",
-      "progress": 100,
-      "state": "Finished"
-    },
-    "jobCorrelationData": {
-      "testKey1": "testValue1",
-      "testKey2": "testValue2"
-    }
-  },
-  "specversion": "1.0"
-}]
-```
-
-### <a name="joboutputscheduled-joboutputprocessing-joboutputfinished-joboutputcanceling-joboutputcanceled-joboutputerrored"></a>JobOutputScheduled, JobOutputProcessing, JobOutputFinished, JobOutputCanceling, JobOutputCanceled, JobOutputErrored
-
-각 JobOutput 상태 변경에 대한 예제 스키마는 다음과 유사합니다.
-
-```json
-[{
-  "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
-  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
-  "type": "Microsoft.Media.JobOutputProcessing",
-  "time": "2018-10-12T16:12:18.0061141",
-  "id": "f1fd5338-1b6c-4e31-83c9-cd7c88d2aedb",
-  "data": {
-    "previousState": "Scheduled",
-    "output": {
-      "@odata.type": "#Microsoft.Media.JobOutputAsset",
-      "assetName": "output-7640689F",
-      "error": null,
-      "label": "VideoAnalyzerPreset_0",
-      "progress": 0,
-      "state": "Processing"
-    },
-    "jobCorrelationData": {
-      "testKey1": "testValue1",
-      "testKey2": "testValue2"
-    }
-  },
-  "specversion": "1.0"
-}]
-```
-### <a name="joboutputprogress"></a>JobOutputProgress
-
-예제 스키마는 다음과 유사합니다.
-
- ```json
-[{
-  "source": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
-  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
-  "type": "Microsoft.Media.JobOutputProgress",
-  "time": "2018-12-10T18:20:12.1514867",
-  "id": "00000000-0000-0000-0000-000000000000",
-  "data": {
-    "jobCorrelationData": {
-      "TestKey1": "TestValue1",
-      "testKey2": "testValue2"
-    },
-    "label": "VideoAnalyzerPreset_0",
-    "progress": 86
-  },
-  "specversion": "1.0"
-}]
-```
-
-### <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
-
-**LiveEventConnectionRejected** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
-
-```json
-[
-  {
-    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaServices/<account-name>",
-    "subject": "/LiveEvents/MyLiveEvent1",
-    "type": "Microsoft.Media.LiveEventConnectionRejected",
-    "time": "2018-01-16T01:57:26.005121Z",
-    "id": "b303db59-d5c1-47eb-927a-3650875fded1",
-    "data": { 
-      "streamId":"Mystream1",
-      "ingestUrl": "http://abc.ingest.isml",
-      "encoderIp": "118.238.251.xxx",
-      "encoderPort": 52859,
-      "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
-    },
-    "specversion": "1.0"
-  }
-]
-```
-
----
-
-
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `streamId` | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
 | `ingestUrl` | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
@@ -569,7 +459,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `streamId` | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 제공해야 합니다. |
 | `ingestUrl` | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |
@@ -631,7 +521,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `streamId` | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
 | `ingestUrl` | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
@@ -710,7 +600,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `trackType` | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | `trackName` | 문자열 | 트랙의 이름입니다. |
@@ -782,7 +672,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `trackType` | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | `trackName` | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -850,7 +740,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `minLastTimestamp` | 문자열 | 모든 트랙(오디오 또는 비디오) 중에서 마지막 타임스탬프의 최솟값입니다. |
 | `typeOfTrackWithMinLastTimestamp` | 문자열 | 마지막 타임스탬프가 최소인 트랙 유형(오디오 또는 비디오)입니다. |
@@ -914,7 +804,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `firstTimestamp` | 문자열 | 비디오 유형의 트랙/품질 수준 중 하나에 대해 받은 타임스탬프입니다. |
 | `firstDuration` | 문자열 | 첫 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
@@ -934,21 +824,25 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
     "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
     "subject": "liveEvent/mle1",
     "eventType": "Microsoft.Media.LiveEventIngestHeartbeat",
-    "eventTime": "2018-08-07T23:17:57.4610506",
+    "eventTime": "2021-05-14T23:50:00.324",
     "id": "7f450938-491f-41e1-b06f-c6cd3965d786",
     "data": {
-      "trackType": "audio",
-      "trackName": "audio",
-      "bitrate": 160000,
-      "incomingBitrate": 155903,
-      "lastTimestamp": "15336837535253637",
-      "timescale": "10000000",
-      "overlapCount": 0,
-      "discontinuityCount": 0,
-      "nonincreasingCount": 0,
-      "unexpectedBitrate": false,
-      "state": "Running",
-      "healthy": true
+      "trackType":"video",
+      "trackName":"video",
+      "bitrate":2500000,
+      "incomingBitrate":2462597,
+      "lastTimestamp":"106999",
+      "timescale":"1000",
+      "overlapCount":0,
+      "discontinuityCount":0,
+      "nonincreasingCount":0,
+      "unexpectedBitrate":false,
+      "state":"Running",
+      "healthy":true,
+      "lastFragmentArrivalTime":"2021-05-14T23:50:00.324",
+      "ingestDriftValue":"0",
+      "transcriptionState":"",
+      "transcriptionLanguage":""
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -992,7 +886,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `trackType` | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | `trackName` | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -1006,6 +900,11 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | `unexpectedBitrate` | bool | 마지막 20초 동안 허용 한도를 초과하여 예상 및 실제 비트 전송률이 다릅니다. incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0인 경우에만 true입니다. |
 | `state` | 문자열 | 라이브 이벤트의 상태입니다. |
 | `healthy` | bool | 횟수 및 플래그에 기반하여 수집이 정상인지 여부를 나타냅니다. overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false이면 healthy가 true입니다. |
+| `lastFragmentArrivalTime` | 문자열 |조각이 수집 엔드포인트에 도착한 UTC의 마지막 타임스탬프입니다. 예제 날짜 형식은 "2020-11-11 12:12:12:888999"입니다. |
+| `ingestDriftValue` | 문자열 | 지난 1분 동안 들어오는 오디오 또는 비디오 데이터의 지연 속도(분당 초)를 나타냅니다. 데이터가 지난 1분 동안 예상보다 느리게 라이브 이벤트에 도착하면 값은 0보다 큽니다. 데이터가 지연 없이 도착하면 0입니다. 그리고 오디오 또는 비디오 데이터를 받지 못한 경우에는 "n/a"입니다. 예를 들어 라이브 콘텐츠에서 기여 인코더를 전송하고 처리 문제 또는 네트워크 대기 시간으로 인해 속도가 느려지는 경우 1분 동안 전체 오디오 또는 비디오를 58초까지만 전달할 수 있습니다. 이는 분당 2초의 드리프트로 보고됩니다. 인코더에서 1분마다 모든 60초 이상의 데이터를 수집하고 보낼 수 있는 경우 이 값이 0으로 보고됩니다. 인코더와의 연결이 끊겼거나 중단되었더라도 이 값은 데이터(타임스탬프에서 지연된 데이터만 해당)의 단절을 고려하지 않으므로 0으로 표시될 수 있습니다.|
+| `transcriptionState` | 문자열 | 이 값은 라이브 대화 내용 기록을 켠 경우 오디오 트랙 하트비트에 대해 "On"입니다. 그렇지 않으면 빈 문자열이 표시됩니다. 이 상태는 라이브 대화 내용 기록에 대한 "오디오"의 tracktype에만 적용됩니다. 다른 모든 트랙에는 빈 값이 있습니다.|
+| `transcriptionLanguage` | 문자열  | 대화 내용 기록 언어의 언어 코드(BCP-47 형식)입니다. 예를 들어 "de-de"는 독일어(독일)를 나타냅니다. 비디오 트랙 하트비트에 대한 값이 비어 있거나 라이브 대화 내용 기록을 해제한 경우에는 이 값이 비어 있습니다. |
+
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -1066,7 +965,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `trackType` | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | `trackName` | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -1082,7 +981,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 그리드 토픽입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
 | `subject` | 문자열 | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |
@@ -1097,7 +996,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 그리드 토픽입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
 | `subject` | 문자열 | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |

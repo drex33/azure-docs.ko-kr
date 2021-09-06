@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bd9e8c2e71f69045078111bd5a4ae7c0edf567aa
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: f38149e2259dbb6724a81e8139f46bd65a0edff0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527373"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536886"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Azure Blob Storage 모니터링
 
@@ -67,7 +67,7 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 ## <a name="creating-a-diagnostic-setting"></a>진단 설정 만들기
 
-Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 사용하여 진단 설정을 만들 수 있습니다. 
+Azure Portal, PowerShell, Azure CLI, Azure Resource Manager 템플릿 또는 Azure Policy를 사용하여 진단 설정을 만들 수 있습니다. 
 
 일반 지침은 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
@@ -159,7 +159,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log>
 ```
 
-이 코드 조각의 `<storage-service-resource--id>` 자리 표시자를 Blob service의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지를 열어 확인할 수 있습니다.
+이 코드 조각의 `<storage-service-resource--id>` 자리 표시자를 Blob service의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **엔드포인트** 페이지를 열어 확인할 수 있습니다.
 
 **Category** 매개 변수의 값으로 `StorageRead`, `StorageWrite` 및 `StorageDelete`를 사용할 수 있습니다.
 
@@ -223,7 +223,7 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true }]'
 ```
 
-이 코드 조각의 `<storage-service-resource--id>` 자리 표시자를 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지를 열어 확인할 수 있습니다.
+이 코드 조각의 `<storage-service-resource--id>` 자리 표시자를 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **엔드포인트** 페이지를 열어 확인할 수 있습니다.
 
 **category** 매개 변수의 값으로 `StorageRead`, `StorageWrite` 및 `StorageDelete`를 사용할 수 있습니다.
 
@@ -269,6 +269,10 @@ az monitor diagnostic-settings create --name <setting-name> --workspace <log-ana
 
 진단 설정을 만드는 Azure Resource Manager 템플릿을 보려면 [Azure Storage에 대한 진단 설정](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage)을 참조하세요.
 
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
+
+정책 정의를 사용하여 진단 설정을 만들 수 있습니다. 이렇게 하면 만들거나 업데이트한 모든 계정에 대해 진단 설정이 생성되었는지 확인할 수 있습니다. [Azure Storage에 대한 Azure Policy 기본 제공 정의](../common/policy-reference.md)를 참조하세요.
+
 ---
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
@@ -302,7 +306,7 @@ Azure Blob Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록�
 
 Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)를 제공합니다. [샘플 코드](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)는 다른 매개 변수로 SDK를 사용하는 방법을 보여줍니다. 스토리지 메트릭을 사용하려면 `0.18.0-preview` 이상의 버전을 사용해야 합니다.
  
-이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지에서 확인할 수 있습니다.
+이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에 있는 스토리지 계정의 **엔드포인트** 페이지에서 확인할 수 있습니다.
 
 `<subscription-ID>` 변수를 구독의 ID로 바꿉니다. `<tenant-ID>`, `<application-ID>` 및 `<AccessKey>` 값을 얻는 방법에 대한 지침은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 
 
@@ -444,7 +448,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 
 스토리지 계정 또는 Blob Storage 서비스의 메트릭 정의를 나열할 수 있습니다. [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition)을 사용합니다.
 
-이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다.  리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지에서 확인할 수 있습니다.
+이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다.  리소스 ID는 Azure Portal에 있는 스토리지 계정의 **엔드포인트** 페이지에서 확인할 수 있습니다.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -466,7 +470,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 
 스토리지 계정 또는 Blob Storage 서비스의 메트릭 정의를 나열할 수 있습니다. [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) 명령을 사용합니다.
  
-이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지에서 확인할 수 있습니다.
+이 예에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에 있는 스토리지 계정의 **엔드포인트** 페이지에서 확인할 수 있습니다.
 
 ```azurecli-interactive
    az monitor metrics list-definitions --resource <resource-ID>
@@ -480,6 +484,10 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 ### <a name="template"></a>[템플릿](#tab/template)
+
+해당 없음.
+
+### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
 해당 없음.
 
@@ -610,3 +618,4 @@ Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 �
 - Azure Blob Storage에서 만든 로그 및 메트릭에 대한 참조는 [Azure Blob Storage 모니터링 데이터 참조](monitor-blob-storage-reference.md)에서 확인하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용한 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.
 - 메트릭 마이그레이션에 대한 자세한 내용은 [Azure Storage 메트릭 마이그레이션](../common/storage-metrics-migration.md)을 참조하세요.
+- 공통 시나리오 및 모범 사례는 [Azure Blob Storage 모니터링에 대한 모범 사례](blob-storage-monitoring-scenarios.md)를 참조하세요.

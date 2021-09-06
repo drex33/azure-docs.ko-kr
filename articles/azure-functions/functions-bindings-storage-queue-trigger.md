@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 8f9f6c18e75b0c8238583742a2a99d0e365edbd0
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 85422b8bc587c858fc219379e553d1705e5aaabe
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166364"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568136"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions의 Azure Queue Storage 트리거
 
@@ -439,9 +439,21 @@ Python에서는 특성을 지원하지 않습니다.
 
 ## <a name="poison-messages"></a>포이즌 메시지
 
-큐 트리거 함수가 실패하는 경우 Azure Functions는 해당 함수를 지정된 큐 메시지에 대해 최대 5번(첫 번째 시도 포함) 다시 시도합니다. 5번 모두 실패할 경우 Functions 런타임은 *&lt;originalqueuename>-poison* 이라는 큐에 메시지를 추가합니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
+큐 트리거 함수가 실패하는 경우 Azure Functions는 해당 함수를 지정된 큐 메시지에 대해 최대 5번(첫 번째 시도 포함) 다시 시도합니다. 5번의 시도가 모두 실패할 경우 함수 런타임은 *&lt;originalqueuename&gt;-poison* 이라는 큐에 메시지를 추가합니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
 
 포이즌 메시지를 수동으로 처리하려면 큐 메시지의 [dequeueCount](#message-metadata)를 확인합니다.
+
+
+## <a name="peek-lock"></a>피킹 잠금
+피킹 잠금 패턴은 큐 트리거에 대해 자동으로 발생합니다. 메시지가 큐에서 제거되면 보이지 않음으로 표시되고 Storage 서비스에서 관리하는 시간 제한에 연결됩니다.
+
+함수가 시작되면 다음 조건에서 메시지 처리를 시작합니다.
+
+- 함수가 성공하면 함수 실행이 완료되고 메시지가 삭제됩니다.
+- 함수가 실패하면 메시지 표시 유형이 다시 설정됩니다. 다시 설정되면 다음에 함수가 새 메시지를 요청할 때 메시지가 다시 처리됩니다.
+- 작동 중단으로 인해 함수가 완료되지 않으면 메시지 표시 유형이 만료되고 메시지는 큐에 다시 표시됩니다.
+
+모든 표시 유형 메커니즘은 Functions 런타임이 아니라 Storage 서비스에 의해 처리됩니다.
 
 ## <a name="polling-algorithm"></a>폴링 알고리즘
 
@@ -449,14 +461,15 @@ Python에서는 특성을 지원하지 않습니다.
 
 알고리즘은 다음 논리를 사용합니다.
 
-- 메시지가 발견되면 런타임은 2초를 기다린 다음 다른 메시지를 확인합니다.
-- 메시지가 발견되지 않으면 다시 시도하기 전에 약 4초 동안 기다립니다.
+- 메시지가 발견되면 런타임은 100밀리초 동안 기다린 다음, 다른 메시지를 확인합니다.
+- 메시지가 발견되지 않으면 약 200밀리초 동안 기다렸다가 다시 시도합니다.
 - 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다.
 - 최대 대기 시간은 [host.json 파일](functions-host-json-v1.md#queues)의 `maxPollingInterval` 속성을 통해 구성할 수 있습니다.
 
 로컬 개발의 경우 최대 폴링 간격의 기본값은 2초입니다.
 
-청구와 관련하여 런타임별로 폴링하는 데 소요된 시간은 "무료"이며 계정에 청구되지 않습니다.
+> [!NOTE]
+> 소비 계획에서 함수 앱을 호스팅할 때의 요금 청구와 관련하여, 런타임에 폴링하는 데 소요된 시간에 대해서는 요금이 청구되지 않습니다.
 
 ## <a name="concurrency"></a>동시성
 

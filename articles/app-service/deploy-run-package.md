@@ -3,12 +3,12 @@ title: ZIP 패키지에서 앱 실행
 description: 원자성을 사용하여 앱의 ZIP 패키지를 배포합니다. ZIP 배포 프로세스 중에 앱 동작에 대한 예측 가능성과 안정성을 개선합니다.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: d3315370342f54091598aa3f77f70f03bda4ad33
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 99de9745b75bd21a0fb3126c51b38b047e9b77f4
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772742"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135296"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Azure App Service에서 ZIP 패키지의 앱 직접 실행하기
 
@@ -53,7 +53,7 @@ az webapp deployment source config-zip --resource-group <group-name> --name <app
 
 ## <a name="run-from-external-url-instead"></a>외부 URL에서 실행
 
-Azure Blob Storage와 같은 외부 URL에서 패키지를 실행할 수도 있습니다. [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다. [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)가 포함된 프라이빗 스토리지 컨테이너를 사용하여 App Service 런타임이 패키지에 안전하게 액세스할 수 있게 해야 합니다. 
+Azure Blob Storage와 같은 외부 URL에서 패키지를 실행할 수도 있습니다. [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다. [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)가 포함된 프라이빗 스토리지 컨테이너를 사용하거나 [관리 ID를 사용](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity)하여 App Service 런타임이 패키지에 안전하게 액세스할 수 있게 해야 합니다. 
 
 Blob 스토리지에 파일을 업로드하고 파일에 대한 SAS URL이 있는 경우 `WEBSITE_RUN_FROM_PACKAGE` 앱 설정을 URL로 설정합니다. 다음 예에서는 Azure CLI를 사용하여 해당 작업을 수행합니다.
 
@@ -62,6 +62,10 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ```
 
 Blob 스토리지에 동일한 이름의 업데이트된 패키지를 게시하는 경우 업데이트된 패키지가 App Service에 로드되도록 앱을 다시 시작해야 합니다.
+
+### <a name="fetch-a-package-from-azure-blob-storage-using-a-managed-identity"></a>관리 ID를 사용하여 Azure Blob Storage에서 패키지 페치
+
+[!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
 
 ## <a name="troubleshooting"></a>문제 해결
 

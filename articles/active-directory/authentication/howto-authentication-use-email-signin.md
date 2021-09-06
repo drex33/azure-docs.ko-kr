@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 5/3/2021
+ms.date: 07/07/2021
 ms.author: justinha
-author: justinha
+author: calui
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: ed77dcad9e9e6568cc38fd3510d9b5a9a0624c11
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 0a4ad5d9aaa9bb851a651ddc77bd1acb773b6019
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963646"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113485710"
 ---
 # <a name="sign-in-to-azure-ad-with-email-as-an-alternate-login-id-preview"></a>메일을 대체 로그인 ID로 사용하여 Azure AD에 로그인(미리 보기)
 
@@ -40,7 +40,8 @@ ms.locfileid: "111963646"
 
 * 이 기능은 Azure AD Free 버전 이상에서 사용할 수 있습니다.
 * 이 기능을 통해 클라우드 인증 Azure AD 사용자에 대해 확인된 도메인 *ProxyAddresses* 로 로그인하도록 설정할 수 있습니다.
-* 사용자가 비 UPN 메일을 사용하여 로그인하면 [ID 토큰](../develop/id-tokens.md)의 `unique_name` 및 `preferred_username` 클레임(있는 경우)에 UPN이 아닌 메일 값이 포함됩니다.
+* 사용자가 비 UPN 이메일을 사용하여 로그인하면 [ID 토큰](../develop/id-tokens.md)의 `unique_name` 및 `preferred_username` 클레임(있는 경우)이 비 UPN 이메일을 반환합니다.
+* 이 기능은 PHS(암호 해시 동기화) 또는 PTA(통과 인증)로 관리되는 인증을 지원합니다.
 * 이 기능을 구성하는 데는 다음 두 가지 옵션을 사용할 수 있습니다.
     * [HRD(홈 영역 검색) 정책](#enable-user-sign-in-with-an-email-address) - 전체 테넌트에 대해 해당 기능을 사용하도록 설정하려면 이 옵션을 사용합니다. 전역 관리자 권한이 필요합니다.
     * [단계적 출시 정책](#enable-staged-rollout-to-test-user-sign-in-with-an-email-address) - 특정 Azure AD 그룹에서 기능을 테스트하려면 이 옵션을 사용합니다. 전역 관리자 권한이 필요합니다.
@@ -49,31 +50,42 @@ ms.locfileid: "111963646"
 
 현재 미리 보기 상태에서 다음과 같은 제한 사항이 대체 로그인 ID로 사용되는 메일에 적용됩니다.
 
-* 비 UPN 메일을 사용하여 로그인한 경우에도 사용자에게 UPN이 표시될 수 있습니다. 다음과 같은 동작이 관찰될 수 있습니다.
+* **사용자 환경** - 비 UPN 이메일을 사용하여 로그인한 경우에도 사용자에게 UPN이 표시될 수 있습니다. 다음과 같은 동작이 관찰될 수 있습니다.
     * `login_hint=<non-UPN email>`을 사용하는 Azure AD 로그인으로 이동될 때 사용자에게 UPN을 사용하여 로그인하라는 메시지가 표시됩니다.
     * 사용자가 비 UPN 메일을 사용하여 로그인하고 잘못된 암호를 입력하면 "암호 입력" 페이지가 변경되어 UPN이 표시됩니다.
-    * Microsoft Office 같은 일부 Microsoft 사이트 및 앱에서, 일반적으로 오른쪽 위에 표시되는 **계정 관리자** 컨트롤에 로그인하는 데 사용된 비 UPN 메일 대신 사용자의 UPN이 표시될 수 있습니다.
+    * Microsoft Office 같은 일부 Microsoft 사이트 및 앱에서, 일반적으로 오른쪽 위에 표시되는 *계정 관리자* 컨트롤에 로그인하는 데 사용된 비 UPN 메일 대신 사용자의 UPN이 표시될 수 있습니다.
 
-* 일부 흐름은 현재 다음과 같은 비 UPN 메일과 호환되지 않습니다.
+* **지원되지 않는 흐름** - 일부 흐름은 현재 다음과 같은 비 UPN 이메일과 호환되지 않습니다.
     * ID 보호는 비 UPN 메일을 *유출된 자격 증명* 위험 검색과 일치시키지 않습니다. 이 위험 검색은 UPN을 사용하여 유출된 자격 증명을 일치시킵니다. 자세한 내용은 [Azure AD ID 보호 위험 검색 및 수정][identity-protection]을 참조하세요.
     * 비 UPN 메일에 전송된 B2B 초대가 완전히 지원되지는 않습니다. 비 UPN 메일에 전송된 초대를 수락하면 리소스 테넌트 엔드포인트의 게스트 사용자에 대해 비 UPN 메일을 사용한 로그인이 작동하지 않을 수 있습니다.
     * 사용자가 비 UPN 메일을 사용하여 로그인한 경우에는 암호를 변경할 수 없습니다. Azure AD SSPR(셀프 서비스 암호 재설정)가 예상대로 작동해야 합니다. SSPR 동안 사용자는 대체 메일을 통해 자신의 ID를 확인하는 경우 UPN을 볼 수 있습니다.
 
-* 다음 시나리오는 지원되지 않습니다. 다음에 대해 비 UPN 메일을 사용하여 로그인할 수 없습니다.
-    * 하이브리드 Azure AD 가입 디바이스
-    * Azure AD 조인 디바이스
+* **지원되지 않는 시나리오** - 다음 시나리오는 지원되지 않습니다. 다음에 대해 비 UPN 이메일을 사용하여 로그인
+    * [하이브리드 Azure AD 가입 디바이스](../devices/concept-azure-ad-join-hybrid.md)
+    * [Azure AD 조인 디바이스](../devices/concept-azure-ad-join.md)
+    * [Azure AD 등록 디바이스](../devices/concept-azure-ad-register.md)
+    * [매끄러운 SSO](../hybrid/how-to-connect-sso.md)
+    * [ROPC(리소스 소유자 암호 자격 증명)를 사용하는 애플리케이션](../develop/v2-oauth-ropc.md)
+    * POP3 및 SMTP와 같은 레거시 인증을 사용하는 애플리케이션
     * 비즈니스용 Skype
     * macOS의 Microsoft Office
-    * OneDrive(로그인 흐름에 Multi-Factor Authentication이 포함되지 않는 경우)
     * 웹상의 Microsoft Teams
-    * ROPC(리소스 소유자 암호 자격 증명) 흐름
+    * OneDrive(로그인 흐름에 Multi-Factor Authentication이 포함되지 않는 경우)
 
-* HRD 정책에서 수행한 기능 구성 변경 내용은 감사 로그에 명시적으로 표시되지 않습니다.
-* 여러 단계적 출시 정책에 포함된 사용자의 경우 단계적 출시 정책이 예상대로 작동하지 않습니다.
-* 테넌트 내에서 클라우드 전용 사용자의 UPN은 온-프레미스 디렉터리에서 동기화된 다른 사용자의 프록시 주소와 같은 값일 수 있습니다. 이 시나리오에서 해당 기능을 사용하도록 설정하면 클라우드 전용 사용자가 UPN으로 로그인할 수 없습니다. 이 문제는 [문제 해결](#troubleshoot) 섹션에 자세히 설명되어 있습니다.
+* **지원되지 않는 앱** - `unique_name` 또는 `preferred_username` 클레임이 불변하거나 항상 UPN과 같은 특정 사용자 특성과 일치한다고 가정하는 경우 일부 타사 애플리케이션이 예상대로 작동하지 않을 수 있습니다.
+
+* **로깅** - HRD 정책에서 수행한 기능 구성 변경 내용은 감사 로그에 명시적으로 표시되지 않습니다. 또한 로그인 로그의 *로그인 식별자 유형* 필드가 항상 정확하지 않을 수 있으며 기능이 로그인에 사용되었는지 여부를 확인하는 데 사용하면 안 됩니다.
+
+* **단계적 롤아웃 정책** - 다음 제한은 단계적 롤아웃 정책을 사용하여 기능을 사용하도록 설정한 경우에만 적용됩니다.
+    * 여러 단계적 롤아웃 정책에 포함된 사용자의 경우 기능이 예상대로 작동하지 않습니다.
+    * 단계적 롤아웃 정책은 기능당 최대 10개의 그룹을 지원합니다.
+    * 단계적 롤아웃 정책은 중첩된 그룹을 지원하지 않습니다.
+    * 단계적 롤아웃 정책은 동적 그룹을 지원하지 않습니다.
+    * 그룹 내의 연락처 개체는 그룹이 단계적 롤아웃 정책에 추가되는 것을 차단합니다.
+
+* **중복 값** - 테넌트 내에서 클라우드 전용 사용자의 UPN은 온-프레미스 디렉터리에서 동기화된 다른 사용자의 프록시 주소와 같은 값일 수 있습니다. 이 시나리오에서 해당 기능을 사용하도록 설정하면 클라우드 전용 사용자가 UPN으로 로그인할 수 없습니다. 이 문제는 [문제 해결](#troubleshoot) 섹션에 자세히 설명되어 있습니다.
 
 ## <a name="overview-of-alternate-login-id-options"></a>대체 로그인 ID 옵션 개요
-
 Azure AD에 로그인하려면 사용자가 계정을 고유하게 식별하는 값을 입력합니다. 이전에는 Azure AD UPN만 로그인 식별자로 사용할 수 있었습니다.
 
 온-프레미스 UPN이 사용자의 기본 설정 로그인 메일인 조직의 경우 이 접근 방식을 사용하는 것이 좋습니다. 이러한 조직은 Azure AD UPN을 온-프레미스 UPN과 정확히 동일한 값으로 설정하고 사용자는 일관된 로그인 환경을 사용합니다.
@@ -101,7 +113,7 @@ Azure AD에 로그인하려면 사용자가 계정을 고유하게 식별하는 
 
 기존 AD DS(Active Directory Domain Services) 또는 AD FS(Active Directory Federation Services) 인증은 네트워크에서 직접 수행되며 AD DS 인프라에서 처리됩니다. 하이브리드 인증을 사용하면 사용자가 대신 Azure AD에 직접 로그인할 수 있습니다.
 
-이 하이브리드 인증 방법을 지원하려면 [Azure AD Connect][azure-ad-connect]를 사용하여 온-프레미스 AD DS 환경을 Azure AD에 동기화하고 PHS(암호 해시 동기화) 또는 PTA(통과 인증)를 사용하도록 구성해야 합니다. 자세한 내용은 [Azure AD 하이브리드 ID 솔루션에 적합한 인증 방법 선택][hybrid-auth-methods]을 참조하세요.
+이 하이브리드 인증 방법을 지원하려면 [Azure AD Connect][azure-ad-connect]를 사용하여 온-프레미스 AD DS 환경을 Azure AD에 동기화하고 PHS 또는 PTA를 사용하도록 구성해야 합니다. 자세한 내용은 [Azure AD 하이브리드 ID 솔루션에 적합한 인증 방법 선택][hybrid-auth-methods]을 참조하세요.
 
 두 가지 구성 옵션에서 모두 사용자가 사용자 이름과 암호를 Azure AD에 제출하면 Azure AD가 자격 증명의 유효성을 검사하고 티켓을 발급합니다. 사용자가 Azure AD에 로그인하면 조직에서 AD FS 인프라를 호스트하고 관리할 필요가 없어집니다.
 

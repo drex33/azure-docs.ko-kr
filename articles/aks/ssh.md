@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 05/17/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 7ca318a21e4b3f764060757e1102e6e4665aec3e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 87e548cd39c7c064b11131c28790d8335bd942fb
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467831"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122530847"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH와 연결
 
@@ -75,13 +75,17 @@ node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx   1/1     Running   0     
 
 위의 예제에서 *node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx* 는 `kubectl debug`에서 실행된 Pod의 이름입니다.
 
-프라이빗 SSH 키를 `kubectl debug`로 만든 Pod에 복사합니다. 이 프라이빗 키를 사용하여 Windows Server AKS 노드에 SSH를 만듭니다. 필요에 따라 `~/.ssh/id_rsa`를 프라이빗 SSH 키의 위치로 변경합니다.
+`kubectl port-forward`를 사용하여 배포된 Pod에 대한 연결을 열 수 있습니다.
 
-```azurecli-interactive
-kubectl cp ~/.ssh/id_rsa node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx:/id_rsa
+```
+$ kubectl port-forward node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx 2022:22
+Forwarding from 127.0.0.1:2022 -> 22
+Forwarding from [::1]:2022 -> 22
 ```
 
-Windows Server 노드의 내부 IP 주소를 보려면 `kubectl get nodes`를 사용합니다.
+위의 예제는 개발 컴퓨터의 포트 2022에서 배포된 Pod의 포트 22로 네트워크 트래픽을 전달하기 시작합니다. `kubectl port-forward`를 사용하여 연결을 열고 네트워크 트래픽을 전달하면 `kubectl port-forward` 명령을 중지할 때까지 연결은 열린 상태로 유지됩니다.
+
+새 터미널을 열고 `kubectl get nodes`를 사용하여 Windows Server 노드의 내부 IP 주소를 표시합니다.
 
 ```output
 $ kubectl get nodes -o wide
@@ -94,16 +98,10 @@ aksnpwin000000                      Ready    agent   87s     v1.19.9   10.240.0.
 
 위의 예제에서 *10.240.0.67* 은 Windows Server 노드의 내부 IP 주소입니다.
 
-`kubectl debug`로 실행된 터미널로 돌아가서 Pod에 복사한 프라이빗 SSH 키의 사용 권한을 업데이트합니다.
-
-```azurecli-interactive
-chmod 0400 id_rsa
-```
-
 내부 IP 주소를 사용하여 Windows Server 노드에 대한 SSH 연결을 만듭니다. AKS 노드의 기본 사용자 이름은 *azureuser* 입니다. 프롬프트를 수락해 연결을 계속합니다. 그러면 Windows Server 노드의 Bash 프롬프트가 제공됩니다.
 
 ```output
-$ ssh -i id_rsa azureuser@10.240.0.67
+$ ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' azureuser@10.240.0.67
 
 The authenticity of host '10.240.0.67 (10.240.0.67)' can't be established.
 ECDSA key fingerprint is SHA256:1234567890abcdefghijklmnopqrstuvwxyzABCDEFG.
@@ -117,9 +115,18 @@ Microsoft Windows [Version 10.0.17763.1935]
 azureuser@aksnpwin000000 C:\Users\azureuser>
 ```
 
+위의 예제는 개발 컴퓨터의 포트 2022를 통해 Windows Server 노드의 포트 22에 연결합니다.
+
+> [!NOTE]
+> 암호 인증을 사용하려면 `-o PreferredAuthentications=password`를 사용합니다. 예를 들면 다음과 같습니다.
+>
+> ```console
+>  ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' -o PreferredAuthentications=password azureuser@10.240.0.67
+> ```
+
 ## <a name="remove-ssh-access"></a>SSH 액세스 제거
 
-작업이 완료되면 SSH 세션을 `exit`한 다음, 대화형 컨테이너 세션을 `exit`합니다. 이 컨테이너 세션을 닫을 때 AKS 클러스터에서 SSH 액세스에 사용되는 Pod가 삭제됩니다.
+작업이 완료되면 SSH 세션을 `exit`하고 포트 전달을 중지한 다음, 대화형 컨테이너 세션을 `exit`합니다. 대화형 컨테이너 세션이 닫히면 AKS 클러스터에서 SSH 액세스에 사용되는 Pod가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -128,7 +135,7 @@ azureuser@aksnpwin000000 C:\Users\azureuser>
 
 <!-- INTERNAL LINKS -->
 [view-kubelet-logs]: kubelet-logs.md
-[view-master-logs]: ./view-control-plane-logs.md
+[view-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

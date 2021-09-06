@@ -1,25 +1,28 @@
 ---
-title: Azure Data Factory의 연결된 서비스 매개 변수화
-description: Azure Data Factory에서 연결된 서비스를 매개 변수화하고 런타임에 동적 값을 전달하는 방법을 알아봅니다.
+title: 연결된 서비스 매개 변수화
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics 파이프라인에 연결된 서비스를 매개 변수화하고 런타임에 동적 값을 전달하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/24/2021
 author: chez-charlie
 ms.author: chez
-ms.openlocfilehash: 277f3d9e9d82edf9e93d41808a351528a94f85d7
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 563ca47dc79b9ff9a31accb0d5c8a35477d32055
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793698"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825170"
 ---
-# <a name="parameterize-linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스 매개 변수화
+# <a name="parameterize-linked-services-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics에 연결된 서비스 매개 변수화
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이제 연결된 서비스를 매개 변수화하고 런타임에 동적 값을 전달할 수 있습니다. 예를 들어 동일한 논리 SQL Server의 다른 데이터베이스에 연결하려는 경우 이제 연결된 서비스 정의에서 데이터베이스 이름을 매개 변수화할 수 있습니다. 이렇게 하면 논리 SQL Server에서 각 데이터베이스의 연결된 서비스를 만들 필요가 없습니다. 예를 들어 연결된 서비스 정의에서 *사용자 이름* 과 같은 기타 속성을 매개 변수화할 수 있습니다.
 
-Azure Portal의 Data Factory UI 또는 프로그래밍 인터페이스를 사용하여 연결된 서비스를 매개 변수화할 수 있습니다.
+Azure Portal의 UI 또는 프로그래밍 인터페이스를 사용하여 연결된 서비스를 매개 변수화할 수 있습니다.
 
 > [!TIP]
 > 암호니 비밀은 매개 변수화하지 않는 것이 좋습니다. 대신, Azure Key Vault의 모든 암호를 저장하고 *비밀 이름* 을 매개 변수화합니다.
@@ -35,7 +38,7 @@ Azure Portal의 Data Factory UI 또는 프로그래밍 인터페이스를 사용
 
 연결된 모든 서비스 유형이 매개 변수화에 대해 지원됩니다.
 
-**ADF UI에서 기본적으로 지원됨:** UI에서 연결된 서비스를 작성할 때 Data Factory는 다음 유형의 연결된 서비스에 대해 기본 제공 매개 변수화 환경을 제공합니다. 연결된 서비스 생성/편집 블레이드에서 새 매개 변수에 대한 옵션을 찾고 동적 콘텐츠를 추가할 수 있습니다. [Data Factory UI 환경](#data-factory-ui)을 참조하세요.
+**UI에서 기본적으로 지원됨:** UI에 연결된 서비스를 작성할 때 서비스는 다음 유형의 연결된 서비스에 대해 기본 제공 매개 변수화 환경을 제공합니다. 연결된 서비스 생성/편집 블레이드에서 새 매개 변수에 대한 옵션을 찾고 동적 콘텐츠를 추가할 수 있습니다. [UI 환경](#ui-experience)을 참조하세요.
 
 - Amazon Redshift
 - Amazon S3
@@ -62,13 +65,23 @@ Azure Portal의 Data Factory UI 또는 프로그래밍 인터페이스를 사용
 - 연결된 서비스 생성/편집 블레이드에서 "고급"을 펼치고, "JSON 형식의 동적 콘텐츠 지정" 확인란을 선택하고, 연결된 서비스 JSON 페이로드를 지정합니다. 
 - 또는 매개 변수화를 사용하지 않고 연결된 서비스를 생성된 후 [관리 허브](author-visually.md#management-hub) -> 연결된 서비스 -> 특정 연결된 서비스를 찾고 -> "코드"("{}" 단추)를 클릭하여 JSON을 편집합니다. 
 
-매개 변수를 정의하고 ` @{linkedService().paraName} `을 사용하여 매개 변수를 참조하는 ` parameters` 섹션을 추가하려면 [JSON 샘플](#json)을 참조하세요.
+매개 변수를 정의하고 ` @{linkedService().paramName} `을 사용하여 매개 변수를 참조하는 ` parameters` 섹션을 추가하려면 [JSON 샘플](#json)을 참조하세요.
 
-## <a name="data-factory-ui"></a>Data Factory UI
+## <a name="ui-experience"></a>UI 환경
 
-![연결된 서비스 정의에 동적 콘텐츠 추가](media/parameterize-linked-services/parameterize-linked-services-image1.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-![새 매개 변수 만들기](media/parameterize-linked-services/parameterize-linked-services-image2.png)
+![연결된 서비스 정의에 동적 콘텐츠 추가](media/parameterize-linked-services/parameterize-linked-services-image-1.png)
+
+![새 매개 변수 만들기](media/parameterize-linked-services/parameterize-linked-services-image-2.png)
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+![연결된 서비스 정의에 동적 콘텐츠 추가](media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png)
+
+![새 매개 변수 만들기](media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png)
+
+---
 
 ## <a name="json"></a>JSON
 

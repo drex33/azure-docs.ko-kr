@@ -4,15 +4,16 @@ description: Azure 데이터 팩터리를 만든 다음 데이터 복사 도구�
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 25e39d3fc9c56a282714bafb630fee65421fb5ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/12/2021
+ms.openlocfilehash: 0c2cfe51e84931b90ab80588b16fe126aadaf4c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606670"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642510"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 LastModifiedDate를 기준으로 새 파일 및 변경된 파일을 증분 방식으로 복사
 
@@ -71,83 +72,74 @@ ms.locfileid: "104606670"
 6. **위치** 아래에서 데이터 팩터리에 대한 위치를 선택합니다. 목록에는 지원되는 위치만 표시됩니다. 데이터 팩터리에서 사용하는 데이터 스토리지(예: Azure Storage, Azure SQL Database) 및 계산(예: Azure HDInsight)은 다른 위치와 지역에 있을 수 있습니다.
 8. **만들기** 를 선택합니다.
 9. 데이터 팩터리를 만든 후에는 데이터 팩터리 홈페이지가 나타납니다.
-10. 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 열려면 **작성 및 모니터링** 타일을 선택합니다.
+10. 별도의 탭에서 Azure Data Factory 사용자 인터페이스(UI)를 열려면 **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택합니다.
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Azure Data Factory Studio 열기 타일이 있는 Azure Data Factory 홈페이지":::
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>데이터 복사 도구를 사용하여 파이프라인 만들기
 
-1. **시작하기** 페이지에서 **데이터 복사** 타일을 선택하여 데이터 복사 도구를 엽니다.
+1. Azure Data Factory 홈페이지에서 **수집** 타일을 선택하여 데이터 복사 도구를 엽니다.
 
-   ![데이터 복사 타일](./media/doc-common-process/get-started-page.png)
+   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
 
 2. **속성** 페이지에서 다음 단계를 수행합니다.
 
-    a. **작업 이름** 에서 **DeltaCopyFromBlobPipeline** 을 입력합니다.
+    1. **작업 유형** 에서 **기본 제공 복사 작업** 을 선택합니다.
 
-    b. **작업 주기 또는 작업 일정** 에서 **일정에 따라 정기적으로 실행** 을 선택합니다.
+    1. **작업 주기 또는 작업 일정** 에서 **연속 창** 을 선택합니다.
 
-    다. **트리거 유형** 에서 **연속 창** 을 선택합니다.
+    1. **되풀이** 에서 **15분** 을 입력합니다.
 
-    d. **되풀이** 에서 **15분** 을 입력합니다.
-
-    e. **다음** 을 선택합니다.
-
-    Data Factory에서 지정한 작업 이름이 있는 파이프라인을 만듭니다.
+    1. **다음** 을 선택합니다.
 
     ![데이터 복사 속성 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/copy-data-tool-properties-page.png)
 
 3. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
 
-    a. **새 연결 만들기** 를 선택하여 연결을 추가합니다.
+    1. **+ 새 연결 만들기** 를 선택하여 연결을 추가합니다.
 
-    b. 갤러리에서 **Azure Blob Storage** 를 선택한 다음 **계속** 을 선택합니다.
+    1. 갤러리에서 **Azure Blob Storage** 를 선택한 다음 **계속** 을 선택합니다.
 
-    ![Azure Blob Storage 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
+        ![Azure Blob Storage 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    다. **새로 연결된 서비스(Azure Blob Storage)** 페이지의 **스토리지 계정 이름** 목록에서 스토리지 계정을 선택합니다. 연결을 테스트한 다음 **만들기** 를 선택합니다.
+    1. **새 연결(Azure Blob Storage)** 페이지의 **Azure 구독** 목록에서 자신의 Azure 구독을 선택하고 **스토리지 계정 이름** 목록에서 자신의 스토리지 계정을 선택합니다. 연결을 테스트한 다음 **만들기** 를 선택합니다.
 
-    d. 연결된 서비스를 선택하고 **다음** 을 선택합니다.
+    1. **연결** 블록에서 새로 만든 연결을 선택합니다.
 
-   ![새로 연결된 서비스 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
+    1. **파일 또는 폴더** 섹션에서 **찾아보기** 를 선택한 후 **원본** 폴더와 **확인** 을 차례로 선택합니다.
 
-4. **입력 파일 또는 폴더 선택** 페이지에서 다음 단계를 완료합니다.
+    1. **파일 로드 동작** 에서 **증분 로드: LastModifiedDate** 와 **이진 복사** 를 차례로 선택합니다.
+    
+    1. **다음** 을 선택합니다.
 
-    a. **원본** 폴더를 찾아 선택한 다음 **선택** 을 선택합니다.
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png" alt-text="‘원본 데이터 저장소’ 페이지를 보여 주는 스크린샷.":::
 
-    ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
+4. **대상 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
+    1. 만든 **AzureBlobStorage** 연결을 선택합니다. 원본 데이터 저장소와 동일한 스토리지 계정입니다.
 
-    b. **파일 로드 동작** 에서 **증분 로드: LastModifiedDate** 를 선택합니다.
+    1. **대상 경로** 섹션에서 **대상** 폴더를 찾아 선택한 다음 **확인** 을 선택합니다.
 
-    다. **이진 복사** 를 선택한 다음 **다음** 을 선택합니다.
+    1. **다음** 을 선택합니다.
 
-     ![입력 파일 또는 폴더 선택 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store-page.png" alt-text="‘대상 데이터 저장소’ 페이지를 보여 주는 스크린샷.":::
 
-5. **대상 데이터 저장소** 페이지에서 만든 **AzureBlobStorage** 서비스를 선택합니다. 원본 데이터 저장소와 동일한 스토리지 계정입니다. 그런 후 **다음** 을 선택합니다.
+5. **설정** 페이지의 **작업 이름** 에서 **DeltaCopyFromBlobPipeline** 을 입력하고 **다음** 을 선택합니다. Data Factory에서 지정한 작업 이름이 있는 파이프라인을 만듭니다.
 
-6. **출력 파일 또는 폴더 선택** 페이지에서 다음 단계를 완료합니다.
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/settings-page.png" alt-text="설정 페이지를 보여 주는 스크린샷.":::
 
-    a. **대상** 폴더를 찾아 선택한 다음 **선택** 을 선택합니다.
-
-    ![출력 파일 또는 폴더 선택 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
-
-    b. **다음** 을 선택합니다.
-
-7. **설정** 페이지에서 **다음** 을 선택합니다.
-
-8. **요약** 페이지에서 설정을 검토하고 **다음** 을 선택합니다.
+6. **요약** 페이지에서 설정을 검토하고 **다음** 을 선택합니다.
 
     ![요약 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
 
-9. **배포 페이지** 에서 **모니터** 를 선택하여 파이프라인(작업)을 모니터링합니다.
+7. **배포** 페이지에서 **모니터** 를 선택하여 파이프라인(작업)을 모니터링합니다.
 
     ![배포 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
 
-10. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. 애플리케이션이 **모니터** 탭으로 전환되며 파이프라인의 상태가 표시됩니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 아래 링크를 선택하여 활동 실행 세부 정보를 보거나 파이프라인을 다시 실행합니다.
+8. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. 애플리케이션이 **모니터** 탭으로 전환되며 파이프라인의 상태가 표시됩니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 에서 링크를 선택하여 활동 실행 세부 정보를 보거나 파이프라인을 다시 실행합니다.
 
     ![목록 새로 고침 및 작업 실행 세부 정보 보기](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
 
-11. 파이프라인에는 하나의 작업(복사 작업)만 있으므로 하나의 항목만 표시됩니다. 복사 작업에 대한 자세한 내용을 보려면 **ACTIVITY NAME** 열 아래의 **세부 정보** 링크(안경 아이콘)를 선택합니다. 속성에 대한 자세한 내용은 [복사 작업 개요](copy-activity-overview.md)를 참조하세요.
+9. 파이프라인에는 하나의 작업(복사 작업)만 있으므로 하나의 항목만 표시됩니다. 복사 작업에 대한 자세한 내용을 보려면 **활동 실행** 페이지에서 **활동 이름** 열에 있는 **세부 정보** 링크(안경 아이콘)를 선택합니다. 속성에 대한 자세한 내용은 [복사 작업 개요](copy-activity-overview.md)를 참조하세요.
 
     ![파이프라인의 복사 작업](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
 
@@ -155,26 +147,25 @@ ms.locfileid: "104606670"
 
     ![원본 컨테이너 또는 대상 컨테이너에 파일이 없음](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
 
-12. 빈 텍스트 파일을 만들고 이름을 **file1.txt** 로 합니다. 스토리지 계정의 원본 컨테이너에 이 텍스트 파일을 업로드합니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 해당 작업을 수행할 수 있습니다.
+10. 빈 텍스트 파일을 만들고 이름을 **file1.txt** 로 합니다. 스토리지 계정의 원본 컨테이너에 이 텍스트 파일을 업로드합니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 해당 작업을 수행할 수 있습니다.
 
     ![file1.txt를 만들고 원본 컨테이너에 업로드합니다.](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
-13. **파이프라인 실행** 보기로 돌아가려면 **모든 파이프라인 실행** 을 선택하고 동일한 파이프라인이 자동으로 다시 트리거될 때까지 기다립니다.  
+11. **파이프라인 실행** 보기로 돌아가려면 **활동 실행** 페이지의 이동 경로 메뉴에서 **모든 파이프라인 실행** 링크를 선택하고 동일한 파이프라인이 자동으로 다시 트리거될 때까지 기다립니다.  
 
-14. 두 번째 파이프라인 실행이 완료되면 앞에서 설명한 것과 동일한 단계를 수행하여 작업 실행 세부 정보를 검토합니다.  
+12. 두 번째 파이프라인 실행이 완료되면 앞에서 설명한 것과 동일한 단계를 수행하여 작업 실행 세부 정보를 검토합니다.  
 
     원본 컨테이너에서 Blob Storage 계정의 대상 컨테이너로 하나의 파일(file1.txt)이 복사된 것을 볼 수 있습니다.
 
     ![원본 컨테이너에서 대상 컨테이너로 file1.txt가 복사됨](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
 
-15. 다른 빈 텍스트 파일을 만들고 이름을 **file2.txt** 로 합니다. Blob Storage 계정의 원본 컨테이너에 이 텍스트 파일을 업로드합니다.
+13. 다른 빈 텍스트 파일을 만들고 이름을 **file2.txt** 로 합니다. Blob Storage 계정의 원본 컨테이너에 이 텍스트 파일을 업로드합니다.
 
-16. 두 번째 텍스트 파일에 대해 13단계와 14단계를 반복합니다. 이 파이프라인을 실행하는 동안 새 파일(file2.txt)만 원본 컨테이너에서 스토리지 계정의 대상 컨테이너로 복사된 것을 볼 수 있습니다.  
+14. 두 번째 텍스트 파일에서 11단계와 12단계를 반복합니다. 이 파이프라인을 실행하는 동안 새 파일(file2.txt)만 원본 컨테이너에서 스토리지 계정의 대상 컨테이너로 복사된 것을 볼 수 있습니다.  
 
     [Azure Storage Explorer](https://storageexplorer.com/)를 사용해 파일을 검색하여 파일을 한 개만 복사했는지 확인할 수도 있습니다.
 
     ![Azure Storage Explorer를 사용하여 파일 검사](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
-
 
 ## <a name="next-steps"></a>다음 단계
 다음 자습서로 진행하여 Azure에서 Apache Spark 클러스터를 사용하여 데이터를 변환하는 방법을 알아보세요.

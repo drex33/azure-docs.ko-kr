@@ -7,12 +7,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 05717352936bed888e108277d0163e43bc5a37af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88a4281d564b7061e831a66b35e768e6377a0115
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368764"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568048"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -21,8 +21,8 @@ ms.locfileid: "100368764"
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [ML Studio(클래식) Batch Execution 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [ML Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -48,6 +48,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 
 ## <a name="walkthrough"></a>연습
 ### <a name="sample-table-and-stored-procedure"></a>샘플 테이블 및 저장 프로시저
+
 1. SQL Server Management Studio 또는 익숙한 다른 도구를 사용하여 Azure SQL Database에서 다음 **테이블** 을 만듭니다. datetimestamp 열은 해당 ID가 생성된 날짜와 시간입니다.
 
     ```SQL
@@ -61,11 +62,12 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
     CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
     GO
     ```
-    Id는 고유 식별자이며 datetimestamp 열은 해당 ID가 생성된 날짜와 시간입니다.
+    `Id`은(는) 고유 식별자이고 `datetimestamp` 열은 해당 ID가 생성된 날짜와 시간입니다.
     
     ![예제 데이터](./media/data-factory-stored-proc-activity/sample-data.png)
 
     이 샘플에서는 저장 프로시저가 Azure SQL Database에 있습니다. 저장 프로시저가 Azure Synapse Analytics 및 SQL Server Database에 있는 경우 접근 방식은 유사합니다. SQL Server Database의 경우 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치해야 합니다.
+    
 2. **sampletable** 에 데이터를 삽입하는 다음 **저장 프로시저** 를 만듭니다.
 
     ```SQL

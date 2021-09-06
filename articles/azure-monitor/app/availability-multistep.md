@@ -2,23 +2,29 @@
 title: 다단계 웹 테스트를 사용하여 모니터링 - Azure Application Insights
 description: Azure Application Insights를 사용하여 웹 애플리케이션을 모니터링하도록 다단계 웹 테스트 설정
 ms.topic: conceptual
-ms.date: 02/14/2021
-ms.openlocfilehash: 1d3597eaf54c40fb1f986d822af0dd6b8c8a7b2e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/21/2021
+ms.openlocfilehash: d248340aa272a6a1fef386ca755ed46536668ad9
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719851"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114448001"
 ---
 # <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 
 다단계 웹 테스트를 통해 웹 사이트와의 상호 작용 및 URL의 기록된 시퀀스를 모니터링할 수 있습니다. 이 문서에서는 Visual Studio Enterprise를 사용하여 다단계 웹 테스트를 만드는 과정을 안내합니다.
 
 > [!NOTE]
-> 다단계 웹 테스트는 Visual Studio webtest 파일에 따라 달라집니다. Visual Studio 2019가 웹 테스트 기능을 사용하는 마지막 버전이 될 것이라고 [발표](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/)했습니다. 새 기능이 추가되는 것은 아니지만 Visual Studio 2019의 웹 테스트 기능은 현재 지원되며 제품의 지원 수명 주기 동안 계속 지원된다는 점을 이해해야 합니다. Azure Monitor 제품 팀은 [여기](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)에서 다단계 단계 가용성 테스트의 미래와 관련된 질문을 해결했습니다.  
-> </br>
 > 다단계 웹 테스트는 [Azure Government](../../azure-government/index.yml) 클라우드에서 **지원되지 않습니다**.
 
+> [!NOTE]
+> 다단계 웹 테스트는 클래식 테스트로 분류되며 가용성 창의 **클래식 테스트 추가** 에서 찾을 수 있습니다.
+
+## <a name="multi-step-webtest-alternative"></a>다단계 웹 테스트 대체
+
+다단계 웹 테스트는 Visual Studio webtest 파일에 따라 달라집니다. Visual Studio 2019가 웹 테스트 기능을 사용하는 마지막 버전이 될 것이라고 [발표](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/)했습니다. 새 기능이 추가되는 것은 아니지만 Visual Studio 2019의 웹 테스트 기능은 현재 지원되며 제품의 지원 수명 주기 동안 계속 지원된다는 점을 이해해야 합니다. 
+
+다단계 웹 테스트 대신 [TrackAvailability](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability)를 사용하여 [사용자 지정 가용성 테스트](./availability-azure-functions.md)를 제출하는 것이 좋습니다. 이는 다중 요청 또는 인증 테스트 시나리오에 대해 장기적으로 지원되는 솔루션입니다. TrackAvailability() 및 사용자 지정 가용성 테스트를 사용하면 원하는 모든 컴퓨팅에서 테스트를 실행하고 C#을 사용하여 새 테스트를 쉽게 작성할 수 있습니다.
 
 ## <a name="pre-requisites"></a>필수 구성 요소
 
@@ -41,9 +47,10 @@ Visual Studio 웹 테스트를 만드는 방법에 대한 지침은 [공식 Visu
 
 ## <a name="upload-the-web-test"></a>웹 테스트 업로드
 
-1. 가용성 창의 Application Insights 포털에서 **테스트 만들기** > **테스트 형식** > **다단계 웹 테스트** 를 선택합니다.
-
-2. 테스트 위치, 빈도 및 경고 매개 변수를 설정합니다.
+1. 가용성 창의 Application Insights 포털에서 **클래식 테스트 추가** 를 선택한 다음, *SKU* 로 **다단계** 를 선택합니다.
+2. 다단계 웹 테스트를 업로드합니다.
+3. 테스트 위치, 빈도 및 경고 매개 변수를 설정합니다.
+4. **만들기** 를 선택합니다.
 
 ### <a name="frequency--location"></a>빈도 및 위치
 

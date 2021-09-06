@@ -3,15 +3,15 @@ title: Azure에서 업데이트 관리 배포의 사전 스크립트 및 사후 
 description: 이 문서에서는 업데이트 배포를 위한 사전 및 사후 스크립트를 구성하고 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 03/08/2021
+ms.date: 07/20/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51067095b7ebb33da61908b1424752b481668f5f
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 57a8158dca53f4f60bc4405e1b95aa0ad9d2cf9b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830811"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472097"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
@@ -45,21 +45,57 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 속성
 
-|속성  |Description  |
-|---------|---------|
-|SoftwareUpdateConfigurationName     | 소프트웨어 업데이트 구성의 이름입니다.        |
-|SoftwareUpdateConfigurationRunId     | 실행의 고유 ID입니다.        |
-|SoftwareUpdateConfigurationSettings     | 소프트웨어 업데이트 구성과 관련된 속성의 모음입니다.         |
-|SoftwareUpdateConfigurationSettings.operatingSystem     | 업데이트 배포를 대상으로 하는 운영 체제입니다.         |
-|SoftwareUpdateConfigurationSettings.duration     | 업데이트 배포의 최대 기간은 ISO8601에 따라 `PT[n]H[n]M[n]S`로 실행됩니다(유지 관리 기간이라고도 함).          |
-|SoftwareUpdateConfigurationSettings.Windows     | Windows 컴퓨터와 관련된 속성의 모음입니다.         |
-|SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | 업데이트 배포에서 제외되는 KB(기술 자료) 목록입니다.        |
-|SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | 업데이트 배포에 대해 선택한 업데이트 분류입니다.        |
-|SoftwareUpdateConfigurationSettings.Windows.rebootSetting     | 업데이트 배포에 대한 다시 부팅 설정입니다.        |
-|azureVirtualMachines     | 업데이트 배포의 Azure VM에 대한 resourceId 목록입니다.        |
-|nonAzureComputerNames|업데이트 배포의 비 Azure 컴퓨터 FQDN 목록입니다.|
+|속성  |형식 |Description  |
+|---------|---------|---------|
+|SoftwareUpdateConfigurationName     |String | 소프트웨어 업데이트 구성의 이름입니다.        |
+|SoftwareUpdateConfigurationRunId     |GUID | 실행의 고유 ID입니다.        |
+|SoftwareUpdateConfigurationSettings     || 소프트웨어 업데이트 구성과 관련된 속성의 모음입니다.         |
+|SoftwareUpdateConfigurationSettings.OperatingSystem     |Int | 업데이트 배포를 대상으로 하는 운영 체제입니다. `1` = Windows 및 `2` = Linux        |
+|SoftwareUpdateConfigurationSettings.Duration     |Timespan(HH:MM:SS) | 업데이트 배포의 최대 기간은 ISO8601에 따라 `PT[n]H[n]M[n]S`로 실행됩니다(유지 관리 기간이라고도 함).<br> 예: 02:00:00         |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration     || Windows 컴퓨터와 관련된 속성의 모음입니다.         |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.excludedKbNumbers     |String | 업데이트 배포에서 제외되는 공백으로 구분된 KB 목록입니다.        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.includedKbNumbers     |String | 업데이트 배포에 포함된 공백으로 구분된 KB 목록입니다.        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.UpdateCategories     |정수 | 1 = "위험";<br> 2 = "보안"<br> 4 = "UpdateRollUp"<br> 8 = "FeaturePack"<br> 16 = "ServicePack"<br> 32 = "정의"<br> 64 = "도구"<br> 128 = "업데이트"        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.rebootSetting     |String | 업데이트 배포에 대한 다시 부팅 설정입니다. 값은 `IfRequired`, `Never`, `Always`입니다.      |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration     || Linux 컴퓨터와 관련된 속성의 모음입니다.         |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.IncludedPackageClassifications |정수 |0 = "분류되지 않음"<br> 1 = "위험"<br> 2 = "보안"<br> 4 = "기타"|
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.IncludedPackageNameMasks |String | 업데이트 배포에 포함된 공백으로 구분된 패키지 이름 목록입니다. |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.ExcludedPackageNameMasks |String |업데이트 배포에서 제외되는 공백으로 구분된 패키지 이름 목록입니다. |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.RebootSetting |String |업데이트 배포에 대한 다시 부팅 설정입니다. 값은 `IfRequired`, `Never`, `Always`입니다.      |
+|SoftwareUpdateConfiguationSettings.AzureVirtualMachines     |문자열 배열 | 업데이트 배포의 Azure VM에 대한 resourceId 목록입니다.        |
+|SoftwareUpdateConfigurationSettings.NonAzureComputerNames|문자열 배열 |업데이트 배포의 비 Azure 컴퓨터 FQDN 목록입니다.|
 
-다음 예제는 **SoftwareUpdateConfigurationRunContext** 매개 변수에 전달되는 JSON 문자열입니다.
+다음 예제는 Linux 컴퓨터의 **SoftwareUpdateConfigurationSettings** 속성에 전달되는 JSON 문자열입니다.
+
+```json
+"SoftwareUpdateConfigurationSettings": {
+     "OperatingSystem": 2,
+     "WindowsConfiguration": null,
+     "LinuxConfiguration": {
+         "IncludedPackageClassifications": 7,
+         "ExcludedPackageNameMasks": "fgh xyz",
+         "IncludedPackageNameMasks": "abc bin*",
+         "RebootSetting": "IfRequired"
+     },
+     "Targets": {
+         "azureQueries": null,
+         "nonAzureQueries": ""
+     },
+     "NonAzureComputerNames": [
+        "box1.contoso.com",
+        "box2.contoso.com"
+     ],
+     "AzureVirtualMachines": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/vm-01"
+     ],
+     "Duration": "02:00:00",
+     "PSComputerName": "localhost",
+     "PSShowComputerName": true,
+     "PSSourceJobInstanceId": "2477a37b-5262-4f4f-b636-3a70152901e9"
+ }
+```
+
+다음 예제는 Windows 컴퓨터의 **SoftwareUpdateConfigurationSettings** 속성에 전달되는 JSON 문자열입니다.
 
 ```json
 "SoftwareUpdateConfigurationRunContext": {
@@ -67,7 +103,7 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
     "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
     "SoftwareUpdateConfigurationSettings": {
       "operatingSystem": "Windows",
-      "duration": "PT2H0M",
+      "duration": "02:00:00",
       "windows": {
         "excludedKbNumbers": [
           "168934",
@@ -77,9 +113,9 @@ Runbook을 사전 스크립트 또는 사후 스크립트로 사용하려면 해
         "rebootSetting": "IfRequired"
       },
       "azureVirtualMachines": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-02",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-03"
       ],
       "nonAzureComputerNames": [
         "box1.contoso.com",

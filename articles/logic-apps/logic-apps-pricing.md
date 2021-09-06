@@ -1,69 +1,63 @@
 ---
-title: 청구 및 가격 책정 모델
-description: Azure Logic Apps에서의 가격 책정 및 청구 모델 작동 방식 개요
+title: 사용량 계량, 청구 및 가격 책정
+description: Azure Logic Apps에서 사용량 계량, 청구 및 가격 책정 모델이 작동하는 방법을 알아봅니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/10/2021
-ms.openlocfilehash: 3b627abdf27907a5c0739e6dd7920932a3035ee7
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 08/09/2021
+ms.openlocfilehash: 63c7a2c79ca5f0d241ddc3727d006bb2befb8163
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111981700"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537306"
 ---
-# <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Azure Logic Apps의 가격 책정 및 청구 모델
+# <a name="usage-metering-billing-and-pricing-models-for-azure-logic-apps"></a>Azure Logic Apps의 사용량 계량, 청구 및 가격 책정 모델
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하면 클라우드에서 확장 가능한 자동화된 통합 워크플로를 만들어 실행할 수 있습니다. 이 문서에서는 Azure Logic Apps 및 관련 리소스에 대해 청구 및 가격 책정 모델이 어떻게 작동하는지 설명합니다. 특정 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요. 비용 계획, 관리 및 모니터링 방법에 대해 알아보려면 [Azure Logic Apps에 대한 비용 계획 및 관리](plan-manage-costs.md)를 참조하세요.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하면 클라우드에서 확장 가능한 자동화된 통합 워크플로를 만들어 실행할 수 있습니다. 이 문서에서는 Azure Logic Apps 및 관련 리소스에 대해 계량, 청구 및 가격 책정 모델이 작동하는 방법을 알아봅니다. 특정 가격 책정 요금, 비용 계획 또는 다양한 호스팅 환경과 같은 정보는 다음 콘텐츠를 검토하세요.
+
+* [Azure Logic Apps 가격 책정 요금](https://azure.microsoft.com/pricing/details/logic-apps)
+* [Azure Logic Apps에 대한 비용 계획 및 관리](plan-manage-costs.md)
+* [단일 테넌트 대 다중 테넌트 및 통합 서비스 환경](single-tenant-overview-compare.md)
 
 <a name="consumption-pricing"></a>
 
-## <a name="consumption-pricing-multi-tenant"></a>소비 가격 책정(다중 테넌트)
+## <a name="consumption-multi-tenant"></a>사용량(다중 테넌트)
 
-종량제 소비 가격 책정 모델은 퍼블릭, ‘글로벌’, 다중 테넌트 Azure Logic Apps 환경에서 실행되는 논리 앱에 적용됩니다. 다음과 같은 여러 옵션을 사용하여 이러한 논리 앱을 만들 수 있습니다.
+다중 테넌트 Azure Logic Apps에서 논리 앱과 해당 워크플로는 가격 책정 및 청구에 대한 [**사용량** 요금제](https://azure.microsoft.com/pricing/details/logic-apps)를 따릅니다. 예를 들어 **논리 앱(사용량)** 리소스 종류를 선택하거나 Visual Studio Code에서 **Azure Logic Apps(사용량)** 확장을 사용하거나 [자동화 작업](create-automation-tasks-azure-resources.md)을 만들 때 이러한 논리 앱을 다양한 방법으로 만듭니다.
 
-* Azure Portal의 논리 앱(소비) 리소스 유형
-* Visual Studio Code의 Azure Logic Apps(소비) 확장
-* Visual Studio의 Azure Logic Apps 도구 확장
-* `Microsoft.Logic` 리소스 유형을 사용하는 ARM 템플릿(Azure Resource Manager 템플릿)
-* `az logic` 명령을 사용하는 Azure Logic Apps에 대한 Azure CLI
-* `Az.LogicApp` 모듈을 사용하는 Azure Logic Apps에 대한 Azure PowerShell
-* Azure Logic Apps에 대한 REST API
-* Azure Portal의 [자동화 작업](create-automation-tasks-azure-resources.md)
+다음 표에는 다중 테넌트 Azure Logic Apps에서 논리 앱 및 워크플로와 함께 사용하는 경우 사용량 모델에서 다음 구성 요소에 대한 계량 및 청구를 처리하는 방법이 요약되어 있습니다.
 
-계량 및 청구는 논리 앱 워크플로의 트리거 및 작업 실행을 기준으로 합니다. 이러한 실행은 워크플로가 성공적으로 실행되는지 또는 워크플로가 인스턴스화되었는지 여부에 관계없이 계량 및 요금이 청구됩니다. 예를 들어 자동화 태스크가 정기적으로 엔드포인트에 나가는 호출을 수행하는 폴링 트리거를 사용한다고 가정합니다. 이 아웃바운드 요청은 트리거가 발생하거나 건너뛰는지 여부에 관계없이 계량되고 실행으로 청구됩니다. 이는 워크플로 인스턴스가 만들어지는지 여부에 영향을 줍니다.
-
-| 항목 | 설명 |
-|-------|-------------|
-| [기본 제공](../connectors/built-in.md) 트리거 및 작업 | Logic Apps 서비스에서 기본적으로 실행되며 [**작업** 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. <p><p>예를 들어, HTTP 트리거와 요청 트리거는 기본 제공 트리거이고 HTTP 작업 및 응답 작업은 기본 제공 작업입니다. 루프, 조건, 스위치, 병렬 분기 등과 같은 데이터 작업, 일괄 처리 작업, 변수 작업 및 [워크플로 제어 작업](../connectors/built-in.md)도 기본 제공 작업입니다. <p><p>**참고**: 월별 보너스로, 소비 계획에는 수천 개의 기본 제공 실행이 무료로 포함됩니다. |
-| [표준 커넥터](../connectors/managed.md) 트리거 및 작업 <p><p>[사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors) 트리거 및 작업 | [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. |
-| [엔터프라이즈 커넥터](../connectors/managed.md) 트리거 및 작업 | [엔터프라이즈 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. 그러나 커넥터 미리 보기 중에는 엔터프라이즈 커넥터가 [*표준* 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. |
-| [루프](logic-apps-control-flow-loops.md) 내부의 작업 | 루프에서 실행되는 각 작업은 실행되는 각 루프 주기에 대해 측정됩니다. <p><p>예를 들어, 목록을 처리하는 작업을 포함하는 "for each" 루프가 있다고 가정합니다. Logic Apps 서비스는 목록 항목의 수를 루프의 작업 수와 곱하여 해당 루프에서 실행되는 각각의 작업을 측정하고, 루프를 시작하는 작업을 추가합니다. 따라서 10개 항목 목록에 대한 계산은 (10 * 1) + 1이므로 작업 실행은 11개가 됩니다. |
-| 다시 시도 횟수 | 가장 기본적인 예외 및 오류를 처리하기 위해 지원되는 트리거 및 작업에 대한 [재시도 정책](logic-apps-exception-handling.md#retry-policies)을 설정할 수 있습니다. 원래의 요청과 함께 이러한 재시도는 트리거 또는 작업에 기본 제공, 표준 또는 엔터프라이즈 유형이 있는지 여부에 따라 요금이 청구됩니다. 예를 들어, 두 번의 재시도로 실행되는 작업은 3개의 작업 실행에 대해 요금이 청구됩니다. |
-| [데이터 보존 및 스토리지 사용량](#data-retention) | 데이터 보존 가격을 사용하여 측정되며, [Logic Apps 가격 책정 페이지](https://azure.microsoft.com/pricing/details/logic-apps/)의 **가격 책정 세부 정보** 표에서 확인할 수 있습니다. |
+| 구성 요소 | 계량 및 요금 청구 |
+| ----------|----------------------|
+| 트리거 및 작업 | 사용량 모델에는 워크플로에서 실행할 수 있는 Azure 구독당 무료 기본 제공 작업의 *초기 수* 가 포함됩니다. 이 수를 초과하는 경우 계량이 *각 실행* 에 적용되며, [사용량 요금제의 *작업* 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 따릅니다. 관리형 커넥터와 같은 다른 작업 유형의 경우 청구는 [사용량 요금제의 *표준* 또는 *엔터프라이즈* 커넥터 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 따릅니다. 자세한 내용은 [사용량 모델의 트리거 및 작업](#consumption-operations)을 검토하세요. |
+| 스토리지 작업 | 계량은 워크플로의 실행 기록에서 입력 및 출력을 저장하는 것과 같은 *데이터 보존 관련 스토리지 사용량* 에만 적용됩니다. 청구는 [사용량 요금제의 데이터 보존 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 따릅니다. 자세한 내용은 [스토리지 작업](#storage-operations)을 검토하세요. |
+| 통합 계정 | 계량은 논리 앱에서 만들고 사용하는 통합 계정 유형에 따라 적용됩니다. 청구는 논리 앱이 [ISE(통합 서비스 환경)](#ise-pricing)에서 배포되고 호스트되는 경우를 제외하고 [*통합 계정* 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 따릅니다. 자세한 내용은 [통합 계정](#integration-accounts)을 검토하세요. |
 |||
 
-자세한 내용은 다음 설명서를 검토하세요.
+<a name="consumption-operations"></a>
 
-* [실행 및 스토리지 사용량에 대한 메트릭 보기](plan-manage-costs.md#monitor-billing-metrics)
-* [Azure Logic Apps의 한도](logic-apps-limits-and-config.md)
+### <a name="trigger-and-action-operations-in-the-consumption-model"></a>사용량 모델의 트리거 및 작업
 
-### <a name="not-metered"></a>요금제에 없음
+전체 워크플로가 성공적으로 실행, 완료, 심지어 인스턴스화되었는지의 여부에 관계없이 워크플로에서 실행할 수 있는 Azure 구독당 무료 기본 제공 작업 실행의 초기 수를 제외하고는 사용량 모델에서 *각 실행* 을 기반으로 하여 작업을 계량하고 요금을 청구합니다. 작업은 [재시도 횟수가 사용하도록 설정된 경우를 제외](#other-operation-behavior)하고는 일반적으로 단일 실행을 수행합니다. 결과적으로 [작업에서 청크 또는 페이지 매김을 지원하고 사용하도록 설정하여 대량의 데이터를 가져오는 경우를 제외](logic-apps-handle-large-messages.md)하고는 실행에서 일반적으로 단일 호출을 수행합니다. 청크 또는 페이지 매김이 사용하도록 설정된 경우 작업 실행에서 여러 호출을 번 수행해야 할 수 있습니다. 사용량 모델은 작업을 *호출 단위가 아니라 실행 단위로* 계량하고 청구합니다.
 
-* 충족되지 않은 조건으로 인해 건너뛴 트리거
-* 완료되기 전에 논리 앱이 중지되어 실행되지 않은 작업
-* [사용할 수 없는 논리 앱](#disabled-apps)
+예를 들어 워크플로에서 엔드포인트에 대한 아웃바운드 호출을 정기적으로 수행하여 레코드를 가져오는 폴링 트리거로 시작한다고 가정합니다. 아웃바운드 호출은 트리거가 발생하거나 건너뛰는지 여부에 관계없이 단일 실행으로 계량되고 청구됩니다. 트리거 상태는 워크플로 인스턴스를 만들고 실행할지 여부를 제어합니다. 이제 작업에서 청크 또는 페이지 매김도 지원하고 사용하도록 설정했다고 가정합니다. 작업에서 모든 데이터 가져오기를 완료하기 위해 10번의 호출을 수행해야 하는 경우 여러 번 호출하더라도 작업은 여전히 *단일 실행* 으로 계량되고 청구됩니다.
 
-### <a name="other-related-resources"></a>기타 관련 리소스
+다음 표에는 다중 테넌트 Azure Logic Apps에서 논리 앱 및 워크플로와 함께 사용하는 경우 사용량 모델에서 이러한 작업 유형에 대한 계량 및 청구를 처리하는 방법이 요약되어 있습니다.
 
-논리 앱은 통합 계정, 온-프레미스 데이터 게이트웨이 및 ISE(통합 서비스 환경)와 같은 다른 관련 리소스와 함께 작동합니다. 이러한 리소스의 가격 책정에 대한 자세한 정보는 이 항목의 뒷부분에 나오는 다음 섹션을 검토하세요.
+| 작업 유형 | 설명 | 계량 및 요금 청구 |
+|----------------|-------------|----------------------|
+| [*기본 제공*](../connectors/built-in.md) | 이러한 작업은 Azure Logic Apps 런타임에서 기본적으로 직접 실행됩니다. 이러한 작업은 디자이너의 **기본 제공** 레이블에서 찾을 수 있습니다. <p>예를 들어 HTTP 트리거 및 요청 트리거는 기본 제공 트리거입니다. HTTP 작업 및 응답 작업은 기본 제공 작업입니다. 기타 기본 제공 작업에는 루프 및 조건, 데이터 작업, 일괄 처리 작업 등과 같은 워크플로 제어 작업이 포함됩니다. | 사용량 모델에는 워크플로에서 실행할 수 있는 Azure 구독당 *무료 기본 제공 작업의 초기 수* 가 포함됩니다. 이 수를 초과하는 경우 기본 제공 작업 실행은 [*작업* 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 따릅니다. <p><p>**참고**: 일부 관리형 커넥터 *작업도* 초기 무료 작업에 포함된 기본 제공 작업으로 사용할 수 있습니다. 초기 무료 작업 수를 초과하는 경우 청구는 [*표준* 또는 *엔터프라이즈* 커넥터 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)이 아닌 [*작업* 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 따릅니다. |
+| [*관리형 커넥터*](../connectors/managed.md) | 이러한 작업은 Azure에서 별도로 실행됩니다. 이러한 작업은 디자이너의 **표준** 또는 **엔터프라이즈** 레이블에서 찾을 수 있습니다. | 이러한 작업 실행은 [*표준* 또는 *엔터프라이즈* 커넥터 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 따릅니다. <p><p>**참고**: 미리 보기 엔터프라이즈 커넥터 작업 실행은 [사용량 *표준* 커넥터 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 따릅니다. |
+| [*사용자 지정 커넥터*](../connectors/apis-list.md#custom-apis-and-connectors) | 이러한 작업은 Azure에서 별도로 실행됩니다. 이러한 작업은 디자이너의 **사용자 지정** 레이블에서 찾을 수 있습니다. 커넥터 수, 처리량 및 시간 제한에 대한 제한은 [Azure Logic Apps의 사용자 지정 커넥터 제한](logic-apps-limits-and-config.md#custom-connector-limits)을 검토하세요. | 이러한 작업 실행은 [*표준* 커넥터 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 따릅니다. |
+||||
 
-* [On-premises data gateway (온-프레미스 데이터 게이트웨이)](#data-gateway)
-* [통합 계정 가격 책정 모델](#integration-accounts)
-* [ISE 가격 책정 모델](#fixed-pricing)
+사용량 모델이 루프와 같은 다른 작업 내에서 실행하고, 배열과 같은 여러 항목을 처리하고, 정책을 다시 시도하는 작업을 사용하는 방법에 대한 자세한 내용은 [기타 작업 동작](#other-operation-behavior)을 검토하세요.
 
-### <a name="tips-for-estimating-consumption-costs"></a>소비 비용 예측을 위한 팁
+<a name="consumption-cost-estimation-tips"></a>
+
+### <a name="cost-estimation-tips-for-the-consumption-model"></a>사용량 모델에 대한 비용 예측 팁
 
 더 정확한 소비 비용 예측을 위해 다음 팁을 검토하세요.
 
@@ -75,148 +69,185 @@ ms.locfileid: "111981700"
 
 <a name="standard-pricing"></a>
 
-## <a name="standard-pricing-single-tenant"></a>표준 가격 책정(단일 테넌트)
+## <a name="standard-single-tenant"></a>표준(단일 테넌트)
 
-호스팅 계획 및 가격 책정 계층 기반 가격 책정 모델은 단일 테넌트 Azure Logic Apps 환경에서 실행되는 논리 앱에 적용됩니다. 이 가격은 Azure Portal의 **논리 앱(표준)** 리소스 형식 또는 Visual Studio Code에 대한 **Azure Logic Apps(표준)** 확장을 사용하여 작업하는 논리 앱에 적용됩니다. 이러한 논리 앱을 만들거나 배포할 때 워크플로 실행 시에 측정 및 요금 청구에 사용할 가격 요율을 결정하는 호스팅 플랜 및 가격 책정 계층을 선택해야 합니다.
+단일 테넌트 Azure Logic Apps에서 논리 앱과 해당 워크플로는 가격 책정 및 청구에 대한 [**표준** 요금제](https://azure.microsoft.com/pricing/details/logic-apps/)를 따릅니다. 예를 들어 **논리 앱(표준)** 리소스 종류를 선택하거나 Visual Studio Code에서 **Azure Logic Apps(표준)** 확장을 사용할 때 이러한 논리 앱을 다양한 방법으로 만들 수 있습니다. 이 가격 책정 모델에서는 논리 앱에서 호스팅 계획 및 가격 책정 계층을 사용해야 합니다. 이는 사용하는지 여부에 관계없이 요금이 예약된 용량 및 전용 리소스에 대해 청구된다는 점에서 사용량 요금제와 다릅니다.
 
-> [!NOTE]
-> **논리 앱(표준)** 리소스 종류를 사용하여 만드는 새 논리 앱의 경우 **워크플로 표준** 호스팅 계획을 사용해야 합니다. App Service 플랜 및 App Service Environment는 새 논리 앱에 사용할 수 없습니다.
+> [!IMPORTANT]
+> **논리 앱(표준)** 리소스 종류를 기반으로 하여 새 논리 앱을 만들거나 배포하는 경우 모든 Azure 지역에서 워크플로 표준 호스팅 계획을 사용하거나 App Service 호스팅 계획을 사용할 수 있지만, **기본 사항** 탭에서 **App Service Environment v3** 지역을 선택하는 경우에만 사용할 수 있습니다.
+>
+> 미리 보기 **논리 앱(표준)** 리소스 종류를 사용하면 App Service 요금제, Functions 프리미엄 요금제, App Service Environment v1 및 App Service Environment v2를 사용할 수 있지만, 이러한 옵션은 이 Azure Logic Apps 리소스 종류의 퍼블릭 릴리스에서 더 이상 사용할 수 없거나 지원되지 않습니다.
 
-<a name="hosting-plans"></a>
+다음 표에는 단일 테넌트 Azure Logic Apps에서 논리 앱 및 워크플로와 함께 사용하는 경우 표준 모델에서 다음 구성 요소에 대한 계량 및 청구를 처리하는 방법이 요약되어 있습니다.
 
-### <a name="pricing-tiers-and-billing-rates"></a>가격 책정 계층 및 청구 요율
+| 구성 요소 | 계량 및 요금 청구 |
+|-----------|----------------------|
+| vCPU(가상 CPU) 및 메모리 | 표준 모델을 사용하려면 논리 앱에서 **워크플로 표준** 호스팅 계획과 컴퓨팅 및 메모리 용량에 적용되는 리소스 수준 및 가격 책정 요금을 결정하는 가격 책정 계층을 *사용해야* 합니다. 자세한 내용은 [표준 모델의 가격 책정 계층](#standard-pricing-tiers)을 참조하세요. |
+| 트리거 및 작업 | 표준 모델에는 워크플로에서 실행할 수 있는 *무제한* 의 무료 기본 제공 작업이 포함됩니다. <p>워크플로에서 관리형 커넥터 작업을 사용하는 경우 해당 작업에 대한 계량은 *각 호출* 에 적용되며, 청구는 [사용량 요금제와 동일한 *표준* 또는 *엔터프라이즈* 커넥터 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 따릅니다. 자세한 내용은 [표준 모델의 트리거 및 작업](#standard-operations)을 검토하세요. |
+| 스토리지 작업 | 계량은 Azure Logic Apps에서 실행하는 모든 스토리지 작업에 적용됩니다. 예를 들어 스토리지 작업은 서비스에서 워크플로 실행 기록의 입력 및 출력을 저장할 때 실행됩니다. 청구는 선택한 [가격 책정 계층](#standard-pricing-tiers)을 따릅니다. 자세한 내용은 [스토리지 작업](#storage-operations)을 검토하세요. |
+| 통합 계정 | 논리 앱에서 사용할 통합 계정을 만드는 경우 계량은 사용자가 만드는 통합 계정 유형을 기반으로 합니다. 청구는 선택한 [*통합 계정* 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 따릅니다. 자세한 내용은 [통합 계정](#integration-accounts)을 검토하세요. |
+|||
 
-호스팅 플랜의 각 가격 책정 계층에는 특정 양의 컴퓨팅, 메모리 및 스토리지 리소스가 포함됩니다. 리소스 및 지역별 시간당 요율에 대해서는 [Azure Logic Apps 가격 책정 페이지](https://azure.microsoft.com/pricing/details/logic-apps/)를 검토하세요.
+<a name="standard-pricing-tiers"></a>
 
-가격 책정 방식을 더 잘 이해하기 위해 이 예제에서는 *미국 동부 2 지역* 에 대한 샘플 예상치를 제공합니다.
+### <a name="pricing-tiers-in-the-standard-model"></a>표준 모델의 가격 책정 계층
 
-* [Azure Logic Apps 가격 책정 페이지](https://azure.microsoft.com/pricing/details/logic-apps/)에서 **미국 동부 2** 지역을 선택하여 시간당 요율을 보거나 다음 표를 검토하세요.
+논리 앱을 계량하고 청구하기 위해 선택하는 가격 책정 계층에는 vCPU(가상 CPU) 및 메모리 리소스의 특정 컴퓨팅 양이 포함됩니다. 현재 **논리 앱(표준)** 리소스 종류에는 **워크플로 표준** 호스팅 계획만 사용할 수 있으며, 다음과 같은 가격 책정 계층을 제공합니다.
 
-  | 리소스 | 시간별 USD(미국 동부 2) |
-  |----------|------------------------|
-  | **vCPU(가상 CPU)** | $0.192 |
-  | **메모리** | GB당 $0.0137 |
-  |||
+| 가격 책정 계층 | vCPU(가상 CPU) | 메모리(GB) |
+|--------------|--------------------|-------------|
+| **WS1** | 1 | 3.5 |
+| **WS2** | 2 | 7 |
+| **WS3** | 4 | 14 |
+||||
 
-* 위의 정보에 따라 이 표에서는 각 가격 책정 계층에 대한 월별 예상 요금 및 해당 가격 책정 계층에 포함된 리소스를 보여 줍니다.
+> [!IMPORTANT]
+>
+> 다음 예는 설명을 위한 것이며, 일반적으로 가격 책정 계층의 작동 방식을 보여 주는 샘플 예상 비용을 제공합니다. 
+> Azure Logic Apps를 사용할 수 있는 특정 지역을 기반으로 하는 특정 vCPU 및 메모리 가격 책정은 [Azure Logic Apps 가격 페이지에서 선택한 지역에 대한 표준 요금제](https://azure.microsoft.com/pricing/details/logic-apps/)를 검토하세요.
+>
+> 예제 지역에서 이러한 리소스의 시간당 요금이 다음과 같다고 가정합니다.
+>
+> | 리소스 | 시간당 요금(예제 지역) |
+> |----------|-----------------------------|
+> | **vCPU** | vCPU당 $0.192 |
+> | **메모리** | GB당 $0.0137 |
+> |||
+>
+> 다음 계산은 월별 예상 요금을 제공합니다.
+>
+> <*월간 요금*> = 730시간(월별) * [(<*number-vCPU*> * <*hourly-rate-vCPU*>) + (<*number-GB-memory*> * <*hourly-rate-GB-memory*>)]
+>
+> 다음 표에는 위의 정보를 기반으로 하여 각 가격 책정 계층 및 해당 가격 책정 계층의 리소스에 대한 월별 예상 요금이 나와 있습니다.
+>
+> | 가격 책정 계층 | vCPU(가상 CPU) | 메모리(GB) | 월별 요금(예제 지역) |
+> |--------------|--------------------|-------------|------------------------------|
+> | **WS1** | 1 | 3.5 | $175.16 |
+> | **WS2** | 2 | 7 | $350.33 |
+> | **WS3** | 4 | 14 | $700.65 |
+> |||||
 
-  | 가격 책정 계층 | 월별 USD(미국 동부 2) | vCPU(가상 CPU) | 메모리(GB) | 스토리지(GB) |
-  |--------------|-------------------------|--------------------|-------------|--------------|
-  | **WS1** | $175.20 | 1 | 3.5 | 250 |
-  | **WS2** | $350.40 | 2 | 7 | 250 |
-  | **WS3** | $700.80 | 4 | 14 | 250 |
-  ||||||
+<a name="standard-operations"></a>
 
-* 위의 정보에 따라 이 표에는 **WS1** 가격 책정 계층을 선택하는 경우의 각 리소스 및 예상 월별 요금이 나열됩니다.
+### <a name="trigger-and-action-operations-in-the-standard-model"></a>표준 모델의 트리거 및 작업
 
-  | 리소스 | Amount | 월별 USD(미국 동부 2) |
-  |----------|--------|-------------------------|
-  | **vCPU(가상 CPU)** | 1 | $140.16 |
-  | **메모리** | 3.5 GB | $35.04 |
-  ||||
+전체 워크플로가 성공적으로 실행, 완료, 심지어 인스턴스화되었는지의 여부에 관계없이 워크플로에서 실행할 수 있는 무제한의 무료 기본 제공 작업을 제외하고는 표준 모델에서 *각 호출* 을 기반으로 하여 작업을 계량하고 요금을 청구합니다. 작업은 [재시도 횟수가 사용하도록 설정된 경우를 제외](#other-operation-behavior)하고는 일반적으로 단일 실행을 수행합니다. 결과적으로 [작업에서 청크 또는 페이지 매김을 지원하고 사용하도록 설정하여 대량의 데이터를 가져오는 경우를 제외](logic-apps-handle-large-messages.md)하고는 실행에서 일반적으로 단일 호출을 수행합니다. 청크 또는 페이지 매김이 사용하도록 설정된 경우 작업 실행에서 여러 호출을 번 수행해야 할 수 있습니다. 표준 모델은 작업을 *실행 단위가 아니라 호출 단위로* 계량하고 청구합니다.
 
-<a name="storage-transactions"></a>
+예를 들어 워크플로에서 엔드포인트에 대한 아웃바운드 호출을 정기적으로 수행하여 레코드를 가져오는 폴링 트리거로 시작한다고 가정합니다. 아웃바운드 호출은 트리거가 발생하거나 건너뛰는지 여부에 관계없이 계량되고 청구됩니다. 트리거 상태는 워크플로 인스턴스를 만들고 실행할지 여부를 제어합니다. 이제 작업에서 청크 또는 페이지 매김도 지원하고 사용하도록 설정했다고 가정합니다. 작업에서 모든 데이터 가져오기를 완료하기 위해 10번의 호출을 수행해야 하는 경우 작업은 *호출 단위* 로 계량되고 청구됩니다.
 
-### <a name="storage-transactions"></a>스토리지 트랜잭션
+다음 표에는 단일 테넌트 Azure Logic Apps에서 논리 앱 및 워크플로와 함께 사용하는 경우 표준 모델에서 작업 유형에 대한 계량 및 청구를 처리하는 방법이 요약되어 있습니다.
 
-Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/index.yml)를 사용합니다. 다중 테넌트 Azure Logic Apps를 사용하여 모든 스토리지 사용량 및 비용을 논리 앱에 연결합니다. 단일 테넌트 Azure Logic Apps를 사용하여 고유한 Azure [Storage 계정](../azure-functions/storage-considerations.md#storage-account-requirements)을 사용할 수 있습니다. 이 기능은 Logic Apps 데이터에 대해 더 많은 제어와 유연성을 제공합니다.
+| 작업 유형 | 설명 | 계량 및 요금 청구 |
+|----------------|-------------|----------------------|
+| [*기본 제공*](../connectors/built-in.md) | 이러한 작업은 Azure Logic Apps 런타임에서 기본적으로 직접 실행됩니다. 이러한 작업은 디자이너의 **기본 제공** 레이블에서 찾을 수 있습니다. <p>예를 들어 HTTP 트리거 및 요청 트리거는 기본 제공 트리거입니다. HTTP 작업 및 응답 작업은 기본 제공 작업입니다. 기타 기본 제공 작업에는 루프 및 조건, 데이터 작업, 일괄 처리 작업 등과 같은 워크플로 제어 작업이 포함됩니다. | 표준 모델에는 무제한의 무료 기본 제공 작업이 포함됩니다. <p><p>**참고**: 일부 관리형 커넥터 *작업도* 기본 제공 작업으로 사용할 수 있습니다. 기본 제공 작업은 무료이지만, 표준 모델은 여전히 [사용량 모델과 동일한 *표준* 또는 *엔터프라이즈* 커넥터 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 관리형 커넥터 작업을 계량하고 청구합니다. |
+| [*관리형 커넥터*](../connectors/managed.md) | 이러한 작업은 Azure에서 별도로 실행됩니다. 이러한 작업은 디자이너의 결합된 **Azure** 레이블에서 찾을 수 있습니다. | 표준 모델은 [사용량 모델과 동일한 *표준* 또는 *엔터프라이즈* 커넥터 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 기반으로 하여 관리형 커넥터 작업을 계량하고 청구합니다. <p><p>**참고**: 미리 보기 엔터프라이즈 커넥터 작업은 [사용량 *표준* 커넥터 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 따릅니다. |
+| [*사용자 지정 커넥터*](../connectors/apis-list.md#custom-apis-and-connectors) | 현재 단일 테넌트 기반 논리 앱 워크플로에서 [사용자 지정 기본 제공 커넥터 작업](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)만 만들고 사용할 수 있습니다. | 표준 모델에는 무제한의 무료 기본 제공 작업이 포함됩니다. 처리량 및 시간 제한에 대한 제한은 [Azure Logic Apps의 사용자 지정 커넥터 제한](logic-apps-limits-and-config.md#custom-connector-limits)을 검토하세요. |
+||||
 
-*상태 저장* 워크플로가 작업을 실행할 때 Azure Logic Apps 런타임은 스토리지 트랜잭션을 수행합니다. 예를 들어 큐는 예약에 사용되고 테이블 및 Blob은 워크플로 상태를 저장하는 데 사용됩니다. 스토리지 비용은 워크플로 콘텐츠에 따라 변경됩니다. 트리거, 작업 및 페이로드가 다르면 스토리지 작업 및 요구 사항도 다릅니다. 스토리지 트랜잭션은 [Azure Storage 가격 책정 모델](https://azure.microsoft.com/pricing/details/storage/)을 따릅니다. 스토리지 비용은 Azure 청구서에 별도로 표시됩니다.
+표준 모델이 루프와 같은 다른 작업 내에서 실행하고, 배열과 같은 여러 항목을 처리하고, 정책을 다시 시도하는 작업을 사용하는 방법에 대한 자세한 내용은 [기타 작업 동작](#other-operation-behavior)을 검토하세요.
 
-### <a name="tips-for-estimating-storage-needs-and-costs"></a>스토리지 요구 사항 및 비용 예측을 위한 팁
+<a name="ise-pricing"></a>
 
-워크플로가 실행할 수 있는 스토리지 작업 수와 해당 비용을 파악하려면 [Logic Apps 스토리지 계산기](https://logicapps.azure.com/calculator)를 사용해 보세요. 샘플 워크플로를 선택하거나 기존 워크플로 정의를 사용할 수 있습니다. 첫 번째 계산은 워크플로의 스토리지 작업 수를 예측합니다. 그런 다음, 이러한 수치를 사용하여 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)에서 가능한 비용을 예상할 수 있습니다.
+## <a name="integration-service-environment-ise"></a>ISE(통합 서비스 환경)
 
-자세한 내용은 다음 설명서를 검토하세요.
+**논리 앱(사용량)** 리소스 종류를 사용하여 논리 앱을 만들고 전용 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에 배포하는 경우 논리 앱과 해당 워크플로는 가격 책정 및 청구에 대한 [통합 서비스 환경 요금제](https://azure.microsoft.com/pricing/details/logic-apps)를 따릅니다. 이 가격 책정 모델은 [ISE 수준 또는 *SKU*](connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)에 따라 달라지며, 사용하는지 여부에 관계없이 요금이 예약된 용량 및 전용 리소스에 대해 청구된다는 점에서 사용량 요금제와 다릅니다.
 
-* [단일 테넌트 Azure Logic Apps의 워크플로에 대한 스토리지 요구량 및 비용 추산](estimate-storage-costs.md)
-* [Azure Storage 가격 책정 정보](https://azure.microsoft.com/pricing/details/storage/)
+다음 표에는 ISE 모델에서 ISE 수준 또는 SKU에 따라 용량 및 기타 전용 리소스에 대한 계량 및 청구를 처리하는 방법이 요약되어 있습니다.
 
-<a name="fixed-pricing"></a>
-
-## <a name="ise-pricing-dedicated"></a>ISE 가격 책정(전용)
-
-고정 가격 책정 모델은 전용 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 실행되는 논리 앱에 적용됩니다. ISE는 생성하는 [ISE 수준 또는 *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)에 따라 달라지는 [통합 서비스 환경 가격](https://azure.microsoft.com/pricing/details/logic-apps)을 사용하여 청구됩니다. 이 가격은 사용 여부에 관계없이 예약된 용량과 전용 리소스에 대한 요금을 지불하므로 다중 테넌트 가격 책정과 다릅니다.
-
-| ISE SKU | Description |
-|---------|-------------|
+| ISE SKU | 계량 및 요금 청구 |
+|---------|----------------------|
 | **Premium** | 기준 단위는 [고정 용량](logic-apps-limits-and-config.md#integration-service-environment-ise)이며, [프리미엄 SKU에 대한 시간당 요금](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구됩니다. 더 많은 처리량이 필요한 경우 ISE를 만들 때 또는 나중에 [배율 단위를 더 추가](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)할 수 있습니다. 각 배율 단위는 [기준 단위 요금의 약 절반에 해당하는 시간당 요금](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구됩니다. <p><p>용량 및 한도 정보는 [Azure Logic Apps의 ISE 한도](logic-apps-limits-and-config.md#integration-service-environment-ise)를 참조하세요. |
 | **개발자** | 기준 단위는 [고정 용량](logic-apps-limits-and-config.md#integration-service-environment-ise)이며, [개발자 SKU에 대한 시간당 요금](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구됩니다. 그러나 이 SKU는 SLA(서비스 수준 계약), 스케일 업 기능 또는 재활용 시 중복성이 없으므로, 지연 또는 가동 중지 시간이 발생할 수 있습니다. 백 엔드 업데이트로 인해 서비스가 간헐적으로 중단될 수 있습니다. <p><p>**중요**: 이 SKU는 프로덕션 또는 성능 테스트가 아닌 탐색, 실험, 개발 및 테스트에만 사용해야 합니다. <p><p>용량 및 한도 정보는 [Azure Logic Apps의 ISE 한도](logic-apps-limits-and-config.md#integration-service-environment-ise)를 참조하세요. |
 |||
 
-### <a name="included-at-no-extra-cost"></a>추가 비용 없이 포함
+다음 표에는 ISE에서 논리 앱 및 워크플로와 함께 사용하는 경우 ISE 모델에서 다음 구성 요소를 처리하는 방법이 요약되어 있습니다.
 
-| 항목 | 설명 |
-|-------|-------------|
-| [기본 제공](../connectors/built-in.md) 트리거 및 작업 | **Core** 레이블을 표시하고 논리 앱과 동일한 ISE에서 실행합니다. |
-| [표준 커넥터](../connectors/managed.md) <p><p>[엔터프라이즈 커넥터](../connectors/managed.md#enterprise-connectors) | - **ISE** 레이블을 표시하는 관리형 커넥터는 온-프레미스 데이터 게이트웨이 없이 작동하고, 논리 앱과 동일한 ISE에서 실행되도록 특별히 설계되었습니다. ISE 가격 책정에는 사용자가 원하는 만큼의 엔터프라이즈 연결이 포함됩니다. <p><p>- ISE 레이블을 표시하지 않는 커넥터는 단일 테넌트 Azure Logic Apps 서비스에서 실행됩니다. 그러나 ISE 가격 책정에는 ISE에서 실행되는 논리 앱에 대한 이러한 실행이 포함됩니다. |
-| [루프](logic-apps-control-flow-loops.md) 내부의 작업 | ISE 가격 책정에는 실행되는 각 루프 주기에 대해 루프에서 실행되는 각 작업이 포함됩니다. <p><p>예를 들어, 목록을 처리하는 작업을 포함하는 "for each" 루프가 있다고 가정합니다. 총 작업 실행 수를 가져오려면 목록 항목 수와 루프의 작업 수를 곱하고 루프를 시작하는 작업을 더합니다. 따라서 10개 항목 목록에 대한 계산은 (10 * 1) + 1이므로 작업 실행은 11개가 됩니다. |
-| 다시 시도 횟수 | 가장 기본적인 예외 및 오류를 처리하기 위해 지원되는 트리거 및 작업에 대한 [재시도 정책](logic-apps-exception-handling.md#retry-policies)을 설정할 수 있습니다. ISE 가격 책정에는 원래 요청과 함께 재시도가 포함됩니다. |
-| [데이터 보존 및 스토리지 사용량](#data-retention) | ISE의 논리 앱은 데이터 보존 및 스토리지 사용 비용을 발생시키지 않습니다. |
-| [통합 계정](#integration-accounts) | 추가 비용 없이 ISE SKU를 기반으로 한 단일 통합 계정 계층에 대한 사용량이 포함됩니다. |
+| 구성 요소 | 설명 |
+|-----------|-------------|
+| 트리거 및 작업 | ISE 모델에는 워크플로에서 실행할 수 있는 무료 기본 제공 관리형 커넥터 및 사용자 지정 커넥터 작업이 포함되지만, [Azure Logic Apps의 ISE 제한](logic-apps-limits-and-config.md#integration-service-environment-ise) 및 [Azure Logic Apps의 사용자 지정 커넥터 제한](logic-apps-limits-and-config.md#custom-connector-limits)이 적용됩니다. 자세한 내용은 [ISE 모델의 트리거 및 작업](#integration-service-environment-operations)을 검토하세요. |
+| 스토리지 작업 | ISE 모델에는 데이터 보존과 같은 무료 스토리지 사용량이 포함됩니다. 자세한 내용은 [스토리지 작업](#storage-operations)을 검토하세요. |
+| 통합 계정 | ISE 모델에는 선택한 ISE SKU에 따라 하나의 무료 통합 계정 계층이 포함됩니다. [추가 비용](https://azure.microsoft.com/pricing/details/logic-apps/)을 지불하면 ISE에서 [총 ISE 제한](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)까지 사용할 더 많은 통합 계정을 만들 수 있습니다. 자세한 내용은 [통합 계정](#integration-accounts)을 검토하세요. |
 |||
 
-한도 정보는 [Azure Logic Apps의 ISE 한도](logic-apps-limits-and-config.md#integration-service-environment-ise)를 참조하세요.
+<a name="integration-service-environment-operations"></a>
 
-<a name="integration-accounts"></a>
+### <a name="trigger-and-action-operations-in-the-ise-model"></a>ISE 모델의 트리거 및 작업
 
-## <a name="integration-accounts"></a>통합 계정
+다음 표에는 ISE에서 논리 앱 및 워크플로와 함께 사용하는 경우 ISE 모델에서 다음 작업 유형을 처리하는 방법이 요약되어 있습니다.
 
-[통합 계정](../logic-apps/logic-apps-pricing.md#integration-accounts)은 [EDI](logic-apps-enterprise-integration-b2b.md) 및 [XML 처리](logic-apps-enterprise-integration-xml.md) 기능을 사용하는 B2B 통합 솔루션을 검색, 빌드 및 테스트할 수 있도록 만들어 논리 앱에 연결하는 별도의 리소스입니다.
-
-Azure Logic Apps는 논리 앱이 Azure Logic Apps(다중 테넌트 또는 단일 테넌트)에서 실행되는지 또는 ISE에서 실행되는지에 따라 [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/) 및 [청구 모델](logic-apps-pricing.md#integration-accounts)에 따라 달라지는 이러한 통합 계정 수준 또는 계층을 제공합니다.
-
-| 계층 | Description |
-|------|-------------|
-| **기본** | 메시지 처리만 원하는 시나리오 또는 대규모 비즈니스 엔터티와 거래 업체 관계를 맺고 있는 소규모 비즈니스 파트너 역할을 수행하는 시나리오의 경우. <p><p>Logic Apps SLA에서 지원됩니다. |
-| **Standard** | 더 복잡한 B2B 관계가 있고 관리해야 하는 엔터티 수가 늘어난 시나리오의 경우. <p><p>Logic Apps SLA에서 지원됩니다. |
-| **Free** | 프로덕션 시나리오가 아닌 예비 시나리오에 적합합니다. 이 계층에는 지역 가용성, 처리량 및 사용량에 대한 한도가 있습니다. 예를 들어, 무료 계층은 Azure의 공용 지역(예: 미국 서부 또는 동남 아시아)에서만 사용할 수 있고, [Azure 중국 21Vianet](/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)에서는 사용할 수 없습니다. <p><p>**참고**: Logic Apps SLA에서 지원되지 않습니다. |
-|||
-
-통합 계정 한도에 대한 자세한 내용은 [Azure Logic Apps의 한도 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)을 참조하세요.
-
-* [Azure 구독당 통합 계정 한도](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
-
-* [통합 계정당 여러 아티팩트에 대한 한도](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 아티팩트에는 거래 업체, 계약, 맵, 스키마, 어셈블리, 인증서, 일괄 처리 구성 등이 포함됩니다.
-
-### <a name="multi-tenant-or-single-tenant-based-logic-apps"></a>다중 테넌트 또는 단일 테넌트 기반 논리 앱
-
-통합 계정은 사용하는 계정 계층을 기반으로 하는 고정된 [통합 계정 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 청구됩니다.
-
-### <a name="ise-based-logic-apps"></a>ISE 기반 논리 앱
-
-추가 비용 없이 ISE는 ISE SKU를 기반으로 한 단일 통합 계정을 포함합니다. 추가 비용으로 ISE에 대한 통합 계정을 더 많이 만들어 [총 ISE 한도](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)까지 사용할 수 있습니다. 이 토픽의 앞부분에서 [ISE 가격 책정 모델](#fixed-pricing)에 대해 자세히 알아보세요.
-
-| ISE SKU | 통합 계정 포함 | 추가 비용 |
-|---------|------------------------------|-----------------|
-| **Premium** | 단일 [표준](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정 | 표준 계정 최대 19개 추가. 체험 또는 기본 계정은 허용되지 않습니다. |
-| **개발자** | 단일 [무료](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정 | 체험 계정이 이미 있는 경우 최대 19개의 표준 계정 또는 체험 계정이 없는 경우 총 20개의 표준 계정이 추가됩니다. 기본 계정은 허용되지 않습니다. |
+| 작업 유형 | 설명 | 계량 및 요금 청구 |
+|----------------|-------------|----------------------|
+| [*기본 제공*](../connectors/built-in.md) | 이러한 작업은 Azure Logic Apps 런타임 및 논리 앱 워크플로와 동일한 ISE에서 기본적으로 직접 실행됩니다. 이러한 작업은 디자이너의 **기본 제공** 레이블에서 찾을 수 있지만, 각 작업에는 **CORE** 레이블도 표시됩니다. <p>예를 들어 HTTP 트리거 및 요청 트리거는 기본 제공 트리거입니다. HTTP 작업 및 응답 작업은 기본 제공 작업입니다. 기타 기본 제공 작업에는 루프 및 조건, 데이터 작업, 일괄 처리 작업 등과 같은 워크플로 제어 작업이 포함됩니다. | ISE 모델에는 이러한 작업이 *무료로* 포함되지만, [Azure Logic Apps의 ISE 제한](logic-apps-limits-and-config.md#integration-service-environment-ise)이 적용됩니다. |
+| [*관리형 커넥터*](../connectors/managed.md) | *표준* 또는 *엔터프라이즈* 인지의 여부에 관계없이 커넥터 또는 작업에서 **ISE** 레이블을 표시하는지 여부에 따라 관리형 커넥터 작업은 ISE 또는 다중 테넌트 Azure에서 실행됩니다. <p><p>- **ISE** 레이블: 이러한 작업은 논리 앱과 동일한 ISE에서 실행되며 [온-프레미스 데이터 게이트웨이](#data-gateway) 없이 작동합니다. <p><p>- **ISE** 없음 레이블: 이러한 작업은 다중 테넌트 Azure에서 실행됩니다. | ISE 모델에는 **ISE** 및 **ISE** 없음 레이블이 지정된 작업이 모두 *무료로* 포함되지만, [Azure Logic Apps의 ISE 제한](logic-apps-limits-and-config.md#integration-service-environment-ise)이 적용됩니다. |
+| [*사용자 지정 커넥터*](../connectors/apis-list.md#custom-apis-and-connectors) | 이러한 작업은 디자이너의 **사용자 지정** 레이블에서 찾을 수 있습니다. | ISE 모델에는 이러한 작업이 *무료로* 포함되지만, [Azure Logic Apps의 사용자 지정 커넥터 제한](logic-apps-limits-and-config.md#custom-connector-limits)이 적용됩니다. |
 ||||
 
-<a name="data-retention"></a>
+ISE 모델이 루프와 같은 다른 작업 내에서 실행하고, 배열과 같은 여러 항목을 처리하고, 정책을 다시 시도하는 작업을 사용하는 방법에 대한 자세한 내용은 [기타 작업 동작](#other-operation-behavior)을 검토하세요.
 
-## <a name="data-retention-and-storage-usage"></a>데이터 보존 및 스토리지 사용량
+<a name="other-operation-behavior"></a>
 
-Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/index.yml)를 사용합니다. 워크플로 실행 기록의 입력 및 출력은 논리 앱의 [실행 기록 보존 한도](logic-apps-limits-and-config.md#run-duration-retention-limits)에 따라 저장되고 측정됩니다. 스토리지 사용량을 모니터링하려면 [실행 및 스토리지 사용량에 대한 메트릭 보기](plan-manage-costs.md#monitor-billing-metrics)를 참조하세요.
+## <a name="other-operation-behavior"></a>기타 작업 동작
 
-| 환경 | 메모 |
-|-------------|-------|
-| **다중 테넌트** | 스토리지 사용량 및 보존은 고정 요금을 사용하여 청구되며 이러한 요금은 **가격 정보** 테이블의 [Logic Apps 가격 책정 페이지](https://azure.microsoft.com/pricing/details/logic-apps)에서 찾을 수 있습니다. |
-| **단일 테넌트** | 스토리지 사용량 및 보존 요금은 [Azure Storage 가격 책정 모델](https://azure.microsoft.com/pricing/details/storage/)을 사용하여 청구됩니다. 스토리지 비용은 Azure 청구서에 별도로 표시됩니다. 자세한 내용은 [스토리지 트랜잭션(단일 테넌트)](#storage-transactions)을 참조하세요. |
-| **ISE** | 스토리지 사용량 및 보존에는 요금이 부과되지 않습니다. |
-|||
+다음 표에는 사용량, 표준 및 ISE 모델에서 루프와 같은 다른 작업 내에서 실행하고, 배열과 같은 여러 항목을 처리하고, 정책을 다시 시도하는 작업을 처리하는 방법이 요약되어 있습니다.
+
+| 작업(Operation) | Description | Consumption | 표준 | ISE |
+|-----------|-------------|-------------|----------|-----|
+| [루프 작업](logic-apps-control-flow-loops.md) | **For each** 또는 **Until** 루프와 같은 루프 작업에는 각 루프 주기 동안 실행되는 다른 작업이 포함될 수 있습니다. | 포함된 기본 제공 작업의 초기 수를 제외하고는 루프 주기가 실행될 때마다 루프 작업 및 루프의 각 작업이 계량됩니다. 작업에서 컬렉션의 항목(예: 목록 또는 배열)을 처리하는 경우 항목 수도 계량 계산에 사용됩니다. <p><p>예를 들어 목록을 처리하는 작업이 있는 **For each** 루프가 있다고 가정합니다. 서비스는 루프의 작업 수와 목록 항목 수를 곱하고, 루프를 시작하는 작업을 추가합니다. 따라서 10개 항목 목록에 대한 계산은 (10 * 1) + 1이므로 작업 실행은 11개가 됩니다. <p><p>가격 책정은 작업 유형이 기본 제공, 표준 또는 엔터프라이즈인지 여부를 기반으로 합니다. | 포함된 기본 제공 작업을 제외하고는 사용량 모델과 동일합니다. | 계량되거나 청구되지 않습니다. |
+| [재시도 정책](logic-apps-exception-handling.md#retry-policies) | 지원되는 작업에서 [재시도 정책](logic-apps-exception-handling.md#retry-policies)을 설정하여 기본 예외 및 오류 처리를 구현할 수 있습니다. | 기본 제공 작업의 초기 수를 제외하고 원래 실행과 재시도된 각 실행이 계량됩니다. 예를 들어 5번의 재시도로 실행되는 작업은 6번의 실행으로 계량되고 청구됩니다. <p><p>가격 책정은 작업 유형이 기본 제공, 표준 또는 엔터프라이즈인지 여부를 기반으로 합니다. | 포함된 기본 제공 작업을 제외하고는 사용량 모델과 동일합니다. | 계량되거나 청구되지 않습니다. |
+||||||
+
+<a name="storage-operations"></a>
+
+## <a name="storage-operations"></a>스토리지 작업
+
+Azure Logic Apps는 트리거 작업을 예약하는 데 큐를 사용하거나 워크플로 상태를 저장하는 데 테이블과 Blob을 사용하는 것과 같은 필요한 모든 스토리지 트랜잭션에 [Azure Storage](../storage/index.yml)를 사용합니다. 워크플로의 작업을 기반으로 하는 경우 다양한 트리거, 작업 및 페이로드로 인해 서로 다른 스토리지 작업 및 요구 사항이 있으므로 스토리지 비용이 달라집니다. 또한 서비스는 논리 앱 리소스의 [실행 기록 보존 제한](logic-apps-limits-and-config.md#run-duration-retention-limits)에 따라 워크플로 실행 기록의 입력 및 출력을 보관하고 저장합니다. 이 보존 제한은 워크플로 수준이 아니라 논리 앱 리소스 수준에서 관리할 수 있습니다.
+
+다음 표에는 사용량, 표준 및 ISE 모델에서 스토리지 작업에 대한 계량 및 청구를 처리하는 방법이 요약되어 있습니다.
+
+| 모델 | 설명 | 계량 및 요금 청구 |
+|-------|-------------|----------------------|
+| 사용량(다중 테넌트) | 스토리지 리소스 및 사용량이 논리 앱 리소스에 연결됩니다. | 계량 및 청구는 *데이터 보존 관련 스토리지 사용량에만 적용* 되며, [사용량 요금제의 데이터 보존 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 따릅니다. |
+| 표준(단일 테넌트) | 사용자 고유의 Azure [스토리지 계정](../azure-functions/storage-considerations.md#storage-account-requirements)을 사용할 수 있으므로 워크플로의 데이터에 대한 더 많은 제어와 유연성을 제공합니다. |  계량 및 청구는 [Azure Storage 가격 책정 모델](https://azure.microsoft.com/pricing/details/storage/)을 따릅니다. 스토리지 비용은 Azure 청구서에 별도로 표시됩니다. <p><p>**팁**: 워크플로에서 실행할 수 있는 스토리지 작업 수와 비용을 더 잘 이해하려면 [Logic Apps 스토리지 계산기](https://logicapps.azure.com/calculator)를 사용해 보세요. 샘플 워크플로를 선택하거나 기존 워크플로 정의를 사용합니다. 첫 번째 계산은 워크플로의 스토리지 작업 수를 예측합니다. 그런 다음, 이러한 수치를 사용하여 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)에서 가능한 비용을 예상할 수 있습니다. 자세한 내용은 [단일 테넌트 Azure Logic Apps 워크플로에 대한 스토리지 요구 사항 및 비용 예측](estimate-storage-costs.md)을 검토하세요. |
+| ISE(통합 서비스 환경) | 스토리지 리소스 및 사용량이 논리 앱 리소스에 연결됩니다. | 계량되거나 청구되지 않습니다. |
+||||
+
+자세한 내용은 다음 설명서를 검토하세요.
+
+* [실행 및 스토리지 사용량에 대한 메트릭 보기](plan-manage-costs.md#monitor-billing-metrics)
+* [Azure Logic Apps의 한도](logic-apps-limits-and-config.md)
 
 <a name="data-gateway"></a>
 
 ## <a name="on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이
 
-[온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-install.md)는 논리 앱 워크플로가 특정 게이트웨이 지원 커넥터를 사용하여 온-프레미스 데이터에 액세스할 수 있도록 만드는 별도의 리소스입니다. 게이트웨이를 통해 실행되는 커넥터 작업에는 요금이 발생하지만 게이트웨이 자체에는 요금이 부과되지 않습니다.
+[온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-install.md)는 논리 앱 워크플로에서 특정 게이트웨이 지원 커넥터를 사용하여 온-프레미스 데이터에 액세스할 수 있도록 만드는 별도의 Azure 리소스입니다. 게이트웨이 리소스 자체에는 요금이 발생하지 않지만, 논리 앱에서 사용하는 가격 책정 및 청구 모델에 따라 게이트웨이를 통해 실행되는 작업에는 요금이 발생합니다.
 
-<a name="disabled-apps"></a>
+<a name="integration-accounts"></a>
 
-## <a name="disabled-logic-apps-or-workflows"></a>사용하지 않도록 설정된 논리 앱 또는 워크플로
+## <a name="integration-accounts"></a>통합 계정
 
-사용하지 않도록 설정된 논리 앱(다중 테넌트) 또는 워크플로(단일 테넌트)는 사용하지 않도록 설정된 동안 새 인스턴스를 만들 수 없기 때문에 요금이 발생하지 않습니다.
+[통합 계정](logic-apps-enterprise-integration-create-integration-account.md)은 거래 파트너, 계약, 스키마, 맵 등과 같은 B2B(Business to Business) 아티팩트를 정의하고 저장하기 위해 컨테이너로 만드는 별도의 Azure 리소스입니다. 이 계정이 만들어지고 이러한 아티팩트가 정의되면 워크플로에서 이러한 아티팩트와 다양한 B2B 작업을 사용하여 [EDI](logic-apps-enterprise-integration-b2b.md) 및 [XML 처리](logic-apps-enterprise-integration-xml.md) 기능을 사용하는 통합 솔루션을 검색, 빌드 및 테스트할 수 있도록 이 계정을 논리 앱에 연결합니다.
+
+다음 표에는 사용량, 표준 및 ISE 모델에서 통합 계정에 대한 계량 및 청구를 처리하는 방법이 요약되어 있습니다.
+
+| 모델 | 계량 및 요금 청구 |
+|-------|----------------------|
+| 사용량(다중 테넌트) | 계량 및 청구는 사용하는 계정 계층에 따라 [통합 계정 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용합니다. |
+| 표준(단일 테넌트) | 계량 및 청구는 사용하는 계정 계층에 따라 [통합 계정 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용합니다. |
+| ISE | 이 모델에는 ISE SKU를 기반으로 하는 단일 통합 계정이 포함됩니다. [추가 비용](https://azure.microsoft.com/pricing/details/logic-apps/)을 지불하면 ISE에서 [총 ISE 제한](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)까지 사용할 더 많은 통합 계정을 만들 수 있습니다. |
+|||
+
+자세한 내용은 다음 설명서를 검토하세요.
+
+* [통합 계정 만들기 및 관리](logic-apps-enterprise-integration-create-integration-account.md)
+* [Azure Logic Apps의 통합 계정 제한](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
+
+## <a name="other-items-not-metered-or-billed"></a>계량 또는 청구되지 않는 기타 항목
+
+모든 가격 책정 모델에서 계량되거나 청구되지 않는 항목은 다음과 같습니다.
+
+* 워크플로가 완료되기 전에 중지되어 실행되지 않은 작업
+* 비활성 상태인 동안 새 인스턴스를 만들 수 없으므로 사용하지 않도록 설정된 논리 앱 또는 워크플로
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: macOS에서 SMB를 통해 Azure 파일 공유 탑재 | Microsoft Docs
+title: macOS에 SMB Azure 파일 공유 탑재 | Microsoft Docs
 description: Finder 또는 터미널을 사용하여 macOS에서 SMB를 통해 Azure 파일 공유를 탑재하는 방법을 알아봅니다. Azure Files는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다.
 author: roygara
 ms.service: storage
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 119f4c0ea434bc431b40c905d9142e187b7d9474
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4bbaed3cf35d25a2441a27755c73dc144a07510
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91326068"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112117769"
 ---
-# <a name="mount-azure-file-share-over-smb-with-macos"></a>macOS에서 SMB를 통해 Azure 파일 공유 탑재
+# <a name="mount-smb-azure-file-share-on-macos"></a>macOS에 SMB Azure 파일 공유 탑재
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 macOS High Sierra 10.13 이상에서 업계 표준 SMB 3 프로토콜을 사용하여 탑재할 수 있습니다. 이 문서에서는 두 가지 방법, 즉 찾기(Finder) UI 및 터미널을 사용하여 macOS에 Azure 파일 공유를 탑재합니다.
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>macOS에 Azure 파일 공유를 탑재하기 위한 필수 구성 요소
@@ -23,6 +23,13 @@ ms.locfileid: "91326068"
 * **스토리지 계정 키**: Azure 파일 공유를 탑재하려면 기본(또는 보조) 스토리지 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
 
 * **445 포트가 열려 있는지 확인**: SMB는 445 TCP 포트를 통해 통신합니다. 클라이언트 컴퓨터(Mac)에서 방화벽이 445 TCP 포트를 차단하고 있지 않은지 확인합니다.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="mount-an-azure-file-share-via-finder"></a>찾기를 통해 Azure 파일 공유 탑재
 1. **찾기를 엽니다**. 찾기는 기본적으로 macOS에서 열리지만 도킹 스테이션에서 "macOS 얼굴 아이콘"을 클릭하여 현재 선택된 애플리케이션인지 확인할 수 있습니다.  

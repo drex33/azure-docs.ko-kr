@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 5f03ad4019a448d36ac43dee215a1d1b1bd06d23
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ee044e84992b606eab8194d782d755c0d4a9cc74
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791368"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113033752"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>가상 네트워크 피어링 만들기 - Resource Manager, 서로 다른 구독 및 Azure Active Directory 테넌트
 
@@ -57,10 +57,7 @@ ms.locfileid: "110791368"
     - **위치**: *미국 동부*
 4. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA* 를 입력합니다. **myVnetA** 가 검색 결과에 표시되면 선택합니다.
 5. 왼쪽에 있는 옵션의 세로 목록에서 **액세스 제어(IAM)** 를 선택합니다.
-6. **myVnetA - 액세스 제어(IAM)** 에서 **+ 역할 할당 추가** 를 선택합니다.
-7. **역할** 상자에서 **네트워크 참가자** 를 선택합니다.
-8. **선택** 상자에서 *UserB* 를 선택하거나 UserB의 이메일 주소를 입력하여 검색합니다.
-9. **저장** 을 선택합니다.
+6. [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)에 설명된 절차를 사용하여 *사용자B* 에게 **네트워크 참가자** 역할을 할당합니다.
 10. **myVnetA - 액세스 제어(IAM)** 아래의 왼쪽에 있는 세로 옵션 목록에서 **속성** 을 선택합니다. 이후 단계에서 사용하는 **RESOURCE ID** 를 복사합니다. 리소스 ID는 다음(`/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`) 예제와 유사합니다.
 11. 사용자 A를 포털에서 로그아웃한 다음 사용자 B로 로그인합니다.
 12. 3단계에서 다음 값을 입력하거나 선택하여 2-3단계를 완료합니다.
@@ -75,7 +72,7 @@ ms.locfileid: "110791368"
 
 13. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetB* 를 입력합니다. **myVnetB** 가 검색 결과에 표시되면 선택합니다.
 14. **myVnetB** 아래의 왼쪽에 있는 세로 옵션 목록에서 **속성** 을 선택합니다. 이후 단계에서 사용하는 **RESOURCE ID** 를 복사합니다. 리소스 ID는 다음(`/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`) 예제와 유사합니다.
-15. **myVnetB** 에서 **액세스 제어(IAM)** 를 선택한 다음, 8단계에서 **UserA** 를 입력하여 myVnetB에 대해 5-10단계를 완료합니다.
+15. **myVnetB** 에서 **액세스 제어(IAM)** 를 선택한 다음, [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)에 설명된 절차를 사용하여 *사용자A* 에게 **네트워크 참가자** 역할을 할당합니다.
 16. 사용자 B를 포털에서 로그아웃한 다음 사용자 A로 로그인합니다.
 17. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA* 를 입력합니다. **myVnetA** 가 검색 결과에 표시되면 선택합니다.
 18. **myVnetA** 를 선택합니다.

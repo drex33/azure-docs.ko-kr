@@ -11,18 +11,31 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/25/2021
-ms.openlocfilehash: 512d502dc5877c15086d69f96643d4251dfc167b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 07/21/2021
+ms.openlocfilehash: c8f8699d58d26c745be8cb1207a88cdad6857f1a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078693"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567428"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server 설명서 변경 내용
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure에서는 SQL Server 이미지가 기본 제공된 VM(가상 머신)을 배포할 수 있습니다. 이 문서에서는 최신 릴리스의 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)에서 새로운 기능 및 향상된 기능과 관련된 설명서 변경 내용을 요약합니다. 
+
+## <a name="july-2021"></a>2021년 7월
+
+| 변경 | 세부 정보 |
+| --- | --- |
+| **포털에서 SQL Server IaaS 확장 복구** | 이제 Azure Portal에서 직접 SQL Server IaaS 에이전트 확장의 상태를 확인하고, 필요한 경우 [복구](sql-agent-extension-manually-register-single-vm.md#repair-extension)할 수 있습니다. | 
+
+
+## <a name="june-2021"></a>2021년 6월
+
+| 변경 | 세부 정보 |
+| --- | --- |
+| **Azure Portal의 향상된 보안 기능** | [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md)을 사용하도록 설정하면 [Azure Portal의 SQL 가상 머신 리소스](manage-sql-vm-portal.md#security-center)에서 Security Center 권장 사항을 볼 수 있습니다. | 
 
 ## <a name="may-2021"></a>2021년 5월
 

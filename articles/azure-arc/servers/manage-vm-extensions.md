@@ -1,20 +1,20 @@
 ---
 title: Azure Arc 사용 서버로 VM 확장 관리
 description: Azure Arc 사용 서버에서는 Azure가 아닌 VM을 사용하여 배포 후 구성 및 자동화 작업을 제공하는 가상 머신 확장 배포 기능을 관리할 수 있습니다.
-ms.date: 04/13/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: e28cd7753fc85f2e40385c65392fea73502aa05b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 20ae8b6cbb29a9a0b43592c3b242707bb2d3add6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832845"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566374"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Virtual machine extension management with Azure Arc enabled servers(Azure Arc 지원 서버로 가상 머신 확장 관리)
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Azure Arc 사용 서버로 가상 머신 확장 관리
 
 Azure VM(가상 머신) 확장은 Azure VM에 배포 후 구성 및 자동화 작업을 제공하는 작은 애플리케이션입니다. 예를 들어 가상 머신에서 소프트웨어 설치, 바이러스 백신 보호 또는 내부 스크립트 실행을 요구하는 경우 VM 확장을 사용할 수 있습니다.
 
-Azure Arc 사용 서버를 사용하면 Azure VM 확장을 비Azure Windows 및 Linux VM에 배포하여 해당 수명 주기 동안 하이브리드 컴퓨터의 관리 작업을 간소화할 수 있습니다. VM 확장은 하이브리드 컴퓨터 또는 Arc 사용 서버에 의해 관리되는 서버에서 다음 방법을 이용하여 관리할 수 있습니다.
+Azure Arc 사용 서버를 사용하면 Azure VM 확장을 비 Azure Windows 및 Linux VM에 배포, 제거 및 업데이트하여 해당 수명 주기 동안 하이브리드 머신의 관리 작업을 간소화할 수 있습니다. VM 확장은 하이브리드 머신 또는 Arc 사용 서버에 의해 관리되는 서버에서 다음 방법을 사용하여 관리할 수 있습니다.
 
 - [Azure Portal](manage-vm-extensions-portal.md)
 - [Azure CLI](manage-vm-extensions-cli.md)
@@ -22,13 +22,16 @@ Azure Arc 사용 서버를 사용하면 Azure VM 확장을 비Azure Windows 및 
 - Azure [Resource Manager 템플릿](manage-vm-extensions-template.md)
 
 > [!NOTE]
-> Azure Arc 지원 서버는 Azure 가상 머신에 대한 VM 확장의 배포 및 관리를 지원하지 않습니다. Azure VM에 관해서는 다음 [VM 확장 개요](../../virtual-machines/extensions/overview.md) 문서를 참조하세요.
+> Azure Arc 사용 서버는 Azure 가상 머신에 대한 VM 확장의 배포 및 관리를 지원하지 않습니다. Azure VM에 관해서는 다음 [VM 확장 개요](../../virtual-machines/extensions/overview.md) 문서를 참조하세요.
+
+> [!NOTE]
+> 현재 Azure Portal에서만 확장을 업데이트할 수 있습니다. 현재 Azure CLI, Azure PowerShell에서 이 작업을 수행하거나 Azure Resource Manager 템플릿을 사용하는 것은 지원되지 않습니다.
 
 ## <a name="key-benefits"></a>주요 이점
 
-Azure Arc 사용 서버 VM 확장 지원에서 제공하는 주오 이점은 다음과 같습니다.
+Azure Arc 사용 서버 VM 확장 지원에서 제공하는 주요 이점은 다음과 같습니다.
 
-- Log Analytics 에이전트 VM 확장을 사용하도록 설정하여 [Azure Monitor의 로그](../../azure-monitor/logs/data-platform-logs.md)로 분석할 로그 데이터를 수집합니다. 이는 다양한 종류의 원본에서 데이터에 대해 복잡한 분석을 수행하는 경우에 유용합니다.
+- Log Analytics 에이전트 VM 확장을 사용하도록 설정하여 [Azure Monitor의 로그](../../azure-monitor/logs/data-platform-logs.md)로 분석할 로그 데이터를 수집합니다. Log Analytics를 사용하면 다양한 종류의 원본에서 로그 데이터에 대해 복잡한 분석을 수행하는 경우에 유용합니다.
 
 - [VM 인사이트](../../azure-monitor/vm/vminsights-overview.md)를 사용하여 Windows 및 Linux VM의 성능을 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. 이는 Log Analytics 에이전트와 Dependency Agent VM 확장을 모두 사용 하도록 설정하여 수행됩니다.
 
@@ -48,6 +51,8 @@ Azure Connected Machine 에이전트 패키지 및 확장 에이전트 구성 �
 
 > [!NOTE]
 > 최근에 Arc 사용 서버용 DSC VM 확장 지원이 제거되었습니다. 그 대신에 사용자 지정 스크립트 확장을 사용하여 서버 또는 컴퓨터의 배포 후 구성을 관리하는 것이 좋습니다.
+
+Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 다른 Azure 구독 간에 하나 이상의 VM 확장이 설치된 머신을 이동할 수 있도록 지원합니다. 원본 및 대상 구독은 동일한 [Azure Active Directory 테넌트](../../active-directory/develop/quickstart-create-new-tenant.md) 내에 있어야 합니다. 계속하기 전에 리소스 이동 및 고려 사항에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
 ### <a name="windows-extensions"></a>Windows 확장
 
@@ -71,7 +76,7 @@ Azure Connected Machine 에이전트 패키지 및 확장 에이전트 구성 �
 |Azure Key Vault 인증서 동기화 | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Linux용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-linux.md) |
 |Azure Monitor 에이전트 |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Azure Monitor 에이전트 설치(미리 보기)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능은 구독의 다음 Azure 리소스 공급자에 따라 달라집니다.
 
@@ -86,15 +91,15 @@ Azure Connected Machine 에이전트 패키지 및 확장 에이전트 구성 �
 
 Linux용 Log Analytics 에이전트 VM 확장을 사용하려면 대상 컴퓨터에 Python 2.x가 설치되어 있어야 합니다.
 
-### <a name="azure-key-vault-vm-extension-preview"></a>Azure Key Vault VM 확장(미리 보기)
+### <a name="azure-key-vault-vm-extension"></a>Azure Key Vault VM 확장 
 
-Key Vault VM 확장(미리 보기)은 다음 Linux 운영 체제를 지원하지 않습니다.
+Key Vault VM 확장은 다음 Linux 운영 체제를 지원하지 않습니다.
 
 - CentOS Linux 7(x64)
 - RHEL(Red Hat Enterprise Linux) 7(x64)
 - Amazon Linux 2(x64)
 
-Key Vault VM 확장(미리 보기) 배포 작업은 다음을 통해서만 지원됩니다.
+Key Vault VM 확장 배포 작업은 다음을 통해서만 지원됩니다.
 
 - Azure CLI
 - Azure PowerShell
@@ -104,7 +109,7 @@ Key Vault VM 확장(미리 보기) 배포 작업은 다음을 통해서만 지�
 
 1. [자격 증명 모음 및 인증서를 만듭니다](../../key-vault/certificates/quick-create-portal.md)(자체 서명 또는 가져오기).
 
-2. 인증서 암호에 대한 액세스 권한을 Azure Arc 사용 서버에 부여합니다. [RBAC 미리 보기](../../key-vault/general/rbac-guide.md)를 사용하는 경우 Azure Arc 리소스의 이름을 검색하고 **Key Vault 암호 사용자(미리 보기)** 역할에 할당합니다. [Key Vault 액세스 정책](../../key-vault/general/assign-access-policy-portal.md)을 사용하는 경우 Azure Arc 리소스의 시스템 할당 ID에 암호 **Get** 권한을 할당합니다.
+2. 인증서 비밀에 대한 액세스 권한을 Azure Arc 사용 서버에 부여합니다. [RBAC 미리 보기](../../key-vault/general/rbac-guide.md)를 사용하는 경우 Azure Arc 리소스의 이름을 검색하고 **Key Vault 암호 사용자(미리 보기)** 역할에 할당합니다. [Key Vault 액세스 정책](../../key-vault/general/assign-access-policy-portal.md)을 사용하는 경우 Azure Arc 리소스의 시스템 할당 ID에 암호 **Get** 권한을 할당합니다.
 
 ### <a name="connected-machine-agent"></a>Connected Machine 에이전트
 

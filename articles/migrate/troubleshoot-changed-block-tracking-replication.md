@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5b17df9e074375b8cdbe769c840aaf030eaff8af
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d1654a195f694b9ef8ab8150380939c0e647bcd1
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317436"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580677"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>에이전트 없는 VMware VM 마이그레이션에서 복제 문제 해결
 
@@ -297,6 +297,18 @@ VMware 스냅샷 관련 작업(디스크 만들기, 삭제 또는 통합)이 실
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>오류 메시지: 내부 오류가 발생했습니다. [메모리 할당이 실패했습니다. 메모리가 부족합니다.]
 
 이 문제는 NFC 호스트 버퍼의 메모리가 부족할 때 발생합니다. 이 문제를 해결하려면 사용 가능한 리소스가 있는 다른 호스트로 VM(컴퓨팅 vMotion)을 이동해야 합니다.
+
+### <a name="error-message-an-internal-error-occurred-file-is-larger-than-maximum-file-size-supported-1012384"></a>오류 메시지: 내부 오류가 발생했습니다. [파일이 지원되는 최대 파일 크기(1012384)보다 큽니다.]
+이는 스냅샷을 만들 때 파일 크기가 지원되는 최대 파일 크기보다 클 때 발생합니다. [VMware KB](https://kb.vmware.com/s/article/1012384)에 제공된 해결 방법을 따르세요.
+
+### <a name="error-message-an-internal-error-occurred-cannot-connect-to-the-host-1004109"></a>오류 메시지: 내부 오류가 발생했습니다. [호스트에 연결할 수 없음(1004109)]
+이 문제는 ESXi 호스트에서 네트워크에 연결할 수 없는 경우에 발생합니다. [VMware KB](https://kb.vmware.com/s/article/1004109)에 제공된 해결 방법을 따르세요.
+
+### <a name="error-message-an-error-occurred-while-saving-the-snapshot-invalid-change-tracker-error-code"></a>오류 메시지: 스냅샷을 저장하는 동안 오류가 발생했습니다. 변경 추적기 오류 코드가 잘못되었습니다.
+이 오류는 스냅샷이 저장되는 기본 데이터 저장소에 문제가 있는 경우에 발생합니다. [VMware KB](https://kb.vmware.com/s/article/2042742)에 제공된 해결 방법을 따르세요.
+
+### <a name="error-message-an-error-occurred-while-taking-a-snapshot-unable-to-open-the-snapshot-file"></a>오류 메시지: 스냅샷을 만드는 동안 오류가 발생했습니다. 스냅샷 파일을 열 수 없습니다.
+이 오류는 생성된 스냅샷 파일의 크기가 VM이 있는 데이터 저장소의 사용 가능한 공간보다 클 때 발생합니다. 이 [문서](https://go.microsoft.com/fwlink/?linkid=2166464)에 제공된 해결 방법을 따르세요.
 
 ## <a name="replication-cycle-failed"></a>복제 주기 실패
 

@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: mlearned
-ms.openlocfilehash: 7f754aa8d454949c74ccd31e3f52423f755b2fa4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bf589591ae1c4f9fa3dca2b16cc5382def0740e7
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372397"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537338"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -58,11 +58,9 @@ AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업�
 ### <a name="node-security-patches"></a>노드 보안 패치
 
 #### <a name="linux-nodes"></a>Linux 노드
-Azure 플랫폼은 야간에 OS 보안 패치를 Linux 노드에 자동으로 적용합니다. Linux OS 보안 업데이트에서 호스트를 다시 부팅해야 하는 경우 자동으로 다시 부팅되지 않습니다. 다음 작업 중 하나를 수행할 수 있습니다.
-* Linux 노드를 수동으로 다시 부팅합니다.
-* Kubernetes의 오픈 소스 다시 부팅 디먼인 [Kured][kured]를 사용합니다. Kured는 [DaemonSet][aks-daemonsets]로 실행되며 각 노드에서 다시 부팅해야 함을 나타내는 파일을 모니터링합니다. 
+매일 저녁 AKS의 Linux 노드는 배포판 보안 업데이트 채널을 통해 보안 패치를 받습니다. 이 동작은 노드가 AKS 클러스터에 배포되면 자동으로 구성됩니다. 실행 중인 워크로드 중단 및 잠재적인 영향을 최소화하기 위해 보안 패치 또는 커널 업데이트에 필요한 경우에도 노드가 자동으로 다시 부팅되지 않습니다. 노드 다시 부팅을 처리하는 방법에 대한 자세한 내용은 [AKS에서 노드에 보안 및 커널 업데이트 적용][aks-kured]을 참조하세요.
 
-다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
+야간 업데이트는 노드의 OS에 보안 업데이트를 적용하지만 클러스터에 대한 노드를 만드는 데 사용되는 노드 이미지는 변경되지 않습니다. 새 Linux 노드가 클러스터에 추가되면 원래 이미지를 사용하여 노드를 만듭니다. 이 새 노드는 매일 밤 자동 검사 중에 사용 가능한 모든 보안 및 커널 업데이트를 받지만 모든 검사와 다시 시작이 완료될 때까지 패치되지 않습니다. 노드 이미지 업그레이드를 사용하여 클러스터에서 사용하는 노드 이미지를 검사하고 업데이트할 수 있습니다. 노드 이미지 업그레이드에 관한 자세한 내용은 [AKS(Azure Kubernetes Service) 노드 이미지 업그레이드][node-image-upgrade]를 참조하세요.
 
 #### <a name="windows-server-nodes"></a>Windows Server 노드
 
@@ -113,7 +111,7 @@ Azure는 AKS 클러스터 및 구성 요소를 업그레이드하고, 보안 및
 
 가상 네트워크 트래픽 흐름을 필터링하기 위해 Azure는 네트워크 보안 그룹 규칙을 사용합니다. 이러한 규칙은 리소스에 대한 액세스가 허용되거나 거부된 원본 및 대상 IP 범위, 포트 및 프로토콜을 정의합니다. 기본 규칙은 Kubernetes API 서버에 대한 TLS 트래픽을 허용하도록 생성됩니다. 부하 분산 장치, 포트 매핑 또는 수신 경로를 사용하여 서비스를 만듭니다. AKS는 트래픽 흐름에 대한 네트워크 보안 그룹을 자동으로 수정합니다.
 
-AKS 클러스터에 고유한 서브넷을 제공하는 경우 AKS에서 관리하는 서브넷 수준 네트워크 보안 그룹을 수정하지 **마세요**. 대신 트래픽 흐름을 수정하는 서브넷 수준 네트워크 보안 그룹을 더 많이 만듭니다. 부하 분산 장치 액세스, 컨트롤 플레인과의 통신, [송신][aks-limit-egress-traffic] 등 클러스터를 관리하는 데 필요한 트래픽을 방해하지 않는지 확인합니다.
+AKS 클러스터에 고유한 서브넷을 제공하는 경우(Azure CNI 또는 Kubenet 사용 여부와 관계없이) AKS에서 관리하는 NIC 수준 네트워크 보안 그룹을 수정하지 **마세요**. 대신 트래픽 흐름을 수정하는 서브넷 수준 네트워크 보안 그룹을 더 많이 만듭니다. 부하 분산 장치 액세스, 컨트롤 플레인과의 통신, [송신][aks-limit-egress-traffic] 등 클러스터를 관리하는 데 필요한 트래픽을 방해하지 않는지 확인합니다.
 
 ### <a name="kubernetes-network-policy"></a>Kubernetes 네트워크 정책
 
@@ -166,6 +164,7 @@ AKS 클러스터의 보안을 유지하려면 [AKS 클러스터 업그레이드]
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-kured]: node-updates-kured.md
 [aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
@@ -174,3 +173,4 @@ AKS 클러스터의 보안을 유지하려면 [AKS 클러스터 업그레이드]
 [authorized-ip-ranges]: api-server-authorized-ip-ranges.md
 [private-clusters]: private-clusters.md
 [network-policy]: use-network-policies.md
+[node-image-upgrade]: node-image-upgrade.md

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: 41cc4c174028ff23cdcc248c6b10d746e5669349
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 08/11/2021
+ms.openlocfilehash: 010fbfc3b6a2df9c8cdca1221fb4f25a5d288d70
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751238"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536448"
 ---
 # <a name="set-up-devops-deployment-for-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps의 DevOps 배포 설정
 
@@ -31,7 +31,7 @@ ms.locfileid: "111751238"
 
 ## <a name="deploy-infrastructure-resources"></a>인프라 리소스 배포
 
-논리 앱 프로젝트가 없거나 인프라를 아직 설정하지 않은 경우 사용하려는 원본 및 배포 옵션에 따라 다음 샘플 프로젝트를 사용하여 예제 앱 및 인프라를 배포할 수 있습니다.
+논리 앱 프로젝트 또는 인프라를 아직 설정하지 않은 경우 사용할 원본 및 배포 옵션에 따라 다음 샘플 프로젝트를 사용하여 예제 앱 및 인프라를 배포할 수 있습니다.
 
 - [단일 테넌트 Azure Logic Apps의 GitHub 샘플](https://github.com/Azure/logicapps/tree/master/github-sample)
 
@@ -47,7 +47,7 @@ ms.locfileid: "111751238"
 |---------------|----------|-------------|
 | 논리 앱(표준) | 예 | 이 Azure 리소스에는 단일 테넌트 Azure Logic Apps에서 실행하는 워크플로가 포함되어 있습니다. |
 | Functions 프리미엄 또는 App Service 호스팅 계획 | 예 | 이 Azure 리소스는 컴퓨팅, 처리, 스토리지, 네트워킹 등 논리 앱을 실행하는 데 사용할 호스팅 리소스를 지정합니다. <p><p>**중요**: 현재 환경에서 **논리 앱(표준)** 리소스에는 Functions 프리미엄 호스팅 계획을 기반으로 하는 [**워크플로 표준** 호스팅 계획](logic-apps-pricing.md#standard-pricing)이 필요합니다. |
-| Azure Storage 계정 | 예, 상태 비지정 워크플로의 경우 | 이 Azure 리소스는 메타데이터, 상태, 입력, 출력, 실행 기록 및 워크플로에 대한 기타 정보를 저장합니다. |
+| Azure Storage 계정 | 예, 상태 저장 및 상태 비저장 워크플로 모두에 대해 | 이 Azure 리소스는 메타데이터, 액세스 제어용 키, 상태, 입력, 출력, 실행 기록 및 워크플로에 대한 기타 정보를 저장합니다. |
 | Application Insights | 선택 사항 | 이 Azure 리소스는 워크플로에 대한 모니터링 기능을 제공합니다. |
 | API 연결 | 선택 사항(없는 경우) | 이러한 Azure 리소스는 워크플로가 Office 365, SharePoint 등과 같은 관리 커넥터 작업을 실행하는 데 사용하는 모든 관리되는 API 연결을 정의합니다. <p><p>**중요**: 논리 앱 프로젝트에서 **connections.js** 파일은 관리되는 API 연결 및 워크플로에서 사용하는 Azure Functions에 대한 메타데이터, 엔드포인트 및 키를 포함합니다. 각 환경에 대해 서로 다른 연결과 함수를 사용하려면 이 **connections.json** 파일을 매개 변수화하고 엔드포인트를 업데이트해야 합니다. <p><p>자세한 내용은 [API 연결 리소스 및 액세스 정책](#api-connection-resources)을 검토하세요. |
 | ARM(Azure Resource Manager) 템플릿 | 선택 사항 | 이 Azure 리소스는 재사용하거나 [내보낼](../azure-resource-manager/templates/template-tutorial-export-template.md) 수 있는 기준 인프라 배포를 정의합니다. 템플릿에는 관리되는 API 연결을 사용하는 데 필요한 액세스 정책도 포함되어 있습니다. <p><p>**중요**: ARM 템플릿 내보내기에는 워크플로에서 사용하는 API 연결 리소스에 대한 모든 관련 매개 변수가 포함되지는 않습니다. 자세한 내용은 [API 연결 매개 변수 찾기](#find-api-connection-parameters)를 검토하세요. |
@@ -81,7 +81,7 @@ ms.locfileid: "111751238"
 
 연결 리소스 정의를 완료하기 위해 `properties` 개체에서 사용해야 하는 값을 찾으려면 특정 커넥터에 대해 다음 API를 사용할 수 있습니다.
 
-`PUT https://management.azure.com/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/{connector-name}?api-version=2018–07–01-preview`
+`GET https://management.azure.com/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/{connector-name}?api-version=2016-06-01`
 
 응답에서 특정 커넥터에 대한 리소스 정의를 완료하는 데 필요한 모든 정보를 포함하는 `connectionParameters` 개체를 찾습니다. 다음 예제에서는 SQL 관리 연결에 대한 예제 리소스 정의를 보여줍니다.
 
@@ -217,9 +217,16 @@ Azure DevOps 배포의 경우 Azure Pipelines에서 [Azure 함수 앱 배포 작
 
 ##### <a name="install-azure-logic-apps-standard-extension-for-azure-cli"></a>Azure CLI용 Azure Logic Apps(표준) 확장 설치
 
-다음 필수 매개 변수를 통해 `az extension add` 명령을 실행하여 *미리 보기* Azure CLI용 단일 테넌트 Azure Logic Apps(표준) 확장을 설치합니다.
+현재 이 확장의 *미리 보기* 버전만 사용할 수 있습니다. 이전에 이 확장을 설치하지 않은 경우 다음 필수 매개 변수를 사용하여 `az extension add` 명령을 실행합니다.
 
 ```azurecli-interactive
+az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
+```
+
+최신 확장(버전 0.1.1)을 가져오려면 다음 명령을 실행하여 기존 확장을 제거한 다음, 원본에서 최신 버전을 설치합니다.
+
+```azurecli-interactive
+az extension remove --name logicapp
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 

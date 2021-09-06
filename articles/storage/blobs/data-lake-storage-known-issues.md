@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: a32e5a417dc54ae77785adfa46610d1fbf83f470
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6fc966fc61893fb05185a15e7149e8a132aecb04
+ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455696"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113125891"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -62,7 +62,7 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 
 ## <a name="support-for-setting-access-control-lists-acls-recursively"></a>ACL(액세스 제어 목록)을 재귀적으로 설정하기 위한 지원
 
-ACL 변경 내용을 상위 디렉터리에서 하위 항목으로 재귀적으로 적용하는 기능을 일반적으로 사용할 수 있습니다. 이 기능은 현재 릴리스에서는 PowerShell, Azure CLI 및 .NET, Java 및 Python SDK를 사용하여 ACL 변경 내용을 적용할 수 있습니다. Azure Portal 또는 Azure Storage Explorer에서는 아직 지원되지 않습니다.
+ACL 변경 내용을 상위 디렉터리에서 하위 항목으로 재귀적으로 적용하는 기능을 일반적으로 사용할 수 있습니다. 이 기능은 현재 릴리스에서는 Azure Storage 탐색기, PowerShell, Azure CLI 및 .NET, Java 및 Python SDK를 사용하여 ACL 변경 내용을 적용할 수 있습니다. Azure Portal에서는 아직 지원되지 않습니다.
 
 <a id="known-issues-tools"></a>
 
@@ -106,3 +106,7 @@ BLOB API를 호출하는 애플리케이션은 일반적으로 작동합니다.
 현재 Blob API와만 작동하도록 설계된 WASB 드라이버는 몇 가지 일반적인 시나리오에서 문제가 발생합니다. 계층 구조 네임스페이스가 활성화된 스토리지 계정에 대한 클라이언트인 경우에는 특히 그렇습니다. Data Lake Storage에서 다중 프로토콜 액세스를 사용해도 이 문제는 완화되지 않습니다. 
 
 당분간은(아마도 가까운 미래에는), WASB 드라이버를 클라이언트로 사용하는 고객에게 계층 구조 네임스페이스가 활성화된 스토리지 계정을 지원하지 못합니다. 그 대신 Hadoop 환경에서 [ABFS(Azure Blob File System)](data-lake-storage-abfs-driver.md) 드라이버를 사용하는 것이 좋습니다. 온-프레미스 Hadoop 환경에서 Hadoop branch-3 이전 버전으로 마이그레이션하려는 경우에는 귀하와 귀사에 올바른 경로를 사용하여 연락할 수 있도록 Azure 지원 티켓을 열어 주시기 바랍니다.
+
+## <a name="soft-delete-for-blobs-capability-currently-in-preview"></a>Blob 기능 일시 삭제(현재 미리 보기)
+
+일시 삭제된 파일 또는 디렉터리의 부모 디렉터리 이름이 변경되면 일시 삭제된 항목이 Azure Portal에 올바르게 표시되지 않을 수 있습니다. 이러한 경우 [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) 또는 [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli)를 사용하여 일시 삭제된 항목을 나열하고 복원할 수 있습니다. 

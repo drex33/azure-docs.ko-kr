@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 07dd3319416f6b8cad4cd77d69da81020569788f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1cbdbad379887687c71bd8c52b5791bde4e08a08
+ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108296577"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113492886"
 ---
 # <a name="azure-digital-twins-query-language-reference-from-clause"></a>Azure Digital Twins 쿼리 언어 참조: FROM 절
 
@@ -40,7 +40,7 @@ FROM 절은 쿼리의 두 번째 부분입니다. 쿼리가 적용되는 컬렉�
 
 ### <a name="examples"></a>예
 
-기본 쿼리는 다음과 같습니다. 다음 쿼리는 인스턴스에 모든 Digital Twins를 반환합니다. 
+다음은 기본 쿼리입니다. 다음 쿼리는 인스턴스에 모든 디지털 트윈을 반환합니다. 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromDigitalTwinsExample":::
 
@@ -73,7 +73,7 @@ FROM 절은 쿼리의 두 번째 부분입니다. 쿼리가 적용되는 컬렉�
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromRelationshipsExample":::
 
-다음은 `A`, `B`, `C` 또는 `D` Twins에서 제공하는 모든 관계를 반환하는 쿼리입니다.
+다음은 `A`, `B`, `C` 또는 `D` twins에서 제공하는 모든 관계를 반환하는 쿼리입니다.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromRelationshipsFilteredExample":::
 
@@ -89,7 +89,7 @@ FROM 절은 쿼리의 두 번째 부분입니다. 쿼리가 적용되는 컬렉�
 * [하위 쿼리 없음](#no-subqueries)
 * [FROM RELATIONSHIPS 또는 JOIN 선택](#choose-from-relationships-or-join)
 
-자세한 내용은 아래 섹션을 참조하세요.
+자세한 내용은 다음 섹션을 참조하세요.
 
 ### <a name="no-subqueries"></a>하위 쿼리 없음
 

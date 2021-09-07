@@ -1,18 +1,20 @@
 ---
 title: SAP Business Warehouse에서 데이터 로드
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory를 사용하여 SAP Business Warehouse(BW)에서 데이터 복사
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/22/2019
-ms.openlocfilehash: 3dabb6d5df0a74cc7ae2fb8b381ad9e0dfe04e63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/04/2021
+ms.openlocfilehash: 7f6a17d6596ce07c593ee83ad54cc856b2b1b592
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370702"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642339"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -43,17 +45,15 @@ ms.locfileid: "100370702"
 
 ## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>SAP BW Open Hub에서 전체 복사를 수행합니다.
 
-Azure Portal에서 Data Factory로 이동합니다. **작성 및 모니터링** 을 선택하여 별도의 탭에서 Data Factory UI를 엽니다.
+Azure Portal에서 Data Factory로 이동합니다. **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택하여 별도의 탭에서 Data Factory UI를 엽니다.
 
-1. **시작** 페이지에서 **데이터 복사** 를 선택하여 데이터 복사 도구를 엽니다.
+1. 홈페이지에서 **수집** 을 선택하여 데이터 복사 도구를 엽니다.
 
-2. **속성** 페이지에서 **작업 이름** 을 지정한 후 **다음** 을 선택합니다.
+2. **속성** 페이지에 있는 **작업 유형** 아래에서 **기본 제공 복사 작업** 을 선택한 후 **작업 주기 또는 작업 일정** 에서 **지금 한 번 실행** 을 선택한 후 **다음** 을 선택합니다.
 
-3. **원본 데이터 저장소** 페이지에서 **+새 연결 만들기** 를 선택합니다. 커넥터 갤러리에서 **SAP BW Open Hub** 를 선택한 다음 **계속** 을 선택합니다. 검색 상자에 **SAP** 를 입력하면 커넥터를 필터링할 수 있습니다.
+3. **원본 데이터 저장소** 페이지에서 **+새 연결** 을 선택합니다. 커넥터 갤러리에서 **SAP BW Open Hub** 를 선택한 다음 **계속** 을 선택합니다. 검색 상자에 **SAP** 를 입력하면 커넥터를 필터링할 수 있습니다.
 
-4. **SAP BW Open Hub 연결 지정** 페이지에서 다음 단계에 따라 새 연결을 만듭니다.
-
-   ![SAP BW Open Hub 연결된 서비스 만들기 페이지](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
+4. **새 연결(SAP BW Open Hub)** 페이지에서 다음 단계에 따라 새 연결을 만듭니다.
 
    1. **통합 런타임을 통해 연결** 목록에서 기존 자체 호스팅 IR을 선택합니다. 또는 아직 없는 경우 새 자체 호스팅 IR을 만듭니다.
 
@@ -63,60 +63,59 @@ Azure Portal에서 Data Factory로 이동합니다. **작성 및 모니터링** 
 
    2. SAP BW **서버 이름**, **시스템 번호**, **클라이언트 ID**, **언어**(**EN** 이 아닌 경우), **사용자 이름**, **암호** 를 입력합니다.
 
-   3. **연결 테스트** 를 선택하여 설정의 유효성을 검사한 다음 **마침** 을 선택합니다.
+   3. **연결 테스트** 를 선택하여 설정의 유효성을 검사한 다음, **만들기** 를 선택합니다.
 
-   4. 새 연결이 만들어집니다. **다음** 을 선택합니다.
+   ![SAP BW Open Hub 연결된 서비스 만들기 페이지](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
 
-5. **Open Hub Destination 선택** 페이지에서 SAP BW에서 사용할 수 있는 Open Hub Destination을 탐색합니다. 데이터를 복사할 OHD를 선택하고 **다음** 을 선택합니다.
+   4. **원본 데이터 저장소** 페이지의 **연결** 블록에서 새로 만든 연결을 선택합니다.
 
-   ![SAP BW Open Hub Destination 선택 테이블](media/load-sap-bw-data/select-sap-bw-open-hub-table.png)
+   5. Open Hub 대상 선택 섹션에서 SAP BW에서 사용할 수 있는 Open Hub 대상으로 이동합니다. 각 행의 끝에 있는 미리 보기 단추를 선택하여 각 대상의 데이터를 미리 볼 수 있습니다. 데이터를 복사할 OHD를 선택하고 **다음** 을 선택합니다.
+   
+   :::image type="content" source="./media/load-sap-bw-data/source-data-store-page.png" alt-text="‘원본 데이터 저장소’ 페이지를 보여 주는 스크린샷":::
 
-6. 필요한 경우 필터를 지정합니다. OHD에 단일 요청 ID를 사용하는 단일 DTP(데이터 전송 프로세스) 실행의 데이터만 포함되거나 DTP가 완료된 것이 확실하고 데이터를 복사하려는 경우 **마지막 요청 제외** 확인란의 선택을 취소합니다.
+5. 필요한 경우 필터를 지정합니다. OHD에 단일 요청 ID를 사용하는 단일 DTP(데이터 전송 프로세스) 실행의 데이터만 포함되거나 DTP가 완료된 것이 확실하고 데이터를 복사하려는 경우 **고급** 섹션에서 **마지막 요청 제외** 확인란의 선택을 취소합니다. **데이터 미리 보기** 단추를 선택하여 데이터를 미리 볼 수 있습니다.
 
-   이러한 설정에 대한 자세한 내용은 이 문서의 [SAP BW Open Hub Destination 구성](#sap-bw-open-hub-destination-configurations) 섹션을 참조하세요. **유효성 검사** 를 선택하여 반환될 데이터를 다시 확인합니다. 그런 후 **다음** 을 선택합니다.
+   이러한 설정에 대한 자세한 내용은 이 문서의 [SAP BW Open Hub Destination 구성](#sap-bw-open-hub-destination-configurations) 섹션을 참조하세요. 그런 후 **다음** 을 선택합니다.
 
    ![SAP BW Open Hub 필터 구성](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
-7. **대상 데이터 저장소** 페이지에서 **+새 연결 만들기** > **Azure Data Lake Storage Gen2** > **계속** 을 선택합니다.
+6. **대상 데이터 저장소** 페이지에서 **+새 연결** > **Azure Data Lake Storage Gen2** > **계속** 을 선택합니다.
 
-8. **Azure Data Lake Storage 연결 지정** 페이지에서 다음 단계를 따라 연결을 만듭니다.
+7. **새 연결(Azure Data Lake Storage Gen2)** 페이지에서 다음 단계를 따라 연결을 만듭니다.
+   1. **이름** 드롭다운 목록에서 Data Lake Storage Gen2 지원 계정을 선택합니다.
+   2. **만들기** 를 선택하여 연결을 만듭니다.
 
    ![ADLS Gen2 연결된 서비스 만들기 페이지](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
-   1. **이름** 드롭다운 목록에서 Data Lake Storage Gen2 지원 계정을 선택합니다.
-   2. **마침** 을 선택하여 연결을 만듭니다. 그런 후 **다음** 을 선택합니다.
+8. **대상 데이터 저장소** 페이지의 **연결** 섹션에서 새로 만든 연결을 선택하고 출력 폴더 이름으로 **copyfromopenhub** 를 입력합니다. 그런 후 **다음** 을 선택합니다.
 
-9. **출력 파일 또는 폴더 선택** 페이지에서 출력 폴더 이름으로 **copyfromopenhub** 를 입력합니다. 그런 후 **다음** 을 선택합니다.
+   :::image type="content" source="./media/load-sap-bw-data/destination-data-store-page.png" alt-text="‘대상 데이터 저장소’ 페이지를 보여 주는 스크린샷":::
 
-   ![출력 폴더 선택 페이지](media/load-sap-bw-data/choose-output-folder.png)
-
-10. **파일 형식 설정** 페이지에서 **다음** 을 선택하여 기본 설정을 사용합니다.
+9. **파일 형식 설정** 페이지에서 **다음** 을 선택하여 기본 설정을 사용합니다.
 
     ![싱크 형식 지정 페이지](media/load-sap-bw-data/specify-sink-format.png)
 
-11. **설정** 페이지에서 **성능 설정** 을 확장합니다. SAP BW에서 동시에 로드할 **복사 병렬 처리 수준** 값(예: 5)을 입력합니다. 그런 후 **다음** 을 선택합니다.
+10. **설정** 페이지에서 **작업 이름** 을 지정한 후 **고급** 을 확장합니다. SAP BW에서 동시에 로드할 **복사 병렬 처리 수준** 값(예: 5)을 입력합니다. 그런 후 **다음** 을 선택합니다.
 
     ![복사 설정 구성](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. **요약** 페이지에서 설정을 검토합니다. 그런 후 **다음** 을 선택합니다.
+11. **요약** 페이지에서 설정을 검토합니다. 그런 후 **다음** 을 선택합니다.
 
-13. **배포 페이지** 에서 **모니터** 를 선택하여 파이프라인을 모니터링합니다.
+    :::image type="content" source="./media/load-sap-bw-data/summary-page.png" alt-text="요약 페이지를 보여 주는 스크린샷":::
 
-    ![배포 페이지](media/load-sap-bw-data/deployment.png)
+12. **배포 페이지** 에서 **모니터** 를 선택하여 파이프라인을 모니터링합니다.
 
-14. 페이지 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. **작업** 열에는 활동 실행 세부 정보를 보고 파이프라인을 다시 실행하기 위한 링크가 있습니다.
+13. 페이지 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. **파이프라인 실행** 페이지의 **파이프라인 이름** 열 아래의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
 
-    ![파이프라인 모니터링 보기](media/load-sap-bw-data/pipeline-monitoring.png)
-
-15. 파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 **활동 실행 보기** 를 선택합니다. 파이프라인에는 하나의 작업(복사 작업)만 있으므로 하나의 항목만 표시됩니다. 파이프라인 실행 보기로 전환하려면 위쪽의 **파이프라인** 링크를 선택합니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다.
+14. 파이프라인 실행과 연결된 활동 실행을 보려면 **파이프라인 이름** 열에서 링크를 선택합니다. 파이프라인에는 하나의 작업(복사 작업)만 있으므로 하나의 항목만 표시됩니다. 파이프라인 실행 보기로 다시 전환하려면 위쪽에서 **모든 파이프라인 실행** 링크를 선택합니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다.
 
     ![활동 모니터링 화면](media/load-sap-bw-data/activity-monitoring.png)
 
-16. 각 복사 활동의 실행 세부 정보를 모니터링하려면 활동 모니터링 보기의 **작업** 아래에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 사용할 수 있는 세부 정보에는 원본에서 싱크로 복사된 데이터 볼륨, 데이터 처리량, 실행 단계 및 기간, 사용된 구성이 포함됩니다.
+15. 각 복사 활동의 실행 세부 정보를 모니터링하려면 활동 모니터링 보기의 동일한 각 복사 활동 행에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 사용할 수 있는 세부 정보에는 원본에서 싱크로 복사된 데이터 볼륨, 데이터 처리량, 실행 단계 및 기간, 사용된 구성이 포함됩니다.
 
     ![활동 모니터링 세부 정보](media/load-sap-bw-data/activity-monitoring-details.png)
 
-17. **최대 요청 ID** 를 보려면 활동 모니터링 보기로 돌아가 **작업** 에서 **출력** 을 선택합니다.
+16. 각 복사 활동의 **최대 요청 ID** 를 보려면 활동 모니터링 보기로 돌아가 동일한 각 복사 활동 행에서 **출력** 을 선택합니다.
 
     ![활동 출력 화면](media/load-sap-bw-data/activity-output.png)
 
@@ -133,7 +132,7 @@ Azure Portal에서 Data Factory로 이동합니다. **작성 및 모니터링** 
 
 ![증분 복사 워크플로 흐름 차트](media/load-sap-bw-data/incremental-copy-workflow.png)
 
-데이터 팩터리 **시작** 페이지에서 **템플릿에서 파이프라인 만들기** 를 선택하여 기본 제공 템플릿을 사용합니다.
+데이터 팩터리 홈페이지의 **자세히 검색** 섹션에서 **파이프라인 템플릿** 을 선택하여 기본 제공 템플릿을 사용합니다.
 
 1. **SAP BW** 를 검색하여 **SAP BW에서 Azure Data Lake Storage Gen2 템플릿으로 증분 복사** 를 찾아 선택합니다. 이 템플릿은 데이터를 Azure Data Lake Storage Gen2에 복사합니다. 유사한 워크플로를 사용하여 다른 싱크 형식으로 복사할 수 있습니다.
 

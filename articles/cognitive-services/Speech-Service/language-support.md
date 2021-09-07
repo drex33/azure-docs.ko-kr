@@ -3,20 +3,20 @@ title: 언어 지원 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Service는 음성 번역과 함께 음성 텍스트 변환 및 텍스트 음성 변환을 위해 다양한 언어를 지원합니다. 이 문서에서는 서비스 기능별 언어 지원에 대한 종합 목록을 제공합니다.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: references_regions
-ms.openlocfilehash: 2879ecbc6b50c3cd2bd7541357886f5d6dfe483b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 7066a001d27376be6f9b8464beafc0cad2b54437
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752498"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568098"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -104,6 +104,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 몰타어(몰타)                    | `mt-MT` | 텍스트                                   |                           |                          |
 | 마라티어(인도)                    | `mr-IN` | 텍스트                                   |                           |                          |
 | 노르웨이어(복말)(노르웨이)         | `nb-NO` | 텍스트                                   |     예                      |                          |
+| 페르시아어(이란)                     | `fa-IR` | 텍스트                                   |                           |                          |
 | 폴란드어(폴란드)                    | `pl-PL` | 텍스트                                   |       예                    |                          |
 | 포르투갈어(브라질)                | `pt-BR` | 오디오(20190620, 20201015)<br>텍스트<br>발음|          예                 |                          |
 | 포르투갈어(포르투갈)              | `pt-PT` | 텍스트<br>발음                  |             예              |                          |
@@ -133,6 +134,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 스페인어(우루과이)                  | `es-UY` | 텍스트<br>발음                  |                           |                          |
 | 스페인어(미국)                      | `es-US` | 텍스트<br>발음                  |                           |                          |
 | 스페인어(베네수엘라)                | `es-VE` | 텍스트<br>발음                  |                           |                          |
+| 스와힐리어(케냐)                    | `sw-KE` | 텍스트<br>발음                  |                           |                          |
 | 스웨덴어(스웨덴)                   | `sv-SE` | 텍스트                                   |   예                        |                          |
 | 타밀어(인도)                      | `ta-IN` | 텍스트                                   |                           |                          |
 | 텔루구어(인도)                     | `te-IN` | 텍스트                                   |                           |                          |
@@ -217,8 +219,19 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural` | 일반 |
 | 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
-| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-GuyNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
+| 영어(미국) | `en-US` | Male | `en-US-GuyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
+| 영어(미국) | `en-US` | Female | `en-US-AmberNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-AshleyNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-CoraNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-ElizabethNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-MichelleNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-MonicaNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Kid | `en-US-AnaNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Male | `en-US-BrandonNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Male | `en-US-ChristopherNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Male | `en-US-JacobNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(미국) | `en-US` | Male | `en-US-EricNeural` <sup>새로 생성</sup> | 일반 |
 | 에스토니아어(에스토니아) | `et-EE` | Female | `et-EE-AnuNeural` | 일반 |
 | 에스토니아어(에스토니아) | `et-EE` | Male | `et-EE-KertNeural` | 일반 |
 | 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-NooraNeural` | 일반 |
@@ -329,18 +342,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 | 언어                         | Locale  | 성별 | 음성 이름                             | 스타일 지원 |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| 영어(미국) | `en-US` | Female | `en-US-AmberNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-AshleyNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-CoraNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-ElizabethNeural` <sup>새로 생성</sup> | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>새로 생성</sup> | [SSML을 사용](speech-synthesis-markup.md#create-an-ssml-document)하여 사용할 수 있는 일반적인 다국어 기능 |
-| 영어(미국) | `en-US` | Female | `en-US-MichelleNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-MonicaNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Kid | `en-US-AnaNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-BrandonNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-ChristopherNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-JacobNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-EricNeural` <sup>새로 생성</sup> | 일반 |
 
 > [!IMPORTANT]
 > 공개 미리 보기로 제공되는 음성은 미국 동부, 서유럽 및 동남 아시아의 3개 서비스 지역에서만 사용할 수 있습니다.
@@ -356,7 +358,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 > `en-US-JessaNeural` 음성이 `en-US-AriaNeural`로 변경되었습니다. 이전에 "Jessa"를 사용했다면 "Aria"로 변환하세요.
 
 > [!TIP]
-> 음성 합성 요청에서 "Microsoft Server Speech 텍스트 음성 변환 음성(en-US, AriaNeural)"과 같은 전체 서비스 이름 매핑을 계속 사용할 수 있습니다.
+> 음성 합성 요청에서 "Microsoft Server Speech 텍스트 음성 변환 음성(en-US, ChristopherNeural)"과 같은 전체 서비스 이름 매핑을 계속 사용할 수 있습니다.
 
 ### <a name="standard-voices"></a>표준 음성
 
@@ -478,6 +480,7 @@ Custom Voice는 인공신경망 계층(즉, 사용자 지정 신경망 음성)�
 | 한국어(한국) | `ko-KR` | 예 | 예 |
 | 노르웨이어(복말)(노르웨이) | `nb-NO` | 예 | 아니요 |
 | 포르투갈어(브라질) | `pt-BR` | 예 | 예 |
+| 러시아어(러시아) | `ru-RU` | 예 | 예 |
 | 스페인어(멕시코) | `es-MX` | 예 | 예 |
 | 스페인어(스페인) | `es-ES` | 예 | 예 |
 

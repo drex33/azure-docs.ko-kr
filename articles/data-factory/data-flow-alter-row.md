@@ -1,19 +1,21 @@
 ---
 title: 매핑 데이터 흐름의 행 변경 변환
-description: 매핑 데이터 흐름의 행 변경 변환을 사용하여 데이터베이스 대상을 업데이트하는 방법
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics 파이프라인의 매핑 데이터 흐름에서 행 변경 변환을 사용하여 데이터베이스 대상을 업데이트하는 방법입니다.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 05/06/2020
-ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: synapse
+ms.date: 08/24/2021
+ms.openlocfilehash: 7fe220315f7cccb749fe0974e822f157cf54ca36
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82982652"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821719"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 행 변경 변환
 
@@ -23,7 +25,7 @@ ms.locfileid: "82982652"
 
 ![행 변경 설정](media/data-flow/alter-row1.png "행 변경 설정")
 
-행 변경 변환은 데이터 흐름의 데이터베이스 또는 CosmosDB 싱크에 대해서만 작동합니다. 행에 할당하는 작업(삽입, 업데이트, 삭제, upsert)은 디버그 세션 중에 발생하지 않습니다. 파이프라인에서 데이터 흐름 실행 작업을 실행하여 데이터베이스 테이블에 행 변경 정책을 시행합니다.
+행 변경 변환은 데이터 흐름의 데이터베이스, REST 또는 CosmosDB 싱크에 대해서만 작동합니다. 행에 할당하는 작업(삽입, 업데이트, 삭제, upsert)은 디버그 세션 중에 발생하지 않습니다. 파이프라인에서 데이터 흐름 실행 작업을 실행하여 데이터베이스 테이블에 행 변경 정책을 시행합니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
 
@@ -57,15 +59,15 @@ ms.locfileid: "82982652"
 
 싱크 변환에는 대상 데이터베이스의 고유한 행 ID에 대한 단일 키 또는 일련의 키가 필요합니다. SQL 싱크의 경우 싱크 설정 탭에서 키를 설정합니다. CosmosDB의 경우 설정에서 파티션 키를 설정하고 싱크 매핑에서 CosmosDB 시스템 필드 “ID”도 설정합니다. CosmosDB의 경우 업데이트, upsert, 삭제에 대한 시스템 열 “ID”를 반드시 포함해야 합니다.
 
-## <a name="merges-and-upserts-with-azure-sql-database-and-synapse"></a>Azure SQL Database 및 Synapse를 사용하여 병합 및 upsert
+## <a name="merges-and-upserts-with-azure-sql-database-and-azure-synapse"></a>Azure SQL Database 및 Azure Synapse를 사용하여 병합 및 upsert
 
-ADF 데이터 흐름은 upsert 옵션을 사용하여 Azure SQL Database 및 Synapse 데이터베이스 풀(데이터 웨어하우스)에 대한 병합을 지원합니다.
+데이터 흐름은 upsert 옵션을 사용하여 Azure SQL Database 및 Azure Synapse 데이터베이스 풀(데이터 웨어하우스)에 대한 병합을 지원합니다.
 
-그러나 대상 데이터베이스 스키마가 키 열의 ID 속성을 사용하는 시나리오를 경험할 수 있습니다. ADF를 사용하려면 업데이트 및 upsert에 대한 행 값을 일치시키는 데 사용할 키를 식별해야 합니다. 그러나 대상 열에 ID 속성 집합이 있고 upsert 정책을 사용하고 있는 경우 대상 데이터베이스에서 열에 쓰기를 허용하지 않습니다. 분산 테이블의 배포 열에 대해 upsert를 시도하는 경우 오류가 발생할 수도 있습니다.
+그러나 대상 데이터베이스 스키마가 키 열의 ID 속성을 사용하는 시나리오를 경험할 수 있습니다. 이 서비스를 사용하려면 업데이트 및 upsert에 대한 행 값을 일치시키는 데 사용할 키를 식별해야 합니다. 그러나 대상 열에 ID 속성 집합이 있고 upsert 정책을 사용하고 있는 경우 대상 데이터베이스에서 열에 쓰기를 허용하지 않습니다. 분산 테이블의 배포 열에 대해 upsert를 시도하는 경우 오류가 발생할 수도 있습니다.
 
 다음과 같은 방법으로 이를 해결할 수 있습니다.
 
-1. 싱크 변환 설정으로 이동하고 “키 열 쓰기 건너뛰기”를 설정합니다. 그러면 ADF에서 매핑에 대한 키 값으로 선택한 열을 쓰지 않습니다.
+1. 싱크 변환 설정으로 이동하고 “키 열 쓰기 건너뛰기”를 설정합니다. 그러면 서비스에서 매핑에 대한 키 값으로 선택한 열을 쓰지 않습니다.
 
 2. 해당 키 열이 ID 열에 대한 문제를 일으키는 열이 아닌 경우 싱크 변환 전처리 SQL 옵션인 ```SET IDENTITY_INSERT tbl_content ON```를 사용할 수 있습니다. 그런 다음 사후 처리 SQL 속성인 ```SET IDENTITY_INSERT tbl_content OFF```를 사용하여 이를 해제합니다.
 
@@ -89,7 +91,7 @@ ADF 데이터 흐름은 upsert 옵션을 사용하여 Azure SQL Database 및 Syn
 
 아래 예제는 들어오는 스트림 `CleanData`를 사용하여 3개의 행 변경 조건을 만드는 `SpecifyUpsertConditions`이라는 행 변경 변환입니다. 이전 변환에서 행이 데이터베이스에서 삽입, 업데이트 또는 삭제되는지 여부를 결정하는 `alterRowCondition`이라는 이름의 열이 계산됩니다. 열 값에 행 변경 규칙과 일치하는 문자열 값이 있으면 해당 정책이 할당됩니다.
 
-Data Factory UX에서 이 변환은 아래 이미지와 같습니다.
+UI에서 이 변환은 아래 이미지와 같습니다.
 
 ![행 변경 예제](media/data-flow/alter-row4.png "행 변경 예제")
 

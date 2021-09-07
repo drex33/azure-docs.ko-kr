@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 03/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e62e320e2fac2b34e970f983965f9809d62e2103
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102614907"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566979"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -420,7 +420,7 @@ module.exports = function (context, req) {
 
 ## <a name="http-triggers-and-bindings"></a>HTTP 트리거 및 바인딩
 
-HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체를 사용하여 HTTP 메시지를 나타냅니다.  
+HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체를 사용하여 HTTP 메시지를 나타냅니다.
 
 ### <a name="request-object"></a>요청 개체
 
@@ -491,6 +491,8 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
     context.done(null, res);   
     ```  
 
+요청 및 응답 키는 소문자여야 합니다.
+
 ## <a name="scaling-and-concurrency"></a>스케일링 및 동시성
 
 기본적으로 Azure Functions는 애플리케이션의 부하를 자동으로 모니터링하면서 필요에 따라 Node.js에 사용할 추가 호스트 인스턴스를 만듭니다. Functions는 QueueTrigger에 대한 메시지 보존 기간, 큐 크기 등의 기본 제공(사용자 구성 불가능) 임계값을 여러 트리거 유형에 사용하여 인스턴스를 추가할 시기를 결정합니다. 자세한 내용은 [사용 플랜 및 프리미엄 플랜의 작동 방식](event-driven-scaling.md)을 참조하세요.
@@ -522,6 +524,8 @@ Linux 함수 앱의 경우 다음 Azure CLI 명령을 실행하여 노드 버전
 ```bash
 az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
+
+Azure Functions 런타임 지원 정책에 대한 자세한 내용은 이 [문서](./language-support-policy.md)를 참조하세요.
 
 ## <a name="dependency-management"></a>종속성 관리
 아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 함수 앱에 모든 종속성이 설치되어 있는지 확인해야 합니다.
@@ -689,7 +693,7 @@ module.exports = myObj;
 
 `--inspect` 매개 변수를 사용하여 시작하면 Node.js 프로세스가 지정된 포트에서 디버깅 클라이언트를 수신 대기합니다. Azure Functions 2.x에서는 환경 변수 또는 앱 설정 `languageWorkers:node:arguments = <args>`를 추가하여 코드를 실행하는 Node.js 프로세스에 전달할 인수를 지정할 수 있습니다. 
 
-로컬로 디버그하려면 [local.settings.json](./functions-run-local.md#local-settings-file) 파일의 `Values`에 `"languageWorkers:node:arguments": "--inspect=5858"`을 추가하고 포트 5858에 디버거를 연결합니다.
+로컬로 디버그하려면 [local.settings.json](./functions-develop-local.md#local-settings-file) 파일의 `Values`에 `"languageWorkers:node:arguments": "--inspect=5858"`을 추가하고 포트 5858에 디버거를 연결합니다.
 
 VS Code를 사용하여 디버그하는 경우 `--inspect` 매개 변수는 프로젝트의 launch.json file 파일에 있는 `port` 값을 사용하여 자동으로 추가됩니다.
 

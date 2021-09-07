@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Automation 기능을 배포할 때 발생
 services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 43bc367be9ad9bb32f33f94df774acb3e808182a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8112b7637fc2737a80ab9235b962b2adef6d1b19
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651122"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607798"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>기능 배포 문제 해결
 
@@ -105,20 +105,20 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="issue"></a>문제
 
-이 오류 코드는 하나 이상의 정책 위반으로 인해 배포가 실패했음을 의미합니다.
+이 오류 코드는 하나 이상의 Azure Policy 할당 위반으로 인해 배포가 실패했음을 의미합니다.
 
 #### <a name="cause"></a>원인 
 
-정책이 작업 완료를 차단하고 있습니다.
+Azure Policy 할당 때문에 작업이 완료되지 못합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-이 기능을 성공적으로 배포하려면 표시된 정책을 변경해야 합니다. 정의할 수 있는 정책 유형이 다양하기 때문에 필요한 변경 내용은 위반된 정책에 따라 달라집니다. 예를 들어 일부 포함된 리소스의 콘텐츠를 변경하는 권한을 거부하는 정책이 리소스 그룹에 정의된 경우 다음과 같은 해결 방법 중 하나를 선택할 수 있습니다.
+이 기능을 성공적으로 배포하려면 표시된 정책 정의를 변경하는 것이 좋습니다. 정의할 수 있는 정책 정의 유형이 다양하기 때문에 필요한 변경 내용은 위반된 정책 정의에 따라 달라집니다. 예를 들어 일부 포함된 리소스의 콘텐츠를 변경하는 권한을 거부하는 정책 정의가 리소스 그룹에 할당된 경우 다음과 같은 해결 방법 중 하나를 선택할 수 있습니다.
 
-* 정책을 모두 제거합니다.
+* 정책 할당을 제거합니다.
 * 다른 리소스 그룹에 기능을 사용하도록 설정해 봅니다.
-* 정책의 대상을 특정 리소스(예: Automation 계정)로 변경합니다.
-* 정책이 거부하도록 구성된 리소스 세트를 수정합니다.
+* 정책 할당의 대상을 특정 리소스(예: Automation 계정)로 변경합니다.
+* 정책 정의가 거부하도록 구성된 리소스 세트를 수정합니다.
 
 실패한 배포를 확인하려면 Azure Portal의 오른쪽 상단 모서리에서 알림을 확인하거나 Automation 계정을 포함하는 리소스 그룹으로 이동하여 **설정** 에 있는 **배포** 를 선택합니다. Azure Policy에 대해 자세히 알아보려면 [Azure Policy 개요](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
 

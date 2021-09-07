@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d2bfaef8f00f6246dfef17145666c817ed26d9d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94835869"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567237"
 ---
 # <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>방법: Azure AD Multi-Factor Authentication 등록 정책 구성
 
@@ -39,15 +39,13 @@ Azure Multi-Factor Authentication에 대한 자세한 내용은 [Azure AD Multi-
 1. **Azure Active Directory** > **보안** > **ID 보호** > **MFA 등록 정책** 으로 이동합니다.
    1. **할당** 에서
       1. **사용자** - 롤아웃을 제한하는 경우 **모든 사용자** 또는 **개인 및 그룹 선택** 을 선택할 수 있습니다.
-         1. 원하는 경우 정책에서 사용자를 제외하도록 선택할 수 있습니다.
-   1. **제어** 에서
-      1. **Azure AD MFA 등록 필요** 확인란이 선택되어 있는지 확인하고 **선택** 을 선택합니다.
+         1. 원하는 경우 정책에서 사용자를 제외할 수 있습니다.
    1. **정책 적용** - **설정**
    1. **저장**
 
 ## <a name="user-experience"></a>사용자 환경
 
-Azure Active Directory Identity Protection은 사용자가 다음에 대화형으로 로그인할 때 등록하라는 메시지를 표시하고 사용자에게 등록을 완료하는 데 14일이 주어집니다. 이 14일 기간 동안 등록을 무시할 수 있지만 기간이 끝나면 등록해야만 로그인 프로세스를 완료할 수 있습니다.
+Azure Active Directory Identity Protection은 사용자가 다음에 대화형으로 로그인할 때 등록하라는 메시지를 표시하고 사용자에게 등록을 완료하는 데 14일이 주어집니다. 이 14일 기간 동안 등록을 무시할 수 있지만 MFA가 조건으로 필요하지 않은 경우 등록을 무시할 수 있지만, 기간이 끝나면 등록해야만 로그인 프로세스를 완료할 수 있습니다.
 
 관련 사용자 환경에 대한 개요는 다음을 참조하세요.
 

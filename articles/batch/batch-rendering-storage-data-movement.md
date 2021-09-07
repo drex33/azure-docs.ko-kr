@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 0a18ee6961cb601b0fa9db7213eb6115afa20096
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 60e2044bc837c986701ec7be048fde04cf6a529a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765200"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567204"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>자산 및 출력 파일을 렌더링하기 위한 스토리지 및 데이터 이동 옵션
 
@@ -132,6 +132,6 @@ Azure Files는 Azure Storage를 지원하는 기본 API 및 도구에서 지원�
 
 스토리지 옵션에 대한 자세한 내용은 심층 설명서를 참조하세요.
 
-* [Azure Blob 스토리지](../storage/blobs/storage-blobs-introduction.md)
+* [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)
 * [Blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)
 * [Azure 파일](../storage/files/storage-files-introduction.md)

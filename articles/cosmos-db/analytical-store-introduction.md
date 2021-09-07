@@ -4,15 +4,15 @@ description: Microsoft Azure Cosmos DB 트랜잭션(행 기반) 및 분석(열 �
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9328b8159b04d4e7e7bc2383739c86c76dbf156a
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: fed7f84ed86e4543c74073811ccbafcdf8736c77
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985889"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568124"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -153,28 +153,66 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
 
 ### <a name="schema-representation"></a>스키마 표현
 
-분석 저장소에는 두 가지 모드의 스키마 표현이 있습니다. 이러한 모드는 열 표시의 단순성, 다형성 스키마 처리 및 쿼리 환경의 단순함 간에 균형을 제공합니다.
+분석 저장소에는 두 가지 모드의 스키마 표현이 있습니다. 이러한 모드는 데이터베이스 계정의 모든 컨테이너에 대한 스키마 표현 방법을 정의하며, 쿼리 환경의 단순성과 다형 스키마에 대한 보다 포괄적인 열 표현 편리성은 상쇄 관계에 있습니다.
 
-* 올바르게 정의된 스키마 표시
-* 전체 충실도 스키마 표시
+* 잘 정의된 스키마 표현(SQL(CORE) API 계정에 대한 기본 옵션) 
+* 전체 충실도 스키마 표현(Azure Cosmos DB API for MongoDB 계정의 기본 옵션)
 
+SQL(Core) API 계정에는 전체 충실도 스키마를 사용할 수 있습니다. 이 가능성에 대한 고려 사항은 다음과 같습니다.
+
+ * 이 옵션은 Synapse Link를 사용하도록 설정하지 않은 계정에만 유효합니다.
+ * 기본 옵션을 다시 설정하고 잘 정의된 표현에서 전체 충실도로 변경하기 위해 Synapse Link를 해제했다가 다시 설정할 수 없습니다.
+ * 다른 프로세스를 사용하여 잘 정의된 표현에서 전체 충실도로 변경할 수 없습니다.
+ * MongoDB 계정에서는 이러한 표현 방법을 변경할 수 없습니다.
+ * 현재는 Azure Portal 통해 이 결정을 내릴 수 없습니다.
+ * 이 옵션은 계정에서 Synapse Link를 사용하도록 설정할 때 동시에 결정해야 합니다.
+ 
+ Azure CLI 사용:
+ ```cli
+ az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
+ ```
+ 
 > [!NOTE]
-> SQL(Core) API 계정의 경우 분석 저장소를 사용으로 설정하면 분석 저장소의 기본 스키마 표시가 올바르게 정의됩니다. Azure Cosmos DB API for MongoDB 계정의 경우 분석 저장소의 기본 스키마 표시가 전체 충실도 스키마 표시입니다. 
+> 위의 명령에서 기존 계정에 대해 `create`를 `update`로 바꿉니다.
+ 
+  PowerShell 사용:
+  ```
+   New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
+   ```
+ 
+> [!NOTE]
+> 위의 명령에서 `New-AzCosmosDBAccount`를 기존 계정에 대한 `Update-AzCosmosDBAccount`로 바꿉니다.
+ 
 
-**올바르게 정의된 스키마 표시**
+
+#### <a name="well-defined-schema-representation"></a>올바르게 정의된 스키마 표시
 
 잘 정의된 스키마 표시는 트랜잭션 저장소에서 스키마와 관계없는 데이터의 간단한 테이블 형식 표시를 만듭니다. 잘 정의된 스키마 표시의 고려 사항은 다음과 같습니다.
 
-* 속성이 여러 항목에서 항상 동일한 형식입니다.
-* Null에서 다른 데이터 형식으로의 형식 변경 1개만 허용합니다. Null이 아닌 첫 번째 발생이 열 데이터 형식을 정의합니다.
+* 첫 번째 문서는 기본 스키마를 정의하고 속성은 항상 모든 문서에서 동일한 형식이어야 합니다. 유일한 예외는 다음과 같습니다.
+  * Null에서 다른 데이터 형식 변경. Null이 아닌 첫 번째 발생이 열 데이터 형식을 정의합니다. 첫 번째 null이 아닌 데이터 형식을 따르지 않는 문서는 분석 저장소에 표시되지 않습니다.
+  * `float`에서 `integer`로 모든 문서는 분석 저장소에 표시됩니다.
+  * `integer`에서 `float`로 모든 문서는 분석 저장소에 표시됩니다. 그러나 Azure Synapse SQL 서버리스 풀에서 이 데이터를 읽으려면 WITH 절을 사용하여 열을 `varchar`로 변환해야 합니다. 또한 이 초기 변환 후에는 다시 숫자로 변환할 수 있습니다. **num** 초기 값이 정수이고 두 번째 값이 float인 아래 예제를 확인하세요.
 
-  * 예를 들어, `"a"`는 문자열인 경우도 있고 숫자인 경우도 있기 때문에 `{"a":123} {"a": "str"}`에는 잘 정의된 스키마가 없습니다. 이 경우 분석 저장소는 컨테이너 수명 동안 첫 번째로 발생하는 항목에 `"a"`의 데이터 형식을 `“a”`의 데이터 형식으로 등록합니다. 문서는 분석 저장소에 계속 포함되지만 `"a"`의 데이터 형식이 다른 항목은 포함되지 않습니다.
+```SQL
+SELECT CAST (num as float) as num
+FROM OPENROWSET(PROVIDER = 'CosmosDB',
+                CONNECTION = '<your-connection',
+                OBJECT = 'IntToFloat',
+                SERVER_CREDENTIAL = 'your-credential'
+) 
+WITH (num varchar(100)) AS [IntToFloat]
+```
+
+  * 기본 스키마 데이터 형식을 따르지 않는 속성은 분석 저장소에 표시되지 않습니다. 예를 들어 아래의 두 문서를 고려해보세요. 첫 번째 문서는 분석 저장소 기본 스키마를 정의합니다. 두 번째 문서(`id`가 `2`)는 속성 `"a"`가 문자열이고 첫 번째 문서에 `"a"`가 숫자로 지정되어 있으므로 잘 정의된 스키마가 없습니다. 이 경우 분석 저장소는 컨테이너 수명 동안 `"a"`의 데이터 형식을 `integer`로 등록합니다. 두 번째 문서는 분석 저장소에 계속 포함되지만 해당 `"a"` 속성은 포함되지 않습니다.
   
-    null 속성에는 이 조건이 적용되지 않습니다. 예를 들어 `{"a":123} {"a":null}`은 여전히 잘 정의되어 있습니다.
+    * `{"id": "1", "a":123}` 
+    * `{"id": "2", "a": "str"}`
+     
+ > [!NOTE]
+ > null 속성에는 이 조건이 적용되지 않습니다. 예를 들어 `{"a":123} and {"a":null}`은 여전히 잘 정의되어 있습니다.
 
-* 배열 형식에는 단일 형식이 반복되어 포함되어야 합니다.
-
-  * 예를 들어 배열에 정수 형식과 문자열 형식이 혼합되어 있기 때문에 `{"a": ["str",12]}`는 잘 정의된 스키마가 아닙니다.
+* 배열 형식에는 단일 형식이 반복되어 포함되어야 합니다. 예를 들어 배열에 정수 형식과 문자열 형식이 혼합되어 있기 때문에 `{"a": ["str",12]}`는 잘 정의된 스키마가 아닙니다.
 
 > [!NOTE]
 > Azure Cosmos DB 분석 저장소가 잘 정의된 스키마 표현을 따르고 특정 항목이 위의 사양을 위반하는 경우 해당 항목은 분석 저장소에 포함되지 않습니다.
@@ -192,7 +230,7 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
   * Azure Synapse의 SQL 서버리스 풀은 이러한 열을 `NULL`로 나타냅니다.
 
 
-**전체 충실도 스키마 표시**
+#### <a name="full-fidelity-schema-representation"></a>전체 충실도 스키마 표시
 
 전체 충실도 스키마 표시는 스키마와 관계없는 작동 데이터에서 전체 다형성 스키마를 처리하도록 설계되었습니다. 이 스키마 표시에서는 잘 정의된 스키마 제약 조건(혼합 데이터 형식 필드도 혼합 데이터 형식 배열도 아님)을 위반하더라도 분석 저장소에서 항목이 삭제되지 않습니다.
 
@@ -260,7 +298,11 @@ salary: 1000000
 
 ## <a name="security"></a>보안
 
-분석 저장소를 사용한 인증은 지정된 데이터베이스의 트랜잭션 저장소와 동일합니다. 인증을 위해 기본 또는 읽기 전용 키를 사용할 수 있습니다. Synapse Studio에서 연결된 서비스를 활용하여 Spark 노트북에 Microsoft Azure Cosmos DB 키 붙여넣기를 방지할 수 있습니다. 이 연결된 서비스에 대한 액세스는 작업 영역에 액세스할 수 있는 모든 사람이 사용할 수 있습니다.
+* **분석 저장소를 사용한 인증** 은 지정된 데이터베이스의 트랜잭션 저장소와 동일합니다. 인증을 위해 기본 또는 읽기 전용 키를 사용할 수 있습니다. Synapse Studio에서 연결된 서비스를 활용하여 Spark 노트북에 Microsoft Azure Cosmos DB 키 붙여넣기를 방지할 수 있습니다. Azure Synapse SQL 서버리스의 경우 SQL 자격 증명을 사용하여 Azure Cosmos DB 키를 SQL Notebook에 붙여넣지 않도록 방지할 수도 있습니다. 이 연결된 서비스 또는 이 자격 증명에 대한 액세스는 작업 영역에 대한 액세스 권한이 있는 모든 사용자가 사용할 수 있습니다.
+
+* **프라이빗 엔드포인트를 사용한 네트워크 격리** - 트랜잭션 및 분석 저장소에 있는 데이터에 대한 네트워크 액세스를 독립적으로 제어할 수 있습니다. 네트워크 격리는 Azure Synapse 작업 영역의 관리형 가상 네트워크 내에서 각 저장소마다 별도의 관리형 프라이빗 엔드포인트를 사용하여 수행됩니다. 자세히 알아보려면 [분석 저장소에 대한 프라이빗 엔드포인트 구성](analytical-store-private-endpoints.md) 방법에 대한 문서를 참조하세요.
+
+* **고객 관리형 키를 통한 데이터 암호화** - 자동화되고 투명한 방식으로 동일한 고객 관리형 키를 사용하여 트랜잭션 및 분석 저장소에서 데이터를 원활하게 암호화할 수 있습니다. Azure Synapse Link는 Azure Cosmos DB 계정의 관리 ID를 사용하여 고객 관리형 키 구성만 지원합니다. 계정에서 [Azure Synapse Link를 사용하도록 설정](configure-synapse-link.md#enable-synapse-link)하기 전에 Azure Key Vault 액세스 정책에서 계정의 관리 ID를 구성해야 합니다. 자세한 내용은 [Azure Cosmos DB 계정의 관리 ID를 사용하여 고객 관리형 키 구성](how-to-setup-cmk.md#using-managed-identity) 문서를 참조하세요.
 
 ## <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>여러 Azure Synapse Analytics 런타임 지원
 
@@ -323,6 +365,8 @@ Microsoft Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록
 자세히 알아보려면 다음 문서를 참조하세요
 
 * [Microsoft Azure Cosmos DB용 Azure Synapse Link](synapse-link.md)
+
+* [Azure Synapse Analytics를 사용하여 하이브리드 트랜잭션 및 분석 처리를 디자인](/learn/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)하는 방법에 대한 학습 모듈을 확인하세요.
 
 * [Microsoft Azure Cosmos DB용 Azure Synapse Link 시작하기](configure-synapse-link.md)
 

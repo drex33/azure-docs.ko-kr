@@ -2,20 +2,18 @@
 title: 사용자 지정 Azure Event Grid 토픽에 이벤트 게시
 description: 이 문서에서는 Azure Event Grid에 대한 사용자 지정 토픽에 이벤트를 게시하는 방법을 설명합니다. 게시 및 이벤트 데이터의 형식을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b662cd2034fc1035a5da64c19d9aba87b180af8f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3c3be5c11341ddd7bb381134a0d0b50ba8745709
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701143"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122531322"
 ---
-# <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid에 대한 사용자 지정 토픽에 게시
+# <a name="post-to-azure-event-grid-custom-topics-using-access-keys"></a>액세스 키를 사용하여 Azure Event Grid 사용자 지정 토픽에 게시
 
-이 문서에서는 Azure Event Grid에 대한 사용자 지정 토픽에 이벤트를 게시하는 방법을 설명합니다. 게시 및 이벤트 데이터의 형식을 보여 줍니다. [SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/)는 기대한 형식과 일치하는 게시에만 적용됩니다.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+이 문서에서는 액세스 키를 사용하여 사용자 지정 토픽에 이벤트를 게시하는 방법을 설명합니다. 게시 및 이벤트 데이터의 형식을 보여 줍니다. [SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/)는 기대한 형식과 일치하는 게시에만 적용됩니다.
 
 ## <a name="endpoint"></a>엔드포인트
 

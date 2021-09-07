@@ -1,24 +1,26 @@
 ---
 title: Snowflake에서 데이터 복사 및 변환
-description: Data Factory를 사용하여 Snowflake에서 데이터를 복사하고 변환하는 방법을 알아봅니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Data Factory 또는 Azure Synapse Analytics를 사용하여 Snowflake에서 데이터를 복사하고 변환하는 방법을 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/16/2021
-ms.openlocfilehash: a412af3020012844a633d01c1b5b928ec4a4758f
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: f17c8c4144dc1536804f5b7b0f6a237bc0aede30
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535050"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642899"
 ---
-# <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Snowflake에서 데이터 복사 및 변환
+# <a name="copy-and-transform-data-in-snowflake-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Snowflake에서 데이터 복사 및 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Snowflake 간에 데이터를 복사하고 Data Flow를 사용하여 Snowflake에서 데이터를 변환하는 방법을 설명합니다. Data Factory에 대한 자세한 내용은 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 Azure Data Factory 및 Azure Synapse 파이프라인의 복사 작업을 사용하여 Snowflake 간에 데이터를 복사하고 Data Flow를 사용하여 Snowflake에서 데이터를 변환하는 방법을 설명합니다. 자세한 내용은 [Data Factory](introduction.md) 또는 [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md)의 소개 문서를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -38,13 +40,13 @@ ms.locfileid: "110535050"
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 Snowflake 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+다음 섹션에서는 Snowflake 커넥터에 국한된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 Snowflake 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | type 속성은 **Snowflake** 로 설정해야 합니다.              | 예      |
 | connectionString | Snowflake 인스턴스에 연결하는 데 필요한 정보를 지정합니다. Azure Key Vault에 암호나 전체 연결 문자열을 배치하도록 선택할 수 있습니다. 자세한 내용은 테이블 아래의 예제와 함께 [Azure Key Vault의 저장소 자격 증명](store-credentials-in-key-vault.md) 문서를 참조하세요.<br><br>일반적인 설정은 다음과 같습니다.<br>- **계정 이름:** Snowflake 계정(지역 및 클라우드 플랫폼을 식별하는 추가 세그먼트 포함)의 [전체 계정 이름](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name)(예: xy12345.east-us-2.azure)입니다.<br/>- **사용자 이름:** 연결에 사용할 사용자의 로그인 이름입니다.<br>- **암호:** 사용자의 암호입니다.<br>- **데이터베이스:** 연결 시 사용할 기본 데이터베이스입니다. 지정된 역할에 권한이 있는 기존 데이터베이스여야 합니다.<br>- **웨어하우스:** 연결 시 사용할 가상 웨어하우스입니다. 지정된 역할에 권한이 있는 기존 웨어하우스여야 합니다.<br>- **역할:** Snowflake 세션에서 사용할 기본 액세스 제어 역할입니다. 지정된 역할은 지정된 사용자에게 이미 할당된 기존 역할이어야 합니다. 기본 역할은 PUBLIC입니다. | 예      |
@@ -100,11 +102,11 @@ Snowflake 연결된 서비스에 다음 속성이 지원됩니다.
 
 Snowflake 데이터 세트에 대해 다음 속성이 지원됩니다.
 
-| 속성  | Description                                                  | 필수                    |
+| 속성  | 설명                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 데이터 세트의 type 속성을 **SnowflakeTable** 로 설정해야 합니다. | 예                         |
-| 스키마 | 스키마의 이름입니다. ADF에서 스키마 이름은 대/소문자를 구분합니다. |원본의 경우 아니요이며, 싱크의 경우 예입니다.  |
-| 테이블 | 테이블/뷰의 이름입니다. ADF에서 테이블 이름은 대/소문자를 구분합니다. |원본의 경우 아니요이며, 싱크의 경우 예입니다.  |
+| 스키마 | 스키마의 이름입니다. 스키마 이름은 대/소문자를 구분합니다. |원본의 경우 아니요이며, 싱크의 경우 예입니다.  |
+| 테이블 | 테이블/뷰의 이름입니다. 테이블 이름은 대/소문자를 구분합니다. |원본의 경우 아니요이며, 싱크의 경우 예입니다.  |
 
 **예:**
 
@@ -138,11 +140,11 @@ Snowflake의 [COPY into [location]](https://docs.snowflake.com/en/sql-reference/
 
 Snowflake에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성                     | Description                                                  | 필수 |
+| 속성                     | 설명                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 type 속성을 **SnowflakeSource** 로 설정해야 합니다. | 예      |
 | Query          | Snowflake에서 데이터를 읽을 SQL 쿼리를 지정합니다. 스키마 이름, 테이블 및 열에 소문자가 포함된 경우 쿼리의 개체 식별자(예: `select * from "schema"."myTable"`)를 인용합니다.<br>저장 프로시저 실행은 지원되지 않습니다. | 아니요       |
-| exportSettings | Snowflake에서 데이터를 검색하는 데 사용되는 고급 설정입니다. 명령문이 호출될 때 Data Factory가 전달하는 COPY into 명령에서 지원되는 항목을 구성할 수 있습니다. | 아니요       |
+| exportSettings | Snowflake에서 데이터를 검색하는 데 사용되는 고급 설정입니다. 명령문이 호출될 때 서비스에서 전달하는 COPY into 명령에서 지원되는 항목을 구성할 수 있습니다. | 아니요       |
 | ***`exportSettings` 아래에서:*** |  |  |
 | 형식 | **SnowflakeExportCopyCommand** 로 설정된 내보내기 명령의 유형입니다. | 예 |
 | additionalCopyOptions | 키-값 쌍의 사전으로 제공되는 추가 복사 옵션입니다. 예: MAX_FILE_SIZE, 덮어쓰기. 자세한 내용은 [Snowflake 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)을 참조하세요. | 아니요 |
@@ -150,7 +152,7 @@ Snowflake에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션
 
 #### <a name="direct-copy-from-snowflake"></a>Snowflake에서 직접 복사
 
-싱크 데이터 저장소와 형식이 이 섹션에 설명된 조건을 충족하는 경우 복사 작업을 사용하여 Snowflake에서 싱크로 직접 복사할 수 있습니다. Data Factory는 설정을 확인하고 다음 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
+싱크 데이터 저장소와 형식이 이 섹션에 설명된 조건을 충족하는 경우 복사 작업을 사용하여 Snowflake에서 싱크로 직접 복사할 수 있습니다. 이 서비스는 설정을 확인하고 다음 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
 
 - **싱크 연결된 서비스** 는 **공유 액세스 서명** 인증을 사용하는 [**Azure Blob Storage**](connector-azure-blob-storage.md)입니다. 다음의 지원되는 형식으로 Azure Data Lake Storage Gen2에 직접 데이터를 복사하려면 [Snowflake에서 준비된 복사](#staged-copy-from-snowflake)를 사용하지 않도록 ADLS Gen2 계정에 대해 SAS 인증을 사용하여 Azure Blob 연결된 서비스를 만들 수 있습니다.
 
@@ -213,7 +215,7 @@ Snowflake에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션
 
 #### <a name="staged-copy-from-snowflake"></a>Snowflake에서 준비된 복사
 
-싱크 데이터 저장소 또는 형식이 Snowflake COPY 명령과 기본적으로 호환되지 않는 경우 마지막 섹션에 설명된 대로 중간 Azure Blob Storage 인스턴스를 사용하여 기본 제공된 준비된 복사를 사용하도록 설정합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. Data Factory는 Snowflake에서 데이터를 스테이징 스토리지로 내보낸 다음, 데이터를 싱크에 복사하고 마지막으로 준비 스토리지에서 임시 데이터를 정리합니다. 스테이징을 사용하는 데이터 복사에 관한 자세한 내용은 [스테이징된 복사본](copy-activity-performance-features.md#staged-copy)을 참조하세요.
+싱크 데이터 저장소 또는 형식이 Snowflake COPY 명령과 기본적으로 호환되지 않는 경우 마지막 섹션에 설명된 대로 중간 Azure Blob Storage 인스턴스를 사용하여 기본 제공된 준비된 복사를 사용하도록 설정합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 서비스는 Snowflake에서 데이터를 스테이징 스토리지로 내보낸 다음, 데이터를 싱크에 복사하고 마지막으로 준비 스토리지에서 임시 데이터를 정리합니다. 스테이징을 사용하는 데이터 복사에 관한 자세한 내용은 [스테이징된 복사본](copy-activity-performance-features.md#staged-copy)을 참조하세요.
 
 이 기능을 사용하려면 중간 스테이징으로 Azure Storage 계정을 참조하는 [Azure Blob Storage 연결된 서비스](connector-azure-blob-storage.md#linked-service-properties)를 만듭니다. 그런 다음 복사 작업에서 `enableStaging`과 `stagingSettings` 속성을 지정합니다.
 
@@ -268,11 +270,11 @@ Snowflake의 [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql
 
 Snowflake로 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성          | Description                                                  | 필수                                      |
+| 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 복사 작업 싱크의 type 속성은 **SnowflakeSink** 로 설정해야 합니다. | 예                                           |
 | preCopyScript     | 각 실행 시 Snowflake에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
-| importSettings | Snowflake에 데이터를 쓰는 데 사용되는 고급 설정입니다. 명령문이 호출될 때 Data Factory가 전달하는 COPY into 명령에서 지원되는 항목을 구성할 수 있습니다. | 아니요 |
+| importSettings | Snowflake에 데이터를 쓰는 데 사용되는 고급 설정입니다. 명령문이 호출될 때 서비스에서 전달하는 COPY into 명령에서 지원되는 항목을 구성할 수 있습니다. | 아니요 |
 | ***`importSettings` 아래에서:*** |                                                              |  |
 | 형식 | **SnowflakeImportCopyCommand** 로 설정된 내보내기 명령의 유형입니다. | 예 |
 | additionalCopyOptions | 키-값 쌍의 사전으로 제공되는 추가 복사 옵션입니다. 예: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. 자세한 내용은 [Snowflake 복사 옵션](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)을 참조하세요. | 아니요 |
@@ -280,7 +282,7 @@ Snowflake로 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에
 
 #### <a name="direct-copy-to-snowflake"></a>Snowflake로 직접 복사
 
-원본 데이터 저장소와 형식이 이 섹션에 설명된 조건을 충족하는 경우 복사 작업을 사용하여 원본에서 Snowflake로 직접 복사할 수 있습니다. Azure Data Factory는 설정을 확인하고 다음 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
+원본 데이터 저장소와 형식이 이 섹션에 설명된 조건을 충족하는 경우 복사 작업을 사용하여 원본에서 Snowflake로 직접 복사할 수 있습니다. 이 서비스는 설정을 확인하고 다음 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
 
 - **원본 연결된 서비스** 는 **공유 액세스 서명** 인증을 사용하는 [**Azure Blob Storage**](connector-azure-blob-storage.md)입니다. 다음의 지원되는 형식으로 Azure Data Lake Storage Gen2에서 직접 데이터를 복사하려면 [Snowflake로 준비된 복사](#staged-copy-to-snowflake)를 사용하지 않도록 ADLS Gen2 계정에 대해 SAS 인증을 사용하여 Azure Blob 연결된 서비스를 만들 수 있습니다.
 
@@ -347,7 +349,7 @@ Snowflake로 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에
 
 #### <a name="staged-copy-to-snowflake"></a>Snowflake로 준비된 복사
 
-원본 데이터 저장소 또는 형식이 Snowflake COPY 명령과 기본적으로 호환되지 않는 경우 마지막 섹션에 설명된 대로 중간 Azure Blob Storage 인스턴스를 사용하여 기본 제공된 준비된 복사를 사용하도록 설정합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. Data Factory는 Snowflake의 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 변환합니다. 그런 다음, COPY 명령을 호출하여 데이터를 Snowflake로 로드합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 스테이징을 사용하는 데이터 복사에 관한 자세한 내용은 [스테이징된 복사본](copy-activity-performance-features.md#staged-copy)을 참조하세요.
+원본 데이터 저장소 또는 형식이 Snowflake COPY 명령과 기본적으로 호환되지 않는 경우 마지막 섹션에 설명된 대로 중간 Azure Blob Storage 인스턴스를 사용하여 기본 제공된 준비된 복사를 사용하도록 설정합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 서비스는 Snowflake의 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 변환합니다. 그런 다음, COPY 명령을 호출하여 데이터를 Snowflake로 로드합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 스테이징을 사용하는 데이터 복사에 관한 자세한 내용은 [스테이징된 복사본](copy-activity-performance-features.md#staged-copy)을 참조하세요.
 
 이 기능을 사용하려면 중간 스테이징으로 Azure Storage 계정을 참조하는 [Azure Blob Storage 연결된 서비스](connector-azure-blob-storage.md#linked-service-properties)를 만듭니다. 그런 다음 복사 작업에서 `enableStaging`과 `stagingSettings` 속성을 지정합니다.
 
@@ -401,7 +403,7 @@ Snowflake로 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에
 
 다음 표에서는 Snowflake 원본에서 지원하는 속성을 나열합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다. 커넥터는 Snowflake [내부 데이터 전송](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)을 활용합니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 테이블 | 테이블을 입력으로 선택하는 경우 데이터 흐름은 인라인 데이터 세트를 사용할 때 Snowflake 데이터 세트 또는 원본 옵션에 지정된 테이블에서 모든 데이터를 페치합니다. | 예 | String | *(인라인 데이터 세트에만 해당)*<br>tableName<br>schemaName |
 | 쿼리 | 쿼리를 입력으로 선택하는 경우 Snowflake에서 데이터를 페치하는 쿼리를 입력합니다. 이렇게 설정하면 데이터 세트에서 선택한 모든 테이블이 재정의됩니다.<br>스키마 이름, 테이블 및 열에 소문자가 포함된 경우 쿼리의 개체 식별자(예: `select * from "schema"."myTable"`)를 인용합니다. | 예 | String | Query |
@@ -431,7 +433,7 @@ source(allowSchemaDrift: true,
 
 다음 표에서는 Snowflake 싱크에서 지원하는 속성을 나열합니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다. 인라인 데이터 세트를 사용하는 경우 [데이터 세트 속성](#dataset-properties) 섹션에 설명된 속성과 동일한 추가 설정이 표시됩니다. 커넥터는 Snowflake [내부 데이터 전송](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)을 활용합니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update 메서드 | Snowflake 대상에서 허용되는 작업을 지정합니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
 | 키 열 | 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다. | 아니요 | Array | 키 |
@@ -477,4 +479,4 @@ IncomingStream sink(allowSchemaDrift: true,
 
 ## <a name="next-steps"></a>다음 단계
 
-Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.

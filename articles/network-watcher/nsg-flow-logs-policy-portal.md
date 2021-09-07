@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 8da1130809c1802f4db963f4b4b000a848e9abaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a507f0845fad1e43ce775e5d46f9fa8a548e369f
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98011104"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607477"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>빠른 시작: Azure Policy를 사용하여 NSG 흐름 로그 배포 및 관리 
 
 ## <a name="overview"></a>개요
 Azure Policy를 사용하면 조직의 표준을 적용하고 규정 준수를 규모에 맞게 평가할 수 있습니다. Azure Policy에 대한 일반적인 사용 사례에는 리소스 일관성, 규정 준수, 보안, 비용 및 관리에 대한 거버넌스 구현이 포함됩니다. 이 문서에서는 NSG 흐름 로그에 사용할 수 있는 두 가지 기본 제공 정책을 사용하여 흐름 로그 설정을 관리합니다. 첫 번째 정책은 흐름 로그가 없는 모든 NSG에 플래그를 지정합니다. 두 번째 정책은 흐름 로그가 없는 NSG에 흐름 로그를 자동으로 배포합니다. 
 
-처음으로 Azure 정책을 만드는 경우 다음 내용을 읽어 보면 됩니다. 
+처음으로 Azure Policy 정의를 만드는 경우 다음 내용을 읽어 보면 됩니다. 
 - [Azure Policy 개요](../governance/policy/overview.md) 
-- [정책을 만드는 방법에 대한 자습서](../governance/policy/assign-policy-portal.md#create-a-policy-assignment)
+- [Azure Policy 할당을 만드는 방법에 대한 자습서](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>정책 찾기
@@ -134,5 +134,6 @@ Network Watcher 서비스는 지역별 서비스입니다. 관련 매개 변수�
 
 ## <a name="next-steps"></a>다음 단계 
 
+-   [트래픽 분석 기본 제공 정책](./traffic-analytics-policy-portal.md)에 대해 알아보기
 -   이 [자습서](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md)에서는 ARM 템플릿을 사용하여 흐름 로그와 트래픽 분석을 배포하는 방법을 자세히 설명합니다.
 -   [Network Watcher](./index.yml)에 대해 자세히 알아보기

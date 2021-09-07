@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78468c9528c4502ce691dec183c261b9636325f8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 34a6a353593d733cf50325049cd88034fb16c9ca
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094333"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566233"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Azure Active Directory의 관리 단위 관리
 
@@ -42,7 +42,9 @@ Azure Portal 또는 PowerShell을 사용하여 관리 단위를 추가할 수 �
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Azure Portal에서 Azure AD로 이동합니다. 그런 다음 왼쪽 창에서 **관리 단위** 를 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **관리 단위** 를 선택합니다.
 
     ![Azure AD의 “관리 단위” 링크 스크린샷.](./media/admin-units-manage/nav-to-admin-units.png)
 
@@ -84,11 +86,15 @@ Azure AD에서 관리 역할의 범위 단위로 더 이상 필요하지 않은 
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Azure Portal에서 **Azure AD** 로 이동한 다음 **관리 단위** 를 선택합니다. 
-1. 삭제할 관리 단위를 선택하고 **삭제** 를 선택합니다. 
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **관리 단위** 를 선택합니다.
+ 
+1. 삭제할 관리 단위를 선택하고 **삭제** 를 선택합니다.
+
 1. 관리 단위 삭제를 확인하려면 **예** 를 선택합니다. 관리 단위가 삭제됩니다.
 
-![관리 단위 삭제 단추 및 확인 창 스크린샷.](./media/admin-units-manage/select-admin-unit-to-delete.png)
+    ![관리 단위 삭제 단추 및 확인 창 스크린샷.](./media/admin-units-manage/select-admin-unit-to-delete.png)
 
 ### <a name="powershell"></a>PowerShell
 

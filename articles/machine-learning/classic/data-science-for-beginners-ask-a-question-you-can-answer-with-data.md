@@ -8,15 +8,19 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 2ff440801db7ba8c5bfc1785fc7a399a1d773b73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9b5803069316a97d6180429bd6b096d401d2396
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100517028"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695584"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## <a name="video-3-data-science-for-beginners-series"></a>비디오 3: 초급자를 위한 데이터 과학 시리즈
+
 초급자를 위한 데이터 과학 비디오 3에서 데이터 과학 문제를 질문으로 작성하는 방법을 알아봅니다. 이 비디오에는 분류 및 회귀 알고리즘 질문에 대한 비교가 포함되어 있습니다.
 
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
@@ -87,8 +91,8 @@ ms.locfileid: "100517028"
 
 데이터로 답할 수 있는 질문의 기본적인 원리에 대해 알아보았습니다.
 
-Microsoft Azure Machine Learning Studio(클래식)의 “초급자를 위한 데이터 과학”에 포함된 다른 비디오도 확인해 보세요.
+Machine Learning Studio(클래식)의 '초급자를 위한 데이터 과학'에 포함된 다른 동영상도 확인해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio(클래식)로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](../overview-what-is-azure-ml.md)
+* [Azure Machine Learning 소개 가져오기](../overview-what-is-azure-machine-learning.md)

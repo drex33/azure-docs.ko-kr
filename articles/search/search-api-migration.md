@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95e774b1f10f07a447ec168aa7716bab799acd73
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91929645"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566568"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Azure Cognitive Search에서 최신 REST API로 업그레이드
 
@@ -54,7 +54,7 @@ ms.locfileid: "91929645"
 
 ### <a name="behavior-changes"></a>동작 변경
 
-* [BM25 순위 지정 알고리즘](index-ranking-similarity.md)은 이전 순위 지정 알고리즘을 최신 기술로 대체합니다. 새 서비스는 이 알고리즘을 자동으로 사용합니다. 기존 서비스의 경우 새 알고리즘을 사용하도록 매개 변수를 설정해야 합니다.
+* [BM25 순위 지정 알고리즘](index-ranking-similarity.md)은 이전 순위 지정 알고리즘을 최신 기술로 대체합니다. 새 서비스에서 자동으로 이 알고리즘을 사용합니다. 기존 서비스의 경우 새 알고리즘을 사용하도록 매개 변수를 설정해야 합니다.
 
 * 이 버전에서는 null 값에 대해 정렬된 결과가 변경되었고, 정렬이 `asc`이면 null 값이 처음에 표시되고 정렬이 `desc`이면 마지막에 표시됩니다. null 값을 정렬하는 방법을 처리하는 코드를 작성한 경우 이 변경 내용을 알고 있어야 합니다.
 
@@ -85,7 +85,7 @@ API 버전 2019-05-06 및 2019-05-06-Preview부터 데이터 원본 API가 더 �
 
 #### <a name="named-entity-recognition-cognitive-skill-is-now-discontinued"></a>명명된 엔터티 인식의 인식 기술이 이제 사용되지 않음
 
-코드에서 [이름 엔터티 인식](cognitive-search-skill-named-entity-recognition.md) 기술을 호출하면 호출이 실패합니다. 대체 기능은 [엔터티 인식](cognitive-search-skill-entity-recognition.md)입니다. 기술 참조를 다른 변경 내용 없이 바꿀 수 있습니다. 두 버전의 API 서명은 동일합니다. 
+코드에서 [이름 엔터티 인식](cognitive-search-skill-named-entity-recognition.md) 기술을 호출하면 호출이 실패합니다. 대체 기능은 [엔터티 인식 기술(V3)](cognitive-search-skill-entity-recognition-v3.md)입니다. [사용되지 않는 인지 검색 기술](cognitive-search-skill-deprecated.md)의 권장 사항에 따라 지원되는 기술로 마이그레이션하세요.
 
 ### <a name="upgrading-complex-types"></a>복합 형식 업그레이드
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 06/08/2021
-ms.openlocfilehash: deded6927998daa5956cff2f63a0a53d3b973b6d
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: cbfbbfaea3954afd2a77090acb140c41e0b93052
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111855130"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290649"
 ---
 # <a name="how-to-migrate-java-applications-to-jboss-eap-on-azure-vms-and-virtual-machine-scale-sets"></a>Azure VM 기반 JBoss EAP 및 가상 머신 확장 집합에서 Java 애플리케이션을 마이그레이션하는 방법
 
@@ -21,13 +21,13 @@ ms.locfileid: "111855130"
 
 ## <a name="best-practice-starting-with-azure-marketplace-offers-and-quickstarts"></a>Azure Marketplace 제품 및 빠른 시작으로 시작하기 모범 사례
 
-Azure로 마이그레이션하기 위한 견고한 시작점을 제공하기 위해, Red Hat과 Microsoft는 파트너 관계를 맺고 [Azure 기반 JBoss EAP Marketplace 제품](https://aka.ms/AMP-JBoss-EAP) 세트를 제공합니다. 설명서를 참조하여 기존 배포와 가장 일치하는 제품과 플랜을 선택하세요. [Azure 기반 JBoss EAP 모범 사례](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-azure-best-practices/)
+Azure로 마이그레이션하기 위한 견고한 시작점을 제공하기 위해, Red Hat과 Microsoft는 파트너 관계를 맺고 [Azure 기반 JBoss EAP Marketplace 제품](https://aka.ms/AMP-JBoss-EAP) 세트를 제공합니다. 설명서를 참조하여 기존 배포와 가장 일치하는 제품과 플랜을 선택하세요. [Azure 기반 JBoss EAP 모범 사례](./jboss-eap-on-azure-best-practices.md)
 
 좋은 시작점으로 사용할 기존 제품이 없는 경우 Azure VM 및 기타 사용 가능한 리소스를 사용하여 배포를 수동으로 재현할 수 있습니다. 자세한 내용은 [IaaS란?](https://azure.microsoft.com/overview/what-is-iaas/)을 참조하세요.
 
 ### <a name="azure-marketplace-offers"></a>Azure Marketplace 제품
 
-Microsoft와 파트너 관계를 맺은 Red Hat은 Azure Marketplace 다음 제품을 게시했습니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/) 또는 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 이러한 제품을 이용할 수 있습니다. [Azure Marketplace 제품을 사용하여 Azure 기반 Red Hat JBoss EAP VM 및 VM 확장 집합을 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-azure-marketplace/)하는 방법에 대한 문서에서 자세한 내용을 확인하세요.
+Microsoft와 파트너 관계를 맺은 Red Hat은 Azure Marketplace 다음 제품을 게시했습니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/) 또는 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 이러한 제품을 사용할 수 있습니다. [Azure Marketplace 제품을 사용하여 Azure 기반 Red Hat JBoss EAP VM 및 가상 머신 확장 집합을 배포](./jboss-eap-marketplace-image.md)하는 방법에 대한 문서에서 자세한 내용을 확인하세요.
 
 이 Marketplace 제품에는 유연한 지원 구독 모델이 있는 JBoss EAP 및 RHEL 버전의 다양한 조합이 포함되어 있습니다. JBoss EAP는 BYOS(Bring-Your-Own-Subscription)이지만, RHEL의 경우 BYOS 또는 PAYG(종량제) 중에서 선택할 수 있습니다. Azure Marketplace 제품에는 RHEL 기반 JBoss EAP를 독립 실행형 VM, 클러스터형 VM 및 클러스터형 가상 머신 확장 집합으로 사용할 수 있는 플랜 옵션이 포함되어 있습니다. 6개 플랜은 다음과 같습니다.
 
@@ -46,7 +46,7 @@ Azure Marketplace 제품과 함께 Azure 기반 EAP를 시험 사용할 수 있�
 - RHEL 기반 JBoss EAP 클러스터형 VM
 - RHEL 기반 JBoss EAP 클러스터형 가상 머신 확장 집합
 
-빠르게 시작하려면 RHEL 기반 JBoss EAP 버전 조합에 근접하게 일치하는 빠른 시작 템플릿 중 하나를 선택하세요. 자세한 내용은 [Azure 기반 JBoss EAP 빠른 시작](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/jboss-eap-on-rhel)을 확인하세요. 
+빠르게 시작하려면 RHEL 기반 JBoss EAP 버전 조합에 근접하게 일치하는 빠른 시작 템플릿 중 하나를 선택하세요. 자세한 내용은 [Azure 기반 JBoss EAP 빠른 시작](./jboss-eap-on-rhel.md)을 확인하세요. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -56,13 +56,13 @@ Azure Marketplace 제품과 함께 Azure 기반 EAP를 시험 사용할 수 있�
 
 - **RHEL 옵션** - PAYG(종량제) 또는 BYOS(Bring-Your-Own-Subscription) 중에서 선택합니다. BYOS를 사용하는 경우 솔루션 템플릿을 사용하여 Marketplace 제품을 배포하기 전에 [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/)를 활성화해야 합니다. 다음 [지침](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access)에 따라 RHEL Gold Image를 Microsoft Azure에서 사용할 수 있도록 설정합니다.
 
-- **[Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/overview)** .
+- **[Azure CLI(명령줄 인터페이스)](/cli/azure/overview)** .
 
 - **Java 소스 코드 및 [JDK(Java Development Kit) 버전](https://www.oracle.com/java/technologies/javase-downloads.html)**
 
 - **[JBoss EAP 7.2 기반 Java 애플리케이션](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/development_guide/index#become_familiar_with_java_enterprise_edition_8)** 또는 **[JBoss EAP 7.3 기반 Java 애플리케이션](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/index#get_started_developing_applications)** .
 
-**RHEL 옵션** - PAYG 또는 BYOS 중에서 선택합니다. BYOS의 경우 Azure Marketplace 제품을 사용하기 위해 [Red Hat Cloud Access](https://access.redhat.com/documentation/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index) RHEL Gold Image를 활성화해야 합니다. BYOS 제품은 Azure Portal의 비공개 제품 섹션에 표시됩니다. 
+**RHEL 옵션** - PAYG 또는 BYOS 중에서 선택합니다. BYOS의 경우 Azure Marketplace 제품을 사용하기 위해 [Red Hat Cloud Access](https://access.redhat.com/documentation/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index) RHEL Gold Image를 활성화해야 합니다. BYOS 제품은 Azure Portal의 프라이빗 제품 섹션에 표시됩니다. 
 
 **제품 버전**
 
@@ -131,11 +131,11 @@ JBoss EAP 관리되는 도메인은 Microsoft Azure에서 지원되지 않습니
 
 ### <a name="inventory-server-capacity"></a>서버 용량 인벤토리화
 
-현재 프로덕션 서버의 하드웨어(메모리, CPU, 디스크 등)와 평균/최대 요청 수 및 리소스 사용량을 문서화합니다. 선택한 마이그레이션 경로에 관계없이 이 정보가 필요합니다. 크기에 대한 자세한 내용은 [클라우드 서비스 크기](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs)를 참조하세요.
+현재 프로덕션 서버의 하드웨어(메모리, CPU, 디스크 등)와 평균/최대 요청 수 및 리소스 사용량을 문서화합니다. 선택한 마이그레이션 경로에 관계없이 이 정보가 필요합니다. 크기에 대한 자세한 내용은 [클라우드 서비스 크기](../../../cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
 
 ### <a name="inventory-all-secrets"></a>모든 비밀 인벤토리화
 
-[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 또는 [Azure App Configuration](https://azure.microsoft.com/services/app-configuration/) 같은 "서비스로 구성" 기술이 등장하기 전에는 "비밀"에 대한 개념이 잘 정의되지 않았습니다. 그 대신 우리가 현재 "비밀"이라고 부르는 기능을 효율적으로 수행하는 별도의 구성 세트가 있었습니다. JBoss EAP 같은 앱 서버를 사용하는 경우 이러한 비밀이 다양한 구성 파일 및 구성 저장소에 있습니다. 프로덕션 서버의 모든 속성 및 구성 파일에 비밀과 암호가 있는지 확인합니다. WAR 파일에서 *jboss-web.xml* 파일을 확인합니다. 애플리케이션 내에서도 암호 또는 자격 증명을 포함하는 구성 파일을 찾을 수 있습니다. Azure Key Vault 대한 자세한 내용은 [Azure Key Vault 기본 개념](https://docs.microsoft.com/azure/key-vault/general/basic-concepts)을 참조하세요.
+[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 또는 [Azure App Configuration](https://azure.microsoft.com/services/app-configuration/) 같은 "서비스로 구성" 기술이 등장하기 전에는 "비밀"에 대한 개념이 잘 정의되지 않았습니다. 그 대신 우리가 현재 "비밀"이라고 부르는 기능을 효율적으로 수행하는 별도의 구성 세트가 있었습니다. JBoss EAP 같은 앱 서버를 사용하는 경우 이러한 비밀이 다양한 구성 파일 및 구성 저장소에 있습니다. 프로덕션 서버의 모든 속성 및 구성 파일에 비밀과 암호가 있는지 확인합니다. WAR 파일에서 *jboss-web.xml* 파일을 확인합니다. 애플리케이션 내에서도 암호 또는 자격 증명을 포함하는 구성 파일을 찾을 수 있습니다. Azure Key Vault 대한 자세한 내용은 [Azure Key Vault 기본 개념](../../../key-vault/general/basic-concepts.md)을 참조하세요.
 
 ### <a name="inventory-all-certificates"></a>모든 인증서 인벤토리화
 
@@ -169,23 +169,23 @@ WEB-INF/jboss-web.xml 및/또는 WEB-INF/web.xml 파일을 검사합니다.
 
 **읽기 전용 정적 콘텐츠**
 
-애플리케이션에서 현재 정적 콘텐츠를 제공하는 경우 이를 대체할 위치가 필요합니다. 정적 콘텐츠를 Azure Blob Storage로 이동하고 전역적으로 빠른 다운로드를 위해 [Azure CDN(Content Delivery Network)](https://docs.microsoft.com/azure/cdn/)을 추가하는 것이 좋습니다. 자세한 내용은 [Azure Storage에서 정적 웹 사이트 호스팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website) 및 [빠른 시작: Azure CDN과 Azure Storage 계정 통합](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn)을 참조하세요.
+애플리케이션에서 현재 정적 콘텐츠를 제공하는 경우 이를 대체할 위치가 필요합니다. 정적 콘텐츠를 Azure Blob Storage로 이동하고 전역적으로 빠른 다운로드를 위해 [Azure CDN(Content Delivery Network)](../../../cdn/index.yml)을 추가하는 것이 좋습니다. 자세한 내용은 [Azure Storage에서 정적 웹 사이트 호스팅](../../../storage/blobs/storage-blob-static-website.md) 및 [빠른 시작: Azure CDN과 Azure Storage 계정 통합](../../../cdn/cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
 
 **동적으로 게시된 정적 콘텐츠**
 
-애플리케이션이 애플리케이션에서 업로드/생성되었지만 생성 후 변경할 수 없는 정적 콘텐츠를 허용하는 경우, 위에서 설명한 대로 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/) 및 Azure CDN과 [Azure Function](https://docs.microsoft.com/azure/azure-functions/)을 사용하여 업로드 및 CDN 새로 고침을 처리할 수 있습니다. [Azure Functions를 사용하여 정적 콘텐츠 업로드 및 CDN 사전 로드](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn)에서 사용할 샘플 구현을 제공했습니다.
+애플리케이션이 애플리케이션에서 업로드/생성되었지만 생성 후 변경할 수 없는 정적 콘텐츠를 허용하는 경우, 위에서 설명한 대로 [Azure Blob Storage](../../../storage/blobs/index.yml) 및 Azure CDN과 [Azure Function](../../../azure-functions/index.yml)을 사용하여 업로드 및 CDN 새로 고침을 처리할 수 있습니다. [Azure Functions를 사용하여 정적 콘텐츠 업로드 및 CDN 사전 로드](https://github.com/Azure-Samples/functions-java-push-static-contents-to-cdn)에서 사용할 샘플 구현을 제공했습니다.
 
 **동적 또는 내부 콘텐츠**
 
-애플리케이션에서 자주 쓰고 읽는 파일(예: 임시 데이터 파일) 또는 애플리케이션에만 표시되는 정적 파일의 경우 [Azure Storage](https://docs.microsoft.com/azure/storage/) 공유를 영구 볼륨으로 탑재할 수 있습니다. 자세한 내용은 [Azure Kubernetes Service에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용](https://docs.microsoft.com/azure/aks/azure-files-dynamic-pv)을 참조하세요.
+애플리케이션에서 자주 쓰고 읽는 파일(예: 임시 데이터 파일) 또는 애플리케이션에만 표시되는 정적 파일의 경우 [Azure Storage](../../../storage/index.yml) 공유를 영구 볼륨으로 탑재할 수 있습니다. 자세한 내용은 [Azure Kubernetes Service에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용](../../../aks/azure-files-dynamic-pv.md)을 참조하세요.
 
 ### <a name="determine-whether-a-connection-to-on-premises-is-needed"></a>온-프레미스 연결이 필요한지 확인
 
-애플리케이션에서 온-프레미스 서비스에 액세스해야 하는 경우 Azure의 연결 서비스 중 하나를 프로비저닝해야 합니다. 자세한 내용은 [온-프레미스 네트워크를 Azure에 연결](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)을 참조하세요. 또는 온-프레미스 리소스에서 노출하는 공개적으로 사용 가능한 API를 사용하도록 애플리케이션을 리팩터링해야 합니다.
+애플리케이션에서 온-프레미스 서비스에 액세스해야 하는 경우 Azure의 연결 서비스 중 하나를 프로비저닝해야 합니다. 자세한 내용은 [온-프레미스 네트워크를 Azure에 연결](/azure/architecture/reference-architectures/hybrid-networking/)을 참조하세요. 또는 온-프레미스 리소스에서 노출하는 공개적으로 사용 가능한 API를 사용하도록 애플리케이션을 리팩터링해야 합니다.
 
 ### <a name="determine-whether-jms-queues-or-topics-are-in-use"></a>JMS 큐 또는 토픽을 사용 중인지 확인
 
-애플리케이션에서 JMS 큐 또는 토픽을 사용하는 경우 외부에서 호스팅되는 JMS 서버로 마이그레이션해야 합니다. Azure Service Bus 및 AMQP(고급 메시지 큐 프로토콜)는 JMS를 사용하는 애플리케이션에 매우 유용한 마이그레이션 전략이 될 수 있습니다. 자세한 내용은 [Azure Service Bus 및 AMQP 1.0에서 JMS 사용](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp) 또는 [Azure Service Bus 큐에서 메시지 보내기 및 받기(Java)](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-java-how-to-use-queues)를 참조하세요.
+애플리케이션에서 JMS 큐 또는 토픽을 사용하는 경우 외부에서 호스팅되는 JMS 서버로 마이그레이션해야 합니다. Azure Service Bus 및 AMQP(고급 메시지 큐 프로토콜)는 JMS를 사용하는 애플리케이션에 매우 유용한 마이그레이션 전략이 될 수 있습니다. 자세한 내용은 [Azure Service Bus 및 AMQP 1.0에서 JMS 사용](../../../service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp.md) 또는 [Azure Service Bus 큐에서 메시지 보내기 및 받기(Java)](../../../service-bus-messaging/service-bus-java-how-to-use-queues.md)를 참조하세요.
 
 JMS 영구 저장소가 구성된 경우 해당 구성을 캡처하여 마이그레이션 후에 적용해야 합니다.
 
@@ -209,9 +209,9 @@ JMS 영구 저장소가 구성된 경우 해당 구성을 캡처하여 마이그
 마이그레이션을 시작하려면 먼저 JBoss EAP 인프라를 배포해야 합니다. 여러 배포 옵션이 있습니다.
 
 - [**Azure Virtual Machine**](https://azure.microsoft.com/overview/what-is-a-virtual-machine/)
-- [**Azure Virtual Machine Scale Set**](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)
-- [**Azure App Service**](https://aka.ms/jboss-app-service-overview)
-- [**컨테이너용 Azure Red Hat OpenShift(ARO)** ](https://azure.microsoft.com/services/openshift)
+- [**Azure Virtual Machine Scale Set**](../../../virtual-machine-scale-sets/overview.md)
+- [**Azure App Service**](/azure/developer/java/ee/jboss-on-azure)
+- [**컨테이너용 Azure Red Hat OpenShift(ARO)**](https://azure.microsoft.com/services/openshift)
 - [**Azure Container Service**](https://azure.microsoft.com/product-categories/containers/)
 
 환경을 빌드하기 전에 배포 인프라를 평가하려면 Azure Marketplace 시작하기 섹션을 참조하세요.
@@ -239,22 +239,22 @@ JMS 영구 저장소가 구성된 경우 해당 구성을 캡처하여 마이그
 
 환경에 적합한 방법을 사용하여 애플리케이션을 노출할 수 있습니다.
 
-* [공용 IP를 생성](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address)하여 서버 및 애플리케이션에 액세스합니다.
-* 동일한 VNet의 다른 서브넷(새 서브넷)에 있는 [동일한 VNet(Virtual Network)에 점프 VM을 생성](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)하고 점프 VM을 통해 서버에 액세스합니다. 이 점프 VM을 사용하여 애플리케이션을 노출할 수 있습니다.
-* 다른 Virtual Network에서 [VNet 피어링을 사용하여 점프 VM을 생성](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)하고 [가상 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks)을 사용하여 서버에 액세스하고 애플리케이션을 노출합니다.
-* [Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal#create-an-application-gateway)를 사용하여 애플리케이션 노출
-* ELB([외부 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal#create-a-standard-load-balancer))를 사용하여 애플리케이션을 노출합니다.
+* [공용 IP를 생성](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)하여 서버 및 애플리케이션에 액세스합니다.
+* 동일한 VNet의 다른 서브넷(새 서브넷)에 있는 [동일한 VNet(Virtual Network)에 점프 VM을 생성](../../windows/quick-create-portal.md#create-virtual-machine)하고 점프 VM을 통해 서버에 액세스합니다. 이 점프 VM을 사용하여 애플리케이션을 노출할 수 있습니다.
+* 다른 Virtual Network에서 [VNet 피어링을 사용하여 점프 VM을 생성](../../windows/quick-create-portal.md#create-virtual-machine)하고 [가상 네트워크 피어링](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks)을 사용하여 서버에 액세스하고 애플리케이션을 노출합니다.
+* [Application Gateway](../../../application-gateway/quick-create-portal.md#create-an-application-gateway)를 사용하여 애플리케이션 노출
+* ELB([외부 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-load-balancer-resources))를 사용하여 애플리케이션을 노출합니다.
 
 ## <a name="post-migration"></a>마이그레이션 후 작업
 
 사전 마이그레이션 단계에서 정의한 마이그레이션 목표에 도달한 후에는 엔드투엔드 수용 테스트를 수행하여 모든 것이 예상대로 작동하는지 확인해야 합니다. 다음은 마이그레이션 후 기능 향상에 대한 토픽 중 일부이며, 이 외에도 다른 토픽이 더 있습니다.
 
-* Azure Storage를 사용하여 VM에 탑재된 정적 콘텐츠 제공. 자세한 내용은 [데이터 디스크를 VM에 연결 또는 분리](https://docs.microsoft.com/azure/devtest-labs/devtest-lab-attach-detach-data-disk)를 참조하세요.
-* Azure DevOps를 사용하여 마이그레이션된 JBoss 클러스터에 애플리케이션 배포. 자세한 내용은 [Azure DevOps 시작 설명서](https://docs.microsoft.com/azure/devops/get-started/?view=azure-devops)를 참조하세요.
-* [Application Gateway](https://docs.microsoft.com/azure/application-gateway/) 사용 고려.
-* 고급 부하 분산 서비스를 사용하여 네트워크 토폴로지 향상. 자세한 내용은 [Azure에서 부하 분산 서비스 사용](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)을 참조하세요.
-* Azure 관리 ID를 관리형 비밀에 활용하고 Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 할당. 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)을 참조하세요.
-* Azure Key Vault를 사용하여 "비밀"로 작동하는 모든 정보 저장. 자세한 내용은 [Azure Key Vault 기본 개념](https://docs.microsoft.com/azure/key-vault/general/basic-concepts)을 참조하세요.
+* Azure Storage를 사용하여 VM에 탑재된 정적 콘텐츠 제공. 자세한 내용은 [데이터 디스크를 VM에 연결 또는 분리](../../../devtest-labs/devtest-lab-attach-detach-data-disk.md)를 참조하세요.
+* Azure DevOps를 사용하여 마이그레이션된 JBoss 클러스터에 애플리케이션 배포. 자세한 내용은 [Azure DevOps 시작 설명서](/azure/devops/get-started/?view=azure-devops)를 참조하세요.
+* [Application Gateway](../../../application-gateway/index.yml) 사용 고려.
+* 고급 부하 분산 서비스를 사용하여 네트워크 토폴로지 향상. 자세한 내용은 [Azure에서 부하 분산 서비스 사용](../../../traffic-manager/traffic-manager-load-balancing-azure.md)을 참조하세요.
+* Azure 관리 ID를 관리형 비밀에 활용하고 Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 할당. 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../../../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
+* Azure Key Vault를 사용하여 "비밀"로 작동하는 모든 정보 저장. 자세한 내용은 [Azure Key Vault 기본 개념](../../../key-vault/general/basic-concepts.md)을 참조하세요.
 
 ## <a name="resource-links-and-support"></a>리소스 링크 및 지원
 
@@ -263,15 +263,15 @@ JMS 영구 저장소가 구성된 경우 해당 구성을 캡처하여 마이그
 * [JBoss EAP](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/getting_started_with_jboss_eap_for_openshift_online/introduction)에 대해 자세히 알아보기
 * [Red Hat Subscription Manager(Cloud Access)](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index)에 대해 자세히 알아보기
 * [Azure Virtual Machines](https://azure.microsoft.com/overview/what-is-a-virtual-machine/)에 대해 자세히 알아보기
-* [Azure Virtual Machine Scale Set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 대해 자세히 알아보기
+* [Azure Virtual Machine Scale Set](../../../virtual-machine-scale-sets/overview.md)에 대해 자세히 알아보기
 * [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)에 대해 자세히 알아보기
-* [Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/overview#app-service-on-linux)에 대해 자세히 알아보기
-* [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)에 대해 자세히 알아보기
-* [Azure 네트워킹](https://docs.microsoft.com/azure/networking/networking-overview)에 대해 자세히 알아보기
+* [Azure App Service on Linux](../../../app-service/overview.md#app-service-on-linux)에 대해 자세히 알아보기
+* [Azure Storage](../../../storage/common/storage-introduction.md)에 대해 자세히 알아보기
+* [Azure 네트워킹](../../../networking/fundamentals/networking-overview.md)에 대해 자세히 알아보기
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Marketplace에서 RHEL 기반 VM/가상 머신 확장 집합에 JBoss EAP 배포](https://aka.ms/AMP-JBoss-EAP)
-* [Azure App Service용 Java 앱 구성](https://docs.microsoft.com/azure/app-service/configure-language-java)
+* [Azure App Service용 Java 앱 구성](../../../app-service/configure-language-java.md)
 * [JBoss EAP를 Azure App Service에 배포하는 방법](https://github.com/JasonFreeberg/jboss-on-app-service) 자습서
 * [Azure App Service Migration Assistance 사용](https://azure.microsoft.com/services/app-service/migration-assistant/)
 * [Red Hat Migration Toolkit for Applications 사용](https://developers.redhat.com/products/mta)

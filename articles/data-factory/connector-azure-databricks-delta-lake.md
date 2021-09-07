@@ -1,24 +1,26 @@
 ---
 title: Azure Databricks Delta Lake에/에서 데이터 복사
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Azure Databricks Delta Lake에/에서 데이터를 복사하는 방법에 관해 알아봅니다.
-ms.author: jianleishen
-author: jianleishen
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 또는 Azure Synapse Analytics 파이프라인의 복사 작업을 사용하여 Azure Databricks Delta Lake 간에 데이터를 복사하는 방법을 알아봅니다.
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/29/2021
-ms.openlocfilehash: b1aa174645288f5f3024779a0e5b9e8bdbb57452
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 06/16/2021
+ms.openlocfilehash: 5ca20d4ebbaf1711b63f9329b2391c3a6f94b618
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480458"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642818"
 ---
-# <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Databricks Delta Lake에/에서 데이터 복사
+# <a name="copy-data-to-and-from-azure-databricks-delta-lake-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure Databricks Delta Lake 간에 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Databricks Delta Lake에/에서 데이터를 복사하는 방법을 설명합니다. 복사 작업에 관한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Azure Synapse의 복사 작업을 사용하여 Azure Databricks Delta Lake에/에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업](copy-activity-overview.md) 문서를 기준으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -27,7 +29,7 @@ Azure Databricks Delta Lake 커넥터는 다음과 같은 작업에 지원됩니
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md) 테이블을 사용하는 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
-일반적으로 Azure Data Factory는 다양한 요구 사항을 충족하기 위해 다음과 같은 기능으로 Delta Lake를 지원합니다.
+일반적으로 이 서비스는 다양한 요구 사항을 충족하기 위해 다음과 같은 기능으로 Delta Lake를 지원합니다.
 
 - 복사 작업은 지원되는 모든 원본 데이터 저장소에서 Azure Databricks Delta Lake 테이블로 데이터를 복사하고 Delta Lake 테이블에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사하기 위해 Azure Databricks Delta Lake 커넥터를 지원합니다. Databricks 클러스터를 활용하여 데이터 이동을 수행하고 [필수 구성 요소 섹션](#prerequisites)의 세부 정보를 참조하세요.
 - [매핑 데이터 흐름](concepts-data-flow-overview.md)은 Azure Storage의 일반 [델타 형식](format-delta.md)을 소스 및 싱크로 지원하여 코드 없는 ETL용 델타 파일을 읽고 쓸 수 있으며, 관리형 Azure Integration Runtime에서 실행됩니다.
@@ -37,8 +39,8 @@ Azure Databricks Delta Lake 커넥터는 다음과 같은 작업에 지원됩니
 
 이 Azure Databricks Delta Lake 커넥터를 사용하려면 Azure Databricks에서 클러스터를 설정해야 합니다.
 
-- Delta Lake에 데이터를 복사하기 위해 복사 작업에서는 Azure Databricks 클러스터를 호출하여 Azure Storage에서 데이터를 읽습니다. Azure Storage는 원래 원본이거나 Data Factory가 기본 제공 준비 복사본을 통해 원본 데이터를 처음 쓰는 준비 영역입니다. [싱크로서의 Delta Lake](#delta-lake-as-sink)에서 자세히 알아보세요.
-- 마찬가지로, Delta Lake에서 데이터를 복사하기 위해 복사 작업에서는 Azure Databricks 클러스터를 호출하여 Azure Storage에 데이터를 씁니다. Azure Storage는 원본 싱크이거나 Data Factory가 기본 제공 준비 복사본을 통해 마지막 싱크에 계속 데이터를 쓰는 준비 영역입니다. [소스로서의 Delta Lake](#delta-lake-as-source)에서 자세히 알아보세요.
+- Delta Lake에 데이터를 복사하기 위해 복사 작업에서는 Azure Databricks 클러스터를 호출하여 Azure Storage에서 데이터를 읽습니다. Azure Storage는 원래 원본이거나 서비스가 기본 제공 준비 복사본을 통해 원본 데이터를 처음 쓰는 준비 영역입니다. [싱크로서의 Delta Lake](#delta-lake-as-sink)에서 자세히 알아보세요.
+- 마찬가지로, Delta Lake에서 데이터를 복사하기 위해 복사 작업에서는 Azure Databricks 클러스터를 호출하여 Azure Storage에 데이터를 씁니다. Azure Storage는 원본 싱크이거나 서비스가 기본 제공 준비 복사본을 통해 마지막 싱크에 계속 데이터를 쓰는 준비 영역입니다. [소스로서의 Delta Lake](#delta-lake-as-source)에서 자세히 알아보세요.
 
 Databricks 클러스터에는 Azure Blob 또는 Azure Data Lake Storage Gen2 계정, 원본/싱크/준비에 사용되는 스토리지 컨테이너/파일 시스템과 Delta Lake 테이블을 작성하려는 컨테이너/파일 시스템에 대한 액세스 권한이 있어야 합니다.
 
@@ -46,7 +48,7 @@ Databricks 클러스터에는 Azure Blob 또는 Azure Data Lake Storage Gen2 계
 
 - **Azure Blob Storage** 를 사용하려면 Apache Spark 구성의 일부로 Databricks 클러스터에서 **스토리지 계정 액세스 키** 또는 **SAS 토큰** 을 구성할 수 있습니다. [RDD API를 사용하여 Azure Blob Storage에 액세스](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api)의 단계를 따릅니다.
 
-복사 작업을 실행하는 동안 구성한 클러스터가 종료되면 Data Factory에서 자동으로 시작합니다. Data Factory 작성 UI를 사용하여 파이프라인을 작성하는 경우 데이터 미리 보기 등의 작업을 위해 라이브 클러스터가 필요하며 Data Factory에서 사용자 대신 클러스터를 시작하지 않습니다.
+복사 작업을 실행하는 동안 구성한 클러스터가 종료되면 서비스에서 자동으로 시작합니다. 작성 UI를 사용하여 파이프라인을 작성하는 경우 데이터 미리 보기 등의 작업을 위해 라이브 클러스터가 필요하며 서비스에서 사용자 대신 클러스터를 시작하지 않습니다.
 
 #### <a name="specify-the-cluster-configuration"></a>클러스터 구성 지정
 
@@ -69,19 +71,19 @@ Databricks 클러스터에는 Azure Blob 또는 Azure Data Lake Storage Gen2 계
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 Azure Databricks Delta Lake 커넥터에 고유한 Data Factory 엔터티를 정의하는 속성에 관해 자세히 설명합니다.
+다음 섹션에서는 Azure Databricks Delta Lake 커넥터에 고유한 엔터티를 정의하는 속성에 관해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 Azure Databricks Delta Lake 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성    | Description                                                  | 필수 |
+| 속성    | 설명                                                  | 필수 |
 | :---------- | :----------------------------------------------------------- | :------- |
 | type        | type 속성은 **AzureDatabricksDeltaLake** 로 설정해야 합니다. | 예      |
 | 도메인      | Azure Databricks 작업 영역 URL(예: `https://adb-xxxxxxxxx.xx.azuredatabricks.net`)을 지정합니다. |          |
 | clusterId   | 기존 클러스터의 클러스터 ID를 지정합니다. 이미 만든 대화형 클러스터여야 합니다. <br>Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세히 알아봅니다](/azure/databricks/clusters/configure#cluster-tags). |          |
-| accessToken | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 더 자세한 단계는 [여기](/azure/databricks/dev-tools/api/latest/authentication#generate-token)에서 확인할 수 있습니다. |          |
-| connectVia  | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 자체 호스트 통합 런타임(데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임을 사용합니다. | 예       |
+| accessToken | 서비스가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 더 자세한 단계는 [여기](/azure/databricks/dev-tools/api/latest/authentication#generate-token)에서 확인할 수 있습니다. |          |
+| connectVia  | 데이터 저장소에 연결하는 데 사용되는 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임을 사용합니다. | 예       |
 
 **예:**
 
@@ -108,7 +110,7 @@ Azure Databricks Delta Lake 연결된 서비스에 다음 속성이 지원됩니
 
 Azure Databricks Delta Lake 데이터 세트에 다음 속성이 지원됩니다.
 
-| 속성  | Description                                                  | 필수                    |
+| 속성  | 설명                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 데이터 세트의 type 속성을 **AzureDatabricksDeltaLakeDataset** 로 설정해야 합니다. | 예                         |
 | 데이터베이스 | 데이터베이스의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다.  |
@@ -142,7 +144,7 @@ Azure Databricks Delta Lake 데이터 세트에 다음 속성이 지원됩니다
 
 Azure Databricks Delta Lake에서 데이터를 복사하기 위해 복사 작업 **원본** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성                     | Description                                                  | 필수 |
+| 속성                     | 설명                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 type 속성을 **AzureDatabricksDeltaLakeSource** 로 설정해야 합니다. | 예      |
 | Query          | 데이터를 읽는 SQL 쿼리를 지정합니다. 시간 이동 컨트롤의 경우 다음 패턴을 따릅니다.<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | 예       |
@@ -154,7 +156,7 @@ Azure Databricks Delta Lake에서 데이터를 복사하기 위해 복사 작업
 
 #### <a name="direct-copy-from-delta-lake"></a>Delta Lake에서 직접 복사
 
-싱크 데이터 저장소와 형식이 이 섹션에 설명된 조건을 충족하는 경우 복사 작업을 사용하여 Azure Databricks Delta 테이블에서 싱크로 직접 복사할 수 있습니다. Data Factory는 설정을 확인하고 다음 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
+싱크 데이터 저장소와 형식이 이 섹션에 설명된 조건을 충족하는 경우 복사 작업을 사용하여 Azure Databricks Delta 테이블에서 싱크로 직접 복사할 수 있습니다. 이 서비스는 설정을 확인하고 다음 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
 
 - **싱크 연결된 서비스** 는 [Azure Blob Storage](connector-azure-blob-storage.md) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)입니다. 계정 자격 증명은 Azure Databricks 클러스터 구성에서 사전 구성되어야 합니다. [사전 요구 사항](#prerequisites)에서 자세히 알아보세요.
 
@@ -205,7 +207,7 @@ Azure Databricks Delta Lake에서 데이터를 복사하기 위해 복사 작업
 
 #### <a name="staged-copy-from-delta-lake"></a>Delta Lake에서 스테이징된 복사
 
-싱크 데이터 저장소 또는 형식이 마지막 섹션에서 언급된 대로 직접 복사 기준과 일치하지 않는 경우 중간 Azure Storage 인스턴스를 사용하여 기본 제공 스테이징된 복사를 사용하도록 설정합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. Data Factory는 Azure Databricks Delta Lake의 데이터를 준비 스토리지로 내보낸 다음, 데이터를 싱크에 복사하고 마지막으로 준비 스토리지에서 임시 데이터를 정리합니다. 스테이징을 사용하는 데이터 복사에 관한 자세한 내용은 [스테이징된 복사본](copy-activity-performance-features.md#staged-copy)을 참조하세요.
+싱크 데이터 저장소 또는 형식이 마지막 섹션에서 언급된 대로 직접 복사 기준과 일치하지 않는 경우 중간 Azure Storage 인스턴스를 사용하여 기본 제공 스테이징된 복사를 사용하도록 설정합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 서비스는 Azure Databricks Delta Lake의 데이터를 준비 스토리지로 내보낸 다음, 데이터를 싱크에 복사하고 마지막으로 준비 스토리지에서 임시 데이터를 정리합니다. 스테이징을 사용하는 데이터 복사에 관한 자세한 내용은 [스테이징된 복사본](copy-activity-performance-features.md#staged-copy)을 참조하세요.
 
 이 기능을 사용하려면 [Azure Blob Storage 연결된 서비스](connector-azure-blob-storage.md#linked-service-properties) 또는 스토리지 계정을 임시 준비로 참조하는 [Azure Data Lake Storage Gen2 연결된 서비스](connector-azure-data-lake-storage.md#linked-service-properties)를 만듭니다. 그런 다음 복사 작업에서 `enableStaging`과 `stagingSettings` 속성을 지정합니다.
 
@@ -256,10 +258,10 @@ Azure Databricks Delta Lake에서 데이터를 복사하기 위해 복사 작업
 
 Azure Databricks Delta Lake에 데이터를 복사하기 위해 복사 작업 **싱크** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | :------------ | :----------------------------------------------------------- | :------- |
 | type          | 복사 작업 싱크의 type 속성을 **AzureDatabricksDeltaLakeSink** 로 설정합니다. | 예      |
-| preCopyScript | 각 실행 시 Databricks 델타 테이블에 데이터를 쓰기 전에 실행할 복사 작업의 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리하거나 자르기 테이블 또는 Vacuum문을 추가할 수 있습니다. | 예       |
+| preCopyScript | 각 실행 시 Databricks 델타 테이블에 데이터를 쓰기 전에 실행할 복사 작업의 SQL 쿼리를 지정합니다. 예: `VACUUM eventsTable DRY RUN` 이 속성을 사용하여 미리 로드된 데이터를 정리하거나 자르기 테이블 또는 Vacuum문을 추가할 수 있습니다. | 예       |
 | importSettings | 델타 테이블에 데이터를 쓰는 데 사용되는 고급 설정입니다. | 예 |
 | ***`importSettings` 아래에서:*** |                                                              |  |
 | type | 가져오기 명령의 형식은 **AzureDatabricksDeltaLakeImportCommand** 입니다. | 예 |
@@ -268,7 +270,7 @@ Azure Databricks Delta Lake에 데이터를 복사하기 위해 복사 작업 **
 
 #### <a name="direct-copy-to-delta-lake"></a>Delta Lake로 직접 복사
 
-원본 데이터 저장소와 형식이 이 섹션에 설명된 조건을 충족하는 경우 복사 작업을 사용하여 원본에서 Azure Databricks Delta Lake로 직접 복사할 수 있습니다. Azure Data Factory는 설정을 확인하고 다음 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
+원본 데이터 저장소와 형식이 이 섹션에 설명된 조건을 충족하는 경우 복사 작업을 사용하여 원본에서 Azure Databricks Delta Lake로 직접 복사할 수 있습니다. 이 서비스는 설정을 확인하고 다음 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
 
 - **원본 연결된 서비스** 는 [Azure Blob Storage](connector-azure-blob-storage.md) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)입니다. 계정 자격 증명은 Azure Databricks 클러스터 구성에서 사전 구성되어야 합니다. [사전 요구 사항](#prerequisites)에서 자세히 알아보세요.
 
@@ -313,7 +315,8 @@ Azure Databricks Delta Lake에 데이터를 복사하기 위해 복사 작업 **
                 "type": "<source type>"
             },
             "sink": {
-                "type": "AzureDatabricksDeltaLakeSink"
+                "type": "AzureDatabricksDeltaLakeSink",
+                "sqlReadrQuery": "VACUUM eventsTable DRY RUN"
             }
         }
     }
@@ -322,7 +325,7 @@ Azure Databricks Delta Lake에 데이터를 복사하기 위해 복사 작업 **
 
 #### <a name="staged-copy-to-delta-lake"></a>delta lake로 스테이징된 복사
 
-원본 데이터 저장소 또는 형식이 마지막 섹션에서 언급된 대로 직접 복사 기준과 일치하지 않는 경우 중간 Azure 스토리지 인스턴스를 사용하여 기본 제공 스테이징된 복사를 사용하도록 설정합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. Data Factory는 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 스테이징 스토리지로 변환한 다음, 데이터를 Delta Lake에 로드합니다. 마지막으로 스토리지에서 임시 데이터를 정리합니다. 스테이징을 사용하는 데이터 복사에 관한 자세한 내용은 [스테이징된 복사본](copy-activity-performance-features.md#staged-copy)을 참조하세요.
+원본 데이터 저장소 또는 형식이 마지막 섹션에서 언급된 대로 직접 복사 기준과 일치하지 않는 경우 중간 Azure 스토리지 인스턴스를 사용하여 기본 제공 스테이징된 복사를 사용하도록 설정합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 서비스는 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 스테이징 스토리지로 변환한 다음, 데이터를 Delta Lake에 로드합니다. 마지막으로 스토리지에서 임시 데이터를 정리합니다. 스테이징을 사용하는 데이터 복사에 관한 자세한 내용은 [스테이징된 복사본](copy-activity-performance-features.md#staged-copy)을 참조하세요.
 
 이 기능을 사용하려면 [Azure Blob Storage 연결된 서비스](connector-azure-blob-storage.md#linked-service-properties) 또는 스토리지 계정을 임시 준비로 참조하는 [Azure Data Lake Storage Gen2 연결된 서비스](connector-azure-data-lake-storage.md#linked-service-properties)를 만듭니다. 그런 다음 복사 작업에서 `enableStaging`과 `stagingSettings` 속성을 지정합니다.
 
@@ -370,7 +373,7 @@ Azure Databricks Delta Lake에 데이터를 복사하기 위해 복사 작업 **
 
 ## <a name="monitoring"></a>모니터링
 
-Azure Data Factory에서는 다른 커넥터와 같은 [복사 작업 모니터링 환경](copy-activity-monitoring.md)을 제공합니다. 또한 Delta Lake에서/에 데이터를 로드하는 작업이 Azure Databricks 클러스터에서 실행되므로 [자세한 클러스터 로그를 확인](/azure/databricks/clusters/clusters-manage#--view-cluster-logs)하고 [성능을 모니터링](/azure/databricks/clusters/clusters-manage#--monitor-performance)할 수 있습니다.
+다른 커넥터의 경우와 동일한 [복사 작업 모니터링 환경](copy-activity-monitoring.md)이 제공됩니다. 또한 Delta Lake에서/에 데이터를 로드하는 작업이 Azure Databricks 클러스터에서 실행되므로 [자세한 클러스터 로그를 확인](/azure/databricks/clusters/clusters-manage#--view-cluster-logs)하고 [성능을 모니터링](/azure/databricks/clusters/clusters-manage#--monitor-performance)할 수 있습니다.
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
@@ -378,4 +381,4 @@ Azure Data Factory에서는 다른 커넥터와 같은 [복사 작업 모니터�
 
 ## <a name="next-steps"></a>다음 단계
 
-Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.

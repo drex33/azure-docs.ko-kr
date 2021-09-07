@@ -12,14 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/13/2021
+ms.custom: subject-rbac-steps
+ms.date: 07/26/2021
 ms.author: radeltch
-ms.openlocfilehash: c762f0e04a7079fff72962cafe44b06acfcf0eaf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: be174bf6d71ed243e0e7997250df55edffc27739
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110100039"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114722497"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -619,18 +620,8 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** 서비스 주체에 사용자 지정 역할 할당
 
-마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할은 더 이상 사용하지 않습니다.
-
-1. [https://portal.azure.com](https://portal.azure.com)으로 이동
-1. 모든 리소스 블레이드 열기
-1. 첫 번째 클러스터 노드의 가상 머신 선택
-1. 액세스 제어(IAM) 클릭
-1. 역할 할당 추가 클릭
-1. "Linux 펜스 에이전트 역할"이라는 역할 선택
-1. 위에서 만든 애플리케이션의 이름 입력
-1. 저장을 클릭합니다.
-
-두 번째 클러스터 노드에 위 단계 반복
+마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용하지 마십시오! 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../../role-based-access-control/role-assignments-portal.md)을 참조하세요.   
+두 클러스터 노드에 대해 역할을 할당해야 합니다.    
 
 ### <a name="1-create-the-stonith-devices"></a>**[1]** STONITH 디바이스 만들기
 

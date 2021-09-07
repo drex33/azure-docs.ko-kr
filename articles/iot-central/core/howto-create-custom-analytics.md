@@ -1,20 +1,19 @@
 ---
 title: 사용자 지정 분석으로 Azure IoT Central 확장 | Microsoft Docs
 description: 솔루션 개발자는 사용자 지정 분석 및 시각화를 수행하도록 IoT Central 애플리케이션을 구성합니다. 이 솔루션에서는 Azure Databricks를 사용합니다.
-author: philmea
-ms.author: philmea
+author: dominicbetts
+ms.author: dobett
 ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
-ms.openlocfilehash: 3e3ce75adde26d1392bff143ad38ff857e14f6d6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5f046920ce711ac6b1e6b9a461d71d9d49b2ddc7
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750116"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597666"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Azure Databricks를 사용하여 사용자 지정 분석으로 Azure IoT Central 확장
 
@@ -31,7 +30,7 @@ ms.locfileid: "108750116"
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ### <a name="iot-central-application"></a>IoT Central 애플리케이션
 
@@ -251,4 +250,4 @@ Notebook에서 그림의 크기를 조정할 수 있습니다.
 * *연속 데이터 내보내기* 를 사용하여 IoT Central 애플리케이션에서 원격 분석을 스트림합니다.
 * 원격 분석 데이터를 분석하고 그리는 Azure Databricks 환경을 만듭니다.
 
-이제 사용자 지정 분석을 만드는 방법을 배웠으므로 권장되는 다음 단계는 [Power BI 대시보드에서 Azure IoT Central 데이터를 시각화하고 분석](howto-connect-powerbi.md)하는 방법을 알아보는 것입니다.
+이제 사용자 지정 분석을 만드는 방법을 배웠으므로 제안되는 다음 단계는 [IoT Central 디바이스 브리지를 사용하여 다른 IoT 클라우드를 IoT Central에 연결](howto-build-iotc-device-bridge.md)하는 방법을 배우는 것입니다.

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.author: ali
 author: AliciaLiMicrosoft
 ms.date: 04/19/2021
-ms.openlocfilehash: 5e312941e02c5605132971a55041a0b4f7d6dbc9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 823fb43afbd7ac51cafeff7e9e18472fe32c9aec
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139096"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528992"
 ---
 # <a name="log-analytics-migration-guide-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 Log Analytics 마이그레이션 가이드
 
@@ -34,6 +34,12 @@ Log Analytics는 Azure Portal에서 로그 쿼리를 편집하고 실행하는 �
 - 향상된 안정성
 - 향상된 로그 전달 속도
 - 리소스 기반 테이블 그룹화 및 기본 쿼리
+
+
+
+> [!NOTE]  
+> 새 Azure Monitor 통합은 퍼블릭 미리 보기로 제공됩니다. 미국 동부 및 서유럽 지역에서만 사용할 수 있습니다.
+
 
 ## <a name="benefits-of-the-new-azure-monitor-integration"></a>새 Azure Monitor 통합의 이점
 

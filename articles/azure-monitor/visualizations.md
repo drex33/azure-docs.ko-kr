@@ -2,15 +2,15 @@
 title: Azure Monitor의 데이터 시각화 | Microsoft Docs
 description: Azure Monitor에 저장된 메트릭 및 로그 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 01/25/2021
-ms.openlocfilehash: 1da3f75fb95488d45a3f29284bdc8c7424b6bc9a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+author: rboucher
+ms.author: robb
+ms.date: 07/28/2021
+ms.openlocfilehash: 4a98a44cd56691947536779103f55b4e713c74df
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459108"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528217"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -85,6 +85,9 @@ ms.locfileid: "110459108"
 
 ![Grafana 시각화를 보여주는 스크린샷](media/visualizations/grafana.png)
 
+> [!IMPORTANT]
+> Internet Explorer 브라우저 및 이전 Microsoft Edge 브라우저는 Grafana와 호환되지 않으므로 Microsoft Edge를 포함한 chromium 기반 브라우저를 사용해야 합니다. [Grafana에 대해 지원되는 브라우저](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers)를 참조하세요.
+
 ### <a name="advantages"></a>장점
 - 다양하게 시각화할 수 있습니다.
 - 다양한 데이터 원본 에코시스템을 제공합니다.
@@ -95,6 +98,15 @@ ms.locfileid: "110459108"
 - Azure에 통합되지 않습니다. Azure Resource Manager를 통해 대시보드 및 모델을 관리할 수 없습니다.
 - 추가 Grafana 인프라를 지원하는 데 비용이 들거나 Grafana Cloud에 대한 추가 비용이 필요합니다.
 
+## <a name="azure-monitor-partners"></a>Azure Monitor 파트너
+일부 [Azure Monitor 파트너](./partners.md)는 시각화 기능을 제공할 수 있습니다. 이전 링크는 Microsoft에서 평가한 파트너를 나열합니다. 
+
+### <a name="advantages"></a>장점
+- 시간을 절약할 수 있는 기본 제공 시각화를 제공할 수 있습니다.
+
+### <a name="limitations"></a>제한 사항
+- 추가 비용이 발생할 수 있습니다.
+- 파트너 제품을 연구 및 평가할 시간을 확보할 수 있습니다.
 
 ## <a name="build-your-own-custom-application"></a>고유한 사용자 지정 애플리케이션 빌드
 고유한 사용자 지정 웹 사이트 및 애플리케이션을 빌드할 수 있는 REST 클라이언트를 사용하면 해당 API를 통해 Azure Monitor의 로그 및 메트릭 데이터에 액세스할 수 있습니다.
@@ -105,7 +117,6 @@ ms.locfileid: "110459108"
 
 ### <a name="disadvantages"></a>단점
 - 상당한 엔지니어링 작업이 필요합니다.
-
 
 ## <a name="azure-monitor-views"></a>Azure Monitor 뷰
 
@@ -140,4 +151,3 @@ ms.locfileid: "110459108"
 - [Power BI로 로그 데이터 가져오기](./visualize/powerbi.md)에 대해 알아봅니다.
 - [Grafana Azure Monitor 데이터 원본 플러그 인](./visualize/grafana-plugin.md)에 대해 알아봅니다.
 - [Azure Monitor의 뷰](visualize/view-designer.md)에 대해 알아봅니다.
-

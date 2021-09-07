@@ -7,18 +7,17 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: cf352cf9ce944ef3f1bb2702fda249deb6ce186e
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 9f7f5569d5381a7d1ff4d7ebbeac535105f22c93
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407726"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567752"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Kubernetes 도구로 Azure Arc 데이터 컨트롤러 만들기
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -33,27 +32,72 @@ Kubernetes 도구를 사용하여 Azure Arc 데이터 컨트롤러를 만들려�
 
 ### <a name="cleanup-from-past-installations"></a>이전 설치에서 정리
 
-과거에 같은 클러스터에 Azure Arc 데이터 컨트롤러를 설치했다가 `azdata arc dc delete` 명령을 사용하여 삭제한 경우, 함께 삭제해야 하는 클러스터 수준 개체가 있을 수 있습니다. 다음 명령을 실행하여 Azure Arc 데이터 컨트롤러 클러스터 수준 개체를 삭제합니다.
+과거에 같은 클러스터에 Azure Arc 데이터 컨트롤러를 설치했다가 삭제한 경우, 함께 삭제해야 하는 클러스터 수준 개체가 있을 수 있습니다. 다음 명령을 실행하여 Azure Arc 데이터 컨트롤러 클러스터 수준 개체를 삭제합니다.
 
 ```console
 # Cleanup azure arc data service artifacts
-kubectl delete crd datacontrollers.arcdata.microsoft.com 
-kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
-kubectl delete crd postgresqls.arcdata.microsoft.com 
+
+# Note: not all of these objects will exist in your environment depending on which version of the Arc data controller was installed
+
+# Custom resource definitions (CRD)
+kubectl delete crd datacontrollers.arcdata.microsoft.com
+kubectl delete crd postgresqls.arcdata.microsoft.com
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com
+kubectl delete crd sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com
+kubectl delete crd dags.sql.arcdata.microsoft.com
+kubectl delete crd exporttasks.tasks.arcdata.microsoft.com
+kubectl delete crd monitors.arcdata.microsoft.com
+
+# Cluster roles and role bindings
+kubectl delete clusterrole arcdataservices-extension
+kubectl delete clusterrole arc:cr-arc-metricsdc-reader
+kubectl delete clusterrole arc:cr-arc-dc-watch
+kubectl delete clusterrole cr-arc-webhook-job
+
+# Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get clusterrolebinding'
+kubectl delete clusterrolebinding {namespace}:crb-arc-metricsdc-reader
+kubectl delete clusterrolebinding {namespace}:crb-arc-dc-watch
+kubectl delete clusterrolebinding crb-arc-webhook-job
+
+# API services
+# Up to May 2021 release
+kubectl delete apiservice v1alpha1.arcdata.microsoft.com
+kubectl delete apiservice v1alpha1.sql.arcdata.microsoft.com
+
+# June 2021 release
+kubectl delete apiservice v1beta1.arcdata.microsoft.com
+kubectl delete apiservice v1beta1.sql.arcdata.microsoft.com
+
+# GA/July 2021 release
+kubectl delete apiservice v1.arcdata.microsoft.com
+kubectl delete apiservice v1.sql.arcdata.microsoft.com
+
+# Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get mutatingwebhookconfiguration'
+kubectl delete mutatingwebhookconfiguration arcdata.microsoft.com-webhook-{namespace}
+
 ```
 
 ## <a name="overview"></a>개요
 
 다음과 같은 대략적인 단계로 Azure Arc 데이터 컨트롤러를 만듭니다.
-1. Arc 데이터 컨트롤러, Azure SQL Managed Instance 및 PostgreSQL 하이퍼스케일에 대한 사용자 지정 리소스 정의를 만듭니다. **[Kubernetes 클러스터 관리자 권한 필요]**
-2. 데이터 컨트롤러가 만들어지는 네임스페이스 만들기 **[Kubernetes 클러스터 관리자 권한 필요]**
-3. 복제본 집합, 서비스 계정, 역할, 역할 바인딩을 포함하여 부트스트래퍼 서비스를 만듭니다.
-4. 데이터 컨트롤러 관리자 사용자 이름 및 암호에 대한 비밀을 만듭니다.
-5. 데이터 컨트롤러를 만듭니다.
-   
+
+   > [!IMPORTANT]
+   > 아래의 일부 단계에서는 Kubernetes 클러스터 관리자 권한이 필요합니다.
+
+1. Arc 데이터 컨트롤러, Azure SQL Managed Instance 및 PostgreSQL 하이퍼스케일에 대한 사용자 지정 리소스 정의를 만듭니다. 
+1. 데이터 컨트롤러가 만들어지는 네임스페이스 만들기 
+1. 복제본 집합, 서비스 계정, 역할, 역할 바인딩을 포함하여 부트스트래퍼 서비스를 만듭니다.
+1. 데이터 컨트롤러 관리자 사용자 이름 및 암호에 대한 비밀을 만듭니다.
+1. 웹후크 배포 작업, 클러스터 역할 및 클러스터 역할 바인딩을 만듭니다. 
+1. 데이터 컨트롤러를 만듭니다.
+
+
 ## <a name="create-the-custom-resource-definitions"></a>사용자 지정 리소스 정의 만들기
 
-다음 명령을 실행하여 사용자 지정 리소스 정의를 만듭니다.  **[Kubernetes 클러스터 관리자 권한 필요]**
+다음 명령을 실행하여 사용자 지정 리소스 정의를 만듭니다.  
+
+   > [!IMPORTANT]
+   > Kubernetes 클러스터 관리자 권한이 필요합니다.
 
 ```console
 kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
@@ -66,8 +110,14 @@ kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc
 ```console
 kubectl create namespace arc
 ```
+OpenShift를 사용하는 경우 `kubectl edit namespace <name of namespace>`를 사용하여 네임스페이스의 `openshift.io/sa.scc.supplemental-groups` 및 `openshift.io/sa.scc.uid-range` 주석을 편집해야 합니다.  이러한 기존 주석을 이러한 _특정_ UID 및 fsGroup ID/범위와 일치하도록 변경합니다.
 
-클러스터 관리자가 아닌 다른 사용자가 이 네임스페이스를 사용할 경우, 네임스페이스 관리자 역할을 만들고 역할 바인딩을 통해 사용자에게 해당 역할을 부여하는 것이 좋습니다.  네임스페이스 관리자는 해당 네임스페이스에 대한 모든 권한을 보유해야 합니다.  나중에 사용자에게 더 세분화된 역할 기반 액세스를 제공하는 방법에서 추가 정보를 제공합니다.
+```console
+openshift.io/sa.scc.supplemental-groups: 1000700001/10000
+openshift.io/sa.scc.uid-range: 1000700001/10000
+```
+
+클러스터 관리자가 아닌 다른 사용자가 이 네임스페이스를 사용할 경우, 네임스페이스 관리자 역할을 만들고 역할 바인딩을 통해 사용자에게 해당 역할을 부여하는 것이 좋습니다.  네임스페이스 관리자는 해당 네임스페이스에 대한 모든 권한을 보유해야 합니다.  [Azure Arc GitHub 리포지토리](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/rbac)에서 보다 세분화된 역할 및 예제 역할 바인딩을 찾을 수 있습니다.
 
 ## <a name="create-the-bootstrapper-service"></a>부트스트래퍼 서비스 만들기
 
@@ -103,13 +153,13 @@ bootstrapper.yaml 템플릿 파일은 기본적으로 MCR(Microsoft Container Re
       - name: arc-private-registry #Create this image pull secret if you are using a private container registry
       containers:
       - name: bootstrapper
-        image: mcr.microsoft.com/arcdata/arc-bootstrapper:latest #Change this registry location if you are using a private container registry.
+        image: mcr.microsoft.com/arcdata/arc-bootstrapper:v1.0.0_2021-07-30 #Change this registry location if you are using a private container registry.
         imagePullPolicy: Always
 ```
 
-## <a name="create-a-secret-for-the-data-controller-administrator"></a>데이터 컨트롤러 관리자에 대한 비밀 만들기
+## <a name="create-a-secret-for-the-kibanagrafana-dashboards"></a>Kibana/Grafana 대시보드의 비밀 만들기
 
-데이터 컨트롤러 사용자 이름과 암호는 관리 기능을 수행하기 위해 데이터 컨트롤러 API에 대해 인증하는 데 사용됩니다.  보안 암호를 선택하고 클러스터 관리자 권한이 필요한 암호를 사용하여 공유합니다.
+사용자 이름 및 암호는 Kibana 및 Grafana 대시보드에서 관리자 권한으로 인증을 받는 데 사용됩니다.  보안 암호를 선택하고 이러한 권한이 필요한 암호를 사용하여 공유합니다.
 
 Kubernetes 비밀은 Base64로 인코딩한 문자열로, 사용자 이름을 위해 하나, 암호를 위해 하나가 저장됩니다.
 
@@ -145,6 +195,22 @@ kubectl create --namespace arc -f <path to your data controller secret file>
 kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.yaml
 ```
 
+## <a name="create-the-webhook-deployment-job-cluster-role-and-cluster-role-binding"></a>웹후크 배포 작업, 클러스터 역할 및 클러스터 역할 바인딩을 만들기
+
+먼저 일부 설정을 수정할 수 있도록 컴퓨터에 로컬로 [템플릿 파일](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/web-hook.yaml)의 사본을 만듭니다.
+
+파일을 편집하고 모든 위치의 `{{namespace}}`를 이전 단계에서 만든 네임스페이스의 이름으로 바꿉니다. **파일을 저장합니다.**
+
+다음 명령을 실행하여 클러스터 역할 및 클러스터 역할 바인딩을 만듭니다.  
+
+   > [!IMPORTANT]
+   > Kubernetes 클러스터 관리자 권한이 필요합니다.
+
+```console
+kubectl create -n arc -f <path to the edited template file on your computer>
+```
+
+
 ## <a name="create-the-data-controller"></a>데이터 컨트롤러 만들기
 
 이제 데이터 컨트롤러 자체를 만들 준비가 되었습니다.
@@ -160,16 +226,14 @@ kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.y
 
 **기본값을 검토하고 해당하면 변경 권장**
 - **storage..className**: 데이터 컨트롤러 데이터와 로그 파일에 사용할 스토리지 클래스입니다.  Kubernetes 클러스터에서 사용 가능한 스토리지 클래스를 확실히 모르겠으면 `kubectl get storageclass` 명령을 실행합니다.  기본값은 `default`로, 스토리지 클래스가 있고 이름이 `default`이며 기본값 _인_ 스토리지 클래스가 없다고 가정합니다.  참고: 원하는 스토리지 클래스에 대해 데이터에 대해 하나, 로그에 대해 하나 등 두 className 설정을 설정합니다.
-- **serviceType**: LoadBalancer를 사용하지 않는 경우 서비스 유형을 `NodePort`로 변경합니다.  참고: 두 가지 serviceType 설정을 변경해야 합니다.
-- Azure Red Hat OpenShift 또는 Red Hat OpenShift 컨테이너 플랫폼에서 데이터 컨트롤러를 만들려면 먼저 보안 컨텍스트 제약 조건을 적용해야 합니다. [OpenShift에서 Azure Arc 지원 데이터 서비스에 보안 컨텍스트 제약 조건 적용](how-to-apply-security-context-constraint.md)의 지침을 따릅니다.
-- **보안** Azure Red Hat OpenShift 또는 Red Hat OpenShift 컨테이너 플랫폼의 경우 데이터 컨트롤러 yaml 파일에서 `security:` 설정을 다음 값으로 바꿉니다. 
+- **serviceType**: LoadBalancer를 사용하지 않는 경우 서비스 유형을 `NodePort`로 변경합니다.
+- **보안** Azure Red Hat OpenShift 또는 Red Hat OpenShift 컨테이너 플랫폼의 경우 데이터 컨트롤러 yaml 파일에서 `security:` 설정을 다음 값으로 바꿉니다.
 
 ```yml
   security:
-    allowDumps: true
+    allowDumps: false
     allowNodeMetricsCollection: false
     allowPodMetricsCollection: false
-    allowRunAsRoot: false
 ```
 
 **선택 사항**
@@ -188,32 +252,29 @@ kind: ServiceAccount
 metadata:
   name: sa-mssql-controller
 ---
-apiVersion: arcdata.microsoft.com/v1alpha1
-kind: datacontroller
+apiVersion: arcdata.microsoft.com/v1
+kind: DataController
 metadata:
   generation: 1
-  name: arc
+  name: arc-dc
 spec:
   credentials:
     controllerAdmin: controller-login-secret
     dockerRegistry: arc-private-registry #Create a registry secret named 'arc-private-registry' if you are going to pull from a private registry instead of MCR.
-    serviceAccount: sa-mssql-controller
+    serviceAccount: sa-arc-controller
   docker:
     imagePullPolicy: Always
-    imageTag: latest
+    imageTag: v1.0.0_2021-07-30
     registry: mcr.microsoft.com
     repository: arcdata
+  infrastructure: other #Must be a value in the array [alibaba, aws, azure, gcp, onpremises, other]
   security:
-    allowDumps: true
-    allowNodeMetricsCollection: true
-    allowPodMetricsCollection: true
-    allowRunAsRoot: false
+    allowDumps: true #Set this to false if deploying on OpenShift
+    allowNodeMetricsCollection: true #Set this to false if deploying on OpenShift
+    allowPodMetricsCollection: true #Set this to false if deploying on OpenShift
   services:
   - name: controller
     port: 30080
-    serviceType: LoadBalancer # Modify serviceType based on your Kubernetes environment
-  - name: serviceProxy
-    port: 30777
     serviceType: LoadBalancer # Modify serviceType based on your Kubernetes environment
   settings:
     ElasticSearch:
@@ -224,7 +285,7 @@ spec:
       resourceGroup: <your resource group>
       subscription: <your subscription GUID>
     controller:
-      displayName: arc
+      displayName: arc-dc
       enableBilling: "True"
       logs.rotation.days: "7"
       logs.rotation.size: "5000"
@@ -271,10 +332,6 @@ kubectl describe pod/<pod name> --namespace arc
 #Example:
 #kubectl describe pod/control-2g7bl --namespace arc
 ```
-
-Azure Data Studio용 Azure Arc 확장은 Azure Arc 지원 Kubernetes를 설정하고 샘플 SQL Managed Instance yaml 파일을 포함한 git 리포지토리를 모니터링하도록 구성하는 방법을 차례대로 안내하는 Notebook을 제공합니다. 모든 항목이 연결되면 새 SQL Managed Instance가 Kubernetes 클러스터에 배포됩니다.
-
-Azure Data Studio용 Azure Arc 확장에서 **Azure Arc 지원 Kubernetes 및 Flux Notebook을 사용하여 SQL Managed Instance 배포** 를 참조하세요.
 
 ## <a name="troubleshooting-creation-problems"></a>생성 문제 해결
 

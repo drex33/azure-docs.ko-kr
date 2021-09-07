@@ -1,15 +1,14 @@
 ---
 title: Azure Portal에서 대시보드 만들기
 description: 이 문서에서는 Azure Portal에서 대시보드를 만들고 사용자 지정하는 방법을 설명합니다.
-ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 05/12/2021
-ms.openlocfilehash: 0de3e30d2a27d131c13b2df94b1462b6e89b48e3
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.date: 08/19/2021
+ms.openlocfilehash: af26cc36f73088c9a4231e59f3414efaa828d452
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846202"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597725"
 ---
 # <a name="create-a-dashboard-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기
 
@@ -30,11 +29,11 @@ Azure Portal은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
 1. Azure Portal 메뉴에서 **대시보드** 를 선택합니다. 기본 보기는 이미 대시보드로 설정되어 있을 수 있습니다.
 
-    ![대시보드가 선택된 Azure Portal의 스크린샷](./media/azure-portal-dashboards/portal-menu-dashboard.png)
+    :::image type="content" source="media/azure-portal-dashboards/portal-menu-dashboard.png" alt-text="대시보드가 선택된 Azure Portal의 스크린샷":::
 
 1. **새 대시보드**, **빈 대시보드** 를 차례로 선택합니다.
 
-    ![새 대시보드 옵션의 스크린샷](./media/azure-portal-dashboards/create-new-dashboard.png)
+    :::image type="content" source="media/azure-portal-dashboards/create-new-dashboard.png" alt-text="새 대시보드 옵션의 스크린샷":::
 
     이 작업을 수행하면 타일을 선택할 수 있는 **타일 갤러리** 와 타일을 배열할 빈 그리드가 열립니다.
 
@@ -56,7 +55,7 @@ Azure Portal은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
 1. 대시보드의 페이지 헤더에서 ![편집 아이콘](./media/azure-portal-dashboards/dashboard-edit-icon.png) **편집** 을 선택합니다.
 
-    ![편집 옵션을 강조 표시한 대시보드의 스크린샷](./media/azure-portal-dashboards/dashboard-edit.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-edit.png" alt-text="편집 옵션을 강조 표시한 대시보드의 스크린샷":::
 
 1. **타일 갤러리** 를 탐색하거나 검색 필드를 사용하여 특정 타일을 찾습니다. 대시보드에 추가하려는 타일을 선택합니다.
 
@@ -131,7 +130,7 @@ Azure Portal은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
 일부 타일에는 원하는 정보를 표시하는 추가 구성이 필요할 수 있습니다. 예를 들어 **메트릭 차트** 타일은 Azure Monitor의 메트릭을 표시하도록 설정되어야 합니다. 또한 타일 데이터를 사용자 지정하여 대시보드의 기본 시간 설정 및 필터를 재정의할 수 있습니다.
 
-## <a name="complete-tile-configuration"></a>타일 구성 완료
+### <a name="complete-tile-configuration"></a>타일 구성 완료
 
 설정해야 하는 타일은 타일을 사용자 지정할 때까지 배너가 표시됩니다. 예를 들어, **메트릭 차트** 에서 배너는 **메트릭에서 편집** 을 읽습니다. 다른 배너는 **타일 구성** 과 같은 다른 텍스트를 사용할 수 있습니다.
 
@@ -141,7 +140,7 @@ Azure Portal은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
 1. 배너를 선택하고 필요한 설정을 수행합니다.
 
-    ![구성이 필요한 타일의 스크린샷](./media/azure-portal-dashboards/dashboard-configure-tile.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-configure-tile.png" alt-text="구성이 필요한 타일의 스크린샷":::
 
 ### <a name="customize-time-span-for-a-tile"></a>타일의 시간 범위 사용자 지정
 
@@ -149,11 +148,11 @@ Azure Portal은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
 1. 바로 가기 메뉴나 타일의 왼쪽 위 모서리에 있는 ![필터 아이콘](./media/azure-portal-dashboards/dashboard-filter.png)에서 **타일 데이터 사용자 지정** 을 선택합니다.
 
-    ![타일 바로 가기 메뉴 스크린샷](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-customize-tile-data.png" alt-text="타일 바로 가기 메뉴 스크린샷":::
 
 1. **타일 수준에서 대시보드 시간 설정 재정의** 로 확인란을 선택합니다.
 
-    ![타일 시간 설정을 구성하는 대화 상자 스크린샷](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-override-time-settings.png" alt-text="타일 시간 설정을 구성하는 대화 상자 스크린샷":::
 
 1. 이 타일에 표시할 시간 범위를 정합니다. 지난 30분에서 지난 30일 사이에서 선택하거나 사용자 지정 범위를 정의할 수 있습니다.
 
@@ -161,6 +160,16 @@ Azure Portal은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
 1. **적용** 을 선택합니다.
 
+### <a name="change-the-title-and-subtitle-of-a-tile"></a>타일의 제목 및 부제목 변경
+
+일부 타일에서는 제목과 부제목을 편집할 수 있습니다. 이렇게 하려면 상황에 맞는 메뉴에서 **타일 설정 구성** 을 선택합니다.
+
+:::image type="content" source="media/azure-portal-dashboards/dashboard-tile-rename.png" alt-text="타일 설정 구성 옵션을 보여 주는 스크린샷":::
+
+타일의 제목 및/또는 부제목을 변경한 다음, **적용** 을 선택합니다.
+
+:::image type="content" source="media/azure-portal-dashboards/dashboard-title-subtitle.png" alt-text="타일의 제목과 부제목을 변경하는 방법을 보여 주는 스크린샷":::
+ 
 ## <a name="delete-a-tile"></a>타일 삭제
 
 대시보드에서 타일을 제거하려면 다음 중 하나를 수행합니다.
@@ -169,7 +178,7 @@ Azure Portal은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
 - ![편집 아이콘 ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **편집** 을 선택해 사용자 지정 모드로 전환합니다. 타일의 오른쪽 위 모서리를 마우스로 가리킨 다음 ![삭제 아이콘](./media/azure-portal-dashboards/dashboard-delete-icon.png)을 선택해 대시보드에서 타일을 제거합니다.
 
-   ![대시보드에서 타일을 제거하는 방법을 보여 주는 스크린샷](./media/azure-portal-dashboards/dashboard-delete-tile.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-delete-tile.png" alt-text="대시보드에서 타일을 제거하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="clone-a-dashboard"></a>대시보드 복제
 
@@ -195,11 +204,11 @@ Azure Portal은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
     1. **모든 대시보드 찾아보기** 를 선택합니다.
 
-        ![대시보드 선택 메뉴 스크린샷](./media/azure-portal-dashboards/dashboard-browse.png)
+        :::image type="content" source="media/azure-portal-dashboards/dashboard-browse.png" alt-text="대시보드 선택 메뉴 스크린샷":::
 
     1. **유형** 필드에서 **공유 대시보드** 를 선택합니다.
 
-        ![모든 대시보드 선택 메뉴의 스크린샷](./media/azure-portal-dashboards/dashboard-browse-all.png)
+        :::image type="content" source="media/azure-portal-dashboards/dashboard-browse-all.png" alt-text="모든 대시보드 선택 메뉴의 스크린샷":::
 
     1. 하나 이상의 구독을 선택합니다. 텍스트를 입력하여 이름별로 대시보드를 필터링할 수도 있습니다.
 
@@ -215,7 +224,7 @@ Azure Portal은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
 1. 개인 대시보드의 경우 확인 대화 상자에서 **확인** 을 선택해 대시보드를 제거합니다. 공유 대시보드의 경우 확인 대화 상자에서 확인란을 선택하여 게시된 대시보드가 더 이상 다른 사용자에게 표시되지 않음을 확인합니다. 그런 다음 **확인** 을 선택합니다.
 
-    ![삭제 확인 스크린샷](./media/azure-portal-dashboards/dashboard-delete-dash.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-delete-dash.png" alt-text="삭제 확인 스크린샷":::
 
 ## <a name="recover-a-deleted-dashboard"></a>삭제된 대시보드 복구
 

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/13/2021
+ms.date: 07/07/2021
 ms.author: memildin
-ms.openlocfilehash: 96c83cf3ba127f88c3ea8d90f648e4c5a8ba9d66
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 1d8feb49be378abed2a63030c6329e9e8a13d48a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112062355"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529366"
 ---
 # <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
 
@@ -42,8 +42,8 @@ Azure Security Center에서는 자세한 보안 경고와 권장 사항을 생�
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free|
-|필요한 역할 및 권한:|<ul><li>리소스 그룹의 **보안 관리자** 또는 **소유자**</li><li>대상 리소스에 대한 쓰기 권한</li><li>아래에 설명된 Azure Policy 'DeployIfNotExist' 정책을 사용하는 경우 정책을 할당하기 위한 권한도 필요합니다.</li><li>Log Analytics 작업 영역으로 내보내려면 다음을 수행합니다.<ul><li>**SecurityCenterFree 솔루션이 있는** 경우 최소한 작업 영역 솔루션에 대한 읽기 권한이 필요합니다.`Microsoft.OperationsManagement/solutions/read`</li><li>**SecurityCenterFree 솔루션이 없는** 경우 작업 영역 솔루션에 대한 쓰기 권한이 필요합니다.`Microsoft.OperationsManagement/solutions/action`</li><li>[Azure Monitor 및 Log Analytics 작업 영역 솔루션](../azure-monitor/insights/solutions.md)에 대해 자세히 알아보세요.</li></ul></li></ul>|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 미국 정부, 기타 정부<br>![예](./media/icons/yes-icon.png) 중국 정부|
+|필요한 역할 및 권한:|<ul><li>리소스 그룹의 **보안 관리자** 또는 **소유자**</li><li>대상 리소스에 대한 쓰기 권한</li><li>아래에 설명된 Azure Policy 'DeployIfNotExist' 정책을 사용하는 경우 정책을 할당하기 위한 권한도 필요합니다.</li><li>이벤트 허브로 데이터를 내보내려면 이벤트 허브 정책에 대한 쓰기 권한이 필요합니다.</li><li>Log Analytics 작업 영역으로 내보내려면 다음을 수행합니다.<ul><li>**SecurityCenterFree 솔루션이 있는** 경우 최소한 작업 영역 솔루션에 대한 읽기 권한이 필요합니다.`Microsoft.OperationsManagement/solutions/read`</li><li>**SecurityCenterFree 솔루션이 없는** 경우 작업 영역 솔루션에 대한 쓰기 권한이 필요합니다.`Microsoft.OperationsManagement/solutions/action`</li><li>[Azure Monitor 및 Log Analytics 작업 영역 솔루션](../azure-monitor/insights/solutions.md)에 대해 자세히 알아보세요.</li></ul></li></ul>|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)| 
 |||
 
 
@@ -58,8 +58,8 @@ Azure Security Center에서는 자세한 보안 경고와 권장 사항을 생�
     - "가상 컴퓨터의 취약성을 교정해야 합니다."라는 권장 사항에는 취약성 스캐너로 식별된 모든 취약성에 대한 '하위' 권장 사항이 포함됩니다.
     > [!NOTE]
     > REST API로 연속 내보내기를 구성하는 경우 항상 결과에 상위 항목을 포함해야 합니다. 
-- (미리 보기 기능) 구독당 또는 제어당 보안 점수
-- (미리 보기 기능) 규정 준수 데이터
+- 구독당 또는 제어당 보안 점수
+- 규정 준수 데이터
 
 
 ## <a name="set-up-a-continuous-export"></a>연속 내보내기 설정 
@@ -73,7 +73,9 @@ Azure Portal의 Security Center 페이지에서 또는 Security Center REST API�
 Log Analytics 작업 영역 또는 Azure Event Hubs로 연속 내보내기를 설정하는지 여부에 상관없이 아래의 단계가 필요합니다.
 
 1. Security Center의 사이드바에서 **가격 책정 및 설정** 을 선택합니다.
+
 1. 데이터 내보내기를 구성할 특정 구독을 선택합니다.
+
 1. 해당 구독에 대한 설정 페이지의 사이드바에서 **연속 내보내기** 를 선택합니다.
 
     :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Azure Security Center의 내보내기 옵션":::
@@ -81,13 +83,14 @@ Log Analytics 작업 영역 또는 Azure Event Hubs로 연속 내보내기를 �
     여기에 내보내기 옵션이 표시됩니다. 각각 사용 가능한 내보내기 대상 탭이 있습니다. 
 
 1. 내보내려는 데이터 형식을 선택하고, 각 형식의 필터에서 선택합니다(예: 높은 심각도 경고만 내보내기).
+
 1. 적절한 내보내기 빈도를 선택합니다.
     - **스트리밍** – 리소스의 성능 상태가 업데이트되면 평가를 보냅니다(업데이트되지 않으면 데이터를 보내지 않음).
-    - **스냅샷** – 모든 규정 준수 평가의 현재 상태에 대한 스냅샷이 매주 전송됩니다(이는 보안 점수 및 규정 준수 데이터의 주간 스냅샷에 대한 미리 보기 기능임).
+    - **스냅샷** – 모든 규정 준수 평가의 현재 상태 스냅샷은 구독당 일주일에 한 번 전송됩니다. 이 미리 보기 기능은 보안 점수 및 규정 준수 데이터의 주간 스냅샷을 제공합니다. 스냅샷 데이터를 식별하려면 필드 ``IsSnapshot``을 찾습니다.
 
 1. 필요한 경우 선택 항목에 이러한 권장 사항 중 하나가 포함되어 있으면 취약성 평가 결과를 함께 포함할 수 있습니다.
-    - SQL 데이터베이스에 대한 취약성 평가 결과를 수정해야 합니다.
-    - 머신의 SQL 서버에 대한 취약성 평가 결과를 수정해야 함(미리 보기)
+    - SQL 데이터베이스가 발견한 취약성을 해결해야 함
+    - 컴퓨터의 SQL Server는 발견한 취약성을 해결해야 함
     - Azure Container Registry 이미지의 취약성을 수정해야 함(Qualys 제공)
     - 가상 머신의 취약성을 수정해야 함
     - 시스템 업데이트를 머신에 설치해야 합니다.
@@ -121,10 +124,6 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공합니다.
     > API를 사용하여 내보내기 구성을 여러 개 설정했거나 API 전용 매개 변수를 사용한 경우, 이러한 추가 기능은 Security Center UI에 표시되지 않습니다. 대신 다른 구성이 있음을 알려 주는 배너가 표시됩니다.
 
 [REST API 설명서](/rest/api/securitycenter/automations)에서 자동화 API에 대해 자세히 알아보세요.
-
-
-
-
 
 ### <a name="deploy-at-scale-with-azure-policy"></a>[**Azure Policy를 사용하여 대규모로 배포**](#tab/azure-policy)
 
@@ -234,8 +233,8 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
 - 내보내기를 사용하기 전에 받은 **경고** 는 내보내지 않습니다.
 - **권장 사항** 은 리소스의 준수 상태가 변경될 때마다 전송됩니다. 예로 리소스가 정상에서 비정상으로 전환되는 경우를 들 수 있습니다. 따라서 경고와 마찬가지로 내보내기를 사용한 이후 상태를 변경하지 않은 리소스에 대한 권장 사항은 내보내지 않습니다.
-- 보안 제어 또는 구독당 **보안 점수(미리 보기)** 는 보안 제어의 점수가 0.01 이상으로 변경될 때 전송됩니다. 
-- **규정 준수 상태(미리 보기)** 는 리소스의 준수 상태가 변경될 때 전송됩니다.
+- 보안 제어 또는 구독당 **보안 점수** 는 보안 제어의 점수가 0.01 이상으로 변경될 때 전송됩니다. 
+- **규정 준수 상태** 는 리소스의 준수 상태가 변경될 때 전송됩니다.
 
 
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 08/20/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 39b1ebb4ca0a7daf5654c306382effa44d90c798
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 7bdad6175de60eaee602d8f91842a1b742196688
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109845765"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609076"
 ---
 # <a name="object-replication-for-block-blobs"></a>블록 Blob에 대한 개체 복제
 
@@ -43,7 +43,7 @@ ms.locfileid: "109845765"
 
 변경 피드 및 Blob 버전 관리를 사용하도록 설정하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 [Azure Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
 
-개체 복제는 범용 v2 스토리지 계정에 대해서만 지원됩니다. 원본 및 대상 계정은 모두 범용 v2여야 합니다. 
+개체 복제는 범용 v2 스토리지 계정에 대해서만 지원됩니다. 원본 및 대상 계정은 모두 범용 v2여야 합니다. 개체 복제는 블록 blob만 지원합니다. 추가 Blob 및 페이지 Blob은 지원되지 않습니다.
 
 ## <a name="how-object-replication-works"></a>개체 복제 작동 방법
 
@@ -68,7 +68,7 @@ ms.locfileid: "109845765"
 
 ### <a name="immutable-blobs"></a>변경이 불가능한 Blob
 
-개체 복제는 변경할 수 없는 Blob을 지원하지 않습니다. 원본 또는 대상 컨테이너에 시간 기반 보존 정책이나 법적 보류가 있는 경우 개체 복제가 실패합니다. 변경이 불가능한 Blob에 대한 자세한 내용은 [비즈니스에 중요한 Blob 데이터를 변경이 불가능한 스토리지에 저장](storage-blob-immutable-storage.md)을 참조하세요.
+개체 복제는 변경할 수 없는 Blob을 지원하지 않습니다. 원본 또는 대상 컨테이너에 시간 기반 보존 정책이나 법적 보류가 있는 경우 개체 복제가 실패합니다. 변경이 불가능한 Blob에 대한 자세한 내용은 [비즈니스에 중요한 Blob 데이터를 변경이 불가능한 스토리지에 저장](immutable-storage-overview.md)을 참조하세요.
 
 ## <a name="object-replication-policies-and-rules"></a>개체 복제 정책 및 규칙
 
@@ -102,9 +102,9 @@ ms.locfileid: "109845765"
 
 원본 계정의 Blob에 대한 복제 상태가 실패를 나타내는 경우 다음과 같은 가능한 원인을 조사합니다.
 
-- 대상 계정에 개체 복제 정책이 구성되어 있는지 확인합니다.
+- 개체 복제 정책이 대상 계정에 구성되어 있는지 확인합니다.
 - 대상 컨테이너가 여전히 있는지 확인합니다.
-- 원본 Blob이 쓰기 작업의 일부로 고객 제공 키로 암호화된 경우 개체 복제가 실패합니다. 고객 제공 키에 대한 자세한 내용은 [Blob Storage에 요청 시 암호화 키 제공](encryption-customer-provided-keys.md)을 참조하세요.
+- 원본 Blob이 쓰기 작업의 일부로 고객이 제공한 키로 암호화된 경우 개체 복제가 실패합니다. 고객 제공 키에 대한 자세한 내용은 [Blob Storage에 요청 시 암호화 키 제공](encryption-customer-provided-keys.md)을 참조하세요.
 
 ## <a name="billing"></a>결제
 

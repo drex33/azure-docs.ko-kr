@@ -4,13 +4,13 @@ description: HDInsight 서비스 태그를 사용하여 NSG에 IP 주소를 추�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 08/11/2020
-ms.openlocfilehash: 99a61d3e445bf6887db0c97e365e6e4489eb79e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 419feaf3102ba9db4335718131281481821fe6a9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872016"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528102"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight용 NSG 서비스 태그
 
@@ -59,20 +59,32 @@ HDInsight 클러스터에 서비스 태그 사용을 시작하는 가장 쉬운 
 | 오스트레일리아 | 오스트레일리아 동부 | HDInsight.AustraliaEast |
 | &nbsp; | 오스트레일리아 남동부 | HDInsight.AustraliaSoutheast |
 | &nbsp; | 오스트레일리아 중부 | HDInsight.AustraliaCentral |
+| 브라질 | 브라질 남부 | HDInsight.BrazilSouth |
+| &nbsp; | 브라질 남동부 | HDInsight.BrazilSoutheast |
 | 중국 | 중국 동부 2 | HDInsight.ChinaEast2 |
 | &nbsp; | 중국 북부 2 | HDInsight.ChinaNorth2 |
-| 미국 | 미국 중북부 | HDInsight.NorthCentralUS |
-| &nbsp; | 미국 서부 2 | HDInsight.WestUS2 |
-| &nbsp; | 미국 중서부 | HDInsight.WestCentralUS |
-| Canada | 캐나다 동부 | HDInsight.CanadaEast |
-| 브라질 | 브라질 남부 | HDInsight.BrazilSouth |
+| 일본 | 일본 서부 | HDInsight.JapanWest |
 | 한국 | 한국 중부 | HDInsight.KoreaCentral |
 | &nbsp; | 한국 남부 | HDInsight.KoreaSouth |
 | 인도 | 인도 중부 | HDInsight.CentralIndia |
+| &nbsp; | JIO 인도 서부 | HDInsight.JioIndiaWest |
 | &nbsp; | 인도 남부 | HDInsight.SouthIndia |
-| 일본 | 일본 서부 | HDInsight.JapanWest |
+| 남아프리카 | 남아프리카 북부 | HDInsight.SouthAfricaNorth |
+| 아랍에미리트 | 아랍에미리트 북부 | HDInsight.UAENorth |
+| &nbsp; | 아랍에미리트 중부 | HDInsight.UAECentral |
 | 프랑스 | 프랑스 중부| HDInsight.FranceCentral |
+| 독일 | 독일 중서부| HDInsight.GermanyWestCentral |
+| 노르웨이 | 노르웨이 동부 | HDInsight.NorwayEast |
+| 스위스 | 스위스 북부 | HDInsight.SwitzerlandNorth |
+| &nbsp; | 스위스 서부 | HDInsight.SwitzerlandWest |
 | 영국 | 영국 남부 | HDInsight.UKSouth |
+| &nbsp; | 영국 서부 | HDInsight.UKWest |
+| 미국 | 미국 중북부 | HDInsight.NorthCentralUS |
+| &nbsp; | 미국 서부 2 | HDInsight.WestUS2 |
+| &nbsp; | 미국 서부 3 | HDInsight.WestUS3 |
+| &nbsp; | 미국 중서부 | HDInsight.WestCentralUS |
+| Canada | 캐나다 동부 | HDInsight.CanadaEast |
+| &nbsp; | 캐나다 중부 | HDInsight.CanadaCentral |
 | Azure Government | 미국 국방부 중부 | HDInsight.USDoDCentral |
 | &nbsp; | USGov 텍사스 | HDInsight.USGovTexas |
 | &nbsp; | UsDoD 동부 | HDInsight.USDoDEast |

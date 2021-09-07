@@ -1,41 +1,38 @@
 ---
 title: 셀프 서비스 가입 사용자 흐름 추가 - Azure AD
-description: 조직에서 빌드한 앱에 대 한 사용자 흐름을 만듭니다. 그러면 해당 앱을 방문 하는 사용자가 사용자 흐름에 구성 된 옵션을 사용 하 여 게스트 계정을 얻을 수 있습니다.
+description: 조직에서 빌드한 앱에 대한 사용자 흐름을 만듭니다. 그런 다음, 해당 앱을 방문하는 사용자는 사용자 흐름에 구성된 옵션을 사용하여 게스트 계정을 얻을 수 있습니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 07/26/2021
 ms.author: mimart
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59e573c9b24d9a8b5577b55d143fcaca67952f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 36bc5a283665abb03bd1c49a0a067b551bcc979d
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102120762"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720933"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>앱에 셀프 서비스 가입 사용자 흐름 추가
 
-> [!NOTE]
-> 이 문서에서 설명 하는 기능 중 일부는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-사용자가 작성 하는 응용 프로그램의 경우 사용자가 앱에 등록 하 고 새 게스트 계정을 만들 수 있도록 하는 사용자 흐름을 만들 수 있습니다. 셀프 서비스 등록 사용자 흐름은 등록 중에 사용자가 수행할 일련의 단계, 사용 하도록 허용할 id 공급자 및 수집 하려는 사용자 특성을 정의 합니다. 하나 이상의 응용 프로그램을 단일 사용자 흐름에 연결할 수 있습니다.
+빌드하는 애플리케이션에 대해 사용자가 앱에 등록하고 새 게스트 계정을 만들 수 있는 사용자 흐름을 만들 수 있습니다. 셀프 서비스 등록 사용자 흐름은 등록하는 동안 사용자가 따라야 하는 일련의 단계, 사용자가 사용하도록 허용할 ID 공급자 및 수집하려는 사용자 특성을 정의합니다. 하나 이상의 애플리케이션을 단일 사용자 흐름과 연결할 수 있습니다.
 
 > [!NOTE]
 > 사용자 흐름을 조직에서 빌드한 앱과 연결할 수 있습니다. 사용자 흐름은 SharePoint 또는 팀과 같은 Microsoft 앱에 사용할 수 없습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="add-identity-providers-optional"></a>Id 공급자 추가 (선택 사항)
+### <a name="add-identity-providers-optional"></a>ID 공급자 추가(선택 사항)
 
-Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용자는 기본적으로 Azure AD 계정을 사용하여 가입할 수 있습니다. 셀프 서비스 등록 사용자 흐름에서 Google 및 Facebook과 같은 소셜 id 공급자, Microsoft 계정 (미리 보기) 및 전자 메일 일회용 암호 (미리 보기)를 포함할 수도 있습니다.
+Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용자는 기본적으로 Azure AD 계정을 사용하여 가입할 수 있습니다. 셀프 서비스 등록 사용자 흐름에서 Google 및 Facebook과 같은 소셜 ID 공급자, Microsoft 계정 및 메일 일회성 암호도 포함할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Microsoft 계정 (미리 보기) id 공급자](microsoft-account.md)
-- [일회용 암호 인증 전자 메일](one-time-passcode.md)
+- [Microsoft 계정 ID 공급자](microsoft-account.md)
+- [이메일 일회용 암호 인증](one-time-passcode.md)
 - [소셜 ID 공급자 목록에 Facebook 추가](facebook-federation.md)
 - [소셜 ID 공급자 목록에 Google 추가](google-federation.md)
 
@@ -50,7 +47,7 @@ Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
 3. **사용자 설정** 을 선택한 다음, **외부 사용자** 에서 **외부 협업 설정 관리** 를 선택합니다.
-4. **사용자 흐름을 통해 게스트 셀프 서비스 등록 사용** 을 설정 하거나 **예** 로 설정 합니다.
+4. **사용자 흐름을 통해 게스트 셀프 서비스 가입 사용** 토글을 **예** 로 설정합니다.
 
    ![셀프 서비스 가입 사용](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
 5. **저장** 을 선택합니다.
@@ -61,7 +58,7 @@ Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
 3. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
-4. **사용자 흐름** 을 선택 하 고 **새 사용자 흐름** 을 선택 합니다.
+4. **사용자 흐름** 을 선택하고 **새 사용자 흐름** 을 선택합니다.
 
    ![새 사용자 흐름 단추 추가](media/self-service-sign-up-user-flow/new-user-flow.png)
 
@@ -72,17 +69,17 @@ Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용
    ![새 사용자 흐름 만들기 페이지](media/self-service-sign-up-user-flow/create-user-flow.png)
 
 > [!NOTE]
-> 사용자가 처음으로 등록 하는 경우에만 특성을 수집할 수 있습니다. 사용자가 등록 한 후에는 사용자 흐름을 변경 하는 경우에도 더 이상 특성 정보를 수집 하 라는 메시지가 표시 되지 않습니다.
+> 사용자가 처음으로 가입할 때만 특성을 수집할 수 있습니다. 사용자가 가입한 후에는 사용자 흐름을 변경하더라도 특성 정보를 수집하라는 메시지가 더 이상 표시되지 않습니다.
 
 8. **만들기** 를 선택합니다.
-9. 새 사용자 흐름이 **사용자** 흐름 목록에 표시 됩니다. 필요한 경우 페이지를 새로 고칩니다.
+9. **사용자 흐름** 목록에 새 사용자 흐름이 표시됩니다. 필요한 경우 페이지를 새로 고칩니다.
 
 ## <a name="select-the-layout-of-the-attribute-collection-form"></a>특성 컬렉션 양식의 레이아웃 선택
 
 가입 페이지에서 특성이 표시되는 순서를 선택할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 를 선택합니다.
-2. **외부 id** 를 선택 하 고 **사용자 흐름** 을 선택 합니다.
+2. **외부 ID** 를 선택하고 **사용자 흐름** 을 선택합니다.
 3. 목록에서 셀프 서비스 가입 사용자 흐름을 선택합니다.
 4. **사용자 지정** 에서 **페이지 레이아웃** 을 선택합니다.
 5. 수집하도록 선택한 특성이 나열됩니다. 표시 순서를 변경하려면 특성을 선택하고 **위로 이동**, **아래로 이동**, **맨 위로 이동** 또는 **맨 아래로 이동** 을 선택합니다.
@@ -95,7 +92,7 @@ Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
 3. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
-4. **셀프 서비스 등록** 에서 **사용자 흐름** 을 선택 합니다.
+4. **셀프 서비스 가입** 에서 **사용자 흐름** 을 선택합니다.
 5. 목록에서 셀프 서비스 가입 사용자 흐름을 선택합니다.
 6. 왼쪽 메뉴의 **사용** 에서 **애플리케이션** 을 선택합니다.
 7. **애플리케이션 추가** 를 선택합니다.
@@ -109,5 +106,5 @@ Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용
 
 - [소셜 ID 공급자 목록에 Google 추가](google-federation.md)
 - [소셜 ID 공급자 목록에 Facebook 추가](facebook-federation.md)
-- [API 커넥터를 사용 하 여 웹 Api를 통해 사용자 흐름 사용자 지정 및 확장](api-connectors-overview.md)
+- [API 커넥터를 사용하여 웹 API를 통해 사용자 흐름 사용자 지정 및 확장](api-connectors-overview.md)
 - [사용자 흐름에 사용자 지정 승인 워크플로 추가](self-service-sign-up-add-approvals.md)

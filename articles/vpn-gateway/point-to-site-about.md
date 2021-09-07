@@ -6,18 +6,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 07/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1be0ecfe773bfa56900295db8701d9a582389046
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: ddcb49b1ce2bd882590b1d85cb634846ef3b4d40
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554681"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566488"
 ---
 # <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
 
-P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 Azure VNet에 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 VNet에 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다. 이 문서는 Resource Manager 배포 모델에 적용됩니다.
+P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 Azure VNet에 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 VNet에 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다. 이 문서는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에 적용됩니다.
 
 ## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>P2S는 어떤 프로토콜을 사용합니까?
 
@@ -25,13 +25,13 @@ P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 
 
 * **OpenVPN® 프로토콜** 로, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 TLS가 사용되는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션이 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS(버전 11.0 이상), Windows, Linux, Mac 디바이스(macOS 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
 
-* SSTP(Secure Socket Tunneling Protocol) - 독점적인 TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 TLS가 사용되는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션이 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
+* SSTP(Secure Socket Tunneling Protocol) - 독점적인 TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 TLS가 사용되는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션이 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치되고 TLS 1.2를 지원하는 모든 Windows 버전(Windows 8.1 이상)을 지원합니다.
 
 * IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(macOS 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
 
 >[!NOTE]
->P2S용 IKEv2 및 OpenVPN은 Resource Manager 배포 모델에서만 사용할 수 있습니다. 클래식 배포 모델에서는 사용할 수 없습니다.
+>P2S용 IKEv2 및 OpenVPN은 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에서만 사용할 수 있습니다. 클래식 배포 모델에서는 사용할 수 없습니다.
 >
 
 ## <a name="how-are-p2s-vpn-clients-authenticated"></a><a name="authentication"></a>P2S VPN 클라이언트는 어떻게 인증됩니까?

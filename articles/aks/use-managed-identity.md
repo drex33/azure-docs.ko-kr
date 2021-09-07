@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 관리 ID를 사용하는 방�
 services: container-service
 ms.topic: article
 ms.date: 05/12/2021
-ms.openlocfilehash: a5bf71a654afd122aad682df732e5a6c9dcd9538
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: dbc02f8b65235a47fc523665ea6337774a6eb557
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476197"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530575"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 관리 ID 사용
 
@@ -35,8 +35,8 @@ AKS는 기본 제공 서비스 및 추가 항목에 대해 여러 관리 ID를 �
 
 | ID                       | 이름    | 사용 사례 | 기본 권한 | 사용자 고유의 ID 가져오기
 |----------------------------|-----------|----------|
-| 제어 평면 | 표시되지 않음 | AKS 컨트롤 플레인 구성 요소에서 수신 부하 분산 장치 및 AKS 관리 공용 IP, Cluster Autoscaler 작업을 포함한 클러스터 리소스를 관리하는 데 사용 | 노드 리소스 그룹에 대한 기여자 역할 | 지원 여부
-| kubelet | AKS Cluster Name-agentpool | ACR(Azure Container Registry)에 인증 | 해당 없음(kubernetes v1.15 이상의 경우) | 지원(미리 보기)
+| 제어 평면 | AKS 클러스터 이름 | AKS 컨트롤 플레인 구성 요소에서 수신 부하 분산 장치 및 AKS 관리 공용 IP, 클러스터 자동 크기 조정기, Azure 디스크 및 파일 CSI 드라이버를 관리하는 데 사용합니다. | 노드 리소스 그룹에 대한 기여자 역할 | 지원 여부
+| kubelet | AKS Cluster Name-agentpool | ACR(Azure Container Registry)에 인증 | 해당 없음(kubernetes v1.15 이상의 경우) | 지원 여부
 | 추가 기능 | AzureNPM | ID가 필요 없음 | 해당 없음 | 아니요
 | 추가 기능 | AzureCNI network monitoring | ID가 필요 없음 | 해당 없음 | 아니요
 | 추가 기능 | azure-policy(gatekeeper) | ID가 필요 없음 | 해당 없음 | 아니요
@@ -82,7 +82,8 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
-> 시스템 할당 또는 사용자 할당 ID를 관리 ID로 업데이트한 후에는 노드에서 `az aks nodepool upgrade --node-image-only`를 수행하여 관리 ID로의 업데이트를 완료합니다.
+> 업데이트 후에는 클러스터의 컨트롤 플레인과 추가 기능 pod가 관리 ID를 사용하도록 전환되지만 kubelet은 agentpool을 업그레이드할 때까지 서비스 주체를 계속 사용합니다. 노드에서 `az aks nodepool upgrade --node-image-only`를 수행하여 관리 ID에 대한 업데이트를 완료합니다. 
+
 
 ## <a name="obtain-and-use-the-system-assigned-managed-identity-for-your-aks-cluster"></a>AKS 클러스터용 시스템 할당 관리 ID 가져오기 및 사용
 
@@ -127,8 +128,7 @@ az aks show -g <RGName> -n <ClusterName> --query "identity"
 Azure CLI 버전 2.15.1 이상이 설치되어 있어야 합니다.
 
 ### <a name="limitations"></a>제한 사항
-* Azure Government는 현재 지원되지 않습니다.
-* Azure 중국 21Vianet은 현재 지원되지 않습니다.
+* Azure Government의 미국 국방부 중부, 미국 국방부 동부, 미 정부 아이오와는 현재 지원되지 않습니다.
 
 아직 관리 ID가 없는 경우에는 [az identity CLI][az-identity-create] 등을 사용하여 새로 만들어야 합니다.
 
@@ -170,7 +170,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
-    --assign-identity <identity-id> \
+    --assign-identity <identity-id>
 ```
 
 사용자 고유의 관리 ID를 사용하여 클러스터를 성공적으로 만들면 다음 userAssignedIdentities 프로필 정보가 포함됩니다.
@@ -189,39 +189,18 @@ az aks create \
  },
 ```
 
-## <a name="bring-your-own-kubelet-mi-preview"></a>사용자 고유의 kubelet MI 가져오기(미리 보기)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## <a name="bring-your-own-kubelet-mi"></a>사용자 고유의 kubelet MI 가져오기
 
 Kubelet ID를 사용하면 클러스터를 만들기 전에 기존 ID에 대한 액세스 권한을 부여할 수 있습니다. 이 기능을 사용하면 미리 만든 관리 ID를 사용하여 ACR에 연결과 같은 시나리오를 사용할 수 있습니다.
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-- Azure CLI 버전 2.21.1 이상이 설치되어 있어야 합니다.
-- aks-preview는 버전 0.5.10 이상이 설치되어 있어야 합니다.
+- Azure CLI 버전 2.26.0 이상이 설치되어 있어야 합니다.
 
 ### <a name="limitations"></a>제한 사항
 
 - User-Assigned 관리 클러스터에서만 작동합니다.
-- Azure 중국 21Vianet은 현재 지원되지 않습니다.
-
-먼저 Kubelet ID에 대한 기능 플래그를 등록합니다.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n CustomKubeletIdentityPreview
-```
-
-상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CustomKubeletIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.ContainerService* 리소스 공급자 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+- Azure China 21Vianet의 중국 동부, 중국 북부는 현재 지원되지 않습니다.
 
 ### <a name="create-or-obtain-managed-identities"></a>관리 ID 만들기 또는 가져오기
 
@@ -292,7 +271,7 @@ az aks create \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
     --assign-identity <identity-id> \
-    --assign-kubelet-identity <kubelet-identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id>
 ```
 
 사용자 고유의 kubelet 관리 ID를 사용하여 성공적으로 클러스터를 만들려면 다음 출력이 포함됩니다.

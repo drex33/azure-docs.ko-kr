@@ -1,18 +1,20 @@
 ---
 title: Azure Database for PostgreSQL에서 데이터 복사 및 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Database for PostgreSQL에서 Azure Data Factory를 사용하여 데이터를 복사하고 변환하는 방법을 알아봅니다.
-ms.author: jianleishen
-author: jianleishen
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 02/25/2021
-ms.openlocfilehash: d7d5ac30549667a6806b9f0c45328c0662a2e47e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: synapse
+ms.date: 06/16/2021
+ms.openlocfilehash: f3d0dca67391bd8bb5ee66e3fd186fcabb1ffd89
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785370"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642826"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Azure Database for PostgreSQL에서 Azure Data Factory를 사용하여 데이터 복사 및 변환
 
@@ -173,7 +175,7 @@ Azure Database for PostgreSQL에 데이터를 복사하기 위해 복사 작업 
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 **AzurePostgreSQLSink** 로 설정해야 합니다. | 예 |
 | preCopyScript | 각 실행 시 Azure Database for PostgreSQL에 데이터를 기록하기 전 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 예 |
-| writeMethod | Azure Database for PostgreSQL에 데이터를 쓰기 위해 사용되는 메서드입니다.<br>허용되는 값: **CopyCommand**(성능이 더 높은 미리 보기), **BulkInsert**(기본값). | 예 |
+| writeMethod | Azure Database for PostgreSQL에 데이터를 쓰기 위해 사용되는 메서드입니다.<br>허용되는 값: **CopyCommand**(기본값: 성능이 더 높음), **BulkInsert** | 예 |
 | writeBatchSize | 일괄 처리당 Azure Database for PostgreSQL에 로드되는 행 수입니다.<br>허용되는 값은 행 수를 나타내는 정수입니다. | 아니요(기본값: 1,000,000) |
 | writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br>허용되는 값은 시간 범위 문자열입니다. 예를 들어 "00:30:00"(30분)입니다. | 아니요(기본값: 00:00:30) |
 
@@ -219,10 +221,10 @@ Azure Database for PostgreSQL에 데이터를 복사하기 위해 복사 작업 
 
 다음 표에서는 Azure Database for PostgreSQL 원본에서 지원되는 속성을 나열합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 테이블 | 테이블을 입력으로 선택하는 경우 데이터 흐름은 데이터 세트에 지정된 테이블에서 모든 데이터를 가져옵니다. | 예 | - |*(인라인 데이터 세트에만 해당)*<br>tableName |
-| 쿼리 | 쿼리를 입력으로 선택하는 경우 원본에서 데이터를 페치할 SQL 쿼리를 지정하면 데이터 세트에서 지정한 테이블이 재정의됩니다. 쿼리를 사용하면 테스트 또는 조회를 위한 행을 줄일 수 있습니다.<br><br>**Order By** 절은 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환하는 SQL의 UDF입니다.<br>쿼리 예: `select * from mytable where customerId > 1000 and customerId < 2000` 또는 `select * from "MyTable"` PostgreSQL에서 엔터티 이름은 따옴표로 묶지 않은 경우 대/소문자를 구분하지 않는 것으로 취급됩니다.| 예 | String | Query |
+| 쿼리 | 쿼리를 입력으로 선택하는 경우 원본에서 데이터를 가져올 SQL 쿼리를 지정하면 데이터 세트에서 지정한 테이블이 재정의됩니다. 쿼리를 사용하면 테스트 또는 조회를 위한 행을 줄일 수 있습니다.<br><br>**Order By** 절은 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환하는 SQL의 UDF입니다.<br>쿼리 예: `select * from mytable where customerId > 1000 and customerId < 2000` 또는 `select * from "MyTable"` PostgreSQL에서 엔터티 이름은 따옴표로 묶지 않은 경우 대/소문자를 구분하지 않는 것으로 취급됩니다.| 예 | String | Query |
 | Batch 크기 | 일괄 처리 크기를 지정하여 대량 데이터를 일괄 처리로 청크합니다. | 예 | 정수 | batchSize |
 | 격리 수준 | 다음 격리 수준 중 하나를 선택합니다.<br>- 커밋된 읽기<br>- 커밋되지 않은 읽기(기본값)<br>- 반복 읽기<br>- 직렬화 가능<br>- 없음(격리 수준 무시) | 예 | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>직렬화 가능<br/>없음</small> |isolationLevel |
 
@@ -242,12 +244,12 @@ source(allowSchemaDrift: true,
 
 다음 표에서는 Azure Database for PostgreSQL 싱크에서 지원되는 속성을 나열합니다. 해당 속성은 **싱크 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Update 메서드 | 데이터베이스 대상에서 허용되는 작업을 지정합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | 삭제 가능 <br/>삽입 가능 <br/>업데이트 가능 <br/>upsert 가능 |
+| Update 메서드 | 데이터베이스 대상에서 허용되는 작업을 지정합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
 | 키 열 | 업데이트, upsert, 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.<br>키로 선택한 열 이름은 후속 업데이트, upsert, 삭제의 일부로 사용됩니다. 따라서 싱크 매핑에 있는 열을 선택해야 합니다. | 예 | Array | 키 |
 | 키 열 쓰기 건너뛰기 | 키 열에 값을 쓰지 않으려면 “키 열 작성 건너뛰기”를 선택합니다. | 예 | `true` 또는 `false` | skipKeyWrites |
-| 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **없음**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **다시 만들기**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **자르기**: 대상 테이블의 모든 행이 제거됩니다. | 예 | `true` 또는 `false` | 다시 만들기<br/>truncate |
+| 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **None**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **Recreate**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거됩니다. | 아니요 | `true` 또는 `false` | recreate<br/>truncate |
 | Batch 크기 | 각 일괄 처리에 작성되는 행 수를 지정합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다. | 예 | 정수 | batchSize |
 | 사전 및 사후 SQL 스크립트 | 데이터를 싱크 데이터베이스에 기록하기 전(사전 처리)과 후(사후 처리)에 실행할 여러 줄 SQL 스크립트를 지정합니다. | 예 | String | preSQLs<br>postSQLs |
 
@@ -273,4 +275,4 @@ IncomingStream sink(allowSchemaDrift: true,
 속성에 대한 자세한 내용은 [Azure Data Factory의 조회 작업](control-flow-lookup-activity.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

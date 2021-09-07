@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 08/18/2021
 ms.author: b-juche
-ms.openlocfilehash: 46db9181657e5271f5aee567365e1f616caddc3f
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 954519f766c5c9f79fa0c8f61ed45f260743a0c2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061509"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531138"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대한 FAQ
 
@@ -53,6 +53,10 @@ ms.locfileid: "112061509"
 ### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>Azure NetApp Files는 이중 스택(IPv4 및 IPv6) VNet을 지원하나요?
 
 아니요, Azure NetApp Files는 현재 이중 스택(IPv4 및 IPv6) VNet을 지원하지 않습니다.  
+
+### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>게스트 OS 탑재에 Azure VMWare Solutions를 사용하는 IP 주소 수가 [1000개로 제한되나요](azure-netapp-files-resource-limits.md#resource-limits)?
+
+아니요. Azure VMWare Solutions는 ER 게이트웨이 뒤에 있으므로 온-프레미스 시스템과 비슷하게 동작합니다. AVS "호스트" 및 "게스트" 수는 Azure NetApp Files에 표시되지 않으며 1000개의 IP 주소 제한은 적용되지 않습니다.
  
 ## <a name="security-faqs"></a>보안 FAQ
 
@@ -101,6 +105,10 @@ API 작업의 전체 목록은 [Azure NetApp Files REST API](/rest/api/netapp/)�
 예, [사용자 지정 Azure 정책](../governance/policy/tutorials/create-custom-policy-definition.md)을 만들 수 있습니다. 
 
 그러나 Azure 정책(사용자 지정 명명 정책)은 Azure NetApp Files 인터페이스에서 만들 수 없습니다. [Azure NetApp Files 네트워크 계획 지침](azure-netapp-files-network-topologies.md#considerations)을 참조하십시오.
+
+### <a name="when-i-delete-an-azure-netapp-files-volume-is-the-data-deleted-safely"></a>Azure NetApp Files 볼륨을 삭제하면 데이터가 안전하게 삭제되나요? 
+
+Azure NetApp Files 볼륨의 삭제는 프로그래밍 방식으로 백 엔드(물리적 인프라 계층)에서 수행되어 즉시 적용됩니다. 삭제 작업에는 미사용 데이터를 암호화하는 데 사용되는 키 삭제가 포함됩니다. 삭제 작업이 성공적으로 실행되면(Azure Portal 및 API와 같은 인터페이스를 통해) 삭제된 볼륨을 복구하는 시나리오에 대한 옵션은 제공되지 않습니다.
 
 ## <a name="performance-faqs"></a>성능 FAQ
 
@@ -227,6 +235,10 @@ Azure NetApp Files는 Windows Server 2008r2SP1-2019 버전의 Active Directory D
 아니요. 그러나 Azure NetApp Files SMB 공유를 DFS-N(DFS 네임스페이스) 폴더 대상으로 사용할 수 있습니다.   
 Azure NetApp Files SMB 공유를 DFS-N 폴더 대상으로 사용하려면 [DFS 폴더 대상 추가](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) 절차를 사용하여 Azure NetApp Files SMB 공유의 UNC(범용 명명 규칙) 탑재 경로를 제공합니다.  
 
+### <a name="can-the-smb-share-permissions-be-changed"></a>SMB 공유 사용 권한을 변경할 수 있나요?   
+
+아니요, 공유 사용 권한은 변경할 수 없습니다. 그러나 [NTFS 파일 및 폴더 권한](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions) 절차를 사용하여 `root` 볼륨의 NTFS 사용 권한을 변경할 수 있습니다. 
+
 ## <a name="capacity-management-faqs"></a>용량 관리 FAQ
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>Azure NetApp Files의 용량 풀 및 볼륨에 대한 사용량을 모니터링하려면 어떻게 할까요? 
@@ -333,11 +345,17 @@ Azure NetApp Files NFS 볼륨은 AVS Windows VM 또는 Linux VM에서 탑재할 
 
 ### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>AVS(Azure VMware Solution)에서 Azure NetApp Files NFS 또는 SMB 볼륨을 사용하도록 지원되는 지역은 무엇인가요?
 
-AVS에서 Azure NetApp Files NFS 또는 SMB 볼륨을 사용하도록 지원되는 지역은 미국 동부, 미국 서부, 서유럽 및 오스트레일리아 동부 지역입니다.
+*게스트 OS 탑재* 를 위해 AVS에서 Azure NetApp Files NFS 또는 SMB 볼륨을 사용하는 방식은 [모든 AVS 및 ANF 지원 지역](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp)에서 지원됩니다.
 
 ### <a name="does-azure-netapp-files-work-with-azure-policy"></a>Azure NetApp Files는 Azure Policy와 함께 작동하나요?
 
 예. Azure NetApp Files는 자사 서비스입니다. Azure 리소스 공급자 표준을 완벽하게 준수합니다. 따라서 ‘사용자 지정 정책 정의’를 통해 Azure NetApp Files를 Azure Policy에 통합할 수 있습니다. Azure NetApp Files에 대한 사용자 지정 정책을 구현하는 방법에 대한 자세한 내용은 Microsoft Tech Community에서 [이제 Azure NetApp Files에 Azure Policy를 사용할 수 있음](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258)을 참조하세요. 
+
+### <a name="which-unicode-character-encoding-is-supported-by-azure-netapp-files-for-the-creation-and-display-of-file-and-directory-names"></a>파일 및 디렉터리 이름을 만들고 표시하기 위해 Azure NetApp Files에서 어떤 유니코드 문자 인코딩을 지원하나요?   
+
+Azure NetApp Files는 NFS 및 SMB 볼륨 모두에 대해 UTF-8 유니코드 문자 인코딩 형식으로 인코딩된 파일 및 디렉터리 이름만 지원합니다.
+
+UTF-8에서 지원되지 않는 비정규 문자 및 이모지와 같은 보조 문자 또는 서로게이트 쌍을 사용하는 이름으로 파일 또는 디렉터리를 만들려고 하면 작업이 실패합니다. 이 경우 Windows 클라이언트에서 "지정한 파일 이름이 잘못되었거나 너무 깁니다. 다른 파일 이름을 지정하세요."와 같은 오류가 표시될 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계  
 

@@ -1,27 +1,37 @@
 ---
-title: Azure Firewall 프리미엄 미리 보기로 마이그레이션
-description: Azure Firewall 표준에서 Azure Firewall 프리미엄 미리 보기로 마이그레이션하는 방법을 알아봅니다.
+title: Azure Firewall 프리미엄으로 마이그레이션
+description: Azure Firewall 표준에서 Azure Firewall 프리미엄으로 마이그레이션하는 방법을 알아봅니다.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 08/16/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 27125e7f635c6d8f0690ebd39fb84eb3e0fb2989
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 53587cbc54b9e59268e6ee348bb8956a0b9ca993
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110700550"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530343"
 ---
-# <a name="migrate-to-azure-firewall-premium-preview"></a>Azure Firewall 프리미엄 미리 보기로 마이그레이션
+# <a name="migrate-to-azure-firewall-premium"></a>Azure Firewall 프리미엄으로 마이그레이션
 
-Azure Firewall 표준에서 Azure Firewall 프리미엄 미리 보기로 마이그레이션하면 새 프리미엄 기능을 활용할 수 있습니다. Azure Firewall 프리미엄 미리 보기 기능에 대한 자세한 내용은 [Azure Firewall 프리미엄 미리 보기 기능](premium-features.md)을 참조하세요.
+Azure Firewall 표준에서 Azure Firewall 프리미엄으로 마이그레이션하면 새 프리미엄 기능을 활용할 수 있습니다. Azure Firewall 프리미엄 기능에 대한 자세한 내용은 [Azure Firewall 프리미엄 기능](premium-features.md)을 참조하세요.
 
 다음 두 예제에서는 다음을 수행하는 방법을 보여 줍니다.
 - Azure PowerShell을 사용하여 기존 표준 정책을 마이그레이션합니다.
 - 기존 표준 방화벽(클래식 규칙 포함)을 프리미엄 정책이 있는 Azure Firewall 프리미엄으로 마이그레이션합니다.
+
+## <a name="performance-considerations"></a>성능 고려 사항
+
+성능은 표준 SKU에서 마이그레이션할 때 고려해야 할 사항입니다. IDPS 및 TLS 검사는 컴퓨팅 집약적 작업입니다. 프리미엄 SKU는 표준 SKU와 필적할만한 최대 처리량 30Gbps로 스케일링되는 보다 강력한 VM SKU를 사용합니다. 경고 모드에서 IDPS로 구성된 경우 30Gbps 처리량이 지원됩니다. 거부 모드의 IDPS와 TLS 검사를 사용하면 CPU 사용량이 증가합니다. 최대 처리량이 저하될 수 있습니다. 
+
+하나 이상의 서명이 **경고 및 거부** 로 설정되어 있거나 **TLS 검사** 를 사용하도록 설정한 애플리케이션 규칙이 있는 경우 방화벽 처리량이 30Gbps보다 낮을 수 있습니다. 고객은 Azure 배포에서 전체 스케일 테스트를 수행하여 방화벽 서비스 성능이 사용자의 기대를 충족하는지 확인하는 것이 좋습니다.
+
+## <a name="downtime"></a>가동 중지 시간
+
+마이그레이션하는 동안 가동 중지 시간이 발생하기 때문에 계획된 유지 관리 시간 동안 방화벽을 마이그레이션합니다.
 
 ## <a name="migrate-an-existing-policy-using-azure-powershell"></a>Azure PowerShell을 사용하여 기존 정책 마이그레이션
 
@@ -52,7 +62,7 @@ param (
     [string]
     $PolicyId,
 
-    # #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
+     #new firewallpolicy name, if not specified will be the previous name with the '_premium' suffix
     [Parameter(Mandatory=$false)]
     [string]
     $NewPolicyName = ""
@@ -194,7 +204,7 @@ TransformPolicyToPremium -Policy $policy
 1. **검토 + 생성** 를 선택합니다.
 1. **만들기** 를 선택합니다.
 
-배포가 완료되면 이제 모든 새 Azure Firewall 프리미엄 미리 보기 기능을 구성할 수 있습니다.
+배포가 완료되면 이제 모든 새 Azure Firewall 프리미엄 기능을 구성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

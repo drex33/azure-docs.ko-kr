@@ -5,20 +5,20 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 288e1b9e361bd8c0cf41e4bb86fcfce15dda8ac9
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 77bdfb4ed75b9287b911a6b0d2742c235b37e297
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166400"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122568023"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
-작동 시간 SLA는 재정적 지원을 받는 상위 SLA를 클러스터에 설정하는 선택적 기능입니다. 작동 시간 SLA는 [가용성 영역][availability-zones]을 사용하는 클러스터에 Kubernetes API 서버 엔드포인트의 99.95% 가용성을 보장하고, 가용성 영역을 사용하지 않는 클러스터에는 99.9%의 가용성을 보장합니다. AKS는 업데이트 및 장애 도메인에서 마스터 노드 복제본을 사용하여 SLA 요구 사항을 충족하는지 확인합니다.
+작동 시간 SLA는 AKS 클러스터에 대해 재정적 지원을 받는 상위 SLA를 설정하는 계층입니다. AKS REST API에서 유료 계층으로도 간주되는 작동 시간 SLA가 있는 클러스터에는 더 많은 양의 컨트롤 플레인 리소스가 있으며 클러스터 부하에 맞게 자동으로 스케일링됩니다. 작동 시간 SLA는 [가용성 영역][availability-zones]을 사용하는 클러스터에 Kubernetes API 서버 엔드포인트의 99.95% 가용성을 보장하고, 가용성 영역을 사용하지 않는 클러스터에는 99.9%의 가용성을 보장합니다. AKS는 업데이트 및 장애 도메인에서 마스터 노드 복제본을 사용하여 SLA 요구 사항을 충족하는지 확인합니다.
 
-규정 준수 요구 사항을 충족하거나 SLA를 최종 사용자로 확장하기 위해 SLA가 필요한 고객은 이 기능을 사용해야 합니다. 작동 시간이 높은 SLA를 활용하는 중요한 워크로드를 사용하는 고객에게도 이 기능이 유용할 수 있습니다. 작동 시간 SLA 기능을 가용성 영역과 함께 사용하면 Kubernetes API 서버의 작동 시간 가용성이 높아집니다.
+AKS에서는 컨트롤 플레인 구성 요소의 가용성을 보장하기 위해 프로덕션 워크로드에서 작동 시간 SLA를 사용하는 것이 좋습니다. 반면 무료 계층의 클러스터는 컨트롤 플레인에 대한 복제본 수가 더 적고 리소스가 제한되므로 프로덕션 워크로드에 적합하지 않습니다.
 
-고객은 여전히 SLO(서비스 수준 목표)가 99.5% 인 무제한 무료 클러스터를 만들고, 필요에 따라 기본 SLO 또는 SLA 작동 시간을 선택할 수 있습니다.
+고객은 여전히 SLO(서비스 수준 목표)가 99.5%인 무제한 무료 클러스터를 만들고, 기본 SLO를 선택할 수 있습니다. 
 
 > [!IMPORTANT]
 > 송신 잠금이 있는 클러스터의 경우 [송신 트래픽 제한](limit-egress-traffic.md)을 참조하여 적절한 포트를 여세요.

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, vanto
-ms.date: 02/25/2021
-ms.openlocfilehash: 4a24c40abc938d63ed94c9b8b23654c619b776f1
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.reviewer: mathoma, bonova, vanto
+ms.date: 08/20/2021
+ms.openlocfilehash: 3acd77d986d22af08ac7042da751a6aa8c7fc24b
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688982"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607582"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>애플리케이션을 Azure SQL Managed Instance에 연결
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,9 +28,13 @@ Azure App Service 또는 Azure 가상 네트워크 통합 옵션 중 일부(예:
 
 어떤 방법을 선택하든지 Azure SQL Managed Instance에 연결할 수 있습니다. 
 
+이 문서는 다양한 애플리케이션 시나리오의 가상 네트워크에서 애플리케이션을 Azure SQL Managed Instance에 연결하는 방법을 설명합니다. 
+
+> [!IMPORTANT]
+> 가상 네트워크 외부에서 관리되는 인스턴스에 대한 데이터 액세스를 사용하도록 설정할 수도 있습니다. 관리되는 인스턴스의 퍼블릭 엔드포인트를 사용하여 VPN에 연결되지 않은 Power BI, Azure App Service 또는 온-프레미스 네트워크와 같은 다중 테넌트 Azure 서비스에서 관리되는 인스턴스에 액세스할 수 있습니다. 관리되는 인스턴스에서 퍼블릭 엔드포인트를 사용하도록 설정하고 관리되는 인스턴스 서브넷과 연결된 네트워크 보안 그룹에서 퍼블릭 엔드포인트 트래픽을 허용해야 합니다. [Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성](./public-endpoint-configure.md)에 대한 좀 더 중요한 세부 정보를 참조하세요. 
+
 ![고가용성](./media/connect-application-instance/application-deployment-topologies.png)
 
-이 문서는 다양한 애플리케이션 시나리오에서 애플리케이션을 Azure SQL Managed Instance에 연결하는 방법을 설명합니다. 
 
 ## <a name="connect-inside-the-same-vnet"></a>동일한 VNet 내에서 연결
 
@@ -48,11 +52,11 @@ SQL Managed Instance에서 다른 가상 네트워크 내에 있는 경우 애�
 피어링이 Microsoft 백본 네트워크를 사용하기 때문에 피어링은 적합한 기능입니다. 따라서 연결성 관점에서 피어링된 가상 네트워크 및 동일한 가상 네트워크에 있는 가상 머신 간에 대기 시간이 눈에 띄는 차이점은 없습니다. 가상 네트워크 피어링은 동일한 지역의 네트워크 간에 지원됩니다. 또한 글로벌 가상 네트워크 피어링은 아래 참고에 설명된 제한 사항으로 지원됩니다.  
 
 > [!IMPORTANT]
-> [2020년 9월 22일에 저희는 새로 만든 가상 클러스터에 대한 글로벌 가상 네트워크 피어링을 발표했습니다](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). 즉, 발표일 이후부터는 빈 서브넷에서 생성된 SQL Managed Instance와 해당 서브넷에서 생성된 모든 후속 관리형 인스턴스에 대해 글로벌 가상 네트워크 피어링이 지원됩니다. 다른 모든 SQL Managed Instances의 경우 피어링 지원은 [글로벌 가상 네트워크 피어링의 제약 조건](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 같은 지역의 네트워크로 제한됩니다. 자세한 내용은 [Azure 가상 네트워크에 대해 자주 묻는 질문](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 문서의 관련 섹션을 참조하세요. 
+> [2020년 9월 22일에 새로 만든 가상 클러스터의 글로벌 가상 네트워크 피어링에 대한 지원을 발표했습니다](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). 즉, 발표일 이후부터는 빈 서브넷에서 생성된 SQL 관리형 인스턴스와 해당 서브넷에서 생성된 모든 후속 관리형 인스턴스에 대해 글로벌 가상 네트워크 피어링이 지원됩니다. 다른 모든 SQL 관리형 인스턴스의 경우 피어링 지원은 [글로벌 가상 네트워크 피어링의 제약 조건](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 같은 지역의 네트워크로 제한됩니다. 자세한 내용은 [Azure 가상 네트워크에 대해 자주 묻는 질문](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 문서의 관련 섹션을 참조하세요. 발표 날짜 이전에 생성된 가상 클러스터에서 SQL 관리형 인스턴스에 대해 글로벌 가상 네트워크 피어링을 사용하려면 해당 인스턴스에서 [유지 관리 기간](../database/maintenance-window.md)을 구성하는 것이 좋습니다. 그러면 인스턴스가 글로벌 가상 네트워크 피어링을 지원하는 새 가상 클러스터로 이동합니다.
 
 ## <a name="connect-from-on-premises"></a>온-프레미스에서 연결 
 
-온-프레미스 애플리케이션을 SQL Managed Instance에 연결할 수도 있습니다. SQL Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니다. 온-프레미스에서 액세스하기 위해 애플리케이션과 SQL Managed Instance 가상 네트워크 간에 사이트 간 연결을 만들어야 합니다.
+가상 네트워크(개인 IP 주소)를 통해 온-프레미스 애플리케이션을 SQL Managed Instance에 연결할 수도 있습니다. 온-프레미스에서 액세스하기 위해 애플리케이션과 SQL Managed Instance 가상 네트워크 간에 사이트 간 연결을 만들어야 합니다. 가상 네트워크 외부에서 관리되는 인스턴스에 대한 데이터 액세스는 [Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성](./public-endpoint-configure.md)을 참조하세요.
 
 온-프레미스를 Azure 가상 네트워크에 연결하는 방법에는 두 개의 옵션이 있습니다.
 
@@ -63,7 +67,9 @@ SQL Managed Instance에서 다른 가상 네트워크 내에 있는 경우 애�
 
 ## <a name="connect-the-developer-box"></a>개발자 상자 연결
 
-또한 개발자 상자를 SQL Managed Instance에 연결할 수 있습니다. SQL Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니다. 따라서 개발자 상자에서 액세스하려면 먼저 개발자 상자와 SQL Managed Instance 가상 네트워크 간에 연결을 만들어야 합니다. 이렇게 하려면 네이티브 Azure 인증서 인증을 사용하여 가상 네트워크t에 지점 및 사이트 간 연결을 구성합니다. 자세한 내용은 [온-프레미스 컴퓨터에서 Azure SQL Managed Instance로 연결 지점-사이트 간 연결 구성](point-to-site-p2s-configure.md)을 참조하세요.
+또한 개발자 상자를 SQL Managed Instance에 연결할 수 있습니다. 따라서 가상 네트워크를 통해 개발자 상자에서 액세스하려면 먼저 개발자 상자와 SQL Managed Instance 가상 네트워크 간에 연결을 만들어야 합니다. 이렇게 하려면 네이티브 Azure 인증서 인증을 사용하여 가상 네트워크t에 지점 및 사이트 간 연결을 구성합니다. 자세한 내용은 [온-프레미스 컴퓨터에서 Azure SQL Managed Instance로 연결 지점-사이트 간 연결 구성](point-to-site-p2s-configure.md)을 참조하세요.
+
+가상 네트워크 외부에서 관리되는 인스턴스에 대한 데이터 액세스는 [Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성](./public-endpoint-configure.md)을 참조하세요.
 
 ## <a name="connect-with-vnet-peering"></a>VNet 피어링을 사용하여 연결
 
@@ -78,9 +84,9 @@ SQL Managed Instance에서 다른 가상 네트워크 내에 있는 경우 애�
 
 ## <a name="connect-azure-app-service"></a>Azure App Service 연결 
 
-Azure App Service에서 호스트되는 애플리케이션을 연결할 수도 있습니다. SQL Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니다. 따라서 Azure App Service에서 액세스하려면 먼저 애플리케이션과 SQL Managed Instance 가상 네트워크 간에 연결을 만들어야 합니다. [Azure 가상 네트워크와 앱 통합](../../app-service/web-sites-integrate-with-vnet.md)을 참조하세요.  
+Azure App Service에서 호스트되는 애플리케이션을 연결할 수도 있습니다. 가상 네트워크를 통해 Azure App Service에서 액세스하려면 먼저 애플리케이션과 SQL Managed Instance 가상 네트워크 간에 연결을 만들어야 합니다. [Azure 가상 네트워크와 앱 통합](../../app-service/web-sites-integrate-with-vnet.md)을 참조하세요. 가상 네트워크 외부에서 관리되는 인스턴스에 대한 데이터 액세스는 [Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성](./public-endpoint-configure.md)을 참조하세요. 
 
-문제 해결은 [가상 네트워크 및 애플리케이션 문제 해결](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting)을 참조하세요. 연결을 설정할 수 없는 경우 [네트워킹 구성 동기화](azure-app-sync-network-configuration.md)를 시도하세요.
+가상 네트워크를 통한 Azure App Service 액세스 문제 해결은 [가상 네트워크 및 애플리케이션 문제 해결](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting)을 참조하세요. 연결을 설정할 수 없는 경우 [네트워킹 구성 동기화](azure-app-sync-network-configuration.md)를 시도하세요.
 
 Azure App Service를 SQL Managed Instance에 연결하는 특수한 경우는 SQL Managed Instance 가상 네트워크에 피어링된 네트워크에 Azure App Service를 통합하는 경우입니다. 해당 경우에는 다음 구성을 설정해야 합니다.
 

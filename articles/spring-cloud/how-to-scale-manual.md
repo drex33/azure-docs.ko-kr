@@ -3,16 +3,16 @@ title: Azure Spring Cloud의 애플리케이션 크기 조정 | Microsoft Docs
 description: Azure Portal에서 Azure Spring Cloud를 사용하여 애플리케이션 크기를 조정하는 방법에 대해 알아봅니다.
 ms.service: spring-cloud
 ms.topic: how-to
-ms.author: brendm
-author: bmitchell287
+ms.author: karler
+author: karlerickson
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 97261755f55f9193d0169e91597318928bb45b97
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 22bae9cd5a626f6a90427bd7522f2b99fa08ca0c
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134702"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529575"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Azure Spring Cloud의 애플리케이션 크기 조정
 
@@ -28,7 +28,7 @@ vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확�
 
 이러한 절차를 따르려면 다음이 필요합니다.
 
-* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * 배포된 Azure Spring Cloud 서비스 인스턴스  [Azure CLI를 통한 앱 배포를 위한 빠른 시작](./quickstart.md)을 수행하여 시작하세요.
 * 해당 서비스 인스턴스에서 이미 하나 이상의 애플리케이션이 생성되었습니다.
 
@@ -63,7 +63,8 @@ vCPU(가상 CPU) 수와 메모리 양을 수정하여 애플리케이션을 확�
 몇 초 후 변경한 내용이 **개요** 페이지에 표시되며, 자세한 내용은 **애플리케이션 인스턴스** 탭에서 확인할 수 있습니다. 크기 조정에는 코드를 변경하거나 배포를 다시 수행할 필요가 없습니다.
 
 ## <a name="upgrade-to-the-standard-tier"></a>표준 계층으로 업그레이드
-기본 계층에 있고 이러한 [제한](./quotas.md) 중 하나 이상에 의해 제한되는 경우 표준 계층으로 업그레이드할 수 있습니다. 이렇게 하려면 먼저 표준 계층 열을 선택하고 **업그레이드** 단추를 클릭하여 가격 책정 계층 메뉴로 이동합니다.
+
+기본 계층에 있고 이러한 [제한](./quotas.md) 중 하나 이상에 의해 제한되는 경우 표준 계층으로 업그레이드할 수 있습니다. 이렇게 하려면 먼저 **표준 계층** 열을 선택하고 **업그레이드** 단추를 선택하여 가격 책정 계층 메뉴로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

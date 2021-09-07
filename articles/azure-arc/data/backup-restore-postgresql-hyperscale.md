@@ -7,16 +7,19 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 12/09/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 8b3304c673e8606667246a7d0df9ad8f3be11d9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de908a8f29d85aea1954415ba5c9793349837c5f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686702"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528595"
 ---
 # <a name="back-up-and-restore-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 백업 및 복원
+
+> [!IMPORTANT]
+> Azure Arc 지원 PostgreSQL 하이퍼스케일 서버의 백업 및 복원은 현재 미리 보기 릴리스에서 지원되지 않습니다.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -90,6 +93,9 @@ Timestamp 열은 백업이 수행된 특정 시점 UTC를 나타냅니다.
 
 ## <a name="restore-a-backup"></a>백업 복원
 이 섹션에서는 전체 복원 또는 특정 시점 복원을 수행하는 방법을 보여 줍니다. 전체 백업을 복원하는 경우 백업의 전체 콘텐츠를 복원합니다. 특정 시점 복원을 수행하는 경우 지정한 특정 시점까지 복원합니다. 이 시점 이후에 수행된 모든 트랜잭션은 복원되지 않습니다.
+
+> [!CAUTION]
+> 백업을 수행했을 때 있던 동일한 수의 작업자 노드가 있는 서버 그룹으로만 복원할 수 있습니다. 백업이 수행된 이후 작업자 노드 수를 늘리거나 줄인 경우, 복원하기 전에 작업자 노드 수를 늘리거나 줄여야 합니다. 또는 백업 내용과 일치하도록 새 서버 그룹을 만들어야 합니다. 작업자 노드 수가 일치하지 않으면 복원이 실패합니다.
 
 ### <a name="restore-a-full-backup"></a>전체 백업 복원
 백업의 전체 콘텐츠를 복원하려면 다음 명령을 실행합니다.
@@ -215,5 +221,5 @@ azdata arc postgres backup delete --help
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- 서버 그룹 [스케일링 아웃(작업자 노드 추가)](scale-out-postgresql-hyperscale-server-group.md)에 관해 읽어보기
+- 서버 그룹 [스케일링 아웃(작업자 노드 추가)](scale-out-in-postgresql-hyperscale-server-group.md)에 관해 읽어보기
 - 서버 그룹 [스케일링 아웃 또는 스케일링 다운(메모리/vCore 늘리기/줄이기)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)에 관해 읽어보기

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 5b81883b8c9556500ec6b6bd994d50a1f4202808
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 72bf18bee387dc0602f543161afc20c73c2e4144
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949914"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566995"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Azure 하이브리드 혜택을 Linux Virtual Machines에 적용하는 방법
 
@@ -64,32 +64,46 @@ Red Hat에 대한 혜택을 사용하려면 다음을 수행합니다.
 
 ### <a name="suse-customers"></a>SUSE 고객
 
+다음이 있는 고객은 SUSE에 대한 Azure 하이브리드 혜택을 사용할 수 있습니다.
+
+- Azure에서 사용할 수 있는 사용되지 않는 SUSE 구독
+- Azure로 이동해야 하는 온-프레미스에서 사용할 하나 이상의 활성 SUSE 구독
+- Azure에서 사용하기 위해 SUSE 고객 센터에서 활성화한 구매한 구독 
+
+> [!IMPORTANT]
+> Azure에서 사용할 올바른 구독을 선택해야 합니다.
+
 SUSE에 대한 혜택을 사용하려면 다음을 수행합니다.
 
-1. SUSE 퍼블릭 클라우드 프로그램에 등록합니다.
-1. Azure Portal 또는 Azure CLI를 통해 새로 만든 VM 또는 기존 VM에 혜택을 적용합니다.
-1. 별도의 업데이트 소스로 혜택을 받는 VM을 등록합니다.
+1. SUSE 또는 SUSE 배포자에서 구매한 구독을 [SUSE 고객 센터](https://scc.suse.com)에 등록합니다.
+2. SUSE 고객 센터에서 구독을 활성화합니다.
+3. 혜택을 받는 VM을 SUSE 고객 센터에 등록하여 SUSE 고객 센터에서 업데이트를 받습니다.
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Azure Portal에서 혜택 사용 및 사용 안 함 설정
 
-왼쪽의 **구성** 옵션을 방문하고 해당 단계를 수행하여 기존 VM에서 혜택을 사용하도록 설정할 수 있습니다. VM을 만드는 동안 새 VM에서 혜택을 사용하도록 설정할 수 있습니다.
+Azure Portal에서 기존 VM의 혜택을 사용하도록 설정하거나 VM을 만들 때 새 VM의 혜택을 사용하도록 설정할 수 있습니다.
 
-### <a name="azure-portal-example-to-enable-the-benefit-during-creation-of-vm"></a>VM 생성 중에 혜택을 사용하도록 설정하는 Azure Portal 예시입니다.
-1. [Microsoft Azure Portal](https://portal.azure.com/)을 방문합니다.
-1. 포털에서 ‘가상 머신 만들기’ 페이지로 이동합니다.
+### <a name="enable-the-benefit-for-an-existing-vm-in-the-azure-portal"></a>Azure Portal에서 기존 VM의 혜택을 사용하도록 설정
+
+기존 VM의 혜택을 사용하도록 설정하려면
+
+1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. 변환을 적용할 가상 머신 페이지를 엽니다.
+1. 왼쪽의 **구성** 옵션으로 이동합니다. 라이선스 섹션이 표시됩니다. AHB 변환을 사용하도록 설정하려면 ‘예’ 라디오 단추를 선택하고 확인란을 선택합니다.
+![생성 후 AHB 구성 블레이드](./media/azure-hybrid-benefit/create-configuration-blade.png)
+
+### <a name="enable-the-benefit-when-you-create-the-vm-in-the-azure-portal"></a>Azure Portal에서 VM을 만들 때 혜택을 사용하도록 설정
+
+VM을 만들 때 혜택을 사용하도록 설정하려면(SUSE 워크플로는 여기에 표시된 RHEL 예제와 동일함)
+
+1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. Portal에서 ‘가상 머신 만들기’ 페이지로 이동합니다.
  ![VM을 만드는 동안의 AHB](./media/azure-hybrid-benefit/create-vm-ahb.png)
 1. AHB 변환을 사용하도록 설정하고 Cloud Access 라이선스를 사용하려면 확인란을 클릭합니다.
  ![VM 확인란을 만드는 동안의 AHB](./media/azure-hybrid-benefit/create-vm-ahb-checkbox.png)
 1. 다음 지침에 따라 가상 머신을 만듭니다.
 1. **구성** 블레이드를 확인하면 사용하도록 설정된 옵션이 보입니다. 
 ![생성 후 AHB 구성 블레이드](./media/azure-hybrid-benefit/create-configuration-blade.png)
-
-### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-vm"></a>기존 VM에서 혜택을 사용하도록 설정하는 Azure Portal 예시입니다.
-1. [Microsoft Azure Portal](https://portal.azure.com/)을 방문합니다.
-1. 변환을 적용할 가상 머신 페이지를 엽니다.
-1. 왼쪽의 **구성** 옵션으로 이동합니다. 라이선스 섹션이 표시됩니다. AHB 변환을 사용하도록 설정하려면 ‘예’ 라디오 단추를 선택하고 확인란을 선택합니다.
-![생성 후 AHB 구성 블레이드](./media/azure-hybrid-benefit/create-configuration-blade.png)
-
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Azure CLI에서 혜택 사용 및 사용 안 함 설정
 
@@ -172,11 +186,16 @@ Red Hat 구독 규정 준수, 소프트웨어 업데이트, Azure 하이브리�
 
 ### <a name="suse"></a>SUSE
 
+Azure 하이브리드 혜택을 사용하는 고객은 클라우드 업데이트 인프라를 해당 VM에 소프트웨어 업데이트 및 패치를 제공하는 세 가지 옵션 중 하나로 이동해야 합니다.
+- [SUSE 고객 센터](https://scc.suse.com)
+- SUSE 관리자
+- SUSE RMT(리포지토리 미러링 도구) 
+
 SLES VM에 Azure 하이브리드 혜택을 사용하고 SLES PAYG에서 BYOS로 전환하거나 SLES BYOS에서 PAYG로 전환하는 방법에 대한 자세한 내용은 [SUSE Linux Enterprise 및 Azure 하이브리드 혜택](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/)을 참조하세요. 
 
 ## <a name="azure-hybrid-benefit-on-reserved-instances"></a>예약 인스턴스에 대한 Azure 하이브리드 혜택 
 
-Azure Reservations(Azure Reserved Virtual Machine Instances)를 통해 여러 제품에 1년 또는 3년 플랜을 선택함으로써 비용을 절감할 수 있습니다. [여기에서 예약 인스턴스](../../cost-management-billing/reservations/save-compute-costs-reservations.md)에 대해 자세히 알아볼 수 있습니다. Azure 하이브리드 혜택은 [RI(예약 가상 머신 인스턴스)](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation)에 대해 사용할 수 있습니다. 
+Azure Reservations(Azure Reserved Virtual Machine Instances)를 통해 여러 제품에 1년 또는 3년 플랜을 선택함으로써 비용을 절감할 수 있습니다. [여기에서 예약 인스턴스](../../cost-management-billing/reservations/save-compute-costs-reservations.md)에 대해 자세히 알아볼 수 있습니다. Azure 하이브리드 혜택은 [RI(예약 가상 머신 인스턴스)](../../cost-management-billing/reservations/save-compute-costs-reservations.md#charges-covered-by-reservation)에 대해 사용할 수 있습니다. 
 
 즉, RI를 사용하여 컴퓨팅 비용을 할인된 요금으로 구매한 경우, 거기에 더해 RHEL과 SUSE의 라이선스 비용에도 AHB 혜택을 적용할 수 있습니다. AHB 혜택을 RI 인스턴스에 적용하는 단계는 일반 VM에 적용하는 단계와 정확히 동일합니다.
 ![RIs를 위한 AHB](./media/azure-hybrid-benefit/reserved-instances.png)
@@ -198,13 +217,13 @@ Q: RHEL BYOS “골든 이미지”를 사용하여 VM을 배포했습니다. �
 
 A: 아니요, 불가능합니다. Azure 하이브리드 혜택은 종량제 이미지에서만 변환을 지원합니다.
 
-Q: 온-프레미스에서(Azure Migrate, Azure Site Recovery 등을 통해) Azure로 자체 RHEL 이미지를 업로드했습니다. 해당 이미지에 대한 청구를 BYOS에서 PAYG로 변환할 수 있나요?
+Q: 온-프레미스에서(Azure Migrate, Azure Site Recovery 등을 통해) Azure로 자체 RHEL 또는 SLES 이미지를 업로드했습니다. 해당 이미지에 대한 청구를 BYOS에서 PAYG로 변환할 수 있나요?
 
 A: 아니요, 불가능합니다. Azure 하이브리드 혜택 기능은 현재 Azure Marketplace의 RHEL 및 SLES 이미지에만 사용 가능합니다. 
 
-Q: 온-프레미스에서(Azure Migrate, Azure Site Recovery 등을 통해) Azure로 자체 RHEL 이미지를 업로드했습니다. Azure 하이브리드 혜택에서 혜택을 누리려면 수행해야 하는 작업이 있나요?
+Q: 온-프레미스에서(Azure Migrate, Azure Site Recovery 등을 통해) Azure로 자체 RHEL 또는 SLES 이미지를 업로드했습니다. Azure 하이브리드 혜택에서 혜택을 누리려면 수행해야 하는 작업이 있나요?
 
-A: 아니요, 없습니다. 업로드하는 RHEL 이미지는 이미 BYOS로 간주되며, Azure 인프라 비용에 대해서만 요금이 부과됩니다. 온-프레미스 환경과 마찬가지로 RHEL 구독 비용만 부담하면 됩니다. 
+A: 아니요, 없습니다. 업로드하는 RHEL 또는 SLES 이미지는 이미 BYOS로 간주되며, Azure 인프라 비용에 대해서만 요금이 부과됩니다. 온-프레미스 환경과 마찬가지로 RHEL 구독 비용만 부담하면 됩니다. 
 
 Q: Azure Marketplace RHEL 및 SLES SAP 이미지에서 배포된 VM에서 Azure 하이브리드 혜택을 사용할 수 있나요?
 

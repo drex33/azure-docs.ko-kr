@@ -3,19 +3,27 @@ title: VM v2 시작/중지(미리 보기) 배포
 description: 이 문서에서는 Azure 구독에서 Azure VM에 대한 VM v2 시작/중지(미리 보기) 기능을 배포하는 방법을 설명합니다.
 services: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 03/29/2021
+ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 726af0d36c543936076d1fa529e5527d166d5bbc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c0b3984629376f11692b727bb28b34c15708c596
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073237"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528584"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>VM v2 시작/중지(미리 보기) 배포
 
 VM v2 시작/중지(미리 보기) 기능을 설치하려면 순서대로 이 항목의 단계를 수행합니다. 설치 프로세스를 완료한 후 일정을 구성하여 요구 사항에 맞게 사용자 지정합니다.
 
+> [!NOTE]
+> 배포 중에 문제가 발생하면 VM v2 시작/중지(미리 보기)를 사용할 때 문제가 발생하거나 관련 질문이 있는 경우 [GitHub](https://github.com/microsoft/startstopv2-deployments/issues)에서 문제를 제출할 수 있습니다. 이 미리 보기 버전에서는 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)에서 Azure 지원 인시던트를 제출할 수 없습니다. 
+
+## <a name="permissions-considerations"></a>사용 권한 고려 사항
+배포 전과 배포 중에 다음에 유의하세요.
++   이 솔루션을 사용하면 v2 시작/중지 배포에 대한 적절한 RBAC(역할 기반 액세스 제어) 권한이 있는 사용자가 v2 시작/중지 범위에서 가상 머신에 대한 일정을 추가, 제거 및 관리할 수 있습니다. 이 동작은 의도된 것입니다. 실제로 가상 머신에 대한 직접 RBAC 권한이 없는 사용자는 V2 시작/중지 솔루션을 수정할 수 있는 RBAC 권한이 있는 경우 해당 가상 머신에서 시작, 중지 및 자동 중지 작업을 만들 수 있습니다.
++ v2 시작/중지 솔루션에 액세스할 수 있는 모든 사용자는 비용, 절약, 작업 기록 및 v2 시작/중지 애플리케이션에서 사용하는 Application Insights 인스턴스에 저장된 기타 데이터를 확인할 수 있습니다.
++ v2 시작/중지 솔루션을 관리할 때는 특히 대상 가상 머신을 직접 수정할 수 있는 권한이 없는 경우 v2 시작/중지 솔루션에 대한 사용자의 권한을 고려해야 합니다.
 ## <a name="deploy-feature"></a>배포 기능
 
 배포는 [여기](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md)에서 VM v2 시작/중지 GitHub 조직에서 시작됩니다. 이 기능은 구독 내에서 단일 배포의 모든 리소스 그룹에서 구독의 모든 VM을 관리하기 위한 것이지만 조직의 운영 모델 또는 요구 사항에 따라 다른 인스턴스를 설치할 수 있습니다. 또한 여러 구독에서 VM을 중앙에서 관리하도록 구성할 수 있습니다.
@@ -49,6 +57,12 @@ VM v2 시작/중지(미리 보기) 기능을 설치하려면 순서대로 이 �
 1. 알림 창에서 **리소스 그룹으로 이동** 을 선택합니다. 다음과 비슷한 화면이 표시됩니다.
 
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="VM 시작/중지 템플릿 배포 리소스 목록":::
+
+> [!NOTE]
+> 함수 앱 및 스토리지 계정에 대한 명명 형식이 변경되었습니다. 글로벌 고유성을 보장하기 위해 이제 이러한 리소스의 이름에 임의 및 고유 문자열이 추가됩니다.
+
+> [!NOTE]
+> 문제 해결을 위해 지원 팀에 문의하는 경우 사용자에게 더 나은 도움을 주기 위해 작업 및 하트비트 원격 분석을 수집하고 있습니다. 또한 가상 머신 이벤트 기록을 수집하여 서비스가 가상 머신에서 작동한 시기와 서비스의 효율성을 확인하기 위해 가상 머신이 다시 알림을 받은 기간도 확인합니다.
 
 ## <a name="enable-multiple-subscriptions"></a>여러 구독 사용
 

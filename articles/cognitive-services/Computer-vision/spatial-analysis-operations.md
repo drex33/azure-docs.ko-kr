@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 08d2e50df2365c327d16d3232fd3edc0544e3ffd
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f408a9182727d8e4395972f8d9f7025f8342b4eb
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745802"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635151"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
@@ -83,14 +83,15 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 "gpu_index": 0,
 "do_calibration": true,
 "enable_recalibration": true,
-"calibration_quality_check_frequency_seconds":86400,
+"calibration_quality_check_frequency_seconds": 86400,
 "calibration_quality_check_sample_collect_frequency_seconds": 300,
-"calibration_quality_check_one_round_sample_collect_num":10,
-"calibration_quality_check_queue_max_size":1000
+"calibration_quality_check_one_round_sample_collect_num": 10,
+"calibration_quality_check_queue_max_size": 1000,
+"calibration_event_frequency_seconds": -1
 }
 ```
 
-| Name | Type| Description|
+| Name | 유형| Description|
 |---------|---------|---------|
 | `gpu_index` | 문자열| 이 작업이 실행되는 GPU 인덱스입니다.|
 | `do_calibration` | 문자열 | 보정이 설정되어 있음을 나타냅니다. **cognitiveservices.vision.spatialanalysis-persondistance** 가 제대로 작동하려면 `do_calibration`이 true여야 합니다. do_calibration은 기본적으로 True로 설정됩니다. |
@@ -99,9 +100,100 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | `calibration_quality_check_sample_collect_frequency_seconds` | int | 다시 보정할 새 데이터 샘플 수집과 품질 검사 사이의 최소 시간(초)입니다. 기본값은 `300`(5분)입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
 | `calibration_quality_check_one_round_sample_collect_num` | int | 샘플 수집 라운드 단위로 수집할 새 데이터 샘플의 최소 수입니다. 기본값은 `10`입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
 | `calibration_quality_check_queue_max_size` | int | 카메라 모델이 보정될 때 저장할 최대 데이터 샘플 수입니다. 기본값은 `1000`입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
+| `calibration_event_frequency_seconds` | int | 카메라 보정 이벤트의 출력 빈도(초)입니다. 값 `-1`을 지정하면 카메라 보정 정보가 변경되지 않은 경우 카메라 보정을 보내지 않아야 함을 나타냅니다. 기본값은 `-1`입니다.|
 | `enable_breakpad`| bool | 디버그에서 사용할 크래시 덤프를 생성하는 데 사용되는 breakpad를 사용하도록 설정할지 여부를 나타냅니다. 기본값은 `false`입니다. `true`로 설정하면 `"CapAdd": ["SYS_PTRACE"]`도 `createOptions` 컨테이너의 `HostConfig` 부분에 추가해야 합니다. 기본적으로 크래시 덤프는 [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter 앱에 업로드됩니다. 크래시 덤프를 사용자 고유의 AppCenter 앱에 업로드하려면 `RTPT_APPCENTER_APP_SECRET` 환경 변수를 앱의 앱 비밀로 재정의할 수 있습니다.
 | `enable_orientation` | bool | 검색된 사람의 방향을 계산할지 여부를 나타냅니다. `enable_orientation`은 기본적으로 False로 설정됩니다. |
 
+
+### <a name="camera-calibration-output"></a>카메라 보정 출력
+사용하도록 설정한 경우 카메라 보정 출력에 대한 예입니다. 줄임표는 하나의 목록에 동일한 유형의 개체를 더 많이 표시합니다.
+```
+{
+  "type": "cameraCalibrationEvent",
+  "sourceInfo": {
+    "id": "camera1",
+    "timestamp": "2021-04-20T21:15:59.100Z",
+    "width": 640,
+    "height": 360,
+    "frameId": 531,
+    "cameraCalibrationInfo": {
+      "status": "Calibrated",
+      "cameraHeight": 13.294151306152344,
+      "focalLength": 372.0000305175781,
+      "tiltupAngle": 0.9581864476203918,
+      "lastCalibratedTime": "2021-04-20T21:15:59.058"
+    }
+  },
+  "zonePlacementInfo": {
+    "optimalZoneRegion": {
+      "type": "POLYGON",
+       "points": [
+        {
+          "x": 0.8403755868544601,
+          "y": 0.5515320334261838
+        },
+        {
+          "x": 0.15805946791862285,
+          "y": 0.5487465181058496
+        },
+        ...
+      ],
+      "name": "optimal_zone_region"
+    },
+    "fairZoneRegion": {
+      "type": "POLYGON",
+      "points": [
+        {
+          "x": 0.7871674491392802,
+          "y": 0.7437325905292479
+        },
+        {
+          "x": 0.22065727699530516,
+          "y": 0.7325905292479109
+        },
+        ...
+      ],
+      "name": "fair_zone_region"
+    },
+    "uniformlySpacedPersonBoundingBoxes": [
+      {
+        "type": "RECTANGLE",
+        "points": [
+          {
+            "x": 0.0297339593114241,
+            "y": 0.0807799442896936
+          },
+          {
+            "x": 0.10015649452269171,
+            "y": 0.2757660167130919
+          }
+        ]
+      },
+      ...
+    ],
+    "personBoundingBoxGroundPoints": [
+      {
+        "x": -22.944068908691406,
+        "y": 31.487680435180664
+      },
+      ...
+    ]
+  }
+}
+```
+
+`source_info`에 대한 자세한 내용은 [공간 분석 작업 출력](#spatial-analysis-operation-output)을 참조하세요.
+
+| ZonePlacementInfo 필드 이름 | 형식| 설명|
+|---------|---------|---------|
+| `optimalZonePolygon` | object| 최적의 결과를 위해 작업의 선이나 영역을 배치할 수 있는 카메라 이미지의 다각형입니다. <br/> 각 값 쌍은 다각형의 꼭짓점에 대한 x,y를 나타냅니다. 다각형은 사람이 추적되거나 계산되는 영역을 나타내며, 다각형 점은 정규화된 좌표(0-1)를 기반으로 합니다. 여기서 왼쪽 위 모서리는 (0.0, 0.0)이고, 오른쪽 아래 모서리는 (1.0, 1.0)입니다.|
+| `fairZonePolygon` | 개체| 양호하지만 최적의 결과를 제공하지는 못하는 작업의 선이나 영역을 배치할 수 있는 카메라 이미지의 다각형입니다. <br/> 콘텐츠에 대한 자세한 설명은 위의 `optimalZonePolygon`을 참조하세요. |
+| `uniformlySpacedPersonBoundingBoxes` | list | 실제 공간에 균일하게 분산된 카메라 이미지 내에 있는 사람의 경계 상자 목록입니다. 값은 정규화된 좌표(0-1)를 기준으로 합니다.|
+| `personBoundingBoxGroundPoints` | list | 카메라를 기준으로 하는 바닥면의 좌표 목록입니다. 각 좌표는 동일한 인덱스를 갖는 `uniformlySpacedPersonBoundingBoxes` 경계 상자의 오른쪽 하단 지점과 일치합니다. <br/> 바닥면의 좌표를 계산하는 방법에 대한 자세한 내용은 [cognitiveservices.vision.spatialanalysis-persondistance AI Insights에 대한 JSON 형식](#json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights) 섹션 아래의 `centerGroundPoint` 필드를 참조하세요. |
+
+비디오 프레임에 시각화된 영역 배치 정보 출력 예제: ![영역 배치 정보 시각화](./media/spatial-analysis/zone-placement-info-visualization.png)
+
+영역 배치 정보는 사용자 구성에 맞는 제안을 제공하지만 최상의 결과를 위해서는 [카메라 구성](#camera-configuration)의 지침을 따라야 합니다.
 
 ### <a name="speed-parameter-settings"></a>속도 매개 변수 설정
 추적기 노드 매개 변수 설정을 통해 속도 계산을 구성할 수 있습니다.
@@ -110,7 +202,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 "enable_speed": true,
 }
 ```
-| 속성 | Type| Description|
+| 속성 | 유형| Description|
 |---------|---------|---------|
 | `enable_speed` | bool | 검색된 사람의 속도를 계산할지 여부를 나타냅니다. `enable_speed`는 기본적으로 False로 설정됩니다. 속도와 방향을 모두 최상의 예상 값을 갖도록 설정하는 것이 좋습니다. |
 
@@ -136,7 +228,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | Type| Description|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
@@ -181,7 +273,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | Type| Description|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `lines` | list| 선 목록입니다.|
 | `name` | 문자열| 이 선에 대한 식별 이름입니다.|
@@ -227,7 +319,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | Type| Description|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
@@ -263,13 +355,13 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | Type| Description|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
 | `polygon` | list| 각 값 쌍은 다각형의 꼭짓점에 대한 x,y를 나타냅니다. 다각형은 사람이 계산되고 사람 사이의 거리가 측정되는 영역을 나타냅니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다. 
 | `threshold` | float| 이벤트는 사람이 영역 내의 이 픽셀 수보다 클 때 송신됩니다. |
-| `type` | 문자열| **cognitiveservices.vision.spatialanalysis-persondistance** 의 경우 `people_distance`여야 합니다.|
+| `type` | 문자열| **cognitiveservices.vision.spatialanalysis-persondistance** 의 경우 `persondistance`여야 합니다.|
 | `trigger` | 문자열| 이벤트를 보내는 트리거의 형식입니다. 지원되는 값은 개수가 변경되면 이벤트를 보내는 `event` 또는 개수가 변경되었는지 여부에 관계없이 정기적으로 이벤트를 보내는 `interval`입니다.
 | `output_frequency` | int | 이벤트가 송신되는 속도입니다. `output_frequency` = X이면 모든 X 이벤트가 송신됩니다. 예를 들어 `output_frequency` = 2는 다른 모든 이벤트가 출력됨을 의미합니다. `output_frequency`는 `event` 및 `interval` 모두에 적용됩니다.|
 | `minimum_distance_threshold` | float| 사람이 이 거리보다 덜 떨어져 있을 때 "TooClose" 이벤트를 트리거하는 거리(피트)입니다.|
@@ -1068,7 +1160,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
       }
   }
   ```
-| Name | Type| Description|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `batch_size` | int | 모든 카메라의 해상도가 동일한 경우 `batch_size`를 해당 작업에 사용할 카메라 수로 설정하고, 그렇지 않으면 `batch_size`를 1로 설정하거나 일괄 처리가 지원되지 않음을 나타내는 기본값(1)으로 둡니다. |
 

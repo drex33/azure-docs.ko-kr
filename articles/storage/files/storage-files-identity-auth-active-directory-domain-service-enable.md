@@ -4,16 +4,16 @@ description: Azure Active Directory Domain Services를 통해 Azure Files에 대
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2021
+ms.date: 07/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 05a92cd9f2ce7d5e23896f3dd8109abde5be69ca
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: f995b4b17330f6469f05c5399c2129fa7abc33bf
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669914"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462577"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Azure Files에서 Azure Active Directory Domain Services 인증 사용
 
@@ -22,8 +22,16 @@ ms.locfileid: "110669914"
 Azure 파일 공유를 처음 사용하는 경우 다음 일련의 문서를 읽기 전에 [계획 가이드](storage-files-planning.md)를 읽어 보는 것이 좋습니다.
 
 > [!NOTE]
-> Azure Files는 RC4-HMAC만 사용하여 Azure AD DS를 통한 Kerberos 인증을 지원합니다. AES Kerberos 암호화는 아직 지원되지 않습니다.
+> Azure Files는 RC4-HMAC 및 AES-256 암호화를 사용하여 Azure AD DS를 통한 Kerberos 인증을 지원합니다.
+>
 > Azure Files는 Azure AD와 전체 동기화를 사용하여 Azure AD DS 인증을 지원합니다. Azure AD에서 제한된 ID 세트만 동기화하는 Azure AD DS의 범위가 지정된 동기화를 사용하도록 설정한 경우에는 인증 및 권한 부여가 지원되지 않습니다.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -87,13 +95,14 @@ Azure AD DS를 Azure AD 테넌트에 정상적으로 배포해야 SMB를 통한 
 [Azure Portal](https://portal.azure.com)을 사용하여 SMB를 통한 Azure AD DS 인증을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 기존 스토리지 계정으로 이동하거나 [스토리지 계정을 만듭니다](../common/storage-account-create.md).
-1. **설정** 섹션에서 **구성** 을 선택합니다.
-1. **파일 공유에 대한 ID 기반 액세스** 에서 **AAD DS(Azure Active Directory Domain Service)** 토글을 **사용** 으로 전환합니다.
+1. **파일 공유** 섹션에서 **Active Directory: 구성되지 않음** 을 선택합니다.
+
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png" alt-text="Active Directory가 강조 표시된 스토리지 계정의 파일 공유 창 스크린샷" lightbox="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png":::
+
+1. **Azure Active Directory Domain Services** 를 선택한 후 토글을 **사용** 으로 전환합니다.
 1. **저장** 을 선택합니다.
 
-스토리지 계정에 대해 SMB를 통한 Azure AD DS 인증을 사용하도록 설정하는 방법이 다음 이미지에 나와 있습니다.
-
-:::image type="content" source="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png" alt-text="Azure Active Directory Domain Services가 사용하도록 설정된 스토리지 계정의 구성 블레이드 스크린샷" lightbox="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png":::
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-highlight.png" alt-text="Azure Active Directory Domain Services가 사용하도록 설정된 Active Directory 창 스크린샷" lightbox="media/storage-files-active-directory-enable/files-azure-ad-highlight.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

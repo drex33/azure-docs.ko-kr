@@ -10,12 +10,12 @@ ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 6e728eaf8335a102e38a3b4b07ab5e504d452294
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e38fb4068b695eebe78c7e9b8709862aca07531
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91996473"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528188"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>IoT Hub의 모듈 쌍 이해 및 사용
 
@@ -225,13 +225,13 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 모듈 앱은 다음과 같은 원자성 작업을 사용하여 모듈 쌍에서 작동합니다.
 
-* **모듈 쌍 검색**. 현재 연결된 모듈에 대한 tags, desired 및 reported 시스템 속성을 포함한 모듈 쌍 문서를 반환합니다.
+* **모듈 쌍 검색**. 현재 연결된 모듈에 대한 desired 및 reported 시스템 속성을 포함한 모듈 쌍 문서를 반환합니다.
 
 * **reported 속성 부분 업데이트**. 현재 연결된 모듈에 대한 reported 속성을 부분적으로 업데이트할 수 있도록 합니다. 이 작업은 desired 속성의 부분 업데이트를 사용하는 솔루션 백 엔드와 동일한 JSON 업데이트 형식을 사용합니다.
 
 * **desired 속성 관찰**. desired 속성이 업데이트되면 현재 연결된 모듈에서 이에 대한 알림을 받도록 선택할 수 있습니다. 솔루션 백 엔드에서 실행된 것과 동일한 형태의 업데이트(일부 또는 전체 대체)를 모듈에서 받습니다.
 
-이전의 모든 작업에는 [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md) 문서에 정의된 대로 **ModuleConnect** 권한이 필요합니다.
+이전의 모든 작업에는 [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md) 문서에 정의된 대로 **DeviceConnect** 권한이 필요합니다.
 
 [Azure IoT 디바이스 SDK](iot-hub-devguide-sdks.md)를 사용하면 이전 작업을 다양한 언어와 플랫폼에서 손쉽게 사용할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8c914b2b6db65e6956db830e16351f13144ab5aa
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 4fe42db21a08a398f5518d794b897d7ce015fa66
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572206"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529507"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치 구성
 
@@ -97,7 +97,7 @@ Azure에서 백 엔드 주소 풀 *백 엔드 풀* 이 호출됩니다. 이 경�
 
 4. **백 엔드 풀 추가** 에서 **이름** 에 백 엔드 풀의 이름을 입력합니다.
 
-5. **가상 머신** 에서 **가상 머신 추가** 를 선택합니다. 
+5. **가상 머신** 에서 **가상 머신 추가** 를 선택합니다. VM의 기본 IP 주소만 추가하고 보조 IP 주소는 추가하지 않습니다. 
 
 6. **가상 머신 선택** 에서 **가용성 집합 선택** 을 선택한 다음, SQL Server 가상 머신이 속한 가용성 집합을 지정합니다.
 

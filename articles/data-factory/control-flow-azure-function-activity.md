@@ -1,22 +1,25 @@
 ---
-title: Azure Data Factory의 Azure 함수 작업
-description: Data Factory 파이프라인에서 Azure Function 작업을 사용하여 Azure 함수를 실행하는 방법 알아보기
+title: Azure 함수 작업
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure 함수 작업을 사용하여 Azure Data Factory 또는 Azure Synapse Analytics 파이프라인에서 Azure 함수를 실행하는 방법 알아보기
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.openlocfilehash: 202cf30ae0f620789f300404b26ba04582ea3300
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 08/24/2021
+ms.openlocfilehash: 4e62ea4c57e00695b2a2f969b9fd4f80f8298681
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906731"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824086"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-Azure 함수 작업을 사용하면 Data Factory 파이프라인에서 [Azure Functions](../azure-functions/functions-overview.md)를 실행할 수 있습니다. Azure 함수를 실행하려면 연결된 서비스 연결과 실행하려는 Azure 함수를 지정하는 작업을 만들어야 합니다.
+Azure 함수 작업을 사용하면 Azure Data Factory 또는 Synapse 파이프라인에서 [Azure Functions](../azure-functions/functions-overview.md)를 실행할 수 있습니다. Azure 함수를 실행하려면 연결된 서비스 연결과 실행하려는 Azure 함수를 지정하는 작업을 만들어야 합니다.
 
 이 기능에 대한 소개 및 데모는 다음 비디오(8분)를 시청하세요.
 
@@ -24,7 +27,11 @@ Azure 함수 작업을 사용하면 Data Factory 파이프라인에서 [Azure Fu
 
 ## <a name="azure-function-linked-service"></a>Azure 함수의 연결된 서비스
 
+
 Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)는 `JObject`가 *아님* 에 유의) `JObject` 이외의 모든 반환 형식이 실패하고 *응답 콘텐츠가 유효한 JObject가 아닙니다* 사용자 오류가 발생합니다.
+
+함수 키는 각각이 함수 앱 내에서 별도의 고유 키나 마스터 키를 갖는 함수 이름에 대한 보안 액세스를 제공합니다. 관리 ID는 전체 함수 앱에 대한 보안 액세스를 제공합니다. 사용자는 함수 이름에 액세스하려면 키를 제공해야 합니다. [함수 액세스 키](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#configuration)에 대한 자세한 내용은 함수 설명서를 참조하세요.
+
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
@@ -63,8 +70,8 @@ Azure Functions는 설정에서 구성한 `functionTimeout` 설정에 관계없�
 
 ## <a name="sample"></a>샘플
 
-Azure 함수를 사용하여 tar 파일의 콘텐츠를 추출하는 Data Factory 샘플은 [여기](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)에서 찾을 수 있습니다.
+Azure 함수를 사용하여 tar 파일의 콘텐츠를 추출하는 샘플은 [여기](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Data Factory의 파이프라인 및 작업](concepts-pipelines-activities.md)에서 Data Factory의 작업에 대해 자세히 알아보세요.
+[파이프라인 및 작업](concepts-pipelines-activities.md)에서 지원되는 작업에 대해 자세히 알아보세요.

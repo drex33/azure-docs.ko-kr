@@ -1,21 +1,21 @@
 ---
 title: 시계열 ID 선택 모범 사례 - Azure Time Series Insights | Microsoft Docs
 description: Azure Time Series Insights Gen2에서 시계열 ID를 선택할 때의 모범 사례에 대해 알아봅니다.
-author: shipramishra
-ms.author: shmishr
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: 8aefa6efa5f10dae8a28e7126b91b7b5f6ac77a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a15b0c74ebe9a4696c2b61b6dd3b16d9f4b9d10
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950742"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535852"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
 
@@ -37,7 +37,7 @@ ms.locfileid: "104950742"
 > * *변경이 불가능한* 속성: 만든 후에는 변경할 수 없습니다.
 
 > [!TIP]
-> 이벤트 원본이 IoT 허브인 경우 시계열 ID는 ***iothub-connection-device-id*** 가 될 수 있습니다.
+> 이벤트 원본이 IoT Hub인 경우 Time Series ID는 ***iothub-connection-device-id*** 일 수 있습니다. IoT 플러그 앤 플레이 디바이스 모델을 사용하거나 구성 요소 없이 사용하려는 경우 나중에 필요할 때를 대비해서 ***dt-subject*** 를 복합 키의 일부로 포함해야 합니다.
 
 주요 모범 사례는 다음과 같습니다.
 

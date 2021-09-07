@@ -10,12 +10,12 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4d1bffd39fa474a5c973ca2b6fd45e9f59964e39
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2fddb83123f22a99e0b65363f52c2b8c3bbfbfc3
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110098293"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597997"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>원격 모델 배포 문제 해결 
 
@@ -31,7 +31,7 @@ Azure Machine Learning을 사용하여 ACI(Azure Container Instances) 및 AKS(Az
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
@@ -84,6 +84,28 @@ print(service.get_logs())
 ## <a name="debug-locally"></a>로컬에서 디버그
 
 ACI 또는 AKS에 모델을 배포할 때 문제가 있는 경우 로컬 웹 서비스로 배포합니다. 로컬 웹 서비스를 사용하면 문제를 더 쉽게 해결할 수 있습니다. 로컬 배포 문제를 해결하려면 [로컬 문제 해결 문서](./how-to-troubleshoot-deployment-local.md)를 참조하세요.
+
+## <a name="azure-machine-learning-inference-http-server"></a>Azure Machine Learning 유추 HTTP 서버
+
+로컬 유추 서버를 사용하면 항목 스크립트(`score.py`)를 신속하게 디버그할 수 있습니다. 기본 점수 스크립트에 버그가 있는 경우 서버에서 모델을 초기화하거나 제공하지 못합니다. 대신 예외 및 문제가 발생한 위치를 throw합니다. [Azure Machine Learning 유추 HTTP 서버에 대한 자세한 정보](how-to-inference-server-http.md)
+
+1. [pypi](https://pypi.org/) 피드에서 `azureml-inference-server-http` 패키지를 설치합니다.
+
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
+
+2. 서버를 시작하고 항목 스크립트로 `score.py`를 설정합니다.
+
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
+
+3. `curl`을 사용하여 서버에 점수 매기기 요청을 보냅니다.
+
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
 
 ## <a name="container-cannot-be-scheduled"></a>컨테이너를 예약할 수 없음
 
@@ -191,9 +213,11 @@ Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추�
 
 |Error  | 해결 방법  |
 |---------|---------|
+| 409 충돌 오류| 작업이 이미 진행 중인 경우 동일한 웹 서비스에 대한 새 작업은 모두 409 충돌 오류로 응답합니다. 예를 들어, 웹 서비스 만들기 또는 업데이트 작업이 진행 중인데 새 삭제 작업을 트리거하면 오류가 발생합니다. |
 |웹 서비스를 배포할 때 이미지 빌드가 실패했습니다.     |  이미지 구성을 위해 Conda 파일에 "pynacl == 1.2.1"을 pip 종속성으로 추가합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용되는 VM의 SKU를 메모리를 더 많이 포함하는 SKU로 변경합니다. |
 |FPGA 실패     |  요청을 하고 FPGA 할당량의 승인을 받을 때까지 FPGA에 모델을 배포할 수 없습니다. 액세스를 요청하려면 할당량 요청 양식 https://aka.ms/aml-real-time-ai를 작성합니다.       |
+
 
 ## <a name="advanced-debugging"></a>고급 디버깅
 

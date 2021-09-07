@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 3938f7f5dae00a3628e2c9e2fec21a364efac95d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d546726e03420b41b4ff445418e30274904c6e5c
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110084703"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635061"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Custom Vision 프로젝트 복사 및 이동
 
@@ -103,6 +103,9 @@ curl -v -X GET "{endpoint}/customvision/v3.3/Training/projects/{projectId}/expor
   "token": "string"
 }
 ```
+
+> [!TIP]
+> 프로젝트를 가져올 때 "잘못된 토큰" 오류가 발생하면 토큰 URL 문자열이 웹으로 인코딩되지 않은 것일 수 있습니다. [URL 인코더](https://meyerweb.com/eric/tools/dencoder/)를 사용하여 토큰을 인코딩할 수 있습니다.
 
 ## <a name="import-the-project"></a>프로젝트 가져오기
 

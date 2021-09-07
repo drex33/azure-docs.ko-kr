@@ -1,14 +1,14 @@
 ---
 title: 위임된 대규모 리소스 모니터링
 description: Azure Lighthouse를 통해 고객 테넌트 전체에서 스케일링 가능한 방식으로 Azure Monitor 로그를 사용할 수 있습니다.
-ms.date: 05/10/2021
+ms.date: 08/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 29f78eb677b17193876ec45250e639cb9086cf6b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 3424078b00aef569f054d6d3c02382f4bd071a91
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082310"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122568024"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>위임된 대규모 리소스 모니터링
 
@@ -31,7 +31,7 @@ ms.locfileid: "112082310"
 [Azure Portal](../../azure-monitor/logs/quick-create-workspace.md), [Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md) 또는 [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)을 사용하여 Log Analytics 작업 영역을 만들 수 있습니다.
 
 > [!IMPORTANT]
-> 고객 테넌트에서 모든 작업 영역을 만든 경우에도 관리 테넌트의 구독에 Microsoft.Insights 리소스 공급자를 등록해야 합니다. 관리 테넌트에 기존 Azure 구독이 없는 경우 다음 PowerShell 명령을 사용하여 리소스 공급자를 수동으로 등록할 수 있습니다.
+> 고객 테넌트에서 모든 작업 영역을 만든 경우 관리 테넌트의 구독에 Microsoft.Insights 리소스 공급자를 [등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)해야 합니다. 관리 테넌트에 기존 Azure 구독이 없는 경우 다음 PowerShell 명령을 사용하여 리소스 공급자를 수동으로 등록할 수 있습니다.
 >
 > ```powershell
 > $ManagingTenantId = "your-managing-Azure-AD-tenant-id"
@@ -43,7 +43,6 @@ ms.locfileid: "112082310"
 > New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4
 > New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d 
 > ```
->
 
 ## <a name="deploy-policies-that-log-data"></a>데이터 로그 정책 배포
 
@@ -56,6 +55,24 @@ Log Analytics 작업 영역을 만든 후에는 진단 데이터가 각 테넌�
 ## <a name="analyze-the-gathered-data"></a>수집된 데이터 분석
 
 정책을 배포한 후에는 각 고객 테넌트에서 만든 Log Analytics 작업 영역에 데이터가 로그됩니다. 모든 관리형 고객에 대한 인사이트를 얻기 위해 [Azure Monitor 통합 문서](../../azure-monitor/visualize/workbooks-overview.md)와 같은 도구를 사용하여 여러 데이터 원본에서 정보를 수집하고 분석할 수 있습니다.
+
+## <a name="query-data-across-customer-workspaces"></a>고객 작업 영역에서 데이터 쿼리
+
+여러 작업 영역을 포함하는 공용 구조체를 만들고 [로그 쿼리](../../azure-monitor/logs/log-query-overview.md)를 실행하여 여러 고객 테넌트의 Log Analytics 작업 영역 간에 데이터를 검색할 수 있습니다. TenantID 열을 포함하여 어떤 결과가 어떤 테넌트에 속하는지 확인할 수 있습니다.
+
+다음 예제 쿼리는 두 개의 개별 고객 테넌트에 있는 작업 영역 간에 있는 AzureDiagnostics 테이블에 공용 구조체를 만듭니다. 결과에 Category, ResourceGroup 및 TenantID 열이 표시됩니다.
+
+``` Kusto
+union AzureDiagnostics,
+workspace("WS-customer-tenant-1").AzureDiagnostics,
+workspace("WS-customer-tenant-2").AzureDiagnostics
+| project Category, ResourceGroup, TenantId
+```
+
+여러 Log Analytics 작업 영역에 걸쳐 실행되는 쿼리의 추가 예제는 [Azure Monitor로 리소스 쿼리](../../azure-monitor/logs/cross-workspace-query.md)를 참조하세요.
+
+> [!IMPORTANT]
+> Log Analytics 작업 영역의 데이터를 쿼리하는 데 사용되는 자동화 계정을 사용하는 경우 해당 자동화 계정을 작업 영역과 동일한 테넌트에서 만들어야 합니다.
 
 ## <a name="view-alerts-across-customers"></a>고객에 대한 경고 보기
 
@@ -78,5 +95,5 @@ alertsmanagementresources
 ## <a name="next-steps"></a>다음 단계
 
 - GitHub에서 [도메인별 활동 로그](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) 통합 문서를 사용해 봅니다.
-- 여러 Log Analytics 작업 영역에서 [업데이트 관리 로그를 쿼리](../../automation/update-management/query-logs.md)하여 패치 준수 보고를 추적하는 [MVP 빌드 샘플 통합 문서](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks)를 살펴봅니다. 
+- 여러 Log Analytics 작업 영역에서 [업데이트 관리 로그를 쿼리](../../automation/update-management/query-logs.md)하여 패치 준수 보고를 추적하는 [MVP 빌드 샘플 통합 문서](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks)를 살펴봅니다.
 - 다른 [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.

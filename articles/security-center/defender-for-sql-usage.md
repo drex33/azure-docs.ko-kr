@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: cb2ffcc19186f184b245885efa6333f6c7860099
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b1dc3b61c73894d7792835000f0e13e0bc8b412b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110469541"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528376"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>컴퓨터에서 SQL Server용 Azure Defender를 사용하는 방법 
 
@@ -33,29 +33,30 @@ Azure Defender는 데이터베이스에 액세스하거나 악용하려는 비�
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**컴퓨터의 SQL Server용 Azure Defender** 는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.|
 |보호되는 SQL 버전:|Azure SQL Server(Microsoft 지원에 포함된 모든 버전)|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure 중국 21Vianet|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>컴퓨터의 SQL Server용 Azure Defender
 
 이 플랜을 사용하려면 다음의 단계를 따릅니다.
 
-[1단계. SQL IaaS 에이전트 확장을 설치합니다](#step-1-install-the-sql-iaas-agent-extension).
+[1단계. 에이전트 확장 설치](#step-1-install-the-agent-extension).
 
 [2단계. SQL Server의 호스트에 Log Analytics 에이전트를 프로비전합니다.](#step-2-provision-the-log-analytics-agent-on-your-sql-servers-host)
 
 [3단계. Security Center의 가격 책정 및 설정 페이지에서 선택적 플랜을 사용합니다.](#step-3-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
 
-### <a name="step-1-install-the-sql-iaas-agent-extension"></a>1단계. SQL IaaS 에이전트 확장을 설치합니다
+### <a name="step-1-install-the-agent-extension"></a>1단계. 에이전트 확장 설치
 
-SQL Server VM에는 선택적 Security Center 페이지가 있습니다. 해당 페이지를 사용하려면 [SQL IaaS 에이전트 확장에 SQL Server VM 등록](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)에 설명된 대로 SQL IaaS 에이전트 확장을 사용하여 SQL Server VM를 등록해야 합니다.
+- **Azure VM의 SQL Server** - [SQL IaaS Agent 확장에 SQL Server VM 등록](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)에 설명된 대로 SQL IaaS 에이전트 확장에 SQL Server VM를 등록합니다.
 
+- **Azure Arc의 SQL Server** - [Azure Arc 설명서](../azure-arc/servers/manage-vm-extensions.md)에 설명된 설치 방법에 따라 Azure Arc 에이전트를 설치합니다.
 
 ### <a name="step-2-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>2단계. SQL server의 호스트에 Log Analytics 에이전트를 프로비전합니다.
 
-- **Azure VM의 SQL Server** - SQL 컴퓨터가 Azure VM에서 호스트되는 경우 [Log Analytics 에이전트<a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma)의 자동 프로비전을 사용하도록 설정할 수 있습니다. 또는 [Azure Stack Hub VM](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms)을 등록하는 수동 프로시저를 따를 수 있습니다.
-- **Azure Arc의 SQL Server** - SQL Server가 [Azure Arc](../azure-arc/index.yml) 사용 서버를 통해 관리되는 경우 Security Center 권장 사항을 사용하여 Log Analytics 에이전트를 배포할 수 있습니다. “Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터(미리 보기)에 설치되어야 합니다”. 또는 [Azure Arc 설명서](../azure-arc/servers/manage-vm-extensions.md)에 설명된 설치 방법을 따를 수 있습니다.
+- **Azure VM의 SQL Server** - SQL 컴퓨터가 Azure VM에서 호스트되는 경우 [Log Analytics 에이전트 <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma)의 자동 프로비전을 사용하도록 설정할 수 있습니다. 또는 [Azure Stack Hub VM](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms)을 등록하는 수동 프로시저를 따를 수 있습니다.
+- **Azure Arc의 SQL Server** - SQL Server가 [Azure Arc](../azure-arc/index.yml) 사용 서버를 통해 관리되는 경우 Security Center 권장 사항을 사용하여 Log Analytics 에이전트를 배포할 수 있습니다. “Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터(미리 보기)에 설치되어야 합니다”.
 
 - **SQL Server 온-프레미스** - SQL Server Azure Arc 없이 온-프레미스 Windows 컴퓨터에서 호스트되는 경우 Azure에 연결하는 두 가지의 옵션이 있습니다.
     

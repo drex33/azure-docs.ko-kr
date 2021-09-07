@@ -5,16 +5,16 @@ description: Azure Portal, PowerShell, Azure CLI를 사용하여 Azure 파일 �
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 0100bd0e0eb0ee6dbd802ad1cf5df002a706c12c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 442eef44f727ce7ef6059fa0bdfbf440c0345a09
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676166"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727155"
 ---
 # <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 Azure 파일 공유를 만들려면 파일 공유를 사용할 방법에 관한 다음 세 가지 질문에 답해야 합니다.
@@ -31,6 +31,13 @@ Azure 파일 공유를 만들려면 파일 공유를 사용할 방법에 관한 
     로컬 및 영역 중복 스토리지 계정에서 Azure 파일 공유는 최대 100TiB까지 확장될 수 있지만 지역 및 지역 영역 중복 스토리지 계정에서는 Azure 파일 공유가 최대 5TiB까지만 확장될 수 있습니다. 
 
 이러한 세 가지 선택 사항에 대한 자세한 내용은 [Planning for an Azure Files deployment](storage-files-planning.md)(Azure Files 배포 계획)를 참조하세요.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="prerequisites"></a>필수 구성 요소
 - 이 문서에서는 독자들이 이미 Azure 구독을 만들었다고 가정합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -163,6 +170,37 @@ az storage account create \
 
 ---
 
+### <a name="enable-large-files-shares-on-an-existing-account"></a>기존 계정에서 대용량 파일 공유 사용 설정
+Azure 파일 공유가 아직 없는 경우 기존 계정에서 Azure 파일 공유를 만들기 전에 대용량 파일 공유를 위해 이 공유 기능을 사용하도록 설정할 수 있습니다. LRS와 ZRS 또는 ZRS가 있는 표준 스토리지 계정은 대용량 파일 공유를 지원하도록 업그레이드할 수 있습니다. GRS, GZRS, RA-GRS 또는 RA GZRS 계정이 있는 경우 계속하기 전에 LRS 계정으로 변환해야 합니다.
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+1. [Azure Portal](https://portal.azure.com)을 열고 대용량 파일 공유를 사용하도록 설정할 스토리지 계정으로 이동합니다.
+1. 스토리지 계정을 열고 **파일 공유** 를 선택합니다.
+1. **대용량 파일 공유** 에서 **사용** 을 선택한 다음 **저장** 을 선택합니다.
+1. **개요** 를 선택하고 **새로 고침** 을 선택합니다.
+1. **용량 공유** 를 선택하고 **100TiB** 를 선택한 다음, **저장** 을 선택합니다.
+
+    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="100TiB 공유가 강조 표시된 Azure Storage 계정, 파일 공유 블레이드 스크린샷":::
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+기존 계정에서 대용량 파일 공유를 사용하도록 설정하려면 다음 명령을 사용합니다. `<yourStorageAccountName>`과 `<yourResourceGroup>`을 사용자 정보로 바꿉니다.
+
+```powershell
+Set-AzStorageAccount `
+    -ResourceGroupName <yourResourceGroup> `
+    -Name <yourStorageAccountName> `
+    -EnableLargeFileShare
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+기존 계정에서 대용량 파일 공유를 사용하도록 설정하려면 다음 명령을 사용합니다. `<yourStorageAccountName>`과 `<yourResourceGroup>`을 사용자 정보로 바꿉니다.
+
+```azurecli-interactive
+az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
+```
+
+---
+
 ## <a name="create-a-file-share"></a>파일 공유 만들기
 스토리지 계정을 만들었으면 이제 파일 공유를 만들기만 하면 됩니다. 해당 프로세스는 프리미엄 파일 공유나 표준 파일 공유나 무엇을 사용하든 대부분 동일합니다. 다음의 차이점은 고려해야 합니다.
 
@@ -173,7 +211,7 @@ az storage account create \
 
 **할당량** 속성은 프리미엄 및 표준 파일 공유 간에 의미가 약간 다릅니다.
 
-- 표준 파일 공유의 경우에는 최종 사용자가 초과할 수 없는 Azure 파일 공유의 상한입니다. 할당량을 지정하지 않으면 표준 파일 공유는 최대 100TiB(또는 스토리지 계정의 대용량 파일 공유 속성을 설정하지 않은 경우 5TiB)까지 확장될 수 있습니다.
+- 표준 파일 공유의 경우에는 최종 사용자가 초과할 수 없는 Azure 파일 공유의 상한입니다. 할당량을 지정하지 않으면 표준 파일 공유는 최대 100TiB(또는 스토리지 계정의 대용량 파일 공유 속성을 설정하지 않은 경우 5TiB)까지 확장될 수 있습니다. 대용량 파일 공유를 사용하도록 설정한 스토리지 계정을 만들지 않은 경우 100TiB 파일 공유를 사용하도록 설정하는 방법은 [기존 계정에서 대용량 파일 공유 사용](#enable-large-files-shares-on-an-existing-account)을 참조하세요. 수신 성능(IOP/Mbps)은 설정한 할당량에 따라 달라집니다.
 
 - 프리미엄 파일 공유의 경우 할당량은 **프로비저닝된 크기** 를 의미합니다. 프로비저닝된 크기는 실제 사용량과 관계없이 요금이 청구되는 양입니다. 프리미엄 파일 공유를 계획하는 방법에 대한 자세한 내용은 [provisioning premium file shares](understanding-billing.md#provisioned-model)(프리미엄 파일 공유 프로비저닝)를 참조하세요.
 
@@ -185,7 +223,7 @@ az storage account create \
 새 파일 공유 블레이드가 화면에 표시됩니다. 새 파일 공유 블레이드의 필드를 작성하여 파일 공유를 만듭니다.
 
 - **이름**: 만들 파일 공유의 이름입니다.
-- **할당량**: 표준 파일 공유의 경우 파일 공유의 할당량, 프리미엄 파일 공유의 경우 파일 공유의 프로비저닝된 크기입니다.
+- **할당량**: 표준 파일 공유의 경우 파일 공유의 할당량, 프리미엄 파일 공유의 경우 파일 공유의 프로비저닝된 크기입니다. 표준 파일 공유의 경우 할당량에 따라서도 수신 성능이 결정됩니다.
 - **계층**: 파일 공유에 대해 선택한 계층입니다. 이 필드는 **범용(GPv2) 스토리지 계정** 에서만 사용할 수 있습니다. 트랜잭션 최적화, 핫, 쿨을 선택할 수 있습니다. 공유의 계층은 언제든지 변경할 수 있습니다. 마이그레이션 중에는 가능한 가장 많이 사용되는 계층을 선택하여 트랜잭션 비용을 최소화하고 마이그레이션이 완료된 후 필요하면 낮은 계층으로 전환하는 것이 좋습니다.
 
 **만들기** 를 선택하여 새 공유 만들기를 완료합니다.
@@ -272,6 +310,45 @@ az storage share-rm update \
     --storage-account $storageAccountName \
     --name $shareName \
     --access-tier "Cool"
+```
+
+---
+
+### <a name="expand-existing-file-shares"></a>기존 파일 공유 확장
+기존 스토리지 계정에서 대용량 파일 공유를 사용하도록 설정한 경우 해당 스토리지 계정에서 기존 파일 공유를 확장하여 늘어난 용량과 규모를 활용해야 합니다. 
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+1. 스토리지 계정에서 **파일 공유** 를 선택합니다.
+1. 파일 공유를 마우스 오른쪽 단추로 클릭한 다음 **할당량** 을 선택합니다.
+1. 원하는 새 크기를 입력하고 **확인** 을 선택합니다.
+
+![기존 파일 공유의 할당량이 표시된 Azure Portal UI](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+할당량을 최대 크기로 설정하려면 다음 명령을 사용합니다. `<YourResourceGroupName>`, `<YourStorageAccountName>`, `<YourStorageAccountFileShareName>`을 사용자 정보로 바꿉니다.
+
+```powershell
+$resourceGroupName = "<YourResourceGroupName>"
+$storageAccountName = "<YourStorageAccountName>"
+$shareName="<YourStorageAccountFileShareName>"
+
+# update quota
+Set-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -QuotaGiB 102400
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+할당량을 최대 크기로 설정하려면 다음 명령을 사용합니다. `<yourResourceGroupName>`, `<yourStorageAccountName>`, `<yourFileShareName>`을 사용자 정보로 바꿉니다.
+
+```azurecli-interactive
+az storage share-rm update \
+    --resource-group <yourResourceGroupName> \
+    --storage-account <yourStorageAccountName> \
+    --name <yourFileShareName> \
+    --quota 102400
 ```
 
 ---

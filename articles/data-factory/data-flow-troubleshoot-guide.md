@@ -5,14 +5,15 @@ ms.author: makromer
 author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 04/22/2021
-ms.openlocfilehash: 82f6d69629f397cb5222a82677bf27ed880aa20f
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 08/18/2021
+ms.openlocfilehash: 56a59d4acd9c1f8ed51f16e7c39cfb5cba949b6b
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988013"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539271"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory의 매핑 데이터 흐름 문제 해결
 
@@ -67,7 +68,7 @@ ms.locfileid: "107988013"
 - **권장 사항**:이 문제에 관한 자세한 내용은 Microsoft 제품 팀에 문의하세요.
 
 ### <a name="error-code-df-executor-partitiondirectoryerror"></a>오류 코드: DF-Executor-PartitionDirectoryError
-- **메시지**: 지정된 원본 경로에 파티션된 여러 디렉터리(예: <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30) 또는 다른 파일이나 파티션되지 않은 디렉터리가 포함된 파티션된 디렉터리(예: <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1)가 있습니다. 원본 경로에서 파티션 루트 디렉터리를 제거하고 개별 원본 변환을 통해 읽습니다.
+- **메시지**: 지정된 원본 경로에 파티션된 여러 디렉터리(예: &lt;원본 경로&gt;/<파티션 루트 디렉터리 1>/a=10/b=20, &lt;원본 경로&gt;/&lt;파티션 루트 디렉터리 2&gt;/c=10/d=30) 또는 다른 파일이나 파티션되지 않은 디렉터리가 포함된 파티션된 디렉터리(예: &lt;원본 경로&gt;/&lt;파티션 루트 디렉터리 1&gt;/a=10/b=20, &lt;원본 경로&gt;/Directory 2/file1)가 있습니다. 원본 경로에서 파티션 루트 디렉터리를 제거하고 개별 원본 변환을 통해 읽습니다.
 - **원인**: 원본 경로에 여러 개의 파티션된 디렉터리가 있거나 다른 파일 또는 파티션되지 않은 디렉터리가 있는 파티션된 디렉터리가 있습니다.
 - **권장 사항**: 원본 경로에서 파티션된 루트 디렉터리를 제거하고 별도의 원본 변환을 통해 읽습니다.
 
@@ -125,6 +126,10 @@ ms.locfileid: "107988013"
 - **원인**: 많은 수의 데이터 흐름 작업 실행이 통합 런타임에서 동시에 발생합니다. 자세한 내용은 [Azure Data Factory 한도](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)를 참조하세요.
 - **권장 사항**: 추가 데이터 흐름 작업을 병렬로 실행하려면 여러 통합 런타임에 배포합니다.
 
+### <a name="error-code-4510"></a>오류 코드: 4510
+- **메시지**: 실행 중에 예기치 않은 오류가 발생했습니다. 
+- **원인**: 디버그 클러스터는 작업 클러스터와 다르게 작동하기 때문에 시간이 지남에 따라 과도한 디버그 실행으로 인해 클러스터가 손상되어 메모리 문제가 발생되고 갑자기 다시 시작될 수 있습니다.
+- **권장 사항**: 디버그 클러스터를 다시 시작합니다. 디버그 세션 중에 여러 데이터 흐름을 실행하는 경우 작업 수준 실행이 주 디버그 클러스터에 부담을 주지 않으면서 별도의 세션을 만들므로 대신 작업 실행을 사용합니다.
 
 ### <a name="error-code-invalidtemplate"></a>오류 코드: InvalidTemplate
 - **메시지**: 파이프라인 식을 평가할 수 없습니다.
@@ -243,7 +248,7 @@ ms.locfileid: "107988013"
 - **권장 사항**: Azure Blob 연결된 서비스만 사용하도록 Snowflake 준비 설정을 업데이트합니다.
 
 ### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>오류 코드: DF-Snowflake-InvalidStageConfiguration
-- **메시지**: Azure blob + sas 인증을 사용하여 snowflake 스테이지 속성을 지정해야 합니다.
+- **메시지**: Azure Blob + SAS 인증을 사용하여 Snowflake 스테이지 속성을 지정해야 합니다.
 - **원인**: Snowflake에서 제공한 준비 구성이 잘못되었습니다.
 - **권장 사항**: Snowflake 준비 설정에서 Azure BLOB + SAS 인증만 지정합니다.
 
@@ -401,10 +406,10 @@ ms.locfileid: "107988013"
 - **권장 사항**: 이 문제를 해결하려면 다음 작업을 수행합니다.
     1. 오류가 404인 경우 관련 행 데이터가 Cosmos 컬렉션에 있는지 확인합니다. 
     1. 오류가 제한인 경우 Cosmos 컬렉션 처리량을 늘리거나 자동 스케일링으로 설정합니다.
+    1. 오류가 요청 시간 초과인 경우 Cosmos 싱크에서 '일괄 처리 크기'를 더 작은 값(예: 1000)으로 설정합니다.
 
 ### <a name="error-code-df-sqldw-errorrowsfound"></a>오류 코드: DF-SQLDW-ErrorRowsFound
-- **메시지**: sql 싱크에 쓰는 동안 오류/잘못된 행이 발견되었습니다. 거부된 데이터 스토리지 위치가 구성된 경우 이 위치에 오류/잘못된 행이 기록됩니다.
-- **원인**: SQL 싱크에 쓸 때 오류 또는 잘못된 행이 발견되었습니다.
+- **원인**: Azure Synapse Analytics 싱크에 쓸 때 오류/잘못된 행이 발견되었습니다.
 - **권장 사항**: 거부된 데이터 스토리지 위치가 구성된 경우 이 위치에서 오류 행을 찾습니다.
 
 ### <a name="error-code-df-sqldw-exporterrorrowfailed"></a>오류 코드: DF-SQLDW-ExportErrorRowFailed
@@ -478,9 +483,93 @@ ms.locfileid: "107988013"
 - **권장 사항**: 파티션 형식이 RoundRobin이 되도록 AdobeIntegration 설정을 업데이트합니다.
 
 ### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>오류 코드: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **메시지**: 현재 지원되는 개인 정보 규정은 gdpr이 유일합니다.
+- **메시지**: 현재 지원되는 유일한 개인 정보 보호 규정은 'GDPR'입니다.
 - **원인**: 제공한 개인 정보 구성이 잘못되었습니다.
 - **권장 사항**: 개인 정보 'GDPR'만 지원되므로 AdobeIntegration 설정을 업데이트합니다.
+
+### <a name="error-code-df-executor-remoterpcclientdisassociated"></a>오류 코드: DF-Executor-RemoteRPCClientDisassociated
+- **메시지**: 원격 RPC 클라이언트의 연결이 끊어졌습니다. 컨테이너가 임계값을 초과하거나 네트워크 문제로 인한 것 같습니다.
+- **원인**: 일시적인 네트워크 문제로 인해 또는 spark 클러스터의 한 노드에 메모리가 부족하여 데이터 흐름 작업을 실행하지 못했습니다.
+- **권장 사항**: 이 문제를 해결하려면 다음 옵션 중 하나를 사용합니다.
+  - 옵션-1: 강력한 클러스터(드라이브 및 실행기 노드 둘 다에 빅 데이터를 처리하기에 충분한 메모리 포함)를 사용하여 "컴퓨팅 유형"을 "메모리 최적화"로 설정하여 데이터 흐름 파이프라인을 실행합니다. 설정은 아래 그림에 표시되어 있습니다.
+        
+      :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="컴퓨팅 유형의 구성을 보여 주는 스크린샷":::   
+
+  - 옵션-2: 더 큰 클러스터 크기(예: 48개 코어)를 사용하여 데이터 흐름 파이프라인을 실행합니다. [클러스터 크기](./concepts-data-flow-performance.md#cluster-size) 문서를 통해 클러스터 크기에 대해 자세히 알아볼 수 있습니다.
+  
+  - 옵션-3: 입력 데이터를 다시 분할합니다. 데이터 흐름 spark 클러스터에서 실행되는 태스크의 경우 하나의 파티션이 하나의 태스크이고 하나의 노드에서 실행됩니다. 한 파티션의 데이터가 너무 큰 경우 노드에서 실행 중인 관련 태스크는 노드 자체보다 더 많은 메모리를 사용해야 하며, 이로 인해 오류가 발생합니다. 따라서 데이터 기울이기를 방지하기 위해 다시 분할을 사용할 수 있으며, 메모리 소비량이 너무 많지 않을 때 각 파티션의 데이터 크기를 평균 상태로 유지합니다.
+    
+      :::image type="content" source="media/data-flow-troubleshoot-guide/configure-partition.png" alt-text="파티션 구성을 보여 주는 스크린샷":::
+
+    > [!NOTE]
+    >  입력 데이터의 데이터 크기 또는 파티션 수를 평가한 다음, "최적화" 아래에 적절한 파티션 수를 설정해야 합니다. 예를 들어, 데이터 흐름 파이프라인 실행에서 사용하는 클러스터는 8개 코어이며 각 코어의 메모리는 20GB이지만 입력 데이터는 10개의 파티션이 있는 1000GB입니다. 데이터 흐름을 직접 실행하는 경우에는 1000GB/10 > 20GB이기 때문에 OOM 문제를 충족하므로 재파티션 수를 100(1000GB/100 < 20GB)으로 설정하는 것이 좋습니다.
+    
+  - 옵션-4: 소스/싱크/변환 설정을 조정하고 최적화합니다. 예를 들어 한 컨테이너에 있는 모든 파일을 복사하고 와일드카드 패턴을 사용하지 마세요. 자세한 내용은 [매핑 데이터 흐름 성능 및 튜닝 가이드](./concepts-data-flow-performance.md)를 참조하세요.
+
+### <a name="error-code-df-mssql-errorrowsfound"></a>오류 코드: DF-MSSQL-ErrorRowsFound
+- **원인**: Azure SQL Database 싱크에 쓰는 동안 오류/잘못된 행이 발견되었습니다.
+- **권장 사항**: 거부된 데이터 스토리지 위치가 구성된 경우 이 위치에서 오류 행을 찾으세요.
+
+### <a name="error-code-df-mssql-exporterrorrowfailed"></a>오류 코드: DF-MSSQL-ExportErrorRowFailed
+- **메시지**: 스토리지에 오류 행을 쓰는 동안 예외가 발생했습니다.
+- **원인**: 스토리지에 오류 행을 쓰는 동안 예외가 발생했습니다.
+- **권장 사항**: 거부된 데이터의 연결된 서비스 구성을 확인합니다.
+
+### <a name="error-code-df-synapse-invaliddatabasetype"></a>오류 코드: DF-Synapse-InvalidDatabaseType
+- **메시지**: 데이터베이스 유형이 지원되지 않습니다.
+- **원인**: 데이터베이스 유형이 지원되지 않습니다.
+- **권장 사항**: 데이터베이스 유형을 확인하고 적절한 유형으로 변경합니다.
+
+### <a name="error-code-df-synapse-invalidformat"></a>오류 코드: DF-Synapse-InvalidFormat
+- **메시지**: 형식이 지원되지 않습니다.
+- **원인**: 형식이 지원되지 않습니다. 
+- **권장 사항**: 형식을 확인하고 적절한 형식으로 변경합니다.
+
+### <a name="error-code-df-synapse-invalidtabledbname"></a>오류 코드: DF-Synapse-InvalidTableDBName
+- **원인**: 테이블/데이터베이스 이름이 잘못되었습니다.
+- **권장 사항**: 테이블/데이터베이스을 올바른 이름으로 변경합니다. 유효한 이름에는 영문자, 숫자 및 `_`만 사용할 수 있습니다.
+
+### <a name="error-code-df-synapse-invalidoperation"></a>오류 코드: DF-Synapse-InvalidOperation
+- **원인**: 이 작업은 지원되지 않습니다.
+- **권장 사항**: 잘못된 작업을 변경합니다.
+
+### <a name="error-code-df-synapse-dbnotexist"></a>오류 코드: DF-Synapse-DBNotExist
+- **원인**: 데이터베이스가 없습니다.
+- **권장 사항**: 데이터베이스가 있는지 확인합니다.
+
+### <a name="error-code-df-synapse-storedprocedurenotsupported"></a>오류 코드: DF-Synapse-StoredProcedureNotSupported
+- **메시지**: 서버리스(주문형) 풀의 경우 '저장 프로시저'를 원본으로 사용할 수 없습니다.
+- **원인**: 서버리스 풀에 제한이 있습니다.
+- **권장 사항**: '쿼리'를 원본으로 다시 사용하거나 저장 프로시저를 뷰로 저장한 다음, '테이블'을 원본으로 사용하여 뷰에서 직접 읽습니다.
+
+### <a name="error-code-df-executor-broadcastfailure"></a>오류 코드: DF-Executor-BroadcastFailure
+- **메시지**: 브로드캐스트 교환 동안 데이터 흐름을 실행하지 못했습니다. 잠재적 원인에는 원본의 잘못 구성된 연결 또는 브로드캐스트 조인 시간 초과 오류가 포함됩니다. 원본이 올바르게 구성되었는지 확인하려면 데이터 흐름 디버그 세션에서 연결을 테스트하거나 원본 데이터 미리 보기를 실행하세요. 브로드캐스트 조인 시간 초과를 방지하기 위해 조인/존재/조회 변환에서 '해제' 브로드캐스트 옵션을 선택할 수 있습니다. 성능 향상을 위해 브로드캐스트 옵션을 사용하려는 경우 브로드캐스트 스트림이 디버그 실행 시 60초, 작업 실행 시 300초 이내에 데이터를 생성할 수 있는지 확인합니다. 문제가 지속되면 고객 지원 서비스에 문의하세요.
+
+- **원인**:  
+    1. 원본 연결/구성 오류로 인해 조인/존재/조회 변환에서 브로드캐스트 오류가 발생할 수 있습니다.
+    2. 브로드캐스트에는 디버그 실행 시 60초, 작업 실행 시 300초의 기본 시간 제한이 있습니다. 브로드캐스트 조인에서 브로드캐스트용으로 선택한 스트림이 너무 커서 이 한도 안에 데이터를 생성하지 못하는 것 같습니다. 브로드캐스트 조인을 사용하지 않으면 데이터 흐름별로 수행되는 기본 브로드캐스트가 같은 한도에 도달할 수 있습니다.
+
+- **권장 사항**:
+    1. 원본에서 데이터 미리 보기를 수행하여 원본이 올바르게 구성되었는지 확인합니다. 
+    1. 브로드캐스트 옵션을 끄거나, 처리하는 데 60초가 넘게 걸릴 수 있는 대용량 데이터 스트림은 브로드캐스트하지 않습니다. 대신, 더 작은 스트림을 브로드캐스트하도록 선택합니다. 
+    1. 많은 SQL/Data Warehouse 테이블 및 원본 파일은 일반적으로 브로드캐스트에 적합하지 않습니다. 
+    1. 브로드캐스트 조인이 없는 경우 이 오류가 발생하면 더 큰 클러스터를 사용합니다. 
+    1. 문제가 지속되면 고객 지원 서비스에 문의하세요.
+
+### <a name="error-code-df-cosmos-shorttypenotsupport"></a>오류 코드: DF-Cosmos-ShortTypeNotSupport
+- **메시지**: Cosmos DB에서는 Short 데이터 형식이 지원되지 않습니다.
+- **원인**: Azure Cosmos DB에서는 short 데이터 형식이 지원되지 않습니다.
+- **권장 사항**: Cosmos 싱크에서 사용하기 전에 관련 열을 short에서 integer로 변환하는 파생 변환을 추가합니다.
+
+### <a name="error-code-df-blob-functionnotsupport"></a>오류 코드: DF-Blob-FunctionNotSupport
+- **메시지**: 이 엔드포인트는 BlobStorageEvents, SoftDelete 또는 AutomaticSnapshot을 지원하지 않습니다. 이 엔드포인트를 사용하려면 이러한 계정 기능을 사용하지 않도록 설정하세요.
+- **원인**: 서비스 주체 또는 관리 ID 인증을 사용하여 Azure Blob Storage 연결된 서비스를 만드는 경우에는 데이터 흐름에서 Azure Blob Storage 이벤트, 일시 삭제 또는 자동 스냅샷이 지원되지 않습니다.
+- **권장 사항**: Azure Blob 계정에서 Azure Blob Storage 이벤트, 일시 삭제 또는 자동 스냅샷 기능을 사용하지 않도록 설정하거나 키 인증을 사용하여 연결된 서비스를 만듭니다.
+
+### <a name="error-code-df-cosmos-invalidaccountkey"></a>오류 코드: DF-Cosmos-InvalidAccountKey
+- **메시지**: 입력 인증 토큰이 요청을 처리할 수 없습니다. 필요한 페이로드가 프로토콜에 따라 작성되었는지 확인하고 사용 중인 키를 확인하세요.
+- **원인**: Azure Cosmos DB 데이터를 읽고 쓸 수 있는 충분한 권한이 없습니다.
+- **권장 사항**: 읽기-쓰기 키를 사용하여 Azure Cosmos DB에 액세스하세요.
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>기타 문제 해결 팁
 - **이슈**: 예기치 않은 예외가 발생하여 실행에 실패했습니다.
@@ -521,7 +610,7 @@ ms.locfileid: "107988013"
 
  개선 전에 기본 행 구분 기호 `\n`은 구분된 텍스트 파일을 구문 분석하는 데 예기치 않게 사용될 수 있습니다. 여러 줄 설정이 True로 설정되면 행 구분 기호 설정이 무효화되고 행 구분 기호가 처음 128자를 기준으로 자동 감지되기 ​​때문입니다. 실제 행 구분 기호를 검색하지 못하면 다시 `\n`으로 대체됩니다.  
 
- 개선 후에 세 개의 행 구분 기호, 즉 `\r`, `\n`, `\r\n` 중 하나가 작동해야 합니다.
+ 개선 후에 세 개의 행 구분 기호, 즉 `\r`, `\n`, `\r\n` 중 하나가 작동합니다.
  
  다음 예제는 개선 후 파이프라인의 동작 변경 내용을 보여 줍니다.
 
@@ -609,6 +698,27 @@ ms.locfileid: "107988013"
  개선 후 구문 분석된 열 결과는 다음과 같아야 합니다.<br/>
   `A "" (empty string) B "" (empty string)`<br/>
 
+###  <a name="internal-server-errors"></a>내부 서버 오류
+
+다음은 내부 서버 오류를 일으킬 수 있는 특정 시나리오입니다.
+
+#### <a name="scenario-1-not-choosing-the-appropriate-compute-sizetype-and-other-factors"></a>시나리오 1: 적절한 컴퓨팅 크기/유형 및 기타 요인을 선택하지 않음
+
+  데이터 흐름 실행의 성공 여부는 컴퓨팅 크기/유형, 처리할 원본/싱크 수, 파티션 사양, 포함된 변환, 데이터 세트 크기, 데이터 왜곡도 등의 많은 요인에 따라 달라집니다.<br/>
+  
+  자세한 내용은 [Azure Integration Runtime 최적화](concepts-data-flow-performance.md#ir)를 참조하세요.
+
+#### <a name="scenario-2-using-debug-sessions-with-parallel-activities"></a>시나리오 2: 병렬 작업으로 디버그 세션 사용
+
+  파이프라인에서 ForEach와 같은 구문으로 데이터 흐름 디버그 세션을 사용하여 실행을 트리거하면 여러 병렬 실행이 동일한 클러스터에 제출될 수 있습니다. 메모리 부족 등의 리소스 문제로 인해 이러한 작업을 실행하는 동안 클러스터 오류와 관련된 문제가 발생할 수 있습니다.<br/>
+  
+  변경 내용을 게시한 후에 파이프라인 작업에 정의한 적절한 통합 런타임 구성으로 실행을 제출하려면 **지금 트리거** 또는 **디버그** > **작업 런타임 사용** 옵션을 선택합니다.
+
+#### <a name="scenario-3-transient-issues"></a>시나리오 3: 일시적인 문제
+
+  실행에 관련된 마이크로 서비스의 일시적인 문제로 인해 실행이 실패할 수 있습니다.<br/>
+  
+  파이프라인 작업에서 다시 시도를 구성하면 일시적인 문제로 인한 문제를 해결할 수 있습니다. 자세한 내용은 [작업 정책](concepts-pipelines-activities.md#activity-json)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

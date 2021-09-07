@@ -8,18 +8,21 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d61314dc89d341e376de7d3904568825ad3cfb04
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: ffea4e8edd9cc6c11644017e972db3ce3202c766
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293875"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567202"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원) 정보
 
 Cloud Services(추가 지원)는  [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) 제품을 위한 새로운  [Azure Resource Manager](../azure-resource-manager/management/overview.md) 기반 배포 모델이며 현재 일반 공급됩니다. Cloud Services(추가 지원)는 Azure Service Manager를 사용하여 배포된 Azure Cloud Services와 기능 패리티와 함께 지역적 복원력을 제공하는 주요 이점이 있습니다. 또한 RBAC(역할 기반 액세스 및 제어), 태그, 정책과 같은 일부 ARM 기능을 제공하고 배포 템플릿을 지원합니다.  
 
 이 변경으로 인해 Cloud Services용 Azure Service Manager 기반 배포 모델의 이름은 [Cloud Services(클래식)](../cloud-services/cloud-services-choose-me.md)로 변경됩니다. 웹 및 클라우드 애플리케이션과 서비스를 작성하고 신속하게 배포할 수 있게 됩니다. 현재 요청에 따라 클라우드 서비스 인프라의 크기를 조정하고 애플리케이션 성능을 유지하면서 동시에 비용을 절감할 수 있습니다.  
+
+:::image type="content" source="media/inside-azure-for-iot.png" alt-text="Cloud Services(추가 지원)용 YouTube 동영상" link="https://youtu.be/H4K9xTUvNdw":::
+
 
 ## <a name="what-does-not-change"></a>변경 되지 않는 항목 
 - 코드를 만들고 구성을 정의한 다음 Azure에 배포합니다. Azure는 컴퓨팅 환경을 설정하고 코드를 실행한 다음 모니터링 및 유지 관리합니다.
@@ -63,4 +66,4 @@ Cloud Services(클래식)에서 Cloud Services(추가 지원)로의 마이그레
 ## <a name="next-steps"></a>다음 단계
 - Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.
-- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.yml)을 검토합니다.

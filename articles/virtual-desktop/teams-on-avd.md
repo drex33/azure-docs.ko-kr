@@ -3,20 +3,20 @@ title: Azure Virtual Desktop의 Microsoft Teams - Azure
 description: Azure Virtual Desktop에서 Microsoft Teams를 사용하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 08/02/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 05d1188e00235001ba4d8fd173d4f03a28dadf90
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 63c75636fcab47a31735b772f85a8dccbb9c65f5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111758198"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528366"
 ---
 # <a name="use-microsoft-teams-on-azure-virtual-desktop"></a>Azure Virtual Desktop에서 Microsoft Teams 사용
 
 >[!IMPORTANT]
->Teams에 대한 미디어 최적화는 GCC(Microsoft 365 Government) 및 GCC-High 환경에서 지원됩니다. Teams에 대한 미디어 최적화는 Microsoft 365 DoD에서 지원되지 않습니다.
+>Teams에 대한 미디어 최적화는 GCC(Microsoft 365 Government) 및 GCC-High 환경에서 지원됩니다. Teams에 대한 미디어 최적화는 Microsoft 365 DoD에 지원되지 않습니다.
 
 >[!NOTE]
 >Microsoft Teams에 대한 미디어 최적화는 Windows 10 컴퓨터의 Windows 데스크톱 클라이언트에서만 사용할 수 있습니다. 미디어 최적화에는 Windows 데스크톱 클라이언트 버전 1.2.1026.0 이상이 필요합니다.
@@ -30,7 +30,7 @@ Microsoft Teams에 대한 미디어 최적화를 통해 Windows 데스크톱 클
 Azure Virtual Desktop에서 Microsoft Teams를 사용하려면 먼저 다음을 수행해야 합니다.
 
 - Microsoft Teams용 [네트워크를 준비합니다](/microsoftteams/prepare-network/).
-- Windows PC의 Teams에 대한 Microsoft Teams [하드웨어 요구 사항](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)에 부합하는 Windows 10 또는 Windows 10 IoT Enterprise 디바이스에 [Windows 데스크톱 클라이언트](connect-windows-7-10.md)를 설치합니다.
+- Windows PC의 Teams에 대한 Microsoft Teams [하드웨어 요구 사항](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)에 부합하는 Windows 10 또는 Windows 10 IoT Enterprise 디바이스에 [Windows 데스크톱 클라이언트](./user-documentation/connect-windows-7-10.md)를 설치합니다.
 - Windows 10 다중 세션 또는 Windows 10 Enterprise VM(가상 머신)에 연결합니다.
 
 ## <a name="install-the-teams-desktop-app"></a>Teams 데스크톱 앱 설치
@@ -51,7 +51,7 @@ Teams에서 미디어 최적화를 사용하려면 호스트에서 다음 레지
 
 ### <a name="install-the-teams-websocket-service"></a>Teams WebSocket 서비스 설치
 
-VM 이미지에 최신 [원격 데스크톱 WebRTC 리디렉터 서비스](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt)를 설치합니다. 설치 오류가 발생할 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)를 설치하고 다시 시도하세요.
+VM 이미지에 최신 [원격 데스크톱 WebRTC 리디렉터 서비스](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWFYsj)를 설치합니다. 설치 오류가 발생할 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)를 설치하고 다시 시도하세요.
 
 #### <a name="latest-websocket-service-versions"></a>최신 WebSocket 서비스 버전
 
@@ -59,8 +59,13 @@ VM 이미지에 최신 [원격 데스크톱 WebRTC 리디렉터 서비스](https
 
 |버전        |릴리스 날짜  |
 |---------------|--------------|
+|1.0.2106.14001 |07/29/2021    |
 |1.0.2006.11001 |07/28/2020    |
 |0.11.0         |05/29/2020    |
+
+#### <a name="updates-for-version-10210614001"></a>1\.0.2106.14001 버전에 대한 업데이트
+
+WebRTC 리디렉터 서비스와 WebRTC 클라이언트 플러그 인 간의 연결 안정성이 개선되었습니다.
 
 #### <a name="updates-for-version-10200611001"></a>1\.0.2006.11001 버전에 대한 업데이트
 
@@ -124,7 +129,7 @@ WebSocket 서비스와 Teams 데스크톱 앱을 설치한 후 다음 단계에 
 
 4. 사용자 프로필 이미지를 선택한 다음, **설정** 을 선택합니다.
 
-      미디어 최적화가 로드되면 로컬에서 사용할 수 있는 오디오 디바이스와 카메라가 디바이스 메뉴에 열거됩니다. 메뉴에 **원격 오디오** 가 표시되면 Teams를 종료하고 다시 시도하세요. 그래도 메뉴에 디바이스가 표시되지 않으면 로컬 PC에서 개인 정보 설정을 확인합니다. **설정** > **개인 정보** > **앱 권한 - 마이크** 에서 **"앱에서 마이크에 액세스하도록 허용"** 설정이 **켜짐** 으로 전환되었는지 확인합니다. 원격 세션에서 연결을 끊은 다음, 다시 연결하고 오디오 및 비디오 디바이스를 다시 확인합니다. 통화와 모임을 비디오에 조인하려면 앱에 카메라 액세스 권한도 부여해야 합니다.
+      미디어 최적화가 로드되면 로컬에서 사용할 수 있는 오디오 디바이스와 카메라가 디바이스 메뉴에 열거됩니다. 메뉴에 **원격 오디오** 가 표시되면 Teams를 종료하고 다시 시도하세요. 그래도 메뉴에 디바이스가 표시되지 않으면 로컬 PC에서 개인 정보 설정을 확인합니다. **설정** > **개인 정보** > **앱 사용 권한-마이크** 에서 **앱에서 마이크에 액세스하도록 허용** 이 **켬** 으로 전환되었는지 확인합니다. 원격 세션에서 연결을 끊은 다음, 다시 연결하고 오디오 및 비디오 디바이스를 다시 확인합니다. 통화와 모임을 비디오에 조인하려면 앱에 카메라 액세스 권한도 부여해야 합니다.
 
       최적화가 로드되지 않는 경우 Teams를 제거하고 다시 설치한 다음, 다시 시도합니다.
 

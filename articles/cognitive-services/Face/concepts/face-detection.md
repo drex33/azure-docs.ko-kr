@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: cb005621a3439d5c7976221d816536b46efb986c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 3fe90f5c9038c37e3ac3e9fba357ea27ca089679
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745003"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529222"
 ---
 # <a name="face-detection-and-attributes"></a>얼굴 감지 및 특성
 
@@ -90,4 +90,4 @@ ms.locfileid: "111745003"
 
 이제 얼굴 감지 개념에 익숙해졌으므로 지정된 이미지에서 얼굴을 감지하는 스크립트를 작성하는 방법을 알아봅니다.
 
-* [이미지에서 얼굴 감지](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+* [검색 API 호출](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

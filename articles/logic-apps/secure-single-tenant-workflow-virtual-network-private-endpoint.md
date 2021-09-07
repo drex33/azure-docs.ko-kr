@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: 28d602f5edebaa122ec873338d99e31a4f755d14
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/25/2021
+ms.openlocfilehash: 4726df91efb18b2d9beec77606db449bd4aee3fa
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372467"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652651"
 ---
 # <a name="secure-traffic-between-virtual-networks-and-single-tenant-workflows-in-azure-logic-apps-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Logic Apps에서 가상 네트워크와 단일 테넌트 워크플로 간의 트래픽 보호
 
@@ -153,7 +153,7 @@ ms.locfileid: "110372467"
 
 ### <a name="considerations-for-private-endpoints-on-storage-accounts"></a>스토리지 계정의 프라이빗 엔드포인트에 대한 고려 사항
 
-- 각 테이블, 큐 및 Blob 스토리지 서비스에 대해 서로 다른 프라이빗 엔드포인트를 만듭니다.
+- 각 테이블, 큐, Blob 및 파일 스토리지 서비스에 대해 서로 다른 프라이빗 엔드포인트를 만듭니다.
 
 - 이 설정을 사용하여 가상 네트워크를 통해 모든 아웃바운드 트래픽을 라우팅합니다.
 

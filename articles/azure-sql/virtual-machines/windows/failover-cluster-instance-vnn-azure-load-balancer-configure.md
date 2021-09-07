@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5670a29e86eb201a707e5ceef28043aafe4839d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66b762cac767987a1ea2cf74b9e706e7a7939d51
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97357979"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567491"
 ---
-# <a name="configure-azure-load-balancer-for-failover-cluster-instance-vnn"></a>장애 조치(failover) 클러스터 인스턴스 VNN에 대한 Azure Load Balancer 구성
+# <a name="configure-azure-load-balancer-for-an-fci-vnn"></a>FCI VNN에 대한 Azure Load Balancer 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure Virtual Machines에서 클러스터는 한 번에 하나의 클러스터 노드에 있어야 하는 IP 주소를 저장하는 부하 분산 장치를 사용합니다. 이 솔루션에서 부하 분산 장치는 Azure의 클러스터형 리소스에서 사용하는 VNN(가상 네트워크 이름)의 IP 주소를 보유합니다. 
@@ -36,12 +36,14 @@ SQL Server 2019 CU2 이상에 대한 대체 연결 옵션의 경우 구성 간�
 
 이 문서의 단계를 완료하기 전에 다음이 준비되어 있어야 합니다.
 
-- Azure Load Balancer가 [HADR 솔루션에 대한 연결 옵션](hadr-cluster-best-practices.md#connectivity)으로 적합하다고 결정했습니다.
-- [가용성 그룹 수신기](availability-group-overview.md) 또는 [장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)를 구성했습니다. 
-- 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)을 설치했습니다. 
-
+- Azure Load Balancer가 [FCI에 대한 연결 옵션](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn)으로 적합하다고 결정했습니다.
+- [장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)를 구성했습니다. 
+- 최신 버전의 [PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows)을 설치했습니다. 
 
 ## <a name="create-load-balancer"></a>부하 분산 장치 만들기
+
+내부 부하 분산 장치 또는 외부 부하 분산 장치를 만들 수 있습니다. 내부 부하 분산 장치는 네트워크 내부에 있는 프라이빗 리소스에서만 액세스할 수 있습니다.  외부 부하 분산 장치는 퍼블릭에서 내부 리소스로 트래픽을 라우팅할 수 있습니다. 내부 부하 분산 장치를 구성하는 경우 부하 분산 규칙을 구성할 때 프런트 엔드 IP의 FCI 리소스와 동일한 IP 주소를 사용합니다. 외부 부하 분산 장치 구성 시 FCI IP 주소가 공용 IP 주소가 될 수 없으므로 동일한 IP 주소를 사용할 수 없습니다. 따라서 외부 부하 분산 장치를 사용하려면 다른 IP 주소와 충돌하지 않는 FCI와 동일한 서브넷의 IP 주소를 논리적으로 할당하고, 이 주소를 부하 분산 규칙의 프런트 엔드 IP 주소로 사용합니다. 
+
 
 [Azure Portal](https://portal.azure.com)에서 부하 분산 장치를 만듭니다.
 
@@ -76,7 +78,7 @@ SQL Server 2019 CU2 이상에 대한 대체 연결 옵션의 경우 구성 간�
 
 1. VM이 포함된 가용성 집합과 백 엔드 풀을 연결합니다.
 
-1. **대상 네트워크 IP 구성** 에서 **가상 머신** 을 선택하고 클러스터 노드로 참여하는 가상 머신을 선택합니다. FCI 또는 가용성 그룹을 호스트하는 모든 가상 머신을 포함해야 합니다.
+1. **대상 네트워크 IP 구성** 에서 **가상 머신** 을 선택하고 클러스터 노드로 참여하는 가상 머신을 선택합니다. FCI를 호스팅하는 모든 가상 머신을 포함해야 합니다. 각 VM의 기본 IP 주소만 추가하고 보조 IP 주소는 추가하지 않습니다. 
 
 1. **확인** 을 선택하여 백엔드 풀을 만듭니다.
 
@@ -86,7 +88,7 @@ SQL Server 2019 CU2 이상에 대한 대체 연결 옵션의 경우 구성 간�
 
 1. **추가** 를 선택합니다.
 
-1. **상태 프로브 추가** 창에서 <span id="probe"> </span> 다음의 상태 프로브 매개 변수를 설정합니다.
+1. **상태 프로브 추가** 창에서 <span id="probe"></span> 다음의 상태 프로브 매개 변수를 설정합니다.
 
    - **Name**: 상태 프로브의 이름입니다.
    - **프로토콜**: TCP입니다.
@@ -98,14 +100,19 @@ SQL Server 2019 CU2 이상에 대한 대체 연결 옵션의 경우 구성 간�
 
 ## <a name="set-load-balancing-rules"></a>부하 분산 규칙 설정
 
+부하 분산 장치에 대한 부하 분산 규칙을 설정합니다. 
+
+
+# <a name="private-load-balancer"></a>[프라이빗 부하 분산 장치](#tab/ilb)
+
+다음 단계를 수행하여 프라이빗 부하 분산 장치에 대한 부하 분산 규칙을 설정합니다. 
+
 1. 부하 분산 장치 창에서 **부하 분산 규칙** 을 선택합니다.
-
 1. **추가** 를 선택합니다.
-
 1. 부하 분산 규칙 매개 변수를 설정합니다.
 
    - **이름**: 부하 분산 규칙의 이름입니다.
-   - **프런트 엔드 IP 주소**: SQL Server FCI 또는 AG 수신기의 클러스터형 네트워크 리소스에 대한 IP 주소입니다.
+   - **프런트 엔드 IP 주소**: SQL Server FCI의 클러스터형 네트워크 리소스에 대한 IP 주소입니다.
    - **포트**: SQL Server TCP 포트입니다. 기본 인스턴스 포트는 1433입니다.
    - **백 엔드 포트**: **부동 IP(Direct Server Return)** 를 활성화할 때 **포트** 값과 동일한 포트를 사용합니다.
    - **백 엔드 풀**: 이전에 구성한 백 엔드 풀 이름입니다.
@@ -116,15 +123,41 @@ SQL Server 2019 CU2 이상에 대한 대체 연결 옵션의 경우 구성 간�
 
 1. **확인** 을 선택합니다.
 
+# <a name="public-load-balancer"></a>[퍼블릭 부하 분산 장치](#tab/elb)
+
+다음 단계를 수행하여 퍼블릭 부하 분산 장치에 대한 부하 분산 규칙을 설정합니다. 
+
+1. 부하 분산 장치 창에서 **부하 분산 규칙** 을 선택합니다.
+1. **추가** 를 선택합니다.
+1. 부하 분산 규칙 매개 변수를 설정합니다.
+
+   - **이름**: 부하 분산 규칙의 이름입니다.
+   - **프런트 엔드 IP 주소**: 클라이언트가 퍼블릭 엔드포인트에 연결하는 데 사용하는 공용 IP 주소입니다. 
+   - **포트**: SQL Server TCP 포트입니다. 기본 인스턴스 포트는 1433입니다.
+   - **백 엔드 포트** - FCI 인스턴스에서 사용되는 포트입니다. 기본값은 1433입니다. 
+   - **백 엔드 풀**: 이전에 구성한 백 엔드 풀 이름입니다.
+   - **상태 프로브**: 이전에 구성한 상태 프로브입니다.
+   - **세션 지속성**: 없음
+   - **유휴 제한 시간(분)** : 4.
+   - **부동 IP(Direct Server Return)** : 사용하지 않도록 설정됩니다.
+
+1. **확인** 을 선택합니다.
+
+---
+
+
+
 ## <a name="configure-cluster-probe"></a>클러스터 프로브 구성
 
 PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
+
+# <a name="private-load-balancer"></a>[프라이빗 부하 분산 장치](#tab/ilb)
 
 클러스터 프로브 포트 매개 변수를 설정하려면 다음 스크립트의 변수를 사용자 환경의 값으로 업데이트합니다. 스크립트에서 꺾쇠 괄호(`<` 및 `>`)를 제거합니다.
 
 ```powershell
 $ClusterNetworkName = "<Cluster Network Name>"
-$IPResourceName = "<SQL Server FCI / AG Listener IP Address Resource Name>" 
+$IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
 $ILBIP = "<n.n.n.n>" 
 [int]$ProbePort = <nnnnn>
 
@@ -139,7 +172,7 @@ Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"
 |**값**|**설명**|
 |---------|---------|
 |`Cluster Network Name`| 네트워크의 Windows Server 장애 조치(failover) 클러스터 이름입니다. **장애 조치(failover) 클러스터 관리자** > **네트워크** 에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
-|`SQL Server FCI/AG listener IP Address Resource Name`|SQL Server FCI 또는 AG 수신기의 IP 주소에 대한 리소스 이름입니다. **장애 조치(failover) 클러스터 관리자** > **역할** 의 SQL Server FCI 역할 아래에 있는 **서버 이름** 에서 IP 주소 리소스를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
+|`SQL Server FCI IP Address Resource Name`|SQL Server FCI IP 주소의 리소스 이름입니다. **장애 조치(failover) 클러스터 관리자** > **역할** 의 SQL Server FCI 역할 아래에 있는 **서버 이름** 에서 IP 주소 리소스를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
 |`ILBIP`|ILB(내부 부하 분산 장치)의 IP 주소입니다. 이 주소는 Azure Portal에서 ILB의 프런트 엔드 주소로 구성됩니다. 또한 SQL Server FCI의 IP 주소이기도 합니다. 이 주소는 `<SQL Server FCI/AG listener IP Address Resource Name>`이 있는 동일한 속성 페이지의 **장애 조치(Failover) 클러스터 관리자** 에서 확인할 수 있습니다.|
 |`nnnnn`|부하 분산 장치의 상태 프로브에서 구성한 프로브 포트입니다. 사용하지 않는 모든 TCP 포트는 유효합니다.|
 |"SubnetMask"| 클러스터 매개 변수의 서브넷 마스크입니다. TCP IP 브로드캐스트 주소 `255.255.255.255`여야 합니다.| 
@@ -150,6 +183,62 @@ Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"
 ```powershell
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
+
+# <a name="public-load-balancer"></a>[퍼블릭 부하 분산 장치](#tab/elb)
+
+클러스터 프로브 포트 매개 변수를 설정하려면 다음 스크립트의 변수를 사용자 환경의 값으로 업데이트합니다. 스크립트에서 꺾쇠 괄호(`<` 및 `>`)를 제거합니다.
+
+```powershell
+$ClusterNetworkName = "<Cluster Network Name>"
+$IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+$ELBIP = "<n.n.n.n>" 
+[int]$ProbePort = <nnnnn>
+
+Import-Module FailoverClusters
+
+Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ELBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+```
+
+다음 표는 업데이트해야 하는 값을 보여 줍니다.
+
+
+|**값**|**설명**|
+|---------|---------|
+|`Cluster Network Name`| 네트워크의 Windows Server 장애 조치(failover) 클러스터 이름입니다. **장애 조치(failover) 클러스터 관리자** > **네트워크** 에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
+|`SQL Server FCI IP Address Resource Name`|SQL Server FCI IP 주소의 리소스 이름입니다. **장애 조치(failover) 클러스터 관리자** > **역할** 의 SQL Server FCI 역할 아래에 있는 **서버 이름** 에서 IP 주소 리소스를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
+|`ELBIP`|ELB(외부 부하 분산 장치)의 IP 주소입니다. 이 주소는 Azure Portal에서 ELB의 프런트 엔드 주소로 구성되며, 외부 리소스에서 퍼블릭 부하 분산 장치에 연결하는 데 사용됩니다. |
+|`nnnnn`|부하 분산 장치의 상태 프로브에서 구성한 프로브 포트입니다. 사용하지 않는 모든 TCP 포트는 유효합니다.|
+|"SubnetMask"| 클러스터 매개 변수의 서브넷 마스크입니다. TCP IP 브로드캐스트 주소 `255.255.255.255`여야 합니다.| 
+
+클러스터 프로브를 설정한 후에는 PowerShell에서 모든 클러스터 매개 변수를 볼 수 있습니다. 다음 스크립트를 실행합니다.
+
+```powershell
+Get-ClusterResource $IPResourceName | Get-ClusterParameter
+```
+
+> [!NOTE]
+> 외부 부하 분산 장치에 대한 개인 IP 주소가 없으므로 사용자는 서브넷 안에서 IP 주소를 확인할 때 VNN DNS 이름을 직접 사용할 수 없습니다. 퍼블릭 LB의 공용 IP 주소를 사용하거나 DNS 서버에서 다른 DNS 매핑을 구성합니다. 
+
+---
+
+## <a name="modify-connection-string"></a>연결 문자열 수정 
+
+이를 지원하는 클라이언트의 경우 `MultiSubnetFailover=True`를 연결 문자열에 추가합니다.  MultiSubnetFailover 연결 옵션은 필수가 아니지만 서브넷 장애 조치(failover) 시간을 단축하는 이점이 있습니다. 클라이언트 드라이버가 각 IP 주소에 대해 TCP 소켓을 병렬로 열려고 하기 때문입니다. 클라이언트 드라이버는 첫 번째 IP가 응답할 때까지 기다린 다음 성공적으로 응답하면 해당 IP를 사용하여 연결합니다.
+
+클라이언트가 MultiSubnetFailover 매개 변수를 지원하지 않는 경우 RegisterAllProvidersIP 및 HostRecordTTL 설정을 수정하여 장애 조치(failover) 후 연결 지연을 방지할 수 있습니다. 
+
+PowerShell을 사용하여 RegisterAllProvidersIp 및 HostRecordTTL 설정을 수정합니다. 
+
+```powershell
+Get-ClusterResource yourFCIname | Set-ClusterParameter RegisterAllProvidersIP 0  
+Get-ClusterResource yourFCIname | Set-ClusterParameter HostRecordTTL 300 
+```
+
+자세한 내용은 SQL Server [수신기 시간 제한](/troubleshoot/sql/availability-groups/listener-connection-times-out) 설명서를 참조하세요. 
+
+> [!TIP]
+> - 단일 서브넷에 걸친 HADR 솔루션에 대해서도 연결 문자열에서 MultiSubnetFailover parameter = true를 설정하여 연결 문자열 업데이트에 대한 필요성 없이 서브넷의 향후 확장을 지원합니다.  
+> - 기본적으로 클라이언트는 클러스터 DNS 레코드를 20분 동안 캐시합니다. 캐시된 레코드에 대한 TTL(Time to Live)인 HostRecordTTL을 줄이면 레거시 클라이언트가 더 빨리 다시 연결할 수 있습니다. 이 경우 HostRecordTTL 설정을 줄이면 DNS 서버의 트래픽이 증가할 수 있습니다.
 
 
 ## <a name="test-failover"></a>테스트 장애 조치
@@ -171,14 +260,22 @@ Get-ClusterResource $IPResourceName | Get-ClusterParameter
 
 연결을 테스트하려면 동일한 가상 네트워크의 다른 가상 머신에 로그인합니다. **SQL Server Management Studio** 를 열고 SQL Server FCI 이름에 연결합니다. 
 
->[!NOTE]
->필요한 경우 [SQL Server Management Studio를 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)할 수 있습니다.
+> [!NOTE]
+> 필요한 경우 [SQL Server Management Studio를 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)할 수 있습니다.
+
+
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 SQL Server HADR 기능에 대한 자세한 내용은 [가용성 그룹](availability-group-overview.md) 및 [장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)를 참조하세요. 또한 고가용성 및 재해 복구를 위한 환경 구성에 필요한 [모범 사례](hadr-cluster-best-practices.md)를 배울 수 있습니다. 
+자세한 내용은 다음을 참조하세요.
+
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
+- [장애 조치(Failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)
+
 
 
 

@@ -1,34 +1,66 @@
 ---
 title: 로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
 description: Azurite 오픈 소스 에뮬레이터는 Azure Storage 애플리케이션을 테스트할 수 있는 무료 로컬 환경을 제공합니다.
-author: twooley
-ms.author: twooley
-ms.date: 07/15/2020
+author: normesta
+ms.author: normesta
+ms.date: 08/02/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a921de0d976b9c92ca7978feb7caf69484ba9379
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: e01957c04e422f26601eab6f4e53694e317e22a3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277128"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566999"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
 
-Azurite 오픈 소스 에뮬레이터는 Azure Blob 및 큐 스토리지 애플리케이션을 테스트할 수 있는 무료 로컬 환경을 제공합니다. 애플리케이션이 로컬로 작동하는 방식에 만족하는 경우 클라우드에서 Azure Storage 계정 사용으로 전환합니다. 에뮬레이터는 Windows, Linux 및 macOS에서 플랫폼 간 지원을 제공합니다.
+Azurite 오픈 소스 에뮬레이터는 Azure Blob, Queue Storage 및 Table Storage 애플리케이션을 테스트할 수 있는 무료 로컬 환경을 제공합니다. 애플리케이션이 로컬로 작동하는 방식에 만족하는 경우 클라우드에서 Azure Storage 계정 사용으로 전환합니다. 에뮬레이터는 Windows, Linux 및 macOS에서 플랫폼 간 지원을 제공합니다.
 
 Azurite는 미래의 스토리지 에뮬레이터 플랫폼입니다. Azurite는 [Azure Storage 에뮬레이터](storage-use-emulator.md)를 대체합니다. Azurite는 최신 버전의 Azure Storage API를 지원하도록 계속 업데이트됩니다.
 
-Azurite를 로컬 시스템에 설치하고 실행하는 여러 가지 방법이 있습니다.
+Azurite를 로컬 시스템에 설치하고 실행하는 여러 가지 방법이 있습니다. 이러한 탭 중 하나를 선택합니다.
 
-  1. [Azurite Visual Studio Code 확장 설치 및 실행](#install-and-run-the-azurite-visual-studio-code-extension)
-  1. [NPM을 사용하여 Azurite 설치 및 실행](#install-and-run-azurite-by-using-npm)
-  1. [Azurite Docker 이미지 설치 및 실행](#install-and-run-the-azurite-docker-image)
-  1. [GitHub 리포지토리에서 Azurite 복제, 빌드 및 실행](#clone-build-and-run-azurite-from-the-github-repository)
+## <a name="install-and-run-azurite"></a>Azurite를 설치하고 실행합니다.
 
-## <a name="install-and-run-the-azurite-visual-studio-code-extension"></a>Azurite Visual Studio Code 확장 설치 및 실행
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Visual Studio에서 Azure 프로젝트(예: **Azure Functions** 프로젝트)를 만듭니다.
+
+![새 Azure Function 프로젝트](media/storage-use-azurite/visual-studio-azure-function-project.png)
+
+**Azure Functions** 프로젝트를 만드는 경우 **Http 트리거** 를 선택해야 합니다. 그런 후 **권한 부여 수준** 드롭다운 목록에서 **익명** 을 선택합니다.
+
+![함수 프로젝트 설정](media/storage-use-azurite/visual-studio-azure-function-project-settings.png)
+
+[Node.js 버전 8.0 이상](https://nodejs.org)을 설치합니다. Npm(노드 패키지 관리자)은 모든 Node.js 설치에 포함되는 패키지 관리 도구입니다. Node.js가 설치되면 다음 `npm` 명령을 실행하여 Azurite를 설치합니다.
+
+```console
+npm install -g azurite
+```
+
+명령줄에서 다음 명령을 용하 여 Azurite를 시작합니다.
+
+```console
+azurite
+```
+
+콘솔에 다음과 유사한 출력 정보가 표시됩니다.
+
+![명령줄 출력](media/storage-use-azurite/azurite-command-line-output.png)
+
+[릴리스 빌드 구성](/visualstudio/debugger/how-to-set-debug-and-release-configurations#change-the-build-configuration)으로 변경하고 프로젝트를 실행합니다.
+
+>[!NOTE]
+> 디버그 빌드 구성을 사용하여 프로젝트를 시작하면 오류가 발생할 수 있습니다. 이는 Visual Studio에서 Visual Studio에 기본 제공되는 레거시 스토리지 에뮬레이터를 시작하려고 할 수 있기 때문입니다. Azurite에서 레거시 스톨리지 에뮬레이터에 필요한 수신 대기 포트를 사용하므로 레거시 에뮬레이터를 시작하려는 시도가 차단됩니다.
+
+다음 이미지는 Azure 함수 프로젝트를 실행할 때 나타나는 명령줄 출력을 보여 줍니다.
+
+![프로젝트를 실행한 후의 명령줄 출력](media/storage-use-azurite/azurite-command-line-output-2.png)
+
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Visual Studio Code 내에서 **확장** 창을 선택하고, **확장: 마켓플레이스** 에서 *Azurite* 를 검색합니다.
 
@@ -41,12 +73,15 @@ Visual Studio Code 내에서 **확장** 창을 선택하고, **확장: 마켓플
    - **Azurite: Clean** - 모든 Azurite 서비스 지속성 데이터 다시 설정
    - **Azurite: Clean Blob Service** - Blob service 정리
    - **Azurite: Clean Queue Service** - 큐 서비스 정리
+   - **Azurite: Clean Queue Service** - Table service 정리
    - **Azurite: Close** - 모든 Azurite 서비스 닫기
    - **Azurite: Close Blob Service** - Blob service 닫기
    - **Azurite: Close Queue Service** - 큐 서비스 닫기
+   - **Azurite: Close Queue Service** - Table service 닫기
    - **Azurite: Start** - 모든 Azurite 서비스 시작
    - **Azurite: Start Blob Service** - Blob service 시작
    - **Azurite: Start Queue Service** - 큐 서비스 시작
+   - **Azurite: Start Queue Service** - Table service 시작
 
 Visual Studio Code 내에서 Azurite를 구성하려면 확장 창을 선택합니다. **Azurite** 에 대한 **관리**(기어) 아이콘을 선택합니다. **확장 설정** 을 선택합니다.
 
@@ -67,8 +102,10 @@ Visual Studio Code 내에서 Azurite를 구성하려면 확장 창을 선택합�
    - **Azurite: Queue Port** - 큐 서비스 수신 포트입니다. 기본 포트는 10001입니다.
    - **Azurite: Silent** - 자동 모드는 액세스 로그를 사용하지 않도록 설정합니다. 기본 값은 **false** 입니다.
    - **Azurite: Skip Api Version Check** - 요청 API 버전 확인을 건너뜁니다. 기본 값은 **false** 입니다.
+   - **Azurite: Table Host** - Table service 수신 대기 엔드포인트로, 기본적으로 설정은 127.0.0.1입니다.
+   - **Azurite: Table Port** - Table service 수신 대기 포트로, 기본적으로 10002입니다.
 
-## <a name="install-and-run-azurite-by-using-npm"></a>NPM을 사용하여 Azurite 설치 및 실행
+### <a name="npm"></a>[npm](#tab/npm)
 
 이 설치 방법을 사용하려면 [Node.js 버전 8.0 이상](https://nodejs.org)이 설치되어 있어야 합니다. Npm(노드 패키지 관리자)은 모든 Node.js 설치에 포함되는 패키지 관리 도구입니다. Node.js가 설치되면 다음 `npm` 명령을 실행하여 Azurite를 설치합니다.
 
@@ -78,7 +115,7 @@ npm install -g azurite
 
 Azurite가 설치되면 [명령줄에서 Azurite 실행](#run-azurite-from-a-command-line)을 참조하세요.
 
-## <a name="install-and-run-the-azurite-docker-image"></a>Azurite Docker 이미지 설치 및 실행
+### <a name="docker-hub"></a>[Docker Hub](#tab/docker-hub)
 
 다음 명령을 사용하여 [DockerHub](https://hub.docker.com/)를 통해 [최신 Azurite 이미지](https://hub.docker.com/_/microsoft-azure-storage-azurite)를 끌어옵니다.
 
@@ -91,7 +128,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 다음 명령은 Azurite Docker 이미지를 실행합니다. `-p 10000:10000` 매개 변수는 요청을 호스트 컴퓨터의 10000 포트에서 Docker 인스턴스로 리디렉션합니다.
 
 ```console
-docker run -p 10000:10000 -p 10001:10001 \
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 \
     mcr.microsoft.com/azure-storage/azurite
 ```
 
@@ -100,7 +137,7 @@ docker run -p 10000:10000 -p 10001:10001 \
 다음 예제에서 `-v c:/azurite:/data` 매개 변수는 Azurite 지속형 데이터 위치로 *c:/azurite* 를 지정합니다. Docker 명령을 실행하기 전에 *c:/azurite* 디렉터리를 만들어야 합니다.
 
 ```console
-docker run -p 10000:10000 -p 10001:10001 \
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 \
     -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
 ```
 
@@ -113,7 +150,7 @@ docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite \
 
 시작할 때 Azurite를 구성하는 방법에 대한 자세한 내용은 [명령줄 옵션](#command-line-options)을 참조하세요.
 
-## <a name="clone-build-and-run-azurite-from-the-github-repository"></a>GitHub 리포지토리에서 Azurite 복제, 빌드 및 실행
+### <a name="github"></a>[GitHub](#tab/github)
 
 이 설치 방법을 사용하려면 [Git](https://git-scm.com/)이 설치되어 있어야 합니다. 다음 콘솔 명령을 사용하여 Azurite 프로젝트에 대한 [GitHub 리포지토리](https://github.com/azure/azurite)를 복제합니다.
 
@@ -131,10 +168,12 @@ npm install -g
 
 Azurite가 설치되고 빌드되면 [명령줄에서 Azurite 실행](#run-azurite-from-a-command-line)을 참조하세요.
 
+---
+
 ## <a name="run-azurite-from-a-command-line"></a>명령줄에서 Azurite 실행
 
 > [!NOTE]
-> Visual Studio Code 확장만 설치한 경우 명령줄에서 Azurite를 실행할 수 없습니다. 대신 Visual Studio Code 명령 팔레트를 사용합니다. 자세한 내용은 [Azuite Visual Studio Code 확장 설치 및 실행](#install-and-run-the-azurite-visual-studio-code-extension)을 참조하세요.
+> Visual Studio Code 확장만 설치한 경우 명령줄에서 Azurite를 실행할 수 없습니다. 대신 Visual Studio Code 명령 팔레트를 사용합니다. 
 
 명령줄을 사용하여 즉시 시작하려면 *c:\azurite* 라는 디렉터리를 만들고, 다음 명령을 실행하여 Azurite를 시작합니다.
 
@@ -233,6 +272,46 @@ azurite --queuePort 8888
 
 ```console
 azurite --queuePort 0
+```
+
+Azurite를 시작하는 동안 사용 중인 포트가 표시됩니다.
+
+### <a name="table-listening-host"></a>테이블 수신 대기 호스트
+
+**선택 사항** - Azurite는 기본적으로 로컬 서버로 127.0.0.1을 수신 대기합니다. `--tableHost` 스위치를 사용하여 주소를 요구 사항에 맞게 설정합니다.
+
+로컬 컴퓨터에서만 요청을 수락합니다.
+
+```console
+azurite --tableHost 127.0.0.1
+```
+
+원격 요청을 허용합니다.
+
+```console
+azurite --tableHost 0.0.0.0
+```
+
+> [!CAUTION]
+> 원격 요청을 허용하면 시스템이 외부 공격에 취약해질 수 있습니다.
+
+### <a name="table-listening-port-configuration"></a>테이블 수신 대기 포트 구성
+
+**선택 사항** - Azurite는 기본적으로 10002 포트에서 Table service를 수신 대기합니다. `--tablePort` 스위치를 사용하여 필요한 수신 대기 포트를 지정합니다.
+
+> [!NOTE]
+> 사용자 지정된 포트가 사용되면 Azure Storage 도구 또는 SDK에서 연결 문자열 또는 해당 구성을 업데이트해야 합니다.
+
+Table service 수신 대기 포트를 사용자 지정합니다.
+
+```console
+azurite --tablePort 11111
+```
+
+시스템에서 사용 가능한 포트를 자동으로 선택하도록 합니다.
+
+```console
+azurite --tablePort 0
 ```
 
 Azurite를 시작하는 동안 사용 중인 포트가 표시됩니다.
@@ -558,9 +637,13 @@ Azurite는 RA-GRS(읽기 액세스 지역 중복 복제)를 지원합니다. 스
 
 ### <a name="table-support"></a>테이블 지원
 
-Azurite의 테이블에 대한 지원은 현재 개발 중이며, 이 지원을 열어 개발에 기여할 수 있습니다! 최근의 진행 상황을 확인하려면 [Azurite V3 테이블](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) 프로젝트를 확인하세요.
+Azurite의 테이블에 대한 지원은 현재 미리 보기로 제공됩니다. 자세한 내용은 [Azurite V3 Table](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) 프로젝트를 참조하세요.
 
 지속성 함수를 지원하려면 테이블이 필요합니다.
+
+> [!IMPORTANT]
+>
+> Table Storage에 대한 Azurite 지원은 현재 **미리 보기** 로 제공됩니다. 베타, 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="azurite-is-open-source"></a>오픈 소스인 Azurite
 

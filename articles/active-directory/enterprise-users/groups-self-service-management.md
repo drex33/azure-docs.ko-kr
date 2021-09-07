@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2021
+ms.date: 07/27/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e3ea0a8ea5dc8dbb01d532a52436ed581311e7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 724f63792c71e59b071e1851a013cbf94933008b
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089900"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721529"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 그룹 관리 설정 
 
@@ -53,12 +53,13 @@ Azure Portal 또는 Azure AD PowerShell을 사용하여 보안 그룹을 만들 
 
 1. **액세스 패널에서 그룹 기능에 액세스하는 사용자 권한 제한** 을 **아니요** 로 설정합니다.
 
-1. **사용자가 Azure Portal, API 또는 PowerShell에서 보안 그룹을 만들 수 있음** 또는 **사용자가 Azure Portal, API 또는 PowerShell에서 Microsoft 365 그룹을 만들 수 있음** 을 다음으로 설정합니다.
+1. **사용자가 Azure Portal, API 또는 PowerShell에서 보안 그룹을 만들 수 있음l** 을 **예** 또는 **아니요** 로 설정합니다.
 
-    - **예**: Azure AD 조직의 모든 사용자는 새 보안 그룹을 만들고 Azure Portal, API 또는 PowerShell에서 이러한 그룹에 구성원을 추가할 수 있습니다. 이러한 새 그룹은 다른 모든 사용자에 대한 액세스 패널에도 표시됩니다. 그룹에 대한 정책 설정에서 허용하는 경우 다른 사용자가 이러한 그룹에 가입하도록 요청할 수 있습니다.
-    - **아니요**: 사용자는 그룹을 만들 수 없으며 자신이 소유자인 기존 그룹을 변경할 수 없습니다. 그러나 여전히 해당 그룹의 구성원을 관리하고 다른 사용자의 해당 그룹 가입 요청을 승인할 수 있습니다.
+    이 설정에 대한 자세한 내용은 다음 섹션 [그룹 설정](#group-settings)을 참조하세요.
 
-    이러한 설정은 최근에 API 및 PowerShell에 대한 지원을 추가하도록 변경되었습니다. 이 변경 사항에 대한 자세한 내용은 다음 섹션 [그룹 설정 변경](#groups-setting-change)을 참조하세요.
+1. **사용자가 Azure Portal, API 또는 PowerShell에서 Microsoft 365 그룹을 만들 수 있음** 을 **예** 또는 **아니요** 로 설정합니다.
+
+    이 설정에 대한 자세한 내용은 다음 섹션 [그룹 설정](#group-settings)을 참조하세요.
 
 또한 **Azure Portal에서 구성원을 그룹 소유자로 할당할 수 있는 소유자** 를 사용하여 사용자의 셀프 서비스 그룹 관리를 보다 세밀하게 제어할 수 있습니다.
 
@@ -67,36 +68,35 @@ Azure Portal 또는 Azure AD PowerShell을 사용하여 보안 그룹을 만들 
 > [!NOTE]
 > 사용자가 보안 그룹 또는 Microsoft 365 그룹에 참여하도록 요청하고 소유자가 멤버 자격 요청을 승인 또는 거부하도록 요청하려면 Azure Active Directory Premium(P1 또는 P2) 라이선스가 필요합니다. Azure Active Directory Premium 라이선스가 없으면 사용자는 액세스 패널 그룹을 관리할 수 있지만 액세스 패널 소유자 승인이 필요한 그룹을 만들 수는 없으며 그룹에 가입하도록 요청할 수 없습니다.
 
-## <a name="groups-setting-change"></a>그룹 설정 변경
+## <a name="group-settings"></a>그룹 설정
 
-현재 보안 그룹 및 Microsoft 365 그룹 설정은 더 이상 사용되지 않으며 교체됩니다. 현재 설정은 Azure Portal에서 그룹 만들기만 제어하고 API 또는 PowerShell에는 적용되지 않기 때문에 대체되고 있습니다. 새 설정은 Azure Portal에서 그리고 API 및 PowerShell 에서도 그룹을 만듭니다.
-
-| 사용되지 않는 설정 | 새 설정 |
-| --- | --- |
-| 사용자가 Azure Portal에서 보안 그룹을 만들 수 있음 | 사용자가 Azure Portal, API 또는 PowerShell에서 보안 그룹을 만들 수 있음 |
-| 사용자가 Azure Portal에서 Microsoft 365 그룹을 만들 수 있음 | 사용자가 Azure Portal, API 또는 PowerShell에서 Microsoft 365 그룹을 만들 수 있음 |
-
-현재 설정이 완전히 사용되지 않을 때까지 두 설정이 모두 Azure Portal에 표시됩니다. 이 새 설정은 **2021년 5월** 이 끝나기 전에 구성해야 합니다. 보안 그룹 설정을 구성하려면 전역 관리자 또는 권한 있는 역할 관리자 역할이 할당되어야 합니다. 
+그룹 설정을 사용하여 보안 및 Microsoft 365 그룹을 만들 수 있는 사용자를 제어할 수 있습니다.
 
 ![Azure Active Directory 보안 그룹 설정 변경](./media/groups-self-service-management/security-groups-setting.png)
 
-다음 표에서는 선택할 값을 결정하는 데 도움이 됩니다.
+> [!NOTE]
+> 이러한 설정의 동작은 최근에 변경되었습니다. 이러한 설정이 조직에 맞게 구성되었는지 확인합니다. 자세한 내용은 [그룹 설정이 변경된 이유](#why-were-the-group-settings-changed)를 참조하세요.
 
-| 수행하려는 작업 ... | 다음 값 선택 |
-| --- | --- |
-| 사용자는 Azure Portal, API 또는 PowerShell을 사용하여 그룹을 만들 수 있습니다. | 두 설정을 모두 **예** 로 설정합니다. 변경 내용을 적용하는 데 최대 15분이 걸릴 수 있습니다. |
-| 사용자는 Azure Portal, API 또는 PowerShell을 사용하여 그룹을 만들 수 **없습니다**. | 두 설정을 모두 **아니요** 로 설정합니다. 변경 내용을 적용하는 데 최대 15분이 걸릴 수 있습니다. |
-| 사용자는 API 또는 PowerShell을 사용하지 않고 Azure Portal을 사용하여 그룹을 만들 수 있습니다. | 지원되지 않음 |
-| 사용자는 API 또는 PowerShell을 사용하여 그룹을 만들 수 있지만 Azure Portal은 사용할 수 없습니다. | 지원되지 않음 |
+ 다음 표에서는 선택할 값을 결정하는 데 도움이 됩니다.
 
-다음 표에서는 이러한 설정에 대해 다른 값에 대해 발생하는 것을 나열합니다. 사용되지 않는 설정과 새 설정을 다른 값으로 설정하지 않는 것이 좋습니다.
+| 설정 | 값 | 테넌트에게 미치는 영향 |
+| --- | :---: | --- |
+| 사용자가 Azure Portal, API 또는 PowerShell에서 보안 그룹을 만들 수 있음 | Yes | Azure AD 조직의 모든 사용자는 새 보안 그룹을 만들고 Azure Portal, API 또는 PowerShell에서 이러한 그룹에 구성원을 추가할 수 있습니다. 이러한 새 그룹은 다른 모든 사용자에 대한 액세스 패널에도 표시됩니다. 그룹에 대한 정책 설정에서 허용하는 경우 다른 사용자가 이러한 그룹에 가입하도록 요청할 수 있습니다. |
+|  | No | 사용자는 보안 그룹을 만들 수 없으며 자신이 소유자인 기존 그룹을 변경할 수 없습니다. 그러나 여전히 해당 그룹의 구성원을 관리하고 다른 사용자의 해당 그룹 가입 요청을 승인할 수 있습니다. |
+| 사용자가 Azure Portal, API 또는 PowerShell에서 Microsoft 365 그룹을 만들 수 있음 | Yes | Azure AD 조직의 모든 사용자는 새 Microsoft 365 그룹을 만들고 Azure Portal, API 또는 PowerShell에서 이러한 그룹에 구성원을 추가할 수 있습니다. 이러한 새 그룹은 다른 모든 사용자에 대한 액세스 패널에도 표시됩니다. 그룹에 대한 정책 설정에서 허용하는 경우 다른 사용자가 이러한 그룹에 가입하도록 요청할 수 있습니다. |
+|  | No | 사용자는 Microsoft 365 그룹을 만들 수 없으며 자신이 소유자인 기존 그룹을 변경할 수 없습니다. 그러나 여전히 해당 그룹의 구성원을 관리하고 다른 사용자의 해당 그룹 가입 요청을 승인할 수 있습니다. |
 
-| 사용자는 Azure Portal을 사용하여 그룹을 만들 수 있습니다. | 사용자는 Azure Portal, API 또는 PowerShell을 사용하여 그룹을 만들 수 있습니다. | 테넌트에게 미치는 영향 |
-| :---: | :---: | --- |
-| 예 | 예 | 사용자는 Azure Portal, API 또는 PowerShell을 사용하여 그룹을 만들 수 있습니다. 변경 내용을 적용하는 데 최대 15분이 걸릴 수 있습니다.|
-| 아니요 | 아니요 | 사용자는 Azure Portal, API 또는 PowerShell을 사용하여 그룹을 만들 수 **없습니다**. 변경 내용을 적용하는 데 최대 15분이 걸릴 수 있습니다. |
-| 예 | 아니요 | 사용자는 Azure Portal, API 또는 PowerShell을 사용하여 그룹을 만들 수 **없습니다**. 이러한 설정을 다른 값으로 설정하지 않는 것이 좋습니다. 변경 내용을 적용하는 데 최대 15분이 걸릴 수 있습니다. |
-| 아니요 | 예 | **사용자는 Azure Portal을 사용하여 그룹을 만들 수 있음** 설정이 **2021년 6월** 에 완전히 지원 중단될 때까지 사용자는 API 또는 PowerShell을 사용하여 그룹을 만들 수 있지만 Azure Portal은 사용할 수 없습니다. **2021년 6월** 부터 **사용자는 Azure Portal, API 또는 PowerShell을 사용하여 그룹을 만들 수 있음** 설정이 적용되고 사용자는 Azure Portal, API 또는 PowerShell을 사용하여 그룹을 만들 수 있습니다. |
+다음은 이러한 그룹 설정에 대한 추가 세부 정보입니다.
+
+- 이러한 설정을 적용하는 데 최대 15분이 걸릴 수 있습니다.
+- 전체는 아니지만 일부 사용자가 그룹을 만들 수 있도록 설정하려는 경우 [그룹 관리자](../roles/permissions-reference.md#groups-administrator)와 같이 그룹을 만들 수 있는 역할을 해당 사용자에게 할당할 수 있습니다.
+- 이러한 설정은 사용자를 위한 것이며 서비스 주체에는 영향을 주지 않습니다. 예를 들어, 그룹을 만들 수 있는 권한이 있는 서비스 주체가 있는 경우 이러한 설정을 **아니요** 로 지정해도 서비스 주체는 그룹을 계속 만들 수 있습니다. 
+
+### <a name="why-were-the-group-settings-changed"></a>그룹 설정이 변경된 이유는 무엇인가요?
+
+이전 그룹 설정 구현 이름은 **사용자가 Azure Portal에서 보안 그룹을 만들 수 있음** 및 **사용자가 Azure Portal에서 Microsoft 365 그룹을 만들 수 있음** 이었습니다. 이전 설정은 Azure Portal의 그룹 만들기만 제어하고 API 또는 PowerShell에는 적용되지 않았습니다. 새 설정은 Azure Portal에서 그리고 API 및 PowerShell 에서도 그룹을 만들기를 제어합니다. 새 설정이 더 안전합니다.
+
+새 설정의 기본값이 이전 API 또는 PowerShell 값으로 설정되었습니다. 새 설정의 기본값은 Azure Portal 동작만 제어하는 이전 값과 다를 수 있습니다. 2021년 5월부터 몇 주 간의 전환 기간이 있으므로 새 설정이 적용되기 전에 기본 설정된 기본값을 선택할 수 있습니다. 이제 새 설정이 적용되었으므로 조직에 대해 새 설정이 구성되었는지 확인해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

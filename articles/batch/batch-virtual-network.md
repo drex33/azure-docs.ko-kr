@@ -2,14 +2,14 @@
 title: 가상 네트워크에서 풀 프로비저닝
 description: 컴퓨팅 노드가 파일 서버와 같은 네트워크의 다른 VM과 안전하게 통신할 수 있도록 Azure 가상 네트워크에 Batch 풀을 만드는 방법입니다.
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 08/20/2021
 ms.custom: seodec18
-ms.openlocfilehash: 5279e9efb426c327761f14188b436e47387ea1eb
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: bc8f63af713b3b56d85426ce9be86214572506be
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903102"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635133"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -38,14 +38,16 @@ Azure Batch 풀을 만들 때는 지정한 [Azure 가상 네트워크](../virtua
 VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀을 만들 수 있습니다. Azure Portal에서 풀을 만들려면 다음 단계를 수행합니다. 
 
 1. Azure Portal에서 Batch 계정으로 이동합니다. 이 계정은 사용할 VNet이 포함된 리소스 그룹과 동일한 구독 및 지역에 있어야 합니다.
-2. 왼쪽의 **설정** 창에서 **풀** 메뉴 항목을 선택합니다.
-3. **풀** 창에서 **추가** 를 선택합니다.
-4. **풀 추가** 창의 **이미지 형식** 드롭다운에서 사용할 옵션을 선택합니다.
-5. 사용자 지정 이미지에 대해 올바른 **게시자/제품/Sku** 를 선택합니다.
-6. **노드 크기**, **대상 전용 노드** 및 **낮은 우선 순위 노드** 등 나머지 필수 설정과 선택 사항인 설정을 원하는 대로 지정합니다.
-7. **가상 네트워크** 에서 사용할 가상 네트워크와 서브넷을 선택합니다.
+1. 왼쪽의 **설정** 창에서 **풀** 메뉴 항목을 선택합니다.
+1. **풀** 창에서 **추가** 를 선택합니다.
+1. **풀 추가** 창의 **이미지 형식** 드롭다운에서 사용할 옵션을 선택합니다.
+1. 사용자 지정 이미지에 대해 올바른 **게시자/제품/Sku** 를 선택합니다.
+1. **노드 크기**, **대상 전용 노드** 및 **낮은 우선 순위 노드** 등 나머지 필수 설정과 선택 사항인 설정을 원하는 대로 지정합니다.
+1. **가상 네트워크** 에서 사용할 가상 네트워크와 서브넷을 선택합니다.
+1. **확인** 을 선택하여 풀을 만듭니다.
 
-   ![가상 네트워크가 있는 풀 추가](./media/batch-virtual-network/add-vnet-pool.png)
+> [!IMPORTANT]
+> 풀에서 사용 중인 서브넷을 삭제하려고 하면 오류 메시지가 표시됩니다. 서브넷을 사용하는 모든 풀은 해당 서브넷을 삭제하기 전에 삭제해야 합니다.
 
 ## <a name="user-defined-routes-for-forced-tunneling"></a>강제 터널링을 위한 사용자 정의 경로
 
@@ -62,8 +64,6 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 - 가상 파일 탑재를 사용하는 경우 [네트워킹 요구 사항](virtual-file-mount.md#networking-requirements)을 검토하고 필요한 트래픽이 차단되지 않았는지 확인합니다.
 
 UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 **다음 홉 유형** 을 **인터넷** 으로 설정합니다.
-
-![사용자 정의 경로](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
 > Batch 서비스 IP 주소는 시간이 지남에 따라 변경될 수 있습니다. IP 주소 변경으로 인한 가동 중단을 방지하려면 Batch 서비스 IP 주소를 자동으로 새로 고치는 프로세스를 설정하고 경로 테이블을 최신 상태로 유지합니다.

@@ -1,6 +1,6 @@
 ---
 title: Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 엔드포인트 가져오기 및 연결 문자열 구성하기
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 엔드포인트 가져오기 및 연결 문자열 구성하기
 services: azure-arc
 ms.service: azure-arc
@@ -8,44 +8,31 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 3477c8f1dbffb9f2c42c72c1b0bfc03c662ed24c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 964b7fcca00afb91a457203d2ed53b885a254d5e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412298"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528592"
 ---
-# <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 엔드포인트 가져오기 및 연결 문자열 구성하기
+# <a name="get-connection-endpoints-and-form-the-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 연결 엔드포인트 가져오기 및 연결 문자열 구성하기
 
-이 문서에서는 서버 그룹에 대한 연결 엔드포인트를 검색하는 방법과 애플리케이션 및/또는 도구에서 사용할 연결 문자열을 구성하는 방법을 설명합니다.
+이 문서에서는 서버 그룹에 대한 연결 엔드포인트를 검색하는 방법과 애플리케이션 및/또는 도구에서 사용할 수 있는 연결 문자열을 구성하는 방법을 설명합니다.
 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="get-connection-end-points"></a>연결 엔드포인트를 가져옵니다.
 
-### <a name="from-cli-with-azdata"></a>azdata를 사용하는 CLI에서
-#### <a name="1-connect-to-your-arc-data-controller"></a>1. Arc 데이터 컨트롤러에 연결
-- Arc 데이터 컨트롤러의 호스트에 세션이 이미 열려 있는 경우 다음 명령을 실행합니다.
-```console
-azdata login
-```
-
-- Arc 데이터 컨트롤러의 호스트에 세션이 열려 있지 않은 다음 명령을 실행합니다. 
-```console
-azdata login --endpoint https://<external IP address of host/data controller>:30080
-```
-
-#### <a name="2-show-the-connection-endpoints"></a>2. 연결 엔드포인트 표시
 다음 명령을 실행합니다.
-```console
-azdata arc postgres endpoint list -n <server group name>
+```azurecli
+az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 예를 들면 다음과 같습니다.
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 애플리케이션을 연결하고 데이터베이스를 사용하기 위해 사용하는 PostgreSQL 엔드포인트, 로그 분석 및 모니터링을 위한 Kibana 및 Grafana 엔드포인트 등 엔드포인트 목록이 표시됩니다. 예를 들면 다음과 같습니다. 
@@ -79,7 +66,7 @@ postgres=#
 > [!NOTE]
 >
 > - ‘PostgreSQL 인스턴스’라는 엔드포인트에 표시된 _postgres_ 사용자의 암호는 서버 그룹을 배포할 때 선택한 암호입니다.
-> - azdata 정보: 연결과 관련된 임대는 약 10시간 동안 지속됩니다. 이후 다시 연결해야 합니다. 임대가 만료된 경우 azdata(azdata 로그인 제외)로 명령을 실행하려고 하면 다음 오류 메시지가 표시됩니다. _ERROR: (401)_ 
+> _ERROR: (401)_ 
 > _Reason: Unauthorized_
 > _HTTP response headers: HTTPHeaderDict({'Date': 'Sun, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ 
 > _Basic realm="Login_ credentials required", Bearer error="invalid_token", error_description="The token is expired"'})_ 이 경우 위에서 설명한 대로 azdata에 다시 연결해야 합니다.
@@ -94,7 +81,6 @@ kubectl get postgresqls/<server group name> -n <namespace name>
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   3/3          123.456.789.4:31066      5d20h
 ``` 
-
 
 ## <a name="form-connection-strings"></a>연결 문자열을 구성합니다.
 서버 그룹에 대한 연결 문자열에 아래 템플릿 표를 사용합니다. 그런 다음, 필요에 따라 복사/붙여넣고 사용자 지정할 수 있습니다.

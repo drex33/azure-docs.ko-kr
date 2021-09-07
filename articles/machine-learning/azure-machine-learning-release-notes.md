@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 08/18/2021
-ms.openlocfilehash: 1f3ed6e3c661e0238b6a29284a2da7254edab6c4
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 02/18/2021
+ms.openlocfilehash: 2c195111f6df96b5b8ec04f7aad3dace7ab8371f
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824842"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539143"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 

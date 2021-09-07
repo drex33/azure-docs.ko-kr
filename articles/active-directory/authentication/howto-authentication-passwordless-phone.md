@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/20/2021
+ms.date: 07/02/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f741cb21f427734c49001b9c672ed3e61c43adbc
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 3f2f3a3c561b2fe82dcbeaaee1138c0d465ac6a4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613234"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528747"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱으로 암호 없는 로그인을 사용하도록 설정 
 
@@ -36,7 +36,12 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 Microsoft Authenticator 앱에서 암호 없는 휴대폰 로그인을 사용하려면 다음 사전 요구 사항을 충족해야 합니다.
 
-- Azure AD Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용됩니다.
+- Azure AD Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용됩니다. 스마트폰 또는 태블릿에 알림을 푸시하여 Authenticator 앱에서 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지하도록 할 수 있습니다. Authenticator 앱은 푸시 알림을 수행하도록 설정된 경우 자동으로 코드를 생성하므로 디바이스가 연결되지 않은 경우에도 사용자에게 백업 로그인 방법이 있습니다. 
+  
+  사용자가 휴대폰 로그인에 대한 푸시 알림을 등록할 수 있도록 하려면 Azure Multi-Factor Auth Connector를 사용하도록 설정해야 합니다.
+
+  ![사용하도록 설정된 Azure Multi-Factor Auth Connector 스크린샷](media/howto-authentication-passwordless-phone/connector.png)
+
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
 - Microsoft Authenticator 앱이 설치된 디바이스를 Azure AD 테넌트 내에 개별 사용자에게 등록해야 한다는 것입니다. 
 
@@ -57,7 +62,7 @@ Azure AD를 사용하면 로그인 프로세스 중에 사용할 수 있는 인�
 
 암호 없는 휴대폰 로그인에 대한 인증 방법을 사용하도록 설정하려면 다음 단계를 완료합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 *전역 관리자 계정* 으로 로그인합니다.
+1. *인증 정책 관리자* 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. *Azure Active Directory* 를 검색하고 선택한 다음 **보안** > **인증 방법** > **정책** 으로 이동합니다.
 1. **Microsoft Authenticator** 에서 다음 옵션을 선택합니다.
    1. **사용** - 예 또는 아니요
@@ -144,5 +149,5 @@ Azure AD를 사용하면 로그인 프로세스 중에 사용할 수 있는 인�
 Azure AD 인증 및 암호 없는 메서드에 대해 알아보려면 다음 문서를 참조하세요.
 
 - [암호 없는 인증의 작동 원리 알아보기](concept-authentication-passwordless.md)
-- [디바이스 등록에 대한 자세한 정보](../devices/overview.md#getting-devices-in-azure-ad)
+- [디바이스 등록에 대한 자세한 정보](../devices/overview.md)
 - [Azure AD 다단계 인증에 대한 자세한 정보](../authentication/howto-mfa-getstarted.md)

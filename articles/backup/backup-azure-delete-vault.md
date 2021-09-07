@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거한 다음 Azure Backup Recovery Services 자격 증명 모음을 삭제하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/07/2021
-ms.openlocfilehash: 022297407200f6045cd0cf4c0922a83c41333a04
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 0eb5e7c48bf15583e96a5bf30149ba01ee7c2e33
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752756"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529225"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
@@ -52,7 +52,7 @@ ms.locfileid: "111752756"
 
 해당 단계를 완료하면 계속해서 [자격 증명 모음을 삭제](#delete-the-recovery-services-vault)할 수 있습니다.
 
-온-프레미스 또는 클라우드에 보호된 항목이 없지만 자격 증명 모음 삭제 오류가 계속 발생하는 경우 [Azure Resource Manager를 사용하여 Recovery Services 자격 증명 모음 삭제](#delete-the-recovery-services-vault-by-using-azure-resource-manager)의 단계를 수행합니다.
+종속성이 없는 **자격 증명 모음을 여전히 삭제할 수 없는 경우** [**ARM 클라이언트를 사용하여 자격 증명 모음 삭제**](#delete-the-recovery-services-vault-by-using-azure-resource-manager)에 나열된 단계를 수행합니다.
 
 ## <a name="delete-protected-items-in-the-cloud"></a>클라우드에서 보호된 항목 삭제
 

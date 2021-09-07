@@ -1,18 +1,21 @@
 ---
 title: ADF에서 CI-CD, Azure DevOps 및 GitHub 문제 해결
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 여러 방법을 사용하여 ADF에서 CI-CD 문제를 해결할 수 있습니다.
 author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
+ms.subservice: ci-cd
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 04/27/2021
-ms.openlocfilehash: 72f58258f427c5a9414bd7627d4d121c6a89c365
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.date: 06/27/2021
+ms.openlocfilehash: 774f1dddf7c0b4cdecd9d6b45e6918b57bc17318
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112060861"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642938"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF에서 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
@@ -24,13 +27,13 @@ ms.locfileid: "112060861"
 
 - ADF에서 소스 제어가 수행되는 방법은 [ADF의 소스 제어](source-control.md)를 참조하세요. 
 - ADF에서 DevOps CI-CD가 수행되는 방법은 [ADF의 CI-CD](continuous-integration-deployment.md)를 참조하세요.
- 
+
 ## <a name="common-errors-and-messages"></a>일반적인 오류 및 메시지
 
 ### <a name="connect-to-git-repository-failed-due-to-different-tenant"></a>다른 테넌트로 인해 Git 리포지토리 연결이 실패함
 
 #### <a name="issue"></a>문제
-    
+
 경우에 따라 HTTP 상태 401과 같은 인증 문제가 발생할 수 있습니다. 특히 게스트 계정을 사용하는 여러 테넌트가 있는 경우 상황이 더 복잡해질 수 있습니다.
 
 #### <a name="cause"></a>원인
@@ -65,7 +68,7 @@ CI/CD 파이프라인이 다음 오류와 함께 실패합니다.
 
 다음 오류와 함께 CI/CD 릴리스 파이프라인이 실패합니다.
 
-`
+```output
 2020-07-06T09:50:50.8716614Z There were errors in your deployment. Error code: DeploymentFailed.
 2020-07-06T09:50:50.8760242Z ##[error]At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.
 2020-07-06T09:50:50.8771655Z ##[error]Details:
@@ -73,7 +76,7 @@ CI/CD 파이프라인이 다음 오류와 함께 실패합니다.
 2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
 2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
 2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
-`
+```
 
 #### <a name="cause"></a>원인
 
@@ -81,10 +84,10 @@ CI/CD 파이프라인이 다음 오류와 함께 실패합니다.
 
 #### <a name="recommendation"></a>권장
 
-- 아래의 CI/CD 모범 사례를 참조하세요.
+- [CI/CD에 대한 모범 사례](continuous-integration-deployment.md#best-practices-for-cicd)를 참조하세요.
 
-    https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
 - 통합 런타임은 자주 변경되지 않으며 CI/CD의 모든 스테이지에서 비슷합니다. 따라서 Data Factory는 모든 CI/CD 스테이지에서 통합 런타임의 이름과 유형이 동일할 것으로 예상합니다. 이름과 유형 및 속성이 다르면 소스 및 대상 통합 런타임 구성이 일치하는지 확인한 후 릴리스 파이프라인을 배포합니다.
+
 - 모든 단계에서 통합 런타임을 공유하려면 공유 통합 런타임을 포함하기 위해 3개로 구성된 팩터리를 사용하는 것이 좋습니다. 모든 환경에서 이 공유 팩터리를 연결된 통합 런타임 형식으로 사용할 수 있습니다.
 
 ### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>잘못된 참조로 인해 문서 만들기 또는 업데이트가 실패함
@@ -167,7 +170,7 @@ Azure Resource Manager의 4MB 총 템플릿 크기 제한에 도달하여 배포
 
 #### <a name="cause"></a>원인
 
-Azure Resource Manager는 템플릿 크기를 4MB로 제한합니다. 템플릿의 크기는 4MB로, 각 매개 변수 파일의 크기는 64KB로 제한됩니다. 4MB의 제한은 반복적인 리소스 정의로 확장된 후 템플릿의 마지막 상태와 변수 및 매개 변수 값에 적용됩니다. 하지만 이 제한이 초과되었습니다. 
+Azure Resource Manager는 템플릿 크기를 4MB로 제한합니다. 템플릿의 크기는 4MB로, 각 매개 변수 파일의 크기는 64KB로 제한됩니다. 4MB 제한은 반복 리소스 정의로 확장된 다음 템플릿의 최종 상태에 적용되며, 변수 및 매개 변수의 값에 적용됩니다. 하지만 이 제한이 초과되었습니다. 
 
 #### <a name="resolution"></a>해결 방법
 
@@ -182,11 +185,11 @@ Azure Resource Manager는 템플릿 크기를 4MB로 제한합니다. 템플릿�
 #### <a name="cause"></a>원인
 
 * ADF에 Oauth를 구성하지 않았습니다. 
-* URL이 잘못 구성되었습니다.
+* URL이 잘못 구성되었습니다. repoConfiguration은 [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true) 형식이어야 합니다.
 
-##### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해결 방법 
 
-먼저 ADF에 Oauth 액세스 권한을 부여합니다. 그런 후 올바른 URL을 사용하여 GIT Enterprise에 연결해야 합니다. 구성을 고객 조직으로 설정해야 합니다. 예를 들어 ADF가 *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* 를 먼저 시도하고 실패합니다. 그런 후 *https://hostname/api/v3/orgs/<org>/<repo>...* 를 실패하고 성공합니다. 
+먼저 ADF에 Oauth 액세스 권한을 부여합니다. 그런 후 올바른 URL을 사용하여 GIT Enterprise에 연결해야 합니다. 구성을 고객 조직으로 설정해야 합니다. 예를 들어, ADF는 처음에 *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* 을 시도하고 실패합니다. 그런 후 *https://hostname/api/v3/orgs/&lt;org&gt;/&lt; repo&gt;...* 를 시도하고 성공합니다.  
  
 ### <a name="cannot-recover-from-a-deleted-data-factory"></a>삭제된 데이터 팩터리에서 복구할 수 없음
 
@@ -247,13 +250,43 @@ CI/CD의 전역 매개 변수에 설명된 대로 **ARM 템플릿에 포함** �
 ### <a name="extra--left--displayed-in-published-json-file"></a>게시된 JSON 파일에 불필요한 왼쪽 "["가 표시됨
 
 #### <a name="issue"></a>문제
-DevOps를 통해 ADF를 게시할 때 왼쪽 "["가 1개 더 표시됩니다. ADF는 DevOps의 ARMTemplate에 왼쪽 "["를 1개 더 자동으로 추가합니다. 
+DevOps를 통해 ADF를 게시할 때 왼쪽 "["가 1개 더 표시됩니다. ADF는 DevOps의 ARMTemplate에 왼쪽 "["를 1개 더 자동으로 추가합니다. JSON 파일에 "[["와 같은 식이 표시됩니다.
 
 #### <a name="cause"></a>원인
 [는 ARM에서 예약 문자이므로 "["를 이스케이프하기 위해 추가 [가 자동으로 추가됩니다.
 
 #### <a name="resolution"></a>해상도
 이것은 CI/CD에 대한 ADF 게시 프로세스 중에 일반적으로 나타나는 동작입니다.
+ 
+### <a name="perform-cicd-during--progressqueued-stage-of-pipeline-run"></a>파이프라인 실행의 진행 중/대기 중 스테이지에서 **CI/CD** 를 수행합니다.
+
+#### <a name="issue"></a>문제
+파이프라인 실행의 진행 중 및 대기 스테이지 중에 CI/CD를 수행하려고 합니다.
+
+#### <a name="cause"></a>원인
+파이프라인이 진행 중/대기 중 스테이지인 경우 먼저 파이프라인 및 작업을 모니터링해야 합니다. 그런 다음, 파이프라인이 완료될 때까지 기다리거나 파이프라인 실행을 취소할 수 있습니다. 
+ 
+#### <a name="resolution"></a>해결 방법
+**SDK**, **Azure Monitor** 또는 [ADF Monitor](./monitor-visually.md)를 사용하여 파이프라인을 모니터링할 수 있습니다. 그런 다음, [ADF CI/CD 모범 사례](./continuous-integration-deployment.md#best-practices-for-cicd)에 따라 추가 지침을 확인할 수 있습니다. 
+
+### <a name="perform-unit-testing-during-adf-development-and-deployment"></a>ADF 개발 및 배포 동안 **단위 테스트** 를 수행합니다.
+
+#### <a name="issue"></a>문제
+ADF 파이프라인을 개발 및 배포하는 동안 단위 테스트를 수행하려고 합니다.
+
+#### <a name="cause"></a>원인
+개발 및 배포 주기 동안 파이프라인을 수동으로 또는 자동으로 게시하기 전에 파이프라인에 대해 단위 테스트를 수행할 수 있습니다. 테스트 자동화를 사용하면 반복성을 보장하면서 더 적은 시간 안에 더 많은 테스트를 실행할 수 있습니다. 배포 전에 모든 ADF 파이프라인을 자동으로 다시 테스트하면 회귀 오류를 방지할 수 있습니다. 자동화된 테스트는 CI/CD 소프트웨어 개발 방법의 핵심 구성 요소입니다. Azure Data Factory를 위해 CI/CD 배포 파이프라인에 자동화된 테스트를 포함하면 품질을 크게 향상시킬 수 있습니다. 장기적으로 테스트된 ADF 파이프라인 아티팩트도 재사용되어 비용과 시간을 절약할 수 있습니다.  
+ 
+#### <a name="resolution"></a>해결 방법
+고객은 다른 기술 집합을 사용하는 다른 단위 테스트 요구 사항을 가질 수 있으므로 일반적으로 다음 단계를 따라야 합니다.
+
+1. Azure DevOps CI/CD 프로젝트를 설정하거나 .NET/PYTHON/REST 유형 SDK 기반 테스트 전략을 개발합니다.
+2. CI/CD의 경우 모든 스크립트를 포함하는 빌드 아티팩트를 만들고 릴리스 파이프라인에 리소스를 배포합니다. SDK 기반 접근 방식의 경우 Python, .NET SDK를 사용하는 C# **Nunit** 등에서 PyTest를 사용하여 테스트 단위를 개발합니다.
+3. 릴리스 파이프라인의 일부로 또는 ADF Python/PowerShell/.NET/REST SDK를 통해 독립적으로 단위 테스트를 실행합니다. 
+
+예를 들어, 파일에서 중복 항목을 삭제한 다음, 큐레이팅된 파일을 데이터베이스에 테이블로 저장하려고 합니다. 파이프라인을 테스트하려면 Azure DevOps를 사용하여 CI/CD 프로젝트를 설정합니다.
+개발된 파이프라인을 배포하는 테스트 파이프라인 스테이지를 설정합니다. 테이블 데이터가 예상한 데이터인지 확인하기 위해 Python 테스트를 실행하도록 테스트 스테이지를 구성합니다. CI/CD를 사용하지 않는 경우 **Nunit** 를 사용하여 원하는 테스트로 배포된 파이프라인을 트리거할 수 있습니다. 결과에 만족하면 마지막으로 파이프라인을 프로덕션 데이터 팩터리로 게시할 수 있습니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 

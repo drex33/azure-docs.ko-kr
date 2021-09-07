@@ -3,12 +3,12 @@ title: 이벤트 전달, 관리형 서비스 ID 및 프라이빗 링크
 description: 이 문서에서는 Azure Event Grid 토픽에 대해 관리형 서비스 ID를 사용하도록 설정하는 방법을 설명합니다. 이 ID를 사용하여 지원되는 대상에 이벤트를 전달합니다.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 76f10b4627dc9578b1e616a868eab03431b59b69
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f1f80f23fe108415daa6e0526b651c7269d6b1b3
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625281"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634113"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>관리 ID를 사용하여 이벤트 전달
 이 문서에서는 Azure Event Grid 시스템 토픽, 사용자 지정 토픽 또는 도메인에 대해 [관리형 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하도록 설정하는 방법을 설명합니다. 이 ID를 사용하여 Service Bus 큐 및 토픽, Event Hubs, 스토리지 계정 등의 지원되는 대상으로 이벤트를 전달합니다.
@@ -16,7 +16,7 @@ ms.locfileid: "105625281"
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
-1. 시스템에서 할당한 ID를 시스템 토픽, 사용자 지정 토픽 또는 도메인에 할당합니다. 
+1. 시스템 할당 ID 또는 사용자 할당 ID를 시스템 토픽, 사용자 지정 토픽 또는 도메인에 할당합니다. 
     - 사용자 지정 토픽 및 도메인은 [사용자 지정 토픽 및 도메인에 관리 ID 사용](enable-identity-custom-topics-domains.md)을 참조하세요. 
     - 시스템 토픽은 [시스템 토픽에 관리 ID 사용](enable-identity-system-topics.md)을 참조하세요.
 1. 대상(예: Service Bus 큐)의 적절한 역할(예: Service Bus 데이터 보낸 사람)에 ID를 추가합니다. 자세한 단계는 [대상의 Azure 역할에 ID 추가](add-identity-roles.md)를 참조하세요.
@@ -28,13 +28,24 @@ ms.locfileid: "105625281"
 Event Grid 사용자 지정 토픽이나 시스템 토픽 또는 시스템 관리 ID를 사용하는 도메인이 있으며 대상의 적절한 역할에 ID를 추가하면, 해당 ID를 사용하는 구독을 만들 준비가 된 것입니다. 
 
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
-이벤트 구독을 만들 때 **엔드포인트 세부 정보** 섹션에서 엔드포인트에 대한 시스템 할당 ID를 사용하도록 설정하는 옵션이 표시됩니다. 
+이벤트 구독을 만들 때 **엔드포인트 세부 정보** 섹션에서 엔드포인트에 대한 시스템 할당 ID 또는 사용자 할당 ID를 사용하도록 설정하는 옵션이 표시됩니다. 
+
+다음은 Service Bus 큐를 대상으로 사용하여 이벤트 구독을 만드는 동안 시스템 할당 ID를 사용하도록 설정하는 예제입니다. 
 
 ![Service Bus 큐에 대한 이벤트 구독을 만드는 동안 ID 사용](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
 
 또한 **추가 기능** 탭의 전달하지 못한 편지에 사용할 시스템 할당 ID를 사용하도록 설정할 수 있습니다. 
 
 ![배달 못한 편지에 대해 시스템 할당 ID 사용](./media/managed-service-identity/enable-deadletter-identity.png)
+
+관리 ID를 만든 후 이벤트 구독에서 사용하도록 설정할 수도 있습니다. 이벤트 구독에 대한 **이벤트 구독** 페이지에서 **추가 기능** 탭으로 전환하여 옵션을 확인합니다. 
+
+![기존 이벤트 구독에서 시스템 할당 ID를 사용하도록 설정](./media/managed-service-identity/event-subscription-additional-features.png)
+
+토픽에 대해 사용자 할당 ID를 사용하도록 설정한 경우 **관리 ID 유형** 에 대한 드롭다운 목록에서 사용자 할당 ID 옵션이 사용하도록 설정된 것을 볼 수 있습니다. **관리 ID 유형** 에 대해 **사용자 할당** 을 선택하는 경우 이벤트를 전달하는 데 사용할 사용자 할당 ID를 선택할 수 있습니다. 
+
+![이벤트 구독에서 사용자 할당 ID 사용](./media/managed-service-identity/event-subscription-user-identity.png)
+
 
 ### <a name="use-the-azure-cli---service-bus-queue"></a>Azure CLI 사용 - Service Bus 큐 
 이 섹션에서는 Azure CLI를 사용하여 시스템 할당 ID를 통해 Service Bus 큐에 이벤트를 전달하도록 설정하는 방법을 알아봅니다. ID는 **Azure Service Bus 데이터 보낸 사람** 역할의 멤버여야 합니다. 또한 배달 못한 편지 처리에 사용되는 스토리지 계정에서 **Storage Blob 데이터 기여자** 역할의 멤버여야 합니다. 

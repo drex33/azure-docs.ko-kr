@@ -1,14 +1,14 @@
 ---
 title: Azure Backup Server V3 RTM에서 백업할 수 있는 항목
 description: 이 문서에서는 Azure Backup Server V3 RTM에서 보호하는 모든 워크로드, 데이터 형식 및 설치 프로그램을 나열하는 보호 매트릭스를 제공합니다.
-ms.date: 11/13/2018
+ms.date: 07/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1ec8240844061b9b250a3cbf92ffcc5f2b3f474b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3dfae3e241a5dadd1d49d3d537b46308446d60b8
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98986890"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720196"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Azure Backup Server V3 RTM 보호 매트릭스
 
@@ -77,7 +77,7 @@ ms.locfileid: "98986890"
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 MABS 보호 에이전트|Windows Server 2008 R2 SP1 - Enterprise 및 Standard|실제 서버<br /><br />온-프레미스 Hyper-V 가상 머신|V3, V2|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 머신, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 MABS 보호 에이전트|Windows Server 2008 SP2|실제 서버<br /><br />온-프레미스 Hyper-V 가상 머신|지원되지 않음|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 머신, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |VMware VM|VMware vCenter/vSphere ESX/ESXi  라이선스 버전 5.5/6.0/6.5 |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMware의 Windows VM|V3, V2|클러스터 공유 볼륨(CSVs), NFS 및 SAN 스토리지의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
-|VMware VM|[VMware vSphere 라이선스 버전 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMware의 Windows VM|V3|클러스터 공유 볼륨(CSVs), NFS 및 SAN 스토리지의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
+|VMware VM|[VMware vSphere 라이선스 버전 6.7 및 7.0](backup-azure-backup-server-vmware.md#vmware-vsphere-67-and-70) |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMware의 Windows VM|V3|클러스터 공유 볼륨(CSVs), NFS 및 SAN 스토리지의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
 |Linux|[Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) 또는 [VMware](backup-azure-backup-server-vmware.md) 게스트로 실행되는 Linux|물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMware의 Windows VM|V3, V2|Windows Server 2012 R2 또는 Windows Server 2016에서 Hyper-V를 실행해야 합니다. 보호: 전체 가상 머신<br /><br />복구: 전체 가상 머신 <br/><br/> 파일에 일관적인 스냅샷만 지원됩니다. <br/><br/> 지원되는 Linux 배포 및 버전의 전체 목록은 [Azure에서 만든 Linux 배포판](../virtual-machines/linux/endorsed-distros.md) 문서를 참조하세요.|
 
 ## <a name="azure-expressroute-support"></a>Azure ExpressRoute 지원

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 08/18/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3f185f24c824008a6488ab2e9401dd05439daafb
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: ff085c32c7aeb63fea04f04558c1bccd5814b29b
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984971"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568068"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -25,6 +25,9 @@ Azure Storage는 항상 계획된 이벤트 그리고 일시적인 하드웨어 
 - 기본 지역에서 데이터를 복제하는 방법
 - 지역 재해로부터 보호하기 위해 데이터가 주 지역에서 지리적으로 멀리 떨어진 보조 지역으로 복제되는지 여부
 - 어떤 이유로든 기본 지역을 사용할 수 없는 경우 보조 지역의 복제된 데이터에 대한 읽기 액세스 권한이 응용 프로그램에 필요한지 여부
+
+> [!NOTE]
+> 이 문서에 설명된 기능 및 국가별 가용성은 계층 구조 네임스페이스가 있는 계정에서도 사용할 수 있습니다.
 
 ## <a name="redundancy-in-the-primary-region"></a>기본 지역의 중복성
 
@@ -127,24 +130,24 @@ GZRS 저장소 계정을 사용하면 가용성 영역을 사용할 수 없거�
 
 GZRS 및 RA-GZRS는 다음 지역에서 지원됩니다.
 
-- (아프리카) 남아프리카 북부
-- (아시아 태평양) 동남아시아
+- (아시아 태평양) 동아시아
+- (아시아 태평양) 아시아 남동부
 - (아시아 태평양) 오스트레일리아 동부
-- (아시아 태평양) 인도 중부
 - (아시아 태평양) 일본 동부
-- (아시아 태평양) 한국 중부
 - (캐나다) 캐나다 중부
 - (유럽) 북유럽
 - (유럽) 서유럽
 - (유럽) 프랑스 중부
-- (유럽) 독일 중서부
+- (유럽) 노르웨이 동부
 - (유럽) 영국 남부
 - (남미) 브라질 남부
 - (미국) 미국 중부
 - (미국) 미국 동부
 - (미국) 미국 동부 2
+- (미국) 미국 정부 동부
 - (미국) 미국 중남부
 - (미국) 미국 서부 2
+- (미국) 미국 서부 3
 
 가격 책정에 대한 자세한 내용은 [Blob](https://azure.microsoft.com/pricing/details/storage/blobs), [파일](https://azure.microsoft.com/pricing/details/storage/files/), [큐](https://azure.microsoft.com/pricing/details/storage/queues/) 및 [테이블](https://azure.microsoft.com/pricing/details/storage/tables/)에 대한 가격 책정을 참조하세요.
 
@@ -203,9 +206,12 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 다음 표에서는 각 Azure Storage 서비스에서 지원되는 중복성 옵션을 보여 줍니다.
 
-| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
-|:-|:-|:-|:-|
-| Blob Storage<br />Queue Storage<br />Table Storage<br />Azure 파일<br />Azure Managed Disks | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure 파일 | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure 파일<br /> | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure 파일<br /> |
+| LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
+|---|---|---|---|---|---|
+| Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure Managed Disks | Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1,</sup><sup>2</sup> | Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1</sup> | Blob Storage <br />Queue Storage <br />Table Storage <br /> | Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1</sup> | Blob Storage <br />Queue Storage <br />Table Storage <br /> |
+
+<sup>1</sup> 표준 파일 공유는 LRS 및 ZRS에서 지원됩니다. 표준 파일 공유는 크기가 5TiB 이하인 경우 GRS 및 GZRS에서 지원됩니다.<br />
+<sup>2</sup> 프리미엄 파일 공유는 LRS 및 ZRS에서 지원됩니다.<br />
 
 ### <a name="supported-storage-account-types"></a>지원되는 스토리지 계정 형식
 

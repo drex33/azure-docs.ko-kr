@@ -2,21 +2,21 @@
 title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
-ms.date: 09/22/2018
-ms.openlocfilehash: eb595d666641003c813573a70ab7365732e0a386
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.date: 07/27/2021
+ms.openlocfilehash: 7275d81401444dffbe0917bdb72ba79100880749
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983153"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567494"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
-함수 앱의 앱 설정에는 해당 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 로컬에서 실행할 때 이러한 설정은 로컬 [환경 변수](functions-run-local.md#local-settings-file)로 액세스합니다. 이 문서에는 함수 앱에서 사용할 수 있는 앱 설정이 나열되어 있습니다.
+함수 앱의 앱 설정에는 해당 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 로컬에서 실행할 때 이러한 설정은 로컬 [환경 변수](functions-develop-local.md#local-settings-file)로 액세스합니다. 이 문서에는 함수 앱에서 사용할 수 있는 앱 설정이 나열되어 있습니다.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-[host.json](functions-host-json.md) 파일과 [local.settings.json](functions-run-local.md#local-settings-file) 파일에는 다른 전역 구성 옵션이 있습니다.
+[host.json](functions-host-json.md) 파일과 [local.settings.json](functions-develop-local.md#local-settings-file) 파일에는 다른 전역 구성 옵션이 있습니다.
 
 > [!NOTE]
 > 애플리케이션 설정을 사용하여 host.json 파일 자체를 변경할 필요 없이 host.json 설정 값을 재정의할 수 있습니다. 이 기능은 특정 환경에 대한 특정 host.json 설정을 구성하거나 수정해야 하는 경우에 유용합니다. 이렇게 하면 프로젝트를 다시 게시하지 않고도 host.json 설정을 변경할 수 있습니다. 자세한 내용은 [host.json 참조 문서](functions-host-json.md#override-hostjson-values)를 참조하세요. 함수 앱 설정을 변경하려면 함수 앱을 다시 시작해야 합니다.
@@ -294,6 +294,16 @@ _이 설정은 현재 미리 보기로 있습니다._
 
 [!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
+## <a name="scm_logstream_timeout"></a>SCM\_LOGSTREAM\_TIMEOUT
+
+스트리밍 로그에 연결된 경우 시간 초과(초)를 제어합니다. 기본값은 7200(2시간)입니다. 
+
+|키|샘플 값|
+|-|-|
+|SCM_LOGSTREAM_TIMEOUT|1800|
+
+위의 샘플 값 `1800`은 30분의 시간 초과를 설정합니다. 자세한 내용은 [스트리밍 로그 사용](functions-run-local.md#enable-streaming-logs)을 참조하세요.
+
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
 Windows에서 실행되는 이벤트 기반 스케일링 플랜에 함수 앱 코드와 구성이 저장되는 스토리지 계정에 대한 연결 문자열입니다. 자세한 내용은 [함수 앱 만들기](functions-infrastructure-as-code.md#windows)를 참조하세요.
@@ -306,11 +316,13 @@ Windows에서 실행되는 이벤트 기반 스케일링 플랜에 함수 앱 �
 
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
-프리미엄 플랜에만 해당합니다. `1` 값을 사용하면 스토리지 계정이 가상 네트워크로 제한된 경우 함수 앱을 스케일링할 수 있습니다. 스토리지 계정을 가상 네트워크로 제한할 때 이 설정을 사용하도록 설정해야 합니다. 자세히 알아보려면 [가상 네트워크로 스토리지 계정 제한](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network)을 참조하세요.
+`1` 값을 사용하면 스토리지 계정이 가상 네트워크로 제한된 경우 함수 앱을 스케일링할 수 있습니다. 스토리지 계정을 가상 네트워크로 제한할 때 이 설정을 사용하도록 설정해야 합니다. 자세히 알아보려면 [가상 네트워크로 스토리지 계정 제한](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network)을 참조하세요.
 
 |키|샘플 값|
 |---|------------|
 |WEBSITE_CONTENTOVERVNET|1|
+
+Windows를 실행하는 [프리미엄](functions-premium-plan.md) 및 [전용(App Service) 플랜](dedicated-plan.md)(표준 이상)에서 지원됩니다. 현재 Linux를 실행하는 소비 및 프리미엄 플랜에서는 지원되지 않습니다. 
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 

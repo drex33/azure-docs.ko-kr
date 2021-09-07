@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 08/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 87415fc98bbcc9331ae4ff6282a65c85b570042d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32154904a78062f5e3afdb6217351f39151b36b8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579776"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528408"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
@@ -42,7 +42,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=form_post
+&response_mode=fragment
 &scope=openid%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
@@ -55,7 +55,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id | 예 | [Azure Portal](https://portal.azure.com/)이 애플리케이션에 할당한 애플리케이션 ID입니다. |
 | nonce | 예 | 애플리케이션에서 생성한 요청에 포함된 값이며, 결과 ID 토큰에 클레임으로 포함됩니다. 그러면 애플리케이션에서 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | response_type | 예 | OpenID Connect의 ID 토큰을 포함해야 합니다. 웹 API를 호출하기 위한 토큰이 웹 애플리케이션에 필요한 경우 `code+id_token`을 사용할 수 있습니다. |
-| scope | 예 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. `offline_access` 범위는 웹 애플리케이션에 대한 선택 사항입니다. 리소스에 확장된 시간 동안 액세스하기 위한 ‘새로 고침 토큰’이 애플리케이션에 필요함을 나타냅니다. |
+| scope | 예 | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. `offline_access` 범위는 웹 애플리케이션에 대한 선택 사항입니다. 리소스에 확장된 시간 동안 액세스하기 위한 ‘새로 고침 토큰’이 애플리케이션에 필요함을 나타냅니다. `https://{tenant-name}/{app-id-uri}/{scope}`는 웹 API와 같은 보호된 리소스에 대한 권한을 나타냅니다. 자세한 내용은 [액세스 토큰 요청](access-tokens.md#scopes)을 참조하세요. |
 | prompt | 예 | 필요한 사용자 상호 작용의 형식입니다. 현재 유효한 값은 `login`뿐이며, 이는 사용자가 해당 요청에 대한 자격 증명을 입력하도록 합니다. |
 | redirect_uri | 예 | 애플리케이션에서 인증 응답을 보내고 받을 수 있는 애플리케이션의 `redirect_uri` 매개 변수입니다. URL로 인코딩되어야 한다는 점을 제외하고는 Azure Portal에서 등록한 `redirect_uri` 매개 변수 중 하나와 정확히 일치해야 합니다. |
 | response_mode | 예 | 결과 권한 부여 코드를 애플리케이션에 다시 보내는 데 사용되는 메서드입니다. `query`, `form_post` 또는 `fragment` 중 하나일 수 있습니다.  최상의 보안을 위해 `form_post` 응답 모드를 사용하는 것이 좋습니다. |
@@ -77,7 +77,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | id_token | 애플리케이션이 요청한 ID 토큰입니다. ID 토큰을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. |
 | code | `response_type=code+id_token`을 사용한 경우 애플리케이션에서 요청한 권한 부여 코드입니다. 애플리케이션은 권한 부여 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. 권한 부여 코드는 일반적으로 약 10분 후에 만료됩니다. |
@@ -92,7 +92,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | error | 발생하는 오류 유형을 분류하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -195,7 +195,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 }
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | error | 발생하는 오류 유형을 분류하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별하도록 도울 수 있는 메시지입니다. |
@@ -264,7 +264,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 }
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --------- | ----------- |
 | error | 발생하는 오류 유형을 분류하는 데 사용할 수 있는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별하도록 도울 수 있는 메시지입니다. |

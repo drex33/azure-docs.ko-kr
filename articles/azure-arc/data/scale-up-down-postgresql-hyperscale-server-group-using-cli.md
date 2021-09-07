@@ -1,24 +1,22 @@
 ---
-title: CLI(azdata 또는 kubectl)를 사용하여 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 업 및 스케일 다운
-description: CLI(azdata 또는 kubectl)를 사용하여 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 업 및 스케일 다운
+title: CLI(az 또는 kubectl)를 사용하여 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 업 및 스케일 다운
+description: CLI(az 또는 kubectl)를 사용하여 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 업 및 스케일 다운
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 490eaaef7e4e8569e4422b2ef2659ced583f7ff2
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8b2b64de8dd16e36b6956c289beda986d89a5c98
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407402"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528587"
 ---
-# <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>CLI(azdata 또는 kubectl)를 사용하여 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 업 및 스케일 다운
-
-
+# <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-az-or-kubectl"></a>CLI(az 또는 kubectl)를 사용하여 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 업 및 스케일 다운
 
 서버 그룹의 특성 또는 정의를 변경해야 하는 경우가 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
@@ -35,10 +33,10 @@ ms.locfileid: "111407402"
 
 서버 그룹 현재 정의를 표시하고 현재 vCore 및 메모리 설정을 확인하려면 다음 명령 중 하나를 실행합니다.
 
-### <a name="cli-with-azdata"></a>azdata를 사용하는 CLI
+### <a name="cli-with-azure-cli-az"></a>azure cli를 사용하는 CLI(az)
 
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 ### <a name="cli-with-kubectl"></a>kubectl을 사용하는 CLI
 
@@ -107,32 +105,29 @@ Spec:
 
 **일반 구문은 다음과 같습니다.**
 
-```console
-azdata arc postgres server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2>
+```azurecli
+az postgres arc-server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2> --k8s-namespace <namespace> --use-k8s
 ```
 
 메모리 설정에 대해 나타내는 값은 숫자 뒤에 볼륨 단위가 나옵니다. 예를 들어 1Gb를 나타내려면 1024Mi 또는 1Gi를 나타냅니다.
 코어 수를 나타내려면 단위 없이 숫자를 전달하면 됩니다. 
 
-### <a name="examples-using-the-azdata-cli"></a>azdata CLI를 사용하는 예제
-
-
-
-
+### <a name="examples-using-the-azure-cli"></a>Azure CLI를 사용하는 예제
 
 **코디네이터 역할이 2개 코어를 초과하지 않도록 구성하고 작업자 역할이 4개 코어를 초과하지 않도록 구성합니다.**
-```console
- azdata arc postgres server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
- azdata arc postgres server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4
+
+```azurecli
+ az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace <namespace> --use-k8s
+ az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace <namespace> --use-k8s
 ```
 
 또는
-```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4
+```azurecli
+az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!NOTE]
-> 이러한 매개 변수에 대한 자세한 내용은 `azdata arc postgres server edit --help`를 실행합니다.
+> 이러한 매개 변수에 대한 자세한 내용은 `az postgres arc-server edit --help`를 실행합니다.
 
 ### <a name="example-using-kubernetes-native-tools-like-kubectl"></a>`kubectl`과 같은 Kubernetes 네이티브 도구를 사용하는 예제
 
@@ -190,14 +185,14 @@ kubectl edit postgresql/<servergroup name> -n <namespace name>
 ## <a name="reset-to-default-values"></a>기본 값으로 초기화
 코어/메모리 제한/요청 매개 변수를 기본값으로 다시 설정하려면 해당 매개 변수를 편집하고 실제 값 대신 빈 문자열을 전달합니다. 예를 들어 코어 제한 매개 변수를 다시 설정하려는 경우 다음 명령을 실행합니다.
 
-```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker=''
-azdata arc postgres server edit -n postgres01 --cores-limit coordinator='',worker=''
+```azurecli
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
 ```
 
 또는 
-```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker=''
+```azurecli
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="next-steps"></a>다음 단계

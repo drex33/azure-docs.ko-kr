@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/12/2020
 ms.author: jgardner
-ms.openlocfilehash: d58d9ab48fa16fb5258f097ed4567e539e21c72c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cbdc2a43cc4fa3ce18a2ede52a115fd6de580c5
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100615979"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114471582"
 ---
 # <a name="move-an-azure-workbook-to-another-region"></a>Azure 통합 문서를 다른 지역으로 이동
 
@@ -25,7 +25,7 @@ ms.locfileid: "100615979"
 
 * 대상 지역에서 통합 문서가 지원되는지 확인합니다.
 
-* 이러한 지침은 Azure Monitor에 저장된 공유 통합 문서(`microsoft.insights/workbooks`) 및 개인 통합 문서(`microsoft.insights/myworkbooks`)와 대부분의 리소스 유형에 적용됩니다.
+* 이러한 지침은 Azure Monitor에 저장된 통합 문서(`microsoft.insights/workbooks`) 및 대부분의 리소스 유형에 적용됩니다.
 
   하지만 Application Insights 리소스 유형에 특별히 연결된 통합 문서는 Application Insights 리소스가 저장된 Azure 지역에 저장됩니다.
 

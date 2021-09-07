@@ -2,14 +2,14 @@
 title: 컨테이너 워크로드
 description: Azure Batch의 컨테이너 이미지에서 앱을 실행하고 크기를 조정하는 방법을 알아봅니다. 컨테이너 작업 실행을 지원하는 컴퓨팅 노드 풀을 만듭니다.
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 08/18/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8effa7daf0c30edaef9924cbefe35cdad1b20e1
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91843450"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568267"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
@@ -32,14 +32,13 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
   - Batch Java SDK 버전 3.0
   - Batch Node.js SDK 버전 3.0
 
-- **계정**: Azure 구독에서 배치 계정을 만들고, 필요에 따라 Azure Storage 계정도 만들어야 합니다.
+- **계정**: Azure 구독에서 [Batch 계정](accounts.md)을 만들고, 필요에 따라 Azure Storage 계정도 만들어야 합니다.
 
-- **지원되는 VM 이미지**: 컨테이너는 다음 섹션, “지원되는 가상 머신 이미지”에 자세히 설명된 이미지의 Virtual Machine 구성으로 만든 풀에서만 지원됩니다. 사용자 지정 이미지를 제공하는 경우 다음 섹션의 고려 사항 및 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 요구 사항을 참조하세요.
+- **지원되는 VM 이미지**: 컨테이너는 다음 섹션에 나와 있는 지원되는 이미지에서 Virtual Machine 구성으로 만든 풀에서만 지원됩니다. 사용자 지정 이미지를 제공하는 경우 다음 섹션의 고려 사항 및 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 요구 사항을 참조하세요.
 
 다음 제한 사항에 유의합니다.
 
 - Batch는 Linux 풀에서 실행되는 컨테이너에 대해서만 RDMA 지원을 제공합니다.
-
 - Windows 컨테이너 워크로드의 경우 풀에 대한 다중 코어 VM 크기를 선택하는 것이 좋습니다.
 
 ## <a name="supported-virtual-machine-images"></a>지원되는 가상 머신 이미지
@@ -71,10 +70,8 @@ Linux 컨테이너 워크로드의 경우 현재 Batch는 사용자 지정 이�
 이러한 이미지는 Azure Batch 풀에서만 사용할 수 있으며 Docker 컨테이너 실행에 적합합니다. 특징은 다음과 같습니다.
 
 - 사전 설치된 Docker 호환 [Moby](https://github.com/moby/moby) 컨테이너 런타임
-
 - Azure N 시리즈 VM의 배포를 간소화하기 위해 사전 설치된 NVIDIA GPU 드라이버 및 NVIDIA 컨테이너
-
-- 접미사가 `-rdma`인 이미지의 Infiniband RDMA VM 크기를 지원하는 사전 설치/사전 구성된 이미지입니다. 현재 이러한 이미지는 SR-IOV IB/RDMA VM 크기를 지원하지 않습니다.
+- 접미사가 '-rdma'인 VM 이미지는 InfiniBand RDMA VM 크기를 지원하도록 미리 구성됩니다. 이러한 VM 이미지는 InfiniBand가 지원되지 않는 VM 크기와 함께 사용하면 안 됩니다.
 
 Batch와 호환되는 Linux 배포판 중 하나에서 Docker를 실행하는 VM에서 사용자 지정 이미지를 만들 수도 있습니다. 자체 사용자 지정 Linux 이미지를 제공하려는 경우 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 지침을 참조하세요.
 
@@ -83,7 +80,6 @@ Batch와 호환되는 Linux 배포판 중 하나에서 Docker를 실행하는 VM
 사용자 지정 Linux 이미지를 사용하기 위한 추가 고려 사항:
 
 - 사용자 지정 이미지 사용 시 Azure N-시리즈 크기의 GPU 성능을 활용하려면 NVIDIA 드라이버를 사전 설치합니다. 또한 NVIDIA GPU용 Docker 엔진 유틸리티인 [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker)를 설치해야 합니다.
-
 - Azure RDMA 네트워크에 액세스하려면 RDMA 가능 VM 크기를 사용합니다. 필수 RDMA 드라이버는 Batch에서 지원되는 CentOS HPC 및 Ubuntu 이미지에 설치됩니다. MPI 워크로드를 실행하기 위한 추가 구성이 필요할 수 있습니다. [Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용](batch-pool-compute-intensive-sizes.md)을 참조하세요.
 
 ## <a name="container-configuration-for-batch-pool"></a>Batch 풀에 대한 컨테이너 구성
@@ -277,6 +273,37 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
+### <a name="managed-identity-support-for-acr"></a>ACR에 대한 관리 ID 지원
+
+[Azure Container Registry](https://azure.microsoft.com/services/container-registry)에 저장된 컨테이너에 액세스할 때 사용자 이름/암호 또는 관리 ID를 사용하여 서비스를 인증할 수 있습니다. 관리 ID를 사용하려면 먼저 ID가 [풀에 할당되었는지](managed-identity-pools.md), ID에 액세스하려는 컨테이너 레지스트리에 할당된 `AcrPull` 역할이 있는지 확인합니다. 그런 다음, ACR을 사용하여 인증할 때 사용할 ID를 Batch에 간단히 알릴 수 있습니다.
+
+```csharp
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "myContainerRegistry.azurecr.io",
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" }
+);
+
+// Create container configuration, prefetching Docker images from the container registry
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> {
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry } );
+
+// VM configuration
+VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
+    imageReference: imageReference,
+    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
+
+// Create pool
+CloudPool pool = batchClient.PoolOperations.CreatePool(
+    poolId: poolId,
+    targetDedicatedComputeNodes: 4,
+    virtualMachineSize: "Standard_NC6",
+    virtualMachineConfiguration: virtualMachineConfiguration);
+...
+```
+
 ## <a name="container-settings-for-the-task"></a>작업(task)에 대한 컨테이너 설정
 
 컨테이너 사용 풀에서 컨테이너 작업을 실행하려면 컨테이너별 설정을 지정합니다. 설정에는 사용할 이미지, 레지스트리 및 컨테이너 실행 옵션이 포함됩니다.
@@ -285,7 +312,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 - 컨테이너 이미지에 대해 작업(task)를 실행하는 경우 [클라우드 작업(task)](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)에 컨테이너 설정이 필요합니다. 그러나 [시작 태스크](/dotnet/api/microsoft.azure.batch.starttask), [작업(Job) 준비 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)에는 컨테이너 설정이 필요하지 않습니다(즉, 컨테이너 컨텍스트 내에서 또는 노드에서 직접 실행될 수 있음).
 
-- Windows의 경우 [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel)을 `admin`으로 설정하여 작업을 실행해야 합니다. 
+- Windows의 경우 [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel)을 `admin`으로 설정하여 작업을 실행해야 합니다.
 
 - Linux의 경우 Batch는 컨테이너에 사용자/그룹 권한을 매핑합니다. 컨테이너 내의 폴더에 액세스할 때 관리자 권한이 필요한 경우 관리자 권한 상승 수준인 풀 범위로 작업을 실행해야 할 수 있습니다. 그러면 Batch가 컨테이너 컨텍스트에서 루트로 작업을 실행합니다. 실행하지 않으면 관리자가 아닌 사용자에게 해당 폴더에 대한 액세스 권한이 없을 수 있습니다.
 

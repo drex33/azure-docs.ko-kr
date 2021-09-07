@@ -7,17 +7,16 @@ ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
 ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: fb9c9f460b46f8dec741f4c22460cbe9d44c6a0e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: aebee9b2511e3616a9170d5ed84be3acf391b6ad
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110791114"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529663"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -30,7 +29,7 @@ ms.locfileid: "110791114"
 IoT Central에서 지원하는 다음 두 가지 디바이스 등록 시나리오는 다음과 같습니다.
 
 - *자동 등록*. 디바이스는 처음 연결할 때 자동으로 등록됩니다. 이 시나리오를 통해 OEM은 먼저 등록하지 않고도 연결할 수 있는 제조업체 디바이스를 대량으로 만들 수 있습니다. OEM은 적절한 디바이스 자격 증명을 생성하고, 공장에서 디바이스를 구성합니다. 필요에 따라 데이터 보내기를 시작하기 전에 운영자에게 디바이스를 승인하도록 요구할 수 있습니다. 이 시나리오에서는 애플리케이션에서 X.509 또는 SAS _그룹 등록_ 을 구성해야 합니다.
-- *수동 등록*. 운영자는 **디바이스** 페이지에서 개별 디바이스를 등록하거나 [CSV 파일을 가져와서](howto-manage-devices.md#import-devices) 디바이스를 대량 등록합니다. 이 시나리오에서는 X.509 또는 SAS _그룹 등록_ 이나 X.509 또는 SAS _개별 등록_ 을 사용할 수 있습니다.
+- *수동 등록*. 운영자는 **디바이스** 페이지에서 개별 디바이스를 등록하거나 [CSV 파일을 가져와서](howto-manage-devices-in-bulk.md#import-devices) 디바이스를 대량 등록합니다. 이 시나리오에서는 X.509 또는 SAS _그룹 등록_ 이나 X.509 또는 SAS _개별 등록_ 을 사용할 수 있습니다.
 
 IoT Central에 연결하는 디바이스는 *IoT 플러그 앤 플레이 규칙* 을 따라야 합니다. 이러한 규칙 중 하나는 디바이스에서 연결할 때 구현하는 디바이스 모델의 _모델 ID_ 를 보내야 한다는 것입니다. 모델 ID를 사용하면 IoT Central 애플리케이션에서 디바이스를 올바른 디바이스 템플릿과 연결할 수 있습니다.
 
@@ -157,9 +156,9 @@ IoT Central 애플리케이션은 디바이스에서 보낸 모델 ID를 사용�
 
 ### <a name="bulk-register-devices-in-advance"></a>디바이스를 미리 대량으로 등록
 
-많은 수의 디바이스를 IoT Central 애플리케이션에 등록하려면 CSV 파일을 사용하여 [디바이스 ID 및 디바이스 이름을 가져옵니다](howto-manage-devices.md#import-devices).
+많은 수의 디바이스를 IoT Central 애플리케이션에 등록하려면 CSV 파일을 사용하여 [디바이스 ID 및 디바이스 이름을 가져옵니다](howto-manage-devices-in-bulk.md#import-devices).
 
-디바이스에서 SAS 토큰을 사용하여 인증하는 경우 [IoT Central 애플리케이션에서 CSV 파일을 내보냅니다](howto-manage-devices.md#export-devices). 내보낸 CSV 파일에는 디바이스 ID 및 SAS 키가 포함되어 있습니다.
+디바이스에서 SAS 토큰을 사용하여 인증하는 경우 [IoT Central 애플리케이션에서 CSV 파일을 내보냅니다](howto-manage-devices-in-bulk.md#export-devices). 내보낸 CSV 파일에는 디바이스 ID 및 SAS 키가 포함되어 있습니다.
 
 디바이스에서 X.509 인증서를 사용하여 인증하는 경우 X.509 등록 그룹에 업로드한 루트 또는 중간 인증서를 사용하여 디바이스에 대한 X.509 리프 인증서를 생성합니다. 가져온 디바이스 ID를 리프 인증서의 `CNAME` 값으로 사용합니다.
 
@@ -180,7 +179,7 @@ IoT Central 애플리케이션은 디바이스에서 보낸 모델 ID를 사용�
 
 1. 디바이스 템플릿이 IoT Central 애플리케이션에 이미 게시된 경우 디바이스가 디바이스 템플릿과 연결됩니다.
 1. 디바이스 템플릿이 IoT Central 애플리케이션에 아직 게시되지 않은 경우 IoT Central에서 [퍼블릭 모델 리포지토리](https://github.com/Azure/iot-plugandplay-models)에 있는 디바이스 모델을 찾습니다. IoT Central에서 모델을 찾으면 이를 사용하여 기본 디바이스 템플릿을 생성합니다.
-1. IoT Central에서 퍼블릭 모델 리포지토리에 있는 모델을 찾을 수 없는 경우 디바이스가 **연결 안 됨** 으로 표시됩니다. 운영자는 디바이스에 대한 디바이스 템플릿을 만든 다음, 연결되지 않은 디바이스를 새 디바이스 템플릿으로 마이그레이션할 수 있습니다.
+1. IoT Central에서 퍼블릭 모델 리포지토리에 있는 모델을 찾을 수 없는 경우 디바이스가 **연결 안 됨** 으로 표시됩니다. 운영자는 디바이스에 대한 디바이스 템플릿을 만든 다음, 연결을 끊은 디바이스를 새 디바이스 템플릿으로 마이그레이션하거나 디바이스에서 보내는 데이터를 기준으로 [디바이스 템플릿을 자동으로 생성](howto-set-up-template.md#autogenerate-a-device-template)할 수 있습니다.
 
 다음 스크린샷에서는 IoT Central에서 디바이스 템플릿의 모델 ID를 표시하는 방법을 보여 줍니다. 디바이스 템플릿에서 구성 요소를 선택한 다음, **ID 편집** 을 선택합니다.
 
@@ -214,11 +213,14 @@ IoT Central 애플리케이션은 디바이스에서 보낸 모델 ID를 사용�
     운영자는 **마이그레이션** 단추를 사용하여 **디바이스** 페이지에서 디바이스 템플릿에 디바이스를 연결할 수 있습니다.
 
 ## <a name="device-connection-status"></a>디바이스 연결 상태
-디바이스 또는 에지 디바이스가 MQTT 프로토콜을 사용하여 연결되면 디바이스에 대한 _연결_ 및 _연결 끊김_ 이벤트가 표시됩니다. 이러한 이벤트는 디바이스에서 보내는 것이 아니라 IoT Central에서 내부적으로 생성됩니다.
 
-다음 다이어그램은 디바이스가 연결될 때 기간 끝에 연결이 등록되는 방법을 보여 줍니다. 여러 연결 및 연결 끊김 이벤트가 발생하는 경우 IoT Central은 기간 끝에 가장 가까운 이벤트를 등록합니다. 예를 들어 디바이스가 기간 내에 연결을 끊었다가 다시 연결하는 경우 IoT Central은 연결 이벤트를 등록합니다. 현재 기간은 약 1분..
+디바이스 또는 에지 디바이스가 MQTT 프로토콜을 사용하여 연결되면 디바이스에 대한 _연결_ 및 _연결 끊김_ 이벤트가 생성됩니다. 이러한 이벤트는 디바이스에서 보내는 것이 아니라 IoT Central에서 내부적으로 생성됩니다.
+
+다음 다이어그램은 디바이스가 연결될 때 기간 끝에 연결이 등록되는 방법을 보여 줍니다. 여러 연결 및 연결 끊김 이벤트가 발생하는 경우 IoT Central은 기간 끝에 가장 가까운 이벤트를 등록합니다. 예를 들어 디바이스가 기간 내에 연결을 끊었다가 다시 연결하는 경우 IoT Central은 연결 이벤트를 등록합니다. 현재 이 기간은 약 1분입니다.
 
 :::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="연결 이벤트 및 연결 끊김 이벤트에 대한 이벤트 창을 보여 주는 다이어그램." border="false":::
+
+디바이스에 대한 **원시 데이터** 보기에서 연결된 이벤트 및 연결이 끊긴 이벤트를 볼 수 있습니다. :::image type="content" source="media/concepts-get-connected/device-connectivity-events.png" alt-text="디바이스 연결 이벤트를 표시하도록 필터링된 원시 데이터 보기를 보여 주는 스크린샷":::.
 
 [IoT Central에서 내보내기](howto-export-data.md#set-up-data-export)에 연결 및 연결 끊김 이벤트를 포함할 수 있습니다. 자세한 내용은 [IoT Hub 이벤트에 반응 > 디바이스 연결 및 디바이스 연결 끊김 이벤트에 대한 제한 사항](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 

@@ -3,12 +3,12 @@ title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy가 게스트 구성 클라이언트를 사용하여 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 80de6651d59b26b596633b8ba775c774dcfea62e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6ecfd3fd9f426676fe0b5c9a69af26b1245b7824
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970344"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528994"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -72,8 +72,10 @@ Azure 및 Arc Connected Machines의 머신을 포함하여 환경의 머신 상�
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows 클라이언트|윈도우 10|
 |OpenLogic|CentOS|7.3 -8.x|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 8.x|
+|Red Hat|Red Hat Enterprise Linux\*|7.4 - 8.x|
 |SUSE|SLES|12 SP3-SP5, 15.x|
+
+\* Red Hat CoreOS는 지원되지 않습니다.
 
 사용자 지정 가상 머신 이미지는 위의 표에 나오는 운영 체제 중 하나의 이미지인 경우 게스트 구성 정책 정의에서 지원됩니다.
 
@@ -85,7 +87,7 @@ Azure Arc 머신은 온-프레미스 네트워크 인프라를 사용하여 Azur
 
 ### <a name="communicate-over-virtual-networks-in-azure"></a>Azure에서 가상 네트워크를 통해 통신
 
-Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **443** 포트에서 아웃바운드로 Azure 데이터 센터에 액세스할 수 있어야 합니다. Azure의 네트워크에서 아웃바운드 트래픽을 허용하지 않는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용하여 예외를 구성합니다. [서비스 태그](../../../virtual-network/service-tags-overview.md) "AzureArcInfrastructure"는 Azure 데이터 센터의 [IP 범위 목록](https://www.microsoft.com/en-us/download/details.aspx?id=56519)을 수동으로 유지 관리하는 대신 게스트 구성 서비스를 참조하는 데 사용할 수 있습니다.
+Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **443** 포트에서 아웃바운드로 Azure 데이터 센터에 액세스할 수 있어야 합니다. Azure의 네트워크에서 아웃바운드 트래픽을 허용하지 않는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용하여 예외를 구성합니다. [서비스 태그](../../../virtual-network/service-tags-overview.md) "AzureArcInfrastructure" 및 "Storage"는 Azure 데이터 센터의 [IP 범위 목록](https://www.microsoft.com/download/details.aspx?id=56519)을 수동으로 유지 관리하는 대신 게스트 구성 및 스토리지 서비스를 참조하는 데 사용할 수 있습니다. 게스트 구성 콘텐츠 패키지는 Azure Storage에서 호스트되므로 두 태그가 모두 필요합니다.
 
 ### <a name="communicate-over-private-link-in-azure"></a>Azure에서 Private Link를 통해 통신
 
@@ -167,6 +169,11 @@ _구성_ 으로 시작하는 정의를 할당하는 경우 _필수 조건을 배
 고가용성 애플리케이션을 위한 아키텍처를 고려할 때, 특히 가상 머신이 고가용성을 제공하기 위해 부하 분산 장치 솔루션 뒤의 [가용성 집합](../../../virtual-machines/availability.md#availability-sets)에 프로비저닝되는 경우 솔루션에서 모든 컴퓨터에 동일한 매개변수를 사용하여 동일한 정책 정의를 할당하는 것이 가장 좋습니다. 가능한 경우 모든 컴퓨터에 단일 정책을 할당하면 관리 오버헤드가 최소화됩니다.
 
 [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)로 보호되는 컴퓨터의 경우 보조 사이트의 컴퓨터가 기본 사이트의 컴퓨터와 동일한 매개 변수 값을 사용하여 동일한 정의에 대한 Azure Policy 할당 범위 내에 있는지 확인합니다.
+
+## <a name="data-residency"></a>데이터 상주
+
+게스트 구성은 고객 데이터를 저장/처리합니다. 기본적으로 고객 데이터는 [쌍을 이루는 지역](../../../best-practices-availability-paired-regions.md)에 복제됩니다.
+단일 상주 지역의 경우 모든 고객 데이터가 해당 지역에서 저장되고 처리됩니다.
 
 ## <a name="troubleshooting-guest-configuration"></a>게스트 구성 문제 해결
 

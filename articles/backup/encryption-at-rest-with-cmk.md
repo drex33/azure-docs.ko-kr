@@ -2,14 +2,14 @@
 title: 고객 관리형 키를 사용하여 백업 데이터 암호화
 description: Azure Backup을 사용하여 CMK(고객 관리형 키)를 통해 백업 데이터를 암호화하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48268af7ec4874d0e5c9ad3bb79a95307aba15b7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b952cf75776536652f96132049d8cef59c963e17
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672170"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122531146"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리형 키를 사용하여 백업 데이터 암호화
 
@@ -37,6 +37,7 @@ Azure Backup을 사용하면 기본적으로 사용하도록 설정된 플랫폼
 - Recovery Services 자격 증명 모음은 **동일한 지역** 에 있는 Azure Key Vault에 저장된 키로만 암호화할 수 있습니다. 또한 키는 **RSA 키** 여야만 하며 **사용** 상태여야 합니다.
 
 - 현재 리소스 그룹 및 구독에서 CMK 암호화된 Recovery Services 자격 증명 모음의 이동은 지원되지 않습니다.
+- 고객 관리형 키로 암호화된 Recovery Services 자격 증명 모음은 백업된 인스턴스의 지역 간 복원을 지원하지 않습니다.
 - 고객 관리 키를 사용하여 이미 암호화된 Recovery Services 자격 증명 모음을 새 테넌트로 이동하는 경우, 자격 증명 모음의 관리 ID 및 CMK(새 테넌트에 있어야 함)를 다시 만들고 구성하기 위해 Recovery Services 자격 증명 모음을 업데이트해야 합니다. 이 작업을 수행하지 않으면 백업 및 복원 작업이 실패하기 시작합니다. 또한 구독 내에서 설정된 모든 RBAC(역할 기반 액세스 제어) 권한을 다시 구성해야 합니다.
 
 - 해당 기능은 Azure Portal 및 PowerShell을 통해 구성할 수 있습니다.
@@ -286,11 +287,11 @@ InfrastructureEncryptionState : Disabled
 >[!IMPORTANT]
 > 보호를 구성하기 전에 다음 단계를 **성공적으로** 완료해야 합니다.
 >
->1. 백업 자격 증명 모음을 만들었음
+>1. Recovery Services 자격 증명 모음을 만들었음
 >1. Recovery Services 자격 증명 모음의 시스템 할당 관리 ID를 사용하도록 설정했거나 사용자가 할당한 관리 ID를 자격 증명 모음에 할당
->1. Key Vault에서 암호화 키에 액세스할 수 있도록 백업 자격 증명 모음(또는 사용자가 할당한 관리 ID)에 권한 할당
+>1. Key Vault에서 암호화 키에 액세스할 수 있도록 Recovery Services 자격 증명 모음(또는 사용자가 할당한 관리 ID)에 권한 할당
 >1. Key Vault에 대해 일시 삭제 및 제거 방지가 설정됨
->1. 백업 자격 증명 모음에 대한 유효한 암호화 키 할당
+>1. Recovery Services 자격 증명 모음에 대한 유효한 암호화 키 할당
 >
 >위의 모든 단계를 확인한 후에만 백업 구성을 진행합니다.
 

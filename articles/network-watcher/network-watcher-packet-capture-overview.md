@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1c458508dbf8d98349ec8549af32e3dd48bbd09b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78be49efd75db5a0bbff7f01734b418c9a0a7685
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94966431"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114290758"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Azure Network Watcher에서 변수 패킷 캡처 소개
 
 Network Watcher 변수 패킷을 사용하면 가상 머신 간에 트래픽을 추적하는 패킷 캡처 세션을 만들 수 있습니다. 패킷 캡처를 통해 사후 및 사전 대응적으로 네트워크 예외를 진단할 수 있습니다. 또한 네트워크 침입에 대한 정보를 가져오는 네트워크 통계를 수집하는 것을 포함하여 클라이언트 서버 간 통신을 디버깅할 수 있습니다.
 
-패킷 캡처는 Network Watcher를 통해 원격으로 시작되는 가상 머신 확장입니다. 이 기능은 원하는 가상 머신에서 수동으로 패킷 캡처를 실행하는 부담을 줄이고 시간을 단축합니다. 포털, PowerShell, CLI 또는 REST API를 통해 패킷 캡처를 트리거할 수 있습니다. 패킷 캡처를 트리거하는 방식에 대한 한 가지 예는 Virtual Machine 경고를 사용하는 것입니다. 모니터링할 트래픽을 캡처할 수 있도록 캡처 세션에 대한 필터가 제공됩니다. 필터는 5개 튜플(프로토콜, 로컬 IP 주소, 원격 IP 주소, 로컬 포트 및 원격 포트) 정보를 기반으로 합니다. 캡처된 데이터는 로컬 디스크 또는 스토리지 BLOB에 저장됩니다. 구독당 하위 지역별로 패킷 캡처 세션 수가 10개로 제한됩니다. 이 제한은 세션에만 적용되며 VM에 로컬로 또는 스토리지 계정에 저장된 패킷 캡처 파일에는 적용되지 않습니다.
+패킷 캡처는 Network Watcher를 통해 원격으로 시작되는 가상 머신 확장입니다. 이 기능은 원하는 가상 머신에서 수동으로 패킷 캡처를 실행하는 부담을 줄이고 시간을 단축합니다. 포털, PowerShell, CLI 또는 REST API를 통해 패킷 캡처를 트리거할 수 있습니다. 패킷 캡처를 트리거하는 방식에 대한 한 가지 예는 Virtual Machine 경고를 사용하는 것입니다. 모니터링할 트래픽을 캡처할 수 있도록 캡처 세션에 대한 필터가 제공됩니다. 필터는 5개 튜플(프로토콜, 로컬 IP 주소, 원격 IP 주소, 로컬 포트 및 원격 포트) 정보를 기반으로 합니다. 캡처된 데이터는 로컬 디스크 또는 스토리지 BLOB에 저장됩니다. 
 
 > [!IMPORTANT]
 > 패킷 캡처에는 가상 머신 확장 `AzureNetworkWatcherExtension`이 필요합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/extensions/network-watcher-windows.md)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/extensions/network-watcher-linux.md)을 방문하세요.
@@ -46,6 +46,10 @@ Network Watcher 변수 패킷을 사용하면 가상 머신 간에 트래픽을 
 |**로컬 포트** | 이 값은 패킷 캡처를 로컬 포트가 이 필터 값과 일치하는 패킷으로 필터링합니다.|
 |**원격 IP 주소** | 이 값은 패킷 캡처를 원격 IP가 이 필터 값과 일치하는 패킷으로 필터링합니다.|
 |**원격 포트** | 이 값은 패킷 캡처를 원격 포트가 이 필터 값과 일치하는 패킷으로 필터링합니다.|
+
+
+## <a name="considerations"></a>고려 사항
+구독당 하위 지역별로 병렬 패킷 캡처 세션 수가 10,000개로 제한됩니다. 이 제한은 세션에만 적용되며 VM에 로컬로 또는 스토리지 계정에 저장된 패킷 캡처 파일에는 적용되지 않습니다. 제한의 전체 목록은 [Network Watcher 서비스 제한 페이지](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits)를 참조하세요. 
 
 ### <a name="next-steps"></a>다음 단계
 

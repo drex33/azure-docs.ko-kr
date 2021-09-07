@@ -2,18 +2,19 @@
 title: Azure Storage 인벤토리를 사용하여 Blob 수 및 크기 계산
 description: 컨테이너당 Blob의 수 및 전체 크기를 계산하는 방법을 알아봅니다.
 services: storage
-author: twooley
-ms.author: twooley
-ms.date: 03/10/2021
+author: normesta
+ms.author: normesta
+ms.date: 08/16/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: e752d40ce2f237c2ab08bac2e71133cd06ec40e4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: ffdb6dd0d998cfe12b50dab85f49f06e30903d6f
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277184"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567870"
 ---
 # <a name="calculate-blob-count-and-total-size-per-container-using-azure-storage-inventory"></a>Azure Storage 인벤토리를 사용하여 컨테이너당 Blob 수 및 총 크기 계산
 
@@ -21,25 +22,11 @@ ms.locfileid: "106277184"
 
 Blob 메타데이터는 이 메서드에 포함되지 않습니다. Azure Blob Storage 인벤토리 기능은 기본 매개 변수와 함께 [목록 Blob](/rest/api/storageservices/list-blobs) REST API를 사용합니다. 따라서 예제에서는 스냅샷, ‘$’ 컨테이너 등을 지원하지 않습니다.
 
-> [!IMPORTANT]
-> Blob 인벤토리는 현재 **미리 보기** 로 제공됩니다. 베타, 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 ## <a name="enable-inventory-reports"></a>인벤토리 보고서 사용
 
-이 메서드의 첫 번째 단계는 스토리지 계정에서 [인벤토리 보고서를 사용하도록 설정](blob-inventory.md#enable-inventory-reports)하는 것입니다. 첫 번째 보고서를 생성하기 위해 인벤토리 보고서를 사용하도록 설정한 후 최대 24시간을 기다려야 할 수 있습니다.
+이 메서드의 첫 번째 단계는 스토리지 계정에서 [인벤토리 보고서를 사용하도록 설정](blob-inventory.md#enabling-inventory-reports)하는 것입니다. 첫 번째 보고서를 생성하기 위해 인벤토리 보고서를 사용하도록 설정한 후 최대 24시간을 기다려야 할 수 있습니다.
 
-분석할 인벤토리 보고서가 있는 경우 보고서 CSV 파일이 있는 컨테이너에 대한 Blob 읽기 권한을 자신에게 부여합니다.
-
-1. 인벤토리 CSV 보고서 파일이 있는 컨테이너로 이동합니다.
-1. **액세스 제어(IAM)** , **역할 할당 추가** 를 차례로 선택합니다.
-
-    :::image type="content" source="media/calculate-blob-count-size/access.png" alt-text="역할 할당 추가 선택":::
-
-1. **역할** 드롭다운 목록에서 **Storage Blob 데이터 읽기 권한자** 를 선택합니다.
-
-    :::image type="content" source="media/calculate-blob-count-size/add-role-assignment.png" alt-text="드롭다운에서 Storage Blob 데이터 읽기 권한자 역할 추가":::
-
-1. **선택** 필드에서 보고서를 실행하는 데 사용하고 있는 계정의 메일 주소를 입력합니다.
+분석할 인벤토리 보고서가 있는 경우 **Storage Blob 데이터 읽기 권한자** 역할을 자신에게 부여하여 보고서 CSV 파일이 있는 컨테이너에 대한 읽기 액세스 권한을 자기 자신에게 부여합니다. 보고서를 실행하는 데 사용하고 있는 계정의 메일 주소를 사용해야 합니다. Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자에게 Azure 역할을 할당하는 방법을 알아보려면 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)에 제공된 지침을 따르세요.
 
 ## <a name="create-an-azure-synapse-workspace"></a>Azure Synapse 작업 영역 만들기
 

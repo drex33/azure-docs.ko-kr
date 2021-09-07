@@ -2,19 +2,19 @@
 title: Azure Video Analyzer에서 직접 메서드 사용 - Azure
 description: Azure Video Analyzer는 몇 가지 직접 메서드를 노출합니다. 직접 메서드는 이 항목에 설명된 규칙을 기준으로 합니다.
 ms.topic: conceptual
-ms.date: 05/06/2021
-ms.openlocfilehash: 06d19047ae20fc752a09a28b2508cfdd2b08eb8d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/01/2021
+ms.openlocfilehash: 7b56404a371b0e50fe129d0fc5c2edb46b0c0f06
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387309"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528213"
 ---
 # <a name="azure-video-analyzer-direct-methods"></a>Azure Video Analyzer 직접 메서드
 
 Azure Video Analyzer IoT Edge 모듈 `avaedge`는 IoT Hub에서 호출할 수 있는 몇 가지 직접 메서드를 노출합니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 방법은 즉각적인 조치 과정이 디바이스의 응답 여부에 따라 달라지는 시나리오에서 유용합니다. 자세한 내용은 [IoT Hub의 직접 메서드 이해 및 호출](../../iot-hub/iot-hub-devguide-direct-methods.md)을 참조하세요.
 
-이 항목에서는 이러한 메서드 및 규칙에 대해 설명합니다.
+이 항목에서는 이러한 메서드, 규칙 및 메서드의 스키마에 대해 설명합니다.
 
 ## <a name="conventions"></a>규칙
 
@@ -107,7 +107,7 @@ Azure Video Analyzer IoT Edge 모듈 `avaedge`는 IoT Hub에서 호출할 수 �
 |409|   ResourceValidationError|    참조된 리소스(예: 비디오 리소스)가 올바른 상태가 아닙니다.|
 
 ## <a name="supported-direct-methods"></a>지원되는 직접 메서드  
-다음은 Video Analyzer 에지 모듈에서 노출하는 직접 메서드입니다.
+다음은 Video Analyzer 에지 모듈에서 노출하는 직접 메서드입니다. 직접 메서드에 대한 스키마는 [여기](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.0.0/AzureVideoAnalyzerSdkDefinitions.json)에서 찾을 수 있습니다.
 
 ### <a name="pipelinetopologylist"></a>pipelineTopologyList
 

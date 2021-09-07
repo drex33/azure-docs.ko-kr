@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 07/20/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7d3b52f5f2cac470c8833a22a67f2324f7be705
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103600952"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033864"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
+# <a name="customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
 오늘날 Microsoft ID 플랫폼은 사용자 지정 애플리케이션뿐만 아니라 Azure AD 앱 갤러리에서 미리 통합된 애플리케이션 모두를 포함하여 대부분의 엔터프라이즈 애플리케이션에서 SSO(Single Sign-On)를 지원합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Microsoft ID 플랫폼을 통해 애플리케이션에 인증하면 Microsoft ID 플랫폼은 HTTP POST를 통해 애플리케이션에 토큰을 보냅니다. 그런 다음 애플리케이션이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 *클레임* 이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
 
@@ -50,7 +50,7 @@ NameID(이름 식별자 값)를 편집하려면
 
 SAML 요청에 특정 형식의 NameIDPolicy 요소가 포함된 경우 Microsoft ID 플랫폼은 요청에 해당 형식을 적용합니다.
 
-SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Microsoft ID 플랫폼은 사용자가 지정한 형식으로 NameID를 발급합니다. 형식이 지정되지 않으면 Microsoft ID 플랫폼은 선택한 클레임 원본과 연결된 기본 원본 형식을 사용합니다.
+SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Microsoft ID 플랫폼은 사용자가 지정한 형식으로 NameID를 발급합니다. 형식이 지정되지 않으면 Microsoft ID 플랫폼은 선택한 클레임 원본과 연결된 기본 원본 형식을 사용합니다. 변환으로 인해 Null 또는 잘못된 값이 발생하는 경우 Azure AD는 nameIdentifier에 영구적 쌍 식별자를 보냅니다. 
 
 **이름 식별자 형식 선택** 드롭다운 목록에서 다음 옵션 중 하나를 선택할 수 있습니다.
 
@@ -77,7 +77,7 @@ SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Micro
 | 디렉터리 확장 | [Azure AD Connect 동기화를 사용하여 온-프레미스 Active Directory에서 동기화되는](../hybrid/how-to-connect-sync-feature-directory-extensions.md) 디렉터리 확장입니다. |
 | 확장 특성 1-15 | Azure AD 스키마를 확장하는 데 사용되는 온-프레미스 확장 특성입니다. |
 
-자세한 내용은 [테이블 3: 원본별 유효한 ID 값](active-directory-claims-mapping.md#table-3-valid-id-values-per-source)을 참조하세요.
+자세한 내용은 [테이블 3: 원본별 유효한 ID 값](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source)을 참조하세요.
 
 또한 Azure AD에서 정의한 모든 클레임에 상수(정적) 값을 할당할 수도 있습니다. 상수 값을 할당하려면 다음 단계를 수행하세요.
 
@@ -98,7 +98,6 @@ SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Micro
 | 함수 | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
-| **Join()** | 확인된 도메인에 특성을 조인합니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
 | **ToLower()** | 선택한 특성의 문자를 소문자로 변환합니다. |
 | **ToUpper()** | 선택한 특성의 문자를 대문자로 변환합니다. |
 
@@ -125,7 +124,7 @@ SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Micro
 | 함수 | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
-| **Join()** | 두 특성을 조인하여 새 값을 만듭니다. 필요에 따라 두 특성 사이에 구분 기호를 사용할 수 있습니다. NameID 클레임 변환의 경우 조인은 확인된 도메인으로 제한됩니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
+| **Join()** | 두 특성을 조인하여 새 값을 만듭니다. 필요에 따라 두 특성 사이에 구분 기호를 사용할 수 있습니다. |
 | **ToLowercase()** | 선택한 특성의 문자를 소문자로 변환합니다. |
 | **ToUppercase()** | 선택한 특성의 문자를 대문자로 변환합니다. |
 | **Contains()** | 입력이 지정된 값과 일치하는 경우 특성 또는 상수를 출력합니다. 그렇지 않고 일치하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 "@contoso.com" 도메인을 포함하는 경우 값이 사용자의 메일 주소에 해당하는 클레임을 내보내려고 하고, 그렇지 않으면 사용자 계정 이름을 출력하려고 합니다. 이렇게 하려면 다음 값을 구성합니다.<br/>*매개 변수 1(입력)* : user.email<br/>*값*: "@contoso.com"<br/>매개 변수 2(출력): user.email<br/>매개 변수 3(일치 항목이 없는 경우 출력): user.userprincipalname |
@@ -142,6 +141,13 @@ SAML 요청에 NameIDPolicy에 대한 요소가 포함되지 않은 경우 Micro
 | **IfNotEmpty()** | 입력이 null이 아니고 비어 있지 않은 경우 특성 또는 상수를 출력합니다.<br/>예를 들어 지정된 사용자의 직원 ID가 비어 있지 않은 경우 extensionattribute에 저장된 특성을 출력하려고 합니다. 이렇게 하려면 다음 값을 구성합니다.<br/>매개 변수 1(입력): user.employeeid<br/>매개 변수 2(출력): user.extensionattribute1 |
 
 추가 변환이 필요한 경우 [Azure AD의 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599)의 *SaaS 애플리케이션* 범주 아래에서 아이디어를 제출합니다.
+
+## <a name="add-the-upn-claim-to-saml-tokens"></a>SAML 토큰에 UPN 클레임 추가
+
+`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` 클레임은 [SAML 제한된 클레임 집합](reference-claims-mapping-policy-type.md#table-2-saml-restricted-claim-set)의 일부이며 **사용자 특성 및 클레임** 섹션에 추가할 수 없습니다.  해결 방법으로 Azure Portal에서 **앱 등록** 을 통해 [선택적 클레임](active-directory-optional-claims.md)으로 추가할 수 있습니다. 
+
+**앱 등록** 에서 앱을 열고 **토큰 구성** 을 선택한 다음, **선택적 클레임 추가** 를 선택합니다. **SAML** 토큰 유형을 선택하고 목록에서 **upn** 을 선택한 다음, **추가** 를 클릭하여 토큰에서 클레임을 얻습니다.
+
 
 ## <a name="emitting-claims-based-on-conditions"></a>조건에 따라 클레임 내보내기
 

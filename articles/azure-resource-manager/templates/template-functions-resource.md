@@ -2,14 +2,14 @@
 title: 템플릿 함수 - 리소스
 description: Azure Resource Manager 템플릿(ARM 템플릿)에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 08/16/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 92fd160a8ce08c8fc9969e76b74a05a87a644109
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 5fb365b1b0a1a77f93f627986902d4ede2752850
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959539"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530342"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -139,23 +139,23 @@ list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. �
 | ------------- | ------------- |
 | Microsoft.Addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2019-12-01/authorizationserver/listsecrets) |
-| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2019-12-01/gateway/listkeys) |
-| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
-| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
-| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
-| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2019-12-01/subscription/listsecrets) |
+| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/authorization-server/list-secrets) |
+| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2020-06-01-preview/gateway/list-keys) |
+| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/identity-provider/list-secrets) |
+| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2020-06-01-preview/named-value/list-value) |
+| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/openid-connect-provider/list-secrets) |
+| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2020-06-01-preview/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
-| Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
+| Microsoft.BatchAI/workspaces/experiments/jobs | listoutputfiles |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
-| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
+| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/get-build-source-upload-url) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/agentpools | listQueueStatus |
@@ -185,9 +185,9 @@ list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. �
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/databaseaccounts/listconnectionstrings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/databaseaccounts/listkeys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-03-15/notebookworkspaces/listconnectioninfo) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-connection-strings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-keys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-04-15/notebook-workspaces/list-connection-info) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -214,9 +214,9 @@ list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. �
 | Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/listkeys) |
-| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/listnodes) |
-| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/workspacesandcomputes/workspaces/listkeys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/compute/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/compute/list-nodes) |
+| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/workspaces/list-keys) |
 | Microsoft.Maps/accounts | [listKeys](/rest/api/maps-management/accounts/listkeys) |
 | Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
@@ -233,12 +233,12 @@ list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. �
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
 | Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
-| Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/adminkeys/get) |
-| Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/querykeys/listbysearchservice) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](/rest/api/servicebus/stable/namespaces%20-%20authorization%20rules/listkeys) |
+| Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/2021-04-01-preview/admin-keys/get) |
+| Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) |
+| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](/rest/api/servicebus/stable/namespaces-authorization-rules/list-keys) |
 | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](/rest/api/servicebus/stable/queues%20-%20authorization%20rules/listkeys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys](/rest/api/servicebus/stable/topics%20–%20authorization%20rules/listkeys) |
+| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](/rest/api/servicebus/stable/queues-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys](/rest/api/servicebus/stable/topics%20%E2%80%93%20authorization%20rules/list-keys) |
 | Microsoft.SignalRService/SignalR | [listkeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listkeys](/rest/api/storagerp/storageaccounts/listkeys) |
@@ -342,7 +342,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-리소스 종류가 지역에 대한 영역을 지원하는지 여부를 결정합니다.
+리소스 종류가 지정된 위치 또는 지역의 영역을 지원하는지 여부를 확인합니다.  이 함수는 영역 리소스만 지원하며, 영역 중복 서비스는 빈 배열을 반환합니다.  자세한 내용은 [가용성 영역을 지원하는 Azure 서비스](../../availability-zones/az-region.md)를 참조하세요.  영역 중복 서비스에서 pickZones 함수를 사용하려면 아래 예제를 참조하세요.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -374,12 +374,18 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 ]
 ```
 
-리소스 유형 또는 지역이 영역을 지원하지 않는 경우 빈 배열이 반환됩니다.
+리소스 유형 또는 지역이 영역을 지원하지 않는 경우 빈 배열이 반환됩니다.  영역 중복 서비스에 대해서도 빈 배열이 반환됩니다.
 
 ```json
 [
 ]
 ```
+
+### <a name="remarks"></a>설명
+
+Azure 가용성 영역의 범주에는 영역 및 영역 중복이 있습니다.  pickZones 함수를 사용하여 영역 리소스에 대한 가용성 영역 번호를 반환할 수 있습니다.  ZRS(영역 중복 서비스)의 경우 이 함수는 빈 배열을 반환합니다.  영역 리소스는 일반적으로 리소스 헤더에서 `zones` 속성을 사용하여 식별할 수 있습니다.  영역 중복 서비스는 리소스당 가용성 영역을 식별하고 사용하는 다양한 방법을 제공합니다. 특정 서비스에 대한 설명서를 사용하여 가용성 영역에 대한 지원 범주를 결정합니다.  자세한 내용은 [가용성 영역을 지원하는 Azure 서비스](../../availability-zones/az-region.md)를 참조하세요.
+
+지정된 Azure 지역 또는 위치에서 가용성 영역을 지원하는지 확인하려면 영역 리소스 유형(예: `Microsoft.Storage/storageAccounts`)을 사용하여 pickZones() 함수를 호출합니다.  응답이 비어 있지 않은 경우 지역은 가용성 영역을 지원합니다.
 
 ### <a name="pickzones-example"></a>pickZones 예제
 
@@ -412,7 +418,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 이전 예제의 출력은 3개의 배열을 반환합니다.
 
-| Name | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
 | 지원됨 | array | [ "1" ] |
 | notSupportedRegion | array | [] |
@@ -424,6 +430,37 @@ pickZones의 응답을 사용하여 영역에 대해 null을 제공하거나 다
 "zones": {
   "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
 },
+```
+
+다음 예제에서는 pickZones 함수를 사용하여 Cosmos DB에 대한 영역 중복을 사용하도록 설정하는 방법을 보여 줍니다.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.DocumentDB/databaseAccounts",
+    "apiVersion": "2021-04-15",
+    "name": "[variables('accountName_var')]",
+    "location": "[parameters('location')]",
+    "kind": "GlobalDocumentDB",
+    "properties": {
+      "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+      "locations": [
+      {
+        "locationName": "[parameters('primaryRegion')]",
+        "failoverPriority": 0,
+        "isZoneRedundant": "[if(empty(pickZones('Microsoft.Storage', 'storageAccounts', parameters('primaryRegion'))), bool('false'), bool('true'))]",
+      },
+      {
+        "locationName": "[parameters('secondaryRegion')]",
+        "failoverPriority": 1,
+        "isZoneRedundant": "[if(empty(pickZones('Microsoft.Storage', 'storageAccounts', parameters('secondaryRegion'))), bool('false'), bool('true'))]",
+      }
+    ],
+      "databaseAccountOfferType": "Standard",
+      "enableAutomaticFailover": "[parameters('automaticFailover')]"
+    }
+  }
+]
 ```
 
 ## <a name="reference"></a>reference
@@ -539,7 +576,7 @@ reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 �
 
 패턴은 다음과 같습니다.
 
-`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>), <API-version>, 'Full').Identity.propertyName]"`
 
 예를 들어, 가상 머신에 적용되는 관리 ID에 대한 보안 주체 ID를 가져오려면 다음을 사용합니다.
 
@@ -909,7 +946,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

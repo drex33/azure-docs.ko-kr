@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 05/13/2021
+ms.date: 07/16/2021
 ms.author: v-miegge
-ms.openlocfilehash: 009a29a4e296c8aa03163dd954cd242eec040027
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 57e9f35acc482c1d2d6d08dd1adce9780d706778
+ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470749"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114393007"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Azure 구독 로그인 문제 해결
 
@@ -80,4 +80,4 @@ Azure 청구 및 구독에 대한 기타 문제 해결 문서
 
 ## <a name="contact-us-for-help"></a>도움이 필요한 경우 문의처
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+질문이 있거나 도움이 필요하지만 Azure Portal 로그인할 수 없는 경우 [지원 요청을 만듭니다](https://support.microsoft.com/oas/?prid=15470).

@@ -1,14 +1,14 @@
 ---
 title: 이니셔티브 정의 구조의 세부 정보
 description: 조직의 Azure 리소스에 배포하기 위한 정책 정의를 그룹화하는 데 정책 이니셔티브 정의를 사용하는 방법을 설명합니다.
-ms.date: 03/16/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7efe34c76df46bb4499def5b92521eedecaee22d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9ef2d5a77d9ae957a81517b635d923cd80519b76
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744950"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122568009"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Azure Policy 이니셔티브 정의 구조
 
@@ -119,7 +119,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 - `deprecated`(부울): 정책 이니셔티브 정의가 ‘사용되지 않음’으로 표시된 경우에 대한 True 또는 False 플래그입니다.
 
 > [!NOTE]
-> Azure Policy 서비스는 `version`, `preview` 및 `deprecated` 속성을 사용하여 기본 제공 정책 정의 또는 이니셔티브 및 상태에 대한 변경 수준 전달합니다. `version`의 형식은 `{Major}.{Minor}.{Patch}`입니다. _deprecated_ 또는 _preview_ 와 같은 특정 상태가 `version` 속성에 추가되거나 다른 속성에 **부울** 로 추가됩니다. Azure Policy 버전 기본 제공 방식에 대한 자세한 내용은 [기본 제공 버전](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md)을 참조하세요.
+> Azure Policy 서비스는 `version`, `preview` 및 `deprecated` 속성을 사용하여 기본 제공 정책 정의 또는 이니셔티브 및 상태에 대한 변경 수준 전달합니다. `version`의 형식은 `{Major}.{Minor}.{Patch}`입니다. _deprecated_ 또는 _preview_ 와 같은 특정 상태가 `version` 속성에 추가되거나 다른 속성에 **부울** 로 추가됩니다. Azure Policy 버전 기본 제공 방식에 대한 자세한 내용은 [기본 제공 버전 관리](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md)를 참조하세요.
 
 ## <a name="parameters"></a>매개 변수
 

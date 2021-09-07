@@ -10,13 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
+ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c615c3b57d0c4ebfdbffdc1461f2289d4b8c4256
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 7889bca19bc24b8f0c0f83b9c7e3b8bf310cf3d1
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438273"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568082"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -57,7 +58,7 @@ CAE를 사용하도록 애플리케이션을 준비하려면 [애플리케이션
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>조건부 액세스 정책 평가(미리 보기)
 
-Exchange 및 SharePoint는 중요 조건부 액세스 정책을 동기화할 수 있으므로 서비스 자체 내에서 평가할 수 있습니다.
+Exchange Online, SharePoint Online, Teams 및 MS Graph는 중요 조건부 액세스 정책을 동기화할 수 있으므로 서비스 자체 내에서 평가할 수 있습니다.
 
 이 프로세스는 사용자가 네트워크 위치를 변경한 후 즉시 Microsoft 365 클라이언트 앱 또는 SharePoint Online에서 조직의 파일, 이메일, 일정 또는 작업에 대한 액세스 권한을 잃는 시나리오를 지원합니다.
 
@@ -77,6 +78,12 @@ Exchange 및 SharePoint는 중요 조건부 액세스 정책을 동기화할 수
 | | OneDrive 웹 | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **SharePoint Online** | 지원 여부 | 지원 여부 | 지원 여부 | 지원 여부 | 지원 여부 |
+
+| | Teams 웹 | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Teams Service** | 지원 여부 | 지원 여부 | 지원 여부 | 지원 여부 | 지원 여부 |
+| **SharePoint Online** | 지원 여부 | 지원 여부 | 지원 여부 | 지원 여부 | 지원 여부 |
+| **Exchange Online** | 지원 여부 | 지원 여부 | 지원 여부 | 지원 여부 | 지원 여부 |
 
 ### <a name="client-side-claim-challenge"></a>클라이언트 쪽 클레임 챌린지
 

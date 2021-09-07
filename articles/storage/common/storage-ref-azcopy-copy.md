@@ -8,12 +8,12 @@ ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 7c1e265f473c1c6fb70fd97416722e7b863c429b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 4f31567068b3b0cf1d11764ce8f609a5889c2e51
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107503561"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462594"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -39,7 +39,7 @@ ms.locfileid: "107503561"
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
 - [자습서: AzCopy를 사용하여 클라우드 스토리지로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
-- [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
+- [AzCopy 및 Blob Storage를 사용하여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
 - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 
 ## <a name="advanced"></a>고급
@@ -289,6 +289,8 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--decompress**: 다운로드 시 파일의 content-encoding이 파일이 압축되었음을 나타내는 경우 해당 파일의 압축을 자동으로 풉니다. 지원되는 content-encoding 값은 `gzip` 및 `deflate`입니다. 파일 확장명 `.gz`/`.gzip` 또는 `.zz`는 필요하지 않으며 있는 경우 제거됩니다.
 
+**--disable-auto-decoding**    Windows에서 잘못된 문자의 자동 디코딩을 사용하도록 설정하려면 기본적으로 False입니다. `true`로 설정하여 자동 디코딩을 사용하지 않도록 설정할 수 있습니다.
+
 **--exclude-attributes** 문자열: (Windows에만 해당) 해당 특성이 특성 목록과 일치하는 파일을 제외합니다. 예: A;S;R
 
 **--exclude-blob-type** 문자열: 필요에 따라 컨테이너 또는 계정에서 Blob을 복사할 때 제외할 Blob 형식(`BlockBlob`/ `PageBlob`/ `AppendBlob`)을 지정합니다. 비 Azure 서비스에서 서비스로 데이터를 복사하는 경우에는 이 플래그를 사용할 수 없습니다. 둘 이상의 Blob은 `;`으로 구분해야 합니다. 
@@ -353,8 +355,8 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--output-type** 문자열   명령의 출력 형식입니다. text, json 등을 선택할 수 있습니다. 기본값은 `text`입니다. (기본값 "text")
 
-**--trusted-microsoft-suffixes** 문자열: Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에는 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.
+**--trusted-microsoft-suffixes** 문자열: Azure Active Directory 로그인 토큰이 전송될 수 있는 추가 도메인 접미사를 지정합니다.  기본값은 `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`입니다. 여기에 나열된 항목은 모두 기본값에 추가됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치해야 합니다. 여러 항목은 세미콜론으로 구분합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

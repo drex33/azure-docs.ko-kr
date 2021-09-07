@@ -8,19 +8,19 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.topic: how-to
-ms.custom: how-to
-ms.openlocfilehash: 93365304e958bfabaf3067ab58312a9b78745edb
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.custom: how-to, devplatv2
+ms.openlocfilehash: 5fe647fba68150f45c450d71f208cf6a53dd0b98
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854669"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568101"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)
 
-프로덕션에 기존 모델이 배포되어 있고 이 모델의 새 버전을 배포하려고 합니다. 새 ML 모델을 중단 없이 롤아웃하는 방법은 무엇인가요? 파란색-녹색 배포가 좋은 방법입니다. 이 배포는 변경 사항을 완전히 배포하기 전에 소수의 사용자/요청 하위 집합에 롤아웃하는 방식으로 프로덕션에 웹 서비스의 새 버전을 도입하는 방법입니다. 
+프로덕션에 기존 모델이 배포되어 있고 이 모델의 새 버전을 배포하려고 합니다. 새 ML 모델을 중단 없이 롤아웃하는 방법은 무엇인가요? 파란색-녹색 배포가 좋은 방법입니다. 이 배포는 변경 사항을 완전히 배포하기 전에 소수의 사용자/요청 하위 집합에 롤아웃하는 방식으로 프로덕션에 웹 서비스의 새 버전을 도입하는 방법입니다. 이 문서에서는 온라인 엔드포인트를 사용하고 있다고 가정합닏. 자세한 내용은 [Azure Machine Learning 엔드포인트(미리 보기)란?](concept-endpoints.md)을 참조하세요.
 
 이 문서에서는 다음에 대해 알아봅니다.
 
@@ -37,9 +37,9 @@ ms.locfileid: "111854669"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 기계 학습을 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 기계 학습을 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
-* Azure CLI 및 ML 확장을 설치하고 구성해야 합니다. 자세한 내용은 [2.0 CLI(미리 보기) 설치, 설정 및 사용](how-to-configure-cli.md)을 참조하세요. 
+* Azure CLI 및 ML 확장을 설치하고 구성해야 합니다. 자세한 내용은 [CLI(v2)(미리 보기) 설치, 설정 및 사용](how-to-configure-cli.md)을 참조하세요. 
 
 * Azure 리소스 그룹이 있고, 사용자(또는 사용하는 서비스 주체)에게 이에 대한 `Contributor` 액세스 권한이 있어야 합니다. 위의 문서에 따라 ML 확장을 구성한 경우 이러한 리소스 그룹이 있을 것입니다. 
 
@@ -145,3 +145,15 @@ REST 클라이언트를 사용하여 트래픽 규칙을 거치지 않고 배포
 배포를 사용하지 않을 경우 다음을 사용하여 삭제해야 합니다.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+
+
+## <a name="next-steps"></a>다음 단계
+- [REST를 사용하여 모델 배포(미리 보기)](how-to-deploy-with-rest.md)
+- [스튜디오에서 관리형 온라인 엔드포인트(미리 보기) 만들기 및 사용](how-to-use-managed-online-endpoint-studio.md)
+- [자습서: 관리형 온라인 엔드포인트 및 시스템 관리 ID를 사용하여 Azure 리소스에 액세스(미리 보기)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
+- [관리형 온라인 엔드포인트 모니터링(미리 보기)](how-to-monitor-online-endpoints.md)
+- [Azure Machine Learning을 사용하여 리소스 할당량 관리 및 증가](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
+- [Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)에 대한 비용 보기](how-to-view-online-endpoints-costs.md)
+- [관리형 온라인 엔드포인트 SKU 목록(미리 보기)](reference-managed-online-endpoints-vm-sku-list.md)
+- [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)
+- [관리형 온라인 엔드포인트(미리 보기) YAML 참조](reference-yaml-endpoint-managed-online.md)

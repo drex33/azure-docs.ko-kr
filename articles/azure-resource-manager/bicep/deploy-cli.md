@@ -4,13 +4,13 @@ description: Azure Resource Manager와 Azure CLI를 사용하여 Azure에 리소
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: aa23bfd9d867b9e0d5d2724a2b1f41b9fbc8e5da
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/15/2021
+ms.openlocfilehash: 1feb5f2e858113086b9349c79dacb024570fb5a4
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954766"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635160"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-cli"></a>Bicep 및 Azure CLI로 리소스 배포
 
@@ -147,6 +147,19 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 
 개체에 전달하려는 JSON 주위에 큰따옴표를 사용합니다.
 
+변수를 사용하여 매개 변수 값을 포함할 수 있습니다. Bash에서 변수를 모든 매개 변수 값으로 설정하고 배포 명령에 추가합니다.
+
+```azurecli-interactive
+params="prefix=start suffix=end"
+
+az deployment group create \
+  --resource-group testgroup \
+  --template-file <path-to-bicep> \
+  --parameters $params
+```
+
+그러나 Windows 명령 프롬프트(CMD) 또는 PowerShell에서 Azure CLI를 사용하는 경우에는 변수를 JSON 문자열로 설정합니다. 따옴표를 이스케이프합니다(예: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`).
+
 ### <a name="parameter-files"></a>매개 변수 파일
 
 매개 변수를 스크립트에 인라인 값으로 전달하는 것보다는, 매개 변수 값이 포함된 JSON 파일을 사용하는 것이 더 쉬울 수 있습니다. 매개 변수 파일은 로컬 파일이어야 합니다. 외부 매개 변수 파일은 Azure CLI에서 사용할 수 없습니다. Bicep 파일은 JSON 매개 변수 파일을 사용합니다.
@@ -169,7 +182,7 @@ Bicep 파일을 배포하기 전에 Bicep 파일이 환경에 적용할 변경 �
 
 ## <a name="deploy-template-specs"></a>템플릿 사양 배포
 
-현재 Azure CLI은 Bicep 파일을 제공하여 템플릿 사양을 만드는 것을 지원하지 않습니다. 그러나 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용하여 Bicep 파일을 만들어 템플릿 사양을 배포할 수 있습니다. 여기에서 [예제](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)를 확인할 수 있습니다. Bicep CLI를 사용하여 ARM 템플릿 JSON에 Bicep 파일을 빌드한 다음, JSON 템플릿을 사용하여 템플릿 사양을 만들 수도 있습니다.
+현재 Azure CLI은 Bicep 파일을 제공하여 템플릿 사양을 만드는 것을 지원하지 않습니다. 그러나 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용하여 Bicep 파일을 만들어 템플릿 사양을 배포할 수 있습니다. 여기에서 [예제](https://github.com/Azure/azure-docs-bicep-samples/blob/main/create-template-spec-using-bicep/azuredeploy.bicep)를 확인할 수 있습니다. Bicep CLI를 사용하여 ARM 템플릿 JSON에 Bicep 파일을 빌드한 다음, JSON 템플릿을 사용하여 템플릿 사양을 만들 수도 있습니다.
 
 ## <a name="deployment-name"></a>배포 이름
 
@@ -200,5 +213,5 @@ deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
 ## <a name="next-steps"></a>다음 단계
 
 * 오류 발생 시 성공적인 배포로 롤백하려면 [오류 발생 시 성공적인 배포로 롤백](../templates/rollback-on-error.md)을 참조하세요.
-* 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [ARM 템플릿의 구조 및 구문 이해](../templates/syntax.md)를 참조하세요.
+- 파일에서 매개 변수를 정의하는 방식을 이해하려면 [Bicep 파일의 구조 및 구문 이해](file.md)를 참조하세요.
 * 일반적인 배포 오류를 해결하는 방법은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../templates/common-deployment-errors.md)을 참조하세요.

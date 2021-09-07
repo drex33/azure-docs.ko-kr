@@ -1,15 +1,15 @@
 ---
-author: probableprime
+author: mikben
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: rifox
-ms.openlocfilehash: b251218593ddef69fc38520b5ff9e46ec7c8291f
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.author: mikben
+ms.openlocfilehash: ead0e2f9e04c41ec729985f7c524874910aa9dc4
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "123078261"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114339775"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 

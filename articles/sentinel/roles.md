@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/11/2021
 ms.author: yelevin
-ms.openlocfilehash: b64adbb63efaa4ce4781474f732bc9509d51029e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 97c35aa059f4419ee951875e769b252016578963
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310328"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528176"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure Sentinel의 권한
 
@@ -103,6 +103,23 @@ Azure Sentinel 전용 Azure 역할을 할당할 때 사용자에게 다른 용�
     - [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043)
 
     리소스-컨텍스트 및 테이블 수준 RBAC는 전체 Azure Sentinel 환경에 대한 액세스를 허용하지 않고 Azure Sentinel 작업 영역의 특정 데이터에 대한 액세스를 제공하는 두 가지 방법입니다.
+
+## <a name="role-recommendations"></a>역할 권장 사항
+
+Azure Sentinel에서 역할 및 권한이 작동하는 방식을 이해한 후에는 사용자에게 역할을 적용하기 위한 다음과 같은 모범 사례 지침을 사용할 수 있습니다.
+
+|사용자 유형  |역할 |Resource group  |설명  |
+|---------|---------|---------|---------|
+|**보안 분석가**     | [Azure Sentinel 응답자](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)        | Azure Sentinel 리소스 그룹        | 데이터 인시던트, 통합 문서, 기타 Azure Sentinel 리소스를 봅니다. <br><br>인시던트를 할당하거나 해제하는 등, 인시던트를 관리합니다.        |
+|     | [Logic Apps 기여자](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Azure Sentinel의 리소스 그룹 또는 플레이북이 저장되는 리소스 그룹        | 플레이북을 분석 및 자동화 규칙에 연결하고 플레이북을 실행합니다. <br><br>**참고**: 이 역할을 통해 사용자는 플레이북을 수정할 수도 있습니다.         |
+|**보안 엔지니어**     | [Azure Sentinel 기여자](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)       |Azure Sentinel 리소스 그룹         |   데이터 인시던트, 통합 문서, 기타 Azure Sentinel 리소스를 봅니다. <br><br>인시던트를 할당하거나 해제하는 등, 인시던트를 관리합니다. <br><br>통합 문서, 분석 규칙 및 기타 Azure Sentinel 리소스를 만들고 편집합니다.      |
+|     | [Logic Apps 기여자](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Azure Sentinel의 리소스 그룹 또는 플레이북이 저장되는 리소스 그룹        | 플레이북을 분석 및 자동화 규칙에 연결하고 플레이북을 실행합니다. <br><br>**참고**: 이 역할을 통해 사용자는 플레이북을 수정할 수도 있습니다.         |
+|  Service Principal   | [Azure Sentinel 기여자](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)      |  Azure Sentinel 리소스 그룹       | 관리 작업에 대한 자동화된 구성 |
+|     |         |        | |
+
+> [!TIP]
+> 수집하거나 모니터링하는 데이터에 따라 추가 역할이 필요할 수 있습니다. 예를 들어, 다른 Microsoft 포털의 서비스에 대한 데이터 커넥터를 설정하려면 전역 관리자 또는 보안 관리자 역할과 같은 Azure AD 역할이 필요할 수 있습니다.
+>
 
 ## <a name="next-steps"></a>다음 단계
 

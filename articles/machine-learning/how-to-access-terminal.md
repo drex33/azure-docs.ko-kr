@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: bff14ddd6a361c93c416aa746640b774afc43961
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 7b0d43cec561040e98688a216165d7a4ed88c3d2
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897238"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122635178"
 ---
 # <a name="access-a-compute-instance-terminal-in-your-workspace"></a>작업 영역에서 컴퓨팅 인스턴스 터미널에 액세스
 
@@ -27,7 +27,7 @@ ms.locfileid: "107897238"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
 
 ## <a name="access-a-terminal"></a>터미널 액세스
@@ -68,7 +68,7 @@ ms.locfileid: "107897238"
 
 ## <a name="install-packages"></a>패키지 설치
 
- 터미널 창에서 패키지를 설치합니다. Python 패키지를 **Python 3.6 - AzureML** 환경에 설치합니다.  **R** 환경에 R 패키지를 설치합니다.
+ 터미널 창에서 패키지를 설치합니다. Python 패키지를 **Python 3.8 - AzureML** 환경에 설치합니다.  **R** 환경에 R 패키지를 설치합니다.
 
 또는 Jupyter Notebook 또는 Rstudio에 직접 패키지를 설치할 수 있습니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "107897238"
 ## <a name="add-new-kernels"></a>새 커널 추가
 
 > [!WARNING]
->  컴퓨팅 인스턴스를 사용자 지정하는 동안, **azureml_py36** conda 환경 또는 **Python 3.6 - AzureML** 커널을 삭제하지 않아야 합니다. Jupyter/JupyterLab 기능에 필요합니다.
+>  컴퓨팅 인스턴스를 사용자 지정하는 동안, **azureml_py36** 또는 **azureml_py38** conda 환경을 삭제하지 않아야 합니다.  또한 **Python 3.6 - AzureML** 또는 **Python 3.8 - AzureML** 커널을 삭제하지 않아야 합니다. Jupyter/JupyterLab 기능에 필요합니다.
 
 새 Jupyter 커널을 컴퓨팅 인스턴스에 추가하려면 다음을 수행합니다.
 

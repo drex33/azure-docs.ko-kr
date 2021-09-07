@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/11/2021
+ms.date: 08/11/2021
 ms.author: radeltch
-ms.openlocfilehash: e652d1374db12d797dc4505f07350e6e110d6408
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e722f1dfe131c59e17974ef699b1373244eb6046
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674438"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567146"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>SAP 애플리케이션용 Azure NetApp Files를 사용하는 Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -27,9 +27,9 @@ ms.locfileid: "101674438"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
+[anf-register]:../../../azure-netapp-files/azure-netapp-files-register.md
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
@@ -44,7 +44,7 @@ ms.locfileid: "101674438"
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
@@ -208,7 +208,6 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
          1. 새 부하 분산 장치 규칙의 이름 입력(예: **lb.QAS.ASCS**)
          1. 이전에 만든 ASCS의 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **frontend.QAS.ASCS**, **backend.QAS** 및 **health.QAS.ASCS**)
          1. **HA 포트** 선택
-         1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
          * 위의 단계를 반복하여 ERS에 대한 부하 분산 규칙 만들기(예: **lb.QAS.ERS**)
@@ -251,7 +250,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
          * 포트 32 **01**, 33 **01**, 5 **01** 13, 5 **01** 14, 5 **01** 16 및 ASCS ERS용 TCP에 대해 위의 "d" 단계를 반복
 
       > [!IMPORTANT]
-      > 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.  
+      > 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure Load Balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.  
 
       > [!Note]
       > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
@@ -453,6 +452,13 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
 
 ### <a name="installing-sap-netweaver-ascsers"></a>SAP NetWeaver ASCS/ERS 설치
 
+1. **[1]** 클러스터 기본 속성 구성
+
+   ```
+   pcs resource defaults resource-stickiness=1
+   pcs resource defaults migration-threshold=3
+   ```
+
 1. **[1]** ASCS 인스턴스에 대한 가상 IP 리소스 및 상태 프로브 만들기
 
    ```
@@ -596,7 +602,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
    enque/encni/set_so_keepalive = true
    ```
 
-   ENSA1 및 ENSA2 모두에서 `keepalive` OS 매개 변수는 SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명된 대로 설정해야 합니다.  
+   ENSA1 및 ENSA2 모두에 대해 `keepalive` OS 매개 변수가 SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에서 설명한 대로 설정되어 있는지 확인합니다.  
 
    * ERS 프로필
 
@@ -650,15 +656,17 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
+    sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
+
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
-      
+     
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
     sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
-    sudo pcs constraint order g-QAS_ASCS then g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
     
     sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false
@@ -673,20 +681,24 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
+    sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
+
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
       
+    sudo pcs resource meta rsc_sap_QAS_ERS01  resource-stickiness=3000
+
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
-    sudo pcs constraint order g-QAS_ASCS then g-QAS_AERS kind=Optional symmetrical=false
-    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS symmetrical=false
+    sudo pcs constraint order start g-QAS_ASCS then start g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
    
     sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false
@@ -1144,7 +1156,7 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
    [root@anftstsapcl2 ~]# pgrep -f enq.sapQAS | xargs kill -9
    ```
 
-   ASCS 인스턴스는 즉시 다른 노드로 장애 조치(Failover)되어야 합니다. 또한 ASCS 인스턴스가 시작된 후 ERS 인스턴스도 장애 조치(Failover)되어야 합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
+   ENSA1의 경우 ASCS 인스턴스는 즉시 다른 노드로 장애 조치(Failover)되어야 합니다. 또한 ASCS 인스턴스가 시작된 후 ERS 인스턴스도 장애 조치(Failover)되어야 합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    ```
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00

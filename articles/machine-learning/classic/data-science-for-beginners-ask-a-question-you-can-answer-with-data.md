@@ -8,19 +8,15 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: d9b5803069316a97d6180429bd6b096d401d2396
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 28365f4c5e4096c83bdf7b1c4cd7ade3fe1e46b2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695584"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528978"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
-
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
-
 ## <a name="video-3-data-science-for-beginners-series"></a>비디오 3: 초급자를 위한 데이터 과학 시리즈
-
 초급자를 위한 데이터 과학 비디오 3에서 데이터 과학 문제를 질문으로 작성하는 방법을 알아봅니다. 이 비디오에는 분류 및 회귀 알고리즘 질문에 대한 비교가 포함되어 있습니다.
 
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)

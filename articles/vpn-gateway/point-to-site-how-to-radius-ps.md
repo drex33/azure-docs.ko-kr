@@ -6,19 +6,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 07/27/2021
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 97c8f1111f84b36ead123dcad9f8d9faeb157336
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 638a38cf1cbe9aee231e1db400440330bd852b9f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558857"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566487"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
-이 문서에서는 RADIUS 인증을 사용하는 지점 및 사이트 간 연결을 통해 VNet을 만드는 방법에 대해 설명합니다. 이 구성은 Resource Manager 배포 모델에서만 사용할 수 있습니다.
+이 문서에서는 RADIUS 인증을 사용하는 지점 및 사이트 간 연결을 통해 VNet을 만드는 방법에 대해 설명합니다. 이 구성은 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에서만 사용할 수 있습니다.
 
 지점 및 사이트 간(P2S) VPN Gateway를 통해 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 지점 및 사이트 간 VPN 연결은 집 또는 회의에서 원격 통신하는 경우와 같이 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. VNet에 연결해야 하는 몇 가지 클라이언트만 있는 경우에 사이트 간 VPN 대신 P2S VPN을 사용하는 것도 유용한 솔루션입니다.
 
@@ -34,7 +34,7 @@ P2S VPN 연결은 Windows 및 Mac 디바이스에서 시작됩니다. 다음 인
 
 P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol), OpenVPN 또는 IKEv2를 통한 VPN 연결을 만듭니다.
 
-* SSTP는 Windows 클라이언트 플랫폼에서만 지원되는 TLS 기반 VPN 터널입니다. 이를 통해 방화벽을 통과할 수 있으므로 어디서나 Azure에 연결할 수 있는 이상적인 옵션입니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다.
+* SSTP는 Windows 클라이언트 플랫폼에서만 지원되는 TLS 기반 VPN 터널입니다. 이를 통해 방화벽을 통과할 수 있으므로 어디서나 Windows 디바이스를 Azure에 연결할 수 있는 유용한 옵션입니다. 서버 쪽에서는 TLS 버전 1.2만 지원합니다. 성능, 확장성 및 보안을 향상시키기 위해 OpenVPN 프로토콜을 대신 사용하는 것이 좋습니다.
 
 * OpenVPN® 프로토콜, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 TLS가 사용되는 TCP 포트 443 아웃바운드를 열기 때문에 TLS VPN 솔루션이 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS(버전 11.0 이상), Windows, Linux, Mac 디바이스(macOS 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
 
@@ -161,7 +161,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 VNet에 대한 VPN 게이트웨이를 구성하고 만듭니다.
 
 * -GatewayType은  'Vpn'이어야 하고 -VpnType은  'RouteBased'여야 합니다.
-* VPN 게이트웨이는 선택한  [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 에 따라 완료하는 데 최대 45분이 걸릴 수 있습니다.
+* VPN Gateway는 선택한  [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 에 따라 완료하는 데 최대 45분이 걸릴 수 있습니다.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

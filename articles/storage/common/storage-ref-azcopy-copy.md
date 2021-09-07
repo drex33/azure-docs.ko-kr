@@ -8,12 +8,12 @@ ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 4f31567068b3b0cf1d11764ce8f609a5889c2e51
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: faa9dab677c410e877601297ec72f451219da47c
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462594"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968299"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -343,9 +343,9 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--s2s-detect-source-changed**: 원본 파일/Blob을 읽는 중에 변경이 발생하는지 탐지합니다. (이 매개 변수는 서비스 간 복사본에만 적용됩니다. 업로드 및 다운로드의 경우에 해당 확인을 사용하도록 영구적으로 설정되어 있기 때문입니다.)
 
-**--s2s-handle-invalid-metadata** 문자열: 잘못된 메타데이터 키가 처리되는 방식을 지정합니다. 사용 가능한 옵션은 ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid입니다. (기본값 `ExcludeIfInvalid`). (기본값 "ExcludeIfInvalid")
+**--s2s-handle-invalid-metadata** 문자열: 잘못된 메타데이터 키가 처리되는 방식을 지정합니다. 사용 가능한 옵션은 ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid입니다. (기본값 `ExcludeIfInvalid`).
 
-**--s2s-preserve-access-tier**: 서비스 간 복사가 진행되는 동안 액세스 계층을 유지합니다. 대상 스토리지 계정이 액세스 계층 설정을 지원하도록 하려면 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 액세스 계층 설정이 지원되지 않는 경우에는 s2sPreserveAccessTier = false를 사용하여 액세스 계층 복사를 건너뜁니다. (기본값 `true`).  (기본값 "true")
+**--s2s-preserve-access-tier**: 서비스 간 복사가 진행되는 동안 액세스 계층을 유지합니다. 대상 스토리지 계정이 액세스 계층 설정을 지원하도록 하려면 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 액세스 계층 설정이 지원되지 않는 경우에는 s2sPreserveAccessTier = false를 사용하여 액세스 계층 복사를 건너뜁니다. (기본값 `true`).
 
 **--s2s-preserve-properties**: 서비스 간 복사가 진행되는 동안 전체 속성을 유지합니다. AWS S3 및 Azure File 비단일 파일 원본의 경우 목록 작업에서 개체 및 파일의 전체 속성이 반환되지 않습니다. 전체 속성을 유지하려면 AzCopy는 개체 또는 파일당 하나의 추가 요청을 전송해야 합니다. (기본값 true)
 

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 8931103305d85b50a76dab001b37612a6c50a5cf
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: d32ea2a26bfcf4f1186cc93f65d67ed10b1eb4e9
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028616"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529486"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
@@ -22,9 +22,9 @@ ms.locfileid: "112028616"
 
 ## <a name="provide-feedback"></a>피드백 제공
 
-[Azure Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활성 커뮤니티 구성원과 함께 Azure Virtual Desktop 서비스에 대해 논의합니다.
+제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Azure Virtual Desktop 서비스에 대해 토론하려면 [Azure Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum)를 방문하세요.
 
-## <a name="vms-are-not-joined-to-the-domain"></a>VM이 도메인에 조인되어 있지 않음
+## <a name="vms-arent-joined-to-the-domain"></a>VM이 도메인에 조인되어 있지 않음
 
 VM(가상 머신)을 도메인에 조인하는 데 문제가 있는 경우 다음 지침을 따릅니다.
 
@@ -76,7 +76,7 @@ VM(가상 머신)을 도메인에 조인하는 데 문제가 있는 경우 다�
 - [DNS 서버 변경](../virtual-network/virtual-network-network-interface.md#change-dns-servers) 단계에 따라 네트워크 인터페이스의 DNS 서버 설정을 **사용자 지정** 으로 변경하고, 가상 네트워크에 있는 DNS 서버의 개인 IP 주소를 지정합니다.
 - [DNS 서버 변경](../virtual-network/virtual-network-network-interface.md#change-dns-servers) 단계에 따라 네트워크 인터페이스의 DNS 서버 설정을 **가상 네트워크에서 상속** 으로 변경한 다음, [DNS 서버 변경](../virtual-network/manage-virtual-network.md#change-dns-servers) 단계에 따라 가상 네트워크의 DNS 서버 설정을 변경합니다.
 
-## <a name="azure-virtual-desktop-agent-and-azure-virtual-desktop-boot-loader-are-not-installed"></a>Azure Virtual Desktop 에이전트 및 Azure Virtual Desktop 부팅 로더가 설치되어 있지 않음
+## <a name="azure-virtual-desktop-agent-and-azure-virtual-desktop-boot-loader-arent-installed"></a>Azure Virtual Desktop 에이전트와 Azure Virtual Desktop 부팅 로더가 설치되어 있지 않음
 
 VM을 프로비전하는 데 권장되는 방법은 Azure Portal 만들기 템플릿을 사용하는 것입니다. 템플릿은 Azure Virtual Desktop 에이전트 및 Azure Virtual Desktop 에이전트 부팅 로더를 자동으로 설치합니다.
 
@@ -86,13 +86,13 @@ VM을 프로비전하는 데 권장되는 방법은 Azure Portal 만들기 템�
 2. **파일 탐색기** 를 열고, **C:\Windows\Temp\ScriptLog.log** 로 이동합니다. 파일이 없는 경우 제공된 두 구성 요소를 설치한 PowerShell DSC가 보안 컨텍스트에서 실행될 수 없음을 나타냅니다.
 3. **C:\Windows\Temp\ScriptLog.log** 파일이 있는 경우 이 파일을 열고 오류 메시지를 확인합니다.
 
-### <a name="error-azure-virtual-desktop-agent-and-azure-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>오류: Azure Virtual Desktop 에이전트 및 Azure Virtual Desktop 에이전트 부트 로더가 없습니다. C:\Windows\Temp\ScriptLog.log도 없습니다.
+### <a name="error-azure-virtual-desktop-agent-and-azure-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>오류: Azure Virtual Desktop 에이전트와 Azure Virtual Desktop 에이전트 부팅 로더가 없습니다. C:\Windows\Temp\ScriptLog.log도 없습니다.
 
 **원인 1:** 입력 중에 제공된 Azure Resource Manager 템플릿에 대한 자격 증명이 잘못되었거나 권한이 없습니다.
 
 **해결 방법 1:** [PowerShell을 사용하여 호스트 풀 만들기](create-host-pools-powershell.md)를 사용하여 누락된 구성 요소를 VM에 수동으로 추가합니다.
 
-**원인 2:** PowerShell DSC를 시작하고 실행할 수 있었지만 Azure Virtual Desktop에 로그인하고 필요한 정보를 얻을 수 없기 때문에 완료하지 못했습니다.
+**원인 2:** PowerShell DSC를 시작하고 실행할 수 있지만 Azure Virtual Desktop에 로그인하여 필요한 정보를 가져올 수 없어 완료하지 못했습니다.
 
 **해결 방법 2:** 다음 목록의 항목을 확인합니다.
 
@@ -102,7 +102,7 @@ VM을 프로비전하는 데 권장되는 방법은 Azure Portal 만들기 템�
 
 ### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>오류: 인증에 실패했습니다. 오류는 C:\Windows\Temp\ScriptLog.log에 있습니다.
 
-**원인:** PowerShell DSC를 실행할 수 있었지만 Azure Virtual Desktop에 연결할 수 없습니다.
+**원인:** PowerShell DSC를 실행할 수 있지만 Azure Virtual Desktop에 연결할 수 없습니다.
 
 **해결 방법:** 다음 목록의 항목을 확인합니다.
 
@@ -110,7 +110,7 @@ VM을 프로비전하는 데 권장되는 방법은 Azure Portal 만들기 템�
 - 호스트 풀을 만들 수 있는 Azure 구독 또는 리소스 그룹에 대한 권한이 Azure Virtual Desktop에 연결하는 데 사용되는 계정에 있는지 확인합니다.
 - 계정에 MFA가 없는지 확인합니다.
 
-## <a name="azure-virtual-desktop-agent-is-not-registering-with-the-azure-virtual-desktop-service"></a>Azure Virtual Desktop 에이전트가 Azure Virtual Desktop 서비스에 등록되지 않음
+## <a name="azure-virtual-desktop-agent-isnt-registering-with-the-azure-virtual-desktop-service"></a>Azure Virtual Desktop 에이전트가 Azure Virtual Desktop 서비스에 등록되지 않음
 
 Azure Virtual Desktop 에이전트가 세션 호스트 VM에 처음 설치되면(수동으로 또는 Azure Resource Manager 템플릿 및 PowerShell DSC를 통해) 등록 토큰을 제공합니다. 다음 섹션에서는 Azure Virtual Desktop 에이전트 및 토큰에 적용되는 문제 해결에 대해 설명합니다.
 
@@ -125,7 +125,7 @@ Azure Virtual Desktop 에이전트가 세션 호스트 VM에 처음 설치되면
 
 1. 세션 호스트 VM에서 새 버전의 에이전트를 다운로드합니다.
 2. [작업 관리자]를 시작하고, [서비스] 탭에서 RDAgentBootLoader 서비스를 중지합니다.
-3. 새 버전의 Azure Virtual Desktop 에이전트에 대한 설치 관리자를 실행합니다.
+3. 새 버전의 Azure Virtual Desktop 에이전트용 설치 관리자를 실행합니다.
 4. 등록 토큰을 입력하라는 메시지가 표시되면 INVALID_TOKEN 항목을 제거하고, [다음]을 누릅니다(새 토큰이 필요하지 않음).
 5. 설치 마법사를 완료합니다.
 6. [작업 관리자]를 열고, RDAgentBootLoader 서비스를 시작합니다.
@@ -178,7 +178,7 @@ Azure Virtual Desktop 에이전트가 세션 호스트 VM에 처음 설치되면
 
 ## <a name="troubleshooting-issues-with-the-azure-virtual-desktop-side-by-side-stack"></a>Azure Virtual Desktop 병렬 스택과 관련된 문제 해결
 
-Azure Virtual Desktop 병렬 스택은 Windows Server 2019와 함께 자동으로 설치됩니다. MSI(Microsoft Installer)를 사용하여 병렬 스택을 Microsoft Windows Server 2016 또는 Windows Server 2012 R2에 설치합니다. Microsoft Windows 10의 경우 Azure Virtual Desktop 병렬 스택은 **enablesxstackrs.ps1** 로 사용하도록 설정됩니다.
+Azure Virtual Desktop 병렬 스택은 Windows Server 2019와 함께 자동으로 설치됩니다. MSI(Microsoft Installer)를 사용하여 병렬 스택을 Microsoft Windows Server 2016 또는 Windows Server 2012 R2에 설치합니다. Microsoft Windows 10에서는 **enablesxstackrs.ps1** 을 사용하여 Azure Virtual Desktop 병렬 스택을 사용하도록 설정합니다.
 
 세션 호스트 풀 VM에서 병렬 스택을 설치하거나 사용하도록 설정하는 세 가지 주요 방법이 있습니다.
 
@@ -186,7 +186,7 @@ Azure Virtual Desktop 병렬 스택은 Windows Server 2019와 함께 자동으�
 - 마스터 이미지에 포함 및 사용하도록 설정
 - 각 VM에 수동으로 설치하거나 사용하도록 설정(또는 확장/PowerShell 사용)
 
-Azure Virtual Desktop 병렬 스택에 문제가 있는 경우 명령 프롬프트에서 **qwinsta** 명령을 입력하여 병렬 스택이 설치되어 있거나 사용하도록 설정되어 있는지 확인합니다.
+Azure Virtual Desktop 병렬 스택과 관련된 문제가 있는 경우 명령 프롬프트에서 **qwinsta** 명령을 입력하여 병렬 스택이 설치되었거나 사용하도록 설정되었는지 확인합니다.
 
 병렬 스택이 설치되고 사용하도록 설정된 경우 **qwinsta** 의 출력에 **rdp-sxs** 가 나열됩니다.
 
@@ -215,7 +215,7 @@ Azure Virtual Desktop 병렬 스택에 문제가 있는 경우 명령 프롬프�
 1. RDP(원격 데스크톱 프로토콜)를 사용하여 로컬 관리자 권한으로 세션 호스트 VM에 직접 액세스합니다.
 2. [PowerShell을 사용하여 호스트 풀 만들기](create-host-pools-powershell.md)를 사용하여 병렬 스택을 설치합니다.
 
-## <a name="how-to-fix-a-azure-virtual-desktop-side-by-side-stack-that-malfunctions"></a>제대로 작동하지 않는 Azure Virtual Desktop 병렬 스택을 수정하는 방법
+## <a name="how-to-fix-an-azure-virtual-desktop-side-by-side-stack-that-malfunctions"></a>제대로 작동하지 않는 Azure Virtual Desktop 병렬 스택을 수정하는 방법
 
 병렬 스택이 제대로 작동하지 않는 알려진 상황이 있습니다.
 
@@ -225,7 +225,7 @@ Azure Virtual Desktop 병렬 스택에 문제가 있는 경우 명령 프롬프�
 - enablesxsstackrc.ps1을 여러 번 실행
 - 로컬 관리자 권한이 없는 계정에서 enablesxsstackrc.ps1 실행
 
-이 섹션의 지침은 Azure Virtual Desktop 병렬 스택을 제거하는 데 도움이 될 수 있습니다. 병렬 스택을 제거한 후 [PowerShell로 호스트 풀 만들기](create-host-pools-powershell.md)에서 "Azure Virtual Desktop 호스트 풀에 VM 등록"으로 이동하여 병렬 스택을 다시 설치합니다.
+이 섹션의 지침은 Azure Virtual Desktop 병렬 스택을 제거하는 데 도움이 될 수 있습니다. 병렬 스택을 제거한 후에는 [PowerShell을 사용하여 호스트 풀 만들기](create-host-pools-powershell.md)의 “Azure Virtual Desktop 호스트 풀에 VM 등록”으로 이동하여 병렬 스택을 다시 설치합니다.
 
 수정을 실행하는 데 사용되는 VM은 병렬 스택이 제대로 작동하지 않는 VM과 동일한 서브넷 및 도메인에 있어야 합니다.
 
@@ -272,7 +272,7 @@ Azure Virtual Desktop 병렬 스택에 문제가 있는 경우 명령 프롬프�
 
 11. "원격 데스크톱"으로 시작하는 모든 제품을 제거합니다.
 
-12. 모든 Azure Virtual Desktop 구성 요소가 제거되면 운영 체제에 대한 지침을 따릅니다.
+12. 모든 Azure Virtual Desktop 구성 요소가 제거되면 해당 운영 체제에 대한 지침을 따릅니다.
 
 13. 운영 체제가 Windows Server인 경우 Azure Portal을 사용하거나 PsExec 도구를 사용하여 제대로 작동하지 않는 병렬 스택이 있는 VM을 다시 시작합니다.
 
@@ -306,7 +306,7 @@ Azure Virtual Desktop 병렬 스택에 문제가 있는 경우 명령 프롬프�
 이러한 메시지 중 하나가 표시되면 최신 Windows 업데이트가 이미지에 설치되어 있지 않거나 그룹 정책을 통해 원격 데스크톱 라이선싱 모드를 설정하고 있음을 의미합니다. 다음 섹션의 단계에 따라 그룹 정책 설정을 확인하고, Windows 10 Enterprise 다중 세션의 버전을 식별하고, 해당 업데이트를 설치합니다.
 
 >[!NOTE]
->Azure Virtual Desktop에는 Windows Server 세션 호스트가 호스트 풀에 포함된 경우에만 RDS CAL(클라이언트 액세스 라이선스)이 필요합니다. RDS CAL을 구성하는 방법은 [클라이언트 액세스 라이선스를 사용하여 RDS 배포 라이선싱](/windows-server/remote/remote-desktop-services/rds-client-access-license/)을 참조하세요.
+>호스트 풀에 Windows Server 세션 호스트가 포함된 경우에만 Azure Virtual Desktop에 RDS CAL(클라이언트 액세스 라이선스)이 필요합니다. RDS CAL을 구성하는 방법은 [클라이언트 액세스 라이선스를 사용하여 RDS 배포 라이선싱](/windows-server/remote/remote-desktop-services/rds-client-access-license/)을 참조하세요.
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>원격 데스크톱 라이선싱 모드 그룹 정책 설정을 사용 안 함
 
@@ -339,19 +339,23 @@ Azure Gallery에서 최신 버전의 Windows 10 버전 1903 이미지를 사용�
 
 ## <a name="we-couldnt-connect-to-the-remote-pc-because-of-a-security-error"></a>보안 오류로 인해 원격 PC에 연결할 수 없음
 
-"보안 오류로 인해 원격 PC에 연결할 수 없습니다. 이 문제가 계속 발생하면 도움이 필요하면 관리자 또는 기술 지원에 문의하십시오."라는 오류가 사용자에게 표시되는 경우 기본 RDP 권한을 변경하는 기존 정책의 유효성을 검사합니다. 이 오류가 발생할 수 있는 정책 중 하나는 "원격 데스크톱 서비스를 통한 로그온 허용 보안 정책"입니다.
+“보안 오류로 인해 원격 PC에 연결할 수 없습니다. 이 문제가 계속 발생하면 관리자 또는 기술 지원팀에 도움을 요청하세요.”라는 오류가 사용자에게 표시되는 경우 기본 RDP 권한을 변경하는 기존 정책의 유효성을 검사합니다. 이 오류가 발생할 수 있는 정책 중 하나는 “원격 데스크톱 서비스를 통한 로그온 허용 보안 정책”입니다.
 
 이 정책에 대한 자세한 내용은 [원격 데스크톱 서비스를 통한 로그온 허용](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services)을 참조하세요.
 
+## <a name="i-cant-deploy-the-golden-image"></a>골든 이미지를 배포할 수 없음
+
+골든 이미지는 Azure Virtual Desktop 에이전트를 포함하지 않아야 합니다. 골든 이미지를 배포한 후에만 에이전트를 설치할 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
+- Azure Virtual Desktop과 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
 - Azure Virtual Desktop 환경에서 호스트 풀을 만드는 동안 발생하는 문제를 해결하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조하세요.
 - Azure Virtual Desktop에서 VM(가상 머신)을 구성하는 동안 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration.md)을 참조하세요.
 - Azure Virtual Desktop 에이전트 또는 세션 연결과 관련된 문제를 해결하려면 [일반적인 Azure Virtual Desktop 에이전트 문제 해결](troubleshoot-agent.md)을 참조하세요.
 - Azure Virtual Desktop 클라이언트 연결 문제를 해결하려면 [Azure Virtual Desktop 서비스 연결](troubleshoot-service-connection.md)을 참조하세요.
 - 원격 데스크톱 클라이언트와 관련된 문제를 해결하려면 [원격 데스크톱 클라이언트 문제 해결](troubleshoot-client.md)을 참조하세요.
-- Azure Virtual Desktop과 함께 PowerShell을 사용할 때 문제를 해결하려면 [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
+- Azure Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
 - 서비스에 대한 자세한 내용은 [Azure Virtual Desktop 환경](environment-setup.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](../azure-resource-manager/management/view-activity-logs.md)를 참조하세요.

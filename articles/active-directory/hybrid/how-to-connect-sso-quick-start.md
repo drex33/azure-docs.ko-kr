@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c42fef2abddc5f04a2d74f30df5fcf54e1b1b3
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 3a1c9bcec2a9aec2673e29a3f578146cad7de5d6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854417"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566516"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -177,12 +177,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox(모든 플랫폼)
 
-Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. 각 사용자는 다음 단계에 따라 Firefox 설정에 Azure AD URL을 수동으로 추가해야 합니다.
-1. Firefox를 실행하고 주소 표시줄에 `about:config` 를 입력합니다. 표시되는 모든 알림을 해제합니다.
-2. **network.negotiate-auth.trusted-uris** 기본 설정을 검색합니다. 이 기본 설정은 Firefox의 신뢰할 수 있는 Kerberos 인증 사이트를 나열합니다.
-3. 마우스 오른쪽 단추로 클릭하고 **수정** 을 선택합니다.
-4. 필드에 `https://autologon.microsoftazuread-sso.com` 을 입력합니다.
-5. **확인** 을 선택한 다음, 브라우저를 다시 엽니다.
+사용자 환경에서 [인증](https://github.com/mozilla/policy-templates/blob/master/README.md#authentication) 정책 설정을 사용하는 경우 Azure AD의 URL(`https://autologon.microsoftazuread-sso.com`)을 **SPNEGO** 섹션에 추가해야 합니다. **PrivateBrowsing** 옵션을 true로 설정하여 프라이빗 검색 모드에서 Seamless SSO를 허용할 수도 있습니다.
 
 #### <a name="safari-macos"></a>Safari(macOS)
 
@@ -198,17 +193,20 @@ macOS 및 기타 Windows가 아닌 플랫폼의 Chromium을 기반으로 하는 
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
-환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(`https://autologon.microsoftazuread-sso.com`)도 해당 정책 설정에 추가해야 합니다.
+환경에서 [AuthNegotiateDelegateAllowlist](https://chromeenterprise.google/policies/#AuthNegotiateDelegateAllowlist) 또는 [AuthServerAllowlist](https://chromeenterprise.google/policies/#AuthServerAllowlist) 정책 설정을 재정의한 경우 Azure AD의 URL(`https://autologon.microsoftazuread-sso.com`)도 해당 정책 설정에 추가해야 합니다.
 
-#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome(macOS 및 기타 Windows 이외 플랫폼)
+#### <a name="macos"></a>macOS
 
-macOS 및 기타 Windows가 아닌 플랫폼의 Google Chrome의 경우 통합 인증에 대한 Azure AD URL을 위해 허용 목록을 컨트롤하는 방법은 [Chromium 프로젝트 정책 목록](https://chromeenterprise.google/policies/)을 참조하세요.
-
-타사 Active Directory 그룹 정책 확장을 사용하여 Mac 사용자의 Firefox 및 Google Chrome에 Azure AD URL을 롤아웃하는 방법은 이 문서에 포함되어 있지 않습니다.
+타사 Active Directory 그룹 정책 확장을 사용하여 macOS 사용자의 Firefox 및 Google Chrome에 Azure AD URL을 롤아웃하는 방법은 이 문서에 포함되어 있지 않습니다.
 
 #### <a name="known-browser-limitations"></a>알려진 브라우저 제한 사항
 
-Firefox의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다. 원활한 SSO는 Chromium을 기반으로 하는 Microsoft Edge의 다음 버전을 지원하고 설계에 따라 InPrivate 및 게스트 모드에서 작동합니다. Microsoft Edge(레거시)는 더 이상 지원되지 않습니다.
+Seamless SSO는 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다. 원활한 SSO는 Chromium을 기반으로 하는 Microsoft Edge의 다음 버전을 지원하고 설계에 따라 InPrivate 및 게스트 모드에서 작동합니다. Microsoft Edge(레거시)는 더 이상 지원되지 않습니다. 
+
+ 해당 설명서를 기준으로 하는 InPrivate 및/또는 게스트 사용자에 대해 `AmbientAuthenticationInPrivateModesEnabled`를 구성해야 할 수 있습니다.
+ 
+   - [Microsoft Edge Chromium](/DeployEdge/microsoft-edge-policies#ambientauthenticationinprivatemodesenabled)
+   - [Google Chrome](https://chromeenterprise.google/policies/?policy=AmbientAuthenticationInPrivateModesEnabled)
 
 ## <a name="step-4-test-the-feature"></a>4단계: 기능 테스트
 
@@ -219,7 +217,7 @@ Firefox의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않�
   - 그룹 정책을 통해 해당 사용자에게 [기능을 롤아웃](#step-3-roll-out-the-feature)했습니다.
 
 사용자가 암호가 아니라 사용자 이름만 입력하는 시나리오를 테스트하려면 다음을 수행합니다.
-   - https://myapps.microsoft.com/ 에 로그인합니다. 지원되는 브라우저의 프라이빗 모드에서 브라우저 캐시를 삭제하거나, 새 프라이빗 브라우저 세션을 사용해야 합니다.
+   - [https://manage.visualstudio.com](https://myapps.microsoft.com/ ) 에 로그인합니다. 지원되는 브라우저의 프라이빗 모드에서 브라우저 캐시를 삭제하거나, 새 프라이빗 브라우저 세션을 사용해야 합니다.
 
 사용자가 사용자 이름이나 암호를 입력할 필요가 없는 시나리오를 테스트하려면 다음 중 하나를 수행합니다. 
    - `https://myapps.microsoft.com/contoso.onmicrosoft.com`에 로그인, 지원되는 브라우저의 프라이빗 모드에서 브라우저 캐시를 삭제하거나 새 프라이빗 브라우저 세션을 사용해야 합니다. *contoso* 를 테넌트의 이름으로 바꿉니다.
@@ -232,7 +230,7 @@ Firefox의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않�
 >[!IMPORTANT]
 >컴퓨터 계정의 Kerberos 암호 해독 키가 유출된 경우 해당 AD 포리스트의 사용자에 대한 Kerberos 티켓을 생성하는 데 사용될 수 있습니다. 그런 다음, 악의적인 행위자는 손상된 사용자에 대한 Azure AD 로그인을 가장할 수 있습니다. 적어도 30일마다 한 번씩 Kerberos 암호 해독 키를 주기적으로 롤오버하는 것이 좋습니다.
 
-키를 롤오버하는 방법에 대한 지침은 [Azure Active Directory Seamless Single Sign-On: 질문과 대답](how-to-connect-sso-faq.md)을 참조하세요. 자동화된 배포 키를 소개하는 기능을 개발하고 있습니다.
+키를 롤오버하는 방법에 대한 지침은 [Azure Active Directory Seamless Single Sign-On: 질문과 대답](how-to-connect-sso-faq.yml)을 참조하세요.
 
 >[!IMPORTANT]
 >이 기능을 사용하도록 설정한 후에는 이 단계를 _즉시_ 수행할 필요가 없습니다. 적어도 30일마다 Kerberos 암호 해독 키를 롤오버합니다.
@@ -240,6 +238,6 @@ Firefox의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않�
 ## <a name="next-steps"></a>다음 단계
 
 - [기술 심층 분석](how-to-connect-sso-how-it-works.md): Seamless Single Sign-On 기능의 작동 방식을 이해합니다.
-- [질문과 대답](how-to-connect-sso-faq.md): Azure Active Directory Seamless Single Sign-On에 대한 질문과 대답입니다.
+- [질문과 대답](how-to-connect-sso-faq.yml): Azure Active Directory Seamless Single Sign-On에 대한 질문과 대답입니다.
 - [문제 해결](tshoot-connect-sso.md): Seamless Single Sign-On 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.

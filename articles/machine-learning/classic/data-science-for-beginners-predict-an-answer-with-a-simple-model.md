@@ -9,15 +9,16 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 5d0617412fcfef3846670d5ff5e957dad8e98ee8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: af787dbb441a455392af3515edbe6176b9e301b0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528977"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695604"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>단순 모델을 사용하여 답변 예측
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 ## <a name="video-4-data-science-for-beginners-series"></a>비디오 4: 초급자를 위한 데이터 과학 시리즈
 초급자를 위한 데이터 과학 비디오 4에서는 다이아몬드의 가격을 예측하는 단순 회귀 모델을 만드는 방법을 알아봅니다. 대상 데이터를 사용하여 회귀 모델을 그려볼 것입니다.

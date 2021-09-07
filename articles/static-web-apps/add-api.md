@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/14/2021
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 939c63edba204ff903a8616eef1db5e031397a3f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 56c8044f1ab36015accb3f951469ee0a0579ca23
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066181"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608643"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps에 API 추가
 
@@ -98,7 +98,7 @@ Visual Studio Code에서 앱 리포지토리의 루트를 엽니다. 폴더 구�
 
 # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
 
-_index.html_ 파일의 콘텐츠를 다음 코드로 업데이트하여 API 함수에서 텍스트를 인출하고 화면에 표시합니다.
+_src/index.html_ 파일의 콘텐츠를 다음 코드로 업데이트하여 API 함수에서 텍스트를 가져오고 화면에 표시합니다.
 
 ```html
 <!DOCTYPE html>

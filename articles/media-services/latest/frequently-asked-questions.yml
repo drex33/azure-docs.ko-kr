@@ -4,12 +4,12 @@ metadata:
   description: Azure Media Services에 대한 일반적인 질문에 대한 답변을 찾습니다.
   ms.service: media-services
   ms.custom: contperf-fy21q4
-  ms.openlocfilehash: 226512e03a3e14c0f6bbfd7c806e17f24736f2bc
-  ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+  ms.openlocfilehash: bbe5b0f1ca4536c5ce03803c6e1a5822bcacc78f
+  ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/21/2021
-  ms.locfileid: "122634839"
+  ms.lasthandoff: 08/31/2021
+  ms.locfileid: "123258354"
 title: Azure Media Services에 대한 일반적인 질문
 summary: 이 문서에서는 Azure Media에 대해 자주 묻는 질문에 답합니다.
 sections:
@@ -145,7 +145,7 @@ sections:
       PlayReady, Widevine, FairPlay 등의 DRM 시스템은 모두 AES-128 암호화되지 않은 키와 비교했을 때 콘텐츠 암호 해독에 사용되는 키에 대한 추가 수준의 암호화를 제공합니다. 콘텐츠 키는 TLS에서 제공하는 전송 수준 암호화 외에 DRM 런타임으로 보호하는 키로 암호화됩니다. 또한 암호 해독은 악의적인 사용자가 공격하기에 좀 더 어려운 운영 체제 수준의 보안 환경에서 처리됩니다. DRM은 뷰어가 신뢰할 만한 당사자가 아니고 가장 높은 수준의 보안이 필요한 경우에 권장됩니다.
   - question: Azure AD를 사용하지 않고 특정 권한이 있는 사용자에게만 비디오를 보여주려면 어떻게 할까요?
     answer: >
-      Azure AD(Azure Active Directory)와 같은 특정 토큰 공급자를 사용할 필요가 없습니다. 비대칭 키 암호화를 사용하여 고유한 [JWT](https://jwt.io/) 공급자(보안 토큰 서비스 또는 STS)를 만들 수 있습니다. 사용자 지정 STS에서 자체 비즈니스 논리에 따라 클레임을 추가할 수 있습니다.
+      Azure AD(Azure Active Directory)와 같은 특정 토큰 공급자를 사용할 필요가 없습니다. 비대칭 키 암호화를 사용하여 고유한 [JWT](https://docs.microsoft.com/azure/active-directory/develop/security-tokens#json-web-tokens-and-claims) 공급자(보안 토큰 서비스 또는 STS)를 만들 수 있습니다. 사용자 지정 STS에서 자체 비즈니스 논리에 따라 클레임을 추가할 수 있습니다.
 
 
       발급자, 대상 그룹 및 클레임이 모두 JWT의 내용과 `ContentKeyPolicyRestriction`에서 사용되는 `ContentKeyPolicy` 값 사이에서 정확하게 일치하는지 확인합니다.

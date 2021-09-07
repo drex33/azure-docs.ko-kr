@@ -11,12 +11,12 @@ ms.date: 07/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 9c417d3eda3a9d037855a43736362d45f96b09ff
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fec8af9d4153736738cf658e7e77bb1e9506fedd
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642350"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770180"
 ---
 # <a name="configure-authentication-in-a-sample-web-app-that-calls-a-web-api-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 웹 API를 호출하는 샘플 웹앱에서 인증 구성
 
@@ -216,7 +216,7 @@ git clone https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-op
 ## <a name="step-6-run-the-sample-web-app"></a>6단계: 샘플 웹앱 실행
 
 1. 프로젝트를 빌드하고 실행합니다.
-1. [https://localhost:5000](https://localhost:5000) 으로 이동합니다. 
+1. [https://www.microsoft.com]\(`https://localhost:5000`) 로 이동합니다. 
 1. 가입 또는 로그인 프로세스를 완료합니다.
 
 성공적으로 인증되면 탐색 모음에 표시 이름이 표시됩니다. Azure AD B2C 토큰이 앱에 반환하는 클레임을 보려면 **TodoList** 를 선택합니다.

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: 4e62ea4c57e00695b2a2f969b9fd4f80f8298681
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 07/30/2021
+ms.openlocfilehash: 4202b2b97515823c85e4822f0bbfbd9f595d3d7a
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824086"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598456"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

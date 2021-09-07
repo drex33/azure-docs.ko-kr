@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: saachigopal
 ms.author: sagopal
-ms.date: 12/3/2020
+ms.date: 07/27/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: ec0c7d64f2145cdaf594cb903c072984f4d376a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e88637f67e8e9db01c46b6de5518c95ad4290ee9
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519132"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568097"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>환경 이미지 빌드 관련 문제 해결
 
@@ -23,7 +23,7 @@ Docker 환경 이미지 빌드 및 패키지 설치와 관련된 문제를 해�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
@@ -145,6 +145,25 @@ PIP 하위 프로세스 오류:
 
 종속성에 해결할 수 없는 충돌이 있으면 PIP 설치가 무한 루프에서 중단될 수 있습니다. 로컬에서 작업하는 경우 PIP 버전을 20.3 미만으로 다운그레이드합니다. YAML 파일에서 만든 Conda 환경에서는 우선 순위가 가장 높은 채널이 conda-forge인 경우에만 이 문제가 발생합니다. 이 문제를 완화하려면 Conda 사양 파일에서 20.3 미만의 PIP(!=20.3 또는 =20.2.4를 다른 버전으로 고정)를 Conda 종속성으로 명시적으로 지정합니다.
 
+### <a name="modulenotfounderror-no-module-named-distutilsdir_util"></a>ModuleNotFoundError: 'distutils.dir_util'이라는 모듈이 없음
+
+환경을 설정할 때 **ModuleNotFoundError: 'distutils.dir_util'이라는 모듈이 없음** 문제가 발생하는 경우도 있습니다. 이 문제를 해결하려면 다음 명령을 수행합니다.
+
+```bash
+apt-get install -y --no-install-recommends python3 python3-distutils && \
+ln -sf /usr/bin/python3 /usr/bin/python
+```
+
+Dockerfile을 사용하는 경우 RUN 명령의 일부로 실행합니다.
+
+```dockerfile
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends python3 python3-distutils && \
+  ln -sf /usr/bin/python3 /usr/bin/python
+```
+
+이 명령을 실행하면 환경을 구성하기 위한 올바른 모듈 종속성이 설치됩니다. 
+
 ## <a name="service-side-failures"></a>서비스 측 실패
 
 가능한 서비스 측 오류 문제를 해결하려면 다음 시나리오를 참조하세요.
@@ -188,9 +207,6 @@ PIP 하위 프로세스 오류:
 
  자세한 내용은 [가상 네트워크 사용 설정](./how-to-network-security-overview.md)을 참조하세요.
 
-### <a name="you-need-to-create-an-icm"></a>ICM을 만들어야 함
-
-ICM을 만들고 Metastore에 할당하는 경우 문제를 더 잘 이해할 수 있도록 CSS 지원 티켓을 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

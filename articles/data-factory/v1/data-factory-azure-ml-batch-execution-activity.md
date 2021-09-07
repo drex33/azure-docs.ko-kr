@@ -1,20 +1,20 @@
 ---
 title: Azure Data Factory를 사용하여 예측 데이터 파이프라인 만들기
-description: Azure Data Factory 및 Azure Machine Learning Studio(클래식)를 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
+description: Azure Data Factory 및 Machine Learning Studio(클래식)를 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 2773ab2a7caa1eb4d198495a3ebe4ef0c14a5a32
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d4a930677f4760ae5f2d77dd4f148097ae67f465
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785515"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122598017"
 ---
-# <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Azure Machine Learning Studio(클래식) 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
+# <a name="create-predictive-pipelines-using-machine-learning-studio-classic-and-azure-data-factory"></a>Machine Learning Studio(클래식) 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 
 > [!div class="op_single_selector" title1="변환 작업"]
 > * [Hive 작업](data-factory-hive-activity.md)
@@ -22,8 +22,8 @@ ms.locfileid: "104785515"
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [ML Studio(클래식) Batch Execution 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [ML Studio(클래식) 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -32,10 +32,10 @@ ms.locfileid: "104785515"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에서 기계 학습을 사용하여 데이터 변환](../transform-data-using-machine-learning.md)을 참조하세요.
 
-### <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)
-[Azure Machine Learning Studio(클래식)](https://azure.microsoft.com/documentation/services/machine-learning/)를 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
+### <a name="machine-learning-studio-classic"></a>Machine Learning Studio(클래식)
+[ML Studio(클래식)](https://azure.microsoft.com/documentation/services/machine-learning/)를 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
-1. **학습 실험 만들기**. Azure Machine Learning Studio(클래식)를 사용하여 이 단계를 수행합니다. Studio(클래식)는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
+1. **학습 실험 만들기**. ML Studio(클래식)를 사용하여 이 단계를 수행합니다. Studio(클래식)는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
 2. **예측 실험으로 변환**. 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
 3. **웹 서비스로 배포**. 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.
 
@@ -47,19 +47,19 @@ Data Factory 서비스를 통해 데이터를 이동하고 변환하는 파이�
 [Azure Data Factory 소개](data-factory-introduction.md) 및 [첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 문서를 참조하여 Azure Data Factory 서비스를 빠르게 시작합니다.
 
 ### <a name="data-factory-and-machine-learning-studio-classic-together"></a>Data Factory 및 Machine Learning Studio(클래식)
-Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [Azure Machine Learning Studio(클래식)][azure-machine-learning] 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 **Batch Execution 작업** 을 사용하면 Studio(클래식) 웹 서비스를 호출하여 데이터를 일괄적으로 예측할 수 있습니다. 자세한 내용은 Batch Execution 작업을 사용하여 Azure Machine Learning Studio(클래식) 웹 서비스 호출 섹션을 참조하세요.
+Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [ML Studio(클래식)][azure-machine-learning] 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 **Batch Execution 작업** 을 사용하면 Studio(클래식) 웹 서비스를 호출하여 데이터를 일괄적으로 예측할 수 있습니다. 자세한 내용은 일괄 실행 작업을 사용하여 ML Studio(클래식) 웹 서비스 호출 섹션을 참조하세요.
 
 시간이 지남에 따라 Studio(클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 다음 단계를 수행하여 Data Factory 파이프라인에서 Studio(클래식) 모델을 다시 학습시킬 수 있습니다.
 
 1. 웹 서비스로 학습 실험(예측 실험 아님)을 게시합니다. 이전 시나리오에서 예측 실험을 웹 서비스로 공개했던 것처럼 Studio(클래식)에서 이 단계를 수행합니다.
 2. Studio(클래식) Batch Execution 작업을 사용하여 학습 실험을 위한 웹 서비스를 호출합니다. 기본적으로, Studio(클래식) Batch Execution 작업을 사용하여 학습 웹 서비스와 점수 매기기 웹 서비스를 모두 호출할 수 있습니다.
 
-재학습이 완료되면 **Azure Machine Learning Studio(클래식) 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 점수 매기기 웹 서비스(웹 서비스로 공개된 예측 실험)를 업데이트합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](data-factory-azure-ml-update-resource-activity.md) 문서를 참조하세요.
+재학습으로 완료한 후에는 **ML Studio(클래식) 업데이트 리소스 작업** 을 사용하여 새로 학습한 모델로 점수 매기기 웹 서비스(웹 서비스로 노출된 예측 실험)를 업데이트합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](data-factory-azure-ml-update-resource-activity.md) 문서를 참조하세요.
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Batch 실행 작업을 사용하여 웹 서비스 호출
 Azure Data Factory를 사용하여 데이터 이동 및 처리를 오케스트레이션한 다음 Azure Studio(클래식)를 사용하는 일괄 처리 실행을 수행할 수 있습니다. 최상위 단계는 다음과 같습니다.
 
-1. Azure Machine Learning Studio(클래식) 연결된 서비스. 다음 값이 필요합니다.
+1. ML Studio(클래식) 연결된 서비스를 만듭니다. 다음 값이 필요합니다.
 
    1. **요청 URI** . 웹 서비스 페이지에서 **배치 실행** 링크를 클릭하여 요청 URI를 찾을 수 있습니다.
    2. 게시된 Studio(클래식) 웹 서비스용 **API 키**. 게시한 웹 서비스를 클릭하여 API 키를 찾을 수 있습니다.
@@ -358,7 +358,7 @@ Studio(클래식) 실험에서 판독기 모듈을 사용하는 경우 입력으
 {
   "name": "MLWithSqlReaderSqlWriter",
   "properties": {
-    "description": "Azure Machine Learning Studio (classic) model with sql azure reader/writer",
+    "description": "ML Studio (classic) model with sql azure reader/writer",
     "activities": [
       {
         "name": "MLSqlReaderSqlWriterActivity",
@@ -411,7 +411,7 @@ Studio(클래식) 실험에서 판독기 모듈을 사용하는 경우 입력으
 #### <a name="web-service-requires-multiple-inputs"></a>웹 서비스에는 다중 입력이 필요합니다
 웹 서비스에서 다중 입력을 받을 경우 **webServiceInput** 를 사용하는 대신에 **webServiceInputs** 속성을 사용합니다. **webServiceInputs** 에서 참조하는 데이터 세트는 또한 **입력** 작업에 포함되어야 합니다.
 
-Azure Machine Learning Studio(클래식) 실험에서 웹 서비스 입력 및 출력 포트와 글로벌 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. 예상된 매핑을 확인하기 위해 Batch Execution 도움말 페이지에서 Studio(클래식) 엔드포인트에 대한 샘플 요청 페이로드를 볼 수 있습니다.
+ML Studio(클래식) 실험에서 웹 서비스 입력 및 출력 포트와 전역 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. 예상된 매핑을 확인하기 위해 Batch Execution 도움말 페이지에서 Studio(클래식) 엔드포인트에 대한 샘플 요청 페이로드를 볼 수 있습니다.
 
 ```JSON
 {
@@ -454,7 +454,7 @@ Azure Machine Learning Studio(클래식) 실험에서 웹 서비스 입력 및 �
 ```
 
 #### <a name="web-service-does-not-require-an-input"></a>웹 서비스에는 입력이 필요하지 않습니다.
-Azure Machine Learning Studio(클래식) Batch Execution 웹 서비스를 사용하여 입력이 필요하지 않은 모든 워크플로(예: R 또는 Python 스크립트)를 실행할 수 있습니다. 또는 어떠한 GlobalParameters도 노출하지 않는 판독기 모듈로 실험을 구성할 수 있습니다. 이 경우 AzureMLBatchExecution 작업은 다음과 같이 구성합니다.
+ML Studio(클래식) 일괄 처리 실행 웹 서비스는 입력이 필요하지 않는 모든 워크플로(예: R 또는 Python 스크립트)를 실행하는 데 사용할 수 있습니다. 또는 어떠한 GlobalParameters도 노출하지 않는 판독기 모듈로 실험을 구성할 수 있습니다. 이 경우 AzureMLBatchExecution 작업은 다음과 같이 구성합니다.
 
 ```JSON
 {
@@ -481,7 +481,7 @@ Azure Machine Learning Studio(클래식) Batch Execution 웹 서비스를 사용
 ```
 
 #### <a name="web-service-does-not-require-an-inputoutput"></a>웹 서비스에는 입력/출력이 필요하지 않습니다.
-Azure Machine Learning Studio(클래식) Batch Execution 웹 서비스에 웹 서비스 출력이 구성되어 있지 않을 수 있습니다. 이 예제에서는 웹 서비스 입력 또는 출력이 없으며 GlobalParameters도 구성되어 있지 않습니다. 작업 자체에 여전히 출력이 구성되어 있지만 webServiceOutput으로 제공된 것이 아닙니다.
+ML Studio(클래식) 일괄 처리 실행 웹 서비스에는 웹 서비스 출력이 구성되어 있지 않을 수 있습니다. 이 예제에서는 웹 서비스 입력 또는 출력이 없으며 GlobalParameters도 구성되어 있지 않습니다. 작업 자체에 여전히 출력이 구성되어 있지만 webServiceOutput으로 제공된 것이 아닙니다.
 
 ```JSON
 {
@@ -505,7 +505,7 @@ Azure Machine Learning Studio(클래식) Batch Execution 웹 서비스에 웹 �
 ```
 
 #### <a name="web-service-uses-readers-and-writers-and-the-activity-runs-only-when-other-activities-have-succeeded"></a>웹 서비스는 판독기 및 기록기를 사용하며 작업은 다른 작업이 성공한 경우에만 실행됩니다.
-Azure Machine Learning Studio(클래식) 웹 서비스의 판독기 및 기록기 모듈은 GlobalParameters를 사용하거나 사용하지 않고 실행되도록 구성할 수 있습니다. 하지만 일부 업스트림 처리가 완료될 때만 서비스를 호출하도록 데이터 세트 종속성을 사용하는 파이프라인에 서비스 호출을 포함하려 할 수 있습니다. 또한 이 방법을 사용하여 배치 실행이 완료된 후 다른 작업을 트리거할 수도 있습니다. 이 경우 웹 서비스 입력 또는 출력으로 이름을 지정하지 않고 입력 및 출력 작업을 사용하여 종속성을 표현할 수 있습니다.
+ML Studio(클래식) 웹 서비스의 판독기 및 기록기 모듈은 GlobalParameters를 포함 또는 포함하지 않고 실행하도록 구성될 수 있습니다. 하지만 일부 업스트림 처리가 완료될 때만 서비스를 호출하도록 데이터 세트 종속성을 사용하는 파이프라인에 서비스 호출을 포함하려 할 수 있습니다. 또한 이 방법을 사용하여 배치 실행이 완료된 후 다른 작업을 트리거할 수도 있습니다. 이 경우 웹 서비스 입력 또는 출력으로 이름을 지정하지 않고 입력 및 출력 작업을 사용하여 종속성을 표현할 수 있습니다.
 
 ```JSON
 {
@@ -545,7 +545,7 @@ Azure Machine Learning Studio(클래식) 웹 서비스의 판독기 및 기록�
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>업데이트 리소스 작업을 사용하여 모델 업데이트
-재학습이 완료되면 **Azure Machine Learning Studio(클래식) 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 점수 매기기 웹 서비스(웹 서비스로 공개된 예측 실험)를 업데이트합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](data-factory-azure-ml-update-resource-activity.md) 문서를 참조하세요.
+재학습으로 완료한 후에는 **ML Studio(클래식) 업데이트 리소스 작업** 을 사용하여 새로 학습한 모델로 점수 매기기 웹 서비스(웹 서비스로 노출된 예측 실험)를 업데이트합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](data-factory-azure-ml-update-resource-activity.md) 문서를 참조하세요.
 
 ### <a name="reader-and-writer-modules"></a>판독기 및 작성기 모듈
 웹 서비스 매개 변수를 사용하는 일반적인 시나리오는 Azure SQL 판독기 및 기록기 사용입니다. 판독기 모듈은 Studio(클래식) 외부 데이터 관리 서비스에서 실험으로 데이터를 로드하는 데 사용됩니다. 작성기 모듈은 사용자 실험에서 Studio(클래식) 외부 데이터 관리 서비스로 데이터를 저장합니다.
@@ -557,14 +557,14 @@ Azure Blob/Azure SQL 판독기/기록기에 대한 자세한 내용은 MSDN 라�
 
 **A:** 예. 자세한 내용은 **Azure Blob에서 여러 파일의 데이터를 읽는 판독기 모듈 사용** 섹션을 참조하세요.
 
-## <a name="azure-machine-learning-studio-classic-batch-scoring-activity"></a>Azure Machine Learning Studio(클래식) 일괄 처리 채점 작업
-**AzureMLBatchScoring** 작업을 사용하여 Azure Machine Learning Studio(클래식)와 통합하는 경우 최신 **AzureMLBatchExecution** 작업을 사용하는 것이 좋습니다.
+## <a name="ml-studio-classic-batch-scoring-activity"></a>ML Studio(클래식) 일괄 처리 점수 매기기 작업
+**AzureMLBatchScoring** 작업을 사용하여 ML Studio(클래식)와 통합하는 경우 최신 **AzureMLBatchExecution** 작업을 사용하는 것이 좋습니다.
 
 AzureMLBatchExecution 작업은2015년 8월 Azure SDK 및 Azure PowerShell 릴리스에서 도입되었습니다.
 
 AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 읽어보세요.
 
-### <a name="azure-machine-learning-studio-classic-batch-scoring-activity-using-azure-storage-for-inputoutput"></a>입/출력에 대해 Azure Storage를 사용하는 Azure Machine Learning Studio(클래식) 일괄 처리 채점 작업
+### <a name="ml-studio-classic-batch-scoring-activity-using-azure-storage-for-inputoutput"></a>입/출력에 대해 Azure Storage를 사용하는 ML Studio(클래식) 일괄 처리 점수 매기기 작업
 
 ```JSON
 {
@@ -628,7 +628,7 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 >
 
 ## <a name="see-also"></a>참고 항목
-* [Azure 블로그 게시물: Azure 데이터 팩터리 및 Azure Machine Learning 시작하기](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+* [Azure 블로그 게시물: Azure Data Factory 및 ML Studio(클래식) 시작](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

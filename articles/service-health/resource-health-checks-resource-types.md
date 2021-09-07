@@ -2,13 +2,13 @@
 title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft Docs
 description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 1b0958732a96786b2fb86b2b145f5cb8d36c0c5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/05/2021
+ms.openlocfilehash: 2b3c2944cff20db2feb3236ca7381107f3db6061
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97883370"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528956"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -264,7 +264,13 @@ ms.locfileid: "97883370"
 |---|
 |<ul><li>호스트 서버가 작동 중인가?</li><li>인터넷 정보 서버를 실행 중인가?</li><li>부하 분산 장치를 실행 중인가?</li><li>데이터 센터 내에서 Web App에 도달할 수 있는가?</li><li>사이트 콘텐츠를 호스팅하는 스토리지 계정이 제공되는가?</li></ul>|
 
+## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/vaults
+
+| 실행된 검사 |
+| --- |
+|<ul><li>사용자가 제어할 수 없는 원인으로 인해 이 자격 증명 모음에 구성된 백업 항목에 대한 백업 작업이 실패하나요?</li><li>사용자가 제어할 수 없는 원인으로 인해 이 자격 증명 모음에 구성된 백업 항목에 대한 복원 작업이 실패하나요?</li></ul> |
+
 ## <a name="next-steps"></a>다음 단계
 -  [Azure Service Health 대시보드 소개](service-health-overview.md) 및 [Azure Resource Health 소개](resource-health-overview.md)를 참조하여 자세한 내용을 확인합니다. 
--  [Azure Resource Health에 대한 질문과 대답](resource-health-faq.md)
+-  [Azure Resource Health에 대한 질문과 대답](resource-health-faq.yml)
 - 상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Service Health 이벤트에 대한 경고 구성](./alerts-activity-log-service-notifications-portal.md)을 참조하세요.

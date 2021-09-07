@@ -7,18 +7,17 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 24abb1ece1d307276be736b384c3e5e3c7d40f2a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: dbc2f2efffcab9800deff27e42e4130061c531d7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407492"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566982"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Kubernetes 도구를 사용하여 Azure SQL 관리형 인스턴스 만들기
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -48,8 +47,8 @@ metadata:
   name: sql1-login-secret
 type: Opaque
 ---
-apiVersion: sql.arcdata.microsoft.com/v1alpha1
-kind: sqlmanagedinstance
+apiVersion: sql.arcdata.microsoft.com/v1
+kind: SqlManagedInstance
 metadata:
   name: sql1
   annotations:
@@ -133,7 +132,7 @@ echo -n '<your string to encode here>' | base64
 - 청구를 위하여 코어 제한 값은 **필수** 입니다.
 - 리소스 요청 및 제한의 나머지 부분은 선택 사항입니다.
 - 지정하는 경우 코어 제한과 요청은 양의 정숫값이어야 합니다.
-- 지정하는 경우 코어 요청에는 최소 2코어가 필요합니다.
+- 지정하는 경우 코어 요청에는 최소 1코어가 필요합니다.
 - 메모리 값 형식은 Kubernetes 표기법을 따릅니다.  
 - 지정하는 경우 메모리 요청에는 최소 2Gi가 필요합니다.
 - 일반적인 가이드라인에 따라, 프로덕션 사용 사례의 경우 각각의 코어마다 RAM에 4GB가 있어야 합니다.
@@ -181,10 +180,10 @@ kubectl describe pod/<pod name> --namespace arc
 #kubectl describe pod/sql1-0 --namespace arc
 ```
 
-## <a name="troubleshooting-creation-problems"></a>만들기 문제 해결
+## <a name="troubleshooting-creation-problems"></a>생성 문제 해결
 
 생성 관련 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Arc 지원 SQL Managed Instance에 연결하기](connect-managed-instance.md)
+[Azure Arc 지원 SQL Managed Instance에 연결](connect-managed-instance.md)

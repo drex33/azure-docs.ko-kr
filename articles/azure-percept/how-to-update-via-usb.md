@@ -1,23 +1,22 @@
 ---
-title: USB-C 연결을 통해 Azure Percept DK 업데이트
+title: USB-C 케이블 연결을 통해 Azure Percept DK 업데이트
 description: USB-C 케이블 연결을 통해 Azure Percept DK를 업데이트하는 방법을 알아봅니다.
-author: EthanChangAED
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: eef23597e6cb8f215fd7ce2374d66ff104cc00bc
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: e40a75f91ebf371d27b541b74ba427f42bc518f3
+ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226014"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114652909"
 ---
-# <a name="update-azure-percept-dk-over-a-usb-c-connection"></a>USB-C 연결을 통해 Azure Percept DK 업데이트
+# <a name="update-the-azure-percept-dk-over-a-usb-c-cable-connection"></a>USB-C 케이블 연결을 통해 Azure Percept DK 업데이트
 
 이 가이드에서는 USB 연결을 통해 개발 키트의 운영 체제 및 펌웨어를 성공적으로 업데이트하는 방법을 보여 줍니다. 이 절차에서 수행하는 작업의 개요는 다음과 같습니다.
-
 1. 호스트 컴퓨터에 업데이트 패키지 다운로드
 1. 업데이트 패키지를 개발 키트로 전송하는 명령 실행
 1. SSH 또는 DIP 스위치를 사용하여 개발 키트를 USB 모드로 설정
@@ -28,6 +27,7 @@ ms.locfileid: "123226014"
 > USB를 통해 개발 키트를 업데이트하면 AI 모델 및 컨테이너를 포함하여 디바이스의 기존 데이터가 모두 삭제됩니다.
 >
 > 모든 지침을 순서대로 수행합니다. 단계를 건너뛰면 개발 키트가 사용할 수 없는 상태가 될 수 있습니다.
+
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

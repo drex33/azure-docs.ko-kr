@@ -4,17 +4,18 @@ description: Azure CLI를 사용하여 Azure Blockchain Service를 관리하는 
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 55df56274aa5baa946b60c27cf49723d59c928a1
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 6920458795a84e44c19164d1342de1b9a33052d0
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865930"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "122642101"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Azure CLI를 사용하여 Azure Blockchain Service 관리
 
 Azure Portal 외에도 Azure CLI를 사용하여 Azure Blockchain 서비스의 블록체인 멤버 및 트랜잭션 노드를 관리할 수 있습니다.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다.
@@ -64,7 +65,7 @@ az blockchain member create \
 | 매개 변수 | Description |
 |---------|-------------|
 | **resource-group** | Azure Blockchain Service 리소스가 만들어지는 리소스 그룹 이름입니다. |
-| **name** | Azure Blockchain Service 블록체인 멤버를 식별하는 고유한 이름입니다. 이 이름은 공용 엔드포인트 주소에 사용됩니다. 예들 들어 `myblockchainmember.blockchain.azure.com`입니다. |
+| **name** | Azure Blockchain Service 블록체인 멤버를 식별하는 고유한 이름입니다. 이 이름은 공용 엔드포인트 주소에 사용됩니다. `myblockchainmember.blockchain.azure.com`)을 입력합니다. |
 | **location** | 블록체인 멤버가 만들어지는 Azure 지역입니다. `eastus`)을 입력합니다. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. 기능은 일부 지역에서 사용하지 못할 수도 있습니다. |
 | **password** | 멤버의 기본 트랜잭션 노드에 대한 암호입니다. 블록체인 멤버의 기본 트랜잭션 노드 공용 엔드포인트에 연결할 때 기본 인증용 암호를 사용합니다. 암호는 다음 4가지 요구 사항 중 3가지를 충족해야 합니다. 길이는 12~72자 사이이며, 1개의 소문자, 1개의 대문자, 1개의 숫자, 1개의 특수 문자를 사용해야 합니다. 특수 문자는 숫자 기호(#), 퍼센트(%), 쉼표(,), 별표(*), 역따옴표(\`), 큰따옴표(”), 작은따옴표(’), 대시(-), 세미콜론(;)이 아니어야 합니다|
 | **protocol** | Blockchain 프로토콜입니다. 현재 *Quorum* 프로토콜이 지원됩니다. |
@@ -208,7 +209,7 @@ az role assignment create \
                             --scope /subscriptions/<subId>/resourceGroups/<groupName>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure Active Directory 역할의 이름. |
 | **assignee** | Azure Active Directory 사용자 ID. 예를 들어 `user@contoso.com` |
@@ -244,7 +245,7 @@ az role assignment create \
                             --assignee-object-id <assignee_object_id>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure Active Directory 역할의 이름. |
 | **담당자-개체-id** | Azure AD 그룹 ID 또는 애플리케이션 ID입니다. |
@@ -270,7 +271,7 @@ az role assignment delete \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/<myResourceGroup>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>/transactionNodes/<myTransactionNode>
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure Active Directory 역할의 이름. |
 | **assignee** | Azure Active Directory 사용자 ID. 예를 들어 `user@contoso.com` |

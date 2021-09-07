@@ -1,28 +1,28 @@
 ---
 title: 문서 추출 인식 기술
 titleSuffix: Azure Cognitive Search
-description: 보강 파이프라인 내 파일에서 콘텐츠를 추출합니다. 이 기술은 현재 공개 미리 보기로 제공됩니다.
+description: 보강 파이프라인 내 파일에서 콘텐츠를 추출합니다.
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 08/12/2021
 ms.author: chalton
-ms.openlocfilehash: 681900e2d2175e3e52a906072ae0b31a835cd1c8
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 02d3431ecc7a5c460be75885fd786b3b4c4d276f
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483662"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529479"
 ---
 # <a name="document-extraction-cognitive-skill"></a>문서 추출 인식 기술
 
 **문서 추출** 기술은 보강 파이프라인에서 파일의 콘텐츠를 추출합니다. 이렇게 하면 다른 기술에서 생성될 수 있는 파일을 사용하여 기술 세트를 실행하기 전에 일반적으로 발생하는 문서 추출 단계를 활용할 수 있습니다.
 
 > [!NOTE]
-> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출할 때와 인덱싱에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 발생합니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 이 기술은 Cognitive Services로 제한되지 않으며 Cognitive Services 키 요구 사항이 없습니다.
+> 이 기술은 텍스트와 이미지를 추출합니다. 텍스트 추출은 무료입니다. 이미지 추출은 [Azure Cognitive Search에서 계량됩니다](https://azure.microsoft.com/pricing/details/search/). 무료 검색 서비스에서는 빠른 시작, 자습서 및 소규모 작업을 무료로 완료할 수 있도록 하루에 인덱서당 20개의 트랜잭션 비용이 면제됩니다. 기본, 표준 이상의 경우 이미지 추출에 대한 요금이 청구됩니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정 정보는 [가격 페이지](https://azure.microsoft.com/pricing/details/search/)에 설명되어 있습니다.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
@@ -45,7 +45,7 @@ DocumentExtractionSkill은 다음과 같은 문서 형식에서 텍스트를 추
 
 | 구성 매개 변수   | 허용되는 값 | 설명 |
 |-------------------------|----------------|-------------|
-| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | 데이터 세트에 포함된 이미지 또는 이미지 파일을 무시하려면 `none`으로 설정합니다. 이것이 기본값입니다. <br/>[인식 기술을 사용한 이미지 분석의 경우](cognitive-search-concept-image-scenarios.md), 기술이 문서 크래킹의 일환으로 정규화된 이미지의 배열을 만들도록 `generateNormalizedImages`로 설정합니다. 이 작업을 수행하려면 `parsingMode`를 `default`로, `dataToExtract`를 `contentAndMetadata`로 설정해야 합니다. 정규화된 이미지는 시각적 검색 결과에 이미지를 포함할 때 일관된 렌더링을 위해 크기 및 회전이 지정되어 균일한 이미지를 출력하는 추가 처리를 의미합니다(예: [JFK 데모](https://github.com/Microsoft/AzureSearch_JFK_Files)에서 볼 수 있는 그래프 컨트롤의 동일 크기 사진). 이 옵션을 사용할 때 각 이미지에 대해 해당 정보가 생성됩니다.  <br/>`generateNormalizedImagePerPage`로 설정하면 포함된 이미지를 추출하는 대신 PDF 파일이 다른 방식으로 처리되며, 각 페이지는 이미지로 렌더링되고 그에 따라 정규화됩니다.  PDF가 아닌 파일 형식은 `generateNormalizedImages`가 설정된 것과 마찬가지로 처리됩니다.
+| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | 데이터 세트에 포함된 이미지 또는 이미지 파일을 무시하려면 `none`으로 설정합니다. 이것이 기본값입니다. <br/>[인식 기술을 사용한 이미지 분석의 경우](cognitive-search-concept-image-scenarios.md), 기술이 [문서 크래킹](search-indexer-overview.md#document-cracking)의 일환으로 정규화된 이미지의 배열을 만들도록 `generateNormalizedImages`로 설정합니다. 이 작업을 수행하려면 `parsingMode`를 `default`로, `dataToExtract`를 `contentAndMetadata`로 설정해야 합니다. 정규화된 이미지는 시각적 검색 결과에 이미지를 포함할 때 일관된 렌더링을 위해 크기 및 회전이 지정되어 균일한 이미지를 출력하는 추가 처리를 의미합니다(예: [JFK 데모](https://github.com/Microsoft/AzureSearch_JFK_Files)에서 볼 수 있는 그래프 컨트롤의 동일 크기 사진). 이 옵션을 사용할 때 각 이미지에 대해 해당 정보가 생성됩니다.  <br/>`generateNormalizedImagePerPage`로 설정하면 포함된 이미지를 추출하는 대신 PDF 파일이 다른 방식으로 처리되며, 각 페이지는 이미지로 렌더링되고 그에 따라 정규화됩니다.  PDF가 아닌 파일 형식은 `generateNormalizedImages`가 설정된 것과 마찬가지로 처리됩니다.
 | `normalizedImageMaxWidth` | 50~10,000 사이의 정수 | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. | 
 | `normalizedImageMaxHeight` | 50~10,000 사이의 정수 | 정규화된 이미지의 최대 높이(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. |
 

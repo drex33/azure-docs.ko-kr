@@ -1,6 +1,6 @@
 ---
-title: 지도에 이미지 계층 추가 | Microsoft Azure 맵
-description: 지도에 이미지를 추가 하는 방법을 알아봅니다. Azure Maps 웹 SDK를 사용 하 여 고정 된 좌표 집합에서 이미지 레이어 및 오버레이 이미지를 사용자 지정 하는 방법을 참조 하세요.
+title: 지도에 이미지 계층 추가 | Microsoft Azure Maps
+description: 지도에 이미지를 추가하는 방법을 알아봅니다. Azure Maps 웹 SDK를 사용하여 이미지 계층을 사용자 지정하고 고정된 좌표 집합에 이미지를 오버레이하는 방법을 참조하세요.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,36 +9,36 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: f0c24940e606020dc45e5a000cfcb030fd806d4b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 67a564b813014ffc25049f0694ef05977d65efe6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047488"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114463056"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>맵에 이미지 계층 추가
 
-이 문서에서는 고정 좌표 집합에 이미지를 오버레이 하는 방법을 보여 줍니다. 지도에 중첩 될 수 있는 다양 한 이미지 유형의 몇 가지 예는 다음과 같습니다.
+이 문서에서는 이미지를 좌표의 고정 세트에 오버레이하는 방법을 보여 줍니다. 지도에 오버레이될 수 있는 다양한 이미지 유형의 몇 가지 예제는 다음과 같습니다.
 
-* 드 론에서 캡처된 이미지
-* Floorplans 빌드
-* 기록 또는 기타 특수 지도 이미지
-* 작업 사이트의 청사진
-* 날씨 레이더 이미지
+* 드론에서 캡처한 이미지
+* 빌딩 평면도
+* 역사적 또는 기타 특수한 지도 이미지
+* 작업 사이트의 청사진입니다.
+* 날씨 레이더 이미지입니다.
 
 > [!TIP]
-> [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) 은 지도에서 이미지를 오버레이 하는 쉬운 방법입니다. 브라우저에서 많은 이미지를 로드 하는 데 어려움이 있을 수 있습니다. 이 경우 이미지를 타일로 나누고 [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer)로 맵에 로드 하는 것이 좋습니다.
+> [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer)는 지도에 이미지를 오버레이할 수 있는 쉬운 방법입니다. 브라우저에서 대형 이미지를 로드하는 데 어려움이 있을 수 있습니다. 이 경우에는 이미지를 타일로 나눈 후 [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer)로 지도에 로드해 보세요.
 
-이미지 계층은 다음과 같은 이미지 형식을 지원 합니다.
+이미지 계층은 다음과 같은 이미지 형식을 지원합니다.
 
 - JPEG
 - PNG
 - BMP
-- GIF (애니메이션 없음)
+- GIF(애니메이션 없음)
 
 ## <a name="add-an-image-layer"></a>이미지 레이어 추가
 
-다음 코드는 map에서 [1922의 New Jersey 뉴어크 맵](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) 이미지를 오버레이 합니다. [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) 는 이미지에 URL을 전달 하 고 네 개의 모퉁이를 형식으로 조정 하 여 생성 됩니다 `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
+다음 코드는 1922년 뉴저지, 뉴어크 지도 이미지를 지도에 오버레이합니다. `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`에서 4개의 모서리의 이미지 및 좌표에 대한 URL을 전달하면 [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer)가 만들어집니다.
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -53,18 +53,18 @@ map.layers.add(new atlas.layer.ImageLayer({
 }));
 ```
 
-위의 코드를 실행 하는 전체 코드 샘플은 다음과 같습니다.
+다음은 이전 코드의 전체 실행 코드 샘플입니다.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='단순 이미지 계층' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 <a href='https://codepen.io/azuremaps/pen/eQodRo/'>Pen Simple 이미지 계층</a>을 참조하세요.
 </iframe>
 
-## <a name="import-a-kml-file-as-ground-overlay"></a>KML 파일을 그라운드 오버레이로 가져오기
+## <a name="import-a-kml-file-as-ground-overlay"></a>KML 파일을 지면 오버레이로 가져오기
 
-이 샘플에서는 KML 그라운드 오버레이 정보를 지도에 이미지 계층으로 추가 하는 방법을 보여 줍니다. KML 접지 오버레이는 북쪽, 남쪽, 동쪽 및 서 부 좌표와 시계 반대 방향 회전을 제공 합니다. 그러나 이미지 계층에는 이미지의 각 모퉁이에 대 한 좌표가 필요 합니다. 이 샘플의 KML 그라운드 오버레이는 Chartres cathedral에 대 한 것 이며 [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)에서 원본입니다.
+이 샘플은 KML 지면 오버레이 정보를 지도에서 이미지 계층으로 추가하는 방법을 보여 줍니다. KML 지면 오버레이는 북쪽, 남쪽, 동쪽 및 서쪽 좌표와 시계 반대 방향 회전을 제공합니다. 그러나 이미지 계층에는 이미지의 각 구석에 대한 좌표가 필요합니다. 이 샘플의 KML 지면 오버레이는 샤르트르 대성당에 대한 것이며 [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)에서 제공된 것입니다.
 
-이 코드는 ImageLayer 클래스의 정적 함수를 사용 합니다 `getCoordinatesFromEdges` . [](/javascript/api/azure-maps-control/atlas.layer.imagelayer) KML 접지 오버레이의 북쪽, 남부, 동부, 서 부 및 회전 정보를 사용 하 여 이미지의 네 모퉁이를 계산 합니다.
+이 코드는 [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) 클래스의 정적 `getCoordinatesFromEdges` 함수를 사용합니다. 이 메서드는 KML 지면 오버레이의 북쪽, 남쪽, 동쪽, 서쪽 및 회전 정보를 사용하여 이미지의 네 모서리를 계산합니다.
 
 <br/>
 
@@ -72,11 +72,11 @@ map.layers.add(new atlas.layer.ImageLayer({
 </iframe>
 
 > [!TIP]
-> `getPixels` `getPositions` 이미지 계층 클래스의 및 함수를 사용 하 여 배치 된 이미지 계층의 지리적 좌표와 로컬 이미지 픽셀 좌표로 변환 합니다.
+> 이미지 계층 클래스의 `getPixels` 및 `getPositions` 함수를 사용하여 배치된 이미지 계층의 지리적 좌표와 로컬 이미지 픽셀 좌표 간을 변환합니다.
 
 ## <a name="customize-an-image-layer"></a>이미지 계층 사용자 지정
 
-이미지 계층에는 다양 한 스타일 옵션이 있습니다. 사용해 볼 수 있는 도구는 다음과 같습니다.
+이미지 계층에 여러 스타일 지정 옵션이 있습니다. 사용할 도구는 다음과 같습니다.
 
 <br/>
 

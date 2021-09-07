@@ -6,14 +6,16 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 756337ce20c827d0c6549181c20fd843fa60c020
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8220afc8020e5a6a4ba77c46a98ee3c220c3f37e
+ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101720956"
+ms.lasthandoff: 07/26/2021
+ms.locfileid: "114675319"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 매개 변수
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 문서에서는 Azure Database for MySQL에서 서버 매개 변수를 구성하는 데 있어서의 고려 사항 및 지침을 제공합니다.
 
@@ -59,13 +61,13 @@ MySQL은 일반적으로 모든 클라이언트 연결에 대해 스레드를 �
 
 Azure Database for MySQL에서 이진 로그는 항상 사용하도록 설정됩니다(예를 들어 `log_bin`이 ON으로 설정됨). 트리거를 사용하려는 경우 *슈퍼 권한이 없고 이진 로깅을 사용하도록 설정되어 있습니다(덜 안전한 `log_bin_trust_function_creators` 변수를 사용할 수 있음).* 와 비슷한 오류가 표시됩니다. 
 
-이진 로깅 형식은 항상 **행** 이고 서버에 대한 모든 연결은 **항상** 행 기반 이진 로깅을 사용합니다. 행 기반 이진 로깅을 사용하는 경우 보안 문제가 존재하지 않고 이진 로깅이 중단되지 않아 안전하게 [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)를 **TRUE** 상태로 설정할 수 있습니다.
+이진 로깅 형식은 항상 **행** 이고 서버에 대한 모든 연결은 **항상** 행 기반 이진 로깅을 사용합니다. 행 기반 이진 로깅을 사용하는 경우 보안 문제가 존재하지 않고 이진 로깅이 중단되지 않아 안전하게 [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) 를 **TRUE** 상태로 설정할 수 있습니다.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
 이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size)를 참조하세요.
 
-#### <a name="servers-supporting-up-to-4-tb-storage"></a>최대 4TB 스토리지를 지원하는 서버
+#### <a name="servers-on-general-purpose-storage-v1-supporting-up-to-4-tb"></a>[범용 스토리지 v1의 서버(최대 4TB 지원)](concepts-pricing-tiers.md#general-purpose-storage-v1-supports-up-to-4-tb)
 
 |**가격 책정 계층**|**vCore**|**기본값(바이트)**|**최솟값(바이트)**|**최댓값(바이트)**|
 |---|---|---|---|---|
@@ -83,7 +85,7 @@ Azure Database for MySQL에서 이진 로그는 항상 사용하도록 설정됩
 |메모리 최적화|16|65498251264|134217728|65498251264|
 |메모리 최적화|32|132070244352|134217728|132070244352|
 
-#### <a name="servers-support-up-to-16-tb-storage"></a>최대 16TB 스토리지 지원 서버
+#### <a name="servers-on-general-purpose-storage-v1-supporting-up-to-16-tb"></a>[범용 스토리지 v1의 서버(최대 16TB 지원)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
 
 |**가격 책정 계층**|**vCore**|**기본값(바이트)**|**최솟값(바이트)**|**최댓값(바이트)**|
 |---|---|---|---|---|
@@ -104,11 +106,11 @@ Azure Database for MySQL에서 이진 로그는 항상 사용하도록 설정됩
 ### <a name="innodb_file_per_table"></a>innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table`은 범용 및 메모리 최적화 가격 책정 계층에서만 업데이트될 수 있습니다.
+> `innodb_file_per_table`은 [범용 스토리지 v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)의 범용 및 메모리 최적화 가격 책정 계층에서만 업데이트될 수 있습니다.
 
 MySQL은 테이블을 만드는 동안 제공된 구성에 따라 InnoDB 테이블을 다른 테이블스페이스에 저장합니다. [시스템 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html)는 InnoDB 데이터 사전의 스토리지 영역입니다. [file-per-table 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html)에는 단일 InnoDB 테이블에 대한 데이터 및 인덱스를 포함하며 파일 시스템에 자체 데이터 파일로 저장됩니다. 이 동작은 `innodb_file_per_table` 서버 매개 변수에 의해 제어됩니다. `innodb_file_per_table`을 `OFF`로 설정하면 InnoDB가 시스템 테이블스페이스에 테이블을 만듭니다. 그렇지 않으면 InnoDB는 file-per-table 테이블스페이스에 테이블을 만듭니다.
 
-Azure Database for MySQL는 단일 데이터 파일에서 최대 **4TB** 를 지원합니다. 데이터베이스 크기가 4TB보다 큰 경우 [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) 테이블스페이스에 테이블을 만들어야 합니다. 단일 테이블 크기가 4TB보다 큰 경우에는 파티션 테이블을 사용해야 합니다.
+Azure Database for MySQL는 [범용 스토리지 v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)의 단일 데이터 파일에서 최대 **4TB** 를 지원합니다. 데이터베이스 크기가 4TB보다 큰 경우 [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) 테이블스페이스에 테이블을 만들어야 합니다. 단일 테이블 크기가 4TB보다 큰 경우에는 파티션 테이블을 사용해야 합니다.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -294,6 +296,6 @@ Azure Database for MySQL 서버를 다시 시작한 후 테이블을 쿼리하�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal을 사용하여 서버 매개 변수를 구성하는](./howto-server-parameters.md) 방법을 알아봅니다.
-- [Azure CLI를 사용하여 서버 매개 변수를 구성하는](./howto-configure-server-parameters-using-cli.md) 방법을 알아봅니다.
-- [PowerShell을 사용하여 서버 매개 변수를 구성](./howto-configure-server-parameters-using-powershell.md)하는 방법을 알아봅니다.
+- [Azure Portal을 사용하여 서버 매개 변수를 구성하는](./howto-server-parameters.md) 방법을 알아봅니다
+- [Azure CLI를 사용하여 서버 매개 변수를 구성하는](./howto-configure-server-parameters-using-cli.md) 방법을 알아봅니다
+- [PowerShell을 사용하여 서버 매개 변수를 구성하는](./howto-configure-server-parameters-using-powershell.md) 방법을 알아봅니다

@@ -3,14 +3,14 @@ title: Azure Automation 변경 내용 추적 및 인벤토리 개요
 description: 이 문서에서는 사용자 환경에서 소프트웨어 및 Microsoft 서비스 변경을 식별하는 데 도움이 되는 변경 내용 추적 및 인벤토리 기능에 대해 설명합니다.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 05/06/2021
+ms.date: 06/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 062e4cdeae9560bc5be58d8245390d4a538f5722
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 1ecf963f965fe215a510c7d24d2ecffc9027baf7
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783912"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608739"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -20,7 +20,7 @@ ms.locfileid: "109783912"
 - Linux 소프트웨어(패키지)
 - Windows 및 Linux 파일
 - Windows 레지스트리 키
-- Microsoft 서비스
+- Windows 서비스
 - Linux 데몬
 
 > [!NOTE]
@@ -29,14 +29,14 @@ ms.locfileid: "109783912"
 변경 내용 추적 및 인벤토리는 [Azure Security Center FIM(파일 무결성 모니터링)](../../security-center/security-center-file-integrity-monitoring.md)을 사용하여 운영 체제 및 애플리케이션 파일과 Windows 레지스트리를 검사합니다. FIM에서 이러한 엔터티를 모니터링하는 동안 변경 내용 추적 및 인벤토리는 기본적으로 다음을 추적합니다.
 
 - 소프트웨어 변경 내용
-- Microsoft 서비스
+- Windows 서비스
 - Linux 데몬
 
 변경 내용 추적 및 인벤토리에 포함된 모든 기능을 사용하도록 설정하면 추가 요금이 발생할 수 있습니다. 계속하기 전에 [Automation 가격 책정](https://azure.microsoft.com/pricing/details/automation/) 및 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 검토하세요.
 
 변경 내용 추적 및 인벤토리는 데이터를 Azure Monitor 로그에 전달하고 이렇게 수집된 데이터는 Log Analytics 작업 영역에 저장됩니다. FIM(파일 무결성 모니터링) 기능은 **서버용 Azure Defender** 를 사용하도록 설정한 경우에만 사용할 수 있습니다. 자세한 내용은 Azure Security Center [가격 책정](../../security-center/security-center-pricing.md)을 참조하세요. FIM은 변경 내용 추적 및 인벤토리의 데이터를 저장하기 위해 만든 것과 동일한 Log Analytics 작업 영역에 데이터를 업로드합니다. 연결된 Log Analytics 작업 영역을 모니터링하여 정확한 사용량을 추적하는 것이 좋습니다. Azure Monitor 로그 데이터 사용량을 분석하는 방법에 대한 자세한 내용은 [사용량 및 비용 관리](../../azure-monitor/logs/manage-cost-storage.md)를 참조하세요.
 
-Log Analytics 작업 영역에 연결된 가상 머신은 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리와 파일, 모니터링되는 서버의 Linux 디먼에 대한 변경 내용의 데이터를 수집하기 위해 [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)를 사용합니다. 데이터를 사용할 수 있는 경우 에이전트는 처리를 위해 Azure Monitor 로그에 데이터를 보냅니다. Azure Monitor 로그는 수신한 데이터에 논리를 적용하고, 데이터를 기록하고, 분석에 사용할 수 있게 만듭니다.
+Log Analytics 작업 영역에 연결된 가상 머신은 설치된 소프트웨어, Windows 서비스, Windows 레지스트리와 파일, 모니터링되는 서버의 Linux 디먼에 대한 변경 내용의 데이터를 수집하기 위해 [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)를 사용합니다. 데이터를 사용할 수 있는 경우 에이전트는 처리를 위해 Azure Monitor 로그에 데이터를 보냅니다. Azure Monitor 로그는 수신한 데이터에 논리를 적용하고, 데이터를 기록하고, 분석에 사용할 수 있게 만듭니다.
 
 > [!NOTE]
 > 변경 내용 추적 및 인벤토리를 사용하려면 Log Analytics 작업 영역을 Automation 계정에 연결해야 합니다. 지원되는 지역 목록은 [Azure 작업 영역 매핑](../how-to/region-mappings.md)을 참조하세요. 지역 매핑은 Automation 계정과 별도의 지역에 있는 VM을 관리하는 기능에 영향을 주지 않습니다.
@@ -67,7 +67,7 @@ Log Analytics 작업 영역에 연결된 가상 머신은 설치된 소프트웨
 
 변경 내용 추적 및 인벤토리는 Log Analytics 에이전트 요구 사항을 충족하는 모든 운영 체제에서 지원됩니다. Log Analytics 에이전트에서 현재 지원하는 Windows 및 Linux 운영 체제 버전 목록은 [지원되는 운영 체제](../../azure-monitor/agents/agents-overview.md#supported-operating-systems)를 참조하세요.
 
-TLS 1.2에 대한 클라이언트 요구 사항을 이해하려면 [Azure Automation에 대한 TLS 1.2 적용](../automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조하세요.
+TLS 1.2에 대한 클라이언트 요구 사항을 이해하려면 [Azure Automation용 TLS 1.2](../automation-managing-data.md#tls-12-for-azure-automation)를 참조하세요.
 
 ### <a name="python-requirement"></a>Python 요구 사항
 
@@ -89,7 +89,7 @@ Python2 실행 파일은 *python* 으로 별칭을 지정해야 합니다.
 
 - 하나 이상의 Azure 및 비 Azure 머신의 경우 [Automation 계정](enable-from-automation-account.md)에서
 
-- [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 등록된 컴퓨터 또는 서버를 포함한 비 Azure 컴퓨터의 경우 수동으로. 하이브리드 머신의 경우 먼저 머신을 [Azure Arc 사용 서버](../../azure-arc/servers/overview.md)에 연결하여 Windows용 Log Analytics 에이전트를 설치한 다음, Azure Policy를 사용하여 [Log Analytics 배포 에이전트를 *Linux* 또는 *Windows* Azure Arc 머신](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책에 할당하는 것이 좋습니다. VM용 Azure Monitor를 사용하여 머신을 모니터링하려는 경우에는 대신 [VM용 Azure Monitor 사용 설정](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브를 사용합니다.
+- [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 등록된 컴퓨터 또는 서버를 포함한 비 Azure 컴퓨터의 경우 수동으로. 하이브리드 머신의 경우 먼저 머신을 [Azure Arc 사용 서버](../../azure-arc/servers/overview.md)에 연결하여 Windows용 Log Analytics 에이전트를 설치한 다음, Azure Policy를 사용하여 [Log Analytics 배포 에이전트를 *Linux* 또는 *Windows* Azure Arc 머신](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의에 할당하는 것이 좋습니다. VM용 Azure Monitor를 사용하여 머신을 모니터링하려는 경우에는 대신 [VM용 Azure Monitor 사용 설정](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브를 사용합니다.
 
 - 단일 Azure VM의 경우 Azure Portal의 [가상 머신 페이지](enable-from-vm.md)에서. 이 시나리오는 Linux VM과 Windows VM에서 지원됩니다.
 
@@ -150,7 +150,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 | Windows 레지스트리 | 50분 |
 | Windows 파일 | 30분 |
 | Linux 파일 | 15분 |
-| Microsoft 서비스 | 10초에서 30분</br> Default: 30분 |
+| Windows 서비스 | 10초에서 30분</br> Default: 30분 |
 | Linux 데몬 | 5분 |
 | Windows 소프트웨어 | 30분 |
 | Linux 소프트웨어 | 5분 |
@@ -168,11 +168,11 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 
 변경 내용 추적 및 인벤토리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 환경에 따라 월별 약 40MB입니다. Log Analytics 작업 영역의 사용량 및 예상 비용 기능을 사용하면 사용량 차트에서 변경 내용 추적 및 인벤토리에 의해 수집된 데이터를 볼 수 있습니다. 이 데이터 보기를 사용하여 데이터 사용량을 평가하고 청구서에 미치는 영향을 확인할 수 있습니다. [사용량 파악 및 비용 추정](../../azure-monitor/logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs)을 참조하세요.
 
-### <a name="microsoft-service-data"></a>Microsoft 서비스 데이터
+### <a name="windows-services-data"></a>Windows 서비스 데이터
 
-Microsoft 서비스에 대한 기본 수집 빈도는 30분입니다. **Microsoft 서비스** 탭의 **설정 편집** 아래에서 슬라이더를 사용하여 빈도를 구성할 수 있습니다.
+Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. **Windows 서비스** 탭의 **설정 편집** 아래에서 슬라이더를 사용하여 빈도를 구성할 수 있습니다.
 
-![Microsoft 서비스 슬라이더](./media/overview/windowservices.png)
+![Windows 서비스 슬라이더](./media/overview/windowservices.png)
 
 성능 최적화를 위해 Log Analytics 에이전트는 변경 내용만 추적 합니다. 임계값을 너무 높게 설정하면 서비스가 원래 상태로 돌아갈 경우 변경 내용을 놓칠 수 있습니다. 빈도를 더 작은 값으로 설정하면 누락될 수 있는 변경 내용을 파악할 수 있습니다.
 

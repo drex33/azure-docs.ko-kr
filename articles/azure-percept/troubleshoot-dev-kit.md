@@ -1,20 +1,20 @@
 ---
-title: Azure Percept DK 디바이스 문제 해결
+title: Azure Percept DK 관련 문제 해결
 description: Azure Percept DK 및 IoT Edge의 몇 가지 일반적인 문제에 대한 문제 해결 팁을 확인하세요.
-author: juniem
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/10/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e644732a90652b1672dc77bfc6db86d7a6b7295a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: caea6bbd8ebcf3dbe2d6f8b45174326a5ba4f169
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221077"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537531"
 ---
-# <a name="troubleshoot-the-azure-percept-dk-device"></a>Azure Percept DK 디바이스 문제 해결
+# <a name="azure-percept-dk-troubleshooting"></a>Azure Percept DK 문제 해결
 
 이 문제 해결 문서의 목적은 Azure Percept DK 사용자가 자신의 개발 키트와 관련된 일반적인 문제를 빠르게 해결할 수 있도록 도와주는 것입니다. 또한 추가 지원이 필요할 때의 로그 수집에 대한 안내도 제공됩니다.
 
@@ -47,6 +47,7 @@ ms.locfileid: "123221077"
 |*OOBE 로그* - 설치 환경에 대한 세부 정보를 기록합니다.|설치 환경 중 문제가 발견될 때 수집됩니다.|```sudo journalctl -u oobe -b```|
 |*edgeAgent 로그* - 디바이스에서 실행되는 모든 모듈의 버전 번호를 기록합니다.|하나 이상의 모듈이 작동하지 않을 때 수집됩니다.|```sudo iotedge logs edgeAgent```|
 |*모듈 컨테이너 로그* - 특정 IoT Edge 모듈 컨테이너에 대한 세부정보를 기록합니다.|모듈에서 문제가 발견될 때 수집됩니다.|```sudo iotedge logs [container name]```|
+|*Wi-Fi 액세스 지점 로그* - 개발 키트의 Wi-Fi 액세스 지점 연결에 대한 세부 정보를 기록합니다.|개발 키트의 Wi-Fi 액세스 지점에 연결할 때 문제가 발견 되면 수집됩니다.|```sudo journalctl -u hostapd.service```|
 |*네트워크 로그* - Wi-Fi 서버 및 네트워크 스택을 포함하는 로그 세트입니다.|Wi-Fi 또는 네트워크 문제가 발견될 때 수집됩니다.|```sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd > network_log.txt```<br><br>```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version && rpm -q ztpd > system_ver.txt```<br><br>두 명령을 모두 실행합니다. 각 명령은 여러 로그를 수집하고 이를 단일 출력에 넣습니다.|
 
 ## <a name="troubleshooting-commands"></a>명령 문제 해결
@@ -56,7 +57,7 @@ Azure IoT Edge 명령에 대한 자세한 내용은 [Azure IoT Edge 디바이스
 
 |함수         |사용 시기                    |명령                 |
 |------------------|----------------------------|---------------------------|
-|개발 키트에서 소프트웨어 버전을 확인합니다.|개발 키트의 소프트웨어 버전을 확인해야 할 때마다 사용됩니다.|```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version```|
+|개발 키트에서 소프트웨어 버전을 확인합니다.|개발 키트의 소프트웨어 버전을 확인해야 할 때마다 사용됩니다.|```cat /etc/adu-version```|
 |개발 키트의 온도를 확인합니다.|개발 키트가 과열될 수 있다고 생각되는 경우에 사용됩니다.|```cat /sys/class/thermal/thermal_zone0/temp```|
 |개발 키트의 원격 분석 ID를 확인합니다.|개발 키트의 고유 원격 분석 식별자를 알아야 할 때 사용됩니다.|```sudo azure-device-health-id```|
 |IoT Edge의 상태를 확인합니다.|클라우드에 연결되는 IoT Edge 모듈 관련 문제가 있을 때마다 사용됩니다.|```sudo iotedge check```|

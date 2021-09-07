@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: d1f3313c1b348e037ab70dad0f4072d4727f21b3
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 08/24/2020
+ms.openlocfilehash: abe7270cd825fa53d139bd87796c3300a8fe9a65
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824284"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642839"
 ---
 # <a name="datasets-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 데이터 세트
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -65,7 +65,7 @@ Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduct
 ```
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-속성 | Description | 필수 |
+속성 | 설명 | 필수 |
 -------- | ----------- | -------- |
 name | 데이터 세트의 이름입니다. [명명 규칙](naming-rules.md)을 참조하세요. |  예 |
 type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: DelimitedText, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |

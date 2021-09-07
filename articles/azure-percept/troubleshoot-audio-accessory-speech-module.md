@@ -1,20 +1,20 @@
 ---
-title: Azure Percept Audio 및 음성 모듈 관련 문제 해결
+title: Azure Percept Audio 및 음성 모듈 문제 해결
 description: Azure Percept Audio 및 azureearspeechclientmodule에 대한 문제 해결 팁 가져오기
-author: mimcco
-ms.author: mimcco
+author: tsampige
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: ded0fe7150fae280bd2d2e33bc314c1cb8add106
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 00f3694201d3aaf876d642e67e5b523f6fb50547
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529669"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222723"
 ---
-# <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Azure Percept Audio 및 음성 모듈 문제 해결
+# <a name="troubleshoot-azure-percept-audio-and-speech-module"></a>Azure Percept Audio 및 음성 모듈 문제 해결
 
 음성 도우미 애플리케이션 문제를 해결하려면 아래 지침을 따르십시오.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea2a127ffbf966b024322ab5a908466dec1cc8a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: afedf72e1d6fa52bbcccefe5a3d15ec203251c51
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935637"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529087"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>얼굴 데이터를 다른 Face 구독으로 마이그레이션
 
@@ -236,4 +236,4 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 - [스냅샷 참조 설명서(.NET SDK)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations)
 - [Face 스냅샷 예제](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [얼굴 추가](how-to-add-faces.md)
-- [이미지에서 얼굴 감지](HowtoDetectFacesinImage.md)
+- [검색 API 호출](HowtoDetectFacesinImage.md)

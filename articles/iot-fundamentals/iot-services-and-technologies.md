@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 311f8164803dd12664aa193f08c8a1095ee07e31
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 192952747bcc327c87f94d001afe9faf1ed47978
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168708"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605342"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>IoT 솔루션을 만드는 데 사용할 수 있는 Azure 기술 및 서비스는 무엇인가요?
 
@@ -54,7 +54,7 @@ IoT 솔루션을 처음부터 새로 빌드하거나 IoT Central 또는 솔루�
 
 [Azure IoT 시작 키트](https://devicecatalog.azure.com/kits) 중 하나를 사용하여 IoT 디바이스를 개발하거나 [IoT용 Azure Certified 디바이스 카탈로그](https://devicecatalog.azure.com)에서 사용할 디바이스를 선택합니다. 오픈 소스 [디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 포함된 코드를 구현합니다. 디바이스 SDK는 Linux, Windows, 실시간 운영 체제와 같은 여러 운영 체제를 지원합니다. [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), [Python](https://github.com/Azure/azure-iot-sdk-python) 등의 여러 프로그래밍 언어를 위한 SDK가 있습니다.
 
-[IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 서비스를 사용하여 디바이스에 포함된 코드를 만드는 방법을 더 간소화할 수 있습니다. IoT 플러그 앤 플레이를 사용하면 솔루션 개발자는 포함된 코드를 작성하지 않고도 디바이스를 솔루션과 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 디바이스 기능을 설명하는 _디바이스 기능 모델_ 스키마입니다. 디바이스 기능 모델을 사용하여 포함된 디바이스 코드를 생성하고 IoT Central 애플리케이션 같은 클라우드 기반 솔루션을 구성합니다.
+[IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md) 규칙에 따라 디바이스에 포함된 코드를 만드는 방법을 더 간소화할 수 있습니다. IoT 플러그 앤 플레이를 사용하면 솔루션 개발자는 포함된 코드를 작성하지 않고도 디바이스를 솔루션과 통합할 수 있습니다. IoT 플러그 앤 플레이의 핵심은 디바이스 기능을 설명하는 _디바이스 기능 모델_ 스키마입니다. 디바이스 기능 모델을 사용하여 포함된 디바이스 코드를 생성하고 IoT Central 애플리케이션 같은 클라우드 기반 솔루션을 구성합니다.
 
 [Azure IoT Edge](../iot-edge/about-iot-edge.md)를 사용하여 IoT 워크로드 일부를 Azure 클라우드 서비스에서 디바이스로 오프로드할 수 있습니다. IoT Edge는 솔루션의 대기 시간을 줄이고, 디바이스가 클라우드와 교환하는 데이터 양을 줄이고, 오프라인 시나리오를 사용할 수 있습니다. IoT Central 및 일부 솔루션 가속기에서 IoT Edge 디바이스를 관리할 수 있습니다.
 

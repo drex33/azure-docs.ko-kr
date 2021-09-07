@@ -13,14 +13,14 @@ ms.date: 07/20/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f7d3b52f5f2cac470c8833a22a67f2324f7be705
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: f0f943475fc397acf61c51fc3dc34cc9efdb1cfb
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033864"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450570"
 ---
-# <a name="customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
 오늘날 Microsoft ID 플랫폼은 사용자 지정 애플리케이션뿐만 아니라 Azure AD 앱 갤러리에서 미리 통합된 애플리케이션 모두를 포함하여 대부분의 엔터프라이즈 애플리케이션에서 SSO(Single Sign-On)를 지원합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Microsoft ID 플랫폼을 통해 애플리케이션에 인증하면 Microsoft ID 플랫폼은 HTTP POST를 통해 애플리케이션에 토큰을 보냅니다. 그런 다음 애플리케이션이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 *클레임* 이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
 

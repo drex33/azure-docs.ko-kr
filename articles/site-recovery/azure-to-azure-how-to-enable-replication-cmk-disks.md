@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/25/2021
 ms.author: mayg
-ms.openlocfilehash: 9f9052f51c5bab0ea738e9fd15d8f62f45ff0c9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a0e7696cb631bee8b114cf2277a277b9c81cbd1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93146538"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528544"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>CMK(고객 관리형 키) 사용 가능 디스크를 사용하여 컴퓨터 복제
 
@@ -37,7 +37,7 @@ CMK 사용 관리 디스크가 있는 가상 머신에 대해 복제를 사용�
 
 4. **설정** 에서 다음과 같은 대상 사이트 설정을 구성할 수 있습니다.
 
-    - **대상 위치**: 원본 가상 머신 데이터가 복제될 위치입니다. Site Recovery는 선택한 머신의 위치에 따라 적절한 대상 지역 목록을 제공합니다. Recovery Services 자격 증명 모음의 위치와 동일한 위치를 사용하는 것이 좋습니다.
+    - **대상 위치**: 원본 가상 머신 데이터가 복제될 위치입니다. Recovery Services 자격 증명 모음의 위치와 동일한 위치를 사용하는 것이 좋습니다.
     - **대상 구독**: 재해 복구에 사용되는 대상 구독입니다. 기본적으로 대상 구독은 원본 구독과 동일합니다.
     - **대상 리소스 그룹**: 모든 복제된 가상 머신이 속하게 될 리소스 그룹입니다. Site Recovery는 기본적으로 대상 지역에서 새 리소스 그룹을 만듭니다. 이름에 `asr` 접미사가 붙습니다. Azure Site Recovery에서 만든 리소스 그룹이 이미 있는 경우 재사용됩니다. 다음 섹션에 설명된 것처럼 리소스 그룹을 사용자 지정할 수도 있습니다. 원본 가상 머신이 호스트되는 지역을 제외한 모든 Azure 지역이 대상 리소스 그룹의 위치가 될 수 있습니다.
     - **대상 가상 네트워크**: 기본적으로 Site Recovery는 대상 지역에서 새 가상 네트워크를 만듭니다. 이름에 `asr` 접미사가 붙습니다. 대상 가상 네트워크는 원본 네트워크에 매핑되고 이후의 모든 보호 작업에 사용됩니다. [자세히 알아봅니다](./azure-to-azure-network-mapping.md) 를 확인해 보세요.
@@ -85,4 +85,3 @@ Site Recovery 기본 대상 설정을 수정하려면 다음 단계를 수행합
 * 플랫폼 및 고객 관리형 키를 둘 다 사용하도록 설정했습니다. 디스크를 보호하려면 어떻게 해야 하나요?
 
     Site Recovery는 플랫폼 및 고객 관리형 키를 사용한 이중 암호화를 지원합니다. 이 문서의 지침에 따라 머신을 보호합니다. 사전에 대상 지역에서 이중 암호화 사용 DES를 만들어야 합니다. 해당 VM에 대해 복제를 사용하도록 설정할 때 이 DES를 Site Recovery에 제공할 수 있습니다.
-

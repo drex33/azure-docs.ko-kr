@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ec09ac444999be23fa0caed741e1e1534117fa0c
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: c11a151876677e06a32364b050538f233cc2b9c4
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123105621"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530303"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB에서 고가용성을 제공하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -129,7 +129,7 @@ Azure Cosmos 계정에 대한 다중 지역 쓰기를 구성하는 경우 추가
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 
-* [Azure CLI](sql/manage-with-cli.md#add-or-remove-regions)
+* [Azure CLI](manage-with-cli.md#add-or-remove-regions)
 
 * [Azure 리소스 관리자 템플릿](./manage-with-templates.md)
 

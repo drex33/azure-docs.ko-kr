@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: duau
-ms.openlocfilehash: 80013ca5d4d20366672eda417862ff7bb1309b0c
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: e902c8d3a1662f83328ab39a85a11009c58da24b
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633162"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606580"
 ---
 # <a name="connect-azure-front-door-premium-to-an-internal-load-balancer-origin-with-private-link"></a>프라이빗 링크를 사용하여 내부 부하 분산 장치 원본에 Azure Front Door 프리미엄 연결
 
@@ -51,7 +51,7 @@ ms.locfileid: "109633162"
 
 1. 그런 다음, **추가** 를 선택한 다음, **업데이트** 를 선택하여 구성을 저장합니다.
 
-## <a name="approve-private-endpoint-connection-from-the-storage-account"></a>스토리지 계정에서 프라이빗 엔드포인트 연결 승인
+## <a name="approve-azure-front-door-premium-private-endpoint-connection-from-private-link-service"></a>Private Link 서비스에서 Azure Front Door 프리미엄 프라이빗 엔드포인트 연결 승인
 
 1. Private Link 센터로 이동하고 **프라이빗 링크 서비스** 를 선택합니다. 그런 다음, 프라이빗 링크 이름을 선택합니다.
 

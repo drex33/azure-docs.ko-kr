@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 06/08/2021
-ms.openlocfilehash: cbfbbfaea3954afd2a77090acb140c41e0b93052
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 9cef8babd11ea6a0ed4ffc965ed52164c9abe43d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290649"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866988"
 ---
 # <a name="how-to-migrate-java-applications-to-jboss-eap-on-azure-vms-and-virtual-machine-scale-sets"></a>Azure VM 기반 JBoss EAP 및 가상 머신 확장 집합에서 Java 애플리케이션을 마이그레이션하는 방법
 
@@ -40,7 +40,7 @@ Microsoft와 파트너 관계를 맺은 Red Hat은 Azure Marketplace 다음 제�
 
 ### <a name="azure-quickstart-templates"></a>Azure 빠른 시작 템플릿
 
-Azure Marketplace 제품과 함께 Azure 기반 EAP를 시험 사용할 수 있도록 빠른 시작 템플릿을 사용할 수 있습니다. 이러한 빠른 시작에는 다양한 구성 및 버전 조합으로 Azure 기반 JBoss EAP를 배포하기 위해 사전 빌드된 ARM 템플릿 및 스크립트가 포함되어 있습니다. 솔루션 아키텍처:
+Azure Marketplace 제품과 함께 Azure 기반 EAP를 시험 사용할 수 있도록 빠른 시작 템플릿을 사용할 수 있습니다. 이러한 빠른 시작에는 다양한 구성 및 버전 조합으로 Azure 기반 JBoss EAP를 배포하기 위해 사전 빌드된 ARM 템플릿 및 스크립트가 포함되어 있습니다. 솔루션 아키텍처에는 다음이 포함됩니다.
 
 - RHEL 기반 JBoss EAP 독립 실행형 VM
 - RHEL 기반 JBoss EAP 클러스터형 VM
@@ -54,20 +54,20 @@ Azure Marketplace 제품과 함께 Azure 기반 EAP를 시험 사용할 수 있�
 
 - **JBoss EAP 설치** - JBoss EAP에 대한 RHSM(Red Hat Subscription Management) 자격이 있는 Red Hat 계정이 있어야 합니다. 이 자격을 통해 Red Hat에서 테스트되고 인증된 JBoss EAP 버전을 다운로드할 수 있습니다.  EAP 자격이 없는 경우 [Red Hat 개인 개발자 구독](https://developers.redhat.com/register)을 통해 무료 개발자 구독에 등록할 수 있습니다. 등록되면 [Red Hat 고객 포털](https://access.redhat.com/management/)에서 필요한 자격 증명(풀 ID)을 찾을 수 있습니다.
 
-- **RHEL 옵션** - PAYG(종량제) 또는 BYOS(Bring-Your-Own-Subscription) 중에서 선택합니다. BYOS를 사용하는 경우 솔루션 템플릿을 사용하여 Marketplace 제품을 배포하기 전에 [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/)를 활성화해야 합니다. 다음 [지침](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access)에 따라 RHEL Gold Image를 Microsoft Azure에서 사용할 수 있도록 설정합니다.
+- **RHEL 옵션** - PAYG(종량제) 또는 BYOS(Bring-Your-Own-Subscription) 중에서 선택합니다. BYOS를 사용하는 경우 솔루션 템플릿을 사용하여 Marketplace 제품을 배포하기 전에 [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/)를 활성화해야 합니다. 다음 [지침](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide)에 따라 RHEL Gold Image를 Microsoft Azure에서 사용할 수 있도록 설정합니다.
 
 - **[Azure CLI(명령줄 인터페이스)](/cli/azure/overview)** .
 
 - **Java 소스 코드 및 [JDK(Java Development Kit) 버전](https://www.oracle.com/java/technologies/javase-downloads.html)**
 
-- **[JBoss EAP 7.2 기반 Java 애플리케이션](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/development_guide/index#become_familiar_with_java_enterprise_edition_8)** 또는 **[JBoss EAP 7.3 기반 Java 애플리케이션](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/index#get_started_developing_applications)** .
+- **[JBoss EAP 7.2 기반 Java 애플리케이션](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/index)** 또는 **[JBoss EAP 7.3 기반 Java 애플리케이션](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/index#get_started_developing_applications)** .
 
-**RHEL 옵션** - PAYG 또는 BYOS 중에서 선택합니다. BYOS의 경우 Azure Marketplace 제품을 사용하기 위해 [Red Hat Cloud Access](https://access.redhat.com/documentation/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index) RHEL Gold Image를 활성화해야 합니다. BYOS 제품은 Azure Portal의 프라이빗 제품 섹션에 표시됩니다. 
+**RHEL 옵션** - PAYG 또는 BYOS 중에서 선택합니다. BYOS의 경우 Azure Marketplace 제품을 사용하기 위해 [Red Hat Cloud Access](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index) RHEL Gold Image를 활성화해야 합니다. BYOS 제품은 Azure Portal의 프라이빗 제품 섹션에 표시됩니다. 
 
 **제품 버전**
 
-* [JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/)
-* [JBoss EAP 7.3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/)
+* [JBoss EAP 7.2](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2)
+* [JBoss EAP 7.3](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3)
 * [RHEL 7.7](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux77-ARM)
 * [RHEL 8.0](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM)
 
@@ -110,8 +110,6 @@ MTA는 Oracle WebLogic Server와 같은 타사 엔터프라이즈 애플리케�
 | Java 애플리케이션 | - | - | &#x2714; | &#x2714; | - | - | - |
 
 <sup>1</sup> MTA는 현재 이 마이그레이션 경로에 대한 규칙을 제공하지 않지만 Red Hat Consulting은 모든 원본 플랫폼에서 JBoss EAP 7로의 마이그레이션을 지원할 수 있습니다.
-
-:::image type="content" source="./media/jboss-cli-image.png" alt-text="이미지는 CLI 창의 출력을 보여줍니다.":::
 
 MTA에 대한 [시스템 요구 사항](https://access.redhat.com/documentation/en/migration_toolkit_for_applications/5.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#system_requirements_getting-started-guide)을 확인할 수도 있습니다.
 
@@ -161,7 +159,7 @@ WEB-INF/jboss-web.xml 및/또는 WEB-INF/web.xml 파일을 검사합니다.
 * 연결 풀 구성이란?
 * Java Database Connectivity(JDBC) 드라이버 JAR 파일은 어디에서 찾을 수 있나요?
 
-자세한 내용은 JBoss EAP 설명서의 [JBoss EAP DataSources 정보](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/datasource_management)를 참조하세요.
+자세한 내용은 JBoss EAP 설명서의 [JBoss EAP DataSources 정보](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3html/configuration_guide/datasource_management)를 참조하세요.
 
 ### <a name="determine-whether-and-how-the-file-system-is-used"></a>파일 시스템의 사용 여부 및 방법 확인
 
@@ -220,20 +218,20 @@ JMS 영구 저장소가 구성된 경우 해당 구성을 캡처하여 마이그
 
 마이그레이션에 도움이 될 수 있는 도구가 있습니다.
 
-* [마이그레이션을 위해 애플리케이션을 분석하는 Red Hat Application Migration Toolkit](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/migration_guide/index#use_windup_to_analyze_applications_for_migration)
-* [서버 구성을 마이그레이션하기 위한 JBoss Server Migration Tool](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/migration_guide/index#migration_tool_server_migration_tool)
+* [마이그레이션을 위해 애플리케이션을 분석하는 Red Hat Application Migration Toolkit](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/migration_guide/index#use_windup_to_analyze_applications_for_migration)
+* [서버 구성을 마이그레이션하기 위한 JBoss Server Migration Tool](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/migration_guide/index#migration_tool_server_migration_tool)
 
-이전 JBoss EAP 버전에서 최신 JBoss EAP 버전으로 서버 구성을 마이그레이션하려면 [JBoss Server Migration Tool](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/migration_guide/index#migrate_server_migration_tool_option)을 사용하거나 [관리 CLI 마이그레이션 작업](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/migration_guide/index#migrate__migrate_operation_option)을 사용하여 수동 마이그레이션을 수행할 수 있습니다.
+이전 JBoss EAP 버전에서 최신 JBoss EAP 버전으로 서버 구성을 마이그레이션하려면 [JBoss Server Migration Tool](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/migration_guide/index#migrate_server_migration_tool_option)을 사용하거나 [관리 CLI 마이그레이션 작업](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/migration_guide/index#migrate__migrate_operation_option)을 사용하여 수동 마이그레이션을 수행할 수 있습니다.
 
 ### <a name="run-red-hat-application-migration-toolkit"></a>Red Hat Application Migration Toolkit 실행
 
 [대화형 모드에서 JBoss Server Migration Tool을 실행](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html-single/using_the_jboss_server_migration_tool/index#migration_tool_server_run_interactive_mode)할 수 있습니다. 기본적으로 대화형 모드에서 JBoss Server Migration Tool을 실행할 수 있습니다. 이 모드를 사용하면 마이그레이션할 서버 구성을 정확히 선택할 수 있습니다.
 
-또한 [비대화형 모드에서 JBoss Server Migration Tool을 실행](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/using_the_jboss_server_migration_tool/index#migration_tool_server_run_noninteractive_mode)할 수 있습니다. 이 모드에서는 프롬프트 없이 실행할 수 있습니다.
+또한 [비대화형 모드에서 JBoss Server Migration Tool을 실행](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/using_the_jboss_server_migration_tool/running_the_server_migration_tool#migration_tool_server_run_noninteractive_mode)할 수 있습니다. 이 모드에서는 프롬프트 없이 실행할 수 있습니다.
 
 ### <a name="review-the-result-of-jboss-server-migration-toolkit-execution"></a>JBoss Server Migration Toolkit 실행의 결과 검토
 
-마이그레이션이 완료되면 *EAP_HOME/standalone/configuration/* 및 *EAP_HOME/domain/configuration/* 디렉터리에서 마이그레이션된 서버 구성 파일을 검토합니다. 자세한 내용은 [JBoss Server Migration Tool 실행 결과 검토](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/using_the_jboss_server_migration_tool/index#migration_tool_server_results)를 참조하세요.
+마이그레이션이 완료되면 *EAP_HOME/standalone/configuration/* 및 *EAP_HOME/domain/configuration/* 디렉터리에서 마이그레이션된 서버 구성 파일을 검토합니다. 자세한 내용은 [JBoss Server Migration Tool 실행 결과 검토](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/using_the_jboss_server_migration_tool/running_the_server_migration_tool#migration_tool_server_results)를 참조하세요.
 
 ### <a name="expose-the-application"></a>애플리케이션 공개
 

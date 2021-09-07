@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
 ms.date: 07/26/2021
 ms.author: radeltch
-ms.openlocfilehash: be174bf6d71ed243e0e7997250df55edffc27739
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 7ce4960b167db05874447c8c3063892d0690c4eb
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114722497"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034324"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -594,24 +594,21 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 입력 파일에 다음 콘텐츠를 사용합니다. 구독에 맞게 콘텐츠를 조정해야 합니다. 즉 c276fc76-9cd4-44c9-99a7-4fd71546436e 및 e91d47c4-76f3-4271-a796-21b4ecfe3624를 구독의 ID로 교체해야 합니다. 구독이 하나만 있는 경우 AssignableScopes에서 두 번째 항목을 제거합니다.
 
 ```json
-{
-    "properties": {
-        "roleName": "Linux Fence Agent Role",
-        "description": "Allows to power-off and start virtual machines",
-        "assignableScopes": [
-            "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-            "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Compute/*/read",
-                    "Microsoft.Compute/virtualMachines/powerOff/action",
-                    "Microsoft.Compute/virtualMachines/start/action"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
+       {
+         "Name": "Linux Fence Agent Role - Test",
+         "description": "Allows to power-off and start virtual machines",
+         "assignableScopes": [
+         "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+         "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+         ],
+         "actions": [
+         "Microsoft.Compute/*/read",
+         "Microsoft.Compute/virtualMachines/powerOff/action",
+         "Microsoft.Compute/virtualMachines/start/action"
+            ],
+         "notActions": [],
+         "dataActions": [],
+         "notDataActions": []
             }
         ]
     }

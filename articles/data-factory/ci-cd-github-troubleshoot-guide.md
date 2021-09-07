@@ -10,12 +10,12 @@ ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 06/27/2021
-ms.openlocfilehash: 774f1dddf7c0b4cdecd9d6b45e6918b57bc17318
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8f94e6b0e4afd06a68263efb0d78f3962bbd8560
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642938"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866403"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF에서 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
@@ -293,7 +293,7 @@ ADF 파이프라인을 개발 및 배포하는 동안 단위 테스트를 수행
 문제 해결에 대한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Data Factory에 대한 스택 오버플로 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)

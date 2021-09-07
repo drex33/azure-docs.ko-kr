@@ -2,13 +2,13 @@
 title: 컨테이너 인사이트의 로그 경고 | Microsoft Docs
 description: 이 문서에서는 컨테이너 인사이트에서 메모리 및 CPU 사용률에 대한 사용자 지정 로그 경고를 만드는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 01/05/2021
-ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/29/2021
+ms.openlocfilehash: 82d6629ba903b656db9932b3c6bd6f5a2b92ea6a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711198"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528794"
 ---
 # <a name="how-to-create-log-alerts-from-container-insights"></a>컨테이너 인사이트에서 로그 경고를 만드는 방법
 
@@ -22,13 +22,27 @@ ms.locfileid: "101711198"
 
 높은 CPU나 메모리 사용률, 또는 클러스터 노드에서 사용 가능한 디스크 공간 부족에 대해 경고하려면 제공된 쿼리를 사용하여 메트릭 경고 또는 메트릭 측정 경고를 만듭니다. 메트릭 경고는 로그 경고보다 대기 시간이 낮지만, 로그 경고는 고급 쿼리 기능을 제공하며 한층 정교합니다. 로그 경고 쿼리는 *now* 연산자를 사용하고 1시간 이전으로 돌아가는 방법으로 현재와 날짜/시간을 비교합니다. (컨테이너 인사이트는 모든 날짜를 UTC(협정 세계시) 형식으로 저장합니다.)
 
+> [!IMPORTANT]
+> 대부분의 경고 규칙에는 규칙 유형, 포함된 차원 수 및 실행 빈도에 따라 달라지는 비용이 있습니다. 경고 규칙을 만들기 전에 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)에서 **경고 규칙** 을 참조하세요.
+
 Azure Monitor 경고에 익숙하지 않은 경우 시작하기 전에 [Microsoft Azure의 경고 개요](../alerts/alerts-overview.md)를 참조하세요. 로그 쿼리를 사용하는 경고에 대한 자세한 내용은 [Azure Monitor의 로그 경고](../alerts/alerts-unified-log.md)를 참조하세요. 메트릭 경고에 대한 자세한 내용은 [Azure Monitor의 메트릭 경고](../alerts/alerts-metric-overview.md)를 참조하세요.
 
-## <a name="resource-utilization-log-search-queries"></a>리소스 사용률 로그 검색 쿼리
+## <a name="log-query-measurements"></a>로그 쿼리 측정값
+로그 쿼리 경고는 각각 가상 머신을 모니터링하는 고유한 시나리오를 지원하는 로그 쿼리 결과의 두 가지 측정을 수행할 수 있습니다.
 
-이 섹션의 쿼리는 각 경고 시나리오를 지원하며 이 문서의 [경고 만들기](#create-an-alert-rule) 섹션의 7단계에서 사용됩니다.
+[메트릭 측정](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value)은 정의된 임계값을 초과하는 숫자 값이 있는 쿼리 결과의 각 레코드에 대해 별도의 경고를 만듭니다. 이러한 측정은 CPU와 같은 숫자 데이터에 적합합니다.
 
-다음 쿼리는 평균 CPU 활용률을 분당 멤버 노드 CPU 활용률의 평균으로 계산합니다.  
+[결과 수](../alerts/alerts-unified-log.md#count-of-the-results-table-rows)는 쿼리에서 지정된 수 이상의 레코드를 반환할 때 단일 경고를 만듭니다. 이러한 측정은 숫자 이외의 데이터를 구하거나 여러 컴퓨터에서 성능 추세를 분석하는 데 적합합니다. 경고 수를 최소화하거나 여러 머신에 동일한 오류 조건이 있는 경우에만 경고를 만들려는 경우에도 이 전략을 선택할 수 있습니다.
+
+> [!NOTE]
+> 현재 퍼블릭 미리 보기로 제공되는 리소스 중심 로그 경고 규칙은 로그 쿼리 경고를 간소화하고 현재 메트릭 측정 쿼리에서 제공하는 기능을 대체합니다. AKS 클러스터를 영향을 받는 리소스로 더 잘 식별하는 규칙의 대상으로 사용할 수 있습니다. 리소스 센터 로그 쿼리 경고가 일반화되면 이 시나리오의 지침이 업데이트됩니다.
+
+## <a name="create-a-log-query-alert-rule"></a>로그 쿼리 경고 규칙 만들기
+[로그 쿼리 경고 측정값 비교](../vm/monitor-virtual-machine-alerts.md#comparison-of-log-query-alert-measures)에서는 각 측정 유형에 대한 로그 쿼리 경고 규칙의 전체 연습이 제공됩니다. 여기에는 각 측정값을 지원하는 로그 쿼리의 비교가 포함됩니다. 이러한 동일한 프로세스를 사용하여 이 문서의 쿼리와 유사한 쿼리를 사용하여 AKS 클러스터에 대한 경고 규칙을 만들 수 있습니다.
+
+## <a name="resource-utilization"></a>리소스 사용률 
+
+**분당 멤버 노드 CPU 활용률의 평균으로 계산한 평균 CPU 활용률(메트릭 측정값)**
 
 ```kusto
 let endDateTime = now();
@@ -63,7 +77,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-다음 쿼리는 평균 메모리 활용률을 분당 멤버 노드 메모리 활용률의 평균으로 계산합니다.
+**분당 멤버 노드 메모리 활용률의 평균으로 계산한 평균 메모리 활용률(메트릭 측정값)**
 
 ```kusto
 let endDateTime = now();
@@ -97,10 +111,12 @@ KubeNodeInventory
 | project ClusterName, Computer, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
+
+
 >[!IMPORTANT]
 >다음 쿼리는 자리 표시자 값 \<your-cluster-name> 및 \<your-controller-name>를 사용하여 클러스터와 컨트롤러를 나타냅니다. 경고 설정 시 해당 값을 사용자 환경에 맞는 값으로 바꿉니다.
 
-다음 쿼리는 컨트롤러에 있는 모든 컨테이너의 평균 CPU 사용률을 1분마다 컨트롤러에 있는 모든 컨테이너 인스턴스의 평균 CPU 사용률로 계산합니다. 측정값은 컨테이너에 설정된 제한의 백분율입니다.
+**1분마다 컨트롤러에 있는 모든 컨테이너 인스턴스의 평균 CPU 사용률로 계산한 컨트롤러에 있는 모든 컨테이너의 평균 CPU 사용률(메트릭 측정값)**
 
 ```kusto
 let endDateTime = now();
@@ -140,7 +156,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-다음 쿼리는 컨트롤러에 있는 모든 컨테이너의 평균 메모리 사용률을 1분마다 컨트롤러에 있는 모든 컨테이너 인스턴스의 평균 메모리 사용률로 계산합니다. 측정값은 컨테이너에 설정된 제한의 백분율입니다.
+**1분마다 컨트롤러에 있는 모든 컨테이너 인스턴스의 평균 메모리 사용률로 계산한 컨트롤러에 있는 모든 컨테이너의 평균 메모리 사용률(메트릭 측정값)**
 
 ```kusto
 let endDateTime = now();
@@ -180,7 +196,9 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-다음 쿼리는 *Ready* 및 *NotReady* 상태의 모든 노드와 개수를 반환합니다.
+## <a name="resource-availability"></a>리소스 가용성 
+
+**상태가 Ready 및 NotReady인 노드 및 개수(메트릭 측정값)**
 
 ```kusto
 let endDateTime = now();
@@ -273,38 +291,29 @@ InsightsMetrics
 | where AggregatedValue >= 90
 ```
 
-## <a name="create-an-alert-rule"></a>경고 규칙 만들기
 
-이 섹션에서는 컨테이너 인사이트의 성능 데이터를 사용하여 메트릭 측정 경고 규칙을 만드는 과정을 안내합니다. 다양한 로그 쿼리에서 해당 기본 프로세스를 사용하여 여러 가지 성능 카운터에 대해 경고할 수 있습니다. 시작하려면 이전에 제공된 로그 검색 쿼리 중 하나를 사용합니다. ARM 템플릿을 사용하여 만들려면 [Azure 리소스 템플릿을 사용하여 샘플 로그 경고 만들기](../alerts/alerts-log-create-templates.md)를 참조하세요.
 
->[!NOTE]
->컨테이너 리소스 사용률에 대한 경고 규칙을 만들기 위해, 다음 절차에서는 [로그 경고의 API 기본 설정 전환](../alerts/alerts-log-api-switch.md)에 설명되어 있는 대로 새 로그 경고 API로 전환해야 합니다.
->
+**개별 컨테이너 다시 시작(결과 수)**<br>
+개별 시스템 컨테이너 다시 시작 횟수가 지난 10분 동안 임계값을 초과하면 경고합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal에서 **Log Analytics 작업 영역** 을 검색하여 선택합니다.
-3. Log Analytics 작업 영역 목록에서 컨테이너 인사이트를 지원하는 작업 영역을 선택합니다. 
-4. 왼쪽 창에서 **로그** 를 선택하여 Azure Monitor 로그 페이지를 엽니다. 이 페이지를 사용하여 Azure 로그 쿼리를 작성하고 실행하게 됩니다.
-5. **로그** 페이지에서 이전에 제공된 [쿼리](#resource-utilization-log-search-queries) 중 하나를 **검색 쿼리** 필드에 붙여넣은 다음 **실행** 을 선택하여 결과의 유효성을 검사합니다. 이 단계를 수행하지 않으면 **+새로운 경고** 옵션을 선택할 수 없습니다.
-6. **+새로운 경고** 를 선택하여 로그 경고를 만듭니다.
-7. **조건** 섹션에서 **사용자 지정 로그 검색이 \<logic undefined>** 사전 지정된 사용자 지정 로그 조건일 때마다를 선택합니다. Azure Monitor 로그 페이지에서 직접 경고 규칙을 만들기 때문에 **사용자 지정 로그 검색** 신호 유형이 자동으로 선택됩니다.  
-8. 이전에 제공된 [쿼리](#resource-utilization-log-search-queries) 중 하나를 **검색 쿼리** 필드에 붙여넣습니다.
-9. 다음과 같이 경고를 구성합니다.
-
-    1. **기준** 드롭다운 목록에서 **미터법** 을 선택합니다. 메트릭 측정값은 쿼리에서 지정된 임계값보다 높은 값을 갖는 각 개체에 대해 경고를 만듭니다.
-    1. **조건** 에서 **보다 큼** 을 선택한 다음, CPU 및 메모리 사용률 경고에 대해 초기 기준선 **임계값** 으로 **75** 를 입력합니다. 디스크 공간 부족 경고에 대해 **90** 을 입력하거나 원하는 조건을 충족하는 다른 값을 입력합니다.
-    1. **경고 트리거 기준** 섹션에서 **연속 위반** 을 선택합니다. 드롭다운 목록에서 **보다 큼** 을 선택하고 **2** 를 입력합니다.
-    1. 컨테이너 CPU 또는 메모리 사용률에 대한 경고를 구성하려면 **집계** 에서 **ContainerName** 을 선택합니다. 클러스터 노드 디스크 부족에 대한 경고를 구성하려면 **ClusterId** 를 선택합니다.
-    1. **평가 기준** 섹션에서 **기간** 값을 **60분** 으로 수정합니다. 규칙이 5분마다 실행되고 최근 1시간 이내에 만들어진 레코드를 반환합니다. 잠재적 데이터 대기 시간에 대한 기간을 넓은 시간 범위 계정으로 설정합니다. 이렇게 하면 쿼리가 데이터를 반환하도록 하여 경고가 발생하지 않는 거짓 부정을 방지할 수 있습니다.
-
-10. **완료** 를 선택하여 경고 규칙을 완료합니다.
-11. **경고 규칙 이름** 필드에 이름을 입력합니다. 경고에 대한 세부 정보를 제공하는 **설명** 을 지정합니다. 제공된 옵션 중에서 적절한 심각도 수준을 선택합니다.
-12. 경고 규칙을 즉시 활성화하려면 **규칙을 만들면 바로 사용** 에 기본값을 적용합니다.
-13. 기존 **작업 그룹** 을 선택하거나 새 그룹을 만듭니다. 이 단계를 수행하면 경고가 트리거될 때마다 동일한 작업이 수행되도록 할 수 있습니다. IT 또는 DevOps 작업 팀이 인시던트를 관리하는 방식에 따라 구성합니다.
-14. **경고 규칙 만들기** 를 선택하여 경고 규칙을 완료합니다. 그 즉시 실행이 시작됩니다.
+ 
+```kusto
+let _threshold = 10m; 
+let _alertThreshold = 2;
+let Timenow = (datetime(now) - _threshold); 
+let starttime = ago(5m); 
+KubePodInventory
+| where TimeGenerated >= starttime
+| where Namespace in ('default', 'kube-system') // the namespace filter goes here
+| where ContainerRestartCount > _alertThreshold
+| extend Tags = todynamic(ContainerLastStatus)
+| extend startedAt = todynamic(Tags.startedAt)
+| where startedAt >= Timenow
+| summarize arg_max(TimeGenerated, *) by Name
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-- 클러스터를 경고, 시각화 또는 분석하기 위해 평가하거나 사용자 지정하는 미리 정의된 쿼리 및 예제를 보려면 [로그 쿼리 예제](container-insights-log-search.md#search-logs-to-analyze-data)를 확인하세요.
+- 클러스터를 경고, 시각화 또는 분석하기 위해 평가하거나 사용자 지정하는 미리 정의된 쿼리 및 예제를 보려면 [로그 쿼리 예제](container-insights-log-query.md)를 확인하세요.
 
 - Azure Monitor 및 Kubernetes 클러스터의 기타 측면을 모니터링하는 방법에 대한 자세한 내용은 [Kubernetes 클러스터 성능 보기](container-insights-analyze.md) 및 [Kubernetes 클러스터 상태 보기](./container-insights-overview.md)를 참조하세요.

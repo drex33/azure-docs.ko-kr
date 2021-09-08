@@ -7,14 +7,14 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 08/27/2021
 ms.author: banders
-ms.openlocfilehash: d9c60d6c47d36ab5244d994a1223f0a70deb752b
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 7388ee42195d93a9b7d9a64567f25be91b0eb38d
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539560"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111957"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>다른 제품으로 Azure 구독 변경
 
@@ -69,7 +69,7 @@ Visual Studio Enterprise 구독이 만료되면 비활성화됩니다. 구독과
     :::image type="content" source="./media/switch-azure-offer/select-offer-pay-as-you-go.png" alt-text="제품 전환 옵션을 보여 주는 스크린샷" lightbox="./media/switch-azure-offer/select-offer-pay-as-you-go.png" :::
 1. 결제 방법 선택 탭에서 **결제 방법 선택** 을 선택하고 결제 방법 정보를 입력한 다음, **다음** 을 선택합니다.  
 1. 검토 + 변환 페이지에서 필요에 따라 구독 이름을 변경할 수 있습니다. 규약 정보를 검토하고 **동의함** 옵션을 선택한 다음, 페이지 아래쪽에서 **제품 전환** 을 선택합니다.  
-    :::image type="content" source="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" alt-text="구독 이름 및 규약 승인이 있는 검토 + 변환 탭을 보여 주는 스크린샷" lightbox="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" :::
+    :::image type="content" source="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" alt-text="구독 이름과 계약 동의가 있는 검토 + 변환 탭을 보여 주는 스크린샷" lightbox="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" :::
 
 **구독** 으로 이동하여 변환된 새 구독을 확인합니다.
 
@@ -117,7 +117,7 @@ Azure 제품을 전환할 때 발생하는 상황에 대한 세부 정보는 다
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>종량제 요금을 사용하는 구독에서 CSP(클라우드 솔루션 공급자) 또는 EA(기업 계약)로 마이그레이션할 수 있나요?
 
 * CSP로 마이그레이션하려면 [구독자와 CSP 간에 Azure 구독 전송](transfer-subscriptions-subscribers-csp.md)을 참조하세요.
-* EA로 전환하려면 등록 관리자에게 계정을 EA에 추가해 달라고 요청해야 합니다. 초대 이메일의 지침에 따라 구독을 EA 등록 아래로 이동하세요.
+* 종량제 구독(Azure 제품 ID MS-AZR-0003P) 또는 종량제 요금(Azure 제품 ID MS-AZR-0017G)이 있는 Azure 플랜이 있고 EA 등록으로 마이그레이션하려는 경우 등록 관리자가 EA에 계정을 추가하도록 합니다. 초대 이메일의 지침에 따라 구독을 EA 등록 아래로 이동하세요. 자세한 내용은 [Azure 구독 또는 계정 소유권 변경](ea-portal-administration.md#change-azure-subscription-or-account-ownership)을 참조하세요.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>데이터 및 서비스를 새 구독으로 마이그레이션할 수 있나요?
 

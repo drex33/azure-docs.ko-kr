@@ -3,17 +3,17 @@ title: 자습서 - Azure IoT Central을 사용하여 의료 데이터 심사 대
 description: 자습서 - Azure IoT Central 애플리케이션 템플릿을 사용하여 의료 데이터 심사 대시보드를 빌드하는 방법을 알아봅니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/11/2020
+ms.date: 09/01/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: f8fee85dfab72594f7a00f985d7d095b96d693e6
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 70862d562db5371e1169e188c80f9436e6092ea5
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597242"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123481185"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>자습서: Power BI 공급자 대시보드 빌드
 

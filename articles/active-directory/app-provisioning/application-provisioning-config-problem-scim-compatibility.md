@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/11/2021
+ms.date: 08/25/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 0e369a6ab857b95035b0aaca28525e54e15835e8
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 9cf7fd49562f83976a10150d953a0afc8b994ed4
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783264"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123102795"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -43,78 +43,47 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 | 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예  | 2018년 12월 18일  | customappSSO로 다운그레이드 |
 | 다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예  |  2018년 12월 18일  | customappSSO로 다운그레이드 |
 | 그룹 생성 요청에 있는 스키마 URI가 잘못됨 | 예  |  2018년 12월 18일  |  customappSSO로 다운그레이드 |
-| 규정 준수를 보장하기 위해 PATCH 동작 업데이트(예: 부울로 활성 및 적절한 그룹 구성원 제거) | 예 | TBD| 미리 보기 플래그 사용 |
+| 규정 준수를 보장하기 위해 PATCH 동작 업데이트(예: 부울로 활성 및 적절한 그룹 구성원 제거) | 예 | TBD| 기능 플래그 사용 |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>SCIM 동작을 변경하기 위한 플래그
 기본 SCIM 클라이언트 동작을 변경하려면 애플리케이션의 테넌트 URL에서 아래 플래그를 사용합니다.
 
-:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="이후 동작에 대한 SCIM 플래그입니다.":::
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.png" alt-text="이후 동작에 대한 SCIM 플래그입니다.":::
 
-* 다음 URL을 사용하여 패치 동작을 업데이트하고 SCIM 준수를 보장합니다(예: 부울로 활성화, 적절한 그룹 구성원 제거). 이 동작은 현재 플래그를 사용하는 경우에만 사용할 수 있지만 향후 몇 달 동안 기본 동작이 될 것입니다. 참고로 현재 이 미리 보기 플래그는 주문형 프로비저닝에서 작동하지 않습니다. 
+다음 URL을 사용하여 패치 동작을 업데이트하고 SCIM 준수를 보장합니다. 플래그는 다음 동작을 변경합니다.                
+- 사용자를 사용하지 않도록 설정하기 위한 요청
+- 단일 값 문자열 특성을 추가하기 위한 요청
+- 여러 특성을 바꾸기 위한 요청
+- 그룹 구성원을 제거하기 위한 요청        
+                                                                                     
+이 동작은 현재 플래그를 사용하는 경우에만 사용할 수 있지만 향후 몇 달 동안 기본 동작이 될 것입니다. 참고로 이 기능 플래그는 현재 주문형 프로비저닝에서 작동하지 않습니다. 
   * **URL(SCIM 준수):** aadOptscim062020
   * **SCIM RFC 참조:** 
-    * https://tools.ietf.org/html/rfc7644#section-3.5.2
-  * **동작:**
+    * https://tools.ietf.org/html/rfc7644#section-3.5.2    
+
+다음은 동기화 엔진이 현재 전송하는 내용과 기능 플래그가 사용하도록 설정된 후 전송되는 요청을 간략하게 설명하는 샘플 요청입니다. 
+                           
+**사용자를 사용하지 않도록 설정하기 위한 요청:**
+
+**기능 플래그 제외**
   ```json
-   PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
-   {
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
         {
-            "op": "remove",
-            "path": "members[value eq \"16b083c0-f1e8-4544-b6ee-27a28dc98761\"]"
+            "op": "Replace",
+            "path": "active",
+            "value": "False"
         }
     ]
-   }
+}
+  ```
 
-    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "add",
-            "path": "members",
-            "value": [
-                {
-                    "value": "10263a6910a84ef9a581dd9b8dcc0eae"
-                }
-            ]
-        }
-    ]
-    } 
-
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "replace",
-            "path": "emails[type eq \"work\"].value",
-            "value": "someone@contoso.com"
-        },
-        {
-            "op": "replace",
-            "path": "emails[type eq \"work\"].primary",
-            "value": true
-        },
-        {
-            "op": "replace",
-            "value": {
-                "active": false,
-                "userName": "someone"
-            }
-        }
-    ]
-    }
-
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
+**기능 플래그 포함**
+  ```json
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -125,23 +94,153 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
             "value": false
         }
     ]
-    }
+}
+  ```
 
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
+**단일 값 문자열 특성을 추가하기 위한 요청:**
+
+**기능 플래그 제외**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Add",
+            "path": "nickName",
+            "value": [
+                {
+                    "value": "Babs"
+                }
+            ]
+        }
+    ]
+}   
+  ```
+
+**기능 플래그 포함**
+  ```json
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
         {
             "op": "add",
-            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
-            "value": "Tech Infrastructure"
+            "value": {
+                "nickName": "Babs"
+            }
         }
     ]
-    }
-   
+}
   ```
+
+**여러 특성을 바꾸기 위한 요청:**
+
+**기능 플래그 제외**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "displayName",
+            "value": "Pvlo"
+        },
+        {
+            "op": "Replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "TestBcwqnm@test.microsoft.com"
+        },
+        {
+            "op": "Replace",
+            "path": "name.givenName",
+            "value": "Gtfd"
+        },
+        {
+            "op": "Replace",
+            "path": "name.familyName",
+            "value": "Pkqf"
+        },
+        {
+            "op": "Replace",
+            "path": "externalId",
+            "value": "Eqpj"
+        },
+        {
+            "op": "Replace",
+            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber",
+            "value": "Eqpj"
+        }
+    ]
+}
+  ```
+
+**기능 플래그 포함**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "TestMhvaes@test.microsoft.com"
+        },
+        {
+            "op": "replace",
+            "value": {
+                "displayName": "Bjfe",
+                "name.givenName": "Kkom",
+                "name.familyName": "Unua",
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber": "Aklq"
+            }
+        }
+    ]
+} 
+  ```
+
+**그룹 구성원을 제거하기 위한 요청:**
+
+**기능 플래그 제외**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Remove",
+            "path": "members",
+            "value": [
+                {
+                    "value": "u1091"
+                }
+            ]
+        }
+    ]
+} 
+  ```
+
+**기능 플래그 포함**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "remove",
+            "path": "members[value eq \"7f4bc1a3-285e-48ae-8202-5accb43efb0e\"]"
+        }
+    ]
+}
+  ```
+
 
   * **다운그레이드 URL:** 새 SCIM 준수 동작이 비갤러리 애플리케이션에서 기본값이 되면 다음 URL을 사용하여 이전 비SCIM 준수 동작(AzureAdScimPatch2017)으로 롤백할 수 있습니다.
   
@@ -176,7 +275,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 10. 아래 명령을 실행하여 최신 서비스 수정 사항이 있는 새 프로비저닝 작업을 만듭니다.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "scim"   }`
+ `{   "templateId": "scim"   }`
    
 11. 마지막 단계의 결과에서 “scim”으로 시작하는 전체 “ID” 문자열을 복사합니다. 선택적으로, 아래 명령을 실행하여 이전 특성 매핑을 다시 적용하고 [new-job-id]를 방금 복사한 새 작업 ID로 바꾸고 7단계의 JSON 출력을 요청 본문으로 입력합니다.
 

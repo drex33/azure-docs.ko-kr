@@ -5,16 +5,16 @@ services: iot-edge
 keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 08/11/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: cb0c6bd32c2bb1087635ee9ae61c0c569d3575f2
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 6c204308cff285860c0e887d41eca56ecc220226
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567480"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039057"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -117,6 +117,18 @@ Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만
 - **deployment.template.json** 파일은 테스트에 사용할 수 있는 데이터를 시뮬레이션하는 샘플 **SimulatedTemperatureSensor** 모듈과 함께 새 모듈을 나열합니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요.
 
 시뮬레이션된 온도 모듈의 작동 방법을 확인하려면 [SimulatedTemperatureSensor.csproj 소스 코드](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor)를 확인합니다.
+
+### <a name="set-iot-edge-runtime-version"></a>IoT Edge 런타임 버전 설정
+
+IoT Edge 확장은 배포 자산을 만들 때 IoT Edge 런타임의 안정적인 최신 버전으로 기본 설정됩니다. 현재 최신 안정적인 버전은 버전 1.2입니다. 1\.1 장기 지원 버전 또는 이전 1.0 버전을 실행하는 디바이스용 모듈을 개발하는 경우 일치하도록 Visual Studio Code에서 IoT Edge 런타임 버전을 업데이트합니다.
+
+1. **뷰** > **명령 팔레트** 를 선택합니다.
+
+1. 명령 팔레트에서 **Azure IoT Edge: 기본 IoT Edge 런타임 버전 설정** 명령을 입력하고 실행합니다.
+
+1. 목록에서 IoT Edge 디바이스가 실행 중인 런타임 버전을 선택합니다.
+
+새 런타임 버전을 선택하면 런타임 모듈 이미지에 대한 변경 사항을 반영하도록 배포 매니페스트가 동적으로 업데이트됩니다.
 
 ## <a name="add-additional-modules"></a>모듈 더 추가
 

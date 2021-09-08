@@ -10,18 +10,16 @@ ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f3fdeadcf90d94203a972946ccceefca74cd5c3d
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 46b36452926b02ea524b35727d54535a4ffa3f27
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012484"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123467739"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열
 
 Azure PowerShell 모듈을 사용하여 Azure 리소스를 만들고 관리합니다. PowerShell 명령줄 또는 스크립트에서 Azure 리소스 만들기 또는 관리를 수행할 수 있습니다. 이 가이드에서는 PowerShell을 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 설명합니다.
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

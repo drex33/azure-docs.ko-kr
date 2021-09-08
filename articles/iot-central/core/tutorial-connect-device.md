@@ -3,7 +3,7 @@ title: 자습서 - Azure IoT Central에 제네릭 클라이언트 앱 연결 | M
 description: 이 자습서에서는 C, C#, Java, JavaScript 또는 Python 클라이언트 앱을 실행하는 디바이스를 Azure IoT Central 애플리케이션에 연결하는 방법을 보여 줍니다. 운영자가 연결된 디바이스와 상호 작용할 수 있도록 하는 보기를 추가하여 자동으로 생성된 디바이스 템플릿을 수정합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/24/2020
+ms.date: 08/31/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 0e6f4ac3cd95873c8b735a1843438499f2405bef
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7be12549d6e4afaa981a3d3dc83ad817ff5d9c9d
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750026"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471321"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>자습서: 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결
 

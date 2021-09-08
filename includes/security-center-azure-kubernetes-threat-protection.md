@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 04/07/2021
 ms.topic: include
-ms.openlocfilehash: d14274c43c3241a4c091ee004747c1ad8e12968b
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 24f466e7c9a9e5630510f73652fcf515540bee10
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111896953"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123646398"
 ---
 Azure Defender는 실시간 위협 방지를 컨테이너화된 환경에 제공하고 의심스러운 활동에 대한 경고를 생성합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
 
@@ -22,7 +22,7 @@ Azure Defender에서 위협 방지를 제공하는 다양한 수준은 다음과
     >[!IMPORTANT]
     > 현재는 가상 머신 확장 집합에서 실행되는 Azure Kubernetes Service 클러스터에 Log Analytics 에이전트를 설치할 수 없습니다.
 
-    클러스터 수준 경고 목록은 [경고 참조 표](../articles/security-center/alerts-reference.md#alerts-containerhost)를 참조하세요.
+    호스트 수준 경고 목록은 [경고 참조 표](../articles/security-center/alerts-reference.md#alerts-containerhost)를 참조하세요.
 
 
 * **클러스터 수준(Azure Defender for Kubernetes에서 제공)** - 클러스터 수준의 위협 보호는 Kubernetes의 감사 로그 분석을 기반으로 합니다. 이 **에이전트 없는** 모니터링을 사용하도록 설정하려면 Azure Defender를 사용하도록 설정합니다. 클러스터가 온-프레미스 또는 다른 클라우드 공급자에 있는 경우 [Arc 지원 Kubernetes 및 Azure Defender 확장](../articles/security-center/defender-for-kubernetes-azure-arc.md)을 사용하도록 설정합니다.

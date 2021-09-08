@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/01/2020
-ms.openlocfilehash: 9d398ab6615a967982727812e9603b22914188d5
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 08/26/2021
+ms.openlocfilehash: 98458a624a9c0d713e518e3fda442b8e45209d25
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634987"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123036509"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>온-프레미스 또는 클라우드 데이터를 Azure Cosmos DB로 마이그레이션하는 옵션
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -104,6 +104,9 @@ SQL API, Mongo API 및 Cassandra API 이외의 API에는 각 API의 기존 에�
 
 ## <a name="next-steps"></a>다음 단계
 
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어 보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어 보세요.
 * [.NET](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 대량 실행기 라이브러리를 사용하는 샘플 애플리케이션을 사용해 보며 자세히 알아봅니다. 
 * 대량 실행기 라이브러리는 Cosmos DB Spark 커넥터에 통합됩니다. 자세한 내용은 [Azure Cosmos DB Spark 커넥터](./create-sql-api-spark.md) 문서를 참조하세요.  
 * 대규모 마이그레이션에 관한 추가적인 도움이 필요하면 “일반 권고” 문제 유형 및 “대규모(TB 이상) 마이그레이션” 문제 하위 유형에서 지원 티켓을 열어 Azure Cosmos DB 제품 팀에 문의하세요.

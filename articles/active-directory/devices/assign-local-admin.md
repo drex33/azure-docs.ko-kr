@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a21505fc37ad3b7fb47af8c6b79262ebb654d800
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 15b15b91e08ba404eac0fb2c30df924d2f84731b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228037"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866664"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
 
@@ -62,6 +62,7 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 
 - 적절한 권한으로 새 Primary Refresh Tokens을 발급하기 위해 Azure AD에 대해 최대 4시간이 경과 되었습니다. 
 - 사용자가 잠금/잠금 해제가 아니라 로그아웃 했다가 다시 로그인하여 프로필을 새로 고칠 수 있습니다.
+- 사용자는 로컬 관리자 그룹에 나열되지 않으며 기본 새로 고침 토큰을 통해 사용 권한을 받습니다. 
 
 > [!NOTE]
 > 위의 작업은 이전에 관련 디바이스에 로그인하지 않은 사용자에게는 적용되지 않습니다. 이 경우, 관리자 권한은 처음으로 디바이스에 로그인 한 후 즉시 적용됩니다. 

@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2021
+ms.date: 08/26/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cdf1208ae6c6661b6d9ad905ecf35ce66efc392d
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 305f7b964bfd084bf1fa245d436c431cde1b9104
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122538995"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110331"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -80,6 +80,7 @@ SAP 애플리케이션 계층 및 DBMS의 고가용성은 [SAP NetWeaver에 대�
 이 섹션에서는 Microsoft Power BI를 SAP 데이터 원본에 통합하는 방법과 Azure Data Factory를 SAP BW에 통합하는 방법을 설명하는 문서를 찾을 수 있습니다.
 
 ## <a name="change-log"></a>로그 변경
+- 2021년 8월 26일: Azure Fence 에이전트의 역할 정의 JSON을 수정하기 위해 [Azure에서 RHEL의 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 및 [Azure에서 SLES의 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 변경
 - 2021년 8월 17일: ANF에서 호스트되는 NFS 볼륨을 사용하는 IBM Db2를 지원하기 위해 [SAP 워크로드에 대한 IBM Db2 Azure Virtual Machines DBMS 배포](./dbms_guide_ibm.md), [SAP 워크로드에 대한 Azure Storage 형식 변경](./planning-guide-storage.md) 및 [Azure 가상 머신 지원 시나리오에서의 SAP 워크로드](./sap-planning-supported-configurations.md) 변경
 - 2021년 8월 2일: 서버 실패 큐에 넣기를 시뮬레이션하는 테스트 시나리오에 대한 작동(ENSA1/ENSA2)을 명시하기 위해 [SAP 애플리케이션용 SLES의 Azure VM에서 SAP NW의 HA](./high-availability-guide-suse.md), [ANF를 사용한 SLES의 Azure VM에서 SAP NW의 HA](./high-availability-guide-suse-netapp-files.md), [SAP 애플리케이션용 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel.md) 및 [ANF를 사용한 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel-netapp-files.md) 문서 변경     
 - 2021년 8월 11일: 클러스터 리소스 고정, 마이그레이션 임계값, 순서 제약을 조정하기 위해 [SAP 애플리케이션용 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel.md), [ANF를 사용한 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel-netapp-files.md) 및 [RHEL 다중 SID 가이드의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel-multi-sid.md) 변경  
@@ -159,7 +160,7 @@ SAP 애플리케이션 계층 및 DBMS의 고가용성은 [SAP NetWeaver에 대�
 - 2020년 8월 4일: [파일 공유를 사용한 WFCS에서 SAP NW 고가용성](./sap-high-availability-installation-wsfc-file-share.md), [공유 디스크를 사용한 WFCS에서 SAP NW 고가용성](./sap-high-availability-installation-wsfc-shared-disk.md), [Azure VM의 SAP NW의 고가용성](./high-availability-guide.md), [SLES의 Azure VM에서 SAP NW의 고가용성](./high-availability-guide-suse.md), [ANF를 사용한 SLES에서 Azure VM의 SAP NW 고가용성](./high-availability-guide-suse-netapp-files.md), [SLES에서 Azure VM의 SAP NW 고가용성 다중 SID 지침](./high-availability-guide-suse-multi-sid.md), [RHEL의 Azure VM에서 SAP NetWeaver의 고가용성](./high-availability-guide-rhel.md), [ANF를 이용한 RHEL의 Azure VM에서 SAP NW 가용성](./high-availability-guide-rhel-netapp-files.md) 및 [RHEL의 Azure VM에서 SAP NW의 고가용성 다중 SID 지침](./high-availability-guide-rhel-multi-sid.md) 문서 변경으로 `enque/encni/set_so_keepalive` 매개 변수 사용을 명확히 함
 - 2020년 7월 23일: [Azure 예약을 이용한 SAP HANA(대규모 인스턴스) 비용 절약](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) 문서에 SAP HANA(대규모 인스턴스) 예약 구매 전에 알아야 할 점과 구매하는 방법 설명을 추가
 - 2020년 7월 16일: Azure PowerShell을 사용한 새로운 SAP용 VM 확장 기능 설치 방법에 대한 설명을 [배포 지침](deployment-guide.md)에 추가
-- 2020년 7월 4일: [SAP 솔루션을 위한 Azure Monitor(미리 보기)](./azure-monitor-overview.md) 릴리스
+- 2020년 7월 4일: [SAP 솔루션을 위한 Azure Monitor(미리 보기)](./monitor-sap-on-azure.md) 릴리스
 - 2020년 7월 1일: [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md) 문서에 Azure 프리미엄 스토리지 버스트 기능을 기반으로 한 더 저렴한 스토리지 구성을 제안 
 - 2020년 6월 24일: [Azure에서 SLES의 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 문서를 변경하여 새롭게 향상된 Azure Fence 에이전트와, Azure Fence 에이전트를 기반으로 하는 디바이스 복원력이 강화된 STONITH 구성을 릴리스 
 - 2020년 6월 24일: [Azure에서 RHEL의 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 문서를 변경하여 복원력이 강하된 STONITH 구성 릴리스

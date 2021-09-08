@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 20b4a76756a70660ff638207fa20b5a4801e783d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 97980d07d7dc597b5bfb4b093495b2cb74c4569e
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536339"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777916"
 ---
 # <a name="set-up-an-appliance-for-azure-government-cloud"></a>Azure Government 클라우드에서 어플라이언스 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "122536339"
 > [!NOTE]
 > 템플릿을 사용하여 어플라이언스를 배포하는 옵션(VMware 또는 Hyper-V 환경에서 실행되는 서버의 경우)은 Azure Government에서 지원되지 않습니다. 설치 관리자 스크립트도 사용해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 스크립트를 사용하여 기존 물리적 또는 가상화된 서버에 Azure Migrate 어플라이언스를 배포할 수 있습니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "122536339"
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140337) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140337) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 
 ### <a name="run-the-script"></a>스크립트 실행
@@ -122,7 +122,7 @@ ms.locfileid: "122536339"
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140424) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140424) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 ### <a name="run-the-script"></a>스크립트 실행
 
@@ -180,7 +180,7 @@ ms.locfileid: "122536339"
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 퍼블릭 또는 프라이빗 엔드포인트 연결로 Azure Government 클라우드용 물리적 어플라이언스를 설정할 수 있습니다.

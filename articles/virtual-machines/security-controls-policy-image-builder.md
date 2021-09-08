@@ -1,7 +1,7 @@
 ---
 title: Azure Image Builder에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Image Builder에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 07/16/2021
+ms.date: 09/03/2021
 ms.topic: sample
 author: kof-f
 ms.author: kofiforson
@@ -9,14 +9,16 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: aad83ce5a729c89d32de17cec2532e13d279e1a4
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: ea4f5d0df0a9d071933c9d0cd31e5c4e984449bd
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114402152"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471899"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Azure Image Builder에 대한 Azure Policy 규정 준수 컨트롤
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 [Azure Policy의 규정 준수](../governance/policy/concepts/regulatory-compliance.md)는 서로 다른 규정 준수 표준과 관련된 **규정 준수 도메인** 및 **보안 제어** 에 대해 _기본 제공_ 으로 알려진 Microsoft 생성 및 관리형 이니셔티브 정의를 제공합니다. 이 페이지에는 Azure Image Builder에 대한 **규정 준수 도메인** 및 **보안 제어** 가 나열되어 있습니다. **보안 제어** 에 대한 기본 제공 기능을 개별적으로 할당하여 Azure 리소스가 특정 표준을 준수하도록 할 수 있습니다.
 

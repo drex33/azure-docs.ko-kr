@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1c7d4eeaf7df1764b021cd5914d6f4f4a88a9a1c
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: ddf46df1af8dc41e4f50c92eee527ac25e77b08a
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213474"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777588"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 재설정 흐름 설정
 
@@ -73,7 +73,8 @@ selfasserted.html 페이지의 **이메일 변경** 단추의 기본 이름은 `
 등록 또는 로그인 사용자 흐름에 대해 셀프 서비스 암호 재설정을 사용하도록 설정하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **사용자 흐름** 을 선택합니다.
 1. 사용자 지정하려는 가입 또는 로그인 사용자 흐름(**권장** 형식)을 선택합니다.
@@ -271,7 +272,8 @@ selfasserted.html 페이지의 **이메일 변경** 단추의 기본 이름은 `
 ### <a name="upload-the-custom-policy"></a>사용자 지정 정책 업로드
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. **사용자 지정 정책 업로드** 를 선택하고 다음 순서에 따라 변경한 두 정책 파일을 업로드합니다.
@@ -316,8 +318,8 @@ selfasserted.html 페이지의 **이메일 변경** 단추의 기본 이름은 `
 1. **버전 선택** 아래에서 **추천** 을 선택한 다음, **만들기** 를 선택합니다.
 1. 사용자 흐름에 대한 **이름** 을 입력합니다. 예를 들어 *passwordreset1* 과 같습니다.
 1. **ID 공급자** 에서 **사용자 이름을 사용하여 암호 재설정** 또는 **이메일 주소를 사용하여 암호 재설정** 을 사용하도록 설정합니다.
-1. **다단계 인증** 에서 사용자가 두 번째 인증 방법으로 ID를 확인하도록 하려면 방법 유형 및 MFA(다단계 인증)를 적용할 시기를 선택해야 합니다. [자세히 알아보기](multi-factor-authentication.md).
-1. **조건부 액세스** 에서 Azure AD B2C 테넌트의 조건부 액세스 정책을 구성했고 이 사용자 흐름에 대해 조건부 액세스 정책을 사용하도록 설정하려면 **조건부 액세스 정책 적용** 확인란을 선택합니다. 정책 이름은 지정하지 않아도 됩니다. [자세히 알아보기](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. **다단계 인증** 에서 사용자가 두 번째 인증 방법으로 ID를 확인하도록 하려면 방법 유형 및 MFA(다단계 인증)를 적용할 시기를 선택해야 합니다. [자세한 정보](multi-factor-authentication.md).
+1. **조건부 액세스** 에서 Azure AD B2C 테넌트의 조건부 액세스 정책을 구성했고 이 사용자 흐름에 대해 조건부 액세스 정책을 사용하도록 설정하려면 **조건부 액세스 정책 적용** 확인란을 선택합니다. 정책 이름은 지정하지 않아도 됩니다. [자세한 정보](conditional-access-user-flow.md?pivots=b2c-user-flow).
 1. 1. **애플리케이션 클레임** 에서 **자세히 표시** 를 선택하고 애플리케이션에 재전송된 인증 토큰에 반환하려는 클레임을 선택합니다. 예를 들어 **사용자의 개체 ID** 를 선택합니다.
 1. **확인** 을 선택합니다.
 1. **만들기** 를 선택하여 사용자 흐름을 추가합니다. 접두사 *B2C_1* 이 이름을 자동으로 추가됩니다.

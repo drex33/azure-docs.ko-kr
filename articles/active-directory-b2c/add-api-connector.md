@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 62a88350e0bb1fceba635c651f8b831cba30cfce
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e0af1080a2d56fc01bdeb4bfb5f6475c477b685
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535917"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777741"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>등록 사용자 흐름에 API 커넥터 추가
 
@@ -576,7 +576,8 @@ REST API를 배포한 후에는 다음을 포함하여 고유한 REST API를 반
 ## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택하여 Azure AD 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
 1. **ID 경험 프레임워크** 를 선택합니다.
 1. **사용자 지정 정책 업로드** 를 선택하고 변경한 정책 파일인 *TrustFrameworkExtensions.xml* 및 *SignUpOrSignin.xml* 을 업로드합니다. 

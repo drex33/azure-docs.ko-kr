@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/04/2021
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 444831d1d8e9982ac0837e90fe04941b5ae928a7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ac90dadc93ce09bc2ce0af6314e4bd2c48ab79f8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528361"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768673"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
 
@@ -123,9 +123,7 @@ CLI를 사용하여 모두 라우팅을 구성할 수도 있습니다(*참고*: 
 az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enabled [true|false]
 ```
 
-모두 라우팅 구성 설정이 레거시 `WEBSITE_VNET_ROUTE_ALL` 앱 설정을 대신하여 우선 적용됩니다.
-
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-appsetting.png" alt-text="모두 라우팅 앱 설정":::
+모두 라우팅 구성 설정은 모든 트래픽 라우팅을 사용하도록 설정하는 데 권장되는 방법입니다. 구성 설정을 사용하면 [기본 제공 정책](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef)으로 동작을 감사할 수 있습니다. 기존 `WEBSITE_VNET_ROUTE_ALL` 앱 설정을 계속 사용할 수 있으며 두 설정 중 하나를 사용하여 모든 트래픽 라우팅을 사용하도록 설정할 수 있습니다.
 
 #### <a name="network-routing"></a>네트워크 라우팅
 

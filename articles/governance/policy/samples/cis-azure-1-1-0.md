@@ -1,15 +1,15 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark 1.1.0 규정 준수 세부 정보
 description: CIS Microsoft Azure Foundations Benchmark 1.1.0 규정 준수 기본 제공 이니셔티브에 대한 세부 정보. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 4eca33f77a4415e13773a51057bb7495857df043
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 3b2d7a49eb67fb2905ddf5c5fa98c3973f1e2e82
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112190"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472671"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>CIS Microsoft Azure Foundations Benchmark 1.1.0 규정 준수 기본 제공 이니셔티브에 대한 세부 정보
 
@@ -216,7 +216,7 @@ ms.locfileid: "123112190"
 
 |Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[스토리지 계정 공용 액세스가 허용되지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |Azure Storage의 컨테이너 및 BLOB에 대한 익명 공용 읽기 액세스는 데이터를 공유하는 편리한 방법이지만 보안 위험이 있을 수도 있습니다. 원치 않는 익명 액세스로 인해 발생하는 데이터 위반을 방지하기 위해 Microsoft는 시나리오에 필요한 경우가 아니면 스토리지 계정에 대한 공개 액세스를 방지하는 것이 좋습니다 |감사, 거부, 사용 안 함 |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
+|[스토리지 계정 공용 액세스가 허용되지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |Azure Storage의 컨테이너 및 BLOB에 대한 익명 공용 읽기 액세스는 데이터를 공유하는 편리한 방법이지만 보안 위험이 있을 수도 있습니다. 원치 않는 익명 액세스로 인해 발생하는 데이터 위반을 방지하기 위해 Microsoft는 시나리오에 필요한 경우가 아니면 스토리지 계정에 대한 공개 액세스를 방지하는 것이 좋습니다 |감사, 거부, 사용 안 함 |[3.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>스토리지 계정에 대한 기본 네트워크 액세스 규칙이 거부로 설정되어 있는지 확인
 
@@ -382,7 +382,7 @@ ms.locfileid: "123112190"
 
 |Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[스토리지 계정 공용 액세스가 허용되지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |Azure Storage의 컨테이너 및 BLOB에 대한 익명 공용 읽기 액세스는 데이터를 공유하는 편리한 방법이지만 보안 위험이 있을 수도 있습니다. 원치 않는 익명 액세스로 인해 발생하는 데이터 위반을 방지하기 위해 Microsoft는 시나리오에 필요한 경우가 아니면 스토리지 계정에 대한 공개 액세스를 방지하는 것이 좋습니다 |감사, 거부, 사용 안 함 |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
+|[스토리지 계정 공용 액세스가 허용되지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |Azure Storage의 컨테이너 및 BLOB에 대한 익명 공용 읽기 액세스는 데이터를 공유하는 편리한 방법이지만 보안 위험이 있을 수도 있습니다. 원치 않는 익명 액세스로 인해 발생하는 데이터 위반을 방지하기 위해 Microsoft는 시나리오에 필요한 경우가 아니면 스토리지 계정에 대한 공개 액세스를 방지하는 것이 좋습니다 |감사, 거부, 사용 안 함 |[3.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>활동 로그가 있는 컨테이너를 포함하는 스토리지 계정이 BYOK(사용자 고유 키 사용)로 암호화되어 있는지 확인
 
@@ -557,7 +557,7 @@ ms.locfileid: "123112190"
 
 |Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Key Vault 키에는 만료 날짜가 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |암호화 키에는 정의된 만료 날짜가 있어야 하며 영구적이지 않아야 합니다. 영구적으로 유효한 키는 잠재적인 공격자에게 키를 손상시킬 수 있는 시간을 더 많이 제공합니다. 보안상 암호화 키에 대한 만료 날짜를 설정하는 것이 좋습니다. |감사, 거부, 사용 안 함 |[1.0.1 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
+|[Key Vault 키에는 만료 날짜가 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |암호화 키에는 정의된 만료 날짜가 있어야 하며 영구적이지 않아야 합니다. 영구적으로 유효한 키는 잠재적인 공격자에게 키를 손상시킬 수 있는 시간을 더 많이 제공합니다. 보안상 암호화 키에 대한 만료 날짜를 설정하는 것이 좋습니다. |감사, 거부, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
 
 ### <a name="ensure-that-the-expiration-date-is-set-on-all-secrets"></a>모든 비밀에 만료 날짜가 설정되어 있는지 확인
 
@@ -565,7 +565,7 @@ ms.locfileid: "123112190"
 
 |Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Key Vault 비밀에는 만료 날짜가 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) |비밀에는 정의된 만료 날짜가 있어야 하며 영구적이지 않아야 합니다. 영구적으로 유효한 비밀은 잠재적인 공격자에게 비밀을 손상시킬 수 있는 시간을 더 많이 제공합니다. 보안상 비밀에 대한 만료 날짜를 설정하는 것이 좋습니다. |감사, 거부, 사용 안 함 |[1.0.1 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ExpirationSet.json) |
+|[Key Vault 비밀에는 만료 날짜가 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) |비밀에는 정의된 만료 날짜가 있어야 하며 영구적이지 않아야 합니다. 영구적으로 유효한 비밀은 잠재적인 공격자에게 비밀을 손상시킬 수 있는 시간을 더 많이 제공합니다. 보안상 비밀에 대한 만료 날짜를 설정하는 것이 좋습니다. |감사, 거부, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ExpirationSet.json) |
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>키 자격 증명 모음을 복구할 수 있는지 확인
 

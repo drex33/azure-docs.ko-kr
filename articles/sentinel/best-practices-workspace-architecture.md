@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 7a477122e9a0642233a5bac7a1884818f216d2f3
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 085b9a187ce574c5138867f7a2ce929218717c37
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538303"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123253812"
 ---
 # <a name="azure-sentinel-workspace-architecture-best-practices"></a>Azure Sentinel 작업 영역 아키텍처 모범 사례
 
@@ -25,6 +25,9 @@ Azure Sentinel 작업 영역 배포를 계획하는 경우 Log Analytics 작업 
 - 다양한 시나리오에 대한 비용 영향
 
 자세한 내용은 일반 시나리오에 대한 [Azure Sentinel 작업 영역 아키텍처 디자인](design-your-workspace-architecture.md) 및 [샘플 작업 영역 디자인](sample-workspace-designs.md)과 [Azure Sentinel 배포에 대한 배포 전 작업 및 필수 구성 요소](prerequisites.md)를 참조하세요.
+
+다음 비디오를 참조하세요. [성공을 위한 SecOps 설계: Azure Sentinel 배포 모범 사례](https://youtu.be/DyL9MEMhqmI)
+
 
 ## <a name="tenancy-considerations"></a>테넌트 고려 사항
 
@@ -44,7 +47,7 @@ MSSP(관리되는 보안 서비스 공급자)와 같이 여러 테넌트가 있�
 [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)를 사용하여 서로 다른 테넌트에서 여러 Azure Sentinel 인스턴스를 관리할 수 있습니다.
 
 > [!NOTE]
-> [파트너 데이터 커넥터](partner-data-connectors.md)는 일반적으로 API 또는 에이전트 컬렉션을 기반으로 하므로 특정 Azure AD 테넌트에 연결되지 않습니다.
+> [파트너 데이터 커넥터](data-connectors-reference.md)는 종종 API 또는 에이전트 컬렉션을 기반으로 하므로 특정 Azure AD 테넌트에 연결되지 않습니다.
 >
 
 

@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 사용 서버로 VM 확장 관리
 description: Azure Arc 사용 서버에서는 Azure가 아닌 VM을 사용하여 배포 후 구성 및 자동화 작업을 제공하는 가상 머신 확장 배포 기능을 관리할 수 있습니다.
-ms.date: 08/11/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 20ae8b6cbb29a9a0b43592c3b242707bb2d3add6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b09a5ecc2121d2ff1cc377bde7619b834a58e474
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566374"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824644"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Azure Arc 사용 서버로 가상 머신 확장 관리
 
@@ -52,7 +52,7 @@ Azure Connected Machine 에이전트 패키지 및 확장 에이전트 구성 �
 > [!NOTE]
 > 최근에 Arc 사용 서버용 DSC VM 확장 지원이 제거되었습니다. 그 대신에 사용자 지정 스크립트 확장을 사용하여 서버 또는 컴퓨터의 배포 후 구성을 관리하는 것이 좋습니다.
 
-Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 다른 Azure 구독 간에 하나 이상의 VM 확장이 설치된 머신을 이동할 수 있도록 지원합니다. 원본 및 대상 구독은 동일한 [Azure Active Directory 테넌트](../../active-directory/develop/quickstart-create-new-tenant.md) 내에 있어야 합니다. 계속하기 전에 리소스 이동 및 고려 사항에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
+Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 다른 Azure 구독 간에 하나 이상의 VM 확장이 설치된 머신을 이동할 수 있도록 지원합니다. 원본 및 대상 구독은 동일한 [Azure Active Directory 테넌트](../../active-directory/develop/quickstart-create-new-tenant.md) 내에 있어야 합니다. 이 지원은 Connected Machine 에이전트 버전 **1.8.21197.005** 부터 사용할 수 있습니다. 계속하기 전에 리소스 이동 및 고려 사항에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
 ### <a name="windows-extensions"></a>Windows 확장
 
@@ -76,7 +76,7 @@ Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 �
 |Azure Key Vault 인증서 동기화 | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Linux용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-linux.md) |
 |Azure Monitor 에이전트 |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Azure Monitor 에이전트 설치(미리 보기)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능은 구독의 다음 Azure 리소스 공급자에 따라 달라집니다.
 

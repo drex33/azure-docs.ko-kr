@@ -8,12 +8,12 @@ ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 55ad870da1b89e24777647613f607038089863e9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dc6175ca771a8be262c9a2d1ba92871a43140367
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566938"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257365"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -264,7 +264,7 @@ else
 
 -   대상이 Azure Storage인 포트 445(Azure Files에 저장된 SSIS 패키지를 실행하는 경우에만 필요).
 
-    Azure Firewall을 사용하는 경우 Storage 서비스 태그를 사용하여 네트워크 규칙을 지정할 수 있습니다. 그렇지 않으면 방화벽 어플라이언스에서 특정 Azure File Storage URL로 대상을 허용할 수 있습니다.
+    Azure Firewall을 사용하는 경우 Storage 서비스 태그를 사용하여 네트워크 규칙을 지정할 수 있습니다. 지정하지 않으면 방화벽 어플라이언스에서 특정 Azure 파일 공유 URL로 대상을 허용할 수 있습니다.
 
 > [!NOTE]
 > Azure SQL 및 Storage의 경우 서브넷에서 가상 네트워크 서비스 엔드포인트를 구성하면 동일한 지역 또는 쌍으로 연결된 지역에 있는 동일한 지역 \ Azure Storage의 Azure-SSIS IR과 Azure SQL 간의 트래픽이 방화벽 어플라이언스 대신 직접 Microsoft Azure 백본 네트워크로 라우팅됩니다.

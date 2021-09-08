@@ -13,14 +13,14 @@ ms.date: 08/10/2021
 ms.author: ombongifaith
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: scenarios:getting-started
-ms.openlocfilehash: 55076f382b24c8bcf994b452e8c26e5bb6cc23b9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cc084fe1b9df8a4ab4db5b926bb7b44646f17c2
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536991"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123030327"
 ---
-# <a name="how-to-create-a-self-signed-public-certificate-to-authenticate-your-application"></a>방법: 자체 서명된 공용 인증서를 만들어 애플리케이션 인증
+# <a name="create-a-self-signed-public-certificate-to-authenticate-your-application"></a>자체 서명된 퍼블릭 인증서를 만들어 애플리케이션 인증
 
 Azure AD(Azure Active Directory)는 **암호 기반 인증**(앱 비밀)과 **인증서 기반 인증** 등 두 가지 유형의 서비스 사용자 인증을 지원합니다. 앱 비밀을 Azure Portal에서 간편하게 만들 수 있지만 애플리케이션에서 인증서를 사용하는 것이 좋습니다.
 

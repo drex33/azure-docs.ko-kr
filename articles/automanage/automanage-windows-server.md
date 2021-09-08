@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 8ada2b5dbf58791da7bfbd11201a683c6a060f94
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 68269b511d101f7c2c346a4bee45aef86bda8fe3
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113649607"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223107"
 ---
 # <a name="azure-automanage-for-machines-best-practices---windows-server"></a>컴퓨터용 Azure Automanage 모범 사례 - Windows Server
 
@@ -28,7 +28,6 @@ Automanage는 다음 Windows Server 버전을 지원합니다.
 - Windows Server 2012/R2
 - Windows Server 2016
 - Windows Server 2019
-- Windows Server 2019 Azure Edition
 - Windows Server 2022
 - Windows Server 2022 Azure Edition
 
@@ -42,8 +41,9 @@ Automanage는 다음 Windows Server 버전을 지원합니다.
 |[Microsoft Antimalware](../security/fundamentals/antimalware.md)    |Azure용 Microsoft 맬웨어 방지 프로그램은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거하는 데 도움이 되는 평가판 실시간 보호 기능입니다. 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 경고를 생성합니다. **참고:** Microsoft Antimalware를 사용하려면 다른 맬웨어 방지 소프트웨어가 설치되어 있지 않아야 합니다. 그렇지 않으면 작동하지 않을 수 있습니다.  [자세히](../security/fundamentals/antimalware.md) 알아봅니다. |프로덕션, 개발/테스트    |예    |
 |[업데이트 관리](../automation/update-management/overview.md)    |Azure Automation의 업데이트 관리를 사용하여 컴퓨터 운영 체제 업데이트를 관리합니다. 모든 에이전트 머신에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버의 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다. [자세히](../automation/update-management/overview.md) 알아봅니다.    |프로덕션, 개발/테스트    |아니요    |
 |[변경 내용 추적 및 인벤토리](../automation/change-tracking/overview.md) |변경 내용 추적 및 인벤토리는 변경 추적 및 인벤토리 기능을 결합하여 가상 머신 및 서버 인프라 변경 내용을 추적할 수 있도록 합니다. 이 서비스는 사용자 환경에서 서비스, 디먼, 소프트웨어, 레지스트리 및 파일에 변경한 내용을 추적하는 기능을 지원하기 때문에 원하지 않는 변경 내용을 진단하고 경고를 생성할 수 있습니다. 인벤토리 지원을 사용하면 게스트 내 리소스를 쿼리하여 설치된 애플리케이션 및 기타 구성 항목을 볼 수 있습니다.  [자세히](../automation/change-tracking/overview.md) 알아봅니다.    |프로덕션, 개발/테스트    |아니요    |
-|[Azure 게스트 구성](../governance/policy/concepts/guest-configuration.md) | 게스트 구성 정책은 머신의 규정 준수에 대한 구성 및 보고서를 모니터링하는 데 사용됩니다. Automanage 서비스는 게스트 구성 확장을 사용하여 [Windows 보안 기준](/windows/security/threat-protection/windows-security-baselines)을 설치합니다. Windows 컴퓨터의 경우 게스트 구성 서비스는 규정을 준수하지 않을 경우 기준 설정을 자동으로 다시 적용합니다. [자세히](../governance/policy/concepts/guest-configuration.md) 알아봅니다.    |프로덕션, 개발/테스트    |아니요    |
+|[게스트 구성](../governance/policy/concepts/guest-configuration.md) | 게스트 구성 정책은 구성을 모니터링하고 머신의 규정 준수를 보고하는 데 사용됩니다. Automanage 서비스는 게스트 구성 확장을 사용하여 [Windows 보안 기준](/windows/security/threat-protection/windows-security-baselines)을 설치합니다. Windows 컴퓨터의 경우 게스트 구성 서비스는 규정을 준수하지 않을 경우 기준 설정을 자동으로 다시 적용합니다. [자세히](../governance/policy/concepts/guest-configuration.md) 알아봅니다.    |프로덕션, 개발/테스트    |아니요    |
 |[부팅 진단](../virtual-machines/boot-diagnostics.md)    | 부팅 진단은 VM 부팅 실패를 진단할 수 있도록 하는 Azure VM(가상 머신)에 대한 디버깅 기능입니다. 부팅 진단을 통해 사용자는 직렬 로그 정보와 스크린샷을 수집하여 부팅하는 VM의 상태를 관찰할 수 있습니다. 이는 관리 디스크를 사용하는 머신에만 사용할 수 있습니다. |프로덕션, 개발/테스트    |아니요    |
+|[Windows Admin Center](/windows-server/manage/windows-admin-center/azure/manage-vm)    | Azure Portal에서 Windows Admin Center(미리 보기)를 사용하여 Azure VM 내의 Windows Server 운영 체제를 관리합니다. 이 방법은 Windows Server 2016 이상을 사용하는 머신에서만 지원됩니다. Automanage는 개인 IP 주소를 통해 Windows Admin Center를 구성합니다. 공용 IP 주소를 통해 Windows Admin Center에 연결하려면 포트 6516에 대한 인바운드 포트 규칙을 여세요. Automanage가 기본적으로 개발/테스트 프로필에 Windows Admin Center를 온보딩합니다. 기본 설정을 사용하여 프로덕션 및 개발/테스트 환경에 Windows Admin Center를 사용하거나 사용하지 않도록 설정합니다. |프로덕션, 개발/테스트    |예    |
 |[Azure Automation 계정](../automation/automation-create-standalone-account.md)    |Azure Automation은 인프라와 애플리케이션의 수명 주기 전반에 걸친 관리를 지원합니다. [자세히](../automation/automation-intro.md) 알아봅니다.    |프로덕션, 개발/테스트    |아니요    |
 |[Log Analytics 작업 영역](../azure-monitor/logs/log-analytics-overview.md) |Azure Monitor는 Azure 리소스이자 데이터가 수집 및 집계되는 컨테이너로, 관리 경계로 기능하는 Log Analytics 작업 영역에 로그 데이터를 저장합니다. [자세히](../azure-monitor/logs/design-logs-deployment.md) 알아봅니다.    |프로덕션, 개발/테스트    |아니요    |
 

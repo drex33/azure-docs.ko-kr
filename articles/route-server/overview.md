@@ -1,27 +1,22 @@
 ---
-title: Azure Route Server(미리 보기)란?
+title: Azure Route Server란?
 description: Azure Route Server가 NVA(네트워크 가상 어플라이언스)와 가상 네트워크 간의 라우팅을 간소화하는 방법을 알아봅니다.
 services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: d868c064b96f58ab3febc1fd3b7f20b74d507cb0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f2c4a31f4c1c0ec53e76ffaf6f4670d9179e9505
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437164"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436791"
 ---
-# <a name="what-is-azure-route-server-preview"></a>Azure Route Server(미리 보기)란? 
+# <a name="what-is-azure-route-server"></a>Azure Route Server란? 
 
 Azure Route Server는 NVA(네트워크 가상 어플라이언스)와 가상 네트워크 간의 동적 라우팅을 간소화합니다. 이를 통해 경로 테이블을 수동으로 구성하거나 유지 관리할 필요없이 BGP(Border Gateway Protocol) 라우팅 프로토콜을 지원하는 NVA와 Azure VNET(Virtual Network)의 Azure SDN(소프트웨어 정의 네트워크) 사이에서 BGP 라우팅 프로토콜을 통해 직접 라우팅 정보를 교환할 수 있습니다. Azure Route Server는 완전 관리형 서비스이며 고가용성으로 구성되어 있습니다.
-
-> [!IMPORTANT]
-> Azure Route Server(미리 보기)는 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="how-does-it-work"></a>작동 원리
 

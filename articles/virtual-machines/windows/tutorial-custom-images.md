@@ -9,14 +9,15 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: d323fd5a3faf5811e88fd924ab767ec20568b917
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: fe7698a0a2a7c0059db6e5f96e3f86445bc5871f
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113435473"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449464"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 이미지 만들기
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 이미지를 사용하여 배포를 부트스트랩하고 여러 VM에서 일관성을 유지할 수 있습니다. 이 자습서에서는 PowerShell을 사용하여 Azure 가상 머신의 특수한 이미지를 만들고 Shared Image Gallery에 저장합니다. 다음 방법을 알아봅니다.
 
@@ -43,7 +44,7 @@ Shared Image Gallery를 사용하면 사용자 지정 VM 이미지를 다른 사
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작

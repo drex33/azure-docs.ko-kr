@@ -3,12 +3,12 @@ title: Azure Arc 지원 서버 에이전트의 새로운 기능
 description: 이 문서에는 Azure Arc 지원 서버 에이전트 릴리스 정보가 있습니다. 요약된 문제 중 다수에 추가 세부 정보로 연결되는 링크가 있습니다.
 ms.topic: conceptual
 ms.date: 07/16/2021
-ms.openlocfilehash: d53ebd32c870ce8ec26bca7bcb811fbdd45c58b2
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 54e7bc72884cc7bc9116c88e7cdb72e5af5f71cd
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114392377"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770962"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트의 새로운 기능
 

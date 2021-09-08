@@ -4,18 +4,18 @@ description: 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 06/29/2021
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 8a53a8099df37ec3f24489cccaf91af2d53c97ce
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: contperf-fy22q1
+ms.openlocfilehash: 05772a7e4fbb2717dd34cbdaf82ae47162d4f149
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747121"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451730"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-its-subscriptions-net"></a>Azure Service Bus 토픽에 메시지 보내기 및 구독에서 메시지 받기(.NET)
 이 빠른 시작에서는 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET 라이브러리를 사용하여 Service Bus 토픽에 메시지를 보내고 해당 토픽에 대한 구독에서 메시지를 받는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 이 서비스를 처음 사용하는 경우 이 빠른 시작 전에 [Service Bus 개요](service-bus-messaging-overview.md)를 참조하세요. 
 
 - **Azure 구독**. Azure Service Bus를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다.  기존 Azure 계정이 없는 경우 [평가판](https://azure.microsoft.com/free/)에 가입하거나 [계정을 만들 때](https://azure.microsoft.com) MSDN 구독자 혜택을 사용할 수 있습니다.
@@ -45,7 +45,7 @@ ms.locfileid: "121747121"
 ### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet 패키지 추가
 
 1. 메뉴에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 선택합니다. 
-1. 다음 명령을 실행하여 **Azure.Messaging.ServiceBus** NuGet 패키지를 설치합니다.
+1. 다음 명령을 실행하여 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) NuGet 패키지를 설치합니다.
 
     ```cmd
     Install-Package Azure.Messaging.ServiceBus
@@ -55,12 +55,13 @@ ms.locfileid: "121747121"
 
 1. **Program.cs** 의 코드를 다음 코드로 바꿉니다. 다음은 코드의 중요한 단계입니다.  
     1. 네임스페이스에 대한 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
-    1. `ServiceBusClient` 개체에서 `CreateSender` 메서드를 호출하여 특정 Service Bus 토픽에 대한 [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) 개체를 만듭니다.     
-    1. `ServiceBusSender.CreateMessageBatchAsync` 메서드를 사용하여 `ServiceBusMessageBatch` 개체를 만듭니다.
-    1. `ServiceBusMessageBatch.TryAddMessage` 메서드를 사용하여 일괄 처리에 메시지를 추가합니다. 
-    1. `ServiceBusSender.SendMessagesAsync` 메서드를 사용하여 메시지 일괄 처리를 Service Bus 토픽에 보냅니다.
+    1. `ServiceBusClient` 개체에서 [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) 메서드를 호출하여 특정 Service Bus 토픽에 대한 [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) 개체를 만듭니다.     
+    1. [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync)를 사용하여 [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) 개체를 만듭니다.
+    1. [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage)를 사용하여 일괄 처리에 메시지를 추가합니다. 
+    1. [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) 메서드를 사용하여 메시지 일괄 처리를 Service Bus 토픽에 보냅니다.
     
         자세한 내용은 코드 주석을 참조하세요.
+
         ```csharp
         using System;
         using System.Threading.Tasks;
@@ -172,10 +173,10 @@ ms.locfileid: "121747121"
 1. **Program.cs** 의 코드를 다음 코드로 바꿉니다. 다음은 코드의 중요한 단계입니다.
     다음은 코드의 중요한 단계입니다.
     1. 네임스페이스에 대한 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
-    1. `ServiceBusClient` 개체에서 `CreateProcessor` 메서드를 호출하여 지정된 Service Bus 큐에 대한 [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) 개체를 생성합니다. 
-    1. `ServiceBusProcessor` 개체의 `ProcessMessageAsync` 및 `ProcessErrorAsync` 이벤트에 대한 처리기를 지정합니다. 
-    1. `ServiceBusProcessor` 개체에서 `StartProcessingAsync`를 호출하여 메시지 처리를 시작합니다. 
-    1. 사용자가 키를 눌러 처리를 종료하면 `ServiceBusProcessor` 객체에서 `StopProcessingAsync`를 호출합니다. 
+    1. `ServiceBusClient` 개체에서 [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) 메서드를 호출하여 지정된 Service Bus 큐에 대한 [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) 개체를 생성합니다. 
+    1. `ServiceBusProcessor` 개체의 [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) 및 [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) 이벤트에 대한 처리기를 지정합니다. 
+    1. `ServiceBusProcessor` 개체에서 [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync)를 호출하여 메시지 처리를 시작합니다. 
+    1. 사용자가 키를 눌러 처리를 종료하면 `ServiceBusProcessor` 객체에서 [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync)를 호출합니다. 
 
         자세한 내용은 코드 주석을 참조하세요.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Machine Learning에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Machine Learning에 사용 가능한 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 author: BlackMist
 ms.author: larryfr
 ms.service: machine-learning
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 234a7a38e9877900cb862043c928b1a41f7dd1fb
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 5b13f66556f8a34431f45ec055737ba949e71ac3
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113072"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468074"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-machine-learning"></a>Azure Machine Learning에 대한 Azure Policy 규정 준수 컨트롤
 

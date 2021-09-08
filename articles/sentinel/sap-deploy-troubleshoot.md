@@ -6,14 +6,14 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: troubleshooting
 ms.custom: mvc
-ms.date: 07/29/2021
+ms.date: 08/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: e3503b8f7464f66bd404b9b70196a017d9c058b6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 525048346edc184744a69c70c8fd4dc0db1bd554
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566245"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681208"
 ---
 # <a name="troubleshooting-your-azure-sentinel-sap-solution-deployment"></a>Azure Sentinel SAP 솔루션 배포 문제 해결
 
@@ -33,27 +33,36 @@ SAP 데이터 커넥터 문제를 해결할 때 다음 명령이 유용할 수 �
 
 ## <a name="review-system-logs"></a>시스템 로그 검토
 
-데이터 커넥터를 설치하거나 초기화한 후에는 시스템 로그를 검토하는 것이 좋습니다.
+[데이터 커넥터를 설치하거나 초기화](#reset-the-sap-data-connector)한 후에는 시스템 로그를 검토하는 것이 좋습니다.
 
 다음을 실행합니다.
 
 ```bash
 docker logs -f sapcon-[SID]
 ```
+
 ## <a name="enable-debug-mode-printing"></a>디버그 모드 인쇄 사용
 
-디버그 모드 인쇄를 사용하려면 다음을 수행합니다.
+**디버그 모드 인쇄를 사용하도록 설정하려면 다음을 수행합니다.**
 
 1. https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml 파일을 **sapcon/[SID]** 디렉터리에 복사한 다음, 이름을 `loggingconfig.yaml` 로 바꿉니다.
 
 1. [SAP 데이터 커넥터를 초기화](#reset-the-sap-data-connector)합니다.
 
-예를 들어 SID A4H의 경우 다음을 실행합니다.
+예를 들어 SID `A4H`의 경우:
 
 ```bash
 wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.y
               cp loggingconfig.yaml ~/sapcon/A4H
               docker restart sapcon-A4H
+```
+
+**디버그 모드 인쇄를 다시 사용하지 않도록 설정하려면 다음을 실행합니다**.
+
+```bash
+mv loggingconfig.yaml loggingconfig.old
+ls
+docker restart sapcon-[SID]
 ```
 
 ## <a name="view-all-docker-execution-logs"></a>모든 Docker 실행 로그 보기
@@ -118,7 +127,7 @@ SAP 데이터 커넥터 구성 파일을 확인하고 수동으로 업데이트�
 
 ## <a name="reset-the-sap-data-connector"></a>SAP 데이터 커넥터 초기화
 
-다음 단계에서는 커넥터를 초기화하고 지난 24시간의 SAP 로그를 다시 수신합니다.
+다음 단계에서는 커넥터를 초기화하고 지난 24시간의 SAP 로그를 다시 수집합니다.
 
 1.  커넥터를 중지합니다. 다음을 실행합니다.
 
@@ -126,7 +135,13 @@ SAP 데이터 커넥터 구성 파일을 확인하고 수동으로 업데이트�
     docker stop sapcon-[SID]
     ```
 
-1.  **sapcon/[SID]** 디렉터리에서 **metadata.db** 파일을 삭제합니다.
+1.  **sapcon/[SID]** 디렉터리에서 **metadata.db** 파일을 삭제합니다. 다음을 실행합니다.
+
+    ```bash
+    cd ~/sapcon/<SID>
+    ls
+    mv metadata.db metadata.old
+    ```
 
     > [!NOTE]
     > **metadata.db** 파일은 각 로그의 마지막 타임스탬프를 포함하고 있으며 중복을 방지하기 위해 작동합니다.
@@ -152,7 +167,7 @@ SAP 데이터 커넥터와 보안 콘텐츠를 모두 배포하면 다음과 같
 1. SAP SDK를 다시 설치합니다.
 1. 올바른 Linux 64비트 버전인지 확인합니다. 현재 날짜를 기준으로 릴리스 파일 이름은 **nwrfc750P_8-70002752.zip** 입니다.
 
-데이터 커넥터를 수동으로 설치한 경우 SDK 파일을 docker 컨테이너에 복사했는지 확인합니다.
+데이터 커넥터를 수동으로 설치한 경우 SDK 파일을 Docker 컨테이너에 복사했는지 확인합니다.
 
 다음을 실행합니다.
 
@@ -173,7 +188,7 @@ Docker cp SDK by running docker cp nwrfc750P_8-70002752.zip /sapcon-app/inst/
 ### <a name="empty-or-no-audit-log-retrieved-with-no-special-error-messages"></a>특별한 오류 메시지 없이 감사 로그가 비어 있거나 감사 로그가 검색되지 않음
 
 1. SAP에서 감사 로그가 사용하도록 설정되어 있는지 확인합니다.
-1. 트랜잭션 **SM19** 및 **RASU_CONFIG** 를 확인합니다.
+1. **SM19** 또는 **RSAU_CONFIG** 트랜잭션을 확인합니다.
 1. 필요에 따라 이벤트를 사용하도록 설정합니다.
 1. 메시지가 SAP **SM20** 또는 **RSAU_READ_LOG** 에 도착하여 잘 있으며 커넥터 로그에 특별한 오류가 표시되지 않는지 확인합니다.
 
@@ -182,20 +197,29 @@ Docker cp SDK by running docker cp nwrfc750P_8-70002752.zip /sapcon-app/inst/
 
 [배포 스크립트](sap-deploy-solution.md#create-key-vault-for-your-sap-credentials)에서 잘못된 작업 영역 ID 또는 키를 입력한 경우 Azure KeyVault에 저장된 자격 증명을 업데이트합니다.
 
+Azure Key Vault에서 자격 증명을 확인한 후 컨테이너를 다시 시작합니다.
+
+```bash
+docker restart sapcon-[SID]
+```
+
 ### <a name="incorrect-sap-abap-user-credentials-in-a-fixed-configuration"></a>고정 구성의 SAP ABAP 사용자 자격 증명이 잘못됨
 
 고정 구성의 경우 암호가 **systemconfig.ini** 구성 파일에 직접 저장됩니다.
 
 여기에 저장된 자격 증명이 올바르지 않으면 자격 증명을 확인합니다.
 
-base64 암호화를 사용하여 사용자 및 암호를 암호화합니다. https://www.base64encode.org/ 같은 온라인 암호화 도구를 사용하여 이 작업을 수행할 수 있습니다.
+base64 암호화를 사용하여 사용자 및 암호를 암호화합니다. 자격 증명을 암호화하려면 온라인 암호화 도구를 사용할 수 있습니다(예: https://www.base64encode.org/ ).
 
 ### <a name="incorrect-sap-abap-user-credentials-in-key-vault"></a>키 자격 증명 모음의 SAP ABAP 사용자 자격 증명이 잘못됨
 
-자격 증명을 확인하고 필요한 대로 수정합니다.
+자격 증명을 확인하고 Azure Key Vault에서 **ABAPUSER** 및 **ABAPPASS** 값에 올바른 값을 적용하여 필요에 따라 수정하세요.
 
-Azure Key Vault에서 **ABAPUSER** 및 **ABAPPASS** 값에 올바른 값을 적용합니다.
+그런 다음 컨테이너를 다시 시작하세요.
 
+```bash
+docker restart sapcon-[SID]
+```
 
 
 ### <a name="missing-abap-sap-user-permissions"></a>ABAP(SAP 사용자) 권한 없음
@@ -225,7 +249,7 @@ SAP 환경 또는 Azure Sentinel에 대한 네트워크 연결 문제가 있는 
 
 ### <a name="other-unexpected-issues"></a>기타 예기치 않은 문제
 
-이 문서에 나열되지 않은 예기치 않은 문제가 있는 경우 다음을 시도합니다.
+이 문서에 나열되지 않은 예기치 않은 문제가 있는 경우 다음 단계를 시도합니다.
 
 - [커넥터를 초기화하고 로그를 다시 로드](#reset-the-sap-data-connector)
 - 최신 버전으로 [커넥터 업그레이드](sap-deploy-solution.md#update-your-sap-data-connector)
@@ -244,7 +268,14 @@ SAP 환경 또는 Azure Sentinel에 대한 네트워크 연결 문제가 있는 
 필요한 경우 시스템이 자동으로 호환성 모드로 전환되지만, 수동으로 전환해야 할 수도 있습니다. 수동으로 호환성 모드로 전환하려면 다음을 수행합니다.
 
 1. **sapcon/SID** 디렉터리에서 **systemconfig.ini** 파일을 편집합니다.
+
 1. `auditlogforcexal = True`를 정의합니다.
+
+1. Docker 컨테이너 다시 시작:
+
+    ```bash
+    docker restart sapcon-[SID]
+    ```
 
 ### <a name="sapcontrol-or-java-subsystems-unable-to-connect"></a>SAPCONTROL 또는 JAVA 하위 시스템이 연결할 수 없음
 
@@ -265,6 +296,34 @@ SAPCONTROL 또는 JAVA 하위 시스템이 표준 시간대 관련 오류 메시
 
 [필요한 SAP 로그 변경 요청](sap-solution-detailed-requirements.md#required-sap-log-change-requests)을 가져올 수 없고 구성 요소 버전이 올바르지 않다는 오류가 발생하는 경우 변경 요청을 가져올 때 `ignore invalid component version`을 추가합니다.
 
+### <a name="audit-log-data-not-ingested-past-initial-load"></a>초기 로드 이후에 수집되지 않은 감사 로그 데이터
+
+**RSAU_READ_LOAD** 또는 **SM200** 트랜잭션에 표시되는 SAP 감사 로그 데이터가 초기 로드 이후 Azure Sentinel로 수집되지 않으면, SAP 시스템과 SAP 호스트 운영 체제가 잘못 구성되었을 수 있습니다.
+
+- 초기 로드는 SAP 데이터 커넥터를 새로 설치한 후 또는 **metadata.db** 파일이 삭제된 후 수집됩니다.
+- SAP 시스템 표준 시간대가 **STZAC** 트랜잭션에서 **CET** 로 설정되어 있지만 SAP 호스트 운영 체제 표준 시간대가 **UTC** 로 설정되어 있으면 샘플 구성이 잘못되었을 수 있습니다.
+
+잘못된 구성을 확인하려면 트랜잭션 **SE38** 에서 **RSDBTIME** 보고서를 실행합니다. SAP 시스템과 SAP 호스트 운영 체제 간 불일치가 발견되면:
+
+1. Docker 컨테이너를 중지합니다. 실행
+
+    ```bash
+    docker stop sapcon-[SID]
+    ```
+
+1.  **sapcon/[SID]** 디렉터리에서 **metadata.db** 파일을 삭제합니다. 다음을 실행합니다.
+
+    ```bash
+    rm ~/sapcon/[SID]/metadata.db
+    ```
+
+1. 설정이 일치하도록(예: 동일한 표준 시간대) SAP 시스템 및 SAP 호스트 운영 체제를 업데이트합니다. 자세한 내용은 [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/Basis/Time+zone+settings%2C+SAP+vs.+OS+level)를 참조하세요.
+
+1. 컨테이너를 다시 시작합니다. 다음을 실행합니다.
+
+    ```bash
+    docker start sapcon-[SID]
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -272,6 +331,7 @@ SAPCONTROL 또는 JAVA 하위 시스템이 표준 시간대 관련 오류 메시
 
 - [SAP 지속적인 위협 모니터링 배포(퍼블릭 미리 보기)](sap-deploy-solution.md)
 - [Azure Sentinel SAP 솔루션 로그 참조(공개 미리 보기)](sap-solution-log-reference.md)
-- [전문가 구성 옵션, 온-프레미스 배포 및 SAPControl 로그 원본](sap-solution-deploy-alternate.md)
+- [SNC로 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
+- [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP 솔루션: 보안 콘텐츠 참조(공개 미리 보기)](sap-solution-security-content.md)
 - [Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항(퍼블릭 미리 보기)](sap-solution-detailed-requirements.md)

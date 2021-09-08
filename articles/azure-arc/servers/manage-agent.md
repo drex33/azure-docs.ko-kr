@@ -3,12 +3,12 @@ title: Azure Arc 지원 서버 에이전트 관리
 description: 이 문서에서는 Azure Arc 지원 서버 Connected Machine 에이전트의 수명 주기 동안 일반적으로 수행하는 다양한 관리 작업을 설명합니다.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7905a3fd2bf02ceafcfda8cf574d2f99c1e01b26
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 5e80d240c9b5ce8795de8baee3214d256d180e0f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609604"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769852"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
@@ -199,7 +199,7 @@ Azcmagent 도구(Azcmagent.exe)는 설치 도중에 Azure Arc 지원 서버 Conn
 
 이 매개 변수는 Azure Resource Manager의 리소스를 지정하여 Azure에서 머신이 만들어짐을 나타냅니다. 리소스는 지정된 구독 및 리소스 그룹에 있으며, 머신에 대한 데이터는 `--location` 설정에 지정된 Azure 지역에 저장됩니다. 이름을 지정하지 않으면 기본 리소스 이름은 머신의 호스트 이름으로 지정됩니다.
 
-그런 다음 머신의 시스템 할당 ID에 해당하는 인증서를 다운로드하여 로컬로 저장합니다. 이 단계가 완료되면 Azure Connected Machine Metadata Service 및 게스트 구성 에이전트가 Azure Arc 지원 서버와 동기화를 시작합니다.
+그런 다음 머신의 시스템 할당 ID에 해당하는 인증서를 다운로드하여 로컬로 저장합니다. 이 단계가 완료되면 Azure Connected Machine Metadata Service 및 게스트 구성 에이전트 서비스가 Azure Arc 지원 서버와 동기화를 시작합니다.
 
 서비스 주체를 사용하여 연결하려면 다음 명령을 실행합니다.
 

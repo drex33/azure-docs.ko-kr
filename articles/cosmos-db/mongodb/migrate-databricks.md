@@ -6,13 +6,13 @@ ms.author: shwetn
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/29/2021
-ms.openlocfilehash: 437dd6f1b47694d9abb32d4e72ecc23a175d9337
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: 3af5168a664fe18f9fc57877aee864f89ffa4d03
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566942"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029914"
 ---
 # <a name="migrate-data-from-mongodb-to-an-azure-cosmos-db-api-for-mongodb-account-by-using-azure-databricks"></a>Azure Databricks를 사용하여 MongoDB에서 Azure Cosmos DB API for MongoDB 계정으로 데이터 마이그레이션
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -171,8 +171,13 @@ Cosmos DB API for MongoDB 데이터베이스에 대한 작업에 16500 오류 �
 
 데이터를 마이그레이션한 후 Azure Cosmos DB에 연결하여 데이터를 관리할 수 있습니다. 인덱싱 정책 최적화와 같은 다른 마이그레이션 후 단계를 따르거나, 기본 일관성 수준을 업데이트하거나, Azure Cosmos DB 계정에 대한 전역 배포를 구성할 수도 있습니다. 자세한 내용은 [마이그레이션 후 최적화](post-migration-optimization.md) 문서를 참조하세요.
 
+## <a name="additional-resources"></a>추가 리소스
+
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어 보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어 보세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Cosmos DB의 API for MongoDB에서 인덱싱 관리](mongodb-indexing.md)
-
 * [작업에 대한 요청 단위 요금 찾기](find-request-unit-charge-mongodb.md)

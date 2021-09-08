@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 2b41342ab7d267c37b8e68fdbcaa9d570034ac17
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: e23d2f82da833c4613a243bdef268d3fd44aa92c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568440"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538294"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>빠른 시작: COPY 문을 사용하여 데이터 대량 로드
 
@@ -138,5 +138,5 @@ GROUP BY r.[request_id]
 
 ## <a name="next-steps"></a>다음 단계
 
-- 데이터 로드에 대한 모범 사례는 [데이터 로드에 대한 모범 사례](./guidance-for-loading-data.md)를 참조하세요.
+- 데이터 로드에 대한 모범 사례는 [데이터 로드에 대한 모범 사례](../sql/data-loading-best-practices.md)를 참조하세요.
 - 데이터 로드에 대한 리소스를 관리하는 방법에 대한 자세한 내용은 [워크로드 격리](./quickstart-configure-workload-isolation-tsql.md)를 참조하세요.

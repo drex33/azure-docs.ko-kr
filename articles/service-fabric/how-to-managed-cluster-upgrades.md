@@ -2,17 +2,17 @@
 title: Azure Service Fabric 관리형 클러스터 업그레이드
 description: Azure Service Fabric 관리형 클러스터를 업그레이드하는 옵션에 관해 알아보기
 ms.topic: how-to
-ms.date: 06/16/2021
-ms.openlocfilehash: 50af042be1dc69f39e61447901d4d5f07da2a1e7
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.date: 08/23/2021
+ms.openlocfilehash: b30f240325eda83428a19377e63d5a7f37f88169
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112290092"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865058"
 ---
 # <a name="manage-service-fabric-managed-cluster-upgrades"></a>Service Fabric 관리형 클러스터 업그레이드 관리
 
-Azure Service Fabric 클러스터는 사용자 고유 리소스이지만, Microsoft에서 부분적으로 관리합니다. Microsoft에서 Azure Service Fabric 관리형 클러스터를 업데이트하는 시기와 방법을 관리하는 방법은 다음과 같습니다.
+Azure Service Fabric 클러스터는 사용자 고유 리소스이지만, Microsoft에서 부분적으로 관리합니다. Microsoft에서 Azure Service Fabric 관리형 클러스터 런타임을 업데이트하는 시기와 방법을 관리하는 방법은 다음과 같습니다.
 
 ## <a name="set-upgrade-mode"></a>업그레이드 모드 설정
 
@@ -28,8 +28,8 @@ Azure Service Fabric 관리형 클러스터는 [웨이브 배포](#wave-deployme
 자동 업그레이드를 위해 웨이브 배포를 선택하려면 먼저 클러스터를 할당할 웨이브를 결정합니다.
 
 * **웨이브 0**(`Wave0`): 새 Service Fabric 빌드를 릴리스하는 즉시 클러스터가 업데이트됩니다.
-* **웨이브 1**(`Wave1`): 베이킹 시간을 허용하도록 웨이브 0 이후 클러스터가 업데이트됩니다. 이러한 업데이트는 웨이브 0이 있고 최소 7일 후에 발생합니다.
-* **웨이브 2**(`Wave2`): 클러스터는 추가적인 베이킹 시간을 허용하기 위해 마지막에 업데이트됩니다. 이러한 업데이트는 웨이브 0이 있고 최소 14일 후에 발생합니다.
+* **웨이브 1**(`Wave1`): 베이킹 시간을 허용하도록 웨이브 0 이후 클러스터가 업데이트됩니다. Wave 1은 웨이브 0 이후 최소 7일 후에 발생합니다.
+* **웨이브 2**(`Wave2`): 클러스터는 추가적인 베이킹 시간을 허용하기 위해 마지막에 업데이트됩니다. Wave 2는 웨이브 0 이후 최소 14일 후에 발생합니다.
 
 ## <a name="set-the-wave-for-your-cluster"></a>클러스터에 대한 웨이브 설정
 
@@ -70,7 +70,7 @@ Resource Manager 템플릿을 사용하여 클러스터 업그레이드 모드�
 
 #### <a name="automatic-upgrade-with-wave-deployment"></a>웨이브 배포를 사용하여 자동 업그레이드
 
-자동 업그레이드 및 웨이브 배포를 구성하려면 간단히 `ClusterUpgradeMode` 추가/유효성 검사를 `Automatic`으로 설정하면 됩니다. 그러면 `upgradeWave` 속성이 Resource Manager 템플릿에서 위에 나열된 웨이브 값 중 하나로 정의됩니다.
+자동 업그레이드 및 웨이브 배포를 구성하려면 간단히 `ClusterUpgradeMode` 추가/유효성 검사를 `Automatic`으로 설정하면 됩니다. 그러면 `clusterUpgradeCadence` 속성이 Resource Manager 템플릿에서 위에 나열된 웨이브 값 중 하나로 정의됩니다.
 
 ```json
 {
@@ -78,12 +78,12 @@ Resource Manager 템플릿을 사용하여 클러스터 업그레이드 모드�
 "type": "Microsoft.ServiceFabric/managedClusters",
 "properties": {
         "ClusterUpgradeMode": "Automatic",
-        "upgradeWave": "Wave1",
+        "clusterUpgradeCadence": "Wave1",
         }  
 }
 ```
 
-업데이트된 템플릿을 배포하면 다음 업그레이드 기간과 그 이후에 지정된 웨이브에 클러스터가 등록됩니다.
+업데이트된 템플릿을 배포하면 자동 업그레이드에 대해 지정된 웨이브에 클러스터가 등록됩니다.
 
 ## <a name="query-for-supported-cluster-versions"></a>지원되는 클러스터 버전 쿼리
 

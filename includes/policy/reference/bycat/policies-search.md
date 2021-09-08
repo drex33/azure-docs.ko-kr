@@ -2,20 +2,21 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/16/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 5562b5b22caf39fe60e733140a4c0932adc50f95
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 383f586c63a947d4ca8cc6816f53b5de6c5f03ac
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114388995"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123477275"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Cognitive Search 서비스는 프라이빗 링크를 지원하는 SKU를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa049bf77-880b-470f-ba6d-9f21c530cf83) |Azure Cognitive Search의 지원되는 SKU를 통해 Azure Private Link를 사용하면 원본 또는 대상에서 공용 IP 주소 없이 Azure 서비스에 가상 네트워크를 연결할 수 있습니다. 프라이빗 링크 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 프라이빗 엔드포인트를 Search Service에 매핑하면 데이터 누출 위험이 줄어듭니다. [https://aka.ms/azure-cognitive-search/inbound-private-endpoints](../../../../articles/search/service-create-private-endpoint.md)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_RequirePrivateLinkSupportedResource_Deny.json) |
 |[Azure Cognitive Search 서비스는 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fee980b6d-0eca-4501-8d54-f6290fd512c3) |공용 네트워크 액세스를 사용하지 않도록 설정하면 Azure Cognitive Search 서비스가 공용 인터넷에 노출되지 않도록 하여 보안이 향상됩니다. 프라이빗 엔드포인트를 만들면 Search Service의 노출을 제한할 수 있습니다. [https://aka.ms/azure-cognitive-search/inbound-private-endpoints](../../../../articles/search/service-create-private-endpoint.md)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_RequirePublicNetworkAccessDisabled_Deny.json) |
+|[Azure Cognitive Search 서비스는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f) |Azure Cognitive Search 서비스에서 고객 관리형 키를 사용하여 미사용 데이터 암호화를 사용하도록 설정하면 미사용 데이터 암호화에 사용되는 키를 추가로 제어할 수 있습니다. 이 기능은 Key Vault를 사용하여 데이터 암호화 키를 관리하는 특별한 규정 준수 요구 사항이 있는 고객에게 자주 적용됩니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_CMK_Audit.json) |
 |[Azure Cognitive Search 서비스에서 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0fda3595-9f2b-4592-8675-4231d6fa82fe) |Azure Private Link를 통해 원본 또는 대상의 공용 IP 주소가 없어도 Azure 서비스에 가상 네트워크를 연결할 수 있습니다. Private Link 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 프라이빗 엔드포인트를 Azure Cognitive Search에 매핑하면 데이터 누출 위험이 줄어듭니다. [https://aka.ms/azure-cognitive-search/inbound-private-endpoints](../../../../articles/search/service-create-private-endpoint.md)에서 프라이빗 링크에 대해 자세히 알아보세요. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_PrivateEndpoints_Audit.json) |
 |[공용 네트워크 액세스를 비활성화하도록 Azure Cognitive Search 서비스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9cee519f-d9c1-4fd9-9f79-24ec3449ed30) |공용 인터넷을 통해 액세스할 수 없도록 Azure Cognitive Search 서비스에 대한 공용 네트워크 액세스를 사용하지 않도록 설정합니다. 이를 통해 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/azure-cognitive-search/inbound-private-endpoints](../../../../articles/search/service-create-private-endpoint.md)에서 자세히 알아보세요. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_PublicNetworkAccessDisabled_Modify.json) |
 |[프라이빗 DNS 영역을 사용하도록 Azure Cognitive Search 서비스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbc14a67-53e4-4932-abcc-2049c6706009) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. 프라이빗 DNS 영역은 가상 네트워크에 연결되어 Azure Cognitive Search 서비스를 확인합니다. [https://aka.ms/azure-cognitive-search/inbound-private-endpoints](../../../../articles/search/service-create-private-endpoint.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_PrivateDNSZone_DeployIfNotExists.json) |

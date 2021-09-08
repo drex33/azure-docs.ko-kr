@@ -10,12 +10,12 @@ ms.subservice: blobs
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: 9a6ccbe5482ac8ffe484c3155334cba1b50ba0dc
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: d560dfc8d8621e94315d8603a9d6e8b3b8cbf09a
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535656"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123468117"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>빠른 시작: Python v12 SDK로 Blob 관리
 
@@ -33,8 +33,6 @@ ms.locfileid: "107535656"
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Azure Storage 계정. [스토리지 계정 만들기](../common/storage-account-create.md)
 - [Python](https://www.python.org/downloads/) 2.7 또는 3.6 이상
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>설치
 

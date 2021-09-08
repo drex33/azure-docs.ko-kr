@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 08545e4db44c9901ef1059c2115f6677e93ab729
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 7d5870935cd4db4c49f84254186277ce7aa431c4
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436013"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123476091"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Blob Storage 클라이언트 라이브러리 v12
 
@@ -34,7 +34,6 @@ ms.locfileid: "113436013"
 * [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
 * [샘플](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

@@ -1,19 +1,19 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.topic: include
-ms.author: lajanuar
+ms.author: pafarley
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: f80348f1eda463c15216e8baf7071109f89f6c2f
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 316140e49c5ec5674b54ddcd597e428a8191f1c1
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122071820"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123543468"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에:
 

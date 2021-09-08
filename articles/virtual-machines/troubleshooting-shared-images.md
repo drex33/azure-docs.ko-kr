@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 7/1/2021
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: e8cfba3c7dc13f6e32d0dd4141832bab475cc5b8
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
+ms.openlocfilehash: 974dba9d3770d7d5570896f24d31fc2378472ae2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138822"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697906"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Azure의 공유 이미지 갤러리 문제 해결
+
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 공유 이미지 갤러리, 이미지 정의 및 이미지 버전에 대한 작업을 수행하는 동안 문제가 발생하는 경우 실패한 명령을 디버그 모드에서 다시 실행합니다. PowerShell로 `--debug` 스위치를 Azure CLI 및 `-Debug` 스위치로 전달하면 디버그 모드를 활성화합니다. 오류를 찾았으면 이 문서에 따라 문제를 해결합니다.
 

@@ -3,19 +3,19 @@ title: Speech CLI 구성 옵션 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Azure Speech CLI에서 사용할 구성 파일을 만들고 관리하는 방법에 대해 알아보세요.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
-ms.author: lajanuar
-ms.openlocfilehash: eeff86e7955f2e8e32059ba1acb220d0dd2a567f
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: bdae10e5e99216105035c45f9693acafb58b79a2
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122071523"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537313"
 ---
 # <a name="speech-cli-configuration-options"></a>Speech CLI 구성 옵션
 

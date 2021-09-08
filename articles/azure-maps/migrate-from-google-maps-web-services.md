@@ -1,20 +1,20 @@
 ---
 title: 자습서 - Google Maps에서 웹 서비스 마이그레이션 | Microsoft Azure Maps
 description: Google Maps에서 Microsoft Azure Maps로 웹 서비스를 마이그레이션하는 방법에 대한 자습서
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/23/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f1220d7368eb0bca48364dc239944a95d29be276
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 33bb2f240c46ac7e2192c84dbfd46906a6cc88f4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112578886"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429679"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>자습서: Google Maps에서 웹 서비스 마이그레이션
 

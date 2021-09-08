@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 04/29/2021
+ms.date: 09/05/2021
 ms.author: memildin
-ms.openlocfilehash: 8549734a643c97771681f2e90a1dad2e2c7ed7a3
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: dee498ea30bc31fa0193f6bbff3c01261260d03b
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749150"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537763"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Azure Security Center의 추가 위협 방지
 또한 Azure Security Center는 기본 제공 [Azure Defender 보호](azure-defender.md)뿐만 아니라 다음과 같은 위협 방지 기능도 제공합니다.
@@ -28,16 +28,6 @@ Security Center 네트워크 계층 분석은 Azure 핵심 라우터에서 수�
 - 가상 머신의 네트워크 송신 트래픽은 외부 IDS 솔루션에서 차단되지 않습니다.
 
 Azure 네트워크 계층 경고 목록은 [경고 참조 표](alerts-reference.md#alerts-azurenetlayer)를 참조하세요.
-
-
->[!NOTE]
-> 이러한 분석 중 일부는 Microsoft Cloud App Security에서 제공합니다. 이러한 분석을 활용하려면 Cloud App Security 라이선스에 대한 정품 인증을 수행해야 합니다. Cloud App Security 라이선스가 있는 경우 이러한 경고는 기본적으로 사용하도록 설정됩니다. 경고를 사용하지 않도록 설정하려면 다음을 수행합니다.
->
-> 1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
-> 1. 변경하려는 구독을 선택합니다.
-> 1. **통합** 을 선택합니다.
-> 1. **Microsoft Cloud App Security에서 내 데이터에 액세스하도록 허용합니다.** 를 선택 취소한 다음, **저장** 을 선택합니다.
-
 
 >[!NOTE]
 > Security Center는 보안과 관련된 고객 데이터를 리소스와 동일한 지역에 저장합니다. Microsoft에서 Security Center를 해당 리소스의 지역에 아직 배포하지 않은 경우 데이터는 미국에 저장됩니다. Cloud App Security를 사용하도록 설정되는 경우 이 정보는 Cloud App Security의 지리적 위치 규칙에 따라 저장됩니다. 자세한 내용은 [비지역 서비스에 대한 데이터 저장](https://azuredatacentermap.azurewebsites.net/)을 참조하세요.

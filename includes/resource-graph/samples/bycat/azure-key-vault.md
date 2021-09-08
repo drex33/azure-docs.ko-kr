@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 454c46a6afe64d2154689c960acb72dc2cdb1ef0
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 74451e0c2e969d458676edc236325207449948f9
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123309462"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536370"
 ---
 ### <a name="count-key-vault-resources"></a>키 자격 증명 모음 리소스 개수 계산
 

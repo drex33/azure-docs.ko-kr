@@ -1,15 +1,15 @@
 ---
 title: 테이블별 샘플 Azure Resource Graph 쿼리 목록
 description: Azure Resource-Graph에 대한 샘플 쿼리를 나열합니다. 테이블에는 Resources, ResourceContainers, PolicyResources 등이 포함됩니다.
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c2feedbedc68293ae68a78360eb81c25124386d9
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: ae85a1925eef24af4284ede99d1208eda1396357
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308854"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535956"
 ---
 # <a name="azure-resource-graph-sample-queries-by-table"></a>테이블별 Azure Resource Graph 샘플 쿼리
 

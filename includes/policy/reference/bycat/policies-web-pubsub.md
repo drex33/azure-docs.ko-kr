@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 0e50fd0bc40fc308c452d2c69cff77a7cf3b4c43
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 71b54fa3a1958d5e37ccfabe15cced3d06961083
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123103670"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123477359"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Web PubSub 서비스는 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbf45113f-264e-4a87-88f9-29ac8a0aca6a) |공용 네트워크 액세스를 사용하지 않도록 설정하면 Azure Web PubSub 서비스가 퍼블릭 인터넷에 노출되지 않으므로 보안이 강화됩니다. 프라이빗 엔드포인트를 만들면 Azure Web PubSub 서비스의 노출을 제한할 수 있습니다. [https://aka.ms/awps/networkacls](https://aka.ms/awps/networkacls)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Web%20PubSub/WebPubSub_PublicNetworkAccessDisabled_AuditDeny.json) |
 |[Azure Web PubSub 서비스는 프라이빗 링크를 지원하는 SKU를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82909236-25f3-46a6-841c-fe1020f95ae1) |지원되는 SKU로 Azure Private Link를 사용하면 원본 또는 대상에서 공용 IP 주소 없이 가상 네트워크를 Azure 서비스에 연결할 수 있습니다. Private Link 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 프라이빗 엔드포인트를 Azure Web PubSub 서비스에 매핑하면 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/awps/privatelink](https://aka.ms/awps/privatelink)에서 프라이빗 링크에 대해 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Web%20PubSub/WebPubSub_AllowedSKU_AuditDeny.json) |

@@ -1,15 +1,15 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: mikben
-ms.openlocfilehash: ead0e2f9e04c41ec729985f7c524874910aa9dc4
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.author: rifox
+ms.openlocfilehash: 1bba08e751afa5e3cd5c51401ca92e3b5bd9def1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114339775"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123454120"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -29,6 +29,7 @@ npm install @azure/communication-calling --save
 Communication Services 웹 호출 SDK는 `https`를 통해 사용해야 합니다. 로컬 개발의 경우 `localhost` 또는 로컬 'file:'을 사용합니다.
 
 ## <a name="documentation-support"></a>설명서 지원
+- [릴리스 정보](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md)
 - [Github에서 문제/버그 제출](https://github.com/Azure/Communication/issues)
 - [샘플 애플리케이션](../../../../samples/overview.md)
 - [API 참조](/javascript/api/azure-communication-services/@azure/communication-calling/?preserve-view=true&view=azure-communication-services-js)

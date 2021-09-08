@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f6209de523339f12b3323fae142c315828d791cd
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: b54d2fce2b16fb4a0e99b7c92e1f66c60ac81d19
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123103523"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123477195"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Event Grid 도메인은 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8f774be-6aee-492a-9e29-486ef81f3a68) |공용 네트워크 액세스를 사용하지 않도록 설정하면 리소스가 공용 인터넷에 노출되지 않도록 하여 보안이 향상됩니다. 대신 프라이빗 엔드포인트를 만들어 리소스 노출을 제한할 수 있습니다. [https://aka.ms/privateendpoints](../../../../articles/event-grid/configure-private-endpoints.md)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Grid/Domains_PublicNetworkAccess_AuditDeny.json) |
 |[Azure Event Grid 도메인은 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9830b652-8523-49cc-b1b3-e17dce1127ca) |Azure Private Link를 통해 원본 또는 대상의 공용 IP 주소가 없어도 Azure 서비스에 가상 네트워크를 연결할 수 있습니다. Private Link 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 전체 서비스가 아닌 Event Grid 도메인에 프라이빗 엔드포인트를 매핑하면 데이터 유출 위험으로부터 보호받을 수 있습니다. [https://aka.ms/privateendpoints](../../../../articles/event-grid/configure-private-endpoints.md)에서 자세히 알아보세요. |감사, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Grid/Domains_PrivateEndpoint_Audit.json) |

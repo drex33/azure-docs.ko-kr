@@ -6,22 +6,24 @@ ms.service: virtual-machines
 ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 08/10/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a239b362cc7d85b45a5ae0c4f102471ae46cc450
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 120171f77f9b9895cf58bbadd2f475110d068ffd
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673587"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698227"
 ---
-# <a name="preview-automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>미리 보기: Azure에서의 VM 및 확장 집합용 자동 확장 업그레이드
+# <a name="automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Azure에서의 VM 및 확장 집합용 자동 확장 업그레이드
 
-자동 확장 업그레이드는 Azure VM 및 Azure Virtual Machine Scale Sets에 대한 미리 보기에서 사용할 수 있습니다. VM 또는 확장 집합에서 자동 확장 업그레이드를 사용하도록 설정하면 확장 게시자가 해당 확장에 대한 새 버전을 릴리스할 때마다 확장이 자동으로 업그레이드됩니다.
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
+
+자동 확장 업그레이드는 Azure VM 및 Azure Virtual Machine Scale Sets에 사용할 수 있습니다. VM 또는 확장 집합에서 자동 확장 업그레이드를 사용하도록 설정하면 확장 게시자가 해당 확장에 대한 새 버전을 릴리스할 때마다 확장이 자동으로 업그레이드됩니다.
 
  자동 확장 업그레이드의 기능은 다음과 같습니다.
-- Azure VM 및 Azure Virtual Machine Scale Sets에 지원됩니다. Service Fabric Virtual Machine Scale Sets는 현재 지원되지 않습니다.
+- Azure VM 및 Azure Virtual Machine Scale Sets에 지원됩니다.
 - 업그레이드는 (아래에서 자세하게 설명하는) 가용성 우선 배포 모델에 적용됩니다.
 - Virtual Machine Scale Set의 경우 확장 집합 가상 머신의 20% 이하가 단일 일괄 처리로 업그레이드됩니다. 최소 일괄 처리 크기는 하나의 가상 머신입니다.
 - 모든 VM 크기와 Windows 및 Linux 확장 모두에서 작동합니다.
@@ -29,13 +31,6 @@ ms.locfileid: "110673587"
 - 자동 확장 업그레이드는 모든 크기의 Virtual Machine Scale Sets에서 사용하도록 설정할 수 있습니다.
 - 지원되는 각 확장은 개별적으로 등록되며, 자동으로 업그레이드할 확장을 선택할 수 있습니다.
 - 모든 퍼블릭 클라우드 지역에서 지원됩니다.
-
-
-> [!IMPORTANT]
-> 자동 확장 업그레이드는 현재 공개 미리 보기 상태입니다. 아래에서 자세하게 설명하는 공개 미리 보기 기능을 사용 하려면 옵트인 프로시저를 사용해야 합니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 
 ## <a name="how-does-automatic-extension-upgrade-work"></a>자동 확장 업그레이드 작동 방식
 확장 업그레이드 프로세스는 VM에서의 기존 확장 버전을 확장 게시자가 게시한 시점에 적용된 확장의 새 버전으로 대체합니다. 새 확장을 설치한 후에는 VM의 상태를 모니터링합니다. 업그레이드 완료 후 5 분 이내에 VM의 상태가 정상 상태를 벗어나면 확장 버전은 이전 버전으로 롤백됩니다.
@@ -45,7 +40,7 @@ ms.locfileid: "110673587"
 ### <a name="availability-first-updates"></a>가용성 우선 업데이트
 플랫폼 오케스트레이션 업데이트에 대한 가용성 우선 모델은 Azure의 가용성 구성이 여러 가용성 수준에서 적용되게 합니다.
 
-Azure플랫폼은 업데이트를 진행 중인 가상 머신 그룹을 대상으로 업데이트를 오케스트레이션합니다.
+Azure 플랫폼은 업데이트를 진행 중인 가상 머신 그룹을 대상으로 업데이트를 오케스트레이션합니다.
 
 **지역 간:**
 - Azure 전역에서의 배포 실패를 방지하기 위해 업데이트는 Azure 전역에서 단계적으로 이동합니다.
@@ -54,8 +49,8 @@ Azure플랫폼은 업데이트를 진행 중인 가상 머신 그룹을 대상�
 - 업데이트 성공 여부는 VM 사후 업데이트의 상태를 추적하여 결정합니다. VM 상태는 VM에 대한 플랫폼 상태 표시기를 통해 추적합니다. Virtual Machine Scale Sets의 경우 VM 상태는 애플리케이션 상태 프로브 또는 (확장 집합에 적용된) 애플리케이션 상태 확장을 통해 추적합니다.
 
 **지역 내에서:**
-- 다른 가용성 영역에 있는 VM은 동시에 업데이트되지 않습니다.
-- 가용성 집합에 속하지 않는 단일 VM은 최대한 일괄 처리되어 구독에 있는 모든 VM이 동시에 업데이트되지 않게 합니다.  
+- 다른 가용성 영역에 있는 VM은 동시에 동일한 업데이트로 업데이트되지 않습니다.
+- 단일 가용성 집합에 속하지 않는 VM은 최대한 일괄 처리되어 구독에 있는 모든 VM이 동시에 업데이트되지 않게 합니다.  
 
 **'집합' 내에서:**
 - 공통 가용성 집합 또는 확장 집합에 있는 모든 VM 은 동시에 업데이트되지 않습니다.  
@@ -76,75 +71,16 @@ Azure플랫폼은 업데이트를 진행 중인 가상 머신 그룹을 대상�
 확장 집합 업그레이드 오케스트레이터는 전체 확장 집합 상태를 확인한 후에 모든 배치를 업그레이드합니다. 배치 업그레이드 중에 확장 집합 가상 머신의 상태에 영향을 줄 수 있는, 계획되었거나 계획되지 않은 다른 동시 유지 관리 활동이 진행될 수 있습니다. 확장 집합 인스턴스의 20% 이상이 비정상 상태가 될 경우 현재 배치가 끝나면 확장 집합 업그레이드가 중지됩니다.
 
 ## <a name="supported-extensions"></a>지원되는 확장
-자동 확장 업그레이드의 미리 보기에서는 다음 확장을 지원합니다(추가 확장이 주기적으로 추가됩니다).
-- Dependency Agent – [Windows](./extensions/agent-dependency-windows.md) 및 [Linux](./extensions/agent-dependency-linux.md)
-- [애플리케이션 상태 확장](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Windows 및 Linux
-
-
-## <a name="enabling-preview-access"></a>미리 보기 액세스 사용 설정
-미리 보기 기능을 사용하도록 설정하려면 아래에서 설명하는 것처럼 구독별로 **AutomaticExtensionUpgradePreview** 기능의 일회성 옵트인이 필요합니다.
-
-### <a name="rest-api"></a>REST API
-다음 예제에서는 구독에 미리 보기를 사용하도록 설정하는 방법을 설명합니다.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticExtensionUpgradePreview/register?api-version=2015-12-01`
-```
-
-기능 등록에는 최대 15분이 걸립니다. 등록 상태를 확인하는 방법은 다음과 같습니다.
-
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticExtensionUpgradePreview?api-version=2015-12-01`
-```
-
-기능이 구독에 등록되면 변경 내용을 Compute 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2020-06-01`
-```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-[Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet을 사용하여 구독에서 미리 보기를 사용하도록 설정합니다.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AutomaticExtensionUpgradePreview -ProviderNamespace Microsoft.Compute
-```
-
-기능 등록에는 최대 15분이 걸립니다. 등록 상태를 확인하는 방법은 다음과 같습니다.
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName AutomaticExtensionUpgradePreview -ProviderNamespace Microsoft.Compute
-```
-
-기능이 구독에 등록되면 변경 내용을 Compute 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="azure-cli"></a>Azure CLI
-[az feature register](/cli/azure/feature#az_feature_register)를 사용하여 구독에서 미리 보기를 사용하도록 설정합니다.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name AutomaticExtensionUpgradePreview
-```
-
-기능 등록에는 최대 15분이 걸립니다. 등록 상태를 확인하는 방법은 다음과 같습니다.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name AutomaticExtensionUpgradePreview
-```
-
-기능이 구독에 등록되면 변경 내용을 Compute 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+자동 확장 업그레이드는 다음 확장을 지원합니다(추가 확장이 주기적으로 추가됩니다).
+- 종속성 에이전트 – [Linux](./extensions/agent-dependency-linux.md) 및 [Windows](./extensions/agent-dependency-windows.md)
+- [애플리케이션 상태 확장](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Linux 및 Windows
+- [게스트 구성 확장](./extensions/guest-configuration.md) – Linux 및 Windows
+- Key Vault – [Linux](./extensions/key-vault-linux.md) 및 [Windows](./extensions/key-vault-windows.md)
 
 
 ## <a name="enabling-automatic-extension-upgrade"></a>자동 확장 업그레이드 사용 설정
-확장에 대해 자동 확장 업그레이드를 사용하도록 설정하려면 *enableAutomaticUpgrade* 속성이 *true* 로 설정되어 있고 모든 확장 정의에 개별적으로 추가되었는지 확인해야 합니다.
 
+확장에 대해 자동 확장 업그레이드를 사용하도록 설정하려면 `enableAutomaticUpgrade` 속성이 `true`로 설정되고 모든 확장 정의에 개별적으로 추가되었는지 확인해야 합니다.
 
 ### <a name="rest-api-for-virtual-machines"></a>Virtual Machines용 REST API
 Azure VM의 확장(이 예제에서는 Dependency Agent 확장)에 자동 확장 업그레이드를 사용하도록 설정하려면 다음을 사용하세요.

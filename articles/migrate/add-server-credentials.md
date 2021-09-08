@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: e1d8e42eaa11aacfc2d05e2f22434b604d3af592
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2128145e0f2efa7a443c7a0c972117f29de73765
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566349"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965416"
 ---
 # <a name="provide-server-credentials-to-discover-software-inventory-dependencies-web-apps-and-sql-server-instances-and-databases"></a>소프트웨어 인벤토리, 종속성, 웹앱, SQL Server 인스턴스 및 데이터베이스를 검색하기 위한 서버 자격 증명 제공
 
@@ -31,7 +31,7 @@ ms.locfileid: "122566349"
 
 자격 증명 유형 | Description
 --- | ---
-**도메인 자격 증명** | **자격 증명 추가** 모달 드롭다운의 옵션을 선택하여 **도메인 자격 증명** 을 추가할 수 있습니다. <br/><br/> 도메인 자격 증명을 제공하려면 FQDN 형식(예: prod.corp.contoso.com)으로 제공되어야 하는 **도메인 이름** 을 지정해야 합니다. <br/><br/> 또한 자격 증명, 사용자 이름 및 암호에 대해 익숙한 이름을 지정해야 합니다. <br/><br/> 추가된 도메인 자격 증명은 도메인의 Active Directory에 대해 신뢰성이 있는지 자동으로 검사됩니다. 이는 어플라이언스가 검색된 서버에 대해 도메인 자격 증명을 매핑하려고 할 때 계정 잠금을 방지하기 위한 것입니다. <br/><br/> 어플라이언스는 유효성 검사에 실패한 도메인 자격 증명을 매핑하려고 시도하지 않습니다. 소프트웨어 인벤토리를 계속 진행하려면 유효성 검사에 성공한 도메인 자격 증명이 하나 이상 있거나 비도메인 자격 증명이 하나 이상 있어야 합니다.<br/><br/>Windows 서버에 대해 자동으로 매핑된 도메인 자격 증명은 소프트웨어 인벤토리를 수행하는 데 사용되며, 웹앱 및 SQL Server 인스턴스와 데이터베이스를 검색하는 데에도 사용될 수 있습니다 _(SQL Server에서 Windows 인증 모드를 구성한 경우)_ .<br/> SQL Server에서 지원되는 인증 모드의 유형에 대해 [자세히 알아보세요](/dotnet/framework/data/adonet/sql/authentication-in-sql-server) .
+**도메인 자격 증명** | **자격 증명 추가** 모달 드롭다운의 옵션을 선택하여 **도메인 자격 증명** 을 추가할 수 있습니다. <br/><br/> 도메인 자격 증명을 제공하려면 FQDN 형식(예: prod.corp.contoso.com)으로 제공되어야 하는 **도메인 이름** 을 지정해야 합니다. <br/><br/> 또한 자격 증명, 사용자 이름 및 암호에 대해 익숙한 이름을 지정해야 합니다. <br/><br/> 추가된 도메인 자격 증명은 도메인의 Active Directory에 대해 신뢰성이 있는지 자동으로 검사됩니다. 이는 어플라이언스가 검색된 서버에 대해 도메인 자격 증명을 매핑하려고 할 때 계정 잠금을 방지하기 위한 것입니다. <br/><br/>어플라이언스에서 도메인 컨트롤러를 사용하여 도메인 자격 증명의 유효성을 검사하려면 도메인 이름을 확인할 수 있어야 합니다. 자격 증명을 추가하는 동안 올바른 도메인 이름을 제공했는지 확인하세요. 그러지 않으면 유효성 검사가 실패합니다.<br/><br/> 어플라이언스는 유효성 검사에 실패한 도메인 자격 증명을 매핑하려고 시도하지 않습니다. 소프트웨어 인벤토리를 계속 진행하려면 유효성 검사에 성공한 도메인 자격 증명이 하나 이상 있거나 비도메인 자격 증명이 하나 이상 있어야 합니다.<br/><br/>Windows 서버에 대해 자동으로 매핑된 도메인 자격 증명은 소프트웨어 인벤토리를 수행하는 데 사용되며, 웹앱 및 SQL Server 인스턴스와 데이터베이스를 검색하는 데에도 사용될 수 있습니다 _(SQL Server에서 Windows 인증 모드를 구성한 경우)_ .<br/> SQL Server에서 지원되는 인증 모드의 유형에 대해 [자세히 알아보세요](/dotnet/framework/data/adonet/sql/authentication-in-sql-server) .
 **비도메인 자격 증명(Windows/Linux)** | **자격 증명 추가** 모달의 드롭다운에서 필요한 옵션을 선택하여 **Windows(비도메인)** 또는 **Linux(비도메인)** 를 추가할 수 있습니다. <br/><br/> 자격 증명, 사용자 이름 및 암호에 대해 익숙한 이름을 지정해야 합니다.
 **SQL Server 인증 자격 증명** | **자격 증명 추가** 모달 드롭다운의 옵션을 선택하여 **SQL Server 인증** 자격 증명을 추가할 수 있습니다. <br/><br/> 자격 증명, 사용자 이름 및 암호에 대해 익숙한 이름을 지정해야 합니다. <br/><br/> SQL Server에서 SQL Server 인증 모드를 구성한 경우, 이 유형의 자격 증명을 추가하여 VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스를 검색할 수 있습니다.<br/> SQL Server에서 지원되는 인증 모드의 유형에 대해 [자세히 알아보세요](/dotnet/framework/data/adonet/sql/authentication-in-sql-server) .<br/><br/> SQL Server 인증 자격 증명을 사용하여 SQL Server 인스턴스와 데이터베이스를 검색하기 전에 어플라이언스에서 소프트웨어 인벤토리를 완료하여 서버에 설치된 SQL을 검색할 수 있게 하려면 유효성이 확인된 도메인 자격 증명이나 Windows(비도메인) 자격 증명을 하나 이상 제공해야 합니다.
 

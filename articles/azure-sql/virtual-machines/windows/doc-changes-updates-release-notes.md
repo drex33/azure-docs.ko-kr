@@ -11,18 +11,25 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/21/2021
-ms.openlocfilehash: c8f8699d58d26c745be8cb1207a88cdad6857f1a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/01/2021
+ms.openlocfilehash: e891ab3812c78e8878a0e4341b8fa6b671a7af14
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567428"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223707"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server 설명서 변경 내용
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure에서는 SQL Server 이미지가 기본 제공된 VM(가상 머신)을 배포할 수 있습니다. 이 문서에서는 최신 릴리스의 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)에서 새로운 기능 및 향상된 기능과 관련된 설명서 변경 내용을 요약합니다. 
+
+## <a name="september-2021"></a>2021년 9월
+
+| 변경 | 세부 정보 |
+| --- | --- |
+| **SQL IaaS 확장 전체 모드를 더 이상 다시 시작할 필요가 없음** | [전체 모드](sql-agent-extension-manually-register-single-vm.md#full-mode)에서 [SQL IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 사용하여 SQL Server VM을 등록할 때 이제 SQL Server 서비스를 다시 시작하지 않아도 됩니다. | 
+
 
 ## <a name="july-2021"></a>2021년 7월
 

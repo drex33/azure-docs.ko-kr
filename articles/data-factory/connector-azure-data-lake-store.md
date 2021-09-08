@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/19/2021
-ms.openlocfilehash: 56dd047b9a3b7d343fb94ee8feea70ffaa377eff
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: e1ec23300f5bccfea161ec967702e65152bc658f
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642755"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314621"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure Data Lake Storage Gen1 간에 데이터 복사
 
@@ -53,13 +53,37 @@ Azure Data Lake Storage Gen1 커넥터는 다음과 같은 작업에 지원됩�
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 Azure Data Lake Store에 지정된 엔터티를 정의하는 데 사용된 속성 관련 정보를 제공합니다.
+## <a name="create-a-linked-service-to-azure-data-lake-storage-gen1-using-ui"></a>UI를 사용하여 Azure Data Lake Storage Gen1에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Azure Data Lake Storage Gen1에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택하고 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+
+2. Azure Data Lake Storage Gen1 커넥터를 검색하여 선택합니다.
+
+    :::image type="content" source="media/connector-azure-data-lake-store/azure-data-lake-store-connector.png" alt-text="Azure Data Lake Storage Gen1 커넥터의 스크린샷":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-azure-data-lake-store/configure-azure-data-lake-store-linked-service.png" alt-text="Azure Data Lake Storage Gen1의 연결된 서비스 구성 스크린샷":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
+다음 섹션에서는 Azure Data Lake Store Gen1 특유의 엔터티를 정의하는 데 사용된 속성 관련 정보를 제공합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | `type` 속성은 **AzureDataLakeStore** 로 설정해야 합니다. | 예 |
 | dataLakeStoreUri | Azure Data Lake Store 계정에 대한 정보. 이 정보는 `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/` 형식 중 하나를 사용합니다. | 예 |
@@ -84,7 +108,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 `SecureString`(으)로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
@@ -167,9 +191,9 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| 자격 증명 | 사용자가 할당한 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
+| 자격 증명 | 사용자 할당 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
 
 **예:**
 
@@ -202,7 +226,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 데이터 세트의 `location` 설정에서 Azure Data Lake Store Gen1에 지원되는 속성은 다음과 같습니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트의 `location`에 있는 type 속성은 **AzureDataLakeStoreLocation** 으로 설정되어야 합니다. | 예      |
 | folderPath | 폴더의 경로입니다. 와일드카드를 사용하여 폴더를 필터링하려면 이 설정을 건너뛰고 작업 원본 설정에서 지정합니다. | 예       |
@@ -244,7 +268,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 Azure Data Lake Store Gen1에 지원되는 속성은 다음과 같습니다.
 
-| 속성                 | 설명                                                  | 필수                                     |
+| 속성                 | Description                                                  | 필수                                     |
 | ------------------------ | ------------------------------------------------------------ | -------------------------------------------- |
 | type                     | `storeSettings`의 type 속성은 **AzureDataLakeStoreReadSettings** 로 설정되어야 합니다. | 예                                          |
 | ***복사할 파일 찾기:*** |  |  |
@@ -310,7 +334,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 싱크의 `storeSettings` 설정에서 Azure Data Lake Store Gen1에 지원되는 속성은 다음과 같습니다.
 
-| 속성                 | 설명                                                  | 필수 |
+| 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | `storeSettings`의 type 속성은 **AzureDataLakeStoreWriteSettings** 로 설정되어야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
@@ -355,7 +379,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 이 섹션에서는 이름 범위 필터의 결과 동작을 설명합니다.
 
-| 샘플 원본 구조 | 구성 | 결과 |
+| 샘플 원본 구조 | Configuration | 결과 |
 |:--- |:--- |:--- |
 |루트<br/>&nbsp;&nbsp;&nbsp;&nbsp;a<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;bx.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;c<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file4.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;cx.csv| **데이터 세트:**<br>- 폴더 경로: `root`<br><br>**복사 작업 원본:**<br>- `a` 후에 나열됩니다.<br>- `b` 전에 나열됩니다.| 그런 후에 다음 파일이 복사됩니다.<br><br>루트<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv |
 
@@ -376,7 +400,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 원본 폴더 구조가 다음과 같고 굵게 표시된 파일을 복사하려는 것으로 가정합니다.
 
-| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | 구성 |
+| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;메타데이터<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **데이터 세트에서:**<br>- 폴더 경로: `root/FolderA`<br><br>**복사 작업 원본:**<br>- 파일 목록 경로: `root/Metadata/FileListToCopy.txt` <br><br>파일 목록 경로는 복사하려는 파일 목록이 포함된 동일한 데이터 저장소의 텍스트 파일을 가리키며, 데이터 세트에 구성된 경로의 상대 경로를 사용하여 한 줄에 하나의 파일을 가리킵니다. |
 
@@ -506,7 +530,7 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드할 때 �
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **AzureDataLakeStoreFile** 로 설정해야 합니다. |예 |
 | folderPath | Data Lake Store의 폴더 경로입니다. 지정하지 않으면 루트를 가리킵니다. <br/><br/>와일드카드 필터는 지원되지 않습니다. 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`를 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/ 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. |예 |
@@ -551,7 +575,7 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드할 때 �
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 작업 원본 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 `type` 속성을 **AzureDataLakeStoreSource** 로 설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. `recursive`를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. 허용되는 값은 **true**(기본값) 및 **false** 입니다. | 예 |
@@ -591,7 +615,7 @@ Data Lake Storage Gen1에서 Data Lake Storage Gen2로 업그레이드할 때 �
 
 ### <a name="legacy-copy-activity-sink-model"></a>레거시 복사 작업 싱크 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 `type` 속성을 **AzureDataLakeStoreSink** 로 설정해야 합니다. |예 |
 | copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않은 경우 파일 이름이 자동으로 생성됩니다. | 예 |

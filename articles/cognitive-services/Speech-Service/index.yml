@@ -7,12 +7,12 @@ metadata:
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: '음성을 인식하거나, 음성을 합성하거나, 실시간 번역을 받거나, 대화를 받아쓰거나, 음성을 봇 경험에 통합합니다.'
-  author: laujan
+  author: PatrickFarley
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
   ms.date: 03/24/2020
-  ms.author: lajanuar
+  ms.author: pafarley
 highlightedContent:
   items:
     - title: Speech Service란?

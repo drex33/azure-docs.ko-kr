@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/15/2021
-ms.openlocfilehash: c18fbc20078ca99e1afca215e702e391d5c1b2b1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: c594d253c193928eae47949474aaa75c4f27b60d
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642751"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314007"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure SQL Database에서 데이터 복사 및 변환
 
@@ -53,13 +53,39 @@ ms.locfileid: "122642751"
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-an-azure-sql-database-linked-service-using-ui"></a>UI를 사용하여 Azure SQL Database 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Azure SQL Database 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택하고 새로 만들기를 클릭합니다.
+
+   # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+   :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+
+   # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+   :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+
+   
+
+2. SQL을 검색하고 Azure SQL Database 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-azure-sql-database/azure-sql-database-connector.png" alt-text="Azure SQL Database 커넥터를 선택합니다.":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-azure-sql-database/configure-azure-sql-database-linked-service.png" alt-text="Azure SQL Database 연결된 서비스 구성 스크린샷":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
 다음 섹션에서는 Azure SQL Database 커넥터와 관련된 Azure Data Factory 또는 Synapse 파이프라인 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **AzureSqlDatabase** 로 설정해야 합니다. | 예 |
 | connectionString | Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. <br/>Azure Key Vault에서 암호나 서비스 주체 키를 입력할 수도 있습니다. SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 다음에 나오는 JSON 예제를 참조하고 [Azure Key Vault에 로그인 정보를 저장](store-credentials-in-key-vault.md)합니다. | 예 |
@@ -250,7 +276,7 @@ Azure의 다른 리소스에 인증할 때 서비스를 나타내는 [Azure 리�
 
 Azure SQL Database 데이터 세트에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **AzureSqlTable** 로 설정해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -289,7 +315,7 @@ Azure SQL Database 데이터 세트에 다음 속성이 지원됩니다.
 
 Azure SQL Database에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **AzureSqlSource** 로 설정해야 합니다. "SqlSource" 형식은 이전 버전과의 호환성을 위해 계속 지원됩니다. | 예 |
 | SqlReaderQuery | 이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `select * from MyTable`입니다. | 예 |
@@ -402,7 +428,7 @@ GO
 
 Azure SQL Database로 데이터를 복사하기 위해 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 sink의 **type** 속성은 **AzureSqlSink** 로 설정해야 합니다. "SqlSink" 형식은 이전 버전과의 호환성을 위해 계속 지원됩니다. | 예 |
 | preCopyScript | Azure SQL Database에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예 |

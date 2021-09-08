@@ -9,14 +9,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: srijangupta
-ms.openlocfilehash: be1bf712d91aaaff460ff2dcc4a899f8b8a089be
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e62653a7b48ac22f4482974696ad14c13b39a88
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536432"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698858"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상머신에 대한 cloud-init 지원
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 이 문서에서는 Azure에서 프로비저닝 시간에 VM(가상 머신) 또는 가상 머신 확장 집합을 구성하는 [cloud-init](https://cloudinit.readthedocs.io)에 대한 지원을 설명합니다. Azure에서 리소스가 프로비저닝된 후 처음 부팅할 때 이러한 cloud-init 구성이 실행됩니다.  
 
 VM 프로비저닝은 Azure가 호스트 이름, 사용자 이름, 암호 등의 VM Create 매개 변수 값을 전달하여 부팅 시 VM이 사용할 수 있게 하는 프로세스입니다. ‘프로비저닝 에이전트’는 이런 값을 사용하고, VM을 구성하며, 완료되면 다시 보고합니다. 

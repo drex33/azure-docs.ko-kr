@@ -1,20 +1,20 @@
 ---
 title: 자습서 - Google Maps에서 Azure Maps로 마이그레이션 | Microsoft Azure Maps
 description: Google Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법에 대한 자습서. Azure Maps API 및 SDK로 전환하는 방법을 안내하는 지침입니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 09/23/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 2263b27cd2f505bc76f02f24e17d54ec5f6475b2
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: c8fc81595bc28af783938b670db6b09d4241dd18
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112578850"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429625"
 ---
 # <a name="tutorial-migrate-from-google-maps-to-azure-maps"></a>자습서: Google Maps에서 Azure Maps로 마이그레이션
 

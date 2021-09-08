@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fcf3167e4f407a64d474275e495b73f511feabdf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8690f69bace02e73f144b563a5541073cb976f22
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536814"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770611"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure Digital Twins를 Azure SignalR Service와 통합
 
@@ -33,7 +33,7 @@ ms.locfileid: "122536814"
     
 * 컴퓨터에 [Node.js](https://nodejs.org/)가 설치되어 있어야 합니다.
 
-또한 Azure 계정으로 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
+이 가이드에서 사용해야 하므로 Azure 계정으로 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
 
 ## <a name="solution-architecture"></a>솔루션 아키텍처
 
@@ -43,14 +43,14 @@ ms.locfileid: "122536814"
 
 ## <a name="download-the-sample-applications"></a>샘플 애플리케이션 다운로드
 
-먼저 필요한 샘플 앱을 다운로드합니다. 다음 샘플이 모두 필요합니다.
+먼저 필요한 샘플 앱을 다운로드합니다. 다음 두 샘플이 모두 필요합니다.
 * [Azure Digital Twins 엔드투엔드 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): 이 샘플에는 Azure Digital Twins 인스턴스 주위로 데이터를 이동하기 위한 두 개의 Azure 함수를 보유하는 *AdtSampleApp* 이 포함되어 있습니다([엔드투엔드 솔루션 연결](tutorial-end-to-end.md)에서 이 시나리오에 대해 자세히 알아볼 수 있음). 또한 IoT 디바이스를 시뮬레이션하여 매초마다 새 온도 값을 생성하는 *DeviceSimulator* 샘플 애플리케이션이 포함되어 있습니다.
-    - [사전 요구 사항](#prerequisites)에서 자습서의 일부로 샘플을 아직 다운로드하지 않은 경우 [샘플로 이동](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)하고 제목 아래에 있는 *코드 찾아보기* 단추를 선택합니다. 그러면 *코드* 단추와 *ZIP 다운로드* 를 선택하여 .zip으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다.
+    - [사전 요구 사항](#prerequisites)에서 자습서의 일부로 샘플을 아직 다운로드하지 않은 경우 [샘플로 이동](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)하고 제목 아래에 있는 *코드 찾아보기* 단추를 선택합니다. 그러면 ‘코드’ 단추와 ‘ZIP 다운로드’를 선택하여 .zip으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다. 
 
         :::image type="content" source="media/includes/download-repo-zip.png" alt-text="GitHub에 대한 digital-twins-samples 리포지토리의 스크린샷과 이를 zip으로 다운로드하기 위한 단계." lightbox="media/includes/download-repo-zip.png":::
 
-    그러면 샘플 리포지토리의 복사본이 **digital-twins-samples-master.zip** 으로 컴퓨터에 다운로드됩니다. 폴더의 압축을 풉니다.
-* [SignalR 통합 웹앱 샘플](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): Azure SignalR Service Azure Digital Twins 원격 분석 데이터를 사용하는 샘플 React 웹앱입니다.
+    이 단추는 샘플 리포지토리의 복사본을 **digital-twins-samples-master.zip** 으로 머신에 다운로드합니다. 폴더의 압축을 풉니다.
+* [SignalR 통합 웹앱 샘플](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): 이 샘플 React 웹앱은 Azure SignalR Service의 Azure Digital Twins 원격 분석 데이터를 사용하게 됩니다.
     -  샘플 링크로 이동하고 동일한 다운로드 프로세스를 사용하여 _**digitaltwins-signalr-webapp-sample-main.zip**_ 과 같은 샘플의 복사본을 컴퓨터에 다운로드합니다. 폴더의 압축을 풉니다.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
@@ -65,7 +65,7 @@ ms.locfileid: "122536814"
 
 Visual Studio(또는 선택한 다른 코드 편집기)를 시작하고 *digital-twins-samples-master > ADTSampleApp* 폴더에서 코드 솔루션을 엽니다. 다음 단계에 따라 함수를 만듭니다.
 
-1. *SampleFunctionsApp* 프로젝트에서 **SignalRFunctions.cs** 라는 새 C# 클래스를 만듭니다. 이 작업을 수행하는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project)을 참조하세요.
+1. *SampleFunctionsApp* 프로젝트에서 **SignalRFunctions.cs** 라는 새 C# 클래스를 만듭니다. 새 클래스를 만드는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project)을 참조하세요.
 
 1. 클래스 파일의 내용을 다음 코드로 바꿉니다.
     
@@ -76,7 +76,7 @@ Visual Studio(또는 선택한 다른 코드 편집기)를 시작하고 *digital
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
 
-    이렇게 하면 클래스의 모든 종속성 문제가 해결됩니다.
+    이 명령을 실행하면 클래스의 모든 종속성 문제가 해결됩니다.
 
 1. 함수를 Azure에 게시합니다. 엔드투엔드 자습서 [사전 요구 사항](#prerequisites)에서 사용한 것과 동일한 App Service/함수 앱에 함수를 게시하거나 새로 만들 수 있습니다. 그러나 중복을 최소화하려면 동일한 함수를 사용하는 것이 좋습니다. Visual Studio를 사용하여 함수를 게시하는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#publish-to-azure)을 참조하세요.
 
@@ -102,19 +102,19 @@ Visual Studio(또는 선택한 다른 코드 편집기)를 시작하고 *digital
 
 ## <a name="connect-the-function-to-event-grid"></a>Event Grid에 함수 연결
 
-다음으로, [자습서 사전 요구 사항](how-to-integrate-azure-signalr.md#prerequisites)에서 만든 **Event Grid 토픽** 에 *broadcast* Azure 함수를 구독합니다. 이렇게 하면 원격 분석 데이터가 thermostat67 트윈에서 Event Grid 토픽 및 함수로 흐를 수 있습니다. 여기에서 함수는 모든 클라이언트에 데이터를 브로드캐스트할 수 있습니다.
+다음으로, [자습서 사전 요구 사항](how-to-integrate-azure-signalr.md#prerequisites)에서 만든 **Event Grid 토픽** 에 *broadcast* Azure 함수를 구독합니다. 이렇게 하면 원격 분석 데이터가 thermostat67 트윈에서 이벤트 그리드 토픽 및 함수로 이동할 수 있습니다. 여기에서 함수는 모든 클라이언트에 데이터를 브로드캐스트할 수 있습니다.
 
-이를 위해 Event Grid 토픽에서 *broadcast* Azure 함수에 대한 **이벤트 구독** 을 엔드포인트로 만듭니다.
+데이터를 브로드캐스트하려면 이벤트 그리드 토픽에서 *broadcast* Azure 함수에 대한 **이벤트 구독** 을 엔드포인트로 만듭니다.
 
 [Azure Portal](https://portal.azure.com/)의 위쪽 검색 창에서 해당 이름을 검색하여 이벤트 그리드 토픽으로 이동합니다. *+ 이벤트 구독* 을 선택합니다.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Azure Portal에서 이벤트 구독을 만드는 방법에 대한 스크린샷.":::
 
-*이벤트 구독 만들기* 페이지에서 다음과 같이 필드를 입력합니다(기본적으로 채워진 필드는 언급되지 않음).
+‘이벤트 구독 만들기’ 페이지에서 다음과 같이 필드를 입력합니다(기본적으로 채워진 필드는 언급되지 않음).
 * *이벤트 구독 정보* > **이름**: 이벤트 구독 이름을 지정합니다.
 * *엔드포인트 정보* > **엔드포인트 유형**: 메뉴 옵션에서 *Azure 함수* 를 선택합니다.
-* *엔드포인트 세부 정보* > **엔드포인트**: *엔드포인트 선택* 링크를 선택합니다. 그러면 *Azure 함수 선택* 창이 열립니다.
-    - **구독**, **리소스 그룹**, **함수 앱** 및 **함수**(*broadcast*)를 입력합니다. 구독을 선택하면 이 중 일부가 자동으로 채워질 수 있습니다.
+* ‘엔드포인트 세부 정보’ > **엔드포인트**: ‘엔드포인트 선택’ 링크를 선택합니다. 그러면 ‘Azure Function 선택’ 창이 열립니다.  
+    - **구독**, **리소스 그룹**, **함수 앱**, **함수**(*broadcast*)를 입력합니다. 구독을 선택하면 이 필드 중 일부가 자동으로 채워질 수 있습니다.
     - **선택 확인** 을 선택합니다.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Azure Portal에서 이벤트 구독을 만들기 위한 양식의 스크린샷.":::
@@ -137,7 +137,7 @@ Visual Studio(또는 선택한 다른 코드 편집기)를 시작하고 *digital
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="메뉴에 'Functions'가 강조 표시되고 함수 목록에 'negotiate'가 강조 표시된 Azure Portal 함수 앱의 스크린샷.":::
 
-1. *함수 URL 가져오기* 를 선택하고 **_/api_ 까지 값을 복사합니다(마지막 _/negotiate?_ 포함 안 함)** . 이 값은 다음 단계에서 사용합니다.
+1. *함수 URL 가져오기* 를 선택하고 **_/api_ 까지 값을 복사합니다(마지막 _/negotiate?_ 포함 안 함)** . 이 값은 다음 단계에서 사용됩니다.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="'함수 URL 가져오기' 단추 및 함수 URL이 강조 표시된 'negotiate' 함수를 보여주는 Azure Portal의 스크린샷.":::
 
@@ -171,7 +171,7 @@ Visual Studio(또는 선택한 다른 코드 편집기)를 시작하고 *digital
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="DeviceSimulator 앱 프로젝트가 열리는 Visual Studio 시작 단추의 스크린샷":::
 
-콘솔 창이 열리고 시뮬레이션된 온도 원격 분석 메시지가 표시됩니다. 이 메시지는 Azure Digital Twins 인스턴스를 통해 전송되며, 여기서 Azure Functions 및 SignalR에서 선택됩니다.
+콘솔 창이 열리고 시뮬레이션된 온도 원격 분석 메시지가 표시됩니다. 이 메시지는 Azure Digital Twins 인스턴스를 통해 전송되며, 여기서 Azure Functions 및 SignalR에 의해 선택됩니다.
 
 이 콘솔에서 다른 작업을 수행할 필요는 없지만 다음 단계를 완료하는 동안 콘솔을 실행 상태로 둡니다.
 
@@ -183,7 +183,7 @@ Visual Studio(또는 선택한 다른 코드 편집기)를 시작하고 *digital
 npm start
 ```
 
-그러면 시각적 온도 계기를 표시하는 샘플 앱이 실행되는 브라우저 창이 열립니다. 앱이 실행되면 Azure Digital Twins를 통해 전파되는 디바이스 시뮬레이터에서 실시간으로 웹앱에 반영되는 온도 원격 측정 값을 확인해야 합니다.
+이 명령을 실행하면 시각적 온도 계기를 표시하는 샘플 앱이 실행되는 브라우저 창이 열립니다. 앱이 실행되면 Azure Digital Twins를 통해 전파되는 디바이스 시뮬레이터에서 실시간으로 웹앱에 반영되는 온도 원격 측정 값을 확인해야 합니다.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="시각적 온도 계기를 보여주는 샘플 클라이언트 웹앱의 스크린샷. 반영된 온도는 67.52입니다.":::
 

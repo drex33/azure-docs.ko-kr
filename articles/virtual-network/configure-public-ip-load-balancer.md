@@ -9,18 +9,16 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 88e67711b71ad80b48a7d5c19377847d0dadd296
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 04b1b4b9b9dd859a2f4b4515c2896163b8f9a698
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535639"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038481"
 ---
 # <a name="manage-a-public-ip-address-with-a-load-balancer"></a>부하 분산 장치를 사용하여 공용 IP 주소 관리
 
-공용 부하 분산 장치는 TCP 및 UDP 트래픽을 백 엔드 풀에 분산하는 계층 4 솔루션입니다. 기본 및 표준 SKU를 부하 분산 장치에 사용할 수 있습니다. 
-
-이러한 SKU는 공용 IP 주소의 기본 및 표준 SKU에 해당합니다.
+공용 부하 분산 장치는 TCP 및 UDP 트래픽을 백 엔드 풀에 분산하는 계층 4 솔루션입니다. 기본 및 표준 SKU를 부하 분산 장치에 사용할 수 있습니다. 이러한 SKU는 공용 IP 주소의 기본 및 표준 SKU에 해당합니다.
 
 부하 분산 장치와 연결된 공용 IP는 인터넷 연결 프런트 엔드 IP 구성의 역할을 합니다. 프런트 엔드는 백 엔드 풀의 리소스에 액세스하는 데 사용됩니다. 프런트 엔드 IP는 백 엔드 풀의 멤버가 인터넷으로 송신하는 데 사용할 수 있습니다. 
 
@@ -157,7 +155,7 @@ IP를 변경하려면 이전에 만든 새 공용 IP 주소를 부하 분산 장
 
 ## <a name="caveats"></a>제한 사항
 
-* 표준 공용 부하 분산 장치는 IPv6 주소를 프런트 엔드 공용 IP 또는 공용 IP 접두사로 사용할 수 있습니다.  모든 배포는 IPv4 및 IPv6 프런트 엔드가 모두 포함된 이중 스택이어야 합니다. NAT64 변환은 사용할 수 없습니다. 자세한 내용은 [Azure에서 IPv6 이중 스택 애플리케이션 배포 - PowerShell](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)을 참조하세요.
+* 표준 퍼블릭 부하 분산 장치는 표준 SKU 고정 IPv6 주소를 프런트 엔드 공용 IP 또는 공용 IP 접두사로 사용할 수 있습니다.  모든 배포는 IPv4 및 IPv6 프런트 엔드가 모두 포함된 이중 스택이어야 합니다. NAT64 변환은 사용할 수 없습니다. 자세한 내용은 [Azure에서 IPv6 이중 스택 애플리케이션 배포 - PowerShell](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)을 참조하세요(기본 퍼블릭 부하 분산 장치는 기본 SKU 동적 IPv6 주소를 프런트 엔드 공용 IP로 사용할 수 있습니다.)
 
 * 공용 부하 분산 장치에 여러 프런트 엔드가 할당된 경우 특정 IP에서 송신하도록 특정 백 엔드 인스턴스의 흐름을 할당하는 방법이 없습니다.  자세한 내용은 [Azure Load Balancer의 다중 프런트 엔드](../load-balancer/load-balancer-multivip-overview.md)를 참조하세요.
 ## <a name="next-steps"></a>다음 단계

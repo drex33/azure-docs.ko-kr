@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: c618ae7f63c1191bf440b5629057660531dd3d7c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 917f2c00f8cf301be8ec2b19d1cb039dc4a93744
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566199"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691697"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>빠른 단계: Azure에서 Linux VM용 SSH퍼블릭-프라이빗 키 쌍 만들기 및 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 SSH(Secure Shell) 키 쌍을 사용하여 Azure에서 인증에 SSH 키를 사용하는 가상 머신을 만들 수 있습니다. 이 문서에서는 Linux VM용 SSH퍼블릭-프라이빗 키 파일 쌍을 신속하게 생성하고 사용하는 방법을 보여줍니다. Azure Cloud Shell, macOS 또는 Linux 호스트를 사용하여 이러한 단계를 완료할 수 있습니다. 
 

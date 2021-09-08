@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/30/2021
-ms.openlocfilehash: 9e616dfc4c9823677c989f3a3ff13f6f20cdef65
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: b5e60883f4af77eabcd3a59334bbf31b63d5cc49
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642298"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123316574"
 ---
 # <a name="copy-data-from-an-sap-table-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 SAP 테이블에서 데이터 복사
 
@@ -74,13 +74,37 @@ SAP 테이블에서 모든 지원되는 싱크 데이터 저장소로 데이터�
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-an-sap-table-using-ui"></a>UI를 사용하여 SAP 테이블에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 SAP 테이블에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택하고 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
+
+2. SAP를 검색하고 SAP 테이블 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-sap-table/sap-table-connector.png" alt-text="SAP 테이블 커넥터 스크린샷":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-sap-table/configure-sap-table-linked-service.png" alt-text="SAP 테이블 연결된 서비스 구성 스크린샷":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
 다음 섹션에서는 SAP 테이블 커넥터와 관련된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 SAP BW Open Hub 연결된 서비스에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTable`로 설정해야 합니다. | 예 |
 | `server` | SAP 인스턴스가 있는 서버의 이름입니다.<br/>SAP 애플리케이션 서버에 연결하는 데 사용합니다. | 예 |
@@ -188,7 +212,7 @@ SAP BW Open Hub 연결된 서비스에서 지원되는 속성은 다음과 같�
 
 SAP BW Open Hub 연결된 서비스 간에 데이터를 복사하려는 경우 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableResource`로 설정해야 합니다. | 예 |
 | `tableName` | 데이터를 복사할 SAP 테이블의 이름입니다. | 예 |
@@ -220,7 +244,7 @@ SAP BW Open Hub 연결된 서비스 간에 데이터를 복사하려는 경우 �
 
 SAP 테이블의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성                         | 설명                                                  | 필수 |
+| 속성                         | Description                                                  | 필수 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableSource`로 설정해야 합니다.         | 예      |
 | `rowCount`                         | 검색할 행의 수입니다.                              | 예       |

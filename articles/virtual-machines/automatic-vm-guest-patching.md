@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f3ff46312c7836d90aeb8e3281e760d2ab163186
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0043935f46698f694aa76aec816c8bf72a9ee098
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535590"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698171"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>미리 보기: Azure VM용 자동 VM 게스트 패치
+
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 자동 VM 게스트 패치를 Azure VM에 사용하도록 설정하면 보안 규정 준수를 유지하기 위해 가상 머신을 안전하게 자동으로 패치하여 업데이트를 쉽게 관리할 수 있습니다.
 

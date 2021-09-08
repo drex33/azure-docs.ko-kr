@@ -3,20 +3,20 @@ title: 테넌트 모델 만들기(미리 보기) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Microsoft 365 데이터를 활용하여 조직 관련 용어에 대한 최적의 음성 인식을 제공하는 안전하고 규정을 준수하는 테넌트 모델(Microsoft 365 데이터를 사용하는 Custom Speech)을 자동으로 생성합니다.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0076364d0075573571e76cf230b4920763bb6e2c
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: ffc4292a519084f6e5e7729ebe56c77d69750c3d
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122072552"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535548"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>자습서: 테넌트 모델 만들기(미리 보기)
 

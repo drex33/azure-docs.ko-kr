@@ -7,12 +7,12 @@ ms.date: 06/21/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 5b961145b065f2ce63497b32d4ba533dda04c68f
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.openlocfilehash: 34a232990f037e72cee97c6f185b567056cc394e
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112894278"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470601"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>빠른 시작: C++용 Azure Blob Storage 클라이언트 라이브러리 v12
 
@@ -32,8 +32,6 @@ C++용 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하여 �
 - [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)
 - [샘플](../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure 구독](https://azure.microsoft.com/free/)
@@ -48,13 +46,13 @@ C++용 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하여 �
 
 ### <a name="install-the-packages"></a>패키지 설치
 
-`vcpkg install` 명령은 C++용 Azure Storage Blobs SDK 및 필요한 종속성을 설치합니다.
+`vcpkg install` 명령은 C++용 Azure Storage Blob SDK 및 필요한 종속성을 설치합니다.
 
 ```console
 vcpkg.exe install azure-storage-blobs-cpp:x64-windows
 ```
 
-자세한 내용은 GitHub를 방문하여 [C++용 Azure SDK](https://github.com/Azure/azure-sdk-for-cpp/)를 얻어 빌드합니다.
+자세한 내용을 보려면 GitHub를 방문하여 [C++용 Azure SDK](https://github.com/Azure/azure-sdk-for-cpp/)를 다운로드하고 빌드합니다.
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 

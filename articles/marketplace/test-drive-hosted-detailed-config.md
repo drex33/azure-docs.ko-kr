@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 04/20/2021
-ms.openlocfilehash: d3458d456793a3853fc2277bc1443c6fdfbc5865
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: c3b2672f8cda046cbd6276ebaa6cf8cf2ceb5e0f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529634"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867033"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>호스트형 시험 사용의 세부 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "122529634"
 
     [![‘시험 사용 지원’ 확인란 선택](media/test-drive/enable-test-drive-check-box.png)](media/test-drive/enable-test-drive-check-box.png#lightbox)
 
-    - **시험 사용 유형** – **Microsoft 호스트형(Dynamics 365 for Customer Engagement 및 PowerApps)을 선택합니다.** 이 옵션은 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 Microsoft에서 호스트하고 유지 관리함을 나타냅니다.
+    - **시험 사용 유형** – **Microsoft 호스트형(Dynamics 365 for Customer Engagement 및 Power Apps)을 선택합니다.** 이 옵션은 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 Microsoft에서 호스트하고 유지 관리함을 나타냅니다.
 
 5. [이러한 지침](./test-drive-azure-subscription-setup.md)에 따라 테넌트의 시험 사용 사용자를 프로비저닝/프로비저닝 해제할 수 있는 권한을 Microsoft AppSource에 부여합니다. 이 단계에서는 아래에 나와 있는 **Azure AD 앱 ID** 및 **Azure AD 앱 키** 값을 생성합니다.
 6. **시험 사용 기술 구성** 페이지에서 다음 필드를 완료합니다.

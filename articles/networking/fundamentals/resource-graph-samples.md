@@ -1,18 +1,18 @@
 ---
 title: Azure 네트워킹에 대한 Azure Resource Graph 샘플 쿼리
 description: Azure 네트워킹 관련 리소스 및 속성에 액세스하기 위한 리소스 유형 및 테이블의 사용을 보여 주는 Azure 네트워킹에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: b4af0e24736aa91138174ab0ca2e5f848cbd1a1c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 3a0fce06e97cba1e4ca5b786ac1842212b306912
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123317256"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535163"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-networking"></a>Azure 네트워킹에 대한 Azure Resource Graph 샘플 쿼리
 

@@ -1,20 +1,20 @@
 ---
 title: '자습서: Bing Maps에서 Azure Maps로 마이그레이션 | Microsoft Azure Maps'
 description: Bing Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법에 대한 자습서입니다. Azure Maps API 및 SDK로 전환하는 방법을 안내하는 지침입니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/17/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4be7bc555578c4abeaa65c6433da3e285b9235b2
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 074a21174798b53ee10c27e620d6227d1aacec98
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786568"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429697"
 ---
 # <a name="tutorial-migrate-from-bing-maps-to-azure-maps"></a>자습서: Bing Maps에서 Azure Maps로 마이그레이션
 

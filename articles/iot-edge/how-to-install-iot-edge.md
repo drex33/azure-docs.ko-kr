@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/28/2021
 ms.author: kgremban
-ms.openlocfilehash: 0f0cf8f4ce8f82964a69635debacea772c4310da
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5ed9768f8cb1a6279eeb97a73d508a41984ef160
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529368"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214336"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Linux용 Azure IoT Edge 설치 또는 제거
 
@@ -416,6 +416,8 @@ IoT Edge 디바이스에서 실행되는 모든 모듈을 봅니다. 서비스�
    ```bash
    sudo iotedge list
    ```
+
+새 IoT Edge 디바이스를 만들면 Azure Portal에 상태 코드 `417 -- The device's deployment configuration is not set`이 표시됩니다. 이 상태는 정상이며 디바이스가 모듈 배포를 수신할 준비가 되었음을 의미합니다.
 
 ## <a name="offline-or-specific-version-installation-optional"></a>오프라인 설치 또는 특정 버전 설치(선택 사항)
 

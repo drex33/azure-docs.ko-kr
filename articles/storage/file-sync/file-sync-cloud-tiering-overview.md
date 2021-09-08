@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5e1bbd56d3fcfd087e294cb55c66edd2f22bd939
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 06b82bf78c7a4d66e2c4da6d053f8ab77c400e00
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765622"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258715"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
 Azure 파일 동기화의 선택적 기능인 클라우드 계층화는 온-프레미스 파일 서버의 성능을 유지하면서 필요한 로컬 스토리지의 양을 줄입니다.
@@ -29,7 +29,7 @@ Azure 파일 동기화의 선택적 기능인 클라우드 계층화는 온-프�
 #### <a name="volume-free-space-policy"></a>사용 가능한 볼륨 공간 정책
 **사용 가능한 볼륨 공간 정책** 은 로컬 디스크에서 일정 공간을 차지하는 경우 쿨 파일을 클라우드에 계층화하도록 Azure 파일 동기화에 지시합니다. 
 
-예를 들어 로컬 디스크 용량이 200GB이고 40GB 이상의 로컬 디스크 용량을 항상 사용 가능한 상태로 유지하려면 사용 가능한 볼륨 공간 정책을 20%로 설정해야 합니다. 사용 가능한 볼륨 공간은 개별 디렉터리 또는 서버 엔드포인트 수준이 아니라 볼륨 수준에서 적용됩니다. 
+예를 들어 로컬 디스크 용량이 200GiB이고 40GiB 이상의 로컬 디스크 용량을 항상 사용 가능한 상태로 유지하려면 사용 가능한 볼륨 공간 정책을 20%로 설정해야 합니다. 사용 가능한 볼륨 공간은 개별 디렉터리 또는 서버 엔드포인트 수준이 아니라 볼륨 수준에서 적용됩니다. 
 
 #### <a name="date-policy"></a>날짜 정책
 **날짜 정책** 을 사용하는 경우 쿨 파일은 x일 동안 액세스(즉, 읽기 또는 쓰기)되지 않은 경우 클라우드에 계층화됩니다. 예를 들어 15일 넘게 액세스하지 않은 파일이 일반적으로 보관 파일인 경우 날짜 정책을 15일로 설정해야 합니다. 

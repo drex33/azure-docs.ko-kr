@@ -1,19 +1,22 @@
 ---
-title: Azure Data Factory의 복사 작업
-description: Azure Data Factory의 복사 작업에 대해 알아봅니다. 지원되는 원본 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 데 사용할 수 있습니다.
+title: 복사 활동
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics의 복사 작업에 대해 알아봅니다. 지원되는 원본 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 데 사용할 수 있습니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 6/1/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.openlocfilehash: 944e5fb05298c91e4405088c1179e0720173dde0
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: a5b84673a879c086fe1fc0543da1ab0037d32ac1
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746174"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255968"
 ---
-# <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
+# <a name="copy-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 복사 작업
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-data-movement-activities.md)
@@ -21,7 +24,7 @@ ms.locfileid: "111746174"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클라우드 간에 데이터를 복사할 수 있습니다. 데이터를 복사한 후 다른 작업을 사용하여 추가 변환 및 분석을 수행할 수 있습니다. 복사 작업을 통해 BI(비즈니스 인텔리전스) 및 애플리케이션에서 사용할 수 있도록 변환 및 분석 결과를 게시할 수도 있습니다.
+Azure Data Factory 및 Synapse 파이프라인에서는 복사 작업을 사용하여 온-프레미스와 클라우드에 있는 데이터 저장소 간에 데이터를 복사할 수 있습니다. 데이터를 복사한 후 다른 작업을 사용하여 추가 변환 및 분석을 수행할 수 있습니다. 복사 작업을 통해 BI(비즈니스 인텔리전스) 및 애플리케이션에서 사용할 수 있도록 변환 및 분석 결과를 게시할 수도 있습니다.
 
 ![복사 작업의 역할](media/copy-activity-overview/copy-activity.png)
 
@@ -58,13 +61,13 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-복사 작업을 사용하는 서비스는 [Azure Integration Runtime 위치](concepts-integration-runtime.md#integration-runtime-location)에 표시된 지역 및 지리에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 특정 지역에서 Data Factory 및 데이터 이동을 사용할 수 있는지 확인하려면 [지역별 제품](https://azure.microsoft.com/regions/#services)을 참조하세요.
+복사 작업을 사용하는 서비스는 [Azure Integration Runtime 위치](concepts-integration-runtime.md#integration-runtime-location)에 표시된 지역 및 지리에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 특정 지역에서 Data Factory, Synapse 작업 영역 및 데이터 이동을 사용할 수 있는지 확인하려면 [지역별 제품](https://azure.microsoft.com/regions/#services)을 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-일반적으로 Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니다.
+일반적으로 Azure Data Factory 또는 Synapse 파이프라인에서 복사 작업을 사용하려면 다음이 필요합니다.
 
 1. **원본 데이터 저장소 및 싱크 데이터 저장소에 대한 연결된 서비스를 만듭니다.** 지원되는 커넥터 목록은 이 문서의 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats) 섹션에서 찾을 수 있습니다. 구성 정보 및 지원되는 속성은 커넥터 문서의 '연결된 서비스 속성' 섹션을 참조하세요. 
 2. **원본 및 싱크에 대한 데이터 세트를 만듭니다.** 구성 정보 및 지원되는 속성은 원본 및 싱크 커넥터 문서의 '데이터 세트 속성' 섹션을 참조하세요.
@@ -122,7 +125,7 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 
 #### <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | Description | 필수 여부 |
+| 속성 | 설명 | 필수 여부 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업의 경우 `Copy`로 설정합니다. | 예 |
 | 입력 | 원본 데이터를 가리키도록 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | 예 |
@@ -139,19 +142,19 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 
 ## <a name="monitoring"></a>모니터링
 
-Azure Data Factory에서 실행되는 복사 작업 활동 실행을 시각적으로 또는 프로그래밍 방식으로 모니터링할 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-monitoring.md)을 참조하세요.
+Azure Data Factory 및 Synapse 파이프라인에서 실행되는 복사 작업 실행을 시각적으로 또는 프로그래밍 방식으로 모니터링할 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-monitoring.md)을 참조하세요.
 
 ## <a name="incremental-copy"></a>증분 복사
 
-Data Factory를 사용하면 원본 데이터 저장소에서 싱크 데이터 저장소로 델타 데이터를 증분 복사할 수 있습니다. 자세한 내용은 [자습서: 증분 방식으로 데이터 복사](tutorial-incremental-copy-overview.md)를 참조하세요.
+Data Factory 및 Synapse 파이프라인을 사용하면 원본 데이터 저장소에서 싱크 데이터 저장소로 델타 데이터를 증분 복사할 수 있습니다. 자세한 내용은 [자습서: 증분 방식으로 데이터 복사](tutorial-incremental-copy-overview.md)를 참조하세요.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 
-[복사 작업 모니터링](copy-activity-monitoring.md) 환경에는 각 활동 실행에 대한 복사 성능 통계가 표시됩니다. [복사 작업 성능 및 확장성 가이드](copy-activity-performance.md)에서는 Azure Data Factory에서 복사 작업을 통한 데이터 이동 성능에 영향을 주는 주요 요인에 대해 설명합니다. 또한 테스트 중 관찰된 성능 값을 나열하고 복사 작업 성능을 최적화하는 방법을 설명합니다.
+[복사 작업 모니터링](copy-activity-monitoring.md) 환경에는 각 활동 실행에 대한 복사 성능 통계가 표시됩니다. [복사 작업 성능 및 확장성 가이드](copy-activity-performance.md)에서는 복사 작업을 통한 데이터 이동 성능에 영향을 주는 주요 요인에 대해 설명합니다. 또한 테스트 중 관찰된 성능 값을 나열하고 복사 작업 성능을 최적화하는 방법을 설명합니다.
 
 ## <a name="resume-from-last-failed-run"></a>마지막으로 실패한 실행에서 다시 시작
 
-복사 작업은 파일 기반 저장소 간에 이진 형식을 사용하는 대용량 파일을 있는 그대로 복사하고, 예를 들어 Amazon S3에서 Azure Data Lake Storage Gen2로 데이터를 마이그레이션하기 위해 원본에서 싱크로 폴더/파일 계층 구조를 유지하도록 선택하는 경우 마지막으로 실패한 실행에서 다시 시작을 지원합니다. [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md) [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md)와 같은 파일 기반 커넥터에 적용됩니다.
+복사 작업은 파일 기반 저장소 간에 이진 형식을 사용하는 대용량 파일을 있는 그대로 복사하고, 예를 들어 Amazon S3에서 Azure Data Lake Storage Gen2로 데이터를 마이그레이션하기 위해 원본에서 싱크로 폴더/파일 계층 구조를 유지하도록 선택하는 경우 마지막으로 실패한 실행에서 다시 시작을 지원합니다. [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md) [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md)와 같은 파일 기반 커넥터에 적용됩니다.
 
 다음 두 가지 방법으로 복사 작업 다시 시작을 활용할 수 있습니다.
 
@@ -194,7 +197,7 @@ Data Factory를 사용하면 원본 데이터 저장소에서 싱크 데이터 �
 
 프로그래밍 방식으로 구성하려면 복사 작업 원본에 `additionalColumns` 속성을 추가합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | additionalColumns | 싱크에 복사할 추가 데이터 열을 추가합니다.<br><br>`additionalColumns` 배열의 각 개체는 추가 열을 나타냅니다. `name`은 열 이름을 정의하고 `value`는 해당 열의 데이터 값을 나타냅니다.<br><br>허용되는 데이터 값은 다음과 같습니다.<br>-  **`$$FILEPATH`** - 예약 변수는 데이터 세트에 지정된 폴더 경로에 원본 파일의 상대 경로를 저장함을 나타냅니다. 파일 기반 원본에 적용됩니다.<br>-  **`$$COLUMN:<source_column_name>`** - 예약 변수 패턴은 지정한 원본 열을 다른 열로 복제함을 나타냅니다.<br>- **식**<br>- **정적 값** | 예 |
 
@@ -260,7 +263,7 @@ SQL 데이터베이스/Azure Synapse Analytics로 데이터를 복사하는 경�
 
 ## <a name="data-consistency-verification"></a>데이터 일관성 확인
 
-원본 저장소에서 대상 저장소로 데이터를 이동하는 경우 Azure Data Factory 복사 활동은 추가적인 데이터 일관성 확인을 수행하여 데이터가 원본 저장소에서 대상 저장소로 복사될 뿐 아니라 원본 저장소와 대상 저장소 간에 일관된 것으로 확인되는지 확인하는 옵션을 제공합니다. 데이터 이동 중에 일관되지 않은 파일이 발견되면 복사 작업을 중단하거나, 일관되지 않은 파일을 건너뛰도록 내결함성 설정을 사용하도록 설정하여 나머지를 계속 복사합니다. 복사 작업에서 세션 로그 설정을 사용하도록 설정하여 건너뛴 파일 이름을 가져올 수 있습니다. 자세한 내용은 [복사 작업의 데이터 일관성 확인](copy-activity-data-consistency.md)을 참조하세요.
+원본의 데이터를 대상 저장소로 이동하는 경우, 복사 작업에서 추가로 데이터 일관성을 확인하여 데이터가 원본에서 대상 저장소로 복사되도록 할 뿐만 아니라 원본과 대상 저장소 간에 일관성을 확인하는 옵션을 제공합니다. 데이터 이동 중에 일관되지 않은 파일이 발견되면 복사 작업을 중단하거나, 일관되지 않은 파일을 건너뛰도록 내결함성 설정을 사용하도록 설정하여 나머지를 계속 복사합니다. 복사 작업에서 세션 로그 설정을 사용하도록 설정하여 건너뛴 파일 이름을 가져올 수 있습니다. 자세한 내용은 [복사 작업의 데이터 일관성 확인](copy-activity-data-consistency.md)을 참조하세요.
 
 ## <a name="session-log"></a>세션 로그
 복사한 파일 이름을 로그할 수 있습니다. 그러면 복사 작업 세션 로그를 검토하여 데이터를 원본 저장소에서 대상 저장소로 복사할 뿐 아니라 원본 및 대상 저장소 간에 일관성을 유지할 수 있습니다. 자세한 내용은 [복사 작업의 세션 로그](copy-activity-log.md)를 참조하세요.

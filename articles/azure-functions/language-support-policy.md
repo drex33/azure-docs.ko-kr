@@ -3,12 +3,12 @@ title: Azure Functions 언어 런타임 지원 정책
 description: Azure Functions 언어 런타임 지원 정책에 대해 알아보기
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: 427b3b0fc3985ebb4067bcc78e77aea135948847
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: b3b5f7cf108fd18ed450a6837a5dd35ceb83dc60
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539195"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303970"
 ---
 # <a name="language-runtime-support-policy"></a>언어 런타임 지원 정책
 
@@ -37,14 +37,14 @@ Azure Functions 런타임은 운영 체제, Azure Functions 호스트 및 언어
 
 위에서 설명한 사용 중지 정책에는 몇 가지 예외가 있습니다. 다음은 수명 종료 날짜에 근접하거나 도달했지만 추가 공지가 있을 때까지 플랫폼에서 계속 지원되는 언어 목록입니다. 이러한 언어 버전이 수명 종료 날짜에 도달하면 더 이상 업데이트되거나 패치되지 않습니다. 따라서 이러한 언어 버전에서 함수 앱을 개발하고 실행하지 않는 것이 좋습니다.
 
-|언어 버전                        |EOL 날짜         |예상된 사용 중지 날짜|
+|언어 버전                        |EOL 날짜         |사용 중지 날짜|
 |-----------------------------------------|-----------------|----------------|
 |.NET 5|2022년 2월|TBA|
-|Node 6|2019년 4월 30일|TBA| 
-|Node 8|2019년 12월 31일|TBA| 
-|Node 10|2021년 4월 30일|TBA| 
-|PowerShell Core 6| 2020년 9월 4일|TBA|
-|Python 3.6 |2021년 12월 23일|TBA| 
+|Node 6|2019년 4월 30일|2022년 2월 28일| 
+|Node 8|2019년 12월 31일|2022년 2월 28일| 
+|Node 10|2021년 4월 30일|2022년 9월 30일| 
+|PowerShell Core 6| 2020년 9월 4일|2022년 9월 30일|
+|Python 3.6 |2021년 12월 23일|2022년 9월 30일| 
  
 
 ## <a name="language-version-support-timeline"></a>언어 버전 지원 타임라인

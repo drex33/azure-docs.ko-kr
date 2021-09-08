@@ -2,19 +2,22 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/16/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: cc0b4f9875200711f58d9f095e60b7e13b9ce5a7
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 05b0382a357809b1dcef4ead6fe61643575a4406
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114388506"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123477108"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Batch 계정은 고객 관리형 키를 사용하여 데이터를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F99e9ccd8-3db9-4592-b0d1-14b1715a4d8a) |고객 관리형 키를 사용하여 Batch 계정 데이터의 미사용 데이터 암호화를 관리합니다. 기본적으로 고객 데이터는 서비스 관리형 키로 암호화되지만, 고객 관리형 키는 일반적으로 규정 준수 기준을 충족하는 데 필요합니다. 고객 관리형 키를 사용하면 사용자가 만들고 소유한 Azure Key Vault 키를 사용하여 데이터를 암호화할 수 있습니다. 순환 및 관리를 포함하여 키의 수명 주기를 고객이 모두 제어하고 책임져야 합니다. [https://aka.ms/Batch-CMK](https://aka.ms/Batch-CMK)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_CustomerManagedKey_Audit.json) |
+|[Azure Batch 풀에서 디스크 암호화를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1760f9d4-7206-436e-a28f-d9f3a5c8a227) |Azure Batch 디스크 암호화를 사용하도록 설정하면 Azure Batch 컴퓨팅 노드에서 미사용 데이터가 항상 암호화됩니다. [https://docs.microsoft.com/azure/batch/disk-encryption](../../../../articles/batch/disk-encryption.md)에서 Batch의 디스크 암호화에 대해 자세히 알아보세요. |감사, 사용 안 함, 거부 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_DiskEncryption_Audit.json) |
+|[Batch 계정은 로컬 인증 방법을 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6f68b69f-05fe-49cd-b361-777ee9ca7e35) |로컬 인증 방법을 사용하지 않도록 설정하면 Batch 계정에 인증 전용 Azure Active Directory ID가 필요하므로 보안이 강화됩니다. [https://aka.ms/batch/auth](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_DisableLocalAuth_Audit.json) |
+|[로컬 인증을 사용하지 않도록 Batch 계정 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4dbc2f5c-51cf-4e38-9179-c7028eed2274) |위치 인증 방법을 사용하지 않도록 설정하여 Batch 계정에서 인증에만 Azure Active Directory ID를 요구하도록 합니다. [https://aka.ms/batch/auth](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service)에서 자세히 알아보세요. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_DisableLocalAuth_Modify.json) |
 |[프라이빗 엔드포인트를 사용하여 Batch 계정 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ef5aac7-c064-427a-b87b-d47b3ddcaf73) |프라이빗 엔드포인트는 원본 또는 대상에서 공용 IP 주소 없이 Azure 서비스에 가상 네트워크를 연결합니다. 프라이빗 엔드포인트를 Batch 계정에 매핑하면 데이터 유출 위험을 줄일 수 있습니다. [https://docs.microsoft.com/azure/batch/private-connectivity](../../../../articles/batch/private-connectivity.md)에서 프라이빗 링크에 대해 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_PrivateEndpoints_DeployIfNotExists.json) |
 |[배포 - Batch 계정에 연결되는 프라이빗 엔드포인트의 프라이빗 DNS 영역 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4ec38ebc-381f-45ee-81a4-acbc4be878f8) |프라이빗 DNS 레코드는 프라이빗 엔드포인트에 대한 프라이빗 연결을 허용합니다. 프라이빗 엔드포인트 연결을 사용하면 원본 또는 대상에서 공용 IP 주소 없이 Batch 계정에 대한 프라이빗 연결을 활성화하여 보안 통신을 수행할 수 있습니다. Batch의 프라이빗 엔드포인트 및 DNS 영역에 대한 자세한 내용은 [https://docs.microsoft.com/azure/batch/private-connectivity](../../../../articles/batch/private-connectivity.md)를 참조하세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_PrivateDnsZones_DeployIfNotExists.json) |
 |[Batch 계정에서 메트릭 경고 규칙을 구성해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F26ee67a2-f81a-4ba8-b9ce-8550bd5ee1a7) |필요한 메트릭을 사용할 수 있도록 설정하는 Batch 계정에서 메트릭 경고 규칙 구성 감사 |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_AuditMetricAlerts_Audit.json) |

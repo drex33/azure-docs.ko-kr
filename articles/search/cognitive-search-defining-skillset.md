@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/15/2021
-ms.openlocfilehash: 5f47eef6d3aeecd64cb3777b1d0858b4904d137d
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 4425a4b7c29bc0f4bc237c021610087c933631d8
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567793"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224028"
 ---
 # <a name="create-a-skillset-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기술 세트 만들기
 
@@ -227,6 +227,14 @@ ms.locfileid: "122567793"
 다음 예제에는 텍스트 청크에서 사람, 위치, 조직 및 다른 엔터티를 검색한 엔터티 인식 기술의 결과가 나와 있습니다. 검색 탐색기에서 결과를 확인하면 기술이 솔루션에 가치를 더하는지 여부를 파악하는 데 도움이 될 수 있습니다.
 
 :::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="검색 탐색기의 문서 스크린샷.":::
+
+## <a name="tips-for-a-first-skillset"></a>첫 번째 기술 세트 팁
+
++ Blob Storage 또는 지원되는 다른 인덱서 데이터 원본에서 콘텐츠의 대표 샘플을 조합하고 **데이터 가져오기** 마법사를 실행하여 기술 세트, 인덱스, 인덱서, 데이터 원본 개체를 만듭니다. 
+
+  마법사는 인덱스의 필드 정의, 인덱서에서 출력 파일 매핑 정의, 지식 저장소(사용 중인 경우)의 프로젝션을 포함하여 처음에 어려울 수 있는 여러 단계를 자동화합니다. OCR 또는 이미지 분석과 같은 일부 기술의 경우 마법사는 문서 크래킹 중에 구분된 이미지 및 텍스트 콘텐츠를 병합하는 유틸리티 기술을 추가합니다.
+
++ 또는 기술 세트에서 변환 결과를 보기 위해 쿼리할 수 있는 인덱스에 이르기까지 기술을 평가하는 데 필요한 모든 개체 정의의 전체 예제를 제공하는 기술 Postman 컬렉션을 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

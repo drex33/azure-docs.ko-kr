@@ -9,16 +9,16 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 07/07/2021
 ms.author: mbullwin
-ms.openlocfilehash: 02aa150960436317a8307998eb91883e906249ed
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: 9668c25c4674505df30877f0a303614065fac94a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114342470"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123454186"
 ---
 [참조 설명서](/dotnet/api/overview/azure/ai.metricsadvisor-readme-pre) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.MetricsAdvisor) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * 최신 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -178,7 +178,14 @@ var dataFeedSchema = new DataFeedSchema(dataFeedMetrics)
 var ingestionStartTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
 var dataFeedIngestionSettings = new DataFeedIngestionSettings(ingestionStartTime);
 
-var dataFeed = new DataFeed(dataFeedName, dataFeedSource, dataFeedGranularity, dataFeedSchema, dataFeedIngestionSettings);
+var dataFeed = new DataFeed()
+{
+    Name = dataFeedName,
+    DataSource = dataFeedSource,
+    Granularity = dataFeedGranularity,
+    Schema = dataFeedSchema,
+    IngestionSettings = dataFeedIngestionSettings,
+};
 
 Response<string> response = await adminClient.CreateDataFeedAsync(dataFeed);
 

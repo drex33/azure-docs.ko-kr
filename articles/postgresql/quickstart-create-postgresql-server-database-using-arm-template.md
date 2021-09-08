@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 02/11/2021
-ms.openlocfilehash: 40e48cade82f8ffc808303dd43cb0d5f9ff5fe86
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 20022df3080b18a93746b61bafc3bcbc0e9e44b7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111984431"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424891"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
 
@@ -179,7 +179,7 @@ read -p "Press [ENTER] to continue: "
 Azure Portal에서 [ARM 템플릿을 내보낼](../azure-resource-manager/templates/export-template-portal.md) 수 있습니다. 두 가지 방법으로 템플릿을 내보낼 수 있습니다.
 
 - [리소스 그룹 또는 리소스에서 내보냅니다](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). 이 옵션은 기존 리소스에서 새 템플릿을 생성합니다. 내보낸 템플릿은 리소스 그룹의 현재 상태에 대한 "스냅샷"입니다. 전체 리소스 그룹 또는 해당 리소스 그룹 내의 특정 리소스를 내보낼 수 있습니다.
-- [배포 전 또는 기록에서 내보냅니다](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). 이 옵션은 배포에 사용되는 템플릿의 정확한 복사본을 검색합니다.
+- [배포 전 또는 기록에서 내보냅니다](../azure-resource-manager/templates/export-template-portal.md#download-template-before-deployment). 이 옵션은 배포에 사용되는 템플릿의 정확한 복사본을 검색합니다.
 
 템플릿을 내보낼 때 PostgreSQL 서버 리소스의 ```"properties":{ }``` 섹션에서 ```administratorLogin``` 및 ```administratorLoginPassword```는 보안상의 이유로 포함되지 않습니다. 템플릿을 배포하기 전에 템플릿에 이러한 매개 변수를 추가 **해야** 합니다. 그렇지 않으면 템플릿이 실패합니다.
 

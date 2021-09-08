@@ -1,20 +1,20 @@
 ---
 title: '자습서: Azure Maps Android SDK에 GeoJSON 데이터 로드 | Microsoft Azure Maps'
 description: GeoJSON 데이터 파일을 Azure Maps Android 맵 SDK로 로드하는 방법에 대한 자습서입니다.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/10/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 66214dc3a21389b779cfb5172747be0700e9d0e9
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: b36c82a12b984aa956cc7d9d41cbc13ffb3d083f
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091243"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123425215"
 ---
 # <a name="tutorial-load-geojson-data-into-azure-maps-android-sdk"></a>자습서: GeoJSON 데이터를 Azure Maps Android SDK로 로드
 

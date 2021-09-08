@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 08/04/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 071306d550422f60f8bf8d6e8b442badce221287
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6d7faa793b296259968eb54980fe8ff8e32514f2
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566917"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105508"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용하여 Azure Machine Learning 작업 영역 보호
 
@@ -67,6 +67,10 @@ ms.locfileid: "122566917"
 * Azure Machine Learning 작업 영역에 [Azure Machine Learning 컴퓨팅 클러스터](how-to-create-attach-compute-cluster.md)가 포함되어야 합니다.
 
 ## <a name="limitations"></a>제한 사항
+
+### <a name="azure-storage-account"></a>Azure Storage 계정
+
+Azure Machine Learning 작업 영역과 Azure Storage 계정이 모두 프라이빗 엔드포인트를 사용하여 VNet에 연결하는 경우 둘 다 동일한 서브넷 내에 있어야 합니다.
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
@@ -272,6 +276,10 @@ validate=False)
 
 > [!IMPORTANT]
 > __VPN Gateway__ 또는 __ExpressRoute__ 를 사용하는 경우 온-프레미스 리소스와 VNet 간에 이름 확인이 작동하는 방식을 계획해야 합니다. 자세한 내용은 [사용자 지정 DNS 서버 사용](how-to-custom-dns.md)을 참조하세요.
+
+## <a name="workspace-diagnostics"></a>작업 영역 진단
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,20 +1,20 @@
 ---
 title: '자습서: Bing Maps에서 웹앱 마이그레이션 | Microsoft Azure Maps'
 description: Bing Maps에서 Microsoft Azure Maps로 웹앱을 마이그레이션하는 방법에 대한 자습서.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 9/10/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 8726f6211ef792064e9e180a8c2e34383eeb6d53
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: adec0b04e82d0a00b2f95b6b4f7980f628b93a7a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114441575"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439635"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>자습서: Bing Maps에서 웹앱 마이그레이션
 
@@ -909,7 +909,7 @@ Azure Maps에서 데이터는 데이터 원본을 통해 추가 및 관리됩니
 
 클러스터링을 사용하도록 설정하면 데이터 원본이 클러스터형 및 비클러스터형 데이터 요소를 렌더링하기 위해 레이어로 보냅니다. 데이터 원본은 수십만 개의 데이터 요소를 클러스터링할 수 있습니다. 클러스터링된 데이터 요소에는 다음과 같은 속성이 포함되어 있습니다.
 
-| 속성 이름               | Type    | Description                                    |
+| 속성 이름               | Type    | 설명                                    |
 |-----------------------------|---------|------------------------------------------------|
 | `cluster`                   | boolean | 기능이 클러스터를 표시하는지 여부를 나타냅니다.     |
 | `cluster_id`                | 문자열  | `DataSource` 클래스 `getClusterExpansionZoom`, `getClusterChildren` 및 `getClusterLeaves` 함수에 사용할 수 있는 클러스터의 고유 ID입니다. |

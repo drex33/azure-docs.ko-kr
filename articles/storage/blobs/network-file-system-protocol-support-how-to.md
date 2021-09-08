@@ -9,12 +9,12 @@ ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7173477e01faddb3c8aa3c18dc2781ef21dee012
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 61f57e0ee0f1df5b66526a190e583c72ecde7151
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536328"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965386"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol"></a>NFS(네트워크 파일 시스템) 3.0 프로토콜을 사용하여 Blob Storage 탑재
 
@@ -106,6 +106,7 @@ Linux 시스템에서 디렉터리를 만든 다음, 컨테이너를 스토리�
 |`EROFS ("Read-only file system"`) |이 오류는 클라이언트에서 다음을 시도할 때 나타날 수 있습니다.<li>Blob에 쓰거나 활성 임대가 있는 Blob을 삭제합니다.<li>활성 WORM(한 번 쓰기, 여러 번 읽기) 정책이 있는 컨테이너에서 Blob에 쓰거나 Blob을 삭제합니다. |
 |`NFS3ERR_IO/EIO ("Input/output error"`) |이 오류는 클라이언트에서 보관 액세스 계층에 저장된 Blob에 대한 특성을 읽거나 쓰거나 설정하려고 할 때 나타날 수 있습니다. |
 |`OperationNotSupportedOnSymLink`개 오류| 이 오류는 Blob 또는 Azure Data Lake Storage Gen2 API를 통해 쓰기 작업을 수행하는 동안 반환될 수 있습니다. 이러한 API를 사용하여 NFS 3.0을 사용하여 만든 바로 가기 링크를 작성하거나 삭제하는 것은 허용되지 않습니다. 바로 가기 링크로 작업하려면 NFS v3 엔드포인트를 사용해야 합니다. |
+|`mount: /mnt/test: bad option;`| **sudo apt install nfs-common** 을 사용하여 NFS 도우미 프로그램을 설치합니다.|
 
 ## <a name="see-also"></a>참고 항목
 

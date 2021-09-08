@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/06/2021
 ms.author: aahi
-ms.openlocfilehash: 105f88499367857d1133ab24a88372db747727bf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 917a2206d59ef145beb2c5355002827069b86e92
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536379"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867312"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Text Analytics API v3 언어 지원 
 
@@ -140,7 +140,7 @@ ms.locfileid: "122536379"
 
 | 언어 | 언어 코드 |  v3.x 지원 | v3 모델 버전부터: | 참고 |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
-| 영어  |     `en`      |     ✓      |                API 엔드포인트: 2019-10-01 <br> 컨테이너: 2020-04-16                |       |
+| 영어  |     `en`      |     ✓      |                API 엔드포인트: 2020-11-01 <br> 컨테이너: 2020-04-16                |       |
 
 #### <a name="personally-identifiable-information-pii"></a>[PII(개인 식별 정보)](#tab/pii)
 

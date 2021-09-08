@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/21/2021
+ms.date: 09/01/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 649bf52c48867f4508a7071cb1443b62eae36010
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 3dfcfcab7421b6aa8710310fdffa08f54688c4fd
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537255"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219933"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>SQL IaaS Agent 확장에 SQL Server VM 등록
 
@@ -28,15 +28,18 @@ ms.locfileid: "122537255"
 
 [SQL IaaS Agent 확장](sql-server-iaas-agent-extension-automate-management.md)에 SQL Server VM을 등록하면 Azure VM의 SQL Server에 대 한 다양한 주요 이점을 사용할 수 있습니다.
 
-이 문서에서는 SQL IaaS Agent 확장에 단일 SQL Server VM를 등록하는 방법을 설명합니다. 또는 모든 SQL Server VM을 [자동으로](sql-agent-extension-automatic-registration-all-vms.md) 등록하거나 [스크립팅된 여러 VM을 대량으로](sql-agent-extension-manually-register-vms-bulk.md) 등록할 수 있습니다.
+이 문서에서는 SQL IaaS Agent 확장에 단일 SQL Server VM를 등록하는 방법을 설명합니다. 또는 구독의 모든 SQL Server VM을 [자동으로](sql-agent-extension-automatic-registration-all-vms.md) 등록하거나 [스크립팅된 여러 VM을 대량으로](sql-agent-extension-manually-register-vms-bulk.md) 등록할 수 있습니다.
+
+> [!NOTE]
+> 2021년 9월부터 전체 모드로 SQL IaaS 확장에 등록하기 위해 더 이상 SQL Server 서비스를 다시 시작하지 않아도 됩니다. 
 
 ## <a name="overview"></a>개요
 
-[SQL Server IaaS Agent 확장](sql-server-iaas-agent-extension-automate-management.md)에 등록하면 가상 머신 리소스와는 _별도의_ 리소스인 **SQL 가상 머신** _리소스_ 가 구독 내에 생성됩니다. 확장에서 SQL Server VM의 등록을 취소하면 **SQL 가상 머신** _리소스_ 가 제거되지만 실제 가상 머신은 삭제되지 않습니다.
+[SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 등록하면 가상 머신 리소스와는 ‘별도’의 리소스인 [**SQL 가상 머신** _리소스_](manage-sql-vm-portal.md)가 구독 내에 생성됩니다. 확장에서 SQL Server VM의 등록을 취소하면 **SQL 가상 머신** _리소스_ 가 제거되지만 실제 가상 머신은 삭제되지 않습니다.
 
 Azure Portal을 통해 SQL Server VM Azure Marketplace 이미지를 배포하면 SQL Server VM이 자동으로 확장에 등록됩니다. 그러나 Azure 가상 머신에 SQL Server를 자동으로 설치하거나 사용자 지정 VHD에서 Azure 가상 머신을 프로비전하도록 선택하는 경우에는 모든 주요 이점 및 관리 효율성을 사용할 수 있도록 SQL IaaS Agent 확장에 SQL Server VM를 등록해야 합니다.
 
-SQL IaaS Agent 확장을 활용하려면 [**Microsoft.SqlVirtualMachine** 공급자에 구독을 등록](#register-subscription-with-resource-provider)하여 해당 구독 내에서 리소스를 만들 수 있는 권한을 SQL IaaS 확장에 부여해야 합니다.
+SQL IaaS Agent 확장을 활용하려면 [**Microsoft.SqlVirtualMachine** 공급자에 구독을 등록](#register-subscription-with-rp)하여 해당 구독 내에서 리소스를 만들 수 있는 권한을 SQL IaaS 확장에 부여해야 합니다.
 
 > [!IMPORTANT]
 > SQL IaaS Agent 확장은 Azure Virtual Machines 내에서 SQL Server를 사용하는 고객에게 선택적 혜택을 제공하기 위한 목적으로 데이터를 수집합니다. Microsoft는 고객의 사전 동의 없이 라이선스 감사에 이 데이터를 사용하지 않습니다. 자세한 내용은 [SQL Server 개인 정보 제공](/sql/sql-server/sql-server-privacy#non-personal-data)을 참조하세요.
@@ -49,9 +52,9 @@ SQL IaaS Agent 확장을 활용하려면 [**Microsoft.SqlVirtualMachine** 공급
 - [SQL Server 2008(또는 그 이상)](https://www.microsoft.com/sql-server/sql-server-downloads)이 공용 또는 Azure Government 클라우드에 배포된 Azure 리소스 모델 [Windows Server 2008(또는 그 이상) 가상 머신](../../../virtual-machines/windows/quick-create-portal.md)(또는 그 이상)
 - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell(5.0 이상)](/powershell/azure/install-az-ps)
 
-## <a name="register-subscription-with-resource-provider"></a>리소스 공급자에 구독 등록
+## <a name="register-subscription-with-rp"></a>RP에 구독 등록
 
-SQL IaaS Agent 확장에 SQL Server VM을 등록하려면 먼저 구독을 **Microsoft.SqlVirtualMachine** 리소스 공급자에 등록해야 합니다. 그러면 SQL IaaS Agent 확장이 구독 내에서 리소스를 만들 수 있습니다.  Azure Portal, Azure CLI 또는 Azure PowerShell을 사용하여 이 작업을 수행할 수 있습니다.
+SQL IaaS 에이전트 확장에 SQL Server VM을 등록하려면 먼저 구독을 **Microsoft.SqlVirtualMachine** RP(리소스 공급자)에 등록해야 합니다. 그러면 SQL IaaS Agent 확장이 구독 내에서 리소스를 만들 수 있습니다. Azure Portal, Azure CLI 또는 Azure PowerShell을 사용하여 이 작업을 수행할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -83,19 +86,74 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ---
 
-## <a name="register-with-extension"></a>확장에 등록
+## <a name="full-mode"></a>전체 모드
 
-[SQL Server IaaS Agent 확장](sql-server-iaas-agent-extension-automate-management.md#management-modes)에 대한 세 가지 관리 모드가 있습니다.
+SQL Server VM을 전체 모드로 직접 등록하려면 다음 Azure PowerShell 명령을 사용합니다.
 
-확장을 전체 관리 모드로 등록하면 SQL Server 서비스가 다시 시작되므로 먼저 경량 모드로 확장을 등록한 다음, 유지 관리 기간 중에 [전체 모드로 업그레이드](#upgrade-to-full)하는 것이 좋습니다.
+  ```powershell-interactive
+  # Get the existing  Compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
 
-### <a name="lightweight-management-mode"></a>경량 관리 모드
+  # Register with SQL IaaS Agent extension in full mode
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  
+  ```
 
-Azure CLI 또는 Azure PowerShell를 사용하여 SQL Server VM를 경량 모드로 확장에 등록합니다. 그러면 SQL Server 서비스가 다시 시작되지 않습니다. 그런 다음, 언제든지 전체 모드로 업그레이드할 수 있지만 이렇게 하면 SQL Server 서비스가 다시 시작되므로 예약된 유지 관리 기간이 도래할 때까지 기다리는 것이 좋습니다.
+전체 모드에 대해 자세히 알아보려면 [관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)를 참조하세요.
+
+### <a name="upgrade-to-full"></a>전체 모드로 업그레이드
+
+*경량* 모드로 확장에 등록된 SQL Server VM은 Azure Portal, Azure CLI 또는 Azure PowerShell을 사용하여 _전체_ 모드로 업그레이드할 수 있습니다. _에이전트 없음_ 모드의 SQL Server VM은 OS를 Windows 2008 R2 이상으로 업그레이드한 후 _전체_ 모드로 업그레이드할 수 있습니다. 다운그레이드할 수는 없습니다. 그러려면 SQL Server VM을 SQL IaaS Agent 확장에서 [등록 취소](#unregister-from-extension)해야 합니다. 이렇게 하면 **SQL 가상 머신** _리소스_ 가 제거되지만 실제 가상 머신은 삭제되지 않습니다.
+
+#### <a name="azure-portal"></a>Azure Portal
+
+Azure Portal을 사용하여 확장을 전체 모드로 업그레이드하려면 다음 단계를 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [SQL 가상 머신](manage-sql-vm-portal.md#access-the-resource) 리소스로 이동합니다.
+1. SQL Server VM을 선택하고 **개요** 페이지로 이동합니다.
+1. SQL Server VM이 에이전트 없음 또는 경량 IaaS 확장 모드인 경우 **현재 SQL IaaS 확장 모드에서는 라이선스 유형 및 버전 업데이트만 사용할 수 있습니다...** 메시지를 선택합니다.
+
+   ![포털에서 모드를 변경하기 위한 선택 항목](./media/sql-agent-extension-manually-register-single-vm/change-sql-iaas-mode-portal.png)
+
+1. **확인** 을 선택하여 SQL Server IaaS 확장 모드를 전체로 업그레이드합니다.
+
+    ![**확인**을 선택하여 SQL Server IaaS 확장 모드를 전체로 업그레이드합니다.](./media/sql-agent-extension-manually-register-single-vm/enable-full-mode-iaas.png)
+
+#### <a name="command-line"></a>명령 줄
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/bash)
+
+확장을 전체 모드로 업그레이드하려면 다음 Azure CLI 코드 조각을 실행합니다.
+
+  ```azurecli-interactive
+  # Update to full mode
+  az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
+  ```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+확장을 전체 모드로 업그레이드하려면 다음 Azure PowerShell 코드 조각을 실행합니다.
+
+  ```powershell-interactive
+  # Get the existing  Compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+
+  # Register with SQL IaaS Agent extension in full mode
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full -Location $vm.Location
+  ```
+
+---
+
+## <a name="lightweight-mode"></a>경량 모드
+
+제한된 기능을 사용하려면 Azure CLI 또는 Azure PowerShell을 사용하여 SQL Server VM을 경량 모드로 확장에 등록합니다. 
 
 SQL Server 라이선스 유형을 사용량에 따라 지불하려면 종량제(`PAYG`), 자체 라이선스를 사용하려면 Azure 하이브리드 혜택(`AHUB`), [무료 DR 복제본 라이선스](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure)를 활성화하려면 재해 복구(`DR`)로 제공합니다.
 
 장애 조치(failover) 클러스터 인스턴스 및 다중 인스턴스 배포는 SQL IaaS Agent 확장에 경량 모드로만 등록할 수 있습니다.
+
+경량 모드에 대해 자세히 알아보려면 [관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)를 참조하세요.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
@@ -118,26 +176,11 @@ Azure PowerShell을 사용하여 SQL Server VM을 경량 모드로 등록합니�
   New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
     -LicenseType <license_type>  -SqlManagementType LightWeight  
   ```
-
 ---
 
-### <a name="full-management-mode"></a>전체 관리 모드
+## <a name="noagent-management-mode"></a>에이전트 없음 관리 모드
 
-SQL Server VM을 전체 모드로 등록하면 SQL Server 서비스가 다시 시작됩니다. 주의하여 진행하세요.
-
-SQL Server VM을 전체 모드로 직접 등록하고 SQL Server 서비스를 다시 시작하려면 다음 Azure PowerShell 명령을 사용합니다.
-
-  ```powershell-interactive
-  # Get the existing  Compute VM
-  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-
-  # Register with SQL IaaS Agent extension in full mode
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
-  ```
-
-### <a name="noagent-management-mode"></a>에이전트 없음 관리 모드
-
-Windows Server 2008(_R2_ 가 아님)에 설치된 SQL Server 2008 및 2008 R2는 SQL IaaS Agent 확장에 [에이전트 없음 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)로 등록할 수 있습니다. 이 옵션은 규정 준수를 보장하고 제한된 기능으로 Azure Portal에서 SQL Server VM을 모니터링할 수 있도록 합니다.
+Windows Server 2008(_R2_ 가 아님)에 설치된 SQL Server 2008 및 2008 R2는 SQL IaaS 에이전트 확장에 [에이전트 없음 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)로만 등록할 수 있습니다. 이 옵션은 규정 준수를 보장하고 제한된 기능으로 Azure Portal에서 SQL Server VM을 모니터링할 수 있도록 합니다.
 
 **라이선스 형식** 에 `AHUB`, `PAYG` 또는 `DR`을 지정합니다. **이미지 제품** 에 `SQL2008-WS2008` 또는 `SQL2008R2-WS2008`을 지정합니다.
 
@@ -167,9 +210,10 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ---
 
+
 ## <a name="check-extension-mode"></a>확장 모드 확인
 
-Azure PowerShell을 사용하여 SQL Server IaaS 에이전트 확장이 있는 모드를 확인합니다. 
+Azure PowerShell을 사용하여 SQL Server IaaS 에이전트 확장이 있는 관리 모드를 확인합니다. 
 
 확장의 모드를 확인하려면 다음 Azure PowerShell cmdlet을 사용합니다. 
 
@@ -183,9 +227,6 @@ $sqlvm.SqlManagementType
 
 *경량* 모드로 확장에 등록된 SQL Server VM은 Azure Portal, Azure CLI 또는 Azure PowerShell을 사용하여 _전체_ 모드로 업그레이드할 수 있습니다. _에이전트 없음_ 모드의 SQL Server VM은 OS를 Windows 2008 R2 이상으로 업그레이드한 후 _전체_ 모드로 업그레이드할 수 있습니다. 다운그레이드할 수는 없습니다. 그러려면 SQL Server VM을 SQL IaaS Agent 확장에서 [등록 취소](#unregister-from-extension)해야 합니다. 이렇게 하면 **SQL 가상 머신** _리소스_ 가 제거되지만 실제 가상 머신은 삭제되지 않습니다.
 
-> [!NOTE]
-> SQL IaaS 확장의 관리 모드를 전체 모드로 업그레이드하면 SQL Server 서비스가 다시 시작됩니다. 경우에 따라 다시 시작 후 SQL Server 서비스와 연결된 SPN(서비스 사용자 이름)이 잘못된 사용자 계정으로 변경될 수 있습니다. 관리 모드를 전체 모드로 업그레이드한 후 연결 문제가 있으면 [SPN을 등록 취소한 후 다시 등록](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections)합니다.
-
 ### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal을 사용하여 확장을 전체 모드로 업그레이드하려면 다음 단계를 수행합니다.
@@ -193,13 +234,13 @@ Azure Portal을 사용하여 확장을 전체 모드로 업그레이드하려면
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. [SQL 가상 머신](manage-sql-vm-portal.md#access-the-resource) 리소스로 이동합니다.
 1. SQL Server VM을 선택하고 **개요** 를 선택합니다.
-1. SQL Server VM이 에이전트 없음 또는 경량 IaaS 모드인 경우 **SQL IaaS 확장에서는 라이선스 유형 및 버전 업데이트만 사용할 수 있습니다** 메시지를 선택합니다.
+1. SQL Server VM이 에이전트 없음 또는 경량 IaaS 모드인 경우 **현재 SQL IaaS 확장에서는 라이선스 유형 및 버전 업데이트만 사용할 수 있습니다...** 메시지를 선택합니다.
 
    ![포털에서 모드를 변경하기 위한 선택 항목](./media/sql-agent-extension-manually-register-single-vm/change-sql-iaas-mode-portal.png)
 
-1. **가상 머신에서 SQL Server 서비스를 다시 시작하는 데 동의합니다.** 확인란을 선택한 다음, **확인** 을 선택하여 IaaS 모드를 전체로 업그레이드합니다.
+1. **확인** 을 선택하여 SQL Server 확장 IaaS 모드를 전체로 업그레이드합니다.
 
-    ![가상 머신에서 SQL Server 서비스를 다시 시작하는 데 동의하는 확인란](./media/sql-agent-extension-manually-register-single-vm/enable-full-mode-iaas.png)
+    ![**확인**을 선택하여 SQL Server 확장 IaaS 모드를 전체로 업그레이드합니다.](./media/sql-agent-extension-manually-register-single-vm/enable-full-mode-iaas.png)
 
 ### <a name="command-line"></a>명령 줄
 
@@ -281,7 +322,6 @@ SQL IaaS 에이전트 확장이 실패한 상태일 수 있습니다. Azure Port
 1. 프로비저닝 상태가 **실패** 로 표시되는 경우 **복구** 를 선택하여 확장을 복구합니다. 상태가 **성공** 인 경우 **강제 복구** 옆에 있는 확인란을 선택하여 상태에 관계없이 확장을 복구할 수 있습니다. 
 
    ![프로비저닝 상태가 **실패**로 표시되는 경우 **복구**를 선택하여 확장을 복구합니다. 상태가 **성공**인 경우 **강제 복구** 옆에 있는 확인란을 선택하여 상태에 관계없이 확장을 복구할 수 있습니다.](./media/sql-agent-extension-manually-register-single-vm/force-repair-extension.png)
-
 
 
 ## <a name="unregister-from-extension"></a>확장에서 등록 취소

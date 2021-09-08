@@ -2,13 +2,13 @@
 title: Bicep의 데이터 형식
 description: Bicep에서 사용 가능한 데이터 형식 설명
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 31f2c6e979acb3b0b622bc63ffb8a2845179491d
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 08/30/2021
+ms.openlocfilehash: f520e314aff783a78e1656c16721f0fb8504215b
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026866"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221699"
 ---
 # <a name="data-types-in-bicep"></a>Bicep의 데이터 형식
 
@@ -32,6 +32,23 @@ Bicep 내에서 다음 데이터 형식을 사용할 수 있습니다.
 
 배열에서 각 항목은 [임의 형식](bicep-functions-any.md)으로 표시됩니다. 각 항목이 동일한 데이터 형식인 배열 또는 서로 다른 데이터 형식을 포함하는 배열이 있을 수 있습니다.
 
+다음 예제에서는 정수의 배열과 다양한 형식의 배열을 보여줍니다.
+
+```bicep
+var integerArray = [
+  1
+  2
+  3
+]
+
+var mixedArray = [
+  resourceGroup().name
+  1
+  true
+  'example string'
+]
+```
+
 Bicep의 배열은 0부터 사용됩니다. 다음 예제에서 `exampleArray[0]` 식은 1로 계산되고 `exampleArray[2]` 식은 3으로 계산됩니다. 인덱서의 인덱스는 다른 식일 수 있습니다. `exampleArray[index]` 식은 2로 계산됩니다. 정수 인덱서는 배열 형식의 식에만 사용할 수 있습니다.
 
 ```bicep
@@ -41,40 +58,6 @@ var exampleArray = [
   1
   2
   3
-]
-```
-
-Bicep에서는 문자열 기반 인덱서가 허용됩니다.
-
-```bicep
-param environment string = 'prod'
-
-var environmentSettings = {
-  dev: {
-    name: 'dev'
-  }
-  prod: {
-    name: 'prod'
-  }
-}
-```
-
-environmentSettings[‘dev’] 식은 다음 개체로 계산됩니다.
-
-```bicep
-{
-  name: 'dev'
-}
-```
-
-다음 예제에서는 여러 다른 형식의 배열을 보여 줍니다.
-
-```bicep
-var mixedArray = [
-  resourceGroup().name
-  1
-  true
-  'example string'
 ]
 ```
 
@@ -113,21 +96,38 @@ param exampleObject object = {
 }
 ```
 
-속성 접근자는 개체의 속성에 액세스하는 데 사용됩니다. `.` 연산자를 사용하여 구성됩니다. 예를 들면 다음과 같습니다.
+속성 접근자는 개체의 속성에 액세스하는 데 사용됩니다. `.` 연산자를 사용하여 구성됩니다.
 
 ```bicep
-var x = {
-  y: {
-    z: 'Hello`
-    a: true
+var a = {
+  b: 'Dev'
+  c: 42
+  d: {
+    e: true
   }
-  q: 42
 }
+
+output result1 string = a.b // returns 'Dev' 
+output result2 int = a.c // returns 42
+output result3 bool = a.d.e // returns true
 ```
 
-이전 선언이 지정된 경우 식 x.y.z는 리터럴 문자열 ‘Hello’로 평가됩니다. 마찬가지로 식 x.q는 정수 리터럴 42로 평가됩니다.
-
 속성 접근자는 개체 유형 및 개체 리터럴의 매개변수 및 변수를 포함한 모든 개체와 함께 사용할 수 있습니다. 개체가 아닌 형식의 식에서 속성 접근자를 사용하면 오류가 발생합니다.
+
+`[]` 구문을 사용하여 속성에 액세스할 수도 있습니다. 다음 예에서는 `Development`를 반환합니다.
+
+```bicep
+var environmentSettings = {
+  dev: {
+    name: 'Development'
+  }
+  prod: {
+    name: 'Production'
+  }
+}
+
+output accessorResult string = environmentSettings['dev'].name
+```
 
 ## <a name="strings"></a>문자열
 

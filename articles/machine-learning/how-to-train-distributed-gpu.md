@@ -1,20 +1,20 @@
 ---
 title: 분산 GPU 학습 가이드
 titleSuffix: Azure Machine Learning
-description: MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face 변환기, TensorFlow 및 InfiniBand를 통해 분산 학습합니다.
+description: MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow, InfiniBand 같은 Azure Machine Learning 지원 프레임워크를 사용하여 분산 교육을 수행하기 위한 모범 사례를 알아봅니다.
 author: fuhuifang
 ms.author: fufang
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/12/2021
-ms.openlocfilehash: dc51354605dacba641e5f63f521e448713eec5a5
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.date: 08/19/2021
+ms.openlocfilehash: ff95cb0004fbde34e70bcb778d93a2f381dc5830
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122610086"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122661657"
 ---
 # <a name="distributed-gpu-training-guide"></a>분산 GPU 학습 가이드
 
@@ -35,7 +35,7 @@ Azure ML(Machine Learning)에서 분산 GPU 학습 코드를 사용하는 방법
     * TensorFlow 환경 변수(TF_CONFIG)
 * InfiniBand를 통해 GPU 학습 가속화
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 _데이터 병렬 처리_, _분산 데이터 병렬 처리_, _모델 병렬 처리_ 등 [분산 GPU 학습의 기본 개념](concept-distributed-training.md)을 검토합니다.
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 14d2372defc67b5cd619c888a43d09b5b10af846
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 57d211a7a080cc07d30a5810c4e1660c575acff3
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122636095"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123078348"
 ---
 이 문서에서는 릴리스된 Azure Active Directory Connect Provisioning Agent의 버전과 기능을 나열합니다. Azure AD 팀은 새로운 기능과 기능으로 프로비전 에이전트를 정기적으로 업데이트합니다. 
 
@@ -12,6 +12,14 @@ Microsoft에서는 최신 에이전트 버전 및 이전 버전을 직접 지원
 
 ## <a name="download-link"></a>다운로드 링크
 [이 링크](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller)를 사용하여 최신 버전의 에이전트를 다운로드할 수 있습니다.
+
+## <a name="115840"></a>1.1.584.0 
+
+2021년 8월 20일 - 다운로드용으로 릴리스됨
+
+### <a name="fixed-issues"></a>해결된 문제
+
+- 도메인 이름을 바꾸면 이벤트 로그에서 “지정된 캐스트가 유효하지 않음”을 나타내는 오류와 함께 암호 해시 동기화가 실패하는 버그를 수정했습니다. 이는 이전 빌드에서 발생한 버그가 재발한 것입니다.
 
 ## <a name="115820"></a>1.1.582.0
 
@@ -51,7 +59,7 @@ Microsoft에서는 최신 에이전트 버전 및 이전 버전을 직접 지원
 ### <a name="fixed-issues"></a>해결된 문제
 -    범위 지정 그룹이 범위를 벗어난 경우 격리 방지
 -   범위 지정 필터가 구성된 경우 - PHS 작업은 이제 범위 내 사용자에 대해서만 작동
--   업그레이드하는 동안 에이전트가 잠시 중단됨
+-   업그레이드 중 에이전트가 때때로 응답하지 않음
 -   OU 범위 지정을 사용하는 경우 중첩된 OU의 개체에 대한 초기 동기화
 -   더 강력해진 Repair-AADCloudSyncToolsAccount
 -   OU 범위 지정 필터의 대규모 메모리 사용량 감소

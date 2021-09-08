@@ -1,20 +1,20 @@
 ---
 title: 자습서 - Android 앱 마이그레이션 | Microsoft Azure Maps
 description: Android 앱을 Google Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법에 대한 자습서
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 95f24173f584cd6ac6e97ccae053706ff5b8f2cf
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 3c41a7b8efad5ab0235adb396d0170f5385e21c6
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091468"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437817"
 ---
 # <a name="tutorial-migrate-an-android-app-from-google-maps"></a>자습서: Google Maps에서 Android 앱 마이그레이션
 
@@ -546,7 +546,7 @@ baseContext.resources.updateConfiguration(
 
 Azure Maps는 맵의 언어 및 지역 보기를 설정하는 세 가지 방법을 제공합니다. 첫 번째 옵션은 언어 및 지역 보기 정보를 `AzureMaps` 클래스에 전달하는 것입니다. 이 옵션은 정적 `setLanguage` 및 `setView` 메서드를 전역적으로 사용합니다. 즉, 앱에 로드된 모든 Azure Maps 컨트롤에서 기본 언어 및 지역 보기가 설정됩니다. 다음 예제에서는 &quot;fr-FR&quot; 언어 코드를 사용하여 프랑스어를 설정합니다.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
 static {

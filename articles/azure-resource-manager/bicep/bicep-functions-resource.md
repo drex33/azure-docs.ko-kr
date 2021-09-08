@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: 9b97170e3ff434d40007e46952a52335e5f900b3
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: a83c0f442e88bc2fe0320fe8affe5b114a28a897
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567792"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123314329"
 ---
 # <a name="resource-functions-for-bicep"></a>Bicep의 리소스 함수
 
@@ -20,6 +20,7 @@ Resource Manager는 Bicep 파일에서 리소스 값을 가져오기 위해 다�
 * [getSecret](#getsecret)
 * [list*](#list)
 * [pickZones](#pickzones)
+* [providers(사용되지 않음)](#providers)
 * [reference](#reference)
 * [resourceId](#resourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
@@ -181,11 +182,11 @@ module sql './sql.bicep' = {
 
 이 함수의 구문은 목록 작업의 이름에 따라 다릅니다. 또한 반환된 값은 연산에 따라 달라집니다. Bicep은 현재 `list*` 함수 완성 및 유효성 검사를 지원하지 않습니다.
 
-**Bicep 버전 0.4.412 이상** 에서는 [접근자 연산자](operators-access.md#function-accessor)를 사용하여 목록 함수를 호출합니다. `stg.listKeys()`)을 입력합니다. 
+**Bicep 버전 0.4.412 이상** 에서는 [접근자 연산자](operators-access.md#function-accessor)를 사용하여 목록 함수를 호출합니다. 예: `stg.listKeys()`. 
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | apiVersion |예 |문자열 |이 매개 변수를 제공하지 않으면 리소스에 대한 API 버전이 사용됩니다. 함수를 특정 버전으로 실행해야 하는 경우에만 사용자 지정 API 버전을 제공합니다. **yyyy-mm-dd** 형식을 사용합니다. |
 | functionValues |예 |object | 함수에 대한 값이 있는 개체입니다. 스토리지 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. |
@@ -476,6 +477,10 @@ output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2'
 | notSupportedType | array | [] |
 
 pickZones의 응답을 사용하여 영역에 대해 null을 제공하거나 다른 영역에 가상 머신을 할당할지 여부를 결정할 수 있습니다.
+
+## <a name="providers"></a>providers
+
+**providers 함수는 더 이상 사용되지 않습니다.** 더는 사용하지 않는 것이 좋습니다. 리소스 공급자의 API 버전을 가져오기 위해 이 함수를 사용한 경우 템플릿에 특정 API 버전을 제공하는 것이 좋습니다. 버전 간에 속성이 변경된 경우 동적으로 반환된 API 버전을 사용하면 템플릿이 손상될 수 있습니다.
 
 ## <a name="reference"></a>reference
 

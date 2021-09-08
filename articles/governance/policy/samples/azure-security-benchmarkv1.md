@@ -1,15 +1,15 @@
 ---
 title: Azure 보안 벤치마크 v1에 대한 규정 준수 세부 정보
 description: Azure 보안 벤치마크 v1 규정 준수 기본 제공 이니셔티브의 세부 정보. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 8fd470306d5eb5b3b7538bc422f2a3e703637630
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 89add22a7cbe6bd1df8bcd35f3b54dd47137fba4
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111440"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469107"
 ---
 # <a name="details-of-the-azure-security-benchmark-v1-regulatory-compliance-built-in-initiative"></a>Azure 보안 벤치마크 v1 규정 준수 기본 제공 이니셔티브의 세부 정보
 

@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 31bb35a096845c489b0f141a601ee604253e6ef9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fd6826370a0292190fc2534585fdb08f7982f447
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566906"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698701"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Azure Backup을 사용하여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 이 문서에서는 Azure Backup을 사용하여 데이터베이스 파일 및 빠른 복구 영역을 포함하는 VM 디스크의 디스크 스냅샷을 만드는 방법을 보여 줍니다. Azure Backup을 사용하면 [Recovery Services 자격 증명 모음](../../../backup/backup-azure-recovery-services-vault-overview.md)에 저장되는 백업으로 적합한 전체 디스크 스냅샷을 만들 수 있습니다.  또한 Azure Backup은 데이터를 복원하기 위한 추가 수정이 필요하지 않은 애플리케이션 일치 백업도 제공합니다. 애플리케이션 일치 데이터를 복원하면 실행 상태로 빠르게 돌아갈 수 있으므로 복원 시간을 줄여줍니다.
 

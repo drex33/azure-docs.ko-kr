@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 08/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 454c59b5f5f5d0781f99f21b612ac2a3fc904fb9
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 9a00022227959d8506bd976c33787bcc5a23273f
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537630"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778803"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -238,7 +238,7 @@ Azure DevOps Services나 GitHub와 같은 외부 서비스는 Azure Automation�
 
 Azure 클라우드에 있는 모든 Runbook리소스를 공유할 수 있도록 공평 분배라는 개념을 사용합니다. Azure는 공평 분배를 사용하여 3시간 이상 실행된 작업을 일시적으로 언로드하거나 중지합니다. [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 및 [Python Runbook](automation-runbook-types.md#python-runbooks)의 작업은 중지된 후 다시 시작되지 않으며 작업 상태는 중지됨으로 설정됩니다.
 
-장기 실행 Azure Automation 작업의 경우 Hybrid Runbook Worker를 사용하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배로 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다. 다른 작업 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)은 Azure 샌드박스 및 Hybrid Runbook Worker에 모두 적용됩니다. Hybrid Runbook Worker는 3시간으로 제한되지 않지만 예기치 않은 로컬 인프라 문제로 인한 다시 시작을 지원하는 작업자에서 실행할 Runbook을 개발해야 합니다.
+장기 실행 Azure Automation 작업의 경우 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 사용하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배로 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다. 다른 작업 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)은 Azure 샌드박스 및 Hybrid Runbook Worker에 모두 적용됩니다. Hybrid Runbook Worker는 3시간으로 제한되지 않지만 예기치 않은 로컬 인프라 문제로 인한 다시 시작을 지원하는 작업자에서 실행할 Runbook을 개발해야 합니다.
 
 또 다른 옵션은 자식 Runbook을 사용하여 Runbook을 최적화하는 것입니다. 예를 들어 Runbook이 여러 리소스에서 동일한 함수를 반복하는 경우(예: 여러 데이터베이스의 데이터베이스 작업에서) 해당 함수를 [자식 Runbook](automation-child-runbooks.md)으로 이동한 다음 Runbook에서 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook)을 사용하여 이 함수를 호출하도록 할 수 있습니다. 자식 Runbook은 별도의 프로세스에서 병렬로 실행됩니다.
 

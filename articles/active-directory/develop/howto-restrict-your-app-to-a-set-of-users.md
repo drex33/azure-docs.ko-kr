@@ -13,14 +13,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5ced85c19eb8999c839861eb421ebb9d73ea63a6
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: d36d3dca584499e5bc9508c99485507b198159c6
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112369378"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123036430"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>방법: Azure AD 테넌트에서 Azure AD 앱을 사용자 집합으로 제한
+# <a name="restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Azure AD 테넌트에서 Azure AD 앱을 사용자 세트로 제한
 
 기본적으로 Azure AD(Azure Active Directory) 테넌트에 등록된 애플리케이션은 성공적으로 인증한 테넌트의 모든 사용자에게 제공됩니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "112369378"
 1. **저장** 을 선택합니다.
 
 > [!NOTE]
-> 애플리케이션에 할당이 필요한 경우 해당 애플리케이션에 대한 사용자 동의가 허용되지 않습니다. 이는 해당 앱에 대한 사용자 동의가 허용된 경우에도 마찬가지입니다. 할당이 필요한 앱에 대해 [테넌트 전체 관리자 동의를 부여](../manage-apps/grant-admin-consent.md)해야 합니다. 
+> 애플리케이션에 할당이 필요한 경우 해당 애플리케이션에 대한 사용자 동의가 허용되지 않습니다. 이는 해당 앱에 대한 사용자 동의가 다른 방식으로 허용된 경우에도 마찬가지입니다. 할당이 필요한 앱에 대해 [테넌트 전체 관리자 동의를 부여](../manage-apps/grant-admin-consent.md)해야 합니다. 
 
 ## <a name="assign-the-app-to-users-and-groups"></a>앱에 사용자 및 그룹 할당
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: a877ee39c2d5a3760df50ebb3575793d1500de96
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 0430217ab8c2f113127c6a2e519d9e394fc3d3e7
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110795535"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318684"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 
@@ -73,7 +73,12 @@ ms.locfileid: "110795535"
 2. **스토리지 컨테이너 선택** 을 선택하고 원하는 스토리지 계정을 선택합니다. 스토리지 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
 
    > [!IMPORTANT]
-   > 내보내기는 페이지 Blob에서 사용할 수 있고, 클래식 및 Resource Manager 스토리지 계정 양쪽 모두에서 지원됩니다. 현재 Blob 스토리지 계정에서는 내보내기가 지원되지 않습니다. 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
+   >
+   > - 내보내기는 페이지 Blob에서 사용할 수 있고, 클래식 및 Resource Manager 스토리지 계정 양쪽 모두에서 지원됩니다.
+   > - Azure Cache for Redis는 ADLS Gen2 스토리지 계정으로 내보내기를 지원하지 않습니다.
+   > - 현재 Blob 스토리지 계정에서는 내보내기가 지원되지 않습니다.
+   >
+   > 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
    >
 
     ![스토리지 계정](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
@@ -154,7 +159,7 @@ Azure Cache for Redis 지속성을 사용하면 Redis에 저장된 데이터를 
 
 왼쪽에서, 작업을 시작하기 전에 **데이터 가져오기** 나 **데이터 내보내기** 에 15분 넘게 머무르는 경우 다음 예제와 유사한 오류 메시지를 받게 됩니다.
 
-```output
+```azcopy
 The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
 ```
 

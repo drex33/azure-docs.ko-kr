@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: 3f6ad09e7d52ca56dcb1eb06827513f03c8581e7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 16b157e9a26a1a512d4d0ef94db1816210f8cf16
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642323"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123304661"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon S3(단순 저장 서비스)에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -55,13 +55,37 @@ Amazon S3 사용 권한의 전체 목록은 AWS 웹 사이트에서 [정책에�
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
 
+## <a name="create-an-amazon-simple-storage-service-s3-linked-service-using-ui"></a>UI를 사용하여 Amazon S3(Simple Storage Service) 연결 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Amazon S3 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하고 연결된 서비스를 선택한 다음 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 연결된 새 서비스를 만드는 스크린샷.":::
+
+2. Amazon을 검색하고 Amazon S3 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-amazon-simple-storage-service/amazon-simple-storage-service-connector.png" alt-text="Amazon S3 커넥터의 스크린샷.":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-amazon-simple-storage-service/configure-amazon-simple-storage-service-linked-service.png" alt-text="Amazon S3 연결 서비스의 구성 스크린샷.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
 다음 섹션에서는 Amazon S3에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 속성 **유형** 은 **AmazonS3** 으로 설정되어야 합니다. | 예 |
 | authenticationType | Amazon S3에 연결하는 데 사용할 인증 유형을 지정합니다. AWS ID 및 액세스 관리(IAM) 계정 또는 [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)에 대한 액세스 키를 사용하도록 선택할 수 있습니다.<br>허용되는 값은 `AccessKey`(기본값) 및 `TemporarySecurityCredentials`입니다. |예 |
@@ -129,7 +153,7 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 데이터 세트의 `location` 설정에서 Amazon S3에 다음 속성이 지원됩니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트의 `location`에서 속성 **유형** 은 **AmazonS3Location** 으로 설정되어야 합니다. | 예      |
 | bucketName | S3 버킷 이름입니다.                                          | 예      |
@@ -174,7 +198,7 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 Amazon S3에 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수                                                    |
+| 속성                 | Description                                                  | 필수                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | `storeSettings`에서의 속성 **유형** 은 **AmazonS3ReadSettings** 로 설정되어야 합니다. | 예                                                         |
 | ***복사할 파일 찾기:*** |  |  |
@@ -277,7 +301,7 @@ Amazon S3의 파일을 Azure Data Lake Storage Gen2 또는 Azure Blob 스토리�
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 속성 **유형** 을 **AmazonS3Object** 로 설정해야 합니다. |예 |
 | bucketName | S3 버킷 이름입니다. 와일드카드 필터는 지원되지 않습니다. |복사 또는 조회 작업의 경우 예, GetMetadata 작업의 경우 아니요 |
@@ -357,7 +381,7 @@ Amazon S3의 파일을 Azure Data Lake Storage Gen2 또는 Azure Blob 스토리�
 
 ### <a name="legacy-source-model-for-the-copy-activity"></a>복사 작업에 대한 레거시 원본 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 속성 **유형** 을 **FileSystemSource** 로 설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. **recursive** 를 **true** 로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용되는 값은 **true**(기본값) 및 **false** 입니다. | 예 |

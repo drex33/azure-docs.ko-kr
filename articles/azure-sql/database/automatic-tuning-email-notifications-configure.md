@@ -11,12 +11,12 @@ author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
 ms.date: 06/03/2019
-ms.openlocfilehash: 7216978845921e4b35c4cb3485379054cbf5cfff
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 8e1c8288317ee5d0424ee633a14431d87a78175f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591815"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866358"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Azure SQL Database 자동 조정 권장 사항은 [Azure Portal](database-adviso
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>자동 조정 권장 사항에 대한 이메일 알림 자동화
 
-다음 솔루션은 자동 조정 권장 사항을 포함하는 이메일 알림 전송을 자동화합니다. 설명된 솔루션은 [Azure Automation](../../automation/automation-intro.md)을 사용하여 조정 권장 사항을 검색하기 위한 PowerShell 스크립트의 실행 자동화와 [Microsoft Flow](https://flow.microsoft.com)를 사용한 전자 메일 전달 작업 예약 자동화로 구성됩니다.
+다음 솔루션은 자동 조정 권장 사항을 포함하는 이메일 알림 전송을 자동화합니다. 설명된 솔루션은 [Azure Automation](../../automation/automation-intro.md)을 사용하여 튜닝 권장 사항을 검색하기 위한 PowerShell 스크립트의 실행 자동화와 [Microsoft Power Automate](https://flow.microsoft.com)를 사용한 이메일 전달 작업 예약 자동화로 구성됩니다.
 
 ## <a name="create-azure-automation-account"></a>Azure Automation 계정 만들기
 
@@ -181,17 +181,17 @@ Write-Output $table
 
 위 단계를 따르면 자동 조정 권장 사항을 검색하는 PowerShell 스크립트가 Azure Automation에 로드됩니다. 다음 단계는 전자 메일 배달 작업을 자동화하고 예약하는 것입니다.
 
-## <a name="automate-the-email-jobs-with-microsoft-flow"></a>Microsoft Flow를 사용하여 전자 메일 작업 자동화
+## <a name="automate-the-email-jobs-with-microsoft-power-automate"></a>Microsoft Power Automate로 이메일 작업 자동화
 
-솔루션을 완료하려면 최종 단계로, Microsoft Flow에서 다음 3가지 작업으로 구성되는 자동화 흐름을 만듭니다.
+솔루션을 완료하려면 최종 단계로, Microsoft Power Automate에서 다음 3가지 작업으로 구성되는 자동화 흐름을 만듭니다.
 
 - "**Azure Automation - 작업 만들기**" – Azure Automation Runbook 내에서 자동 조정 권장 사항을 검색하기 위한 PowerShell 스크립트를 실행하는 데 사용합니다.
 - "**Azure Automation - 작업 출력 가져오기**" – 실행된 PowerShell 스크립트에서 출력을 검색하는 데 사용합니다.
 - "**Office 365 Outlook - 이메일 보내기**" – 이메일을 보내는 데 사용합니다. 이메일은 흐름을 만드는 개인의 회사 또는 학교 계정을 사용하여 전송됩니다.
 
-Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](/flow/getting-started)을 참조하세요.
+Microsoft Power Automate 기능에 대한 자세한 내용은 [Microsoft Power Automate 시작](/power-automate/getting-started)을 참조하세요.
 
-이 단계의 필수 구성 요소는 [Microsoft Flow](https://flow.microsoft.com) 계정을 등록하고 로그인하는 것입니다. 솔루션 내부에서 다음 단계에 따라 **새 흐름** 을 설정합니다.
+이 단계의 필수 구성 요소는 [Microsoft Power Automate](https://flow.microsoft.com) 계정을 등록하고 로그인하는 것입니다. 솔루션 내부에서 다음 단계에 따라 **새 흐름** 을 설정합니다.
 
 1. "**내 흐름**" 메뉴 항목에 액세스합니다.
 1. 내 흐름 내의 페이지 위쪽에서 " **+빈 페이지에서 만들기**" 링크를 선택합니다.

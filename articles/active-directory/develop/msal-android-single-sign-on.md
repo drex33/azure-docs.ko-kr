@@ -14,14 +14,14 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: f3d4ec8db89e9bebfdcd594e842a6c19d3d66d54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f5e096f5f313f785311c4a6acbaf87fbfe2a38c
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104096"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123034389"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>방법: MSAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정
+# <a name="enable-cross-app-sso-on-android-using-msal"></a>MSAL을 사용하여 Android에서 앱 간 SSO 사용
 
 SSO(Single Sign-On)으로 사용자가 자격 증명을 한 번 입력하면 해당 자격 증명이 모든 애플리케이션에서 자동으로 작동하도록 할 수 있습니다.
 

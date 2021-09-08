@@ -4,12 +4,12 @@ description: Azure Functions는 여러 버전의 런타임을 지원합니다. �
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/19/2021
-ms.openlocfilehash: 18f37bba5996e7d376684e8cee646dd705ab966c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 901297e34f259f9246b79ace2cc914f46b7d3b45
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528289"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251494"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -112,7 +112,7 @@ Azure Functions 버전 3.x는 이전 버전 2.x와 호환됩니다.  많은 앱�
 
 버전 2.x에서 다음과 같은 사항이 변경되었습니다.
 
-* HTTP 엔드포인트를 호출하기 위한 키는 항상 Azure Blob Storage에 암호화된 상태로 저장됩니다. 버전 1.x에서는 키가 기본적으로 Azure File Storage에 저장되었습니다. 앱을 버전 1.x에서 버전 2.x로 업그레이드할 때 파일 스토리지에 있는 기존 암호가 다시 설정됩니다.
+* HTTP 엔드포인트를 호출하기 위한 키는 항상 Azure Blob Storage에 암호화된 상태로 저장됩니다. 버전 1.x에서는 키가 기본적으로 Azure Files에 저장되었습니다. 앱을 버전 1.x에서 버전 2.x로 업그레이드할 때 Azure Files에 있는 기존 암호가 다시 설정됩니다.
 
 * 버전 2.x 런타임에서는 웹후크 공급자가 기본적으로 지원되지 않습니다. 성능 향상을 위해 이렇게 변경되었습니다. HTTP 트리거를 여전히 웹후크에 대한 엔드포인트로 사용할 수 있습니다.
 

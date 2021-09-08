@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: mathoma
 ms.date: 05/10/2020
-ms.openlocfilehash: 98aa190e85b0c613b4bf2224c0a3cf6637011de4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7ba5da1b452f411966e40d4ff991bbda9fdb88f7
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535992"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867420"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance(미리 보기)를 사용하여 트랜잭션 복제
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -61,7 +61,7 @@ Azure SQL Managed Instance는 다음 버전의 SQL Server에서 구독자가 되
 
 - SQL Server 2016 이상
 - SQL Server 2014 [RTM CU10(12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) 또는 [SP1 CU3(12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
-- SQL Server 2012 [SP2 CU8(11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) 또는 [SP3(11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
+- SQL Server 2012 [SP2 CU8(11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) 또는 [SP3(11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996) 또는 [SP4(11.0.7001.0)](https://www.microsoft.com/download/details.aspx?id=56040)
 
    > [!NOTE]
    >

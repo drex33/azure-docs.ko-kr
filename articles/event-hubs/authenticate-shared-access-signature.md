@@ -4,12 +4,12 @@ description: 이 문서에서는 공유 액세스 서명을 사용하여 Event H
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f647dd21db2920bff01ac5929c527e66f8d7350b
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 18b338f42ecd0f12e361aaf1defcfed22e0aaad7
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708530"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123307110"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>SAS(공유 액세스 서명)를 사용하여 Event Hubs 리소스에 대한 액세스 인증
 SAS(공유 액세스 서명)를 사용하면 공유 액세스 서명을 보유한 클라이언트에 부여하는 액세스 유형을 세부적으로 제어할 수 있습니다. SAS에서 설정할 수 있는 몇 가지 컨트롤은 다음과 같습니다. 
@@ -59,13 +59,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 토큰은 수신자가 동일한 매개 변수를 사용하여 해시를 다시 계산할 수 있도록 발급자가 유효한 서명 키를 소유하는지 확인하여 해시되지 않은 값을 포함합니다.
 
-리소스 URI은 액세스를 하려는 Service Bus 리소스의 전체 URI입니다. 예를 들어, http://<namespace>.servicebus.windows.net/<entityPath> 또는 `sb://<namespace>.servicebus.windows.net/<entityPath>;` 즉, `http://contoso.servicebus.windows.net/eh1`입니다.
+리소스 URI은 액세스를 하려는 Service Bus 리소스의 전체 URI입니다. 예를 들면 `http://<namespace>.servicebus.windows.net/<entityPath>` 또는 `sb://<namespace>.servicebus.windows.net/<entityPath>`입니다. 즉, `http://contoso.servicebus.windows.net/eh1`과 같습니다.
 
 URI는 %로 인코딩되어야 합니다.
 
 이 URI로 또는 부모 계층 중 하나에 의해 지정된 엔터티에 서명에 사용된 공유 액세스 권한 부여 규칙을 구성해야 합니다. 예를 들어 이전 예에서 `http://contoso.servicebus.windows.net/eh1` 또는 `http://contoso.servicebus.windows.net`입니다.
 
-SAS 토큰은 서명 문자열에서 사용된 <resourceURI>를 접두사로 추가하는 모든 리소스에 유효합니다.
+SAS 토큰은 서명 문자열에서 사용된 `<resourceURI>`를 접두사로 추가하는 모든 리소스에 유효합니다.
 
 > [!NOTE]
 > 공유 액세스 정책을 사용하여 Event Hubs에 대한 액세스 토큰을 생성합니다. 자세한 내용은 [공유 액세스 권한 부여 정책](authorize-access-shared-access-signature.md#shared-access-authorization-policies)을 참조하세요.

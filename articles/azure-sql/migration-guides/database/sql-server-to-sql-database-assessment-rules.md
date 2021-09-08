@@ -10,12 +10,12 @@ author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 011420abfbd6bf5994aa65024651f2bbd34e1bf4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab030e8e4b86fc669325099e13650f8e1c178986
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536515"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835339"
 ---
 # <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Azure SQL Database로 SQL Server 마이그레이션 평가 규칙
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -317,7 +317,7 @@ ANSI 조인 구문을 사용합니다.
 
 
 **권장 사항**   
-Azure SQL Database 감사 기능으로 서버 감사를 대체하는 것이 좋습니다.  Azure SQL은 감사를 지원하며 기능은 SQL Server보다 더 다양합니다. Azure SQL 데이터베이스는 데이터 액세스, 스키마 변경(DDL), 데이터 변경(DML), 계정, 역할 및 권한(DCL, 보안 예외)을 비롯한 다양한 데이터베이스 작업 및 이벤트를 감사할 수 있습니다. Azure SQL Database 감사는 조직이 데이터베이스에 대한 업데이트와 쿼리 등 데이터베이스 안에서 발생하는 변경 내용과 이벤트에 대한 깊이 있는 인사이트를 얻는 능력을 높입니다. 또는 Azure SQL Managed Instance로 마이그레이션하거나 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
+Azure SQL Database 감사 기능으로 서버 감사를 대체하는 것이 좋습니다.  Azure SQL은 감사를 지원하며 기능은 SQL Server보다 더 다양합니다. Azure SQL Database는 데이터 액세스, 스키마 변경(DDL), 데이터 변경(DML), 계정, 역할 및 권한(DCL, 보안 예외)을 비롯한 다양한 데이터베이스 작업 및 이벤트를 감사할 수 있습니다. Azure SQL Database 감사는 조직이 데이터베이스에 대한 업데이트와 쿼리 등 데이터베이스 안에서 발생하는 변경 내용과 이벤트에 대한 깊이 있는 인사이트를 얻는 능력을 높입니다. 또는 Azure SQL Managed Instance로 마이그레이션하거나 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
 
 추가 정보: [Azure SQL Database에 대한 감사 ](../../database/auditing-overview.md)
 
@@ -409,7 +409,7 @@ Azure SQL Managed Instance로 마이그레이션하거나 Azure Virtual Machines
 **범주**: 경고   
 
 **설명**   
-지원되지 않는 다음 시스템 및 확장 저장 프로시저는 Azure SQL 데이터베이스에서 사용할 수 없습니다. `sp_dboption`, `sp_addserver`, `sp_dropalias`, `sp_activedirectory_obj`, `sp_activedirectory_scp`, `sp_activedirectory_start`.
+지원되지 않는 다음 시스템 및 확장 저장 프로시저는 Azure SQL Database에서 사용할 수 없습니다. `sp_dboption`, `sp_addserver`, `sp_dropalias`, `sp_activedirectory_obj`, `sp_activedirectory_scp`, `sp_activedirectory_start`.
 
 
 **권장 사항**    

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
-ms.openlocfilehash: d4004887a4806a5b8e50429031fb204f4eec5000
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0130379b5c9225329bde1d49c119eaec446d17de
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627968"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112626"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 복잡한 데이터 형식 분석
 
@@ -220,5 +220,6 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Spark를 사용하여 Azure Cosmos DB용 Synapse Link를 쿼리하는 방법 알아보기](./synapse-link/how-to-query-analytical-store-spark.md)
+* [Spark 3을 사용하여 Azure Cosmos DB용 Synapse Link를 쿼리하는 방법 알아보기](./synapse-link/how-to-query-analytical-store-spark-3.md)
+* [Spark 2를 사용하여 Azure Cosmos DB용 Synapse Link를 쿼리하는 방법 알아보기](./synapse-link/how-to-query-analytical-store-spark.md)
 * [Parquet 중첩 형식 쿼리](./sql/query-parquet-nested-types.md)

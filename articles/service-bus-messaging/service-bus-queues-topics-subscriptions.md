@@ -2,13 +2,13 @@
 title: Azure Service Bus 메시징 - 큐, 토픽 및 구독
 description: 이 문서에서는 Azure Service Bus 메시징 엔터티(큐, 토픽 및 구독)에 대한 개요를 제공합니다.
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: c3e50c5f8487a0f6dc26a50ec6bfb10f4136f899
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.date: 08/27/2021
+ms.openlocfilehash: 8756da7f4000f5ef3b478567934ba99a90b0ab4c
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479098"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123102270"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
 Azure Service Bus는 신뢰할 수 있는 메시지 큐 및 지속형 게시/구독 메시징을 포함하여 클라우드 기반, 메시지 지향 미들웨어 기술 집합을 지원합니다. 이러한 조정된 메시징 기능은 Service Bus 메시징 워크로드를 사용하여 분리된 메시징 기능 게시-구독, 임시 분리 및 부하 분산 시나리오로 여겨질 수 있습니다. 분리된 통신에는 많은 이점이 있습니다. 예를 들어 필요하면 클라이언트와 서버가 연결되고 비동기 방식으로 작업을 수행할 수 있습니다.
@@ -23,7 +23,7 @@ Service Bus에서 메시지 기능의 핵심이 되는 메시지 엔터티는 **
 메시지 생산자와 소비자 간을 중개하는 큐를 사용하면 구성 요소 간에 내재하는 느슨한 연결을 제공합니다. 생산자와 소비자가 서로를 인식하지 않기 때문에 생산자에 영향을 주지 않고 소비자를 업그레이드할 수 있습니다.
 
 ### <a name="create-queues"></a>큐 만들기
-[Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md) 또는 [Resource Manager 템플릿](service-bus-resource-manager-namespace-queue.md)을 사용하여 큐를 만들 수 있습니다. 그런 다음 [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [PHP](service-bus-php-how-to-use-queues.md)로 작성된 클라이언트를 사용하여 메시지를 보내고 받습니다. 
+[Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md) 또는 [Resource Manager 템플릿](service-bus-resource-manager-namespace-queue.md)을 사용하여 큐를 만들 수 있습니다. 그런 다음 [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md) 및 [JavaScript](service-bus-nodejs-how-to-use-queues.md)로 작성된 클라이언트를 사용하여 메시지를 보내고 받습니다. 
 
 ### <a name="receive-modes"></a>수신 모드
 Service Bus에서 메시지를 받는 두 가지 모드를 지정할 수 있습니다.
@@ -46,12 +46,12 @@ Service Bus에서 메시지를 받는 두 가지 모드를 지정할 수 있습�
 큐의 메시지 보내기 기능은 토픽에 해당하고 메시지 받기 기능은 구독에 해당합니다. 다른 기능 중에서 이 기능은 구독에서 큐와 관련하여 이 섹션의 앞부분에서 설명한 동일한 패턴(경쟁 소비자, 임시 분리, 부하 평준화 및 부하 분산)을 지원한다는 것을 의미합니다.
 
 ### <a name="create-topics-and-subscriptions"></a>토픽 및 구독 만들기
-토픽을 만드는 것은 이전 섹션에서 설명한 대로 큐를 만드는 것과 비슷합니다. [Azure Portal](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-tutorial-topics-subscriptions-cli.md) 또는 [Resource Manager 템플릿](service-bus-resource-manager-namespace-topic.md)을 사용하여 토픽과 구독을 만들 수 있습니다. 그런 다음 [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md), [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md), [PHP](service-bus-php-how-to-use-topics-subscriptions.md)로 작성된 클라이언트를 사용하여 토픽에 메시지를 보내고 구독에서 메시지를 받습니다. 
+토픽을 만드는 것은 이전 섹션에서 설명한 대로 큐를 만드는 것과 비슷합니다. [Azure Portal](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-tutorial-topics-subscriptions-cli.md) 또는 [Resource Manager 템플릿](service-bus-resource-manager-namespace-topic.md)을 사용하여 토픽과 구독을 만들 수 있습니다. 그런 다음 [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md) 및 [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)로 작성된 클라이언트를 사용하여 토픽에 메시지를 보내고 구독에서 메시지를 받습니다. 
 
 ### <a name="rules-and-actions"></a>규칙 및 동작
 대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 이 처리를 사용하려면 desired 속성이 있는 메시지를 찾은 다음, 해당 속성에 대한 특정 수정 작업을 수행하도록 구독을 구성하면 됩니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 필터링은 구독 필터를 사용하여 수행됩니다. 이와 같은 수정을 **필터 동작** 이라고 합니다. 구독을 만들 때 메시지의 속성에 대해 작동하는 필터 식을 제공할 수 있습니다. 속성에는 시스템 속성(예: **Label**) 및 사용자 지정 애플리케이션 속성(예: **StoreName**)이 모두 있을 수 있습니다. 이 경우 SQL 필터 식은 선택 사항입니다. SQL 필터 식이 없으면 구독에 정의된 필터 작업은 해당 구독의 모든 메시지에서 수행됩니다.
 
-전체 작업 예제를 보려면 GitHub의 [TopicSubscriptionWithRuleOperationsSample 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample)을 참조하세요.
+전체 작동하는 예는 GitHub에서 [TopicFilters 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples/TopicFilters)을 참조하세요.
 
 필터에 대한 자세한 내용은 [토픽 필터 및 작업](topic-filters.md)을 참조하세요.
 
@@ -69,10 +69,14 @@ Service Bus에서 메시지를 받는 두 가지 모드를 지정할 수 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Bus 메시징을 사용하는 방법에 대한 자세한 내용 및 예제는 다음에 나오는 고급 항목을 참조하세요.
+선택한 언어로 샘플을 사용하여 Azure Service Bus 기능을 살펴봅니다. 
 
-* [Service Bus 메시징 개요](service-bus-messaging-overview.md)
-* [빠른 시작: Azure Portal 및 .NET을 사용하여 메시지 보내기 및 받기](service-bus-quickstart-portal.md)
-* [자습서: Azure Portal 및 토픽/구독을 사용하여 재고 업데이트](service-bus-tutorial-topics-subscriptions-portal.md)
+- [.NET용 Azure Service Bus 클라이언트 라이브러리 샘플(최신)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플(최신)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Python용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [JavaScript용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 
-
+이전 .NET 및 Java 클라이언트 라이브러리에 대한 샘플은 다음을 참조하세요.
+- [.NET용 Azure Service Bus 클라이언트 라이브러리 샘플(레거시)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플(레거시)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)

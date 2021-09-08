@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e165340dc9856916a8c2ccdcd6609663282d63
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: f4dd89dd22345188c05dd607b4a71ea8ef733f73
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714101"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259964"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 권한 관리 문제 해결
 
@@ -29,7 +29,9 @@ ms.locfileid: "109714101"
 
 ## <a name="administration"></a>관리
 
-* 전역 관리자가 권한 관리를 구성할 때 액세스 거부 메시지가 표시되는 경우 디렉터리에 [Azure AD Premium P2(또는 EMS E5) 라이선스](entitlement-management-overview.md#license-requirements)가 있는지 확인합니다.
+* 전역 관리자가 권한 관리를 구성할 때 액세스 거부 메시지가 표시되는 경우 디렉터리에 [Azure AD Premium P2(또는 EMS E5) 라이선스](entitlement-management-overview.md#license-requirements)가 있는지 확인합니다.  만료된 Azure AD Premium P2 구독을 최근에 갱신한 경우 이 라이선스 갱신이 표시되는 데 8시간이 걸릴 수 있습니다.
+
+* 테넌트의 Azure AD Premium P2 라이선스가 만료된 경우 새 액세스 요청을 처리하거나 액세스 검토를 수행할 수 없습니다.  
 
 * 카탈로그 작성자 그룹의 구성원이 액세스 패키지를 만들거나 볼 때 액세스 거부 메시지가 표시되는 경우 첫 번째 액세스 패키지를 만들기 전에 [카탈로그를 만들어야](entitlement-management-catalog-create.md) 합니다.
 
@@ -38,6 +40,8 @@ ms.locfileid: "109714101"
 * 애플리케이션의 역할은 애플리케이션 자체에서 정의되며 Azure AD에서 관리됩니다. 애플리케이션에 리소스 역할이 없다면 권한 관리는 사용자를 **기본값 액세스** 역할로 할당합니다.
 
     Azure Portal은 애플리케이션으로 선택될 수 없는 서비스에 대한 서비스 주체를 보여줄 수도 있습니다.  특히 **Exchange Online** 및 **SharePoint Online** 은 디렉터리에 리소스 역할이 있는 애플리케이션이 아니라 서비스이므로 액세스 패키지에 포함될 수 없습니다.  대신 그룹 기반 라이선스를 사용하여 해당 서비스에 액세스해야 하는 사용자에게 적절한 라이선스를 설정합니다.
+
+* 인증을 위해 개인 Microsoft 계정 사용자만 지원하고 디렉터리의 조직 계정을 지원하지 않는 애플리케이션은 애플리케이션 역할이 없으며 액세스 패키지 카탈로그에 추가할 수 없습니다.
 
 * 그룹이 액세스 패키지의 리소스가 되려면 Azure AD에서 수정할 수 있어야 합니다.  Azure AD에서 소유자 또는 구성원 특성을 변경할 수 없으므로 온-프레미스 Active Directory에서 시작된 그룹을 리소스로 할당할 수 없습니다.   Exchange Online에서 배포 그룹으로 시작된 그룹도 Azure AD에서 수정할 수 없습니다. 
 

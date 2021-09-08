@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70a883fc1c2cd78124c9efe44a54cc528ee5426c
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85477195"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039921"
 ---
-# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>방법: iOS 및 MacOS용 MSAL을 통한 사용자 지정 클레임 요청
+# <a name="request-custom-claims-using-msal-for-ios-and-macos"></a>OS 및 macOS용 MSAL을 통한 사용자 지정 클레임 요청
 
 OpenID Connect를 통해 필요에 따라 사용자 정보 엔드포인트 및/또는 ID 토큰에서 개별 클레임 반환을 요청할 수 있습니다. 클레임 요청은 요청된 클레임 목록을 포함 하는 JSON 개체로 표시됩니다. 자세한 내용은 [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter)을 참조하세요.
 

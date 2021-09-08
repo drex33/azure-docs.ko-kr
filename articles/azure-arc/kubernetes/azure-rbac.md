@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Azure Arc 지원 Kubernetes 클러스터에서 권한 부여 검사를 위해 Azure RBAC를 사용합니다.
-ms.openlocfilehash: b4c8d6f4f7abcd9090a0b4aaa69038b75a4aa1b1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 2607f82e0935ead0b6013bae963e22616c340b80
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479602"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123105042"
 ---
 # <a name="integrate-azure-active-directory-with-azure-arc-enabled-kubernetes-clusters"></a>Azure Arc 지원 Kubernetes 클러스터와 Azure Active Directory를 통합합니다.
 
@@ -52,27 +52,29 @@ Kubernetes [ClusterRoleBinding 및 RoleBinding](https://kubernetes.io/docs/refer
 1. 새 Azure AD 애플리케이션을 생성하고 `appId` 값을 받습니다. 이 값은 이후 단계에서 `serverApplicationId`로 사용됩니다.
 
     ```azurecli
-    az ad app create --display-name "<clusterName>Server" --identifier-uris "https://<clusterName>Server" --query appId -o tsv
+    CLUSTERNAME="<clusterName>"
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTERNAME}Server" --identifier-uris "https://${CLUSTERNAME}Server" --query appId -o tsv)
+    echo $SERVER_APP_ID
     ```
 
 1. 애플리케이션의 그룹 멤버십 클레임을 업데이트합니다.
 
     ```azurecli
-    az ad app update --id <serverApplicationId> --set groupMembershipClaims=All
+    az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
     ```
 
 1. 서비스 주체를 생성하고 `password` 필드 값을 받습니다. 나중에 클러스터에서 이 기능을 사용하도록 설정할 때, `serverApplicationSecret`으로서 이 값이 필요합니다.
 
     ```azurecli
-    az ad sp create --id <serverApplicationId>
-    az ad sp credential reset --name <serverApplicationId> --credential-description "ArcSecret" --query password -o tsv
+    az ad sp create --id "${SERVER_APP_ID}"
+    SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
     ```
 
-1. 애플리케이션 API 권한을 부여합니다.
+1. 애플리케이션에 "로그인 및 사용자 프로필 읽기" API 권한을 부여합니다.
 
     ```azurecli
-    az ad app permission add --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
-    az ad app permission grant --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000
+    az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
+    az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000
     ```
 
     > [!NOTE]
@@ -85,26 +87,27 @@ Kubernetes [ClusterRoleBinding 및 RoleBinding](https://kubernetes.io/docs/refer
 1. 새 Azure AD 애플리케이션을 생성하고 `appId` 값을 받습니다. 이 값은 이후 단계에서 `clientApplicationId`로 사용됩니다.
 
     ```azurecli
-    az ad app create --display-name "<clusterName>Client" --native-app --reply-urls "https://<clusterName>Client" --query appId -o tsv
+    CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTERNAME}Client" --native-app --reply-urls "https://${CLUSTERNAME}Client" --query appId -o tsv)
+    echo $CLIENT_APP_ID
     ```
 
 2. 이 클라이언트 애플리케이션의 서비스 주체를 만듭니다.
 
     ```azurecli
-    az ad sp create --id <clientApplicationId>
+    az ad sp create --id "${CLIENT_APP_ID}"
     ```
 
 3. 서버 애플리케이션에 대해 `oAuthPermissionId` 값을 받습니다.
 
     ```azurecli
-    az ad app show --id <serverApplicationId> --query "oauth2Permissions[0].id" -o tsv
+    az ad app show --id "${SERVER_APP_ID}" --query "oauth2Permissions[0].id" -o tsv
     ```
 
 4. 클라이언트 애플리케이션에 대해 필요한 권한을 부여합니다.
 
     ```azurecli
-    az ad app permission add --id <clientApplicationId> --api <serverApplicationId> --api-permissions <oAuthPermissionId>=Scope
-    az ad app permission grant --id <clientApplicationId> --api <serverApplicationId>
+    az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
+    az ad app permission grant --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}"
     ```
 
 ## <a name="create-a-role-assignment-for-the-server-application"></a>서버 애플리케이션에 대한 역할 할당 만들기
@@ -133,15 +136,13 @@ Kubernetes [ClusterRoleBinding 및 RoleBinding](https://kubernetes.io/docs/refer
 2. 다음 명령을 실행하여 새 사용자 지정 역할을 만듭니다.
 
     ```azurecli
-    az role definition create --role-definition ./accessCheck.json
+    ROLE_ID=$(az role definition create --role-definition ./accessCheck.json --query id -o tsv)
     ```
 
-3. 이전 명령의 출력에서 `id` 필드의 값을 저장합니다. 이 필드는 이후 단계에서 `roleId`로 사용됩니다.
-
-4. 생성한 역할을 사용하여 서버 애플리케이션에서 역할 할당을 `assignee`로 만듭니다.
+3. 생성한 역할을 사용하여 서버 애플리케이션에서 역할 할당을 `assignee`로 만듭니다.
 
     ```azurecli
-    az role assignment create --role <roleId> --assignee <serverApplicationId> --scope /subscriptions/<subscription-id>
+    az role assignment create --role "${ROLE_ID}" --assignee "${SERVER_APP_ID}" --scope /subscriptions/<subscription-id>
     ```
 
 ## <a name="enable-azure-rbac-on-the-cluster"></a>클러스터에서 Azure RBAC 사용 설정
@@ -149,7 +150,7 @@ Kubernetes [ClusterRoleBinding 및 RoleBinding](https://kubernetes.io/docs/refer
 다음 명령을 실행하여 Arc 지원 Kubernetes 클러스터에서 Azure RBAC(역할 기반 액세스 제어)를 사용하도록 설정합니다.
 
 ```console
-az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id <serverApplicationId> --app-secret <serverApplicationSecret>
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
     
 > [!NOTE]

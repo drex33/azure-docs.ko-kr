@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 69bcc521b4cd00320a5fbecc5244e913ac16c68b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c9bfc12a1af68e56aacea5b73bd2b4ddc6f857c
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99593911"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221603"
 ---
 # <a name="graphics-binding"></a>그래픽 바인딩
 
@@ -27,7 +27,7 @@ ms.locfileid: "99593911"
 
 Unity에서 전체 바인딩은 `RemoteManagerUnity.InitializeManager`에 전달된 `RemoteUnityClientInit` 구조체에 의해 처리됩니다. 그래픽 모드를 설정하려면 `GraphicsApiType` 필드를 선택한 바인딩으로 설정해야 합니다. XRDevice가 있는지에 따라 필드가 자동으로 채워집니다. 다음 동작을 사용하여 동작을 수동으로 재정의할 수 있습니다.
 
-* **HoloLens 2**: [Windows Mixed Reality](#windows-mixed-reality) 그래픽 바인딩이 항상 사용됩니다.
+* **HoloLens 2**: 활성 Unity XR 플러그인에 따라 [OpenXR](#openxr) 또는 [Windows Mixed Reality](#windows-mixed-reality) 그래픽 바인딩이 사용됩니다.
 * **플랫 UWP 데스크톱 앱**: [시뮬레이션](#simulation)이 항상 사용됩니다.
 * **Unity 편집기**: WMR VR 헤드셋이 연결되어 있지 않는 한 [시뮬레이션](#simulation)이 항상 사용됩니다. 이 경우 ARR은 애플리케이션의 비 ARR 관련 부분을 디버그할 수 있도록 사용하지 않도록 설정됩니다. 또한 [Holographic Remoting](../how-tos/unity/holographic-remoting.md)을 참조하세요.
 
@@ -39,7 +39,7 @@ Unity와 관련된 유일한 다른 관련 부분은 [기본 바인딩](#access)
 
 ```cs
 RemoteRenderingInitialization managerInit = new RemoteRenderingInitialization();
-managerInit.GraphicsApi = GraphicsApiType.WmrD3D11;
+managerInit.GraphicsApi = GraphicsApiType.OpenXrD3D11;
 managerInit.ConnectionType = ConnectionType.General;
 managerInit.Right = ///...
 RemoteManagerStatic.StartupRemoteRendering(managerInit);
@@ -47,14 +47,15 @@ RemoteManagerStatic.StartupRemoteRendering(managerInit);
 
 ```cpp
 RemoteRenderingInitialization managerInit;
-managerInit.GraphicsApi = GraphicsApiType::WmrD3D11;
+managerInit.GraphicsApi = GraphicsApiType::OpenXrD3D11;
 managerInit.ConnectionType = ConnectionType::General;
 managerInit.Right = ///...
 StartupRemoteRendering(managerInit); // static function in namespace Microsoft::Azure::RemoteRendering
 
 ```
-
-위의 호출은 Azure Remote Rendering을 holographic API로 초기화하는 데 필요합니다. 이 함수는 holographic API를 호출하고 다른 Remote Rendering API에 액세스하기 전에 호출해야 합니다. 마찬가지로 holographic API가 더 이상 호출되지 않은 후에는 해당 de-init 함수 `RemoteManagerStatic.ShutdownRemoteRendering();`을 호출해야 합니다.
+위의 호출은 다른 원격 렌더링 API에 액세스하기 전에 호출해야 합니다.
+마찬가지로, 다른 모든 원격 렌더링 개체가 이미 폐기된 후에 해당하는 초기화 해제 기능 `RemoteManagerStatic.ShutdownRemoteRendering();`을 호출해야 합니다.
+WMR의 경우 `StartupRemoteRendering`도 홀로그램 API가 호출되기 전에 호출되어야 합니다. OpenXR의 경우 모든 OpenXR 관련 API에도 동일하게 적용됩니다.
 
 ## <a name="span-idaccessaccessing-graphics-binding"></a><span id="access">그래픽 바인딩 액세스
 
@@ -86,16 +87,78 @@ if (ApiHandle<GraphicsBinding> binding = currentSession->GetGraphicsBinding())
 
 ## <a name="graphic-apis"></a>Graphic API
 
-현재 선택할 수 있는 두 개의 그래픽 API, `WmrD3D11` 및 `SimD3D11`이 있습니다. 세 번째 `Headless`가 있지만 아직 클라이언트 쪽에서 지원되지 않습니다.
+현재 선택할 수 있는 3개의 그래픽 API, `OpenXrD3D11`, `WmrD3D11` 및 `SimD3D11`이 있습니다. 네 번째 `Headless`가 있지만 아직 클라이언트 쪽에서 지원되지 않습니다.
+
+### <a name="openxr"></a>OpenXR
+
+`GraphicsApiType.OpenXrD3D11`은 HoloLens 2에서 실행되는 기본 바인딩입니다. `GraphicsBindingOpenXrD3d11` 바인딩이 만들어집니다. 이 모드에서 Azure Remote Rendering은 OpenXR 런타임에 통합하기 위해 OpenXR API 계층을 만듭니다.
+
+파생 그래픽 바인딩에 액세스하려면 기본 `GraphicsBinding`을 캐스팅해야 합니다.
+OpenXR 바인딩을 사용하려면 다음 세 가지 작업을 수행해야 합니다.
+
+#### <a name="package-custom-openxr-layer-json"></a>사용자 지정 OpenXR 레이어 json 패키지
+
+OpenXR에서 원격 렌더링을 사용하려면 사용자 지정 OpenXR API 레이어를 활성화해야 합니다. 이는 이전 섹션에서 언급한 `StartupRemoteRendering`을 호출하여 수행됩니다. 그러나 `XrApiLayer_msft_holographic_remoting.json`이 로드될 수 있도록 애플리케이션과 함께 패키징되는 것은 필수 조건입니다. 이는 **"Microsoft.Azure.RemoteRendering.Cpp"** NuGet 패키지가 프로젝트에 추가된 경우 자동으로 수행됩니다.
+
+#### <a name="inform-remote-rendering-of-the-used-xr-space"></a>사용된 XR 공간의 원격 렌더링 알림
+
+이는 원격 및 로컬로 렌더링된 콘텐츠를 정렬하는 데 필요합니다.
+
+```cs
+RenderingSession currentSession = ...;
+ulong space = ...; // XrSpace cast to ulong
+GraphicsBindingOpenXrD3d11 openXrBinding = (currentSession.GraphicsBinding as GraphicsBindingOpenXrD3d11);
+if (openXrBinding.UpdateAppSpace(space) == Result.Success)
+{
+    ...
+}
+```
+
+```cpp
+ApiHandle<RenderingSession> currentSession = ...;
+XrSpace space = ...;
+ApiHandle<GraphicsBindingOpenXrD3d11> openXrBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingOpenXrD3d11>();
+#ifdef _M_ARM64
+    if (openXrBinding->UpdateAppSpace(reinterpret_cast<uint64_t>(space)) == Result::Success)
+#else
+    if (openXrBinding->UpdateAppSpace(space) == Result::Success)
+#endif
+{
+    ...
+}
+```
+
+위의 `XrSpace`는 API의 좌표가 표현되는 세계 공간 좌표계를 정의하는 애플리케이션에서 사용하는 것입니다.
+
+#### <a name="render-remote-image-openxr"></a>원격 이미지 렌더링(OpenXR)
+
+각 프레임의 시작 부분에서 원격 프레임을 백 버퍼로 렌더링해야 합니다. 이 작업은 양쪽 눈에 대한 색상 및 깊이 정보를 모두 현재 바인딩된 렌더링 대상으로 채우는 `BlitRemoteFrame`을 호출하여 수행됩니다. 따라서 전체 백 버퍼를 렌더링 대상으로 바인딩한 후 이 작업을 수행하는 것이 중요합니다.
+
+> [!WARNING]
+> 원격 이미지가 백 버퍼로 렌더링된 후 단일 패스 스테레오 렌더링 기술을 사용하여(예: **SV_RenderTargetArrayIndex** 사용) 로컬 콘텐츠를 렌더링해야 합니다. 별도의 패스에서 각 눈동자를 렌더링하는 것과 같은 다른 스테레오 렌더링 기술을 사용하는 경우에는 심각한 성능 저하나 그래픽 아티팩트가 발생할 수 있으므로 피해야 합니다.
+
+```cs
+RenderingSession currentSession = ...;
+GraphicsBindingOpenXrD3d11 openXrBinding = (currentSession.GraphicsBinding as GraphicsBindingOpenXrD3d11);
+openXrBinding.BlitRemoteFrame();
+```
+
+```cpp
+ApiHandle<RenderingSession> currentSession = ...;
+ApiHandle<GraphicsBindingOpenXrD3d11> openXrBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingOpenXrD3d11>();
+openXrBinding->BlitRemoteFrame();
+```
 
 ### <a name="windows-mixed-reality"></a>Windows Mixed Reality
 
-`GraphicsApiType.WmrD3D11`은 HoloLens 2에서 실행되는 기본 바인딩입니다. `GraphicsBindingWmrD3d11` 바인딩이 만들어집니다. 이 모드에서 Azure Remote Rendering은 holographic API에 직접 후크됩니다.
+`GraphicsApiType.WmrD3D11`은 이전에 HoloLens 2에서 실행하기 위해 사용된 그래픽 바인딩입니다. `GraphicsBindingWmrD3d11` 바인딩이 만들어집니다. 이 모드에서 Azure Remote Rendering은 holographic API에 직접 후크됩니다.
 
 파생 그래픽 바인딩에 액세스하려면 기본 `GraphicsBinding`을 캐스팅해야 합니다.
 WMR 바인딩을 사용하려면 다음 두 가지 작업을 수행해야 합니다.
 
 #### <a name="inform-remote-rendering-of-the-used-coordinate-system"></a>사용된 좌표계의 Remote Rendering 알림
+
+이는 원격 및 로컬로 렌더링된 콘텐츠를 정렬하는 데 필요합니다.
 
 ```cs
 RenderingSession currentSession = ...;
@@ -113,18 +176,15 @@ void* ptr = ...; // native pointer to ISpatialCoordinateSystem
 ApiHandle<GraphicsBindingWmrD3d11> wmrBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingWmrD3d11>();
 if (wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
 {
-    //...
+    ...
 }
 ```
 
 위의 `ptr`은 API의 좌표가 표시되는 세계 좌표 시스템을 정의하는 네이티브 `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` 개체에 대한 포인터여야 합니다.
 
-#### <a name="render-remote-image"></a>원격 이미지 렌더링
+#### <a name="render-remote-image-wmr"></a>원격 이미지 렌더링(WMR)
 
-각 프레임의 시작 부분에서 원격 프레임을 백 버퍼로 렌더링해야 합니다. 이 작업은 양쪽 눈에 대한 색상 및 깊이 정보를 모두 현재 바인딩된 렌더링 대상으로 채우는 `BlitRemoteFrame`을 호출하여 수행됩니다. 따라서 전체 백 버퍼를 렌더링 대상으로 바인딩한 후 이 작업을 수행하는 것이 중요합니다.
-
-> [!WARNING]
-> 원격 이미지가 백 버퍼로 렌더링된 후 단일 패스 스테레오 렌더링 기술을 사용하여(예: **SV_RenderTargetArrayIndex** 사용) 로컬 콘텐츠를 렌더링해야 합니다. 별도의 패스에서 각 눈동자를 렌더링하는 것과 같은 다른 스테레오 렌더링 기술을 사용하는 경우에는 심각한 성능 저하나 그래픽 아티팩트가 발생할 수 있으므로 피해야 합니다.
+위의 OpenXR 경우와 동일한 고려 사항이 여기에 적용됩니다. API 호출은 다음과 같습니다.
 
 ```cs
 RenderingSession currentSession = ...;

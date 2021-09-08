@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f036f96b4747fb6b712bf032d6f2ec3cb38e6a
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: e84c19bfe003d094df1c78204e312149d7b51328
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288035"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864599"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -95,13 +95,16 @@ Microsoft 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은
 
 지원되는 서비스 계획은 다음과 같습니다.
 
-- PowerApps Free
-- PowerFlow Free
+- Power Apps 무료
+- Power Automate 무료
 - 개인용 RMS
 - Microsoft Stream
 - Dynamics 365 평가판
 
 SharePoint, OneDrive 또는 비즈니스용 Skype를 포함하는 서비스 계획을 가진 서비스(예: Office 무료 구독을 통해)에는 외부 관리자 인수가 지원되지 않습니다. 
+
+> [!NOTE]
+> 외부 관리자 인수는 클라우드 경계를 넘을 경우 지원되지 않습니다(예: Azure 상용에서 Azure Government로).  이러한 시나리오에서는 대상 Azure Government 테넌트에 대해 성공적으로 확인할 수 있도록 다른 Azure 상용 테넌트로 외부 관리자 인수를 수행한 다음 이 테넌트에서 도메인을 삭제하는 것이 좋습니다.
 
 선택적으로 관리되지 않는 조직에서 도메인 이름을 제거하고 원하는 조직에서 확인하기 위해 [**ForceTakeover** 옵션](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)을 사용할 수 있습니다. 
 

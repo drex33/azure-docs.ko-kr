@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d6e5f608a79765a0bf6ac46cb8e36e6ba1ed1f3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: b0d0c77ffbf6e8c8493abe2f9356aaa0e171f1f2
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567900"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967297"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>사용자 흐름에 대해 전화 가입 및 로그인 설정
 
@@ -176,6 +176,25 @@ ms.locfileid: "122567900"
 12. 파일을 저장합니다. **새 재정의 업로드** 에서 파일을 찾아 선택합니다. "성공적으로 업로드된 재정의" 알림이 표시되는지 확인합니다.
 
 13. **전화 가입 페이지** 를 선택한 다음, 10~12단계를 반복합니다. 
+
+
+## <a name="get-a-users-phone-number-in-your-directory"></a>디렉터리에서 사용자의 전화번호 가져오기
+
+1. Graph 탐색기에서 다음 요청을 실행합니다.
+
+   `GET https://graph.microsoft.com/v1.0/users/{object_id}?$select=identities`
+
+1. 반환된 응답에서 `issuerAssignedId` 속성을 찾습니다.
+
+   ```json
+       "identities": [
+           {
+               "signInType": "phoneNumber",
+               "issuer": "contoso.onmicrosoft.com",
+               "issuerAssignedId": "+11231231234"
+           }
+       ]
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

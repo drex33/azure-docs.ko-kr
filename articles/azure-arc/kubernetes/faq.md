@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: 이 문서에는 Azure Arc 지원 Kubernetes와 관련된 질문과 대답 목록이 포함되어 있습니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너, 구성, GitOps, FAQ
-ms.openlocfilehash: 84368cc63bd9aaf1df4fb281395b47a6e886cb7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f678bd23bc4e9e40f718d72ccde8069c36673ac6
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025852"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272928"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>질문과 대답 - Azure Arc 지원 Kubernetes
 
@@ -27,7 +27,9 @@ Azure Arc를 지원하는 Kubernetes를 사용하면 Kubernetes 클러스터를 
 
 ## <a name="do-i-need-to-connect-my-aks-clusters-running-on-azure-to-azure-arc"></a>Azure에서 실행되는 AKS 클러스터를 Azure Arc에 연결해야 하나요?
 
-아니요. Azure Monitor 및 Azure Policy(Gatekeeper)를 비롯한 모든 Azure Arc 지원 Kubernetes 기능은 AKS(Azure Resource Manager의 원시 리소스)에서 사용할 수 있습니다.
+AKS(Azure Kubernetes Service) 클러스터를 Azure Arc에 연결하는 것은 클러스터 위에서 App Services 및 Data Services와 같은 Arc 지원 서비스를 실행하는 경우에만 필요합니다. 이는 Arc 지원 Kubernetes의 [사용자 지정 위치](custom-locations.md) 기능을 사용하여 수행할 수 있습니다. 이는 클러스터 확장 및 사용자 지정 위치가 기본적으로 AKS 클러스터 위에 도입될 때까지의 지정 시간 제한입니다.
+
+사용자 지정 위치를 사용하지 않고 Azure Monitor 및 Azure Policy(Gatekeeper)와 같은 관리 기능만 사용하려는 경우 AKS에서 기본적으로 사용할 수 있으며 이러한 경우 Azure Arc에 연결할 필요가 없습니다.
     
 ## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-hub-and-azure-stack-edge-to-azure-arc"></a>Azure Stack Edge와 Azure Stack Hub에 있는 AKS-HCI 클러스터 및 Kubernetes 클러스터를 Azure Arc에 연결해야 하나요?
 
@@ -37,7 +39,17 @@ Azure Arc 지원 Kubernetes 클러스터가 Edge Azure Stack에 있는 경우 Az
 
 ## <a name="how-to-address-expired-azure-arc-enabled-kubernetes-resources"></a>만료된 Azure Arc 지원 Kubernetes 리소스 문제를 해결하는 방법
 
-Azure Arc 지원 Kubernetes와 연결된 MSI(관리 서비스 ID) 인증서의 만료 기간은 90일입니다. 이 인증서가 만료되면 리소스가 `Expired`로 고려되며 모든 기능(예: 구성, 모니터링 및 정책)이 클러스터에서 작동하지 않습니다. Kubernetes 클러스터에서 Azure Arc를 다시 사용하려면 다음을 수행합니다.
+Azure Arc 지원 Kubernetes 클러스터와 연결된 시스템이 할당한 관리 ID는 Azure Arc 서비스와 통신하기 위해 Arc 에이전트에서만 사용됩니다. 이 시스템이 할당한 관리 ID와 연결된 인증서의 만료 기간은 90일이며 에이전트는 46일에서 90일 사이에 이 인증서 갱신을 계속 시도합니다. 이 인증서가 만료되면 리소스가 `Expired`로 간주되고 모든 기능(예: 구성, 모니터링 및 정책)이 이 클러스터에서 작동을 중지하므로 클러스터를 삭제하고 Azure Arc에 다시 연결해야 합니다. 따라서 관리 ID 인증서의 갱신을 보장하기 위해 46일에서 90일 사이에 클러스터를 온라인 상태로 만드는 것이 좋습니다.
+
+지정된 클러스터에 대해 인증서가 만료되는 시점을 확인하려면 다음 명령을 실행합니다.
+
+```console
+az connectedk8s show -n <name> -g <resource-group>
+```
+
+출력에서 `managedIdentityCertificateExpirationTime` 값은 관리 ID 인증서가 만료되는 시기를 나타냅니다(해당 인증서의 경우 90D 표시). 
+
+`managedIdentityCertificateExpirationTime` 값이 과거의 타임스탬프를 나타내는 경우 위 출력의 `connectivityStatus` 필드는 `Expired`로 설정됩니다. 이러한 경우 Kubernetes 클러스터에서 Azure Arc를 다시 사용하려면 다음을 수행합니다.
 
 1. 클러스터에서 Azure Arc 지원 Kubernetes 리소스 및 에이전트를 삭제합니다. 
 
@@ -52,7 +64,7 @@ Azure Arc 지원 Kubernetes와 연결된 MSI(관리 서비스 ID) 인증서의 �
     ```
 
 > [!NOTE]
-> 또한 `az connectedk8s delete`를 사용하여 클러스터의 위쪽에서 구성을 삭제합니다. `az connectedk8s connect`를 실행한 후 Azure Policy를 사용하거나 수동으로 클러스터에 구성을 다시 만듭니다.
+> `az connectedk8s delete`는 또한 클러스터 상단의 구성 및 클러스터 확장을 삭제합니다. `az connectedk8s connect`를 실행한 후 Azure Policy를 사용하거나 수동으로 클러스터에 구성 및 클러스터 확장을 다시 만듭니다.
 
 ## <a name="if-i-am-already-using-cicd-pipelines-can-i-still-use-azure-arc-enabled-kubernetes-and-configurations"></a>이미 CI/CD 파이프라인을 사용하고 있는 경우 Azure Arc 지원 Kubernetes 및 구성을 계속 사용할 수 있나요?
 

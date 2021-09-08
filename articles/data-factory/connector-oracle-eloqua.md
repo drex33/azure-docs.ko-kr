@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/01/2019
-ms.openlocfilehash: c7af27ade6f71438612cc3df5e19cb4660a0e375
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 7bc1dc9d1b7eb11f5db09f8095015c97cbd691f0
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642303"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311806"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Oracle Eloqua에서 데이터 복사(미리 보기)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,13 +39,38 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-oracle-eloqua-using-ui"></a>UI를 사용하여 Oracle Eloqua에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Oracle Eloqua에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하고 연결된 서비스를 선택한 다음 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 연결된 새 서비스를 만드는 스크린샷.":::
+
+2. Oracle을 검색하고 Oracle Eloqua 커넥터를 선택합니다.
+
+   :::image type="content" source="media/connector-oracle-eloqua/oracle-eloqua-connector.png" alt-text="Oracle Eloqua 커넥터의 스크린샷.":::    
+
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+   :::image type="content" source="media/connector-oracle-eloqua/configure-oracle-eloqua-linked-service.png" alt-text="Oracle Eloqua의 연결된 서비스 구성 스크린샷.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
 다음 섹션에서는 Oracle Eloqua 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 다음은 Oracle Eloqua 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Eloqua** 로 설정해야 합니다. | 예 |
 | 엔드포인트(endpoint) | Eloqua 서버의 엔드포인트입니다. Eloqua는 엔드포인트를 확인하고 자격 증명을 사용하여 https://login.eloqua.com에 로그인한 다음, `xxx.xxx.eloqua.com` 패턴의 리디렉션된 URL에서 **기준 URL** 부분을 복사하기 위해 여러 데이터 센터를 지원합니다. | 예 |
@@ -80,7 +105,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 Oracle Eloqua에서 데이터를 복사하려면 데이터 세트의 type 속성을 **EloquaObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **EloquaObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -110,7 +135,7 @@ Oracle Eloqua에서 데이터를 복사하려면 데이터 세트의 type 속성
 
 Oracle Eloqua에서 데이터를 복사하려면 복사 작업의 원본 형식을 **EloquaSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **EloquaSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Accounts"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

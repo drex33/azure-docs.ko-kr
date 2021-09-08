@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins CLI 명령 집합을 이해합니다.
 author: baanders
 ms.author: baanders
-ms.date: 04/30/2021
+ms.date: 8/25/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d3e081d4a60b5e4f26e5163d55f2df682b042bca
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 087a7bc7fda1c54e0a9e2c7f896b06dda78fa11e
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066524"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221160"
 ---
 # <a name="azure-digital-twins-cli-command-set"></a>Azure Digital Twins CLI 명령 집합
 
-Azure Portal에서 Azure Digital Twins 인스턴스를 관리하는 것 외에도, Azure Digital Twins에는 다음을 포함한 서비스를 통해 대부분의 주요 작업을 수행하는 데 사용할 수 있는 [Azure CLI](/cli/azure/what-is-azure-cli)에 대한 명령 집합이 있습니다.
+Azure Portal에서 Azure Digital Twins 인스턴스를 관리하는 것 외에도, Azure Digital Twins에는 다음을 포함한 서비스를 통해 대부분의 주요 작업을 수행하는 데 사용할 수 있는 [Azure CLI](/cli/azure/what-is-azure-cli)에 대한 명령 집합도 있습니다.
 * Azure Digital Twins 인스턴스 관리
 * 모델 관리
 * 디지털 트윈 관리
@@ -39,7 +39,7 @@ Azure Digital Twins 명령은 [Azure CLI용 Azure IoT 확장(azure-iot)](https:/
 
 ### <a name="cli-version-requirements"></a>CLI 버전 요구 사항
 
-PowerShell에서 Azure CLI를 사용하는 경우 확장 패키지를 사용하려면 Azure CLI 버전이 **2.3.1** 이상이어야 합니다.
+PowerShell과 함께 Azure CLI를 사용하는 경우 확장 패키지의 요구 사항으로 Azure CLI 버전이 **2.3.1** 이상이어야 합니다.
 
 다음 CLI 명령을 사용하여 Azure CLI의 버전을 확인할 수 있습니다.
 ```azurecli
@@ -52,7 +52,7 @@ Azure CLI를 최신 버전으로 설치하거나 업데이트하는 방법에 �
 
 Azure CLI는 필요한 명령을 처음 사용할 때 확장을 설치하라는 메시지를 자동으로 표시합니다.
 
-또는 다음 명령을 사용하여 언제든지 확장을 직접 설치하거나 이전 버전이 이미 있는 경우에는 해당 확장을 업데이트할 수 있습니다. 이 명령은 [Azure Cloud Shell](../cloud-shell/overview.md) 또는 [로컬 Azure CLI](/cli/azure/install-azure-cli)에서 실행할 수 있습니다.
+아니면 다음 명령을 사용하여 언제든지 확장을 직접 설치하거나 이전 버전이 이미 있는 경우에는 해당 확장을 업데이트할 수 있습니다. 이 명령은 [Azure Cloud Shell](../cloud-shell/overview.md) 또는 [로컬 Azure CLI](/cli/azure/install-azure-cli)에서 실행할 수 있습니다.
 
 ```azurecli-interactive
 az extension add --upgrade --name azure-iot

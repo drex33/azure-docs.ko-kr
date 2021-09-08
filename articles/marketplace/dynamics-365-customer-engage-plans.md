@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: 460a2c071fa07e5f7374409f965f0074182c1722
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 086457e916f3eeef41023efe56cc011e714ab343
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751142"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866331"
 ---
 # <a name="create-dynamics-365-for-customer-engagement--power-apps-plans"></a>Dynamics 365 for Customer Engagement & Power Apps 플랜 만들기
 
@@ -26,14 +26,14 @@ ms.locfileid: "108751142"
 
 1. **플랜 개요** 페이지의 상단 근처에 있는 **+ 새 플랜 만들기** 를 선택합니다.
 1. 표시되는 대화 상자의 **플랜 ID** 상자에 고유한 플랜 ID를 입력합니다. 최대 50자의 영숫자 소문자, 대시 또는 밑줄을 사용합니다. **만들기** 를 선택한 후에는 플랜 ID를 수정할 수 없습니다.
-1. **플랜 이름** 상자에서 이 플랜의 고유한 이름을 입력합니다. 최대 50자를 사용할 수 있습니다.
+1. **플랜 이름** 상자에 이 플랜의 고유한 이름을 입력합니다. 최대 50자를 사용할 수 있습니다.
 1. **만들기** 를 선택합니다.
 
 ## <a name="define-the-plan-listing"></a>플랜 목록 정의
 
 **플랜 목록** 탭에서 상업용 Marketplace에 표시할 플랜 이름과 설명을 정의할 수 있습니다. 이 정보는 Microsoft AppSource 목록 페이지에 표시됩니다.
 
-1. **플랜 이름** 상자에는 이 플랜에 대해 이전에 제공한 이름이 표시됩니다. 언제든지 변경할 수 있습니다. 이 이름은 상업용 Marketplace에서 제품 소프트웨어 플랜의 제목으로 표시됩니다.
+1. **플랜 이름** 상자에는 이 플랜에 대해 이전에 제공한 이름이 표시됩니다. 이는 언제든지 변경할 수 있습니다. 이 이름은 상업용 Marketplace에서 제품 소프트웨어 플랜의 제목으로 표시됩니다.
 1. **플랜 설명** 상자에 이 소프트웨어 플랜의 고유한 특징과 제품 내 다른 소프트웨어 플랜과의 차이점을 설명합니다. 이 설명에는 최대 500자까지 포함할 수 있습니다.
 1. **초안 저장** 을 선택한 다음, 왼쪽 상단에서 **플랜 개요** 를 선택합니다.
 

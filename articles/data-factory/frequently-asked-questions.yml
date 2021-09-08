@@ -6,13 +6,13 @@ metadata:
   ms.author: susabat
   ms.service: data-factory
   ms.topic: conceptual
-  ms.date: 05/11/2021
-  ms.openlocfilehash: 472a2c3465225866c3e1169ebf1713ea8a764580
-  ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+  ms.date: 07/23/2021
+  ms.openlocfilehash: 2954ccd8eb20458cbd286463d3c914a63a85dd56
+  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/14/2021
-  ms.locfileid: "112063712"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123104232"
 title: Azure Data Factory FAQ
 summary: "[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]\n\n이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  \n"
 sections:
@@ -32,6 +32,8 @@ sections:
 
       - **데이터 이동**: 데이터 이동을 위해 Integration Runtime은 데이터를 소스와 대상 데이터 저장소 간에 데이터를 이동하면서 기본 제공 커넥터, 형식 변환, 열 매핑, 성능과 확장성이 뛰어난 데이터 전송에 대한 지원을 제공합니다.
 
+      - **데이터 흐름**: 데이터 흐름의 경우 관리형 Azure Compute 환경에서 [데이터 흐름](./concepts-data-flow-overview.md)을 실행합니다.
+
       - **디스패치 활동**: 변환을 위해 Integration Runtime은 SSIS 패키지를 고유하게 실행하는 기능을 제공합니다.
 
       - **SSIS 패키지 실행**: Integration Runtime은 관리되는 Azure 컴퓨팅 환경에서 SSIS 패키지를 고유하게 실행합니다. 또한 Integration Runtime은 Azure HDInsight, Azure Machine Learning, SQL Database, SQL Server 등 다양한 컴퓨팅 서비스에서 실행하는 변환 활동에 대한 발송 및 모니터링을 지원합니다.
@@ -39,15 +41,21 @@ sections:
 
       데이터를 이동 및 변환하는 데 필요한 만큼 하나 이상의 Integration Runtime 인스턴스를 배포할 수 있습니다. Integration Runtime은 Azure 공용 네트워크 또는 프라이빗 네트워크(온-프레미스, Azure Virtual Network 또는 Amazon Web Services VPC(가상 프라이빗 클라우드))에서 실행할 수 있습니다.
 
+      Data Factory에서 작업은 수행할 작업을 정의합니다. 연결된 서비스는 대상 데이터 저장소 또는 컴퓨팅 서비스를 정의합니다.
 
-      자세한 내용은 [Azure Data Factory의 Integration Runtime](concepts-integration-runtime.md)을 참조하세요.
+      통합 런타임은 작업과 연결된 서비스 간의 브리지를 제공합니다. 연결된 서비스 또는 작업에서 참조되며 작업이 실행되거나 디스패치되는 컴퓨팅 환경을 제공합니다. 이러한 방식으로 보안 및 준수 요구를 충족하면서 가장 성능이 뛰어난 방법으로 대상 데이터 저장소 또는 컴퓨팅 서비스에 가능하면 가장 가까운 영역에서 작업을 수행할 수 있습니다.
+
+
+      통합 런타임은 관리 허브 및 이를 참조하는 모든 활동, 데이터 세트 또는 데이터 흐름을 사용하여 Azure Data Factory UX에서 만들 수 있습니다.
+
+      자세한 내용은 [Azure Data Factory의 Integration Runtime](./concepts-integration-runtime.md)을 참조하세요.
   - question: >
       통합 런타임의 수 제한은 얼마입니까?
     answer: >
       Data Factory에서 사용할 수 있는 Integration Runtimes 인스턴스의 수에는 엄격한 제한이 없습니다. 하지만 Integration Runtime이 SSIS 패키지 실행을 위해 구독당 사용할 수 있는 VM 코어 수는 제한되어 있습니다. 자세한 내용은 [Data Factory 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)을 참조하세요.
   - question: >
       Azure Data Factory의 최상위 개념은 무엇인가요?
-    answer: "Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data Factory)가 있을 수 있습니다. Azure Data Factory는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼으로서 함께 작동하는 네 가지 핵심 구성 요소로 구성됩니다.\n\n### <a name=\"pipelines\"></a>파이프라인\n\n데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 작업 단위를 수행하는 작업의 논리적 그룹입니다. 파이프라인의 활동이 모여 작업을 수행합니다. 예를 들어 Azure Blob에서 데이터를 수집한 다음 HDInsight 클러스터에서 Hive 쿼리를 실행하여 데이터를 분할하는 작업 그룹이 파이프라인에 포함될 수 있습니다. 이점은 각 작업을 개별적으로 관리하는 대신, 파이프라인을 사용하여 여러 작업을 하나의 집합으로 관리할 수 있다는 것입니다. 파이프라인의 작업을 서로 연결하여 순차적으로 작동하거나 독립적으로 병렬 작동할 수 있습니다.\n\n### <a name=\"data-flows\"></a>데이터 흐름\n\n데이터 흐름은 백엔드 Spark 서비스에서 대규모로 데이터를 변환하는 Data Factory에서 시각적으로 빌드하는 개체입니다. 프로그래밍 또는 Spark 내부를 이해할 필요가 없습니다. 그래프(매핑) 또는 스프레드시트(랭글링)를 사용하여 데이터 변환 의도대로 설계하면 됩니다.\n\n### <a name=\"activities\"></a>활동\n\n작업은 파이프라인의 처리 단계를 나타냅니다. 예를 들어, 하나의 데이터 저장소에서 다른 데이터 저장소로 데이터를 복사하는 데 복사 작업을 사용할 수 있습니다. 마찬가지로 데이터를 변환하거나 분석하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 Hive 작업을 사용할 수 있습니다. Data Factory는 데이터 이동 작업, 데이터 변환 작업 및 제어 작업이라는 세 종류의 작업을 지원합니다.\n\n### <a name=\"datasets\"></a>데이터 세트\n\n데이터 세트는 데이터 저장소 내의 데이터 구조를 나타내며, 사용자가 활동에서 입력 또는 출력으로 사용하려는 데이터를 가리키거나 참조할 뿐입니다. \n\n### <a name=\"linked-services\"></a>연결된 서비스\n\n연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 연결된 서비스는 데이터 원본에 대한 연결을 정의하고 데이터 세트는 데이터 구조를 나타낸다고 생각하시면 됩니다. 예를 들어 Azure Storage 연결 서비스는 Azure Storage 계정에 연결할 연결 문자열을 지정합니다. 그리고 Azure Blob 데이터 세트는 Blob 컨테이너 및 데이터가 포함된 폴더를 지정합니다.\n\n연결된 서비스는 Data Factory에서 다음 두 가지 용도로 사용됩니다.\n\n- SQL Server 인스턴스, Oracle 데이터베이스 인스턴스, 파일 공유 또는 Azure Blob 스토리지 계정을 포함하지만 여기에 국한되지 않는 *데이터 저장소* 를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록에 대해서는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 참조하세요.\n- 활동의 실행을 호스팅할 수 있는 *컴퓨팅 리소스* 를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [Azure Data Factory에서 데이터 변환](transform-data.md)을 참조하세요.\n\n### <a name=\"triggers\"></a>트리거\n\n트리거는 파이프라인 실행을 시작할 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다. \n\n### <a name=\"pipeline-runs\"></a>파이프라인 실행\n\n파이프라인 실행은 파이프라인 실행의 인스턴스입니다. 일반적으로 파이프라인에 정의된 매개 변수에 인수를 전달하여 파이프라인 실행을 인스턴스화합니다. 인수는 수동으로 또는 트리거 정의 내에서 전달할 수 있습니다.\n\n### <a name=\"parameters\"></a>매개 변수\n\n매개 변수는 읽기 전용 구성의 키-값 쌍입니다.파이프라인에서 매개 변수를 정의하고 실행 컨텍스트에서 실행하는 동안 정의된 매개 변수에 대한 인수를 전달합니다. 실행 컨텍스트는 트리거 또는 수동으로 실행하는 파이프라인에서 생성됩니다. 파이프라인 내의 작업은 매개 변수 값을 사용합니다.\n\n데이터 세트는 다시 사용하거나 참조할 수 있는 강력한 형식의 매개 변수 및 엔터티입니다. 작업은 데이터 세트를 참조할 수 있으며 데이터 세트 정의에 정의된 속성을 사용할 수 있습니다.\n\n또한 연결된 서비스도 데이터 저장소 또는 컴퓨팅 환경에 대한 연결 정보를 포함하는 강력한 형식 매개 변수입니다. 다시 사용하거나 참조할 수 있는 엔터티이기도 합니다.\n\n### <a name=\"control-flows\"></a>제어 흐름\n\n제어 흐름은 파이프라인 수준에서 정의하는 시퀀스, 분기 및 매개 변수의 작업 연결과 요청 시 또는 트리거에서 파이프라인을 호출할 때 전달하는 인수를 포함하는 파이프라인 작업을 조율합니다. 제어 흐름은 사용자 지정 상태 전달 및 컨테이너 루프화, 즉 foreach 반복기도 포함합니다.\n\n\nData Factory 개념에 대한 자세한 내용은 다음 문서를 참조하세요.\n\n- [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)\n- [파이프라인 및 활동](concepts-pipelines-activities.md)\n- [통합 런타임](concepts-integration-runtime.md)\n"
+    answer: "Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data Factory)가 있을 수 있습니다. Azure Data Factory는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼으로서 함께 작동하는 네 가지 핵심 구성 요소로 구성됩니다.\n\n### <a name=\"pipelines\"></a>파이프라인\n\n데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 작업 단위를 수행하는 작업의 논리적 그룹입니다. 파이프라인의 활동이 모여 작업을 수행합니다. 예를 들어 Azure Blob에서 데이터를 수집한 다음 HDInsight 클러스터에서 Hive 쿼리를 실행하여 데이터를 분할하는 작업 그룹이 파이프라인에 포함될 수 있습니다. 이점은 각 작업을 개별적으로 관리하는 대신, 파이프라인을 사용하여 여러 작업을 하나의 집합으로 관리할 수 있다는 것입니다. 파이프라인의 작업을 서로 연결하여 순차적으로 작동하거나 독립적으로 병렬 작동할 수 있습니다.\n\n### <a name=\"data-flows\"></a>데이터 흐름\n\n데이터 흐름은 백엔드 Spark 서비스에서 대규모로 데이터를 변환하는 Data Factory에서 시각적으로 빌드하는 개체입니다. 프로그래밍 또는 Spark 내부를 이해할 필요가 없습니다. 그래프(매핑) 또는 스프레드시트(파워 쿼리 작업)를 사용하여 데이터 변환 의도대로 설계하면 됩니다.\n\n ### <a name=\"activities\"></a>활동\n\n작업은 파이프라인의 처리 단계를 나타냅니다. 예를 들어, 하나의 데이터 저장소에서 다른 데이터 저장소로 데이터를 복사하는 데 복사 작업을 사용할 수 있습니다. 마찬가지로 데이터를 변환하거나 분석하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 Hive 작업을 사용할 수 있습니다. Data Factory는 데이터 이동 작업, 데이터 변환 작업 및 제어 작업이라는 세 종류의 작업을 지원합니다.\n\n### <a name=\"datasets\"></a>데이터 세트\n\n데이터 세트는 데이터 저장소 내의 데이터 구조를 나타내며, 사용자가 활동에서 입력 또는 출력으로 사용하려는 데이터를 가리키거나 참조할 뿐입니다. \n\n### <a name=\"linked-services\"></a>연결된 서비스\n\n연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 연결된 서비스는 데이터 원본에 대한 연결을 정의하고 데이터 세트는 데이터 구조를 나타낸다고 생각하시면 됩니다. 예를 들어 Azure Storage 연결 서비스는 Azure Storage 계정에 연결할 연결 문자열을 지정합니다. 그리고 Azure Blob 데이터 세트는 Blob 컨테이너 및 데이터가 포함된 폴더를 지정합니다.\n\n연결된 서비스는 Data Factory에서 다음 두 가지 용도로 사용됩니다.\n\n- SQL Server 인스턴스, Oracle 데이터베이스 인스턴스, 파일 공유 또는 Azure Blob 스토리지 계정을 포함하지만 여기에 국한되지 않는 *데이터 저장소* 를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록에 대해서는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 참조하세요.\n- 활동의 실행을 호스팅할 수 있는 *컴퓨팅 리소스* 를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 컴퓨팅 환경 목록은 [Azure Data Factory에서 데이터 변환](transform-data.md)을 참조하세요.\n\n### <a name=\"triggers\"></a>트리거\n\n트리거는 파이프라인 실행을 시작할 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다. \n\n### <a name=\"pipeline-runs\"></a>파이프라인 실행\n\n파이프라인 실행은 파이프라인 실행의 인스턴스입니다. 일반적으로 파이프라인에 정의된 매개 변수에 인수를 전달하여 파이프라인 실행을 인스턴스화합니다. 인수는 수동으로 또는 트리거 정의 내에서 전달할 수 있습니다.\n\n### <a name=\"parameters\"></a>매개 변수\n\n매개 변수는 읽기 전용 구성의 키-값 쌍입니다.파이프라인에서 매개 변수를 정의하고 실행 컨텍스트에서 실행하는 동안 정의된 매개 변수에 대한 인수를 전달합니다. 실행 컨텍스트는 트리거 또는 수동으로 실행하는 파이프라인에서 생성됩니다. 파이프라인 내의 작업은 매개 변수 값을 사용합니다.\n\n데이터 세트는 다시 사용하거나 참조할 수 있는 강력한 형식의 매개 변수 및 엔터티입니다. 작업은 데이터 세트를 참조할 수 있으며 데이터 세트 정의에 정의된 속성을 사용할 수 있습니다.\n\n또한 연결된 서비스도 데이터 저장소 또는 컴퓨팅 환경에 대한 연결 정보를 포함하는 강력한 형식 매개 변수입니다. 다시 사용하거나 참조할 수 있는 엔터티이기도 합니다.\n\n### <a name=\"control-flows\"></a>제어 흐름\n\n제어 흐름은 파이프라인 수준에서 정의하는 시퀀스, 분기 및 매개 변수의 작업 연결과 요청 시 또는 트리거에서 파이프라인을 호출할 때 전달하는 인수를 포함하는 파이프라인 작업을 조율합니다. 제어 흐름은 사용자 지정 상태 전달 및 컨테이너 루프화, 즉 foreach 반복기도 포함합니다.\n\n\nData Factory 개념에 대한 자세한 내용은 다음 문서를 참조하세요.\n\n- [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)\n- [파이프라인 및 활동](concepts-pipelines-activities.md)\n- [통합 런타임](concepts-integration-runtime.md)\n"
   - question: >
       Data Factory의 가격 책정 모델은 무엇입니까?
     answer: >
@@ -68,105 +76,8 @@ sections:
     answer: "### <a name=\"how-can-i-schedule-a-pipeline\"></a>파이프라인을 어떻게 예약할 수 있나요?\n\n스케줄러 트리거 또는 기간 트리거를 사용하여 파이프라인을 예약할 수 있습니다. 트리거는 벽시계 캘린더 일정을 사용하므로 정기적으로 또는 캘린더 기반 반복 패턴(예: 월요일 오후 6시 및 목요일 오후 9시)에 따라 파이프라인을 예약할 수 있습니다. 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요.\n\n### <a name=\"can-i-pass-parameters-to-a-pipeline-run\"></a>파이프라인 실행에 매개 변수를 전달할 수 있나요?\n\n예, 매개 변수는 Data Factory에서 최상위 수준 개념입니다. 파이프라인 수준에서 매개 변수를 정의하고 요청 시 실행되는 파이프라인 실행 중에 또는 트리거를 사용하여 인수를 전달할 수 있습니다.  \n\n### <a name=\"can-i-define-default-values-for-the-pipeline-parameters\"></a>파이프라인 매개 변수의 기본값을 정의할 수 있습니까?\n\n예. 파이프라인의 매개 변수에 대한 기본값을 정의할 수 있습니다.\n\n### <a name=\"can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run\"></a>파이프라인의 작업이 파이프라인 실행에 전달된 인수를 사용할 수 있습니까?\n\n예. 파이프라인 내의 각 작업은 `@parameter` 구문으로 실행되는 파이프라인에 전달된 매개 변수 값을 사용할 수 있습니다. \n\n### <a name=\"can-an-activity-output-property-be-consumed-in-another-activity\"></a>활동 출력 속성이 다른 활동에서 사용될 수 있습니까?\n\n예. 활동 출력은 `@activity` 구문으로 후속 활동에서 사용될 수 있습니다.\n \n### <a name=\"how-do-i-gracefully-handle-null-values-in-an-activity-output\"></a>활동 출력의 Null 값을 정상적으로 처리하려면 어떻게 해야 합니까?\n\n식에서 `@coalesce` 구문을 사용하여 Null 값을 정상적으로 처리할 수 있습니다.\n"
   - question: >
       데이터 흐름 매핑
-    answer: "### <a name=\"i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help\"></a>데이터 흐름 논리 문제를 해결하는 데 도움이 필요합니다. 도움을 받으려면 어떤 정보를 제공해야 합니까?\n\nMicrosoft에서 데이터 흐름에 대한 도움이나 문제 해결을 제공하는 경우 Data Flow 스크립트를 제공하세요. 이 스크립트는 데이터 흐름 그래프의 코드 숨김 스크립트입니다. ADF UI에서 데이터 흐름을 열고 오른쪽 위 모서리에 있는 \"스크립트\" 단추를 클릭합니다. 이 스크립트를 복사하여 붙여넣거나 텍스트 파일에 저장합니다.\n\n### <a name=\"how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory\"></a>Data Factory의 다른 90개 데이터 세트 형식을 사용하여 어떻게 데이터에 액세스해야 합니까?\n\n매핑 데이터 흐름 기능을 사용하면 현재 Azure SQL Database, Azure Synapse Analytics 및 Azure Blob Storage 또는 Azure Data Lake Storage Gen2의 구분된 텍스트 파일, Blob Storage 또는 Data Lake Storage Gen2의 Parquet 파일을 기본적으로 원본 및 싱크에 사용할 수 있습니다. \n\n복사 작업을 사용하여 다른 커넥터에서 데이터를 스테이징하고, 데이터를 스테이징한 후 Data Flow 작업을 실행하여 데이터를 변환합니다. 예를 들어 파이프라인이 먼저 Blob 스토리지에 복사된 다음, Data Flow 작업에서 원본의 데이터 세트를 사용하여 해당 데이터를 변환합니다.\n\n### <a name=\"is-the-self-hosted-integration-runtime-available-for-data-flows\"></a>자체 호스팅 통합 런타임을 데이터 흐름에 사용할 수 있습니까?\n\n자체 호스팅 IR은 복사 작업을 사용하여 온-프레미스 또는 VM 기반 데이터 원본 및 싱크로 또는 그 반대로 데이터를 가져오거나 이동하는 데 사용할 수 있는 ADF 파이프라인 구문입니다. 자체 호스팅 IR을 위해 사용하는 가상 머신을 보호된 데이터 저장소와 동일한 VNET 내에 배치하여 ADF에서 해당 데이터 저장소에 액세스할 수도 있습니다. 데이터 흐름을 사용하면 관리되는 VNET과 함께 Azure IR를 사용하여 동일한 최종 결과를 달성할 수 있습니다.\n\n### <a name=\"does-the-data-flow-compute-engine-serve-multiple-tenants\"></a>데이터 흐름 컴퓨팅 엔진이 여러 테넌트를 제공합니까?\n\n클러스터는 공유되지 않습니다. 프로덕션 실행 시 각 작업 실행에 대한 분리가 보장됩니다. 디버그 시나리오의 경우 한 사람이 하나의 클러스터를 가져오고 모든 디버그는 해당 사용자가 시작한 해당 클러스터로 이동합니다.\n\n### <a name=\"is-there-a-way-to-write-attributes-in-cosmos-db-in-the-same-order-as-specified-in-the-sink-in-adf-data-flow\"></a>ADF 데이터 흐름에서 싱크에 지정된 것과 동일한 순서로 cosmos db에 특성을 쓰는 방법이 있나요?    \n\nCosmos DB의 경우 각 문서의 기본 형식은 순서가 지정되지 않은 이름/값 쌍 집합인 JSON 개체 이므로 순서를 예약할 수 없습니다. \n\n### <a name=\"why-a-user-is-unable-to-use-data-preview-in-the-data-flows\"></a>사용자가 데이터 흐름에서 데이터 미리 보기를 사용할 수 없는 이유는 무엇인가요? \n\n사용자 지정 역할에 대한 사용 권한을 확인해야 합니다. 데이터 흐름 데이터 미리 보기와 관련된 여러 작업이 있습니다. 브라우저에서 디버그하는 동안 네트워크 트래픽을 확인하여 시작합니다. 모든 조치를 따르세요. 자세한 내용은 [리소스 제공자](../role-based-access-control/resource-provider-operations.md#microsoftdatafactory)를 참조하세요.\n\n### <a name=\"in-adf-can-i-calculate-value-for-a-new-column-from-existing-column-from-mapping\"></a>ADF에서는 매핑의 기존 열에서 새 열에 대한 값을 계산할 수 있나요?   \n\n데이터 흐름 매핑에 파생 변환을 사용하여 원하는 로직에 새 열을 만들 수 있습니다. 파생 열을 만드는 경우 새 열을 생성하거나 기존 열을 업데이트할 수 있습니다. 열 텍스트 상자에 만들려는 열을 입력합니다. 스키마의 기존 열을 재정의하려면 열 드롭다운을 사용할 수 있습니다. 파생 열의 식을 작성하려면 식 입력 텍스트 상자를 클릭합니다. 식 입력을 시작하거나 식 작성기를 열어 논리를 생성할 수 있습니다.\n\n### <a name=\"why-mapping-data-flow-preview-failing-with-gateway-timeout\"></a>게이트웨이 제한 시간을 사용하여 데이터 흐름 미리 보기가 실패하는 이유는 무엇인가요? \n\n더 큰 클러스터를 사용하고 디버그 설정의 행 제한을 더 작은 값으로 활용하여 디버그 출력의 크기를 줄이세요.\n\n### <a name=\"how-to-parameterize-column-name-in-dataflow\"></a>데이터 흐름에서 열 이름을 매개 변수화하는 방법\n\n열 이름은 다른 속성과 유사하게 매개 변수화할 수 있습니다. 파생된 열에서처럼 고객은 **$ColumnNameParam = toString(byName($ myColumnNameParamInData)).** 을 사용할 수 있습니다. 이러한 매개 변수는 파이프라인 실행에서 데이터 흐름으로 전달할 수 있습니다.\n\n### <a name=\"the-data-flow-advisory-about-ttl-and-costs\"></a>TTL 및 비용에 대한 데이터 흐름 권고\n\n이 문제 해결 문서는 문제를 해결하는 데 도움이 될 수 있습니다. [데이터 흐름 성능 매핑 및 가이드 TTL 조정](../data-factory/concepts-data-flow-performance.md#time-to-live).\n"
+    answer: "### <a name=\"i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help\"></a>데이터 흐름 논리 문제를 해결하는 데 도움이 필요합니다. 도움을 받으려면 어떤 정보를 제공해야 합니까?\n\nMicrosoft에서 데이터 흐름에 대한 도움이나 문제 해결을 제공하는 경우 ADF 파이프라인 지원 파일을 제공하세요.\n이 Zip 파일에는 데이터 흐름 그래프의 코드 숨김 스크립트가 포함되어 있습니다. ADF UI에서 파이프라인 옆에 있는 **...** 을 클릭한 다음 **지원 파일 다운로드** 를 클릭합니다.\n\n### <a name=\"how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory\"></a>Data Factory의 다른 90개 데이터 세트 형식을 사용하여 어떻게 데이터에 액세스해야 합니까?\n\n매핑 데이터 흐름 기능을 사용하면 현재 Azure SQL Database, Azure Synapse Analytics 및 Azure Blob Storage 또는 Azure Data Lake Storage Gen2의 구분된 텍스트 파일, Blob Storage 또는 Data Lake Storage Gen2의 Parquet 파일을 기본적으로 원본 및 싱크에 사용할 수 있습니다. \n\n복사 작업을 사용하여 다른 커넥터에서 데이터를 스테이징하고, 데이터를 스테이징한 후 Data Flow 작업을 실행하여 데이터를 변환합니다. 예를 들어 파이프라인이 먼저 Blob 스토리지에 복사된 다음, Data Flow 작업에서 원본의 데이터 세트를 사용하여 해당 데이터를 변환합니다.\n\n### <a name=\"is-the-self-hosted-integration-runtime-available-for-data-flows\"></a>자체 호스팅 통합 런타임을 데이터 흐름에 사용할 수 있습니까?\n\n자체 호스팅 IR은 복사 작업을 사용하여 온-프레미스 또는 VM 기반 데이터 원본 및 싱크로 또는 그 반대로 데이터를 가져오거나 이동하는 데 사용할 수 있는 ADF 파이프라인 구문입니다. 자체 호스팅 IR을 위해 사용하는 가상 머신을 보호된 데이터 저장소와 동일한 VNET 내에 배치하여 ADF에서 해당 데이터 저장소에 액세스할 수도 있습니다. 데이터 흐름을 사용하면 관리되는 VNET과 함께 Azure IR를 사용하여 동일한 최종 결과를 달성할 수 있습니다.\n\n### <a name=\"does-the-data-flow-compute-engine-serve-multiple-tenants\"></a>데이터 흐름 컴퓨팅 엔진이 여러 테넌트를 제공합니까?\n\n클러스터는 공유되지 않습니다. 프로덕션 실행 시 각 작업 실행에 대한 분리가 보장됩니다. 디버그 시나리오의 경우 한 사람이 하나의 클러스터를 가져오고 모든 디버그는 해당 사용자가 시작한 해당 클러스터로 이동합니다.\n\n### <a name=\"is-there-a-way-to-write-attributes-in-cosmos-db-in-the-same-order-as-specified-in-the-sink-in-adf-data-flow\"></a>ADF 데이터 흐름에서 싱크에 지정된 것과 동일한 순서로 cosmos db에 특성을 쓰는 방법이 있나요?    \n\nCosmos DB의 경우 각 문서의 기본 형식은 순서가 지정되지 않은 이름/값 쌍 집합인 JSON 개체 이므로 순서를 예약할 수 없습니다. \n\n### <a name=\"why-a-user-is-unable-to-use-data-preview-in-the-data-flows\"></a>사용자가 데이터 흐름에서 데이터 미리 보기를 사용할 수 없는 이유는 무엇인가요? \n\n사용자 지정 역할에 대한 사용 권한을 확인해야 합니다. 데이터 흐름 데이터 미리 보기와 관련된 여러 작업이 있습니다. 브라우저에서 디버그하는 동안 네트워크 트래픽을 확인하여 시작합니다. 모든 조치를 따르세요. 자세한 내용은 [리소스 제공자](../role-based-access-control/resource-provider-operations.md#microsoftdatafactory)를 참조하세요.\n\n### <a name=\"in-adf-can-i-calculate-value-for-a-new-column-from-existing-column-from-mapping\"></a>ADF에서는 매핑의 기존 열에서 새 열에 대한 값을 계산할 수 있나요?   \n\n데이터 흐름 매핑에 파생 변환을 사용하여 원하는 로직에 새 열을 만들 수 있습니다. 파생 열을 만드는 경우 새 열을 생성하거나 기존 열을 업데이트할 수 있습니다. 열 텍스트 상자에 만들려는 열을 입력합니다. 스키마의 기존 열을 재정의하려면 열 드롭다운을 사용할 수 있습니다. 파생 열의 식을 작성하려면 식 입력 텍스트 상자를 클릭합니다. 식 입력을 시작하거나 식 작성기를 열어 논리를 생성할 수 있습니다.\n\n### <a name=\"why-mapping-data-flow-preview-failing-with-gateway-timeout\"></a>게이트웨이 제한 시간을 사용하여 데이터 흐름 미리 보기가 실패하는 이유는 무엇인가요? \n\n더 큰 클러스터를 사용하고 디버그 설정의 행 제한을 더 작은 값으로 활용하여 디버그 출력의 크기를 줄이세요.\n\n### <a name=\"how-to-parameterize-column-name-in-dataflow\"></a>데이터 흐름에서 열 이름을 매개 변수화하는 방법\n\n열 이름은 다른 속성과 유사하게 매개 변수화할 수 있습니다. 파생된 열에서처럼 고객은 **$ColumnNameParam = toString(byName($ myColumnNameParamInData)).** 을 사용할 수 있습니다. 이러한 매개 변수는 파이프라인 실행에서 데이터 흐름으로 전달할 수 있습니다.\n\n### <a name=\"the-data-flow-advisory-about-ttl-and-costs\"></a>TTL 및 비용에 대한 데이터 흐름 권고\n\n이 문제 해결 문서는 문제를 해결하는 데 도움이 될 수 있습니다. [데이터 흐름 성능 매핑 및 가이드 TTL 조정](../data-factory/concepts-integration-runtime-performance.md#time-to-live).\n"
   - question: >
-      랭글링 데이터 흐름(데이터 흐름 파워 쿼리)
-    answer: >
-      ### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>랭글링 데이터 흐름에 대해 지원되는 지역은 어디입니까?
-
-
-      Data Factory는 다음 [지역](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)에서 사용할 수 있습니다.
-
-      파워 쿼리 기능이 모든 지역에 롤아웃되고 있습니다. 해당 지역에서 이 기능을 사용할 수 없는 경우 지원에 문의하세요.
-
-
-      ### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>랭글링 데이터 흐름의 제한 사항 및 제약 조건은 무엇인가요?
-
-
-      데이터 세트 이름에는 영숫자만 포함될 수 있습니다. 지원되는 데이터 저장소는 다음과 같습니다.
-
-
-      * 계정 키 인증을 사용하는 Azure Blob Storage의 DelimitedText 데이터 세트
-
-      * 계정 키 또는 서비스 사용자 인증을 사용하는 Azure Data Lake Storage gen2의 DelimitedText 데이터 세트
-
-      * 서비스 사용자 인증을 사용하는 Azure Data Lake Storage gen1의 DelimitedText 데이터 세트
-
-      * sql 인증을 사용하는 Azure SQL Database 및 Data Warehouse. 아래 지원되는 SQL 형식을 참조하세요. 데이터 웨어하우스에 대한 PolyBase 또는 스테이징 지원은 없습니다.
-
-
-      지금은 연결된 서비스 Key Vault 통합이 랭글링 데이터 흐름에서 지원되지 않습니다.
-
-
-      ### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>매핑과 랭글링 데이터 흐름의 차이점은 무엇입니까?
-
-
-      매핑 데이터 흐름은 코딩하지 않고도 대규모 데이터를 변환할 수 있는 방법을 제공합니다. 일련의 변환을 생성하여 데이터 흐름 캔버스에서 데이터 변환 작업을 설계할 수 있습니다. 임의 개수의 원본 변환으로 시작한 다음, 데이터 변환 단계를 수행합니다. 싱크로 데이터 흐름을 완료하여 결과를 대상으로 이동합니다. 매핑 데이터 흐름은 싱크와 원본에서 알려진 스키마와 알 수 없는 스키마를 모두 사용하여 데이터를 매핑 및 변환하는 데 유용합니다.
-
-
-      랭글링 데이터 흐름을 사용하면 spark 실행을 통해 대규모로 파워 쿼리 온라인 매시업 편집기를 사용하여 agile 데이터 준비 및 탐색을 수행할 수 있습니다. 데이터 레이크가 증가함에 따라 데이터 세트를 탐색하거나 레이크에서 데이터 세트를 만들어야 하는 경우가 있습니다. 알려진 대상에 매핑되지 않습니다. 랭글링 데이터 흐름은 덜 공식적인 모델 기반 분석 시나리오에 사용됩니다.
-
-
-      ### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Power Platform 데이터 흐름과 랭글링 데이터 흐름의 차이는 무엇입니까?
-
-
-      사용자는 Power Platform 데이터 흐름을 사용하여 다양한 데이터 원본에서 Common Data Service 및 Azure Data Lake로 데이터를 가져와 변환하고 PowerApps 애플리케이션, Power BI 보고서 또는 흐름 자동화를 빌드할 수 있습니다. Power Platform 데이터 흐름은 Power BI 및 Excel과 유사하게 설정된 파워 쿼리 데이터 준비 환경을 사용합니다. 또한 Power Platform 데이터 흐름을 사용하면 조직 내에서 쉽게 다시 사용할 수 있고 오케스트레이션을 자동으로 처리할 수 있습니다(예: 데이터 흐름을 새로 고칠 때 다른 데이터 흐름에 의존하는 데이터 흐름을 자동으로 새로 고침).
-
-
-      ADF(Azure Data Factory)는 데이터 엔지니어와 시민 데이터 통합자가 복잡한 하이브리드 ETL(추출-변환-로드) 및 ELT(추출-로드-변환) 워크플로를 만들 수 있는 관리되는 데이터 통합 서비스입니다. ADF의 랭글링 데이터 흐름을 통해 클라우드에서 데이터 준비를 간소화하고 인프라를 관리하지 않아도 데이터 크기에 맞게 확장되는 코드 없는 서버리스 환경을 사용자에게 제공합니다. 파워 쿼리 데이터 준비 기술(Power Platform 데이터 흐름, Excel, Power BI에도 사용됨)을 사용하여 데이터를 준비하고 구체화합니다. 빅 데이터 통합의 모든 복잡성과 크기 조정 과제를 처리하도록 빌드된 랭글링 데이터 흐름을 사용하여 사용자는 Spark 실행을 통해 대규모의 데이터를 신속하게 준비할 수 있습니다. 사용자는 브라우저 기반 인터페이스를 통해 액세스 가능한 시각적 환경에서 복원력 있는 데이터 파이프라인을 빌드하고 ADF가 Spark 실행의 복잡성을 처리하도록 할 수 있습니다. 파이프라인에 대한 일정을 빌드하고 ADF 모니터링 포털에서 데이터 흐름 실행을 모니터링합니다. ADF의 풍부한 가용성 모니터링 및 경고를 사용하여 데이터 가용성 SLA를 쉽게 관리하고 기본 제공 연속 통합 및 배포 기능을 활용하여 관리되는 환경에서 흐름을 저장하고 관리합니다. 경고를 설정하고 실행 계획을 확인하여 데이터 흐름을 튜닝할 때 논리가 계획대로 수행되고 있는지 확인합니다.
-
-
-      ### <a name="supported-sql-types"></a>지원되는 SQL 형식
-
-
-      랭글링 데이터 흐름은 SQL에서 다음 데이터 형식을 지원합니다. 지원되지 않는 데이터 형식 사용에 대한 유효성 검사 오류가 발생합니다.
-
-
-      * short
-
-      * double
-
-      * real
-
-      * float
-
-      * char
-
-      * nchar
-
-      * varchar
-
-      * nvarchar
-
-      * 정수
-
-      * int
-
-      * bit
-
-      * boolean
-
-      * smallint
-
-      * tinyint
-
-      * bigint
-
-      * long
-
-      * text
-
-      * date
-
-      * Datetime
-
-      * datetime2
-
-      * smalldatetime
-
-      * timestamp
-
-      * uniqueidentifier
-
-      * Xml
+      파워 쿼리 데이터 랭글링
+    answer: "### <a name=\"what-are-the-supported-regions-for-data-wrangling\"></a>데이터 랭글링에 대해 지원되는 지역은 어디인가요?\n\nData Factory는 다음 [지역](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)에서 사용할 수 있습니다.\n파워 쿼리 기능은 모든 데이터 흐름 지역에서 사용할 수 있습니다. 해당 지역에서 이 기능을 사용할 수 없는 경우 지원에 문의하세요.\n               \n### <a name=\"what-is-the-difference-between-mapping-data-flow-and-power-query-actvity-data-wrangling\"></a>매핑 데이터 흐름과 파워 쿼리 활동(데이터 랭글링)의 차이점은 무엇인가요?\n\n매핑 데이터 흐름은 코딩하지 않고도 대규모 데이터를 변환할 수 있는 방법을 제공합니다. 일련의 변환을 생성하여 데이터 흐름 캔버스에서 데이터 변환 작업을 설계할 수 있습니다. 임의 개수의 원본 변환으로 시작한 다음, 데이터 변환 단계를 수행합니다. 싱크로 데이터 흐름을 완료하여 결과를 대상으로 이동합니다. 매핑 데이터 흐름은 싱크와 원본에서 알려진 스키마와 알 수 없는 스키마를 모두 사용하여 데이터를 매핑 및 변환하는 데 유용합니다.\n\n파워 쿼리 데이터 랭글링을 사용하면 spark 실행을 통해 대규모로 파워 쿼리 온라인 매시업 편집기를 사용하여 agile 데이터 준비 및 탐색을 수행할 수 있습니다. 데이터 레이크가 증가함에 따라 데이터 세트를 탐색하거나 레이크에서 데이터 세트를 만들어야 하는 경우가 있습니다. 알려진 대상에 매핑되지 않습니다.\n\n### <a name=\"supported-sql-types\"></a>지원되는 SQL 형식\n\n파워 쿼리 데이터 랭글링은 SQL에서 다음 데이터 형식을 지원합니다. 지원되지 않는 데이터 형식 사용에 대한 유효성 검사 오류가 발생합니다.\n\n* short\n* double\n* real\n* float\n* char\n* nchar\n* varchar\n* nvarchar\n* 정수\n* int\n* bit\n* boolean\n* smallint\n* tinyint\n* bigint\n* long\n* text\n* date\n* Datetime\n* datetime2\n* smalldatetime\n* timestamp\n* uniqueidentifier\n* Xml\n"
 additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n데이터 팩터리를 만드는 단계별 지침은 다음 자습서를 참조하세요.\n        \n- [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)\n- [자습서: 클라우드에서 데이터 복사](tutorial-copy-data-dot-net.md)"

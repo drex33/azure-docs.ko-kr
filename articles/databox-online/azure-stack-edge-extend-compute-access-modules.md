@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: dbbd43d07bbb07e13f2e0301e15d73ee727a86fd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 2b4b509e359976fcf8ff0c47270c814a203fcbdd
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461242"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108336"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에서 컴퓨팅 네트워크 사용
 
@@ -62,7 +62,7 @@ Azure Stack Edge Pro 디바이스에 웹 서버 앱 모듈을 추가하려면 �
 3. **IoT Edge 사용자 지정 모듈** 블레이드에서 다음을 수행합니다.
 
     1. 배포할 웹 서버 앱 모듈의 **이름** 을 지정합니다.
-    2. 모듈 이미지의 **이미지 URI** 를 제공합니다. 제공한 이름 및 태그와 일치하는 모듈이 검색됩니다. 예제에서 `nginx:stable`은 퍼블릭 [Docker 리포지토리](https://hub.docker.com/_/nginx/)에서 안정적인 nginx 이미지(안정적인 것으로 태그가 지정됨)를 끌어옵니다.
+    2. 모듈 이미지의 **이미지 URI** 를 제공합니다. 제공한 이름 및 태그와 일치하는 모듈이 검색됩니다. 이 경우 `mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine`은 공용 `mcr.microsoft.com` 레지스트리에서 nginx 이미지(1.15.5-alpine으로 태그 지정)를 가져옵니다.
     3. **컨테이너 만들기 옵션** 에서 다음 샘플 코드를 붙여넣습니다.  
 
         ```

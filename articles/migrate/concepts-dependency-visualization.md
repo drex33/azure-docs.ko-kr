@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: 184c8099c0e86d8f8744948137b344c732bbf7b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 240f87a6b3154995340830e1861c8a76e6e3557f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778392"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259672"
 ---
 # <a name="dependency-analysis"></a>종속성 분석
 
@@ -71,7 +71,7 @@ ms.locfileid: "104778392"
 
 **요구 사항** | **에이전트 없음** | **에이전트 기반**
 --- | --- | ---
-**지원** | VMware 서버에 대해서만 미리 보기 상태입니다. 지원되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)하세요. | GA(일반 공급) 상태입니다.
+**지원** | VMware의 서버에만 사용할 수 있습니다. 지원되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)하세요. | GA(일반 공급) 상태입니다.
 **에이전트** | 분석하려는 서버에 에이전트가 필요하지 않습니다. | 분석하려는 각 온-프레미스 서버에 에이전트가 필요합니다.
 **Log Analytics** | 필수 아님. | Azure Migrate는 종속성 분석에 대한 [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md)의 [서비스 맵](../azure-monitor/vm/service-map.md) 솔루션을 사용합니다.<br/><br/> Log Analytics 작업 영역을 프로젝트와 연결합니다. 작업 영역은 미국 동부, 동남 아시아 또는 서유럽 지역에 있어야 합니다. 작업 영역은 [서비스 맵 지원되는](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions) 지역에 있어야 합니다.
 **처리** | TCP 연결 데이터를 캡처합니다. 검색 후 5분 간격으로 데이터를 수집합니다. | 서버에 설치된 서비스 맵 에이전트는 각 프로세스의 TCP 프로세스 및 인바운드/아웃바운드 연결에 대한 데이터를 수집합니다.

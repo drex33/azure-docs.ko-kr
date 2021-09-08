@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8043e85db1ee1aadc814e98db12cab10ec17e129
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55dffd12f63b5cea3f2728ca36a1038e990d45e8
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92145222"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865103"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory 조건부 액세스 FAQ
 
@@ -57,7 +57,7 @@ Windows 및 Mac용 Microsoft Teams 데스크톱 클라이언트는 최신 인증
 
 ## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>조건부 액세스 정책을 사용하도록 설정한 후 일부 탭이 Microsoft Teams에서 작동하지 않는 이유는 무엇인가요?
 
-Microsoft Teams의 테넌트에서 일부 조건부 액세스 정책을 사용하도록 설정하면 특정 탭이 더 이상 데스크톱 클라이언트에서 예상대로 작동하지 않을 수 있습니다. 그러나 Microsoft Teams 웹 클라이언트를 사용하는 경우 영향을 받는 탭이 작동합니다. 영향을 받는 탭에는 Power BI, Forms, VSTS, PowerApps, SharePoint 목록이 포함될 수 있습니다.
+Microsoft Teams의 테넌트에서 일부 조건부 액세스 정책을 사용하도록 설정하면 특정 탭이 더 이상 데스크톱 클라이언트에서 예상대로 작동하지 않을 수 있습니다. 그러나 Microsoft Teams 웹 클라이언트를 사용하는 경우 영향을 받는 탭이 작동합니다. 영향을 받는 탭에는 Power BI, Forms, VSTS, Power Apps, SharePoint 목록이 포함될 수 있습니다.
 
 영향을 받는 탭을 확인하려면 Windows 10 계정 확장이 설치된 Edge, Internet Explorer 또는 Chrome에서 Teams 웹 클라이언트를 사용해야 합니다. 일부 탭은 조건부 액세스를 사용하도록 설정할 경우 Microsoft Teams 데스크톱 클라이언트에서 작동하지 않는 웹 인증을 사용합니다. Microsoft는 해당 시나리오를 지원하기 위해 파트너와 협력하고 있습니다. 현재 Planner, OneNote, Stream과 관련된 시나리오를 지원합니다.
 

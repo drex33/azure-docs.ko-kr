@@ -2,20 +2,22 @@
 title: Azure Portal을 사용하여 Azure 관리 디스크의 성능 변경
 description: Azure Portal을 사용하여 새 관리 디스크 및 기존 관리 디스크의 성능 계층을 변경하는 방법에 대해 알아봅니다.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a82865930a5ed770b742c3d5e8906d4e69be3f64
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: dd7d024b542feb2e15aefb79f2467e7033c180f9
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079411"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106614"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Azure Portal을 사용하여 성능 계층 변경
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
@@ -38,27 +40,11 @@ ms.locfileid: "110079411"
 :::image type="content" source="media/disks-performance-tiers-portal/new-disk-change-performance-tier.png" alt-text="디스크 생성 블레이드의 스크린샷, 디스크가 강조 표시되고 성능 계층 드롭다운이 강조 표시됩니다." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
 
 
-## <a name="existing-disks"></a>기존 디스크
-
-다음 단계는 기존 디스크의 성능 계층을 변경하는 방법을 간략하게 설명합니다.
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 변경하려는 디스크가 포함된 VM으로 이동합니다.
-1. VM 할당을 무효화하거나 디스크를 분리합니다.
-1. 디스크 선택
-1. **크기 + 성능** 을 선택합니다.
-1. **성능 계층** 드롭다운에서 디스크의 현재 성능 계층이 아닌 다른 계층을 선택합니다.
-1. **크기 조정** 을 선택합니다.
-
-:::image type="content" source="media/disks-performance-tiers-portal/change-tier-existing-disk.png" alt-text="크기 + 성능 블레이드의 스크린샷, 성능 계층이 강조 표시됩니다." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
-
-### <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>가동 중지 시간 없이 디스크의 성능 계층 변경(미리 보기)
+### <a name="change-the-performance-tier-of-an-existing-disk-without-downtime"></a>가동 중지 시간 없이 기존 디스크의 성능 계층 변경
 
 가동 중지 시간 없이 성능 계층을 변경할 수도 있으므로 VM 할당을 중단하거나 디스크를 분리하여 계층을 변경할 필요가 없습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
-
-디스크는 [가동 중지 시간 없이 성능 등급 변경(미리 보기)](#change-performance-tier-without-downtime-preview) 섹션에 명시된 요구사항을 충족해야 합니다. 그렇지 않은 경우 성능 등급을 변경하면 가동 중지 시간이 발생합니다.
+### <a name="prerequisites"></a>필수 조건
 
 가동 중지 시간 없이 디스크의 성능 계층을 변경하려면 먼저 구독에 대한 기능을 사용하도록 설정해야 합니다. 다음 단계를 수행하여 구독에 대한 기능을 사용하도록 설정하세요.
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Active Directory 기반 인증을 지원�
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 7f49a3f97862c3a141ea9376d0ffc9bf510d3e6f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ac383c3d517bbbab2b25c12dc4a06b4fe63e1b89
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110782965"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122865049"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Azure 리소스에 대한 Service Fabric 애플리케이션의 관리 ID 액세스 권한 부여
 
@@ -98,5 +98,6 @@ Service Fabric 애플리케이션의 관리 ID(이 경우 사용자 할당)를 �
 자세한 내용은 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+* [관리 ID가 있는 Service Fabric 애플리케이션을 관리 클러스터에 배포](how-to-managed-cluster-application-managed-identity.md)
 * [시스템 할당 관리 ID를 사용하여 Azure Service Fabric 애플리케이션 배포](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [사용자 할당 관리 ID를 사용하여 Azure Service Fabric 애플리케이션 배포](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)

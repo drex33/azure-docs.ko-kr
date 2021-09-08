@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a3c563c25283c300942f1fb58072e8c61847ba1
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935792"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831452"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Azure Cognitive Search의 OData 전체 텍스트 검색 함수 - `search.ismatch` 및 `search.ismatchscoring`
 
@@ -126,6 +126,12 @@ search_mode ::= "'any'" | "'all'"
 
 ```odata-filter-expr
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
+```
+
+설명 필드에서 "lux"로 시작하는 단어가 있는 문서를 찾습니다. 이 쿼리는 `search.ismatch`와 함께 [접두사 검색](query-simple-syntax.md#prefix-queries)을 사용합니다.
+
+```odata-filter-expr
+    search.ismatch('lux*', 'Description')
 ```
 
 ## <a name="next-steps"></a>다음 단계  

@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 04/29/2021
 ms.author: jianleishen
-ms.openlocfilehash: 593947e0bd7562172413d254d78eaa31b61b182f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9ee58b4afc33109ad8c205606e52fd1d76695d30
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642274"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257305"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Azure Data Factory의 XML 포맷
 
@@ -22,13 +22,13 @@ ms.locfileid: "122642274"
 
 **XML 파일을 구문 분석** 하려면 이 문서의 내용을 따르세요. 
 
-XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md) 커넥터에 지원됩니다. 원본으로 지원되며 싱크로는 지원되지 않습니다.
+XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md),  [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md) 커넥터에 지원됩니다. 원본으로 지원되며 싱크로는 지원되지 않습니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 XML 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 형식 속성을 **Xml** 로 설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 -> 데이터 세트 속성 섹션을 참조하세요**. | 예      |
@@ -73,7 +73,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 
 복사 작업 ***\*원본\**** 섹션에서 지원되는 속성은 다음과 같습니다. [XML 커넥터 동작](#xml-connector-behavior)에 대한 자세한 정보.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 형식 속성을 **XmlSource** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **XML 읽기 설정** 표를 참조하세요. | 예       |
@@ -81,7 +81,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 
 `formatSettings`에서 지원되는 **XML 읽기 설정**:
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings의 형식을 **XmlReadSettings** 로 설정해야 합니다. | 예      |
 | validationMode | XML 스키마의 유효성을 검사할지 여부를 지정합니다.<br>허용되는 값은 **none**(기본값, 유효성 검사하지 않음), **xsd**(XSD를 사용하여 유효성 검사), **dtd**(DTD를 사용하여 유효성 검사)입니다. | 예 |
@@ -100,7 +100,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 
 다음 표에서는 XML 원본에서 지원하는 속성을 나열합니다. 해당 속성은 **원본 옵션** 탭에서 편집할 수 있습니다. [XML 커넥터 동작](#xml-connector-behavior)에 대한 자세한 정보. 인라인 데이터 세트를 사용하는 경우 [데이터 세트 속성](#dataset-properties) 섹션에 설명된 속성과 동일한 추가 파일 설정이 표시됩니다. 
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 예 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할된 파일 데이터의 경우 분할된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 예 | String | partitionRootPath |

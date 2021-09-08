@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: a6225fec30a87ca0bbe57e414733bc21489f87ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 507ade69fc257b52a3fe632fcf652dcd5660d819
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577447"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123104244"
 ---
 # <a name="configure-openssl-for-linux"></a>Linux용 OpenSSL 구성
 
-1\.9.0 이전 버전의 Speech SDK를 사용하는 경우 [OpenSSL](https://www.openssl.org)은 호스트 시스템 버전으로 동적으로 구성됩니다. 이후 버전의 Speech SDK에서 OpenSSL(버전 [1.1.1b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html))은 Speech SDK의 핵심 라이브러리에 정적으로 연결됩니다.
+1\.9.0 이전 버전의 Speech SDK를 사용하는 경우 [OpenSSL](https://www.openssl.org)은 호스트 시스템 버전으로 동적으로 구성됩니다. 이후 버전의 Speech SDK OpenSSL은 Speech SDK의 핵심 라이브러리에 정적으로 연결됩니다. Speech SDK 버전 1.9.0~1.16.0에서는 [OpenSSL 버전 1.1.1b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)가 사용됩니다. Speech SDK 버전 1.17.0 이상에서는 [Open SSL 버전 1.1.1k](https://mta.openssl.org/pipermail/openssl-announce/2021-March/000197.html)가 사용됩니다.
 
 연결을 보장하려면 OpenSSL 인증서가 시스템에 설치되어 있는지 확인합니다. 다음 명령을 실행합니다.
 ```bash
@@ -53,7 +54,7 @@ export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
 ## <a name="certificate-revocation-checks"></a>인증서 해지 확인
-Speech Service에 연결할 때 Speech SDK는 Speech Service에서 사용하는 TLS 인증서가 해지되지 않았는지 확인합니다. 이 확인을 수행하려면 Speech SDK가 Azure에서 사용하는 인증 기관의 CRL 배포 지점에 액세스해야 합니다. 가능한 CRL 다운로드 위치 목록은 [이 문서](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes)에서 확인할 수 있습니다. 인증서가 해지되었거나 CRL을 다운로드할 수 없는 경우 Speech SDK에서 연결을 중단하고 '취소됨' 이벤트가 실행됩니다.
+Speech Service에 연결할 때 Speech SDK는 Speech Service에서 사용하는 TLS 인증서가 해지되지 않았는지 확인합니다. 이 확인을 수행하려면 Speech SDK가 Azure에서 사용하는 인증 기관의 CRL 배포 지점에 액세스해야 합니다. 가능한 CRL 다운로드 위치 목록은 [이 문서](../../security/fundamentals/tls-certificate-changes.md)에서 확인할 수 있습니다. 인증서가 해지되었거나 CRL을 다운로드할 수 없는 경우 Speech SDK에서 연결을 중단하고 '취소됨' 이벤트가 실행됩니다.
 
 Speech SDK를 사용하는 네트워크에서 CRL 다운로드 위치에 대한 액세스를 허용하지 않는 방식으로 구성된 경우 CRL 확인을 사용하지 않도록 설정하거나 CRL을 검색할 수 없는 경우 실패하지 않도록 설정할 수 있습니다. 이 구성은 Recognizer 개체를 만드는 데 사용되는 구성 개체를 통해 수행됩니다.
 
@@ -86,7 +87,7 @@ config.setProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")?
+speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")
 ```
 
 ::: zone-end
@@ -128,7 +129,7 @@ config.setProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")?
+speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")
 ```
 
 ::: zone-end

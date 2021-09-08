@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1207f4856882d8aa0e6d1e41712071536bfecf29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7841a8520e3bd3a01a993054444b8aa4d04d542d
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98728559"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260868"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>리소스 클래스를 작업 그룹으로 변환
 
@@ -27,7 +27,7 @@ ms.locfileid: "98728559"
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>기존 리소스 클래스 구성 이해
 
-작업 그룹에는 요청당 할당된 전체 시스템 리소스의 백분율을 지정하는 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`라는 매개 변수가 필요합니다.  리소스 할당은 동시성 슬롯을 할당하여 [리소스 클래스](resource-classes-for-workload-management.md#what-are-resource-classes)에 대해 수행됩니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`에 대해 지정할 값을 확인하려면 sys.dm_workload_management_workload_groups_stats <link tbd> DMV를 사용합니다.  예를 들어 아래 쿼리는 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 매개 변수에 사용할 수 있는 값을 반환하여 staticrc40과 유사한 작업 그룹을 만듭니다.
+작업 그룹에는 요청당 할당된 전체 시스템 리소스의 백분율을 지정하는 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`라는 매개 변수가 필요합니다.  리소스 할당은 동시성 슬롯을 할당하여 [리소스 클래스](resource-classes-for-workload-management.md#what-are-resource-classes)에 대해 수행됩니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`에 대해 지정할 값을 확인하려면 [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) DMV를 사용합니다.  예를 들어 아래 쿼리는 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 매개 변수에 사용할 수 있는 값을 반환하여 staticrc40과 유사한 작업 그룹을 만듭니다.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent
@@ -42,7 +42,7 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 
 ## <a name="create-workload-group"></a>작업 그룹 만들기
 
-알려진 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`로 CREATE WORKLOAD GROUP <link> 구문을 사용하여 작업 그룹을 만들 수 있습니다.  필요에 따라 0보다 큰 `MIN_PERCENTAGE_RESOURCE`를 지정하여 작업 그룹에 대한 리소스를 격리할 수 있습니다.  또한 필요에 따라 100 미만 `CAP_PERCENTAGE_RESOURCE`를 지정하여 작업 그룹에서 사용할 수 있는 리소스의 양을 제한할 수 있습니다.  
+알려진 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`로 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true) 구문을 사용하여 워크로드를 만들 수 있습니다.  필요에 따라 0보다 큰 `MIN_PERCENTAGE_RESOURCE`를 지정하여 작업 그룹에 대한 리소스를 격리할 수 있습니다.  또한 필요에 따라 100 미만 `CAP_PERCENTAGE_RESOURCE`를 지정하여 작업 그룹에서 사용할 수 있는 리소스의 양을 제한할 수 있습니다.  
 
 예를 들어 mediumrc를 기준으로 사용하는 아래 코드는 `wgDataLoads`에 대한 시스템 리소스의 10%만 `MIN_PERCENTAGE_RESOURCE`를 설정하고 한 쿼리가 항상 실행될 수 있도록 보장합니다.  또한 `CAP_PERCENTAGE_RESOURCE`가 40%로 설정되고 이 작업 그룹을 동시 요청 4개로 제한합니다.  `QUERY_EXECUTION_TIMEOUT_SEC` 매개 변수를 3600으로 설정하면 1시간 넘게 실행되는 모든 쿼리가 자동으로 취소됩니다.
 

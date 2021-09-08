@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 08/25/2021
 ms.author: b-juche
-ms.openlocfilehash: bb3d1fd49c2623ff6dcbe8a19ae8c8ca3b46425a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdb184d4b96e4cfee2b5450f35c947efb768da9b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006579"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866979"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files에 서브넷 위임 
 
@@ -27,8 +27,8 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.   볼륨을 만들 �
 
 ## <a name="considerations"></a>고려 사항
 
-* 새 서브넷 만들기용 마법사의 기본값은 /24 네트워크 마스크이며, 이는 251개의 IP 주소를 제공합니다. 11개의 사용 가능한 IP 주소를 제공하는 /28 네트워크 마스크를 서비스에 사용하면 충분합니다.
-* 각 Azure Virtual Network(VNet)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.   
+* 새 서브넷 만들기용 마법사의 기본값은 /24 네트워크 마스크이며, 이는 251개의 IP 주소를 제공합니다. 11개의 사용 가능한 IP 주소를 제공하는 /28 네트워크 마스크를 대부분의 사용 사례에 충분합니다. 많은 볼륨과 스토리지 엔드포인트가 예상되는 SAP HANA와 같은 시나리오에서는 더 큰 서브넷(예: /26 네트워크 마스크)을 고려해야 합니다. Azure VNet(Virtual Network)에서 많은 클라이언트 또는 VM IP 주소를 예약할 필요가 없는 경우 마법사에서 제안한 기본 네트워크 마스크 /24를 유지할 수도 있습니다. 위임된 네트워크의 네트워크 마스크는 초기 생성 후에 변경할 수 없습니다. 
+* 각 VNet에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.   
    Azure를 통해 VNet에서 여러 개의 위임된 서브넷을 만들 수 있습니다.  그러나 두 개 이상의 위임된 서브넷을 사용하는 경우 새 볼륨을 만들려고 할 때마다 모두 실패합니다.  
    VNet에는 위임된 서브넷이 하나만 있을 수 있습니다. NetApp 계정은 각각 고유한 위임된 서브넷이 있는 여러 VNet에 볼륨을 배포할 수 있습니다.  
 * 위임된 서브넷에서 네트워크 보안 그룹 또는 서비스 엔드포인트를 지정할 수 없습니다. 이렇게 하면 서브넷 위임이 실패합니다.

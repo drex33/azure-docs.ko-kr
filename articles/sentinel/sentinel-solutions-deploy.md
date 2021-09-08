@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: yelevin
-ms.openlocfilehash: ce1620982aac833472102dce8a80b0c4195eb61d
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 5cb84ad912e5430948d0dedc71d94e69d1dd1a86
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109811860"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251901"
 ---
 # <a name="discover-and-deploy-azure-sentinel-solutions"></a>Azure Sentinel 솔루션 검색 및 배포
 
@@ -46,7 +46,7 @@ Azure Sentinel 솔루션은 Azure Sentinel에서 제품 내 검색 가능성, �
 
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="솔루션 목록":::
 
-    - 목록 맨 아래로 스크롤했지만 원하는 내용을 찾지 못한 경우 맨 아래에 있는 **추가 로드** 링크를 클릭하여 목록을 확장합니다.
+    - 목록 맨 아래로 스크롤했지만 원하는 내용을 찾지 못한 경우 맨 아래에 있는 **추가 로드** 링크를 선택하여 목록을 확장합니다.
 
         :::image type="content" source="./media/sentinel-solutions-deploy/load-more.png" alt-text="추가 솔루션 로드":::
 
@@ -68,7 +68,7 @@ Azure Sentinel 솔루션은 Azure Sentinel에서 제품 내 검색 가능성, �
 
 1. 솔루션을 배포할 구독, 리소스 그룹 및 작업 영역을 입력합니다. 
 
-1. **다음** 을 클릭하여 나머지 탭(솔루션에 포함된 구성 요소에 해당)을 순환합니다. 여기에서 각 구성 요소에 대해 알아보고 경우에 따라 구성할 수 있습니다.
+1. **다음** 을 선택하여 나머지 탭(솔루션에 포함된 구성 요소에 해당)을 순환합니다. 여기에서 각 구성 요소에 대해 알아보고 경우에 따라 구성할 수 있습니다.
 
     > [!NOTE]
     > 아래에 나열된 탭은 함께 제공되는 스크린샷에 표시된 솔루션에서 제공하는 구성 요소에 해당합니다. 솔루션마다 구성 요소 유형이 다를 수 있으므로 모든 솔루션에 동일한 탭이 모두 표시되지 않을 수 있으며 아래와 같이 탭이 표시되지 않을 수 있습니다.
@@ -80,7 +80,7 @@ Azure Sentinel 솔루션은 Azure Sentinel에서 제품 내 검색 가능성, �
     1. **플레이북** 탭 - 여기에 유효한 Proofpoint TAP 자격 증명을 입력해야 합니다. 그러면 플레이북이 Proofpoint 시스템에 인증하여 규정된 대응 작업을 수행할 수 있습니다.
         :::image type="content" source="./media/sentinel-solutions-deploy/wizard-playbooks.png" alt-text="배포 마법사 플레이북 탭":::
 
-1. 마지막으로 **검토 + 만들기** 탭에서 "유효성 검사 통과" 메시지를 기다린 다음 **만들기** 를 클릭하여 솔루션을 배포합니다. **자동화를 위한 템플릿 다운로드** 링크를 선택하여 솔루션을 코드로 배포할 수도 있습니다.
+1. 마지막으로 **검토 + 만들기** 탭에서 "유효성 검사 통과" 메시지가 표시될 때까지 기다린 후 **만들기** 를 선택하여 솔루션을 배포합니다. **자동화를 위한 템플릿 다운로드** 링크를 선택하여 솔루션을 코드로 배포할 수도 있습니다.
 
     :::image type="content" source="./media/sentinel-solutions-deploy/wizard-create.png" alt-text="배포 마법사 검토 및 만들기 탭":::
 

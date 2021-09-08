@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/12/2020
-ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/11/2021
+ms.openlocfilehash: 71f320c9144270b157b46a58e2107873439b2227
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94555603"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831344"
 ---
 # <a name="apply-sql-transformation"></a>SQL 변환 적용
 
@@ -61,6 +61,8 @@ on t1.placeID = t3.placeID
 -   포트 1에는 항상 입력이 필요합니다.  
   
 -   공백 또는 기타 특수 문자가 포함된 열 식별자의 경우 `SELECT` 또는 `WHERE` 절에서 열을 참조할 때 항상 열 식별자를 대괄호 또는 큰따옴표로 묶어야 합니다.  
+
+-   **SQL 변환 적용** 전에 **메타데이터 편집** 을 사용하여 열 메타데이터(범주 또는 필드)를 지정한 경우 **SQL 변환 적용** 의 출력에는 이러한 속성이 포함되지 않습니다. **SQL 변환 적용** 후에 열을 편집하려면 **메타데이터 편집** 을 사용해야 합니다.
   
 ### <a name="unsupported-statements"></a>지원되지 않는 문  
 

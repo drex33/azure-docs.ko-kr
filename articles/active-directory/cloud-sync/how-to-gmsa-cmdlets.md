@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64eb6e15c2c53a8c82b51027471192de4e3679f2
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 5fc33aaa51a687cc6f9df8aea494d5790dad22a2
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634324"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306160"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-agent-gmsa-powershell-cmdlets"></a>Azure AD Connect 클라우드 프로비저닝 에이전트 gMSA PowerShell cmdlets
 
@@ -73,7 +73,7 @@ ms.locfileid: "122634324"
 |PasswordWriteBack|Azure AD Connect에 대한 [PasswordWriteBack](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-writeback) 권한을 참조하세요.|
 |HybridExchangePermissions|Azure AD Connect에 대한 [HybridExchangePermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-hybrid-deployment) 권한을 참조하세요.|
 |ExchangeMailPublicFolderPermissions| Azure AD Connect에 대한 [ExchangeMailPublicFolderPermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-mail-public-folders) 권한을 참조하세요.|
-|CloudHR| '하위 사용자 개체'에 ‘모든 권한’을 적용하고 '해당 개체 및 모든 하위 개체'에는 ‘사용자 개체 생성/삭제’를 적용합니다.|
+|CloudHR| '이 개체 및 모든 하위 개체'에 '사용자 개체 만들기/삭제' 적용|
 |모두|위의 모든 권한을 추가합니다.|
 
 다음 두 가지 중 하나를 선택하면 AADCloudSyncPermissions를 사용할 수 있습니다.

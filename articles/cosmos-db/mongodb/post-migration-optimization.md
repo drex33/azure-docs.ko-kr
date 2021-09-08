@@ -4,15 +4,15 @@ description: 이 문서는 MongoDB에서 Mongo DB용 Azure Cosmos DB의 API로 �
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 05/19/2021
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: d627fc4e35a4438926b14159fdfd424361601ad3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6dbcb5e65c99c2009602d660e3cd0cc9e22efdbf
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528199"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031570"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB용 Azure Cosmos DB의 API 사용 시 마이그레이션 후 최적화 단계
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -89,6 +89,9 @@ Azure Cosmos DB는 올바르게 정의된 5가지 [일관성 수준](../consiste
 
 ## <a name="next-steps"></a>다음 단계
 
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
 * [Azure Cosmos DB에 MongoDB 애플리케이션 연결](connect-mongodb-account.md)
 * [Studio 3T를 사용하여 Azure Cosmos DB 계정에 연결](connect-using-mongochef.md)
 * [Azure Cosmos DB의 MongoDB용 API를 사용하여 읽기를 전역 배포하는 방법](readpreference-global-distribution.md)

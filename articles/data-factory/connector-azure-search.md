@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: 9ff0cdf1e54bb1ae943408eacfd92ed9f49f2be2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: fbeeb112712afa5a47401d10b3f4b2d9f01d1713
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642642"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313750"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cognitive Search 인덱스에 데이터 복사
 
@@ -33,6 +33,31 @@ ms.locfileid: "122642642"
 ## <a name="getting-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-azure-search-using-ui"></a>UI를 사용하여 Azure Search에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Azure Search에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하고 연결된 서비스를 선택한 다음 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새 연결된 서비스를 만듭니다.":::
+
+2. Search를 검색하고 Azure Search 커넥터를 선택합니다.
+
+   :::image type="content" source="media/connector-azure-search/azure-search-connector.png" alt-text="Azure Search 커넥터를 선택합니다.":::    
+
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+   :::image type="content" source="media/connector-azure-search/configure-azure-search-linked-service.png" alt-text="Azure Search에 연결된 서비스를 구성합니다.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
 
 다음 섹션에서는 Azure Cognitive Search 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

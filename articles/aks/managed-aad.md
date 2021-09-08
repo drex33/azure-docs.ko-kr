@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 353fdd952ed4b2baa8920f1e15fb0dc0f44264ba
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: 7a5bea7e555bf4f388a06668b2e349045692a941
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122538226"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123106629"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리형 Azure Active Directory 통합
 
-AKS 관리형 Azure AD 통합은 Azure AD 통합 환경을 간소화하도록 설계되었습니다. 이전에는 사용자가 클라이언트 앱, 서버 앱을 만들어야 했고, 사용자에게 디렉터리 읽기 권한을 부여하는 Azure AD 테넌트가 필요했습니다. 새 버전에서는 AKS 리소스 공급자가 클라이언트 및 서버 앱을 자동으로 관리합니다.
+AKS 관리 Azure AD 통합은 Azure AD 통합 프로세스를 간소화합니다. 이전에는 사용자가 클라이언트 및 서버 앱을 만들어야 했으며 Azure AD 테넌트에 디렉터리 읽기 권한을 부여해야 했습니다. 새 버전에서는 AKS 리소스 공급자가 클라이언트 및 서버 앱을 자동으로 관리합니다.
 
 ## <a name="azure-ad-authentication-overview"></a>Azure AD 인증 개요
 
@@ -26,7 +26,7 @@ Azure AD 통합 흐름에 대한 자세한 정보는 [Azure Active Directory 통
 
 * AKS 관리형 Azure AD 통합을 사용하지 않도록 설정할 수 없습니다
 * AKS 관리형 Azure AD 통합 클러스터를 레거시 AAD로 변경하는 기능은 지원되지 않습니다
-* AKS 관리형 Azure AD 통합에 Kubernetes RBAC를 사용하지 않는 클러스터는 지원되지 않습니다
+* Kubernetes RBAC를 사용하지 않는 클러스터는 AKS 관리형 Azure AD 통합에 대해 지원되지 않습니다.
 * AKS 관리형 Azure AD 통합에 연결된 Azure AD 테넌트 변경은 지원되지 않습니다
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -50,7 +50,7 @@ kubelogin --version
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-클러스터의 경우 Azure AD 그룹이 필요합니다. 이 그룹은 클러스터가 클러스트 관리자 권한을 부여하기 위한 관리자 그룹으로 필요합니다. 기존 Azure AD 그룹을 사용하거나 그룹을 새로 만들 수 있습니다. Azure AD 그룹의 개체 ID를 기록합니다.
+클러스터의 경우 Azure AD 그룹이 필요합니다. 이 그룹은 클러스터 관리자 권한을 부여하기 위해 클러스터에 관리자 그룹으로 등록됩니다. 기존 Azure AD 그룹을 사용하거나 그룹을 새로 만들 수 있습니다. Azure AD 그룹의 개체 ID를 기록합니다.
 
 ```azurecli-interactive
 # List existing groups in the directory
@@ -100,7 +100,7 @@ AKS 관리형 Azure AD 클러스터가 성공적으로 만들어지면 응답 �
 
 ## <a name="access-an-azure-ad-enabled-cluster"></a>Azure AD를 사용하는 클러스터에 액세스
 
-다음 단계를 수행하려면 [Azure Kubernetes Service 클러스터 사용자](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) 기본 제공 역할이 필요합니다.
+Azure AD 정의 그룹을 사용하여 클러스터에 액세스하기 전에 [Azure Kubernetes Service 클러스터 사용자](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) 기본 제공 역할이 필요합니다.
 
 클러스터에 액세스하는 데 사용할 사용자 자격 증명을 가져옵니다.
  

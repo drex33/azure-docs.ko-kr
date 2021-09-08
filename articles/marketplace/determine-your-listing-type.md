@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 07/30/2021
-ms.openlocfilehash: 26897f9c4284ad970d2d662ca444324660064a4d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 154cfa6f8fd413c1cef1a22143d7e4d357053760
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566527"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867015"
 ---
 # <a name="introduction-to-listing-options"></a>목록 옵션 소개
 
@@ -27,7 +27,7 @@ ms.locfileid: "122566527"
 | 컨설팅 서비스 |  |  | &#10004; |  |
 | Azure 컨테이너 |  |  |  | &#10004; |
 | Dynamics 365 business central | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 Customer Engagement 및 Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
 | Dynamics 365 for operations | &#10004; | &#10004; | &#10004; | &#10004; |
 | IoT Edge 모듈 |  |  |  | &#10004; |
 | 관리형 서비스 |  |  |  | &#10004; |
@@ -74,7 +74,7 @@ ms.locfileid: "122566527"
 | 컨설팅 서비스 |   |   |   |   |
 | Azure 컨테이너 | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
 | Dynamics 365 business central | &#10004; |   |   |   |
-| Dynamics 365 Customer Engagement & PowerApps | &#10004; |   |   |   |
+| Dynamics 365 Customer Engagement 및 Power Apps | &#10004; |   |   |   |
 | Dynamics 365 for operations | &#10004; |   |   |   |
 | IoT Edge 모듈 | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
 | 관리형 서비스 |   | &#10004; |   |   |
@@ -141,7 +141,7 @@ ms.locfileid: "122566527"
 | SaaS  | 온라인 상점 모두 | 온라인 상점 모두 | 온라인 상점 모두 |   | 온라인 상점 모두 &#42; |
 | Microsoft 365 앱 | AppSource | AppSource |   |   | AppSource &#42;&#42; |
 | Dynamics 365 Business Central | AppSource | AppSource |   |   |   |
-| Dynamics 365 for Customer Engagements & PowerApps | AppSource | AppSource |   |   |   |
+| Dynamics 365 for Customer Engagements & Power Apps | AppSource | AppSource |   |   |   |
 | Dynamics 365 Operations | AppSource | AppSource |   |   |   |
 | Power BI App |   |   | AppSource |   |   |
 |||||||

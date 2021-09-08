@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/05/2021
+ms.date: 08/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 074bffb8614be1f71ba1956fd5a238bc19354c58
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: b8ceea26ed7a5e58e890c4e313b00f1f4f37f4e7
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028746"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967801"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C 로그 수집
 
@@ -164,7 +164,7 @@ Application Insights ID 및 키를 가져오려면:
 
 ## <a name="configure-application-insights-in-production"></a>프로덕션에서 Application Insights 구성
 
-프로덕션 환경 성능과 사용자 환경을 개선하려면 중요하지 않은 메시지를 무시하도록 정책을 구성하는 것이 중요합니다. 다음 구성을 사용하여 Application Insights에 중요한 오류 메시지만 보낼 수 있습니다. 
+프로덕션 환경 성능과 사용자 환경을 개선하려면 중요하지 않은 메시지를 무시하도록 정책을 구성하는 것이 중요합니다. 프로덕션 환경에서 다음 구성을 사용합니다. 
 
 1. [TrustFrameworkPolicy](trustframeworkpolicy.md)의 `DeploymentMode` 특성을 `Production`으로 설정합니다. 
 

@@ -13,14 +13,14 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 5c10490437fb12b3f1bf5cc105a3a6e8fcf00430
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: a4523634daee427fb86ef288ab68cdc158cfeb0f
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539031"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039966"
 ---
-# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>방법: iOS/macOS용 브라우저 및 웹 보기 사용자 지정
+# <a name="customize-browsers-and-webviews-for-iosmacos"></a>iOS/macOS용 브라우저 및 웹 보기 사용자 지정
 
 대화형 인증에는 웹 브라우저가 필요합니다. iOS 및 macOS 10.15 이상에서 MSAL(Microsoft 인증 라이브러리)은 기본적으로 시스템 웹 브라우저(앱 위에 표시 될 수 있음)를 사용하여 사용자 로그인에 대한 대화형 인증을 수행합니다. 시스템 브라우저를 사용하면 다른 애플리케이션 및 웹 애플리케이션과 SSO(Single Sign-On) 상태를 공유할 수 있는 장점이 있습니다.
 

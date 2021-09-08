@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c17fceb267018901975f942f7cfc804f450ead9
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95527329"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867645"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Azure CDN와 고정적 웹 사이트 통합
 
@@ -26,7 +26,7 @@ Azure CDN 가격 책정에 대한 정보는 [Azure CDN 가격 책정](https://az
 
 1. Azure Portal에서 스토리지 계정을 찾아 계정 개요를 표시합니다.
 
-1. **Blob Service** 메뉴에서 **Azure CDN** 을 선택하여 **Azure CDN** 페이지를 엽니다.
+1. **보안 + 네트워킹** 메뉴에서 **Azure CDN** 을 선택하여 **Azure CDN** 페이지를 엽니다.
 
     ![CDN 엔드포인트 만들기](media/storage-blob-static-website-custom-domain/cdn-storage-new.png)
 

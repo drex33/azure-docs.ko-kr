@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e39a6bbde587e543afcb10cb910a675bf4c69fc
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93077764"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867564"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스 필요
 
@@ -31,6 +31,7 @@ ms.locfileid: "93077764"
 - **[Azure Active Directory의 조건부 액세스](./overview.md)** - 이 문서에서는 조건부 액세스 및 관련 용어의 개념을 개괄적으로 설명합니다.
 - **[Azure Active Directory의 디바이스 관리 소개](../devices/overview.md)** - 이 문서에서는 디바이스를 조직에서 제어해야 하는 다양한 옵션에 대해 간략히 설명합니다. 
 - **Windows 10 Creators Update(버전 1703)** 이상에서 Chrome 지원을 사용하려면 [Windows 10 계정 확장](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)을 설치합니다. 이 확장은 조건부 액세스 정책에서 디바이스 관련 세부 정보를 요구하는 경우에 필요합니다.
+- Firefox 지원의 경우 **Windows 10 버전 1809 이상** 에서 **Firefox 91** 을 시작하고 [Windows SSO](https://support.mozilla.org/en-US/kb/windows-sso)를 구성합니다.
 
 >[!NOTE] 
 > 초기 디바이스 인증 후에 적용을 최적화하려면 Azure AD 디바이스 기반 조건부 액세스 정책을 사용하는 것이 좋습니다. 여기에는 디바이스가 규정 준수 및 디바이스 코드 흐름을 벗어날 경우 세션 닫기가 포함됩니다.
@@ -120,7 +121,7 @@ Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 �
 
 ### <a name="known-behavior"></a>알려진 동작
 
-[디바이스 코드 OAuth 흐름](../develop/v2-oauth2-device-code.md)을 사용하는 경우 관리 디바이스 필요 권한 부여 컨트롤 또는 디바이스 상태 조건은 지원되지 않습니다. 인증을 수행하는 디바이스가 코드를 제공하는 디바이스에 디바이스 상태를 제공할 수 없으며, 토큰의 디바이스 상태가 인증을 수행하는 디바이스에 대해 잠겨 있기 때문입니다. 대신 다단계 인증 필요 권한 부여 컨트롤을 사용합니다.
+[디바이스 코드 OAuth 흐름](../develop/v2-oauth2-device-code.md)을 사용하는 경우 관리 디바이스 필요 권한 부여 컨트롤 또는 디바이스 상태 조건은 지원되지 않습니다. 이는 인증을 수행하는 디바이스가 코드를 제공하는 디바이스에 디바이스 상태를 제공할 수 없으며, 토큰의 디바이스 상태가 인증을 수행하는 디바이스에 대해 잠겨 있기 때문입니다. 대신 다단계 인증 필요 권한 부여 컨트롤을 사용합니다.
 
 Windows 7, iOS, Android, macOS, 일부 타사 웹 브라우저에서 Azure AD는 디바이스가 Azure AD에 등록될 때 프로비저닝되는 클라이언트 인증서를 사용하여 디바이스를 식별합니다. 사용자가 브라우저를 통해 처음으로 로그인하면 인증서를 선택하라는 메시지가 사용자에게 표시됩니다. 최종 사용자가 이 인증서를 선택해야 브라우저를 계속 사용할 수 있습니다.
 

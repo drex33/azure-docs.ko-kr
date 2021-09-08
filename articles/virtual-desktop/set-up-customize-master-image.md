@@ -1,19 +1,19 @@
 ---
-title: 마스터 VHD 이미지 준비 및 사용자 지정 - Azure
-description: Azure Virtual Desktop 마스터 이미지를 준비, 사용자 지정하고 Azure에 업로드하는 방법입니다.
+title: Azure Virtual Desktop의 VHD 이미지 준비 및 사용자 지정 - Azure
+description: Azure Virtual Desktop 이미지를 준비, 사용자 지정하고 Azure에 업로드하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 8e893a95337801db4ee35cfdc00e2d97f8d12db6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 3153fed07575c0eeaf3e062e18e80f08e8269344
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114285849"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835226"
 ---
-# <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
+# <a name="prepare-and-customize-a-vhd-image-for-azure-virtual-desktop"></a>Azure Virtual Desktop용 VHD 이미지 준비 및 사용자 지정
 
 이 문서에서는 VM(가상 머신)을 만들고 여기에 소프트웨어를 설치하는 방법을 포함하여 Azure에 업로드할 마스터 VHD(가상 하드 디스크) 이미지를 준비하는 방법을 설명합니다. 이러한 지침은 조직의 기존 프로세스에 사용할 수 있는 Azure Virtual Desktop 관련 구성에 대한 것입니다.
 

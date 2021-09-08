@@ -6,14 +6,14 @@ author: jianleishen
 ms.service: data-factory
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 817b1a8c1b98f5eae3277f906cbd970e7ccebb9f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: caf817d8b31743f091a4655f6b9ddcfc0007e130
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642304"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311926"
 ---
 # <a name="copy-data-from-oracle-cloud-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle Cloud Storage에서 데이터 복사
 
@@ -39,7 +39,32 @@ Oracle Cloud Storage에서 데이터를 복사하려면 [여기](https://docs.or
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-oracle-cloud-storage-using-ui"></a>UI를 사용하여 Oracle Cloud Storage에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Oracle Cloud Storage에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하고 연결된 서비스를 선택한 다음 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 연결된 새 서비스를 만드는 스크린샷.":::
+
+2. Oracle을 검색하고 Oracle Cloud Storage 커넥터를 선택합니다.
+
+   :::image type="content" source="media/connector-oracle-cloud-storage/oracle-cloud-storage-connector.png" alt-text="Oracle Cloud Storage 커넥터의 스크린샷.":::    
+
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+   :::image type="content" source="media/connector-oracle-cloud-storage/configure-oracle-cloud-storage-linked-service.png" alt-text="Oracle Cloud Storage의 연결된 서비스 구성 스크린샷.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보 
 
 다음 섹션에서는 Oracle Cloud Storage에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -47,7 +72,7 @@ Oracle Cloud Storage에서 데이터를 복사하려면 [여기](https://docs.or
 
 Oracle Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **OracleCloudStorage** 로 설정해야 합니다. | 예 |
 | accessKeyId | 비밀 액세스 키의 ID입니다. 액세스 키와 비밀을 찾으려면 [필수 구성 요소](#prerequisites)를 참조하세요. |예 |
@@ -84,7 +109,7 @@ Oracle Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 데이터 세트의 `location` 설정에서 Oracle Cloud Storage에 다음 속성이 지원됩니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트의 `location` 아래 **type** 속성은 **OracleCloudStorageLocation** 으로 설정되어야 합니다. | 예      |
 | bucketName | Oracle Cloud Storage 버킷 이름입니다.                                          | 예      |
@@ -128,7 +153,7 @@ Oracle Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 Oracle Cloud Storage에 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수                                                    |
+| 속성                 | Description                                                  | 필수                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | `storeSettings` 아래의 **type** 속성은 **OracleCloudStorageReadSettings** 로 설정되어야 합니다. | 예                                                         |
 | ***복사할 파일 찾기:*** |  |  |

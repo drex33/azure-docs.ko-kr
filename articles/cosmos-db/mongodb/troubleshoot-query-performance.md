@@ -4,16 +4,16 @@ description: MongoDB용 Azure Cosmos DB의 API 쿼리 문제를 식별, 진단 �
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 03/02/2021
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sngun
-ms.openlocfilehash: 30e9623a63f0342f6800ffbb6b3534989d02ec02
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 90641a3ecbf7d09e9ecdc1101d97cedbe64b893e
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528567"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039504"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>MongoDB용 Azure Cosmos DB API를 사용하는 경우 쿼리 문제 해결
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -349,3 +349,6 @@ Azure Cosmos DB에서 프로비전된 처리량은 RU(요청 단위)로 측정�
 
 * [쿼리 성능 문제 해결(SQL API)](troubleshoot-query-performance.md)
 * [Azure Cosmos DB의 API for MongoDB에서 인덱싱 관리](mongodb-indexing.md)
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.

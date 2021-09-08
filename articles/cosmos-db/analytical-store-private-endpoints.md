@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 09b4e6ebe14f5650be5bc92302acc51b1c6e99a5
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 457182e2f8bf24e911fa2b5e0514b0dba48d6ae0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985763"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111972"
 ---
 # <a name="configure-azure-private-link-for-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소에 대한 Azure Private Link 구성
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -131,5 +131,6 @@ Synapse 작업 영역에서 이 계정에 대한 네트워크 격리를 구성�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Synapse Spark를 사용하여 분석 저장소 쿼리](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) 시작
+* [Azure Synapse Spark 3을 사용하여 분석 저장소 쿼리](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) 시작
+* [Azure Synapse Spark 2를 사용하여 분석 저장소 쿼리](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) 시작
 * [Azure Synapse 서버리스 SQL 풀을 사용하여 분석 저장소 쿼리](../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) 시작

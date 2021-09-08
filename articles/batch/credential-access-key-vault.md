@@ -2,18 +2,18 @@
 title: 인증서를 사용하여 Batch로 Azure Key Vault에 안전하게 액세스
 description: Azure Batch를 사용하여 Key Vault의 자격 증명에 프로그래밍 방식으로 액세스하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eaaeaa05caca7897eb649b56504b643038f08d53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20af753813ead55a3107b952a56d92b16135b523
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99260132"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098967"
 ---
 # <a name="use-certificates-and-securely-access-azure-key-vault-with-batch"></a>인증서를 사용하여 Batch로 Azure Key Vault에 안전하게 액세스
 
-이 문서에서는 [Azure Key Vault](../key-vault/general/overview.md)에 저장된 자격 증명에 안전하게 액세스하기 위해 Batch 노드를 설정하는 방법을 알아봅니다. Key Vault에 관리자 자격 증명을 입력한 다음, 스크립트에서 Key Vault 액세스를 위한 자격 증명을 하드 코딩할 이유는 없습니다. 이 솔루션은 Batch 노드에 Key Vault에 대한 액세스 권한을 부여하는 인증서를 사용하기 위한 것입니다.
+이 문서에서는 [Azure Key Vault](../key-vault/general/overview.md)에 저장된 자격 증명에 안전하게 액세스하기 위해 Batch 노드를 설정하는 방법을 알아봅니다.
 
 Batch 노드에서 Azure Key Vault에 대해 인증하려면 다음이 필요합니다.
 
@@ -21,6 +21,9 @@ Batch 노드에서 Azure Key Vault에 대해 인증하려면 다음이 필요합
 - 인증서
 - Batch 계정
 - 노드가 하나 이상 있는 Batch 풀
+
+> [!IMPORTANT]
+> 이제 Batch에서 Azure Key Vault에 저장된 자격 증명에 액세스하기 위한 향상된 옵션을 제공합니다. Azure Key Vault의 인증서에 액세스할 수 있는 사용자 할당 관리 ID로 풀을 만들면 인증서 콘텐츠를 Batch 서비스로 보낼 필요가 없으므로 보안이 향상됩니다. 이 항목에서 설명하는 방법 대신 자동 인증서 교체를 사용하는 것이 좋습니다. 자세한 내용은 [Batch 풀에서 자동 인증서 순환 사용](automatic-certificate-rotation.md)을 참조하세요.
 
 ## <a name="obtain-a-certificate"></a>인증서 받기
 

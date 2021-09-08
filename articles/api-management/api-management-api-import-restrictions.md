@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 3205d4c4c6d8d7d821cb65400a4c1f19d6484005
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: c5f1509a5d037e5866ed86266693e955bdca2d6f
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226537"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186428"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 
@@ -34,6 +34,7 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 ### <a name="general"></a><a name="open-api-general"> </a>일반
 
 -   경로와 쿼리 간에 필수 매개 변수 이름은 고유해야 합니다. OpenAPI에서는 매개 변수 이름이 경로, 쿼리, 헤더 등의 특정 위치 내에서만 고유하면 됩니다. 하지만 API Management에서는 경로 및 쿼리 매개 변수를 기준으로 작업을 구분할 수 있습니다. OpenAPI에서는 이러한 구분이 지원되지 않습니다. 따라서 전체 URL 템플릿 내에서 매개 변수 이름이 고유해야 합니다.
+- API Management에 인라인으로 가져올 때 OpenAPI 사양의 크기는 최대 4MB일 수 있습니다. API Management 서비스에서 액세스할 수 있는 위치에 대한 URL을 통해 OpenAPI 문서가 제공되는 경우 크기 제한이 적용되지 않습니다.
 -   `\$ref` 포인터는 외부 파일을 참조할 수 없습니다.
 -   지원되는 확장은 `x-ms-paths` 및 `x-servers`뿐입니다.
 -   사용자 지정 확장명은 가져오기 시 무시되며 내보내기용으로 저장되거나 보존되지 않습니다.

@@ -13,14 +13,14 @@ ms.date: 04/21/2021
 ms.author: jmprieur
 ms.reviewer: marsma, shermanouko
 ms.custom: aaddev
-ms.openlocfilehash: 8eb9db4d89f6d3c517afb57d6343387343ac5325
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 2c7d4fdbcd27b4b8d7097d7a6978f80f5eb7fca4
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108167053"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033249"
 ---
-# <a name="how-to-build-services-that-are-resilient-to-azure-ads-openid-connect-metadata-refresh"></a>방법: Azure AD의 OpenID Connect 메타데이터 새로 고침에 탄력적으로 대응하는 서비스 빌드
+# <a name="build-services-that-are-resilient-to-azure-ads-openid-connect-metadata-refresh"></a>Azure AD의 OpenID Connect 메타데이터 새로 고침에 탄력적으로 대응하는 서비스 빌드
 
 보호된 웹 API는 액세스 토큰의 유효성을 검사해야 합니다. 웹앱도 ID 토큰의 유효성을 검사합니다. 토큰 유효성 검사는 토큰이 애플리케이션에 속하는지, 토큰을 IDP(신뢰할 수 있는 ID 공급자)에서 발급했는지, 토큰에 여전히 범위 내에 있고 변조되지 않은 수명이 있는지에 대한 검사로 구성됩니다. 특별한 유효성 검사를 수행할 수도 있습니다. 예를 들어 앱이 서명의 유효성을 검사하고 서명 키(토큰에 포함된 경우)를 신뢰할 수 있는지 확인하고 토큰이 재생되고 있지 않은지 확인해야 합니다. 서명 키가 토큰에 포함되지 않은 경우 ID 공급자(검색 또는 메타데이터)에서 인출해야 합니다. 런타임에 동적으로 키를 가져와야 하는 경우도 있습니다.
 

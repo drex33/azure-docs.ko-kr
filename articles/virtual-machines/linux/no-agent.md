@@ -10,14 +10,16 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: c7ca147f0a5b907ee0c5c66d53a219fe75ab2179
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95802a767521da81cc6fdd63aac8bb3db0628e68
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551711"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111531"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>프로비저닝 에이전트 없이 일반화된 이미지 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Microsoft Azure는 Linux VM에 대한 프로비저닝 에이전트를 [walinuxagent](https://github.com/Azure/WALinuxAgent) 또는 [cloud-init](https://github.com/canonical/cloud-init)(권장) 형식으로 제공합니다. 그러나 다음과 같은 프로비저닝 에이전트에 이러한 애플리케이션 중 하나를 사용하지 않으려는 시나리오가 있을 수 있습니다.
 
@@ -108,13 +110,15 @@ xml_el = ElementTree.fromstring(wireserver_goalstate)
 
 container_id = xml_el.findtext('Container/ContainerId')
 instance_id = xml_el.findtext('Container/RoleInstanceList/RoleInstance/InstanceId')
+incarnation = xml_el.findtext('Incarnation')
 print(f'ContainerId: {container_id}')
 print(f'InstanceId: {instance_id}')
+print(f'Incarnation: {incarnation}')
 
 # Construct the XML response we need to send to Wireserver to report ready.
 health = ElementTree.Element('Health')
 goalstate_incarnation = ElementTree.SubElement(health, 'GoalStateIncarnation')
-goalstate_incarnation.text = '1'
+goalstate_incarnation.text = incarnation
 container = ElementTree.SubElement(health, 'Container')
 container_id_el = ElementTree.SubElement(container, 'ContainerId')
 container_id_el.text = container_id
@@ -155,12 +159,12 @@ wireserver_conn.close()
 
 VM에 Python이 설치되어 있지 않거나 사용할 수 없는 경우 다음 단계를 사용하 여 위의 스크립트 논리를 프로그래밍 방식으로 재현할 수 있습니다.
 
-1. WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`에서 응답을 구문 분석하여 `ContainerId` 및 `InstanceId`(을)를 검색합니다.
+1. WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`에서 응답을 구문 분석하여 `ContainerId`, `InstanceId` 및 `Incarnation`을 검색합니다.
 
-2. 위 단계에서 구문 분석된 `ContainerId` 및 `InstanceId`(을)를 삽입하여 다음 XML 데이터를 생성합니다.
+2. 위 단계에서 구문 분석된 `ContainerId`, `InstanceId` 및 `Incarnation`을 삽입하여 다음 XML 데이터를 생성합니다.
    ```xml
    <Health>
-     <GoalStateIncarnation>1</GoalStateIncarnation>
+     <GoalStateIncarnation>INCARNATION</GoalStateIncarnation>
      <Container>
        <ContainerId>CONTAINER_ID</ContainerId>
        <RoleInstanceList>

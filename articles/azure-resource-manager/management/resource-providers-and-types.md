@@ -2,14 +2,14 @@
 title: 리소스 공급자 및 종류
 description: Azure Resource Manager를 지원하는 리소스 공급자에 대해 설명합니다. 리소스를 호스트할 수 있는 스키마, 사용 가능한 API 버전 및 지역에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 08/26/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d33debc8a7cfd72e919f7e93e1af50a653fa651e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 7e8ebf6217296b4792887dc0af2c40fc66a9dd85
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968278"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038958"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -32,20 +32,23 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 해당 단계를 수�
 
 ## <a name="register-resource-provider"></a>리소스 공급자 등록
 
-리소스 공급자를 사용하기 전에 Azure 구독을 리소스 공급자에 대해 등록해야 합니다. 등록을 통해 구독이 리소스 공급자에서 작동하도록 구성합니다. 일부 리소스 공급자는 기본적으로 등록됩니다. 기본적으로 등록된 리소스 공급자 목록은 [Azure 서비스의 리소스 공급자](azure-services-resource-providers.md)를 참조하세요.
-
-다른 리소스 공급자는 특정 작업을 수행하면 자동으로 등록됩니다. Azure Resource Manager 템플릿을 배포할 때 필요한 모든 리소스 공급자가 자동으로 등록됩니다. 포털을 통해 리소스를 만드는 경우 일반적으로 리소스 공급자가 사용자에게 등록됩니다. 다른 시나리오의 경우 리소스 공급자를 수동으로 등록해야 할 수 있습니다. 
-
-이 문서에서는 리소스 공급자의 등록 상태를 확인하고 필요에 따라 등록하는 방법을 보여 줍니다. 리소스 공급자에 대한 `/register/action` 작업을 수행하기 위해서는 권한이 있어야 합니다. 해당 권한은 기여자 및 소유자 역할에 포함되어 있습니다.
+리소스 공급자를 사용하기 전에 Azure 구독을 리소스 공급자에 대해 등록해야 합니다. 등록을 통해 구독이 리소스 공급자에서 작동하도록 구성합니다. 
 
 > [!IMPORTANT]
 > 리소스 공급자는 사용할 준비가 되었을 경우에만 등록합니다. 등록 단계를 통해 구독 내에서 최소 권한을 유지할 수 있습니다. 악의적인 사용자는 등록되지 않은 리소스 공급자를 사용할 수 없습니다.
 
-애플리케이션 코드는 **등록** 상태에 있는 리소스 공급자에 대한 리소스 생성을 차단하지 않아야 합니다. 리소스 공급자를 등록하면 지원되는 각 지역에 대해 작업이 개별적으로 수행됩니다. 지역에 리소스를 생성하려면 해당 지역에서만 등록을 완료하면 됩니다. 등록 상태에서 리소스 공급자를 차단하지 않으면 모든 지역이 완료될 때까지 기다리는 것보다 훨씬 빨리 애플리케이션을 계속할 수 있습니다.
+일부 리소스 공급자는 기본적으로 등록됩니다. 기본적으로 등록된 리소스 공급자 목록은 [Azure 서비스의 리소스 공급자](azure-services-resource-providers.md)를 참조하세요.
+
+다른 리소스 공급자는 특정 작업을 수행하면 자동으로 등록됩니다. Azure Resource Manager 템플릿을 배포할 때 필요한 모든 리소스 공급자가 자동으로 등록됩니다. 포털을 통해 리소스를 만드는 경우 일반적으로 리소스 공급자가 사용자에게 등록됩니다. 다른 시나리오의 경우 리소스 공급자를 수동으로 등록해야 할 수 있습니다. 
+
+> [!IMPORTANT]
+> 애플리케이션 코드는 **등록** 상태에 있는 리소스 공급자에 대한 **리소스 생성을 차단하지 않아야 합니다**. 리소스 공급자를 등록하면 지원되는 각 지역에 대해 작업이 개별적으로 수행됩니다. 지역에 리소스를 생성하려면 해당 지역에서만 등록을 완료하면 됩니다. 등록 상태에서 리소스 공급자를 차단하지 않으면 모든 지역이 완료될 때까지 기다리는 것보다 훨씬 빨리 애플리케이션을 계속할 수 있습니다.
+
+리소스 공급자에 대한 `/register/action` 작업을 수행하기 위해서는 권한이 있어야 합니다. 해당 권한은 기여자 및 소유자 역할에 포함되어 있습니다.
 
 구독에 해당 리소스 공급자의 리소스 종류가 아직 포함되어 있으면 해당 리소스 공급자를 등록 취소할 수 없습니다.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 ### <a name="register-resource-provider"></a>리소스 공급자 등록
 
@@ -67,6 +70,10 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 해당 단계를 수�
 6. 등록할 리소스 공급자를 찾고 **등록** 을 선택합니다. 구독에서 최소 권한을 유지하려면 사용할 준비가 된 리소스 공급자만 등록합니다.
 
    :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="리소스 공급자를 등록":::합니다.
+
+> [!IMPORTANT]
+> [앞서 언급한](#register-resource-provider) 것처럼 **등록** 상태에 있는 리소스 공급자에 대해 **리소스 생성을 차단하지 않아야 합니다**. 등록 상태에서 리소스 공급자를 차단하지 않으면 모든 지역이 완료될 때까지 기다리는 것보다 훨씬 빨리 애플리케이션을 계속할 수 있습니다.
+
 
 ### <a name="view-resource-provider"></a>리소스 공급자 보기
 
@@ -102,7 +109,7 @@ Azure의 모든 리소스 공급자와 구독에 대한 등록 상태를 보려�
 Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
-반환 결과는 다음과 비슷합니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 ProviderNamespace                RegistrationState
@@ -126,7 +133,7 @@ Microsoft.CognitiveServices      Registered
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
-반환 결과는 다음과 비슷합니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 ProviderNamespace : Microsoft.Batch
@@ -135,13 +142,16 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
+> [!IMPORTANT]
+> [앞서 언급한](#register-resource-provider) 것처럼 **등록** 상태에 있는 리소스 공급자에 대해 **리소스 생성을 차단하지 않아야 합니다**. 등록 상태에서 리소스 공급자를 차단하지 않으면 모든 지역이 완료될 때까지 기다리는 것보다 훨씬 빨리 애플리케이션을 계속할 수 있습니다.
+
 특정 리소스 공급자에 대한 정보를 보려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
-반환 결과는 다음과 비슷합니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 {ProviderNamespace : Microsoft.Batch
@@ -158,7 +168,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 (Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
-반환하는 내용은 다음과 같습니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 batchAccounts
@@ -175,7 +185,7 @@ API 버전은 리소스 공급자가 릴리스하는 REST API 작업의 버전�
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
-반환하는 내용은 다음과 같습니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 2017-05-01
@@ -193,7 +203,7 @@ API 버전은 리소스 공급자가 릴리스하는 REST API 작업의 버전�
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-반환하는 내용은 다음과 같습니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 West Europe
@@ -211,7 +221,7 @@ Azure의 모든 리소스 공급자와 구독에 대한 등록 상태를 보려�
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
-반환 결과는 다음과 비슷합니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 Provider                         Status
@@ -235,7 +245,7 @@ az provider list --query "sort_by([?registrationState=='Registered'].{Provider:n
 az provider register --namespace Microsoft.Batch
 ```
 
-등록이 진행 중인 메시지를 반환합니다.
+이 명령은 등록이 진행 중이라는 메시지를 반환합니다.
 
 특정 리소스 공급자에 대한 정보를 보려면 다음을 사용합니다.
 
@@ -243,7 +253,7 @@ az provider register --namespace Microsoft.Batch
 az provider show --namespace Microsoft.Batch
 ```
 
-반환 결과는 다음과 비슷합니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 {
@@ -256,13 +266,16 @@ az provider show --namespace Microsoft.Batch
 }
 ```
 
+> [!IMPORTANT]
+> [앞서 언급한](#register-resource-provider) 것처럼 **등록** 상태에 있는 리소스 공급자에 대해 **리소스 생성을 차단하지 않아야 합니다**. 등록 상태에서 리소스 공급자를 차단하지 않으면 모든 지역이 완료될 때까지 기다리는 것보다 훨씬 빨리 애플리케이션을 계속할 수 있습니다.
+
 리소스 공급자에 대한 리소스 종류를 보려면 다음을 사용합니다.
 
 ```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
-반환하는 내용은 다음과 같습니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 Result
@@ -281,7 +294,7 @@ API 버전은 리소스 공급자가 릴리스하는 REST API 작업의 버전�
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
-반환하는 내용은 다음과 같습니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 Result
@@ -301,7 +314,7 @@ Result
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 
-반환하는 내용은 다음과 같습니다.
+이 명령은 다음을 반환합니다.
 
 ```output
 Result

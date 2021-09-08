@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2021
-ms.openlocfilehash: 053ba5b768e9a09eb50f71a8296d42f85a9e4515
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: a2c500072dfd1137f14d7ae663c6736bf6328c33
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537339"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866313"
 ---
 # <a name="iot-hub-ip-addresses"></a>IoT Hub IP 주소
 
@@ -30,18 +30,18 @@ IoT Hub 공용 엔드포인트의 IP 주소 접두사는 _AzureIoTHub_ [서비�
 | IoT Hub 디바이스 엔드포인트가 디바이스 및 네트워크 자산의 연결만을 수신하는지 확인 | [디바이스-클라우드](./iot-hub-devguide-messaging.md) 및 [클라우드-디바이스](./iot-hub-devguide-messages-c2d.md) 메시지, [직접 메서드](./iot-hub-devguide-direct-methods.md), [디바이스 및 모듈 쌍](./iot-hub-devguide-device-twins.md) 및 [디바이스 스트림](./iot-hub-device-streams-overview.md) | IoT Hub [IP 필터 기능](iot-hub-ip-filtering.md)을 사용하여 디바이스 및 네트워크 자산 IP 주소에서의 연결을 허용합니다([제한 사항](#limitations-and-workarounds) 섹션 참조). | 
 | 네트워크 자산에서만 경로의 사용자 지정 엔드포인트 리소스(스토리지 계정, 서비스 버스 및 이벤트 허브)에 연결할 수 있는지 확인 | [메시지 라우팅](./iot-hub-devguide-messages-d2c.md) | 연결 제한(예: [방화벽 규칙](../storage/common/storage-network-security.md), [Private Link](../private-link/private-endpoint-overview.md)또는 [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 통해)에 대한 리소스의 지침을 따릅니다. _AzureIoTHub_ 서비스 태그를 사용하여 IoT Hub IP 주소 접두사를 검색하고 리소스의 방화벽 구성에서 해당 IP 접두사에 대한 허용 규칙을 추가합니다([제한 사항](#limitations-and-workarounds) 섹션 참조). |
 
-
-
 ## <a name="best-practices"></a>모범 사례
 
-* 디바이스의 방화벽 구성에서 허용 규칙을 추가할 때 [적용 가능한 프로토콜에서 사용하는 특정 포트](./iot-hub-devguide-protocols.md#port-numbers)를 제공하는 것이 가장 좋습니다.
+* IoT Hub의 IP 주소는 예고 없이 변경될 수 있습니다. 중단을 최소화하려면 가능할 때마다 네트워킹 및 방화벽 구성에 IoT Hub 호스트 이름(예: myhub.azure-devices.net)을 사용하세요. 
 
-* IoT Hub의 IP 주소 접두사는 변경될 수 있습니다. 이러한 변경 내용은 적용되기 전에 서비스 태그를 통해 정기적으로 게시됩니다. 따라서 최신 서비스 태그를 정기적으로 검색하고 사용하는 프로세스를 개발하는 것이 중요합니다. 이 프로세스는 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#service-tags-on-premises)를 통해 자동화할 수 있습니다. 서비스 태그 검색 API는 아직 미리 보기 상태이며 경우에 따라 태그 및 IP 주소의 전체 목록을 생성하지 못할 수도 있습니다. 검색 API를 일반적으로 사용할 수 있을 때까지 [서비스 태그를 다운로드 가능한 JSON 형식](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)으로 사용하는 것이 좋습니다. 
+* DNS(Domain Name System)가 없는 제한된 IoT 시스템의 경우 IoT Hub IP 주소 범위는 변경 사항이 적용되기 전에 서비스 태그를 통해 주기적으로 게시됩니다. 따라서 최신 서비스 태그를 정기적으로 검색하고 사용하는 프로세스를 개발하는 것이 중요합니다. 이 프로세스는 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#service-tags-on-premises)를 통해 자동화할 수 있습니다. 서비스 태그 검색 API는 아직 미리 보기 상태이며 경우에 따라 태그 및 IP 주소의 전체 목록을 생성하지 못할 수도 있습니다. 검색 API를 일반적으로 사용할 수 있을 때까지 [서비스 태그를 다운로드 가능한 JSON 형식](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)으로 사용하는 것이 좋습니다. 
+
 
 * *AzureIoTHub.[지역 이름]* 태그를 사용하여 특정 지역의 IoT hub 엔드포인트에서 사용하는 IP 접두사를 식별합니다. 데이터 센터 재해 복구 또는 [지역별 장애 조치(failover)](iot-hub-ha-dr.md)를 고려하여 IoT Hub의 지역 쌍 지역에 대한 IP 접두사 연결도 사용하도록 설정해야 합니다.
 
 * IoT Hub 방화벽 규칙을 설정하면 IoT Hub에 대해 Azure CLI 및 PowerShell 명령을 실행하는 데 필요한 연결을 차단할 수 있습니다. 이를 방지하려면 클라이언트의 IP 주소 접두사에 대한 허용 규칙을 추가하여 CLI 또는 PowerShell 클라이언트가 IoT Hub와 통신할 수 있도록 다시 설정할 수 있습니다.  
 
+* 디바이스의 방화벽 구성에서 허용 규칙을 추가할 때 [적용 가능한 프로토콜에서 사용하는 특정 포트](./iot-hub-devguide-protocols.md#port-numbers)를 제공하는 것이 가장 좋습니다.
 
 ## <a name="limitations-and-workarounds"></a>제한 사항 및 해결 방법
 

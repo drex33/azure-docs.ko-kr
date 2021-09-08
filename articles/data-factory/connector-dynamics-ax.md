@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/12/2020
-ms.openlocfilehash: 2e4ef0a1b3185edc28831dec714a0bb7d7f475f2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: d6cb93951877e40be1d6cc73b76e9e9b183e6b9a
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642919"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313166"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics AX에서 데이터 복사
 
@@ -40,6 +40,30 @@ Dynamics AX에서 지원되는 모든 싱크 데이터 스토리지로 데이터
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-dynamics-ax-using-ui"></a>UI를 사용하여 Dynamics AX에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Dynamics AX에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하고 연결된 서비스를 선택한 다음 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI로 연결된 새 서비스를 만듭니다.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새 연결된 서비스를 만듭니다.":::
+
+2. Dynamics를 검색하고 Dynamics AX 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-dynamics-ax/dynamics-ax-connector.png" alt-text="Dynamics AX 커넥터를 선택합니다.":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-dynamics-ax/configure-dynamics-ax-linked-service.png" alt-text="Dynamics AX에 연결된 서비스를 구성합니다.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
 다음 섹션에서는 Dynamics AX 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -58,7 +82,7 @@ Dynamics AX에서 지원되는 모든 싱크 데이터 스토리지로 데이터
 
 Dynamics AX 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성은 **DynamicsAX** 로 설정해야 합니다. |예 |
 | url | Dynamics AX(또는 Dynamics 365 Finance and Operations) 인스턴스 OData 엔드포인트입니다. |예 |
@@ -102,7 +126,7 @@ Dynamics AX 연결된 서비스에 다음 속성이 지원됩니다.
 
 Dynamics AX에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 **DynamicsAXResource** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **DynamicsAXResource** 로 설정해야 합니다. | 예 |
 | 경로 | Dynamics AX OData 엔터티의 경로입니다. | 예 |
@@ -136,7 +160,7 @@ Dynamics AX에서 데이터를 복사하려면 데이터 세트의 **type** 속�
 
 Dynamics AX에서 데이터를 복사하려면 복사 작업의 **source** 형식을 **DynamicsAXSource** 로 설정합니다. 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **DynamicsAXSource** 로 설정해야 합니다. | 예 |
 | Query | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예: `"?$select=Name,Description&$top=5"`.<br/><br/>**참고**: 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 예 |

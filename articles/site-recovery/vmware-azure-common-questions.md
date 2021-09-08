@@ -3,18 +3,38 @@ title: Azure Site Recovery를 사용한 VMware 재해 복구에 대한 일반적
 description: Azure Site Recovery를 사용하여 Azure로 온-프레미스 VMware VM 재해 복구 시 발생하는 일반적인 질문에 관한 답변을 확인하세요.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 006f0a51da933336a354b275bb882e5538832741
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 0e39cd3b9f06620f2004a2afbc869fe22de04468
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539219"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272885"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
 
 이 문서에서는 온-프레미스 VMware VM(가상 머신)의 재해 복구를 Azure에 배포할 때 나타날 수 있는 일반적인 질문에 답변합니다.
 
 ## <a name="general"></a>일반
+
+### <a name="how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-preview-experience"></a>미리 보기 환경 대신 Recovery Services 자격 증명 모음에서 클래식 환경을 사용하려면 어떻게 하나요? 
+
+Azure Site Recovery 복제 어플라이언스를 사용하여 VMware 가상 머신을 보호하는 새롭고 더 안정적인 방법이 이제 [공개 미리 보기](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094)로 제공됩니다. 새 Recovery Services 자격 증명 모음이 만들어지면 기본적으로 미리 보기 환경이 선택됩니다. 
+
+환경을 바꾸려면 - 
+
+1. Azure Portal에서 자격 증명 모음을 엽니다. 
+2. **시작하기** 섹션에서 **Site Recovery** 를 클릭합니다. 
+3. 이 페이지 상단의 배너를 클릭합니다. 
+
+    [![VMware 스택 수정 1단계](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
+
+4. 그러면 환경 선택 블레이드가 열립니다. 구성 서버를 사용하려면 기본 환경을 선택한 다음 **확인** 을 클릭합니다. 그렇지 않은 경우 창을 닫습니다. 
+
+    [![VMware 스택 수정 2단계](./media/vmware-azure-common-questions/change-stack-step-2.png)](./media/vmware-azure-common-questions/change-stack-step-2.png#lightbox)
+
+> [!NOTE]
+> 환경 유형이 미리 보기에서 클래식으로 전환되면 동일한 Recovery Services 자격 증명 모음에서 다시 전환할 수 없습니다. 이 변경 사항을 저장하기 전에 원하는 환경이 선택되었는지 확인합니다.
+
 
 ### <a name="what-do-i-need-for-vmware-vm-disaster-recovery"></a>VMware VM 재해 복구에는 무엇이 필요한가요?
 

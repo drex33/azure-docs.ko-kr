@@ -1,20 +1,20 @@
 ---
 title: Azure ExpressRoute v1 구성
-description: Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment에 대한 네트워크 구성. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
+description: Azure ExpressRoute를 사용하는 Power Apps용 App Service Environment에 대한 네트워크 구성. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: stefsch
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 3fa2677f7c71b118ec3f7da717e29d5879ee982b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a7ea57cf8d76c7a8e1455b561a1a2bc050ec3d7
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88961825"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864797"
 ---
-# <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보
+# <a name="network-configuration-details-for-app-service-environment-for-power-apps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 Power Apps용 App Service Environment의 네트워크 구성 세부 정보
 
 고객은 [Azure ExpressRoute][ExpressRoute] 회로를 가상 네트워크 인프라에 연결하여 온-프레미스 네트워크를 Azure로 확장합니다. App Service Environment는 [가상 네트워크][virtualnetwork] 인프라의 서브넷에서 만들어집니다. App Service Environment에서 실행되는 앱은 ExpressRoute 연결을 통해서만 액세스할 수 있는 백 엔드 리소스의 보안 연결을 설정합니다.  
 
@@ -140,7 +140,7 @@ App Service Environment를 배포하려는 경우 서브넷에 경로 테이블�
 
 ## <a name="next-steps"></a>다음 단계
 
-PowerApps용 App Service Environment를 시작하려면 [App Service Environment 소개][IntroToAppServiceEnvironment]를 참조하세요.
+Power Apps용 App Service Environment를 시작하려면 [App Service Environment 소개][IntroToAppServiceEnvironment]를 참조하세요.
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 

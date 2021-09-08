@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a68ec9868e5a441dbfd11f97bc8f169df246598
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: fe26f8f61acbbf454cd2eb2928fdcab0f0bc7e47
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633738"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866970"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Azure CLI를 사용한 Azure Data Lake Storage Gen2의 ACL 관리
 
@@ -80,7 +80,7 @@ ms.locfileid: "109633738"
 
 ## <a name="get-acls"></a>ACL 가져오기
 
-`az storage fs access show` 명령을 사용하여 **디렉터리** 의 ACL을 가져옵니다.
+[az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) 명령을 사용하여 **디렉터리** 의 ACL을 가져옵니다.
 
 다음 예제에서는 디렉터리의 ACL을 가져온 다음 해당 ACL을 콘솔에 출력합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "109633738"
 az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-`az storage fs access show` 명령을 사용하여 **파일** 의 액세스 권한을 가져옵니다. 
+[az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) 명령을 사용하여 **파일** 의 액세스 권한을 가져옵니다. 
 
 다음 예제에서는 파일의 ACL을 가져온 다음 해당 ACL을 콘솔에 출력합니다.
 
@@ -115,7 +115,7 @@ ACL을 *설정* 하도록 선택한 경우 소유 사용자에 대한 항목, �
 
 ### <a name="set-an-acl"></a>ACL 설정
 
-`az storage fs access set` 명령을 사용하여 **디렉터리** 의 ACL을 설정합니다. 
+[az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) 명령을 사용하여 **디렉터리** 의 ACL을 설정합니다. 
 
 다음 예제에서는 디렉터리의 소유 사용자, 소유 그룹 또는 기타 사용자에 대한 ACL을 설정하고 콘솔에 해당 ACL을 출력합니다.
 
@@ -129,7 +129,7 @@ az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory
 az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-`az storage fs access set` 명령을 사용하여 **파일** 의 ACL을 설정합니다. 
+[az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) 명령을 사용하여 **파일** 의 acl을 설정합니다. 
 
 다음 예제에서는 파일의 소유 사용자, 소유 그룹 또는 기타 사용자에 대한 ACL을 설정하고 콘솔에 해당 ACL을 출력합니다.
 
@@ -172,7 +172,7 @@ ACL을 업데이트하려면 업데이트하려는 ACL 항목으로 새 ACL 객�
 
 ### <a name="update-an-acl"></a>ACL 업데이트
 
-이 사용 권한을 설정하는 또 다른 방법은 `az storage fs access set` 명령을 사용하는 것입니다. 
+이 권한을 설정하는 또 다른 방법은 [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) 명령을 사용하는 것입니다. 
 
 `-permissions` 매개 변수를 약식 형식의 ACL로 설정하여 디렉터리 또는 파일의 ACL을 업데이트합니다.
 

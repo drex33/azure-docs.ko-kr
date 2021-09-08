@@ -1,16 +1,16 @@
 ---
-title: 에이전트 기반 보안 경고
-description: Defender for IoT 디바이스의 기능 및 서비스를 사용한 보안 경고 및 권장 수정 사항에 대해 알아봅니다.
+title: 클래식 에이전트 기반 보안 경고
+description: 클래식 버전의 Defender for IoT의 보안 경고와 Defender for IoT 디바이스의 기능 및 서비스를 사용한 권장 해결 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 2/16/2021
-ms.openlocfilehash: b586eb4bebfc584e6cec4c27df859dbebb817e2d
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 08/25/2021
+ms.openlocfilehash: 184001243803b64717ac124c116529bab4c4170d
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018356"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968266"
 ---
-# <a name="defender-for-iot-devices-security-alerts"></a>Defender for IoT 디바이스 보안 경고
+# <a name="classic-defender-for-iot-devices-security-alerts"></a>클래식 Defender for IoT 디바이스 보안 경고
 
 Defender for IoT는 고급 분석 및 위협 인텔리전스를 사용하여 IoT 솔루션을 지속적으로 분석하여 악의적인 활동을 경고합니다.
 또한 예상되는 디바이스 동작에 대한 정보를 기반으로 사용자 지정 경고를 만들 수 있습니다.

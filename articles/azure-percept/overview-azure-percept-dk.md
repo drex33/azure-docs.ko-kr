@@ -1,20 +1,20 @@
 ---
-title: Azure Percept DK 개요
-description: Azure Percept DK에 대해 자세히 알아봅니다
-author: mimcco
-ms.author: mimcco
+title: Azure Percept DK 및 Vision 디바이스 개요
+description: Azure Percept DK 및 Azure Percept Vision에 대해 자세히 알아보세요.
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 5c510bbe6717b37664ac67ea7d10c79d1af74d78
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a51f05fe29a4a0d3dda9057ca0eb7c4d3de494fb
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128364"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222006"
 ---
-# <a name="azure-percept-dk-overview"></a>Azure Percept DK 개요
+# <a name="azure-percept-dk-and-vision-device-overview"></a>Azure Percept DK 및 Vision 디바이스 개요
 
 Azure Percept DK는 [Azure Percept Studio](./overview-azure-percept-studio.md)를 사용하여 비전 및 오디오 AI 솔루션 개발 목적으로 설계된 에지 AI 개발 키트입니다. Azure Percept DK는 [Microsoft 온라인 스토어](https://go.microsoft.com/fwlink/p/?LinkId=2155270)에서 구매할 수 있습니다.
 

@@ -2,13 +2,13 @@
 title: 상태 비저장 노드 유형을 사용하여 Service Fabric 관리형 클러스터 배포
 description: Service Fabric 관리형 클러스터에서 상태 비저장 노드 유형을 만들고 배포하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 2e7ebd2ec3098cc90c8fb044472c348c68aed689
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.date: 8/23/2021
+ms.openlocfilehash: 1d6cd328a195e35bd2523fa24aed9153267bd83e
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113033716"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867339"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-with-stateless-node-types"></a>상태 비저장 노드 유형을 사용하여 Service Fabric 관리형 클러스터 배포
 
@@ -16,7 +16,8 @@ Service Fabric 노드 유형은 특정 시점에 상태 저장 서비스가 노�
 
 * 주 노드 유형은 상태 비저장으로 구성할 수 없음
 * 상태 비저장 노드 유형에는 **2021-05-01** 이상의 API 버전이 필요합니다.
-
+* 그러면 **multipleplacementgroup** 속성이 자동으로 **true** 로 설정되며 이에 대해서는 [여기에서 자세히 알아볼 수 있습니다](how-to-managed-cluster-large-virtual-machine-scale-sets.md).
+* 이를 통해 주어진 노드 유형에 대해 최대 1000개의 노드를 지원할 수 있습니다.
 
 사용 가능한 샘플 템플릿: [Service Fabric 상태 비저장 노드 유형 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 08/26/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 470fcebf33e995d4c81d916970d80015b8f7c8f6
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: d24e1cf8394b697348492ffcddc4634646ebbbb6
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110783754"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967090"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Azure Pipelines를 사용하여 사용자 지정 정책 배포
 
@@ -56,8 +56,8 @@ Param(
     [Parameter(Mandatory = $true)][string]$ClientID,
     [Parameter(Mandatory = $true)][string]$ClientSecret,
     [Parameter(Mandatory = $true)][string]$TenantId,
-    [Parameter(Mandatory = $true)][string]$PolicyId,
-    [Parameter(Mandatory = $true)][string]$PathToFile
+    [Parameter(Mandatory = $true)][string]$Folder,
+    [Parameter(Mandatory = $true)][string]$Files
 )
 
 try {
@@ -70,15 +70,42 @@ try {
     $headers.Add("Content-Type", 'application/xml')
     $headers.Add("Authorization", 'Bearer ' + $token)
 
-    $graphuri = 'https://graph.microsoft.com/beta/trustframework/policies/' + $PolicyId + '/$value'
-    $policycontent = Get-Content $PathToFile
+    # Get the list of files to upload
+    $filesArray = $Files.Split(",")
 
-    # Optional: Change the content of the policy. For example, replace the tenant-name with your tenant name.
-    # $policycontent = $policycontent.Replace("your-tenant.onmicrosoft.com", "contoso.onmicrosoft.com")     
+    Foreach ($file in $filesArray) {
 
-    $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $policycontent -Headers $headers
+        $filePath = $Folder + $file.Trim()
 
-    Write-Host "Policy" $PolicyId "uploaded successfully."
+        # Check if file exists
+        $FileExists = Test-Path -Path $filePath -PathType Leaf
+
+        if ($FileExists) {
+            $policycontent = Get-Content $filePath
+
+            # Optional: Change the content of the policy. For example, replace the tenant-name with your tenant name.
+            # $policycontent = $policycontent.Replace("your-tenant.onmicrosoft.com", "contoso.onmicrosoft.com")     
+    
+    
+            # Get the policy name from the XML document
+            $match = Select-String -InputObject $policycontent  -Pattern '(?<=\bPolicyId=")[^"]*'
+    
+            If ($match.matches.groups.count -ge 1) {
+                $PolicyId = $match.matches.groups[0].value
+    
+                Write-Host "Uploading the" $PolicyId "policy..."
+    
+                $graphuri = 'https://graph.microsoft.com/beta/trustframework/policies/' + $PolicyId + '/$value'
+                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $policycontent -Headers $headers
+    
+                Write-Host "Policy" $PolicyId "uploaded successfully."
+            }
+        }
+        else {
+            $warning = "File " + $filePath + " couldn't be not found."
+            Write-Warning -Message $warning
+        }
+    }
 }
 catch {
     Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__
@@ -145,35 +172,18 @@ exit 0
     * **표시 이름**: 이 작업에서 업로드할 정책의 이름입니다. 예: *B2C_1A_TrustFrameworkBase*
     * **형식**: 파일 경로입니다.
     * **스크립트 경로**: 줄임표(**_..._* _)를 선택하여 _Scripts* 폴더로 이동한 다음 *DeployToB2C.ps1* 파일을 선택합니다.
-    * **인수:**
+    * **인수**: 다음 PowerShell 스크립트를 입력합니다. 
 
-        **인수** 에 다음 값을 입력합니다. `{alias-name}`을 이전 섹션에서 지정한 별칭으로 바꿉니다. `{policy-id}`를 정책 이름으로 바꿉니다. `{policy-file-name}`을 정책 파일 이름으로 바꿉니다.
-
-        업로드하는 첫 번째 정책은 *TrustFrameworkBase.xml* 이어야 합니다.
 
         ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId {policy-id} -PathToFile $(System.DefaultWorkingDirectory)/{alias-name}/B2CAssets/{policy-file-name}
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
         ```
-
-        `PolicyId`는 TrustFrameworkPolicy 노드 내에서 XML 정책 파일의 시작 부분에 있는 값입니다. 예를 들어 다음 정책 XML의 `PolicyId`는 *B2C_1A_TrustFrameworkBase* 입니다.
-
-        ```xml
-        <TrustFrameworkPolicy
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-        PolicySchemaVersion="0.3.0.0"
-        TenantId="your-tenant.onmicrosoft.com"
-        PolicyId= "B2C_1A_TrustFrameworkBase"
-        PublicPolicyUri="http://your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
-        ```
-
-        최종 인수는 다음 예제와 유사합니다.
-
-        ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/TrustFrameworkBase.xml
-        ```
-
+        
+        `-Files` 매개 변수는 배포할 정책 파일의 쉼표 구분 기호 목록입니다. 정책 파일로 목록을 업데이트합니다.
+        
+        > [!IMPORTANT]
+        >  정책이 올바른 순서로 업로드되었는지 확인합니다. 먼저 기본 정책, 확장 정책, 신뢰 당사자 정책입니다. 예: `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
+        
 1. **저장** 을 선택하여 에이전트 작업을 저장합니다.
 
 ## <a name="test-your-pipeline"></a>파이프라인 테스트
@@ -186,17 +196,6 @@ exit 0
 
 릴리스가 대기 중임을 알리는 알림 배너가 표시됩니다. 해당 상태를 보려면 알림 배너에서 링크를 선택하거나 **릴리스** 탭의 목록에서 해당 링크를 선택합니다.
 
-## <a name="add-more-pipeline-tasks"></a>파이프라인 작업 추가
-
-나머지 정책을 배포하려면 각 사용자 지정 정책 파일에 대해 [이전 단계](#add-pipeline-tasks)를 반복합니다.
-
-에이전트를 실행하고 정책 파일을 업로드하는 경우 올바른 순서로 업로드되었는지 확인합니다.
-
-1. *TrustFrameworkBase.xml*
-1. *TrustFrameworkExtensions.xml*
-1. *SignUpOrSignin.xml*
-1. *ProfileEdit.xml*
-1. *PasswordReset.xml*
 
 ## <a name="next-steps"></a>다음 단계
 

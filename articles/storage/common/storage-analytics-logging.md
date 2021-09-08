@@ -9,19 +9,19 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: d48ab6223485807400b6749bcf72691261405495
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c536e8749ce41f51f161d9659beca3ab0ccd30ae
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134558"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032256"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 스토리지 분석 로깅
 
 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 즉, 대부분의 요청은 로그 레코드를 생성하지만 스토리지 분석 로그의 완성도와 적시성은 보장되지 않습니다. 
 
 > [!NOTE]
-> Azure Monitor에서 스토리지 분석 로그 대신 Azure 스토리지 로그를 사용하는 것이 좋습니다. Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블에 대한 로그를 지원합니다. 자세히 알아보려면 다음 글을 참조하세요.
+> Azure Monitor에서 스토리지 분석 로그 대신 Azure 스토리지 로그를 사용하는 것이 좋습니다. Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블에 대한 로그를 지원합니다. 다음 문서에서 자세한 내용을 참조하세요.
 >
 > - [Azure Blob Storage 모니터링](../blobs/monitor-blob-storage.md)
 > - [Azure Files 모니터링](../files/storage-files-monitoring.md)
@@ -59,6 +59,9 @@ REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식
 - 오류 코드가 304(수정되지 않음)인 실패한 GET 요청
 
   기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 항목에 나와 있습니다.
+  
+> [!NOTE]
+> Storage Analytics는 데이터 평면에 대한 모든 내부 호출을 로그합니다. Azure Storage 리소스 공급자의 호출도 로그됩니다. 이러한 요청을 식별하려면 요청 URL에서 쿼리 문자열 `<sk=system-1>`을 찾습니다.
 
 ## <a name="how-logs-are-stored"></a>로그 저장 방법
 

@@ -4,20 +4,20 @@ description: Linux 기반 HDInsight 클러스터의 OS 패치 일정을 구성�
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/21/2020
-ms.openlocfilehash: 636caf592baa4df771f7cc50095911d0337456d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/30/2021
+ms.openlocfilehash: 10ab6462096bbdabee0730e6ef60e07d8d51b438
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98939387"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223565"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Linux 기반 HDInsight 클러스터의 OS 패치 일정 구성
 
 > [!IMPORTANT]
 > Ubuntu 이미지는 게시된 날부터 3개월 이내에 새 Azure HDInsight 클러스터를 만드는 데 사용할 수 있게 됩니다. 실행 중인 클러스터는 자동 패치되지 않습니다. 고객이 스크립트 동작이나 기타 메커니즘을 사용하여 실행 중인 클러스터를 패치해야 합니다. 이 스크립트 작업을 실행하고 클러스터를 만든 직후에 보안 업데이트를 적용하는 것이 좋습니다.
 
-HDInsight는 OS 패치, 보안 업데이트, 재부팅 노드 설치와 같은 일반적인 작업을 클러스터에서 수행할 수 있도록 지원합니다. 이 작업은 [스크립트 작업](hdinsight-hadoop-customize-cluster-linux.md)으로 실행하고 매개 변수를 통해 구성할 수 있는 다음 두 스크립트를 사용하여 수행됩니다.
+HDInsight는 OS 패치, OS 보안 업데이트, 재부팅 노드 설치와 같은 일반적인 작업을 클러스터에서 수행할 수 있도록 지원합니다. 이 작업은 [스크립트 작업](hdinsight-hadoop-customize-cluster-linux.md)으로 실행하고 매개 변수를 통해 구성할 수 있는 다음 두 스크립트를 사용하여 수행됩니다.
 
 - `schedule-reboots.sh` - 즉시 다시 시작하거나 클러스터 노드에서 다시 시작을 예약합니다.
 - `install-updates-schedule-reboots.sh` - 모든 업데이트, 커널 + 보안 업데이트만 또는 커널 업데이트만 설치합니다.

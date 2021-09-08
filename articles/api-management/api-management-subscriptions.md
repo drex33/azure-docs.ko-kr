@@ -10,24 +10,33 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 08/27/2021
 ms.author: apimpm
-ms.openlocfilehash: 288f82d55749e50c9e9520784497ade2c9387f78
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 9bbdc914eae50a7226b22952b40cdb4b28849239
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112199361"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111672"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Azure API Management의 구독
 
-구독은 Azure API Management에서 중요한 개념입니다. 구독은 API 소비자가 API Management 인스턴스를 통해 게시된 API에 대한 액세스 권한을 획득하는 가장 일반적인 방법입니다. 이 문서는 개념에 대한 개요를 제공합니다.
+Azure API Management에서 구독은 API 소비자가 API Management 인스턴스를 통해 게시된 API에 액세스하는 가장 일반적인 방법입니다. 이 문서는 개념에 대한 개요를 제공합니다.
 
 ## <a name="what-are-subscriptions"></a>구독이란?
 
-API Management를 통해 API를 게시하면 구독 키를 사용하여 이러한 API에 쉽고 안전하게 액세스할 수 있습니다. 게시된 API를 사용해야 하는 개발자는 이러한 API에 호출 시 HTTP 요청에 유효한 구독 키를 포함해야 합니다. 그렇지 않으면 API Management 게이트웨이에서 호출을 즉시 거부합니다. 그리고 백 엔드 서비스에 호출이 전달되지 않습니다.
+API Management를 통해 API를 게시하면 구독 키를 사용하여 API 액세스를 쉽게 보호할 수 있습니다. 해당 API를 호출할 때 HTTP 요청에 유효한 구독 키를 포함하여 게시된 API를 사용합니다. 유효한 구독 키가 없으면 호출은 다음을 수행합니다.
+* API Management 게이트웨이에서 즉시 거부됩니다. 
+* 백 엔드 서비스로 전달되지 않습니다.
 
-API에 액세스하기 위해 구독 키를 얻으려면 구독이 필요합니다. 구독은 일반적으로 구독 키 쌍의 이름을 지정한 컨테이너입니다. 게시된 API를 사용해야 하는 개발자는 구독을 가져올 수 있습니다. API 게시자에게 승인을 받을 필요는 없습니다. 또한 API 게시자는 API 소비자를 위해 직접 구독을 만들 수도 있습니다.
+API에 액세스하려면 구독과 구독 키가 필요합니다. *구독* 은 구독 키 쌍의 이름을 지정한 컨테이너입니다. 
+
+정기적으로 키를 다시 생성하는 것은 일반적인 보안 예방 조치이므로 구독 키가 필요한 대부분의 Azure 제품은 키를 쌍으로 생성합니다. 서비스를 사용하는 각 애플리케이션은 *키 A* 에서 *키 B* 로 전환하고 최소한의 중단으로 키 A를 재생성할 수 있으며 그 반대의 경우도 마찬가지입니다. 
+
+기타
+
+* 개발자는 API 게시자의 승인 없이 구독을 받을 수 있습니다. 
+* API 게시자는 API 소비자를 위해 직접 구독을 만들 수도 있습니다.
 
 > [!TIP]
 > API Management는 또한 다음 예를 포함한 기타 API 액세스 보호 메커니즘도 지원합니다.
@@ -41,7 +50,16 @@ API에 액세스하기 위해 구독 키를 얻으려면 구독이 필요합니�
 
 ### <a name="subscriptions-for-a-product"></a>제품에 대한 범위
 
-일반적으로 API Management의 구독은 항상 단일 [API 제품](api-management-terminology.md) 범위와 연결되어 있습니다. 개발자가 개발자 포털에서 제품 목록을 찾았다고 가정해 보겠습니다. 그런 다음에는 사용할 제품에 대한 구독 요청을 제출할 것입니다. 구독 요청이 승인되면(자동으로 또는 API 게시자를 통해) 개발자는 포함된 키를 사용하여 제품의 모든 API에 게시할 수 있습니다. 현재 개발자 포털에는 사용자 프로필 섹션에서 제품 범위 구독만 표시됩니다. 
+일반적으로 API Management의 구독은 단일 [API 제품](api-management-terminology.md) 범위와 연결되어 있습니다. 개발자:
+* 개발자 포털에서 제품 목록을 찾았다고 가정해 보겠습니다. 
+* 사용할 제품에 대한 구독 요청을 제출했습니다. 
+* 해당 구독의 키(자동 또는 API 게시자 승인)를 사용하여 제품의 모든 API에 액세스합니다. 
+    * 구독 범위(제품, 글로벌 또는 API)에 관계없이 구독 키가 있거나 없는 API에 액세스할 수 있습니다.
+
+현재 개발자 포털에는 **사용자 프로필** 섹션에서 제품 범위 구독만 표시됩니다. 
+
+> [!NOTE]
+> API 범위 구독 키를 사용하는 경우 제품 범위에서 구성된 모든 *정책* 이 해당 구독에 적용되지 않습니다.
 
 ![제품 구독](./media/api-management-subscriptions/product-subscription.png)
 
@@ -50,14 +68,31 @@ API에 액세스하기 위해 구독 키를 얻으려면 구독이 필요합니�
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>모든 API 또는 개별 API에 대한 구독
 
-API Management의 [소비](https://aka.ms/apimconsumptionblog) 계층이 도입될 때, 키 관리를 간소화하기 위해 몇 가지 변경 사항이 적용되었습니다.
-- 첫째, 구독 범위가 두 개 더 추가되었습니다(모든 API와 단일 API). 구독의 범위는 더 이상 API 제품으로 한정되지 않습니다. 이제 제품을 만들고 먼저 API에 추가하지 않아도 API(또는 API Management 인스턴스 내의 모든 API)에 액세스 권한을 부여하는 키를 만들 수 있습니다. 또한 각 API Management 인스턴스는 이제 변경 불가능한 모든 API 구독과 함께 제공됩니다. 이 구독을 사용하면 테스트 콘솔 내에서 더욱 쉽고 간단하게 API를 테스트하고 디버그할 수 있습니다.
+API Management의 [소비](https://aka.ms/apimconsumptionblog) 계층이 추가되어 구독 키 관리가 더욱 간소화되었습니다. 
 
-- 둘째, API Management는 이제 **독립 실행형** 구독을 허용합니다. 개발자 계정과 연결하는 데 더 이상 구독이 필요하지 않습니다. 이 기능은 여러 개발자 또는 팀에서 구독을 공유하는 경우와 같은 시나리오에서 유용합니다.
+#### <a name="two-more-subscription-scopes"></a>두 가지 추가 구독 범위
 
-- 마지막으로, 이제 API 게시자가 Azure Portal에서 직접 [구독을 생성](api-management-howto-create-subscriptions.md)할 수 있습니다.
+구독 범위가 더 이상 API 제품으로 제한되지 않으므로 다음 중 하나에 대한 액세스 권한을 부여하는 키를 만들 수 있습니다.
+* 단일 API 또는 
+* API Management 인스턴스 내의 모든 API. 
 
-    ![유연성 있는 구독](./media/api-management-subscriptions/flexible-subscription.png)
+API를 추가하기 전에 제품을 만들 필요가 없습니다. 
+
+각 API Management 인스턴스는 이제 변경 불가능한 모든 API 구독과 함께 제공됩니다. 이 구독을 사용하면 테스트 콘솔 내에서 더욱 쉽고 간단하게 API를 테스트하고 디버그할 수 있습니다.
+
+#### <a name="standalone-subscriptions"></a>독립 실행형 구독
+
+API Management는 이제 *독립 실행형* 구독을 허용합니다. 더 이상 구독을 개발자 계정과 연결할 필요가 없습니다. 이 기능은 구독을 공유하는 여러 개발자 또는 팀과 유사한 시나리오에서 유용합니다.
+
+소유자를 지정하지 않고 구독을 만들면 독립 실행형 구독이 됩니다. 개발자와 나머지 팀에 독립 실행형 구독 키에 대한 액세스 권한을 부여하려면 다음 중 하나를 수행합니다.
+* 구독 키를 수동으로 공유합니다.
+* 사용자 지정 시스템을 사용하여 팀에서 구독 키를 사용할 수 있도록 합니다.
+
+#### <a name="creating-subscriptions-in-azure-portal"></a>Azure Portal에서 구독 만들기
+
+이제 API 게시자가 Azure Portal에서 직접 [구독을 생성](api-management-howto-create-subscriptions.md)할 수 있습니다.
+
+![유연성 있는 구독](./media/api-management-subscriptions/flexible-subscription.png)
 
 ## <a name="next-steps"></a>다음 단계
 API Management에 대한 자세한 내용 확인:

@@ -4,12 +4,12 @@ description: Azure DevTest Labs 가상 머신에서 아티팩트를 적용할 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6d3f37a942010240835238648c48ad5671ec028d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6258c2e85b708ea9dac1371a40e83a8a6f8e1911
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692432"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031769"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Azure DevTest Labs 가상 머신에서 아티팩트를 적용할 때 발생하는 문제 해결
 가상 머신에서 아티팩트를 적용할 때 다양한 이유로 실패할 수 있습니다. 이 문서에서는 가능한 원인을 파악하는 데 도움이 되는 몇 가지 방법을 설명합니다.
@@ -53,7 +53,7 @@ DevTest Labs 및 Resource Manager 배포 모델을 사용하여 만든 VM에 발
 
 미리 정의된 시간 제한 기간이 만료될 때까지 아티팩트가 응답하지 않는 것처럼 보이며 아티팩트가 **실패** 로 표시됩니다.
 
-아티팩트가 반응이 없는 것처럼 보이면 먼저 중지된 위치를 확인합니다. 아티팩트는 실행되는 동안 다음 단계 중 하나에서 차단될 수 있습니다.
+아티팩트가 응답을 중지한 것처럼 보이면 먼저 중지된 위치를 확인합니다. 아티팩트는 실행되는 동안 다음 단계 중 하나에서 차단될 수 있습니다.
 
 - **초기 요청 중**. DevTest Labs는 Azure Resource Manager 템플릿을 만들어 CSE(사용자 지정 스크립트 확장) 사용을 요청합니다. 따라서 내부적으로 리소스 그룹 배포가 트리거됩니다. 이 수준에서 오류가 발생하는 경우 해당 VM에 대한 리소스 그룹의 **활동 로그** 에서 세부 정보를 얻을 수 있습니다.  
     - 활동 로그는 랩 VM 페이지 탐색 모음에서 액세스할 수 있습니다. 이 항목을 선택하면 **가상 머신에 아티팩트 적용**(아티팩트 적용 작업이 직접 트리거된 경우) 또는 **가상 머신 추가 또는 수정**(아티팩트 적용 작업이 VM 만들기 프로세스의 일부인 경우)에 대한 항목이 표시됩니다.

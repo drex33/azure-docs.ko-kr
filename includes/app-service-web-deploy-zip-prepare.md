@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 035399924216434de85865102db8838ea3fa15a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54a29bb1cc92347d9a2578a4f0ec9febb22553ac
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85570222"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225478"
 ---
-## <a name="create-a-project-zip-file"></a>프로젝트 ZIP 파일 만들기
+## <a name="create-a-project-zip-package"></a>프로젝트 ZIP 패키지 만들기
 
 >[!NOTE]
-> 파일을 ZIP 파일로 다운로드한 경우 먼저 파일을 추출합니다. 예를 들어 GitHub에서 ZIP 파일을 다운로드한 경우 해당 파일을 그대로 배포할 수 없습니다. GitHub에서는 App Service에서 작동하지 않는 추가적인 중첩된 디렉터리를 추가합니다. 
+> 파일을 ZIP 패키지로 다운로드한 경우 먼저 파일을 추출합니다. 예를 들어 GitHub에서 ZIP 패키지를 다운로드한 경우 해당 파일을 그대로 배포할 수 없습니다. GitHub에서는 App Service에서 작동하지 않는 추가적인 중첩된 디렉터리를 추가합니다. 
 >
 
 로컬 터미널 창에서 앱 프로젝트의 루트 디렉터리로 이동합니다. 

@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 08/25/2021
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ac1afe3658db60297735e897d69caa463358a4c
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: ece3693fa183ba31de569e7db632c3d294c10437
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318390"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187184"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트 사용
 
@@ -38,43 +38,45 @@ ARM 템플릿(Azure Resource 템플릿)에서 배포 스크립트를 사용하�
 > [!IMPORTANT]
 > 스크립트를 실행하고 문제를 해결하려면 스토리지 계정 및 컨테이너 인스턴스가 필요합니다. 기존 스토리지 계정을 지정할 수 있습니다. 그러지 않으면 컨테이너 인스턴스와 함께 스토리지 계정이 스크립트 서비스에 의해 자동으로 생성됩니다. 자동으로 생성된 두 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태가 되면 스크립트 서비스에 의해 삭제됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 
-> [!IMPORTANT]
-> DeploymentScripts 리소스 API 버전 2020-10-01은 [OBO(OnBehalfofTokens)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)를 지원합니다. OBO를 사용하면 배포 스크립트 서비스는 배포 주체의 토큰을 사용해 배포 스크립트를 실행하기 위한 기본 리소스를 만듭니다. 여기에는 Azure Container Instance, Azure Storage 계정 및 관리 대상에 대한 역할 할당이 포함됩니다. 이전 API 버전에서는 관리 ID를 사용하여 이러한 리소스를 만듭니다.
-> 이제 Azure 로그인에 대한 다시 시도 논리가 래퍼 스크립트에 기본적으로 제공됩니다. 배포 스크립트를 실행하는 동일한 템플릿에서 권한을 부여하는 경우. 배포 스크립트 서비스에서는 관리 ID 역할 할당이 복제될 때까지 10초 간격으로 10분 동안 로그인을 다시 시도합니다.
+> [!NOTE]
+> 이제 Azure 로그인에 대한 다시 시도 논리가 래퍼 스크립트에 기본적으로 제공됩니다. 배포 스크립트와 동일한 템플릿에서 권한을 부여하는 경우 배포 스크립트 서비스는 관리 ID 역할 할당이 복제될 때까지 10초 간격으로 10분 동안 로그인을 다시 시도합니다.
 
 ## <a name="configure-the-minimum-permissions"></a>최소 권한 구성
 
-배포 스크립트 API 버전 2020-10-01 이상에서는 배포 주체를 사용하여 배포 스크립트 리소스(스토리지 계정 및 Azure Container Instance)를 실행하는 데 필요한 기본 리소스를 만듭니다. 스크립트가 Azure에 인증하고 Azure 관련 작업을 수행해야 하는 경우 스크립트에 사용자 할당 관리 ID를 제공하는 것이 좋습니다. 관리 ID에는 스크립트에서 작업을 완료하는 데 필요한 액세스 권한이 있어야 합니다.
+배포 스크립트 API 버전 2020-10-01 이상의 경우 배포 스크립트 실행과 관련된 두 가지 주체가 있습니다.
 
-최소 권한 권한을 구성하려면 다음이 필요합니다.
+- **배포 주체**(템플릿을 배포하는 데 사용되는 주체): 이 주체는 배포 스크립트 리소스를 실행하는 데 필요한 기본 리소스(스토리지 계정 및 Azure 컨테이너 인스턴스)를 만드는 데 사용됩니다. 최소 권한 권한을 구성하려면 다음 속성이 있는 사용자 지정 역할을 배포 주체에 할당합니다.
 
-- 다음 속성을 사용하여 사용자 지정 역할을 배포 주체에 할당합니다.
+    ```json
+    {
+      "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
+      "description": "Configure least privilege for the deployment principal in deployment script",
+      "type": "customRole",
+      "IsCustom": true,
+      "permissions": [
+        {
+          "actions": [
+            "Microsoft.Storage/storageAccounts/*",
+            "Microsoft.ContainerInstance/containerGroups/*",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Resources/deploymentScripts/*"
+          ],
+        }
+      ],
+      "assignableScopes": [
+        "[subscription().id]"
+      ]
+    }
+    ```
 
-  ```json
-  {
-    "roleName": "deployment-script-minimum-privilege-for-deployment-principal",
-    "description": "Configure least privilege for the deployment principal in deployment script",
-    "type": "customRole",
-    "IsCustom": true,
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Storage/storageAccounts/*",
-          "Microsoft.ContainerInstance/containerGroups/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/deploymentScripts/*"
-        ],
-      }
-    ],
-    "assignableScopes": [
-      "[subscription().id]"
-    ]
-  }
-  ```
+    Azure Storage 및 Azure Container Instance 리소스 공급자가 등록되지 않은 경우 `Microsoft.Storage/register/action` 및 `Microsoft.ContainerInstance/register/action`도 추가해야 합니다.
 
-  Azure Storage 및 Azure Container Instance 리소스 공급자가 등록되지 않은 경우 `Microsoft.Storage/register/action` 및 `Microsoft.ContainerInstance/register/action`도 추가해야 합니다.
+- **배포 스크립트 주체**: 이 주체는 배포 스크립트가 Azure에 인증하고 Azure CLI/PowerShell을 호출해야 하는 경우에만 필요합니다. 배포 스크립트 주체를 지정하는 방법에는 두 가지가 있습니다.
 
-- 관리 ID가 사용되는 경우 배포 주체에는 관리 ID 리소스에 할당된 **관리 ID 운영자** 역할(기본 제공 역할)이 필요합니다.
+  - `identity` 속성에서 사용자 할당 관리 ID를 지정합니다([샘플 템플릿](#sample-templates) 참조). 지정된 경우 스크립트 서비스는 배포 스크립트를 호출하기 전에 `Connect-AzAccount -Identity`을 호출합니다. 관리 ID에는 스크립트에서 작업을 완료하는 데 필요한 액세스 권한이 있어야 합니다. 현재는 `identity` 속성에 대해 사용자 할당 관리 ID만 지원됩니다. 다른 ID로 로그인하려면 이 목록의 두 번째 메서드를 사용합니다.
+  - 서비스 주체 자격 증명을 보안 환경 변수로 전달한 다음 배포 스크립트에서 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 또는 [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true)을 호출할 수 있습니다.
+
+  관리 ID가 사용되는 경우 배포 주체에는 관리 ID 리소스에 할당된 **관리 ID 운영자** 역할(기본 제공 역할)이 필요합니다.
 
 ## <a name="sample-templates"></a>샘플 템플릿
 

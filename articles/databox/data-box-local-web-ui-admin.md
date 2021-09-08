@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 08/25/2021
 ms.author: alkohli
-ms.openlocfilehash: e84f39fa5b9245d1874e60d651156e99c0885040
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa37d5dc9957e39d7fe4f47404bc9aaf249f192f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97678926"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226393"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용하여 Data Box 및 Data Box Heavy 디바이스 관리
 
@@ -95,6 +95,27 @@ Data Box를 다시 시작하려면 다음 단계를 수행합니다.
 3. 확인을 요청하는 메시지가 표시되면 **확인** 을 선택하여 계속 진행합니다.
 
    디바이스가 종료되었다가 다시 시작됩니다.
+
+## <a name="get-share-credentials"></a>공유 자격 증명 가져오기 
+
+디바이스의 공유에 연결하는 데 사용할 사용자 이름과 암호를 찾아야 하는 경우 로컬 웹 UI의 **연결 및 복사** 에서 공유 자격 증명을 찾을 수 있습니다.
+
+디바이스를 주문할 때 디바이스에서 공유하기 위한 기본 시스템 생성 암호를 사용하거나 자신의 암호를 사용하도록 선택할 수 있습니다. 어느 쪽이든 공유 암호는 공장에서 설정되며 변경할 수 없습니다. 
+
+공유에 대한 자격 증명을 얻으려면:
+
+1. 로컬 웹 UI에서 **연결 및 복사** 로 이동합니다. **SMB** 를 선택하여 스토리지 계정과 연결된 공유의 액세스 자격 증명을 가져옵니다.
+
+   ![Data Box에 대한 로컬 웹 UI의 연결 및 복사 페이지를 보여 주는 스크린샷. 연결 및 복사 메뉴 항목과 SMB 옵션이 강조 표시됩니다.](media/data-box-local-web-ui-admin/get-share-credentials-01.png)
+
+1. **액세스 공유 및 데이터 복사** 대화 상자에서 복사 아이콘을 사용하여 공유에 해당하는 **사용자 이름** 및 **암호** 를 복사합니다. 대화 상자를 닫으려면 **확인** 을 선택합니다.
+
+   ![데이터 상자의 SMB 공유에 대한 로컬 웹 UI의 액세스 공유 및 데이터 복사 대화 상자를 보여 주는 스크린샷. 스토리지 계정 및 암호 옵션에 대한 복사 아이콘과 확인 단추가 강조 표시됩니다.](media/data-box-local-web-ui-admin/get-share-credentials-02.png)
+
+> [!NOTE]
+> 잘못된 암호를 사용하여 여러 번 공유 연결 시도에 실패한 후에는 사용자 계정이 공유에서 잠기게 됩니다. 몇 분 후에 계정 잠금이 해제되고 공유에 다시 연결할 수 있습니다.  
+> - Data Box 4.1 이상: 로그인 시도가 5회 실패하면 계정이 15분 동안 잠깁니다. 
+> - Data Box 4.0 이하: 로그인 시도가 3회 실패하면 30분 동안 계정이 잠깁니다.
 
 ## <a name="download-bom-or-manifest-files"></a>BOM 또는 매니페스트 파일 다운로드
 

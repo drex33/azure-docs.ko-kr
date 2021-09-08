@@ -6,16 +6,19 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 05/27/2020
+ms.date: 08/27/2021
 ms.author: cynthn
-ms.openlocfilehash: 28b3ee98d44e1567d9e25cf9237015396975ab01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78fce318d07e8603830fe04b41df387e6a25f8d9
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550453"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227241"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
+
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
@@ -30,7 +33,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     **네트워크 보안 그룹 만들기** 창이 열립니다.
 
-    ![네트워크 보안 그룹 만들기](./media/nsg-quickstart-portal/create-nsg.png)
+    :::image type="content" source="media/nsg-quickstart-portal/create-nsg.png" alt-text="네트워크 보안 그룹을 만듭니다.":::
 
 1. 네트워크 보안 그룹의 이름을 입력합니다. 
 
@@ -40,14 +43,14 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-inbound-security-rule"></a>인바운드 보안 규칙 만들기
 
-1. 새 네트워크 보안 그룹을 선택합니다. 
+1. 새 네트워크 보안 그룹을 선택합니다.
 
 1. 왼쪽 메뉴에서 **인바운드 보안 규칙** 을 선택한 다음, **추가** 를 선택합니다.
 
-    ![고급 페이지로 전환](./media/nsg-quickstart-portal/advanced.png)
+    :::image type="content" source="media/nsg-quickstart-portal/advanced.png" alt-text="인바운드 보안 규칙을 추가합니다.":::
 
-1. **인바운드 보안 규칙 추가** 페이지 상단에서 **기본** 을 **고급** 으로 전환합니다. 
-
+1. 필요에 따라 **원본** 및 **원본 포트 범위** 를 제한하거나 기본값인 *모두* 를 그대로 둘 수 있습니다.
+1. 필요에 따라 **대상** 을 제한하거나 기본값인 *모두* 를 그대로 둘 수 있습니다.
 1. 드롭다운 메뉴에서 공통 **서비스** 를 선택합니다(예: **HTTP**). 사용할 특정 포트를 제공하려는 경우 **사용자 지정** 을 선택할 수도 있습니다. 
 
 1. 선택적으로 **우선 순위** 또는 **이름** 을 변경합니다. 이 우선 순위는 규칙이 적용되는 순서에 영향을 줍니다. 숫자 값이 적을수록 규칙이 먼저 적용됩니다.

@@ -1,18 +1,18 @@
 ---
-title: Service Fabric 관리 클러스터 노드에서 애플리케이션 관리 ID 구성 및 사용
-description: ARM 템플릿 배포 Azure Service Fabric 관리 클러스터에서 애플리케이션 관리 ID를 구성하고 사용하는 방법을 알아봅니다.
+title: Service Fabric 관리형 클러스터에서 애플리케이션 관리 ID 구성 및 사용
+description: ARM(Azure Resource Manager) 템플릿 배포 Azure Service Fabric 관리 클러스터에서 애플리케이션 관리 ID를 구성하고 사용하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 4e488f9ebb78208617ca59fdb88dbec454de10e1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 8/23/2021
+ms.openlocfilehash: 5007f17754572c03ff820ecda1bb09f6e8a8020e
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111958279"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864752"
 ---
-# <a name="deploy-a-service-fabric-application-with-managed-identity"></a>관리 ID를 사용하여 Service Fabric 애플리케이션 배포
+# <a name="deploy-an-application-with-managed-identity-to-a-service-fabric-managed-cluster"></a>관리 ID가 있는 애플리케이션을 Service Fabric 관리형 클러스터에 배포
 
-관리 ID를 사용하여 Service Fabric 애플리케이션을 배포하려면 일반적으로 Azure Resource Manager 템플릿을 사용하여 Azure Resource Manager를 통해 애플리케이션을 배포해야 합니다. Azure Resource Manager를 통해 Service Fabric 애플리케이션을 배포하는 방법에 대한 자세한 내용은 [Azure Resource Manager 리소스로 애플리케이션 및 서비스 관리](service-fabric-application-arm-resource.md)를 참조하세요.
+관리 ID를 사용하여 Service Fabric 애플리케이션을 배포하려면 일반적으로 Azure Resource Manager 템플릿을 사용하여 Azure Resource Manager를 통해 애플리케이션을 배포해야 합니다. Azure Resource Manager를 통해 Service Fabric 애플리케이션을 배포하는 방법에 대한 자세한 내용은 [Azure Resource Manager를 사용하여 관리되는 클러스터에 애플리케이션 배포](how-to-managed-cluster-app-deployment-template.md)를 참조하세요.
 
 > [!NOTE] 
 > 
@@ -195,6 +195,5 @@ Service Fabric 애플리케이션을 [Azure 리소스에 대한 관리 ID](../ac
     위에 설명된 대로 서비스에 대한 ID의 동등한 매핑이지만 서비스 정의의 관점을 보여 줍니다. 여기서 ID는 애플리케이션 매니페스트에 선언된 대로 식별 이름(`WebAdmin`)으로 참조됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-* [서비스 코드에서 Service Fabric 애플리케이션의 관리 ID 활용](./how-to-managed-identity-service-fabric-app-code.md)
-* [Azure Service Fabric 애플리케이션에 다른 Azure 리소스에 대한 액세스 권한 부여](./how-to-grant-access-other-resources.md)
+* [서비스 코드에서 Service Fabric 애플리케이션의 관리 ID 활용](how-to-managed-identity-service-fabric-app-code.md)
+* [Azure Service Fabric 애플리케이션에 다른 Azure 리소스에 대한 액세스 권한 부여](how-to-grant-access-other-resources.md)

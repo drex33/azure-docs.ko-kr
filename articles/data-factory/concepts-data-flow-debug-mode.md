@@ -9,12 +9,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 04/16/2021
-ms.openlocfilehash: 51711cbbd66e52ccf0b47c4e1db5ecc5883ff959
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e37a6dcd6cd536e3702294e45a1aa3ffd2c75a24
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642650"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099372"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>매핑 데이터 흐름 디버그 모드
 
@@ -28,7 +28,7 @@ Azure Data Factory 매핑 데이터 흐름의 디버그 모드를 사용하면 �
 
 ![디버그 슬라이더 2가 어디에 있는지 보여 주는 스크린샷](media/data-flow/debug-button-4.png)
 
-슬라이더를 켜면 사용할 통합 런타임 구성을 선택하라는 메시지가 표시됩니다. AutoResolveIntegrationRuntime을 선택하면 TTL(Time to live)이 60분인 일반 컴퓨팅 코어가 8개인 클러스터가 회전합니다. 세션 시간이 초과되기 전에 더 많은 유휴 팀을 허용하려면 더 높은 TTL 설정을 선택할 수 있습니다. 데이터 흐름 통합 런타임에 대한 자세한 내용은 [데이터 흐름 성능](concepts-data-flow-performance.md#ir)을 참조하세요.
+슬라이더를 켜면 사용할 통합 런타임 구성을 선택하라는 메시지가 표시됩니다. AutoResolveIntegrationRuntime을 선택하면 TTL(Time to live)이 60분인 일반 컴퓨팅 코어가 8개인 클러스터가 회전합니다. 세션 시간이 초과되기 전에 더 많은 유휴 팀을 허용하려면 더 높은 TTL 설정을 선택할 수 있습니다. 데이터 흐름 통합 런타임에 대한 자세한 내용은 [통합 런타임 성능](concepts-integration-runtime-performance.md)을 참조하세요.
 
 ![IR 선택 디버그](media/data-flow/debug-new-1.png "IR 선택 디버그")
 

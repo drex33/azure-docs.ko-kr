@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 08/30/2021
 ms.author: duau
-ms.openlocfilehash: 83f1e83653c5674988cadcb5b54d3c675ae0b8b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96e71dbd8a03e66644f0dc754d448a345978d940
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489443"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255665"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Azure Route Server 문제 해결
 
@@ -50,6 +50,10 @@ Azure Route Server를 가상 네트워크에 배포하는 경우 게이트웨이
 
 BGP 타이머 설정이 플래핑 발생 원인일 수 있습니다. 기본적으로 Azure Route Server의 연결 유지 타이머는 60초로 설정되고 대기 타이머는 180초로 설정됩니다.
 
+### <a name="why-does-my-on-premises-network-connected-to-azure-vpn-gateway-not-receive-the-default-route-advertised-by-azure-route-server"></a>Azure VPN 게이트웨이에 연결된 온-프레미스 네트워크가 Azure Route Server에서 보급한 기본 경로를 수신하지 못하는 이유는 무엇인가요?
+
+Azure VPN 게이트웨이는 Azure Route Server를 포함한 BGP 피어로부터 기본 경로를 수신할 수 있지만 다른 피어에 [기본 경로를 보급하지 않습니다](../vpn-gateway/vpn-gateway-vpn-faq.md#what-address-prefixes-will-azure-vpn-gateways-advertise-to-me). 
+
 ### <a name="why-does-my-nva-not-receive-routes-from-azure-route-server-even-though-the-bgp-peering-is-up"></a>BGP 피어링이 작동 중인 경우에도 NVA가 Azure Route Server에서 경로를 수신하지 않는 이유는 무엇인가요?
 
 Azure Route Server에서 사용하는 ASN은 65515입니다. 경로 전파가 자동으로 발생할 수 있도록 NVA와 Azure Route Server 간에 “eBGP” 세션을 설정할 수 있도록 NVA에 대해 다른 ASN을 구성해야 합니다. NVA와 Azure Route Server가 가상 네트워크의 다른 서브넷에 있으므로 BGP 구성에서 “멀티 홉”을 사용하도록 설정해야 합니다.
@@ -65,6 +69,10 @@ Azure Route Server에서 사용하는 ASN은 65515입니다. 경로 전파가 �
     NVA 인스턴스가 두 개 이상 있고 NVA 인스턴스 하나를 활성으로 지정하고 다른 하나는 수동으로 지정하려는 경우 다른 NVA 인스턴스로부터 오는 동일한 경로에 대해 다른 AS 경로를 보급할 수 ‘있습니다’.
 
 * VM이 NVA 및 Azure Route Server를 호스트하는 가상 네트워크와 다른 가상 네트워크에 있는 경우 두 VNet 간에 VNet 피어링이 사용하도록 설정되어 ‘있고’ VM의 VNet에서 원격 경로 서버 사용이 사용하도록 설정되어 있는지 확인합니다.
+
+### <a name="why-is-the-equal-cost-multi-path-ecmp-function-of-my-expressroute-turned-off-after-i-deploy-azure-route-server-to-the-virtual-network"></a>Azure Route Server를 가상 네트워크에 배포한 후 ExpressRoute의 ECMP(Equal-Cost Multi-Path) 기능이 꺼져 있는 이유가 무엇인가요?
+
+여러 ExpressRoute 연결을 통해 온-프레미스 네트워크에서 Azure로 동일한 경로를 보급할 때 일반적으로 ECMP는 Azure에서 다시 온-프레미스로의 이러한 경로를 대상으로 하는 트래픽에 대해 기본적으로 사용하도록 설정됩니다. 그러나 경로 서버가 배포된 후 ExpressRoute와 Azure Route Server 간의 BGP 교환에서 다중 경로 정보가 손실되고 결과적으로 Azure의 트래픽은 ExpressRoute 연결 중 하나에서만 통과합니다. 이 제한은 Azure Route Server의 향후 릴리스에서 해제됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,31 +1,31 @@
 ---
-title: Azure Virtual Desktop 호스트 풀 PowerShell 만들기 - Azure
-description: PowerShell cmdlet을 사용하여 Azure Virtual Desktop에서 호스트 풀을 만드는 방법입니다.
+title: Azure Virtual Desktop 호스트 풀 만들기 - Azure
+description: PowerShell 또는 Azure CLI를 사용하여 Azure Virtual Desktop에서 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/02/2020
+ms.date: 07/23/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 0b0822bf7653a076e579a0bec1cbfcc926d4c7b9
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: dbd48f8ff2b3da5cec432f6b1fba7d272621535c
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113651135"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100855"
 ---
-# <a name="create-a-azure-virtual-desktop-host-pool-with-powershell"></a>PowerShell을 사용하여 Azure Virtual Desktop 호스트 풀 만들기
+# <a name="create-an-azure-virtual-desktop-host-pool-with-powershell-or-the-azure-cli"></a>PowerShell 또는 Azure CLI를 사용하여 Azure Virtual Desktop 호스트 풀 만들기
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 통해 Azure Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md)를 참조하세요.
 
 호스트 풀은 Azure Virtual Desktop 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 각 호스트 풀은 여러 RemoteApp 그룹, 하나의 데스크톱 앱 그룹 및 여러 세션 호스트와 연결할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="create-a-host-pool"></a>호스트 풀 만들기
 
-이 문서에서는 [PowerShell 모듈을 설정](powershell-module.md)하는 방법에 대한 지침을 따라 수행했다고 가정합니다.
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-## <a name="use-your-powershell-client-to-create-a-host-pool"></a>PowerShell 클라이언트를 사용하여 호스트 풀 만들기
+아직 이 방법으로 수행하지 않은 경우 [PowerShell 모듈 설정](powershell-module.md)의 지침을 따르세요.
 
 다음 cmdlet을 실행하여 Azure Virtual Desktop 환경에 로그인합니다.
 
@@ -35,7 +35,7 @@ New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -W
 
 이 cmdlet은 호스트 풀, 작업 영역 및 데스크톱 앱 그룹을 만듭니다. 또한 데스크톱 앱 그룹을 작업 영역에 등록합니다. 이 cmdlet을 사용하여 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다.
 
-등록 토큰을 만들기 위해 다음 cmdlet을 실행하여 세션 호스트의 호스트 풀 참가를 인증하고 로컬 컴퓨터의 새 파일에 저장합니다. -ExpirationHours 매개 변수를 사용하여 등록 토큰의 유효 기간을 지정할 수 있습니다.
+등록 토큰을 만들기 위해 다음 cmdlet을 실행하여 세션 호스트의 호스트 풀 참가를 인증하고 로컬 컴퓨터의 새 파일에 저장합니다. *-ExpirationTime* 매개 변수를 사용하여 등록 토큰의 유효 기간을 지정할 수 있습니다.
 
 >[!NOTE]
 >토큰의 만료 날짜는 1시간 이상 한 달 이하여야 합니다. 이 한도를 벗어나 *-ExpirationTime* 을 설정하는 경우 이 cmdlet은 토큰을 만들지 않습니다.
@@ -68,6 +68,31 @@ New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop 
 $token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname>
 ```
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+아직 수행하지 않은 경우 Azure CLI에 대한 환경을 준비합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+로그인한 후 [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_create) 명령을 사용하여 새 호스트 풀을 만들고 선택적으로 세션 호스트가 호스트 풀에 조인할 수 있는 등록 토큰을 만듭니다.
+
+```azurecli
+az desktopvirtualization hostpool create --name "MyHostPool" \
+   --resource-group "MyResourceGroup" \
+   --location "MyLocation" \
+   --host-pool-type "Pooled" \
+   --load-balancer-type "BreadthFirst" \
+   --max-session-limit 999 \
+   --personal-desktop-assignment-type "Automatic" \
+   --registration-info expiration-time="2022-03-22T14:01:54.9571247Z" registration-token-operation="Update" \
+   --sso-context "KeyVaultPath" \
+   --description "Description of this host pool" \
+   --friendly-name "Friendly name of this host pool" \
+   --tags tag1="value1" tag2="value2"
+```
+
+---
+
 ## <a name="create-virtual-machines-for-the-host-pool"></a>호스트 풀에 대한 가상 머신 만들기
 
 이제 Azure Virtual Desktop 호스트 풀에 참가할 수 있는 Azure 가상 머신을 만들 수 있습니다.
@@ -76,6 +101,7 @@ $token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostP
 
 - [Azure Gallery 이미지에서 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [관리 이미지에서 가상 머신 만들기](../virtual-machines/windows/create-vm-generalized-managed.md)
+- [관리되지 않는 이미지에서 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 >[!NOTE]
 >Windows 7을 사용하여 호스트 OS로 가상 머신을 배포하는 경우에는 만들기 및 배포 프로세스가 약간 다릅니다. 자세한 내용은 [ Virtual Desktop에서 Windows 7 가상 머신 배포](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md)를 참조하세요.

@@ -1,18 +1,18 @@
 ---
-title: Service Fabric 관리형 클러스터에서 애플리케이션 비밀 사용
-description: Azure Service Fabric 애플리케이션 비밀 및 관리형 클러스터용에서 사용하는 데 필요한 정보를 수집하는 방법에 대해 알아봅니다.
+title: Service Fabric 관리형 클러스터에 애플리케이션 비밀 배포
+description: Azure Service Fabric 애플리케이션 비밀 및 이를 관리형 클러스터에 배포하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 5/10/2021
-ms.openlocfilehash: 820fb2a116ba5343a2f2126950a7f5d5896ddee3
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 8/23/2021
+ms.openlocfilehash: 81fbd254f6aee216661e720a73c97e89351a9fad
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950130"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867348"
 ---
-# <a name="use-application-secrets-in-service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터에서 애플리케이션 비밀 사용
+# <a name="deploy-application-secrets-to-a-service-fabric-managed-cluster"></a>Service Fabric 관리형 클러스터에 애플리케이션 비밀 배포
 
-스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다. 이 문서에서는 Azure Key Vault를 사용하여 Service Fabric 관리형 클러스터용으로 키와 비밀을 관리합니다. 하지만 애플리케이션에서 비밀을 *사용* 하는 것은 클라우드 플랫폼에 구애를 받지 않으므로 그 어디에 호스트된 클러스터에도 애플리케이션을 배포할 수 있습니다.
+스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다. Azure Key Vault를 사용하여 Service Fabric 관리형 클러스터의 키와 비밀을 관리하고 이 문서에서 활용하는 것이 좋습니다. 하지만 애플리케이션에서 비밀을 *사용* 하는 것은 클라우드 플랫폼에 구애를 받지 않으므로 그 어디에 호스트된 클러스터에도 애플리케이션을 배포할 수 있습니다.
 
 [서비스 구성 패키지][config-package]를 통해 서비스 구성 설정을 관리하는 방법이 권장됩니다. 구성 패키지는 관리되는 상태 유효성 검사 및 자동 롤백을 사용하여 롤링 업그레이드를 통해 버전이 관리되며 업데이트할 수 있습니다. 이 방법은 전역 서비스 중단 가능성을 줄이기 때문에 기본 설정으로 사용됩니다. 암호화된 비밀도 마찬가지입니다. 서비스 패브릭에는 인증서 암호화를 사용하여 구성 패키지 Settings.xml 파일의 값을 암호화 및 해독하는 기본 기능이 포함되어 있습니다.
 
@@ -45,11 +45,11 @@ ms.locfileid: "111950130"
 관리형 클러스터용의 경우 3개의 값(Azure Key Vault에서 2개, 노드의 로컬 저장소 이름에 대해 결정하는 데 1개)이 필요합니다.
 
 매개 변수 
-* 원본 자격 증명 모음: 예를 들어 다음과 같습니다. 
+* `Source Vault`: 다음과 같습니다. 
     * /subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1
-* 인증서 URL: 전체 개체 식별자이며 대/소문자를 구분하지 않으며 변경할 수 없습니다.
+* `Certificate URL`: 전체 개체 식별자이며 대/소문자를 구분하지 않으며 변경할 수 없습니다.
     * https://mykeyvault1.vault.azure.net/secrets/{secretname}/{secret-version}
-* 인증서 저장소: 인증서가 배치될 노드의 로컬 인증서 저장소입니다.
+* `Certificate Store`: 인증서가 배치될 노드의 로컬 인증서 저장소입니다.
     * 노드의 인증서 저장소 이름(예: "MY")
 
 Service Fabric 관리형 클러스터는 노드에 버전별 비밀을 추가하는 데 두 가지 방법을 지원합니다.

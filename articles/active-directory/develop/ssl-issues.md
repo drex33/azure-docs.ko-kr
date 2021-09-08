@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aceddf008979453383a1460da4342fd2a066d6b1
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80881080"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039836"
 ---
-# <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>방법: iOS 및 macOS TLS/SSL 문제에 대한 MSAL 문제 해결
+# <a name="troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>iOS 및 macOS TLS/SSL 문제에 대한 MSAL 문제 해결
 
 이 문서에서는 [iOS 및 macOS용 MSAL(Microsoft 인증 라이브러리)](reference-v2-libraries.md)을 사용하는 동안 발생할 수 있는 문제를 해결하는 데 도움이 되는 정보를 제공합니다.
 

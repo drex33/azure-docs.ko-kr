@@ -9,16 +9,19 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: e53089c2287d255fd3dbe6ca7961646e0e3de05a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f2ac7aa7d5078359f747e141971eabeba21eab3e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457427"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968734"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 플랜
 
-Azure Functions 프리미엄 플랜(탄력적 프리미엄 플랜이라고도 함)은 함수 앱에 대한 호스팅 옵션입니다. 다른 호스팅 플랜 옵션에 대해서는 [호스팅 플랜 문서](functions-scale.md)를 확인하세요.
+Azure Functions Elastic 프리미엄 플랜은 함수 앱을 위한 동적 크기 조정 호스팅 옵션입니다. 다른 호스팅 플랜 옵션에 대해서는 [호스팅 플랜 문서](functions-scale.md)를 확인하세요.
+
+>[!IMPORTANT]
+>Azure Functions는 Azure App Service 플랫폼에서 실행됩니다. App Service 플랫폼에서 프리미엄 플랜 함수 앱을 호스팅하는 플랜은 *탄력적* 프리미엄 플랜이라고 하며 SKU 이름은 `EP1`과 같습니다. 프리미엄 플랜에서 함수 앱을 실행하기로 선택한 경우 `EP1`과 같이 "E"로 시작하는 SKU 이름으로 플랜을 만들어야 합니다. `P1V2`(프리미엄 V2 소형 플랜)과 같이 "P"로 시작하는 App Service 플랜 SKU 이름은 실제로 [전용 호스팅 계획](dedicated-plan.md)입니다. 탄력적 프리미엄이 아닌 전용이기 때문에 SKU 이름이 "P"로 시작하는 플랜은 동적으로 크기 조정되지 않으며 비용이 증가할 수 있습니다. 
 
 프리미엄 플랜 호스팅은 함수에 다음과 같은 이점을 제공합니다.
 
@@ -158,7 +161,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 ## <a name="region-max-scale-out"></a>지역 최대 스케일 아웃
 
-다음은 각 지역 및 OS 구성에서 단일 플랜에 대해 현재 지원되는 최대 스케일 아웃 값입니다. 증가를 요청하려면 지원 티켓을 열 수 있습니다.
+다음은 각 지역 및 OS 구성에서 단일 플랜에 대해 현재 지원되는 최대 스케일 아웃 값입니다.
 
 [Azure 웹 사이트](https://azure.microsoft.com/global-infrastructure/services/?products=functions)에서 함수의 전체 지역 가용성을 참조하세요.
 

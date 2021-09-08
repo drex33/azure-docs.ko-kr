@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 08/25/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0f70c8d501a7d56f4bc29e0f2b065760cad625e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7aab8497baa5c6b9a53a98ed76e6760fa54ffb0
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97585023"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864437"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 고객 등록 시 메일 확인 사용 안 함
 
@@ -44,7 +44,7 @@ ms.locfileid: "97585023"
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용하여 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **사용자 흐름** 을 선택합니다.
-1. 메일 확인을 사용하지 않을 사용자 흐름을 선택합니다. 예를 들어 *B2C_1_signinsignup* 을 선택합니다.
+1. 메일 확인을 사용하지 않을 사용자 흐름을 선택합니다.
 1. **페이지 레이아웃** 을 선택합니다.
 1. **로컬 계정 회원가입 페이지** 를 선택합니다.
 1. **사용자 특성** 에서 **메일 주소** 를 선택합니다.
@@ -84,7 +84,7 @@ ms.locfileid: "97585023"
 1. **사용자 흐름** 을 선택합니다.
 1. 메일 확인을 사용하지 않을 사용자 흐름을 선택합니다. 예를 들어 *B2C_1_signinsignup* 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 에서 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 이름의 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 을 클릭합니다.
 1. 유효성 검사 없이 메일 주소를 사용하여 등록할 수 있습니다.
 

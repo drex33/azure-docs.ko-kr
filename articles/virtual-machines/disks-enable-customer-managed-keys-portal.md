@@ -2,24 +2,23 @@
 title: Azure Portal - SSE로 고객 관리형 키 사용 - 관리 디스크
 description: Azure Portal을 통해 관리 디스크에서 고객 관리형 키를 사용하도록 설정합니다.
 author: roygara
-ms.date: 06/29/2021
+ms.date: 08/31/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 99a6a94405978cf183c717f2fed34f7eb24d9299
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 2117fc6d425233ee2de4954173981ad5cfda5f18
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361372"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318475"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Azure Portal을 사용하여 관리 디스크용 고객 관리형 키로 서버 쪽 암호화를 사용하도록 설정합니다
 
-Azure Disk Storage를 사용하면 관리 디스크에 대해 SSE(서버 쪽 암호화)를 사용하도록 선택하는 경우 사용자의 자체 키를 관리할 수 있습니다. 고객 관리형 키 및 기타 관리 디스크 암호화 유형을 사용하는 SSE에 대한 개념 정보는 디스크 암호화 문서의 **고객 관리형 키** 섹션을 참조하세요.
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 
 
-- Linux: [고객 관리형 키](./disk-encryption.md#customer-managed-keys)
-- Windows: [고객 관리형 키](./disk-encryption.md#customer-managed-keys)
+Azure Disk Storage를 사용하면 관리 디스크에 대해 SSE(서버 쪽 암호화)를 사용하도록 선택하는 경우 사용자의 자체 키를 관리할 수 있습니다. 고객 관리형 키 및 기타 관리 디스크 암호화 유형을 사용하는 SSE에 대한 개념 정보는 디스크 암호화 문서 [고객 관리형 키](disk-encryption.md#customer-managed-keys)의 **고객 관리형 키** 섹션을 참조하세요.
 
 ## <a name="restrictions"></a>제한
 
@@ -79,6 +78,12 @@ VM 배포 프로세스는 표준 배포 프로세스와 유사합니다. 유일�
 
 > [!IMPORTANT]
 > 고객 관리형 키는 Azure AD(Azure Active Directory)의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 고객 관리형 키를 구성하는 경우 관리 ID가 내부적으로 리소스에 자동으로 할당됩니다. 이후에 구독, 리소스 그룹 또는 관리 디스크를 Azure AD 디렉터리 간에 이동하는 경우, 관리 디스크와 연결된 관리 ID는 새로운 테넌트로 전송되지 않으므로 고객 관리형 키가 더 이상 작동하지 않을 수 있습니다. 자세한 정보는 [Azure AD 디렉터리 간에 구독 전송](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)을 참조하세요.
+
+### <a name="enable-automatic-key-rotation-on-an-existing-disk-encryption-set"></a>기존 디스크 암호화 집합에서 자동 키 순환 사용
+
+1. [자동 키 순환](disk-encryption.md#automatic-key-rotation-of-customer-managed-keys)을 사용하도록 설정할 디스크 암호화 집합으로 이동합니다.
+1. **설정** 아래에서 **키** 를 선택합니다.
+1. **자동 키 순환** 을 선택하고 **저장** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

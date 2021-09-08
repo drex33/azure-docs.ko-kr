@@ -5,18 +5,18 @@ description: Azure Active Directory 그룹 멤버 자격을 사용하여 AKS(Azu
 services: container-service
 ms.topic: article
 ms.date: 03/17/2021
-ms.openlocfilehash: 0d5171e9e9a5d7f033ff615a3f1205b8dc93966f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 571a0153bfe56a6d3b92700eb0e40f457cf92ffc
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769556"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123097950"
 ---
 # <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory를 사용하는 클러스터 리소스에 대한 액세스 제어
 
-사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용하여 AKS 클러스터에 로그인합니다. 또한 Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)를 구성하여 클러스터 리소스 기반 사용자 ID 또는 그룹 멤버 자격을 제한할 수도 있습니다.
+사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용하여 AKS 클러스터에 로그인합니다. 인증되면 기본 제공 Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)를 사용하여 사용자의 ID 또는 그룹 멤버 자격을 기반으로 네임스페이스 및 클러스터 리소스에 대한 액세스를 관리할 수 있습니다.
 
-이 문서는 Azure AD 그룹 멤버 자격을 사용하여 AKS 클러스터에서 Kubernetes RBAC를 사용하는 네임스페이스 및 클러스터 리소스에 대한 액세스를 제어하는 방법을 보여 줍니다. 예제 그룹 및 사용자가 Azure AD에 생성된 다음, 리소스를 만들고 볼 수 있는 적절한 권한을 부여하기 위해 Roles 및 RoleBindings가 AKS 클러스터에 생성됩니다.
+이 문서에서는 Azure AD 그룹 멤버 자격을 기반으로 하는 AKS 클러스터에서 Kubernetes RBAC를 사용하여 액세스를 제어하는 방법을 보여 줍니다. 예제 그룹 및 사용자가 Azure AD에 생성된 다음, 리소스를 만들고 볼 수 있는 적절한 권한을 부여하기 위해 Roles 및 RoleBindings가 AKS 클러스터에 생성됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -416,7 +416,7 @@ az ad group delete --group opssre
 
 Kubernetes 클러스터를 보호하는 방법에 대한 자세한 내용은 [AKS에 대한 액세스 및 ID 옵션][rbac-authorization]을 참조하세요.
 
-ID 및 리소스 제어에 대한 모범 사례는 [AKS의 인증 및 권한 부여에 대한 모범 사례][operator-best-practices-identity]를 참조하세요.
+ID 및 리소스 제어에 관한 모범 사례는 [AKS의 인증 및 권한 부여 모범 사례][operator-best-practices-identity]를 참조하세요.
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

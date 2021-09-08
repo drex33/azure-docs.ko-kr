@@ -9,18 +9,18 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 12b3b1dddfa7ff37d8d8fa80562699cf9242148e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cf1df8645a6b5c7a33305c87732a9c3b108b523d
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642363"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256642"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱(레거시)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서는 *[Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) 및 [SFTP](connector-sftp.md)* 커넥터에 적용됩니다.
+*이 문서는 [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) 및 [SFTP](connector-sftp.md)* 커넥터에 적용됩니다.
 
 >[!IMPORTANT]
 >Data Factory에서는 새 형식 기반 데이터 세트 모델을 도입했습니다. 자세한 내용은 해당 형식 문서를 참조하세요. <br>- [Avro 형식](format-avro.md)<br>- [이진 형식](format-binary.md)<br>- [구분된 텍스트 형식](format-delimited-text.md)<br>- [JSON 형식](format-json.md)<br>- [ORC 형식](format-orc.md)<br>- [Parquet 형식](format-parquet.md)<br>이 문서에서 설명하는 나머지 구성은 이전 버전과의 호환성을 위해 있는 그대로 계속 지원됩니다. 앞으로는 새 모델을 사용하는 것이 좋습니다. 
@@ -445,7 +445,7 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 
 | Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(역직렬화) | Parquet 원본 형식(Serialize) |
 |:--- |:--- |:--- |:--- |
-| Boolean | 부울 | 해당 없음 | 해당 없음 |
+| Boolean | Boolean | 해당 없음 | 해당 없음 |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -498,7 +498,7 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 
 | Data Factory 중간 데이터 형식 | ORC 형식 |
 |:--- |:--- |
-| Boolean | 부울 |
+| Boolean | Boolean |
 | SByte | Byte |
 | Byte | Short |
 | Int16 | Short |

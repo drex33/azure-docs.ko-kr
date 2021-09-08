@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 55d8c089bd73a3e85666208ed6edc13c654c24bb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 544d298616c8021991fedb1ee47d452cfbc427f3
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642531"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255034"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -91,12 +91,12 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
 > 다음은 이진 파일을 복사할 때 복사 작업에서 내결함성을 사용하는 데 있어 필수 구성 요소입니다.
 > 원본 저장소에서 삭제되는 특정 파일을 건너뛰는 경우:
 > - 원본 데이터 세트 및 싱크 데이터 세트는 이진 형식이어야 하며, 압축 형식은 지정할 수 없습니다. 
-> - 지원되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, File System, FTP, SFTP, Amazon S3, Google Cloud Storage, HDFS입니다.
+> - 지원되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Files, File System, FTP, SFTP, Amazon S3, Google Cloud Storage 및 HDFS입니다.
 > - 원본 데이터 세트(폴더, 와일드카드 또는 파일 목록이 될 수 있음)에서 여러 파일을 지정하는 경우에만 복사 작업에서 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 세트에서 대상으로 복사할 단일 파일이 지정된 경우 오류가 발생하면 복사 작업이 실패합니다.
 >
 > 원본 저장소에서 액세스가 금지될 때 특정 파일을 건너뛰는 경우:
 > - 원본 데이터 세트 및 싱크 데이터 세트는 이진 형식이어야 하며, 압축 형식은 지정할 수 없습니다. 
-> - 지원되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3, HDFS입니다.
+> - 지원되는 데이터 저장소 형식은 Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Files, SFTP, Amazon S3 및 HDFS입니다.
 > - 원본 데이터 세트(폴더, 와일드카드 또는 파일 목록이 될 수 있음)에서 여러 파일을 지정하는 경우에만 복사 작업에서 특정 오류 파일을 건너뛸 수 있습니다. 원본 데이터 세트에서 대상으로 복사할 단일 파일이 지정된 경우 오류가 발생하면 복사 작업이 실패합니다.
 >
 > 원본 및 대상 저장소 간에 일치하지 않는 것으로 확인되는 특정 파일을 건너뛰는 경우:

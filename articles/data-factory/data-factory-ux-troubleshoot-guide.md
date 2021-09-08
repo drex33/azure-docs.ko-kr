@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/01/2021
 ms.author: ceespino
 ms.reviewer: susabat
-ms.openlocfilehash: 99d6116a69e6aabe080d8e46bb90f90a125d7122
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a6d2a05e5f461a9ccf2f5e6a3cea0ba92c461b15
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642387"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260432"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Azure Data Factory UX 문제 해결
 
@@ -103,7 +103,7 @@ ADF UX는 브라우저 쿠키를 사용하여 사용자 세션을 유지하고 �
 
 ADF 작성 UI에서 복사, 조회, 메타데이터 가져오기, 삭제 등의 작업에서 그리고 현재와 다른 유형의 연결된 서비스(예: 파일 시스템에서 ADLS Gen2로 전환)를 가리키려는 데이터 세트에서 파일 형식 데이터 세트를 사용하는 경우 다음과 같은 경고 메시지가 표시됩니다. 이것이 클린 스위치인지 확인하기 위해 이 데이터 세트를 참조하는 파이프라인 및 작업은 새로운 유형을 사용하도록 수정되며 새 유형과 호환되지 않는 기존 데이터 저장소 설정은 더 이상 적용되지 않으므로 제거됩니다.
 
-각 커넥터에 대해 지원되는 데이터 저장소 설정에 대한 자세한 내용을 보려면 해당 커넥터 문서 -> 복사 작업 속성으로 이동하여 자세한 속성 목록을 볼 수 있습니다. [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) 및 [SFTP](connector-sftp.md)를 참조하세요.
+각 커넥터에 대해 지원되는 데이터 저장소 설정에 대한 자세한 내용을 보려면 해당 커넥터 문서 -> 복사 작업 속성으로 이동하여 자세한 속성 목록을 볼 수 있습니다. [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) 및 [SFTP](connector-sftp.md)를 참조하세요.
 
 ![경고 메시지](media/data-factory-ux-troubleshoot-guide/warning-message.png)
 
@@ -124,7 +124,7 @@ ADF 작성 UI에서 복사, 조회, 메타데이터 가져오기, 삭제 등의 
 문제 해결을 위한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 * [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
+* [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
 * [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)
 * [Azure 비디오](https://azure.microsoft.com/resources/videos/index/)

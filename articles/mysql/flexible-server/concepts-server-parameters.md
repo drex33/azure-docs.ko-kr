@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 68837732adf4d2ed66fdc547eb140c86b2e8dc27
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 43f544cb2782fc80dd574a1d8c425283c51a0ed3
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642139"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256472"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL - 유연한 서버의 서버 매개 변수
 
@@ -124,6 +124,12 @@ MySQL에 대한 새 클라이언트 연결을 만들려면 시간이 필요하�
 ### <a name="time_zone"></a>time_zone
 
 초기 배포 시 Azure for MySQL 유연한 서버는 표준 시간대 정보에 대한 시스템 테이블을 포함하지만 이러한 테이블은 채워지지 않습니다. MySQL 명령줄 또는 MySQL Workbench와 같은 도구에서 `mysql.az_load_timezone` 저장 프로시저를 호출하여 표준 시간대 테이블을 채울 수 있습니다. 저장 프로시저를 호출하고 글로벌 또는 세션 수준 표준 시간대를 설정하는 방법은 [Azure Portal](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) 또는 [Azure CLI](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) 문서를 참조하세요.
+
+### <a name="binlog_expire_logs_seconds"></a>binlog_expire_logs_seconds 
+
+Azure Database for MySQL에서 이 매개 변수는 서비스가 이진 로그 파일을 제거하기 전에 대기하는 시간(초)을 지정합니다.
+
+이진 로그에는 테이블 생성 작업 또는 테이블 데이터 변경과 같은 데이터베이스 변경 사항을 설명하는 이벤트가 포함됩니다. 또한 잠재적으로 변경했을 수 있는 명령문에 대한 이벤트도 포함합니다. 이진 로그는 주로 복제 및 데이터 복구 작업의 두 가지 목적으로 사용됩니다.  일반적으로 이진 로그는 핸들이 서비스, 백업 또는 복제 세트에서 해제되는 즉시 제거됩니다. 복제본이 여러 개인 경우 가장 느린 복제본이 변경 사항을 읽을 때까지 기다렸다가 삭제됩니다. 더 오랜 기간 동안 이진 로그를 유지하려면 binlog_expire_logs_seconds 매개 변수를 구성할 수 있습니다. binlog_expire_logs_seconds가 기본값인 0으로 설정되면 이진 로그에 대한 핸들이 해제되는 즉시 제거됩니다. binlog_expire_logs_seconds > 0이면 제거하기 전에 구성된 초까지 기다립니다. Azure Database for MySQL의 경우 이진 파일의 백업 및 읽기 전용 복제본 제거와 같은 관리 기능은 내부적으로 처리됩니다. Azure Database for MySQL 서비스에서 데이터 출력을 복제할 때 복제본이 기본에서 변경 사항을 읽기 전에 이진 로그를 제거하지 않도록 이 매개 변수를 기본에서 설정해야 합니다. binlog_expire_logs_seconds를 더 높은 값으로 설정하면 이진 로그가 충분히 빨리 제거되지 않고 스토리지 청구가 증가할 수 있습니다. 
 
 ## <a name="non-modifiable-server-parameters"></a>수정 불가능한 서버 매개 변수
 

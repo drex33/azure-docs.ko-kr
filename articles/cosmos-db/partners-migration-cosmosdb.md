@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 4b2bb3659d68ec5c4a4ed7d21f39542d1329452b
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.date: 08/26/2021
+ms.openlocfilehash: 781fb98b1b71e70f07291f04d89fbfb8fed17759
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331595"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123028580"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 마이그레이션 및 애플리케이션 개발 파트너
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,6 +51,10 @@ NoSQL 마이그레이션에서 애플리케이션 개발에 이르기까지 다�
 ## <a name="next-steps"></a>다음 단계
 
 Microsoft의 다른 파트너에 대해 자세히 알려면 [Microsoft 파트너 사이트](https://partner.microsoft.com/)를 참조합니다.
+
+Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
+* 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+* 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
 
 <!--Image references-->
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png

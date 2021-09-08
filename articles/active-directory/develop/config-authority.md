@@ -13,14 +13,14 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: d8a176fff0da932d0fafd40b9ab895b635acc5f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af729767467d2dc950fb7a559fec4d0a81d07cab
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96169446"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029186"
 ---
-# <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>방법: 다른 ID 공급자를 사용하도록 iOS 및 macOS용 MSAL 구성
+# <a name="configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>다른 ID 공급자를 사용하도록 iOS 및 macOS용 MSAL 구성
 
 이 문서에서는 Azure AD(Azure Active Directory ), B2C(Business-to-Consumer), 소버린 클라우드 및 게스트 사용자와 같은 다양한 인증 기관에 대해 iOS 및 macOS용 MSAL(Microsoft 인증 라이브러리) 앱을 구성하는 방법을 보여줍니다.  이 문서 전체에서 인증 기관을 일반적으로 ID 공급자로 간주해도 무방합니다.
 

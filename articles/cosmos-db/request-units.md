@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 08/26/2021
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 23401885580a3883dc49eccc97c17bbedd9080ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e58e0911911035578c70ebe218af8f7e8c25bcf5
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96187326"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032529"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -92,3 +92,6 @@ Cosmos 컨테이너가 *' R '* RU로 구성되어 있고 Cosmos 계정에 연결
 - [Azure Cosmos DB에서 읽기 및 쓰기 비용 최적화하기](optimize-cost-reads-writes.md)에 대해 알아봅니다.
 - [Azure Cosmos DB에서 쿼리 비용 최적화하기](./optimize-cost-reads-writes.md)에 대해 알아봅니다.
 - [메트릭을 사용한 처리량 모니터링](use-metrics.md)에 대해 알아봅니다.
+- Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
+    - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 854931273ffebd653615a44dbfa9ce1b846655c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 852a842c9b58a76742d0b482e62c49cd91d34f1b
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91333429"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099648"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD 통과 인증 에이전트: 버전 릴리스 기록 
  
@@ -27,6 +27,14 @@ ms.locfileid: "91333429"
 
 - [Azure AD 통과 인증을 사용한 사용자 로그인](how-to-connect-pta.md) 
 - [Azure AD 통과 인증 에이전트 설치](how-to-connect-pta-quick-start.md) 
+
+## <a name="1524820"></a>1.5.2482.0
+### <a name="release-status"></a>릴리스 상태: 
+2017년 7월 7일: 다운로드용으로 릴리스됨
+
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+
+- SHA-256RSA를 사용하여 서명된 최신 버전으로 패키지/라이브러리를 업그레이드했습니다.
 
 ## <a name="1517420"></a>1.5.1742.0
 ### <a name="release-status"></a>릴리스 상태: 

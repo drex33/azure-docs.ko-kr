@@ -5,20 +5,20 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
-ms.openlocfilehash: 32a47a34d9a4c8562dd1cec44f5a2ec519cb1a7f
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 19065a8a0bc828c30997edd05e9b268657e0fcb1
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107984443"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221530"
 ---
 인증서가 아직 없는 경우 자체 서명된 인증서를 사용할 수 있습니다. 자체 서명된 인증서는 CA(인증 기관)가 서명하지 않은 보안 인증서이며, CA가 서명한 인증서의 보안 보장을 제공하지 않습니다. 
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-Windows에서는 PowerShell의 [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
+Windows에서는 PowerShell에서 [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성합니다.
 
-1. 이 PowerShell 명령을 실행하여 자체 서명된 인증서를 생성합니다. `-Subject` 인수를 애플리케이션 및 Azure AD B2C 테넌트 이름에 적절하게 수정합니다. `-NotAfter` 날짜를 조정하여 인증서에 다른 만료 날짜를 지정할 수도 있습니다.
+1. 다음 PowerShell 명령을 실행하여 자체 서명된 인증서를 실행합니다. `-Subject` 인수를 애플리케이션 및 Azure AD B2C 테넌트 이름에 적절하게 수정합니다. `-NotAfter` 날짜를 조정하여 인증서에 다른 만료 날짜를 지정할 수도 있습니다.
 
     ```PowerShell
     New-SelfSignedCertificate `
@@ -43,13 +43,13 @@ Azure AD B2C가 .pfx 파일 암호를 수락하려면 AES256-SHA256이 아니라
 
 macOS에서는 키체인 접근의 [인증서 지원](https://support.apple.com/guide/keychain-access/aside/glosa3ed0609/11.0/mac/11.0)을 사용하여 인증서를 생성합니다.
 
-1. [Mac용 키체인 접근에서 자체 서명 인증서 생성하기](https://support.apple.com/guide/keychain-access/kyca8916/mac) 방법의 지침을 따르세요.
-1. Mac의 키체인 접근 앱에서 생성한 인증서를 선택합니다.
+1. [Mac의 키 집합 액세스에서 자체 서명 인증서 만들기](https://support.apple.com/guide/keychain-access/kyca8916/mac) 방법의 지침을 따르세요.
+1. Mac의 키 집합 액세스 앱에서 만든 인증서를 선택합니다.
 1. **파일** > **항목 내보내기** 를 선택합니다.
-1. 인증서를 저장할 파일 이름을 선택합니다. 예를 들면 **self-signed-certificate.p12** 입니다.
+1. 인증서를 저장할 파일 이름을 선택합니다. 예: **self-signed-certificate.p12**.
 1. **파일 형식** 으로 **개인 정보 교환(.p12)** 을 선택합니다.
 1. **저장** 을 선택합니다.
-1. **암호** 를 입력한 다음 암호를 **확인** 합니다.
-1. 파일 확장명을 `.pfx`로 바꿉니다. 예를 들면 **self-signed-certificate.pfx** 입니다.
+1. **암호** 및 **확인** 상자에 암호를 입력합니다.
+1. 파일 확장명을 .pfx로 바꿉니다. 예: **self-signed-certificate.pfx**.
 
 ---

@@ -1,19 +1,19 @@
 ---
-title: Azure Virtual Desktop PowerShell용 앱 그룹 관리 - Azure
-description: PowerShell을 사용하여 Azure Virtual Desktop 앱 그룹을 관리하는 방법.
+title: Azure Virtual Desktop에 대한 앱 그룹 관리 - Azure
+description: PowerShell 또는 Azure CLI를 사용하여 Azure Virtual Desktop 앱 그룹을 관리하는 방법.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a900d1d92509fab7b777ca5864a51c7699cb294e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f323819492fe89f7742c6b218afa4d2e1bf1b6c0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749078"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123103932"
 ---
-# <a name="manage-app-groups-using-powershell"></a>PowerShell을 사용하여 앱 그룹 관리
+# <a name="manage-app-groups-using-powershell-or-the-azure-cli"></a>PowerShell 또는 Azure CLI를 사용하여 앱 그룹 관리
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 통해 Azure Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/manage-app-groups-2019.md)를 참조하세요.
@@ -28,9 +28,21 @@ ms.locfileid: "111749078"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
 이 문서에서는 [PowerShell 모듈 설정](powershell-module.md)의 지침에 따라 PowerShell 모듈을 설정하고 Azure 계정에 로그인했다고 가정합니다.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+이 문서에서는 Azure CLI에 대한 환경을 이미 설정했으며 Azure 계정에 로그인했다고 가정합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+---
+
 ## <a name="create-a-remoteapp-group"></a>RemoteApp 그룹 만들기
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용하여 RemoteApp 그룹을 만들려면 다음을 수행합니다.
 
@@ -100,6 +112,34 @@ PowerShell을 사용하여 RemoteApp 그룹을 만들려면 다음을 수행합�
    ```powershell
    New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
    ```
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+> [!NOTE]
+> Azure CLI는 현재 시작 메뉴 앱을 가져오는 명령을 제공하지 않으며, 새 RemoteApp 프로그램을 만들거나 애플리케이션 그룹에 게시하는 명령을 제공하지 않습니다. Azure PowerShell 사용
+
+Azure CLI를 사용하여 RemoteApp 그룹을 만들려면:
+
+1. [az desktopvirtualization applicationgroup create](/cli/azure/desktopvirtualization##az_desktopvirtualization_applicationgroup_create) 명령을 사용하여 새 원격 애플리케이션 그룹을 만듭니다.
+
+   ```azurecli
+   az desktopvirtualization applicationgroup create --name "MyApplicationGroup" \
+      --resource-group "MyResourceGroup" \
+      --location "MyLocation" \
+      --application-group-type "RemoteApp" \
+      --host-pool-arm-path "/subscriptions/MySubscriptionGUID/resourceGroups/MyResourceGroup/providers/Microsoft.DesktopVirtualization/hostpools/MyHostPool"
+      --tags tag1="value1" tag2="value2" \
+      --friendly-name "Friendly name of this application group" \
+      --description "Description of this application group" 
+   ```
+    
+2. (선택 사항) 앱 그룹이 생성되었는지 확인하려면 다음 명령을 실행하여 호스트 풀에 대한 모든 앱 그룹 목록을 살펴보면 됩니다.
+
+   ```azurecli
+   az desktopvirtualization applicationgroup list \
+      --resource-group "MyResourceGroup"
+   ```
+---
 
 ## <a name="next-steps"></a>다음 단계
 

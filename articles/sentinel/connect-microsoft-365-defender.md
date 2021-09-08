@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: 536a9b0fe4cacdc48f4429e1b85b5a47c4dbd449
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c31ed32e13e8b71b5ad6253d5e157b5adc2096bf
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528643"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260026"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Microsoft 365 Defender의 데이터를 Azure Sentinel에 연결
 
@@ -55,7 +55,7 @@ ms.locfileid: "122528643"
 
 1. Azure Sentinel에서 **데이터 커넥터** 를 선택하고 갤러리에서 **Microsoft 365 Defender(미리 보기)** 를 선택한 다음 **커넥터 열기 페이지** 를 선택합니다.
 
-1. **인시던트 및 경고에 연결** 섹션의 **구성** 에서 **인시던트 및 경고** 단추를 클릭합니다.
+1. **인시던트 및 경고에 연결** 섹션의 **구성** 에서 **인시던트 및 경고** 단추를 선택합니다.
 
 1. 인시던트가 중복되지 않게 하려면 **해당 제품에 대한 모든 Microsoft 인시던트 생성 규칙을 해제** 하라는 확인란에 표시하는 것이 좋습니다.
 

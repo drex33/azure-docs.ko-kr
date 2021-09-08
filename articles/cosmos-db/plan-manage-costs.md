@@ -6,13 +6,13 @@ ms.author: sngun
 ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/05/2021
-ms.openlocfilehash: c8589911e4424afe1ff2f5dbed32c375cb29c706
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 08/26/2021
+ms.openlocfilehash: f954be4b5ce82bf84bc99fcdab253c48fccf9933
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095737"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226981"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 비용 계획 및 관리
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,9 +35,20 @@ Cost Management의 비용 분석은 대부분의 Azure 계정 유형을 지원�
 
 Azure Cosmos DB는 프로비전된 처리량 및 서버리스라는 두 가지 다른 용량 모드로 제공됩니다. 두 모드 모두에서 정확히 동일한 데이터베이스 작업을 수행할 수 있지만 이러한 작업에 대해 비용이 청구되는 방식은 다릅니다.
 
+### <a name="capacity-planning"></a>용량 계획
+
+비용을 예측하는 데 있어 보조적 역할을 하며 Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하는 데 도움이 될 수 있습니다. 기존 데이터베이스 클러스터에서 Azure Cosmos DB로 마이그레이션을 계획하는 경우 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+* 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+
+![4코어 SKU의 복제본 3개가 있는 복제본 세트를 Azure Cosmos DB로 마이그레이션](media/convert-vcore-to-request-unit/one-replica-set.png)
+
+* 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+
 ### <a name="estimate-provisioned-throughput-costs"></a>프로비전된 처리량 비용 추정
 
-프로비전된 처리량 모드에서 Azure Cosmos DB 사용을 계획하려는 경우 Azure Cosmos 계정에 리소스를 만들기 전에 [Azure Cosmos DB 용량 계산기](https://cosmos.azure.com/capacitycalculator/)를 사용하여 비용을 추정합니다. 용량 계산기는 워크로드에 필요한 처리량 및 비용의 추정치를 얻는 데 사용됩니다. 적절한 크기의 프로비전된 처리량을 사용하여 Azure Cosmos 데이터베이스 및 컨테이너를 구성하거나 워크로드에 대한 [요청 단위(RU/초)](request-units.md)를 구성하는 것은 비용과 성능을 최적화하는 데 필수적입니다. 예상 비용을 얻기 위해서는 API 형식, 지역 수, 항목 크기, 초당 읽기/쓰기 요청 수, 저장된 총 데이터와 같은 세부 정보를 입력해야 합니다. 용량 계산기에 대해 자세히 알아보려면 [예측](estimate-ru-with-capacity-planner.md) 문서를 참조하세요.
+프로비전된 처리량 모드에서 Azure Cosmos DB 사용을 계획하려는 경우 Azure Cosmos 계정에 리소스를 만들기 전에 [Azure Cosmos DB 용량 계산기](https://cosmos.azure.com/capacitycalculator/)를 사용하여 비용을 추정합니다. 용량 계산기는 워크로드에 필요한 처리량 및 비용의 추정치를 얻는 데 사용됩니다. 용량 계산기는 현재 SQL API, Cassandra API 및 MongoDB용 API에서만 사용할 수 있습니다.
+
+적절한 크기의 프로비전된 처리량을 사용하여 Azure Cosmos 데이터베이스 및 컨테이너를 구성하거나 워크로드에 대한 [요청 단위(RU/초)](request-units.md)를 구성하는 것은 비용과 성능을 최적화하는 데 필수적입니다. 예상 비용을 얻기 위해서는 API 형식, 지역 수, 항목 크기, 초당 읽기/쓰기 요청 수, 저장된 총 데이터와 같은 세부 정보를 입력해야 합니다. 용량 계산기에 대해 자세히 알아보려면 [예측](estimate-ru-with-capacity-planner.md) 문서를 참조하세요.
 
 다음 스크린샷은 용량 계산기를 사용한 처리량 및 비용 예측을 보여 줍니다.
 
@@ -149,6 +160,9 @@ Azure Cosmos DB에서 리소스를 사용하는 경우 비용이 발생합니다
 
 Azure Cosmos DB에서 가격 책정이 작동하는 방식에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
 * [Azure Cosmos DB의 가격 책정 모델](how-pricing-works.md)
 * [Azure Cost Management를 통해 클라우드 투자를 최적화하는 방법](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)에 대해 알아봅니다.
 * [비용 분석](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 통한 비용 관리에 대해 알아봅니다.

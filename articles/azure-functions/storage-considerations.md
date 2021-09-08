@@ -3,12 +3,12 @@ title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 41e78acf37f2f5b9cc0346384fc4964187945386
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: ad9e7979eddac3fc102d9fddae68c230a7418762
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026456"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259556"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
@@ -23,7 +23,7 @@ ms.locfileid: "112026456"
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  [Durable Functions의 작업 허브](durable/durable-functions-task-hubs.md)에서 사용됩니다.       |
 
 > [!IMPORTANT]
-> 사용/프리미엄 호스팅 계획을 사용하는 경우 함수 코드 및 바인딩 구성 파일은 기본 스토리지 계정의 Azure File Storage에 저장됩니다. 기본 스토리지 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다.
+> 사용/프리미엄 호스팅 계획을 사용하는 경우 함수 코드 및 바인딩 구성 파일은 기본 스토리지 계정의 Azure Files에 저장됩니다. 기본 스토리지 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다.
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 

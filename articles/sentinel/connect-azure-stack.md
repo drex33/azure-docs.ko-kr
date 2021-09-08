@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4ea85c1ae1533ffe231e57ecc95f345b37c77499
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 38b595e4f9b2582f3baefecabf6285ee36436ad6
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529245"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260066"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Azure Sentinel에 Azure Stack Hub 가상 머신 연결
 
@@ -35,9 +35,9 @@ Azure Stack Hub에서 실행 중인 가상 머신에 **Azure Monitor, 업데이�
 
 1. **확장** 을 섡택합니다. 이 가상 머신에 설치된 가상 머신 확장 목록이 표시됩니다.
 
-1. **추가** 탭을 클릭합니다. **새 리소스** 메뉴 블레이드가 열리고 사용 가능한 가상 머신 확장 목록이 표시됩니다. 
+1. **추가** 탭을 선택합니다. **새 리소스** 메뉴 블레이드가 열리고 사용 가능한 가상 머신 확장 목록이 표시됩니다. 
 
-1. **Azure Monitor, 업데이트 및 구성 관리** 확장을 선택하고 **만들기** 를 클릭합니다. **확장 설치** 구성 페이지가 열립니다.
+1. **Azure Monitor, Update 및 Configuration Management** 확장을 선택하고 **만들기** 를 선택합니다. **확장 설치** 구성 페이지가 열립니다.
 
    ![Azure Monitor, 업데이트 및 구성 관리 설정](./media/connect-azure-stack/azure-monitor-extension-fix.png)  
 
@@ -46,7 +46,7 @@ Azure Stack Hub에서 실행 중인 가상 머신에 **Azure Monitor, 업데이�
 
 1. Azure Sentinel 메뉴에서 **작업 영역 설정**, **고급** 을 차례대로 선택하고 **작업 영역 ID** 및 **작업 영역 키(기본 키)** 를 복사합니다. 
 
-1. Azure Stack Hub **확장 설치** 창에서 표시된 필드에 붙여 넣고 **확인** 을 클릭합니다.
+1. Azure Stack Hub **확장 설치** 창에서 표시된 필드에 붙여 넣고 **확인** 을 선택합니다.
 
 1. 확장 설치가 완료되면 상태가 **프로비저닝 성공** 으로 표시됩니다. Security Center 포털에 가상 머신이 나타나기까지 최대 1시간이 소요될 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure의 Azure Sentinel 포털에서 **가상 머신** 아래에 모든 VM 및 �
 
 1. **확장**, **Microsoft.EnterpriseCloud.Monitoring** 확장을 차례로 선택합니다.
 
-1. **제거** 를 클릭하고 확인을 선택합니다.
+1. **제거** 를 선택하고 선택을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,7 +3,7 @@ title: 인코딩 단위를 추가하여 미디어 처리 크기 조정 - Azure |
 description: 이 문서에서는 Azure Media Services .NET을 사용하여 인코딩 단위를 추가하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: jiayali
 manager: femila
 editor: ''
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2021
+ms.date: 08/24/2021
 ms.author: inhenkel
 ms.reviewer: milangada
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6feb28858271f11bef0933a352f86d7545ee5bd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7b7cce9fd33e14175e03486499ec93997617683
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014080"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835343"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>.NET SDK를 사용하여 인코딩 크기를 조정하는 방법
 
@@ -33,32 +33,10 @@ ms.locfileid: "103014080"
 > * [REST (영문)](/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/rnrneverdies/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
-> 
-> 
 
 ## <a name="overview"></a>개요
 > [!IMPORTANT]
-> 미디어 처리 크기 조정에 대해 자세히 알아보려면 해당 [개요](media-services-scale-media-processing-overview.md)를 검토하세요.
-> 
-> 
-
-.NET SDK를 사용하여 예약 단위 유형 및 인코딩 예약 단위 수를 변경하려면 다음을 수행합니다.
-
-```csharp
-IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
-encodingS1ReservedUnit.Update();
-Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
-
-encodingS1ReservedUnit.CurrentReservedUnits = 2;
-encodingS1ReservedUnit.Update();
-
-Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
-```
-
-## <a name="opening-a-support-ticket"></a>지원 티켓 열기
-
-기본적으로 모든 Media Services 계정은 S2 또는 S3 MRU(미디어 예약 단위) 10개 또는 S1 MRU 25개, 주문형 스트리밍 예약 단위 최대 5개까지 확장할 수 있습니다. 지원 티켓을 열어 더 높은 한도를 요청할 수 있습니다.
+> 기본적으로 미디어 예약 단위는 더 이상 사용할 필요가 없으며 Azure Media Services에서 지원하지 않습니다. 미디어 처리 크기 조정에 대해 자세히 알아보려면 해당 [개요](media-services-scale-media-processing-overview.md)를 검토하세요.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

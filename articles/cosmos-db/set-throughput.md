@@ -6,17 +6,17 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: 1d5fba12ce9b1ce8d30c59a08aa36e1222abe3c7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: fd7601ca87400314b9f282a0fe31035755def056
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102433933"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033151"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 프로비전된 처리량 소개
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB에서는 데이터베이스 및 컨테이너에 프로비전된 처리량을 설정할 수 있습니다. 프로비전된 처리량에는 표준(수동) 또는 자동 크기 조정이라는 두 가지 유형이 있습니다. 이 문서에서는 프로 비전 된 처리량의 작동 방식에 대 한 개요를 제공 합니다. 
+Azure Cosmos DB에서는 데이터베이스 및 컨테이너에 프로비전된 처리량을 설정할 수 있습니다. 프로비전된 처리량에는 표준(수동) 또는 자동 크기 조정이라는 두 가지 유형이 있습니다. 이 문서는 프로비저닝된 처리량의 작동 방식에 대한 개요를 제공합니다. 
 
 Azure Cosmos 데이터베이스는 컨테이너 세트의 관리 단위입니다. 데이터베이스는 스키마 제약 없는 컨테이너의 집합으로 구성됩니다. Azure Cosmos 컨테이너는 처리량과 스토리지 모두에 대한 확장성 단위입니다. 컨테이너는 Azure 지역 내에 있는 머신 세트에 수평적으로 분할되고 Azure Cosmos 계정과 연결된 모든 Azure 지역에 분산됩니다.
 
@@ -33,15 +33,15 @@ Azure Cosmos 컨테이너에 프로비전된 처리량은 해당 컨테이너 �
 
 컨테이너에 프로비전된 처리량은 실제 파티션 간에 균등하게 분산되며, 논리 파티션을 실제 파티션 간에 균등하게 분산하는 좋은 파티션 키를 가정하여 처리량이 컨테이너의 모든 논리 파티션에도 균등하게 분산됩니다. 그러나 논리 파티션의 처리량을 선택적으로 지정할 수는 없습니다. 컨테이너에 있는 하나 이상의 논리 파티션은 실제 파티션에서 호스트되므로, 실제 파티션은 컨테이너에 배타적으로 포함되고 컨테이너에서 프로비전된 처리량을 지원합니다. 
 
-논리 파티션에서 실행 되는 워크 로드가 기본 실제 파티션에 할당 된 처리량을 초과 하는 경우 해당 작업의 속도가 제한 될 수 있습니다. 하나의 논리 파티션이 다른 파티션 키 값 보다 많은 요청을 지나치게 많이 포함 하는 경우 _핫 파티션이_ 발생 합니다.
+논리 파티션에서 실행되는 워크로드가 기본 물리적 파티션에 할당된 처리량보다 더 많이 소비하는 경우 작업 속도가 제한될 수 있습니다. _핫 파티션_ 이라고 하는 것은 하나의 논리 파티션에 다른 파티션 키 값보다 많은 요청이 있을 때 발생합니다.
 
-속도 제한이 발생하는 경우 전체 컨테이너의 프로비전된 처리량을 높이거나 작업을 다시 시도할 수 있습니다. 또한 저장소 및 요청 볼륨을 균등 하 게 분산 하는 파티션 키를 선택 해야 합니다. 분할에 대 한 자세한 내용은 [Azure Cosmos DB 분할 및 수평적 크기 조정](partitioning-overview.md)을 참조 하세요.
+속도 제한이 발생하는 경우 전체 컨테이너의 프로비전된 처리량을 높이거나 작업을 다시 시도할 수 있습니다. 또한 스토리지와 요청 볼륨을 고르게 분배하는 파티션 키를 선택해야 합니다. 분할에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 수평 크기 조정](partitioning-overview.md)을 참조하세요.
 
-컨테이너에 대해 예측 가능한 성능을 원할 경우 컨테이너 세분성에서 처리량을 구성 하는 것이 좋습니다.
+컨테이너에 대해 예측 가능한 성능을 원하는 경우 컨테이너 단위로 처리량을 구성하는 것이 좋습니다.
 
 다음 이미지는 실제 파티션이 컨테이너의 논리 파티션을 하나 이상 호스트하는 방법을 보여줍니다.
 
-:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="컨테이너의 논리 파티션을 하나 이상 호스트 하는 실제 파티션" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="컨테이너의 하나 이상의 논리 파티션을 호스트하는 물리적 파티션" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>데이터베이스의 처리량 설정
 
@@ -65,7 +65,7 @@ Azure Cosmos 데이터베이스의 처리량을 프로비전하는 경우 데이
 
 논리 파티션의 워크로드가 특정 논리 파티션에 할당된 처리량보다 많은 양을 사용하는 경우 작업 속도가 제한됩니다. 속도 제한이 발생하는 경우 전체 데이터베이스의 처리량을 높이거나 작업을 다시 시도할 수 있습니다. 분할에 대한 자세한 내용은 [논리 파티션](partitioning-overview.md)을 참조하세요.
 
-공유 처리량 데이터베이스의 컨테이너는 해당 데이터베이스에 할당된 처리량(RU/s)을 공유합니다. 표준 (수동) 프로 비전 된 처리량을 사용 하는 경우 데이터베이스에 최소 400 r u/s를 사용 하 여 최대 25 개의 컨테이너를 사용할 수 있습니다. 자동 크기 조정 프로 비전 된 처리량을 사용 하면 자동 크기 조정 최대 4000 r u/초 (400-4000 r u/초 사이 크기 조정)를 사용 하 여 데이터베이스에 최대 25 개의 컨테이너를 포함할 수 있습니다.
+공유 처리량 데이터베이스의 컨테이너는 해당 데이터베이스에 할당된 처리량(RU/s)을 공유합니다. 표준(수동) 프로비저닝된 처리량을 사용하면 데이터베이스에서 최소 400RU/s의 컨테이너를 최대 25개까지 가질 수 있습니다. 자동 크기 조정 프로비저닝된 처리량을 사용하면 자동 크기 조정 최대 4,000RU/s(400~4,000RU/s 범위에서 크기 조정)를 사용하여 데이터베이스에 최대 25개 컨테이너를 포함할 수 있습니다.
 
 > [!NOTE]
 > 2020년 2월에 공유 처리량 데이터베이스에 최대 25개의 컨테이너를 포함하여 보다 원활히 컨테이너 전체에서 처리량을 공유할 수 있도록 하는 변경 내용이 도입되었습니다. 처음 25개 컨테이너 이후에는 데이터베이스의 공유 처리량과는 별개인 [전용 처리량을 사용하여 프로비전](#set-throughput-on-a-database-and-a-container)된 경우에만 데이터베이스에 더 많은 컨테이너를 추가할 수 있습니다.<br>
@@ -73,7 +73,7 @@ Azure Cosmos DB 계정에 컨테이너가 25개 이상인 공유 처리량 데�
 
 워크로드에 데이터베이스의 모든 컬렉션을 삭제하고 다시 만드는 작업이 포함된 경우에는 컬렉션을 만들기 전에 빈 데이터베이스를 삭제하고 새 데이터베이스를 다시 만드는 것이 좋습니다. 다음 이미지는 데이터베이스 내 여러 컨테이너에 속하는 하나 이상의 논리 파티션을 실제 파티션에 호스트할 수 있다는 것을 보여줍니다.
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="다른 컨테이너에 속한 하나 이상의 논리 파티션을 호스트 하는 실제 파티션 " border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="서로 다른 컨테이너에 속한 하나 이상의 논리 파티션을 호스트하는 물리적 파티션" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>데이터베이스 및 컨테이너의 처리량 설정
 
@@ -94,59 +94,59 @@ Azure Cosmos DB 계정에 컨테이너가 25개 이상인 공유 처리량 데�
 
 Azure Cosmos 컨테이너 또는 데이터베이스를 만든 후 프로비전된 처리량을 업데이트할 수 있습니다. 데이터베이스 또는 컨테이너에 구성할 수 있는 최대 프로비전된 처리량에는 제한이 없습니다.
 
-### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> 현재 프로 비전 된 처리량
+### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> 현재 프로비저닝된 처리량
 
-Azure Portal에서 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 프로 비전 된 처리량을 검색할 수 있습니다.
+Azure Portal에서 또는 SDK를 사용하여 컨테이너 또는 데이터베이스의 프로비저닝된 처리량을 검색할 수 있습니다.
 
-* .NET SDK의 [컨테이너. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync) .
-* Java SDK의 [CosmosContainer 처리량](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) 입니다.
+* .NET SDK의 [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync).
+* Java SDK의 [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput).
 
-이러한 메서드의 응답에는 컨테이너 또는 데이터베이스에 대해 [프로 비전 된 최소 처리량](concepts-limits.md#storage-and-database-operations) 도 포함 됩니다.
+이러한 메서드의 응답에는 컨테이너 또는 데이터베이스에 대한 [프로비저닝된 최소 처리량](concepts-limits.md#storage-and-database-operations)도 포함됩니다.
 
-* .NET SDK의 [ThroughputResponse](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput) .
-* Java SDK에서 [ThroughputResponse ()를 처리](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) 합니다.
+* .NET SDK의 [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput).
+* Java SDK의 [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput).
 
-실제 최소/s는 계정 구성에 따라 다를 수 있습니다. 그러나 일반적으로 다음의 최대값입니다.
+실제 최소 RU/s는 계정 구성에 따라 다를 수 있습니다. 그러나 일반적으로 다음 값의 최댓값입니다.
 
 * 400RU/s 
-* 현재 저장소 (GB) * 10 r u/초 (일부 경우에는 [높은 저장소/낮은 처리량 프로그램](#high-storage-low-throughput-program)참조)
-* 데이터베이스 또는 컨테이너/100에 프로 비전 된 최고 r u/초
+* 현재 스토리지(GB * 10RU/s)(이 제약 조건은 경우에 따라 완화될 수 있음, [높은 스토리지/낮은 처리량 프로그램](#high-storage-low-throughput-program) 참조)
+* 데이터베이스 또는 컨테이너에 프로비저닝된 최고 RU/s / 100
 
-### <a name="changing-the-provisioned-throughput"></a>프로 비전 된 처리량 변경
+### <a name="changing-the-provisioned-throughput"></a>프로비저닝된 처리량 변경
 
-Azure Portal 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 프로 비전 된 처리량을 확장할 수 있습니다.
+Azure Portal 또는 다음 SDK를 사용하여 컨테이너 또는 데이터베이스의 프로비저닝된 처리량을 조정할 수 있습니다.
 
-* .NET SDK의 [컨테이너. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync) .
-* Java SDK의 [ReplaceThroughput CosmosContainer.](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput)
+* .NET SDK의 [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync).
+* Java SDK의 [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput).
 
-**프로 비전 된 처리량을 줄이면** [최소한](#current-provisioned-throughput)의 작업을 수행할 수 있습니다.
+**프로비저닝된 처리량을 줄이는** 경우 [최소](#current-provisioned-throughput)까지 줄일 수 있습니다.
 
-**프로 비전 된 처리량을 높이** 는 경우 대부분의 시간에 작업이 즉시 수행 됩니다. 그러나 필요한 리소스를 프로 비전 하는 시스템 태스크로 인해 작업에 시간이 더 오래 걸릴 수 있습니다. 이 경우이 작업이 진행 되는 동안 프로 비전 된 처리량을 수정 하려고 하면 다른 크기 조정 작업이 진행 되 고 있음을 설명 하는 오류 메시지와 함께 HTTP 423 응답이 생성 됩니다.
+**프로비저닝된 처리량을 늘리는** 경우 대부분의 경우에는 작업이 즉시 수행됩니다. 그러나 필요한 리소스를 프로비저닝하는 시스템 작업으로 인해 작업이 더 오래 걸릴 수 있는 경우가 있습니다. 이 경우 이 작업이 진행 중인 동안 프로비저닝된 처리량을 수정하려고 하면 다른 크기 조정 작업이 진행 중임을 설명하는 오류 메시지와 함께 HTTP 423 응답이 생성됩니다.
 
 > [!NOTE]
-> 프로 비전 된 처리량이 크게 증가 해야 하는 매우 큰 수집 작업을 계획 하는 경우 크기 조정 작업에 SLA가 없고 이전 단락에서 설명한 것 처럼 증가 하는 경우 시간이 오래 걸릴 수 있다는 점에 유의 하세요. 작업을 시작 하기 전에 미리 계획 하 고 크기 조정을 시작 하 고 아래 방법을 사용 하 여 진행률을 확인 하는 것이 좋습니다.
+> 프로비저닝된 처리량을 크게 증가시켜야 하는 매우 큰 수집 워크로드를 계획하는 경우 크기 조정 작업에는 SLA가 없으며 이전 단락에서 언급했듯이 증가량이 클 경우 시간이 오래 걸릴 수 있음을 명심합니다. 미리 계획하고 워크로드가 시작되기 전에 크기 조정을 시작하고 아래 방법을 사용하여 진행률을 확인하는 것이 좋습니다.
 
-[현재 프로 비전 된 처리량](#current-provisioned-throughput) 을 읽고 다음을 사용 하 여 크기 조정 진행률을 프로그래밍 방식으로 확인할 수 있습니다.
+[현재 프로비저닝된 처리량](#current-provisioned-throughput)을 읽고 다음을 사용하여 프로그래밍 방식으로 크기 조정 진행률을 확인할 수 있습니다.
 
-* .NET SDK의 [IsReplacePending ThroughputResponse.](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending)
-* Java SDK의 [isReplacePending ()을 ThroughputResponse.](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending)
+* .NET SDK의 [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending).
+* Java SDK의 [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending).
 
-[Azure Monitor 메트릭을](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) 사용 하 여 리소스에서 프로 비전 된 처리량 (r u/초) 및 저장소의 기록을 볼 수 있습니다.
+[Azure Monitor 메트릭](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db)을 사용하여 리소스에서 프로비저닝된 처리량(RU/s) 및 스토리지의 기록을 볼 수 있습니다.
 
-## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> 높은 저장소/낮은 처리량 프로그램
+## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> 높은 스토리지/낮은 처리량 프로그램
 
-위의 [현재 프로 비전 된 처리량](#current-provisioned-throughput) 섹션에 설명 된 대로 컨테이너 또는 데이터베이스에서 프로 비전 할 수 있는 최소 처리량은 여러 가지 요인에 따라 달라 집니다. 그 중 하나는 현재 저장 된 데이터의 양입니다. Azure Cosmos DB는 저장소의 GB 당 최소 처리량이 10 r u/초까지 적용 됩니다.
+위의 [현재 프로비저닝된 처리량](#current-provisioned-throughput) 섹션에 설명된 대로 컨테이너 또는 데이터베이스에 프로비저닝할 수 있는 최소 처리량은 여러 요인에 따라 다릅니다. Azure Cosmos DB는 스토리지 GB당 10RU/s의 최소 처리량을 적용하므로 그중 하나는 현재 저장된 데이터의 양입니다.
 
-많은 양의 데이터를 저장 해야 하지만 처리량 요구 사항이 적은 경우에는이 문제가 발생할 수 있습니다. 이러한 시나리오를 보다 잘 활용 하기 위해 Azure Cosmos DB는 **"높은 저장소/낮은 처리량" 프로그램** 을 도입 하 여 적격 계정에 대 한 GB 당 r u/GB 제약 조건을 줄일 수 있습니다.
+이는 많은 양의 데이터를 저장해야 하지만 상대적으로 낮은 처리량 요구 사항이 있는 상황에서 문제가 될 수 있습니다. 이러한 시나리오를 더 잘 수용하기 위해 Azure Cosmos DB는 적격 계정에 대한 GB당 RU/s 제약 조건을 줄이는 **"높은 스토리지/낮은 처리량" 프로그램** 을 도입했습니다.
 
-이 프로그램에 참여 하 고 모든 자격을 평가 하려면 [이 설문 조사](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u)를 작성 해야 합니다. 그러면 Azure Cosmos DB 팀이 후속 작업을 진행 하 고 온 보 딩을 진행 합니다.
+이 프로그램에 참여하고 모든 자격을 평가하려면 [이 설문 조사](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u)를 작성하기만 하면 됩니다. 그러면 Azure Cosmos DB 팀에서 후속 조치를 취하고 온보딩을 진행합니다.
 
 ## <a name="comparison-of-models"></a>모델 비교
 다음 표에서는 데이터베이스 및 컨테이너에 대한 표준(수동) 처리량 프로비전을 비교합니다. 
 
 |**매개 변수**  |**데이터베이스 표준(수동) 처리량**  |**컨테이너 표준(수동) 처리량**|**데이터베이스 자동 크기 조정 처리량** | **컨테이너 크기 자동 조정 처리량**|
 |---------|---------|---------|---------|---------|
-|진입점(최소 RU/s) |400RU/s. 컨테이너 당 최소/초 없이 최대 25 개의 컨테이너를 사용할 수 있습니다.</li> |400| 400~4,000RU/s 범위에서 자동 크기 조정. 컨테이너 당 최소/초 없이 최대 25 개의 컨테이너를 사용할 수 있습니다.</li> | 400~4,000RU/s 범위에서 자동 크기 조정.|
+|진입점(최소 RU/s) |400RU/s. 컨테이너당 최소 RU/s 없이 최대 25개의 컨테이너 사용 가능</li> |400| 400~4,000RU/s 범위에서 자동 크기 조정. 컨테이너당 최소 RU/s 없이 최대 25개의 컨테이너 사용 가능</li> | 400~4,000RU/s 범위에서 자동 크기 조정.|
 |컨테이너당 최소 RU/s|--|400|--|400~4,000RU/s 범위에서 자동 크기 조정|
 |최대 RU|데이터베이스에서 무제한|컨테이너에서 무제한|데이터베이스에서 무제한|컨테이너에서 무제한
 |특정 컨테이너에 할당 또는 제공되는 RU|보장되지 않습니다. 지정된 컨테이너에 할당되는 RU는 속성에 따라 다릅니다. 속성은 처리량, 워크로드 분산 및 컨테이너 수를 공유하는 컨테이너 파티션 키의 선택 항목일 수 있습니다. |컨테이너에 구성된 모든 RU는 컨테이너에만 배타적으로 예약됩니다.|보장되지 않습니다. 지정된 컨테이너에 할당되는 RU는 속성에 따라 다릅니다. 속성은 처리량, 워크로드 분산 및 컨테이너 수를 공유하는 컨테이너 파티션 키의 선택 항목일 수 있습니다. |컨테이너에 구성된 모든 RU는 컨테이너에만 배타적으로 예약됩니다.|
@@ -160,3 +160,6 @@ Azure Portal 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베이스
 * [Azure Cosmos 컨테이너에서 표준(수동) 처리량을 프로비전](how-to-provision-container-throughput.md)하는 방법을 알아봅니다.
 * [Azure Cosmos 데이터베이스에서 표준(수동) 처리량을 프로비전](how-to-provision-database-throughput.md)하는 방법을 알아봅니다.
 * [Azure Cosmos 데이터베이스 또는 컨테이너에서 자동 크기 조정 처리량을 프로비전](how-to-provision-autoscale-throughput.md)하는 방법을 알아봅니다.
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

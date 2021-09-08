@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 608f3d72aecb0c6d53325c0d082b1779822e9c80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfdb79885563cbc0791ae3f3b2effd54ea3123a7
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200522"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867492"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>가상 네트워크 피어링 문제 해결
 
@@ -48,7 +48,7 @@ ms.locfileid: "103200522"
 > * 가상 머신 확장 집합(기본 ILB SKU 사용)
 > * Azure Service Fabric 클러스터(기본 ILB SKU 사용)
 > * SQL Server Always On(기본 ILB SKU 사용)
-> * Azure App Service Environment for PowerApps(기본 ILB SKU 사용)
+> * Azure App Service Environment for Power Apps(기본 ILB SKU 사용)
 > * Azure API Management(기본 ILB SKU 사용)
 > * Azure AD DS(Azure Active Directory Domain Services)(기본 ILB SKU 사용)
 

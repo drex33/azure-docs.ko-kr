@@ -4,40 +4,23 @@ description: Bicep 변수 루프를 사용하여 변수를 만들 때 반복합�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 429a15c222e47bab29b314b0d11f7e077281b635
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 08/30/2021
+ms.openlocfilehash: bf182379c9cc10db11e451f908df552a16520b45
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635005"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225205"
 ---
 # <a name="variable-iteration-in-bicep"></a>Bicep의 변수 반복
 
-이 문서에서는 Bicep 파일에서 변수에 대한 값을 두 개 이상 만드는 방법을 보여 줍니다. `variables` 섹션에 루프를 추가하고 배포 중에 변수에 대한 항목 수를 동적으로 설정할 수 있습니다. 또한 Bicep 파일에서 구문이 반복하지 않도록 합니다.
+이 문서에서는 Bicep 파일에서 변수에 대한 값을 두 개 이상 만드는 방법을 보여 줍니다. `variables` 선언에 루프를 추가하고 변수의 항목 수를 동적으로 설정할 수 있습니다. Bicep 파일에서 구문이 반복하지 않도록 합니다.
 
-[리소스](loop-resources.md), [리소스의 속성](loop-properties.md) 및 [출력](loop-outputs.md)과 함께 복사를 사용할 수도 있습니다.
+[모듈](loop-modules.md), [리소스](loop-resources.md), [리소스의 속성](loop-properties.md) 및 [출력](loop-outputs.md)과 함께 복사를 사용할 수도 있습니다.
 
 ## <a name="syntax"></a>Syntax
 
 루프는 다음과 같이 여러 변수를 선언하는 데 사용할 수 있습니다.
-
-- 배열 반복
-
-  ```bicep
-  var <variable-name> = [for <item> in <collection>: {
-    <properties>
-  }]
-
-  ```
-
-- 배열의 요소 반복.
-
-  ```bicep
-  var <variable-name> = [for <item>, <index> in <collection>: {
-    <properties>
-  }]
-  ```
 
 - 루프 인덱스 사용.
 
@@ -47,11 +30,32 @@ ms.locfileid: "122635005"
   }]
   ```
 
+  자세한 내용은 [루프 인덱스](#loop-index)를 참조하세요.
+
+- 배열 반복.
+
+  ```bicep
+  var <variable-name> = [for <item> in <collection>: {
+    <properties>
+  }]
+
+  ```
+
+  자세한 내용은 [루프 배열](#loop-array)를 참조하세요.
+
+- 배열과 인덱스를 반복합니다.
+
+  ```bicep
+  var <variable-name> = [for <item>, <index> in <collection>: {
+    <properties>
+  }]
+  ```
+
 ## <a name="loop-limits"></a>루프 한계
 
-Bicep 파일의 루프 반복은 음수일 수 없으며 800회 반복을 초과할 수 없습니다. Bicep 파일을 배포하려면 최신 버전의 [Bicep 도구](install.md)를 설치합니다.
+Bicep 파일의 루프 반복은 음수일 수 없으며 800회 반복을 초과할 수 없습니다. 
 
-## <a name="variable-iteration"></a>변수 반복
+## <a name="loop-index"></a>루프 인덱스
 
 다음 예제에서는 문자열 값의 배열을 만드는 방법을 보여줍니다.
 
@@ -121,23 +125,69 @@ output arrayResult array = objectArray
 ]
 ```
 
-## <a name="example-templates"></a>예제 템플릿
+## <a name="loop-array"></a>루프 배열
 
-다음 예제에서는 변수에 대해 둘 이상의 값을 만드는 일반적인 시나리오를 보여줍니다.
+다음 예에서는 매개 변수로 전달된 배열을 반복합니다. 변수는 매개 변수에서 필요한 형식으로 개체를 구성합니다.
 
-|템플릿  |Description  |
-|---------|---------|
-|[루프 변수](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopvariables.bicep) | 변수를 반복하는 방법을 보여 줍니다. |
-|[다중 보안 규칙](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.bicep) |네트워크 보안 그룹에 여러 보안 규칙을 배포합니다. 매개 변수에서 보안 규칙을 구성합니다. 매개 변수는 [여러 NSG 매개 변수 파일](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.parameters.json)을 참조합니다. |
+```bicep
+@description('An array that contains objects with properties for the security rules.')
+param securityRules array = [
+  {
+    name: 'RDPAllow'
+    description: 'allow RDP connections'
+    direction: 'Inbound'
+    priority: 100
+    sourceAddressPrefix: '*'
+    destinationAddressPrefix: '10.0.0.0/24'
+    sourcePortRange: '*'
+    destinationPortRange: '3389'
+    access: 'Allow'
+    protocol: 'Tcp'
+  }
+  {
+    name: 'HTTPAllow'
+    description: 'allow HTTP connections'
+    direction: 'Inbound'
+    priority: 200
+    sourceAddressPrefix: '*'
+    destinationAddressPrefix: '10.0.1.0/24'
+    sourcePortRange: '*'
+    destinationPortRange: '80'
+    access: 'Allow'
+    protocol: 'Tcp'
+  }
+]
+
+
+var securityRulesVar = [for rule in securityRules: {
+  name: rule.name
+  properties: {
+    description: rule.description
+    priority: rule.priority
+    protocol: rule.protocol
+    sourcePortRange: rule.sourcePortRange
+    destinationPortRange: rule.destinationPortRange
+    sourceAddressPrefix: rule.sourceAddressPrefix
+    destinationAddressPrefix: rule.destinationAddressPrefix
+    access: rule.access
+    direction: rule.direction
+  }
+}]
+
+resource netSG 'Microsoft.Network/networkSecurityGroups@2020-11-01' = {
+  name: 'NSG1'
+  location: resourceGroup().location
+  properties: {
+    securityRules: securityRulesVar
+  }
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 
 - 루프의 다른 용도는 다음을 참조하세요.
-  - [Bicep 파일의 리소스 반복](loop-resources.md)
-  - [Bicep 파일의 속성 반복](loop-properties.md)
-  - [Bicep 파일의 출력 반복](loop-outputs.md)
-- Bicep 파일의 섹션에 대해 알아보려면 [Bicep 파일의 구조 및 구문 이해](file.md)를 참조하세요.
-- 여러 리소스를 배포하는 방법에 대한 자세한 내용은 [Bicep 모듈 사용](modules.md)을 참조하세요.
+  - [Bicep의 리소스 반복](loop-resources.md)
+  - [Bicep의 모듈 반복](loop-modules.md)
+  - [Bicep의 속성 반복](loop-properties.md)
+  - [Bicep의 출력 반복](loop-outputs.md)
 - 루프에서 생성된 리소스에 대한 종속성을 설정하려면 [리소스 종속성 설정](./resource-declaration.md#set-resource-dependencies)을 참조하세요.
-- PowerShell을 사용하여 배포하는 방법을 알아보려면 [Bicep 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)를 참조하세요.
-- Azure CLI를 사용하여 배포하는 방법을 알아보려면 [Bicep 및 Azure CLI를 사용하여 리소스 배포](deploy-cli.md)를 참조하세요.

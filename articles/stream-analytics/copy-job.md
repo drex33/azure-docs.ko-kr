@@ -1,19 +1,20 @@
 ---
-title: Azure Stream Analytics 작업 복사 또는 백업
-description: 이 문서에서는 Azure Stream Analytics 작업을 복사하거나 백업하는 방법을 설명 합니다.
+title: 지역 간에 Azure Stream Analytics 작업 복사, 백업 및 이동
+description: 이 문서에서는 Azure Stream Analytics 작업을 이동, 복사 및 백업하는 방법을 설명 합니다.
 author: su-jie
 ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
+ms.custom: subject-moving-resources
 ms.date: 09/11/2019
-ms.openlocfilehash: 864c5ffc9ed88f438a5be5a1fcb55d0b78df5e07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b3d203d3d34612b3495fa3eceaf13e357eaa2be
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98016614"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829409"
 ---
-# <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업 복사 또는 백업
+# <a name="copy-back-up-and-move-your-azure-stream-analytics-jobs-between-regions"></a>지역 간에 Azure Stream Analytics 작업 복사, 백업 및 이동
 
 Visual Studio Code 또는 Visual Studio를 사용하여 배포된 Azure Stream Analytics 작업을 복사하거나 백업할 수 있습니다. 작업을 다른 지역으로 복사해도 마지막 출력 시간이 복사되지 않습니다. 따라서 복사된 작업을 시작할 때 [**마지막으로 중지된 시간**](./start-job.md#start-options) 옵션을 사용할 수 없습니다.
 

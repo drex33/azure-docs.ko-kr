@@ -5,12 +5,12 @@ description: Azure Kubernetes Service(AKS)에 대한 서비스 주체 또는 ADD
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 128e2d38b002369381c860dbd94dbd93b278682d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 72cc0c6ab369b035df8c4a29c89be74fa9102cc5
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567065"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101520"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에 대한 자격 증명 업데이트 및 순환
 
@@ -97,7 +97,7 @@ SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ## <a name="update-aks-cluster-with-new-service-principal-credentials"></a>새 서비스 주체 자격 증명으로 AKS 클러스터 업데이트
 
 > [!IMPORTANT]
-> 대량 클러스터의 경우 새 서비스 주체를 사용하여 AKS 클러스터 업데이트를 완료되는데 시간이 오래 걸릴 수 있습니다.
+> 대량 클러스터의 경우 새 서비스 주체를 사용하여 AKS 클러스터 업데이트를 완료되는데 시간이 오래 걸릴 수 있습니다. 클러스터 업데이트 및 업그레이드 중 중단을 최소화하려면 [노드 서지 업그레이드 설정][node-surge-upgrade]을 검토하고 사용자 지정하는 것이 좋습니다.
 
 기존 서비스 주체의 자격 증명을 업데이트하거나 서비스 주체를 만들도록 선택했는지 여부에 관계없이 이제 [az aks update-credentials][az-aks-update-credentials] 명령을 사용하여 새 자격 증명으로 AKS 클러스터를 업데이트합니다. *--service-principal* 및 *--client-secret* 의 변수는 다음과 같이 사용됩니다.
 
@@ -142,3 +142,4 @@ az aks update-credentials \
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az_ad_sp_credential_list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md
+[node-surge-upgrade]: upgrade-cluster.md#customize-node-surge-upgrade

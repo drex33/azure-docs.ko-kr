@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/26/2021
 ms.reviewer: sngun
-ms.openlocfilehash: eb06d101170685bea5ff231612e9ffbf8df467da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b594d04c05b5cb05b45bc76f9de256d97aa436a1
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93079294"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033631"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Azure Cosmos DB의 TCO(총 소유 비용)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -57,8 +57,17 @@ Azure Cosmos DB의 서버리스 프로비저닝 모델은 데이터베이스 인
 
 * **예약된 용량을 사용하여 최대 65%의 비용 절감 가능:** Azure Cosmos DB [예약된 용량](cosmos-db-reserved-capacity.md)을 통해 1년 또는 3년 동안 Azure Cosmos DB 리소스 비용을 선불로 지불하면 경비를 절약할 수 있습니다. 1년 또는 3년 간의 사전 약정을 비용을 획기적으로 절감하고 정상 가격에 비해 20~65%의 할인 혜택을 받을 수 있습니다. 중요 업무용 워크로드의 경우, 용량 프로비전 측면에서 더 나은 SLA를 얻을 수 있습니다.
 
+## <a name="capacity-planning"></a>용량 계획
+
+TCO 예측을 위한 방법으로 용량 계획부터 시작하는 것이 도움이 될 수 있습니다. 기존 데이터베이스 클러스터에서 Azure Cosmos DB로 마이그레이션을 계획하는 경우 기존 데이터베이스 클러스터에 대한 정보를 용량 계획에 사용할 수 있습니다.
+* 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+* 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+
 ## <a name="next-steps"></a>다음 단계
 
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
 * [Azure Cosmos DB 가격 책정 모델이 고객에게 비용 효율적인 방식](total-cost-ownership.md)에 대한 자세한 정보
 * [개발 및 테스트용으로 최적화](optimize-dev-test.md)에 대한 자세한 정보
 * [처리량 비용 최적화](optimize-cost-throughput.md)에 대한 자세한 정보

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/18/2020
-ms.openlocfilehash: 03f80ebeb7b30d8c0fe14060335541d77b7523b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/18/2021
+ms.openlocfilehash: 08cf192a650c592d7e5624c556ee8dfc766292fa
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "90898616"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831623"
 ---
 # <a name="create-python-model-module"></a>Python 모델 만들기 모듈
 
@@ -46,6 +46,7 @@ Python 모델 만들기 모듈을 사용하여 Python 스크립트에서 학습�
 
 > [!NOTE]
 > 스크립트 샘플 코드의 주석에 특히 주의하고 스크립트가 클래스 이름, 메서드, 메서드 서명을 비롯한 요구 사항을 엄격하게 준수하는지 확인하세요. 위반하면 예외가 발생합니다. 
+> **Python 모델 만들기** 는 **모델 학습** 을 사용하여 학습할 sklearn 기반 모델 만들기만 지원합니다.
 
    2클래스 Naive Bayes 분류자의 다음 샘플 코드는 인기 있는 *sklearn* 패키지를 사용합니다.
 

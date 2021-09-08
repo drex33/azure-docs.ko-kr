@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: 진단 설정으로 로깅을 사용하도록 설정하고 즉시 볼 수 있도록 로그를 쿼리하는 방법을 참조합니다.
 author: baanders
 ms.author: baanders
-ms.date: 2/24/2021
+ms.date: 8/24/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ced6f28bb7174bc3510de9025569646210e87782
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1479e2b6b715e8f80ea9e02b0b57a3995da2bfd9
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475709"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123219710"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure Digital Twins 문제 해결: 진단 로깅
 
-Azure Digital Twins는 서비스 인스턴스에 대한 로그를 수집하여 성능, 액세스 및 기타 데이터를 모니터링할 수 있습니다. 이러한 로그를 사용하여 Azure Digital Twins 인스턴스에서 발생하는 상황을 파악하고, Azure 지원에 문의하지 않고도 문제에 대한 근본 원인 분석을 수행할 수 있습니다.
+Azure Digital Twins는 서비스 인스턴스에 대한 로그를 수집하여 성능, 액세스 및 기타 데이터를 모니터링할 수 있습니다. 이러한 로그를 사용하여 Azure Digital Twins 인스턴스에서 발생하는 상황을 파악하고, Azure 지원에 문의하지 않고도 문제에 대한 근본 원인을 분석할 수 있습니다.
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)에서 [진단 설정을 구성](#turn-on-diagnostic-settings)하여 Azure Digital Twins 인스턴스에서 로그 수집을 시작하는 방법을 보여 줍니다. 로그를 저장할 위치를 지정할 수도 있습니다(예: Log Analytics 또는 선택한 스토리지 계정).
 
@@ -70,7 +70,7 @@ Azure Digital Twins가 수집하는 로그의 범주에 대한 자세한 정보�
 | ADTEventRoutesOperation | 이벤트 경로와 관련된 모든 API 호출과 Azure Digital Twins에서 Event Grid, Event Hubs 및 Service Bus와 같은 엔드포인트 서비스로의 이벤트 송신을 로그합니다. |
 | ADTDigitalTwinsOperation | 개별 트윈과 관련된 모든 API 호출 로그 |
 
-각 로그 범주는 쓰기, 읽기, 삭제 및 동작의 작업으로 구성됩니다.  다음과 같이 REST API 호출에 매핑됩니다.
+각 로그 범주는 쓰기, 읽기, 삭제 및 동작의 작업으로 구성됩니다. 이러한 범주는 다음과 같이 REST API 호출에 매핑됩니다.
 
 | 이벤트 유형 | REST API 작업 |
 | --- | --- |
@@ -79,7 +79,7 @@ Azure Digital Twins가 수집하는 로그의 범주에 대한 자세한 정보�
 | DELETE | DELETE |
 | 작업 | POST |
 
-다음은 각 범주에 기록된 작업 및 해당 [Azure Digital Twins REST API 호출](/rest/api/azure-digitaltwins/)의 포괄적인 목록입니다. 
+다음은 각 범주에 로그된 작업 및 해당 [Azure Digital Twins REST API 호출](/rest/api/azure-digitaltwins/)의 포괄적인 목록입니다. 
 
 >[!NOTE]
 > 각 로그 범주에는 여러 작업/REST API 호출이 포함됩니다. 아래 표에서 각 로그 범주는 다음 로그 범주가 나열될 때까지 그 아래에 있는 모든 작업/REST API 호출에 매핑됩니다. 
@@ -119,7 +119,7 @@ Azure Digital Twins가 수집하는 로그의 범주에 대한 자세한 정보�
 | `Time` | DateTime | 이 이벤트가 발생한 날짜와 시간(UTC) |
 | `ResourceId` | String | 이벤트가 발생한 리소스의 Azure Resource Manager 리소스 ID |
 | `OperationName` | String  | 이벤트 중 수행되는 작업의 유형 |
-| `OperationVersion` | String | 이벤트 중에 사용된 API 버전 |
+| `OperationVersion` | String | 이벤트 중 사용된 API 버전 |
 | `Category` | String | 내보내는 리소스의 유형 |
 | `ResultType` | String | 이벤트의 결과 |
 | `ResultSignature` | String | 이벤트에 대한 http 상태 코드 |
@@ -130,7 +130,7 @@ Azure Digital Twins가 수집하는 로그의 범주에 대한 자세한 정보�
 | `ApplicationId` | Guid | 전달자 권한 부여에 사용되는 애플리케이션 ID |
 | `Level` | Int | 이벤트의 로깅 심각도 |
 | `Location` | String | 이벤트가 발생한 지역 |
-| `RequestUri` | URI | 이벤트 중에 사용된 엔드포인트 |
+| `RequestUri` | URI | 이벤트 중 사용된 엔드포인트 |
 | `TraceId` | String | `TraceId` - [W3C의 추적 컨텍스트](https://www.w3.org/TR/trace-context/)에 포함. 시스템 간에 분산된 추적을 고유하게 식별하는 데 사용되는 전체 추적의 ID입니다. |
 | `SpanId` | String | `SpanId` - [W3C의 추적 컨텍스트](https://www.w3.org/TR/trace-context/)에 포함. 추적에서 이 요청의 ID입니다. |
 | `ParentId` | String | `ParentId` - [W3C의 추적 컨텍스트](https://www.w3.org/TR/trace-context/)에 포함. 부모 ID가 없는 요청이 추적의 루트입니다. |
@@ -279,7 +279,7 @@ Azure Digital Twins가 수집하는 로그의 범주에 대한 자세한 정보�
 
 ### <a name="egress-log-schemas"></a>송신 로그 스키마
 
-`Microsoft.DigitalTwins/eventroutes/action` 작업 이름과 관련된 `ADTEventRoutesOperation` 로그의 스키마입니다. 여기에는 Azure Digital Twins 인스턴스에 연결된 송신 엔드포인트에 대한 예외 및 API 작업과 관련된 세부 정보가 포함됩니다.
+다음 예는 `Microsoft.DigitalTwins/eventroutes/action` 작업 이름과 관련된 `ADTEventRoutesOperation` 로그의 스키마입니다. 여기에는 Azure Digital Twins 인스턴스에 연결된 송신 엔드포인트에 대한 예외 및 API 작업과 관련된 세부 정보가 포함됩니다.
 
 |필드 이름 | 데이터 형식 | Description |
 |-----|------|-------------|
@@ -353,7 +353,7 @@ Azure Digital Twins가 수집하는 로그의 범주에 대한 자세한 정보�
 
     :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="미리 빌드된 쿼리를 보여주는 쿼리 창이 중첩된 Azure Portal의 Azure Digital Twins 인스턴스에 대한 로그 페이지를 보여주는 스크린샷." lightbox="media/troubleshoot-diagnostics/logs.png":::
 
-    다음은 다양한 로그에 대해 작성된 미리 빌드된 쿼리 예제입니다. 쿼리 중 하나를 선택하고 쿼리 편집기에 로드하고 실행하여 인스턴스에 대한 로그를 확인할 수 있습니다.
+    이러한 쿼리는 다양한 로그에 대해 작성된 미리 빌드된 쿼리 예입니다. 쿼리 중 하나를 선택하고 쿼리 편집기에 로드하고 실행하여 인스턴스에 대한 로그를 확인할 수 있습니다.
 
     아무 것도 실행하지 않고 *쿼리* 창을 닫고, 사용자 지정 쿼리 코드를 작성하거나 편집할 수 있는 쿼리 편집기 페이지로 바로 이동할 수도 있습니다.
 

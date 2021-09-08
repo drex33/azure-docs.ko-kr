@@ -6,13 +6,13 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/23/2019
-ms.openlocfilehash: 04a86b0e8ebae2349d8c53470cca043ea5f87a87
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/26/2021
+ms.openlocfilehash: eed535af3b607eebf106900f07c7f312f2f932ab
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967984"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029896"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -148,3 +148,6 @@ Azure Cosmos DB는 스토리지를 자동으로 스케일 아웃하지만 가장
 * [.NET](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 대량 실행기 라이브러리를 사용하는 샘플 애플리케이션을 사용해 보며 자세히 알아봅니다. 
 * 대량 실행기 라이브러리는 Cosmos DB Spark 커넥터에 통합됩니다. 자세한 내용은 [Azure Cosmos DB Spark 커넥터](./create-sql-api-spark.md) 문서를 참조하세요.  
 * 대규모 마이그레이션에 관한 추가적인 도움이 필요하면 “일반 권고” 문제 유형 및 “대규모(TB 이상) 마이그레이션” 문제 하위 유형에서 지원 티켓을 열어 Azure Cosmos DB 제품 팀에 문의하세요.
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

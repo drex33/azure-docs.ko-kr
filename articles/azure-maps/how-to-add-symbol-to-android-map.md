@@ -228,7 +228,7 @@ val layer = SymbolLayer(
 
 Azure Maps Android SDK는 기본 마커 아이콘의 미리 정의된 색 변형 세트와 함께 제공됩니다. 예를 들어, `marker-red`를 기호 계층의 `iconImage` 옵션에 전달하여 해당 계층에서 마커 아이콘의 빨간색 버전을 렌더링할 수 있습니다.
 
-::: zone pivot=&quot;programming-language-java-android&quot;
+::: zone pivot="programming-language-java-android"
 
 ```java
 SymbolLayer layer = new SymbolLayer(source,

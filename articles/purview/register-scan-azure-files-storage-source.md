@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 06/22/2021
-ms.openlocfilehash: 39e720f35a591ac7075b5723f3e577151e698371
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: dbb29fea5253bbd00e66f0ed3d123ddc38533b8e
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605162"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256441"
 ---
 # <a name="register-and-scan-azure-files"></a>Azure Files 등록 및 검사
 
@@ -26,14 +26,14 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 2. 첫 번째 행 값이 고유함
 3. 첫 번째 행 값은 날짜 및 숫자가 아님
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 데이터 원본을 등록하기 전에 Azure Purview 계정을 만듭니다. Purview 계정을 만드는 방법에 관한 자세한 내용은 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.
 - 검사를 설정하고 예약하려면 데이터 원본 관리자여야 합니다. 자세한 내용은 [카탈로그 권한](catalog-permissions.md)을 참조하세요.
 
 ## <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
 
-현재 Azure File Storage에 대한 인증을 설정하는 방법은 한 가지뿐입니다.
+현재 Azure 파일 공유에 대한 인증을 설정하는 방법은 다음 한 가지뿐입니다.
 
 - 계정 키
 

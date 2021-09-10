@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/20/2021
+ms.date: 07/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34a43212e8883e1ae727d18c53d5c28f873d9e94
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1cac67a60f5ebcd0b7075d9caa6c453209ce0121
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110458094"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606012"
 ---
 # <a name="preview-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-ssh-certificate-based-authentication"></a>미리 보기: Azure에서 SSH 인증서 기반 인증을 사용하여 Azure Active Directory로 Linux 가상 머신에 로그인
 
@@ -102,9 +102,10 @@ VM이 다음 기능으로 구성되어 있는지 확인합니다.
 
 클라이언트가 다음 요구 사항을 충족하는지 확인합니다.
 
-- SSH 클라이언트는 인증을 위해 OpenSSH 기반 인증서를 지원해야 합니다. Az CLI(2.21.1 이상) 또는 Azure Cloud Shell을 사용하여 이 요구 사항을 충족할 수 있습니다. 
-- Az CLI용 SSH 확장. az를 사용하여 이를 설치할 수 있습니다. 확장이 사전 설치된 Azure Cloud Shell을 사용할 때는 이 확장을 설치할 필요가 없습니다.
-- Az CLI 또는 OpenSSH를 지원하는 Azure Cloud Shell 이외의 다른 SSH 클라이언트를 사용하는 경우에도, SSH 확장과 함께 Az CLI를 사용하여 구성 파일에서 임시 SSH 인증서를 검색한 다음 SSH 클라이언트에서 구성 파일을 사용해야 합니다.
+- SSH 클라이언트는 인증을 위해 OpenSSH 기반 인증서를 지원해야 합니다. Az CLI(2.21.1 이상)를 OpenSSH(Windows 10 버전 1803 이상에 포함) 또는 Azure Cloud Shell과 함께 사용하여 이 요구 사항을 충족할 수 있습니다. 
+- Az CLI용 SSH 확장. `az extension add --name ssh`를 사용하여 이를 설치할 수 있습니다. 확장이 사전 설치된 Azure Cloud Shell을 사용할 때는 이 확장을 설치할 필요가 없습니다.
+- Az CLI 또는 OpenSSH 인증서를 지원하는 Azure Cloud Shell 이외의 다른 SSH 클라이언트를 사용하는 경우에도, SSH 확장과 함께 Az CLI를 사용하여 임시 SSH 인증서와 선택적으로 구성 파일을 검색한 다음, SSH 클라이언트에서 구성 파일을 사용해야 합니다.
+- 클라이언트에서 VM의 공용 또는 개인 IP로의 TCP 연결(연결된 머신에 대한 ProxyCommand 또는 SSH 전달도 작동함).
 
 ## <a name="enabling-azure-ad-login-in-for-linux-vm-in-azure"></a>Azure에서 Linux VM에 대해 Azure AD 로그인 사용하도록 설정
 
@@ -189,12 +190,18 @@ VM에 대한 역할 할당을 구성할 수 있는 다음과 같은 여러 가�
 
 Azure AD 사용 Linux VM에 대한 역할 할당을 구성하려면 다음을 수행합니다.
 
-1. 구성할 가상 머신으로 이동합니다.
-1. 메뉴 옵션에서 **액세스 제어(IAM)** 를 선택합니다.
-1. **추가**, **역할 할당 추가** 를 선택하여 역할 할당 추가 창을 엽니다.
-1. **역할** 드롭다운 목록에서 **가상 머신 관리자 로그인** 또는 **가상 머신 사용자 로그인** 역할을 선택합니다.
-1. **선택** 필드에서 사용자, 그룹, 서비스 주체 또는 관리 ID를 선택합니다. 목록에 보안 주체가 보이지 않으면 **선택** 상자에 직접 입력하여 표시 이름, 이메일 주소, 개체 식별자에 대한 디렉터리를 검색할 수 있습니다.
-1. **저장** 을 선택하여 역할을 할당합니다.
+1. **액세스 제어(IAM)** 를 선택합니다.
+
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
+
+1. 다음 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | **가상 머신 관리자 로그인** 또는 **가상 머신 사용자 로그인** |
+    | 다음에 대한 액세스 할당 | 사용자, 그룹, 서비스 주체 또는 관리 ID |
+
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 몇 분이 지나면 선택한 범위에서 보안 주체에 역할이 할당됩니다.
  
@@ -317,7 +324,7 @@ Azure AD를 사용하여 Azure Linux VM에 로그인하면 OpenSSH 인증서 및
 az ssh config --file ~/.ssh/config -n myVM -g AzureADLinuxVMPreview
 ```
 
-또는 IP 주소만 지정하여 구성을 내보낼 수 있습니다. 예시의 IP 주소를 VM에 대한 공용 또는 개인 IP 주소로 바꿉니다. 이 명령에 대한 도움말을 위해 `az ssh config -h`를 입력합니다.
+또는 IP 주소만 지정하여 구성을 내보낼 수 있습니다. 예제의 IP 주소를 VM의 공용 또는 개인 IP 주소로 바꿉니다(개인 IP의 연결은 직접 가져와야 함). 이 명령에 대한 도움말을 위해 `az ssh config -h`를 입력합니다.
 
 ```azurecli
 az ssh config --file ~/.ssh/config --ip 10.11.123.456
@@ -345,7 +352,7 @@ az vmss identity assign --vmss-name myVMSS --resource-group AzureADLinuxVMPrevie
 az vmss extension set --publisher Microsoft.Azure.ActiveDirectory --name Azure ADSSHLoginForLinux --resource-group AzureADLinuxVMPreview --vmss-name myVMSS
 ```
 
-가상 머신 확장 집합에는 일반적으로 공용 IP 주소가 없으므로 Azure Virtual Network에 도달할 수 있는 다른 컴퓨터에서 연결해야 합니다. 이 예시에서는 가상 머신 확장 집합 VM의 개인 IP를 사용하여 연결하는 방법을 보여 줍니다. 
+가상 머신 확장 집합에는 일반적으로 공용 IP 주소가 없으므로 Azure Virtual Network에 도달할 수 있는 다른 컴퓨터에서 연결해야 합니다. 이 예제에서는 가상 머신 확장 집합 VM의 개인 IP를 사용하여 동일한 가상 네트워크의 머신에서 연결하는 방법을 보여 줍니다. 
 
 ```azurecli
 az ssh vm --ip 10.11.123.456
@@ -373,7 +380,7 @@ az ssh vm --ip 10.11.123.456
       ```
 ## <a name="using-azure-policy-to-ensure-standards-and-assess-compliance"></a>Azure Policy를 사용하여 표준 보장 및 규정 준수를 평가합니다.
 
-Azure Policy를 사용하여 새 Linux Virtual Machines와 기존 Linux Virtual Machines에 Azure AD 로그인이 사용하도록 설정되어 있는지 확인하고 Azure 정책 준수 대시보드에서 사용자 환경의 규정 준수를 대규모로 평가합니다. 이 기능을 사용하면 다양한 수준의 규약을 사용할 수 있습니다. Azure AD 로그인을 사용하도록 설정하지 않은 환경 내에서 신규 및 기존 Linux VM에 플래그를 지정할 수 있습니다. Azure Policy를 사용하여 Azure AD 로그인을 사용하도록 설정하지 않은 새 Linux VM에 Azure AD 확장을 배포하고 기존 Linux VM을 동일한 표준으로 수정할 수도 있습니다. 이러한 기능 외에도 정책을 사용하여 머신에서 승인되지 않은 로컬 계정을 만든 Linux VM을 검색하고 플래그를 지정할 수 있습니다. 자세한 내용은 [Azure Policy](https://www.aka.ms/AzurePolicy)를 검토하세요.
+Azure Policy를 사용하여 새 Linux 가상 머신과 기존 Linux 가상 머신에 Azure AD 로그인을 사용하도록 설정되어 있는지 확인하고 Azure Policy의 규정 준수 대시보드에서 사용자 환경의 규정 준수 상태를 대규모로 평가합니다. 이 기능을 사용하면 다양한 수준의 규약을 사용할 수 있습니다. Azure AD 로그인을 사용하도록 설정하지 않은 환경 내에서 신규 및 기존 Linux VM에 플래그를 지정할 수 있습니다. Azure Policy를 사용하여 Azure AD 로그인을 사용하도록 설정하지 않은 새 Linux VM에 Azure AD 확장을 배포하고 기존 Linux VM을 동일한 표준으로 수정할 수도 있습니다. 해당 기능 외에도 Azure Policy를 사용하여 머신에서 승인되지 않은 로컬 계정을 만든 Linux VM을 검색하고 플래그를 지정할 수 있습니다. 자세한 내용은 [Azure Policy](../../governance/policy/overview.md)를 검토하세요.
 
 ## <a name="troubleshoot-sign-in-issues"></a>로그인 문제 해결
 

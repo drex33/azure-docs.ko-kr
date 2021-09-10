@@ -2,13 +2,13 @@
 title: 마이크로 에이전트 Linux 종속성(미리 보기)
 description: 이 문서에서는 Defender for IoT 마이크로 에이전트의 여러 다른 Linux OS 종속성에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 07/19/2021
-ms.openlocfilehash: e878052e534ce7740fff1fdd462d2c95fcb11609
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 08/26/2021
+ms.openlocfilehash: 102cf31dbe19c068de344f1f7f294a6f3f0a722b
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114481766"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967561"
 ---
 # <a name="micro-agent-linux-dependencies-preview"></a>마이크로 에이전트 Linux 종속성(미리 보기)
 
@@ -40,6 +40,8 @@ ms.locfileid: "114481766"
 |  | libpcap | 라이브러리 |  |  |
 |  | CONFIG_PACKET=y | 커널 구성 |  |  |
 |  | CONFIG_NETFILTER =y | 커널 구성 |  | 선택 사항 – 성능 향상 |
+| **로그인 수집기** |  |  |  |  |
+|  | Wtmp, btmp | 로그 파일 |  | [utmp](https://en.wikipedia.org/wiki/Utmp) |
 
 ## <a name="next-steps"></a>다음 단계
 

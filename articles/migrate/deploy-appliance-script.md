@@ -6,12 +6,12 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: bcd455590e804ad337f25afbd38d729f03ef3dc4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5ad806603ea64f643122ebc1f753e52b9d9e4225
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567048"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251438"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트를 사용하여 어플라이언스 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "122567048"
 - 물리적 서버용 어플라이언스를 설정하려면 스크립트만 사용할 수 있습니다. [이 문서](how-to-set-up-appliance-physical.md)를 따르세요.
 - Azure Government 클라우드에서 어플라이언스를 설정하려면 스크립트만 사용하면 됩니다. [이 문서](deploy-appliance-script-government.md)를 따르세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 스크립트를 사용하여 VMware 또는 Hyper-V 환경의 기존 서버에 Azure Migrate 어플라이언스를 배포할 수 있습니다.
 
@@ -61,14 +61,17 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116601) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116601) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 Azure 공용 클라우드 또는 Azure Government 클라우드용 VMware 어플라이언스를 설정할 수 있습니다.
 
 ### <a name="run-the-script"></a>스크립트 실행
 
-1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다.
+1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.
+> [!NOTE]
+> 기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다. Azure Migrate 어플라이언스에서 스크립트를 실행하면 작업 구성이 제거되고 새로 정의된 구성으로 대체됩니다.
+
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.
@@ -118,14 +121,17 @@ Hyper-V | 16GB 메모리, 8개의 vCPU, 약 80GB의 디스크 스토리지가 �
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116657) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116657) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 Azure 공용 클라우드 또는 Azure Government 클라우드용 Hyper-V 어플라이언스를 설정할 수 있습니다.
 
 ### <a name="run-the-script"></a>스크립트 실행
 
-1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다.
+1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.
+> [!NOTE]
+> 기존 Azure Migrate 어플라이언스에서 스크립트를 실행하지 않아야 합니다. Azure Migrate 어플라이언스에서 스크립트를 실행하면 작업 구성이 제거되고 새로 정의된 구성으로 대체됩니다.
+
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.

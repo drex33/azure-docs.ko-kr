@@ -1,19 +1,22 @@
 ---
-title: Azure Data Factory를 사용하여 Oracle 간 데이터 복사
-description: Data Factory를 사용하여 지원되는 원본 저장소에서 Oracle 데이터베이스로, 또는 Oracle에서 지원되는 싱크 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
+title: Oracle 간 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Data Factory 또는 Azure Synapse Analytics 파이프라인을 사용함으로써, 지원되는 원본 저장소에서 Oracle 데이터베이스로 데이터를 복사하거나 Oracle에서 지원되는 싱크 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: jianleishen
-ms.openlocfilehash: b1b223ddf4be6652282be2875e83900b8a7be372
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1cac74fcf1344c349e8a5c05d6e7d642bdfe4724
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487172"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642623"
 ---
-# <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
+# <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Oracle 간에 데이터 복사
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-onprem-oracle-connector.md)
@@ -54,11 +57,11 @@ Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 통합 런타임은 기본 제공 Oracle 드라이버를 제공합니다. 따라서 Oracle 데이터 복사 작업에는 드라이버를 수동으로 설치할 필요가 없습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 Oracle 커넥터에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+다음 섹션에서는 Oracle 커넥터에 한정된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
@@ -67,7 +70,7 @@ Oracle 연결된 서비스는 다음 속성을 지원합니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Oracle** 로 설정해야 합니다. | 예 |
-| connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 암호를 입력하고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. <br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름** 을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>고급 Oracle 기본 연결 옵션의 경우 Oracle 서버에 있는 [TNSNAMES.ORA](http://www.orafaq.com/wiki/Tnsnames.ora) 파일에 항목을 추가하도록 선택할 수 있습니다. ADF Oracle 연결된 서비스에서는 Oracle 서비스 이름 연결 형식을 사용하고 해당하는 서비스 이름을 구성하도록 선택할 수 있습니다. | 예 |
+| connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 암호를 입력하고 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. <br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름** 을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>고급 Oracle 기본 연결 옵션의 경우 Oracle 서버에 있는 [TNSNAMES.ORA](http://www.orafaq.com/wiki/Tnsnames.ora) 파일에 항목을 추가하도록 선택할 수 있습니다. Oracle 연결된 서비스에서는 Oracle 서비스 이름 연결 형식을 사용하고 해당하는 서비스 이름을 구성하도록 선택할 수 있습니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |예 |
 
 >[!TIP]
@@ -120,7 +123,7 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
         ```
 
     3.  자체 호스팅 IR 컴퓨터에 `truststore` 파일을 저장합니다. 예를 들어 파일을 C:\MyTrustStoreFile에 저장합니다.
-    4.  Azure Data Factory에서 `EncryptionMethod=1` 및 해당하는 `TrustStore`/`TrustStorePassword` 값을 사용하여 Oracle 연결 문자열을 구성합니다. 예: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
+    4.  서비스에서 `EncryptionMethod=1` 및 해당하는 `TrustStore`/`TrustStorePassword` 값을 사용하여 Oracle 연결 문자열을 구성합니다. 예: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **예:**
 
@@ -298,20 +301,20 @@ Oracle에 데이터를 복사하려면 복사 작업의 싱크 형식을 `Oracle
 
 ## <a name="parallel-copy-from-oracle"></a>Oracle에서 병렬 복사
 
-Data Factory Oracle 커넥터는 Oracle에서 병렬로 데이터를 복사하는 기본 제공 데이터 분할을 제공합니다. 복사 작업의 **원본** 탭에서 데이터 분할 옵션을 찾을 수 있습니다.
+Oracle 커넥터는 Oracle에서 병렬로 데이터를 복사하는 기본 제공 데이터 분할을 제공합니다. 복사 작업의 **원본** 탭에서 데이터 분할 옵션을 찾을 수 있습니다.
 
 ![파티션 옵션의 스크린샷](./media/connector-oracle/connector-oracle-partition-options.png)
 
-분할된 복사를 사용하도록 설정하면 Data Factory가 Oracle 원본에 대한 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 `parallelCopies`를 4로 설정하는 경우, Data Factory는 지정된 파티션 옵션과 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 Oracle 데이터베이스에서 데이터의 일부를 검색합니다.
+분할된 복사를 사용하도록 설정하면 서비스가 Oracle 원본에 대한 병렬 쿼리를 실행하여 파티션별로 데이터를 로드합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 `parallelCopies`를 4로 설정하는 경우, 서비스는 지정된 파티션 옵션과 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 Oracle 데이터베이스에서 데이터의 일부를 검색합니다.
 
 특히 Oracle 데이터베이스에서 대량의 데이터를 로드하는 경우 특별히 데이터 분할로 병렬 복사를 사용하도록 설정하는 것이 좋습니다. 다양한 시나리오에 대해 권장되는 구성은 다음과 같습니다. 파일 기반 데이터 저장소로 데이터를 복사하는 경우 폴더에 여러 파일(폴더 이름만 지정)로 쓰는 것이 좋습니다. 이 경우에는 단일 파일에 쓰는 것보다 성능이 더 좋습니다.
 
 | 시나리오                                                     | 제안된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 실제 파티션을 사용하여 초대형 테이블에서 전체 로드          | **파티션 옵션**: 테이블의 물리적 파티션. <br><br/>실행 중에 Data Factory는 물리적 파티션을 자동으로 검색하여 파티션별로 데이터를 복사합니다. |
+| 실제 파티션을 사용하여 초대형 테이블에서 전체 로드          | **파티션 옵션**: 테이블의 물리적 파티션. <br><br/>실행하는 동안 서비스에서 실제 파티션을 자동으로 검색하여 데이터를 파티션별로 복사합니다. |
 | 데이터 분할을 위해 물리적 파티션을 사용하지 않지만 정수 열을 사용하여 대형 테이블에서 전체 로드합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 지정하지 않으면 기본 키 열이 사용됩니다. |
-| 사용자 지정 쿼리를 사용하여 물리적 파티션과 함께 대량의 데이터를 로드합니다. | **파티션 옵션**: 테이블의 물리적 파티션.<br>**쿼리**:`SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**파티션 이름**: 데이터를 복사할 파티션 이름을 지정합니다. 지정하지 않으면 Data Factory는 Oracle 데이터 세트에서 지정한 테이블의 물리적 파티션을 자동으로 검색합니다.<br><br>실행하는 동안 Data Factory는 `?AdfTabularPartitionName`을 실제 파티션 이름으로 바꾸고 Oracle로 보냅니다. |
-| 물리적 파티션이 없는 사용자 지정 쿼리를 사용하여 대량의 데이터를 로드하는 동시에 데이터 분할을 위한 정수 열을 사용합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 정수 데이터 형식의 열에 대해 분할할 수 있습니다.<br>**파티션 상한** 및 **파티션 하한**: 파티션 열에 대해 필터링하려는 하한과 상한 범위 사이에서만 데이터를 검색하도록 지정합니다.<br><br>실행하는 동안 Data Factory는 `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound` 및 `?AdfRangePartitionLowbound`를 각 파티션의 실제 열 이름과 값 범위로 바꾸고 Oracle로 보냅니다. <br>예를 들어 파티션 열 "ID"의 하한이 1로 설정되고 상한이 80으로 설정된 경우 병렬 복사를 4로 설정하면 Data Factory는 4개의 파티션으로 데이터를 검색합니다. 해당 ID는 [1, 20], [21, 40], [41, 60] 및 [61, 80] 사이에 각각 있습니다. |
+| 사용자 지정 쿼리를 사용하여 물리적 파티션과 함께 대량의 데이터를 로드합니다. | **파티션 옵션**: 테이블의 물리적 파티션.<br>**쿼리**:`SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**파티션 이름**: 데이터를 복사할 파티션 이름을 지정합니다. 지정하지 않으면 서비스는 Oracle 데이터 세트에서 지정한 테이블의 물리적 파티션을 자동으로 검색합니다.<br><br>실행하는 동안 서비스는 `?AdfTabularPartitionName`을 실제 파티션 이름으로 바꾸고 Oracle로 보냅니다. |
+| 물리적 파티션이 없는 사용자 지정 쿼리를 사용하여 대량의 데이터를 로드하는 동시에 데이터 분할을 위한 정수 열을 사용합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 정수 데이터 형식의 열에 대해 분할할 수 있습니다.<br>**파티션 상한** 및 **파티션 하한**: 파티션 열에 대해 필터링하려는 하한과 상한 범위 사이에서만 데이터를 검색하도록 지정합니다.<br><br>실행하는 동안 서비스에서 `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, `?AdfRangePartitionLowbound`를 각 파티션의 실제 열 이름과 값 범위로 바꾸고 Oracle에 보냅니다. <br>예를 들어 파티션 열 “ID”의 하한이 1로 설정되고 상한이 80으로 설정된 경우 병렬 복사를 4로 설정하면 서비스는 4개의 파티션으로 데이터를 검색합니다. 해당 ID는 [1, 20], [21, 40], [41, 60] 및 [61, 80] 사이에 각각 있습니다. |
 
 > [!TIP]
 > 분할되지 않은 테이블에서 데이터를 복사하는 경우 "동적 범위" 파티션 옵션을 사용하여 정수 열에 대해 분할할 수 있습니다. 원본 데이터에 이러한 유형의 열이 없는 경우 원본 쿼리에서 [ORA_HASH]( https://docs.oracle.com/database/121/SQLRF/functions136.htm) 함수를 활용하여 열을 생성하고 이를 파티션 열로 사용할 수 있습니다.
@@ -349,9 +352,9 @@ Data Factory Oracle 커넥터는 Oracle에서 병렬로 데이터를 복사하�
 
 ## <a name="data-type-mapping-for-oracle"></a>Oracle에 대한 데이터 형식 매핑
 
-Oracle 간 데이터를 복사하는 경우 다음 매핑이 적용됩니다. 복사 활동에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+Oracle에서 데이터를 복사할 때 서비스 내에서 다음과 같은 중간 데이터 형식 매핑이 사용됩니다. 복사 활동에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| Oracle 데이터 형식 | Data Factory 중간 데이터 형식 |
+| Oracle 데이터 형식 | 중간 데이터 형식 |
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(Oracle 10g 이상에서만 지원됨) |
@@ -384,4 +387,4 @@ Oracle 간 데이터를 복사하는 경우 다음 매핑이 적용됩니다. �
 속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

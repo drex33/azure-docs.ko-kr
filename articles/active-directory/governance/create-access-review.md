@@ -15,12 +15,12 @@ ms.date: 5/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaf1bd295528792ebc181027af7d5dfb21583bd4
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 3b4426f10ced8d8cda294c3a80923712f59e8466
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410210"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567761"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 애플리케이션의 액세스 검토 만들기
 
@@ -127,7 +127,7 @@ ms.locfileid: "111410210"
 15. **고급 설정** 섹션에서 다음을 선택할 수 있습니다.
     - **근거 필요** 를 **사용** 으로 설정하면 검토자가 승인 근거를 입력해야 합니다.
     - **메일 알림** 을 **사용** 으로 설정하면 Azure AD는 액세스 검토가 시작될 때 검토자에게 메일 알림을 보내고 검토가 완료될 때 관리자에게 메일 알림을 보냅니다.
-    - **미리 알림** 을 **사용** 으로 설정하면 Azure AD는 검토를 완료하지 않은 검토자에게 진행 중인 액세스 검토에 대한 미리 알림을 보냅니다. 해당 미리 알림은 검토 기간의 자체 중간까지 진행됩니다.
+    - **미리 알림** 을 **사용** 으로 설정하면 Azure AD는 모든 검토자에게 진행 중인 액세스 검토에 대한 미리 알림을 보냅니다. 검토자는 해당 시간에 검토를 완료했는지 여부와 관계없이 검토 기간의 중간에 미리 알림을 받게 됩니다.
     - 검토자에게 보낸 메일의 콘텐츠는 검토 이름, 리소스 이름, 기한 등 검토 세부 정보를 기준으로 자동 생성됩니다. 추가 지침이나 연락처 등의 추가 정보를 전달할 방법이 필요한 경우 **검토자 메일 추가 콘텐츠** 섹션에 해당 세부 정보를 지정할 수 있습니다. 입력한 정보는 할당된 검토자에게 보낸 초대 및 미리 알림 메일에 포함됩니다. 아래 이미지에서 강조 표시된 섹션은 해당 정보가 표시되는 위치를 보여줍니다.
 
       ![검토자에 대한 추가 콘텐츠](./media/create-access-review/additional-content-reviewer.png)
@@ -183,7 +183,7 @@ ms.locfileid: "111410210"
 ## <a name="create-reviews-via-apis"></a>API를 통해 검토 만들기
 
 API를 사용하여 액세스 검토를 만들 수도 있습니다. Azure Portal에서 그룹 및 애플리케이션 사용자의 액세스 검토를 관리하기 위해 하는 일은 Microsoft Graph API를 사용하여 할 수도 있습니다. 
-+ 자세한 내용은 [Azure AD 액세스 검토 API 참조](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true)를 참조하세요.
++ 자세한 내용은 [Azure AD 액세스 검토 API 참조](/graph/api/resources/accessreviewsv2-root)를 참조하세요.
 + 자습서는 [액세스 검토 API를 사용하여 Microsoft 365 그룹에 대한 게스트 액세스 검토](/graph/tutorial-accessreviews-m365group)를 참조하세요.
 + 코드 샘플은 [Microsoft Graph를 통해 Azure AD 액세스 검토를 검색하는 예제](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096)를 참조하세요.
 

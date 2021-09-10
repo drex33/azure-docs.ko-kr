@@ -2,14 +2,14 @@
 title: 보관 계층 지원
 description: Azure Backup용 보관 계층 지원에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ccb85c42685f962da3c9faf098d7847a93f4de74
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 228ab85a0cde5ed37156a5821ad3ac2acd6a7209
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566224"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260786"
 ---
 # <a name="archive-tier-support"></a>보관 계층 지원
 
@@ -17,7 +17,7 @@ ms.locfileid: "122566224"
 
 Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 보존 지점의 백업을 지원합니다.
 
-## <a name="scope"></a>범위
+## <a name="scope"></a>Scope
 
 지원되는 워크로드:
 
@@ -37,7 +37,7 @@ Azure Backup은 스냅숏과 표준 계층 외에도 보관 계층 내 장기 �
 - 기능은 PowerShell을 사용하여 제공됩니다.
 
 >[!Note]
->Azure VM의 SQL Server에 대한 보관 계층 지원은 이제 북유럽, 인도 중부, 동남아시아 및 오스트레일리아 동부에서 일반 공급됩니다. 지원되는 지역에 대한 자세한 목록은 [지원 매트릭스](#support-matrix)를 참조하세요.    <br><br>    Azure VM의 SQL Server에 대한 나머지 지역의 경우 보관 계층 지원은 제한된 공개 미리 보기로 제공됩니다. Azure Virtual Machines에 대한 보관 계층 지원도 제한된 공개 미리 보기로 제공됩니다. 제한된 공개 미리 보기에 등록하려면 이 [링크](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u)를 사용합니다.
+>Azure VM의 SQL Server에 대한 보관 계층 지원이 이제 여러 지역에서 일반 공급됩니다. 지원되는 지역에 대한 자세한 목록은 [지원 매트릭스](#support-matrix)를 참조하세요.    <br><br>    Azure VM의 SQL Server에 대한 나머지 지역의 경우 보관 계층 지원은 제한된 공개 미리 보기로 제공됩니다. Azure Virtual Machines에 대한 보관 계층 지원도 제한된 공개 미리 보기로 제공됩니다. 제한된 공개 미리 보기에 등록하려면 이 [링크](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u)를 사용합니다.
 
 ## <a name="get-started-with-powershell"></a>PowerShell 시작
 
@@ -211,8 +211,8 @@ Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 
 | 워크로드 | 미리 보기 | 일반 공급 |
 | --- | --- | --- |
-| Azure VM의 SQL Server | 미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 중서부, 미국 중북부, 브라질 남부, 캐나다 동부, 캐나다 중부, 서유럽, 영국 남부, 영국 서부, 동아시아, 일본 동부, 인도 남부 | 오스트레일리아 동부, 인도 중부, 북유럽, 동남아시아 |
-| Azure Virtual Machines | 미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 중서부, 미국 중북부, 브라질 남부, 캐나다 동부, 캐나다 중부, 서유럽, 영국 남부, 영국 서부, 동아시아, 일본 동부, 인도 남부, 동남아시아, 오스트레일리아 동부, 인도 중부, 북유럽 | None |
+| Azure VM의 SQL Server | 미국 동부, 미국 중남부, 미국 중북부, 서유럽 | 오스트레일리아 동부, 인도 중부, 북유럽, 동남 아시아, 동아시아, 오스트레일리아 남동부, 캐나다 중부, 브라질 남부, 캐나다 동부, 프랑스 중부, 프랑스 남부, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 인도 남부, 영국 서부, 영국 남부, 미국 중부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중서부 |
+| Azure Virtual Machines | 미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 중서부, 미국 중북부, 브라질 남부, 캐나다 동부, 캐나다 중부, 서유럽, 영국 남부, 영국 서부, 동아시아, 일본 동부, 인도 남부, 동남 아시아, 오스트레일리아 동부, 인도 중부, 북유럽, 오스트레일리아 남동부, 프랑스 중부, 프랑스 남부, 일본 서부, 한국 중부, 한국 남부 | 없음 |
 
 ## <a name="error-codes-and-troubleshooting-steps"></a>오류 코드 및 문제 해결 단계
 

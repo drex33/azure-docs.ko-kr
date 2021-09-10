@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 08/17/2021
 ms.author: victorh
-ms.openlocfilehash: 50a46556e960070eaedcd03d356eeaa72f872ac7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 59ab5f55ead5c8f17ed93f780c3683a5e5267195
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110058423"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634618"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door-service"></a>Azure Front Door Service에 대한 도메인의 지역 필터링이란?
 
@@ -21,6 +21,9 @@ ms.locfileid: "110058423"
 WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니다. 규칙은 일치 조건, 작업 및 우선 순위로 구성됩니다. 일치 조건에서는 일치 변수, 연산자, 일치 값을 정의합니다.  지역 필터링 규칙의 경우 일치 변수는 REMOTE_ADDR이고, 연산자는 GeoMatch이며, 값은 관심 있는 2문자 국가/지역 코드입니다. GeoMatch 조건과 REQUEST_URI 문자열 일치 조건을 결합하여 경로 기준 지역 필터링 규칙을 만들 수 있습니다.
 
 [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) 또는 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering)을 사용하여 Front Door에 대한 지역 필터링 정책을 구성할 수 있습니다.
+
+> [!IMPORTANT]
+> 지역 필터링을 사용할 때마다 국가 코드 **ZZ** 를 포함합니다. **ZZ** 국가 번호(또는 ‘알 수 없음’ 국가)는 데이터 세트의 국가에 아직 매핑되지 않은 IP 주소를 캡처합니다. 그러면 가양성이 방지됩니다.
 
 ## <a name="countryregion-code-reference"></a>국가/지역 코드 참조
 

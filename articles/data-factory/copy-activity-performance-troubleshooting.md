@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/07/2021
-ms.openlocfilehash: f424366a74ddb2955f1e0e339f82630da82b6953
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: cea4999752d416f36f435ba88403fd9dc735f689
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642456"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255811"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
@@ -71,7 +71,7 @@ ms.locfileid: "122642456"
 
     - [날짜/시간 분할 파일 경로 또는 이름에 따라 파일을 복사](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)할 수 있는지 여부를 확인합니다. 이러한 방식은 원본 나열 쪽에 부담을 주지 않습니다.
 
-    - 대신 데이터 저장소의 기본 필터, 특히 Amazon S3/Azure Blob/Azure File Storage의 경우 ‘**prefix**’, ADLS Gen1의 경우 ‘**listAfter/listBefore**’를 사용할 수 있는지 확인합니다. 이러한 필터는 데이터 저장소 서버 쪽 필터이며 훨씬 더 나은 성능을 제공합니다.
+    - 대신 데이터 저장소의 기본 필터, 특히 Amazon S3/Azure Blob Storage/Azure Files의 경우 ‘**prefix**’, ADLS Gen1의 경우 ‘**listAfter/listBefore**’를 사용할 수 있는지 확인합니다. 이러한 필터는 데이터 저장소 서버 쪽 필터이며 훨씬 더 나은 성능을 제공합니다.
 
     - 큰 데이터 집합 하나를 작은 데이터 집합 여러 개로 분할하고 이러한 복사 작업이 데이터의 각 부분을 동시에 실행하는 것을 고려하세요. Lookup/GetMetadata + ForEach + Copy를 사용하여 이 작업을 수행할 수 있습니다. 일반적인 예는 [여러 컨테이너에서 파일 복사](solution-template-copy-files-multiple-containers.md) 또는 [Amazon S3에서 ADLS Gen2로 데이터 마이그레이션](solution-template-migration-s3-azure.md) 솔루션 템플릿을 참조하세요.
 
@@ -125,7 +125,7 @@ ms.locfileid: "122642456"
 
     - [날짜/시간 분할 파일 경로 또는 이름에 따라 파일을 복사](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)할 수 있는지 여부를 확인합니다. 이러한 방식은 원본 나열 쪽에 부담을 주지 않습니다.
 
-    - 대신 데이터 저장소의 기본 필터, 특히 Amazon S3/Azure Blob/Azure File Storage의 경우 ‘**prefix**’, ADLS Gen1의 경우 ‘**listAfter/listBefore**’를 사용할 수 있는지 확인합니다. 이러한 필터는 데이터 저장소 서버 쪽 필터이며 훨씬 더 나은 성능을 제공합니다.
+    - 대신 데이터 저장소의 기본 필터, 특히 Amazon S3/Azure Blob Storage/Azure Files의 경우 ‘**prefix**’, ADLS Gen1의 경우 ‘**listAfter/listBefore**’를 사용할 수 있는지 확인합니다. 이러한 필터는 데이터 저장소 서버 쪽 필터이며 훨씬 더 나은 성능을 제공합니다.
 
     - 큰 데이터 집합 하나를 작은 데이터 집합 여러 개로 분할하고 이러한 복사 작업이 데이터의 각 부분을 동시에 실행하는 것을 고려하세요. Lookup/GetMetadata + ForEach + Copy를 사용하여 이 작업을 수행할 수 있습니다. 일반적인 예는 [여러 컨테이너에서 파일 복사](solution-template-copy-files-multiple-containers.md) 또는 [Amazon S3에서 ADLS Gen2로 데이터 마이그레이션](solution-template-migration-s3-azure.md) 솔루션 템플릿을 참조하세요.
 

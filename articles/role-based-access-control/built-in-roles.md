@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 05/20/2021
+ms.date: 08/13/2021
 ms.custom: generated
-ms.openlocfilehash: 989724452f57b5b44954f739eae6bff1da61263f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 70df27cdec96d6338cbbd13b517a6261d328ac5d
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470133"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122633977"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
@@ -27,7 +27,7 @@ ms.locfileid: "110470133"
 ## <a name="all"></a>모두
 
 > [!div class="mx-tableFixed"]
-> | 기본 제공 역할 | Description | ID |
+> | 기본 제공 역할 | 설명 | ID |
 > | --- | --- | --- |
 > | **일반** |  |  |
 > | [기여자](#contributor) | 모든 리소스를 관리할 수 있는 모든 권한을 부여하지만, Azure RBAC에서 역할 할당, Azure Blueprints에서 할당 관리 또는 이미지 갤러리 공유를 허용하지 않습니다. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -74,21 +74,25 @@ ms.locfileid: "110470133"
 > | [Storage 큐 데이터 메시지 처리자](#storage-queue-data-message-processor) | Azure Storage 큐의 메시지를 선택, 검색 및 삭제할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | [Storage 큐 데이터 메시지 보내는 사람](#storage-queue-data-message-sender) | Azure Storage 큐에 메시지를 추가할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | [Storage 큐 데이터 읽기 권한자](#storage-queue-data-reader) | Azure Storage 큐 및 큐 메시지를 읽고 나열할 수 있습니다. 특정 데이터 연산에 어떤 작업이 필요한지 알아보려면 [BLOB 및 큐 데이터 연산을 호출하기 위한 권한](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요. | 19e7f393-937e-4f77-808e-94535e297925 |
+> | [스토리지 테이블 데이터 기여자](#storage-table-data-contributor) | Azure Storage 테이블 및 엔터티에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. | 0a9a7e1f-b9d0-4cc4-a60d-0319b160aaa3 |
+> | [스토리지 테이블 데이터 읽기 권한자](#storage-table-data-reader) | Azure Storage 테이블 및 엔터티에 대한 읽기 권한을 허용합니다. | 76199698-9eea-4c19-bc75-cec21354c6b6 |
 > | **Web** |  |  |
 > | [Azure Maps 데이터 기여자](#azure-maps-data-contributor) | Azure Maps 계정에서 지도 관련 데이터를 읽고, 쓰고, 삭제할 수 있는 액세스 권한을 부여합니다. | 8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204 |
 > | [Azure Maps 데이터 읽기 권한자](#azure-maps-data-reader) | Azure 맵 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Azure Spring Cloud 데이터 판독기](#azure-spring-cloud-data-reader) | Azure Spring Cloud 데이터에 대한 읽기 권한 허용 | b5537268-8956-4941-a8f0-646150406f0c |
 > | [Media Services 계정 관리자](#media-services-account-administrator) | Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | 054126f8-9a2b-4f1c-a9ad-eca461f08466 |
-> | [Media Services 라이브 이벤트 관리자](#media-services-live-events-administrator) | 라이브 이벤트, 자산, 자산 필터, 스트리밍 로케이터를 만들고, 읽고, 수정합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | 532bc159-b25e-42c0-969e-a1d439f60d77 |
+> | [Media Services 라이브 이벤트 관리자](#media-services-live-events-administrator) | 라이브 이벤트, 자산, 자산 필터, 스트리밍 로케이터를 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | 532bc159-b25e-42c0-969e-a1d439f60d77 |
 > | [Media Services 미디어 운영자](#media-services-media-operator) | 자산, 자산 필터, 스트리밍 로케이터, 작업을 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | e4395492-1534-4db2-bedf-88c14621589c |
 > | [Media Services 정책 관리자](#media-services-policy-administrator) | 계정 필터, 스트리밍 정책, 콘텐츠 키 정책 및 변환을 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. 작업, 자산, 스트리밍 리소스를 만들 수 없습니다. | c4bba371-dacd-4a26-b320-7250bca963ae |
 > | [Media Services 스트리밍 엔드포인트 관리자](#media-services-streaming-endpoints-administrator) | 스트리밍 엔드포인트를 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | 99dba123-b5fe-44d5-874c-ced7199a5804 |
+> | [검색 인덱스 데이터 기여자](#search-index-data-contributor) | Azure Cognitive Search 인덱스 데이터에 대한 모든 액세스 권한을 부여합니다. | 8ebe5a00-799e-43f5-93ac-243d3dce84a7 |
+> | [검색 인덱스 데이터 읽기 권한자](#search-index-data-reader) | Azure Cognitive Search 인덱스 데이터에 대한 읽기 권한을 부여합니다. | 1407120a-92aa-4202-b7e9-c0e197c71c8f |
 > | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [SignalR AccessKey 읽기 권한자](#signalr-accesskey-reader) | SignalR 서비스 액세스 키 읽기 | 04165923-9d83-45d5-8227-78b77b0a687e |
 > | [SignalR 앱 서버(미리 보기)](#signalr-app-server-preview) | 앱 서버에서 AAD 인증 옵션을 사용하여 SignalR Service에 액세스할 수 있습니다. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
 > | [SignalR 기여자](#signalr-contributor) | SignalR Service 리소스 만들기, 읽기, 업데이트, 삭제 | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
 > | [SignalR 서버리스 기여자(미리 보기)](#signalr-serverless-contributor-preview) | 앱에서 AAD 인증 옵션을 사용하여 서버리스 모드로 서비스에 액세스할 수 있습니다. | fd53cd77-2268-407a-8f46-7e7863d0f521 |
-> | [SignalR Service 소유자(미리 보기)](#signalr-service-owner-preview) | Azure SignalR Service REST API에 대한 모든 권한 | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
+> | [SignalR Service 소유자](#signalr-service-owner) | Azure SignalR Service REST API에 대한 모든 권한 | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
 > | [SignalR Service 읽기 권한자(미리 보기)](#signalr-service-reader-preview) | Azure SignalR Service REST API에 대한 읽기 전용 권한 | ddde6b66-c0df-4114-a159-3618637b3035 |
 > | [웹 계획 참가자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [웹 사이트 기여자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. | de139f84-1756-47ae-9be6-808fbbe84772 |
@@ -125,7 +129,7 @@ ms.locfileid: "110470133"
 > | [데이터 제거자](#data-purger) | Log Analytics 작업 영역에서 프라이빗 데이터를 삭제합니다. | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | [HDInsight 클러스터 운영자](#hdinsight-cluster-operator) | HDInsight 클러스터 구성을 읽고 수정할 수 있습니다. | 61ed4efc-fab3-44fd-b111-e24485cc132a |
 > | [HDInsight 도메인 서비스 기여자](#hdinsight-domain-services-contributor) | HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정하고, 삭제할 수 있음 | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
-> | [Log Analytics 기여자](#log-analytics-contributor) | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
+> | [Log Analytics 기여자](#log-analytics-contributor) | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | [Log Analytics 독자](#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | [Purview 데이터 큐레이터](#purview-data-curator) | Microsoft.Purview 데이터 큐레이터는 카탈로그 데이터 개체를 만들고 읽고 수정하고 삭제할 수 있으며 개체 간의 관계를 설정할 수 있습니다. 이 역할은 미리 보기 상태이며 변경될 수 있습니다. | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
 > | [Purview 데이터 읽기 권한자](#purview-data-reader) | Microsoft.Purview 데이터 읽기 권한자는 카탈로그 데이터 개체를 읽을 수 있습니다. 이 역할은 미리 보기 상태이며 변경될 수 있습니다. | ff100721-1b9d-43d8-af52-42b69c1272db |
@@ -135,6 +139,7 @@ ms.locfileid: "110470133"
 > | **블록체인** |  |  |
 > | [블록체인 멤버 노드 액세스(미리 보기)](#blockchain-member-node-access-preview) | 블록체인 멤버 노드에 액세스할 수 있습니다. | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **AI + 기계 학습** |  |  |
+> | [AzureML 데이터 과학자](#azureml-data-scientist) | 컴퓨팅 리소스를 만들거나 삭제하고 작업 영역 자체를 수정하는 것을 제외하고 Azure Machine Learning 작업 영역에서 모든 작업을 수행할 수 있습니다. | f6c7c914-8db3-469d-8ca1-694a8f32e121 |
 > | [Cognitive Services 기여자](#cognitive-services-contributor) | Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | [Cognitive Services Custom Vision 기여자](#cognitive-services-custom-vision-contributor) | 프로젝트를 보거나, 만들거나, 편집하거나, 삭제할 수 있는 기능을 포함하는 프로젝트에 대한 모든 권한입니다. | c1ff6cc2-c111-46fe-8896-e0ef812ad9f3 |
 > | [Cognitive Services Custom Vision 배포](#cognitive-services-custom-vision-deployment) | 모델을 게시하거나, 게시 취소하거나, 내보냅니다. 배포에서 프로젝트를 볼 수는 있지만 업데이트할 수는 없습니다. | 5c4089e1-6d96-4d2f-b296-c1bc7137275f |
@@ -148,16 +153,16 @@ ms.locfileid: "110470133"
 > | [Cognitive Services QnA Maker 읽기 권한자](#cognitive-services-qna-maker-reader) | KB만 읽고 테스트할 수 있습니다. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Cognitive Services 사용자](#cognitive-services-user) | Cognitive Services의 키를 읽고 나열할 수 있습니다. | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **사물 인터넷** |  |  |
-> | [IoT Hub 데이터 기여자](#iot-hub-data-contributor) | IoT Hub 데이터 평면 작업에 대한 모든 권한을 허용합니다. | 4fc6c259-987e-4a07-842e-c321cc9d413f |
-> | [IoT Hub 데이터 판독기](#iot-hub-data-reader) | IoT Hub 데이터 평면 속성에 대한 전체 읽기 권한을 허용합니다 | b447c946-2db7-41ec-983d-d8bf3b1c77e3 |
-> | [IoT Hub 레지스트리 기여자](#iot-hub-registry-contributor) | IoT Hub 디바이스 레지스트리에 대한 모든 권한을 허용합니다. | 4ea46cd5-c1b2-4a8e-910b-273211f9ce47 |
-> | [IoT Hub 쌍 기여자](#iot-hub-twin-contributor) | 모든 IoT Hub 디바이스 및 모듈 쌍에 대한 읽기 및 쓰기 권한을 허용합니다. | 494bdba2-168f-4f31-a0a1-191d2f7c028c |
 > | [디바이스 업데이트 관리자](#device-update-administrator) | 관리 및 콘텐츠 작업에 대한 모든 권한을 제공합니다. | 02ca0879-e8e4-47a5-a61e-5c618b76e64a |
 > | [디바이스 업데이트 콘텐츠 관리자](#device-update-content-administrator) | 콘텐츠 작업에 대한 모든 권한을 제공합니다. | 0378884a-3af5-44ab-8323-f5b22f9f3c98 |
 > | [디바이스 업데이트 콘텐츠 읽기 권한자](#device-update-content-reader) | 콘텐츠 작업에 대한 읽기 권한을 제공하지만, 변경은 허용하지 않습니다. | d1ee9a80-8b14-47f0-bdc2-f4a351625a7b |
 > | [디바이스 업데이트 배포 관리자](#device-update-deployments-administrator) | 관리 작업에 대한 모든 권한을 제공합니다. | e4237640-0e3d-4a46-8fda-70bc94856432 |
 > | [디바이스 업데이트 배포 읽기 권한자](#device-update-deployments-reader) | 관리 작업에 대한 읽기 권한을 제공하지만, 변경은 허용하지 않습니다. | 49e2f5d2-7741-4835-8efa-19e1fe35e47f |
 > | [디바이스 업데이트 읽기 권한자](#device-update-reader) | 관리 및 콘텐츠 작업에 대한 읽기 권한을 제공하지만, 변경은 허용하지 않습니다. | e9dba6fb-3d52-4cf0-bce3-f06ce71b9e0f |
+> | [IoT Hub 데이터 기여자](#iot-hub-data-contributor) | IoT Hub 데이터 평면 작업에 대한 모든 권한을 허용합니다. | 4fc6c259-987e-4a07-842e-c321cc9d413f |
+> | [IoT Hub 데이터 판독기](#iot-hub-data-reader) | IoT Hub 데이터 평면 속성에 대한 전체 읽기 권한을 허용합니다 | b447c946-2db7-41ec-983d-d8bf3b1c77e3 |
+> | [IoT Hub 레지스트리 기여자](#iot-hub-registry-contributor) | IoT Hub 디바이스 레지스트리에 대한 모든 권한을 허용합니다. | 4ea46cd5-c1b2-4a8e-910b-273211f9ce47 |
+> | [IoT Hub 쌍 기여자](#iot-hub-twin-contributor) | 모든 IoT Hub 디바이스 및 모듈 쌍에 대한 읽기 및 쓰기 권한을 허용합니다. | 494bdba2-168f-4f31-a0a1-191d2f7c028c |
 > | **혼합 현실** |  |  |
 > | [Remote Rendering 관리자](#remote-rendering-administrator) | 사용자에게 Azure Remote Rendering에 대한 변환, 세션 관리, 렌더링, 진단 기능을 제공합니다. | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
 > | [Remote Rendering 클라이언트](#remote-rendering-client) | 사용자에게 Azure Remote Rendering에 대한 세션 관리, 렌더링, 진단 기능을 제공합니다. | d39065c4-c120-43c9-ab0a-63eed9795f0a |
@@ -170,11 +175,15 @@ ms.locfileid: "110470133"
 > | [Azure API Management 읽기 권한자 역할](#api-management-service-reader-role) | 서비스 및 API에 대한 읽기 전용 액세스 | 71522526-b88f-4d52-b57f-d31fc3546d0d |
 > | [App Configuration 데이터 소유자](#app-configuration-data-owner) | App Configuration 데이터에 대한 모든 액세스 권한을 허용합니다. | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
 > | [App Configuration 데이터 읽기 권한자](#app-configuration-data-reader) | App Configuration 데이터에 대한 읽기 액세스 권한을 허용합니다. | 516239f1-63e1-4d78-a4de-a74fb236a071 |
+> | [Azure Relay 수신자](#azure-relay-listener) | Azure Relay 리소스에 대한 수신 대기 액세스 권한을 허용합니다. | 26e0b698-aa6d-4085-9386-aadae190014d |
+> | [Azure Relay 소유자](#azure-relay-owner) | Azure Relay 리소스에 대한 전체 액세스 권한을 허용합니다. | 2787bf04-f1f5-4bfe-8383-c8a24483ee38 |
+> | [Azure Relay 발신자](#azure-relay-sender) | Azure Relay 리소스에 대한 보내기 액세스 권한을 허용합니다. | 26baccc8-eea7-41f1-98f4-1762cc7f685d |
 > | [Azure Service Bus 데이터 소유자](#azure-service-bus-data-owner) | Azure Service Bus 리소스에 대한 전체 액세스를 허용합니다. | 090c5cfd-751d-490a-894a-3ce6f1109419 |
 > | [Azure Service Bus 데이터 받는 사람](#azure-service-bus-data-receiver) | Azure Service Bus 리소스에 대한 받기 액세스 권한을 허용합니다. | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
 > | [Azure Service Bus 데이터 보내는 사람](#azure-service-bus-data-sender) | Azure Service Bus 리소스에 대한 보내기 액세스 권한을 허용합니다. | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
 > | [Azure Stack 등록 소유자](#azure-stack-registration-owner) | Azure Stack 등록을 관리할 수 있습니다. | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | [EventGrid 기여자](#eventgrid-contributor) | EventGrid 작업을 관리할 수 있습니다. | 1e241071-0855-49ea-94dc-649edcd759de |
+> | [EventGrid 데이터 발신자](#eventgrid-data-sender) | Event Grid 이벤트에 대한 보내기 액세스 권한을 허용합니다. | d5a91429-5739-47e2-a06b-3470a27159e7 |
 > | [EventGrid EventSubscription 기여자](#eventgrid-eventsubscription-contributor) | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | [EventGrid EventSubscription 읽기 권한자](#eventgrid-eventsubscription-reader) | EventGrid 이벤트 구독을 읽을 수 있습니다. | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | [FHIR 데이터 기여자](#fhir-data-contributor) | 역할을 통해 사용자 또는 보안 주체에게 FHIR 데이터에 대한 모든 권한을 제공할 수 있습니다. | 5a1fc7df-4bf1-4951-a576-89034ee01acd |
@@ -239,6 +248,7 @@ ms.locfileid: "110470133"
 > | [Cost Management 읽기 권한자](#cost-management-reader) | 비용 데이터 및 구성(예: 예산, 내보내기)을 확인할 수 있음 | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | [계층 구조 설정 관리자](#hierarchy-settings-administrator) | 사용자가 계층 구조 설정을 편집하고 삭제할 수 있습니다. | 350f8d15-c687-4448-8ae1-157740a3936d |
 > | [Kubernetes 클러스터 - Azure Arc 온보딩](#kubernetes-cluster---azure-arc-onboarding) | connectedClusters 리소스를 만들기 위해 모든 사용자/서비스에 권한을 부여하는 역할 정의 | 34e09817-6cbe-4d01-b1a2-e0eac5743d41 |
+> | [Kubernetes 확장 기여자](#kubernetes-extension-contributor) | Kubernetes 확장을 생성, 업데이트, 가져오기, 나열 및 삭제하고 확장 비동기 작업을 가져올 수 있습니다. | 85cb6faf-e071-4c9b-8136-154b5a04f717 |
 > | [관리형 애플리케이션 기여자 역할](#managed-application-contributor-role) | 관리형 애플리케이션 리소스를 만들 수 있습니다. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [관리되는 애플리케이션 운영자 역할](#managed-application-operator-role) | 관리되는 애플리케이션 리소스에서 작업을 읽고 수행할 수 있습니다. | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Managed Applications 읽기 권한자](#managed-applications-reader) | 관리 앱 및 요청 JIT 액세스에서 리소스를 읽을 수 있습니다. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
@@ -538,11 +548,14 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/*/read |  |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/*/read |  |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/login/action | 가상 머신에 일반 사용자로 로그인합니다. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/loginAsAdmin/action | 가상 머신에 Windows 관리자 또는 Linux 루트 사용자 권한으로 로그인합니다. |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/login/action | 일반 사용자로 Azure Arc 컴퓨터에 로그인합니다. |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/loginAsAdmin/action | Windows 관리자 또는 Linux 루트 사용자 권한으로 Azure Arc 컴퓨터에 로그인합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -561,12 +574,15 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
         "Microsoft.Network/virtualNetworks/read",
         "Microsoft.Network/loadBalancers/read",
         "Microsoft.Network/networkInterfaces/read",
-        "Microsoft.Compute/virtualMachines/*/read"
+        "Microsoft.Compute/virtualMachines/*/read",
+        "Microsoft.HybridCompute/machines/*/read"
       ],
       "notActions": [],
       "dataActions": [
         "Microsoft.Compute/virtualMachines/login/action",
-        "Microsoft.Compute/virtualMachines/loginAsAdmin/action"
+        "Microsoft.Compute/virtualMachines/loginAsAdmin/action",
+        "Microsoft.HybridCompute/machines/login/action",
+        "Microsoft.HybridCompute/machines/loginAsAdmin/action"
       ],
       "notDataActions": []
     }
@@ -708,10 +724,12 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/*/read |  |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/*/read |  |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/login/action | 가상 머신에 일반 사용자로 로그인합니다. |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/login/action | 일반 사용자로 Azure Arc 컴퓨터에 로그인합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -730,11 +748,13 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
         "Microsoft.Network/virtualNetworks/read",
         "Microsoft.Network/loadBalancers/read",
         "Microsoft.Network/networkInterfaces/read",
-        "Microsoft.Compute/virtualMachines/*/read"
+        "Microsoft.Compute/virtualMachines/*/read",
+        "Microsoft.HybridCompute/machines/*/read"
       ],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Compute/virtualMachines/login/action"
+        "Microsoft.Compute/virtualMachines/login/action",
+        "Microsoft.HybridCompute/machines/login/action"
       ],
       "notDataActions": []
     }
@@ -1420,6 +1440,31 @@ Avere vFXT 클러스터에서 클러스터를 관리하는 데 사용됩니다. 
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/operationStatus/read | 지정된 작업의 작업 상태를 가져옵니다. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/getBackupStatus/action | Recovery Services 자격 증명 모음의 백업 상태를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/write | 백업 인스턴스를 만듭니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/delete | 백업 인스턴스를 삭제합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | 모든 백업 인스턴스를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | 모든 백업 인스턴스를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | 백업 인스턴스에서 백업을 수행합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | 백업 인스턴스의 복원에 대한 유효성을 검사합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | 백업 인스턴스에서 복원을 트리거합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/write | 백업 정책을 만듭니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/delete | 백업 정책을 삭제합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/read | 모든 백업 정책을 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/read | 모든 백업 정책을 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | 복구 지점을 모두 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | 복구 지점을 모두 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | 복원 가능한 시간 범위를 찾습니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/write | BackupVault 작업에서는 '백업 자격 증명 모음' 형식의 Azure 리소스를 만듭니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | 구독의 백업 자격 증명 모음 목록을 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/operationResults/read | 백업 자격 증명 모음에 대한 패치 작업의 작업 결과를 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/checkNameAvailability/action | 요청한 BackupVault 이름을 사용할 수 있는지 확인합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | 구독의 백업 자격 증명 모음 목록을 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | 구독의 백업 자격 증명 모음 목록을 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | 백업 자격 증명 모음의 백업 작업 상태를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | 백업 자격 증명 모음의 백업 작업 결과를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | 백업 인스턴스의 백업에 대한 유효성을 검사합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read | 작업에서 리소스 공급자에 대한 작업 목록을 반환합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -1478,7 +1523,32 @@ Avere vFXT 클러스터에서 클러스터를 관리하는 데 사용됩니다. 
         "Microsoft.RecoveryServices/operations/read",
         "Microsoft.RecoveryServices/locations/operationStatus/read",
         "Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read",
-        "Microsoft.Support/*"
+        "Microsoft.Support/*",
+        "Microsoft.DataProtection/locations/getBackupStatus/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/write",
+        "Microsoft.DataProtection/backupVaults/backupInstances/delete",
+        "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/backup/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/restore/action",
+        "Microsoft.DataProtection/backupVaults/backupPolicies/write",
+        "Microsoft.DataProtection/backupVaults/backupPolicies/delete",
+        "Microsoft.DataProtection/backupVaults/backupPolicies/read",
+        "Microsoft.DataProtection/backupVaults/backupPolicies/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/findRestorableTimeRanges/action",
+        "Microsoft.DataProtection/backupVaults/write",
+        "Microsoft.DataProtection/backupVaults/read",
+        "Microsoft.DataProtection/backupVaults/operationResults/read",
+        "Microsoft.DataProtection/locations/checkNameAvailability/action",
+        "Microsoft.DataProtection/backupVaults/read",
+        "Microsoft.DataProtection/backupVaults/read",
+        "Microsoft.DataProtection/locations/operationStatus/read",
+        "Microsoft.DataProtection/locations/operationResults/read",
+        "Microsoft.DataProtection/backupVaults/validateForBackup/action",
+        "Microsoft.DataProtection/providers/operations/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1561,6 +1631,20 @@ Avere vFXT 클러스터에서 클러스터를 관리하는 데 사용됩니다. 
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/operationStatus/read | 지정된 작업의 작업 상태를 가져옵니다. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | 모든 백업 인스턴스를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | 모든 백업 인스턴스를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/read | 모든 백업 정책을 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/read | 모든 백업 정책을 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | 복구 지점을 모두 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | 복구 지점을 모두 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | 복원 가능한 시간 범위를 찾습니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | 구독의 백업 자격 증명 모음 목록을 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/operationResults/read | 백업 자격 증명 모음에 대한 패치 작업의 작업 결과를 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | 구독의 백업 자격 증명 모음 목록을 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | 구독의 백업 자격 증명 모음 목록을 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | 백업 자격 증명 모음의 백업 작업 상태를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | 백업 자격 증명 모음의 백업 작업 결과를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read | 작업에서 리소스 공급자에 대한 작업 목록을 반환합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -1641,7 +1725,21 @@ Avere vFXT 클러스터에서 클러스터를 관리하는 데 사용됩니다. 
         "Microsoft.RecoveryServices/operations/read",
         "Microsoft.RecoveryServices/locations/operationStatus/read",
         "Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read",
-        "Microsoft.Support/*"
+        "Microsoft.Support/*",
+        "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/backupPolicies/read",
+        "Microsoft.DataProtection/backupVaults/backupPolicies/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/findRestorableTimeRanges/action",
+        "Microsoft.DataProtection/backupVaults/read",
+        "Microsoft.DataProtection/backupVaults/operationResults/read",
+        "Microsoft.DataProtection/backupVaults/read",
+        "Microsoft.DataProtection/backupVaults/read",
+        "Microsoft.DataProtection/locations/operationStatus/read",
+        "Microsoft.DataProtection/locations/operationResults/read",
+        "Microsoft.DataProtection/providers/operations/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1699,6 +1797,30 @@ Avere vFXT 클러스터에서 클러스터를 관리하는 데 사용됩니다. 
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/usages/read | Recovery Services 자격 증명 모음에 대한 사용 세부 정보를 반환합니다. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/backupValidateFeatures/action | 기능의 유효성을 검사합니다. |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/backupCrrJobs/action | Recovery Services 자격 증명 모음에 대한 보조 지역의 지역 간 복원 작업을 나열합니다. |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/backupCrrJob/action | Recovery Services 자격 증명 모음에 대한 보조 지역의 지역 간 복원 작업 세부 정보를 가져옵니다. |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/backupCrrOperationResults/read | Recovery Services 자격 증명 모음의 CRR 작업 결과를 반환합니다. |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/backupCrrOperationsStatus/read | Recovery Services 자격 증명 모음의 CRR 작업 상태를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/getBackupStatus/action | Recovery Services 자격 증명 모음의 백업 상태를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/write | 백업 인스턴스를 만듭니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | 모든 백업 인스턴스를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/read | 모든 백업 인스턴스를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | 백업 인스턴스에서 백업을 수행합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | 백업 인스턴스의 복원에 대한 유효성을 검사합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | 백업 인스턴스에서 복원을 트리거합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/read | 모든 백업 정책을 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/read | 모든 백업 정책을 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | 복구 지점을 모두 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | 복구 지점을 모두 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | 복원 가능한 시간 범위를 찾습니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | 구독의 백업 자격 증명 모음 목록을 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/operationResults/read | 백업 자격 증명 모음에 대한 패치 작업의 작업 결과를 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | 구독의 백업 자격 증명 모음 목록을 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | 구독의 백업 자격 증명 모음 목록을 가져옵니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | 백업 자격 증명 모음의 백업 작업 상태를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | 백업 자격 증명 모음의 백업 작업 결과를 반환합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | 백업 인스턴스의 백업에 대한 유효성을 검사합니다. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read | 작업에서 리소스 공급자에 대한 작업 목록을 반환합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -1754,7 +1876,31 @@ Avere vFXT 클러스터에서 클러스터를 관리하는 데 사용됩니다. 
         "Microsoft.RecoveryServices/locations/operationStatus/read",
         "Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read",
         "Microsoft.RecoveryServices/Vaults/usages/read",
-        "Microsoft.RecoveryServices/locations/backupValidateFeatures/action"
+        "Microsoft.RecoveryServices/locations/backupValidateFeatures/action",
+        "Microsoft.RecoveryServices/locations/backupCrrJobs/action",
+        "Microsoft.RecoveryServices/locations/backupCrrJob/action",
+        "Microsoft.RecoveryServices/locations/backupCrrOperationResults/read",
+        "Microsoft.RecoveryServices/locations/backupCrrOperationsStatus/read",
+        "Microsoft.DataProtection/locations/getBackupStatus/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/write",
+        "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/backup/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/restore/action",
+        "Microsoft.DataProtection/backupVaults/backupPolicies/read",
+        "Microsoft.DataProtection/backupVaults/backupPolicies/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/findRestorableTimeRanges/action",
+        "Microsoft.DataProtection/backupVaults/read",
+        "Microsoft.DataProtection/backupVaults/operationResults/read",
+        "Microsoft.DataProtection/backupVaults/read",
+        "Microsoft.DataProtection/backupVaults/read",
+        "Microsoft.DataProtection/locations/operationStatus/read",
+        "Microsoft.DataProtection/locations/operationResults/read",
+        "Microsoft.DataProtection/backupVaults/validateForBackup/action",
+        "Microsoft.DataProtection/providers/operations/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2664,6 +2810,100 @@ Azure Storage 큐 및 큐 메시지를 읽고 나열할 수 있습니다. 특정
 }
 ```
 
+### <a name="storage-table-data-contributor"></a>스토리지 테이블 데이터 기여자
+
+Azure Storage 테이블 및 엔터티에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/read | 쿼리 테이블 |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/write | 테이블 만들기 |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/delete | 테이블을 삭제합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/entities/read | 테이블 엔터티를 쿼리합니다. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/entities/write | 테이블 엔터티 삽입, 병합하거나 바꿉니다. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/entities/delete | 테이블 엔터티 삭제 |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/entities/add/action | 테이블 엔터티를 삽입합니다. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/entities/update/action | 테이블 엔터티를 병합 또는 업데이트합니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read, write and delete access to Azure Storage tables and entities",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0a9a7e1f-b9d0-4cc4-a60d-0319b160aaa3",
+  "name": "0a9a7e1f-b9d0-4cc4-a60d-0319b160aaa3",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/tableServices/tables/read",
+        "Microsoft.Storage/storageAccounts/tableServices/tables/write",
+        "Microsoft.Storage/storageAccounts/tableServices/tables/delete"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/tableServices/tables/entities/read",
+        "Microsoft.Storage/storageAccounts/tableServices/tables/entities/write",
+        "Microsoft.Storage/storageAccounts/tableServices/tables/entities/delete",
+        "Microsoft.Storage/storageAccounts/tableServices/tables/entities/add/action",
+        "Microsoft.Storage/storageAccounts/tableServices/tables/entities/update/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Table Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="storage-table-data-reader"></a>스토리지 테이블 데이터 읽기 권한자
+
+Azure Storage 테이블 및 엔터티에 대한 읽기 권한을 허용합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/read | 쿼리 테이블 |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/tableServices/tables/entities/read | 테이블 엔터티를 쿼리합니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read access to Azure Storage tables and entities",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/76199698-9eea-4c19-bc75-cec21354c6b6",
+  "name": "76199698-9eea-4c19-bc75-cec21354c6b6",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/tableServices/tables/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/tableServices/tables/entities/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Table Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## <a name="web"></a>웹
 
 
@@ -2821,7 +3061,7 @@ Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. �
   "assignableScopes": [
     "/"
   ],
-  "description": "Create, read, modify and delete Media Services accounts; read-only access to other Media Services resources.",
+  "description": "Create, read, modify, and delete Media Services accounts; read-only access to other Media Services resources.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/054126f8-9a2b-4f1c-a9ad-eca461f08466",
   "name": "054126f8-9a2b-4f1c-a9ad-eca461f08466",
   "permissions": [
@@ -2855,7 +3095,7 @@ Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. �
 
 ### <a name="media-services-live-events-administrator"></a>Media Services 라이브 이벤트 관리자
 
-라이브 이벤트, 자산, 자산 필터, 스트리밍 로케이터를 만들고, 읽고, 수정합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다.
+라이브 이벤트, 자산, 자산 필터, 스트리밍 로케이터를 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다.
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -2885,7 +3125,7 @@ Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. �
   "assignableScopes": [
     "/"
   ],
-  "description": "Create, read and modify Live Events, Assets, Asset Filters and Streaming Locators; read-only access to other Media Services resources.",
+  "description": "Create, read, modify, and delete Live Events, Assets, Asset Filters, and Streaming Locators; read-only access to other Media Services resources.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/532bc159-b25e-42c0-969e-a1d439f60d77",
   "name": "532bc159-b25e-42c0-969e-a1d439f60d77",
   "permissions": [
@@ -2950,7 +3190,7 @@ Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. �
   "assignableScopes": [
     "/"
   ],
-  "description": "Create, read, modify, and delete of Assets, Asset Filters, Streaming Locators and Jobs; read-only access to other Media Services resources.",
+  "description": "Create, read, modify, and delete Assets, Asset Filters, Streaming Locators, and Jobs; read-only access to other Media Services resources.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e4395492-1534-4db2-bedf-88c14621589c",
   "name": "e4395492-1534-4db2-bedf-88c14621589c",
   "permissions": [
@@ -3016,7 +3256,7 @@ Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. �
   "assignableScopes": [
     "/"
   ],
-  "description": "Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies and Transforms; read-only access to other Media Services resources. Cannot create Jobs, Assets or Streaming resources.",
+  "description": "Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies, and Transforms; read-only access to other Media Services resources. Cannot create Jobs, Assets or Streaming resources.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/c4bba371-dacd-4a26-b320-7250bca963ae",
   "name": "c4bba371-dacd-4a26-b320-7250bca963ae",
   "permissions": [
@@ -3080,7 +3320,7 @@ Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. �
   "assignableScopes": [
     "/"
   ],
-  "description": "Create, read, modify and delete Streaming Endpoints; read-only access to other Media Services resources.",
+  "description": "Create, read, modify, and delete Streaming Endpoints; read-only access to other Media Services resources.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/99dba123-b5fe-44d5-874c-ced7199a5804",
   "name": "99dba123-b5fe-44d5-874c-ced7199a5804",
   "permissions": [
@@ -3104,6 +3344,84 @@ Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. �
     }
   ],
   "roleName": "Media Services Streaming Endpoints Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="search-index-data-contributor"></a>검색 인덱스 데이터 기여자
+
+Azure Cognitive Search 인덱스 데이터에 대한 모든 액세스 권한을 부여합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Search](resource-provider-operations.md#microsoftsearch)/searchServices/indexes/documents/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants full access to Azure Cognitive Search index data.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8ebe5a00-799e-43f5-93ac-243d3dce84a7",
+  "name": "8ebe5a00-799e-43f5-93ac-243d3dce84a7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Search/searchServices/indexes/documents/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Search Index Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="search-index-data-reader"></a>검색 인덱스 데이터 읽기 권한자
+
+Azure Cognitive Search 인덱스 데이터에 대한 읽기 권한을 부여합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Search](resource-provider-operations.md#microsoftsearch)/searchServices/indexes/documents/read | 인덱스에서 문서 또는 제안된 쿼리 용어를 읽습니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants read access to Azure Cognitive Search index data.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/1407120a-92aa-4202-b7e9-c0e197c71c8f",
+  "name": "1407120a-92aa-4202-b7e9-c0e197c71c8f",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Search/searchServices/indexes/documents/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Search Index Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -3336,7 +3654,7 @@ SignalR Service 리소스 만들기, 읽기, 업데이트, 삭제
 }
 ```
 
-### <a name="signalr-service-owner-preview"></a>SignalR Service 소유자(미리 보기)
+### <a name="signalr-service-owner"></a>SignalR Service 소유자
 
 Azure SignalR Service REST API에 대한 모든 권한
 
@@ -3356,6 +3674,7 @@ Azure SignalR Service REST API에 대한 모든 권한
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/send/action | 클라이언트 연결에 직접 메시지를 보냅니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | 클라이언트 연결 존재를 확인합니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | 클라이언트 연결을 닫습니다. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | 서버 연결을 시작합니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | 여러 클라이언트 연결로 구성될 수 있는 사용자에게 메시지를 보냅니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | 사용자 존재를 확인합니다. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write | 사용자를 수정합니다. |
@@ -3384,6 +3703,7 @@ Azure SignalR Service REST API에 대한 모든 권한
         "Microsoft.SignalRService/SignalR/clientConnection/send/action",
         "Microsoft.SignalRService/SignalR/clientConnection/read",
         "Microsoft.SignalRService/SignalR/clientConnection/write",
+        "Microsoft.SignalRService/SignalR/serverConnection/write",
         "Microsoft.SignalRService/SignalR/user/send/action",
         "Microsoft.SignalRService/SignalR/user/read",
         "Microsoft.SignalRService/SignalR/user/write"
@@ -3391,7 +3711,7 @@ Azure SignalR Service REST API에 대한 모든 권한
       "notDataActions": []
     }
   ],
-  "roleName": "SignalR Service Owner (Preview)",
+  "roleName": "SignalR Service Owner",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -3607,7 +3927,7 @@ Azure SignalR Service REST API에 대한 읽기 전용 권한
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | [Microsoft.ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/trustedCollections/write | 컨테이너 레지스트리 콘텐츠의 신뢰할 수 있는 컬렉션을 밀어넣거나 게시할 수 있습니다. 이는 데이터 작업이라는 점을 제외하고 Microsoft.ContainerRegistry/registries/sign/write 작업과 유사합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -3625,7 +3945,9 @@ Azure SignalR Service REST API에 대한 읽기 전용 권한
         "Microsoft.ContainerRegistry/registries/sign/write"
       ],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/trustedCollections/write"
+      ],
       "notDataActions": []
     }
   ],
@@ -3726,7 +4048,7 @@ Azure SignalR Service REST API에 대한 읽기 전용 권한
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | [Microsoft.ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/quarantinedArtifacts/read | 컨테이너 레지스트리에서 격리된 아티팩트를 끌어오거나 가져올 수 있습니다. 이는 데이터 작업이라는 점을 제외하고 Microsoft.ContainerRegistry/registries/quarantine/read와 유사합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -3744,7 +4066,9 @@ Azure SignalR Service REST API에 대한 읽기 전용 권한
         "Microsoft.ContainerRegistry/registries/quarantine/read"
       ],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/quarantinedArtifacts/read"
+      ],
       "notDataActions": []
     }
   ],
@@ -3766,7 +4090,8 @@ Azure SignalR Service REST API에 대한 읽기 전용 권한
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | [Microsoft.ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/quarantinedArtifacts/read | 컨테이너 레지스트리에서 격리된 아티팩트를 끌어오거나 가져올 수 있습니다. 이는 데이터 작업이라는 점을 제외하고 Microsoft.ContainerRegistry/registries/quarantine/read와 유사합니다. |
+> | [Microsoft.ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/registries/quarantinedArtifacts/write | 격리된 아티팩트의 격리 상태를 쓰거나 업데이트할 수 있습니다. 이는 데이터 작업이라는 점을 제외하고 Microsoft.ContainerRegistry/registries/quarantine/write 작업과 유사합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -3785,7 +4110,10 @@ Azure SignalR Service REST API에 대한 읽기 전용 권한
         "Microsoft.ContainerRegistry/registries/quarantine/write"
       ],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/quarantinedArtifacts/read",
+        "Microsoft.ContainerRegistry/registries/quarantinedArtifacts/write"
+      ],
       "notDataActions": []
     }
   ],
@@ -4592,6 +4920,8 @@ SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니�
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | 메트릭 읽기 |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | 메트릭 정의 읽기 |
 > | **NotActions** |  |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/databases/ledgerDigestUploads/write | 원장 다이제스트 업로드를 사용합니다.  |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/databases/ledgerDigestUploads/disable/action | 원장 다이제스트 업로드를 사용하지 않습니다. |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/currentSensitivityLabels/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/recommendedSensitivityLabels/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
@@ -4643,6 +4973,8 @@ SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니�
         "Microsoft.Insights/metricDefinitions/read"
       ],
       "notActions": [
+        "Microsoft.Sql/servers/databases/ledgerDigestUploads/write",
+        "Microsoft.Sql/servers/databases/ledgerDigestUploads/disable/action",
         "Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/*",
         "Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/*",
         "Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/*",
@@ -5319,13 +5651,12 @@ HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 �
 
 ### <a name="log-analytics-contributor"></a>Log Analytics 참가자
 
-Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. [자세히 알아보기](../azure-monitor/logs/manage-access.md)
+Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. [자세히 알아보기](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
 > | --- | --- |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
-> | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/* |  |
 > | [Microsoft.ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/virtualMachines/extensions/* |  |
 > | [Microsoft.ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/listKeys/action | 스토리지 계정의 액세스 키를 나열합니다. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/extensions/* |  |
@@ -5350,14 +5681,13 @@ Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 
   "assignableScopes": [
     "/"
   ],
-  "description": "Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; creating and configuring Automation accounts; adding solutions; and configuring Azure diagnostics on all Azure resources.",
+  "description": "Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293",
   "name": "92aaf0da-9dab-42b6-94a3-d43ce8d16293",
   "permissions": [
     {
       "actions": [
         "*/read",
-        "Microsoft.Automation/automationAccounts/*",
         "Microsoft.ClassicCompute/virtualMachines/extensions/*",
         "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
         "Microsoft.Compute/virtualMachines/extensions/*",
@@ -5685,6 +6015,63 @@ Microsoft.Purview 데이터 원본 관리자는 데이터 원본 및 데이터 �
 ## <a name="ai--machine-learning"></a>AI + 기계 학습
 
 
+### <a name="azureml-data-scientist"></a>AzureML 데이터 과학자
+
+컴퓨팅 리소스를 만들거나 삭제하고 작업 영역 자체를 수정하는 것을 제외하고 Azure Machine Learning 작업 영역에서 모든 작업을 수행할 수 있습니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/read |  |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/action |  |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/delete |  |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/write |  |
+> | **NotActions** |  |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/delete | Machine Learning Services 작업 영역을 삭제합니다. |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/write | Machine Learning Services 작업 영역을 만들거나 업데이트합니다. |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/computes/*/write |  |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/computes/*/delete |  |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/computes/listKeys/action | Machine Learning Services 작업 영역에서 컴퓨팅 리소스에 대한 비밀을 나열합니다. |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/listKeys/action | Machine Learning Services 작업 영역에 대한 비밀을 나열합니다. |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f6c7c914-8db3-469d-8ca1-694a8f32e121",
+  "name": "f6c7c914-8db3-469d-8ca1-694a8f32e121",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.MachineLearningServices/workspaces/*/read",
+        "Microsoft.MachineLearningServices/workspaces/*/action",
+        "Microsoft.MachineLearningServices/workspaces/*/delete",
+        "Microsoft.MachineLearningServices/workspaces/*/write"
+      ],
+      "notActions": [
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+        "Microsoft.MachineLearningServices/workspaces/computes/*/delete",
+        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "AzureML Data Scientist",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="cognitive-services-contributor"></a>Cognitive Services 기여자
 
 Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. [자세히 알아보기](../cognitive-services/cognitive-services-virtual-networks.md)
@@ -5696,6 +6083,7 @@ Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 �
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/* |  |
 > | [Microsoft.Features](resource-provider-operations.md#microsoftfeatures)/features/read | 구독 기능을 가져옵니다. |
 > | [Microsoft.Features](resource-provider-operations.md#microsoftfeatures)/providers/features/read | 지정된 리소스 공급자에서 구독의 기능을 가져옵니다. |
+> | [Microsoft.Features](resource-provider-operations.md#microsoftfeatures)/providers/features/register/action | 지정된 리소스 공급자에서 구독의 기능을 등록합니다. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/* | Analysis Server에 대한 진단 설정 생성, 업데이트 및 읽기 |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/logDefinitions/read | 로그 정의 읽기 |
@@ -5731,6 +6119,7 @@ Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 �
         "Microsoft.CognitiveServices/*",
         "Microsoft.Features/features/read",
         "Microsoft.Features/providers/features/read",
+        "Microsoft.Features/providers/features/register/action",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Insights/diagnosticSettings/*",
         "Microsoft.Insights/logDefinitions/read",
@@ -6087,7 +6476,7 @@ Face API에서 유사한 작업을 검색, 확인, 식별, 그룹화하고 찾�
 
 ### <a name="cognitive-services-metrics-advisor-administrator"></a>Cognitive Services Metrics Advisor 관리자
 
-시스템 수준 구성을 포함하는 프로젝트에 대한 모든 권한입니다. [자세히 알아보기](../cognitive-services/metrics-advisor/how-tos/alerts.md)
+시스템 수준 구성을 포함하는 프로젝트에 대한 모든 권한입니다. [자세히 알아보기](../applied-ai-services/metrics-advisor/how-tos/alerts.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -6334,7 +6723,7 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다. [자세히 알�
 > | 동작 | Description |
 > | --- | --- |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
-> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/listkeys/action | 키를 나열합니다. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/listkeys/action | 키 나열 |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/read | 클래식 메트릭 경고를 읽습니다. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/read | 리소스 진단 설정을 읽습니다. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/logDefinitions/read | 로그 정의 읽기 |
@@ -6393,163 +6782,6 @@ Cognitive Services의 키를 읽고 나열할 수 있습니다. [자세히 알�
 
 ## <a name="internet-of-things"></a>사물 인터넷
 
-### <a name="iot-hub-data-contributor"></a>IoT Hub 데이터 기여자
-
-IoT Hub 데이터 평면 작업에 대한 모든 권한을 허용합니다.
-
-> [!div class="mx-tableFixed"]
-> | 동작 | Description |
-> | --- | --- |
-> | *없음* |  |
-> | **NotActions** |  |
-> | *없음* |  |
-> | **DataActions** |  |
-> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/* |  |
-> | **NotDataActions** |  |
-> | *없음* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Allows for full access to IoT Hub data plane operations.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4fc6c259-987e-4a07-842e-c321cc9d413f",
-  "name": "4fc6c259-987e-4a07-842e-c321cc9d413f",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Devices/IotHubs/*"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "IoT Hub Data Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### <a name="iot-hub-data-reader"></a>IoT Hub 데이터 판독기
-
-IoT Hub 데이터 평면 속성에 대한 전체 읽기 권한을 허용합니다
-
-> [!div class="mx-tableFixed"]
-> | 동작 | Description |
-> | --- | --- |
-> | *없음* |  |
-> | **NotActions** |  |
-> | *없음* |  |
-> | **DataActions** |  |
-> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/*/read |  |
-> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/fileUpload/notifications/action | 파일 업로드 알림을 수신, 완료하거나 중단합니다 |
-> | **NotDataActions** |  |
-> | *없음* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Allows for full read access to IoT Hub data-plane properties",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b447c946-2db7-41ec-983d-d8bf3b1c77e3",
-  "name": "b447c946-2db7-41ec-983d-d8bf3b1c77e3",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Devices/IotHubs/*/read",
-        "Microsoft.Devices/IotHubs/fileUpload/notifications/action"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "IoT Hub Data Reader",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### <a name="iot-hub-registry-contributor"></a>IoT Hub 레지스트리 기여자
-
-IoT Hub 디바이스 레지스트리에 대한 모든 권한을 허용합니다.
-
-> [!div class="mx-tableFixed"]
-> | 동작 | Description |
-> | --- | --- |
-> | *없음* |  |
-> | **NotActions** |  |
-> | *없음* |  |
-> | **DataActions** |  |
-> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/devices/* |  |
-> | **NotDataActions** |  |
-> | *없음* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Allows for full access to IoT Hub device registry.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4ea46cd5-c1b2-4a8e-910b-273211f9ce47",
-  "name": "4ea46cd5-c1b2-4a8e-910b-273211f9ce47",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Devices/IotHubs/devices/*"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "IoT Hub Registry Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### <a name="iot-hub-twin-contributor"></a>IoT Hub 쌍 기여자
-
-모든 IoT Hub 디바이스 및 모듈 쌍에 대한 읽기 및 쓰기 권한을 허용합니다.
-
-> [!div class="mx-tableFixed"]
-> | 동작 | Description |
-> | --- | --- |
-> | *없음* |  |
-> | **NotActions** |  |
-> | *없음* |  |
-> | **DataActions** |  |
-> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/twins/* |  |
-> | **NotDataActions** |  |
-> | *없음* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Allows for read and write access to all IoT Hub device and module twins.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/494bdba2-168f-4f31-a0a1-191d2f7c028c",
-  "name": "494bdba2-168f-4f31-a0a1-191d2f7c028c",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Devices/IotHubs/twins/*"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "IoT Hub Twin Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
 
 ### <a name="device-update-administrator"></a>디바이스 업데이트 관리자
 
@@ -6860,6 +7092,164 @@ IoT Hub 디바이스 레지스트리에 대한 모든 권한을 허용합니다.
     }
   ],
   "roleName": "Device Update Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="iot-hub-data-contributor"></a>IoT Hub 데이터 기여자
+
+IoT Hub 데이터 평면 작업에 대한 모든 권한을 허용합니다. [자세히 알아보기](../iot-hub/iot-hub-dev-guide-azure-ad-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to IoT Hub data plane operations.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4fc6c259-987e-4a07-842e-c321cc9d413f",
+  "name": "4fc6c259-987e-4a07-842e-c321cc9d413f",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="iot-hub-data-reader"></a>IoT Hub 데이터 판독기
+
+IoT Hub 데이터 평면 속성에 대한 전체 읽기 권한을 허용합니다. [자세히 알아보기](../iot-hub/iot-hub-dev-guide-azure-ad-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/*/read |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/fileUpload/notifications/action | 파일 업로드 알림을 수신, 완료하거나 중단합니다 |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full read access to IoT Hub data-plane properties",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b447c946-2db7-41ec-983d-d8bf3b1c77e3",
+  "name": "b447c946-2db7-41ec-983d-d8bf3b1c77e3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/*/read",
+        "Microsoft.Devices/IotHubs/fileUpload/notifications/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="iot-hub-registry-contributor"></a>IoT Hub 레지스트리 기여자
+
+IoT Hub 디바이스 레지스트리에 대한 모든 권한을 허용합니다. [자세히 알아보기](../iot-hub/iot-hub-dev-guide-azure-ad-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/devices/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to IoT Hub device registry.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4ea46cd5-c1b2-4a8e-910b-273211f9ce47",
+  "name": "4ea46cd5-c1b2-4a8e-910b-273211f9ce47",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/devices/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Registry Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="iot-hub-twin-contributor"></a>IoT Hub 쌍 기여자
+
+모든 IoT Hub 디바이스 및 모듈 쌍에 대한 읽기 및 쓰기 권한을 허용합니다. [자세히 알아보기](../iot-hub/iot-hub-dev-guide-azure-ad-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/twins/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read and write access to all IoT Hub device and module twins.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/494bdba2-168f-4f31-a0a1-191d2f7c028c",
+  "name": "494bdba2-168f-4f31-a0a1-191d2f7c028c",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/twins/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Twin Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -7373,6 +7763,133 @@ App Configuration 데이터에 대한 읽기 액세스 권한을 허용합니다
 }
 ```
 
+### <a name="azure-relay-listener"></a>Azure Relay 수신자
+
+Azure Relay 리소스에 대한 수신 대기 액세스 권한을 허용합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/wcfRelays/read |  |
+> | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/hybridConnections/read |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/listen/action |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for listen access to Azure Relay resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/26e0b698-aa6d-4085-9386-aadae190014d",
+  "name": "26e0b698-aa6d-4085-9386-aadae190014d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Relay/*/wcfRelays/read",
+        "Microsoft.Relay/*/hybridConnections/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Relay/*/listen/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Relay Listener",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-relay-owner"></a>Azure Relay 소유자
+
+Azure Relay 리소스에 대한 전체 액세스 권한을 허용합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to Azure Relay resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2787bf04-f1f5-4bfe-8383-c8a24483ee38",
+  "name": "2787bf04-f1f5-4bfe-8383-c8a24483ee38",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Relay/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Relay/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Relay Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-relay-sender"></a>Azure Relay 발신자
+
+Azure Relay 리소스에 대한 보내기 액세스 권한을 허용합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | 설명 |
+> | --- | --- |
+> | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/wcfRelays/read |  |
+> | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/hybridConnections/read |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/send/action |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for send access to Azure Relay resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/26baccc8-eea7-41f1-98f4-1762cc7f685d",
+  "name": "26baccc8-eea7-41f1-98f4-1762cc7f685d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Relay/*/wcfRelays/read",
+        "Microsoft.Relay/*/hybridConnections/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Relay/*/send/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Relay Sender",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="azure-service-bus-data-owner"></a>Azure Service Bus 데이터 소유자
 
 Azure Service Bus 리소스에 대한 전체 액세스를 허용합니다. [자세히 알아보기](../service-bus-messaging/authenticate-application.md)
@@ -7598,6 +8115,55 @@ EventGrid 작업을 관리할 수 있습니다.
 }
 ```
 
+### <a name="eventgrid-data-sender"></a>EventGrid 데이터 발신자
+
+Event Grid 이벤트에 대한 보내기 액세스 권한을 허용합니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/topics/read | 토픽을 읽습니다. |
+> | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/domains/read | 도메인을 읽습니다. |
+> | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/partnerNamespaces/read | 파트너 네임스페이스를 읽습니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/events/send/action | 토픽에 이벤트를 보냅니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows send access to event grid events.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d5a91429-5739-47e2-a06b-3470a27159e7",
+  "name": "d5a91429-5739-47e2-a06b-3470a27159e7",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.EventGrid/topics/read",
+        "Microsoft.EventGrid/domains/read",
+        "Microsoft.EventGrid/partnerNamespaces/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.EventGrid/events/send/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "EventGrid Data Sender",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 기여자
 
 EventGrid 이벤트 구독 작업을 관리할 수 있습니다. [자세히 알아보기](../event-grid/security-authorization.md)
@@ -7704,7 +8270,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
 
 ### <a name="fhir-data-contributor"></a>FHIR 데이터 기여자
 
-역할을 통해 사용자 또는 보안 주체에게 FHIR 데이터에 대한 모든 권한을 제공할 수 있습니다. [자세한 정보](../healthcare-apis/fhir/configure-azure-rbac.md)
+역할을 통해 사용자 또는 보안 주체에게 FHIR 데이터에 대한 모든 권한을 제공할 수 있습니다. [자세한 정보](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -7714,6 +8280,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
 > | *없음* |  |
 > | **DataActions** |  |
 > | Microsoft.HealthcareApis/services/fhir/resources/* |  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/* |  |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -7730,7 +8297,8 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/*"
+        "Microsoft.HealthcareApis/services/fhir/resources/*",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/*"
       ],
       "notDataActions": []
     }
@@ -7743,7 +8311,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
 
 ### <a name="fhir-data-exporter"></a>FHIR 데이터 내보내기 도구
 
-역할을 통해 사용자 또는 보안 주체가 FHIR 데이터를 읽고 내보낼 수 있습니다. [자세한 정보](../healthcare-apis/fhir/configure-azure-rbac.md)
+역할을 통해 사용자 또는 보안 주체가 FHIR 데이터를 읽고 내보낼 수 있습니다. [자세한 정보](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -7754,6 +8322,8 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
 > | **DataActions** |  |
 > | Microsoft.HealthcareApis/services/fhir/resources/read | 검색 및 버전 관리 기록이 포함된 FHIR 리소스를 읽습니다.  |
 > | Microsoft.HealthcareApis/services/fhir/resources/export/action | 작업을 내보냅니다($export). |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/read | 검색 및 버전 관리 기록이 포함된 FHIR 리소스를 읽습니다.  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/export/action | 작업을 내보냅니다($export). |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -7771,7 +8341,9 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
       "notActions": [],
       "dataActions": [
         "Microsoft.HealthcareApis/services/fhir/resources/read",
-        "Microsoft.HealthcareApis/services/fhir/resources/export/action"
+        "Microsoft.HealthcareApis/services/fhir/resources/export/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/export/action"
       ],
       "notDataActions": []
     }
@@ -7784,7 +8356,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
 
 ### <a name="fhir-data-reader"></a>FHIR 데이터 읽기 권한자
 
-역할을 통해 사용자 또는 보안 주체가 FHIR 데이터를 읽을 수 있습니다. [자세한 정보](../healthcare-apis/fhir/configure-azure-rbac.md)
+역할을 통해 사용자 또는 보안 주체가 FHIR 데이터를 읽을 수 있습니다. [자세한 정보](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -7794,6 +8366,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
 > | *없음* |  |
 > | **DataActions** |  |
 > | Microsoft.HealthcareApis/services/fhir/resources/read | 검색 및 버전 관리 기록이 포함된 FHIR 리소스를 읽습니다.  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/read | 검색 및 버전 관리 기록이 포함된 FHIR 리소스를 읽습니다.  |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -7810,7 +8383,8 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/read"
+        "Microsoft.HealthcareApis/services/fhir/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read"
       ],
       "notDataActions": []
     }
@@ -7823,7 +8397,7 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
 
 ### <a name="fhir-data-writer"></a>FHIR 데이터 쓰기 권한자
 
-역할을 통해 사용자 또는 보안 주체가 FHIR 데이터를 읽고 쓸 수 있습니다. [자세한 정보](../healthcare-apis/fhir/configure-azure-rbac.md)
+역할을 통해 사용자 또는 보안 주체가 FHIR 데이터를 읽고 쓸 수 있습니다. [자세한 정보](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -7833,8 +8407,10 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
 > | *없음* |  |
 > | **DataActions** |  |
 > | Microsoft.HealthcareApis/services/fhir/resources/* |  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/* |  |
 > | **NotDataActions** |  |
 > | Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action | 하드 삭제(버전 기록 포함) |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action | 하드 삭제(버전 기록 포함) |
 
 ```json
 {
@@ -7849,10 +8425,12 @@ EventGrid 이벤트 구독을 읽을 수 있습니다. [자세히 알아보기](
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/*"
+        "Microsoft.HealthcareApis/services/fhir/resources/*",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/*"
       ],
       "notDataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action"
+        "Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action"
       ]
     }
   ],
@@ -8403,6 +8981,7 @@ Azure Sentinel 기여자 [자세한 정보](../sentinel/roles.md)
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/*/read |  |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | 작업 영역의 데이터 원본을 가져옵니다. |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/querypacks/*/read |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/* |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/read | 프라이빗 통합 문서 읽기 |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
@@ -8436,6 +9015,7 @@ Azure Sentinel 기여자 [자세한 정보](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/read",
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
+        "Microsoft.OperationalInsights/querypacks/*/read",
         "Microsoft.Insights/workbooks/*",
         "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
@@ -8473,6 +9053,7 @@ Azure Sentinel 읽기 권한자 [자세한 정보](../sentinel/roles.md)
 > | [Microsoft.OperationsManagement](resource-provider-operations.md#microsoftoperationsmanagement)/solutions/read | 기존 OMS 솔루션을 가져옵니다. |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/*/read |  |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/querypacks/*/read |  |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | 작업 영역의 데이터 원본을 가져옵니다. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/read | 통합 문서를 읽습니다. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/read | 프라이빗 통합 문서 읽기 |
@@ -8510,6 +9091,7 @@ Azure Sentinel 읽기 권한자 [자세한 정보](../sentinel/roles.md)
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
         "Microsoft.OperationalInsights/workspaces/query/*/read",
+        "Microsoft.OperationalInsights/querypacks/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/read",
         "Microsoft.Insights/myworkbooks/read",
@@ -8556,6 +9138,7 @@ Azure Sentinel 응답자 [자세한 정보](../sentinel/roles.md)
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/*/read |  |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | 작업 영역의 데이터 원본을 가져옵니다. |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/querypacks/*/read |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/read | 통합 문서를 읽습니다. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/read | 프라이빗 통합 문서 읽기 |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
@@ -8601,6 +9184,7 @@ Azure Sentinel 응답자 [자세한 정보](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/read",
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
+        "Microsoft.OperationalInsights/querypacks/*/read",
         "Microsoft.Insights/workbooks/read",
         "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
@@ -8625,7 +9209,7 @@ Azure Sentinel 응답자 [자세한 정보](../sentinel/roles.md)
 
 ### <a name="key-vault-administrator"></a>Key Vault 관리자
 
-인증서, 키, 비밀을 포함하여 Key Vault 및 해당 Key Vault에 있는 모든 개체에 대한 모든 데이터 평면 작업을 수행합니다. Key Vault 리소스를 관리하거나 역할 할당을 관리할 수 없습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다.
+인증서, 키, 비밀을 포함하여 Key Vault 및 해당 Key Vault에 있는 모든 개체에 대한 모든 데이터 평면 작업을 수행합니다. Key Vault 리소스를 관리하거나 역할 할당을 관리할 수 없습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. [자세히 알아보기](../key-vault/general/rbac-guide.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -8684,7 +9268,7 @@ Azure Sentinel 응답자 [자세한 정보](../sentinel/roles.md)
 
 ### <a name="key-vault-certificates-officer"></a>Key Vault 인증서 책임자
 
-권한 관리를 제외한 Key Vault의 인증서에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다.
+권한 관리를 제외한 Key Vault의 인증서에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. [자세히 알아보기](../key-vault/general/rbac-guide.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -8800,7 +9384,7 @@ Key Vault를 관리하지만, Azure RBAC에서 역할을 할당하는 것을 허
 
 ### <a name="key-vault-crypto-officer"></a>Key Vault 암호화 책임자
 
-권한 관리를 제외한 Key Vault 키에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다.
+권한 관리를 제외한 Key Vault 키에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. [자세히 알아보기](../key-vault/general/rbac-guide.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -8859,7 +9443,7 @@ Key Vault를 관리하지만, Azure RBAC에서 역할을 할당하는 것을 허
 
 ### <a name="key-vault-crypto-service-encryption-user"></a>Key Vault 암호화 서비스 암호화 사용자
 
-키의 메타데이터를 읽고 래핑/래핑 해제 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다.
+키의 메타데이터를 읽고 래핑/래핑 해제 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. [자세히 알아보기](../key-vault/general/rbac-guide.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -8908,7 +9492,7 @@ Key Vault를 관리하지만, Azure RBAC에서 역할을 할당하는 것을 허
 
 ### <a name="key-vault-crypto-user"></a>Key Vault 암호화 사용자
 
-키를 사용하여 암호화 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다.
+키를 사용하여 암호화 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. [자세히 알아보기](../key-vault/general/rbac-guide.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -8963,7 +9547,7 @@ Key Vault를 관리하지만, Azure RBAC에서 역할을 할당하는 것을 허
 
 ### <a name="key-vault-reader"></a>Key Vault 읽기 권한자
 
-Key Vault 및 해당 인증서, 키, 비밀의 메타데이터를 읽습니다. 비밀 내용 또는 키 자료와 같은 중요한 값을 읽을 수 없습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다.
+Key Vault 및 해당 인증서, 키, 비밀의 메타데이터를 읽습니다. 비밀 내용 또는 키 자료와 같은 중요한 값을 읽을 수 없습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. [자세히 알아보기](../key-vault/general/rbac-guide.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -9024,7 +9608,7 @@ Key Vault 및 해당 인증서, 키, 비밀의 메타데이터를 읽습니다. 
 
 ### <a name="key-vault-secrets-officer"></a>Key Vault 비밀 책임자
 
-권한 관리를 제외한 Key Vault의 비밀에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다.
+권한 관리를 제외한 Key Vault의 비밀에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. [자세히 알아보기](../key-vault/general/rbac-guide.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -9083,7 +9667,7 @@ Key Vault 및 해당 인증서, 키, 비밀의 메타데이터를 읽습니다. 
 
 ### <a name="key-vault-secrets-user"></a>Key Vault 비밀 사용자
 
-비밀 내용을 읽습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다.
+비밀 내용을 읽습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. [자세히 알아보기](../key-vault/general/rbac-guide.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -9179,9 +9763,10 @@ Security Center에 대한 권한을 살펴보고 업데이트할 수 있습니�
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | 배포를 만들고 관리합니다. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/* | 보안 구성 요소 및 정책 만들기 및 관리 |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/* |  |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | 지원 티켓을 만들거나 업데이트합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/defenderSettings/write | IoT Defender 설정을 만들거나 업데이트합니다. |
 > | **DataActions** |  |
 > | *없음* |  |
 > | **NotDataActions** |  |
@@ -9209,9 +9794,12 @@ Security Center에 대한 권한을 살펴보고 업데이트할 수 있습니�
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Security/*",
+        "Microsoft.IoTSecurity/*",
         "Microsoft.Support/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.IoTSecurity/defenderSettings/write"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -9331,10 +9919,13 @@ Security Center에 대한 권한을 살펴볼 수 있습니다. 권장 사항, �
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/*/read |  |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/*/read | 보안 구성 요소 및 정책 읽기 |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/*/read |  |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/*/read |  |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotDefenderSettings/packageDownloads/action | 다운로드 가능한 IoT Defender 패키지 정보를 가져옵니다. |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotDefenderSettings/downloadManagerActivation/action | 구독 할당량 데이터가 포함된 관리자 활성화 파일을 다운로드합니다. |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotSensors/downloadResetPassword/action | IoT 센서에 대한 암호 재설정 파일을 다운로드합니다. |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/defenderSettings/packageDownloads/action | 다운로드 가능한 IoT Defender 패키지 정보를 가져옵니다. |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/defenderSettings/downloadManagerActivation/action | 관리자 활성화 파일을 다운로드합니다. |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -9360,10 +9951,13 @@ Security Center에 대한 권한을 살펴볼 수 있습니다. 권장 사항, �
         "Microsoft.Resources/deployments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Security/*/read",
+        "Microsoft.IoTSecurity/*/read",
         "Microsoft.Support/*/read",
         "Microsoft.Security/iotDefenderSettings/packageDownloads/action",
         "Microsoft.Security/iotDefenderSettings/downloadManagerActivation/action",
         "Microsoft.Security/iotSensors/downloadResetPassword/action",
+        "Microsoft.IoTSecurity/defenderSettings/packageDownloads/action",
+        "Microsoft.IoTSecurity/defenderSettings/downloadManagerActivation/action",
         "Microsoft.Management/managementGroups/read"
       ],
       "notActions": [],
@@ -10612,6 +11206,7 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/read | Azure Arc 머신을 읽습니다. |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/write | Azure Arc 머신을 씁니다. |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/delete | Azure Arc 머신을 삭제합니다. |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Azure Arc 컴퓨터에서 확장을 업그레이드합니다. |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/read | 모든 Azure Arc 확장을 읽습니다. |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/write | Azure Arc 확장을 설치 또는 업데이트합니다. |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/delete | Azure Arc 확장을 삭제합니다. |
@@ -10638,6 +11233,7 @@ Azure Connected Machines을 읽고, 쓰고, 삭제하고, 다시 온보딩할 �
         "Microsoft.HybridCompute/machines/read",
         "Microsoft.HybridCompute/machines/write",
         "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
         "Microsoft.HybridCompute/machines/extensions/read",
         "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.HybridCompute/machines/extensions/delete",
@@ -11005,6 +11601,59 @@ connectedClusters 리소스를 만들기 위해 모든 사용자/서비스에 �
     }
   ],
   "roleName": "Kubernetes Cluster - Azure Arc Onboarding",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="kubernetes-extension-contributor"></a>Kubernetes 확장 기여자
+
+Kubernetes 확장을 생성, 업데이트, 가져오기, 나열 및 삭제하고 확장 비동기 작업을 가져올 수 있습니다.
+
+> [!div class="mx-tableFixed"]
+> | 동작 | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | 클래식 메트릭 경고를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | 배포를 만들고 관리합니다. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/write | 확장 리소스를 만들거나 업데이트합니다. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/read | 확장 인스턴스 리소스를 가져옵니다. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/delete | 확장 인스턴스 리소스를 삭제합니다. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/operations/read | 비동기 작업 상태를 가져옵니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can create, update, get, list and delete Kubernetes Extensions, and get extension async operations",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/85cb6faf-e071-4c9b-8136-154b5a04f717",
+  "name": "85cb6faf-e071-4c9b-8136-154b5a04f717",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.KubernetesConfiguration/extensions/write",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.KubernetesConfiguration/extensions/delete",
+        "Microsoft.KubernetesConfiguration/extensions/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Kubernetes Extension Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

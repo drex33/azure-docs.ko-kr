@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7e1b2ee95864affa6e5e72e1f8354767dc95bdb1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 45eea8f8809e97f7e424a988140bcf76b47d5947
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753329"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609287"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>모든 키 자격 증명 모음에 대해 일시 삭제를 사용하도록 설정됩니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "107753329"
 
 비밀을 영구적으로 삭제할 수 있는 액세스 권한이 필요한 보안 주체는 이러한 비밀과 키 자격 증명 모음을 제거하기 위해 더 많은 액세스 정책 권한을 부여받아야 합니다.
 
-일시 삭제를 해제하도록 하는 키 자격 증명 모음에서 Azure 정책을 사용하지 않도록 설정합니다. 환경에 적용된 Azure 정책을 관리하는 관리자에게 이 문제를 에스컬레이션해야 할 수 있습니다. 이 정책이 비활성화되어 있지 않으면 적용된 정책의 범위에서 새 키 자격 증명 모음을 만들 수 없게 됩니다.
+일시 삭제를 해제하도록 하는 키 자격 증명 모음에서 Azure Policy 할당을 사용하지 않도록 설정합니다. 사용자 환경에 적용된 Azure Policy 할당을 관리하는 관리자에게 이 문제를 에스컬레이션해야 할 수 있습니다. 이 정책 할당이 비활성화되어 있지 않으면 적용된 정책 할당의 범위에서 새 키 자격 증명 모음을 만들 수 없게 됩니다.
 
 조직에서 법적 규정 준수 요구 사항을 따르고 있고 삭제된 키 자격 증명 모음과 비밀을 연장 기간 동안 복구 가능한 상태로 유지하도록 허용할 수 없는 경우 일시 삭제 보존 기간을 조직의 표준에 맞게 조정해야 합니다. 보존 기간은 7일에서 90일까지 지속되도록 구성할 수 있습니다.
 

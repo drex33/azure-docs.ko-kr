@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 140e87f4e03081825fe75ba73b7c5ebd33b20ada
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 85509f1500936dfaa0d308b01912ce927f3f380f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530779"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122825229"
 ---
 # <a name="scans-and-ingestion-in-azure-purview"></a>Azure Purview에서 검사 및 수집
 
@@ -35,6 +35,18 @@ ms.locfileid: "122530779"
 검사 규칙 집합은 원본 중 하나에 대해 실행될 때 검사에서 찾을 정보의 종류를 확인합니다. 사용 가능한 규칙은 검사하는 원본의 종류에 따라 다르며, 검사해야 하는 [파일 형식](sources-and-scans.md#file-types-supported-for-scanning) 및 필요한 [분류](supported-classifications.md) 종류와 같은 사항을 포함합니다.
 
 많은 데이터 원본 유형에 대해 이미 사용할 수 있는 [시스템 검사 규칙 집합](create-a-scan-rule-set.md#system-scan-rule-sets)이 있으며 [고유의 검사 규칙 집합을 만들어](create-a-scan-rule-set.md) 조직에 맞게 검사를 조정할 수도 있습니다.
+
+### <a name="how-scans-detect-deleted-assets"></a>검사를 통해 삭제된 자산을 검색하는 방법
+
+Azure Purview 카탈로그는 검사를 실행할 때에만 데이터 저장소의 상태를 인식합니다. 카탈로그는 파일, 테이블 또는 컨테이너가 삭제되었는지 여부를 알 수 있도록 마지막 검사 출력과 현재 검사 출력을 비교합니다. 예를 들어 Azure Data Lake Storage Gen2 계정을 마지막으로 검사한 경우 *폴더1* 이라는 폴더를 포함한다고 가정합니다. 동일한 계정을 다시 검사하면 *폴더1* 이 누락됩니다. 따라서 카탈로그는 폴더가 삭제된 것으로 가정합니다.
+
+#### <a name="detecting-deleted-files"></a>삭제된 파일 검색
+
+누락된 파일을 검색하는 논리는 동일한 사용자와 다른 사용자가 여러 검색을 수행하는 데 사용할 수 있습니다. 예를 들어 사용자가 A, B, C 폴더의 Data Lake Storage Gen2 데이터 저장소에서 일회성 검사를 실행한다고 가정합니다. 나중에 동일한 계정에 있는 다른 사용자가 동일한 데이터 저장소의 폴더 C, D 및 E에 대해 다른 일회성 검사를 실행합니다. C 폴더가 두 번 검사되었으므로 카탈로그는 이것이 삭제할 수 있는 것인지 확인합니다. 그러나 폴더 A, B, D 및 E는 한 번만 검사되었으며 카탈로그는 그것들이 삭제된 자산인지 확인하지 않습니다.
+
+삭제된 파일을 카탈로그에서 유지하려면 일반 검사를 실행해야 합니다. 검사 간격은 중요합니다. 카탈로그는 다른 검사를 실행할 때까지 삭제된 자산을 검색할 수 없기 때문입니다. 따라서 특정 저장소에서 한 달에 한 번 검사를 실행하는 경우 나중에 한 달에 검사를 실행할 때까지 카탈로그는 해당 저장소에서 삭제된 데이터 자산을 검색할 수 없습니다.
+
+Data Lake Storage Gen2 같은 대량 데이터 저장소를 열거하는 경우 정보가 누락될 수 있는 방법이 여러 가지(열거 오류 및 끊어진 이벤트 등) 있습니다. 특정 검사에서 파일이 만들어지거나 삭제되지 않았을 수 있습니다. 따라서 카탈로그는 특정 파일이 삭제된 것이 확실한 경우를 제외하고는 카탈로그에서 삭제하지 않습니다. 이 전략은 검사된 데이터 저장소에 없는 파일이 여전히 카탈로그에 있는 경우 오류가 발생할 수 있음을 의미합니다. 일부 경우에 데이터 저장소는 삭제된 특정 자산을 포착하기 전에 2-3번 검사해야 할 수 있습니다.
 
 ## <a name="ingestion"></a>수집
 

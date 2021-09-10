@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: 파서 라이브러리를 사용하여 DTDL 모델을 구문 분석하는 방법을 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 4/10/2020
+ms.date: 8/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 12916b06dd965d7eed717df2fe71f935b8319bc4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 584d4ba9de922cd035a70850f723550b02863e16
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772714"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606598"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>DTDL 파서 라이브러리를 사용하여 모델 구문 분석 및 유효성 검사
 
@@ -70,7 +70,7 @@ DTDLValidator -i
 * 모델을 다른 모델에서 할당할 수 있는지 여부를 확인합니다.
 
 > [!NOTE]
-> [IoT 플러그 앤 플레이(PnP)](../iot-pnp/overview-iot-plug-and-play.md) 디바이스는 작은 구문 변형을 사용하여 기능을 설명합니다. 이 구문 변형은 Azure Digital Twins에서 사용되는 DTDL의 의미 체계적으로 호환되는 하위 집합입니다. 파서 라이브러리를 사용하는 경우 디지털 쌍에 대한 DTDL을 만드는 데 사용된 구문 변형을 알 필요가 없습니다. 파서는 기본적으로 항상 PnP와 Azure Digital Twins 구문 모두에 대해 동일한 모델을 반환합니다.
+> [IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md) 디바이스는 작은 구문 변형을 사용하여 기능을 설명합니다. 이 구문 변형은 Azure Digital Twins에서 사용되는 DTDL의 의미 체계적으로 호환되는 하위 집합입니다. 파서 라이브러리를 사용하는 경우 디지털 쌍에 대한 DTDL을 만드는 데 사용된 구문 변형을 알 필요가 없습니다. 파서는 기본적으로 항상 IoT 플러그 앤 플레이와 Azure Digital Twins 구문 모두에 대해 동일한 모델을 반환합니다.
 
 ### <a name="code-with-the-parser-library"></a>파서 라이브러리를 사용하는 코드
 
@@ -87,4 +87,4 @@ DTDLValidator -i
 ## <a name="next-steps"></a>다음 단계
 
 모델 작성을 완료한 후에는 DigitalTwinsModels API를 사용하여 모델을 업로드하는 방법(및 다른 관리 작업을 수행하는 방법)을 참조하세요.
-* [방법: DTDL 모델 관리](how-to-manage-model.md)
+* [DTDL 모델 관리](how-to-manage-model.md)

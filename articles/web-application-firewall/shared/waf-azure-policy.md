@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 7798d7e960286d4f8aa971eb2eb0b03d24bd6360
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7738976cbc3f7b87862cab73a5b5f52c6d499d47
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97589460"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122606115"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Azure Web Application Firewall 및 Azure Policy
 
@@ -22,13 +22,13 @@ Azure WAF(Web Application Firewall)를 Azure Policy와 결합하면 조직 표�
 
 WAF 리소스 관리를 위한 여러 가지 기본 제공 Azure Policy 정의가 있습니다. 정책 정의 및 해당 기능 내역은 다음과 같습니다.
 
-1. **WAF(웹 애플리케이션 방화벽)는 Azure Front Door 서비스에서 사용하도록 설정해야 합니다**: Azure Front Door 서비스는 리소스를 만들 때 WAF가 있는 경우에 평가됩니다. 정책에는 감사, 거부, 사용 안 함이라는 세 가지 효과가 있습니다. 감사는 Azure Front Door 서비스에 WAF가 없을 때 추적하며 Azure Front Door 서비스가 준수하지 않는 사항을 사용자가 볼 수 있도록 합니다. 거부는 WAF가 연결되지 않은 경우 Azure Front Door 서비스를 만들지 못하도록 합니다. 사용 안 함은 이 정책을 해제합니다.
+1. **WAF(웹 애플리케이션 방화벽)는 Azure Front Door 서비스에서 사용하도록 설정해야 합니다**: Azure Front Door 서비스는 리소스를 만들 때 WAF가 있는 경우에 평가됩니다. 정책 정의에는 감사, 거부, 사용 안 함이라는 세 가지 효과가 있습니다. 감사는 Azure Front Door 서비스에 WAF가 없을 때 추적하며 Azure Front Door 서비스가 준수하지 않는 사항을 사용자가 볼 수 있도록 합니다. 거부는 WAF가 연결되지 않은 경우 Azure Front Door 서비스를 만들지 못하도록 합니다. 사용 안 함으로 설정하면 정책 할당을 끕니다.
 
-2. **WAF(Web Application Firewall)는 Application Gateway에서 사용하도록 설정해야 합니다**: Application Gateway는 리소스를 만들 때 WAF가 있는 경우에 평가됩니다. 정책에는 감사, 거부, 사용 안 함이라는 세 가지 효과가 있습니다. 감사는 Application Gateway에 WAF가 없을 때 추적하며 Application Gateway가 준수하지 않는 사항을 사용자가 볼 수 있도록 합니다. 거부는 WAF가 연결되지 않은 경우 Application Gateway를 만들지 못하도록 합니다. 사용 안 함은 이 정책을 해제합니다.
+2. **WAF(Web Application Firewall)는 Application Gateway에서 사용하도록 설정해야 합니다**: Application Gateway는 리소스를 만들 때 WAF가 있는 경우에 평가됩니다. 정책 정의에는 감사, 거부, 사용 안 함이라는 세 가지 효과가 있습니다. 감사는 Application Gateway에 WAF가 없을 때 추적하며 Application Gateway가 준수하지 않는 사항을 사용자가 볼 수 있도록 합니다. 거부는 WAF가 연결되지 않은 경우 Application Gateway를 만들지 못하도록 합니다. 사용 안 함으로 설정하면 정책 할당을 끕니다.
 
-3. **WAF(Web Application Firewall)는 Azure Front Door 서비스에 대해 지정된 모드를 사용해야 합니다**: Azure Front Door 서비스에 대한 모든 Web Application Firewall 정책에서 '검색' 또는 '방지' 모드의 사용을 활성으로 지시합니다. 정책에는 감사, 거부, 사용 안 함이라는 세 가지 효과가 있습니다. 감사는 WAF가 지정된 모드에 맞지 않을 때 추적합니다. 거부는 올바른 모드가 아닌 경우 WAF를 만들지 못하도록 합니다. 사용 안 함은 이 정책을 해제합니다.
+3. **WAF(Web Application Firewall)는 Azure Front Door 서비스에 대해 지정된 모드를 사용해야 합니다**: Azure Front Door 서비스에 대한 모든 Web Application Firewall 정책에서 '검색' 또는 '방지' 모드의 사용을 활성으로 지시합니다. 정책 정의에는 감사, 거부, 사용 안 함이라는 세 가지 효과가 있습니다. 감사는 WAF가 지정된 모드에 맞지 않을 때 추적합니다. 거부는 올바른 모드가 아닌 경우 WAF를 만들지 못하도록 합니다. 사용 안 함으로 설정하면 정책 할당을 끕니다.
 
-4. **WAF(Web Application Firewall)는 Application Gateway에 대해 지정된 모드를 사용해야 합니다**: Application Gateway에 대한 모든 Web Application Firewall 정책에서 '검색' 또는 '방지' 모드의 사용을 활성으로 지시합니다. 정책에는 감사, 거부, 사용 안 함이라는 세 가지 효과가 있습니다. 감사는 WAF가 지정된 모드에 맞지 않을 때 추적합니다. 거부는 올바른 모드가 아닌 경우 WAF를 만들지 못하도록 합니다. 사용 안 함은 이 정책을 해제합니다.
+4. **WAF(Web Application Firewall)는 Application Gateway에 대해 지정된 모드를 사용해야 합니다**: Application Gateway에 대한 모든 Web Application Firewall 정책에서 '검색' 또는 '방지' 모드의 사용을 활성으로 지시합니다. 정책 정의에는 감사, 거부, 사용 안 함이라는 세 가지 효과가 있습니다. 감사는 WAF가 지정된 모드에 맞지 않을 때 추적합니다. 거부는 올바른 모드가 아닌 경우 WAF를 만들지 못하도록 합니다. 사용 안 함으로 설정하면 정책 할당을 끕니다.
 
 ## <a name="launch-an-azure-policy"></a>Azure Policy 시작
 

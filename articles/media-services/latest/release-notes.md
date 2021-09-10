@@ -8,15 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: na
+ms.custom: references_regions
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 7eff89301fa54312ffef323023100660237185a4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 46ebdd1f5cb3093b0c1c1a5bc3273cf1aa1afd8f
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955337"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634830"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -29,11 +30,80 @@ ms.locfileid: "111955337"
 * 버그 수정
 * 사용되지 않는 기능
 
+## <a name="july-2021"></a>2021년 7월
+
+### <a name="net-sdk-microsoftazuremanagementmedia--500-release-available-in-nuget-coming-soon---early-september-2021"></a>.NET SDK(Microsoft.Azure.Management.Media) 5.0.0 릴리스를 NuGet에서 사용할 수 있습니다(출시 예정 - 2021년 9월 초)
+
+[Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) .NET SDK 버전 5.0.0이 이제 NuGet에서 출시되었습니다. 이 버전은 Open API(Swagger) ARM Rest API의 [2021-06-01 안정](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) 버전에서 작동하도록 생성되었습니다.
+
+4\.0.0 릴리스의 변경 사항에 대한 자세한 내용은 [변경 로그](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mediaservices/Microsoft.Azure.Management.Media/CHANGELOG.md)를 참조하세요.
+
+#### <a name="changes-in-the-500-net-sdk-release-coming-soon---early-september-2021"></a>5\.0.0 .NET SDK 릴리스의 변경 내용(출시 예정 - 2021년 9월 초)
+
+* 이제 Media Services 계정에서 시스템 및 사용자가 할당한 관리 ID를 지원합니다.
+* Media Services 계정에 **PublicNetworkAccess** 옵션을 추가했습니다. 이 옵션은 Private Link 기능과 함께 사용하여 개인 네트워크의 액세스만 허용하고 모든 공용 네트워크 액세스를 차단할 수 있습니다.
+* 기본 통과 - 새로운 라이브 이벤트 유형이 추가됩니다. “기본 통과” 라이브 이벤트는 일부 입력 및 출력 제한이 있는 표준 통과 라이브 이벤트와 유사한 기능을 가지며 할인된 가격으로 제공됩니다.
+* **PresetConfigurations** - 출력 설정과 [Content Aware Encoding 사전 설정](./encode-content-aware-concept.md)에 사용되는 최소 및 최대 비트 전송률을 사용자 지정할 수 있습니다. 이렇게 하면 제한된 출력 트랙 수와 해상도를 통해 Content Aware Encoding을 사용할 때 더 정확한 청구 비용을 예측하고 계획할 수 있습니다.
+
+#### <a name="breaking-changes-in-tht-500-net-sdk-release"></a>5\.0.0 .NET SDK 릴리스의 호환성이 손상되는 변경
+
+* **ApiErrorException** 은 다른 모든 Azure SDK와 일관성을 유지하기 위해 **ErrorResponseException** 으로 바뀌었습니다. 예외 본문이 변경되지 않았습니다.
+* 미디어 서비스 생성자에는 KeyDelivery 매개 변수 뒤에 새로운 선택적 PublicNetworkAccess 매개 변수가 있습니다.
+* MediaServiceIdentity의 유형 속성은 쉼표로 구분된 여러 유형을 수용하기 위해 ManagedIdentityType 열거형에서 문자열로 변경되었습니다. 유형에 유효한 문자열은 SystemAssigned 또는 SystemAssigned,UserAssigned 또는 UserAssigned입니다.
+
+## <a name="june-2021"></a>2021년 6월
+
+### <a name="additional-live-event-ingest-heartbeat-properties-for-improved-diagnostics"></a>향상된 진단을 위한 추가 라이브 이벤트 수집 하트비트 속성
+
+추가 라이브 이벤트 수집 하트비트 속성이 Event Grid 메시지에 추가되었습니다. 여기에는 실시간 수집 중 문제를 진단하는 데 도움이 되는 다음과 같은 새로운 필드가 포함됩니다.  **ingestDriftValue** 는 라이브 이벤트로 푸시하는 원본 수집 인코더에서 네트워크 대기 시간을 모니터링해야 하는 시나리오에서 유용합니다. 이 값이 너무 멀리 벗어나면 네트워크 대기 시간이 너무 길어서 라이브 스트리밍 이벤트가 성공적일 수 없음을 나타낼 수 있습니다.
+
+자세한 내용은 [LiveEventIngestHeartbeat 스키마](./monitoring/media-services-event-schemas.md#liveeventingestheartbeat)를 참조하세요.
+
+### <a name="private-links-support-is-now-ga"></a>프라이빗 링크 지원은 이제 GA입니다.
+
+[프라이빗 링크](../../private-link/index.yml)가 있는 Media Services 사용에 대한 지원이 이제 GA이며 Azure Government 클라우드를 포함한 모든 Azure 지역에서 사용할 수 있습니다.
+Azure Private Link를 사용하면 가상 네트워크의 프라이빗 엔드포인트를 통해 Azure PaaS Services 및 Azure 호스트 고객 소유/파트너 서비스에 액세스할 수 있습니다.
+가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다.
+
+프라이빗 링크로 Media Services를 사용하는 방법에 대한 자세한 내용은 [프라이빗 링크를 사용하여 Media Services 및 Storage 계정 만들기](./security-private-link-how-to.md)를 참조하세요.
+
+### <a name="new-us-west-3-region-is-ga"></a>새로운 미국 서부 3 지역은 GA입니다.
+
+미국 서부 3 지역은 이제 GA이며 고객이 새 Media Services 계정을 만들 때 사용할 수 있습니다.
+
+### <a name="key-delivery-supports-ip-allowlist-restrictions"></a>키 전송에서는 IP 허용 목록 제한을 지원합니다.
+
+이제 키 전송에 대한 IP 허용 목록 제한으로 Media Services 계정을 구성할 수 있습니다. 새 허용 목록 설정은 SDK와 포털 및 CLI를 통해 Media Services 계정 리소스에서 사용할 수 있습니다.
+그러면 운영자는 DRM 라이선스 및 AES-128 콘텐츠 키의 전송을 특정 IPv4 범위로 제한할 수 있습니다.
+
+이 기능을 사용하여 DRM 라이선스 또는 AES-128 키의 모든 퍼블릭 인터넷 전송을 차단하고 개인 네트워크 엔드포인트로의 전송을 제한할 수도 있습니다.
+
+자세한 내용은 [Restrict access to DRM license and AES key delivery using IP allowlists](./drm-content-protection-key-delivery-ip-allow.md)(IP 허용 목록을 사용하여 DRM 라이선스 및 AES 키 전송에 대한 액세스 제한) 문서를 참조하세요.
+
+### <a name="new-samples-for-python-and-nodejs-with-typescript"></a>Python 및 Node.js의 새 샘플(Typescript 포함)
+Azure SDK에서 최신 Typescript 지원을 사용하는 **Node.js** 용 샘플이 업데이트되었습니다.
+
+|샘플|설명|
+|---|---|
+|[라이브 스트리밍](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live/index.ts)| 기본 라이브 스트리밍 예제입니다. **경고** 라이브를 사용하는 경우 모든 리소스가 정리되고 포털에서 더는 청구되지 않는지 확인해야 합니다.|
+|[HLS 및 DASH 업로드 및 스트림](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample/index.ts)| 로컬 파일을 업로드하거나 원본 URL에서 인코딩하는 기본 예제입니다. 샘플에서는 스토리지 SDK를 사용하여 콘텐츠를 다운로드하는 방법을 보여 주고 플레이어에 스트리밍하는 방법을 보여 줍니다. |
+|[Playready 및 Widevine DRM을 사용하여 HLS 및 DASH 업로드 및 스트림](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Widevine 및 PlayReady DRM을 사용하여 인코딩하고 스트림하는 방법을 설명합니다. |
+|[비디오 및 오디오 인덱싱을 위한 AI 업로드 및 사용](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/VideoIndexerSample/index.ts)| 비디오 및 오디오 분석기 사전 설정을 사용하여 비디오 또는 오디오 파일에서 메타데이터와 인사이트를 생성하는 예제입니다. |
+
+
+Azure Functions 및 Event Grid를 사용하여 얼굴 편집 사전 설정을 트리거하는 방법을 보여 주는 새로운 **Python** 샘플입니다.
+
+|샘플|설명|
+|---|---|
+|[이벤트 및 함수를 사용한 얼굴 편집](https://github.com/Azure-Samples/media-services-v3-python/tree/main/VideoAnalytics/FaceRedactorEventBased) | 이는 Azure Storage 계정에 있는 즉시 비디오에서 Azure Media Services Face Redactor 작업을 트리거하는 이벤트 기반 접근 방법의 예제입니다. 솔루션에 Azure Media Services, Azure Function, Event Grid 및 Azure Storage를 활용합니다. 솔루션에 대한 전체 설명은 [README.md](https://github.com/Azure-Samples/media-services-v3-python/blob/main/VideoAnalytics/FaceRedactorEventBased/README.md)를 참조하세요. |
+
+
 ## <a name="may-2021"></a>2021년 5월
 
 ### <a name="availability-zones-default-support-in-media-services"></a>Media Services의 가용성 영역 기본 지원
 
 이제 Media Services에서 [가용성 영역](concept-availability-zones.md)을 지원하여 동일한 Azure 지역 내에서 오류 격리 위치를 제공합니다.  Media Services 계정은 기본적으로 영역이 중복되며 추가 구성이나 설정이 필요하지 않습니다. 이는 [가용성 영역 지원](../../availability-zones/az-region.md#azure-regions-with-availability-zones)이 있는 지역에만 적용됩니다.
+
 
 ## <a name="march-2021"></a>2021년 3월
 
@@ -274,7 +344,7 @@ RTMP 라이브 스트리밍에 다음과 같은 새로운 권장 파트너 인�
 - 이제 표준 인코딩은 시간 기반 GOP 설정을 사용하는 경우 VOD 인코딩 중에 VFR(가변 프레임 속도) 콘텐츠에 일정한 GOP 케이던스를 유지합니다.  예를 들어 15-30fps 사이에서 가변하는 혼합 프레임 속도 콘텐츠를 제출하는 고객은 이제 적응 비트 전송률 스트리밍 MP4 파일에 대한 출력에 일정한 GOP 거리가 계산되는 것을 볼 수 있습니다. 그러면 HLS 또는 DASH를 통해 제공 시 트랙 간에 더욱 원활하게 전환할 수 있습니다. 
 -  VFR(가변 프레임 속도) 원본 콘텐츠의 AV 동기화 개선
 
-### <a name="video-indexer-video-analytics"></a>Video Indexer, 비디오 분석
+### <a name="azure-video-analyzer-for-media-video-analytics"></a>Azure Video Analyzer for Media, 비디오 분석
 
 - 이제 VideoAnalyzer 사전 설정을 사용하여 추출된 키 프레임이 크기가 조정되는 대신 비디오의 원래 해상도로 설정됩니다. 고해상도 키 프레임 추출은 원본 품질 이미지를 제공하고, Microsoft Computer Vision 및 Custom Vision 서비스에서 제공하는 이미지 기반 AI 모델을 사용하여 비디오에서 더 많은 정보를 얻을 수 있도록 합니다.
 
@@ -290,9 +360,9 @@ Media Services v3 라이브 이벤트의 라이브 선형 인코딩의 연중무
 
 #### <a name="deprecation-of-media-processors"></a>미디어 프로세서 사용 중단
 
-*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기* 의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는 [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조하세요. Azure Media Services Video Indexer는 이러한 레거시 미디어 프로세서를 대체합니다.
+*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기* 의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는 [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조하세요. Azure Video Analyzer for Media가 이 레거시 미디어 프로세서를 바꿉니다.
 
-자세한 내용은 [Azure Media Indexer 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](../previous/migrate-indexer-v1-v2.md)을 참조하세요.
+자세한 내용은 [Azure Media Indexer 및 Azure Media Indexer 2에서 **Azure Media Services Video Indexer** 로 마이그레이션](../previous/migrate-indexer-v1-v2.md)을 참조하세요.
 
 ## <a name="august-2019"></a>2019년 8월
 

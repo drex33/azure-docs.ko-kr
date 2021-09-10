@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: cf16925a4d62aa603de37b893f883f921c8898c5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 483ad9dbceb134188ee8a5e2fdce3469226c579b
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642482"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123312944"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-microsoft-dataverse-or-dynamics-crm"></a>Dynamics 365(Microsoft Dataverse) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -71,6 +71,30 @@ Azure AD 서비스 사용자 인증을 통해 이 커넥터를 사용하려면 D
 ## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-dynamics-365-using-ui"></a>UI를 사용하여 Dynamics 365에 연결된 서비스 만들기
+
+다음 단계에 따라 Azure Portal UI에서 Dynamics 365에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하고 연결된 서비스를 선택한 다음 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 연결된 새 서비스를 만드는 스크린샷.":::
+
+2. Dynamics를 검색하고 Dynamics 365 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-azure-blob-storage/azure-blob-storage-connector.png" alt-text="Dynamics 365 커넥터 스크린샷":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Dynamics 365의 연결된 서비스 구성 스크린샷":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
 
 다음 섹션에서는 Dynamics에 한정된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

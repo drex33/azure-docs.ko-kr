@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 08/17/2021
 ms.author: b-juche
-ms.openlocfilehash: e6bc27674cadc8798afa3f9f9297b0d573d7ce64
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 30b00320e9273ecb010239d66a3c056d3f95f332
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071062"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568057"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Active Directory 연결 만들기 및 관리
 
@@ -30,7 +30,7 @@ Azure NetApp Files의 여러 기능을 수행하려면 Active Directory에 연�
 * 용량 풀을 설정해야 합니다. [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)을 참조하세요.   
 * Azure NetApp Files에 서브넷을 위임해야 합니다. [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)을 참조하세요.
 
-## <a name="requirements-for-active-directory-connections"></a>Active Directory 연결에 대한 요구 사항
+## <a name="requirements-and-considerations-for-active-directory-connections"></a><a name="requirements-for-active-directory-connections"></a>Active Directory 연결 요구 사항 및 고려 사항
 
 * 구독 및 지역별로 하나의 AD(Active Directory) 연결만 구성할 수 있습니다.   
 
@@ -39,6 +39,8 @@ Azure NetApp Files의 여러 기능을 수행하려면 Active Directory에 연�
     AD 연결은 생성된 NetApp 계정을 통해서만 볼 수 있습니다. 그러나 공유 AD 기능을 사용하도록 설정하여 동일한 구독 및 동일한 지역에 있는 NetApp 계정이 NetApp 계정 중 하나에서 만든 AD 서버를 사용하도록 허용할 수 있습니다. [동일한 구독 및 지역의 여러 NetApp 계정을 하나의 AD 연결에 매핑](#shared_ad)을 참조하세요. 이 기능을 활성화할 경우 동일한 구독 및 동일한 지역에 있는 모든 NetApp 계정에서 AD 연결이 표시됩니다. 
 
 * 사용하는 관리자 계정은 사용자가 지정할 OU(조직 구성 단위) 경로에 머신 계정을 만들 수 있어야 합니다.  
+
+* Azure NetApp Files에서 사용되는 Active Directory 사용자 계정의 암호를 변경하는 경우 [Active Directory 연결](#create-an-active-directory-connection)에 구성된 암호를 업데이트해야 합니다. 그러지 않으면 새 볼륨을 생성할 수 없으며 설정에 따라 기존 볼륨에 대한 액세스도 영향을 받을 수 있습니다.  
 
 * 해당하는 Windows Active Directory(AD) 서버에 적절한 포트가 열려 있어야 합니다.  
     필요한 포트는 다음과 같습니다. 
@@ -118,7 +120,6 @@ Azure NetApp Files에는 다음과 같은 추가 AADDS 고려 사항이 적용�
 * Azure NetApp Files는 `user` 및 `resource forest` 형식을 지원합니다.
 * 동기화 유형에 대해 `All` 또는 `Scoped`를 선택할 수 있습니다.   
     `Scoped`를 선택하는 경우 SMB 공유에 액세스하기 위해 올바른 Microsoft Azure Active Directory 그룹을 선택했는지 확인합니다.  확실하지 않은 경우 `All` 동기화 유형을 사용할 수 있습니다.
-* Enterprise 또는 Premium SKU를 사용해야 합니다. 표준 SKU는 지원되지 않습니다.
 
 Active Directory 연결을 만들 때 AADDS에 대한 다음 사항에 유의해야 합니다.
 
@@ -185,7 +186,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         기능 등록 상태를 확인합니다. 
 
         > [!NOTE]
-        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`이 될 때까지 기다린 후에 계속하세요.
+        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`가 될 때까지 기다린 후 계속합니다.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
@@ -207,7 +208,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         기능 등록 상태를 확인합니다. 
 
         > [!NOTE]
-        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`이 될 때까지 기다린 후에 계속하세요.
+        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`가 될 때까지 기다린 후 계속합니다.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
@@ -243,7 +244,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         기능 등록 상태를 확인합니다. 
 
         > [!NOTE]
-        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`이 될 때까지 기다린 후에 계속하세요.
+        > **RegistrationState** 는 `Registered`로 변경되기 전 최대 60분 동안 `Registering` 상태에 있을 수 있습니다. 상태가 `Registered`가 될 때까지 기다린 후 계속합니다.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator

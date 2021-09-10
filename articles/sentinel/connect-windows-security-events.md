@@ -15,28 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2021
 ms.author: yelevin
-ms.openlocfilehash: 364426e5b89915f51ec61e7c878e885045964554
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: d83672894f511696cfc2520aaee3e7932508b6c2
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063453"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567940"
 ---
 # <a name="connect-to-windows-servers-to-collect-security-events"></a>Windows 서버에 연결하여 보안 이벤트 수집
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Windows 보안 이벤트 커넥터를 사용하면 Azure Sentinel 작업 영역에 연결된 모든 Windows 서버(물리적 또는 가상, 온-프레미스 또는 클라우드에 있는)에서 보안 이벤트를 스트리밍할 수 있습니다. 이렇게 하면 대시보드에서 Windows 보안 이벤트를 보고 이를 사용하여 사용자 지정 경고를 만들고 조사를 개선하여 조직의 네트워크에 대한 더 많은 인사이트를 제공하고 보안 운영 기능을 확장할 수 있습니다. 
+Windows 보안 이벤트 커넥터를 사용하면 Azure Sentinel 작업 영역에 연결된 모든 Windows 서버(물리적 또는 가상, 온-프레미스 또는 클라우드에 있는)에서 보안 이벤트를 스트리밍할 수 있습니다. 이렇게 하면 대시보드에서 Windows 보안 이벤트를 보고 이를 사용하여 사용자 지정 경고를 만들고 조사를 개선하여 조직의 네트워크에 대한 더 많은 인사이트를 제공하고 보안 운영 기능을 확장할 수 있습니다.
 
-이제 이 커넥터는 두 가지 버전이 있습니다. **보안 이벤트** 는 로그 분석 에이전트(MMA 또는 OMS 에이전트라고도 함)를 기반으로 하는 레거시 버전이며 **Windows 보안 이벤트** 는 현재 **미리 보기** 이며 새 AMA(Azure Monitor 에이전트)를 기반으로 하는 새 버전입니다. 이 문서에서는 두 커넥터에 대한 정보를 제공합니다. 아래 탭에서 선택하여 선택한 커넥터와 관련된 정보를 볼 수 있습니다.
+## <a name="connector-options"></a>커넥터 옵션
+
+Windows 보안 이벤트 커넥터에서는 다음 버전을 지원합니다.
+
+|커넥터 버전  |설명  |
+|---------|---------|
+|**보안 이벤트**     |Log Analytics 에이전트를 기반으로 하며 MMA(Microsoft Monitoring Agent) 또는 OMS 에이전트라고도 하는 레거시 버전입니다. <br><br>초당 10,000개의 이벤트로 제한됩니다. 최적의 성능을 보장하려면 초당 8,500개 이하의 이벤트를 유지해야 합니다.       |
+|**Windows 보안 이벤트**     |최신 버전이며 현재 미리 보기 상태에 있으며 AMA(Azure Monitor 에이전트)를 기반으로 합니다.   <br><br>특정 머신 그룹에 대한 사전 수집 로그 필터링 및 개별 데이터 수집 규칙과 같은 추가 기능을 지원합니다.      |
+|     |         |
+
 
 > [!NOTE]
-> Azure 가상 머신이 아닌 시스템에서 보안 이벤트를 수집하려면 이러한 커넥터 중 하나를 사용하도록 설정하기 전에 시스템에 [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md)를 설치하고 사용하도록 설정해야 합니다.
+> Linux용 MMA는 로그를 여러 작업 영역으로 보내는 멀티 호밍을 지원하지 않습니다. 멀티 호밍이 필요한 경우 **Windows 보안 이벤트** 커넥터를 사용하는 것이 좋습니다.
+
+> [!TIP]
+> 여러 에이전트가 필요한 경우 로그 수집을 위해 여러 에이전트를 실행하도록 설정된 가상 머신 규모를 사용하거나 여러 머신을 사용할 수 있습니다. 그런 다음, 보안 이벤트와 Windows 보안 이벤트 커넥터 모두를 부하 분산 장치와 함께 사용하여 머신 과부하와 데이터 중복을 방지할 수 있습니다.
 >
-> 다음 내용이 포함됩니다.
-> - 물리적 머신에 설치된 Windows 서버
-> - 온-프레미스 가상 머신에 설치된 Windows 서버
-> - 비 Azure 클라우드의 가상 머신에 설치된 Windows 서버
+
+이 문서에서는 두 버전의 커넥터에 대한 정보를 제공합니다. 아래 탭에서 선택하여 선택한 커넥터와 관련된 정보를 볼 수 있습니다.
+
 
 # <a name="log-analytics-agent-legacy"></a>[Log Analytics 에이전트(레거시)](#tab/LAA)
 
@@ -70,9 +81,19 @@ Windows 보안 이벤트 커넥터를 사용하면 Azure Sentinel 작업 영역�
 이 문서에서는 데이터 수집 규칙을 만드는 방법을 보여 줍니다.
 
 > [!NOTE]
-> **다른 에이전트와 함께 사용 가능**
+> - **다른 에이전트와 함께 사용 가능**
 > 
-> Azure Monitor 에이전트는 기존 에이전트와 함께 사용할 수 있으므로 평가 또는 마이그레이션 중에도 레거시 커넥터를 계속 사용할 수 있습니다. 이러한 기능은 기존 솔루션에 대한 지원이 제한적이기 때문에 새 커넥터가 미리 보기 상태로 제공되는 동안 특히 중요합니다. 하지만 중복 데이터를 수집하는 경우 쿼리 결과가 왜곡되고 데이터 수집 및 보존에 대한 추가 요금이 발생할 수 있으므로 주의해야 합니다.
+>   Azure Monitor 에이전트는 기존 에이전트와 함께 사용할 수 있으므로 평가 또는 마이그레이션 중에도 레거시 커넥터를 계속 사용할 수 있습니다. 이러한 기능은 기존 솔루션에 대한 지원이 제한적이기 때문에 새 커넥터가 미리 보기 상태로 제공되는 동안 특히 중요합니다. 하지만 중복 데이터를 수집하는 경우 쿼리 결과가 왜곡되고 데이터 수집 및 보존에 대한 추가 요금이 발생할 수 있으므로 주의해야 합니다.
+> 
+> - **Azure가 아닌 머신에서 보안 이벤트 수집**
+> 
+>   Azure 가상 머신이 아닌 시스템에서 보안 이벤트를 수집하려면 Azure Monitor 에이전트 기반 커넥터를 사용하도록 설정하기 *전에* 시스템에 [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md)를 설치하고 사용하도록 설정해야 합니다.
+>   
+>   다음 내용이 포함됩니다.
+>   
+>    - 물리적 머신에 설치된 Windows 서버
+>    - 온-프레미스 가상 머신에 설치된 Windows 서버
+>    - 비 Azure 클라우드의 가상 머신에 설치된 Windows 서버
 
 ---
 
@@ -248,6 +269,6 @@ Azure Sentinel은 ML(기계 학습)을 보안 이벤트 데이터에 적용하�
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Windows 보안 이벤트를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [기본 제공](tutorial-detect-threats-built-in.md) 또는 [사용자 지정](tutorial-detect-threats-custom.md) 규칙을 사용하여 Azure Sentinel에서 위협 검색을 시작합니다.
+- [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
+- [기본 제공](detect-threats-built-in.md) 또는 [사용자 지정](detect-threats-custom.md) 규칙을 사용하여 Azure Sentinel에서 위협 검색을 시작합니다.
 

@@ -1,22 +1,22 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 PowerApps 제안을 만듭니다.
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 PowerApps 제안을 만듭니다.
+title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제안을 만듭니다.
+description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제안을 만듭니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: ea640bc4f5b191c3b01ed2a00ecb1d247f1a602d
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 1a4bd560603b16a1a2b9fe0a66bc4f1adce25a73
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112240278"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867474"
 ---
-# <a name="how-to-create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Dynamics 365 for Customer Engagement 및 PowerApps 제안을 만드는 방법
+# <a name="how-to-create-a-dynamics-365-for-customer-engagement--power-apps-offer"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제안을 만드는 방법
 
-이 문서에서는 Dynamics 365 for Customer Engagement 및 PowerApps 제안을 만드는 방법에 대해 설명합니다. 모든 Dynamics 365 제안은 인증 프로세스를 통과해야 합니다. 평가판 환경을 사용하면 사용자가 솔루션을 라이브 Dynamics 365 환경에 배포할 수 있습니다.
+이 문서에서는 Dynamics 365 for Customer Engagement 및 Power Apps 제안을 만드는 방법에 대해 설명합니다. 모든 Dynamics 365 제안은 인증 프로세스를 통과해야 합니다. 평가판 환경을 사용하면 사용자가 솔루션을 라이브 Dynamics 365 환경에 배포할 수 있습니다.
 
 시작하기 전에 [파트너 센터](./create-account.md)에서 상업용 Marketplace 계정을 만들고 상업용 Marketplace 프로그램에 해당 계정이 등록되어 있는지 확인합니다.
 

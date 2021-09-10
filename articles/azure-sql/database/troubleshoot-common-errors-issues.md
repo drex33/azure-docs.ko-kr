@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
-ms.reviewer: sstein,vanto
-ms.date: 01/14/2021
-ms.openlocfilehash: 5953099567edc3ef0f09ae07fd2708b1ce748dd9
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.reviewer: mathoma,vanto
+ms.date: 08/20/2021
+ms.openlocfilehash: 1e656227387bebc9806ad06574084bd01fcc0b35
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413612"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122603800"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance 연결 문제 및 기타 오류 문제 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,6 +30,7 @@ Azure 인프라에 는 SQL Database 서비스에 과도한 워크로드 부하�
 
 | 오류 코드 | 심각도 | 설명 |
 | ---:| ---:|:--- |
+| 926 |14 |데이터베이스 ‘replicatedmaster’는 열 수 없습니다. 복구에 의해 주의 대상으로 표시되었습니다. 자세한 내용은 SQL Server 오류 로그를 참조하십시오.<br/><br/>이 오류는 재구성의 마지막 단계에서 짧은 기간 동안 SQL Managed Instance 오류 로그에 로그될 수 있으며 이전 기본 서버가 해당 로그를 종료할 수 있습니다.<br/>이 오류 메시지와 관련된 기타 일시적이지 않은 시나리오는 [MSSQL 오류 문서](/sql/relational-databases/errors-events/mssqlserver-926-database-engine-error)에 설명되어 있습니다.|
 | 4060 |16 |로그인에서 요청된 데이터베이스 "%.&#x2a;ls"을(를) 열 수 없습니다. 로그인에 실패했습니다. 자세한 내용은 [오류 4000~4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)를 참조하세요.|
 | 40197 |17 |서비스에서 요청을 처리하는 오류가 발생했습니다. 다시 시도하세요. 오류 코드 %d.<br/><br/>소프트웨어 또는 하드웨어 업그레이드, 하드웨어 오류 또는 기타 장애 조치 문제로 인해 서비스가 종료되는 경우 이 오류가 발생합니다. 오류 40197 메시지 내에 포함된 오류 코드(%d)는 발생한 오류 또는 장애 조치의 종류에 대한 추가 정보를 제공합니다. 오류 40197 메시지 내에 포함된 오류 코드의 일부 예제는 40020, 40143, 40166 및 40540입니다.<br/><br/>재연결은 데이터베이스의 정상 복사본으로 자동 연결됩니다. 애플리케이션은 오류 40197을 포착하고 문제 해결을 위해 메시지 내에 포함된 오류 코드(%d)를 로그하고 리소스가 사용 가능하고 연결이 다시 설정될 때까지 SQL Database에 다시 접속을 시도해야 합니다. 자세한 내용은 [일시적인 오류](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults)를 참조하세요.|
 | 40501 |20 |서비스가 현재 사용 중입니다. 10초 후 요청을 다시 시도하십시오. 인시던트 ID: %ls. 코드: %d. 자세한 내용은 다음을 참조하세요. <br/>&bull; &nbsp; [논리 SQL server 리소스 한도](resource-limits-logical-server.md)<br/>&bull; &nbsp;[단일 데이터베이스에 대한 DTU 기반 한도](service-tiers-dtu.md)<br/>&bull; &nbsp;[탄력적 풀에 대한 DTU 기반 한도](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[단일 데이터베이스에 대한 vCore 기반 한도](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[탄력적 풀에 대한 vCore 기반 한도](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance 리소스 한도](../managed-instance/resource-limits.md).|
@@ -43,7 +44,7 @@ Azure 인프라에 는 SQL Database 서비스에 과도한 워크로드 부하�
 
 1. [Microsoft Azure 서비스 대시보드](https://azure.microsoft.com/status)에서 애플리케이션이 오류를 보고한 시간 동안 발생한 알려진 서비스 중단을 확인합니다.
 2. Azure SQL Database와 같이 클라우드 서비스에 연결하는 애플리케이션에서는 주기적으로 다시 구성 이벤트가 발생하므로, 이러한 이벤트를 사용자에게 애플리케이션 오류로 표시하는 대신 해당 오류를 처리하는 재시도 논리를 구현해야 합니다.
-3. 데이터베이스가 리소스 한계에 도달하면 일시적인 연결 문제가 발생한 것처럼 보일 수 있습니다. [리소스 한도](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached)를 참조하세요.
+3. 데이터베이스가 리소스 한계에 도달하면 일시적인 연결 문제가 발생한 것처럼 보일 수 있습니다. [리소스 한도](resource-limits-logical-server.md#what-happens-when-resource-limits-are-reached)를 참조하세요.
 4. 연결 문제가 계속 발생하거나 애플리케이션에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options)를 선택하여 Azure 지원 요청을 접수합니다.
 
 #### <a name="implementing-retry-logic"></a>재시도 논리 구현
@@ -127,12 +128,12 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 5. SSMS 개체 탐색기에서 **데이터베이스** 를 확장합니다.
 6. 사용자에게 권한을 부여하려는 데이터베이스를 선택합니다.
 7. **보안** 을 마우스 오른쪽 단추로 클릭한 다음, **새** **사용자** 를 선택합니다.
-8. 자리 표시자로 생성된 스크립트에서 다음 SQL 쿼리를 편집하고 실행합니다.
+8. 자리 표시자가 있는 생성된 스크립트(아래 표시된 샘플)에서 [여기](/sql/ssms/template/replace-template-parameters)의 단계에 따라 템플릿 매개 변수를 바꾸고 실행합니다.
 
    ```sql
-   CREATE USER <user_name, sysname, user_name>
-   FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
+   CREATE USER [<user_name, sysname, user_name>]
+   FOR LOGIN [<login_name, sysname, login_name>]
+   WITH DEFAULT_SCHEMA = [<default_schema, sysname, dbo>];
    GO
 
    -- Add user to the database owner role

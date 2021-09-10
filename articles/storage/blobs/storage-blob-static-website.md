@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 10caff631d59085aa2bbfcd573c3e3114b0306f7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 2c87ab51cb0862ed53fdf97d59ff2eb6dcf77fb1
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560873"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597521"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
@@ -23,8 +23,6 @@ ms.locfileid: "111560873"
 [App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/)는 Azure Storage 고정적인 웹 사이트 호스팅의 훌륭한 대안이며 웹 서버에서 콘텐츠를 렌더링하지 않아도 되는 경우에도 적합합니다. App Service Static Web Apps는 GitHub 소스부터 전역 배포까지 완전 관리형 연속 통합 및 지속적인 업데이트(CI/CD) 워크플로를 제공합니다.
 
 웹 서버에서 콘텐츠를 렌더링해야 하는 경우에는 [Azure App Service](https://azure.microsoft.com/services/app-service/)를 사용할 수 있습니다.
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up-a-static-website"></a>정적 웹 사이트 설정
 
@@ -54,18 +52,12 @@ ms.locfileid: "111560873"
 
 사용자는 웹 사이트의 공용 URL을 사용하여 브라우저에서 사이트 콘텐츠를 볼 수 있습니다. Azure Portal, Azure CLI 또는 PowerShell을 사용하여 URL을 찾을 수 있습니다. [웹 사이트 URL 찾기](storage-blob-static-website-how-to.md#portal-find-url)를 참조하세요.
 
+정적 웹 사이트 호스팅을 사용하도록 설정할 때 지정한 인덱스 문서는 사용자가 사이트를 열고 특정 파일을 지정하지 않을 때 표시됩니다(예: `https://contosoblobaccount.z22.web.core.windows.net`).
+
 서버에서 404 오류를 반환하는 경우, 웹 사이트를 사용하도록 설정할 때 오류 문서를 지정하지 않았으면, 사용자에게 기본 404 페이지가 반환됩니다.
 
 > [!NOTE]
 > 고정적인 웹사이트에서는 [Azure Storage에 대한 CORS(원본 간 리소스 공유)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)가 지원되지 않습니다.
-
-### <a name="regional-codes"></a>지역 코드
-
-사이트의 URL은 지역 코드를 포함합니다. 예를 들어 URL `https://contosoblobaccount.z22.web.core.windows.net/`에는 지역 코드 `z22`가 포함되어 있습니다.
-
-이 코드는 URL에 남아 있어야 하지만 내부용으로만 사용되며 다른 방법으로는 해당 코드를 사용할 필요가 없습니다.
-
-정적 웹 사이트 호스팅을 사용하도록 설정할 때 지정한 인덱스 문서는 사용자가 사이트를 열고 특정 파일을 지정하지 않을 때 표시됩니다(예: `https://contosoblobaccount.z22.web.core.windows.net`).
 
 ### <a name="secondary-endpoints"></a>보조 엔드포인트
 
@@ -121,6 +113,36 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 정적 웹 사이트 페이지에서 메트릭을 사용할 수 있습니다. 메트릭을 사용하도록 설정하면 **$web** 컨테이너의 파일에 대한 트래픽 통계가 메트릭 대시보드에 보고됩니다.
 
 정적 웹 사이트 페이지에서 메트릭을 사용하도록 설정하려면 [정적 웹 사이트 페이지에서 메트릭 사용](storage-blob-static-website-how-to.md#metrics)을 참조하세요.
+
+## <a name="faq"></a>FAQ
+
+##### <a name="does-the-azure-storage-firewall-work-with-a-static-website"></a>Azure Storage 방화벽이 정적 웹 사이트에서 작동하나요?
+
+예. IP 기반 및 VNET 방화벽을 포함한 스토리지 계정 [네트워크 보안 규칙](../common/storage-network-security.md)은 정적 웹 사이트 엔드포인트에 대해 지원되며 웹 사이트를 보호하는 데 사용될 수 있습니다.
+
+##### <a name="do-static-websites-support-azure-active-directory-azure-ad"></a>정적 웹 사이트에서 Azure AD(Azure Active Directory)를 지원하나요?
+
+아니요. 정적 웹 사이트는 **$web** 컨테이너의 파일에 대한 익명 퍼블릭 읽기 권한만 지원합니다.
+
+##### <a name="how-do-i-use-a-custom-domain-with-a-static-website"></a>정적 웹 사이트에서 사용자 지정 도메인을 사용하려면 어떻게 해야 하나요?
+
+[Azure CDN(Azure Content Delivery Network)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled)을 사용하여 정적 웹 사이트로 [사용자 지정 도메인](./static-website-content-delivery-network.md)을 구성할 수 있습니다. Azure CDN은 전 세계 어디에서나 웹 사이트에 대해 일관되게 낮은 대기 시간을 제공합니다. 
+
+##### <a name="how-do-i-use-a-custom-ssl-certificate-with-a-static-website"></a>정적 웹 사이트에서 사용자 지정 SSL 인증서를 사용하는 방법
+
+[Azure CDN](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled)을 사용하여 정적 웹 사이트에서 [사용자 지정 SSL](./static-website-content-delivery-network.md) 인증서를 구성할 수 있습니다. Azure CDN은 전 세계 어디에서나 웹 사이트에 대해 일관되게 낮은 대기 시간을 제공합니다.
+
+##### <a name="how-do-i-add-custom-headers-and-rules-with-a-static-website"></a>정적 웹 사이트에서 사용자 지정 헤더 및 규칙을 추가하는 방법
+
+[Azure CDN - Verizon Premium](../../cdn/cdn-verizon-premium-rules-engine.md)을 사용하여 정적 웹 사이트의 호스트 헤더를 구성할 수 있습니다. [여기](https://feedback.azure.com/forums/217298-storage/suggestions/34959124-allow-adding-headers-to-static-website-hosting-in)에서 의견을 보내 주시기 바랍니다.
+
+##### <a name="why-am-i-getting-an-http-404-error-from-a-static-website"></a>정적 웹 사이트에서 HTTP 404 오류가 발생하는 이유는 무엇인가요?
+
+대소문자를 틀리게 사용하여 파일 이름을 참조하는 경우 발생할 수 있습니다. 예를 들어 `index.html` 대신 `Index.html`을 사용합니다. 정적 웹 사이트의 URL에서 파일 이름과 확장명은 HTTP를 통해 제공되더라도 대/소문자를 구분합니다. Azure CDN 엔드포인트가 아직 프로비저닝되지 않은 경우에도 발생할 수 있습니다. 전파가 완료될 때까지 새 Azure CDN을 프로비저닝한 후 최대 90분 동안 기다립니다.
+
+##### <a name="why-isnt-the-root-directory-of-the-website-not-redirecting-to-the-default-index-page"></a>웹 사이트의 루트 디렉터리가 기본 인덱스 페이지로 리디렉션되지 않는 이유는 무엇인가요?
+
+Azure Portal에서 계정의 정적 웹 사이트 구성 페이지를 열고 **인덱스 문서 이름** 필드에 설정된 이름과 확장명을 찾습니다. 이 이름이 스토리지 계정의 **$web** 컨테이너에 있는 파일 이름과 똑같은지 확인합니다. 정적 웹 사이트의 URL에서 파일 이름과 확장명은 HTTP를 통해 제공되더라도 대/소문자를 구분합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

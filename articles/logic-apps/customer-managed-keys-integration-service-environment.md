@@ -3,15 +3,15 @@ title: 고객 관리형 키를 설정하여 ISE의 미사용 데이터 암호화
 description: Azure Logic Apps에서 ISE(통합 서비스 환경)에 대한 미사용 데이터를 보호하기 위해 사용자 고유의 암호화 키를 만들고 관리합니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: mijos, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, azla
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: d31fbd813f0c5d63ee9eddbff5b299209618626b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3ea6476173e7be1a6239e97ef2e5fbb5257aead
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98629677"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567914"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Azure Logic Apps에서 고객 관리형 키를 설정하여 ISE(통합 서비스 환경)에 대한 미사용 데이터 암호화
 
@@ -23,7 +23,11 @@ Azure Logic Apps는 Azure Storage를 사용하여 자동으로 [미사용 데이
 
 ## <a name="considerations"></a>고려 사항
 
-* 현재, ISE에 대한 고객 관리형 키 지원은 미국 서부 2, 미국 동부 및 미국 중남부와 같은 Azure 지역에서만 사용할 수 있습니다.
+* 현재 ISE에 대한 고객 관리형 키 지원은 다음 지역에서만 제공됩니다.
+
+  * Azure: 미국 서부 2, 미국 동부 및 미국 중남부
+
+  * Azure Government: 애리조나, 버지니아 및 텍사스
 
 * *ISE를 만들 때만* 고객 관리형 키를 지정할 수 있으며 그 이후에는 지정할 수 없습니다. ISE를 만든 후에는 이 키를 사용하지 않도록 설정할 수 없습니다. 현재, ISE에 대한 고객 관리형 키 순환은 지원되지 않습니다.
 

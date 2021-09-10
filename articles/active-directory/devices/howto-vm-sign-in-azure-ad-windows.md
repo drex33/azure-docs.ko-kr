@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 08/19/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834aa7643583683f7ee64abdbd1e18e0b76c6ada
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: ea5ad0ed61ac0d2b9603752efc6bbc998cf189a6
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538812"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608115"
 ---
 # <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Azure에서 Azure Active Directory 인증을 사용하여 Windows 가상 머신에 로그인
 
@@ -173,16 +173,18 @@ VM에 대한 역할 할당을 구성하는 방법에는 여러 가지가 있습�
 
 Azure AD 사용 Windows Server 2019 Datacenter VM에 대한 역할 할당을 구성하려면:
 
-1. 특정 가상 머신 개요 페이지로 이동합니다.
-1. 메뉴 옵션에서 **액세스 제어(IAM)** 를 선택합니다.
-1. **추가**, **역할 할당 추가** 를 선택하여 역할 할당 추가 창을 엽니다.
-1. **역할** 드롭다운 목록에서 **가상 머신 관리자 로그인** 또는 **가상 머신 사용자 로그인** 과 같은 역할을 선택합니다.
-1. **선택** 필드에서 사용자, 그룹, 서비스 주체 또는 관리 ID를 선택합니다. 목록에 보안 주체가 보이지 않으면 **선택** 상자에 직접 입력하여 표시 이름, 이메일 주소 및 개체 식별자에 대한 디렉터리를 검색할 수 있습니다.
-1. **저장** 을 선택하여 역할을 할당합니다.
+1. **액세스 제어(IAM)** 를 선택합니다.
 
-몇 분이 지나면 선택한 범위에서 보안 주체에 역할이 할당됩니다.
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
 
-![VM에 액세스할 사용자에게 역할 할당](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-access-control-assign-role.png)
+1. 다음 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | **가상 머신 관리자 로그인** 또는 **가상 머신 사용자 로그인** |
+    | 다음에 대한 액세스 할당 | 사용자, 그룹, 서비스 주체 또는 관리 ID |
+
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Azure Cloud Shell 환경 사용
 
@@ -209,13 +211,13 @@ Azure RBAC를 사용하여 Azure 구독 리소스에 대한 액세스를 관리�
 
 ## <a name="using-conditional-access"></a>조건부 액세스 사용
 
-Azure AD 로그인을 사용하도록 설정된 Azure의 Windows VM에 대한 액세스 권한을 부여하기 전에 다단계 인증 또는 사용자 로그인 위험 검사와 같은 조건부 액세스 정책을 적용할 수 있습니다. 조건부 액세스 정책을 적용하려면 클라우드 앱 또는 작업 할당 옵션에서 ‘Azure Windows VM 가상 머신 로그인’ 앱을 선택하고, 로그인 위험을 조건으로 사용하거나 권한 부여 액세스 제어로 다단계 인증을 사용해야 합니다. 
+Azure AD 로그인을 사용하도록 설정된 Azure의 Windows VM에 대한 액세스 권한을 부여하기 전에 다단계 인증 또는 사용자 로그인 위험 검사와 같은 조건부 액세스 정책을 적용할 수 있습니다. 조건부 액세스 정책을 적용하려면 클라우드 앱 또는 작업 할당 옵션에서 “**Azure Windows VM 로그인**” 앱을 선택하고, 로그인 위험을 조건으로 사용하거나 권한 부여 액세스 제어로 다단계 인증을 사용해야 합니다. 
 
 > [!NOTE]
 > ‘Azure Windows VM 로그인’ 앱에 대한 액세스를 요청하기 위한 권한 부여 액세스 제어로 ‘다단계 인증 필요’를 사용하는 경우 Azure에서 대상 Windows VM에 대한 RDP 세션을 시작하는 클라이언트의 일부로 다단계 인증 클레임을 제공해야 합니다. Windows 10 클라이언트에서 이를 수행하는 유일한 방법은 비즈니스용 Windows Hello PIN 또는 RDP 클라이언트에 생체 인식 인증을 사용하는 것입니다. 생체 인식 인증에 대한 지원이 Windows 10 버전 1809의 RDP 클라이언트에 추가되었습니다. 비즈니스용 Windows Hello 인증을 사용하는 원격 데스크톱은 인증서 신뢰 모델을 사용하고 현재 키 신뢰 모델에 사용할 수 없는 배포에서만 사용할 수 있습니다.
 
 > [!WARNING]
-> 사용자별로 사용/적용되는 Azure AD 다단계 인증은 VM 로그인에 지원되지 않습니다.
+> 사용자별로 활성화되는/적용되는 Azure AD Multi-Factor Authentication은 VM 로그인에 지원되지 않습니다.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Azure AD 자격 증명을 사용하여 Windows VM에 로그인
 
@@ -238,7 +240,7 @@ Azure AD를 사용하여 Windows Server 2019 가상 머신에 로그인하려면
 
 ## <a name="using-azure-policy-to-ensure-standards-and-assess-compliance"></a>Azure Policy를 사용하여 표준 보장 및 규정 준수 평가
 
-Azure 정책을 사용하여 새 Windows 가상 머신과 기존 Windows 가상 머신에 대해 Azure AD 로그인을 사용하는지 확인하고 Azure 정책 준수 대시보드에서 대규모 환경 준수를 평가합니다. 이 기능을 사용하면 다양한 수준의 적용을 사용할 수 있습니다. Azure AD 로그인을 사용하지 않는 환경 내에서 신규 및 기존 Windows VM에 플래그를 지정할 수 있습니다. 또한 Azure 정책을 사용하여 Azure AD 로그인을 사용하지 않는 새 Windows VM에 Azure AD 확장을 배포하고 기존 Windows VM을 동일한 표준으로 수정할 수 있습니다. 해당 기능 외에도 정책을 사용하여 머신에서 만든 승인되지 않은 로컬 계정이 있는 Windows VM을 검색하고 플래그를 지정할 수 있습니다. 자세한 내용은 [Azure 정책](https://www.aka.ms/AzurePolicy)을 검토하세요.
+Azure Policy를 사용하여 새 Windows 가상 머신과 기존 Windows 가상 머신에 Azure AD 로그인을 사용하도록 설정되어 있는지 확인하고 Azure Policy의 규정 준수 대시보드에서 사용자 환경의 규정 준수 상태를 대규모로 평가합니다. 이 기능을 사용하면 다양한 수준의 적용을 사용할 수 있습니다. Azure AD 로그인을 사용하지 않는 환경 내에서 신규 및 기존 Windows VM에 플래그를 지정할 수 있습니다. 또한 Azure Policy를 사용하여 Azure AD 로그인을 사용하지 않는 새 Windows VM에 Azure AD 확장을 배포하고 기존 Windows VM을 동일한 표준으로 수정할 수 있습니다. 해당 기능 외에도 Azure Policy를 사용하여 머신에서 만든 승인되지 않은 로컬 계정이 있는 Windows VM을 검색하고 플래그를 지정할 수 있습니다. 자세한 내용은 [Azure Policy](../../governance/policy/overview.md)를 검토하세요.
 
 ## <a name="troubleshoot"></a>문제 해결
 
@@ -267,14 +269,13 @@ VM이 Azure AD 조인 프로세스를 완료하려면 AADLoginForWindows 확장�
    
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-
-   > [!NOTE]
-   > `<TenantID>`를 Azure 구독에 연결된 Azure AD 테넌트 ID로 바꿉니다.
-
    - `curl https://enterpriseregistration.windows.net/ -D -`
    - `curl https://device.login.microsoftonline.com/ -D -`
    - `curl https://pas.windows.net/ -D -`
 
+   > [!NOTE]
+   > `<TenantID>`를 Azure 구독에 연결된 Azure AD 테넌트 ID로 바꿉니다.<br/> `enterpriseregistration.windows.net` 및 `pas.windows.net`는 예상되는 동작인 404 찾을 수 없음을 반환해야 합니다.
+            
 1. `dsregcmd /status`를 실행하여 디바이스 상태를 볼 수 있습니다. 목표는 디바이스 상태가 `AzureAdJoined : YES`로 표시되는 것입니다.
 
    > [!NOTE]
@@ -302,13 +303,12 @@ AADLoginForWindows 확장이 특정 오류 코드와 함께 실패하는 경우 
 
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-   
-   > [!NOTE]
-   > `<TenantID>`를 Azure 구독에 연결된 Azure AD 테넌트 ID로 바꿉니다. 테넌트 ID를 찾아야 하는 경우 커서로 계정 이름을 가리켜서 테넌트 ID를 가져오거나 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID** 를 선택하면 됩니다.
-
    - `curl https://enterpriseregistration.windows.net/ -D -`
    - `curl https://device.login.microsoftonline.com/ -D -`
    - `curl https://pas.windows.net/ -D -`
+   
+   > [!NOTE]
+   > `<TenantID>`를 Azure 구독에 연결된 Azure AD 테넌트 ID로 바꿉니다. 테넌트 ID를 찾아야 하는 경우 커서로 계정 이름을 가리켜서 테넌트 ID를 가져오거나 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID** 를 선택하면 됩니다.<br/>`enterpriseregistration.windows.net` 및 `pas.windows.net`는 예상되는 동작인 404 찾을 수 없음을 반환해야 합니다.
 
 1. ‘호스트 `<URL>`을 확인할 수 없습니다’와 함께 명령이 실패하는 경우 다음 명령을 실행하여 VM에서 사용 중인 DNS 서버를 확인합니다
    
@@ -377,7 +377,30 @@ VM에 대한 원격 데스크톱 연결을 시작할 때 다음과 같은 오류
 
 리소스에 액세스하기 전에 MFA(다단계 인증)를 요구하는 조건부 액세스 정책을 구성한 경우 VM에 대한 원격 데스크톱 연결을 시작하는 Windows 10 PC가 Windows Hello와 같은 강력한 인증 방법을 사용하여 로그인하도록 해야 합니다. 원격 데스크톱 연결에 강력한 인증 방법을 사용하지 않는 경우 이전 오류가 표시됩니다.
 
-비즈니스용 Windows Hello를 배포하지 않은 경우와 현재 이 옵션을 사용할 수 없는 경우 MFA를 요구하는 클라우드 앱 목록에서 ‘Azure Windows VM 로그인’ 앱을 제외하는 조건부 액세스 정책을 구성하여 MFA 요구 사항을 제외할 수 있습니다. 비즈니스용 Windows Hello에 대한 자세한 내용은 [비즈니스용 Windows Hello 개요](/windows/security/identity-protection/hello-for-business/hello-identity-verification)를 참조하세요.
+- 자격 증명이 작동하지 않았습니다.
+
+![자격 증명이 작동하지 않았습니다](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
+
+> [!WARNING]
+> 사용자별로 활성화되는/적용되는 Azure AD Multi-Factor Authentication은 VM 로그인에 지원되지 않습니다. 이 설정을 사용하면 “Your credentials do not work.”(자격 증명이 작동하지 않습니다.)라는 오류 메시지와 함께 로그인에 실패합니다.
+
+다음 단계를 수행하여 사용자별 MFA 설정을 제거하면 위의 문제를 해결할 수 있습니다.
+
+```
+
+# Get StrongAuthenticationRequirements configure on a user
+(Get-MsolUser -UserPrincipalName username@contoso.com).StrongAuthenticationRequirements
+ 
+# Clear StrongAuthenticationRequirements from a user
+$mfa = @()
+Set-MsolUser -UserPrincipalName username@contoso.com -StrongAuthenticationRequirements $mfa
+ 
+# Verify StrongAuthenticationRequirements are cleared from the user
+(Get-MsolUser -UserPrincipalName username@contoso.com).StrongAuthenticationRequirements
+
+```
+
+비즈니스용 Windows Hello를 배포하지 않은 경우와 현재 이 옵션을 사용할 수 없는 경우 MFA를 요구하는 클라우드 앱 목록에서 “**Azure Windows VM 로그인**” 앱을 제외하는 조건부 액세스 정책을 구성하여 MFA 요구 사항을 제외할 수 있습니다. 비즈니스용 Windows Hello에 대한 자세한 내용은 [비즈니스용 Windows Hello 개요](/windows/security/identity-protection/hello-for-business/hello-identity-verification)를 참조하세요.
 
 > [!NOTE]
 > RDP를 사용한 비즈니스용 Windows Hello PIN 인증은 여러 버전의 Windows 10에서 지원됐지만 RDP를 사용한 생체 인식 인증에 대한 지원은 Windows 10 버전 1809에서 추가되었습니다. RDP 도중 비즈니스용 Windows Hello 인증 사용은 인증서 신뢰 모델을 사용하고 현재 키 신뢰 모델에 사용할 수 없는 배포에서만 사용할 수 있습니다.

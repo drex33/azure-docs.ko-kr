@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins Explorer의 기능 및 용도 이해
 author: baanders
 ms.author: baanders
-ms.date: 6/1/2021
+ms.date: 8/24/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 873e1a9fc0fdda5c331112d02a1b6111e336193e
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 8006a98f91434243a94d24f6f7154e5856321744
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538483"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227082"
 ---
 # <a name="azure-digital-twins-explorer-preview"></a>Azure Digital Twins Explorer(미리 보기)
 
@@ -21,11 +21,11 @@ ms.locfileid: "122538483"
 >[!NOTE]
 >이 도구는 현재 **공개 미리 보기** 로 제공됩니다.
 
-다음은 샘플 그래프에 대해 채워진 모델 및 트윈을 보여 주는 탐색기 창의 보기입니다.
+다음은 샘플 그래프에 대해 채워진 모델과 트윈을 보여 주는 탐색기 창의 보기입니다.
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="샘플 모델 및 트윈을 보여주는 Azure Digital Twins Explorer의 스크린샷." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
-시각적 인터페이스는 그래프 및 모델 집합의 모양을 탐색하고 이해하며, 개별 트윈 및 관계를 가리키고 이에 대한 임시적인 변경을 수행하기 위한 훌륭한 도구입니다.
+시각적 인터페이스는 그래프와 모델 세트의 모양을 탐색하고 이해하기 위한 훌륭한 도구입니다. 또한 시각적 인터페이스를 사용해 각 트윈과 관계를 즉시 변경할 수 있습니다.
 
 이 문서에는 사용 사례 및 기능 개요를 포함하여 Azure Digital Twins Explorer에 대한 자세한 정보가 포함되어 있습니다. 각 기능을 사용하는 방법에 대한 자세한 단계는 [Azure Digital Twins Explorer 사용](how-to-use-azure-digital-twins-explorer.md)을 참조하세요.
 
@@ -35,7 +35,7 @@ Azure Digital Twins Explorer는 트윈 그래프를 탐색하고 그래프 컨�
 
 개발자는 이 도구가 다음과 같은 시나리오에서 특히 유용할 수 있습니다.
 * **탐색**: 탐색기를 사용하여 Azure Digital Twins 및 실제 환경을 나타내는 방식에 대해 알아봅니다. 서비스를 숙지하기 위해 보고 편집할 수 있는 샘플 모델 및 그래프를 가져옵니다. Azure Digital Twins Explorer 사용을 시작하는 단계 안내는 [Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md)을 참조하세요.
-* **개발**: 탐색기를 사용하여 트윈 그래프를 보고 유효성을 검사하고, 모델, 트윈 및 관계의 특정 속성을 조사합니다. 그래프 및 해당 데이터를 임시로 수정합니다. 각 기능을 사용하는 방법에 대한 자세한 지침은 [Azure Digital Twins Explorer 사용](how-to-use-azure-digital-twins-explorer.md)을 참조하세요. 
+* **개발**: 탐색기를 사용하여 트윈 그래프를 보고 유효성을 검사합니다. 모델, 트윈 및 관계의 특정 속성을 조사할 수도 있습니다. 그래프와 해당 데이터를 즉시 수정할 수 있습니다. 각 기능을 사용하는 방법에 대한 자세한 지침은 [Azure Digital Twins Explorer 사용](how-to-use-azure-digital-twins-explorer.md)을 참조하세요. 
 
 탐색기의 주요 목적은 그래프를 시각화 및 이해하고 필요에 따라 그래프를 업데이트하는 데 도움이 되는 것입니다. 대규모 솔루션 및 반복 또는 자동화해야 하는 작업의 경우 [API 및 SDK](./concepts-apis-sdks.md)를 사용하여 코드를 통해 인스턴스와 상호 작용하는 것이 좋습니다.
 
@@ -69,7 +69,7 @@ Azure Digital Twins Explorer는 코드 및 설명서에 대한 기여를 시작�
 
 Azure Digital Twins Explorer는 모든 [지원되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)에서 Azure Digital Twins의 모든 인스턴스에서 사용할 수 있습니다.
 
-그러나 공개 미리 보기 동안에는 인스턴스가 호스트되는 지역과 다른 지역을 통해 처리하기 위해 데이터가 전송될 수 있습니다. 데이터 주권이 우려되는 상황에서 이를 방지하기 위해 [오픈 소스 코드](#how-to-contribute)를 다운로드하여 사용자 머신에 로컬로 호스트된 버전의 탐색기를 만들 수 있습니다.
+그러나 공개 미리 보기 동안에는 인스턴스가 호스트되는 지역과 다른 지역을 통해 처리하기 위해 데이터가 전송될 수 있습니다. 데이터 주권이 우려되는 상황에서 이런 방식으로 데이터가 라우팅되지 않도록 하기 위해 [오픈 소스 코드](#how-to-contribute)를 다운로드하여 사용자 머신에 로컬로 호스트된 버전의 탐색기를 만들 수 있습니다.
 
 ### <a name="billing"></a>결제
 

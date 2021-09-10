@@ -1,24 +1,27 @@
 ---
 title: 매핑 데이터 흐름 매개 변수화
-description: 데이터 팩터리 파이프라인에서 매핑 데이터 흐름을 매개 변수화하는 방법을 알아봅니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics 파이프라인에서 매핑 데이터 흐름을 매개 변수화하는 방법 알아보기
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 04/19/2021
-ms.openlocfilehash: 22c4fc0680d8666d8c2dfafb8829436e27cf1ebd
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: f1e0c0648a89ecfb1102287e7fc1db8d62c92070
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725713"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642333"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>매핑 데이터 흐름 매개 변수화
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
-Azure Data Factory 및 Azure Synapse Analytics의 데이터 흐름 매핑은 매개 변수 사용을 지원합니다. 데이터 흐름 정의 내에서 매개 변수를 정의하고 식 전체에서 사용합니다. 매개 변수 값은 데이터 흐름 실행 작업을 통해 호출 파이프라인에 의해 설정됩니다. 데이터 흐름 활동 식의 값을 설정하는 세 가지 옵션이 있습니다.
+Azure Data Factory 및 Synapse 파이프라인의 매핑 데이터 흐름은 매개 변수 사용을 지원합니다. 데이터 흐름 정의 내에서 매개 변수를 정의하고 식 전체에서 사용합니다. 매개 변수 값은 데이터 흐름 실행 작업을 통해 호출 파이프라인에 의해 설정됩니다. 데이터 흐름 활동 식의 값을 설정하는 세 가지 옵션이 있습니다.
 
 * 파이프라인 제어 흐름 식 언어를 사용하여 동적 값 설정
 * 데이터 흐름 식 언어를 사용하여 동적 값 설정

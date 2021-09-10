@@ -1,27 +1,30 @@
 ---
-title: Azure Data Factory 문제 해결 | Microsoft Docs
-description: Azure Data Factory에서 외부 제어 작업의 문제를 해결하는 방법을 알아봅니다.
+title: 일반적인 문제 해결
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics 파이프라인에서 외부 제어 작업의 문제를 해결하는 방법을 알아봅니다.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: troubleshooting
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 12/30/2020
+ms.date: 08/24/2021
 ms.author: abnarain
-ms.openlocfilehash: 3011309da477dcfad2285e5832dfa163f69cc419
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: bab07b19efc1978836d1f14463392f8de2bd6e92
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108183545"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864554"
 ---
-# <a name="troubleshoot-azure-data-factory"></a>Azure Data Factory 문제 해결
+# <a name="troubleshoot-azure-data-factory-and-synapse-pipelines"></a>Azure Data Factory 및 Synapse 파이프라인 문제 해결
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 외부 제어 활동에 대한 일반적인 문제 해결 방법을 살펴봅니다.
+이 문서에서는 Azure Data Factory 및 Synapse 파이프라인의 외부 제어 활동에 대한 일반적인 문제 해결 방법을 살펴봅니다.
 
 ## <a name="connector-and-copy-activity"></a>커넥터 및 복사 활동
 
-복사 활동을 사용하여 발생하는 오류와 같은 커넥터 문제는 [Azure Data Factory 커넥터 문제 해결](connector-troubleshoot-guide.md)을 참조하세요.
+복사 작업을 사용하여 발생하는 오류와 같은 커넥터 문제는 [커넥터 문제 해결](connector-troubleshoot-guide.md) 문서를 참조하세요.
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
@@ -157,7 +160,7 @@ ms.locfileid: "108183545"
 
 - **원인**: 이 오류는 Data Lake Analytics에 대한 제한으로 인해 발생합니다.
 
-- **권장 사항**: Data Lake Analytics에 제출된 작업 수를 줄이세요. 활동에 대한 Data Factory 트리거 및 동시성 설정을 변경하거나 Data Lake Analytics의 제한을 늘리세요.
+- **권장 사항**: Data Lake Analytics에 제출된 작업 수를 줄이세요. 활동에 대한 트리거 및 동시성 설정을 변경하거나 Data Lake Analytics의 제한을 늘리세요.
 
 <br/> 
 
@@ -165,7 +168,7 @@ ms.locfileid: "108183545"
 
 - **원인**: 이 오류는 Data Lake Analytics에 대한 제한으로 인해 발생합니다.
 
-- **권장 사항**: Data Lake Analytics에 제출된 작업 수를 줄이세요. 활동에 대한 Data Factory 트리거 및 동시성 설정을 변경하거나 Data Lake Analytics의 제한을 늘리세요.
+- **권장 사항**: Data Lake Analytics에 제출된 작업 수를 줄이세요. 활동에 대한 트리거 및 동시성 설정을 변경하거나 Data Lake Analytics의 제한을 늘리세요.
 
 ### <a name="error-code-2705"></a>오류 코드: 2705
 
@@ -231,7 +234,7 @@ ms.locfileid: "108183545"
 
 - **메시지**: `Response Content is not a valid JObject.`
 
-- **원인**: 호출된 Azure 함수에서 응답에 JSON 페이로드를 반환하지 않았습니다. ADF(Azure Data Factory) Azure 함수 활동은 JSON 응답 콘텐츠만 지원합니다.
+- **원인**: 호출된 Azure 함수에서 응답에 JSON 페이로드를 반환하지 않았습니다. Azure Data Factory 및 Synapse 파이프라인 Azure 함수 활동은 JSON 응답 콘텐츠만 지원합니다.
 
 - **권장 사항**: C# 함수가 반환할 수 있는 것과 같이 유효한 JSON 페이로드를 반환하도록 Azure 함수를 업데이트하세요. `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
 
@@ -407,14 +410,6 @@ ms.locfileid: "108183545"
 
 - **권장 사항**: Azure Portal로 이동하여 저장소를 찾은 다음, 연결 문자열을 복사하여 연결 서비스에 붙여넣고 다시 시도하세요.
 
-### <a name="error-code-2108"></a>오류 코드: 2108
-
-- **메시지**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
-
-- **원인**: 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과와 같은 기본 문제로 인해 요청이 실패했습니다.
-
-- **권장 사항**: Fiddler/Postman을 사용하여 요청의 유효성을 검사하세요.
-
 ### <a name="error-code-2110"></a>오류 코드: 2110
 
 - **메시지**: `The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
@@ -438,14 +433,6 @@ ms.locfileid: "108183545"
 - **원인**: 클라우드 유형이 지원되지 않거나 EndpointSuffix에서 저장소를 확인할 수 없습니다.
 
 - **권장 사항**: 다른 클라우드에서 저장소를 사용하고 다시 시도하세요.
-
-### <a name="error-code-2128"></a>오류 코드: 2128
-
-- **메시지**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
-
-- **원인**: 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과 등이 있습니다.
-
-- **권장 사항**: 실행하려는 끝점이 요청에 응답하는지 확인하세요. Fiddler/Postman과 같은 도구를 사용할 수 있습니다.
 
 ## <a name="custom"></a>사용자 지정
 
@@ -569,7 +556,7 @@ ms.locfileid: "108183545"
 
 - **권장 사항**: 일반적인 HDInsight 연결 또는 네트워크 연결 문제일 수 있습니다. 먼저 브라우저에서 HDInsight Ambari UI를 사용할 수 있는지 확인하세요. 그리고 나서 자격 증명이 여전히 유효한지 확인합니다.
    
-   자체 호스팅 IR(Integrated Runtime)을 사용하는 경우 자체 호스팅 IR이 설치된 VM 또는 컴퓨터에서 이 단계를 수행합니다. 그런 다음, Data Factory에서 작업을 다시 제출해 보세요.
+   자체 호스팅 IR(Integrated Runtime)을 사용하는 경우 자체 호스팅 IR이 설치된 VM 또는 컴퓨터에서 이 단계를 수행합니다. 그런 다음, 작업을 다시 제출해 보세요.
 
    자세한 내용은 [Ambari Web UI](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui)를 참조하세요.
 
@@ -602,7 +589,7 @@ ms.locfileid: "108183545"
 
 - **원인**: 오류 메시지에 `Unable to service the submit job request as templeton service is busy with too many submit job requests` 또는 `Queue root.joblauncher already has 500 applications, cannot accept submission of application`와 유사한 메시지가 포함되어 있으면 동시에 너무 많은 작업이 HDInsight에 전송됩니다.
 
-- **권장 사항**: HDInsight에 제출된 동시 작업 수를 제한하세요. 동일한 활동으로 작업을 전송하는 경우 Data Factory 활동 동시성을 참조하세요. 동시 파이프라인 실행이 시간이 지남에 따라 분산되도록 트리거를 변경합니다.
+- **권장 사항**: HDInsight에 제출된 동시 작업 수를 제한하세요. 동일한 활동으로 작업을 전송하는 경우 작업 동시성을 참조하세요. 동시 파이프라인 실행이 시간이 지남에 따라 분산되도록 트리거를 변경합니다.
 
    오류에서 제안된 대로 `templeton.parallellism.job.submit`을 조정하려면 [HDInsight 설명서](../hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors.md)를 참조하세요.
 
@@ -612,9 +599,9 @@ ms.locfileid: "108183545"
 
 - **원인**: HDInsight 클러스터 또는 서비스에 문제가 있습니다.
 
-- **권장 사항**: 이 오류는 실행 중인 작업의 상태를 요청할 때 ADF가 HDInsight 클러스터로부터 응답을 받지 못하는 경우에 발생합니다. 클러스터 자체에서 이 문제가 발생할 수 있습니다. 또는 HDInsight 서비스에서 중단이 발생할 수 있습니다.
+- **권장 사항**: 이 오류는 실행 중인 작업의 상태를 요청할 때 서비스가 HDInsight 클러스터로부터 응답을 받지 못하는 경우에 발생합니다. 클러스터 자체에서 이 문제가 발생할 수 있습니다. 또는 HDInsight 서비스에서 중단이 발생할 수 있습니다.
 
-   https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide 에서 HDInsight 문제 해결 설명서를 참조하고, 추가 지원이 필요한 경우 지원 팀에 문의하세요.
+   [HDInsight 문제 해결 설명서](../hdinsight/hdinsight-troubleshoot-guide.md)를 참조하거나 Microsoft 지원에 추가 지원을 문의하세요.
 
 ### <a name="error-code-2302"></a>오류 코드: 2302
 
@@ -672,7 +659,7 @@ ms.locfileid: "108183545"
 
 - **메시지**: `Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
 
-- **원인**: HDI 클러스터에 대한 연결 정보가 잘못되었거나, 제공된 사용자에게 필요한 작업을 수행할 수 있는 권한이 없거나, HDInsight 서비스에서 ADF의 요청에 응답하는 동안 문제가 발생했습니다.
+- **원인**: HDI 클러스터에 대한 연결 정보가 잘못되었거나, 제공된 사용자에게 필요한 작업을 수행할 수 있는 권한이 없거나, HDInsight 서비스에서 서비스의 요청에 응답하는 동안 문제가 발생했습니다.
 
 - **권장 사항**: 사용자 정보가 올바른지 확인하고, HDI 클러스터의 Ambari UI가 IR이 설치된 VM(자체 호스팅 IR)의 브라우저에서 열리거나 어떤 컴퓨터(Azure IR)에서든 열 수 있는지 확인하세요.
 
@@ -690,19 +677,19 @@ ms.locfileid: "108183545"
 
 - **메시지**: `Failed to submit Spark job. Error: '%message;'`
 
-- **원인**: ADF가 Livy API(Livy/일괄 처리)를 사용하여 Spark 클러스터에서 일괄 처리 만들려고 했지만 오류가 발생했습니다.
+- **원인**: 서비스가 Livy API(Livy/일괄 처리)를 사용하여 Spark 클러스터에서 일괄 처리를 만들려고 했지만 오류가 발생했습니다.
 
-- **권장 사항**: 오류 메시지에 따라 문제를 해결하세요. 해결하는 데 정보가 부족한 경우 HDI 팀에 문의하여 일괄 처리 ID 및 작업 ID를 제공하세요. 이 ID는 ADF 모니터링의 활동 실행 출력 페이지에서 찾을 수 있습니다. 문제를 추가로 해결하려면 일괄 처리 작업의 전체 로그를 수집하세요.
+- **권장 사항**: 오류 메시지에 따라 문제를 해결하세요. 해결하는 데 정보가 부족한 경우 HDI 팀에 문의하여 일괄 처리 ID 및 작업 ID를 제공하세요. 이 ID는 서비스 모니터링의 활동 실행 출력 페이지에서 찾을 수 있습니다. 문제를 추가로 해결하려면 일괄 처리 작업의 전체 로그를 수집하세요.
 
    전체 로그를 수집하는 방법에 대한 자세한 내용은 [일괄 처리 작업의 전체 로그 가져오기](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job)를 참조하세요.
 
 ### <a name="error-code-2312"></a>오류 코드: 2312
 
-- **메시지**: `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
+- **메시지**: `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from the service Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
 
 - **원인**: HDInsight Spark 클러스터에서 작업이 실패했습니다.
 
-- **권장 사항**: ADF 모니터링의 활동 실행 출력 페이지 링크를 따라 HDInsight Spark 클러스터에서 실행 문제를 해결할 수 있습니다. 추가 지원이 필요한 경우 HDInsight 지원 팀에 문의하세요.
+- **권장 사항**: 서비스 모니터링의 활동 실행 출력 페이지 링크를 따라 HDInsight Spark 클러스터에서 실행 문제를 해결할 수 있습니다. 추가 지원이 필요한 경우 HDInsight 지원 팀에 문의하세요.
 
    전체 로그를 수집하는 방법에 대한 자세한 내용은 [일괄 처리 작업의 전체 로그 가져오기](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job)를 참조하세요.
 
@@ -764,7 +751,7 @@ ms.locfileid: "108183545"
 
 - **권장 사항**: 
     1. 브라우저에서 HDInsight 클러스터의 Ambari UI를 열어 자격 증명이 올바른지 확인하세요.
-    1. 클러스터가 VNet(가상 네트워크)에 있고 자체 호스팅 IR을 사용 중인 경우 HDI URL은 VNet의 비공개 URL이어야 하며 클러스터 이름 뒤에 '-int'가 있어야 합니다.
+    1. 클러스터가 VNet(가상 네트워크)에 있고 자체 호스팅 IR을 사용 중인 경우 HDI URL은 VNet의 프라이빗 URL이어야 하며 클러스터 이름 뒤에 `-int`가 있어야 합니다.
     
        예를 들어 `https://mycluster.azurehdinsight.net/`를 `https://mycluster-int.azurehdinsight.net/`로 변경합니다. `-int`는 `mycluster` 뒤, `.azurehdinsight.net` 앞이어야 합니다.
     1. 클러스터가 VNet에 있고 자체 호스팅 IR을 사용 중이며 비공개 URL이 사용되었지만 연결에 계속 실패하는 경우에는 IR이 설치된 VM이 HDI에 연결하는 데 문제가 있는 것입니다. 
@@ -772,7 +759,7 @@ ms.locfileid: "108183545"
        IR이 설치된 VM에 연결하고 브라우저에서 Ambari UI를 엽니다. 클러스터에 비공개 URL을 사용합니다. 이 연결은 브라우저에서 작동해야 합니다. 작동하지 않는 경우 HDInsight 지원 팀에 문의하여 추가 지원을 요청하세요.
     1. 자체 호스팅 IR을 사용하지 않는 경우에는 HDI 클러스터에 공개적으로 액세스할 수 있어야 합니다. 브라우저에서 Ambari UI를 열고 열리는지 확인합니다. 클러스터 또는 서비스에 문제가 있는 경우 HDInsight 지원 팀에 문의하여 도움을 요청하세요.
 
-       ADF 연결 서비스에 사용된 HDI 클러스터 URL은 테스트 연결이 통과되고 실행이 작동하도록 ADF IR(자체 호스팅 또는 Azure)에서 액세스할 수 있어야 합니다. 이 상태는 VM 또는 모든 공용 컴퓨터의 브라우저에서 URL을 열어 확인할 수 있습니다.
+       연결 서비스에 사용된 HDI 클러스터 URL은 테스트 연결이 통과되고 실행이 작동하도록 IR(자체 호스팅 또는 Azure)에서 액세스할 수 있어야 합니다. 이 상태는 VM 또는 모든 공용 컴퓨터의 브라우저에서 URL을 열어 확인할 수 있습니다.
 
 ### <a name="error-code-2343"></a>오류 코드: 2343
 
@@ -786,7 +773,7 @@ ms.locfileid: "108183545"
 
 - **메시지**: `Failed to read the content of the hive script. Error: '%message;'`
 
-- **원인**: 스크립트 파일이 존재하지 않거나 ADF가 스크립트 위치에 연결할 수 없습니다.
+- **원인**: 스크립트 파일이 없거나 서비스가 스크립트 위치에 연결할 수 없습니다.
 
 - **권장 사항**: 스크립트가 존재하고 연관된 연결 서비스가 연결에 적합한 자격 증명을 가지고 있는지 확인하세요.
 
@@ -794,7 +781,7 @@ ms.locfileid: "108183545"
 
 - **메시지**: `Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
 
-- **원인**: ADF가 HDI 클러스터에 대한 ODBC(Open Database Connectivity) 연결을 설정하려고 했지만 오류로 인해 실패했습니다.
+- **원인**: 서비스가 HDI 클러스터에 대한 ODBC(Open Database Connectivity) 연결을 설정하려고 했지만 오류로 인해 실패했습니다.
 
 - **권장 사항**: 
 
@@ -814,7 +801,7 @@ ms.locfileid: "108183545"
 
 - **메시지**: `Hive execution through ODBC failed with error message '%message;'.`
 
-- **원인**: ADF는 ODBC 연결을 통해 HDI 클러스터에 실행할 Hive 스크립트를 제출했지만 HDI에서 스크립트가 실패했습니다.
+- **원인**: 서비스는 ODBC 연결을 통해 HDI 클러스터에 실행할 하이브 스크립트를 제출했지만 HDI에서 스크립트가 실패했습니다.
 
 - **권장 사항**: 
 
@@ -844,7 +831,7 @@ ms.locfileid: "108183545"
 
 - **원인**: 파일을 배치해야 할 저장소에 연결하기 위해 제공한 자격 증명이 올바르지 않거나 해당 파일이 존재하지 않습니다.
 
-- **권장 사항**: 이 오류는 ADF가 HDI 활동을 준비하고 HDI에 작업을 제출하기 전에 기본 저장소에 파일을 복사하려고 하는 경우에 발생합니다. 파일이 제공된 위치에 있고 저장소 연결이 올바른지 확인하세요. ADF HDI 활동은 HDI 활동과 관련된 저장소 계정에서 MSI 인증을 지원하지 않으므로 연결 서비스에 전체 키가 있거나 Azure Key Vault를 사용하는지 확인하세요.
+- **권장 사항**: 이 오류는 서비스가 HDI 활동을 준비하고, HDI에 작업을 제출하기 전에 기본 스토리지에 파일을 복사하려고 하는 경우에 발생합니다. 파일이 제공된 위치에 있고 저장소 연결이 올바른지 확인하세요. HDI 활동은 HDI 활동과 관련된 스토리지 계정에서 MSI 인증을 지원하지 않으므로 연결된 서비스에 전체 키가 있거나 Azure Key Vault를 사용하는지 확인하세요.
 
 ### <a name="error-code-2351"></a>오류 코드: 2351
 
@@ -946,7 +933,7 @@ ms.locfileid: "108183545"
 
 - **메시지**: `Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
 
-- **원인**: 클러스터를 만들지 못했으며 ADF가 HDInsight 서비스에서 오류를 가져오지 못했습니다.
+- **원인**: 클러스터를 만들지 못했으며 서비스가 HDInsight 서비스에서 오류를 가져오지 못했습니다.
 
 - **권장 사항**: Azure Portal을 열고 제공된 이름으로 HDI 리소스를 찾은 다음, 프로비저닝 상태를 확인하세요. 추가 지원이 필요한 경우 HDInsight 지원 팀에 문의하세요.
 
@@ -958,7 +945,7 @@ ms.locfileid: "108183545"
 
 - **권장 사항**: HDInsight 주문형 연결 서비스에 대한 추가 저장소로 Azure Blob Storage 계정을 제공하세요.
 
-### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>HDInsight ESP 클러스터를 사용하여 ADF 연결된 서비스에 대한 SSL 오류
+### <a name="ssl-error-when-linked-service-using-hdinsight-esp-cluster"></a>HDInsight ESP 클러스터를 사용하여 연결된 서비스에 대한 SSL 오류
 
 - **메시지**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
 
@@ -976,7 +963,7 @@ ms.locfileid: "108183545"
 
 - **원인**: 이 문제는 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과로 인해 발생합니다.
 
-- **권장 사항**: 실행하려는 끝점이 요청에 응답하는지 확인하세요. **Fiddler/Postman** 과 같은 도구를 사용할 수 있습니다.
+- **권장 사항**: 실행하려는 끝점이 요청에 응답하는지 확인하세요. **Fiddler/Postman/Netmon/Wireshark** 와 같은 도구를 사용할 수 있습니다.
 
 ### <a name="error-code-2108"></a>오류 코드: 2108
 
@@ -984,7 +971,7 @@ ms.locfileid: "108183545"
 
 - **원인**: 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 초과와 같은 기본 문제로 인해 요청이 실패했습니다.
 
-- **권장 사항**: Fiddler/Postman을 사용하여 요청의 유효성을 검사하세요.
+- **권장 사항**: Fiddler/Postman/Netmon/Wireshark를 사용하여 요청의 유효성을 검사합니다.
 
 #### <a name="more-details"></a>자세한 내용
 **Fiddler** 를 사용하여 모니터링되는 웹 응용 프로그램의 HTTP 세션을 만들려면 다음을 수행하세요.
@@ -1031,7 +1018,7 @@ ms.locfileid: "108183545"
 
 **오류 메시지:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**원인:** 각 작업 실행에 대한 페이로드에는 활동 구성, 연결된 데이터 세트, 연결된 서비스 구성(있는 경우), 활동 유형별로 생성된 시스템 속성의 일부가 포함됩니다. 이러한 페이로드 크기의 제한은 [Data Factory 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) 섹션에 설명된 대로 896KB입니다.
+**원인:** 각 작업 실행에 대한 페이로드에는 활동 구성, 연결된 데이터 세트, 연결된 서비스 구성(있는 경우), 활동 유형별로 생성된 시스템 속성의 일부가 포함됩니다. 해당 페이로드 크기의 한도는 [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) 및 [Azure Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-analytics-limits)에 대한 Azure 한도 설명서에 언급된 대로 896KB입니다.
 
 **권장 사항:** 이 제한은 업스트림 활동 출력 또는 외부에서 하나 이상의 큰 매개 변수 값을 전달하는 경우, 특히 제어 흐름의 활동 간에 실제 데이터를 전달하는 경우에 발생할 가능성이 높습니다. 큰 매개 변수 값의 크기를 줄이거나 파이프라인 논리를 튜닝하여 활동 간에 이러한 값을 전달하지 않고 활동 내에서 처리할 수 있는지 확인합니다.
 
@@ -1040,7 +1027,7 @@ ms.locfileid: "108183545"
 문제 해결을 위한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 * [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
+* [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
 * [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)
 * [Azure 비디오](https://azure.microsoft.com/resources/videos/index/)

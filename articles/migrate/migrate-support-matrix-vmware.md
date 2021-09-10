@@ -1,19 +1,19 @@
 ---
-title: Azure Migrate의 VMware 서버 평가 지원
+title: Azure Migrate의 VMware 서버 검색 지원
 description: VMware 환경에서 서버에 대한 Azure Migrate 검색 및 평가 지원에 관해 알아봅니다.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: de4d66f3ef8195e13ff8b67538901d1ebc7d88aa
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: dedb05df1713238a6271af4dfd7b9cf1695d0bc7
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971062"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567715"
 ---
-# <a name="support-matrix-for-vmware-assessment"></a>VMware 평가에 대한 지원 매트릭스 
+# <a name="support-matrix-for-vmware-discovery"></a>VMware 검색을 위한 지원 매트릭스 
 
 이 문서에서는 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) 도구를 사용하여 Azure로 마이그레이션하기 위해 VMware 환경에서 서버를 검색하고 평가하는 경우의 필수 조건과 지원 요구 사항을 간략하게 설명합니다.
 
@@ -35,7 +35,7 @@ VMware 서버를 Azure로 마이그레이션할 계획인 경우 [마이그레�
 
 VMware | 세부 정보
 --- | ---
-**vCenter Server** | 검색하고 평가하려는 서버는 vCenter Server 버전 7.0, 6.7, 6.5, 6.0 또는 5.5를 통해 관리해야 합니다.<br /><br /> 어플라이언스에서 ESXi 호스트 세부 정보를 제공하여 서버를 검색하는 기능은 현재 지원되지 않습니다.
+**vCenter Server** | 검색하고 평가하려는 서버는 vCenter Server 버전 7.0, 6.7, 6.5, 6.0 또는 5.5를 통해 관리해야 합니다.<br /><br /> 어플라이언스에서 ESXi 호스트 세부 정보를 제공하여 서버를 검색하는 기능은 현재 지원되지 않습니다. <br /><br /> IPv6 주소는 vCenter Server(서버 검색 및 평가용) 및 ESXi 호스트(서버 복제용)에 지원되지 않습니다.
 **권한** | Azure Migrate: 검색 및 평가 도구에는 vCenter Server 읽기 전용 계정이 필요합니다.<br /><br /> 소프트웨어 인벤토리와 에이전트 없는 종속성 분석에 도구를 사용하려면 계정에 VMware VM의 게스트 작업 권한이 있어야 합니다.
 
 ## <a name="server-requirements"></a>서버 요구 사항
@@ -62,23 +62,25 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 **vCenter Server** | 어플라이언스에서 평가를 위한 구성 및 성능 메타데이터를 수집할 수 있도록 TCP 포트 443에서 인바운드 연결 <br /><br /> 어플라이언스는 기본적으로 포트 443의 vCenter에 연결됩니다. vCenter Server가 다른 포트에서 수신 대기하는 경우 검색을 설정할 때 포트를 수정할 수 있습니다.
 **ESXi 호스트** | [소프트웨어 인벤토리 검색](how-to-discover-applications.md) 또는 [에이전트 없는 종속성 분석](concepts-dependency-visualization.md#agentless-analysis)의 경우 어플라이언스는 TCP 포트 443의 ESXi 호스트에 연결하여 서버의 소프트웨어 인벤토리와 종속성을 검색합니다.
 
-## <a name="application-discovery-requirements"></a>애플리케이션 검색 요구 사항
+## <a name="software-inventory-requirements"></a>소프트웨어 인벤토리 요구 사항
 
-서버 검색 외에도 Azure Migrate: 검색 및 평가는 서버에서 실행되는 소프트웨어의 인벤토리를 완료할 수 있습니다. 애플리케이션 검색을 통해 온-프레미스 워크로드에 맞게 조정된 마이그레이션 경로를 파악하고 계획할 수 있습니다.
+서버를 검색하는 것 외에도 Azure Migrate: 검색 및 평가는 서버에서 소프트웨어 인벤토리를 수행할 수 있습니다. 소프트웨어 인벤토리를 사용하면 온-프레미스 워크로드에 맞게 조정된 마이그레이션 경로를 파악하고 계획할 수 있습니다.
 
 지원 | 세부 정보
 --- | ---
-**지원되는 서버** | 현재 VMware 환경에 있는 서버에서만 지원됩니다. 각 Azure Migrate 어플라이언스에서 최대 10,000대의 서버에 대한 애플리케이션 검색을 완료할 수 있습니다.
+**지원되는 서버** | 현재 VMware 환경에 있는 서버에서만 지원됩니다. 각 Azure Migrate 어플라이언스에서 최대 10,000대의 서버에서 소프트웨어 인벤토리를 수행할 수 있습니다.
 **운영 체제** | 모든 Windows 및 Linux 버전을 실행하는 서버가 지원됩니다.
-**VM 요구 사항** | 소프트웨어 인벤토리 검색의 경우 서버에서 VMware Tools를 설치하고 실행해야 합니다. <br /><br /> VMware Tools 버전은 버전 10.2.1 이상이어야 합니다.<br /><br /> Windows 서버에는 PowerShell 버전 2.0 이상이 설치되어 있어야 합니다.
-**검색** | 서버의 애플리케이션 검색은 서버에 설치된 VMware Tools를 사용하여 vCenter Server에서 수행됩니다. 어플라이언스는 vSphere API를 통해 vCenter Server를 실행하는 서버에서 소프트웨어 인벤토리 정보를 수집합니다. 애플리케이션 검색은 에이전트 없이 수행됩니다. 서버에 에이전트가 설치되어 있지 않으며 어플라이언스가 서버에 직접 연결되지 않습니다. Windows 서버와 Linux 서버에서 각각 WMI 및 SSH를 사용하도록 설정하고 사용할 수 있어야 합니다.
-**vCenter Server 사용자 계정** | 애플리케이션 검색을 위해 서버와 상호 작용하려면 평가에 사용하는 vCenter Server 읽기 전용 계정에 VMware VM의 게스트 작업 권한이 있어야 합니다.
-**서버 액세스** | 애플리케이션 검색을 위해 어플라이언스 구성 관리자에서 여러 도메인 자격 증명과 비도메인(Windows/Linux) 자격 증명을 추가할 수 있습니다.<br /><br /> Windows 서버의 게스트 사용자 계정과 모든 Linux 서버의 표준 사용자 계정(비 `sudo` 액세스)이 있어야 합니다.
-**포트 액세스** | Azure Migrate 어플라이언스는 애플리케이션 검색을 수행하려는 서버를 실행하는 ESXi 호스트의 TCP 포트 443에 연결할 수 있어야 합니다. vCenter Server를 실행하는 서버는 ESXi 호스트 연결을 반환하여 소프트웨어 인벤토리의 세부 정보를 포함하는 파일을 다운로드합니다.
+**VM 요구 사항** | 소프트웨어 인벤토리의 경우 서버에서 VMware Tools를 설치하고 실행해야 합니다. <br /><br /> VMware Tools 버전은 버전 10.2.1 이상이어야 합니다.<br /><br /> Windows 서버에는 PowerShell 버전 2.0 이상이 설치되어 있어야 합니다.
+**검색** | 소프트웨어 인벤토리는 서버에 설치된 VMware Tools를 사용하여 vCenter Server에서 수행됩니다. 어플라이언스는 vSphere API를 통해 vCenter Server를 실행하는 서버에서 소프트웨어 인벤토리 정보를 수집합니다. 소프트웨어 인벤토리는 에이전트가 없습니다. 서버에 에이전트가 설치되어 있지 않으며 어플라이언스가 서버에 직접 연결되지 않습니다. 서버에 설치된 역할과 기능에 대한 세부 정보를 수집하려면 Windows 서버에서 WMI가 사용되도록 설정하고 사용할 수 있어야 합니다.
+**vCenter Server 사용자 계정** | 소프트웨어 인벤토리를 위해 서버와 상호 작용하려면 평가에 사용하는 vCenter Server 읽기 전용 계정에 VMware VM의 게스트 작업 권한이 있어야 합니다.
+**서버 액세스** | 소프트웨어 인벤토리를 위해 어플라이언스 구성 관리자에서 여러 도메인 자격 증명과 비도메인(Windows/Linux) 자격 증명을 추가할 수 있습니다.<br /><br /> Windows 서버의 게스트 사용자 계정과 모든 Linux 서버의 표준 사용자 계정(비 `sudo` 액세스)이 있어야 합니다.
+**포트 액세스** | Azure Migrate 어플라이언스는 소프트웨어 인벤토리를 수행하려는 서버를 실행하는 ESXi 호스트의 TCP 포트 443에 연결할 수 있어야 합니다. vCenter Server를 실행하는 서버는 ESXi 호스트 연결을 반환하여 소프트웨어 인벤토리의 세부 정보를 포함하는 파일을 다운로드합니다.
 
 ## <a name="sql-server-instance-and-database-discovery-requirements"></a>SQL Server 인스턴스 및 데이터베이스 검색 요구 사항
 
-[애플리케이션 검색](how-to-discover-applications.md)은 SQL Server 인스턴스를 식별합니다. 어플라이언스는 해당 정보를 사용하여 어플라이언스 구성 관리자에서 제공되는 Windows 인증 또는 SQL Server 인증 자격 증명을 통해 각 SQL Server 인스턴스에 연결을 시도합니다. 어플라이언스는 연결된 후 SQL Server 인스턴스와 데이터베이스의 구성 및 성능 데이터를 수집합니다. SQL Server 구성 데이터는 24시간마다 한 번 업데이트됩니다. 성능 데이터는 30초마다 캡처됩니다.
+[소프트웨어 인벤토리](how-to-discover-applications.md)는 SQL Server 인스턴스를 식별합니다. 어플라이언스는 해당 정보를 사용하여 어플라이언스 구성 관리자에서 제공되는 Windows 인증 또는 SQL Server 인증 자격 증명을 통해 각 SQL Server 인스턴스에 연결을 시도합니다. 어플라이언스는 네트워크에 대한 가시성이 확보된 SQL Server에만 연결할 수 있지만, 소프트웨어 인벤토리 자체에는 네트워크에 대한 가시성이 필요하지 않을 수 있습니다.
+
+어플라이언스는 연결된 후 SQL Server 인스턴스와 데이터베이스의 구성 및 성능 데이터를 수집합니다. SQL Server 구성 데이터는 24시간마다 한 번 업데이트됩니다. 성능 데이터는 30초마다 캡처됩니다.
 
 지원 | 세부 정보
 --- | ---
@@ -93,22 +95,38 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 **지원되는 SQL 서비스** | SQL Server 데이터베이스 엔진만 지원됩니다. <br /><br /> SSRS(SQL Server Reporting Services), SSIS(SQL Server Integration Services), SSAS(SQL Server Analysis Services) 검색은 지원되지 않습니다.
 
 > [!NOTE]
-> [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) 속성이 `true`로 설정된 경우 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신이 암호화됩니다. 전송 계층은 SSL을 사용하여 채널을 암호화하고 인증서 체인을 건너뛰어 신뢰 유효성을 검사합니다. 어플라이언스 서버는 [인증서의 루트 인증 기관을 신뢰](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)하도록 설정되어야 합니다.
+> 기본적으로 Azure Migrate는 SQL 인스턴스에 연결하는 가장 안전한 방법을 사용합니다. 즉, Azure Migrate는 TrustServerCertificate 속성을 `true`로 설정하여 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화합니다. 또한 전송 계층은 SSL을 사용하여 채널을 암호화하고 인증서 체인을 건너뛰어 신뢰 유효성을 검사합니다. 따라서 어플라이언스 서버는 인증서의 루트 인증 기관을 신뢰하도록 설정되어야 합니다. 
 >
-> 서버에 인증서가 프로비전되어 있지 않으면 시작할 때 SQL Server에서 로그인 패킷 암호화에 사용되는 자체 서명된 인증서를 생성합니다. [자세히 알아봅니다](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
->
+> 그러나 어플라이언스에서 **SQL Server 연결 속성 편집** 을 선택하여 연결 설정을 수정할 수 있습니다. 선택할 항목을 이해하는 방법에 대해 [자세히 알아보세요](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
+## <a name="aspnet-web-apps-discovery-requirements"></a>ASP.NET 웹앱 검색 요구 사항
+
+[소프트웨어 인벤토리](how-to-discover-applications.md)는 검색된 서버의 기존 웹 서버 역할을 식별합니다. 서버에서 웹 서버 역할을 사용한 것으로 확인되면 Azure Migrate는 서버에서 웹앱 검색을 수행합니다.
+사용자는 어플라이언스에서 도메인과 비도메인 자격 증명을 모두 추가할 수 있습니다. 사용된 계정에 원본 서버에 대한 로컬 관리자 권한이 있는지 확인합니다. Azure Migrate는 각 서버에 자격 증명을 자동으로 매핑하므로 자격 증명을 수동으로 매핑하지 않아도 됩니다. 가장 중요한 점은 해당 자격 증명이 Microsoft로 전송되지 않고 원본 환경에서 실행되는 어플라이언스에 남아 있다는 것입니다.
+어플라이언스가 연결되면 IIS 웹 서버 및 ASP.NET 웹앱에 대한 구성 데이터를 수집합니다. 웹앱 구성 데이터는 24시간마다 한 번 업데이트됩니다.
+
+지원 | 세부 정보
+--- | ---
+**지원되는 서버** | 현재 VMware 환경에서 IIS를 실행하는 Windows 서버에서만 지원됩니다.
+**Windows 서버** | Windows Server 2008 R2 이상이 지원됩니다.
+**Linux 서버** | 현재 지원되지 않습니다.
+**IIS 액세스** | 웹앱 검색에는 로컬 관리 사용자 계정이 필요합니다.
+**IIS 버전** | IIS 7.5 이상이 지원됩니다.
+
+> [!NOTE]
+> 데이터는 미사용 및 전송 중에 상시 암호화됩니다.
 
 ## <a name="dependency-analysis-requirements-agentless"></a>종속성 분석 요구 사항(에이전트 없음)
 
 [종속성 분석](concepts-dependency-visualization.md)을 사용하면 평가하여 Azure로 마이그레이션하려는 온-프레미스 서버 간 종속성을 파악할 수 있습니다. 다음 표에는 에이전트 없는 종속성 분석을 설정하기 위한 요구 사항이 요약되어 있습니다.
 
 지원 | 세부 정보
---- | --- 
+--- | ---
 **지원되는 서버** | 현재 VMware 환경에 있는 서버에서만 지원됩니다.
-**Windows 서버** | Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2(64비트)<br />Microsoft Windows Server 2008(32비트)
+**Windows 서버** | Windows Server 2019<br />Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2(64비트)<br />Microsoft Windows Server 2008(32비트)
 **Linux 서버** | Red Hat Enterprise Linux 7, 6, 5<br /> Ubuntu Linux 16.04, 14.04<br /> Debian 8, 7<br /> Oracle Linux 7, 6<br /> CentOS 7, 6, 5<br /> SUSE Linux Enterprise Server 11 이상
 **서버 요구 사항** | 분석하려는 서버에 VMware Tools(10.2.1 이상)를 설치하고 실행해야 합니다.<br /><br /> 서버에는 PowerShell 버전 2.0 이상이 설치되어 있어야 합니다.
-**검색 방법** |  vCenter Server를 실행하는 서버에 설치된 VMware Tools를 사용하여 서버 간 종속성 정보를 수집합니다. Azure Migrate는 vSphere API를 사용하여 서버에서 정보를 수집합니다. 서버에 에이전트가 설치되어 있지 않으며 어플라이언스가 서버에 직접 연결되지 않습니다. Windows 및 Linux 서버에서 WMI 및 SSH를 사용하도록 각각 설정하고 사용할 수 있어야 합니다.
+**검색 방법** |  vCenter Server를 실행하는 서버에 설치된 VMware Tools를 사용하여 서버 간 종속성 정보를 수집합니다. Azure Migrate는 vSphere API를 사용하여 서버에서 정보를 수집합니다. 서버에 에이전트가 설치되어 있지 않으며 어플라이언스가 서버에 직접 연결되지 않습니다. WMI는 Windows 서버에서 사용으로 설정되고 사용 가능해야 합니다.
 **vCenter 계정** | Azure Migrate에서 평가에 사용하는 읽기 전용 계정에는 VMware VM의 게스트 작업 권한이 있어야 합니다.
 **Windows 서버 권한** |  서버에 대한 관리자 권한이 있는 사용자 계정(로컬 또는 도메인)입니다.
 **Linux 계정** | 루트 사용자 계정 또는 /bin/netstat 및 /bin/ls 파일에 대한 다음 권한이 있는 계정입니다. <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> 다음 명령을 사용하여 해당 기능을 설정합니다.<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>

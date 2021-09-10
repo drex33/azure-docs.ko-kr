@@ -1,27 +1,27 @@
 ---
-title: 'P2S OpenVPN 프로토콜 연결을 위한 VPN 클라이언트 구성: Azure AD 인증: macOS: 미리 보기'
-description: '미리 보기: VPN Gateway 지점 및 사이트 간 및 Azure Active Directory 인증을 사용하여 Virtual Network에 연결하도록 macOS VPN 클라이언트를 구성하는 방법을 알아봅니다.'
+title: 'P2S OpenVPN 프로토콜 연결을 위한 VPN Client 구성: Azure AD 인증: macOS'
+description: VPN Gateway 지점 및 사이트 간 및 Azure Active Directory 인증을 사용하여 가상 네트워크에 연결하도록 macOS VPN 클라이언트를 구성하는 방법을 알아봅니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 08/19/2021
 ms.author: cherylmc
-ms.openlocfilehash: defcc3c35cab51e9606151f11c37397dc8f4a06e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: f2b23c469e7ababb9aab439e33cffd2de6e20eae
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104786"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122568327"
 ---
-# <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections---macos---preview"></a>Azure Active Directory 인증: P2S OpenVPN 프로토콜 연결을 위한 VPN 클라이언트 구성 - macOS - 미리 보기
+# <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections---macos"></a>Azure Active Directory 인증: P2S OpenVPN 프로토콜 연결을 위한 VPN 클라이언트 구성 - macOS
 
 이 문서는 지점 및 사이트 간 VPN과 Azure Active Directory 인증을 사용하여 가상 네트워크에 연결하기 위해 macOS 10.15 이상을 실행하는 컴퓨터용 VPN 클라이언트를 구성하는 데 도움이 됩니다. Azure AD를 사용하여 연결 및 인증하기 위해서는 Azure AD 테넌트를 구성해야 합니다. 자세한 내용은 [Azure AD 테넌트 구성](openvpn-azure-ad-tenant.md)을 참조하세요. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 연결 정보](point-to-site-about.md)를 참조하세요.
 
 > [!NOTE]
-> * 이 미리 보기는 로컬 규정 요구 사항으로 인해 현재 대부분의 국가에서 사용할 수 있습니다.
 > * Azure AD 인증은 OpenVPN® 프로토콜 연결에 대해서만 지원되며 Azure VPN Client가 필요합니다.
+> * Azure VPN Client는 현지 규정으로 인해 일부 지역에서 사용하지 못할 수 있습니다.
 >
 
 지점 및 사이트 간 VPN 연결을 사용하여 VNet에 연결하려는 모든 컴퓨터에 대해 다음을 수행해야 합니다.

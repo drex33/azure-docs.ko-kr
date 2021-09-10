@@ -8,26 +8,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/8/2021
+ms.date: 08/30/2021
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ce694be685ff82e73551f792bf96451092423413
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 594b04c96ddbc166c7c3f95b7b04ebc1b1a3784b
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111809731"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223443"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
 애플리케이션의 ID를 사용하여 웹 호스팅 리소스에 액세스하기 위해 RFC 6749에 명시된 [OAuth 2.0 클라이언트 자격 증명 권한 부여](https://tools.ietf.org/html/rfc6749#section-4.4)(때로는 *2단계 OAuth* 라고도 함)를 사용할 수 있습니다. 이 유형의 권한 부여는 일반적으로 사용자의 직접적인 상호 작용 없이 백그라운드에서 실행해야 하는 서버 간 상호 작용에 사용됩니다. 이러한 유형의 애플리케이션은 종종 *디먼* 또는 *서비스 계정* 이라고 합니다.
 
-이 문서에서는 애플리케이션에서 프로토콜에 대해 직접 프로그래밍을 수행하는 방법을 설명합니다. 가능하다면 [토큰을 획득하고 보안 웹 API를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신, 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하는 것이 좋습니다.  [MSAL을 사용하는 샘플 앱](sample-v2-code.md)도 살펴봅니다.
+이 문서에서는 애플리케이션에서 프로토콜에 대해 직접 프로그래밍을 수행하는 방법을 설명합니다. 가능하면 [토큰을 획득하고 보안 Web API를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신, 지원되는 MSAL(Microsoft 인증 라이브러리)을 사용하는 것이 좋습니다.  [MSAL을 사용하는 샘플 앱](sample-v2-code.md)도 살펴봅니다.
 
 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하면 웹 서비스(비밀 클라이언트)에서 다른 웹 서비스를 호출할 때 사용자를 가장하는 대신 고유한 자격 증명을 사용하여 인증할 수 있습니다. 더 높은 수준의 보증을 위해 Microsoft ID 플랫폼은 호출 서비스가 자격 증명으로 인증서(공유 비밀 대신)를 사용할 수 있도록 합니다.  애플리케이션 자체 자격 증명을 사용하므로 이러한 자격 증명은 안전하게 보관해야 합니다. 소스 코드에서 해당 자격 증명을 게시하거나 웹 페이지에 포함하거나 널리 분산된 네이티브 애플리케이션에서 _절대_ 사용하지 마세요. 
 
 클라이언트 자격 증명 흐름에서는 관리자가 애플리케이션 자체에 직접 사용 권한을 부여합니다. 앱이 리소스에 대한 토큰을 제공하는 경우 리소스는 인증에 관련된 사용자가 없으므로 앱 자체에 작업을 수행할 수 있는 권한을 부여합니다.  이 문서에서는 [API를 호출하는 애플리케이션에 권한을 부여](#application-permissions)하는 데 필요한 단계와 [API를 호출하는 데 필요한 토큰을 가져오는 방법](#get-a-token)에 대해 설명합니다.
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
 
@@ -83,9 +85,6 @@ Microsoft Graph가 아닌 사용자 고유의 API를 사용하여 애플리케�
 
 조직 관리자의 사용 권한을 요청할 준비가 되면 Microsoft ID 플랫폼 *관리자 동의 엔드포인트* 로 사용자를 리디렉션할 수 있습니다.
 
-> [!TIP]
-> Postman에서 이 요청을 실행해 보세요. (최상의 결과를 위해 고유한 앱 ID를 사용하세요. 자습서 애플리케이션은 유용한 권한을 요청하지 않습니다.) [![Postman에서 해당 요청을 실행해 보기](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ```HTTP
 // Line breaks are for legibility only.
 
@@ -101,7 +100,7 @@ PRO 팁: 브라우저에서 다음 요청 붙여넣기를 시도합니다.
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 사용자가 속한 테넌트가 무엇인지 모르고 테넌트를 사용하여 로그인하지 않으려는 경우 `common`을 사용합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
@@ -115,7 +114,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 관리자가 애플리케이션에 대한 사용 권한을 승인하는 경우 성공적인 응답은 다음과 같습니다.
 
 ```HTTP
-GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=12345&admin_consent=True
 ```
 
 | 매개 변수 | Description |
@@ -143,9 +142,6 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 애플리케이션에 필요한 권한을 부여받은 후에는 API에 대한 액세스 토큰을 획득하는 과정을 진행합니다. 클라이언트 자격 증명 권한 부여를 사용하여 토큰을 가져오려면 POST 요청을 `/token` Microsoft ID 플랫폼에 보내세요.
 
-> [!TIP]
-> Postman에서 이 요청을 실행해 보세요. (최상의 결과를 위해 고유한 앱 ID를 사용하세요. 자습서 애플리케이션은 유용한 권한을 요청하지 않습니다.) [![Postman에서 해당 요청을 실행해 보기](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 비밀을 사용하여 액세스 토큰 요청
 
 ```HTTP
@@ -155,7 +151,7 @@ Content-Type: application/x-www-form-urlencoded
 
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
-&client_secret=5ampl3Cr3dentia1s
+&client_secret=sampleCredentia1s
 &grant_type=client_credentials
 ```
 
@@ -164,12 +160,12 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | `client_id` | 필수 | 앱에 할당되는 애플리케이션 ID입니다. 앱을 등록한 포털에서 이 정보를 찾을 수 있습니다. |
 | `scope` | 필수 | 이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(애플리케이션 ID URI)여야 하고, `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. <br/>해당 값은 앱에 구성한 모든 애플리케이션 직접 사용 권한의 Microsoft ID 플랫폼을 알려주며, 엔드포인트는 사용하려는 리소스와 연결된 사용 권한의 토큰을 발급해야 합니다. `/.default` 범위에 대해 자세히 알아보려면 [동의 설명서](v2-permissions-and-consent.md#the-default-scope)를 참조하세요. |
-| `client_secret` | 필수 | 앱 등록 포털에서 앱에 대해 생성한 클라이언트 암호입니다. 클라이언트 암호는 보내기 전에 URL로 인코딩해야 합니다. |
+| `client_secret` | 필수 | 앱 등록 포털에서 앱에 대해 생성한 클라이언트 암호입니다. 클라이언트 암호는 보내기 전에 URL로 인코딩해야 합니다. 대신 [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1)에 따라 권한 부여 헤더에 자격 증명을 제공하는 기본 인증 패턴도 지원됩니다. |
 | `grant_type` | 필수 | `client_credentials`로 설정해야 합니다. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용하여 액세스 토큰 요청
@@ -186,7 +182,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 애플리케이션에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | `client_id` | 필수 |앱에 할당되는 애플리케이션(클라이언트) ID입니다. |
@@ -195,11 +191,11 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | `client_assertion` | 필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
 | `grant_type` | 필수 | `client_credentials`로 설정해야 합니다. |
 
-client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type 및 client_assertion으로 바뀐다는 것을 제외하고 공유 비밀에 따른 요청 사례와 매개 변수는 거의 동일합니다.
+인증서 기반 요청에 대한 매개 변수는 공유 비밀 기반 요청과 한 가지 면에서 다릅니다. `client_secret` 매개 변수는 `client_assertion_type` 및 `client_assertion` 매개 변수로 대체됩니다.
 
 ### <a name="successful-response"></a>성공적인 응답
 
-성공적인 응답은 다음과 같습니다.
+두 방법 중 하나의 성공적인 응답은 다음과 같습니다.
 
 ```json
 {
@@ -214,6 +210,8 @@ client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type �
 | `access_token` | 요청된 액세스 토큰입니다. 앱은 이 토큰을 사용하여 웹 API와 같은 보안 리소스를 인증할 수 있습니다. |
 | `token_type` | 토큰 유형 값을 나타냅니다. Microsoft ID 플랫폼이 유일하게 지원하는 형식은 `bearer`입니다. |
 | `expires_in` | 액세스 토큰이 유효한 시간(초)입니다. |
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### <a name="error-response"></a>오류 응답
 

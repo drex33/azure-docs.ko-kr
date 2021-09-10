@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aa655e442ecc120ec6537ad7f43dd8591e59408e
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: f79fddb5f3855afd27152945a571840f5680be0f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608549"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769402"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -21,7 +21,7 @@ Azure Automation은 Runbook을 저장 및 관리한 다음, 하나 이상의 지
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있는지 확인합니다.
 
@@ -33,7 +33,7 @@ Azure Monitor Log Analytics 작업 영역이 아직 없는 경우 작업 영역�
 
 ### <a name="log-analytics-agent"></a>Log Analytics 에이전트
 
-Hybrid Runbook Worker 역할에는 지원되는 Windows 운영 체제에 대한 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md)가 필요합니다. Azure 외부에서 호스트되는 서버 또는 머신의 경우 [Azure Arc 사용 서버](../azure-arc/servers/overview.md)를 사용하여 Log Analytics 에이전트를 설치할 수 있습니다.
+Hybrid Runbook Worker 역할에는 지원되는 Windows 운영 체제에 대한 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md)가 필요합니다. Azure 외부에서 호스트되는 서버 또는 머신의 경우 [Azure Arc 지원 서버](../azure-arc/servers/overview.md)를 사용하여 Log Analytics 에이전트를 설치할 수 있습니다.
 
 ### <a name="supported-windows-operating-system"></a>지원되는 Windows 운영 체제
 
@@ -171,11 +171,11 @@ Windows Hybrid Runbook Worker를 설치 및 구성하려면 다음 단계를 수
 
     * Azure VM의 경우 [Windows용 가상 머신 확장](../virtual-machines/extensions/oms-windows.md)을 사용하여 Windows용 Log Analytics 에이전트를 설치합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. Azure Resource Manager 템플릿, PowerShell 또는 Azure Policy를 사용하여 [*Linux* 또는 *Windows* VM에 대한 Log Analytics 에이전트 배포](../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의를 할당할 수 있습니다. 에이전트가 설치되면 머신을 Automation 계정의 Hybrid Runbook Worker 그룹에 추가할 수 있습니다.
     
-    * 비 Azure 머신의 경우 [Azure Arc 사용 서버](../azure-arc/servers/overview.md)를 사용하여 Log Analytics 에이전트를 설치할 수 있습니다. Arc 사용 서버는 다음 방법을 사용한 Log Analytics 에이전트 배포를 지원합니다.
+    * 비 Azure 머신의 경우 [Azure Arc 지원 서버](../azure-arc/servers/overview.md)를 사용하여 Log Analytics 에이전트를 설치할 수 있습니다. Arc 지원 서버는 다음 방법을 사용한 Log Analytics 에이전트 배포를 지원합니다.
     
         - VM 확장 프레임워크 사용.
         
-            Azure Arc 지원 서버의 이 기능을 사용하면 Log Analytics 에이전트 VM 확장을 비 Azure Windows 및/또는 Linux 서버에 배포할 수 있습니다. 하이브리드 머신 또는 Arc 지원 서버에서 관리하는 서버에서 다음 방법을 사용하여 VM 확장을 관리할 수 있습니다.
+            Azure Arc 지원 서버의 이 기능을 사용하면 Log Analytics 에이전트 VM 확장을 비 Azure Windows 및/또는 Linux 서버에 배포할 수 있습니다. VM 확장은 하이브리드 컴퓨터 또는 Arc 사용 서버에 의해 관리되는 서버에서 다음 방법을 이용하여 관리할 수 있습니다.
         
             - [Azure Portal](../azure-arc/servers/manage-vm-extensions-portal.md)
             - [Azure CLI](../azure-arc/servers/manage-vm-extensions-cli.md)
@@ -184,7 +184,7 @@ Windows Hybrid Runbook Worker를 설치 및 구성하려면 다음 단계를 수
         
         - Azure Policy 사용.
         
-            이 방식을 사용하면 [Linux 또는 Windows Azure Arc 머신에 Log Analytics 에이전트 배포](../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의를 사용하여 Arc 지원 서버에 Log Analytics 에이전트가 설치되어 있는지 감사를 수행합니다. 에이전트가 설치되지 않은 경우에는 재구성 작업을 사용하여 에이전트를 자동으로 배포합니다. 또는 VM용 Azure Monitor를 사용하는 머신을 모니터링하려는 경우에는 [VM용 Azure Monitor 사용](../governance/policy/samples/built-in-initiatives.md#monitoring)을 대신 사용하여 Log Analytics 에이전트를 설치하고 구성합니다.
+            이 방식을 사용하면 [Linux 또는 Windows Azure Arc 머신에 Log Analytics 에이전트 배포](../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책 정의를 사용하여 Arc 지원 서버에 Log Analytics 에이전트가 설치되어 있는지 감사합니다. 에이전트가 설치되지 않은 경우에는 재구성 작업을 사용하여 에이전트를 자동으로 배포합니다. 또는 VM용 Azure Monitor를 사용하는 머신을 모니터링하려는 경우에는 [VM용 Azure Monitor 사용](../governance/policy/samples/built-in-initiatives.md#monitoring)을 대신 사용하여 Log Analytics 에이전트를 설치하고 구성합니다.
 
     Azure Policy를 사용하여 Windows 또는 Linux용 Log Analytics 에이전트를 설치하는 것이 좋습니다.
 

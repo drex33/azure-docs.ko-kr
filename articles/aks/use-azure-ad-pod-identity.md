@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 AAD Pod 관리 ID를 사용하�
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.openlocfilehash: 44f4415e09ca9e2942eb1da4c69cf98759f737ce
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 1ecf9b45983dbc34938593424644a646dc3d96cb
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567857"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101232"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Azure Kubernetes Service에서 Azure Active Directory Pod 관리 ID 사용(미리 보기)
 
@@ -180,6 +180,7 @@ az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSClu
 
 > [!NOTE]
 > AKS 클러스터에서 Pod 관리 ID를 사용하도록 설정하면 *aks-addon-exception* 이라는 AzurePodIdentityException이 *kube-system* 네임스페이스에 추가됩니다. AzurePodIdentityException을 사용하면 특정 레이블이 있는 Pod가 Azure IMDS(Instance Metadata Service) 엔드포인트에 액세스할 수 있으며 NMI(노드 관리 ID) 서버가 해당 Pod를 가로채지 못합니다. *aks-addon-exception* 을 사용하면 AzurePodIdentityException을 수동으로 구성하지 않아도 AAD Pod 관리 ID와 같은 AKS 자사 추가 기능이 작동할 수 있습니다. 필요에 따라 `az aks pod-identity exception add`, `az aks pod-identity exception delete`, `az aks pod-identity exception update` 또는 `kubectl`을 사용하여 AzurePodIdentityException을 추가, 제거 및 업데이트할 수 있습니다.
+> “POD_IDENTITY_NAME”은 [RFC 1123]에 정의된 대로 유효한 [DNS 하위 도메인 이름]이어야 합니다. 
 
 > [!NOTE]
 > `pod-identity add`를 사용하여 포드 ID를 할당하면 Azure CLI는 클러스터 ID에 Pod ID(*IDENTITY_RESOURCE_ID*)에 대한 관리 ID 운영자 역할을 부여하려고 시도합니다.
@@ -383,3 +384,5 @@ az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[RFC 1123]: https://tools.ietf.org/html/rfc1123
+[DNS 하위 도메인 이름]: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names

@@ -4,22 +4,22 @@ titleSuffix: Azure Digital Twins
 description: Azure Functions를 사용하여 트윈 그래프와 Azure Digital Twins 알림으로 Azure Maps 실내 맵을 업데이트할 수 있는 함수를 만드는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 1/19/2021
+ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: dd161468cda08a0046f2f46a79a973e4bbf8b49a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 494e4b048fc33a0cd7fcfc6c354a7f757298ebef
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566717"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223482"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Azure Digital Twins를 사용하여 Azure Maps 실내 맵 업데이트
 
 이 문서에서는 [Azure Maps](../azure-maps/about-azure-maps.md)를 사용하여 *실내 맵* 에 표시되는 정보를 업데이트하기 위해 Azure Digital Twins 데이터를 사용하는 데 필요한 단계를 안내합니다. Azure Digital Twins는 IoT 디바이스 관계의 그래프를 저장하고 여러 엔드포인트에 원격 분석을 라우팅합니다. 이를 통해 맵에서 정보 오버레이를 업데이트하는 데 완벽한 서비스를 사용할 수 있습니다.
 
-이 방법에는 다음이 포함됩니다.
+이 가이드에서는 다음을 설명합니다.
 
 1. [Azure Functions](../azure-functions/functions-overview.md)의 함수에 트윈 업데이트 이벤트를 보내도록 Azure Digital Twins 인스턴스 구성
 2. Azure Maps 실내 맵 기능 상태 세트를 업데이트하는 함수 생성
@@ -31,7 +31,7 @@ ms.locfileid: "122566717"
     * 추가 엔드포인트 및 경로를 사용하여 이 트윈을 확장합니다. 또한 이 자습서의 함수 앱에 다른 함수를 추가합니다. 
 * [Azure Maps Creator를 사용해서 Indoor Maps 만들기](../azure-maps/tutorial-creator-indoor-maps.md)의 Azure Maps를 따라 *기능 상태 세트* 로 Azure Maps Indoor Maps를 만듭니다.
     * [기능 상태 세트](../azure-maps/creator-indoor-maps.md#feature-statesets)는 방 또는 장비와 같은 데이터 세트 기능에 할당된 동적 속성의 컬렉션(상태)입니다. 위의 Azure Maps 자습서에서 기능 상태 세트는 맵에 표시되는 방 상태를 저장합니다.
-    * 기능 *상태 세트 ID* 및 Azure Maps *구독 키* 가 필요합니다.
+    * 기능 ‘상태 세트 ID’와 Azure Maps ‘구독 키’가 필요합니다. 
 
 ### <a name="topology"></a>토폴로지
 
@@ -91,7 +91,7 @@ az functionapp config appsettings set --name <your-function-app-name>  --resourc
 
 라이브 업데이트 온도를 보려면 다음 단계를 수행합니다.
 
-1. Azure Digital Twins [엔드투엔드 솔루션 연결](tutorial-end-to-end.md)에서 **DeviceSimulator** 프로젝트를 실행하여 시뮬레이션된 IoT 데이터 보내기를 시작합니다. 이에 대한 지침은 [시뮬레이션 구성 및 실행](././tutorial-end-to-end.md#configure-and-run-the-simulation) 섹션에 있습니다.
+1. Azure Digital Twins [엔드투엔드 솔루션 연결](tutorial-end-to-end.md)에서 **DeviceSimulator** 프로젝트를 실행하여 시뮬레이션된 IoT 데이터 보내기를 시작합니다. 이 프로세스에 대한 지침은 [시뮬레이션 구성 및 실행](././tutorial-end-to-end.md#configure-and-run-the-simulation) 섹션에 있습니다.
 2. [Azure Maps Indoor 모듈](../azure-maps/how-to-use-indoor-module.md)을 사용하여 Azure Maps Creator에서 만든 실내 맵을 렌더링할 수 있습니다.
     1. [Azure Maps Indoor Maps 모듈 사용](../azure-maps/how-to-use-indoor-module.md)에 있는 Indoor Maps의 [예: Indoor Maps 모듈 사용](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) 섹션에서 HTML을 로컬 파일에 복사합니다.
     1. 로컬 HTML 파일에서 *subscription key*, *tilesetId*, *statesetID* 를 사용자의 값으로 바꿉니다.
@@ -103,7 +103,7 @@ az functionapp config appsettings set --name <your-function-app-name>  --resourc
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Azure Digital Twins에 맵 정보 저장
 
-이제 맵 정보를 업데이트하는 하드 코드된 솔루션이 있으므로 Azure Digital Twins 그래프를 사용하여 실내 맵을 업데이트하는 데 필요한 모든 정보를 저장할 수 있습니다. 여기에는 각 맵과 위치의 상태 세트 ID, 맵 구독 ID, 기능 ID가 포함됩니다. 
+이제 맵 정보를 업데이트하는 하드 코드된 솔루션이 있으므로 Azure Digital Twins 그래프를 사용하여 실내 맵을 업데이트하는 데 필요한 모든 정보를 저장할 수 있습니다. 이 정보에는 각 맵과 위치의 상태 세트 ID, 맵 구독 ID, 기능 ID가 각각 포함됩니다. 
 
 이 특정 예제에 대한 솔루션에는 각 최상위 공간에서 상태 세트 ID를 업데이트하고 구독 ID 특성을 매핑하고 기능 ID를 포함하도록 각 방을 업데이트하는 작업이 포함됩니다. 트윈 그래프를 초기화할 때 이러한 값을 한 번 설정한 다음, 각 트윈 업데이트 이벤트에 대해 해당 값을 쿼리해야 합니다.
 

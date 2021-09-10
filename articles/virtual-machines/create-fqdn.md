@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2021
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c63bb64cac0642c0472862a9c3272b9939f39bb9
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: ad48a8d4c2f10bab26e04bcb105747e7a7c474f9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732617"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696515"
 ---
-# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Linux VM용 Azure Portal에서 정규화된 도메인 이름 만들기
+# <a name="create-a-fully-qualified-domain-name-for-a-vm-in-the-azure-portal"></a>Azure Portal에서 정규화된 도메인 이름 만들기
+
+**적용 대상:** **적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 [Azure Portal](https://portal.azure.com)에서 VM(가상 머신)을 만들 때, 가상 머신의 공용 IP 리소스가 자동으로 만들어집니다. 이 공용 IP 주소를 사용하여 VM에 원격으로 액세스합니다. 포털에서 [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) 또는 FQDN을 만들지는 않지만 VM을 만들면 이름을 추가할 수 있습니다. 이 문서에서는 DNS 이름 또는 FQDN을 만드는 단계를 보여 줍니다. 공용 IP 주소 없이 VM을 만드는 경우 FQDN을 만들 수 없습니다.
 

@@ -8,12 +8,12 @@ ms.date: 4/8/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 902c4ef39e85b08cb1d82b7e292f81a99e277d09
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: d008888968f05641786cdfcb73afac1d540b7596
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608424"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769870"
 ---
 # <a name="event-notifications"></a>이벤트 알림
 
@@ -43,15 +43,15 @@ Azure Digital Twins의 다양한 이벤트는 여러 가지 작업이 수행될 
 
 Azure Digital Twins에서 Event Grid로 내보내는 알림은 Event Grid 항목에 정의된 스키마 유형에 따라 자동으로 CloudEvents 스키마 또는 EventGridEvent 스키마로 형식이 지정됩니다. 
 
-헤더의 확장 특성은 페이로드 내부 Event Grid 스키마의 속성으로 추가됩니다. 
+헤더의 확장 특성은 페이로드의 Event Grid 스키마에 대한 속성으로 추가됩니다. 
 
 ### <a name="event-notification-bodies"></a>이벤트 알림 본문
 
-알림 메시지 본문은 여기서 JSON으로 설명됩니다. 메시지 본문에 대해 원하는 serialization(예: JSON, CBOR, Protobuf 등)에 따라 메시지 본문이 다르게 직렬화될 수 있습니다.
+알림 메시지 본문은 여기서 JSON으로 설명됩니다. 메시지 본문에 대해 원하는 serialization 형식(예: JSON, CBOR, Protobuf 등)에 따라 메시지 본문이 다르게 직렬화될 수 있습니다.
 
 본문에 포함된 필드 세트는 알림 유형에 따라 달라집니다.
 
-다음 섹션에서는 IoT Hub 및 Azure Digital Twins(또는 기타 Azure IoT 서비스)에서 내보내는 다양한 유형의 알림에 관해 자세히 살펴봅니다. 각 알림 유형을 생성하는 항목과 각 유형의 알림 본문에 포함된 필드 세트에 관해 알아봅니다.
+다음 섹션에서는 IoT Hub 및 Azure Digital Twins(또는 기타 Azure IoT 서비스)에서 내보내는 다양한 유형의 알림에 관해 자세히 살펴봅니다. 각 알림 유형을 트리거하는 항목과 각 유형의 알림 본문에 포함되는 필드 세트에 관해 알아봅니다.
 
 ## <a name="digital-twin-change-notifications"></a>디지털 트윈 변경 알림
 
@@ -103,11 +103,11 @@ Azure Digital Twins에서 Event Grid로 내보내는 알림은 Event Grid 항목
   }
 ```
 
-이 정보는 수명 주기 알림 메시지의 `data` 필드에 포함됩니다.
+이 데이터는 수명 주기 알림 메시지의 `data` 필드에 포함되는 정보입니다.
 
 ## <a name="digital-twin-lifecycle-notifications"></a>디지털 트윈 수명 주기 알림
 
-모든 [디지털 트윈](concepts-twins-graph.md)은 [Azure Digital Twins에 IoT Hub 디바이스](how-to-ingest-iot-hub-data.md)를 표시하는지 여부에 관계없이 알림을 내보냅니다. 이유는 디지털 트윈 자체와 관련이 있는 **수명 주기 알림** 때문입니다.
+[디지털 트윈](concepts-twins-graph.md)이 [Azure Digital Twins의 IoT Hub 디바이스](how-to-ingest-iot-hub-data.md)를 나타내는지 여부에 관계없이, 디지털 트윈은 모두 알림을 내보냅니다. 디지털 트윈 자체와 관련이 있는 **수명 주기 알림** 때문입니다.
 
 수명 주기 알림은 다음 경우에 생성됩니다.
 * 디지털 트윈이 생성되는 경우
@@ -153,11 +153,11 @@ Azure Digital Twins에서 Event Grid로 내보내는 알림은 Event Grid 항목
 }
 ```
 
-메시지 내에서 `data` 필드에는 JSON 형식으로 표시된 영향을 받는 디지털 트윈 테이터가 포함됩니다. 이에 대한 스키마는 *Digital Twins Resource 7.1* 입니다.
+메시지 내에서 `data` 필드에는 JSON 형식으로 표시된 영향을 받는 디지털 트윈 테이터가 포함됩니다. 이 `data` 필드의 스키마는 *Digital Twins Resource 7.1* 입니다.
 
 생성 이벤트의 경우 `data` 페이로드는 리소스가 만들어진 후 트윈 상태를 반영하므로 `GET` 호출처럼 모든 시스템 생성 요소를 포함해야 합니다.
 
-구성 요소가 있고 최상위 속성이 없는 [IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md) 디바이스 관련 데이터의 예제는 다음과 같습니다. 디바이스에 적합하지 않은 속성(예: 보고된 속성)은 생략해야 합니다. 이 정보는 수명 주기 알림 메시지의 `data` 필드에 포함됩니다.
+구성 요소가 있고 최상위 속성이 없는 [IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md) 디바이스 관련 데이터의 예제는 다음과 같습니다. 디바이스에 적합하지 않은 속성(예: 보고된 속성)은 생략해야 합니다. 다음 JSON 개체는 수명 주기 알림 메시지의 `data` 필드에 포함되는 정보입니다.
 
 ```json
 {
@@ -242,7 +242,7 @@ Azure Digital Twins에서 Event Grid로 내보내는 알림은 Event Grid 항목
 
 메시지 내에서 `data` 필드는 JSON 형식으로 관계의 페이로드를 포함합니다. 이 필드는 [DigitalTwins API](/rest/api/digital-twins/dataplane/twins)를 통해 관계에 대한 `GET` 요청과 동일한 형식을 사용합니다. 
 
-업데이트 관계 알림에 관한 데이터의 예제는 다음과 같습니다. “관계 업데이트”는 관계의 속성이 변경되었음을 의미하므로 데이터는 업데이트된 속성 및 새 값을 표시합니다. 이 정보는 디지털 트윈 관계 알림 메시지의 `data` 필드에 포함됩니다.
+업데이트 관계 알림에 관한 데이터의 예제는 다음과 같습니다. “관계 업데이트”는 관계의 속성이 변경되었음을 의미하므로 데이터는 업데이트된 속성 및 새 값을 표시합니다. 다음 JSON 개체는 디지털 트윈 관계 알림 메시지의 `data` 필드에 포함되는 정보입니다.
 
 ```json
 {

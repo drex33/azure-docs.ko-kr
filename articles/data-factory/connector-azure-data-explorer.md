@@ -1,18 +1,20 @@
 ---
 title: Azure Data Explorer로/에서 데이터 복사
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Azure Data Explorer로/에서 데이터를 복사하는 방법에 대해 알아봅니다.
-ms.author: orspodek
-author: jianleishen
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 606d10694b6806b62871ddf24afd259d7bc224bc
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.custom: synapse
+ms.date: 07/19/2020
+ms.openlocfilehash: 5914dbfc49f8cbef5d0fdd1dc4ba058b421accfd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482978"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642490"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Explorer로/에서 데이터 복사
 
@@ -55,7 +57,8 @@ Azure Data Explorer 커넥터를 사용하여 다음을 수행할 수 있습니�
 Azure Data Explorer 커넥터는 다음과 같은 인증 형식을 지원합니다. 자세한 내용은 해당 섹션을 참조하세요.
 
 - [서비스 주체 인증](#service-principal-authentication)
-- [Azure 리소스 인증용 관리 ID](#managed-identity)
+- [시스템이 할당한 관리 ID 인증](#managed-identity)
+- [사용자가 할당한 관리 ID 인증](#user-assigned-managed-identity-authentication)
 
 ### <a name="service-principal-authentication"></a>서비스 주체 인증
 
@@ -108,9 +111,11 @@ Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
+### <a name="system-assigned-managed-identity-authentication"></a><a name="managed-identity"></a> 시스템이 할당한 관리 ID 인증
 
-Azure 리소스 인증에 관리 ID를 사용하기 위해 권한을 부여하려면 다음 단계를 수행합니다.
+Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
+
+시스템이 할당한 관리 ID 인증을 사용하려면 다음 단계를 수행하여 권한을 부여합니다.
 
 1. 팩터리와 함께 생성된 **관리 ID개체 ID** 의 값을 복사하여 [Data Factory 관리 ID 정보를 검색](data-factory-service-identity.md#retrieve-managed-identity)합니다.
 
@@ -131,7 +136,7 @@ Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 | 데이터베이스 | 데이터베이스의 이름입니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
 
-**예: 관리 ID 인증 사용**
+**예제: 시스템이 할당한 관리 ID 인증 사용**
 
 ```json
 {
@@ -141,6 +146,46 @@ Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
         "typeProperties": {
             "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
             "database": "<database name>",
+        }
+    }
+}
+```
+
+### <a name="user-assigned-managed-identity-authentication"></a>사용자가 할당한 관리 ID 인증
+Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
+
+사용자가 할당한 관리 ID 인증을 사용하려면 다음 단계를 수행합니다.
+
+1. [사용자가 할당한 관리 ID를 하나 이상 만들고](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) Azure Data Explorer에 액세스 권한을 부여합니다. 역할 및 사용 권한과 사용 권한 관리에 대한 자세한 내용은 [Azure Data Explorer 데이터베이스 권한 관리](/azure/data-explorer/manage-database-permissions)를 참조하세요. 일반적으로 다음을 수행해야 합니다.
+
+    - **원본으로** 데이터베이스에 적어도 **데이터베이스 뷰어** 역할을 부여합니다.
+    - **싱크로** 데이터베이스에 적어도 **데이터베이스 수집기** 역할을 부여합니다.
+     
+2. 하나 이상의 사용자가 할당한 관리 ID를 데이터 팩터리에 할당하고 각 사용자가 할당한 관리 ID에 대한 [자격 증명을 만듭니다](data-factory-service-identity.md#credentials).
+
+Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| type | **형식** 속성을 **AzureDataExplorer** 로 설정해야 합니다. | 예 |
+| 엔드포인트(endpoint) | `https://<clusterName>.<regionName>.kusto.windows.net` 형식의 Azure Data Explorer 클러스터의 엔드포인트 URL입니다. | 예 |
+| 데이터베이스 | 데이터베이스의 이름입니다. | 예 |
+| 자격 증명 | 사용자가 할당한 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
+
+**예제: 사용자가 할당한 관리 ID 인증 사용**
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
         }
     }
 }

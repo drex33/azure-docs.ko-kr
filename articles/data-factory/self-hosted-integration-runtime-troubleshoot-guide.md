@@ -1,39 +1,50 @@
 ---
-title: Azure Data Factory에서 자체 호스팅 Integration Runtime 문제 해결
-description: Azure Data Factory에서 자체 호스팅 Integration Runtime 문제를 해결하는 방법을 알아봅니다.
+title: 자체 호스팅 Integration Runtime 문제 해결
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics 파이프라인에서 자체 호스팅 통합 런타임 문제를 해결하는 방법을 알아봅니다.
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/31/2021
+ms.date: 08/24/2021
 ms.author: lle
-ms.openlocfilehash: 7abdd532e20a2514fcf96d97973a8fbfdd87d0df
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b833b8b63415a36fb0ee2862c9dfa261cfeb44ef
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796275"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864212"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory에서 자체 호스팅 IR(통합 런타임)에 대한 일반적인 문제 해결 방법을 살펴봅니다.
+이 문서에서는 Azure Data Factory 및 Synapse 작업 영역에서 자체 호스팅 IR(통합 런타임)에 대한 일반적인 문제 해결 방법을 살펴봅니다.
 
-## <a name="gather-self-hosted-ir-logs-from-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 IR 로그 수집
+## <a name="gather-self-hosted-ir-logs"></a>자체 호스팅 IR 로그 수집
 
-자체 호스팅 IR 또는 공유 IR에서 실행되는 작업이 실패한 경우 Azure Data Factory는 오류 로그 보기 및 업로드를 지원합니다. 오류 보고서 ID를 얻으려면 여기에 설명된 지침을 따르고 보고서 ID를 입력하여 관련된 알려진 문제를 검색합니다.
+자체 호스팅 IR 또는 공유 IR에서 실행되는 작업이 실패한 경우 서비스는 오류 로그 보기 및 업로드를 지원합니다. 오류 보고서 ID를 얻으려면 여기에 설명된 지침을 따르고 보고서 ID를 입력하여 관련된 알려진 문제를 검색합니다.
 
-1. Data Factory에서 **파이프라인 실행** 을 선택합니다.
+1. 서비스 UI의 모니터 페이지에서 **파이프라인 실행** 을 선택합니다.
 
 1. 다음 스크린샷에 표시된 것처럼 **작업 실행** 아래의 **오류** 열에서 강조 표시된 단추를 선택하여 활동 로그를 표시합니다.
 
-    !['모든 파이프라인 실행' 창에 있는 '작업 실행' 섹션의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
-
-    활동 로그는 실패한 활동 실행에 대해 표시됩니다.
-
-    ![실패한 작업에 대한 활동 로그의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png) 
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
     
-1. 추가 지원이 필요하면 **로그 보내기** 를 선택합니다.
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="‘모든 파이프라인 실행’ 창에 있는 ‘작업 실행’ 섹션의 스크린샷":::
+    
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+    
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="‘모든 파이프라인 실행’ 창에 있는 ‘작업 실행’ 섹션의 스크린샷":::
+    
+    ---
+    
+    활동 로그는 실패한 활동 실행에 대해 표시됩니다.
+    
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png" alt-text="실패한 작업에 대한 활동 로그의 스크린샷"::: 
+    
+3. 추가 지원이 필요하면 **로그 보내기** 를 선택합니다.
  
    **Microsoft로 자체 호스팅 IR(통합 런타임) 로그 공유** 창이 열립니다.
 
@@ -71,7 +82,7 @@ IR 노드에서 리소스 사용량 및 동시 작업 실행을 확인합니다.
 
 #### <a name="symptoms"></a>증상
 
-Azure Data Factory 인터페이스에서 동시 작업 제한을 늘리려고 하면 프로세스가 '업데이트 중' 상태에서 중단됩니다.
+UI에서 동시 작업 제한을 늘리려고 하면 프로세스가 ‘업데이트 중’ 상태에서 중단됩니다.
 
 예제 시나리오: 최대 동시 작업 값이 현재 24로 설정되어 있으며 작업을 더 빠르게 실행할 수 있도록 개수를 늘리려고 합니다. 입력할 수 있는 최솟값은 3이고 최댓값은 32입니다. 값을 24에서 32으로 높인 다음 **업데이트** 단추를 선택합니다. 다음 스크린샷에 표시된 것처럼 프로세스가 '업데이트 중' 상태에서 중단됩니다. 페이지를 새로 고치면 값이 계속 24로 표시됩니다. 예상과 달리 32로 업데이트되지 않았습니다.
 
@@ -307,7 +318,7 @@ GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework
 
 `[14]0460.3404::05/07/21-00:23:32.2107988 [System] A fatal error occurred when attempting to access the TLS server credential private key. The error code returned from the cryptographic module is 0x8009030D. The internal error state is 10001.`
 
-ADF 연결된 서비스에서 서비스 주체 인증을 사용하는 경우에는 동기화 프로세스에 문제가 없습니다. 그러나 인증 유형을 계정 키로 전환하면 동기화 문제가 시작됩니다. 자체 호스팅 통합 런타임 서비스가 서비스 계정(NT SERVICE\DIAHostService)에서 실행되고 프라이빗 키 권한에 추가되어야 하기 때문입니다.
+연결된 서비스에서 서비스 주체 인증을 사용하는 경우에는 동기화 프로세스에 문제가 없습니다. 그러나 인증 유형을 계정 키로 전환하면 동기화 문제가 시작됩니다. 자체 호스팅 통합 런타임 서비스가 서비스 계정(NT SERVICE\DIAHostService)에서 실행되고 프라이빗 키 권한에 추가되어야 하기 때문입니다.
  
 
 #### <a name="resolution"></a>해결 방법
@@ -516,9 +527,9 @@ Microsoft Integration Runtime 구성 관리자를 통해 자체 호스팅 IR을 
 ![인증서 변환 후 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
 ### <a name="self-hosted-integration-runtime-version-5x"></a>자체 호스팅 통합 런타임 버전 5.x
-Azure Data Factory 자체 호스팅 통합 런타임 버전 5.x로 업그레이드하려면 **.NET Framework 런타임 4.7.2** 이상이 필요합니다. 다운로드 페이지에서 최신 4.x 버전 및 두 개의 최신 5.x 버전에 대한 다운로드 링크를 찾을 수 있습니다. 
+자체 호스팅 통합 런타임 버전 5.x로 업그레이드하려면 **.NET Framework 런타임 4.7.2** 이상이 필요합니다. 다운로드 페이지에서 최신 4.x 버전 및 두 개의 최신 5.x 버전에 대한 다운로드 링크를 찾을 수 있습니다. 
 
-Azure Data Factory v2 고객의 경우:
+Azure Data Factory v2 및 Azure Synapse 고객의 경우:
 - 자동 업데이트가 설정되어 있고 이미 .NET Framework 런타임을 4.7.2 이상으로 업그레이드한 경우 자체 호스팅 통합 런타임이 최신 5.x 버전으로 자동 업그레이드됩니다.
 - 자동 업데이트가 설정되어 있지만 아직 .NET Framework 런타임을 4.7.2 이상으로 업그레이드하지 않은 경우 자체 호스팅 통합 런타임이 최신 5.x 버전으로 자동 업그레이드되지 않습니다. 자체 호스팅 통합 런타임은 현재 4.x 버전 그대로 유지됩니다. 포털 및 자체 호스팅 통합 런타임 클라이언트에서 .NET Framework 런타임 업그레이드에 대한 경고를 볼 수 있습니다.
 - 자동 업데이트가 해제되어 있고 이미 .NET Framework 런타임을 4.7.2 이상으로 업그레이드한 경우에는 수동으로 최신 5.x를 다운로드하여 컴퓨터에 설치할 수 있습니다.
@@ -545,7 +556,7 @@ Azure Data Factory v1 고객의 경우:
 
 #### <a name="cause"></a>원인 
 
-자체 호스팅 IR이 Azure Data Factory 서비스 백 엔드에 연결할 수 없습니다. 이 문제는 일반적으로 방화벽의 네트워크 설정 때문에 발생합니다.
+자체 호스팅 IR이 서비스 백 엔드에 연결할 수 없습니다. 이 문제는 일반적으로 방화벽의 네트워크 설정 때문에 발생합니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -557,10 +568,10 @@ Azure Data Factory v1 고객의 경우:
 
     ```powershell
     (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
-    ```
-        
+    ```      
+
    > [!NOTE]     
-   > 서비스 URL은 데이터 팩터리 인스턴스의 위치에 따라 다를 수 있습니다. 서비스 URL을 찾으려면 **ADF UI** > **연결** > **통합 런타임** > **자체 호스팅 IR 편집** > **노드** > **서비스 URL 보기** 를 선택합니다.
+   > 서비스 URL은 데이터 팩터리 또는 Synapse 작업 영역 인스턴스의 위치에 따라 다를 수 있습니다. 서비스 URL을 찾으려면 데이터 팩터리 또는 Azure Synapse 인스턴스에 있는 UI의 관리 페이지를 사용하여 **통합 런타임** 을 찾고 자체 호스팅 IR을 클릭하여 편집합니다.  여기에서 **노드** 탭을 선택하고 **서비스 URL 보기** 를 클릭합니다.
             
     예상되는 응답은 다음과 같습니다.
             
@@ -646,13 +657,13 @@ Azure Data Factory v1 고객의 경우:
     - 모든 노드를 동일한 도메인에 배치합니다.
     - 모든 호스트된 VM의 호스트 파일에 있는 호스트에 IP를 추가합니다.
 
-### <a name="connectivity-issue-between-the-self-hosted-ir-and-your-data-factory-instance-or-the-self-hosted-ir-and-the-data-source-or-sink"></a>자체 호스팅 IR과 데이터 팩터리 인스턴스 간 또는 자체 호스팅 IR과 데이터 원본 또는 싱크 간 연결 문제
+### <a name="connectivity-issue-between-the-self-hosted-ir-and-your-data-factory-or-azure-synapse-instance-or-the-self-hosted-ir-and-the-data-source-or-sink"></a>자체 호스팅 IR과 데이터 팩터리 또는 Azure Synapse 인스턴스 간 또는 자체 호스팅 IR과 데이터 원본 또는 싱크 간 연결 문제
 
 네트워크 연결 문제를 해결하려면 자체 호스팅 IR의 실제 사례에 Netmon(Microsoft 네트워크 모니터) 도구를 적용하기 전에 네트워크 추적을 수집하고, 이를 사용하는 방법을 이해하고, [Netmon 추적을 분석](#analyze-the-netmon-trace)하는 방법을 알고 있어야 합니다.
 
 #### <a name="symptoms"></a>증상
 
-다음 스크린샷에 표시된 것과 같이 자체 호스팅 IR와 데이터 팩터리 인스턴스 사이 또는 자체 호스팅 IR과 데이터 원본 또는 싱크 사이의 특정 연결 문제를 해결해야 하는 경우도 있습니다. 
+다음 스크린샷에 표시된 것과 같이 자체 호스팅 IR과 데이터 팩터리 또는 Azure Synapse 인스턴스 사이나 자체 호스팅 IR과 데이터 원본 또는 싱크 사이의 특정 연결 문제를 해결해야 하는 경우도 있습니다. 
 
 !["처리된 HTTP 요청 실패" 메시지의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
 
@@ -764,9 +775,9 @@ Azure Data Factory v1 고객의 경우:
 
 영향을 받는지 여부를 확인하는 방법:
 
-- [IP 주소에 대한 방화벽 구성 및 허용 목록 설정](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses)에 설명된 방법을 사용하는 FQDN(정규화된 도메인 이름)을 기반으로 하는 방화벽 규칙을 정의하는 경우에는 영향을 받지 않습니다.
+- [IP 주소에 대한 방화벽 구성 및 허용 목록 설정](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses)에 설명된 방법을 사용하는 FQDN(정규화된 도메인 이름)을 기반으로 하는 방화벽 규칙을 정의하는 경우에는 영향을 ‘받지 않습니다’.
 
-- 회사 방화벽에서 아웃바운드 IP 허용 목록을 명시적으로 사용하는 경우에는 영향을 받습니다.
+- 회사 방화벽에서 아웃바운드 IP 허용 목록을 명시적으로 사용하는 경우에는 영향을 ‘받습니다’.
 
    영향을 받는 경우 다음 작업을 수행합니다. 네트워크 인프라 팀에 2020년 11월 8일까지 최신 데이터 팩터리 IP 주소를 사용하도록 네트워크 구성을 업데이트하라고 알립니다. 최신 IP 주소를 다운로드하려면 [다운로드 가능한 JSON 파일을 사용하여 서비스 태그 검색](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)으로 이동합니다.
 
@@ -780,7 +791,7 @@ Azure Data Factory v1 고객의 경우:
 
   ![Data Factory를 대상으로 표시하는 대상 검사의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 
-- Azure 가상 네트워크에 대한 NSG 규칙에서 아웃바운드 IP 주소 허용 목록을 명시적으로 사용하는 경우 영향을 받습니다.
+- Azure 가상 네트워크에 대한 NSG 규칙에서 아웃바운드 IP 주소 허용 목록을 명시적으로 사용하는 경우 영향을 ‘받습니다’.
 
    영향을 받는 경우 다음 작업을 수행합니다. 네트워크 인프라 팀에 2020년 11월 8일까지 최신 데이터 팩터리 IP 주소를 사용하도록 Azure 가상 네트워크에 대한 NSG 규칙을 업데이트하라고 알립니다. 최신 IP 주소를 다운로드하려면 [다운로드 가능한 JSON 파일을 사용하여 서비스 태그 검색](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)으로 이동합니다.
 
@@ -792,7 +803,7 @@ Azure Data Factory v1 고객의 경우:
 
 - 아웃바운드 규칙 제한이 있는 경우 서비스 태그를 사용하고 있는지 확인하세요. 서비스 태그를 사용하는 경우에는 영향을 받지 않습니다. 새 IP 범위는 기존 서비스 태그 아래에 있기 때문에 아무것도 변경하거나 추가할 필요가 없습니다.
 
-- Azure 가상 네트워크에 대한 NSG 규칙에서 아웃바운드 IP 주소 허용 목록을 명시적으로 사용하는 경우 영향을 받습니다.
+- Azure 가상 네트워크에 대한 NSG 규칙에서 아웃바운드 IP 주소 허용 목록을 명시적으로 사용하는 경우 영향을 ‘받습니다’.
 
   영향을 받는 경우 다음 작업을 수행합니다. 네트워크 인프라 팀에 2020년 11월 8일까지 최신 데이터 팩터리 IP 주소를 사용하도록 Azure 가상 네트워크에 대한 NSG 규칙을 업데이트하라고 알립니다. 최신 IP 주소를 다운로드하려면 [다운로드 가능한 JSON 파일을 사용하여 서비스 태그 검색](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)으로 이동합니다.
 
@@ -800,13 +811,13 @@ Azure Data Factory v1 고객의 경우:
 
 #### <a name="symptoms"></a>증상
 
-자체 호스팅 IR이 Azure Data Factory 서비스에 연결할 수 없습니다.
+자체 호스팅 IR이 Azure Data Factory 또는 Azure Synapse 서비스에 연결할 수 없습니다.
 
 CustomLogEvent 테이블에서 자체 호스팅 IR 이벤트 로그 또는 클라이언트 알림 로그를 확인하면 다음과 같은 오류 메시지가 나타납니다.
 
 "기본 연결이 닫혔습니다. SSL/TLS 보안 채널에 대한 트러스트 관계를 설정할 수 없습니다. 유효성 검사 절차에 따르면 원격 인증서가 잘못되었습니다."
 
-Data Factory 서비스의 서버 인증서를 확인하는 가장 간단한 방법은 브라우저에서 Data Factory 서비스 URL을 여는 것입니다. 예를 들어 자체 호스팅 IR이 설치된 컴퓨터에서 [서버 인증서 확인 링크](https://eu.frontend.clouddatahub.net/)를 열고 서버 인증서 정보를 확인합니다.
+서비스의 서버 인증서를 확인하는 가장 간단한 방법은 브라우저에서 서비스 URL을 여는 것입니다. 예를 들어 자체 호스팅 IR이 설치된 컴퓨터에서 [서버 인증서 확인 링크](https://eu.frontend.clouddatahub.net/)를 열고 서버 인증서 정보를 확인합니다.
 
   ![Azure Data Factory 서비스의 서버 인증서 확인 창을 보여 주는 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
 
@@ -816,13 +827,13 @@ Data Factory 서비스의 서버 인증서를 확인하는 가장 간단한 방�
 
 이 문제의 경우 두 가지 가능한 이유가 있습니다.
 
-- 이유 1: 자체 호스팅 IR이 설치된 컴퓨터에서 Data Factory 서비스 서버 인증서의 루트 CA를 신뢰할 수 없습니다. 
-- 이유 2: 사용자 환경에서 프록시를 사용하고 Data Factory 서비스의 서버 인증서가 프록시로 대체되었는데, 자체 호스팅 IR이 설치된 컴퓨터에서 대체된 서버 인증서를 신뢰할 수 없습니다.
+- 이유 1: 자체 호스팅 IR이 설치된 머신에서 서비스 서버 인증서의 루트 CA를 신뢰할 수 없습니다. 
+- 이유 2: 사용자 환경에서 프록시를 사용하고 서비스의 서버 인증서가 프록시로 대체되었는데, 자체 호스팅 IR이 설치된 머신에서 대체된 서버 인증서를 신뢰할 수 없습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-- 이유 1: 자체 호스팅 IR이 설치된 컴퓨터가 Data Factory 서버 인증서 및 해당 인증서 체인을 신뢰하도록 합니다.
-- 이유 2: 자체 호스팅 IR 컴퓨터에서 대체된 루트 CA를 신뢰하거나 Data Factory 서버 인증서를 대체하지 않도록 프록시를 구성합니다.
+- 이유 1: 자체 호스팅 IR이 설치된 머신에서 서비스의 서버 인증서 및 해당 인증서 체인을 신뢰하도록 합니다.
+- 이유 2: 자체 호스팅 IR 머신에서 대체된 루트 CA를 신뢰하거나 서비스의 서버 인증서를 대체하지 않도록 프록시를 구성합니다.
 
 Windows에서 인증서를 신뢰하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 루트 인증서 설치](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate)를 참조하세요.
 
@@ -839,7 +850,7 @@ DigiCert에서 서명된 새 SSL 인증서를 출시했습니다. DigiCert Globa
 문제 해결에 대한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A 페이지](/answers/topics/azure-data-factory.html)
 *  [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)

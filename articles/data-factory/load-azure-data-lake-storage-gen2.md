@@ -1,18 +1,19 @@
 ---
 title: Azure Data Lake Storage Gen2에 데이터 로드
 description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 복사
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 075778e2650d3b1f67447078eb6cb130849bbb35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/22/2021
+ms.openlocfilehash: edc3005a462777ce7cf873b4098a17af215e308b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593784"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642264"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드
 
@@ -53,76 +54,72 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 4. 만들기가 완료되면 데이터 팩터리로 이동합니다. 다음 그림과 같이 **데이터 팩터리** 홈페이지가 표시됩니다. 
    
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Azure Data Factory Studio 열기 타일이 있는 Azure Data Factory 홈페이지":::
 
-   **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
+   **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
 
 ## <a name="load-data-into-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 데이터 로드
 
-1. **시작** 페이지에서 **데이터 복사** 타일을 선택하여 데이터 복사 도구를 시작합니다.
+1. Azure Data Factory 홈페이지에서 **수집** 타일을 선택하여 데이터 복사 도구를 시작합니다.
 
-2. **속성** 페이지에서 **작업 이름** 필드를 **CopyFromAmazonS3ToADLS** 로 지정하고 **다음** 을 선택합니다.
+2. **속성** 페이지에 있는 **작업 유형** 아래에서 **기본 제공 복사 작업** 을 선택한 후 **작업 주기 또는 작업 일정** 에서 **지금 한 번 실행** 을 선택한 후 **다음** 을 선택합니다.
 
     ![속성 페이지](./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png)
-3. **원본 데이터 저장소** 페이지에서 **+ 새 연결 만들기** 를 클릭합니다. 커넥터 갤러리에서 **Amazon S3** 을 선택하고 **계속** 을 선택합니다.
+3. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
+    1. **+ 새 연결** 을 선택합니다. 커넥터 갤러리에서 **Amazon S3** 을 선택하고 **계속** 을 선택합니다.
     
-    ![원본 데이터 저장소 s3 페이지](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
+        ![원본 데이터 저장소 s3 페이지](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
     
-4. **새 연결된 서비스(Amazon S3)** 페이지에서 다음 단계를 수행합니다.
+    1. **새 연결(Amazon S3)** 페이지에서 다음 단계를 수행합니다.
 
-   1. **액세스 키 ID** 값을 지정합니다.
-   2. **비밀 액세스 키** 값을 지정합니다.
-   3. **연결 테스트** 를 클릭하여 설정의 유효성을 검사한 다음, **만들기** 를 선택합니다.
-
-      ![Amazon S3 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   4. 새 AmazonS3 연결이 만들어진 것을 볼 수 있습니다. **다음** 을 선택합니다. 
-
-5. **입력 파일 또는 폴더 선택** 페이지에서, 복사하려는 폴더 및 파일로 이동합니다. 폴더/파일을 선택한 다음 **선택** 을 선택합니다.
-
-    ![입력 파일 또는 폴더 선택](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
-
-6. **재귀적으로** 및 **이진 복사** 옵션을 선택하여 복사 동작을 지정합니다. **다음** 을 선택합니다.
-
-    ![스크린샷은 ‘이진 복사’ 및 ‘재귀적으로’를 선택할 수 있는 입력 파일 또는 폴더를 선택을 보여 줍니다.](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
+        1. **액세스 키 ID** 값을 지정합니다.
+        1. **비밀 액세스 키** 값을 지정합니다.
+        1. **연결 테스트** 를 선택하여 설정의 유효성을 검사한 후 **만들기** 를 선택합니다.
     
-7. **대상 데이터 스토리지** 페이지에서 **+ 새 연결 만들기** 를 클릭한 다음, **Azure Data Lake Storage Gen2** 를 선택하고 **계속** 을 선택합니다.
+          ![Amazon S3 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
 
-    ![대상 데이터 저장소 페이지](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
+    1. **원본 데이터 저장소** 페이지의 **연결** 블록에서 새로 생성된 Amazon S3 연결이 선택되어 있는지 확인합니다. 
+    1. **파일 또는 폴더** 섹션에서 복사할 폴더와 파일을 찾습니다. 폴더/파일을 선택한 다음, **확인** 을 선택합니다.
+    1. **재귀적으로** 및 **이진 복사** 옵션을 선택하여 복사 동작을 지정합니다. **다음** 을 선택합니다.
 
-8. **New Linked Service(Azure Data Lake Storage Gen2)** [새 연결된 서비스(Azure Data Lake Storage Gen2)] 페이지에서 다음 단계를 수행합니다.
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/source-data-store.png" alt-text="원본 데이터 저장소 페이지를 보여 주는 스크린샷":::
+    
+4. **대상 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
+    1. **+ 새 연결** 을 선택한 다음, **Azure Data Lake Storage Gen2** 를 선택하고 **계속** 을 선택합니다.
 
-   1. "스토리지 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 지원 계정을 선택합니다.
-   2. **만들기** 를 선택하여 연결을 만듭니다. 그런 후 **다음** 을 선택합니다.   
+        ![대상 데이터 저장소 페이지](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
+    
+    1. **새 연결(Azure Data Lake Storage Gen2)** 페이지의 “스토리지 계정 이름” 드롭다운 목록에서 Data Lake Storage Gen2 지원 계정을 선택하고 **만들기** 를 선택하여 연결을 만듭니다. 
 
         ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
 
-9. **출력 파일 또는 폴더 선택** 페이지에서 출력 폴더 이름으로 **copyfroms3** 를 입력하고 **다음** 을 선택합니다. ADF에서 복사 중 해당 ADLS Gen2 파일 시스템 및 하위 폴더를 만듭니다(없는 경우).
+    1. **대상 데이터 저장소** 페이지의 **연결** 블록에서 새로 만든 연결을 선택합니다. 그런 다음, **폴더 경로** 에서 출력 폴더 이름으로 **copyfroms3** 을 입력하고 **다음** 을 선택합니다. ADF에서 복사 중 해당 ADLS Gen2 파일 시스템 및 하위 폴더를 만듭니다(없는 경우).
 
-    ![스크린샷은 입력한 폴더 경로를 보여 줍니다.](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
-
-10. **설정** 페이지에서 **다음** 을 선택하여 기본 설정을 사용합니다.
+        :::image type="content" source="./media/load-azure-data-lake-storage-gen2/destiantion-data-store.png" alt-text="대상 데이터 저장소 페이지를 보여 주는 스크린샷":::   
+    
+5. **설정** 페이지에서 **작업 이름** 필드에 대해 **CopyFromAmazonS3ToADLS** 를 지정한 후 **다음** 을 선택하여 기본 설정을 사용합니다.
 
     ![설정 페이지](./media/load-azure-data-lake-storage-gen2/copy-settings.png)
 
-11. **요약** 페이지에서 설정을 검토하고, **다음** 을 선택합니다.
+6. **요약** 페이지에서 설정을 검토하고 **다음** 을 선택합니다.
 
     ![요약 페이지](./media/load-azure-data-lake-storage-gen2/copy-summary.png)
 
-12. **배포 페이지** 에서 **모니터** 를 선택하여 파이프라인(작업)을 모니터링합니다. 
+7. **배포 페이지** 에서 **모니터** 를 선택하여 파이프라인(작업)을 모니터링합니다. 
  
-13. 파이프라인 실행이 성공적으로 완료되면 수동 트리거로 트리거된 파이프라인 실행이 표시됩니다. **파이프라인 이름** 열 아래의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
+8. 파이프라인 실행이 성공적으로 완료되면 수동 트리거로 트리거된 파이프라인 실행이 표시됩니다. **파이프라인 이름** 열 아래의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
 
     ![파이프라인 실행 모니터링](./media/load-azure-data-lake-storage-gen2/monitor-pipeline-runs.png)
 
-14. 파이프라인 실행과 관련된 활동 실행을 보려면 파이프라인 이름 열에서 **CopyFromAmazonS3ToADLS** 링크를 선택합니다. 복사 작업에 대한 자세한 내용을 보려면 활동 이름 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 원본에서 싱크로 복사된 데이터 양, 데이터 처리량, 해당 기간의 실행 단계, 사용된 구성과 같은 세부 정보를 모니터링할 수 있습니다.
+9. 파이프라인 실행과 관련된 활동 실행을 보려면 **파이프라인 이름** 열에서 **CopyFromAmazonS3ToADLS** 링크를 선택합니다. 복사 작업에 대한 자세한 내용을 보려면 **작업 이름** 열 아래의 **세부 정보** 링크(안경 아이콘)를 선택합니다. 원본에서 싱크로 복사된 데이터 양, 데이터 처리량, 해당 기간의 실행 단계, 사용된 구성과 같은 세부 정보를 모니터링할 수 있습니다.
  
     ![작업 실행 모니터링](./media/load-azure-data-lake-storage-gen2/monitor-activity-runs.png)
     
     ![작업 실행 세부 정보 모니터링](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
-15. 보기를 새로 고치려면 새로 고침을 선택합니다. 파이프라인 실행 보기로 돌아가려면 위쪽에 있는 **모든 파이프라인 실행** 을 선택합니다.
+10. 보기를 새로 고치려면 **새로 고침** 을 선택합니다. “파이프라인 실행” 보기로 돌아가려면 위쪽에 있는 **모든 파이프라인 실행** 을 선택합니다.
 
-16. 데이터가 Data Lake Storage Gen2 계정에 복사되었는지 확인합니다.
+11. 데이터가 Data Lake Storage Gen2 계정에 복사되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

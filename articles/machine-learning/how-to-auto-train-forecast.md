@@ -8,14 +8,14 @@ ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: contperf-fy21q1, automl
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
 ms.date: 06/11/2021
-ms.openlocfilehash: d2c4f759f6b2f7ef769148c99dfcbfb738b19f5e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 87ee8e4b5d28628ae09eec83d7f72f44e762e34f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030867"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567716"
 ---
 # <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Python으로 시계열 예측 모델을 학습시키도록 AutoML 설정
 
@@ -32,6 +32,7 @@ ms.locfileid: "112030867"
 
 고전적인 시계열 방법과 달리, 자동화된 ML에서는 이전 시계열 값이 "피벗"되어 다른 예측 변수와 함께 회귀 변수의 추가 차원이 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어 판매를 예측하는 경우 판매 결과에 과거 기록 추세의 상호 작용, 환율 및 가격이 모두 함께 영향을 미칩니다. 
 
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 내용을 진행하려면 다음 항목이 필요합니다. 
@@ -40,6 +41,7 @@ ms.locfileid: "112030867"
 
 * 이 문서에서는 자동화된 Machine Learning 실험 설정에 어느 정도 익숙한 것으로 가정합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법](how-to-configure-auto-train.md)에 따라 기본적인 자동화된 Machine Learning 실험 디자인 패턴을 확인합니다.
 
+    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 ## <a name="preparing-data"></a>데이터 준비
 
 자동화 ML에서 예측 회귀 작업 유형과 회귀 작업 유형 간의 가장 중요한 차이점은 유효한 시계열을 나타내는 기능을 데이터에 포함하는 것입니다. 정규 시계열에는 잘 정의되고 일관된 빈도가 있으며 연속 시간 범위의 모든 샘플 요소에 값이 있습니다. 
@@ -115,7 +117,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
-AutoML이 교차 유효성 검사를 적용하여 [과잉 맞춤 모델을 방지](concept-manage-ml-pitfalls.md#prevent-over-fitting)하는 방법에 대해 자세히 알아봅니다.
+AutoML이 교차 유효성 검사를 적용하여 [과잉 맞춤 모델을 방지](concept-manage-ml-pitfalls.md#prevent-overfitting)하는 방법에 대해 자세히 알아봅니다.
 
 ## <a name="configure-experiment"></a>실험 구성
 
@@ -364,19 +366,28 @@ best_run, fitted_model = local_run.get_output()
 
 최상의 모델 반복을 사용하여 테스트 데이터 세트의 값을 예측합니다.
 
-`forecast()` 함수는 일반적으로 분류 및 회귀 작업에 사용되는 `predict()`와 달리 예측이 시작되어야 하는 시기를 지정할 수 있습니다.
+[forecast_quantiles()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#forecast-quantiles-x-values--typing-any--y-values--typing-union-typing-any--nonetype----none--forecast-destination--typing-union-typing-any--nonetype----none--ignore-data-errors--bool---false-----azureml-data-abstract-dataset-abstractdataset) 함수는 일반적으로 분류 및 회귀 작업에 사용되는 `predict()` 메서드와 달리 예측이 시작되어야 하는 시기를 지정할 수 있습니다. 기본적으로 forecast_quantiles() 메서드는 요소 예측 또는 평균/중앙값 예측을 생성하며, 이 예측에서는 시간이 지나며 불확실성이 점차 감소하는 현상(Cone of Uncertainty)이 나타나지 않습니다. 
 
 다음 예제에서는 먼저 `y_pred`의 모든 값을 `NaN`으로 바꿉니다. 이 경우에는 예측 원점이 학습 데이터의 끝에 오게 됩니다. 그러나 `y_pred`의 두 번째 절반을 `NaN`으로 바꾸면 이 함수는 처음 절반의 숫자 값을 수정하지 않은 상태로 유지하지만 두 번째 절반의 `NaN` 값을 예측합니다. 이 함수는 예측된 값과 정렬된 기능을 모두 반환합니다.
 
-`forecast()` 함수에서 `forecast_destination` 매개 변수를 사용하여 지정된 날짜까지의 값을 예측할 수도 있습니다.
+`forecast_quantiles()` 함수에서 `forecast_destination` 매개 변수를 사용하여 지정된 날짜까지의 값을 예측할 수도 있습니다.
 
 ```python
 label_query = test_labels.copy().astype(np.float)
 label_query.fill(np.nan)
-label_fcst, data_trans = fitted_model.forecast(
+label_fcst, data_trans = fitted_model.forecast_quantiles(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
+종종 고객은 분포의 특정 분위수에서 예측을 이해하려고 합니다. 예를 들어 식료품 품목 또는 클라우드 서비스용 가상 머신과 같은 인벤토리를 제어하는 ​​데 예측을 사용하는 경우가 있습니다. 이 경우 제어점은 일반적으로 “품목이 재고가 있고 99%가 소진되지 않기를 원합니다”와 같은 것입니다. 다음은 50번째 백분위수 또는 95번째 백분위수와 같이 예측을 위해 보고 싶은 분위수를 지정하는 방법을 보여 줍니다. 앞서 언급한 코드 예제와 같이 분위수를 지정하지 않으면 50번째 백분위수 예측만 생성됩니다. 
+
+```python
+# specify which quantiles you would like 
+fitted_model.quantiles = [0.05,0.5, 0.9]
+fitted_model.forecast_quantiles(
+    test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+```
+ 
 `actual_labels` 실제 값과 `predict_labels`의 예측 값 사이에서 RMSE(제곱 평균 오차)를 계산합니다.
 
 ```python
@@ -386,7 +397,8 @@ from math import sqrt
 rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
-
+ 
+ 
 전체적인 모델 정확도를 확인했으므로 가장 현실적인 다음 단계는 모델을 사용하여 알 수 없는 미래 가치를 예측하는 것입니다. 
 
 테스트 세트 `test_data`와 형식은 같지만 날짜/시간이 미래인 데이터 세트를 제공하면 결과 예측 세트는 각 시계열 단계에 대해 예측된 값입니다. 데이터 세트의 마지막 시계열 레코드가 2018년 12월 31일에 대한 것이라고 가정합니다. 다음 날(또는 예측해야 하는 `forecast_horizon` 이하 기간)의 수요를 예측하려면 2019년 1월 1일의 각 매장에 대한 단일 시계열 레코드를 만듭니다.
@@ -397,13 +409,13 @@ day_datetime,store,week_of_year
 01/01/2019,A,1
 ```
 
-필요한 단계를 반복하여 이 미래 데이터를 데이터 프레임에 로드하고 `best_run.forecast(test_data)`를 실행하여 미래 가치를 예측합니다.
+필요한 단계를 반복하여 이 미래 데이터를 데이터 프레임에 로드하고 `best_run.forecast_quantiles(test_data)`를 실행하여 미래 가치를 예측합니다.
 
 > [!NOTE]
 > `target_lags` 및/또는 `target_rolling_window_size`를 사용하도록 설정한 경우 자동화된 ML을 사용한 예측에서 샘플 내 예측은 지원되지 않습니다.
 
-
 ## <a name="example-notebooks"></a>노트북 예제
+
 다음을 포함하는 고급 예측 구성의 자세한 코드 예제는 [예측 샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)을 참조하세요.
 
 * [휴일 검색 및 기능화](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
@@ -416,5 +428,4 @@ day_datetime,store,week_of_year
 
 * [모델 배포 방법 및 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.
 * [해석력: 자동화된 Machine Learning의 모델 설명(미리 보기)](how-to-machine-learning-interpretability-automl.md)에 대해 알아봅니다. 
-* [많은 모델 솔루션 가속기](https://aka.ms/many-models)에서 AutoML을 사용하여 여러 모델을 학습시키는 방법을 알아봅니다.
 * 자동화된 Machine Learning으로 실험을 만드는 종단 간 예제는 [자습서: 학습 회귀 모델](tutorial-auto-train-models.md)를 참조하세요.

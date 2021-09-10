@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 03/03/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: 8e7572f5f39655cd6fae8a6528cacd2e074a002b
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 36be075345dcacdf8246f46462a2665718f27e7e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950409"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424801"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Route Server 만들기 및 구성
 
@@ -20,12 +20,7 @@ ms.locfileid: "107950409"
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Azure Portal을 사용하는 Route Server 배포 환경의 다이어그램." border="false":::
 
-> [!IMPORTANT]
-> Azure Route Server(미리 보기)는 현재 퍼블릭 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Azure Route Server에 대한 서비스 제한](route-server-faq.md#limitations)을 검토합니다.
@@ -56,6 +51,7 @@ ms.locfileid: "107950409"
     | 지역 | Route Server가 만들어질 지역을 선택합니다. 이전에 만든 가상 네트워크와 동일한 지역을 선택하여 드롭다운에서 가상 네트워크를 확인합니다. |
     | Virtual Network | Route Server가 만들어질 가상 네트워크를 선택합니다. 새 가상 네트워크를 만들거나 기존 가상 네트워크를 사용할 수 있습니다. 기존 가상 네트워크를 사용하는 경우 Route Server 서브넷 요구 사항을 수용할 수 있는 최소 /27 서브넷에 충분한 공간이 기존 가상 네트워크에 있는지 확인합니다. 드롭다운에서 가상 네트워크가 표시되지 않으면 올바른 리소스 그룹 또는 지역을 선택했는지 확인합니다. |
     | 서브넷 | 가상 네트워크를 만들거나 선택하면 서브넷 필드가 표시됩니다. 이 서브넷은 Route Server 전용입니다. **서브넷 구성 관리** 를 선택하고, Azure Route Server 서브넷을 만듭니다. **+ 서브넷** 을 선택하고, 다음 지침에 따라 서브넷을 만듭니다.</br><br>- 서브넷 이름은 *RouteServerSubnet* 이어야 합니다.</br><br>- 서브넷은 최소 /27 이상이어야 합니다.</br> |
+    | 공용 IP 주소 | Route Server에 할당할 새 리소스를 만들거나 기존 표준 공용 IP 리소스를 선택합니다. Route Server 구성을 관리하는 백 엔드 서비스에 대한 연결을 보장하려면 공용 IP 주소가 필요합니다. |
 
 1. **검토 + 만들기** 를 선택하고, 요약을 검토한 다음, **만들기** 를 선택합니다. 
 

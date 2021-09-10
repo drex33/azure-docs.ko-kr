@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.date: 08/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ae42cdf00b1ee3263c90e5fb56793f3c9d61e535
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: e2e1ce1e2935f97176e238c899a929019b26ba6d
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122201704"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475353"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>빠른 시작 - Azure Active Directory B2C를 사용하여 데스크톱 앱에 대한 로그인 설정
 
@@ -38,7 +38,7 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 ## <a name="run-the-application-in-visual-studio"></a>Visual Studio에서 애플리케이션 실행
 
 1. 샘플 애플리케이션 프로젝트 폴더에서 Visual Studio를 통해 **active-directory-b2c-wpf.sln** 솔루션을 엽니다.
-2. [NuGet 패키지를 복원](/nuget/consume-packages/package-restore.md)합니다.
+2. [NuGet 패키지를 복원](/nuget/consume-packages/package-restore)합니다.
 3. **F5** 키를 눌러 애플리케이션을 디버그합니다.
 
 ## <a name="sign-in-using-your-account"></a>계정을 사용하여 로그인

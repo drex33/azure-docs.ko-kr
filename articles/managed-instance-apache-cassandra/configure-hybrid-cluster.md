@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 9f3ad2a5d5b275ff611653855eff73bd36afda9f
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: bd334201d2dd93b38959aa9c8ebf19dc3125294f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379420"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751926"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>빠른 시작: Apache Cassandra용 Azure Managed Instance를 사용하여 하이브리드 클러스터 구성(미리 보기)
 
@@ -26,7 +26,12 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
+
+
 * 이 문서를 진행하려면 Azure CLI 버전 2.12.1 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+
+    > [!NOTE]
+    > Cloud Shell에서 실행되는 CLI 모듈 `cosmosdb-preview`의 버전이 **0.9.0**(또는 그 이상)이어야 합니다. 그래야 아래에 나열된 모든 명령이 제대로 작동할 수 있습니다. `az --version`을 실행하여 확장 버전을 확인할 수 있습니다. 필요한 경우 `az extension update --name cosmosdb-preview`를 사용하여 업그레이드합니다.
 
 * 자체 호스팅 또는 온-프레미스 환경에 연결된 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). 온-프레미스 환경을 Azure에 연결하는 방법에 대한 자세한 내용은 [Azure에 온-프레미스 네트워크 연결](/azure/architecture/reference-architectures/hybrid-networking/) 문서를 참조하세요.
 
@@ -40,7 +45,7 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
     > [!NOTE]
-    > Azure Managed Instance for Apache Cassandra를 배포하려면 인터넷 액세스가 필요합니다. 인터넷 액세스가 제한되는 환경에서는 배포가 실패합니다. Managed Cassandra가 올바르게 작동하는 데 필요한 다음과 같은 중요한 Azure 서비스에 대한 VNet 내에서 액세스가 차단되어 있는지 확인합니다.
+    > Azure Managed Instance for Apache Cassandra를 배포하려면 인터넷 액세스가 필요합니다. 인터넷 액세스가 제한되는 환경에서는 배포가 실패합니다. Managed Cassandra가 올바르게 작동하는 데 필요한 다음과 같은 중요한 Azure 서비스에 대한 VNet 내에서 액세스가 차단되어 있는지 확인합니다. 또한 [여기](network-rules.md)에서 IP 주소 및 포트 의존성의 전체 목록을 확인할 수 있습니다. 
     > - Azure Storage
     > - Azure KeyVault
     > - Azure Virtual Machine Scale Sets
@@ -57,7 +62,15 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    > [!NOTE]
    > 이전 명령에서 `assignee`와 `role` 값은 각각 고정된 서비스 주체 및 역할 식별자입니다.
 
-1. 다음으로, 하이브리드 클러스터의 리소스를 구성합니다. 클러스터가 이미 있으므로 여기서는 기존 클러스터의 이름을 식별하는 논리적 리소스만 클러스터 이름이 됩니다. 다음 스크립트에서 `clusterName` 및 `clusterNameOverride` 변수를 정의할 때는 기존 클러스터의 이름을 사용해야 합니다. 또한 시드 노드, 퍼블릭 클라이언트 인증서(cassandra 엔드포인트에 퍼블릭/프라이빗 키를 구성한 경우) 및 기존 클러스터의 가십 인증서가 필요합니다.
+1. 다음으로, 하이브리드 클러스터의 리소스를 구성합니다. 클러스터가 이미 있으므로 여기서는 기존 클러스터의 이름을 식별하는 논리적 리소스만 클러스터 이름이 됩니다. 다음 스크립트에서 `clusterName` 및 `clusterNameOverride` 변수를 정의할 때는 기존 클러스터의 이름을 사용해야 합니다. 
+ 
+    또한 기존 데이터 센터의 시드 노드와 노드 간 암호화에 필요한 가십 인증서가 최소한 필요합니다. Azure Managed Instance for Apache Cassandra에는 데이터 센터 간 통신을 위해 노드 간 암호화가 필요합니다. 기존 클러스터에서 노드 간 암호화를 구현하지 않은 경우 이를 구현해야 합니다. [여기](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLNodeToNode.html)에 있는 설명서를 참조하세요. 인증서의 위치에 대한 경로를 제공해야 합니다. 각 인증서는 PEM 형식이어야 합니다(예: `-----BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----`). 일반적으로 인증서를 구현하는 방법에는 두 가지가 있습니다.
+
+    1. 자체 서명된 인증서. 각 노드에 대한 프라이빗 및 공용(CA 없음) 인증서를 의미합니다. 이 경우 모든 공용 인증서가 필요합니다.
+
+    1. CA 서명 인증서. 자체 서명 CA 또는 퍼블릭 CA일 수 있습니다. 이 경우 루트 CA 인증서([프로덕션](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html)용 SSL 인증서 준비 지침 참조) 및 모든 중간자(해당하는 경우)가 필요합니다.
+
+    필요에 따라 클라이언트-노드 인증서도 구현한 경우([여기](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLClientToNode.html) 참조) 하이브리드 클러스터를 만들 때 이를 동일한 형식으로 제공해야 합니다. 아래 샘플을 참조하세요.
 
    > [!NOTE]
    > 아래에 제공할 `delegatedManagementSubnetId` 변수 값은 위의 명령에서 제공한 `--scope` 값과 정확히 동일합니다.
@@ -78,13 +91,14 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
       --resource-group $resourceGroupName \
       --location $location \
       --delegated-management-subnet-id $delegatedManagementSubnetId \
-      --external-seed-nodes 10.52.221.2,10.52.221.3,10.52.221.4
-      --client-certificates 'BEGIN CERTIFICATE-----\n...PEM format..\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format...\n-----END CERTIFICATE-----' \
-      --external-gossip-certificates 'BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format 2...\n-----END CERTIFICATE-----'
+      --external-seed-nodes 10.52.221.2 10.52.221.3 10.52.221.4 \
+      --external-gossip-certificates /usr/csuser/clouddrive/rootCa.pem /usr/csuser/clouddrive/gossipKeyStore.crt_signed
+      # optional - add your existing datacenter's client-to-node certificates (if implemented):
+      # --client-certificates /usr/csuser/clouddrive/rootCa.pem /usr/csuser/clouddrive/nodeKeyStore.crt_signed 
    ```
 
     > [!NOTE]
-    > 기존 퍼블릭 및/또는 가십 인증서가 보관된 위치를 알아야 합니다. 잘 모르겠으면 `keytool -list -keystore <keystore-path> -rfc -storepass <password>`를 실행하여 인증서를 출력해야 합니다. 
+    > 클러스터에 노드 간 및 클라이언트-노드 암호화가 이미 설정된 경우 기존 클라이언트 및/또는 가십 SSL 인증서가 유지되는 위치를 알아야 합니다. 잘 모르겠으면 `keytool -list -keystore <keystore-path> -rfc -storepass <password>`를 실행하여 인증서를 출력해야 합니다. 
 
 1. 클러스터 리소스가 생성되면 다음 명령을 실행하여 클러스터 설정 세부 정보를 가져옵니다.
 
@@ -97,10 +111,30 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
        --resource-group $resourceGroupName \
    ```
 
-1. 이전 명령은 관리형 인스턴스 환경에 대한 정보를 반환합니다. 기존 데이터 센터의 노드에 이를 설치할 수 있도록 가십 인증서가 필요합니다. 다음 스크린샷에서는 이전 명령의 출력과 인증서 형식을 보여 줍니다.
+1. 이전 명령은 관리형 인스턴스 환경에 대한 정보를 반환합니다. 기존 데이터 센터의 노드에 대한 신뢰 저장소에 이를 설치할 수 있도록 가십 인증서가 필요합니다. 다음 스크린샷에서는 이전 명령의 출력과 인증서 형식을 보여 줍니다.
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-cluster.png" alt-text="클러스터에서 인증서 세부 정보를 가져옵니다." lightbox="./media/configure-hybrid-cluster/show-cluster.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-cluster.png) -->
+
+    > [!NOTE]
+    > 위의 명령에서 반환된 인증서에는 텍스트로 표현되는 줄바꿈(예: `\r\n`)이 포함되어 있습니다. 기존 데이터 센터의 신뢰 저장소로 가져오기 전에 각 인증서를 파일에 복사하고 형식을 지정해야 합니다.
+
+    > [!TIP]
+    > 위의 스크린샷에 표시된 `gossipCertificates` 배열 값을 파일에 복사하고, 다음 bash 스크립트(플랫폼용 [jq를 다운로드하고 설치](https://stedolan.github.io/jq/download/)해야 하는 경우)를 사용하여 인증서의 형식을 지정하고 각각에 대해 별도의 pem 파일을 만듭니다.
+    >
+    > ```bash
+    > readarray -t cert_array < <(jq -c '.[]' gossipCertificates.txt)
+    > # iterate through the certs array, format each cert, write to a numbered file.
+    > num=0
+    > filename=""
+    > for item in "${cert_array[@]}"; do
+    >   let num=num+1
+    >   filename="cert$num.pem"
+    >   cert=$(jq '.pem' <<< $item)
+    >   echo -e $cert >> $filename
+    >   sed -e '1d' -e '$d' -i $filename
+    > done
+    > ```
 
 1. 다음으로, 하이브리드 클러스터에 새 데이터 센터를 만듭니다. 변수 값을 클러스터 세부 정보로 바꾸어야 합니다.
 
@@ -132,23 +166,30 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
        --data-center-name $dataCenterName 
    ```
 
-1. 이전 명령은 새 데이터 센터의 시드 노드를 출력합니다. *cassandra.yaml* 파일 내에서 기존 데이터 센터의 구성에 새 데이터 센터의 시드 노드를 추가합니다. 그리고 이전에 수집한 관리형 인스턴스 가십 인증서를 설치합니다.
+1. 이전 명령은 새 데이터 센터의 시드 노드를 출력합니다. 
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-datacenter.png" alt-text="데이터 센터 세부 정보를 가져옵니다." lightbox="./media/configure-hybrid-cluster/show-datacenter.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-datacenter.png) -->
 
-    > [!NOTE]
-    > 데이터 센터를 더 추가하려는 경우 시드 노드만 있으면 위의 단계를 반복할 수 있습니다. 
+
+1. 이제 새 데이터 센터의 시드 노드를 [cassandra.yaml](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/configuration/configCassandra_yaml.html) 파일 내에 있는 기존 데이터 센터의 [시드 노드 구성](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/configuration/configCassandra_yaml.html#configCassandra_yaml__seed_provider)에 추가합니다. 그리고 각 인증서에 대해 `keytool` 명령을 사용하여 기존 클러스터의 각 노드에 대한 신뢰 저장소에 이전에 수집한 관리형 인스턴스 가십 인증서를 설치합니다.
+
+    ```bash
+        keytool -importcert -keystore generic-server-truststore.jks -alias CassandraMI -file cert1.pem -noprompt -keypass myPass -storepass truststorePass
+    ```
+
+   > [!NOTE]
+   > 데이터 센터를 더 추가하려는 경우 시드 노드만 있으면 위의 단계를 반복할 수 있습니다. 
 
 1. 마지막으로, 다음 CQL 쿼리를 사용하여 클러스터의 모든 데이터 센터를 포함하도록 각 키스페이스에서 복제 전략을 업데이트합니다.
 
    ```bash
-   ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3};
+   ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3};
    ```
    암호 테이블도 업데이트해야 합니다.
 
    ```bash
-    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3}
+    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
    ```
 
 ## <a name="troubleshooting"></a>문제 해결

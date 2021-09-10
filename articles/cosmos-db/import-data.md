@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Cosmos DB용 데이터베이스 마이그레이션 도구'
 description: '자습서: 오픈 소스 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 MongoDB, SQL Server, 테이블 스토리지, Amazon DynamoDB, CSV 및 JSON 파일을 비롯한 다양한 원본에서 Azure Cosmos DB로 데이터를 가져오는 방법을 알아봅니다. CSV에서 JSON로 변환합니다.'
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 08/26/2021
 ms.author: dech
-ms.openlocfilehash: 82f747f9bc484c0d113b579579bf13c98590e37c
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 72843c595c8fe04bbfd82890b8974ae386b065a2
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766730"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037349"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>자습서: 데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,8 +23,8 @@ ms.locfileid: "113766730"
 > Azure Cosmos DB 데이터 마이그레이션 도구는 소규모 마이그레이션을 위해 설계된 오픈 소스 도구입니다. 대규모 마이그레이션의 경우 [데이터 수집 가이드](cosmosdb-migrationchoices.md)를 참조하세요.
 
 * **[SQL API](./introduction.md)** - 데이터 마이그레이션 도구에서 제공되는 원본 옵션 중 하나를 사용하여 소규모로 데이터를 가져올 수 있습니다. [대규모로 데이터를 가져오기 위한 마이그레이션 옵션에 대해 알아봅니다](cosmosdb-migrationchoices.md).
-* **[Table API](table-introduction.md)** - 데이터 마이그레이션 도구 또는 [AzCopy](table-import.md#migrate-data-by-using-azcopy)를 사용하여 데이터를 가져올 수 있습니다. 자세한 정보는 [Azure Cosmos DB Table API와 함께 사용할 데이터 가져오기](table-import.md)를 참조하세요.
-* **[Azure Cosmos DB의 MongoDB API](mongodb-introduction.md)** - 데이터 마이그레이션 도구는 Azure Cosmos DB의 API for MongoDB를 원본 또는 대상으로 지원하지 않습니다. Azure Cosmos DB의 API 컬렉션에서 데이터를 마이그레이션하려는 경우 지침은 [Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB 데이터를 Cosmos 데이터베이스로 마이그레이션하는 방법](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)을 참조하세요. 데이터 마이그레이션 도구를 사용하여 SQL API와 함께 사용할 수 있도록 MongoDB에서 Azure Cosmos DB SQL API 컬렉션으로 데이터를 내보낼 수 있습니다.
+* **[Table API](table/introduction.md)** - 데이터 마이그레이션 도구 또는 [AzCopy](table/table-import.md#migrate-data-by-using-azcopy)를 사용하여 데이터를 가져올 수 있습니다. 자세한 정보는 [Azure Cosmos DB Table API와 함께 사용할 데이터 가져오기](table/table-import.md)를 참조하세요.
+* **[Azure Cosmos DB의 MongoDB API](mongodb/mongodb-introduction.md)** - 데이터 마이그레이션 도구는 Azure Cosmos DB의 API for MongoDB를 원본 또는 대상으로 지원하지 않습니다. Azure Cosmos DB의 API 컬렉션에서 데이터를 마이그레이션하려는 경우 지침은 [Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB 데이터를 Cosmos 데이터베이스로 마이그레이션하는 방법](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)을 참조하세요. 데이터 마이그레이션 도구를 사용하여 SQL API와 함께 사용할 수 있도록 MongoDB에서 Azure Cosmos DB SQL API 컬렉션으로 데이터를 내보낼 수 있습니다.
 * **[Gremlin API](graph-introduction.md)** - 데이터 마이그레이션 도구는 Cassandra API 계정에 대해 지원되는 가져오기 도구가 아닙니다. [Cassandra API로 데이터를 가져오기 위한 마이그레이션 옵션에 대해 알아보기](cosmosdb-migrationchoices.md#azure-cosmos-db-cassandra-api)
 * **[Gremlin API](graph-introduction.md)** - 데이터 마이그레이션 도구는 이 경우에 Gremlin API 계정에 지원되는 가져오기 도구가 아닙니다. [Gremlin API로 데이터를 가져오기 위한 마이그레이션 옵션에 대해 알아보기](cosmosdb-migrationchoices.md#other-apis) 
 
@@ -68,10 +68,17 @@ ms.locfileid: "113766730"
 
 ## <a name="installation"></a><a id="Install"></a>설치
 
-마이그레이션 도구 소스 코드는 GitHub의 [이 리포지토리](https://github.com/azure/azure-documentdb-datamigrationtool)에서 사용할 수 있습니다. 솔루션을 로컬로 다운로드 및 컴파일하고, 다음 중 하나를 실행할 수 있습니다.
+### <a name="download-executable-package"></a>실행 파일 패키지 다운로드
 
-* **Dtui.exe**: 도구의 그래픽 인터페이스 버전
-* **Dt.exe**: 도구의 명령줄 버전
+  * [여기](https://github.com/Azure/azure-documentdb-datamigrationtool/releases/tag/1.8.3)에서 서명된 최신 **dt.exe** 및 **dtui.exe** Windows 이진 파일의 zip을 다운로드합니다.
+  * 컴퓨터의 디렉터리에 압축을 풀고 추출된 디렉터리를 열어 이진 파일을 찾습니다.
+
+### <a name="build-from-source"></a>원본에서 빌드
+
+  마이그레이션 도구 소스 코드는 GitHub의 [이 리포지토리](https://github.com/azure/azure-documentdb-datamigrationtool)에서 사용할 수 있습니다. 솔루션을 로컬로 다운로드 및 컴파일하고, 다음 중 하나를 실행할 수 있습니다.
+
+  * **Dtui.exe**: 도구의 그래픽 인터페이스 버전
+  * **Dt.exe**: 도구의 명령줄 버전
 
 ## <a name="select-data-source"></a>데이터 원본 선택
 
@@ -237,7 +244,7 @@ dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString
 
 Azure Table Storage 원본 가져오기 옵션을 사용하면 개별 Azure Table Storage 테이블에서 가져올 수 있습니다. 필요에 따라 가져올 테이블 엔터티를 필터링할 수 있습니다.
 
-Azure Table Storage에서 가져온 데이터를 Table API에서 사용하기 위해 Azure Cosmos DB 테이블 및 엔터티를 출력할 수 있습니다. 가져온 데이터를 SQL API에서 사용하기 위해 컬렉션 및 문서로 출력할 수도 있습니다. 그러나 Table API는 명령줄 유틸리티의 대상으로만 사용할 수 있습니다. 따라서 데이터 마이그레이션 도구 사용자 인터페이스를 사용하여 Table API로 내보낼 수 없습니다. 자세한 정보는 [Azure Cosmos DB Table API와 함께 사용할 데이터 가져오기](table-import.md)를 참조하세요.
+Azure Table Storage에서 가져온 데이터를 Table API에서 사용하기 위해 Azure Cosmos DB 테이블 및 엔터티를 출력할 수 있습니다. 가져온 데이터를 SQL API에서 사용하기 위해 컬렉션 및 문서로 출력할 수도 있습니다. 그러나 Table API는 명령줄 유틸리티의 대상으로만 사용할 수 있습니다. 따라서 데이터 마이그레이션 도구 사용자 인터페이스를 사용하여 Table API로 내보낼 수 없습니다. 자세한 정보는 [Azure Cosmos DB Table API와 함께 사용할 데이터 가져오기](table/table-import.md)를 참조하세요.
 
 :::image type="content" source="./media/import-data/azuretablesource.png" alt-text="Azure Table Storage 원본 옵션의 스크린샷":::
 
@@ -591,6 +598,10 @@ dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<Cos
 > * Azure Cosmos DB에서 JSON으로 내보내기
 
 이제 다음 자습서로 진행하여 Azure Cosmos DB를 사용하여 데이터를 쿼리하는 방법을 알아볼 수 있습니다.
+
+Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요?
+  * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+  * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
 
 > [!div class="nextstepaction"]
 >[데이터는 어떻게 쿼리하나요?](../cosmos-db/tutorial-query-sql-api.md)

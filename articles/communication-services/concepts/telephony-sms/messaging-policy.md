@@ -6,21 +6,19 @@ author: prakulka
 manager: nmurav
 services: azure-communication-services
 ms.author: prakulka
-ms.date: 03/19/2021
-ms.topic: overview
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: bb9765c2620f45d67bf888f8bfe8a4dee450cfd6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2281dac86281d01ec6f033062b87236a780d3bc7
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105646517"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259751"
 ---
 # <a name="azure-communication-services-messaging-policy"></a>Azure Communication Services 메시징 정책
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Azure Communication Services는 Microsoft Teams 및 Skype를 지원하는 동일한 엔터프라이즈급 서비스를 활용하는 풍부한 맞춤형 커뮤니케이션 환경을 구축하여 고객이 클라이언트와 통신하는 방식을 혁신합니다. 통신 솔루션에 SMS 메시징 기능을 통합하면 귀사의 고객에게 지원이 필요한 경우 언제 어디서나 연락할 수 있습니다. 몇 가지 메시징 요구 사항만 고려하면 시작할 수 있습니다.
+Azure Communication Services는 Microsoft Teams 및 Skype를 지원하는 동일한 엔터프라이즈급 서비스를 활용하는 풍부한 맞춤형 커뮤니케이션 환경을 구축하여 고객이 클라이언트와 통신하는 방식을 혁신합니다. 통신 솔루션에 SMS 메시징 기능을 통합하면 귀사의 고객에게 지원이 필요한 경우 언제 어디서나 연락할 수 있습니다. 몇 가지 메시징 요구 사항과 업계 표준만 고려하면 시작할 수 있습니다.
 
 메시징 요구 사항은 어려워 보일 수 있지만 "COMS"만 기억하면 쉽습니다.
 
@@ -131,9 +129,11 @@ Azure Communication Services에서는 모든 메시징 캠페인에 대해 이�
 
 해당 콘텐츠가 불법이 아닌 경우에도 성인 콘텐츠가 의도한 메시지 수신자의 연령을 제한하도록 옵트인 시 연령 확인 메커니즘을 포함해야 합니다. 미국의 경우 13세 미만의 어린이를 대상으로 하는 마케팅 커뮤니케이션에는 추가 법적 요건이 적용됩니다. 
 
-### <a name="prohibited-content"></a>금지 콘텐츠:
+### <a name="prohibited-practices"></a>금지 방법:
 
-Azure Communication Services는 동의 여부와 관계없이 특정 메시지 콘텐츠를 금지합니다. 금지 콘텐츠에는 다음이 포함됩니다.
+사용자와 고객 모두 Azure Communication Services를 사용하여 합리적인 옵트아웃 요청을 피할 수 없습니다. 또한 사용자와 고객은 메시징 요구 사항과 업계 표준을 준수하기 위해 Azure Communication Services 또는 통신 서비스 공급자에 의해 구현된 모든 조치를 피할 수 없습니다.
+
+Azure Communication Services는 동의 여부와 관계없이 특정 메시지 콘텐츠도 금지합니다. 금지 콘텐츠에는 다음이 포함됩니다.
 - 불법 행위(예: 미국의 경우 탈세 또는 동물 학대)를 조장하는 콘텐츠
 - 혐오 표현, 명예 훼손 표현, 괴롭힘 또는 명백히 불쾌감을 주는 것으로 판단되는 기타 표현
 - 음란 콘텐츠
@@ -156,7 +156,7 @@ Azure Communication Services는 동의 여부와 관계없이 특정 메시지 �
 
 이 메시징 정책은 법적 조언이 될 수 없으며 당사는 언제든지 정책을 수정할 수 있는 권리를 보유합니다. Azure Communication Services는 고객 메시지의 콘텐츠, 타이밍 또는 수신자가 모든 관련 법적 요건을 충족하는지 확인할 책임이 없습니다. 
 
-모든 메시징 요구 사항은 고객이 책임집니다. 귀사가 Azure Communication Services를 메시징 목적에 사용하는 플랫폼 또는 소프트웨어 공급자인 경우, 귀사의 고객도 이 메시징 정책에 설명된 모든 요구 사항을 준수하도록 요구해야 합니다. 추가 지침은 CTIA가 제공하는 유용한 [메시징 원칙 및 모범 사례](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf)를 참조하세요.
+모든 메시징 요구 사항은 고객이 책임집니다. 귀사가 Azure Communication Services를 메시징 목적에 사용하는 플랫폼 또는 소프트웨어 공급자인 경우, 귀사의 고객도 이 메시징 정책에 설명된 모든 요구 사항을 준수하도록 요구해야 합니다. 추가 지침을 위해 CTIA의 [메시징 원칙 및 모범 사례](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf)는 관련 업계 표준에 대한 유용한 개요를 제공합니다.
 
 ### <a name="penalties"></a>위약금:
 

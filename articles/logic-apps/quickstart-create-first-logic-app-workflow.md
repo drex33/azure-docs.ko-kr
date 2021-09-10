@@ -1,24 +1,24 @@
 ---
-title: 빠른 시작 - Azure Portal에서 Azure Logic Apps를 사용하여 통합 워크플로 만들기
+title: 빠른 시작 - Azure Portal에서 Azure Logic Apps를 사용하여 자동 워크플로 만들기
 description: Azure Portal에서 다중 테넌트 Azure Logic Apps를 사용하여 첫 번째 자동 통합 워크플로를 만듭니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
-ms.date: 05/25/2021
-ms.openlocfilehash: b7419986137632561cae71b91dd55a2af64912a7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/24/2021
+ms.openlocfilehash: a2b3533a1af6740b1d847a2a3e452bbe45aacc05
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373294"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831286"
 ---
 # <a name="quickstart-create-an-integration-workflow-with-multi-tenant-azure-logic-apps-and-the-azure-portal"></a>빠른 시작: Azure Portal에서 다중 테넌트 Azure Logic Apps를 사용하여 통합 워크플로 만들기
 
-이 빠른 시작에서는 *다중 테넌트* [Azure Logic Apps](logic-apps-overview.md)를 사용할 때 웹 사이트의 RSS 피드와 이메일 계정에 대한 두 서비스를 통합하는 자동화된 워크플로 예제를 만드는 방법을 보여 줍니다. 이 예제는 클라우드 기반이지만, Azure Logic Apps는 클라우드, 온-프레미스 및 하이브리드 환경의 앱, 데이터, 서비스 및 시스템을 연결하는 워크플로를 지원합니다. 다중 테넌트 및 단일 테넌트 모델에 대한 자세한 내용은 [단일 테넌트 및 다중 테넌트 비교와 통합 서비스 환경](single-tenant-overview-compare.md)을 검토하세요.
+이 빠른 시작에서는 [*다중 테넌트* Azure Logic Apps](logic-apps-overview.md)를 사용할 때 웹 사이트의 RSS 피드와 이메일 계정에 대한 두 서비스를 통합하는 자동화된 워크플로 예제를 만드는 방법을 보여 줍니다. 이 예제는 클라우드 기반이지만, Azure Logic Apps는 클라우드, 온-프레미스 및 하이브리드 환경의 앱, 데이터, 서비스 및 시스템을 연결하는 워크플로를 지원합니다. 다중 테넌트 및 단일 테넌트 Azure Logic Apps에 대한 자세한 내용은 [단일 테넌트 및 다중 테넌트 비교와 통합 서비스 환경](single-tenant-overview-compare.md)을 검토하세요.
 
-이 예제에서는 RSS 커넥터와 Office 365 Outlook 커넥터를 사용하는 워크플로를 만듭니다. RSS 커넥터에는 일정에 따라 RSS 피드를 확인하는 트리거가 있습니다. Office 365 Outlook 커넥터에는 각 새 항목에 대한 이메일을 보내는 작업이 있습니다. 이 예제의 커넥터는 워크플로에서 사용할 수 있는 [수백 개의 커넥터](/connectors/connector-reference/connector-reference-logicapps-connectors) 중 두 개일 뿐입니다.
+이 예제에서는 RSS 커넥터와 Office 365 Outlook 커넥터를 사용하는 논리 앱 리소스와 워크플로를 만듭니다. 리소스는 다중 테넌트 Azure Logic Apps에서 실행되며 [소비 가격 책정 모델](logic-apps-pricing.md#consumption-pricing)을 기반으로 합니다. RSS 커넥터에는 일정에 따라 RSS 피드를 확인하는 트리거가 있습니다. Office 365 Outlook 커넥터에는 각 새 항목에 대한 이메일을 보내는 작업이 있습니다. 이 예제의 커넥터는 워크플로에서 사용할 수 있는 [수백 개의 커넥터](/connectors/connector-reference/connector-reference-logicapps-connectors) 중 두 개일 뿐입니다.
 
 다음 스크린샷에서는 개략적인 예제 워크플로를 보여 줍니다.
 
@@ -26,13 +26,13 @@ ms.locfileid: "110373294"
 
 이 빠른 시작을 진행하면서 다음과 같은 기본 단계를 배우게 됩니다.
 
-* 다중 테넌트 Logic Apps 서비스 환경에서 실행되는 논리 앱 리소스를 만듭니다.
+* 다중 테넌트 Azure Logic Apps 환경에서 실행되는 논리 앱 리소스를 만듭니다.
 * 빈 논리 앱 템플릿을 선택합니다.
 * 워크플로를 실행할 시기를 지정하는 트리거를 추가합니다.
 * 트리거 작동 후 태스크를 수행하는 작업을 추가합니다.
 * 워크플로를 실행합니다.
 
-다른 도구를 사용하여 논리 앱을 만들고 관리하려면 다음과 같은 다른 Logic Apps 빠른 시작을 검토하세요.
+다른 도구를 사용하여 논리 앱 리소스를 만들고 관리하려면 다음과 같은 다른 Azure Logic Apps 빠른 시작을 검토하세요.
 
 * [Visual Studio Code에서 논리 앱 만들기 및 관리](quickstart-create-logic-apps-visual-studio-code.md)
 * [Visual Studio에서 논리 앱 만들기 및 관리](quickstart-create-logic-apps-with-visual-studio.md)
@@ -42,16 +42,16 @@ ms.locfileid: "110373294"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에 등록합니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Azure 계정 및 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다.
 
-* Azure Logic Apps와 함께 작동하는 서비스의 이메일 계정(예: Office 365 Outlook 또는 Outlook.com). 지원되는 다른 이메일 공급자는 [Logic Apps용 커넥터](/connectors/connector-reference/connector-reference-logicapps-connectors)를 참조하세요.
+* Azure Logic Apps와 함께 작동하는 서비스의 이메일 계정(예: Office 365 Outlook 또는 Outlook.com). 지원되는 다른 이메일 공급자는 [Azure Logic Apps용 커넥터](/connectors/connector-reference/connector-reference-logicapps-connectors)를 참조하세요.
 
   > [!NOTE]
   > [Gmail 커넥터](/connectors/gmail/)를 사용하려는 경우 G Suite 계정만 Azure Logic Apps 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. 소비자 Gmail 계정이 있는 경우 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들지](/connectors/gmail/#authentication-and-bring-your-own-application) 않는 한 특정 Google 승인 서비스에서만 이 커넥터를 사용할 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
 
-* 특정 IP 주소로 트래픽을 제한하는 방화벽이 있을 경우, 논리 앱이 있는 Azure 지역의 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용하도록 방화벽을 설정합니다.
+* 특정 IP 주소로 트래픽을 제한하는 방화벽이 있을 경우, 논리 앱 워크플로를 만드는 Azure 지역의 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용하도록 방화벽을 설정합니다.
 
-  또한 이 예에서는 [Microsoft에서 관리](../connectors/managed.md)하는 RSS 및 Office 365 Outlook 커넥터를 사용합니다. 이러한 커넥터를 사용하려면 논리 앱의 Azure 지역에서 *모든* [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound)에 대한 액세스를 허용하도록 방화벽을 설정해야 합니다.
+  이 예제에서는 [Microsoft에서 관리](../connectors/managed.md)하는 RSS 및 Office 365 Outlook 커넥터를 사용합니다. 이러한 커넥터를 사용하려면 논리 앱 리소스에 대한 Azure 지역에서 *모든* [관리형 커넥터 아웃바운드 IP 주소](/connectors/common/outbound-ip-addresses)에 대한 액세스를 허용하도록 방화벽을 설정해야 합니다.
 
 <a name="create-logic-app-resource"></a>
 
@@ -63,39 +63,37 @@ ms.locfileid: "110373294"
 
    ![검색어로 "논리 앱"을 입력하고 결과로 "Logic Apps"를 선택한 Azure Portal 검색 상자를 보여주는 스크린샷.](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
 
-1. **Logic Apps** 페이지에서 **추가** > **소비** 를 선택합니다.
+1. **Logic Apps** 페이지에서 **추가** 를 선택합니다.
 
-   이 단계에서는 다중 테넌트 Logic Apps 서비스 환경에서 실행되고 [소비 가격 책정 모델](logic-apps-pricing.md)을 사용하는 논리 앱 리소스를 만듭니다.
+   ![Azure Portal 및 Logic Apps 서비스 페이지와 “추가” 옵션이 선택된 것을 보여주는 스크린샷입니다.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-   ![Azure Portal과 논리 앱 목록이 표시되어 있고, "추가" 메뉴가 열려 있고, "소비"가 선택되어 있는 Logic Apps 서비스 페이지를 보여 주는 스크린샷.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
-
-1. **논리 앱** 창에서 논리 앱에 대한 기본 세부 정보와 설정을 제공합니다. 이 예제 논리 앱에 대한 새 [리소스 그룹](../azure-resource-manager/management/overview.md#terminology)을 만듭니다.
+1. **논리 앱 만들기** 창에서 사용할 Azure 구독을 선택하고 논리 앱 리소스에 대해 새 [리소스 그룹](../azure-resource-manager/management/overview.md#terminology)을 만들고 논리 앱 리소스에 대해 기본 세부 정보를 제공합니다.
 
    | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름입니다. |
    | **리소스 그룹** | <*Azure-resource-group-name*> | [Azure 리소스 그룹](../azure-resource-manager/management/overview.md#terminology) 이름으로, 지역에서 고유해야 합니다. 이 예제에서는 “My-First-LA-RG”를 사용합니다. |
-   | **논리 앱 이름**. | <*logic-app-name*> | 지역에서 고유해야 하는 논리 앱의 이름입니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. <p><p>**중요**: 이름에는 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함될 수 있습니다.  |
-   | **지역** | <*Azure-region*> | 앱의 정보를 저장할 Azure 데이터 센터 지역입니다. 이 예제에서는 “미국 서부”를 사용합니다. |
-   | **통합 서비스 환경에 연결** | 끄기 | 이 논리 앱을 [통합 서비스 환경](connect-virtual-network-vnet-isolated-environment-overview.md)에 배포하려는 경우에만 이 옵션을 선택합니다. 이 예제에서는 이 옵션을 선택하지 않은 상태로 둡니다. |
-   | **로그 분석 사용** | 끄기 | 진단 로깅을 사용하도록 설정하려는 경우에만 이 옵션을 선택합니다. 이 예제에서는 이 옵션을 선택하지 않은 상태로 둡니다. |
+   | **유형** | **Consumption** | 논리 앱 리소스 유형 및 리소스에 사용할 청구 모델: <p><p>- **소비**: 이 논리 앱 리소스 유형은 전역 다중 테넌트 Azure Logic Apps에서 실행되며 [소비 청구 모델](logic-apps-pricing.md#consumption-pricing)을 사용합니다. 이 예제에서는 이 **소비** 모델을 사용합니다. <p>- **표준**: 이 논리 앱 리소스 유형은 단일 테넌트 Azure Logic Apps에서 실행되며 [표준 청구 모델](logic-apps-pricing.md#standard-pricing)을 사용합니다. |
+   | **논리 앱 이름** | <*logic-app-name*> | 지역 간에 고유해야 하는 논리 앱 리소스 이름입니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. <p><p>**중요**: 이름에는 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함될 수 있습니다.  |
+   | **지역** | <*Azure-region*> | 앱의 정보를 저장할 Azure 데이터 센터 지역입니다. 이 예제에서는 “미국 서부”를 사용합니다. <p>**참고**: 구독이 [통합 서비스 환경](connect-virtual-network-vnet-isolated-environment-overview.md)과 연결된 경우 이 목록에 해당 환경이 포함됩니다. |
+   | **로그 분석 사용** | **아니요** | 진단 로깅을 사용하도록 설정하려는 경우에만 이 옵션을 변경합니다. 이 예제에서는 이 옵션을 선택하지 않은 상태로 둡니다. |
    ||||
 
-   ![Azure Portal 및 새 논리 앱에 대한 세부 정보가 포함된 논리 앱 생성 페이지를 보여 주는 스크린샷.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
+   ![Azure Portal 및 새 논리 앱에 대한 세부 정보가 포함된 논리 앱 리소스 만들기 페이지를 보여주는 스크린샷입니다.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
 1. 준비가 되면 **검토 + 만들기** 를 선택합니다. 유효성 검사 페이지에서 입력한 세부 정보를 확인하고 **만들기** 를 선택합니다.
 
 ## <a name="select-the-blank-template"></a>빈 템플릿 선택
 
-1. Azure가 앱을 성공적으로 배포하면 **리소스로 이동** 을 선택합니다. 또는 Azure 검색 상자에 이름을 입력하여 논리 앱을 찾아 선택할 수 있습니다.
+1. Azure가 앱을 성공적으로 배포하면 **리소스로 이동** 을 선택합니다. 또는 Azure 검색 상자에 이름을 입력하여 논리 앱 리소스를 찾아 선택할 수 있습니다.
 
    ![리소스 배포 페이지와 "리소스로 이동"에 대해 선택한 단추를 보여 주는 스크린샷.](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
-   Logic Apps 디자이너가 열리고 소개 비디오 및 많이 사용되는 트리거가 포함된 페이지를 보여줍니다.
+   워크플로 디자이너가 열리고 소개 비디오 및 많이 사용되는 트리거가 포함된 페이지를 보여줍니다.
 
-1. **템플릿** 아래에서 **빈 논리 앱** 을 선택합니다.
+1. **템플릿** 에서 **빈 논리 앱** 을 선택합니다.
 
-   ![Logic Apps 디자이너 템플릿 갤러리와 선택한 템플릿 "빈 논리 앱"을 보여주는 스크린샷.](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+   ![워크플로 디자이너, 템플릿 갤러리 및 선택한 템플릿인 "빈 논리 앱"을 보여주는 스크린샷입니다.](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
    템플릿을 선택하면 디자이너에서 이제 빈 워크플로 화면을 표시합니다.
 
@@ -103,21 +101,21 @@ ms.locfileid: "110373294"
 
 ## <a name="add-the-trigger"></a>트리거 추가
 
-워크플로는 항상 워크플로에서 작업을 실행하기 전에 충족해야 하는 조건을 지정하는 단일 [트리거](../logic-apps/logic-apps-overview.md#how-do-logic-apps-work)로 시작됩니다. 트리거가 작동할 때마다 Logic Apps 서비스는 워크플로 인스턴스를 만들고 실행합니다. 트리거가 작동하지 않으면 인스턴스가 만들어지거나 실행되지 않습니다. 여러 트리거 중에서 선택하여 워크플로를 시작할 수 있습니다.
+워크플로는 항상 워크플로에서 작업을 실행하기 전에 충족해야 하는 조건을 지정하는 단일 [트리거](../logic-apps/logic-apps-overview.md#how-do-logic-apps-work)로 시작됩니다. 트리거가 작동할 때마다 Azure Logic Apps가 워크플로 인스턴스를 만들고 실행합니다. 트리거가 작동하지 않으면 인스턴스가 만들어지거나 실행되지 않습니다. 여러 트리거 중에서 선택하여 워크플로를 시작할 수 있습니다.
 
 이 예제에서는 일정에 따라 RSS 피드를 확인하는 RSS 트리거를 사용합니다. 피드에 새 항목이 있으면 트리거가 작동하고 새 워크플로 인스턴스가 실행되기 시작합니다. 확인하는 사이에 새 항목이 여러 개 발견되면 각 항목에 대해 트리거가 작동하며, 각 항목별로 새 워크플로 인스턴스가 실행됩니다.
 
-1. **Logic Apps 디자이너** 의 검색 상자에서 **모두** 를 선택합니다.
+1. 워크플로 디자이너의 검색 상자 아래에서 **모두** 를 선택합니다.
 
 1. RSS 커넥터를 찾으려면 검색 상자에 `rss`를 입력합니다. **트리거** 목록에서 **피드 항목이 게시된 경우** RSS 트리거를 선택합니다.
 
-   ![검색 상자에 "rss"가 있고 "피드 항목이 게시된 경우" RSS 트리거가 선택된 Logic Apps 디자이너를 보여 주는 스크린샷.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
+   ![검색 상자에 "rss"가 있고 "피드 항목이 게시된 경우" RSS 트리거가 선택된 워크플로 디자이너를 보여주는 스크린샷입니다.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
 1. 트리거 세부 정보에 다음 정보를 입력합니다.
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **RSS 피드 URL** | 예 | <*RSS-feed-URL*> | 모니터링할 RSS 피드 URL입니다. <p><p>이 예제에서는 `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`에 있는 Wall Street Journal의 RSS 피드를 사용합니다. 그러나 HTTP 권한 부여가 필요하지 않은 RSS 피드를 사용할 수 있습니다. 자주 게시되는 RSS 피드를 선택합니다. 그러면 워크플로를 쉽게 테스트할 수 있습니다. |
+   | **RSS 피드 URL** | Yes | <*RSS-feed-URL*> | 모니터링할 RSS 피드 URL입니다. <p><p>이 예제에서는 `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`에 있는 Wall Street Journal의 RSS 피드를 사용합니다. 그러나 HTTP 권한 부여가 필요하지 않은 RSS 피드를 사용할 수 있습니다. 자주 게시되는 RSS 피드를 선택합니다. 그러면 워크플로를 쉽게 테스트할 수 있습니다. |
    | **선택한 속성을 사용하여 확인** | 아니요 | PublishDate | 새 항목을 결정하는 속성입니다. |
    | **간격** | 예 | 1 | 피드 확인 간에 대기하는 간격(숫자)입니다. <p><p>이 예제에서는 `1`을 간격으로 사용합니다. |
    | **빈도** | 예 | Minute | 모든 간격에 사용할 빈도 단위입니다. <p><p>이 예제에서는 `Minute`를 빈도로 사용합니다. |
@@ -218,7 +216,7 @@ ms.locfileid: "110373294"
       | `Link:` | **주 피드 링크** | 항목의 URL |
       ||||
 
-      !["이메일 보내기" 작업에서 "본문" 상자 안에 선택한 속성이 있는 Logic Apps 디자이너를 보여 주는 스크린샷.](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
+      !["이메일 보내기" 작업에서 "본문" 상자 안에 선택한 속성이 있는 워크플로 디자이너를 보여주는 스크린샷입니다.](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
@@ -226,11 +224,11 @@ ms.locfileid: "110373294"
 
 ## <a name="run-your-workflow"></a>워크플로 실행
 
-워크플로가 제대로 실행되는지 확인하려면 트리거가 설정된 일정에 따라 RSS 피드를 확인할 때까지 기다리면 됩니다. 또는 다음 스크린샷과 같이 Logic Apps 디자이너 도구 모음에서 **실행** 을 선택하여 워크플로를 수동으로 실행할 수 있습니다. 
+워크플로가 제대로 실행되는지 확인하려면 트리거가 설정된 일정에 따라 RSS 피드를 확인할 때까지 기다리면 됩니다. 또는 다음 스크린샷과 같이 워크플로 디자이너 도구 모음에서 **실행** 을 선택하여 워크플로를 수동으로 실행할 수 있습니다.
 
-![Logic Apps 디자이너와 디자이너 도구 모음에서 선택한 "실행" 단추를 보여 주는 스크린샷](./media/quickstart-create-first-logic-app-workflow/run-logic-app-test.png)
+![워크플로 디자이너와 디자이너 도구 모음에서 선택한 "실행" 단추를 보여주는 스크린샷입니다.](./media/quickstart-create-first-logic-app-workflow/run-logic-app-test.png)
 
-RSS 피드에 새 항목이 있는 경우 워크플로가 새 항목 각각에 이메일을 보냅니다. 그렇지 않은 경우 워크플로가 RSS 피드를 다시 확인하기 위해 다음 간격까지 기다립니다. 
+RSS 피드에 새 항목이 있는 경우 워크플로가 새 항목 각각에 이메일을 보냅니다. 그렇지 않은 경우 워크플로가 RSS 피드를 다시 확인하기 위해 다음 간격까지 기다립니다.
 
 다음 스크린샷은 예제 워크플로에서 보낸 샘플 이메일을 보여 줍니다. 이 이메일에는 선택한 각 트리거 출력의 세부 정보와 각 항목에 대해 입력한 설명 텍스트가 포함됩니다.
 
@@ -241,11 +239,12 @@ RSS 피드에 새 항목이 있는 경우 워크플로가 새 항목 각각에 �
 워크플로에서 예상한 이메일을 받지 못한 경우:
 
 * 메시지가 잘못 필터링된 경우 이메일 계정의 정크 또는 스팸 폴더를 확인합니다.
+
 * 사용 중인 RSS 피드에서 마지막 예약 또는 수동 확인 이후 항목을 게시했는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작을 완료했으면 이 예제를 위해 만든 리소스 그룹을 삭제하여 샘플 논리 앱 및 관련 리소스를 정리합니다.
+이 빠른 시작이 완료되었으면 이제 이 예제를 위해 만든 리소스 그룹을 삭제하여 샘플 논리 앱 리소스 및 관련 리소스를 삭제합니다.
 
 1. Azure 검색 상자에 `resource groups`을 입력한 다음, **리소스 그룹** 을 선택합니다.
 

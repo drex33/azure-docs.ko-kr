@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 08/10/2021
 ms.author: duau
-ms.openlocfilehash: a94821f5254526fa13f9e87e62803581c46127d2
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 892cf772559b445a6ebb7103ff5a65582700b70f
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538669"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864336"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>자습서: CLI를 사용하여 가상 네트워크를 ExpressRoute 회로에 연결
 
@@ -170,6 +170,20 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 ```azurecli-interactive
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
 ```
+
+> [!NOTE]
+> [연결 모니터](how-to-configure-connection-monitor.md)를 사용하여 트래픽이 FastPath를 사용하여 목적지에 도달하고 있는지 확인할 수 있습니다.
+>
+
+## <a name="enroll-in-expressroute-fastpath-features-preview"></a>ExpressRoute FastPath 기능에 등록(미리 보기)
+
+가상 네트워크 피어링에 대한 FastPath 지원은 이제 공개 미리 보기로 제공됩니다. 등록은 Azure PowerShell을 통해서만 가능합니다. 등록 방법에 대한 지침은 [FastPath 미리 보기 기능](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview)을 참조하세요.
+
+> [!NOTE] 
+> 이미 FastPath가 구성되어 있고 미리 보기 기능에 등록하려면 다음을 수행해야 합니다.
+> 1. 위의 Azure PowerShell 명령을 사용하여 FastPath 미리 보기 기능에 등록합니다.
+> 1. 대상 연결에서 FastPath를 사용하지 않도록 설정했다가 다시 사용합니다.
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 ExpressRoute 연결이 더 이상 필요하지 않은 경우 게이트웨이가 있는 구독에서 `az network vpn-connection delete` 명령을 사용하여 게이트웨이와 회로 간의 연결을 제거합니다.

@@ -5,15 +5,15 @@ description: 이 페이지는 웹 애플리케이션 방화벽 CRS 규칙 그룹
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/06/2021
+ms.date: 08/23/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 9aa4277c3d13419a4083193c07d807decea21c59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4a5f1dba6e0e1411a4268b07f6d66788f3aa8c0f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566461"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772720"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙
 
@@ -180,7 +180,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |920311|요청에 빈 Accept 헤더가 있음|
 |920320|사용자 에이전트 헤더 누락|
 |920330|빈 사용자 에이전트 헤더|
-|920340|콘텐츠가 있지만 Content-Type 헤더가 누락된 요청|
+|920340|요청에 콘텐츠가 있지만 Content-Type 헤더가 누락됨|
 |920341|콘텐츠가 있는 요청은 Content-Type 헤더 필요|
 |920350|호스트 헤더가 숫자 IP 주소|
 |920420|요청 콘텐츠 유형이 정책에서 허용되지 않음|
@@ -256,14 +256,14 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |933170|PHP 삽입 공격: 직렬화된 개체 삽입|
 |933180|PHP 삽입 공격: 변수 함수 호출 발견|
 |933190|PHP 삽입 공격: PHP 닫는 태그 발견|
-|933200|PHP 삽입 공격: 래퍼 체계가 감지됨|
+|933200|PHP 삽입 공격: 래퍼 체계가 검색됨|
 |933210|PHP 삽입 공격: 변수 함수 호출 발견|
 
 ### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-32"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 |RuleId|설명|
 |---|---|
 |941100|libinjection을 통한 XSS 공격 감지됨|
-|941101|libinjection을 통해 XSS 공격이 감지되었습니다.|
+|941101|libinjection을 통한 XSS 공격이 검색됨.|
 |941110|XSS 필터 - 범주 1: 스크립트 태그 벡터|
 |941120|XSS 필터 - 범주 2: 이벤트 처리기 벡터|
 |941130|XSS 필터 - 범주 3: 특성 벡터|
@@ -298,7 +298,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |942110|SQL 삽입 공격: 일반적인 삽입 테스트 감지됨|
 |942120|SQL 삽입 공격: SQL 연산자 감지됨|
 |942130|SQL 삽입 공격: SQL Tautology 감지됨|
-|942140|SQL 삽입 공격: 일반 DB 이름이 감지됨|
+|942140|SQL 삽입 공격: 일반 DB 이름이 검색됨|
 |942150|SQL 삽입 공격|
 |942160|sleep() 또는 benchmark()를 사용하는 블라인드 sqli 테스트 감지.|
 |942170|조건부 쿼리를 포함하여 SQL benchmark 및 sleep 삽입 공격 감지|
@@ -312,7 +312,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |942250|MATCH AGAINST, MERGE 및 EXECUTE IMMEDIATE 삽입 감지|
 |942251|HAVING 삽입 감지|
 |942260|기본 SQL 인증 바이패스 시도 감지 2/3|
-|942270|기본적인 sql 삽입 검색. mysql, oracle 및 기타에 대한 일반적인 공격 문자열.|
+|942270|기본적인 sql 삽입 검색. mysql, oracle 등에 대한 일반적인 공격 문자열.|
 |942280|Postgres pg_sleep 삽입, waitfor delay 공격 및 데이터베이스 종료 시도 감지|
 |942290|기본적인 MongoDB SQL 삽입 시도 찾기|
 |942300|MySQL 주석, 조건 및 ch(a)r 삽입 감지|
@@ -352,7 +352,7 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |RuleId|설명|
 |---|---|
 |944100|원격 명령 실행: Apache Struts, Oracle WebLogic|
-|944110|잠재적 페이로드 실행 감지|
+|944110|잠재적 페이로드 실행 검색|
 |944120|가능한 페이로드 실행 및 원격 명령 실행|
 |944130|의심스러운 Java 클래스|
 |944200|Java 역직렬화 Apache Commons 악용|
@@ -427,12 +427,6 @@ CRS 2.2.9에는 다음 표와 같이 10개의 규칙 그룹이 포함되어 있�
 |920340|요청에 콘텐츠는 있지만 Content-Type 헤더 누락|
 |920341|콘텐츠가 있는 요청은 Content-Type 헤더 필요|
 |920350|호스트 헤더가 숫자 IP 주소|
-|920360|인수 이름이 너무 김|
-|920370|인수 값이 너무 김|
-|920380|요청에 인수가 너무 많음|
-|920390|총 인수 크기 초과|
-|920400|업로드된 파일 크기가 너무 큼|
-|920410|업로드된 총 파일 크기가 너무 큼|
 |920420|요청 콘텐츠 유형이 정책에서 허용되지 않음|
 |920430|HTTP 프로토콜 버전이 정책에서 허용되지 않음|
 |920440|URL 파일 확장명이 정책에서 허용되지 않음|

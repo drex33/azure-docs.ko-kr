@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 08/10/2021
-ms.openlocfilehash: a215100ebc858d2f6f7e154ea81ed5e006d3d9a4
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: c2cdd4009261306357bc9d840afa83bc1ebf40df
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252237"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123111638"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)
 
@@ -36,26 +36,31 @@ Azure Database for MySQL 유연한 서버는 데이터베이스 관리 기능 �
 - 영역 중복 고가용성
 - 관리되는 유지 관리 기간
 
+유연한 서버에 대한 최신 업데이트는 [Azure Database for MySQL - 유연한 서버의 새로운 사항](whats-new.md)을 참조하세요.
+
 ![유연한 서버 개념 다이어그램](media/overview/1-flexible-server-conceptual-diagram.png) 
+
+## <a name="free-12-month-offer"></a>12개월 체험 제공
+
+[Azure 체험 계정](https://azure.microsoft.com/free/)을 사용하면 유연한 서버를 12개월 동안 사용할 수 있으며 월별 한도는 다음과 같습니다.
+* **750시간의 버스트 가능한 B1MS**. 인스턴스(매달 데이터베이스 인스턴스를 지속적으로 실행하는 데 충분한 시간입니다).
+* **32GB** 의 스토리지 및 **32GB** 의 백업 스토리지. 
+
+이 제공 서비스를 활용하여 Azure Database for MySQL – 유연한 서버를 사용하는 애플리케이션을 개발하고 배포할 수 있습니다. Azure 체험 계정을 사용하여 유연한 서버를 만들고 사용하는 방법을 확인하려면 [이 자습서](how-to-deploy-on-azure-free-account.md)를 참조하세요. 
 
 ## <a name="high-availability-within-and-across-availability-zones"></a>가용성 영역의 고가용성
 
-유연한 서버 배포 모델은 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 지원하도록 설계되었습니다. 아키텍처는 컴퓨팅과 스토리지를 분리합니다. 데이터베이스 엔진은 Linux 가상 머신에서 실행되는 반면, 데이터 파일은 원격 Azure 프리미엄 스토리지에 상주합니다. 스토리지는 데이터베이스 파일의 세 가지 로컬 중복 동기 복사본을 유지하여 항상 데이터 내구성을 보장합니다.
+Azure Database for MySQL 유연한 서버(미리 보기)를 사용하면 자동 장애 조치(failover)로 고가용성을 구성할 수 있습니다. 고가용성 솔루션은 커밋된 데이터가 오류로 인해 손실되지 않도록 하고 애플리케이션의 전반적인 작동 시간을 개선하도록 설계되었습니다.고가용성이 구성되면 유연한 서버가 대기 복제본을 자동으로 프로비저닝하고 관리합니다. 다음 두 가지의 고가용성 아키텍처 모델이 있습니다. 
 
-계획되거나 계획되지 않은 이벤트로 인해 서버가 다운되면 서비스는 다음과 같은 자동 절차를 사용하여 서버의 고가용성을 유지합니다.
+- **영역 중복 HA(고가용성):** 이 옵션은 여러 가용성 영역에서 인프라의 완전한 격리 및 중복성을 위해 선호됩니다. 최고 수준의 가용성을 제공하지만 영역 간에 애플리케이션 중복성을 구성해야 합니다. 영역 중복 HA는 가용성 영역의 모든 인프라 장애에 대해 최고 수준의 가용성을 확보하고 가용성 영역 전체의 대기 시간이 허용되는 경우 선호됩니다. 영역 중복 HA는 지역이 여러 가용성 영역을 지원하고 영역 중복 프리미엄 파일 공유를 사용할 수 있는  [Azure 지역의 하위 집합](overview.md#azure-regions) 에서 사용할 수 있습니다. 
 
-1. 새 컴퓨팅 VM이 프로비저닝됩니다.
-2. 데이터 파일이 있는 스토리지가 새 가상 머신에 매핑됩니다.
-3. 새 가상 머신에서 MySQL 데이터베이스 엔진이 온라인 상태로 전환됩니다.
-4. 서버에서 연결을 허용할 준비가 되면 클라이언트 애플리케이션이 다시 연결할 수 있습니다.
+:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="영역 중복 HA":::
 
-:::image type="content" source="media/overview/2-flexible-server-architecture.png" alt-text="단일 영역 고가용성 개념 다이어그램":::
+- **동일 영역 HA(고가용성):** 이 옵션은 기본 서버와 대기 서버가 동일한 가용성 영역에 있으므로 네트워크 대기 시간이 짧은 인프라 중복에 선호됩니다. 영역 간에 애플리케이션 중복성을 구성하지 않고도 고가용성을 제공합니다. 동일한 영역 HA는 네트워크 대기 시간이 가장 짧은 단일 가용성 영역 내에서 최고 수준의 가용성을 확보하려는 경우 선호됩니다. 동일 영역 HA는 Azure Database for MySQL 유연한 서버를 만들 수 있는 모든 [Azure 지역](overview.md#azure-regions)에서 사용할 수 있습니다. 
 
-영역 중복 고가용성이 구성된 경우 서비스는 동일한 Azure 지역 내에서 가용성 영역에 걸쳐 상시 대기 서버를 프로비저닝하고 유지 관리합니다. 데이터 손실을 방지하기 위해 원본 서버의 데이터 변경 내용이 대기 서버에 동기적으로 복제됩니다. 영역 중복 고가용성을 사용하면 계획되거나 계획되지 않은 장애 조치(failover) 이벤트가 트리거되면 대기 서버가 즉시 온라인 상태가 되고 들어오는 트랜잭션을 처리할 수 있습니다. 일반적인 장애 조치(failover) 시간 범위는 60-120초입니다. 따라서 특정 Azure 지역에서 단일 가용성 영역 장애가 발생하더라도 서비스가 고가용성을 지원하고 향상된 복원력을 제공할 수 있습니다.
+:::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="동일한 중복 고가용성":::
 
 자세한 내용은 [고가용성 개념](concepts-high-availability.md)을 참조하세요.
-
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="영역 중복 고가용성 개념 다이어그램":::
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>관리되는 유지 관리 기간을 사용하여 자동 패치
 
@@ -87,7 +92,7 @@ Azure Database for MySQL 유연한 서버에 연결하는 두 가지 네트워�
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>몇 초 이내 성능 및 규모 조정
 
-유연한 서버 서비스는 버스트 가능, 범용 및 메모리 최적화의 세 가지 SKU 계층으로 제공됩니다. 버스트 가능 계층은 전체 컴퓨팅 용량이 지속적으로 필요하지 않은 저렴한 개발 및 낮은 동시성 워크로드에 가장 적합합니다. 범용 및 메모리 최적화는 높은 동시성, 규모 및 예측 가능한 성능이 필요한 프로덕션 워크로드에 더 적합합니다. 한 달에 불과 몇 달러의 비용으로 작은 데이터베이스에 첫 번째 앱을 빌드하고, 이후에 솔루션의 요구에 맞게 원활하게 스케일링할 수 있습니다. 스토리지 스케일링은 온라인으로 수행되며 스토리지 자동 확장을 지원합니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 사용하는 리소스 비용만 지불하면 됩니다. 
+유연한 서버 서비스는 버스트 가능, 범용 및 메모리 최적화의 세 가지 SKU 계층으로 제공됩니다. 버스트 가능 계층은 전체 컴퓨팅 용량이 지속적으로 필요하지 않은 저렴한 개발 및 낮은 동시성 워크로드에 가장 적합합니다. 범용 및 메모리 최적화는 높은 동시성, 규모 및 예측 가능한 성능이 필요한 프로덕션 워크로드에 더 적합합니다. 한 달에 불과 몇 달러의 비용으로 작은 데이터베이스에 첫 번째 앱을 빌드하고, 이후에 솔루션의 요구에 맞게 원활하게 스케일링할 수 있습니다. 스토리지 스케일링은 온라인으로 수행되며 스토리지 자동 확장을 지원합니다. 유연한 서버를 사용하면 스토리지와 무관하게 무료 IOPS 제한을 초과하여 최대 20K IOPS를 추가로 프로비저닝할 수 있습니다. 이 기능을 사용하면 언제든지 워크로드 요구 사항에 따라 프로비전된 IOPS 수를 늘리거나 줄일 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 사용하는 리소스 비용만 지불하면 됩니다. 
 
 자세한 내용은 [컴퓨팅 및 스토리지 개념](concepts-compute-storage.md)을 참조하세요.
 
@@ -106,7 +111,7 @@ MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 �
 입력 데이터 복제를 사용하면 외부 MySQL 서버에서 Azure Database for MySQL Flexible 서비스로 데이터를 동기화할 수 있습니다. 외부 서버는 온-프레미스, 가상 머신, Azure Database for MySQL Single Server 또는 다른 클라우드 공급자가 호스트하는 데이터베이스 서비스에 있을 수 있습니다. 입력 데이터 복제는 위치 기반의 이진 로그(binlog) 파일을 기반으로 합니다. 입력 데이터 복제 사용을 고려할 주요 시나리오는 다음과 같습니다.
 * 하이브리드 데이터 동기화
 * 다중 클라우드 동기화
-* 유연한 서버에 대한 최소 가동 중지 시간 마이그레이션
+* [유연한 서버에 대한 최소 가동 중지 시간 마이그레이션](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
 
 자세한 내용은 [입력 데이터 복제 개념](concepts-data-in-replication.md)을 참조하세요.
 
@@ -121,9 +126,9 @@ MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 �
 
 유연한 서버 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업이 포함된 데이터 및 쿼리를 실행하는 동안 생성된 임시 파일이 암호화됩니다. 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다(기본값).
 
-서비스는 기본적으로 적용되는 전송 계층 보안을 사용하여 동작 중인 데이터를 암호화합니다. 유연한 서버는 전송 계층 보안(1.2 TLS)을 사용하는 암호화된 연결만 지원하며 TLS 1.0 및 TLS 1.1을 사용하여 들어오는 연결은 모두 거부됩니다.
+서비스는 기본적으로 적용되는 전송 계층 보안을 사용하여 동작 중인 데이터를 암호화합니다. 기본적으로 유연한 서버는 전송 계층 보안(1.2 TLS)을 사용하는 암호화된 연결만 지원하며 TLS 1.0 및 TLS 1.1을 사용하여 들어오는 연결은 모두 거부됩니다. require_secure_transport 서버 매개 변수를 설정하여 SSL 적용을 사용하지 않도록 설정하고, 서버에 대한 최소 tls_version 설정할 수 있습니다.
 
-자세한 내용은 [유연한 서버에 암호화된 연결을 사용하는 방법](https://docs.mongodb.com/manual/tutorial/configure-ssl)을 참조하세요.
+자세한 내용은 [유연한 서버에 암호화된 연결을 사용하는 방법](how-to-connect-tls-ssl.md)을 참조하세요.
 
 유연한 서버는 [Azure 가상 네트워크](../../virtual-network/virtual-networks-overview.md)(VNet 통합)를 사용하여 서버에 대한 모든 프라이빗 액세스를 허용합니다. Azure 가상 네트워크의 서버는 프라이빗 IP 주소를 통해서만 연결할 수 있습니다. VNet 통합을 사용하면 퍼블릭 액세스를 거부하고 퍼블릭 엔드포인트를 사용하여 서버에 연결할 수 없습니다.
 
@@ -131,7 +136,7 @@ MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 �
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 
-유연한 서버 서비스는 기본 제공 성능 모니터링 및 경고 기능을 갖추고 있습니다. 모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 서비스는 리소스 사용률을 모니터링하도록 호스트 서버 메트릭을 노출하고, 쿼리 로그를 느리게 구성할 수 있도록 합니다. 이러한 도구를 사용하여 워크로드를 신속하게 최적화하고 최적의 성능을 얻을 수 있도록 서버를 구성할 수 있습니다.
+유연한 서버 서비스는 기본 제공 성능 모니터링 및 경고 기능을 갖추고 있습니다. 모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 서비스는 리소스 사용률을 모니터링하도록 호스트 서버 메트릭을 노출하고, 쿼리 로그를 느리게 구성할 수 있도록 합니다. 이러한 도구를 사용하여 워크로드를 신속하게 최적화하고 최적의 성능을 얻을 수 있도록 서버를 구성할 수 있습니다. 또한 [MySQL Flexible Server에서의 Percona 모니터링 및 관리](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545) 등, 커뮤니티 모니터링 도구를 사용하고 통합할 수도 있습니다. 
 
 자세한 내용은 [모니터링 개념](concepts-monitoring.md)을 참조하세요.
 
@@ -146,35 +151,37 @@ MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 �
 ### <a name="online-or-minimal-downtime-migrations"></a>온라인 또는 최소 가동 중지 시간 마이그레이션
 초기 시드를 위해 mydumper/myloader 일치 백업/복원과 함께 입력 데이터 복제를 사용합니다. 단계별 지침인 [자습서: Azure Database for MySQL의 최소 가동 중지 시간 마이그레이션 – 단일 서버에서 Azure Database for MySQL로 - 유연한 서버](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)에서 자세히 알아봅니다.
 
+간단한 5단계를 통해 Azure Database for MySQL - 단일 서버에서 유연한 서버로 마이그레이션하려면 [이 블로그](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057)를 참조하세요.
+
 자세한 내용은 [Azure Database for MySQL 모니터링 가이드](../../mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md)를 참조하세요.
 
 ## <a name="azure-regions"></a>Azure 지역
 
 Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결입니다. Azure Database for MySQL에 대한 유연한 서버는 현재 다음 Azure 지역에서 사용할 수 있습니다.
 
-| 지역 | 가용성 | 영역 중복 HA |
-| --- | --- | --- |
-| 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: |
-| 브라질 남부 | :heavy_check_mark: | :x: |
-| 캐나다 중부 | :heavy_check_mark: | :x: |
-| 미국 중부 | :heavy_check_mark: | :x: |
-| 미국 동부 | :heavy_check_mark: | :heavy_check_mark: |
-| 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: |
-| 프랑스 중부 | :heavy_check_mark: | :heavy_check_mark:|
-| 독일 중서부 | :heavy_check_mark: | :x: |
-| 일본 동부 | :heavy_check_mark: | :heavy_check_mark: |
-| 한국 중부 | :heavy_check_mark: | :x: |
-| 북유럽 | :heavy_check_mark: | :heavy_check_mark: |
-| 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: |
-| 스위스 북부 | :heavy_check_mark: | :x: |
-| 영국 남부 | :heavy_check_mark: | :heavy_check_mark: |
-| 미국 서부 | :heavy_check_mark: | :x: |
-| 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: |
-| 서유럽 | :heavy_check_mark: | :heavy_check_mark: |
-| 오스트레일리아 남동부 | :heavy_check_mark: | :x: |
-| 남아프리카 북부 | :heavy_check_mark: | :x: |
-| 동아시아(홍콩) | :heavy_check_mark: | :x: |
-| 인도 중부 | :heavy_check_mark: | :x: |
+| 지역 | 가용성 | 동일한 영역 HA | 영역 중복 HA |
+| --- | --- | --- | --- |
+| 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 브라질 남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 캐나다 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 미국 중부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 미국 동부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 프랑스 중부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
+| 독일 중서부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 일본 동부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 한국 중부 | :heavy_check_mark: | :x: | :x: |
+| 북유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 스위스 북부 | :heavy_check_mark: | :x: | :x: |
+| 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 미국 서부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 서유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 오스트레일리아 남동부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 남아프리카 북부 | :heavy_check_mark: | :x: | :x: |
+| 동아시아(홍콩) | :heavy_check_mark: | :x: | :x: |
+| 인도 중부 | :heavy_check_mark: | :x: | :x: |
 
 ## <a name="contacts"></a>연락처
 

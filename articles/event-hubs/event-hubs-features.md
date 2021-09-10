@@ -1,14 +1,14 @@
 ---
 title: 기능 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 기능 및 용어에 대한 정보를 제공합니다.
-ms.topic: article
-ms.date: 03/15/2021
-ms.openlocfilehash: e75e8fe3b405652e245119cafa828e752436095b
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.topic: overview
+ms.date: 08/27/2021
+ms.openlocfilehash: b06ce04a7b2fd4fbb55cbe1b3ac8c2510305e781
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111422132"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226326"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
 
@@ -25,11 +25,13 @@ Azure Event Hubs는 확장 가능한 처리 서비스로 대량의 이벤트 및
 
 
 ## <a name="namespace"></a>네임스페이스
-Event Hubs 네임스페이스는 DNS 통합 네트워크 엔드포인트와 [IP 필터링](event-hubs-ip-filtering.md), [가상 네트워크 서비스 엔드포인트](event-hubs-service-endpoints.md) 및 [Private Link](private-link-service.md)와 같은 다양한 액세스 제어 및 네트워크 통합 관리 기능을 제공하며, 여러 Event Hub 인스턴스(또는 kafka 용어의 항목) 중 하나에 대한 관리 컨테이너입니다.
+Event Hubs 네임스페이스는 이벤트 허브(또는 Kafka 구문 분석의 토픽)에 대한 관리 컨테이너입니다. DNS 통합 네트워크 엔드포인트와, [IP 필터링](event-hubs-ip-filtering.md), [가상 네트워크 서비스 엔드포인트](event-hubs-service-endpoints.md) 및 [프라이빗 링크](private-link-service.md)와 같은 다양한 액세스 제어 및 네트워크 통합 관리 기능을 제공합니다.
+
+:::image type="content" source="./media/event-hubs-features/namespace.png" alt-text="Event Hubs 네임스페이스를 보여주는 이미지":::
 
 ## <a name="event-publishers"></a>이벤트 게시자
 
-Event Hub로 데이터를 전송하는 모든 엔터티는 *이벤트 게시자*(*이벤트 생산자* 에서 동의어처럼 사용됨)입니다. 이벤트 게시자는 HTTPS, AMQP 1.0 또는 Kafka 프로토콜을 사용하여 이벤트를 게시할 수 있습니다. 이벤트 게시자는 OAuth2에서 발급한 JWT 토큰 또는 Event Hub 관련 SAS(공유 액세스 서명) 토큰 획득 게시 액세스를 사용하여 Azure Active Directory 기반 권한 부여를 사용합니다.
+이벤트 허브로 데이터를 전송하는 모든 엔터티는 *이벤트 게시자*(*이벤트 생산자* 에서 동의어처럼 사용됨)입니다. 이벤트 게시자는 HTTPS, AMQP 1.0 또는 Kafka 프로토콜을 사용하여 이벤트를 게시할 수 있습니다. 이벤트 게시자는 OAuth2에서 발급한 JWT 토큰 또는 Event Hub 관련 SAS(공유 액세스 서명) 토큰 획득 게시 액세스를 사용하여 Azure Active Directory 기반 권한 부여를 사용합니다.
 
 ### <a name="publishing-an-event"></a>이벤트 게시
 
@@ -39,7 +41,7 @@ AMQP 또는 HTTPS 사용 선택은 사용량 시나리오에 해당됩니다. �
 
 이벤트를 개별적으로 게시하거나 일괄처리할 수 있습니다. 단일 게시는 단일 이벤트 또는 일괄 처리인지에 관계없이 1MB로 제한됩니다. 이 임계값보다 큰 게시 이벤트는 거부됩니다. 
 
-Event Hubs 처리량은 파티션 및 처리량 단위 할당을 사용하여 스케일링됩니다(아래 참조). 게시자는 Event Hub에 대해 선택한 특정 분할 모델을 인식하지 못하고 동일한 파티션에 관련 이벤트를 일관되게 할당하는 데 사용되는 *파티션 키* 만 지정하는 것이 가장 좋습니다.
+Event Hubs 처리량은 파티션 및 처리량 단위 할당을 사용하여 스케일링됩니다(아래 참조). 게시자는 이벤트 허브에 대해 선택한 특정 분할 모델을 인식하지 못하고 동일한 파티션에 관련 이벤트를 일관되게 할당하는 데 사용되는 *파티션 키* 만 지정하는 것이 가장 좋습니다.
 
 ![파티션 키](./media/event-hubs-features/partition_keys.png)
 
@@ -47,7 +49,7 @@ Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 함께 저�
 
 ### <a name="event-retention"></a>이벤트 보존
 
-게시된 이벤트는 구성 가능한 시간 기반 보존 정책을 기반으로 하여 Event Hub에서 제거됩니다. 다음은 몇 가지 중요한 사항입니다.
+게시된 이벤트는 구성 가능한 시간 기반 보존 정책을 기반으로 하여 이벤트 허브에서 제거됩니다. 다음은 몇 가지 중요한 사항입니다.
 
 - **기본값** 및 가능한 **가장 짧은** 보존 기간은 **1일(24시간)** 입니다.
 - Event Hubs **Standard** 의 경우 최대 보존 기간은 **7일** 입니다. 
@@ -56,7 +58,7 @@ Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 함께 저�
 
 Event Hubs는 모든 파티션에 적용되도록 구성된 보존 시간에 대한 이벤트를 유지합니다. 보존 기간에 도달하면 이벤트가 자동으로 제거됩니다. 보존 기간을 1일로 지정하면 해당 이벤트가 승인되고 정확히 24시간이 지나면 볼 수 없게 됩니다. 이벤트는 명시적으로 삭제할 수 없습니다. 
 
-허용되는 보존 기간을 초과하여 이벤트를 보관해야 하는 경우 [Event Hubs 캡처 기능을 설정하여 Azure Storage 또는 Azure Data Lake에 자동으로 저장](event-hubs-capture-overview.md)되도록 할 수 있으며, 이러한 심층 보관 스토리지 계층을 검색하거나 분석해야 하는 경우 [Azure Synapse 또는 다른 유사한 저장소 및 분석 플랫폼으로 쉽게 가져올 수 있습니다](store-captured-data-data-warehouse.md). 
+허용되는 보존 기간을 초과하여 이벤트를 보관해야 하는 경우 [Event Hubs 캡처](event-hubs-capture-overview.md) 기능을 켜서 Azure Storage 또는 Azure Data Lake에 이벤트를 자동으로 저장할 수 있습니다. 이러한 심층 보관을 검색하거나 분석해야 하는 경우 간편하게 해당 항목을 [Azure Synapse](store-captured-data-data-warehouse.md)또는 비슷한 저장소 및 분석 플랫폼에 가져올 수 있습니다. 
 
 Event Hubs에서 데이터 보존 시간을 제한하는 이유는 타임스탬프로만 인덱싱되는 심층 저장소에 대량의 고객 데이터 기록이 모이지 않게 방지하고 순차적 액세스만 허용하도록 하기 위해서입니다. 여기에는 Event Hubs 또는 Kafka에서 제공하는 실시간 이벤트 인터페이스보다 풍부한 인덱싱 및 직접 액세스가 데이터 기록에 필요하다는 아키텍처 철학이 적용되었습니다. 이벤트 스트림 엔진은 이벤트 소싱을 위한 데이터 레이크 또는 장기 보관 스토리지 계층의 역할을 수행하는 데 적합하지 않습니다. 
  
@@ -83,10 +85,16 @@ Event Hubs는 *게시자 정책* 을 통한 이벤트 게시자에 대한 세부
 
 ## <a name="capture"></a>캡처
 
-[Event Hubs 캡처](event-hubs-capture-overview.md)를 사용하면 Event Hubs의 스트리밍 데이터를 자동으로 캡처하고 선택한 Blob Storage 계정 또는 Azure Data Lake 서비스 계정에 저장할 수 있습니다. Azure Portal에서 캡처를 사용하도록 설정하고 캡처를 수행할 최소 크기와 기간을 지정할 수 있습니다. Event Hubs 캡처를 사용하여 자신의 Azure Blob Storage 계정 및 컨테이너 또는 Azure Data Lake 서비스 계정을 지정합니다. 이 중 하나는 캡처된 데이터를 저장하는 데 사용됩니다. 캡처된 데이터는 Apache Avro 형식으로 기록됩니다.
+[Event Hubs 캡처](event-hubs-capture-overview.md)를 사용하면 Event Hubs의 스트리밍 데이터를 자동으로 캡처하고 선택한 Blob Storage 계정 또는 Azure Data Lake Storage 계정에 저장할 수 있습니다. Azure Portal에서 캡처를 사용하도록 설정하고 캡처를 수행할 최소 크기와 시간 범위를 지정할 수 있습니다. Event Hubs 캡처를 사용하여 자신의 Azure Blob Storage 계정 및 컨테이너 또는 Azure Data Lake Storage 계정을 지정합니다. 이 중 하나는 캡처된 데이터를 저장하는 데 사용됩니다. 캡처된 데이터는 Apache Avro 형식으로 기록됩니다.
+
+:::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Azure Storage 또는 Azure Data Lake Storage로의 Event Hubs 데이터 캡처를 보여주는 이미지":::
+
+Event Hubs 캡처에서 생성된 파일에는 다음과 같은 Avro 스키마가 있습니다.
+
+:::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture3.png" alt-text="캡처된 데이터의 구조를 보여주는 이미지":::
 
 ## <a name="partitions"></a>파티션
-[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
+[!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]
 
 
 ## <a name="sas-tokens"></a>SAS 토큰
@@ -137,7 +145,7 @@ Azure SDK에서 제공하는 일부 클라이언트는 각 파티션에 단일 �
 > Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원하는 환경에서 검사점 저장소로 Azure Blob Storage를 사용하는 경우 코드를 사용하여 Storage 서비스 API 버전을 해당 환경에서 지원하는 특정 버전으로 변경해야 합니다. 예를 들어 [Azure Stack Hub 버전 2002의 Event Hubs](/azure-stack/user/event-hubs-overview)에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우 코드를 사용하여 Storage 서비스 API 버전의 대상을 2017-11-09로 해야 합니다. 특정 Storage API 버전을 대상으로 지정하는 방법에 대한 예제는 GitHub에 대한 다음 샘플을 참조하세요. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) 또는 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript) 또는 [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ### <a name="common-consumer-tasks"></a>일반 소비자 작업

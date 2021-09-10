@@ -1,15 +1,15 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 07/30/2021
+ms.date: 08/19/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: b5e80ecb8f5d0896abb4be61d60d2fbdbea77fa8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6e09f3d115ad11bc6876092b8c4e87cc56c3c22a
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734607"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779908"
 ---
 1. **가상 WAN** 페이지의 왼쪽 창에서 **허브** 를 선택합니다. **허브** 페이지에서 **+새 허브** 를 선택합니다.
 
@@ -21,9 +21,9 @@ ms.locfileid: "121734607"
 
 1. **기본 사항** 탭에서 다음 설정을 구성합니다.
 
-   * **지역** - 가상 허브를 배포할 지역을 선택합니다.
-   * **이름** - 가상 허브를 호출할 이름을 입력합니다.
-   * **허브 프라이빗 주소 공간** - CIDR 표기법으로 된 허브의 주소 범위입니다.
+   * **지역**: 가상 허브를 배포할 지역을 선택합니다.
+   * **이름**: 가상 허브에 지정할 이름입니다.
+   * **허브 프라이빗 주소 공간**: CIDR 표기법으로 된 허브의 주소 범위입니다.
 
 1. **지점 대 사이트** 탭을 클릭하여 지점 대 사이트에 대한 구성 페이지를 엽니다. 지점 대 사이트 설정을 보려면 **예** 를 클릭합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "121734607"
 
 1. 다음 설정을 구성합니다.
 
-   * **게이트웨이 배율 단위** - 사용자 VPN 게이트웨이의 집계 용량을 나타냅니다. 40 이상의 게이트웨이 배율 단위를 선택하는 경우 클라이언트 주소 풀을 적절하게 계획합니다. 이 설정이 클라이언트 주소 풀에 영향을 주는 방법에 대한 자세한 내용은 [클라이언트 주소 풀 정보](../articles/virtual-wan/about-client-address-pools.md)를 참조하세요.
+   * **게이트웨이 배율 단위** - 사용자 VPN 게이트웨이의 집계 용량을 나타냅니다. 40 이상의 게이트웨이 배율 단위를 선택하는 경우 클라이언트 주소 풀을 적절하게 계획합니다. 이 설정이 클라이언트 주소 풀에 영향을 주는 방법에 대한 자세한 내용은 [클라이언트 주소 풀 정보](../articles/virtual-wan/about-client-address-pools.md)를 참조하세요. 게이트웨이 배율 단위에 대한 자세한 내용은 [FAQ](../articles/virtual-wan/virtual-wan-faq.md#for-user-vpn-point-to-site--how-many-clients-are-supported)를 참조하세요.
    * **지점 대 사이트 구성** - 이전 단계에서 만든 사용자 VPN 구성을 선택합니다.
    * **라우팅 기본 설정** - Azure 라우팅 기본 설정을 사용하면 Azure와 인터넷 간의 트래픽 라우팅 방법을 선택할 수 있습니다. Microsoft 네트워크를 통해 또는 ISP 네트워크(공용 인터넷)를 통해 트래픽을 라우팅하도록 선택할 수 있습니다. 이러한 옵션을 각각 콜드 포테이토 라우팅 및 핫 포테이토 라우팅이라고도 합니다. Virtual WAN의 공용 IP 주소는 선택한 라우팅 옵션을 기반으로 서비스에서 할당합니다. Microsoft 네트워크 또는 ISP를 통한 라우팅 기본 설정에 대한 자세한 내용은 [라우팅 기본 설정](../articles/virtual-network/routing-preference-overview.md) 문서를 참조하세요.
    * **클라이언트 주소 풀** - IP 주소가 VPN 클라이언트에 자동으로 할당되는 주소 풀입니다. 자세한 내용은 [클라이언트 주소 풀 정보](../articles/virtual-wan/about-client-address-pools.md)를 참조하세요.

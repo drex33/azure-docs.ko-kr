@@ -1,30 +1,31 @@
 ---
-title: '자습서: Azure Synapse Analytics의 Cognitive Services에 대한 필수 구성 요소'
+title: '빠른 시작: Azure Synapse Analytics의 Cognitive Services에 대한 필수 구성 요소'
 description: Azure Synapse에서 Cognitive Services를 사용하기 위한 필수 구성 요소를 구성하는 방법을 알아봅니다.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
-ms.topic: tutorial
+ms.topic: quickstart
 ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: da1760def8f2c036854839787b1051e8f52358d0
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: e10a31b2156cce03dcef40a88f5cb380f12dd03c
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809655"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835528"
 ---
-# <a name="tutorial-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>자습서: Azure Synapse Analytics의 Cognitive Services 사용을 위한 필수 구성 요소
+# <a name="quickstart-configure-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>빠른 시작: Azure Synapse Analytics의 Cognitive Services를 사용하기 위한 필수 구성 요소 구성
 
-이 자습서에서는 Azure Synapse Analytics에서 Azure Cognitive Services를 안전하게 사용하기 위해 필수 구성 요소를 설정하는 방법을 알아봅니다.
+이 빠른 시작에서는 Azure Synapse Analytics에서 Azure Cognitive Services를 안전하게 사용하기 위해 필수 구성 요소를 설정하는 방법을 알아봅니다. 이러한 Azure Cognitive Services를 연결하면 Synapse의 다양한 환경에서 Azure Cognitive Services를 활용할 수 있습니다.
 
-이 자습서에서는 다음 내용을 다룹니다.
+이 빠른 시작에서 다루는 내용은 같습니다.
 > [!div class="checklist"]
 > - Text Analytics 또는 Anomaly Detector와 같은 Cognitive Services 리소스를 만듭니다.
 > - Azure Key Vault에서 인증 키를 비밀로 Cognitive Services 리소스에 저장하고 Azure Synapse Analytics 작업 영역에 대한 액세스를 구성합니다.
 > - Azure Synapse Analytics 작업 영역에서 Azure Key Vault 연결된 서비스를 만듭니다.
+> - Azure Synapse Analytics 작업 영역에서 Azure Cognitive Services 연결 서비스를 만듭니다.
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
@@ -65,7 +66,7 @@ Azure Portal에서 [Anomaly Detector](https://ms.portal.azure.com/#create/Micros
    ![비밀을 만들기 위한 선택 항목을 보여 주는 스크린샷](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
 
    > [!IMPORTANT]
-   > 이 비밀 이름을 기억하거나 적어 두어야 합니다. 나중에 Synapse Studio에서 Cognitive Services에 연결할 때 이 비밀을 사용하게 됩니다.
+   > 이 비밀 이름을 기억하거나 적어 두어야 합니다. 나중에 Azure Cognitive Services 연결 서비스를 만들 때 사용합니다.
 
 ## <a name="create-an-azure-key-vault-linked-service-in-azure-synapse"></a>Azure Synapse에서 Azure Key Vault 연결된 서비스 만들기
 
@@ -74,6 +75,15 @@ Azure Portal에서 [Anomaly Detector](https://ms.portal.azure.com/#create/Micros
 3. **연결 테스트** 단추를 선택하여 연결을 확인합니다. 연결이 녹색이면 **만들기** 를 선택한 다음, **모두 게시** 를 선택하여 변경 내용을 저장합니다.
 
 ![새 연결된 서비스인 Azure Key Vault를 보여 주는 스크린샷](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00e.png)
+
+
+## <a name="create-an-azure-cognitive-service-linked-service-in-azure-synapse"></a>Azure Synapse에서 Azure Cognitive Service 연결 서비스 만들기
+
+1. Synapse Studio에서 작업 영역을 엽니다.
+2. **관리** > **연결된 서비스** 로 이동합니다. 방금 만든 Cognitive Service를 가리켜 **Azure Cognitive Services** 연결 서비스를 만듭니다. 
+3. **연결 테스트** 단추를 선택하여 연결을 확인합니다. 연결이 녹색이면 **만들기** 를 선택한 다음, **모두 게시** 를 선택하여 변경 내용을 저장합니다.
+
+![새로 연결된 서비스로 Azure Cognitive Service를 보여주는 스크린샷.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-linked-service.png)
 
 이제 Synapse Studio에서 Azure Cognitive Services 환경을 사용하기 위한 자습서 중 하나를 계속 진행할 준비가 되었습니다.
 

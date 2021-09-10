@@ -6,13 +6,13 @@ ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 10/20/2019
-ms.openlocfilehash: 71d16e08501a345fcc6ae8435f0609660be9a18a
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.date: 08/17/2021
+ms.openlocfilehash: 70ea24b64a1173d2a397d9603d020506f53be37e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195288"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434667"
 ---
 # <a name="tutorial-deploy-and-walk-through-the-digital-distribution-center-application-template"></a>자습서: 디지털 배포 센터 애플리케이션 템플릿 배포 및 살펴보기
 

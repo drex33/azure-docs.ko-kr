@@ -7,15 +7,15 @@ metadata:
   ms.service: synapse-analytics
   ms.topic: overview
   ms.subservice: overview
-  ms.date: 10/25/2020
+  ms.date: 07/27/2021
   ms.author: saveenr
-  ms.reviewer: jrasnick
-  ms.openlocfilehash: b1fb4a033e0b501c25e2588e2dce6b7c1bce3d26
-  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+  ms.reviewer: jrasnick, wiassaf
+  ms.openlocfilehash: c6e970383611a14694b7e921257a117b09a4da89
+  ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/22/2021
-  ms.locfileid: "112467923"
+  ms.lasthandoff: 08/27/2021
+  ms.locfileid: "123029798"
 title: Azure Synapse Analytics 질문과 대답
 summary: 이 가이드에서는 Azure Synapse Analytics에 대한 질문과 대답을 확인할 수 있습니다.
 sections:
@@ -125,4 +125,10 @@ sections:
     answer: "\"이동\" 또는 \"마이그레이션\"을 수행할 수 없습니다. 기존 풀에서 새 작업 영역 기능을 사용하도록 선택할 수 있습니다. 이렇게 하면 호환성이 손상되는 변경이 없고 Synapse Studio, Spark 및 서버리스 SQL 풀과 같은 새로운 기능을 사용할 수 있습니다.\n"
   - question: "현재 전용 SQL 풀의 기본 배포는 무엇인가요? \n"
     answer: "기본적으로 모든 새 전용 SQL 풀이 작업 영역에 배포되지만, 필요한 경우 여전히 독립 실행형 폼 팩터에서 전용 SQL 풀(이전의 SQL DW)을 만들 수 있습니다. \n"
+- name: 네트워크 보안
+  questions:
+  - question: >
+      내 Azure Synapse 작업 영역에 대한 액세스를 보호하려면 어떻게 해야 하나요?
+    answer: >
+      [관리형 가상 네트워크](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) 유무에 관계없이 공용 네트워크에서 작업 영역에 연결할 수 있습니다. 자세한 내용은 [연결 설정](/azure/azure-sql/database/connectivity-settings)을 참조하세요. 공용 네트워크의 액세스는 [공용 네트워크 액세스 기능](/azure/azure-sql/database/connectivity-settings#public-network-access) 또는 [작업 영역 방화벽](/bs-cyrl-ba/azure/synapse-analytics/security/synapse-workspace-ip-firewall)을 사용하도록 설정하여 제어할 수 있습니다. 또는 [관리형 프라이빗 엔드포인트](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) 및 [프라이빗 링크](../azure-sql/database/private-endpoint-overview.md)를 사용하여 작업 영역에 연결할 수 있습니다. [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet)가 없는 Synapse 작업 영역에는 관리형 프라이빗 엔드포인트를 통해 연결할 수 없습니다.
 additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n   * [Azure Synapse Analytics 시작](get-started.md)\n   * [작업 영역 만들기](quickstart-create-workspace.md)\n   * [서버리스 SQL 풀 사용](quickstart-sql-on-demand.md)"

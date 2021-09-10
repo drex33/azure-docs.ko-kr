@@ -1,21 +1,21 @@
 ---
-title: Azure Portal에서 기술 세트 만들기
+title: '빠른 시작: Azure Portal에서 기술 세트 만들기'
 titleSuffix: Azure Cognitive Search
-description: 이 포털 빠른 시작에서 데이터 가져오기 마법사를 사용하여 Azure Cognitive Search의 인덱싱 파이프라인에 인지 기술을 추가하는 방법에 대해 알아봅니다. 기술에는 OCR(광학 문자 인식)과 자연어 처리가 포함됩니다.
+description: 이 포털 빠른 시작에서 데이터 가져오기 마법사를 사용하여 Azure Cognitive Search의 인덱싱 파이프라인에 인지 기술을 추가합니다. 기술에는 OCR(광학 문자 인식)과 자연어 처리가 포함됩니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/21/2021
-ms.openlocfilehash: 6a0ce57af076644072545356c0b225c4d639b9d5
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/17/2021
+ms.openlocfilehash: 24f052eea727a2231ad0cc6f0ac0272d63a1c1b2
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559217"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768804"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인지 기술 세트 만들기
+# <a name="quickstart-create-an-azure-cognitive-search-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 기술 세트 만들기
 
 이 빠른 시작에서는 OCR(광학 문자 인식) 및 엔터티 인식을 사용하여 이미지 및 애플리케이션 파일에서 검색 가능한 텍스트 콘텐츠를 만드는 방법을 보여주는 포털의 기술 지원을 보여줍니다.
 
@@ -31,10 +31,10 @@ ms.locfileid: "111559217"
 
 + Azure Cognitive Search 서비스 [서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
-+ [Blob Storage](../storage/blobs/index.yml)가 있는 Azure Storage 계정
++ [Blob Storage](../storage/blobs/index.yml)가 있는 Azure Storage 계정.
 
 > [!NOTE]
-> 또한 이 빠른 시작은 AI에 대한 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 사용합니다. 워크로드가 너무 작으므로 Cognitive Services는 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에서 탭으로 처리됩니다. 즉, 추가 Cognitive Services 리소스를 만들지 않고도 이 연습을 완료할 수 있습니다.
+> 또한 이 빠른 시작은 AI에 대한 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 사용합니다. 워크로드가 너무 작으므로 Cognitive Services는 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에서 탭으로 처리됩니다. 즉, 추가 Cognitive Services 리소스를 만들지 않고도 이 연습을 완료할 수 있습니다.
 
 ## <a name="set-up-your-data"></a>데이터를 설정합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "111559217"
 
 1. 여러 종류의 작은 파일 집합으로 구성된 [샘플 데이터를 다운로드](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)하세요. 파일의 압축을 풉니다.
 
-1. [Azure 스토리지 계정을 만들](../storage/common/storage-account-create.md?tabs=azure-portal)거나 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Azure Storage 계정을 만들](../storage/common/storage-account-create.md?tabs=azure-portal)거나 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + 대역폭 요금이 부과되지 않도록 Azure Cognitive Search와 동일한 지역을 선택합니다. 
 
@@ -66,7 +66,7 @@ ms.locfileid: "111559217"
 
 ### <a name="step-1---create-a-data-source"></a>1단계: 데이터 원본 만들기
 
-1. **데이터에 연결** 에서 **Azure Blob 스토리지** 를 선택하고, 만든 스토리지 계정과 컨테이너를 선택합니다. 데이터 원본의 이름을 지정하고, 나머지는 기본값을 사용합니다. 
+1. **데이터에 연결** 에서 **Azure Blob Storage** 를 선택하고, 만든 스토리지 계정과 컨테이너를 선택합니다. 데이터 원본의 이름을 지정하고, 나머지는 기본값을 사용합니다. 
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Azure Blob 구성" border="false":::
 
@@ -108,9 +108,9 @@ ms.locfileid: "111559217"
 
 `content` 필드의 **조회 가능** 특성에서 취소선과 물음표를 확인합니다. 텍스트가 많은 Blob 문서의 경우, `content` 필드에는 대량의 파일이 포함되어 있으며, 수천 줄이 포함될 수 있습니다. 이와 같은 필드는 검색 결과에서 다루기 어렵기 때문에 이 데모에서는 제외해야 합니다. 
 
-그러나 파일 내용을 클라이언트 코드에 전달해야 하는 경우에는 **조회 가능** 이 선택되어 있는지 확인합니다. 그렇지 않은 경우 추출된 요소(`people`, `organizations`, `locations` 등)가 충분하면 `content`에서 이 특성을 선택 취소하는 것이 좋습니다.
+그러나 파일 내용을 클라이언트 코드에 전달해야 하는 경우에는 검색 엔진이 해당 필드를 반환할 수 있도록 **조회 가능** 이 선택되어 있는지 확인합니다.
 
-필드를 **조회 가능** 으로 표시한다고 해서 필드가 검색 결과에 *나타나야* 하는 것은 아닙니다. **$select** 쿼리 매개 변수로 포함할 필드를 지정하여 검색 결과의 구성을 정확하게 제어할 수 있습니다. `content`와 같이 텍스트가 많은 필드의 경우 **$select** 매개 변수는 애플리케이션의 사용자에게 관리 가능한 검색 결과를 제공하는 솔루션으로, 클라이언트 코드에서 **조회 가능** 특성을 통해 필요한 모든 정보에 액세스할 수 있도록 해줍니다.
+필드를 **조회 가능** 으로 표시한다고 해서 필드가 검색 결과에 *나타나야* 하는 것은 아닙니다. **$select** 쿼리 매개 변수로 포함할 필드를 지정하여 검색 결과의 구성을 정확하게 제어할 수 있습니다. `content`와 같이 텍스트가 많은 필드의 경우 **$select** 매개 변수는 애플리케이션의 사용자에게 관리 가능한 검색 결과를 구체화하는 솔루션으로, 클라이언트 코드에서 **조회 가능** 특성을 통해 필요한 모든 정보에 액세스할 수 있도록 해줍니다.
   
 다음 페이지를 계속합니다.
 

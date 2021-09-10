@@ -3,16 +3,16 @@ title: Azure Virtual Desktop 호스트 풀 서비스 업데이트 - Azure
 description: 프로덕션에 업데이트를 출시하기 전에 서비스 업데이트를 모니터링하는 유효성 검사 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 12/15/2020
+ms.date: 07/23/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 2c944d1068ae74a97c8a6315e98a1348f9378b8c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 13d340d427d2478d226b966e17bf98bcf2561004
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111749132"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123110165"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
@@ -31,17 +31,29 @@ ms.locfileid: "111749132"
 >[!IMPORTANT]
 >Azure Resource Management가 통합된 Azure Virtual Desktop에 현재 유효성 검사 환경을 설정하고 해제하는 데 문제가 있습니다. 문제가 해결되면 이 문서를 업데이트할 예정입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-시작하기 전에 PowerShell 모듈을 설정하고 Azure에 로그인하려면 [Azure Virtual Desktop PowerShell 모듈 설정](powershell-module.md)의 지침을 따르세요.
-
 ## <a name="create-your-host-pool"></a>호스트 풀 만들기
 
 다음 문서 중 하나에 제공된 지침에 따라 호스트 풀을 만들 수 있습니다.
-- [자습서: Azure Marketplace를 사용하여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
-- [PowerShell을 사용한 호스트 풀 만들기](create-host-pools-powershell.md)
+- [자습서: Azure Marketplace 또는 Azure CLI를 사용하여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
+- [PowerShell 또는 Azure CLI를 사용하여 호스트 풀 만들기](create-host-pools-powershell.md)
 
 ## <a name="define-your-host-pool-as-a-validation-host-pool"></a>호스트 풀을 유효성 검사 호스트 풀로 정의
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
+Azure Portal을 사용하여 유효성 검사 호스트 풀을 구성하려면 다음을 수행합니다.
+
+1. [https://portal.azure.com](<https://portal.azure.com> ) 에서 Azure Portal에 로그인합니다.
+2. **Azure Virtual Desktop** 을 검색하여 선택합니다.
+3. Azure Virtual Desktop 페이지에서 **호스트 풀** 을 선택합니다.
+4. 편집하려는 풀의 이름을 선택합니다.
+5. **속성** 을 선택합니다.
+6. 유효성 검사 환경 필드에서 **예** 를 선택하여 유효성 검사 환경을 사용하도록 설정합니다.
+7. **저장** 을 선택합니다. 그러면 새 설정이 적용됩니다.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+아직 수행하지 않은 경우 [Azure Virtual Desktop PowerShell 모듈 설정](powershell-module.md)의 지침에 따라 PowerShell 모듈을 설정하고 Azure에 로그인합니다.
 
 다음 PowerShell cmdlet을 실행하여 새 호스트 풀을 유효성 검사 호스트 풀로 정의합니다. 괄호 안의 값을 세션에 관련된 값으로 바꿉니다.
 
@@ -68,19 +80,27 @@ cmdlet의 결과는 다음 출력과 비슷해야 합니다.
     ValidationEnvironment : True
 ```
 
-## <a name="enable-your-validation-environment-with-the-azure-portal"></a>Azure Portal을 통해 유효성 검사 환경 활성화
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure Portal을 사용하여 유효성 검사 환경을 활성화할 수도 있습니다.
+아직 수행하지 않은 경우 Azure CLI에 대한 환경을 준비하고 로그인합니다.
 
-Azure Portal을 사용하여 유효성 검사 호스트 풀을 구성하려면 다음을 수행합니다.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. [https://portal.azure.com](<https://portal.azure.com> ) 에서 Azure Portal에 로그인합니다.
-2. **Azure Virtual Desktop** 을 검색하여 선택합니다.
-3. Azure Virtual Desktop 페이지에서 **호스트 풀** 을 선택합니다.
-4. 편집하려는 풀의 이름을 선택합니다.
-5. **속성** 을 선택합니다.
-6. 유효성 검사 환경 필드에서 **예** 를 선택하여 유효성 검사 환경을 사용하도록 설정합니다.
-7. **저장** 을 선택합니다. 그러면 새 설정이 적용됩니다.
+새 호스트 풀을 유효성 검사 호스트 풀로 정의하려면 [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_update) 명령을 사용합니다.
+
+```azurecli
+az desktopvirtualization hostpool update --name "MyHostPool" \
+    --resource-group "MyResourceGroup" \
+    --validation-environment true
+```
+
+다음 명령을 사용하여 유효성 검사 속성이 설정되어 있는지 확인합니다.
+
+```azurecli
+az desktopvirtualization hostpool show --name "MyHostPool" \
+    --resource-group "MyResourceGroup" 
+```
+---
 
 ## <a name="update-schedule"></a>업데이트 일정
 

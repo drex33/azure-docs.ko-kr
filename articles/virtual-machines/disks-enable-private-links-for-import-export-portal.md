@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.date: 08/19/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 5be3cbb5a43f76959eab47dc89e00ad4e761c11d
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: b023f7f068d1dc52c073519cc7e7f308e5d86ad0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598140"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696459"
 ---
 # <a name="restrict-importexport-access-for-managed-disks-using-azure-private-link"></a>Azure Private Link를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
+
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 사용하여 관리 디스크의 내보내기 및 가져오기를 제한하고 Azure 가상 네트워크의 클라이언트에서 [프라이빗 링크](../private-link/private-link-overview.md)를 통해 더 안전하게 데이터에 액세스할 수 있습니다. 프라이빗 엔드포인트는 관리 디스크에 대해 가상 네트워크 주소 공간의 IP 주소를 사용합니다. 가상 네트워크의 클라이언트와 관리 디스크 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크만 통과하여 공용 인터넷으로부터의 노출을 제거합니다.
 

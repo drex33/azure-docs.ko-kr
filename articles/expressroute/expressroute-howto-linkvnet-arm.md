@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/06/2020
+ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 7242749958d12b8d93f667b91ed005096d75f1e4
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 0c93edf2d7d017ea857e4e8ac915818a3b7f1d02
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538723"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311370"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit"></a>자습서: Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
@@ -199,6 +199,30 @@ $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -Resour
 $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
+
+> [!NOTE]
+> [연결 모니터](how-to-configure-connection-monitor.md)를 사용하여 트래픽이 FastPath를 사용하여 목적지에 도달하고 있는지 확인할 수 있습니다.
+>
+
+## <a name="enroll-in-expressroute-fastpath-features-preview"></a>ExpressRoute FastPath 기능에 등록(미리 보기)
+
+가상 네트워크 피어링에 대한 FastPath 지원은 이제 공개 미리 보기로 제공됩니다.
+
+### <a name="fastpath-and-virtual-network-peering"></a>FastPath 및 가상 네트워크 피어링
+
+FastPath 및 가상 네트워크 피어링을 사용하면 데이터 경로에서 ExpressRoute 가상 네트워크 게이트웨이를 바이패스하여 로컬 또는 피어링된 가상 네트워크의 VM에 직접 ExpressRoute 연결을 사용하도록 설정할 수 있습니다.
+
+이 미리 보기에 등록하려면 대상 Azure 구독에서 다음 Azure PowerShell 명령을 실행합니다.
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -ProviderNamespace Microsoft.Network
+```
+
+> [!NOTE] 
+> 대상 구독에서 FastPath에 대해 구성된 모든 연결은 이 미리 보기에 등록됩니다. 프로덕션 구독에서는 이 미리 보기를 사용하도록 설정하지 않는 것이 좋습니다.
+> 이미 FastPath가 구성되어 있고 미리 보기 기능에 등록하려면 다음을 수행해야 합니다.
+> 1. 위의 Azure PowerShell 명령을 사용하여 FastPath 미리 보기 기능에 등록합니다.
+> 1. 대상 연결에서 FastPath를 사용하지 않도록 설정했다가 다시 사용합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 08/09/2021
-ms.openlocfilehash: b55d8a806864b7d6d63f0801cbac224b80e328ef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 64198fce7acb3ea02349978de0c2787cb744e6b4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733220"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433893"
 ---
 # <a name="what-is-document-translation"></a>문서 번역이란?
 
@@ -45,9 +45,9 @@ REST API 또는 클라이언트 라이브러리 SDK를 사용하여 애플리케
 
 * [**REST API**](reference/rest-api-guide.md)는 HTTP 요청 및 권한 부여 헤더를 만들어 문서를 번역할 수 있는 언어 중립적 인터페이스입니다.
 
-* [**클라이언트 라이브러리 SDK**](client-sdks.md)는 프로젝트에 참조를 추가하여 신속하게 사용할 수 있는 언어별 클래스, 개체, 메서드, 코드입니다. 현재 문서 번역에서는 [**C#/.NET**](/dotnet/api/azure.ai.translation.document) 및 [**Python**](/python/azure-ai-translation-document/latest/azure.ai.translation.document.html) 같은 프로그래밍 언어를 지원합니다.
+* [**클라이언트 라이브러리 SDK**](client-sdks.md)는 프로젝트에 참조를 추가하여 신속하게 사용할 수 있는 언어별 클래스, 개체, 메서드, 코드입니다. 현재 문서 번역에서는 [**C#/.NET**](/dotnet/api/azure.ai.translation.document) 및 [**Python**](https://pypi.org/project/azure-ai-translation-document/) 같은 프로그래밍 언어를 지원합니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 이 방법 가이드에서는 문서 변환기를 사용하여 빠르게 시작하는 방법을 알아봅니다. 시작하려면 활성 [Azure 계정](https://azure.microsoft.com/free/cognitive-services/)이 필요합니다.  계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
 

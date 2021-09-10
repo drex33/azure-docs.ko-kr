@@ -7,12 +7,12 @@ ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: reference
-ms.openlocfilehash: 738081a8f31e50accee17f66272b278e72544916
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: e0c23dcc8f98353d9d009a81b6187ad1bd5b4e56
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215347"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528868"
 ---
 # <a name="azure-blob-storage-api-reference"></a>Azure Blob Storage API 참조
 
@@ -113,4 +113,4 @@ Blob Storage API 참조, 라이브러리 패키지, 추가 정보 파일 및 시
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI 참조](/cli/azure/azure-cli-reference-for-storage)
+[Azure CLI 참조](/cli/azure/storage)

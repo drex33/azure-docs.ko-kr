@@ -4,12 +4,12 @@ ms.author: cherylmc
 ms.date: 08/17/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: a06b4be25c5c342631c26bb5f1d3270a8851e71b
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 563de3b6c57f38d63f2759c62fccc5a17d17dae9
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122516339"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778520"
 ---
 1. **Virtual WAN** 으로 이동합니다.
 
@@ -19,7 +19,7 @@ ms.locfileid: "122516339"
 
    :::image type="content" source="./media/virtual-wan-connect-vnet-hub/add.png" alt-text="스크린샷은 추가를 보여줍니다.":::
 
-1. **연결 추가** 페이지에서 필요한 설정을 구성합니다.
+1. **연결 추가** 페이지에서 필요한 설정을 구성합니다. 라우팅 설정에 대한 자세한 내용은 [라우팅 정보](../articles/virtual-wan/about-virtual-hub-routing.md)를 참조하세요.
  
    :::image type="content" source="./media/virtual-wan-connect-vnet-hub/connection.png" alt-text="스크린샷은 VNet 연결 페이지를 보여줍니다.":::
 

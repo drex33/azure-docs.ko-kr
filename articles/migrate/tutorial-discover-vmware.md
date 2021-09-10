@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 324e30df7f63f5ca0abf7abd50ab890495e4e7cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 973d6f9450d0cb58df5b1e8dcd208990806abc54
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121721983"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967332"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>자습서: Azure Migrate를 사용하여 VMware 환경에서 실행 중인 서버 검색
 
@@ -137,7 +137,8 @@ VMware vSphere 웹 클라이언트에서 vCenter Server에 사용할 읽기 전�
 Azure Migrate: 검색 및 평가 도구는 가벼운 Azure Migrate 어플라이언스를 사용합니다. 이 어플라이언스는 서버를 검색하고 서버 구성 및 성능 메타데이터를 Azure Migrate로 보냅니다. 프로젝트에서 다운로드할 수 있는 OVA 템플릿을 배포하여 어플라이언스를 설정하세요.
 
 > [!NOTE]
-> OVA 템플릿을 사용하여 어플라이언스를 설정할 수 없는 경우, Windows Server 2016을 실행하는 기존 서버에서 PowerShell 스크립트를 실행하여 설정할 수 있습니다. [PowerShell을 사용하여 Azure Migrate 어플라이언스를 설정](deploy-appliance-script.md#set-up-the-appliance-for-vmware)하는 방법을 알아보세요.
+> OVA 템플릿을 사용하여 어플라이언스를 설정할 수 없는 경우, Windows Server 2016을 실행하는 기존 서버에서 PowerShell 스크립트를 실행하여 설정할 수 있습니다. [PowerShell을 사용하여 Azure Migrate 어플라이언스를 설정](deploy-appliance-script.md#set-up-the-appliance-for-vmware)하는 방법을 알아보세요. <br/>
+> OVA 템플릿을 사용하여 어플라이언스를 배포하는 옵션은 Azure Government 클라우드에서 지원되지 않습니다. Azure Government 클라우드용 어플라이언스를 배포하는 방법에 대해 [자세히 알아봅니다](/azure/migrate/deploy-appliance-script-government).
 
 ### <a name="deploy-by-using-an-ova-template"></a>OVA 템플릿을 사용하여 배포
 

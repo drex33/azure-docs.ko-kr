@@ -4,16 +4,16 @@ description: Azure Portal, .NET, Java, Node.js 및 기타 SDK를 사용하여 Mo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 511c629aa0d8ce5388895d4ce56ccee24c7794ba
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 40458740092c7b462683512e3c419eff417019da
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528569"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038526"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>MongoDB용 Azure Cosmos DB API에서 컨테이너 만들기
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -71,3 +71,6 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 * [Azure Cosmos DB의 요청 단위](../request-units.md)
 * [컨테이너 및 데이터베이스의 처리량 프로비전](../set-throughput.md)
 * [Azure Cosmos 계정 작업](../account-databases-containers-items.md)
+* Azure Cosmos DB로 마이그레이션하기 위해 용량 계획을 하려고 하십니까? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만을 알고 있는 경우, [vCore 또는 vCPU를 사용하여 요청 단위 추정](../convert-vcore-to-request-unit.md)을 참조하세요 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 빈도를 알고 있는 경우 [Azure Cosmos DB Capacity Planner를 사용하여 요청 단위 추정](estimate-ru-capacity-planner.md)을 읽어보세요

@@ -1,20 +1,20 @@
 ---
 title: Azure Percept 개발 도구 설치
 description: 개발 도구 팩 설치 프로그램을 사용하여 Azure Percept로 고급 개발을 가속화하는 방법에 대해 자세히 알아보세요.
-author: tsampige
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f445170d3cd2b2cfeb45a85371409a539368ba22
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 88d93b98b9bd456c5529bff67fbef98b9e792ba0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225005"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535767"
 ---
-# <a name="install-azure-percept-development-tools"></a>Azure Percept 개발 도구 설치
+# <a name="dev-tools-pack-installer-overview"></a>개발 도구 팩 설치 프로그램 개요
 
 개발 도구 팩 설치 프로그램은 고급 인텔리전트 에지 솔루션을 개발하는 데 필요한 모든 도구를 설치하고 구성하는 원스탑 솔루션입니다.
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 574a10f6ef79ff3d40f5d62e49db9ebf198d2a79
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: d479dbc34bd8c08ebc471de74be1558f6dccc6e1
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567872"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123273252"
 ---
 # <a name="multimedia-redirection-for-azure-virtual-desktop-preview"></a>Azure Virtual Desktop에 대한 멀티미디어 리디렉션
 
@@ -32,11 +32,9 @@ Azure Virtual Desktop에서 멀티미디어 리디렉션을 사용하려면 먼�
 
 1. [Windows PC의 Teams에 대한 하드웨어 요구 사항](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)에 부합하는 Windows 10 또는 Windows 10 IoT Enterprise 디바이스에 [Windows 데스크톱 클라이언트](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client)를 설치합니다. 버전 1.2.2222 이상 클라이언트를 설치하면 클라이언트 디바이스에 멀티미디어 리디렉션 플러그 인(MsMmrDVCPlugin.dll)도 설치됩니다. 업데이트 및 새 버전에 대한 자세한 내용은 [Windows Desktop 클라이언트의 새로운 기능](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)을 참조하세요.
 
-2. [참가자 그룹에 대한 클라이언트 머신을 구성합니다](create-host-pools-azure-marketplace.md).
+2. [사용자를 위한 호스트 풀을 만듭니다](create-host-pools-azure-marketplace.md).
 
-3. [멀티미디어 리디렉터 서비스](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) 및 필요한 브라우저 확장을 VM(가상 머신)에 설치합니다.
-
-4. 사용자가 참가자 프로그램에 액세스할 수 있도록 클라이언트 머신을 구성합니다. 참가자 그룹용 클라이언트를 구성하려면 레지스트리 정보를 다음과 같이 설정합니다.
+3. 사용자가 참가자 프로그램에 액세스할 수 있도록 클라이언트 머신을 구성합니다. 참가자 그룹용 클라이언트를 구성하려면 레지스트리 정보를 다음과 같이 설정합니다.
 
    - **키**: HKLM\\Software\\Microsoft\\MSRDC\\Policies
    - **형식**: REG_SZ
@@ -45,7 +43,7 @@ Azure Virtual Desktop에서 멀티미디어 리디렉션을 사용하려면 먼�
 
    참가자 프로그램에 대한 자세한 내용은 [관리자용 Windows 데스크톱 클라이언트](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups)를 참조하세요.
 
-5. [MSI 설치 관리자(MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk)를 사용하여 Azure VM에 인터넷 브라우저용 멀티미디어 리디렉션 확장을 설치합니다. Azure Virtual Desktop용 멀티미디어 리디렉션은 현재 Microsoft Edge 및 Google Chrome만 지원합니다.
+4. [MSI 설치 관리자(MsMmrHostMri)](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk)를 사용하여 Azure VM에 인터넷 브라우저용 멀티미디어 리디렉션 확장을 설치합니다. Azure Virtual Desktop용 멀티미디어 리디렉션은 현재 Microsoft Edge 및 Google Chrome만 지원합니다.
 
 ## <a name="managing-group-policies-for-the-multimedia-redirection-browser-extension"></a>멀티미디어 리디렉션 브라우저 확장에 대한 그룹 정책 관리
 
@@ -59,7 +57,7 @@ Azure Virtual Desktop에서 멀티미디어 리디렉션을 사용하려면 먼�
 
 ### <a name="configure-microsoft-edge-group-policies-for-multimedia-redirection"></a>멀티미디어 리디렉션을 위해 Microsoft Edge 그룹 정책 구성
 
-그룹 정책을 구성하려면 Microsoft Ege 관리 템플릿을 편집해야 합니다. **관리 템플릿 Microsoft Edge 확장** > **확장 관리 설정 구성** 에서 확장 구성 옵션을 확인합니다.
+그룹 정책을 구성하려면 Microsoft Edge 관리 템플릿을 편집해야 합니다. **관리 템플릿 Microsoft Edge 확장** > **확장 관리 설정 구성** 에서 확장 구성 옵션을 확인합니다.
 
 다음 코드는 브라우저에서 멀티미디어 리디렉션 확장을 설치하고 YouTube에서 멀티미디어 리디렉션 로드만 허용하는 Microsoft Edge 그룹 정책의 예입니다.
 
@@ -103,13 +101,14 @@ Google Chrome에서 확장을 수동으로 실행하려면 다음 스크린샷�
 
 | 아이콘 상태  | 정의  |
 |-----------------|-----------------|
-| [상태가 적용되지 않은 기본 Azure Virtual Desktop 프로그램 아이콘](/media/icon-default.png) | 상태가 적용되지 않은 기본 아이콘 모양 |
-| [멀티미디어 리디렉션이 작동하지 않음을 나타내는 x를 포함하는 빨간색 사각형이 있는 Azure Virtual Desktop 프로그램 아이콘](/media/icon-disconnect.png) | 내부에 "X"가 있는 빨간색 사각형은 클라이언트가 멀티미디어 리디렉션에 연결할 수 없음을 의미합니다. |
-| [멀티미디어 리디렉션이 작동 중임을 나타내는 확인 표시가 있는 녹색 사각형을 포함하는 Azure Virtual Desktop 프로그램 아이콘](/media/icon-connect.png) | 내부에 확인 표시가 있는 녹색 사각형은 클라이언트가 멀티미디어 리디렉션에 성공적으로 연결되었음을 의미합니다. |
+| ![상태가 적용되지 않은 기본 Azure Virtual Desktop 프로그램 아이콘](./media/icon-default.png) | 상태가 적용되지 않은 기본 아이콘 모양 |
+| ![멀티미디어 리디렉션이 작동하지 않음을 나타내는 x를 포함하는 빨간색 사각형이 있는 Azure Virtual Desktop 프로그램 아이콘](./media/icon-disconnect.png) | 내부에 "X"가 있는 빨간색 사각형은 클라이언트가 멀티미디어 리디렉션에 연결할 수 없음을 의미합니다. |
+| ![멀티미디어 리디렉션이 작동 중임을 나타내는 확인 표시가 있는 녹색 사각형을 포함하는 Azure Virtual Desktop 프로그램 아이콘](./media/icon-connect.png) | 내부에 확인 표시가 있는 녹색 사각형은 클라이언트가 멀티미디어 리디렉션에 성공적으로 연결되었음을 의미합니다. |
 
 이 아이콘을 선택하면 모든 웹 사이트에서 멀티미디어 리디렉션을 사용하거나 사용하지 않도록 설정할 수 있는 확인란이 있는 팝업 메뉴가 표시됩니다. 또한 서비스의 각 구성 요소에 대한 버전 번호도 나열됩니다.
 
-## <a name="send-feedback-during-public-preview"></a>퍼블릭 미리 보기 중에 피드백 보내기
+## <a name="support-during-public-preview"></a>공개 미리 보기 중에 지원합니다.
+Microsoft 지원에서는 공개 미리 보기 중 멀티미디어 리디렉션 문제를 처리하지 않습니다.
 
 문제가 발생하면 클라이언트와 VM 호스트의 피드백 허브에서 문제를 보고할 수 있습니다.
 

@@ -5,12 +5,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 3d75d7605ba082aac84973aef247de79d55b4c9c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c9a535e06278146f89f2c8f6a1844813c2417a1a
+ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482775"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114706911"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 
@@ -19,6 +19,9 @@ ms.locfileid: "107482775"
 다음은 통합 문서 만들기에 대한 동영상 설명입니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
+
+> [!NOTE]
+> 레거시 및 프라이빗 통합 문서가 제거되었습니다. [통합 문서 검색 도구](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/LegacyAI/DeprecatedWorkbookRetrievalTool.md)를 사용하여 이전 통합 문서의 내용을 검색합니다.
 
 ## <a name="data-sources"></a>데이터 원본
 
@@ -47,6 +50,8 @@ ms.locfileid: "107482775"
 * [Trees](../visualize/workbooks-tree-visualizations.md)
 * [그래프](../visualize/workbooks-graph-visualizations.md)
 * [복합 막대](../visualize/workbooks-composite-bar.md)
+* [벌집](workbooks-honey-comb.md)
+* [Map](workbooks-map-visualizations.md)
 
 :::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="통합 문서 시각화의 예제" border="false" lightbox="./media/workbooks-overview/visualizations.png":::
 
@@ -54,7 +59,7 @@ ms.locfileid: "107482775"
 
 통합 문서에 있는 텍스트, 쿼리, 메트릭 단계는 통합 문서가 고정 모드에 있는 동안 또는 통합 문서 작성자가 해당 요소의 고정 아이콘을 표시하는 설정을 사용하도록 설정한 경우 해당 항목의 고정 단추를 사용하여 고정할 수 있습니다.
 
-고정 모드에 액세스하려면 **편집** 을 클릭하여 편집 모드로 전환하고 위쪽 막대에서 파란색 고정 아이콘을 선택합니다. 그러면 개별 고정 아이콘이 화면 오른쪽의 각 해당 통합 문서 파트의 *편집* 상자 위에 표시됩니다.
+고정 모드에 액세스하려면 **편집** 을 선택하여 편집 모드로 전환하고 위쪽 막대에서 파란색 고정 아이콘을 선택합니다. 그러면 개별 고정 아이콘이 화면 오른쪽의 각 해당 통합 문서 파트의 *편집* 상자 위에 표시됩니다.
 
 :::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="PIN 환경의 스크린샷" border="false":::
 
@@ -147,7 +152,8 @@ _통합 문서_ 는 녹색으로 표시되고 여러 _통합 문서 템플릿_ �
 
 자체 통합 문서 템플릿을 만든 후 더 광범위한 커뮤니티와 공유할 수 있습니다. 자세히 알아보고 기본 Azure Monitor 갤러리 보기에 포함되지 않은 다른 템플릿을 탐색하려면 [GitHub 리포지토리](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md)를 방문하세요. 기존 통합 문서를 찾아보려면 GitHub의 [통합 문서 라이브러리](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks)를 방문하세요.
 
+
 ## <a name="next-step"></a>다음 단계
 
 * 통합 문서의 여러 풍부한 시각화 옵션에 대해 알아보기 [시작](#visualizations)합니다.
-* 통합 문서 리소스에 대한 액세스를 [제어](../visualize/workbooks-access-control.md)하고 공유합니다.
+* 통합 문서 리소스에 대한 액세스를 [제어](../visualize/workbooks-access-control.md) 및 공유합니다.

@@ -3,12 +3,12 @@ title: Azure Container Registry를 다른 지역으로 이동
 description: Azure Container Registry 설정 및 데이터를 다른 Azure 지역으로 수동으로 이동합니다.
 ms.topic: article
 ms.date: 06/08/2021
-ms.openlocfilehash: 4e0afb418fbb0b33330c3fb82fd04370f0c3ee99
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: e2bc00287923a95e2e4d3698b22c4c2ca65bebc6
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286321"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835892"
 ---
 # <a name="manually-move-a-container-registry-to-another-region"></a>수동으로 컨테이너 레지스트리를 다른 지역으로 이동
 
@@ -20,10 +20,9 @@ ms.locfileid: "114286321"
 * 템플릿을 사용하여 다른 Azure 지역에 레지스트리 배포
 * 원본 레지스트리에서 대상 레지스트리로 레지스트리 콘텐츠 가져오기
 
-
 [!INCLUDE [container-registry-geo-replication-include](../../includes/container-registry-geo-replication-include.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure CLI
 
@@ -31,8 +30,10 @@ Azure CLI
 
 ## <a name="considerations"></a>고려 사항
 
-* 이 문서의 단계를 사용하여 동일한 구독의 다른 지역으로 레지스트리를 이동합니다. 레지스트리를 다른 Azure 구독 또는 Active Directory 테넌트로 이동하려면 추가 구성이 필요합니다. 
-* Resource Manager 템플릿을 내보내고 사용하면 많은 레지스트리 설정을 다시 만드는 데 도움이 될 수 있습니다. 템플릿을 편집하여 추가 설정을 구성하거나 만든 후 대상 레지스트리를 업데이트할 수 있습니다.
+* 이 문서의 단계를 사용하여 동일한 구독의 다른 지역으로 레지스트리를 이동합니다. 레지스트리를 동일한 Active Directory 테넌트의 다른 Azure 구독으로 이동하려면 추가 구성이 필요할 수 있습니다.
+* Resource Manager 템플릿을 내보내고 사용하면 많은 레지스트리 설정을 다시 만드는 데 도움이 될 수 있습니다. 템플릿을 편집하여 더 많은 설정을 구성하거나 만든 후 대상 레지스트리를 업데이트할 수 있습니다.
+* 현재 Azure Container Registry는 다른 Active Directory 테넌트로 레지스트리 이동을 지원하지 않습니다. 이 제한 사항은 [고객 관리형 키](container-registry-customer-managed-keys.md)로 암호화된 레지스트리와 암호화되지 않은 레지스트리 모두에 적용됩니다.
+* 이 문서에 설명된 이유로 레지스트리를 이동할 수 없는 경우 새 레지스트리를 만들고, 수동으로 설정을 다시 만들고, [대상 레지스트리에서 레지스트리 콘텐츠를 가져옵니다](#import-registry-content-in-target-registry).
 
 ## <a name="export-template-from-source-registry"></a>원본 레지스트리에서 템플릿 내보내기 
 
@@ -106,7 +107,7 @@ az deployment group --resource-group myResourceGroup \
 * Azure CLI 명령 [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) 및 [az acr repository show-tags](/cli/azure/acr/repository#az_acr_repository_show_tags) 또는 이에 상응하는 Azure PowerShell을 사용하여 원본 레지스트리의 콘텐츠를 열거할 수 있습니다.
 * 개별 아티팩트에 대해 가져오기 명령을 실행하거나 아티팩트 목록에 대해 실행하도록 스크립트를 작성합니다.
 
-다음 샘플 Azure CLI 스크립트는 원본 리포지토리 및 태그를 열거한 다음 대상 레지스트리로 아티팩트를 가져옵니다. 특정 리포지토리 또는 태그를 가져오려면 필요에 따라 수정합니다.
+다음 샘플 Azure CLI 스크립트는 원본 리포지토리 및 태그를 열거한 다음 동일한 Azure 구독의 대상 레지스트리로 아티팩트를 가져옵니다. 특정 리포지토리 또는 태그를 가져오려면 필요에 따라 수정합니다. 다른 구독 또는 테넌트에서 레지스트리에서 가져오려면 [컨테이너 이미지를 컨테이너 레지스트리로 가져오기](container-registry-import-images.md)의 예제를 참조하세요.
 
 ```azurecli
 #!/bin/bash
@@ -127,6 +128,8 @@ for repo in $REPO_LIST; do
     done
 done
 ```
+
+
 
 ## <a name="verify-target-registry"></a>대상 레지스트리 확인
 

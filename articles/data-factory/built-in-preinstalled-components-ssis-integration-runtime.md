@@ -2,23 +2,31 @@
 title: Azure-SSIS Integration Runtime의 기본 제공 구성 요소 및 미리 설치된 구성 요소
 description: '모든 기본 제공 및 미리 구성된 구성 요소(예: 클라이언트, 드라이버, 공급자, 연결 관리자, 데이터 원본/대상/변환 및 Azure-SSIS Integration Runtime에 대한 작업)를 나열합니다.'
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 05/14/2020
-ms.openlocfilehash: 2f5ad8deb702e312f7dd7275128e8ca8098ab90c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73b1bbd29cf7b418c4eb9df3b5dd6d296154f051
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393788"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568072"
 ---
 # <a name="built-in-and-preinstalled-components-on-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime의 기본 제공 구성 요소 및 미리 설치된 구성 요소
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에는 모든 기본 제공 및 미리 구성된 구성 요소[예: 클라이언트, 드라이버, 공급자, 연결 관리자, 데이터 원본/대상/변환 및 ADF(Azure Data Factory)의 SSIS IR(Integration Runtime)에 대한 작업]가 나와 있습니다.  ADF에서 SSIS IR을 프로비저닝하려면 [Azure-SSIS IR 프로비저닝](./tutorial-deploy-ssis-packages-azure.md)의 지침을 따르세요.
+
+## <a name="os-and-net-framework-on-azure-ssis-ir"></a>Azure-SSIS IR의 OS 및 .NET Framework
+
+| Name | 버전 |
+|------|---------|
+| **Windows** | Windows Server 2019 |
+| **.NET Framework** | 4.7.2 |
 
 ## <a name="built-in-and-preinstalled-clients-drivers-and-providers-on-azure-ssis-ir"></a>Azure-SSIS IR의 기본 제공 및 미리 설치된 클라이언트, 드라이버 및 공급자
 

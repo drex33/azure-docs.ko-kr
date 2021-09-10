@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: 5e608d38ff70d51b569088629a6d80cb08e74ed4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: ea92a5e196c809535801278631cbfdfdc5013199
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251627"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112288220"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Azure Cognitive Search의 동의어
 
-동의어 맵을 사용하면 사용자가 실제로 용어를 제공할 필요 없이 동등한 용어를 연결하여 쿼리의 범위를 확장할 수 있습니다. 예를 들어, "dog", "canine" 및 "puppy"가 동의어라고 가정할 경우 "canine"에 대한 쿼리는 "dog"를 포함하는 문서에서 일치하는 것으로 검색됩니다.
+검색 서비스 내에서 동의어 맵은 동일한 용어를 연결하는 글로벌 리소스로, 사용자가 실제로 해당 용어를 제공하지 않고도 쿼리 범위를 확장합니다. 예를 들어 "개", "개과의" 및 "강아지"가 매핑된 동의어라고 가정하면 "개과의"에 대한 쿼리는 "개"가 포함된 문서와 일치합니다.
 
 ## <a name="create-synonyms"></a>동의어 만들기
 
@@ -38,7 +38,13 @@ POST /synonymmaps?api-version=2020-06-30
 }
 ```
 
-동의어 맵을 만들려면 [동의어 맵 만들기(REST API)](/rest/api/searchservice/create-synonym-map) 또는 Azure SDK를 사용합니다. C# 개발자의 경우 [C#을 사용하여 Azure Cognitive Search에서 동의어 추가](search-synonyms-tutorial-sdk.md)로 시작하는 것이 좋습니다.
+동의어 맵을 만들려면 프로그래밍 방식으로 수행합니다(포털은 동의어 맵 정의를 지원하지 않습니다).
+
++ [동의어 맵 만들기(REST API)](/rest/api/searchservice/create-synonym-map) 이 참조가 가장 설명적입니다.
++ [SynonymMap 클래스(.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap) 및 [C#을 사용하여 동의어 추가](search-synonyms-tutorial-sdk.md)
++ [SynonymMap 클래스(Python)](/python/api/azure-search-documents/azure.search.documents.indexes.models.synonymmap)
++ [SynonymMap 인터페이스(자바스크립트)](/javascript/api/@azure/search-documents/synonymmap)
++ [SynonymMap 클래스(자바)](/java/api/com.azure.search.documents.indexes.models.synonymmap)
 
 ## <a name="define-rules"></a>규칙 정의
 
@@ -85,7 +91,14 @@ POST /synonymmaps?api-version=2020-06-30
 
 ### <a name="escaping-special-characters"></a>특수 문자 이스케이프
 
-동의어는 쿼리 처리 중에 분석됩니다. 쉼표나 기타 특수 문자를 포함하는 동의어를 정의해야 하는 경우 다음 예제와 같이 백슬래시로 이스케이프할 수 있습니다.
+전체 텍스트 검색에서 동의어는 다른 쿼리 용어와 마찬가지로 쿼리 처리 중에 분석됩니다. 즉, 예약 문자 및 특수 문자에 대한 규칙이 동의어 맵의 용어에 적용됩니다. 이스케이프가 필요한 문자 목록은 단순 구문과 전체 구문 간에 다릅니다.
+
++ [간단한 구문](query-simple-syntax.md)  `+ | " ( ) ' \`
++ [전체 구문](query-lucene-syntax.md) `+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`
+
+인덱싱 중에 기본 분석기에 의해 삭제되는 문자를 보존해야 하는 경우 해당 문자를 보존하는 분석기로 대체해야 하는 것을 기억해야 합니다. 일부 옵션에는 하이픈을 넣은 단어를 유지하는 Microsoft 자연어 [분석기](index-add-language-analyzers.md) 또는 보다 복잡한 패턴을 위한 사용자 지정 분석기가 포함됩니다. 자세한 내용은 [부분 용어, 패턴 및 특수 문자](search-query-partial-matching.md)를 참조하세요.
+
+다음 예는 백슬래시로 문자를 이스케이프하는 방법의 예를 보여줍니다.
 
 ```json
 {

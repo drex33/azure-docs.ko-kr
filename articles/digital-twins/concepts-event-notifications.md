@@ -8,12 +8,12 @@ ms.date: 4/8/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 8b8205681da7ea24fdafcef337ad903fff06c589
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 902c4ef39e85b08cb1d82b7e292f81a99e277d09
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474632"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122608424"
 ---
 # <a name="event-notifications"></a>이벤트 알림
 
@@ -157,7 +157,7 @@ Azure Digital Twins에서 Event Grid로 내보내는 알림은 Event Grid 항목
 
 생성 이벤트의 경우 `data` 페이로드는 리소스가 만들어진 후 트윈 상태를 반영하므로 `GET` 호출처럼 모든 시스템 생성 요소를 포함해야 합니다.
 
-구성 요소가 있고 최상위 속성이 없는 [IoT PnP(플러그 앤 플레이)](../iot-pnp/overview-iot-plug-and-play.md) 디바이스 관련 데이터의 예제는 다음과 같습니다. 디바이스에 적합하지 않은 속성(예: 보고된 속성)은 생략해야 합니다. 이 정보는 수명 주기 알림 메시지의 `data` 필드에 포함됩니다.
+구성 요소가 있고 최상위 속성이 없는 [IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md) 디바이스 관련 데이터의 예제는 다음과 같습니다. 디바이스에 적합하지 않은 속성(예: 보고된 속성)은 생략해야 합니다. 이 정보는 수명 주기 알림 메시지의 `data` 필드에 포함됩니다.
 
 ```json
 {
@@ -312,4 +312,4 @@ Azure Digital Twins에서 Event Grid로 내보내는 알림은 Event Grid 항목
 ## <a name="next-steps"></a>다음 단계
 
 엔드포인트와 경로를 사용하여 여러 대상에 이벤트를 전달하는 방법을 알아봅니다.
-* [‘개념: 이벤트 경로’](concepts-route-events.md)
+* [이벤트 경로](concepts-route-events.md)

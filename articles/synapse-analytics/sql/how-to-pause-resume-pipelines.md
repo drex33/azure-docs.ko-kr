@@ -4,15 +4,17 @@ description: Azure Synapse Analytics에서 Synapse 파이프라인을 사용하�
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
+ms.reviewer: wiassaf
+ms.subservice: sql
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 08/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 454c25891759d99b3f622d66920f20d2ec0f1a6c
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 01fd517be7e60a5ab16e7844d8c149ddac2dcb3e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110081643"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529531"
 ---
 # <a name="pause-and-resume-dedicated-sql-pools-with-synapse-pipelines"></a>Synapse 파이프라인을 사용하여 전용 SQL 풀 일시 중지 및 다시 시작
 
@@ -22,21 +24,21 @@ Azure Synapse Analytics에서 Synapse 파이프라인을 사용하여 전용 SQL
 
 1. 파이프라인을 만듭니다.
 1. 파이프라인에서 매개 변수를 설정합니다.
-1. Synapse 작업 영역에서 전용 SQL 풀 목록을 식별합니다.
+1. Azure Synapse 작업 영역에서 전용 SQL 풀 목록을 식별합니다.
 1. 일시 중지하거나 다시 시작하지 않으려는 전용 SQL 풀을 목록에서 필터링합니다. 
 1. 각 전용 SQL 풀을 반복하고 다음을 수행합니다.
     1. 전용 SQL 풀의 상태를 확인합니다.
     1. 전용 SQL 풀의 상태를 평가합니다.
     1. 전용 SQL 풀을 일시 중지하거나 다시 시작합니다.
 
-이러한 단계는 Synapse의 간단한 파이프라인에 배치됩니다.
+이러한 단계는 Azure Synapse의 간단한 파이프라인에 배치됩니다.
 
 ![단순 Synapse 파이프라인](./media/how-to-pause-resume-pipelines/simple-pipeline.png)
 
 
 사용자 환경의 특성에 따라 여기에 설명된 전체 프로세스는 적용되지 않을 수 있으며 적절한 단계를 선택하는 것이 좋습니다. 여기에 설명된 프로세스를 사용하여 개발, 테스트 또는 PoC 환경의 모든 인스턴스를 일시 중지하거나 다시 시작할 수 있습니다. 프로덕션 환경의 경우 인스턴스에 대해 일시 중지 또는 다시 시작을 예약하는 것이 좋습니다. 그러면 5a~5c단계만 필요합니다.
 
-위의 단계에서는 Synapse 및 Azure SQL에 대한 REST API를 사용합니다.
+위의 단계에서는 Azure Synapse 및 Azure SQL에 대한 REST API를 사용합니다.
 
 - [전용 SQL 풀 작업](/rest/api/synapse/sqlpools)
  
@@ -65,7 +67,7 @@ Synapse 파이프라인을 사용하면 일시 중지 및 다시 시작을 자�
 |이름  |Type  |기본값  |Description|
 |---------|---------|---------|-----------|
 |ResourceGroup    |문자열        |Synapse          |전용 SQL 풀에 대한 리소스 그룹의 이름|
-|구독 ID   |문자열        |<SubscriptionID> |리소스 그룹의 구독 ID|
+|구독 ID   |문자열        |`<SubscriptionID>` |리소스 그룹의 구독 ID|
 |WorkspaceName    |문자열        |Synapse          |작업 영역의 이름|
 |SQLPoolName      |문자열        |SQLPool1         |전용 SQL 풀 보호의 이름|
 |PauseorResume    |문자열        |일시 중지            |파이프라인 실행이 끝날 때 원하는 상태|
@@ -225,5 +227,5 @@ Azure Synapse의 관리 ID 및 전용 SQL 풀에 관리 ID를 추가하는 방�
 
 [작업 영역 관리 ID에 권한 부여](../security/how-to-grant-workspace-managed-identity-permissions.md)
 
-[Synapse 파이프라인 실행을 위한 SQL 액세스 제어](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-synapse-pipeline-runs)
+[Synapse 파이프라인 실행을 위한 SQL 액세스 제어](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-azure-synapse-pipeline-runs)
 

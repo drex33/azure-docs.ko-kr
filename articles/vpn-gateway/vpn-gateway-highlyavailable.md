@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 05/27/2021
 ms.author: yushwang
-ms.openlocfilehash: f00de78ba4e2b46595489f46155546157642fb12
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 82a1ad0968a80be1ff1780b1cf83ec928a016dbb
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953853"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535789"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>고가용성 프레미스 간 및 VNet 간 연결
 
@@ -83,5 +83,5 @@ Azure 게이트웨이 인스턴스가 활성-활성 구성이기 때문에 온-�
 이렇게 하면 더 나은 가용성을 제공하여 계획된 유지 관리 이벤트에 대한 두 개의 가상 네트워크 간에 몇 개의 터널을 유지하게 됩니다. 크로스-프레미스 연결에 대한 동일한 토폴로지가 두 개의 연결을 필요로 하더라도 위에 표시된 VNet 간 토폴로지는 각 게이트웨이에 하나의 연결만을 필요로 합니다. 또한 VNet 간 연결을 통한 전송 라우팅이 필요한 경우가 아니면 BGP는 선택 사항입니다.
 
 ## <a name="next-steps"></a>다음 단계
-활성-활성 크로스-프레미스 및 VNet 간 연결을 구성하는 단계는 [크로스-프레미스 및 VNet 간 연결에 대한 활성-활성 VPN Gateways 구성](vpn-gateway-activeactive-rm-powershell.md) 을 참조하세요.
+[Azure Portal](active-active-portal.md) 또는 [PowerShell](vpn-gateway-activeactive-rm-powershell.md)을 사용하여 [활성-활성 게이트웨이 구성](active-active-portal.md)을 참조하세요.
 

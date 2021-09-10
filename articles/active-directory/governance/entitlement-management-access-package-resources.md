@@ -16,12 +16,12 @@ ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 389bf4438fa31b0c1174441cd62f814f18b271d2
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 5c7439263f15a99a7b717bac1dc48e06a77bb66b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114729519"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257132"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지의 리소스 역할 변경
 
@@ -49,7 +49,7 @@ ms.locfileid: "114729519"
 
 ## <a name="add-resource-roles"></a>리소스 역할 추가
 
-리소스 역할이란 리소스와 연결된 권한의 컬렉션입니다. 사용자가 리소스를 요청할 수 있도록 하는 방법은 액세스 패키지에 리소스 역할을 추가하는 것입니다. 그룹, 팀, 애플리케이션, SharePoint 사이트를 위한 리소스 역할을 추가할 수 있습니다.
+리소스 역할이란 리소스와 연결된 권한의 컬렉션입니다. 사용자가 리소스를 요청할 수 있도록 하는 방법은 카탈로그 내 각 리소스로부터 리소스 역할을 액세스 패키지에 추가하는 것입니다. 그룹, 팀, 애플리케이션, SharePoint 사이트에 의해 제공되는 리소스 역할을 추가할 수 있습니다.
 
 **필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
@@ -121,6 +121,8 @@ ms.locfileid: "114729519"
 다음은 애플리케이션을 선택할 때 고려해야 할 몇 가지 사항입니다.
 
 - 애플리케이션에는 해당 역할에 할당된 그룹도 있을 수 있습니다.  액세스 패키지의 애플리케이션 역할 대신 그룹을 추가하도록 선택할 수 있지만 그러면 내 액세스 포털에서 애플리케이션이 액세스 패키지의 일부로 사용자에게 표시되지 않습니다.
+- Azure Portal은 애플리케이션으로 선택될 수 없는 서비스에 대한 서비스 주체를 보여줄 수도 있습니다.  특히 **Exchange Online** 및 **SharePoint Online** 은 디렉터리에 리소스 역할이 있는 애플리케이션이 아니라 서비스이므로 액세스 패키지에 포함될 수 없습니다.  대신 그룹 기반 라이선스를 사용하여 해당 서비스에 액세스해야 하는 사용자에게 적절한 라이선스를 설정합니다.
+- 인증을 위해 개인 Microsoft 계정 사용자만 지원하고 디렉터리의 조직 계정을 지원하지 않는 애플리케이션은 애플리케이션 역할이 없으며 액세스 패키지 카탈로그에 추가할 수 없습니다.
 
 1. **액세스 패키지에 리소스 역할 추가** 페이지에서 **애플리케이션** 을 클릭하여 애플리케이션 선택 창을 엽니다.
 

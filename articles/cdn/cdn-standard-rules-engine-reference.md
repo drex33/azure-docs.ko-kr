@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 07/31/2021
 ms.author: allensu
-ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fcb16f44aed90f483be80c64d31781f54203de6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93242211"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528577"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진 참조
 
@@ -41,10 +41,7 @@ Azure CDN(Azure Content Delivery Network)에 대한 [표준 규칙 엔진](cdn-s
 
 ## <a name="limits-and-pricing"></a>제한 및 가격 책정 
 
-각 Azure CDN 엔드포인트에는 최대 25개의 규칙이 있을 수 있습니다. 각 규칙에는 최대 10개의 일치 조건 및 5개의 동작이 있을 수 있습니다. 규칙 엔진의 가격 책정은 다음 차원을 따릅니다. 
-- 규칙: 월별 규칙당 $1 
-- 처리된 요청 수: 요청 백만 건당 $0.60
-- 처음 5개의 규칙은 무료로 유지됩니다.
+규칙 제한에 대해서는 [CDN 스케일링 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#content-delivery-network-limits)을 참조하세요. 규칙 엔진 가격 책정에 대해서는 [Content Delivery Network 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
 ## <a name="syntax"></a>구문
 

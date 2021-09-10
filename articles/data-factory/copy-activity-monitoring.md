@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
-ms.openlocfilehash: edff28779c18e56bb7ee2e5ff3d222823a038f7d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b8f3de9a986c491de6bfd2b507755abe4face534
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642526"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822403"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
 
@@ -56,7 +56,7 @@ ms.locfileid: "122642526"
 
 복사 작업 실행 세부 정보 및 성능 특성도 **복사 작업 실행 결과** > **출력** 섹션에 반환되며, 이는 UI 모니터링 보기를 렌더링하는 데 사용됩니다. 다음은 반환될 수 있는 속성의 전체 목록입니다. 내 복사 시나리오에 적용할 수 있는 속성만 표시됩니다. 일반적인 프로그래밍 방식으로 활동 실행을 모니터링하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 Azure Data Factory 또는 Synapse 파이프라인 모니터링](monitor-programmatically.md)을 참조하세요.
 
-| 속성 이름  | 설명 | 출력 단위 |
+| 속성 이름  | Description | 출력 단위 |
 |:--- |:--- |:--- |
 | DataRead | 원본에서 읽어 온 실제 데이터 양입니다. | Int64 값(바이트) |
 | DataWritten | 싱크에 기록/커밋된 실제 데이터 양입니다. 각 데이터 저장소가 데이터를 저장하는 방법과 관련되므로 `dataRead`의 크기와 크기가 다를 수 있습니다. | Int64 값(바이트) |

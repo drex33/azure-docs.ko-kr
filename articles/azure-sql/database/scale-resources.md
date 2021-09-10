@@ -7,21 +7,21 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 06/25/2019
-ms.openlocfilehash: ca1a2edec70b13f111ffd89278aa39d1ddea7f67
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 818a783a85fd9117738f8199e612d97a0fb95b99
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035645"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566504"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>최소 가동 중지 시간으로 동적으로 데이터베이스 리소스 크기 조정
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database 및 SQL Managed Instance를 사용하면 [가동 중지 시간](https://azure.microsoft.com/support/legal/sla/sql-database)을 최소화하면서 데이터베이스에 더 많은 리소스를 동적으로 추가할 수 있습니다. 그러나 짧은 시간 동안 데이터베이스에 대한 연결이 끊어지는 전환 기간이 있는데, 이는 재시도 논리를 사용하여 완화할 수 있습니다.
+Azure SQL Database 및 SQL Managed Instance를 사용하면 [가동 중지 시간](https://azure.microsoft.com/support/legal/sla/azure-sql-database)을 최소화하면서 데이터베이스에 더 많은 리소스를 동적으로 추가할 수 있습니다. 그러나 짧은 시간 동안 데이터베이스에 대한 연결이 끊어지는 전환 기간이 있는데, 이는 재시도 논리를 사용하여 완화할 수 있습니다.
 
 ## <a name="overview"></a>개요
 

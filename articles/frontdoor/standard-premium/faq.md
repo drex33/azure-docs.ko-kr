@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/18/2021
 ms.author: duau
-ms.openlocfilehash: e21aabfad18c1a08bb3f30bd97d4a9a3ece1e853
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: be1ffdecb727426f914a74970a720f4f19e51824
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481000"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538635"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄에 대한 질문과 대답(미리 보기)
 
@@ -63,9 +63,12 @@ Azure Front Door는 HTTP, HTTPS, HTTP/2를 지원합니다.
 
 HTTP/2 프로토콜 지원은 Azure Front Door에 연결하는 클라이언트에만 사용할 수 있습니다. 백 엔드 풀의 백 엔드에 대한 통신은 HTTP/1.1을 통해 이루어집니다. HTTP/2 지원은 기본적으로 활성화되어 있습니다.
 
-### <a name="what-resources-are-supported-today-as-part-of-origin-group"></a>현재 원본 그룹의 일부로 어떤 리소스가 지원되나요?
+### <a name="what-resources-are-supported-today-as-part-of-an-origin-group"></a>현재 원본 그룹의 일부로 어떤 리소스가 지원되나요?
 
-원본 그룹은 스토리지, 웹앱, Kubernetes 인스턴스 또는 공용 연결이 있는 기타 사용자 지정 호스트 이름으로 구성될 수 있습니다. Azure Front Door 공용 IP 또는 공개적으로 확인 가능한 DNS 호스트 이름을 통해 원본을 정의해야 합니다. 원본 그룹의 구성원은 공용 연결이 있는 한 영역, 지역 또는 Azure 외부에 있을 수 있습니다.
+원본 그룹은 두 가지 원본 유형으로 구성될 수 있습니다.
+
+- 퍼블릭 원본에는 스토리지 계정, App Service 앱, Kubernetes 인스턴스 또는 퍼블릭 연결이 있는 기타 사용자 지정 호스트 이름이 포함됩니다. 이 원본은 공용 IP 주소 또는 공개적으로 확인할 수 있는 DNS 호스트 이름을 통해 정의해야 합니다. 원본 그룹의 구성원은 멤버는 퍼블릭 연결이 있는 한 가용성 영역, 지역에서 배포되거나 Azure 외부에도 배포될 수 있습니다. 퍼블릭 원본은 Azure Front Door 표준 및 프리미엄 계층에서 지원됩니다.
+- Azure Front Door(프리미엄)를 사용하는 경우 [Private Link 원본](concept-private-link.md)을 사용할 수 있습니다.
 
 ### <a name="what-regions-is-the-service-available-in"></a>어떤 지역에서 서비스를 사용할 수 있습니까?
 
@@ -141,7 +144,7 @@ Front Door의 프런트 엔드 애니캐스트 IP는 Front Door 수명 동안 �
 대부분의 규칙 엔진 구성 업데이트는 20분 이내에 완료됩니다. 업데이트가 완료되는 즉시 규칙이 적용된다고 볼 수 있습니다. 
 
  > [!Note]  
-  > 대부분의 사용자 지정 TLS/SSL 인증서 업데이트는 전체적으로 배포하는 데 약 30분이 걸립니다.
+  > 대부분의 사용자 지정 TLS/SSL 인증서 업데이트는 전체적으로 배포되는 데 몇 분에서 한 시간까지 걸립니다.
 
 경로 또는 백엔드 풀에 대한 모든 업데이트는 원활히 진행되며 새 구성이 올바른 경우 가동 중지 시간이 없습니다. '관리형 Azure Front Door'에서 '사용자 고유의 인증서 사용'으로 전환하거나 그 반대로 전환하지 않는 한 인증서 업데이트로 인한 중단은 발생하지 않습니다.
 
@@ -150,7 +153,9 @@ Front Door의 프런트 엔드 애니캐스트 IP는 Front Door 수명 동안 �
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure Front Door는 가상 네트워크 내에서 트래픽 부하를 분산하거나 라우팅할 수 있나요?
 
-AFD(Azure Front Door)에는 트래픽을 라우팅하기 위해 공용 IP 또는 공개적으로 확인 가능한 DNS 이름이 필요합니다. Azure Front Door는 가상 네트워크의 리소스로 직접 라우팅할 수 없습니다. 공용 IP와 함께 Application Gateway 또는 Azure Load Balancer를 사용하여 이 문제를 해결할 수 있습니다.
+Azure Front Door(표준)에는 트래픽을 라우팅하기 위해 공용 IP 또는 공개적으로 확인 가능한 DNS 이름이 필요합니다. Azure Front Door는 가상 네트워크의 리소스로 직접 라우팅할 수 없습니다. 공용 IP와 함께 Application Gateway 또는 Azure Load Balancer를 사용하여 이 문제를 해결할 수 있습니다.
+
+Azure Front Door(프리미엄)는 [Private Link 원본](concept-private-link.md)에 대한 트래픽 라우팅을 지원합니다.
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Azure Front Door에 대한 여러 시간 제한 및 제한 사항이 어떻게 되나요?
 
@@ -250,7 +255,7 @@ Azure Portal 또는 [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontd
 
 * **인증서 주체 이름 불일치**: HTTPS 연결의 경우 Front Door는 백 엔드 호스트 이름과 일치하는 주체 이름을 가진 유효한 CA에서 인증서를 제공할 것을 요구합니다. 예를 들어 백엔드 호스트 이름이 `myapp-centralus.contosonews.net`로 설정되고, TLS 핸드셰이크 중 백엔드에서 제공하는 인증서의 주체 이름에 `myapp-centralus.contosonews.net` 또는 `*myapp-centralus*.contosonews.net`이 없는 경우가 있습니다. 이 경우 Front Door는 연결을 거부하고 오류가 발생합니다. 
     * **솔루션**: 규정 준수 관점에서는 권장되지 않지만 Front Door의 인증서 주체 이름 확인을 사용하지 않도록 설정하여 이 오류를 해결할 수 있습니다. 이 옵션은 Azure Portal의 설정 및 API의 BackendPoolsSettings에서 찾을 수 있습니다.
-* **잘못된 CA의 백엔드 호스팅 인증서**: Front Door를 사용하는 백엔드에서는 [유효한 인증 기관](troubleshoot-allowed-certificate-authority.md)의 인증서만 사용할 수 있습니다. 내부 CA 또는 자체 서명된 인증서는 허용되지 않습니다.
+* **잘못된 CA의 백엔드 호스팅 인증서**: Front Door를 사용하는 백엔드에서는 [유효한 인증 기관](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)의 인증서만 사용할 수 있습니다. 내부 CA 또는 자체 서명된 인증서는 허용되지 않습니다.
 
 ### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Azure Front Door에 클라이언트/상호 인증을 사용할 수 있나요?
 
@@ -274,6 +279,12 @@ Azure Front Door에 감사 로그를 사용할 수 있습니다. 포털에서 �
 
 예, Azure Front Door는 경고를 지원합니다. 경고는 메트릭에 대해 구성됩니다. 
 
+## <a name="billing"></a>결제
+
+### <a name="will-i-be-billed-for-the-azure-front-door-resources-that-are-disabled"></a>사용하지 않도록 설정된 Azure Front Door 리소스에 대한 요금이 청구되나요?
+
+Front Door 프로필과 같은 Azure Front Door 리소스는 사용하지 않도록 설정된 경우 요금이 청구되지 않습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-[Front Door 표준/프리미엄 만드는](create-front-door-portal.md) 방법 알아보기.
+[Front Door 표준/프리미엄을 만드는](create-front-door-portal.md) 방법을 알아봅니다.

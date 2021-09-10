@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 0d348231c28e33b7eaef97a468e7e8a6a8677c32
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 9612b5aaaec10358609abba3878f6f09405ad076
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529835"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260123"
 ---
 # <a name="connect-azure-defender-alerts-from-azure-security-center"></a>Azure Security Center에서 Azure Defender 경고 연결
 
@@ -56,7 +56,7 @@ Azure Defender 자체가 구독별로 사용되므로 Azure Defender 커넥터�
 
 1. Azure Sentinel의 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다.
 
-1. 데이터 커넥터 갤러리에서 **Azure Defender** 를 선택하고 세부 정보 창에서 **커넥터 페이지 열기** 를 클릭합니다.
+1. 데이터 커넥터 갤러리에서 **Azure Defender** 를 선택하고 세부 정보 창에서 **커넥터 페이지 열기** 를 선택합니다.
 
 1. **구성** 아래에 테넌트의 구독 목록과 Azure Defender에 대한 연결 상태가 표시됩니다. 경고를 Azure Sentinel로 스트리밍하려는 각 구독 옆에 있는 **상태** 토글을 선택합니다. 여러 구독을 한 번에 연결하려면 관련 구독 옆에 있는 확인란을 표시한 다음 목록 위의 표시줄에서 **연결** 단추를 선택하여 수행할 수 있습니다.
 

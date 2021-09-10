@@ -6,14 +6,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 03/22/2021
 ms.author: yushwang
-ms.openlocfilehash: 5748b68940027269acaafe27148f0c4819cefc0a
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: df42925b50cba4d32ea554ae54dbcb09a5e04377
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720321"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205956"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Azure VPN Gateway에서 BGP 구성 방법
 
@@ -35,7 +35,7 @@ BGP의 이점에 대한 자세한 내용 및 BGP 사용의 기술 요구 사항�
 
 파트를 결합하여 필요에 따라 더 복잡한 다중 홉 전송 네트워크를 빌드할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
@@ -90,7 +90,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    > * Azure VPN 게이트웨이에서 APIPA 주소를 사용하는 경우 게이트웨이는 APIPA 원본 IP 주소를 사용하여 BGP 피어링 세션을 시작하지 않습니다. 온-프레미스 VPN 디바이스에서 BGP 피어링 연결을 시작해야 합니다.
    >
 
-1. **검토 + 만들기** 를 선택하여 유효성 검사를 실행합니다. 유효성 검사를 통과하면 **만들기** 를 선택하여 VPN 게이트웨이를 배포합니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다. 배포 상태는 게이트웨이에 대한 [개요] 페이지에서 확인할 수 있습니다.
+1. **검토 + 만들기** 를 선택하여 유효성 검사를 실행합니다. 유효성 검사를 통과하면 **만들기** 를 선택하여 VPN 게이트웨이를 배포합니다. 게이트웨이에서 완전히 만들고 배포하는 데 최대 45분이 걸릴 수 있습니다. 배포 상태는 게이트웨이에 대한 [개요] 페이지에서 확인할 수 있습니다.
 
 ### <a name="3-obtain-the-azure-bgp-peer-ip-addresses"></a>3. Azure BGP 피어 IP 주소 가져오기
 

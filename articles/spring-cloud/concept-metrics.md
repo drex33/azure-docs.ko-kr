@@ -1,22 +1,22 @@
 ---
 title: Azure Spring Cloud의 메트릭
 description: Azure Spring Cloud의 메트릭을 검토하는 방법 알아보기
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d7b9f068eef38a7567e5b595277ee92493a6c16
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d09b2aff00d32dc3865c13e2aaab94a0a86464e3
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129264"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122537970"
 ---
 # <a name="metrics-for-azure-spring-cloud"></a>Azure Spring Cloud의 메트릭
 
-Azure 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이며 차트를 그리고, 추세의 상관 관계를 시각적으로 지정하고, 메트릭에서 급증 및 하락을 조사할 수 있습니다. 메트릭 탐색기를 사용하여 리소스의 상태 및 사용률을 조사합니다. 
+Azure 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이며 차트를 그리고, 추세의 상관 관계를 시각적으로 지정하고, 메트릭에서 급증 및 하락을 조사할 수 있습니다. 메트릭 탐색기를 사용하여 리소스의 상태 및 사용률을 조사합니다.
 
 Azure Spring Cloud에서는 메트릭에 대해 두 가지 뷰포인트 있습니다.
 * 각 애플리케이션 개요 페이지의 차트
@@ -27,13 +27,14 @@ Azure Spring Cloud에서는 메트릭에 대해 두 가지 뷰포인트 있습�
 애플리케이션 **개요** 의 차트는 각 애플리케이션에 대한 빠른 상태 검사를 제공합니다. 공용 **메트릭** 페이지에는 참조에 사용할 수 있는 모든 메트릭이 포함되어 있습니다. 공통 메트릭 페이지에서 사용자 고유의 차트를 빌드하고 대시보드에 고정할 수 있습니다.
 
 ## <a name="application-overview-page"></a>애플리케이션 개요 페이지
-개요 페이지에서 차트를 찾으려면 **앱** 에서 앱을 선택합니다.  
 
- ![애플리케이션 메트릭 관리](media/metrics/metrics-2.png)
+개요 페이지에서 차트를 찾으려면 **앱** 에서 앱을 선택합니다.
 
-각 애플리케이션의 **애플리케이션 개요** 페이지에는 애플리케이션에 대한 빠른 상태 검사를 수행할 수 있는 메트릭 차트가 표시됩니다.  
+![애플리케이션 메트릭 관리](media/metrics/metrics-2.png)
 
- ![애플리케이션 메트릭 개요](media/metrics/metrics-3.png)
+각 애플리케이션의 **애플리케이션 개요** 페이지에는 애플리케이션에 대한 빠른 상태 검사를 수행할 수 있는 메트릭 차트가 표시됩니다.
+
+![애플리케이션 메트릭 개요](media/metrics/metrics-3.png)
 
 Azure Spring Cloud는 1분마다 업데이트되는 메트릭을 사용하여 다음과 같은 5가지 차트를 제공합니다.
 
@@ -60,6 +61,7 @@ Azure Spring Cloud는 1분마다 업데이트되는 메트릭을 사용하여 �
 ![메트릭 집계](media/metrics/metrics-5.png)
 
 집계 유형은 시간별로 차트에서 메트릭 점수를 집계하는 방법을 나타냅니다. 1분마다 하나의 원시 메트릭 지점이 있으며 1분 내에 사전 집계 형식은 메트릭 형식에 의해 미리 정의됩니다.
+
 * 합계: 모든 메트릭을 대상 출력으로 더합니다.
 * 평균: 기간의 평균 값을 대상 출력으로 사용합니다.
 * 최대/최소: 기간의 최댓값/최솟값을 대상 출력으로 사용합니다.
@@ -68,9 +70,10 @@ Azure Spring Cloud는 1분마다 업데이트되는 메트릭을 사용하여 �
 
 ![메트릭 수정](media/metrics/metrics-6.png)
 
-기본 보기에는 모든 Azure Spring Cloud 서비스의 애플리케이션 메트릭이 포함됩니다. 한 애플리케이션 또는 인스턴스의 메트릭을 필터링하여 표시할 수 있습니다.  **필터 추가** 를 선택하고, 속성을 **앱** 으로 설정하고, **값** 텍스트 상자에서 모니터링하려는 대상 애플리케이션을 선택합니다. 
+기본 보기에는 모든 Azure Spring Cloud 서비스의 애플리케이션 메트릭이 포함됩니다. 한 애플리케이션 또는 인스턴스의 메트릭을 필터링하여 표시할 수 있습니다. **필터 추가** 를 선택하고 속성을 **앱** 으로 설정한 다음, **값** 텍스트 상자에서 모니터링하려는 대상 애플리케이션을 선택합니다.
 
 두 가지 종류의 필터(속성)를 사용할 수 있습니다.
+
 * 앱: 앱 이름으로 필터링
 * 인스턴스: 앱 인스턴스로 필터링
 
@@ -88,18 +91,22 @@ Azure Spring Cloud는 1분마다 업데이트되는 메트릭을 사용하여 �
 다음 표에서는 사용 가능한 메트릭 및 세부 정보를 보여 줍니다.
 
 ### <a name="error"></a>오류
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
 >| tomcat.global.error | tomcat.global.error | 개수 | 처리된 요청에서 발생한 오류 수 |
 
 ### <a name="performance"></a>성능
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
 >| system.cpu.usage | system.cpu.usage | 백분율 | 전체 시스템에 대한 최근 CPU 사용량(사용되지 않으며 사용하지 않는 것이 좋습니다.) 이 값은 [0.0,1.0] 간격의 double입니다. 0\.0 값은 최근 관찰된 기간 동안 모든 CPU가 유휴 상태였음을 의미하고, 1.0 값은 최근 관찰된 기간 동안 모든 CPU가 100% 실행 중이었음을 의미합니다.|
 >| process.cpu.usage | 앱 CPU 사용 백분율 | 백분율 | Java Virtual Machine 프로세스에 대한 최근 CPU 사용량(사용되지 않으며 사용하지 않는 것이 좋습니다.) 이 값은 [0.0,1.0] 간격의 double입니다. 0\.0 값은 최근 관찰된 기간 동안 JVM 프로세스의 스레드를 실행하는 CPU가 없었음을 의미하고, 1.0 값은 최근 관찰된 기간 동안 모든 CPU가 JVM의 스레드를 100% 실행 중이었음을 의미합니다. JVM의 스레드는 애플리케이션 스레드와 JVM 내부 스레드를 포함합니다.|
->| AppCpuUsage | 앱 CPU 사용량 | 백분율 | 이 앱에 할당된 CPU에 대한 JVM 프로세스의 최근 CPU 사용량으로 [0.0, 1.0] 사이의 double 유형 값입니다. 0\.0 값은 최근 관찰된 기간 동안 JVM 프로세스의 스레드를 실행하는 CPU가 없었음을 의미하고, 1.0 값은 최근 관찰된 기간 동안 모든 CPU가 JVM의 스레드를 100% 실행 중이었음을 의미합니다. JVM의 스레드는 애플리케이션 스레드와 JVM 내부 스레드를 포함합니다.|
+>| 앱 CPU 사용량 | | 백분율 | 이 앱에 할당된 CPU 대비 JVM 프로세스의 최근 CPU 사용량입니다. 이 값은 [0.0,1.0] 간격의 double입니다. 0\.0 값은 최근 관찰된 기간 동안 JVM 프로세스의 스레드를 실행하는 CPU가 없었음을 의미하고, 1.0 값은 최근 관찰된 기간 동안 모든 CPU가 JVM의 스레드를 100% 실행 중이었음을 의미합니다. JVM의 스레드는 애플리케이션 스레드와 JVM 내부 스레드를 포함합니다.|
+>| 앱 CPU 사용량(사용되지 않음) | | 백분율 | 사용되지 않는 앱 CPU 사용량 메트릭입니다. 새로운 앱 CPU 사용량 메트릭을 대신 사용합니다.|
+>| 앱 메모리 사용량 | | 백분율 | 이 앱에 할당된 메모리 대비 JVM 프로세스의 최근 메모리 사용량입니다. 이 값은 [0.0,1.0] 간격의 double입니다. 0\.0 값은 최근 관찰된 기간 동안 JVM 프로세스의 스레드에서 할당된 메모리가 없었음을 의미하고, 1.0 값은 최근 관찰된 기간 동안 모든 메모리가 JVM의 스레드에서 100% 할당되었음을 의미합니다. JVM의 스레드는 애플리케이션 스레드와 JVM 내부 스레드를 포함합니다.|
 >| jvm.memory.committed | jvm.memory.committed | 바이트 | JVM에서 사용할 수 있도록 보장되는 메모리의 양을 나타냅니다. JVM은 시스템에 메모리를 릴리스할 수 있으며, 전용 메모리는 init보다 낮을 수 있습니다. 전용 메모리는 항상 사용되는 수치보다 크거나 같습니다. |
 >| jvm.memory.used | jvm.memory.used | 바이트 | 현재 사용중인 메모리의 양(바이트)을 나타냅니다. |
 >| jvm.memory.max | jvm.memory.max | 바이트 | 메모리 관리에 사용할 수 있는 최대 메모리 양을 나타냅니다. 최대 값이 정의된 경우 사용되는 메모리와 커밋된 메모리의 양은 항상 최대 메모리보다 작거나 같습니다. 사용된 메모리가 최대 메모리보다 작거나 같은 경우에도 사용된 메모리가 커밋된 메모리보다 크도록 사용된 메모리를 늘리려고 하면 메모리 할당이 실패할 수 있습니다(예: 시스템의 버추얼 메모리가 낮은 경우). |
@@ -138,6 +145,7 @@ Azure Spring Cloud는 1분마다 업데이트되는 메트릭을 사용하여 �
 자세한 내용은 [dotnet 카운터](/dotnet/core/diagnostics/dotnet-counters)를 참조하세요.
 
 ### <a name="request"></a>요청
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
@@ -159,6 +167,7 @@ Azure Spring Cloud는 1분마다 업데이트되는 메트릭을 사용하여 �
 자세한 내용은 [dotnet 카운터](/dotnet/core/diagnostics/dotnet-counters)를 참조하세요.
 
 ### <a name="session"></a>세션
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
@@ -169,16 +178,10 @@ Azure Spring Cloud는 1분마다 업데이트되는 메트릭을 사용하여 �
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | 개수 | 최대 활성 세션 수에 도달하여 만들지 않은 세션 수입니다. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | 개수 | Tomcat 세션 활성 수 |
 
-## <a name="see-also"></a>추가 정보
-
-* [빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링](./quickstart-logs-metrics-tracing.md)
-
-* [Azure 메트릭 탐색기 시작](../azure-monitor/essentials/metrics-getting-started.md)
-
-* [진단 설정을 사용하여 로그 및 메트릭 분석](./diagnostic-services.md)
-
 ## <a name="next-steps"></a>다음 단계
 
+* [빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링](./quickstart-logs-metrics-tracing.md)
+* [Azure 메트릭 탐색기 시작](../azure-monitor/essentials/metrics-getting-started.md)
+* [진단 설정을 사용하여 로그 및 메트릭 분석](./diagnostic-services.md)
 * [자습서: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스 모니터링](./tutorial-alerts-action-groups.md)
-
 * [Azure Spring Cloud의 할당량 및 서비스 계획](./quotas.md)

@@ -1,24 +1,24 @@
 ---
-title: Azure Percept Audio 음성 도우미 애플리케이션 창으로 돌아가기
+title: Azure Percept Studio에서 음성 도우미 애플리케이션 찾기
 description: 이 문서에서는 이전에 만든 음성 도우미 애플리케이션 창으로 돌아가는 방법을 보여 줍니다.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c106c7f892ab003380288eb8c2d5e0a62ac8da93
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9c639c7d6f50b4d0396423c2e49274436d6e0308
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567386"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222903"
 ---
-# <a name="return-to-your-voice-assistant-application-window-in-azure-percept-studio"></a>Azure Percept Studio에서 음성 도우미 애플리케이션 창으로 돌아가기
+# <a name="find-your-voice-assistant-application-in-azure-percept-studio"></a>Azure Percept Studio에서 음성 도우미 애플리케이션 찾기
 
 이 방법 가이드에서는 이전에 만든 음성 도우미 애플리케이션으로 돌아가는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - [음성 도우미 데모 애플리케이션 만들기](./tutorial-no-code-speech.md)
 - Azure Percept DK의 전원이 켜져 있고 Azure Percept Audio 액세서리가 USB 케이블을 통해 연결되어 있습니다.

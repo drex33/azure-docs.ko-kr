@@ -1,7 +1,7 @@
 ---
-title: Azure File Storage 간에 데이터 복사
+title: Azure Files에서 또는 Azure Files로 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure File Storage에서 지원되는 싱크 데이터 저장소로 (또는) 지원되는 원본 데이터 저장소에서 Azure File Storage으로 Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대해 알아봅니다.
+description: Azure Data Factory를 사용하여 Azure Files에서 지원되는 싱크 데이터 저장소로, 또는 지원되는 원본 데이터 저장소에서 Azure Files로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
@@ -9,31 +9,31 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 03/17/2021
-ms.openlocfilehash: 26033c1d19b9025bd5dceffeaf19a1504965df33
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 50136700ce4cc39a2a8166ce4c7d7d2960b53990
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642647"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313924"
 ---
-# <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사
+# <a name="copy-data-from-or-to-azure-files-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Files에서 또는 Azure Files로부터 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure File Storage 간에 데이터를 복사하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 Azure Files에서 또는 Azure Files로 데이터를 복사하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 Azure File Storage 커넥터는 다음 작업에 대해 지원됩니다.
+이 Azure Files 커넥터는 다음과 같은 작업에 지원됩니다.
 
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 - [GetMetadata 작업](control-flow-get-metadata-activity.md)
 - [활동 삭제](delete-activity.md)
 
-모든 지원되는 원본 데이터 저장소에서 Azure File Storage로 데이터를 복사하거나 Azure File Storage에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
+Azure Files에서 지원되는 싱크 데이터 저장소로 데이터를 복사하거나 지원되는 원본 데이터 저장소에서 Azure Files로 데이터를 복사할 수 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
 
-특히 이 Azure File Storage 커넥터는 다음을 지원합니다.
+특히 이 Azure Files 커넥터는 다음을 지원합니다.
 
 - 계정 키 또는 서비스 SAS(공유 액세스 서명) 인증을 사용하여 파일을 복사합니다.
 - 파일을 있는 그대로 복사하거나 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 파일을 붙여넣거나 생성합니다.
@@ -42,26 +42,50 @@ ms.locfileid: "122642647"
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 Azure File Storage에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+## <a name="create-a-linked-service-to-azure-files-using-ui"></a>UI를 사용하여 Azure Files에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 Azure Files에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택한 후 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+2. 파일을 검색하고 레이블이 *Azure File Storage* 인 Azure Files 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-azure-file-storage/azure-file-storage-connector.png" alt-text="Azure File Storage 커넥터의 스크린샷":::    
+
+1. 서비스 세부 정보를 구성하고, 연결을 테스트하고, 새로운 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-azure-file-storage/configure-azure-file-storage-linked-service.png" alt-text="Azure File Storage에 연결된 서비스 구성의 스크린샷":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
+다음 섹션에서는 Azure Files와 관련된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
-이 Azure File Storage 커넥터는 다음 인증 유형을 지원합니다. 자세한 내용은 해당 섹션을 참조하세요.
+이 Azure Files 커넥터는 다음 인증 유형을 지원합니다. 자세한 내용은 해당 섹션을 참조하세요.
 
 - [계정 키 인증](#account-key-authentication)
 - [공유 액세스 서명 인증](#shared-access-signature-authentication)
 
 >[!NOTE]
-> ADF 작성 UI에서 "기본 인증"으로 표시된 [레거시 모델](#legacy-model)과 함께 Azure File Storage에 연결된 서비스를 사용하는 경우에는 그대로 지원되지만 앞으로는 새 모델을 사용하는 것이 좋습니다. 레거시 모델은 SMB(서버 메시지 블록)를 통해 스토리지에서 데이터를 전송하고 새 모델은 처리량이 더 우수한 스토리지 SDK를 사용합니다. 업그레이드하려면 연결된 서비스를 편집하여 인증 방법을 "계정 키" 또는 "SAS URI"로 전환할 수 있습니다. 데이터 세트 또는 복사 작업에 변경이 필요하지 않습니다.
+> ADF 작성 UI에서 "기본 인증"으로 표시된 [레거시 모델](#legacy-model)과 함께 Azure Files에 연결된 서비스를 사용하는 경우에는 있는 그대로 지원되지만 앞으로는 새 모델을 사용하는 것이 좋습니다. 레거시 모델은 SMB(서버 메시지 블록)를 통해 스토리지에서 데이터를 전송하고 새 모델은 처리량이 더 우수한 스토리지 SDK를 사용합니다. 업그레이드하려면 연결된 서비스를 편집하여 인증 방법을 "계정 키" 또는 "SAS URI"로 전환할 수 있습니다. 데이터 세트 또는 복사 작업에 변경이 필요하지 않습니다.
 
 ### <a name="account-key-authentication"></a>계정 키 인증
 
-Data Factory는 Azure File Storage 계정 키 인증에 대해 다음 속성을 지원합니다.
+Data Factory는 Azure Files 계정 키 인증에 대해 다음 속성을 지원합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **AzureFileStorage**. | 예 |
-| connectionString | Azure File Storage에 연결하는 데 필요한 정보를 지정합니다. <br/> Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
+| connectionString | Azure Files에 연결하는 데 필요한 정보를 지정합니다. <br/> Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
 | fileShare | 파일 공유를 지정합니다. | 예 |
 | 스냅샷 | 스냅샷에서 복사하려면 [파일 공유 스냅샷](../storage/files/storage-snapshots-files.md)의 날짜를 지정합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
@@ -183,8 +207,8 @@ Data Factory는 공유 액세스 서명 인증을 사용하기 위해 다음 속
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **AzureFileStorage**. | 예 |
-| host | Azure File Storage 엔드포인트를 다음으로 지정합니다. <br/>-UI 사용: `\\<storage name>.file.core.windows.net\<file service name>` 지정<br/>- JSON 사용: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"` | 예 |
-| userId | Azure File Storage에 다음으로 액세스할 사용자를 지정합니다. <br/>-UI 사용: `AZURE\<storage name>` 지정<br/>\- JSON 사용: `"userid": "AZURE\\<storage name>"` | 예 |
+| host | Azure Files 엔드포인트를 다음으로 지정합니다. <br/>-UI 사용: `\\<storage name>.file.core.windows.net\<file service name>` 지정<br/>- JSON 사용: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"` | 예 |
+| userId | Azure Files에 다음으로 액세스할 사용자를 지정합니다. <br/>-UI 사용: `AZURE\<storage name>` 지정<br/>\- JSON 사용: `"userid": "AZURE\\<storage name>"` | 예 |
 | password | 스토리지 액세스 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |원본에는 아니요이고 싱크에는 예입니다 |
 
@@ -217,7 +241,7 @@ Data Factory는 공유 액세스 서명 인증을 사용하기 위해 다음 속
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
-형식 기반 데이터 세트의 `location` 설정에서 Azure File Storage에 다음 속성이 지원됩니다.
+형식 기반 데이터 세트의 `location` 설정에서 Azure Files에 다음 속성이 지원됩니다.
 
 | 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -253,20 +277,20 @@ Data Factory는 공유 액세스 서명 인증을 사용하기 위해 다음 속
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
-작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 Azure File Storage 원본 및 싱크에서 지원하는 속성 목록을 제공합니다.
+작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 Azure Files 원본 및 싱크에서 지원하는 속성 목록을 제공합니다.
 
-### <a name="azure-file-storage-as-source"></a>원본으로서의 Azure File Storage
+### <a name="azure-files-as-source"></a>원본 파일 형태의 Azure Files
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
-형식 기반 복사 원본의 `storeSettings` 설정의 Azure File Storage에 다음 속성이 지원됩니다.
+형식 기반 복사 원본의 `storeSettings` 설정에서 Azure Files에 다음 속성이 지원됩니다.
 
 | 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | `storeSettings` 아래의 type 속성은 **AzureFileStorageReadSettings** 로 설정해야 합니다. | 예                                           |
 | ***복사할 파일 찾기:*** |  |  |
 | 옵션 1: 정적 경로<br> | 데이터 세트에 지정된 폴더/파일 경로에서 복사합니다. 폴더의 모든 파일을 복사하려면 `wildcardFileName`을 `*`로 지정합니다. |  |
-| 옵션 2: 파일 접두사<br>- 접두사 | 원본 파일을 필터링하기 위해 데이터 세트에 구성된 지정된 파일 공유 아래의 파일 이름에 대한 접두사입니다. 이름이 `fileshare_in_linked_service/this_prefix`로 시작하는 파일이 선택되었습니다. 와일드카드 필터보다 더 나은 성능을 제공하는 Azure File Storage에 대한 서비스 쪽 필터를 사용합니다. 이 기능은 [기존 링크 서비스 모델](#legacy-model)을 사용하는 경우 지원되지 않습니다. | 예                                                          |
+| 옵션 2: 파일 접두사<br>- 접두사 | 원본 파일을 필터링하기 위해 데이터 세트에 구성된 지정된 파일 공유 아래의 파일 이름에 대한 접두사입니다. 이름이 `fileshare_in_linked_service/this_prefix`로 시작하는 파일이 선택되었습니다. 와일드카드 필터보다 더 나은 성능을 제공하는 Azure Files에 대한 서비스측 필터를 사용합니다. 이 기능은 [기존 링크 서비스 모델](#legacy-model)을 사용하는 경우 지원되지 않습니다. | 예                                                          |
 | 옵션 3: 와일드카드<br>- wildcardFolderPath | 원본 폴더를 필터링할 와일드카드 문자가 포함된 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                            |
 | 옵션 3: 와일드카드<br>- wildcardFileName | 원본 파일을 필터링하기 위해 지정된 folderPath/wildcardFolderPath 아래의 와일드카드 문자가 포함된 파일 이름입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 파일 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예 |
 | 옵션 4: 파일 목록<br>- fileListPath | 지정된 파일 집합을 복사하도록 지정합니다. 복사할 파일 목록이 포함된 텍스트 파일을 가리키며, 데이터 세트에 구성된 경로에 대한 상대 경로를 사용하여 한 줄에 하나의 파일을 가리킵니다.<br/>이 옵션을 사용하는 경우 데이터 세트에서 파일 이름을 지정하지 마세요. [파일 목록 예](#file-list-examples)에서 더 많은 예를 참조하세요. |예 |
@@ -320,11 +344,11 @@ Data Factory는 공유 액세스 서명 인증을 사용하기 위해 다음 속
 ]
 ```
 
-### <a name="azure-file-storage-as-sink"></a>싱크로서의 Azure File Storage
+### <a name="azure-files-as-sink"></a>싱크로서의 Azure Files
 
 [!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
-형식 기반 복사 싱크의 `storeSettings` 설정에서 Azure File Storage에 다음 속성이 지원됩니다.
+형식 기반 복사 싱크의 `storeSettings` 설정에서 Azure Files에 다음 속성이 지원됩니다.
 
 | 속성                 | 설명                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |

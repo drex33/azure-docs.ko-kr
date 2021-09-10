@@ -3,18 +3,18 @@ title: Azure 엔터프라이즈 등록 청구서
 description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하고 작업하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/05/2021
+ms.date: 08/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8750ad846b832eb4fe037568d3b99f299cfe121b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 77f463d34ebd05e39876933d65631371acff1707
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790634"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539624"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -316,7 +316,7 @@ Azure 선불은 Azure 서비스 선결제 금액입니다. 서비스를 사용�
 
 표준 청구 기간이 끝날 때 초과분 사용량이 없는 경우 별도 청구 요금이 별도로 청구됩니다. 이 프로세스는 오스트레일리아, 일본 및 싱가포르의 고객에게 적용됩니다.
 
-별도로 청구되는 서비스는 다음과 같습니다.
+다음 서비스는 별도로 청구되는 요금의 예입니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 제출하여 요금이 개별적으로 청구되는 전체 서비스 목록을 가져올 수 있습니다.
 
 - Canonical
 - Citrix XenApp Essentials

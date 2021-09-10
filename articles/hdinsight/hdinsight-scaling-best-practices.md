@@ -1,19 +1,19 @@
 ---
-title: 클러스터 크기 조정 - Azure HDInsight
-description: Azure HDInsight에서 워크로드와 일치하도록 Apache Hadoop 클러스터를 탄력적으로 크기 조정
+title: 수동으로 클러스터 스케일링 - Azure HDInsight
+description: Azure HDInsight에서 워크로드와 일치하도록 탄력적으로 Apache Hadoop 클러스터를 수동으로 스케일링
 ms.author: ashish
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 1c388cb070c66fc3a2322c358bc4113ed2106c77
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 86759dacfc4412fff1d100f5f6808aa7269575e1
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107761852"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539226"
 ---
-# <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
+# <a name="manually-scale-azure-hdinsight-clusters"></a>수동으로 Azure HDInsight 클러스터 스케일링
 
 HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 탄력성을 보장합니다. 이러한 탄력성을 통해 몇 시간 후 또는 주말에 클러스터를 축소할 수 있습니다. 그리고 최고 비즈니스 수요 동안 확장합니다.
 

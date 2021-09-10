@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: f5f0351e21588d6e01a633a11d5638358e4d706b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: bf29f435c2d9439659abdcc76a7f8d85cf51c2af
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112008269"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536278"
 ---
 # <a name="manage-and-optimize-azure-machine-learning-costs"></a>Azure Machine Learning 비용 관리 및 최적화
 
@@ -26,6 +26,7 @@ ms.locfileid: "112008269"
 - 구독 및 작업 영역에 대한 할당량 설정
 - 학습 실행에 대한 종료 정책 설정
 - 우선 순위가 낮은 VM(가상 머신) 사용
+- 컴퓨팅 인스턴스가 자동으로 종료 및 시작하도록 예약
 - Azure Reserved VM Instance 사용
 - 로컬에서 학습
 - 학습 병렬화
@@ -55,7 +56,7 @@ AmlCompute 클러스터는 워크로드에 따라 동적으로 크기를 조정�
 + 반복적 실험을 수행하는 경우 비용을 절약하기 위해 이 시간을 줄입니다.
 + 매우 반복적인 개발/테스트 실험을 수행하는 경우 학습 스크립트나 환경에 대한 각 변경 후 일정한 확장 및 축소에 대해 비용을 지불하지 않도록 시간을 늘려야 할 수 있습니다.
 
-[AmlCompute SDK 클래스](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute), [AmlCompute CLI](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute)와 [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용하여 Azure Portal에서 변화하는 워크로드 요구 사항에 대해 AmlCompute 클러스터를 구성할 수 있습니다.
+[AmlCompute SDK 클래스](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute), [AmlCompute CLI](/cli/azure/ml(v1)/computetarget/create#az_ml_v1__computetarget_create_amlcompute)와 [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable)를 사용하여 Azure Portal에서 변화하는 워크로드 요구 사항에 대해 AmlCompute 클러스터를 구성할 수 있습니다.
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
@@ -86,6 +87,10 @@ Azure를 통해 가상 머신 확장 집합, Batch 및 Machine Learning 서비�
 
  우선 순위가 낮은 VM은 대화형 Notebook 환경을 지원해야 하기 때문에 컴퓨팅 인스턴스에 대해 작동하지 않습니다.
 
+## <a name="schedule-compute-instances"></a>컴퓨팅 인스턴스 예약
+
+[컴퓨팅 인스턴스](concept-compute-instance.md)를 만들 때 VM은 작업에 사용할 수 있도록 유지됩니다.  컴퓨팅 인스턴스(미리 보기)를 자동으로 시작 및 중지하도록 [일정을 설정](how-to-create-manage-compute-instance.md#schedule)하여 사용하지 않을 때 비용을 절감합니다.
+
 ## <a name="use-reserved-instances"></a>예약 인스턴스 사용
 
 컴퓨팅 리소스에 대한 비용을 절감하는 또 다른 방법은 Azure Reserved VM Instance입니다. 이 제품을 통해 1년 또는 3년 조건으로 약정하게 됩니다. 이러한 할인 범위는 종량제 가격의 최대 72%이며 월간 Azure 청구서에 직접 적용됩니다.
@@ -104,7 +109,7 @@ Visual Studio Code는 기계 학습 애플리케이션을 개발하기 위한 �
 
 ## <a name="set-data-retention--deletion-policies"></a>데이터 보존 및 삭제 정책 설정
 
-파이프라인이 실행될 때마다 각 단계에서 중간 데이터 세트가 생성됩니다. 시간이 지남에 따라 이러한 중간 데이터 세트는 스토리지 계정에서 공간을 차지합니다. 수명 주기 내내 데이터를 관리하여 데이터 세트를 보관하고 삭제하는 정책을 설정하는 것이 좋습니다. 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](/storage/blobs/storage-lifecycle-management-concepts.md)를 참조하세요.
+파이프라인이 실행될 때마다 각 단계에서 중간 데이터 세트가 생성됩니다. 시간이 지남에 따라 이러한 중간 데이터 세트는 스토리지 계정에서 공간을 차지합니다. 수명 주기 내내 데이터를 관리하여 데이터 세트를 보관하고 삭제하는 정책을 설정하는 것이 좋습니다. 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화하여 비용 최적화](../storage/blobs/storage-lifecycle-management-concepts.md)를 참조하세요.
 
 ## <a name="deploy-resources-to-the-same-region"></a>동일한 지역에 리소스 배포
 

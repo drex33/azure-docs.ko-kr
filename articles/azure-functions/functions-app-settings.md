@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: 7275d81401444dffbe0917bdb72ba79100880749
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 78e142fd97158fb64387950f9515ac168c216e5d
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567494"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108672"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -17,6 +17,7 @@ ms.locfileid: "122567494"
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 [host.json](functions-host-json.md) 파일과 [local.settings.json](functions-develop-local.md#local-settings-file) 파일에는 다른 전역 구성 옵션이 있습니다.
+예에서 연결 문자열 값은 가독성을 위해 잘립니다.
 
 > [!NOTE]
 > 애플리케이션 설정을 사용하여 host.json 파일 자체를 변경할 필요 없이 host.json 설정 값을 재정의할 수 있습니다. 이 기능은 특정 환경에 대한 특정 host.json 설정을 구성하거나 수정해야 하는 경우에 유용합니다. 이렇게 하면 프로젝트를 다시 게시하지 않고도 host.json 설정을 변경할 수 있습니다. 자세한 내용은 [host.json 참조 문서](functions-host-json.md#override-hostjson-values)를 참조하세요. 함수 앱 설정을 변경하려면 함수 앱을 다시 시작해야 합니다.
@@ -27,7 +28,7 @@ Application Insights에 대한 계측 키입니다. `APPINSIGHTS_INSTRUMENTATION
 
 |키|샘플 값|
 |---|------------|
-|APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83bb83bb|
+|APPINSIGHTS_INSTRUMENTATIONKEY|`55555555-af77-484b-9032-64f83bb83bb`|
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
@@ -40,7 +41,7 @@ Application Insights에 대한 연결 문자열입니다. 다음과 같은 경�
 
 |키|샘플 값|
 |---|------------|
-|APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey=[key];IngestionEndpoint=[url];LiveEndpoint=[url];ProfilerEndpoint=[url];SnapshotEndpoint=[url];|
+|APPLICATIONINSIGHTS_CONNECTION_STRING|`InstrumentationKey=...`|
 
 ## <a name="azure_function_proxy_disable_local_call"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
@@ -48,8 +49,8 @@ Application Insights에 대한 연결 문자열입니다. 다음과 같은 경�
 
 |키|값|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|로컬 함수 앱에서 함수를 가리키는 백 엔드 URL을 사용하는 호출은 해당 함수로 직접 전달되지 않습니다. 대신, 요청은 함수 앱에 대한 HTTP 프런트 엔드로 다시 전달됩니다.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|로컬 함수 앱에서 함수를 가리키는 백 엔드 URL을 사용하는 호출은 해당 함수로 직접 전달됩니다. 이것은 기본값입니다. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`true`|로컬 함수 앱에서 함수를 가리키는 백 엔드 URL을 사용하는 호출은 해당 함수로 직접 전달되지 않습니다. 대신, 요청은 함수 앱에 대한 HTTP 프런트 엔드로 다시 전달됩니다.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`false`|로컬 함수 앱에서 함수를 가리키는 백 엔드 URL을 사용하는 호출은 해당 함수로 직접 전달됩니다. 이것은 기본값입니다. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -57,8 +58,8 @@ Application Insights에 대한 연결 문자열입니다. 다음과 같은 경�
 
 |키|값|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시를 사용하는 경로 매개 변수는 디코딩됩니다. |
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|모든 경로 매개 변수는 기본 동작인 변경되지 않은 상태로 전달됩니다. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|`true`|인코딩된 슬래시를 사용하는 경로 매개 변수는 디코딩됩니다. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|`false`|모든 경로 매개 변수는 기본 동작인 변경되지 않은 상태로 전달됩니다. |
 
 예를 들어 `myfunction.com` 도메인의 함수 앱에 대한 proxies.json 파일을 살펴보겠습니다.
 
@@ -92,7 +93,7 @@ Application Insights에 대한 연결 문자열입니다. 다음과 같은 경�
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
+|AzureWebJobsDashboard|`DefaultEndpointsProtocol=https;AccountName=...`|
 
 > [!NOTE]
 > 성능 및 환경을 향상시키기 위해 런타임 2.x 이상 버전에서는 모니터링을 위해 `AzureWebJobsDashboard` 대신 APPINSIGHTS_INSTRUMENTATIONKEY 및 App Insights를 사용합니다.
@@ -103,7 +104,7 @@ Application Insights에 대한 연결 문자열입니다. 다음과 같은 경�
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobsDisableHomepage|true|
+|AzureWebJobsDisableHomepage|`true`|
 
 이 앱 설정이 생략되거나 `false`로 설정되면 URL `<functionappname>.azurewebsites.net`에 대한 응답으로 다음 예와 유사한 페이지가 표시됩니다.
 
@@ -115,7 +116,7 @@ Application Insights에 대한 연결 문자열입니다. 다음과 같은 경�
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|true|
+|AzureWebJobsDotNetReleaseCompilation|`true`|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -123,7 +124,7 @@ Application Insights에 대한 연결 문자열입니다. 다음과 같은 경�
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobsFeatureFlags|feature1,feature2|
+|AzureWebJobsFeatureFlags|`feature1,feature2`|
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
@@ -139,7 +140,7 @@ Azure Functions 런타임은 일반 작업을 위해 이 스토리지 계정 연
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobsStorage|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|AzureWebJobsStorage|`DefaultEndpointsProtocol=https;AccountName=...`|
 
 ## <a name="azurewebjobs_typescriptpath"></a>AzureWebJobs_TypeScriptPath
 
@@ -147,7 +148,7 @@ TypeScript에 사용되는 컴파일러의 경로입니다. 필요한 경우 기
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobs_TypeScriptPath|%HOME%\typescript|
+|AzureWebJobs_TypeScriptPath|`%HOME%\typescript`|
 
 ## <a name="function_app_edit_mode"></a>FUNCTION\_APP\_EDIT\_MODE
 
@@ -155,7 +156,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정합니다. 유효한 
 
 |키|샘플 값|
 |---|------------|
-|FUNCTION\_APP\_EDIT\_MODE|readonly|
+|FUNCTION\_APP\_EDIT\_MODE|`readonly`|
 
 ## <a name="functions_extension_version"></a>FUNCTIONS\_EXTENSION\_VERSION
 
@@ -163,7 +164,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정합니다. 유효한 
 
 |키|샘플 값|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~3|
+|FUNCTIONS\_EXTENSION\_VERSION|`~3`|
 
 ## <a name="functions_v2_compatibility_mode"></a>FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
@@ -176,7 +177,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정합니다. 유효한 
 
 |키|샘플 값|
 |---|------------|
-|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|true|
+|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|`true`|
 
 ## <a name="functions_worker_process_count"></a>FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
@@ -184,7 +185,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정합니다. 유효한 
 
 |키|샘플 값|
 |---|------------|
-|FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
+|FUNCTIONS\_WORKER\_PROCESS\_COUNT|`2`|
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
@@ -192,7 +193,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정합니다. 유효한 
 
 |키|샘플 값|
 |---|------------|
-|FUNCTIONS\_WORKER\_RUNTIME|node|
+|FUNCTIONS\_WORKER\_RUNTIME|`node`|
 
 유효한 값은
 
@@ -213,7 +214,7 @@ PowerShell 함수 앱의 관리되는 종속성 백그라운드 업데이트 기
 
 |키|샘플 값|
 |---|------------|
-|MDMaxBackgroundUpgradePeriod|7.00:00:00|
+|MDMaxBackgroundUpgradePeriod|`7.00:00:00`|
 
 자세한 내용은 [종속성 관리](functions-reference-powershell.md#dependency-management)를 참조하세요.
 
@@ -227,7 +228,7 @@ PowerShell 함수 앱의 관리되는 종속성 백그라운드 업데이트 기
 
 |키|샘플 값|
 |---|------------|
-|MDNewSnapshotCheckPeriod|01:00:00|
+|MDNewSnapshotCheckPeriod|`01:00:00`|
 
 자세한 내용은 [종속성 관리](functions-reference-powershell.md#dependency-management)를 참조하세요.
 
@@ -240,7 +241,7 @@ PowerShell 함수 앱의 관리되는 종속성 백그라운드 업데이트 기
 
 |키|샘플 값|
 |---|------------|
-|MDMinBackgroundUpgradePeriod|1.00:00:00|
+|MDMinBackgroundUpgradePeriod|`1.00:00:00`|
 
 자세한 내용은 [종속성 관리](functions-reference-powershell.md#dependency-management)를 참조하세요.
 
@@ -250,18 +251,18 @@ PowerShell 함수 앱의 관리되는 종속성 백그라운드 업데이트 기
 
 |키|샘플 값|
 |---|------------|
-|PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
+|PIP\_EXTRA\_INDEX\_URL|`http://my.custom.package.repo/simple` |
 
 자세한 내용은 Python 개발자 참조의 [사용자 지정 종속성](functions-reference-python.md#remote-build-with-extra-index-url)을 참조하세요.
 
-## <a name="python_isolate_worker_dependencies"></a>PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
+## <a name="python_isolate_worker_dependencies-preview"></a>PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES(미리 보기)
 
-구성은 Python 함수 앱에만 적용됩니다. 모듈 로드 순서에 대한 우선 순위를 정의합니다. Python 함수 앱에서 모듈 충돌 관련 문제(예: 프로젝트에서 protobuf, tensorflow 또는 grpcio를 사용하는 경우)가 발생하는 경우 이 앱 설정을 `1`로 구성하면 문제가 해결됩니다. 기본적으로 이 값은 `0`로 설정되어 있습니다.
+구성은 Python 함수 앱에만 적용됩니다. 모듈 로드 순서에 대한 우선 순위를 정의합니다. Python 함수 앱에서 모듈 충돌 관련 문제(예: 프로젝트에서 protobuf, tensorflow 또는 grpcio를 사용하는 경우)가 발생하는 경우 이 앱 설정을 `1`로 구성하면 문제가 해결됩니다. 기본적으로 이 값은 `0`로 설정되어 있습니다. 이 플래그는 현재 미리 보기 상태입니다.
 
-|Key|값|Description|
+|키|값|Description|
 |---|-----|-----------|
-|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|0| 내부 Python 작업자의 종속성에서 Python 라이브러리 로드 우선 순위를 지정합니다. requirements.txt에 정의된 타사 라이브러리는 섀도 처리될 수 있습니다. |
-|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|1| requirements.txt에 정의된 애플리케이션의 패키지에서 Python 라이브러리 로드 우선 순위를 지정합니다. 이렇게 하면 라이브러리가 내부 Python 작업자의 라이브러리와 충돌하지 않습니다. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| 내부 Python 작업자의 종속성에서 Python 라이브러리 로드 우선 순위를 지정합니다. requirements.txt에 정의된 타사 라이브러리는 섀도 처리될 수 있습니다. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| requirements.txt에 정의된 애플리케이션의 패키지에서 Python 라이브러리 로드 우선 순위를 지정합니다. 이렇게 하면 라이브러리가 내부 Python 작업자의 라이브러리와 충돌하지 않습니다. |
 
 ## <a name="python_enable_worker_extensions"></a>PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
@@ -269,8 +270,8 @@ PowerShell 함수 앱의 관리되는 종속성 백그라운드 업데이트 기
 
 |Key|값|Description|
 |---|-----|-----------|
-|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|0| Python 작업자 확장을 사용하지 않도록 설정합니다. |
-|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|1| Python 작업자가 requirements.txt에서 확장을 로드하도록 허용합니다. |
+|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|`0`| Python 작업자 확장을 사용하지 않도록 설정합니다. |
+|PYTHON\_ENABLE\_WORKER\_EXTENSIONS|`1`| Python 작업자가 requirements.txt에서 확장을 로드하도록 허용합니다. |
 
 ## <a name="python_threadpool_thread_count"></a>PYTHON\_THREADPOOL\_THREAD\_COUNT
 
@@ -288,7 +289,7 @@ _이 설정은 현재 미리 보기로 있습니다._
 
 |키|샘플 값|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights:Verbose|
+|SCALE_CONTROLLER_LOGGING_ENABLED|`AppInsights:Verbose`|
 
 이 키의 값은 다음과 같이 정의된 `<DESTINATION>:<VERBOSITY>` 형식으로 제공됩니다.
 
@@ -300,7 +301,7 @@ _이 설정은 현재 미리 보기로 있습니다._
 
 |키|샘플 값|
 |-|-|
-|SCM_LOGSTREAM_TIMEOUT|1800|
+|SCM_LOGSTREAM_TIMEOUT|`1800`|
 
 위의 샘플 값 `1800`은 30분의 시간 초과를 설정합니다. 자세한 내용은 [스트리밍 로그 사용](functions-run-local.md#enable-streaming-logs)을 참조하세요.
 
@@ -310,19 +311,19 @@ Windows에서 실행되는 이벤트 기반 스케일링 플랜에 함수 앱 �
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
 프리미엄 플랜 또는 Windows에서 실행 중인 사용량 과금제에 배포하는 경우에만 사용됩니다. Linux를 실행하는 사용량 과금제에 대해서는 지원되지 않습니다. 이 설정을 변경하거나 제거하면 함수 앱이 시작되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조하세요.
 
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
-`1` 값을 사용하면 스토리지 계정이 가상 네트워크로 제한된 경우 함수 앱을 스케일링할 수 있습니다. 스토리지 계정을 가상 네트워크로 제한할 때 이 설정을 사용하도록 설정해야 합니다. 자세히 알아보려면 [가상 네트워크로 스토리지 계정 제한](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network)을 참조하세요.
+`1` 값을 사용하면 스토리지 계정이 가상 네트워크로 제한된 경우 함수 앱을 스케일링할 수 있습니다. 스토리지 계정을 가상 네트워크로 제한할 때 이 설정을 사용하도록 설정해야 합니다. 자세히 알아보려면 [가상 네트워크로 스토리지 계정 제한](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network)을 참조하세요.
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE_CONTENTOVERVNET|1|
+|WEBSITE_CONTENTOVERVNET|`1`|
 
-Windows를 실행하는 [프리미엄](functions-premium-plan.md) 및 [전용(App Service) 플랜](dedicated-plan.md)(표준 이상)에서 지원됩니다. 현재 Linux를 실행하는 소비 및 프리미엄 플랜에서는 지원되지 않습니다. 
+[프리미엄](functions-premium-plan.md) 및 [전용(App Service) 플랜](dedicated-plan.md)(표준 이상)에서 지원됩니다. [소비 계획](consumption-plan.md)에서 실행할 때는 지원되지 않습니다. 
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
@@ -330,7 +331,7 @@ Windows의 이벤트 기반 스케일링 플랜에서 함수 앱 코드와 구�
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE_CONTENTSHARE|functionapp091999e2|
+|WEBSITE_CONTENTSHARE|`functionapp091999e2`|
 
 프리미엄 플랜 또는 Windows에서 실행 중인 사용량 과금제에 배포하는 경우에만 사용됩니다. Linux를 실행하는 사용량 과금제에 대해서는 지원되지 않습니다. 이 설정을 변경하거나 제거하면 함수 앱이 시작되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조하세요.
 
@@ -342,7 +343,7 @@ IP 주소를 확인할 때 앱에서 사용하는 DNS 서버를 설정합니다.
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE\_DNS\_SERVER|168.63.129.16|
+|WEBSITE\_DNS\_SERVER|`168.63.129.16`|
 
 ## <a name="website_enable_brotli_encoding"></a>WEBSITE\_ENABLE\_BROTLI\_ENCODING
 
@@ -357,7 +358,7 @@ Brotli 인코딩이 기본 gzip 압축 대신 압축에 사용되는지 여부�
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|`5`|
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
@@ -366,7 +367,7 @@ Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정합�
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|~10|
+|WEBSITE\_NODE\_DEFAULT_VERSION|`~10`|
 
 ## <a name="website_run_from_package"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 
@@ -374,7 +375,7 @@ Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정합�
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE\_RUN\_FROM\_PACKAGE|1|
+|WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
 유효한 값은 배포 패키지 파일의 위치를 확인하는 URL이거나 `1`입니다. `1`로 설정하면 패키지는 `d:\home\data\SitePackages` 폴더에 있어야 합니다. 이 설정으로 zip 배포를 사용하면 패키지가 자동으로 이 위치에 업로드됩니다. 미리 보기에서 이 설정은 `WEBSITE_RUN_FROM_ZIP`으로 명명되었습니다. 자세한 내용은 [패키지 파일에서 Functions 실행](run-functions-from-deployment-package.md)을 참조하세요.
 
@@ -384,8 +385,8 @@ Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정합�
 
 |키|OS|샘플 값|
 |---|--|------------|
-|WEBSITE\_TIME\_ZONE|Windows|동부 표준시|
-|WEBSITE\_TIME\_ZONE|Linux|America/New_York|
+|WEBSITE\_TIME\_ZONE|Windows|`Eastern Standard Time`|
+|WEBSITE\_TIME\_ZONE|Linux|`America/New_York`|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
@@ -395,7 +396,7 @@ Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정합�
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE\_VNET\_ROUTE\_ALL|1|
+|WEBSITE\_VNET\_ROUTE\_ALL|`1`|
 
 ## <a name="next-steps"></a>다음 단계
 

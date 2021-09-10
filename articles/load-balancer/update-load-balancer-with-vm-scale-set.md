@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 268993dcdd2250037ebcfa1640bc4e54f82c926f
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: f72ac3b3a799b97883586e5c2eebc4a42119ae6f
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112575535"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123255713"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>가상 머신 확장 집합에서 사용된 부하 분산 장치 업데이트 또는 삭제
 
@@ -109,7 +109,7 @@ NAT 풀을 삭제하려면 먼저 확장 집합에서 NAT 풀을 제거합니다
 1. 왼쪽 메뉴에서 **모든 리소스** 를 선택합니다. 그런 다음 리소스 목록에서 **MyLoadBalancer** 를 선택합니다.
 1. **설정** 에서 **프런트 엔드 IP 구성** 을 선택합니다. 그런 다음, **추가** 를 선택합니다.
 1. **프런트 엔드 IP 주소 추가** 페이지에서 값을 입력하고 **확인** 을 선택합니다.
-1. 새 부하 분산 규칙이 필요한 경우 이 자습서의 [5단계](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe)와 [6단계](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe)를 수행합니다.
+1. 새 부하 분산 규칙이 필요한 경우 [Azure Load Balancer에 대한 규칙 관리 - Azure Portal](manage-rules-how-to.md)을 참조하세요.
 1. 필요한 경우 새로 만든 프런트 엔드 IP 구성을 사용하여 새 인바운드 NAT 규칙 집합을 만듭니다. 예제는 이전 섹션에 나와 있습니다.
 
 ## <a name="multiple-virtual-machine-scale-sets-behind-a-single-load-balancer"></a>단일 Load Balancer 뒤의 복합 Virtual Machine Scale Sets

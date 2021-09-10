@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/20/2021
 ms.author: v-jansk
-ms.openlocfilehash: 46348fe35f425811e2ff03208feeae6ab7a112bd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: eb8411717d0229b13571284176da7ccc113cf828
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453583"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112540743"
 ---
 # <a name="cancel-translation"></a>번역 취소
 
@@ -56,7 +56,7 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batc
 
 요청을 반환하는 가능한 HTTP 상태 코드는 다음과 같습니다.
 
-| 상태 코드| Description|
+| 상태 코드| 설명|
 |-----|-----|
 |200|OK. 취소 요청이 제출되었습니다.|
 |401|권한이 없습니다. 자격 증명을 확인하세요.|
@@ -70,7 +70,7 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batc
 
 성공적인 응답에서 반환되는 정보는 다음과 같습니다.
 
-|Name|Type|Description|
+|Name|유형|Description|
 |--- |--- |--- |
 |id|문자열|작업의 ID입니다.|
 |createdDateTimeUtc|문자열|작업을 만든 날짜와 시간입니다.|
@@ -87,7 +87,7 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batc
 
 ### <a name="error-response"></a>오류 응답
 
-|이름|Type|설명|
+|Name|유형|설명|
 |--- |--- |--- |
 |code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
 |message|문자열|간략한 오류 메시지를 가져옵니다.|

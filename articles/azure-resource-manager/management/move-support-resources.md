@@ -2,13 +2,13 @@
 title: 리소스 종류별 이동 작업 지원
 description: 새 리소스 그룹, 구독 또는 지역으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
-ms.date: 04/23/2021
-ms.openlocfilehash: f00acadf42c3767814850db59c64ab76b30de2ea
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.date: 08/30/2021
+ms.openlocfilehash: 614ef51474f789073f35e722733d255818bf3957
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297006"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260884"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
@@ -1598,8 +1598,9 @@ ms.locfileid: "114297006"
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
-> [!IMPORTANT]
-> [Recovery Services 이동 지침](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)을 참조하세요.
+>[!IMPORTANT]
+>- [Recovery Services 이동 지침](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)을 참조하세요.
+>- [지역 간 리소스 이동 후 Recovery Services 자격 증명 모음에서 백업 계속](../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/toc.json)을 참조하세요.
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription | 지역 이동 |
@@ -2022,6 +2023,7 @@ ms.locfileid: "114297006"
 > | availablestacks | 아니요 | 아니요 | 아니요 |
 > | billingmeters | 아니요 | 아니요 | 아니요 |
 > | certificates | 아니요 | 예 | 아니요 |
+> | 인증서(관리) | 아니요 | 아니요 | 아니요 |
 > | connectiongateways | 예 | 예 | 아니요 |
 > | connections | 예 | 예 | 아니요 |
 > | customapis | 예 | 예 | 아니요 |

@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: d215da660929c66514f9d0cf5f3161c83a1c330c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 451a6f1e4b90b2e307125c6aae6d2ac03ae90c83
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582815"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397889"
 ---
 ## <a name="model-id-announcement"></a>모델 ID 알림
 
@@ -39,11 +39,11 @@ iothubResult = IoTHubDeviceClient_LL_SetOption(
 }
 ```
 
-## <a name="implement-telemetry-properties-and-commands"></a>원격 분석, 속성 및 명령 구현
+## <a name="use-components"></a>구성 요소 사용
 
-[IoT 플러그 앤 플레이 모델의 구성 요소 이해](../articles/iot-pnp/concepts-modeling-guide.md)에 설명된 대로 디바이스 빌더가 구성 요소를 사용하여 디바이스를 설명할지 결정해야 합니다. 구성 요소를 사용하는 경우 디바이스는 이 섹션에 설명된 규칙을 따라야 합니다.
+[IoT 플러그 앤 플레이 모델의 구성 요소 이해](../articles/iot-develop/concepts-modeling-guide.md)에 설명된 대로 디바이스 빌더가 구성 요소를 사용하여 디바이스를 설명할지 결정해야 합니다. 구성 요소를 사용하는 경우 디바이스는 다음 섹션에 설명된 규칙을 따라야 합니다.
 
-### <a name="telemetry"></a>원격 분석
+## <a name="telemetry"></a>원격 분석
 
 기본 구성 요소에는 특별한 속성이 필요하지 않습니다.
 
@@ -87,7 +87,7 @@ void PnP_ThermostatComponent_SendTelemetry(
 PnP_ThermostatComponent_SendTelemetry(g_thermostatHandle1, deviceClient);
 ```
 
-### <a name="read-only-properties"></a>읽기 전용 속성
+## <a name="read-only-properties"></a>읽기 전용 속성
 
 기본 구성 요소에서 속성을 보고하는 데 특별한 구문이 필요하지 않습니다.
 
@@ -212,11 +212,11 @@ PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(g_thermostatHand
 }
 ```
 
-### <a name="writable-properties"></a>쓰기 가능한 속성
+## <a name="writable-properties"></a>쓰기 가능한 속성
 
 이러한 속성은 디바이스에서 설정하거나 솔루션에서 업데이트할 수 있습니다. 솔루션에서 속성을 업데이트하면 클라이언트는 `DeviceClient` 또는 `ModuleClient`에서 콜백으로 알림을 받습니다. IoT 플러그 앤 플레이 규칙을 따르려면 디바이스에서 속성이 성공적으로 수신되었음을 서비스에 알려야 합니다.
 
-#### <a name="report-a-writable-property"></a>쓰기 가능한 속성 보고
+### <a name="report-a-writable-property"></a>쓰기 가능한 속성 보고
 
 디바이스에서 쓰기 가능한 속성을 보고하는 경우 규칙에 정의된 `ack` 값을 포함해야 합니다.
 
@@ -333,7 +333,7 @@ STRING_delete(jsonToSend);
 }
 ```
 
-#### <a name="subscribe-to-desired-property-updates"></a>원하는 속성 업데이트 구독
+### <a name="subscribe-to-desired-property-updates"></a>원하는 속성 업데이트 구독
 
 서비스는 연결된 디바이스에 대한 알림을 트리거하는 원하는 속성을 업데이트할 수 있습니다. 이 알림에는 업데이트를 식별하는 버전 번호를 포함하여 업데이트된 원하는 속성이 포함됩니다. 디바이스는 보고된 속성과 동일한 `ack` 메시지로 응답해야 합니다.
 
@@ -484,7 +484,7 @@ static void PnP_TempControlComponent_DeviceTwinCallback(
 }
 ```
 
-### <a name="commands"></a>명령
+## <a name="commands"></a>명령
 
 기본 구성 요소는 서비스에서 호출된 명령 이름을 받습니다.
 
@@ -588,7 +588,7 @@ g_pnpDeviceConfiguration.deviceMethodCallback = PnP_TempControlComponent_DeviceM
 deviceClient = PnP_CreateDeviceClientLLHandle(&g_pnpDeviceConfiguration);
 ```
 
-#### <a name="request-and-response-payloads"></a>요청 및 응답 페이로드
+### <a name="request-and-response-payloads"></a>요청 및 응답 페이로드
 
 명령은 형식을 사용하여 요청 및 응답 페이로드를 정의합니다. 디바이스는 들어오는 입력 매개 변수를 역직렬화하고 응답을 직렬화해야 합니다. 다음 예제에서는 페이로드에 정의된 복합 형식을 사용하여 명령을 구현하는 방법을 보여줍니다.
 

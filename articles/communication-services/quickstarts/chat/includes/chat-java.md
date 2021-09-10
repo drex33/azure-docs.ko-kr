@@ -2,20 +2,20 @@
 title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: 63824148e25465034ed7bed49f1931514c10a35a
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.author: rifox
+ms.openlocfilehash: b5ea5a90a6ad39404208bb9c353bb33e86201299
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113403"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967951"
 ---
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/chat-quickstart-java)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
@@ -58,7 +58,7 @@ POM 파일에서 채팅 API를 사용하여 `azure-communication-chat` 패키지
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-chat for the latest version --></version>
 </dependency>
 ```
 
@@ -68,7 +68,7 @@ POM 파일에서 채팅 API를 사용하여 `azure-communication-chat` 패키지
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-common for the latest version --></version>
 </dependency>
 ```
 
@@ -184,14 +184,20 @@ ChatThreadClient chatThreadClient = chatClient.getChatThreadClient(chatThreadId)
 - `content`를 사용하여 채팅 메시지 콘텐츠를 제공합니다.
 - `type`을 사용하여 채팅 메시지 콘텐츠 유형, TEXT 또는 HTML을 지정합니다.
 - `senderDisplayName`을 사용하여 보낸 사람의 표시 이름을 지정합니다.
+- 선택적으로 `metadata`를 사용하여 메시지와 함께 보내려는 추가 데이터를 포함합니다. 이 필드는 개발자가 채팅 메시지 기능을 확장하고 사용 사례에 대한 사용자 지정 정보를 추가할 수 있는 메커니즘을 제공합니다. 예를 들어 메시지에서 파일 링크를 공유할 때 메타데이터에 'hasAttachment:true'를 추가하여 수신자의 애플리케이션이 이를 구문 분석하고 그에 따라 표시할 수 있습니다.
 
 응답 `sendChatMessageResult`에는 메시지의 고유 ID인 `id`가 포함됩니다.
 
 ```Java
+Map<String, String> metadata = new HashMap<String, String>();
+metadata.put("hasAttachment", "true");
+metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
-    .setContent("Message content")
+    .setContent("Please take a look at the attachment")
     .setType(ChatMessageType.TEXT)
-    .setSenderDisplayName("Sender Display Name");
+    .setSenderDisplayName("Sender Display Name")
+    .setMetadata(metadata);
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
 String chatMessageId = sendChatMessageResult.getId();

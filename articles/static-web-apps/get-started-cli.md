@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: b2ddc56614187d1f2dc6a4a1864d68276eaf54fd
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: a6016ba42fba5a457f2969a1b980a0962605f7a7
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609098"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318337"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 정적 사이트 빌드
 
@@ -20,7 +20,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [GitHub](https://github.com) 계정
 - [GitHub 개인용 액세스 토큰](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
@@ -117,7 +117,7 @@ cd my-first-static-web-app
 
     - `<LOCATION>`: 이 값을 가장 가까운 위치로 바꿉니다. 옵션은 다음과 같습니다. _CentralUS_, _EastAsia_, _EastUS2_, _WestEurope_ 및 _WestUS2_.
 
-    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: 이 값을 이전에 생성한 [GitHub 개인용 액세스 토큰](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)으로 바꿉니다.
+    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: 이 값을 이전에 생성한 [GitHub 개인용 액세스 토큰](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)으로 바꿉니다. (최소 권한은 `Workflow` 범위임)
 
     이제 Azure에서 만든 앱을 볼 수 있습니다.
 

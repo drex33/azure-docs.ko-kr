@@ -5,16 +5,16 @@ description: Azure Data Factory 및 Azure Synapse Analytics에서 데이터를 �
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 08/24/2021
 author: lrtoyou1223
 ms.author: lle
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: f004b3bff64fb4dca7c9d475acb84f6fc52e8837
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a9819af196af6df60644a5e25599c6066dc17eaa
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642450"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123312344"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Azure 통합 런타임을 만들고 구성하는 방법
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -57,8 +57,6 @@ UI를 사용하여 애플리케이션을 만들려면 다음 단계를 수행합
 
     :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="홈 페이지 관리 단추":::
 
----
-
 2. 왼쪽 창에서 **통합 런타임** 을 선택한 다음, **+새로 만들기** 를 선택합니다.
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
@@ -68,8 +66,6 @@ UI를 사용하여 애플리케이션을 만들려면 다음 단계를 수행합
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
     :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="왼쪽 창과 + 새로 만들기 단추에서 통합 런타임을 강조 표시하는 스크린샷입니다.":::
-
----
 
 3. **통합 런타입 설치** 페이지에서 **Azure, 자체 호스트** 를 차례로 선택하고 **계속** 을 선택합니다. 
 

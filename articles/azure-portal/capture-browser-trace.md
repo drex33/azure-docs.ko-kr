@@ -1,24 +1,27 @@
 ---
 title: 문제 해결을 위한 브라우저 추적 캡처
 description: 브라우저 추적에서 네트워크 정보를 캡처하여 Azure Portal 문제를 해결할 수 있습니다.
-ms.date: 03/25/2021
+ms.date: 08/16/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 63bc3e93187274db607b5f60216de461729801dc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d1db82c9671879c435a6dba73929d9a4eb183f7f
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563493"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538266"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>문제 해결을 위한 브라우저 추적 캡처
 
 Azure Portal 문제를 해결하고 Microsoft 지원에 문의해야 하는 경우 먼저 브라우저 추적 및 몇 가지 추가 정보를 캡처하는 것이 좋습니다. 수집하는 정보는 문제가 발생할 때 포털에 대한 중요한 세부 정보를 제공할 수 있습니다. 사용하는 브라우저의 개발자 도구에 대해 이 문서의 단계를 수행합니다. Google Chrome 또는 Microsoft Edge(Chromium), Microsoft Edge(EdgeHTML), Apple Safari 또는 Firefox.
 
+> [!IMPORTANT]
+> Microsoft 지원은 문제 해결을 위해서만 이러한 추적을 사용합니다. 환경에 관한 중요한 정보가 포함될 수 있으므로 누구와 추적을 공유할지 주의하세요.
+
 ## <a name="google-chrome-and-microsoft-edge-chromium"></a>Google Chrome 및 Microsoft Edge(Chromium)
 
 Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프로젝트](https://www.chromium.org/Home)를 기반으로 합니다. 다음 단계에서는 두 브라우저에서 매우 유사한 개발자 도구를 사용하는 방법을 보여 줍니다. 자세한 내용은 [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) 및 [Microsoft Edge(Chromium) 개발자 도구](/microsoft-edge/devtools-guide-chromium)를 참조하세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 추적이 로그인과 관련된 중요한 정보를 포함하지 않도록 추적을 시작하기 _전에_ 로그인해야 합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 추적이 로그인과 관련된 중요한 정보를 포함하지 않도록 추적을 시작하기 _전에_ 로그인해야 합니다.
 
 1. [단계 레코더](https://support.microsoft.com/help/22878/windows-10-record-steps)를 사용하여 포털에서 수행하는 단계를 기록하기 시작합니다.
 
@@ -164,7 +167,7 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
 다음 단계에서는 Firefox에서 개발자 도구를 사용하는 방법을 보여 줍니다. 자세한 내용은 [Firefox 개발자 도구](https://developer.mozilla.org/docs/Tools)를 참조하세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 추적이 로그인과 관련된 중요한 정보를 포함하지 않도록 추적을 시작하기 _전에_ 로그인해야 합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 추적이 로그인과 관련된 중요한 정보를 포함하지 않도록 추적을 시작하기 _전에_ 로그인해야 합니다.
 
 1. 포털에서 수행하는 단계를 기록하기 시작합니다. Windows에서 [단계 레코더](https://support.microsoft.com/help/22878/windows-10-record-steps)를 사용하거나 [Mac에서 화면을 기록하는 방법](https://support.apple.com/HT208721)을 참조하세요.
 
@@ -204,4 +207,5 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Portal 개요](azure-portal-overview.md)
+- [Azure Portal](azure-portal-overview.md)에 관해 자세히 알아봅니다.
+- Azure Portal에서 [지원 요청을 여는](supportability/how-to-create-azure-support-request.md) 방법을 알아봅니다.

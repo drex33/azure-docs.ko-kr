@@ -7,18 +7,25 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 48924cd16eef4cafb2ee0d6a85e30903203169ce
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f51f4b9a838a7a08259b280c4d9cd185b42e588b
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785514"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112116975"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure 파일 동기화로 StorSimple 8100 및 8600 마이그레이션
 
 StorSimple 8000 시리즈는 8100 또는 8600 물리적 온-프레미스 어플라이언스와 해당 클라우드 서비스 구성 요소로 표시됩니다. 이러한 어플라이언스의 데이터를 Azure 파일 동기화 환경으로 마이그레이션할 수 있습니다. Azure 파일 동기화는 StorSimple 어플라이언스를 마이그레이션할 수 있는 기본 전략적 장기 Azure 서비스입니다.
 
 StorSimple 8000 시리즈는 2022년 12월에 [수명 종료](/lifecycle/products/azure-storsimple-8000-series)됩니다. 따라서 최대한 신속하게 마이그레이션 계획을 시작해야 합니다. 이 문서에서는 Azure 파일 동기화로 성공적으로 마이그레이션하기 위해 필요한 배경 지식과 마이그레이션 단계를 제공합니다.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
 ## <a name="phase-1-prepare-for-migration"></a>1단계: 마이그레이션 준비
 
@@ -195,7 +202,7 @@ Azure 파일 공유 또는 표준 스토리지에 프리미엄 스토리지(SSD)
 
 현재는 어떠한 GRS(지역 중복 스토리지) 변형도 지원되지 않습니다. 나중에 중복 유형을 전환하고, Azure에서 GRS가 지원될 때 GRS로 전환할 수 있습니다.
 
-#### <a name="enable-100-tib-capacity-file-shares"></a>100TiB 파일 공유 사용
+#### <a name="enable-100-tib-capacity-file-shares"></a>100TiB 용량 파일 공유 사용
 
 :::row:::
     :::column:::

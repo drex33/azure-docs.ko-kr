@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: c6c09389628e1a9648d827eb5562a06c4f746db2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8c40af42248e41346d10ec0028c1f13ff7ef22d6
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370946"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114457950"
 ---
 # <a name="cognitive-services-development-options"></a>Cognitive Services 개발 옵션
 
@@ -28,7 +28,7 @@ Cognitive Services는 의사 결정, 언어, 음성 및 비전의 네 가지 범
 * 안전한 액세스를 위한 Cognitive Services Docker 컨테이너입니다.
 * Apache Spark, Azure Databasericks, Azure Synapse Analytics 및 Azure Kubernetes Service for Big Data 시나리오와 같은 도구입니다. 
 
-시작하기 전에 Cognitive Services가 주로 두 가지 고유 작업에 사용된다는 것을 알고 있어야 합니다. 수행하려는 작업에 따라 다양한 개발 및 배포 옵션을 선택할 수 있습니다. 
+시작하기 전에, Cognitive Services가 주로 두 가지 고유 작업에 사용된다는 것을 알고 있어야 합니다. 수행하려는 작업에 따라 다양한 개발 및 배포 옵션을 선택할 수 있습니다. 
 
 * [예측 및 분석을 위한 개발 옵션](#development-options-for-prediction-and-analysis)
 * [모델 사용자 지정 및 구성 도구](#tools-to-customize-and-configure-models)
@@ -87,7 +87,7 @@ Cognitive Services용 빅 데이터에 대해 자세히 알아보려면 먼저 [
 
 ### <a name="power-automate"></a>Power Automate 
 
-Power Automate는 코드를 작성하지 않고도 앱과 서비스 간에 자동화된 워크플로를 만드는 데 도움이 되는 [Power Platform](/power-platform/) 서비스입니다. Power Automate 솔루션에서는 Cognitive Services 리소스와 쉽게 상호 작용할 수 있도록 여러 커넥터를 제공합니다. Power Automate는 Logic Apps를 기반으로 빌드됩니다. 
+Power Automate는 코드를 작성하지 않고도 앱과 서비스 간에 자동화된 워크플로를 생성하는 데 도움이 되는 [Power Platform](/power-platform/) 서비스입니다. Power Automate 솔루션에서는 Cognitive Services 리소스와 쉽게 상호 작용할 수 있도록 여러 커넥터를 제공합니다. Power Automate는 Logic Apps를 기반으로 빌드됩니다. 
 
 * **대상 사용자**: 비즈니스 사용자(분석가) 및 SharePoint 관리자
 * **이점**: 데스크톱에서 마우스 클릭, 키 입력 및 복사/붙여넣기 단계를 기록하여 반복적인 수동 작업을 자동화합니다.
@@ -105,7 +105,7 @@ Power Automate는 코드를 작성하지 않고도 앱과 서비스 간에 자�
 
 ### <a name="continuous-integration-and-deployment"></a>연속 통합 및 배포
 
-Azure DevOps 및 GitHub Actions를 사용하여 배포를 관리할 수 있습니다. [아래 섹션](#continuous-integration-and-delivery-with-devops-and-github-actions)에서는 음성 및 LUIS(Language Understanding) 서비스를 위한 사용자 지정 모델을 학습시키고 배포하기 위한 CI/CD 통합의 두 가지 예를 보여 줍니다. 
+Azure DevOps 및 GitHub Actions를 사용하여 배포를 관리할 수 있습니다. [아래 섹션](#continuous-integration-and-delivery-with-devops-and-github-actions)에서는 음성 및 Language Understanding (LUIS) 서비스를 위한 사용자 지정 모델을 학습시키고 배포하기 위한 CI/CD 통합의 두 가지 예를 보여 줍니다. 
 
 * **대상 사용자**: 개발자, 데이터 과학자 및 데이터 엔지니어
 * **이점**: 프로그래밍 방식으로 애플리케이션과 모델을 지속적으로 조정, 업데이트 및 배포할 수 있습니다. 데이터를 정기적으로 사용하면 음성, 비전, 언어 및 의사 결정을 위한 모델을 개선하고 업데이트할 때 상당한 이점이 있습니다. 
@@ -116,7 +116,7 @@ Azure DevOps 및 GitHub Actions를 사용하여 배포를 관리할 수 있습�
 
 Cognitive Services를 사용하여 애플리케이션 또는 워크플로를 빌드하는 과정을 진행하면서 원하는 성능을 얻기 위해 모델을 사용자 지정해야 할 수 있습니다. 많은 서비스를 통해 미리 빌드된 모델을 기반으로 특정 비즈니스 요구 사항을 충족할 수 있습니다. 사용자 지정 가능한 모든 서비스에 대해 코드 기반 학습을 위한 API뿐만 아니라 프로세스를 살펴볼 수 있는 UI 기반 환경을 제공합니다. 예를 들면 다음과 같습니다.
 
-* WER(단어 오류율) 3% 미만으로 의학 용어를 올바르게 인식하도록 사용자 지정 음성 모델을 학습시키려고 합니다.
+* 단어 오류율(WER) 3% 미만으로 의학 용어를 올바르게 인식하도록 사용자 지정 음성 모델을 학습시키려고 합니다
 * Custom Vision으로 침엽수와 낙엽수의 차이를 구분할 수 있는 이미지 분류자를 빌드하려고 합니다.
 * 향상된 자동화된 고객 환경을 위해 개인 음성 데이터로 사용자 지정 신경망 음성을 빌드하려고 합니다.
 
@@ -127,7 +127,6 @@ Cognitive Services를 사용하여 애플리케이션 또는 워크플로를 빌
 | Vision | Custom Vision | https://www.customvision.ai/ | [빠른 시작](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
 | Vision | Form Recognizer | [샘플 레이블 지정 도구](https://aka.ms/fott-2.1-ga) | [방법 문서](./form-recognizer/label-tool.md?tabs=v2-0) |
 | 의사 결정 | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [빠른 시작](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
-| 의사 결정 | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [빠른 시작](./metrics-advisor/quickstarts/web-portal.md) |
 | 의사 결정 | Personalizer | UI는 Azure Portal의 Personalizer 리소스에서 사용할 수 있습니다. | [빠른 시작](./personalizer/quickstart-personalizer-sdk.md) |
 | 언어 | 언어 이해(LUIS) | https://www.luis.ai/ | |
 | 언어 | QnA Maker | https://www.qnamaker.ai/ | [빠른 시작](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
@@ -143,7 +142,7 @@ Language Understanding 및 Speech Service는 Azure DevOps 및 GitHub Actions로 
 * [Custom Speech용 CI/CD](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
 * [LUIS용 CI/CD](./luis/luis-concept-devops-automation.md)
 
-## <a name="on-prem-containers"></a>온-프레미스 컨테이너 
+## <a name="on-premises-containers"></a>온-프레미스 컨테이너 
 
 대부분의 Cognitive Services는 온-프레미스 액세스 및 사용을 위해 컨테이너에 배포할 수 있습니다. 이러한 컨테이너를 사용하면 규정 준수, 보안 또는 기타 운영상의 이유로 Cognitive Services를 데이터에 더 가깝게 가져올 수 있는 유연성이 제공됩니다. Cognitive Services 컨테이너의 전체 목록은 [Cognitive Services용 온-프레미스 컨테이너](./cognitive-services-container-support.md)를 참조하세요.
 

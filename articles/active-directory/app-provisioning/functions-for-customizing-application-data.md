@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/29/2021
+ms.date: 08/30/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9736bee99483a7e4fbb5a5f02a3f415a74c9f76f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c91d4f98928f2d446a15b123a4155b971377159a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528328"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223833"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory에서 특성 매핑에 대한 식을 작성하기 위한 참조
 
@@ -38,7 +38,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 ## <a name="list-of-functions"></a>함수 목록
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Append
@@ -259,17 +259,14 @@ CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. DateTime�
 
 | 이름 | 필수/ 반복 | Type | 참고 |
 | --- | --- | --- | --- |
-| **interval** |필수 | String | 추가하려는 시간 간격입니다. 이 표 아래에서 허용되는 값을 참조하세요. |
+| **interval** |필수 | 문자열 | 추가하려는 시간 간격입니다. 이 표 아래에서 허용되는 값을 참조하세요. |
 | **value** |필수 | Number | 추가하려는 단위 수 입니다. 양수(미래 날짜) 또는 음수(과거 날짜)가 될 수 있습니다. |
 | **dateTime** |필수 | DateTime | 간격이 추가되는 날짜를 나타내는 날짜/시간입니다. |
 
 **interval** 문자열은 다음 값 중 하나가 있어야 합니다. 
  * yyyy 년 
- * q 분기
  * m 월
- * y 연간 일자
  * d 일
- * w 요일
  * ww 주
  * h 시간
  * n 분
@@ -299,6 +296,57 @@ CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. DateTime�
 `DateAdd("yyyy", 2, CDate([StatusHireDate]))`
 * **입력**(StatusHireDate): 2012-03-16-07:00
 * **출력**: 3/16/2014 7:00:00 AM
+---
+### <a name="datediff"></a>DateDiff
+**함수:**  
+`DateDiff(interval, date1, date2)`
+
+**설명:**  
+이 함수는 *interval* 매개 변수를 사용하여 두 입력 날짜 간의 차이를 나타내는 숫자를 반환합니다. 을 반환합니다. 
+  * date2 > date1이면 양수, 
+  * date2 < date1이면 음수, 
+  * date2 == date1이면 0
+
+**매개 변수:** 
+
+| Name | 필수/선택 | 형식 | 참고 |
+| --- | --- | --- | --- |
+| **interval** |필수 | 문자열 | 차이를 계산하는 데 사용할 시간 간격입니다. |
+| **date1** |필수 | DateTime | 유효한 날짜를 나타내는 DateTime입니다. |
+| **date2** |필수 | DateTime | 유효한 날짜를 나타내는 DateTime입니다. |
+
+**interval** 문자열은 다음 값 중 하나가 있어야 합니다. 
+ * yyyy 년 
+ * m 월
+ * d 일
+ * ww 주
+ * h 시간
+ * n 분
+ * s 초
+
+**예 1: 다양한 간격을 사용하여 현재 날짜와 Workday의 고용 날짜를 비교** <br>
+`DateDiff("d", Now(), CDate([StatusHireDate]))`
+
+| 예제 | interval | date1 | date2 | output |
+| --- | --- | --- | --- | --- |
+| 두 날짜 간의 양수 차이(일) | 일 | 2021-08-18+08:00 | 2021-08-31+08:00 | 13 |
+| 두 날짜 간의 음수 차이(일) | 일 | 8/25/2021 5:41:18 PM | 2012-03-16-07:00 | -3449 |
+| 두 날짜 간의 차이(주) | ww | 8/25/2021 5:41:18 PM | 2012-03-16-07:00 | -493 | 
+| 두 날짜 간의 차이(월) | 분 | 8/25/2021 5:41:18 PM | 2012-03-16-07:00 | -113 | 
+| 두 날짜 간의 연 차이 | yyyy | 8/25/2021 5:41:18 PM | 2012-03-16-07:00 | -9 | 
+| 두 날짜가 동일한 경우의 차이 | 일 | 2021-08-31+08:00 | 2021-08-31+08:00 | 0 | 
+| 두 날짜 간의 차이(시간) | h | 2021-08-24 | 2021-08-25 | 24 | 
+| 두 날짜 간의 차이(분) | n | 2021-08-24 | 2021-08-25 | 1440 | 
+| 두 날짜 간의 차이(초) | 초 | 2021-08-24 | 2021-08-25 | 86400 | 
+
+**예제 2: DateDiff 함수를 IIF 함수와 결합하여 특성 값 설정** <br>
+Workday에서 계정이 활성 상태인 경우 고용 날짜가 앞으로 5일 이내인 경우에만 사용자의 *accountEnabled* 특성을 True로 설정합니다. 
+
+```
+Switch([Active], , 
+  "1", IIF(DateDiff("d", Now(), CDate([StatusHireDate])) > 5, "False", "True"), 
+  "0", "False")
+```
 
 ---
 
@@ -563,6 +611,28 @@ numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
 | **source** |필수 |String | 일반적으로 이름 또는 성 특성입니다. |
 
 
+| 분음 부호가 있는 문자  | 정규화된 문자 | 분음 부호가 있는 문자  | 정규화된 문자 | 
+| --- | --- | --- | --- | 
+| ä, à, â, ã, å, á, ą, ă | a | Ä, À, Â, Ã, Å, Á, Ą, Ă | A | 
+| æ | ae | Æ | AE | 
+| ç, č, ć | c | Ç, Č, Ć | C | 
+| ď | 일 | Ď | D | 
+| ë, è, é, ê, ę, ě, ė | e | Ë, È, É, Ê, Ę, Ě, Ė | E | 
+| ğ | g | Ğ | G | 
+| Ï, Î, Ì, Í, İ | I | ï, î, ì, í, ı | i | 
+| ľ, ł | l |  Ł, Ľ | L | 
+| ñ, ń, ň | n |  Ñ, Ń, Ň | N | 
+| ö, ò, ő, õ, ô, ó | o |  Ö, Ò, Ő, Õ, Ô, Ó | O | 
+| ø | oe |  Ø | OE | 
+| ř | r |  Ř | R | 
+| ß | ss | | | 
+| š, ś, ș, ş | 초 |  Š, Ś, Ș, Ş | S | 
+| ť, ț | t | Ť, Ț | T | 
+| ü, ù, û, ú, ů, ű | u |  Ü, Ù, Û, Ú, Ů, Ű | U | 
+| ÿ, ý | y | Ÿ, Ý | 지원 | 
+| ź, ž, ż | z | Ź, Ž, Ż | Z | 
+
+
 #### <a name="remove-diacritics-from-a-string"></a>문자열에서 분음 부호 제거
 예: 악센트 기호를 포함하지 않는 해당 문자로 악센트 기호를 포함하는 문자를 바꿔야 합니다.
 
@@ -611,10 +681,10 @@ Now 함수는 현재 UTC DateTime을 나타내는 문자열을 **M/d/yyyy h:mm:s
 
 **예:**
 * Workday를 예로 들어 Workday에서 *2020-12-31-08:00* 형식으로 된 *ContractEndDate* 특성을 AD의 *accountExpires* 필드로 매핑하는 경우 이 함수를 사용하여 로캘에 맞게 표준 시간대 오프셋을 변경하는 방법은 다음과 같습니다. 
-  `NumFromDate(Join("", FormatDateTime([ContractEndDate], ,"yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
+  `NumFromDate(Join("", FormatDateTime([ContractEndDate], ,"yyyy-MM-ddzzz", "yyyy-MM-dd"), " 23:59:59-08:00"))`
 
 * SuccessFactors를 예로 들어 SuccessFactors에서 *M/d/yyyy hh:mm:ss tt* 형식으로 된 *endDate* 특성을 AD의 *accountExpires* 필드로 매핑하는 경우 이 함수를 사용하여 로캘에 맞게 표준 시간대 오프셋을 변경하는 방법은 다음과 같습니다.
-  `NumFromDate(Join("",FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
+  `NumFromDate(Join("",FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd")," 23:59:59-08:00"))`
 
 
 ---

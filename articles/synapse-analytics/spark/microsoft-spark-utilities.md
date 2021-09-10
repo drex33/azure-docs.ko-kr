@@ -11,12 +11,12 @@ ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 9923a2bd2e36975fe1af77fddb4bb484a4eb87c6
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 5e0590dd524c516b2c6b909184de1f2d65f0074c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113217776"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257038"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
 
@@ -51,7 +51,7 @@ Synapse 파이프라인은 작업 영역의 MSI(관리 서비스 ID)를 사용�
 
 Synapse Spark를 사용하여 다음 URL을 통해 ADLS Gen2의 데이터에 액세스할 수 있습니다.
 
-<code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
+`abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path>`
 
 ### <a name="configure-access-to-azure-blob-storage"></a>Azure Blob Storage에 대한 액세스 구성  
 
@@ -69,7 +69,7 @@ Azure Blob Storage 계정을 위한 새 연결된 서비스를 추가하려면 �
 
 다음 URL을 통해 Synapse Spark를 사용하여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
 
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+`wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path>`
 
 여기에 코드 예제가 있습니다.
 

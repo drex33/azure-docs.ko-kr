@@ -7,19 +7,19 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
 ms.date: 4/1/2021
-ms.openlocfilehash: f6282d66a6c499e5a8e14cd90e90dc9b6f6ee633
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 9eed079b7beda59f4835bb1263a226e2aa7f74c2
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768376"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272623"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Azure Purview에서 지원되는 분류
 
 이 문서에는 Azure Purview(미리 보기)에서 지원되고 정의된 시스템 분류가 나열되어 있습니다.
 
 
-- **고유 일치 임계값**: 스캐너가 데이터 패턴을 실행하기 전에 열에서 찾아야 하는 총 개별 데이터 값 수입니다. 고유 일치 임계값은 패턴 일치와 무관하나 패턴 일치를 위한 필수 구성 요소입니다. 시스템 분류 규칙에 따라 각 열에는 분류를 위해 최소 8개의 고유 값이 있어야 합니다. 스캐너가 정확히 분류할 수 있을 만큼 충분한 데이터가 열에 포함되었는지 확인하기 위해, 시스템에서 이 값이 필요합니다. 예를 들어 값 1만 포함하는 여러 행이 있는 열은 분류되지 않습니다. 한 행에 값이 있고 나머지 행은 null 값인 열도 분류되지 않습니다. 여러 패턴을 지정할 경우 이 값이 각각의 패턴에 적용됩니다.
+- **고유 데이터 임계값**: 스캐너가 데이터 패턴을 실행하기 전에 열에서 찾아야 하는 고유 데이터 값의 총 수입니다. 고유 데이터 임계값은 패턴 일치와 관련이 없지만 패턴 일치를 위한 필수 조건입니다. 시스템 분류 규칙에 따라 각 열에는 분류를 위해 최소 8개의 고유 값이 있어야 합니다. 스캐너가 정확히 분류할 수 있을 만큼 충분한 데이터가 열에 포함되었는지 확인하기 위해, 시스템에서 이 값이 필요합니다. 예를 들어 값 1만 포함하는 여러 행이 있는 열은 분류되지 않습니다. 한 행에 값이 있고 나머지 행은 null 값인 열도 분류되지 않습니다. 여러 패턴을 지정할 경우 이 값이 각각의 패턴에 적용됩니다.
 
 - **최소 일치 임계값**: 분류를 적용하기 위해 스캐너로 검색되어야 하는 열에서 일치하는 데이터 값의 최소 백분율입니다. 시스템 분류 값은 60%로 설정됩니다.
 

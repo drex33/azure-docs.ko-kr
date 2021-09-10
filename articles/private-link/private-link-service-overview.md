@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: a5eeb8fbadda24a811893a02f42b428a8365c5aa
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 50d918cb6cb096674dc5b79d478d37d65422106e
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110262"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186014"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure Private Link 서비스는 무엇입니까?
 
@@ -97,7 +97,7 @@ Private Link 서비스는 다음 속성을 지정합니다.
 
 Private Link 서비스는 **표시 유형** 설정에서 서비스 노출을 제어할 수 있는 세 가지 옵션을 제공합니다. 표시 유형 설정은 소비자가 서비스에 연결할 수 있는지 여부를 결정합니다. 최대 제한에서 최소 제한까지 표시 유형 설정 옵션은 다음과 같습니다.
  
-- **역할 기반 액세스 제어만**: 소유한 다양한 VNet에서 서비스가 프라이빗 소비용으로 제공되는 경우 동일한 Active Directory 테넌트와 연결된 구독 내의 액세스 제어 메커니즘으로 RBAC를 사용할 수 있습니다. 
+- **역할 기반 액세스 제어만**: 소유한 다양한 VNet에서 서비스가 프라이빗 소비용으로 제공되는 경우 동일한 Active Directory 테넌트와 연결된 구독 내의 액세스 제어 메커니즘으로 RBAC를 사용할 수 있습니다. 참고: 교차 테넌트 가시성은 RBAC를 통해 허용됩니다.
 - **구독에 의해 제한됨**: 여러 테넌트에서 서비스를 사용하는 경우 신뢰하는 제한된 구독 세트로 노출을 제한할 수 있습니다. 권한 부여를 미리 승인할 수 있습니다.
 - **별칭이 있는 모든 사용자**: 서비스를 퍼블릭으로 설정하고 Private Link 서비스 별칭이 있는 모든 사용자가 연결을 요청할 수 있게 하려면 이 옵션을 선택합니다. 
 

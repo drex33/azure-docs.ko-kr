@@ -2,17 +2,17 @@
 title: Azure Arc 지원 Kubernetes 클러스터 확장
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/25/2021
+ms.date: 06/18/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Azure Arc 지원 Kubernetes 확장의 수명 주기 배포 및 관리
-ms.openlocfilehash: cd2d0915b173f3621502f22a2d47e25271f87400
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 28f82471b13ec798f7c75f6b17d88321dd4f79a9
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111951683"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112378073"
 ---
 # <a name="deploy-and-manage-azure-arc-enabled-kubernetes-cluster-extensions"></a>Azure Arc 지원 Kubernetes 클러스터 확장 배포 및 관리
 
@@ -64,6 +64,7 @@ Kubernetes 확장 기능을 사용하면 Azure Arc 지원 Kubernetes 클러스�
 | [Azure Arc의 Azure App Service](../../app-service/overview-arc-integration.md) | Azure Arc 지원 Kubernetes 클러스터를 기반으로 App Service Kubernetes 환경을 프로비전할 수 있습니다. |
 | [Kubernetes의 Event Grid](../../event-grid/kubernetes/overview.md) | Azure Arc 지원 Kubernetes 클러스터를 기반으로 토픽 및 이벤트 구독과 같은 Event Grid 리소스를 만들고 관리합니다. |
 | [Azure Arc의 Azure API Management](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Azure Arc 지원 Kubernetes 클러스터에서 API Management 게이트웨이를 배포하고 관리합니다. |
+| [Azure Arc 지원 기계 학습](../../machine-learning/how-to-attach-arc-kubernetes.md) | Azure Arc 사용 Kubernetes 클러스터에서 Azure Machine Learning를 배포하고 실행합니다. |
 
 ## <a name="usage-of-cluster-extensions"></a>클러스터 확장 사용
 

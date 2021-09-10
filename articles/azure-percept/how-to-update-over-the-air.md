@@ -1,20 +1,20 @@
 ---
-title: OTA(무선) 업데이트를 사용하여 Azure Percept DK 업데이트
+title: 무선으로 Azure Percept DK 업데이트
 description: Azure Percept DK에 OTA(무선) 업데이트를 받는 방법에 대해 알아봅니다.
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c5045aed59be4c8903672691241b68f69e353e13
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0b3dd8e10379e28a7bd988ec37dcd1943fcac2d3
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528580"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222246"
 ---
-# <a name="update-your-azure-percept-dk-using-over-the-air-ota-updates"></a>OTA(무선) 업데이트를 사용하여 Azure Percept DK 업데이트
+# <a name="update-azure-percept-dk-over-the-air"></a>무선으로 Azure Percept DK 업데이트
 
 이 가이드에 따라 IoT Hub용 디바이스 업데이트를 사용하여 Azure Percept DK OTA(무선)의 통신 업체 보드의 OS 및 펌웨어를 업데이트하는 방법을 알아봅니다.
 
@@ -68,12 +68,10 @@ IoT Hub용 디바이스 업데이트를 사용하면 Azure Percept DK의 특정 
 - 한 디바이스는 하나의 그룹에만 속할 수 있습니다.
 
 1. 디바이스(들)에 태그 추가:
-
     1. 왼쪽 탐색 창의 **IoT Edge** 에서 Azure Percept DK를 찾고 **디바이스 쌍** 으로 이동합니다.
-
     1. 아래와 같이 새로운 **Device Update for IoT Hub** 태그 값을 추가합니다(```<CustomTagValue>```는 태그 값/이름을 지칭함(예: AzurePerceptGroup1)). 디바이스 쌍 [JSON 문서 태그](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)에 대해 자세히 알아보세요.
 
-        ```
+        ```json
         "tags": {
         "ADUGroup": "<CustomTagValue>"
         },
@@ -84,15 +82,10 @@ IoT Hub용 디바이스 업데이트를 사용하면 Azure Percept DK의 특정 
 1. 기존 Azure IoT Hub 태그를 선택하여 그룹 만들기
 
     1. Azure IoT Hub 페이지로 다시 이동합니다.
-
     1. 왼쪽 메뉴 패널의 **자동 디바이스 관리** 에서 **디바이스 업데이트** 를 선택합니다.
-
     1. **그룹** 탭을 선택합니다. 이 페이지에는 디바이스 업데이트에 연결된 그룹화되지 않은 디바이스 수가 표시됩니다.
-
     1. **+ 추가** 를 선택하여 새 그룹을 만듭니다.
-
     1. 목록에서 IoT Hub 태그를 선택하고 **제출** 을 클릭합니다.
-
     1. 그룹이 만들어지면 업데이트 규정 준수 차트 및 그룹 목록이 업데이트되는 것을 볼 수 있습니다. 차트는 **최신 업데이트**, **사용 가능한 새 업데이트**, **진행 중인 업데이트** 및 **아직 그룹화되지 않음** 에 대한 다양한 준수 상태의 디바이스 수를 표시합니다.
 
 ## <a name="deploy-an-update"></a>업데이트 배포

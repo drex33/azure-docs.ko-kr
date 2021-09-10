@@ -3,13 +3,13 @@ title: 풀에서 가상 파일 시스템 탑재
 description: Batch 풀에서 가상 파일 시스템을 탑재하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 03/26/2021
-ms.openlocfilehash: 460501e30b5afd2eb7a1f67b1162b9820830454a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/18/2021
+ms.openlocfilehash: 7057a982fb3a4b59b8716a373c2ed5172e392cb2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968150"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568151"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Batch 풀에서 가상 파일 시스템 탑재
 
@@ -78,11 +78,16 @@ new PoolAddParameter
 
 ### <a name="azure-blob-container"></a>Azure Blob 컨테이너
 
-또 다른 옵션은 [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)를 통해 Azure Blob 스토리지를 사용하는 것입니다. Blob 파일 시스템 탑재를 위해서는 해당 스토리지 계정에 대한 `AccountKey` 또는 `SasKey`가 필요합니다. 이러한 키를 가져오는 방법에 대한 자세한 내용은 [스토리지 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md) 또는 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 제한된 액세스 권한 부여](../storage/common/storage-sas-overview.md)를 참조하세요. blobfuse 사용에 대한 자세한 정보와 팁은 blobfuse를 참조하세요.
+또 다른 옵션은 [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)를 통해 Azure Blob 스토리지를 사용하는 것입니다. Blob 파일 시스템 탑재를 위해서는 해당 스토리지 계정에 대한 `AccountKey` 또는 `SasKey` 또는 `Managed Identity`이 필요합니다.
+
+이러한 키 가져오기에 대한 자세한 내용은 [스토리지 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md), [공유 액세스 서명(SAS)을 사용하여 Azure Storage 리소스에 대한 제한된 액세스 부여](../storage/common/storage-sas-overview.md) 및 [일괄 관리 ID 구성을 Batch 풀](managed-identity-pools.md)에서 참조하세요. blobfuse 사용에 대한 자세한 정보와 팁은 [blobfuse 프로젝트](https://github.com/Azure/azure-storage-fuse)를 참조하세요.
 
 blobfuse에 탑재된 디렉터리에 대한 기본 액세스 권한을 얻으려면 작업을 **관리자** 로 실행합니다. Blobfuse는 사용자 공간에 디렉터리를 탑재하고, 풀 생성 시 루트로 탑재됩니다. Linux에서 모든 **관리자** 태스크는 루트입니다. FUSE 모듈의 모든 옵션은 [FUSE 참조 페이지](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)에 설명되어 있습니다.
 
 blobfuse 사용에 대한 자세한 정보와 팁을 알아보려면 [문제 해결 FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)를 검토하세요. 또한 [blobfuse 리포지토리의 GitHub 문제](https://github.com/Azure/azure-storage-fuse/issues)를 검토하여 현재 blobfuse 문제와 해결 방법을 확인할 수 있습니다.
+
+> [!NOTE]
+> 아래 예제에서는`AccountKey`,`SasKey` 및 `IdentityReference`를 보여주지만 함께 사용할 수는 없습니다. 하나만 지정할 수 있습니다.
 
 ```csharp
 new PoolAddParameter
@@ -98,6 +103,7 @@ new PoolAddParameter
                 ContainerName = "containerName",
                 AccountKey = "StorageAccountKey",
                 SasKey = "SasKey",
+                IdentityReference = new ComputeNodeIdentityReference("/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name"),
                 RelativeMountPath = "RelativeMountPath",
                 BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
             },
@@ -105,6 +111,9 @@ new PoolAddParameter
     }
 }
 ```
+
+> [!TIP]
+>관리 id를 사용 하는 경우 탑재를 수행 하는 VM에서 사용할 수 있도록 ID가 [풀에 할당](managed-identity-pools.md) 되었는지 확인합니다. Id가 제대로 작동 하려면 `Storage Blob Data Contributor` 역할이 있어야 합니다.
 
 ### <a name="network-file-system"></a>네트워크 파일 시스템
 

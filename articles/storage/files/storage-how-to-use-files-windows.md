@@ -1,5 +1,5 @@
 ---
-title: Windows에서 Azure 파일 공유 사용 | Microsoft Docs
+title: Windows에 SMB Azure 파일 공유 탑재 | Microsoft Docs
 description: Windows 및 Windows Server에서 Azure 파일 공유를 사용하는 방법을 알아봅니다. 온-프레미스 또는 Azure VM에서 실행되는 Windows 설치에서 SMB 3.x와 함께 Azure 파일 공유를 사용합니다.
 author: roygara
 ms.service: storage
@@ -8,42 +8,50 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31df90823591298a13dba725b7215031cad4bf8d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e8b469eb7eb94ad5454f79c4c4893597670867ac
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064813"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122969511"
 ---
-# <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
+# <a name="mount-smb-azure-file-share-on-windows"></a>Windows에 SMB Azure 파일 공유 탑재
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
 
-온-프레미스 또는 다른 Azure 지역처럼 호스팅되는 Azure 지역 외부에서 Azure 파일 공유를 사용하려면 OS가 SMB 3.x를 지원해야 합니다. 
+온-프레미스 또는 다른 Azure 지역과 같이 호스팅되는 Azure 지역 외부의 퍼블릭 엔드포인트를 통해 Azure 파일 공유를 사용하려면 OS에서 SMB 3.x를 지원해야 합니다. SMB 2.1만 지원하는 이전 버전의 Windows는 퍼블릭 엔드포인트를 통해 Azure 파일 공유를 탑재할 수 없습니다.
 
-Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 공유를 사용할 수 있습니다. 다음 표는 각 환경에서 파일 공유를 지원하는 OS 버전을 보여줍니다.
+| Windows 버전 | SMB 버전 | Azure Files SMB 다중 채널 | 최대 SMB 채널 암호화 |
+|-|-|-|-|
+| Windows Server 2022 | SMB 3.1.1 | 예 | AES-256-GCM |
+| Windows 10, 버전 21H1 | SMB 3.1.1 | 예. KB5003690 이상 | AES-256-GCM |
+| Windows Server 버전 20H2 | SMB 3.1.1 | 예. KB5003690 이상 | AES-128-GCM |
+| Windows 10 버전 20H2 | SMB 3.1.1 | 예. KB5003690 이상 | AES-128-GCM |
+| Windows Server, 버전 2004 | SMB 3.1.1 | 예. KB5003690 이상 | AES-128-GCM |
+| Windows 10, 버전 2004 | SMB 3.1.1 | 예. KB5003690 이상 | AES-128-GCM |
+| Windows Server 2019 | SMB 3.1.1 | 예. KB5003703 이상 | AES-128-GCM |
+| Windows 10, 버전 1809 | SMB 3.1.1 | 예. KB5003703 이상 | AES-128-GCM |
+| Windows Server 2016 | SMB 3.1.1 | 예. KB5004238 이상 | AES-128-GCM |
+| Windows 10 버전 1607 | SMB 3.1.1 | 예. KB5004238 이상 | AES-128-GCM |
+| Windows 10 버전 1507 | SMB 3.1.1 | 예, KB5004249 이상 | AES-128-GCM |
+| Windows Server 2012 R2 | SMB 3.0 | 예 | AES-128-CCM |
+| Windows 8.1 | SMB 3.0 | 예 | AES-128-CCM |
+| Windows Server 2012 | SMB 3.0 | 예 | AES-128-CCM |
+| Windows Server 2008 R2<sup>1</sup> | SMB 2.1 | No | 지원되지 않음 |
+| Windows 7<sup>1</sup> | SMB 2.1 | No | 지원되지 않음 |
 
-| Windows 버전        | SMB 버전 | Azure VM에 탑재 가능 | 온-프레미스에 탑재 가능 |
-|------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.1.1 | 예 | 예 |
-| Windows 10<sup>1</sup> | SMB 3.1.1 | 예 | 예 |
-| Windows Server 반기 채널<sup>2</sup> | SMB 3.1.1 | 예 | 예 |
-| Windows Server 2016 | SMB 3.1.1 | 예 | 예 |
-| Windows 10 버전 1507 | SMB 3.0 | 예 | 예 |
-| Windows 8.1 | SMB 3.0 | 예 | 예 |
-| Windows Server 2012 R2 | SMB 3.0 | 예 | 예 |
-| Windows Server 2012 | SMB 3.0 | 예 | 예 |
-| Windows 7<sup>3</sup> | SMB 2.1 | 예 | 예 |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | 예 | 아니요 |
-
-<sup>1</sup> Windows 10, 버전 1607, 1809, 1909, 2004 및 20H2  
-<sup>2</sup> Windows Server, 버전 2004 및 20H2.  
-<sup>3</sup>Windows 7 및 Windows Server 2008 R2에 대한 정식 Microsoft 지원이 종료되었습니다. [ESU(연장 보안 업데이트) 프로그램](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates)을 통해서만 보안 업데이트에 대한 추가 지원을 구매할 수 있습니다. 이와 같은 운영 체제에서 마이그레이션하는 것이 좋습니다.
+<sup>1</sup>Windows 7 및 Windows Server 2008 R2에 대한 정식 Microsoft 지원이 종료되었습니다. [ESU(연장 보안 업데이트) 프로그램](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates)을 통해서만 보안 업데이트에 대한 추가 지원을 구매할 수 있습니다. 이와 같은 운영 체제에서 마이그레이션하는 것이 좋습니다.
 
 > [!Note]  
 > 사용자의 Windows 버전에 대해 가장 최근의 KB를 선택하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
+## <a name="prerequisites"></a>사전 요구 사항 
 445 포트가 열려 있는지 확인: SMB 프로토콜은 TCP 포트 445가 열려 있어야 하며, 445 포트가 닫혀 있으면 연결이 실패합니다. `Test-NetConnection` cmdlet을 사용하여 방화벽이 포트 445를 차단하는지 확인할 수 있습니다. 차단된 445 포트를 해결하는 방법에 대한 자세한 내용은 Windows 문제 해결 가이드의 [원인 1: 포트 445 차단](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) 섹션을 참조하세요.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
@@ -123,82 +131,6 @@ Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 
 **복원** 을 선택하여 공유 스냅샷을 만들 때의 전체 디렉터리의 내용을 원래 위치에 재귀적으로 복사합니다.
 
  ![경고 메시지의 복원 단추](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
-
-## <a name="securing-windowswindows-server"></a>Windows/Windows Server 보안
-Windows에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 수 있어야 합니다. 많은 조직에서 SMB 1에 내재된 보안 위험 때문에 포트 445를 차단합니다. CIFS(Common Internet File System)라고도 하는 SMB 1은 Windows 및 Windows Server에 포함된 레거시 파일 시스템 프로토콜입니다. SMB 1은 구식 프로토콜로 비효율적이며 무엇보다도 보안성이 떨어집니다. 좋은 소식은, Azure Files는 SMB 1을 지원하지 않습니다. 그리고 모든 지원되는 Windows 및 Windows Server 버전은 SMB 1을 제거하거나 사용하지 않도록 설정할 수 있습니다. 프로덕션 환경에서 Azure 파일 공유를 사용하기 전에 항상 SMB 1 클라이언트 및 서버를 Windows에서 제거하거나 사용하지 않도록 설정할 것을 [강력히 권장](https://aka.ms/stopusingsmb1)합니다.
-
-다음 표에서는 각 Windows 버전의 SMB 1 상태에 대한 자세한 정보를 제공합니다.
-
-| Windows 버전                           | SMB 1 기본 상태 | 해제/제거 방법       | 
-|-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019                       | 사용 안 함             | Windows 기능을 사용하여 제거 |
-| Windows Server 버전 1709+            | 사용 안 함             | Windows 기능을 사용하여 제거 |
-| Windows 10 버전 1709+                | 사용 안 함             | Windows 기능을 사용하여 제거 |
-| Windows Server 2016                       | 사용              | Windows 기능을 사용하여 제거 |
-| Windows 10 버전 1507, 1607, 1703 | 사용              | Windows 기능을 사용하여 제거 |
-| Windows Server 2012 R2                    | 사용              | Windows 기능을 사용하여 제거 | 
-| Windows 8.1                               | 사용              | Windows 기능을 사용하여 제거 | 
-| Windows Server 2012                       | 사용              | 레지스트리를 사용하여 해제       | 
-| Windows Server 2008 R2                    | 사용              | 레지스트리를 사용하여 해제       |
-| Windows 7                                 | 사용              | 레지스트리를 사용하여 해제       | 
-
-### <a name="auditing-smb-1-usage"></a>SMB 1 사용 감사
-> Windows Server 2019, Windows Server 반기 채널(버전 1709 및 1803), Windows Server 2016, Windows 10(버전 1507, 1607, 1703, 1709 및 1803), Windows Server 2012 R2, Windows 8.1에 적용
-
-환경에서 SMB 1을 제거하기 전에, SMB 1 사용을 감사하여 변경 때문에 손상되는 클라이언트가 있는지 확인할 수 있습니다. SMB 1을 사용하여 SMB 공유에 대한 요청이 만들어지는 경우 `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit` 아래의 이벤트 로그에 감사 이벤트가 기록됩니다. 
-
-> [!Note]  
-> Windows Server 2012 R2 및 Windows 8.1에서 감사를 지원하려면 [KB4022720](https://support.microsoft.com/help/4022720/windows-8-1-windows-server-2012-r2-update-kb4022720) 이상을 설치해야 합니다.
-
-감사를 사용하려면 관리자 권한 PowerShell 세션에서 다음 cmdlet을 실행합니다.
-
-```powershell
-Set-SmbServerConfiguration –AuditSmb1Access $true
-```
-
-### <a name="removing-smb-1-from-windows-server"></a>Windows Server에서 SMB 1 제거
-> Windows Server 2019, Windows Server 반기 채널(버전 1709 및 1803), Windows Server 2016, Windows Server 2012 R2에 적용
-
-Windows Server 인스턴스에서 SMB 1을 제거하려면 관리자 권한 PowerShell 세션에서 다음 cmdlet을 실행합니다.
-
-```powershell
-Remove-WindowsFeature -Name FS-SMB1
-```
-
-제거 프로세스를 완료하려면 서버를 다시 시작합니다. 
-
-> [!Note]  
-> Windows 10 및 Windows Server 버전 1709부터는 SMB 1이 기본적으로 설치되지 않으며 SMB 1 클라이언트 및 SMB 1 서버에 대한 별도의 Windows 기능이 있습니다. 두 SMB 1 서버(`FS-SMB1-SERVER`) 및 SMB 1 클라이언트(`FS-SMB1-CLIENT`)를 설치하지 않는 것이 좋습니다.
-
-### <a name="removing-smb-1-from-windows-client"></a>Windows 클라이언트에서 SMB 1 제거
-> Windows 10(버전 1507, 1607, 1703, 1709, 1803) 및 Windows 8.1에 적용
-
-Windows 클라이언트에서 SMB 1을 제거하려면 관리자 권한 PowerShell 세션에서 다음 cmdlet을 실행합니다.
-
-```powershell
-Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
-```
-
-제거 프로세스를 완료하려면 PC를 다시 시작합니다.
-
-### <a name="disabling-smb-1-on-legacy-versions-of-windowswindows-server"></a>레거시 버전의 Windows/Windows Server에서 SMB 1을 사용하지 않도록 설정
-> Windows Server 2012, Windows Server 2008 R2, Windows 7에 적용
-
-레거시 버전의 Windows/Windows Server에서 SMB 1을 완전히 제거할 수는 없지만 레지스트리를 통해 사용하지 않도록 설정할 수 있습니다. SMB 1을 사용하지 않도록 설정하려면 `HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Services > LanmanServer > Parameters` 아래에서 값이 `0`이고 유형이 `SMB1`인 새 레지스트리 키 `DWORD`을(를) 만듭니다.
-
-다음 PowerShell cmdlet을 사용하면 쉽게 처리할 수 있습니다.
-
-```powershell
-Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
-```
-
-이 레지스트리 키를 만든 후 서버를 다시 시작해야만 SMB 1이 사용하지 않도록 설정됩니다.
-
-### <a name="smb-resources"></a>SMB 리소스
-- [SMB 1 사용 중지](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [SMB 1 제품 클리어링 하우스](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [DSCEA를 사용하여 환경의 SMB 1 검색](/archive/blogs/ralphkyttle/discover-smb1-in-your-environment-with-dscea)
-- [그룹 정책을 통해 SMB 1을 사용하지 않도록 설정](/archive/blogs/secguide/disabling-smbv1-through-group-policy)
 
 ## <a name="next-steps"></a>다음 단계
 Azure Files에 대한 자세한 내용은 다음 링크를 참조하세요.

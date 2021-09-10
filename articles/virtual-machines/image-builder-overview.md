@@ -9,14 +9,16 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 7289d9d814385f31a71cbd598889e564958a0140
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 805b2a8bf29edfd76804aec3607acc11155edd16
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441819"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697072"
 ---
 # <a name="azure-image-builder-overview"></a>Azure 이미지 작성기 개요
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 조직에서는 표준화된 VM(가상 머신) 이미지를 사용하여 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의된 보안 및 구성 설정과 필수 소프트웨어가 포함되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정하려면 시간, 인프라 및 설정이 필요하지만, Azure VM Image Builder를 사용하면 이미지를 설명하는 구성을 제공하고, 서비스에 제출하고, 이미지를 빌드하고 배포하기만 하면 됩니다.
  
@@ -28,7 +30,7 @@ Azure VM Image Builder(Azure Image Builder)를 사용하여 Windows 또는 Linux
 Azure Image Builder는 다음과 같은 기능을 지원합니다.
 
 - 기준 이미지를 만들기: 최소 보안 및 회사 구성을 포함하는 이러한 이미지를 만들 수 있으므로 부서에서 추가로 사용자 지정할 수 있습니다.
-- 핵심 애플리케이션을 통합하여 VM이 생성된 후 작업을 수행하거나 구성을 추가하여 Windows Virtual Desktop 이미지를 지원할 수 있습니다.
+- 핵심 애플리케이션을 통합하여 VM이 생성된 후 작업을 수행하거나 구성을 추가하여 Azure Virtual Desktop 이미지를 지원할 수 있습니다.
 - 기존 이미지 패치: Image Builder에서 기존 사용자 지정 이미지를 지속적으로 패치할 수 있습니다.
 - Image Builder를 기존 가상 네트워크에 연결: 기존 구성 서버(DSC, Chef, Puppet 등), 파일 공유 또는 라우팅할 수 있는 다른 서버/서비스에 연결할 수 있습니다.
 - Azure Shared Image Gallery와 통합: 이미지를 전역적으로 배포하고, 버전을 관리하고, 크기를 조정할 수 있으며 이미지 관리 시스템을 사용할 수 있습니다.
@@ -52,6 +54,8 @@ AIB는 다음과 같은 Azure Marketplace 기본 OS 이미지를 지원합니다
 - Windows 10 RS5 Enterprise/Enterprise 다중 세션/Professional
 - Windows 2016
 - Windows 2019
+
+Azure Image Builder에서 테스트하고 작동하는 것으로 알려진 운영 체제를 소개했습니다. 그러나 Azure Image Builder는 마켓플레이스의 모든 Linux 또는 Windows 이미지에서 작동해야 합니다.
 
 ## <a name="how-it-works"></a>작동 방법
 

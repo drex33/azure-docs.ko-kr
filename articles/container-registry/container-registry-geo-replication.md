@@ -3,14 +3,14 @@ title: 레지스트리 지역 복제
 description: 레지스트리가 다중 마스터 지역 복제본을 사용하여 여러 지역에 서비스를 제공할 수 있는 지리적 복제 Azure 컨테이너 레지스트리 만들기 및 관리를 시작합니다. 지역 복제는 프리미엄 서비스 계층 기능입니다.
 author: stevelas
 ms.topic: article
-ms.date: 06/09/2021
+ms.date: 06/28/2021
 ms.author: stevelas
-ms.openlocfilehash: b60de8dd9dc4ba5b66594fe6d75caa43ef0017b5
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: c616c3e196547d72825759de94792cc6573a12d9
+ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029660"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113037979"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -64,9 +64,6 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 
 또한 Azure Container Registry는 Azure 지역 내에서 복원력 있고 가용성이 높은 Azure 컨테이너 레지스트리를 만들 수 있도록 [가용성 영역](zone-redundancy.md)을 지원합니다. 지역 내 중복도에 대한 가용성 영역, 여러 지역 전반의 지역 복제를 조합하여 레지스트리의 안정성과 성능을 향상합니다.
 
-> [!IMPORTANT]
-> 레지스트리의 홈 지역, 즉 레지스트리가 원래 배포된 지역에서 특정 중단이 발생하면 지역 복제 레지스트리를 사용할 수 없게 될 수 있습니다.
-
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
 
 지도에서 해당 지역을 클릭하여 간편하게 지리적 복제를 구성할 수 있습니다. Azure CLI에서 [az acr replication](/cli/azure/acr/replication) 명령을 비롯한 도구를 사용하여 지역 복제를 관리하거나 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/container-registry-geo-replication/)을 사용하여 지역 복제가 가능한 레지스트리를 배포할 수도 있습니다.
@@ -105,6 +102,13 @@ ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동
 * 지역 복제 레지스트리에 푸시 업데이트를 사용하는 워크플로를 관리하려면 푸시 이벤트에 응답하는 [webhook](container-registry-webhook.md)를 구성하는 것이 좋습니다. 지역 복제된 Azure 지역에서 완료되는 푸시 이벤트를 추적하도록 지역 복제된 레지스트리 내부에 지역별 webhook를 설정할 수 있습니다.
 * 콘텐츠 계층을 나타내는 블롭을 제공하기 위해 Azure Container Registry는 데이터 엔드포인트를 사용합니다. 각 레지스트리의 지역 복제된 지역에서 레지스트리에 대해 [전용 데이터 엔드포인트](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints)를 사용하도록 설정할 수 있습니다. 이러한 엔드포인트를 사용하면 엄격하게 범위가 지정된 방화벽 액세스 규칙을 구성할 수 있습니다. 문제 해결을 위해 복제된 데이터를 유지하는 동안 필요에 따라 [복제에 대한 라우팅 사용하지 않을](#temporarily-disable-routing-to-replication) 수 있습니다.
 * 가상 네트워크의 프라이빗 엔드포인트를 사용하여 레지스트리에 [프라이빗 링크](container-registry-private-link.md)를 구성하는 경우 각 지역 복제된 지역에서 전용 데이터 엔드포인트가 기본적으로 사용되도록 설정됩니다. 
+
+## <a name="considerations-for-high-availability"></a>고가용성 고려 사항
+
+* 고가용성 및 복원력을 위해 [영역 중복을](zone-redundancy.md)사용하도록 지원하는 지역에 레지스트리를 만드는 것이 좋습니다. 각 복제본 지역에서 영역 중복을 사용하도록 설정하는 것도 좋습니다.
+* 레지스트리의 홈 지역(생성된 지역) 또는 해당 복제본 지역 중 하나에서 중단이 발생하는 경우 지리적으로 복제된 레지스트리는 컨테이너 이미지 푸시 또는 풀링과 같은 데이터 평면 작업에 계속 사용할 수 있습니다. 
+* 레지스트리의 홈 지역을 사용할 수 없게 되면 네트워크 규칙 구성, 가용성 영역 사용, 복제본 관리 등의 레지스트리 관리 작업을 수행할 수 없습니다.
+* Azure Key Vault에 저장된 [고객 관리형 키로](container-registry-customer-managed-keys.md) 암호화된 지역 복제 레지스트리의 고가용성을 계획하려면 키 자격 증명 모음 [장애 조치 및 중복성](../key-vault/general/disaster-recovery-guidance.md)에 대한 지침을 검토하세요.
 
 ## <a name="delete-a-replica"></a>복제본 삭제
 

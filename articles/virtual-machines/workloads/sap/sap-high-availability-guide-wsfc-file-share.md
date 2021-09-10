@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cde810bb9f612b0dc84fb4dd7593761b057e722
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: efcbaab63bf6372761e7cd164428a30f68243e2e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142858"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537159"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링
 
@@ -145,7 +145,7 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 * Azure Premium 디스크를 사용해야 합니다.
 * Azure Managed Disks를 사용하는 것이 좋습니다.
 * ReFS(Resilient File System)를 사용하여 볼륨을 포맷하는 것이 좋습니다.
-    * 자세한 내용은 [SAP Note 1869038 - SAP support for ReFs filesystem][1869038](SAP 참고 1869038 - SAP의 ReFs 파일 시스템 지원) 및 스토리지 공간 다이렉트 볼륨 계획 문서의 [파일 시스템 선택][planning-volumes-s2d-choosing-filesystem] 장을 참조하세요.
+    * 자세한 내용은 [SAP Note 1869038 - SAP support for ReFS filesystem][1869038](SAP 참고 1869038 - SAP의 ReFS 파일 시스템 지원)과 스토리지 공간 다이렉트의 볼륨 계획 문서에서 [파일 시스템 선택][planning-volumes-s2d-choosing-filesystem] 장을 참조하세요.
     * [Microsoft KB4025334 누적 업데이트][kb4025334]를 설치해야 합니다.
 * DS-시리즈 또는 DSv2-시리즈 Azure VM 크기를 사용할 수 있습니다.
 * 스토리지 공간 다이렉트 디스크 동기화에 필요한 VM 간의 양호한 네트워크 성능을 보장하려면 “높음” 네트워크 대역폭 이상의 VM 유형을 사용해야 합니다.
@@ -153,11 +153,10 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 * 스토리지 풀에 할당되지 않은 용량을 일부 남겨 두는 것이 좋습니다. 스토리지 풀에 할당되지 않은 용량을 남겨 두면 드라이브에 장애가 발생하는 경우 “원본 위치”에서 복구하는 데 필요한 볼륨 용량이 확보됩니다. 이렇게 하면 데이터 안전성과 성능이 향상됩니다.  자세한 내용은 [볼륨 크기 선택][choosing-the-size-of-volumes-s2d]을 참조하세요.
 * 스케일 아웃 파일 공유 네트워크 이름(예: \<SAP global host\>)에 대해 Azure 내부 부하 분산 장치를 구성할 필요가 없습니다. 이 작업은 SAP ASCS/SCS 인스턴스의 \<ASCS/SCS virtual host name\> 또는 DBMS에 대해 수행됩니다. 스케일 아웃 파일 공유는 모든 클러스터 노드로 부하를 분산합니다. \<SAP global host\>는 모든 클러스터 노드에서 로컬 IP 주소를 사용합니다.
 
-
 > [!IMPORTANT]
 > \<SAP global host\>를 가리키는 SAPMNT 파일 공유의 이름은 바꿀 수 없습니다. SAP는 공유 이름 “sapmnt”만 지원합니다.
 >
-> 자세한 내용은 [SAP Note 2492395 - 공유 이름 sapmnt를 변경할 수 있나요?][2492395]를 참조하세요.
+자세한 내용은 [SAP Note 2492395 - 공유 이름 sapmnt를 변경할 수 있나요?][2492395]를 참조하세요.
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>2개의 클러스터에서 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유 구성
 
@@ -174,6 +173,35 @@ SAP ASCS/SCS 인스턴스는 자체 SAP \<SID\> 클러스터 역할을 사용하
 ![그림 5: 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유][sap-ha-guide-figure-8007]
 
 _**그림 5:** 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유_
+
+## <a name="optional-configurations"></a>선택적 구성
+
+다음 다이어그램은 총 VM 수를 줄이기 위해 Microsoft Windows 장애 조치(failover) 클러스터를 실행하는 Azure VM의 여러 SAP 인스턴스를 보여 줍니다.
+
+SAP ASCS/SCS 클러스터의 로컬 SAP 애플리케이션 서버 또는 Microsoft SQL Server Always On 노드의 SAP ASCS/SCS 클러스터 역할일 수 있습니다.
+
+> [!IMPORTANT]
+> SQL Server Always On 노드에 로컬 SAP 애플리케이션 서버를 설치할 수는 없습니다.
+>
+
+SAP ASCS/SCS와 Microsoft SQL Server 데이터베이스는 모두 SPOF(단일 실패 지점)입니다. Windows 환경에서 SPOF를 보호하기 위해 WSFC가 사용됩니다.
+
+SAP ASCS/SCS의 리소스 사용량은 적지만 SQL Server 또는 SAP 애플리케이션 서버의 메모리 구성을 2GB 줄이는 것이 좋습니다.
+
+### <a name="sap-application-servers-on-wsfc-nodes-using-windows-sofs"></a><a name="86cb3ee0-2091-4b74-be77-64c2e6424f50"></a>Windows SOFS를 사용하는 WSFC 노드의 SAP 애플리케이션 서버
+
+![그림 6: Windows SOFS와 로컬에 설치된 SAP 애플리케이션 서버를 사용하는 Azure의 Windows Server 장애 조치(failover) 클러스터링 구성][sap-ha-guide-figure-8007A]
+
+> [!NOTE]
+> 이 그림은 추가 로컬 디스크의 사용을 보여 줍니다. OS 드라이브(C:\)에 애플리케이션 소프트웨어를 설치하지 않을 고객의 경우 선택 사항입니다.
+>
+### <a name="sap-ascsscs-on-sql-server-always-on-nodes-using-windows-sofs"></a><a name="db335e0d-09b4-416b-b240-afa18505f503"></a> Windows SOFS를 사용하는 SQL Server Always On 노드의 SAP ASCS/SCS
+
+![그림 7: Windows SOFS를 사용하는 SQL Server Always On 노드의 SAP ASCS/SCS][sap-ha-guide-figure-8007B]
+
+> [!NOTE]
+> 이 그림은 추가 로컬 디스크의 사용을 보여 줍니다. OS 드라이브(C:\)에 애플리케이션 소프트웨어를 설치하지 않을 고객의 경우 선택 사항입니다.
+>
 
 > [!IMPORTANT]
 > Azure 클라우드에서 SAP 및 스케일 아웃 파일 공유를 위해 사용된 각 클러스터는 자체 Azure 가용성 집합이나 Azure 가용성 영역에 배포되어야 합니다. 이렇게 해야 기반이 되는 Azure 인프라 전체에 걸쳐 클러스터 VM을 분산하여 배치할 수 있습니다. 가용성 영역 배포는 이 기술로 지원됩니다.
@@ -204,7 +232,7 @@ _**그림 5:** 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 �
 [kb4025334]:https://support.microsoft.com/help/4025334/windows-10-update-kb4025334
 
 [dv2-series]:../../dv2-dsv2-series.md
-[ds-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
+[ds-series]:/azure/virtual-machines/windows/sizes-general
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -230,10 +258,10 @@ _**그림 5:** 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 �
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
-[planning-volumes-s2d-choosing-filesystem]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
-[choosing-the-size-of-volumes-s2d]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-size-of-volumes
-[deploy-sofs-s2d-in-azure]:https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment
-[s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+[planning-volumes-s2d-choosing-filesystem]:/windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
+[choosing-the-size-of-volumes-s2d]:/windows-server/storage/storage-spaces/plan-volumes#choosing-the-size-of-volumes
+[deploy-sofs-s2d-in-azure]:/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment
+[s2d-in-win-2016]:/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [deep-dive-volumes-in-s2d]:https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/
 
 [planning-guide]:planning-guide.md
@@ -340,7 +368,9 @@ _**그림 5:** 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 �
 [sap-ha-guide-figure-8004]:./media/virtual-machines-shared-sap-high-availability-guide/8004.png
 [sap-ha-guide-figure-8005]:./media/virtual-machines-shared-sap-high-availability-guide/8005.png
 [sap-ha-guide-figure-8006]:./media/virtual-machines-shared-sap-high-availability-guide/8006.png
-[sap-ha-guide-figure-8007]:./media/virtual-machines-shared-sap-high-availability-guide/8007.png
+[sap-ha-guide-figure-8007]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sofs.png
+[sap-ha-guide-figure-8007A]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sofs-as.png
+[sap-ha-guide-figure-8007B]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-sofs.png
 [sap-ha-guide-figure-8008]:./media/virtual-machines-shared-sap-high-availability-guide/8008.png
 [sap-ha-guide-figure-8009]:./media/virtual-machines-shared-sap-high-availability-guide/8009.png
 [sap-ha-guide-figure-8010]:./media/virtual-machines-shared-sap-high-availability-guide/8010.png
@@ -362,11 +392,11 @@ _**그림 5:** 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 �
 
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 

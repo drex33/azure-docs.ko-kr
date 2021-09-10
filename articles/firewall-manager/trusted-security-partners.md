@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 08/03/2021
 ms.author: victorh
-ms.openlocfilehash: 622fde49a31105b2f66a678d3e55d48fabea9487
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 2e3dbc292108507793de0dd095e30ea2f63a7dab
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966914"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535716"
 ---
 # <a name="what-are-security-partner-providers"></a>보안 파트너 공급자란?
 
@@ -25,6 +25,10 @@ Azure Firewall Manager의 *보안 파트너 공급자* 를 통해 익숙한 동�
 지원되는 보안 파트너는 **Zscaler**, **[Check Point](check-point-overview.md)** , **iboss** 입니다.
 
 ![보안 파트너 공급자](media/trusted-security-partners/trusted-security-partners.png)
+
+Zscaler 개요는 Jack Tracey의 다음 비디오를 참조하세요.
+
+ > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4n8]
 
 ## <a name="key-scenarios"></a>주요 시나리오
 

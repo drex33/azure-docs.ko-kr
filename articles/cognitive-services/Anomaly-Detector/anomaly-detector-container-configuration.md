@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
-ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99fe16fdc19d90a312b34a32f56229ef7f161ad1
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94363717"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113297463"
 ---
-# <a name="configure-anomaly-detector-containers"></a>Anomaly Detector 컨테이너 구성
+# <a name="configure-anomaly-detector-univariate-containers"></a>Anomaly Detector 일변량 컨테이너 구성
 
 **Anomaly Detector** 컨테이너 런타임 환경은 `docker run` 명령 인수를 사용하여 구성됩니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
 
@@ -25,7 +25,7 @@ ms.locfileid: "94363717"
 
 이 컨테이너에는 다음 구성 설정을 사용합니다.
 
-|필수|설정|목적|
+|필수|설정|용도|
 |--|--|--|
 |예|[ApiKey](#apikey-configuration-setting)|청구 정보를 추적하는 데 사용됩니다.|
 |예|[ApplicationInsights](#applicationinsights-setting)|[Azure Application Insights](/azure/application-insights) 원격 분석 지원을 컨테이너에 추가할 수 있습니다.|
@@ -59,7 +59,7 @@ ms.locfileid: "94363717"
 
 * Azure Portal: `Endpoint`로 레이블이 지정되어 있는 **Anomaly Detector** 의 개요
 
-|필수| 이름 | 데이터 형식 | Description |
+|필수| Name | 데이터 형식 | Description |
 |--|------|-----------|-------------|
 |예| `Billing` | String | 청구 엔드포인트 URI입니다. 청구 URI를 얻는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](anomaly-detector-container-howto.md#gathering-required-parameters)을 참조하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
@@ -88,7 +88,7 @@ Anomaly Detector 컨테이너는 입력 또는 출력 탑재를 사용하여 학
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](anomaly-detector-container-howto.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
-|Optional| 이름 | 데이터 형식 | Description |
+|선택 사항| 이름 | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | String | Anomaly Detector 컨테이너에는 사용되지 않습니다.|
 |선택| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -105,7 +105,7 @@ Anomaly Detector 컨테이너는 입력 또는 출력 탑재를 사용하여 학
 | 자리 표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
 | **{API_KEY}** | Azure `Anomaly Detector` 키 페이지에 있는 `Anomaly Detector` 리소스의 엔드포인트 키입니다. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | 청구 엔드포인트 값은 Azure `Anomaly Detector` 개요 페이지에 있습니다.| [필수 매개 변수 수집](anomaly-detector-container-howto.md#gathering-required-parameters)에서 명시적 예를 참조하세요. |
+| **{ENDPOINT_URI}** | 청구 엔드포인트 값은 Azure `Anomaly Detector` 개요 페이지에서 사용할 수 있습니다.| 명시적 예제에 대해서는 [필수 매개 변수 수집](anomaly-detector-container-howto.md#gathering-required-parameters)을 참조하세요. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 

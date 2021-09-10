@@ -7,35 +7,34 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 87d9ca35cbed711f8fad0faf4759e3f6c3833b86
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: c0a64d5756895f18cbb1285586570ac72dd1c12e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110496001"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536652"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance에 연결하기
 
 이 문서에서는 Azure Arc 지원 SQL Managed Instance에 연결할 수 있는 방법을 설명합니다. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="view-azure-arc-enabled-sql-managed-instances"></a>Azure Arc 지원 SQL Managed Instance 보기
 
 Azure Arc 지원 SQL Managed Instance 및 외부 엔드포인트를 보려면 다음 명령을 사용합니다.
 
-```console
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s -o table
 ```
 
 출력은 다음과 같습니다.
 
 ```console
-Name    Replicas    ExternalEndpoint    State
-------  ----------  ----------------  -------
-sqldemo 1/1         10.240.0.4:32023  Ready
+Name       PrimaryEndpoint      Replicas    State
+---------  -------------------  ----------  -------
+sqldemo    10.240.0.107,1433    1/1         Ready
 ```
 
 AKS, kubeadm 또는 OpenShift 등을 사용하는 경우 여기에서 외부 IP 및 포트 번호를 복사하고 즐겨 사용하는 도구를 사용하여 Azure Data Studio 또는 SQL Server Management Studio와 같은 SQL Sever/Azure SQL 인스턴스에 연결할 수 있습니다.  그러나 빠른 시작 VM을 사용하는 경우 Azure 외부에서 해당 VM에 연결하는 방법에 대한 특수 정보는 아래를 참조하세요. 
@@ -84,7 +83,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 NSG의 이름을 보유한 경우 다음 명령을 사용하여 방화벽 규칙을 추가할 수 있습니다. 이 예제 값에서는 포트 30913에 대한 NSG 규칙을 만들고 **모든** 원본 IP 주소에서 연결할 수 있도록 허용합니다.  이 방법은 보안 모범 사례가 아닙니다.  팀 또는 조직의 IP 주소를 포함하는 IP 주소 범위 또는 클라이언트 IP 주소와 관련된 -source-address-prefixes 값을 지정하면 더 잘 잠글 수 있습니다.
 
-아래 `--destination-port-ranges` 매개 변수의 값을 위 `azdata sql instance list`F 명령에서 얻은 포트 번호로 바꿉니다.
+아래의 `--destination-port-ranges` 매개변수 값을 위의 `az sql mi-arc list` 명령에서 얻은 포트 번호로 바꿉니다.
 
 ```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'

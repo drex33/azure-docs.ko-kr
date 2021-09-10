@@ -3,14 +3,14 @@ title: Azure Site Recovery를 사용한 Azure VM 재해 복구에 대한 일반�
 description: 이 문서에서는 Azure Site Recovery를 사용할 경우의 Azure VM 재해 복구에 대한 일반적인 질문에 답변합니다.
 author: sideeksh
 manager: rochakm
-ms.date: 11/03/2019
+ms.date: 07/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: cd44d3361e96a22ddb70fb5568926583ac3dbb67
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: c2fb5175b077275d0c2ef5b0a37f6d4ead76b9d5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107952695"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528373"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
@@ -59,13 +59,13 @@ Site Recovery 팀과 Azure 용량 관리 팀이 충분한 인프라 용량을 �
 
 ### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>다른 리소스 그룹에서 Automation 계정을 선택할 수 있나요?
 
-Site Recovery가 복제된 Azure VM에서 실행되는 Mobility Service 확장에 대한 업데이트를 관리할 수 있도록 허용하면 Azure Automation 계정을 통해 전역 Runbook(Azure 서비스에서 사용)을 배포합니다. Site Recovery가 만드는 Automation 계정을 사용하거나 기존 Automation 계정을 사용하도록 선택할 수 있습니다. 
+Site Recovery가 복제된 Azure VM에서 실행되는 Mobility Service 확장에 대한 업데이트를 관리할 수 있도록 허용하면 Azure Automation 계정을 통해 전역 Runbook(Azure 서비스에서 사용)을 배포합니다. Site Recovery가 만드는 Automation 계정을 사용하거나 기존 Automation 계정을 사용하도록 선택할 수 있습니다.
 
 현재 Portal에서는 자격 증명 모음과 동일한 리소스 그룹에 있는 Automation 계정만 선택할 수 있습니다. PowerShell을 사용하여 다른 리소스 그룹에서 Automation 계정을 선택할 수 있습니다. [자세히 알아보기](azure-to-azure-autoupdate.md#enable-automatic-updates).
 
 ### <a name="if-i-use-a-customer-automation-account-thats-not-in-the-vault-resource-group-can-i-delete-the-default-runbook"></a>자격 증명 모음 리소스 그룹에 없는 고객 Automation 계정을 사용하는 경우 기본 Runbook을 삭제할 수 있나요?
 
-예, 필요하지 않은 경우 삭제할 수 있습니다. 
+예, 필요하지 않은 경우 삭제할 수 있습니다.
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>VM을 다른 구독에 복제할 수 있나요?
 
@@ -73,9 +73,9 @@ Site Recovery가 복제된 Azure VM에서 실행되는 Mobility Service 확장�
 
 ### <a name="can-i-replicate-vms-in-an-availability-zone-to-another-region"></a>가용성 영역의 VM을 다른 지역에 복제할 수 있나요?
 
-예, 가용성 영역에 있는 VM을 다른 Azure 지역에 복제할 수 있습니다. 
+예, 가용성 영역에 있는 VM을 다른 Azure 지역에 복제할 수 있습니다.
 
-### <a name="can-i-replicate-non-zone-vms-to-a-zone-within-the-same-region"></a>영역이 아닌 VM을 동일한 지역 내의 영역에 복제할 수 있나요? 
+### <a name="can-i-replicate-non-zone-vms-to-a-zone-within-the-same-region"></a>영역이 아닌 VM을 동일한 지역 내의 영역에 복제할 수 있나요?
 
 Portal에서는 지원되지 않습니다. REST API/PowerShell을 사용하면 이 작업을 수행할 수 있습니다.
 
@@ -89,7 +89,7 @@ Portal에서는 지원되지 않습니다. REST API/PowerShell을 사용하면 �
 
 ### <a name="can-i-replicate-new-disks-added-to-replicated-vms"></a>추가된 새 디스크를 복제된 VM으로 복제할 수 있나요?
 
-Managed Disks가 있는 복제된 VM의 경우 새 디스크를 추가하고 해당 디스크에 대해 복제를 사용하도록 설정할 수 있습니다. 새 디스크를 추가하는 경우 복제된 VM은 VM에 있는 하나 이상의 디스크를 보호할 수 있다는 경고 메시지를 표시합니다. 
+Managed Disks가 있는 복제된 VM의 경우 새 디스크를 추가하고 해당 디스크에 대해 복제를 사용하도록 설정할 수 있습니다. 새 디스크를 추가하는 경우 복제된 VM은 VM에 있는 하나 이상의 디스크를 보호할 수 있다는 경고 메시지를 표시합니다.
 
 - 추가된 디스크에 대한 보호를 사용하도록 설정하면 초기 복제 후에 경고가 사라집니다.
 - 디스크에 대해 복제를 사용하도록 설정하지 않으려면 경고를 해제할 수 있습니다.
@@ -101,13 +101,13 @@ Site Recovery는 복제된 VM에서 디스크의 "핫 제거"를 지원하지 �
 
 Azure VM을 다른 Azure 지역에 복제하는 경우에는 복제가 연속적입니다. 복제 작동 방식에 대해 [자세히 알아보세요](./azure-to-azure-architecture.md#replication-process).
 
-### <a name="can-i-replicate-virtual-machines-within-a-region"></a>한 지역 내에서 가상 머신을 복제할 수 있나요? 
+### <a name="can-i-replicate-virtual-machines-within-a-region"></a>한 지역 내에서 가상 머신을 복제할 수 있나요?
 
 Site Recovery를 사용하여 지역 내에서 디스크를 복제할 수 없습니다.
 
 ### <a name="can-i-replicate-vm-instances-to-any-azure-region"></a>VM 인스턴스를 Azure 지역에 복제할 수 있나요?
 
-동일한 지리적 클러스터 내의 두 지역 간에 VM을 복제 및 복구할 수 있습니다. 지리적 클러스터는 데이터 대기 시간 및 주권에 유의하여 정의됩니다. 지역 지원에 대해 [자세히 알아보세요](./azure-to-azure-support-matrix.md#region-support).
+두 지역 간에 VM을 복제 및 복구할 수 있습니다. 
 
 ### <a name="does-site-recovery-need-internet-connectivity"></a>Site Recovery에 인터넷 연결이 필요한가요?
 
@@ -162,7 +162,7 @@ Site Recovery는 최소 1시간의 빈도로 앱 일치 복구 지점을 생성�
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>복구 지점은 어떻게 생성 및 저장되나요?
 
-Site Recovery에서 복구 지점을 생성하는 방식을 이해하기 위해 예제를 살펴보겠습니다. 
+Site Recovery에서 복구 지점을 생성하는 방식을 이해하기 위해 예제를 살펴보겠습니다.
 
 - 복제 정책은 24시간 동안의 복구 지점을 유지하고 1시간마다 앱 일치 빈도 스냅샷을 사용합니다.
 - Site Recovery는 5분마다 크래시 일치 복구 지점을 만듭니다. 사용자가 이 빈도를 변경할 수는 없습니다.
@@ -176,7 +176,7 @@ Site Recovery에서 복구 지점을 생성하는 방식을 이해하기 위해 
 
 사용할 수 있는 가장 오래된 복구 지점은 72시간입니다.
 
-### <a name="what-happens-if-site-recovery-cant-generate-recovery-points-for-more-than-24-hours"></a>Site Recovery가 24시간 넘게 복구 지점을 생성할 수 없으면 어떻게 되나요? 
+### <a name="what-happens-if-site-recovery-cant-generate-recovery-points-for-more-than-24-hours"></a>Site Recovery가 24시간 넘게 복구 지점을 생성할 수 없으면 어떻게 되나요?
 
 복제 정책이 24시간이고 Site Recovery가 24시간 넘게 복구 지점을 생성할 수 없는 경우 이전 복구 지점은 그대로 유지됩니다. Site Recovery는 새 지점을 생성하는 경우 가장 오래된 지점만 대체합니다. 새 복구 지점이 있을 때까지 보존 기간에 도달한 후에도 이전 지점은 모두 유지됩니다.
 
@@ -198,7 +198,7 @@ Site Recovery에서 복구 지점을 생성하는 방식을 이해하기 위해 
 
 다중 VM 일관성은 복구 지점이 복제된 가상 머신에서 일관되도록 합니다.
 
-- 다중 VM 일관성을 사용하도록 설정하면 Site Recovery는 해당 옵션을 사용하도록 설정한 상태로 모든 머신의 복제 그룹을 만듭니다. 
+- 다중 VM 일관성을 사용하도록 설정하면 Site Recovery는 해당 옵션을 사용하도록 설정한 상태로 모든 머신의 복제 그룹을 만듭니다.
 - 복제 그룹의 머신을 장애 조치하는 경우 공유 크래시 일치 및 앱 일치 복구 지점이 생성됩니다.
 
 다중 VM 일관성을 사용하도록 설정하는 방법을 [알아봅니다](azure-to-azure-tutorial-enable-replication.md#enable-replication).
@@ -217,9 +217,9 @@ CPU를 많이 사용하기 때문에 다중 VM 일관성을 사용하도록 설�
 
 ### <a name="can-i-add-a-replicating-vm-to-a-replication-group"></a>복제 중인 VM을 복제 그룹에 추가할 수 있나요?
 
-VM에 대해 복제를 사용하도록 설정하는 경우 새 복제 그룹이나 기존 그룹에 추가할 수 있습니다. 이미 그룹에 복제 중인 VM은 추가할 수 없습니다. 
- 
-## <a name="failover"></a>장애 조치
+VM에 대해 복제를 사용하도록 설정하는 경우 새 복제 그룹이나 기존 그룹에 추가할 수 있습니다. 이미 그룹에 복제 중인 VM은 추가할 수 없습니다.
+
+## <a name="failover"></a>장애 조치 
 
 ### <a name="how-do-we-ensure-capacity-in-the-target-region"></a>대상 지역에서 용량을 확인하려면 어떻게 해야 하나요?
 
@@ -270,7 +270,7 @@ Site Recovery는 장애 조치(failover) 시 IP 주소를 제공하려고 시도
 
 ### <a name="what-is-the-rto-of-a-vm-failover"></a>VM 장애 조치의 RTO는 무엇인가요?
 
-Site Recovery의 RTO SLA는 [2시간](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)입니다. 대부분의 경우 Site Recovery는 몇 분 내에 VM을 장애 조치합니다. RTO를 계산하려면 장애 조치 작업을 검토하여 VM이 작동할 때까지 걸린 시간을 확인합니다. 
+Site Recovery의 RTO SLA는 [2시간](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)입니다. 대부분의 경우 Site Recovery는 몇 분 내에 VM을 장애 조치합니다. RTO를 계산하려면 장애 조치 작업을 검토하여 VM이 작동할 때까지 걸린 시간을 확인합니다.
 
 ## <a name="recovery-plans"></a>복구 계획
 
@@ -280,7 +280,7 @@ Site Recovery의 [복구 플랜](site-recovery-create-recovery-plans.md)은 VM�
 
 - 함께 장애 조치되는 VM 그룹을 정의합니다.
 - 애플리케이션이 정확하게 작동하도록 VM 간의 종속성을 정의합니다.
-- VM 장애 조치 이외의 태스크에 대한 사용자 지정 수동 작업 옵션을 통해 복구를 자동화합니다. 
+- VM 장애 조치 이외의 태스크에 대한 사용자 지정 수동 작업 옵션을 통해 복구를 자동화합니다.
 
 
 ### <a name="how-does-sequencing-work"></a>작업 순서는 어떻게 지정하나요?
@@ -299,11 +299,11 @@ Site Recovery의 [복구 플랜](site-recovery-create-recovery-plans.md)은 VM�
 
 ## <a name="reprotection-and-failback"></a>다시 보호 및 장애 복구
 
-### <a name="after-failover-are-vms-in-the-secondary-region-protected-automatically"></a>장애 조치 후 보조 지역의 VM이 자동으로 보호되나요? 
+### <a name="after-failover-are-vms-in-the-secondary-region-protected-automatically"></a>장애 조치 후 보조 지역의 VM이 자동으로 보호되나요?
 
 아니요. VM을 한 지역에서 다른 지역으로 장애 조치할 경우 VM은 대상 재해 복구 지역에서 보호되지 않는 상태로 시작됩니다. 보조 지역의 VM을 [다시 보호하려면](./azure-to-azure-how-to-reprotect.md) 다시 주 지역으로 복제되도록 설정합니다.
 
-### <a name="when-i-reprotect-is-all-data-replicated-from-the-secondary-region-to-primary"></a>다시 보호하면 모든 데이터가 보조 지역에서 주 지역으로 복제되나요? 
+### <a name="when-i-reprotect-is-all-data-replicated-from-the-secondary-region-to-primary"></a>다시 보호하면 모든 데이터가 보조 지역에서 주 지역으로 복제되나요?
 
 상황에 따라 다릅니다. 원본 지역 VM이 있는 경우 원본 디스크와 대상 디스크 사이의 변경 내용만 동기화됩니다. Site Recovery는 디스크를 달라진 내용과 비교한 다음, 데이터를 전송합니다. 이 프로세스는 일반적으로 몇 시간 정도 걸립니다. [자세히 알아보기](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 

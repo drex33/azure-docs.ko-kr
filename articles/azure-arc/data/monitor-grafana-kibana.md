@@ -7,29 +7,27 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 12/08/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: cb53aba300b933c78d9ac2f5fc5cf8054f3413e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8d18d296a54b85cb3b571099e13f8c3e4e7a9c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104670004"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529350"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Kibana 및 Grafana를 사용하여 로그 및 메트릭 보기
 
 Kibana 및 Grafana 웹 대시보드는 Azure Arc 지원 데이터 서비스에서 사용되는 Kubernetes 네임스페이스에 대한 통찰력 및 명확성을 위해 제공됩니다.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 
 ## <a name="monitor-azure-sql-managed-instances-on-azure-arc"></a>Azure Arc에서 Azure SQL Managed Instance 모니터링
 
 Arc 지원 SQL Managed Instance에 대한 로그 및 모니터링 대시보드에 액세스하려면 다음 `azdata` CLI 명령을 실행합니다.
 
-```bash
-
-azdata arc sql endpoint list -n <name of SQL instance>
+```azurecl
+az sql mi-arc endpoint list -n <name of SQL instance>
 
 ```
 관련 Grafana 대시보드는 다음과 같습니다.
@@ -43,7 +41,7 @@ azdata arc sql endpoint list -n <name of SQL instance>
 >  사용자 이름 및 암호를 입력하라는 메시지가 표시되면 Azure Arc 데이터 컨트롤러를 만들 때 제공한 사용자 이름 및 암호를 입력합니다.
 
 > [!NOTE]
->  미리 보기에 사용된 인증서가 자체 서명된 인증서이므로 인증서 경고 메시지가 표시됩니다.
+>  인증서가 자체 서명된 인증서이므로 인증서 경고 메시지가 표시됩니다.
 
 
 ## <a name="monitor-azure-database-for-postgresql-hyperscale-on-azure-arc"></a>Azure Arc에서 Azure Database for PostgreSQL 하이퍼스케일 모니터링
@@ -52,7 +50,7 @@ PostgreSQL 하이퍼스케일에 대한 로그 및 모니터링 대시보드에 
 
 ```bash
 
-azdata arc postgres endpoint list -n <name of postgreSQL instance>
+az postgres arc-server endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
 
 ```
 

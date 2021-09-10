@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: f380a2807ad4efa6c2da2df8aabf3b521918d64c
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 1ce5a7e2532fd150b5445e3b243c841d797b4157
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112516816"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226863"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 React SPA에 로그인하고 액세스 토큰을 가져옵니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "112516816"
 
 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.JS](https://nodejs.org/en/download/)
@@ -187,7 +187,7 @@ npm install @azure/msal-browser @azure/msal-react
 
 ## <a name="next-steps"></a>다음 단계
 
-vanilla JavaScript를 사용하여 인증 코드 흐름 애플리케이션을 빌드하는 방법에 대한 자세한 단계별 가이드는 다음 자습서를 참조하세요.
+다음으로, 단계별 자습서에 따라 사용자 로그인하고 Microsoft Graph API를 호출하여 사용자 프로필 데이터를 가져오는 React SPA를 처음부터 빌드하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [MS Graph에 로그인하고 호출하는 자습서](./tutorial-v2-javascript-auth-code.md)
+> [자습서: 사용자 로그인 및 Microsoft Graph 호출](tutorial-v2-react.md)

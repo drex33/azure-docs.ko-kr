@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: 4619c84f88ee87b0b63e8c0cbe36b85a25f2dfb9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7a6892c4b89128abe698573960b61d08c2ac2f35
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463063"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609631"
 ---
 # <a name="use-azure-policy-to-apply-gitops-configurations-at-scale"></a>Azure Policy를 사용한 대규모 GitOps 구성 적용
 
@@ -28,8 +28,8 @@ Azure Policy를 사용하려면 기본 제공 GitOps 정책 정의를 선택하�
 
 문제를 분할하기 위해 각각 다른 Git 리포지토리를 가리키는 다른 GitOps 구성이 있는 여러 정책 할당을 만들 수 있습니다. 예를 들어 클러스터 관리자가 하나의 리포지토리를 사용하고 애플리케이션 팀에서 기타 리포지토리를 사용할 수 있습니다.
 
->[!TIP]
-> 이러한 시나리오에는 기본으로 제공되는 정책이 있습니다.
+> [!TIP]
+> 이러한 시나리오에는 기본으로 제공되는 정책 정의가 있습니다.
 > * Flux에서 만든 SSH 키를 사용하는 공용 리포지토리 또는 프라이빗 리포지토리: `Configure Kubernetes clusters with specified GitOps configuration using no secrets`
 > * 사용자 제공 SSH 키가 포함된 프라이빗 리포지토리: `Configure Kubernetes clusters with specified GitOps configuration using SSH secrets`
 > * 사용자 제공한 HTTPS 키가 있는 프라이빗 리포지토리: `Configure Kubernetes clusters with specified GitOps configuration using HTTPS secrets`
@@ -42,10 +42,10 @@ Azure Policy를 사용하려면 기본 제공 GitOps 정책 정의를 선택하�
 
 1. Azure Portal에서 **정책** 으로 이동합니다.
 1. 사이드바의 **작성** 섹션에서 **정의** 를 선택합니다.
-1. "Kubernetes" 범주에서 "비밀 없이 지정된 GitOps 구성을 사용하여 Kubernetes 클러스터 구성" 기본 제공 정책을 선택합니다. 
+1. "Kubernetes" 범주에서 "비밀 없이 지정된 GitOps 구성을 사용하여 Kubernetes 클러스터 구성" 기본 제공 정책 정의를 선택합니다. 
 1. **할당** 을 클릭합니다.
 1. 정책 할당이 적용되는 관리 그룹, 구독 또는 리소스 그룹으로 **범위** 를 설정합니다.
-    * 정책 범위에서 리소스를 제외하려면 **제외** 를 설정합니다.
+    * 정책 할당 범위에서 리소스를 제외하려면 **제외** 를 설정합니다.
 1. 정책 할당에 쉽게 식별할 수 있는 **이름** 및 **설명** 을 작성합니다.
 1. **정책 적용** 이 **사용됨** 으로 설정되어 있는지 확인합니다.
 1. **다음** 을 선택합니다.
@@ -65,7 +65,7 @@ Azure Policy를 사용하려면 기본 제공 GitOps 정책 정의를 선택하�
 
 1. Azure Portal에서 Azure Arc 활성화 Kubernetes 클러스터 중 하나로 이동합니다.
 1. 사이드바의 **설정** 섹션에서 **정책** 을 선택합니다. 
-    * 정책 목록에서 **준수 상태** 를 *규격* 으로 설정하여 이전에 만든 정책 할당을 확인해야 합니다.
+    * 목록에서 **준수 상태** 를 *규격* 으로 설정하여 이전에 만든 정책 할당을 확인해야 합니다.
 1. 사이드바의 **설정** 섹션에서 **GitOps** 를 선택합니다.
     * 목록에는 정책 할당에서 만든 구성이 표시되어야 합니다.
 1. `kubectl`를 사용하여 클러스터를 검사합니다. 

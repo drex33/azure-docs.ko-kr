@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b804536c54cce64ace2605999c7cc28cef357a4d
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 312acb2715e76587ac213f73c86e785afe2eadcb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072328"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695274"
 ---
 # <a name="maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>PowerShell을 사용한 Azure 가상 머신 확장 집합의 OS 이미지 업그레이드에 대한 유지 관리 제어
+
+**적용 대상:** :heavy_check_mark: 균일한 확장 집합
 
 유지 관리 제어를 통해 가상 머신 확장 집합에 자동 게스트 OS 이미지 업그레이드를 적용하는 시기를 결정할 수 있습니다. 이 항목에서는 Azure PowerShell의 유지 관리 제어 옵션에 대해 설명합니다. 유지 관리 제어를 사용하는 방법에 대한 자세한 내용은 [Azure 가상 머신 확장 집합에 대한 유지 관리 제어](virtual-machine-scale-sets-maintenance-control.md)를 참조하세요.
 

@@ -12,22 +12,25 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 08/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d4152783129fa1c5950d6cf6287332bf90d32a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2415ad3109863a9cd80df413723b317e880a7063
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97976880"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537147"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
 디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD(Active Directory)에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 해당 특성은 [확장](/graph/extensibility-overview
 )을 통해 사용할 수 있습니다. [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 사용하여 사용 가능한 특성을 확인할 수 있습니다. 이 기능을 사용하여 Azure AD에서 동적 그룹을 만들 수도 있습니다.
 
 현재 해당 특성을 사용하는 Microsoft 365 워크로드는 없습니다.
+
+>[!IMPORTANT]
+>디렉터리 확장 특성을 동기화하는 데 사용되는 사용자 지정 규칙이 포함된 구성을 내보낸 경우 Azure AD Connect의 새 설치나 기존 설치로 이 규칙을 가져오려고 하면 가져오는 동안 규칙이 생성되지만 디렉터리 확장 특성은 매핑되지 않습니다.  이 문제를 해결하려면 디렉터리 확장 특성을 다시 선택하고 규칙과 다시 연결하거나 규칙을 완전히 다시 만들어야 합니다.
 
 ## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Azure AD와 동기화할 특성 사용자 지정
 

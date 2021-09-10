@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 클라이언트 앱에 대한 인증 옵션으로 CLI를 사용하여 Azure AD 앱 등록을 만드는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 5/13/2021
+ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a42a09af845bce160689718fb74eb393409740d3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7c9f69d33c89fba209ecf7ad76bc1aa8e2b6b666
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437933"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224888"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-cli"></a>Azure Digital Twins에서 사용할 앱 등록 만들기(CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "114437933"
 
 Azure Digital Twins 인스턴스를 사용할 때 사용자 지정 클라이언트 앱 또는 [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md)와 같은 샘플 등의 클라이언트 애플리케이션을 통해 해당 인스턴스와 상호 작용하는 것이 일반적입니다. 이러한 애플리케이션은 상호 작용하기 위해 Azure Digital Twins를 사용하여 인증해야 하며, 앱에서 사용할 수 있는 일부 [인증 메커니즘](how-to-authenticate-client.md)에는 [Azure AD(Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md) **앱 등록** 이 포함됩니다.
 
-이는 모든 인증 시나리오에 필요하지 않습니다. 그러나 앱 등록을 요구하는 인증 전략 또는 코드 샘플을 사용하는 경우 이 문서에서는 [Azure CLI](/cli/azure/what-is-azure-cli)를 사용하여 이를 설정하는 방법을 보여 줍니다. 또한 앱 등록을 사용하여 인증하기 위해 필요한 [중요한 값을 수집하는](#collect-important-values) 방법도 다룹니다.
+앱 등록이 모든 인증 시나리오에 필요한 것은 아닙니다. 그러나 앱 등록을 요구하는 인증 전략 또는 코드 샘플을 사용하는 경우 이 문서에서는 [Azure CLI](/cli/azure/what-is-azure-cli)를 사용하여 이를 설정하는 방법을 보여 줍니다. 또한 앱 등록을 사용하여 인증하기 위해 필요한 [중요한 값을 수집](#collect-important-values)하는 방법도 다룹니다.
 
 ## <a name="azure-ad-app-registrations"></a>Azure AD 앱 등록
 
@@ -125,7 +125,7 @@ Azure Digital Twins를 사용하기 위해 **리소스 이름** 은 `http://digi
 az ad app credential reset --id <client-ID> --append
 ```
 
-이 명령에 선택적 매개 변수를 추가하여 자격 증명 설명, 종료 날짜 및 기타 세부 정보를 지정할 수도 있습니다. 명령과 해당 추가 매개 변수에 대한 자세한 내용은 [az ad 앱 자격 증명 초기화 설명서](/cli/azure/ad/app/credential?view=azure-cli-latest&preserve-view=true#az_ad_app_credential_reset)를 참조하세요.
+이 명령에 선택적 매개 변수를 추가하여 자격 증명 설명, 종료 날짜 및 기타 세부 정보를 지정할 수도 있습니다. 명령과 해당 매개 변수에 대한 자세한 내용은 [az ad 앱 자격 증명 초기화 설명서](/cli/azure/ad/app/credential?view=azure-cli-latest&preserve-view=true#az_ad_app_credential_reset)를 참조하세요.
 
 이 명령의 출력은 사용자가 만든 클라이언트 암호에 대한 정보입니다. 인증을 위해 클라이언트 암호가 필요할 때 사용할 `password` 값을 복사합니다.
 
@@ -136,7 +136,7 @@ az ad app credential reset --id <client-ID> --append
 
 ## <a name="other-possible-steps-for-your-organization"></a>조직의 다른 가능한 단계
 
-조직에서 앱 등록을 성공적으로 설정하기 위해 구독 소유자/관리자의 추가 작업이 필요할 수 있습니다. 필요한 단계는 조직의 특정 설정에 따라 다를 수도 있습니다.
+앱 등록을 성공적으로 설정하려면 조직이 구독 소유자/관리자의 추가 작업을 요구할 수 있습니다. 필요한 단계는 조직의 특정 설정에 따라 다를 수도 있습니다.
 
 다음은 구독의 소유자 또는 관리자가 수행해야 하는 일반적인 잠재적 활동입니다.
 * 앱 등록에 대한 관리자 동의를 부여합니다. 조직이 Azure AD에서 구독 내의 모든 앱 등록에 관해 **관리자 동의가 필요함** 을 전역적으로 활성화했을 수도 있습니다. 이 경우 소유자/관리자가 추가 위임된 권한 또는 애플리케이션 권한을 부여해야 할 수 있습니다.

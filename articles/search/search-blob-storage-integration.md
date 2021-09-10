@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
-ms.openlocfilehash: 6646a2e5a074219df13f3bf373edfc53310c8104
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 07f208753265e35bbc51c74f74a87a1742fa52ff
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556607"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114727482"
 ---
 # <a name="search-over-azure-blob-storage-content"></a>Azure Blob Storage 콘텐츠 검색
 
@@ -38,7 +38,7 @@ Cognitive Search는 인덱싱 계층에서 Azure Blob Storage와 통합하여 *�
 
 Azure Cognitive Search 및 Azure Blob Storage 모두 필요합니다. Blob Storage 내에서 원본 콘텐츠를 제공하는 컨테이너가 필요합니다.
 
-스토리지 계정 포털 페이지에서 직접 시작할 수 있습니다. 왼쪽 탐색 페이지의 **Blob service** 에서 **Azure Cognitive Search 추가** 를 클릭하여 새 서비스를 만들거나 기존 서비스를 선택합니다. 
+스토리지 계정 포털 페이지에서 직접 시작할 수 있습니다. 왼쪽 탐색 페이지의 **Blob service** 에서 **Azure Cognitive Search 추가** 를 선택하여 새 서비스를 만들거나 기존 서비스를 선택합니다. 
 
 Azure Cognitive Search를 스토리지 계정에 추가한 후에는 표준 프로세스에 따라 Blob 데이터를 인덱싱할 수 있습니다. 편리한 초기 도입을 위해 Azure Cognitive Search에서 **데이터 가져오기** 마법사를 사용하거나 Postman과 같은 도구를 사용하여 REST API를 호출하는 것이 좋습니다. Postman에서 REST API를 호출하는 단계는 [Azure Cognitive Search에서 반정형 데이터(JSON Blob) 인덱싱 및 검색](search-semi-structured-data.md) 자습서에 안내되어 있습니다. 
 
@@ -48,7 +48,7 @@ Azure Cognitive Search를 스토리지 계정에 추가한 후에는 표준 프�
 
 Azure Storage의 Blob은 [Azure Cognitive Search Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)를 사용하여 인덱싱됩니다. **데이터 가져오기** 마법사, REST API 또는 .NET SDK를 사용하여 이 인덱서를 호출할 수 있습니다. 코드에서는 형식을 설정하고 Blob 컨테이너와 함께 Azure Storage 계정을 포함하는 연결 정보를 제공하여 이 인덱서를 사용합니다. 만든 후에 매개 변수로 전달할 수 있는 가상 디렉터리를 만들거나 파일 형식 확장에서 필터링하여 Blob의 하위 집합을 지정할 수 있습니다.
 
-인덱서는 “문서 크래킹”을 수행하여 콘텐츠를 검사하는 Blob을 엽니다. 이 작업은 데이터 원본에 연결한 후 파이프라인에서 첫 번째 단계입니다. Blob 데이터의 경우에는 PDF, Office 문서 및 기타 콘텐츠 형식이 검색되는 단계입니다. 텍스트 추출을 사용한 문서 크래킹은 무료로 제공됩니다. Blob에 이미지 콘텐츠가 포함되어 있는 경우 [AI 보강 추가](search-blob-ai-integration.md)를 하지 않으면 이미지가 무시됩니다. 표준 인덱싱은 텍스트 콘텐츠에만 적용됩니다.
+인덱서는 [“문서 크랙”](search-indexer-overview.md#document-cracking)을 발생시켜 콘텐츠를 검사하는 Blob을 엽니다. 이 작업은 데이터 원본에 연결한 후 파이프라인에서 첫 번째 단계입니다. Blob 데이터의 경우에는 PDF, Office 문서 및 기타 콘텐츠 형식이 검색되는 단계입니다. 텍스트 추출을 사용한 문서 크래킹은 무료로 제공됩니다. Blob에 이미지 콘텐츠가 포함되어 있는 경우 [AI 보강 추가](search-blob-ai-integration.md)를 하지 않으면 이미지가 무시됩니다. 표준 인덱싱은 텍스트 콘텐츠에만 적용됩니다.
 
 Blob 인덱서는 구성 매개 변수와 함께 제공되며 기본 데이터가 충분한 정보를 제공하는 경우 변경 내용 추적을 지원합니다. [Azure Cognitive Search Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)의 핵심 기능에 대해 자세히 알아볼 수 있습니다.
 

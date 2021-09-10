@@ -4,39 +4,54 @@ description: Azure Monitor는 Azure Functions에서 실행되는 애플리케이
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 06/26/2020
-ms.openlocfilehash: 6d790a6f02fdc07609e374639c6e452b9088262e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/27/2021
+ms.openlocfilehash: d8364915518104581a9f9ffb03b7ee7eda86c447
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87024574"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252201"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Azure Monitor Application Insights를 사용하여 Azure Functions 모니터링
 
-[Azure Functions](../../azure-functions/functions-overview.md)는 함수를 모니터링할 수 있도록 Azure Application Insights와 기본적으로 통합됩니다. 
+[Azure Functions](../../azure-functions/functions-overview.md)는 함수를 모니터링할 수 있도록 Azure Application Insights와 기본적으로 통합됩니다. .NET 및 .NETCore 이외의 언어의 경우 분산 추적의 모든 이점을 얻으려면 추가 언어별 작업자/확장이 필요합니다. 
 
 Application Insights는 로그, 성능 및 오류 데이터를 수집하고 성능 이상을 자동으로 감지합니다. Application Insights에는 문제를 진단하고 함수가 어떻게 사용되는지 이해할 수 있는 강력한 분석 도구가 있습니다. 애플리케이션 데이터에 대한 가시성이 있으면 지속적으로 성능 및 유용성을 향상시킬 수 있습니다. 로컬 함수 앱 프로젝트를 개발할 때도 Application Insights를 사용할 수 있습니다. 
 
 필요한 Application Insights 계측은 Azure Functions에 기본 제공됩니다. 유효한 계측 키만 있으면 함수 앱을 Application Insights 리소스에 연결할 수 있습니다. Azure에서 함수 앱 리소스를 만들 때 계측 키를 애플리케이션 설정에 추가해야 합니다. 함수 앱에 이 키가 아직 없는 경우 수동으로 설정할 수 있습니다. 자세한 내용은 [Azure Functions 모니터링](../../azure-functions/functions-monitoring.md?tabs=cmd)을 참조하세요.
 
-## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>Windows 상의 Java 애플리케이션에 대한 분산 추적(공개 미리 보기)
+## <a name="distributed-tracing-for-java-applications-public-preview"></a>Java 애플리케이션에 대한 분산 추적(공개 미리 보기)
 
 > [!IMPORTANT]
-> 이 기능은 현재 Windows의 Java Azure Functions에 대한 공개 미리 보기 상태이며, Linux의 Java Azure Functions에 대한 분산 추적은 지원되지 않습니다. 사용 계획에서 콜드 부팅 시간은 8~9초입니다.
+> 이 기능은 현재 Windows와 Linux에서 Java Azure Functions에 대한 공개 미리 보기로 제공됩니다.
 
 애플리케이션을 Java로 작성하는 경우, 함수 애플리케이션에서 요청, 종속성, 로그 및 메트릭 등 다양한 데이터를 볼 수 있습니다. 추가 데이터를 사용하여 엔드투엔드 트랜잭션을 보고 진단하고, 애플리케이션 맵도 볼 수 있습니다. 여기에는 다수의 트랜잭션을 집계하여 시스템이 어떻게 상호 작용하는지에 대한 토폴로지 보기가 표시되고 평균 성능 및 오류율이 얼마인지를 보여 줍니다.
 
-엔드투엔드 진단 및 애플리케이션 맵은 단일 트랜잭션/요청에 대한 가시성을 제공합니다. 이러한 두 기능을 함께 사용할 경우 요청 단위를 기준으로 안정성 문제와 성능 병목 현상의 근본 원인을 찾는 데 매우 유용합니다.
+엔드투엔드 진단 및 애플리케이션 맵은 단일 트랜잭션/요청에 대한 가시성을 제공합니다. 이러한 두 기능을 함께 사용할 경우 요청 단위를 기준으로 안정성 문제와 성능 병목 현상의 근본 원인을 찾는 데 유용합니다.
 
 ### <a name="how-to-enable-distributed-tracing-for-java-function-apps"></a>Java 함수 앱에 대해 분산 추적을 사용하도록 설정하는 방법
 
-함수 앱 개요 블레이드의 구성으로 이동합니다. 애플리케이션 설정에서 "+ 새 애플리케이션 설정"을 클릭합니다. 다음 두 가지 애플리케이션 설정을 아래 값으로 추가하고 왼쪽 위에서 저장을 클릭합니다. 완료!
+함수 앱 개요 블레이드로 이동 후 구성으로 이동합니다. 애플리케이션 설정에서 "+ 새 애플리케이션 설정"을 클릭합니다. 
 
+> [!div class="mx-imgBorder"]
+> ![설정 아래에서 새 애플리케이션 설정을 추가합니다](./media//functions/create-new-setting.png)
+
+다음 두 가지 애플리케이션 설정을 아래 값으로 추가하고 왼쪽 위에서 저장을 클릭합니다. 완료!
+
+#### <a name="windows"></a>Windows
 ```
 XDT_MicrosoftApplicationInsights_Java -> 1
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 ```
+
+#### <a name="linux"></a>Linux
+```
+ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
+```
+
+## <a name="distributed-tracing-for-python-function-apps"></a>Python 함수 앱에 대한 분산 추적
+
+Redis, Memcached, MongoDB 등과 같은 서비스에서 사용자 지정 원격 분석을 수집하려면 [OpenCensus Python Extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure)을 사용하고 [원격 분석을 로그](https://docs.microsoft.com/azure/azure-functions/functions-reference-python?tabs=azurecli-linux%2Capplication-level#log-custom-telemetry)할 수 있습니다. [여기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib)에서 지원되는 서비스 목록을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

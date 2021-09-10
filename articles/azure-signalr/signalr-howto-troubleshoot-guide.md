@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1e909273ae2413a67da6e3975e5a2bc50a68685d
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048207"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186824"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>일반적인 Azure SignalR Service 문제 해결 가이드
 
@@ -73,7 +73,7 @@ services.MapAzureSignalR(GetType().FullName, options =>
 
 * ASP.NET "서버를 사용할 수 없음" 오류 [#279](https://github.com/Azure/azure-signalr/issues/279)
 * ASP.NET "연결이 활성 상태가 아닙니다. 데이터를 서비스로 보낼 수 없습니다." 오류 [#324](https://github.com/Azure/azure-signalr/issues/324)
-* "https://<API endpoint>에 대한 HTTP 요청을 만드는 동안 오류가 발생했습니다. 이것은 HTTPS 경우에 서버 인증서가 HTTP.SYS로 제대로 구성되지 않았기 때문일 수 있습니다. 또한 클라이언트와 서버 사이에 보안 바인딩이 불일치하기 때문일 수 있습니다."
+* "`https://<API endpoint>`에 대한 HTTP 요청을 만드는 동안 오류가 발생했습니다. 이것은 HTTPS 경우에 서버 인증서가 HTTP.SYS로 제대로 구성되지 않았기 때문일 수 있습니다. 또한 클라이언트와 서버 사이에 보안 바인딩이 불일치하기 때문일 수 있습니다."
 
 ### <a name="root-cause"></a>근본 원인
 
@@ -354,7 +354,7 @@ ASP.NET SignalR의 경우 알려진 문제가 SDK 1.6.0에서 수정되었습니
 
 [ASP.NET Core 성능 모범 사례](/aspnet/core/performance/performance-best-practices#avoid-blocking-calls)를 참조하세요.
 
-[스레드 풀 결핍](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)에 대해 자세히 알아보세요.
+[스레드 풀 결핍](/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)에 대해 자세히 알아보세요.
 
 ### <a name="how-to-detect-thread-pool-starvation"></a>스레드 풀 결핍을 검색하는 방법
 
@@ -363,8 +363,8 @@ ASP.NET SignalR의 경우 알려진 문제가 SDK 1.6.0에서 수정되었습니
     
   :::image type="content" source="media/signalr-howto-troubleshoot-guide/metrics-thread-count.png" alt-text="Azure App Service의 최대 스레드 수 창에 대한 스크린샷":::
 
-* .NET Framework를 사용하는 경우 서버 VM의 성능 모니터에서 [메트릭](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters)을 확인할 수 있습니다.
-* 컨테이너에서 .NET Core를 사용하는 경우 [컨테이너에서 진단 수집](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers)을 참조하세요.
+* .NET Framework를 사용하는 경우 서버 VM의 성능 모니터에서 [메트릭](/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters)을 확인할 수 있습니다.
+* 컨테이너에서 .NET Core를 사용하는 경우 [컨테이너에서 진단 수집](/dotnet/core/diagnostics/diagnostics-in-containers)을 참조하세요.
 
 또한 코드를 사용하여 스레드 풀 결핍을 검색할 수 있습니다.
 
@@ -428,33 +428,33 @@ service.AddSingleton<ThreadPoolStarvationDetector>();
 
 <a name="view_request"></a>
 
-* 클라이언트에서 나가는 요청을 보는 방법은 어떻게 될까요?
+### <a name="how-to-view-the-outgoing-request-from-the-client"></a>클라이언트에서 발신되는 요청을 어떻게 볼 수 있나요?
+
 ASP.NET Core를 예로 사용합니다(ASP.NET 예도 비슷함).
-    * 브라우저에서:
 
-        Chrome을 예로 사용합니다. **F12** 키를 사용하여 콘솔 창을 열고, **네트워크** 탭으로 전환할 수 있습니다. 처음부터 네트워크를 캡처하려면 **F5 키** 를 사용하여 페이지를 새로 고쳐야 할 수 있습니다.
+* 브라우저에서: 크롬을 예로 들면, **F12** 키를 사용하여 콘솔 창을 열고, **네트워크** 탭으로 전환할 수 있습니다. 처음부터 네트워크를 캡처하려면 **F5** 키를 사용하여 페이지를 새로 고쳐야 할 수 있습니다.
 
-        :::image type="content" source="./media/signalr-howto-troubleshoot-guide/chrome-network.gif" alt-text="Chrome 네트워크 보기":::
+    :::image type="content" source="./media/signalr-howto-troubleshoot-guide/chrome-network.gif" alt-text="Chrome 네트워크 보기":::
 
-    * C# 클라이언트에서:
+* C# 클라이언트에서:
 
-        [Fiddler](https://www.telerik.com/fiddler)를 사용하여 로컬 웹 트래픽을 볼 수 있습니다. WebSocket 트래픽은 Fiddler 4.5부터 지원됩니다.
+    [Fiddler](https://www.telerik.com/fiddler)를 사용하여 로컬 웹 트래픽을 볼 수 있습니다. WebSocket 트래픽은 Fiddler 4.5부터 지원됩니다.
 
-        :::image type="content" source="./media/signalr-howto-troubleshoot-guide/fiddler-view-network-inline.png" alt-text="Fiddler 네트워크 보기" lightbox="./media/signalr-howto-troubleshoot-guide/fiddler-view-network.png":::
+    :::image type="content" source="./media/signalr-howto-troubleshoot-guide/fiddler-view-network-inline.png" alt-text="Fiddler 네트워크 보기" lightbox="./media/signalr-howto-troubleshoot-guide/fiddler-view-network.png":::
 
 <a name="restart_connection"></a>
 
-* 클라이언트 연결을 다시 시작하는 방법은 어떻게 될까요?
+### <a name="how-to-restart-client-connection"></a>클라이언트 연결을 다시 시작하는 방법은 어떻게 될까요?
     
-    *항상 다시 시도* 전략을 사용하여 연결 논리를 다시 시작하는 작업이 포함된 [샘플 코드](https://github.com/Azure/azure-signalr/tree/dev/samples)는 다음과 같습니다.
+*항상 다시 시도* 전략을 사용하여 연결 논리를 다시 시작하는 작업이 포함된 [샘플 코드](https://github.com/Azure/azure-signalr/tree/dev/samples)는 다음과 같습니다.
 
-    * [ASP.NET Core C# 클라이언트](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
+* [ASP.NET Core C# 클라이언트](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-    * [ASP.NET Core JavaScript 클라이언트](https://github.com/Azure/azure-signalr/blob/release/1.0.0-preview1/samples/ChatSample/wwwroot/index.html#L164)
+* [ASP.NET Core JavaScript 클라이언트](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.Net50/wwwroot/index.html#L171)
 
-    * [ASP.NET C# 클라이언트](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
+* [ASP.NET C# 클라이언트](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
-    * [ASP.NET JavaScript 클라이언트](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
+* [ASP.NET JavaScript 클라이언트](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
 
 [문제 해결에 대한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 

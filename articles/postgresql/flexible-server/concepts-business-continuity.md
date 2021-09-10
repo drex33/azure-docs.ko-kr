@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fbc47fa19cccb8d5ce6af38fdff3f0e772f5039f
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 08/24/2021
+ms.openlocfilehash: 64206d1e5a26d163c5d5ed81c3c762a10de0fe96
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537696"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769591"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버를 사용한 비즈니스 연속성 개요
 
@@ -59,7 +59,7 @@ Azure Database for PostgreSQL - 유연한 서버의 **비즈니스 연속성** �
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>예기치 않은 가동 중지 시간: 오류 시나리오 및 서비스 복구
 계획되지 않은 오류 시나리오 및 복구 프로세스는 다음과 같습니다. 
 
-| **시나리오** | **복구 프로세스 [비HA]** | **복구 프로세스 [HA]** |
+| **시나리오** | **복구 프로세스** <br> [영역 중복 HA 없이 구성된 서버] | **복구 프로세스** <br> [영역 중복 HA로 구성된 서버] |
 | ---------- | ---------- | ------- |
 | <B>데이터베이스 서버 오류 | 데이터베이스 서버가 다운되면 Azure는 데이터베이스 서버를 다시 시작합니다. 이 작업에 실패하면 다른 실제 노드에서 데이터베이스 서버가 다시 시작됩니다.  <br /> <br /> RTO(복구 시간 목표)는 데이터베이스 서버 시작 프로세스 중 수행해야 하는 큰 트랜잭션 및 복구 작업의 양과 같은 장애가 발생한 시점의 작업을 포함하여 여러 요소들에 따라 달라집니다. <br /> <br /> PostgreSQL 데이터베이스를 사용하는 애플리케이션은 삭제된 연결과 실패한 트랜잭션을 검색하고 다시 시도하도록 빌드되어야 합니다. | 데이터베이스 서버 오류가 검색되면 서버가 대기 서버로 장애 조치(failover)되므로 가동 중지 시간을 줄일 수 있습니다. 자세한 내용은 [HA 개념 페이지](./concepts-high-availability.md)를 참조하세요. RTO는 데이터 손실 없이 60~120초 이내여야 합니다. |
 | <B>스토리지 오류 | 디스크 오류 또는 물리적 블록 손상과 같은 스토리지 관련 문제는 애플리케이션에 영향을 주지 않습니다. 데이터가 3개 복사본에 저장되므로 남은 스토리지에서 데이터 복사본이 제공됩니다. 손상된 데이터 블록이 자동으로 복구되고 데이터의 새 복사본이 자동으로 생성됩니다. | 전체 스토리지에 액세스할 수 없는 경우처럼 복구할 수 없는 드문 오류가 발생한 경우에는 유연한 서버를 대기 복제본으로 장애 조치(failover)하여 가동 중지 시간을 줄입니다. 자세한 내용은 [HA 개념 페이지](./concepts-high-availability.md)를 참조하세요. |
@@ -74,5 +74,5 @@ Azure Database for PostgreSQL - 유연한 서버의 **비즈니스 연속성** �
 
 ## <a name="next-steps"></a>다음 단계
 
--   [영역 중복 고가용성](./concepts-high-availability.md) 알아보기
--   [백업 및 복구](./concepts-backup-restore.md) 알아보기
+-   [영역 중복 고가용성](./concepts-high-availability.md)에 대한 자세한 정보
+-   [백업 및 복구](./concepts-backup-restore.md)에 대한 자세한 정보

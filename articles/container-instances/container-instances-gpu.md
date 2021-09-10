@@ -3,12 +3,12 @@ title: GPU 지원 컨테이너 인스턴스 배포
 description: GPU 리소스를 사용하여 컴퓨팅 집약적 컨테이너 앱을 실행하기 위해 Azure Container Instances를 배포하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: 0d645d1fce24d1324e485d74e20bcf492d4444a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cff887f434230fbc24dfbe27b1f14a463d00cf5d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93127011"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528390"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
@@ -63,9 +63,12 @@ GPU 리소스를 배포할 때 다음 표에 표시된 최댓값 이내에서 �
 
 * **CUDA 드라이버** - GPU 리소스가 있는 컨테이너 인스턴스는 NVIDIA CUDA 드라이버 및 컨테이너 런타임이 미리 프로비전되므로, CUDA 워크로드용으로 개발된 컨테이너 이미지를 사용할 수 있습니다.
 
-  이 스테이지에서는 CUDA 9.0만 지원합니다. 예를 들어, Docker 파일에 대해 다음과 같은 기본 이미지를 사용할 수 있습니다.
+  이 스테이지에서는 CUDA 9.0만 지원합니다. 예를 들어, Dockerfile에 대해 다음과 같은 기본 이미지를 사용할 수 있습니다.
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+
+  > [!NOTE]
+  > Docker Hub에서 공용 컨테이너 이미지를 사용할 때 안정성을 향상하려면, 프라이빗 Azure 컨테이너 레지스트리에서 이미지를 가져와 관리하고, 비공개로 관리되는 기본 이미지를 사용하도록 Dockerfile을 업데이트합니다. [공용 이미지 사용에 대해 자세히 알아봅니다](../container-registry/buffer-gate-public-content.md).
     
 ## <a name="yaml-example"></a>YAML 예제
 
@@ -236,8 +239,8 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

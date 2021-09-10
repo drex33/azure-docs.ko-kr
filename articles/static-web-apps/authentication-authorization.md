@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 0ed20af6b27822f1f437f584e9b73eb416941d6f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 00f01e184b254e4fbc40fefa79506498bae30597
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066001"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634913"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps"></a>Azure Static Web Apps에 대한 인증 및 권한 부여
 
@@ -123,6 +123,8 @@ https://identity.azurestaticapps.net/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
+Azure Active Directory를 사용하는 경우 `aad` 자리 표시자에 대한 값으로 `<AUTHENTICATION_PROVIDER_NAME>`을 사용합니다.
+
 ## <a name="system-folder"></a>시스템 폴더
 
 Azure Static Web Apps는 `/.auth` system 폴더를 사용하여 권한 부여 관련 API에 대한 액세스를 제공합니다. `/.auth` 폴더 아래의 경로를 최종 사용자에게 직접 노출하는 대신, 친숙한 URL을 만들기 위해 [라우팅 규칙](configuration.md#routes)을 만드는 것이 좋습니다.
@@ -194,7 +196,7 @@ Azure Static Web Apps는 `/.auth` system 폴더를 사용하여 권한 부여 �
 ```json
 {
   "route": "/.auth/login/twitter",
-  "statusCode": "404"
+  "statusCode": 404
 }
 ```
 

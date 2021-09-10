@@ -8,12 +8,12 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 07/21/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: f2a634aa73cf9b9cb2b379887f9a677a79c39b57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a1511581e3cc80d5f2f71bb82dc1bcb0ba639acb
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536582"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681508"
 ---
 # <a name="azure-sentinel-sap-solution-logs-reference-public-preview"></a>Azure Sentinel SAP 솔루션 로그 참조(공개 미리 보기)
 
@@ -143,7 +143,7 @@ ms.locfileid: "122536582"
 
 ### <a name="abapcrlog_cl-log-schema"></a>ABAPCRLog_CL 로그 스키마
 
-| 필드        | 설명                       |
+| 필드        | Description                       |
 | ------------ | --------------------------------- |
 | 범주     | 범주(워크벤치, 사용자 지정) |
 | ClientID     | ABAP 클라이언트 ID(MANDT)            |
@@ -204,7 +204,7 @@ ms.locfileid: "122536582"
 
 ### <a name="abapos_gw_cl-log-schema"></a>ABAPOS_GW_CL 로그 스키마
 
-| 필드        | 설명      |
+| 필드        | Description      |
 | ------------ | ---------------- |
 | 호스트         | 호스트             |
 | 인스턴스     | 다음 구문의 ABAP 인스턴스: `<HOST>_<SYSID>_<SYSNR>`   |
@@ -226,7 +226,7 @@ ms.locfileid: "122536582"
 
 ### <a name="abapos_icm_cl-log-schema"></a>ABAPOS_ICM_CL 로그 스키마
 
-| 필드        | 설명      |
+| 필드        | Description      |
 | ------------ | ---------------- |
 | 호스트         | 호스트             |
 | 인스턴스     | 다음 구문의 ABAP 인스턴스: `<HOST>_<SYSID>_<SYSNR>`   |
@@ -537,7 +537,7 @@ ms.locfileid: "122536582"
 ### <a name="abapos_wp_cl-log-schema"></a>ABAPOS_WP_CL 로그 스키마
 
 
-| 필드        | 설명         |
+| 필드        | Description         |
 | ------------ | ------------------- |
 | 호스트         | 호스트                |
 | 인스턴스     | 다음 구문의 ABAP 인스턴스: `<HOST>_<SYSID>_<SYSNR>`   |
@@ -620,6 +620,7 @@ ms.locfileid: "122536582"
 
 - [SAP용 Azure Sentinel 솔루션 배포](sap-deploy-solution.md)
 - [Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
-- [전문가 구성 옵션, 온-프레미스 배포 및 SAPControl 로그 원본](sap-solution-deploy-alternate.md)
+- [SNC로 Azure Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
+- [전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP 솔루션: 기본 제공 보안 콘텐츠](sap-solution-security-content.md)
 - [Azure Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)

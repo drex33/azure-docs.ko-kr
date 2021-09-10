@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3278e210daf1995366ff4d18cf5a3d3d8f7b344d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: a9193b71f2634e2cf9ac5970fb6f9fe2a965dc93
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110538934"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114458260"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync에서 업그레이드
 Azure AD Connect는 DirSync의 후속 도구입니다. 이 항목의 DirSync에서 업그레이드하는 방법을 찾습니다. 다음 단계는 Azure AD Connect의 다른 버전 또는 Azure AD Sync에서 업그레이드하는 경우에 작동하지 않습니다.
@@ -158,7 +158,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 5. DirSync 설치에서 내보낸 설정 파일을 선택합니다.
 6. 다음을 포함한 고급 옵션을 구성합니다.
    * Azure AD Connect에 대한 사용자 지정 설치 위치
-   * 기존 SQL Server 인스턴스(기본값: Azure AD Connect는 SQL Server 2012 Express를 설치함) DirSync 서버와 동일한 데이터베이스 인스턴스를 사용하지 마세요.
+   * 기존 SQL Server 인스턴스(기본값: Azure AD Connect는 SQL Server 2019 Express를 설치함) DirSync 서버와 동일한 데이터베이스 인스턴스를 사용하지 마세요.
    * SQL Server에 연결하는 데 사용되는 서비스 계정(SQL Server 데이터베이스가 원격인 경우에는 이 계정이 도메인 서비스 계정이어야 함) 이러한 옵션은 이 화면에서 볼 수 있습니다.
      이러한 옵션은 이 화면에서 볼 수 있습니다.  
      ![DirSync에서 업그레이드하기 위한 고급 구성 옵션을 보여주는 스크린샷.](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)

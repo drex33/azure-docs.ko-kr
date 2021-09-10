@@ -6,16 +6,16 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 08/24/2021
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
-ms.openlocfilehash: f1dbbdaece135706555b19448f8126769958918f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c9c489ab15f7b6a44e4aadeef8cd98b0d935e1ba
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642282"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821647"
 ---
 # <a name="set-variable-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics 변수 작업 설정
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +24,7 @@ Data Factory 또는 Synapse 파이프라인에서 정의된 String, Bool 또는 
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 필수
+속성 | Description | 필수
 -------- | ----------- | --------
 name | 파이프라인의 작업 이름 | 예
 description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | 아니요

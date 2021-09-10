@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 08/11/2021
 ms.author: justinha
-ms.openlocfilehash: df132af1675b3f373fe1eab5685c5d2f07813445
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c28711e937290df75687376f3ee6e067a69ad91d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619235"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529013"
 ---
 # <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Azure Active Directory Domain Services 관리되는 도메인의 암호 및 계정 잠금 정책
 
@@ -63,7 +63,7 @@ FGPP(세분화된 암호 정책)를 사용하여 도메인의 서로 다른 사�
 
 * **계정 잠금 기간:** 30
 * **허용되는 로그온 시도 실패 횟수:** 5
-* **다음 시간 이후 로그온 시도 실패 횟수 다시 설정:** 30분
+* **다음 시간 이후 로그온 시도 실패 횟수 다시 설정:** 2분
 * **최대 암호 사용 기간(수명):** 90일
 
 이러한 기본 설정에 따라 2분 내에 잘못된 암호를 5번 사용하면 사용자 계정이 30분 동안 잠깁니다. 계정은 30분 후 자동으로 잠금 해제됩니다.
@@ -105,10 +105,7 @@ Azure에서 애플리케이션을 구축하고 실행할 때 사용자 지정 �
 
     사용자 지정 암호 정책에 대한 우선 순위를 설정하여 기본값을 재정의합니다(예: *1*).
 
-1. 다른 암호 정책 설정을 원하는 대로 편집합니다. 다음 핵심 사항을 기억하세요.
-
-    * 관리되는 도메인에서 수동으로 만든 사용자에게만 암호 복잡성, 사용 기간, 만료 시간 등의 설정을 적용할 수 있습니다.
-    * 계정 잠금 설정은 모든 사용자에게 적용되지만 Azure AD 자체가 아닌 관리되는 도메인 내에서만 적용됩니다.
+1. 다른 암호 정책 설정을 원하는 대로 편집합니다. 계정 잠금 설정은 모든 사용자에게 적용되지만 Azure AD 자체가 아닌 관리되는 도메인 내에서만 적용됩니다.
 
     ![사용자 지정 세분화된 암호 정책 만들기](./media/password-policy/custom-fgpp.png)
 

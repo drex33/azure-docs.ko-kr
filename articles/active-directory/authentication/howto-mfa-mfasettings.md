@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 340c9f549d1d60a19867ea4de58834d921871854
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: d5aa2a2eba1cf6123d81813cab00d2ac7c5309b4
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567510"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835370"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Azure AD Multi-Factor Authentication 설정 구성
 
@@ -151,11 +151,9 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 사용자가 MFA 프롬프트에 대한 전화 통화를 수신하는 경우 해당 사용자의 경험(예: 발신자 ID 또는 음성 인사말)을 구성할 수 있습니다.
 
-미국에서 MFA 발신자 ID를 구성하지 않은 경우 Microsoft의 음성 통화는 다음 번호에서 제공됩니다. 스팸 필터를 사용하는 경우 이러한 번호를 제외해야 합니다.
+미국에서 MFA 발신자 ID를 구성하지 않은 경우 Microsoft의 음성 통화는 다음 번호에서 제공됩니다. 스팸 필터를 사용하는 경우 이 번호를 제외해야 합니다.
 
-* *+1 (866) 539 4191*
 * *+1 (855) 330 8653*
-* *+1 (877) 668 6536*
 
 > [!NOTE]
 > 경우에 따라 Azure AD Multi-Factor Authentication 호출이 공용 전화망을 통해 이루어진 경우 발신자 ID를 지원하지 않는 통신사를 통해 호출이 라우팅되는 경우가 있습니다. 이 때문에 항상 Azure AD Multi-Factor Authentication에서 발신자 ID를 보내더라도 이 ID가 보장되지 않습니다. 이는 Azure AD Multi-Factor Authentication에서 제공하는 전화 통화 및 문자 메시지 모두에 적용됩니다. Azure AD Multi-Factor Authentication에서 문자 메시지가 있는지 확인해야 하는 경우 [메시지를 보내는 데 사용되는 SMS 짧은 코드란?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-)을 참조하세요.
@@ -338,7 +336,7 @@ Azure AD Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 정�
 
 ## <a name="remember-multi-factor-authentication"></a>Multi-Factor Authentication 저장
 
-_Multi-Factor Authentication 저장_ 기능을 통해 사용자는 Multi-Factor Authentication을 사용하여 디바이스에 성공적으로 로그인한 후 지정된 기간(일) 동안 이후 인증을 바이패스할 수 있습니다. 사용 편의성을 개선하고 사용자가 동일한 디바이스에서 MFA를 수행해야 하는 횟수를 최소화하려면 90일 이상의 기간을 선택합니다.
+_Multi-Factor Authentication 저장_ 기능을 통해 사용자는 Multi-Factor Authentication을 사용하여 디바이스에 성공적으로 로그인한 후 지정된 기간(일) 동안 이후 인증을 바이패스합니다. 사용 편의성을 개선하고 사용자가 동일한 디바이스에서 MFA를 수행해야 하는 횟수를 최소화하려면 90일 이상의 기간을 선택합니다.
 
 > [!IMPORTANT]
 > 계정 또는 디바이스가 손상된 경우 신뢰할 수 있는 디바이스의 Multi-Factor Authentication을 저장해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 디바이스를 분실하거나 도난당한 경우 [MFA 세션을 취소](howto-mfa-userdevicesettings.md)해야 합니다.

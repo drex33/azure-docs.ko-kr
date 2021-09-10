@@ -4,28 +4,27 @@ description: 그래픽 및 다운로드 가능한 형식으로 상업용 Marketp
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
-ms.openlocfilehash: 344c7e6c14ca8ecdd91ffb9c148ce01d2b937573
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 08/06/2021
+ms.openlocfilehash: 1cc7e76833ac710ae4bdd511efa3033f8cf8fed7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542024"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535545"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
 이 문서에서는 파트너 센터의 주문 대시보드에 대한 정보를 제공합니다. 이 대시보드에서 그래픽 및 다운로드 가능한 형식으로 제공되는 증가 추세를 비롯한 주문 정보를 볼 수 있습니다.
 
-파트너 센터에서 주문 대시보드에 액세스하려면 **상업용 Marketplace** 에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **주문** 을 선택합니다.
-
 >[!NOTE]
-> 분석 용어에 대한 자세한 정의는 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.
+> 분석 용어에 대한 자세한 정의는 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.yml)을 참조하세요.
 
 ## <a name="orders-dashboard"></a>주문 대시보드
 
-주문 대시보드에는 모든 SaaS(software as a Service) 제품에 대한 현재 주문이 표시됩니다. 다음 항목에 대한 그래픽 표현을 볼 수 있습니다.
+[주문 대시보드](https://go.microsoft.com/fwlink/?linkid=2165914)에는 모든 SaaS(software as a Service) 제품에 대한 현재 주문이 표시됩니다. 다음 항목에 대한 그래픽 표현을 볼 수 있습니다.
 
 - 주문 추세
 - 사용자 및 사이트 추세별 주문
@@ -40,6 +39,8 @@ ms.locfileid: "111542024"
 ## <a name="elements-of-the-orders-dashboard"></a>주문 대시보드의 요소
 
 다음 섹션에서는 주문 대시보드를 사용하는 방법과 데이터를 읽는 방법을 설명합니다.
+
+파트너 센터에서 주문 대시보드에 액세스하려면 **상업용 Marketplace** 에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **주문** 을 선택합니다.
 
 ### <a name="month-range"></a>월 범위
 
@@ -118,7 +119,7 @@ SaaS 제품은 각 계획에 대한 두 가지 가격 책정 모델 중 하나�
 | Marketplace 구독 ID | Marketplace 구독 ID | 고객이 상업용 Marketplace 제품을 구매하는 데 사용한 Azure 구독과 연결된 고유 식별자입니다. 인프라 제품의 경우 고객의 Azure 구독 GUID입니다. SaaS 제품의 경우 SaaS 구매에는 Azure 구독이 필요하지 않으므로 0으로 표시됩니다. | Marketplace 구독 ID |
 | MonthStartDate | 월 시작 날짜 | 월 시작 날짜는 구매 월을 나타냅니다. yyyy-mm-dd 형식입니다. | MonthStartDate |
 | 제품 유형 | 제품 유형 | 상업용 Marketplace 제품의 유형입니다. | OfferType |
-| Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널이라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>재판매인을 통한 Enterprise</li><li>종량제</li></ul> | AzureLicenseType |
+| Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널이라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>[클라우드 솔루션 공급자](cloud-solution-providers.md)</li><li>Enterprise</li><li>재판매인을 통한 Enterprise</li><li>종량제</li><li>GTM</li></ul> | AzureLicenseType |
 | Marketplace 라이선스 유형 | Marketplace 라이선스 유형 | 상업용 Marketplace 제품의 청구 방법입니다. 다른 값은 다음과 같습니다.<ul><li>Azure를 통해 청구</li><li>사용자 라이선스 필요</li><li>무료</li><li>Microsoft 대리점</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | 제품에 연결된 플랜 | SKU |
 | 고객 국가 | 고객 국가/지역 | 고객이 입력한 국가/지역 이름. 국가/지역은 고객의 Azure 구독에서 국가/지역과 다를 수 있습니다. | CustomerCountry |
@@ -136,7 +137,16 @@ SaaS 제품은 각 계획에 대한 두 가지 가격 책정 모델 중 하나�
 | 고객 ID | 고객 ID | 고객에게 할당된 고유 식별자입니다. 고객은 Azure Marketplace 구독이 0개 이상 있을 수 있습니다. | CustomerId |
 | 청구 계정 ID | 청구 계정 ID | 청구를 생성하는 계정의 식별자입니다. **청구 계정 ID** 를 **customerID** 에 매핑하여 고객, 주문 및 사용 현황 보고서에 지급 트랜잭션 보고서를 연결합니다. | BillingAccountId |
 | AssetCount | 자산 수 | 주문 ID와 연결된 자산 수입니다. | 사용되지 않음 |
+| 사용할 수 없음 * | TermStartDate | 주문 기간의 시작 날짜를 나타냅니다. | TermStartDate |
+| 사용할 수 없음 * | TermEndDate | 주문 기간의 종료 날짜를 나타냅니다. | TermEndDate |
+| 사용할 수 없음 * | purchaseRecordId | 주문과 관련된 구매 레코드의 식별자입니다. | purchaseRecordId |
+| 사용할 수 없음 * | purchaseRecordLineItemId | 이 주문과 관련된 구매 레코드 품목의 식별자입니다. | purchaseRecordLineItemId |
+| 사용할 수 없음 * | EstimatedCharges | 모든 주문 단위에 대해 고객에게 청구되는 세전 가격입니다. 세금 포함 국가에서는 이 가격에 세금이 포함되고, 세금 제외 국가에서는 세금이 포함되지 않습니다. | EstimatedCharges |
+| 사용할 수 없음 * | 통화 | 제안의 BillingCurrency입니다. | 통화 |
+| 사용할 수 없음 * | HasTrial | 제안에 평가판 기간이 사용하도록 설정되었는지 여부를 나타냅니다. | HasTrial |
 |||||
+
+`*` 새 필드는 현재 ISVOrderV2 데이터 세트에 제공되며, 프로그래매틱 방식으로 액세스할 수 있습니다.
 
 ### <a name="orders-page-filters"></a>주문 페이지 필터
 
@@ -153,4 +163,4 @@ SaaS 제품은 각 계획에 대한 두 가지 가격 책정 모델 중 하나�
 - VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 Marketplace 분석의 사용량 대시보드](./usage-dashboard.md)를 참조하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](ratings-reviews.md)를 참조하세요.
-- 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.
+- 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.yml)을 참조하세요.

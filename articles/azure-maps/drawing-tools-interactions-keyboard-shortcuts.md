@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: b609a21348222150faf5fb828f2cc38ca6658f5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42b756e96829a19ddd25258087a8537c9a747b10
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92895820"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114668860"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>그리기 도구 모듈의 상호 작용 유형 및 바로 가기 키
 
@@ -22,7 +22,7 @@ ms.locfileid: "92895820"
 그리기 관리자는 지도와 상호 작용하여 도형을 그릴 수 있는 세 가지 다른 방법을 지원합니다.
 
 * `click` - 마우스 또는 터치스크린을 클릭하면 좌표가 추가됩니다.
-* `freehand ` - 지도에서 마우스 또는 터치스크린을 끌면 좌표가 추가됩니다.
+* `freehand ` - 맵에서 마우스 또는 터치스크린을 끌면 좌표가 추가됩니다.
 * `hybrid` - 마우스 또는 터치스크린을 클릭하거나 끌면 좌표가 추가됩니다.
 
 ## <a name="how-to-draw-shapes"></a>도형을 그리는 방법
@@ -140,6 +140,7 @@ ms.locfileid: "92895820"
 | `C` | 진행 중인 모든 그리기를 완료하고 그리기 모드를 유휴 상태로 설정합니다. 포커스가 최상위 지도 요소로 이동합니다.  |
 | `Escape` | 진행 중인 모든 그리기를 취소하고 그리기 모드를 유휴 상태로 설정합니다. 포커스가 최상위 지도 요소로 이동합니다.  |
 | `F` | 마우스가 지도 위에 있는 경우 점, 선 또는 다각형에 좌표를 추가합니다. 클릭 또는 혼합 모드에서 지도를 클릭하는 것과 동일한 작업입니다. 이 바로 가기를 사용하면 보다 정확하고 빠르게 그리기를 수행할 수 있습니다. 한 손을 사용하여 마우스를 배치하고 다른 손을 사용하여 누르기 제스처에서 마우스를 움직이지 않고 버튼을 누를 수 있습니다. |
+| `Delete` 또는 `Backspace` | 편집 모드에서 셰이프를 선택한 경우 삭제합니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 

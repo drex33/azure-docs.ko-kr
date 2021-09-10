@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
-ms.openlocfilehash: 344caf4080380f5d9dfdaf452798ada6d1dc9f1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6e639f49844aeb39b9fc51629f798e16015fa42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98931228"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529284"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
 
@@ -160,11 +160,11 @@ __참고:__ 해당 단계는 클러스터 중 하나가 스케일링 작업을 �
     |Spark 버전| HDI HBase 버전  | SHC 버전    |  명령  |
     | :-----------:| :----------: | :-----------: |:----------- |
     |      2.1    | HDI 3.6(HBase 1.1) | 1.1.1-2.1-s_2.11    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
-    |      2.4    | HDI 4.0(HBase 2.0) | 1.1.0.3.1.2.2-1  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+    
 
 2. 이 Spark 셸 인스턴스를 열어두고 [카탈로그 및 쿼리 정의](#define-a-catalog-and-query)를 계속 진행합니다. SHC Core 리포지토리의 버전에 해당하는 jar를 찾지 못하면 계속 읽습니다. 
 
-[spark-hbase-connector](https://github.com/hortonworks-spark/shc) GitHub 분기에서 직접 jar를 빌드할 수 있습니다. 예를 들어 Spark 2.3 및 HBase 1.1을 사용하여 실행 중인 경우 다음 단계를 완료합니다.
+Spark와 HBase 버전의 후속 조합에서는 이러한 아티팩트가 더 이상 위의 리포지토리에 게시되지 않습니다. [spark-hbase-connector](https://github.com/hortonworks-spark/shc) GitHub 분기에서 직접 jar를 빌드할 수 있습니다. 예를 들어 Spark 2.4 및 HBase 2.1을 사용하여 실행 중인 경우 다음 단계를 완료합니다.
 
 1. 리포지토리를 복제합니다.
 
@@ -172,10 +172,10 @@ __참고:__ 해당 단계는 클러스터 중 하나가 스케일링 작업을 �
     git clone https://github.com/hortonworks-spark/shc
     ```
     
-2. 분기-2.3으로 이동합니다.
+2. 분기-2.4로 이동합니다.
 
     ```bash
-    git checkout branch-2.3
+    git checkout branch-2.4
     ```
 
 3. 분기에서 빌드합니다(.jar 파일 생성).
@@ -187,7 +187,7 @@ __참고:__ 해당 단계는 클러스터 중 하나가 스케일링 작업을 �
 3. 다음 명령을 실행합니다(빌드한 .jar 파일에 해당하는 jar 이름을 변경해야 함).
 
     ```bash
-    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
+    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/shaded-clients/*
     ```
     
 4. 이 Spark 셸 인스턴스를 열린 상태로 유지하고 다음 섹션으로 넘어갑니다. 

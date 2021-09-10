@@ -4,15 +4,15 @@ description: Microsoft AppSource 및 Azure Marketplace에 통합 솔루션을 �
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: vikrambmsft
-ms.author: vikramb
-ms.date: 04/16/2020
-ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: Microsoft-BradleyWright
+ms.author: brwrigh
+ms.date: 06/22/2021
+ms.openlocfilehash: afdfce29840bbc88bdfc853e12e8109881f8366a
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880273"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113002033"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
@@ -81,19 +81,13 @@ ms.locfileid: "98880273"
     * API
     * 통합 데이터 리포지토리
 
-    개발 프로세스에 다음 리소스를 사용합니다.
+2. 비즈니스 및 기술 워크샵에서 개발한 프로젝트 계획 및 타임라인을 추진하는 파트너 간 프로젝트 관리자를 지정합니다.
 
-    * [비즈니스 의사 결정 워크숍 토론 가이드](https://aka.ms/AA5qicx)
-    * [기술 의사 결정 워크숍 토론 가이드](https://aka.ms/AA5qid1)
-    * [빠른 시작 동영상: 통합 솔루션 워크샵](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
+3. 솔루션의 완벽한 기술 통합을 발전시킵니다.
 
-1. 비즈니스 및 기술 워크샵에서 개발한 프로젝트 계획 및 타임라인을 추진하는 파트너 간 프로젝트 관리자를 지정합니다.
+4. Microsoft AppSource 또는 Azure Marketplace에서 솔루션 가격 책정 및 단일 가격대를 결정합니다.
 
-1. 솔루션의 완벽한 기술 통합을 발전시킵니다.
-
-1. Microsoft AppSource 또는 Azure Marketplace에서 솔루션 가격 책정 및 단일 가격대를 결정합니다.
-
-1. 다음을 포함하여 Microsoft AppSource 또는 Azure Marketplace 목록을 위해 마케팅 참고 자료를 작성합니다.
+5. 다음을 포함하여 Microsoft AppSource 또는 Azure Marketplace 목록을 위해 마케팅 참고 자료를 작성합니다.
 
     * 결합된 솔루션 이름.
     * 통합 솔루션의 목록 설명. [제품 목록 모범 사례](./gtm-offer-listing-best-practices.md)를 따릅니다.
@@ -103,7 +97,7 @@ ms.locfileid: "98880273"
 
 ## <a name="publish-your-integrated-solution"></a>통합 솔루션을 게시합니다.
 
-기술 통합 및 마케팅 참고 자료를 작성한 후 [Microsoft AppSource 및 Azure Marketplace를 위한 컨설팅 서비스](./plan-consulting-service-offer.md)에 대한 게시자 가이드를 참조하세요. 이 리소스를 사용하여 솔루션을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 결정합니다. 또한 가이드를 사용하여 게시 아티팩트를 준비하고 게시 프로세스를 완료합니다.
+기술 통합 및 마케팅 참고 자료를 완료한 후 [Microsoft AppSource 및 Azure Marketplace 컨설팅 서비스](./plan-consulting-service-offer.md)에 대한 게시자 가이드를 참조하여 솔루션을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 여부를 결정합니다. 가이드를 사용하여 게시 아티팩트를 준비하고 게시 프로세스를 완료하는 것이 좋습니다.
 
 컨설팅 서비스 제품에는 5가지 서비스 유형을 사용할 수 있지만 통합 솔루션은 개념 증명 또는 전체 구현이어야 합니다.
 

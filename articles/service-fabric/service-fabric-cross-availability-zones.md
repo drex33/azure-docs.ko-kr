@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 05/24/2021
 ms.author: pepogors
-ms.openlocfilehash: 347fd606e1c91d583ec81f17d9203bbe46020b57
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: aaf5be101320a5b8cccb24b89908c788996fc494
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110473159"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539326"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 
@@ -233,7 +233,7 @@ Service Fabric 부하 분산 장치는 대상 복제본 수와 일치하도록 �
 >[!IMPORTANT]
 >Service Fabric 클러스터 리소스 API 버전은 2020-12-01-preview 이상이어야 합니다.
 >
->클러스터 코드 버전은 7.2.445 이상이어야 합니다.
+>클러스터 코드 버전은 8.1.321 이상이어야 합니다.
 
 ```json
 {

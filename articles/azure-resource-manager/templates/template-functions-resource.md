@@ -2,14 +2,14 @@
 title: 템플릿 함수 - 리소스
 description: Azure Resource Manager 템플릿(ARM 템플릿)에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5fb365b1b0a1a77f93f627986902d4ede2752850
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: a728d51025a2bb23e7da681fc6ed5daf162b1315
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530342"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309283"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -18,6 +18,7 @@ Resource Manager는 Azure Resource Manager 템플릿(ARM 템플릿)에서 리소
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [pickZones](#pickzones)
+* [providers(사용되지 않음)](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -29,17 +30,17 @@ Resource Manager는 Azure Resource Manager 템플릿(ARM 템플릿)에서 리소
 
 ## <a name="extensionresourceid"></a>extensionResourceId
 
-`extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
+`extensionResourceId(baseResourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 해당 기능에 추가하기 위해 다른 리소스에 적용되는 리소스 종류에 해당하는 [확장 리소스](../management/extension-resource-types.md)에 대한 리소스 ID를 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| resourceId |예 |문자열 |확장 리소스가 적용되는 리소스의 리소스 ID입니다. |
-| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |문자열 |리소스의 이름입니다. |
+| baseResourceId |예 |문자열 |확장 리소스가 적용되는 리소스의 리소스 ID입니다. |
+| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 확장 리소스의 유형입니다. |
+| resourceName1 |예 |문자열 |확장 리소스의 이름입니다. |
 | resourceName2 |예 |문자열 |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 종류에 더 많은 세그먼트가 포함된 경우 리소스 이름을 매개 변수로 계속 추가합니다.
@@ -52,7 +53,7 @@ Resource Manager는 Azure Resource Manager 템플릿(ARM 템플릿)에서 리소
 {scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-범위 세그먼트는 확장되는 리소스에 따라 달라집니다.
+범위 세그먼트는 확장되는 기본 리소스에 따라 달라집니다. 예를 들어 구독 ID는 리소스 그룹 ID와 세그먼트가 다릅니다.
 
 확장 리소스가 **리소스** 에 적용되는 경우 리소스 ID는 다음 형식으로 반환됩니다.
 
@@ -60,23 +61,27 @@ Resource Manager는 Azure Resource Manager 템플릿(ARM 템플릿)에서 리소
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-확장 리소스가 **리소스 그룹** 에 적용되는 경우 형식은 다음과 같습니다.
+확장 리소스가 **리소스 그룹** 에 적용되는 경우 반환된 형식은 다음과 같습니다.
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-확장 리소스가 **구독** 에 적용되는 경우 형식은 다음과 같습니다.
+리소스 그룹과 함께 이 기능을 사용하는 예는 다음 섹션에 나와 있습니다.
+
+확장 리소스가 **구독** 에 적용되는 경우 반환된 형식은 다음과 같습니다.
 
 ```json
 /subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-확장 리소스가 **관리 그룹** 에 적용되는 경우 형식은 다음과 같습니다.
+확장 리소스가 **관리 그룹** 에 적용되는 경우 반환된 형식은 다음과 같습니다.
 
 ```json
 /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
+
+관리 그룹과 함께 이 기능을 사용하는 예는 다음 섹션에 나와 있습니다.
 
 ### <a name="extensionresourceid-example"></a>extensionResourceId 예제
 
@@ -462,6 +467,10 @@ pickZones의 응답을 사용하여 영역에 대해 null을 제공하거나 다
   }
 ]
 ```
+
+## <a name="providers"></a>providers
+
+**providers 함수는 더 이상 사용되지 않습니다.** 더는 사용하지 않는 것이 좋습니다. 리소스 공급자의 API 버전을 가져오기 위해 이 함수를 사용한 경우 템플릿에 특정 API 버전을 제공하는 것이 좋습니다. 버전 간에 속성이 변경된 경우 동적으로 반환된 API 버전을 사용하면 템플릿이 손상될 수 있습니다.
 
 ## <a name="reference"></a>reference
 

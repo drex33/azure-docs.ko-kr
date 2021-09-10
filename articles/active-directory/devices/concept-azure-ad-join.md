@@ -1,26 +1,26 @@
 ---
 title: Azure AD 조인 디바이스란?
-description: Azure AD 조인 장치 및 장치 ID 관리가 사용자 환경의 리소스에 액세스하는 장치를 관리하는 데 어떻게 도움이 되는지 알아봅니다.
+description: Azure AD 조인 디바이스는 사용자 환경 내의 리소스에 액세스하는 디바이스 관리에 도움이 됩니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 06/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c39aac2abeb9d569690b056df1a2fb892b11d3c1
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90601455"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113303061"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD 조인 디바이스
 
-Azure AD 조인은 클라우드 우선 또는 클라우드 전용으로 사용하려는 조직을 위한 것입니다. 모든 조직에서 규모 또는 업계에 관계없이 Azure AD 조인 디바이스를 배포할 수 있습니다. Azure AD 조인은 하이브리드 환경에서도 작동하므로 클라우드 및 온-프레미스 앱과 리소스 모두에 액세스할 수 있습니다.
+모든 조직에서 규모 또는 업계에 관계없이 Azure AD 조인 디바이스를 배포할 수 있습니다. Azure AD 조인은 하이브리드 환경에서도 작동하므로 클라우드 및 온-프레미스 앱과 리소스 모두에 액세스할 수 있습니다.
 
 | Azure AD 조인 | Description |
 | --- | --- |
@@ -30,7 +30,7 @@ Azure AD 조인은 클라우드 우선 또는 클라우드 전용으로 사용�
 | **디바이스 소유권** | 조직 |
 | **운영 체제** | Windows 10 Home을 제외한 모든 Windows 10 디바이스 |
 |   | [Azure에서 실행되는 Windows Server 2019 Virtual Machines](howto-vm-sign-in-azure-ad-windows.md)(서버 코어는 지원되지 않음) |
-| **프로비전** | 셀프 서비스: Windows OOBE 또는 설정 |
+| **프로비전** | 셀프 서비스: Windows 첫 실행 경험(OOBE) 또는 Windows 설정 |
 |   | 대량 등록 |
 |   | Windows Autopilot |
 | **디바이스 로그인 옵션** | 다음을 사용하는 조직 계정: |

@@ -1,7 +1,7 @@
 ---
-title: 포털 또는 Python SDK에서 작업 영역 관리
+title: 포털에서 작업 영역 만들기
 titleSuffix: Azure Machine Learning
-description: Azure Portal에서 또는 Python용 SDK를 사용하여 Azure Machine Learning 작업 영역을 관리하는 방법을 알아봅니다.
+description: Azure Portal에서 또는 Python용 SDK를 사용하여 Azure Machine Learning 작업 영역을 만들고, 확인하고, 삭제하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,23 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: fc0cdbcb85470fb9f1e0eb4d4bf6cc43c3ae4e23
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a9afef0e2616664578e66be3735104c47bfcffa9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034424"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760754"
 ---
-# <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Azure Portal에서 또는 Python SDK를 사용하여 Azure Machine Learning 작업 영역 관리
+# <a name="create-and-manage-azure-machine-learning-workspaces"></a>Azure Machine Learning 작업 영역 만들기 및 관리 
 
-이 문서에서는 Azure Portal이나 [Python용 SDK](/python/api/overview/azure/ml/)를 사용하여 [Azure Machine Learning](overview-what-is-azure-machine-learning.md)에 대한 [**Azure Machine Learning 작업 영역**](concept-workspace.md)을 만들고, 확인하고, 삭제합니다.
+이 문서에서는 Azure Portal이나 [Python용 SDK](/python/api/overview/azure/ml/)를 사용하여 [Azure Machine Learning](overview-what-is-azure-ml.md)에 대한 [**Azure Machine Learning 작업 영역**](concept-workspace.md)을 만들고, 확인하고, 삭제할 것입니다.
 
-변경이 필요하거나 자동화 요구 사항이 증가하면 [CLI를 사용](reference-azure-machine-learning-cli.md)하거나 [VS Code 확장을 통해](how-to-setup-vs-code.md) 작업 영역을 관리할 수도 있습니다.
+변경이 필요하거나 자동화 요구 사항이 증가하면 [CLI를 사용](reference-azure-machine-learning-cli.md)하거나 [VS Code 확장을 통해](tutorial-setup-vscode-extension.md) 작업 영역을 만들고 삭제할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
+* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * Python SDK를 사용하는 경우 [SDK를 설치합니다](/python/api/overview/azure/ml/install).
 
 ## <a name="limitations"></a>제한 사항
@@ -373,10 +373,6 @@ ws.delete(delete_dependent_resources=False, no_wait=False)
   * SDK 또는 Azure Portal의 공유 링크를 통해 직접 작업 영역으로 이동할 경우 확장에서 구독 정보가 포함된 표준 **개요** 페이지를 볼 수 없습니다. 이 시나리오에서는 다른 작업 영역으로 전환할 수도 없습니다. 다른 작업 영역을 보려면 [Azure Machine Learning 스튜디오](https://ml.azure.com)로 직접 이동하고 작업 영역 이름을 검색합니다.
   * 모든 자산(데이터 세트, 실험, 컴퓨팅 등)은 [Azure Machine Learning 스튜디오](https://ml.azure.com)에서만 사용할 수 있습니다. Azure Portal에서는 사용할 수 *없습니다*.
 
-### <a name="workspace-diagnostics"></a>작업 영역 진단
-
-[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
-
 ### <a name="resource-provider-errors"></a>리소스 공급자 오류
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
@@ -392,7 +388,7 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 작업 영역 만들기 예제:
 * Azure Portal을 사용하여 [작업 영역 및 컴퓨팅 인스턴스 만들기](quickstart-create-resources.md)
@@ -400,5 +396,3 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 ## <a name="next-steps"></a>다음 단계
 
 작업 영역이 있으면 [모델을 학습시키고 배포](tutorial-train-models-with-aml.md)하는 방법을 알아봅니다.
-
-조직의 요구 사항에 맞게 작업 영역을 계획하는 방법에 대한 자세한 내용은 [Azure Machine Learning 구성 및 설정](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization)을 참조하세요.

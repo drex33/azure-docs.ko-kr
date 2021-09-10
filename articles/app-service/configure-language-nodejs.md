@@ -6,16 +6,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 97db865f2c590a9d7700ee53a0380604885a8155
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 14ac7953654941de176bf74bd38787b33b9c864c
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076656"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225755"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Azure App Service용 Node.js 앱 구성
 
-Node.js 앱을 모든 필수 NPM 종속성과 함께 배포해야 합니다. 빌드 자동화를 사용하도록 설정하여 [Git 리포지토리](deploy-local-git.md) 또는 [Zip 패키지](deploy-zip.md)를 배포하면 App Service 배포 엔진이 자동으로 `npm install --production`을 실행합니다. 그러나 [FTP/S](deploy-ftp.md)를 사용하여 파일을 배포하는 경우 필요한 패키지를 수동으로 업로드해야 합니다.
+Node.js 앱을 모든 필수 NPM 종속성과 함께 배포해야 합니다. App Service 배포 엔진은 [Git 저장소](deploy-local-git.md) 또는 [빌드 자동화가 활성화된](deploy-zip.md#enable-build-automation-for-zip-deploy) [Zip 패키지](deploy-zip.md)를 배포할 때 자동으로 `npm install --production`을 실행합니다. 그러나 [FTP/S](deploy-ftp.md)를 사용하여 파일을 배포하는 경우 필요한 패키지를 수동으로 업로드해야 합니다.
 
 또한 App Service에 배포하는 Node.js 개발자를 위한 주요 개념과 지침을 제공합니다. Azure App Service를 처음 사용하는 경우 먼저 [Node.js 빠른 시작](quickstart-nodejs.md) 및 [MongoDB를 사용하는 Node.js 자습서](tutorial-nodejs-mongodb-app.md)를 따라하세요.
 
@@ -29,7 +29,7 @@ Node.js 앱을 모든 필수 NPM 종속성과 함께 배포해야 합니다. 빌
 az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
 ```
 
-지원되는 Node.js 버전을 모두 표시하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
+지원되는 모든 Node.js 버전을 표시하려면 `https://<sitename>.scm.azurewebsites.net/api/diagnostics/runtime`로 이동하거나 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
 az webapp list-runtimes | grep node
@@ -63,7 +63,7 @@ az webapp list-runtimes --linux | grep NODE
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_NODE_DEFAULT_VERSION="10.15"
 ```
 
-이 설정은 런타임에 또한 App Service 빌드 자동화 중 자동화된 패키지 복원 시에 사용할 Node.js 버전을 지정합니다.
+이 설정은 런타임에 또한 App Service 빌드 자동화 중 자동화된 패키지 복원 시에 사용할 Node.js 버전을 지정합니다. 이 설정은 주 부 버전만 인식하며 _LTS_ 모니터는 지원되지 않습니다.
 
 > [!NOTE]
 > 프로젝트의 `package.json`에서 Node.js 버전을 설정해야 합니다. 배포 엔진은 지원되는 모든 Node.js 버전을 포함하는 별도의 프로세스에서 실행됩니다.
@@ -119,7 +119,7 @@ app.listen(port, () => {
 
 ## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
 
-빌드 자동화가 설정된 상태에서 Git 또는 zip 패키지를 사용하여 앱을 배포하는 경우 App Service는 다음 시퀀스를 통해 자동화 단계를 빌드합니다.
+Git을 사용하여 앱을 배포하거나 [빌드 자동화가 활성화된](deploy-zip.md#enable-build-automation-for-zip-deploy) 압축 패키지를 배포하는 경우 App Service 빌드 자동화 단계는 다음 순서입니다.
 
 1. `PRE_BUILD_SCRIPT_PATH`에 지정된 경우 사용자 지정 스크립트를 실행합니다.
 1. npm `preinstall` 및 `postinstall` 스크립트를 포함하여 `npm install`을 플래그 없이 실행하고 `devDependencies`도 설치합니다.
@@ -186,7 +186,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>npm start 실행
 
-`npm start`를 사용하여 앱을 시작하려면 `start` 스크립트가 *package.json* 파일에 있어야 합니다. 예를 들어:
+`npm start`를 사용하여 앱을 시작하려면 `start` 스크립트가 *package.json* 파일에 있어야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -213,7 +213,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 [PM2를 사용하여 실행](#run-with-pm2)하도록 구성하는 경우 *.config.js, *.yml 또는 *.yaml* 을 사용하여 실행하는 경우를 제외하고 [Visual Studio Code](https://code.visualstudio.com/)에서 원격으로 Node.js 앱을 디버그할 수 있습니다.
 
-대부분의 경우 앱에 대한 추가 구성이 필요하지 않습니다. 앱이 *process.json* 파일(기본 또는 사용자 지정)을 사용하여 실행되는 경우 JSON 루트에 `script` 속성이 있어야 합니다. 예를 들어:
+대부분의 경우 앱에 대한 추가 구성이 필요하지 않습니다. 앱이 *process.json* 파일(기본 또는 사용자 지정)을 사용하여 실행되는 경우 JSON 루트에 `script` 속성이 있어야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -241,9 +241,9 @@ process.env.NODE_ENV
 
 ## <a name="run-gruntbowergulp"></a>Grunt/Bower/Gulp 실행
 
-기본적으로 App Service 빌드 자동화는 Node.js 앱이 Git 또는 Zip 배포를 통해 배포되고 빌드 자동화가 사용하도록 설정된 것을 인식하면 `npm install --production`을 실행합니다. 앱이 Grunt, Bower 또는 Gulp와 같은 인기 있는 자동화 도구를 필요로 하는 경우 이를 실행하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공하여 실행해야 합니다.
+기본적으로 App Service 빌드 자동화는 Node.js 앱이 Git을 통해 또는 [빌드 자동화가 활성화된](deploy-zip.md#enable-build-automation-for-zip-deploy) Zip 배포를 통해 배포되었음을 인식할 때 `npm install --production`을 실행합니다. 앱이 Grunt, Bower 또는 Gulp와 같은 인기 있는 자동화 도구를 필요로 하는 경우 이를 실행하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공하여 실행해야 합니다.
 
-리포지토리가 해당 도구를 실행할 수 있게 하려면 *package.json* 의 종속성에 도구를 추가해야 합니다. 예를 들어:
+리포지토리가 해당 도구를 실행할 수 있게 하려면 *package.json* 의 종속성에 도구를 추가해야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "dependencies": {
@@ -271,7 +271,7 @@ kuduscript --node --scriptType bash --suppressPrompt
 # ----------
 ```
 
-이 섹션은 `npm install --production` 실행으로 끝납니다. 필요한 도구를 실행하는 데 필요한 코드 섹션을 `Deployment` 섹션의 '끝'에 추가합니다.
+이 섹션은 `npm install --production` 실행으로 끝납니다. 필요한 도구를 실행하는 데 필요한 코드 섹션을 `Deployment` 섹션의 ‘끝’에 추가합니다.
 
 - [Bower](#bower)
 - [Gulp](#gulp)
@@ -320,7 +320,7 @@ fi
 
 ## <a name="detect-https-session"></a>HTTPS 세션 검색
 
-App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
+App Service에서는 네트워크 부하 분산기에서 [TLS/SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)가 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
 
 인기 있는 웹 프레임워크를 사용하여 표준 앱 패턴의 `X-Forwarded-*` 정보에 액세스할 수 있습니다. [Express](https://expressjs.com/)에서는 [신뢰 프록시](https://expressjs.com/guide/behind-proxies.html)를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -384,6 +384,10 @@ Application Insights를 사용하면 코드를 변경하지 않고도 애플리�
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+또는 다음 추가 리소스를 참조하세요.
+
+[환경 변수 및 앱 설정 참조](reference-app-settings.md)

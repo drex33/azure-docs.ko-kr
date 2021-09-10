@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f2aff30007da50ff1670f239a83f20fe6d8cfa33
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 3b26543927dd2631ebb8a7536b0cf8d5694b28ba
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597177"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689336"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Windows VM에 대한 Azure Disk Encryption 시나리오
+
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 Windows VM용 Azure Disk Encryption은 Windows의 BitLocker 기능을 사용하여 OS 디스크 및 데이터 디스크에 대한 전체 디스크 암호화를 제공합니다. 또한 VolumeType 매개 변수가 All일 때 임시 디스크의 암호화를 제공합니다.
 

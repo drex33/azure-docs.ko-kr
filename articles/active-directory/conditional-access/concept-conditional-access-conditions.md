@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a332b43da59c3e7c766d8fd911f0426fa346d8b
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 1725c88ec2275d4b20303161680020512c13bc4a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113564989"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226746"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -34,7 +34,7 @@ ms.locfileid: "113564989"
 
 ## <a name="user-risk"></a>사용자 위험 
 
-[ID 보호](../identity-protection/overview-identity-protection.md)에 대한 액세스 권한이 있는 고객의 경우 조건부 액세스 정책의 일부로 사용자 위험을 평가할 수 있습니다. 사용자 위험은 지정된 ID 또는 계정이 손상되었을 가능성을 나타냅니다. 사용자 위험에 대한 자세한 내용은 다음 문서에서 찾을 수 있습니다. [위험이란 무엇인가](../identity-protection/concept-identity-protection-risks.md#user-risk) 및 [위험 정책 구성 및 사용 방법](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+[ID 보호](../identity-protection/overview-identity-protection.md)에 대한 액세스 권한이 있는 고객의 경우 조건부 액세스 정책의 일부로 사용자 위험을 평가할 수 있습니다. 사용자 위험은 지정된 ID 또는 계정이 손상되었을 가능성을 나타냅니다. 사용자 위험에 대한 자세한 내용은 다음 문서에서 찾을 수 있습니다. [위험이란 무엇인가](../identity-protection/concept-identity-protection-risks.md#user-linked-detections) 및 [위험 정책 구성 및 사용 방법](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## <a name="device-platforms"></a>디바이스 플랫폼
 

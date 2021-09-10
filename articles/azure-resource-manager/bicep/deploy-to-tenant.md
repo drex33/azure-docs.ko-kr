@@ -2,13 +2,13 @@
 title: Bicep을 사용하여 테넌트로 리소스 배포
 description: Bicep 파일의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: af1ca550a6443fa7791d4f5ac496ae2d0626b176
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.date: 07/19/2021
+ms.openlocfilehash: 3f446670cd85daa5b541cc9b5858ab768ac8411d
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111371760"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114453412"
 ---
 # <a name="tenant-deployments-with-bicep-file"></a>Bicep 파일을 통해 테넌트 배포
 
@@ -146,7 +146,7 @@ resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
 
 ### <a name="scope-to-management-group"></a>관리 그룹에 대한 범위
 
-테넌트 내에서 관리 그룹을 대상으로 지정하려면 모듈을 추가합니다. [managementGroup 함수](bicep-functions-scope.md#managementgroup)를 사용하여 해당 `scope` 속성을 설정합니다. 관리 그룹 이름을 입력합니다.
+테넌트 내에서 관리 그룹을 대상으로 지정하려면 [모듈](modules.md)을 추가합니다. [managementGroup 함수](bicep-functions-scope.md#managementgroup)를 사용하여 해당 `scope` 속성을 설정합니다. 관리 그룹 이름을 입력합니다.
 
 ```bicep
 targetScope = 'tenant'
@@ -235,7 +235,7 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-03-01-prev
 
 ## <a name="next-steps"></a>다음 단계
 
-다른 범위에 대한 자세한 내용은 다음을 참조하세요.
+다른 범위에 대해 알아보려면 다음을 참조합니다.
 
 * [리소스 그룹 배포](deploy-to-resource-group.md)
 * [구독 배포](deploy-to-subscription.md)

@@ -2,13 +2,13 @@
 title: 개념 - 프라이빗 클라우드와 클러스터
 description: Azure VMware Solution 소프트웨어 정의 데이터 센터 및 vSphere 클러스터의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: 97f31c18fd753c89f2201fddfff4d31c8501bae2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/25/2021
+ms.openlocfilehash: 6e068462cada0a324d646766574e05414ad92772
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535758"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968512"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution 프라이빗 클라우드 및 클러스터 개념
 
@@ -45,7 +45,7 @@ Azure VMware Solution은 Azure에서 VMware 기반 프라이빗 클라우드를 
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>호스트 유지 관리 및 수명 주기 관리
 
-Azure VMware 솔루션 프라이빗 클라우드의 장점 중 하나는 플랫폼이 유지 관리된다는 것입니다.  Microsoft는 VMware 소프트웨어(ESXi, vCenter, vSAN)의 수명 주기를 관리합니다. 또한 계층 0 게이트웨이 만들기 및 북-남 라우팅 활성화 같은 네트워크 구성 부트스트래핑, NSX-T 어플라이언스의 수명 주기 관리를 담당합니다. NSX-T SDN 구성(네트워크 세그먼트, 분산 방화벽 규칙, 계층 1 게이트웨이, 부하 분산 디바이스)을 담당합니다. 
+
 
 [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 

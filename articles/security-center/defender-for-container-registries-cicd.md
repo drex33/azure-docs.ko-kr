@@ -7,12 +7,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6cfa74ea6b92597734158cb2de0bad24b0336b16
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: eb7309f067c350eac0d9455767b137377caf588b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111890549"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536111"
 ---
 # <a name="identify-vulnerable-container-images-in-your-cicd-workflows"></a>CI/CD 워크플로에서 취약한 컨테이너 이미지 식별
 
@@ -33,7 +33,7 @@ GitHub 워크플로와 GitHub 실행 URL과 같은 추적 가능성 정보를 �
 |----|:----|
 |릴리스 상태:| **이러한 CI/CD 통합은 현재 미리 보기 상태입니다.**<br>비프로덕션 워크플로에서만 실험하는 것이 좋습니다.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 |가격 책정:|**컨테이너 레지스터리용 Azure Defender** 의 요금은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)페이지의 정보에 따라 청구됩니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/지역(Azure Government, Azure China 21Vianet)|
 |||
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -56,7 +56,7 @@ GitHub 워크플로에서 이미지의 취약성 검사를 사용하도록 설�
 1. 창이 나타나면 워크플로에서 CI/CD 검색 결과를 푸시할 Application Insights 계정을 선택합니다.
 1. 인증 토큰과 연결 문자열을 GitHub 워크플로에 복사합니다.
 
-    :::image type="content" source="./media/defender-for-container-registries-cicd/enable-cicd-integration.png" alt-text="GitHub 워크플로에서 컨테이너 이미지의 취약성 검사에 대한 CI/CD 통합 사용 설정" lightbox="./media/defender-for-container-registries-cicd/enable-cicd-integration.png":::
+    :::image type="content" source="./media/defender-for-container-registries-cicd/enable-cicd-integration.png" alt-text="GitHub 워크플로에서 컨테이너 이미지의 취약성 검사에 대한 CI/CD 통합 사용 설정." lightbox="./media/defender-for-container-registries-cicd/enable-cicd-integration.png":::
 
     > [!IMPORTANT]
     > 인증 토큰과 연결 문자열은 수집된 보안 원격 분석과 구독의 리소스를 상호 연결하는 데 사용됩니다. 이러한 매개 변수에 잘못된 값을 사용하는 경우 원격 분석이 중단됩니다.
@@ -101,7 +101,7 @@ GitHub 워크플로에서 이미지의 취약성 검사를 사용하도록 설�
 
 1. 결과를 보려면 **권장 사항** 페이지로 이동합니다. 문제가 발견되면 **Azure Container Registry 이미지의 취약성 문제를 해결** 하기 위한 권장 사항을 확인할 수 있습니다.
 
-    ![문제 해결을 위한 권장 사항 ](media/monitor-container-security/acr-finding.png)
+    ![문제를 수정하기 위한 권장 사항.](media/monitor-container-security/acr-finding.png)
 
 1. 권장 사항을 선택합니다. 
 
@@ -109,27 +109,27 @@ GitHub 워크플로에서 이미지의 취약성 검사를 사용하도록 설�
 
 1. **영향을 받는 리소스** 목록을 열고 비정상 레지스트리를 선택하여 취약한 이미지를 포함하는 레지스트리 내 리포지토리를 확인합니다.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/select-registry.png" alt-text="비정상 레지스트리 선택":::
+    :::image type="content" source="media/defender-for-container-registries-cicd/select-registry.png" alt-text="비정상 레지스트리 선택.":::
 
     영향을 받는 리포지토리 목록과 함께 레지스트리 세부 정보 페이지가 열립니다.
 
 1. 특정 리포지토리를 선택하여 취약한 이미지가 있는 리포지토리를 확인합니다.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/select-repository.png" alt-text="비정상 리포지토리 선택":::
+    :::image type="content" source="media/defender-for-container-registries-cicd/select-repository.png" alt-text="비정상 리포지토리 선택.":::
 
     리포지토리 세부 정보가 열립니다. 결과의 심각도 평가와 함께 취약한 이미지가 나열됩니다.
 
 1. 취약성을 확인할 이미지를 선택합니다.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/select-image.png" alt-text="비정상 이미지 선택":::
+    :::image type="content" source="media/defender-for-container-registries-cicd/select-image.png" alt-text="비정상 이미지 선택.":::
 
     선택한 이미지에 대한 결과 목록이 열립니다.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/cicd-scan-results.png" alt-text="이미지 검사 결과":::
+    :::image type="content" source="media/defender-for-container-registries-cicd/cicd-scan-results.png" alt-text="이미지 검사 결과.":::
 
 1. 취약한 이미지를 푸시하는 GitHub 워크플로에 대한 자세한 내용을 보려면 해당 정보 버블을 선택합니다.
 
-    :::image type="content" source="media/defender-for-container-registries-cicd/cicd-findings.png" alt-text="특정 GitHub 분기 및 커밋에 대한 CI/CD 결과":::
+    :::image type="content" source="media/defender-for-container-registries-cicd/cicd-findings.png" alt-text="특정 GitHub 분기 및 커밋에 대한 CI/CD 결과.":::
 
 
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: f2d9d9afb1e31f959c4e219c0c95e435c966ccd1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: a095d2f6e05957e4a3daac76f3ac745e5a20de4a
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757070"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122567800"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>JIT(Just-In-Time) VM 액세스 이해
 
@@ -56,11 +56,11 @@ Just-In-Time VM 액세스를 사용하도록 설정하면 인바운드 트래픽
 
 아래 다이어그램은 Security Center가 지원되는 VM을 범주화하는 방법을 결정할 때 적용되는 논리를 보여 줍니다. 
 
-[![JIT(Just-In-Time) VM(가상 머신) 논리 흐름](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox)
+[![JIT(Just-In-Time) VM(가상 머신) 논리 흐름.](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox)
 
 Security Center가 JIT를 활용하여 혜택을 누릴 수 있는 컴퓨터를 찾을 경우, 해당 컴퓨터를 권장 사항의 **비정상 리소스** 탭에 추가합니다. 
 
-![JIT(Just-In-Time) VM(가상 머신) 액세스 권장 사항](./media/just-in-time-explained/unhealthy-resources.png)
+![JIT(Just-In-Time) VM(가상 머신) 액세스 권장 사항.](./media/just-in-time-explained/unhealthy-resources.png)
 
 
 ## <a name="faq---just-in-time-virtual-machine-access"></a>FAQ - Just-In-Time 가상 머신 액세스
@@ -74,7 +74,7 @@ JIT를 사용하려면 구독에서 사용하도록 설정하기 위해 [서버�
 JIT를 사용할 수 있는 사용자 지정 역할을 만들려면 아래 표의 세부 정보가 필요합니다.
 
 > [!TIP]
-> VM에 대한 JIT 액세스를 요청해야 하는 사용자에게 최소 권한 역할을 만들고 다른 JIT 작업을 수행하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [Set-JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role)를 사용합니다.
+> VM에 대한 JIT 액세스를 요청해야 하는 사용자에게 최소 권한 역할을 만들고 다른 JIT 작업을 수행하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [Set-JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role)를 사용합니다.
 
 | 사용자를 사용하도록 설정하려면 다음이 필요합니다. | 설정할 사용 권한|
 | --- | --- |
@@ -89,9 +89,7 @@ JIT를 사용할 수 있는 사용자 지정 역할을 만들려면 아래 표�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 페이지에서는 JIT(Just-In-Time) VM(가상 머신) 액세스를 사용해야 하는 _이유_ 를 설명했습니다. 
-
-JIT를 사용하도록 설정하고 JIT 사용 VM에 대한 액세스를 요청하는 방법에 대한 자세한 내용은 방법 문서로 이동합니다.
+이 페이지에서는 JIT(Just-In-Time) VM(가상 머신) 액세스를 사용해야 하는 _이유_ 를 설명했습니다. JIT를 활성화하고 JIT 지원 VM에 대한 액세스를 요청하는 _방법_ 에 대해 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [JIT를 사용하여 관리 포트를 보호하는 방법](security-center-just-in-time.md)

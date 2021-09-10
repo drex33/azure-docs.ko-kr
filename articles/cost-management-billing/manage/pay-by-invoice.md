@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 06/16/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 0afaa9a577432741da44317a9d13e288cdea0d0d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: b8b59db6b73cdc2ecae3ca60741a892580162602
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052484"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287763"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용 지불
 
@@ -31,9 +31,9 @@ ms.locfileid: "99052484"
 ## <a name="request-to-pay-by-invoice"></a>청구서로 지불에 대한 요청
 
 1. Azure Portal에 로그인하여 지원 요청을 제출합니다. **도움말 + 지원** 을 검색하고 선택합니다.  
-    ![도움말 및 지원 검색, Microsoft Azure Portal](./media/pay-by-invoice/search-for-help-and-support.png)
+    :::image type="content" source="./media/pay-by-invoice/search-for-help-and-support.png" alt-text="도움말 및 지원을 검색하는 스크린샷." lightbox="./media/pay-by-invoice/search-for-help-and-support.png" :::
 1. **새 지원 요청** 을 선택합니다.  
-    ![새 지원 요청 링크, 도움말 및 지원 화면, Microsoft Azure Portal](./media/pay-by-invoice/help-and-support.png)
+    :::image type="content" source="./media/pay-by-invoice/help-and-support.png" alt-text="새 지원 요청 링크의 스크린샷." lightbox="./media/pay-by-invoice/help-and-support.png" :::
 1. **문제 유형** 으로 **청구** 를 선택합니다. *문제 유형* 은 지원 요청 범주입니다. 청구서로 지불할 구독을 선택하고, 지원 플랜을 선택한 다음, **다음** 을 선택합니다.
 1. **결제** 를 **문제 유형** 으로 선택합니다. *문제 유형* 은 지원 요청 하위 범주입니다.
 1. **청구서로 지불로 전환** 을 **문제 하위 유형** 으로 선택합니다.
@@ -75,11 +75,11 @@ Microsoft Online Services 프로그램 계정이 있는 경우 Azure 구독을 �
 Azure 구독을 청구서 지불(수표/전신 송금)로 전환하려면 다음 단계를 수행합니다. *청구서 지불(수표/전신 송금)로 전환한 후에는 신용 카드로 다시 전환할 수 없습니다*.
 
 1. Azure Portal로 이동하여 계정 관리자 권한으로 로그인합니다. **Cost Management + 청구** 를 검색하고 선택합니다.  
-    ![스크린샷은 Azure Portal 내에서 Cost Management 및 청구에 대한 검색을 보여줍니다.](./media/pay-by-invoice/search.png)
+    :::image type="content" source="./media/pay-by-invoice/search.png" alt-text="Azure Portal 내에서 Cost Management + Billing에 대한 검색을 보여주는 스크린샷." lightbox="./media/pay-by-invoice/search.png" :::
 1. 청구서 지불로 전환하려는 구독을 선택합니다.
 1. **결제 방법** 을 선택합니다.
 1. 명령 모음에서 **청구서로 지불** 단추를 선택합니다.  
-    ![청구서로 지불 단추, 결제 방법, Microsoft Azure Portal](./media/pay-by-invoice/pay-by-invoice.png)
+    :::image type="content" source="./media/pay-by-invoice/pay-by-invoice.png" alt-text="청구서로 지불을 보여주는 스크린샷." lightbox="./media/pay-by-invoice/pay-by-invoice.png" :::
 
 ### <a name="switch-billing-profile-to-checkwire-transfer"></a>청구 프로필을 수표/전신 송금으로 전환
 
@@ -87,12 +87,12 @@ Azure 구독을 청구서 지불(수표/전신 송금)로 전환하려면 다음
 
 1. Azure Portal로 이동하여 청구 정보를 확인합니다. **Cost Management + 청구** 를 검색하고 선택합니다.
 1. 메뉴에서 **청구 프로필** 을 선택합니다.  
-    ![청구 프로필 메뉴 항목, Cost Management 및 청구, Microsoft Azure Portal](./media/pay-by-invoice/billing-profile.png)
+    :::image type="content" source="./media/pay-by-invoice/billing-profile.png" alt-text="청구 프로필 메뉴 항목을 보여주는 스크린샷." lightbox="./media/pay-by-invoice/billing-profile.png" :::
 1. 청구 프로필을 선택합니다.
 1. **청구 프로필** 메뉴에서 **결제 방법** 을 선택합니다.  
-   ![결제 방법 메뉴 항목, 청구 프로필, Cost Management, Microsoft Azure Portal](./media/pay-by-invoice/billing-profile-payment-methods.png)
-1. 수표/전신 송금으로 지불할 수 있음을 나타내는 배너를 선택합니다.  
-    ![수표/전신으로 전환하는 배너, 결제 방법, Microsoft Azure Portal](./media/pay-by-invoice/customer-led-switch-to-invoice.png)
+   :::image type="content" source="./media/pay-by-invoice/billing-profile-payment-methods.png" alt-text="결제 방법 메뉴 항목을 보여주는 스크린샷." lightbox="./media/pay-by-invoice/billing-profile-payment-methods.png" :::
+1. *기타 결제 방법* 제목 아래에서 생략 부호(...)를 선택한 다음, **기본값으로 지정** 을 선택합니다.  
+    :::image type="content" source="./media/pay-by-invoice/customer-led-switch-to-invoice.png" alt-text="확인/유선 전송 생략 부호 및 기본값 설정 옵션을 보여주는 스크린샷." lightbox="./media/pay-by-invoice/customer-led-switch-to-invoice.png" :::
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

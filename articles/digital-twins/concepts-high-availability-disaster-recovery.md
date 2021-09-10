@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6307c99c0796fb4159da7563c951304ceef6ece2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 125f3aa1cb3cfec0b7e8ec3cfafebdf2fae53e59
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529378"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771214"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins 고가용성 및 재해 복구
 
@@ -22,17 +22,17 @@ ms.locfileid: "122529378"
 
 Azure Digital Twins는 다음과 같은 기능 옵션을 지원합니다.
 * *지역 내 HA* – 서비스의 작동 시간을 제공하는 기본 제공 중복성
-* *지역 간 DR* – 예기치 않은 데이터 센터 오류가 발생하는 경우 지리적으로 쌍을 이루는 Azure 지역으로 장애 조치(Failover)
+* 지역 간 DR – 예기치 않은 데이터 센터 오류가 발생하는 경우 지리적으로 쌍을 이루는 Azure 지역으로 장애 조치(Failover)
 
 [모범 사례](#best-practices) 섹션에서도 HA/DR을 위한 설계에 대한 일반적인 Azure 지침을 확인할 수 있습니다.
 
 ## <a name="intra-region-ha"></a>역내 HA
  
-Azure Digital Twins는 서비스 내에서 중복을 구현하여 지역 내 HA를 제공합니다. 이는 작동 시간에 대한 [서비스 SLA](https://azure.microsoft.com/support/legal/sla/digital-twins)에 반영됩니다. **Azure Digital Twins 솔루션 개발자는 추가적인 작업 없이 이러한 HA 기능을 활용할 수 있습니다.** Azure Digital Twins는 비교적 높은 가동 시간을 보장하지만 분산 컴퓨팅 플랫폼에서와 마찬가지로 일시적인 오류는 여전히 발생합니다. 일시적 오류 처리를 위해 클라우드 애플리케이션과 상호 작용하는 구성 요소에 적절한 다시 시도 정책을 구축해야 합니다.
+Azure Digital Twins는 서비스 내에서 중복을 구현하여 지역 내 HA를 제공합니다. 이 기능은 작동 시간에 대한 [서비스 SLA](https://azure.microsoft.com/support/legal/sla/digital-twins)에 반영됩니다. **Azure Digital Twins 솔루션 개발자는 추가적인 작업 없이 이러한 HA 기능을 활용할 수 있습니다.** Azure Digital Twins는 비교적 높은 가동 시간을 보장하지만 분산 컴퓨팅 플랫폼에서와 마찬가지로 일시적인 오류는 여전히 발생합니다. 일시적 오류 처리를 위해 클라우드 애플리케이션과 상호 작용하는 구성 요소에 적절한 다시 시도 정책을 구축해야 합니다.
 
 ## <a name="cross-region-dr"></a>지역 간 DR
 
-데이터 센터에서 정전 또는 기타 지역 이벤트로 인해 중단 시간이 늘어나는 경우도 드물지만 있을 수 있습니다. 이러한 이벤트는 드물며, 위에서 설명한 지역 내 HA 기능이 도움이 되지 못할 수도 있습니다. Azure Digital Twins는 Microsoft에서 시작한 장애 조치(failover)를 통해 이를 해결합니다.
+데이터 센터에서 정전 또는 기타 지역 이벤트로 인해 중단 시간이 늘어나는 경우도 드물지만 있을 수 있습니다. 이러한 이벤트는 드물며, 위에서 설명한 지역 내 HA 기능이 도움이 되지 못할 수도 있습니다. Azure Digital Twins는 Microsoft에서 시작한 장애 조치(failover)를 통해 이 시나리오를 해결합니다.
 
 **Microsoft 시작 장애 조치(failover)** 는 해당 지역의 모든 Azure Digital Twins 인스턴스를 상응하는 [지역 쌍 지역](../best-practices-availability-paired-regions.md)으로 장애 조치(failover)하는 드문 상황에서 실행됩니다. 이 프로세스는 기본 옵션(사용자가 옵트아웃할 수 없음)이며 사용자 개입이 필요하지 않습니다. Microsoft는 이 옵션을 실행할 시기를 판단할 권리를 보유합니다. 이 메커니즘에는 사용자의 인스턴스가 장애 조치(failover)되기 전 사용자 동의가 포함되지 않습니다.
 

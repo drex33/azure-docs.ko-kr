@@ -3,12 +3,12 @@ title: Container Insights Prometheus 통합 구성 | Microsoft Docs
 description: 이 문서에서는 Kubernetes 클러스터를 사용하여 Prometheus에서 메트릭을 스크래핑하도록 Container Insights 에이전트를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 149cdc8613d5034989c7660608a29309353cdabe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 441b468f71f0d134a503418b3fde64b758a033a3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109644"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528793"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>Container Insights를 사용하여 Prometheus 메트릭 스크래핑 구성
 
@@ -59,7 +59,7 @@ URL을 지정하면 Cpontainer Insights는 엔드포인트를 수집합니다. K
 | 노드 전체 또는 클러스터 전체 | `interval` | String | 60초 | 수집 간격 기본값은 1분(60초)입니다. ‘[prometheus_data_collection_settings.node]’ 및/또는 ‘[prometheus_data_collection_settings.cluster]’에 대한 수집을 시간 단위(예: s, m, h)로 수정할 수 있습니다. |
 | 노드 전체 또는 클러스터 전체 | `fieldpass`<br> `fielddrop`| String | 쉼표로 구분된 배열 | 허용(`fieldpass`) 및 허용 안 함(`fielddrop`) 목록을 설정하여 엔드포인트에서 수집할 메트릭 및 수집하지 않을 메트릭을 지정할 수 있습니다. 먼저 허용 목록을 설정해야 합니다. |
 
-ConfigMap은 전역 목록으로, 에이전트에는 하나의 ConfigMap만 적용할 수 있습니다. 다른 ConfigMap을 수집에 과도하게 사용할 수 없습니다.
+ConfigMap은 글로벌 목록으로, 에이전트에는 하나의 ConfigMap만 적용할 수 있습니다. 다른 ConfigMap을 컬렉션에 과도하게 사용할 수 없습니다.
 
 ## <a name="configure-and-deploy-configmaps"></a>ConfigMap 구성 및 배포
 
@@ -286,7 +286,7 @@ container-azm-ms-agentconfig   4         56m
 
 Azure Red Hat OpenShift v3.x 클러스터의 경우 `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` 명령을 실행하여 기본 편집기에서 파일을 열고 수정한 후 저장합니다.
 
-구성 변경 내용을 적용하는 데 몇 분 정도 걸릴 수 있고 클러스터의 모든 omsagent Pod가 다시 시작됩니다. 다시 시작은 모두 동시에 다시 시작되는 것이 아니라, 모든 omsagent Pod에 대한 순환 방식의 다시 시작입니다. 다시 시작이 완료되면 결과를 포함하는 `configmap "container-azm-ms-agentconfig" updated`와 유사한 메시지가 표시됩니다.
+구성 변경 내용을 적용하는 데 몇 분 정도 걸릴 수 있고 클러스터의 모든 omsagent Pod가 다시 시작됩니다. 다시 시작은 모두 동시에 다시 시작되는 것이 아니라, 모든 omsagent Pod에 대한 순환 방식의 다시 시작입니다. 다시 시작이 완료되면 다음과 유사한 메시지가 표시되고 결과(`configmap "container-azm-ms-agentconfig" updated`)가 포함됩니다.
 
 ## <a name="verify-configuration"></a>구성 확인
 
@@ -326,7 +326,7 @@ Azure Red Hat OpenShift v3.x의 경우 `oc edit configmaps container-azm-ms-agen
 
 ## <a name="query-prometheus-metrics-data"></a>Prometheus 메트릭 데이터 쿼리
 
-Azure Monitor에서 스크래핑하는 Prometheus 메트릭과 에이전트에서 보고하는 모든 구성/스크래핑 오류를 보려면 [Prometheus 메트릭 데이터 쿼리](container-insights-log-search.md#query-prometheus-metrics-data) 및 [구성 또는 스크래핑 오류 쿼리](container-insights-log-search.md#query-config-or-scraping-errors)를 검토합니다.
+Azure Monitor에서 스크래핑하는 Prometheus 메트릭과 에이전트에서 보고하는 모든 구성/스크래핑 오류를 보려면 [Prometheus 메트릭 데이터 쿼리](container-insights-log-query.md#query-prometheus-metrics-data) 및 [구성 또는 스크래핑 오류 쿼리](container-insights-log-query.md#query-config-or-scraping-errors)를 검토합니다.
 
 ## <a name="view-prometheus-metrics-in-grafana"></a>Grafana에서 Prometheus 메트릭 보기
 

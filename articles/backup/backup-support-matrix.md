@@ -2,14 +2,14 @@
 title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 07/05/2021
+ms.date: 08/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8f953cf2bdacaa983061a04168345d1add1842f2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 89aa01556d69b6f3543f7e90d5937f7e20bf3679
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566448"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681362"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -163,7 +163,7 @@ Azure Backup은 데이터 가용성 및 복원력 기능을 강화하도록 지�
 |     |     |
 | --- | --- |
 | **지원되는 리소스** | Recovery Services 자격 증명 모음 |
-| **지원되는 지역** | 미국 동부 2, 동아시아 및 프랑스 중부. |
+| **지원되는 지역** | 미국 동부 2, 미국 중부, 북유럽, 프랑스 중부, 동아시아, 일본 동부, 일본 서부, 오스트레일리아 동부, 남아프리카 공화국 북부. |
 | **지원되지 않는 지역의 경우** | 리소스 상태는 "알 수 없음"으로 표시됩니다. |
 
 

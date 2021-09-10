@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 426965d469fbe08ecc0b0b6bf295d9919e698836
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: dcb652e66617fc5697be20b1f270d580184e9165
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665728"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662378"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
 > [!NOTE]
@@ -87,7 +87,7 @@ ms.locfileid: "110665728"
 | type |작업의 유형을 지정합니다. 다른 유형의 작업에 대해서는 [데이터 저장소](#data-stores) 및 [데이터 변환 작업](#data-transformation-activities) 섹션을 참조하세요. |예 |
 | 입력 |작업에서 사용하는 입력 테이블<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |HDInsightStreaming 및 SqlServerStoredProcedure 작업의 경우 아니요 <br/> <br/> 다른 모든 사용자의 경우 예 |
 | outputs |활동에서 사용하는 출력 테이블입니다.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |예 |
-| linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |HDInsight 작업, Azure Machine Learning 스튜디오(클래식) 작업 및 저장 프로시저 작업의 경우 예 <br/><br/>다른 모든 사용자의 경우 아니요 |
+| linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |예(HDInsight 작업, ML Studio(클래식) 작업, 저장 프로시저 작업의 경우) <br/><br/>다른 모든 사용자의 경우 아니요 |
 | typeProperties |typeProperties 섹션의 속성은 작업의 종류에 따라 달라 집니다. |No |
 | policy |작업의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. |예 |
 | scheduler |"scheduler" 속성은 작업에 원하는 일정을 정의하는 데 사용됩니다. 하위 속성은 [데이터 세트에서 가용성 속성](data-factory-create-datasets.md#dataset-availability)에 있는 속성과 같습니다. |예 |
@@ -4821,7 +4821,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 | --- | --- |
 | [주문형 HDInsight 클러스터](#on-demand-azure-hdinsight-cluster) 또는 [사용자 고유의 HDInsight 클러스터](#existing-azure-hdinsight-cluster) |[.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), Hadoop 스트리밍 활동, [Spark 활동](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET 사용자 지정 작업](#net-custom-activity) |
-| [Azure Machine Learning 스튜디오(클래식)](#azure-machine-learning-studio-classic) | [Azure Machine Learning 스튜디오(클래식) 일괄 실행 작업](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning 스튜디오(클래식) 업데이트 리소스 작업](#azure-machine-learning-studio-classic-update-resource-activity) |
+| [Machine Learning Studio(클래식)](#ml-studio-classic) | [ML Studio(클래식) Batch Execution 작업](#ml-studio-classic-batch-execution-activity), [ML Studio(클래식) 업데이트 리소스 작업](#ml-studio-classic-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[데이터 레이크 분석 U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[저장 프로시저](#stored-procedure-activity) |
 
@@ -4928,8 +4928,8 @@ Azure Batch 연결된 서비스를 만들어 데이터 팩터리에 가상 머�
 }
 ```
 
-## <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning 스튜디오(클래식)
-Azure Machine Learning 스튜디오(클래식)에 연결된 서비스를 만들어 Data Factory에 Studio(클래식) 일괄 채점 엔드포인트를 등록합니다. 이 연결된 서비스에서 실행할 수 있는 두 가지 데이터 변환 작업: [Azure Machine Learning 스튜디오(클래식) 일괄 실행 작업](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning 스튜디오(클래식) 업데이트 리소스 작업](#azure-machine-learning-studio-classic-update-resource-activity).
+## <a name="ml-studio-classic"></a>ML Studio(클래식)
+ML Studio(클래식)에 연결된 서비스를 만들어 Studio(클래식) 일괄 채점 엔드포인트를 데이터 팩터리에 등록할 수 있습니다. 이 연결된 서비스에서는 두 가지 데이터 변환 작업인 [ML Studio(클래식) Batch Execution 작업](#ml-studio-classic-batch-execution-activity)과 [ML Studio(클래식) 업데이트 리소스 작업](#ml-studio-classic-update-resource-activity)을 실행할 수 있습니다.
 
 ### <a name="linked-service"></a>연결된 서비스
 다음 표에서는 Studio(클래식)에 연결된 서비스의 Azure JSON 정의에 사용되는 속성에 대한 설명을 제공합니다.
@@ -5061,8 +5061,8 @@ SQL Server 데이터베이스를 Data Factory에 연결하기 위해 **OnPremise
 [HDInsight MapReduce 작업](#hdinsight-mapreduce-activity) | Data Factory 파이프라인의 HDInsight MapReduce 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다.
 [HDInsight 스트리밍 작업](#hdinsight-streaming-activity) | Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행합니다.
 [HDInsight Spark 작업](#hdinsight-spark-activity) | Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HDInsight 클러스터에서 Spark 프로그램을 실행합니다.
-[Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업](#azure-machine-learning-studio-classic-batch-execution-activity) | Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Studio(클래식) 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 일괄 실행 작업을 사용하면 Studio(클래식) 웹 서비스를 호출하여 데이터를 일괄적으로 예측할 수 있습니다.
-[Azure Machine Learning Studio(클래식) 업데이트 리소스 작업](#azure-machine-learning-studio-classic-update-resource-activity) | 시간이 지남에 따라 Azure Machine Learning 스튜디오(클래식) 점수 매기기 실험의 예측 모델에서 새 입력 데이터 세트를 사용하여 재학습해야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 업데이트 리소스 활동을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트할 수 있습니다.
+[ML Studio(클래식) Batch Execution 작업](#ml-studio-classic-batch-execution-activity) | Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Studio(클래식) 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 일괄 실행 작업을 사용하면 Studio(클래식) 웹 서비스를 호출하여 데이터를 일괄적으로 예측할 수 있습니다.
+[ML Studio(클래식) 업데이트 리소스 작업](#ml-studio-classic-update-resource-activity) | 시간이 지남에 따라 ML Studio(클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 업데이트 리소스 활동을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트할 수 있습니다.
 [저장 프로시저 작업](#stored-procedure-activity) | Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM의 Azure SQL Database,Azure Synapse Analytics, SQL Server Database의 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다.
 [Data Lake Analytics U-SQL 활동](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다.
 [.NET 사용자 지정 작업](#net-custom-activity) | Data Factory에서 지원되지 않는 방식으로 데이터를 변환해야 하는 경우 고유의 데이터 이동 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용할 수 있습니다. Azure Batch 서비스 또는 Azure HDInsight 클러스터를 사용하여 실행되도록 사용자 지정 .NET 작업을 구성할 수 있습니다.
@@ -5343,8 +5343,8 @@ Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 
 활동에 대한 자세한 내용은 [Spark 활동](data-factory-spark.md) 문서를 참조하세요.
 
-## <a name="azure-machine-learning-studio-classic-batch-execution-activity"></a>Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업
-Azure Machine Learning 스튜디오(클래식) 일괄 실행 작업 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **AzureMLBatchExecution** 이어야 합니다. 먼저 Studio(클래식)에 연결된 서비스를 만들고 **linkedServiceName** 속성 값으로 이름을 지정해야 합니다. 활동의 type을 AzureMLBatchExecution로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
+## <a name="ml-studio-classic-batch-execution-activity"></a>ML Studio(클래식) Batch Execution 작업
+ML Studio(클래식) Batch Execution 작업 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **AzureMLBatchExecution** 이어야 합니다. 먼저 Studio(클래식)에 연결된 서비스를 만들고 **linkedServiceName** 속성 값으로 이름을 지정해야 합니다. 활동의 type을 AzureMLBatchExecution로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 속성 | Description | 필수
 -------- | ----------- | --------
@@ -5399,8 +5399,8 @@ JSON 예제에서 배포된 Studio(클래식) 웹 서비스는 판독기와 기�
 > [!NOTE]
 > AzureMLBatchExecution 작업의 입력 및 출력만 웹 서비스에 매개 변수로 전달될 수 있습니다. 예를 들어 위의 JSON 조각에서 MLSqlInput은 AzureMLBatchExecution 활동에 대한 입력이며, webServiceInput 매개 변수를 통해 입력으로 웹 서비스에 전달됩니다.
 
-## <a name="azure-machine-learning-studio-classic-update-resource-activity"></a>Azure Machine Learning Studio(클래식) 업데이트 리소스 작업
-Azure Machine Learning 스튜디오(클래식) 업데이트 리소스 작업 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **AzureMLUpdateResource** 이어야 합니다. 먼저 Studio(클래식)에 연결된 서비스를 만들고 **linkedServiceName** 속성 값으로 이름을 지정해야 합니다. 활동의 type을 AzureMLUpdateResource로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
+## <a name="ml-studio-classic-update-resource-activity"></a>ML Studio(클래식) 업데이트 리소스 작업
+ML Studio(클래식) 업데이트 리소스 작업 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **AzureMLUpdateResource** 이어야 합니다. 먼저 Studio(클래식)에 연결된 서비스를 만들고 **linkedServiceName** 속성 값으로 이름을 지정해야 합니다. 활동의 type을 AzureMLUpdateResource로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 속성 | Description | 필수
 -------- | ----------- | --------

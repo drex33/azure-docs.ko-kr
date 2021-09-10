@@ -1,23 +1,25 @@
 ---
 title: Dynamics에서 데이터 복사(Microsoft Dataverse)
-description: Data Factory 파이프라인의 복사 작업을 사용하여 Microsoft Dynamics CRM 또는 Microsoft Dynamics 365(Microsoft Dataverse)에서 지원되는 싱크 데이터 저장소로, 또는 지원되는 원본 데이터 저장소에서 Dynamics CRM 또는 Dynamics 365로 데이터를 복사하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 또는 Azure Synapse Analytics 파이프라인의 복사 작업을 사용하여 Microsoft Dynamics CRM 또는 Microsoft Dynamics 365(Microsoft Dataverse)에서 지원되는 싱크 데이터 저장소로, 또는 지원되는 원본 데이터 저장소에서 Dynamics CRM 또는 Dynamics 365로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/17/2021
-ms.openlocfilehash: 5b09872ccdf28a6343fdbaa2f7e9e6fbafbd9410
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cf16925a4d62aa603de37b893f883f921c8898c5
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950834"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642482"
 ---
-# <a name="copy-data-from-and-to-dynamics-365-microsoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Microsoft Dataverse) 또는 Dynamics CRM 간에 데이터 복사
+# <a name="copy-data-from-and-to-dynamics-365-microsoft-dataverse-or-dynamics-crm"></a>Dynamics 365(Microsoft Dataverse) 또는 Dynamics CRM 간에 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Microsoft Dynamics 365 및 Microsoft Dynamics CRM 간에 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse 파이프라인의 복사 작업을 사용하여 Microsoft Dynamics 365 및 Microsoft Dynamics CRM 간에 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -43,6 +45,10 @@ Dynamics 버전 및 제품에 지원되는 인증 유형 및 구성에 대한 �
 |:--- |:--- |:--- |
 | Dataverse <br/><br/> Dynamics 365 온라인 <br/><br/> Dynamics CRM 온라인 | Azure AD(Azure Active Directory) 서비스 사용자 <br/><br/> Office 365 | [Dynamics 온라인 및 Azure AD 서비스 사용자 또는 Office 365 인증](#dynamics-365-and-dynamics-crm-online) |
 | IFD(인터넷 연결 배포)를 사용하는 Dynamics 365 온-프레미스 <br/><br/> IFD로 Dynamics CRM 2016 온-프레미스 <br/><br/> IFD로 Dynamics CRM 2015 온-프레미스 | IFD | [IFD 및 IFD 인증을 사용하는 Dynamics 온-프레미스](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
+
+>[!NOTE]
+>[지역 검색 서비스 지원 중단](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)에 따라 서비스가 업그레이드되어 Office 365 인증을 사용하는 동안 [전역 검색 서비스](/powerapps/developer/data-platform/webapi/discover-url-organization-web-api#global-discovery-service)를 활용하게 되었습니다.
+
 > [!IMPORTANT]
 >테넌트 및 사용자가 [조건부 액세스](../active-directory/conditional-access/overview.md) 및/또는 Multi-Factor Authentication을 위해 Azure Active Directory에 구성되어 있는 경우 Office 365 인증 유형을 사용할 수 없습니다. 이러한 상황에서는 Azure AD(Azure Active Directory) 서비스 주체 인증을 사용해야 합니다.
 
@@ -66,7 +72,7 @@ Azure AD 서비스 사용자 인증을 통해 이 커넥터를 사용하려면 D
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 Dynamics에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+다음 섹션에서는 Dynamics에 한정된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
@@ -74,7 +80,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 및 Dynamics CRM Online
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정되어야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics 온라인의 값은 "Online"이어야 합니다. | 예 |
@@ -82,9 +88,9 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 | authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. 유효한 값은 "AADServicePrincipal" 및 "Office365"입니다. | 예 |
 | servicePrincipalId | Azure AD 애플리케이션의 클라이언트 ID입니다. | 인증이 "AADServicePrincipal"인 경우 예 |
 | servicePrincipalCredentialType | 서비스 사용자 인증에 사용할 자격 증명 유형입니다. 유효한 값은 "ServicePrincipalKey" 및 "ServicePrincipalCert"입니다. | 인증이 "AADServicePrincipal"인 경우 예 |
-| servicePrincipalCredential | 서비스 사용자 자격 증명입니다. <br/><br/>"ServicePrincipalKey"를 자격 증명 유형으로 사용하는 경우 `servicePrincipalCredential`은(는) 연결된 서비스 배포 시 Azure Data Factory에서 암호화하는 문자열일 수 있습니다. 또는 Azure Key Vault의 비밀에 대한 참조일 수 있습니다. <br/><br/>"ServicePrincipalCert"를 자격 증명으로 사용하는 경우 `servicePrincipalCredential`은(는) Azure Key Vault의 인증서에 대한 참조여야 합니다. | 인증이 "AADServicePrincipal"인 경우 예 |
+| servicePrincipalCredential | 서비스 사용자 자격 증명입니다. <br/><br/>"ServicePrincipalKey"를 자격 증명 유형으로 사용하는 경우 `servicePrincipalCredential`은 연결된 서비스 배포 시 서비스에서 암호화하는 문자열일 수 있습니다. 또는 Azure Key Vault의 비밀에 대한 참조일 수 있습니다. <br/><br/>"ServicePrincipalCert"를 자격 증명으로 사용하는 경우 `servicePrincipalCredential`은(는) Azure Key Vault의 인증서에 대한 참조여야 합니다. | 인증이 "AADServicePrincipal"인 경우 예 |
 | 사용자 이름 | Dynamics에 연결할 사용자 이름입니다. | 인증이 "Office365"인 경우 예 |
-| password | 사용자 이름으로 지정한 사용자 계정의 암호입니다. 이 필드를 "SecureString"으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 인증이 "Office365"인 경우 예 |
+| password | 사용자 이름으로 지정한 사용자 계정의 암호입니다. 이 필드를 "SecureString"으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 인증이 "Office365"인 경우 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 값이 지정되지 않은 경우 속성은 기본 Azure Integration Runtime을 사용합니다. | 예 |
 
 >[!NOTE]
@@ -171,7 +177,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 
 Dyanmics 온라인과 비교되는 추가 속성은 **hostName** 및 **port** 입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 "Dynamics", "DynamicsCrm" 또는 "CommonDataServiceForApps"로 설정되어야 합니다. | 예. |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. IFD를 사용하는 Dynamics 온-프레미스의 값은 "OnPremisesWithIfd"여야 합니다.| 예. |
@@ -180,7 +186,7 @@ Dyanmics 온라인과 비교되는 추가 속성은 **hostName** 및 **port** �
 | organizationName | Dynamics 인스턴스의 조직 이름입니다. | 예. |
 | authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 "Ifd"를 지정합니다. | 예. |
 | 사용자 이름 | Dynamics에 연결할 사용자 이름입니다. | 예. |
-| password | 사용자 이름에 지정한 사용자 계정의 암호입니다. 이 필드를 "SecureString"으로 표시하여 Data Factory에 안전하게 저장할 수 있습니다. 또는 Key Vault에 암호를 저장하고 데이터를 복사할 때 여기에서 복사 작업을 끌어올 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 예. |
+| password | 사용자 이름에 지정한 사용자 계정의 암호입니다. 이 필드를 "SecureString"으로 표시하여 안전하게 저장할 수 있습니다. 또는 Key Vault에 암호를 저장하고 데이터를 복사할 때 여기에서 복사 작업을 끌어올 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 예. |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 값이 지정되지 않은 경우 속성은 기본 Azure Integration Runtime을 사용합니다. | 예 |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>예제: IFD 인증을 사용하여 IFD로 Dynamics 온-프레미스
@@ -217,7 +223,7 @@ Dyanmics 온라인과 비교되는 추가 속성은 **hostName** 및 **port** �
 
 Dynamics 간에 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성은 "DynamicsEntity", "DynamicsCrmEntity" 또는 "CommonDataServiceForAppsEntity"로 설정되어야 합니다. |예 |
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 작업 원본이 "query"로 지정된 경우 아니요, 싱크의 경우 예 |
@@ -249,7 +255,7 @@ Dynamics 간에 데이터를 복사하려는 경우 다음과 같은 속성이 �
 
 Dynamics에서 데이터를 복사하려는 경우 복사 작업 **원본** 섹션에서는 다음 속성을 지원합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 유형 속성은 "DynamicsSource", "DynamicsCrmSource" 또는 "CommonDataServiceForAppsSource"로 설정되어야 합니다. | 예 |
 | Query | FetchXML은 재산적 가치가 있는 쿼리 언어로, Dynamics 온라인 및 온-프레미스에서 사용됩니다. 다음 예제를 참조하세요. 자세한 내용을 알아보려면 [FeachXML로 쿼리 작성](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8))을 참조하세요. | 데이터 세트에 `entityName`이(가) 지정되지 않은 경우 아니요 |
@@ -259,7 +265,7 @@ Dynamics에서 데이터를 복사하려는 경우 복사 작업 **원본** 섹�
 
 > [!IMPORTANT]
 >- Dynamics에서 데이터를 복사할 때 Dynamics에서 싱크로의 명시적 열 매핑은 선택 사항입니다. 하지만 결정적인 복사 결과를 보장하려면 매핑을 사용하는 것이 좋습니다.
->- Data Factory가 작성 UI에서 스키마를 가져올 때 스키마를 유추합니다. 이때 Dynamics 쿼리 결과에서 상위 행을 샘플링하여 원본 열 목록을 초기화합니다. 이 경우 상위 행에 값이 없는 열은 생략됩니다. 명시적 매핑이 없는 경우 동일한 동작이 복사 실행에 적용됩니다. 복사 런타임에 적용되는 추가 열을 검토하고 매핑에 추가할 수 있습니다.
+>- 서비스가 작성 UI에서 스키마를 가져올 때 스키마를 유추합니다. 이때 Dynamics 쿼리 결과에서 상위 행을 샘플링하여 원본 열 목록을 초기화합니다. 이 경우 상위 행에 값이 없는 열은 생략됩니다. 명시적 매핑이 없는 경우 동일한 동작이 복사 실행에 적용됩니다. 복사 런타임에 적용되는 추가 열을 검토하고 매핑에 추가할 수 있습니다.
 
 #### <a name="example"></a>예제
 
@@ -317,7 +323,7 @@ Dynamics에서 데이터를 복사하려는 경우 복사 작업 **원본** 섹�
 
 Dynamics에 데이터를 복사하려는 경우 복사 작업 **싱크** 섹션에서는 다음 속성을 지원합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 유형 속성은 "DynamicsSink", "DynamicsCrmSink" 또는 "CommonDataServiceForAppsSink"로 설정되어야 합니다. | 예. |
 | writeBehavior | 작업의 쓰기 동작입니다. 값은 "Upsert"여야 합니다. | 예 |
@@ -395,11 +401,11 @@ Dynamics 보기에서 데이터를 검색하려면 저장된 보기 쿼리를 �
 
 ## <a name="data-type-mapping-for-dynamics"></a>Dynamics에 대한 데이터 형식 매핑
 
-Dynamics에서 데이터를 복사하는 경우, 다음 표에서 Dynamics 데이터 형식에서 Data Factory 중간 데이터 형식으로의 매핑을 볼 수 있습니다. 복사 작업이 원본 스키마에 매핑되고 데이터 형식이 싱크에 매핑되는 방법을 알아보려면 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+Dynamics에서 데이터를 복사하는 경우, 다음 표에서 Dynamics 데이터 형식에서 서비스 내의 중간 데이터 형식으로의 매핑을 볼 수 있습니다. 복사 작업이 원본 스키마에 매핑되고 데이터 형식이 싱크에 매핑되는 방법을 알아보려면 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-다음의 매핑 표를 사용하여 원본 Dynamics 데이터 형식을 기준으로 데이터 세트 구조에 해당 Data Factory 데이터 형식을 구성합니다.
+다음의 매핑 표를 사용하여 원본 Dynamics 데이터 형식을 기준으로 데이터 세트 구조에 해당 중간 데이터 형식을 구성합니다.
 
-| Dynamics 데이터 형식 | Data Factory 중간 데이터 형식 | 원본으로 지원됨 | 싱크로 지원됨 |
+| Dynamics 데이터 형식 | 서비스 중간 데이터 형식 | 원본으로 지원됨 | 싱크로 지원됨 |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | 부울 | ✓ | ✓ |
@@ -459,4 +465,4 @@ Dynamics에서 데이터를 복사하는 경우, 다음 표에서 Dynamics 데�
 
 ## <a name="next-steps"></a>다음 단계
 
-Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+지원되는 데이터 목록의 경우 복사 작업은 원본 및 싱크로 저장합니다. [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: e7c1c8532a3f77054755eb040fceff1bf8cf273e
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: b998f2876e323ad224d4ecb8afddd4c4f7d5f118
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440235"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536396"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -89,13 +89,13 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 
 함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 이 스토리지 계정은 서비스 엔드포인트 또는 프라이빗 엔드포인트로 보호되는 계정으로 바꿀 수 있습니다. 
 
-현재 이 기능은 전용(App Service) 요금제로 모든 Windows 가상 네트워크 지원 SKU에서 작동하며 프리미엄 요금제에서 작동합니다. 사용량 요금제는 지원되지 않습니다. 개인 네트워크로 제한된 스토리지 계정을 사용하여 함수를 설정하는 방법을 알아보려면 [가상 네트워크에 대한 스토리지 계정 제한](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network)을 참조하세요.
+이 기능은 전용(App Service) 플랜으로 모든 Windows 가상 네트워크 지원 SKU에서 지원되며 프리미엄 플랜에서도 지원됩니다. Linux 가상 네트워크 지원 SKU에 대한 프라이빗 DNS에서도 지원됩니다. 소비 플랜 및 Linux 플랜의 사용자 지정 DNS는 지원되지 않습니다. 개인 네트워크로 제한된 스토리지 계정을 사용하여 함수를 설정하는 방법을 알아보려면 [가상 네트워크에 대한 스토리지 계정 제한](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network)을 참조하세요.
 
 ## <a name="use-key-vault-references"></a>Key Vault 참조 사용
 
 Azure Key Vault 참조를 사용하여 코드 변경 없이도 Azure Functions 애플리케이션에서 Azure Key Vault의 비밀을 사용할 수 있습니다. Azure Key Vault는 액세스 정책 및 감사 기록에 대한 전체 제어와 함께 중앙 집중식 비밀 관리를 제공하는 서비스입니다.
 
-현재 서비스 엔드포인트로 Ket Vault가 보호되지 않는 경우 [Key Vault 참조](../app-service/app-service-key-vault-references.md)가 작동하지 않습니다. 가상 네트워크 통합을 사용하여 Key Vault에 연결하려면 애플리케이션 코드에서 Key Vault를 호출해야 합니다.
+앱에 대해 가상 네트워크 통합이 구성된 경우 [Key Vault 참조](../app-service/app-service-key-vault-references.md)를 사용하여 네트워크 제한 자격 증명 모음에서 비밀을 검색할 수 있습니다.
 
 ## <a name="virtual-network-triggers-non-http"></a>가상 네트워크 트리거(비 HTTP)
 
@@ -172,7 +172,7 @@ Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단�
 네트워킹 및 Azure Functions에 대한 자세한 내용은 다음을 확인하세요.
 
 * [가상 네트워크 통합 시작하기에 관한 자습서 따라하기](./functions-create-vnet.md)
-* [Functions 네트워킹 FAQ 참조하기](./functions-networking-faq.md)
+* [Functions 네트워킹 FAQ 참조하기](./functions-networking-faq.yml)
 * [App Service/Functions와 가상 네트워크 통합에 대해 자세히 알아보기](../app-service/web-sites-integrate-with-vnet.md)
 * [Azure의 가상 네트워크에 대해 자세히 알아보기](../virtual-network/virtual-networks-overview.md)
 * [App Service Environment로 제어 및 네트워킹 기능 활성화](../app-service/environment/intro.md)

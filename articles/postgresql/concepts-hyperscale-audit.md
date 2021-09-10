@@ -4,30 +4,33 @@ description: Azure Database for PostgreSQL의 pgAudit 감사 로깅 개념 - 하
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: 8a36062a2d29bcec10279d73211526a0dcba619e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/03/2021
+ms.openlocfilehash: 330f102dffb392540879d8d583e02a68fbe436c7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702116"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536593"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL의 감사 로깅 - 하이퍼스케일(Citus)
 
+> [!IMPORTANT]
+> 하이퍼스케일(Citus) pgAudit 확장은 현재 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+>
+> [하이퍼스케일(Citus)의 미리 보기 기능](hyperscale-preview-features.md)에서 다른 새 기능의 전체 목록을 볼 수 있습니다.
+
 Azure Database for PostgreSQL - 하이퍼스케일(Citus)의 데이터베이스 작업 감사 로깅은 PostgreSQL Audit 확장: [pgAudit](https://www.pgaudit.org/)을 통하여 사용할 수 있습니다. pgAudit은 자세한 세션 및/또는 개체 감사 로깅을 제공합니다.
 
-> [!IMPORTANT]
-> pgAudit은 Azure Database for PostgreSQL - 하이퍼스케일(Citus)에서 미리 보기 상태입니다.
-
-컴퓨팅 및 스토리지 스케일링과 같은 작업에 대 한 Azure 리소스 수준 로그를 원하는 경우 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)를 참조하세요.
+컴퓨팅 및 스토리지 스케일링과 같은 작업에 대한 Azure 리소스 수준 로그를 원하는 경우 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)를 참조하세요.
 
 ## <a name="usage-considerations"></a>용도 고려 사항
 기본적으로 pgAudit 로그 문은 Postgres의 표준 로깅 기능을 사용하여 일반 로그 문과 함께 내보내집니다. Azure Database for PostgreSQL - 하이퍼스케일(Citus)에서 나중에 Log Analytics에서 분석하기 위하여 Azure Monitor 로그 저장소로 보낼 모든 로그를 구성할 수 있습니다. Azure Monitor 리소스 로깅을 사용하도록 설정하면 사용자의 선택에 따라 로그가 자동으로(JSON 형식으로) Azure Storage, Event Hubs 또는 Azure Monitor 로그에 전송됩니다.
 
 ## <a name="enabling-pgaudit"></a>pgAudit 사용
 
-pgAudit 확장은 모든 하이퍼스케일(Citus) 서버 그룹 노드에서 미리 설치되어 사용할 수 있습니다. 부가 작업 없이도 해당 기능을 사용하도록 설정할 수 있습니다.
+pgAudit 확장은 모든 하이퍼스케일(Citus) 서버 그룹 노드에서 미리 설치되어 사용할 수 있습니다. 노드에서 사용하도록 설정되지 않은 경우 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 엽니다.
 
 ## <a name="pgaudit-settings"></a>pgAudit 설정
 
@@ -54,13 +57,13 @@ pgAudit를 사용하면 세션 또는 개체 감사 로깅을 구성할 수 있�
 빠르게 시작하려면 `pgaudit.log`를 `WRITE`로 설정하고, 서버 로그를 열어 출력을 검토합니다. 
 
 ## <a name="viewing-audit-logs"></a>감사 로그 보기
-로그에 액세스하는 방법은 선택한 엔드포인트에 따라 다릅니다. Azure Storage의 경우에는 [로그 스토리지 계정](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조하세요. Event Hubs의 경우에는 [Azure 로그 스트리밍](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조하세요.
+로그에 액세스하는 방법은 선택한 엔드포인트에 따라 다릅니다. Azure Storage의 경우에는 [로그 스토리지 계정](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조하세요. Event Hub의 경우에는 [Azure 로그 스트리밍](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조하세요.
 
-Azure Monitor 로그의 경우 선택한 작업 영역으로 로그가 전송됩니다. Postgres 로그는 **AzureDiagnostics** 컬렉션 모드를 사용하므로 AzureDiagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명되어 있습니다. 쿼리와 경고에 대한 자세한 정보는 [Azure Monitor 로그 쿼리](../azure-monitor/logs/log-query-overview.md) 개요에서 알아 보세요.
+Azure Monitor 로그의 경우 선택한 작업 영역으로 로그가 전송됩니다. Postgres 로그는 **AzureDiagnostics** 컬렉션 모드를 사용하므로, AzureDiagnostics 테이블에서 쿼리될 수 있습니다. 테이블의 필드는 아래에 설명되어 있습니다. 쿼리와 경고에 대한 자세한 정보는 [Azure Monitor 로그 쿼리](../azure-monitor/logs/log-query-overview.md) 개요에서 알아 보세요.
 
 이 쿼리를 사용하여 시작할 수 있습니다. 쿼리를 기반으로 경고를 구성할 수 있습니다.
 
-마지막 날의 특정 서버에 대한 모든 pgAudit 항목을 검색합니다.
+마지막 날의 특정 서버에 대한 모든 pgAudit 항목을 검색합니다
 ```kusto
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"

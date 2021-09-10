@@ -7,18 +7,18 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 08/18/2021
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6385f03556d155941139b77333d6f4a25081fe67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fa12eca00bca011107f48c6f1b282dded4f3b5a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103161"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539234"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>웹 API를 호출하는 모바일 앱 등록
 
@@ -34,7 +34,7 @@ ms.locfileid: "100103161"
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Windows 통합 인증, 사용자 이름-암호 및 B2C에 대한 대상
 
-유니버설 Windows 플랫폼(UWP) 앱이 있는 경우 Windows 통합 인증을 사용하여 사용자가 로그인할 수 있습니다. Windows 통합 인증 또는 사용자 이름 - 암호를 사용하려면 애플리케이션이 기간 업무 앱(LOB) 개발자 테넌트에 사용자 로그인을 수행해야 합니다. 독립 소프트웨어 공급 업체(ISV) 시나리오에서 애플리케이션은 Azure Active Directory 조직에서 사용자에게 로그인할 수 있습니다. 이러한 인증 흐름은 Microsoft 개인 계정에 대해 지원되지 않습니다.
+UWP(유니버설 Windows 플랫폼) 앱이 있는 경우 IWA(Windows 통합 인증)를 사용하여 사용자를 로그인시킬 수 있습니다. IWA 또는 사용자 이름-암호 인증을 사용하려면 애플리케이션이 LOB(기간 업무) 개발자 테넌트에 사용자를 로그인시켜야 합니다. 독립 소프트웨어 공급 업체(ISV) 시나리오에서 애플리케이션은 Azure Active Directory 조직에서 사용자에게 로그인할 수 있습니다. 이러한 인증 흐름은 Microsoft 개인 계정에 대해 지원되지 않습니다.
 
 B2C 인증 및 정책을 통과하는 소셜 ID를 사용하여 사용자가 로그인할 수도 있습니다. 이 방법을 사용하려면 대화형 인증 및 사용자 이름-암호 인증만 사용할 수 있습니다. 사용자 이름-암호 인증은 현재 Xamarin.iOS, Xamarin.Android 및 UWP에서만 지원됩니다.
 
@@ -86,11 +86,11 @@ B2C 인증 및 정책을 통과하는 소셜 ID를 사용하여 사용자가 로
 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>의 **앱 등록** 에서 앱을 선택한 다음 **인증** 을 선택합니다.
 1. **고급 설정** > **공용 클라이언트 흐름 허용** > **다음 모바일 및 데스크톱 흐름 사용** 에서 **예** 를 선택합니다.
 
-   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Azure Portal의 인증 창에서 공용 클라이언트 설정 사용":::
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Azure Portal의 인증 창에서 퍼블릭 클라이언트 설정 사용":::
 
 ## <a name="api-permissions"></a>API 사용 권한
 
-로그인한 사용자를 대신하여 웹 API를 호출하는 모바일 애플리케이션 앱에서 위임된 권한을 요청해야 합니다. 이러한 권한을 범위라고도 합니다. 원하는 환경에 따라 Azure Portal을 통해 위임된 사용 권한을 정적으로 요청할 수 있습니다. 또는 런타임에 동적으로 요청할 수 있습니다.
+모바일 애플리케이션은 로그인한 사용자에 대한 API를 호출합니다. 앱에서 위임된 권한을 요청해야 합니다. 이러한 권한을 범위라고도 합니다. 원하는 환경에 따라 Azure Portal을 통해 위임된 사용 권한을 정적으로 요청할 수 있습니다. 또는 런타임에 동적으로 요청할 수 있습니다.
 
 권한을 정적으로 등록하면 관리자가 앱을 쉽게 승인할 수 있습니다. 정적 등록을 권장합니다.
 

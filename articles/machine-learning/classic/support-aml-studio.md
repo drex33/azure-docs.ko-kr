@@ -8,19 +8,18 @@ ms.topic: troubleshooting
 author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: 96b56fecda94d1a2958275dde6f48fc1c3b48cd9
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 5418671373b1b95f1c9ac4f1131016e51b58ba2f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580137"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688802"
 ---
 # <a name="get-support-and-training-for-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에 대한 지원 및 교육 받기
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-
-
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 이 문서에서는 Machine Learning Studio(클래식)에 대해 자세히 알아보고 문제 및 질문에 대한 지원을 받는 방법에 대한 정보를 제공합니다.
 

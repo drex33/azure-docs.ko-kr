@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 08/01/2021
 ms.author: wellee
-ms.openlocfilehash: d61e6c3847d9ce64f9c3f17da1300b32a1a8e643
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 5fb694cd1dab2d53495e2e4b513ce6bfe2ebaff9
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567500"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123101832"
 ---
 # <a name="how-to-configure-virtual-wan-hub-routing-intent-and-routing-policies"></a>Virtual WAN 허브 라우팅 의도 및 라우팅 정책을 구성하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "122567500"
 > 
 > 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 일부 기능은 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 > 
-> 미리 보기에 대한 액세스 권한을 얻으려면 previewinterhub@microsoft.com에 연결하여 라우팅 의도를 구성하려는 Virtual WAN ID, 구독 ID 및 Azure 지역을 제공합니다. 기능 지원이 확인되면 업무 시간(월요일-금요일)으로 48시간 이내에 응답이 제공됩니다.
+> 미리 보기에 액세스하려면 게이트웨이(사이트 간 VPN 게이트웨이, 지점 및 사이트 간 게이트웨이 및 ExpressRoute 게이트웨이)와 함께 동일한 Azure 지역에 두 개의 허브를 배포한 다음 라우팅 의도를 구성하려는 Virtual WAN ID, 구독 ID 및 Azure 지역으로 previewinterhub@microsoft.com에 문의합니다. 기능 지원이 확인되면 업무 시간(월요일-금요일)으로 48시간 이내에 응답이 제공됩니다. 기능 사용 설정 후에 만들어진 모든 게이트웨이는 Virtual WAN 팀에서 업그레이드해야 합니다.
 
 ## <a name="background"></a>배경 
 
@@ -50,10 +50,10 @@ ms.locfileid: "122567500"
 * Virtual WAN 허브 라우팅 정책의 제어된 퍼블릭 미리 보기에서는 Virtual WAN 허브가 동일한 지역에 있는 경우에만 Azure Firewall에서 허브 간 트래픽을 검사합니다.
 * 라우팅 의도 및 라우팅 정책은 현재 **사전 요구 사항** 의 3단계에서 제공된 사용자 지정 포털 링크를 통해 구성해야 합니다. 라우팅 의도 및 정책은 Terraform, PowerShell 및 CLI를 통해 지원되지 않습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 1. Virtual WAN을 만듭니다. **동일한** 지역에 2개 이상의 가상 허브를 만들어야 합니다. 예를 들어, 미국 동부에서 두 개의 가상 허브를 사용하여 Virtual WAN을 만들 수 있습니다. 
 2. 선택한 지역의 가상 허브에 Azure Firewall을 배포하여 Virtual WAN 허브를 보안 Virtual WAN 허브로 변환합니다. Virtual WAN 허브를 보안 Virtual WAN 허브로 변환하는 방법에 대한 자세한 내용은 이 [문서](howto-firewall.md)를 참조하세요.
-3. **previewinterhub@microsoft.com** 에 연결하여 라우팅 정책을 구성하려는 **Virtual WAN 리소스 ID** 및 **Azure 가상 허브 지역** 을 제공합니다. Virtual WAN ID를 찾으려면 Azure Portal을 열고 Virtual WAN 리소스로 이동한 다음, 설정 > 속성 > 리소스 ID를 선택합니다. 예를 들면 다음과 같습니다. 
+3. 테스트에 사용할 모든 사이트 간 VPN, 지점 및 사이트 간 VPN 및 ExpressRoute 게이트웨이를 배포합니다. **previewinterhub@microsoft.com** 에 연결하여 라우팅 정책을 구성하려는 **Virtual WAN 리소스 ID** 및 **Azure 가상 허브 지역** 을 제공합니다. Virtual WAN ID를 찾으려면 Azure Portal을 열고 Virtual WAN 리소스로 이동한 다음, 설정 > 속성 > 리소스 ID를 선택합니다. 예를 들면 다음과 같습니다. 
 ```
     /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>
 ```
@@ -157,6 +157,7 @@ ms.locfileid: "122567500"
 * 현재, Azure Firewall을 사용한 허브 간 트래픽 검사는 **동일한** Azure 지역에 배포된 Virtual WAN 허브에 대해서만 수행할 수 있습니다. 
 * 현재, 프라이빗 트래픽 라우팅 정책은 암호화된 ExpressRoute 연결이 있는 허브에서 지원되지 않습니다(ExpressRoute 프라이빗 연결을 통해 사이트 간 VPN 터널 실행). 
 * DefaultRouteTable의 유효 경로를 확인하여 라우팅 정책이 제대로 적용되었는지 확인할 수 있습니다. 프라이빗 라우팅 정책이 구성된 경우 DefaultRouteTable에서 다음 홉 Azure Firewall을 사용하여 프라이빗 트래픽 접두사에 대한 경로를 확인해야 합니다. 인터넷 트래픽 라우팅 정책이 구성된 경우 DefaultRouteTable에서 다음 홉 Azure Firewall을 사용하여 기본 (0.0.0.0/0) 경로를 확인해야 합니다.
+* 기능이 배포에 사용하도록 설정된 것으로 확인된 **후에** 사이트 간 VPN 게이트웨이 또는 지점 및 사이트 간 VPN 게이트웨이가 만들어진 경우 previewinterhub@microsoft.com에 다시 문의하여 기능을 사용하도록 설정해야 합니다. 
 
 ### <a name="troubleshooting-azure-firewall"></a>Azure Firewall 문제 해결
 
@@ -167,7 +168,7 @@ ms.locfileid: "122567500"
 
 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="why-cant-i-edit-the-defaultroutetable-from-the-custom-portal-link-provided-by-previewinterhubmicrosoftcom"></a>previewinterhub@microsoft.com에서 제공하는 사용자 지정 포털 링크에서 defaultRouteTable을 편집할 수 없는 이유는 무엇인가요?
 

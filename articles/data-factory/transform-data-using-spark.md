@@ -1,18 +1,20 @@
 ---
 title: Spark 활동을 사용하여 데이터 변환
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Spark 활동을 사용하여 Azure Data Factory 파이프라인에서 Spark 프로그램을 실행함으로써 데이터를 변환하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 06/09/2021
-ms.openlocfilehash: 3f9b330e4e0cadd073a60293991066f74d8521c3
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 702c1a5208fae42e3704e345713f540b0e05d900
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903188"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538571"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -56,7 +58,7 @@ Spark 작업의 샘플 JSON 정의는 다음과 같습니다.
 
 다음 표에서는 JSON 정의에 사용하는 JSON 속성을 설명합니다.
 
-| 속성              | Description                              | 필수 |
+| 속성              | 설명                              | 필수 |
 | --------------------- | ---------------------------------------- | -------- |
 | name                  | 파이프라인의 작업 이름입니다.    | 예      |
 | description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
@@ -76,7 +78,7 @@ Spark 작업은 Pig/Hive 작업보다 확장성이 뛰어납니다. Spark 작업
 
 HDInsight 연결된 서비스에서 참조하는 Azure Blob Storage에 다음 폴더 구조를 만듭니다. 그런 다음 종속 파일을 **entryFilePath** 로 표시되는 루트 폴더의 해당 하위 폴더에 업로드합니다. 예를 들어 python 파일을 루트 폴더의 pyFiles 하위 폴더에, jar 파일을 jars 하위 폴더에 업로드합니다. 런타임 시, Data Factory 서비스는 Azure Blob Storage에서 다음 폴더 구조를 필요로 합니다.     
 
-| 경로                  | Description                              | 필수 | Type   |
+| 경로                  | 설명                              | 필수 | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.`(root)            | 스토리지 연결된 서비스에서 Spark 작업의 루트 경로 | 예      | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 엔트리 파일을 가리키는 경로 | 예      | 파일   |
@@ -127,5 +129,5 @@ SparkJob2
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [Azure Machine Learning Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
+* [ML 스튜디오(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

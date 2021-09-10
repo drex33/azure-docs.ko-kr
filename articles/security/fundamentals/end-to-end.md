@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/07/2021
 ms.author: terrylan
-ms.openlocfilehash: 7612732f01075759d76c2bce5e8c710afc676642
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9e68df70afdc0f8e35ec862d9f9570dd13306191
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132866"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114466058"
 ---
 # <a name="end-to-end-security-in-azure"></a>Azure 엔드투엔드 보안
 Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 중 하나는 광범위한 보안 도구와 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 안전한 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다. Microsoft Azure는 고객 데이터의 기밀성, 무결성 및 가용성을 제공하는 한편 투명한 책임도 가능하게 합니다.
@@ -64,7 +64,7 @@ Azure를 애플리케이션과 서비스에 사용하는 가장 좋은 이유 �
 | [Azure Front Door](../../frontdoor/front-door-overview.md) | Microsoft 글로벌 에지 네트워크를 사용하여 빠르고, 안전하고, 확장성이 뛰어난 웹 애플리케이션을 만들기 위한 확장 가능 글로벌 진입점입니다. |
 | [Azure Firewall](../../firewall/overview.md) | Azure Virtual Network 리소스를 보호하는 관리형 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 내장되어 있는 서비스 형태의 완전한 상태 저장 방화벽입니다. |
 | [Azure Key Vault](../../key-vault/general/overview.md) | 토큰, 암호, 인증서, API 키 및 기타 암호에 대한 보안 비밀 저장소입니다. Key Vault를 사용하면 데이터를 암호화하는 데 사용되는 암호화 키를 만들고 제어할 수 있습니다. |
-| [Key Vault 관리형 HSM(미리 보기)](../../key-vault/managed-hsm/overview.md) | FIPS 140-2 수준 3 유효성이 검사된 HSM을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다. |
+| [Key Vault 관리형 HSM](../../key-vault/managed-hsm/overview.md) | FIPS 140-2 수준 3 유효성이 검사된 HSM을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다. |
 | [Azure Private Link](../../private-link/private-link-overview.md) | 가상 네트워크의 프라이빗 엔드포인트를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다. |
 | [Azure Application Gateway](../../application-gateway/overview.md) | 웹 애플리케이션에 대한 트래픽을 관리할 수 있도록 하는 고급 웹 트래픽 부하 분산 장치입니다. Application Gateway는 URI 경로 또는 호스트 헤더와 같은 HTTP 요청의 추가 특성을 기반으로 라우팅 결정을 내릴 수 있습니다. |
 | [Azure Service Bus](../../service-bus-messaging/service-bus-messaging-overview.md) | 메시지 큐와 게시-구독 토픽이 있는 완전 관리형 엔터프라이즈 메시지 broker입니다. Service Bus는 애플리케이션과 서비스를 서로 분리하는 데 사용됩니다. |

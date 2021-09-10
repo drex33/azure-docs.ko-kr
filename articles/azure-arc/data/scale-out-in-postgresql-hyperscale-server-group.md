@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: c96a70ff3a89c09f625f4c478f55690a3203f17c
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b3e7df998d32317763c6a0de7c0e7c1cc2f2420b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415203"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566627"
 ---
 # <a name="scale-out-and-in-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>작업자 노드를 더 추가하여 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃/인
 이 문서에서는 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 스케일 아웃 및 스케일 인하는 방법을 설명합니다. 이 문서에서는 시나리오를 따라가는 방식을 취합니다. **시나리오를 따라가지 않고 스케일 아웃 방법을 읽기만 하려는 경우 [스케일 아웃](#scale-out)** 또는 [스케일 인]() 단락으로 이동하세요.
@@ -26,7 +26,7 @@ Azure Arc 지원 PostgreSQL 하이퍼스케일에서 Postgres 인스턴스(Postg
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 Azure Arc 지원 PostgreSQL 하이퍼스케일 또는 Azure Database for PostgreSQL 하이퍼스케일(Citus)의 스케일링 모델에 이미 익숙한 경우 이 단락을 건너뛸 수 있습니다. 익숙하지 않은 경우 먼저 Azure Database for PostgreSQL 하이퍼스케일(Citus)의 설명서 페이지에서 해당 스케일링 모델에 대해 읽어 보는 것이 좋습니다. Azure Database for PostgreSQL 하이퍼스케일(Citus)은 Azure Arc 지원 데이터 서비스의 일부로 제공되는 대신 Azure에서 서비스(PAAS라고도 하는 Platform As A Service)로 호스트되는 동일한 기술입니다.
 - [노드 및 테이블](../../postgresql/concepts-hyperscale-nodes.md)
 - [애플리케이션 유형 확인](../../postgresql/concepts-hyperscale-app-type.md)
@@ -48,12 +48,12 @@ Azure Arc 지원 PostgreSQL 하이퍼스케일 또는 Azure Database for Postgre
 
 ##### <a name="list-the-connection-information"></a>연결 정보 나열
 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 연결하려면 먼저 연결 정보를 가져옵니다. 이 명령의 일반적인 형식은 다음과 같습니다.
-```console
-azdata arc postgres endpoint list -n <server name>
+```azurecli
+az postgres arc-server endpoint list -n <server name>  --k8s-namespace <namespace> --use-k8s
 ```
 예를 들면 다음과 같습니다.
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01  --k8s-namespace <namespace> --use-k8s
 ```
 
 예제 출력:
@@ -152,20 +152,20 @@ SELECT COUNT(*) FROM github_events;
 
 ## <a name="scale-out"></a>확장
 스케일 아웃 명령의 일반적인 형식은 다음과 같습니다.
-```console
-azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
+```azurecli
+az postgres arc-server edit -n <server group name> -w <target number of worker nodes> --k8s-namespace <namespace> --use-k8s
 ```
 
 
 이 예제에서는 다음 명령을 실행하여 작업자 노드 수를 2에서 4로 늘립니다.
 
-```console
-azdata arc postgres server edit -n postgres01 -w 4
+```azurecli
+az postgres arc-server edit -n postgres01 -w 4 --k8s-namespace <namespace> --use-k8s 
 ```
 
 노드를 추가하면 서버 그룹에 대해 보류 중 상태가 표시됩니다. 예를 들면 다음과 같습니다.
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 ```console
@@ -179,10 +179,12 @@ postgres01  Pending 4/5    4
 ### <a name="verify-the-new-shape-of-the-server-group-optional"></a>서버 그룹의 새로운 모양 확인(선택 사항)
 아래 방법 중 하나를 사용하여, 서버 그룹이 앞서 추가한 작업자 노드를 현재 사용하고 있는지 확인합니다.
 
-#### <a name="with-azdata"></a>azdata 사용:
+#### <a name="with-azure-cli-az"></a>Azure CLI(az) 사용:
+
 명령 실행:
-```console
-azdata arc postgres server list
+
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 이 명령은 네임스페이스에 생성된 서버 그룹의 목록을 반환하고 해당 서버 그룹의 작업자 노드 수를 나타냅니다. 예를 들면 다음과 같습니다.
@@ -240,8 +242,8 @@ SELECT COUNT(*) FROM github_events;
 스케일 인(서버 그룹의 작업자 노드 수 줄이기)하려면 스케일 아웃과 동일한 명령을 사용하지만 더 적은 작업자 노드 수를 지정합니다. 제거되는 작업자 노드는 서버 그룹에 가장 최근에 추가된 노드입니다. 이 명령을 실행하면 시스템은 제거된 노드에서 데이터를 이동하고 나머지 노드에 자동으로 재배포(리밸런스)합니다. 
 
 스케일 인 명령의 일반적인 형식은 다음과 같습니다.
-```console
-azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
+```azurecli
+az postgres arc-server edit -n <server group name> -w <target number of worker nodes> --k8s-namespace <namespace> --use-k8s
 ```
 
 

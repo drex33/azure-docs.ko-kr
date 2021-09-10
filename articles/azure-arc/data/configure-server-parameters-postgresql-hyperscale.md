@@ -1,6 +1,6 @@
 ---
 title: Azure Arc에서 PostgreSQL 하이퍼스케일 서버 그룹의 Postgres 엔진 서버 매개 변수 구성
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Azure Arc에서 PostgreSQL 하이퍼스케일 서버 그룹의 Postgres 엔진 서버 매개 변수 구성
 services: azure-arc
 ms.service: azure-arc
@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 06bff9acd76edc05498285809735eb4ec8a3c2f3
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: e634bcc7d07cfba4016c8f2db323e78e9beda92a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111407762"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536160"
 ---
 # <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에 대한 데이터베이스 엔진 설정 지정
 
@@ -41,22 +41,22 @@ ms.locfileid: "111407762"
 
 데이터베이스 엔진 설정을 구성하는 명령의 일반적인 형식은 다음과 같습니다.
 
-```console
-azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-engine-settings, --re}] {'<parameter name>=<parameter value>, ...'}
+```azurecli
+az postgres arc-server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-settings , --re}] {'<parameter name>=<parameter value>, ...'} --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="show-current-custom-values"></a>현재 사용자 지정 값 표시
 
 ### <a name="with-azure-data-cli-azdata-command"></a>[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 명령을 사용하는 경우
 
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 
 예를 들면 다음과 같습니다.
 
-```console
-azdata arc postgres server show -n postgres01
+```azurecli
+az postgres arc-server show -n postgres01 --k8s-namespace <namespace> --use-k8s 
 ```
 
 이 명령은 개발자가 설정한 매개 변수를 확인하는 서버 그룹의 사양을 반환합니다. engine\settings 섹션이 없는 경우 모든 매개 변수가 해당 기본값에서 실행됨을 의미합니다.
@@ -82,14 +82,14 @@ engine": {
 
    다음을 실행합니다.
 
-   ```console
-   azdata arc postgres server show -n <server group name>
+   ```azurecli
+   az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
    ```
 
    예를 들면 다음과 같습니다.
 
-   ```console
-   azdata arc postgres server show -n postgres01
+   ```azurecli
+   az postgres arc-server show -n postgres01 --k8s-namespace <namespace> --use-k8s
    ```
 
    이 명령은 개발자가 설정한 매개 변수를 확인하는 서버 그룹의 사양을 반환합니다. engine\settings 섹션이 없는 경우 모든 매개 변수가 해당 기본값에서 실행됨을 의미합니다.
@@ -146,26 +146,26 @@ engine": {
 
 ### <a name="set-a-single-parameter"></a>단일 매개 변수 설정
 
-```console
-azdata arc server edit -n <server group name> -e <parameter name>=<parameter value>
+```azurecli
+az postgres arc-server edit -n <server group name> --engine-settings  <parameter name>=<parameter value> --k8s-namespace <namespace> --use-k8s
 ```
 
 예를 들면 다음과 같습니다.
 
-```console
-azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
+```azurecli
+az postgres arc-server edit -n postgres01 --engine-settings  shared_buffers=8MB --k8s-namespace <namespace> --use-k8s
 ```
 
 ### <a name="set-multiple-parameters-with-a-single-command"></a>단일 명령을 사용하여 여러 매개 변수 설정
 
-```console
-azdata arc postgres server edit -n <server group name> -e '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
+```azurecli
+az postgres arc-server edit -n <server group name> --engine-settings  '<parameter name>=<parameter value>, <parameter name>=<parameter value>, --k8s-namespace <namespace> --use-k8s...'
 ```
 
 예를 들면 다음과 같습니다.
 
-```console
-azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connections=50'
+```azurecli
+az postgres arc-server edit -n postgres01 --engine-settings  'shared_buffers=8MB, max_connections=50' --k8s-namespace <namespace> --use-k8s
 ```
 
 ### <a name="reset-a-parameter-to-its-default-value"></a>매개 변수를 기본값으로 다시 설정
@@ -174,34 +174,34 @@ azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connec
 
 예를 들면 다음과 같습니다.
 
-```console
-azdata arc postgres server edit -n postgres01 -e shared_buffers=
+```azurecli
+az postgres arc-server edit -n postgres01 --k8s-namespace <namespace> --use-k8s --engine-settings  shared_buffers=
 ```
 
 ### <a name="reset-all-parameters-to-their-default-values"></a>모든 매개 변수를 기본값으로 다시 설정
 
-```console
-azdata arc postgres server edit -n <server group name> -e '' -re
+```azurecli
+az postgres arc-server edit -n <server group name> --engine-settings  '' -re --k8s-namespace <namespace> --use-k8s
 ```
 
 예를 들면 다음과 같습니다.
 
-```console
-azdata arc postgres server edit -n postgres01 -e '' -re
+```azurecli
+az postgres arc-server edit -n postgres01 --engine-settings  '' -re --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="special-considerations"></a>특별 고려 사항
 
 ### <a name="set-a-parameter-which-value-contains-a-comma-space-or-special-character"></a>값에 쉼표, 공백 또는 특수 문자가 포함된 매개 변수를 설정합니다.
 
-```console
-azdata arc postgres server edit -n <server group name> -e '<parameter name>="<parameter value>"'
+```azurecli
+az postgres arc-server edit -n <server group name> --engine-settings  '<parameter name>="<parameter value>"' --k8s-namespace <namespace> --use-k8s
 ```
 
 예를 들면 다음과 같습니다.
 
-```console
-azdata arc postgres server edit -n postgres01 -e 'custom_variable_classes = "plpgsql,plperl"'
+```azurecli
+az postgres arc-server edit -n postgres01 --engine-settings  'custom_variable_classes = "plpgsql,plperl"' --k8s-namespace <namespace> --use-k8s
 ```
 
 ### <a name="pass-an-environment-variable-in-a-parameter-value"></a>매개 변수 값에 환경 변수 전달
@@ -210,8 +210,8 @@ azdata arc postgres server edit -n postgres01 -e 'custom_variable_classes = "plp
 
 예를 들면 다음과 같습니다. 
 
-```console
-azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
+```azurecli
+az postgres arc-server edit -n postgres01 --engine-settings  'search_path = "$user"' --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="next-steps"></a>다음 단계

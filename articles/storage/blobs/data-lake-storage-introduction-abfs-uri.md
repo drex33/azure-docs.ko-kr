@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 948b5aa0ad015f9f3c693e13219ec034724687c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c1d861da7a312ce94bbc7bc4074037bdb27d02b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95913167"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536176"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Azure Data Lake Storage Gen2 URI 사용
 
@@ -27,7 +27,7 @@ Data Lake Storage Gen2에 대한 URI 구문은 스토리지 계정이 Data Lake 
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **체계 식별자**: `abfs` 프로토콜이 체계 식별자로 사용됩니다. 이전에 SSL(Secure Sockets Layer)로 알려진 TLS(전송 계층 보안)를 사용하거나 사용하지 않고 연결하는 옵션이 있습니다. `abfss`를 사용하여 TLS 연결로 연결합니다.
+1. **체계 식별자**: `abfs` 프로토콜이 체계 식별자로 사용됩니다. 끝에 's'를 추가(abfs<b><i>s</i></b>)하면 ABFS Hadoop 클라이언트 드라이버인 <i>ALWAYS</i>는 선택한 인증 방법에 관계없이 항상 TLS(전송 계층 보안)를 사용합니다. OAuth를 인증으로 선택하는 경우 OAuth가 TLS 계층만 사용하므로 'abfss' 대신 'abfs'를 지정하는 경우에도 클라이언트 드라이버는 항상 TLS를 사용합니다. 마지막으로, 스토리지 계정 키의 이전 메서드를 사용하도록 선택하는 경우 클라이언트 드라이버는 TLS를 사용하지 않으려는 것으로 'abfs'를 해석합니다. 
 
 2. **파일 시스템**: 파일 및 폴더를 포함하는 부모 위치입니다. Azure Storage Blob 서비스의 컨테이너와 동일합니다.
 

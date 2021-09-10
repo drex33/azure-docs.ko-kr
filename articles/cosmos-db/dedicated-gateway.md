@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/30/2021
 ms.author: tisande
-ms.openlocfilehash: 7cc6acc29cf8019bf65d3495cfd8a00a87da11bc
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 8c253abdfc8ded8ab5507d482640d78e6d4469c8
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112914250"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226610"
 ---
 # <a name="azure-cosmos-db-dedicated-gateway---overview-preview"></a>Azure Cosmos DB 전용 게이트웨이 - 개요(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -67,7 +67,7 @@ Azure Cosmos DB 계정에 연결하는 방법에는 다음 세 가지가 있습�
 
 전용 게이트웨이 클러스터는 코어(SQL) API 계정으로 프로비전할 수 있습니다. 전용 게이트웨이 클러스터는 최대 5개의 노드를 포함할 수 있으며, 언제든지 노드를 추가하거나 제거할 수 있습니다. 계정 내의 모든 전용 게이트웨이 노드는 [동일한 연결 문자열을 공유](how-to-configure-integrated-cache.md#configuring-the-integrated-cache)합니다.
 
-전용 게이트웨이 노드는 서로 독립적입니다. 여러 개의 전용 게이트웨이 노드를 프로비전할 경우 모든 단일 노드에서 지정된 요청을 라우팅할 수 있습니다. 또한 각 노드에는 서로 다른 별도의 캐시가 있습니다. 각 노드 내에 캐시된 데이터는 특정 노드를 통해 최근에 [쓰거나 읽은](integrated-cache.md#item-cache) 데이터에 따라 달라집니다. 즉, 항목이나 쿼리가 하나의 노드에 캐시되는 경우 다른 노드에 캐시될 필요는 없습니다.
+전용 게이트웨이 노드는 서로 독립적입니다. 여러 개의 전용 게이트웨이 노드를 프로비전할 경우 모든 단일 노드에서 지정된 요청을 라우팅할 수 있습니다. 또한 각 노드에는 서로 다른 별도의 통합 캐시가 있습니다. 각 노드 내에 캐시된 데이터는 특정 노드를 통해 최근에 [쓰거나 읽은](integrated-cache.md#item-cache) 데이터에 따라 달라집니다. 즉, 항목이나 쿼리가 하나의 노드에 캐시되는 경우 다른 노드에 캐시될 필요는 없습니다.
 
 개발을 위해서는 하나의 노드로 시작하는 것이 좋지만, 프로덕션 환경에서는 고가용성을 위해 세 개 이상의 노드를 프로비전해야 합니다. [통합 캐시를 사용하여 전용 게이트웨이 클러스터를 프로비전하는 방법을 알아봅니다](how-to-configure-integrated-cache.md). 여러 전용 게이트웨이 노드를 프로비전하면 전용 게이트웨이 노드 중 하나를 사용할 수 없는 경우에도 전용 게이트웨이 클러스터가 요청을 계속 라우팅하고 캐시된 데이터를 제공할 수 있습니다.
 
@@ -100,6 +100,28 @@ Azure Cosmos DB 계정에 연결하는 방법에는 다음 세 가지가 있습�
 - 전용 게이트웨이는 SQL API 계정에서만 지원됩니다.
 - [IP 방화벽](how-to-configure-firewall.md) 또는 [프라이빗 링크](how-to-configure-private-endpoints.md)가 구성된 Azure Cosmos DB 계정에서 전용 게이트웨이를 프로비전할 수 없습니다.
 - [가용성 영역](high-availability.md#availability-zone-support)이 사용 설정된 Azure Cosmos DB 계정에서 전용 게이트웨이를 프로비전할 수 없습니다.
+- [RBAC(역할 기반 액세스 제어)](how-to-setup-rbac.md)를 사용하여 전용 게이트웨이를 통해 라우팅되는 데이터 평면 요청을 인증할 수는 없습니다.
+
+## <a name="supported-regions"></a>지원되는 지역
+
+전용 게이트웨이는 공개 미리 보기 상태이며, 아직 모든 Azure 지역에서 지원되지는 않습니다. 공개 미리 보기 기간 동안 새로운 용량이 추가되고 있습니다. 전용 게이트웨이가 일반 공급될 때는 지역 제한이 없을 것입니다.
+
+현재 지원되는 Azure 지역의 목록:
+
+| **아메리카** | **유럽 및 아프리카**  | **아시아 태평양**  |
+| ------------ | -------- | ----------- | 
+| 브라질 남부      | 프랑스 중부    | 오스트레일리아 중부 |
+| 캐나다 중부  | 프랑스 남부    | 오스트레일리아 중부 2 |
+| 캐나다 동부     | 독일 북부   | 오스트레일리아 남동부 |
+| 미국 중부     | 독일 중서부   | 인도 중부 |
+| 미국 동부     | 북유럽   | 동아시아 |
+| 미국 동부 2     | 스위스 북부   | 일본 서부 |
+| 미국 중북부     | 영국 남부   | 한국 중부 |
+| 미국 중남부     | 영국 서부   | 한국 남부 |
+| 미국 중서부     | 서유럽   | 동남 아시아 |
+| 미국 서부     |   | 아랍에미리트 중부 |
+| 미국 서부 2     |    | 인도 서부 |
+
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -108,3 +130,6 @@ Azure Cosmos DB 계정에 연결하는 방법에는 다음 세 가지가 있습�
 - [통합 캐시](integrated-cache.md)
 - [통합 캐시 구성](how-to-configure-integrated-cache.md)
 - [통합 캐시 FAQ](integrated-cache-faq.md)
+- Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

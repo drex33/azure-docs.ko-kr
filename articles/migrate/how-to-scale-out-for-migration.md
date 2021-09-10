@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: b0f5bf01080d89e6dc6d6843312d96243b8526ba
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 5c8858e50707209b47eb61d554a8e4f7313c92c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484544"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566526"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Azure로 에이전트 없는 VMware 가상 머신의 마이그레이션 확장
 
@@ -60,42 +60,45 @@ ms.locfileid: "109484544"
 ### <a name="2-download-the-installer-for-the-scale-out-appliance"></a>2. 스케일 아웃 어플라이언스용 설치 관리자 다운로드
 
 **Azure Migrate 어플라이언스 다운로드** 에서 **다운로드** 를 클릭합니다. PowerShell 설치 관리자 스크립트를 다운로드하여 필수 하드웨어 구성(32GB RAM, vCPU 8개, 약 80GB의 디스크 저장소 및 직접 또는 프록시를 통한 인터넷 액세스)으로 Windows Server 2016을 실행하는 기존 서버에 스케일 아웃 어플라이언스를 배포해야 합니다.
+
 :::image type="content" source="./media/how-to-scale-out-for-migration/download-scale-out.png" alt-text="스케일 아웃 어플라이언스용 스크립트 다운로드":::
 
 > [!TIP]
 > 다음 단계를 사용하여 다운로드한 zip 파일에 대한 체크섬의 유효성을 검사할 수 있습니다.
 >
-> 1. 관리자로 명령 프롬프트 열기
+> 1. 파일을 다운로드한 서버에서 관리자 명령 창을 엽니다.
 > 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 퍼블릭 클라우드의 사용 예: ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
-> 3. 계산된 해시 값이 이 문자열(1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9)과 일치하지 않는 경우 포털에서 최신 버전의 스케일 아웃 어플라이언스 설치 관리자를 다운로드합니다.
+    - 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+> 3. 컴퓨팅된 해시 값이 b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2 문자열과 일치하지 않는 경우 포털에서 최신 버전의 스케일 아웃 어플라이언스 설치 관리자를 다운로드합니다.
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Azure Migrate 설치 프로그램 스크립트 실행
-설치 프로그램 스크립트는 다음을 수행합니다.
 
-- 동시 서버 복제를 더 많이 수행하도록 게이트웨이 에이전트 및 어플라이언스 구성 관리자를 설치합니다.
-- Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다.
-- Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
-- 지정된 경로에 다음 파일을 만듭니다.
-    - **구성 파일**: %Programdata%\Microsoft Azure\Config
-    - **로그 파일**: %Programdata%\Microsoft Azure\Logs
-
-스크립트를 다음과 같이 실행합니다.
-
-1. 스케일 아웃 어플라이언스를 호스트하는 서버의 폴더에 zip 파일을 추출합니다.  기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다.
+1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다.
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
-3. 다운로드한 zip 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
+3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.
 
-    - 퍼블릭 클라우드의 경우: 
-    
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    스크립트가 실행을 완료하면 어플라이언스 구성 관리자를 시작합니다.
+5. 시나리오, 클라우드, 구성, 연결 옵션 중에서 선택하여 원하는 어플라이언스를 배포합니다. 예를 들어 아래와 같이 선택하면 **Azure 퍼블릭 클라우드** 에서 **기본(‘퍼블릭 엔드포인트’) 연결** 을 사용하는 Azure Migrate 프로젝트에 대해 VMware 환경에서 실행되는 서버에서 동시 복제를 시작하도록 **스케일 아웃 어플라이언스** 가 설정됩니다.
 
-문제가 발생하면 다음 위치에서 스크립트 로그에 액세스할 수 있습니다. <br/> 문제 해결을 위한 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log
+    :::image type="content" source="./media/how-to-scale-out-for-migration/script-vmware-scaleout-inline.png" alt-text="스케일 아웃 어플라이언스를 설정하는 방법을 보여 주는 스크린샷" lightbox="./media/how-to-scale-out-for-migration/script-vmware-scaleout-expanded.png":::
+
+6. 설치 프로그램 스크립트는 다음을 수행합니다.
+
+    - 동시 서버 복제를 더 많이 수행하도록 게이트웨이 에이전트 및 어플라이언스 구성 관리자를 설치합니다.
+    - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
+    - IIS 재작성 모듈을 다운로드하여 설치합니다.
+    - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
+    - 지정된 경로에 다음 파일을 만듭니다.
+        - **구성 파일**: %Programdata%\Microsoft Azure\Config
+        - **로그 파일**: %Programdata%\Microsoft Azure\Logs
+
+스크립트를 성공적으로 실행하면 어플라이언스 구성 관리자가 자동으로 시작됩니다.
+
+> [!NOTE]
+> 문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그에 액세스할 수 있습니다.
 
 
 ### <a name="4-configure-the-appliance"></a>4. 어플라이언스 구성
@@ -121,7 +124,8 @@ ms.locfileid: "109484544"
 
 1. 포털에서 복사한 **Azure Migrate 프로젝트 키** 를 붙여넣습니다. 키가 없는 경우 **서버 평가 > 검색 > 기존 어플라이언스 관리** 로 차례로 이동하여 기본 어플라이언스 이름을 선택하고, 이와 연관된 스케일 아웃 어플라이언스를 찾아 해당 키를 복사합니다.
 1. Azure로 인증하려면 디바이스 코드가 필요합니다. **로그인** 을 클릭하면 아래와 같이 디바이스 코드가 포함된 모달이 열립니다.
-:::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="디바이스 코드를 보여주는 모달":::
+
+   :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="디바이스 코드를 보여주는 모달":::
 
 1. **코드 복사 및 로그인** 을 클릭하여 디바이스 코드를 복사하고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
 1. 새 탭에서 디바이스 코드를 붙여넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다.

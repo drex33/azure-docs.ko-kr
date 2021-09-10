@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 37196dafd094f997bc5fe2ea165cefb9099562a0
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6d9483ee7d6d131b28f58ce559f0313f3eddbb34
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784884"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113231803"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope-in-azure-active-directory"></a>Azure Active Directory에서 범위를 벗어나는 사용자 계정 삭제 건너뛰기
 
@@ -35,7 +35,7 @@ ms.locfileid: "109784884"
 
    ![Workday 앱 서비스 주체 ID](./media/skip-out-of-scope-deletions/wd_export_01.png)
 
-## <a name="step-2-sign-into-microsoft-graph-explorer"></a>2단계: Microsoft Graph 탐색기에 로그인
+## <a name="step-2-sign-into-microsoft-graph-explorer"></a>2단계: Microsoft Graph Explorer에 로그인
 
 1. [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) 시작
 1. “Microsoft에 로그인” 단추를 클릭하고 Azure AD 전역 관리자 또는 앱 관리자 자격 증명을 사용하여 로그인합니다.
@@ -76,7 +76,7 @@ Graph 탐색기에서 아래 명령을 실행하여 ***SkipOutOfScopeDeletions**
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
-3단계에서 업데이트한 텍스트를 '요청 본문'에 복사하고 '요청 헤더'에서 'Content-Type' 헤더를 'application/json'으로 설정합니다. 
+3단계에서 업데이트된 텍스트를 ‘요청 본문’에 복사합니다. 
 
    ![PUT 요청](./media/skip-out-of-scope-deletions/skip-05.png)
 

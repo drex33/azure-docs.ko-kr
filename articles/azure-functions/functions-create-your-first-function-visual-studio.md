@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
-ms.openlocfilehash: 9b5d5d85d8df58a8e8c3e2626abaed75377e6025
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 5a7df784ec30b958eb6924de674e09cbbe21c91e
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "122643540"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830037"
 ---
 # <a name="quickstart-create-your-first-c-function-in-azure-using-visual-studio"></a>빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 C# 함수 만들기
 
@@ -28,9 +28,14 @@ Azure Functions를 사용하면 Azure의 서버리스 환경에서 C# 코드를 
 > * 코드를 로컬로 실행하여 함수 동작을 확인합니다.
 > * 코드 프로젝트를 Azure Functions에 배포합니다. 
  
+이 문서에서는 두 가지 유형의 컴파일된 C# 함수 만들기를 지원합니다. 
+
++ [In-process](functions-create-your-first-function-visual-studio.md?tabs=in-process) - Functions 호스트 프로세스와 동일한 프로세스에서 실행됩니다. 자세한 내용은 [Azure Functions를 사용하여 C# 클래스 라이브러리 함수 개발](functions-dotnet-class-library.md)을 참조하세요.
++ [격리된 프로세스](functions-create-your-first-function-visual-studio.md?tabs=isolated-process) - 별도의 .NET 작업자 프로세스에서 실행됩니다. 자세한 내용은 [Azure의 .NET 5.0에서 함수를 실행하는 방법에 대한 가이드](dotnet-isolated-process-guide.md)를 참조하세요.
+
 이 빠른 시작을 완료하면 Azure 계정에서 약간의 비용(몇 USD 센트)이 발생합니다.
- 
-사용자가 만든 프로젝트는 .NET Core 3.1에서 실행됩니다. 대신 .NET 5.0에서 실행되는 프로젝트를 만들려면 [Azure Functions를 사용하여 .NET 5 함수 개발 및 게시](dotnet-isolated-process-developer-howtos.md)를 참조하세요.
+
+또한 이 문서의 [Visual Studio Code 기반 버전](create-first-function-vs-code-csharp.md)도 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -56,8 +61,16 @@ Visual Studio는 HTTP 트리거 함수 형식에 대한 상용구 코드가 포�
 
 함수 정의는 이제 다음 코드와 같이 표시됩니다.
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="13-18"::: 
- 
+# <a name="in-process"></a>[In-Process](#tab/in-process) 
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="15-18"::: 
+
+# <a name="isolated-process"></a>[격리된 프로세스](#tab/isolated-process)
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13"::: 
+
+---
+
 이제 함수의 이름을 바꾸었으므로 로컬 컴퓨터에서 이를 테스트할 수 있습니다.
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행

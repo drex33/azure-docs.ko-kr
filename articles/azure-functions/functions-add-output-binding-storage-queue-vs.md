@@ -4,12 +4,12 @@ description: Visual Studio를 사용하여 C# 클래스 라이브러리 함수�
 ms.date: 05/30/2021
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 28748b7b9d0622d62baeb0de144adcd89c061a72
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 9b5d6e4919db9fcf41eea8704878d10606833658
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790930"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829555"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Visual Studio를 사용하여 Azure Storage에 함수 연결
 
@@ -49,9 +49,15 @@ Queue 스토리지 출력 바인딩을 사용하므로 먼저 Storage 바인딩 
 
 1. 콘솔에서 다음 [Install-Package](/nuget/tools/ps-ref-install-package) 명령을 실행하여 Storage 확장을 설치합니다.
 
-    ```Command
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.6
-    ````
+    # <a name="in-process"></a>[In-Process](#tab/in-process) 
+    ```bash
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage 
+    ```
+    # <a name="isolated-process"></a>[격리된 프로세스](#tab/isolated-process)
+    ```bash
+    Install-Package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues -IncludePrerelease
+    ```
+    ---
 
 이제 프로젝트에 스토리지 출력 바인딩을 추가할 수 있습니다.
 

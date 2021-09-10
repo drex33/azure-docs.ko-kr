@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: e335f9b0e6e63cc96a487ef32b8b3b728b95d739
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: d45ab7ba80a33658d1a3feaf024cb23ea65d5fab
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608672"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771802"
 ---
 # <a name="operating-systems-supported-by-update-management"></a>업데이트 관리에서 지원하는 운영 체제
 

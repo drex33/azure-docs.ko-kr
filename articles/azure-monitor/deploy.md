@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: dc73ac91320e1860c5c30f1b31962ad826a1038f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 151caf0aadba66eafac464c55b073968ea4022e7
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076801"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609488"
 ---
 # <a name="deploy-azure-monitor"></a>Azure Monitor 배포
 Azure Monitor에서 모든 Azure 리소스를 모니터링할 수 있도록 설정하는 것은 Azure Monitor 구성 요소를 구성하고 Azure Monitor가 수집할 모니터링 데이터를 생성하도록 Azure 리소스를 구성하는 것입니다. 이 문서에서는 Azure 구독의 모든 리소스를 모니터링하는 공통 구성을 사용하여 Azure Monitor를 완전히 구현하는 데 필요한 다양한 단계를 설명합니다. 각 단계에 대한 기본 설명은 자세한 구성 요구 사항에 대한 다른 문서의 링크와 함께 제공됩니다.
@@ -129,7 +129,7 @@ Azure Monitor는 모니터링하려는 각 애플리케이션을 위해 구성�
 - [Azure Web Apps에서 호스팅되는 애플리케이션](app/azure-web-apps.md)
 - [Java 애플리케이션](app/java-in-process-agent.md)
 - [Azure VM 또는 Azure Virtual Machine Scale Set의 IIS에 호스트된 ASP.NET 애플리케이션](app/azure-vm-vmss-apps.md)
-- [IIS 온-프레미스 VM에 호스트된 ASP.NET 애플리케이션](app/monitor-performance-live-website-now.md)
+- [IIS 온-프레미스에 호스트된 ASP.NET 애플리케이션](app/status-monitor-v2-overview.md)
 
 
 **코드 기반 모니터링** 은 다양한 사용자 지정이 가능하고 추가 원격 분석을 수집하지만 Application Insights SDK NuGet 패키지의 코드에 종속성을 추가해야 합니다. 애플리케이션에 따라 모니터링을 사용하도록 설정하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.

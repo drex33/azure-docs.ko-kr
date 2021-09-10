@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 07376647edac05384c2efc1240c2242fd5eb664b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a06a488473264a992d947ef78ad69c61776d34ae
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949817"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530530"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ ms.locfileid: "111949817"
 - [지역](https://azure.microsoft.com/regions) 범위를 지원합니다.
 - [Azure Firewall](../firewall/service-tags.md) 규칙에서 사용할 수 있습니다.
 
-기본적으로 서비스 태그는 전체 클라우드의 범위를 반영합니다. 일부 서비스 태그는 해당 IP 범위를 지정된 지역으로 제한하여 보다 자세히 제어할 수 있습니다. 예를 들어, 서비스 태그 **Storage** 는 전체 클라우드의 Azure Storage를 나타내지만 **Storage.WestUS** 는 범위를 WestUS 지역의 스토리지 IP 주소 범위로 좁힙니다. 다음 표에서는 각 서비스 태그가 이러한 지역 범위를 지원하는지 여부를 나타냅니다.  
+기본적으로 서비스 태그는 전체 클라우드의 범위를 반영합니다. 일부 서비스 태그는 해당 IP 범위를 지정된 지역으로 제한하여 보다 자세히 제어할 수 있습니다. 예를 들어, 서비스 태그 **Storage** 는 전체 클라우드의 Azure Storage를 나타내지만 **Storage.WestUS** 는 범위를 WestUS 지역의 스토리지 IP 주소 범위로 좁힙니다. 다음 표에서는 각 서비스 태그가 이러한 지역 범위를 지원하는지 여부를 나타냅니다. 각 태그에 나열된 방향은 권장 사항입니다. 예를 들어 AzureCloud 태그를 사용하여 인바운드 트래픽을 허용할 수 있습니다. 그러나 대부분의 시나리오에서는 다른 Azure 고객이 사용하는 트래픽을 포함하여 모든 Azure IP의 트래픽을 허용하는 것을 의미하기 때문에 권장되지 않습니다. 
 
 | 태그 | 목적 | 인바운드 또는 아웃바운드를 사용할 수 있나요? | 지역 범위를 지원할 수 있나요? | Azure Firewall에서 사용할 수 있나요? |
 | --- | -------- |:---:|:---:|:---:|
@@ -56,8 +56,8 @@ ms.locfileid: "111949817"
 | **AzureActiveDirectory** | Azure Active Directory. | 아웃바운드 | 예 | 예 |
 | **AzureActiveDirectoryDomainServices** | Azure Active Directory Domain Services 전용 배포에 대한 관리 트래픽 | 모두 | 예 | 예 |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | 아웃바운드 | 예 | 예 |
-| **AzureAPIForFHIR** | Azure API for FHIR(전자 의료 기록 교환).<br/><br/> *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.*| 아웃바운드 | 예 | 예 |
 | **AzureArcInfrastructure** | Azure Arc 지원 서버, Azure Arc 지원 Kubernetes 및 게스트 구성 트래픽.<br/><br/>*참고:* 이 태그에는 **AzureActiveDirectory**,**AzureTrafficManager**, 및 **AzureResourceManager** 태그에 대한 종속성이 있습니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다*.| 아웃바운드 | 예 | 예 |
+| **AzureAttestation** | Azure Attestation.<br/><br/>*참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 아웃바운드 | 예 | 예 | 
 | **AzureBackup** |Azure Backup<br/><br/>*참고:* 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureBotService** | Azure Bot Service | 아웃바운드 | 예 | 예 |
 | **AzureCloud** | 모든 [데이터 센터 퍼블릭 IP 주소](https://www.microsoft.com/download/details.aspx?id=56519)입니다. | 아웃바운드 | 예 | 예 |
@@ -106,7 +106,7 @@ ms.locfileid: "111949817"
 | **PowerQueryOnline** | 파워 쿼리 온라인입니다. | 모두 | 예 | 예 |
 | **Service Bus** | 프리미엄 서비스 계층을 사용하는 Azure Service Bus 트래픽입니다. | 아웃바운드 | 예 | 예 |
 | **ServiceFabric** | Azure Service Fabric입니다.<br/><br/>*참고:* 이 태그는 지역별 제어 평면에 대한 Service Fabric 서비스 엔드포인트를 나타냅니다. 이를 통해 고객은 자신의 VNET에서 Service Fabric 클러스터에 대한 관리 작업을 수행할 수 있습니다(엔드포인트 예: https://westus.servicefabric.azure.com). | 모두 | 예 | 예 |
-| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, 및 Azure Synapse Analytics.<br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 SQL Managed Instance에 적용되지 않습니다. | 아웃바운드 | 예 | 예 |
+| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB 및 Azure Synapse Analytics.<br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 SQL Managed Instance에 적용되지 않습니다. | 아웃바운드 | 예 | 예 |
 | **SqlManagement** | SQL 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **스토리지** | Azure Storage. <br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. | 아웃바운드 | 예 | 예 |
 | **StorageSyncService** | 스토리지 동기화 서비스입니다. | 모두 | 예 | 예 |

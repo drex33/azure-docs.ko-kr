@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 08/04/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c4c5c4e632943ebbe68003f663aebbeaab9ebaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fd16df2d8f1dfff4f5a7bd1075a63cf9b0ec78b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743448"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535906"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-ad-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure AD MFA와 통합
 
@@ -218,6 +218,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 이 섹션에서는 VPN 서버에서 RADIUS 인증을 사용하도록 구성합니다. 지침에서는 VPN 서버의 작동하는 구성이 있지만 RADIUS 인증을 사용하도록 구성하지 않았다고 가정합니다. VPN 서버를 구성한 후에 구성이 예상대로 작동하는지 확인합니다.
 
+
 > [!NOTE]
 > RADIUS 인증을 통해 작동하는 VPN 서버 구성이 이미 있는 경우 이 섹션을 건너뛸 수 있습니다.
 >
@@ -244,10 +245,8 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
     b. **공유 비밀** 에서 **변경** 을 선택하고 이전에 만들어 기록해 둔 공유 비밀 암호를 입력합니다.
 
-    다. **시간 제한(초)** 상자에 **30** 값을 입력합니다.  
-    이 시간 제한 값은 두 번째 인증 요소를 완료할 수 있을 만큼 충분한 시간을 허용하는 데 필요합니다. 일부 VPN 또는 지역에서는 사용자가 여러 번 전화를 받지 못하도록 30초보다 큰 시간 제한 설정이 필요합니다. 사용자에게 이 문제가 발생하는 경우 문제가 다시 발생하지 않을 때까지 **시간 제한(초)** 값을 30초 단위로 늘립니다.
-
-    ![시간 제한을 구성하는 RADIUS 서버 추가 창](./media/howto-mfa-nps-extension-vpn/image16.png) 
+    다. **시간 제한(초)** 상자에 **60** 값을 입력합니다.  
+    무시되는 요청을 최소화하려면 VPN 서버의 시간 제한을 60초 이상으로 구성하는 것이 좋습니다. 필요한 경우 이벤트 로그에서 무시되는 요청을 줄이기 위해 VPN 서버 제한 시간 값을 90초 또는 120초로 늘릴 수 있습니다.
 
 8. **확인** 을 선택합니다.
 
@@ -283,7 +282,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 10. **보안** 탭에서 **Microsoft CHAP 버전 2(MS-CHAP v2)** 만 선택했는지 확인하고 **확인** 을 선택합니다.
 
-    !["다음 프로토콜 허용" 옵션](./media/howto-mfa-nps-extension-vpn/image20.png)
+    ![‘다음 프로토콜 허용’ 옵션](./media/howto-mfa-nps-extension-vpn/image20.png)
 
 11. VPN 연결을 마우스 오른쪽 단추로 클릭하고 **연결** 을 선택합니다.
 
@@ -302,7 +301,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 ## <a name="configure-multi-factor-authentication"></a>Multi-Factor Authentication 구성
 
-Multi-Factor Authentication에 대한 사용자를 구성할 때 도움이 필요한 경우 [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](howto-mfa-getstarted.md#create-conditional-access-policy) 및 [2단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md) 문서를 참조하세요.
+Multi-Factor Authentication에 대한 사용자를 구성할 때 도움이 필요한 경우 [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](howto-mfa-getstarted.md#plan-conditional-access-policies) 및 [2단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md) 문서를 참조하세요.
 
 ## <a name="install-and-configure-the-nps-extension"></a>NPS 확장 설치 및 구성
 

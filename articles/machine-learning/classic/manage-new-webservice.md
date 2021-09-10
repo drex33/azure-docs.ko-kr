@@ -9,18 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 6833763ad38bd821067432aa63b166826442ed2f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 19ee8f56fffe3fcaf8d344f8aa4832ef63d346bb
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695521"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112581271"
 ---
 # <a name="manage-a-web-service-using-the-machine-learning-studio-classic-web-services-portal"></a>Machine Learning Studio(클래식) 웹 서비스 포털을 사용하여 웹 서비스 관리
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Machine Learning 웹 서비스 포털을 사용하여 Machine Learning Studio(클래식) 웹 서비스를 관리할 수 있습니다. 
 

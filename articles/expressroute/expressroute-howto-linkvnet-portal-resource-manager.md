@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 88674255c98559a06c33bd5030aefba9184ada58
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: bed2f746d0216a120b1f144a410a15d533ae3113
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111538740"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866642"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>자습서: 포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 
@@ -27,7 +27,7 @@ ms.locfileid: "111538740"
 
 이 자습서는 Azure Portal을 사용하여 Azure ExpressRoute 회로에 가상 네트워크를 연결하는 데 도움이 됩니다. Azure ExpressRoute 회로에 연결한 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음을 수행하는 방법을 알아봅니다.
 > [!div class="checklist"]
 > - 동일한 구독에 있는 회로에 가상 네트워크를 연결합니다.
 > - 다른 구독에 있는 회로에 가상 네트워크를 연결합니다.
@@ -154,6 +154,40 @@ ms.locfileid: "111538740"
 1. **요약** 페이지에서 정보를 검토하고 **확인** 을 선택합니다.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="요약 페이지":::
+
+## <a name="configure-expressroute-fastpath"></a>ExpressRoute FastPath 구성
+
+가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ인 경우 [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md)를 사용하도록 설정할 수 있습니다. FastPath는 온-프레미스 네트워크와 가상 네트워크 간의 초당 패킷 수 및 초당 연결 수와 같은 데이터 경로 성능을 향상시킵니다.
+
+**새 연결에서 FastPath 구성**
+
+ExpressRoute 게이트웨이에 대한 새 연결을 추가할 때 **FastPath** 확인란을 선택합니다.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-portal.png" alt-text="연결 페이지 추가의 FastPath 확인란 스크린샷.":::
+
+> [!NOTE]
+> 새 연결에 대해 FastPath를 사용하도록 설정하려면 게이트웨이 리소스에서 연결을 만들어야 합니다. ExpressRoute 회로 또는 연결 리소스 페이지에서 만든 새 연결은 지원되지 않습니다.
+>
+**기존 연결에서 FastPath 구성**
+
+1. ExpressRoute 게이트웨이, ExpressRoute 회로 또는 연결 리소스 페이지에서 기존 연결 리소스로 이동합니다.
+
+1.  *설정* 에서 **구성** 을 선택한 다음 **FastPath** 확인란을 선택합니다. 기능을 사용하도록 설정하려면 **저장** 을 선택합니다.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-connection.png" alt-text="연결 구성 페이지의 FastPath 확인란 스크린샷.":::
+
+> [!NOTE]
+> [연결 모니터](how-to-configure-connection-monitor.md)를 사용하여 트래픽이 FastPath를 사용하여 목적지에 도달하고 있는지 확인할 수 있습니다.
+>
+
+## <a name="enroll-in-expressroute-fastpath-features-preview"></a>ExpressRoute FastPath 기능에 등록(미리 보기)
+
+가상 네트워크 피어링에 대한 FastPath 지원은 이제 공개 미리 보기로 제공됩니다. 등록은 Azure PowerShell을 통해서만 가능합니다. 등록 방법에 대한 지침은 [FastPath 미리 보기 기능](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview)을 참조하세요.
+
+> [!NOTE] 
+> 이미 FastPath가 구성되어 있고 미리 보기 기능에 등록하려면 다음을 수행해야 합니다.
+> 1. 위의 Azure PowerShell 명령을 사용하여 FastPath 미리 보기 기능에 등록합니다.
+> 1. 대상 연결에서 FastPath를 사용하지 않도록 설정했다가 다시 사용합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

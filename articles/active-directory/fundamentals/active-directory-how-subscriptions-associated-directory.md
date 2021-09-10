@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ac9553660aace8242c81b41fa2cc9171d28219
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc428a79e38f390d926f268bd8147eb7ee06a648
+ms.sourcegitcommit: 04d2dec0316576388e6e10c1558b0a0b3688d01c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594634"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112421845"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -31,6 +31,8 @@ Azure 구독은 Azure AD(Azure Active Directory)와 신뢰 관계입니다. 구�
 사용자가 Microsoft 클라우드 서비스에 등록할 때 새 Azure AD 테넌트가 만들어지고 사용자는 전역 관리자 역할의 구성원이 됩니다. 그러나 구독 소유자가 기존 테넌트에 구독을 조인하는 경우 소유자는 전역 관리자 역할에 할당되지 않습니다.
 
 모든 사용자에게는 인증을 위한 *홈* 디렉터리 하나가 있습니다. 사용자는 다른 디렉터리의 게스트가 될 수도 있습니다. Azure AD에서 각 사용자의 홈 디렉터리와 게스트 디렉터리를 모두 확인할 수 있습니다.
+
+:::image type="content" source="media/active-directory-how-subscriptions-associated-directory/trust-relationship-azure-ad.png" alt-text="Azure 구독과 Azure Active Directory 간의 트러스트 관계를 보여 주는 스크린샷":::
 
 > [!Important]
 > 구독을 다른 디렉터리에 연결하는 경우 [Azure 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)를 사용해 역할이 할당된 사용자는 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.

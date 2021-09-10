@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6af3d66afe107bae470f4081407f2293fe04f0fb
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 7cd3c1d4a0da5ca0741f6d7f05a1cf082d2e922e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356967"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696542"
 ---
 # <a name="managed-disk-bursting"></a>관리 디스크 버스팅
+
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 Azure는 디스크 스토리지 IOPS 및 MB/s 성능을 향상시킬 수 있는 기능을 제공합니다. 이를 VM(가상 머신) 및 디스크 모두에서 버스팅이라고 합니다. VM 및 디스크 버스팅을 효과적으로 사용하여 VM과 디스크에서 버스팅 성능을 향상시킬 수 있습니다.
 

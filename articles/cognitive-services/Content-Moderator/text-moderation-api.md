@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e001e268a5e805fbab7cc84e7248750bd58e911e
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92912908"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822863"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
@@ -129,7 +129,7 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 ## <a name="auto-correction"></a>자동 고침
 
-입력 텍스트가 (the 'lzay' and 'f0x' are intentional)이라고 가정합니다.
+입력 텍스트가(의도적으로 “qu!ck”, “f0x”, “lzay”라고 입력한 경우) 다음과 같다고 가정합니다.
 
 > The qu!ck brown f0x jumps over the lzay dog.
 

@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: 651a67414c34bcfae45663dd1bcfbd9d97e63598
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 32ed525aec3d7a6b9a223deb8aad0617751f61da
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531071"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309991"
 ---
 # <a name="create-a-windows-vm-with-azure-image-builder"></a>Azure 이미지 작성기로 Windows VM 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 본 문서에서는 Azure VM Image Builder를 사용하여 사용자 지정된 Windows 이미지를 만드는 방법을 보여 줍니다. 본 문서의 예제는 이미지 사용자 지정에 [사용자 지정자](../linux/image-builder-json.md#properties-customize)를 사용합니다.
 - PowerShell(ScriptUri) - [PowerShell 스크립트](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1)를 다운로드하여 실행합니다.
@@ -82,10 +84,10 @@ runOutputName=aibWindows
 imageName=aibWinImage
 ```
 
-구독 ID에 대한 변수를 만듭니다. `az account show | grep id`를 사용하여 만들 수 있습니다.
+구독 ID에 대한 변수를 만듭니다.
 
 ```azurecli-interactive
-subscriptionID=<Your subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 해당 리소스 그룹은 이미지 구성 템플릿 아티팩트와 해당 이미지를 저장하는 데에 사용됩니다.
@@ -101,11 +103,11 @@ Image Builder는 이미지를 해당 리소스 그룹에 삽입하기 위하여 
 ## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>사용자 할당 관리 ID 만들고 사용 권한 부여하기 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
-idenityName=aibBuiUserId$(date +'%s')
-az identity create -g $imageResourceGroup -n $idenityName
+identityName=aibBuiUserId$(date +'%s')
+az identity create -g $imageResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
@@ -186,7 +188,7 @@ Image Builder는 백그라운드에서 구독에 준비 리소스 그룹을 만�
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
+    -n helloImageTemplateWin01
 ```
 
 ## <a name="start-the-image-build"></a>이미지 빌드 시작하기

@@ -10,14 +10,16 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 89230372c641168c1aff4fade8475a48f1a95e04
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
+ms.openlocfilehash: 92b4b495944fb6180e669c495d61b4594f3e4daf
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112428792"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697198"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 온-프레미스에서 Azure로 Windows VM(가상 머신)을 업로드하려면 먼저 가상 하드 디스크(VHD 또는 VHDX)를 준비해야 합니다. Azure는 VHD 파일 형식이며 고정 크기 디스크가 있는 1세대 및 2세대 VM을 모두 지원합니다. 1세대 VM에서 OS VHD에 허용되는 최대 크기는 2TB입니다.
 

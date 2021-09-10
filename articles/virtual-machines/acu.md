@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: daa53491df084cb68b26d1f9dabb3e17c77880f3
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: 977c92e0537ff44c2cf28085ad7491a8cd18b71c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231020"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692287"
 ---
 # <a name="azure-compute-unit-acu"></a>ACU(Azure 컴퓨팅 단위)
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 ACU(Azure 컴퓨팅 단위) 개념은 Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공합니다. 어떤 SKU가 성능 요구 사항을 충족할 가능성이 높은지 쉽게 식별하도록 합니다. ACU는 현재 소형(Standard_A1) VM에서 100으로 표준화되어 있으며 다른 모든 SKU에서 표준 벤치마크를 실행할 수 있는 속도를 대략적으로 나타냅니다.
 

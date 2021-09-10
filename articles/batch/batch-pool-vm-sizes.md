@@ -2,14 +2,14 @@
 title: 풀의 VM 크기 및 이미지 선택
 description: Azure Batch 풀의 컴퓨팅 노드에 대해 사용 가능한 VM 크기 및 OS 버전을 선택하는 방법
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 08/10/2021
 ms.custom: seodec18
-ms.openlocfilehash: bff6ef88345b280e2c977661814630af38fbe9d5
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 8a923c2982a632209e659ad663147bff5ff5c20a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224824"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566739"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 

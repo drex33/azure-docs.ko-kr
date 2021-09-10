@@ -1,28 +1,25 @@
 ---
-title: 관리 ID를 사용하여 Azure Stream Analytics 작업에서 이벤트 허브에 액세스(미리 보기)
+title: 관리 ID를 사용하여 Azure Stream Analytics 작업에서 Event Hub에 액세스
 description: 이 문서에서는 관리 ID를 사용하여 Azure Stream Analytics 작업을 Azure Event Hubs 입력 및 출력에 대해 인증하는 방법을 설명합니다.
-author: sidramadoss
-ms.author: sidram
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 01/04/2021
-ms.openlocfilehash: 4dc718f21f2ef3beabc31821bd60b571ac07be05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/07/2021
+ms.openlocfilehash: 4b470ff5336807fd92ae14af2548cd3a4305c6ed
+ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018754"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113485908"
 ---
-# <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>관리 ID를 사용하여 Azure Stream Analytics 작업에서 이벤트 허브에 액세스(미리 보기)
+# <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job"></a>관리 ID를 사용하여 Azure Stream Analytics 작업에서 Event Hub에 액세스
 
 Azure Stream Analytics는 Azure Event Hubs 입력 및 출력에 대한 관리 ID 인증을 지원합니다. 관리 ID를 사용하면 암호 변경이나 90일마다 발생하는 사용자 토큰 만료로 인해 다시 인증해야 하는 것과 같이 사용자 기반 인증 방법에 관한 제한 사항이 제거됩니다. 수동으로 인증할 필요가 없어지면 Stream Analytics 배포를 완전히 자동화할 수 있습니다.  
 
 관리 ID는 지정된 Stream Analytics 작업을 나타내는 Azure Active Directory에 등록된 관리형 애플리케이션입니다. 관리형 애플리케이션은 방화벽이나 VNet(가상 네트워크) 뒤에 있는 Event Hubs 포함하여 대상 리소스에 인증하는 데 사용됩니다. 방화벽을 무시하는 방법에 관한 자세한 내용은 [프라이빗 엔드포인트를 통한 Azure Event Hubs 네임스페이스 액세스 허용](../event-hubs/private-link-service.md#trusted-microsoft-services)을 참조하세요.
 
 이 문서에서는 Azure Portal을 통해 Stream Analytics 작업의 Event Hubs 입력 및 출력에 관리 ID를 사용하도록 설정하는 방법을 보여 줍니다.관리 ID를 사용하도록 설정하기 전에 먼저 Stream Analytics 작업과 이벤트 허브 리소스가 있어야 합니다.
-
-### <a name="limitation"></a>제한 사항
-미리 보기 중에는 관리 ID 인증 모드를 사용하는 경우 Azure Portal에서 Event Hubs의 입력 샘플링이 작동하지 않습니다.
 
 ## <a name="create-a-managedidentity"></a>관리 ID 만들기  
 
@@ -63,6 +60,9 @@ Stream Analytics 작업이 관리 ID를 사용하여 이벤트 허브에 액세�
 1. **저장** 을 선택하고 변경 내용이 전파될 때까지 1분 정도 기다립니다.
 
 이벤트 허브 네임스페이스 수준에서 이 역할을 부여할 수도 있습니다. 그러면 자연스럽게 권한이 해당 역할로 생성된 모든 Event Hubs에 전파됩니다. 즉, 네임스페이스에 속한 모든 Event Hubs는 Stream Analytics 작업에서 관리 ID 인증 리소스로 사용할 수 있습니다.
+
+> [!NOTE]
+> 글로벌 복제 또는 캐싱 대기 시간으로 인해 권한이 취소되거나 부여될 때 지연이 발생할 수 있습니다. 변경 내용은 8분 내에 반영되어야 합니다.
 
 ## <a name="create-anevent-hub-input-or-output"></a>이벤트 허브 입력 또는 출력 만들기  
 

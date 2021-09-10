@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d87f6a7a536f4dc9d15d87fe141f14760cab8aaa
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: f4beb002a1bfd8a885157099228747213e754253
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538494"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772360"
 ---
 # <a name="what-is-an-ontology"></a>온톨로지란? 
 
@@ -21,12 +21,12 @@ Azure Digital Twins 솔루션의 어휘는 사용자 환경에 존재하는 엔�
 경우에 따라 솔루션이 특정 업계에 연결된 경우 사용자 고유의 모델 집합을 처음부터 작성하는 것보다 이미 존재하는 해당 업계에 대한 모델 집합으로 시작하는 것이 더 쉽고 효과적일 수 있습니다. 이러한 기존 모델 집합을 **온톨로지** 라고 합니다. 
 
 일반적으로 온톨로지는 건물 구조, IoT 시스템, 스마트 시티, 에너지 그리드, 웹 콘텐츠 등과 같은 지정된 도메인에 대한 모델 세트입니다. 온톨로지는 다음을 지원할 수 있으므로 트윈 그래프의 스키마로 사용되기도 합니다.
-* 소프트웨어 구성 요소, 설명서, 쿼리 라이브러리 등의 조화
+* 소프트웨어 구성 요소, 설명서, 쿼리 라이브러리 등의 조화.
 * 개념적 모델링 및 시스템 개발에 대한 투자 감소
 * 의미 체계 수준에서 보다 쉬운 데이터 상호 운용성
 * 처음부터 시작하거나 "휠 다시 개발" 대신 최선의 재사용 방법
 
-이 문서에서는 Azure Digital Twins 모델에 대한 온톨로지를 사용하는 이유와 방법뿐만 아니라 현재 사용할 수 있는 온톨로지 및 도구에 대해 설명합니다.
+이 문서에서는 Azure Digital Twins 모델에 대해 온톨로지를 사용하는 이유와 그 방법을 설명합니다. 또한 현재 사용 가능한 온톨로지와 도구에 대해서도 설명합니다.
 
 ## <a name="using-ontologies-for-azure-digital-twins"></a>Azure Digital Twins에 온톨로지 사용
 
@@ -56,7 +56,7 @@ Azure Digital Twins의 모델은 [DTDL(디지털 트윈 정의 언어)](https://
 1. 모델의 [유효성을 검사](how-to-parse-models.md)하여 DTDL 문서가 작동하는지 확인합니다.
 1. [API](how-to-manage-model.md#upload-models) 또는 [Azure Digital Twins 모델 업로더](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels)와 같은 샘플을 사용하여 완성된 모델을 Azure Digital Twins에 업로드합니다.
 
-그 후에는 Azure Digital Twins 인스턴스에서 모델을 사용할 수 있습니다. 
+몇 가지 문서를 읽은 후에는 Azure Digital Twins 인스턴스에서 모델을 사용할 수 있습니다. 
 
 >[!TIP]
 > [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) 또는 [Azure Digital Twins 모델 시각화 도우미](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)를 사용하여 온톨로지의 모델을 시각화할 수 있습니다.

@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: a89d689dd8c3e6341c270db1c56797a01e4d4170
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: a3ff769b8f879246a47228f03f5a1b9a5b5fb84d
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765439"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272478"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -43,7 +43,7 @@ ms.locfileid: "113765439"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
@@ -344,13 +344,13 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
     - 온-프레미스 머신에 대한 복제를 중지합니다.
     - Azure Migrate의 **서버 복제** 수에서 머신을 제거합니다. Server Migration에 연결합니다.
     - 머신에 대한 복제 상태 정보를 정리합니다.
-2. Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) 또는 [Linux](../virtual-machines/extensions/agent-linux.md) 에이전트를 마이그레이션된 머신에 설치합니다.
-3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
-4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
-5. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
-6. 로컬 VM 인벤토리에서 온-프레미스 VM을 제거합니다.
-7. 로컬 백업 작업에서 온-프레미스 VM을 제거합니다.
-8. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
+1. [Azure VM에서 모든 Windows 정품 인증 문제를 확인하고 해결합니다.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) 
+1. 호스트 이름, 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
+1. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
+1. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
+1. 로컬 VM 인벤토리에서 온-프레미스 VM을 제거합니다.
+1. 로컬 백업 작업에서 온-프레미스 VM을 제거합니다.
+1. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
 
 ## <a name="post-migration-best-practices"></a>마이그레이션 후 작업 모범 사례
 

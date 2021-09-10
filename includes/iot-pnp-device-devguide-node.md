@@ -1,15 +1,15 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: 0aa13d8d23f4f18004131a25f8eb42388d79834b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec395bfaf8b4d2bba235b1ce99c909b5cb81c51b
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582814"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122397839"
 ---
 ## <a name="model-id-announcement"></a>모델 ID 알림
 
@@ -23,10 +23,10 @@ await client.open();
 ```
 
 > [!TIP]
-> 모듈 및 IoT Edge의 경우 `Client` 대신 `ModuleClient`를 사용합니다.
+> 모듈 및 IoT Edge의 경우 `Client` 대신 `ModuleClient`을 사용합니다.
 
 > [!TIP]
-> 디바이스가 모델 ID를 설정할 수 있는 유일한 시간이며 디바이스가 연결된 후에는 업데이트할 수 없습니다.
+> 디바이스가 모델 ID를 설정할 수 있는 유일한 시간이며 디바이스 연결 후에는 업데이트할 수 없습니다.
 
 ## <a name="dps-payload"></a>DPS 페이로드
 
@@ -38,11 +38,11 @@ await client.open();
 }
 ```
 
-## <a name="implement-telemetry-properties-and-commands"></a>원격 분석, 속성 및 명령 구현
+## <a name="use-components"></a>구성 요소 사용
 
-[IoT 플러그 앤 플레이 모델의 구성 요소 이해](../articles/iot-pnp/concepts-modeling-guide.md)에 설명된 대로 디바이스 작성기가 구성 요소를 사용하여 디바이스를 설명할지 결정해야 합니다. 구성 요소를 사용하는 경우 디바이스는 이 섹션에 설명된 규칙을 따라야 합니다.
+[IoT 플러그 앤 플레이 모델의 구성 요소 이해](../articles/iot-develop/concepts-modeling-guide.md)에 설명된 대로 디바이스 빌더가 구성 요소를 사용하여 디바이스를 설명할지 결정해야 합니다. 구성 요소를 사용하는 경우 디바이스는 다음 섹션에 설명된 규칙을 따라야 합니다.
 
-### <a name="telemetry"></a>원격 분석
+## <a name="telemetry"></a>원격 분석
 
 기본 구성 요소에는 특별한 속성이 필요하지 않습니다.
 
@@ -60,7 +60,7 @@ async function sendTelemetry(deviceClient, data, index, componentName) {
 }
 ```
 
-### <a name="read-only-properties"></a>읽기 전용 속성
+## <a name="read-only-properties"></a>읽기 전용 속성
 
 기본 구성 요소에서 속성을 보고하는 데 특별한 구문이 필요하지 않습니다.
 
@@ -131,11 +131,11 @@ deviceTwin.properties.reported.update(patchThermostat1Info, function (err) {
 }
 ```
 
-### <a name="writable-properties"></a>쓰기 가능한 속성
+## <a name="writable-properties"></a>쓰기 가능한 속성
 
 이러한 속성은 디바이스에서 설정하거나 솔루션에서 업데이트할 수 있습니다. 솔루션에서 속성을 업데이트하면 클라이언트는 `Client` 또는 `ModuleClient`에서 콜백으로 알림을 받습니다. IoT 플러그 앤 플레이 규칙을 따르려면 디바이스에서 속성이 성공적으로 수신되었음을 서비스에 알려야 합니다.
 
-#### <a name="report-a-writable-property"></a>쓰기 가능한 속성 보고
+### <a name="report-a-writable-property"></a>쓰기 가능한 속성 보고
 
 디바이스에서 쓰기 가능한 속성을 보고하는 경우 규칙에 정의된 `ack` 값을 포함해야 합니다.
 
@@ -171,7 +171,7 @@ deviceTwin.properties.reported.update(patch, function (err) {
 }
 ```
 
-중첩된 구성 요소에서 쓰기 가능한 속성을 보고하려면 트윈에 표식이 있어야 합니다.
+중첩된 구성 요소에서 쓰기 가능한 속성을 보고하려면 쌍에 표식이 있어야 합니다.
 
 ```nodejs
 patch = {
@@ -208,7 +208,7 @@ deviceTwin.properties.reported.update(patch, function (err) {
 }
 ```
 
-#### <a name="subscribe-to-desired-property-updates"></a>원하는 속성 업데이트 구독
+### <a name="subscribe-to-desired-property-updates"></a>원하는 속성 업데이트 구독
 
 서비스는 연결된 디바이스에 대한 알림을 트리거하는 원하는 속성을 업데이트할 수 있습니다. 이 알림에는 업데이트를 식별하는 버전 번호를 포함하여 업데이트된 원하는 속성이 포함됩니다. 디바이스는 보고된 속성과 동일한 `ack` 메시지로 응답해야 합니다.
 
@@ -320,11 +320,11 @@ const desiredPropertyPatchListener = (deviceTwin, componentNames) => {
 }
 ```
 
-### <a name="commands"></a>명령
+## <a name="commands"></a>명령
 
 기본 구성 요소는 서비스에서 호출된 명령 이름을 받습니다.
 
-중첩된 구성 요소는 구성 요소 이름과 `*` 구분 기호가 접두사로 붙은 명령 이름을 받습니다.
+중첩 된 구성 요소는 구성 요소 이름과 `*` 구분 기호가 접두사로 붙은 명령 이름을 받습니다.
 
 ```nodejs
 const commandHandler = async (request, response) => {
@@ -345,7 +345,7 @@ const commandHandler = async (request, response) => {
 client.onDeviceMethod('thermostat1*reboot', commandHandler);
 ```
 
-#### <a name="request-and-response-payloads"></a>요청 및 응답 페이로드
+### <a name="request-and-response-payloads"></a>요청 및 응답 페이로드
 
 명령은 형식을 사용하여 요청 및 응답 페이로드를 정의합니다. 디바이스는 들어오는 입력 매개 변수를 역직렬화하고 응답을 직렬화해야 합니다. 다음 예제에서는 페이로드에 정의된 복합 형식을 사용하여 명령을 구현하는 방법을 보여줍니다.
 
@@ -398,7 +398,7 @@ client.onDeviceMethod('thermostat1*reboot', commandHandler);
 }
 ```
 
-다음 코드 조각은 직렬화 및 역직렬화를 활성화하는 데 사용되는 형식을 포함하여 디바이스가 이 명령 정의를 구현하는 방법을 보여줍니다.
+다음 코드 조각은 직렬화 및 역직렬화를 사용 설정하는 데 사용되는 형식을 포함하여 디바이스가 이 명령 정의를 구현하는 방법을 보여줍니다.
 
 ```nodejs
 class TemperatureSensor {
@@ -435,4 +435,4 @@ const commandHandler = async (request, response) => {
 ```
 
 > [!Tip]
-> 요청 및 응답 이름은 유선을 통해 전송되는 직렬화된 페이로드에 없습니다.
+> 유선을 통해 전송되는 직렬화된 페이로드에 요청 및 응답 이름이 없습니다.

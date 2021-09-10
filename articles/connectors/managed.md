@@ -1,39 +1,41 @@
 ---
-title: Azure Logic Apps용 관리형 커넥터
+title: 관리형 커넥터 작업
 description: Microsoft에서 관리하는 트리거 및 작업을 사용하여 Azure Logic Apps를 통해 다른 앱, 데이터, 서비스 및 시스템을 통합하는 자동화된 워크플로를 만듭니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: 857c0e41f52c99d83142b3db7471b51b55316b5e
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 05/16/2021
+ms.openlocfilehash: 5c0c3d9c6582f2b124999a04d4da7902830c52f0
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316176"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539620"
 ---
-# <a name="managed-connectors-for-logic-apps"></a>Logic Apps용 관리형 커넥터
+# <a name="managed-connectors-in-azure-logic-apps"></a>Azure Logic Apps의 관리형 커넥터
 
 [관리형 커넥터](apis-list.md)는 [내장된 트리거 및 작업](built-in.md)을 사용할 수 없는 다른 서비스 및 시스템에 액세스하는 방법을 제공합니다. 이러한 트리거와 작업을 사용하여 데이터, 앱, 클라우드 기반 서비스 및 온-프레미스 시스템을 통합하는 워크플로를 만들 수 있습니다. 이러한 커넥터는 기본 제공 트리거와 작업에 비해 일반적으로 Azure Blob Storage, Office 365, SQL, Salesforce 또는 SFTP 서버와 같은 특정 서비스 또는 시스템에 연결됩니다. Microsoft에서 관리하고 Azure에서 호스트되는 관리형 커넥터는 일반적으로 먼저 워크플로에서 연결을 만들고 ID를 인증해야 합니다. 반복 기반 트리거와 웹후크 기반 트리거를 모두 사용할 수 있으므로 반복 기반 트리거를 사용하는 경우 [반복 동작 개요](apis-list.md#recurrence-behavior)를 검토하세요.
 
-일부 서비스의 경우에는 Azure Service Bus, Azure Functions, SQL, AS2 Logic Apps 등의 시스템 및 프로토콜에도 기본 제공 버전이 제공됩니다. 개수와 범위는 다중 테넌트 논리 앱을 만드는지 또는 단일 테넌트 논리 앱을 만드는지에 따라 달라집니다. 일부 경우에는 기본 제공 버전과 관리형 커넥터 버전을 모두 사용할 수 있습니다. 대부분의 경우 기본 제공 버전은 더 나은 성능, 기능, 가격 책정 등을 제공합니다. 예를 들어 [AS2 프로토콜을 사용하여 B2B 메시지를 교환](../logic-apps/logic-apps-enterprise-integration-as2.md)하려면 더 이상 사용되지 않는 관리형 커넥터 버전에서만 사용할 수 있는 추적 기능이 필요하지 않다면 기본 제공 버전을 선택합니다.
+적은 수의 서비스, 시스템 및 프로토콜에 대한 Azure Logic Apps은 [관리되는 커넥터 버전과](managed.md).함께 기본 제공되는 작업을 제공합니다. 사용 가능한 수와 범위는 다중 테넌트 Azure Logic Apps에서 실행되는 소비 계획 기반 논리 앱 리소스를 만드는지 또는 단일 테넌트 Azure Logic Apps에서 실행되는 표준 계획 기반 논리 앱 리소스를 만드는지에 따라 다릅니다. 자세한 내용은 [단일 테넌트와 다중 테넌트 및 통합 서비스 환경 비교](../logic-apps/single-tenant-overview-compare.md)를 참조하세요. 대부분의 경우 기본 제공 버전은 더 나은 성능, 기능, 가격 책정 등을 제공합니다.
 
-Logic Apps에 대한 일부 관리형 커넥터는 여러 하위 범주에 속합니다. 예를 들어 SAP 커넥터는 [엔터프라이즈 커넥터](#enterprise-connectors)이면서 [온-프레미스 커넥터](#on-premises-connectors)입니다.
+예를 들어 단일 테넌트 논리 앱을 만드는 경우 Azure Service Bus, Azure Event Hubs, SQL Server 및 MQ에 대해 기본 제공 작업을 사용할 수 있습니다. 일부 경우에는 기본 제공 버전과 관리형 커넥터 버전을 모두 사용할 수 있습니다. 대부분의 경우 기본 제공 버전은 더 나은 성능, 기능, 가격 책정 등을 제공합니다. 다중 테넌트 논리 앱을 만드는 경우 기본 제공 작업은 Azure Functions, Azure App Service 및 Azure API Management에 사용할 수 있습니다.
+
+Azure Logic Apps에 대한 일부 관리형 커넥터는 여러 하위 범주에 속합니다. 예를 들어 SAP 커넥터는 [엔터프라이즈 커넥터](#enterprise-connectors)이면서 [온-프레미스 커넥터](#on-premises-connectors)입니다.
 
 * [표준 커넥터](#standard-connectors)는 Azure Blob Storage, Office 365, SharePoint, Salesforce, Power BI, OneDrive 등과 같은 서비스에 대한 액세스를 제공합니다.
+* [엔터프라이즈 커넥터](#enterprise-connectors)는 SAP, IBM MQ, IBM 3270과 같은 엔터프라이즈 시스템에 대한 액세스를 제공합니다.
 * [온-프레미스 커넥터](#on-premises-connectors)는 SQL Server, SharePoint Server, SAP, Oracle DB, 파일 공유 등과 같은 온-프레미스 시스템에 대한 액세스를 제공합니다.
-* [통합 계정 커넥터](#integration-account-connectors)를 사용하면 AS2, EDIFACT 및 X12 프로토콜을 사용하여 XML 변환 및 유효성 검사, 플랫 파일 인코딩 및 디코딩, B2B(Business-to-Business) 메시지 처리를 수행할 수 있습니다. 
+* [통합 계정 커넥터](#integration-account-connectors)를 사용하면 AS2, EDIFACT 및 X12 프로토콜을 사용하여 XML 변환 및 유효성 검사, 플랫 파일 인코딩 및 디코딩, B2B(Business-to-Business) 메시지 처리를 수행할 수 있습니다.
+* [통합 서비스 환경 커넥터](#ise-connectors)는 ISE에서 특별히 실행되도록 설계되었으며 ISE가 아닌 버전에 비해 이점을 제공합니다.
 
 ## <a name="standard-connectors"></a>표준 커넥터
 
 Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화된 워크플로를 빌드하기 위한 널리 사용되는 표준 커넥터를 제공합니다. 일부 표준 커넥터는 [온-프레미스 시스템](#on-premises-connectors) 또는 [통합 계정](#integration-account-connectors)도 지원합니다.
 
-일부 Logic Apps Standard 커넥터는 [온-프레미스 시스템](#on-premises-connectors) 또는 [통합 계정](#integration-account-connectors)을 지원합니다.
-
 :::row:::
     :::column:::
-        [![Logic Apps의 Azure Service Bus 관리형 커넥터 아이콘][azure-service-bus-icon]][azure-service-bus-doc]
+        [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
         \
         \
         [**Azure Service Bus**][azure-service-bus-doc]
@@ -42,7 +44,7 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
         Logic Apps에서 가장 일반적으로 사용되는 커넥터를 사용하여 비동기 메시지, 세션 및 토픽 구독을 관리합니다.
     :::column-end:::
     :::column:::
-        [![Logic Apps의 SQL Server 관리형 커넥터 아이콘][sql-server-icon]][sql-server-doc]
+        [![SQL Server 아이콘][sql-server-icon]][sql-server-doc]
         \
         \
         [**SQL Server**][sql-server-doc]
@@ -51,16 +53,16 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
         온-프레미스의 SQL Server 또는 클라우드의 Azure SQL Database에 연결하여 레코드를 관리하고 저장 프로시저를 실행하거나 쿼리를 수행할 수 있습니다.
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Blog Storage 관리형 커넥터 아이콘][azure-blob-storage-icon]][azure-blob-storage-doc]
+        [![Azure Blog Storage icon][azure-blob-storage-icon]][azure-blob-storage-doc]
         \
         \
-        [**Azure Blog Storage**][azure-blob-storage-doc]
+        [**Azure Blob Storage**][azure-blob-storage-doc]
         \
         \
         Azure Storage 계정에 연결하여 Blob 콘텐츠를 만들고 관리할 수 있습니다.
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Office 365 Outlook 관리형 커넥터 아이콘][office-365-outlook-icon]][office-365-outlook-doc]
+        [![Office 365 Outlook icon][office-365-outlook-icon]][office-365-outlook-doc]
         \
         \
         [**Office 365 Outlook**][office-365-outlook-doc]
@@ -71,7 +73,7 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
 :::row-end:::
 :::row:::
     :::column:::
-        [![Logic Apps의 STFP-SSH 관리형 커넥터 아이콘][sftp-ssh-icon]][sftp-ssh-doc]
+        [![STFP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
         \
         \
         [**STFP-SSH**][sftp-ssh-doc]
@@ -80,7 +82,7 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
         SSH를 사용하여 인터넷에서 액세스할 수 있는 SFTP 서버에 연결하여 파일 및 폴더를 사용할 수 있습니다.
     :::column-end:::
     :::column:::
-        [![Logic Apps의 SharePoint Online 관리형 커넥터 아이콘][sharepoint-online-icon]][sharepoint-online-doc]
+        [![SharePoint Online icon][sharepoint-online-icon]][sharepoint-online-doc]
         \
         \
         [**SharePoint Online**][sharepoint-online-doc]
@@ -89,7 +91,7 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
         SharePoint Online에 연결하여 파일, 첨부 파일, 폴더 등을 관리할 수 있습니다.
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Queues 관리형 커넥터 아이콘][azure-queues-icon]][azure-queues-doc]
+        [![Azure Queues icon][azure-queues-icon]][azure-queues-doc]
         \
         \
         [**Azure 큐**][azure-queues-doc]
@@ -98,7 +100,7 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
         Azure Storage 계정에 연결하여 큐와 메시지를 만들고 관리할 수 있습니다.
     :::column-end:::
     :::column:::
-        [![Logic Apps의 FTP 관리형 커넥터 아이콘][ftp-icon]][ftp-doc]
+        [![FTP icon][ftp-icon]][ftp-doc]
         \
         \
         [**FTP**][ftp-doc]
@@ -109,7 +111,7 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
 :::row-end:::
 :::row:::
     :::column:::
-        [![Logic Apps의 File System 관리형 커넥터 아이콘][file-system-icon]][file-system-doc]
+        [![File System icon][file-system-icon]][file-system-doc]
         \
         \
         [**파일 시스템**][file-system-doc]
@@ -118,7 +120,7 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
         파일을 만들고 관리할 수 있도록 온-프레미스 파일 공유에 연결합니다.
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Event Hubs 관리형 커넥터 아이콘][azure-event-hubs-icon]][azure-event-hubs-doc]
+        =[![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
         \
         \
         [**Azure Event Hubs**][azure-event-hubs-doc]
@@ -127,7 +129,7 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
         Event Hub를 통해 이벤트를 사용하고 게시합니다. 예를 들어 Event Hubs를 사용하여 논리 앱에서 출력을 가져온 다음, 해당 출력을 실시간 분석 공급자에게 보냅니다.
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Event Grid 관리형 커넥터 아이콘][azure-event-grid-icon]][azure-event-grid-doc]
+        [![Azure Event Grid icon][azure-event-grid-icon]][azure-event-grid-doc]
         \
         \
         [**Azure Event Grid**][azure-event-grid-doc]
@@ -136,7 +138,7 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
         Azure 리소스 또는 타사 리소스가 변경되는 경우와 같이 Event Grid에서 게시한 이벤트를 모니터링합니다.
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Salesforce 관리형 커넥터 아이콘][salesforce-icon]][salesforce-doc]
+        [![Salesforce icon][salesforce-icon]][salesforce-doc]
         \
         \
         [**Salesforce**][salesforce-doc]
@@ -146,34 +148,33 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
     :::column-end:::
 :::row-end:::
 
-
 ## <a name="on-premises-connectors"></a>온-프레미스 커넥터
 
-온-프레미스 시스템에 대한 연결을 만들려면 먼저 [온-프레미스 데이터 게이트웨이를 다운로드, 설치 및 설정][gateway-doc]해야 합니다. 이 게이트웨이는 필요한 네트워크 인프라를 설정하지 않고도 보안 통신 채널을 제공합니다. 
+온-프레미스 시스템에 대한 연결을 만들려면 먼저 [온-프레미스 데이터 게이트웨이를 다운로드, 설치 및 설정][gateway-doc]해야 합니다. 이 게이트웨이는 필요한 네트워크 인프라를 설정하지 않고도 보안 통신 채널을 제공합니다.
 
-다음 커넥터는 Logic Apps가 온-프레미스 시스템의 데이터 및 리소스에 액세스하기 위해 제공하여 일반적으로 사용되는 몇 가지 [표준 커넥터](#standard-connectors)입니다. 온-프레미스 커넥터 목록은 [지원되는 데이터 원본](../logic-apps/logic-apps-gateway-connection.md#supported-connections)을 참조하세요.
+다음 커넥터는 Azure Logic Apps가 온-프레미스 시스템의 데이터 및 리소스에 액세스하기 위해 제공하는 몇 가지 일반적으로 사용되는 [표준 커넥터](#standard-connectors)입니다. 온-프레미스 커넥터 목록은 [지원되는 데이터 원본](../logic-apps/logic-apps-gateway-connection.md#supported-connections)을 참조하세요.
 
 :::row:::
     :::column:::
-        [![Logic Apps의 Biztalk Server 온-프레미스 커넥터 아이콘][biztalk-server-icon]][biztalk-server-doc]
+        [![Biztalk Server icon][biztalk-server-icon]][biztalk-server-doc]
         \
         \
         [**Biztalk Server**][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 File System 온-프레미스 커넥터 아이콘][file-system-icon]][file-system-doc]
+        [![File System icon][file-system-icon]][file-system-doc]
         \
         \
         [**파일 시스템**][file-system-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 IBM Db2 온-프레미스 커넥터 아이콘][ibm-db2-icon]][ibm-db2-doc]
+        [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
         \
         \
-        [**IBM Db2**][ibm-db2-doc]
+        [**IBM DB2**][ibm-db2-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 IBM Informix 온-프레미스 커넥터 아이콘][ibm-informix-icon]][ibm-informix-doc]
+        [![IBM Informix icon][ibm-informix-icon]][ibm-informix-doc]
         \
         \
         [**IBM Informix**][ibm-informix-doc]
@@ -181,25 +182,25 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
 :::row-end:::
 :::row:::
     :::column:::
-        [![Logic Apps의 MySQL 온-프레미스 커넥터 아이콘][mysql-icon]][mysql-doc]
+        [![MySQL icon][mysql-icon]][mysql-doc]
         \
         \
         [**MySQL**][mysql-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Oracle DB 온-프레미스 커넥터 아이콘][oracle-db-icon]][oracle-db-doc]
+        [![Oracle DB icon][oracle-db-icon]][oracle-db-doc]
         \
         \
         [**Oracle DB**][oracle-db-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 PostgreSQL 온-프레미스 커넥터 아이콘][postgre-sql-icon]][postgre-sql-doc]
+        [![PostgreSQL icon][postgre-sql-icon]][postgre-sql-doc]
         \
         \
         [**PostgreSQL**][postgre-sql-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 SharePoint Server 온-프레미스 커넥터 아이콘][sharepoint-server-icon]][sharepoint-server-doc]
+        [![SharePoint Server icon][sharepoint-server-icon]][sharepoint-server-doc]
         \
         \
         [**SharePoint Server**][sharepoint-server-doc]
@@ -207,13 +208,13 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
 :::row-end:::
 :::row:::
     :::column:::
-        [![Logic Apps의 SQL Server 온-프레미스 커넥터 아이콘][sql-server-icon]][sql-server-doc]
+        [![SQL Server 아이콘][sql-server-icon]][sql-server-doc]
         \
         \
         [**SQL Server**][sql-server-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Teradata 온-프레미스 커넥터 아이콘][teradata-icon]][teradata-doc]
+        [![Teradata icon][teradata-icon]][teradata-doc]
         \
         \
         [**Teradata**][teradata-doc]
@@ -224,6 +225,8 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
     :::column-end:::
 :::row-end:::
 
+<a name="integration-account-connectors"></a>
+
 ## <a name="integration-account-connectors"></a>통합 계정 커넥터
 
 통합 계정 커넥터는 특히 Azure Logic Apps에서 [B2B(기업 간) 통신 시나리오](../logic-apps/logic-apps-enterprise-integration-overview.md)를 지원합니다. [통합 계정을 만들고](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 거래 파트너, 계약, 맵 및 스키마와 같은 B2B 아티팩트를 정의한 후 통합 계정 커넥터를 사용하여 메시지를 인코딩 및 디코딩하고 콘텐츠를 변환할 수 있습니다.
@@ -231,85 +234,44 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
 예를 들어 Microsoft BizTalk Server를 사용하는 경우 [BizTalk Server 온-프레미스 커넥터](#on-premises-connectors)를 사용하여 워크플로에서 연결을 만들 수 있습니다. 그런 다음, 통합 계정 커넥터를 사용하여 워크플로에서 BizTalk와 비슷한 작업을 확장하거나 수행할 수 있습니다.
 
 > [!NOTE]
-> 통합 계정 커넥터를 사용하려면 먼저 [논리 앱을 통합 계정에 연결](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)해야 합니다.
-
+> 다중 테넌트, 소비 계획 기반 Azure Logic Apps에서 통합 계정 커넥터를 사용하려면 먼저 [논리 앱 리소스를 통합 계정에 연결](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)해야 합니다. 
 
 :::row:::
     :::column:::
-        [![Logic Apps의 AS2 디코딩 작업 아이콘][as2-icon]][as2-doc]
+        [![AS2 decoding icon][as2-icon]][as2-doc]
         \
         \
         [**AS2 디코딩**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 AS2 인코딩 작업 아이콘][as2-icon]][as2-doc]
+        [![AS2 encoding icon][as2-icon]][as2-doc]
         \
         \
         [**AS2 인코딩**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 EDIFACT 디코딩 작업 아이콘][edifact-icon]][edifact-decode-doc]
+        [![EDIFACT decoding icon][edifact-icon]][edifact-decode-doc]
         \
         \
         [**EDIFACT 디코딩**][edifact-decode-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 EDIFACT 인코딩 작업 아이콘][edifact-icon]][edifact-encode-doc]
+        [![EDIFACT encoding icon][edifact-icon]][edifact-encode-doc]
         \
         \
         [**EDIFACT 인코딩**][edifact-encode-doc]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
-        [![Logic Apps의 플랫 파일 디코딩 작업 아이콘][flat-file-decode-icon]][flat-file-decode-doc]
-        \
-        \
-        [**플랫 파일 디코딩**][flat-file-decode-doc]
-    :::column-end:::
-    :::column:::
-        [![Logic Apps의 플랫 파일 인코딩 작업 아이콘][flat-file-encode-icon]][flat-file-encode-doc]
-        \
-        \
-        [**플랫 파일 인코딩**][flat-file-encode-doc]
-    :::column-end:::
-    :::column:::
-        [![Logic Apps의 통합 계정 작업 아이콘][integration-account-icon]][integration-account-doc]
-        \
-        \
-        [**통합 계정**][integration-account-doc]
-    :::column-end:::
-    :::column:::
-        [![Logic Apps의 Liquid 변환 작업 아이콘][liquid-icon]][json-liquid-transform-doc]
-        \
-        \
-        [**Liquid 변환**][json-liquid-transform-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Logic Apps의 X12 디코딩 작업 아이콘][x12-icon]][x12-decode-doc]
+        [![X12 decoding icon][x12-icon]][x12-decode-doc]
         \
         \
         [**X12 디코딩**][x12-decode-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 X12 인코딩 작업 아이콘][x12-icon]][x12-encode-doc]
+        [![X12 encoding icon][x12-icon]][x12-encode-doc]
         \
         \
         [**X12 인코딩**][x12-encode-doc]
-    :::column-end:::
-    :::column:::
-        [![Logic Apps의 XML 변환 작업 아이콘][xml-transform-icon]][xml-transform-doc]
-        \
-        \
-        [**XML 변환**][xml-transform-doc]
-    :::column-end:::
-    :::column:::
-        [![Logic Apps의 XML 유효성 검사 작업 아이콘][xml-validate-icon]][xml-validate-doc]
-        \
-        \
-        [**XML 유효성 검사**][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -319,27 +281,26 @@ Azure Logic Apps는 이러한 서비스 및 시스템을 사용하여 자동화�
 
 :::row:::
     :::column:::
-        [![Logic Apps의 IBM 3270 엔터프라이즈 커넥터 아이콘][ibm-3270-icon]][ibm-3270-doc]
+        [![IBM 3270 icon][ibm-3270-icon]][ibm-3270-doc]
         \
         \
-        [**IBM 3270** 엔터프라이즈 커넥터][ibm-3270-doc]
+        [**IBM 3270**][ibm-3270-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 IBM MQ 엔터프라이즈 커넥터 아이콘][ibm-mq-icon]][ibm-mq-doc]
+        [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
         \
         \
-        [**IBM MQ** 엔터프라이즈 커넥터][ibm-mq-doc]
+        [**IBM MQ**][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 SAP 엔터프라이즈 커넥터 아이콘][sap-icon]][sap-connector-doc]
+        [![SAP icon][sap-icon]][sap-connector-doc]
         \
         \
-        [**SAP** 엔터프라이즈 커넥터][sap-connector-doc]
+        [**SAP**][sap-connector-doc]
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
-
 
 ## <a name="ise-connectors"></a>ISE 커넥터
 
@@ -350,25 +311,25 @@ ISE(통합 서비스 환경)에서 이러한 관리형 커넥터에는 다중 �
 
 :::row:::
     :::column:::
-        [![Logic Apps의 AS2 ISE 커넥터 아이콘][as2-icon]][as2-doc]
+        [![AS2 ISE icon][as2-icon]][as2-doc]
         \
         \
         [**AS2** ISE][as2-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Automation ISE 커넥터 아이콘][azure-automation-icon]][azure-automation-doc]
+        [![Azure Automation ISE icon][azure-automation-icon]][azure-automation-doc]
         \
         \
         [**Azure Automation** ISE][azure-automation-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Blob Storage ISE 커넥터 아이콘][azure-blob-storage-icon]][azure-blob-storage-doc]
+        [![Azure Blob Storage ISE icon][azure-blob-storage-icon]][azure-blob-storage-doc]
         \
         \
         [**Azure Blob Storage** ISE][azure-blob-storage-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Cosmos DB ISE 커넥터 아이콘][azure-cosmos-db-icon]][azure-cosmos-db-doc]
+        [![Azure Cosmos DB ISE icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
         \
         \
         [**Azure Cosmos DB** ISE][azure-cosmos-db-doc]
@@ -376,25 +337,25 @@ ISE(통합 서비스 환경)에서 이러한 관리형 커넥터에는 다중 �
 :::row-end:::
 :::row:::
     :::column:::
-        [![Logic Apps의 Azure Event Hubs ISE 커넥터 아이콘][azure-event-hubs-icon]][azure-event-hubs-doc]
+        [![Azure Event Hubs ISE icon][azure-event-hubs-icon]][azure-event-hubs-doc]
         \
         \
         [**Azure Event Hubs** ISE][azure-event-hubs-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Event Grid ISE 커넥터 아이콘][azure-event-grid-icon]][azure-event-grid-doc]
+        [![Azure Event Grid ISE icon][azure-event-grid-icon]][azure-event-grid-doc]
         \
         \
         [**Azure Event Grid** ISE][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure File Storage ISE 커넥터 아이콘][azure-file-storage-icon]][azure-file-storage-doc]
+        [![Azure File Storage ISE icon][azure-file-storage-icon]][azure-file-storage-doc]
         \
         \
         [**Azure File Storage** ISE][azure-file-storage-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Key Vault ISE 커넥터 아이콘][azure-key-vault-icon]][azure-key-vault-doc]
+        [![Azure Key Vault ISE icon][azure-key-vault-icon]][azure-key-vault-doc]
         \
         \
         [**Azure Key Vault** ISE][azure-key-vault-doc]
@@ -402,25 +363,25 @@ ISE(통합 서비스 환경)에서 이러한 관리형 커넥터에는 다중 �
 :::row-end:::
 :::row:::
     :::column:::
-        [![Logic Apps의 Azure Monitor Logs ISE 커넥터 아이콘][azure-monitor-logs-icon]][azure-monitor-logs-doc]
+        [![Azure Monitor Logs ISE icon][azure-monitor-logs-icon]][azure-monitor-logs-doc]
         \
         \
         [**Azure Monitor Logs** ISE][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Service Bus ISE 커넥터 아이콘][azure-service-bus-icon]][azure-service-bus-doc]
+        [![Azure Service Bus ISE icon][azure-service-bus-icon]][azure-service-bus-doc]
         \
         \
         [**Azure Service Bus** ISE][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Synapse Analytics ISE 커넥터 아이콘][azure-sql-data-warehouse-icon]][azure-sql-data-warehouse-doc]
+        [![Azure Synapse Analytics ISE icon][azure-sql-data-warehouse-icon]][azure-sql-data-warehouse-doc]
         \
         \
         [**Azure Synapse Analytics** ISE][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 Azure Table Storage ISE 커넥터 아이콘][azure-table-storage-icon]][azure-table-storage-doc]
+        [![Azure Table Storage ISE icon][azure-table-storage-icon]][azure-table-storage-doc]
         \
         \
         [**Azure Table Storage** ISE][azure-table-storage-doc]
@@ -428,51 +389,51 @@ ISE(통합 서비스 환경)에서 이러한 관리형 커넥터에는 다중 �
 :::row-end:::
 :::row:::
     :::column:::
-        [![Logic Apps의 Azure Queues ISE 커넥터 아이콘][azure-queues-icon]][azure-queues-doc]
+        [![Azure Queues ISE icon][azure-queues-icon]][azure-queues-doc]
         \
         \
         [**Azure Queues** ISE][azure-queues-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 EDIFACT ISE 커넥터 아이콘][edifact-icon]][edifact-doc]
+        [![EDIFACT ISE icon][edifact-icon]][edifact-doc]
         \
         \
         [**EDIFACT** ISE][edifact-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 File System ISE 커넥터 아이콘][file-system-icon]][file-system-doc]
+        [![File System ISE icon][file-system-icon]][file-system-doc]
         \
         \
         [**File System** ISE][file-system-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 FTP ISE 커넥터 아이콘][ftp-icon]][ftp-doc]
+        [![FTP ISE icon][ftp-icon]][ftp-doc]
         \
         \
         [**FTP** ISE][ftp-doc]
     :::column-end:::
-:::row-end:::   
+:::row-end:::
 :::row:::
     :::column:::
-        [![Logic Apps의 IBM 3270 ISE 커넥터 아이콘][ibm-3270-icon]][ibm-3270-doc]
+        [![IBM 3270 ISE icon][ibm-3270-icon]][ibm-3270-doc]
         \
         \
         [**IBM 3270** ISE][ibm-3270-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 IBM DB2 ISE 커넥터 아이콘][ibm-db2-icon]][ibm-db2-doc]
+        [![IBM DB2 ISE icon][ibm-db2-icon]][ibm-db2-doc]
         \
         \
         [**IBM DB2** ISE][ibm-db2-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 IBM MQ ISE 커넥터 아이콘][ibm-mq-icon]][ibm-mq-doc]
+        [![IBM MQ ISE icon][ibm-mq-icon]][ibm-mq-doc]
         \
         \
         [**IBM MQ** ISE][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 SAP ISE 커넥터 아이콘][sap-icon]][sap-connector-doc]
+        [![SAP ISE icon][sap-icon]][sap-connector-doc]
         \
         \
         [**SAP** ISE][sap-connector-doc]
@@ -480,25 +441,25 @@ ISE(통합 서비스 환경)에서 이러한 관리형 커넥터에는 다중 �
 :::row-end:::
 :::row:::
     :::column:::
-        [![Logic Apps의 SFTP-SSH ISE 커넥터 아이콘][sftp-ssh-icon]][sftp-ssh-doc]
+        [![SFTP-SSH ISE icon][sftp-ssh-icon]][sftp-ssh-doc]
         \
         \
         [**SFTP-SSH** ISE][sftp-ssh-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 SMTP ISE 커넥터 아이콘][smtp-icon]][smtp-doc]
+        [![SMTP ISE icon][smtp-icon]][smtp-doc]
         \
         \
         [**SMTP** ISE][smtp-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 SQL Server ISE 커넥터 아이콘][sql-server-icon]][sql-server-doc]
+        [![SQL Server ISE 아이콘][sql-server-icon]][sql-server-doc]
         \
         \
         [**SQL Server** ISE][sql-server-doc]
     :::column-end:::
     :::column:::
-        [![Logic Apps의 X12 ISE 커넥터 아이콘][x12-icon]][x12-doc]
+        [![X12 ISE icon][x12-icon]][x12-doc]
         \
         \
         [**X12** ISE][x12-doc]
@@ -594,13 +555,12 @@ ISE(통합 서비스 환경)에서 이러한 관리형 커넥터에는 다중 �
 [wordpress-icon]: ./media/apis-list/wordpress.png
 [youtube-icon]: ./media/apis-list/youtube.png
 
-
 <!--Managed connector doc links-->
 [azure-automation-doc]: /connectors/azureautomation/ "클라우드 및 온-프레미스 인프라를 위한 자동화 작업 만들기 및 관리"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Azure Blob Storage 커넥터와 Blob 컨테이너의 파일 관리"
 [azure-cosmos-db-doc]: /connectors/documentdb/ "문서 및 저장 프로시저에 액세스할 수 있도록 Azure Cosmos DB에 연결"
 [azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Azure 리소스 또는 타사 리소스가 변경되는 경우와 같이 Event Grid에서 게시한 이벤트 모니터링"
-[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "논리 앱과 Event Hubs간에 이벤트를 수신하고 보낼 수 있도록 Azure Event Hubs에 연결"
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "논리 앱과 Event Hubs 간에 이벤트를 수신하고 보낼 수 있도록 Azure Event Hubs에 연결"
 [azure-file-storage-doc]: /connectors/azurefile/ "파일을 만들고 업데이트하고 가져오고 삭제할 수 있도록 Azure Storage 계정에 연결"
 [azure-key-vault-doc]: /connectors/keyvault/ "비밀 및 키를 관리할 수 ​​있도록 Azure Key Vault에 연결"
 [azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Log Analytics 작업 영역 및 Application Insights 구성 요소에서 Azure Monitor 로그에 대해 쿼리 실행"
@@ -645,59 +605,16 @@ ISE(통합 서비스 환경)에서 이러한 관리형 커넥터에는 다중 �
 <!--Integration account connector icons -->
 [as2-icon]: ./media/apis-list/as2.png
 [edifact-icon]: ./media/apis-list/edifact.png
-[flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
-[flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
-[integration-account-icon]: ./media/apis-list/integration-account.png
-[liquid-icon]: ./media/apis-list/liquid-transform.png
 [x12-icon]: ./media/apis-list/x12.png
-[xml-validate-icon]: ./media/apis-list/xml-validation.png
-[xml-transform-icon]: ./media/apis-list/xsl-transform.png
 
 <!-- Integration account connector docs -->
-
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "AS2 프로토콜을 사용하는 메시지 인코딩 및 디코딩"
 [edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "EDIFACT 프로토콜을 사용하는 메시지 인코딩 및 디코딩"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "EDIFACT 프로토콜을 사용하는 메시지 디코딩"
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "EDIFACT 프로토콜을 사용하는 메시지 인코딩"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "통합 계정 아티팩트에 대한 메타데이터 관리"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Liquid 템플릿으로 JSON 변환"
 [x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "X12 프로토콜을 사용하는 메시지 인코딩 및 디코딩"
 [x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "X12 프로토콜을 사용하는 메시지 디코딩"
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "X12 프로토콜을 사용하는 메시지 인코딩"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "XML 메시지 변환"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "XML 메시지 유효성 검사"
-
 
 <!--Other doc links-->
 [gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "온-프레미스 데이터 게이트웨이를 사용하여 논리 앱에서 온-프레미스 데이터 원본에 연결"
-
-
-
-<!--Integration account connector icons -->
-[as2-icon]: ./media/apis-list/as2.png
-[edifact-icon]: ./media/apis-list/edifact.png
-[flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
-[flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
-[integration-account-icon]: ./media/apis-list/integration-account.png
-[liquid-icon]: ./media/apis-list/liquid-transform.png
-[x12-icon]: ./media/apis-list/x12.png
-[xml-validate-icon]: ./media/apis-list/xml-validation.png
-[xml-transform-icon]: ./media/apis-list/xsl-transform.png
-
-<!-- Integration account connector docs -->
-
-[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "AS2 프로토콜을 사용하는 메시지 인코딩 및 디코딩"
-[edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "EDIFACT 프로토콜을 사용하는 메시지 인코딩 및 디코딩"
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "EDIFACT 프로토콜을 사용하는 메시지 디코딩"
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "EDIFACT 프로토콜을 사용하는 메시지 인코딩"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "통합 계정 아티팩트에 대한 메타데이터 관리"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Liquid 템플릿으로 JSON 변환"
-[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "X12 프로토콜을 사용하는 메시지 인코딩 및 디코딩"
-[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "X12 프로토콜을 사용하는 메시지 디코딩"
-[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "X12 프로토콜을 사용하는 메시지 인코딩"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "XML 메시지 변환"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "XML 메시지 유효성 검사"

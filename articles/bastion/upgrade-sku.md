@@ -6,14 +6,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: 8a2c35f2ef4dafe9024deab1c26116c0ca20e01e
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 5ed0dd6ad86b5f7758f0e1972867876eedc3b51a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733307"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225940"
 ---
 # <a name="upgrade-a-sku-preview"></a>SKU 업그레이드(미리 보기)
 
@@ -21,8 +21,7 @@ ms.locfileid: "113733307"
 
 ## <a name="configuration-steps"></a>구성 단계
 
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
+1. [Azure Portal](https://ms.portal.azure.com)에 로그인합니다.
 1. Azure Portal에서 배스천 호스트로 이동합니다.
 1. **구성** 페이지의 **계층** 에 대해 드롭다운에서 **표준** 을 선택합니다.
 

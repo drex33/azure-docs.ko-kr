@@ -3,12 +3,12 @@ title: Azure Resource Health 개요
 description: Azure Resource Health를 통해 Azure 리소스에 영향을 주는 서비스 문제를 진단하고 지원을 받는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 903a86d216e118f783411b38ef7ad75ad004df7f
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 532c7001b12efb2917c906f7607fef33bac194ff
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786259"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566426"
 ---
 # <a name="resource-health-overview"></a>Resource Health 개요
  
@@ -76,7 +76,7 @@ Resource Health의 **상태 기록** 섹션에서 최대 30일 동안의 기록�
 
 ## <a name="root-cause-information"></a>근본 원인 정보
 
-Azure에 플랫폼에서 시작된 사용 불가의 근본 원인에 대한 추가 정보가 있는 경우 해당 정보는 최초 사용 불가 후 최대 72시간까지 리소스 상태에 게시될 수 있습니다. 이 정보는 현재 가상 머신에서만 사용할 수 있습니다. 
+Azure에 플랫폼에서 시작된 사용 불가의 근본 원인에 대한 추가 정보가 있는 경우 해당 정보는 최초 사용 불가 후 최대 72시간까지 리소스 상태에 게시될 수 있습니다. 이 정보는 현재 가상 머신에만 사용할 수 있습니다. 
 
 ## <a name="get-started"></a>시작
 
@@ -96,4 +96,4 @@ Azure에 플랫폼에서 시작된 사용 불가의 근본 원인에 대한 추�
 
 Resource Health에 대한 자세한 내용은 다음 참조를 확인하세요.
 -  [Azure Resource Health에서 리소스 유형 및 상태 검사](resource-health-checks-resource-types.md)
--  [Azure Resource Health에 대한 질문과 대답](resource-health-faq.md)
+-  [Azure Resource Health에 대한 질문과 대답](resource-health-faq.yml)

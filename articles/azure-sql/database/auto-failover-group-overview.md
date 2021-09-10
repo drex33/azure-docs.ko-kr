@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 05/10/2021
-ms.openlocfilehash: 1bbbf7266fdcac552972f563e0d958bf035de984
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: 68c657b7e8e045b8756bc2db8de2b4024b7530b8
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567378"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256492"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -411,7 +411,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 - 같은 Azure 지역에 있는 두 개의 서버 또는 인스턴스 간에 장애 조치 그룹을 만들 수 없습니다.
 - 장애 조치 그룹의 이름을 바꿀 수 없습니다. 그룹을 삭제하고 다른 이름으로 다시 만들어야 합니다.
 - 장애 조치 그룹의 인스턴스에는 데이터베이스 이름 바꾸기가 지원되지 않습니다. 데이터베이스의 이름을 바꾸려면 장애 조치 그룹을 일시적으로 삭제해야 합니다.
-- 시스템 데이터베이스는 장애 조치 그룹의 보조 인스턴스에 복제되지 않습니다. 따라서 시스템 데이터베이스의 개체를 사용하는 시나리오는 개체가 보조 인스턴스에서 수동으로 생성되지 않는 한 보조 인스턴스에서는 불가능합니다.
+- 시스템 데이터베이스는 장애 조치 그룹의 보조 인스턴스에 복제되지 않습니다. 따라서 시스템 데이터베이스의 개체에 의존하는 시나리오에서는 보조 인스턴스에서 개체를 수동으로 만들고 주 인스턴스에서 변경한 후 수동으로 동기화를 유지해야 합니다. 유일한 예외는 장애 조치(failover) 그룹을 만드는 동안 보조 인스턴스에 자동으로 복제되는 SQL Managed Instance용 SMK(서비스 마스터 키)입니다. 그러나 주 인스턴스에서 SMK의 이후 변경 사항은 보조 인스턴스로 복제되지 않습니다.
 
 ## <a name="programmatically-managing-failover-groups"></a>프로그래밍 방식으로 장애 조치(failover) 그룹 관리
 

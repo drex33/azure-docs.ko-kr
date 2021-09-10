@@ -9,16 +9,20 @@ ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6a56e0e5f3d344f37b689daa0b9dd9f7d3263523
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 0ac16882dca7794ede54d440791bed5a28103b9c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672856"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698820"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>유지 관리 제어 및 Azure PowerShell을 사용하여 업데이트 제어
 
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
+
 유지 관리 제어를 통해 격리된 VM 및 Azure 전용 호스트의 호스트 인프라에 플랫폼 업데이트를 적용하는 시기를 결정할 수 있습니다. 이 항목에서는 Azure PowerShell의 유지 관리 제어 옵션에 대해 설명합니다. 유지 관리 제어 사용의 이점, 제한 사항 및 기타 관리 옵션에 대한 자세한 내용은 [유지 관리 제어를 사용하여 플랫폼 업데이트 관리](maintenance-control.md)를 참조하세요.
+
+확장 집합의 유지 관리 제어에 대한 정보를 찾으려면 [가상 머신 확장 집합에 대한 유지 관리 제어](virtual-machine-scale-sets-maintenance-control.md)를 참조하세요.
  
 ## <a name="enable-the-powershell-module"></a>PowerShell 모듈 사용
 
@@ -178,7 +182,7 @@ Get-AzMaintenanceUpdate `
 
 ## <a name="apply-updates"></a>업데이트 적용
 
-[New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate)를 사용하여 보류 중인 업데이트를 적용합니다.
+[New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate)를 사용하여 보류 중인 업데이트를 적용합니다. 업데이트 호출 적용은 완료하는 데 최대 2시간이 걸릴 수 있습니다.
 
 ### <a name="isolated-vm"></a>격리된 VM
 

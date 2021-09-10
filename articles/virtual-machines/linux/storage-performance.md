@@ -1,7 +1,6 @@
 ---
 title: Azure Lsv2 시리즈 가상 머신에서 성능 최적화 - 스토리지
 description: Linux 예제를 사용하여 Lsv2 시리즈 가상 머신에서 솔루션의 성능을 최적화하는 방법을 알아봅니다.
-services: virtual-machines-linux
 author: laurenhughes
 ms.service: virtual-machines
 ms-subservice: vm-sizes-storage
@@ -11,14 +10,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: ffe772677e8de28c3ea0de31092f1aca693feccf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5dd1e506b2eafff1d197a108dfa521dc89499925
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528638"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691023"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Lsv2 시리즈 Linux 가상 머신에서 성능 최적화
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Lsv2 시리즈 가상 머신은 광범위한 애플리케이션과 업계에서 로컬 스토리지에 대한 높은 I/O와 처리량이 필요한 다양한 워크로드를 지원합니다.  Lsv2 시리즈는 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징 및 Cassandra, MongoDB, Cloudera, Redis 등의 대규모 트랜잭션 데이터베이스에 적합합니다.
 

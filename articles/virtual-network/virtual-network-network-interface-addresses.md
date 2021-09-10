@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 1df132e558421d2ec6e26c3883c89457716dfc42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c22465ab66e1425139a8440a2b4ca9e0e5e539a
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419017"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122538943"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Azure 네트워크 인터페이스용 IP 주소 추가, 변경 또는 제거
 
@@ -136,16 +136,14 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 
 기본적으로 Azure DHCP 서버는 Azure 네트워크 인터페이스의 [기본 IP 구성](#primary)용 프라이빗 IPv4 주소를 가상 머신 운영 체제 내의 네트워크 인터페이스에 할당합니다. 반드시 필요한 경우가 아니면 가상 머신 운영 체제 내에서 네트워크 인터페이스의 IP 주소를 수동으로 설정해서는 안 됩니다.
 
-> [!WARNING]
-> 가상 머신의 운영 체제 내에서 네트워크 인터페이스의 기본 IP 주소로 설정된 IPv4 주소가 Azure 내에서 가상 머신에 연결된 기본 네트워크 인터페이스의 기본 IP 구성에 할당되어 있는 프라이빗 IPv4 주소와 다르면 가상 머신 연결이 끊어집니다.
+가상 컴퓨터 운영 체제 내에서 네트워크 인터페이스의 IP 주소를 수동으로 설정해야 하는 시나리오도 있습니다. 예를 들어 Azure 가상 머신에 여러 IP 주소를 추가할 때는 Windows 운영 체제의 기본 및 보조 IP 주소를 수동으로 설정해야 합니다. Linux 가상 머신의 경우 보조 IP 주소만 수동으로 설정해야 합니다. 자세한 내용은 [VM 운영 체제에 IP 주소 추가](virtual-network-multiple-ip-addresses-portal.md#os-config)를 참조하세요. IP 구성에 할당된 주소를 변경해야 하는 경우에는 다음을 수행하는 것이 좋습니다.
 
-가상 컴퓨터 운영 체제 내에서 네트워크 인터페이스의 IP 주소를 수동으로 설정해야 하는 시나리오도 있습니다. 예를 들어 Azure 가상 머신에 여러 IP 주소를 추가할 때는 Windows 운영 체제의 기본 및 보조 IP 주소를 수동으로 설정해야 합니다. Linux 가상 머신의 경우에는 보조 IP 주소만 수동으로 설정하면 됩니다. 자세한 내용은 [VM 운영 체제에 IP 주소 추가](virtual-network-multiple-ip-addresses-portal.md#os-config)를 참조하세요. IP 구성에 할당된 주소를 변경해야 하는 경우에는 다음을 수행하는 것이 좋습니다.
-
-1. 가상 머신이 Azure DHCP 서버에서 주소를 받는지 확인합니다. 일단 주소를 받으면, 해당 IP 주소의 할당을 운영 체제 내의 DHCP로 다시 변경하고 가상 머신을 다시 시작합니다.
-2. 가상 머신을 중지(할당 취소)합니다.
-3. Azure 내에서 IP 구성의 IP 주소를 변경합니다.
-4. 가상 머신을 시작합니다.
-5. 운영 체제 내의 보조 IP 주소와 Windows 내의 기본 IP 주소를 Azure에서 설정한 주소와 일치하도록 [수동으로 구성](virtual-network-multiple-ip-addresses-portal.md#os-config)합니다.
+1. 가상 머신이 Azure DHCP 서버에서 기본 IP 주소를 수신하는지 확인합니다. Linux VM을 실행하는 경우 운영 체제에서 이 주소를 설정하지 마세요.
+2. 변경할 IP 구성을 삭제합니다.
+3. 설정하려는 새 주소로 새 IP 구성을 만듭니다.
+4. 운영 체제 내의 보조 IP 주소와 Windows 내의 기본 IP 주소를 Azure에서 설정한 주소와 일치하도록 [수동으로 구성](virtual-network-multiple-ip-addresses-portal.md#os-config)합니다. Linux의 OS 네트워크 구성에서 기본 IP 주소를 수동으로 설정하지 마세요. 수동으로 설정하면 구성이 다시 로드될 때 인터넷에 연결하지 못할 수 있습니다.
+5. 게스트 운영 체제에서 네트워크 구성을 다시 로드합니다. 이 작업을 수행하려면 시스템을 다시 부팅하거나 NetworkManager를 실행하는 Linux 시스템에서 ‘nmcli con down “System eth0 && nmcli con up “System eth0”’을 실행하면 됩니다.
+6. 네트워킹 설정이 원하는 대로 설정되었는지 확인합니다. 시스템의 모든 IP 주소에 대한 연결을 테스트합니다.
 
 위의 단계를 수행하면 가상 머신 운영 체제 내와 Azure 내에서 네트워크 인터페이스에 할당된 개인 IP 주소는 동일하게 유지됩니다. 운영 체제 내에서 IP 주소를 수동으로 설정한 구독 내의 가상 머신을 추적하려는 경우 가상 머신에 Azure [태그](../azure-resource-manager/management/tag-resources.md)를 추가할 수 있습니다. 예를 들어 "IP 주소 할당: 정적" 등을 사용할 수 있습니다. 이렇게 하면 운영 체제 내에서 IP 주소를 수동으로 설정한 구독 내 가상 머신을 쉽게 찾을 수 있습니다.
 

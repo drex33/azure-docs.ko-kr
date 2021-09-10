@@ -1,22 +1,25 @@
 ---
 title: Azure Data Factory의 Excel 형식
-description: 이 항목에서는 Azure Data Factory에서 Excel 형식을 처리하는 방법에 대해 설명합니다.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: 이 항목에서는 Azure Data Factory 및 Azure Synapse Analytics에서 Excel 형식을 처리하는 방법을 설명합니다.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jianleishen
-ms.openlocfilehash: 73831a22974513cfc8e8a281099fc652fce4176f
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c967ea38c9408417c5b92391459ed35d44420ec2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090139"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642381"
 ---
-# <a name="excel-format-in-azure-data-factory"></a>Azure Data Factory의 Excel 형식
+# <a name="excel-file-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 Excel 파일 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-**Excel 파일을 구문 분석** 하려는 경우 이 문서의 내용을 따르세요. Azure Data Factory는 '.xls' 및 '.xlsx'를 모두 지원합니다.
+**Excel 파일을 구문 분석** 하려는 경우 이 문서의 내용을 따르세요. 이 서비스는 ".xls" 및 ".xlsx"을 모두 지원합니다.
 
 Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md) 커넥터에 지원됩니다. 원본으로 지원되며 싱크로는 지원되지 않습니다. 
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: 17b3b74bc6879d54577492a13eb93e0e0ab58373
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 052a59ede2acc751d6847646ca1b103de0c1b78a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486380"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539533"
 ---
 # <a name="azure-private-link-availability"></a>Azure Private Link 가용성
 
@@ -58,7 +58,7 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
-|  Azure SQL Database         | 모든 공용 지역 <br/> Azure Government 지역<br/>모든 중국 지역      |  프록시 [연결 정책](../azure-sql/database/connectivity-architecture.md#connection-policy)에 대해 지원됨 | GA <br/> [Azure SQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](create-private-endpoint-portal.md)      |
+|  Azure SQL Database         | 모든 공용 지역 <br/> Azure Government 지역<br/>모든 중국 지역      |  프록시 [연결 정책](../azure-sql/database/connectivity-architecture.md#connection-policy)에 대해 지원됨 | GA <br/> [Azure SQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](./tutorial-private-endpoint-sql-portal.md)      |
 |Azure Cosmos DB|  모든 공용 지역<br/> Azure Government 지역</br> 모든 중국 지역 | |GA <br/> [Cosmos DB에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역 <br/> Azure Government 지역<br/>모든 중국 지역     | 범용 및 메모리 최적화된 가격 책정 계층에 지원됨 | GA <br/> [Azure Database for PostgreSQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database for MySQL         | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역      |  | GA <br/> [Azure Database for MySQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../mysql/concepts-data-access-security-private-link.md)     |
@@ -94,11 +94,11 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 ### <a name="storage"></a>스토리지
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
-| Azure Blob 스토리지(Data Lake Storage Gen2 포함)       |  모든 공용 지역<br/> Azure Government 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [Blob 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md)  |
+| Azure Blob 스토리지(Data Lake Storage Gen2 포함)       |  모든 공용 지역<br/> Azure Government 지역       |  Account Kind General Purpose V2에서만 지원 | GA <br/> [Blob 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure 파일 | 모든 공용 지역<br/> Azure Government 지역      | |   GA <br/> [Azure Files 네트워크 엔드포인트를 만드는 방법을 알아봅니다.](../storage/files/storage-files-networking-endpoints.md)   |
 | Azure 파일 동기화 | 모든 공용 지역      | |   GA <br/> [Azure Files 네트워크 엔드포인트를 만드는 방법을 알아봅니다.](../storage/file-sync/file-sync-networking-endpoints.md)   |
-| Azure Queue 스토리지       |  모든 공용 지역<br/> Azure Government 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [큐 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md) |
-| Azure Table Storage       |  모든 공용 지역<br/> Azure Government 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [테이블 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md)  |
+| Azure Queue 스토리지       |  모든 공용 지역<br/> Azure Government 지역       |  Account Kind General Purpose V2에서만 지원 | GA <br/> [큐 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md) |
+| Azure Table Storage       |  모든 공용 지역<br/> Azure Government 지역       |  Account Kind General Purpose V2에서만 지원 | GA <br/> [테이블 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure Batch | 다음을 제외한 모든 공용 지역: 독일 중부, 독일 북동부 <br/> Azure Government 지역  | | GA <br/> [Azure Batch에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../batch/private-connectivity.md) |
 
 ### <a name="web"></a>웹

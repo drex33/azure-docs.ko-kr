@@ -14,20 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2021
 ms.author: yelevin
-ms.openlocfilehash: a706704365731d5f5ba157837269a90dbcb12e18
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 851b1659baf10826d98246aaf8ebd8ec138c5542
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810303"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122530078"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure Sentinel에서 UEBA(사용자 및 엔터티 동작 분석)를 사용하여 고급 위협 식별
 
 > [!IMPORTANT]
 >
-> - UEBA 및 엔터티 페이지 기능은 이제 **_모든_** Azure Sentinel 지역에서 **일반 공급** 됩니다.
+> - UEBA 및 엔터티 페이지 기능은 이제 **_모든_** Azure Sentinel 지역에서 **일반 공급** 됩니다. 
 >
 > - **IP 주소 엔터티** 는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>UEBA(사용자 및 엔터티 동작 분석)란?
 
@@ -82,7 +84,7 @@ Azure Sentinel은 보안 분석가가 컨텍스트의 비정상적인 활동을 
 - 오른쪽 패널은 엔터티에 대한 동작 인사이트를 제공합니다. 해당 인사이트는 변칙 및 보안 위협을 빠르게 식별하는 데 도움이 됩니다. 해당 인사이트는 Microsoft 보안 연구 팀에서 개발되었으며 변칙 탐지 모델을 기반으로 합니다.
 
 > [!NOTE]
-> **IP 주소 엔터티 페이지**(현재 미리 보기로 제공됨)에는 **Microsoft 위협 인텔리전스 서비스** 에서 제공하는 **지리적 위치 데이터** 가 포함되어 있습니다. 이 서비스는 Microsoft 솔루션과 타사 공급업체 및 파트너의 지리적 위치 데이터를 결합합니다. 그런 다음 데이터를 보안 인시던트 컨텍스트에서 분석 및 조사할 수 있습니다.
+> **IP 주소 엔터티 페이지**(현재 미리 보기로 제공됨)에는 **Microsoft 위협 인텔리전스 서비스** 에서 제공하는 **지리적 위치 데이터** 가 포함되어 있습니다. 이 서비스는 Microsoft 솔루션과 타사 공급업체 및 파트너의 지리적 위치 데이터를 결합합니다. 그런 다음 데이터를 보안 인시던트 컨텍스트에서 분석 및 조사할 수 있습니다. 자세한 내용은 [REST API를 통해 지리적 위치 데이터를 사용하여 Azure Sentinel에서 엔터티 보강(공개 미리 보기)](geolocation-data-api.md)을 참조하세요.
 
 ### <a name="the-timeline"></a>타임라인
 
@@ -94,7 +96,7 @@ Azure Sentinel은 보안 분석가가 컨텍스트의 비정상적인 활동을 
 
 타임라인에는 다음과 같은 형식의 항목이 포함되어 있습니다.
 
-- 경고 - 엔터티가 **매핑된 엔터티로** 정의된 모든 경고입니다. 조직에서 [분석 규칙을 사용하여 사용자 지정 경고](./tutorial-detect-threats-custom.md)를 생성된 경우 규칙의 엔터티 매핑이 제대로 수행되었는지 확인해야 합니다.
+- 경고 - 엔터티가 **매핑된 엔터티로** 정의된 모든 경고입니다. 조직에서 [분석 규칙을 사용하여 사용자 지정 경고](./detect-threats-custom.md)를 생성된 경우 규칙의 엔터티 매핑이 제대로 수행되었는지 확인해야 합니다.
 
 - 북마크 - 페이지에 표시된 특정 엔터티를 포함하는 책갈피입니다.
 
@@ -163,7 +165,7 @@ Azure Sentinel은 **BehaviorAnalytics** 테이블을 기반으로 하는 헌팅 
 자세한 내용은 다음을 참조하세요.
 
 - [Azure Sentinel을 사용하여 위협 헌팅](hunting.md)
-- [데이터 시각화 및 모니터링](tutorial-monitor-your-data.md)
+- [데이터 시각화 및 모니터링](monitor-your-data.md)
 
 레거시 방어 도구가 더 이상 사용되지 않게 됨에 따라 조직에는 환경에서 발생할 수 있는 위험 및 상태에 대한 포괄적인 계획을 수립하는 것이 관리할 수 없을 정도로 방대하고 다공성인 디지털 자산이 있을 수 있습니다. 분석 및 규칙과 같은 사후 대응 노력에 크게 의존함으로써 악의적인 행위자는 이러한 노력을 회피하는 방법을 배울 수 있습니다. 실제로 무슨 일이 일어나고 있는지 파악하기 위해 위험 점수 매기기 방법론과 알고리즘을 제공함으로써 UEBA가 작동하게 하는 곳입니다.
 

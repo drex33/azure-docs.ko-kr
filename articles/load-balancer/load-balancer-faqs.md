@@ -1,0 +1,72 @@
+---
+title: 질문과 대답 - Azure Load Balancer
+description: Azure Load Balancer에 대한 자주 묻는 질문에 대한 대답입니다.
+services: load-balancer
+author: erichrt
+ms.service: load-balancer
+ms.topic: article
+ms.date: 04/22/2020
+ms.author: errobin
+ms.openlocfilehash: 66d0a62a22c3ff2b06b40a6b3f37ca2488a4e1a4
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202709"
+---
+# <a name="load-balancer-frequently-asked-questions"></a>Load Balancer 질문과 대답
+
+## <a name="what-types-of-load-balancer-exist"></a>어떤 유형의 Load Balancer가 있나요?
+VNET 내에서 트래픽을 분산하는 내부 부하 분산 장치와 인터넷에 연결된 엔드포인트와의 트래픽을 분산하는 외부 부하 분산 장치가 있습니다. 자세한 내용은 [Load Balancer 제한](components.md#frontend-ip-configurations)을 참조하세요. 
+
+이러한 두 유형 모두 Azure는 기능, 성능, 보안 및 상태 추적 기능이 서로 다른 기본 SKU 및 표준 SKU를 제공합니다. 이러한 차이점은 [SKU 비교](skus.md) 문서에 설명되어 있습니다.
+
+ ## <a name="how-can-i-upgrade-from-a-basic-to-a-standard-load-balancer"></a>기본에서 표준 Load Balancer로 업그레이드하려면 어떻게 해야 하나요?
+Load Balancer SKU 업그레이드에 대한 자동 스크립트 및 지침은 [기본에서 표준으로 업그레이드](upgrade-basic-standard.md) 문서를 참조하세요.
+
+ ## <a name="what-are-the-different-load-balancing-options-in-azure"></a>Azure의 다른 부하 분산 옵션은 무엇인가요?
+사용 가능한 로드 밸런싱 서비스 및 각각에 대한 권장 사용은 [부하 분산 장치 기술 가이드](/azure/architecture/guide/technology-choices/load-balancing-overview)를 참조하세요.
+
+## <a name="where-can-i-find-load-balancer-arm-templates"></a>Load Balancer ARM 템플릿을 어디에서 찾을 수 있나요?
+일반적인 배포의 ARM 템플릿은 [Azure Load Balancer 빠른 시작 템플릿 목록](/azure/templates/microsoft.network/loadbalancers#quickstart-templates)을 참조하세요.
+
+## <a name="how-are-inbound-nat-rules-different-from-load-balancing-rules"></a>인바운드 NAT 규칙은 부하 분산 규칙과 어떻게 다른가요?
+NAT 규칙은 트래픽을 라우팅할 백 엔드 리소스를 지정하는 데 사용됩니다. 예를 들어 특정 VM에 RDP 트래픽을 보내도록 특정 부하 분산 장치 포트를 구성합니다. 부하 분산 규칙은 트래픽을 라우팅할 백 엔드 리소스 풀을 지정하여 각 인스턴스에서 부하를 분산하는 데 사용됩니다. 예를 들어 부하 분산 장치 규칙은 웹 서버 풀에서 부하 분산 장치의 포트 80에서 TCP 패킷을 라우팅할 수 있습니다.
+
+## <a name="what-is-ip-1686312916"></a>IP 168.63.129.16은 무엇인가요?
+Azure 상태 프로브가 시작된 Azure 인프라 Load Balancer로 태그가 지정된 호스트의 가상 IP 주소입니다. 백 엔드 인스턴스를 구성할 때 이 IP 주소의 트래픽이 상태 프로브에 성공적으로 응답하도록 허용해야 합니다. 이 규칙은 Load Balancer 프런트 엔드에 대한 액세스와 상호 작용하지 않습니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다. [여기](../virtual-network/service-tags-overview.md#available-service-tags)에서 서비스 태그에 대해 자세히 알아볼 수 있습니다.
+
+## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>기본 Load Balancer와 함께 글로벌 VNet 피어링을 사용할 수 있나요?
+아니요. 기본 Load Balancer는 글로벌 VNet 피어링을 지원하지 않습니다. 대신 표준 Load Balancer를 사용할 수 있습니다. 원활한 업그레이드는 [기본에서 표준으로 업그레이드](upgrade-basic-standard.md) 문서를 참조하세요.
+
+## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>Azure VM에서 사용하는 공용 IP를 검색하려면 어떻게 해야 하나요?
+
+여러 가지 방법으로 아웃바운드 연결의 공용 원본 IP 주소를 확인할 수 있습니다. OpenDNS는 VM의 공용 IP 주소를 표시할 수 있는 서비스를 제공합니다.
+nslookup 명령을 사용하여 OpenDNS 확인자에 myip.opendns.com이라는 이름에 대한 DNS 쿼리를 전송할 수 있습니다. 서비스는 쿼리를 보내는 데 사용된 원본 IP 주소를 반환합니다. VM에서 다음 쿼리를 실행하는 경우 응답은 해당 VM에 사용되는 공용 IP입니다.
+
+ ```nslookup myip.opendns.com resolver1.opendns.com```
+ 
+## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>동일한 가용성 집합의 VM을 Load Balancer의 다른 백 엔드 풀에 추가할 수 있나요?
+아니요, 이는 불가능합니다.
+
+## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Azure Load Balancer를 통해 얻을 수 있는 최대 데이터 처리량은 얼마인가요?
+Azure LB는 통과 네트워크 부하 분산 장치이므로 처리량 제한은 백 엔드 풀에 사용되는 가상 머신의 유형에 따라 결정됩니다. 기타 네트워크 처리량 관련 정보에 대해 알아보려면 [가상 머신 네트워크 처리량](../virtual-network/virtual-machine-network-throughput.md)을 참조하세요.
+
+## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>동일한 지역에서 Azure Storage에 대한 연결은 어떻게 작동하나요?
+위의 시나리오를 통한 아웃바운드 연결은 VM과 동일한 지역에 있는 스토리지에 연결하는 데 필요하지 않습니다. 이를 원하지 않는 경우 위에서 설명한 대로 NSG(네트워크 보안 그룹)를 사용합니다. 다른 지역의 스토리지에 연결하려면 아웃바운드 연결이 필요합니다. 동일한 지역의 VM에서 스토리지에 연결하는 경우 스토리지 진단 로그의 원본 IP 주소는 VM의 공용 IP 주소가 아니라 내부 공급자 주소가 됩니다. 동일한 지역에서 하나 이상의 Virtual Network 서브넷에 있는 VM에 대한 스토리지 계정에 액세스를 제한하려면 스토리지 계정 방화벽을 구성할 때 공용 IP 주소가 아니라 [Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 사용합니다. 서비스 엔드포인트가 구성되면 내부 공급자 주소가 아닌 스토리지 진단 로그에 Virtual Network 개인 IP 주소가 표시됩니다.
+
+## <a name="does-azure-load-balancer-support-tlsssl-termination"></a>Azure Load Balancer는 TLS/SSL 종료를 지원하나요?
+아니요, Azure Load Balancer는 현재 통과 네트워크 부하 분산 장치이기 때문에 종료를 지원하지 않습니다. 애플리케이션에서 이를 요구하는 경우 Application Gateway가 잠재적 솔루션이 될 수 있습니다.
+
+## <a name="how-do-i-configure-my-load-balancer-with-an-azure-firewall"></a>Azure Firewall을 사용하여 Load Balancer을 구성하려면 어떻게 할까요?
+Azure Firewall을 사용하여 Load Balancer를 구성하려면 다음 [지침](https://docs.microsoft.com/azure/firewall/integrate-lb)을 따릅니다.
+
+## <a name="what-are-best-practices-with-respect-to-outbound-connectivity"></a>아웃바운드 연결과 관련하여 모범 사례는 무엇인가요?
+표준 Load Balancer 및 표준 공용 IP는 아웃바웃드 연결에 기능 및 서로 다른 동작을 도입합니다. 이는 기본 SKU와 동일하지 않습니다. 표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다. 여기에는 내부 표준 Load Balancer를 사용할 때 아웃바운드 연결을 만드는 작업이 포함됩니다. 표준 공용 Load Balancer에서 항상 아웃바운드 규칙을 사용하는 것이 좋습니다. 즉, 내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 원하면 백 엔드 풀의 VM에 대한 아웃바운드 연결을 만드는 단계를 수행해야 합니다. 아웃바운드 연결, 단일 독립 실행형 VM, 가용성 세트의 모든 VM의 컨텍스트에서 가상 머신 확장 집합의 모든 인스턴스는 그룹으로 작동합니다. 즉, 가용성 세트의 단일 VM을 표준 SKU와 연결하면 개별 인스턴스가 직접 표준 SKU와 연결되지 않더라도 해당 가용성 세트 내의 모든 VM 인스턴스는 이제 표준 SKU에 연결된 것처럼 동일한 규칙에 따라 작동합니다. 이 동작은 부하 분산 장치에 여러 개의 네트워크 인터페이스 카드가 연결된 독립 실행형 VM의 경우에도 관찰됩니다. 하나의 NIC를 독립 실행형으로 추가하면 동일한 동작이 발생합니다. 전반적인 개념을 이해하고 SKU 간 차이점에 대해 [표준 Load Balancer](./load-balancer-overview.md)를 검토하고 [아웃바운드 규칙](load-balancer-outbound-connections.md#outboundrules)을 검토하려면 이 전체 문서를 검토합니다.
+아웃바운드 규칙을 사용하면 아웃바운드 연결의 모든 측면에 대해 정밀하게 제어할 수 있습니다.
+ 
+ ## <a name="how-can-i-view-the-traffic-from-my-configured-health-probes"></a><a name="probes"></a> 구성된 상태 프로브의 트래픽을 보려면 어떻게 해야 하나요?
+상태 프로브에서 각 백 엔드 인스턴스로 전송된 트래픽을 보려면 netstat와 같은 도구에서 IP 스택 통계를 사용할 수 있습니다. 이 도구를 살펴보면 상태 프로브 트래픽을 168.63.129.16에서 가져옵니다.
+ 
+## <a name="next-steps"></a>다음 단계
+질문이 위에 나열되지 않은 경우 질문과 함께 이 페이지에 대한 피드백을 보내주세요. 이렇게 하면 제품 팀이 중요한 고객 질문에 모두 답할 수 있도록 GitHub 문제가 만들어집니다.

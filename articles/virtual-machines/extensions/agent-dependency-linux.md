@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
 ms.date: 06/01/2021
-ms.openlocfilehash: 97f557ec45530de3f42dd61ee1cded57fd7c33a0
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: ce4b7ee2fea9d5b2b7c92b5ade1b3ad146382214
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110793749"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567093"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Linux용 Azure Monitor 종속성 가상 머신 확장
 
@@ -27,7 +27,7 @@ Linux용 Azure VM 종속성 에이전트 확장은 VM용 Azure Monitor 배포 �
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Azure Linux VM의 Azure VM 종속성 에이전트 확장에 대한 스키마를 보여 줍니다. 
+다음 JSON은 Azure Linux VM의 Azure VM 종속성 에이전트 확장에 대한 스키마를 보여 줍니다.
 
 ```json
 {
@@ -101,7 +101,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 }
 ```
 
-템플릿의 루트에 JSON 확장을 저장하면 리소스 이름에 부모 가상 머신에 대한 참조가 포함됩니다. 형식은 중첩된 구성을 반영합니다. 
+템플릿의 루트에 JSON 확장을 저장하면 리소스 이름에 부모 가상 머신에 대한 참조가 포함됩니다. 형식은 중첩된 구성을 반영합니다.
 
 ```json
 {
@@ -132,31 +132,22 @@ az vm extension set \
     --vm-name myVM \
     --name DependencyAgentLinux \
     --publisher Microsoft.Azure.Monitoring.DependencyAgent \
-    --version 9.5 
+    --version 9.5
 ```
 
-## <a name="automatic-upgrade-preview"></a>자동 업그레이드 프로세스(미리 보기)
-종속성 확장의 부 버전을 자동으로 업그레이드하는 새로운 기능을 이제 공개 미리 보기에서 사용할 수 있습니다. 이 기능을 사용하도록 설정하려면 다음 구성 변경을 수행해야 합니다.
+## <a name="automatic-extension-upgrade"></a>자동 확장 업그레이드
+종속성 확장의 [부 버전을 자동으로 업그레이드](../automatic-extension-upgrade.md)하는 새로운 기능을 이제 사용할 수 있습니다.
 
--   [미리 보기 액세스 사용](../automatic-extension-upgrade.md#enabling-preview-access)의 방법 중 하나를 사용하여 구독 기능을 사용하도록 설정합니다.
-- 템플릿에 `enableAutomaticUpgrade` 특성을 추가합니다.
+확장에 대한 자동 확장 업그레이드를 사용하도록 설정하려면 `enableAutomaticUpgrade` 속성이 `true`로 설정되고 확장 템플릿에 추가되었는지 확인해야 합니다. 이 속성은 모든 VM 또는 VM 확장 집합에서 개별적으로 사용하도록 설정해야 합니다. [사용](../automatic-extension-upgrade.md#enabling-automatic-extension-upgrade) 섹션에 설명된 방법 중 하나를 사용하여 VM 또는 VM 확장 집합에 대한 기능을 사용하도록 설정합니다.
 
-종속성 에이전트 확장 버전 관리 체계는 다음 형식을 따릅니다.
+VM 또는 VM 확장 집합에서 자동 확장 업그레이드를 사용하도록 설정하면 확장 게시자가 해당 확장에 대한 새 버전을 릴리스할 때마다 확장이 자동으로 업그레이드됩니다. 업그레이드는 [여기](../automatic-extension-upgrade.md#how-does-automatic-extension-upgrade-work)에 설명된 가용성 우선 원칙에 따라 안전하게 적용됩니다.
 
-```
-<MM.mm.bb.rr> where M = Major version number, m = minor version number, b = bug number, r = revision number.
-```
+`enableAutomaticUpgrade` 특성의 기능은 `autoUpgradeMinorVersion`의 기능과 다릅니다. 확장 게시자가 새 버전을 릴리스할 때 `autoUpgradeMinorVersion` 특성은 부 버전 업데이트를 자동으로 트리거하지 않습니다. `autoUpgradeMinorVersion` 특성은 배포 시 사용할 수 있는 경우 확장에서 최신 부 버전을 사용해야 하는지 여부를 나타냅니다. 그러나 일단 배포되면 이 속성이 true로 설정된 경우에도 확장이 재배포되지 않는 한 부 버전을 업그레이드하지 않습니다.
 
-`enableAutomaticUpgrade` 및 `autoUpgradeMinorVersion` 특성은 함께 작동하여 구독의 가상 머신에 대해 업그레이드가 처리되는 방식을 결정합니다.
-
-| enableAutomaticUpgrade | autoUpgradeMinorVersion | 영향 |
-|:---|:---|:---|
-| true | false | 최신 버전의 bb.rr이 있는 경우 종속성 에이전트를 업그레이드합니다. 예를 들어 9.6.0.1355를 실행 중이고 최신 버전이 9.6.2.1366인 경우 사용하도록 설정된 구독의 가상 머신은 9.6.2.1366으로 업그레이드됩니다. |
-| true | true |  mm.bb.rr 또는 bb.rr의 최신 버전이 있는 경우 종속성 에이전트를 업그레이드합니다. 예를 들어 9.6.0.1355를 실행 중이고 최신 버전이 9.7.1.1416인 경우 사용하도록 설정된 구독의 가상 머신은 9.7.1.1416으로 업그레이드됩니다. 또한 9.6.0.1355를 실행 중이고 최신 버전이 9.6.2.1366인 경우 사용하도록 설정된 구독의 가상 머신은 9.6.2.1366으로 업그레이드됩니다. |
-| false | true 또는 false | 자동 업그레이드를 사용할 수 없습니다.
+확장 버전을 업데이트된 상태로 유지하려면 확장 배포와 함께 `enableAutomaticUpgrade`를 사용하는 것이 좋습니다.
 
 > [!IMPORTANT]
-> 템플릿에 `enableAutomaticUpgrade`를 추가하는 경우 최소 API 버전 2019-12-01을 사용해야 합니다.
+> 템플릿에 `enableAutomaticUpgrade`를 추가하는 경우 최소 API 버전 2019-12-01 이상을 사용해야 합니다.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 
@@ -171,7 +162,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 확장 실행 출력은 다음 파일에 기록됩니다.
 
 ```
-/opt/microsoft/dependency-agent/log/install.log 
+/opt/microsoft/dependency-agent/log/install.log
 ```
 
 ### <a name="support"></a>지원

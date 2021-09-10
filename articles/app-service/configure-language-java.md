@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 75ee1ca92fb687975dabe0011ce8a95b8c03172b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e62937a4240448f85cc7ab147d642b29bb0a2a9
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566232"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226066"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service용 Java 앱 구성
 
@@ -66,20 +66,20 @@ az webapp list-runtimes --linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 
 ### <a name="java-se"></a>Java SE
 
-Java SE에 .jar 파일을 배포하려면 Kudu 사이트의 `/api/zipdeploy/` 엔드포인트를 사용합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#rest)를 참조하세요. 
+Java SE에 .jar 파일을 배포하려면 Kudu 사이트의 `/api/publish/` 엔드포인트를 사용합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-warjarear-packages)를 참조하세요. 
 
 > [!NOTE]
 >  .jar 애플리케이션의 이름을 App Service에서 `app.jar`로 정해야 애플리케이션을 식별하고 실행할 수 있습니다. 위에서 언급한 Maven 플러그인은 배포 중에 애플리케이션의 이름을 자동으로 바꿉니다. JAR 이름을 *app.jar* 로 변경하고 싶지 않은 경우에는 .jar 앱을 실행하는 명령이 포함된 셸 스크립트를 업로드하면 됩니다. 그런 다음, Portal의 구성 섹션에 있는 [시작 파일](/azure/app-service/faq-app-service-linux#built-in-images) 텍스트 상자에 이 스크립트의 절대 경로를 붙여 넣습니다. 시작 스크립트는 배치된 디렉터리에서 실행되지 않습니다. 따라서 항상 절대 경로를 사용하여 시작 스크립트의 파일을 참조해야 합니다(예: `java -jar /home/myapp/myapp.jar`).
 
 ### <a name="tomcat"></a>Tomcat
 
-.war 파일을 Tomcat에 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-war-file)를 참조하세요.
+.war 파일을 Tomcat에 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-warjarear-packages)를 참조하세요.
 
 ::: zone pivot="platform-linux"
 
 ### <a name="jboss-eap"></a>JBoss EAP
 
-JBoss에 .war 파일을 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-war-file)를 참조하세요.
+JBoss에 .war 파일을 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-warjarear-packages)를 참조하세요.
 
 .ear 파일을 배포하려면 [FTP를 사용합니다](deploy-ftp.md). .ear 애플리케이션은 애플리케이션의 구성에 정의된 컨텍스트 루트에 배포됩니다. 예를 들어 앱의 컨텍스트 루트가 `<context-root>myapp</context-root>`인 경우, `/myapp` 경로에서 사이트를 찾아 볼 수 있습니다. `http://my-app-name.azurewebsites.net/myapp` 웹앱을 루트 경로에 제공하려면 앱이 컨텍스트 루트를 루트 경로로 설정했는지 확인합니다. `<context-root>/</context-root>` 자세한 정보는 [웹 애플리케이션의 컨텍스트 루트 설정](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html)을 참조하세요.
 

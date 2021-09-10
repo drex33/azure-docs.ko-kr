@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 1c28f549cf93d77f6aef6bcde6a2225345a79cc9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 500cc23f2091c38006f7e58e150fb246f2a9ca64
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91612951"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113586908"
 ---
 # <a name="plan-the-aggregated-namespace"></a>집계형 네임스페이스 계획
 
@@ -48,7 +48,7 @@ Azure HPC Cache에서 이 가상 파일 시스템을 관리하기 때문에 클�
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | sourcecollection                        | /source/               |
 
-NFS 스토리지 대상은 각각 고유한 내보내기 경로를 참조하는 한 가상 네임스페이스 경로를 여러 개 포함할 수 있습니다. NFS 스토리지 대상당 권장되는 최대 네임스페이스 경로 수를 알아보려면 [NFS 네임스페이스 경로](add-namespace-paths.md#nfs-namespace-paths)를 참조하세요.
+NFS 스토리지 대상은 각각 고유한 내보내기 경로를 참조하는 한 가상 네임스페이스 경로를 여러 개 포함할 수 있습니다. (NFS 스토리지 대상과 함께 여러 네임스페이스 경로를 사용하는 방법에 대해 자세히 알아보려면 [NFS 네임스페이스 경로](add-namespace-paths.md#nfs-namespace-paths)를 읽어보세요.)
 
 NFS 원본 경로는 동일한 내보내기의 하위 디렉터리이므로 동일한 스토리지 대상에서 여러 네임스페이스 경로를 정의해야 합니다.
 

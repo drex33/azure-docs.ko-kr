@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 3c18b6d8dc44762649a9c07b88af348a18888fb5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfec3e6305b6b955cfb7b2cfd787507db36ff6ba
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699116"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213600"
 ---
 # <a name="load-balancer-and-availability-zones"></a>Load Balancer 및 가용성 영역
 
@@ -75,6 +75,12 @@ Load Balancer는 **영역 중복, 영역** 또는 **비영역** 일 수 있습�
 영역 실패 시 영역을 사용하는 트래픽 흐름은 영향을 받을 수 있지만 애플리케이션은 복구할 수 있습니다. Azure가 영역 실패를 중심으로 수렴된 경우 트래픽은 다시 전송 시 지역 내의 정상 영역에서 계속됩니다.
 
 실패 시나리오에 대한 애플리케이션의 복원력을 개선하기 위한 [Azure 클라우드 디자인 패턴](/azure/architecture/patterns/)을 검토합니다.
+
+## <a name="limitations"></a>제한 사항
+
+* 영역을 만든 후에는 리소스에 대해 변경, 업데이트 또는 만들 수 없습니다.
+
+* 리소스는 생성 후 영역에서 영역 중복으로 또는 그 반대로 업데이트할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보기

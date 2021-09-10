@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 08/04/2021
 ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348f1b4e6182739b3afbc96597853a5b887877c1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0d9cc1e931e0ec2b607e176b404aa93041437dc2
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748775"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539600"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
 Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 유형, [역할 할당](active-directory-users-assign-role-azure-portal.md) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다. 기본 사용자 권한은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
@@ -43,7 +43,9 @@ Subscriptions | <ul><li>모든 구독 읽기<li>서비스 계획 멤버를 사�
 
 ## <a name="restrict-member-users-default-permissions"></a>멤버 사용자 기본 권한 제한 
 
-멤버 사용자의 기본 권한은 다음 방식으로 제한할 수 있습니다.
+사용자의 기본 권한에 제한 사항을 추가할 수 있습니다. 일부 조직에서는 포털에 대한 사용자 액세스를 제한해야 할 수 있습니다. 이 기능은 디렉터리의 일부 사용자가 Azure AD 관리 포털/디렉터리에 액세스할 수 없게 하려는 경우에 사용됩니다. 
+
+예를 들어, 한 대학교의 디렉터리 내에 많은 사용자가 있고 관리자는 디렉터리의 일부 학생이 전체 디렉터리를 보고 다른 학생의 프라이버시를 위반하는 경우를 원하지 않을 수 있습니다. 이 기능 사용은 선택 사항이며 Azure AD 관리자의 재량에 따릅니다. 멤버 사용자의 기본 권한은 다음 방식으로 제한할 수 있습니다.
 
 사용 권한 | 설정 설명
 ---------- | ------------
@@ -51,8 +53,10 @@ Subscriptions | <ul><li>모든 구독 읽기<li>서비스 계획 멤버를 사�
 사용자가 LinkedIn으로 회사 또는 학교 계정에 연결하도록 허용 | 이 옵션을 ‘아니요’로 설정하면 사용자가 자신의 회사 또는 학교 계정을 LinkedIn 계정에 연결할 수 없습니다. 자세한 내용은 [LinkedIn 계정 연결 데이터 공유 및 동의](../enterprise-users/linkedin-user-consent.md)를 참조하세요.
 보안 그룹 만들기 기능 | 이 옵션을 아니요로 설정하면 사용자가 보안 그룹을 만들 수 없습니다. 전역 관리자 및 사용자 관리자는 계속 보안 그룹을 만들 수 있습니다. 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md)을 참조하세요.
 Microsoft 365 그룹 만들기 기능 | 이 옵션을 ‘아니요’로 설정하면 사용자가 Microsoft 365 그룹을 만들 수 없습니다. 이 옵션을 ‘일부’로 설정하면 Microsoft 365 그룹을 만들 수 있는 사용자 집합을 선택할 수 있습니다. 전역 관리자 및 사용자 관리자는 계속 Microsoft 365 그룹을 만들 수 있습니다. 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md)을 참조하세요.
-Azure AD 관리 포털에 대한 액세스 제한 | 이 옵션을 아니요로 설정하면 비관리자가 Azure AD 관리 포털을 사용하여 Azure AD 리소스를 읽고 관리할 수 있습니다. 예로 설정하면 모든 비관리자가 관리 포털의 Azure AD 데이터에 액세스하지 못하도록 제한합니다.<p>**참고**: 이 설정은 PowerShell 또는 Visual Studio와 같은 다른 클라이언트를 사용하여 Azure AD 데이터에 액세스하는 것을 제한하지 않습니다. ‘예’로 설정된 경우, 관리자가 아닌 특정 사용자에게 Azure AD 관리 포털 사용 권한을 부여하려면 디렉터리 읽기 권한자 역할과 같은 관리 역할을 할당합니다.<p>이 역할을 통해 기본 디렉터리 정보를 읽을 수 있습니다. 이 정보는 멤버 사용자에게 기본적으로 제공됩니다(게스트 및 서비스 주체에게는 제공되지 않음).
+Azure AD 관리 포털에 대한 액세스 제한 | <p>이 옵션을 아니요로 설정하면 비관리자가 Azure AD 관리 포털을 사용하여 Azure AD 리소스를 읽고 관리할 수 있습니다. 예로 설정하면 모든 비관리자가 관리 포털의 Azure AD 데이터에 액세스하지 못하도록 제한합니다.</p><p>**참고**: 이 설정은 PowerShell 또는 Visual Studio와 같은 다른 클라이언트를 사용하여 Azure AD 데이터에 액세스하는 것을 제한하지 않습니다. ‘예’로 설정된 경우, 관리자가 아닌 특정 사용자에게 Azure AD 관리 포털 사용 권한을 부여하려면 디렉터리 읽기 권한자 역할과 같은 관리 역할을 할당합니다.</p><p>**참고**: 이 설정은 그룹 또는 애플리케이션의 소유자인 관리자가 아닌 사용자가 소유한 리소스를 관리하는 데 Azure Portal을 사용하지 못하도록 차단합니다.</p><p>이 역할을 통해 기본 디렉터리 정보를 읽을 수 있습니다. 이 정보는 멤버 사용자에게 기본적으로 제공됩니다(게스트 및 서비스 주체에게는 제공되지 않음).</p>
 다른 사용자를 읽을 수 있는 기능 | 이 설정은 PowerShell에서만 사용할 수 있습니다. 이 플래그를 $false로 설정하면 관리자가 아닌 모든 사용자가 디렉터리에서 사용자 정보를 읽지 못하게 됩니다. 단, Exchange Online과 같은 다른 Microsoft 서비스에서 사용자 정보를 읽지 못하게 되지는 않습니다. 이 설정은 특수한 상황에서만 사용해야 하며, 이 플래그를 $false로 설정하는 것은 권장되지 않습니다.
+
+>![참고] 평균 사용자는 Azure AD에 액세스하는 데 포털만 사용하고 리소스에 액세스하는 데 PowerShell 또는 CLI를 사용하지 않는다고 가정합니다. 현재는 사용자가 Azure Portal 내의 디렉터리에 액세스하려고 할 경우에만 사용자의 기본 권한에 대한 액세스를 제한합니다.
 
 ## <a name="restrict-guest-users-default-permissions"></a>게스트 사용자 기본 권한 제한
 
@@ -128,6 +132,9 @@ Azure AD 관리 포털에 대한 액세스 제한 | 이 옵션을 아니요로 �
 
 #### <a name="owned-groups"></a>소유 그룹
 사용자는 소유 그룹에 대해 다음 작업을 수행할 수 있습니다.
+
+> [!NOTE]
+> 그룹 멤버 자격 규칙을 편집하려면 동적 그룹의 소유자에게 전역 관리자, 그룹 관리자, Intune 관리자 또는 사용자 관리자 역할이 있어야 합니다. 자세한 내용은 [Azure Active Directory에서 동적 그룹 만들기 또는 업데이트](../enterprise-users/groups-create-rule.md)를 참조하세요.
 
 | **actions** | **설명** |
 | --- | --- |

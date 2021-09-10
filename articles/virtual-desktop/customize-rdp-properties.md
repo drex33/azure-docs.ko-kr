@@ -7,19 +7,19 @@ ms.date: 10/09/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 545d748d521d623bdbaa21ccafd8c52c6508bf03
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 481b81edb0ee5709e712f213036fa8df53aca7c4
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750266"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113287927"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>호스트 풀의 원격 데스크톱 프로토콜(RDP) 속성 사용자 지정
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 통해 Azure Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md)를 참조하세요.
 
-다중 모니터 환경 및 오디오 리디렉션과 같은 호스트 풀의 RDP(원격 데스크톱 프로토콜) 속성을 사용자 지정하면 사용자의 요구에 따라 최적의 환경을 제공할 수 있습니다. Azure Portal을 사용하거나 **Update-AzWvdHostPool** 의 *-CustomRdpProperty* 매개 변수를 사용하여 Azure Virtual Desktop에서 RDP 속성을 사용자 지정할 수 있습니다.
+다중 모니터 환경 및 오디오 리디렉션과 같은 호스트 풀의 RDP(원격 데스크톱 프로토콜) 속성을 사용자 지정하면 사용자의 요구에 따라 최적의 환경을 제공할 수 있습니다. 기본 RDP 파일 속성을 변경하려는 경우 Azure Portal을 사용하거나 **Update-AzWvdHostPool** 의 *-CustomRdpProperty* 매개 변수를 사용하여 Azure Virtual Desktop에서 RDP 속성을 사용자 지정할 수 있습니다.
 
 지원되는 속성 및 해당 기본값의 전체 목록은 [지원되는 RDP 파일 설정](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext)을 참조하세요.
 
@@ -29,14 +29,15 @@ RDP 파일에는 기본적으로 다음과 같은 속성이 있습니다.
 
 |RDP 속성|데스크톱 및 RemoteApp 모두|
 |---|---|
-|다중 모니터 모드|사용 안 함|
+|다중 모니터 모드|사용|
 |드라이브 리디렉션 사용|드라이브, 클립보드, 프린터, COM 포트, 스마트 카드, 디바이스 및 usbdevicestore|
 |원격 오디오 모드|로컬로 재생|
 |VideoPlayback|사용|
 |EnableCredssp|사용|
 
 >[!NOTE]
->다중 모니터 모드는 데스크톱 앱 그룹에만 적용되며 RemoteApp 앱 그룹에 대해서는 무시됩니다.
+>- 다중 모니터 모드는 데스크톱 앱 그룹에 대해서만 사용하도록 설정되며 RemoteApp 앱 그룹에 대해서는 무시됩니다.
+>- 모든 기본 RDP 파일 속성은 Azure Portal에 노출됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -132,8 +133,8 @@ CustomRdpProperty : <CustomRDPpropertystring>
 
 이제 지정된 호스트 풀에 대한 RDP 속성을 사용자 지정했으므로 Azure Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 방법 가이드는 선택한 클라이언트를 사용하여 세션에 연결하는 방법을 보여 줍니다.
 
-- [Windows Desktop 클라이언트를 사용하여 연결](connect-windows-7-10.md)
-- [웹 클라이언트를 사용하여 연결](connect-web.md)
-- [Android 클라이언트와 연결](connect-android.md)
-- [macOS 클라이언트와 연결](connect-macos.md)
-- [iOS 클라이언트와 연결](connect-ios.md)
+- [Windows Desktop 클라이언트를 사용하여 연결](./user-documentation/connect-windows-7-10.md)
+- [웹 클라이언트를 사용하여 연결](./user-documentation/connect-web.md)
+- [Android 클라이언트와 연결](./user-documentation/connect-android.md)
+- [macOS 클라이언트와 연결](./user-documentation/connect-macos.md)
+- [iOS 클라이언트와 연결](./user-documentation/connect-ios.md)

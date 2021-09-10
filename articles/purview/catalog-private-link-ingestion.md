@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/18/2021
-ms.openlocfilehash: 85d4abdd9dcd2a1886aa5ba8efdaba6c1ffbbd0b
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: cbdf2220d1b4087376bc40db5b7da167144e5d9b
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122568339"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257192"
 ---
 # <a name="scan-your-data-sources-privately-and-securely"></a>비공개로 안전하게 데이터 원본 검색
 
@@ -87,7 +87,7 @@ Azure Purview는 _수집_ 프라이빗 엔드포인트를 사용하여 Azure 또
 ## <a name="deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources"></a>자체 호스팅 IR(통합 런타임)을 배포하고 데이터 원본을 검사합니다.
 Azure Purview에 대한 수집 프라이빗 엔드포인트를 배포한 후에는 하나 이상의 자체 호스팅 IR(통합 런타임)을 설정하고 등록해야 합니다.
 
-- Azure SQL Server, Oracle, SAP 등의 모든 온-프레미스 원본 유형은 현재 자체 호스팅 IR 기반 검사를 통해서만 지원됩니다. 자체 호스팅 IR은 개인 네트워크 내에서 실행된 다음, Azure에서 가상 네트워크와 피어링되어야 합니다. 
+- Microsoft SQL Server, Oracle, SAP 등의 모든 온-프레미스 원본 유형은 현재 자체 호스팅 IR 기반 검사를 통해서만 지원됩니다. 자체 호스팅 IR은 개인 네트워크 내에서 실행된 다음, Azure에서 가상 네트워크와 피어링되어야 합니다. 
    
 - Azure Blob Storage 및 Azure SQL Database와 같은 모든 Azure 원본 유형의 경우 Azure Purview 수집 프라이빗 엔드포인트와 동일한 VNet에 배포되는 자체 호스팅 통합 런타임을 사용하여 검사를 실행하도록 명시적으로 선택해야 합니다. 
 

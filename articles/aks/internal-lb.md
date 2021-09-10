@@ -5,12 +5,12 @@ description: 내부 부하 분산 장치를 만들고 사용하여 AKS(Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: cbb898d05ecc1f0796f3609adb1368c3d77de2c5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0e55ec0b6066b2b2582adf20acd646117c47f8e4
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779744"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114666461"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치 사용
 
@@ -67,7 +67,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>IP 주소 지정
 
-내부 부하 분산 장치를 통해 특정 IP 주소를 사용하려는 경우 부하 분산 장치 YAML 매니페스트에 *loadBalancerIP* 속성을 추가합니다. 이 시나리오에서 지정된 IP 주소는 AKS 클러스터와 동일한 서브넷에 있어야 하며 아직 리소스에 할당되면 안 됩니다. 예를 들어 Kubernetes 서브넷에 지정된 범위의 IP 주소를 사용하면 안됩니다.
+내부 부하 분산 장치를 통해 특정 IP 주소를 사용하려는 경우 부하 분산 장치 YAML 매니페스트에 *loadBalancerIP* 속성을 추가합니다. 이 시나리오에서 지정된 IP 주소는 AKS 클러스터와 동일한 서브넷에 있어야 하며 아직 리소스에 할당할 수 없습니다. 예를 들어 AKS 클러스터 내의 Kubernetes 서브넷에 지정된 범위의 IP 주소는 사용할 수 없습니다.
 
 ```yaml
 apiVersion: v1

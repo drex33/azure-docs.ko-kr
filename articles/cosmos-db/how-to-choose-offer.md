@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 1cf5d2cd191b787b6981c8c54950ad341e9d3dad
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 969c16216dacba14013f0523589fcd1e5c3bd4d8
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110073669"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123037995"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>표준(수동) 및 자동 크기 조정 프로비저닝된 처리량 중에서 선택하는 방법 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -140,3 +140,6 @@ Azure Cosmos DB [용량 계산기](estimate-ru-with-capacity-planner.md)를 사�
 * [Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db)를 사용하여 기존 워크로드를 모니터링합니다.
 * [Azure Cosmos 데이터베이스 또는 컨테이너에서 자동 크기 조정 처리량을 프로비저닝](how-to-provision-autoscale-throughput.md)하는 방법을 알아봅니다.
 * [자동 크기 조정 FAQ](autoscale-faq.yml)를 검토합니다.
+* Azure Cosmos DB로 마이그레이션하기 위해 용량 계획을 하려고 하십니까? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만을 알고 있는 경우, [vCore 또는 vCPU를 사용하여 요청 단위 추정](convert-vcore-to-request-unit.md)을 참조하세요 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 빈도를 알고 있는 경우 [Azure Cosmos DB Capacity Planner를 사용하여 요청 단위 추정](estimate-ru-with-capacity-planner.md)을 읽어보세요

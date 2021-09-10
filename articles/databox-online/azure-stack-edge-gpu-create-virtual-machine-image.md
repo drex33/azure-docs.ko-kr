@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 07/16/2021
 ms.author: alkohli
-ms.openlocfilehash: a1f6b51c8ab36d779ad2771c1e12de78673e6fc1
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 94ffb38c71437c8f5902866620b5ac0c2467edfd
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902452"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114462918"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스용 사용자 지정 VM 이미지 만들기
 
@@ -27,7 +27,7 @@ Azure Stack Edge Pro GPU 디바이스에 VM을 배포하려면 Azure에서 VM을
 
 VM 이미지를 만들기 전에 다음 필수 구성 요소를 완료합니다.
 
-- [AzCopy를 다운로드합니다](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy는 OS 디스크를 Azure Storage 계정에 복사하는 빠른 방법을 제공합니다.
+- [AzCopy를 다운로드합니다](../storage/common/storage-use-azcopy-v10.md#download-azcopy). AzCopy는 OS 디스크를 Azure Storage 계정에 복사하는 빠른 방법을 제공합니다.
 
 ---
 
@@ -40,9 +40,11 @@ VM 이미지를 만들기 전에 다음 필수 구성 요소를 완료합니다.
 
 다음 단계를 수행하여 Windows VM 이미지를 만듭니다.
 
-1. Azure에서 Windows 가상 머신을 만듭니다. 포털 지침은 [Azure Portal에서 Windows 가상 머신 만들기](/azure/virtual-machines/windows/quick-create-portal)를 참조하세요. PowerShell 지침은 [자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리](../virtual-machines/windows/tutorial-manage-vm.md)를 참조하세요.
+1. Azure에서 Windows 가상 머신을 만듭니다. 포털 지침은 [Azure Portal에서 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md)를 참조하세요. PowerShell 지침은 [자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리](../virtual-machines/windows/tutorial-manage-vm.md)를 참조하세요.  
 
-   가상 머신은 1세대 VM여야 합니다. VM 이미지를 만드는 데 사용하는 OS 디스크는 Azure에서 지원하는 크기의 고정 크기 VHD여야 합니다. VM 크기 옵션은 [지원되는 VM 크기](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes)를 참조하세요.  
+   가상 머신은 1세대 VM여야 합니다. VM 이미지를 만드는 데 사용하는 OS 디스크는 Azure에서 지원하는 크기의 고정 크기 VHD여야 합니다. VM 크기 옵션은 [지원되는 VM 크기](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes)를 참조하세요.
+
+   Azure Marketplace에서는 고정 크기 VHD가 있는 모든 Windows Gen1 VM을 사용할 수 있습니다. 사용 가능한 Azure Marketplace 이미지 목록은 [Azure Stack Edge에 일반적으로 사용되는 Azure Marketplace 이미지](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images)를 참조하세요.
 
 2. 가상 머신을 일반화합니다. VM을 일반화하려면 [가상 머신에 연결하고](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm) 명령 프롬프트를 열고 다음 `sysprep` 명령을 실행합니다.
 
@@ -60,7 +62,7 @@ VM 이미지를 만들기 전에 다음 필수 구성 요소를 완료합니다.
 
 1. Azure에서 Linux 가상 머신을 만듭니다. 포털 지침은 [빠른 시작: Azure Portal에서 Linux VM 만들기](../virtual-machines/linux/quick-create-portal.md)를 참조하세요.  PowerShell 지침은 [빠른 시작: PowerShell을 사용하여 Azure에서 Linux VM 만들기](../virtual-machines/linux/quick-create-powershell.md)를 참조하세요.
 
-   Azure Marketplace에서 고정 크기 VHD로 Gen1 VM을 사용하여 추가 단계가 필요한 RHEL(Red Hat Enterprise Linux) 이미지를 제외하고 Linux 사용자 지정 이미지를 만들 수 있습니다. 사용 가능한 Azure Marketplace 이미지 목록은 [Azure Stack Hub에 사용할 수 있는 Azure Marketplace 항목](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true)을 참조하세요. RHEL 이미지에 대한 지침은 아래 [RHEL BYOS 이미지 사용](#using-rhel-byos-images)을 참조하세요. 
+   Azure Marketplace에서 고정 크기 VHD로 Gen1 VM을 사용하여 추가 단계가 필요한 RHEL(Red Hat Enterprise Linux) 이미지를 제외하고 Linux 사용자 지정 이미지를 만들 수 있습니다. 사용 가능한 Azure Marketplace 이미지 목록은 [Azure Stack Edge에 일반적으로 사용되는 Azure Marketplace 이미지](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images)를 참조하세요. RHEL 이미지에 대한 지침은 아래 [RHEL BYOS 이미지 사용](#using-rhel-byos-images)을 참조하세요.
 
 1. VM의 프로비전을 해제합니다. Azure VM 에이전트를 사용하여 머신별 파일 및 데이터를 삭제합니다. 원본 Linux VM에서 `-deprovision+user` 매개 변수와 함께 `waagent` 명령을 사용합니다. 자세한 내용은 [Azure Linux 에이전트 이해 및 사용](../virtual-machines/extensions/agent-linux.md)을 참조하세요.
 
@@ -98,9 +100,9 @@ RHEL BYOS 이미지를 사용하여 VM 이미지를 만들려면 다음 단계�
 
 VM에 대한 OS 디스크를 Azure 스토리지 계정에 다운로드하려면 다음 단계를 수행합니다.
 
-1. [포털에서 VM을 중지합니다](/azure/virtual-machines/windows/download-vhd#stop-the-vm). 일반화하도록 `sysprep`을 실행한 후 Windows VM이 종료된 경우에도 이 작업을 수행하여 OS 디스크의 할당을 취소해야 합니다.
+1. [포털에서 VM을 중지합니다](../virtual-machines/windows/download-vhd.md#stop-the-vm). 일반화하도록 `sysprep`을 실행한 후 Windows VM이 종료된 경우에도 이 작업을 수행하여 OS 디스크의 할당을 취소해야 합니다.
 
-1. [OS 디스크에 대한 다운로드 URL을 생성](/azure/virtual-machines/windows/download-vhd#generate-download-url)하고 URL을 기록합니다. 기본적으로 URL은 3600초(1시간) 후에 만료됩니다. 필요한 경우 이 시간을 늘릴 수 있습니다.
+1. [OS 디스크에 대한 다운로드 URL을 생성](../virtual-machines/windows/download-vhd.md#generate-download-url)하고 URL을 기록합니다. 기본적으로 URL은 3600초(1시간) 후에 만료됩니다. 필요한 경우 이 시간을 늘릴 수 있습니다.
       
 1. 다음 방법 중 하나를 사용하여 Azure Storage 계정에 VHD를 다운로드합니다.
    
@@ -112,7 +114,7 @@ VM에 대한 OS 디스크를 Azure 스토리지 계정에 다운로드하려면 
 
 ## <a name="copy-vhd-to-storage-account-using-azcopy"></a>AzCopy를 사용하여 VHD를 스토리지 계정에 복사
 
-다음 절차에서는 AzCopy를 사용하여 사용자 지정 VM 이미지를 Azure Storage 계정에 복사하는 방법을 설명합니다. 그러면 이미지를 사용하여 Azure Stack Edge Pro GPU 디바이스에 VM을 배포할 수 있습니다. 사용자 지정 VM 이미지를 Azure Stack Edge Pro GPU 디바이스에 사용 중인 것과 동일한 스토리지 계정에 저장하는 것이 좋습니다. 
+다음 절차에서는 AzCopy를 사용하여 사용자 지정 VM 이미지를 Azure Storage 계정에 복사하는 방법을 설명합니다. 그러면 이미지를 사용하여 Azure Stack Edge Pro GPU 디바이스에 VM을 배포할 수 있습니다. Azure Stack Edge와 동일한 지역/구독에 있는 사용 중인 기존 스토리지 계정에 사용자 지정 VM 이미지를 저장하는 것이 좋습니다.
 
 
 ### <a name="create-target-uri-for-a-container"></a>컨테이너의 대상 URI 만들기
@@ -152,7 +154,7 @@ AzCopy에는 스토리지 계정에서 새 이미지를 복사할 위치를 알�
 
 AzCopy를 사용하여 Blob 컨테이너에 VHD를 복사하려면 다음 단계를 수행합니다.
 
- 1. 아직 AZCopy를 다운로드하지 않은 경우 [AZCopy를 다운로드합니다](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
+ 1. 아직 AZCopy를 다운로드하지 않은 경우 [AZCopy를 다운로드합니다](../storage/common/storage-use-azcopy-v10.md#download-azcopy).
  
  1. PowerShell에서 azcopy.exe를 저장한 디렉터리로 이동하고 다음 명령을 실행합니다.
 

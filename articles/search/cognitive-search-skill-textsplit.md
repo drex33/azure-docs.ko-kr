@@ -2,25 +2,24 @@
 title: 텍스트 분할 인식 기술
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search에서 AI 보강 파이프라인의 길이에 따라 텍스트를 텍스트의 페이지나 청크로 나눕니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 52aaeb01fef551eee350c6db662c2690ef7b3e78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: e5b907b89491721d2529f2caa303fc9e77d47169
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84981951"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567490"
 ---
 # <a name="text-split-cognitive-skill"></a>텍스트 분할 인식 기술
 
 **분할 텍스트** 기술은 텍스트를 텍스트의 청크로 나눕니다. 텍스트를 문장으로 또는 특정 길이의 페이지로 나눌 것인지 여부를 지정할 수 있습니다. 이 기술은 다른 기술 다운스트림에서 최대 텍스트 길이 요구 사항이 있는 경우 특히 유용합니다. 
 
 > [!NOTE]
-> 이 기술은 Cognitive Services API에 바인딩되지 않으며 사용 요금이 부과되지 않습니다. 그렇지만 **무료** 리소스 옵션을 재정의하여 일별 보강 횟수를 낮게 제한하려면 계속해서 [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다.
+> 이 기술은 Cognitive Services에 바인딩되지 않습니다. 청구할 수 없으며 Cognitive Services 주요 요구 사항이 없습니다.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -29,11 +28,11 @@ Microsoft.Skills.Text.SplitSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | Description |
+| 매개 변수 이름     | 설명 |
 |--------------------|-------------|
-| `textSplitMode`    | "페이지" 또는 "문장" 중 하나 | 
-| `maximumPageLength` | TextSplitMode가 "페이지"로 설정되는 경우 이는 `String.Length`에 의해 측정된 대로 최대 페이지 길이를 참조합니다. 최소값은 300입니다.  textSplitMode가 "pages"로 설정된 경우 알고리즘은 텍스트를 최대 "maximumPageLength" 크기의 청크로 분할하려고 합니다. 이 경우 알고리즘은 청크 크기가 "maximumPageLength"보다 약간 더 작을 수 있게 문장 경계에서 문장을 나누기 위해 최선을 다합니다. | 
-| `defaultLanguageCode` | (선택 사항) 다음 언어 코드 `da, de, en, es, fi, fr, it, ko, pt` 중 하나입니다. 기본값은 영어(en)입니다. 고려할 사항은 다음과 같습니다.<ul><li>languagecode-countrycode 형식을 전달하는 경우 형식의 languagecode 부분만 사용됩니다.</li><li>언어가 이전 목록에 없는 경우 분할 기술은 문자를 경계로 텍스트를 나눕니다.</li><li>언어 코드를 제공하면 중국어, 일본어, 한국어 등 비공백 언어에 대해 단어를 반으로 줄이지 못하게 하는 데 유용합니다.</li><li>언어를 모르는 경우(예: 입력 텍스트를 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)로 분할해야 하는 경우) 영어(en)의 기본값은 충분해야 합니다. </li></ul>  |
+| `textSplitMode`    | `pages` 또는 `sentences` | 
+| `maximumPageLength` | `textSplitMode`가 `pages`로 설정된 경우에만 적용됩니다. 이 값은 `String.Length`로 측정된 최대 페이지 길이(문자 수)를 나타냅니다. 최솟값은 300이고 최댓값은 100,000이며, 기본값은 10,000입니다.  알고리즘은 문장 경계에서 텍스트를 분할하려고 하므로 각 청크 크기가 `maximumPageLength`보다 약간 작을 수 있습니다. | 
+| `defaultLanguageCode` | (선택 사항) 다음 언어 코드 `am, bs, cs, da, de, en, es, et, fr, he, hi, hr, hu, fi, id, is, it, ja, ko, lv, no, nl, pl, pt-PT, pt-BR, ru, sk, sl, sr, sv, tr, ur, zh-Hans` 중 하나입니다. 기본값은 영어(en)입니다. 고려할 사항은 다음과 같습니다.<ul><li>언어 코드를 제공하면 중국어, 일본어, 한국어 등 비공백 언어에 대해 단어를 반으로 줄이지 못하게 하는 데 유용합니다.</li><li>언어를 모르는 경우(예: 입력 텍스트를 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)로 분할해야 하는 경우) 영어(en)의 기본값은 충분해야 합니다. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>기술 입력
@@ -41,7 +40,7 @@ Microsoft.Skills.Text.SplitSkill
 | 매개 변수 이름       | Description      |
 |----------------------|------------------|
 | `text`    | 하위 문자열로 분할될 텍스트입니다. |
-| `languageCode`    | (선택 사항) 문서에 대한 언어 코드입니다. 언어를 모르는 경우(예: 입력 텍스트를 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)로 분할해야 하는 경우) 이 입력을 제거하는 것이 안전합니다.  |
+| `languageCode`    | (선택 사항) 문서에 대한 언어 코드입니다. 언어를 모르는 경우(예: 입력 텍스트를 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)로 분할해야 하는 경우) 이 입력을 제거하는 것이 안전합니다. 언어가 위의 `defaultLanguageCode` 매개 변수에 대해 지원되는 목록에 없는 경우 경고가 표시되고 텍스트가 분할되지 않습니다.  |
 
 ## <a name="skill-outputs"></a>기술 출력 
 
@@ -128,7 +127,7 @@ Microsoft.Skills.Text.SplitSkill
 ```
 
 ## <a name="error-cases"></a>오류 사례
-언어가 지원되지 않는 경우 경고가 생성되고 텍스트가 문자를 경계로 분할됩니다.
+언어가 지원되지 않으면 경고가 생성됩니다.
 
 ## <a name="see-also"></a>참고 항목
 

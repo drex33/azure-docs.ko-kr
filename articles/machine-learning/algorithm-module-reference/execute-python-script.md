@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: devx-track-python
+ms.custom: devx-track-python, has-adal-ref
 author: likebupt
 ms.author: keli19
-ms.date: 01/02/2021
-ms.openlocfilehash: 6003ca9156d8553604d7ebbf94c5c3373d077f0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/15/2021
+ms.openlocfilehash: d4ac33619d653b99de32dcd86cf226f217382f43
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102500702"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539198"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -162,8 +162,8 @@ Python 스크립트 실행 모듈에는 시작점으로 사용할 수 있는 샘
     
     업로드된 압축 보관 계층에 포함된 모든 파일은 파이프라인 실행 중에 사용할 수 있습니다. 보관 계층에 디렉터리 구조가 포함되어 있으면 구조가 유지됩니다.
  
-    > [!WARNING]
-    > **app** 은 기본 제공 서비스의 예약어이므로 폴더 또는 스크립트의 이름으로 **app** 을 사용하지 **마세요**. 그러나`app123` 같은 다른 네임스페이스를 사용할 수 있습니다.
+    > [!IMPORTANT]
+    > 일부 일반적인 단어(예: `test`, `app` 등)는 기본 제공 서비스용으로 예약되어 있으므로 스크립트 번들에서 파일에 대해 고유하고 의미 있는 이름을 사용하세요.
    
     다음은 Python 스크립트 파일 및 txt 파일이 포함된 스크립트 번들 예제입니다.
       

@@ -10,14 +10,16 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a47d0d99dd4ca3db9098222f62d73fc4ea258d1b
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: a12e378b91f2b303e80b739be3b8e9efea4262ec
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027986"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691079"
 ---
 # <a name="create-a-scale-set-from-a-specialized-image-using-powershell"></a>PowerShell을 사용하여 특수 이미지에서 확장 집합 만들기 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 균일 확장 집합
 
 Azure PowerShell을 사용하여 [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)에 저장된 특수 이미지 버전에서 VM을 만듭니다. 일반화된 이미지 버전을 사용하여 확장 집합을 만들려면 [일반화된 이미지 버전에서 확장 집합 인스턴스 만들기](instance-generalized-image-version-powershell.md)를 참조하세요.
 

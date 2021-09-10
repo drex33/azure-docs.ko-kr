@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: memildin
-ms.openlocfilehash: b48adf5e6c2c7b91e98ef410c71802b5d47d2845
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b7c8003bd40df21fb749fcb576afeaec5dacead9
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459792"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236844"
 ---
 # <a name="manage-security-policies"></a>보안 정책 관리
 
@@ -35,7 +35,7 @@ Security Center에서 보안 정책을 보려면
 
 1. **Security Center** 대시보드에서 **보안 정책** 을 선택합니다.
 
-    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="정책 관리 페이지":::
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="정책 관리 페이지.":::
 
    **정책 관리** 화면에서 관리 그룹 구조뿐만 아니라 관리 그룹, 구독 및 작업 영역 수를 확인할 수 있습니다.
 
@@ -56,7 +56,7 @@ Security Center에서 보안 정책을 보려면
 
     1. 기본 이니셔티브를 보고 편집하려면 **실제 정책 보기** 를 선택하고 아래에 설명된 대로 진행합니다. 
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="실제 정책 화면":::
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="실제 정책 화면.":::
 
        이런 **보안 정책** 화면에는 선택한 구독 또는 관리 그룹에 할당된 정책에서 수행된 활동이 표시됩니다.
        
@@ -80,7 +80,7 @@ Security Center에서 보안 정책을 보려면
 
 1. Security Center의 **정책 및 준수** 섹션에서 **보안 정책** 을 선택합니다.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Azure Security Center에서 정책 관리 프로세스 시작":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Azure Security Center에서 정책 관리 프로세스 시작.":::
 
 1. 사용하지 않으려는 권장 사항(및 정책)에 대해 구독 또는 관리 그룹을 선택합니다.
 
@@ -93,7 +93,7 @@ Security Center에서 보안 정책을 보려면
 
 1. 드롭다운 목록에서 해당 정책에 대한 값을 **사용하지 않음** 으로 변경합니다.
 
-   ![정책 사용 안함](./media/tutorial-security-policy/disable-policy.png)
+   ![정책을 사용하지 않도록 설정합니다.](./media/tutorial-security-policy/disable-policy.png)
 
 1. **저장** 을 선택합니다.
 
@@ -109,7 +109,7 @@ Security Center에서 보안 정책을 보려면
 
 1. Security Center의 **정책 및 준수** 섹션에서 **보안 정책** 을 선택합니다.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Azure Security Center에서 정책 관리 프로세스 시작":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Azure Security Center에서 정책 관리 프로세스 시작.":::
 
 1. 권장 사항(및 정책)을 사용하려는 구독 또는 관리 그룹을 선택합니다.
 

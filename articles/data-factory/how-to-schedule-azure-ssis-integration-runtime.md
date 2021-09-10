@@ -2,17 +2,18 @@
 title: Azure-SSIS Integration Runtime을 예약하는 방법
 description: 이 문서에서는 Azure Data Factory를 사용하여 Azure-SSIS 통합 런타임의 시작 및 중지를 예약하는 방법을 설명합니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 06/04/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 40c3b8ab228c93fd4c681281d89d16f88ddf30f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dec61a586c744fd8a5f537bf5a593b7409a1636e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100384370"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528668"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
 
@@ -79,9 +80,9 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 
 ### <a name="create-your-pipelines"></a>파이프라인 만들기
 
-1. **시작하기** 페이지에서 **파이프라인 만들기** 를 선택합니다. 
+1. 홈페이지에서 **오케스트레이션** 을 선택합니다. 
 
-   ![시작 페이지](./media/how-to-schedule-azure-ssis-integration-runtime/get-started-page.png)
+   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
    
 2. **작업** 도구 상자에서 **일반** 메뉴를 펼치고, **웹** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 작업 속성 창의 **일반** 탭에서 작업 이름을 **startMyIR** 로 변경합니다. **설정** 탭으로 전환하고, 다음 작업을 수행합니다.
 

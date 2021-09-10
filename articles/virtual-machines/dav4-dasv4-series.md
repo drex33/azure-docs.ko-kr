@@ -8,14 +8,16 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.reviewer: jushiman
-ms.openlocfilehash: 4793743dfbc8fbdd7481d4248cc39ec4d50b7caf
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 054a15fe800152981ce494aca4abe26a996a173c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539215"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687541"
 ---
 # <a name="dav4-and-dasv4-series"></a>Dav4 및 Dasv4 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 Dav4 및 Dasv4 시리즈는 최대 256MB L3 캐시의 다중 스레드 구성으로 AMD의 2.35Ghz EPYC<sup>TM</sup> 7452 프로세서를 활용하는 새로운 크기로, 모든 8개 코어에 해당 L3 캐시 중 8MB를 전용으로 지정하여 범용 워크로드 실행을 위한 고객 옵션을 늘립니다. Dav4 시리즈와 Dasv4 시리즈는 D 및 Dsv3 시리즈와 동일한 메모리 및 디스크 구성을 가집니다.
 

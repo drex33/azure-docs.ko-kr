@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.openlocfilehash: 6bce6f011086d9855c4da2739addbb34e661e2d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8171d29dfe88ea34d02d7f48567aeb2df46a8a7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507486"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694138"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대한 참조 아키텍처
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 이 가이드에서는 Azure에 고가용성 Oracle 데이터베이스를 배포하는 방법을 자세히 설명합니다. 또한 이 가이드에서는 재해 복구 시 고려 사항을 자세히 살펴봅니다. 이러한 아키텍처는 고객 배포를 기반으로 작성되었습니다. 이 가이드는 Oracle Database Enterprise Edition에만 적용됩니다.
 
@@ -207,12 +209,12 @@ Oracle Data Guard는 시스템 관리형 분할, 사용자 정의 분할 및 복
 
 Oracle 워크로드를 Azure에 배포하면 모든 호스트 OS 수준 패치를 Microsoft에서 처리합니다. 고객이 계획된 유지 관리에 대비할 수 있도록 계획된 OS 수준 유지 관리 일정이 고객에게 미리 전달됩니다. 서로 다른 두 가용성 영역의 두 서버가 동시에 패치되는 일은 절대 없습니다. VM 유지 관리 및 패치에 대한 자세한 내용은 [가상 머신의 가용성 관리](../../availability.md)를 참조하세요. 
 
-[Azure Automation 업데이트 관리](../../../automation/update-management/overview.md)를 사용하여 가상 머신 운영 체제 패치를 자동화할 수 있습니다. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) 또는 [Azure Automation 업데이트 관리](../../../automation/update-management/overview.md)를 사용하여 Oracle 데이터베이스의 패치 및 유지 관리를 자동화하고 예약하면 가동 중지 시간을 최소화할 수 있습니다. Oracle 데이터베이스의 컨텍스트에서 사용하는 방법을 알아보려면 [지속적인 업데이트 및 청록색 배포](/azure/devops/learn/what-is-continuous-delivery)를 참조하세요.
+[Azure Automation 업데이트 관리](../../../automation/update-management/overview.md)를 사용하여 가상 머신 운영 체제 패치를 자동화할 수 있습니다. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) 또는 [Azure Automation 업데이트 관리](../../../automation/update-management/overview.md)를 사용하여 Oracle 데이터베이스의 패치 및 유지 관리를 자동화하고 예약하면 가동 중지 시간을 최소화할 수 있습니다. Oracle 데이터베이스의 컨텍스트에서 사용하는 방법을 알아보려면 [지속적인 업데이트 및 청록색 배포](/devops/deliver/what-is-continuous-delivery)를 참조하세요.
 
 ## <a name="architecture-and-design-considerations"></a>아키텍처 및 디자인 고려 사항
 
 - 라이선스 비용을 절감하고 성능을 최대화하기 위해 [제약이 있는 코어 vCPU](../../../virtual-machines/constrained-vcpu.md)가 포함된 하이퍼스레드 [메모리 최적화 가상 머신](../../sizes-memory.md)을 Oracle Database VM에 사용하는 것이 좋습니다. 성능과 고가용성을 위해 여러 프리미엄 또는 울트라 디스크(관리 디스크)를 사용합니다.
-- 관리 디스크를 사용하는 경우 재부팅 시 디스크/디바이스 이름이 변경될 수 있습니다. 다시 부팅해도 탑재가 유지되도록 이름 대신 디바이스 UUID를 사용하는 것이 좋습니다. 자세한 내용은 [여기](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab)를 참조하세요.
+- 관리 디스크를 사용하는 경우 재부팅 시 디스크/디바이스 이름이 변경될 수 있습니다. 다시 부팅해도 탑재가 유지되도록 이름 대신 디바이스 UUID를 사용하는 것이 좋습니다. 자세한 내용은 [Linux VM에서 소프트웨어 RAID 구성](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab)을 참조하세요.
 - 가용성 영역을 사용하여 지역 내 고가용성을 구현합니다.
 - Oracle 데이터베이스에 울트라 디스크(사용 가능한 경우) 또는 프리미엄 디스크를 사용하는 것이 좋습니다.
 - Oracle Data Guard를 사용하여 다른 Azure 지역에 대기 Oracle 데이터베이스를 설정하는 것이 좋습니다.

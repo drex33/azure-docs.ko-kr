@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
 ms.date: 7/8/2021
-ms.openlocfilehash: ca9bfaa6155c2d0f4600ed56bf5a3cab3880274c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bd5a9d64b237fe8c6591cac841b13f96a9c16f1d
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535494"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864455"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -141,6 +141,11 @@ GO
 ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
+
+> [!NOTE]
+> [지역 복제](active-geo-replication-overview.md) 관계의 일부인 데이터베이스(주 또는 보조)를 하이퍼스케일로 이동하려면 복제를 중지해야 합니다. [장애 조치(failover) 그룹](auto-failover-group-overview.md)의 데이터베이스는 먼저 그룹에서 제거해야 합니다.
+>
+> 데이터베이스가 하이퍼스케일로 이동된 후에는 해당 데이터베이스에 대해 새 하이퍼스케일 지역 복제본을 만들 수 있습니다. 하이퍼스케일에 대한 지역 복제는 미리 보기 상태이며 일부 [제한 사항](active-geo-replication-overview.md)이 있습니다.
 
 ## <a name="database-high-availability-in-hyperscale"></a>하이퍼스케일의 데이터베이스 고가용성
 

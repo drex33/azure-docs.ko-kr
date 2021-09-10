@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2255a076693abb496c8a3823e4e90420f0729a0c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e769e5a8e35854d0b871ed8ecd9bc343cdcc04b6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673128"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697034"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>암호화된 디바이스에서 LVM 및 RAID 구성
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서는 암호화된 디바이스에서 LVM(Logical Volume Management) 및 RAID를 수행하는 방법에 대한 단계별 프로세스입니다. 프로세스는 다음 환경에 적용됩니다.
 

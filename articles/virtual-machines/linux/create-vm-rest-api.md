@@ -7,14 +7,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af006f25733344ebd272087b897130f895478685
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554567"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689766"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure의 Linux VM(가상 머신)은 디스크, 네트워크 인터페이스 같은 다양한 리소스로 구성되며 위치, 크기, 운영 체제 이미지 및 인증 설정 등의 매개 변수를 정의합니다.
 

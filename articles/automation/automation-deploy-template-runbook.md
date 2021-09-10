@@ -7,16 +7,16 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: 20dbf9f9bbf97ed0c24ea3a525c56c7cde2db428
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 7ea0e8209d244ad2b95e201ec7eb1e84f2038887
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834843"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587772"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>PowerShell Runbook에 Azure Resource Manager 템플릿 배포
 
-[Azure Resource Management 템플릿](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)을 사용하여 Azure 리소스를 배포하는 [Azure Automation PowerShell Runbook](./learn/automation-tutorial-runbook-textual-powershell.md)을 작성할 수 있습니다. 템플릿을 사용하면 Azure Automation을 사용하여 Azure 리소스 배포를 자동화할 수 있습니다. Azure Storage와 같은 안전한 중앙 위치에서 Resource Manager 템플릿을 유지 관리할 수 있습니다.
+[Azure Resource Manager 템플릿](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)을 사용하여 Azure 리소스를 배포하는 [Azure Automation PowerShell Runbook](./learn/automation-tutorial-runbook-textual-powershell.md)을 작성할 수 있습니다. 템플릿을 사용하면 Azure Automation을 사용하여 Azure 리소스 배포를 자동화할 수 있습니다. Azure Storage와 같은 안전한 중앙 위치에서 Resource Manager 템플릿을 유지 관리할 수 있습니다.
 
 이 문서에서는 [Azure Storage](../storage/common/storage-introduction.md)에 저장된 Resource Manager 템플릿을 사용하여 새 Azure Storage 계정을 배포하는 PowerShell Runbook을 만듭니다.
 

@@ -15,22 +15,22 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: ab57e66ff37fb31a91a1949896a4e7736669d6c6
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 0f9d98eb2a4fe09728a890af59b4c54afbed3737
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078926"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112291658"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Azure 빠른 시작 템플릿을 사용하여 Azure VM에서 SQL Server에 대한 가용성 그룹 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 이 문서에서는 Azure 빠른 시작 템플릿을 사용하여 Azure에서 SQL Server VM(가상 머신)에 대한 Always On 가용성 그룹 구성의 배포를 부분적으로 자동화하는 방법을 설명합니다. 이 프로세스에는 두 가지 Azure 빠른 시작 템플릿이 사용됩니다. 
 
-   | 템플릿 | Description |
+   | 템플릿 | 설명 |
    | --- | --- |
-   | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Windows 장애 조치(failover) 클러스터를 만들고 SQL Server VM을 연결합니다. |
-   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | 가용성 그룹 수신기를 만들고 내부 Load Balancer를 구성합니다. 이 템플릿은 Windows 장애 조치(failover) 클러스터가 **101-sql-vm-ag-setup** 템플릿으로 생성된 경우에만 사용할 수 있습니다. |
+   | [sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-ag-setup) | Windows 장애 조치(failover) 클러스터를 만들고 SQL Server VM을 연결합니다. |
+   | [sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) | 가용성 그룹 수신기를 만들고 내부 Load Balancer를 구성합니다. 이 템플릿은 Windows 장애 조치(failover) 클러스터가 **101-sql-vm-ag-setup** 템플릿으로 생성된 경우에만 사용할 수 있습니다. |
    | &nbsp; | &nbsp; |
 
 가용성 그룹 만들기 및 내부 Load Balancer 만들기와 같은 가용성 그룹 구성의 기타 부분은 수동으로 수행해야 합니다. 이 문서에서는 자동 및 수동 단계의 시퀀스를 제공합니다.
@@ -60,7 +60,7 @@ SQL Server VM이 SQL IaaS 에이전트 확장에 등록된 후 SQL Server VM을 
 
 *SqlVirtualMachineGroups* 리소스 그룹에 SQL Server VM을 추가하면 Windows 장애 조치(failover) 클러스터 서비스가 클러스터를 만들도록 부트스트랩된 다음, 해당 SQL Server VM이 클러스터에 연결됩니다. 이 단계는 **101-sql-vm-ag-setup** 빠른 시작 템플릿을 사용하여 자동화됩니다. 다음 단계를 사용하여 구현할 수 있습니다.
 
-1. [**101-sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) 빠른 시작 템플릿으로 이동합니다. 그런 다음 **Azure에 배포** 를 선택하여 Azure Portal에서 빠른 시작 템플릿을 엽니다.
+1. [**sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-ag-setup) 빠른 시작 템플릿으로 이동합니다. 그런 다음 **Azure에 배포** 를 선택하여 Azure Portal에서 빠른 시작 템플릿을 엽니다.
 1. 필수 필드에 정보를 입력하여 Windows 장애 조치(failover) 클러스터 메타데이터를 구성합니다. 선택적 필드는 비워 둘 수 있습니다.
 
    다음 표에는 템플릿에 필요한 값이 나와 있습니다. 
@@ -90,7 +90,7 @@ SQL Server VM이 SQL IaaS 에이전트 확장에 등록된 후 SQL Server VM을 
 
 ## <a name="configure-quorum"></a>쿼럼 구성
 
-디스크 감시는 가장 탄력적으로 수행되는 쿼럼 옵션이지만 가용성 그룹에 몇 가지 제한을 적용하는 Azure 공유 디스크가 필요합니다. 따라서 클라우드 감시는 Azure VM의 SQL Server에 대한 가용성 그룹을 호스팅하는 클러스터에 권장되는 쿼럼 솔루션입니다. 
+디스크 감시는 가장 탄력적으로 수행되는 쿼럼 옵션이지만 가용성 그룹에 몇 가지 제한을 적용하는 Azure 공유 디스크가 필요합니다. 따라서 클라우드 감시는 Azure VM의 SQL Server에 대한 가용성 그룹을 호스트하는 클러스터에 권장되는 쿼럼 솔루션입니다. 
 
 클러스터에 짝수 투표가 있는 경우 비즈니스 요구에 가장 적합한 [쿼럼 솔루션](hadr-cluster-quorum-configure-how-to.md)을 구성합니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-windows-server-failover-cluster-overview.md#quorum)을 참조하세요. 
 
@@ -115,7 +115,7 @@ FCM(장애 조치(Failover) 클러스터 관리자)를 사용하거나 다음 Po
 
 [!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
 
-Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 내부 인스턴스가 필요합니다. 내부 부하 분산 장치는 더 빠른 장애 조치(failover) 및 다시 연결을 허용하는 가용성 그룹 수신기에 대한 "부동" IP 주소를 제공합니다. 가용성 그룹의 SQL Server VM이 동일한 가용성 집합의 일부인 경우 기본 부하 분산 장치를 사용할 수 있습니다. 그렇지 않으면 표준 부하 분산 장치를 사용해야 합니다. 
+Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 내부 인스턴스가 필요합니다. 내부 Load Balancer는 더 빠른 장애 조치(failover) 및 다시 연결을 허용하는 가용성 그룹 수신기에 대한 "부동" IP 주소를 제공합니다. 가용성 그룹의 SQL Server VM이 동일한 가용성 집합의 일부인 경우 기본 부하 분산 장치를 사용할 수 있습니다. 그렇지 않으면 표준 부하 분산 장치를 사용해야 합니다. 
 
 > [!IMPORTANT]
 > 내부 부하 분산 장치는 SQL Server VM 인스턴스와 동일한 가상 네트워크에 있어야 합니다. 
@@ -161,7 +161,7 @@ Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 �
    
    
 내부 부하 분산 장치를 구성하고 가용성 그룹 수신기를 만들려면 다음을 수행합니다.
-1. [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) 빠른 시작 템플릿으로 이동한 다음, **Azure에 배포** 를 선택하여 Azure Portal 내에서 빠른 시작 템플릿을 시작합니다.
+1. [sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) 빠른 시작 템플릿으로 이동한 다음, **Azure에 배포** 를 선택하여 Azure Portal 내에서 빠른 시작 템플릿을 시작합니다.
 1. 필수 필드에 정보를 입력하여 내부 Load Balancer를 구성하고 가용성 그룹 수신기를 만듭니다. 선택적 필드는 비워 둘 수 있습니다. 
 
    다음 표에는 템플릿에 필요한 값이 나와 있습니다. 

@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/20/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 04f922d747ef535402baf664f5232e376f43cff2
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 10489579d95628399e94bad5dcab256a3df4bf74
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531062"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309878"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>기존 NPS(네트워크 정책 서버) 인프라와 Azure AD Multi-Factor Authentication 통합
 
@@ -32,7 +32,9 @@ Azure AD Multi-Factor Authentication의 NPS 확장을 사용하는 경우 인증
 1. **NAS/VPN 서버** - VPN 클라이언트로부터 요청을 받고, 이 요청을 NPS 서버에 대한 RADIUS 요청으로 변환합니다.
 2. **NPS 서버** - AD DS(Active Directory Domain Services)에 연결하여 RADIUS 요청에 대한 기본 인증을 수행하고, 성공하면 요청을 설치된 모든 확장에 전달합니다.  
 3. **NPS 확장** - 보조 인증을 위해 Azure AD Multi-Factor Authentication에 대한 요청을 트리거합니다. 확장에서 응답을 받고 MFA 요청이 성공하면 Azure STS에서 발급한 MFA 클레임이 포함된 보안 토큰을 NPS 서버에 제공하여 인증 요청을 완료합니다.
-4. **Azure MFA** - Azure AD(Azure Active Directory)와 통신하여 사용자의 세부 정보를 검색하고 구성된 인증 방법을 사용하여 사용자에게 보조 인증을 수행합니다.
+   >[!NOTE]
+   >사용자는 기본 인증 방법에 액세스할 수 있어야 MFA 요구 사항을 완료할 수 있습니다. 대체 방법을 선택할 수는 없습니다. 기본 인증 방법은 테넌트 인증 방법과 MFA 정책에서 사용하지 않도록 설정된 경우에도 사용됩니다.
+1. **Azure MFA** - Azure AD(Azure Active Directory)와 통신하여 사용자의 세부 정보를 검색하고 구성된 인증 방법을 사용하여 사용자에게 보조 인증을 수행합니다.
 
 다음 다이어그램에서는 이러한 높은 수준의 인증 요청 흐름을 보여 줍니다.
 

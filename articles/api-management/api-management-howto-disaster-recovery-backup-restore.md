@@ -3,23 +3,18 @@ title: API Management에서 백업 및 복원을 사용하여 재해 복구 구�
 titleSuffix: Azure API Management
 description: Azure API Management에서 백업 및 복원을 사용하여 재해 복구를 수행하는 방법에 대해 알아봅니다.
 services: api-management
-documentationcenter: ''
 author: mikebudzynski
-manager: erikre
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/05/2020
+ms.date: 08/20/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8148cbd1fa4e34610c4b27609910821323a2acea
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e3b47f38c8ff72c01fb26772cef76bc841d2b1e4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528523"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693381"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -57,38 +52,32 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 ### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. API Management 서비스 인스턴스를 포함하는 구독을 사용하여 **Azure Active Directory** 의 **앱 등록** 탭으로 이동합니다(Azure Active Directory > [관리/앱 등록]).
-
+1. 해당 API Management 서비스 인스턴스가 포함된 구독을 사용하여 [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)으로 이동하여 Active Directory에 앱을 등록합니다.
     > [!NOTE]
     > Azure Active Directory 기본 디렉터리에 사용자의 계정이 표시되지 않는 경우, 계정에 필요한 권한을 부여하려면 Azure 구독의 관리자에게 문의하세요.
+1. **+ 새 등록** 을 선택합니다.
+1. **애플리케이션 등록** 페이지에서 다음과 같이 값을 설정합니다.
+    
+    * **Name** 을 의미 있는 이름으로 설정합니다.
+    * **지원되는 계정 유형** 을 **이 조직 디렉터리에만 있는 계정** 으로 설정합니다. 
+    * **리디렉션 URI** 에서 자리 표시자 URL을 입력합니다(예: `https://resources`). 필수 필드이지만 나중에 값을 사용하지 않습니다. 
+    * **등록** 을 선택합니다.
 
-3. **새 애플리케이션 등록** 을 클릭합니다.
+### <a name="add-permissions"></a>권한 추가
 
-    **만들기** 창이 오른쪽에 나타납니다. 여기에 AAD 앱 관련 정보를 입력합니다.
-
-4. 애플리케이션의 이름을 입력합니다.
-5. 애플리케이션 형식에서 **네이티브** 를 선택합니다.
-6. **리디렉션 URI** 로 `http://resources`와 같은 자리 표시자 URL을 입력하고, 필수 필드지만 값은 나중에 사용되지 않습니다. 애플리케이션을 저장하려면 이 확인란을 클릭합니다.
-7. **만들기** 를 클릭합니다.
-
-### <a name="add-an-application"></a>애플리케이션 추가
-
-1. 애플리케이션을 만든 후 **API 권한** 을 클릭합니다.
-2. **+ 권한 추가** 를 클릭합니다.
-4. **Microsoft API 선택** 을 누릅니다.
-5. **Azure 서비스 관리** 를 선택합니다.
-6. **선택** 을 누릅니다.
+1. 애플리케이션을 만든 후 **API 권한** >  **+ 권한 추가** 를 선택합니다.
+1. **Microsoft API** 를 선택합니다.
+1. **Azure 서비스 관리** 를 선택합니다.
 
     :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="앱 사용 권한을 추가하는 방법을 보여주는 스크린샷."::: 
 
-7. 새로 추가된 애플리케이션 옆에 있는 **위임된 권한** 을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
+1. 새로 추가된 애플리케이션 옆에 있는 **위임된 권한** 을 클릭하고, **조직 사용자로 Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
 
     :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="위임된 앱 사용 권한을 추가하는 것을 보여주는 스크린샷.":::
 
-8. **선택** 을 누릅니다.
-9. **권한 추가** 를 클릭합니다.
+1. **권한 추가** 를 선택합니다.
 
-### <a name="configuring-your-app"></a>앱 구성
+### <a name="configure-your-app"></a>앱 구성
 
 백업을 생성하고 복원하는 API를 호출하기 전에 토큰을 가져와야 합니다. 다음 예제는 [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet 패키지를 사용하여 토큰을 검색합니다.
 
@@ -137,6 +126,9 @@ namespace GetTokenResourceManagerRequests
 
 REST API는 [API Management 서비스 - 백업](/rest/api/apimanagement/2020-12-01/api-management-service/backup) 및 [API Management 서비스 - 복원](/rest/api/apimanagement/2020-12-01/api-management-service/restore)입니다.
 
+> [!NOTE]
+> PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) 및 [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) 명령을 통해 백업 및 복원 작업을 각각 수행할 수도 있습니다.
+
 다음 섹션에서 설명한 "백업 및 복원 작업"을 호출하기 전에 REST 호출에 대한 권한 부여 요청 헤더를 설정합니다.
 
 ```csharp
@@ -156,7 +148,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 백업하려는 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
 -   `serviceName` - 백업을 만드는 API Management 서비스를 만들 때 지정하는 이름입니다.
--   `api-version` - `2020-12-01`로 바꿉니다.
+-   `api-version` - 지원되는 REST API 버전(예: `2020-12-01`)으로 바꿉니다.
 
 요청 본문에서 대상 Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 지정합니다.
 
@@ -208,14 +200,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 >
 > 복원 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성에 적용된 **변경 내용** 을 **덮어쓸 수 있습니다**.
 
-<!-- Dummy comment added to suppress markdown lint warning -->
-
-> [!NOTE]
-> PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) 및 [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) 명령을 통해 백업 및 복원 작업을 각각 수행할 수도 있습니다.
-
 ## <a name="constraints-when-making-backup-or-restore-request"></a>백업 또는 복원 요청을 만들 때의 제약 조건
 
--   요청 본문에 지정된 **Container** 가 **있어야 합니다**.
 -   백업이 진행되는 동안에는 SKU 업그레이드 또는 다운그레이드, 도메인 이름 변경과 같은 **서비스에서 관리 변경을 피하세요**.
 -   백업 복원은 생성 시점부터 **30일 동안만 보장** 됩니다.
 -   백업 작업이 진행되는 동안 API, 정책 및 개발자 포털 모양 등의 서비스 구성을 **변경** 하는 경우 **해당 내용이 백업에서 제외되고 손실될 수 있습니다**.

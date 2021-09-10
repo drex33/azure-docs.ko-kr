@@ -4,17 +4,17 @@ description: Azure Portal을 사용하여 Azure Virtual Desktop 호스트 풀을
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 07/20/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 34faa055eb14841d1b35d81e62c74fef92c80bac
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 49c453f4ffcb2fac04b42f4956768e06ab8fce8f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707062"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123100827"
 ---
-# <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
+# <a name="tutorial-create-a-host-pool"></a>자습서: 호스트 풀 만들기
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 통해 Azure Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md)를 참조하세요. Azure Virtual Desktop(클래식)으로 만든 개체는 Azure Portal로 관리할 수 없습니다.
@@ -50,7 +50,7 @@ Azure Virtual Desktop용 원격 앱 스트리밍을 사용하여 고객에게 �
 
 - 최종 사용자에게 조직의 앱을 제공할 계획이라면 실제로 해당 앱이 준비되어 있는지 확인하세요. 자세한 내용은 [Azure Virtual Desktop을 사용하여 사용자 지정 앱을 호스트하는 방법](./remote-app-streaming/custom-apps.md)을 참조하세요.
 - 기존 Azure 갤러리 이미지 옵션이 요구 사항을 충족하지 않는 경우 세션 호스트 VM에 대한 고유한 사용자 지정 이미지도 만들어야 합니다. VM 이미지를 만드는 방법에 대한 자세한 내용은 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](../virtual-machines/windows/prepare-for-upload-vhd-image.md) 및 [Azure에서 일반화된 VM의 관리 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)를 참조하세요.
-- 도메인 조인 자격 증명 Azure Virtual Desktop과 호환되는 ID 관리 시스템이 아직 없는 경우 호스트 풀에 대한 ID 관리를 설정해야 합니다.
+- 도메인 조인 자격 증명 Azure Virtual Desktop과 호환되는 ID 관리 시스템이 아직 없는 경우 호스트 풀에 대한 ID 관리를 설정해야 합니다. 자세한 내용은 [관리 ID 설정](./remote-app-streaming/identities.md)을 참조하세요.
 
 ### <a name="final-requirements"></a>최종 요구 사항
 
@@ -61,6 +61,8 @@ Azure Virtual Desktop용 원격 앱 스트리밍을 사용하여 고객에게 �
 마지막으로 Azure 구독이 아직 없다면 이 지침을 따르기 전에 먼저 [계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 해야 합니다.
 
 ## <a name="begin-the-host-pool-setup-process"></a>호스트 풀 설정 프로세스 시작
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
 
 새 호스트 풀 만들기를 시작하려면 다음을 수행합니다.
 
@@ -110,13 +112,42 @@ Azure Virtual Desktop용 원격 앱 스트리밍을 사용하여 고객에게 �
 
 11. 가상 머신을 이미 만들어 새 호스트 풀에서 사용하려는 경우 **아니요** 를 선택하고, **다음: 작업 영역 >** 을 선택한 다음, [작업 영역 정보](#workspace-information) 섹션으로 이동합니다. 새 가상 머신을 만들어 새 호스트 풀에 등록하려면 **예** 를 선택합니다.
 
-이제 첫 번째 부분이 완료되었으므로 VM을 만드는 설정 프로세스의 다음 부분으로 이동하겠습니다.
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+로그인한 후 [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_create) 명령을 사용하여 새 호스트 풀을 만들고 선택적으로 세션 호스트가 호스트 풀에 조인할 수 있는 등록 토큰을 만듭니다.
+
+```azurecli
+az desktopvirtualization hostpool create --name "MyHostPool" \
+    --resource-group "MyResourceGroup" \ 
+    --location "MyLocation" \
+    --host-pool-type "Pooled" \
+    --load-balancer-type "BreadthFirst" \
+    --max-session-limit 999 \
+    --personal-desktop-assignment-type "Automatic"  \
+    --registration-info expiration-time="2022-03-22T14:01:54.9571247Z" registration-token-operation="Update" \
+    --sso-context "KeyVaultPath" \
+    --description "Description of this host pool" \
+    --friendly-name "Friendly name of this host pool" \
+    --tags tag1="value1" tag2="value2" 
+```
+
+새 가상 머신을 만들고 새 호스트 풀에 등록하려면 다음 섹션을 계속합니다. 이미 만든 가상 머신을 새 호스트 풀과 함께 사용하려면 [작업 영역 정보](#workspace-information) 섹션으로 이동하세요. 
+
+---
+
+이제 호스트 풀을 만들었으므로 VM을 만드는 설정 프로세스의 다음 부분으로 이동하겠습니다.
 
 ## <a name="virtual-machine-details"></a>가상 머신 세부 정보
 
 이제 첫 번째 단계가 완료되었으므로 VM을 설정해야 합니다.
 
-호스트 풀 설정 프로세스 내에서 가상 머신을 설정하려면 다음을 수행합니다.
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
+Azure Portal 호스트 풀 설정 프로세스 내에서 가상 머신을 설정하려면 다음을 수행합니다.
 
 1. **리소스 그룹** 아래에서 가상 머신을 만들려는 리소스 그룹을 선택합니다. 이는 호스트 풀에 사용한 것과 다른 리소스 그룹일 수 있습니다.
 
@@ -190,6 +221,26 @@ Azure Virtual Desktop용 원격 앱 스트리밍을 사용하여 고객에게 �
 
 13. **다음: 작업 영역 >** 을 선택합니다.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[az vm create](/cli/azure/vm#az_vm_create) 명령을 사용하여 새 Azure 가상 머신을 만듭니다.
+
+```azurecli
+az vm create --name "MyVMName" \
+    --resource-group "MyResourceGroup" \
+    --image "MyImage" \
+    --generate-ssh-keys
+```
+
+Azure CLI를 사용하여 Azure 가상 머신을 만드는 방법에 대한 자세한 내용은 다음을 참조하세요.
+- Windows
+    - [Azure CLI를 사용하여 Windows VM 만들기]( /azure/virtual-machines/windows/quick-create-cli)
+    - [자습서 - Azure CLI를 사용하여 Windows VM 만들기 및 관리](/cli/azure/azure-cli-vm-tutorial)
+- Linux
+    - [Azure CLI를 사용하여 Linux VM 만들기]( /virtual-machines/linux/quick-create-cli)
+    - [자습서: Azure CLI로 Linux VM 만들기 및 관리]( /azure/virtual-machines/linux/tutorial-manage-vm) 
+---
+
 이제 호스트 풀을 설정하는 다음 단계로서 앱 그룹을 작업 영역에 등록할 준비가 되었습니다.
 
 ## <a name="workspace-information"></a>작업 영역 정보
@@ -198,6 +249,8 @@ Azure Virtual Desktop용 원격 앱 스트리밍을 사용하여 고객에게 �
 
 >[!NOTE]
 >조직의 앱을 게시하려는 앱 개발자인 경우 사용자 세션에 동적으로 MSIX 앱을 연결하거나 사용자 지정 VM 이미지에 앱 패키지를 추가할 수 있습니다. 자세한 내용은 Azure Virtual Desktop을 사용하여 사용자 지정 앱을 제공하는 방법을 참조하세요.
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
 
 데스크톱 앱 그룹을 작업 영역에 등록하려면 다음을 수행합니다.
 
@@ -216,14 +269,30 @@ Azure Virtual Desktop용 원격 앱 스트리밍을 사용하여 고객에게 �
      >[!NOTE]
      >검토 + 만들기 유효성 검사 프로세스에서는 암호가 보안 표준을 충족하는지 또는 아키텍처가 올바른지 확인하지 않으므로 이러한 항목 중 하나에 문제가 있는지 직접 확인해야 합니다.
 
-5. 배포 정보를 검토하여 모든 것이 올바르게 표시되는지 확인합니다. 완료되면 **만들기** 를 선택합니다. 그러면 배포 프로세스가 시작되어 다음과 같은 개체가 만들어집니다.
+5. 배포 정보를 검토하여 모든 것이 올바르게 표시되는지 확인합니다. 완료되면 **만들기** 를 선택합니다. 
 
-     - 새 호스트 풀
-     - 데스크톱 앱 그룹
-     - 작업 영역(만들도록 선택한 경우)
-     - 데스크톱 앱 그룹을 등록하도록 선택한 경우 등록이 완료됩니다.
-     - 가상 머신(가상 머신을 만들도록 선택한 경우 도메인에 조인되어 새 호스트 풀에 등록됨)
-     - 구성에 기반한 Azure Resource Manager 템플릿에 대한 다운로드 링크.
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[az desktopvirtualization workspace create](/cli/azure/desktopvirtualization#az_desktopvirtualization_workspace_create) 명령을 사용하여 새 작업 영역을 만듭니다.
+
+```azurecli
+az desktopvirtualization workspace create --name "MyWorkspace" \
+    --resource-group "MyResourceGroup" \
+    --location "MyLocation" \
+    --tags tag1="value1" tag2="value2" \
+    --friendly-name "Friendly name of this workspace" \
+    --description "Description of this workspace" 
+```
+---
+
+그러면 배포 프로세스가 시작되어 다음과 같은 개체가 만들어집니다.
+
+- 새 호스트 풀
+- 데스크톱 앱 그룹
+- 작업 영역(만들도록 선택한 경우)
+- 데스크톱 앱 그룹을 등록하도록 선택한 경우 등록이 완료됩니다.
+- 가상 머신(가상 머신을 만들도록 선택한 경우 도메인에 조인되어 새 호스트 풀에 등록됨)
+- 구성에 기반한 Azure 리소스 관리 템플릿에 대한 다운로드 링크
 
 그러면 모든 작업이 완료되었습니다!
 

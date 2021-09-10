@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/26/2020
+ms.date: 06/28/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1dee21182349108c44f9d498417d3b760ac4913
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76b4469b9b0e6fcb23f9c12fa648a8204b06eb79
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103600865"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113004955"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 문제 해결
 
@@ -49,6 +49,16 @@ Azure Portal에서 SSPR 옵션을 보거나 구성하는 데 문제가 있는 �
 ## <a name="sspr-reporting"></a>SSPR 보고
 
 Azure Portal에서 SSPR 보고에 문제가 있는 경우 다음 문제 해결 단계를 검토합니다.
+
+### <a name="i-see-an-authentication-method-that-i-have-disabled-in-the-add-method-option-in-combined-registration"></a>결합된 등록에서 메서드 추가 옵션에 사용하지 않도록 설정된 인증 방법이 표시됩니다.
+
+결합된 등록은 **메서드 추가** 에 표시되는 방법을 결정하는 세 가지 정책을 고려합니다. 
+
+- [셀프 서비스 암호 재설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+- [MFA](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)
+- [인증 방법](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AdminAuthMethods)
+
+SSPR에서 앱 알림을 사용하지 않도록 설정하고 MFA 정책에서 사용하도록 설정하면 결합된 등록에서 해당 옵션이 표시됩니다. 또 다른 예로, 사용자가 SSPR에서 **Office phone** 을 사용하지 않도록 설정하는 경우, 사용자에게 **Phone/Office** 속성이 설정되어 있는 경우에도 옵션으로 표시됩니다. 
 
 ### <a name="i-dont-see-any-password-management-activity-types-in-the-self-service-password-management-audit-event-category"></a>암호 관리 작업 형식이 **셀프 서비스 암호 관리** 감사 이벤트 범주에 표시되지 않습니다.
 
@@ -98,6 +108,7 @@ SSPR을 사용하여 본인 또는 사용자에게 문제가 있는 경우 다�
 | 암호 재설정 정책을 설정했지만 관리자 계정이 암호 재설정을 사용하는 경우 해당 정책이 적용되지 않습니다. | Microsoft에서는 관리자 암호 재설정 정책을 관리하고 제어하여 가장 높은 수준의 보안을 보장합니다. |
 | 사용자는 하루에 너무 많이 암호를 재설정하려 할 수 없습니다. | 짧은 시간 동안에 너무 여러 번 자신의 암호를 다시 설정하려는 사용자를 차단하는 데 자동 제한 메커니즘이 사용됩니다. 제한은 다음과 같은 시나리오에서 발생합니다. <br><ul><li>사용자가 한 시간 동안 5회에 걸쳐 전화 번호의 유효성을 검사하려 합니다.</li><li>사용자가 한 시간 동안 5회에 걸쳐 보안 질문 게이트를 사용하려 합니다.</li><li>사용자가 한 시간 동안 5회에 걸쳐 동일한 사용자 계정에 대한 암호를 재설정하려 합니다.</li></ul>사용자가 이 문제를 발견한 경우 마지막 시도 후 24시간 동안 기다려야 합니다. 사용자는 그 후에 암호를 재설정해야 합니다. |
 | 사용자가 자신의 전화 번호의 유효성을 검사하는 경우 오류가 표시됩니다. | 이 오류는 입력한 휴대폰 번호와 파일에서 휴대폰 번호가 일치하지 않을 때 발생합니다. 사용자가 암호 재설정을 위해 전화 기반 방법을 사용하려고 할 때 영역 및 국가 코드를 포함하여 전체 전화 번호를 입력하는지 확인합니다. |
+| 사용자에게 이메일 주소를 사용할 때 오류가 표시됩니다. | UPN이 사용자의 기본 ProxyAddress/SMTPAddress와 다른 경우, 해당 테넌트에 대해 [이메일을 사용하여 Azure AD에 대체 로그인 ID로 로그인](howto-authentication-use-email-signin.md)이 설정되어야 합니다. |
 | 요청을 처리하는 중 오류가 발생했습니다. | 일반 SSPR 등록 오류는 많은 문제로 인해 발생할 수 있지만 일반적으로 이 오류는 서비스 중단 또는 구성 문제로 인해 발생합니다. SSPR 등록 프로세스를 다시 시도할 때 이 일반 오류가 계속 표시되면 [Microsoft 지원에 문의](#contact-microsoft-support)하여 추가 지원을 요청하세요. |
 | 온-프레미스 정책 위반 | 암호가 온-프레미스 Active Directory 암호 정책에 맞지 않습니다. 사용자는 복잡성 또는 강도 요구 사항을 충족하는 암호를 정의해야 합니다. |
 | 암호가 유사 정책에 맞지 않음 | 사용된 암호는 [금지된 암호 목록](./concept-password-ban-bad.md#how-are-passwords-evaluated)에 표시되며 사용할 수 없습니다. 사용자는 금지된 암호 목록 정책을 만족하거나 초과하는 암호를 정의해야 합니다. |

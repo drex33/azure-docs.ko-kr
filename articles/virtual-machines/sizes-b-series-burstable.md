@@ -8,14 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: risverma
-ms.openlocfilehash: cdfb44518c75dbb57d184fa72eb7639fd56f738c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e0fbe4b02ac0cf2978bba69a9e7e6eafb36b0f84
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528426"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697951"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 B 시리즈 VM은 다양한 하드웨어 유형 및 프로세서에 배포할 수 있으므로 경쟁력 있는 대역폭 할당이 제공됩니다. B 시리즈 VM은 웹 서버, 개념 증명, 소규모 데이터베이스 및 개발 빌드 환경과 같이 CPU의 전체 성능이 지속적으로 필요하지 않은 작업에 적합합니다. 이러한 작업에는 일반적으로 버스트 가능한 성능 요구 사항이 있습니다. 이 크기가 배포되는 실제 하드웨어를 확인하려면 가상 머신 내에서 가상 하드웨어를 쿼리합니다. B 시리즈는 기본 성능의 VM 크기를 구입할 수 있는 기능을 제공하며, 기본 성능은 기준선 미만으로 사용하면 크레딧을 빌드할 수 있습니다. VM에 크레딧이 누적되면 애플리케이션에 더 높은 CPU 성능이 필요할 때 VM이 최대 100%의 vCPU를 사용하여 기준선 초과로 버스트될 수 있습니다.
 

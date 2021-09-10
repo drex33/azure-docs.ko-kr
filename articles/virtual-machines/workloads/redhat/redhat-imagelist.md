@@ -8,14 +8,17 @@ ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 0a4d2ef5b7f367130151fabda3f1d97b65605931
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b38ced5ec6ed66f14648b165a9556bdc87aa2302
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676034"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696803"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용 가능한 RHEL(Red Hat Enterprise Linux) 이미지
+
+**적용 대상:** :heavy_check_mark: Linux VM 
+
 Azure는 다양한 사용 사례에 대해 다양한 RHEL 이미지를 제공합니다.
 
 > [!NOTE]
@@ -70,9 +73,9 @@ RHEL-SAP      | 7.4      | LVM    | Linux 에이전트 | SAP HANA 및 비즈니�
 |             | 7.6       | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.6 E4S 리포지토리에 연결되어 SAP 및 RHEL에 대한 프리미엄과 기본 컴퓨팅 요금을 청구합니다.
 |             | 76sap-gen2| LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.6 2세대 이미지. E4S 리포지토리에 연결되어 SAP 및 RHEL에 대한 프리미엄과 기본 컴퓨팅 요금을 청구합니다.
 |             | 7.7       | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.7 E4S 리포지토리에 연결되어 SAP 및 RHEL에 대한 프리미엄과 기본 컴퓨팅 요금을 청구합니다.
-RHEL-SAP-HANA(2020년 11월 제거 예정) | 6.7       | RAW    | Linux 에이전트 | SAP HANA용 RHEL 6.7 RHEL-SAP 이미지에 비해 구식입니다. 이 이미지는 2020년 11월에 제거됩니다. Red Hat의 SAP 클라우드 제품에 대한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 확인할 수 있습니다.
-|             | 7.2       | LVM    | Linux 에이전트 | SAP HANA용 RHEL 7.2 RHEL-SAP 이미지에 비해 구식입니다. 이 이미지는 2020년 11월에 제거됩니다. Red Hat의 SAP 클라우드 제품에 대한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 확인할 수 있습니다.
-|             | 7.3       | LVM    | Linux 에이전트 | SAP HANA용 RHEL 7.3 RHEL-SAP 이미지에 비해 구식입니다. 이 이미지는 2020년 11월에 제거됩니다. Red Hat의 SAP 클라우드 제품에 대한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 확인할 수 있습니다.
+RHEL-SAP-HANA(2020년 11월 제거 예정) | 6.7       | RAW    | Linux 에이전트 | SAP HANA용 RHEL 6.7 RHEL-SAP 이미지에 비해 구식입니다. 이 이미지는 2020년 11월에 제거됩니다. Red Hat의 SAP 클라우드 제품에 대한 자세한 내용은 [인증된 클라우드 공급자의 SAP 제품](https://access.redhat.com/articles/3751271)에서 제공됩니다.
+|             | 7.2       | LVM    | Linux 에이전트 | SAP HANA용 RHEL 7.2 RHEL-SAP 이미지에 비해 구식입니다. 이 이미지는 2020년 11월에 제거됩니다. Red Hat의 SAP 클라우드 제품에 대한 자세한 내용은 [인증된 클라우드 공급자의 SAP 제품](https://access.redhat.com/articles/3751271)에서 제공됩니다.
+|             | 7.3       | LVM    | Linux 에이전트 | SAP HANA용 RHEL 7.3 RHEL-SAP 이미지에 비해 구식입니다. 이 이미지는 2020년 11월에 제거됩니다. Red Hat의 SAP 클라우드 제품에 대한 자세한 내용은 [인증된 클라우드 공급자의 SAP 제품](https://access.redhat.com/articles/3751271)에서 제공됩니다.
 RHEL-SAP-APPS | 6.8       | RAW    | Linux 에이전트 | SAP Business Applications용 RHEL 6.8 RHEL-SAP 이미지에 비해 구식입니다.
 |             | 7.3       | LVM    | Linux 에이전트 | SAP Business Applications용 RHEL 7.3 RHEL-SAP 이미지에 비해 구식입니다.
 |             | 7.4       | LVM    | Linux 에이전트 | SAP Business Applications용 RHEL 7.4
@@ -113,7 +116,7 @@ rhel-byos     |rhel-lvm74| LVM    | Linux 에이전트 | 업데이트 원본에 
 |             |rhel-lvm82-gen2 | LVM    | Linux 에이전트 | 업데이트 원본에 연결되지 않은 RHEL 8.2 2세대 BYOS 이미지에는 RHEL 프리미엄이 부과되지 않습니다.
 
 > [!NOTE]
-> RHEL-SAP-HANA 제품 서비스는 Red Hat에서 수명 종료로 간주됩니다. 기존 배포는 계속해서 정상적으로 작동하지만 Red Hat은 고객이 RHEL-SAP-HANA 이미지에서 SAP HANA 리포지토리와 HA 추가 기능을 포함하는 RHEL-SAP-HA 이미지로 마이그레이션하는 것이 좋습니다. Red Hat의 SAP 클라우드 제품에 대한 자세한 내용은 [여기](https://access.redhat.com/articles/3751271)에서 확인할 수 있습니다.
+> RHEL-SAP-HANA 제품 서비스는 Red Hat에서 수명 종료로 간주됩니다. 기존 배포는 계속해서 정상적으로 작동하지만 Red Hat은 고객이 RHEL-SAP-HANA 이미지에서 SAP HANA 리포지토리와 HA 추가 기능을 포함하는 RHEL-SAP-HA 이미지로 마이그레이션하는 것이 좋습니다. Red Hat의 SAP 클라우드 제품에 대한 자세한 내용은 [인증된 클라우드 공급자의 SAP 제품](https://access.redhat.com/articles/3751271)에서 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure의 Red Hat 이미지](./redhat-images.md)에 대해 자세히 알아봅니다.

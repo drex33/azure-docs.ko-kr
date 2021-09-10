@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 6e970d39d927a9e0aa522ad6a498388e2217b5d4
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: b1e514d208f7d5d0a2e290c95aa5508166a3e2f7
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530506"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251468"
 ---
-# <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>AWS CloudTrail에 Azure Sentinel에 연결
+# <a name="connect-aws-cloudtrail-to-azure-sentinel"></a>AWS CloudTrail에서 Azure Sentinel에 연결
 
 AWS 커넥터를 사용하여 AWS CloudTrail 관리 이벤트를 Azure Sentinel로 스트리밍합니다. 이 연결 프로세스는 AWS 리소스 로그에 대한 액세스 권한을 Azure Sentinel에 위임하여 AWS CloudTrail와 Azure Sentinel 간에 트러스트 관계를 만듭니다. 이 작업은 AWS에서 AWS 로그에 액세스할 수 있는 권한을 Azure Sentinel에 부여하는 역할을 만들어 수행합니다.
 
@@ -39,7 +39,7 @@ Azure Sentinel 작업 영역에 대한 쓰기 권한이 있어야 합니다.
 ## <a name="connect-aws"></a>AWS 연결 
 
 
-1. Azure Sentinel에서 **데이터 커넥터** 를 선택한 다음, 테이블에서 **Amazon Web Services** 줄을 선택하고 오른쪽에 있는 AWS 창에서 **커넥터 페이지 열기** 를 클릭합니다.
+1. Azure Sentinel에서 **데이터 커넥터** 를 선택한 다음, 테이블에서 **Amazon Web Services** 줄을 선택하고 오른쪽에 있는 AWS 창에서 **커넥터 페이지 열기** 를 선택합니다.
 
 1. 다음 단계를 사용하여 **구성** 의 지침을 따릅니다.
  
@@ -75,7 +75,7 @@ Azure Sentinel 작업 영역에 대한 쓰기 권한이 있어야 합니다.
 
     ![AWS8](./media/connect-aws/aws-8.png)
 
-1.  **역할 ARN** 을 복사합니다. Azure Sentinel 포털의 Amazon Web Services 커넥터 화면에서 **추가할 역할** 필드에 역할을 붙여넣고 **추가** 를 클릭합니다.
+1.  **역할 ARN** 을 복사합니다. Azure Sentinel 포털의 Amazon Web Services 커넥터 화면에서 **추가할 역할** 필드에 역할을 붙여넣고 **추가** 를 선택합니다.
 
     ![AWS9](./media/connect-aws/aws-9.png)
 

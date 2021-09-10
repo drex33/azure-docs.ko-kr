@@ -6,26 +6,26 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 768e751f28f9725cab47f100188c318d6b35d667
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e53aa866465e7a1409a966a5bab6147d304caddf
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969139"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605333"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>IoT Hub 및 IoT 플러그 앤 플레이에 대한 디바이스 업데이트
 
-IoT Hub용 디바이스 업데이트는 [IoT 플러그 앤 플레이](../iot-pnp/index.yml)를 사용하여 OTA(Over The Air) 업데이트를 지원하는 디바이스를 검색하고 관리합니다. 디바이스 업데이트 서비스는 PnP 인터페이스를 사용하여 디바이스에서 속성과 메시지를 보내고 받습니다. IoT Hub에 대한 디바이스 업데이트에는 아래에 설명된 대로 IoT 디바이스에서 다음과 같은 인터페이스와 모델 ID를 구현해야 합니다.
+IoT Hub용 디바이스 업데이트는 [IoT 플러그 앤 플레이](../iot-develop/index.yml)를 사용하여 OTA(Over The Air) 업데이트를 지원하는 디바이스를 검색하고 관리합니다. 디바이스 업데이트 서비스는 IoT Plug and Play 인터페이스를 사용하여 디바이스에서 속성과 메시지를 보내고 받습니다. IoT Hub에 대한 디바이스 업데이트에는 아래에 설명된 대로 IoT 디바이스에서 다음과 같은 인터페이스와 모델 ID를 구현해야 합니다.
 
 개념: 
-* [IoT 플러그 앤 플레이 디바이스 클라이언트](../iot-pnp/concepts-developer-guide-device.md?pivots=programming-language-csharp#implement-telemetry-properties-and-commands)를 이해합니다. 
+* [IoT 플러그 앤 플레이 디바이스 클라이언트](../iot-develop/concepts-developer-guide-device.md?pivots=programming-language-csharp)를 이해합니다. 
 * [Device Update 에이전트를 구현](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md)하는 방법을 확인합니다.
 
 ## <a name="adu-core-interface"></a>ADU Core 인터페이스
 
 'ADUCoreInterface' 인터페이스는 업데이트 작업 및 메타데이터를 디바이스로 보내고 디바이스에서 업데이트 상태를 수신하는 데 사용됩니다. 'ADU Core' 인터페이스는 두 개의 개체 속성으로 분할됩니다.
 
-모델에 필요한 구성 요소 이름은 이 인터페이스를 구현할 때 **"Azuredeviceupdateagent"** 입니다. [Azure IoT PnP 구성 요소에 대한 자세한 정보](../iot-pnp/concepts-modeling-guide.md)
+모델에 필요한 구성 요소 이름은 이 인터페이스를 구현할 때 **"Azuredeviceupdateagent"** 입니다. [Azure IoT 플러그 앤 플레이 구성 요소에 대해 알아보기](../iot-develop/concepts-modeling-guide.md)
 
 ### <a name="agent-metadata"></a>에이전트 메타데이터
 
@@ -80,7 +80,7 @@ IoT Hub 디바이스 쌍 샘플
                             }
 ```
 
-참고: 디바이스 또는 모듈은 요소가 구성 요소를 참조함을 표시하기 위해 {"__t": "c"} 마커를 추가해야 합니다. [여기](../iot-pnp/concepts-convention.md#sample-multiple-components-writable-property)에서 자세히 알아보세요.
+참고: 디바이스 또는 모듈은 요소가 구성 요소를 참조함을 표시하기 위해 {"__t": "c"} 마커를 추가해야 합니다. [여기](../iot-develop/concepts-convention.md#sample-multiple-components-writable-property)에서 자세히 알아보세요.
 
 ### <a name="service-metadata"></a>서비스 메타데이터
 
@@ -106,11 +106,11 @@ IoT Hub 디바이스 쌍 샘플
 
 ## <a name="device-information-interface"></a>디바이스 정보 인터페이스
 
-디바이스 정보 인터페이스는 [IoT 플러그 앤 플레이 아키텍처](../iot-pnp/overview-iot-plug-and-play.md) 내에서 사용되는 개념입니다. 디바이스의 하드웨어 및 운영 체제에 대한 정보를 제공하는 디바이스-클라우드 속성을 포함합니다. IoT Hub의 디바이스 업데이트는 원격 분석과 진단에 DeviceInformation.manufacturer 및 DeviceInformation.model 속성을 사용합니다. 디바이스 정보 인터페이스에 대한 자세한 내용은 이 [예제](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json)를 참조하세요.
+디바이스 정보 인터페이스는 [IoT 플러그 앤 플레이 아키텍처](../iot-develop/overview-iot-plug-and-play.md) 내에서 사용되는 개념입니다. 디바이스의 하드웨어 및 운영 체제에 대한 정보를 제공하는 디바이스-클라우드 속성을 포함합니다. IoT Hub의 디바이스 업데이트는 원격 분석과 진단에 DeviceInformation.manufacturer 및 DeviceInformation.model 속성을 사용합니다. 디바이스 정보 인터페이스에 대한 자세한 내용은 이 [예제](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json)를 참조하세요.
 
-모델에 필요한 구성 요소 이름은 이 인터페이스를 구현할 때 **Deviceinformation** 입니다. [Azure IoT PnP 구성 요소에 대한 자세한 정보](../iot-pnp/concepts-modeling-guide.md)
+모델에 필요한 구성 요소 이름은 이 인터페이스를 구현할 때 **Deviceinformation** 입니다. [Azure IoT 플러그 앤 플레이 구성 요소 알아보기](../iot-develop/concepts-modeling-guide.md)
 
-|이름|유형|스키마|Direction|설명|예제|
+|Name|유형|스키마|Direction|설명|예제|
 |----|----|------|---------|-----------|-----------|
 |제조업체|속성|문자열|디바이스-클라우드|디바이스 제조업체의 회사 이름입니다. OEM(원본 장비 제조업체)의 이름과 같을 수 있습니다.|Contoso|
 |model|속성|문자열|디바이스-클라우드|디바이스 모델 이름 또는 ID입니다.|IoT Edge 디바이스|
@@ -123,6 +123,6 @@ IoT Hub 디바이스 쌍 샘플
 
 ## <a name="model-id"></a>모델 ID 
 
-모델 ID는 스마트 디바이스가 IoT 플러그인을 사용하여 Azure IoT 애플리케이션에 해당 기능을 보급하는 방법입니다. Azure IoT 애플리케이션에 기능을 보급하는 스마트 디바이스를 빌드하는 방법에 대해 자세히 알아보세요. [IoT 플러그 앤 플레이 디바이스 개발자 가이드](../iot-pnp/concepts-developer-guide-device.md)
+모델 ID는 스마트 디바이스가 IoT 플러그인을 사용하여 Azure IoT 애플리케이션에 해당 기능을 보급하는 방법입니다. Azure IoT 애플리케이션에 기능을 보급하는 스마트 디바이스를 빌드하는 방법에 대해 자세히 알아보세요. [IoT 플러그 앤 플레이 디바이스 개발자 가이드](../iot-develop/concepts-developer-guide-device.md)
 
-IoT Hub에 대한 디바이스 업데이트에는 IoT 플러그 앤 플레이 스마트 디바이스가 디바이스 연결의 일부로 **"dtmi:AzureDeviceUpdate;1"** 값을 사용하는 모델 ID를 알리기 위해 필요합니다. [모델 ID 공지 방법 알아보기](../iot-pnp/concepts-developer-guide-device.md#model-id-announcement).
+IoT Hub에 대한 디바이스 업데이트에는 IoT 플러그 앤 플레이 스마트 디바이스가 디바이스 연결의 일부로 **"dtmi:AzureDeviceUpdate;1"** 값을 사용하는 모델 ID를 알리기 위해 필요합니다. [모델 ID 공지 방법 알아보기](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).

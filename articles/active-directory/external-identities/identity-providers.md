@@ -5,23 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 08/30/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f867e0091d792ef88b79f1c1bb7f4272a35e928
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: ca0592741018f054640b1d695f643695e4782518
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721382"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222145"
 ---
 # <a name="identity-providers-for-external-identities"></a>외부 ID용 ID 공급자
 
 ‘ID 공급자’는 애플리케이션에 인증 서비스를 제공하는 동시에 ID 정보를 만들고 유지 관리합니다. 외부 사용자와 앱 및 리소스를 공유하는 경우 Azure AD는 공유를 위한 기본 ID 공급자입니다. 즉, 이미 Azure AD 또는 Microsoft 계정이 있는 외부 사용자를 초대하는 경우 사용자가 추가 구성 없이 자동으로 로그인할 수 있습니다.
 
-Azure AD 계정 외에도 외부 ID는 다양한 ID 공급자를 제공합니다.
+외부 ID는 다양한 ID 공급자를 제공합니다.
+
+- **Azure Active Directory 계정**: 게스트 사용자는 Azure AD 회사 또는 학교 계정을 사용하여 B2B 협업 초대를 사용하거나 등록 사용자 흐름을 완료할 수 있습니다. [Azure Active Directory](azure-ad-account.md)는 기본적으로 허용되는 ID 공급자 중 하나입니다. 이 ID 공급자를 사용자 흐름에 사용할 수 있도록 설정하는 데 추가 구성이 필요하지 않습니다.
 
 - **Microsoft 계정**: 게스트 사용자는 자신의 개인 Microsoft 계정(MSA)을 사용하여 B2B 협업 초대를 교환할 수 있습니다. 셀프 서비스 가입 사용자 흐름을 설정할 때 [Microsoft 계정](microsoft-account.md)을 허용된 ID 공급자 중 하나로 추가할 수 있습니다. 이 ID 공급자를 사용자 흐름에 사용할 수 있도록 설정하는 데 추가 구성이 필요하지 않습니다.
 

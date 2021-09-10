@@ -1,23 +1,17 @@
 ---
 title: Azure API Management 고급 정책 | Microsoft Docs
 description: Azure API Management에 사용할 수 있는 고급 정책에 대해 알아봅니다. 예제를 살펴보고 사용 가능한 추가 리소스를 확인합니다.
-services: api-management
-documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
-ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 07/19/2021
+ms.service: api-management
 ms.author: apimpm
-ms.openlocfilehash: 03529fd3c0231617c477f4f16773039a02386683
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 274c4d55955bb3ee7c95fc755660cb67de3bbbd3
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562487"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114467625"
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 
@@ -29,6 +23,7 @@ ms.locfileid: "103562487"
 -   [요청 전달](#ForwardRequest) - 백 엔드 서비스에 요청을 전달합니다.
 -   [동시성 제한](#LimitConcurrency) - 지정된 정책이 한 번에 지정된 요청 수를 초과해서 실행하지 못하게 합니다.
 -   [이벤트 허브에 기록](#log-to-eventhub) - 로거 엔터티가 정의한 이벤트 허브에 지정된 형식으로 메시지를 보냅니다.
+-   [메트릭 내보내기](#emit-metrics) - 실행 시 사용자 지정 메트릭을 Application Insights로 보냅니다.
 -   [모의 응답](#mock-response) - 파이프라인 실행을 중단하고 호출자에게 직접 모의 응답을 반환합니다.
 -   [다시 시도](#Retry) - 조건이 충족될 때까지 포함된 정책 문을 실행하도록 다시 시도합니다. 실행은 지정된 시간 간격으로 최대 지정된 재시도 횟수까지 반복됩니다.
 -   [응답 반환](#ReturnResponse) - 파이프라인 실행을 중단하고 호출자에게 직접 지정된 응답을 반환합니다.
@@ -134,7 +129,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 
 ### <a name="attributes"></a>특성
 
-| 특성                                              | 설명                                                                                               | 필수 |
+| attribute                                              | 설명                                                                                               | 필수 |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | condition="Boolean expression &#124; Boolean constant" | 포함하는 `when` 정책 문이 평가될 때 평가할 Boolean 식 또는 상수입니다. | 예      |
 
@@ -250,7 +245,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 
 ### <a name="attributes"></a>특성
 
-| 특성                                     | 설명                                                                                                                                                                                                                                                                                                    | 필수 | 기본값 |
+| attribute                                     | 설명                                                                                                                                                                                                                                                                                                    | 필수 | 기본값 |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | timeout="integer"                             | 시간 제한 오류가 발생하기 전에 백 엔드 서비스에서 HTTP 응답 헤더가 반환될 때까지 대기하는 시간(초)입니다. 최솟값은 0초입니다. 기본 네트워크 인프라가 이 시간 이후에 유휴 연결을 삭제할 수 있기 때문에 240초보다 큰 값은 적용할 수 없습니다. | 예       | None    |
 | follow-redirects="false &#124; true"          | 백 엔드 서비스의 리디렉션 뒤에 게이트웨이가 있는지 또는 호출자에게 반환되는지 여부를 지정합니다.                                                                                                                                                                                                    | 아니요       | false   |
@@ -303,7 +298,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 
 ### <a name="attributes"></a>특성
 
-| 특성 | 설명                                                                                        | 필수 | 기본값 |
+| attribute | 설명                                                                                        | 필수 | 기본값 |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | key       | 문자열 허용되는 식입니다. 동시성 범위를 지정합니다. 여러 정책에서 공유될 수 있습니다. | 예      | 해당 없음     |
 | max-count | 정수입니다. 정책에 들어올 수 있는 요청의 최대 수를 지정합니다.           | 예      | 해당 없음     |
@@ -356,11 +351,85 @@ Event Hubs에 기록할 값으로 모든 문자열을 사용할 수 있습니다
 
 ### <a name="attributes"></a>특성
 
-| 특성     | 설명                                                               | 필수                                                             |
+| attribute     | 설명                                                               | 필수                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | API Management 서비스에 등록된 로거 ID입니다.         | 예                                                                  |
 | partition-id  | 메시지가 전송된 파티션의 인덱스를 지정합니다.             | 선택 사항입니다. `partition-key`가 사용된 경우에는 이 특성을 사용할 수 없습니다. |
 | 파티션 키 | 메시지가 전송된 파티션 할당에 사용된 값을 지정합니다. | 선택 사항입니다. `partition-id`가 사용된 경우에는 이 특성을 사용할 수 없습니다.  |
+
+### <a name="usage"></a>사용량
+
+이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
+
+-   **정책 섹션:** inbound, outbound, backend, on-error
+
+-   **정책 범위:** 모든 범위
+
+## <a name="emit-metrics"></a>메트릭 내보내기
+
+`emit-metric` 정책은 지정된 형식의 사용자 지정 메트릭을 Application Insights로 보냅니다.
+
+> [!NOTE]
+> * 사용자 지정 메트릭은 Azure Monitor의 [미리 보기 기능](../azure-monitor/essentials/metrics-custom-overview.md)이며 [제한 사항](../azure-monitor/essentials/metrics-custom-overview.md#design-limitations-and-considerations)이 적용됩니다.
+> * Application Insights에 추가된 API Management 데이터에 대한 자세한 내용은 [Azure API Management를 Azure Application Insights와 통합하는 방법](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights)을 참조하세요.
+
+### <a name="policy-statement"></a>정책 문
+
+```xml
+<emit-metric name="name of custom metric" value="value of custom metric" namespace="metric namespace"> 
+    <dimension name="dimension name" value="dimension value" /> 
+</emit-metric> 
+```
+
+### <a name="example"></a>예제
+
+다음 예에서는 사용자 지정 메트릭을 전송하여 사용자 ID, 클라이언트 IP 및 API ID와 함께 API 요청 수를 사용자 지정 차원으로 계산합니다.
+
+```xml
+<policies>
+  <inbound>
+    <emit-metric name="Request" value="1" namespace="my-metrics"> 
+        <dimension name="User ID" /> 
+        <dimension name="Client IP" value="@(context.Request.IpAddress)" /> 
+        <dimension name="API ID" /> 
+    </emit-metric> 
+  </inbound>
+  <outbound>
+  </outbound>
+</policies>
+```
+
+### <a name="elements"></a>요소
+
+| 요소     | 설명                                                                       | 필수 |
+| ----------- | --------------------------------------------------------------------------------- | -------- |
+| emit-metric | 루트 요소입니다. 이 요소 값은 사용자 지정 메트릭에 내보낼 문자열입니다. | Yes      |
+| 차원   | 하위 요소입니다. 사용자 지정 메트릭에 포함된 각 차원에 대해 이러한 요소 중 하나 이상을 추가합니다.  | 예      |
+
+### <a name="attributes"></a>특성
+
+#### <a name="emit-metric"></a>emit-metric
+| attribute | 설명                | 필수 | Type               | 기본값  |
+| --------- | -------------------------- | -------- | ------------------ | -------------- |
+| name      | 사용자 지정 메트릭의 이름입니다.      | Yes      | string, expression | 해당 없음            |
+| namespace | 사용자 지정 메트릭의 네임스페이스입니다. | No       | string, expression | API Management |
+| 값     | 사용자 지정 메트릭의 값입니다.    | No       | int, expression    | 1              |
+
+#### <a name="dimension"></a>차원
+| attribute | 설명                | 필수 | Type               | 기본값  |
+| --------- | -------------------------- | -------- | ------------------ | -------------- |
+| name      | 차원의 이름입니다.      | Yes      | string, expression | 해당 없음            |
+| 값     | 차원의 값입니다. `name`은 기본 차원 중 하 나와 일치하는 경우에만 생략할 수 있습니다. 이 경우 값이 차원 이름에 따라 제공됩니다. | No       | string, expression | 해당 없음 |
+
+**값 없이 사용할 수 있는 기본 차원 이름:**
+
+* API ID
+* OperationID
+* Product ID
+* 사용자 ID
+* 구독 ID
+* 위치 ID
+* 게이트웨이 ID:
 
 ### <a name="usage"></a>사용량
 
@@ -401,7 +470,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>특성
 
-| 특성    | 설명                                                                                           | 필수 | 기본값 |
+| attribute    | 설명                                                                                           | 필수 | 기본값 |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | status-code  | 응답 상태 코드를 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.                 | 예       | 200     |
 | content-type | `Content-Type` 응답 헤더 값을 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다. | 예       | None    |
@@ -460,7 +529,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>특성
 
-| 특성        | 설명                                                                                                                                           | 필수 | 기본값 |
+| attribute        | 설명                                                                                                                                           | 필수 | 기본값 |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condition(조건)        | 재시도를 중지(`false`) 또는 진행(`true`)해야 하는지 여부를 지정하는 부울 리터럴 또는 [식](api-management-policy-expressions.md)입니다.      | 예      | 해당 없음     |
 | count            | 최대 재시도 횟수를 지정하는 양수입니다.                                                                                | 예      | 해당 없음     |
@@ -520,7 +589,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>특성
 
-| 특성              | 설명                                                                                                                                                                          | 필수  |
+| attribute              | 설명                                                                                                                                                                          | 필수  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | response-variable-name | 참조하는 컨텍스트 변수 이름(예: 업스트림 [send-request](api-management-advanced-policies.md#SendRequest) 정책 및 `Response` 개체 포함) | 선택 사항입니다. |
 
@@ -592,7 +661,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>특성
 
-| 특성     | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
+| attribute     | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string" | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 새로 생성      |
 | name          | 설정할 헤더의 이름을 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 예      | 해당 없음      |
@@ -676,7 +745,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>특성
 
-| 특성                       | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
+| attribute                       | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 필수 | 기본값  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string"                   | 새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 아니요       | 새로 생성      |
 | response-variable-name="string" | 응답 개체를 받을 컨텍스트 변수의 이름입니다. 변수가 없는 경우 정책 실행이 성공하는 즉시 변수가 생성되며 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) 컬렉션을 통해 액세스할 수 있습니다.                                                                                                                                                                                                                                                                                                                          | 예      | 해당 없음      |
@@ -721,7 +790,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>특성
 
-| 특성         | 설명                                            | 필수 | 기본값 |
+| attribute         | 설명                                            | 필수 | 기본값 |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="문자열"      | http://host:port 형식의 프록시 URL입니다.             | 예      | 해당 없음     |
 | 사용자 이름="문자열" | 프록시 인증에 사용할 사용자 이름입니다. | 아니요       | 해당 없음     |
@@ -827,7 +896,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>특성
 
-| 특성       | 설명                                                | 필수 | 기본값 |
+| attribute       | 설명                                                | 필수 | 기본값 |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | code="integer"  | 반환할 HTTP 상태 코드입니다.                            | 예      | 해당 없음     |
 | reason="string" | 상태 코드를 반환하는 이유에 대한 설명입니다. | 예      | 해당 없음     |
@@ -865,7 +934,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>특성
 
-| 특성 | 설명                                                              | 필수 |
+| attribute | 설명                                                              | 필수 |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | 변수의 이름입니다.                                                | 예      |
 | 값     | 변수의 값입니다. 식 또는 리터럴 값일 수 있습니다. | 예      |
@@ -951,7 +1020,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>특성
 
-| 특성 | 설명                                                                                                               | 필수 | 기본값 |
+| attribute | 설명                                                                                                               | 필수 | 기본값 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | 추적 뷰어에 의미있고 메시지 원본을 지정하는 문자열 리터럴입니다.                                   | 예      | 해당 없음     |
 | severity  | 추적의 심각도 수준을 지정합니다. 허용되는 값은 `verbose`, `information`, `error`(최저에서 최고까지 순서)입니다. | 아니요       | 자세히 |
@@ -1024,7 +1093,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>특성
 
-| 특성 | 설명                                                                                                                                                                                                                                                                                                                                                                                                            | 필수 | 기본값 |
+| attribute | 설명                                                                                                                                                                                                                                                                                                                                                                                                            | 필수 | 기본값 |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | -       | `wait` 정책에서 모든 직계 자식 정책 또는 한 정책이 완료될 때까지 대기할지 여부를 결정합니다. 허용된 값은 다음과 같습니다.<br /><br /> - `all` - 모든 직계 자식 정책이 완료될 때까지 대기합니다.<br />- any - 임의의 직계 자식 정책이 완료될 때까지 대기합니다. 첫 번째 직계 자식 정책이 완료되면 `wait` 정책이 완료되고 다른 직계 자식 정책의 실행이 종료됩니다. | 아니요       | 모두     |
 

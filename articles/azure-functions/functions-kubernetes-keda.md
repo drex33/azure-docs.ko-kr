@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: eamono
-ms.openlocfilehash: a1b7113c8d63163023baffa0abeb7d5cf7de7a6b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 736945109cd18bd7c6f3a6b9a16b6549f7c65652
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481436"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536397"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Kubernetes의 Azure Functions 및 KEDA
 
@@ -24,38 +24,37 @@ Kubernetes 기반 Functions는 KEDA를 통해 이벤트 기반 스케일링을 �
 
 ## <a name="managing-keda-and-functions-in-kubernetes"></a>Kubernetes에서 KEDA 및 함수 관리
 
-Kubernetes 클러스터에서 Functions를 실행하려면 KEDA 구성 요소를 설치해야 합니다. [Azure Functions Core Tools](functions-run-local.md)를 사용하여 이 구성 요소를 설치할 수 있습니다.
+Kubernetes 클러스터에서 Functions를 실행하려면 KEDA 구성 요소를 설치해야 합니다. 이 구성 요소는 다음 방법 중 하나로 설치할 수 있습니다.
 
-### <a name="installing-with-helm"></a>Helm을 사용하여 설치
++ Azure Functions Core Tools: [`func kubernetes install` 명령](functions-core-tools-reference.md#func-kubernetes-install)을 사용합니다.
 
-Helm을 포함하여 Kubernetes 클러스터에 KEDA를 설치하는 다양한 방법이 있습니다.  배포 옵션은 [KEDA 사이트](https://keda.sh/docs/deploy/)에 설명되어 있습니다.
++ Helm: Helm을 포함하여 Kubernetes 클러스터에 KEDA를 설치하는 다양한 방법이 있습니다.  배포 옵션은 [KEDA 사이트](https://keda.sh/docs/deploy/)에 설명되어 있습니다.
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Kubernetes에 함수 앱 배포
 
-모든 함수 앱을 KEDA를 실행하는 Kubernetes를 실행하는 클러스터에 배포할 수 있습니다.  함수는 Docker 컨테이너에서 실행되므로 프로젝트에 `Dockerfile`이(가) 필요합니다.  아직 없는 경우 Functions 프로젝트의 루트에서 다음 명령을 실행하여 Dockerfile을 추가할 수 있습니다.
+모든 함수 앱을 KEDA를 실행하는 Kubernetes를 실행하는 클러스터에 배포할 수 있습니다.  함수는 Docker 컨테이너에서 실행되므로 프로젝트에 Dockerfile이 필요합니다.  `func init`를 호출하여 프로젝트를 만들 때 [`--docker` 옵션][func init]을 사용하여 Dockerfile을 만들 수 있습니다. 이 작업을 수행하지 않은 경우, 언제든지 다음 예제와 같이 Functions 프로젝트 루트에서 [`--docker-only` 옵션][func init]을 사용하여 `func init`를 다시 호출할 수 있습니다. 
 
-> [!NOTE]
-> 핵심 도구는 .NET, Node, Python 또는 PowerShell로 작성된 Azure Functions에 대한 Dockerfile을 자동으로 만듭니다. Java로 작성된 함수 앱의 경우 Dockerfile을 수동으로 만들어야 합니다. Azure Functions [이미지 목록을](https://github.com/Azure/azure-functions-docker) 사용하여 Azure 함수를 기반으로 하는 올바른 이미지를 찾습니다.
-
-```cli
+```command
 func init --docker-only
 ```
 
+Dockerfile 생성에 대한 자세한 내용은 [`func init`][func init] 참조를 참조하세요. 
+
 이미지를 빌드하고 함수를 Kubernetes에 배포하려면 다음 명령을 실행합니다.
 
-> [!NOTE]
-> Core Tools는 Docker CLI를 활용하여 이미지를 빌드하고 게시합니다. Docker를 미리 설치하고 `docker login`을 사용하여 계정에 연결해야 합니다.
-
-```cli
+```command
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
 ```
 
-> `<name-of-function-deployment>`은 함수 앱 이름으로 바꿉니다.
+이 예제에서는 `<name-of-function-deployment>`을 함수 앱 이름으로 바꿉니다.
 
-배포 명령은 일련의 작업을 실행합니다.
+배포 명령은 다음 작업을 수행합니다.
+
 1. 앞에서 만든 Dockerfile은 함수 앱에 대한 로컬 이미지를 작성하는 데 사용됩니다.
-2. 로컬 이미지는 태그가 지정되고 사용자가 로그인한 컨테이너 레지스트리로 푸시됩니다.
-3. Kubernetes `Deployment` 리소스, `ScaledObject` 리소스 및 `local.settings.json` 파일에서 가져온 환경 변수를 포함하는 `Secrets`를 정의하는 클러스터에 매니페스트가 생성되고 적용됩니다.
+1. 로컬 이미지는 태그가 지정되고 사용자가 로그인한 컨테이너 레지스트리로 푸시됩니다.
+1. Kubernetes `Deployment` 리소스, `ScaledObject` 리소스 및 `local.settings.json` 파일에서 가져온 환경 변수를 포함하는 `Secrets`를 정의하는 클러스터에 매니페스트가 생성되고 적용됩니다.
+
+자세한 내용은 [`func kubernetes deploy` 명령](functions-core-tools-reference.md#func-kubernetes-deploy)을 참조하세요.
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>프라이빗 레지스트리의 함수 앱 배포
 
@@ -65,7 +64,7 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 배포한 후에는 연결된 `Deployment`, `ScaledObject`, 생성된 `Secrets`을(를) 제거하여 함수를 제거할 수 있습니다.
 
-```cli
+```command
 kubectl delete deploy <name-of-function-deployment>
 kubectl delete ScaledObject <name-of-function-deployment>
 kubectl delete secret <name-of-function-deployment>
@@ -73,7 +72,11 @@ kubectl delete secret <name-of-function-deployment>
 
 ## <a name="uninstalling-keda-from-kubernetes"></a>Kubernetes에서 KEDA 제거
 
-KEDA를 제거하는 단계는 [KEDA 사이트에](https://keda.sh/docs/deploy/) 설명되어 있습니다.
+다음 방법 중 하나로 클러스터에서 KEDA를 제거할 수 있습니다.
+
++ Azure Functions Core Tools: [`func kubernetes remove` 명령](functions-core-tools-reference.md#func-kubernetes-remove)을 사용합니다.
+
++ Helm: [KEDA 사이트](https://keda.sh/docs/deploy/)의 제거 단계를 참조하세요.
 
 ## <a name="supported-triggers-in-keda"></a>KEDA에서 지원되는 트리거
 
@@ -95,3 +98,5 @@ HTTP 트리거를 노출하는 Azure Functions를 사용할 수 있지만 KEDA�
 * [사용자 지정 이미지를 사용하여 함수 만들기](functions-create-function-linux-custom-image.md)
 * [Azure Functions를 로컬에서 코딩 및 테스트](functions-develop-local.md)
 * [Azure 함수 소비 플랜의 작동 방식](functions-scale.md)
+
+[func init]: functions-core-tools-reference.md#func-init

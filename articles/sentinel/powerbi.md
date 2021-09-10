@@ -6,12 +6,12 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 1e641e878bc5370c9f9d7c0cc83be79008b2ebdd
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 0e877439b18d4c7ff6c4b21baa18b3b0fd1586b3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111852180"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535539"
 ---
 # <a name="tutorial-create-a-power-bi-report-from-azure-sentinel-data"></a>자습서: Azure Sentinel 데이터에서 Power BI 보고서 만들기
 
@@ -29,7 +29,10 @@ Azure Sentinel Log Analytics 작업 영역의 데이터를 바탕으로 Power BI
 
 Power BI 서비스에서 액세스 권한을 부여한 사람과 Teams 채널의 구성원들은 Azure Sentinel 사용 권한이 없어도 보고서를 볼 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> 이 자습서에서는 Azure Sentinel 데이터에 대한 PowerBI의 분석 보고서 보기와 같은 주요 고객 요청에 대한 시나리오 기반 절차를 제공합니다. 자세한 내용은 [데이터 원본 연결](connect-data-sources.md) 및 [수집된 데이터 시각화](get-visibility.md)를 참조하세요.
+>
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -203,5 +206,5 @@ Power BI Desktop에서 내보낸 M 쿼리를 실행하여 데이터를 가져옵
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 로그 데이터를 Power BI로 가져오기](/azure/azure-monitor/visualize/powerbi)
+- [Azure Monitor 로그 데이터를 Power BI로 가져오기](../azure-monitor/visualize/powerbi.md)
 - [파워 쿼리 M 수식 언어](/powerquery-m/)

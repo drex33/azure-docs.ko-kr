@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: be7aefd231daad2cdefccbcc4648b20bf6159455
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 01680713d0e21baa3433e79474a4ba4567d5c644
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642413"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123313063"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -58,6 +58,30 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 ## <a name="getting-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## <a name="create-a-linked-service-to-db2-using-ui"></a>UI를 사용하여 DB2에 연결된 서비스 만들기
+
+다음의 단계를 사용하여 Azure Portal UI에서 DB2에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택한 후 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새로운 연결된 서비스를 만드는 스크린샷":::
+
+2. DB2를 검색하고 DB2 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-db2/db2-connector.png" alt-text="DB2 커넥터의 스크린샷":::    
+
+1. 서비스 세부 정보를 구성하고, 연결을 테스트하고, 새로운 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-db2/configure-db2-linked-service.png" alt-text="DB2에 연결된 서비스 구성의 스크린샷":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
 
 다음 섹션에서는 DB2 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

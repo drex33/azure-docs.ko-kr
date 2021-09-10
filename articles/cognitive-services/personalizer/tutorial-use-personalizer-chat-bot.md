@@ -1,17 +1,20 @@
 ---
 title: 채팅 봇에서 Personalizer 사용 - Personalizer
 description: Personalizer 반복을 사용하는 C# .NET 채팅 봇을 사용자 지정하여 작업(기능 포함) 및 컨텍스트 기능에 따라 사용자에게 올바른 콘텐츠를 제공합니다.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4cc2fcfb73117edf27421dd8c91161d12bab7a7a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 15774ad99391dee3cc89bec6fa09bb808715a4ef
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110097915"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830296"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>자습서: .NET 채팅 봇에서 Personalizer 사용
 
@@ -33,7 +36,7 @@ Personalizer 반복을 사용하는 C# .NET 채팅 봇을 사용하여 사용자
 
 채팅 봇은 대화의 턴을 관리해야 합니다. 채팅 봇은 [Bot Framework](https://github.com/microsoft/botframework-sdk)를 사용하여 봇 아키텍처와 대화를 관리하고, 인지 서비스인 [LUIS(Language Understanding)](../LUIS/index.yml)를 사용하여 사용자의 자연어 의도를 이해합니다.
 
-채팅 봇은 요청에 응답하는 데 사용할 수 있는 특정 경로(`http://localhost:3978/api/messages`)가 있는 웹 사이트입니다. 봇을 로컬로 개발하는 동안 봇 에뮬레이터를 사용하여 실행 중인 채팅 봇과 시각적으로 상호 작용할 수 있습니다.
+채팅 봇은 요청에 응답하는 데 사용할 수 있는 특정 경로(`http://localhost:3978/api/messages`)가 있는 웹 사이트입니다. 봇을 로컬로 개발하는 동안 Bot Framework Emulator를 사용하여 실행 중인 채팅 봇과 시각적으로 상호 작용할 수 있습니다.
 
 ### <a name="user-interactions-with-the-bot"></a>봇과의 사용자 상호 작용
 
@@ -174,24 +177,24 @@ LUIS를 처음 사용하는 경우 [로그인](https://www.luis.ai)하여 계정
 자습서에서 봇이 수행하는 작업을 설명하므로 봇과 상호 작용할 수 있도록 웹 사이트를 계속 실행합니다.
 
 
-## <a name="set-up-the-bot-emulator"></a>봇 에뮬레이터 설정
+## <a name="set-up-the-bot-framework-emulator"></a>Bot Framework Emulator 설정
 
 1. Bot Framework Emulator를 열고, **봇 열기** 를 선택합니다.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="봇 에뮬레이터 시작 화면의 스크린샷":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Bot Framework Emulator 시작 화면의 스크린샷.":::
 
 
 1. 다음 **봇 URL** 을 사용하여 봇을 구성한 다음, **연결** 을 선택합니다.
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="봇 에뮬레이터 봇 열기 설정의 스크린샷":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Bot Framework Emulator 봇 설정 열기의 스크린샷.":::
 
     에뮬레이터에서 채팅 봇에 연결하고, 로컬 개발에 유용한 로깅 및 디버그 정보와 함께 지침 텍스트를 표시합니다.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="첫 번째 대화 턴의 봇 에뮬레이터에 대한 스크린샷":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="첫 번째 대화 턴의 Bot Framework Emulator에 대한 스크린샷.":::
 
-## <a name="use-the-bot-in-the-bot-emulator"></a>봇 에뮬레이터에서 봇 사용
+## <a name="use-the-bot-in-the-bot-framework-emulator"></a>Bot Framework Emulator에서 봇 사용
 
 1. `I would like to see the menu`를 입력하여 메뉴를 표시하도록 요청합니다. 채팅 봇에서 항목을 표시합니다.
 1. `Please suggest a drink for me.`를 입력하여 봇에서 항목을 제안하도록 합니다. 그러면 에뮬레이터에서 전체 JSON을 볼 수 있도록 채팅 창에 순위 요청 및 응답을 표시합니다. 그리고 봇에서 `How about Latte?`와 같이 제안합니다.

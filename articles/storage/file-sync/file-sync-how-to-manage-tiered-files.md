@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd740c773998450ef6e8bb95c4df3a1abadaceed
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8ba54fa398d42aea43a93d3b3369f21f4d2168ec
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796265"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122538003"
 ---
 # <a name="how-to-manage-tiered-files"></a>계층화된 파일을 관리하는 방법
 
@@ -63,11 +63,15 @@ ms.locfileid: "107796265"
 
 ## <a name="how-to-exclude-applications-from-cloud-tiering-last-access-time-tracking"></a>클라우드 계층화 마지막 액세스 시간 추적에서 애플리케이션을 제외하는 방법
 
-Azure 파일 동기화 에이전트 버전 11.1을 사용하면 마지막 액세스 추적에서 애플리케이션을 제외할 수 있습니다. 애플리케이션이 파일에 액세스하면 파일에 대한 마지막 액세스 시간이 클라우드 계층화 데이터베이스에서 업데이트됩니다. 파일 시스템을 검사하는 애플리케이션(예: 바이러스 백신)으로 인해 모든 파일의 마지막 액세스 시간이 동일해지면 파일이 계층화될 때 영향을 줄 수 있습니다.
+애플리케이션이 파일에 액세스하면 파일에 대한 마지막 액세스 시간이 클라우드 계층화 데이터베이스에서 업데이트됩니다. 파일 시스템을 검사하는 애플리케이션(예: 바이러스 백신)으로 인해 모든 파일의 마지막 액세스 시간이 동일해지면 파일이 계층화될 때 영향을 줄 수 있습니다.
 
-마지막 액세스 시간 추적에서 애플리케이션을 제외하려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync에 있는 HeatTrackingProcessNameExclusionList 레지스트리 설정에 해당 프로세스 이름을 추가합니다.
+마지막 액세스 시간 추적에서 애플리케이션을 제외하려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync 아래에 있는 적절한 레지스트리 설정에 프로세스 이름을 추가합니다.
 
+v11 및 v12 릴리스의 경우 HeatTrackingProcessNameExclusionList 레지스트리 설정에 프로세스 제외를 추가합니다.
 예: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
+
+v13 릴리스 이상의 경우 HeatTrackingProcessNamesExclusionList 레지스트리 설정에 프로세스 제외를 추가합니다.
+예: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe,AnotherApp.exe" /f
 
 > [!NOTE]
 > 데이터 중복 제거 및 FSRM(파일 서버 리소스 관리자) 프로세스는 기본적으로 제외됩니다. 프로세스 제외 목록의 변경 사항은 5분마다 시스템에 적용됩니다.

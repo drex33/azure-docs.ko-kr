@@ -1,5 +1,5 @@
 ---
-title: MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 마이그레이션 방법
+title: 'MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 마이그레이션 방법'
 description: 원본에서 대상으로 데이터를 가져오려면 MySQL 도구 또는 기능을 사용하여 마이그레이션을 수행해야 합니다.
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: be44dd31b5a038414a10a7dac47e53a12573449e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 6a4b0e2dc084168e1bffa539924ad897ac93961e
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082964"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085005"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-migration-methods"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 마이그레이션 방법
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-migration-methods"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 마이그레이션 방법
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -26,7 +28,7 @@ ms.locfileid: "112082964"
 
 원본에서 대상으로 데이터를 가져오려면 MySQL 도구 또는 기능을 사용하여 마이그레이션을 수행해야 합니다.
 
-다음 단계를 시작하기 전에 전체 평가 및 계획 단계를 완료하는 것이 중요합니다. 수집되는 결정 및 데이터는 마이그레이션 경로 및 도구 선택 종속성입니다.
+다음 단계를 시작하기 전에 전체 평가 및 계획 단계를 완료하는 것이 중요합니다. 수집되는 의사 결정 및 데이터는 마이그레이션 경로 및 도구 선택 의존성입니다.
 
 이 섹션에서는 일반적으로 사용되는 다음 도구를 살펴봅니다.
 
@@ -102,15 +104,15 @@ WWI가 MySQL 워크로드를 마이그레이션하는 데 사용할 수 있는 �
 
 | Objective | Description | 도구 | 사전 요구 사항 | 장점 | 단점 |
 |-----------|-------------|------|---------------|------------|---------------|
-| **가능한 가장 빠른 마이그레이션** | 병렬 접근 방식 | mydumper 및 myloader | Linux | 고도로 병렬 처리됨 | 대상 제한 |
-| **온라인 마이그레이션** | 원본을 최대한 오랫동안 가동 상태로 유지 | binlog | 없음 | 원활 | 추가 처리 및 스토리지  |
-| **오프라인 마이그레이션** | 원본을 최대한 오랫동안 가동 상태로 유지 | DMS(Database Migration Service) | 없음 | 반복 가능한 프로세스  | 데이터로만 제한되고 모든 MySQL 버전 지원 |
+| **가능한 가장 빠른 마이그레이션** | 병렬 접근 방식| mydumper 및 myloader | Linux | 고도로 병렬 처리됨 | 대상 제한 |
+| **온라인 마이그레이션** | 원본을 최대한 오랫동안 가동 상태로 유지 | binlog | 없음 | 원활 | 추가 처리 및 스토리지 |
+| **오프라인 마이그레이션** | 원본을 최대한 오랫동안 가동 상태로 유지 | DMS(Database Migration Service)| 없음 | 반복 가능한 프로세스 | 데이터로만 제한되고 모든 MySQL 버전 지원 |
 | **고도로 사용자 지정된 오프라인 마이그레이션** | 선택적으로 개체 내보내기 | mysqldump | 없음 | 고도로 사용자 지정 기능 | 수동 |
-| **오프라인 마이그레이션 반자동화됨** | UI 기반 내보내기 및 가져오기 | MySQL Workbench | 다운로드 및 설치 | 반자동화됨 | 일반적인 스위치 세트만 지원됨 |
+| **오프라인 마이그레이션 반자동화됨** | UI 기반 내보내기 및 가져오기 | MySQL Workbench | 다운로드 및 설치 | 반자동화됨 | 일반적인 스위치 세트만 지원됩니다. |
 
 ### <a name="wwi-scenario"></a>WWI 시나리오
 
-WWI는 첫 번째 마이그레이션 워크로드로 해당 컨퍼런스 데이터베이스를 선택했습니다. 연간 컨퍼런스 일정의 차이로 인해 위험이 가장 적고 사용 가능한 가동 중지 시간이 가장 크기 때문에 해당 워크로드가 선택되었습니다. 또한 마이그레이션 팀의 평가에 따라 MySQL Workbench를 사용하여 오프라인 마이그레이션을 수행하려고 시도했음을 확인했습니다.
+WWI는 해당 컨퍼런스 데이터베이스를 첫 번째 마이그레이션 워크로드로 선택했습니다. 연간 컨퍼런스 일정의 차이로 인해 위험이 가장 적고 사용 가능한 가동 중지 시간이 가장 크기 때문에 해당 워크로드가 선택되었습니다. 또한 마이그레이션 팀의 평가에 따라 MySQL Workbench를 사용하여 오프라인 마이그레이션을 수행하려고 시도했음을 확인했습니다.
 
 ### <a name="migration-methods-checklist"></a>마이그레이션 방법 검사 목록
 
@@ -120,6 +122,8 @@ WWI는 첫 번째 마이그레이션 워크로드로 해당 컨퍼런스 데이�
 
   - 데이터 워크로드가 해당 방법을 지원하는지 항상 확인합니다.  
 
+
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [Test Plans](./06-test-plans.md)

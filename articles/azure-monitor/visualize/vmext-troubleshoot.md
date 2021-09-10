@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 33bdff8d516929e7f615f3a7f8bd77463eea0c64
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 80cec6ad233a6f6dc4771e82a98601f5db774b0f
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040144"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529971"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Azure Monitor에서 Log Analytics VM 확장 문제 해결
 이 문서는 Microsoft Azure에서 실행되는 Windows 및 Linux 가상 머신에 대한 Log Analytics VM 확장에서 발생할 수 있는 오류를 해결하는 데 도움을 주며, 가능한 해결 방법을 제안합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "102040144"
 1. [KB 2965986](https://support.microsoft.com/kb/2965986#mt1)의 절차를 통해 Azure VM 에이전트가 올바르게 설치되어 작동하는지 확인합니다.
    * VM 에이전트 로그 파일 `C:\WindowsAzure\logs\WaAppAgent.log`를 검토할 수도 있습니다.
    * 로그가 없는 경우 VM 에이전트가 설치되지 않은 것입니다.
-   * [Azure VM 에이전트 설치](../vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Azure VM 에이전트 설치](../vm/monitor-virtual-machine.md#agents)
 2. `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`에서 Microsoft Monitoring Agent VM 확장 로그 파일을 검토합니다.
 3. 가상 머신이 PowerShell 스크립트를 실행할 수 있는지 확인합니다.
 4. C:\Windows\temp 권한이 변경되지 않았는지 확인합니다.

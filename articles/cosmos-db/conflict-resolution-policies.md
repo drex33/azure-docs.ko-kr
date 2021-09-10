@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ba55d88de3a5a4087db30613b22a7d2441de9be1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa21a1a6d6dfdd89f6532159a8da98fc5df08465
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93334381"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112281362"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>여러 쓰기 지역 사용 시 충돌 형식 및 해결 정책
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -46,7 +46,7 @@ Azure Cosmos DB는 쓰기 충돌을 해결하기 위해 유연한 정책 기반 
   사용자 지정 해결 옵션을 사용하여 컨테이너를 구성하는 경우, 컨테이너에서 병합 프로시저를 등록하지 못하거나 병합 프로시저가 런타임에서 예외를 throw하는 경우 충돌이 *충돌 피드* 에 기록됩니다. 그러면, 애플리케이션은 충돌 피드에서 충돌을 수동으로 해결해야 합니다. 자세한 내용은 [사용자 지정 해결 정책을 사용하는 방법 및 충돌 피드를 사용하는 방법의 예제](how-to-manage-conflicts.md)를 참조하세요.
 
   > [!NOTE]
-  > 사용자 지정 충돌 해결 정책은 SQL API 계정에서만 사용할 수 있습니다.
+  > 사용자 지정 충돌 해결 정책은 SQL API 계정에 대해서만 사용할 수 있으며 생성 시간에만 설정할 수 있습니다. 기존 컨테이너에 사용자 지정 해결 정책을 설정할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

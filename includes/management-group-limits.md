@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 53e3f37d14153f3a2d7b5886a49b08ca9052b128
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ee564accd0eaf53f0089e0dba3bb00e3eb1665e1
+ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107799777"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112575650"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -21,6 +21,7 @@ ms.locfileid: "107799777"
 | 관리 그룹 계층 구조의 수준 | 루트 수준 + 6 수준<sup>1</sup> |
 | 관리 그룹당 직접 부모 관리 그룹 | 하나 |
 | 위치당 [관리 그룹 수준 배포](../articles/azure-resource-manager/templates/deploy-to-management-group.md) | 800<sup>2</sup> |
+| [관리 그룹 수준 배포](../articles/azure-resource-manager/templates/deploy-to-management-group.md) 위치 | 10 |
 
 <sup>1</sup>6 수준에는 구독 수준이 포함되지 않습니다.
 

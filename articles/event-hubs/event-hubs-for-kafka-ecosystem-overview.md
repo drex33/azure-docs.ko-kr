@@ -2,13 +2,13 @@
 title: Apache Kafka 앱에서 이벤트 허브 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafka에 정보를 제공합니다.
 ms.topic: article
-ms.date: 09/25/2020
-ms.openlocfilehash: 5402769b00a142551672098829dcf8f3ef6ea670
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.date: 08/30/2021
+ms.openlocfilehash: f0ea6469d17248a0d37a7ababf767d494545fbbb
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530570"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250650"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
 Event Hubs는 사용자 고유의 Apache Kafka 클러스터를 실행하는 대신 대부분의 기존 Apache Kafka 클라이언트 애플리케이션에서 사용할 수 있는 Apache Kafka® 생산자 및 소비자 API 호환 엔드포인트를 제공합니다. Event Hubs는 버전 1.0 이상에서 Apache Kafka의 생산자 및 소비자 API 클라이언트를 지원합니다.
@@ -44,21 +44,21 @@ Event Hubs 규모는 구매한 [처리량 단위(TU)](event-hubs-scalability.md#
 
 Apache Kafka를 사용하여 애플리케이션을 빌드할 때 Azure Event Hubs가 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 및 [Azure Event Grid](../event-grid/overview.md)를 포함하는 서비스 집합의 일부임을 이해하는 것도 유용합니다. 
 
-Apache Kafka의 일부 상용 배포 공급자는 Apache Kafka가 모든 메시징 플랫폼 요구 사항을 위한 원 스톱 상점이라고 할 수 있지만 실제로 Apache Kafka는 [경쟁 소비자](/azure/architecture/patterns/competing-consumers) 큐 패턴을 구현하지 않고, 구독자가 일반 오프셋 이외의 서버 평가 규칙을 기반으로 들어오는 메시지에 액세스할 수 있도록 허용하는 수준에서 [발행-구독](/azure/architecture/patterns/publisher-subscriber)을 지원하지 않으며, 메시지에 의해 시작된 작업의 수명 주기를 추적하거나 잘못된 메시지를 배달 못 한 메시지 큐로 분류하는 기능이 없습니다. 이들 모두 많은 엔터프라이즈 메시징 시나리오의 기본입니다.
+Apache Kafka의 일부 상용 배포 공급자는 Apache Kafka가 모든 메시징 플랫폼 요구 사항을 위한 원 스톱 상점이라고 할 수 있지만, 실제로 Apache Kafka는 [경쟁 소비자](/azure/architecture/patterns/competing-consumers) 큐 패턴을 구현하지 않고, 구독자가 일반 오프셋 이외의 서버 평가 규칙을 기반으로 수신 메시지에 액세스할 수 있도록 허용하는 수준에서 [게시-구독](/azure/architecture/patterns/publisher-subscriber)을 지원하지 않으며, 메시지에 의해 시작된 작업의 수명 주기를 추적하거나 잘못된 메시지를 배달 실패 메시지 큐로 분류하는 기능이 없습니다. 이들 모두 많은 엔터프라이즈 메시징 시나리오의 기본입니다.
 
-패턴 간 차이점과 어느 서비스에서 어느 패턴을 가장 잘 다루는지 이해하려면 [Azure의 비동기 메시징 옵션](/azure/architecture/guide/technology-choices/messaging) 참고 자료를 검토하세요. Apache Kafka 사용자는 지금까지 Kafka로 실현한 통신 경로를 훨씬 적은 기본 복잡성과 Event Grid 또는 Service Bus를 사용하는 더 강력한 기능으로 실현할 수 있습니다. 
+패턴 간 차이점과 어느 서비스에서 어느 패턴을 가장 잘 다루는지 이해하려면 [Azure의 비동기 메시징 옵션](/azure/architecture/guide/technology-choices/messaging) 참고 자료를 참조하세요. Apache Kafka 사용자는 지금까지 Kafka로 실현한 통신 경로를 훨씬 적은 기본 복잡성과 Event Grid 또는 Service Bus를 사용하는 더 강력한 기능으로 실현할 수 있습니다. 
 
 Apache Kafka용 Event Hubs 인터페이스를 통해 사용할 수 없는 Apache Kafka의 특정 기능이 필요하거나 구현 패턴이 [Event Hubs 할당량](event-hubs-quotas.md)을 초과하는 경우 [Azure HDInsight에서 네이티브 Apache Kafka 클러스터](../hdinsight/kafka/apache-kafka-introduction.md)를 실행할 수도 있습니다.  
 
 ## <a name="security-and-authentication"></a>보안 및 인증
-Kafka용 Event Hubs에서 이벤트를 게시하거나 이용할 때마다 클라이언트가 Event Hubs 리소스에 액세스하려고 합니다. 권한이 부여된 엔터티를 사용하여 리소스에 액세스할 수 있는지 확인하려고 합니다. 클라이언트에서 Apache Kafka 프로토콜을 사용하는 경우 SASL 메커니즘을 사용하여 인증 및 암호화에 대한 구성을 설정할 수 있습니다. Kafka용 Event Hubs를 사용하는 경우 TLS 암호화가 필요합니다(Event Hubs를 사용하여 전송 중인 모든 데이터는 TLS로 암호화됨). 구성 파일에 SASL_SSL 옵션을 지정하여 이 작업을 수행할 수 있습니다. 
+Kafka용 Event Hubs에서 이벤트를 게시하거나 이용할 때마다 클라이언트가 Event Hubs 리소스에 액세스하려고 합니다. 권한이 부여된 엔터티를 사용하여 리소스에 액세스할 수 있는지 확인하려고 합니다. 클라이언트에서 Apache Kafka 프로토콜을 사용하는 경우 SASL 메커니즘을 사용하여 인증 및 암호화에 대한 구성을 설정할 수 있습니다. Kafka에 Event Hubs를 사용하려면 TLS 암호화가 필요합니다(Event Hubs 전송 중인 모든 데이터는 TLS 암호화됨). 구성 파일에서 SASL_SSL 옵션을 지정하여 수행할 수 있습니다. 
 
 Azure Event Hubs는 보안 리소스에 대한 액세스 권한을 부여하는 여러 옵션을 제공합니다. 
 
 - OAuth 2.0
 - 공유 액세스 서명(SAS)
 
-#### <a name="oauth-20"></a>OAuth 2.0
+### <a name="oauth-20"></a>OAuth 2.0
 Event Hubs는 **OAuth 2.0** 규격 중앙 인증 서버를 제공하는 Azure AD(Azure Active Directory)와 통합됩니다. Azure AD를 사용하면 Azure RBAC(Azure 역할 기반 액세스 제어)로 클라이언트 ID에 세분화된 권한을 부여할 수 있습니다. 프로토콜에 대해 **SASL_SSL** 을 지정하고 메커니즘에 대해 **OAUTHBEARER** 를 지정하여 Kafka 클라이언트에서 이 기능을 사용할 수 있습니다. 액세스 범위 지정을 위한 Azure 역할 및 수준에 대한 자세한 내용은 [Azure AD로 액세스 권한 부여](authorize-access-azure-active-directory.md)를 참조하세요.
 
 ```properties
@@ -69,7 +69,7 @@ sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginMo
 sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler
 ```
 
-#### <a name="shared-access-signature-sas"></a>공유 액세스 서명(SAS)
+### <a name="shared-access-signature-sas"></a>공유 액세스 서명(SAS)
 Event Hubs는 Kafka용 Event Hubs 리소스에 대한 위임된 액세스를 위해 **SAS(공유 액세스 서명)** 도 제공합니다. OAuth 2.0 토큰 기반 메커니즘을 사용하여 액세스 권한을 부여하면 SAS보다 뛰어난 보안과 사용 편의성이 제공됩니다. 기본 제공 역할을 사용하면 사용자가 유지 및 관리해야 하는 ACL 기반 권한 부여도 필요 없습니다. 프로토콜에 대해 **SASL_SSL** 을 지정하고 메커니즘에 대해 **PLAIN** 을 지정하여 Kafka 클라이언트에서 이 기능을 사용할 수 있습니다. 
 
 ```properties
@@ -117,7 +117,7 @@ Event Hub 이벤트의 페이로드는 바이트 스트림이며 선택한 알�
 
 ### <a name="log-compaction"></a>로그 압축
 
-Apache Kafka 로그 압축은 파티션에서 각 키의 마지막 레코드를 제외한 모든 항목을 제거할 수 있는 기능으로, Apache Kafka 항목을 마지막으로 추가된 값이 이전 값을 재정의하는 키-값 저장소로 효과적으로 변환합니다. 이 기능은 현재 Azure Event Hubs에 의해 구현되지 않습니다. 키-값 저장소 패턴은 자주 업데이트하더라도 [Azure Cosmos DB](../cosmos-db/introduction.md)와 같은 데이터베이스 서비스에서 훨씬 더 잘 지원됩니다. 자세한 내용은 Event Hubs 페더레이션 참고 자료의 [로그 프로젝션](event-hubs-federation-overview.md#log-projections) 항목을 참조하세요. 
+Apache Kafka 로그 압축은 파티션에서 각 키의 마지막 레코드를 제외한 모든 항목을 제거할 수 있는 기능으로, Apache Kafka 항목을 마지막으로 추가된 값이 이전 값을 재정의하는 키-값 저장소로 효과적으로 변환합니다. 이 기능은 현재 Azure Event Hubs에 의해 구현되지 않습니다. 키-값 저장소 패턴은 자주 업데이트하더라도 [Azure Cosmos DB](../cosmos-db/introduction.md)와 같은 데이터베이스 서비스에서 훨씬 더 잘 지원됩니다. 자세한 내용은 [로그 프로젝션](event-hubs-federation-overview.md#log-projections)을 참조하세요. 
 
 ### <a name="kafka-streams"></a>Kafka 스트림
 
@@ -136,7 +136,7 @@ Azure Event Hubs 고객이 Kafka Streams 지원을 요청하는 가장 일반적
 - [Apache Flink](event-hubs-kafka-flink-tutorial.md)
 - [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
 
-나열된 서비스와 프레임워크는 일반적으로 어댑터를 통해 다양한 원본 세트에서 직접 이벤트 스트림과 참조 데이터를 가져올 수 있습니다. Kafka Streams는 Apache Kafka에서만 데이터를 가져올 수 있으므로 분석 프로젝트는 Apache Kafka에 고정됩니다. 다른 원본의 데이터를 사용하려면 먼저 Kafka Connect 프레임워크를 사용하여 Apache Kafka로 데이터를 가져와야 합니다.
+나열된 서비스와 프레임워크는 일반적으로 어댑터를 통해 다양한 원본 세트에서 직접 이벤트 스트림과 참조 데이터를 가져올 수 있습니다. Kafka Streams는 Apache Kafka에서만 데이터를 가져올 수 있으므로 분석 프로젝트는 Apache Kafka에 고정됩니다. 다른 원본의 데이터를 사용하려면, 먼저 Kafka Connect 프레임워크를 사용하여 Apache Kafka로 데이터를 가져와야 합니다.
 
 Azure에서 Kafka Streams 프레임워크를 사용해야 하는 경우 [HDInsight의 Apache Kafka](../hdinsight/kafka/apache-kafka-introduction.md)가 해당 옵션을 제공합니다. HDInsight의 Apache Kafka는 Apache Kafka의 모든 구성 측면에 대한 모든 권한을 제공하는 동시에 오류/업데이트 도메인 배치에서 네트워크 격리, 모니터링 통합에 이르는 Azure 플랫폼의 다양한 측면과 완벽하게 통합됩니다. 
 

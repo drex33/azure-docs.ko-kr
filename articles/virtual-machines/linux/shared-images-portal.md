@@ -2,7 +2,6 @@
 title: 포털을 사용하여 공유 Azure Linux VM 이미지 만들기
 description: Azure Portal를 사용하여 Linux 가상 머신 이미지를 만들고 공유하는 방법을 알아봅니다.
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.collection: linux
@@ -11,14 +10,16 @@ ms.workload: infrastructure
 ms.date: 06/21/2021
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 254fb1b4c21f8dd956c271e75ddf29f25c2bce15
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 989ed30ae5feacb0f323afdaed48f99ff714a46e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204451"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694878"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>포털을 사용하여 Shared Image Gallery 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 **적용 대상:** :heavy_check_mark: :heavy_check_mark: 단일 확장 집합 
 
 [공유 이미지 갤러리](../shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 배포 작업에 사용자 지정 이미지를 사용할 수 있습니다. 
 

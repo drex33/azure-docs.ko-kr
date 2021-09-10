@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/23/2021
-ms.openlocfilehash: 5e568e0e41b4273b94f12006d998a711229335c5
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.date: 08/26/2021
+ms.openlocfilehash: 7e8e1db98ac79c2be6dbb399a14368ce3e2f898c
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112893513"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123033499"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>덤프 및 복원을 사용하여 PostgreSQL 데이터베이스 업그레이드
 
@@ -46,7 +46,7 @@ ms.locfileid: "112893513"
 
 - 업그레이드하려는 더 낮은 버전의 엔진을 실행하는 **원본** PostgreSQL 데이터베이스 서버.
 - 원하는 주 버전 [Azure Database for PostgreSQL 서버 단일 서버](quickstart-create-server-database-portal.md) 또는 [Azure Database for PostgreSQL 유연한 서버](./flexible-server/quickstart-create-server-portal.md)를 포함하는 **대상** PostgreSQL 데이터베이스 서버. 
-- 덤프 및 복원 명령을 실행할 PostgreSQL 클라이언트 시스템.
+- 덤프 및 복원 명령을 실행할 PostgreSQL 클라이언트 시스템. 더 높은 버전의 데이터베이스를 사용하는 것이 좋습니다. 예를 들어 PostgreSQL 버전 9.6에서 11로 업그레이드하는 경우 PostgreSQL 버전 11 클라이언트를 사용하세요. 
   - PostgreSQL이 설치된 Linux 또는 Windows 클라이언트일 수 있으며, [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 및 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 명령줄 유틸리티가 설치되어 있습니다. 
   - 또는 [Azure Cloud Shell](https://shell.azure.com)을 사용하거나 [Azure Portal](https://portal.azure.com)의 오른쪽 위에 있는 메뉴 모음에서 Azure Cloud Shell을 클릭하여 사용할 수 있습니다. 덤프 및 복원 명령을 실행하기 전에 `az login` 계정에 로그인해야 합니다.
 - PostgreSQL 클라이언트는 원본 및 대상 서버와 동일한 지역에서 실행되는 것이 좋습니다. 
@@ -55,10 +55,10 @@ ms.locfileid: "112893513"
 ## <a name="additional-details-and-considerations"></a>추가 세부 정보 및 고려 사항
 - 포털에서 “연결 문자열”을 클릭하여 원본 및 대상 데이터베이스에 대한 연결 문자열을 찾을 수 있습니다. 
 - 서버에서 둘 이상의 데이터베이스를 실행 중일 수 있습니다. 원본 서버에 연결하고 `\l`를 실행하여 데이터베이스 목록을 찾을 수 있습니다.
-- 대상 데이터베이스 서버에 해당 데이터베이스를 만듭니다.
-- `azure_maintenance` 업그레이드 또는 템플릿 데이터베이스를 건너뛸 수 있습니다.
+- 대상 데이터베이스 서버에서 해당 데이터베이스를 만들거나 데이터베이스를 만드는 `pg_dump` 명령에 `-C` 옵션을 추가합니다.
+- `azure_maintenance` 또는 템플릿 데이터베이스를 업그레이드 해서는 안 됩니다. 템플릿 데이터베이스를 변경한 경우 변경 내용을 마이그레이션하거나 대상 데이터베이스를 변경하도록 선택할 수 있습니다.
 - 이 마이그레이션 모드에 적합한 데이터베이스를 확인하려면 위의 표를 참조하세요.
-- Azure Cloud Shell을 사용하려면 20분 후 세션 시간이 초과되는 것을 참고하세요. 데이터베이스 크기가 10GB 미만인 경우 세션 시간이 초과되지 않고 업그레이드를 완료할 수 있습니다. 그렇지 않은 경우 10 - 15분에 한 번 <Enter> 키를 누르는 등 다른 방법으로 세션을 열어 두어야 할 수 있습니다. 
+- Azure Cloud Shell을 사용하려면 20분 후 세션 시간이 초과되는 것을 참고하세요. 데이터베이스 크기가 10GB 미만인 경우 세션 시간이 초과되지 않고 업그레이드를 완료할 수 있습니다. 그렇지 않은 경우 10~15분에 한 번 아무 키나 누르는 등 다른 방법으로 세션을 열어 두어야 할 수 있습니다. 
 
 
 ## <a name="example-database-used-in-this-guide"></a>이 가이드에 사용되는 예제 데이터베이스
@@ -76,7 +76,7 @@ ms.locfileid: "112893513"
  | 대상 사용자 이름 | pg@pg-11 |
 
 >[!NOTE]
-> 유연한 서버는 PostgreSQL 버전 11 이상을 지원합니다. 또한 유연한 서버 사용자 이름에 @<servername>이 필요하지 않습니다.
+> 유연한 서버는 PostgreSQL 버전 11 이상을 지원합니다. 또한 유연한 서버 사용자 이름에 @dbservername이 필요하지 않습니다.
 
 ## <a name="upgrade-your-databases-using-offline-migration-methods"></a>오프라인 마이그레이션 방법을 사용하여 데이터베이스 업그레이드
 업그레이드에 대해 이 섹션에서 설명하는 방법 중 하나를 사용하도록 선택할 수 있습니다. 작업을 수행하는 동안 다음 팁을 사용할 수 있습니다.
@@ -88,13 +88,35 @@ ms.locfileid: "112893513"
 - Windows 명령줄에서 pg_restore 명령을 실행하기 전에 명령 `SET PGSSLMODE=require`를 실행합니다. Linux 또는 Bash에서 pg_restore 명령을 실행하기 전에 명령 `export PGSSLMODE=require`를 실행합니다.
 
 >[!Important]
-> 프로덕션에서 사용하기 전에 테스트 환경에서 명령을 테스트하고 유효성을 검사하는 것이 좋습니다.
+> 이 문서에서 제공하는 단계 및 방법은 pg_dump/pg_restore 명령의 몇 가지 예제를 제공하기 위한 것이며, 업그레이드를 수행할 수 있는 모든 방법을 나타내는 것이 아닙니다. 프로덕션에서 사용하기 전에 테스트 환경에서 명령을 테스트하고 유효성을 검사하는 것이 좋습니다.
 
-### <a name="method-1-migrate-using-dump-file"></a>방법 1: 덤프 파일을 사용하여 마이그레이션
+### <a name="migrate-the-roles"></a>역할 마이그레이션
 
-이 방법에는 두 단계가 포함됩니다. 먼저 원본 서버에서 덤프를 만듭니다. 두 번째 단계는 덤프 파일을 대상 서버로 복원하는 것입니다. 자세한 내용은 [덤프 및 복원을 사용한 마이그레이션](howto-migrate-using-dump-and-restore.md)을 참조하세요. 데이터베이스가 크고 클라이언트 시스템에 덤프 파일을 저장할 수 있는 스토리지가 충분한 경우 이 방법이 권장됩니다.
+역할(사용자)은 전역 개체이며, 데이터베이스를 복원하기 전에 별도로 새 클러스터로 마이그레이션해야 합니다. `pg_dumpall` 이진 파일을 -r (--roles-only) 옵션과 함께 사용하여 역할을 덤프할 수 있습니다.
+원본 서버에서 모든 역할을 덤프하려면
 
-### <a name="method-2-migrate-using-streaming-the-dump-data-to-the-target-database"></a>방법 2: 덤프 데이터 스트리밍을 사용하여 대상 데이터베이스에 마이그레이션
+```azurecli-interactive
+pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser -- dbname=mySourceDB > roles.sql
+```
+
+psql을 사용하여 대상 서버에 복원하려면
+
+```azurecli-interactive
+psql -f roles.sql --host=myTargetServer --port=5432 --username=myUser
+```
+
+덤프 스크립트는 오류 없이 완전히 실행될 수 없습니다. 특히 스크립트는 원본 클러스터에 있는 모든 역할에 대해 CREATE ROLE을 실행하기 때문에 azure_pg_admin 또는 azure_superuser 같은 부트스트랩 슈퍼 사용자에 대해 "역할이 이미 있습니다."라는 오류 메시지가 표시됩니다. 이것은 치명적인 오류가 아니므로 무시해도 됩니다. `--clean` 옵션을 사용하면 존재하지 않는 개체에 대한 무해한 오류 메시지가 추가로 생성될 수 있지만 `--if-exists`를 추가하면 이를 최소화할 수 있습니다.
+
+
+### <a name="method-1-using-pg_dump-and-psql"></a>방법 1: pg_dump 및 psql 사용
+
+이 방법에는 두 단계가 포함됩니다. 먼저, `pg_dump`를 사용하여 원본 서버에서 SQL 파일을 덤프합니다. 다음으로, `psql`을 사용하여 파일을 대상 서버로 가져옵니다. 자세한 내용은 [내보내기 및 가져오기를 사용하여 마이그레이션](howto-migrate-using-export-and-import.md) 설명서를 참조하세요.
+
+### <a name="method-2-using-pg_dump-and-pg_restore"></a>방법 2: pg_dump 및 pg_restore 사용
+
+이 업그레이드 방법에서는 먼저 `pg_dump`를 사용하여 원본 서버에서 덤프를 만듭니다. 그런 다음 `pg_restore`를 사용하여 해당 덤프 파일을 대상 서버로 복원합니다. 자세한 내용은 [덤프 및 복원을 사용한 마이그레이션](howto-migrate-using-dump-and-restore.md)을 참조하세요. 
+
+### <a name="method-3-using-streaming-the-dump-data-to-the-target-database"></a>방법 3: 덤프 데이터를 대상 데이터베이스로 스트리밍 사용
 
 PostgreSQL 클라이언트가 없거나 Azure Cloud Shell을 사용하려는 경우 이 방법을 사용할 수 있습니다. 데이터베이스 덤프는 대상 데이터베이스 서버로 직접 스트리밍되며 덤프를 클라이언트에 저장하지 않습니다. 따라서 클라이언트는 제한된 스토리지와 함께 사용할 수 있으며 Azure Cloud Shell에서도 실행할 수 있습니다. 
 
@@ -109,13 +131,13 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell을 사용하려는 경
 
 2. 파이프를 사용하여 덤프를 실행하고 하나의 명령줄로 복원합니다. 
     ```azurecli-interactive
-    pg_dump -Fc -v --mySourceServer --port=5432 --username=myUser --dbname=mySourceDB | pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB
+    pg_dump -Fc --host=mySourceServer --port=5432 --username=myUser --dbname=mySourceDB | pg_restore  --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB
     ```
 
     예를 들면 다음과 같습니다.
 
     ```azurecli-interactive
-    pg_dump -Fc -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb | pg_restore -v --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb
+    pg_dump -Fc --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb | pg_restore --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb
     ```  
 3. 업그레이드(마이그레이션) 프로세스가 완료되면 대상 서버를 사용하여 애플리케이션을 테스트할 수 있습니다. 
 4. 서버 내의 모든 데이터베이스에 대해 이 프로세스를 반복합니다.
@@ -130,19 +152,26 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell을 사용하려는 경
 | 50GB | 1-1.5시간 |
 | 100GB | 2.5-3시간|
    
-### <a name="method-3-migrate-using-parallel-dump-and-restore"></a>방법 3: 병렬 덤프 및 복원을 사용하여 마이그레이션 
+### <a name="method-4-using-parallel-dump-and-restore"></a>방법 4: 병렬 덤프 및 복원 사용 
 
 데이터베이스에 더 많은 테이블이 있고 해당 데이터베이스의 덤프 및 복원 프로세스를 병렬화하려는 경우 이 방법을 고려할 수 있습니다. 또한 백업 덤프를 수용할 수 있도록 클라이언트 시스템에 충분한 스토리지가 필요합니다. 이러한 병렬 덤프 및 복원 프로세스는 전체 마이그레이션을 완료하는 데 걸리는 시간을 줄입니다. 예를 들어 방법 1 및 2를 사용하여 마이그레이션하는 데 1-1.5시간이 걸린 50GB의 데이터베이스는 이 방법으로 30분 이내에 완료되었습니다.
 
 1. 원본 서버의 각 데이터베이스에 대해 대상 서버에 해당 데이터베이스를 만듭니다.
 
-   ```bash
+    ```azurecli-interactive
     psql "host=myTargetServer port=5432 dbname=postgres user=myuser password=###### sslmode=mySSLmode"
-    postgresl> create database myDB;
+    ```
+
+    ```SQL
+    postgres> create database myDB;
    ```
+
    예를 들면 다음과 같습니다.
     ```bash
     psql "host=pg-11.postgres.database.azure.com port=5432 dbname=postgres user=pg@pg-11 password=###### sslmode=require"
+    psql (12.3 (Ubuntu 12.3-1.pgdg18.04+1), server 13.3)
+    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+    Type "help" for help.
 
     postgres> create database bench5gb;
     postgres> \q
@@ -150,7 +179,7 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell을 사용하려는 경
 
 2. 작업 수 = 4(데이터베이스의 테이블 수)를 사용하여 디렉터리 형식으로 pg_dump 명령을 실행합니다. 더 큰 컴퓨팅 계층과 더 많은 테이블이 있는 경우 더 큰 수로 늘릴 수 있습니다. 이 pg_dump는 각 작업에 대해 압축된 파일을 저장할 디렉터리를 만듭니다.
 
-    ```bash
+    ```azurecli-interactive
     pg_dump -Fd -v --host=sourceServer --port=5432 --username=myUser --dbname=mySourceDB -j 4 -f myDumpDirectory
     ```
     예를 들면 다음과 같습니다.
@@ -159,7 +188,7 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell을 사용하려는 경
     ```
 
 3. 그런 다음, 대상 서버에서 백업을 복원합니다.
-    ```bash
+    ```azurecli-interactive
     $ pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB -j 4 myDumpDir
     ```
     예를 들면 다음과 같습니다.

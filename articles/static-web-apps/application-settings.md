@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
-ms.openlocfilehash: b7191e4d1cff49ff31fa66f80c3aafbc4dfd9924
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 8132ed61a1588c8ccdeb2ac9dc0eb6b5354fd0e0
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814283"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778848"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps"></a>Azure Static Web Apps에 대한 애플리케이션 설정 구성
 
 애플리케이션 설정에는 데이터베이스 연결 문자열과 같이 변경될 수 있는 값에 대한 구성 설정이 포함됩니다. 애플리케이션 설정을 추가하면 애플리케이션 코드를 변경하지 않고도 앱에 대한 구성 입력을 수정할 수 있습니다.
 
-애플리케이션 설정은 다음과 같습니다.
+애플리케이션 설정:
 
-- 미사용 암호화
+- 미사용 시 암호화
 - [스테이징](review-publish-pull-requests.md) 및 프로덕션 환경에 복사됨
-
-애플리케이션 설정을 환경 변수라고도 합니다.
+- 영숫자와 `.`, `_`만 포함 가능
+- 환경 변수라고도 함
 
 > [!IMPORTANT]
 > 이 문서에서 설명하는 애플리케이션 설정은 Azure Static Web App의 백 엔드 API에만 적용됩니다.

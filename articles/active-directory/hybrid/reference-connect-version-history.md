@@ -8,22 +8,24 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/26/2021
+ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3336ead4259c12b2eb6f7f87d5e21fe39765e817
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 541d7e8592135b1f513bb7cb22716ce8743a712e
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968797"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634506"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
 
 이 문서는 릴리스된 버전을 추적하고 최신 버전에 변경 내용을 이해할 수 있도록 도와줍니다.
+
+
 
 이 테이블은 관련 항목 목록입니다.
 
@@ -32,29 +34,28 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](how-to-upgrade-previous-version.md) 하는 다른 방법입니다.
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
 
-
->[!IMPORTANT]
-> **2022년 8월 31일부터 모든 1.x 버전의 Azure AD(Azure Active Directory) Connect는 더 이상 지원되지 않을 SQL Server 2012 구성 요소를 포함하므로 사용이 중단됩니다.** 해당 날짜까지 최신 버전의 Azure AD Connect(2.x 버전)로 업그레이드하거나 [Azure AD 클라우드 동기화를 평가하고 전환](https://docs.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync)합니다.
-> 
-> 최적의 지원 환경을 받으려면 최신 버전의 Azure AD Connect를 실행하고 있는지 확인해야 합니다. 
-> 
-> 사용 중지된 버전의 Azure AD Connect를 실행하면 예기치 않게 작동이 중지될 수 있으며 최신 보안 수정 사항, 성능 개선 사항, 문제 해결 및 진단 도구, 서비스 개선 사항이 없을 수 있습니다. 또한 지원이 필요한 경우 조직에 필요한 수준의 서비스를 제공하지 못할 수도 있습니다.
-> 
-> 이 문서로 이동하여 V2.0에서 변경된 사항 및 이 변경 사항이 사용자에게 미치는 영향 등 [Azure Active Directory Connect V2.0](whatis-azure-ad-connect-v2.md)에 대해 자세히 알아봅니다.
->
-> Azure AD Connect를 최신 버전으로 업그레이드하는 방법에 대한 자세한 내용은 [이 문서](./how-to-upgrade-previous-version.md)를 참조하세요.
->
-> 사용 중지된 버전 관련 버전 기록 정보는 [Azure AD Connect 버전 릴리스 기록 보관](reference-connect-version-history-archive.md)을 참조하세요.
-
 >[!NOTE]
 >새로운 버전의 Azure AD Connect를 릴리스하는 과정은 서비스 작업 기능을 보장하기 위해 몇 가지 품질 관리 단계가 필요한 프로세스이며, 이 프로세스를 거치는 동안 새 릴리스의 버전 번호와 릴리스 상태가 최신 상태를 반영하도록 업데이트됩니다.
+이 프로세스를 진행하는 동안 릴리스 버전 번호는 "1.3.X.0"과 같이 부 릴리스 번호 위치에 "X"로 표시되며, 이 문서의 릴리스 정보는 "1.3"으로 시작하는 모든 버전에 유효하다는 의미입니다. 릴리스 프로세스가 완료되는 즉시 릴리스 버전 번호는 가장 최근에 릴리스된 버전으로 업데이트되고 릴리스 상태는 "자동 업그레이드 및 다운로드용으로 릴리스"로 업데이트됩니다.
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. 
 
->자동 업그레이드의 사용을 명시하기 위해 중요한 업데이트 및 중요한 픽스를 모두 푸시하는 것이 좋습니다. 모든 버전에서 중요한 보안 문제 관련 픽스를 요구하거나 포함하지 않기 때문에 최신 버전이 아닐 수도 있습니다(여러 경우 중 하나의 예시에 불과함). 중요한 문제는 일반적으로 자동 업그레이드를 통해 제공되는 새 버전으로 해결됩니다. 해당 문제가 없으면 자동 업그레이드를 사용하여 푸시된 업데이트가 없으며, 일반적으로 최신 자동 업그레이드 버전을 사용한다면 정상입니다.
+자동 업그레이드의 사용을 명시하기 위해 중요한 업데이트 및 중요한 픽스를 모두 푸시하는 것이 좋습니다. 모든 버전에서 중요한 보안 문제 관련 픽스를 요구하거나 포함하지 않기 때문에 최신 버전이 아닐 수도 있습니다(여러 경우 중 하나의 예시에 불과함). 그런 문제는 자동 업그레이드를 통해 제공되는 새 버전을 사용하여 해결할 수 있습니다. 해당 문제가 없으면 자동 업그레이드를 사용하여 푸시된 업데이트가 없으며, 일반적으로 최신 자동 업그레이드 버전을 사용한다면 정상입니다.
 그러나 모든 최신 기능 및 업데이트를 원하는 경우 이 페이지를 확인하고 적절하게 설치하는 것이 가장 좋은 방법입니다. 
 
->[자동 업그레이드](how-to-connect-install-automatic-upgrade.md)에 대한 자세한 내용은 이 링크 참조
+[자동 업그레이드](how-to-connect-install-automatic-upgrade.md)에 대한 자세한 내용은 이 링크 참조
 
+>[!IMPORTANT]
+> 2024년 4월 1일부터 2018년 5월 1일 이전에 릴리스된 Azure AD Connect 버전(1.1.751.0 및 이전)을 사용 중지합니다. 
+>
+> 최적의 지원 환경을 받으려면 최신 버전의 Azure AD Connect를 실행하고 있는지 확인해야 합니다. 
+>
+>사용되지 않는 Azure AD Connect 버전을 실행하면 최신 보안 수정, 성능 향상, 문제 해결 및 진단 도구와 서비스 개선 사항이 포함되지 않을 수 있으며, 지원이 필요한 경우 조직에 필요한 수준의 서비스를 제공하지 못할 수 있습니다.
+>
+
+>
+>Azure AD Connect를 최신 버전으로 업그레이드하는 방법에 대한 자세한 내용은 [이 문서](./how-to-upgrade-previous-version.md)를 참조하세요.
+>
+>사용 중지된 버전 관련 버전 기록 정보는 [Azure AD Connect 버전 릴리스 기록 보관](reference-connect-version-history-archive.md)을 참조하세요.
 
 ## <a name="download-links"></a>다운로드 링크
 Windows Server 2016 이상을 사용하는 경우 Azure AD Connect V2.0을 사용해야 합니다. [이 링크](https://www.microsoft.com/en-us/download/details.aspx?id=47594)를 사용하여 최신 버전의 Azure AD Connect 2.0을 다운로드할 수 있습니다.

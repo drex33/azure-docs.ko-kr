@@ -13,18 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 7b3db4e47a73cf7b7ad4e4645546d103c1a3c4fc
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: bbd27f7457b01386ddb1b207c10dcab87ffd4cd6
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111812877"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567652"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
 VNet(가상 네트워크) 서비스 엔드포인트는 Azure 백본 네트워크에서 최적화된 경로를 통해 Azure 서비스에 대한 안전한 직접 연결을 제공합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 서비스 엔드포인트를 통해 VNet의 개인 IP 주소는 VNet에 공용 IP 주소가 없어도 Azure 서비스의 엔드포인트에 연결할 수 있습니다.
 
-이 기능은 다음과 같은 Azure 서비스 및 지역에서 제공됩니다. *Microsoft.\** 리소스는 괄호 안에 있습니다. 서비스에 대한 서비스 엔드포인트를 구성하는 동안 서브넷 쪽에서 이 리소스를 사용하도록 설정합니다.
+   >[!NOTE]
+   > Microsoft는 Azure 플랫폼에서 호스트되는 서비스에 대한 보안 및 프라이빗 액세스를 위해 Azure Private Link를 사용할 것을 권장합니다. 자세한 내용은 [Azure Private Link](../private-link/private-link-overview.md)를 참조하세요.  
+
+서비스 엔드포인트는 다음 Azure 서비스 및 지역에서 제공됩니다. *Microsoft.\** 리소스는 괄호 안에 있습니다. 서비스에 대한 서비스 엔드포인트를 구성하는 동안 서브넷 쪽에서 이 리소스를 사용하도록 설정합니다.
 
 **일반 공급**
 
@@ -150,6 +153,6 @@ FAQ는 [가상 네트워크 서비스 엔드포인트 FAQ](./virtual-networks-fa
 - [가상 네트워크에 대한 Azure Storage 계정 보호](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [가상 네트워크에 대한 Azure SQL Database 계정 보호](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [가상 네트워크에 대한 Azure Synapse Analytics 보호](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)
+- [프라이빗 엔드포인트와 서비스 엔드포인트 비교](./vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints)
 - [Virtual Network 서비스 엔드포인트 정책](./virtual-network-service-endpoint-policies-overview.md)
 - [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/vnet-2subnets-service-endpoints-storage-integration)

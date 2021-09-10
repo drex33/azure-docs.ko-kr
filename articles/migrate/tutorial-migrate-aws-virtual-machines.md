@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 05d617b39160a55a15eb3e74b6b515ce053baf6c
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 2a8f8c4a1cda62c4267f7a0f38f4dc9f9654404f
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113769075"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272460"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services) VM 검색, 평가 및 Azure로 마이그레이션
 
@@ -356,13 +356,11 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
     - AWS VM 복제를 중지합니다.
     - Azure Migrate: 서버 마이그레이션의 **복제 중 서버** 수에서 AWS VM을 제거합니다.
     - VM에 대한 복제 상태 정보를 정리합니다.
-2. [Linux](../virtual-machines/extensions/agent-linux.md) 에이전트를 마이그레이션된 컴퓨터에 설치합니다. Azure VM Windows 에이전트는 마이그레이션 프로세스 중에 미리 설치됩니다.
-3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
-4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
-5. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
-6. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
-
-
+1. [Azure VM에서 모든 Windows 정품 인증 문제를 확인하고 해결합니다.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
+1. 호스트 이름, 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
+1. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
+1. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
+1. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
 
 
 ## <a name="post-migration-best-practices"></a>마이그레이션 후 작업 모범 사례

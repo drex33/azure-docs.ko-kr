@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: fca6e59d3aa5b95db0b9ad28f652226ae2eb30ba
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: f25f67839c0bf859e020859db60027d9a5b2db91
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556532"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114729152"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Azure Cognitive Search의 기능
 
@@ -23,7 +23,7 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 
 | 범주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
 |-------------------|----------|
-| 데이터 원본 | JSON 문서로 제출된 경우 검색 인덱스에서 모든 원본의 텍스트를 허용할 수 있습니다. <br/><br/> [**인덱서**](search-indexer-overview.md)는 지원되는 Azure 데이터 원본에서 데이터 수집을 자동화하고 JSON serialization을 처리합니다. [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) 또는 [Azure Blob 스토리지](search-howto-indexing-azure-blob-storage.md)에 연결하여 주 데이터 저장소에서 검색 가능한 콘텐츠를 추출합니다. Azure Blob 인덱서는 Microsoft Office, PDF 및 HTML 문서를 비롯한 [주요 파일 형식에서 텍스트를 추출](search-howto-indexing-azure-blob-storage.md)하기 위해 *문서 크래킹* 을 수행할 수 있습니다. |
+| 데이터 원본 | JSON 문서로 제출된 경우 검색 인덱스에서 모든 원본의 텍스트를 허용할 수 있습니다. <br/><br/> [**인덱서**](search-indexer-overview.md)는 지원되는 데이터 원본에서 데이터 가져오기를 자동화하여 기본 데이터 저장소에서 검색 가능한 콘텐츠를 추출하는 기능입니다. 인덱서가 JSON serialization을 처리합니다. [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) 또는 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)를 비롯한 [다양한 데이터 원본](search-data-sources-gallery.md)에 연결할 수 있습니다. |
 | 계층형 및 중첩 데이터 구조 | [**복합 형식**](search-howto-complex-data-types.md) 및 컬렉션을 사용하면 거의 모든 유형의 JSON 구조를 검색 인덱스로 모델링할 수 있습니다. 일대다 및 다대다 카디널리티는 컬렉션, 복합 형식 및 복합 형식 컬렉션을 통해 고유하게 표현할 수 있습니다.|
 | 언어 분석 | 분석기는 인덱싱 및 검색 작업 중 텍스트 처리에 사용되는 구성 요소입니다. 기본적으로, 범용 표준 Lucene 분석기를 사용하거나, 언어 분석기, 구성한 사용자 지정 분석기 또는 필요한 형식으로 토큰을 생성하는 미리 정의된 다른 분석기를 사용하여 기본값을 재정의할 수 있습니다. <br/><br/>Lucene 또는 Microsoft의 [**언어 분석기**](index-add-language-analyzers.md)는 동사 시제, 성, 불규칙 복수 명사(예: ‘mouse’와 ‘mice’), 단어 분해, 단어 분철(띄어쓰기가 없는 언어의 경우) 등을 비롯한 언어별 언어 체계를 지능적으로 처리할 수 있습니다. <br/><br/>[**사용자 지정 어휘 분석기**](index-add-custom-analyzers.md)는 표기 일치 및 정규식을 사용하는 복잡한 검색 쿼리에 사용됩니다.<br/><br/> |
 

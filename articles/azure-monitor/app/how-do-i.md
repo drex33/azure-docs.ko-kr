@@ -3,12 +3,12 @@ title: Azure Application Insights에서 어떻게 할까요? | Microsoft Docs
 description: Application Insights의 FAQ
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: c889c0890f8e6d193b7e36a525470fc18bef494d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3c74add1d426a6d1e383ed90388bb319a8244e05
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060835"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616319"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -160,7 +160,7 @@ ASP.NET Core 애플리케이션의 경우 [ASP.NET Core 종속성 주입](/aspne
 ![Application Insights 리소스를 열고서버 클릭](./media/how-do-i/121-servers.png)
 
 ### <a name="if-you-see-no-performance-counter-data"></a>성능 카운터 데이터가 없는 경우
-* **IIS 서버** . [상태 모니터를 설치합니다](./monitor-performance-live-website-now.md).
+* **IIS 서버** . [Azure Monitor Application Insights 에이전트를 설치](./status-monitor-v2-overview.md)합니다.
 * **Azure 웹 사이트** - 성능 카운터는 아직 지원되지 않습니다. Azure 웹 사이트 제어판의 표준 부분으로 몇 가지 메트릭을 가져올  수 있습니다.
 * **Unix 서버** - [collectd 설치](java-2x-collectd.md)
 

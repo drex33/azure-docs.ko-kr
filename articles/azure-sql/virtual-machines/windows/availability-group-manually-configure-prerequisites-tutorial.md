@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 29830357f7899d821d627595a3e533788e788205
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 21d9c4cebfdb22fb694cef8064991572159dcf48
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769852"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569839"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>자습서: Azure Virtual Machines의 SQL Server에서 가용성 그룹을 만들기 위한 필수 구성 요소
 
@@ -541,4 +541,11 @@ SQL Server 가용성 그룹으로 Azure VM에서 Windows 장애 조치(failover)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 만들기](availability-group-manually-configure-tutorial.md)
+이제 필수 구성 요소를 구성했으므로 [가용성 그룹 구성](availability-group-manually-configure-tutorial.md)을 시작합니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 Always On 가용성 그룹](availability-group-overview.md)
+- [Always On 가용성 그룹 개요](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)

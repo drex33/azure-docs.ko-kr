@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: 92068911c2df95a835de45ea6bb0ba786baf596f
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 07/30/2021
+ms.openlocfilehash: 86543f160a9ffc725a9512069bac39e6e222d543
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989457"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529103"
 ---
 # <a name="pgbouncer-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 PgBouncer
 
@@ -25,7 +25,7 @@ PgBouncer는 비동기 I/O를 활용하는 좀 더 간단한 모델을 사용하
 사용하도록 설정하면 PgBouncer는 데이터베이스 서버의 포트 6432에서 실행됩니다. 동일한 호스트 이름을 사용하도록 애플리케이션의 데이터베이스 연결 구성을 변경할 수 있지만 포트를 6432로 변경하여 PgBouncer 사용을 시작하고 향상된 유휴 연결 크기 조정의 이점을 누릴 수 있습니다.
 
 > [!Note]
-> PgBouncer는 범용 및 메모리 최적화 컴퓨팅 계층에서만 지원됩니다.
+> PgBouncer는 공용 액세스 및 프라이빗 액세스 네트워킹 모두에서 범용 및 메모리 최적화 컴퓨팅 계층에서 지원됩니다.
 
 ## <a name="enabling-and-configuring-pgbouncer"></a>PgBouncer 사용 및 구성
 
@@ -36,10 +36,14 @@ PgBouncer를 사용하도록 설정하려면 Azure Portal에서 “서버 매개
 | 매개 변수 이름             | 설명 | 기본값 | 
 |----------------------|--------|-------------|
 | pgbouncer.default_pool_size | 이 매개 변수 값을 사용자/데이터베이스 쌍당 연결 수로 설정합니다.      | 50       | 
-| pgBouncer.max_client_conn | 이 매개 변수 값을 지원하려는 PgBouncer에 대한 최대 클라이언트 연결 수로 설정합니다.      | 5,000     | 
+| pgBouncer.max_client_conn | 이 매개 변수 값을 지원하려는 PgBouncer에 대한 최대 클라이언트 연결 수로 설정합니다.     | 5,000     | 
 | pgBouncer.pool_mode | 이 매개 변수 값을 트랜잭션 풀링을 위한 TRANSACTION으로 설정합니다(대부분의 워크로드에 권장되는 설정).      | TRANSACTION     |
 | pgBouncer.min_pool_size | 이 값보다 낮은 경우 풀에 서버 연결을 추가합니다.    |   0(사용 안 함)   |
+| pgbouncer.ignore_startup_parameters | PgBouncer에서 무시할 수 있는 쉼표로 구분된 매개 변수 목록입니다. 예을 들어 PgBouncer가 `extra_float_digits` 매개 변수를 무시하도록 할 수 있습니다.|   |
+| pgbouncer.query_wait_timeout | 쿼리가 실행을 기다리는 데 허용되는 최대 시간(초)입니다. 이 시간 동안 쿼리가 서버에 할당되지 않으면 클라이언트의 연결이 끊어집니다. | 120s |
 | pgBouncer.stats_users | 선택 사항입니다. 이 매개 변수 값을 기존 사용자의 이름으로 설정하여 “PgBouncer”라는 특수 PgBouncer 통계 데이터베이스에 로그인할 수 있습니다.    |      |
+
+PgBouncer 구성에 대한 자세한 내용은 [pgbouncer.ini](https://www.pgbouncer.org/config.html)를 참조하세요.
 
 > [!Note] 
 > PgBouncer의 업그레이드는 Azure에서 관리됩니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44f061b124523a920a6fe02bb0c04233d533ab1c
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919972"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538183"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell을 사용하여 가속 네트워킹을 사용하는 VM 만들기
 
@@ -51,11 +51,11 @@ ms.locfileid: "98919972"
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-다음 배포는 즉시 Azure Gallery에서 직접 지원됩니다.
+지원되는 Windows 버전은 다음과 같습니다.
 
-- **Windows Server 2019 Datacenter**
-- **Windows Server 2016 Datacenter** 
-- **Windows Server 2012 R2 Datacenter**
+- **Windows Server 2019 Standard/Datacenter**
+- **Windows Server 2016 Standard/Datacenter** 
+- **Windows Server 2012 R2 Standard/Datacenter**
 
 ## <a name="limitations-and-constraints"></a>제한 사항 및 제약 조건
 

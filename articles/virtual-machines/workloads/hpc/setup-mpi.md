@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f43fc94174ebdcfdf447d3635a696193959849fa
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: c189c850d0db5965823c531d86c243d209c8db34
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600306"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694129"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>HPC에 대한 메시지 전달 인터페이스 설정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 [MPI(메시지 전달 인터페이스)](https://en.wikipedia.org/wiki/Message_Passing_Interface)는 분산 메모리 병렬화를 위한 개방형 라이브러리 및 사실상의 표준입니다. 일반적으로 많은 HPC 워크로드에서 사용됩니다. [RDMA 지원](../../sizes-hpc.md#rdma-capable-instances) [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) VM에서 HPC 워크로드는 MPI를 사용하여 낮은 대기 시간과 높은 대역폭 InfiniBand 네트워크를 통해 통신할 수 있습니다.
 - Azure에서 SR-IOV를 사용하는 VM 크기는 대부분의 MPI를 Mellanox OFED와 함께 사용할 수 있습니다.
@@ -51,7 +53,7 @@ make -j 8 && make install
 ```
 
 > [!NOTE]
-> 최근 UCX의 빌드는 여러 NIC 인터페이스가 있는 경우 올바른 InfiniBand 인터페이스를 선택하는 [문제](https://github.com/openucx/ucx/pull/5965)를 해결했습니다. VM에서 가속화된 네트워킹을 사용하는 경우 InfiniBand를 통한 MPI 실행에 대한 자세한 내용은 [여기](hb-hc-known-issues.md#accelerated-networking-on-hb-hc-hbv2-and-ndv2)를 참조하세요.
+> 최근 UCX의 빌드는 여러 NIC 인터페이스가 있는 경우 올바른 InfiniBand 인터페이스를 선택하는 [문제](https://github.com/openucx/ucx/pull/5965)를 해결했습니다. 자세한 내용은 VM에서 가속화된 네트워킹을 사용하도록 설정한 경우 InfiniBand를 통해 MPI를 실행하는 방법에 대한 [HPC 및 GPU VM의 알려진 문제 해결](hb-hc-known-issues.md#accelerated-networking-on-hb-hc-hbv2-and-ndv2)을 참조하세요.
 
 ## <a name="hpc-x"></a>HPC-X
 
@@ -329,5 +331,6 @@ chmod 644 /home/$USER/.ssh/config
 
 - [InfiniBand 지원](../../sizes-hpc.md#rdma-capable-instances) [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) VM에 대해 알아보세요.
 - [HBv3 시리즈 개요](hbv3-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md)를 검토합니다.
+- [HB 시리즈 VM에 최적화된 MPI 프로세스 배치](https://techcommunity.microsoft.com/t5/azure-global/optimal-mpi-process-placement-for-azure-hb-series-vms/ba-p/2450663)를 읽어보세요.
 - [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크로드 예제 및 성능 결과에 대해 읽어보세요.
 - HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

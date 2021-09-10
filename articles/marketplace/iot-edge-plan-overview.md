@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 05/21/2021
-ms.openlocfilehash: 65284852a0e52c79339e31a54b829d63bb78adbf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 07/08/2021
+ms.openlocfilehash: 238be0168be689b9bfa179a4e13e08c2c427b8a2
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955631"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113598066"
 ---
 # <a name="create-and-edit-plans-for-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품에 대한 플랜 만들기 및 편집
 
@@ -31,7 +31,7 @@ ms.locfileid: "111955631"
 플랜에 사용 가능한 작업은 플랜의 현재 상태에 따라 다릅니다. 다음과 같은 변경 내용이 해당됩니다.
 
 - **초안 삭제** – 플랜 상태가 초안인 경우입니다.
-- **판매 플랜 중지** – 플랜 상태가 실시간으로 게시된 경우입니다.
+- 플랜 상태가 실시간으로 게시된 경우 **계획 배포를 중지** 합니다.
 
 ## <a name="edit-a-plan"></a>플랜 편집
 

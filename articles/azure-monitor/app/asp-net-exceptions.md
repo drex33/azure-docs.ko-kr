@@ -4,12 +4,12 @@ description: 요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/19/2021
-ms.openlocfilehash: e992fcd16b678a89ae56ceaea4bd7d4ffb85c4fc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d81881318f6bbfa5c44b9cd947cf408cefa766ae
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455084"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616247"
 ---
 # <a name="diagnose-exceptions-in-web-apps-with-application-insights"></a>Application Insights를 사용하여 Web apps에서 예외 진단
 
@@ -26,7 +26,7 @@ ms.locfileid: "110455084"
   * **Azure Web apps**: [Application Insights 확장](./azure-web-apps.md) 추가
   * **Azure VM 및 Azure 가상 머신 확장 집합 IIS 호스트형 앱**: [애플리케이션 모니터링 확장](./azure-vm-vmss-apps.md) 추가
   * 앱 코드에서 [Application Insights SDK](./asp-net.md)를 설치합니다.
-  * **IIS 웹 서버**: [Application Insights 에이전트](./monitor-performance-live-website-now.md)를 실행하거나
+  * **IIS 웹 서버**: [Application Insights 에이전트](./status-monitor-v2-overview.md)를 실행하거나
   * **Java Web apps**: [Java 에이전트](./java-in-process-agent.md) 사용
 
 ### <a name="client-side"></a>클라이언트 쪽
@@ -520,7 +520,7 @@ namespace WcfService4
 
 ## <a name="exception-performance-counters"></a>예외 성능 카운터
 
-서버에 [Application Insights 에이전트를 설치](./monitor-performance-live-website-now.md)한 경우 .NET에서 측정된 예외 속도 차트를 확인할 수 있습니다. 여기에는 처리된 .NET 예외와 처리되지 않은 .NET 예외가 모두 포함됩니다.
+서버에 [Azure Monitor Application Insights 에이전트를 설치](./status-monitor-v2-overview.md)한 경우 .NET에서 측정된 예외 속도 차트를 확인할 수 있습니다. 여기에는 처리된 .NET 예외와 처리되지 않은 .NET 예외가 모두 포함됩니다.
 
 메트릭 탐색기 탭을 열고 새 차트를 추가한 다음 성능 카운터 아래에 나열된 **예외 속도** 를 선택합니다.
 

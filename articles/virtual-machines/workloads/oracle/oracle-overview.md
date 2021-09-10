@@ -13,14 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
-ms.openlocfilehash: 666990d59fe92935150c2ae78712830a186723a8
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 0f41a089dc6757c36ba8fc262553a92b03147263
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205326"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823762"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 애플리케이션 및 솔루션 개요
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 이 문서에서는 Azure 인프라를 사용하여 Oracle 솔루션을 실행하는 기능을 소개합니다. 사용 가능한 [WebLogic Server Azure 애플리케이션](oracle-weblogic.md), Azure Marketplace의 [Oracle VM 이미지](oracle-vm-solutions.md) 및 [OCI(Oracle Cloud Infrastructure)와 Azure를 상호 연결](oracle-oci-overview.md)하는 기능에 대한 자세한 소개도 참조하세요.
 
@@ -55,8 +57,6 @@ Azure Marketplace에 제공된 Oracle Linux 기반 Oracle Database 이미지를 
 * 지역 내 가용성을 위해 [가용성 영역](../../../availability-zones/az-overview.md)과 함께 [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [Active Data Guard with FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) 또는 [Golden Gate](https://www.oracle.com/middleware/technologies/goldengate.html)를 Azure 인프라에 구성합니다. 또한 추가 가용성 및 재해 복구를 위해 여러 Azure 지역에 이러한 구성을 설정할 수 있습니다.
 
 * [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)를 사용하여 Azure의 Oracle Linux VM과 물리 서버의 재해 복구를 오케스트레이션 및 관리합니다. 
-
-* [Azure VMware Solution](../../../vmware-cloudsimple/oracle-real-application-clusters.md) 또는 [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)를 사용하여 Azure의 Oracle RAC(실제 애플리케이션 클러스터)를 사용하도록 설정합니다.
 
 ## <a name="backup-oracle-workloads"></a>Oracle 워크로드 백업
 

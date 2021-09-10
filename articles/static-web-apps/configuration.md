@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 06/17/2021
 ms.author: cshoe
-ms.openlocfilehash: 693a102c988d87dc4ed6ac9f0f4cb2176ec78ca5
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 210618ba5c49fbe0e53bd5b3fb2fe808b6b6aa03
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112059997"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535734"
 ---
 # <a name="configure-azure-static-web-apps"></a>Azure Static Web Apps 구성
 
@@ -25,13 +25,16 @@ Azure Static Web Apps의 구성은 _staticwebapp.config.json_ 파일에 정의�
 - HTTP 응답 재정의
 - 글로벌 HTTP 헤더 정의
 - 사용자 지정 MIME 형식
+- 네트워킹
 
 > [!NOTE]
 > 이전에 라우팅을 구성하는 데 사용된 [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated))은 더 이상 사용되지 않습니다. 이 문서에 설명된 대로 _staticwebapp.config.json_ 을 사용하여 정적 웹앱에 대한 라우팅 및 기타 설정을 구성합니다.
+> 
+> 이 문서에서는 독립 실행형 제품으로, Azure Storage의 [정적 웹 사이트 호스팅](../storage/blobs/storage-blob-static-website.md) 기능과는 별개인 Azure Static Web Apps에 대해 설명합니다.
 
 ## <a name="file-location"></a>파일 위치
 
-_staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-actions-workflow.md)에서 `app_location`으로 설정된 폴더입니다. 하지만 애플리케이션 소스 코드 폴더 내부의 모든 위치에 파일을 배치할 수 있습니다.
+_staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-actions-workflow.md)에서 `app_location`으로 설정된 폴더입니다. 그러나 `app_location`으로 설정된 폴더 내의 모든 하위 폴더에 파일을 배치할 수 있습니다.
 
 자세한 내용은 [예제 구성](#example-configuration-file) 파일을 참조하세요.
 
@@ -76,9 +79,9 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 
 ## <a name="securing-routes-with-roles"></a>역할을 사용하여 경로 보호
 
-하나 이상의 역할 이름을 규칙의 `allowedRoles` 배열에 추가하여 경로를 보호하고, 사용자는 [초대](./authentication-authorization.md)를 통해 사용자 지정 역할에 연결됩니다. 사용 예제는 [예제 구성 파일](#example-configuration-file)을 참조하세요.
+규칙의 `allowedRoles` 배열에 하나 이상의 역할 이름을 추가하여 경로를 보호합니다. 사용 예제는 [예제 구성 파일](#example-configuration-file)을 참조하세요.
 
-기본적으로 모든 사용자는 기본 제공 `anonymous` 역할에 속하며 로그인된 모든 사용자는 `authenticated` 역할의 멤버입니다.
+기본적으로 모든 사용자는 기본 제공 `anonymous` 역할에 속하며 로그인된 모든 사용자는 `authenticated` 역할의 멤버입니다. 필요에 따라 사용자는 [초대](./authentication-authorization.md)를 통해 사용자 지정 역할에 연결됩니다.
 
 예를 들어 인증된 사용자로만 경로를 제한하려면 기본 제공 `authenticated` 역할을 `allowedRoles` 배열에 추가합니다.
 
@@ -149,7 +152,17 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 
 단일 페이지 애플리케이션은 종종 클라이언트 쪽 라우팅을 사용합니다. 이러한 클라이언트 쪽 라우팅 규칙은 서버에 다시 요청하지 않고 브라우저의 창 위치를 업데이트합니다. 페이지를 새로 고치거나 클라이언트 쪽 회람 규칙에 의해 생성된 URL로 직접 이동하는 경우 적절한 HTML 페이지(일반적으로 클라이언트 쪽 앱의 _index.html_)를 제공하기 위해 서버 쪽 대체 경로가 필요합니다.
 
-다음 예제와 같이 파일 필터를 통해 경로 와일드 카드를 사용하는 대체 경로를 구현하는 규칙을 사용하도록 앱을 구성할 수 있습니다.
+`navigationFallback` 섹션을 추가하여 대체 규칙을 정의할 수 있습니다. 다음 예제에서는 배포된 파일과 일치하지 않는 모든 정적 파일 요청에 대해 _/index.html_ 을 반환합니다.
+
+```json
+{
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
+}
+```
+
+필터를 정의하여 대체 파일을 반환하는 요청을 제어할 수 있습니다. 다음 예제에서는 _/images_ 폴더의 특정 경로와 _/css_ 폴더의 모든 파일에 대한 요청이 대체 파일 반환에서 제외됩니다.
 
 ```json
 {
@@ -184,6 +197,9 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 | _/css/global.css_                                      | 스타일 시트 파일                                                                                           | `200`              |
 | _/images_ 또는 _/css_ 폴더 외부에 있는 그 외의 모든 파일 | _/index.html_ 파일                                                                                        | `200`              |
 
+> [!IMPORTANT]
+> 사용되지 않는 [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) 파일에서 마이그레이션하는 경우 레거시 대체 경로(`"route": "/*"`)를 [라우팅 규칙](#routes)에 포함하지 마세요.
+
 ## <a name="global-headers"></a>글로벌 헤더
 
 `globalHeaders` 섹션에서는 [경로 헤더](#route-headers) 규칙에 의해 재정의되지 않는 한 각 응답에 적용되는 [HTTP 헤더](https://developer.mozilla.org/docs/Web/HTTP/Headers) 세트를 제공합니다. 그렇지 않으면 경로의 헤더와 글로벌 헤더의 합집합이 반환됩니다.
@@ -217,24 +233,44 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 {
   "responseOverrides": {
     "400": {
-      "rewrite": "/invalid-invitation-error.html",
-      "statusCode": 200
+      "rewrite": "/invalid-invitation-error.html"
     },
     "401": {
       "statusCode": 302,
       "redirect": "/login"
     },
     "403": {
-      "rewrite": "/custom-forbidden-page.html",
-      "statusCode": 200
+      "rewrite": "/custom-forbidden-page.html"
     },
     "404": {
-      "rewrite": "/custom-404.html",
-      "statusCode": 200
+      "rewrite": "/custom-404.html"
     }
   }
 }
 ```
+
+## <a name="networking"></a>네트워킹
+
+`networking` 섹션은 정적 웹앱의 네트워크 구성을 제어합니다. 앱에 대한 액세스를 제한하려면 `allowedIpRanges`에서 허용되는 IP 주소 블록 목록을 지정합니다.
+
+> [!NOTE]
+> 네트워킹 구성은 Azure Static Web Apps 표준 플랜에서만 사용할 수 있습니다.
+
+각 IPv4 주소 블록을 CIDR(Classless Interdomain Routing) 표기법으로 정의합니다. CIDR 표기법에 관한 자세한 내용은 [Classless Inter-domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)을 참조하세요. 각 IPv4 주소 블록은 퍼블릭 또는 프라이빗 주소 공간을 나타낼 수 있습니다. 단일 IP 주소에 대한 액세스만 허용하려는 경우 `/32` CIDR 블록을 사용할 수 있습니다.
+
+```json
+{
+  "networking": {
+    "allowedIpRanges": [
+      "10.0.0.0/24",
+      "100.0.0.0/32",
+      "192.168.100.0/22"
+    ]
+  }
+}
+```
+
+하나 이상의 IP 주소 블록을 지정한 경우 `allowedIpRanges`의 값과 일치하지 않는 IP 주소에서 시작된 요청은 액세스가 거부됩니다.
 
 ## <a name="example-configuration-file"></a>예제 구성 파일
 
@@ -345,7 +381,7 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 
 ## <a name="restrictions"></a>제한
 
-_staticwebapps.config.json_ 파일에는 다음과 같은 제한이 있습니다.
+_staticwebapp.config.json_ 파일에는 다음과 같은 제한이 있습니다.
 
 - 최대 파일 크기는 100KB
 - 고유 역할은 최대 50개

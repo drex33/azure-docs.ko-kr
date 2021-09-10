@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4624a33b12afc5eff033fe2d57bf25f812c9e667
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b1be9681246711cfd722bdc4d4806d75875f3429
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891305"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529815"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 트리거
 
@@ -43,6 +43,8 @@ Azure Blob Storage 트리거에는 범용 스토리지 계정이 필요합니다
 - **Blob 전용 스토리지 계정**: [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)은 BLOB 입력 및 바인딩 출력을 지원하지만 Blob 트리거는 지원하지 않습니다.
 
 - **높은 확장성**: 높은 확장성은 100,000개 이상의 BLOB이 있는 컨테이너 또는 초당 100개 이상의 BLOB 업데이트가 있는 스토리지 계정으로 정의할 수 있습니다.
+
+- **기존 Blob**: Blob 트리거는 트리거를 설정할 때 컨테이너의 모든 기존 Blob을 처리합니다. 기존 Blob이 많은 컨테이너가 있고 새 Blob에 대해서만 트리거하려면 Event Grid 트리거를 사용합니다.
 
 - **대기 시간 최소화**: 함수 앱이 소비 계획에 있는 경우 함수 앱이 유휴 상태가 되면 새 Blob 처리에 하루 최대 10분이 걸릴 수 있습니다. 이 대기 시간을 방지하려면 Always On을 사용하도록 설정한 App Service 계획으로 전환하면 됩니다. Blob Storage 계정으로 [Event Grid 트리거](functions-bindings-event-grid.md)를 사용할 수도 있습니다. 예를 들어 [Event Grid 자습서](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json)를 참조하세요.
 

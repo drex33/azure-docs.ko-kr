@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1bfe50bc80e3aa2a8c924002efdba2a020dbe9ef
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 71784aa5e40cc7af96faa60d0779a779e99f3425
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112198767"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777849"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 로그인 흐름 설정
 
@@ -35,7 +35,7 @@ ms.locfileid: "112198767"
 
 ![프로필 편집 흐름](./media/add-sign-in-policy/sign-in-user-flow.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 아직 등록하지 않았다면 [Azure Active Directory B2C에 웹 애플리케이션을 등록](tutorial-register-applications.md)합니다.
 
@@ -46,7 +46,8 @@ ms.locfileid: "112198767"
 로그인 정책을 추가하려면 다음을 따릅니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **정책** 아래에서 **사용자 흐름** 을 선택한 다음, **새 사용자 흐름** 을 선택합니다.
 1. **사용자 흐름 만들기** 페이지에서 **로그인** 사용자 흐름을 선택합니다.
@@ -54,10 +55,10 @@ ms.locfileid: "112198767"
 1. 사용자 흐름에 대한 **이름** 을 입력합니다. 예를 들어 *signupsignin1* 과 같습니다.
 1. **ID 공급자** 에서 하나 이상의 ID 공급자를 선택합니다.
 
-   * **로컬 계정** 에서 **메일 로그인**, **사용자 ID 로그인**, **전화 로그인**, **전화/메일 로그인** 또는 **사용자 ID/메일 로그인** 또는 **없음** 중 하나를 선택합니다. [자세히 알아보기](sign-in-options.md).
-   * **소셜 ID 공급자** 에서 설정한 외부 소셜 또는 엔터프라이즈 ID 공급자 주 하나를 선택합니다. [자세히 알아보기](add-identity-provider.md).
-1. **다단계 인증** 에서 사용자가 두 번째 인증 방법으로 ID를 확인하도록 하려면 방법 유형 및 MFA(다단계 인증)를 적용할 시기를 선택해야 합니다. [자세히 알아보기](multi-factor-authentication.md).
-1. **조건부 액세스** 에서 Azure AD B2C 테넌트의 조건부 액세스 정책을 구성했고 이 사용자 흐름에 대해 조건부 액세스 정책을 사용하도록 설정하려면 **조건부 액세스 정책 적용** 확인란을 선택합니다. 정책 이름은 지정하지 않아도 됩니다. [자세히 알아보기](conditional-access-user-flow.md?pivots=b2c-user-flow).
+   * **로컬 계정** 에서 **메일 로그인**, **사용자 ID 로그인**, **전화 로그인**, **전화/메일 로그인** 또는 **사용자 ID/메일 로그인** 또는 **없음** 중 하나를 선택합니다. [자세한 정보](sign-in-options.md).
+   * **소셜 ID 공급자** 에서 설정한 외부 소셜 또는 엔터프라이즈 ID 공급자 주 하나를 선택합니다. [자세한 정보](add-identity-provider.md).
+1. **다단계 인증** 에서 사용자가 두 번째 인증 방법으로 ID를 확인하도록 하려면 방법 유형 및 MFA(다단계 인증)를 적용할 시기를 선택해야 합니다. [자세한 정보](multi-factor-authentication.md).
+1. **조건부 액세스** 에서 Azure AD B2C 테넌트의 조건부 액세스 정책을 구성했고 이 사용자 흐름에 대해 조건부 액세스 정책을 사용하도록 설정하려면 **조건부 액세스 정책 적용** 확인란을 선택합니다. 정책 이름은 지정하지 않아도 됩니다. [자세한 정보](conditional-access-user-flow.md?pivots=b2c-user-flow).
 1. **애플리케이션 클레임** 아래에서 토큰의 애플리케이션에 반환하려는 클레임을 선택합니다. 전체 값 목록에서 **자세히 표시** 를 선택하고 값, **확인** 을 차례로 선택합니다.
    > [!NOTE]
    > Azure AD B2C 테넌트에서 사용할 [사용자 지정 특성을 만들 수](user-flow-custom-attributes.md?pivots=b2c-user-flow)도 있습니다.
@@ -116,7 +117,8 @@ ms.locfileid: "112198767"
 ## <a name="update-and-test-your-policy"></a>정책 업데이트 및 테스트
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택하여 Azure AD 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD 디렉터리를 찾은 다음 **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
 1. **ID 경험 프레임워크** 를 선택합니다.
 1. **사용자 지정 정책 업로드** 를 선택하고 변경한 정책 파일인 *TrustFrameworkExtensions.xml* 을 업로드합니다.

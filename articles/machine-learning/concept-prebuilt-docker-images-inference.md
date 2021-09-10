@@ -11,19 +11,19 @@ ms.date: 05/25/2021
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 3bc18e02345915c5446895a9acc5a33bd0b33431
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 4851e5cdfc5e50febf7d60ab4d7eaee2c95da5b4
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746810"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866304"
 ---
 # <a name="prebuilt-docker-images-for-inference-preview"></a>유추를 위해 미리 빌드된 Docker 이미지(미리 보기)
 
 유추 [(미리 보기)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)를 위해 미리 빌드된 Docker 컨테이너 이미지는 Azure Machine Learning을 사용하여 모델을 배포할 때 사용됩니다.  이미지는 널리 사용되는 기계 학습 프레임워크 및 Python 패키지로 미리 빌드됩니다. 다음 방법 중 하나를 사용해 패키지를 확장하여 다른 패키지를 추가할 수도 있습니다.
 
 * [Python 패키지를 추가](how-to-prebuilt-docker-images-inference-python-extensibility.md)합니다.
-* [미리 빌드된 패키지를 새 Dockerfile의 기반으로 사용](how-to-extend-prebuilt-docker-image-inference.md)합니다. 이 방법을 사용하면 **Python 패키지와 apt 패키지** 를 모두 설치할 수 있습니다.
+* [미리 빌드된 유추 이미지를 새 Dockerfile의 기반으로 사용](how-to-extend-prebuilt-docker-image-inference.md)합니다. 이 방법을 사용하면 **Python 패키지와 apt 패키지** 를 모두 설치할 수 있습니다.
 
 ## <a name="why-should-i-use-prebuilt-images"></a>미리 빌드된 이미지를 사용해야 하는 이유는 무엇인가요?
 
@@ -31,11 +31,11 @@ ms.locfileid: "111746810"
 * 모델 배포 성공률을 향상시킵니다.
 * 모델을 배포하는 동안 불필요한 이미지 빌드를 방지합니다.
 * 이미지/컨테이너에 필요한 종속성 및 액세스 권한만 있어야 합니다. 
-* 배포의 유추 프로세스는 루트가 아닌 것으로 실행됩니다.
 
 ## <a name="list-of-prebuilt-docker-images-for-inference"></a>유추를 위해 미리 빌드된 Docker 이미지 목록 
 
 * 모든 docker 이미지는 루트가 아닌 사용자로 실행됩니다.
+* Docker 이미지에는 `latest` 태그를 사용하는 것이 좋습니다. 유추를 위해 미리 빌드된 Docker 이미지는 MCR(Microsoft 컨테이너 레지스트리)에 게시되며 사용 가능한 태그 목록을 쿼리하려면 [GitHub 리포지토리의 지침](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content)을 따르세요.
 
 ### <a name="tensorflow"></a>TensorFlow
 

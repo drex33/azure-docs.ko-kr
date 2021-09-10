@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/30/2021
-ms.openlocfilehash: 348cd594ae515503c870c1b96eb64aa7117ea26b
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 07/7/2021
+ms.openlocfilehash: 92361142fa2ac7758b16e26faa5e5df8f1da9bf6
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110786757"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113506874"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 Blob Storage 및 Azure Data Lake Gen2 출력
 
@@ -67,5 +67,5 @@ Blob 스토리지를 출력으로 사용할 때 새 파일이 Blob에 만들어�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [관리 ID(미리 보기)를 사용하여 Azure Blob Storage에 Azure Stream Analytics 작업 인증](blob-output-managed-identity.md)
+* [관리 ID를 사용하여 Azure Blob Storage에 Azure Stream Analytics 작업 인증](blob-output-managed-identity.md)
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)

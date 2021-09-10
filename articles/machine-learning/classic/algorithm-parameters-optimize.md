@@ -9,20 +9,20 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: a133f9b8d1ae22114a78be8e4d22d6293c94c7cd
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 5af1923ea0747b3e75614ce2b4d6c7915390ac3d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582981"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695040"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 알고리즘을 최적화하는 매개 변수 선택
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 이 항목에서는 Machine Learning Studio(클래식)에서 알고리즘에 대해 올바른 하이퍼파라미터 집합을 선택하는 방법에 대해 설명합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택* 이라고 합니다.
-
-
 
 모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. 기계 학습에서 교차 유효성 검증은 모델 선택에 가장 널리 사용되는 방법 중 하나이며 Machine Learning Studio(클래식)의 기본 모델 선택 메커니즘입니다. Machine Learning Studio(클래식)는 R과 Python을 모두 지원하므로 R 또는 Python을 사용하여 항상 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
 

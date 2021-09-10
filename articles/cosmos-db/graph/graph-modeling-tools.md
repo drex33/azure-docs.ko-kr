@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.reviewer: sngun
-ms.openlocfilehash: eacebb55cbf4d6254d6688a95dba8ae638838cf3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9d603de7ae8f011ac2ae2ed96d61efb571bdcf64
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528271"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662358"
 ---
 # <a name="third-party-data-modeling-tools-for-azure-cosmos-db-graph-data"></a>Azure Cosmos DB 그래프 데이터를 위한 타사 데이터 모델링 도구
 
@@ -40,7 +40,7 @@ Hackolade는 NoSQL 데이터베이스를 위한 데이터 모델링 및 스키�
 
 그림 2의 애니메이션은 RDBMS에서 엔터티를 추출하는 리버스 엔지니어링 데모를 제공합니다. 여기서 Hackolade는 외래 키 관계에서 관계를 검색한 다음, 수정합니다.
 
-[여기](https://github.com/Azure-Samples/northwind-ddl-sample/nw.sql)에서 SQL Server 원본으로 사용할 수 있는 샘플 DDL 참조   
+[여기](https://github.com/Azure-Samples/northwind-ddl-sample/blob/main/nw.sql)에서 SQL Server 원본으로 사용할 수 있는 샘플 DDL 참조   
 
 
 :::image type="content" source="./media/graph-modeling-tools/hackolade-screenshot.jpg" alt-text="Graph 다이어그램":::
@@ -58,4 +58,4 @@ Hackolade는 NoSQL 데이터베이스를 위한 데이터 모델링 및 스키�
 -  [Hackolade 설명서](https://hackolade.com/help/CosmosDBGremlin.html)
 
 ## <a name="next-steps"></a>다음 단계
-- [데이터 시각화](/graph-visualization)
+- [데이터 시각화](/azure/cosmos-db/graph/graph-visualization-partners)

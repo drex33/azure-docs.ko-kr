@@ -2,24 +2,23 @@
 title: 기술 세트에서 참조 입력 및 출력
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 AI 보강 파이프라인에서 기술 세트의 입력과 출력에 있는 주석을 참조하는 방법 및 주석 구문을 설명합니다.
-manager: nitinme
-author: LuisCabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 26f8f5a4688eb5ccd472d7f402e6a543e318a7e2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 6eb82e509d2e8c521438aedefd89977033967abf
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559854"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530262"
 ---
-# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Azure Cognitive Search 기술 세트의 주석을 참조하는 방법
+# <a name="reference-annotations-in-an-azure-cognitive-search-skillset"></a>Azure Cognitive Search 기술 세트의 주석 참조
 
 이 문서에서는 다양한 시나리오를 설명하는 예제를 사용하여 기술 정의에서 주석을 참조하는 방법을 알아 봅니다. 문서의 콘텐츠는 기술 집합을 통해 흐르기 때문에 주석으로 보강됩니다. 주석은 다운스트림 추가 보강을 위한 입력으로 사용되거나 인덱스에서 출력 필드에 매핑될 수 있습니다. 
  
-이 문서의 예제는 문서 해독 단계의 일부로서 [Azure Blob 인덱서](search-howto-indexing-azure-blob-storage.md)에서 자동으로 생성한 *콘텐츠* 필드에 기반을 둡니다. Blob 컨테이너에서 문서를 참조할 때는 *콘텐츠* 필드가 *문서* 의 일부인 `"/document/content"`과 같은 형식을 사용합니다. 
+이 문서의 예제는 [문서 해독](search-indexer-overview.md#document-cracking) 단계의 일부로서 [Azure Blob 인덱서](search-howto-indexing-azure-blob-storage.md)에서 자동으로 생성한 *콘텐츠* 필드를 기준으로 합니다. Blob 컨테이너에서 문서를 참조할 때는 *콘텐츠* 필드가 *문서* 의 일부인 `"/document/content"`과 같은 형식을 사용합니다. 
 
 ## <a name="background-concepts"></a>배경 개념
 
@@ -39,7 +38,7 @@ Azure Blob Storage에서는 엔터티 인식을 사용하여 추출할 사용자
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [

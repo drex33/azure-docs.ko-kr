@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 8bcd45ab1270d478b05b3929d7b8914976612294
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9b847b1f4d3e4c47a5b353a2b0e9ad7a47b77330
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645309"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692802"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure의 Oracle VM 이미지 및 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 이 문서에서는 Oracle이 Azure Marketplace에 게시한 가상 머신 이미지에 기반을 둔 Oracle 솔루션에 대한 정보를 다룹니다. Oracle Cloud Infrastructure를 사용하는 클라우드 간 애플리케이션 솔루션에 관심이 있는 경우 [Microsoft Azure 및 Oracle Cloud Infrastructure를 통합하는 Oracle 애플리케이션 솔루션](oracle-oci-overview.md)을 참조하세요.
 
@@ -106,7 +108,7 @@ Azure NetApp Files는 클라우드의 데이터베이스 같은 고성능 워크
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Azure의 Oracle Database 및 소프트웨어에 라이선스 부여
 
-Microsoft Azure는 Oracle Database를 실행할 권한이 있는 클라우드 환경입니다. 클라우드의 Oracle 데이터베이스에 라이선스를 부여할 경우 Oracle Core Factor 테이블이 적용되지 않습니다. 대신, Enterprise Edition 데이터베이스에 하이퍼 스레딩 기술을 사용하도록 설정된 VM을 사용하는 경우 정책 문서에 명시된 대로 vCPU 두 개를 하나의 Oracle Processor 라이선스로 계수합니다. 정책 세부 정보는 [여기](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)에서 확인할 수 있습니다.
+Microsoft Azure는 Oracle Database를 실행할 권한이 있는 클라우드 환경입니다. 클라우드의 Oracle 데이터베이스에 라이선스를 부여할 경우 Oracle Core Factor 테이블이 적용되지 않습니다. 대신, Enterprise Edition 데이터베이스에 하이퍼 스레딩 기술을 사용하도록 설정된 VM을 사용하는 경우 정책 문서에 명시된 대로 vCPU 두 개를 하나의 Oracle Processor 라이선스로 계수합니다. 정책 세부 정보는 [클라우드 컴퓨팅 환경의 Oracle 소프트웨어 라이선스](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)에서 찾을 수 있습니다.
 Oracle 데이터베이스에는 일반적으로 더 많은 메모리와 IO가 필요합니다. 따라서 이러한 워크로드에는 [메모리 최적화 VM](../../sizes-memory.md)이 권장됩니다. 워크로드를 더 최적화하려면 많은 메모리, 스토리지 및 I/O 대역폭이 필요하지만 많은 코어 수는 필요하지 않은 Oracle Database 워크로드에 [제한된 코어 vCPU](../../constrained-vcpu.md)가 권장됩니다.
 
 Oracle 소프트웨어와 워크로드를 온-프레미스에서 Microsoft Azure로 마이그레이션하는 경우 Oracle은 [Azure의 Oracle FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)에 명시된 대로 라이선스 이동을 제공합니다.

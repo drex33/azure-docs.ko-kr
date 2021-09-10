@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 81327bd5fc76d14d60d26bd912da8de054e5308d
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 7c46ae96de44b191009a86552799488cb770c7e4
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833963"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112233532"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Azure Cache for Redis에서 Redis 명령줄 도구 사용
 
@@ -47,9 +47,9 @@ Azure Cache for Redis를 사용하면 기본적으로 TLS 포트(6380)만 사용
 
     **stunnel GUI Start** 를 실행하여 서버를 시작합니다.
 
-    작업 표시줄에서 stunnel 서버의 아이콘을 마우스 오른쪽 단추로 클릭하고 **로그 창 표시** 를 클릭합니다.
+    작업 표시줄에서 stunnel 서버의 아이콘을 마우스 오른쪽 단추로 클릭하고 **로그 창 표시** 를 선택합니다.
 
-    stunnel 로그 창 메뉴에서 **구성** > **구성 편집** 클릭하여 현재 구성 파일을 엽니다.
+    stunnel 로그 창 메뉴에서 **구성** > **구성 편집** 을 선택하여 현재 구성 파일을 엽니다.
 
     **서비스 정의** 섹션 아래에서 *redis-cli.exe* 에 대해 다음 항목을 추가합니다. `yourcachename` 대신 실제 캐시 이름을 삽입합니다. 
 
@@ -62,7 +62,7 @@ Azure Cache for Redis를 사용하면 기본적으로 TLS 포트(6380)만 사용
 
     구성 파일을 저장하고 닫습니다. 
   
-    stunnel 로그 창 메뉴에서 **구성** > **구성 재로드** 를 클릭합니다.
+    stunnel 로그 창 메뉴에서 **구성** > **구성 재로드** 를 선택합니다.
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Redis 명령줄 도구를 사용하여 연결합니다.

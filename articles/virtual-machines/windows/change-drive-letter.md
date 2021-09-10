@@ -10,14 +10,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 87aa1344b3fbe0d11c1c5cdfa8a56560d67eb54f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83151da2cff5d4eb7fc626573b3e7719bb3a2444
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555553"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688154"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>D: 드라이브를 Windows VM의 데이터 드라이브로 사용
+
+**적용 대상:** :heavy_check_mark: Windows VM 
+
+
 애플리케이션에서 D 드라이브를 사용하여 데이터를 저장해야 하는 경우 다음 지침에 따라 임시 디스크에 다른 드라이브 문자를 사용할 수 있습니다. 보관해야 하는 데이터를 저장하는 데 임시 디스크를 사용하지 마세요.
 
 가상 머신의 크기를 조정하거나 **중지(할당 취소)** 하는 경우 새 하이퍼바이저로 가상 머신의 배치를 트리거할 수 있습니다. 계획되거나 계획되지 않은 유지 관리 이벤트로 이 배치가 트리거될 수도 있습니다. 이 시나리오에서는 임시 디스크가 첫 번째 사용 가능한 드라이브 문자에 다시 할당됩니다. 특히 D: 드라이브가 필요한 애플리케이션의 경우 이러한 단계를 사용하여 pagefile.sys를 일시적으로 이동하고, 새 데이터 디스크를 연결한 후 문자 D를 할당한 다음, pagefile.sys를 임시 드라이브로 다시 이동해야 합니다. 완료된 후 VM이 다른 하이퍼바이저로 이동되어도 Azure는 D:를 다시 취소하지 않습니다.

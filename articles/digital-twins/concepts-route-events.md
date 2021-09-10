@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b9038840142be64918b22f1aefc32d505252d71d
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 2718dd070cc12cb58f8033d5a2757d8aedf05e05
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538531"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771205"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
 Azure Digital Twins에서 **이벤트 경로** 를 사용하여 서비스 외부의 소비자에게 데이터를 전송합니다. 
 
 Azure Digital Twins 데이터를 전송하는 두 가지 주요 사례는 다음과 같습니다.
-* Azure Digital Twins 그래프의 한 트윈에서 다른 트윈으로 데이터 전송 예를 들어 하나의 디지털 트윈에서 속성이 변경되면 다른 디지털 트윈에게 적절하게 알리고 업데이트할 수 있습니다.
-* 추가 스토리지 또는 처리를 위해 다운스트림 데이터 서비스로 데이터 전송(*데이터 송신* 이라고도 함) 예를 들어
+* Azure Digital Twins 그래프의 한 트윈에서 다른 트윈으로 데이터 전송 예를 들어 하나의 디지털 트윈에서 속성이 변경되면 업데이트된 데이터를 기반으로 다른 디지털 트윈에 알리고 업데이트할 수 있습니다.
+* 추가 스토리지 또는 처리를 위해 다운스트림 데이터 서비스로 데이터 전송(데이터 송신이라고도 함) 예를 들어
   - 병원은 대량 분석을 위해 손 씻기 관련 이벤트의 시계열 데이터를 기록하기 위해 Azure Digital Twins 이벤트 데이터를 [TSI(Time Series Insights)](../time-series-insights/overview-what-is-tsi.md)로 보낼 수 있습니다.
   - 이미 [Azure Maps](../azure-maps/about-azure-maps.md)를 사용하고 있는 비즈니스에서는 Azure Digital Twins를 사용하여 솔루션을 향상시킬 수 있습니다. Azure Digital Twins를 설정하고, 트윈 그래프에서 [디지털 트윈](concepts-twins-graph.md)으로 Azure Map 엔터티를 Azure Digital Twins로 가져온 후 Azure Map을 신속하게 사용하도록 설정하거나 Azure Maps 및 Azure Digital Twins 데이터를 함께 활용하는 강력한 쿼리를 실행할 수 있습니다.
 
@@ -38,11 +38,11 @@ Azure Digital Twins 데이터를 전송하는 두 가지 주요 사례는 다음
 
 ### <a name="event-routes-for-internal-digital-twin-events"></a>내부 디지털 트윈 이벤트에 대한 이벤트 경로
 
-또한 이벤트 경로는 트윈 그래프 내의 이벤트를 처리하고 디지털 트윈 간 데이터를 전송하는 데 사용됩니다. 이 작업은 Event Grid를 통해 [Azure Functions](../azure-functions/functions-overview.md)와 같은 컴퓨팅 리소스에 이벤트 경로를 연결하여 수행됩니다. 그런 다음, 이러한 함수는 트윈이 이벤트를 수신하고 응답하는 방법을 정의합니다. 
+또한 이벤트 경로는 트윈 그래프 내의 이벤트를 처리하고 디지털 트윈 간 데이터를 전송하는 데 사용됩니다. 이 이벤트 처리 정렬 작업은 Event Grid를 통해 [Azure Functions](../azure-functions/functions-overview.md)와 같은 컴퓨팅 리소스에 이벤트 경로를 연결하여 수행됩니다. 그런 다음, 이러한 함수는 트윈이 이벤트를 수신하고 응답하는 방법을 정의합니다. 
 
 컴퓨팅 리소스가 이벤트 경로를 통해 받은 이벤트에 따라 트윈 그래프를 수정하려는 경우 미리 수정할 트윈을 파악하는 것이 좋습니다. 
 
-또는 이벤트 메시지에는 메시지를 보낸 원본 트윈의 ID도 포함되므로 컴퓨팅 리소스는 쿼리 또는 트래버스 관계를 사용하여 원하는 작업에 대한 대상 트윈을 찾을 수 있습니다. 
+이벤트 메시지에는 메시지를 보낸 원본 트윈의 ID도 포함되므로 컴퓨팅 리소스는 쿼리 또는 트래버스 관계를 사용하여 원하는 작업에 대한 대상 트윈을 찾을 수 있습니다. 
 
 또한 컴퓨팅 리소스는 보안 및 액세스 권한을 독립적으로 설정해야 합니다.
 

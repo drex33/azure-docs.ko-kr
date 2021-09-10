@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/18/2021
-ms.openlocfilehash: 7d3ffd754959c59fb34f326473247d836871ea75
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 01fe7b84596cbf4dba85f44c49488a8347b4cccc
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106822"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538834"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure Portal에서 Log Analytics 작업 영역 만들기
 **Log Analytics 작업 영역** 메뉴를 사용하여 Azure Portal에서 Log Analytics 작업 영역을 만듭니다. Log Analytics 작업 영역은 Azure Monitor 로그 데이터에 대한 고유한 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다. 다음 원본에서 데이터를 수집하려는 경우 Log Analytics 작업 영역이 필요합니다.
@@ -19,12 +19,6 @@ ms.locfileid: "107106822"
 * System Center Operations Manager에서 모니터링하는 온-프레미스 컴퓨터
 * Configuration Manager에서 디바이스 컬렉션 
 * Azure Storage에서 진단 또는 로그 데이터
-
-Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 경우 다음 항목을 참조하세요.
-
-*  [Azure 가상 머신에서 데이터 수집](../vm/quick-collect-azurevm.md) 
-*  [하이브리드 Linux 컴퓨터에서 데이터 수집](../vm/quick-collect-linux-computer.md)
-*  [하이브리드 Windows 컴퓨터에서 데이터 수집](../vm/quick-collect-windows-computer.md)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -54,7 +48,7 @@ Azure Portal에서 **모든 서비스** 를 클릭합니다. 리소스 목록에
 ## <a name="troubleshooting"></a>문제 해결
 지난 14일 동안 삭제되어 [일시 삭제 상태](../logs/delete-workspace.md#soft-delete-behavior)인 작업 영역을 만들면 작업 영역 구성에 따라 작업의 결과가 달라질 수 있습니다.
 1. 삭제된 작업 영역과 작업 영역 이름, 리소스 그룹, 구독 및 지역이 동일한 경우 해당 데이터, 구성 및 연결된 에이전트를 포함한 작업 영역이 복구됩니다.
-2. 작업 영역 이름은 동일하지만 다른 리소스 그룹, 구독 또는 지역을 사용할 경우 *이 작업 영역 이름은 이미 사용 중입니다. 다른 이름을 시도하세요* 오류가 발생합니다. 일시 삭제를 재정의하고 작업 영역을 영구적으로 삭제하고 같은 이름으로 새 작업 영역을 만들려면 다음 단계를 수행하여 작업 영역을 먼저 복구한 후 영구 삭제를 수행합니다.
+2. 작업 영역 이름은 리소스 그룹당 고유해야 합니다. 리소스 그룹의 일시 삭제에서도 이미 존재하는 작업 영역 이름을 사용하는 경우 작업 영역 이름 ‘workspace-name’이 고유하지 않음 또는 충돌 오류가 발생합니다. 일시 삭제를 재정의하고 작업 영역을 영구적으로 삭제하고 같은 이름으로 새 작업 영역을 만들려면 다음 단계를 수행하여 작업 영역을 먼저 복구한 후 영구 삭제를 수행합니다.
    - [작업 영역](../logs/delete-workspace.md#recover-workspace)을 복구합니다.
    - 작업 영역을 [영구 삭제](../logs/delete-workspace.md#permanent-workspace-delete)합니다.
    - 동일한 작업 영역 이름을 사용하여 새 작업 영역을 만듭니다.

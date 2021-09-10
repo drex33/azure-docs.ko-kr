@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/28/2021
+ms.date: 08/20/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: f0f2e63a32c30c807f865a46154123643809de74
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: de0374f2ea26e3fa1dc7d25e7c837187f8914918
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114442848"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254734"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>자습서: 서버리스 SQL 풀을 사용하여 Logical Data Warehouse 만들기
 
@@ -41,7 +41,7 @@ CREATE DATABASE Ldw
 
 데이터 원본은 데이터가 배치되는 위치 및 데이터 원본에 인증하는 방법을 설명하는 연결 문자열 정보를 나타냅니다.
 
-다음 예제에는 공용 [ECDC COVID 19 Azure 개방형 데이터 세트](/azure/open-datasets/dataset-ecdc-covid-cases)를 참조하는 데이터 원본 정의의 한 가지 예가 나와 있습니다.
+다음 예제에는 공용 [ECDC COVID 19 Azure 개방형 데이터 세트](../../open-datasets/dataset-ecdc-covid-cases.md)를 참조하는 데이터 원본 정의의 한 가지 예가 나와 있습니다.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
@@ -80,6 +80,17 @@ CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 ```
+
+Synapse 관리자 역할이 있는 모든 사용자는 이러한 자격 증명을 사용하여 Azure Data Lake Storage 또는 Cosmos DB 분석 스토리지에 액세스할 수 있습니다. Synapse 관리자 역할이 없는 낮은 권한의 사용자에게 이러한 데이터베이스 범위 자격 증명을 참조할 수 있는 명시적 권한을 부여해야 합니다.
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::WorkspaceIdentity TO <user>
+GO
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO <user>
+GO
+```
+
+자세한 내용은 [DATABASE SCOPED CREDENTIAL 권한 부여](/sql/t-sql/statements/grant-database-scoped-credential-transact-sql) 페이지를 참조하세요.
 
 ### <a name="define-external-file-formats"></a>외부 파일 형식 정의
 
@@ -202,7 +213,7 @@ GRANT SELECT ON SCHEMA::ecdc_adls TO [jovan@contoso.com]
 GO
 GRANT SELECT ON OBJECT::ecdc_cosmosDB.cases TO [jovan@contoso.com]
 GO
-GRANT REFERENCES ON CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
 GO
 ```
 

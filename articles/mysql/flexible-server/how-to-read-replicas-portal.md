@@ -5,15 +5,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/26/2020
-ms.openlocfilehash: fd303804706f9ae210e6714cc8698c94c39ebef6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/17/2021
+ms.openlocfilehash: 61e2f33511e6a200258ed16b5ef191e153553db8
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106856"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122642187"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버에서 읽기 복제본을 만들고 관리하는 방법
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL의 읽기 복제본 - 유연한 서버는 미리 보기 상태입니다.
@@ -21,7 +23,10 @@ ms.locfileid: "105106856"
 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버에서 읽기 복제본을 만들고 관리하는 방법을 알아봅니다.
 
 > [!Note]
-> 고가용성 지원 서버에서는 복제본이 지원되지 않습니다. 
+>
+> * 고가용성 지원 서버에서는 복제본이 지원되지 않습니다. 
+>
+> * 주 서버에서 GTID를 사용하는 경우(`gtid_mode` = ON) 새로 만든 복제본도 GTID를 사용하도록 설정하고 GTID 기반 복제를 사용합니다. 자세한 내용은 [GTID(글로벌 트랜잭션 식별자)](concepts-read-replicas.md#global-transaction-identifier-gtid) 참조
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -30,7 +35,7 @@ ms.locfileid: "105106856"
 ## <a name="create-a-read-replica"></a>읽기 복제본 만들기
 
 > [!IMPORTANT]
-> 기존 복제본이 없는 원본에 대한 복제본을 만드는 경우 원본이 먼저 다시 시작되어 자체적으로 복제할 준비를 합니다. 이를 고려하고 사용량이 적은 기간 동안 이러한 작업을 수행합니다.
+>기존 복제본이 없는 원본에 대한 복제본을 만드는 경우 원본이 먼저 다시 시작하여 자체적으로 복제할 준비를 합니다. 이를 고려하고 사용량이 적은 기간 동안 이러한 작업을 수행합니다.
 
 다음 단계에 따라 읽기 복제본 서버를 만들 수 있습니다.
 
@@ -60,7 +65,7 @@ ms.locfileid: "105106856"
 ## <a name="stop-replication-to-a-replica-server"></a>복제본 서버로의 복제 중지
 
 > [!IMPORTANT]
-> 서버로의 복제는 중지하고 나면 취소할 수 없습니다. 원본과 복제본 사이의 복제가 중단된 경우, 중단을 취소할 수는 없습니다. 복제를 중지하고 나면 복제본 서버는 독립 실행형 서버가 되어 읽기와 쓰기를 모두 지원합니다. 이 서버를 다시 복제본으로 설정할 수는 없습니다.
+>서버로의 복제는 중지하고 나면 취소할 수 없습니다. 원본과 복제본 사이의 복제가 중단된 경우, 중단을 취소할 수 없습니다. 복제를 중지하고 나면 복제본 서버는 독립 실행형 서버가 되어 읽기와 쓰기를 모두 지원합니다. 이 서버를 다시 복제본으로 설정할 수는 없습니다.
 
 Azure Portal에서 원본과 복제본 서버 간의 복제를 중지하려면 다음 단계를 수행합니다.
 
@@ -103,7 +108,7 @@ Azure Portal에서 읽기 복제본 서버를 삭제하려면 다음 단계를 �
 ## <a name="delete-a-source-server"></a>원본 서버 삭제
 
 > [!IMPORTANT]
-> 원본 서버를 삭제하면 모든 복제본 서버에 대한 복제가 중지되며 원본 서버 자체도 삭제됩니다. 그러면 복제본 서버는 읽기와 쓰기를 모두 지원하는 독립 실행형 서버로 설정됩니다.
+>원본 서버를 삭제하면 모든 복제본 서버에 대한 복제가 중지되며 원본 서버 자체도 삭제됩니다. 그러면 복제본 서버는 읽기와 쓰기를 모두 지원하는 독립 실행형 서버로 설정됩니다.
 
 Azure Portal에서 원본 서버를 삭제하려면 다음 단계를 수행합니다.
 

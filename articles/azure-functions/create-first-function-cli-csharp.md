@@ -1,7 +1,7 @@
 ---
 title: 명령줄에서 C# 함수 만들기 - Azure Functions
 description: 명령줄에서 C# 함수를 만든 다음, 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
-ms.date: 10/03/2020
+ms.date: 08/15/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
@@ -11,18 +11,23 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
-ms.openlocfilehash: b134ecd21f9a1d3d7d03f041f188e0f0bcc3fca4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c2344a13c1a3dc005d00933fdc182348be9bb0f2
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739862"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830611"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 C# 함수 만들기
 
 [!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
-이 문서에서는 명령줄 도구를 사용하여 HTTP 요청에 응답하는 C# 클래스 라이브러리 기반 함수를 만듭니다. 코드를 로컬로 테스트한 후 서버리스 Azure Functions 환경에 배포합니다.
+이 문서에서는 명령줄 도구를 사용하여 HTTP 요청에 응답하는 C# 함수를 만듭니다. 코드를 로컬로 테스트한 후 서버리스 Azure Functions 환경에 배포합니다.
+
+이 문서에서는 두 가지 유형의 컴파일된 C# 함수 만들기를 지원합니다. 
+
++ [In-process](create-first-function-cli-csharp.md?tabs=in-process) - Functions 호스트 프로세스와 동일한 프로세스에서 실행됩니다. 자세한 내용은 [Azure Functions를 사용하여 C# 클래스 라이브러리 함수 개발](functions-dotnet-class-library.md)을 참조하세요.
++ [격리된 프로세스](create-first-function-cli-csharp.md?tabs=isolated-process) - 별도의 .NET 작업자 프로세스에서 실행됩니다. 자세한 내용은 [Azure의 .NET 5.0에서 함수를 실행하는 방법에 대한 가이드](dotnet-isolated-process-guide.md)를 참조하세요.
 
 이 빠른 시작을 완료하면 Azure 계정에서 약간의 비용(몇 USD 센트)이 발생합니다.
 
@@ -32,17 +37,9 @@ ms.locfileid: "121739862"
 
 시작하기 전에 다음이 있어야 합니다.
 
-+ 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [functions-cli-dotnet-prerequisites](../../includes/functions-cli-dotnet-prerequisites.md)]
 
-+ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
-
-+ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.x.
-
-+ 다음 도구 중 하나를 통해 Azure 리소스를 만듭니다.
-
-    + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
-
-    + [Azure PowerShell](/powershell/azure/install-az-ps) 버전 5.0 이상.
++ 활성 구독이 있는 Azure 계정도 필요합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
@@ -52,21 +49,21 @@ Azure 리소스를 만드는 데 Azure CLI 또는 Azure PowerShell을 사용하�
 
 + 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
 
++ `dotnet --list-sdks`를 실행하여 필요한 버전이 설치되어 있는지 확인합니다.
+
 + `az --version`을 실행하여 Azure CLI 버전이 2.4 이상인지 확인합니다.
 
 + `az login`을 실행하여 Azure에 로그인하고 활성 구독을 확인합니다.
-
-+ `dotnet --list-sdks`를 실행하여 .NET Core SDK 버전 3.1.x가 설치되어 있는지 확인합니다.
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 + 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 3.x인지 확인합니다.
 
++ `dotnet --list-sdks`를 실행하여 필요한 버전이 설치되어 있는지 확인합니다.
+
 + `(Get-Module -ListAvailable Az).Version`을 실행하고 버전 5.0 이상을 확인합니다. 
 
 + `Connect-AzAccount`을 실행하여 Azure에 로그인하고 활성 구독을 확인합니다.
-
-+ `dotnet --list-sdks`를 실행하여 .NET Core SDK 버전 3.1.x가 설치되어 있는지 확인합니다.
 
 ---
 
@@ -76,9 +73,18 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 1. 다음과 같이 `func init` 명령을 실행하여 지정된 런타임에 *LocalFunctionProj* 폴더에 함수 프로젝트를 만듭니다.  
 
+    # <a name="in-process"></a>[In-Process](#tab/in-process) 
+
     ```csharp
     func init LocalFunctionProj --dotnet
     ```
+
+    # <a name="isolated-process"></a>[격리된 프로세스](#tab/isolated-process)
+
+    ```csharp
+    func init LocalFunctionProj --dotnet-isolated
+    ```
+    ---
 
 1. 프로젝트 폴더로 이동합니다.
 
@@ -102,34 +108,103 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 #### <a name="httpexamplecs"></a>HttpExample.cs
 
+템플릿에서 생성된 함수 코드는 컴파일된 C# 프로젝트의 유형에 따라 다릅니다.  
+
+# <a name="in-process"></a>[In-Process](#tab/in-process) 
+
 *HttpExample.cs* 에는 `req` 변수에 요청 데이터를 수신하는 `Run` 메서드가 포함되며, 트리거 동작을 정의하는 **HttpTriggerAttribute** 로 데코레이트된 [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest)입니다.
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
-반환 개체는 [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult)(200) 또는 [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult)(400)로 응답 메시지를 반환하는 [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult)입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=csharp)을 참조하세요.
+반환 개체는 [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult)(200) 또는 [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult)(400)로 응답 메시지를 반환하는 [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult)입니다. 
 
-[!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
+# <a name="isolated-process"></a>[격리된 프로세스](#tab/isolated-process)
+
+*HttpExample.cs* 에는 `req` 변수에 요청 데이터를 수신하는 `Run` 메서드가 포함되며, 트리거 동작을 정의하는 **HttpTriggerAttribute** 로 데코레이트된 [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata) 개체입니다. 격리된 프로세스 모델 때문에 `HttpRequestData`은 요청 개체 자체가 아니라 실제 `HttpRequest`를 나타냅니다. 
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs":::
+
+반환 개체는 HTTP 응답으로 다시 전달되는 데이터가 포함된 [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) 개체입니다. 
+
+---
+
+자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](./functions-bindings-http-webhook.md?tabs=csharp)을 참조하세요.
+
+## <a name="run-the-function-locally"></a>로컬에서 함수 실행
+
+1. *LocalFunctionProj* 폴더에서 로컬 Azure Functions 런타임 호스트를 시작하여 함수를 실행합니다.
+
+    ```
+    func start
+    ```
+
+    출력의 끝 부분에 다음 줄이 표시됩니다. 
+    
+    <pre>
+    ...
+    
+    Now listening on: http://0.0.0.0:7071
+    Application started. Press Ctrl+C to shut down.
+    
+    Http Functions:
+    
+            HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
+    ...
+    
+    </pre>
+    
+    >[!NOTE]  
+    > HttpExample이 위와 같이 표시되지 않으면 프로젝트의 루트 폴더 외부에서 호스트를 시작했을 가능성이 높습니다. 이 경우 **Ctrl**+**C** 를 사용하여 호스트를 중지하고, 프로젝트의 루트 폴더로 이동하여 이전 명령을 다시 실행합니다.
+
+1. 이 출력에서 브라우저로 `HttpExample` 함수의 URL을 복사합니다.
+
+    # <a name="in-process"></a>[In-Process](#tab/in-process)
+    
+     함수 URL에 쿼리 문자열 `?name=<YOUR_NAME>`을 추가하여 전체 URL을 `http://localhost:7071/api/HttpExample?name=Functions`와 같이 만듭니다. 브라우저는 쿼리 문자열 값을 다시 에코하는 응답 메시지를 표시해야 합니다. 프로젝트를 시작한 터미널에도 요청 시 로그 출력이 표시됩니다.
+
+    # <a name="isolated-process"></a>[격리된 프로세스](#tab/isolated-process)
+
+    함수 URL로 이동하면 _Azure Functions 시작_ 메시지가 표시됩니다.
+
+    ---
+
+1. 완료되면 **Ctrl**+**C** 를 사용하고 `y`를 선택하여 함수 호스트를 중지합니다.
 
 [!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-cli.md)]
 
 4. Azure에서 함수 앱을 만듭니다.
 
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-        
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli/in-process)
+
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
+    [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령은 Azure에서 함수 앱을 만듭니다. 
+
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli/isolated-process)
+
+    ```azurecli
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    ``` 
     
     [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령은 Azure에서 함수 앱을 만듭니다. 
-    
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell/in-process)
     
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location '<REGION>'
     ```
-    
+
     [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet은 Azure에서 함수 앱을 만듭니다. 
-    
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell/isolated-process)
+
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 3 -Location '<REGION>'
+    ```
+
+    [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet은 Azure에서 함수 앱을 만듭니다. 
+
     ---
     
     이전 예제에서는 `<STORAGE_NAME>`을 이전 단계에서 사용한 계정의 이름으로 바꾸고, `<APP_NAME>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 
@@ -138,7 +213,19 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
-[!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
+## <a name="invoke-the-function-on-azure"></a>Azure에서 함수 호출
+
+함수는 HTTP 트리거를 사용하고 GET 요청을 지원하므로 해당 URL에 HTTP 요청을 만들어 호출합니다. 브라우저에서 이 작업을 수행하는 것이 가장 쉽습니다.  
+
+# <a name="in-process"></a>[In-Process](#tab/in-process) 
+
+publish 명령의 출력에 표시된 **호출 URL** 전체를 브라우저 주소 표시줄에 복사하여 `?name=Functions` 쿼리 매개 변수를 추가합니다. 이 URL로 이동할 때 브라우저는 함수를 로컬로 실행할 때와 유사한 출력을 표시해야 합니다.
+
+# <a name="isolated-process"></a>[격리된 프로세스](#tab/isolated-process)
+
+publish 명령의 출력에 표시된 **호출 URL** 전체를 브라우저 주소 표시줄에 복사합니다. 이 URL로 이동할 때 브라우저는 함수를 로컬로 실행할 때와 유사한 출력을 표시해야 합니다.
+
+---
 
 [!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]
 
@@ -146,7 +233,14 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Azure Storage 큐에 연결]
+# <a name="in-process"></a>[In-Process](#tab/in-process) 
 
-[Azure Storage 큐에 연결]: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp
+> [!div class="nextstepaction"]
+> [Azure Queue Storage에 연결](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=in-process)
+
+# <a name="isolated-process"></a>[격리된 프로세스](#tab/isolated-process)
+
+> [!div class="nextstepaction"]
+> [Azure Queue Storage에 연결](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=isolated-process)
+
+---

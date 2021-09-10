@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C를 사용하여 iOS Swift 모바일 애플리케이션 옵션을 사용하도록 설정
-description: 여러 가지 방법을 사용하여 iOS Swift 모바일 애플리케이션 옵션을 사용하도록 설정합니다.
+description: 이 문서에서는 Azure Active Directory B2C를 사용하여 iOS Swift 모바일 애플리케이션 옵션을 사용하도록 설정하는 여러 가지 방법을 설명합니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,20 +11,24 @@ ms.date: 07/29/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 2e45e3c069600884ce87729a31787abb5360c815
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 128c5000e6614e769100a92303007317eadaed96
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642240"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220697"
 ---
-# <a name="configure-authentication-options-in-an-ios-swift-application-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 iOS Swift 애플리케이션에서 인증 옵션 구성 
+# <a name="enable-authentication-options-in-an-ios-swift-app-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 iOS Swift 앱에서 인증 옵션을 사용하도록 설정 
 
-이 문서에서는 iOS Swift 애플리케이션에 대한 Azure AD B2C(Azure Active Directory B2C) 인증 환경을 사용자 지정하고 개선할 수 있는 방법을 설명합니다. 시작하기 전에 [샘플 iOS Swift 애플리케이션에서 인증을 구성](configure-authentication-sample-ios-app.md)하고 [Azure Active Directory B2C를 사용하여 자체 iOS Swift 앱에서 인증을 사용하도록 설정](enable-authentication-ios-app.md)하는 다음 문서를 숙지합니다.
+이 문서에서는 iOS Swift 애플리케이션에 대한 Azure AD B2C(Azure Active Directory B2C) 인증 환경을 사용, 사용자 지정 및 개선할 수 있는 방법을 설명합니다. 
+
+시작하기 전에 다음 문서를 숙지합니다. 
+* [Azure AD B2C를 사용하여 샘플 iOS Swift 앱에서 인증 구성](configure-authentication-sample-ios-app.md)
+* [Azure AD B2C를 사용하여 자체 iOS Swift 앱에서 인증을 사용하도록 설정](enable-authentication-ios-app.md)
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
-인증 URL에서 사용자 지정 도메인 및 테넌트 ID를 사용하려면: 다음을 수행합니다. 
+인증 URL에서 사용자 지정 도메인 및 테넌트 ID를 사용하려면 다음을 수행합니다. 
 
 1. [사용자 지정 도메인을 사용하는 것으로 설정](custom-domain.md)의 참고 자료를 따릅니다.
 1. 사용자 지정 도메인을 사용하여 `kAuthorityHostName` 클래스 멤버를 업데이트합니다.
@@ -37,7 +41,7 @@ let kTenantName = "contoso.onmicrosoft.com"
 let kAuthorityHostName = "contoso.b2clogin.com" 
 ```
 
-다음 JSON은 변경 후의 앱 설정을 보여 줍니다.
+다음 Swift 코드는 변경 후의 앱 설정을 보여 줍니다.
 
 ```swift
 let kTenantName = "00000000-0000-0000-0000-000000000000" 
@@ -46,11 +50,11 @@ let kAuthorityHostName = "login.contoso.com"
 
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
-1. 사용자 지정 정책을 사용하는 경우, [직접 로그인 설정](direct-signin.md#prepopulate-the-sign-in-name)에 설명된 대로 필요한 입력 클레임을 추가합니다. 
-1. MSAL 구성 개체를 찾고 로그인 힌트를 사용하여 **withLoginHint()** 메서드를 추가합니다.
+1. 사용자 지정 정책을 사용하는 경우 [직접 로그인 설정](direct-signin.md#prepopulate-the-sign-in-name)에 설명된 대로 필요한 입력 클레임을 추가합니다. 
+1. MSAL(Microsoft 인증 라이브러리) 구성 개체를 찾은 다음, 로그인 힌트와 함께 `withLoginHint()` 메서드를 추가합니다.
 
 ```swift
-let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParamaters!)
+let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParameters!)
 parameters.promptType = .selectAccount
 parameters.authority = authority
 parameters.loginHint = "bob@contoso.com"
@@ -64,13 +68,13 @@ applicationContext.acquireToken(with: parameters) { (result, error) in
 
 1. 외부 ID 공급자의 도메인 이름을 확인합니다. 자세한 내용은 [소셜 공급자로 로그인 리디렉션](direct-signin.md#redirect-sign-in-to-a-social-provider)을 참조하세요. 
 1. 기존 목록 개체를 만들거나 사용하여 추가 쿼리 매개 변수를 저장합니다.
-1. 해당 도메인 이름이 포함된 `domain_hint` 매개 변수를 목록에 추가합니다. `facebook.com`)을 입력합니다.
+1. 해당 도메인 이름이 포함된 `domain_hint` 매개 변수를 목록에 추가합니다(예: `facebook.com`).
 1. 추가 쿼리 매개 변수 목록을 MSAL 구성 개체의 `extraQueryParameters` 특성에 전달합니다.
 
 ```swift
 let extraQueryParameters: [String: String] = ["domain_hint": "facebook.com"]
 
-let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParamaters!)
+let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParameters!)
 parameters.promptType = .selectAccount
 parameters.authority = authority
 parameters.extraQueryParameters = extraQueryParameters
@@ -82,15 +86,15 @@ applicationContext.acquireToken(with: parameters) { (result, error) in
 
 [!INCLUDE [active-directory-b2c-app-integration-ui-locales](../../includes/active-directory-b2c-app-integration-ui-locales.md)]
 
-1. [언어 사용자 지정을 구성](language-customization.md)합니다.
+1. [언어 사용자 지정을 구성합니다](language-customization.md).
 1. 기존 목록 개체를 만들거나 사용하여 추가 쿼리 매개 변수를 저장합니다.
-1. 해당 언어 코드를 포함하는 `ui_locales` 매개 변수를 목록에 추가합니다. `en-us`)을 입력합니다.
+1. 해당 언어 코드가 포함된 `ui_locales` 매개 변수를 목록에 추가합니다(예: `en-us`).
 1. 추가 쿼리 매개 변수 목록을 MSAL 구성 개체의 `extraQueryParameters` 특성에 전달합니다.
 
 ```swift
 let extraQueryParameters: [String: String] = ["ui_locales": "en-us"]
 
-let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParamaters!)
+let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParameters!)
 parameters.promptType = .selectAccount
 parameters.authority = authority
 parameters.extraQueryParameters = extraQueryParameters
@@ -104,13 +108,13 @@ applicationContext.acquireToken(with: parameters) { (result, error) in
 
 1. [ContentDefinitionParameters](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) 요소를 구성합니다.
 1. 기존 목록 개체를 만들거나 사용하여 추가 쿼리 매개 변수를 저장합니다.
-1. `campaignId`와 같은 사용자 지정 쿼리 문자열 매개 변수를 추가합니다. 매개 변수 값을 설정합니다. `germany-promotion`)을 입력합니다.
+1. `campaignId`와 같은 사용자 지정 쿼리 문자열 매개 변수를 추가합니다. 매개 변수 값을 설정합니다(예: `germany-promotion`).
 1. 추가 쿼리 매개 변수 목록을 MSAL 구성 개체의 `extraQueryParameters` 특성에 전달합니다.
 
 ```swift
 let extraQueryParameters: [String: String] = ["campaignId": "germany-promotion"]
 
-let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParamaters!)
+let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParameters!)
 parameters.promptType = .selectAccount
 parameters.authority = authority
 parameters.extraQueryParameters = extraQueryParameters
@@ -124,7 +128,7 @@ applicationContext.acquireToken(with: parameters) { (result, error) in
 [!INCLUDE [active-directory-b2c-app-integration-id-token-hint](../../includes/active-directory-b2c-app-integration-id-token-hint.md)]
 
 1. 사용자 지정 정책에서 [ID 토큰 힌트 기술 프로필](id-token-hint.md)을 정의합니다.
-1. 코드에서 ID 토큰을 생성하거나 획득하고 토큰을 변수로 설정합니다. `idToken`)을 입력합니다. 
+1. 코드에서 ID 토큰을 생성하거나 획득한 다음 토큰을 변수로 설정합니다(예: `idToken`). 
 1. 기존 목록 개체를 만들거나 사용하여 추가 쿼리 매개 변수를 저장합니다.
 1. ID 토큰을 저장하는 해당 변수를 사용하여 `id_token_hint` 매개 변수를 추가합니다.
 1. 추가 쿼리 매개 변수 목록을 MSAL 구성 개체의 `extraQueryParameters` 특성에 전달합니다.
@@ -132,7 +136,7 @@ applicationContext.acquireToken(with: parameters) { (result, error) in
 ```swift
 let extraQueryParameters: [String: String] = ["id_token_hint": idToken]
 
-let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParamaters!)
+let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParameters!)
 parameters.promptType = .selectAccount
 parameters.authority = authority
 parameters.extraQueryParameters = extraQueryParameters
@@ -172,7 +176,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     }
 ```
 
-## <a name="embedded-webview-experience"></a>포함된 웹 보기 환경
+## <a name="embedded-web-view-experience"></a>포함된 웹 보기 환경
 
 대화형 인증에는 웹 브라우저가 필요합니다. 기본적으로 MSAL 라이브러리는 시스템 웹 보기를 사용합니다. 로그인하는 동안 MSAL 라이브러리는 Azure AD B2C 사용자 인터페이스를 사용하여 iOS 시스템 웹 보기를 표시합니다.  
 
@@ -180,7 +184,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 요구 사항에 따라 포함된 웹 보기를 사용할 수 있습니다. 포함된 웹 보기와 MSAL의 시스템 웹 보기 사이에는 시각적 개체 및 Single Sign-On 동작 차이가 있습니다.
 
-![스크린샷은 시스템 웹 보기 환경과 포함된 웹 보기 환경의 차이점을 보여 줍니다.](./media/enable-authentication-ios-app-options/system-web-browser-vs-embedded-view.png)
+![시스템 웹 보기 환경과 포함된 웹 보기 환경의 차이점을 보여 주는 스크린샷](./media/enable-authentication-ios-app-options/system-web-browser-vs-embedded-view.png)
 
 > [!IMPORTANT]
 > 플랫폼 기본값을 사용하는 것이 좋으며, 보통은 시스템 브라우저가 기본값입니다. 시스템 브라우저는 이전에 로그인한 사용자를 기억하는 데 더 뛰어납니다. Google과 같은 일부 ID 공급자는 포함된 보기 환경을 지원하지 않습니다.
@@ -189,13 +193,13 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ```swift
 func initWebViewParams() {
-    self.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
+    self.webViewParameters = MSALWebviewParameters(authPresentationViewController: self)
     
     // Use embedded view experience
-    self.webViewParamaters?.webviewType = .wkWebView
+    self.webViewParameters?.webviewType = .wkWebView
 }
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 정보: [iOS Swift용 MSAL 구성 옵션](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
+- 자세한 내용은 [iOS Swift용 MSAL 구성 옵션](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)을 참조하세요.

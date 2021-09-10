@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 5/4/2021
-ms.openlocfilehash: c5413918923ebb4e613ecb48e86dbccfcc60889b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 8/12/2021
+ms.openlocfilehash: 56ed469843c78b299d0cec426eb490cedce1defe
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693286"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567525"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 컴퓨팅 크기로 구분됩니다. DTU 기반 구매 모델의 모든 서비스 계층은 [가동 중지 시간](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)을 최소화하면서 컴퓨팅 크기를 유연하게 변경할 수 있습니다. 그러나 짧은 시간 동안 데이터베이스에 대한 연결이 끊어지는 전환 기간이 있는데, 이는 다시 시도 논리를 사용하여 완화할 수 있습니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 컴퓨팅 크기에 따라 시간 단위로 청구됩니다.
+DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 컴퓨팅 크기로 구분됩니다. DTU 기반 구매 모델의 모든 서비스 계층은 [가동 중지 시간](https://azure.microsoft.com/support/legal/sla/azure-sql-database)을 최소화하면서 컴퓨팅 크기를 유연하게 변경할 수 있습니다. 그러나 짧은 시간 동안 데이터베이스에 대한 연결이 끊어지는 전환 기간이 있는데, 이는 다시 시도 논리를 사용하여 완화할 수 있습니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 컴퓨팅 크기에 따라 시간 단위로 청구됩니다.
 
 > [!IMPORTANT]
 > [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)는 DTU 기반 구매 모델을 지원하지 않습니다. 
@@ -178,6 +178,9 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | Premium |초당 트랜잭션 수 |0.5초에서 95 백분위수 |
 | Standard |분당 트랜잭션 수 |1.0초에서 90 백분위수 |
 | Basic |시간당 트랜잭션 수 |2.0초에서 80 백분위수 |
+
+> [!NOTE]
+> 응답 시간 메트릭은 [DTU 벤치마크](#dtu-benchmark)에만 해당됩니다. 다른 워크로드에 대한 응답 시간은 워크로드에 따라 다릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

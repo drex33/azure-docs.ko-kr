@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Custom Vision 클라이언트 라이브러리를 사용한 개체 검색'
 titleSuffix: Azure Cognitive Services
-description: '빠른 시작: Custom Vision 클라이언트 라이브러리를 사용하여 개체 검색 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 개체를 검색합니다.'
+description: '빠른 시작: Custom Vision 클라이언트 라이브러리를 사용하여 개체 감지 프로젝트를 만들고, 사용자 지정 태그를 추가하고, 이미지를 업로드하고, 모델을 학습하고, 이미지에서 개체를 감지합니다.'
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
@@ -11,12 +11,12 @@ ms.date: 04/19/2021
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 사용자 지정 버전
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 45ac9fb96a6b8c0d5e20b616cf99b27e599f99fe
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 7aa148919cd4c30fb14c81db3a0f7e37ee7860a3
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725135"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123309930"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-client-library"></a>빠른 시작: Custom Vision 클라이언트 라이브러리를 사용하여 개체 검색 프로젝트 만들기
 

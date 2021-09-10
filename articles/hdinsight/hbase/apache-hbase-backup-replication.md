@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 9c11a28fafc633879f22f0133b544fe99a8c4a72
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 6c5dd94cdc98c1889519790599864971729367c1
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191762"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113587736"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>HDInsight에서 Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
 
@@ -243,7 +243,7 @@ hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<ac
 5. 원본 테이블에서 대상 테이블로 기존 데이터를 복사합니다.
 6. 복제는 원본 테이블의 새 데이터 수정 내용을 대상 테이블에 자동으로 복사합니다.
 
-HDInsight에서 복제를 사용하도록 설정하려면 실행 중인 원본 HDInsight 클러스터에 스크립트 동작을 적용합니다. 클러스터에서 복제를 사용하도록 설정하거나 Azure 리소스 관리 템플릿을 사용하여 가상 네트워크에서 만든 샘플 클러스터에서 복제를 실험하는 연습은 [Apache HBase 복제 구성](apache-hbase-replication.md)을 참조하세요. 이 문서에는 Phoenix 메타데이터의 복제를 사용하도록 설정하기 위한 지침도 포함되어 있습니다.
+HDInsight에서 복제를 사용하도록 설정하려면 실행 중인 원본 HDInsight 클러스터에 스크립트 동작을 적용합니다. 클러스터에서 복제를 사용하도록 설정하거나 Azure Resource Manager 템플릿을 사용하여 가상 네트워크에서 만든 샘플 클러스터에서 복제를 실험하는 연습은 [Apache HBase 복제 구성](apache-hbase-replication.md)을 참조하세요. 이 문서에는 Phoenix 메타데이터의 복제를 사용하도록 설정하기 위한 지침도 포함되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

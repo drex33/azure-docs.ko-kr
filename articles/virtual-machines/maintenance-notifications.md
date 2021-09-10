@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 29fccb3051fda96d47a54e8efb831980df262059
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bc282833b57b03faf782f40ebb42666899c56e81
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566339"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698784"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>계획된 유지 관리 알림 처리
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 및 보안을 향상시키기 위해 주기적으로 업데이트를 수행합니다. 업데이트란 호스팅 환경의 패치 적용 또는 하드웨어의 업그레이드 및 서비스 해제와 같은 변경 내용을 말합니다. 이러한 업데이트 중 대다수는 호스트된 가상 머신에 영향을 미치지 않고 완료됩니다. 그러나 업데이트가 다음 항목에 영향을 미치는 경우가 있습니다.
 

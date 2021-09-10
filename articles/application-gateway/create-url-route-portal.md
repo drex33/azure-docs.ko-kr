@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 02/23/2021
 ms.author: victorh
-ms.openlocfilehash: b0ab3cbd2891ef1677c0d4ba7a00821d67714b6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d42a62c6251456d11dff7b2276936db7df5259af
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708954"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222692"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -176,6 +176,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 > [!NOTE]
 > 기본 사례를 처리하기 위해 사용자 지정 */* * 경로 규칙을 추가할 필요는 없습니다. 이는 기본 백 엔드 풀에 의해 자동으로 처리됩니다.
+
+> [!NOTE]
+> 와일드카드 구분 기호 **\*** 는 규칙 끝에서만 사용할 수 있습니다. 자세한 내용과 지원되는 경로 기반 규칙의 예는 [URL 경로 기반 라우팅 개요](url-route-overview.md#pathpattern)를 참조하세요.
 
 ### <a name="review--create-tab"></a>리뷰 + 만들기 탭
 

@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: dbe0fe6d0dadea6e99b406f2de6e16ed4d667741
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2a61ed8f32fb85c3500ebf191c8bd53808b75eb9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461541"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696894"
 ---
 # <a name="oracle-database-in-azure-linux-vm-backup-strategies"></a>Azure Linux VM 백업 전략에서 Oracle Database
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 데이터베이스 백업은 스토리지 구성 요소 오류 및 데이터 센터 오류로 인한 데이터 손실로부터 데이터베이스를 보호합니다. 또한 사용자 오류에서 복구하는 수단 및 개발 또는 테스트 목적으로 데이터베이스를 복제하는 방법으로 사용할 수도 있습니다. 
 

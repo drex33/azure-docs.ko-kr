@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: 74b81b095ef969715313c79c90821a8c8e8aaf1d
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: c9cf2c790e5dedb25c923718fbbb807b792f48a2
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123098253"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597396"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버의 새로운 기능(미리 보기)
 
@@ -65,13 +65,6 @@ ms.locfileid: "123098253"
   - 인도 중부, 동아시아, 한국 중부, 남아프리카 공화국 북부, 스위스 북부 지역에서는 동일한 영역의 고가용성 서버를 만들 수 없습니다.
   - 드문 시나리오에서 HA 장애 조치 후 주 서버는 read_only 모드가 됩니다. 서버 매개 변수 블레이드에서 "read_only" 값을 OFF로 업데이트하여 이 문제를 해결합니다.
   - 컴퓨팅+스토리지 블레이드에서 컴퓨팅을 스케일 인한 후에 IOPS가 SKU 기본값으로 다시 설정됩니다. 고객은 컴퓨팅 배포 및 그에 따른 IOPS 재설정 후 컴퓨팅+스토리지 블레이드에서 IOP를 원하는 값(이전에 설정)으로 다시 스케일링하여 이 문제를 해결할 수 있습니다.
-  - 동일 영역 HA를 사용하도록 설정하거나 배포하려고 하면 다음 지역에서 배포가 실패합니다. 
-      - 인도 중부
-      - 동아시아
-      - 한국 중부
-      - 남아프리카 북부
-      - 스위스 북부
-
 
 ## <a name="july-2021"></a>2021년 7월
 

@@ -8,12 +8,12 @@ ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 69a02db3eafa9c75808eece69ce8ed676adf0ab2
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: dd161468cda08a0046f2f46a79a973e4bbf8b49a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615818"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566717"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Azure Digital Twins를 사용하여 Azure Maps 실내 맵 업데이트
 
@@ -27,9 +27,9 @@ ms.locfileid: "110615818"
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-* Azure Digital Twins [자습서: 엔드투엔드 솔루션 연결](./tutorial-end-to-end.md)을 참조하세요.
+* [엔드투엔드 솔루션 연결](./tutorial-end-to-end.md)의 Azure Digital Twins를 참조하세요.
     * 추가 엔드포인트 및 경로를 사용하여 이 트윈을 확장합니다. 또한 이 자습서의 함수 앱에 다른 함수를 추가합니다. 
-* Azure Maps [자습서: Azure Maps Creator를 사용해서 실내 맵 만들기](../azure-maps/tutorial-creator-indoor-maps.md)를 따라  *기능 상태 세트* 로 Azure Maps 실내 맵을 만듭니다.
+* [Azure Maps Creator를 사용해서 Indoor Maps 만들기](../azure-maps/tutorial-creator-indoor-maps.md)의 Azure Maps를 따라 *기능 상태 세트* 로 Azure Maps Indoor Maps를 만듭니다.
     * [기능 상태 세트](../azure-maps/creator-indoor-maps.md#feature-statesets)는 방 또는 장비와 같은 데이터 세트 기능에 할당된 동적 속성의 컬렉션(상태)입니다. 위의 Azure Maps 자습서에서 기능 상태 세트는 맵에 표시되는 방 상태를 저장합니다.
     * 기능 *상태 세트 ID* 및 Azure Maps *구독 키* 가 필요합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "110615818"
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>트윈 업데이트 알림을 위한 경로 및 필터 만들기
 
-Azure Digital Twins 인스턴스는 트윈의 상태가 업데이트될 때마다 트윈 업데이트 이벤트를 내보낼 수 있습니다. 위에 링크된 Azure Digital Twins [자습서: 엔드투엔드 솔루션 연결](./tutorial-end-to-end.md)은 온도계를 사용하여 방의 트윈에 연결된 온도 특성을 업데이트하는 시나리오를 안내합니다. 트윈에 대한 업데이트 알림을 구독하고 해당 정보를 사용하여 맵을 업데이트함으로써 해당 솔루션을 확장합니다.
+Azure Digital Twins 인스턴스는 트윈의 상태가 업데이트될 때마다 트윈 업데이트 이벤트를 내보낼 수 있습니다. 위에 링크된 Azure Digital Twins [엔드투엔드 솔루션 연결](./tutorial-end-to-end.md)에서는 온도계를 사용하여 방의 트윈에 연결된 온도 특성을 업데이트하는 시나리오를 안내합니다. 트윈에 대한 업데이트 알림을 구독하고 해당 정보를 사용하여 맵을 업데이트함으로써 해당 솔루션을 확장합니다.
 
 이 패턴은 IoT 디바이스가 아닌 방 트윈에서 직접 읽어 매핑 논리를 업데이트할 필요 없이 온도에 대한 기본 데이터 원본을 유연하게 변경할 수 있도록 합니다. 예를 들어 맵 논리를 업데이트할 필요 없이, 여러 개의 온도계를 추가하거나 다른 방과 온도계를 공유하도록 이 방을 설정할 수 있습니다.
 
@@ -72,7 +72,7 @@ Azure Digital Twins 인스턴스는 트윈의 상태가 업데이트될 때마�
 
 ## <a name="create-a-function-to-update-maps"></a>맵을 업데이트하는 함수 만들기
 
-엔드투엔드 자습서에서 함수 앱 내에 **Event Grid 트리거 함수** 를 만들려고 합니다([자습서: 엔드투엔드 솔루션 연결](./tutorial-end-to-end.md)). 이 함수는 이러한 알림의 압축을 풀고 Azure Maps 기능 상태 세트에 업데이트를 보내서 한 방의 온도를 업데이트합니다.
+엔드투엔드 자습서([엔드투엔드 솔루션 연결](./tutorial-end-to-end.md))에서 함수 앱 내에 **Event Grid 트리거 함수** 를 만들려고 합니다. 이 함수는 이러한 알림의 압축을 풀고 Azure Maps 기능 상태 세트에 업데이트를 보내서 한 방의 온도를 업데이트합니다.
 
 참조 정보는 [Azure Functions에 대한 Azure Event Grid 트리거](../azure-functions/functions-bindings-event-grid-trigger.md)문서를 참조하세요.
 
@@ -83,17 +83,17 @@ Azure Digital Twins 인스턴스는 트윈의 상태가 업데이트될 때마�
 함수 앱에서 두 개의 환경 변수를 설정해야 합니다. 하나는 [Azure Maps 기본 구독 키](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account)이고 하나는 [Azure Maps 상태 세트 ID](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset)입니다.
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <your-App-Service-function-app-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
-az functionapp config appsettings set --name <your-App-Service-function-app-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
+az functionapp config appsettings set --name <your-function-app-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
+az functionapp config appsettings set --name <your-function-app-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
 ### <a name="view-live-updates-on-your-map"></a>맵에서 라이브 업데이트 보기
 
 라이브 업데이트 온도를 보려면 다음 단계를 수행합니다.
 
-1. Azure Digital Twins [자습서: 엔드투엔드 솔루션 연결](tutorial-end-to-end.md)에서 **DeviceSimulator** 프로젝트를 실행하여 시뮬레이션된 IoT 데이터 보내기를 시작합니다. 이에 대한 지침은 [시뮬레이션 구성 및 실행](././tutorial-end-to-end.md#configure-and-run-the-simulation) 섹션에 있습니다.
+1. Azure Digital Twins [엔드투엔드 솔루션 연결](tutorial-end-to-end.md)에서 **DeviceSimulator** 프로젝트를 실행하여 시뮬레이션된 IoT 데이터 보내기를 시작합니다. 이에 대한 지침은 [시뮬레이션 구성 및 실행](././tutorial-end-to-end.md#configure-and-run-the-simulation) 섹션에 있습니다.
 2. [Azure Maps Indoor 모듈](../azure-maps/how-to-use-indoor-module.md)을 사용하여 Azure Maps Creator에서 만든 실내 맵을 렌더링할 수 있습니다.
-    1. 실내 맵 자습서: Azure Maps 실내 맵 모듈 사용의 [[예: Azure Maps 실내 맵 모듈 사용](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module)](../azure-maps/how-to-use-indoor-module.md) 섹션에서 HTML을 로컬 파일에 복사합니다.
+    1. [Azure Maps Indoor Maps 모듈 사용](../azure-maps/how-to-use-indoor-module.md)에 있는 Indoor Maps의 [예: Indoor Maps 모듈 사용](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) 섹션에서 HTML을 로컬 파일에 복사합니다.
     1. 로컬 HTML 파일에서 *subscription key*, *tilesetId*, *statesetID* 를 사용자의 값으로 바꿉니다.
     1. 브라우저에서 파일을 엽니다.
 
@@ -113,5 +113,5 @@ az functionapp config appsettings set --name <your-App-Service-function-app-name
 
 트윈 그래프에서 정보를 관리, 업그레이드, 검색하는 방법에 대한 자세한 내용은 다음 참조를 참조하세요.
 
-* [방법: 디지털 트윈 관리](./how-to-manage-twin.md)
-* [방법: 트윈 그래프 쿼리](./how-to-query-graph.md)
+* [Digital Twins 관리](./how-to-manage-twin.md)
+* [쌍 그래프 쿼리](./how-to-query-graph.md)

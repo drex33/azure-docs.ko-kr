@@ -4,12 +4,12 @@ ms.topic: include
 author: ecfan
 ms.author: estfan
 ms.date: 08/18/2021
-ms.openlocfilehash: da5262e8f8db035038402b6d4263eb274a10a821
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: b4b4bc65520ba3a8d2bec3bc4f3d4184b672702f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539194"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123108299"
 ---
 | 리소스 유형 | 이점 | 리소스 공유 및 사용 | [가격 책정 및 대금 청구 모델](../articles/logic-apps/logic-apps-pricing.md) | [한도 관리](../articles/logic-apps/logic-apps-limits-and-config.md) |
 |---------------|----------|----------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------------------------|

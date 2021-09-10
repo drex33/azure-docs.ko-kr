@@ -1,20 +1,20 @@
 ---
 title: Azure Percept DK 고급 네트워크 설정
 description: 이 문서에서는 Azure Percept DK 설치 중에 고급 네트워크 설정을 설명합니다
-author: WendyAnn0079
-ms.author: amiyouss
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 7/19/2021
 ms.custom: template-how-to
-ms.openlocfilehash: ac06d331bcd587c1294c21388faac75cc6f8cfd6
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: bc680025e37ded3fd91b840d00ba075772cbb656
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219643"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528322"
 ---
-# <a name="set-up-advanced-network-settings-on-the-azure-percept-dk"></a>Azure Percept DK에서 고급 네트워크 설정
+# <a name="set-up-advanced-network-settings-on-the-azure-percept-dk"></a>Azure Percept DK 고급 네트워크 설정
 
 Azure Percept DK를 사용하면 개발 키트에서 다양한 네트워킹 구성 요소를 제어할 수 있습니다. 이 작업은 설치 환경의 고급 네트워크 설정에서 수행됩니다. 이러한 설정에 액세스하려면, [설치 환경을 시작하고](./quickstart-percept-dk-set-up.md) **네트워크 연결** 페이지에서 **고급 네트워크 설정 액세스** 를 선택해야 합니다.
 

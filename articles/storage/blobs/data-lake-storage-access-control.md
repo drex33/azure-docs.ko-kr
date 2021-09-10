@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 14a357bf5f7fece43ce72b58142aa0047213bfab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 41afd3cf3720c5fa86acf75acadc07e60fa2f3cc
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536178"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968848"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 ACL(액세스 제어 목록)
 
@@ -343,7 +343,7 @@ OID가 표시됩니다.
 
 ### <a name="can-i-set-the-acl-of-a-container"></a>컨테이너의 ACL을 설정할 수 있나요?
 
-아니요. 컨테이너에는 ACL이 없습니다. 그러나 컨테이너의 루트 디렉터리에 대한 ACL을 설정할 수 있습니다. 모든 컨테이너에는 루트 디렉터리가 있으며 컨테이너와 같은 이름을 공유합니다. 예를 들어 컨테이너 이름이 `my-container`인 경우 루트 디렉터리의 이름은 `myContainer/`입니다. 
+아니요. 컨테이너에는 ACL이 없습니다. 그러나 컨테이너의 루트 디렉터리에 대한 ACL을 설정할 수 있습니다. 모든 컨테이너에는 루트 디렉터리가 있으며 컨테이너와 같은 이름을 공유합니다. 예를 들어 컨테이너 이름이 `my-container`인 경우 루트 디렉터리의 이름은 `my-container/`입니다. 
 
 Azure Storage REST API에는 [Set Container ACL](/rest/api/storageservices/set-container-acl)이라는 작업이 포함되어 있지만 해당 작업은 컨테이너 또는 컨테이너의 루트 디렉터리에 대한 ACL을 설정하는 데 사용할 수 없습니다. 대신 이 작업을 사용하여 컨테이너의 Blob에 [공개적으로 액세스할 수 있는지](anonymous-read-access-configure.md) 여부를 나타낼 수 있습니다. 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 60743cdbc48d695c0c98c6e34273a0c407fef546
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7cdd812347450a8798ed4fb8e6e69f71c725449f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529089"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225400"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -130,6 +130,10 @@ Cloud Shell은 대화형 사용 사례를 위한 것입니다. 따라서 비대�
 
 권한은 sudo 액세스 권한이 없는 일반 사용자로 설정됩니다. 사용자 `$Home` 디렉터리 외부에서의 설치는 유지되지 않습니다.
 
+### <a name="supported-entry-point-limitations"></a>지원되는 진입점 제한 사항
+
+Azure Portal 이외의 Cloud Shell 진입점(예: Visual Studio Code 및 Windows 터미널)은 Cloud Shell에서 UX 구성 요소를 수정하는 명령(예:`Code`)의 사용을 지원하지 않습니다.
+
 ## <a name="bash-limitations"></a>Bash 제한 사항
 
 ### <a name="editing-bashrc"></a>.bashrc 편집
@@ -151,7 +155,7 @@ Azure Cloud Shell은 개인 데이터를 중대하게 사용하며, Azure Cloud 
 ### <a name="export"></a>내보내기
 사용자 설정을 **내보내기** 위해 Cloud Shell은 다음 명령을 실행하여 기본 설정된 셸, 글꼴 크기 및 글꼴 종류 등을 저장합니다.
 
-1. [![시작 Azure Cloud Shell 레이블이 지정된 단추를 표시하는 이미지.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+1. Cloud Shell을 시작합니다.
 
 2. Bash 또는 PowerShell에서 다음 명령을 실행합니다.
 
@@ -190,7 +194,7 @@ PowerShell:
 
   ```powershell
   $token= (Get-AzAccessToken -Resource  https://management.azure.com/).Token
-  Invoke-WebRequest -Method Delete -Uri https://management.azure.com?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
+  Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
 ## <a name="azure-government-limitations"></a>Azure Government 제한 사항
 Azure Government의 Azure Cloud Shell은 Azure Portal을 통해서만 액세스할 수 있습니다.

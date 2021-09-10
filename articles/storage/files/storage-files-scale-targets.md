@@ -7,17 +7,24 @@ ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 78ecf275a9c607273aef16e6351224709f230959
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 32ec83fb1c8de16f589d6a172a7612e5e5866647
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690523"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113768227"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 [Azure Files](storage-files-introduction.md)는 SMB 및 NFS 파일 시스템 프로토콜을 통해 액세스할 수 있는 완전 관리형 파일 공유를 클라우드에서 제공합니다. 이 문서에서는 Azure Files 및 Azure 파일 동기화의 확장성 및 성능 목표에 대해 설명합니다.
 
 여기서 나열하는 확장성 및 성능 목표는 고성능 목표이지만 다른 배포 변수의 영향을 받을 수 있습니다. 예를 들어 단순히 Azure 파일 공유를 호스팅하는 서버가 아니라 사용 가능한 네트워크 대역폭에 따라 파일 처리량이 제한될 수 있습니다. Azure Files의 확장성 및 성능이 요구 사항을 충족하는지 확인하려면 사용 패턴을 테스트하는 것이 좋습니다. 또한 시간이 지남에 따라 이러한 제한을 높이기 위해 노력하고 있습니다. 
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
 
 ## <a name="azure-files-scale-targets"></a>Azure Files 크기 조정 목표
 Azure 파일 공유는 공유 스토리지 풀을 나타내는 최상위 개체인 스토리지 계정에 배포됩니다. 이 스토리지 풀을 사용하여 여러 파일 공유를 배포할 수 있습니다. 따라서 스토리지 계정, Azure 파일 공유, 파일 등 세 가지 범주를 고려해야 합니다.
@@ -52,7 +59,7 @@ Azure에서는 고객에게 있을 수 있는 다양한 스토리지 시나리�
 | 프로비전된 크기 증가/감소 단위 | 해당 없음 | 1GiB |
 | 파일 공유의 최대 크기 | <ul><li>100TiB, 대량 파일 공유 기능 사용<sup>2</sup></li><li>5TiB, 기본값</li></ul> | 100TiB |
 | 파일 공유의 최소 파일 수 | 제한 없음 | 제한 없음 |
-| 최대 요청 빈도(최대 IOPS) | <ul><li>10,000, 대량 파일 공유 기능 사용<sup>2</sup></li><li>100ms당 1,000 또는 100개 요청, 기본값</li></ul> | <ul><li>기준 IOPS: GiB당 400 + 1 IOPS, 최대 100,000</li><li>IOPS 버스팅: 최대(GiB당 4000,3x IOPS), 최대 100,000</li></ul> |
+| 최대 요청 빈도(최대 IOPS) | <ul><li>20,000, 대량 파일 공유 기능 사용<sup>2</sup></li><li>100ms당 1,000 또는 100개 요청, 기본값</li></ul> | <ul><li>기준 IOPS: GiB당 400 + 1 IOPS, 최대 100,000</li><li>IOPS 버스팅: 최대(GiB당 4000,3x IOPS), 최대 100,000</li></ul> |
 | 단일 파일 공유에 대한 최대 수신 속도 | <ul><li>최대 300MiB/초, 대량 파일 공유 기능 사용<sup>2</sup></li><li>최대 60MiB/초, 기본값</li></ul> | 40MiB/초 + 0.04 * 프로비전된 GiB |
 | 단일 파일 공유에 대한 최대 송신 속도 | <ul><li>최대 300MiB/초, 대량 파일 공유 기능 사용<sup>2</sup></li><li>최대 60MiB/초, 기본값</li></ul> | 60MiB/초 + 0.06 * 프로비전된 GiB |
 | 최대 공유 스냅샷 수 | 200 스냅샷 | 200 스냅샷 |
@@ -64,7 +71,7 @@ Azure에서는 고객에게 있을 수 있는 다양한 스토리지 시나리�
 
 <sup>1</sup> 표준 파일 공유에 대한 제한은 표준 파일 공유에 사용할 수 있는 세 계층(트랜잭션 최적화, 핫, 쿨) 모두에 적용됩니다.
 
-<sup>2</sup> 표준 파일 공유의 기본값은 5TiB입니다. 표준 파일 공유 크기를 최대 100TiB까지 확장하는 방법에 대한 자세한 내용은 [대량 파일 공유 사용 및 만들기](./storage-files-how-to-create-large-file-share.md)를 참조하세요.
+<sup>2</sup> 표준 파일 공유의 기본값은 5TiB입니다. 100TiB 크기의 파일 공유를 만들고 기존 표준 파일 공유를 최대 100TiB까지 늘리는 방법에 대한 자세한 내용은 [Azure 파일 공유 만들기](./storage-how-to-create-file-share.md)를 참조하세요.
 
 ### <a name="file-scale-targets"></a>파일 크기 조정 목표
 | attribute | 표준 파일 공유의 파일  | 프리미엄 파일 공유의 파일  |
@@ -90,7 +97,7 @@ Azure에서는 고객에게 있을 수 있는 다양한 스토리지 시나리�
 | 동기화 그룹당 서버 엔드포인트 수 | 100개 서버 엔드포인트 | 예 |
 | 서버당 서버 엔드포인트 수 | 30개 서버 엔드포인트 | 예 |
 | 동기화 그룹당 파일 시스템 개체(디렉터리 및 파일) 수 | 1억 개 개체 | 아니요 |
-| 디렉터리에 있는 파일 시스템 개체(디렉터리 및 파일)의 최대 수 | 500만 개 개체 | 예 |
+| 디렉터리에 있는 파일 시스템 개체(디렉터리 및 파일)의 최대 수 **(재귀적이지 않음)** | 500만 개 개체 | 예 |
 | 최대 개체(디렉터리 및 파일) 보안 설명자 크기 | 64KiB | 예 |
 | 파일 크기 | 100GiB | 아니요 |
 | 계층화할 파일에 대한 최소 파일 크기 | V9 이상: 파일 시스템 클러스터 크기를 기준으로 합니다(이중 파일 시스템 클러스터 크기). 예를 들어 파일 시스템 클러스터 크기가 4KiB이면 최소 파일 크기는 8KiB입니다.<br> V8 이하: 64KiB  | 예 |

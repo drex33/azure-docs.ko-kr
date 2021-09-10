@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperf-fy21q1
-ms.openlocfilehash: 9f2ca089a6d885227bd61940d71ec7bb7960fbd6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 09e39f658d0504dc8539f24c79853e03c5555f1b
+ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043158"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113231101"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -214,8 +214,8 @@ systemctl show --property=Environment aziot-identityd
 
 IoT Edge for Linux on Windows 가상 머신에 로그인합니다.
 
-```azurepowershell-interactive
-Ssh-EflowVm
+```powershell
+Connect-EflowVm
 ```
 
 위 Linux 섹션과 동일한 단계를 수행하여 IoT Edge 디먼을 구성합니다.
@@ -357,7 +357,7 @@ Visual Studio Code에서 템플릿을 사용하거나 JSON 파일을 직접 만�
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
-        "createOptions": ""
+        "createOptions": "{}"
     },
     "env": {
         "https_proxy": {
@@ -386,7 +386,7 @@ IoT Edge 디바이스의 confige.yaml 파일에 **UpstreamProtocol** 환경 변�
 
 사용하려는 프록시가 TLS 보안 연결에서 트래픽 검사를 수행하는 경우 X.509 인증서를 사용하는 인증이 작동하지 않는다는 점에 유의해야 합니다. IoT Edge는 제공된 인증서와 키를 사용하여 엔드투엔드 암호화된 TLS 채널을 설정합니다. 트래픽 검사를 위해 채널이 끊어지면 프록시가 적절한 자격 증명을 사용하여 채널을 다시 설정할 수 없으며 IoT Hub 및 IoT Hub Device Provisioning Service에서 `Unauthorized` 오류를 반환합니다.
 
-트래픽 검사를 수행하는 프록시를 사용하려면 공유 액세스 서명 인증을 사용하거나 IoT Hub 및 IoT Hub Device Provisioning Service를 허용 목록에 추가하여 검사를 피해야 합니다.
+트래픽 검사를 수행하는 프록시를 사용하려면, 공유 액세스 서명 인증을 사용하거나 IoT Hub 및 IoT Hub Device Provisioning Service를 허용 목록에 추가하여 검사를 피해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

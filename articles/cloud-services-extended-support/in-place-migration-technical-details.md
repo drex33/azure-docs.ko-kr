@@ -1,28 +1,26 @@
 ---
 title: Azure Cloud Services(확장 지원)로 마이그레이션하는 경우에 대한 기술 세부 정보 및 요구 사항
 description: Azure Cloud Services(클래식)에서 Azure Cloud Services(확장 지원)로 마이그레이션하는 경우에 대한 기술 세부 정보 및 요구 사항을 제공합니다.
-author: tanmaygore
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
-ms.author: tagore
-ms.openlocfilehash: 4898c0ec17766d0bcbd89176194aec9dee7157ea
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+author: hirenshah1
+ms.author: hirshah
+ms.openlocfilehash: 55ce5305962562876a97dfd7677e6af5e1eb9e3a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293047"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536734"
 ---
 # <a name="technical-details-of-migrating-to-azure-cloud-services-extended-support"></a>Azure Cloud Services(확장 지원)로 마이그레이션하는 경우에 대한 기술 세부 정보   
 
 이 문서에서는 Cloud Services(클래식)와 관련된 마이그레이션 도구에 대한 기술 세부 정보에 대해 설명합니다. 
 
-> [!IMPORTANT]
-> 마이그레이션 도구를 사용하여 Cloud Services(클래식)에서 Cloud Services(확장 지원)로 마이그레이션하는 것은 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 ## <a name="details-about-feature--scenarios-supported-for-migration"></a>마이그레이션에 지원되는 기능/시나리오에 대한 세부 정보 
+
 
 ### <a name="extensions-and-plugin-migration"></a>확장 및 플러그 인 마이그레이션 
 - 사용하도록 설정되고 지원되는 모든 확장이 마이그레이션됩니다. 
@@ -63,21 +61,54 @@ ms.locfileid: "108293047"
 - Azure는 마이그레이션 과정에서 자동으로 새 Key Vault를 만들고 모든 인증서를 Key Vault로 마이그레이션합니다. 이 도구에서는 기존 Key Vault를 사용할 수 없습니다. 
 - Cloud Services(확장 지원)에는 동일한 지역 및 구독에 있는 Key Vault가 필요합니다. 이 Key Vault는 마이그레이션 과정에서 자동으로 생성됩니다. 
 
+## <a name="resources-and-features-not-available-for-migration"></a>마이그레이션에 사용할 수 없는 리소스 및 기능
+이러한 시나리오는 리소스, 기능 및 Cloud Services의 조합과 관련된 상위 수준 시나리오입니다. 이 목록은 전체 목록이 아닙니다. 
+
+| 리소스 | 다음 단계/해결 방법 | 
+|---|---|
+| 자동 크기 조정 규칙 | 마이그레이션은 진행되지만 규칙이 삭제됩니다. Cloud Services(확장 지원)에 대한 마이그레이션 후 [규칙을 다시 만듭니다](./configure-scaling.md). | 
+| 경고 | 마이그레이션은 진행되지만 경고가 삭제됩니다. Cloud Services(확장 지원)에 대한 마이그레이션 후 [규칙을 다시 만듭니다](./enable-alerts.md). | 
+| VPN Gateway | 마이그레이션을 시작하기 전에 VPN Gateway를 제거한 후 마이그레이션이 완료되면 VPN Gateway를 다시 만듭니다. | 
+| ExpressRoute 게이트웨이(Virtual Network와 동일한 구독에서만) | 마이그레이션을 시작하기 전에 게이트웨이를 제거한 다음, 마이그레이션이 완료되면 ExpressRoute 게이트웨이를 다시 만듭니다. | 
+| 할당량  | 할당량은 마이그레이션되지 않습니다. 유효성 검사가 성공하려면 마이그레이션하기 전에 Azure Resource Manager에서 [새 할당량을 요청](../azure-resource-manager/templates/error-resource-quota.md#solution)합니다. | 
+| 선호도 그룹 | 지원 안 됨 마이그레이션하기 전에 선호도 그룹을 제거합니다.  | 
+| [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)을 사용하는 가상 네트워크| 피어링된 가상 네트워크를 다른 가상 네트워크로 마이그레이션하기 전에 피어링을 삭제하고, 가상 네트워크를 Resource Manager로 마이그레이션하고, 피어링을 다시 만듭니다. 이로 인해 아키텍처에 따라 가동 중지 시간이 발생할 수 있습니다. | 
+| App Service 환경이 포함된 가상 네트워크 | 지원되지 않음 | 
+| HDInsight Services가 포함된 가상 네트워크 | 지원 안 됨 
+| Azure API Management 배포가 포함된 가상 네트워크 | 지원 안 됨 <br><br> 가상 네트워크를 마이그레이션하려면 API Management 배포의 가상 네트워크를 변경합니다. 가동 중지 시간이 없는 작업입니다. | 
+| 클래식 ExpressRoute 회로 | 지원 안 됨 <br><br>이러한 회로는 PaaS 마이그레이션을 시작하기 전에 Azure Resource Manager로 마이그레이션해야 합니다. 자세한 내용은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동](../expressroute/expressroute-howto-move-arm.md)을 참조하세요. |  
+| 역할 기반 Access Control | 마이그레이션 후 리소스의 URI가 `Microsoft.ClassicCompute`에서 `Microsoft.Compute`로 변경됩니다. 마이그레이션 후 RBAC 정책을 업데이트해야 합니다. | 
+| Application Gateway | 지원되지 않습니다. <br><br> 마이그레이션을 시작하기 전에 Application Gateway를 제거한 다음, Azure Resource Manager로의 마이그레이션이 완료되면 Application Gateway를 다시 만듭니다. | 
+
+## <a name="unsupported-configurations--migration-scenarios"></a>지원되지 않는 구성/마이그레이션 시나리오
+
+| 구성/시나리오  | 다음 단계/해결 방법 | 
+|---|---|
+| 가상 네트워크에 없는 일부 이전 배포 마이그레이션 | 가상 네트워크에 없는 일부 클라우드 서비스 배포는 마이그레이션에 지원되지 않습니다. <br><br> 1. 유효성 검사 API를 사용하여 배포를 마이그레이션할 수 있는지 확인합니다. <br> 2. 자격이 있는 경우 배포가 "DefaultRdfeVnet" 접두사가 있는 가상 네트워크 아래의 Azure Resource Manager로 이동됩니다. | 
+| 동적 IP 주소를 사용하여 프로덕션 및 스테이징 슬롯 배포가 모두 포함된 배포 마이그레이션 | 2슬롯 Cloud Service를 마이그레이션하려면 스테이징 슬롯을 삭제해야 합니다. 스테이징 슬롯이 삭제되면 Azure Resource Manager에서 프로덕션 슬롯을 독립 Cloud Service(확장 지원)로 마이그레이션합니다. 그런 다음, 스테이징 환경을 새 Cloud Service(확장 지원)로 다시 배포하고, 첫 번째 서비스와 스왑할 수 있게 합니다. | 
+| 예약된 IP 주소를 사용하여 프로덕션 및 스테이징 슬롯 배포가 모두 포함된 배포 마이그레이션 | 지원 안 됨 | 
+| 다른 가상 네트워크에서 프로덕션 및 스테이징 배포 마이그레이션|2슬롯 Cloud Service를 마이그레이션하려면 스테이징 슬롯을 삭제해야 합니다. 스테이징 슬롯이 삭제되면 Azure Resource Manager에서 프로덕션 슬롯을 독립 Cloud Service(확장 지원)로 마이그레이션합니다. 그런 다음, 새 Cloud Services(확장 지원) 배포를 스왑 가능한 속성을 사용하도록 설정한 마이그레이션된 배포에 연결할 수 있습니다. 이전 스테이징 슬롯 배포의 배포 파일을 다시 사용하여 이 새 스왑 가능한 배포를 만들 수 있습니다. | 
+| 빈 Cloud Service 마이그레이션(배포가 없는 Cloud Service) | 지원 안 됨 | 
+| 원격 데스크톱 플러그 인 및 원격 데스크톱 확장이 포함된 배포 마이그레이션 | 옵션 1: 마이그레이션하기 전에 원격 데스크톱 플러그 인을 제거합니다. 이렇게 하려면 배포 파일을 변경해야 합니다. 그러면 마이그레이션이 진행됩니다. <br><br> 옵션 2: 원격 데스크톱 확장을 제거하고 배포를 마이그레이션합니다. 마이그레이션 후 플러그 인을 제거하고 확장을 설치합니다. 이렇게 하려면 배포 파일을 변경해야 합니다. <br><br> 마이그레이션하기 전에 플러그 인 및 확장을 제거합니다. 플러그 인은 Cloud Services(확장 지원)에서 [사용하지 않는 것이 좋습니다](./deploy-prerequisite.md#required-service-definition-file-csdef-updates).| 
+| PaaS 및 IaaS 배포가 모두 포함된 가상 네트워크 |지원되지 않음 <br><br> PaaS 또는 IaaS 배포를 다른 가상 네트워크로 이동합니다. 이로 인해 가동 중지 시간이 발생합니다. | 
+레거시 역할 크기(예: Small 또는 ExtraLarge)를 사용하는 Cloud Service 배포 | 마이그레이션이 완료되지만, 최신 역할 크기를 사용하도록 역할 크기가 업데이트됩니다. 비용 또는 SKU 속성은 변경되지 않으며, 이 변경으로 인해 가상 머신이 다시 부팅되지 않습니다. 이러한 최신 역할 크기를 참조하도록 모든 배포 아티팩트를 업데이트합니다. 자세한 내용은 [사용 가능한 VM 크기](available-sizes.md)를 참조하세요.|
+| 다른 가상 네트워크로 Cloud Service 마이그레이션 | 지원되지 않음 <br><br> 1. 마이그레이션하기 전에 배포를 다른 클래식 가상 네트워크로 이동합니다. 이로 인해 가동 중지 시간이 발생합니다. <br> 2. 새 가상 네트워크를 Azure Resource Manager로 마이그레이션합니다. <br><br> 또는 <br><br> 1. 가상 네트워크를 Azure Resource Manager로 마이그레이션합니다. <br>2. Cloud Service를 새 가상 네트워크로 이동합니다. 이로 인해 가동 중지 시간이 발생합니다. | 
+| 가상 네트워크의 Cloud Service이지만 명시적 서브넷이 할당되지 않음 | 지원 안 됨 완화에는 역할을 서브넷으로 이동하는 작업이 포함되며, 이 경우 역할을 다시 시작해야 합니다(가동 중지 시간). | 
 
 ## <a name="translation-of-resources-and-naming-convention-post-migration"></a>마이그레이션 후 리소스의 변환과 명명 규칙
 마이그레이션 과정에서 리소스 이름이 변경되고 몇몇 Cloud Services 기능이 Azure Resource Manager 리소스로 노출됩니다. 이 표에는 Cloud Services 마이그레이션과 관련된 변경 내용이 요약되어 있습니다.
 
-| Cloud Services(클래식) <br><br> 리소스 이름 | Cloud Services(클래식) <br><br> 구문| Cloud Services(추가 지원) <br><br> 리소스 이름| Cloud Services(추가 지원) <br><br> 구문 | 
+| Cloud Services(클래식) <br><br> 리소스 이름 | Cloud Services(클래식) <br><br> Syntax| Cloud Services(추가 지원) <br><br> 리소스 이름| Cloud Services(추가 지원) <br><br> Syntax | 
 |---|---|---|---|
 | 클라우드 서비스 | `cloudservicename` | 연결되지 않음| 연결되지 않음 |
-| 배포(포털에서 생성) <br><br> 배포(포털 외부에서 생성)  | `deploymentname` | Cloud Services(추가 지원) | `deploymentname` |  
-| Virtual Network | `vnetname` <br><br> `Group resourcegroupname vnetname` <br><br> 연결되지 않음 |  Virtual Network(포털 외부에서 생성) <br><br> Virtual Network(포털에서 생성) <br><br> 가상 네트워크(기본값) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtualnetwork_vnetid`|
-| 연결되지 않음 | 연결되지 않음 | Key Vault | `cloudservicename` | 
+| 배포(포털에서 생성) <br><br> 배포(포털 외부에서 생성)  | `deploymentname` | Cloud Services(추가 지원) | `cloudservicename` |  
+| Virtual Network | `vnetname` <br><br> `Group resourcegroupname vnetname` <br><br> 연결되지 않음 |  Virtual Network(포털 외부에서 생성) <br><br> Virtual Network(포털에서 생성) <br><br> 가상 네트워크(기본값) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `VNet-cloudservicename`|
+| 연결되지 않음 | 연결되지 않음 | Key Vault | `KV-cloudservicename` | 
 | 연결되지 않음 | 연결되지 않음 | 클라우드 서비스 배포에 대한 리소스 그룹 | `cloudservicename-migrated` | 
 | 연결되지 않음 | 연결되지 않음 | Virtual Network의 리소스 그룹 | `vnetname-migrated` <br><br> `group-resourcegroupname-vnetname-migrated`|
 | 연결되지 않음 | 연결되지 않음 | 공용 IP(동적) | `cloudservicenameContractContract` | 
 | 예약된 IP 이름 | `reservedipname` | 예약된 IP(포털 외부에서 생성) <br><br> 예약된 IP(포털에서 생성) | `reservedipname` <br><br> `group-resourcegroupname-reservedipname` | 
-| 연결되지 않음| 연결되지 않음 | Load Balancer | `deploymentname-lb`|
+| 연결되지 않음| 연결되지 않음 | Load Balancer | `LB-cloudservicename`|
 
 
 
@@ -101,3 +132,6 @@ ms.locfileid: "108293047"
 
 ### <a name="how-much-time-can-the-operations-takebr"></a>작업에 소요되는 시간은 얼마나 됩니까?<br>
 유효성 검사는 빠르게 진행되도록 설계되었습니다. 준비는 가장 오래 실행되며 마이그레이션하는 역할 인스턴스의 총 수에 따라 다소 시간이 소요됩니다. 중단 및 커밋도 시간이 걸릴 수 있지만 준비보다는 시간이 덜 걸립니다. 모든 작업은 24시간 후 만료됩니다.
+
+## <a name="next-steps"></a>다음 단계
+Cloud Services (클래식) 배포를 Cloud Services (연장 지원)로 마이그레이션하는 데 도움이 필요한 경우 [고객 지원 및 문제 해결](support-help.md) 방문 페이지를 참조 하세요.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 0dd136b442f426cc7da547f2fb3ac98c649866ee
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 5d59d2eea57b58188b87ba83112e8e52bdc9660d
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114689329"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>자습서: Mixpanel과 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "114689329"
 * 사용자가 자신의 Azure AD 계정으로 Mixpanel에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -38,6 +38,8 @@ ms.locfileid: "114689329"
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Mixpanel은 **SP** 시작 SSO를 지원합니다.
+
+* Mixpanel은 [자동 사용자 프로비저닝](mixpanel-provisioning-tutorial.md)을 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -99,7 +101,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -155,6 +157,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 > [!Note]
 > 사용자는 프로필을 설정하는 메일을 받게 됩니다.
+
+> [!NOTE]
+> Mixpanel은 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./mixpanel-provisioning-tutorial.md)에서 제공합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

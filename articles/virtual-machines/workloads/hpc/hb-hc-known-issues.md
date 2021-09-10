@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9b0e33b80cf5bd8963efa036dc76ae9f634fee66
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: b9277e8ce7c9c3fff748efff42517c6c0baed57a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114460541"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691477"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>H 시리즈 및 N 시리즈 VM의 알려진 문제
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 이 문서에서는 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) HPC 및 GPU VM을 사용할 때 최근 발생한 일반적인 문제 및 해당 솔루션을 제공하고자 합니다.
 

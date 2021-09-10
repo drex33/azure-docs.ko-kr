@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
-ms.openlocfilehash: 4d379cfe01dcbd88531b98a32b45e0b30f6adeef
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9de0a774ab2464d3b59ee8875453255e92ea5c45
+ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107318839"
+ms.lasthandoff: 07/05/2021
+ms.locfileid: "113297247"
 ---
-# <a name="predictive-maintenance-solution-with-anomaly-detector-multivariate"></a>Anomaly Detector 다변량을 사용한 예측 유지 관리 솔루션
+# <a name="predictive-maintenance-solution-with-anomaly-detector-multivariate"></a>Anomaly Detector(다변량)을 사용한 예측 유지 관리 솔루션
 
 수많은 다양한 업계에서는 장비에서 데이터 처리를 통해 위험을 줄이고 실행 가능한 인사이트를 얻으려면 예측 유지 관리 솔루션이 필요합니다. 예측 유지 관리는 온라인 모니터링을 수행하여 장비의 상태를 평가합니다. 목표는 성능 저하 또는 고장이 발생하기 전에 장비를 유지 관리하는 것입니다.
 

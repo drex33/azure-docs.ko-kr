@@ -1,30 +1,30 @@
 ---
 title: PostgreSQL 확장 사용
 description: PostgreSQL 확장 사용
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: ba92ca8a959fae389dbdb30c295e6592f76100eb
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 831b3e220afe826b5190588b8855b72a8d648916
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288529"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529055"
 ---
-# <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>PostgreSQL 하이퍼스케일 서버 그룹이 가능한 Azure Arc의 PostgreSQL 확장 사용
+# <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 PostgreSQL 확장 사용
 
 PostgreSQL는 확장과 함께 사용할 때 가장 효율적입니다. 실제로 자체적인 하이퍼 크기 조정 기능의 주요 요소는 기본적으로 설치되는 Microsoft 제공 `citus` 확장이며,이 확장을 통해 Postgres가 여러 노드에 걸쳐 데이터를 투명하게 분할할 수 있습니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="supported-extensions"></a>지원되는 확장
-표준 [`contrib`](https://www.postgresql.org/docs/12/contrib.html) 확장 및 다음 확장은 PostgreSQL 하이퍼스케일 서버 그룹이 가능한 Azure Arc의 컨테이너에 이미 배포되어 있습니다.
+표준 [`contrib`](https://www.postgresql.org/docs/12/contrib.html) 확장 및 다음 확장은 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 컨테이너에 이미 배포되어 있습니다.
 - [`citus`](https://github.com/citusdata/citus), v: 10.0. [Citus 데이터](https://www.citusdata.com/)의 Citus 확장은 PostgreSQL 엔진에 하이퍼 크기 조정 기능을 제공하므로 기본적으로 로드됩니다. Azure Arc PostgreSQL 하이퍼스케일 서버 그룹에서 Citus 확장을 삭제하는 것은 지원되지 않습니다.
 - [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1.3
 - [`pgaudit`](https://www.pgaudit.org/), v: 1.4
@@ -59,12 +59,12 @@ PostgreSQL는 확장과 함께 사용할 때 가장 효율적입니다. 실제�
 - shared_preload_libraries에 의해 미리 로드하지 않아도 되는 확장에는 이 단계가 필요하지 않습니다. 이러한 확장의 경우 다음 단락 [확장 만들기](#create-extensions)로 이동할 수 있습니다.
 
 ### <a name="add-an-extension-at-the-creation-time-of-a-server-group"></a>서버 그룹을 만들 때 확장 추가
-```console
-azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
+```azurecli
+az postgres arc-server create -n <name of your postgresql server group> --extensions <extension names>
 ```
 ### <a name="add-an-extension-to-an-instance-that-already-exists"></a>이미 존재하는 인스턴스에 확장 추가
-```console
-azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
+```azurecli
+az postgres arc-server server edit -n <name of your postgresql server group> --extensions <extension names>
 ```
 
 
@@ -73,9 +73,9 @@ azdata arc postgres server edit -n <name of your postgresql server group> --exte
 ## <a name="show-the-list-of-extensions-added-to-shared_preload_libraries"></a>Shared_preload_libraries에 추가된 확장 목록 표시
 다음 명령 중 하나를 실행합니다.
 
-### <a name="with-an-azdata-cli-command"></a>Azdata CLI 명령을 사용하여
-```console
-azdata arc postgres server show -n <server group name>
+### <a name="with-cli-command"></a>CLI 명령을 사용하여
+```azurecli
+az postgres arc-server show -n <server group name>
 ```
 출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인합니다. 예를 들면 다음과 같습니다.
 ```console
@@ -185,8 +185,8 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 
 이제 shared_preload_libraries에 추가하여 PostgreSQL 서버 그룹에 `pg_cron`을 사용하도록 설정합니다.
 
-```console
-azdata postgres server update -n pg2 -ns arc --extensions pg_cron
+```azurecli
+az postgres arc-server update -n pg2 -ns arc --extensions pg_cron
 ```
 
 서버 그룹은 확장 설치 완료를 다시 시작합니다. 2-3분 정도 걸릴 수 있습니다.

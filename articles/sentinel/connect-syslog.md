@@ -9,106 +9,122 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2020
+ms.date: 08/15/2021
 ms.author: yelevin
-ms.openlocfilehash: d0f4f2ff4fdd2d33e1ac1b56b02fb185203aee39
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 807083fa77023753382abb96419c9cd5fe689b33
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538319"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254234"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Syslog를 사용하여 Linux 기반 소스에서 데이터 수집
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Linux 기반 Syslog 지원 컴퓨터 또는 어플라이언스에서 Linux용 Log Analytics 에이전트(이전의 OMS 에이전트)를 사용하여 Azure Sentinel로 이벤트를 스트리밍할 수 있습니다. Log Analytics 에이전트를 직접 설치할 수 있는 컴퓨터라면 이 작업을 수행할 수 있습니다. 컴퓨터의 기본 Syslog 디먼은 지정된 형식의 로컬 이벤트를 수집하여 에이전트에 로컬로 전달하며, 에이전트는 이를 Log Analytics 작업 영역으로 스트리밍합니다.
+**Syslog** 는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. Linux 디바이스와 어플라이언스에 빌드된 Syslog 디먼을 사용하여 자신이 지정한 유형의 로컬 이벤트를 수집하고, 이러한 이벤트를 **Linux용 Log Analytics 에이전트**(구 OMS 에이전트)를 사용하여 Azure Sentinel에 전송할 수 있습니다.
 
-> [!NOTE]
-> - 어플라이언스가 Syslog를 통해 **CEF(Common Event Format)** 를 지원하는 경우 더 완전한 데이터 세트가 수집되고 데이터는 컬렉션에서 구문 분석됩니다. 이 옵션을 선택하고 [CEF를 사용하여 외부 솔루션 연결](connect-common-event-format.md)의 지침에 따라야 합니다.
->
-> - Log Analytics는 **rsyslog** 또는 **syslog-ng** 디먼에서 보낸 메시지 수집을 지원하며, 여기서는 rsyslog가 기본값입니다. Red Hat Enterprise Linux(RHEL) 버전 5, CentOS 및 Oracle Linux 버전(**sysklog**)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
+이 문서에서는 Syslog를 사용하여 Azure Sentinel에 데이터 원본을 연결하는 방법을 설명합니다. 이 메서드에 지원되는 커넥터에 대한 자세한 내용은 [데이터 커넥터 참조](data-connectors-reference.md)를 참조하세요.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="architecture"></a>아키텍처
 
-**Syslog** 는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. **Linux용 Log Analytics 에이전트** 가 VM 또는 어플라이언스에 설치된 경우 설치 루틴은 TCP 포트 25224의 에이전트로 메시지를 전달하도록 로컬 Syslog 디먼을 구성합니다. 그러면 에이전트는 HTTPS를 통해 Log Analytics 작업 영역으로 메시지를 보내고 **Azure Sentinel > 로그** 의 Syslog 테이블에 있는 이벤트 로그 항목으로 구문 분석됩니다.
+Log Analytics 에이전트가 VM 또는 어플라이언스에 설치된 경우 설치 스크립트는 UDP 포트 25224의 에이전트로 메시지를 전달하도록 로컬 Syslog 디먼을 구성합니다. 메시지를 수신하면 에이전트는 HTTPS를 통해 메시지를 사용자의 Log Analytics 작업 영역으로 전송합니다. 이곳에서 메시지는 **Azure Sentinel > Logs** 의 Syslog 테이블에 수집됩니다.
 
 자세한 내용은 [Azure Monitor의 Syslog 데이터 원본](../azure-monitor/agents/data-sources-syslog.md)을 참조하세요.
 
-## <a name="configure-syslog-collection"></a>Syslog 컬렉션 구성
+:::image type="content" source="media/connect-syslog/syslog-diagram.png" alt-text="이 다이어그램은 syslog 원본에서 Log Analytics 에이전트가 데이터 원본 디바이스에 바로 설치되는 Azure Sentinel 작업 영역으로 이동하는 데이터 흐름을 보여 줍니다.":::
 
-### <a name="configure-your-linux-machine-or-appliance"></a>Linux 컴퓨터 또는 어플라이언스 구성
+Log Analytics 에이전트의 로컬 설치를 허용하지 않는 디바이스 유형의 경우 에이전트를 전용 Linux 기반 로그 전달자에 설치할 수 있습니다. 원래 디바이스는 Syslog 이벤트를 로컬 디먼이 아닌 이 전달자의 Syslog 디먼으로 전송하도록 구성되어야 합니다. 전달자의 Syslog 디먼은 UDP를 통해 이벤트를 Log Analytics 에이전트로 보냅니다. 이 Linux 전달자에서 많은 Syslog 이벤트를 수집해야 하는 경우, 전달자의 Syslog 디먼은 TCP를 통해 이벤트를 에이전트로 보냅니다. 어느 경우든 에이전트는 이벤트를 Azure Sentinel의 Log Analytics 작업 영역으로 전달합니다.
 
-1. Azure Sentinel에서 **데이터 커넥터** 를 선택한 다음 **Syslog** 커넥터를 선택합니다.
+:::image type="content" source="media/connect-syslog/syslog-forwarder-diagram.png" alt-text="이 다이어그램은 syslog 원본에서 Log Analytics 에이전트가 별도의 로그 전달 디바이스에 설치되는 Azure Sentinel 작업 영역으로 이동하는 데이터 흐름을 보여 줍니다.":::
 
-1. **Syslog** 블레이드에서 **커넥터 페이지 열기** 를 선택합니다.
+> [!NOTE]
+> - 어플라이언스가 Syslog를 통해 **CEF(Common Event Format)** 를 지원하는 경우 더 완전한 데이터 세트가 수집되고 데이터는 컬렉션에서 구문 분석됩니다. 이 옵션을 선택하고 [디바이스 또는 어플라이언스에서 Azure Sentinel로 CEF 형식 로그 가져오기](connect-common-event-format.md)에 나오는 지침을 따르세요.
+>
+> - Log Analytics는 **rsyslog** 또는 **syslog-ng** 디먼에서 보낸 메시지 수집을 지원하며, 여기서는 rsyslog가 기본값입니다. Red Hat Enterprise Linux(RHEL) 버전 5, CentOS 및 Oracle Linux 버전(**sysklog**)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
+
+Syslog 수집은 3단계로 구성합니다.
+
+- **Linux 디바이스 또는 어플라이언스를 구성합니다**. Log Analytics 에이전트가 설치되는 디바이스를 말합니다. 이벤트가 처음 발생한 것과 같은 디바이스이거나 이벤트를 전달하는 로그 수집기입니다.
+
+- 이벤트를 에이전트로 전달하는 Syslog 디먼의 위치에 해당하는 **애플리케이션의 로깅 설정을 구성합니다**.
+
+- **Log Analytics 에이전트 자체를 구성합니다**. 이 작업은 Azure Sentinel 내에서 수행되며 구성은 설치된 모든 에이전트로 전달됩니다.
+
+## <a name="configure-your-linux-machine-or-appliance"></a>Linux 컴퓨터 또는 어플라이언스 구성
+
+1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다.
+
+1. 커넥터 갤러리에서 **Syslog** 를 선택한 다음, **커넥터 페이지 열기** 를 선택합니다.
+
+    디바이스 유형이 Azure Sentinel **데이터 커넥터 갤러리** 에 표시되는 경우 일반 Syslog 커넥터 대신 본인 디바이스의 커넥터를 선택합니다. 본인의 디바이스 유형에 대한 추가 또는 특별 지침이 존재하는 경우 이러한 지침이 통합 문서와 분석 규칙 템플릿 같은 사용자 지정 콘텐츠와 함께 디바이스의 커넥터 페이지에 표시됩니다.
 
 1. Linux 에이전트를 설치합니다. **에이전트를 설치할 위치 선택:** 에서 다음을 수행합니다.
-    
-    **Azure Linux VM의 경우:**
-      
-    1. **Azure Linux 가상 머신에 에이전트 설치** 를 선택합니다.
-    
-    1. **Azure Linux 가상 머신용 에이전트 다운로드 및 설치** 링크를 클릭합니다. 
-    
-    1. **가상 머신** 블레이드에서 에이전트를 설치할 가상 머신을 클릭한 다음 **연결** 을 클릭합니다. 연결하려는 각 VM에 이 단계를 반복합니다.
-    
-    **기타 Linux 머신의 경우:**
 
-    1. **비 Azure Linux 머신에 에이전트 설치** 를 선택합니다.
+    |머신 형식  |Instructions  |
+    |---------|---------|
+    |**Azure Linux VM의 경우**     |    1. **Azure Linux 가상 머신에 에이전트 설치** 를 확장합니다. <br><br>2. **Azure Linux 가상 머신용 에이전트 다운로드 및 설치 >** 링크를 선택합니다.<br><br>3. **가상 머신** 블레이드에서 에이전트를 설치할 가상 머신을 선택한 다음 **연결** 을 선택합니다. 연결하려는 각 VM에 이 단계를 반복합니다.     |
+    |**기타 Linux 머신의 경우**     |     1. **비 Azure Linux 머신에 에이전트 설치** 를 확장합니다. <br><br>2. **비 Azure Linux 머신용 에이전트 다운로드 및 설치** 링크를 선택합니다.<br><br>3. **에이전트 관리** 블레이드에서 **Linux 서버** 탭을 선택한 다음 **Linux용 에이전트 다운로드 및 온보딩** 명령을 복사하여 Linux 컴퓨터에서 실행합니다.<br><br>        Linux 에이전트 설치 파일의 로컬 복사본을 유지하고 싶다면 ‘에이전트 다운로드 및 온보딩’ 명령 위에 있는 **Linux 에이전트 다운로드** 링크를 선택합니다. |
+    |     |         |
 
-    1. **비 Azure Linux 컴퓨터용 에이전트 다운로드 및 설치** 링크를 클릭합니다. 
-
-    1. **에이전트 관리** 블레이드에서 **Linux 서버** 탭을 클릭한 다음 **Linux용 에이전트 다운로드 및 온보딩** 명령을 복사하여 Linux 컴퓨터에서 실행합니다. 
-    
    > [!NOTE]
-   > 이러한 컴퓨터의 보안 설정은 조직의 보안 정책에 따라 구성해야 합니다. 예를 들어 조직의 네트워크 보안 정책에 맞게 네트워크 설정을 구성하고 보안 요구 사항에 맞게 디먼의 포트 및 프로토콜을 변경할 수 있습니다.
+   > 이러한 디바이스의 보안 설정은 조직의 보안 정책에 따라 구성해야 합니다. 예를 들어 조직의 네트워크 보안 정책에 맞게 네트워크 설정을 구성하고 보안 요구 사항에 맞게 디먼의 포트 및 프로토콜을 변경할 수 있습니다.
 
-### <a name="configure-the-log-analytics-agent"></a>Log Analytics 에이전트 구성
+### <a name="using-the-same-machine-to-forward-both-plain-syslog-and-cef-messages"></a>동일한 컴퓨터를 사용하여 일반 Syslog 및 CEF 메시지 전달
 
-1. Syslog 커넥터 블레이드의 아래쪽에서 **작업 영역 에이전트 구성 열기 >** 링크를 클릭합니다.
+기존 [CEF 로그 전달자 컴퓨터](connect-log-forwarder.md)를 사용하여 일반 Syslog 원본에서도 로그를 수집하고 전달할 수 있습니다. 그러나 두 가지 형식 모두로 이벤트를 Azure Sentinel로 보내면 이벤트 중복이 발생하므로 다음 단계를 사용하여 이를 방지해야 합니다.
+
+이미 [CEF 원본에서 데이터 수집](connect-common-event-format.md)을 설정하고 Log Analytics 에이전트를 구성한 경우:
+
+1. CEF 형식의 로그를 보내는 각 컴퓨터에서 Syslog 구성 파일을 편집하여 CEF 메시지를 보내는 데 사용되는 기능을 제거해야 합니다. 이렇게 하면 CEF 형식으로 전송되는 기능이 Syslog 형식으로도 전송되는 것을 방지할 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 지침은 [Linux 에이전트에서 Syslog 구성](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent)을 참조하세요.
+
+1. Azure Sentinel에서 Syslog 구성과 에이전트의 동기화를 사용하지 않도록 설정하려면 해당 컴퓨터에서 다음 명령을 실행해야 합니다. 이렇게 하면 이전 단계에서 변경한 구성을 덮어쓰지 않습니다.
+
+    ```c
+    sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
+    ```
+
+## <a name="configure-your-devices-logging-settings"></a>디바이스의 로깅 설정 구성
+
+많은 디바이스 유형에서는 자체 데이터 커넥터가 **데이터 커넥터** 갤러리에 표시됩니다. 이러한 커넥터 중 일부는 Azure Sentinel에 로그 컬렉션을 올바르게 설정하기 위한 특별 추가 지침을 요구합니다. 이러한 지침에는 Kusto 함수 기반의 파서 구현이 포함될 수 있습니다.
+
+갤러리에 나열된 모든 커넥터는 포털의 관련 커넥터 페이지에, 그리고 [Azure Sentinel 데이터 커넥터 참조](data-connectors-reference.md) 페이지의 관련 섹션에 구체적인 지침을 표시합니다.
+
+
+## <a name="configure-the-log-analytics-agent"></a>Log Analytics 에이전트 구성
+
+1. Syslog 커넥터 블레이드의 아래쪽에서 **작업 영역 에이전트 구성 열기 >** 링크를 선택합니다.
 
 1. **에이전트 구성** 블레이드에서 **Syslog** 탭을 선택합니다. 그런 다음 수집할 커넥터의 기능을 추가합니다. **기능 추가** 를 선택하고 기능 드롭다운 목록에서 선택합니다.
-    
-    - syslog 어플라이언스의 로그 헤더에 포함된 기능을 추가합니다. 
-    
+
+    - syslog 어플라이언스의 로그 헤더에 포함된 기능을 추가합니다.
+
     - 수집하는 데이터와 함께 비정상적인 SSH 로그인 검색을 사용하려는 경우 **auth** 및 **authpriv** 를 추가합니다. 자세한 내용은 [다음 섹션](#configure-the-syslog-connector-for-anomalous-ssh-login-detection)을 참조하세요.
 
-1. 모니터링할 모든 기능을 추가했으면 원하는 모든 심각도의 확인란이 표시되어 있는지 확인합니다.
+1. 모니터링할 모든 기능을 추가했다면, 수집하지 않을 확인란을 심각도에 상관없이 선택 취소합니다. 기본적으로는 모든 확인란이 선택됩니다.
 
-1. **적용** 을 선택합니다. 
+1. **적용** 을 선택합니다.
 
 1. VM 또는 어플라이언스에서 지정한 기능이 전송되고 있는지 확인합니다.
+
+## <a name="find-your-data"></a>데이터 찾기
 
 1. **로그** 에서 syslog 로그 데이터를 쿼리하려면 쿼리 창에 `Syslog`를 입력합니다.
 
 1. [Azure Monitor 로그 쿼리에서 함수 사용](../azure-monitor/logs/functions.md)에 설명된 쿼리 매개 변수를 사용하여 Syslog 메시지를 구문 분석할 수 있습니다. 그런 다음 쿼리를 새 Log Analytics 함수로 저장하고 새 데이터 형식으로 사용할 수 있습니다.
 
-> [!NOTE]
-> **동일한 컴퓨터를 사용하여 일반 Syslog 및 CEF 메시지 전달**
->
-> 기존 [CEF 로그 전달자 컴퓨터](connect-cef-agent.md)를 사용하여 일반 Syslog 원본에서도 로그를 수집하고 전달할 수 있습니다. 그러나 두 가지 형식 모두로 이벤트를 Azure Sentinel로 보내면 이벤트 중복이 발생하므로 다음 단계를 사용하여 이를 방지해야 합니다.
->
->    이미 [CEF 원본에서 데이터 수집](connect-common-event-format.md)을 설정하고 위와 같이 Log Analytics 에이전트를 구성한 경우:
->
-> 1. CEF 형식의 로그를 보내는 각 컴퓨터에서 Syslog 구성 파일을 편집하여 CEF 메시지를 보내는 데 사용되는 기능을 제거해야 합니다. 이렇게 하면 CEF 형식으로 전송되는 기능이 Syslog 형식으로도 전송되는 것을 방지할 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 지침은 [Linux 에이전트에서 Syslog 구성](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent)을 참조하세요.
->
-> 1. Azure Sentinel에서 Syslog 구성과 에이전트의 동기화를 사용하지 않도록 설정하려면 해당 컴퓨터에서 다음 명령을 실행해야 합니다. 이렇게 하면 이전 단계에서 변경한 구성을 덮어쓰지 않습니다.<br>
-> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
-
 ### <a name="configure-the-syslog-connector-for-anomalous-ssh-login-detection"></a>비정상적인 SSH 로그인 검색을 위한 Syslog 커넥터 구성
 
 > [!IMPORTANT]
-> 비정상적인 SSH 로그인 검색은 현재 공개 미리 보기 상태입니다.
-> 이 기능은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 비정상적인 SSH 로그인 검색은 현재 **미리 보기** 상태입니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Sentinel은 syslog 데이터에 기계 학습(ML)을 적용하여 비정상적인 SSH(Secure Shell) 로그인 작업을 식별할 수 있습니다. 다음과 같은 시나리오가 있습니다.
 
 - 불가능한 이동 - 두 로그인 이벤트의 시간 범위 내에 도달이 불가능한 두 위치에서 두 개의 성공적인 로그인 이벤트가 발생하는 경우입니다.
+
 - 예기치 않은 위치 – 성공적인 로그인 이벤트가 발생한 위치가 의심스러운 경우입니다. 최근에 본 적이 없는 위치를 예로 들 수 있습니다.
  
 이 검색에는 Syslog 데이터 커넥터의 특정 구성이 필요합니다. 
@@ -136,5 +152,3 @@ Azure Sentinel은 syslog 데이터에 기계 학습(ML)을 적용하여 비정�
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
 - [통합 문서를 사용](monitor-your-data.md)하여 데이터를 모니터링합니다.
-
-{"mode":"full","isActive":false}

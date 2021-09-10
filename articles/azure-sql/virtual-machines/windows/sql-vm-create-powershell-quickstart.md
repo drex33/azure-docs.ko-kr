@@ -14,12 +14,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f3a9090ace9fce69b0b9a1a445b498fc662f7ba3
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 8bfcd62558fd7e10bd4e4d80d3f0e8c04f5ba233
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079520"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220653"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Windows 가상 머신에서 SQL Server 만들기
 
@@ -153,29 +153,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 포털 통합 및 SQL VM 기능을 가져오려면 [SQL IaaS 에이전트 확장](sql-agent-extension-manually-register-single-vm.md)에 등록해야 합니다.
 
-전체 기능을 사용하려면 전체 모드에서 확장에 등록해야 합니다. 그러나 이렇게 하면 SQL Server 서비스가 다시 시작되므로 경량 모드로 등록한 다음, 유지 관리 기간 동안 전체로 업그레이드하는 것이 좋습니다. 
-
-먼저 SQL Server VM을 경량 모드로 등록합니다. 
-
-```powershell-interactive
-# Get the existing compute VM
-$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-        
-# Register SQL VM with 'Lightweight' SQL IaaS agent
-New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-  -LicenseType PAYG -SqlManagementType LightWeight
-```
-
-그런 다음, 유지 관리 기간 동안 전체 모드로 업그레이드합니다. 
-
-```powershell-interactive
-# Get the existing Compute VM
-$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-      
-# Register with SQL IaaS Agent extension in full mode
-Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
-```
-
+전체 기능을 사용하려면 [전체 모드](sql-agent-extension-manually-register-single-vm.md#full-mode)에서 확장에 등록해야 합니다. 그렇지 않으면 경량 모드로 등록합니다. 
 
 
 ## <a name="remote-desktop-into-the-vm"></a>VM에 원격 데스크톱으로 연결합니다.

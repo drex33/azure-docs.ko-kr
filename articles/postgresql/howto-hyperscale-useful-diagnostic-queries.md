@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 1/5/2021
-ms.openlocfilehash: 4858f650aca1b704ac79482e0158fd83fc0264b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 8/23/2021
+ms.openlocfilehash: efd251e48beb4e2f2b3db16f694da14888e876dd
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98165244"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822538"
 ---
 # <a name="useful-diagnostic-queries"></a>유용한 진단 쿼리
 
@@ -253,18 +253,56 @@ GROUP BY state;
 └────────┴───────┘
 ```
 
+## <a name="viewing-system-queries"></a>시스템 쿼리 보기
+
+### <a name="active-queries"></a>활성 쿼리
+
+`pg_stat_activity` 보기는 현재 실행 중인 쿼리를 보여 줍니다. 필터링하여 백 엔드의 프로세스 ID와 함께 적극적으로 실행 중인 항목을 찾을 수 있습니다.
+
+```sql
+SELECT pid, query, state
+  FROM pg_stat_activity
+ WHERE state != 'idle';
+```
+
+### <a name="why-are-queries-waiting"></a>쿼리가 대기하는 이유
+
+또한 대기 중인 비유휴 쿼리에서 가장 일반적인 이유를 확인하기 위해 쿼리할 수 있습니다. 이러한 이유에 대한 설명은 [PostgreSQL 설명서](https://www.postgresql.org/docs/current/monitoring-stats.html#WAIT-EVENT-TABLE)를 참조하세요.
+
+```sql
+SELECT wait_event || ':' || wait_event_type AS type, count(*) AS number_of_occurences
+  FROM pg_stat_activity
+ WHERE state != 'idle'
+GROUP BY wait_event, wait_event_type
+ORDER BY number_of_occurences DESC;
+```
+
+별도의 쿼리에서 `pg_sleep`을 동시에 실행하는 경우의 예제 출력은 다음과 같습니다.
+
+```
+┌─────────────────┬──────────────────────┐
+│      type       │ number_of_occurences │
+├─────────────────┼──────────────────────┤
+│ ∅               │                    1 │
+│ PgSleep:Timeout │                    1 │
+└─────────────────┴──────────────────────┘
+```
+
 ## <a name="index-hit-rate"></a>인덱스 적중률
 
 이 쿼리는 모든 노드에서 인덱스 적중률을 제공합니다. 인덱스 적중률은 쿼리할 때 인덱스가 사용되는 빈도를 결정하는 데 유용합니다.
+값 95% 이상이 적합합니다.
 
 ``` postgresql
+-- on coordinator
+SELECT 100 * (sum(idx_blks_hit) - sum(idx_blks_read)) / sum(idx_blks_hit) AS index_hit_rate
+  FROM pg_statio_user_indexes;
+
+-- on workers
 SELECT nodename, result as index_hit_rate
 FROM run_command_on_workers($cmd$
-  SELECT CASE sum(idx_blks_hit)
-    WHEN 0 THEN 'NaN'::numeric
-    ELSE to_char((sum(idx_blks_hit) - sum(idx_blks_read)) / sum(idx_blks_hit + idx_blks_read), '99.99')::numeric
-    END AS ratio
-  FROM pg_statio_user_indexes
+  SELECT 100 * (sum(idx_blks_hit) - sum(idx_blks_read)) / sum(idx_blks_hit) AS index_hit_rate
+    FROM pg_statio_user_indexes;
 $cmd$);
 ```
 
@@ -274,8 +312,8 @@ $cmd$);
 ┌───────────┬────────────────┐
 │ nodename  │ index_hit_rate │
 ├───────────┼────────────────┤
-│ 10.0.0.16 │ 0.88           │
-│ 10.0.0.20 │ 0.89           │
+│ 10.0.0.16 │ 96.0           │
+│ 10.0.0.20 │ 98.0           │
 └───────────┴────────────────┘
 ```
 
@@ -286,20 +324,32 @@ $cmd$);
 중요한 측정값은 메모리 캐시와 워크로드의 디스크에서 제공되는 데이터의 비율입니다.
 
 ``` postgresql
+-- on coordinator
 SELECT
   sum(heap_blks_read) AS heap_read,
   sum(heap_blks_hit)  AS heap_hit,
-  sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) AS ratio
+  100 * sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) AS cache_hit_rate
 FROM
   pg_statio_user_tables;
+
+-- on workers
+SELECT nodename, result as cache_hit_rate
+FROM run_command_on_workers($cmd$
+  SELECT
+    100 * sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) AS cache_hit_rate
+  FROM
+    pg_statio_user_tables;
+$cmd$);
 ```
 
 예제 출력:
 
 ```
- heap_read | heap_hit |         ratio
------------+----------+------------------------
-         1 |      132 | 0.99248120300751879699
+┌───────────┬──────────┬─────────────────────┐
+│ heap_read │ heap_hit │   cache_hit_rate    │
+├───────────┼──────────┼─────────────────────┤
+│         1 │      132 │ 99.2481203007518796 │
+└───────────┴──────────┴─────────────────────┘
 ```
 
 비율이 99%보다 훨씬 낮은 경우 데이터베이스에 사용할 수 있는 캐시를 늘리는 것이 좋습니다.

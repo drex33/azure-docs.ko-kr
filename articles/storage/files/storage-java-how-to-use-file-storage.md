@@ -4,16 +4,16 @@ description: Azure Files를 사용하여 파일 데이터를 저장하는 Java �
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 05/26/2021
 ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2fd9ac25d08cf4439278565f90258a230eeedb50
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.openlocfilehash: 97d774ca0a9b5b18bc10495640d92df0cfde115f
+ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109627765"
+ms.lasthandoff: 06/15/2021
+ms.locfileid: "112115663"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Java를 사용하여 Azure Files 개발
 
@@ -28,6 +28,13 @@ Azure Files를 사용하여 데이터를 저장하는 Java 애플리케이션 �
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+
 ## <a name="create-a-java-application"></a>Java 애플리케이션 만들기
 
 샘플을 빌드하려면 JDK(Java 개발 키트)와 [Java용 Azure Storage SDK](https://github.com/azure/azure-sdk-for-java)가 필요합니다. Azure Storage 계정도 만들었어야 합니다.
@@ -40,7 +47,7 @@ Azure Files API를 사용하려면 Azure Files에 액세스하려는 Java 파일
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_ImportStatements":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 ```java
 // Include the following imports to use Azure Files APIs v11
@@ -60,7 +67,7 @@ Azure Files를 사용하려면 Azure Storage 계정에 연결해야 합니다. �
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_ConnectionString":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 *your_storage_account_name* 및 *your_storage_account_key* 를 스토리지 계정의 실제 값으로 바꿉니다.
 
@@ -82,7 +89,7 @@ Azure Files에 액세스하려면 [ShareClient](/java/api/com.azure.storage.file
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createClient":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 스토리지 계정에 연결하려면 **CloudStorageAccount** 개체를 사용하여 연결 문자열을 **구문 분석** 메서드로 전달합니다.
 
@@ -109,7 +116,7 @@ Azure Files의 모든 파일과 디렉터리는 공유라고 하는 컨테이너
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createFileShare":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 공유 및 해당 콘텐츠에 대한 액세스 권한을 가져오려면 Azure Files 클라이언트를 만듭니다.
 
@@ -147,7 +154,7 @@ if (share.createIfNotExists()) {
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteFileShare":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 **CloudFileShare** 개체에서 **deleteIfExists** 메서드를 호출하여 공유를 삭제합니다.
 
@@ -183,7 +190,7 @@ try
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createDirectory":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 다음 코드에서는 루트 디렉터리 아래에 **sampledir** 라는 하위 디렉터리를 만듭니다.
 
@@ -213,7 +220,7 @@ if (sampleDir.createIfNotExists()) {
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteDirectory":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 ```java
 // Get a reference to the root directory for the share.
@@ -238,7 +245,7 @@ if ( containerDir.deleteIfExists() ) {
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_enumerateFilesAndDirs":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 **CloudFileDirectory** 참조에서 **listFilesAndDirectories** 를 호출하여 파일과 디렉터리의 목록을 가져옵니다. 메서드는 반복할 수 있는 **ListFileItem** 개체 목록을 반환합니다. 다음 코드에서는 루트 디렉터리에 있는 파일과 디렉터리를 나열합니다.
 
@@ -263,7 +270,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_uploadFile":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 공유 개체에서 **getRootDirectoryReference** 메서드를 호출하여 파일을 업로드할 디렉터리에 대한 참조를 가져옵니다.
 
@@ -294,7 +301,7 @@ cloudFile.uploadFromFile(filePath);
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_downloadFile":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 다음 예제에서는 SampleFile.txt를 다운로드하고 해당 콘텐츠를 표시합니다.
 
@@ -324,7 +331,7 @@ System.out.println(file.downloadText());
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteFile":::
 
-# <a name="azure-java-sdk-v11"></a>[Azure Java SDK v11](#tab/java11)
+# <a name="azure-java-sdk-v8"></a>[Azure Java SDK v8](#tab/java8)
 
 다음 코드는 **sampledir** 라는 이름의 디렉터리 안에 저장된 SampleFile.txt라는 이름의 파일을 삭제합니다.
 

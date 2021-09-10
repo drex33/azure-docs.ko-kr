@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/05/2021
 ms.author: memildin
-ms.openlocfilehash: f1fe1f15d2a2a2a3da7a7978b2d7645db65beae1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 523375ff69d6139a1e910b9253a6816235bfecc4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146692"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528957"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 집합 사용자 지정
 
@@ -65,7 +65,7 @@ Microsoft는 규정 표준 자체를 추적하고 시간이 지남에 따라 일
     > [!TIP]
     > 모든 중첩된 리소스에 대해 규정 준수 데이터를 집계하고 추적할 수 있도록 표준이 적용되는 가장 높은 범위를 선택하는 것이 좋습니다. 
 
-1. 조직과 관련된 표준을 추가하려면 **더 많은 표준 추가** 를 클릭합니다. 
+1. 조직과 관련된 표준을 추가하려면 **산업 및 규정 준수 표준** 섹션을 확장하고 **표준 추가** 를 선택합니다.
 
 1. **규정 준수 표준 추가** 페이지에서 다음과 같은 사용 가능한 표준에 대한 패키지를 검색할 수 있습니다.
 
@@ -79,7 +79,7 @@ Microsoft는 규정 표준 자체를 추적하고 시간이 지남에 따라 일
     - **CMMC Level 3**
     - **뉴질랜드 ISM 제한됨**
     
-    ![Azure Security Center의 규정 준수 대시보드에 규정 표준 추가](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+    ![Azure Security Center의 규정 준수 대시보드에 규정 준수 표준을 추가합니다.](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 1. **추가** 를 선택하고 범위, 매개 변수, 수정 등 특정 이니셔티브에 필요한 모든 세부 정보를 입력합니다.
 
@@ -107,11 +107,11 @@ Microsoft는 규정 표준 자체를 추적하고 시간이 지남에 따라 일
 
     보안 정책 페이지가 열립니다. 선택한 구독에 대해 기본 정책, 업계 및 규정 표준, 사용자가 만든 사용자 지정 이니셔티브가 표시됩니다.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Azure Security Center의 규정 준수 대시보드에서 규정 표준 제거":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Azure Security Center의 규정 준수 대시보드에서 규정 준수 표준을 제거합니다.":::
 
 1. 제거하려는 표준에 대해 **사용 안 함** 을 선택합니다. 확인 창이 열립니다.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="선택한 규정 표준을 제거하도록 확인합니다.":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="선택한 규정 준수 표준을 제거하도록 확인합니다.":::
 
 1. **예** 를 선택합니다. 표준이 제거됩니다. 
 

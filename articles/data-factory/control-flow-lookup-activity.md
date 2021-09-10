@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.openlocfilehash: a9a1918496d3832aea736b8a024a15f62f72edad
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 08/10/2021
+ms.openlocfilehash: bf2813381fe02a453c7a7c1ddec4c027117f0ce0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824554"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642283"
 ---
 # <a name="lookup-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 조회 작업
 
@@ -58,7 +58,7 @@ ms.locfileid: "122824554"
 
 ## <a name="type-properties"></a>형식 속성
 
-Name | Description | Type | 필수 여부
+Name | 설명 | Type | 필수 여부
 ---- | ----------- | ---- | --------
 데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
 source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예

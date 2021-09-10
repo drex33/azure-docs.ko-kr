@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
-ms.openlocfilehash: 7aac4d2fcab192d77c1629e8f53b91f5dadedd86
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 305d3103e9f0f0bdfb3ce49f5c801ca0f2f975ff
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535820"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122835244"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>작업 예약 및 브로드캐스트(Python)
 
@@ -36,7 +36,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
 
 * 솔루션 백 엔드에서 **LockDoor** 를 호출할 수 있는 직접 메서드가 포함된 Python 시뮬레이션된 디바이스 앱을 만듭니다.
 
@@ -81,65 +81,75 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 3. **simDevice.py** 파일의 시작 부분에 다음 `import` 문 및 변수를 추가합니다. `deviceConnectionString`을 위에서 만든 디바이스의 연결 문자열로 바꿉니다.
 
     ```python
+    import time
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
 
     CONNECTION_STRING = "{deviceConnectionString}"
-    client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
     ```
 
-4. **lockDoor** 메서드에 응답하는 데 사용할 다음 처리기 함수를 정의합니다.
+4. 클라이언트를 인스턴스화하고, **lockDoor** 메서드에 응답하며 디바이스 쌍 업데이트를 수신하도록 클라이언트를 구성하는 다음 함수를 정의합니다.
 
     ```python
-    def method_request_handler(method_request):
-        if method_request.name == "lockDoor":
-            print("Locking Door!")
+    def create_client():
+        # Instantiate the client
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
-            resp_status = 200
-            resp_payload = {"Response": "lockDoor called successfully"}
-            method_response = MethodResponse.create_from_method_request(
-                method_request=method_request,
-                status=resp_status,
-                payload=resp_payload
-            )
-            client.send_method_response(method_response)
+        # Define behavior for responding to the lockDoor direct method
+        def method_request_handler(method_request):
+            if method_request.name == "lockDoor":
+                print("Locking Door!")
+
+                resp_status = 200
+                resp_payload = {"Response": "lockDoor called successfully"}
+                method_response = MethodResponse.create_from_method_request(
+                    method_request=method_request,
+                    status=resp_status,
+                    payload=resp_payload
+                )
+                client.send_method_response(method_response)
+
+        # Define behavior for receiving a twin patch
+        def twin_patch_handler(twin_patch):
+            print("")
+            print("Twin desired properties patch received:")
+            print(twin_patch)
+
+        # Set the handlers on the client
+        try:
+            print("Beginning to listen for 'lockDoor' direct method invocations...")
+            client.on_method_request_received = method_request_handler
+            print("Beginning to listen for updates to the Twin desired properties...")
+            client.on_twin_desired_properties_patch_received = twin_patch_handler
+        except:
+            # If something goes wrong while setting the handlers, clean up the client
+            client.shutdown()
+            raise
     ```
 
-5. 디바이스 쌍 업데이트를 받기 위한 다른 처리기 함수를 추가합니다.
+5. 다음 코드를 추가하여 샘플을 실행합니다.
 
     ```python
-    def twin_patch_handler(twin_patch):
-        print("")
-        print("Twin desired properties patch received:")
-        print(twin_patch)
-    ```
+    def main():
+        print ("Starting the IoT Hub Python jobs sample...")
+        client = create_client()
 
-6. 다음 코드를 추가하여 **lockDoor** 메서드 및 트윈 패치에 대한 처리기를 등록합니다. `main` 루틴도 포함하세요.
-
-    ```python
-    def iothub_jobs_sample_run():
-        print("Beginning to listen for 'lockDoor' direct method invocations...")
-        client.on_method_request_received = method_request_handler
-        print("Beginning to listen for updates to the Twin desired properties...")
-        client.on_twin_desired_properties_patch_received = twin_patch_handler
-
-        client.connect()
-
+        print ("IoTHubDeviceClient waiting for commands, press Ctrl-C to exit")
         try:
             while True:
-                import time
                 time.sleep(100)
         except KeyboardInterrupt:
             print("IoTHubDeviceClient sample stopped!")
+        finally:
+            # Graceful exit
+            print("Shutting down IoT Hub Client")
             client.shutdown()
 
-    if __name__ == '__main__':
-        print ( "Starting the IoT Hub Python jobs sample..." )
-        print ( "IoTHubDeviceClient waiting for commands, press Ctrl-C to exit" )
 
-        iothub_jobs_sample_run()
+    if __name__ == '__main__':
+        main()
     ```
 
-7. **simDevice.py** 파일을 저장하고 닫습니다.
+6. **simDevice.py** 파일을 저장하고 닫습니다.
 
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
@@ -157,7 +167,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 3. 정책 목록 위의 상단 메뉴에서 **추가** 를 선택합니다.
 
-4. **공유 액세스 정책 추가** 창에서 정책에 대한 설명형 이름(예: *serviceAndRegistryReadWrite*)을 입력합니다. **사용 권한** 아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택합니다 (**레지스트리 쓰기** 를 선택하면 **레지스트리 읽기** 가 자동으로 선택됨). 그런 다음 **만들기** 를 선택합니다.
+4. **공유 액세스 정책 추가** 창에서 정책에 대한 설명형 이름(예: *serviceAndRegistryReadWrite*)을 입력합니다. **사용 권한** 아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택합니다 (**레지스트리 쓰기** 를 선택하면 **레지스트리 읽기** 가 자동으로 선택됨). 그런 다음 **생성** 를 선택합니다.
 
     ![새 공유 액세스 정책을 추가하는 방법 표시](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 

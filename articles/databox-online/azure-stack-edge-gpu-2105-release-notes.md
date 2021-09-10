@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 05/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 77138d6a303bd773b1e9842fdeca27462ec37f34
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 60de3b926e490ce1eb6a74b5234e21f8173a8ade
+ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110614918"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114220350"
 ---
 # <a name="azure-stack-edge-2105-release-notes"></a>Azure Stack Edge 2105 릴리스 정보
 
@@ -64,7 +64,8 @@ Azure Stack Edge 2105 릴리스에서는 다음과 같은 새로운 기능을 �
 
 | 아니요. | 기능 | 문제 | 해결 방법/설명 |
 | --- | --- | --- | --- |
-|**1.**|미리 보기 기능 |이 릴리스의 경우 로컬 Azure Resource Manager, VM, VM의 클라우드 관리, Kubernetes 클라우드 관리, Azure Arc 지원 Kubernetes, Azure Stack Edge Pro R 및 Azure Stack Edge Mini R용 VPN, Azure Stack Edge Pro GPU용 MPS(다중 프로세스 서비스)는 모두 미리 보기에서 사용할 수 있습니다.  |이러한 기능은 이후 릴리스에서 일반적으로 제공될 예정입니다. |
+|**1.**|미리 보기 기능 |이 릴리스의 경우, 로컬 Azure Resource Manager, VM, VM의 클라우드 관리, Kubernetes 클라우드 관리, Azure Arc 지원 Kubernetes, Azure Stack Edge Pro R 및 Azure Stack Edge Mini R용 VPN, 다중 프로세스 서비스(MPS), Azure Stack Edge Pro GPU용 Network Function Manager는 모두 미리 보기에서 사용할 수 있습니다.  |이러한 기능은 이후 릴리스에서 일반적으로 제공될 예정입니다. |
+|**2.**|Multi-access Edge Compute (MEC)/Network Function Manager (NFM) 배포 |2105 업데이트 전의 MEC/NFM 배포의 경우, LAN/WAN VM NetAdapters의 트래픽을 삭제하면 드물게 문제가 발생할 수 있습니다. <br><br> Azure Stack Edge 장치에서, 포트5와 포트6은 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-powershell.md)을 허용하는 Mellanox 네트워크 인터페이스 카드에 연결됩니다. 가속화된 네트워킹을 사용하면, 포트5 및 포트6의 LAN/WAN 트래픽이 하이퍼바이저 계층과 가상 스위치를 무시하고 실제 스위치에 직접 도달할 수 있습니다. <br><br> LAN/WAN 네트워크 인터페이스에서 [가상 함수(VF)](/windows-hardware/drivers/network/sr-iov-virtual-functions--vfs-) 장치를 사용하지 않도록 설정하여 가속화된 네트워킹을 사용하지 않도록 설정할 수 있습니다. 이제 VM의 모든 네트워킹 트래픽이 보안 검사를 수행하는 하이퍼바이저 계층을 트래버스합니다. 애플리케이션이 임의의 유니캐스트 원본 IP 주소(VM NetAdapter의 IP가 아닌)를 사용하여 트래픽을 보내는 경우, 보안 검사를 수행하면 트래픽이 삭제됩니다(가상 네트워킹 함수 계약에 지정되지 않은 임의의 IP에서 발생 함).|이 문제를 해결하려면, 2105 업데이트를 보류하고 이 문제에 대한 수정 사항이 있는 다음 릴리스가 나올 때까지 기다려야 합니다.<br><br> 또는 Azure Stack Edge 장치에서 2105 업데이트를 적용하고 동일한 VNF를 다시 배포할 수 있습니다. 2105 업데이트 후에 배포된 VNF에는 수정이 필요하지 않습니다. |
 
 
 ## <a name="known-issues-from-previous-releases"></a>이전 릴리스의 알려진 이슈
@@ -102,6 +103,7 @@ Azure Stack Edge 2105 릴리스에서는 다음과 같은 새로운 기능을 �
 |**27.**|사용자 지정 스크립트 VM 확장 |이전 릴리스에서 만든 Windows VM에 알려진 문제가 있으며 디바이스가 2103으로 업데이트되었습니다. <br> 해당 VM에 사용자 지정 스크립트 확장을 추가하면 Windows VM Guest Agent(버전 2.7.41491.901만 해당)의 업데이트에서 중단되어 확장 배포 시간이 초과됩니다. | 이 문제를 해결하려면 <ul><li> RDP(원격 데스크톱 프로토콜)을 사용하여 Windows VM에 연결합니다. </li><li> `waappagent.exe`가 머신에서 실행 중인지 확인: `Get-Process WaAppAgent`. </li><li> `waappagent.exe`가 실행 중이지 않으면 `rdagent` 서비스 다시 시작: `Get-Service RdAgent` \| `Restart-Service`. 5분 동안 기다립니다.</li><li> `waappagent.exe` 실행 중에 `WindowsAzureGuest.exe` 프로세스를 종료합니다. </li><li>프로세스를 종료하면 프로세스가 최신 버전으로 다시 실행되기 시작합니다.</li><li>`Get-Process WindowsAzureGuestAgent` \| `fl ProductVersion` 명령을 사용하여 Windows VM Guest Agent 버전이 2.7.41491.971인지 확인합니다.</li><li>[Windows VM에서 사용자 지정 스크립트 확장을 설정](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)합니다. </li><ul> |
 |**28.**|GPU VM |이 릴리스 이전에는 GPU VM 수명 주기가 업데이트 흐름에서 관리되지 않았습니다. 따라서 2103 릴리스로 업데이트할 때 GPU VM은 업데이트 중에 자동으로 중지되지 않습니다. 디바이스를 업데이트하기 전에 `stop-stayProvisioned` 플래그를 사용하여 GPU VM을 수동으로 중지해야 합니다. 자세한 내용은 [VM 일시 중단 또는 종료](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm)를 참조하세요.<br> 업데이트 전에 계속 실행되는 모든 GPU VM은 업데이트 후에 시작됩니다. 이 경우 VM에서 실행 중인 워크로드는 정상적으로 종료되지 않습니다. 업데이트 후 VM이 원하는 상태가 아닐 수 있습니다. <br>업데이트 전에 `stop-stayProvisioned`를 통해 중지된 모든 GPU VM은 업데이트 후 자동으로 시작됩니다. <br>Azure Portal을 통해 GPU VM을 중지하는 경우 디바이스를 업데이트 다음 VM을 수동으로 시작해야 합니다.| Kubernetes를 사용하여 GPU VM을 실행하는 경우 업데이트 직전에 GPU VM을 중지합니다. <br>GPU VM이 중지되면 Kubernetes는 원래 VM에서 사용했던 GPU를 인수합니다. <br>GPU VM이 중지된 상태에 있는 시간이 길수록 Kubernetes가 GPU를 인수할 가능성이 커집니다. |
 |**29.**|MPS(다중 프로세스 서비스) |디바이스 소프트웨어와 Kubernetes 클러스터를 업데이트하면 워크로드의 MPS 설정이 유지되지 않습니다.   |[MPS를 사용하도록 다시 설정](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface)하고 MPS를 사용한 워크로드를 다시 배포합니다. |
+
 
 
 ## <a name="next-steps"></a>다음 단계

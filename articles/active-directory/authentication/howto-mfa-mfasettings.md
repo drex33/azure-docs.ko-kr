@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 08/12/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 45efa0e955040931516924a1a8a8576a1a8bf12f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 340c9f549d1d60a19867ea4de58834d921871854
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744506"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567510"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Azure AD Multi-Factor Authentication 설정 구성
 
@@ -98,7 +98,11 @@ Azure Portal에서 사용할 수 있는 Azure AD Multi-Factor Authentication 설
 
 ### <a name="view-fraud-reports"></a>사기 행위 보고 보기
 
-**Azure Active Directory** > **로그인** > **인증 세부 정보** 를 선택합니다. 사기 행위 보고서는 이제 표준 Azure AD 로그인 보고서의 일부이며 MFA가 거부되고 사기 행위 코드가 입력됨에 따라 **"결과 세부 정보"** 로 표시됩니다.
+사용자가 사기 행위를 보고하면 이벤트는 로그인 보고서(사용자가 거부한 로그인) 및 감사 로그에 표시됩니다.
+
+- 로그인 보고서에서 사기 보고서를 보려면 **Azure Active Directory** > **로그인** > **인증 세부 정보** 를 클릭합니다. 사기 행위 보고서는 표준 Azure AD 로그인 보고서의 일부이며 **결과 세부 정보** 에 **MFA 거부, 사기 행위 코드 입력** 으로 표시됩니다.
+
+- 감사 로그의 사기 행위 보고서를 보려면 **Azure Active Directory** > **감사 로그** 를 클릭합니다. 사기 행위 보고서가 사기 행위 보고서에 대한 테넌트 수준 설정에 따라 활동 유형 **사기 행위가 보고됨 - MFA 차단** 또는 **사기 행위가 보고됨 - 수행된 작업 없음** 아래에 표시됩니다.
  
 ## <a name="notifications"></a>공지
 

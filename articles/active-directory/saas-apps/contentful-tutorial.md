@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 300bde794afbd3c2db4e9049e28979933b19ac79
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a5d3e8aa303527e7baaa465e911d3b869a975cf5
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099967"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224256"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>자습서: Contentful과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -39,6 +39,7 @@ ms.locfileid: "110099967"
 
 * Contentful에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 * Contentful에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
+* Contentful은 [자동 사용자 프로비저닝](contentful-provisioning-tutorial.md)을 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -146,6 +147,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 ### <a name="create-contentful-test-user"></a>Contentful 테스트 사용자 만들기
 
 이 섹션에서는 Contentful에서 B.Simon이라는 사용자를 만듭니다. Contentful은 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. Contentful에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+
+Contentful은 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./contentful-provisioning-tutorial.md)에서 제공합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

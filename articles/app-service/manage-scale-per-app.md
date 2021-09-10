@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 756117a2a231fcb406fd3e3102a16c318c621aa0
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 77f8ff8cf7e3e9a83b207f8d98ef570437b27b47
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832611"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111162"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>앱별 스케일링을 사용한 Azure App Service의 고밀도 호스팅
 
@@ -23,7 +23,7 @@ App Service를 사용하는 경우 실행되는 [App Service 요금제](overview
 *앱별 스케일링* 을 App Service 요금제 수준에서 사용하도록 설정하여 앱을 호스트하는 App Service 요금제로부터 독립적으로 앱을 스케일링할 수 있습니다. 이러한 방식으로 App Service 계획은 10개의 인스턴스로 확장될 수 있지만 앱은 5개만 사용하도록 설정될 수 있습니다.
 
 > [!NOTE]
-> 앱별 크기 조정은 **표준**, **프리미엄**, **프리미엄 V2** 및 **격리** 가격 책정 계층에서만 사용할 수 있습니다.
+> 앱별 스케일링은 **표준**, **프리미엄**, **프리미엄 V2**, **프리미엄 V3** 및 **격리** 가격 책정 계층에서만 사용할 수 있습니다.
 >
 
 앱은 인스턴스 간에 균등하게 배포하는 최상의 방법을 사용하여 사용 가능한 App Service 요금제에 할당됩니다. 균등 배포가 보장되지는 않지만 플랫폼에서는 동일한 앱의 두 인스턴스가 동일한 App Service 요금제 인스턴스에 호스트되지 않도록 합니다.

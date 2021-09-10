@@ -4,12 +4,12 @@ description: 이 문서에서는 하이브리드 환경에서 호스트되는 �
 ms.date: 08/18/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 04324fa93c728440b0e590bad1d74e98c6e62df1
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: fa3b934d6909a3975bf9d01b6cd2f8f2fd2428e4
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530850"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771007"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트 개요
 
@@ -26,11 +26,11 @@ Azure Connected Machine 에이전트 패키지에는 여러 개의 논리적 구
 
 * 하이브리드 인스턴스 메타데이터 서비스(HIMDS)는 Azure 및 연결된 머신의 Azure ID에 대한 연결을 관리합니다.
 
-* 게스트 구성 에이전트는 머신에서 필요한 정책을 준수하는지 평가하는 등 게스트 내 정책 및 게스트 구성 기능을 제공합니다.
+* 게스트 구성 에이전트는 머신에서 필요한 정책을 준수하는지 평가하고 규정 준수를 시행하는 등의 기능을 제공합니다.
 
     연결되지 않은 머신에 대한 Azure Policy [게스트 구성](../../governance/policy/concepts/guest-configuration.md)과 관련된 다음 동작에 유의하세요.
 
-    * 연결이 끊어진 컴퓨터를 대상으로 하는 게스트 구성 정책 할당은 영향을 받지 않습니다.
+    * 연결이 끊어진 컴퓨터를 대상으로 하는 Azure Policy 할당은 영향을 받지 않습니다.
     * 게스트 할당은 14일 동안 로컬에 저장됩니다. 14일 기간 내에 연결된 컴퓨터 에이전트가 서비스에 다시 연결하는 경우 정책 할당이 다시 적용됩니다.
     * 할당은 14일 후에 삭제되며 14일 기간 후에는 컴퓨터에 재할당되지 않습니다.
 
@@ -51,8 +51,8 @@ Azure Connected Machine 에이전트 패키지에는 여러 개의 논리적 구
 * Connected Machine 에이전트 하트비트
 * Connected Machine 에이전트 버전
 * 관리 ID에 대한 공개 키
-* 정책 규정 준수 상태 및 세부 정보(Azure Policy 게스트 구성 정책을 사용하는 경우)
-* Microsoft SQL Server 설치(부울 값)
+* 정책 준수 상태 및 세부 정보(게스트 구성 정책을 사용하는 경우)
+* SQL Server 설치(부울 값)
 * 클러스터 리소스 ID(Azure Stack HCI 노드의 경우) 
 
 다음 메타데이터 정보는 Azure의 에이전트에서 요청합니다.

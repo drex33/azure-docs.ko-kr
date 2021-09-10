@@ -2,15 +2,15 @@
 title: Azure Application Insights의 원격 분석 샘플링 | Microsoft Docs
 description: 제어에서 원격 분석의 양을 유지하는 방법입니다.
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 08/26/2021
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 27aff24abddbca3317e252a76ac11c062f57213a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 9db589de9bd62a00b7de89b2b558a3bac1e1785a
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071599"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039981"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -23,6 +23,7 @@ ms.locfileid: "110071599"
 * 샘플링에는 적응 샘플링, 고정 비율 샘플링, 수집 샘플링의 세 가지 유형이 있습니다.
 * 적응 샘플링은 Application Insights ASP.NET 및 ASP.NET Core SDK(소프트웨어 개발 키트)의 모든 최신 버전에서 기본적으로 사용하도록 설정됩니다. [Azure Functions](../../azure-functions/functions-overview.md)에도 사용됩니다.
 * 고정 비율 샘플링은 ASP.NET, ASP.NET Core, Java(에이전트 및 SDK 모두) 및 Python용 Application Insights SDK의 최신 버전에서 사용할 수 있습니다.
+* Java에서는 샘플링 재정의를 사용할 수 있으며 선택한 종속성, 요청, 상태 확인에 다른 샘플링 주기를 적용해야 하는 경우에 유용합니다. 예를 들어 모든 중요한 오류가 100%로 유지되는 동안 [샘플링 재정의](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides)를 사용하여 일부 노이즈 의존성을 튜닝합니다. 이는 원격 분석을 세밀하게 제어할 수 있는 고정 샘플링의 한 형태입니다.
 * 수집 샘플링은 Application Insights 서비스 엔드포인트에서 작동합니다. 다른 샘플링이 작동하지 않는 경우에만 적용됩니다. SDK에서 원격 분석을 샘플링하는 경우 수집 샘플링이 비활성화됩니다.
 * 웹 애플리케이션에서는 사용자 지정 이벤트를 기록하고 이벤트 집합을 함께 유지 또는 삭제해야 하는 경우 이벤트의 `OperationId` 값이 동일해야 합니다.
 * 분석 쿼리를 작성하는 경우 [샘플링을 고려](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
@@ -35,7 +36,7 @@ ms.locfileid: "110071599"
 | ASP.NET | [예(기본적으로 설정됨)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 작동하지 않는 경우에만 |
 | ASP.NET Core | [예(기본적으로 설정됨)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 작동하지 않는 경우에만 |
 | Azure Functions | [예(기본적으로 설정됨)](#configuring-adaptive-sampling-for-azure-functions) | 예 | 다른 샘플링이 작동하지 않는 경우에만 |
-| Java | 예 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 작동하지 않는 경우에만 |
+| Java | 예 | [예](#configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 작동하지 않는 경우에만 |
 | Node.JS | 예 | [예](./nodejs.md#sampling) | 다른 샘플링이 작동하지 않는 경우에만
 | Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 작동하지 않는 경우에만 |
 | 나머지 | 예 | 아니요 | [예](#ingestion-sampling) |
@@ -307,23 +308,14 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
     }
     ```
 
-### <a name="configuring-fixed-rate-sampling-for-java-applications"></a>Java 애플리케이션에 대한 고정 비율 샘플링 구성
+### <a name="configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications"></a>Java 애플리케이션에 대한 샘플링 재정의 및 고정 비율 샘플링 구성
 
-Java 에이전트 및 SDK에서는 기본적으로 샘플링이 사용되지 않습니다. 현재 고정 비율 샘플링만 지원합니다. 적응 샘플링은 Java에서 지원되지 않습니다.
+Java 자동 계측 및 SDK에서는 기본값으로 샘플링이 사용되지 않습니다. 현재 Java 자동 계측, [샘플링 재정의](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides) 및 고정 비율 샘플링이 지원됩니다. 적응 샘플링은 Java에서 지원되지 않습니다.
 
-#### <a name="configuring-java-agent"></a>Java 에이전트 구성
+#### <a name="configuring-java-auto-instrumentation"></a>Java 자동 계측 구성
 
-1. [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)을 다운로드합니다.
-
-1. 샘플링을 사용하도록 설정하려면 `applicationinsights.json` 파일에 다음을 추가합니다.
-
-```json
-{
-  "sampling": {
-    "percentage": 10 //this is just an example that shows you how to enable only 10% of transaction 
-  }
-}
-```
+* 샘플링 재정의를 구성하여 기본 샘플링 주기를 재정의하고 선택한 요청 및 종속성에 다른 샘플링 주기를 적용하려면 [샘플링 재정의 가이드](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides#getting-started)를 사용합니다.
+* 모든 원격 분석에 적용되는 고정 비율 샘플링을 구성하려면 [고정 비율 샘플링 가이드](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#sampling)를 사용합니다.
 
 #### <a name="configuring-java-2x-sdk"></a>Java 2.x SDK 구성
 

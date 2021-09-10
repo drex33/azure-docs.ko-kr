@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 03/05/2020
+ms.date: 07/20/2021
 adobe-target: true
-ms.openlocfilehash: 730fcf3fb552b92a02b255ad654f64d5ff7a92fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebe02e264a9f3faea2812253eeced6d56319627d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100367059"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567009"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너용 Machine Learning 알고리즘 치트 시트
 
@@ -23,13 +23,13 @@ ms.locfileid: "100367059"
 
 Azure Machine Learning은 ***분류** _, _*_추천 시스템_*_, _*_클러스터링_*_, _*_변칙 검색_*_, _*_회귀_*_ , _ *_문자 분석_* * 항목에서 다양한 알고리즘 라이브러리를 보유하고 있습니다. 각 항목은 다양한 유형의 기계 학습 문제를 해결하기 위해 고안되었습니다.
 
-[알고리즘 선택 방법](how-to-select-algorithms.md)에서 추가 참고 자료를 확인하실 수 있습니다.
+자세한 내용은 [알고리즘 선택 방법](how-to-select-algorithms.md)을 참조하세요.
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>다운로드: Machine Learning 알고리즘 치트 시트
 
 **여기서 치트 시트 다운로드: [Machine Learning 알고리즘 치트 시트(11x17인치)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri)**
 
-![Machine Learning 알고리즘 치트 시트: Machine Learning 알고리즘을 선택하는 방법에 대해 알아보기.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
+![Machine Learning 알고리즘 치트 시트: Machine Learning 알고리즘을 선택하는 방법에 대해 알아보기.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png)
 
 간편하게 보관하면서 알고리즘을 선택할 수 있도록 tabloid 크기로 Machine Learning 알고리즘 치트 시트를 다운로드하여 인쇄합니다.
 
@@ -59,9 +59,9 @@ Machine Learning의 세 가지 주요 범주는 *감독 학습*, *자율 학습*
 
 ## <a name="next-steps"></a>다음 단계
 
-* [알고리즘 선택 방법](how-to-select-algorithms.md)에 대한 추가 참고 자료를 확인하세요.
+* 자세한 내용은 [알고리즘 선택 방법](how-to-select-algorithms.md)을 참조하세요
 
-* [Azure Machine Learning 및 Azure Portal에서 스튜디오에 대해 알아보기](overview-what-is-azure-ml.md).
+* [Azure Machine Learning 및 Azure Portal에서 스튜디오에 대해 알아보기](overview-what-is-azure-machine-learning.md).
 
 * [자습서: Azure Machine Learning 디자이너에서 예측 모델을 작성합니다](tutorial-designer-automobile-price-train-score.md).
 

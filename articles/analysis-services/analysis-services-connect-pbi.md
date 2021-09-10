@@ -4,15 +4,15 @@ description: Power BI를 사용하여 Azure Analysis Services 서버에 연결�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 5/25/2021
+ms.date: 06/30/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 579f97deaadf8005d7a7986ff3b032909c28972e
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: a956d5e3be0a5f92e22dcd1536339ff5244e19dc
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110496564"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213358"
 ---
 # <a name="connect-with-power-bi"></a>Power BI로 연결
 
@@ -37,10 +37,12 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
     
     [혼합 저장소 모드](/power-bi/transform-model/desktop-composite-models)인 Power BI 모델이 있는 경우 **라이브 연결** 옵션이 **[DirectQuery](/power-bi/connect-data/desktop-directquery-datasets-azure-analysis-services)** 옵션으로 바뀝니다. 모델이 가져오기에서 혼합 저장소 모드로 전환되면 라이브 연결도 DirectQuery로 자동 업그레이드됩니다.
 
-5. 메시지가 표시되면 로그인 자격 증명을 입력합니다. 
+5. 자격 증명을 입력하라는 메시지가 표시되면 **Microsoft 계정** 을 선택한 다음, **로그인** 을 클릭합니다. 
+
+    :::image type="content" source="media/analysis-services-connect-pbi/aas-sign-in.png" alt-text="Azure AS에 로그인":::
 
    > [!NOTE]
-   > OTP(일회용 암호) 계정은 지원되지 않습니다. 
+   > Windows 및 기본 인증은 지원되지 않습니다. 
 
 6. **탐색기** 에서 서버를 확장한 다음 연결하려는 모델 또는 큐브 뷰를 선택한 다음 **연결** 을 클릭합니다. 모델 또는 큐브 뷰를 클릭하여 해당 보기에 대한 모든 개체를 표시합니다.
 
@@ -55,7 +57,7 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
 
 시스템의 성능을 보호하기 위해 Azure Analysis Services 서버에 구성된 [쿼리 메모리 제한](/analysis-services/server-properties/memory-properties?view=azure-analysis-services-current&preserve-view=true)에 관계없이 Azure Analysis Services에 대해 Power BI 보고서에서 실행한 모든 쿼리에 메모리 제한이 적용됩니다. 쿼리가 너무 많은 메모리를 사용하는 경우 사용자는 쿼리나 해당 계산을 간소화하는 것을 고려해야 합니다.
 
-|                                                           | 메모리 제한 요청 |
+|쿼리 유형| 메모리 제한 요청 |
 |-----------------------------------------------------------|----------------------|
 | Power BI에서 라이브 연결                            | 10 GB  |
 | 공유 작업 영역의 Power BI 보고서에서 DirectQuery  | 1GB   |

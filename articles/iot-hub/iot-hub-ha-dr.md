@@ -1,22 +1,22 @@
 ---
 title: Azure IoT Hub 고가용성 및 재해 복구 | Microsoft Docs
 description: 재해 복구 기능을 사용하여 고가용성 Azure IoT 솔루션을 빌드할 수 있도록 지원하는 Azure and IoT Hub 기능을 설명합니다.
-author: jlian
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.author: philmea
-ms.openlocfilehash: 9d2ffac813456398c02066c978c37bdb09501aeb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: robinsh
+ms.openlocfilehash: 6b7fea611eeb3701bc624be8354b4639966dfaa6
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628988"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567441"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
-복원력 있는 IoT 솔루션을 구현하기 위한 첫 단계로 설계자, 개발자 및 비즈니스 소유자는 구축하는 솔루션의 가동 시간 목표를 정의해야 합니다. 이러한 목표는 기본적으로 각 시나리오에서의 특정 비즈니스 목표에 따라 정의될 수 있습니다. 이러한 컨텍스트에서 [Azure 비즈니스 연속성 기술 지침](/azure/architecture/resiliency/) 문서는 비즈니스 연속성과 재해 복구에 대해 고민해 볼 수 있는 일반 프레임워크를 설명합니다. [Azure 애플리케이션에 대한 재해 복구 및 고가용성](/azure/architecture/reliability/disaster-recovery) 문서는 Azure 애플리케이션에서 HA(고가용성) 및 DR(재해 복구)을 수행하는 전략에 대한 아키텍처 지침을 제공합니다.
+복원력 있는 IoT 솔루션을 구현하기 위한 첫 단계로 설계자, 개발자 및 비즈니스 소유자는 구축하는 솔루션의 가동 시간 목표를 정의해야 합니다. 이러한 목표는 기본적으로 각 시나리오에서의 특정 비즈니스 목표에 따라 정의될 수 있습니다. 이러한 컨텍스트에서 [Azure 비즈니스 연속성 기술 지침](/azure/architecture/framework/resiliency/app-design) 문서는 비즈니스 연속성과 재해 복구에 대해 고민해 볼 수 있는 일반 프레임워크를 설명합니다. [Azure 애플리케이션에 대한 재해 복구 및 고가용성](/azure/architecture/reliability/disaster-recovery) 문서는 Azure 애플리케이션에서 HA(고가용성) 및 DR(재해 복구)을 수행하는 전략에 대한 아키텍처 지침을 제공합니다.
 
 이 문서에서는 특히 IoT Hub 서비스에서 제공하는 HA 및 DR 기능을 설명합니다. 이 문서에서 설명하는 영역은 크게 다음과 같습니다.
 
@@ -60,11 +60,11 @@ IoT Hub 서비스는 거의 모든 서비스 계층에서 중복성을 구현하
 IoT Hub에 대한 장애 조치(failover) 작업이 완료되면 해당 디바이스와 백엔드 애플리케이션의 모든 작업이 수동 개입 없이 계속 작동해야 합니다. 즉, 디바이스-클라우드 메시지는 계속 작동하고 전체 디바이스 레지스트리는 그대로 유지되어야 합니다. Event Grid를 통해 내보낸 이벤트는 해당 Event Grid 구독을 계속 사용할 수 있는 한 앞서 구성된 것과 같은 구독을 통해 사용할 수 있습니다. 사용자 지정 엔드포인트에 대한 추가 처리는 필요하지 않습니다.
 
 > [!CAUTION]
-> - 장애 조치(failover) 후에는 Event Hub 호환 이름 및 IoT Hub 기본 제공 이벤트 엔드포인트가 변경됩니다. Event Hub 클라이언트나 이벤트 프로세서 호스트를 사용하여 기본 제공 엔드포인트로부터 원격 분석 메시지를 수신할 때는 [IoT 허브 연결 문자열을 사용](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint)하여 연결을 설정해야 합니다. 이를 통해 장애 조치(failover) 후에 수동 개입 없이 백엔드 애플리케이션이 계속 작동하게 됩니다. 애플리케이션에서 직접 Event Hub 호환 이름과 엔드포인트를 사용할 경우, 계속 작동하려면 장애 조치(failover) 후 [새 Event Hub 호환 엔드포인트를 가져와야](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) 합니다. 
+> - 장애 조치(failover) 후에는 Event Hub 호환 이름 및 IoT Hub 기본 제공 이벤트 엔드포인트가 변경됩니다. Event Hub 클라이언트나 이벤트 프로세서 호스트를 사용하여 기본 제공 엔드포인트로부터 원격 분석 메시지를 수신할 때는 [IoT 허브 연결 문자열을 사용](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint)하여 연결을 설정해야 합니다. 이를 통해 장애 조치(failover) 후에 수동 개입 없이 백엔드 애플리케이션이 계속 작동하게 됩니다. 애플리케이션에서 직접 Event Hub 호환 이름과 엔드포인트를 사용할 경우, 계속 작동하려면 장애 조치(failover) 후 [새 Event Hub 호환 엔드포인트를 가져와야](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) 합니다. 자세한 내용은 [수동 장애 조치(failover) 및 이벤트 허브](#manual-failover-and-event-hub)를 참조하세요.
 >
 > - Azure Functions 또는 Azure Stream Analytics를 사용하여 기본 제공 이벤트 엔드포인트를 연결하는 경우, **다시 시작** 을 수행해야 할 수 있습니다. 이는 장애 조치(failover) 중 이전 오프셋이 더 이상 유효하지 않기 때문입니다.
 >
-> - 스토리지로 라우팅하는 경우, Blob 또는 파일을 나열한 다음, 이를 반복하여 파티션을 가정하지 않고 모든 Blob 또는 파일을 읽을 수 있도록 하는 것이 좋습니다. 파티션 범위는 Microsoft 시작 장애 조치 또는 수동 장애 조치 중에 변경할 수 있습니다. Blob 목록을 열거하기 위해 [Blob API 나열](/rest/api/storageservices/list-blobs)을 사용하거나 파일 목록에 대해 [ADLS Gen2 API 나열](/rest/api/storageservices/datalakestoragegen2/filesystem/listpaths)을 사용할 수 있습니다. 자세한 내용은 [라우팅 엔드포인트로서의 Azure Storage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint)를 참조하세요.
+> - 스토리지로 라우팅하는 경우, Blob 또는 파일을 나열한 다음, 이를 반복하여 파티션을 가정하지 않고 모든 Blob 또는 파일을 읽을 수 있도록 하는 것이 좋습니다. 파티션 범위는 Microsoft 시작 장애 조치 또는 수동 장애 조치 중에 변경할 수 있습니다. Blob 목록을 열거하기 위해 [Blob API 나열](/rest/api/storageservices/list-blobs)을 사용하거나 파일 목록에 대해 [ADLS Gen2 API 나열](/rest/api/storageservices/datalakestoragegen2/filesystem/list)을 사용할 수 있습니다. 자세한 내용은 [라우팅 엔드포인트로서의 Azure Storage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint)를 참조하세요.
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft 시작 장애 조치
 
@@ -81,6 +81,18 @@ Microsoft 시작 장애 조치가 제공하는 RTO로는 비즈니스 가동 시
 2017년 5월 18일 이후, 생성된 IoT 허브에 대한 추가 비용 없이 수동 장애 조치를 사용할 수 있습니다.
 
 단계별 지침은 [자습서: IoT 허브에 대한 수동 장애 조치 수행](tutorial-manual-failover.md)을 참조하세요.
+
+## <a name="manual-failover-and-event-hub"></a>수동 장애 조치(failover) 및 이벤트 허브
+
+위의 **주의** 섹션에서 설명한 대로 수동 장애 조치(failover) 후에는 IoT Hub 기본 제공 이벤트 엔드포인트의 Event Hub 호환 이름 및 엔드포인트가 변경됩니다. 이는 이벤트 허브 클라이언트가 IoT Hub 이벤트를 볼 수 없기 때문입니다. Functions 및 Azure Stream Analytics 같은 다른 클라우드 기반 클라이언트의 경우도 마찬가지입니다. 엔드포인트 및 이름을 검색하려면 Azure Portal을 사용하거나 포함된 샘플을 활용할 수 있습니다.
+
+### <a name="use-the-portal"></a>포털 사용
+
+포털을 사용하여 Event Hub 호환 엔드포인트 및 Event Hub 호환 이름을 검색하는 방법에 대한 자세한 내용은 [기본 제공 엔드포인트에서 읽기](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint)를 참조하세요.
+
+### <a name="use-the-included-sample"></a>포함된 샘플 사용
+
+IoT Hub 연결 문자열을 사용하여 Event Hub 호환 엔드포인트를 다시 캡처하려면 IoT Hub 연결 문자열을 사용하여 EventHub 호환 엔드포인트를 다시 캡처하는 방법을 보여 주는 샘플([https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs))을 활용합니다. 코드 예제에서는 연결 문자열을 사용하여 새 이벤트 허브 엔드포인트를 가져오고 연결을 다시 설정합니다. Visual Studio가 설치되어 있어야 합니다.
 
 ### <a name="running-test-drills"></a>테스트 드릴 실행
 
@@ -141,5 +153,5 @@ IoT 솔루션으로 배포 토폴로지를 완벽하게 수행하는 것은 이 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure IoT Hub란?](about-iot-hub.md)
-* [IoT Hub 시작(빠른 시작)](quickstart-send-telemetry-dotnet.md)
+* [IoT Hub 시작(빠른 시작)](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 * [자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행](tutorial-manual-failover.md)

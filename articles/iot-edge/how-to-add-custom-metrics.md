@@ -2,19 +2,18 @@
 title: 사용자 지정 메트릭을 추가하는 방법 - Azure IoT Edge
 description: 사용자 지정 모듈에서 시나리오 관련 메트릭을 사용하여 기본 제공 메트릭 확대
 author: veyalla
-manager: philmea
 ms.author: veyalla
-ms.date: 06/08/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 12defc783be6fb1a87b815284b1fbf019d8c8817
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 8e9c5b74b19af00228f03b26450b987d87283376
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904450"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529579"
 ---
 # <a name="add-custom-metrics-preview"></a>사용자 지정 메트릭 추가(미리 보기)
 
@@ -32,7 +31,7 @@ ms.locfileid: "111904450"
 
 * 메트릭 이름 시작 부분에 모듈 이름을 포함하여 메트릭을 내보낸 모듈을 명확히 나타냅니다.
 
-* 모든 메트릭에는 IoT Hub 이름, IoT Edge 디바이스 ID 및 모듈 ID를 레이블(‘태그/차원’이라고도 함)로 포함합니다/. 이 정보는 IoT Edge 에이전트가 시작한 모든 모듈에 대해 환경 변수로 사용할 수 있습니다. 이 접근 방식은 샘플 리포지토리에 [예시되어 있습니다](https://github.com/Azure-Samples/iotedge-module-prom-custom-metrics/blob/b6b8501adb484521b76e6f317fefee57128834a6/csharp/Program.cs#L49). 이 컨텍스트가 없으면 지정된 메트릭 값을 특정 디바이스에 연결할 수 없습니다.
+* 모든 메트릭에는 IoT Hub 이름 또는 IoT Central 애플리케이션 이름, IoT Edge 디바이스 ID 및 모듈 ID를 레이블(‘태그/차원’이라고도 함)로 포함합니다/. 이 정보는 IoT Edge 에이전트가 시작한 모든 모듈에 대해 환경 변수로 사용할 수 있습니다. 이 접근 방식은 샘플 리포지토리에 [예시되어 있습니다](https://github.com/Azure-Samples/iotedge-module-prom-custom-metrics/blob/b6b8501adb484521b76e6f317fefee57128834a6/csharp/Program.cs#L49). 이 컨텍스트가 없으면 지정된 메트릭 값을 특정 디바이스에 연결할 수 없습니다.
 
 * 레이블에 인스턴스 ID를 포함합니다. 인스턴스 ID는 모듈을 시작하는 동안 생성된 [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)와 같은 고유한 ID일 수 있습니다. 인스턴스 ID 정보는 백 엔드에서 모듈의 메트릭을 처리할 때 모듈 다시 시작을 조정하는 데 도움이 됩니다.
 
@@ -57,7 +56,7 @@ sudo docker exec replace-with-metrics-collector-module-name curl http://replace-
 
 Log Analytics에서 사용자 지정 메트릭을 받으면 사용자 지정 시각화 및 경고를 만들 수 있습니다. 모니터링 통합 문서를 확대하여 쿼리 지원 시각화를 추가할 수 있습니다.
 
-모든 메트릭은 IoT Hub의 리소스 ID와 연결됩니다. 따라서 Log Analytics 작업 영역을 지원하는 대신 연결된 IoT Hub의 **로그** 페이지에서 사용자 지정 메트릭이 올바르게 수집되었는지 확인할 수 있습니다. 이 기본 KQL 쿼리를 사용하여 다음을 확인합니다.
+모든 메트릭은 IoT Hub 또는 IoT Central 애플리케이션의 리소스 ID와 연결됩니다. 따라서 Log Analytics 작업 영역을 지원하는 대신 연결된 IoT Hub 또는 IoT Central 애플리케이션의 **로그** 페이지에서 사용자 지정 메트릭이 올바르게 수집되었는지 확인할 수 있습니다. 이 기본 KQL 쿼리를 사용하여 다음을 확인합니다.
 
 ```KQL
 InsightsMetrics

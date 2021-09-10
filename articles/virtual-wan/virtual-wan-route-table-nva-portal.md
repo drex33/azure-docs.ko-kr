@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 08/19/2021
 ms.author: cherylmc
-ms.openlocfilehash: 409858b2a9005592d895f6044d028221769144cc
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e57f419daeb112be0925158109697bb2a9b399e8
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058513"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779982"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>NVA에 대한 Virtual WAN 허브 경로 테이블 만들기: Azure portal
 
@@ -45,7 +45,7 @@ ms.locfileid: "106058513"
 
 ## <a name="2-create-a-virtual-wan"></a><a name="vwan"></a>2. 가상 WAN 만들기
 
-가상 WAN 만들기 다음 예제 값을 사용합니다.
+가상 WAN 만들기 다음 예제 값을 사용하거나 원하는 값으로 바꿀 수 있습니다.
 
 * **Virtual WAN 이름:** myVirtualWAN
 * **리소스 그룹:** testRG
@@ -55,13 +55,13 @@ ms.locfileid: "106058513"
 
 ## <a name="3-create-a-hub"></a><a name="hub"></a>3. 허브 만들기
 
-허브를 만듭니다. 다음 예제 값을 사용합니다.
+허브를 만듭니다. 다음 예제 값을 사용하거나 원하는 값으로 바꿀 수 있습니다.
 
 * **위치:** 미국 서부
 * **이름:** westushub
 * **허브 프라이빗 주소 공간:** 10.0.1.0/24
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-empty-hub-include.md)]
 
 ## <a name="4-create-and-apply-a-hub-route-table"></a><a name="route"></a>4. 허브 경로 테이블 만들기 및 적용
 

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db22b44e032261d138d74e34340dca6fcaf75779
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bf49cfd4d1e0e9b3e65354c9f6c89dd7efd71970
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092875"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528859"
 ---
 # <a name="create-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱을 관리하는 사용자 지정 역할 만들기
 
@@ -54,8 +54,9 @@ ms.locfileid: "110092875"
 >[!NOTE]
 > 사용자 지정 역할은 조직 전체 수준에서 만들어지고 관리되며 조직의 개요 페이지에서만 사용할 수 있습니다.
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** 를 선택하고 **역할 및 관리자** 를 선택한 다음, **새 사용자 지정 역할** 을 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **역할 및 관리자** 를 선택한 다음, **새 사용자 지정 역할** 을 선택합니다.
 
     ![Azure AD의 역할 목록에서 새 사용자 지정 역할 추가](./media/custom-enterprise-apps/new-custom-role.png)
 
@@ -73,8 +74,10 @@ ms.locfileid: "110092875"
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자에게 역할 할당
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** 를 선택한 다음, **역할 및 관리자** 를 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **역할 및 관리자** 를 선택합니다.
+
 1. **사용자 및 그룹 할당을 관리할 수 있는 권한 부여** 역할을 선택합니다.
 
     ![역할 및 관리자를 열고 사용자 지정 역할 검색](./media/custom-enterprise-apps/select-custom-role.png)

@@ -3,14 +3,14 @@ title: Azure Functions에서 함수 앱 설정 구성
 description: Azure Functions에서 함수 앱 설정을 구성하는 방법에 대해 알아봅니다.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/21/2021
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 6775fdf8d5174600344f3c7177a3130ef63e8f76
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 760408d05c5ad8ff621d13697e94522829781308
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832683"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122539007"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -32,9 +32,11 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>애플리케이션 설정 작업
 
-애플리케이션 설정은 [Azure Portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings)에서 관리하거나 [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) 및 [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings)을 사용하여 관리할 수 있습니다. [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) 및 [Visual Studio](functions-develop-vs.md#function-app-settings)에서 애플리케이션 설정을 관리할 수도 있습니다. 
+함수 코드에 필요한 애플리케이션 설정을 원하는 대로 만들 수 있습니다. Functions에서 사용되는 미리 정의된 애플리케이션 설정도 있습니다. 자세한 내용은 [Azure Functions에 대한 앱 설정 참조](functions-app-settings.md)를 참조하세요.
 
 이러한 설정은 암호화되어 저장됩니다. 자세히 알아보려면 [애플리케이션 설정 보안](security-concepts.md#application-settings)을 참조하세요.
+
+애플리케이션 설정은 [Azure Portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings)에서 관리하거나 [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) 및 [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings)을 사용하여 관리할 수 있습니다. [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) 및 [Visual Studio](functions-develop-vs.md#function-app-settings)에서 애플리케이션 설정을 관리할 수도 있습니다. 
 
 # <a name="portal"></a>[포털](#tab/portal)
 
@@ -82,7 +84,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-함수 앱을 로컬로 개발하는 경우 local.settings.json 프로젝트 파일에 이러한 값의 로컬 복사본을 유지 관리해야 합니다. 자세히 알아보려면 [로컬 설정 파일](functions-run-local.md#local-settings-file)을 참조하세요.
+함수 앱을 로컬로 개발하는 경우 local.settings.json 프로젝트 파일에 이러한 값의 로컬 복사본을 유지 관리해야 합니다. 자세히 알아보려면 [로컬 설정 파일](functions-develop-local.md#local-settings-file)을 참조하세요.
 
 ## <a name="hosting-plan-type"></a>호스팅 계획 유형
 

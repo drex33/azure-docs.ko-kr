@@ -5,18 +5,18 @@ ms.topic: quickstart
 ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 333f9572e9bf5a24e7c9ac230b10f74adf5be7de
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 6023ea4178e451a0b5807c4561ea9810e7bbbc66
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112963801"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225792"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
 이 문서에서는 [Azure App Service](overview.md)에서 Python 앱을 실행하는 방법, 기존 앱을 Azure로 마이그레이션하는 방법 및 필요한 경우 App Service의 동작을 사용자 지정하는 방법에 대해 설명합니다. Python 앱을 배포할 때 모든 필수 [pip](https://pypi.org/project/pip/) 모듈을 함께 배포해야 합니다.
 
-사용자가 [Git 리포지토리](deploy-local-git.md) 또는 [빌드 자동화가 설정된](deploy-zip.md#enable-build-automation) [zip 패키지](deploy-zip.md)를 배포하면 App Service 배포 엔진이 자동으로 가상 환경을 활성화하고 `pip install -r requirements.txt`를 실행합니다.
+사용자가 [Git 리포지토리](deploy-local-git.md) 또는 [빌드 자동화가 설정된](deploy-zip.md#enable-build-automation-for-zip-deploy) [zip 패키지](deploy-zip.md)를 배포하면 App Service 배포 엔진이 자동으로 가상 환경을 활성화하고 `pip install -r requirements.txt`를 실행합니다.
 
 이 가이드에서는 App Service의 기본 제공 Linux 컨테이너를 사용하는 Python 개발자를 위한 주요 개념과 지침을 제공합니다. Azure App Service를 사용한 경험이 없는 경우 먼저 [Python 빠른 시작](quickstart-python.md) 및 [PostgreSQL을 사용하는 Python 자습서](tutorial-python-postgresql-app.md)를 수행해야 합니다.
 
@@ -431,13 +431,9 @@ Django 앱을 사용하여 데이터베이스 마이그레이션을 실행하려
 
 - **"SSL 연결이 필요함" 메시지가 표시됨**: 앱 내에서 리소스(예: 데이터베이스)에 액세스하는 데 사용되는 사용자 이름 및 암호를 확인합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="more-resources"></a>추가 리소스:
 
-> [!div class="nextstepaction"]
-> [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)
-
-> [!div class="nextstepaction"]
-> [자습서: 프라이빗 컨테이너 리포지토리에서 배포](tutorial-custom-container.md?pivots=container-linux)
-
-> [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.yml)
+- [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)
+- [자습서: 프라이빗 컨테이너 리포지토리에서 배포](tutorial-custom-container.md?pivots=container-linux)
+- [App Service Linux FAQ](faq-app-service-linux.yml)
+- [환경 변수 및 앱 설정 참조](reference-app-settings.md)

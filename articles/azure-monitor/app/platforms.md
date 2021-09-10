@@ -4,12 +4,12 @@ description: Application Insights에 사용할 수 있는 언어, 플랫폼 및 
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: fe71a2d402781625cf22abb91bc56e6e8994f03d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d388914badbd9ac8870a9d5e23370cd5b0319eea
+ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079267"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113616400"
 ---
 # <a name="supported-languages"></a>지원되는 언어
 
@@ -24,7 +24,7 @@ ms.locfileid: "110079267"
 ### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>이미 배포된 애플리케이션에 대한 계측(코드리스, 에이전트 기반)
 * [Azure VM 및 Azure 가상 머신 확장 집합](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
-* [ASP.NET - 이미 운영 중인 앱용](./monitor-performance-live-website-now.md)
+* [ASP.NET - IIS로 호스트되는 웹앱용](./status-monitor-v2-overview.md)
 * 웹 역할과 작업자 역할을 모두 포함하는 [Azure Cloud Services](./cloudservices.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
 ### <a name="instrumentation-through-code-sdks"></a>코드를 통한 계측(SDK)

@@ -2,14 +2,14 @@
 title: Azure VM의 SQL Server 백업에 대한 Azure Backup 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM에서 SQL Server를 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 08/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: 678a3e63205d986681016fe64971e9bd874f9c71
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 78dace2a60ff566af3485e6be0b7d9efc42d8654
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112119939"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123103881"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server Backup에 대한 지원 매트릭스
 
@@ -24,6 +24,7 @@ Azure Backup을 사용하여 Microsoft Azure 클라우드 플랫폼에서 호스
 **지원되는 운영 체제** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux는 현재 지원되지 않습니다.
 **지원되는 SQL Server 버전** | [제품 수명 주기 페이지 검색](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)에 설명된 SQL Server 2019, SQL Server 2017, [제품 수명 주기 페이지 검색](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)에 설명된 SQL Server 2016 및 SP, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express<br><br>Express Local DB 버전은 지원되지 않습니다.
 **지원되는 .NET 버전** | VM에 설치된 .NET Framework 4.5.2 이상
+**지원되는 배포** | SQL Marketplace Azure VM 및 비 Marketplace(수동으로 설치되는 SQL Server) VM이 지원됩니다. 독립 실행형 인스턴스는 [가용성 그룹](backup-sql-server-on-availability-groups.md)에서 항상 지원됩니다.
 
 ## <a name="feature-considerations-and-limitations"></a>기능 고려 사항 및 제한 사항
 
@@ -43,55 +44,6 @@ _* 데이터베이스 크기 제한은 지원되는 데이터 전송 속도와 �
 * TDE 지원 데이터베이스 백업이 지원됩니다. TDE 암호화된 데이터베이스를 다른 SQL Server로 복원하려면, 먼저 [대상 서버로 인증서를 복원](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)해야 합니다. SQL Server 2016 이상 버전에 대한 TDE 지원 데이터베이스의 백업 압축을 사용할 수 있지만 [여기](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593)에 설명된 대로 낮은 전송 크기만 사용할 수 있습니다.
 * 미러 데이터베이스와 데이터베이스 스냅샷에 대한 백업 및 복원 작업은 지원되지 않습니다.
 * SQL Server **FCI(장애 조치(Failover) 클러스터 인스턴스)** 는 지원되지 않습니다.
-* 백업 솔루션을 2개 이상 사용하여 독립 실행형 SQL Server 인스턴스 또는 SQL Always On 가용성 그룹을 백업하면 오류가 발생할 수 있습니다. 그렇게 하지 마세요. 같은 솔루션 또는 다른 솔루션을 사용하여 한 가용성 그룹의 두 노드를 개별적으로 백업해도 오류가 발생할 수 있습니다.
-* 가용성 그룹을 구성할 때 백업은 몇 가지 요소에 따라 다른 노드에서 수행됩니다. 아래는 가용성 그룹에 대한 백업 동작을 요약한 것입니다.
-
-### <a name="back-up-behavior-with-always-on-availability-groups"></a>Always On 가용성 그룹을 사용하여 백업 동작
-
-AG(가용성 그룹)의 한 노드에서만 백업을 구성하는 것이 좋습니다. 항상 주 노드와 동일한 지역에 백업을 구성합니다. 즉, 백업을 구성하는 지역에 항상 주 노드가 있어야 합니다. AG의 모든 노드가 백업이 구성되어 있는 곳과 동일한 지역에 있는 경우 문제가 없습니다.
-
-#### <a name="for-cross-region-ag"></a>지역 간 AG
-
-* 백업 기본 설정에 관계 없이 백업이 구성되어 있는 곳과 동일한 지역에 있는 노드에서만 백업이 일어납니다. 지역 간 백업이 지원되지 않기 때문입니다. 노드가 두 개뿐이고 보조 노드가 다른 지역에 있는 경우, 백업은 계속 주 노드에서 발생합니다(백업 기본 설정이 ‘보조만’이 아닌 경우에 한함).
-* 백업이 구성되어 있는 곳과 다른 지역으로 노드 장애 조치(failover)가 발생하는 경우 장애 조치 지역의 노드에서 백업이 실패합니다.
-
-백업 기본 설정 및 백업 유형(전체/차등/로그/복사 전용 전체)에 따라 특정 노드(주/보조)에서 백업이 수행됩니다.
-
-#### <a name="backup-preference-primary"></a>백업 기본 설정: 기본
-
-**백업 유형** | **Node**
---- | ---
-전체 | 기본
-차등 | 기본
-로그 |  기본
-복사 전용 전체 |  기본
-
-#### <a name="backup-preference-secondary-only"></a>백업 기본 설정: 보조만
-
-**백업 유형** | **Node**
---- | ---
-전체 | 기본
-차등 | 기본
-로그 |  보조
-복사 전용 전체 |  보조
-
-#### <a name="backup-preference-secondary"></a>백업 기본 설정: 보조
-
-**백업 유형** | **Node**
---- | ---
-전체 | 기본
-차등 | 기본
-로그 |  보조
-복사 전용 전체 |  보조
-
-#### <a name="no-backup-preference"></a>백업 기본 설정 없음
-
-**백업 유형** | **Node**
---- | ---
-전체 | 기본
-차등 | 기본
-로그 |  보조
-복사 전용 전체 |  보조
 
 ## <a name="backup-throughput-performance"></a>백업 처리량 성능
 

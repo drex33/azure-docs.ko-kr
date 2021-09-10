@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 07/22/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15ce4cabc1a9bc44fcd6cc00a365007900ff4ebe
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: f53eb460d6b131dce607c0dd99f97babd758de35
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968542"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603413"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA(대규모 인스턴스) 스토리지 아키텍처
 
 이 문서에서는 Azure의 SAP HANA(대규모 인스턴스)(BareMetal Infrastructure라고도 함)를 배포하기 위한 스토리지 아키텍처를 살펴보겠습니다. 
 
-Azure의 SAP HANA(대규모 인스턴스)의 스토리지 레이아웃은 SAP 권장 지침에 따라 클래식 배포 모델에서 SAP HANA를 통해 구성됩니다. 지침에 대한 자세한 내용은 [SAP HANA 스토리지 요구 사항](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf)을 참조하세요.
+Azure의 SAP HANA(대규모 인스턴스)의 스토리지 레이아웃은 SAP 권장 지침에 따라 클래식 배포 모델에서 SAP HANA를 통해 구성됩니다. 지침에 대한 자세한 내용은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)을 참조하세요.
 
 HANA(대규모 인스턴스)의 유형 I 클래스에는 스토리지 볼륨의 4배에 달하는 메모리 볼륨이 제공됩니다. HANA(대규모 인스턴스)의 유형 II 클래스는 HANA 트랜잭션 로그 백업을 저장하기 위한 볼륨과 함께 제공됩니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 설치 및 구성](hana-installation.md)을 참조하세요.
 

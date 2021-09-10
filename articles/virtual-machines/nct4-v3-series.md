@@ -7,14 +7,16 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: c53d875e35e77d782ac2897bbe2a1a356f8ac5a2
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 55799d15ef0ebe8af0f4a79b583143394540f48b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113359590"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697969"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3 시리즈 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 NCasT4_v3 시리즈 가상 머신은 [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU 및 AMD EPYC 7V12(Rome) CPU로 구동됩니다. VM은 최대 4개의 NVIDIA T4 GPU와 각각 16GB의 메모리, 최대 64개의 비 멀티스레드 AMD EPYC 7V12(Rome) 프로세서 코어(기본 주파수 2.45GHz, 전체 코어 최대 주파수 3.1GHz 및 단일 코어 피크를 갖추고 있습니다. 3.3GHz의 주파수) 및 440GiB의 시스템 메모리. 이러한 가상 머신은 사용자 생성 요청의 실시간 추론 또는 NVIDIA의 GRID 드라이버 및 가상 GPU 기술을 사용하는 대화형 그래픽 및 시각화 워크로드와 같은 AI 서비스 배포에 이상적입니다. CUDA, TensorRT, Caffe, ONNX 및 기타 프레임워크를 기반으로 하는 표준 GPU 컴퓨팅 워크로드 또는 OpenGL 및 DirectX를 기반으로 하는 GPU 가속 그래픽 애플리케이션을 NCasT4_v3 시리즈에서 사용자와 가까운 위치에서 경제적으로 배포할 수 있습니다.
 

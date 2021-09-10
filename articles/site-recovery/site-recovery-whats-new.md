@@ -2,13 +2,13 @@
 title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새로운 기능 및 최신 업데이트에 대해 간략하게 설명합니다.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 23cc7c98b4d45adf9507ef857bda1c605eb6d558
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.date: 07/28/2021
+ms.openlocfilehash: a9e0d9c462c494fdc1d0c50bc4faf3694f3b4cd7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026780"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566205"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -22,6 +22,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 
 **업데이트** |  **통합 설치** | **구성 서버 OVA** | **Mobility Service 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 56](https://support.microsoft.com/en-us/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)  | 9.43.6040.1  | 5.1.6853.0 | 9.43.6040.1| 5.1.6853.0 | 2.0.9226.0
 [롤업 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 9.42.5941.1 | 5.1.6692.0 | 9.42.5941.1 | 5.1.6692.0  | 2.0.9208.0
 [롤업 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
 [롤업 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
@@ -33,6 +34,21 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 
 업데이트 설치 및 지원에 대해 [자세히 알아보세요](service-updates-how-to.md).
 
+## <a name="updates-july-2021"></a>업데이트(2021년 7월)
+
+### <a name="update-rollup-56"></a>업데이트 롤업 56
+
+[업데이트 롤업 56](https://support.microsoft.com/en-us/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)에서 제공하는 업데이트는 다음과 같습니다.
+
+**업데이트** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업 KB 문서에서 자세히 설명된 대로 Site Recovery 에이전트 및 공급자에 대한 업데이트입니다.
+**문제 수정/향상된 기능** | 롤업 KB 문서에서 자세히 설명하는 여러 수정 및 향상된 기능입니다.
+
+**Azure Site Recovery Service** | 복제 및 다시 보호 작업을 46% 더 빠르게 수행할 수 있도록 개선했습니다.
+**Azure Site Recovery Portal** | 이제 전 세계의 두 Azure 지역 간에 복제를 사용하도록 설정할 수 있습니다. 더 이상 대륙 내 복제로 제한되지 않습니다.
+
+
 ## <a name="updates-april-2021"></a>업데이트(2021년 4월)
 
 ### <a name="update-rollup-55"></a>업데이트 롤업 55
@@ -42,7 +58,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 **업데이트** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | 롤업에서 자세히 설명하는 Site Recovery 에이전트 및 공급자에 대한 업데이트입니다.
-**문제 수정/향상된 기능** | 롤업에서 자세히 설명하는 여러 수정 및 향상된 기능입니다. 
+**문제 수정/향상된 기능** | 롤업에서 자세히 설명하는 여러 수정 및 향상된 기능입니다.
 **Azure VM 재해 복구** | Azure VM의 대륙 간 재해 복구에 대한 지원이 추가되었습니다.<br/><br/> VMSS Flex를 보호하기 위한 Rest API 지원입니다.<br/><br/> 이제 Oracle Linux 8.2 및 8.3을 실행하는 VM에서 지원됩니다.
 **Azure로 VMware VM/물리적 재해 복구** | 마스터 대상 서버를 설정하는 동안 Ubuntu-20.04 사용에 대한 지원이 추가되었습니다.<br/><br/> 이제 Oracle Linux 8.2 및 8.3을 실행하는 VM에서 지원됩니다.
 
@@ -56,7 +72,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 **업데이트** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | 롤업에서 자세히 설명하는 Site Recovery 에이전트 및 공급자에 대한 업데이트입니다.
-**문제 수정/향상된 기능** | 롤업에서 자세히 설명하는 여러 수정 및 향상된 기능입니다. 
+**문제 수정/향상된 기능** | 롤업에서 자세히 설명하는 여러 수정 및 향상된 기능입니다.
 **Azure VM 재해 복구** | Azure Site Recovery를 사용하는 영역 간 재해 복구는 이제 북유럽, 미국 동부, 미국 중부, 미국 서부 2 등 4개 이상의 지역에서 일반 공급(GA)됩니다.<br/>
 **Azure로 VMware VM/물리적 재해 복구** | 이 업데이트에는 복제를 사용하도록 설정한 후 VMware/물리적 컴퓨터에 대한 근접 배치 그룹을 선택하기 위한 포털 지원이 포함됩니다.<br/><br/> 이제 데이터 디스크 크기가 최대 32TB인 VMware 컴퓨터를 보호할 수 있습니다.
 **Azure로 Hyper-V 재해 복구** | 이 업데이트에는 복제를 사용하도록 설정한 후 Hyper-V 시스템의 근접 배치 그룹을 선택하기 위한 포털 지원이 포함됩니다.
@@ -71,7 +87,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원합니다. 여기서 N
 **업데이트** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | 롤업에서 자세히 설명하는 Site Recovery 에이전트 및 공급자에 대한 업데이트입니다.
-**문제 수정/향상된 기능** | 롤업에서 자세히 설명하는 여러 수정 및 향상된 기능입니다. 
+**문제 수정/향상된 기능** | 롤업에서 자세히 설명하는 여러 수정 및 향상된 기능입니다.
 **Azure VM 재해 복구** | 이제 태그 복제가 지원됩니다. 원본 지역의 Azure VM, 디스크 및 NIC에 추가된 모든 태그가 대상 지역의 컴퓨터에 복제됩니다.<br/><br/> 이제 Debian 10을 실행하는 Azure VM에서 복제를 지원합니다.
 **Azure로 VMware VM/물리적 재해 복구** | 이 업데이트에는 Azure로의 VMware VM 복제에 대한 향상된 로깅 기능 및 향상된 오류 메시징이 포함됩니다.<br/><br/> 이제 Debian 10을 실행하는 VMware VM 및 물리적 컴퓨터에서 복제를 지원합니다.
 

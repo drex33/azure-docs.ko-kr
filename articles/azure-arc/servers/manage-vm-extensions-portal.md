@@ -1,28 +1,28 @@
 ---
 title: Azure Portal에서 VM 확장 사용
-description: 해당 문서에서는 Azure Portal에서 하이브리드 클라우드 환경에서 실행되는 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
-ms.date: 04/13/2021
+description: 이 문서에서는 Azure Portal을 통해 하이브리드 클라우드 환경에서 실행되는 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
+ms.date: 08/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: b5b4ff79d68ec9ff0cc61b9dbb7d3c5d7fe93598
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 740ee7954340da0a34b581356d51135033a3829d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388281"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535692"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Azure Portal에서 Azure VM 확장을 사용하도록 설정
 
-해당 문서에서는 Azure Portal을 통해 Azure Arc 지원 서버에서 지원하는 Azure VM 확장을 Linux 또는 Windows 하이브리드 머신에 배포하고 제거하는 방법을 보여 줍니다.
+이 문서에서는 Azure Portal을 통해 Azure Arc 지원 서버에서 지원하는 Azure VM 확장을 Linux 또는 Windows 하이브리드 머신에 배포, 업데이트, 제거하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> Key Vault VM 확장(미리 보기)은 Azure Portal로부터의 배포를 지원하지 않으며 Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿만 사용합니다.
+> Key Vault VM 확장은 Azure Portal에서의 배포를 지원하지 않고 Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용한 배포만 지원합니다.
 
 > [!NOTE]
-> Azure Arc 지원 서버는 Azure 가상 머신에 대한 VM 확장의 배포 및 관리를 지원하지 않습니다. Azure VMs에 관해서는 다음 [VM 확장 개요](../../virtual-machines/extensions/overview.md) 문서를 참조하세요.
+> Azure Arc 지원 서버는 Azure 가상 머신에 대한 VM 확장의 배포와 관리를 지원하지 않습니다. Azure VM에 관해서는 다음 [VM 확장 개요](../../virtual-machines/extensions/overview.md) 문서를 참조하세요.
 
-## <a name="enable-extensions-from-the-portal"></a>포털에서 확장 사용
+## <a name="enable-extensions"></a>확장 사용
 
-Azure Portal을 통해 서버 관리 머신에 대한 Arc에 VM 확장을 적용할 수 있습니다.
+Azure Portal을 사용하여 Arc 지원 서버 관리형 머신에 VM 확장을 적용할 수 있습니다.
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
@@ -38,14 +38,14 @@ Azure Portal을 통해 서버 관리 머신에 대한 Arc에 VM 확장을 적용
 
     설치를 완료하려면 작업 영역 ID 및 기본 키를 제공해야 합니다. 관련 정보를 찾는 방법에 익숙하지 않은 경우 [작업 영역 ID 및 키 가져오기](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)를 참조하세요.
 
-4. 제공된 필수 정보를 확인한 뒤 **만들기** 를 선택합니다. 배포에 대한 요약이 표시되고 배포 상태를 검토할 수 있습니다.
+4. 제공된 필수 정보를 확인한 후 **검토 + 만들기** 를 선택합니다. 배포에 대한 요약이 표시되고 배포 상태를 검토할 수 있습니다.
 
 >[!NOTE]
 >여러 확장을 함께 일괄 처리하고 프로세스할 수 있지만, 설치는 순차적으로 진행됩니다. 첫 번째 확장 설치가 완료되면 다음 확장을 설치하려고 시도합니다.
 
 ## <a name="list-extensions-installed"></a>설치된 확장 나열
 
-Azure Portal에서 Arc 지원 서버에 대한 VM 확장 목록을 가져올 수 있습니다. 다음 단계를 수행하여 목록을 확인합니다.
+Azure Portal에서 Arc 지원 서버의 VM 확장 목록을 가져올 수 있습니다. 다음 단계를 수행하여 목록을 확인합니다.
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
@@ -53,9 +53,40 @@ Azure Portal에서 Arc 지원 서버에 대한 VM 확장 목록을 가져올 수
 
 3. **확장** 을 선택하면 설치된 확장 목록이 반환됩니다.
 
-    ![선택한 머신에 배포된 VM 확장 나열](./media/manage-vm-extensions/list-vm-extensions.png)
+    :::image type="content" source="media/manage-vm-extensions/list-vm-extensions.png" alt-text="선택한 머신에 배포된 VM 확장 나열" border="true":::
 
-## <a name="uninstall-extension"></a>확장 제거
+## <a name="update-extensions"></a>확장 업데이트
+
+지원되는 확장의 새 버전이 릴리스되면 확장을 최신 릴리스로 업데이트할 수 있습니다. Arc 지원 서버로 이동하면 Arc 지원 서버가 Azure Portal에 배너를 표시하여 머신에 설치된 하나 이상의 확장에 사용할 수 있는 업데이트가 있음을 알려줍니다. 선택한 Arc 지원 서버에 대해 설치된 확장 목록을 보면 **업데이트 사용 가능** 레이블이 지정된 열을 확인할 수 있습니다. 확장의 최신 버전이 릴리스되면 해당 확장의 **업데이트 사용 가능** 값에 **예** 값이 표시됩니다. 
+
+확장을 최신 버전으로 업데이트해도 해당 확장의 구성에는 영향을 주지 않습니다. 업데이트하는 확장의 구성 정보를 다시 지정할 필요가 없습니다.
+
+:::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-status.png" alt-text="VM 확장 업데이트 상태 나열" border="true":::
+
+Azure Portal에서 다음 단계를 수행하여 확장 1개를 업데이트하거나, 업데이트할 수 있는 확장을 여러 개 선택할 수 있습니다.
+
+> [!NOTE]
+> 현재 Azure Portal에서만 확장을 업데이트할 수 있습니다. Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용한 확장 업데이트는 현재 지원되지 않습니다.
+
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
+
+2. 포털에서 **서버 - Azure Arc** 를 찾아 목록에서 하이브리드 머신을 선택합니다.
+
+3. **확장** 을 선택한 다음, **업데이트 사용 가능** 열에서 확장 상태를 검토합니다. 
+
+다음 세 가지 방법 중 하나로 확장 1개를 업데이트할 수 있습니다.
+
+* 설치된 확장 목록에서 확장을 선택한 다음, 확장 속성에서 **업데이트** 옵션을 선택합니다.
+
+    :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png" alt-text="선택한 확장에서 확장 업데이트" border="true":::
+
+* 설치된 확장 목록에서 확장을 선택한 다음, 페이지 맨 위에서 **업데이트** 옵션을 선택합니다.
+
+* 설치된 확장 목록에서 업데이트할 수 있는 확장을 하나 이상 선택한 다음, **업데이트** 옵션을 선택합니다.
+
+    :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-selected.png" alt-text="선택한 확장 업데이트" border="true":::
+
+## <a name="uninstall-extensions"></a>확장 제거
 
 Azure Portal의 Arc 지원 서버에서 하나 이상의 확장을 제거할 수 있습니다. 확장을 제거하려면 다음 단계를 수행합니다.
 
@@ -63,7 +94,7 @@ Azure Portal의 Arc 지원 서버에서 하나 이상의 확장을 제거할 수
 
 2. 포털에서 **서버 - Azure Arc** 를 찾아 목록에서 하이브리드 머신을 선택합니다.
 
-3. **확장** 을 선택한 다음 설치된 확장 목록에서 확장을 선택합니다.
+3. **확장** 을 선택한 다음, 설치된 확장 목록에서 확장을 선택합니다.
 
 4. **제거** 를 선택하고 확인 메시지가 표시되면 **예** 를 선택하여 계속합니다.
 

@@ -9,12 +9,12 @@ ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 442eef44f727ce7ef6059fa0bdfbf440c0345a09
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: f1eae19bda4fae0744483a647eed47104e366e52
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114727155"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867051"
 ---
 # <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 Azure 파일 공유를 만들려면 파일 공유를 사용할 방법에 관한 다음 세 가지 질문에 답해야 합니다.
@@ -65,7 +65,7 @@ Azure Portal을 통해 스토리지 계정을 만들려면 대시보드에서 **
 
 FileStorage 스토리지 계정을 만들려면 **성능** 라디오 단추를 ‘프리미엄’으로 설정하고 **프리미엄 계정 유형** 드롭다운 목록에서 **Fileshares** 를 선택해야 합니다.
 
-:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="프리미엄이 선택된 성능 라디오 단추와 filestorage가 선택된 계정 종류의 스크린샷":::
+:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="프리미엄이 선택된 성능 라디오 단추와 FileStorage가 선택된 계정 종류의 스크린샷.":::
 
 다른 기본 사항 필드는 스토리지 계정 선택과 별개입니다.
 - **스토리지 계정 이름**: 만들 스토리지 계정 리소스의 이름입니다. 이 이름은 전역적으로 고유해야 하지만, 그 외에는 원하는 대로 지정할 수 있습니다. 스토리지 계정 이름은 SMB를 통해 Azure 파일 공유를 탑재할 때 서버 이름으로 사용됩니다.
@@ -180,7 +180,7 @@ Azure 파일 공유가 아직 없는 경우 기존 계정에서 Azure 파일 공
 1. **개요** 를 선택하고 **새로 고침** 을 선택합니다.
 1. **용량 공유** 를 선택하고 **100TiB** 를 선택한 다음, **저장** 을 선택합니다.
 
-    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="100TiB 공유가 강조 표시된 Azure Storage 계정, 파일 공유 블레이드 스크린샷":::
+    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="100TiB 공유가 강조 표시된 Storage 계정, 파일 공유 블레이드 스크린샷.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 기존 계정에서 대용량 파일 공유를 사용하도록 설정하려면 다음 명령을 사용합니다. `<yourStorageAccountName>`과 `<yourResourceGroup>`을 사용자 정보로 바꿉니다.
@@ -231,7 +231,7 @@ az storage account update --name <yourStorageAccountName> -g <yourResourceGroup>
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet을 사용하여 Azure 파일 공유를 만들 수 있습니다. 다음 PowerShell 명령에서는 위의 Azure PowerShell을 사용하여 스토리지 계정 만들기 섹션에 정의된 대로 `$resourceGroupName` 및 `$storageAccountName` 변수를 설정했다고 가정합니다. 
 
-다음 예제에서는 `-AccessTier` 매개 변수를 사용하여 명시적 계층으로 파일 공유를 만드는 방법을 보여 줍니다. 이 경우 예제에 나온 대로 미리 보기 Az.Storage 모듈을 사용해야 합니다. GA Az.Storage 모듈을 사용 중이거나 이 명령을 포함하지 않아 계층이 지정되지 않으면 표준 파일 공유의 기본 계층은 트랜잭션 최적화입니다.
+다음 예제에서는 `-AccessTier` 매개 변수를 사용하여 명시적 계층으로 파일 공유를 만드는 방법을 보여 줍니다. 계층을 지정하지 않으면 표준 파일 공유에 대한 기본 계층의 트랜잭션이 최적화됩니다.
 
 > [!Important]  
 > 프리미엄 파일 공유의 경우 `-QuotaGiB` 매개 변수는 파일 공유의 프로비저닝된 크기를 나타냅니다. 파일 공유의 프로비저닝된 크기는 사용량과 관계없이 요금이 청구되는 양입니다. 표준 파일 공유는 프로비저닝된 크기가 아니라 사용량을 기준으로 요금이 청구됩니다.

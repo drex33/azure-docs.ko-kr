@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)의 기본 할당량, 제한된 노드
 services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 3e1e74834153584525d2093d2a1bb8ba8e991e5a
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: ea32c0e58894fe57a51cd22fccce8b2fb2fb0489
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011467"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113762295"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 할당량, 가상 머신 크기 제한 및 지역 가용성
 
@@ -38,16 +38,34 @@ AKS 클러스터의 각 노드에는 vCPU 및 메모리 같은 고정된 양의 
 - Standard_A0
 - Standard_A1
 - Standard_A1_v2
+- Standard_B1ls
 - Standard_B1s
 - Standard_B1ms
 - Standard_F1
 - Standard_F1s
+- Standard_A2
+- Standard_D1
+- Standard_D1_v2
+- Standard_DS1
+- Standard_DS1_v2
 
 VM 유형 및 해당 컴퓨팅 리소스에 대한 자세한 내용은 [Azure의 가상 머신 크기][vm-skus]를 참조하세요.
 
 ## <a name="region-availability"></a>지역 가용성
 
 클러스터를 배포하고 실행할 수 있는 위치에 대한 최신 목록은 [AKS 지역 가용성][region-availability]을 참조하세요.
+
+## <a name="cluster-configuration-presets-in-the-azure-portal"></a>Azure Portal의 클러스터 구성 미리 설정
+
+Azure Portal을 사용하여 클러스터를 만드는 경우 미리 설정된 구성을 선택하여 시나리오에 따라 빠르게 사용자 지정할 수 있습니다. 언제든지 미리 설정된 값을 수정할 수 있습니다.
+
+| 미리 설정           | 설명                                                            |
+|------------------|------------------------------------------------------------------------|
+| 표준         | 무엇을 선택해야 할지 잘 모르는 경우에 가장 적합합니다. 대부분의 애플리케이션에서 잘 작동합니다. |
+| 개발/테스트         | AKS를 실험하거나 테스트 애플리케이션을 배포하는 데 가장 적합합니다. |
+| 비용 최적화   | 중단을 허용할 수 있는 프로덕션 워크로드의 비용을 줄이는 데 가장 적합합니다. |
+| 일괄 처리 | 기계 학습, 컴퓨팅 집약적 및 그래픽 집약적 워크로드에 가장 적합합니다. 클러스터의 빠른 확장 및 스케일 아웃이 필요한 애플리케이션에 적합합니다. |
+| 강화된 액세스  | 보안 및 안정성을 완전히 제어해야 하는 대기업에 가장 적합합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

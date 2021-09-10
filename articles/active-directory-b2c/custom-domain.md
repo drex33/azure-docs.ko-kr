@@ -12,12 +12,12 @@ ms.date: 08/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c88954434c38a04d0d1263e96639e6cca03c3a1b
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: b64806b3683db8f6cd3ec665b462f4f6f26397eb
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122538210"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770155"
 ---
 # <a name="enable-custom-domains-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 사용자 지정 도메인 사용
 
@@ -114,7 +114,7 @@ ms.locfileid: "122538210"
 
 프런트 엔드 호스트는 애플리케이션에서 사용되는 도메인 이름입니다. Front Door를 만들 때 기본 프런트 엔드 호스트는 `azurefd.net`의 하위 도메인입니다.
 
-Azure Front Door는 사용자 지정 도메인을 프런트 엔드 호스트에 연결하는 옵션을 제공합니다. 이 옵션을 사용하여 Azure AD B2C 사용자 인터페이스를 Front Door 소유 도메인 이름이 아닌 URL의 사용자 지정 도메인과 연결합니다. https://login.contoso.com)을 입력합니다.
+Azure Front Door는 사용자 지정 도메인을 프런트 엔드 호스트에 연결하는 옵션을 제공합니다. 이 옵션을 사용하여 Azure AD B2C 사용자 인터페이스를 Front Door 소유 도메인 이름이 아닌 URL의 사용자 지정 도메인과 연결합니다. 예: `https://login.contoso.com`
 
 프런트 엔드 호스트를 추가하려면 다음 단계를 수행합니다.
 
@@ -137,7 +137,7 @@ Azure Front Door는 사용자 지정 도메인을 프런트 엔드 호스트에 
 
 1. **백 엔드 추가** 블레이드에서 다음 정보를 선택한 다음, **추가** 를 선택합니다.
 
-    | 설정 | 값 |
+    | Setting | 값 |
     | --- | --- |
     | **백 엔드 호스트 유형**| **사용자 지정 호스트** 를 선택합니다.| 
     | **백 엔드 호스트 이름**| [Azure AD B2C](tenant-management.md#get-your-tenant-name) 이름인 `<tenant-name>.b2clogin.com`을 선택합니다. 예를 들어 contoso.b2clogin.com을 입력합니다.|
@@ -165,7 +165,7 @@ Azure Front Door는 사용자 지정 도메인을 프런트 엔드 호스트에 
      ![Azure Front Door를 만드는 방법을 보여 주는 스크린샷](./media/custom-domain/configuration-azure-front-door.png)
 
 
-## <a name="step-3-set-up-your-custom-domain-on-azure-front-door"></a>3단계: Azure Front Door에 사용자 지정 도메인 설정
+## <a name="step-3-set-up-your-custom-domain-on-azure-front-door"></a>3단계. Azure Front Door에 사용자 지정 도메인 설정
 
 이 단계에서는 [1단계](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant)에서 등록한 사용자 지정 도메인을 Front Door에 추가합니다. 
 
@@ -193,7 +193,7 @@ Front Door가 사용자가 만든 CNAME 레코드를 확인하면, 원본 사용
 
    - 유형: *CNAME* 를 입력합니다.
 
-   - 대상: [2.1단계](#21-add-frontend-host)에서 만드는 기본 Front Door 프런트 엔드 호스트를 입력합니다. format: _&lt;hostname&gt;_ .azurefd.net 형식이어야 합니다. `contoso.azurefd.net`)을 입력합니다.
+   - 대상: [2.1단계](#21-add-frontend-host)에서 만드는 기본 Front Door 프런트 엔드 호스트를 입력합니다. format: _&lt;hostname&gt;_ .azurefd.net 형식이어야 합니다. 예: `contoso.azurefd.net`
 
 1. 변경 내용을 저장합니다.
 

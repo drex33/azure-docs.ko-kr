@@ -10,22 +10,22 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: d4139ddc0d0befce228e18a65ecfb83065c740dc
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 49aef35c5f69bd5ad09c4b1154fbee75ba2aa204
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443162"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123251827"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
-이 빠른 시작에서는 Azure Sentinel을 온보딩하는 방법을 알아봅니다. 
+이 빠른 시작에서는 Azure Sentinel을 온보딩하는 방법을 알아봅니다. Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 설정한 후 데이터 원본을 연결해야 합니다.
 
-Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 설정한 후 데이터 원본을 연결해야 합니다. Azure Sentinel에는 Microsoft 365 Defender(이전에는 Microsoft Threat Protection) 솔루션, Microsoft 365 원본(Office 365 포함), Azure AD, Microsoft Defender for Identity(이전에는 Azure ATP), Microsoft Cloud App Security, Azure Security Center의 Azure Defender 경고를 포함하여 즉시 사용 가능하고 실시간 통합을 제공하는 다양한 Microsoft 솔루션용 커넥터가 포함되어 있습니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. CEF(Common Event Format), Syslog 또는 REST API를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수도 있습니다. 
+Azure Sentinel에는 Microsoft 365 Defender(이전에는 Microsoft Threat Protection) 솔루션, Microsoft 365 원본(Office 365 포함), Azure AD, Microsoft Defender for Identity(이전에는 Azure ATP), Microsoft Cloud App Security, Azure Security Center의 Azure Defender 경고를 포함하여 즉시 사용 가능하고 실시간 통합을 제공하는 다양한 Microsoft 솔루션용 커넥터가 포함되어 있습니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. CEF(Common Event Format), Syslog 또는 REST API를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수도 있습니다.
 
 데이터 원본을 연결한 후 데이터에 따른 인사이트를 제공하는 전문가가 만든 통합 문서 갤러리 중에서 선택합니다. 이러한 통합 문서는 사용자의 요구에 맞게 쉽게 사용자 지정할 수 있습니다.
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 > Azure Sentinel을 사용할 때 발생하는 요금에 대한 자세한 내용은 [Azure Sentinel 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel/) 및 [Azure Sentinel 비용 및 청구](azure-sentinel-billing.md)를 참조하세요.
 
 ## <a name="global-prerequisites"></a>전역 전제 조건
@@ -37,33 +37,35 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 - Azure Sentinel을 사용하도록 설정하려면 Azure Sentinel 작업 영역이 있는 구독에 대한 참가자 권한이 필요합니다. 
 - Azure Sentinel을 사용하려면 작업 영역이 속한 리소스 그룹에 대해 참가자 또는 읽기 권한자 권한이 있어야 합니다.
 - 특정 데이터 원본을 연결하려면 추가 권한이 필요할 수 있습니다.
-- Azure Sentinel은 유료 서비스입니다. 가격 책정 정보에 대해서는 [Azure Sentinel 정보](https://go.microsoft.com/fwlink/?linkid=2104058)를 참조하세요.
+- Azure Sentinel은 유료 서비스입니다. 자세한 내용은 [Azure Sentinel 정보](https://go.microsoft.com/fwlink/?linkid=2104058)를 참조하세요.
+
+자세한 내용은 [Azure Sentinel 배포를 위한 사전 배포 활동 및 필수 조건](prerequisites.md)을 참조하세요.
 
 ### <a name="geographical-availability-and-data-residency"></a>지리적 가용성 및 데이터 상주
 
-- Azure Sentinel은 중국과 독일(소버린) 지역을 제외한 대부분의 [Log Analytics의 GA 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)의 작업 영역에서 실행할 수 있습니다. 경우에 따라 새 Log Analytics 지역은 Azure Sentinel 서비스를 등록하는 데 시간이 걸릴 수 있습니다. 
+- Azure Sentinel은 중국과 독일(소버린) 지역을 제외한 대부분의 [Log Analytics의 GA 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)의 작업 영역에서 실행할 수 있습니다. 새 Log Analytics 지역은 Azure Sentinel 서비스를 온보딩하는 데 시간이 걸릴 수 있습니다. 
 
-- 인시던트, 책갈피 및 분석 규칙과 같이 Azure Sentinel에 의해 생성된 데이터에는 고객의 Log Analytics 작업 영역에서 소싱된 일부 고객 데이터가 포함될 수 있습니다. 이 Azure Sentinel 생성 데이터는 작업 영역이 있는 지리 또는 지역에 따라 다음 표에 나열된 지리 또는 지역에 저장됩니다.
+- 인시던트, 책갈피 및 분석 규칙과 같이 Azure Sentinel에 의해 생성된 데이터에는 고객의 Log Analytics 작업 영역에서 소싱된 일부 고객 데이터가 포함될 수 있습니다. 이 Azure Sentinel 생성 데이터는 작업 영역이 있는 지리에 따라 다음 표에 나열된 지리에 저장됩니다.
 
-    | 작업 영역 지리/지역 | Azure Sentinel 생성 데이터 지리/지역 |
+    | 작업 영역 지리 | Azure Sentinel 생성 데이터 지리 |
     | --- | --- |
-    | 미국<br>인도<br>아프리카 | 미국 |
+    | 미국<br>인도 | 미국 |
     | 유럽<br>프랑스 | 유럽 |
     | 오스트레일리아 | 오스트레일리아 |
     | United Kingdom | United Kingdom |
     | Canada | Canada |
     | 일본 | 일본 |
-    | 동남 아시아(싱가포르) | 동남 아시아(싱가포르)* |
-    | 브라질 | 브라질 |
+    | 아시아 태평양 | 아시아 태평양 * |
+    | 브라질 | 브라질 * |
     | 노르웨이 | 노르웨이 |
-    | 남아프리카 공화국 | 남아프리카 공화국 |
+    | 아프리카 | 아프리카 |
     | 한국 | 한국 |
     | 독일 | 독일 |
     | 아랍에미리트연합국 | 아랍에미리트연합국 |
     | 스위스 | 스위스 |
     |
-    
-    \* 동남 아시아에는 쌍으로 연결된 지역이 없습니다.
+
+    \* 단일 지역 데이터 상주는 현재 아시아 태평양 지역의 동남아시아 지역(싱가포르)과 브라질 지역의 브라질 남부(상파울루 주) 지역에서만 제공됩니다. 다른 모든 지역의 경우 고객 데이터는 Sentinel이 온보딩된 작업 영역의 지리적 위치에 저장할 수 있습니다.
 
     > [!IMPORTANT]
     > - ML(기계 학습) 엔진을 사용하는 특정 규칙을 사용하도록 설정하여 **Azure Sentinel 작업 영역 지리 외부에서 수집된 관련 데이터를 복사하는 권한을 Microsoft에 제공** 합니다. 이 권한은 기계 학습 엔진에서 이러한 규칙을 처리하는 데 필요할 수 있습니다.
@@ -103,11 +105,13 @@ Azure Sentinel은 서비스에 연결하고 이벤트 및 로그를 Azure Sentin
 1. 갤러리는 연결할 수 있는 모든 데이터 원본의 목록입니다. 데이터 원본을 선택한 다음, **커넥터 페이지 열기** 단추를 선택합니다.
 
 1. 커넥터 페이지에는 커넥터 구성 지침과 필요한 추가 지침이 표시됩니다.<br>
-예를 들어 Azure AD에서 Azure Sentinel로 로그를 스트리밍할 수 있는 **Azure Active Directory** 데이터 원본을 선택하는 경우 가져올 로그 유형(로그인 로그 및/또는 감사 로그)을 선택할 수 있습니다. <br> 자세한 내용은 설치 지침을 따르거나 [관련 연결 가이드](connect-data-sources.md)를 참조하세요. 데이터 커넥터에 대한 내용은 [Microsoft 서비스 연결](connect-data-sources.md)을 참조하세요.
+예를 들어 Azure AD에서 Azure Sentinel로 로그를 스트리밍할 수 있는 **Azure Active Directory** 데이터 원본을 선택하는 경우 가져올 로그 유형(로그인 로그 및/또는 감사 로그)을 선택할 수 있습니다. <br> 자세한 내용은 설치 지침을 따르거나 [관련 연결 가이드](data-connectors-reference.md)를 참조하세요. 데이터 커넥터에 대한 자세한 내용은 [Azure Sentinel 데이터 커넥터](connect-data-sources.md)를 참조하세요.
 
 1. 커넥터 페이지의 **다음 단계** 탭에는 데이터 커넥터와 함께 제공되는 관련 기본 제공 통합 문서, 샘플 쿼리 및 분석 규칙 템플릿이 표시됩니다. 이를 그대로 사용하거나 수정할 수 있습니다. 두 가지 방법 모두 데이터에 대한 흥미로운 인사이트를 즉시 가져올 수 있습니다. <br>
 
-데이터 원본이 연결된 후 데이터는 Azure Sentinel로 스트리밍되기 시작하고 작업을 시작할 준비가 됩니다. [기본 제공 통합 문서](quickstart-get-visibility.md)에서 로그를 확인하고 Log Analytics에서 쿼리를 작성하여 [데이터를 조사](tutorial-investigate-cases.md)할 수 있습니다.
+데이터 원본이 연결된 후 데이터는 Azure Sentinel로 스트리밍되기 시작하고 작업을 시작할 준비가 됩니다. [기본 제공 통합 문서](get-visibility.md)에서 로그를 확인하고 Log Analytics에서 쿼리를 작성하여 [데이터를 조사](investigate-cases.md)할 수 있습니다.
+
+자세한 내용은 [데이터 수집 모범 사례](best-practices-data.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -120,7 +124,7 @@ Azure Sentinel은 서비스에 연결하고 이벤트 및 로그를 Azure Sentin
     - [ARM 템플릿을 통해 Azure Sentinel 배포](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
 
 - **시작**:
-    - [Azure Sentinel 시작](quickstart-get-visibility.md)
-    - [위협 탐지를 위한 사용자 지정 분석 규칙 만들기](tutorial-detect-threats-custom.md)
+    - [Azure Sentinel 시작](get-visibility.md)
+    - [위협 탐지를 위한 사용자 지정 분석 규칙 만들기](detect-threats-custom.md)
     - [Common Event Format을 사용하여 외부 솔루션 연결](connect-common-event-format.md)
 

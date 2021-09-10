@@ -2,13 +2,13 @@
 title: 레지스트리 관련 네트워크 문제 해결
 description: 가상 네트워크에서 또는 방화벽 뒤에 있는 Azure 컨테이너 레지스트리에 액세스할 때 발생하는 일반적인 문제에 대한 증상, 원인 및 해결 방법
 ms.topic: article
-ms.date: 03/30/2021
-ms.openlocfilehash: d9cfa0aa902fca1afd1033d40b33ccdf5baa56d7
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 05/10/2021
+ms.openlocfilehash: 7ea4eb698f855a98df22e2e0426a0004c890290c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066679"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566215"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>레지스트리 관련 네트워크 문제 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "110066679"
 
 * 클라이언트 방화벽 또는 프록시에서 액세스 방지 - [솔루션](#configure-client-firewall-access)
 * 레지스트리의 공용 네트워크 액세스 규칙에서 액세스 방지 - [솔루션](#configure-public-access-to-registry)
-* 가상 네트워크 구성에서 액세스 방지 - [솔루션](#configure-vnet-access)
+* 가상 네트워크 또는 프라이빗 엔드포인트 구성에서 액세스 방지 - [솔루션](#configure-vnet-access)
 * 프라이빗 엔드포인트, 서비스 엔드포인트 또는 공용 IP 액세스 규칙을 포함하는 레지스트리와 Azure Security Center 또는 다른 특정 Azure 서비스를 통합하려고 시도합니다. - [솔루션](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>추가 진단 
@@ -87,7 +87,11 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 가상 네트워크가 프라이빗 링크 또는 서비스 엔드포인트(미리 보기)에 대한 프라이빗 엔드포인트로 구성되어 있는지 확인합니다. 현재 Azure Bastion 엔드포인트는 지원되지 않습니다.
 
-프라이빗 엔드포인트가 구성된 경우 DNS가 레지스트리의 개인 IP 주소에 대한 *myregistry.azurecr.io* 와 같은 레지스트리의 공용 FQDN을 확인하는지 확인합니다. DNS 조회를 위해 `dig` 또는 `nslookup`과 같은 네트워크 유틸리티를 사용합니다. 레지스트리 FQDN 및 각 데이터 엔드포인트 FQDN에 대해 [DNS 레코드가 구성](container-registry-private-link.md#dns-configuration-options)되었는지 확인합니다.
+프라이빗 엔드포인트가 구성된 경우 DNS가 레지스트리의 개인 IP 주소에 대한 *myregistry.azurecr.io* 와 같은 레지스트리의 공용 FQDN을 확인하는지 확인합니다.
+
+  * `--vnet` 매개 변수와 함께 [az acr check-health](/cli/azure/acr#az_acr_check_health) 명령을 실행하여 가상 네트워크의 프라이빗 엔드포인트에 라우팅되는 DNS를 확인합니다.
+  * DNS 조회를 위해 `dig` 또는 `nslookup`과 같은 네트워크 유틸리티를 사용합니다. 
+  * 레지스트리 FQDN 및 각 데이터 엔드포인트 FQDN에 대해 [DNS 레코드가 구성](container-registry-private-link.md#dns-configuration-options)되었는지 확인합니다. 
 
 네트워크의 다른 리소스에서 레지스트리로의 트래픽을 제한하는 데 사용되는 NSG 규칙 및 서비스 태그를 검토합니다. 
 
@@ -130,8 +134,8 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 관련 링크:
 
-* [Azure Container Registry 모니터링](monitor-service.md)
-* [컨테이너 레지스트리 FAQ](container-registry-faq.md)
+* [진단 평가 및 감사를 위한 로그](./monitor-service.md)
+* [컨테이너 레지스트리 FAQ](container-registry-faq.yml)
 * [Azure Container Registry에 대한 Azure 보안 기준](security-baseline.md)
 * [Azure Container Registry의 모범 사례](container-registry-best-practices.md)
 

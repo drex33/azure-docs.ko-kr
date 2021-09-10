@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4ce337c97aa7eca601e72122568c3205ca21457f
-ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
+ms.openlocfilehash: 3b26cd01c125b18727ec3176b6c1ea932083be86
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111372387"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318544"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 
@@ -77,6 +77,13 @@ ms.locfileid: "111372387"
 
 ![사용량 및 예상 비용](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
+## <a name="quotas"></a>할당량
+
+사전 집계된 메트릭은 Azure Monitor 시계열로 저장되며 [사용자 지정 메트릭에 대한 Azure Monitor 할당량](../essentials/metrics-custom-overview.md#quotas-and-limits)이 적용됩니다.
+
+> [!NOTE]
+> 할당량을 초과하면 의도하지 않은 결과가 발생할 수 있습니다. Azure Monitor는 사용자의 구독 또는 지역에서 불안정해질 수 있습니다. 할당량 초과를 방지하는 방법을 알아보려면 [디자인 제한 사항 및 고려 사항](../essentials/metrics-custom-overview.md#design-limitations-and-considerations)을 참조하세요.
+  
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>사용자 지정 메트릭 차원의 수집이 기본적으로 꺼진 이유는 무엇인가요?
 
 앞으로 차원이 있는 사용자 지정 메트릭을 저장하면 Application Insights와 별도로 요금이 청구될 것이지만 차원이 없는 사용자 지정 메트릭은 무료(할당량까지)이기 때문에 사용자 지정 메트릭 차원 수집이 기본적으로 꺼져 있습니다. 공식 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 앞으로의 가격 책정 모델 변경에 대해 확인할 수 있습니다.

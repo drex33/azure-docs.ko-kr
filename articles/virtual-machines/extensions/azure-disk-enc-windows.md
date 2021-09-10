@@ -8,12 +8,12 @@ author: ejarvi
 ms.author: ejarvi
 ms.collection: windows
 ms.date: 03/19/2020
-ms.openlocfilehash: 62ad5ca5d3b150aef5a83eaa4d5231e7bb5a6a62
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 679682ed0a268306bfb6c7afcf9abbd94a4d45b7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110100183"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566908"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -134,6 +134,8 @@ V 2.2 스키마는 모든 새 VM에 권장되며, Azure Active Directory 속성�
 
 ### <a name="property-values"></a>속성 값
 
+참고: 모든 값은 대/소문자를 구분합니다.
+
 | Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
@@ -156,7 +158,7 @@ V 2.2 스키마는 모든 새 VM에 권장되며, Azure Active Directory 속성�
 
 스키마 v2.2를 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm-without-aad)를 참조하세요.
 
-스키마 v1.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [201-encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)를 참조하세요.
+스키마 v1.1을 기반으로 하는 템플릿 배포의 예는 Azure 빠른 시작 템플릿 [encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm)을 참조하세요.
 
 >[!NOTE]
 > 또한 `VolumeType` 매개 변수를 All로 설정하면 데이터 디스크는 형식이 올바르게 지정된 경우에만 암호화됩니다.

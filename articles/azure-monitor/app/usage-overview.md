@@ -1,20 +1,19 @@
 ---
-title: Azure Application Insights로 사용 분석 | Microsoft Docs
+title: Application Insights를 사용하여 사용 현황 분석 | Azure Monitor
 description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.openlocfilehash: 8be8f6ad5285819d2cdb7e369c98d6e9da9d76c8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 07/30/2021
+ms.openlocfilehash: 67739c94afeb841450eb465fe5cd5259093e2e78
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082345"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566454"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
-가장 인기 있는 웹 또는 모바일 앱의 기능은 무엇인가요? 사용자가 앱으로 이러한 목표를 달성하고 있나요? 특정 지점에서 나갔다가 나중에 돌아오나요?  [Azure Application Insights](./app-insights-overview.md)는 사람들이 사용자의 앱을 사용하는 방식을 잘 이해할 수 있도록 도와줍니다. 앱을 업데이트할 때마다 사용자들에게 얼마나 적절한지 평가할 수 있습니다. 이러한 지식을 바탕으로 다음 개발 주기에 대해 데이터 중심의 결정을 내릴 수 있습니다.
+가장 인기 있는 웹 또는 모바일 앱의 기능은 무엇인가요? 사용자가 앱으로 이러한 목표를 달성하고 있나요? 특정 지점에서 나갔다가 나중에 돌아오나요?  [Application Insights](./app-insights-overview.md)는 사람들의 앱 사용 방식을 잘 이해할 수 있도록 도와줍니다. 앱을 업데이트할 때마다 사용자들에게 얼마나 적절한지 평가할 수 있습니다. 이러한 지식을 바탕으로 다음 개발 주기에 대해 데이터 중심의 결정을 내릴 수 있습니다.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Cijb]
 
 ## <a name="send-telemetry-from-your-app"></a>앱에서 원격 분석 보내기
 
@@ -47,7 +46,7 @@ ms.locfileid: "110082345"
 
 3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](../app/mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
 
-4. **원격 분석 가져오기:** 몇 분 동안 디버그 모드에서 프로젝트를 실행한 다음, Application Insights의 개요 블레이드에서 결과를 찾습니다.
+4. **원격 분석 가져오기:** 몇 분 동안 디버그 모드에서 프로젝트를 실행한 다음, Application Insights의 개요 창에서 결과를 찾습니다.
 
     앱을 게시하여 앱의 성능을 모니터링하고 사용자가 앱으로 수행하는 작업을 확인합니다.
 
@@ -56,7 +55,7 @@ ms.locfileid: "110082345"
 
 사용자 및 세션 보고서는 페이지 또는 사용자 지정 이벤트를 기준으로 데이터를 필터링하고 위치, 환경 및 페이지 등의 속성으로 나눕니다. 필터를 직접 추가할 수도 있습니다.
 
-![화면 캡처에서는 가상 회사에 대한 사용자 개요 페이지를 보여 줍니다.](./media/usage-overview/users.png)  
+:::image type="content" source="./media/usage-overview/users.png" alt-text="막대형 차트가 있는 사용자 탭을 보여 주는 화면 캡처" lightbox="./media/usage-overview/users.png":::
 
 오른쪽의 자세한 정보에는 데이터 집합에서 주목할 만한 패턴이 나와 있습니다.  
 
@@ -73,11 +72,11 @@ ms.locfileid: "110082345"
 - 실제 사용자 데이터에 따라 가설 세우기 
 - 재방문 주기가 제품에서 문제가 되는지 여부 확인 
 
-![화면 캡처에서는 사용자가 앱을 사용하기 위해 반환하는 빈도에 대한 정보를 표시하는 보존 개요 페이지를 보여 줍니다.](./media/usage-overview/retention.png) 
+:::image type="content" source="./media/usage-overview/retention.png" alt-text="사용자가 앱을 사용하기 위해 돌아오는 빈도에 대한 정보를 표시하는 재방문 주기 통합 문서를 보여 주는 화면 캡처" lightbox="./media/usage-overview/retention.png":::
 
 상단의 재방문 주기 컨트롤을 사용하여 재방문 주기를 계산할 특정 이벤트 및 시간 범위를 정의할 수 있습니다. 중간에 표시되는 그래프는 지정된 시간 범위별로 전반적인 재방문 주기 비율을 시각적으로 보여 줍니다. 하단의 그래프는 지정된 기간 내의 개별 재방문 주기를 나타냅니다. 이 수준의 세부 정보를 사용하면 사용자가 수행하는 작업과 다시 방문한 사용자에게 영향을 미칠 수 있는 요인을 좀 더 자세히 이해할 수 있습니다.  
 
-[재방문 주기 도구에 대한 추가 정보](usage-retention.md)
+[재방문 주기 통합 문서에 대한 추가 정보](usage-retention.md)
 
 ## <a name="custom-business-events"></a>사용자 지정 비즈니스 이벤트
 
@@ -87,12 +86,11 @@ ms.locfileid: "110082345"
 
 경우에 따라 페이지 보기에 유용한 이벤트가 표시될 수 있지만 일반적으로는 그렇지 않습니다. 사용자는 제품 페이지를 열기만 하고 제품을 구입하지 않을 수 있습니다. 
 
-특정 비즈니스 이벤트를 사용하여 사이트를 통한 사용자의 진행 상황을 차트로 나타낼 수 있습니다. 다양한 옵션에 대한 사용자의 선호도를 알아내고 사이트를 나가거나 어려움을 느끼는 경우를 알 수 있습니다. 이러한 지식을 바탕으로 개발 백로그에서 우선 순위를 결정할 수 있습니다.
+특정 비즈니스 이벤트를 사용하여 사이트를 통한 사용자의 진행 상황을 차트로 나타낼 수 있습니다. 다양한 옵션에 대한 사용자의 선호도를 알아내고 앱 사용을 중지하거나 문제가 있는 위치를 확인합니다. 이러한 지식을 바탕으로 개발 백로그에서 우선 순위를 결정할 수 있습니다.
 
 이벤트는 앱의 클라이언트 쪽에서 로깅될 수 있습니다.
 
 ```JavaScript
-
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
@@ -107,14 +105,15 @@ ms.locfileid: "110082345"
     tc.TrackEvent("CompletedPurchase");
 ```
 
-포털에서 검사할 때 이벤트를 필터링하거나 분할할 수 있도록 이러한 이벤트에 속성 값을 추가할 수 있습니다. 또한 익명 사용자 ID와 같은 표준 속성 집합이 각 이벤트에 추가되므로 개별 사용자의 활동 시퀀스를 추적할 수 있습니다.
+포털에서 검사할 때 이벤트를 필터링하거나 분할할 수 있도록 이러한 이벤트에 속성 값을 추가할 수 있습니다. 또한 익명 사용자 ID와 같은 표준 속성 세트가 각 이벤트에 추가되므로 개별 사용자의 활동 시퀀스를 추적할 수 있습니다.
 
 [사용자 지정 이벤트](./api-custom-events-metrics.md#trackevent) 및 [속성](./api-custom-events-metrics.md#properties)에 대해 자세히 알아보세요.
 
 ### <a name="slice-and-dice-events"></a>이벤트 분석 및 분할
 
 사용자, 세션 및 이벤트 도구에서 사용자, 이벤트 이름 및 속성별로 사용자 지정 이벤트를 분석 및 분할할 수 있습니다.
-![화면 캡처에서는 가상 회사의 사용자 개요 페이지를 보여 줍니다.](./media/usage-overview/users.png)  
+
+:::image type="content" source="./media/usage-overview/events.png" alt-text="AnalyticsItemsOperation으로 필터링되고 AppID로 분할된 이벤트 탭을 보여 주는 화면 캡처" lightbox="./media/usage-overview/events.png":::
   
 ## <a name="design-the-telemetry-with-the-app"></a>앱을 사용하여 원격 분석 디자인
 

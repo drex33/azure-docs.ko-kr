@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/19/2021
+ms.date: 08/03/2021
 ms.author: phjensen
-ms.openlocfilehash: 0eae929d60ce852e7a98f12430de796aa664d86f
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 5eae527b288570053e1e899bc776d541ffa9e60b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481453"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535770"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅샷 도구 설치
 
@@ -69,9 +69,13 @@ ms.locfileid: "110481453"
 
 ## <a name="enable-communication-with-storage"></a>스토리지와의 통신 사용
 
-이 섹션에서는 스토리지와의 통신을 사용하는 방법에 대해 설명합니다.
+이 섹션에서는 스토리지와의 통신을 사용하는 방법에 대해 설명합니다.  
 
-### <a name="azure-netapp-files"></a>Azure NetApp Files
+다음 중 하나의 지침에 따라 구성에 대한 스토리지를 구성합니다.
+1. [Azure NetApp Files(Virtual Machine 포함)](#azure-netapp-files-with-virtual-machine) 
+1. [Azure Large Instance(운영 체제 미설치)](#azure-large-instance-bare-metal)
+
+### <a name="azure-netapp-files-with-virtual-machine"></a>Azure NetApp Files(Virtual Machine 포함)
 
 RBAC 서비스 주체 만들기
 
@@ -114,7 +118,7 @@ RBAC 서비스 주체 만들기
 
 1. 출력 콘텐츠를 잘라내어 `azacsnap` 명령과 동일한 시스템에 저장된 `azureauth.json`이라는 파일에 붙여 넣고 적합한 시스템 권한으로 파일을 보호합니다.
 
-### <a name="azure-large-instance"></a>Azure 대규모 인스턴스
+### <a name="azure-large-instance-bare-metal"></a>Azure Large Instance(운영 체제 미설치)
 
 스토리지 백 엔드와의 통신은 암호화된 SSH 채널을 통해 실행됩니다. 다음 예제 단계는 이 통신에 대해 SSH를 설정하는 방법에 대한 지침을 제공하는 것입니다.
 

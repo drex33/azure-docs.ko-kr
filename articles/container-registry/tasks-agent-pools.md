@@ -4,12 +4,12 @@ description: 레지스트리에서 Azure Container Registry 작업을 실행할 
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: a303155b82cc35461cd6080b3cce694ffe7a1fc4
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: c8c790e551cd6e31df515a3af9fc0ea835be1ce4
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112122834"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769672"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>전용 에이전트 풀에서 ACR 작업 실행
 
@@ -31,7 +31,7 @@ ms.locfileid: "112122834"
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
 - 작업 에이전트 풀에서는 현재 Linux 노드를 지원합니다. Windows 노드는 현재 지원되지 않습니다.
-- 작업 에이전트 풀은 미국 서부 2, 미국 중남부, 미국 동부 2, 미국 동부, 미국 중부, 서유럽, 북유럽, 캐나다 중부, USGov 애리조나, USGov 텍사스, USGov 버지니아 지역에서 미리 보기로 제공됩니다.
+- 작업 에이전트 풀은 미국 서부 2, 미국 중남부, 미국 동부 2, 미국 동부, 미국 중부, 서유럽, 북유럽, 캐나다 중부, 동아시아, USGov 애리조나, USGov 텍사스, USGov 버지니아 지역에서 미리 보기로 제공됩니다.
 - 각 레지스트리에 대해 기본 총 vCPU(코어) 할당량은 모든 표준 에이전트 풀의 경우 16개, 격리 에이전트 풀의 경우 0개입니다. 추가 할당이 필요하면 [지원 요청][open-support-ticket]을 엽니다.
 - 현재는 에이전트 풀에서 작업 실행을 취소할 수 없습니다.
 

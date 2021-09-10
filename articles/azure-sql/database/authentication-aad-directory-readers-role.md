@@ -8,22 +8,19 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/14/2020
-ms.openlocfilehash: d764c6b6cff6a0ba23d659d4fda63e21aac9b155
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 07/30/2021
+ms.openlocfilehash: 738338c4f3931e97965e697ca1bf316018a495c8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644189"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566741"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Azure SQL용 Azure Active Directory의 Directory Readers 역할
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-> [!NOTE]
-> 이 문서에서 이 기능은 **퍼블릭 미리 보기** 로 제공됩니다.
-
-Azure AD(Azure Active Directory)는 [클라우드 그룹을 사용하여 Azure Active Directory에서 역할 할당 관리(미리 보기)](../../active-directory/roles/groups-concept.md) 기능을 도입했습니다. 따라서 Azure AD 역할을 그룹에 할당할 수 있습니다.
+Azure Active Directory(Azure AD)는 [Azure AD 그룹을 사용하여 역할 할당 관리](../../active-directory/roles/groups-concept.md) 기능을 도입했습니다. 따라서 Azure AD 역할을 그룹에 할당할 수 있습니다.
 
 Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics에 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)를 사용하도록 설정하는 경우 Azure AD [  **디렉터리 읽기 권한자**](../../active-directory/roles/permissions-reference.md#directory-readers) 역할을 ID에 할당해야 [Azure AD Graph API](/graph/migrate-azure-ad-graph-planning-checklist)에 대한 읽기 권한이 허용됩니다. SQL Database 및 Azure Synapse의 관리 ID를 서버 ID라고 합니다. SQL Managed Instance의 관리 ID는 관리형 인스턴스 ID라고 하며, 인스턴스를 만들 때 자동으로 할당됩니다. SQL Database 또는 Azure Synapse에서 서버 ID를 할당하는 데 관한 자세한 내용은 [서비스 주체를 사용하여 Azure AD 사용자 만들기](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users)를 참조하세요.
 
@@ -45,7 +42,7 @@ SQL Managed Instance의 경우 [관리형 인스턴스에 대한 Azure AD 관리
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Azure AD 그룹에 디렉터리 읽기 권한자 역할 부여
 
-현재 **퍼블릭 미리 보기** 에서 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator)가 Azure AD 그룹을 만들고 [**디렉터리 읽기 권한자**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 그룹에 할당할 수 있습니다. 그러면 이 그룹의 구성원이 Azure AD Graph API에 액세스할 수 있습니다. 또한 이 그룹의 소유자인 Azure AD 사용자는 Azure SQL 논리 서버의 ID를 포함하여 이 그룹의 새 구성원을 할당할 수 있습니다.
+이제 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator)가 Azure AD 그룹을 생성하고 [**디렉터리 읽기**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 그룹에 할당할 수 있습니다. 그러면 이 그룹의 구성원이 Azure AD Graph API에 액세스할 수 있습니다. 또한 이 그룹의 소유자인 Azure AD 사용자는 Azure SQL 논리 서버의 ID를 포함하여 이 그룹의 새 구성원을 할당할 수 있습니다.
 
 이 솔루션에서는 여전히 ​​높은 권한 사용자(글로벌 관리자 또는 권한이 있는 역할 관리자)가 그룹을 만들고 사용자를 일회성 작업으로 할당해야 하지만, Azure AD 그룹 소유자는 계속 추가 구성원을 할당할 수 있습니다. 따라서 나중에 Azure AD 테넌트에서 모든 SQL Database, SQL Managed Instances 또는 Azure Synapse 서버를 구성하기 위해 높은 권한의 사용자를 포함할 필요가 없습니다.
 

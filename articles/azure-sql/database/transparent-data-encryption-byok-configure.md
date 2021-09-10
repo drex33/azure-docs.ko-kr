@@ -11,21 +11,24 @@ ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 03/12/2019
-ms.openlocfilehash: df531a38d7a38141ee07a88ddce77a2e85c2cd98
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.date: 06/23/2021
+ms.openlocfilehash: 56ac53d8c7b1361e01a5ca72478c68f6db15873f
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413594"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113090298"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 Azure CLI: Azure Key Vault에서 고객 관리형 키로 투명한 데이터 암호화를 사용하도록 설정
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 문서에서는 Azure SQL Database 또는 Azure Synapse Analytics에서 TDE(투명한 데이터 암호화)에 대해 Azure Key Vault의 키를 사용하는 방법에 대해 설명합니다. Azure Key Vault 통합으로 TDE - BYOK(Bring Your Own Key) 지원에 대해 자세히 알아보려면 [Azure Key Vault에서 고객 관리형 키로 TDE](transparent-data-encryption-byok-overview.md)를 참조하세요.
+이 문서에서는 Azure SQL Database 또는 Azure Synapse Analytics에서 TDE(투명한 데이터 암호화)에 대해 Azure Key Vault의 키를 사용하는 방법에 대해 설명합니다. Azure Key Vault 통합으로 TDE - BYOK(Bring Your Own Key) 지원에 대해 자세히 알아보려면 [Azure Key Vault에서 고객 관리형 키로 TDE](transparent-data-encryption-byok-overview.md)를 참조하세요. 
 
 > [!NOTE] 
 > 이제 Azure SQL은 관리형 HSM에 저장된 RSA 키를 TDE 보호기로 사용하도록 지원합니다. 이 기능은 **퍼블릭 미리 보기** 상태입니다. Azure Key Vault 관리형 HSM은 FIPS 140-2 수준 3 유효성이 검사된 HSM을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다. [관리형 HSM](../../key-vault/managed-hsm/index.yml)에 대해 자세히 알아봅니다.
+
+> [!NOTE]
+> 이 문서는 Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics(전용 SQL 풀(이전의 SQL DW))에 적용됩니다. Synapse 작업 영역 내의 전용 SQL 풀을 위한 투명한 데이터 암호화에 관한 설명서는 [Azure Synapse Analytics 암호화](../../synapse-analytics/security/workspaces-encryption.md)를 참조하세요.
 
 ## <a name="prerequisites-for-powershell"></a>PowerShell용 필수 구성 요소
 
@@ -91,7 +94,7 @@ Key Vault에 대한 자세한 내용은 [Key Vault의 PowerShell 지침](../../k
 > 키 자격 증명 모음 이름과 키 이름을 결합한 길이는 94자를 초과할 수 없습니다.
 
 > [!TIP]
-> Key Vault의 KeyId 예제: <br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Key Vault의 KeyId 예제: `https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h`
 >
 > 관리형 HSM의 KeyId 예제:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
@@ -159,7 +162,7 @@ az keyvault set-policy --name <kvname>  --object-id <objectid> --resource-group 
 ```
 
 > [!TIP]
-> 다음 단계를 위해 새 키의 키 URI 또는 keyID를 보관합니다(예: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h).
+> 다음 단계를 위해 새 키의 키 URI 또는 keyID를 보관합니다(예: `https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h`).
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Key Vault 키를 서버에 추가하고 TDE 보호기를 설정합니다
 

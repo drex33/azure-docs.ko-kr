@@ -1,133 +1,205 @@
 ---
 title: 공용 IP 만들기 - Azure PowerShell
+titleSuffix: Azure Virtual Network
 description: Azure PowerShell을 사용하여 공용 IP를 만드는 방법 알아보기
 services: virtual-network
-documentationcenter: na
-author: blehr
+author: asudbring
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/28/2020
-ms.author: blehr
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 381f0bfcc7ff676754994573c50df6296c14a25e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 05/03/2021
+ms.author: allensu
+ms.openlocfilehash: dc9a6aa398a8cab2927bc8890ceaeb4d0026714c
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675994"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113434810"
 ---
-# <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 공용 IP 주소 만들기
+# <a name="create-a-public-ip-address-using-azure-powershell"></a>Azure PowerShell을 사용하여 공용 IP 주소 만들기
 
-이 문서에서는 Azure PowerShell을 사용하여 공용 IP 주소 리소스를 만드는 방법을 소개합니다. 연결할 수 있는 리소스, 기본 SKU와 표준 SKU 간의 차이점, 기타 관련 정보에 대한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)를 참조하세요.  이 예에서는 IPv4 주소만 중점적으로 다룹니다. IPv6 주소에 대한 자세한 내용은 [Azure VNet용 IPv6](./ipv6-overview.md)를 참조하세요.
+이 문서에서는 Azure PowerShell을 사용하여 공용 IP 주소 리소스를 만드는 방법을 소개합니다. 
 
+공용 IP를 지원하는 리소스에 대한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)를 참조하세요.
 ## <a name="prerequisites"></a>필수 구성 요소
 
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 로컬로 설치된 Azure PowerShell 또는 Azure Cloud Shell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 **eastus2** 위치에 **myResourceGroup** 이라는 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'myResourceGroup'
-$loc = 'eastus2'
-
-New-AzResourceGroup -Name $rg -Location $loc
+$rg =@{
+    Name = 'myResourceGroup'
+    Location = 'eastus2'
+}
+New-AzResourceGroup @rg
 ```
-## <a name="create-public-ip"></a>공용 IP 만들기
+## <a name="create-standard-sku-public-ip-with-zones"></a>영역이 있는 표준 SKU 공용 IP 만들기
 
----
-# <a name="standard-sku---using-zones"></a>[**표준 SKU - 영역 사용**](#tab/option-create-public-ip-standard-zones)
+이 섹션에서는 영역이 있는 공용 IP를 만듭니다. 공용 IP 주소는 영역 중복 또는 영역일 수 있습니다.
+
+### <a name="zone-redundant"></a>영역 중복
 
 >[!NOTE]
 >다음 명령은 Az.Network 모듈 버전 4.5.0 이상에서 작동합니다.  현재 사용 중인 Powershell 모듈에 대한 자세한 내용은 [PowerShellGet 설명서](/powershell/module/powershellget/)를 참조하세요.
 
-[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 **myResourceGroup** 에 **myStandardZRPublicIP** 라는 표준 영역 중복 공용 IP 주소를 만듭니다.
+[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 **myResourceGroup** 에 **myStandardZRPublicIP** 라는 표준 영역 중복 공용 IPv4 주소를 만듭니다. 
+
+IPv6 주소를 만들려면 **버전** 매개 변수를 **IPv6** 로 수정합니다.
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'myResourceGroup'
-$loc = 'eastus2'
-$pubIP = 'myStandardZRPublicIP'
-$sku = 'Standard'
-$alloc = 'Static'
-$zone = 1,2,3
-
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
+$ip = @{
+    Name = 'myStandardZRPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
+}
+New-AzPublicIpAddress @ip
 ```
 > [!IMPORTANT]
 > 4\.5.0 이전의 Az.Network 모듈의 경우 영역 매개 변수를 지정하지 않고 위의 명령을 실행하여 영역 중복 IP 주소를 만듭니다. 
 >
 
-**myResourceGroup** 에서 **myStandardZonalPublicIP** 라는 영역 2에 표준 영역 공용 IP 주소를 만들려면 다음 명령을 사용합니다.
+### <a name="zonal"></a>영역
+
+**myResourceGroup** 에서 **myStandardZonalPublicIP** 라는 영역 2에 표준 영역 공용 IPv4 주소를 만들려면 다음 명령을 사용합니다.
+
+IPv6 주소를 만들려면 **버전** 매개 변수를 **IPv6** 로 수정합니다.
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'myResourceGroup'
-$loc = 'eastus2'
-$pubIP = 'myStandardZonalPublicIP'
-$sku = 'Standard'
-$alloc = 'Static'
-$zone = 2
-
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
+$ip = @{
+    Name = 'myStandardZonalPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 2
+}
+New-AzPublicIpAddress @ip
 ```
+>[!NOTE]
+>위의 영역 옵션은 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 있는 지역에서만 유효한 옵션입니다.
 
-위의 영역 옵션은 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 있는 지역에서만 유효한 옵션입니다.
+## <a name="create-standard-public-ip-without-zones"></a>영역이 없는 표준 공용 IP 만들기
 
-# <a name="standard-sku---no-zones"></a>[**표준 SKU - 영역 없음**](#tab/option-create-public-ip-standard)
+이 섹션에서는 비영역 IP 주소를 만듭니다.  
 
 >[!NOTE]
 >다음 명령은 Az.Network 모듈 버전 4.5.0 이상에서 작동합니다.  현재 사용 중인 Powershell 모듈에 대한 자세한 내용은 [PowerShellGet 설명서](/powershell/module/powershellget/)를 참조하세요.
 
-[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 **myResourceGroup** 에서 **myStandardPublicIP** 라는 비영역 리소스로 표준 공용 IP 주소를 만듭니다.
+[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 **myResourceGroup** 에서 **myStandardPublicIP** 라는 비영역 리소스로 표준 공용 IPv4 주소를 만듭니다. 
+
+IPv6 주소를 만들려면 **버전** 매개 변수를 **IPv6** 로 수정합니다.
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'myResourceGroup'
-$loc = 'eastus2'
-$pubIP = 'myStandardPublicIP'
-$sku = 'Standard'
-$alloc = 'Static'
-
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku
+$ip = @{
+    Name = 'myStandardPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+}
+New-AzPublicIpAddress @ip
 ```
+명령에서 **zone** 매개 변수를 제거하는 것은 모든 지역에서 유효합니다.  
 
-이 방법은 모든 지역에서 유효하며, [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 없는 지역에서 표준 공용 IP 주소에 대한 기본 방법입니다.
+**zone** 매개 변수를 제거하는 것은 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 없는 지역에서 표준 공용 IP 주소에 대한 기본 선택 항목입니다.
 
-# <a name="basic-sku"></a>[**기본 SKU**](#tab/option-create-public-ip-basic)
+## <a name="create-a-basic-public-ip"></a>기본 공용 IP 만들기
 
-[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 **myResourceGroup** 에 **myBasicPublicIP** 라는 기본 고정 공용 IP 주소를 만듭니다.  기본 공용 IP에는 가용성 영역의 개념이 없습니다.
+이 섹션에서는 기본 IP를 만듭니다. 기본 공용 IP는 가용성 영역을 지원하지 않습니다.
+
+[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 **myResourceGroup** 에 **myBasicPublicIP** 라는 기본 고정 공용 IPv4 주소를 만듭니다.  
+
+IPv6 주소를 만들려면 **버전** 매개 변수를 **IPv6** 로 수정합니다. 
 
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'myResourceGroup'
-$loc = 'eastus2'
-$pubIP = 'myBasicPublicIP'
-$sku = 'Basic'
-$alloc = 'Static'
-
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku
+$ip = @{
+    Name = 'myStandardPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Basic'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+}
+New-AzPublicIpAddress @ip
 ```
-시간에 따라 IP 주소를 변경할 수 있는 경우 AllocationMethod를 ‘동적’으로 변경하여 **동적** IP 할당을 선택할 수 있습니다.
+시간에 따라 IP 주소를 변경할 수 있는 경우 AllocationMethod를 **동적** 으로 변경하여 **동적** IP 할당을 선택할 수 있습니다. 
 
----
+>[!NOTE]
+> 기본 IPv6 주소는 항상 '동적'이어야 합니다.
+
+## <a name="routing-preference-and-tier"></a>라우팅 기본 설정 및 계층
+
+표준 SKU 정적 공용 IPv4 주소는 라우팅 기본 설정 또는 글로벌 계층 기능을 지원합니다.
+
+### <a name="routing-preference"></a>라우팅 기본 설정
+
+기본적으로 공용 IP 주소에 대한 라우팅 기본 설정은 사용자에게 Microsoft의 글로벌 광역 네트워크를 통해 트래픽을 전달하는 "Microsoft 네트워크"로 설정됩니다.  
+
+**인터넷** 을 선택하면 전송 ISP 네트워크를 사용하여 비용 최적화 속도로 트래픽을 전달하는 대신 Microsoft 네트워크에서의 이동이 최소화됩니다.  
+
+라우팅 기본 설정에 대한 자세한 내용은 [라우팅 기본 설정(미리 보기)이란?](./routing-preference-overview.md)을 참조하세요.
+
+이 명령은 **인터넷** 형식의 라우팅 기본 설정을 통해 새 표준 영역 중복 공용 IPv4 주소를 만듭니다.
+
+```azurepowershell-interactive
+## Create IP tag for Internet and Routing Preference. ##
+$tag = ${
+    IpTagType = 'RoutingPreference'
+    Tag = 'Internet'   
+}
+$ipTag = New-AzPublicIpTag @tag
+
+## Create IP. ##
+$ip = @{
+    Name = 'myStandardPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    IpTag = $ipTag
+    Zone = 1,2,3   
+}
+New-AzPublicIpAddress @ip
+```
+### <a name="tier"></a>서비스 계층
+
+공용 IP 주소는 단일 지역과 연결됩니다. **글로벌** 계층은 여러 지역에 걸쳐 IP 주소를 확장합니다. 지역 간 부하 분산 장치의 프런트 엔드에는 **글로벌** 계층이 필요합니다.  
+
+자세한 내용은 [지역 간 부하 분산 장치](../load-balancer/cross-region-overview.md)를 참조하세요.
+
+다음 명령은 글로벌 IPv4 주소를 만듭니다. 이 주소는 지역 간 부하 분산 장치의 프런트 엔드와 연결될 수 있습니다.
+
+```azurepowershell-interactive
+$ip = @{
+    Name = 'myStandardPublicIP-Global'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Tier = 'Global'
+}
+New-AzPublicIpAddress @ip
+```
+>[!NOTE]
+>글로벌 계층 주소는 가용성 영역을 지원하지 않습니다.
 
 ## <a name="additional-information"></a>추가 정보 
 
-위에 나열된 개별 변수에 대한 자세한 내용은 [공용 IP 주소 관리](./virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조하세요.
+이 방법에 나열된 개별 매개 변수에 대한 자세한 내용은 [공용 IP 주소 관리](./virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [공용 IP 주소를 가상 머신에](./associate-public-ip-address-vm.md#azure-portal) 연결

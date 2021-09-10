@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/27/2021
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2
-ms.openlocfilehash: 5f8f2c1f6d48a5c1b128643258af083b1811570e
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps
+ms.openlocfilehash: dcd4b21214439e03d3c2ba9bc9d46474bdadc48f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854633"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122538754"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정
 
@@ -140,9 +140,17 @@ SP를 만들고 작업 영역에 대해 액세스 권한을 부여하는 가장 
 
 1. [VM에서 Azure 리소스에 대해 시스템에서 할당된 관리 ID](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)를 사용하도록 설정합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 선택한 후 __액세스 제어(IAM)__ , __역할 할당 추가__ 를 선택하고 __역할 할당 대상__ 드롭다운에서 __Virtual Machine__ 을 선택합니다. 마지막으로 VM의 ID를 선택합니다.
+1. [Azure portal](https://portal.azure.com)에서 작업영역을 선택한 다음,__Access Control (IAM)__ 를 선택합니다.
+1. __추가__, __역할 할당 추가__ 를 선택하여 __역할 할당 추가 창__ 을 엽니다.
+1. 다음 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-1. 이 ID에 할당할 역할을 선택합니다. 예를 들어 기여자 또는 사용자 지정 역할을 선택합니다. 자세한 내용은 [리소스 액세스 제어](how-to-assign-roles.md)를 참조하세요.
+    | 설정 | 값 |
+    | ----- | ----- |
+    | 역할 | 할당하려는 역할을 선택합니다. |
+    | 다음에 대한 액세스 할당 | 관리 ID |
+    | 멤버 | 이전에 만든 사용자 관리 ID입니다. |
+
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### <a name="managed-identity-with-compute-cluster"></a>컴퓨팅 클러스터의 관리 ID
 
@@ -229,7 +237,8 @@ from azureml.core import Workspace
 
 ws = Workspace.get(name="ml-example",
                    auth=sp,
-                   subscription_id="your-sub-id")
+                   subscription_id="your-sub-id",
+                   resource_group="your-rg-name")
 ws.get_details()
 ```
 

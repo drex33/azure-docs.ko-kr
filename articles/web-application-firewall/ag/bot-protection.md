@@ -5,23 +5,20 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/31/2019
+ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: 89c863e85d9eab27a47bc1bf7b98cd1c8d89e900
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12c9466a4bee6adb77a0e46e63767c2b22fcc01d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "73516865"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528411"
 ---
-# <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway-preview"></a>Azure Application Gateway에서 웹 애플리케이션 방화벽에 대한 봇 보호 구성(미리 보기)
+# <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway에서 Web Application Firewall에 대한 봇 보호 구성
 
 이 문서에서는 Azure Portal을 사용하여 Application Gateway에 대해 Azure WAF(웹 애플리케이션 방화벽)에서 봇 보호 규칙을 구성하는 방법을 보여 줍니다. 
 
 WAF에 대해 관리형 봇 보호 규칙 집합을 사용하도록 설정하여 알려진 악성 IP 주소의 요청을 차단하거나 기록할 수 있습니다. IP 주소는 Microsoft 위협 인텔리전스 피드에서 제공됩니다. Intelligent Security Graph는 Microsoft 위협 인텔리전스를 구동하며 Azure Security Center를 비롯한 여러 서비스에서 사용됩니다.
-
-> [!NOTE]
-> 봇 보호 규칙 세트는 현재 공개 미리 보기이며 미리 보기 서비스 수준 계약과 함께 제공됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은  [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

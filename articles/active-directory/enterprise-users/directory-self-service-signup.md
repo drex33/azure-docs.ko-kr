@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/19/2021
+ms.date: 09/01/2021
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1869c48e38bdaf56fe4bd428a7bcbd6d316b85
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 58f02ff10ab2eaee7460942e1ba98df1f9771bfc
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535704"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426007"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 등록이란?
 
@@ -61,10 +61,10 @@ AllowEmailVerifiedUsers 및 AllowAdHocSubscriptions는 관리되거나 관리되
 
 이전 조건이 true이면 홈 테넌트에서 멤버 사용자가 만들어지고, 초대하는 테넌트에서 B2B 게스트 사용자가 만들어집니다.
 
-Flow 및 PowerApps 평가판 등록에 대한 자세한 내용은 다음 문서를 참조하세요.
+Flow 및 Power Apps 평가판 등록에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [내 기존 사용자가 Power BI를 사용하기 시작하지 않도록 방지하는 방법](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [조직의 Flow Q&A](/flow/organization-q-and-a)
+* [조직의 Flow Q&A](/power-automate/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>컨트롤이 어떻게 작동하나요?
 이 두 매개 변수를 함께 사용하여 정의하면 셀프 서비스 등록을 더욱 세밀하게 제어할 수 있습니다. 예를 들어 Azure AD에 이미 계정이 있는 사용자만 다음 명령을 사용하여 셀프 서비스 등록을 수행할 수 있습니다. 즉, 이메일로 확인된 계정을 먼저 만들어야 하는 사용자는 셀프 서비스 등록을 수행할 수 없습니다.

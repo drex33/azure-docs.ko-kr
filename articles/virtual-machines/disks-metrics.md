@@ -2,19 +2,22 @@
 title: 디스크 메트릭
 description: 디스크 버스팅 메트릭의 예
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 60486c41ad843cf193ee0648dfcfef66f7668e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 461d8c7ae29c56a80b8863b2900c051158add918
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674974"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689381"
 ---
 # <a name="disk-performance-metrics"></a>디스크 성능 메트릭
+
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
+
 Azure는 VM(가상 머신) 및 디스크의 성능에 대한 인사이트를 제시하는 메트릭을 Azure Portal에서 제공합니다. API 호출을 통해 이러한 메트릭을 검색할 수도 있습니다. 이 문서는 세 개의 하위 섹션으로 나뉩니다.
 
 - **디스크 IO, 처리량 및 큐 깊이 메트릭** - 이 메트릭으로 디스크 및 가상 머신의 관점에서 스토리지 성능을 확인할 수 있습니다.
@@ -58,7 +61,9 @@ Azure는 VM(가상 머신) 및 디스크의 성능에 대한 인사이트를 제
 - **OS 디스크 사용 버스팅 IO 크레딧 백분율**: OS 디스크에 사용되는 IOPS 버스팅의 누적 백분율입니다. 5분 간격으로 내보냅니다.
 
 ## <a name="storage-io-utilization-metrics"></a>스토리지 IO 사용률 메트릭
-다음 메트릭은 Virtual Machine과 Disk 조합의 병목 상태를 진단하는 데 도움이 됩니다. 이러한 메트릭은 프리미엄 사용 VM을 사용하는 경우에만 제공됩니다. 이 메트릭은 Ultra를 제외한 모든 디스크 유형에 사용할 수 있습니다. 
+다음 메트릭은 Virtual Machine과 Disk 조합의 병목 상태를 진단하는 데 도움이 됩니다. 이러한 메트릭은 다음 구성에서만 사용할 수 있습니다.
+- Premium Storage를 지원하는 VM 시리즈에서만 사용할 수 있습니다.
+- Ultra Disk에는 사용할 수 없습니다. 이러한 VM 시리즈의 다른 모든 디스크 유형은 이러한 메트릭을 활용할 수 있습니다.
 
 디스크 IO 상한 도달을 진단하는 데 도움이 되는 메트릭:
 

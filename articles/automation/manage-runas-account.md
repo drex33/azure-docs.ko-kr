@@ -3,15 +3,15 @@ title: Azure Automation 실행 계정 관리
 description: 이 문서에서는 PowerShell 또는 Azure Portal에서 Azure Automation 실행 계정을 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: ''
-ms.date: 05/17/2021
+ms.date: 08/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d2d615df07e89e1fc2d4e63066d320002718d200
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b6248ee0815d90be83030931c011bb2e8208eeaa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059683"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535499"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Azure Automation 실행 계정 관리
 
@@ -23,7 +23,7 @@ Azure Automation의 실행 계정은 Automation Runbook 및 기타 Automation �
    * 엔터프라이즈 또는 타사 CA(인증 기관)에서 인증서를 갱신하는 방법
    * 실행 계정에 대한 권한 관리
 
-Azure Automation 계정 인증 및 프로세스 자동화 시나리오 관련 참고 자료에 대한 자세한 정보는 [Automation 계정 인증 개요](automation-security-overview.md)를 참조하세요.
+Azure Automation 계정 인증, 실행 관리를 위해 필요한 사용 권한, 프로세스 자동화 시나리오 관련 참고 자료에 대한 자세한 정보는 [Automation 계정 인증 개요](automation-security-overview.md)를 참조하세요.
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>자체 서명된 인증서 갱신
 

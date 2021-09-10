@@ -10,13 +10,13 @@ ms.custom: contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/01/2020
-ms.openlocfilehash: 7b25aaf6d151b840571a562819fb804f4af5c8dd
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 07/28/2021
+ms.openlocfilehash: a620d1cbd9ae0f9a4f03e6bf744cf2febd8ac240
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371088"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566795"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -36,6 +36,8 @@ Azure Kubernetes Service에 배포하는 경우 __작업 영역에 연결__ 된 
 > 웹 서비스에 배포하기 전에 로컬에서 디버그하는 것이 좋습니다. 자세한 내용은 [로컬에서 디버그](./how-to-troubleshoot-deployment-local.md)를 참조하세요.
 >
 > 또한 Azure Machine Learning - [로컬 Notebook에 배포](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)를 참조할 수 있습니다.
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,7 +72,7 @@ Azure Machine Learning에서 "배포"는 프로젝트 리소스를 제공하고 
 1. dockerfile을 컴퓨팅 노드로 다운로드 또는 빌드(Kubernetes 관련)
     1. 시스템에서 다음 해시가 계산됩니다. 
         - 기본 이미지 
-        - 사용자 지정 docker 단계([사용자 지정 Docker 기본 이미지를 사용하여 모델 배포](./how-to-deploy-custom-docker-image.md) 참조)
+        - 사용자 지정 docker 단계([사용자 지정 Docker 기본 이미지를 사용하여 모델 배포](./how-to-deploy-custom-container.md) 참조)
         - conda 정의 YAML ([Azure Machine Learning에서 소프트웨어 환경 만들기 및 사용](./how-to-use-environments.md) 참조)
     1. 시스템은 작업 영역 ACR(Azure Container Registry) 조회에서 이 해시를 키로 사용합니다.
     1. 찾을 수 없는 경우 전역 ACR에서 일치하는 항목을 찾습니다.
@@ -92,26 +94,35 @@ Azureml-fe는 더 많은 코어를 사용하도록 스케일 업(세로)하고 �
 
 스케일 다운 및 스케일 인하는 경우에는 CPU 사용량이 사용됩니다. CPU 사용량 임계값에 도달하면 프런트 엔드가 먼저 스케일 다운됩니다. CPU 사용량이 스케일 인 임계값으로 떨어지면 스케일 인 작업이 발생합니다. 스케일 업 및 스케일 아웃은 사용 가능한 클러스터 리소스가 충분한 경우에만 발생합니다.
 
+<a id="connectivity"></a>
+
 ## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>AKS 추론 클러스터에 대한 연결 요구 사항 이해
 
 Azure Machine Learning이 AKS 클러스터를 만들거나 연결할 때 AKS 클러스터는 다음 두 가지 네트워크 모델 중 하나로 배포됩니다.
 * Kubenet 네트워킹 - 네트워크 리소스는 일반적으로 AKS 클러스터가 배포될 때 만들어지고 구성됩니다.
-* Azure CNI(컨테이너 네트워킹 인터페이스) 네트워킹 - AKS 클러스터가 기존 가상 네트워크 리소스 및 구성에 연결됩니다.
+* Azure CNI(Container Networking Interface) 네트워킹 - AKS 클러스터가 기존 가상 네트워크 리소스 및 구성에 연결됩니다.
 
-첫 번째 네트워크 모드의 경우, 네트워킹은 Azure Machine Learning 서비스에 적절하게 생성 및 구성됩니다. 두 번째 네트워킹 모드의 경우, 클러스터가 기존 가상 네트워크에 연결되어 있기 때문에, 특히 사용자 지정 DNS가 기존 가상 네트워크에 사용되는 경우, 고객은 AKS 유추 클러스터에 대한 연결 요구 사항에 특별히 주의를 기울이고 AKS 유추를 위한 DNS 확인 및 아웃바운드 연결을 보장해야 합니다.
+Kubenet 네트워킹의 경우 Azure Machine Learning 서비스에 적절하게 네트워크를 만들고 구성합니다. CNI 네트워킹의 경우 연결 요구 사항을 이해하고 AKS 추론에 대한 DNS 확인 및 아웃바운드 연결을 확인해야 합니다. 예를 들어 방화벽을 사용하여 네트워크 트래픽을 차단할 수 있습니다.
 
-다음 다이어그램은 AKS 유추에 대한 모든 연결 요구 사항을 포함합니다. 검은색 화살표는 실제 통신을 나타내고 파란색 화살표는 도메인 이름(고객이 제어하는 DNS가 확인해야 함)을 나타냅니다.
+다음 다이어그램에서는 AKS 추론에 대한 연결 요구 사항을 보여 줍니다. 검은색 화살표는 실제 통신을 나타내고 파란색 화살표는 도메인 이름을 나타냅니다. 이러한 호스트에 대한 항목을 방화벽 또는 사용자 지정 DNS 서버에 추가해야 할 수 있습니다.
 
  ![AKS 유추에 대한 연결 요구 사항](./media/how-to-deploy-aks/aks-network.png)
 
+일반적인 AKS 연결 요구 사항은 [Azure Kubernetes Service에서 클러스터 노드의 송신 트래픽 제어](../aks/limit-egress-traffic.md)를 참조하세요.
+
 ### <a name="overall-dns-resolution-requirements"></a>전체 DNS 확인 요구 사항
-기존 VNET 내 DNS 확인은 고객이 제어합니다. 다음 DNS 항목을 확인할 수 있어야 합니다.
-* AKS API 서버(\<cluster\>.hcp.\<region\>.azmk8s.io 형식)
-* MCR(Microsoft Container Registry): mcr.microsoft.com
-* 고객의 ARC(Azure Container Registry)(\<ACR name\>.azurecr.io 형식)
-* Azure Storage 계정(\<account\>.table.core.windows.net 및 \<account\>.blob.core.windows.net 형식)
-* (선택 사항) AAD 인증의 경우 : api.azureml.ms
-* 채점 엔드포인트 도메인 이름(Azure ML 또는 사용자 지정 도메인 이름을 통해 자동 생성됨) 자동 생성된 도메인 이름은 다음과 유사합니다. \<leaf-domain-label \+ auto-generated suffix\>.\<region\>.cloudapp.azure.com
+
+기존 VNet 내에서 DNS 확인은 사용자가 제어합니다. 예를 들면 방화벽 또는 사용자 지정 DNS 서버가 있습니다. 다음 호스트에 연결할 수 있어야 합니다.
+
+| 호스트 이름 | 사용 대상 |
+| ----- | ----- |
+| `<cluster>.hcp.<region>.azmk8s.io` | AKS API 서버 |
+| `mcr.microsoft.com` | MCR(Microsoft Container Registry) |
+| `<ACR name>.azurecr.io` | ACR(Azure Container Registry) |
+| `<account>.table.core.windows.net` | Azure Storage 계정(테이블 스토리지) |
+| `<account>.blob.core.windows.net` | Azure Storage 계정(Blob 스토리지) |
+| `api.azureml.ms` | AAD(Azure Active Directory) 인증 |
+| `<leaf-domain-label + auto-generated suffix>.<region>.cloudapp.azure.com` | 엔드포인트 도메인 이름(Azure Machine Learning에서 자동 생성된 경우). 사용자 지정 도메인 이름을 사용한 경우에는 이 항목이 필요하지 않습니다. |
 
 ### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>연결 요구 사항(시간순): 클러스터 만들기부터 모델 배포까지
 
@@ -125,7 +136,7 @@ azureml-fe가 배포된 직후 시작이 시도되며, 그러려면 다음 작�
 * AKS API 서버를 쿼리하여 다른 인스턴스 검색(여러 Pod 서비스임)
 * 다른 인스턴스에 연결
 
-azureml-fe가 시작되면 제대로 작동하기 위해 추가 연결이 필요합니다.
+azureml-fe가 시작된 후 제대로 작동하려면 다음 연결이 필요합니다.
 * Azure Storage에 연결하여 동적 구성 다운로드
 * AAD 인증 서버 api.azureml.ms에 대한 DNS를 확인하고 배포된 서비스가 AAD 인증을 사용할 때 통신합니다.
 * AKS API 서버를 쿼리하여 배포된 모델 검색
@@ -372,7 +383,7 @@ print(token)
 >
 > Azure Machine Learning 작업 영역은 Azure Kubernetes Service 클러스터와 동일한 지역에 만드는 것이 좋습니다. 토큰으로 인증하기 위해 웹 서비스는 Azure Machine Learning 작업 영역이 생성되는 지역을 호출합니다. 작업 영역의 지역을 사용할 수 없는 경우에는 클러스터가 작업 영역과 다른 지역에 있더라도 웹 서비스에 대한 토큰을 가져올 수 없습니다. 따라서 작업 영역의 지역을 다시 사용할 수 있을 때까지 사실상 토큰 기반 인증을 사용할 수 없습니다. 또한 클러스터 지역과 작업 영역의 지역 간 거리가 멀수록 토큰을 가져오는 데 시간이 오래 걸립니다.
 >
-> 토큰을 검색하려면 Azure Machine Learning SDK 또는 [az ml service get-access-token](/cli/azure/ml/service#az_ml_service_get_access_token) 명령을 사용해야 합니다.
+> 토큰을 검색하려면 Azure Machine Learning SDK 또는 [az ml service get-access-token](/cli/azure/ml(v1)/computetarget/create#az_ml_service_get_access_token) 명령을 사용해야 합니다.
 
 
 ### <a name="vulnerability-scanning"></a>취약성 검색
@@ -383,7 +394,7 @@ Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보
 
 * [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
 * [Azure Virtual Network를 사용한 보안 추론 환경](how-to-secure-inferencing-vnet.md)
-* [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](how-to-deploy-custom-docker-image.md)
+* [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](./how-to-deploy-custom-container.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)
 * [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)

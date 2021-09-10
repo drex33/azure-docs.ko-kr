@@ -1,28 +1,27 @@
 ---
-title: REST 엔드포인트에서 데이터 복사
+title: Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사 및 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Azure Synapse Analytics 파이프라인의 복사 작업을 사용하여 클라우드 또는 온-프레미스 REST 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하거나 지원되는 원본 데이터 저장소에서 REST 싱크로 복사하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 또는 Azure Synapse Analytics 파이프라인에서 클라우드 또는 온-프레미스 REST 원본으로부터 지원되는 싱크 데이터 저장소로 또는 지원되는 원본 데이터 저장소로부터 REST 싱크로 복사 작업을 사용하여 데이터를 복사하고 Data Flow를 사용하여 데이터를 변환하는 방법을 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 08/30/2021
 ms.author: makromer
-ms.openlocfilehash: 5d0c7587b379393976e7229757dc011c6c6aed95
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 16bb4ac7062c39ad57becce4d5280ed227160690
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642591"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123311588"
 ---
-# <a name="copy-data-from-and-to-a-rest-endpoint-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 REST 엔드포인트에서 데이터 복사
-
+# <a name="copy-and-transform-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사 및 변환
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 및 Azure Synapse Analytics 파이프라인에서 복사 작업을 사용하여 REST 엔드포인트에서 데이터를 복사하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory 및 Azure Synapse 파이프라인의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 REST 엔드포인트에서 그리고 REST 엔드포인트로 데이터를 복사하는 방법을 간략히 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
 
-이 REST 커넥터, [HTTP 커넥터](connector-http.md)와 [웹 테이블 커넥터](connector-web-table.md)의 차이점은 다음과 같습니다.
+이 REST 커넥터와 [HTTP 커넥터](connector-http.md)와 [웹 테이블 커넥터](connector-web-table.md)의 차이점은 다음과 같습니다.
 
 - **REST 커넥터** 는 특히 RESTful API에서 데이터를 복사하는 것을 지원합니다. 
 - **HTTP 커넥터** 는 파일을 다운로드하는 등 모든 HTTP 엔드포인트에서 데이터를 검색하는 데 일반적입니다. 이 REST 커넥터 전에는 HTTP 커넥터를 사용하여 지원은 되지만 REST 커넥터와 비교할 때 기능이 적은 RESTful API에서 데이터를 복사할 수도 있습니다.
@@ -40,7 +39,7 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 - 원본인 REST에 REST JSON 응답을 [있는 그대로](#export-json-response-as-is) 복사하거나 [스키마 매핑](copy-activity-schema-and-type-mapping.md#schema-mapping)을 사용하여 구문 분석합니다. **JSON** 의 응답 페이로드만 지원됩니다.
 
 > [!TIP]
-> REST 커넥터를 구성하기 전에 데이터 검색을 위한 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
+> Data Factory에서 REST 커넥터를 구성하기 전에 데이터 검색을 위한 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -50,7 +49,31 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 REST 커넥터에 한정된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+## <a name="create-a-rest-linked-service-using-ui"></a>UI를 사용하여 REST 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 REST 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하고 연결된 서비스를 선택한 다음 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만드는 스크린샷":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 연결된 새 서비스를 만드는 스크린샷":::
+
+2. REST를 검색하여 REST 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-rest/rest-connector.png" alt-text="REST 커넥터 선택.":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-rest/configure-rest-linked-service.png" alt-text="REST 연결된 서비스 구성.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
+다음 섹션에서는 REST 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
@@ -72,7 +95,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | userName | REST 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
-| password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
+| password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
 
 **예제**
 
@@ -105,10 +128,10 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
-| servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
-| azureCloudType | 서비스 주체 인증의 경우 AAD 애플리케이션이 등록된 Azure 클라우드 환경의 형식을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 데이터 팩토리 또는 Synapse 파이프라인의 클라우드 환경이 사용됩니다. | 예 |
+| azureCloudType | 서비스 주체 인증의 경우 AAD 애플리케이션이 등록된 Azure 클라우드 환경의 형식을 지정합니다. <br/> 허용되는 값은 **AzurePublic**, **AzureChina**, **AzureUsGovernment**, **AzureGermany** 입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용됩니다. | 예 |
 
 **예제**
 
@@ -626,4 +649,4 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Data Factory 및 Synapse 파이프라인의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
+Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.

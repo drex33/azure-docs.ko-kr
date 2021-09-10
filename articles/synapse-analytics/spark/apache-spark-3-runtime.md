@@ -1,28 +1,28 @@
 ---
-title: Apache Spark 3.0용 Azure Synapse 런타임(미리 보기)
-description: Apache Spark 3.0용으로 지원되는 Spark, Scala, Python 및 .NET 버전(미리 보기).
+title: Apache Spark 3.1용 Azure Synapse 런타임(미리 보기)
+description: Apache Spark 3.1용으로 지원되는 Spark, Scala, Python 및 .NET 버전(미리 보기).
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
-ms.date: 05/26/2021
+ms.date: 08/23/2021
 ms.author: midesa
-ms.openlocfilehash: 1a129b7db413f7b4104f2d3f21e11f638ef6ee23
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.custom: has-adal-ref
+ms.openlocfilehash: 4ee561e5be8d24136210cd755865973d9aafd62f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579415"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695678"
 ---
-# <a name="azure-synapse-runtime-for-apache-spark-30-preview"></a>Apache Spark 3.0용 Azure Synapse 런타임(미리 보기)
+# <a name="azure-synapse-runtime-for-apache-spark-31-preview"></a>Apache Spark 3.1용 Azure Synapse 런타임(미리 보기)
 
-Azure Synapse Analytics는 Apache Spark에 여러 런타임을 지원합니다. 이 문서에서는 Apache Spark 3.0(미리 보기)용 Azure Synapse 런타임에 대한 런타임 구성 요소 및 버전을 다룹니다.  런타임 엔진은 미리 보기 기간 동안 최신 기능과 라이브러리로 정기적으로 업데이트됩니다.  라이브러리 및 해당 버전에 대한 최신 업데이트를 보려면 여기를 확인하세요.
+Azure Synapse Analytics는 Apache Spark에 여러 런타임을 지원합니다. 이 문서에서는 Apache Spark 3.1(미리 보기)용 Azure Synapse 런타임에 대한 런타임 구성 요소 및 버전을 다룹니다.  런타임 엔진은 미리 보기 기간 동안 최신 기능과 라이브러리로 정기적으로 업데이트됩니다.  라이브러리 및 해당 버전에 대한 최신 업데이트를 보려면 여기를 확인하세요.
 
 ## <a name="known-issues-in-preview"></a>Preview의 알려진 문제
 * Synapse 파이프라인/데이터 흐름 지원이 곧 제공될 예정입니다.
-* 라이브러리를 추가하는 라이브러리 관리가 곧 제공될 예정입니다.
-* 커넥터: 다음 커넥터 지원이 곧 제공될 예정입니다.
+* 다음 커넥터 지원이 곧 제공될 예정입니다.
   * Azure Data Explorer 커넥터
   * CosmosDB
   * SQL Server
@@ -31,14 +31,14 @@ Azure Synapse Analytics는 Apache Spark에 여러 런타임을 지원합니다. 
 ## <a name="component-versions"></a>구성 요소 버전
 |  구성 요소   | 버전   |  
 | ----- | ----- |
-| Apache Spark | 3.0 |
+| Apache Spark | 3.1 |
 | 운영 체제 | Ubuntu 18.04 |
 | Java | 1.8.0_282 |
 | Scala | 2.12  |
 | .NET Core | 3.1 |
-| .NET | 1.0.0 |
-| Delta Lake | 0.8 |
-| Python | 3.6 |
+| .NET | 2.0.0 |
+| Delta Lake | 1.0 |
+| Python | 3.8 |
 
 ## <a name="scala-and-java-libraries"></a>Scala 및 Java 라이브러리
 
@@ -1277,5 +1277,5 @@ zipp=0.6.0
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Apache Spark 설명서](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark 설명서](https://spark.apache.org/docs/3.0.2/)
 - [Apache Spark 개념](apache-spark-concepts.md)

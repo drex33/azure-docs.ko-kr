@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/08/2021
 ms.author: robinsh
-ms.openlocfilehash: abbef6e0e244f7cfc937f738c7c2d0acd89549dd
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: ccbf43eaf10b68f5d23cae5895324dd095932b5e
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114205203"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830066"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Azure CLI를 사용한 자동 IoT 디바이스 및 모듈 관리
 
@@ -63,7 +63,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 대규모 디바이스를 관�
 
 ## <a name="define-the-target-content-and-metrics"></a>대상 콘텐츠 및 메트릭 정의
 
-대상 콘텐츠 및 메트릭 쿼리는 설정할 원하는 디바이스 쌍 또는 모듈 쌍 속성과 측정할 보고된 속성을 설명하는 JSON 문서로 지정됩니다.  Azure CLI를 사용하여 자동 구성을 만들려면 대상 콘텐츠와 메트릭을 로컬에 .txt 파일로 저장합니다. 이후 섹션에서 명령을 실행하여 디바이스에 구성을 적용할 때 파일 경로를 사용합니다.
+대상 콘텐츠 및 메트릭 쿼리는 설정할 원하는 디바이스 쌍 또는 모듈 쌍 속성과 측정할 보고된 속성을 설명하는 JSON 문서로 지정됩니다. Azure CLI를 사용하여 자동 구성을 만들려면 대상 콘텐츠와 메트릭을 로컬에 .txt 파일로 저장합니다. 이후 섹션에서 명령을 실행하여 디바이스에 구성을 적용할 때 파일 경로를 사용합니다.
 
 자동 디바이스 구성에 대한 기본 대상 콘텐츠 샘플은 다음과 같습니다.
 

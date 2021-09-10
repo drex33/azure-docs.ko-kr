@@ -1,7 +1,7 @@
 ---
-title: Azure Key Vault 관리되는 HSM에 저장된 고객 관리형 키를 사용하여 암호화 구성(미리 보기)
+title: Azure Key Vault 관리형 HSM에 저장된 고객 관리형 키를 사용하여 암호화 구성.
 titleSuffix: Azure Storage
-description: Azure CLI를 사용하여 Azure Key Vault 관리되는 HSM(미리 보기)에 저장된 고객 관리형 키로 Azure Storage 암호화를 구성하는 방법에 대해 알아봅니다.
+description: Azure CLI를 사용하여 Azure Key Vault Managed HSM에 저장된 고객 관리형 키로 Azure Storage 암호화를 구성하는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,23 +11,20 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f340ac18cb74523d64f4dbf8d6ae1d6f4559582a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 09f62865c80c05fd0860fa39b18d99c583cf3e56
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411884"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461626"
 ---
-# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Azure Key Vault 관리되는 HSM에 저장된 고객 관리형 키를 사용하여 암호화 구성(미리 보기)
+# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm"></a>Azure Key Vault 관리형 HSM에 저장된 고객 관리형 키를 사용하여 암호화 구성.
 
-Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대한 추가 제어를 위해 사용자 고유의 키를 관리할 수 있습니다. 고객 관리형 키는 Azure Key Vault 또는 Key Vault 관리되는 HSM(하드웨어 보안 모델)(미리 보기)에 저장되어야 합니다. Azure Key Vault 관리되는 HSM은 FIPS 140-2 수준 3 유효성이 검증된 HSM입니다.
+Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대한 추가 제어를 위해 사용자 고유의 키를 관리할 수 있습니다. 고객 관리형 키는 Azure Key Vault 또는 Key Vault Managed HSM(하드웨어 보안 모델)에 저장되어 있어야 합니다. Azure Key Vault 관리되는 HSM은 FIPS 140-2 수준 3 유효성이 검증된 HSM입니다.
 
 이 문서에서는 Azure CLI를 사용하여 관리되는 HSM에 저장된 고객 관리형 키로 암호화를 구성하는 방법을 보여 줍니다. Key Vault에 저장된 고객 관리형 키로 암호화를 구성하는 방법에 대해 알아보려면 [Azure Key Vault에 저장된 고객 관리형 키로 암호화 구성](customer-managed-keys-configure-key-vault.md)을 참조하세요.
 
-> [!IMPORTANT]
->
-> Azure Key Vault 관리되는 HSM에 저장된 고객 관리형 키로 암호화 구성은 현재 **PREVIEW** 상태입니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
+> [!NOTE]
 > Azure Key Vault 및 Azure Key Vault 관리되는 HSM은 구성에 대해 동일한 API 및 관리 인터페이스를 지원합니다.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>스토리지 계정에 ID 할당

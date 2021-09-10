@@ -3,18 +3,18 @@ title: Azure EA Portal 관리
 description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는 일반적인 작업에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/22/2021
+ms.date: 08/25/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a973fc9dc9cf4b4fe514ddf987fd2052c46a6e6b
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: bf887ad515f8c4349fcff54d25be1c70a30d018f
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112519750"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123098322"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -143,9 +143,11 @@ ms.locfileid: "112519750"
 
 ## <a name="change-azure-subscription-or-account-ownership"></a>Azure 구독 또는 계정 소유권 변경
 
-이 섹션은 구독 소유자가 변경되는 경우에만 적용됩니다. 구독 소유권을 변경할 때는 Azure 지원 티켓이 필요하지 않습니다. 엔터프라이즈 관리자는 Azure Enterprise Portal을 사용하여 등록 시 선택한 구독 또는 모든 구독의 계정 소유권을 양도할 수 있습니다. 또한 구독 디렉터리(테넌트)를 변경하는 옵션도 있습니다. 
+이 섹션은 구독 소유자가 변경되는 경우에만 적용됩니다. 구독 소유권을 변경하는 데 Azure 지원 티켓이 필요하지 않습니다. 엔터프라이즈 관리자는 Azure Enterprise Portal을 사용하여 등록 시 선택한 구독 또는 모든 구독의 계정 소유권을 양도할 수 있습니다. 또한 구독 디렉터리(테넌트)를 변경하는 옵션도 있습니다. 
 
 그러나 EA 관리자는 한 등록에서 다른 등록으로 계정을 양도할 수 없습니다. 한 등록에서 다른 등록으로 계정을 양도하려면 지원 요청이 필요합니다. 한 등록에서 다른 등록으로 계정을 양도하는 방법에 대한 내용은 [엔터프라이즈 계정을 새 등록으로 양도](ea-transfers.md#transfer-an-enterprise-account-to-a-new-enrollment)를 참조하세요.
+
+종량제 구독 관리자는 이 동일한 프로세스를 사용하여 구독의 계정 소유권을 EA 등록으로 이전할 수도 있습니다.
 
 구독 또는 계정 소유권 양도가 완료되면 Microsoft에서 계정 소유자를 업데이트합니다.
 

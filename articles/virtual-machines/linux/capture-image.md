@@ -9,14 +9,16 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: 23623d6ddd337c42b56d0c3c26aa7c3a720369d4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8a0f959745b47327d76f56fd62d61f293d1a0e5b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528946"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697000"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 관리형 이미지를 만드는 방법
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 VM 또는 OS VHD의 관리형 이미지를 캡처합니다. 대규모로 이미지를 만들고 저장하고 공유하려면 [공유 이미지 갤러리](../shared-images-cli.md)를 참조하세요.
 

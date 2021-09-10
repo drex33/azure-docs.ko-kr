@@ -1,31 +1,31 @@
 ---
 title: Azure Stack Edge Pro GPU 스토리지 계정 관리 | Microsoft Docs
-description: Azure Portal을 사용하여 Azure Stack Edge Pro에서 스토리지 계정을 관리하는 방법에 대해 설명합니다.
+description: Azure Portal을 사용하여 Azure Stack Edge Pro GPU에서 스토리지 계정을 관리하는 방법에 대해 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/12/2021
+ms.date: 08/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 2d9520c8f97171dbf2f46aa2c94b9e1e280ed86c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c5cb61bf7450ea4668c6368d75615cdf43c2c40
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201270"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530263"
 ---
-# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Azure Portal을 사용하여 Azure Stack Edge Pro에서 Edge 스토리지 계정 관리
+# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro-gpu"></a>Azure Portal을 사용하여 Azure Stack Edge Pro GPU에서 Edge 스토리지 계정 관리
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-이 문서에서는 Azure Stack Edge Pro에서 Edge 스토리지 계정을 관리하는 방법에 대해 설명합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal를 사용하여 디바이스에 Edge 스토리지 계정을 추가하거나 삭제할 수 있습니다.
+이 문서에서는 Azure Stack Edge Pro에서 Edge 스토리지 계정을 관리하는 방법에 대해 설명합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro GPU를 관리할 수 있습니다. Azure Portal를 사용하여 디바이스에 Edge 스토리지 계정을 추가하거나 삭제할 수 있습니다.
 
 ## <a name="about-edge-storage-accounts"></a>Edge 스토리지 계정 정보
 
-SMB, NFS 또는 REST 프로토콜을 통해 Azure Stack Edge Pro 디바이스에서 데이터를 전송할 수 있습니다. REST API를 사용하여 Blob 스토리지에 데이터를 전송하려면 Azure Stack Edge Pro에 Edge 스토리지 계정을 만들어야 합니다. 
+SMB, NFS 또는 REST 프로토콜을 통해 Azure Stack Edge Pro GPU 디바이스에서 데이터를 전송할 수 있습니다. REST API를 사용하여 Blob 스토리지에 데이터를 전송하려면 디바이스에 Edge 스토리지 계정을 만들어야 합니다. 
 
-Azure Stack Edge Pro 디바이스에 추가하는 Edge 스토리지 계정은 Azure Storage 계정에 매핑됩니다. Edge 스토리지 계정에 기록된 모든 데이터는 클라우드에 자동으로 푸시됩니다.
+Azure Stack Edge Pro GPU 디바이스에 추가하는 Edge 스토리지 계정은 Azure Storage 계정에 매핑됩니다. Edge 스토리지 계정에 기록된 모든 데이터는 클라우드에 자동으로 푸시됩니다.
 
 아래의 다이어그램에서는 두 가지 유형의 계정과 각 계정에서 Azure로 데이터를 이동하는 방법을 자세히 설명합니다.
 
@@ -83,9 +83,13 @@ Edge 스토리지 계정을 삭제하려면 다음 단계를 수행합니다.
 
 ## <a name="sync-storage-keys"></a>스토리지 키 동기화
 
-디바이스의 Edge(로컬) 스토리지 계정에 대한 액세스 키를 동기화할 수 있습니다. 
+각 Azure Storage 계정에는 스토리지 계정에 액세스하는 경우 인증에 사용되는 두 개의 512비트 스토리지 액세스 키가 있습니다. Azure Stack Edge 디바이스가 클라우드 스토리지 서비스 공급자(이 경우 Azure)에 액세스할 때 이러한 두 키 중 하나를 제공해야 합니다.
 
-스토리지 계정 액세스 키를 동기화하려면 다음 단계를 수행합니다.
+Azure 관리자는 Azure Storage 서비스를 통해 스토리지 계정에 직접 액세스하여 액세스 키를 다시 생성하거나 변경할 수 있습니다. Azure Stack Edge 서비스와 디바이스에는 이 변경 내용이 자동으로 표시되지 않습니다.
+ 
+Azure Stack Edge에 변경 사실을 알리려면 Azure Stack Edge 서비스에 액세스하고 스토리지 계정에 액세스한 다음, 액세스 키를 동기화해야 합니다. 그러면 서비스는 최신 키를 가져오고 해당 키를 암호화하여 디바이스에 암호화된 키를 보냅니다. 디바이스가 새 키를 가져오면 Azure Storage 계정으로 데이터를 계속 전송할 수 있습니다. 
+ 
+디바이스에 새 키를 제공하려면 Azure Portal에 액세스하고 스토리지 액세스 키를 동기화합니다. 다음과 같은 단계를 수행합니다. 
 
 1. 리소스에서 관리하려는 스토리지 계정을 선택합니다. 상단 명령 모음에서 **스토리지 키 동기화** 를 선택합니다.
 

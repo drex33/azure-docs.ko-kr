@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/29/2021
-ms.openlocfilehash: 32f5a7d845f979f50cea35ae6e2145ca65fa4e17
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: 7dd40b52cbc74e62a6dbb8ed83d19c968e48d9c4
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642233"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822817"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름에서 식 작성
 

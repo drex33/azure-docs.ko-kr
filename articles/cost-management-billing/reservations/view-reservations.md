@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 08/11/2021
 ms.author: banders
-ms.openlocfilehash: 7f0ac2f8813a38a017a901ad4fe793ed628a06d3
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 0c278256c952fce12833a8f4c5fe55e18c3b40b0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608279"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099915"
 ---
 # <a name="permissions-to-view-and-manage-azure-reservations"></a>Azure 예약을 보고 관리할 수 있는 권한
 
@@ -28,7 +28,7 @@ ms.locfileid: "122608279"
 - 예약을 구매하는 사용자와 예약 구매에 사용한 청구 구독의 계정 관리자가 예약 주문에 추가됩니다.
 - 기업계약 및 Microsoft 고객 계약 청구 관리자.
 - 모든 Azure 구독과 관리 그룹을 관리할 수 있는 높은 액세스 권한이 있는 사용자
-- Azure AD(Azure Active Directory) 테넌트(디렉터리)의 예약을 위한 예약 관리자
+- Azure Active Directory(Azure AD) 테넌트(디렉터리)의 예약을 위한 예약 관리자
 - 예약 읽기 권한자는 Azure Active Directory 테넌트(디렉터리)의 예약에 대한 읽기 전용 액세스 권한을 가집니다.
 
 예약 수명 주기는 Azure 구독과 독립적이므로 예약은 Azure 구독에 있는 리소스가 아닙니다. 대신 구독과 분리된 자체 Azure RBAC 권한이 있는 테넌트 수준 리소스입니다. 예약은 구매 후 구독에서 권한을 상속하지 않습니다.

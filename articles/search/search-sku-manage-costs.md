@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: 6a371d3a9edf537e78f5a889139a053cb925518f
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 1e46601858ece67efa2bca9543083da8a0e2cc79
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770836"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567476"
 ---
 # <a name="estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스의 비용 예측 및 관리
 
@@ -93,7 +93,7 @@ Azure 데이터 원본이 Azure Cognitive Search과 다른 지역에 있는 경�
 | [사용자 지정 엔터티 조회](cognitive-search-skill-custom-entity-lookup.md) | Azure Cognitive Search에서 측정합니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/search/#pricing) 페이지를 참조하세요. |
 
 > [!TIP]
-> [증분 보강(미리 보기)](cognitive-search-incremental-indexing-conceptual.md)은 기술 세트의 변경 내용에 영향을 받지 않는 보강을 캐싱하고 다시 사용하여 기술 세트 처리 비용을 낮춥니다. 캐싱에는 Azure Storage([가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 참조)가 필요합니다. 그러나 기존 보강을 다시 사용할 수 있는 경우 기술 세트 실행의 누적 비용이 더 낮습니다.
+> [증분 보강(미리 보기)](cognitive-search-incremental-indexing-conceptual.md)은 기술 세트의 변경 내용에 영향을 받지 않는 보강을 캐싱하고 다시 사용하여 기술 세트 처리 비용을 낮춥니다. 캐싱에는 Azure Storage([가격 책정](/pricing/details/storage/blobs/) 참조)가 필요합니다. 그러나 기존 보강을 다시 사용할 수 있는 경우 기술 세트 실행의 누적 비용이 더 낮습니다.
 
 ## <a name="tips-for-managing-costs"></a>비용 관리를 위한 팁
 

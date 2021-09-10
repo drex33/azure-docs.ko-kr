@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: d1aae5620f32b5680badc073d74d360b70b68a3b
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 8c9ab37e46f23d533550ffc535633575a85937a6
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579875"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778902"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>가상 Wan 허브에 교차 테넌트 VNet 연결
 
@@ -44,9 +44,9 @@ ms.locfileid: "110579875"
 
 ## <a name="assign-permissions"></a><a name="rights"></a>권한 할당
 
-가상 허브를 사용하여 부모 구독에서 원격 테넌트의 가상 네트워크를 수정하고 액세스할 수 있도록 하려면 원격 테넌트 구독에서 부모 구독에 대한 **참가자** 권한을 할당해야 합니다.
+가상 허브를 사용하여 부모 구독을 관리하는 사용자가 원격 테넌트의 가상 네트워크를 수정하고 액세스할 수 있게 하려면, 원격 테넌트 구독에서 해당 사용자에 대한 **contributor** 권한을 할당해야 합니다. **contributor** 권한을 해당 사용자에 할당하는 작업은 원격 테넌트의 VNET 구독에서 이루어집니다.
 
-1. 부모 계정(가상 WAN 허브를 사용하는 계정)에 **참가자** 역할 할당을 추가합니다. PowerShell 또는 Azure Portal을 사용해 이 역할을 할당할 수 있습니다. 수행 단계는 다음 **역할 할당 추가 또는 제거** 문서를 참조하세요.
+1. 관리자(가상 WAN 허브를 관리)에 **contributor** 역할 할당을 추가합니다. PowerShell 또는 Azure Portal을 사용해 이 역할을 할당할 수 있습니다. 수행 단계는 다음 **역할 할당 추가 또는 제거** 문서를 참조하세요.
 
    * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
    * [포털](../role-based-access-control/role-assignments-portal.md)

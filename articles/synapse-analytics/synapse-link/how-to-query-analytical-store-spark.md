@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Link에서 Apache Spark를 사용하여 Azure Cosmos DB와 상호 작용
+title: Azure Synapse Link에서 Apache Spark 2를 사용하여 Azure Cosmos DB와 상호 작용
 description: Azure Synapse Link에서 Apache Spark를 사용하여 Azure Cosmos DB와 상호 작용하는 방법
 services: synapse-analytics
 author: Rodrigossz
@@ -10,16 +10,19 @@ ms.date: 09/15/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: e9e211fe3039b85e2807fec159537d32380e9799
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: 9ea9d5d34d69b950e3fa80c350c43f12615660ba
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113664992"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123112559"
 ---
-# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Azure Synapse Link에서 Apache Spark를 사용하여 Azure Cosmos DB와 상호 작용
+# <a name="interact-with-azure-cosmos-db-using-apache-spark-2-in-azure-synapse-link"></a>Azure Synapse Link에서 Apache Spark 2를 사용하여 Azure Cosmos DB와 상호 작용
 
-이 문서에서는 Synapse Apache Spark를 사용하여 Azure Cosmos DB와 상호 작용하는 방법을 알아봅니다. Scala, Python, SparkSQL 및 C#을 완전히 지원하는 Synapse Apache Spark는 [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md)에서 분석, 데이터 엔지니어링, 데이터 과학 및 데이터 탐색 시나리오의 중심입니다.
+> [!NOTE]
+> Spark 3을 사용하는 Cosmos DB용 Synapse Link는 [Spark 3의 Azure Cosmos DB용 Azure Synapse Link](how-to-query-analytical-store-spark-3.md) 문서를 참조하세요.
+
+이 문서에서는 Synapse Apache Spark 2를 사용하여 Azure Cosmos DB와 상호 작용하는 방법을 알아봅니다. Scala, Python, SparkSQL 및 C#을 완전히 지원하는 Synapse Apache Spark는 [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md)에서 분석, 데이터 엔지니어링, 데이터 과학 및 데이터 탐색 시나리오의 중심입니다.
 
 Azure Cosmos DB와 상호 작용하는 동안 다음 기능이 지원됩니다.
 * Synapse Apache Spark를 사용하면 트랜잭션 워크로드의 성능에 영향을 주지 않고 Azure Synapse Link를 통해 설정된 Azure Cosmos DB 컨테이너의 데이터를 거의 실시간으로 분석할 수 있습니다. 다음 두 옵션을 사용하여 Spark에서 Azure Cosmos DB [분석 저장소](../../cosmos-db/analytical-store-introduction.md)를 쿼리할 수 있습니다.
@@ -48,6 +51,9 @@ Azure Cosmos DB 분석 저장소를 쿼리하는 두 가지 옵션(Spark 데이�
 
 > [!NOTE]
 > Mongo DB 계정의 Azure Cosmos DB API를 쿼리하려면 분석 저장소의 [전체 충실도 스키마 표현](../../cosmos-db/analytical-store-introduction.md#analytical-schema) 및 사용할 확장 속성 이름에 대해 자세히 알아보세요.
+
+> [!NOTE]
+> 아래 명령의 모든 `options`는 대/소문자를 구분합니다. 예를 들어, `Gateway`를 사용해야 하지만 `gateway`는 오류를 반환합니다.
 
 ### <a name="load-to-spark-dataframe"></a>Spark 데이터 프레임에 로드
 
@@ -182,7 +188,7 @@ streamQuery = dfStream\
         .option("checkpointLocation", "/localWriteCheckpointFolder")\
         .option("spark.synapse.linkedService", "<enter linked service name>")\
         .option("spark.cosmos.container", "<enter container name>")\
-        .option("spark.cosmos.connection.mode", "gateway")\
+        .option("spark.cosmos.connection.mode", "Gateway")\
         .start()
 
 streamQuery.awaitTermination()
@@ -201,7 +207,7 @@ val query = dfStream.
             option("checkpointLocation", "/localWriteCheckpointFolder").
             option("spark.synapse.linkedService", "<enter linked service name>").
             option("spark.cosmos.container", "<enter container name>").
-            option("spark.cosmos.connection.mode", "gateway").
+            option("spark.cosmos.connection.mode", "Gateway").
             start()
 
 query.awaitTermination()

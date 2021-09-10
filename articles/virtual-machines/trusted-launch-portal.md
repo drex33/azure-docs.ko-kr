@@ -9,14 +9,16 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 15386baa369b18678ef84ebed8144d358fa8177f
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: bcc91283c29aaef251c2a18422e90090c56a6298
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839368"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688921"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>신뢰할 수 있는 시작을 사용하도록 설정된 VM 배포(미리 보기)
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합
 
 [신뢰할 수 있는 시작](trusted-launch.md)은 [2세대](generation-2.md) VM의 보안을 개선하는 방법입니다. 신뢰할 수 있는 시작은 vTPM 및 보안 부팅 등의 인프라 기술을 결합하여 고급 및 지속적인 공격 기법을 방지합니다.
 

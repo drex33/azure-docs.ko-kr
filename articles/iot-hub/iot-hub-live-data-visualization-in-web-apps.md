@@ -5,19 +5,18 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 4f2f0678b421ac6965b2848cc25564b4e95c7c6b
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: df82f61559a2ede3da477118f090f664e3389437
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567067"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "122642224"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -29,11 +28,13 @@ ms.locfileid: "107567067"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서 중 하나를 완료합니다. 예를 들어 [node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)로 이동하거나 [원격 분석 전송](quickstart-send-telemetry-dotnet.md) 빠른 시작 중 하나로 이동할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
+* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서 중 하나를 완료합니다. 예를 들어 [node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)로 이동하거나 [원격 분석 전송](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) 빠른 시작 중 하나로 이동할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
 
   * 활성 Azure 구독
   * 구독 중인 IoT Hub
   * 메시지를 IoT Hub로 보내는 클라이언트 애플리케이션
+
+* [Node.js](https://nodejs.org) 버전 10.6 이상 노드 버전을 확인하려면 `node --version`을 실행합니다.
 
 * [Git 다운로드](https://www.git-scm.com/downloads)
 
@@ -58,7 +59,7 @@ az iot hub consumer-group create --hub-name YourIoTHubName --name YourConsumerGr
 IoT Hub는 몇 가지 기본 액세스 정책을 사용하여 생성됩니다. 이러한 정책 중 하나는 서비스에서 IoT Hub의 엔드포인트를 읽고 쓸 수 있는 충분한 권한을 제공하는 **서비스** 정책입니다. 다음 명령을 실행하여 서비스 정책을 준수하는 IoT Hub에 대한 연결 문자열을 가져옵니다.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIotHub --policy-name service
+az iot hub connection-string show --hub-name YourIotHub --policy-name service
 ```
 
 이 연결 문자열은 다음과 유사합니다.

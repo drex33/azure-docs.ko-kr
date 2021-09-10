@@ -3,24 +3,24 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/15/2021
+ms.date: 08/17/2021
 ms.author: aahi
-ms.openlocfilehash: 6ece1121244341acb8f81d11491acf27f4c9fec8
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: c24d206c330aa5244dbc174302b447c1ec4a1706
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122442322"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864945"
 ---
 <a name="HOLTop"></a>
 
+# <a name="version-32-preview1"></a>[버전 3.2-preview.1](#tab/version-3-2)
+
+[v3.2-preview 참조 문서](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [v3.2-preview 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.2.0b1/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
+
 # <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
-[v3.1 참조 설명서](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
-
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-[v3 참조 설명서](/python/api/azure-ai-textanalytics/azure.ai.textanalytics) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3.1 참조 설명서](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 ---
 
@@ -38,7 +38,26 @@ ms.locfileid: "122442322"
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
-Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다.
+Python을 설치한 후 다음 명령을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다. 
+
+# <a name="version-32-preview1"></a>[버전 3.2-preview.1](#tab/version-3-2)
+
+```console
+pip install azure-ai-textanalytics==5.2.0b1
+```
+
+이 버전의 Text Analytics API에 포함된 기능:
+
+* 감정 분석
+* 오피니언 마이닝
+* 언어 검색
+* 엔터티 인식
+* 엔터티 연결
+* 개인 식별 정보 인식
+* 핵심 문구 추출
+* 비동기 메서드
+* 의료 분야 Text Analytics
+* 텍스트 요약
 
 # <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
 
@@ -46,17 +65,17 @@ Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리�
 pip install azure-ai-textanalytics==5.1.0
 ```
 
-> [!TIP]
-> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub에서](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py) 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다. 
+이 버전의 Text Analytics API에 포함된 기능:
 
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-```console
-pip install --upgrade azure-ai-textanalytics
-```
-
-> [!TIP]
-> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub에서](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py) 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다. 
+* 감정 분석
+* 오피니언 마이닝
+* 언어 검색
+* 엔터티 인식
+* 엔터티 연결
+* 개인 식별 정보 인식
+* 핵심 문구 추출
+* 비동기 메서드
+* 의료 분야 Text Analytics
 
 
 ---
@@ -75,56 +94,18 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 ## <a name="object-model"></a>개체 모델
 
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
-
 Text Analytics 클라이언트는 Azure에 인증하는 `TextAnalyticsClient` 개체입니다. 이 클라이언트는 텍스트를 분석하는 여러 메서드를 제공합니다. 
-
-텍스트 처리는 `documents` 목록으로 API에 전송됩니다. 이 목록에는 문자열 목록, dict와 같은 표현 목록 또는 `TextDocumentInput/DetectLanguageInput` 목록이 있습니다. `dict-like` 개체는 `id`, `text` 및 `language/country_hint`의 조합을 포함합니다. `text` 특성은 분석할 텍스트를 `country_hint` 원본에 저장하며, `id`는 임의의 값이 될 수 있습니다. 
-
-응답 개체는 각 문서에 대한 분석 정보가 포함된 목록입니다. 
-
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `TextAnalyticsClient` 개체입니다. 이 클라이언트는 텍스트를 일괄 처리로 분석하는 여러 메서드를 제공합니다. 
 
 일괄 처리 텍스트는 API에 `documents` 목록으로 전송될 때, 사용되는 메서드에 따라 `id`, `text` 및 `language` 특성 조합을 포함하는 `dictionary` 개체로 전송됩니다. `text` 특성은 분석할 텍스트를 `language` 원본에 저장하며, `id`는 임의의 값이 될 수 있습니다. 
 
-응답 개체는 각 문서에 대한 분석된 정보가 포함된 목록입니다. 
-
----
+응답 개체는 각 문서에 대한 분석된 정보가 포함된 목록입니다.
 
 [!INCLUDE [text-analytics-character-limits](../character-limits.md)]
 
-## <a name="code-examples"></a>코드 예제
-
-여기에 나와 있는 코드 조각은 Python용 Text Analytics 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여줍니다.
-
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
-
-* [클라이언트 인증](#authenticate-the-client)
-* [감정 분석](#sentiment-analysis)
-* [오피니언 마이닝](#opinion-mining)
-* [언어 감지](#language-detection)
-* [명명된 엔터티 인식](#named-entity-recognition-ner) 
-* [개인 식별 정보 인식](#personally-identifiable-information-pii-recognition) 
-* [엔터티 연결](#entity-linking)
-* [핵심 구 추출](#key-phrase-extraction)
-
-
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-* [클라이언트 인증](#authenticate-the-client)
-* [감정 분석](#sentiment-analysis)
-* [언어 감지](#language-detection)
-* [명명된 엔터티 인식](#named-entity-recognition-ner) 
-* [엔터티 연결](#entity-linking)
-* [핵심 구 추출](#key-phrase-extraction)
-
----
-
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
+[!INCLUDE [The following method applies to both v3.1 and v3.2-preview](../method-applies-both-versions.md)]
+
 
 위에서 만든 `key` 및 `endpoint`를 사용하여 `TextAnalyticsClient` 개체를 인스턴스화하는 기능을 만듭니다. 그런 다음, 새 클라이언트를 만듭니다. 
 
@@ -142,48 +123,10 @@ def authenticate_client():
 client = authenticate_client()
 ```
 
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-위에서 만든 `key` 및 `endpoint`를 사용하여 `TextAnalyticsClient` 개체를 인스턴스화하는 기능을 만듭니다. 그런 다음, 새 클라이언트를 만듭니다. 버전 3.0을 사용하기 위해 `api_version=TextAnalyticsApiVersion.V3_0`을 정의해야 합니다.
-
-```python
-# use this code if you're using SDK version is 5.0.0
-from azure.ai.textanalytics import TextAnalyticsClient
-from azure.core.credentials import AzureKeyCredential
-
-def authenticate_client():
-    ta_credential = AzureKeyCredential(key)
-    text_analytics_client = TextAnalyticsClient(
-            endpoint=endpoint, 
-            credential=ta_credential) 
-    return text_analytics_client
-
-client = authenticate_client()
-```
-
-`pip install azure-ai-textanalytics --pre`를 사용하여 클라이언트 라이브러리의 v5.1.0을 설치한 경우 클라이언트의 `api_version` 매개 변수를 사용하여 Text Analytics API의 v3.0을 지정할 수 있습니다. 클라이언트가 v5.1.0 이상인 경우에만 다음 `authenticate_client()` 메서드를 사용합니다.
-
-```python
-# Only use the following code sample if you're using v5.1.0 of the client library, 
-# and are looking to specify v3.0 of the Text Analytics API for your client
-from azure.ai.textanalytics import TextAnalyticsClient, TextAnalyticsApiVersion
-from azure.core.credentials import AzureKeyCredential
-def authenticate_client():
-   ta_credential = AzureKeyCredential(key)
-   text_analytics_client = TextAnalyticsClient(
-     endpoint=endpoint,
-     credential=ta_credential,
-     api_version=TextAnalyticsApiVersion.V3_0
-   )
-   
-client = authenticate_client()
-```
-
---- 
-
 ## <a name="sentiment-analysis"></a>정서 분석
 
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
+[!INCLUDE [The following method applies to both v3.1 and v3.2-preview](../method-applies-both-versions.md)]
+
 
 클라이언트를 인수로 사용하는 `sentiment_analysis_example()`이라는 새 함수를 만든 다음, `analyze_sentiment()` 함수를 호출합니다. 반환된 응답 개체에는 전체 입력 문서의 감정 레이블과 점수뿐 아니라 각 문장의 감정 분석도 포함됩니다.
 
@@ -232,64 +175,11 @@ Neutral=0.77
 Negative=0.02
 ```
 
-
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-클라이언트를 인수로 사용하는 `sentiment_analysis_example()`이라는 새 함수를 만든 다음, `analyze_sentiment()` 함수를 호출합니다. 반환된 응답 개체에는 전체 입력 문서의 감정 레이블과 점수뿐 아니라 각 문장의 감정 분석도 포함됩니다.
-
-
-```python
-def sentiment_analysis_example(client):
-
-    documents = ["I had the best day of my life. I wish you were there with me."]
-    response = client.analyze_sentiment(documents = documents)[0]
-    print("Document Sentiment: {}".format(response.sentiment))
-    print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
-        response.confidence_scores.positive,
-        response.confidence_scores.neutral,
-        response.confidence_scores.negative,
-    ))
-    for idx, sentence in enumerate(response.sentences):
-        print("Sentence: {}".format(sentence.text))
-        print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
-        print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
-            sentence.confidence_scores.positive,
-            sentence.confidence_scores.neutral,
-            sentence.confidence_scores.negative,
-        ))
-          
-sentiment_analysis_example(client)
-```
-
-### <a name="output"></a>출력
-
-```console
-Document Sentiment: positive
-Overall scores: positive=1.00; neutral=0.00; negative=0.00 
-
-Sentence: I had the best day of my life.
-Sentence 1 sentiment: positive
-Sentence score:
-Positive=1.00
-Neutral=0.00
-Negative=0.00
-
-Sentence: I wish you were there with me.
-Sentence 2 sentiment: neutral
-Sentence score:
-Positive=0.21
-Neutral=0.77
-Negative=0.02
-```
-
----
-
 ## <a name="opinion-mining"></a>의견 마이닝
 
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
-
-
 오피니언 마이닝을 사용하여 감정 분석을 수행하려면 클라이언트를 인수로 사용하는 `sentiment_analysis_with_opinion_mining_example()`이라는 새 함수를 만든 다음, 옵션 플래그 `show_opinion_mining=True`를 사용하여 `analyze_sentiment()` 함수를 호출합니다. 반환된 응답 개체에는 각 문장의 감정 분석이 포함된 전체 입력 문서의 감정 레이블과 점수뿐 아니라 양상 및 의견 수준 감정 분석도 포함됩니다.
+
+[!INCLUDE [The following method applies to both v3.1 and v3.2-preview](../method-applies-both-versions.md)]
 
 
 ```python
@@ -386,28 +276,17 @@ Negative=0.16
 ......Positive=1.00
 ......Negative=0.00
 
-
-
-
-
 Press any key to continue . . .
 
 ```
 
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-이 기능은 버전 3.0에서 사용할 수 없습니다.
-
----
-
 ## <a name="language-detection"></a>언어 검색
 
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
-
 클라이언트를 인수로 사용하는 `language_detection_example()`이라는 새 함수를 만든 다음, `detect_language()` 함수를 호출합니다. 반환된 응답 개체에는 성공하면 `primary_language`에서 검색된 언어가 포함되고, 그렇지 않으면 `error`가 포함됩니다.
 
-> [!Tip]
-> 일부 경우에는 입력에 따라 언어를 명확하게 구분하는 것이 어려울 수 있습니다. 2자로 된 국가 코드는 `country_hint` 매개 변수를 사용하여 지정할 수 있습니다. 기본적으로 API는 "US"를 기본 countryHint로 사용합니다. 이 동작을 제거하려면 이 값을 빈 문자열의 `country_hint : ""`로 설정하여 이 매개 변수를 다시 설정하면 됩니다. 
+> [!NOTE]
+> * 다음 방법은 API 버전 `3.1` 및 `3.2-preview` 모두에 적용됩니다.
+> * 일부 경우에는 입력에 따라 언어를 명확하게 구분하는 것이 어려울 수 있습니다. 2자로 된 국가 코드는 `country_hint` 매개 변수를 사용하여 지정할 수 있습니다. 기본적으로 API는 "US"를 기본 countryHint로 사용합니다. 이 동작을 제거하려면 이 값을 빈 문자열의 `country_hint : ""`로 설정하여 이 매개 변수를 다시 설정하면 됩니다. 
 
 ```python
 def language_detection_example(client):
@@ -421,51 +300,18 @@ def language_detection_example(client):
 language_detection_example(client)
 ```
 
-
 ### <a name="output"></a>출력
 
 ```console
 Language:  French
 ```
-
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-클라이언트를 인수로 사용하는 `language_detection_example()`이라는 새 함수를 만든 다음, `detect_language()` 함수를 호출합니다. 반환된 응답 개체에는 성공하면 `primary_language`에서 검색된 언어가 포함되고, 그렇지 않으면 `error`가 포함됩니다.
-
-> [!Tip]
-> 일부 경우에는 입력에 따라 언어를 명확하게 구분하는 것이 어려울 수 있습니다. 2자로 된 국가 코드는 `country_hint` 매개 변수를 사용하여 지정할 수 있습니다. 기본적으로 API는 "US"를 기본 countryHint로 사용합니다. 이 동작을 제거하려면 이 값을 빈 문자열의 `country_hint : ""`로 설정하여 이 매개 변수를 다시 설정하면 됩니다. 
-
-```python
-def language_detection_example(client):
-    try:
-        documents = ["Ce document est rédigé en Français."]
-        response = client.detect_language(documents = documents, country_hint = 'us')[0]
-        print("Language: ", response.primary_language.name)
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-language_detection_example(client)
-```
-
-
-### <a name="output"></a>출력
-
-```console
-Language:  French
-```
-
-
----
 
 ## <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
-
-> [!NOTE]
-> 버전 `3.1`에서 다음을 수행합니다. 
-> * 엔터티 연결은 NER과 별개의 요청입니다.
-
 클라이언트를 인수로 사용하는 `entity_recognition_example`이라는 새 함수를 만든 다음, `recognize_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entity`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 각 엔터티에 대해 해당 범주 및 하위 범주(있는 경우)를 인쇄합니다.
+
+[!INCLUDE [The following method applies to both v3.1 and v3.2-preview](../method-applies-both-versions.md)]
+
 
 ```python
 def entity_recognition_example(client):
@@ -503,6 +349,9 @@ Named Entities:
 
 클라이언트를 인수로 사용하는 `pii_recognition_example`이라는 새 함수를 만든 다음, `recognize_pii_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entity`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 각 엔터티에 대해 해당 범주 및 하위 범주(있는 경우)를 인쇄합니다.
 
+[!INCLUDE [The following method applies to both v3.1 and v3.2-preview](../method-applies-both-versions.md)]
+
+
 ```python
 def pii_recognition_example(client):
     documents = [
@@ -539,50 +388,11 @@ Entity: 555-555-5555
         Length: 12
 ```
 
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-클라이언트를 인수로 사용하는 `entity_recognition_example`이라는 새 함수를 만든 다음, `recognize_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entity`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 각 엔터티에 대해 해당 범주 및 하위 범주(있는 경우)를 인쇄합니다.
-
-```python
-def entity_recognition_example(client):
-
-    try:
-        documents = ["I had a wonderful trip to Seattle last week."]
-        result = client.recognize_entities(documents = documents)[0]
-
-        print("Named Entities:\n")
-        for entity in result.entities:
-            print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                    "\n\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-entity_recognition_example(client)
-```
-
-### <a name="output"></a>출력
-
-```console
-Named Entities:
-
-        Text:    trip   Category:        Event  SubCategory:     None
-        Confidence Score:        0.61
-
-        Text:    Seattle        Category:        Location       SubCategory:     GPE
-        Confidence Score:        0.82
-
-        Text:    last week      Category:        DateTime       SubCategory:     DateRange
-        Confidence Score:        0.8
-```
-
-
----
-
 ## <a name="entity-linking"></a>엔터티 연결
 
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
-
 클라이언트를 인수로 사용하는 `entity_linking_example()`이라는 새 함수를 만든 다음, `recognize_linked_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entities`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `entity` 개체 아래에서 `match` 개체 목록으로 그룹화됩니다.
+
+[!INCLUDE [The following method applies to both v3.1 and v3.2-preview](../method-applies-both-versions.md)]
 
 ```python
 def entity_linking_example(client):
@@ -668,83 +478,11 @@ Linked Entities:
                 Length: 11
 ```
 
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-클라이언트를 인수로 사용하는 `entity_linking_example()`이라는 새 함수를 만든 다음, `recognize_linked_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entities`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `entity` 개체 아래에서 `match` 개체 목록으로 그룹화됩니다.
-
-```python
-def entity_linking_example(client):
-
-    try:
-        documents = ["""Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
-        to develop and sell BASIC interpreters for the Altair 8800. 
-        During his career at Microsoft, Gates held the positions of chairman,
-        chief executive officer, president and chief software architect, 
-        while also being the largest individual shareholder until May 2014."""]
-        result = client.recognize_linked_entities(documents = documents)[0]
-
-        print("Linked Entities:\n")
-        for entity in result.entities:
-            print("\tName: ", entity.name, "\tId: ", entity.data_source_entity_id, "\tUrl: ", entity.url,
-            "\n\tData Source: ", entity.data_source)
-            print("\tMatches:")
-            for match in entity.matches:
-                print("\t\tText:", match.text)
-                print("\t\tConfidence Score: {0:.2f}".format(match.confidence_score))
-            
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-entity_linking_example(client)
-```
-
-### <a name="output"></a>출력
-
-```console
-Linked Entities:
-
-        Name:  Altair 8800      Id:  Altair 8800        Url:  https://en.wikipedia.org/wiki/Altair_8800
-        Data Source:  Wikipedia
-        Matches:
-                Text: Altair 8800
-                Confidence Score: 0.88
-        Name:  Bill Gates       Id:  Bill Gates         Url:  https://en.wikipedia.org/wiki/Bill_Gates
-        Data Source:  Wikipedia
-        Matches:
-                Text: Bill Gates
-                Confidence Score: 0.63
-                Text: Gates
-                Confidence Score: 0.63
-        Name:  Paul Allen       Id:  Paul Allen         Url:  https://en.wikipedia.org/wiki/Paul_Allen
-        Data Source:  Wikipedia
-        Matches:
-                Text: Paul Allen
-                Confidence Score: 0.60
-        Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
-        Data Source:  Wikipedia
-        Matches:
-                Text: Microsoft
-                Confidence Score: 0.55
-                Text: Microsoft
-                Confidence Score: 0.55
-        Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
-        Data Source:  Wikipedia
-        Matches:
-                Text: April 4
-                Confidence Score: 0.32
-        Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
-        Data Source:  Wikipedia
-        Matches:
-                Text: BASIC
-                Confidence Score: 0.33
-```
-
----
-
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
-
 클라이언트를 인수로 사용하는 `key_phrase_extraction_example()`이라는 새 함수를 만든 다음, `extract_key_phrases()` 함수를 호출합니다. 결과에는 성공하면 `key_phrases`에서 검색된 핵심 구 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 핵심 구를 출력합니다.
+
+[!INCLUDE [The following method applies to both v3.1 and v3.2-preview](../method-applies-both-versions.md)]
 
 ```python
 def key_phrase_extraction_example(client):
@@ -775,43 +513,6 @@ key_phrase_extraction_example(client)
          cat
          veterinarian
 ```
-
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-클라이언트를 인수로 사용하는 `key_phrase_extraction_example()`이라는 새 함수를 만든 다음, `extract_key_phrases()` 함수를 호출합니다. 결과에는 성공하면 `key_phrases`에서 검색된 핵심 구 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 핵심 구를 출력합니다.
-
-```python
-def key_phrase_extraction_example(client):
-
-    try:
-        documents = ["My cat might need to see a veterinarian."]
-
-        response = client.extract_key_phrases(documents = documents)[0]
-
-        if not response.is_error:
-            print("\tKey Phrases:")
-            for phrase in response.key_phrases:
-                print("\t\t", phrase)
-        else:
-            print(response.id, response.error)
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-        
-key_phrase_extraction_example(client)
-```
-
-
-### <a name="output"></a>출력
-
-```console
-    Key Phrases:
-         cat
-         veterinarian
-```
-
-
----
 
 ## <a name="extract-health-entities"></a>상태 엔터티 추출
 
@@ -819,7 +520,7 @@ Text Analytics를 사용해 비동기 요청을 수행하여 텍스트에서 의
 
 [!INCLUDE [health operation pricing](../health-operation-pricing-caution.md)]
 
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
+[!INCLUDE [The following method applies to both v3.1 and v3.2-preview](../method-applies-both-versions.md)]
 
 ``` python
 def health_example(client):
@@ -870,20 +571,13 @@ Relation of type: DosageOfMedication has the following roles
 ...Role 'Medication' with entity 'ibuprofen'
 ```
 
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-이 기능은 버전 3.0에서 사용할 수 없습니다.
-
----
-
-
 ## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Analyze(분석) 작업을 통해 비동기적으로 API 사용
 
-# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
-
-분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색에 대한 비동기 일괄 처리 요청을 수행할 수 있습니다. 아래 샘플에서는 하나의 작업에 대한 기본 예제를 보여줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py)에서 더 많은 고급 샘플을 찾을 수 있습니다.
+분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색에 대한 비동기 일괄 처리 요청을 수행할 수 있습니다. 아래 샘플은 기본적인 예를 보여줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py)에서 더 많은 고급 샘플을 찾을 수 있습니다.
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
+
+[!INCLUDE [The following method applies to both v3.1 and v3.2-preview](../method-applies-both-versions.md)]
 
 클라이언트를 인수로 사용하는 `analyze_batch_example()`이라는 새 함수를 만든 다음, `begin_analyze_actions()` 함수를 호출합니다. 그러면 장기 실행 작업이 실행되고 결과가 폴링됩니다.
 
@@ -957,8 +651,54 @@ Key Phrase: Microsoft
 ------------------------------------------
 ```
 
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+## <a name="text-summarization"></a>텍스트 요약
 
-이 기능은 버전 3.0에서 사용할 수 없습니다.
+# <a name="version-32-preview1"></a>[버전 3.2-preview.1](#tab/version-3-2)
+
+[!INCLUDE [Summarization operation pricing](../summarization-operation-pricing-caution.md)]
+
+Text Analytics를 사용하여 많은 양의 텍스트를 요약할 수 있습니다. 클라이언트를 인수로 사용하는 `summarization_example()`이라는 새 함수를 만든 다음, `begin_analyze_actions()` 함수를 호출합니다. 그러면 장기 실행 작업이 실행되고 결과가 폴링됩니다. 
+
+```python
+def sample_extractive_summarization(client):
+    from azure.core.credentials import AzureKeyCredential
+    from azure.ai.textanalytics import (
+        TextAnalyticsClient,
+        ExtractSummaryAction
+    ) 
+
+    document = [
+        "The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured text document. "
+        "These sentences collectively convey the main idea of the document. This feature is provided as an API for developers. " 
+        "They can use it to build intelligent solutions based on the relevant information extracted to support various use cases. "
+        "In the public preview, extractive summarization supports several languages. It is based on pretrained multilingual transformer models, part of our quest for holistic representations. "
+        "It draws its strength from transfer learning across monolingual and harness the shared nature of languages to produce models of improved quality and efficiency. "
+    ]
+
+    poller = client.begin_analyze_actions(
+        document,
+        actions=[
+            ExtractSummaryAction(MaxSentenceCount=4)
+        ],
+    )
+
+    document_results = poller.result()
+    for result in document_results:
+        extract_summary_result = result[0]  # first document, first result
+        if extract_summary_result.is_error:
+            print("...Is an error with code '{}' and message '{}'".format(
+                extract_summary_result.code, extract_summary_result.message
+            ))
+        else:
+            print("Summary extracted: \n{}".format(
+                " ".join([sentence.text for sentence in extract_summary_result.sentences]))
+            )
+
+sample_extractive_summarization(client)
+```
+
+# <a name="version-31"></a>[버전 3.1](#tab/version-3-1)
+
+이 기능은 버전 3.1에서 사용할 수 없습니다.
 
 ---

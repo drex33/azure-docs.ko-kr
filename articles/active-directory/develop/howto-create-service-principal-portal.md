@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
-ms.openlocfilehash: b4589f451894e328a27b67ac19be4ea91374bee5
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 2b8e8c73286eb058f5fcd183ac43998801a0ebe8
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579957"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038433"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
+# <a name="use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
 이 문서에서는 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Azure Active Directory(Azure AD) 애플리케이션 및 서비스 주체를 만드는 방법을 보여 줍니다. 리소스에 액세스하거나 리소스를 수정해야 하는 애플리케이션, 호스팅된 서비스 또는 자동화 도구가 있다면 앱의 ID를 만들면 됩니다. 이 ID를 서비스 주체라고 합니다. 리소스에 대한 액세스는 서비스 주체에 할당된 역할로 제한되므로 액세스할 수 있는 리소스와 해당 수준을 제어할 수 있습니다. 보안상의 이유로 사용자 ID를 통해 로그인할 수 있게 하는 대신, 항상 자동화된 도구에서 서비스 주체를 사용하는 것이 좋습니다.
 

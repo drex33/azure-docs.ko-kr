@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 06/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 1ad86695510a8fe93bbeeab27db53f5afbef92fd
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 9910ac4d817879812803cd41f6b184846e1b02be
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555982"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113106248"
 ---
 # <a name="create-a-new-virtual-switch-in-azure-stack-edge-pro-gpu-via-powershell"></a>PowerShell을 통해 Azure Stack Edge Pro GPU에서 새 가상 스위치 만들기
 
@@ -52,7 +52,7 @@ ms.locfileid: "106555982"
     ```
     출력의 예제는 다음과 같습니다.
     
-    ```powershell
+    ```output
         [10.100.10.10]: PS>Get-NetAdapter -Physical
         
         Name                      InterfaceDescription                    ifIndex Status       MacAddress       LinkSpeed
@@ -70,13 +70,13 @@ ms.locfileid: "106555982"
 2. 다음과 같은 네트워크 인터페이스를 선택합니다.
 
     - **최신** 상태입니다. 
-    - 기존 가상 스위치에서 사용되지 않습니다. 현재 네트워크 인터페이스마다 하나의 vswitch만 구성할 수 있습니다. 
+    - 기존 가상 스위치에서 사용되지 않습니다. 현재 네트워크 인터페이스마다 하나의 가상 스위치만 구성할 수 있습니다. 
     
     기존 가상 스위치와 네트워크 인터페이스 연결을 확인하려면 `Get-HcsExternalVirtualSwitch` 명령을 실행합니다.
  
     출력의 예제는 다음과 같습니다.
 
-    ```powershell
+    ```output
     [10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
     Name                          : vSwitch1
@@ -106,8 +106,8 @@ Add-HcsExternalVirtualSwitch -InterfaceAlias <Network interface name> -WaitForSw
 
 출력의 예제는 다음과 같습니다.
 
-```powershell
-[10.100.10.10]: P> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
+```output
+[10.100.10.10]: PS> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
 [10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
 Name                          : vSwitch1
@@ -135,11 +135,69 @@ Type                          : External
 [10.100.10.10]: PS>
 ```
 
-## <a name="verify-network-subnet"></a>네트워크, 서브넷 확인 
+## <a name="verify-network-subnet-for-switch"></a>네트워크, 스위치에 대한 서브넷을 확인합니다
 
 새 가상 스위치를 만들면 Azure Stack Edge Pro GPU가 이에 해당하는 가상 네트워크 및 서브넷을 자동으로 만듭니다. VM을 만들 때 이 가상 네트워크를 사용할 수 있습니다.
 
-<!--To identify the virtual network and subnet associated with the new switch that you created, use the `Get-HcsVirtualNetwork` command. This cmdlet will be released in April some time. -->
+생성한 새 스위치와 연결된 가상 네트워크 및 서브넷을 확인하려면, `Get-HcsVirtualNetwork` cmdlet을 사용합니다. 
+
+## <a name="create-virtual-lans"></a>가상 Lan 생성하기
+
+가상 스위치에 가상 근거리 통신망(LAN) 구성을 추가하려면 다음 cmdlet을 사용합니다.
+
+```powershell
+Add-HcsVirtualNetwork-VirtualSwitchName <Virtual Switch name> -VnetName <Virtual Network Name> –VlanId <Vlan Id> –AddressSpace <Address Space> –GatewayIPAddress <Gateway IP>–DnsServers <Dns Servers List> -DnsSuffix <Dns Suffix name>
+``` 
+
+다음 매개 변수를 `Add-HcsVirtualNetwork-VirtualSwitchName` cmdlet과 함께 사용할 수 있습니다.
+
+
+|매개 변수  |설명  |
+|---------|---------|
+|VNetName     |가상 LAN 네트워크 이름         |
+|VirtualSwitchName    |가상 LAN 구성을 추가하려는 가상 스위치 이름         |
+|AddressSpace     |가상 LAN 네트워크에 대한 서브넷 주소 공간         |
+|GatewayIPAddress     |가상 네트워크에 대한 게이트웨이         |
+|DnsServers     |DNS 서버 IP 주소 목록         |
+|DnsSuffix     |가상 LAN 네트워크 서브넷의 호스트 파트가 없는 Dns 이름         |
+
+
+
+출력의 예제는 다음과 같습니다.
+
+```output
+[10.100.10.10]: PS> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -VnetName vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50&quot;,&quot;5.5.50.100&quot; -DnsSuffix &quot;name.domain.com"
+
+[10.100.10.10]: PS> Get-HcsVirtualNetwork
+ 
+Name             : vnet2015
+AddressSpace     : 10.128.48.0/22
+SwitchName       : vSwitch1
+GatewayIPAddress : 10.128.48.1
+DnsServers       : {}
+DnsSuffix        :
+VlanId           : 2015
+ 
+Name             : vnet3011
+AddressSpace     : 10.126.64.0/22
+SwitchName       : vSwitch1
+GatewayIPAddress : 10.126.64.1
+DnsServers       : {}
+DnsSuffix        :
+VlanId           : 3011
+```
+ 
+> [!NOTE]
+> - 동일한 가상 스위치에서 여러 가상 LAN을 구성할 수 있습니다. 
+> - 게이트웨이 IP 주소는 주소 공간으로 전달된 매개 변수와 동일한 서브넷에 있어야 합니다.
+> - 구성된 가상 LAN이 있으면 가상 스위치를 제거할 수 없습니다. 이 가상 스위치를 삭제하려면, 먼저 가상 LAN을 삭제한 후 가상 스위치를 삭제해야 합니다.
+
+## <a name="verify-network-subnet-for-virtual-lan"></a>네트워크, 가상 LAN 용 서브넷을 확인합니다
+
+가상 LAN을 생성한 후에는 가상 네트워크 및 해당 서브넷이 자동으로 생성됩니다. VM을 만들 때 이 가상 네트워크를 사용할 수 있습니다.
+
+생성한 새 스위치와 연결된 가상 네트워크 및 서브넷을 확인하려면, `Get-HcsVirtualNetwork` cmdlet을 사용합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,14 +8,17 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.subservice: cloud-init
-ms.openlocfilehash: 4ca42c259e10742e61fbd7f36b73f332cba5a8db
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 38e020cc7541c6005fe3bc1209d6a31191e49404
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114445833"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692213"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>cloud-init에 대해 자세히 알아보기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html)에 대해 자세히 알아보거나 심층적으로 문제를 해결하려면 작동 방식을 이해해야 합니다. 이 문서에서는 중요한 부분을 강조하고 Azure 사양에 대해 설명합니다.
 
 cloud-init이 범용 이미지에 포함되고 해당 이미지에서 VM이 생성되면 초기 부팅 중에 구성이 처리되고 5단계를 거쳐 실행됩니다. 이러한 단계는 cloud-init이 구성을 적용할 시점을 보여주기 때문에 중요합니다. 

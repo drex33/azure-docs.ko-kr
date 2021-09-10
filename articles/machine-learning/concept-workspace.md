@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2021
-ms.openlocfilehash: 82230af7b80bec8208eb6c58780a85ffa8cdfbb6
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 37e6573e1bc26bc79477cf532ef442964f760985
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597381"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226784"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
@@ -113,7 +113,7 @@ ms.locfileid: "122597381"
   > [!IMPORTANT]
   > 기본적으로 스토리지 계정은 범용 v1 계정입니다. 작업 영역이 생성되면 [이 계정을 범용 v2](../storage/common/storage-account-upgrade.md)로 업그레이드할 수 있습니다. 범용 v2로 업그레이드한 후에는 스토리지 계정에서 계층 구조 네임스페이스를 사용하도록 설정하지 않아야 합니다.
 
-  기존 Azure Storage 계정을 사용하는 경우에는 계정이 BlobStorage나 프리미엄 계정(Premium_LRS 및 Premium_GRS)이어서는 안 됩니다. 또한 (Azure Data Lake Storage Gen2와 함께 사용하는) 계층 구조 네임스페이스를 가져서도 안 됩니다. Premium Storage 또는 계층 구조 네임스페이스는 작업 영역의 기본 스토리지 계정에서 지원되지 않습니다. 기본이 아닌 스토리지 계정으로 Premium Storage 또는 계층 구조 네임스페이스를 사용할 수 있습니다.
+  기존 Azure Storage 계정을 사용하는 경우에는 계정이 BlobStorage나 프리미엄 계정(Premium_LRS 및 Premium_GRS)이어서는 안 됩니다. 또한 (Azure Data Lake Storage Gen2와 함께 사용하는) 계층 구조 네임스페이스를 가져서도 안 됩니다. Premium Storage 또는 계층 구조 네임스페이스는 모두 작업 영역의 _기본_ 스토리지 계정에서 지원되지 않습니다. 기본이 아닌 스토리지 계정으로 Premium Storage 또는 계층 구조 네임스페이스를 사용할 수 있습니다.
   
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): 학습 중 및 모델을 배포할 때 사용하는 docker 컨테이너를 등록합니다. 비용을 최소화하기 위해 ACR은 배포 이미지가 생성되기 전까지는 **지연 로드** 됩니다.
 

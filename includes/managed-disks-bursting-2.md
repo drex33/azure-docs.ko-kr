@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/02/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: c0c170fefe85393fb3c8b443a96aaddbb98eb65e
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 0ae0fa18c2d3d223435656d871bd0d5be00627e4
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528326"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113356954"
 ---
 ### <a name="on-demand-bursting-preview"></a>주문형 버스팅(미리 보기)
 
@@ -69,9 +69,17 @@ ms.locfileid: "111528326"
 VM 수준 버스팅은 크레딧 기반 모델만 버스팅에 사용하며, 이를 지원하는 모든 VM에 대해 기본적으로 사용하도록 설정됩니다.
 
 VM 수준 버스팅은 다음 크기로 지원되는 Azure 퍼블릭 클라우드의 모든 지역에서 사용하도록 설정됩니다. 
+- [Dsv4 시리즈](../articles/virtual-machines/dv4-dsv4-series.md)
+- [Dasv4 시리즈](../articles/virtual-machines/dav4-dasv4-series.md)
+- [Ddsv4 시리즈](../articles/virtual-machines/ddv4-ddsv4-series.md)
+- [Esv4 시리즈](../articles/virtual-machines/ev4-esv4-series.md)
+- [Easv4 시리즈](../articles/virtual-machines/eav4-easv4-series.md)
+- [Edsv4 시리즈](../articles/virtual-machines/edv4-edsv4-series.md)
+- [B 시리즈](../articles/virtual-machines/sizes-b-series-burstable.md)
+- [Fsv2 시리즈](../articles/virtual-machines/fsv2-series.md)
+- [Dsv3 시리즈](../articles/virtual-machines/dv3-dsv3-series.md)
+- [Esv3 시리즈](../articles/virtual-machines/ev3-esv3-series.md)
 - [Lsv2 시리즈](../articles/virtual-machines/lsv2-series.md)
-- [Dv3 및 Dsv3 시리즈](../articles/virtual-machines/dv3-dsv3-series.md)
-- [Ev3 및 Esv3 시리즈](../articles/virtual-machines/ev3-esv3-series.md)
 
 ## <a name="bursting-flow"></a>버스팅 흐름
 
@@ -121,7 +129,7 @@ VM 수준 버스팅은 다음 크기로 지원되는 Azure 퍼블릭 클라우�
     - 최대 버스트 MB/초: 1,280
 - P50 OS 디스크
     - 프로비전된 MB/초: 250 
-- 2개 P10 데이터 디스크 
+- 2개 P50 데이터 디스크 
     - 프로비전된 MB/초: 250
 
  초기 부팅 후 애플리케이션이 VM에서 실행되고 중요하지 않은 워크로드가 있습니다. 이 워크로드에는 모든 디스크에서 균등하게 분산되는 30MB/초가 필요합니다.

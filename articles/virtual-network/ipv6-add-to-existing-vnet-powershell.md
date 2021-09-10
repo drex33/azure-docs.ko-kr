@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Network의 IPv4 응용 프로그램을 IPv6로 업그레이드 - PowerShell
+title: Azure Virtual Network에서 IPv6에 IPv4 애플리케이션 추가 - PowerShell
 titlesuffix: Azure Virtual Network
 description: 이 문서에서는 Azure PowerShell을 사용하여 Azure 가상 네트워크의 기존 응용 프로그램에 IPv6 주소를 배포하는 방법을 설명합니다.
 services: virtual-network
@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9d2ff583b032ff1f9aa5dbc9706ea6c981fc7265
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5d4982fac67b0d5bde5e0c68f64da634f01a9eab
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009979"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113435653"
 ---
-# <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Azure Virtual Network의 IPv4 응용 프로그램을 IPv6로 업그레이드 - PowerShell
+# <a name="add-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Azure 가상 네트워크에서 IPv6에 IPv4 애플리케이션 추가 - PowerShell
 
 이 문서에서는 표준 부하 분산 장치 및 공용 IP를 사용하여 Azure 가상 네트워크의 기존 IPv4 응용 프로그램에 IPv6 연결을 추가하는 방법을 설명합니다. 현재 위치 업그레이드에는 다음이 포함됩니다.
 - 가상 네트워크 및 서브넷에 대한 IPv6 주소 공간
-- IPv4 및 IPV6 프런트 엔드 구성이 모두 있는 표준 부하 분산 장치
+- IPv4 및 IPV6 프런트 엔드 구성이 모두 있는 표준 Load Balancer
 - IPv4 + IPv6 구성이 모두 있는 NIC가 있는 VM
 - 부하 분산 장치에 인터넷 연결 IPv6 연결이 있도록 하는 IPv6 공용 IP
 

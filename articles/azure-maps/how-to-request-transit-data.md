@@ -3,24 +3,23 @@ title: Microsoft Azure Maps Mobility Services(미리 보기)를 사용하여 대
 description: Azure Maps Mobility services(미리 보기)를 사용하여 대도시 지역 ID, 대중교통 정류장, 경로, 경로 일정 같은 대중교통 데이터를 요청하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 06/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 740080d742f535f868b2ae194b24bebe5ac6ac24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a3a2ea2843b9a21c67f886b49001ebaa17fc868
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96906032"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529179"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Azure Maps Mobility Services(미리 보기)를 사용하여 대중교통 데이터 요청 
 
 > [!IMPORTANT]
-> Azure Maps Mobility Services는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> Azure Maps Mobility Services 미리 보기는 사용 중지되었으며 2021년 10월 5일 이후에는 더 이상 사용할 수 없으며 지원되지 않습니다. 다른 모든 Azure Maps API 및 서비스는 이 만료 공지의 영향을 받지 않습니다.
+> 자세한 내용은 [Azure Maps Mobility 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-maps-mobility-services-preview-retirement/)를 참조하세요.
 
 
 이 문서에서는 Azure Maps [Mobility Services](/rest/api/maps/mobility)를 사용하여 대중교통 데이터를 요청하는 방법을 보여 줍니다. 대중교통 데이터에는 대중교통 정류장, 경로 정보, 예상 이동 시간 등이 포함됩니다.
@@ -45,19 +44,15 @@ ms.locfileid: "96906032"
 
 시애틀-터코마 대도시 지역 ID에 대한 대도시 지역을 가져오기 위한 요청을 수행하겠습니다. 대도시 지역의 ID를 요청하려면 다음 단계를 완료합니다.
 
-1. Postman 앱을 열고 요청을 저장할 컬렉션을 만들어 보겠습니다. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다.
-
-2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택합니다. 그런 다음 **저장** 을 선택합니다.
+1. Postman 앱을 엽니다. **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
   
-    ![Postman에서 요청 생성](./media/how-to-request-transit-data/postman-new.png)
-
-3. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력하여 GET 요청을 만듭니다. `{subscription-key}`를 Azure Maps 기본 키로 바꿉니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고, 다음 URL을 입력하여 GET 요청을 만듭니다. `{subscription-key}`를 Azure Maps 기본 키로 바꿉니다.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/metroArea/id/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126
     ```
 
-4. 요청이 성공적으로 완료되면 다음 응답을 받게 됩니다.
+3. 요청이 성공적으로 완료되면 다음 응답을 받게 됩니다.
 
     ```JSON
     {
@@ -120,7 +115,7 @@ Azure Maps [주변 대중교통 가져오기](/rest/api/maps/mobility/getnearbyt
 
 [주변 대중교통 가져오기](/rest/api/maps/mobility/getnearbytransitpreview)에 요청을 하려면 다음 단계를 수행합니다.
 
-1. Postman에서 **새 요청** | **GET 요청** 을 클릭하고 이름을 **주변 정류장 가져오기** 로 지정합니다.
+1. Postman 앱을 엽니다. **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 다음과 같이 입력한 뒤 **보내기** 를 클릭합니다.
 
@@ -229,7 +224,7 @@ Azure Maps [대중교통 경로 가져오기 API](/rest/api/maps/mobility/gettra
 
 유사 항목 검색 서비스로 요청을 하려면 다음 단계를 수행합니다.
 
-1. Postman에서 **새 요청** | **GET 요청** 을 클릭하고 이름을 **위치 좌표 가져오기** 로 지정합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 요청 URL을 다음과 같이 입력한 뒤 **보내기** 를 클릭합니다.
 
@@ -336,7 +331,7 @@ Azure Maps [대중교통 경로 가져오기 API](/rest/api/maps/mobility/gettra
 
 경로를 요청하려면 다음 단계를 완료합니다.
 
-1. Postman에서 **새 요청** | **GET 요청** 을 클릭하고 이름을 **경로 정보 가져오기** 로 지정합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 다음과 같이 입력한 뒤 **보내기** 를 클릭합니다.
 
@@ -531,7 +526,7 @@ Azure Maps [대중교통 경로 가져오기 API](/rest/api/maps/mobility/gettra
 
 Azure Maps [대중교통 일정 가져오기](/rest/api/maps/mobility/gettransititinerarypreview) 서비스를 사용하면 [대중교통 경로 가져오기 API](/rest/api/maps/mobility/gettransitroutepreview) 서비스에서 반환된 경로의 **일정 ID** 를 사용하여 특정 경로에 대한 데이터를 요청할 수 있습니다. 경로를 요청하려면 다음 단계를 완료합니다.
 
-1. Postman에서 **새 요청** | **GET 요청** 을 클릭하고 이름을 **대중교통 정보 가져오기** 로 지정합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택합니다. API 엔드포인트에 대한 요청 URL을 다음과 같이 입력하고 **보내기** 를 클릭합니다.
 

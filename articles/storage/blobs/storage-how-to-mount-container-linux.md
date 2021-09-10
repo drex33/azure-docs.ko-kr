@@ -5,15 +5,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 2/1/2019
+ms.date: 07/06/2021
 ms.author: tamram
 ms.reviewer: twooley
-ms.openlocfilehash: 9fa64d491a872d830ac57a1d097045d1702dd852
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 30a91858b03c89d38a58ba02efb75d4368d9e8d5
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527301"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113302485"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "111527301"
 ## <a name="install-blobfuse-on-linux"></a>Linux에 blobfuse 설치
 blobfuse 이진 파일은 Ubuntu, Debian, SUSE, CentoOS, Oracle Linux 및 RHEL 배포를 위한 [Linux용 Microsoft 소프트웨어 리포지토리](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)에서 사용할 수 있습니다. 해당 배포에서 Blobfuse를 설치하려면 목록에서 리포지토리 중 하나를 구성합니다. 배포에 사용할 수 있는 이진 파일이 없는 경우 [Azure Storage 설치 단계](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source)에 따라 소스 코드에서 이진 파일을 빌드할 수도 있습니다.
 
-blobfuse는 Ubuntu 버전: 16.04, 18.04 및 20.04, RHEL 버전: 7.5, 7.8, 8.0, 8.1, 8.2, CentOS 버전: 7.0, 8.0, Debian 버전: 9.0, 10.0, SUSE 버전: 15, OracleLinux 8.1에 대한 설치를 지원합니다. 이 명령을 실행하면 해당 버전 중 하나가 배포되었는지 확인할 수 있습니다.
+Blobfuse는 Ubuntu 버전: 16.04, 18.04 및 20.04, RHEL 버전: 7.5, 7.8, 8.0, 8.1, 8.2, CentOS 버전: 7.0, 8.0, Debian 버전: 9.0, Oracle Linux 10.0, SUSE용버전 15, Linux 리포지토리 8.1에 게시되었습니다. 이 명령을 실행하면 해당 버전 중 하나가 배포되었는지 확인할 수 있습니다.
 ```
 lsb_release -a
 ```

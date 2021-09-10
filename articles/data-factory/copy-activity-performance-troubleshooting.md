@@ -1,18 +1,20 @@
 ---
 title: 복사 작업 성능 문제 해결
-description: Azure Data Factory에서 복사 작업 성능 문제를 해결하는 방법에 대해 알아봅니다.
-ms.author: jingwang
-author: linda33wj
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Azure Data Factory 및 Azure Synapse Analytics에서 복사 작업 성능 문제를 해결하는 방법을 알아봅니다.
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 01/07/2021
-ms.openlocfilehash: ce7c97abfb879e9298edac5f38540bbc026274da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f424366a74ddb2955f1e0e339f82630da82b6953
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104584418"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642456"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
@@ -26,7 +28,7 @@ ms.locfileid: "104584418"
 
 ## <a name="performance-tuning-tips"></a>성능 튜닝 팁
 
-일부 시나리오에서는 Data Factory에서 복사 활동을 실행할 때, 위 예제에서 보이는 것과 같이 맨 위에 **‘성능 튜닝 팁’** 이 표시됩니다. 이 팁은 복사 처리량을 높이는 방법에 대한 제안과 함께 이 특정 복사 실행에 대해 ADF가 식별한 병목 상태를 알려줍니다. 권장 사항을 변경한 다음 복사를 다시 실행합니다.
+일부 시나리오에서는 복사 작업을 실행할 때 위 예제에서 보이는 것과 같이 맨 위에 **"성능 튜닝 팁"** 이 표시됩니다. 이 팁은 복사 처리량을 높이는 방법에 대한 제안과 함께 이 특정 복사 실행에 대해 서비스가 식별한 병목 상태를 알려줍니다. 권장 사항을 변경한 후 복사를 다시 실행합니다.
 
 참고로, 현재 성능 튜닝 팁은 다음과 같은 경우에 대한 제안을 제공합니다.
 
@@ -73,7 +75,7 @@ ms.locfileid: "104584418"
 
     - 큰 데이터 집합 하나를 작은 데이터 집합 여러 개로 분할하고 이러한 복사 작업이 데이터의 각 부분을 동시에 실행하는 것을 고려하세요. Lookup/GetMetadata + ForEach + Copy를 사용하여 이 작업을 수행할 수 있습니다. 일반적인 예는 [여러 컨테이너에서 파일 복사](solution-template-copy-files-multiple-containers.md) 또는 [Amazon S3에서 ADLS Gen2로 데이터 마이그레이션](solution-template-migration-s3-azure.md) 솔루션 템플릿을 참조하세요.
 
-  - ADF가 원본에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은 상태인지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
+  - 서비스가 원본에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은 상태인지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
 
   - 원본 데이터 저장소 영역과 같거나 가까운 곳에서 Azure IR을 사용합니다.
 
@@ -81,7 +83,7 @@ ms.locfileid: "104584418"
 
   - 적용되는 경우 커넥터별 데이터 로드 모범 사례를 채택합니다. 예를 들어 [Amazon Redshift](connector-amazon-redshift.md)에서 데이터를 복사할 때 Redshift UNLOAD를 사용하도록 구성합니다.
 
-  - ADF가 원본에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은 상태인지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
+  - 서비스가 원본에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
 
   - 복사 원본 및 싱크 패턴을 확인합니다. 
 
@@ -95,7 +97,7 @@ ms.locfileid: "104584418"
 
   - 적용되는 경우 커넥터별 데이터 로드 모범 사례를 채택합니다. 예를 들어 [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)로 데이터를 복사하는 경우 PolyBase 또는 COPY 문을 사용합니다. 
 
-  - ADF가 싱크에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은 상태인지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
+  - 서비스가 싱크에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
 
   - 복사 원본 및 싱크 패턴을 확인합니다. 
 
@@ -127,7 +129,7 @@ ms.locfileid: "104584418"
 
     - 큰 데이터 집합 하나를 작은 데이터 집합 여러 개로 분할하고 이러한 복사 작업이 데이터의 각 부분을 동시에 실행하는 것을 고려하세요. Lookup/GetMetadata + ForEach + Copy를 사용하여 이 작업을 수행할 수 있습니다. 일반적인 예는 [여러 컨테이너에서 파일 복사](solution-template-copy-files-multiple-containers.md) 또는 [Amazon S3에서 ADLS Gen2로 데이터 마이그레이션](solution-template-migration-s3-azure.md) 솔루션 템플릿을 참조하세요.
 
-  - ADF가 원본에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은 상태인지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
+  - 서비스가 원본에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은 상태인지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
 
 - **‘전송 - 원본에서 읽기’에 긴 작업 시간 발생**: 
 
@@ -135,7 +137,7 @@ ms.locfileid: "104584418"
 
   - 자체 호스팅 IR 시스템에 데이터를 효율적으로 읽고 전송할 수 있는 충분한 인바운드 대역폭이 있는지 확인합니다. 원본 데이터 저장소가 Azure에 있는 경우 [이 도구](https://www.azurespeed.com/Azure/Download)를 사용하여 다운로드 속도를 확인할 수 있습니다.
 
-  - Azure Portal -> 데이터 팩터리 -> 개요 페이지에서 자체 호스팅 IR의 CPU 및 메모리 사용량 추세를 확인합니다. CPU 사용량이 많거나 사용 가능한 메모리가 부족한 경우 [IR 스케일 업/아웃](create-self-hosted-integration-runtime.md#high-availability-and-scalability)을 고려하세요.
+  - Azure Portal -> 데이터 팩터리 또는 Synapse 작업 영역 -> 개요 페이지에서 자체 호스팅 IR의 CPU 및 메모리 사용량 추세를 확인합니다. CPU 사용량이 많거나 사용 가능한 메모리가 부족한 경우 [IR 스케일 업/아웃](create-self-hosted-integration-runtime.md#high-availability-and-scalability)을 고려하세요.
 
   - 적용되는 경우 커넥터별 데이터 로드 모범 사례를 채택합니다. 예를 들면 다음과 같습니다.
 
@@ -145,7 +147,7 @@ ms.locfileid: "104584418"
 
     - [Amazon Redshift](connector-amazon-redshift.md)에서 데이터를 복사할 때 Redshift UNLOAD를 사용하도록 구성합니다.
 
-  - ADF가 원본에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은 상태인지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
+  - 서비스가 원본에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
 
   - 복사 원본 및 싱크 패턴을 확인합니다. 
 
@@ -161,9 +163,9 @@ ms.locfileid: "104584418"
 
   - 자체 호스팅 IR 시스템에 데이터를 효율적으로 전송하고 쓸 수 있는 충분한 아웃바운드 대역폭이 있는지 확인합니다. 싱크 데이터 저장소가 Azure에 있는 경우 [이 도구](https://www.azurespeed.com/Azure/UploadLargeFile)를 사용하여 업로드 속도를 확인할 수 있습니다.
 
-  - Azure Portal -> 데이터 팩터리 -> 개요 페이지에서 자체 호스팅 IR의 CPU 및 메모리 사용량 추세를 확인합니다. CPU 사용량이 많거나 사용 가능한 메모리가 부족한 경우 [IR 스케일 업/아웃](create-self-hosted-integration-runtime.md#high-availability-and-scalability)을 고려하세요.
+  - Azure Portal -> 데이터 팩터리 또는 Synapse 작업 영역 -> 개요 페이지에서 자체 호스팅 IR의 CPU 및 메모리 사용량 추세를 확인합니다. CPU 사용량이 많거나 사용 가능한 메모리가 부족한 경우 [IR 스케일 업/아웃](create-self-hosted-integration-runtime.md#high-availability-and-scalability)을 고려하세요.
 
-  - ADF가 싱크에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은 상태인지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
+  - 서비스가 싱크에서 제한 오류를 보고하는지 또는 데이터 저장소의 사용률이 높은지 확인합니다. 그렇다면 데이터 저장소의 워크로드를 줄이거나 데이터 저장소 관리자에게 문의하여 제한 한도 또는 사용 가능한 리소스를 늘리십시오.
 
   - [병렬 복사](copy-activity-performance-features.md)를 점차적으로 조정하는 것이 좋습니다. 병렬 복사가 너무 많으면 성능이 저하될 수도 있습니다.
 
@@ -178,9 +180,7 @@ ms.locfileid: "104584418"
 
 - **증상**: 데이터 집합에서 연결된 서비스 드롭다운을 전환하기만 하면 동일한 파이프라인 작업이 수행되지만 런타임은 크게 다릅니다. 데이터 집합이 Managed Virtual Network Integration Runtime 기반인 경우에는 Default Integration Runtime 기반일 때 실행하는 것보다 평균적으로 더 많은 시간이 걸립니다.  
 
-- **원인**: 파이프라인 실행의 세부 정보를 확인하면 느린 파이프라인은 관리형 VNET(Virtual Network) IR에서 실행 중이고 일반 파이프라인은 Azure IR에서 실행 중임을 알 수 있습니다. 기본적으로 Managed VNet IR은 데이터 팩터리당 하나의 계산 노드를 예약하지 않으므로 Azure IR보다 큐 시간이 더 오래 걸립니다. 따라서 각 복사 활동을 시작할 준비가 되어 있고, Azure IR이 아닌 VNet 조인에서 주로 발생합니다. 
-
-
+- **원인**: 파이프라인 실행의 세부 정보를 확인하면 느린 파이프라인은 관리형 VNET(Virtual Network) IR에서 실행 중이고 일반 파이프라인은 Azure IR에서 실행 중임을 알 수 있습니다. 기본적으로 관리형 VNet IR은 서비스 인스턴스당 하나의 계산 노드를 예약하지 않으므로 Azure IR보다 큐 시간이 더 오래 걸립니다. 따라서 각 복사 작업을 시작할 준비가 되어 있고, Azure IR이 아닌 VNet 조인에서 주로 발생합니다. 
 
     
 ### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Azure SQL Database에 데이터를 로드할 때 성능 저하
@@ -212,7 +212,7 @@ ms.locfileid: "104584418"
 
     - 스키마 가져오기, 데이터 미리 보기, Excel 데이터 집합에서 워크시트 나열과 같은 작업의 경우 시간 제한이 100초이며 고정적입니다. 큰 Excel 파일의 경우 이러한 작업이 시간 제한 값 이내에 완료되지 않을 수 있습니다.
 
-    - ADF 복사 활동은 전체 Excel 파일을 메모리로 읽은 다음 지정된 워크시트와 셀을 찾아 데이터를 읽습니다. 이 동작은 기본 SDK ADF 사용으로 인해 발생합니다.
+    - 복사 작업은 전체 Excel 파일을 메모리로 읽은 다음, 지정된 워크시트와 셀을 찾아 데이터를 읽습니다. 이 동작은 기본 SDK 서비스 사용으로 인해 발생합니다.
 
 - **해결 방법**: 
 
@@ -240,5 +240,5 @@ ms.locfileid: "104584418"
 - [복사 작업 개요](copy-activity-overview.md)
 - [복사 작업 성능 및 확장성 가이드](copy-activity-performance.md)
 - [복사 작업 성능 최적화 기능](copy-activity-performance-features.md)
-- [Azure Data Factory를 사용하여 데이터 레이크 또는 데이터 웨어하우스에서 Azure로 데이터 마이그레이션](data-migration-guidance-overview.md)
+- [데이터 레이크 또는 데이터 웨어하우스에서 Azure로 데이터 마이그레이션](data-migration-guidance-overview.md)
 - [Amazon S3에서 Azure Storage로 데이터 마이그레이션](data-migration-guidance-s3-azure-storage.md)

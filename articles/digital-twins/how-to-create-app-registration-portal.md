@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: 클라이언트 앱에 대한 인증 옵션으로 Azure Portal을 사용하여 Azure AD 앱 등록을 만드는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 10/13/2020
+ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 55f8c0008a055f5703ffe563fe7925446246f134
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: da935038599b86d9c86a1f55071d4b4d1ea4ce16
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114466170"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123223061"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins-portal"></a>Azure Digital Twins에서 사용할 앱 등록 만들기(포털)
 
@@ -20,7 +20,7 @@ ms.locfileid: "114466170"
 
 Azure Digital Twins 인스턴스를 사용할 때 [클라이언트 앱 코딩](tutorial-code.md)에서 빌드된 사용자 지정 클라이언트 앱과 같은 클라이언트 애플리케이션을 통해 해당 인스턴스와 상호 작용하는 것이 일반적입니다. 이러한 애플리케이션은 상호 작용하기 위해 Azure Digital Twins를 사용하여 인증해야 하며, 앱에서 사용할 수 있는 일부 [인증 메커니즘](how-to-authenticate-client.md)에는 [Azure AD(Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md) **앱 등록** 이 포함됩니다.
 
-이는 모든 인증 시나리오에 필요하지 않습니다. 그러나 앱 등록을 요구하는 인증 전략 또는 코드 샘플을 사용하는 경우 이 문서에서는 [AAzure Portal](https://portal.azure.com)을 사용하여 이를 설정하는 방법을 보여 줍니다. 또한 앱 등록을 사용하여 인증하기 위해 필요한 [중요한 값을 수집하는](#collect-important-values) 방법도 다룹니다.
+앱 등록이 모든 인증 시나리오에 필요한 것은 아닙니다. 그러나 앱 등록을 요구하는 인증 전략 또는 코드 샘플을 사용하는 경우 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 이를 설정하는 방법을 보여 줍니다. 또한 앱 등록을 사용하여 인증하기 위해 필요한 [중요한 값을 수집](#collect-important-values)하는 방법도 다룹니다.
 
 ## <a name="azure-ad-app-registrations"></a>Azure AD 앱 등록
 
@@ -42,7 +42,7 @@ Azure Portal에서 [Azure Active Directory](https://portal.azure.com/#blade/Micr
 * **지원되는 계정 유형**: *이 조직 디렉터리의 계정만(기본 디렉터리만 - 단일 테넌트)* 선택
 * **리디렉션 URI**: Azure AD 애플리케이션에 대한 *Azure AD 애플리케이션 회신 URL* `http://localhost`에 대해 *퍼블릭 클라이언트/네이티브(모바일 및 데스크톱)* URI를 추가합니다.
 
-완료되면 *등록* 단추를 선택합니다.
+완료되면 등록 단추를 선택합니다.
 
 :::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="설명된 값이 채워진 Azure Portal의 '애플리케이션 등록' 페이지 스크린샷.":::
 
@@ -97,7 +97,7 @@ Azure Digital Twins를 사용하기 위해 **리소스 이름** 은 `http://digi
 
 :::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="'API 권한' 메뉴 옵션과 '권한 추가' 단추가 강조 표시된 Azure Portal의 앱 등록 스크린샷.":::
 
-다음에 나오는 *API 권한 요청* 페이지에서 *내 조직에서 사용하는 API* 탭으로 전환하고 *Azure 디지털 트윈* 을 검색합니다. Azure Digital Twins API에 대한 권한 할당을 진행하려면 검색 결과에서 _**Azure Digital Twins**_ 를 선택합니다.
+다음에 나오는 *API 권한 요청* 페이지에서 *내 조직에서 사용하는 API* 탭으로 전환하고 *Azure 디지털 트윈* 을 검색합니다. 검색 결과에서 _**Azure Digital Twins**_ 를 선택하여 Azure Digital Twins API에 대한 권한 할당을 계속합니다.
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="Azure Digital Twins를 보여주는 Azure Portal의 'API 권한 요청' 페이지 검색 결과 스크린샷.":::
 
@@ -113,7 +113,7 @@ Azure Digital Twins를 사용하기 위해 **리소스 이름** 은 `http://digi
 
 ### <a name="verify-success"></a>성공 확인
 
-*API 권한* 페이지에서 읽기/쓰기 권한을 반영하는 Azure Digital Twins 항목이 있는지 확인합니다.
+API 권한 페이지에서 읽기/쓰기 권한을 반영하는 Azure Digital Twins 항목이 있는지 확인합니다.
 
 :::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Azure Digital Twins의 '읽기/쓰기 액세스'를 보여주는 Azure Portal의 Azure AD 앱 등록에 대한 API 권한의 스크린샷.":::
 
@@ -131,9 +131,9 @@ API 권한을 추가했을 때 Azure Digital Twins 정보를 사용하여 자동
 
 ## <a name="other-possible-steps-for-your-organization"></a>조직의 다른 가능한 단계
 
-조직에서 앱 등록을 성공적으로 설정하기 위해 구독 소유자/관리자의 추가 작업이 필요할 수 있습니다. 필요한 단계는 조직의 특정 설정에 따라 다를 수도 있습니다.
+앱 등록을 성공적으로 설정하려면 조직이 구독 소유자/관리자의 추가 작업을 요구할 수 있습니다. 필요한 단계는 조직의 특정 설정에 따라 다를 수도 있습니다.
 
-다음은 구독의 소유자/관리자가 수행해야 하는 일반적인 잠재적 활동입니다. 이 작업 및 다른 작업은 Azure Portal의 [Azure AD 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 페이지에서 수행할 수 있습니다.
+다음은 구독의 소유자/관리자가 수행해야 할 수 있는 일반적인 활동입니다. 이 작업 및 다른 작업은 Azure Portal의 [Azure AD 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 페이지에서 수행할 수 있습니다.
 * 앱 등록에 대한 관리자 동의를 부여합니다. 조직이 Azure AD에서 구독 내의 모든 앱 등록에 관해 *관리자 동의가 필요함* 을 전역적으로 활성화했을 수도 있습니다. 그런 경우 소유자/관리자는 앱 등록의 *API 권한* 페이지에서 회사에 대해 이 단추를 선택하여 앱 등록이 유효하도록 설정해야 합니다.
 
     :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="API 권한 아래에 '관리자 동의 부여' 단추를 표시하는 Azure Portal의 스크린샷.":::

@@ -1,20 +1,20 @@
 ---
-title: Azure Percept DK 설치 환경에서 발생하는 문제 해결
+title: Azure Percept DK 설정 환경 문제 해결
 description: 설치 환경에서 발견된 몇 가지 일반적인 문제에 대한 문제 해결 팁 확인
-author: mimcco
-ms.author: mimcco
+author: SillyKeith
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: troubleshooting
 ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 1be326c9486b4017ef9b4547f9b648a15865e2a6
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 40b7289b3c6fd841a0af9b9a61f66906e0dfa028
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111440487"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226845"
 ---
-# <a name="azure-percept-dk-setup-experience-troubleshooting-guide"></a>Azure Percept DK 설치 환경 문제 해결 가이드
+# <a name="troubleshoot-the-azure-percept-dk-setup-experience"></a>Azure Percept DK 설정 환경 문제 해결
 
 [Azure PERCEPT DK 설치 환경](./quickstart-percept-dk-set-up.md)에서 발견된 일반적인 문제에 대한 해결 방법은 아래 표를 참조하세요. 문제가 계속되면 Azure 고객 지원 서비스에 문의하세요.
 
@@ -26,4 +26,5 @@ ms.locfileid: "111440487"
 |호스트 컴퓨터에는 Azure Percept DK 액세스 지점에 대한 연결과 관련된 보안 경고가 표시됩니다.|이 문제는 알려진 문제이며 이후 업데이트에서 수정될 예정입니다.|설치 환경을 계속 진행하는 것이 안전합니다.|
 |Azure Percept DK Wi-Fi 액세스 지점(scz-xxxx 또는 apd-xxxx)이 네트워크 목록에 표시되지만 연결은 실패합니다.|개발자 키트의 Wi-Fi 액세스 지점이 일시적으로 손상되었기 때문일 수 있습니다.|개발자 키트를 다시 부팅한 후 다시 시도하세요.|
 |설치 환경에서 Wi-Fi 네트워크에 연결할 수 없습니다.|Wi-Fi 네트워크는 현재 Azure와 통신하기 위해 인터넷에 연결되어 있어야 합니다. EAP[PEAP/MSCHAP], 종속 포털 및 엔터프라이즈 EAP-TLS 연결은 현재 지원되지 않습니다.|Wi-Fi 네트워크 유형이 지원되고 인터넷에 연결되어 있는지 확인하세요.|
-|디바이스 코드를 사용하여 Azure에 로그인하면 후 정책 권한 또는 규정 준수 문제에 대한 오류가 표시되고 계속 진행할 수 없습니다. 표시될 수 있는 오류는 다음과 같습니다.<br>**BlockedByConditionalAccessOnSecurityPolicy** 테넌트 관리자가 이 요청을 차단하는 보안 정책을 구성했습니다. 테넌트 수준에 정의된 보안 정책을 확인하여 요청이 정책을 충족하는지 확인합니다. <br>**DevicePolicyError** 사용자가 현재 조건부 액세스 정책을 통해 지원되지 않는 플랫폼에서 디바이스에 로그인하려고 했습니다.<br>**DeviceNotCompliant** - 조건부 액세스 정책에는 이를 준수하는 디바이스가 필요하며, 해당 디바이스는 정책을 준수하지 않았습니다. 사용자는 Intune과 같이 승인된 MDM 공급자에 자신의 디바이스를 등록해야 합니다.<br>**BlockedByConditionalAccess** 조건부 액세스 정책에 의해 액세스가 차단되었습니다. 액세스 정책에 따라 토큰 발급을 허용하지 않습니다.    |일부 Azure 테넌트는 보안 예방 조치로 Azure 리소스를 조작하기 위한 "디바이스 코드"의 사용을 차단할 수 있습니다. 이는 일반적으로 조직의 IT 정책에 따른 결과입니다. 따라서 Azure Percept 설치 환경에서는 Azure 리소스를 만들 수 없습니다.    |해결 방법    |
+|**디바이스 코드 오류** <br><br> 디바이스 코드 페이지에서 다음 오류를 수신한 경우: <br><br>**설치 환경 UI에서** - 디바이스 코드를 가져올 수 없습니다. 디바이스가 인터넷에 연결되어 있는지 확인하세요. <br><br> **브라우저의 웹 개발자 모드에서** - 리소스를 로드하지 못했습니다. 서버가 503 상태(서비스를 사용할 수 없음)로 응답했습니다. <br><br>또는 <br><br>인증서가 아직 유효하지 않습니다. | 디바이스가 DNS 쿼리를 완료하거나 NTP 시간 서버에 연결할 수 없도록 하는 Wi-Fi 네트워크 문제가 있습니다. | 이더넷 케이블을 개발 키트에 연결하거나 다른 Wi-Fi 네트워크에 연결한 후 다시 시도하세요. <br><br> 일반적인 원인은 아니지만 호스트 컴퓨터의 날짜/시간이 잘못되었을 수 있습니다.  |
+|**디바이스 코드를 사용할 때 발생하는 문제**<br><br> 디바이스 코드를 사용하여 Azure에 로그인하면 정책 권한 또는 규정 준수 문제에 대한 Azure 오류 메시지가 표시됩니다. 설치 환경을 계속 진행할 수 없습니다.<br><br> 표시될 수 있는 오류는 다음과 같습니다.<br><br>**BlockedByConditionalAccessOnSecurityPolicy** 테넌트 관리자가 이 요청을 차단하는 보안 정책을 구성했습니다. 테넌트 수준에 정의된 보안 정책을 확인하여 요청이 정책을 충족하는지 확인합니다. <br><br>**DevicePolicyError** 사용자가 현재 조건부 액세스 정책을 통해 지원되지 않는 플랫폼에서 디바이스에 로그인하려고 했습니다.<br><br>**DeviceNotCompliant** - 조건부 액세스 정책에는 이를 준수하는 디바이스가 필요하며, 해당 디바이스는 정책을 준수하지 않았습니다. 사용자는 Intune과 같이 승인된 MDM 공급자에 자신의 디바이스를 등록해야 합니다.<br><br>**BlockedByConditionalAccess** 조건부 액세스 정책에 의해 액세스가 차단되었습니다. 액세스 정책에 따라 토큰 발급을 허용하지 않습니다.<br><br>**지금은 액세스할 수 없습니다.** - 정상적으로 로그인되었지만 이 리소스에 액세스하기 위한 조건에 맞지 않습니다.   |일부 Azure 테넌트는 보안 예방 조치로 Azure 리소스를 조작하기 위한 "디바이스 코드"의 사용을 차단할 수 있습니다. 일반적으로 조직의 조건부 액세스 IT 정책에 따른 결과입니다. 따라서 Azure Percept 설치 환경에서는 Azure 리소스를 만들 수 없습니다. <br><br>계속하려면 조건부 액세스 정책을 회사 네트워크 또는 VPN에 연결해야 합니다.    |조직과 협력하여 조건부 액세스 IT 정책을 이해하세요.  |

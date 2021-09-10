@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bf4598166250eb6ad7b65621e67184bfdeb839e
+ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92173001"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112465028"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리
 *메트릭* 은 서비스에서 관심을 갖고 클러스터의 노드에서 제공하는 리소스입니다. 메트릭은 서비스 성능을 향상시키거나 모니터링하기 위해 관리하려는 모든 항목입니다. 예를 들어 메모리 사용량을 조사하여 서비스가 오버로드 상태인지 여부를 확인할 수 있습니다. 또 다른 용도는 더 나은 성능을 얻기 위해 메모리 제약이 심하지 않은 위치로 서비스를 이동할 수 있는지 여부를 파악하는 것입니다.
@@ -178,7 +178,7 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 서비스는 생성 시 정의된 메트릭에 대해 보고할 수 있습니다. 서비스에서 사용하도록 구성되지 않은 메트릭에 대한 로드를 보고하는 경우 Service Fabric에서는 해당 보고서를 무시합니다. 유효한 다른 메트릭이 동시에 보고되는 경우 해당 보고서가 수락됩니다. 서비스 코드는 사용 방법을 인식하고 있는 모든 메트릭을 측정하여 보고할 수 있으며, 작업자는 서비스 코드를 변경하지 않고도 사용할 메트릭 구성을 지정할 수 있습니다. 
 
 ## <a name="reporting-load-for-a-partition"></a>파티션에 대한 로드 보고
-이전 섹션에서는 서비스 복제본 또는 인스턴스 자체에서 로드를 보고하는 방법을 설명했습니다. FabricClient를 사용하여 로드를 동적으로 보고하는 추가 옵션이 있습니다. 파티션에 대한 로드를 보고하는 경우 한 번에 여러 파티션에 대해 보고할 수 있습니다.
+이전 섹션에서는 서비스 복제본 또는 인스턴스 자체에서 로드를 보고하는 방법을 설명했습니다. Service Fabric API를 통해 파티션의 복제본 또는 인스턴스에 대한 부하를 동적으로 보고하는 추가 옵션이 있습니다. 파티션에 대한 로드를 보고하는 경우 한 번에 여러 파티션에 대해 보고할 수 있습니다.
 
 해당 보고서는 복제본 또는 인스턴스 자체에서 들어오는 로드 보고서와 정확히 동일한 방식으로 사용됩니다. 보고된 값은 복제본 또는 인스턴스에서 새 로드 값이 보고되거나 파티션의 새 로드 값 보고를 통해 새 로드 값이 보고될 때까지 유효합니다.
 
@@ -188,7 +188,11 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
   - 상태 비저장 및 상태 저장 서비스는 모두 보조 복제본 또는 인스턴스의 로드를 업데이트할 수 있습니다.
   - 상태 비저장 및 상태 저장 서비스는 노드의 특정 복제본 또는 인스턴스 로드를 업데이트할 수 있습니다.
 
-파티션별로 해당 업데이트를 동시에 결합할 수도 있습니다.
+파티션별로 해당 업데이트를 동시에 결합할 수도 있습니다. 특정 파티션에 대한 로드 업데이트 조합은 다음 예제에 표시된 것처럼 해당하는 로드 업데이트 목록을 포함할 수 있는 PartitionMetricLoadDescription 개체를 통해 지정해야 합니다. 로드 업데이트는 메트릭 이름으로 지정된 메트릭에 대한 _현재_ 또는 _예측_ 로드 값을 포함할 수 있는 MetricLoadDescription 개체를 통해 표현됩니다.
+
+> [!NOTE]
+> _예측 메트릭 로드 값_ 은 현재 _미리 보기 기능_ 입니다. 예측된 로드 값을 보고하고 Service Fabric 쪽에서 사용할 수 있지만 이 기능은 현재 사용하도록 설정되어 있지 않습니다.
+>
 
 단일 API 호출로 여러 파티션의 로드를 업데이트할 수 있으며, 이 경우 출력에는 파티션별 응답이 포함됩니다. 어떤 이유로든 파티션 업데이트가 성공적으로 적용되지 않은 경우 파티션의 업데이트를 건너뛰고 대상 파티션에 대한 해당 오류 코드가 제공됩니다.
 
@@ -198,7 +202,7 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
   - ReplicaDoesNotExist - 지정한 노드에 보조 복제본 또는 인스턴스가 없습니다.
   - InvalidOperation - 시스템 애플리케이션에 속하는 파티션에 대한 로드 업데이트 또는 예측된 로드 업데이트를 사용할 수 없는 두 가지 경우에 발생할 수 있습니다.
 
-일부 오류가 반환되면 특정 파티션의 입력을 업데이트하고 특정 파티션의 업데이트를 다시 시도할 수 있습니다.
+일부 오류가 반환되면 특정 파티션의 입력을 업데이트하고 업데이트를 다시 시도할 수 있습니다.
 
 코드:
 

@@ -4,12 +4,12 @@ description: Azure VM 및 Azure Virtual Machine Scale Sets에 대한 애플리�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d60b06331f10f33fabfb7ef03365ee6ac8689bcf
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2fc5057826eda1856b5b3671b6a995e9e80468f5
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315168"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114720653"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 및 Azure 가상 머신 확장 집합에 Azure Monitor Application Insights 에이전트 배포
 
@@ -20,7 +20,7 @@ ms.locfileid: "108315168"
 > Azure VM 및 VMSS에서 실행되는 **Java** 기반 애플리케이션은 일반적으로 사용 가능한 **[Application Insights Java 3.0 에이전트](./java-in-process-agent.md)** 로 모니터링됩니다.
 
 > [!IMPORTANT]
-> **Azure VM 및 VMSS** 에서 실행되는 ASP.NET 애플리케이션용 Azure Application Insights 에이전트는 현재 공개 미리 보기로 제공됩니다. **온-프레미스** 에서 실행되는 ASP.Net 애플리케이션을 모니터링하려면 일반 공급되고 완전히 지원되는 [온-프레미스 서버용 Azure Application Insights 에이전트](./status-monitor-v2-overview.md)를 사용하세요.
+> **Azure VM 및 VMSS** 에서 실행되는 ASP.NET 및 ASP.NET Core 애플리케이션용 Azure Application Insights 에이전트는 현재 공개 미리 보기로 제공됩니다. **온-프레미스** 에서 실행되는 ASP.NET 애플리케이션을 모니터링하려면 일반 공급되고 완전히 지원되는 [온-프레미스 서버용 Azure Application Insights 에이전트](./status-monitor-v2-overview.md)를 사용하세요.
 > Azure VM 및 VMSS에 대한 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 일부 기능은 지원되지 않을 수 있으며 일부 기능은 제한된 기능을 가질 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -35,10 +35,10 @@ Azure Virtual Machines 및 Azure Virtual Machine Scale Sets 호스팅된 애플�
 * Azure Virtual Machines 및 Azure Virtual Machine Scale Sets의 경우 이 모니터링 수준을 최소한으로 설정하는 것이 좋습니다. 그런 다음 특정 시나리오에 따라 수동 계측이 필요한지 여부를 평가할 수 있습니다.
 
 > [!NOTE]
-> 자동 계측은 현재 .NET IIS에서 호스트되는 애플리케이션 및 Java에 대해서만 사용할 수 있습니다. SDK를 사용하여 Azure Virtual Machines 및 Virtual Machine Scale Sets에서 호스트되는 ASP.NET Core, Node.js 및 Python 애플리케이션을 계측할 수 있습니다.
+> 자동 계측은 현재 ASP.NET, ASP.NET Core IIS에서 호스트되는 애플리케이션 및 Java에 대해서만 사용할 수 있습니다. SDK를 사용하여 Azure 가상 머신 및 가상 머신 확장 집합에서 호스트되는 Node.js 및 Python 애플리케이션을 계측할 수 있습니다.
 
 
-#### <a name="net"></a>.NET
+#### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
   * Application Insights 에이전트는 .NET SDK와 동일한 종속성 신호를 기본적으로 자동 수집합니다. 자세한 내용은 [종속성 자동 수집](./auto-collect-dependencies.md#net)을 참조하세요.
         
@@ -47,16 +47,13 @@ Azure Virtual Machines 및 Azure Virtual Machine Scale Sets 호스팅된 애플�
 
 ### <a name="code-based-via-sdk"></a>SDK를 통한 코드 기반
     
-#### <a name="net"></a>.NET
+#### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
   * .NET 앱의 경우 이 접근 방식을 훨씬 더 다양하게 사용자 지정할 수 있지만 [Application Insights SDK NuGet 패키지에 대한 종속성을 추가](./asp-net.md)해야 합니다. 또한 이 방법은 최신 버전의 패키지에 대한 업데이트를 직접 관리해야 함을 의미합니다.
 
   * 에이전트 기반 모니터링을 사용하여 기본적으로 캡처되지 않는 이벤트/종속성을 추적하기 위해 사용자 지정 API 호출을 수행해야 하는 경우 이 방법을 사용해야 합니다. 자세한 내용은 [사용자 지정 이벤트 및 메트릭용 API 문서](./api-custom-events-metrics.md)를 확인하세요.
 
     > [!NOTE]
     > .NET 앱에만 해당 - 에이전트 기반 모니터링 및 수동 SDK 기반 계측이 모두 검색되는 경우 수동 계측 설정만 인식됩니다. 이를 통해 중복 데이터가 전송되는 것을 방지합니다. 이 기능에 관한 자세한 내용은 아래 [문제 해결 섹션](#troubleshooting)을 확인하세요.
-
-#### <a name="net-core"></a>.NET Core
-.NET Core 애플리케이션을 모니터링하려면 [SDK](./asp-net-core.md)를 사용합니다. 
 
 #### <a name="java"></a>Java 
 

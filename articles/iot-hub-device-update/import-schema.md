@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ea9f57364d6b7cca884f87c36623a73bbcb37ae6
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 996d08eef2f3ab140c07ec77b031993c9c45aed9
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186878"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122568214"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Device Update for IoT Hub로 업데이트 가져오기 - 스키마 및 기타 정보
 Device Update for IoT Hub로 업데이트를 가져오려면 먼저 [개념](import-concepts.md) 및 [방법 가이드](import-update.md)를 검토해야 합니다. 가져오기 매니페스트를 구성할 때 사용되는 스키마의 세부 정보 및 관련 개체에 대한 자세한 내용은 아래를 참조하세요.
@@ -95,8 +95,8 @@ Azure Active Directory OAuth2 흐름 유형: oauth2 흐름: 임의
 
 | Name | 설명 |
 | --- | --- |
-| `https://api.adu.microsoft.com/user_impersonation` | 사용자 계정 가장 |
-| `https://api.adu.microsoft.com/.default`  | 클라이언트 자격 증명 흐름 |
+| https://api.adu.microsoft.com/user_impersonation | 사용자 계정 가장 |
+| https://api.adu.microsoft.com/.default  | 클라이언트 자격 증명 흐름 |
 
 
 **권한**
@@ -123,8 +123,8 @@ az account get-access-token --resource 'https://api.adu.microsoft.com/'
 _사용자 자격 증명 사용_ 
 
 ```powershell
-$clientId = '<app_id>’
-$tenantId = '<tenant_id>’
+$clientId = '1e5942b3-36f1-43eb-88d9-98c12d95000b’
+$tenantId = '72f988bf-86f1-41af-91ab-2d7cd011db47’
 $authority = "https://login.microsoftonline.com/$tenantId/v2.0"
 $Scope = 'https://api.adu.microsoft.com/user_impersonation'
 

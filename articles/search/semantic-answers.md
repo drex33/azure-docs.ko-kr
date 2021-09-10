@@ -8,17 +8,17 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/27/2021
-ms.openlocfilehash: d0390bd70080ea0174a81cce9538396321dec658
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 3a8c00dcb2bf016cf70f02dcfdebc5e55bf5d66c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539360"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567581"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 의미 체계 대답 반환
 
 > [!IMPORTANT]
-> 의미 체계 검색은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. Azure Portal, 미리 보기 REST API 및 베타 SDK를 통해 사용할 수 있습니다. 이러한 기능에는 비용이 청구될 수 있습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
+> 의미 체계 검색은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 퍼블릭 미리 보기로 제공됩니다. Azure Portal, 미리 보기 REST API, 베타 SDK를 통해 사용할 수 있습니다. 이러한 기능에는 비용이 청구될 수 있습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
 
 [의미 체계 순위 지정 및 캡션](semantic-how-to-query-request.md)을 호출할 때 쿼리에 직접 "답변"하는 최상위 일치 문서에서 콘텐츠를 선택적으로 추출할 수 있습니다. 응답에는 하나 이상의 답변이 포함될 수 있으며, 이후 이를 검색 페이지에 렌더링하여 앱의 사용자 환경을 개선할 수 있습니다.
 
@@ -69,7 +69,7 @@ Cognitive Search는 머신 리딩 이해력 모델을 사용하여 최선의 답
 
 + “searchFields”는 추출 모델에 토큰을 제공하는 문자열 필드를 결정합니다. 캡션을 생성하는 필드가 답변 또한 생성합니다. 이 필드가 캡션 및 답변 모두에 대해 작동하도록 설정하는 방법에 대한 정확한 참고 자료는 [searchFields 설정](semantic-how-to-query-request.md#searchfields)을 참조하세요. 
 
-+ “답변”의 경우 매개 변수 생성은 `"answers": "extractive"`이며 반환되는 답변의 수는 기본적으로 1개입니다. 위의 예와 같이 `count`를 추가하여 최대 5개까지 답변 수를 늘릴 수 있습니다.  답변이 2개 이상 필요한지는 앱의 사용자 환경 및 결과 렌더링 방법에 따라 달라집니다.
++ “답변”의 경우 매개 변수 생성은 `"answers": "extractive"`이며 반환되는 답변의 수는 기본적으로 1개입니다. 위의 예제와 같이 `count`를 추가하여 최대 10개까지 답변 수를 늘릴 수 있습니다.  답변이 2개 이상 필요한지는 앱의 사용자 환경 및 결과 렌더링 방법에 따라 달라집니다.
 
 ## <a name="deconstruct-an-answer-from-the-response"></a>응답에서 답변 분해
 

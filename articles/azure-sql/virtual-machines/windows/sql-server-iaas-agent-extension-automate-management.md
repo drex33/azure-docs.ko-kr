@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 9/01/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 619c29b2c28c04e1cbf4d4dcda8fe3048234e7dd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 828f4bc269e5d7ec5b0d46c473d2abbf2c200222
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529455"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220613"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용하여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,6 +31,9 @@ ms.locfileid: "122529455"
 SQL Server IaaS 에이전트 확장(SqlIaasExtension)은 관리 작업을 자동화하기 위해 Azure 가상 머신의 SQL Server에서 실행됩니다. 
 
 이 문서는 확장에 대한 개요를 제공합니다. SQL Server IaaS 확장을 Azure VM의 SQL Server에 설치하려면 [자동 설치](sql-agent-extension-automatic-registration-all-vms.md), [단일 VM](sql-agent-extension-manually-register-single-vm.md) 또는 [대량 VM](sql-agent-extension-manually-register-vms-bulk.md) 문서를 참조하세요. 
+
+> [!NOTE]
+> 2021년 9월부터 전체 모드로 SQL IaaS 확장에 등록하기 위해 더 이상 SQL Server 서비스를 다시 시작하지 않아도 됩니다. 
 
 ## <a name="overview"></a>개요
 
@@ -85,9 +88,9 @@ SQL Server IaaS 에이전트 확장은 SQL Server VM 관리에 대한 다양한 
 
 세 가지 관리 모드에서 SQL IaaS 확장을 등록할 수 있습니다. 
 
-- **경량** 모드는 확장 이진 파일을 VM에 복사하지만 에이전트는 설치하지 않으며, SQL Server 서비스를 다시 시작하지 않습니다. 경량 모드는 SQL Server 라이선스 유형과 버전의 변경을 지원하고 제한된 포털 관리를 제공합니다. 여러 인스턴스가 있거나 FCI(장애 조치(failover) 클러스터 인스턴스)에 참여하는  SQL Server VM에서 이 옵션을 사용합니다. [자동 등록](sql-agent-extension-automatic-registration-all-vms.md) 기능을 사용할 때나 수동 등록 도중 관리 유형이 지정되지 않은 경우 경량 모드가 기본 관리 모드입니다. 경량 모드를 사용하는 경우 메모리 또는 CPU에 영향을 주지 않으며 관련 비용이 없습니다. 먼저 SQL Server VM을 경량 모드로 등록한 다음, 예약된 유지 관리 기간 동안 전체 모드로 업그레이드하는 것이 좋습니다. 
+- **경량** 모드는 확장 이진 파일을 VM에 복사하지만 에이전트를 설치하지는 않습니다. 경량 모드에서는 단지 SQL Server 라이선스 유형 및 버전의 변경을 지원하고 제한된 포털 관리를 제공합니다. 여러 인스턴스가 있거나 FCI(장애 조치(failover) 클러스터 인스턴스)에 참여하는  SQL Server VM에서 이 옵션을 사용합니다. [자동 등록](sql-agent-extension-automatic-registration-all-vms.md) 기능을 사용할 때나 수동 등록 도중 관리 유형이 지정되지 않은 경우 경량 모드가 기본 관리 모드입니다. 경량 모드를 사용하는 경우 메모리 또는 CPU에 영향을 주지 않으며 관련 비용이 없습니다. 
 
-- **전체** 모드에서는 모든 기능을 제공하기 위해 SQL IaaS 에이전트를 VM에 설치하지만 SQL Server 서비스 및 시스템 관리자 권한을 다시 시작해야 합니다. 단일 인스턴스가 있는 SQL Server VM을 관리하는 데 이 옵션을 사용합니다. 전체 모드에서는 메모리 및 CPU에 최소한의 영향을 주는 두 개의 Windows 서비스가 설치됩니다. 이러한 서비스는 작업 관리자를 통해 모니터링할 수 있습니다. 전체 관리 모드를 사용하는 것과 관련된 비용은 없습니다. 
+- **전체** 모드에서는 전체 기능을 제공하기 위해 SQL IaaS 에이전트를 VM에 설치합니다. 단일 인스턴스가 있는 SQL Server VM을 관리하는 데 이 옵션을 사용합니다. 전체 모드에서는 메모리 및 CPU에 최소한의 영향을 주는 두 개의 Windows 서비스가 설치됩니다. 이러한 서비스는 작업 관리자를 통해 모니터링할 수 있습니다. 전체 관리 모드를 사용하는 것과 관련된 비용은 없습니다. 시스템 관리자 권한이 필요합니다. 2021년 9월부터 전체 관리 모드에서 SQL Server VM을 등록하는 경우 SQL Server 서비스를 다시 시작하지 않아도 됩니다. 
 
 - **에이전트 없음** 모드는 Windows Server 2008에 설치된 SQL Server 2008 및 SQL Server 2008 R2 전용 모드입니다. 에이전트 없음 모드를 사용하는 경우 메모리 또는 CPU에는 영향을 주지 않습니다. NoAgent 관리 효율성 모드 사용에 대한 비용은 없고, SQL Server가 다시 시작되지 않으며, 에이전트가 VM에 설치되지 않습니다. 
 
@@ -102,11 +105,11 @@ Azure PowerShell을 사용하여 SQL Server IaaS Agent의 현재 모드를 확�
 
 ## <a name="installation"></a>설치
 
-SQL Server IaaS 에이전트 확장에 SQL Server VM을 등록하면 가상 머신 리소스와는 별도의 리소스인 **SQL 가상 머신** 리소스가 구독 내에 생성됩니다. 확장에서 SQL Server VM의 등록을 취소하면 **SQL 가상 머신** 리소스가 제거되지만 실제 가상 머신은 삭제되지 않습니다.
+SQL Server IaaS 에이전트 확장에 SQL Server VM을 등록하면 가상 머신 리소스와는 별도 리소스인 [**SQL 가상 머신** 리소스](manage-sql-vm-portal.md)가 구독 내에 생성됩니다. 확장에서 SQL Server VM의 등록을 취소하면 **SQL 가상 머신** _리소스_ 가 제거되지만 실제 가상 머신은 삭제되지 않습니다.
 
-Azure Portal을 통해 SQL Server VM Azure Marketplace 이미지를 배포하면 SQL Server VM이 자동으로 확장에 등록됩니다. 그러나 Azure 가상 머신에 SQL Server를 자동으로 설치하거나 사용자 지정 VHD에서 Azure 가상 머신을 프로비전하도록 선택하는 경우에는 모든 기능 이점을 사용할 수 있도록 SQL IaaS 확장에 SQL Server VM를 등록해야 합니다. 
+Azure Portal을 통해 SQL Server VM Azure Marketplace 이미지를 배포하면 SQL Server VM이 자동으로 확장에 전체가 등록됩니다. 그러나 Azure 가상 머신에 SQL Server를 자동으로 설치하거나 사용자 지정 VHD에서 Azure 가상 머신을 프로비전하도록 선택하는 경우에는 모든 기능 이점을 사용할 수 있도록 SQL IaaS 확장에 SQL Server VM를 등록해야 합니다. 
 
-경량 모드에서 확장을 등록하면 이진 파일이 복사되지만 에이전트는 VM에 설치되지 않습니다. 확장이 전체 관리 모드로 업그레이드되면 에이전트가 VM에 설치됩니다. 
+경량 모드에서 확장을 등록하면 이진 파일이 복사되지만 에이전트는 VM에 설치되지 않습니다. 확장이 전체 관리 모드에서 설치되면 에이전트가 VM에 설치됩니다. 
 
 확장에 등록하는 세 가지 방법이 있습니다. 
 - [구독에서 모든 현재 및 미래의 VM에 대해 자동으로](sql-agent-extension-automatic-registration-all-vms.md)
@@ -125,7 +128,7 @@ SQL Server의 명명된 인스턴스를 사용하려면 Azure 가상 머신을 �
    1. SQL IaaS 에이전트 확장에서 SQL Server VM [등록을 취소](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension)합니다. 
    1. SQL Server VM 내에서 SQL Server를 완전히 제거합니다.
    1. SQL Server VM 내에 명명된 인스턴스를 사용하여 SQL Server를 설치합니다. 
-   1. [SQL IaaS 에이전트 확장에서 VM 등록합니다](sql-agent-extension-manually-register-single-vm.md#register-with-extension). 
+   1. [SQL IaaS 에이전트 확장에서 VM 등록합니다](sql-agent-extension-manually-register-single-vm.md#full-mode). 
 
 ## <a name="verify-status-of-extension"></a>확장의 상태 확인
 
@@ -166,6 +169,7 @@ SQL IaaS 에이전트 확장은 다음만 지원합니다.
 
 
 ## <a name="in-region-data-residency"></a>지역 내 데이터 보존
+
 Azure SQL 가상 머신과 SQL IaaS 에이전트 확장은 배포된 리전 외부로 데이터를 이동하거나 저장하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계

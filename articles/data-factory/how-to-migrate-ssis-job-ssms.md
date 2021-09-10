@@ -4,14 +4,15 @@ description: 이 문서에서는 SQL Server Management Studio를 사용하여 SS
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: ec10abfd6f2fc221a9e86203b2faa0d173d67675
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a9e69b0672a5b4235effcd68b50eeddc5ec9f82
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379593"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528669"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>SSMS를 사용하여 ADF로 SQL Server 에이전트 작업 마이그레이션
 
@@ -30,7 +31,7 @@ ms.locfileid: "100379593"
 |---------|---------|---------|
 |SQL 에이전트 작업|pipeline     |*\<job name>에 대해 생성* 되는 파이프라인의 이름입니다. <br> <br> 기본 제공 에이전트 작업은 적용되지 않습니다. <li> SSIS 서버 유지 관리 작업 <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
 |SSIS 작업 단계|SSIS 패키지 작업 실행|<li> 작업의 이름은 \<step name>입니다. <li> 작업 단계에서 사용되는 프록시 계정이 이 작업의 Windows 인증으로 마이그레이션됩니다. <li> 작업 단계에서 정의한 *32비트 런타임 사용* 을 제외한 *실행 옵션* 은 마이그레이션에서 무시됩니다. <li> 작업 단계에서 정의된 *확인* 은 마이그레이션에서 무시됩니다.|
-|schedule      |일정 트리거        |*\<schedule name>에 대해 생성* 되는 일정 트리거의 이름입니다. <br> <br> SQL 에이전트 작업 일정의 다음 옵션은 마이그레이션에서 무시됩니다. <li> 두 번째 수준 간격 <li> *SQL Server 에이전트가 시작될 때 자동으로 시작* <li> *CPU가 유휴 상태로 될 때마다 시작* <li> *평일* 및 *주말*<time zone> <br> SQL 에이전트 작업 일정이 ADF 일정 트리거로 마이그레이션된 후의 차이점은 다음과 같습니다. <li> ADF 일정 트리거 후속 실행은 실행된 선행 트리거 실행의 실행 상태와는 독립적입니다. <li> ADF 일정 트리거 반복 구성은 SQL 에이전트 작업의 일별 빈도와 다릅니다.|
+|schedule      |일정 트리거        |*\<schedule name>에 대해 생성* 되는 일정 트리거의 이름입니다. <br> <br> SQL 에이전트 작업 일정의 다음 옵션은 마이그레이션에서 무시됩니다. <li> 두 번째 수준 간격 <li> *SQL Server 에이전트가 시작될 때 자동으로 시작* <li> *CPU가 유휴 상태로 될 때마다 시작* <li> *평일* 및 *주말* &gt;표준 시간대&lt; <br> SQL 에이전트 작업 일정이 ADF 일정 트리거로 마이그레이션된 후의 차이점은 다음과 같습니다. <li> ADF 일정 트리거 후속 실행은 실행된 선행 트리거 실행의 실행 상태와는 독립적입니다. <li> ADF 일정 트리거 반복 구성은 SQL 에이전트 작업의 일별 빈도와 다릅니다.|
 
 - 로컬 출력 폴더에 ARM(Azure Resource Manager) 템플릿을 생성하고 직접 또는 나중에 수동으로 데이터 팩터리에 배포합니다. ADF 리소스 관리자 템플릿에 대한 자세한 내용은 [Microsoft.DataFactory 리소스 유형](/azure/templates/microsoft.datafactory/allversions)을 참조하세요.
 

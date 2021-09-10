@@ -1,6 +1,6 @@
 ---
-title: 업로드된 일반화된 VHD에서 VM 만들기
-description: 일반화된 VHD를 Azure에 업로드하고 이를 사용하여 Resource Manager 배포 모델에서 새 VM을 만듭니다.
+title: 업로드된 일반화된 Windows VHD에서 VM 만들기
+description: 일반화된 Windows VHD를 Azure에 업로드하고 이를 사용하여 Resource Manager 배포 모델에서 새 VM을 만듭니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 70a89a8fe4917498dc7c31f2a15b95619e973b99
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 4f31fff34dcaaa8cc30b1a894e24f3eda8e5764d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667866"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688588"
 ---
-# <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
+# <a name="upload-a-generalized-windows-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 Windows VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서에서는 PowerShell을 사용하여 일반화된 VM의 VHD를 Azure에 업로드하고, VHD에서 이미지를 만들고, 해당 이미지에서 새 VM을 만드는 과정을 안내합니다. 다른 클라우드 또는 온-프레미스 가상화 도구에서 내보낸 VHD를 업로드할 수 있습니다. 새 VM에 대해 [Managed Disks](../managed-disks-overview.md)를 사용하면 VM 관리가 간소화되고 VM이 가용성 집합에 배치되는 경우 가용성이 증가됩니다. 
 

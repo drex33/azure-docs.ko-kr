@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a9a3c76cb931a5683cf6fd52a806979c430f3f72
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98746830"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580929"
 ---
 # <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>예제: Azure Machine Learning을 사용하여 사용자 지정 기술 빌드 및 배포 
 
@@ -31,7 +31,7 @@ Azure Machine Learning에서 양상 기반 감정 모델을 학습하기 위해 
 > * 배포된 모델의 출력을 사용자 지정 기술로 수집
 
 > [!IMPORTANT] 
-> 이 기술은 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 현재 .NET SDK는 지원되지 않습니다.
+> 이 기술은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 퍼블릭 미리 보기 상태입니다. [미리 보기 REST API](/rest/api/searchservice/index-preview)에서 이 기술을 지원합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

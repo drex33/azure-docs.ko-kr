@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: fbd3d9c3607a0326e7ad9403c8e69d20dafc952a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5b86fb3d1c84ce453c05c1d1f81528ca27543a56
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740306"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114461661"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure 부팅 진단
 
@@ -104,7 +104,7 @@ API 버전 2020-06-01 이후의 모든 항목은 관리형 부팅 진단을 지�
 ## <a name="limitations"></a>제한 사항
 - 관리형 부팅 진단은 Azure Resource Manager VM에만 사용할 수 있습니다. 
 - 관리형 부팅 진단은 비관리형 OS 디스크를 사용하는 VM을 지원하지 않습니다.
-- 부팅 진단은 Premium Storage 계정을 지원하지 않습니다. Premium Storage 계정이 부팅 진단에 사용되면 사용자가 VM을 시작할 때 `StorageAccountTypeNotSupported` 오류가 발생합니다. 
+- 부트 진단은 프리미엄 스토리지 계정 또는 영역 중복 스토리지 계정을 지원하지 않습니다. 이 중 하나가 부팅 진단에 사용되면 VM을 시작할 때 사용자에게 `StorageAccountTypeNotSupported` 오류가 표시됩니다. 
 - 관리형 스토리지 계정은 Resource Manager API 버전 "2020-06-01" 이상에서 지원됩니다.
 - 현재 Azure 직렬 콘솔은 부팅 진단을 위해 관리형 스토리지 계정과 호환되지 않습니다. [Azure 직렬 콘솔](/troubleshoot/azure/virtual-machines/serial-console-overview)에 대해 자세히 알아보세요.
 - 포털은 단일 인스턴스 VM에 대한 관리형 스토리지 계정으로 부팅 진단을 사용하도록 지원합니다.

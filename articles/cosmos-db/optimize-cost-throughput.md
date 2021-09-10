@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 08/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b1ee7be04083c887bbd37b799a274f988aaf158
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: ffe0c1ffe4004cc441213d1781a2bb26b54d4d34
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112517079"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123029124"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -61,7 +61,7 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 |Azure Cosmos DB의 API for MongoDB|데이터베이스|컬렉션|
 |Cassandra API|Keyspace|테이블|
 |Gremlin API|데이터베이스 계정|그래프|
-|Table API|데이터베이스 계정|테이블|
+|테이블 API|데이터베이스 계정|테이블|
 
 다양한 수준에서 처리량을 프로비전하여 워크로드의 특징을 기준으로 비용을 최적화할 수 있습니다. 앞에서 설명한 것처럼 프로비전된 처리량을 개별 컨테이너에 대해 또는 컨테이너 세트에 대해 전체적으로 언제든지 프로그래밍 방식으로 늘리거나 줄일 수 있습니다. 워크로드가 변경되면서 처리량 규모를 탄력적으로 조정할 수 있으므로 구성한 처리량에 대해서만 비용을 지불하면 됩니다. 컨테이너 또는 컨테이너 세트가 여러 지역에 분산될 경우 컨테이너 또는 컨테이너 세트에 대해 구성한 처리량을 모든 지역에서 사용할 수 있도록 보장됩니다.
 
@@ -179,6 +179,9 @@ Azure Cosmos DB를 사용할 경우 다음 단계를 따르면 가용성이 뛰�
 
 이제 다음 문서를 사용하여 Azure Cosmos DB의 비용 최적화에 대해 좀 더 자세히 알아볼 수 있습니다.
 
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어 보세요.
 * [개발 및 테스트용으로 최적화](optimize-dev-test.md)에 대한 자세한 정보
 * [Azure Cosmos DB 요금 청구 이해](understand-your-bill.md)에 대한 자세한 정보
 * [스토리지 비용 최적화](optimize-cost-storage.md)에 대한 자세한 정보

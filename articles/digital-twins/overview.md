@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins로 수행할 수 있는 작업에 대한 개요입니다.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 8/23/2021
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 519a64ac9e921624f4e8c03fc91f842eacd2672c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6dfb4faac6fd5bb11dfc1fbb928d9ba377ec1fe3
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472958"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224388"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -36,11 +36,11 @@ Azure Digital Twins에서 [모델](concepts-models.md)이라는 사용자 지정
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
-모델은 [DTDL(Digital Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)라는 JSON과 같은 언어로 정의되며, 상태 속성, 원격 분석 이벤트, 명령, 구성 요소 및 관계를 기준으로 쌍을 설명합니다.
+모델은 [DTDL(Digital Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)라는 JSON과 같은 언어로 정의되며, 상태 속성, 원격 분석 이벤트, 명령, 구성 요소 및 관계에 따라 쌍을 설명합니다.
 * 모델은 엔터티 간에 의미 체계 **관계** 를 정의하여 해당 상호 작용을 반영하는 그래프에 트윈을 연결할 수 있도록 합니다. 모델을 세계 설명에서 명사로, 관계를 동사로 간주할 수 있습니다.
 * 또한 모델 상속을 사용하여 쌍을 특수화할 수도 있습니다. 한 모델은 다른 모델에서 상속할 수 있습니다.
 
-DTDL은 [IoT PnP(플러그 앤 플레이)](../iot-develop/overview-iot-plug-and-play.md) 및 [TSI(Time Series Insights)](../time-series-insights/overview-what-is-tsi.md)를 비롯한 다른 Azure IoT 서비스 전체에서 데이터 모델에 사용됩니다. 이렇게 하면 Azure Digital Twins 솔루션을 Azure 에코시스템의 다른 부분과 연결하고 호환되도록 유지할 수 있습니다.
+DTDL은 [IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md) 및 [TSI(Time Series Insights)](../time-series-insights/overview-what-is-tsi.md)를 비롯한 다른 Azure IoT 서비스 전체에서 데이터 모델에 사용됩니다. 이 공통점 유형을 통해 Azure Digital Twins 솔루션을 Azure 에코시스템의 다른 부분과 연결하고 호환되도록 유지할 수 있습니다.
 
 ### <a name="live-execution-environment"></a>라이브 실행 환경
 
@@ -64,7 +64,7 @@ REST API 또는 커넥터를 사용하여 다른 데이터 원본에서 Azure Di
 
 ### <a name="output-to-adx-tsi-storage-and-analytics"></a>ADX, TSI, 스토리지, 분석으로 출력
 
-추가 분석 또는 스토리지에 대해 Azure Digital Twins 모델의 데이터를 다운스트림 Azure 서비스로 라우팅할 수 있습니다. 이는 [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)또는 [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)를 사용하여 원하는 데이터 흐름을 구동하는 **이벤트 경로** 를 통해 제공됩니다.
+추가 분석 또는 스토리지에 대해 Azure Digital Twins 모델의 데이터를 다운스트림 Azure 서비스로 라우팅할 수 있습니다. 이 기능은 [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)또는 [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)를 사용하여 데이터 흐름을 구동하는 **이벤트 경로** 를 통해 제공됩니다.
 
 이벤트 경로를 사용하여 수행할 수 있는 몇 가지 작업은 다음과 같습니다:
 * [ADX(Azure Data Explorer)용 Azure Digital Twins 쿼리 플러그 인](concepts-data-explorer-plugin.md)을 사용하여 쿼리할 디지털 트윈 데이터를 ADX에 전송
@@ -74,14 +74,14 @@ REST API 또는 커넥터를 사용하여 다른 데이터 원본에서 Azure Di
 * [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 또는 기타 Microsoft 데이터 분석 도구를 사용하여 Azure Digital Twins 데이터 분석
 * Logic Apps과 크기가 큰 워크플로 통합
 
-이는 Azure Digital Twins를 더 큰 솔루션에 연결할 수 있는 또 다른 방법으로, 이러한 인사이트로 계속 작업하기 위해 사용자 지정 요구 사항을 지원합니다.
+이 옵션은 Azure Digital Twins를 더 큰 솔루션에 연결할 수 있는 또 다른 방법으로, 이러한 인사이트로 계속 작업하기 위해 사용자 지정 요구 사항을 지원합니다.
 
 ## <a name="azure-digital-twins-in-a-solution-context"></a>솔루션 컨텍스트의 Azure Digital Twins
 
 Azure Digital Twins는 일반적으로 더 큰 IoT 솔루션의 일부로써 다른 Azure 서비스와 함께 사용됩니다. 
 
 Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부분을 포함할 수 있습니다:
-* Azure Digital Twins 서비스 인스턴스입니다. 해당 상태 및 오케스트레이션 이벤트 처리와 함께 쌍 모델 및 쌍 그래프가 저장 됩니다.
+* Azure Digital Twins 서비스 인스턴스입니다. 이 서비스를 통해 해당 상태 및 오케스트레이션 이벤트 처리와 함께 쌍 모델 및 쌍 그래프가 저장됩니다.
 * 모델을 구성하고 토폴로지를 만들고 쌍 그래프에서 인사이트를 추출하여 Azure Digital Twins 인스턴스를 구동하는 하나 이상의 클라이언트 앱입니다.
 * Azure Digital Twins에 의해 생성된 이벤트를 처리하는 하나 이상의 외부 계산 리소스 또는 장치와 같이 연결된 데이터 원본입니다. 계산 리소스를 제공하는 일반적인 방법 중 하나는 [Azure Functions](../azure-functions/functions-overview.md)을 통하는 것입니다.
 * IoT hub를 통해 장치 관리 및 IoT 데이터 스트림 기능을 제공합니다.
@@ -93,7 +93,7 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 ## <a name="service-limits"></a>서비스 제한
 
-[Azure Digital Twins 서비스 제한 문서](reference-service-limits.md)에서 Azure Digital Twins의 **서비스 제한** 에 대해 읽을 수 있습니다. 서비스를 사용하여 서비스의 기능 및 요율 제한 사항을 이해하고 필요한 경우 조정할 수 있는 제한을 이해하는 데에도 유용할 수 있습니다.
+[Azure Digital Twins 서비스 제한 문서](reference-service-limits.md)에서 Azure Digital Twins의 **서비스 제한** 에 대해 읽을 수 있습니다. 이 리소스는 서비스를 사용하여 서비스의 기능 및 요율 제한 사항을 이해하고 필요한 경우 조정할 수 있는 제한을 이해하는 데에도 유용할 수 있습니다.
 
 ## <a name="terminology"></a>용어
 
@@ -103,4 +103,4 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 * [Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md)에서 Azure Digital Twins 작업을 알아봅니다.
 
-* 또는 Azure Digital Twins 개념에 대해 [사용자 지정 모델](concepts-models.md)에서 자세히 알아보세요.
+* 또는 Azure Digital Twins 개념에 대해 [DTDL 모델](concepts-models.md)에서 자세히 알아보세요.

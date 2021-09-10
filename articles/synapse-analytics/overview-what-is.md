@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 652f98659f96b36e3185432e50d9d36dc569bd43
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 3d0987e5203288da6c6acd8bec6c478f5762b320
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537939"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823731"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Azure Synapse Analytics란?
 
@@ -28,6 +28,7 @@ ms.locfileid: "107537939"
 
 * Synapse SQL은 **서버리스** 및 **전용** 리소스 모델을 모두 제공합니다. 예측 가능한 성능 및 비용을 위해 전용 SQL 풀을 생성하여 SQL 테이블에 저장된 데이터를 위한 처리 성능을 예약합니다. 계획하지 않은 워크로드나 버스티 워크로드에는 항상 사용 가능한 서버리스 SQL 엔드포인트를 사용합니다.
 * 기본 제공 **스트리밍** 기능을 사용하여 클라우드 데이터 원본의 데이터를 SQL 테이블로 이동합니다.
+* 관리되는 테이블에 데이터를 로드하여 최상의 쿼리 성능을 얻거나 정기적인 가져오기 작업을 수행하고 완료될 때까지 기다릴 필요 없이 [Azure Data Lake Storage](sql/query-data-storage.md) 또는 [Azure Cosmos DB](sql/query-cosmos-db-analytical-store.md)에서 데이터를 직접 쿼리합니다.
 * [T-SQL PREDICT 함수](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)를 통해 데이터의 점수를 매기는 **기계 학습** 모델을 사용하여 AI와 SQL을 통합합니다.
 
 ## <a name="industry-standard-apache-spark"></a>업계 표준 Apache Spark
@@ -44,8 +45,9 @@ ms.locfileid: "107537939"
 Azure Synapse는 SQL과 Spark를 함께 사용하는 기존의 기술 장벽을 제거합니다. 사용자의 요구 사항과 전문 지식에 맞게 원활하게 조합하여 사용할 수 있습니다.
 
 * 데이터 레이크의 파일에서 정의된 테이블은 Spark 또는 Hive에서 원활하게 사용됩니다.
-* SQL과 Spark는 데이터 레이크에 저장된 Parquet, CSV, TSV 및 JSON 파일을 직접 검색하고 분석할 수 있습니다.
+* SQL과 Spark는 데이터 레이크에 저장된 Parquet, CSV, TSV, Delta Lake 및 JSON 파일을 직접 검색하고 분석할 수 있습니다.
 * SQL과 Spark 데이터베이스 사이의 빠르고 확장성 있는 데이터 로딩
+
 
 ## <a name="built-in-data-integration"></a>기본 제공 데이터 통합
 

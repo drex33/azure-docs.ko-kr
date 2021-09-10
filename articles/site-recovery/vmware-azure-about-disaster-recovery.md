@@ -3,13 +3,13 @@ title: Azure Site Recovery를 사용한 VMware 재해 복구
 description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 수행되는 VMware VM에서 Azure로의 재해 복구 개요를 제공합니다.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 8e72d66bcf8398946b8901ef86666aa9aba34105
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 08/19/2021
+ms.openlocfilehash: 12a8adc3e68f4d4bed2aad6b64b057258fadc2aa
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579077"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539282"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
 
@@ -17,19 +17,19 @@ ms.locfileid: "106579077"
 
 ## <a name="what-is-bcdr"></a>BCDR이란?
 
-BCDR(비즈니스 연속성 및 재해 복구) 전략은 비즈니스가 계속 작동되고 실행되도록 도와줍니다. 계획된 가동 중단 및 예기치 않은 작동 중단 동안 BCDR은 데이터를 안전하고 사용 가능하게 유지하고, 앱이 계속 실행되도록 합니다. 지역 페어링 및 고가용성 스토리지와 같은 플랫폼 BCDR 기능 외에도, Azure는 BCDR 솔루션의 통합된 일부로 Recovery Services를 제공합니다. Recovery Services에는 다음이 포함됩니다. 
+BCDR(비즈니스 연속성 및 재해 복구) 전략은 비즈니스가 계속 작동되고 실행되도록 도와줍니다. 계획된 가동 중단 및 예기치 않은 작동 중단 동안 BCDR은 데이터를 안전하고 사용 가능하게 유지하고, 앱이 계속 실행되도록 합니다. 지역 페어링 및 고가용성 스토리지와 같은 플랫폼 BCDR 기능 외에도, Azure는 BCDR 솔루션의 통합된 일부로 Recovery Services를 제공합니다. Recovery Services에는 다음이 포함됩니다.
 
-- [Azure Backup](../backup/backup-overview.md)은 온-프레미스 및 Azure VM 데이터를 백업합니다. 파일 및 폴더, 특정 워크로드 또는 전체 VM을 백업할 수 있습니다. 
-- [Azure Site Recovery](site-recovery-overview.md)는 온-프레미스 컴퓨터 또는 Azure IaaS VM에서 실행되는 앱 및 워크로드대에 해 복원력 및 재해 복구를 제공합니다. Site Recovery는 복제를 오케스트레이션하고 중단이 발생하면 Azure로 장애 조치(Failover)합니다. 또한 Azure에서 기본 사이트로의 복구를 처리합니다. 
+- [Azure Backup](../backup/backup-overview.md)은 온-프레미스 및 Azure VM 데이터를 백업합니다. 파일 및 폴더, 특정 워크로드 또는 전체 VM을 백업할 수 있습니다.
+- [Azure Site Recovery](site-recovery-overview.md)는 온-프레미스 컴퓨터 또는 Azure IaaS VM에서 실행되는 앱 및 워크로드대에 해 복원력 및 재해 복구를 제공합니다. Site Recovery는 복제를 오케스트레이션하고 중단이 발생하면 Azure로 장애 조치(Failover)합니다. 또한 Azure에서 기본 사이트로의 복구를 처리합니다.
 
 > [!NOTE]
-> Site Recovery는 원본 머신에 대해 재해 복구가 설정된 대상 지역을 벗어나서 고객 데이터를 이동하거나 저장하지 않습니다. 고객이 선택하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음에 메타데이터는 포함되어 있으나 실제 고객 데이터는 포함되어 있지 않습니다.
+> Site Recovery는 원본 머신에 대해 재해 복구가 설정된 대상 지역을 벗어나서 고객 데이터를 이동하거나 저장하지 않습니다. 고객이 원하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음에 메타데이터는 포함되어 있으나 실제 고객 데이터는 포함되어 있지 않습니다.
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Site Recovery는 어떻게 재해 복구를 수행하나요?
 
 1. Azure와 온-프레미스 사이트를 준비한 후 온-프레미스 컴퓨터에 대한 복제를 설정하고 사용하도록 지정합니다.
 2. Site Recovery는 정책 설정에 따라 컴퓨터의 초기 복제를 오케스트레이션합니다.
-3. 초기 복제 후에, Site Recovery는 델타 변경 내용을 Azure로 복제합니다. 
+3. 초기 복제 후에, Site Recovery는 델타 변경 내용을 Azure로 복제합니다.
 4. 모든 항목이 예상대로 복제되면 재해 복구 훈련을 실행합니다.
     - 이러한 훈련은 실제 요구가 있을 때 장애 조치(Failover)가 예상대로 진행되도록 하는 데 도움이 됩니다.
     - 또한 이러한 훈련 중에는 프로덕션 환경에 영향을 주지 않고 테스트 장애 조치(Failover)가 수행됩니다.
@@ -89,16 +89,17 @@ Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정
 
 1. 배포해야 하는 구성 요소를 이해하려면 [VMware에서 Azure로의 아키텍처](vmware-azure-architecture.md), 및 [물리적 서버에서 Azure로의 아키텍처](physical-azure-architecture.md)를 검토합니다. 많은 구성 요소가 있으므로 이러한 구성 요소가 어떻게 잘 맞는지 이해하는 것이 중요합니다.
 2. **원본 환경**: 배포의 첫 번째 단계에서는 복제 원본 환경 설정을 설정합니다. 복제할 대상과 복제할 위치를 지정합니다.
-3. **구성 서버**: 온-프레미스 원본 환경에서 구성 서버를 설정해야 합니다.
+3. **구성 서버**(클래식에 적용 가능): 온-프레미스 원본 환경에서 구성 서버를 설정해야 합니다.
     - 구성 서버는 단일 온-프레미스 컴퓨터입니다. VMware 재해 복구의 경우 다운로드 가능 OVF 템플릿에서 배포할 수 있는 VMware VM으로 배포하는 것이 좋습니다.
     - 구성 서버는 온-프레미스와 Azure 간의 통신을 조정합니다.
     - 다른 일부 구성 요소는 구성 서버 컴퓨터에서 실행됩니다.
         - 프로세스 서버는 복제 데이터를 수신하고 최적화하여 Azure의 캐시 스토리지 계정으로 보냅니다. 또한 복제하려는 컴퓨터에서 모바일 서비스의 자동 설치를 처리하고, VMware 서버에서 VM의 자동 검색을 수행합니다.
         - 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
     - 설정 중에 자격 증명 모음에 구성 서버가 등록되고, MySQL Server 및 VMware PowerCLI가 다운로드되고, 자동 검색 및 모바일 서비스 설치용으로 만든 계정이 지정됩니다.
-4. **대상 환경**: Azure 구독 및 네트워크 설정을 지정하여 대상 Azure 환경을 설정합니다.
-5. **복제 정책**: 복제 수행 방법을 지정합니다. 또한 복구 지점이 생성 및 저장되는 주기와 앱 일치 스냅샷을 만들지 여부가 설정됩니다.
-6. **복제를 활성화합니다**. 온-프레미스 컴퓨터에 대해 복제를 사용하도록 설정합니다. 모바일 서비스를 설치하기 위한 계정을 만든 경우 컴퓨터에 대해 복제를 사용하도록 설정할 때 해당 계정이 설치됩니다. 
+4. **Azure Site Recovery 복제 어플라이언스**(미리 보기에 적용 가능): 온-프레미스 원본 환경에서 복제 어플라이언스를 설정해야 합니다. 어플라이언스는 전체 Azure Site Recovery 온-프레미스 인프라의 기본 구성 요소입니다. VMware 재해 복구의 경우 다운로드 가능한 OVF 템플릿에서 배포할 수 있는 [VMware VM으로 배포](deploy-vmware-azure-replication-appliance-preview.md#create-azure-site-recovery-replication-appliance)하는 것이 좋습니다.  [여기](vmware-azure-architecture-preview.md)에서 복제 어플라이언스에 관해 자세히 알아봅니다.   
+5. **대상 환경**: Azure 구독 및 네트워크 설정을 지정하여 대상 Azure 환경을 설정합니다.
+6. **복제 정책**: 복제 수행 방법을 지정합니다. 또한 복구 지점이 생성 및 저장되는 주기와 앱 일치 스냅샷을 만들지 여부가 설정됩니다.
+7. **복제를 활성화합니다**. 온-프레미스 컴퓨터에 대해 복제를 사용하도록 설정합니다. 모바일 서비스를 설치하기 위한 계정을 만든 경우 컴퓨터에 대해 복제를 사용하도록 설정할 때 해당 계정이 설치됩니다.
 
 *도움이 더 필요하세요?*
 
@@ -122,4 +123,4 @@ Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 복제가 수행되었으므로 [재해 복구 훈련을 실행](tutorial-dr-drill-azure.md)하여 장애 조치(Failover)가 예상대로 작동하는지 확인해야 합니다. 
+이제 복제가 수행되었으므로 [재해 복구 훈련을 실행](tutorial-dr-drill-azure.md)하여 장애 조치(Failover)가 예상대로 작동하는지 확인해야 합니다.

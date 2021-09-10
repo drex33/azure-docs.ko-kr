@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
 ms.date: 08/18/2021
-ms.openlocfilehash: 56a59d4acd9c1f8ed51f16e7c39cfb5cba949b6b
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 9925875f45f5715343ef50fff018b436966bb4c0
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539271"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099618"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory의 매핑 데이터 흐름 문제 해결
 
@@ -495,7 +495,7 @@ ms.locfileid: "122539271"
         
       :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="컴퓨팅 유형의 구성을 보여 주는 스크린샷":::   
 
-  - 옵션-2: 더 큰 클러스터 크기(예: 48개 코어)를 사용하여 데이터 흐름 파이프라인을 실행합니다. [클러스터 크기](./concepts-data-flow-performance.md#cluster-size) 문서를 통해 클러스터 크기에 대해 자세히 알아볼 수 있습니다.
+  - 옵션-2: 더 큰 클러스터 크기(예: 48개 코어)를 사용하여 데이터 흐름 파이프라인을 실행합니다. [클러스터 크기](./concepts-integration-runtime-performance.md#cluster-size) 문서를 통해 클러스터 크기에 대해 자세히 알아볼 수 있습니다.
   
   - 옵션-3: 입력 데이터를 다시 분할합니다. 데이터 흐름 spark 클러스터에서 실행되는 태스크의 경우 하나의 파티션이 하나의 태스크이고 하나의 노드에서 실행됩니다. 한 파티션의 데이터가 너무 큰 경우 노드에서 실행 중인 관련 태스크는 노드 자체보다 더 많은 메모리를 사용해야 하며, 이로 인해 오류가 발생합니다. 따라서 데이터 기울이기를 방지하기 위해 다시 분할을 사용할 수 있으며, 메모리 소비량이 너무 많지 않을 때 각 파티션의 데이터 크기를 평균 상태로 유지합니다.
     
@@ -706,7 +706,7 @@ ms.locfileid: "122539271"
 
   데이터 흐름 실행의 성공 여부는 컴퓨팅 크기/유형, 처리할 원본/싱크 수, 파티션 사양, 포함된 변환, 데이터 세트 크기, 데이터 왜곡도 등의 많은 요인에 따라 달라집니다.<br/>
   
-  자세한 내용은 [Azure Integration Runtime 최적화](concepts-data-flow-performance.md#ir)를 참조하세요.
+  자세한 지침은 [Integration Runtime 성능](concepts-integration-runtime-performance.md)을 참조하세요.
 
 #### <a name="scenario-2-using-debug-sessions-with-parallel-activities"></a>시나리오 2: 병렬 작업으로 디버그 세션 사용
 
@@ -725,7 +725,7 @@ ms.locfileid: "122539271"
 문제 해결에 관한 자세한 내용은 다음 리소스를 참조하세요.
 
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)

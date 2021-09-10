@@ -3,12 +3,12 @@ title: Azure Event Grid - 전송되는 이벤트에 사용자 지정 헤더 설�
 description: 전송되는 이벤트에 사용자 지정 헤더(또는 전송 속성)를 설정하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 08/13/2021
-ms.openlocfilehash: de16c3b4981dc02a54a68269d4eef743d9f48c4b
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 3600d74d91ad218f3fcab99002762d605fba3139
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529645"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122831353"
 ---
 # <a name="custom-delivery-properties"></a>사용자 지정 전달 속성
 이벤트 구독을 사용하면 배달된 이벤트에 포함 되는 HTTP 헤더를 설정할 수 있습니다. 이 기능을 사용하여 대상에 필요한 사용자 지정 헤더를 설정할 수 있습니다. 이벤트 구독을 만들 때 최대 10개의 헤더를 설정할 수 있습니다. 각 헤더 값은 4,096(4K)바이트보다 크지 않아야 합니다.
@@ -62,11 +62,8 @@ az eventgrid event-subscription create -n es1 \
 이제 발신 요청에는 이벤트 구독에 설정된 헤더가 포함되어야 합니다.
 
 ```console
-GET /home.html HTTP/1.1
-
+POST /home.html HTTP/1.1
 Host: acme.com
-
-User-Agent: <user-agent goes here>
 
 Authorization: BEARER SlAV32hkKG...
 ```
@@ -75,20 +72,31 @@ Authorization: BEARER SlAV32hkKG...
 > 대상이 웹후크인 경우 인증 헤더를 정의하는 것이 좋습니다. [리소스 ID를 사용하여 구독된 함수](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs, 하이브리드 연결에는 사용하지 않아야 합니다. 해당 대상은 Event Grid에서 사용될 때 자체 인증 체계를 지원하기 때문입니다.
 
 ### <a name="service-bus-example"></a>Service Bus 예제
-Azure Service Bus에서는 단일 메시지를 보낼 때 [BrokerProperties HTTP 헤더](/rest/api/servicebus/message-headers-and-properties#message-headers)를 사용하여 메시지 속성을 정의하도록 지원합니다. `BrokerProperties` 헤더의 값은 JSON 형식으로 제공되어야 합니다. 예를 들어 Service Bus로 단일 메시지를 보낼 때 메시지 속성을 설정해야 하는 경우 다음과 같은 방법으로 헤더를 설정합니다.
+Azure Service Bus에서는 단일 메시지를 보낼 때 다음 메시지 속성을 사용하도록 지원합니다. 
 
-| 헤더 이름 | 헤더 형식 | 헤더 값 |
-| :-- | :-- | :-- |
-|`BrokerProperties` | 정적     | `BrokerProperties:  { "MessageId": "{701332E1-B37B-4D29-AA0A-E367906C206E}", "TimeToLive" : 90}` |
+| 헤더 이름 | 헤더 형식 |
+| :-- | :-- |
+| `MessageId` | 동적 |  
+| `PartitionKey` | 정적 또는 동적 |
+| `SessionId` | 정적 또는 동적 |
+| `CorrelationId` | 정적 또는 동적 |
+| `Label` | 정적 또는 동적 |
+| `ReplyTo` | 정적 또는 동적 | 
+| `ReplyToSessionId` | 정적 또는 동적 |
+| `To` |정적 또는 동적 |
+| `ViaPartitionKey` | 정적 또는 동적 |
 
+> [!NOTE]
+> - `MessageId`의 기본값은 Event Grid 이벤트의 내부 ID입니다. 이를 재정의할 수 있습니다. 예: `data.field`.
+> - `SessionId` 또는 `MessageId`만 설정할 수 있습니다. 
 
 ### <a name="event-hubs-example"></a>Event Hubs 예제
 
-이벤트 허브 내 특정 파티션에 이벤트를 게시해야 하는 경우 이벤트 구독에서 [BrokerProperties HTTP 헤더](/rest/api/eventhub/event-hubs-runtime-rest#common-headers)를 정의하여 대상 이벤트 허브 파티션을 식별하는 파티션 키를 지정합니다.
+이벤트 허브 내 특정 파티션에 이벤트를 게시해야 하는 경우 이벤트 구독에서 `ParitionKey` 속성을 정의하여 대상 이벤트 허브 파티션을 식별하는 파티션 키를 지정합니다.
 
-| 헤더 이름 | 헤더 형식 | 헤더 값                                  |
-| :-- | :-- | :-- |
-|`BrokerProperties` | 정적 | `BrokerProperties: {"PartitionKey": "0000000000-0000-0000-0000-000000000000000"}`  |
+| 헤더 이름 | 헤더 형식 |
+| :-- | :-- |
+|`PartitionKey` | 정적 |
 
 
 ### <a name="configure-time-to-live-on-outgoing-events-to-azure-storage-queues"></a>Azure Storage 큐로 발신되는 이벤트에 TTL(Time to Live) 구성

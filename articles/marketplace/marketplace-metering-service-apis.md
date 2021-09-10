@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2a95821b615c934a2bf22f52406f2c257b9be91b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 8a8f6052ba2ce66e22208972fa84b7af1f48dd3e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542608"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536275"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Marketplace 요금제 청구 API
 
@@ -255,6 +255,7 @@ OK. 추가 처리 및 청구를 위해 Microsoft 측에서 일괄 처리 사용�
 | `Error` | 오류 코드 |
 | `ResourceNotFound` | 제공된 사용량 리소스가 잘못되었습니다. |
 | `ResourceNotAuthorized` | 이 리소스에 대한 사용량을 제공할 수 있는 권한이 없습니다. |
+| `ResourceNotActive` | 리소스가 일시 중단되었거나 활성화되지 않았습니다. |
 | `InvalidDimension` | 사용량이 전달된 차원이 이 제품/계획에 적합하지 않습니다. |
 | `InvalidQuantity` | 전달된 수량이 0보다 낮거나 같습니다. |
 | `BadArgument` | 입력이 없거나 형식이 잘못되었습니다. |
@@ -277,4 +278,4 @@ OK. 추가 처리 및 청구를 위해 Microsoft 측에서 일괄 처리 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-계량 서비스 API에 대한 자세한 내용은 [Marketplace 계량 서비스 API FAQ](marketplace-metering-service-apis-faq.md)를 참조하세요.
+계량 서비스 API에 대한 자세한 내용은 [Marketplace 계량 서비스 API FAQ](marketplace-metering-service-apis-faq.yml)를 참조하세요.

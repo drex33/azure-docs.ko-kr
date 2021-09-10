@@ -9,14 +9,16 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0c8869bbe2751ee945ab05c5daf8bcf07cc4c3f4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: e1af8651ac8b1031190249205d0a0f7f436711c4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568219"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696183"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Azure Image Builder 템플릿 만들기 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 정보를 전달합니다. 이 문서에서는 사용자가 직접 빌드할 수 있도록 json 파일의 섹션을 설명합니다. 전체 .json 파일 예제를 보려면 [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts)를 참조하세요.
 

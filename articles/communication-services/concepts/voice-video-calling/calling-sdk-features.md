@@ -2,19 +2,19 @@
 title: Azure Communication Services 통화 SDK 개요
 titleSuffix: An Azure Communication Services concept document
 description: 통화 SDK에 대한 개요를 제공합니다.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 320ef1b523615894910d277fcc155104b4b297bc
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 7069d5089142f4fc5a6fff6492726b6f949c8f18
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766546"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123259012"
 ---
 # <a name="calling-sdk-overview"></a>통화 SDK 개요
 
@@ -90,6 +90,8 @@ Communication Services 통화 SDK는 다음과 같은 스트리밍 구성을 지
 | **# 동시에 보낼 수 있는 나가는 스트림 수**     | 비디오 1개 또는 화면 공유 1개 | 비디오 1개 + 화면 공유 1개 |
 | **# 동시에 렌더링할 수 있는 들어오는 스트림 수** | 비디오 1개 또는 화면 공유 1개 | 비디오 6개 + 화면 공유 1개 |
 
+통화 SDK는 이러한 제한을 적용하지 않지만 초과할 경우 사용자에게 성능 저하가 발생할 수 있습니다.
+
 ## <a name="calling-sdk-timeouts"></a>통화 SDK 제한 시간
 
 Communication Services 통화 SDK에는 다음 제한 시간이 적용됩니다.
@@ -106,18 +108,19 @@ Communication Services 통화 SDK에는 다음 제한 시간이 적용됩니다.
 
 ## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>OS 및 브라우저에서 JavaScript 통화 SDK 지원
 
-다음 표에서는 현재 사용 가능한 지원되는 브라우저 세트를 나타냅니다. 달리 명시하지 않는 한 가장 최근의 세 가지 버전의 브라우저가 지원됩니다.
+다음 표에서는 현재 사용 가능한 지원되는 브라우저 세트를 나타냅니다. 달리 명시하지 않는 한 **가장 최근의 세 가지 버전의 브라우저가 지원됩니다**.
 
-| 플랫폼     | Chrome | Safari | Edge(Chromium) | 참고                                                                                                                                                                                                       |
-| ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Android      | ✔️      | ❌      | ❌               | 보내는 화면 공유는 지원되지 않습니다.                                                                                                                                                                   |
-| iOS          | ❌      | ✔️      | ❌               | [Safari의 iOS 앱은 마이크 및 스피커 디바이스(예: Bluetooth)를 열거/선택할 수 없습니다](https://docs.microsoft.com/azure/communication-services/concepts/known-issues#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados). 이는 OS의 제한 사항이며, 항상 하나의 디바이스만 있고, OS가 기본 디바이스 선택을 제어합니다. 보내는 화면 공유는 지원되지 않습니다. |
-| macOS        | ✔️      | ✔️      | ❌               | 발신 비디오 지원에 Safari 14+/macOS 11+가 필요합니다.                                                                                                                                                     |
-| Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
-| Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |
+| 플랫폼     | Chrome | Safari | Edge(Chromium)  |
+| ------------ | ------ | ------ | --------------   |
+| Android      | ✔️      | ❌      | ❌           | 
+| iOS          | ❌      | ✔️      | ❌           |
+| macOS        | ✔️      | ✔️      | ❌           | 
+| Windows      | ✔️      | ❌      | ✔️           |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 
-* Safari 버전 13.1 이상이 지원됩니다. 1:1 통화는 Safari에서 지원되지 않습니다.
-* 달리 지정하지 않는 한, 각 브라우저의 이전 3개 버전이 지원됩니다.
+* Safari에서는 1:1 통화가 지원되지 않습니다.
+* iOS 또는 Android에서는 발신 화면 공유가 지원되지 않습니다.
+* [Safari의 iOS 앱은 마이크 및 스피커 디바이스(예: Bluetooth)를 열거/선택할 수 없습니다](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados). 이는 OS의 제한 사항이며, 항상 하나의 디바이스만 있고, OS가 기본 디바이스 선택을 제어합니다.
 
 ## <a name="android-calling-sdk-support"></a>Android Calling SDK 지원
 

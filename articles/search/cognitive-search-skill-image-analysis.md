@@ -2,30 +2,36 @@
 title: 이미지 분석 인식 기술
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 AI 보강 파이프라인에서 이미지 분석 인식 기술을 사용하여 이미지 분석을 통해 의미 체계 텍스트를 추출합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 69b84a3edb606ed99b6aaca7db5ad0e57124f1b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2021
+ms.openlocfilehash: d6b32dfedcb5ad5322a32c519084eac3858225ba
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91948938"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537351"
 ---
 # <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
 **이미지 분석** 기술은 이미지 콘텐츠를 기준으로 다양한 시각적 기능 집합을 추출합니다. 예를 들어, 이미지에서 캡션을 생성하거나, 태그를 생성하거나, 유명인과 랜드마크를 식별할 수 있습니다. 이 기술은 Cognitive Services의 [Computer Vision](../cognitive-services/computer-vision/overview.md)에서 제공하는 기계 학습 모델을 사용합니다. 
 
+**이미지 분석** 은 다음 요구 사항을 충족하는 이미지에서 작동합니다.
+
++ 이미지가 JPEG, PNG, GIF 또는 BMP 형식으로 제공되어야 합니다.
++ 이미지의 파일 크기가 4MB보다 작아야 합니다.
++ 이미지의 크기가 50 x 50 픽셀보다 커야 합니다.
+
 > [!NOTE]
-> Azure Cognitive Search에서 작은 볼륨(20개 미만의 트랜잭션)을 무료로 실행할 수 있지만, 더 큰 워크로드에는 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 이 기술은 Cognitive Services에 바인딩되며, 하루에 인덱서당 20개의 문서를 초과하는 트랜잭션에 대해 [청구 가능한 리소스](cognitive-search-attach-cognitive-services.md)를 필요로 합니다. 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다.
+> 
+> 또한 이미지 추출은 [Azure Cognitive Search를 통해 청구](https://azure.microsoft.com/pricing/details/search/)할 수 있습니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에 설명되어 있습니다.
 
+## <a name="odatatype"></a>@odata.type 
 
-## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
 
 ## <a name="skill-parameters"></a>기술 매개 변수
@@ -40,11 +46,9 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | Description                                          |
+| 입력 이름      | 설명                                          |
 |---------------|------------------------------------------------------|
 | `image`         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
-
-
 
 ##  <a name="sample-skill-definition"></a>샘플 기술 정의
 
@@ -86,7 +90,9 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
             ]
         }
 ```
+
 ### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>샘플 인덱스(범주, 설명, 얼굴 및 태그 필드에만 해당)
+
 ```json
 {
     "fields": [
@@ -298,7 +304,9 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 }
 
 ```
+
 ### <a name="sample-output-field-mapping-for-the-above-index"></a>샘플 출력 필드 매핑(위 인덱스의 경우)
+
 ```json
     "outputFieldMappings": [
         {
@@ -322,6 +330,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
             "targetFieldName": "brands"
         }
 ```
+
 ### <a name="variation-on-output-field-mappings-nested-properties"></a>출력 필드 매핑의 변형(중첩된 속성)
 
 랜드마크 또는 유명인와 같은 하위 수준 속성에 대한 출력 필드 매핑을 정의할 수 있습니다. 이 경우 인덱스 스키마에 특별히 랜드마크를 포함하는 필드가 포함되어 있는지 확인합니다.
@@ -333,6 +342,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
             "targetFieldName": "celebrities"
         }
 ```
+
 ##  <a name="sample-input"></a>샘플 입력
 
 ```json
@@ -540,6 +550,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 ## <a name="see-also"></a>참고 항목
 
++ [이미지 분석이란?](../cognitive-services/computer-vision/overview-image-analysis.md)
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [인덱서 만들기(REST)](/rest/api/searchservice/create-indexer)

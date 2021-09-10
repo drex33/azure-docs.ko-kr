@@ -8,14 +8,14 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/09/2020
+ms.date: 08/24/2021
 ms.topic: how-to
-ms.openlocfilehash: b934a5b5d7781465d01b0e16927bf213f9fa23df
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 397f22711eadc38c82625a8b6a899f6485d798cf
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897039"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778236"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Azure Machine Learning 학습 실행에서 인증 자격 증명 비밀 사용
 
@@ -49,6 +49,11 @@ keyvault.set_secret(name="mysecret", value = my_secret)
 비밀 값을 파일에 일반 텍스트로 저장하는 것은 안전하지 않으므로 Python 코드에 저장하지 마세요. 대신 환경 변수에서 비밀 값(예: Azure DevOps 빌드 비밀 또는 대화형 사용자 입력)을 가져옵니다.
 
 [`list_secrets()`](/python/api/azureml-core/azureml.core.keyvault.keyvault#list-secrets--) 메서드를 사용하여 비밀 이름을 나열할 수 있으며 한 번에 여러 비밀을 설정할 수 있는 일괄 버전 [set_secrets()](/python/api/azureml-core/azureml.core.keyvault.keyvault#set-secrets-secrets-batch-)도 있습니다.
+
+> [!IMPORTANT]
+> `list_secrets()`를 사용하면 Azure ML SDK를 사용하여 `set_secret()` 또는 `set_secrets()`를 통해 생성된 비밀만 나열됩니다. SDK가 아닌 다른 것으로 만든 비밀은 나열되지 않습니다. 예를 들어 Azure Portal 또는 Azure PowerShell을 사용하여 만든 비밀은 나열되지 않습니다.
+> 
+> [`get_secret()`](#get-secrets)를 사용하여 키 자격 증명 모음에서 비밀 값을 생성 방법과 관계없이 얻을 수 있습니다. 따라서 `list_secrets()`에 나열되지 않은 비밀을 검색할 수 있습니다.
 
 ## <a name="get-secrets"></a>암호 가져오기
 

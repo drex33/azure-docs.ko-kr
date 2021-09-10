@@ -2,13 +2,13 @@
 title: 프라이빗 링크 서비스를 사용하여 이벤트 제공
 description: 이 문서에서는 프라이빗 링크 서비스를 사용하여 이벤트를 전달할 수 없는 제한 사항을 해결하는 방법에 관해 설명합니다.
 ms.topic: how-to
-ms.date: 02/12/2021
-ms.openlocfilehash: 75ae8ff2c341048c39156e43da3615788e9d0f0a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 07/01/2021
+ms.openlocfilehash: 0672b2b93cf7413ac9a3d46e8d824354276ba89f
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309434"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114286117"
 ---
 # <a name="deliver-events-using-private-link-service"></a>프라이빗 링크 서비스를 사용하여 이벤트 제공
 현재 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 사용하여 이벤트를 전달할 수 없습니다. 즉, 전달된 이벤트 트래픽이 개인 IP 공간을 벗어나지 않아야 하는 엄격한 네트워크 격리 요구 사항이 있는 경우 지원되지 않습니다. 
@@ -44,9 +44,9 @@ ms.locfileid: "107309434"
 관리 ID를 사용하여 스토리지 큐에 이벤트를 전달하려면 다음 단계를 따릅니다.
 
 1. 시스템 할당 ID 사용: [시스템 토픽](enable-identity-system-topics.md), [사용자 지정 토픽 및 도메인](enable-identity-custom-topics-domains.md). 
-1. Azure Storage 큐의 [**스토리지 큐 데이터 메시지 보낸 사람** 역할에 ID를 추가](../storage/common/storage-auth-aad-rbac-portal.md)합니다.
-1. 시스템 할당 ID를 사용하도록 Service Bus 큐 또는 토픽을 엔드포인트로 사용하는 [이벤트 구독을 구성](managed-service-identity.md#create-event-subscriptions-that-use-an-identity)합니다.
+1. Azure Storage 큐의 [**스토리지 큐 데이터 메시지 보낸 사람** 역할에 ID를 추가](../storage/blobs/assign-azure-role-data-access.md)합니다.
+1. 시스템 할당 ID를 사용하도록 스토리지 큐를 엔드포인트로 사용하는 [이벤트 구독을 구성](managed-service-identity.md#create-event-subscriptions-that-use-an-identity)합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-관리 ID를 사용하여 이벤트를 전송하는 데 관한 자세한 내용은 [관리 ID를 사용한 이벤트 전송](managed-service-identity.md)을 참조하세요. 
+관리 ID를 사용하여 이벤트를 전송하는 데 관한 자세한 내용은 [관리 ID를 사용한 이벤트 전송](managed-service-identity.md)을 참조하세요.

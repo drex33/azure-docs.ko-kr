@@ -6,15 +6,15 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 01/14/2021
+  ms.date: 08/24/2021
   ms.author: alkohli
   ms.subservice: common
-  ms.openlocfilehash: 51af880897564851750dccd756601d86a1dab889
-  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+  ms.openlocfilehash: bfdbb966783e4f95945933c074265d8c45ee1f61
+  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113094974"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122867614"
 title: 'Azure Import/Export 서비스: 질문과 대답'
 summary: >
   Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전송할 때 발생할 수 있는 질문 및 답변은 다음과 같습니다.
@@ -124,6 +124,10 @@ sections:
       드라이브를 운송할 때 운송업체에서 데이터 센터 연락처 주소 및 전화 번호를 요청합니다. 무엇을 제공해야 하나요?
     answer: >
       전화 번호와 DC 주소는 작업을 만드는 동안 제공됩니다.
+  - question: >
+      내 디바이스가 이미 배송되었는데 내 주문 상태가 여전히 배송 중인 이유는 무엇인가요?
+    answer: >
+      운송 업체에서 물리적 디바이스를 배송한 후 Azure Import/Export에서 배송을 처리하는 데 영업일 기준 1~3일이 소요됩니다. 처리가 완료되면 주문 상태가 수신됨으로 변경됩니다.
 - name: 기타
   questions:
   - question: >

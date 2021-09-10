@@ -12,23 +12,25 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/20/2021
+ms.date: 08/26/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 123b3ab0f438c0577143c3780836a2a2c574412e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 4f79fc66b44de89ba93137b244e22890348ab1c4
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081031"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122967206"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Azure 리소스용 관리 ID란?
 
 개발자는 일반적으로 솔루션을 구성하는 서로 다른 구성 요소 간의 통신을 보호하는 데 사용되는 비밀과 자격 증명을 관리하는 데 어려움을 겪고 있습니다. 관리 ID를 통해 개발자는 자격 증명을 관리할 필요가 없습니다. 관리 ID는 Azure AD(Azure Active Directory) 인증을 지원하는 리소스에 연결할 때 사용할 애플리케이션의 ID를 제공합니다. 애플리케이션은 관리 ID를 사용하여 Azure AD 토큰을 가져올 수 있습니다. 예를 들어 애플리케이션은 관리 ID를 사용하여 개발자가 자격 증명을 안전하게 저장하거나 스토리지 계정에 액세스할 수 있는 [Azure Key Vault](../../key-vault/general/overview.md)와 같은 리소스에 액세스할 수 있습니다.
 
-관리 ID를 사용할 수 있는 대상은 무엇일까요?</br>
+관리 ID를 사용하는 방법 살펴보기</br>
 
-> [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+> [!VIDEO https://channel9.msdn.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
+
+
 
 관리 ID를 사용하는 경우 얻을 수 있는 몇 가지 혜택은 다음과 같습니다.
 
@@ -46,7 +48,6 @@ ms.locfileid: "112081031"
 - **시스템 할당** 일부 Azure 서비스를 사용하면 서비스 인스턴스에서 직접 관리 ID를 사용하도록 설정할 수 있습니다. 시스템이 할당한 관리 ID를 사용하도록 설정하면 해당 서비스 인스턴스의 수명 주기와 연결된 ID가 Azure AD에 만들어집니다. 따라서 리소스가 삭제되면 Azure에서 자동으로 ID를 삭제합니다. 의도적으로 해당 Azure 리소스만 이 ID를 사용하여 Azure AD에서 토큰을 요청할 수 있습니다.
 - **사용자 할당** 관리 ID를 독립 실행형 Azure 리소스로 만들 수도 있습니다. [사용자가 할당한 관리 ID를 만들고](how-to-manage-ua-identity-portal.md), 이를 하나 이상의 Azure 서비스 인스턴스에 할당할 수 있습니다. 사용자가 할당한 관리 ID는 이를 사용하는 리소스와 별도로 관리됩니다. </br></br>
 
-> [!VIDEO https://www.youtube.com/embed/OzqpxeD3fG0]
 
 아래 표에서는 두 가지 유형의 관리 ID 간의 차이점을 보여 줍니다.
 

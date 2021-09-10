@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: a611daf290bda8d6511cb4217e411de2886ce822
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: 95054a4da3bc11e92cc140e7fb6689773b0343ac
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112370854"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698829"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>유지 관리 제어 및 Azure CLI를 사용하여 업데이트 제어
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 유지 관리 제어를 통해 격리된 VM 및 Azure 전용 호스트 인프라에 플랫폼 업데이트를 적용하는 시기를 결정할 수 있습니다. 이 항목에서는 Azure CLI의 유지 관리 제어 옵션에 관해 설명합니다. 유지 관리 제어 사용의 이점, 제한 사항 및 기타 관리 옵션에 관한 자세한 내용은 [유지 관리 제어를 사용하여 플랫폼 업데이트 관리](maintenance-control.md)를 참조하세요.
 

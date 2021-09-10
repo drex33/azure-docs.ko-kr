@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
-ms.date: 05/19/2021
-ms.openlocfilehash: 937fcc60e8be144fce10748345b71cc05703c04f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: 87f211976f74fef5ed2c0cef992d82099e141a29
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638514"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038174"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-api-for-mongodb-offline"></a>자습서: 오프라인에서 MongoDB를 Azure Cosmos DB API for MongoDB로 마이그레이션
 [!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
@@ -232,6 +232,12 @@ Azure Cosmos DB의 서버 쪽 다시 시도 기능을 사용하면 서비스에�
 ## <a name="post-migration-optimization"></a>마이그레이션 후 최적화
 
 MongoDB 데이터베이스에 저장된 데이터가 Azure Cosmos DB API for MongoDB로 마이그레이션되면 Azure Cosmos DB에 연결하여 데이터를 관리할 수 있습니다. 다른 마이그레이션 후 최적화 단계를 수행할 수도 있습니다. 여기에는 인덱싱 정책 최적화, 기본 일관성 수준 업데이트 또는 Azure Cosmos DB 계정에 대한 전역 배포 구성이 포함될 수 있습니다. 자세한 내용은 [마이그레이션 후 최적화](../cosmos-db/mongodb-post-migration.md)를 참조하세요.
+
+## <a name="additional-resources"></a>추가 리소스
+
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요?
+    * 기존 데이터베이스 클러스터의 vcore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../cosmos-db/convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](../cosmos-db/mongodb/estimate-ru-capacity-planner.md)에 대해 읽어보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

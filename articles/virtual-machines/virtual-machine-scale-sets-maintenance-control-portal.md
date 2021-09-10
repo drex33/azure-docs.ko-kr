@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2021
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6537728feb2145520ee49457b00d9944d5967c9f
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 656d72663045b4604b9a94cbc686150925caca83
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112073140"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112202043"
 ---
 # <a name="maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-azure-portal"></a>Azure Portal을 사용하여 Azure 가상 머신 확장 집합의 OS 이미지 업그레이드에 대한 유지 관리 제어
 
@@ -60,10 +60,10 @@ ms.locfileid: "112073140"
 
 ![리소스를 할당하는 방법을 보여 주는 스크린샷](media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
-유지 관리 구성에 할당하려는 리소스를 선택하고 **확인** 을 선택합니다. **Type**(유형) 열은 리소스가 격리된 VM 또는 Azure 전용 호스트인지 여부를 표시합니다. 구성을 할당하려면 VM이 실행되고 있어야 합니다. 중지된 VM에 구성을 할당하려고 하면 오류가 발생합니다. 
+유지 관리 구성에 할당하려는 가상 머신 확장 집합 리소스를 선택하고 **확인** 을 선택합니다.  
 
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure에서 실행되는 가상 머신의 유지 관리 및 업데이트에 대해 알아봅니다.](maintenance-and-updates.md)
+> [Azure에서 실행되는 가상 머신의 유지 관리 및 업데이트에 대해 알아보기](maintenance-and-updates.md)

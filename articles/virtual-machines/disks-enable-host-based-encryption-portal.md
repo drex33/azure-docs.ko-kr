@@ -8,16 +8,14 @@ ms.date: 07/22/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 1fd010e645370389a657f70aeb2e821b69477ef1
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: bd1c2d9a9d428a765a9b621652aa23fdec94f212
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687572"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114456406"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure Portal을 사용하여 호스트에서 암호화를 사용하는 엔드투엔드 암호화를 사용하도록 설정
-
-**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VM
 
 호스트에서 암호화를 사용하도록 설정하면 VM 호스트에 저장된 데이터는 미사용 및 스토리지 서비스로 암호화된 흐름으로 암호화됩니다. 호스트에서 암호화 및 기타 관리 디스크 암호화 유형에 대한 개념 정보는 [호스트에서 암호화 - VM 데이터에 대한 엔드투엔드 암호화](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)를 참조하세요.
 

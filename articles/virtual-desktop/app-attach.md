@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1ff5ea8c4bb0af326b37d0e4ff2185be22393f16
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6b54afdb77bd1fc3a958b959dad4fcb030e1fe2f
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745442"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538258"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>MSIX 앱 연결용 PowerShell 스크립트 만들기
 
@@ -200,6 +200,9 @@ Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 #endregion
 ```
 
+>[!NOTE]
+>디스테이징 스크립트를 실행한 후 **$volumeGuid** 지점이 남아 있는 동안에도 기기를 종료할 수 있습니다.
+
 ## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>MSIX app attach 에이전트에 대한 시뮬레이션 스크립트 설정
 
 스크립트를 만들면 이 스크립트를 사용자가 수동으로 실행하거나 시작, 로그온, 로그오프, 종료 스크립트로 자동 실행되도록 설정할 수 있습니다. 이러한 유형의 스크립트에 대해 자세히 알아보려면 [그룹 정책에서 시작, 종료, 로그온, 로그오프 스크립트 사용](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/)을 참조하세요.
@@ -210,6 +213,9 @@ Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 - 로그온 스크립트는 등록 스크립트를 실행합니다.
 - 로그오프 스크립트는 등록 취소 스크립트를 실행합니다.
 - 종료 스크립트는 스테이징 취소 스크립트를 실행합니다.
+
+>[!NOTE]
+>스테이지 스크립트를 사용하여 작업 스케줄러를 실행할 수 있습니다. 스크립트를 실행하려면 작업 트리거를 **컴퓨터가 시작될 때** 로 설정한 다음 **가장 높은 권한으로 실행** 을 활성화합니다.
 
 ## <a name="use-packages-offline"></a>오프라인으로 패키지 사용
 

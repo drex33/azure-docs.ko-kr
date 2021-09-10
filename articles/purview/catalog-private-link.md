@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/18/2021
-ms.openlocfilehash: b65820ab72c0a20953a7e3e9e4a2ee964df51e07
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 37600a101c44f556eed3678910254f9832f77366
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831614"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122539585"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Azure Purview 계정에 대해 프라이빗 엔드포인트 사용
 
@@ -29,7 +29,7 @@ Azure Purview 계정에 대해 [Azure 프라이빗 엔드포인트](../private-l
 
 :::image type="content" source="media/catalog-private-link/purview-private-link-overview.png" alt-text="프라이빗 엔드포인트가 있는 Azure Purview를 보여 주는 스크린샷"::: 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Purview 계정에 대한 프라이빗 엔드포인트를 배포하기 전에 다음 사전 요구 사항을 충족하는지 확인합니다.
 
@@ -64,8 +64,6 @@ Azure Purview 계정에서 _수집_ 프라이빗 엔드포인트를 사용하고
 |Azure SQL Managed Instance | 자체 호스팅 IR| SQL 인증|
 |Azure Cosmos DB| 자체 호스팅 IR| 계정 키|
 |SQL Server | 자체 호스팅 IR| SQL 인증|
-|Azure Synapse Analytics | 자체 호스팅 IR| 서비스 주체|
-|Azure Synapse Analytics | 자체 호스팅 IR| SQL 인증|
 
 ## <a name="frequently-asked-questions"></a>질문과 대답  
 

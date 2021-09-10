@@ -12,12 +12,12 @@ ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2cde44ddb49ede8002b8a25ab47ae92ccd602a9d
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: a296babaafdee7939d462a356b9a3087e5e8990f
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226373"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777777"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Application Insights를 사용하여 Azure AD B2C에서 사용자 동작 추적
 
@@ -49,7 +49,7 @@ Application Insights를 사용하는 경우 다음 사항을 고려하세요.
 - 사용자 세션을 기록하려면 상관 관계 ID를 사용하여 이벤트를 통합할 수 있습니다.
 - [사용자 경험](userjourneys.md) 또는 [하위 경험](subjourneys.md)에서 직접 Application Insights 기술 프로필을 호출합니다. Application Insights 기술 프로필을 [유효성 검사 기술 프로필](validation-technical-profile.md)로 사용하지 마세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
@@ -58,7 +58,8 @@ Application Insights를 사용하는 경우 다음 사항을 고려하세요.
 Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 만들고 계측 키를 가져오기만 하면 됩니다. 자세한 내용은 [Application Insights 리소스 만들기](../azure-monitor/app/create-new-resource.md)를 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. Azure 구독이 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure 구독이 포함된 디렉터리를 선택합니다. 이 테넌트는 Azure AD B2C 테넌트가 아닙니다.
+1. Azure AD B2C 디렉터리가 아니라 Azure AD 구독이 있는 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 구독이 있는 Azure AD 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **리소스 만들기** 를 선택하고 **Application Insights** 를 검색하여 선택합니다.
 1. **만들기** 를 선택합니다.
 1. **이름** 에 리소스 이름을 입력합니다.

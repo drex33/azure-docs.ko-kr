@@ -5,25 +5,31 @@ author: j-patrick
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/02/2021
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 0eb80de6ad566005eba518efab863af254c3df78
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: c683af7a6f8889204f697a0ee36bf3b3719efa73
+ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750968"
+ms.lasthandoff: 07/28/2021
+ms.locfileid: "114731979"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>시스템 할당 관리 ID를 사용하여 Azure Cosmos DB 데이터에 액세스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
+> [!TIP]
+> 이제 Azure Cosmos DB에서 [데이터 평면 RBAC(역할 기반 액세스 제어)](how-to-setup-rbac.md)를 사용할 수 있으므로 Azure Active Directory를 통해 요청을 원활하게 승인할 수 있습니다.
 
 이 문서에서는 [관리 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 사용하여 Azure Cosmos DB 키에 액세스할 수 있도록 *강력한 키 순환과 무관한* 솔루션을 설정합니다. 이 문서의 예에서는 Azure Functions를 사용하지만 관리 ID를 지원하는 모든 서비스를 사용할 수 있습니다. 
 
 Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액세스할 수 있는 함수 앱을 만드는 방법을 알아봅니다. 함수 앱은 1분마다 실행되어 수족관 어항의 현재 온도를 기록합니다. 타이머로 트리거되는 함수 앱을 설정하는 방법을 알아보려면 [타이머로 트리거되는 Azure에서 함수 만들기](../azure-functions/functions-create-scheduled-function.md) 문서를 참조하세요.
 
-시나리오를 단순화하기 위해 이전 온도 문서를 정리하도록 [수명](./time-to-live.md) 설정이 이미 구성되어 있습니다. 
+시나리오를 단순화하기 위해 이전 온도 문서를 정리하도록 [수명](./time-to-live.md) 설정이 이미 구성되어 있습니다.
+
+> [!IMPORTANT]
+> 이 접근 방식은 Azure Cosmos DB 컨트롤 플레인을 통해 계정의 기본 키를 가져오기 때문에 계정에 [읽기 전용 잠금이 적용](../azure-resource-manager/management/lock-resources.md)된 경우에는 작동하지 않습니다. 이 경우에는 대신 Azure Cosmos DB [데이터 평면 RBAC](how-to-setup-rbac.md)를 사용하는 것이 좋습니다.
 
 ## <a name="assign-a-system-assigned-managed-identity-to-a-function-app"></a>함수 앱에 시스템 할당 관리 ID 할당
 
@@ -47,9 +53,6 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 |---------|---------|
 |[DocumentDB 계정 기여자](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Azure Cosmos DB 계정을 관리할 수 있습니다. 읽기/쓰기 키를 검색할 수 있습니다. |
 |[Cosmos DB 계정 독자 역할](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Azure Cosmos DB 계정 데이터를 읽을 수 있음. 읽기 키를 검색할 수 있습니다. |
-
-> [!IMPORTANT]
-> Azure Cosmos DB의 역할 기반 액세스 제어에 대한 지원은 컨트롤 플레인 작업에만 적용됩니다. 데이터 평면 작업은 기본 키 또는 리소스 토큰을 통해 보안이 유지됩니다. 자세한 내용은 [데이터에 안전하게 액세스](secure-access-to-data.md) 문서를 참조하세요.
 
 > [!TIP] 
 > 역할을 할당하는 경우 필요한 액세스만 할당합니다. 서비스에 데이터 읽기만 필요한 경우 관리 ID에 **Cosmos DB 계정 리더** 역할을 할당합니다. 최소 권한 액세스의 중요성에 대한 자세한 내용은 [권한 있는 계정 노출 감소](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) 문서를 참조하세요.
@@ -93,23 +96,23 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 이제 Azure Cosmos DB 권한에 **DocumentDB 계정 기여자** 역할이 있는 시스템 할당 관리 ID가 있는 함수 앱이 있습니다. 다음 함수 앱 코드는 Azure Cosmos DB 키를 가져오고 CosmosClient 개체를 만들고 수족관의 온도를 가져온 다음 이를 Azure Cosmos DB에 저장합니다.
 
-이 샘플은 [목록 키 API](/rest/api/cosmos-db-resource-provider/2021-04-15/databaseaccounts/listkeys)를 사용하여 Azure Cosmos DB 계정 키에 액세스합니다.
+이 샘플은 [목록 키 API](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-keys)를 사용하여 Azure Cosmos DB 계정 키에 액세스합니다.
 
 > [!IMPORTANT] 
-> [Cosmos DB 계정 리더 역할을 할당](#grant-access-to-your-azure-cosmos-account)하려면 [목록 읽기 전용 키 API](/rest/api/cosmos-db-resource-provider/2021-04-15/databaseaccounts/listreadonlykeys)를 사용해야 합니다. 이렇게 하면 읽기 전용 키만 채워집니다.
+> [Cosmos DB 계정 리더 역할을 할당](#grant-access-to-your-azure-cosmos-account)하려면 [목록 읽기 전용 키 API](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-read-only-keys)를 사용해야 합니다. 이렇게 하면 읽기 전용 키만 채워집니다.
 
 목록 키 API는 `DatabaseAccountListKeysResult` 개체를 반환합니다. 이 유형은 C# 라이브러리에 정의되어 있지 않습니다. 다음 코드에서는 이 클래스의 구현을 보여 줍니다.  
 
 ```csharp 
 namespace Monitor 
 {
-  public class DatabaseAccountListKeysResult
-  {
-      public string primaryMasterKey {get;set;}
-      public string primaryReadonlyMasterKey {get; set;}
-      public string secondaryMasterKey {get; set;}
-      public string secondaryReadonlyMasterKey {get;set;}
-  }
+    public class DatabaseAccountListKeysResult
+    {
+        public string primaryMasterKey { get; set; }
+        public string primaryReadonlyMasterKey { get; set; }
+        public string secondaryMasterKey { get; set; }
+        public string secondaryReadonlyMasterKey { get; set; }
+    }
 }
 ```
 
@@ -125,7 +128,6 @@ namespace Monitor
         public string id { get; set; } = Guid.NewGuid().ToString();
         public DateTime RecordTime { get; set; }
         public int Temperature { get; set; }
-
     }
 }
 ```

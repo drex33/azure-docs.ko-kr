@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/24/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 23abb7c3d917084d0cc9989bf19dbb76adf0a266
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 8740f7e8b02002e4f55a833074cf34057cddc056
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112967351"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123226148"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone"></a>자습서: Cornerstone과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "112967351"
 * 사용자가 자신의 Azure AD 계정으로 Cornerstone에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -41,6 +41,8 @@ ms.locfileid: "112967351"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Cornerstone은 **SP** 시작 SSO를 지원합니다.
+
+* Cornerstone은 [자동 사용자 프로비저닝](cornerstone-ondemand-provisioning-tutorial.md)을 지원합니다.
 
 * 이 특정 목록에서 제품을 하나 이상 통합하는 경우 갤러리에서 이 Cornerstone Single Sign-On 앱을 사용해야 합니다.
 
@@ -116,7 +118,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
     1. **이름** 필드에 `B.Simon`을 입력합니다.  
-    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
     1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
     1. **만들기** 를 클릭합니다.
 
@@ -140,6 +142,7 @@ Cornerstone에서 SSO를 구성하려면 Cornerstone 구현 프로젝트 팀에 
 
 이 섹션에서는 Cornerstone에서 Britta Simon이라는 사용자를 만듭니다. Cornerstone에 사용자를 추가하려면 Cornerstone 구현 프로젝트 팀에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
+Cornerstone Single Sign-On은 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝을 구성하는 방법에 대한 자세한 내용은 [여기](./cornerstone-ondemand-provisioning-tutorial.md)서 확인할 수 있습니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

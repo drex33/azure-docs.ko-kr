@@ -7,15 +7,19 @@ ms.collection: linux
 ms.topic: conceptual
 ms.date: 04/08/2021
 ms.reviewer: davberg
-ms.openlocfilehash: 2a00c966d7a1ba40d0ba27dc4f4ca3b386a44601
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 41a2f377629b8cce647adecb21e395c60bf15a7c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587862"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770782"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM의 컴퓨팅 벤치마크 점수
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 다음 CoreMark 벤치마크 점수는 Ubuntu 18.04를 실행하는 Azure의 고성능 VM 목록에 대한 컴퓨팅 성능을 보여 줍니다. [Windows Vm](../windows/compute-benchmark-scores.md)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
+
 
 ## <a name="azure-coremark-toc"></a>Azure (CoreMark) 목차
 | 형식 | 제품군 |

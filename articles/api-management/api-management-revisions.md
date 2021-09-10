@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
 ms.custom: fasttrack-new, devx-track-azurepowershell
-ms.openlocfilehash: bd837faaaa986659ad9b30aa3cf853ea490cec6d
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 16a5dc58a8fddca2cef2c393aaecca61fef61a3c
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812141"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187724"
 ---
 # <a name="revisions-in-azure-api-management"></a>Azure API Management의 수정 버전
 
@@ -56,6 +56,9 @@ Azure Portal을 사용하여 수정 버전을 현재 수정 버전으로 설정�
 수정 버전을 만들 때 고유의 추적 용도에 대한 설명을 설정할 수 있습니다. 설명은 API 사용자에게 표시되지 않습니다.
 
 수정 버전을 현재로 설정하는 경우 경우에 따라 퍼블릭 변경 로그 정보도 지정할 수 있습니다. 변경 로그는 API 사용자가 볼 수 있도록 개발자 포털에 포함됩니다. `Update-AzApiManagementApiRelease` PowerShell cmdlet을 사용하여 변경 로그 정보를 수정할 수 있습니다.
+
+> [!NOTE]
+> **표시 이름** 및 **API 접미사** 와 같은 특정 API 속성은 현재 수정 버전에서만 업데이트할 수 있습니다.
 
 ## <a name="versions-and-revisions"></a>버전 및 수정 버전
 

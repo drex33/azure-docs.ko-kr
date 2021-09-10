@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5187f30bd1de87e930e1a2d28ab9c68ec861cff6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5bdae2055f46f6f933325c95b86d427951c6cfbc
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321522"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123222666"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Application Gateway 사용자 지정 오류 페이지 만들기
 
@@ -41,9 +41,9 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 - 위치에 대해 공개적으로 액세스 가능한 Azure Storage Blob.
 - * .htm 또는 *.html 확장자 유형. 
 
-오류 페이지의 크기는 1MB 미만이어야 합니다. 이미지가 오류 페이지에 링크된 경우, 사용자 지정 오류 페이지에서 공용으로 액세스 가능한 절대 URL 또는 base64 인코드된 이미지 인라인이어야 합니다. 이미지가 동일한 Blob 위치에 있는 상대 링크는 현재 지원되지 않습니다. 
+오류 페이지의 크기는 1MB 미만이어야 합니다. 이 HTML 파일의 내부 또는 외부 이미지/CSS를 참조할 수 있습니다. 외부에서 참조되는 리소스의 경우 공개적으로 액세스할 수 있는 절대 URL을 사용합니다. 내부 이미지(Base64로 인코딩된 인라인 이미지) 또는 CSS를 사용할 경우 HTML 파일 크기를 알고 있어야 합니다. 동일한 Blob 위치에 있는 파일에 대한 상대 링크는 현재 지원되지 않습니다.
 
-오류 페이지를 지정한 후에는 애플리케이션 게이트웨이가 스토리지 Blob 위치에서 이를 다운로드하여 로컬 애플리케이션 게이트웨이 캐시에 저장합니다. 그런 다음, 오류 페이지는 애플리케이션 게이트웨이에서 직접 제공됩니다. 기존 사용자 지정 오류 페이지를 수정하려면 애플리케이션 게이트웨이 구성에서 다른 Blob 위치를 가리켜야 합니다. 애플리케이션 게이트웨이는 정기적으로 BLOB 위치를 검사하여 새 버전을 가져옵니다.
+오류 페이지를 지정한 후에는 애플리케이션 게이트웨이가 스토리지 Blob 위치에서 이를 다운로드하여 로컬 애플리케이션 게이트웨이 캐시에 저장합니다. 그 후 해당 HTML 페이지는 애플리케이션 게이트웨이에서 제공되는 반면, 외부에서 참조 되는 리소스는 클라이언트에서 직접 가져옵니다. 기존 사용자 지정 오류 페이지를 수정하려면 애플리케이션 게이트웨이 구성에서 다른 Blob 위치를 가리켜야 합니다. 애플리케이션 게이트웨이는 정기적으로 BLOB 위치를 검사하여 새 버전을 가져옵니다.
 
 ## <a name="portal-configuration"></a>포털 구성
 

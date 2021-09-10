@@ -7,16 +7,16 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/19/2020
-ms.openlocfilehash: 1accce46358c360be83ebc3ea85f0f2257b567c8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 233fc2d15ce4e80ed305fd38006b5a0fd9d3c5ab
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456544"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122867006"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 
-[비즈니스 애플리케이션 ISV 연결 프로그램](https://partner.microsoft.com/solutions/business-applications/isv-overview)은 Dynamics 365 Customer Engagement 및 PowerApps(Dynamics CE 애플리케이션) 또는 Dynamics 365 Finance and Operations(Dynamics Ops 애플리케이션)으로 클라우드 기반의 최신 LOB(기간 업무) 솔루션을 개발하고 있는 ISV(독립 소프트웨어 공급업체)의 성장과 전반적인 성공을 가속화하는 것을 목적으로 합니다.
+[비즈니스 애플리케이션 ISV 연결 프로그램](https://partner.microsoft.com/solutions/business-applications/isv-overview)은 Dynamics 365 Customer Engagement 및 Power Apps(Dynamics CE 애플리케이션) 또는 Dynamics 365 Finance and Operations(Dynamics Ops 애플리케이션)으로 클라우드 기반의 최신 LOB(기간 업무) 솔루션을 개발하고 있는 ISV(독립 소프트웨어 공급업체)의 성장과 전반적인 성공을 가속화하는 것을 목적으로 합니다.
 
 비즈니스 애플리케이션 ISV 연결 프로그램의 기술, 마케팅, 영업 지원 혜택을 모두 등록하고 활용하려면 이 문서의 다음 섹션을 빠짐없이 살펴봅니다.
 

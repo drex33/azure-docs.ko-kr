@@ -8,16 +8,16 @@ author: linda33wj
 ms.author: jingwang
 ms.reviewer: jrasnick
 ms.date: 05/13/2021
-ms.openlocfilehash: f7f697b9df78c44efb7a266d1a92bdd9ffe31753
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 4c1f12d4e61f254f753f3feb59ca46997f88b751
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112967694"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257076"
 ---
 # <a name="transform-data-by-using-sql-pool-stored-procedure-activity-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 풀 저장 프로시저 활동을 사용하여 데이터 변환
 
-<Token>**적용할 내용:** ![지원되지 않는](../media/applies-to/no.png)Azure Data Factory ![지원되는](../media/applies-to/yes.png)Azure Synapse Analytics</Token> 
+[!INCLUDE[appliesto-xxx-asa-md](../../data-factory/includes/appliesto-xxx-asa-md.md)]
 
 [파이프라인](../../data-factory/concepts-pipelines-activities.md)의 데이터 변환 작업을 통해 원시 데이터를 변환 및 처리하여 예측 가능하고 통찰력 있는 정보로 만듭니다. 이 문서는 데이터 변환 및 지원되는 변환 작업의 일반적인 개요를 제공하는 [데이터 변환](../../data-factory/transform-data.md) 문서를 기반으로 합니다.
 

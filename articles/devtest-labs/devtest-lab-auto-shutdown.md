@@ -3,12 +3,12 @@ title: Azure DevTest Labs 및 컴퓨팅 VM에서 자동 종료 정책 관리 | M
 description: 가상 머신이 사용되지 않을 때 자동으로 종료되도록 랩에 대한 자동 종료 정책을 설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: cd7974580ea30c9d0591c88380a4e626711bad1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 946ee2a4d6f3503671664b0e46806fef7f71a459
+ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93318973"
+ms.lasthandoff: 07/06/2021
+ms.locfileid: "113301999"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩과 컴퓨팅 가상 머신에 대한 자동 종료 구성
 
@@ -112,7 +112,7 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 
 웹후크는 Azure Logic Apps, Slack 등의 다양한 앱에서 광범위하게 지원되므로 웹후크를 사용하는 것이 좋습니다.  웹후크를 사용하면 알림을 보내는 고유한 방법을 구현할 수 있습니다. 예를 들어 이 문서에서는 Azure Logic Apps를 사용하여 VM 소유자에게 메일을 보내도록 자동 종료 알림을 구성하는 방법을 설명합니다. 먼저 랩에서 자동 종료 알림을 사용하도록 설정하는 기본 단계를 빠르게 살펴보겠습니다.
 
-### <a name="create-a-logic-app-that-receives-email-notifications"></a>메일 알림을 받는 논리 앱 만들기
+### <a name="create-a-logic-app-that-sends-email-notifications"></a>메일 알림을 보내는 논리 앱 생성하기
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)는 Office 365, Twitter 등의 다른 클라이언트와 서비스를 쉽게 통합할 수 있도록 많은 커넥터를 제공합니다. 메일 알림에 사용할 논리 앱을 설정하는 단계는 개괄적으로 다음 네 단계로 나뉠 수 있습니다.
 

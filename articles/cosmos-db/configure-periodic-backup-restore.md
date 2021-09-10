@@ -4,15 +4,15 @@ description: 이 문서에서는 백업 간격과 보존 기간이 지정된 정
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 07/21/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 56e9bfe95a78c8bf0771acdc98c761df9994a708
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 7cb5c8fe924a2634627533203ed8f11969f0b432
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221057"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535965"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>정기 백업을 사용하여 Azure Cosmos DB 계정 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -49,7 +49,7 @@ Azure Cosmos DB의 백업 데이터는 주 지역에서 3번 복제됩니다. �
 * **로컬 중복 백업 스토리지:** 이 옵션은 기본 지역의 단일 물리적 위치 내에서 데이터를 비동기적으로 3번 복사합니다.
 
 > [!NOTE]
-> 영역 중복 스토리지는 현재 [특정 지역](high-availability.md#availability-zone-support)에서만 사용할 수 있습니다. 새 계정에 대해 선택한 지역 또는 기존 계정에 대해 보유한 지역에 따라 영역 중복 옵션을 사용할 수 없습니다.
+> 영역 중복 스토리지는 현재 [특정 지역](high-availability.md#availability-zone-support)에서만 사용할 수 있습니다. 선택한 지역에 따라 이 옵션은 신규 또는 기존 계정에 사용할 수 없습니다.
 >
 > 백업 스토리지 중복성을 업데이트해도 백업 스토리지 가격 책정에는 영향이 없습니다.
 

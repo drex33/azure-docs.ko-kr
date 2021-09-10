@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 08/02/2021
 ms.author: b-juche
-ms.openlocfilehash: 3158d4fae313afcb1fef69ba7a2728df4d235175
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 522c9e590f1f63a12bd4f52f56eac0798ba78aa7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525339"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535769"
 ---
 # <a name="linux-concurrency-best-practices-for-azure-netapp-files---session-slots-and-slot-table-entries"></a>Azure NetApp Files에 대한 Linux 동시성 모범 사례 - 세션 슬롯 및 슬롯 테이블 항목
 
-이 문서는 Azure NetApp Files NFS 프로토콜에 대한 세션 슬롯 및 슬롯 테이블 항목 관련 동시성 모범 사례를 이해하는 데 도움이 됩니다. 
+이 문서는 Azure NetApp Files NFS 프로토콜의 세션 슬롯 및 슬롯 테이블 항목에 대한 동시성 모범 사례를 이해하는 데 도움이 됩니다. 
 
 ## <a name="nfsv3"></a>NFSv3
 
@@ -48,7 +48,7 @@ NFSv3에는 클라이언트와 서버 간의 동시성을 협상하는 메커니
 
 자세한 내용은 [Azure NetApp Files 단일 볼륨의 Oracle 데이터베이스 성능](performance-oracle-single-volumes.md)을 참조하세요.
 
-`sunrpc.max_tcp_slot_table_entries` tunable은 연결 수준의 튜닝 매개 변수입니다.  *이 값을 연결당 128 이하로 설정하고, 환경 전체에서 3,000개의 슬롯을 초과하지 않는 것이 좋습니다.*
+`sunrpc.max_tcp_slot_table_entries` tunable은 연결 수준의 튜닝 매개 변수입니다.  ‘이 값을 연결당 128 이하로 설정하고, 환경 전체에서 10,000개 슬롯을 넘지 않도록 하는 것이 좋습니다.’
 
 ### <a name="examples-of-slot-count-based-on-concurrency-recommendation"></a>동시성 권장 사항을 기반으로 하는 슬롯 수의 예 
 
@@ -109,7 +109,7 @@ NFSv3에는 클라이언트와 서버 간의 동시성을 협상하는 메커니
         * 클라이언트는 연결당 서버로 이동하는 요청을 8개 미만으로 발행합니다.
         * 서버는 이 단일 연결로부터 이동하는 요청을 128개 미만으로 허용합니다.
 
-NFSv3를 사용하는 경우 *스토리지 엔드포인트 슬롯 수를 총 2,000개 이하로 유지해야 합니다*. 애플리케이션이 여러 네트워크 연결에 걸쳐 스케일 아웃하는 경우(일반적으로 `nconnect` 및 HPC, 특히 EDA) `sunrpc.max_tcp_slot_table_entries`에 대한 연결당 값을 128 미만으로 설정하는 것이 가장 좋습니다.  
+NFSv3를 사용하는 경우 ‘스토리지 엔드포인트 슬롯 수를 총 10,000개 이하로 유지해야 합니다’. 애플리케이션이 여러 네트워크 연결에 걸쳐 스케일 아웃하는 경우(일반적으로 `nconnect` 및 HPC, 특히 EDA) `sunrpc.max_tcp_slot_table_entries`에 대한 연결당 값을 128 미만으로 설정하는 것이 가장 좋습니다.  
 
 ### <a name="how-to-calculate-the-best-sunrpcmax_tcp_slot_table_entries"></a>최적의 `sunrpc.max_tcp_slot_table_entries` 계산 방법 
 
@@ -129,7 +129,7 @@ NFSv3를 사용하는 경우 *스토리지 엔드포인트 슬롯 수를 총 2,0
 
 ### <a name="how-to-calculate-concurrency-settings-by-connection-count"></a>연결 수에 따라 동시성 설정을 계산하는 방법
 
-예를 들어 워크로드가 EDA 팜이고, 200개의 클라이언트가 모두 워크로드를 동일한 스토리지 엔드포인트(스토리지 IP 주소)로 이동하는 경우 필요한 I/O 속도를 계산하고 팜에 걸쳐 동시성을 나눠야 합니다.
+예를 들어 워크로드가 EDA 팜이고, 1,250개 클라이언트가 모두 워크로드를 동일한 스토리지 엔드포인트(스토리지 IP 주소)로 이동하는 경우 필요한 I/O 속도를 계산하고 팜 전체에 동시성을 나눠야 합니다.
 
 워크로드가 256KiB 평균 작업 크기와 평균 10ms 대기 시간을 사용하여 4,000MiB/s인 것으로 가정합니다. 동시성을 계산하려면 다음 수식을 사용합니다.
 
@@ -139,7 +139,7 @@ NFSv3를 사용하는 경우 *스토리지 엔드포인트 슬롯 수를 총 2,0
  
 `(160 = 16,000 × 0.010)`
 
-200개의 클라이언트가 필요한 경우 `sunrpc.max_tcp_slot_table_entries`를 클라이언트당 2로 설정하여 안전하게 4,000MiB/s에 도달할 수 있습니다.  하지만 클라이언트당 수를 4 또는 8로 설정하고 권장 슬롯 실링을 2000 아래로 유지하여 추가 헤드룸에서 빌드를 결정할 수 있습니다. 
+1,250개의 클라이언트가 필요한 경우 `sunrpc.max_tcp_slot_table_entries`를 클라이언트당 2개로 설정하여 안전하게 4,000MiB/s에 도달할 수 있습니다.  하지만 클라이언트당 개수를 4 또는 8로 설정해서 추가 위쪽 공간을 빌드하여 권장 슬롯 실링인 10,000 아래로 유지할 수도 있습니다. 
 
 ### <a name="how-to-set-sunrpcmax_tcp_slot_table_entries-on-the-client"></a>클라이언트에서 `sunrpc.max_tcp_slot_table_entries`를 설정하는 방법
 
@@ -266,5 +266,9 @@ Wireshark를 사용하는 경우 중요 패킷은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계  
 
+* [Azure NetApp Files에 대한 Linux 직접 I/O 모범 사례](performance-linux-direct-io.md)
+* [Azure NetApp Files에 대한 Linux 파일 시스템 캐시 모범 사례](performance-linux-filesystem-cache.md)
 * [Azure NetApp Files에 대한 Linux NFS 탑재 옵션 모범 사례](performance-linux-mount-options.md)
+* [Linux NFS 미리 읽기 모범 사례](performance-linux-nfs-read-ahead.md)
+* [Azure 가상 머신 SKU 모범 사례](performance-virtual-machine-sku.md) 
 * [Linux용 성능 벤치마크](performance-benchmarks-linux.md) 

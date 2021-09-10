@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.openlocfilehash: 0fe9a87e82ab391fc0e1ccfca95ad48a0ef5dc61
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: c5f29cb909dae7b8e362cdf37481111dbf75c8d9
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772468"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530230"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기술 세트에 Cognitive Services 리소스 연결
 
@@ -47,7 +47,7 @@ Azure Cognitive Search에서 [AI 보강 파이프라인](cognitive-search-concep
   언급한 바와 같이 [사용자 지정 엔터티 조회](cognitive-search-skill-custom-entity-lookup.md)는 키가 필요하지만 [Cognitive Search로 측정](https://azure.microsoft.com/pricing/details/search/#pricing)된다는 점에서 특별한 경우입니다.
 
 > [!TIP]
-> 스킬셋 처리 비용을 낮추려면 [증분 보강(미리보기)](cognitive-search-incremental-indexing-conceptual.md)을 활성화하여 기술 세트 변경의 영향을 받지 않는 보강을 캐시하고 재사용합니다. 캐싱에는 Azure Storage가 필요합니다([가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 참조). 특히 이미지 추출 및 분석을 사용하는 기술 세트의 경우 기존 강화를 재사용할 수 있는 경우 기술 세트 실행의 누적 비용이 더 낮습니다.
+> 스킬셋 처리 비용을 낮추려면 [증분 보강(미리보기)](cognitive-search-incremental-indexing-conceptual.md)을 활성화하여 기술 세트 변경의 영향을 받지 않는 보강을 캐시하고 재사용합니다. 캐싱에는 Azure Storage가 필요합니다([가격 책정](/pricing/details/storage/blobs/) 참조). 특히 이미지 추출 및 분석을 사용하는 기술 세트의 경우 기존 강화를 재사용할 수 있는 경우 기술 세트 실행의 누적 비용이 더 낮습니다.
 
 ## <a name="same-region-requirement"></a>동일한 지역 요구 사항
 

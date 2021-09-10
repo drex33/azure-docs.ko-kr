@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 8b363d90d05e95b017c3a655b57dbabc3712a155
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88a9a842709d6a70f766f7ced84e144bb9a9861b
+ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94965547"
+ms.lasthandoff: 07/04/2021
+ms.locfileid: "113288881"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -53,7 +53,7 @@ ms.locfileid: "94965547"
 
 Graylog는 플랫폼 및 기본 설정에 따라 다양한 방법으로 설치할 수 있습니다. 설치 가능한 방법에 대한 전체 목록은 Graylog의 공식 [설명서](https://docs.graylog.org/en/2.2/pages/installation.html)를 참조하세요. Graylog 서버 애플리케이션은 Linux 배포판에서 실행되며, 다음과 같은 필수 구성 요소를 포함합니다.
 
--  Java SE 8 이상 - [Azul Azure JDK 설명서](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+-  Java SE 8 이상 - [JDK 설치 설명서](/azure/developer/java/fundamentals/java-jdk-install)
 -  Elastic Search 2.x(2.1.0 이상) - [Elasticsearch 설치 설명서](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 이상 - [MongoDB 설치 설명서](https://docs.mongodb.com/manual/administration/install-on-linux/)
 

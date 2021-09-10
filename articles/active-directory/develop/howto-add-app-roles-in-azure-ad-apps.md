@@ -13,14 +13,14 @@ ms.date: 05/06/2021
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cf1ca72d7afaace847fb1b8321723f57fbe133f6
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 5f213c6b41a0a34850b35fb24dd4288c00693511
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802176"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039339"
 ---
-# <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에서 앱 역할을 추가하고 토큰에서 수신하기
+# <a name="add-app-roles-to-your-application-and-receive-them-in-the-token"></a>애플리케이션에서 앱 역할을 추가하고 토큰에서 수신
 
 RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여를 적용하는 데 널리 사용되는 메커니즘입니다. RBAC를 사용하는 경우, 관리자는 개별 사용자나 그룹이 아닌 역할에 사용 권한을 부여합니다. 그런 다음 관리자는 다른 사용자 및 그룹에 역할을 할당하여 누가 어떤 컨텐츠와 기능에 액세스 권한을 갖는지를 제어할 수 있습니다.
 
@@ -58,7 +58,7 @@ Azure Portal의 사용자 인터페이스를 사용하여 앱 역할을 만들�
 
    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-create-context-pane.png" alt-text="Azure Portal의 앱 등록의 앱 역할 만들기 컨텍스트 창":::
 
-   | 필드                                    | Description                                                                                                                                                                                                                                                                                                       | 예제                       |
+   | 필드                                    | 설명                                                                                                                                                                                                                                                                                                       | 예제                       |
    | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
    | **표시 이름**                         | 관리자 승인 및 앱 할당 환경에 표시되는 앱 역할의 표시 이름입니다. 이 값에는 공백이 포함될 수 있습니다.                                                                                                                                                                                    | `Survey Writer`               |
    | **허용된 멤버 유형**                 | 이 앱 역할을 사용자, 애플리케이션 또는 둘 다에 할당할 수 있는지 여부를 지정합니다.<br/><br/>`applications`에 제공되는 경우 앱 등록의 **관리** 섹션 > **API 권한 > 권한 추가 > 내 API > API 선택 > 애플리케이션 권한** 에서 앱 역할이 애플리케이션 권한으로 표시됩니다. | `Users/Groups`                |
@@ -203,7 +203,8 @@ Azure Portal을 사용하여 애플리케이션에 앱 역할을 할당하려면
 
 - GitHub의 코드 샘플
   - [그룹 및 그룹 클레임을 사용하여 ASP.NET Core 웹 앱에 권한 부여 추가](https://aka.ms/groupssample)
-  - [.NET Core 웹 API를 호출하고 앱 역할 및 보안 그룹을 사용하는 Angular SPA(단일 페이지 애플리케이션)](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
+  - [.NET Core 웹 API를 호출하고 앱 역할 및 보안 그룹을 사용하는 Angular SPA(단일 페이지 애플리케이션)](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl)
+  - [Node.js 웹 API를 호출하고 앱 역할 및 보안 그룹을 사용하는 React SPA(단일 페이지 애플리케이션)](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/5-AccessControl)
 - 참조 설명서
   - [Azure AD 앱 매니페스트](./reference-app-manifest.md)
   - [Azure AD 액세스 토큰](access-tokens.md)

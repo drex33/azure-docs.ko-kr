@@ -3,16 +3,16 @@ title: HTTPS를 사용하여 호출 수신 및 응답
 description: Azure Logic Apps를 사용하여 외부 서비스에서 인바운드 HTTPS 요청 처리
 services: logic-apps
 ms.suite: integration
-ms.reviewers: jonfan, logicappspm
+ms.reviewers: estfan, azla
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 08/04/2021
 tags: connectors
-ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8efcbac4b2cdd93c2646ad75a024df79cf5f2623
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99063015"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566219"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청 수신 및 응답
 
@@ -152,6 +152,23 @@ Azure API Management로 논리 앱을 노출시키거나 인바운드 호출을 
       ```
 
 1. 인바운드 호출에 특정 스키마와 일치하는 요청 본문이 있는지 확인하려면 다음 단계를 수행합니다.
+
+   1. 인바운드 메시지가 스키마에서 설명하는 것과 동일한 필드를 갖도록 하려면 스키마에서 `required` 속성을 추가하고 필수 필드를 지정합니다. `addtionalProperties`를 추가하고 값을 `false`로 설정합니다. 
+   
+      예를 들어 다음 스키마는 인바운드 메시지에 다른 필드가 아닌 `msg` 필드가 있어야 한다고 지정합니다.
+
+      ```json
+      {
+         "properties": {
+           "msg": {
+              "type": "string"
+           }
+         },
+         "type": "object",
+         "required": ["msg"],
+         "additionalProperties": false
+      }
+      ```
 
    1. 요청 트리거의 제목 표시줄에서 줄임표 단추( **...** )를 선택합니다.
 

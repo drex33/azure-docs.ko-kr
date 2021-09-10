@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: c0694e7d136b7fd339362145179939d350eb23ef
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1040c05b081c6edb181d349d00468d1ba0aac3a7
+ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475968"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122539554"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>사용자 지정 명령 개념 및 정의
 
@@ -51,12 +51,24 @@ ms.locfileid: "110475968"
 ### <a name="type"></a>유형
 사용자 지정 명령은 다음과 같은 매개 변수 유형을 지원합니다.
 
+* Age
+* 통화
 * DateTime
+* 차원
+* 메일
 * Geography
 * 숫자
+* 서수
+* 백분율
+* PersonName
+* PhoneNumber
 * String
+* 온도
+* Url
 
-Geography를 제외한 이러한 모든 매개 변수 유형은 포털에서 구성할 수 있는 기본값 구성을 지원합니다.
+모든 로캘은 ‘문자열’ 매개 변수 유형을 지원 하지만 다른 모든 유형의 가용성은 로캘에 따라 다릅니다. 사용자 지정 명령은 LUIS의 미리 작성 된 엔터티 확인을 사용 하므로 로캘에 있는 매개 변수 형식의 사용 가능 여부는 해당 로캘의 미리 작성 된 LUIS의 엔터티 지원에 따라 달라집니다. LUIS의 미리 작성한 [로캘 별 엔터티 지원에 대한](/azure/cognitive-services/luis/luis-reference-prebuilt-entities) 자세한 내용을 찾을 수 있습니다.
+
+숫자, 문자열 및 날짜/시간과 같은 일부 매개 변수 유형은 포털에서 구성할 수 있는 기본 값 구성을 지원합니다.
 
 ### <a name="configuration"></a>구성
 구성은 String 형식에 대해서만 정의되는 매개 변수 속성입니다. 지원되는 값은 다음과 같습니다.

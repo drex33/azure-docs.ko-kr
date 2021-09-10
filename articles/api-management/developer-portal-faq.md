@@ -6,15 +6,16 @@ services: api-management
 documentationcenter: API Management
 author: mikebudzynski
 ms.service: api-management
-ms.topic: article
-ms.date: 04/15/2021
+ms.topic: troubleshooting
+ms.date: 07/30/2021
 ms.author: apimpm
-ms.openlocfilehash: b4413bc53cf5c86c311d049046db790582737ca4
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b7b7efda7ca28382ca1dfbdead64db9976d67bd4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741318"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567219"
 ---
 # <a name="api-management-developer-portal---frequently-asked-questions"></a>API Management 개발자 포털 - 질문과 대답
 
@@ -134,7 +135,7 @@ API Management 서비스가 VNet에 있는 경우 [VNet 연결 질문](#do-i-nee
 
 ## <a name="whats-the-browser-support-for-the-portal"></a>포털에 대해 어떤 브라우저가 지원되나요?
 
-| 브라우저                     | 지원됨       |
+| 브라우저                     | 지원 여부       |
 |-----------------------------|-----------------|
 | Apple Safari                | 예<sup>1</sup> |
 | Google Chrome               | 예<sup>1</sup> |
@@ -147,6 +148,27 @@ API Management 서비스가 VNet에 있는 경우 [VNet 연결 질문](#do-i-nee
 ## <a name="local-development-of-my-self-hosted-portal-is-no-longer-working"></a>자체 호스팅 포털의 로컬 개발이 더 이상 작동하지 않습니다.
 
 개발자 포털의 로컬 버전에서 스토리지 계정 또는 API Management 인스턴스에 정보를 저장하거나 검색할 수 없는 경우 SAS 토큰이 만료되었을 수 있습니다. 새 토큰을 생성하여 해결할 수 있습니다. [개발자 포털 자체 호스트](developer-portal-self-host.md#step-2-configure-json-files-static-website-and-cors-settings) 자습서를 참조하세요.
+
+## <a name="how-do-i-disable-sign-up-in-the-developer-portal"></a>개발자 포털에서 등록을 사용하지 않도록 설정하려면 어떻게 하나요?
+
+개발자 포털에서 기본적으로 등록 기능을 사용하도록 설정할 필요가 없으면 다음 단계를 사용하여 사용하지 않도록 설정할 수 있습니다.
+
+1. Azure Portal에서 API Management 인스턴스로 이동합니다.
+1. 메뉴의 **개발자 포털** 에서 **ID** 를 선택합니다.
+1. 목록에 표시되는 각 ID 공급자를 삭제합니다. 각 공급자를 선택하고 상황에 맞는 메뉴( **...** )를 선택한 후 **삭제** 를 선택합니다.
+ 
+   :::image type="content" source="media/developer-portal-faq/delete-identity-providers.png" alt-text="ID 공급자 삭제":::
+ 
+1. 개발자 포털 관리 인터페이스로 이동합니다.
+1. 포털 콘텐츠에서 **등록** 링크 및 탐색 항목을 제거합니다. 포털 콘텐츠 사용자 지정에 대한 자세한 내용은 [자습서: 개발자 포털 액세스 및 사용자 지정](api-management-howto-developer-portal-customize.md)을 참조하세요.
+ 
+   :::image type="content" source="media/developer-portal-faq/delete-navigation-item.png" alt-text="탐색 항목 삭제":::
+ 
+1. 사용자가 직접 탐색하는 경우 **등록** 페이지 콘텐츠를 수정하여 ID 데이터를 입력하는 데 사용되는 필드를 제거합니다.
+   
+   선택적으로 **등록** 페이지를 삭제합니다. 현재 [contentItem](/rest/api/apimanagement/2021-01-01-preview/content-item) REST API를 사용하여 이 페이지를 나열하고 삭제합니다.
+ 
+1. 변경 내용을 저장하고 [포털을 다시 게시](api-management-howto-developer-portal-customize.md#publish)합니다.
 
 ## <a name="how-can-i-remove-the-developer-portal-content-provisioned-to-my-api-management-service"></a>API Management 서비스에 프로비전된 개발자 포털 콘텐츠를 어떻게 제거할 수 있나요?
 
@@ -166,14 +188,15 @@ cd ..
 https://contoso.com/signin-sso?token=[user-specific token]
 ```
 ### <a name="generate-user-tokens"></a>사용자 토큰 생성
-[API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest)의 [공유 액세스 토큰 가져오기](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) 작업을 사용하여 사용자별 토큰(관리자 토큰 포함)을 생성할 수 있습니다.
+[API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest)의 [공유 액세스 토큰 가져오기](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) 작업을 사용하여 사용자별 토큰(관리자 토큰 포함)을 생성할 수 있습니다.
 
 > [!NOTE]
 > 토큰은 URL로 인코딩해야 합니다.
 
+
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서를 통해 새 개발자 포털에 대해 자세히 알아봅니다.
+새 개발자 포털에 대해 자세히 알아봅니다.
 
 - [관리형 개발자 포털 액세스 및 사용자 지정](api-management-howto-developer-portal-customize.md)
 - [포털의 자체 호스트 버전 설정](developer-portal-self-host.md)

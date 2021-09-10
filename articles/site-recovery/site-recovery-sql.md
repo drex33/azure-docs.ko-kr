@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: ab2eb8a43fc75eea61a03bc25b2b6afc850d30aa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 834caf50ca65fdbb4701ed3681546513785686c3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644400"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122529326"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
 
@@ -48,7 +48,7 @@ Azure IaaS VM 또는 온-프레미스의 SQL Server입니다.| Azure Site Recove
 > * 머신에서 관찰된 데이터 변경 비율이 [Site Recovery 한도](vmware-physical-azure-support-matrix.md#churn-limits)내에 있는지 확인합니다. 변경 비율은 초당 쓰기 바이트 수로 측정됩니다. Windows를 실행하는 머신의 경우 작업 관리자에서 **성능** 탭을 선택하여 이 변경 비율을 볼 수 있습니다. 각 디스크의 쓰기 속도를 관찰합니다.
 > * Site Recovery에서는 스토리지 공간 다이렉트에서 장애 조치 클러스터 인스턴스의 복제를 지원합니다. 자세히 알아보려면 [스토리지 공간 다이렉트 복제를 사용하도록 설정하는 방법](azure-to-azure-how-to-enable-replication-s2d-vms.md)을 참조하세요.
 > 
-> SQL 워크로드를 Azure로 마이그레이션하는 경우 [Azure Virtual Machines에서 SQL Server의 성능 지침](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)을 적용하는 것이 좋습니다.
+> SQL 워크로드를 Azure로 마이그레이션하는 경우 [Azure Virtual Machines에서 SQL Server의 성능 지침](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md)을 적용하는 것이 좋습니다.
 
 ## <a name="disaster-recovery-of-an-application"></a>애플리케이션 재해 복구
 
@@ -85,9 +85,9 @@ BCDR 기술 Always On, 활성 지역 복제 및 자동 장애 조치 그룹에�
 
 애플리케이션 및 웹 계층 가상 머신을 사용하여 [복구 계획을 만듭니다](site-recovery-create-recovery-plans.md). 다음 단계에서는 데이터베이스 계층의 장애 조치를 추가하는 방법을 보여 줍니다.
 
-1. [Resource Manager 가상 머신](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) 및 [클래식 가상 머신](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1) 둘 다에서 SQL 가용성 그룹을 장애 조치하는 스크립트를 가져옵니다. Azure Automation 계정에 스크립트를 가져옵니다.
+1. [Resource Manager 가상 머신](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) 및 [클래식 가상 머신](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1) 둘 다에서 SQL 가용성 그룹을 장애 조치하는 스크립트를 가져옵니다. Azure Automation 계정에 스크립트를 가져옵니다.
 
-    [![“Azure에 배포” 로고 이미지](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Azure에 배포 로고](../media/template-deployments/deploy-to-azure.svg)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. ASR-SQL-FailoverAG 스크립트를 복구 계획의 첫 번째 그룹에 대한 이전 작업으로 추가합니다.
 

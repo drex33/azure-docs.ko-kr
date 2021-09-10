@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 41c39a87375b66e9aaf916f927d09a3b6abb3b0e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 64c77a12f65ebaf9acbc8b16c62f86a7e1e10983
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529256"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777633"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용하여 네트워크 연결 모니터링
 
@@ -74,7 +74,7 @@ NSG(네트워크 보안 그룹) 또는 방화벽에 대한 규칙은 원본과 �
 
 ### <a name="agents-for-on-premises-machines"></a>온-프레미스 컴퓨터용 에이전트
 
-연결 모니터가 온-프레미스 컴퓨터를 모니터링 원본으로 인식하도록 하려면 컴퓨터에 Log Analytics 에이전트를 설치합니다.  그런 다음, 네트워크 성능 모니터 솔루션을 사용하도록 설정합니다. 이러한 에이전트는 Log Analytics 작업 영역에 연결되므로 에이전트가 모니터링을 시작하려면 먼저 작업 영역 ID 및 기본 키를 설정해야 합니다.
+연결 모니터가 온-프레미스 컴퓨터를 모니터링 원본으로 인식하도록 하려면 컴퓨터에 Log Analytics 에이전트를 설치합니다.  그런 다음, [네트워크 성능 모니터 솔루션](/azure-monitor/insights/network-performance-monitor.md#configure-the-solution)을 사용하도록 설정합니다. 이러한 에이전트는 Log Analytics 작업 영역에 연결되므로 에이전트가 모니터링을 시작하려면 먼저 작업 영역 ID 및 기본 키를 설정해야 합니다.
 
 Windows 머신에 Log Analytics 에이전트를 설치하려면 [Windows에 Log Analytics 에이전트 설치](../azure-monitor/agents/agent-windows.md)를 참조하세요.
 
@@ -296,7 +296,7 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
 
 메트릭을 사용하는 경우 리소스 종류를 Microsoft.Network/networkWatchers/connectionMonitors로 설정합니다.
 
-| 메트릭 | 표시 이름 | 단위 | 집계 유형 | 설명 | 차원 |
+| 메트릭 | 표시 이름 | 단위 | 집계 유형 | Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent(클래식) | 프로브 실패 %(클래식) | 백분율 | 평균 | 실패한 연결 모니터링 프로브의 백분율(%)<br>이 메트릭은 연결 모니터 클래식에만 사용할 수 있습니다  | 차원 없음 |
 | AverageRoundtripMs(클래식) | 평균 왕복 시간(ms)(클래식) | 밀리초 | 평균 | 원본과 대상 간에 전송된 연결 모니터링 프로브의 평균 네트워크 RTT<br>이 메트릭은 연결 모니터 클래식에만 사용할 수 있습니다 |             차원 없음 |
@@ -389,7 +389,7 @@ Log Analytics를 사용하여 모니터링 데이터의 사용자 지정 보기�
    
 네트워크 성능 모니터 및 연결 모니터(클래식)에서 연결 모니터로 마이그레이션해야 하는 몇 가지 이유가 있습니다. 다음은 Azure의 연결 모니터가 네트워크 성능 모니터 및 연결 모니터(클래식)에 대해 수행하는 방식을 보여 주는 몇 가지 사용 사례입니다. 
 
- | 기능  | 네트워크 성능 모니터 | 연결 모니터(클래식) | 연결 모니터 |
+ | 특징  | 네트워크 성능 모니터 | 연결 모니터(클래식) | 연결 모니터 |
  | -------  | --------------------------- | -------------------------- | ------------------ | 
  | Azure 및 하이브리드 모니터링을 위한 통합 환경 | 사용할 수 없음 | 사용할 수 없음 | 사용 가능 |
  | 구독 간, 지역 간, 작업 영역 간 모니터링 | 구독 간, 지역 간 모니터링을 허용하지만 작업 영역 간 모니터링을 허용하지 않음 | 사용할 수 없음 | 구독 간, 작업 영역 간 모니터링을 허용함, Azure 에이전트에는 지역 경계가 있음  |

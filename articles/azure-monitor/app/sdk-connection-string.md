@@ -7,12 +7,12 @@ ms.author: tilee
 ms.date: 01/17/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: af29de06c4b0f82d6c951d54935a93e77e723177
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 2b4a7ac88f92c830daecf943d6937946c4a89f82
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191357"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297448"
 ---
 # <a name="connection-strings"></a>연결 문자열
 
@@ -34,7 +34,7 @@ ms.locfileid: "110191357"
 
 - 방화벽 예외 또는 프록시 리디렉션 
 
-    인트라넷 웹 서버를 모니터링해야 하는 경우 이전 솔루션에서 고객에게 개별 서비스 엔드포인트를 구성에 추가하도록 요청했습니다. 자세한 내용은 [여기](../faq.md#can-i-monitor-an-intranet-web-server)를 참조하세요. 
+    인트라넷 웹 서버를 모니터링해야 하는 경우 이전 솔루션에서 고객에게 개별 서비스 엔드포인트를 구성에 추가하도록 요청했습니다. 자세한 내용은 [여기](../faq.yml#can-i-monitor-an-intranet-web-server-)를 참조하세요. 
     연결 문자열은 이 작업을 단일 설정으로 줄여 더 나은 대안을 제공합니다. 간단한 접두사, 접미사 수정은 모든 엔드포인트를 올바른 서비스로 자동 채우기 및 리디렉션할 수 있습니다. 
 
 - 소버린 또는 하이브리드 클라우드 환경
@@ -209,17 +209,22 @@ NetCore config.json:
 
 # <a name="java"></a>[Java](#tab/java)
 
+`applicationinsights.json` 구성 파일에서 연결 문자열을 설정할 수 있습니다.
 
-Java (v2.5.x) 명시적으로 설정:
-```java
-TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+}
 ```
 
-ApplicationInsights.xml
+자세한 내용은 [연결 문자열 구성](./java-standalone-config.md#connection-string)을 참조하세요.
+
+Application Insights Java 2.x의 경우 `ApplicationInsights.xml` 구성 파일에 연결 문자열을 설정할 수 있습니다.
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000;</ConnectionString>
+    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
 </ApplicationInsights>
 ```
 
@@ -290,7 +295,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 다음을 사용하여 런타임에 시작하세요.
 
 * [Azure VM 및 Azure Virtual Machine Scale Set IIS 호스트 앱](./azure-vm-vmss-apps.md)
-* [IIS 서버](./monitor-performance-live-website-now.md)
+* [IIS 서버](./status-monitor-v2-overview.md)
 * [Azure Web Apps](./azure-web-apps.md)
 
 다음을 사용하여 개발 시에 시작하세요.
@@ -300,4 +305,3 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 * [Java](./java-in-process-agent.md)
 * [Node.JS](./nodejs.md)
 * [Python](./opencensus-python.md)
-

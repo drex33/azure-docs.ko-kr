@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: f434d20a79baf7c0b0210e3eb790b50a153d2d7a
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 4b7cd5c72beaf96e8ffbeb11960e27a5bd25adae
+ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969024"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123272946"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -82,20 +82,21 @@ VM을 Azure로 마이그레이션하기 전에 VM에서 몇 가지 사항을 변
 
 다음 표에는 변경할 내용이 요약되어 있습니다.
 
-**동작** | **VMware(에이전트 없는 마이그레이션)** | **VMware(에이전트 기반)/물리적 머신** | **Hyper-V의 Windows** 
+**동작** | **VMware(에이전트 없는 마이그레이션)** | **VMware(에이전트 기반)/물리적 머신** | **Hyper-V의 Windows**
 --- | --- | --- | ---
 **SAN 정책을 [모두 온라인]으로 구성**<br/><br/> | Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다.<br/><br/> 이전 운영 체제는 수동으로 구성해야 합니다. | 대부분의 경우 자동으로 설정됩니다. | 수동으로 구성합니다.
 **Hyper-V 게스트 통합 설치** | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-vmware-vms)합니다. | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-vmware-vms)합니다. | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms)합니다.
 **Azure 직렬 콘솔을 사용하도록 설정합니다**.<br/><br/>문제 해결에 도움이 되도록 Azure VM에서 [콘솔을 사용하도록 설정](/troubleshoot/azure/virtual-machines/serial-console-windows)합니다. VM을 다시 부팅할 필요가 없습니다. Azure VM은 디스크 이미지를 사용하여 부팅됩니다. 디스크 이미지 부팅은 새 VM을 다시 부팅하는 것과 같습니다. | 수동으로 사용하도록 설정 | 수동으로 사용하도록 설정 | 수동으로 사용하도록 설정
 **마이그레이션 후 연결**<br/><br/> 마이그레이션 후 연결하려면 마이그레이션하기 전에 여러 단계를 수행해야 합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다.
 
+ Windows 서버에서 수행된 변경 내용에 대해 [자세히 알아봅니다](./prepare-for-agentless-migration.md#changes-performed-on-windows-servers).
 
 #### <a name="configure-san-policy"></a>SAN 정책 구성
 
 Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브가 할당됩니다.
 
 - 이 드라이브 할당으로 인해 다른 모든 스토리지 드라이브 할당이 한 문자씩 증가합니다.
-- 예를 들어 온-프레미스 설치에서 애플리케이션 설치를 위해 D 드라이브에 할당된 데이터 디스크를 사용하는 경우 VM을 Azure로 마이그레이션하면 이 드라이브에 대한 할당이 E 드라이브로 증가합니다. 
+- 예를 들어 온-프레미스 설치에서 애플리케이션 설치를 위해 D 드라이브에 할당된 데이터 디스크를 사용하는 경우 VM을 Azure로 마이그레이션하면 이 드라이브에 대한 할당이 E 드라이브로 증가합니다.
 - 이 자동 할당을 방지하고 Azure에서 사용 가능한 다음 드라이브 문자를 임시 볼륨에 할당하도록 하려면 SAN(저장 영역 네트워크) 정책을 **OnlineAll** 로 설정합니다.
 
 이 설정을 다음과 같이 수동으로 구성합니다.
@@ -114,9 +115,9 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 - Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
 - Cent OS 8, 7.7, 7.6, 7.5, 7.4, 6.x(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
 - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
-- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
+- Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
 - Debian 9, 8, 7
-- Oracle Linux 6, 7.7, 7.7-CI 
+- Oracle Linux 6, 7.7, 7.7-CI
 
 그 외의 버전은 표에 요약된 대로 머신을 준비합니다.  
 
@@ -130,6 +131,8 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 **udev 규칙 제거** | mac 주소 등에 기반한 인터페이스 이름을 예약하는 모든 udev 규칙을 제거합니다. | 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 제거합니다.
 **네트워크 인터페이스 업데이트** | DHCP.nst 기반의 IP 주소를 받도록 네트워크 인터페이스를 업데이트합니다. | 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 업데이트합니다.
 **ssh 사용** | ssh를 사용하도록 설정되고 다시 부팅 시 sshd 서비스가 자동으로 시작되도록 설정되어 있는지 확인합니다.<br/><br/> 들어오는 ssh 연결 요청이 OS 방화벽 또는 스크립팅 가능한 규칙으로 차단되지 않도록 합니다.| 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 설정합니다.
+
+Linux 서버에서 수행된 변경 내용에 대해 [자세히 알아보기](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers)
 
 다음 표에는 위에 나열된 운영 체제에 대해 자동으로 수행되는 단계가 요약되어 있습니다.
 
@@ -146,7 +149,7 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 
 [Azure에서 Linux VM 실행](../virtual-machines/linux/create-upload-generic.md) 단계에 대해 자세히 알아보고, 많이 사용되는 Linux 배포판에 대한 지침을 확인합니다.
 
-Linux VM 에이전트를 설치하는 데 [필요한 패키지](../virtual-machines/extensions/agent-linux.md#requirements) 목록을 검토합니다. Azure Migrate는 에이전트 없는 VMware 마이그레이션 메서드를 사용하는 경우 RHEL6, RHEL7, CentOS7(6은 RHEL과 유사하게 지원되어야 함), Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04에 대해 Linux VM 에이전트를 자동으로 설치합니다.
+Linux VM 에이전트를 설치하는 데 [필요한 패키지](../virtual-machines/extensions/agent-linux.md#requirements) 목록을 검토합니다. Azure Migrate는 VMware 마이그레이션의 에이전트 없는 방법을 사용할 때 RHEL 8/7/6, CentOS 8/7/6, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, Oracle 7에 대해 Linux VM 에이전트를 자동으로 설치합니다.
 
 ## <a name="check-azure-vm-requirements"></a>Azure VM 요구 사항 확인
 
@@ -168,7 +171,7 @@ Azure VM은 Azure로 마이그레이션하는 동안 만들어집니다. 마이�
 2. [필요한 서비스](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services)가 실행되고 있는지 확인합니다.
 3. 원격 데스크톱(RDP)을 사용하도록 설정하여 온-프레미스 머신에 대한 원격 연결을 허용합니다. [PowerShell을 통해 RDP를 사용하도록 설정](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings)하는 방법에 대해 알아보세요.
 4. 마이그레이션 후 인터넷을 통해 Azure VM에 액세스하려면 온-프레미스 머신의 Windows Firewall에서 퍼블릭 프로필의 TCP 및 UDP를 허용하고 RDP를 모든 프로필에 대해 허용되는 앱으로 설정합니다.
-5. 마이그레이션 후 사이트 간 VPN을 통해 Azure VM에 액세스하려면 온-프레미스 머신의 Windows Firewall에서 도메인 및 프라이빗 프로필에 대해 RDP를 허용합니다. [RDP 트래픽을 허용](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules)하는 방법에 대해 알아보세요. 
+5. 마이그레이션 후 사이트 간 VPN을 통해 Azure VM에 액세스하려면 온-프레미스 머신의 Windows Firewall에서 도메인 및 프라이빗 프로필에 대해 RDP를 허용합니다. [RDP 트래픽을 허용](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules)하는 방법에 대해 알아보세요.
 6. 마이그레이션할 때 온-프레미스 VM에서 보류 중인 Windows 업데이트가 없는지 확인합니다. 업데이트가 있는 경우 마이그레이션 후에 해당 업데이트를 Azure VM에 설치할 수 있으며, 업데이트가 완료될 때까지 VM에 로그인할 수 없습니다.
 
 
@@ -192,6 +195,7 @@ Azure VM은 Azure로 마이그레이션하는 동안 만들어집니다. 마이�
 
 [VMware VM을 Azure로 마이그레이션](server-migrate-overview.md)하는 데 사용하려는 방법을 결정하거나, [Hyper-V VM](tutorial-migrate-hyper-v.md), [물리적 서버, 가상화된 VM 또는 클라우드 VM](tutorial-migrate-physical-virtual-machines.md)의 마이그레이션을 시작합니다.
 
+
 ## <a name="see-whats-supported"></a>지원되는 기능 보기
 
 VMware VM의 경우 서버 마이그레이션은 [에이전트 없는 또는 에이전트 기반 마이그레이션](server-migrate-overview.md)을 지원합니다.
@@ -199,3 +203,7 @@ VMware VM의 경우 서버 마이그레이션은 [에이전트 없는 또는 에
 - **VMware VM**: VMware VM에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-vmware-migration.md)을 확인합니다.
 - **Hyper-V VM**: Hyper-V VM에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-hyper-v-migration.md)을 확인합니다.
 - **물리적 머신**: 온-프레미스 물리적 머신 및 다른 가상화된 서버에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-physical-migration.md)을 확인합니다.
+
+## <a name="learn-more"></a>자세한 정보
+
+- [Azure Migrate로 VMware 에이전트 없는 마이그레이션을 준비합니다.](./prepare-for-agentless-migration.md)

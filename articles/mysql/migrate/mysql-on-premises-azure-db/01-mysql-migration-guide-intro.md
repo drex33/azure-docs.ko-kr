@@ -1,5 +1,5 @@
 ---
-title: MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 소개
+title: MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 소개
 description: MySQL 온-프레미스에서 Azure Data Base for MySQL로 마이그레이션 가이드
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,15 +8,17 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 06/11/2021
-ms.openlocfilehash: ce858a79e6e5bebd03fad92b57dfe1668d3d02d8
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.date: 06/21/2021
+ms.openlocfilehash: 5023d53132985875fc0b927148a6efbfb0239cc3
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082849"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113085131"
 ---
-# <a name="mysql-on-premises-to-azure-database-for-mysql-migration-guide-introduction"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션 가이드 소개
+# <a name="migrate-mysql-on-premises-to-azure-database-for-mysql"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 이 마이그레이션 가이드는 MySQL 워크로드를 [Azure Database for MySQL](../../overview.md)로 마이그레이션하려는 MySQL 고객 및 소프트웨어 통합자에게 스택형 및 실행 가능한 정보를 제공하도록 설계되었습니다. 이 가이드에서는 대부분의 사례에 적용되는 관련 지식을 제공하고 Azure로의 MySQL 마이그레이션을 성공적으로 계획하고 실행하도록 안내하는 지침을 제공합니다.
 
@@ -39,6 +41,8 @@ PaaS 제품 외에도 Azure VM에서 MySQL을 실행할 수 있습니다. 대상
 **MySQL 환경 비교**
 
 이 가이드에서는 스케일 업 및 스케일 아웃, 종량제, 고가용성, 보안 및 관리 기능과 같은 IaaS(Infrastructure as a Service)에 대한 다양한 장점으로 인해 온-프레미스 MySQL 워크로드를 Platform as a Service Azure Database for MySQL 제품으로 마이그레이션하는 데 중점을 둡니다.  
+
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [대표 사용 사례](./02-representative-use-case.md)

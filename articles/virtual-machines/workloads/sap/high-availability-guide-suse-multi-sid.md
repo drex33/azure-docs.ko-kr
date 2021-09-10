@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 74606909a0bc87caa6acfb0eaf35c05cf35b1858
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d60ea09896d42fa43a650e210ed3c19d3a99ef4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676936"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114450639"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM 기반 SAP NetWeaver에 대한 다중 SID 고가용성 가이드
 
@@ -47,9 +47,9 @@ ms.locfileid: "101676936"
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
 [suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
-[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
+[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
@@ -57,9 +57,9 @@ ms.locfileid: "101676936"
 이 문서에서는 SAP 애플리케이션용 SUSE Linux Enterprise Server를 사용하는 Azure VM의 2노드 클러스터에 여러 SAP NetWeaver 또는 S4HANA 고가용성 시스템(즉, 다중 SID)을 배포하는 방법에 대해 설명합니다.  
 
 예제 구성, 설치 명령 등에서 세 개의 SAP NetWeaver 7.50 시스템이 단일 2노드 고가용성 클러스터에 배포됩니다. SAP 시스템 SID는 다음과 같습니다.
-* **NW1**: ASCS 인스턴스 번호 **00** 및 가상 호스트 이름 **msnw1ascs**, ERS 인스턴스 번호 **02** 및 가상 호스트 이름 **msnw1ers**.  
-* **NW2**: ASCS 인스턴스 번호 **10** 및 가상 호스트 이름 **msnw2ascs**, ERS 인스턴스 번호 **12** 및 가상 호스트 이름 **msnw2ers**.  
-* **NW3**: ASCS 인스턴스 번호 **20** 및 가상 호스트 이름 **msnw3ascs**, ERS 인스턴스 번호 **22** 및 가상 호스트 이름 **msnw3ers**.  
+* **NW1**: ASCS 인스턴스 번호 **00** 및 가상 호스트 이름 **msnw1ascs**, ERS 인스턴스 번호 **02** 및 가상 호스트 이름 **msnw1ers**  
+* **NW2**: ASCS 인스턴스 번호 **10** 및 가상 호스트 이름 **msnw2ascs**, ERS 인스턴스 번호 **12** 및 가상 호스트 이름 **msnw2ers**  
+* **NW3**: ASCS 인스턴스 번호 **20** 및 가상 호스트 이름 **msnw3ascs**, ERS 인스턴스 번호 **22** 및 가상 호스트 이름 **msnw3ers**  
 
 이 문서에서는 데이터베이스 계층과 SAP NFS 공유 배포에 대해 설명하지 않습니다. 이 문서의 예제에서는 NFS 클러스터가 배포되었다고 가정하여 NW2 NFS 공유에 대해 nw2-nfs, NW3 NFS 공유 대해 nw3-nfs라는 가상 이름을 사용합니다.  
 
@@ -238,8 +238,8 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대한 공유 스토�
 
    `/etc/auto.direct` 파일을 클러스터에 배포하는 추가 SAP 시스템에 대한 파일 시스템으로 업데이트합니다.  
 
-   * NFS 파일 서버를 사용하는 경우 [여기](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation)의 지침을 따릅니다.
-   * Azure NetApp Files를 사용하는 경우 [여기](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation)의 지침을 따릅니다. 
+   * NFS 파일 서버를 사용하는 경우 [SLES의 SAP NetWeaver에 대한 Azure VM 고가용성](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation) 페이지의 지침을 따르세요.
+   * Azure NetApp Files를 사용하는 경우 [Azure NetApp Files를 사용하는 SLES의 SAP NW에 대한 Azure VM 고가용성](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation) 페이지의 지침을 따르세요.
 
    새로 추가된 공유를 탑재하려면 `autofs` 서비스를 다시 시작해야 합니다.  
 

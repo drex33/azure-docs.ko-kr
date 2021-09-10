@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/11/2021
+ms.date: 07/01/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
-ms.openlocfilehash: dff2e9c0c1de1b92f0d00d5dc50aeb7dadca348f
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 2da9b19bb0d2bcdf09cb478898590d55398b2cc9
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112030902"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567638"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
@@ -46,13 +46,15 @@ ms.locfileid: "112030902"
     * SDK를 자동으로 설치하고 ML 워크플로에 대해 미리 구성된 컴퓨팅 인스턴스를 만듭니다. 자세한 내용은 [Azure Machine Learning 컴퓨팅 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md)를 참조하세요. 
 
     * [`automl` 패키지를 직접 설치](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)합니다. 여기에는 SDK의 [기본 설치](/python/api/overview/azure/ml/install#default-install)가 포함됩니다.
+
+    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
     
     > [!WARNING]
     > Python 3.8은 `automl`과 호환되지 않습니다. 
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
 
-실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 Machine Learning은 `classification`, `regression` 및 `forecasting`의 작업 유형을 지원합니다. [작업 유형](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)에 대해 자세히 알아보세요.
+실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 Machine Learning은 `classification`, `regression` 및 `forecasting`의 작업 유형을 지원합니다. [작업 유형](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting)에 대해 자세히 알아보세요.
 
 다음 코드는 `AutoMLConfig` 생성자에서 `task` 매개 변수를 사용하여 실험 형식을 `classification`으로 지정합니다.
 
@@ -71,14 +73,14 @@ automl_config = AutoMLConfig(task = "classification")
 - 데이터는 테이블 형식이어야 합니다.
 - 예측하려는 값(대상 열)이 데이터에 있어야 합니다.
 
-**원격 실험의 경우** 원격 컴퓨팅에서 학습 데이터에 액세스할 수 있어야 합니다. AutoML은 원격 계산에서 작업하는 경우에만 [Azure Machine Learning TabularDatasets](/python/api/azureml-core/azureml.data.tabulardataset)를 허용합니다. 
+**원격 실험의 경우** 원격 컴퓨팅에서 학습 데이터에 액세스할 수 있어야 합니다. 자동화된 ML은 원격 컴퓨팅에서 작업하는 경우에만 [Azure Machine Learning TabularDatasets](/python/api/azureml-core/azureml.data.tabulardataset)를 허용합니다. 
 
 Azure Machine Learning 데이터 세트는 다음과 같은 기능을 보여줍니다.
 
 * 정적 파일 또는 URL 원본에서 작업 영역으로 데이터를 손쉽게 전송합니다.
 * 클라우드 컴퓨팅 리소스에서 실행할 때 데이터를 학습 스크립트에 사용 가능 `Dataset` 클래스를 사용하여 원격 컴퓨팅 대상에 데이터를 탑재하는 예제는 [데이터 세트를 사용하여 학습하는 방법](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets)을 참조하세요.
 
-다음 코드는 웹 URL에서 TabularDataset을 만듭니다. 로컬 파일 및 데이터 저장소와 같은 다른 원본에서 데이터 세트를 만드는 방법에 대한 코드 예제는 [TabularDatasets 만들기](how-to-create-register-datasets.md#create-a-tabulardataset)를 참조하세요.
+다음 코드는 웹 URL에서 TabularDataset을 만듭니다. 로컬 파일 및 데이터 저장소와 같은 다른 원본에서 데이터 세트를 만드는 방법에 대한 코드 예제는 [TabularDataset 만들기](how-to-create-register-datasets.md#create-a-tabulardataset)를 참조하세요.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -108,6 +110,22 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 |**20,000개&nbsp;행보다&nbsp;더&nbsp;작음**| 교차 유효성 검사 방법이 적용됩니다. 기본 접기 횟수는 행의 수에 따라 달라집니다. <br> **데이터 세트의 행이 1,000개 이하인 경우** 10겹 접기가 사용됩니다. <br> **행이 1,000개~20,000개 사이인 경우** 3겹 접기가 사용됩니다.
 
 지금은 모델 평가를 위한 사용자 고유의 **테스트 데이터** 를 제공해야 합니다. 모델 평가를 위한 고유한 테스트 데이터를 가져오는 코드 예제는 [이 Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)의 **테스트** 섹션을 참조하세요.
+
+### <a name="large-data"></a>큰 데이터 
+
+자동화된 ML은 작은 가상 머신에서 빅 데이터에 대한 모델을 성공적으로 빌드할 수 있는 큰 데이터 학습에 대해 제한된 수의 알고리즘을 지원합니다. 자동화된 ML 추론은 데이터 크기, 가상 머신 메모리 크기, 실험 시간 제한, 기능화 설정과 같은 속성에 따라 이러한 큰 데이터 알고리즘을 적용해야 하는지 여부를 결정합니다. [자동화된 ML에서 지원되는 모델에 대해 자세히 알아보세요](#supported-models). 
+
+* 회귀의 경우 [온라인 그라데이션 하강 회귀 변수](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) 및 [고속 선형 회귀 변수](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)가 지원됩니다.
+
+* 분류의 경우 [평균 퍼셉트론 분류자](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest) 및 [선형 SVM 분류자](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)가 지원됩니다. 여기서 선형 SVM 분류자에는 큰 데이터 및 작은 데이터 버전이 있습니다.
+
+이러한 추론을 재정의하려면 다음 설정을 적용하세요. 
+
+작업 | 설정 | 참고
+|---|---|---
+데이터&nbsp;스트리밍 알고리즘 차단 | `AutoMLConfig` 개체의 `blocked_models`이며 사용하지 않으려는 모델을 나열합니다. | 실행이 실패하거나 실행 시간이 길어집니다.
+데이터&nbsp;스트리밍&nbsp;알고리즘&nbsp;사용| `AutoMLConfig` 개체의 `allowed_models`이며 사용하려는 모델을 나열합니다.| 
+데이터&nbsp;스트리밍&nbsp;알고리즘&nbsp;사용 <br> [(Studio UI 실험)](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)|사용하려는 빅 데이터 알고리즘을 제외한 모든 모델을 차단합니다. |
 
 ## <a name="compute-to-run-experiment"></a>실험 실행 컴퓨팅
 
@@ -183,7 +201,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 다음 표에는 작업 유형별로 지원되는 모델이 요약되어 나와 있습니다. 
 
 > [!NOTE]
-> 자동화된 ML에서 만든 모델을 [ONNX 모델](concept-onnx.md)로 내보내려는 경우 *가 표시된 알고리즘만 ONNX 형식으로 변환할 수 있습니다. [모델을 ONNX로 변환](concept-automated-ml.md#use-with-onnx)하는 방법에 대해 자세히 알아보세요. <br> <br> ONNX는 현재 분류 및 회귀 작업만 지원한다는 사실도 기억하세요. 
+> 자동화된 ML에서 만든 모델을 [ONNX 모델](concept-onnx.md)로 내보내려는 경우 별표(*)가 표시된 알고리즘만 ONNX 형식으로 변환할 수 있습니다. [모델을 ONNX로 변환](concept-automated-ml.md#use-with-onnx)하는 방법에 대해 자세히 알아보세요. <br> <br> ONNX는 현재 분류 및 회귀 작업만 지원한다는 사실도 기억하세요. 
 
 분류 | 회귀 | 시계열 예측
 |-- |-- |--
@@ -204,6 +222,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 ||| 평균
 ||| SeasonalAverage
 ||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
+
 ### <a name="primary-metric"></a>기본 메트릭
 `primary metric` 매개 변수는 최적화를 위해 모델을 학습시키는 동안 사용할 메트릭을 결정합니다. 선택하는 작업 유형에 따라 선택 가능한 메트릭이 결정되며, 다음 표에서는 각 작업 유형에 유효한 기본 메트릭을 보여줍니다.
 
@@ -213,15 +232,14 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 |분류 | 회귀 | 시계열 예측
 |--|--|--
-|`accuracy`| `spearman_correlation` | `spearman_correlation`
-|`AUC_weighted` | `normalized_root_mean_squared_error` | `normalized_root_mean_squared_error`
-|`average_precision_score_weighted` | `r2_score` | `r2_score`
-|`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
+|`accuracy`| `spearman_correlation` | `normalized_root_mean_squared_error`
+|`AUC_weighted` | `normalized_root_mean_squared_error` | `r2_score`
+|`average_precision_score_weighted` | `r2_score` | `normalized_mean_absolute_error`
+|`norm_macro_recall` | `normalized_mean_absolute_error` | 
 |`precision_score_weighted` |
 
-### <a name="primary-metrics-for-classification-scenarios"></a>분류 시나리오를 위한 기본 메트릭 
-
-`accuracy`, `average_precision_score_weighted`, `norm_macro_recall` 및 `precision_score_weighted`와 같은 Thresholded 메트릭은 데이터 세트가 작거나, 클래스 오차(클래스 불균형)가 매우 크거나, 예상된 메트릭 값이 0.0 또는 1.0에 매우 근접한 경우에 최적화되지 않을 수 있습니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
+#### <a name="metrics-for-classification-scenarios"></a>분류 시나리오에 대한 메트릭 
+`accuracy`, `average_precision_score_weighted`, `norm_macro_recall` 및 `precision_score_weighted`와 같은 임계값 이후 메트릭은 데이터 세트가 작거나, 클래스 오차(클래스 불균형)가 매우 크거나, 예상된 메트릭 값이 0.0 또는 1.0에 매우 근접한 경우에도 최적화되지 않을 수 있습니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |
@@ -231,8 +249,8 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 | `norm_macro_recall` | 변동 예측 |
 | `precision_score_weighted` |  |
 
-### <a name="primary-metrics-for-regression-scenarios"></a>회귀 시나리오를 위한 기본 메트릭
-
+#### <a name="metrics-for-regression-scenarios"></a>회귀 시나리오에 대한 메트릭
+ 
 `r2_score` 및 `spearman_correlation`과 같은 메트릭은 예측할 값의 스케일이 많은 크기의 정도를 포함하는 경우 모델의 품질을 더 잘 나타낼 수 있습니다. 예를 들어 많은 사람의 급여가 2만 달러에서 10만 달러인 급여 추정의 경우 1억 달러 범위에 있는 일부 급여로 인해 스케일이 매우 높아집니다. 
 
 이 경우 `normalized_mean_absolute_error` 및 `normalized_root_mean_squared_error`는 급여가 3만 달러인 작업자에 대해 2천만 달러 버는 작업자와 같이 2만 달러 예측 오차를 처리합니다. 실제로는 3만 달러에서 2만 달러를 예측하는 것은 근접하지 않은 반면(상대 오차가 67%로 큼), 2천만 달러 급여에서 2만 달러를 예측하는 것은 매우 근접합니다(상대 오차가 0.1%로 적음). `normalized_mean_absolute_error` 및 `normalized_root_mean_squared_error`는 예측할 값이 비슷한 범위에 있는 경우에 유용 합니다.
@@ -244,14 +262,12 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 | `r2_score` | 항공 지연, 급여 추정, 버그 해결 시간 |
 | `normalized_mean_absolute_error` |  |
 
-### <a name="primary-metrics-for-time-series-forecasting-scenarios"></a>시계열 예측 시나리오를 위한 기본 메트릭
-
-위의 회귀 메모를 참조하세요.
+#### <a name="metrics-for-time-series-forecasting-scenarios"></a>시계열 예측 시나리오에 대한 메트릭
+권장 사항은 회귀 시나리오에서 언급된 사항과 유사합니다. 
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |
-| `spearman_correlation` | |
-| `normalized_root_mean_squared_error` | 가격 예측(예측), 재고 최적화, 수요 예측 |
+| `normalized_root_mean_squared_error` | 가격 예측(예측), 재고 최적화, 수요 예측 | 
 | `r2_score` | 가격 예측(예측), 재고 최적화, 수요 예측 |
 | `normalized_mean_absolute_error` | |
 
@@ -353,6 +369,9 @@ automl_classifier = AutoMLConfig(
 &nbsp;점수에&nbsp;도달함&nbsp;&nbsp;| `experiment_exit_score`를 사용하면 지정한 기본 메트릭 점수에 도달한 후 실험이 완료됩니다.
 
 ## <a name="run-experiment"></a>실험 실행
+
+> [!WARNING]
+> 동일한 구성 설정과 기본 메트릭을 사용하여 여러 번 실험을 실행한 경우 각 실험의 최종 메트릭 점수 및 생성된 모델에 변동이 있을 가능성이 높습니다. 자동화된 ML이 채택하는 알고리즘에는 내재된 무작위성이 있어서 실험에 의한 모델 출력 및 권장된 모델의 최종 메트릭 점수(예: 정확도)에 약간의 변동을 일으킬 수 있습니다. 모델 이름이 동일한 결과가 표시될 수도 있지만 다른 하이퍼 매개 변수가 사용되었습니다. 
 
 자동화된 ML의 경우 실험을 실행하는 데 사용되는 `Workspace`의 명명된 개체인 `Experiment` 개체를 만들 수 있습니다.
 
@@ -492,8 +511,6 @@ best_run, model_from_aml = automl_run.get_output()
 print_model(model_from_aml)
 
 ```
-> [!NOTE]
-> 자동화된 ML이 채택하는 알고리즘에는 내재된 무작위성이 있어서 권장된 모델의 최종 메트릭 점수(예: 정확도)에 약간의 변동을 일으킬 수 있습니다. 또한 자동화된 ML은 필요한 경우 학습-테스트 분할, 학습-유효성 검사 분할 또는 교차 유효성 검사와 같은 데이터에 대한 작업을 수행합니다. 따라서 동일한 구성 설정과 기본 메트릭을 사용하여 여러 번 실험을 실행한 경우, 해당 요인으로 인해 각 실험의 최종 메트릭 점수에 변동이 있을 가능성이 높습니다. 
 
 ## <a name="monitor-automated-machine-learning-runs"></a><a name="monitor"></a> 자동화된 Machine Learning 실행 모니터링
 
@@ -519,14 +536,14 @@ RunDetails(run).show()
 
 ```Python
 
-best_run, fitted_model = run.get_output()
+best_run = run.get_best_child()
 print(fitted_model.steps)
 
 model_name = best_run.properties['model_name']
 description = 'AutoML forecast example'
 tags = None
 
-model = remote_run.register_model(model_name = model_name, 
+model = run.register_model(model_name = model_name, 
                                   description = description, 
                                   tags = tags)
 ```
@@ -554,7 +571,5 @@ model = remote_run.register_model(model_name = model_name,
 + [모델 배포 방법 및 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.
 
 + [자동화된 Machine Learning을 사용하여 회귀 모델을 학습시키는 방법](tutorial-auto-train-models.md)을 자세히 알아봅니다.
-
-+ [많은 모델 솔루션 가속기](https://aka.ms/many-models)에서 AutoML을 사용하여 여러 모델을 학습시키는 방법을 알아봅니다.
 
 + [자동화된 ML 실험 문제 해결](how-to-troubleshoot-auto-ml.md) 

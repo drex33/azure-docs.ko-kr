@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e0605b5a882dcfa09b2435476a37d116f8c47286
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 2c49bfee8f3b694ea635c836e06bfbe99ba9d758
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111350894"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "112425946"
 ---
 [지속형 함수](../articles/azure-functions/durable/durable-functions-overview.md)에 대한 구성 설정입니다.
 
@@ -110,7 +110,7 @@ ms.locfileid: "111350894"
 |maxConcurrentActivityFunctions | **사용 플랜**: 10 <br> **전용/프리미엄 계획**: 현재 머신의 프로세서 수의 10배|단일 호스트 인스턴스에서 동시에 처리할 수 있는 작업 함수는 최대 수입니다.|
 |maxConcurrentOrchestratorFunctions | **사용 플랜**: 5 <br> **전용/프리미엄 계획**: 현재 머신의 프로세서 수의 10배 |단일 호스트 인스턴스에서 동시에 처리할 수 있는 오케스트레이터 함수의 최대 개수입니다.|
 |maxQueuePollingInterval|30초|최대 제어 및 작업 항목 큐 폴링 간격(*hh:mm:ss* 형식)입니다. 값이 높을수록 메시지 처리 대기 시간이 길어질 수 있습니다. 값이 낮을수록 스토리지 트랜잭션이 증가하기 때문에 스토리지 비용이 높아질 수 있습니다.|
-|azureStorageConnectionStringName |AzureWebJobsStorage|기본 Azure Storage 리소스를 관리하는 데 사용되는 Azure Storage 연결 문자열이 있는 앱 설정의 이름입니다.|
+|connectionStringName(2.x)<br/>azureStorageConnectionStringName(1.x) |AzureWebJobsStorage|기본 Azure Storage 리소스를 관리하는 데 사용되는 Azure Storage 연결 문자열이 있는 앱 설정의 이름입니다.|
 |trackingStoreConnectionStringName||기록 및 인스턴스 테이블에 사용할 연결 문자열의 이름입니다. 지정하지 않으면, `connectionStringName`(Durable 2.x) 또는 `azureStorageConnectionStringName`(Durable 1.x) 연결이 사용됩니다.|
 |trackingStoreNamePrefix||`trackingStoreConnectionStringName`이 지정된 경우 기록 및 인스턴스 테이블에 사용할 접두사입니다. 설정하지 않는 경우 기본 접두사 값은 `DurableTask`입니다. `trackingStoreConnectionStringName`을 지정하지 않으면 기록 및 인스턴스 테이블은 `hubName` 값을 접두사로 사용하고 `trackingStoreNamePrefix`에 대한 설정은 무시됩니다.|
 |traceInputsAndOutputs |false|함수 호출의 입출력을 추적할지 여부를 나타내는 값입니다. 함수 실행 이벤트를 추적할 때의 기본 동작은 함수 호출에 대한 직렬화된 입출력에 바이트 수를 포함하는 것입니다. 이 동작은 로그를 부풀리거나 실수로 중요한 정보를 노출하지 않으면서 입력 및 출력이 어떻게 보일지에 대한 최소한의 정보를 제공합니다. 이 속성을 true로 설정하면 기본 함수 로깅이 함수 입출력의 전체 내용을 기록하게 됩니다.|

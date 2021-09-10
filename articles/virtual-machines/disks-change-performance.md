@@ -8,14 +8,16 @@ ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: c45bc6fa0df5883f060458c3ce92680752e5875a
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: d2f617d2f5d05a6310d5442fa8d4a9e49369912e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113358529"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696421"
 ---
 # <a name="performance-tiers-for-managed-disks"></a>관리 디스크의 성능 계층
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 Azure 관리 디스크의 성능은 디스크를 만들 때 해당 디스크의 성능 계층 형태로 설정됩니다. 성능 계층은 관리 디스크의 IOPS 및 처리량을 결정합니다. 디스크의 프로비전 크기를 설정할 때 성능 계층이 자동으로 선택됩니다. 성능 계층은 디스크 크기를 변경하지 않고서도 배포할 때나 그 이후에 변경될 수 있습니다.
 

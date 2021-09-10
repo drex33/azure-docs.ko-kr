@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 8012702e9004361c8b19797bf0ca66553d307dce
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c6396eab9cb7a2224d660e0e034f8592a879510d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138196"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688461"
 ---
 # <a name="scaling-hpc-applications"></a>HPC 애플리케이션 크기 조정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 Azure에서 HPC 애플리케이션의 규모 확장/규모 축소 성능을 최적화하려면 특정 워크로드에 대한 성능 조정 및 최적화 실험이 필요합니다. 이 섹션과 VM 시리즈별 페이지에서는 애플리케이션 크기 조정에 대한 일반적인 지침을 제공합니다.
 

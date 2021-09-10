@@ -1,6 +1,6 @@
 ---
-title: Android 맵에 컨트롤 추가 | Microsoft Azure 맵
-description: Microsoft Azure 지도 Android SDK에서 지도에 확대/축소 컨트롤, 피치 컨트롤, 회전 컨트롤 및 스타일 선택기를 추가 하는 방법입니다.
+title: Android 지도에 컨트롤 추가 | Microsoft Azure Maps
+description: Microsoft Azure Maps Android SDK에서 지도에 확대/축소 컨트롤, 피치 컨트롤, 회전 컨트롤 및 스타일 선택기를 추가하는 방법입니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 02/26/2021
@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 90d037fc02bdc1c4d6fe682386790561c890c1e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: b84150196467606800df737ba9c9d50c69346e30
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100222"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113093592"
 ---
-# <a name="add-controls-to-a-map-android-sdk"></a>지도에 컨트롤 추가 (Android SDK)
+# <a name="add-controls-to-a-map-android-sdk"></a>지도에 컨트롤 추가(Android SDK)
 
-이 문서에서는 맵에 UI 컨트롤을 추가 하는 방법을 보여 줍니다.
+이 문서에서는 지도에 UI 컨트롤을 추가하는 방법을 보여 줍니다.
 
 ## <a name="add-zoom-control"></a>확대/축소 컨트롤 추가
 
-확대/축소 컨트롤은 지도를 확대/축소 하는 단추를 추가 합니다. 다음 코드 샘플에서는 클래스의 인스턴스를 만들어 `ZoomControl` 맵에 추가 합니다.
+확대/축소 컨트롤은 지도를 확대/축소하는 단추를 추가합니다. 다음 코드 샘플은 `ZoomControl` 클래스의 인스턴스를 만들고 지도에 추가합니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -42,13 +42,13 @@ map.controls.add(ZoomControl())
 
 ::: zone-end
 
-아래 스크린샷은 지도에 로드 된 확대/축소 컨트롤입니다.
+아래 스크린샷은 지도에 로드된 확대/축소 컨트롤입니다.
 
-![지도에 추가 된 확대/축소 컨트롤](media/map-add-controls-android/android-zoom-control.jpg)
+![지도에 추가된 확대/축소 컨트롤](media/map-add-controls-android/android-zoom-control.jpg)
 
 ## <a name="add-pitch-control"></a>피치 컨트롤 추가
 
-피치 컨트롤은 피치를 기준으로 tilting 하는 단추를 추가 합니다. 다음 코드 샘플에서는 클래스의 인스턴스를 만들어 `PitchControl` 맵에 추가 합니다.
+피치 컨트롤은 수평을 기준으로 지도에 피치를 기울이기 위한 단추를 추가합니다. 다음 코드 샘플에서는 `PitchControl` 클래스의 인스턴스를 만들어 지도에 추가합니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -68,13 +68,13 @@ map.controls.add(PitchControl())
 
 ::: zone-end
 
-아래 스크린샷은 지도에 로드 된 피치 컨트롤입니다.
+아래 스크린샷은 지도에 로드된 피치 컨트롤입니다.
 
-![지도에 추가 된 피치 컨트롤](media/map-add-controls-android/android-pitch-control.jpg)
+![지도에 추가된 피치 컨트롤](media/map-add-controls-android/android-pitch-control.jpg)
 
 ## <a name="add-compass-control"></a>나침반 컨트롤 추가
 
-나침반 컨트롤은 지도를 회전 하는 단추를 추가 합니다. 다음 코드 샘플에서는 클래스의 인스턴스를 만들어 `CompassControl` 맵에 추가 합니다.
+나침반 컨트롤은 지도를 회전하는 단추를 추가합니다. 다음 코드 샘플에서는 `CompassControl` 클래스의 인스턴스를 만들어 지도에 추가합니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -94,13 +94,13 @@ map.controls.add(CompassControl())
 
 ::: zone-end
 
-아래 스크린샷에는 맵에 로드 된 나침반 컨트롤이 있습니다.
+아래 스크린샷은 지도에 로드된 나침반 컨트롤입니다.
 
-![지도에 나침반 컨트롤이 추가 됨](media/map-add-controls-android/android-compass-control.jpg)
+![지도에 추가된 나침반 컨트롤](media/map-add-controls-android/android-compass-control.jpg)
 
-## <a name="add-traffic-control"></a>트래픽 제어 추가
+## <a name="add-traffic-control"></a>트래픽 컨트롤 추가
 
-트래픽 컨트롤은 지도의 트래픽 데이터를 표시 하거나 숨기는 단추를 추가 합니다. 다음 코드 샘플에서는 클래스의 인스턴스를 만들어 `TrafficControl` 맵에 추가 합니다.
+트래픽 컨트롤은 지도에 트래픽 데이터를 표시/숨기는 단추를 추가합니다. 다음 코드 샘플에서는 `TrafficControl` 클래스의 인스턴스를 만들어 지도에 추가합니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -120,13 +120,13 @@ map.controls.add(TrafficControl())
 
 ::: zone-end
 
-아래 스크린샷에서는 맵에 로드 된 트래픽 컨트롤이 있습니다.
+아래 스크린샷은 지도에 로드된 트래픽 컨트롤입니다.
 
-![지도에 추가 된 트래픽 컨트롤](media/map-add-controls-android/android-traffic-control.jpg)
+![지도에 추가된 트래픽 컨트롤](media/map-add-controls-android/android-traffic-control.jpg)
 
 ## <a name="a-map-with-all-controls"></a>모든 컨트롤이 있는 지도
 
-여러 컨트롤을 배열에 배치 하 고 한 번에 모두 맵에 추가 하 여 개발을 간소화할 수 있습니다. 다음은이 방법을 사용 하 여 맵에 표준 탐색 컨트롤을 추가 합니다.
+여러 컨트롤을 배열에 배치하고 한 번에 모두 지도에 추가하고 지도의 동일한 영역에 배치하여 개발을 간소화할 수 있습니다. 다음 코드에서는 이 방법을 사용하여 지도에 표준 탐색 컨트롤을 추가합니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -158,9 +158,9 @@ map.controls.add(
 
 ::: zone-end
 
-아래 스크린샷에서는 맵에 로드 된 모든 컨트롤을 보여 줍니다. 맵에 추가 되는 순서는 표시 되는 순서입니다.
+아래 스크린샷에서는 지도에 로드된 모든 컨트롤을 보여 줍니다. 지도에 추가되는 순서가 표시되는 순서입니다.
 
-![맵에 추가 된 모든 컨트롤](media/map-add-controls-android/android-all-controls.jpg)
+![지도에 추가된 모든 컨트롤](media/map-add-controls-android/android-all-controls.jpg)
 
 ## <a name="next-steps"></a>다음 단계
 

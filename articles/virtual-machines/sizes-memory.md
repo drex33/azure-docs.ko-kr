@@ -16,14 +16,19 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 08a14a1c97a1eae9c07c50334929fb16304e635a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bde62a7b25f5c367b5fadb5881ab889a95dc2354
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556522"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688940"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>메모리 최적화 가상 머신 크기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
+
+> [!TIP]
+> 워크로드에 가장 적합한 다른 크기를 찾으려면 **[가상 머신 선택 도구](https://aka.ms/vm-selector)** 를 사용해 보세요.
 
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 
@@ -35,7 +40,7 @@ ms.locfileid: "102556522"
 
 - [Ev3 및 Esv3 시리즈](ev3-esv3-series.md)는 하이퍼 스레드 구성에서 Intel&reg; Xeon&reg; 8171M 2.1GHz(Skylake) 또는 Intel&reg; Xeon&reg; E5-2673 v4 2.3GHz(Broadwell) 프로세서를 사용하며, 대부분의 범용 워크로드에 더 나은 가치 제안을 제공하고 Ev3을 다른 대부분 클라우드의 범용 VM과 맞춥니다. 하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(7GiB/vCPU에서 8GiB/vCPU로). Ev3는 D/Dv2 제품군의 상위 메모리 VM 크기에 대한 후속 시리즈입니다.
 
-- [Ev4 및 Esv4 시리즈](ev4-esv4-series.md)는 하이퍼 스레드 구성의 2세대 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되며, 다양한 메모리 집약적 엔터프라이즈 애플리케이션에 이상적이며, 최대 504GiB의 RAM을 제공합니다. [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 사용합니다. Ev4 및 Esv4 시리즈는 로컬 임시 디스크를 포함하지 않습니다. 자세한 내용은  [로컬 임시 디스크가 없는 AZURE VM 크기](azure-vms-no-temp-disk.md)를 참조하세요.
+- [Ev4 및 Esv4 시리즈](ev4-esv4-series.md)는 하이퍼 스레드 구성의 2세대 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되며, 다양한 메모리 집약적 엔터프라이즈 애플리케이션에 이상적이며, 최대 504GiB의 RAM을 제공합니다. [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 사용합니다. Ev4 및 Esv4 시리즈는 로컬 임시 디스크를 포함하지 않습니다. 자세한 내용은  [로컬 임시 디스크가 없는 AZURE VM 크기](azure-vms-no-temp-disk.yml)를 참조하세요.
 
 - [Edv4 및 Edsv4 시리즈](edv4-edsv4-series.md)는 2세대 Intel&reg; Xeon&reg; 플래티넘 8272CL(Cascade Lake) 프로세서에서 실행되며 매우 큰 데이터베이스나 높은 vCPU 수와 많은 양의 메모리를 활용하는 기타 애플리케이션에 이상적입니다. 또한 이러한 VM 크기에는 대기 시간이 짧고 고속 로컬 스토리지를 활용하는 애플리케이션에 대한 빠르고 더 큰 로컬 SSD 스토리지가 포함됩니다. 3\.4GHz의 모든 코어 터보 클록 속도를 제공하며, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 사용합니다.
 

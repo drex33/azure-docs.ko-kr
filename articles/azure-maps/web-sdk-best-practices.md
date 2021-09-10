@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 31db8c4d8a371aaad939e3a85972958befb2206e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 630b354768e3ad0882911f11a99cca06fc87154e
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137566"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234432"
 ---
 # <a name="azure-maps-web-sdk-best-practices"></a>Azure Maps 웹 SDK 모범 사례
 
@@ -405,7 +405,7 @@ https://azure.com/support
 
 **Azure Maps에 대한 기술 도움말은 어디에서 볼 수 있나요?**
 
-Power BI에서 Azure Maps 시각적 개체와 관련된 경우: https://powerbi.microsoft.com/support/ 다른 모든 Azure Maps 서비스: https://azure.com/support 또는 개발자 포럼: https://docs.microsoft.com/answers/topics/azure-maps.html
+Power BI에서 Azure Maps 시각적 개체와 관련된 경우: https://powerbi.microsoft.com/support/ 다른 모든 Azure Maps 서비스: https://azure.com/support 또는 개발자 포럼: [https://docs.microsoft.com/answers/topics/azure-maps.html](/answers/topics/azure-maps.html).
 
 **기능 요청은 어떻게 만드나요?**
 

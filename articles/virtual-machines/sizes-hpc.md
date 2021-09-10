@@ -9,20 +9,25 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: a41dce28427db40dfd19879e4ada95add64009c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11c3fadd7f95f07bbcbf095e8d6a126022bbea0b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772436"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697924"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
+
+> [!TIP]
+> 워크로드에 가장 적합한 다른 크기를 찾으려면 **[가상 머신 선택 도구](https://aka.ms/vm-selector)** 를 사용해 보세요.
+
 Azure H 시리즈 VM(가상 머신)은 다양한 실제 HPC 워크로드에 대한 최고의 성능, 확장성 및 비용 효율성을 제공하도록 설계되었습니다.
 
-[HBv3 시리즈](hbv3-series.md) VM은 유체 역학, 명시적 및 암시적 유한 요소 분석, 날씨 모델링, 지진 처리, 저수지 시뮬레이션 및 RTL 시뮬레이션 같은 HPC 애플리케이션에 최적화되어 있습니다. HBv3 VM은 최대 120 AMD EPYC™ 7003 시리즈(Milan) CPU 코어, 448GB RAM, 하이퍼 스레딩을 갖지 않습니다. HBv3 시리즈 VM은 350GB/초의 메모리 대역폭, 코어 당 최대 32MB의 L3 캐시, 최대 7GB/초의 블록 디바이스 SSD 성능, 최대 3.675GHz의 클록 주파수를 제공합니다. 
+[HBv3 시리즈](hbv3-series.md) VM은 유체 역학, 명시적 및 암시적 유한 요소 분석, 날씨 모델링, 지진 처리, 저수지 시뮬레이션 및 RTL 시뮬레이션 같은 HPC 애플리케이션에 최적화되어 있습니다. HBv3 VM은 최대 120 AMD EPYC™ 7003 시리즈(Milan) CPU 코어, 448GB RAM, 하이퍼 스레딩을 갖지 않습니다. HBv3 시리즈 VM은 메모리 대역폭의 350GB/초를 제공합니다. 코어 당 최대 32 MB의 L3 캐시, 블록 디바이스 SSD 성능의 최대 7GB/초, 최대 3.675GHz의 클록 주파수를 제공합니다. 
 
-모든 HBv3 시리즈 VM은 NVIDIA 네트워킹에서 200GB/초의 HDR InfiniBand를 사용하여 슈퍼 컴퓨터 규모의 MPI 워크로드를 지원합니다. 해당 VM은 최적화되고 일관된 RDMA 성능을 위해 차단되지 않는 패트 트리에 연결됩니다. 또한 HDR InfiniBand 패브릭은 적응형 라우팅과 표준 RC 및 UD 전송 외에 DCT(동적 연결 전송)을 지원합니다. 해당 기능은 애플리케이션 성능, 확장성, 일관성을 향상시키며 해당 사용이 적극 권장됩니다.
+모든 HBv3 시리즈 VM은 NVIDIA 네트워킹에서 200GB/초 HDR InfiniBand를 사용하여 슈퍼 컴퓨터 규모의 MPI 작업을 지원합니다. 해당 VM은 최적화되고 일관된 RDMA 성능을 위해 차단되지 않는 패트 트리에 연결됩니다. 또한 HDR InfiniBand 패브릭은 적응형 라우팅과 표준 RC 및 UD 전송 외에 DCT(동적 연결 전송)을 지원합니다. 해당 기능은 애플리케이션 성능, 확장성, 일관성을 향상시키며 해당 사용이 적극 권장됩니다.
 
 [HBv2시리즈](hbv2-series.md) VM은 유체 역학, 유한 요소 분석, 저수지 시뮬레이션 등 메모리 대역폭으로 구동되는 애플리케이션에 최적화되어 있습니다. HBv2 VM에는 120개의 AMD EPYC 7742프로세서 코어, CPU 코어당 4GB RAM이 있으며 동시 다중 스레딩이 없습니다. 각 HBv2 VM은 최대 340GB/초 메모리 대역폭, 최대 4테라플롭 FP64컴퓨팅을 제공합니다.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 7deba32eb9d0e098b75f98cc81fac2c01b8bb7f8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4740a4b4aac59ac2e0e57797f39c489c6beaf75c
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567256"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252182"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Azure Stack Edge Blob Storage 요구 사항
 
@@ -25,12 +25,12 @@ Azure Stack Edge Blob Storage에 연결하기 전에 정보를 신중하게 검�
 
 |     기능                                             |     Azure Storage                                     |     Azure Stack Edge Blob storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Azure File Storage                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
+|    Azure 파일                                   |    클라우드 기반 SMB 및 NFS 파일 공유 지원됨              |    지원되지 않음      |
 |    스토리지 계정 유형                                 |    범용 및 Azure Blob Storage 계정    |    범용 v1만|
 |    Blob 이름                                            |    1,024자(2,048바이트)                     |    880자(1,760바이트)|
-|    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    Azure Stack Edge용 4.75TB(100MB x 50,000개 블록)|
-|    페이지 Blob 최대 크기                               |    8 TB                                               |    1TB                   |
-|    페이지 Blob 페이지 크기                                  |    512바이트                                          |    4KB                   |
+|    블록 Blob 최대 크기                              |    4.75TiB(100MiB X 50,000개 블록)                   |    Azure Stack Edge용 4.75TiB(100MiB x 50,000개 블록)|
+|    페이지 Blob 최대 크기                               |    8TiB                                               |    1TiB                   |
+|    페이지 Blob 페이지 크기                                  |    512바이트                                          |    4KiB                   |
 
 ## <a name="supported-api-versions"></a>지원되는 API 버전
 

@@ -9,17 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 346cfa898b5745b5ba8e31635337456ea9adb02d
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: ca240dd4684bfe57cd7e5a0ea1db928768d0fa22
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581721"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694582"
 ---
 # <a name="evaluate-model-performance-in-machine-learning-studio-classic"></a>Machine Learning 스튜디오(클래식)에서 모델 성능 평가
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 이 문서에서는 Machine Learning 스튜디오(클래식)에서 모델 성능을 모니터링하는 데 사용할 수 있는 메트릭에 대해 알아봅니다.  모델 성능 평가는 데이터 과학 프로세스의 핵심 단계 중 하나입니다. 이는 학습된 모델에서 데이터 세트 점수 매기기(예측)에 성공한 정도를 나타냅니다. Machine Learning 스튜디오(클래식)에서는 두 가지 기본 기계 학습 모듈을 통해 모델 평가를 지원합니다. 
 + [모델 평가][evaluate-model] 

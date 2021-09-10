@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 06/23/2021
-ms.openlocfilehash: fdeaf2f16dc2b1b6d6beb75544160ac03ce025e9
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 2aa4fe3e7e2f7637060996b53748391da03879ec
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588366"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123032285"
 ---
 # <a name="whats-new-in-anomaly-detector"></a>Anomaly Detector의 새로운 기능
 
@@ -20,13 +20,19 @@ ms.locfileid: "113588366"
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="august-2021"></a>2021년 8월
+
+* 미국 서부 3, 일본 동부, 브라질 남부, 미국 중부, 노르웨이 동부 등 5개 지역에 다변량 변칙 검색 API가 추가로 배포되었습니다. 이제 총 15개 지역이 지원됩니다.
+
 ### <a name="july-2021"></a>2021년 7월
 
 * 오스트레일리아 동부, 캐나다 중부, 북유럽, 동남아시아 등 네 개 이상 지역에 배포된 다변량 변칙 검색 API입니다. 이제 총 10개 지역이 지원됩니다.
+* Anomaly Detector(단변량)는 미국 서부 3 및 노르웨이 동부에서 사용 가능합니다.
+
 
 ### <a name="june-2021"></a>2021년 6월
 
-* 다변량 변칙 검색 API를 미국 서부2, 서유럽, 미국 동부2, 미국 중남부, 미국 동부, 영국 남부 등 더 많은 지역에서 사용할 수 있습니다.
+* 다변량 변칙 검색 API를 미국 서부 2, 서유럽, 미국 동부 2, 미국 중남부, 미국 동부, 영국 남부 등 더 많은 지역에서 사용할 수 있습니다.
 * Anomaly Detector(단변량)를 미국 정부용 Azure 클라우드에서 사용할 수 있습니다.
 * Anomaly Detector(단변량)를 Azure 중국(중국 북부 2)에서 사용할 수 있습니다.
 
@@ -34,7 +40,7 @@ ms.locfileid: "113588366"
 
 * [IoT Edge 모듈](https://azuremarketplace.microsoft.com/marketplace/apps/azure-cognitive-service.edge-anomaly-detector)(단변량)이 게시되었습니다.
 * Anomaly Detector(단변량)를 Azure 중국(중국 동부 2)에서 사용할 수 있습니다.
-* 다변량 변칙 검색 API가 선택된 지역(미국 서부2, 서유럽)에서 미리 보기 상태입니다.
+* 다변량 변칙 검색 API가 선택된 지역(미국 서부 2, 서유럽)에서 미리 보기 상태입니다.
 
 ### <a name="september-2020"></a>2020년 9월
 

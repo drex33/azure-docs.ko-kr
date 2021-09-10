@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/13/2021
-ms.openlocfilehash: 91bfa04c9fab179cf3935e703f13004f3aadd170
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: eb00a9fa81b6fadd999c6c824ff7be06f76c8f4a
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220063"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221772"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대한 권장 설정
 
@@ -99,7 +99,7 @@ Cognitive Search 인스턴스는 QnA Maker 리소스를 만든 후 프라이빗 
     > [![공개/프라이빗 전환 단추가 있는 네트워킹 UI 스크린샷.]( ../media/network-isolation/private.png)](  ../media/network-isolation/private.png#lightbox)
 
 4. 검색 리소스가 프라이빗으로 전환되면 **프라이빗 엔드포인트** 추가를 선택합니다.
-    - **기본 탭**: 검색 리소스와 동일한 지역에 엔드포인트를 만들고 있는지 확인합니다.
+    - **기본 사항 탭**: 검색 리소스와 동일한 지역에 엔드포인트를 만들고 있는지 확인합니다.
     - **리소스 탭**: `Microsoft.Search/searchServices` 유형의 필수 검색 리소스를 선택합니다.
 
     > [!div class="mx-imgBorder"]
@@ -110,9 +110,9 @@ Cognitive Search 인스턴스는 QnA Maker 리소스를 만든 후 프라이빗 
      > [!div class="mx-imgBorder"]
      > [![서브넷 필드가 채워진 프라이빗 엔드포인트 UI 만들기 창의 스크린샷.]( ../media/network-isolation/subnet.png)](  ../media/network-isolation/subnet.png#lightbox)
 
-    5. 일반 App Service에 대해 VNET 통합을 사용하도록 설정합니다. ASE는 이미 VNET에 액세스할 수 있으므로 이 단계를 건너뛸 수 있습니다.
-        - App Service **네트워킹** 섹션으로 이동하여 **VNet 통합** 을 엽니다.
-        - 2단계에서 만든 전용 App Service VNet, 서브넷(appservicevnet)에 연결합니다.
+5. 일반 App Service에 대해 VNET 통합을 사용하도록 설정합니다. ASE는 이미 VNET에 액세스할 수 있으므로 이 단계를 건너뛸 수 있습니다.
+    - App Service **네트워킹** 섹션으로 이동하여 **VNet 통합** 을 엽니다.
+    - 2단계에서 만든 전용 App Service VNet, 서브넷(appservicevnet)에 연결합니다.
     
      > [!div class="mx-imgBorder"]
      > [![VNET 통합 UI 스크린샷.]( ../media/network-isolation/integration.png)](  ../media/network-isolation/integration.png#lightbox)

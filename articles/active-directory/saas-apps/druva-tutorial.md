@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 08/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 858e63272faea2aaf2572a5e97e24ba5858d5bda
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 69649cf16ecfeca81d730ecfc19c8124fdc25579
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111568450"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123224181"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>자습서: Druva와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "111568450"
 * 사용자가 자신의 Azure AD 계정으로 Druva에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -38,6 +38,7 @@ ms.locfileid: "111568450"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Druva에서 **IDP** 시작 SSO를 지원합니다.
+* Druva는 [자동 사용자 프로비저닝](druva-provisioning-tutorial.md)을 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -90,7 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Druva 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 속성 | 원본 특성|
+    | Name | 원본 특성|
     | ------------------- | -------------------- |
     | emailAddress | user.email |
     | druva_auth_token | DCP 관리 콘솔에서 생성되는 SSO 토큰으로, 인용 부호는 없습니다.  다음은 그 예입니다.  X-XXXXX-XXXX-S-A-M-P-L-E+TXOXKXEXNX=. Azure에서 인증 토큰 앞뒤로 따옴표를 자동으로 추가합니다. |
@@ -155,6 +156,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 ### <a name="create-druva-test-user"></a>Druva 테스트 사용자 만들기
 
 이 섹션에서는 Druva에서 B.Simon이라는 사용자를 만듭니다. Druva는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. Druva에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+
+Druva는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./druva-provisioning-tutorial.md)에서 제공합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

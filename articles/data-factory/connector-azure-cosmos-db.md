@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: eb222badbd9b2f349f1ae33f1b659b3caadd8b90
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 08/09/2021
+ms.openlocfilehash: 774a168fa84114b91f4a931542f64ba81fd54155
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306911"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642927"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB(SQL API)에서 데이터 복사 및 변환
 
@@ -51,30 +51,6 @@ Data Factory 및 Synapse 파이프라인은 Azure Cosmos DB에 쓸 때 최상의
 ## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
-## <a name="create-a-linked-service-to-azure-cosmos-db-using-ui"></a>UI를 사용하여 Azure Cosmos DB에 연결된 서비스 만들기
-
-다음 단계를 사용하여 Azure Portal UI에서 Azure Cosmos DB에 연결된 서비스를 만듭니다.
-
-1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하여 연결된 서비스를 선택하고 새로 만들기를 클릭합니다.
-
-    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
-
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
-
-    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새 연결된 서비스 만들기 스크린샷":::
-
-2. Cosmos를 검색하고 Azure Cosmos DB(SQL API) 커넥터를 선택합니다.
-
-    :::image type="content" source="media/connector-azure-cosmos-db/azure-cosmos-db-connector.png" alt-text="Azure Cosmos DB(SQL API) 커넥터를 선택합니다.":::    
-
-1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
-
-    :::image type="content" source="media/connector-azure-cosmos-db/configure-azure-cosmos-db-linked-service.png" alt-text="Azure Cosmos DB의 연결된 서비스 구성의 스크린샷.":::
-
-## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
-
 
 다음 섹션에서는 Azure Cosmos DB(SQL API)에 한정된 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -88,7 +64,7 @@ Azure Cosmos DB(SQL API) 커넥터는 다음과 같은 인증 유형을 지원�
 
 ### <a name="key-authentication"></a>키 인증
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **CosmosDb** 로 설정해야 합니다. | 예 |
 | connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다.<br />**참고**: 다음 예제에 표시된 대로 연결 문자열에 데이터베이스 정보를 지정해야 합니다. <br/> Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
@@ -155,7 +131,7 @@ Azure Cosmos DB(SQL API) 커넥터는 다음과 같은 인증 유형을 지원�
 
 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **CosmosDb** 로 설정해야 합니다. |예 |
 | accountEndpoint | Azure Cosmos DB에 계정 엔드포인트 URL을 지정합니다. | 예 |
@@ -239,7 +215,7 @@ Azure 리소스 인증에 관리 ID를 사용하려면 다음 단계를 수행�
 
 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **CosmosDb** 로 설정해야 합니다. |예 |
 | accountEndpoint | Azure Cosmos DB에 계정 엔드포인트 URL을 지정합니다. | 예 |
@@ -271,7 +247,7 @@ Azure 리소스 인증에 관리 ID를 사용하려면 다음 단계를 수행�
 
 Azure Cosmos DB(SQL API) 데이터 세트에 대해 다음과 같은 속성이 지원됩니다. 
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **CosmosDbSqlApiCollection** 으로 설정해야 합니다. |예 |
 | collectionName |Azure Cosmos DB 문서 컬렉션의 이름입니다. |예 |
@@ -307,10 +283,10 @@ Azure Cosmos DB(SQL API)에서 데이터를 복사하려면 복사 작업의 **s
 
 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **CosmosDbSqlApiSource** 로 설정해야 합니다. |예 |
-| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예제:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
 | preferredRegions | Cosmos DB에서 데이터를 검색할 때 연결할 지역의 기본 목록입니다. | 예 |
 | pageSize | 쿼리 결과의 페이지당 문서 수입니다. 기본값은 서비스 쪽 동적 페이지 크기를 1000까지 사용함을 의미하는 “-1”입니다. | 예 |
 | detectDatetime | 문서의 문자열 값에서 날짜/시간을 검색할지를 지정합니다. 허용되는 값은 **true**(기본값), **false** 입니다. | 예 |
@@ -360,7 +336,7 @@ Azure Cosmos DB(SQL API)로 데이터를 복사하려면 복사 작업의 **sink
 
 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **CosmosDbSqlApiSink** 로 설정해야 합니다. |예 |
 | writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: ID가 원래 문서 또는 열 매핑에 지정되지 않은 경우 이 서비스는 문서에 대한 ID를 자동으로 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |예<br />(기본값: **insert**) |

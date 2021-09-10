@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/05/2021
+ms.date: 6/24/2021
 ms.reviewer: lagayhar
-ms.openlocfilehash: 1ed9fc345b1c8afe416b4b98c621fc1c9b48a557
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 39109106a100d2af8a9dad4e6009f4c73fea8f59
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795261"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122530235"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -33,7 +33,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 ### <a name="workspace-based-application-insights"></a>작업 영역 기반 Application Insights
 
-데이터를 Log Analytics 작업 영역으로 보내는 Application Insights 리소스([작업 영역 기반 Application Insights 리소스](create-workspace-resource.md))의 경우, 데이터 수집 및 보존에 대한 요금 청구는 해당 Application Insights 데이터가 위치한 작업 영역에 의해 이루어집니다. 이로 인해 고객은 종량제에 더해 용량 예약까지 포함하는 Log Analytics [가격 책정 모델](../logs/manage-cost-storage.md#pricing-model)의 모든 옵션을 활용할 수 있습니다. Log Analytics에는 [데이터 형식에 따른 보존](../logs/manage-cost-storage.md#retention-by-data-type)을 포함하여 더 많은 데이터 보존 옵션이 있습니다. 작업 영역에 있는 Application Insights 데이터 형식은 추가 요금 없이 90일 동안 보존됩니다. 웹 테스트를 사용하는 경우와 사용자 지정 메트릭 차원에 대한 경고를 사용하도록 설정하는 경우는 Application Insights를 통해 보고됩니다. [사용량 및 예상 비용](../logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Azure Cost Management + 청구](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) 및 [Log Analytics 쿼리](#data-volume-for-workspace-based-application-insights-resources)를 사용하여 Log Analytics의 데이터 수집 및 보존 비용을 추적하는 방법을 알아보세요. 
+데이터를 Log Analytics 작업 영역으로 보내는 Application Insights 리소스([작업 영역 기반 Application Insights 리소스](create-workspace-resource.md))의 경우, 데이터 수집 및 보존에 대한 요금 청구는 해당 Application Insights 데이터가 위치한 작업 영역에 의해 이루어집니다. 이렇게 하면 종량제 외에 **약정 계층** 을 포함하여 Log Analytics [가격 책정 모델](../logs/manage-cost-storage.md#pricing-model)의 모든 옵션을 활용할 수 있습니다. 약정 계층은 종량제 보다 30% 더 낮은 가격을 제공합니다. Log Analytics에는 [데이터 형식에 따른 보존](../logs/manage-cost-storage.md#retention-by-data-type)을 포함하여 더 많은 데이터 보존 옵션이 있습니다. 작업 영역에 있는 Application Insights 데이터 형식은 추가 요금 없이 90일 동안 보존됩니다. 웹 테스트를 사용하는 경우와 사용자 지정 메트릭 차원에 대한 경고를 사용하도록 설정하는 경우는 Application Insights를 통해 보고됩니다. [사용량 및 예상 비용](../logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Azure Cost Management + 청구](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) 및 [Log Analytics 쿼리](#data-volume-for-workspace-based-application-insights-resources)를 사용하여 Log Analytics의 데이터 수집 및 보존 비용을 추적하는 방법을 알아보세요. 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>애플리케이션 관리 비용 추정
 
@@ -180,7 +180,7 @@ union (AppAvailabilityResults),
 
 Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) 허브에서 많은 유용한 기능을 제공합니다. 예를 들어, “비용 분석” 기능을 사용하면 Azure 리소스에 대한 지출 내역을 확인할 수 있습니다. 리소스 종류를 기준으로 필터를 추가하면(Application Insights의 경우 microsoft.insights/components에 추가) 지출을 추적할 수 있습니다. “그룹화 방법”으로는 “미터 범주” 또는 “미터”를 선택합니다.  현재 가격 플랜이 적용되는 Application Insights 리소스의 경우, 모든 Azure Monitor 구성 요소에 대한 로그 백엔드는 하나이므로 대부분의 사용량이 Log Analytics의 미터 범주로 표시됩니다. 
 
-사용량에 대한 자세한 내용은 [Azure Portal에서 사용량을 다운로드](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal)하여 확인할 수 있습니다.
+사용량에 대한 자세한 내용은 [Azure Portal에서 사용량을 다운로드](../../cost-management-billing/understand/download-azure-daily-usage.md)하여 확인할 수 있습니다.
 다운로드한 스프레드시트에서 Azure 리소스별 일일 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서는 먼저 “미터 범주” 열에서 필터링을 진행하여 “Application Insights” 및 “Log Analytics”를 표시한 다음, “microsoft.insights/components 포함”에 해당되는 “인스턴스 ID” 열에서 하나의 필터를 추가하면 Application Insights 리소스의 사용량을 확인할 수 있습니다.  모든 Azure Monitor 구성 요소에 대한 로그 백엔드는 하나이므로 대부분의 Application Insights 사용량이 Log Analytics의 미터 범주를 사용하여 미터로 보고됩니다.  레거시 가격 책정 계층이 적용되는 Application Insights 리소스와 다중 단계 웹 테스트만 Application Insights의 미터 범주를 사용하여 보고됩니다.  사용량은 “사용한 수량” 열에 표시되며 각 항목에 대한 단위는 “측정 단위” 열에 표시됩니다.  [Microsoft Azure 청구 방식을 이해](../../cost-management-billing/understand/review-individual-bill.md)하는 데 도움이 되는 자세한 정보도 준비되어 있습니다.
 
 ## <a name="managing-your-data-volume"></a>데이터 볼륨 관리
@@ -233,7 +233,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 ### <a name="create-alerts-for-the-daily-cap"></a>일일 한도 경고 만들기
 
-Application Insights 일일 한도는 수집된 데이터 볼륨이 경고 수준이나 일일 한도 수준에 도달하면 Azure 활동 로그에 이벤트를 만듭니다.  [이러한 활동 로그 이벤트를 기반으로 경고를 만들 수 있습니다](../alerts/alerts-activity-log.md#create-with-the-azure-portal). 이러한 이벤트의 신호는 다음과 같습니다.
+Application Insights 일일 한도는 수집된 데이터 볼륨이 경고 수준이나 일일 한도 수준에 도달하면 Azure 활동 로그에 이벤트를 만듭니다.  [이러한 활동 로그 이벤트를 기반으로 경고를 만들 수 있습니다](../alerts/alerts-activity-log.md#azure-portal). 이러한 이벤트의 신호는 다음과 같습니다.
 
 * Application Insights 구성 요소 일일 상한 경고 임계값에 도달함
 

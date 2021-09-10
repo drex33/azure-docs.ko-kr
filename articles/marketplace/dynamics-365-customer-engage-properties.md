@@ -1,18 +1,18 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 PowerApps 제안 속성을 구성합니다.
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 PowerApps 제안 속성을 구성합니다.
+title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제안 속성을 구성합니다.
+description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제안 속성을 구성합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/20/2021
-ms.openlocfilehash: 155b8deb614aa2c2a85ce9b81625e3d6972ff09b
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 4f0b21bd0e3ff8da89606357a2844f8098e6a572
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113566231"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864509"
 ---
 # <a name="configure-dynamics-365-for-customer-engagement--power-apps-offer-properties"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제안 속성 구성
 

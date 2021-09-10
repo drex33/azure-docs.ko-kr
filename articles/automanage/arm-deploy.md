@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 04/09/2021
 ms.author: alsin
-ms.openlocfilehash: 78cf28903311c542a83c9ace4f794e1cdda9a61c
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 34f20a50fc62cff98362380222822ac016b76a48
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368474"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567180"
 ---
 # <a name="onboard-a-machine-to-automanage-with-an-azure-resource-manager-arm-template"></a>ARM(Azure Resource Manager) 템플릿을 사용하여 Automanage에 컴퓨터 온보딩
 
@@ -22,8 +22,9 @@ ms.locfileid: "107368474"
 아래 단계에 따라 Automanage 모범 사례에 컴퓨터를 온보딩합니다. 아래 ARM 템플릿은 Automanage에 온보딩된 컴퓨터를 나타내는 Azure 리소스인 `configurationProfileAssignment` 개체를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* 기존 Automanage 계정을 만들었어야 합니다. Automanage 계정 및 계정을 만드는 방법에 대한 자세한 내용은 [이 문서](./automanage-account.md)를 참조하세요.
-* Automanage에 온보딩하려는 컴퓨터가 포함된 자원 그룹에 **기여자** 역할이 있어야 합니다.
+* 기존 Automanage 계정을 만들고 올바른 권한을 할당해야 합니다. Automanage 계정을 생성하고 권한을 할당하는 방법에 대한 자세한 내용은 [이 문서](./automanage-account.md)를 참조하세요.
+* 권한이 할당된 기존 Automanage 계정이 있는 경우, Automanage에 온보딩하려는 머신이 포함된 리소스 그룹에 대한 **기여자** 역할도 있어야 합니다.
+
 
 ## <a name="arm-template-overview"></a>ARM 템플릿 개요
 다음 ARM 템플릿은 지정된 컴퓨터를 Azure Automanage 모범 사례에 온보딩합니다. ARM 템플릿에 대한 자세한 내용과 배포 방법에 대한 단계는 [아래](#arm-template-deployment) ARM 템플릿 배포 섹션에 있습니다.
@@ -64,7 +65,7 @@ ms.locfileid: "107368474"
 * "DevTest"
 
 다음 단계를 따라 ARM 템플릿을 배포합니다.
-1. 아래 ARM 템플릿을 `azuredeploy.json`으로 저장합니다.
+1. 위의 ARM 템플릿을 `azuredeploy.json`로 저장합니다
 1. `az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json`을 사용하여 ARM 템플릿 배포 실행
 1. machineName, automanageAccountName 및 configurationProfileAssignment 값을 요구하는 메시지가 표시될 때 제공합니다.
 1. 이제 구성을 완료했습니다.

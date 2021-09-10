@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 77f30c26b500f98429039710d84f77b87fb6a654
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: f2fb9d2f6221928f093895914b8fc0082573a8b2
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112992210"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866268"
 ---
 # <a name="application-gateway-http-settings-configuration"></a>Application Gateway HTTP 설정 구성
 
@@ -20,9 +20,12 @@ ms.locfileid: "112992210"
 
 ## <a name="cookie-based-affinity"></a>쿠키 기반 선호도
 
-Azure Application Gateway는 사용자 세션을 유지 관리하기 위해 게이트웨이 관리 쿠키를 사용합니다. 사용자가 Application Gateway에 첫 번째 요청을 보내면 세션 정보를 포함하는 해시 값으로 응답의 선호도 쿠키가 설정되므로 해당 선호도 쿠키를 포함하는 후속 요청은 연결 유지 관리를 위해 동일한 백 엔드 서버로 라우팅됩니다. 
+Azure Application Gateway는 사용자 세션을 유지 관리하기 위해 게이트웨이 관리 쿠키를 사용합니다. 사용자가 Application Gateway에 첫 번째 요청을 보내면 세션 정보를 포함하는 해시 값으로 응답의 선호도 쿠키가 설정되므로 해당 선호도 쿠키를 포함하는 후속 요청은 연결 유지 관리를 위해 동일한 백 엔드 서버로 라우팅됩니다.
 
 이 기능은 동일한 서버에 사용자 세션을 유지하려는 경우와 사용자 세션의 세션 상태가 서버에 로컬로 저장되는 경우에 유용합니다. 애플리케이션에서 쿠키 기반 선호도를 처리할 수 없는 경우에는 이 기능을 사용할 수 없습니다. 기능을 사용하려면 클라이언트에서 쿠키를 지원하는지 확인합니다.
+> [!NOTE]
+> 일부 취약성 검색에서는 Secure 또는 HttpOnly 플래그가 설정되지 않아 Applicaton Gateway 선호도 쿠기가 플래그 지정될 수 있습니다. 이러한 검색은 쿠키의 데이터가 단방향 해시를 사용하여 생성된다는 점을 고려하지 않습니다. 쿠키는 사용자 정보를 포함하지 않으며 라우팅 용도로만 사용됩니다. 
+
 
 [Chromium 브라우저](https://www.chromium.org/Home) [v80 업데이트](https://chromiumdash.appspot.com/schedule)에서는 [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) 특성이 없는 HTTP 쿠키를 SameSite=Lax로 처리하도록 요구했습니다. CORS(원본 간 리소스 공유) 요청의 경우 쿠키가 타사 컨텍스트에서 전송되어야 하면 *SameSite=None; Secure* 를 사용해야 하며 HTTPS를 통해서만 전송되어야 합니다. HTTP 전용 시나리오에서는 브라우저가 타사 컨텍스트에서 쿠키를 전송하지 않습니다. Chrome 업데이트의 목표는 보안을 강화하고 CSRF(교차 사이트 요청 위조) 공격을 방지하는 것입니다. 
 

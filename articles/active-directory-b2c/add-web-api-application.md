@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0eeff0c8c338b09fbe375587db2b955a143138c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 185cc7de17957cba9edde5219602d85222c4bbb3
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94949822"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122777750"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트에 웹 API 애플리케이션 추가
 
@@ -26,7 +26,8 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **앱 등록** 을 선택한 다음, **새 등록** 을 선택합니다.
 1. 애플리케이션의 **이름** 을 입력합니다. 예를 들어 *webapi1* 과 같습니다.
@@ -43,15 +44,16 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 #### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 최상위 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-4. **애플리케이션(레거시)** 을 선택한 다음, **추가** 를 선택합니다.
-5. 애플리케이션의 이름을 입력합니다. 예를 들어 *webapi1* 과 같습니다.
-6. **웹앱/웹 API 포함** 및 **암시적 흐름 허용** 에 **예** 를 선택합니다.
-7. **회신 URL** 에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 프로덕션 애플리케이션에서 회신 URL을 `https://localhost:44332`와 같은 값으로 설정할 수 있습니다. 테스트를 위해 회신 URL을 `https://jwt.ms`로 설정합니다.
-8. **앱 ID URI** 에 웹 API에 사용하는 식별자를 입력합니다. 도메인을 포함하는 전체 식별자 URI가 생성됩니다. 예들 들어 `https://contosotenant.onmicrosoft.com/api`입니다.
-9. **만들기** 를 클릭합니다.
-10. 속성 페이지에서 웹 애플리케이션을 구성할 때 사용할 애플리케이션 ID를 기록합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **애플리케이션(레거시)** 을 선택한 다음, **추가** 를 선택합니다.
+1. 애플리케이션의 이름을 입력합니다. 예를 들어 *webapi1* 과 같습니다.
+1. **웹앱/웹 API 포함** 및 **암시적 흐름 허용** 에 **예** 를 선택합니다.
+1. **회신 URL** 에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 프로덕션 애플리케이션에서 회신 URL을 `https://localhost:44332`와 같은 값으로 설정할 수 있습니다. 테스트를 위해 회신 URL을 `https://jwt.ms`로 설정합니다.
+1. **앱 ID URI** 에 웹 API에 사용하는 식별자를 입력합니다. 도메인을 포함하는 전체 식별자 URI가 생성됩니다. 예들 들어 `https://contosotenant.onmicrosoft.com/api`입니다.
+1. **만들기** 를 클릭합니다.
+1. 속성 페이지에서 웹 애플리케이션을 구성할 때 사용할 애플리케이션 ID를 기록합니다.
 
 * * *
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/29/2021
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b0866905d0228d2304ebf5c8ef930a629979d2da
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: fbdfec42038f48eefb707c85e54c1788841dd42d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012089"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528478"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>AKS 에이전트 노드 호스트 OS의 보안 강화
 
@@ -21,7 +21,7 @@ ms.locfileid: "107012089"
 > [!Note]
 > 이 문서의 범위는 AKS의 Linux 에이전트로 한정됩니다.
 
-AKS 클러스터는 AKS에서 실행되는 컨테이너에 사용되는 보안에 최적화된 OS를 실행하는 호스트 VM에 배포됩니다. 이 호스트 OS는 [보안 강화](#security-hardening-features) 및 최적화가 더 적용된 **Ubuntu 16.04.LTS** 이미지를 기반으로 합니다.
+AKS 클러스터는 AKS에서 실행되는 컨테이너에 사용되는 보안에 최적화된 OS를 실행하는 호스트 VM에 배포됩니다. 이 호스트 OS는 [보안 강화](#security-hardening-features) 및 최적화가 더 적용된 **Ubuntu 18.04.5 LTS** 이미지를 기반으로 합니다.
 
 보안 강화 호스트 OS의 목표는 공격 노출 영역을 줄이고 안전하게 컨테이너의 배포를 최적화하는 것입니다.
 

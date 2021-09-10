@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/23/2021
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8738f34ea9d038bbc5a0bc3d9f13be11db2b9e00
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 4f9f9c9688340a153efab189cc24ace13fc4da6e
+ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681713"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113589212"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 계정에 대한 고객 관리형 키 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -301,7 +301,7 @@ Azure Cosmos 계정에서 사용하는 고객 관리형 키 회전은 두 가지
     $account | Set-AzResource -Force
     ```
 
-이전 키 또는 키 버전은 24시간이 지나거나 해당 키 또는 키 버전의 Azure Cosmos DB 활동이 [Azure Key Vault 감사 로그](../key-vault/general/logging.md)에 더 이상 표시되지 않으면 사용하지 않도록 설정될 수 있습니다.
+이전 키 또는 키 버전은 해당 키 또는 키 버전의 Azure Cosmos DB 활동이 [Azure Key Vault 감사 로그](../key-vault/general/logging.md)에 더 이상 표시되지 않으면 사용하지 않도록 설정할 수 있습니다. 키 회전 24시간 후에는 이전 키 또는 키 버전에서 더 이상 활동이 진행되지 않아야 합니다.
     
 ## <a name="error-handling"></a>오류 처리
 
@@ -341,7 +341,7 @@ Azure Cosmos 계정에 저장된 모든 데이터는 고객 관리형 키로 암
 
 ### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>고객 관리형 키를 Azure Cosmos DB [분석 저장소](analytical-store-introduction.md)와 함께 사용할 수 있나요?
 
-예, 하지만 분석 저장소를 사용하도록 설정하기 전에 Azure Key Vault 액세스 정책에서 [Azure Cosmos DB 계정의 관리 ID를 사용](#using-managed-identity)해야 합니다.
+예, Azure Synapse Link는 Azure Cosmos DB 계정의 관리 ID를 사용하는 고객 관리형 키 구성만 지원합니다. 하지만 계정에서 [Azure Synapse Link를 사용하도록 설정](configure-synapse-link.md#enable-synapse-link)하기 전에 Azure Key Vault 액세스 정책에서 [Azure Cosmos DB 계정의 관리 ID를 사용](#using-managed-identity)해야 합니다.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>계정 수준 키보다 세부적인 수준을 지원할 계획이 있나요?
 

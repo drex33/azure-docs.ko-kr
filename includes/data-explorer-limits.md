@@ -4,12 +4,12 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 01/20/2020
 ms.author: ilayr
-ms.openlocfilehash: d9e23e74cd980ecf44cd04ad2b6f89dc6a4cf868
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9143f3220ad5f90345436c3c1f97419e4d26fc4
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76548219"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114593337"
 ---
 다음 표에서는 Azure Data Explorer 클러스터의 최대 한도에 대해 설명합니다.
 
@@ -18,7 +18,7 @@ ms.locfileid: "76548219"
 | 구독당 지역별 클러스터 수 | 20 |
 | 클러스터당 인스턴스 수 | 1000 | 
 | 클러스터의 데이터베이스 수 | 10000 |
-| 클러스터의 연결된 데이터베이스 구성 수 | 70 |
+| 리더 클러스터(데이터 공유 생산자)당 팔로워 클러스터(데이터 공유 소비자) 수 | 70 |
 
 다음 표에서는 Azure Data Explorer 클러스터에서 수행되는 관리 작업에 대한 한도를 설명합니다.
 

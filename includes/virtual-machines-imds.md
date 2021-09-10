@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 29f5e96c18220f0bbdec5f91107c9220fc2fba0b
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 323e6960a111d8227c14cf38046807ad6c1cada6
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123355149"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122261450"
 ---
 IMDS(Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대한 정보를 제공합니다. 이를 사용하여 가상 머신을 관리하고 구성할 수 있습니다.
 이 정보에는 SKU, 스토리지, 네트워크 구성 및 예정된 유지 관리 이벤트가 포함됩니다. 사용 가능한 데이터의 전체 목록은 [엔드포인트 범주 요약](#endpoint-categories)을 참조하세요.
@@ -259,7 +259,7 @@ IMDS에 대한 버전이 관리되므로 반드시 API 버전을 HTTP 요청에 
 
 ### <a name="swagger"></a>Swagger
 
-IMDS에 대한 전체 Swagger 정의는 https://github.com/Azure/azure-rest-api-specs/blob/main/specification/imds/data-plane/readme.md 에서 제공됩니다.
+IMDS에 대한 전체 Swagger 정의는 https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md 에서 제공됩니다.
 
 ## <a name="regional-availability"></a>국가별 가용성
 

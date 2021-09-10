@@ -8,19 +8,19 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 529be70de61fe9adb025ee801bd417bc860ef5e6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97630278"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536113"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인의 AML 기술
 
 > [!IMPORTANT] 
-> 이 기술은 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 현재 .NET SDK는 지원되지 않습니다.
+> 이 기술은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 퍼블릭 미리 보기 상태입니다. [미리 보기 REST API](/rest/api/searchservice/index-preview)에서 이 기술을 지원합니다.
 
-**AML** 기술을 사용하면 사용자 지정 AML([Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md)) 모델을 통해 AI 보강을 확장할 수 있습니다. AML 모델이 [학습되고 배포되면](../machine-learning/concept-azure-machine-learning-architecture.md#workspace) **AML** 기술은 이를 AI 보강에 통합합니다.
+**AML** 기술을 사용하면 사용자 지정 AML([Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md)) 모델을 통해 AI 보강을 확장할 수 있습니다. AML 모델이 [학습되고 배포되면](../machine-learning/concept-azure-machine-learning-architecture.md#workspace) **AML** 기술은 이를 AI 보강에 통합합니다.
 
 기본 제공 기술과 마찬가지로 **AML** 기술에는 입력과 출력이 있습니다. 입력은 배포된 AML 서비스에 JSON 개체로 전송되며, JSON 페이로드가 성공 상태 코드와 함께 응답으로 출력됩니다. 응답은 **AML** 기술로 지정된 출력을 포함해야 합니다. 다른 응답은 오류로 간주되며 강화는 수행되지 않습니다.
 

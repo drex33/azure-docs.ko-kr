@@ -5,12 +5,12 @@ ms.date: 04/13/2021
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 0e5b4d17b0c0ccaa4c839338e0656c0a8eda3bd5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 11615d48bb1331e068c685a507670f0add883344
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078027"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566204"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 릴리스
 
@@ -22,6 +22,24 @@ ms.locfileid: "112078027"
 - <a href="/azure/service-fabric/service-fabric-support" target="blank">지원 옵션</a> 
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">지원되는 버전</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">코드 샘플</a>
+
+
+## <a name="service-fabric-81"></a>Service Fabric 8.1
+
+Service Fabric 런타임의 8.1 릴리스가 도구 및 SDK 업데이트와 함께 다양한 Azure 지역에 배포되기 시작했음을 발표하게 되어 기쁩니다. .NET SDK, Java SDK 및 Service Fabric 런타임의 업데이트는 웹 플랫폼 설치 관리자, NuGet 패키지 및 Maven 리포지토리를 통해 제공됩니다.
+
+### <a name="key-announcements"></a>주요 알림
+- 보조 복제본 지원이 추가됨
+- **미리 보기** .NET 6.0 Service Fabric 애플리케이션에 대한 지원이 추가됨
+- 애플리케이션 설명 업데이트에 대한 API 지원이 추가됨
+- IPC 실패 및 프로세스 중단을 감지하기 위해 RA(재구성 에이전트)와 RAP(재구성 에이전트 프록시) 간에 주기적인 ping이 추가됨
+- 컨테이너화되지 않은 애플리케이션의 활동성 및 준비 상태 프로브에 대한 지원이 추가됨
+- 노드 용량 업데이트에 대한 클러스터 업그레이드가 영향을 미치지 않음
+
+### <a name="service-fabric-81-releases"></a>Service Fabric 8.1 릴리스
+| 릴리스 날짜 | 해제 | 추가 정보 |
+|---|---|---|
+| 2021년 7월 28일 | [Azure Service Fabric 8.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-release/ba-p/2594194)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81.md)|
 
 
 ## <a name="service-fabric-80"></a>Service Fabric 8.0
@@ -46,11 +64,13 @@ Service Fabric 런타임의 8.0 릴리스가 도구 및 SDK 업데이트와 함�
 - 해제해도 안전할 경우 즉시 참조를 해제하도록 StateManager 수정
 - 사용자 비밀을 저장하는 동안 중앙 비밀 서비스 제거 차단
 
-
 ### <a name="service-fabric-80-releases"></a>Service Fabric 8.0 릴리스
 | 릴리스 날짜 | 해제 | 추가 정보 |
 |---|---|---|
 | 2021년 4월 8일 | [Azure Service Fabric 8.0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-release/ba-p/2260016)  | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80.md)|
+| 2021년 5월 17일 | [Azure Service Fabric 8.0 첫 번재 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-first-refresh-release/ba-p/2362556) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80CU1.md) |
+| 2021년 6월 17일 | [Azure Service Fabric 8.0 두 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-second-refresh-release/ba-p/2462979) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80CU2.md) |
+| 2021년 7월 28일 | [Azure Service Fabric 8.0 세 번째 새 릴리스](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-third-refresh-release/ba-p/2594180) | [릴리스 정보](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80CU3.md) |
 
 
 ## <a name="previous-versions"></a>이전 버전

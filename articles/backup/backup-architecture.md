@@ -2,13 +2,13 @@
 title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/23/2021
+ms.openlocfilehash: 532ca138a9f003f38dac9245f4478b81e2d827f7
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466414"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541665"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -92,6 +92,17 @@ Azure Backup은 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 
 ![백업 방법 비교를 보여주는 이미지](./media/backup-architecture/backup-method-comparison.png)
 
+## <a name="sap-hana-backup-types"></a>SAP HANA 백업 유형
+
+다음 표에서는 SAP HANA 데이터베이스에 사용되는 다양한 유형의 백업과 사용 빈도에 대해 설명합니다.
+
+| 백업 유형 | 세부 정보 | 사용량 |
+| --- | --- | --- |
+| **전체 백업** | 전체 데이터베이스 백업은 전체 데이터베이스를 백업합니다. 이 유형의 백업은 특정 지점으로 복원하는 데 독립적으로 사용할 수 있습니다. | 많으면, 하루에 하나의 전체 백업을 예약할 수 있습니다. <br><br> 매일 또는 매주 간격으로 전체 백업을 예약하도록 선택할 수 있습니다. |
+| **차등 백업** | 차등 백업은 가장 최근에 수행한 이전 전체 데이터 백업을 기반으로 합니다. <br><br> 이 백업은 이전의 전체 백업 이후 변경된 데이터만 캡처합니다. | 많으면, 하루에 하나의 차등 백업을 예약할 수 있습니다.  <br><br> 전체 백업과 차등 백업을 같은 날에 구성할 수 없습니다. |
+| **증분 백업** | 증분 백업은 가장 최근의 이전 전체/차등/증분 데이터 백업을 기반으로 합니다. <br><br> 이 백업은 이 이전 데이터 백업 이후 변경된 데이터만 캡처합니다. | 많으면, 하루에 하나의 증분 백업을 예약할 수 있습니다. <br><br> 데이터베이스에서 차등 백업과 증분 백업을 모두 예약할 수는 없으며 하나의 델타 백업 유형만 예약할 수 있습니다. <br><br> 전체 백업과 차등 백업을 같은 날에 구성할 수 없습니다. |k
+| **트랜잭션 로그 백업** | 로그 백업을 사용하면 특정 시간(초 단위)까지의 특정 시점 복원이 가능합니다. | 많으면, 15분마다 트랜잭션 로그 백업을 구성할 수 있습니다. |
+
 ## <a name="backup-features"></a>백업 기능
 
 다음 표에는 다양한 백업 유형에 대해 지원되는 기능이 요약되어 있습니다.
@@ -137,28 +148,12 @@ DPM/MABS 디스크에 백업 한 다음, Azure에 백업 | | | ![예][green]
 - Azure 파일 공유: 정책을 [만들고](./backup-afs.md) [수정](./manage-afs-backup.md#modify-policy)하는 방법입니다.
 - SAP HANA: 정책을 [만들고](./backup-azure-sap-hana-database.md#create-a-backup-policy) [수정](./sap-hana-db-manage.md#change-policy)하는 방법입니다.
 - MARS: 정책을 [만들고](./backup-windows-with-mars-agent.md#create-a-backup-policy) [수정](./backup-azure-manage-mars.md#modify-a-backup-policy)하는 방법입니다.
-- [워크로드 유형에 따라 백업 예약에 제한이 있나요?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
-- [보존 정책을 변경하는 경우 기존 복구 지점은 어떻게 되나요?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+- [워크로드 유형에 따라 백업 예약에 제한이 있나요?](./backup-azure-backup-faq.yml#are-there-limits-on-backup-scheduling-)
+- [보존 정책을 변경하는 경우 기존 복구 지점은 어떻게 되나요?](./backup-azure-backup-faq.yml#what-happens-when-i-change-my-backup-policy-)
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>아키텍처: 기본 제공 Azure VM 백업
 
-1. Azure VM에 백업을 사용하도록 설정하면 지정하는 일정에 따라 백업이 실행됩니다.
-1. 첫 번째 백업 중에 VM이 실행되고 있으면 백업 확장이 VM에 설치됩니다.
-    - Windows VM의 경우 VMSnapshot 확장이 설치됩니다.
-    - Linux VM의 경우 VMSnapshot Linux 확장이 설치됩니다.
-1. 확장은 스토리지 수준의 스냅샷을 만듭니다.
-    - 실행 중인 Windows VM의 경우 Backup이 Windows VSS(볼륨 섀도 복사본 서비스)와 조정되어 VM의 일관성 있는 앱 스냅샷을 생성합니다. 기본적으로 Backup은 전체 VSS 백업을 수행합니다. Backup에서 앱 일관성이 있는 스냅샷을 만들 수 없는 경우에는 일관성 있는 파일 스냅샷을 만듭니다.
-    - Linux VM의 경우 Backup에서 파일 일관성이 있는 스냅샷을 수행합니다. 일관성 있는 앱 스냅샷의 경우 수동으로 사전/사후 스크립트를 사용자 지정해야 합니다.
-    - 각 VM 디스크를 병렬로 백업하여 백업이 최적화됩니다. 백업 중인 각 디스크에 대해 Azure Backup은 디스크의 블록을 읽고 변경된 데이터만 저장합니다.
-1. 스냅샷을 만든 후에는 데이터가 자격 증명 모음으로 전송됩니다.
-    - 마지막 백업 이후 변경된 데이터 블록만 복사됩니다.
-    - 데이터가 암호화되지 않습니다. Azure Backup은 Azure Disk Encryption을 사용하여 암호화된 Azure VM을 백업할 수 있습니다.
-    - 스냅샷 데이터가 자격 증명 모음에 즉시 복사되지 않을 수도 있습니다. 사용량이 많은 시간에는 백업에 몇 시간이 걸릴 수 있습니다. 일별 백업 정책에서 VM의 총 백업 시간은 24시간 미만입니다.
-1. 자격 증명 모음에 데이터가 전송된 후에는 복구 지점이 생성됩니다. 기본적으로 스냅샷은 삭제되기 전 2일간 보존됩니다. 이 기능을 사용하면 복원 시간을 줄여 스냅샷에서 복원 작업을 수행할 수 있습니다. 자격 증명 모음에서 데이터를 다시 변환하고 복사하는 데 필요한 시간을 줄일 수 있습니다. [Azure Backup 인스턴트 복원 기능](./backup-instant-restore-capability.md)을 참조하세요.
-
-Azure VM을 백업하기 위해 인터넷 연결을 명시적으로 허용할 필요는 없습니다.
-
-![Azure VM의 백업](./media/backup-architecture/architecture-azure-vm.png)
+[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
 
 ## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>아키텍처: 온-프레미스 Windows Server 컴퓨터나 Azure VM 파일 또는 폴더의 직접 백업
 

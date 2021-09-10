@@ -6,15 +6,15 @@ author: kromerm
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 08/25/2021
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 314c52384910728c0250101e72501de0ae0b89a1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 46a94faaf3159f93cce34f2d6816185af62f286f
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555005"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122966898"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Azure Synapse Analytics와 Azure Data Factory의 데이터 통합
 
@@ -37,7 +37,6 @@ Azure Synapse Analytics에서 Synapse 파이프라인 및 데이터 흐름과 �
 | **GIT 리포지토리 통합** | Git 통합. | ✓ | ✓ |
 | **Monitoring**           | 데이터 흐름에 대한 Spark 작업 모니터링 | ✗ | ✓<br><small>*Synapse Spark 풀 활용* |
 |                          | Azure Monitor와의 통합 | ✓ | ✗ |
-| **계보** | Purview에 파이프라인 계보 데이터 게시 지원  | ✓ | ✗ |  
 
 > [!Note]
 > **TTL(Time to Live)** 은 데이터 흐름 실행 후 일정 기간 동안 Spark 클러스터의 *준비 상태를 유지* 할 수 있도록 하는 Azure Integration Runtime 설정입니다.

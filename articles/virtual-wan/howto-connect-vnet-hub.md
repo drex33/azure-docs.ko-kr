@@ -8,16 +8,20 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: f67feb63bf5dcbe14ef6e7adc892bea59ae5ecc9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0a8e5af0d918058c8bada3baafbabe4fe669c2c5
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529014"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822709"
 ---
 # <a name="connect-a-virtual-network-to-a-virtual-wan-hub"></a>가상 네트워크를 Virtual WAN 허브에 연결
 
 이 문서는 가상 네트워크를 가상 허브에 연결하는 데 도움이 됩니다. 연결하려는 각 VNet에 대해 이 단계를 반복합니다.
+
+> [!NOTE]
+> 가상 네트워크는 한 번에 하나의 가상 허브에만 연결할 수 있습니다.
+> 
 
 ## <a name="add-a-connection"></a>연결 추가
 

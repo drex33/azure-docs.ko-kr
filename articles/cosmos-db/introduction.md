@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 06/04/2021
-ms.openlocfilehash: 6c55b2e5fbaadec239c1818d1bbe47443e797ddf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/26/2021
+ms.openlocfilehash: ffd59ebcac1779c43222ea9a006888edd634bafa
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725461"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123035912"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -84,6 +84,9 @@ Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://a
 - [Azure Cosmos DB Gremlin API 시작](create-graph-dotnet.md)
 - [Azure Cosmos DB Table API 시작](table/create-table-dotnet.md)
 - [Azure Cosmos DB를 사용한 차세대 앱 개발에 대한 백서](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
+- Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요?
+    - 기존 데이터베이스 클러스터의 vcore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
 
 > [!div class="nextstepaction"]
 > [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/)

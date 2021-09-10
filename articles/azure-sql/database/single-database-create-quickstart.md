@@ -11,22 +11,22 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/27/2021
-ms.openlocfilehash: baf181c90b4bc899f682cbfea28d1998f7b2117a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8f9fa57a160871ba88b080ac7599e1781202fb84
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722889"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123306249"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>빠른 시작: Azure SQL Database 단일 데이터베이스 만들기
 
 이 빠른 시작에서는 Azure Portal, PowerShell 스크립트 또는 Azure CLI 스크립트를 사용하여 Azure SQL Database에서 [단일 데이터베이스](single-database-overview.md)를 만듭니다. 그런 다음, Azure Portal에서 **쿼리 편집기** 를 사용하여 데이터베이스를 쿼리합니다.
 
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성화된 Azure 구독. 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
-- 선택한 생성 방법에 따라 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli-windows)가 필요할 수도 있습니다. 
+- 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-a-single-database"></a>단일 데이터베이스 만들기
 
@@ -160,6 +160,47 @@ az sql db create \
     --capacity 2
 ```
 
+# <a name="azure-cli-sql-up"></a>[Azure CLI(sql up)](#tab/azure-cli-sql-up)
+
+## <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
+
+Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
+
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com](https://shell.azure.com)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, **Enter** 키를 눌러 실행합니다.
+
+## <a name="create-a-database-and-resources"></a>데이터베이스 및 리소스 만들기
+
+[az sql up](/cli/azure/sql#az_sql_up) 명령은 데이터베이스 만들기 프로세스를 간소화합니다. 이를 통해 단일 명령으로 데이터베이스 및 모든 관련 리소스를 만들 수 있습니다. 여기에는 리소스 그룹, 서버 이름, 서버 위치, 데이터베이스 이름 및 로그인 정보가 포함됩니다. 데이터베이스는 범용, 프로비저닝, Gen5, 2개 vCore의 기본 가격 책정 계층으로 만들어집니다. 
+
+이 명령은 즉시 사용할 수 있도록 Azure SQL Database에 대한 [논리 서버](logical-servers.md)를 만들고 구성합니다. 데이터베이스를 만드는 동안 더 세분화된 리소스 제어를 위해 이 문서의 표준 Azure CLI 명령을 사용합니다.
+
+> [!NOTE]
+> `az sql up` 명령을 처음 실행할 때 Azure CLI는 `db-up` 확장을 설치하라는 메시지를 표시합니다. 이 확장은 현재 미리 보기로 제공됩니다. 계속하려면 설치를 수락합니다. 확장에 대한 자세한 내용은 [Azure CLI에서 확장 사용](/cli/azure/azure-cli-extensions-overview)을 참조하세요.
+
+1. `az sql up` 명령을 실행합니다. `--server-name`과 같은 필수 매개 변수가 사용되지 않는 경우 해당 리소스는 임의의 이름과 로그인 정보가 할당되어 만들어집니다.
+
+    ```azurecli-interactive
+    az sql up \
+        --resource-group $resourceGroupName \
+        --location $location \
+        --server-name $serverName \
+        --database-name mySampleDatabase \
+        --admin-user $adminlogin \
+        --admin-password $password
+    ```
+
+2.  서버 방화벽 규칙이 자동으로 만들어집니다. 서버가 IP 주소를 거부하는 경우 `az sql server firewall-rule create` 명령을 사용하여 새 방화벽 규칙을 만듭니다.
+
+    ```azurecli-interactive
+    az sql server firewall-rule create \
+        --resource-group $resourceGroupName \
+        --server $serverName \
+        -n AllowYourIp \
+        --start-ip-address $startip \
+        --end-ip-address $endip
+    ```
+
+3. 필요한 모든 리소스가 만들어지고 데이터베이스가 쿼리할 준비가 되었습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -294,6 +335,14 @@ Azure Portal을 사용하여 **myResourceGroup** 및 모든 해당 리소스를 
 1. **리소스 그룹 이름 입력** 에 *myResourceGroup* 을 입력한 다음, **삭제** 를 선택합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+리소스 그룹 및 모든 해당 리소스를 삭제하려면 리소스 그룹 이름을 사용하여 다음 Azure CLI 명령을 실행합니다.
+
+```azurecli-interactive
+az group delete --name $resourceGroupName
+```
+
+### <a name="azure-cli-sql-up"></a>[Azure CLI(sql up)](#tab/azure-cli-sql-up)
 
 리소스 그룹 및 모든 해당 리소스를 삭제하려면 리소스 그룹 이름을 사용하여 다음 Azure CLI 명령을 실행합니다.
 

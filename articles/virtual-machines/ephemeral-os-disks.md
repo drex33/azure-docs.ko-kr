@@ -9,14 +9,16 @@ ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3237985389b8248781ad6662af895cf5cdf0dfc6
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: b37f88d79e0b5abdacf7ada31badc57e7e666b03
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663296"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691106"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Azure VM을 위한 임시 OS 디스크
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 임시 OS 디스크는 로컬 가상 머신(VM) 스토리지에 생성되고 원격 Azure Storage에 저장되지 않습니다. 임시 OS 디스크는 애플리케이션이 개별 VM 오류에 대해서는 내성이 높아도 VM 배포 시간 또는 개별 VM 인스턴스의 이미지 다시 설치에 더 큰 영향을 받는 상태 비저장 워크로드에 효과적입니다. 임시 OS 디스크를 사용하면 OS 디스크에 대한 읽기/쓰기 대기 시간이 단축되고 VM 이미지로 다시 설치가 더 빨라집니다. 
  

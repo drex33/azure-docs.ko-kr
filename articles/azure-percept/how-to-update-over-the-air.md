@@ -1,5 +1,5 @@
 ---
-title: OTA(무선)로 Azure Percept DK 업데이트
+title: OTA(무선) 업데이트를 사용하여 Azure Percept DK 업데이트
 description: Azure Percept DK에 OTA(무선) 업데이트를 받는 방법에 대해 알아봅니다.
 author: mimcco
 ms.author: mimcco
@@ -7,14 +7,14 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: fc8e3e42e75eacd1c5bc3312b7adf6c8a8150f3c
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: c5045aed59be4c8903672691241b68f69e353e13
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684346"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528580"
 ---
-# <a name="update-your-azure-percept-dk-over-the-air-ota"></a>OTA(무선)로 Azure Percept DK 업데이트
+# <a name="update-your-azure-percept-dk-using-over-the-air-ota-updates"></a>OTA(무선) 업데이트를 사용하여 Azure Percept DK 업데이트
 
 이 가이드에 따라 IoT Hub용 디바이스 업데이트를 사용하여 Azure Percept DK OTA(무선)의 통신 업체 보드의 OS 및 펌웨어를 업데이트하는 방법을 알아봅니다.
 

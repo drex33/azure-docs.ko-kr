@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d84756a2ae4f8897c42e1846e3a91dbb9f7ad7e1
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: f019fdc64ca30954017afc34267dcef998cf5fb8
+ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257044"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112198839"
 ---
 # <a name="set-up-a-profile-editing-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 프로필 편집 흐름 설정
 
@@ -48,9 +48,14 @@ ms.locfileid: "107257044"
 1. **사용자 흐름 만들기** 탭에서 **프로필 편집** 사용자 흐름을 선택합니다. 
 1. **버전 선택** 아래에서 **추천** 을 선택한 다음, **만들기** 를 선택합니다.
 1. 사용자 흐름에 대한 **이름** 을 입력합니다. 예를 들어 *profileediting1* 과 같습니다.
-1. **ID 공급자** 에 대해 **메일 로그인** 을 선택합니다.
-1. **사용자 특성** 으로 고객이 프로필에서 편집할 수 있도록 하려는 특성을 선택합니다. 예를 들어 **자세히 보기** 를 선택한 다음, **표시 이름** 및 **작업 제목** 에 대한 특성과 클레임을 모두 선택합니다. **확인** 을 클릭합니다.
-1. **만들기** 를 클릭하여 사용자 흐름을 추가합니다. 접두사 *B2C_1* 이 이름을 자동으로 추가됩니다.
+1. **ID 공급자** 에서 하나 이상의 ID 공급자를 선택합니다.
+
+   * **로컬 계정** 에서 **메일 로그인**, **사용자 ID 로그인**, **전화 로그인**, **전화/메일 로그인** 또는 **사용자 ID/메일 로그인** 또는 **없음** 중 하나를 선택합니다. [자세히 알아보기](sign-in-options.md).
+   * **소셜 ID 공급자** 에서 설정한 외부 소셜 또는 엔터프라이즈 ID 공급자 주 하나를 선택합니다. [자세히 알아보기](add-identity-provider.md).
+1. **다단계 인증** 에서 사용자가 두 번째 인증 방법으로 ID를 확인하도록 하려면 방법 유형 및 MFA(다단계 인증)를 적용할 시기를 선택해야 합니다. [자세히 알아보기](multi-factor-authentication.md).
+1. **조건부 액세스** 에서 Azure AD B2C 테넌트의 조건부 액세스 정책을 구성했고 이 사용자 흐름에 대해 조건부 액세스 정책을 사용하도록 설정하려면 **조건부 액세스 정책 적용** 확인란을 선택합니다. 정책 이름은 지정하지 않아도 됩니다. [자세히 알아보기](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. **사용자 특성** 에서는 고객이 프로필에서 편집할 수 있도록 하려는 특성을 선택합니다. 전체 값 목록에서 **자세히 표시** 를 선택하고 값, **확인** 을 차례로 선택합니다.
+1. **만들기** 를 선택하여 사용자 흐름을 추가합니다. 접두사 *B2C_1* 이 이름을 자동으로 추가됩니다.
 
 ### <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
@@ -65,7 +70,7 @@ ms.locfileid: "107257044"
 
 ## <a name="create-a-profile-editing-policy"></a>프로필 편집 정책 만들기
 
-사용자 지정 정책은 사용자 경험을 정의하기 위해 Azure AD B2C 테넌트에 업로드하는 XML 파일 집합입니다. 당사는 등록 및 로그인, 암호 재설정 및 프로필 편집 정책 등 미리 빌드된 몇 가지 정책으로 시작 팩을 제공합니다. 자세한 내용은 [Azure AD B2C에서 사용자 지정 정책 시작](tutorial-create-user-flows.md?pivots=b2c-custom-policy)을 참조하세요.
+사용자 지정 정책은 사용자 경험을 정의하기 위해 Azure AD B2C 테넌트에 업로드하는 XML 파일 집합입니다. 당사는 가입 및 로그인, 암호 재설정 및 프로필 편집 정책 등 미리 빌드된 몇 가지 정책으로 시작 팩을 제공합니다. 자세한 내용은 [Azure AD B2C에서 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)를 참조하세요.
 
 ::: zone-end
 

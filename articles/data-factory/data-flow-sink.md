@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/24/2021
-ms.openlocfilehash: 39c8ed3f8d8b11839964ac376ac35badd6546411
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 07/27/2021
+ms.openlocfilehash: e74e4f6eca483a9d250cd3ade4687f6279f6f8af
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824627"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122539018"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 싱크 변환
 

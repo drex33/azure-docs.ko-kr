@@ -4,16 +4,16 @@ description: Azure Cosmos DB는 현재 정기적 백업 모드에서 지속적�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/26/2021
+ms.date: 08/17/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
-ms.openlocfilehash: f9708a9287ee8ff40de6044249e35ad26b938316
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 286caa42fd095a5a273c164d860154e88bc38748
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039309"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122568054"
 ---
 # <a name="migrate-an-azure-cosmos-db-account-from-periodic-to-continuous-backup-mode"></a>정기적 백업 모드에서 지속적인 백업 모드로 Azure Cosmos DB 계정 마이그레이션
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -148,7 +148,7 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 마이그레이션이 완료된 후 계정을 복원할 수 있습니다. 마이그레이션이 오후 1시(PST)에 완료되는 경우 오후 1시(PST)부터 지정 시간 복원을 수행할 수 있습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 #### <a name="does-the-migration-only-happen-at-the-account-level"></a>마이그레이션은 계정 수준에서만 발생하나요?
 예.
@@ -200,7 +200,3 @@ t1 이전 시간으로 복원하려면 일반적으로 정기적 백업 계정�
 * [지속적인 백업 모드 리소스 모델](continuous-backup-restore-resource-model.md)
 
 * [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli) 또는 [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template)를 사용하여 계정을 복원합니다.
-
-Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
-   * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어 보세요. 
-   * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

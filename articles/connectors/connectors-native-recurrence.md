@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 3749a7080bf17c020b48ae3ebc3cff3aa998eeef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ade5e44e7b43e30447a31dcc138a2514771fe21
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382296"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114443680"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Azure Logic Apps의 되풀이 트리거를 사용하여 반복적인 작업 및 워크플로를 생성, 예약 및 실행
 
@@ -59,12 +59,12 @@ ms.locfileid: "100382296"
    ||||||
 
    > [!IMPORTANT]
-   > 되풀이에서 특정 [시작 날짜 및 시간](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time)을 지정하지 않는 경우에는 트리거의 되풀이 설정에도 불구하고 논리 앱을 저장하거나 배포할 때 첫 번째 되풀이가 즉시 실행됩니다. 이 동작을 방지하려면 첫 번째 되풀이를 실행할 시작 날짜 및 시간을 제공하세요.
+   > 되풀이에서 특정 [시작 날짜 및 시간](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time)을 지정하지 않는 경우에는 트리거의 되풀이 설정에도 불구하고 논리 앱을 저장하거나 배포할 때 첫 번째 되풀이가 즉시 실행됩니다. 이 동작을 방지하려면 첫 번째 되풀이를 실행할 시작 날짜와 시간을 제공합니다.
    >
-   > 되풀이에서 이후 되풀이를 실행할 특정 시간과 같은 다른 고급 일정 옵션을 지정하지 않는 경우 해당 되풀이는 마지막 실행 시간을 기준으로 합니다. 결과적으로, 해당 되풀이의 시작 시간은 스토리지 호출 중의 대기 시간과 같은 요소로 인해 차이가 발생할 수 있습니다. 
+   > 되풀이에서 이후 되풀이를 실행하는 특정 시간과 같은 기타 고급 일정 옵션을 지정하지 않는 경우 해당 되풀이는 마지막 실행 시간을 기준으로 합니다. 결과적으로, 해당 되풀이에 대한 시작 시간은 스토리지 호출 중의 대기 시간과 같은 요소로 인해 드리프트될 수 있습니다. 
    > 논리 앱이 되풀이를 누락하지 않도록 하려면, 특히 빈도가 며칠 이상이면 다음 옵션을 시도해 보세요.
    > 
-   > * **시간 선택** 및 **분 선택** 이라는 속성을 사용하여 이후 되풀이를 실행할 시작 날짜 및 시간을 지정합니다. 이들 속성은 **일** 및 **주** 빈도로만 사용할 수 있습니다.
+   > * **일** 및 **주** 빈도에 대해서만 사용할 수 있는 **해당 시간에 대하여** 와 **해당 분에 대하여** 로 명명된 속성을 사용하여 되풀이의 시작 날짜와 시간 및 후속 되풀이를 실행할 특정 시간을 지정합니다.
    > 
    > * 반복 트리거가 아니라 [슬라이딩 윈도우 트리거](../connectors/connectors-native-sliding-window.md)를 사용합니다.
 
@@ -122,6 +122,23 @@ JSON을 사용하는 논리 앱의 기본 워크플로 정의에서 선택하는
          "timeZone": "Pacific Standard Time"
       }
    }
+}
+```
+
+다음 예에서는 트리거가 각 월의 마지막 날에 한 번만 실행 되도록 트리거 정의를 업데이트하는 방법을 보여줍니다.
+
+```json
+"triggers": {
+    "Recurrence": {
+        "recurrence": {
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "monthDays": [-1]
+            }
+        },
+        "type": "Recurrence"
+    }
 }
 ```
 

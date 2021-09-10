@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 637da84073d014effc05a25104c3233ff385b432
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 332866c49470ed47f3c3de65b03ffd07003f6d13
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752592"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530435"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -56,8 +56,10 @@ Azure Portal에서 또는 [New-AzAksCluster][new-azakscluster] 명령을 사용�
 New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 ```
 
----
+> [!NOTE]
+> 오류 "서비스 주체 clientID: 00000000-0000-0000-000000000000000을 Active Directory 테넌트 0000000-0000-0000-00000-00000-000000000000000에서 찾을 수 없음"의 경우 [추가 고려 사항](#additional-considerations)을 참조하여 `acsServicePrincipal.json` 파일을 제거하세요.
 
+---
 ## <a name="manually-create-a-service-principal"></a>수동으로 서비스 주체 만들기
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -189,6 +191,7 @@ New-AzRoleAssignment -ApplicationId <ApplicationId> -Scope <resourceScope> -Role
 
 > [!NOTE]
 > 노드 리소스 그룹에서 기여자 역할 할당을 제거한 경우, 아래 작업이 실패할 수 있습니다.
+> 시스템 관리 ID를 사용하는 클러스터에 대한 권한 부여는 채우는 데 최대 60분 정도 걸릴 수 있습니다.
 
 다음 섹션에서는 만들 필요가 있는 일반적인 위임에 대해 자세히 설명합니다.
 
@@ -251,9 +254,9 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 
 - 모든 서비스 주체는 Azure AD 애플리케이션과 연결됩니다. Kubernetes 클러스터에 대한 서비스 주체는 유효한 모든 Azure AD 애플리케이션 이름(예: *https://www.contoso.org/example* )과 연결할 수 있습니다. 애플리케이션에 대한 URL은 실제 엔드포인트일 필요가 없습니다.
 - 서비스 주체 **클라이언트 ID** 를 지정할 때 `ApplicationId` 값을 사용합니다.
 - Kubernetes 클러스터의 에이전트 및 노드 VM에서 서비스 주체 자격 증명은 `/etc/kubernetes/azure.json` 파일에 저장
-- [New-AzAksCluster][new-azakscluster] 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 머신의 `~/.azure/aksServicePrincipal.json` 파일에 기록됩니다.
-- 추가 AKS PowerShell 명령에서 특정 서비스 주체를 전달하지 않으면 `~/.azure/aksServicePrincipal.json`에 있는 기본 서비스 주체가 사용됩니다.
-- 선택에 따라 aksServicePrincipal.json 파일을 제거하고 AKS에서 새로운 서비스 주체를 만들 수도 있습니다.
+- [New-AzAksCluster][new-azakscluster] 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 머신의 `~/.azure/acsServicePrincipal.json` 파일에 기록됩니다.
+- 추가 AKS PowerShell 명령에서 특정 서비스 주체를 전달하지 않으면 `~/.azure/acsServicePrincipal.json`에 있는 기본 서비스 주체가 사용됩니다.
+- 선택에 따라 acsServicePrincipal.json 파일을 제거하고 AKS에서 새로운 서비스 주체를 만들 수도 있습니다.
 - [New-AzAksCluster][new-azakscluster]로 만든 AKS 클러스터를 삭제하는 경우 자동으로 생성된 서비스 주체는 삭제되지 않습니다.
     - 서비스 주체를 삭제하려면 *ServicePrincipalProfile.ClientId* 클러스터를 쿼리한 다음, [Remove-AzADServicePrincipal][remove-azadserviceprincipal]로 삭제합니다. 다음 리소스 그룹과 클러스터 이름을 고유한 값으로 바꿉니다.
 

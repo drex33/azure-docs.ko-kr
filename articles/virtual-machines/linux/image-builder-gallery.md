@@ -8,14 +8,16 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: 9c3af46cbb3eb669aa864f5d6b1fa95c82cf8e1b
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: ead4462c6dcff231b6127830ca24732bd7e3ef45
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113596518"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769096"
 ---
-# <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Linux 이미지를 만들어 공유 이미지 갤러리에 배포 
+# <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Linux 이미지를 만들어 공유 이미지 갤러리에 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합
 
 이 문서에서는 Azure Image Builder 및 Azure CLI를 사용하여 [Shared Image Gallery](../shared-image-galleries.md)에서 이미지 버전을 만든 다음, 전 세계에 이미지를 배포하는 방법을 보여 줍니다. [Azure PowerShell](../windows/image-builder-gallery.md)를 사용하여 이 작업을 수행할 수도 있습니다.
 
@@ -70,10 +72,10 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-구독 ID에 대한 변수를 만듭니다. `az account show | grep id`를 사용하여 만들 수 있습니다.
+구독 ID에 대한 변수를 만듭니다.
 
 ```azurecli-interactive
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 리소스 그룹을 만듭니다.
@@ -91,7 +93,7 @@ idenityName=aibBuiUserId$(date +'%s')
 az identity create -g $sigResourceGroup -n $idenityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 32757fef131c5e443350f032c0ac987d7f491396
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86fa4eb83592d5c9927139c096a60c2ebc4efbc0
+ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864315"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113552085"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 스토리지 계정 추가
 
@@ -21,7 +21,7 @@ ms.locfileid: "104864315"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* HDInsight의 Hadoop 클러스터. [Linux에서 HDInsight 시작](./hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * 스토리지 계정 이름 및 키. [스토리지 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조하세요.
 * PowerShell을 사용하는 경우 AZ 모듈이 필요합니다.  [Azure PowerShell 개요](/powershell/azure/)를 참조하세요.
 
@@ -124,12 +124,11 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 스크립트는 스토리지 계정에 대한 항목이 이미 있는지 확인하므로 스크립트 동작을 다시 실행해도 키가 업데이트되지 **않습니다**. 항목이 이미 있는 경우 변경하지 않습니다.
 
-이 문제를 해결하려면 다음을 수행합니다.  
-1. 스토리지 계정을 제거합니다.
-1. 스토리지 계정을 추가합니다.
+이 문제를 해결하려면 다음을 수행합니다.
 
-> [!IMPORTANT]  
-> 클러스터에 연결된 기본 스토리지 계정에 대한 스토리지 키 순환은 지원되지 않습니다.
+* 액세스 키를 회전하는 방법은 [스토리지 계정 액세스 키 업데이트](hdinsight-rotate-storage-keys.md)를 참조하세요.
+
+* 스토리지 계정을 제거한 다음 스토리지 계정을 다시 추가할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

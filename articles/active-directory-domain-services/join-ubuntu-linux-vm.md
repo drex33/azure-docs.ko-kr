@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: justinha
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8b6d022b9a1f3be70f69943a53754c9dd909ca99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79c3481f523efba4a88a0c559e7e1dcccbeba545
+ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619490"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112516848"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ubuntu Linux 가상 머신을 Azure Active Directory Domain Services 관리되는 도메인에 조인
 
@@ -36,6 +36,7 @@ ms.locfileid: "96619490"
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 첫 번째 자습서에서 [Azure Active Directory Domain Services 관리되는 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
 * 관리되는 도메인의 일부인 사용자 계정
+* Active Directory에서 충돌을 일으킬 수 있는 잘린 이름을 방지하기 위한 최대 15자의 고유한 Linux VM 이름
 
 ## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>Ubuntu Linux VM 만들기 및 연결
 
@@ -122,7 +123,7 @@ sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp n
 
 이제 필수 패키지를 VM에 설치하고 NTP를 구성했으므로 VM을 관리되는 도메인에 조인합니다.
 
-1. `realm discover` 명령을 사용하여 관리되는 도메인을 검색합니다. 다음 예에서는 *AADDSCONTOSO.COM* 영역을 검색합니다. 관리되는 도메인 이름을 모두 대문자로 지정합니다.
+1. `realm discover` 명령을 사용하여 관리되는 도메인을 검색합니다. 다음 예제에서는 보안영역 *AADDSCONTOSO.COM* 을 검색합니다. 관리되는 도메인 이름을 모두 대문자로 지정합니다.
 
     ```console
     sudo realm discover AADDSCONTOSO.COM
@@ -253,7 +254,7 @@ VM이 관리되는 도메인에 조인되고 인증을 위해 구성되었으면
 
 ## <a name="sign-in-to-the-vm-using-a-domain-account"></a>도메인 계정을 사용하여 VM에 로그인합니다.
 
-VM이 관리되는 도메인에 성공적으로 조인되었는지 확인하려면 도메인 사용자 계정을 사용하여 새 SSH 연결을 시작합니다. 홈 디렉터리가 만들어지고 도메인의 그룹 구성원이 적용되었는지 확인합니다.
+VM이 관리되는 도메인에 성공적으로 조인되었는지 확인하려면 도메인 사용자 계정을 사용하여 새 SSH 연결을 시작합니다. 홈 디렉터리가 생성되었고 도메인의 그룹 멤버 자격이 적용되었는지 확인합니다.
 
 1. 콘솔에서 새 SSH 연결을 만듭니다. `contosoadmin@aaddscontoso.com`과 같은 `ssh -l` 명령을 사용하는 관리되는 도메인에 속한 도메인 계정을 사용한 다음, *ubuntu.aaddscontoso.com* 과 같은 VM 주소를 입력합니다. Azure Cloud Shell을 사용하는 경우 내부 DNS 이름보다 VM의 공용 IP 주소를 사용합니다.
 

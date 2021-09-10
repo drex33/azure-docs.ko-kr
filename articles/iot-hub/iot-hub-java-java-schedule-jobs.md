@@ -2,7 +2,6 @@
 title: Azure IoT Hub(Java)를 사용하여 작업 예약 | Microsoft 문서
 description: 여러 디바이스에서 직접 메서드를 호출하여 Azure IoT Hub 작업을 예약하고 원하는 속성을 설정하는 방법을 설명합니다. Java용 Azure IoT 디바이스 SDK를 사용하여 시뮬레이션된 디바이스 앱을 구현하고 Java용 Azure IoT 서비스 SDK를 사용하여 작업을 실행하는 서비스 앱을 구현합니다.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -10,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 3e98cfc2d8c7fb8d40c8565a1c620f123ce171ff
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 8a3ae9c425ed3ef34977f443c09ffb4b88c7a497
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217842"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567357"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>작업 예약 및 브로드캐스트(Java)
 
@@ -33,7 +32,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 * 디바이스 쌍 및 속성: [쌍 디바이스 시작](iot-hub-java-java-twin-getstarted.md)
 
-* 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드](iot-hub-devguide-direct-methods.md) 및 [자습서: 직접 메서드 사용](quickstart-control-device-java.md)
+* 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드](iot-hub-devguide-direct-methods.md) 및 [빠른 시작: 직접 메서드 사용](./quickstart-control-device.md?pivots=programming-language-java)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -520,6 +519,6 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* [IoT Hub 시작](quickstart-send-telemetry-java.md) 자습서를 참조하여 디바이스에서 원격 분석을 보냅니다.
+* [IoT Hub 시작](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) 자습서를 참조하여 디바이스에서 원격 분석을 보냅니다.
 
-* [직접 메서드 사용](quickstart-control-device-java.md) 자습서를 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 디바이스 제어
+* [직접 메서드 사용](./quickstart-control-device.md?pivots=programming-language-java) 빠른 시작을 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 디바이스를 제어합니다.

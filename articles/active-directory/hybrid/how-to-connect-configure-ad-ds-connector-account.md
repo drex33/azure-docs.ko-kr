@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 52ddd2968b84f14d4873f61eec5ab94b073ebda0
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 76f765a8255f47215cb03426d139a88aa5d31544
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633941"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305143"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
@@ -36,7 +36,7 @@ Azure AD Connect 기본 설치의 경우, 필요한 모든 권한을 사용하�
 | 기능 | 사용 권한 |
 | --- | --- |
 | ms-DS-ConsistencyGuid 기능 |[디자인 개념 - ms-DS-ConsistencyGuid를 sourceAnchor로 사용](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)에 설명된 ms-DS-ConsistencyGuid 특성에 대한 읽기 및 쓰기 권한 | 
-| 암호 해시 동기화 |<li>디렉터리 변경 내용 복제</li>  <li>모든 디렉터리 변경 내용 복제 |
+| 암호 해시 동기화 |<li>디렉터리 변경 내용 복제 - 기본 읽기 전용에 필요</li>  <li>모든 디렉터리 변경 내용 복제 |
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 대한 읽기 및 쓰기 권한 |
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
 | 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/tutorial-enable-sspr-writeback.md)에 설명된 특성에 대한 읽기 및 쓰기 권한 |
@@ -146,6 +146,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 |Allow |AD DS 커넥터 계정 |모든 속성 읽기 |하위 Group 개체| 
 |Allow |AD DS 커넥터 계정 |모든 속성 읽기 |하위 User 개체| 
 |Allow |AD DS 커넥터 계정 |모든 속성 읽기 |하위 Contact 개체| 
+|허용|AD DS 커넥터 계정|디렉터리 변경 내용 복제|이 개체만(도메인 루트)|
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>MS-DS-Consistency-Guid 권한 구성 

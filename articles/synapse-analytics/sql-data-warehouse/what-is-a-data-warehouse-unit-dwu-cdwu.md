@@ -11,16 +11,16 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 3292140e786550eace9c8d5080b1b44bc411a4a5
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 749d122ead1d2458b59fc0277a74a96bb6d29ce6
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679085"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122530702"
 ---
 # <a name="data-warehouse-units-dwus-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)용 DWU(데이터 웨어하우스 단위)
 
-가격 및 성능을 최적화하기 위한 이상적인 DWU(데이터 웨어하우스 단위) 수를 선택하는 방법에 대한 권장 사항 및 단위 수를 변경하는 방법을 안내합니다.
+이 문서에는 가격 및 성능을 최적화하기 위한 이상적인 DWU(데이터 웨어하우스 단위) 수 선택 및 단위 수를 변경하는 방법에 대한 권장 사항이 포함되어 있습니다.
 
 ## <a name="what-are-data-warehouse-units"></a>데이터 웨어하우스 단위란?
 
@@ -51,7 +51,7 @@ SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 �
 SLO(서비스 수준 목표)는 전용 SQL 풀(이전의 SQL DW)의 비용 및 성능 수준을 결정하는 스케일링 성능 설정입니다. Gen2 전용 SQL 풀(이전의 SQL DW)의 서비스 수준은 DWU(데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c).
 
 > [!NOTE]
-> 전용 SQL 풀(이전의 SQL DW) Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 스케일링 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+> 전용 SQL 풀(이전의 SQL DW) Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 스케일링 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](upgrade-to-latest-generation.md)를 참조하세요.
 
 T-SQL에서 SERVICE_OBJECTIVE 설정은 전용 SQL 풀(이전의 SQL DW)의 서비스 수준 및 성능 계층을 결정합니다.
 
@@ -72,11 +72,11 @@ CREATE DATABASE mySQLDW
 
 DWU 및 cDWU 모두 컴퓨팅을 확장 또는 축소할 수 있고 데이터 웨어하우스를 사용할 필요가 없는 경우 컴퓨팅을 일시 중지할 수 있습니다. 이러한 작업은 모두 주문형 작업입니다. Gen2는 컴퓨팅 노드에서 로컬 디스크 기반 캐시를 사용하여 성능을 향상시킵니다. 시스템의 크기를 조정하거나 시스템을 일시 중지할 경우 캐시가 무효화되므로 최적의 성능을 얻으려면 캐시 준비 시간이 필요합니다.
 
-각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
+각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../azure-sql/database/service-tiers-dtu.md) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
 
 ## <a name="capacity-limits"></a>용량 제한
 
-각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../azure-sql/database/service-tiers-dtu.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management)을 참조하세요.
+각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../azure-sql/database/service-tiers-dtu.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>필요한 데이터 웨어하우스 단위
 
@@ -141,7 +141,7 @@ DWU를 변경하려면 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqlda
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-자세한 내용은 [전용 SQL 풀(이전의 SQL DW)용 PowerShell cmdlet](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+자세한 내용은 [전용 SQL 풀(이전의 SQL DW)용 PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)을 참조하세요.
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -173,7 +173,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-자세한 REST API 예제는 [전용 SQL 풀(이전의 SQL DW)용 REST API](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+자세한 REST API 예제는 [전용 SQL 풀(이전의 SQL DW)용 REST API](sql-data-warehouse-manage-compute-rest-api.md)를 참조하세요.
 
 ## <a name="check-status-of-dwu-changes"></a>DWU 변경 상태 확인
 

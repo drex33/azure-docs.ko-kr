@@ -7,15 +7,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 08/11/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 93ad9fc33f3faf599d442a922f18d76e838f82c0
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 4492824c77a8a97810c5849c221c400560db4bad
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285739"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535911"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>클래식 가상 네트워크 모델에서 Resource Manager로 Azure Active Directory Domain Services 마이그레이션
 
@@ -24,7 +24,7 @@ Azure AD DS(Azure Active Directory Domain Services)는 현재 클래식 가상 �
 이 문서에서는 마이그레이션 시 고려할 사항을 설명한 다음, 기존 관리되는 도메인을 성공적으로 마이그레이션하기 위해 필요한 단계를 설명합니다. 이점에 대한 내용은 [클래식 배포 모델에서 Azure AD DS의 Resource Manager 배포 모델로 마이그레이션하면 좋은 점][migration-benefits]을 참조하세요.
 
 > [!NOTE]
-> 2017년에 Azure AD Domain Services를 Azure Resource Manager 네트워크에 호스트할 수 있게 되었습니다. 그 후로 Azure Resource Manager의 최신 기능을 사용하여 보다 안전한 서비스를 구축할 수 있었습니다. Azure Resource Manager 배포가 클래식 배포를 완전히 대체하므로 Azure AD DS 클래식 가상 네트워크 배포는 2023년 3월 1일에 사용 중지됩니다.
+> 2017년에 Azure AD Domain Services를 Azure Resource Manager 네트워크에 호스트할 수 있게 되었습니다. 그 후로 Azure Resource Manager의 최신 기능을 사용하여 더욱 안전한 서비스를 구축할 수 있었습니다. Azure Resource Manager 배포가 클래식 배포를 완전히 대체하므로 Azure AD DS 클래식 가상 네트워크 배포는 2023년 3월 1일에 사용 중지됩니다.
 >
 > 자세한 내용은 [공식 사용 중단 알림](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)을 참조하세요.
 
@@ -154,7 +154,7 @@ Resource Manager 배포 모델 및 가상 네트워크로의 마이그레이션�
 
 | 단계    | 수행 방법  | 예상 시간  | 가동 중지 시간  | 롤백/복원 |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [1단계 - 새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure Portal | 15분 | 가동 중지 시간 없음 | 해당 없음 |
+| [1단계 - 새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure portal | 15분 | 가동 중지 시간 없음 | 해당 없음 |
 | [2단계 - 마이그레이션할 관리되는 도메인 준비](#prepare-the-managed-domain-for-migration) | PowerShell | 평균적으로 15~30분 | 이 명령이 완료된 후 Azure AD DS의 가동 중지 시간이 시작됩니다. | 롤백 및 복원을 사용할 수 있습니다. |
 | [3단계 - 관리되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 평균적으로 1~3시간 | 이 명령이 완료되면 하나의 도메인 컨트롤러를 사용할 수 있습니다. | 이 명령이 실패하면 롤백(셀프 서비스) 및 복원을 사용할 수 있습니다. |
 | [4단계 - 복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1시간 이상 | 두 개의 도메인 컨트롤러가 모두 사용 가능하고 정상적으로 작동하며, 가동 중지 시간이 종료됩니다. | 해당 없음. 첫 번째 VM이 성공적으로 마이그레이션되면 롤백 또는 복원 옵션이 없습니다. |
@@ -229,7 +229,7 @@ Azure PowerShell은 마이그레이션할 관리되는 도메인을 준비하는
 
 관리되는 도메인을 준비하고 백업한 후에는 도메인을 마이그레이션할 수 있습니다. 이 단계에서는 Resource Manager 배포 모델을 사용하여 Azure AD DS 도메인 컨트롤러 VM을 다시 만듭니다. 이 단계를 완료하는 데 1~3시간이 걸릴 수 있습니다.
 
-*-Commit* 매개 변수를 사용하여 `Migrate-Aadds` cmdlet을 실행합니다. 이전 섹션에서 준비한 관리되는 도메인의 *-ManagedDomainFqdn*(예: *aaddscontoso.com*)을 입력합니다.
+*-Commit* 매개 변수를 사용하여 `Migrate-Aadds` cmdlet을 실행합니다. *aaddscontoso.com* 와 같은 이전 섹션에서 준비한 관리되는 도메인의 *-ManagedDomainFqdn* 을 입력합니다.
 
 Azure AD DS를 마이그레이션할 가상 네트워크를 포함하고 있는 대상 리소스 그룹(예: *myResourceGroup*)을 지정합니다. 대상 가상 네트워크(예: *myVnet*) 및 서브넷(*DomainServices*)을 입력합니다.
 

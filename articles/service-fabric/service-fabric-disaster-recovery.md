@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8d99b4d1fbf227d850de387b7ca24dcd3fd40646
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f10ce3203eb63f7622f41e6838289129026ca73
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791158"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698280"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 재해 복구
 고가용성 전달의 중요한 부분은 서비스가 다양한 유형의 오류를 전부 해결할 수 있는지 확인하는 것입니다. 계획되지 않았으며 사용자 통제하에 있지 않은 오류의 경우 특히 이러한 과정이 중요합니다. 
@@ -186,14 +186,15 @@ Azure에서 Service Fabric을 실행하는 경우 장애 도메인과 업그레�
 
 Azure에서 실행 중인 클러스터의 경우 [Azure 상태 페이지][azure-status-dashboard]의 중단에 대한 업데이트를 확인할 수 있습니다. 가능성이 매우 낮지만 물리적 데이터 센터가 부분적으로나 완전히 소멸하는 이벤트가 발생하면 해당 데이터 센터에서 호스트되는 Service Fabric 클러스터 또는 내부 서비스가 손실될 수 있습니다. 이 손실에는 해당 데이터 센터 또는 하위 지역 외부에서 백업되지 않은 모든 상태가 포함됩니다.
 
-단일 데이터 센터 또는 하위 지역의 영구적이거나 지속적인 오류를 해결하는 데에는 2가지 다른 전략이 있습니다. 
+단일 데이터 센터 또는 하위 지역의 영구적이거나 지속적인 오류를 해결하는 데에는 몇 가지 다른 전략이 있습니다. 
 
 - 별도의 Service Fabric 클러스터를 여러 하위 지역에서 실행하고 해당 환경 사이에서 몇 가지 장애 조치 및 장애 복구(failback) 메커니즘을 활용합니다. 이러한 종류의 다중 클러스터 활성/활성 또는 활성/수동 모델에는 추가적인 관리 및 연산 코드가 필요합니다. 이뿐 아니라 이 모델을 사용하려면 하나의 데이터 센터 또는 하위 지역에서 오류가 발생했을 때 다른 데이터 센터나 하위 지역에서 서비스를 사용할 수 있도록 데이터 센터 또는 하위 지역 내의 서비스에 대한 백업 조정이 필요합니다. 
-- 여러 데이터 센터 또는 하위 지역에 걸쳐 있는 단일 Service Fabric 클러스터를 실행합니다. 이 전략을 활용하기 위해 지원되는 최소 구성은 데이터 센터 또는 하위 지역 3개입니다. 권장되는 하위 지역 또는 데이터 센터 수는 5개입니다. 
+- 여러 데이터 센터에 걸쳐 있는 단일 Service Fabric 클러스터를 실행합니다. 이 전략을 활용하기 위해 지원되는 최소 구성은 데이터 센터 3개입니다. 자세한 내용은 [가용성 영역에 Service Fabric 클러스터 배포](service-fabric-cross-availability-zones.md)를 참조하세요.
   
-  이 모델에는 좀 더 복잡한 클러스터 토폴로지가 필요합니다. 하지만 이 모델의 장점은 데이터 센터 또는 하위 지역의 오류가 재해에서 일반 오류로 변환된다는 것입니다. 이러한 오류는 단일 하위 지역 내에서 클러스터에 작동하는 메커니즘에 의해 처리될 수 있습니다. 장애 도메인, 업그레이드 도메인, Service Fabric 배치 규칙은 일반 오류를 허용할 수 있도록 워크로드를 분산시킵니다. 
+  이 모델에는 추가 설정이 필요합니다. 하지만 이 모델의 장점은 데이터 센터의 오류가 재해에서 일반 오류로 변환된다는 것입니다. 이러한 오류는 단일 하위 지역 내에서 클러스터에 작동하는 메커니즘에 의해 처리될 수 있습니다. 장애 도메인, 업그레이드 도메인, Service Fabric 배치 규칙은 일반 오류를 허용할 수 있도록 워크로드를 분산시킵니다.
   
   이 유형의 클러스터에서 서비스를 작동하는 데 도움이 되는 정책에 대한 자세한 내용은 [Service Fabric 서비스에 대한 배치 정책](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)을 참조하세요.
+- 독립 실행형 모델을 사용하여 여러 지역에 걸쳐 있는 단일 Service Fabric 클러스터를 실행합니다. 권장되는 지역 수는 3개입니다. 독립 실행형 Service Fabric 설정에 대한 자세한 내용은 [독립형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)를 참조하세요.
 
 ### <a name="random-failures-that-lead-to-cluster-failures"></a>클러스터 오류로 발전하는 임의 오류
 Service Fabric에는 ‘시드 노드’라는 개념이 있습니다. 이러한 노드는 기본 클러스터의 가용성을 유지 관리하는 노드입니다. 

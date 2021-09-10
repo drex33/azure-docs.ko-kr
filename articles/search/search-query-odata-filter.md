@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be51077c5aad6056cf4e28656c0552bc052a7ead
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88934857"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122829913"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $filter 구문
 
@@ -242,6 +242,12 @@ Azure Cognitive Search로 보낼 수 있는 필터 식의 크기 및 복잡성�
 
 ```odata-filter-expr
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
+```
+
+설명 필드에서 문자 "lux"로 시작하는 단어가 있는 문서를 찾습니다. 이 쿼리는 `search.ismatch`와 함께 [접두사 검색](query-simple-syntax.md#prefix-queries)을 사용합니다.
+
+```odata-filter-expr
+    $filter=search.ismatch('lux*', 'Description')
 ```
 
 ## <a name="next-steps"></a>다음 단계  

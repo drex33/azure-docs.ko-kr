@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: b85614bce6ddaee98a271e3bf7f34fd3e0301580
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: 01152d1e422088503621e684f8908182c5caa3a4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112369432"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691679"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>유지 관리 제어를 통한 플랫폼 업데이트 관리 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 유지 관리 제어를 사용하여 다시 부팅할 필요가 없는 플랫폼 업데이트를 관리합니다. Azure는 안정성, 성능, 보안을 향상시키거나 새로운 기능을 시작하기 위해 인프라를 자주 업데이트합니다. 대부분의 업데이트는 사용자에게 투명합니다. 게임, 미디어 스트리밍 및 금융 트랜잭션과 같은 일부 중요한 워크로드에서는 유지 관리를 위해 VM이 몇 초 동안 멈추거나 연결이 끊어지는 것을 허용할 수 없습니다. 유지 관리 제어는 플랫폼 업데이트를 기다렸다가 35일 롤링 기간 내에 적용할 수 있는 옵션을 제공합니다. 
 

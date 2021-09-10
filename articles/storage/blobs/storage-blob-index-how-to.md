@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 682f855232ef021b10d148b3ede71a35dbaee760
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 0814f2896ec429650668a08590ffe7165fb120a3
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867654"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112282028"
 ---
 # <a name="use-blob-index-tags-to-manage-and-find-data-on-azure-blob-storage"></a>Blob 인덱스 태그를 사용하여 Azure Blob Storage 데이터 관리 및 찾기
 
@@ -191,9 +191,6 @@ static async Task BlobIndexTagsExample()
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Blob 인덱스 태그를 사용하여 데이터 필터링 및 찾기
 
 이 작업은 [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 또는 사용자 지정 Azure 역할을 통해 `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [Azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) 사용 권한을 받은 보안 주체가 수행할 수 있습니다.
-
-> [!NOTE]
-> 인덱스 태그를 사용하여 이전 버전을 검색할 수 없습니다. 이전 버전의 태그는 Blob 인덱스 엔진에 전달되지 않습니다. 자세한 내용은 [조건 및 알려진 문제](storage-manage-find-blobs.md#conditions-and-known-issues)를 참조하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

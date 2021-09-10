@@ -11,16 +11,16 @@ ms.date: 08/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: fb9f90e93ed13faf64703cb511cd540f9af685ba
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9e61065e209a22d3ded08cf205350a737f7fe94f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566557"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770173"
 ---
 # <a name="configure-authentication-in-a-sample-wpf-desktop-application-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 샘플 WPF 데스크톱 애플리케이션에서 인증 구성
 
-이 문서에서는 샘플 [WPF 데스크톱](/visualstudio/designers/getting-started-with-wpf.md) 애플리케이션을 사용하여 데스크톱 앱에 Azure AD B2C(Azure Active Directory B2C) 인증을 추가하는 방법을 설명합니다.
+이 문서에서는 샘플 [WPF 데스크톱](/visualstudio/designers/getting-started-with-wpf) 애플리케이션을 사용하여 데스크톱 앱에 Azure AD B2C(Azure Active Directory B2C) 인증을 추가하는 방법을 설명합니다.
 
 ## <a name="overview"></a>개요
 
@@ -129,7 +129,7 @@ OIDC(OpenID Connect)는 애플리케이션에 사용자가 안전하게 로그�
 |`ClientId`|[2.3단계](#23-register-the-desktop-app)의 데스크톱 애플리케이션 ID입니다.|
 |`PolicySignUpSignIn`| [1단계](#step-1-configure-your-user-flow)에서 만든 등록 또는 로그인 사용자 흐름이나 사용자 지정 정책입니다.|
 |`PolicyEditProfile`|[1단계](#step-1-configure-your-user-flow)에서 만든 프로필 편집 사용자 흐름이나 사용자 지정 정책입니다.|
-|`ApiEndpoint`| (선택 사항) [3단계](#step-3-configure-the-sample-web-api)에서 만든 웹 API 엔드포인트입니다. `https://contoso.azurewebsites.net/hello`)을 입력합니다.|
+|`ApiEndpoint`| (선택 사항) [3단계](#step-3-configure-the-sample-web-api)에서 만든 웹 API 엔드포인트입니다. 예: `https://contoso.azurewebsites.net/hello`|
 | `ApiScopes` | [2.4단계](#24-grant-the-desktop-app-permissions-for-the-web-api)에서 만든 웹 API 범위입니다.| 
 
 최종 *App.xaml.cs* 파일은 다음 C# 코드와 같이 표시됩니다.
@@ -154,7 +154,7 @@ public static string ApiEndpoint = "https://contoso.azurewebsites.net/hello";
 
 ## <a name="step-6-run-and-test-the-desktop-app"></a>6단계: 데스크톱 앱 실행 및 테스트
 
-1. [NuGet 패키지를 복원](/nuget/consume-packages/package-restore.md)합니다.
+1. [NuGet 패키지를 복원](/nuget/consume-packages/package-restore)합니다.
 1. **F5** 키를 눌러 샘플을 빌드 및 실행합니다.
 1. **로그인** 을 선택합니다. 그런 다음, Azure AD B2C 로컬 또는 소셜 계정으로 등록하거나 로그인합니다.
 

@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e45240d9d1a957765dfd362bf612ae2ea93919c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eeba1c933d049e67e45204ad62d71a0eb52a930d
+ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567068"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122662434"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -178,7 +178,7 @@ Azure AD Identity Protection은 조직의 ID에 영향을 주는 잠재적 취�
 
 #### <a name="obtain-your-microsoft-365-secure-score-if-using-microsoft-365"></a>Microsoft 365 보안 점수 획득(Microsoft 365를 사용하는 경우)
 
-보안 점수는 사용하고 있는 Microsoft 365 서비스에 대한 설정 및 활동을 살펴보고 이를 Microsoft에서 설정한 기준과 비교합니다. 보안 사례와 일치하는 정도에 따라 점수를 얻을 수 있습니다. Microsoft 365 Business Standard 또는 Enterprise 구독에 대한 관리자 권한이 있는 사용자는 [https://securescore.office.com](https://securescore.office.com/)에서 보안 점수에 액세스할 수 있습니다.
+보안 점수는 사용하고 있는 Microsoft 365 서비스에 대한 설정 및 활동을 살펴보고 이를 Microsoft에서 설정한 기준과 비교합니다. 보안 사례와 일치하는 정도에 따라 점수를 얻을 수 있습니다. Microsoft 365 Business Standard 또는 Enterprise 구독에 대한 관리자 권한이 있는 사용자는 `https://securescore.office.com`에서 보안 점수에 액세스할 수 있습니다.
 
 #### <a name="review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365"></a>Microsoft 365 보안 및 규정 준수 참고 자료 검토(Microsoft 365를 사용하는 경우)
 

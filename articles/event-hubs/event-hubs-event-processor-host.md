@@ -2,14 +2,14 @@
 title: 이벤트 프로세서 호스트를 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 검사점, 임대 및 병렬 읽기 이벤트의 관리를 간소화하는 Azure Event Hubs의 이벤트 프로세서 호스트에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 08/04/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d97b446993d3f0a280c1f4fadb237726ac09228a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0e10a472c261c14fcdd3debf1caaf9f00fdeb5e0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313422"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528614"
 ---
 # <a name="event-processor-host"></a>이벤트 프로세서 호스트
 > [!NOTE]
@@ -84,6 +84,9 @@ public class SimpleEventProcessor : IEventProcessor
 - **consumerGroupName:** Event Hubs는 **$Default** 를 기본 소비자 그룹의 이름으로 사용하지만 처리의 특정 측면에 대한 소비자 그룹을 만드는 것이 좋습니다.
 - **eventHubConnectionString:** Azure Portal에서 검색할 수 있는 이벤트 허브에 대한 연결 문자열입니다. 이 연결 문자열에는 이벤트 허브에 대한 **수신** 권한이 있어야 합니다.
 - **storageConnectionString:** 내부 리소스 관리에 사용되는 스토리지 계정입니다.
+
+> [!IMPORTANT]
+> 검사점 저장소로 사용되는 스토리지 계정에서 일시 삭제 기능을 사용하도록 설정하지 마세요. 
 
 마지막으로, 소비자는 Event Hubs 서비스를 사용하여 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 등록합니다. EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하면 이벤트 처리가 시작됩니다. 등록하면 Event Hubs 서비스에 지시하여 소비자 앱에서 해당 파티션 중 일부의 이벤트를 사용하도록 예상하고 사용할 이벤트를 푸시할 때마다 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현 코드를 호출합니다. 
 

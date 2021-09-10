@@ -2,19 +2,22 @@
 title: 증분 스냅샷 만들기
 description: Azure Portal, Azure PowerShell 모듈 및 Azure Resource Manager를 사용하여 스냅샷을 만드는 방법을 비롯한 관리 디스크의 증분 스냅샷에 대해 알아봅니다.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 08/10/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 52e491c88d3483f21aa74f1a9f176246033bee3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8f00a0f69bf00c42ef120250cbc4a770fb1b7a09
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98735795"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689419"
 ---
 # <a name="create-an-incremental-snapshot-for-managed-disks"></a>관리 디스크에 대한 증분 스냅샷 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](../../includes/virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -22,10 +25,47 @@ ms.locfileid: "98735795"
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](../../includes/virtual-machines-disks-incremental-snapshots-restrictions.md)]
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Azure CLI를 사용하여 증분 스냅샷을 만들 수 있습니다. 최신 버전의 Azure CLI가 필요합니다. Azure CLI를 [설치](/cli/azure/install-azure-cli)하거나 [업데이트](/cli/azure/update-azure-cli)하는 방법을 알아보려면 다음 문서를 참조하세요.
 
-Azure PowerShell을 사용하여 증분 스냅샷을 만들 수 있습니다. 최신 버전의 Azure PowerShell이 필요합니다. 다음 명령은 이를 설치하거나 기존 설치를 최신 버전으로 업데이트합니다.
+다음 스크립트는 특정 디스크의 증분 스냅샷을 만듭니다.
+
+```azurecli
+# Declare variables
+diskName="yourDiskNameHere"
+resourceGroupName="yourResourceGroupNameHere"
+snapshotName="desiredSnapshotNameHere"
+
+# Get the disk you need to backup
+yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --output tsv)
+
+# Create the snapshot
+az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true
+```
+
+스냅샷의 `SourceResourceId` 속성을 사용하여 동일한 디스크에서 증분 스냅샷을 식별할 수 있습니다. `SourceResourceId`는 부모 디스크의 Azure Resource Manager 리소스 ID입니다.
+
+`SourceResourceId`를 사용하여 특정 디스크와 연결된 모든 스냅샷 목록을 만들 수 있습니다. `yourResourceGroupNameHere`를 값으로 바꾸고 다음 예를 사용하여 기존 증분 스냅샷을 나열할 수 있습니다.
+
+
+```azurecli
+# Declare variables and create snapshot list
+subscriptionId="yourSubscriptionId"
+resourceGroupName="yourResourceGroupNameHere"
+diskName="yourDiskNameHere"
+
+az account set --subscription $subscriptionId
+
+diskId=$(az disk show -n $diskName -g $resourceGroupName --query [id] -o tsv)
+
+az snapshot list --query "[?creationData.sourceResourceId=='$diskId' && incremental]" -g $resourceGroupName --output table
+```
+
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Azure PowerShell 모듈을 사용하여 증분 스냅샷을 만들 수 있습니다. Azure PowerShell 모듈의 최신 버전이 필요합니다. 다음 명령은 이를 설치하거나 기존 설치를 최신으로 업데이트합니다.
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
@@ -50,9 +90,10 @@ New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
 
 스냅샷의 `SourceResourceId` 및 `SourceUniqueId` 속성을 사용하여 동일한 디스크에서 증분 스냅샷을 식별할 수 있습니다. `SourceResourceId`는 부모 디스크의 Azure Resource Manager 리소스 ID입니다. `SourceUniqueId`는 디스크의 `UniqueId` 속성에서 상속된 값입니다. 디스크를 삭제한 다음 동일한 이름으로 새 디스크를 만드는 경우 `UniqueId` 속성 값이 변경됩니다.
 
-`SourceResourceId` 및 `SourceUniqueId`를 사용하여 특정 디스크와 연결된 모든 스냅샷 목록을 만들 수 있습니다. `<yourResourceGroupNameHere>`를 값으로 바꾸고 다음 예를 사용하여 기존 증분 스냅샷을 나열할 수 있습니다.
+`SourceResourceId` 및 `SourceUniqueId`를 사용하여 특정 디스크와 연결된 모든 스냅샷 목록을 만들 수 있습니다. `yourResourceGroupNameHere`를 값으로 바꾸고 다음 예를 사용하여 기존 증분 스냅샷을 나열할 수 있습니다.
 
 ```PowerShell
+$resourceGroupName = "yourResourceGroupNameHere"
 $snapshots = Get-AzSnapshot -ResourceGroupName $resourceGroupName
 
 $incrementalSnapshots = New-Object System.Collections.ArrayList

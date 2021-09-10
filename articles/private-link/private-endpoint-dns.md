@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: a01687cc518659e7efedd51749b305fc3ce50de3
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 24a3c1ed9b94459eaa1993a26ce910b3f16e5383
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568152"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293119"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 프라이빗 엔드포인트 DNS 구성
 
@@ -44,10 +44,8 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 |---|---|---|
 | Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database(Microsoft.Sql/servers) / sqlServer | privatelink.database.windows.net | database.windows.net |
+| Azure Synapse Analytics(Microsoft.Sql/servers) / sqlServer  | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
-| Azure Synapse Analytics(Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sql.azuresynapse.net | sqlondemand.azuresynapse.net |
-| Azure Synapse Analytics(Microsoft.Synapse/workspaces) / Dev  | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
-| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) / Web | privatelink.azuresynapse.net | azuresynapse.net |
 | 스토리지 계정(Microsoft.Storage/storageAccounts) / Blob(blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
 | 스토리지 계정(Microsoft Storage/storageAccounts) / 테이블(table, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
 | 스토리지 계정(Microsoft.Storage/storageAccounts) / 큐(queue, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |
@@ -59,7 +57,6 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Cosmos DB(Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
 | Azure Cosmos DB(Microsoft.AzureCosmosDB/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
 | Azure Cosmos DB(Microsoft.AzureCosmosDB/databaseAccounts) / Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
-| Azure Batch(Microsoft.Batch/batchAccounts) / 배치 계정 | privatelink.{region}.batch.azure.com | {region}.batch.azure.com |
 | Azure Database for PostgreSQL - 단일 서버(Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 | Azure Database for MySQL(Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Azure Database for MariaDB(Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
@@ -67,9 +64,9 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Kubernetes Service-Kubernetes API(Microsoft.ContainerService/managedClusters) / management | privatelink.{region}.azmk8s.io | {region}.azmk8s.io |
 | Azure Search(Microsoft.Search/searchServices)/searchService | privatelink.search.windows.net | search.windows.net |
 | Azure Container Registry(Microsoft.ContainerRegistry/registries) / 레지스트리 | privatelink.azurecr.io | azurecr.io |
-| Azure App Configuration(Microsoft.AppConfiguration/configurationStores) / configurationStores | privatelink.azconfig.io | azconfig.io |
-| Azure Backup (Microsoft.RecoveryServices/vaults) / AzureBackup | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
-| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | {region}.privatelink.siterecovery.windowsazure.com | {region}.hypervrecoverymanager.windowsazure.com |
+| Azure App Configuration(Microsoft.AppConfiguration/configurationStores) / configurationStore | privatelink.azconfig.io | azconfig.io |
+| Azure Backup(Microsoft.RecoveryServices/vaults) / 자격 증명 모음 | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
+| Azure Site Recovery(Microsoft.RecoveryServices/vaults) / 자격 증명 모음 | {region}.privatelink.siterecovery.windowsazure.com | {region}.hypervrecoverymanager.windowsazure.com |
 | Azure Event Hubs(Microsoft.EventHub/namespaces) / 네임스페이스 | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus(Microsoft.ServiceBus/namespaces) / 네임스페이스 | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure IoT Hub(Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
@@ -79,16 +76,12 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Web Apps(Microsoft.Web/sites) / 사이트 | privatelink.azurewebsites.net | azurewebsites.net |
 | Azure Machine Learning(Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net |
 | SignalR(Microsoft.SignalRService/SignalR) / signalR | privatelink.service.signalr.net | service.signalr.net |
-| Azure Monitor(Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net |
+| Azure Monitor(Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Cognitive Services(Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Azure 파일 동기화(Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.net  |  afs.azure.net  |
 | Azure Data Factory(Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
 | Azure Data Factory(Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Azure Cache for Redis(Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
-| Azure Cache for Redis Enterprise(Microsoft.Cache/RedisEnterprise)/redisCache | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
-| Azure Purview(Microsoft.Purview)| privatelink.purview.azure.com | purview.azure.com |
-| Azure Digital Twins (Microsoft.DigitalTwins) / digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
-
 
 <sup>1</sup>IoT Hub의 기본 제공 Event Hub 호환 엔드포인트에 사용합니다. 자세한 내용은 [IoT Hub의 기본 제공 엔드포인트에 대한 프라이빗 링크](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)를 참조하세요.
 
@@ -146,7 +139,7 @@ DNS는 프라이빗 엔드포인트 IP 주소를 성공적으로 확인하여 �
 > 이 구성에는 단일 프라이빗 DNS 영역이 필요합니다. 다른 가상 네트워크에 대해 동일한 이름으로 여러 영역을 만들려면 DNS 레코드를 병합하는 작업을 수동으로 수행해야 합니다.
 
 > [!IMPORTANT]
-> 다른 구독 또는 동일한 구독 내에서 허브 및 스포크 모델의 프라이빗 엔드포인트를 사용하는 경우 동일한 프라이빗 DNS 영역을 영역의 DNS 확인이 필요한 클라이언트가 포함된 모든 스포크 및 허브 가상 네트워크에 연결합니다.
+> 다른 구독의 허브 및 스포크 모델에서 프라이빗 엔드포인트를 사용하는 경우 허브에서 동일한 프라이빗 DNS 영역을 다시 사용합니다.
 
 이 시나리오에는 [허브 및 스포크](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 네트워킹 토폴로지가 있습니다. 스포크 네트워크는 프라이빗 엔드포인트를 공유합니다. 스포크 가상 네트워크는 동일한 프라이빗 DNS 영역에 연결됩니다. 
 
@@ -154,7 +147,7 @@ DNS는 프라이빗 엔드포인트 IP 주소를 성공적으로 확인하여 �
 
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>DNS 전달자를 사용하는 온-프레미스 워크로드
 
-온-프레미스 워크로드에서 프라이빗 엔드포인트의 FQDN을 확인하려면 DNS 전달자를 사용하여 Azure의 Azure 서비스 [공용 DNS 영역](#azure-services-dns-zone-configuration)을 확인합니다. [DNS 전달자](/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-forwarding)는 다른 가상 네트워크 또는 온-프레미스에서 들어오는 DNS 쿼리를 프록시할 수 있는 프라이빗 DNS 영역에 연결된 가상 네트워크에서 실행되는 가상 머신입니다. 쿼리는 Azure DNS에 대한 가상 네트워크에서 시작되어야 하므로 이 작업이 필요합니다. DNS 프록시에 대한 몇 가지 옵션은 DNS 서비스를 실행하는 Windows, DNS 서비스를 실행하는 Linux, [Azure Firewall](../firewall/dns-settings.md)입니다.
+온-프레미스 워크로드에서 프라이빗 엔드포인트의 FQDN을 확인하려면 DNS 전달자를 사용하여 Azure의 Azure 서비스 [공용 DNS 영역](#azure-services-dns-zone-configuration)을 확인합니다.
 
 다음 시나리오는 Azure에 DNS 전달자가 있는 온-프레미스 네트워크를 대상으로 합니다. 이 전달자는 서버 수준 전달자를 통해 Azure 제공 DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)에 대해 DNS 쿼리를 확인합니다. 
 

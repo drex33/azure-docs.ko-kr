@@ -9,12 +9,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 05/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c1c0754175283dd9087429586e61739c8c779e49
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 8980380fb16aadd2a5f3c8e64190bb7580d40425
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662439"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252591"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>자습서: Azure AD 애플리케이션을 사용하여 Azure AD 사용자 만들기
 
@@ -92,7 +92,7 @@ Azure AD에서 할당한 ID가 Azure SQL에 대해 제대로 작동할 수 있�
 > [!NOTE] 
 > 이 스크립트는 Azure AD `Global Administrator` 또는 `Privileged Roles Administrator` 권한으로 실행해야 합니다.
 >
-> **공개 미리 보기** 에서 Azure AD의 그룹에 `Directory Readers` 역할을 할당할 수 있습니다. 그런 다음, 그룹 소유자는 관리 ID를 이 그룹의 멤버로 추가할 수 있습니다. 그러면 `Global Administrator` 또는 `Privileged Roles Administrator`에서 `Directory Readers` 역할을 부여할 필요가 없습니다. 이 기능에 대한 자세한 내용은 [Azure SQL용 Azure Active Directory의 Directory Readers 역할](authentication-aad-directory-readers-role.md)을 참조하세요.
+> Azure AD의 그룹에 `Directory Readers` 역할을 할당할 수 있습니다. 그런 다음, 그룹 소유자는 관리 ID를 이 그룹의 멤버로 추가할 수 있습니다. 그러면 `Global Administrator` 또는 `Privileged Roles Administrator`에서 `Directory Readers` 역할을 부여할 필요가 없습니다. 이 기능에 대한 자세한 내용은 [Azure SQL용 Azure Active Directory의 Directory Readers 역할](authentication-aad-directory-readers-role.md)을 참조하세요.
 
 - `<TenantId>`를 이전에 수집한 `TenantId`로 바꿉니다.
 - `<server name>`을 SQL 논리 서버 이름으로 바꿉니다. 서버 이름이 `myserver.database.windows.net`인 경우 `<server name>`을 `myserver`로 바꿉니다.

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 08/25/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f16de49518e334f2f5e679ce24e24a262a1e231
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29e9341427b74c2395288ac85ee98d8ff44bd02e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98674946"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122968203"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML ID 공급자 기술 프로필 정의
 
@@ -167,8 +167,10 @@ SAML 어설션:
 | AuthenticationRequestExtensions | 예 | Azure AD BC와 ID 공급자 간에 동의된 선택적 프로토콜 메시지 확장 요소입니다. 확장은 XML 형식으로 표시됩니다. CDATA 요소 `<![CDATA[Your IDP metadata]]>` 내부에 XML 데이터를 추가합니다. ID 공급자의 설명서를 확인하여 확장 요소가 지원되는지 검토합니다. |
 | IncludeAuthnContextClassReferences | 예 | 인증 컨텍스트 클래스를 식별하는 하나 이상의 URI 참조를 지정합니다. 예를 들어, 사용자 이름 및 암호만으로 로그인할 수 있도록 하려면 이 값을 `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`로 설정합니다. 보호된 세션(SSL/TLS)을 통해 로그인 사용자 이름 및 암호로 로그인할 수 있도록 하려면 `PasswordProtectedTransport`를 지정합니다. 지원되는 **AuthnContextClassRef** URI에 대한 지침은 ID 공급자 설명서를 확인하세요. 여러 URI를 쉼표로 구분된 목록으로 지정합니다. |
 | IncludeKeyInfo | 예 | 바인딩이 `HTTP-POST`로 설정된 경우 SAML 인증 요청이 인증서의 공개 키를 포함하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. |
-| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md)이 기술 프로필에 포함되는지 여부를 지정합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 확인 프로그램을 사용하려는 경우 이 값을 `true`로 설정합니다. |
-|SingleLogoutEnabled| 예| 로그인 중에 기술 프로필에서 페더레이션 ID 공급자에 대한 로그아웃을 시도하는지 여부를 나타냅니다. 자세한 내용은 [Azure AD B2C 세션 로그 아웃](session-behavior.md#sign-out)을 참조하세요.  가능한 값은 `true`(기본값) 또는 `false`입니다.|
+| IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 기술 프로필에 [클레임 해결](claim-resolver-overview.md)이 포함되는지 여부를 지정합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 확인 프로그램을 사용하려는 경우 이 값을 `true`로 설정합니다. |
+|SingleLogoutEnabled| 예| 로그인 중에 기술 프로필에서 페더레이션 ID 공급자에 대한 로그아웃을 시도하는지 여부를 나타냅니다. 자세한 내용은 [Azure AD B2C 세션 로그아웃](session-behavior.md#sign-out)을 참조하세요. 가능한 값은 `true`(기본값) 또는 `false`입니다.|
+|ForceAuthN| No| SAML 인증 요청에서 ForceAuthN 값을 전달하여 외부 SAML IDP가 사용자에게 인증을 요청하는지 여부를 확인합니다. 기본값으로, Azure AD B2C 초기 로그인 시 ForceAuthN 값을 false로 설정합니다. 그 후 세션이 초기화되면 경우(OIDC에서 `prompt=login`를 사용하는 예제) ForceAuthN 값이 `true`로 설정됩니다. 아래 표시된 것처럼 메타데이터 항목을 설정하면 외부 IDP에 대한 모든 요청 값이 강제로 적용됩니다.  가능한 값은 `true` 또는 `false`입니다.|
+
 
 ## <a name="cryptographic-keys"></a>암호화 키
 

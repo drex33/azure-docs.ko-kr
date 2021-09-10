@@ -6,18 +6,18 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 07/15/2021
+ms.date: 09/01/2021
 ms.author: victorh
-ms.openlocfilehash: 0b5812b5a562b20d1e0224a038e3572767130333
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7e7f05516dd380ec6d0c8f44f887981de77942a3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114441222"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123439329"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
-![ICSA 인증](media/overview/icsa-cert-firewall-small.png)
+<!--- ![ICSA certification](media/overview/icsa-cert-firewall-small.png) --->
 
 Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 내장되어 있는 서비스 형태의 완전한 상태 저장 방화벽입니다.
 
@@ -52,7 +52,7 @@ Azure Firewall의 새로운 기능을 알아보려면 [Azure 업데이트](https
 
 Azure Firewall의 알려진 문제는 다음과 같습니다.
 
-|문제  |Description  |완화 방법  |
+|문제  |설명  |완화 방법  |
 |---------|---------|---------|
 |TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 필터링 규칙은 인터넷 바운드 트래픽에 작동하지 않습니다.|TCP/UDP 프로토콜이 아닌 프로토콜에 대한 네트워크 필터링 규칙은 공용 IP 주소에 대한 SNAT에 작동하지 않습니다. TCP/UDP 프로토콜이 아닌 프로토콜은 스포크 서브넷과 VNet 간에 지원됩니다.|Azure Firewall은 표준 Load Balancer를 사용하기 때문에 [현재 IP 프로토콜을 위한 SNAT를 지원하지 않습니다](../load-balancer/load-balancer-overview.md). 향후 릴리스에서 이 시나리오를 지원할 수 있는 옵션을 모색하고 있습니다.|
 |ICMP에 대한 PowerShell 및 CLI 지원 누락|Azure PowerShell 및 CLI는 네트워크 규칙에 유효한 프로토콜로 ICMP를 지원하지 않습니다.|여전히 포털 및 REST API를 통해 ICMP를 프로토콜로 사용할 수 있습니다. PowerShell 및 CLI에 ICMP를 조만간 추가하기 위해 노력 중입니다.|
@@ -64,7 +64,7 @@ Azure Firewall의 알려진 문제는 다음과 같습니다.
 |가용성 영역은 배포 중에만 구성할 수 있습니다.|가용성 영역은 배포 중에만 구성할 수 있습니다. 방화벽이 배포된 후에는 가용 영역을 구성할 수 없습니다.|이것은 의도적인 것입니다.|
 |인바운드 연결의 SNAT|DNAT 외에도 방화벽 공용 IP 주소(인바운드)를 통한 연결은 방화벽 개인 IP 중 하나로 SNAT됩니다. 이 요구 사항은 현재(활성/활성 NVA의 경우에도) 대칭 라우팅을 보장합니다.|HTTP/S에 대한 원래 원본을 보존하려면 [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) 헤더를 사용하는 것이 좋습니다. 예를 들어 방화벽 앞에 있는 [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) 또는 [Azure Application Gateway](../application-gateway/rewrite-http-headers-url.md)와 같은 서비스를 사용합니다. Azure Front Door의 일부로 WAF를 추가하고 방화벽에 체인을 추가할 수도 있습니다.
 |프록시 모드(포트 1433)에서만 지원되는 SQL FQDN 필터링|Azure SQL Database, Azure Synapse Analytics 및 Azure SQL Managed Instance의 경우:<br><br>SQL FQDN 필터링은 프록시 모드에서만 지원됩니다(포트 1433).<br><br>Azure SQL IaaS의 경우:<br><br>비표준 포트를 사용하는 경우 애플리케이션 규칙에서 해당 포트를 지정할 수 있습니다.|리디렉션 모드의 SQL(Azure 내에서 연결하는 경우 기본값)의 경우 대신 SQL 서비스 태그를 Azure Firewall 네트워크 규칙의 일부로 사용하여 액세스를 필터링할 수 있습니다.
-|TCP 포트 25의 아웃바운드 트래픽은 허용되지 않음| TCP 포트 25를 사용하는 아웃바운드 SMTP 연결이 차단되었습니다. 포트 25는 주로 인증되지 않은 이메일 제공을 위해 사용됩니다. 이는 가상 머신의 기본 플랫폼 동작입니다. 자세한 내용은 [Azure에서 아웃바운드 SMTP 연결 문제 해결](../virtual-network/troubleshoot-outbound-smtp-connectivity.md)을 참조하세요. 그러나 가상 머신과 달리 현재는 Azure 방화벽에서 이 기능을 사용하도록 설정할 수 없습니다. 참고: 25개 이외의 포트를 통해 인증된 SMTP(포트 587) 또는 SMTP를 허용하려면 현재 SMTP 검사가 지원되지 않으므로 애플리케이션 규칙이 아닌 네트워크 규칙을 구성해야 합니다.|SMTP 문제 해결 문서에 설명된 것처럼 권장 방법에 따라 이메일을 보냅니다. 또는 기본 경로에서 방화벽으로의 아웃바운드 SMTP 액세스가 필요한 가상 머신을 제외합니다. 대신 인터넷에 대한 아웃바운드 액세스를 직접 구성합니다.
+|TCP 포트 25의 아웃바운드 SMTP 트래픽이 차단됨|TCP 포트 25에서 외부 도메인(예: `outlook.com` 및 `gmail.com`)으로 직접 전송되는 아웃바운드 이메일 메시지는 Azure Firewall에 의해 차단됩니다. 이는 Azure의 기본 플랫폼 동작입니다. |일반적으로 TCP 포트 587을 통해 연결하지만 다른 포트도 지원하는 인증된 SMTP 릴레이 서비스를 사용합니다.  자세한 내용은 [Azure에서 아웃바운드 SMTP 연결 문제 해결](../virtual-network/troubleshoot-outbound-smtp-connectivity.md)을 참조하세요. 현재 Azure Firewall은 아웃바운드 TCP 25를 사용하여 공용 IP와 통신할 수 있지만 작동이 보장되지 않으며 모든 구독 유형에서 지원되지 않습니다. 가상 네트워크, VPN 및 Azure ExpressRoute와 같은 개인 IP의 경우 Azure Firewall은 TCP 포트 25의 아웃바운드 연결을 지원합니다.
 |SNAT 포트 소모|Azure Firewall은 현재 백 엔드 가상 머신 확장 집합 인스턴스별로 공용 IP 주소당 포트 1024개를 지원합니다. 기본적으로 두 개의 가상 머신 확장 집합 인스턴스가 있습니다.|이는 SLB 제한이며 지속적으로 제한이 증가되도록 노력하고 있습니다. 그 동안에는 SNAT이 소모될 수 있는 배포에 대한 공용 IP 주소를 최소 5개 사용하여 Azure Firewall 배포를 구성하는 것이 좋습니다. 그러면 사용 가능한 SNAT 포트가 5배로 증가합니다. 다운스트림 권한이 간소화되도록 IP 주소 접두사에서 할당합니다.|
 |DNAT는 강제 터널링을 사용하는 경우 지원되지 않습니다.|강제 터널링을 사용하여 배포된 방화벽은 비대칭 라우팅으로 인해 인터넷에서 인바운드 액세스를 지원할 수 없습니다.|이는 비대칭 라우팅 때문에 의도된 것입니다. 인바운드 연결의 반환 경로는 온-프레미스 방화벽을 통해 전달되며 설정된 연결이 표시되지 않습니다.
 |아웃바운드 수동 FTP는 FTP 서버 구성에 따라 여러 공용 IP 주소가 있는 방화벽에서 작동하지 않을 수 있습니다.|수동 FTP는 제어 및 데이터 채널에 대해 서로 다른 연결을 설정합니다. 공용 IP 주소가 여러 개인 방화벽이 데이터를 아웃바운드로 보내는 경우 원본 IP 주소에 대한 공용 IP 주소 중 하나를 임의로 선택합니다. FTP 서버 구성에 따라 데이터 및 제어 채널에서 다른 원본 IP 주소를 사용하는 경우 FTP가 실패할 수 있습니다.|명시적 SNAT 구성이 계획되어 있습니다. 그 동안에는 FTP 서버를 구성하여 서로 다른 원본 IP 주소에서 데이터를 허용하고 채널을 제어할 수 있습니다([IIS의 예제](/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity) 참조). 또는 이 경우에 단일 IP 주소를 사용하는 것이 좋습니다.|

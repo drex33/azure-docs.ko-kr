@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 7985879b54fe840ec47d72595d95547aa062938b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: adbb2979fc9e097fa0abf2675759ba1f7aad8a0c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724310"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310560"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>자습서: OpenSSL을 사용하여 테스트 인증서 만들기
 
@@ -238,20 +238,27 @@ CSR을 루트 CA에 제출하고, 루트 CA를 사용하여 하위 CA 인증서�
 
 1. Azure Portal에서 IoT Hub로 이동하고, **설정 > 인증서** 를 차례로 선택합니다.
 
-1. **추가** 를 선택하여 새 하위 CA 인증서를 추가합니다.
+2. **추가** 를 선택하여 새 하위 CA 인증서를 추가합니다.
 
-1. **인증서 이름** 필드에서 표시 이름을 입력하고, 이전에 만든 PEM 인증서 파일을 선택합니다.
+3. **인증서 이름** 필드에서 표시 이름을 입력하고, 이전에 만든 PEM 인증서 파일을 선택합니다.
 
-1. **저장** 을 선택합니다. 인증서가 인증서 목록에 **확인되지 않음** 상태로 표시됩니다. 확인 프로세스는 사용자가 인증서를 소유하고 있음을 증명합니다.
+> [!NOTE]
+> 위에서 만든 .crt 인증서는 .pem 인증서와 동일합니다. 소유를 증명하기 위해 인증서를 업로드할 때 확장자를 간단히 변경하거나 다음 OpenSSL 명령을 사용할 수 있습니다.
+
+```bash
+openssl x509 -in mycert.crt -out mycert.pem -outform PEM
+```
+
+4. **저장** 을 선택합니다. 인증서가 인증서 목록에 **확인되지 않음** 상태로 표시됩니다. 확인 프로세스는 사용자가 인증서를 소유하고 있음을 증명합니다.
 
    
-1. 인증서를 선택하여 **인증서 세부 정보** 대화 상자를 표시합니다.
+5. 인증서를 선택하여 **인증서 세부 정보** 대화 상자를 표시합니다.
 
-1. **확인 코드 생성** 을 선택합니다. 자세한 내용은 [CA 인증서 소유 증명](tutorial-x509-prove-possession.md)을 참조하세요.
+6. **확인 코드 생성** 을 선택합니다. 자세한 내용은 [CA 인증서 소유 증명](tutorial-x509-prove-possession.md)을 참조하세요.
 
-1. 확인 코드를 클립보드에 복사합니다. 확인 코드를 인증서 주체로 설정해야 합니다. 예를 들어 확인 코드가 BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A인 경우 9단계에서 표시한 대로 인증서 주체로 추가합니다.
+7. 확인 코드를 클립보드에 복사합니다. 확인 코드를 인증서 주체로 설정해야 합니다. 예를 들어 확인 코드가 BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A인 경우 9단계에서 표시한 대로 인증서 주체로 추가합니다.
 
-1. 프라이빗 키를 생성합니다.
+8. 프라이빗 키를 생성합니다.
 
   ```bash
     $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048

@@ -5,20 +5,22 @@ services: virtual-machines
 author: vermagit
 tags: azure-resource-manager
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 4119d64dcadd23415cc750e88d560057bda6af8e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1f5442c7ade736c4313812a4cb20e6535492acc3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138020"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693410"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>HBv3 시리즈 가상 머신 개요 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 [HBv3 시리즈](../../hbv3-series.md) 서버에는 총 128개의 물리적 "Zen3" 코어에 대해 64코어 EPYC 7V13 CPU가 2개 있습니다. HBv3에서는 SMT(동시 다중 스레딩)을 사용하도록 설정할 수 없습니다. 이 128개의 코어는 16개의 섹션(소켓당 8개)으로 나뉘며, 각 섹션에는 32MB L3 캐시에 균일하게 액세스할 수 있는 프로세서 코어가 8개 포함됩니다. Azure HBv3 서버는 다음 AMD BIOS 설정도 실행합니다.
 
@@ -115,7 +117,7 @@ HBv3 VM에는 물리적 로컬 SSD 디바이스가 세 개 있습니다. 한 디
 | 메모리                           | 448GB(코어당 RAM이 VM 크기에 따라 다름)         | 
 | 로컬 디스크                       | 2 * 960GB NVMe(차단), 480GB SSD(페이지 파일) | 
 | Infiniband                       | 200Gb/s Mellanox Connectx-3-6 HDR InfiniBand | 
-| 네트워크                          | 50Gb/s 이더넷(40Gb/s 사용 가능) Azure 2세대 SmartNIC | 
+| 네트워크                          | 50GB/s 이더넷(40GB/s 사용 가능) Azure 2세대 SmartNIC | 
 
 ## <a name="software-specifications"></a>소프트웨어 사양 
 
@@ -130,7 +132,7 @@ HBv3 VM에는 물리적 로컬 SSD 디바이스가 세 개 있습니다. 한 디
 | Orchestrator 지원           | Azure CycleCloud, Azure Batch, AKS, [클러스터 구성 옵션](../../sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> Windows Server 2012 R2는 HBv3 및 코어가 64개(가상 또는 물리적) 넘게 있는 기타 VM에서는 지원되지 않습니다. 자세한 내용은 [여기](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
+> Windows Server 2012 R2는 HBv3 및 코어가 64개(가상 또는 물리적) 넘게 있는 기타 VM에서는 지원되지 않습니다. 자세한 내용은 [Windows Server에서 Hyper-V용으로 지원되는 Windows 게스트 운영 체제](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

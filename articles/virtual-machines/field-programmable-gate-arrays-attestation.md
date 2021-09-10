@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: a0c0c04d33c994279fe15a8fe7f677b2c25a55de
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 034acde1f99409ef7d541d7705bb995e0db00d3b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166040"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689105"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Azure NP 시리즈 VM에 대한 FPGA 증명(미리 보기)
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 FPGA Attestation 서비스는 Xilinx 도구 집합에서 생성한 디자인 검사점 파일("netlist"라고 함)에 대해 일련의 유효성 검사를 수행하고, NP 시리즈 VM의 Xilinx U250 FPGA 카드에 로드할 수 있는 유효성 검사가 완료된 이미지("비트스트림"이라고 함)를 포함하는 파일을 생성합니다.  
 

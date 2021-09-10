@@ -10,15 +10,15 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: 0d7d4dda75fba86bf5d624ea277b8866490ea608
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: a69cb5e2a4563f96fb18979ff8aefdf805e94d7f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291193"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566482"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Resource Manager 마이그레이션에 대한 VPN Gateway 클래식
-이제 VPN Gateway을 클래식에서 Resource Manager 배포 모델로 마이그레이션할 수 있습니다. [Azure Resource Manager 기능 및 이점](../azure-resource-manager/management/overview.md)에 대해 자세히 알아볼 수 있습니다. 이 문서에서는 클래식 배포에서 새로운 Resource Manager 기반 모델로 마이그레이션하는 방법을 자세히 설명합니다. 
+이제 VPN Gateway를 클래식에서 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)로 마이그레이션할 수 있습니다. [Azure Resource Manager 기능 및 이점](../azure-resource-manager/management/overview.md)에 대해 자세히 알아볼 수 있습니다. 이 문서에서는 클래식 배포에서 새로운 Resource Manager 기반 모델로 마이그레이션하는 방법을 자세히 설명합니다. 
 
 VPN Gateway는 VNet 마이그레이션의 일환으로 클래식에서 Resource Manager로 마이그레이션됩니다. 이 마이그레이션은 한 번에 하나의 VNet 꼴로 이뤄집니다. 도구 측면에서 추가 요구 사항이나 마이그레이션에 대한 전제 조건이 없습니다. 마이그레이션 단계는 기존 VNet 마이그레이션과 동일하며 [IaaS 리소스 마이그레이션 페이지](../virtual-machines/migration-classic-resource-manager-ps.md)에 설명되어 있습니다. 마이그레이션 중에 데이터 경로 가동 중지 시간이 없습니다. 따라서 기존 작업은 마이그레이션 중에 온-프레미스 연결 손실 없이 계속 작동할 것입니다. VPN 게이트웨이에 연결된 공용 IP 주소는 마이그레이션 프로세스 중에 변경되지 않습니다. 즉, 마이그레이션이 완료되면 온-프레미스 라우터를 다시 구성할 필요가 없습니다.  
 

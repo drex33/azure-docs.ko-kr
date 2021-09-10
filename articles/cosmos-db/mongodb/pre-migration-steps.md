@@ -4,15 +4,15 @@ description: 이 문서에서는 MongoDB에서 Cosmos DB로 데이터 마이그�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 05/17/2021
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: ac118437b52b5f0498c350fa7c7f9e30a0a5ff4c
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 80bb166925964624dc4a4b9811989ab15a5cfe9a
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634996"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123035677"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -80,6 +80,12 @@ ms.locfileid: "122634996"
 * 전용 및 공유 처리량
 
 자세한 내용은 다음 섹션에 제공됩니다.
+
+### <a name="capacity-planning"></a>용량 계획
+
+Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요?
+* 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+* 현재 데이터베이스 워크로드에 대한 일반적인 요청 빈도를 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)을 읽어보세요.
 
 ### <a name="considerations-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB 사용 시 고려 사항
 
@@ -197,12 +203,14 @@ Azure Cosmos DB 리소스를 만든 후에는 다음 Azure Cosmos DB 구성 선�
 
 ## <a name="next-steps"></a>다음 단계
 
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 빈도를 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)을 읽어보세요.
 * Azure Cosmos DB API for MongoDB로 마이그레이션
    * [MongoDB 네이티브 도구를 사용한 오프라인 마이그레이션](tutorial-mongotools-cosmos-db.md)
    * [Azure DMS(데이터베이스 마이그레이션 서비스)를 사용한 오프라인 마이그레이션](../../dms/tutorial-mongodb-cosmos-db.md)
    * [Azure DMS(데이터베이스 마이그레이션 서비스)를 사용한 온라인 마이그레이션](../../dms/tutorial-mongodb-cosmos-db-online.md)
    * [Azure Databricks 및 Spark를 사용한 오프라인/온라인 마이그레이션](migrate-databricks.md)
-   * [Azure DMS(데이터베이스 마이그레이션 서비스)를 사용하여 MongoDB 데이터를 마이그레이션합니다.](../../dms/tutorial-mongodb-cosmos-db.md) 
 * [마이그레이션 후 가이드](post-migration-optimization.md) - Azure Cosmos DB API for MongoDB로 마이그레이션한 후 단계 최적화
 * [Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량 프로비저닝](../set-throughput.md)
 * [Azure Cosmos DB에서 분할](../partitioning-overview.md)

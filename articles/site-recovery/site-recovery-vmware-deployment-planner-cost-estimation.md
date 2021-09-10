@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
 ms.date: 05/27/2021
-ms.openlocfilehash: 92d1c5babc2daacdd0b0687a5ff779fcd4272e71
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 7dc82a163a9365532b21af447b823659bf40c71f
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110577073"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123225331"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>VMware Deployment Planner에서 비용 예측 검토 
 
@@ -65,7 +65,10 @@ Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-
 **복제 비용**: 복제 시 비용이 발생합니다. 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용이 포함됩니다. 
 
 **DR 드릴 비용**: DR 드릴 시 비용이 발생합니다. Azure Site Recovery는 DR 드릴 중에 VM을 작동합니다. DR 드릴 비용은 실행 중인 VM의 컴퓨팅 및 스토리지 비용을 포함합니다.
-연간 총 DR 드릴 지속 시간 = DR 드릴 횟수 x 각 DR 드릴 지속 시간(일) 평균 DR 드릴 비용(월간) = 총 DR 드릴 비용/12
+
+1.  연간 총 DR 드릴 기간 = DR 드릴 횟수 x 각 DR 드릴 기간(일)
+
+2.  평균 DR 드릴 비용(월별) = 총 DR 드릴 비용/12
 
 ### <a name="storage-cost-table"></a>스토리지 비용 테이블:
 이 테이블은 복제 및 DR 드릴에 대해 발생하는 프리미엄 및 표준 스토리지 비용을 할인 여부에 관계없이 보여줍니다.

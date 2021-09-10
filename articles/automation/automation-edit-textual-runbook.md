@@ -10,12 +10,12 @@ ms.date: 08/01/2018
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 manager: carmonm
-ms.openlocfilehash: 296d45fae4d59553b54a1b68923c91be4168d3a5
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 48df3f834601410caf83d818ac75b1b7b7e68dc2
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829389"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468246"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Azure Automation에서 텍스트 Runbook 편집
 
@@ -26,6 +26,9 @@ Azure Automation에서 텍스트 편집기를 사용하여 [PowerShell Runbook](
 Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습니다. Runbook의 초안 버전을 편집한 다음 실행할 수 있도록 게시합니다. 게시된 버전은 편집할 수 없습니다. 자세한 내용은 [Runbook 게시](manage-runbooks.md#publish-a-runbook)를 참조하세요.
 
 이 문서에서는 이 편집기를 사용하여 다양한 기능을 수행하기 위한 상세 단계를 제공합니다. 이는 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)에는 적용되지 않습니다. 이러한 Runbook으로 작업하려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
+
+> [!IMPORTANT] 
+> Az 모듈을 통해 실행되도록 설계된 스크립트에는 "AzureRm" 키워드를 포함하지 마십시오. 주석에도 키워드를 포함하면 AzureRm이 로드된 다음, Az 모듈과 충돌할 수 있습니다.
 
 ## <a name="edit-a-runbook-with-the-azure-portal"></a>Azure Portal을 사용하여 Runbook 편집
 

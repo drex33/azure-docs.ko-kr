@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 07/19/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc0acadadc728f714e84418a438c451aea255ccc
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: e45101caec9127c39837d015d6a5117c7e2ae775
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111408032"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114472046"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
@@ -153,7 +153,7 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
 |  <ul><li>EnableGroupCreation<li>형식: Boolean<li> 기본값: True |관리자가 아닌 사용자에 의해 디렉터리에서 Microsoft 365 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. 이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
 |  <ul><li>GroupCreationAllowedGroupId<li>유형: String<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 Microsoft 365 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
 |  <ul><li>UsageGuidelinesUrl<li>유형: String<li>기본값: “” |그룹 사용 지침 링크입니다. |
-|  <ul><li>ClassificationDescriptions<li>유형: String<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting["ClassificationDescriptions"] ="Classification:Description,Classification:Description"<br>여기서 분류는 ClassificationList의 항목과 일치합니다.<br>EnableMIPLabels == True인 경우에는 이 설정이 적용되지 않습니다.|
+|  <ul><li>ClassificationDescriptions<li>유형: String<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting["ClassificationDescriptions"] ="Classification:Description,Classification:Description"<br>여기서 분류는 ClassificationList의 항목과 일치합니다.<br>EnableMIPLabels == True인 경우에는 이 설정이 적용되지 않습니다.<br>ClassificationDescriptions 속성의 문자 제한은 300이며 쉼표는 이스케이프할 수 없습니다.
 |  <ul><li>DefaultClassification<li>유형: String<li>기본값: “” | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.<br>EnableMIPLabels == True인 경우에는 이 설정이 적용되지 않습니다.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>유형: String<li>기본값: “” | Microsoft 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Microsoft 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
 | <ul><li>CustomBlockedWordsList<li>유형: String<li>기본값: “” | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Microsoft 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |

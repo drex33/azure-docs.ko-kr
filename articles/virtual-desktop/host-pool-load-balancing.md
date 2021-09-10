@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 54cbd03283814fd21a95dfe7578173f3481c4cd8
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6b5316f25725f90be63fb5fbbc135285ad5bce3e
+ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757610"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114204127"
 ---
 # <a name="host-pool-load-balancing-methods"></a>호스트 풀 부하 분산 메서드
 
@@ -23,7 +23,7 @@ Azure Virtual Desktop은 두 가지 부하 분산 메서드를 지원합니다. 
 Azure Virtual Desktop에서 다음과 같은 부하 분산 메서드를 사용할 수 있습니다.
 
 - 폭 우선 부하 분산을 사용하면 호스트 풀의 세션 호스트 전체에 사용자 세션을 균등하게 분산할 수 있습니다.
-- 깊이 우선 부하 분산을 사용하면 호스트 풀의 사용자 세션을 통해 세션 호스트의 포화 상태를 지정할 수 있습니다. 첫 번째 세션이 해당 세션 제한 임계값에 도달하면 부하 분산 장치는 해당 제한에 도달할 때까지 사용자 연결을 호스트 풀의 다음 세션 호스트로 보냅니다.
+- 깊이 우선 부하 분산을 사용하면 호스트 풀의 사용자 세션을 통해 세션 호스트의 포화 상태를 지정할 수 있습니다. 첫 번째 세션 호스트가 해당 세션 제한 임계값에 도달하면 부하 분산 장치는 해당 제한에 도달할 때까지 사용자 연결을 호스트 풀의 다음 세션 호스트로 보냅니다.
 
 각 호스트 풀은 특정 유형의 부하 분산만 구성할 수 있습니다. 그러나 두 부하 분산 메서드는 어떤 호스트 풀에 있든 관계없이 다음 동작을 공유합니다.
 

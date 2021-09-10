@@ -7,13 +7,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: dddf56edf2037d87a28589a59834db32f8d04a4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de8acfbf4d4930f5c029aaa71300af770a274194
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98598371"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122537123"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search Service를 사용하여 위치 검색
 
@@ -22,7 +21,7 @@ ms.locfileid: "98598371"
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
-* [Search Address API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)를 사용하여 주소의 위도와 경도 좌표(지역 코드 주소 위치)를 요청합니다.
+* [Search Address API](/rest/api/maps/search/getsearchaddress)를 사용하여 주소의 위도와 경도 좌표(지역 코드 주소 위치)를 요청합니다.
 * [Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy)를 사용하여 주소나 POI(관심 지점)를 검색합니다.
 * [역 주소 검색](/rest/api/maps/search/getsearchaddressreverse)을 수행하여 좌표 위치를 주소로 변환합니다.
 * [Search Address Reverse Cross Street API](/rest/api/maps/search/getsearchaddressreversecrossstreet)를 사용하여 좌표 위치를 사람이 이해할 수 있는 교차로로 변환합니다.  대부분의 경우 이는 디바이스나 자산에서 GPS 피드를 수신하고 좌표의 위치를 알고자 하는 추적 애플리케이션에 필요합니다.
@@ -41,25 +40,23 @@ ms.locfileid: "98598371"
 >[!TIP]
 >지오코딩할 주소 집합이 있는 경우 [Post Search Address Batch API](/rest/api/maps/search/postsearchaddressbatch)를 사용하여 한 번의 API 호출로 쿼리를 일괄 전송할 수 있습니다.
 
-1. Postman 앱을 엽니다. Postman 앱의 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다.  컬렉션 이름을 지정하고, **만들기** 단추를 선택합니다. 해당 문서의 나머지 예제에서는 이 컬렉션을 사용합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
-2. 요청을 만들려면 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 단계에서 만든 컬렉션을 선택한 다음, **저장** 을 선택합니다.
-
-3. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이번 요청에서는 특정 주소 `400 Braod St, Seattle, WA 98109`를 검색합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이번 요청에서는 특정 주소 `400 Braod St, Seattle, WA 98109`를 검색합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
     ```
 
-4. 파란색 **보내기** 단추를 클릭합니다. 응답 본문에는 단일 위치의 데이터가 포함됩니다.
+3. 파란색 **보내기** 단추를 클릭합니다. 응답 본문에는 단일 위치의 데이터가 포함됩니다.
 
-5. 이제 위치가 두 곳 이상일 수 있는 주소를 검색합니다. **Params** 섹션에서 `query` 키를 `400 Broad, Seattle`로 변경합니다. 파란색 **보내기** 단추를 클릭합니다.
+4. 이제 위치가 두 곳 이상일 수 있는 주소를 검색합니다. **Params** 섹션에서 `query` 키를 `400 Broad, Seattle`로 변경합니다. 파란색 **보내기** 단추를 클릭합니다.
 
     :::image type="content" source="./media/how-to-search-for-address/search-address.png" alt-text="주소 검색":::
 
-6. 그런 다음, `query` 키를 `400 Broa`로 설정해 봅니다.
+5. 그런 다음, `query` 키를 `400 Broa`로 설정해 봅니다.
 
-7. **보내기** 단추를 클릭합니다. 이번 응답에는 여러 국가의 응답이 포함되어 있는 것을 확인할 수 있습니다. 결과를 사용자와 관련 있는 영역에 지오바이어싱하려면 항상 가능한 한 많은 위치 정보를 요청에 추가합니다.
+6. **보내기** 단추를 클릭합니다. 이번 응답에는 여러 국가의 응답이 포함되어 있는 것을 확인할 수 있습니다. 결과를 사용자와 관련 있는 영역에 지오바이어싱하려면 항상 가능한 한 많은 위치 정보를 요청에 추가합니다.
 
 ## <a name="using-fuzzy-search-api"></a>Fuzzy Search API 사용
 
@@ -75,7 +72,7 @@ Azure Maps [Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy)는 표준 �
 >[!IMPORTANT]
 >결과를 사용자와 관련 있는 영역에 지오바이어싱하려면 항상 최대한 많은 위치 정보를 추가합니다. 자세한 내용은 [검색 모범 사례](how-to-use-best-practices-for-search.md#geobiased-search-results)를 참조하세요.
 
-1. Postman 앱을 열고 **새로 만들기** 를 클릭한 다음, **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 이전 섹션에서 만든 컬렉션을 선택하거나 새 컬렉션을 만든 다음, **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
@@ -113,7 +110,7 @@ Azure Maps [Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy)는 표준 �
 
 ## <a name="search-for-a-street-address-using-reverse-address-search"></a>역방향 주소 검색을 사용하여 주소 검색
 
-Azure Maps [Get Search Address Reverse API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)는 좌표를 사람이 읽을 수 있는 주소로 변환합니다. GPS 피드를 사용하여 특정 좌표점에 있는 주소를 검색하려는 애플리케이션에서 해당 API가 자주 사용됩니다.
+Azure Maps [Get Search Address Reverse API](/rest/api/maps/search/getsearchaddressreverse)는 좌표를 사람이 읽을 수 있는 주소로 변환합니다. GPS 피드를 사용하여 특정 좌표점에 있는 주소를 검색하려는 애플리케이션에서 해당 API가 자주 사용됩니다.
 
 >[!IMPORTANT]
 >결과를 사용자와 관련 있는 영역에 지오바이어싱하려면 항상 최대한 많은 위치 정보를 추가합니다. 자세한 내용은 [검색 모범 사례](how-to-use-best-practices-for-search.md#geobiased-search-results)를 참조하세요.
@@ -123,7 +120,7 @@ Azure Maps [Get Search Address Reverse API]( https://docs.microsoft.com/rest/api
 
 이번 예제에서는 사용할 수 있는 몇 가지 선택적 매개 변수를 사용하여 역방향 검색을 수행합니다. 선택적 매개 변수의 전체 목록은 [ 역방향 검색 매개 변수](/rest/api/maps/search/getsearchaddressreverse#uri-parameters)를 참조하세요.
 
-1. Postman 앱에서 **새로 만들기** 를 클릭한 다음, **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 첫 번째 섹션에서 만든 컬렉션을 선택하거나 새 컬렉션을 만든 다음, **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다. 요청은 다음 URL과 같습니다.
 
@@ -159,7 +156,7 @@ Azure Maps [Get Search Address Reverse API]( https://docs.microsoft.com/rest/api
 
 이번 예제에서는 주소의 좌표를 기준으로 교차로를 검색합니다.
 
-1. Postman 앱에서 **새로 만들기** 를 클릭한 다음, **요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다. 첫 번째 섹션에서 만든 컬렉션을 선택하거나 새 컬렉션을 만든 다음, **저장** 을 선택합니다.
+1. Postman 앱에서 **새로 만들기** 를 선택하여 요청을 만듭니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택합니다. 요청에 대한 **요청 이름** 을 입력합니다.
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다. 요청은 다음 URL과 같습니다.
   

@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 06/27/2021
 ms.author: banders
-ms.openlocfilehash: e8a5e6d40b745efb7fcd50919cd27664b3406b7d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: cee0acf851d82ba09867b8d66c09a17b21e7af45
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862852"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112989060"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -62,15 +62,8 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 다른 사용자가 예약을 관리할 수 있게 하려면 다음 두 가지 옵션을 사용하면 됩니다.
 
-- 개별 예약 주문에 대한 액세스 관리를 위임합니다.
-    1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-    1. **모든 서비스** > **예약** 을 선택하여 액세스할 수 있는 예약을 나열합니다.
-    1. 다른 사용자에게 액세스 권한을 위임하려는 예약을 선택합니다.
-    1. 예약 세부 정보에서 예약 순서를 선택합니다.
-    1. **액세스 제어(IAM)** 를 선택합니다.
-    1. **역할 할당 추가** > **역할** > **소유자** 를 선택합니다. 제한된 액세스 권한을 부여하려면 다른 역할을 선택합니다.
-    1. 소유자로 추가할 사용자의 메일 주소를 입력합니다.
-    1. 사용자를 선택한 다음 **저장** 을 선택합니다.
+- 예약 주문의 리소스 범위에 있는 사용자에게 소유자 역할을 할당하여 개별 예약 주문에 대한 액세스 관리를 위임합니다. 제한된 액세스 권한을 부여하려면 다른 역할을 선택합니다.  
+     세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 - 기업계약 또는 Microsoft 고객 계약에 사용자를 청구 관리자로 추가합니다.
     - 기업계약의 경우 _엔터프라이즈 관리자_ 역할이 있는 사용자를 추가하여 기업계약에 적용되는 모든 예약 주문을 보고 관리합니다. _엔터프라이즈 관리자(읽기 전용)_ 역할이 있는 사용자는 예약만 볼 수 있습니다. 부서 관리자 및 계정 소유자는 액세스 제어(IAM)를 사용하여 명시적으로 추가하지 _않는 한_ 예약을 볼 수 없습니다. 자세한 내용은 [Azure Enterprise 역할 관리](../manage/understand-ea-roles.md)를 참조하세요.
@@ -81,8 +74,18 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>청구 관리자가 예약을 보거나 관리하는 방법
 
-1. **Cost Management + Billing** 으로 이동한 다음, 페이지 왼쪽에서 **예약 트랜잭션** 을 선택합니다.
-2. 필요한 청구 권한이 있는 경우 예약을 보고 관리할 수 있습니다. 예약이 표시되지 않으면 예약이 생성된 Azure AD 테넌트를 사용하여 로그인했는지 확인합니다.
+청구 관리자는 다음 단계를 수행하여 모든 예약과 예약 트랜잭션을 보고 관리합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 **Cost Management + Billing** 으로 이동합니다.
+    - EA 관리자인 경우 왼쪽 메뉴에서 **청구 범위** 를 선택한 다음, 청구 범위 목록에서 하나를 선택합니다.
+    - Microsoft 고객 계약 청구 프로필 소유자인 경우 왼쪽 메뉴에서 **청구 프로필** 을 선택합니다. 청구 프로필 목록에서 하나를 선택합니다.
+2. 왼쪽 메뉴에서 **제품 + 서비스** > **예약** 을 선택합니다.
+3. EA 등록 또는 청구 프로필에 대한 전체 예약 목록이 표시됩니다.
+4. 청구 관리자는 예약을 선택한 다음, 표시되는 창에서 **액세스 권한 부여** 를 선택하여 예약 소유권을 가져올 수 있습니다.
+
+## <a name="change-billing-subscription-for-an-azure-reservation"></a>Azure Reservation에 대한 청구 구독 변경
+
+예약을 구매한 후에는 청구 구독을 변경할 수 없습니다. 구독을 변경하려면 교환 프로세스를 사용하여 예약에 적합한 청구 구독을 설정합니다.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>단일 예약을 두 개의 예약으로 분할
 
@@ -182,4 +185,3 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
  - [예약 갱신](reservation-renew.md)
  - [테넌트 간 전송](troubleshoot-reservation-transfers-between-tenants.md)
  - [Azure 로그에서 예약 구매자 찾기](find-reservation-purchaser-from-logs.md)
- - [예약 갱신](reservation-renew.md)

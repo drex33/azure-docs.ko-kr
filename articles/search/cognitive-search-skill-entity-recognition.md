@@ -2,22 +2,24 @@
 title: 엔터티 인식 기술
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 보강 파이프라인에 있는 텍스트에서 다양한 형식의 엔터티를 추출합니다.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 3300d68c6356cb7cdd56a9ad79eb0ac011942eb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cf6bae3548a459a1d47dc0dcd55d28a290ca0f6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547903"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567304"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
 
 **엔터티 인식** 기술은 텍스트에서 다양한 형식의 엔터티를 추출합니다. 이 기술은 Cognitive Services의 [Text Analytics](../cognitive-services/text-analytics/overview.md)에서 제공하는 기계 학습 모델을 사용합니다.
+
+> [!IMPORTANT]
+> 엔터티 인식 기술은 이제 [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md)로 대체되어 사용되지 않습니다. [사용되지 않는 인지 검색 기술](cognitive-search-skill-deprecated.md)의 권장 사항에 따라 지원되는 기술로 마이그레이션하세요.
 
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
@@ -196,3 +198,4 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [엔터티 인식 기술(V3)](cognitive-search-skill-entity-recognition-v3.md)

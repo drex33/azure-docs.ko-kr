@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/15/2021
+ms.date: 08/27/2021
 ms.author: rolyon
-ms.openlocfilehash: 6177de5dfc89dcbc33b9ff4291bf65ea909a3b9b
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 9553e53cda41a4fe4d926923bdd71d7d7c5ebb15
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112235719"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123308413"
 ---
 # <a name="azure-custom-roles"></a>Azure 사용자 지정 역할
 
@@ -65,13 +65,13 @@ Azure에는 사용자 지정 역할에 잠재적으로 포함할 수 있는 수�
 
     Azure Portal을 사용하여 사용자 지정 역할을 만드는 경우 키워드를 검색하여 리소스 공급자를 결정할 수도 있습니다. 이 검색 기능은 [Azure Portal을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-portal.md#step-4-permissions)에 설명되어 있습니다.
 
-    ![리소스 공급자를 사용하여 권한 창 추가](./media/custom-roles-portal/add-permissions-provider.png)
+    ![리소스 공급자를 사용하여 권한 창 추가](./media/shared/add-permissions-provider.png)
 
 - [사용 가능한 권한](resource-provider-operations.md)을 검색하여 포함하려는 사용 권한을 찾습니다.
 
     Azure Portal을 사용하여 사용자 지정 역할을 만드는 경우 키워드별로 사용 권한을 검색할 수 있습니다. 예를 들어 가상 컴퓨터 또는 청구 권한을 검색할 수 있습니다. 모든 사용 권한을 CSV 파일로 다운로드한 다음 이 파일에서 검색할 수도 있습니다. 이 검색 기능은 [Azure Portal을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트](custom-roles-portal.md#step-4-permissions)에 설명되어 있습니다.
 
-    ![권한 목록 추가](./media/custom-roles-portal/add-permissions-list.png)
+    ![권한 목록 추가](./media/shared/add-permissions-list.png)
 
 ## <a name="custom-role-example"></a>사용자 지정 역할 예제
 
@@ -147,10 +147,6 @@ Azure에는 사용자 지정 역할에 잠재적으로 포함할 수 있는 수�
 ]
 ```
 
-사용자 지정 역할을 만들면 Azure Portal에 주황색 리소스 아이콘이 표시됩니다.
-
-![사용자 지정 역할 아이콘](./media/custom-roles/roles-custom-role-icon.png)
-
 ## <a name="custom-role-properties"></a>사용자 지정 역할 속성
 
 다음 테이블은 사용자 지정 역할 속성의 의미에 대해 설명합니다.
@@ -210,7 +206,7 @@ Microsoft.CostManagement/exports/*
 - `DataActions`의 사용자 지정 역할은 관리 그룹 범위에서 할당할 수 없습니다.
 - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인하지 않습니다.
 
-사용자 지정 역할 및 관리 그룹에 대한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)을 참조하세요.
+사용자 지정 역할 및 관리 그룹에 대한 자세한 내용은 [Azure 관리 그룹이란?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)을 참조하세요.
 
 ## <a name="input-and-output-formats"></a>입력 및 출력 양식
 

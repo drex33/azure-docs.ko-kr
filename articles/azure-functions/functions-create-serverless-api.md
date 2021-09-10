@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 7375a46245fbe523ddf0512bb5a55371adff64e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6e78329c4f45baffd779202ebfa37da3c6cf7c9
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98683745"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105438"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Azure Functions의 HTTP 엔드포인트 사용자 지정
 
@@ -89,7 +89,7 @@ HTTP 함수 사용자 지정에 대한 자세한 내용은 [Azure Functions HTTP
 [함수 앱 만들기](./functions-get-started.md) 단계를 반복하여 프록시를 만들 새 함수 앱을 만듭니다. 이 새로운 앱의 URL은 API에 대한 프런트 엔드로 사용되고 이전에 편집하던 함수 앱은 백 엔드로 사용됩니다.
 
 1. 포털의 새 프런트 엔드 함수 앱으로 이동합니다.
-1. **플랫폼 기능** 을 선택하고 **애플리케이션 설정** 을 선택합니다.
+1. **구성** 을 선택하고 **애플리케이션 설정** 을 선택합니다.
 1. 키/값 쌍이 저장된 **애플리케이션 설정** 으로 스크롤을 내리고 키`HELLO_HOST`를 사용하여 새로운 설정을 생성하세요. 해당 값을 백 엔드 함수 앱의 호스트(예: `<YourBackendApp>.azurewebsites.net`)로 설정합니다. 이 값은 이전에 HTTP 함수를 테스트할 때 복사한 URL의 일부입니다. 나중에 구성에서 이 설정을 참조할 수 있습니다.
 
     > [!NOTE] 

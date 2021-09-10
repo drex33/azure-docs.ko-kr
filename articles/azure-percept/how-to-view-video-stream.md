@@ -1,20 +1,20 @@
 ---
-title: Azure Percept DK의 RTSP 비디오 스트림 보기
+title: Azure Percept DK RTSP 비디오 스트림 보기
 description: Azure Percept DK에서 RTSP 비디오 스트림을 보는 방법에 대해 알아봅니다.
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 678c5520b002f22552a6262fe245783f88ee61eb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 10d836e6d77f83e70efa1fc7757c8d8dd1d3f3f4
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754148"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123221636"
 ---
-# <a name="view-your-azure-percept-dks-rtsp-video-stream"></a>Azure Percept DK의 RTSP 비디오 스트림 보기
+# <a name="view-your-azure-percept-dk-rtsp-video-stream"></a>Azure Percept DK RTSP 비디오 스트림 보기
 
 이 가이드에 따라 Azure Percept Studio 내에서 Azure Percept DK의 RTSP 비디오 스트림을 볼 수 있습니다. 디바이스에 배포된 비전 AI 모델의 추론은 웹 스트림에서 볼 수 있습니다.
 

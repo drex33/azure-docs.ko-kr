@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 47400f8e359f8f5f7a05119eb91106b318a0e798
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 34a8d0d732863f5fe40056f25460269f131fbf7c
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113729581"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866502"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)(미리 보기)을 통해 액세스할 수 있는 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -440,9 +440,7 @@ ms.locfileid: "113729581"
 
 * <a id="share-snapshot-price"></a>
 **스냅샷 공유 비용은 얼마나 되나요?**  
-     미리 보기 동안 스냅샷 용량 공유에는 요금이 청구되지 않습니다. 표준 스토리지 송신 및 트랜잭션 비용이 적용됩니다. 일반 공급 후에는 공유 스냅샷에 대한 용량 및 트랜잭션에 대해 구독에 요금이 청구될 예정입니다.
-     
-     공유 스냅샷은 기본적으로 증분합니다. 기본 공유 스냅샷은 공유 자체입니다. 모든 후속 공유 스냅샷은 증분하며, 이전 공유 스냅샷과의 차이만 저장합니다. 변경된 콘텐츠에 대해서만 요금이 청구됩니다. 100GiB의 데이터 공유가 있으나 마지막 공유 스냅샷 후에 5GiB만 변경된 경우 해당 공유 스냅샷은 추가로 5GiB만 사용하게 되며 105GiB에 대한 요금만 청구됩니다. 트랜잭션 및 표준 송신 요금에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요.
+    공유 스냅샷은 기본적으로 증분합니다. 기본 공유 스냅샷은 공유 자체입니다. 모든 후속 공유 스냅샷은 증분하며, 이전 공유 스냅샷과의 차이만 저장합니다. 변경된 콘텐츠에 대해서만 요금이 청구됩니다. 100GiB의 데이터 공유가 있으나 마지막 공유 스냅샷 후에 5GiB만 변경된 경우 해당 공유 스냅샷은 추가로 5GiB만 사용하게 되며 105GiB에 대한 요금만 청구됩니다. 트랜잭션 및 표준 송신 요금에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요.
 
 ## <a name="scale-and-performance"></a>확장 및 성능
 * <a id="files-scale-limits"></a>

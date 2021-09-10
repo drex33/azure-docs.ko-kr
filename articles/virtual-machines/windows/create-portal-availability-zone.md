@@ -9,14 +9,16 @@ ms.date: 5/10/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: f1c37751e8f633c6d7dfab88b9dbe524626483a8
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 59250d3e2ed69da44e1d5e9187a12c1abac69d25
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079178"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688847"
 ---
 # <a name="create-a-virtual-machine-in-an-availability-zone-using-the-azure-portal"></a>Azure Portal을 사용하여 가용성 영역에서 가상 머신 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 이 문서는 Azure Portal을 사용하여 Azure 가용성 영역에서 가상 머신을 만드는 단계를 안내합니다. [가용성 영역](../../availability-zones/az-overview.md)은 Azure 지역에서 물리적으로 별도 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
 

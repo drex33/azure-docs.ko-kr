@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cc65a1c0cd72d9da9208e7377eaef7a887119f43
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 735677886493bace8bb831eae1c974bb0483b0c1
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528462"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771838"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -340,7 +340,7 @@ Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표�
 
 5. 머신이 시스템 Hybrid Runbook Worker로 설정되지 않은 경우 다음 중 한 가지 방법을 검토하여 이를 사용하도록 설정합니다.
 
-   - Arc 사용 서버를 포함하여 하나 이상의 Azure 및 비 Azure 머신에 대한 [Automation 계정](../update-management/enable-from-automation-account.md).
+   - Arc 지원 서버를 포함하여 하나 이상의 Azure 및 비 Azure 머신에 대한 [Automation 계정](../update-management/enable-from-automation-account.md).
 
    - **Enable-AutomationSolution** [Runbook](../update-management/enable-from-runbook.md)을 사용하여 Azure VM 온보딩을 자동화합니다.
 

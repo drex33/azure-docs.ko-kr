@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ad5e8669fc075ccaf8d4a37b848b1d537ec57be
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: d85222c1e64cd3d5d25ec7837a1ce5b512850741
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539591"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864392"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 조인 디바이스 문제 해결
 
@@ -173,7 +173,7 @@ WamDefaultAuthority: organizations
 - **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**(0x801c001f/-2145648609)
    - 원인: 검색을 수행하는 동안 작업 시간이 초과되었습니다.
    - 해결 방법: 시스템 컨텍스트에서 `https://enterpriseregistration.windows.net`에 액세스할 수 있는지 확인합니다. 자세한 내용은 [네트워크 연결 요구 사항](hybrid-azuread-join-managed-domains.md#prerequisites) 섹션을 참조하세요.
-- **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED**(0x801c0021/-2145648611)
+- **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED**(0x801c003d/-2145648579)
    - 원인: 일반 영역 검색에 실패했습니다. STS에서 도메인 유형(관리/페더레이션)을 확인하지 못했습니다.
    - 해결 방법: 아래에서 하위 오류를 찾아 자세히 조사합니다.
 

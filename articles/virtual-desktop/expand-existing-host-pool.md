@@ -3,15 +3,15 @@ title: 새 세션 호스트를 사용하여 기존 호스트 풀 확장 - Azure
 description: Azure Virtual Desktop에서 새 세션 호스트를 사용하여 기존 호스트 풀을 확장하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 446052190df59f6dc53ac6a39cd4bc120752fa41
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: f37e7e18fd32c3ad0b06f1189c57f44d72dced7a
+ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757736"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113760861"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>새 세션 호스트를 사용하여 기존 호스트 풀 확장
 
@@ -60,21 +60,25 @@ ms.locfileid: "111757736"
 
 9. **가상 네트워크 정보** 를 보려면 가상 머신을 조인할 가상 네트워크 및 서브넷을 선택합니다. 현재 기존 머신에서 사용하는 것과 동일한 가상 네트워크를 선택하거나 7단계에서 선택한 지역에 더 적합한 다른 가상 네트워크를 선택할 수 있습니다.
 
-10. **관리자 계정** 에는 선택한 가상 네트워크와 연결된 Active Directory 도메인 사용자 이름과 암호를 입력합니다. 해당 자격 증명은 가상 머신을 가상 네트워크에 조인하는 데 사용됩니다.
+10. **가입할 도메인** 에서 가상 머신을 Active Directory에 가입할지 또는 [Azure Active Directory](deploy-azure-ad-joined-vm.md)에 가입할지 선택합니다. **Intune에 VM 등록** 을 선택하면 가상 머신이 Intune에 자동으로 등록됩니다. 호스트 풀의 모든 가상 머신은 동일한 도메인 또는 Azure AD 테넌트에 가입되어야 합니다.
+
+11. **AD 도메인 가입 UPN** 에는 선택한 도메인과 연결된 Active Directory 도메인 사용자 이름과 암호를 입력합니다. 해당 자격 증명은 가상 머신을 Active Directory 도메인에 가입하는 데 사용됩니다.
 
       >[!NOTE]
       >관리자 이름이 여기에 지정된 정보를 준수하는지 확인합니다. 그리고 계정에 MFA를 사용하도록 설정되어 있지 않은지도 확인합니다.
 
-11. 가상 머신을 그룹화할 태그가 있는 경우 **태그** 탭을 선택합니다. 그렇지 않은 경우, 이 탭을 건너뜁니다.
+12. **Virtual Machine 관리자 계정** 의 경우 모든 가상 머신에 사용할 로컬 관리자 계정 정보를 입력합니다.
 
-12. **검토 + 만들기** 탭을 선택합니다. 선택 항목을 검토하고, 모든 것이 제대로 표시되면 **만들기** 를 선택합니다.
+13. 가상 머신을 그룹화할 태그가 있는 경우 **태그** 탭을 선택합니다. 그렇지 않은 경우, 이 탭을 건너뜁니다.
+
+14. **검토 + 만들기** 탭을 선택합니다. 선택 항목을 검토하고, 모든 것이 제대로 표시되면 **만들기** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 기존 호스트 풀을 확장했으므로 Azure Virtual Desktop 클라이언트에 로그인하여 사용자 세션의 일부로 테스트할 수 있습니다. 다음 클라이언트 중 하나를 사용하여 세션에 연결할 수 있습니다.
 
-- [Windows Desktop 클라이언트를 사용하여 연결](./connect-windows-7-10.md)
-- [웹 클라이언트를 사용하여 연결](./connect-web.md)
-- [Android 클라이언트와 연결](./connect-android.md)
-- [macOS 클라이언트와 연결](./connect-macos.md)
-- [iOS 클라이언트와 연결](./connect-ios.md)
+- [Windows Desktop 클라이언트를 사용하여 연결](./user-documentation/connect-windows-7-10.md)
+- [웹 클라이언트를 사용하여 연결](./user-documentation/connect-web.md)
+- [Android 클라이언트와 연결](./user-documentation/connect-android.md)
+- [macOS 클라이언트와 연결](./user-documentation/connect-macos.md)
+- [iOS 클라이언트와 연결](./user-documentation/connect-ios.md)

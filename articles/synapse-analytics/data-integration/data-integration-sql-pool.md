@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79f0b1a6942f141f0a2d2d38adc5875d82e86d50
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: aa11979d205693cb730cda64debd4430dbb0b43f
+ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567624"
+ms.lasthandoff: 06/23/2021
+ms.locfileid: "112541971"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>전용 SQL 풀에 데이터 수집하기
 
@@ -22,9 +22,11 @@ ms.locfileid: "107567624"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정**: Azure Data Lake Storage Gen 2를 *원본* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)에서 만들기 단계를 참조하세요.
-* **Azure Synapse Analytics**: 전용 SQL 풀을 *싱크* 데이터 저장소로 사용합니다. Azure Synapse Analytics 인스턴스가 없는 경우 새로 만드는 단계는 [전용 SQL 풀 만들기](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+- **Azure Storage 계정**: Azure Data Lake Storage Gen 2를 *원본* 데이터 저장소로 사용합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)에서 만들기 단계를 참조하세요.
+- **Azure Synapse Analytics**: 전용 SQL 풀을 *싱크* 데이터 저장소로 사용합니다. 
+    - 기존 Synapse 작업 영역이 없는 경우 [Synapse 작업 영역 만들기](../get-started-create-workspace.md)를 참조하세요.
+    - 기존 전용 SQL 풀이 없는 경우 [전용 SQL 풀 만들기](../get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool)를 참조하세요.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 

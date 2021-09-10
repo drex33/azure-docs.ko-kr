@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 50544507f9d83c216bb6c18e004c5ce7ad1ca346
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d763931e7baec0fb17cfc127834cbfccec51d7d6
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639849"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123256100"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>자습서: Azure AD 서버 보안 주체(로그인)를 사용하는 Azure SQL Managed Instance 보안
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -213,8 +213,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
       GO
       ```
 
-> [!NOTE]
-> Azure AD 게스트 사용자는 Azure AD 그룹의 일부로 추가되는 경우에만 SQL Managed Instance 로그인에 지원됩니다. Azure AD 게스트 사용자는 다른 Azure AD 인스턴스에서 관리형 인스턴스가 속한 Azure AD 인스턴스로 초대되는 계정입니다. 예를 들어 joe@contoso.com(Azure AD 계정) 또는 steve@outlook.com(Microsoft 계정)을 Azure AD aadsqlmi 인스턴스의 그룹에 추가할 수 있습니다. 사용자가 그룹에 추가되면 **CREATE LOGIN** 구문을 사용하여 그룹의 SQL Managed Instance **마스터** 데이터베이스에 로그인을 만들 수 있습니다. 이 그룹의 구성원인 게스트 사용자는 현재 로그인(joe@contoso.com 또는 steve@outlook.com)을 사용하여 관리형 인스턴스에 연결할 수 있습니다.
+게스트 사용자는 개별 사용자로 지원되며(AAD 그룹에 속할 수 있지만 그러지 않은 경우) 현재 로그인 구문을 사용하여 마스터에서 직접 로그인을 만들 수 있습니다(예: joe@contoso.con).
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login"></a>Azure AD 서버 보안 주체(로그인)에서 Azure AD 사용자 만들기
 

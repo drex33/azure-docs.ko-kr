@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: c53a59279a8101f29cb9bfb64f4ccd1b4921283e
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 383636d07aa453266be43b33d6f62b93255ac24a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205452"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566479"
 ---
 # <a name="configure-forced-tunneling"></a>강제 터널링 구성
 
 강제 터널링을 사용하면 검사 및 감사에 대한 사이트 간 VPN 터널을 통해 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다. 대부분의 엔터프라이즈 IT 정책에 있어서 중요한 보안 요구 사항입니다. 강제 터널링을 구성하지 않는 경우 Azure의 VM에서 인터넷 바인딩된 트래픽은 항상 트래픽을 검사 또는 감사하도록 허용하는 옵션 없이 Azure 네트워크 인프라에서 직접 인터넷으로 트래버스합니다. 인증되지 않은 인터넷 액세스는 잠재적으로 정보 공개 또는 다른 유형의 보안 위반을 발생시킬 수 있습니다.
 
-강제 터널링은 Azure PowerShell를 사용하여 구성할 수 있습니다. Azure Portal를 사용하여 구성할 수 없습니다. 이 문서를 통해 Resource Manager 배포 모델을 사용하여 만든 가상 네트워크에 대한 강제 터널링을 구성할 수 있습니다. 클래식 배포 모델에 대해 강제 터널링을 구성하려면 [강제 터널링 - 클래식](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
+강제 터널링은 Azure PowerShell를 사용하여 구성할 수 있습니다. Azure Portal를 사용하여 구성할 수 없습니다. 이 문서는 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)을 사용하여 만든 가상 네트워크에 대해 강제 터널링을 구성하는 데 도움이 됩니다. 클래식 배포 모델에 대해 강제 터널링을 구성하려면 [강제 터널링 - 클래식](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
 
 ## <a name="about-forced-tunneling"></a>강제 터널링 정보
 
@@ -110,7 +110,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 지정 사용자 �
    Set-AzVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
    Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
-6. 가상 네트워크 게이트웨이를 만듭니다. 이 단계에서 게이트웨이를 만들고 구성하기 때문에 완료되기까지 약간의 시간이 걸리며, 45분 이상 걸리는 경우도 있습니다. GatewaySKU 값과 관련한 ValidateSet 오류가 표시되는 경우 [PowerShell cmdlet 최신 버전](#before)을 설치했는지 확인합니다. PowerShell cmdlet 최신 버전은 최신 게이트웨이 SKU에 대한 유효성이 검사된 새 값을 포함합니다.
+6. 가상 네트워크 게이트웨이를 만듭니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다. GatewaySKU 값과 관련한 ValidateSet 오류가 표시되는 경우 [PowerShell cmdlet 최신 버전](#before)을 설치했는지 확인합니다. PowerShell cmdlet 최신 버전은 최신 게이트웨이 SKU에 대한 유효성이 검사된 새 값을 포함합니다.
 
    ```powershell
    $pip = New-AzPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 06/02/2021
-ms.openlocfilehash: 44a31ee5fc8118ad163b5edb582b2a182b75dd3e
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.date: 07/22/2021
+ms.openlocfilehash: 2ff120fbc95fc96bf39f1648f14a5bdf75ee0db2
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111525015"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114601157"
 ---
 # <a name="create-a-virtual-machine-using-your-own-image"></a>사용자 고유의 이미지를 사용하여 가상 머신 만들기
 
@@ -60,7 +60,7 @@ Azure 공유 이미지 갤러리에 VHD를 업로드합니다.
 az login
 az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
 ```
- 
+
 ```powershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionId {subscriptionId}
@@ -68,10 +68,10 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
 > [!NOTE]
-> 이제 파트너 센터에서 SIG 이미지를 게시할 수 있으므로 SAS URI를 생성할 필요가 없습니다. 그러나 SAS URI 생성 단계를 계속 참조해야 하는 경우 [VM 이미지에 대한 SAS URI를 생성하는 방법](azure-vm-get-sas-uri.md)을 참조하세요.
+> 이제 API를 사용하지 않고 파트너 센터에서 SIG(공유 이미지 갤러리) 이미지를 게시할 수 있으므로 SAS URI를 생성할 필요가 없습니다. <br/> <br/>API를 사용하여 게시하는 경우 SIG를 사용하는 대신 SAS URI를 생성해야 합니다. [VM 이미지에 대한 SAS URI를 생성하는 방법](azure-vm-get-sas-uri.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [VM 이미지를 테스트](azure-vm-image-test.md)하여 Azure Marketplace 게시 요구 사항을 충족하는지 확인합니다(선택 사항).
-- VM 이미지를 테스트하지 않으려면 [파트너 센터](https://partner.microsoft.com/)에 로그인하여 SIG 이미지를 게시합니다.
-- 새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우에는 [Azure Marketplace용 VM FAQ](azure-vm-create-faq.md)를 참조하세요.
+- VM 이미지를 테스트하지 않으려면 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165935)에 로그인하여 SIG 이미지를 게시합니다.
+- 새 Azure 기반 VHD를 만드는 데 어려움이 있는 경우에는 [Azure Marketplace용 VM FAQ](azure-vm-create-faq.yml)를 참조하세요.

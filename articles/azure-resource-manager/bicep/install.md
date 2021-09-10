@@ -2,14 +2,14 @@
 title: Bicep 개발 및 배포 환경 설정
 description: Bicep 개발 및 배포 환경을 구성하는 방법
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 08/26/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 297cafd074beb6c1535747be98dd664041d7b497
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c95c05923d9685232c50d694f2b858e2de9e4776
+ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453375"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123099567"
 ---
 # <a name="install-bicep-tools"></a>Bicep 도구 설치
 
@@ -35,6 +35,10 @@ Bicep 파일을 만들려면 적절한 Bicep 편집기가 필요합니다. 다�
 ## <a name="deployment-environment"></a>배포 환경
 
 Bicep 파일을 배포하는 데 필요한 명령을 이용하는 가장 쉬운 방법은 최신 버전의 Azure CLI를 설치하는 것입니다. PowerShell을 사용할 수도 있지만 추가 설치가 필요합니다.
+
+- [Azure CLI](#azure-cli)
+- [Azure PowerShell](#azure-powershell)
+- [수동 설치](#install-manually)
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -75,7 +79,28 @@ az bicep version
 > [!IMPORTANT]
 > Azure CLI는 Bicep CLI의 자체 포함 인스턴스를 설치합니다. 이 인스턴스는 수동으로 설치한 버전과 충돌하지 않습니다. Azure CLI는 Bicep CLI를 PATH에 추가하지 않습니다.
 
-### <a name="powershell"></a>PowerShell
+#### <a name="install-on-an-air-gapped-cloud"></a>에어 갭 클라우드에 설치
+
+Bicep CLI를 에어 갭 환경에 설치하려면 Bicep CLI 실행 파일을 수동으로 다운로드하여 특정 위치에 저장해야 합니다.
+
+- **Linux**
+
+    1. 비 에어 갭 환경의 [Bicep 릴리스 페이지](https://github.com/Azure/bicep/releases/latest/)에서 **bicep-linux-x64** 를 다운로드합니다.
+    1. 실행 파일을 에어 갭 컴퓨터의 **$HOME/.azure/bin** 디렉터리에 복사합니다.
+
+- **macOS**
+
+    1. 비 에어 갭 환경의 [Bicep 릴리스 페이지](https://github.com/Azure/bicep/releases/latest/)에서 **bicep-osx-x64** 를 다운로드합니다.
+    1. 실행 파일을 에어 갭 컴퓨터의 **$HOME/.azure/bin** 디렉터리에 복사합니다.
+
+- **Windows**
+
+    1. 비 에어 갭 환경의 [Bicep 릴리스 페이지](https://github.com/Azure/bicep/releases/latest/)에서 **bicep-win-x64.exe** 를 다운로드합니다.
+    1. 실행 파일을 에어 갭 컴퓨터의 **%UserProfile%/.azure/bin** 디렉터리에 복사합니다.
+
+`bicep install` 및 `bicep upgrade` 명령은 에어 갭 환경에서 작동하지 않습니다.
+
+### <a name="azure-powershell"></a>Azure PowerShell
 
 Azure PowerShell 버전 5.6.0 이상이 설치되어 있어야 합니다. 업데이트하거나 설치하려면 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
@@ -95,6 +120,10 @@ bicep --version
 ### <a name="install-manually"></a>수동 설치
 
 다음 메서드는 Bicep CLI를 설치하고 경로에 추가합니다. Azure CLI 이외의 모든 용도에 대해서는 수동으로 설치해야 합니다.
+
+- [Linux](#linux)
+- [macOS](#macos)
+- [Windows](#windows)
 
 #### <a name="linux"></a>Linux
 

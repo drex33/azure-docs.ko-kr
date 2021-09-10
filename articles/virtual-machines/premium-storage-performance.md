@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 9edab369f009eb1d8c2c9ca9a09f7121aa180c79
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6cd71daa43eb311316bb0da8b54bbef8733fb168
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440930"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694331"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 이 문서는 Azure Premium Storage를 사용하여 고성능 애플리케이션을 빌드하기 위한 지침을 제공합니다. 애플리케이션에서 사용되는 기술에 적용 가능한 성능 모범 사례가 결합된 이 문서에 제공된 지침을 사용할 수 있습니다. 지침을 설명하기 위해 이 문서 전체에서 한 예로 Premium Storage에서 실행되는 SQL Server를 사용했습니다.
 

@@ -1,37 +1,37 @@
 ---
 title: Log Analytics 및 Excel 통합
-description: Excel로 Log Analytics 쿼리를 가져오고 Excel 내에서 결과를 새로 고칩니다.
+description: Log Analytics 쿼리를 Excel로 가져오고 Excel 내에서 결과를 새로 고칩니다.
 ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
-ms.date: 11/03/2020
-ms.openlocfilehash: f2834e9bd91ecbbf32e0321179c2359862a5b605
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.date: 06/10/2021
+ms.openlocfilehash: 7cfe8ac2badd292b73b77dd13d7e7ca4bf24a428
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041113"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114474128"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>Log Analytics 및 Excel 통합
 
-M 쿼리와 Log Analytics API를 사용 하 여 Log Analytics 및 Microsoft Excel Azure Monitor를 통합할 수 있습니다. 이러한 통합을 통해 전체 결과 볼륨이 61MiB를 초과 하지 않는 한 최대 50만 개의 레코드를 Excel로 보낼 수 있습니다.
+M 쿼리 및 Log Analytics API를 사용하여 Azure Monitor Log Analytics 및 Microsoft Excel을 통합할 수 있습니다. 이 통합을 사용하면 특정 수의 레코드와 수 MB의 데이터를 보낼 수 있습니다. 이러한 제한은 Azure Portal 섹션의 [Azure Monitor Log Analytics 작업 영역 제한](../service-limits.md#log-analytics-workspaces)에 설명되어 있습니다. 
 
 > [!NOTE]
-> Excel은 로컬 클라이언트 응용 프로그램 이므로 로컬 하드웨어 및 소프트웨어 제한 사항으로 인해 성능 및 큰 데이터 집합을 처리 하는 기능이 영향을 받습니다.
+> Excel은 로컬 클라이언트 애플리케이션이므로, 로컬 하드웨어 및 소프트웨어 제한이 대규모 데이터 집합을 처리하는 성능 및 기능에 영향을 미칩니다.
 
-## <a name="create-your-m-query-in-log-analytics"></a>Log Analytics에서 M 쿼리 만들기 
+## <a name="create-your-m-query-in-log-analytics"></a>Log Analytics에서 M 쿼리 생성하기 
 
-1. 일반적으로 Log analytics에서 **쿼리를 만들고 실행** 합니다. 사용자 인터페이스에서 1만 레코드 제한에 도달 하면 걱정 하지 마세요.  ' 이전 ' 함수 또는 UI 시간 선택과 같은 상대 날짜를 사용 하 여 Excel에서 올바른 데이터 집합을 새로 고치는 것이 좋습니다.
+1. 일반적으로 Log analytics에서 **쿼리를 생성하고 실행** 합니다. 사용자 인터페이스의 레코드 수 제한에 도달해도 괜찮습니다.  상대 날짜(예: 'ago' 함수 또는 UI 시간 선택기)를 사용해야 Excel이 올바른 데이터 집합을 새로 고칩니다.
   
-2. **쿼리 내보내기** -쿼리 및 해당 결과가 만족 스 러 우면 *내보내기* 메뉴에서 **Power BI (m Query) 메뉴를** 사용 하 여 Log Analytics 내보내기를 사용 하 여 쿼리를 M으로 내보냅니다.
+2. **쿼리 내보내기** -쿼리 및 해당 결과가 만족스러우면 *내보내기* 메뉴에서 Log Analytics **Power BI (M 쿼리)로 내보내기** 메뉴를 사용하여 쿼리를 M으로 내보냅니다.
 
-:::image type="content" source="media/log-excel/export-query.png" alt-text="데이터 및 내보내기 옵션을 사용 하 여 쿼리 Log Analytics" border="true":::
+:::image type="content" source="media/log-excel/export-query.png" alt-text="데이터 및 내보내기 옵션을 사용한 Log Analytics 쿼리" border="true":::
 
 
 
-이 옵션을 선택 하면 Excel에서 사용할 수 있는 M 코드를 포함 하는 .txt 파일이 다운로드 됩니다.
+이 옵션을 선택하면 Excel 사용할 수 있는 M 코드가 포함된 .txt 파일이 다운로드됩니다.
 
-위에 표시 된 쿼리는 다음 M 코드를 내보냅니다. 예제에서 쿼리에 대해 내보낸 M 코드의 예는 다음과 같습니다.
+위에 표시된 쿼리는 다음 M 코드를 내보냅니다. 다음은 예제에서 쿼리에 대해 내보낸 M 코드의 예입니다.
 
 ```m
 /*
@@ -76,34 +76,34 @@ in AnalyticsQuery
 
 ## <a name="connect-query-to-excel"></a>Excel에 쿼리 연결 
 
-쿼리를 가져옵니다. 
+쿼리를 가져오려면 다음을 수행합니다. 
 
 1. Microsoft Excel을 엽니다. 
-1. 리본에서 **데이터** 메뉴로 이동 합니다. **데이터 가져오기** 를 선택 합니다. **다른 원본** 에서 **빈 쿼리** 를 선택 합니다.
+1. 리본에서 **데이터** 메뉴로 이동합니다. **데이터 가져오기** 를 선택합니다. **다른 원본** 에서 **빈 쿼리** 를 선택합니다.
  
    :::image type="content" source="media/log-excel/excel-import-blank-query.png" alt-text="Excel에서 공백 가져오기 옵션" border="true":::
 
-1. 파워 쿼리 창에서 **고급 편집기** 를 선택 합니다.
+1. 파워 쿼리 창에서 **고급 편집기** 를 선택합니다.
 
    :::image type="content" source="media/log-excel/advanced-editor.png" alt-text="Excel 고급 쿼리 편집기" border="true":::
 
  
-1. 고급 편집기의 텍스트를 Log Analytics에서 내보낸 쿼리로 바꿉니다.
+1. 고급 편집기에서 텍스트를 Log Analytics에서 내보낸 쿼리로 대체합니다.
 
-   :::image type="content" source="media/log-excel/advanced-editor-2.png" alt-text="빈 쿼리 만들기" border="true":::
+   :::image type="content" source="media/log-excel/advanced-editor-2.png" alt-text="빈 쿼리 생성하기" border="true":::
  
-1. **완료**, **로드 및 닫기** 를 차례로 선택 합니다. Excel은 Log analytics API 및 결과 집합을 사용 하 여 쿼리를 실행 합니다.
+1. **완료** 를 선택한 다음 **로드 및 닫기** 를 선택합니다. Log Analytics API 및 결과 집합을 사용하여 Excel이 쿼리를 실행합니다.
  
 
    :::image type="content" source="media/log-excel/excel-query-result.png" alt-text="Excel의 쿼리 결과" border="true":::
 
 > [!Note]
-> 레코드 수가 예상 보다 적으면 결과의 볼륨이 61MiB 제한을 초과할 수 있습니다. `project`쿼리에서 또는를 사용 하 여 `project-away` 열을 필요한 열로 제한 하십시오.
+> 레코드 수가 예상보다 적으면 결과 볼륨이 61MiB 제한을 초과할 수 있습니다. 쿼리에서 `project` 또는 `project-away`를 사용하여 열을 필요한 열로 제한합니다.
 
 ##  <a name="refreshing--data"></a>데이터 새로 고침
 
-Excel에서 직접 데이터를 새로 고칠 수 있습니다. Excel 리본의 **데이터** 메뉴 그룹에서 **새로 고침** 단추를 선택 합니다.
+Excel에서 직접 데이터를 새로 고칠 수 있습니다. Excel 리본의 **데이터** 메뉴 그룹에서 **새로 고침** 단추를 선택합니다.
  
 ## <a name="next-steps"></a>다음 단계
 
-Excel의 외부 데이터 원본과의 통합에 대 한 자세한 내용은 [외부 데이터 원본에서 데이터 가져오기 (파워 쿼리)](https://support.office.com/article/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a) 를 참조 하세요.
+Excel과 외부 데이터 원본의 통합에 대한 자세한 내용은 [외부 데이터 원본에서 데이터 가져오기(파워 쿼리)](https://support.office.com/article/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a)를 참조하세요

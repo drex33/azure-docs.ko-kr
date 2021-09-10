@@ -9,16 +9,14 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.collection: windows
-ms.openlocfilehash: 166e9b2b2ea98027c4ca9a8e13c5c26d68214d9a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 08cc123df4d0b4af0d5a0e94d5ef0e4826b0681c
+ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769078"
+ms.lasthandoff: 07/10/2021
+ms.locfileid: "113594808"
 ---
 # <a name="create-a-new-windows-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Azure Image Builder를 사용하여 기존 이미지 버전에서 새로운 Windows VM 이미지 버전 만들기
-
-**적용 대상:** :heavy_check_mark: Windows VM
 
 본 문서에서는 [Shared Image Gallery](../shared-image-galleries.md)에서 기존 이미지 버전을 가져오기, 해당 이미지 업데이트하기 및 업데이트한 이미지를 갤러리에 새 이미지 버전으로 게시하기에 대한 방법을 알려줍니다.
 
@@ -73,10 +71,10 @@ username="user name for the VM"
 vmpassword="password for the VM"
 ```
 
-구독 ID에 대한 변수를 만듭니다.
+구독 ID에 대한 변수를 만듭니다. `az account show | grep id`를 사용하여 만들 수 있습니다.
 
 ```azurecli-interactive
-subscriptionID=$(az account show --query id --output tsv)
+subscriptionID=<Subscription ID>
 ```
 
 업데이트하려는 이미지 버전을 가져옵니다.
@@ -86,7 +84,7 @@ sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'id' -o tsv)
+   --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정

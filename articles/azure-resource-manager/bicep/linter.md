@@ -3,12 +3,12 @@ title: Bicep Linter 사용
 description: Bicep Linter의 사용 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/01/2021
-ms.openlocfilehash: 82ab1462ca55a4329370d185aed626ae631e2f2b
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 6b270a87a67235a6663a697b1329c5f86d570fdf
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113649443"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779730"
 ---
 # <a name="use-bicep-linter"></a>Bicep Linter 사용
 
@@ -16,7 +16,7 @@ Bicep Linter를 사용하여 Bicep 파일을 분석할 수 있습니다. 구문 
 
 ## <a name="install-linter"></a>Linter 설치
 
-Linter는 Visual Studio 코드 및 Bicep CLI와 함께 사용할 수 있습니다. 다음 조건을 충족해야 합니다.
+Linter는 Visual Studio Code 및 Bicep CLI와 함께 사용할 수 있습니다. 다음 조건을 충족해야 합니다.
 
 - Bicep Azure CLI 버전 0.4 이상
 - Visual Studio Code 버전 0.4 이상에 대한 Bicep 확장입니다.
@@ -150,7 +150,7 @@ Linter를 사용하려면 Bicep 확장 0.4 이상을 설치합니다.  다음 �
 
 ## <a name="use-in-bicep-cli"></a>Bicep CLI에서 사용
 
-Linter를 사용하려면 Bicep CLI 0.4 이상을 설치합니다.  다음 스크린샷에는 작동 중인 Linter가 나와 있습니다. Bicep 파일은 [Visual Studio 코드에서 사용](#use-in-visual-studio-code)하는 것과 동일합니다.
+Linter를 사용하려면 Bicep CLI 0.4 이상을 설치합니다.  다음 스크린샷에는 작동 중인 Linter가 나와 있습니다. Bicep 파일은 [Visual Studio Code에서 사용](#use-in-visual-studio-code)하는 것과 동일합니다.
 
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="명령줄에서 Bicep Linter 사용.":::
 

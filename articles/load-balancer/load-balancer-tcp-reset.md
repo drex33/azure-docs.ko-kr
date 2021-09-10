@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 9b555d7972e88df85e08dbcb1737231755c21361
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9d18f5e674a5d30049b93a4273df1ecc8a37595c
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448851"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634868"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Load Balancer TCP 재설정 및 유휴 시간 제한
 
@@ -59,6 +59,7 @@ TCP 연결 유지는 배터리 수명이 제한되지 않는 시나리오에서 
 
 - TCP 재설정은 ESTABLISHED 상태에서 TCP 연결 중에만 전송됩니다.
 - TCP 유휴 시간 제한은 UDP 프로토콜의 부하 분산 규칙에 영향을 주지 않습니다.
+- 네트워크 가상 어플라이언스가 경로에 있는 경우, ILB HA 포트에 대해 TCP 재설정이 지원되지 않습니다. NVA에서 TCP 재설정을 통해 아웃바운드 규칙을 사용하는 것이 해결 방법일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,20 +8,22 @@ ms.date: 08/16/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d2a770dd007c801d2192ff08349966ff915bdd0a
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 594800dcd75de3e5539873f327b5b64b81a8cb1f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538407"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698189"
 ---
 # <a name="enable-shared-disk"></a>공유 디스크 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 이 문서에서는 Azure Managed Disks에 대한 공유 디스크 기능을 사용하도록 설정하는 방법을 설명합니다. Azure 공유 디스크는 여러 VM(가상 머신)에 관리 디스크를 동시에 연결할 수 있게 해주는 Azure Managed Disks의 새로운 기능입니다. 관리 디스크를 여러 VM에 연결하면 새 클러스터된 애플리케이션을 배포하거나 기존 클러스터된 애플리케이션을 Azure로 마이그레이션할 수 있습니다. 
 
 공유 디스크가 사용하도록 설정된 관리 디스크에 대한 개념 정보를 찾고 있는 경우 [Azure 공유 디스크](disks-shared.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 스크립트 및 명령에는 다음 중 하나가 필요합니다.
 

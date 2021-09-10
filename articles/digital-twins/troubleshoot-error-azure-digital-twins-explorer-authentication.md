@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 4/8/2021
-ms.openlocfilehash: a91053f9a21aebf1a99c35a3a982fd3ad5514d04
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ef78f1dd6089201744de19900738ebcc6e5f70db
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475658"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114468675"
 ---
 # <a name="authentication-failed"></a>인증 실패
 
@@ -29,7 +29,7 @@ Azure Digital Twins Explorer 애플리케이션을 설정하고 실행할 때 �
 
 이 오류는 Azure 계정에 Azure Digital Twins 인스턴스에 대해 설정된 필수 Azure RBAC(역할 기반 액세스 제어) 권한이 없는 경우에 발생할 수 있습니다. 인스턴스의 데이터에 액세스하려면 각각 읽거나 관리하려는 인스턴스에 대한 **Azure Digital Twins 데이터 판독기** 또는 **Azure Digital Twins 데이터 소유자** 역할이 있어야 합니다. 
 
-Azure Digital Twins의 보안 및 역할에 대한 자세한 내용은 [개념: Azure Digital twins 솔루션의 보안](concepts-security.md)을 참조하세요.
+Azure Digital Twins의 보안 및 역할에 대한 자세한 내용은 [Azure Digital twins 솔루션의 보안](concepts-security.md)을 참조하세요.
 
 ## <a name="solutions"></a>솔루션
 
@@ -63,7 +63,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 ## <a name="next-steps"></a>다음 단계
 
 새 Azure Digital Twins 인스턴스를 만들고 인증하는 방법에 대한 설치 단계를 읽어보세요.
-* [방법: 인스턴스 및 인증 설정(CLI)](how-to-set-up-instance-cli.md)
+* [인스턴스 및 인증 설정(CLI)](how-to-set-up-instance-cli.md)
 
 Azure Digital Twins의 보안 및 사용 권한에 대해 자세히 알아보세요.
-* [개념: Azure Digital Twins 솔루션 보안](concepts-security.md)
+* [Azure Digital Twins 솔루션에 대한 보안](concepts-security.md)

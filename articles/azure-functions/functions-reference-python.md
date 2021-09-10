@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601982058a333f23cf5895351db7bc6475617256
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: aa48731248c9e51d680bc0e1b396115c54edbcd7
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536394"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123260859"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -267,7 +267,9 @@ def main(req):
 
 ### <a name="log-custom-telemetry"></a>로그 사용자 지정 원격 분석
 
-기본적으로 Functions는 Application Insights에 출력을 추적으로 기록합니다. 보다 강력한 제어를 위해 [OpenCensus Python 확장](https://github.com/census-ecosystem/opencensus-python-extensions-azure)을 사용하여 Application Insights 인스턴스에 사용자 지정 원격 분석 데이터를 보낼 수 있습니다. 
+로그 원격 분석은 기본값으로 Functions 런타임을 통해 Functions 앱에 대해 수집됩니다. 이 원격 분석은 Application Insights 추적으로 종료됩니다. 특정 Azure 서비스에 대한 요청 및 종속성 원격 분석도 기본값으로 [함수 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings?tabs=csharp#supported-bindings)을 통해 수집됩니다. 바인딩이 아닌 사용자 지정 요청/종속성 원격 분석을 수집하려면, [OpenCensus Python 확장](https://github.com/census-ecosystem/opencensus-python-extensions-azure)을 사용하여 사용자 지정 원격 분석 데이터를 Application Insights 인스턴스로 보낼 수 있습니다.
+
+지원되는 라이브러리 목록은 [여기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib)에서 찾을 수 있습니다.
 
 >[!NOTE]
 > OpenCensus Python 확장을 사용하려면 `local.settings.json` 및 애플리케이션 설정에서 `PYTHON_ENABLE_WORKER_EXTENSIONS`를 `1`로 설정하여 [Python 확장](#python-worker-extensions)을 사용하도록 설정해야 합니다.
@@ -390,9 +392,16 @@ def main(req):
 
 ## <a name="environment-variables"></a>환경 변수
 
-Functions에서 서비스 연결 문자열 같은 [애플리케이션 설정](functions-app-settings.md)은 실행 중에 환경 변수로 공개됩니다. `import os`를 선언한 다음, `setting = os.environ["setting-name"]`을 사용하여 이러한 설정에 액세스할 수 있습니다.
+Functions에서 서비스 연결 문자열 같은 [애플리케이션 설정](functions-app-settings.md)은 실행 중에 환경 변수로 공개됩니다. 코드에서 이러한 설정에 액세스하는 두 가지 주요 방법이 있습니다. 
 
-다음 예제에서는 `myAppSetting`이라는 키가 있는 [애플리케이션 설정](functions-how-to-use-azure-function-app-settings.md#settings)을 가져옵니다.
+| 메서드 | 설명 |
+| --- | --- |
+| **`os.environ["myAppSetting"]`** | 키 이름으로 애플리케이션 설정을 설정하려고 시도하여 실패할 때 오류가 발생합니다.  |
+| **`os.getenv("myAppSetting")`** | 키 이름으로 애플리케이션 설정을 구하려고 시도하여 실패하면, null을 반환합니다.  |
+
+이러한 두 가지 방법 모두 `import os`을 선언해야 합니다.
+
+다음 예제에서는 `myAppSetting`라는 키가 있는 [애플리케이션 설정](functions-how-to-use-azure-function-app-settings.md#settings)을 가져오기 위해 `os.environ["myAppSetting"]`을 사용합니다.
 
 ```python
 import logging
@@ -702,7 +711,7 @@ Functions Python 작업자에는 특정 라이브러리 집합이 필요합니�
 > 함수 앱의 requirements.txt에 `azure-functions-worker` 항목이 포함되어 있는 경우 해당 항목을 제거합니다. Functions 작업자는 Azure Functions 플랫폼에서 자동으로 관리되며, 새로운 기능 및 버그 수정에 대해 정기적으로 업데이트합니다. requirements.txt에서 이전 버전의 작업자를 수동으로 설치하면 예기치 않은 문제가 발생할 수 있습니다.
 
 > [!NOTE]
->  패키지에 작업자의 종속성과 충돌할 수 있는 특정 라이브러리(예: protobuf, tensorflow, grpcio)가 포함된 경우 애플리케이션이 작업자의 종속성을 참조하지 않도록 앱 설정에서 `PYTHON_ISOLATE_WORKER_DEPENDENCIES`를 `1`로 구성합니다.
+>  패키지에 작업자의 종속성과 충돌할 수 있는 특정 라이브러리(예: protobuf, tensorflow, grpcio)가 포함된 경우 애플리케이션이 작업자의 종속성을 참조하지 않도록 앱 설정에서 [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies-preview)을 `1`로 구성합니다. 이 기능은 미리 보기 상태입니다.
 
 ### <a name="azure-functions-python-library"></a>Azure Functions Python 라이브러리
 

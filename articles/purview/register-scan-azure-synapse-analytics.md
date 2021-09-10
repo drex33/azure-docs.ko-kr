@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: f2797af01dad10c04c8a56cf52a584ea0f04af31
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 09dc3c20ca95f32ee4c8f01d6b4986adfcd3703e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656754"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567404"
 ---
 # <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>전용 SQL 풀(이전의 SQL DW) 등록 및 검사
 
@@ -27,7 +27,6 @@ Azure Synapse Analytics(이전의 SQL DW)는 메타데이터 및 스키마를 �
 
 ### <a name="known-limitations"></a>알려진 제한 사항
 
-> * Azure Purview는 Azure Synapse Analytics에서 [보기](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true)를 위한 검사를 지원하지 않습니다.
 > * Azure Purview는 스키마 탭에서 300개를 초과하는 열을 지원하지 않으며 "Additional-Columns-Truncated"를 표시합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -57,11 +56,11 @@ Purview 계정에는 생성할 때 기본적으로 Purview 이름인 자체 관�
 CREATE USER [PurviewManagedIdentity] FROM EXTERNAL PROVIDER
 GO
 
-EXEC sp_addrolemember 'db_owner', [PurviewManagedIdentity]
+EXEC sp_addrolemember 'db_datareader', [PurviewManagedIdentity]
 GO
 ```
 
-인증에는 데이터베이스, 스키마, 테이블을 위한 메타데이터를 가져올 수 있는 권한이 있어야 합니다. 또한 분류를 위해 샘플링할 테이블을 쿼리할 수 있어야 합니다. ID에 `db_owner` 사용 권한을 할당하는 것이 좋습니다.
+인증에는 데이터베이스, 스키마, 테이블을 위한 메타데이터를 가져올 수 있는 권한이 있어야 합니다. 또한 분류를 위해 샘플링할 테이블을 쿼리할 수 있어야 합니다. ID에 `db_datareader` 사용 권한을 할당하는 것이 좋습니다.
 
 ### <a name="service-principal"></a>서비스 주체
 
@@ -83,7 +82,7 @@ GO
 1. [Azure Portal](https://portal.azure.com)에서 서비스 주체로 이동합니다.
 1. **개요** 에서 **애플리케이션(클라이언트) ID** 값을 복사하고, **인증서 및 비밀** 에서 **클라이언트 암호** 값을 복사합니다.
 1. 키 자격 증명 모음으로 이동
-1. **설정 > 비밀** 을 선택합니다.
+1. **설정 > 비밀** 을 차례로 선택합니다.
 1. **+ 생성/가져오기** 를 선택하고, 선택한 **이름** 및 **값** 을 서비스 주체의 **클라이언트 암호** 로 입력합니다.
 1. **만들기** 를 선택하여 완료합니다.
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
@@ -97,7 +96,7 @@ GO
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
 GO
 
-ALTER ROLE db_owner ADD MEMBER [ServicePrincipalName]
+ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalName]
 GO
 ```
 
@@ -120,10 +119,10 @@ Azure Synapse Analytics(이전의 SQL DW)를 위한 로그인이 없는 경우 [
 
 ## <a name="register-a-sql-dedicated-pool-formerly-sql-dw"></a>SQL 전용 풀(이전의 SQL DW) 등록
 
-Data Catalog에서 새 Azure Synapse Analytics 서버를 등록하려면 다음을 수행합니다.
+Purview에서 새 SQL 전용 풀을 등록하려면 다음을 수행합니다.
 
 1. Purview 계정으로 이동합니다.
-1. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 1. **등록** 을 선택합니다.
 1. **원본 등록** 에서 **SQL 전용 풀(이전의 SQL DW)** 을 선택합니다.
 1. **계속** 을 선택합니다.
@@ -138,7 +137,35 @@ Data Catalog에서 새 Azure Synapse Analytics 서버를 등록하려면 다음�
 
 :::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="원본 등록 옵션" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
+
+새 검색을 만들고 실행하려면 다음을 수행합니다.
+
+1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+
+1. 등록한 SQL 전용 풀 원본을 선택합니다.
+
+1. **새 검사** 를 선택합니다.
+
+1. 데이터 원본에 연결할 자격 증명을 선택합니다.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/sql-dedicated-pool-set-up-scan.png" alt-text="검사 설정":::
+
+1. 목록에서 적절한 항목을 선택하여 검사 범위를 특정 테이블로 지정할 수 있습니다.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/scope-scan.png" alt-text="검사 범위 지정":::
+
+1. 그런 다음, 검사 규칙 집합을 선택합니다. 시스템 기본값, 기존 사용자 지정 규칙 집합 중 하나를 선택하거나 새 규칙 집합을 인라인으로 만들 수 있습니다.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/select-scan-rule-set.png" alt-text="검사 규칙 집합":::
+
+1. 검사 트리거를 선택합니다. 일정을 설정하거나 검사를 한 번 실행할 수 있습니다.
+
+   :::image type="content" source="media/register-scan-azure-synapse-analytics/trigger-scan.png" alt-text="트리거":::
+
+1. 검사를 검토하고 **저장 및 실행** 을 선택합니다.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

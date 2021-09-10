@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 8315c2fa094f1d12a788d42a336cb01feb58c6c9
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 89230372c641168c1aff4fade8475a48f1a95e04
+ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110450279"
+ms.lasthandoff: 06/22/2021
+ms.locfileid: "112428792"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -442,6 +442,9 @@ Windows 기반 컴퓨터에 설치된 모든 역할 또는 애플리케이션이
 
 
 ### <a name="generalize-a-vhd"></a>VHD 일반화
+
+>[!NOTE]
+> 기존 Azure VM에서 일반화된 이미지를 만드는 경우 sysprep을 실행하기 전에 VM 확장을 제거하는 것이 좋습니다.
 
 >[!NOTE]
 > 다음 단계에서 `sysprep.exe`를 실행한 후 VM을 끕니다. Azure에서 이미지를 만들기 전까지 다시 켜면 안 됩니다.

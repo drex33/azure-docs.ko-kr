@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adb0073ca5d8bfb822d7ac47d7e7f770d18423ca
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 6ec4457eeb60029783981824b93d2eadfaa1271b
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539580"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122866322"
 ---
 # <a name="conditional-access-cloud-apps-actions-and-authentication-context"></a>조건부 액세스: 클라우드 앱, 작업, 인증 컨텍스트
 
@@ -40,7 +40,7 @@ ms.locfileid: "122539580"
 - Azure Event Hubs
 - Azure Service Bus
 - [Azure SQL Database 및 Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
-- Dynamics CRM Online
+- Common Data Service
 - Microsoft Application Insights 분석
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Microsoft Azure 관리](#microsoft-azure-management)
@@ -48,12 +48,12 @@ ms.locfileid: "122539580"
 - Microsoft Cloud App Security
 - Microsoft Commerce Tools Access Control 포털
 - Microsoft Commerce Tools 인증 서비스
-- Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
 - [Microsoft Intune 등록](/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
-- Microsoft PowerApps
+- Microsoft Power Apps
+- Microsoft Power Automate
 - Bing에서 Microsoft Search
 - Microsoft StaffHub
 - Microsoft Stream
@@ -85,7 +85,6 @@ Office 365 제품군을 사용하면 해당 서비스를 한 번에 모두 대�
 
 Office 365 클라이언트 앱에 포함된 주요 애플리케이션은 다음과 같습니다.
 
-   - Microsoft Flow
    - Microsoft Forms
    - Microsoft Stream
    - Microsoft To-Do
@@ -98,7 +97,8 @@ Office 365 클라이언트 앱에 포함된 주요 애플리케이션은 다음�
    - Office Online
    - Office.com
    - OneDrive
-   - PowerApps
+   - Power Automate
+   - Power Apps
    - 비즈니스 온라인용 Skype
    - Sway
 

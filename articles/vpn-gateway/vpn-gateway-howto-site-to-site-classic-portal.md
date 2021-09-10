@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: f440ec76d3085e7a5ef7ec99f1a5a76c9c444ef9
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 71b365a2034e40831d4216f83d046c0b897bbe26
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205344"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122566471"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "108205344"
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
-* 클래식 배포 모델에서 작업할 것인지 확인합니다. 리소스 관리자 배포 모델에서 작업하려면 [사이트 간 연결 만들기(리소스 관리자)](./tutorial-site-to-site-portal.md)를 참조하세요. 클래식 모델이 레거시이므로 Resource Manager 배포 모델을 사용하는 것이 좋습니다.
+* 클래식 배포 모델에서 작업할 것인지 확인합니다. [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md)에서 작업하려면 [사이트 간 연결 만들기(Resource Manager)](./tutorial-site-to-site-portal.md)를 참조하세요. 클래식 모델이 레거시이므로 Resource Manager 배포 모델을 사용하는 것이 좋습니다.
 * 호환되는 VPN 디바이스 및 이 디바이스를 구성할 수 있는 사람이 있는지 확인합니다. 호환되는 VPN 디바이스 및 디바이스 구성에 대한 자세한 내용은 [VPN 디바이스 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
 * VPN 디바이스에 대한 외부 연결 공용 IPv4 주소가 있는지 확인합니다.
 * 온-프레미스 네트워크에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다. 이 구성을 만들 때 Azure가 온-프레미스 위치에 라우팅할 IP 주소 범위 접두사를 지정해야 합니다. 온-프레미스 네트워크의 어떤 서브넷도 사용자가 연결하려는 가상 네트워크 서브넷과 중첩될 수 없습니다.
@@ -81,7 +81,7 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
    * **VPN Gateway IP 주소:** 온-프레미스 네트워크에 대한 VPN 디바이스의 공용 IP 주소입니다. VPN 디바이스에는 IPv4 공용 IP 주소가 필요합니다. 연결하려는 VPN 디바이스에 유효한 공용 IP 주소를 지정합니다. Azure에서 연결할 수 있어야 합니다. VPN 디바이스의 IP 주소를 모르는 경우 항상 자리 표시자 값을 넣고(반드시 유효한 공용 IP 주소 형식으로) 나중에 변경할 수 있습니다.
 
    * **클라이언트 주소 공간:** 이 게이트웨이를 통해 로컬 온-프레미스 네트워크에 라우팅할 IP 주소 범위를 나열합니다. 주소 공간 범위를 여러 개 추가할 수 있습니다. 여기에서 지정한 범위가 자체 가상 네트워크가 연결된 다른 네트워크의 범위 또는 가상 네트워크 자체의 주소 범위와 겹치지 않도록 합니다.
-1. 페이지 하단에서 검토 + 만들기를 선택하지 않습니다. 대신 **다음: 게이트웨이>** 를 선택합니다.
+1. 페이지 맨 아래에서 검토 + 만들기를 선택하지 않습니다. 대신 **다음: 게이트웨이>** 를 선택합니다.
 
 ### <a name="to-configure-the-virtual-network-gateway"></a><a name="sku"></a>가상 네트워크 게이트웨이 구성
 
@@ -93,7 +93,7 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
 
    * **게이트웨이 서브넷:** 지정하는 게이트웨이 서브넷의 크기는 만들려는 VPN Gateway 구성에 따라 달라집니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 /27 또는 /28을 사용하는 것이 좋습니다. 이렇게 하면 더 많은 주소를 포함하는 큰 서브넷이 만들어집니다. 더 큰 게이트웨이 서브넷을 사용하면 향후 구성을 수용할 수 있을 만큼 충분한 IP 주소를 확보할 수 있습니다.
 
-1. 페이지 하단에서 **검토 + 만들기** 를 선택하여 설정의 유효성을 검사합니다. **만들기** 를 선택하여 배포합니다. 선택한 게이트웨이 SKU에 따라 가상 네트워크 게이트웨이를 만드는 데 최대 45분까지 걸릴 수 있습니다.
+1. 페이지 맨 아래에서 **검토 + 만들기** 를 선택하여 설정의 유효성을 검사합니다. **만들기** 를 선택하여 배포합니다. 선택한 게이트웨이 SKU에 따라 가상 네트워크 게이트웨이를 만드는 데 최대 45분까지 걸릴 수 있습니다.
 
 ## <a name="configure-your-vpn-device"></a><a name="vpndevice"></a>VPN 디바이스 구성
 

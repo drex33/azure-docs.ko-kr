@@ -1,7 +1,7 @@
 ---
 title: ML 실험을 위한 MLflow 추적
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning을 통해 MLflow를 설정하여 ML 모델에서 메트릭 및 아티팩트를 기록하고 ML 모델을 웹 서비스로 배포합니다.
+description: Azure Machine Learning을 사용해 MLflow 추적을 설정하여 ML 모델에서 메트릭 및 아티팩트를 로깅합니다.
 services: machine-learning
 author: shivp950
 ms.author: shipatel
@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 05/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 783be7d595022ba08d7896540683635dbc59ade4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 867f4a7c2c45a73c3ebc651a0f2d7a4b38156b90
+ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378842"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113031106"
 ---
 # <a name="track-ml-models-with-mlflow-and-azure-machine-learning"></a>MLflow 및 Azure Machine Learning을 사용하여 ML 모델 추적
 
@@ -26,11 +26,13 @@ ms.locfileid: "110378842"
 
 + [Azure Machine Learning 작업 영역](./concept-azure-machine-learning-architecture.md#workspace)에서 실험 메트릭과 아티팩트를 추적하고 로깅합니다. 실험을 위해 MLflow 추적을 이미 사용하고 있는 경우 작업 영역이 학습 메트릭 및 모델을 저장할 중앙 집중화된 안전하고 확장성 있는 위치를 제공합니다.
 
-+ [Azure Machine Learning 백 엔드 지원(미리 보기)을 통해 MLflow 프로젝트로 학습 작업을 제출](how-to-train-mlflow-projects.md)합니다. Azure Machine Learning 추적을 사용하여 로컬로 작업을 제출하거나 [Azure Machine Learning 컴퓨팅](how-to-create-attach-compute-cluster.md)을 통해 실행을 클라우드로 마이그레이션할 수 있습니다.
++ [Azure Machine Learning 백 엔드 지원을 통해 MLflow 프로젝트로 학습 작업을 제출](how-to-train-mlflow-projects.md)합니다. Azure Machine Learning 추적을 사용하여 로컬로 작업을 제출하거나 [Azure Machine Learning 컴퓨팅](how-to-create-attach-compute-cluster.md)을 통해 실행을 클라우드로 마이그레이션할 수 있습니다.
 
 + MLflow 및 Azure Machine Learning 모델 레지스트리에서 모델을 추적하고 관리합니다.
 
 [MLflow](https://www.mlflow.org)는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 소스 라이브러리입니다. MLFlow 추적은 실험 환경에 관계없이(컴퓨터에서 로컬로, 원격 컴퓨팅 대상, 가상 머신 또는 [Azure Databricks 클러스터](how-to-use-mlflow-azure-databricks.md)에서) 학습 실행 메트릭과 모델 아티팩트를 로깅하고 추적하는 MLflow의 구성 요소입니다. 
+
+추가 MLflow 및 Azure Machine Learning 기능 통합에 대해 [MLflow 및 Azure Machine Learning](concept-mlflow.md)을 참조하세요.
 
 다음 다이어그램에서는 MLflow 추적을 사용하여 Azure Machine Learning 작업 영역에 실험의 실행 메트릭과 모델 아티팩트를 저장하는 방법을 보여 줍니다.
 
@@ -41,24 +43,6 @@ ms.locfileid: "110378842"
 
 > [!NOTE] 
 > SQL 스토리지, 서버, UI 또는 데이터 과학 종속성이 없는 경량 MLflow 패키지인 [MLflow Skinny 클라이언트](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)를 사용할 수 있습니다. 이는 배포를 포함한 MLflow 기능의 전체 제품군을 가져오지 않고 주로 추적 및 로깅 기능이 필요한 사용자에게 권장됩니다. 
-
-## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>MLflow 클라이언트와 Azure Machine Learning 클라이언트 비교
-
- 다음 표에는 Azure Machine Learning을 사용할 수 있는 여러 클라이언트와 해당 함수 기능이 요약되어 있습니다.
-
- MLflow 추적은 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)를 통해 사용할 수 있는 메트릭 로깅 및 아티팩트 스토리지 기능을 제공합니다.
-
-| 기능 | MLflow 추적 및 배포 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning Studio|
-|---|---|---|---|---|
-| 작업 영역 관리 |   | ✓ | ✓ | ✓ |
-| 데이터 저장소 사용  |   | ✓ | ✓ | |
-| 메트릭 로깅      | ✓ | ✓ |   | |
-| 아티팩트 업로드 | ✓ | ✓ |   | |
-| 메트릭 보기     | ✓ | ✓ | ✓ | ✓ |
-| 컴퓨팅 관리   |   | ✓ | ✓ | ✓ |
-| 모델 배포    | ✓ | ✓ | ✓ | ✓ |
-|모델 성능 모니터링||✓|  |   |
-| 데이터 드리프트 검색 |   | ✓ |   | ✓ |
 
 ## <a name="prerequisites"></a>전제 조건
 

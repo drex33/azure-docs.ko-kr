@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dde83e48fe25e1f7e4d23462574e80c75323dde3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cff113ffd6a37406a88eb5ad5a4e3d5e85e10c5
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740587"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039425"
 ---
 # <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>자습서: Linux 컨테이너로 IoT Edge 모듈 개발
 
@@ -80,6 +80,7 @@ IoT Edge 모듈을 개발할 때 개발 머신과 모듈을 결과적으로 배�
 >Linux ARM64 디바이스 지원은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다. 자세한 내용은 [Visual Studio Code(미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조하세요.
 
 이 자습서에서는 Visual Studio Code에 대한 개발 단계를 설명합니다. Visual Studio를 사용하는 경우는 [Visual Studio 2019를 사용한 Azure IoT Edge용 모듈 개발 및 디버그](how-to-visual-studio-develop-module.md)의 지침을 참조하세요.
+
 ## <a name="install-container-engine"></a>컨테이너 엔진 설치
 
 IoT Edge 모듈은 컨테이너로 패키지되므로, 개발 머신에 컨테이너 엔진을 빌드하고 관리해야 합니다. 해당 기능 지원과 인기로 인해 Docker Desktop 개발을 권장합니다. Windows의 Docker Desktop을 사용하면 Linux 컨테이너와 Windows 컨테이너 간을 전환하면서 다양한 IoT Edge 디바이스 유형에 대한 모듈을 쉽게 개발할 수 있습니다.
@@ -150,6 +151,18 @@ Visual Studio Code 창에 새 솔루션이 로드되면 생성된 다음 파일�
 
   * 레지스트리 자격 증명 섹션에서 솔루션을 만들 때 제공한 정보로 주소가 자동으로 채워집니다. 단, 사용자 이름 및 암호는 .env 파일에 저장된 변수를 참조합니다. 이 구성은 보안을 위한 것입니다. .env 파일은 Git에서 무시되지만 배포 템플릿은 무시되지 않기 때문입니다.
   * SampleModule 섹션에서 컨테이너 이미지는 솔루션을 만들 때 이미지 리포지토리를 제공한 경우에도 채워지지 않습니다. 이 자리 표시자는 SampleModule 폴더 내에 있는 **module.json** 파일을 가리킵니다. 해당 파일로 이동하면 이미지 필드에 리포지토리가 포함되어 있을 뿐만 아니라 컨테이너의 버전 및 플랫폼으로 구성된 태그 값도 포함되어 있는 것을 볼 수 있습니다. 개발 주기의 일환으로 버전을 수동으로 반복할 수 있으며 이 섹션 뒷부분에서 소개한 전환기를 사용하여 컨테이너 플랫폼을 선택합니다.
+
+### <a name="set-iot-edge-runtime-version"></a>IoT Edge 런타임 버전 설정
+
+IoT Edge 확장은 배포 자산을 만들 때 IoT Edge 런타임의 안정적인 최신 버전으로 기본 설정됩니다. 현재 최신 안정적인 버전은 버전 1.2입니다. 1\.1 장기 지원 버전 또는 이전 1.0 버전을 실행하는 디바이스용 모듈을 개발하는 경우 일치하도록 Visual Studio Code에서 IoT Edge 런타임 버전을 업데이트합니다.
+
+1. **뷰** > **명령 팔레트** 를 선택합니다.
+
+1. 명령 팔레트에서 **Azure IoT Edge: 기본 IoT Edge 런타임 버전 설정** 명령을 입력하고 실행합니다.
+
+1. 목록에서 IoT Edge 디바이스가 실행 중인 런타임 버전을 선택합니다.
+
+새 런타임 버전을 선택하면 런타임 모듈 이미지에 대한 변경 사항을 반영하도록 배포 매니페스트가 동적으로 업데이트됩니다.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>IoT Edge 에이전트에 레지스트리 자격 증명 제공
 

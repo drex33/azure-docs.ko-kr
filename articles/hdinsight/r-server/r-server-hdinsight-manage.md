@@ -2,17 +2,19 @@
 title: HDInsight에서 ML 서비스 클러스터 관리 - Azure
 description: Azure HDInsight에서 ML 서비스 클러스터를 관리하는 방법을 알아봅니다.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: a5e623b0429194db6d03beb674679bd10e337844
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ROBOTS: NOINDEX
+ms.openlocfilehash: 476d108b7edcec30d38587ba128080c99ae04fd9
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869477"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299324"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 이 문서에서는 Azure HDInsight에서 기존 ML 서비스 클러스터를 관리하여 다중 동시 사용자 추가, ML 서비스 클러스터에 원격으로 연결, 컴퓨팅 컨텍스트 변경 등의 작업을 수행하는 방법을 알아봅니다.
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e3eb77d15c288c93298da6dd79a76565e5d67f96
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 4119794663a35c6f29edf42443e57d411376cce5
+ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749945"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122830467"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Azure Key Vault 키, 비밀 및 인증서 개요
 
@@ -47,7 +47,7 @@ Storage 계정 키|/storage|지원됨|지원되지 않음
 |||
 - **암호화 키**: 여러 키 형식 및 알고리즘을 지원하고 소프트웨어 보호 및 HSM 보호 키를 사용할 수 있도록 합니다. 자세한 내용은 [키 정보](../keys/about-keys.md)를 참조하세요.
 - **비밀**: 암호, 데이터베이스 연결 문자열 등의 비밀을 안전하게 스토리지합니다. 자세한 내용은 [비밀 정보](../secrets/about-secrets.md)를 참조하세요.
-- **인증서**: 인증서를 지원합니다. 인증서는 키와 비밀을 기반으로 하며 자동 갱신 기능을 추가합니다. 자세한 내용은 [인증서 정보](../certificates/about-certificates.md)를 참조하세요.
+- **인증서**: 인증서를 지원합니다. 인증서는 키와 비밀을 기반으로 하며 자동 갱신 기능을 추가합니다. 인증서가 만들어지면 주소 지정 가능한 키와 비밀도 동일한 이름으로 만들어짐에 유의하세요. 자세한 내용은 [인증서 정보](../certificates/about-certificates.md)를 참조하세요.
 - **Azure Storage 계정 키**: 관리자를 대신하여 Azure Storage 계정의 키를 관리할 수 있습니다. 내부적으로 Key Vault는 Azure Storage 계정을 사용하여 키를 나열(동기화)하고, 주기적으로 키를 다시 생성(회전)할 수 있습니다. 자세한 내용은 [Key Vault를 사용하여 스토리지 계정 키 관리](../secrets/overview-storage-keys.md)를 참조하세요.
 
 Key Vault에 대한 일반적 내용은 [Azure Key Vault 정보](overview.md)를 참조하세요. 관리형 HSM 풀에 대한 자세한 내용은 [Azure Key Vault 관리형 HSM이란?](../managed-hsm/overview.md)을 참조하세요.

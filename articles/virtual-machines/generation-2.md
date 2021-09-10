@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 1fd639d1050490c03d269422d2d6eabad972ce10
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 284b4bc69446e12f70c3f0310fa494723aff1f1d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738182"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696349"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합
 
 이제 Azure에서 2세대용 가상 머신(VM)에 대한 지원이 제공됩니다. 가상 머신을 만든 후에는 가상 머신의 세대를 변경할 수 없으므로 세대를 선택하기 전에 이 페이지의 고려 사항을 검토하세요.
 

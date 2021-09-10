@@ -8,13 +8,13 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 08/24/2021
-ms.openlocfilehash: b5fdb41c84d97c5a4ba544c299eb183c704fa3d8
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 05/20/2021
+ms.openlocfilehash: 96c383c56c33fa91693599ccf043af415536c9c6
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822214"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642563"
 ---
 # <a name="data-flow-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 데이터 흐름 작업
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/25/2021
+ms.date: 07/27/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 558f8b720992f44a747689cb0e69436507b685c4
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: f843aebfea4e7c5b956d5e150c4e54dffa764a5c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866997"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536858"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 설정 구성
 
@@ -58,7 +58,7 @@ ms.locfileid: "122866997"
 
 또한 다음 **활성** 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
-| Setting | 설명 |
+| 설정 | 설명 |
 | --- | --- |
 | 영구 활성 할당 허용 | 전역 관리자 및 권한 있는 역할 관리자는 영구 활성 할당을 할당할 수 있습니다. |
 | 활성 할당 만료 기준 시간 | 전역 관리자 및 권한 있는 역할 관리자는 모든 활성 할당에 지정된 시작 및 종료 날짜를 포함하도록 요구할 수 있습니다. |
@@ -94,7 +94,7 @@ Privileged Identity Management은 활성화 및 활성 할당 시 Azure AD Multi
 
 ## <a name="require-approval-to-activate"></a>활성화할 승인 필요
 
-여러 승인자를 설정하는 경우 승인자 중 한 명이 승인되거나 거부되는 즉시 승인이 완료됩니다. 두 번째 또는 후속 승인자가 강제로 승인하도록 할 수 없습니다. 역할을 활성화하기 위해 승인을 요구하려는 경우 다음 단계를 따릅니다.
+여러 승인자를 설정하는 경우 승인자 중 한 명이 승인되거나 거부되는 즉시 승인이 완료됩니다. 두 명 이상의 사용자 승인이 필요하지 않습니다. 역할을 활성화하기 위해 승인을 요구하려는 경우 다음 단계를 따릅니다.
 
 1. **활성화하려면 승인 필요** 확인란을 선택합니다.
 
@@ -102,9 +102,11 @@ Privileged Identity Management은 활성화 및 활성 할당 시 Azure AD Multi
 
     ![승인자를 선택할 사용자 또는 그룹 창 선택](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. 사용자를 하나 이상 선택한 다음 **선택** 을 클릭합니다. 하나 이상의 승인자를 선택합니다. 특정 승인자를 선택하지 않으면 권한 있는 역할 관리자 및 전역 관리자가 기본 승인자가 됩니다.
+1. 사용자를 하나 이상 선택한 다음 **선택** 을 클릭합니다. 하나 이상의 승인자를 선택합니다. 특정 승인자를 선택하지 않으면 권한 있는 역할 관리자/전역 관리자가 기본 승인자가 됩니다.
 
-1. **업데이트** 를 선택하여 변경 내용을 저장합니다.
+    선택한 항목이 선택한 승인자 목록에 표시됩니다.
+
+1. 모든 역할 설정을 지정한 후 **업데이트** 를 선택하여 변경 내용을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

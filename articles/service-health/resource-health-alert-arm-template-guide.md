@@ -4,12 +4,12 @@ description: Azure 리소스를 사용할 수 없게 되면 알려주는 경고�
 ms.topic: conceptual
 ms.date: 9/4/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 34f8ec2eb47428f06ddcaf6b82a988f7f2b4b836
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6543e376f1cfa3ed2592972b997895c8bae68f01
+ms.sourcegitcommit: 75ad40bab1b3f90bb2ea2a489f8875d4b2da57e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110703275"
+ms.lasthandoff: 07/12/2021
+ms.locfileid: "113643580"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
 

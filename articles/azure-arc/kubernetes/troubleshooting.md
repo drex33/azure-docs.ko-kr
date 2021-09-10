@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Arc 사용 Kubernetes 클러스터를 통한 일반적인 문제를 해결합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: c05e82b084e49958a8c99bc755bdf954b708d69e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: e1a04e95924f4a217cdceca383637bcee7ea368a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110795085"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122567056"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Azure Arc 사용 Kubernetes 문제 해결
 
@@ -90,6 +90,19 @@ Error: list: failed to list: secrets is forbidden: User "myuser" cannot list res
 ```
 
 클러스터를 Azure Arc에 연결하는 사용자는 클러스터에서 `cluster-admin` 역할이 할당되어야 합니다.
+
+
+### <a name="unable-to-connect-openshift-cluster-to-azure-arc"></a>OpenShift 클러스터를 Azure Arc에 연결할 수 없음
+
+OpenShift 클러스터를 Azure Arc에 연결할 때 `az connectedk8s connect` 시간이 초과되고 실패하는 경우 다음을 확인하세요.
+
+1. OpenShift 클러스터는 4.5.41 이상, 4.6.35 이상 또는 4.7.18 이상의 버전 필수 조건을 충족해야 합니다.
+
+1. `az connectedk8s connnect`를 실행하기 전에 클러스터에서 다음 명령을 실행해야 합니다.
+
+    ```console
+    oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
+    ```
 
 ### <a name="installation-timeouts"></a>설치 시간 초과
 

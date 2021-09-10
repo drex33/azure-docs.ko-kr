@@ -7,18 +7,17 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 05/05/2021
+ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 85a5c9f08304c98b544fef2ccb7818d96613b3d4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 74c41ed89a3980967532955e46d4dade9eaacdb1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748136"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535727"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="overview-of-creating-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기 개요
 
@@ -27,7 +26,6 @@ ms.locfileid: "108748136"
 현재는 다음과 같은 Kubernetes 서비스 및 배포가 지원되고 있습니다.
 
 - AKS(Azure Kubernetes Service)
-- Azure Stack의 AKS 엔진(Azure Kubernetes Service 엔진)
 - Azure Stack HCI에서 Azure Kubernetes Service
 - ARO(Azure RedHat OpenShift)
 - OCP(OpenShift 컨테이너 플랫폼)
@@ -54,7 +52,7 @@ ms.locfileid: "108748136"
 - **데이터 컨트롤러 사용자 이름** - 데이터 컨트롤러 관리 사용자의 사용자 이름
 - **데이터 컨트롤러 암호** - 데이터 컨트롤러 관리 사용자용 암호
 - **Kubernetes 네임스페이스 이름** - 데이터 컨트롤러를 만들고자 하는 Kubernetes 네임스페이스의 이름
-- **연결 모드** - 연결 모드는 Azure Arc 지원 데이터 서비스 환경과 Azure의 연결 수준을 결정합니다. 현재, 미리 보기는 간접 연결 및 직접 연결 모드만 지원합니다.  자세한 내용은 [연결 모드](./connectivity.md)를 참조하세요. 
+- **연결 모드** - 연결 모드는 Azure Arc 지원 데이터 서비스 환경과 Azure의 연결 수준을 결정합니다. 간접 연결 모드를 일반적으로 사용할 수 있습니다. 직접 연결 모드는 미리 보기로 제공됩니다.  자세한 내용은 [연결 모드](./connectivity.md)를 참조하세요. 
 - **Azure 구독 ID** - Azure에서 데이터 컨트롤러 리소스를 만들고자 하는 Azure 구독 GUID
 - **Azure 리소스 그룹 이름** - Azure에서 데이터 컨트롤러 리소스를 만들고자 하는 리소스 그룹 이름
 - **Azure 위치** - Azure에서 데이터 컨트롤러 리소스 메타데이터를 저장할 Azure 위치 사용 가능한 지역 목록은 [Azure 글로벌 인프라/지역별 제품](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)을 참조하세요. 배포 중인 데이터 컨트롤러에서 관리하는 Azure 리소스에 대한 메타데이터 및 청구 정보는 위치 매개 변수로 지정하는 Azure의 위치에만 저장됩니다. 직접 연결 모드에서 배포하는 경우 데이터 컨트롤러에 대한 위치 매개 변수는 대상으로 지정하는 사용자 지정 위치 리소스의 위치와 동일합니다.
@@ -66,8 +64,9 @@ Azure Arc 데이터 컨트롤러를 만들 때는 다음과 같이 다양한 옵
 > **작업을 시도해보시겠습니까?**  
 > AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)를 사용하여 빨리 시작할 수 있습니다.
 > 
-- [[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)로 데이터 컨트롤러 만들기
-- [Azure Data Studio로 데이터 컨트롤러 만들기](create-data-controller-azure-data-studio.md)
-- [Azure Data Studio의 Jupyter Notebook을 통하여 Azure Portal에서 데이터 컨트롤러 만들기](create-data-controller-resource-in-azure-portal.md)
-- [kubectl 또는 oc 등의 Kubernetes 도구로 데이터 컨트롤러 만들기](create-data-controller-using-kubernetes-native-tools.md)
+- [CLI를 사용하여 간접 연결 모드에서 데이터 컨트롤러 만들기](create-data-controller-indirect-cli.md)
+- [Azure Data Studio를 사용하여 간접 연결 모드에서 데이터 컨트롤러 만들기](create-data-controller-indirect-azure-data-studio.md)
+- [Azure Data Studio의 Jupyter Notebook을 통해 Azure Portal에서 간접 연결 모드로 데이터 컨트롤러 만들기](create-data-controller-indirect-azure-portal.md)
+- [kubectl 또는 oc와 같은 Kubernetes 도구를 사용하여 간접 연결 모드에서 데이터 컨트롤러 만들기](create-data-controller-using-kubernetes-native-tools.md)
+- [직접 연결 모드에서 데이터 컨트롤러 만들기](create-data-controller-direct-prerequisites.md)
 - [테스트 배포를 가속화하는 환경을 위하여 Azure Arc Jumpstart로 데이터 컨트롤러 만들기](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)

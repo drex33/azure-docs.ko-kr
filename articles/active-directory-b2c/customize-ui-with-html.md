@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 76832f02f1c1337a705f33d26de97b0b5823c2c1
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 0a3312559ee46b70b97a99a5dae16e4a26cad273
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112981112"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123031844"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 HTML 템플릿을 사용하여 사용자 인터페이스 사용자 지정
 
@@ -75,7 +75,8 @@ Azure AD B2C는 [CORS(원본 간 리소스 공유)](https://www.w3.org/TR/cors/)
 
 - HTML 파일에 미디어, CSS, JavaScript 파일과 같은 외부 리소스를 포함하는 경우 절대 URL을 사용합니다.
 - [페이지 레이아웃 버전](page-layout.md) 1.2.0 이상을 사용하여 HTML 태그에 `data-preload="true"` 특성을 추가하면 CSS 및 JavaScript에 대한 로드 순서를 제어할 수 있습니다. `data-preload="true"`의 경우 페이지는 사용자에게 표시되기 전에 구성됩니다. 해당 특성을 사용하면 스타일이 지정되지 않은 HTML을 사용자에게 표시하지 않고 CSS 파일을 미리 로드하여 페이지가 “깜빡이는” 것을 방지할 수 있습니다. 다음 HTML 코드 조각은 `data-preload` 태그를 사용하는 방법을 보여줍니다.
-  ```HTML
+
+  ```html
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
 - 기본 페이지 콘텐츠로 시작하여 이를 기반으로 빌드하는 것이 좋습니다.
@@ -90,11 +91,41 @@ Azure AD B2C는 [CORS(원본 간 리소스 공유)](https://www.w3.org/TR/cors/)
 
 ## <a name="localize-content"></a>콘텐츠 지역화
 
-Azure AD B2C 테넌트에서 [사용자 언어 지정](language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용하도록 설정하면 Azure AD B2C가 OpenID Connect 매개 변수 `ui_locales`를 엔드포인트로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
+Azure AD B2C 테넌트에서 [사용자 언어 지정](language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용하도록 설정하면 Azure AD B2C는 HTML 페이지 언어 특성을 설정하고 OpenID Connect 매개 변수 `ui_locales`를 엔드포인트로 전달할 수 있습니다.
+
+#### <a name="single-template-approach"></a>단일 템플릿 접근 방식
+
+페이지를 로드하는 동안 Azure AD B2C는 HTML 페이지 언어 특성을 현재 언어를 이용해 설정합니다. 예: `<html lang="en">`. 현재 언어로 다양한 스타일을 렌더링하려면 CSS `:lang` 선택기와 CSS 정의를 사용하세요.
+
+다음 예제에서는 다음 클래스를 정의합니다.
+
+* `imprint-en` - 현재 언어가 영어인 경우 사용합니다.
+* `imprint-de` - 현재 언어가 독일어인 경우 사용합니다.
+* `imprint` - 현재 언어가 영어도 독일어도 아닐 때 사용하는 기본 클래스입니다.
+
+```css
+.imprint-en:lang(en),
+.imprint-de:lang(de) {
+    display: inherit !important;
+}
+.imprint {
+    display: none;
+}
+```
+
+다음 HTML 요소는 페이지 언어에 따라 표시되거나 숨겨집니다.
+
+```html
+<a class="imprint imprint-en" href="Link EN">Imprint</a>
+<a class="imprint imprint-de" href="Link DE">Impressum</a>
+```
+
+#### <a name="multi-template-approach"></a>다중 템플릿 접근 방식
+
+언어 사용자 지정 기능을 사용하면 Azure AD B2C는 OpenID Connect 매개 변수 `ui_locales`를 엔드포인트로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
 
 > [!NOTE]
-> Azure AD B2C는 `ui_locales`와 같은 OpenID Connect 매개 변수를 [예외 페이지](page-layout.md#exception-page-globalexception)로 전달하지 않습니다.
-
+> Azure AD B2C는 `ui_locales` 같은 OpenID Connect 매개 변수를 [예외 페이지](page-layout.md#exception-page-globalexception)로 전달하지 않습니다.
 
 사용되는 로캘에 따라 다른 위치에서 콘텐츠를 끌어올 수 있습니다. CORS 사용 엔드포인트에서 특정 언어에 대한 콘텐츠를 호스트하도록 폴더 구조를 설정합니다. 와일드 카드 값 `{Culture:RFC5646}`을 사용하는 경우 적합한 구조를 호출합니다.
 

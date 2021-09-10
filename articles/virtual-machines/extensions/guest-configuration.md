@@ -1,5 +1,5 @@
 ---
-title: Azure Policy 게스트 구성 확장
+title: 게스트 구성 확장
 description: 가상 머신 내에서 설정을 감사/구성하는 데 사용되는 확장에 대해 알아봅니다.
 ms.topic: article
 ms.service: virtual-machines
@@ -8,14 +8,14 @@ author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e12bcc3a1c1589baf5ab8fcc0f2b3e264d1953eb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e795f01b198ee2daf16a2321a4a02b2c06dbac1a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537163"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122767809"
 ---
-# <a name="overview-of-the-azure-policy-guest-configuration-extension"></a>Azure Policy 게스트 구성 확장 개요
+# <a name="overview-of-the-guest-configuration-extension"></a>게스트 구성 확장 개요
 
 게스트 구성 확장은 가상 머신 내에서 감사 및 구성 작업을 수행하는 Azure Policy 구성 요소입니다.
 [Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) 및 [Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc)에 대한 보안 기준 정의와 같은 정책은 확장이 설치된 다음에야 머신 내에서 설정을 확인할 수 있습니다.

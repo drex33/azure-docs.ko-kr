@@ -10,17 +10,18 @@ ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5bd35487bcd11aeacae019acf0b87e4e1e716a66
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 5456cd5f3bfcf81bfd1477c087e8f4e4fa6eef4f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583305"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688394"
 ---
 # <a name="deploy-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Machine Learning Studio(클래식) 웹 서비스 배포
 
 **적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 예측 실험을 만들 때 일반적으로 웹 서비스 입력 및 출력을 추가합니다. 실험을 배포하면 소비자는 입력 및 출력을 통해 웹 서비스에서 데이터를 보내고 받을 수 있습니다. Microsoft Azure 가상 머신 및 클라우드 서비스는 탑재된 공유를 통해 여러 애플리케이션 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 애플리케이션은 File Storage API 또는 Azure PowerShell을 통해 공유의 파일 데이터에 액세스할 수 있습니다. 이러한 경우 웹 서비스 입력 및 출력을 사용하여 데이터를 읽고 쓸 필요가 없습니다. 대신, BES(Batch 실행 서비스)를 사용하여 데이터 가져오기 모듈을 통해 데이터 원본에서 데이터를 읽고, 데이터 내보내기 모듈을 통해 다른 데이터 위치에 점수 매기기 결과를 쓸 수 있습니다.
 

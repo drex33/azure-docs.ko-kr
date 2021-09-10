@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 7497f98ec82596417a8c3fbb8cef11814e7df6c0
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: ea5f9511cd9ae6d569d833ef8f950f1391c30f38
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412190"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113112188"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Azure Functions의 Azure Queue 스토리지 트리거 및 바인딩 개요
 
@@ -26,13 +26,13 @@ Azure Functions는 새 Azure Queue 스토리지 메시지가 만들어질 때 �
 
 ### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
-트리거 및 바인딩을 사용하려면 적절한 패키지를 참조해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용되는 반면 확장 번들은 다른 모든 애플리케이션 형식에 사용됩니다.
+트리거 및 바인딩을 사용하려면 적절한 패키지를 참조해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용되는 반면, 확장 번들은 다른 모든 애플리케이션 형식에 사용됩니다.
 
 | 언어                                        | 추가 방법...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | [NuGet 패키지] 버전 3.x 설치 | |
-| C# Script, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
-| C# 스크립트(Azure Portal에서 온라인으로만 사용)         | 바인딩 추가                            | 함수 앱을 다시 게시하지 않고 기존 바인딩 확장을 업데이트하려면 [확장 업데이트]를 참조하세요. |
+| C# 스크립트, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
+| C# 스크립트(Azure Portal에서 온라인으로만)         | 바인딩 추가                            | 함수 앱을 다시 게시하지 않고 기존 바인딩 확장을 업데이트하려면 [확장 업데이트]를 참조하세요. |
 
 #### <a name="storage-extension-5x-and-higher"></a>스토리지 확장 5.x 이상
 
@@ -80,7 +80,7 @@ Functions 1.x 앱은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Mi
 
 |속성  |기본값 | Description |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|큐 폴링 사이의 최대 간격입니다. 최소는 00:00:00:00.100(100밀리초)이고 증분은 00:01:00(1분)입니다.  Functions 2.x 이상에서는 데이터 형식이 `TimeSpan`이고, 버전 1.x에서는 밀리초 단위입니다.|
+|maxPollingInterval|00:01:00|큐 폴링 사이의 최대 간격입니다. 최소 간격은 00:00:00.100(100밀리초)입니다. 간격이 `maxPollingInterval`까지 점진적으로 증가합니다. 기본값 `maxPollingInterval`은 00:01:00(1분)입니다. `maxPollingInterval`은(는) 00:00:00.100(100밀리초)보다 작지 않아야 합니다. Functions 2.x 이상에서 데이터 형식은 `TimeSpan`입니다. Functions 1.x에서는 밀리초 단위입니다.|
 |visibilityTimeout|00:00:00|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다. |
 |batchSize|16|함수 런타임이 동시에 검색하고 병렬로 처리하는 큐 메시지 수입니다. 처리되는 개수가 `newBatchThreshold`로 감소하면 런타임은 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 `batchSize` + `newBatchThreshold`입니다. 이 제한은 큐 트리거 함수에 개별적으로 적용됩니다. <br><br>하나의 큐에 수신된 메시지에 대해 병렬 실행을 방지하려면 `batchSize`을 1로 설정합니다. 그러나 이 설정은 함수 앱이 단일 VM(가상 머신)에서 실행되는 동안에만 동시성을 제거합니다. 함수 앱이 여러 VM에 확장되면 각 VM은 각 큐 트리거 함수의 인스턴스 하나를 실행할 수 있습니다.<br><br>최대 `batchSize`은 32입니다. |
 |maxDequeueCount|5|포이즌 큐로 이동하기 전에 메시지 처리를 시도할 횟수입니다.|

@@ -7,12 +7,12 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.date: 08/03/2020
-ms.openlocfilehash: e1b96293db0389201fdab3340d8f0e74fefc4c52
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a7a11dde69554ae732590ddf36f8cf65929197fd
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559718"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536172"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 가상 머신 확장 및 기능
 확장은 Azure VM에서 배포 후 구성 및 자동화를 제공하는 작은 애플리케이션입니다. Azure 플랫폼은 VM 구성, 모니터링, 보안 및 유틸리티 애플리케이션을 포함하는 다양한 확장을 호스팅합니다. 게시자는 애플리케이션을 사용하여 확장으로 래핑하고 설치를 간소화합니다. 필수 매개 변수를 제공하기만 하면 됩니다. 
@@ -33,7 +33,9 @@ Azure CLI, PowerShell, Resource Manager 템플릿 및 Azure Portal을 사용하�
 
 ## <a name="troubleshoot-extensions"></a>확장 문제 해결
 
-각 확장에 대한 문제 해결 정보는 확장에 대한 개요의 **문제 해결 및 지원** 섹션에서 찾을 수 있습니다. 다음은 사용 가능한 문제 해결 정보 목록입니다.
+Windows VM 확장에 대한 일반적인 문제 해결 단계를 원하는 경우 [Azure Windows VM 확장 오류 문제 해결](troubleshoot.md)을 참조하세요.
+
+또는 각 확장에 대한 구체적인 문제 해결 정보는 확장 개요의 **문제 해결 및 지원** 섹션에서 확인할 수 있습니다. 다음은 사용 가능한 문제 해결 정보 목록입니다.
 
 | 네임스페이스 | 문제 해결 |
 |-----------|-----------------|

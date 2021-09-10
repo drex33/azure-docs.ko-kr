@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 1875f43203735707a1bf49ac4e2d008abf898828
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: b24f24547e45b8ef580715828839ec1b1e5b4618
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113664481"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692695"
 ---
 # <a name="redundancy-options-for-managed-disks"></a>관리 디스크에 대한 중복성 옵션
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 Azure 관리 디스크는 ZRS(영역 중복 스토리지)를 미리 보기 및 로컬 중복 스토리지로 두 개의 스토리지 중복성 옵션을 제공합니다. ZRS는 LRS(로컬 중복 스토리지)보다 관리 디스크에 대한 고가용성을 제공합니다. 그러나 LRS 디스크는 단일 데이터 센터의 3개 복사본에 데이터를 동기식으로 쓰기 때문에 LRS 디스크의 쓰기 대기 시간이 ZRS 디스크보다 좋습니다.
 

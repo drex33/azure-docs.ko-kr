@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 49dab18a0f3b58d82b7de9c393f63428ac0d115b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: fe60a36d93a77ee75df578e0f6fc6665da26681e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695193"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122536492"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>2단계: CEF 메시지를 보내도록 보안 솔루션 구성
 
@@ -64,7 +64,7 @@ ms.locfileid: "122695193"
 
 1. Log Analytics에서 CEF 이벤트를 검색하려면 쿼리 창에 `CommonSecurityLog`을 입력합니다.
 
-1. 3단계를 계속 하십시오.: [ 연결 유효성 확인](troubleshooting-cef-syslog.md#validate-cef-connectivity).
+1. 3단계를 계속 하십시오.: [ 연결 유효성 확인](connect-cef-verify.md).
 
 > [!NOTE]
 > **TimeGenerated 필드의 원본 변경**

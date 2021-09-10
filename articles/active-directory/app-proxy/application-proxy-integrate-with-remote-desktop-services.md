@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 07/12/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4a7a4fdcad177c6108399a0cb1e64327c3eac8f5
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: aa5c8ae942bb48c78526867eb44cc2084c056d48
+ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186954"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113649665"
 ---
 # <a name="publish-remote-desktop-with-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시로 원격 데스크톱 게시
 
@@ -42,7 +42,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 ## <a name="requirements"></a>요구 사항
 
 - RD 웹 및 RD 게이트웨이 엔드포인트는 둘 다 같은 컴퓨터에 있고 공통 루트를 사용해야 합니다. RD 웹 및 RD 게이트웨이는 애플리케이션 프록시와 함께 단일 애플리케이션으로 게시되므로 두 애플리케이션 간에 Single Sign-On 환경이 있을 수 있습니다.
-- 이미 [RDS를 배포](/windows-server/remote/remote-desktop-services/rds-in-azure)하고 [애플리케이션 프록시를 사용하도록 설정](../app-proxy/application-proxy-add-on-premises-application.md)했어야 합니다. 커넥터를 설치하고, 필요한 포트 및 URL을 열고, 서버에서 TLS 1.2를 사용하도록 설정하는 등 애플리케이션 프록시를 사용하도록 설정하기 위한 사전 구성 요소를 충족하는지 확인합니다.
+- 이미 [RDS를 배포](/windows-server/remote/remote-desktop-services/rds-in-azure)하고 [애플리케이션 프록시를 사용하도록 설정](../app-proxy/application-proxy-add-on-premises-application.md)했어야 합니다. 커넥터를 설치하고, 필요한 포트 및 URL을 열고, 서버에서 TLS 1.2를 사용하도록 설정하는 등 애플리케이션 프록시를 사용하도록 설정하기 위한 사전 구성 요소를 충족하는지 확인합니다. 열어야 하는 포트에 대한 자세한 내용은 [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md)를 참조하세요.
 - 최종 사용자는 호환되는 브라우저를 사용하여 RD 웹 또는 RD 웹 클라이언트에 연결해야 합니다. 자세한 내용은 [클라이언트 구성 지원](#support-for-other-client-configurations)을 참조하세요.
 - RD 웹을 게시할 경우 동일한 내부 및 외부 FQDN을 사용하는 것이 좋습니다. 내부 및 외부 FQDN 서로 다른 경우 클라이언트가 잘못된 링크를 받는 것을 방지하려면 요청 헤더 변환을 사용하지 않도록 설정해야 합니다.
 - Internet Explorer에서 RD 웹을 사용하는 경우 RDS ActiveX 추가 항목을 사용하도록 설정해야 합니다.

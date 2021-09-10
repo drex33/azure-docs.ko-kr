@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: b8ae9365199edfde078cad39783458fc3f86ebd6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ea85ca0cf1160b4ad738ea45ce33e72d07dc5fbf
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061501"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681398"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>DDoS 진단 로깅 보기 및 구성
 
@@ -60,6 +60,39 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
     - **스토리지 계정에 보관**: 데이터가 Azure Storage 계정에 기록됩니다. 이 옵션에 대해 자세히 알아보려면 [리소스 로그 보관](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage)을 참조하세요.
     - **이벤트 허브로의 스트림**: 로그 수신기에서 Azure Event Hub를 사용하여 로그를 선택할 수 있도록 합니다. 이벤트 허브는 Splunk 또는 기타 SIEM 시스템과 통합할 수 있습니다. 이 옵션에 대한 자세한 내용은 [이벤트 허브로 리소스 로그 스트림](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs)을 참조하세요.
     - **Log Analytics에 보내기**: Azure Monitor 서비스에 로그를 씁니다. 이 옵션에 대한 자세한 내용은 [Azure Monitor 로그에서 사용할 로그 수집](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace)을 참조하세요.
+
+### <a name="query-ddos-protection-logs-in-log-analytics-workspace"></a>로그 분석 작업 영역에서 DDOS 보호 로그 쿼리
+
+#### <a name="ddosprotectionnotifications-logs"></a>DDoSProtectionNotifications 로그
+
+1. **Log Analytics 작업 영역** 블레이드 아래에서 로그 분석 작업 영역을 선택합니다.
+
+4. **일반** 아래에서 **로그** 를 클릭합니다.
+
+5. 쿼리 탐색기에서 다음 Kusto 쿼리를 입력하고 시간 범위를 사용자 지정으로 변경한 후 시간 범위를 지난 3개월로 변경합니다. 그런 다음, 실행을 누릅니다.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSProtectionNotifications"
+    ```
+
+#### <a name="ddosmitigationflowlogs"></a>DDoSMitigationFlowLogs
+
+1. 이제 쿼리를 다음으로 변경하고 동일한 시간 범위를 유지한 후 실행을 누릅니다.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationFlowLogs"
+    ```
+
+#### <a name="ddosmitigationreports"></a>DDoSMitigationReports
+
+1. 이제 쿼리를 다음으로 변경하고 동일한 시간 범위를 유지한 후 실행을 누릅니다.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationReports"
+    ```
 
 ### <a name="log-schemas"></a>로그 스키마
 
@@ -106,7 +139,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 | --- | --- |
 | **TimeGenerated** | 보고서가 만들어진 날짜 및 시간(UTC)입니다. |
 | **ResourceId** | 공용 IP 주소의 리소스 ID입니다. |
-| **범주** | 알림의 경우 `DDoSProtectionNotifications`입니다.|
+| **범주** | 알림의 경우 `DDoSMitigationReports`입니다.|
 | **ResourceGroup** | 공용 IP 주소 및 가상 네트워크를 포함하는 리소스 그룹입니다. |
 | **SubscriptionId** | DDoS Protection 계획 구독 ID입니다. |
 | **리소스** | 공용 IP 주소의 이름입니다. |

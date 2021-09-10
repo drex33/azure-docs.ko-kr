@@ -3,12 +3,12 @@ title: Azure Active Directory를 사용하여 Event Grid 게시 클라이언트 
 description: 이 문서에서는 Azure Active Directory를 사용하여 Azure Event Grid 게시 클라이언트를 인증하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 08/10/2021
-ms.openlocfilehash: c34ce75d02d4e3044819e5e310bdb9e74c1b0004
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6572c85fd13803372caa2c614a32cdc5f30b055e
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567019"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123038094"
 ---
 # <a name="authentication-and-authorization-with-azure-active-directory-preview"></a>Azure Active Directory를 사용한 인증 및 권한 부여(미리 보기)
 이 문서에서는 Azure AD(Azure Active Directory)를 사용하여 Azure Event Grid 게시 클라이언트를 인증하는 방법을 설명합니다.
@@ -30,8 +30,8 @@ Event Grid 게시 클라이언트의 인증을 설명할 때 적용할 수 있�
  
 Event Grid SDK를 사용하는 경우 액세스 토큰의 획득을 구현하는 방법과 Event Grid에 대한 모든 요청에 포함하는 방법을 잘 몰라도 됩니다. [Event Grid 데이터 평면 SDK](#publish-events-using-event-grids-client-sdks)에서 이러한 작업을 수행하기 때문입니다. 
 
-### <a name="high-level-steps"></a>대략적인 단계
-토픽, 도메인 또는 파트너 네임스페이스로 이벤트를 보낼 때 클라이언트에서 Azure AD 인증을 사용하도록 준비하려면 다음 단계를 수행합니다.
+### <a name="client-configuration-steps-to-use-azure-ad-authentication"></a>Azure AD 인증을 사용하기 위한 클라이언트 구성 단계
+다음 단계를 수행하여 토픽, 도메인 또는 파트너 네임스페이스에 이벤트를 보낼 때 Azure AD 인증을 사용하도록 클라이언트를 구성합니다.
 
 1. 인증에 사용할 보안 주체를 만들거나 사용합니다. [관리 ID](#authenticate-using-a-managed-identity) 또는 [애플리케이션 보안 주체](#authenticate-using-a-security-principal-of-a-client-application)를 사용할 수 있습니다.
 2. 보안 주체에 **Eventgrid 데이터 발신자** 역할을 할당하여 [이벤트를 게시할 보안 주체에 권한을 부여](#assign-permission-to-a-security-principal-to-publish-events)합니다.
@@ -70,14 +70,14 @@ Event Grid에 이벤트를 게시하는 데 사용되는 ID에는 Event Grid에 
 
 [Event Grid의 데이터 평면 SDK](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/)를 사용하여 Event Grid에 이벤트를 게시합니다. Event Grid의 SDK는 Azure AD 인증을 포함하는 모든 인증 방법을 지원합니다. 
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 Event Grid에서 인증을 받기 위한 필수 구성 요소는 다음과 같습니다.
 
 - 애플리케이션에 SDK를 설치합니다.
    - [Java](/java/api/overview/azure/messaging-eventgrid-readme#include-the-package)
    - [.NET](/dotnet/api/overview/azure/messaging.eventgrid-readme-pre#install-the-package)
-   - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid.md#install-the-azureeventgrid-package)
+   - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid#install-the-azureeventgrid-package)
    - [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid/azure-eventgrid#install-the-package)
 - Azure ID 클라이언트 라이브러리를 설치합니다. Event Grid SDK는 인증을 위해 Azure ID 클라이언트 라이브러리를 사용합니다. 
    - [Java용 Azure ID 클라이언트 라이브러리](/java/api/overview/azure/identity-readme)
@@ -100,7 +100,7 @@ Event Grid에서 인증을 받기 위한 필수 구성 요소는 다음과 같�
 클라이언트 게시 애플리케이션에 연결된 보안 주체를 사용하는 경우 [Java SDK 추가 정보 문서](/java/api/overview/azure/identity-readme#environment-variables)에 표시된 대로 환경 변수를 구성해야 합니다. `DefaultCredentialBuilder`는 이러한 환경 변수를 읽어 올바른 ID를 사용합니다. 자세한 내용은 [Java API 개요](/java/api/overview/azure/identity-readme#defaultazurecredential)를 참조하세요.
 
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [Java용 Azure Event Grid 클라이언트 라이브러리](/java/api/overview/azure/messaging-eventgrid-readme)
 - [.NET용 Azure Event Grid 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid#authenticate-using-azure-active-directory)
@@ -148,7 +148,7 @@ New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.Ev
     - Java SDK: [github](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid/src/samples/java/com/azure/messaging/eventgrid) | [이전 SDK 버전에서의 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/migration-guide.md)
     - .NET SDK: [github](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/samples) | [이전 SDK 버전에서의 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/MigrationGuide.md)
     - Python SDK: [github](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventgrid/azure-eventgrid) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventgrid/azure-eventgrid/samples) | [이전 SDK 버전에서의 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/migration_guide.md)
-    - JavaScript SDK: [github](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/) | [샘플](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/samples) | [이전 SDK 버전에서의 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/migration.md)
+    - JavaScript SDK: [github](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/) | [샘플](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/samples) | [이전 SDK 버전에서의 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventgrid/eventgrid/MIGRATION.md)
 - [Event Grid SDK 블로그](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/)
 - Azure ID 클라이언트 라이브러리
    - [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/README.md)

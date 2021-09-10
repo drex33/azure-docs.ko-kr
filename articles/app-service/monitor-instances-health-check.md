@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: msangapu
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 571f273d54989b0ea2f014294cd570c26b5e6931
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3efac96949d701bbc0147abf8712d4995f781d47
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566985"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771847"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>상태 검사를 사용하여 App Service 인스턴스 모니터링
 
@@ -87,7 +87,7 @@ ms.locfileid: "122566985"
 
 비정상 인스턴스는 App Service 플랜의 다른 앱에 관계없이 항상 부하 분산 장치 순환에서 제거됩니다([`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`](#configuration)에 지정된 비율까지). 인스턴스의 앱이 1시간 넘게 비정상 상태로 유지되는 경우 상태 검사를 사용하도록 설정된 다른 모든 앱도 비정상 상태인 경우에만 인스턴스가 대체됩니다. 상태 검사를 사용하도록 설정되지 않은 앱은 고려되지 않습니다. 
 
-#### <a name="example"></a>예 
+#### <a name="example"></a>예제 
 
 상태 검사를 사용하도록 설정한 두 애플리케이션(또는 슬롯이 있는 하나의 앱) 앱 A와 앱 B가 있다고 가정해보겠습니다. 이러한 애플리케이션은 동일한 App Service 플랜에 있고 해당 플랜은 4개의 인스턴스로 스케일 아웃됩니다. 두 인스턴스에서 앱 A가 비정상 상태가 되면 부하 분산 장치는 해당하는 두 인스턴스에서 앱 A로의 요청 전송을 중지합니다. 앱 B가 정상이라고 가정하면 해당 인스턴스에서 요청은 여전히 앱 B로 라우팅됩니다. 해당 두 인스턴스에서 앱 A가 1시간 넘게 비정상 상태로 유지되는 경우 해당 인스턴스에서 앱 B **또한** 비정상 상태인 경우에만 인스턴스가 대체됩니다. 앱 B가 정상이면 인스턴스가 대체되지 않습니다.
 
@@ -99,6 +99,10 @@ ms.locfileid: "122566985"
 ### <a name="what-if-all-my-instances-are-unhealthy"></a>내 인스턴스가 모두 비정상이면 어떻게 되나요?
 
 애플리케이션의 모든 인스턴스가 비정상인 시나리오에서 App Service는 `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`에 지정된 비율까지 부하 분산 장치에서 인스턴스를 제거합니다. 이 시나리오에서 모든 비정상 앱 인스턴스를 부하 분산 장치 순환에서 제외하면 애플리케이션이 효과적으로 중단됩니다.
+
+### <a name="does-health-check-work-on-app-service-environments"></a>상태 확인은 Azure App Service Environment에서 작동하나요?
+
+예, ASE(App Service Environments)에서 플랫폼은 지정된 경로에서 인스턴스를 ping하고 부하 분산 장치에서 비정상 인스턴스를 제거하여 요청이 라우팅되지 않도록 합니다. 그러나 현재 이러한 비정상 인스턴스는 1시간 동안 비정상 상태를 유지하는 경우 새 인스턴스로 교체되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)

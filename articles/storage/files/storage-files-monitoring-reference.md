@@ -9,16 +9,23 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dea90773340bb16b4f3c01e11affb2d4d2851b0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592315"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122535537"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Azure Files 모니터링 데이터 참조
 
 Azure Files에 대한 모니터링 데이터의 수집 및 분석 방법 관련 세부 정보는 [Azure Files 모니터링](storage-files-monitoring.md)을 참조하세요.
+
+## <a name="applies-to"></a>적용 대상
+| 파일 공유 유형 | SMB | NFS |
+|-|:-:|:-:|
+| 표준 파일 공유(GPv2), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 파일 공유(GPv2), GRS/GZRS | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 프리미엄 파일 공유(FileStorage), LRS/ZRS | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png) |
 
 ## <a name="metrics"></a>메트릭
 
@@ -44,7 +51,7 @@ Azure Files는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공�
 | FileCount   | 스토리지 계정의 파일 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | FileShareCapacityQuota | Azure Files 서비스에서 사용할 수 있는 스토리지 양(바이트)의 상한입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024|
 | FileShareCount | 스토리지 계정의 파일 공유 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
-| FileShareProvisionedIOPS | 파일 공유로 프로비저닝된 IOPS 수입니다. 해당 메트릭은 프리미엄 File Storage에만 적용됩니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 |
+| FileShareProvisionedIOPS | 파일 공유로 프로비저닝된 IOPS 수입니다. 해당 메트릭은 프리미엄 File Storage에만 적용됩니다. <br/><br/> 단위: CountPerSecond <br/> 집계 유형: 평균 |
 | FileShareSnapshotCount | 스토리지 계정의 Azure Files 서비스에서 공유되어 있는 스냅샷의 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 | 
 |FileShareSnapshotSize|스토리지 계정의 Azure Files 서비스에서 스냅샷에 사용하는 스토리지 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균|
 

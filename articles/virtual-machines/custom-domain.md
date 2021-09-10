@@ -9,14 +9,17 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2021
 ms.author: jamesser
 ms.reviewer: cynthn
-ms.openlocfilehash: e8e3567d752627915596645b13246236bad321c9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5bd9adb8354c3919a63e3de2e850513641af12a3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146314"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696551"
 ---
 # <a name="add-custom-domain-to-azure-vm-or-resource"></a>Azure VM 또는 리소스에 사용자 지정 도메인 추가
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합
+
 
 Azure에서는 여러 가지 방법으로 사용자 지정 도메인을 VM 또는 리소스에 연결할 수 있습니다. 공용 IP를 사용하는 모든 리소스(Virtual Machine, Load Balancer, Application Gateway)에서 가장 간단한 방법은 해당 도메인 등록 기관에 A 레코드 집합을 만드는 것입니다. 
 

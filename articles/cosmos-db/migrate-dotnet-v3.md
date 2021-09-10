@@ -6,13 +6,13 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/19/2021
-ms.openlocfilehash: c050a874d3a63847fd062ffcc1be952e9c95c315
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.date: 08/26/2021
+ms.openlocfilehash: 560b7c3bd800e3dc6675d1e44ce80db8fbb1d914
+ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597492"
+ms.lasthandoff: 08/27/2021
+ms.locfileid: "123039042"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Azure Cosmos DB .NET SDK v3를 사용하도록 애플리케이션 마이그레이션
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -709,3 +709,6 @@ private static async Task DeleteItemAsync(DocumentClient client)
 
 * v3 SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 [콘솔 앱 빌드](sql-api-get-started.md)
 * [v3 SDK에서 수행할 수 있는 작업](sql-api-dotnet-v3sdk-samples.md)에 대해 자세히 알아봅니다.
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어 보세요. 
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

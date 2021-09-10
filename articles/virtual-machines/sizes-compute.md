@@ -8,19 +8,17 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: edc1dbd3d0c2250bf2dd4db870a9813602477073
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: fb3053e5fffa2c13808542e05f126c6d35822b8f
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688648"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567866"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>컴퓨팅 최적화 가상 머신 크기
 
-**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
-
 > [!TIP]
-> 워크로드에 가장 적합한 다른 크기를 찾으려면 **[가상 머신 선택 도구](https://aka.ms/vm-selector)** 를 사용해 보세요.
+> 워크로드에 가장 적합한 다른 크기를 찾으려면 **[가상 머신 선택기 도구](https://aka.ms/vm-selector)** 를 사용해 보세요.
 
 컴퓨팅 최적화 VM 크기는 CPU 대 메모리 비율이 높습니다. 해당 크기는 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스, 애플리케이션 서버에 적합합니다. 이 문서에서는 vCPU, 데이터 디스크, NIC의 개수에 대한 정보를 제공합니다. 또한 이 그룹의 각 크기에 대한 스토리지 처리량 및 네트워크 대역폭에 대한 정보도 제공합니다.
 

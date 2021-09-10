@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/20/2021
-ms.openlocfilehash: ac51a6992a7bd80fd3006f117167540137cb7041
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: a788340b5ad3d35f86e61a1433815a0d7b28f28e
+ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634848"
+ms.lasthandoff: 08/26/2021
+ms.locfileid: "122965707"
 ---
 # <a name="offer-listing-best-practices"></a>목록에 제품 추가 모범 사례
 
@@ -40,7 +40,7 @@ ms.locfileid: "122634848"
 
 ## <a name="link-to-your-offer-page-from-your-website"></a>웹 사이트에서 제품 페이지에 연결
 
-상업용 Marketplace에서 사용자를 제품으로 쉽게 안내하려면 웹 사이트 또는 디지털 마케팅 자료에서 **지금 받기** 배지를 활용하세요. [마켓플레이스 마케팅 도구 키트](/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)에서 이 배지를 찾으세요.
+상업용 Marketplace에서 사용자를 제품으로 쉽게 안내하려면 웹 사이트 또는 디지털 마케팅 자료에서 **지금 받기** 배지를 활용하세요. [마켓플레이스 마케팅 도구 키트](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)에서 이 배지를 찾으세요.
 
 사이트의 AppSource 또는 Azure Marketplace 배지에서 상업용 Marketplace의 목록에 연결하는 경우 URL 끝에 다음 쿼리 매개 변수를 포함하여 강력한 분석 및 보고를 지원합니다.
 * **src**: 트래픽이 AppSource(예: 웹 사이트, LinkedIn 또는 Facebook)로 라우팅되는 원본을 포함합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "122634848"
 
 ## <a name="listing-creation-technical-best-practices"></a>생성 기술 모범 사례 나열
 
-Markdown을 살펴보는 것은 어려울 수 있습니다. 이를 지원하기 위해 파트너 센터의 상업용 Marketplace에 대한 제품 목록을 수정하고 검토하기 위한 몇 가지 모범 사례를 수집했습니다. [상업용 Marketplace 목록 기술 모범 사례 가이드](/collection/azure-marketplace-and-appsource-publisher-toolkit#/)는 목록을 편집하고 Markdown 코드를 미리 보는 방법을 보여 줍니다.
+Markdown을 살펴보는 것은 어려울 수 있습니다. 이를 지원하기 위해 파트너 센터의 상업용 Marketplace에 대한 제품 목록을 수정하고 검토하기 위한 몇 가지 모범 사례를 수집했습니다. [상업용 Marketplace 목록 기술 모범 사례 가이드](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)는 목록을 편집하고 Markdown 코드를 미리 보는 방법을 보여 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 

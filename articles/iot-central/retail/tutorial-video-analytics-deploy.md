@@ -1,23 +1,43 @@
 ---
-title: '자습서: 비디오 분석 - 개체 및 동작 감지 Azure IoT Central 애플리케이션 템플릿 배포 방법'
-description: 자습서 - 이 가이드에는 비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿을 사용하여 Azure IoT Central 애플리케이션을 배포하는 단계가 요약되어 있습니다.
+title: 자습서 - Azure IoT 비디오 분석 - 개체 및 동작 감지 | Microsoft Docs
+description: 이 자습서에서는 IoT Central용 비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿을 배포하고 사용하는 방법을 보여줍니다.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
-ms.date: 07/31/2020
-ms.openlocfilehash: c578da7e83a39f84e72b550038bd87dde3c61d28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/02/2021
+ms.openlocfilehash: 026c1794f678c5d194b0e5174986f9f962508647
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727467"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123473751"
 ---
-# <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>자습서: 비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿을 사용하여 IoT Central 애플리케이션을 배포하는 방법
+# <a name="tutorial-deploy-and-walk-through-the-video-analytics---object-and-motion-detection-application-template"></a>자습서: 비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿 배포 및 연습
 
-주요 *비디오 분석 - 개체 및 동작 감지* 애플리케이션 구성 요소에 대한 개요는 [개체 및 동작 감지 비디오 분석 애플리케이션 아키텍처](architecture-video-analytics.md)를 참조하세요.
+주요 *비디오 분석 - 개체 및 동작 감지* 애플리케이션 개요: **비디오 분석 - 개체 및 동작 감지** 애플리케이션 템플릿을 사용하여 Live Video Analytics 기능이 포함된 IoT 솔루션을 빌드할 수 있습니다.
+
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="비디오 분석 개체 및 동작 감지 구성 요소 개요 다이어그램":::
+
+비디오 분석 솔루션의 주요 구성 요소는 다음과 같습니다.
+
+### <a name="live-video-analytics-lva"></a>LVA(Live Video Analytics)
+
+LVA는 에지 및 클라우드를 포괄하는 지능형 비디오 애플리케이션을 빌드하기 위한 플랫폼을 제공합니다. 이 플랫폼을 사용하여 에지 및 클라우드를 포괄하는 지능형 비디오 애플리케이션을 빌드할 수 있습니다. 이 플랫폼은 라이브 비디오를 캡처, 녹화 및 분석하는 기능과 비디오 또는 비디오 분석일 수 있는 결과를 Azure 서비스에 게시하는 기능을 제공합니다. Azure 서비스는 클라우드 또는 에지에서 실행할 수 있습니다. 이 플랫폼을 사용하여 비디오 분석을 통해 IoT 솔루션을 개선할 수 있습니다.
+
+자세한 내용은 GitHub에서 [Live Video Analytics](https://github.com/Azure/live-video-analytics)를 참조하세요.
+
+### <a name="iot-edge-lva-gateway-module"></a>IoT Edge LVA 게이트웨이 모듈
+
+IoT Edge LVA 게이트웨이 모듈은 카메라를 새 디바이스로 인스턴스화하고 IoT 디바이스 클라이언트 SDK를 사용하여 IoT Central에 직접 연결합니다.
+
+이 참조 구현에서 디바이스는 에지에서 대칭 키를 사용하여 솔루션에 연결합니다. 디바이스 연결에 대한 자세한 내용은 [Azure IoT Central에 연결](../core/concepts-get-connected.md)을 참조하세요.
+
+### <a name="media-graph"></a>미디어 그래프
+
+미디어 그래프를 사용하면 미디어를 캡처할 위치, 처리 방법, 결과를 전달할 위치를 정의할 수 있습니다. 원하는 방식으로 구성 요소 또는 노드를 연결하여 미디어 그래프를 구성합니다. 자세한 내용은 GitHub에서 [미디어 그래프](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph)를 참조하세요.
 
 다음 비디오에서는 _비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿_ 을 사용하여 IoT Central 솔루션을 배포하는 방법을 연습합니다.
 
@@ -32,7 +52,8 @@ ms.locfileid: "101727467"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 있습니다. Azure 구독이 아직 없는 경우 [Azure 가입 페이지](https://aka.ms/createazuresubscription)에서 만들 수 있습니다.
+* 이 앱을 배포하는 데 필요한 특정 필수 구성 요소가 없습니다.
+* 무료 가격 책정 요금제를 사용하거나 Azure 구독을 사용할 수 있습니다.
 
 ## <a name="deploy-the-application"></a>애플리케이션 배포
 

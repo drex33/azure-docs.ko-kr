@@ -6,18 +6,18 @@ ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 08/24/2021
-ms.openlocfilehash: 11938094e1e99dc5a8816697030f4b69d6bc9d13
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 0012b17de652d2282cfb2ca21806b95e892b80a7
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122970490"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123452234"
 ---
 # <a name="tutorial-create-a-serverless-notification-app-with-azure-functions-and-azure-web-pubsub-service"></a>자습서: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 서버리스 알림 앱 만들기
 
 Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 메시징 웹 애플리케이션을 쉽게 빌드할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 자습서에서는 Azure Web PubSub 서비스 및 Azure Functions를 사용하여 알림 시나리오의 실시간 메시징과 함께 서버리스 애플리케이션을 빌드하는 방법을 알아봅니다. 
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 서버리스 알림 앱 빌드
@@ -358,7 +358,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
 
 1. Azure에 함수 프로젝트 배포:
 
-    Azure에서 함수 앱을 성공적으로 만들었으면 이제 [func azure functionapp publish](/azure-functions/functions-run-local) 명령을 사용하여 로컬 함수 프로젝트를 배포할 준비가 되었습니다.
+    Azure에서 함수 앱을 성공적으로 만들었으면 이제 [func azure functionapp publish](/azure/azure-functions/functions-run-local) 명령을 사용하여 로컬 함수 프로젝트를 배포할 준비가 되었습니다.
 
     ```bash
     func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings

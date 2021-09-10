@@ -2,14 +2,15 @@
 metadata:
   title: FAQ - Azure VM 백업
   description: 이 문서에서는 Azure Backup 서비스를 통해 Azure VM을 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
-  ms.topic: conceptual
-  ms.date: 06/02/2021
-  ms.openlocfilehash: 7c9743c71a505c586745117d48b3b23537db1d77
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.topic: article
+  ms.service: backup
+  ms.date: 08/19/2021
+  ms.openlocfilehash: d579c304c9a345323fc57020435b4b3a41c70cbd
+  ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114458013"
+  ms.lasthandoff: 08/20/2021
+  ms.locfileid: "122597867"
 title: 질문과 대답 - Azure VM 백업
 summary: >
   이 문서에서는 [Azure Backup](./backup-overview.md) 서비스를 통해 Azure VM을 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
@@ -107,6 +108,18 @@ sections:
     answer: 복원 작업을 수행하는 데 필요한 모든 VM 구성은 VM 백업에 저장됩니다. 여기에는 복원 시 액세스할 수 있는 VM 암호화된 키의 암호화 복사본이 포함됩니다. 암호화 복사본은 키 자격 증명 모음을 사용해야만 해독할 수 있습니다. 임시 디스크 및 메모리 상태는 스냅샷에서 캡처되지 않습니다.
   - question: Azure VM에서 태그를 백업할 수 있나요? 그렇다면 태그의 수는 몇 개인가요?
     answer: Azure Backup은 NIC 및 IP를 제외한 태그를 백업 및 복원할 수 있습니다. Azure Backup은 Azure 리소스 그룹의 구독 제한에 따라 최대 50개의 태그를 복원합니다.<br><br>자세한 내용은 [구독 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits)을 참조하세요.
+  - question: Azure VM에 대한 백업을 예약하지 않고 주문형(임시) 백업을 사용할 수 있나요?
+    answer: >
+      아니요, 예약된 백업을 사용하지 않고는 주문형 백업을 트리거할 수 없습니다.
+  - question: Azure Backup 프로세스는 클러스터 노드에 대해 어떻게 작동하나요?
+    answer: >
+      클러스터의 모든 Azure VM은 개별 Azure VM으로 간주됩니다. 따라서 모든 백업 작업은 개별 Azure VM에 따라 적용됩니다.
+  - question: Azure Backup이 애플리케이션 성능에 방해가 되나요?
+    answer: >
+      VM 스냅샷을 만드는 데 몇 분 정도 걸리며, 이 단계에서 애플리케이션 성능에 대한 간섭은 최소화됩니다. 하지만 자격 증명 모음으로의 데이터 전송에는 몇 시간이 걸립니다. 따라서 업무 시간이 아닌 시간에 백업을 예약하는 것이 좋습니다. [백업 및 복원에 대한 모범 사례](/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations)를 알아보세요.
+  - question: VM에 추가된 새 디스크가 자동으로 백업될까요?
+    answer: >
+      예, VM에 추가된 새 디스크는 다음 백업 중에 자동으로 백업됩니다.
 - name: 복원
   questions:
   - question: 디스크만 복원할지 아니면 전체 VM을 복원할지 결정하는 방법은 무엇인가요?
@@ -127,7 +140,8 @@ sections:
 
       - PowerShell 또는 템플릿을 사용하여 구성해야 하는 다른 설정을 추가합니다.
   - question: 관리 디스크로 업그레이드한 후 비관리형 VM 디스크의 백업을 복원할 수 있나요?
-    answer: 예, 디스크를 비관리형에서 관리형으로 마이그레이션하기 전에 만든 백업을 사용할 수 있습니다.
+    answer: >
+      예, 디스크를 비관리형에서 관리형으로 마이그레이션하기 전에 만든 백업을 사용할 수 있습니다.
   - question: VM이 관리 디스크로 마이그레이션되기 전에 VM을 복원 지점으로 복원하려면 어떻게 할까요?
     answer: >
       나머지 복원 프로세스는 같습니다. 복구 지점이 VM에 관리되지 않는 디스크가 있었던 어느 시점인 경우 [디스크를 관리되지 않는 디스크로 복원](tutorial-restore-disk.md#unmanaged-disks-restore)할 수 있습니다. VM에 관리 디스크가 있는 경우 [디스크를 관리 디스크로 복원](tutorial-restore-disk.md#managed-disk-restore)할 수 있습니다. 그러면 [해당 디스크에서 VM을 만들](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk)수 있습니다.
@@ -137,7 +151,7 @@ sections:
   - question: 복원에서 VM을 만들지 못하면 복원에 포함된 디스크는 어떻게 되나요?
     answer: 관리형 VM 복원 시 VM 만들기가 실패하더라도 디스크는 계속 복원됩니다.
   - question: 삭제된 VM을 복원할 수 있나요?
-    answer: 예. VM을 삭제하더라도 자격 증명 모음에서 해당 백업 항목으로 이동하여 복구 지점에서 복원할 수 있습니다.
+    answer: 예. VM을 삭제하더라도 자격 증명 모음에서 해당 백업 항목으로 이동하여 [복구 지점에서 복원](backup-azure-arm-restore-vms.md#select-a-restore-point)할 수 있습니다.
   - question: VM을 동일한 가용성 집합으로 복원하려면 어떻게 해야 하나요?
     answer: 관리 디스크 Azure VM의 경우 관리 디스크로 복원하는 동안 템플릿에서 옵션을 제공하여 가용성 집합에 복원하는 기능을 사용하도록 설정합니다. 이 템플릿에 **가용성 집합** 이라는 입력 매개 변수가 있습니다.
   - question: 복원 성능을 높이려면 어떻게 해야 하나요?
@@ -162,6 +176,9 @@ sections:
 
 
       `if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
+  - question: VM을 전원이 꺼진 상태로 어떻게 복원하나요?
+    answer: >
+      전원이 꺼진 상태로 VM을 복원하려면 [VM을 만들거나](/azure/backup/backup-during-vm-creation#create-a-vm-with-backup-configured) [디스크를 복원](/azure/backup/backup-azure-arm-restore-vms#restore-disks)할 수 있지만 기존 VM을 바꿀 수는 없습니다. [사용 가능한 복원 옵션](/azure/backup/backup-azure-arm-restore-vms#restore-options)에 대해 자세히 알아보세요.
 - name: VM 백업 관리
   questions:
   - question: 백업 정책을 수정하면 어떻게 되나요?
@@ -214,7 +231,7 @@ sections:
   - question: 스냅샷을 스토리지 계정에서 자격 증명 모음으로 이동하는 경우 전송 중 암호화는 어떻게 관리되나요?
     answer: Azure VM Backup은 [전송 중 암호화에 HTTPS 통신](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest)을 사용합니다. 데이터 전송은 VM 백업에 인터넷 액세스가 필요하지 않은 Azure 패브릭(퍼블릭 엔드포인트가 아님)을 사용합니다.
   - question: 파일 복구 옵션을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
-    answer: >-
+    answer: >
       [이 API](/rest/api/backup/item-level-recovery-connections/provision)는 Azure Backup에서 파일 복구를 위해 **iSCSI 연결** 을 호출하기 위한 스크립트를 프로비전합니다.
 
       - API 작업을 제외하여 **사용자 지정 역할 정의** 를 사용하여 이 옵션을 사용하지 않도록 설정할 수 있습니다.
@@ -222,3 +239,14 @@ sections:
       - [프라이빗 엔드포인트](private-endpoints.md)를 사용하여 프라이빗 네트워크 내에서 iSCSI 서버에 대한 액세스를 제한할 수도 있습니다.
 
       - [거부 할당](../role-based-access-control/deny-assignments.md) 기능을 사용하여 조직 전체에서 이 옵션을 사용하지 않도록 설정할 수도 있습니다.
+  - question: 보존 정책을 변경했습니다. 정책이 적용되는 데 필요한 시간은 얼마입니까?
+    answer: >
+      정책은 보존, 일정 등의 매개 변수를 수정한 후 즉시 적용됩니다. 수정된 정책에서 가져온 모든 새 백업에 적용됩니다. 하지만 새 정책에 따라 복구 지점의 정리(해당하는 경우)는 24시간이 소요됩니다.
+  - question: 지역 간 복원을 수행할 때 보조 지역에서 가상 네트워크, 서브넷 또는 스토리지 계정을 선택할 수 없습니다.
+    answer: >
+      보조 지역의 구독 권한을 확인해야 합니다. 구독 등록은 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)으로 문의하세요.
+  - question: Azure Backup 서비스와 Azure VM 간의 트래픽을 확인하려면 어떻게 해야 하나요?
+    answer: >
+      Azure 리소스가 이 트래픽을 처리하므로 외부 사용자가 이를 결정할 수 없습니다.
+  - question: Azure Backup에서 VM 백업에 대한 최소 RPO 및 RTO는 어떻게 되나요?
+    answer: '**RPO**: 최소 RPO는 1일(24시간)입니다.  <br><br>  **RTO**: 스냅샷은 스토리지 계정에 저장됩니다. 따라서 즉시 복원 계층에서의 복원은 즉각적입니다. 이후 데이터가 Azure Backup 서비스에서 유지 관리하는 Recovery Services 자격 증명 모음으로 전송되며, 전송 및 복원에 몇 시간이 소요됩니다.'

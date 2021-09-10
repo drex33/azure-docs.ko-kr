@@ -5,20 +5,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 08/09/2021
 ms.author: memildin
-ms.openlocfilehash: 970329753d6dd6c6175c26da4288c304e27e3982
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: fae230c3f6dc37a269299fab74400f87198195d2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112237619"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734945"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 
 Azure Security Center를 통해 **규정 준수 대시보드** 를 사용하여 규정 준수 요구 사항을 충족하기 위한 프로세스를 간소화할 수 있습니다. 
 
-Security Center는 하이브리드 클라우드 환경을 지속적으로 평가하여 구독에 적용되는 표준의 제어 및 모범 사례에 따라 위험 요인을 분석합니다. 대시보드는 이러한 표준 준수 상태를 반영합니다. 
+Security Center는 하이브리드 클라우드 환경을 지속적으로 평가하여 구독에 적용한 표준의 제어 및 모범 사례에 따라 위험 요인을 분석합니다. 대시보드는 이러한 표준 준수 상태를 반영합니다. 
 
 Azure 구독에서 Security Center를 사용하도록 설정하면 [Azure Security Benchmark](/security/benchmark/azure/introduction)가 해당 구독에 자동으로 할당됩니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
 
@@ -29,7 +29,8 @@ Azure 구독에서 Security Center를 사용하도록 설정하면 [Azure Securi
 > [!div class="checklist"]
 > * 규정 준수 대시보드를 사용하여 규정 준수 평가
 > * 권장 사항에 따라 작업을 수행하여 준수 상태를 개선합니다
-> * 규정 준수 상태 변경에 대한 경고를 설정합니다.
+> * 준수 상태에 대한 인증 보고서는 물론 PDF/CSV 보고서를 다운로드합니다.
+> * 준수 상태 변경에 대한 경고를 설정합니다.
 > * 규정 준수 데이터를 연속 스트림 및 주별 스냅샷으로 내보냅니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
@@ -41,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 - [Azure Defender](azure-defender.md)를 사용하도록 설정해야 합니다. 30일 동안 무료로 Azure Defender를 사용해 볼 수 있습니다.
 - 정책 규정 준수 데이터에 대한 읽기 권한자 액세스 권한이 있는 계정으로 로그인해야 합니다(**보안 읽기 권한자** 로는 충분하지 않음). 구독에 대한 **글로벌 읽기 권한자** 의 역할이 작동합니다. 최소한 **리소스 정책 기여자** 및 **보안 관리자** 역할이 할당되어야 합니다.
 
-##  <a name="assess-your-regulatory-compliance"></a>규정 준수 평가
+## <a name="assess-your-regulatory-compliance"></a>규정 준수 평가
 
 규정 준수 대시보드에는 선택한 규정 준수 표준이 모든 해당 요구 사항과 함께 표시되며, 여기서 지원되는 요구 사항은 적용 가능한 보안 평가에 매핑됩니다. 이러한 평가의 상태는 표준 준수를 반영합니다.
 
@@ -49,19 +50,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. Security Center 메뉴에서 **규정 준수** 를 선택합니다.
 
-    화면 위쪽에는 지원되는 규정 준수 집합과 함께 규정 준수 상태에 대한 개요가 있는 대시보드가 있습니다. 전반적인 규정 준수 점수 및 각 표준과 관련된 통과와 실패 평가의 수가 표시됩니다.
+    화면 위쪽에는 지원되는 규정 준수 상태에 대한 개요 및 규정 준수 규제 집합이 포함된 대시보드가 있습니다. 전반적인 규정 준수 점수 및 각 표준과 관련된 통과와 실패 평가의 수가 표시됩니다.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="규정 준수 대시보드" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 1. (1)과 관련된 규정 준수 표준에 대한 탭을 선택합니다. 표준이 (2)에 적용되는 구독 및 해당 표준 (3)에 대한 모든 컨트롤의 목록이 표시됩니다. 해당 컨트롤의 경우 해당 컨트롤 (4)와 관련된 통과 및 실패 평가의 세부 정보와 영향을 받는 리소스 수 (5)를 볼 수 있습니다. 일부 컨트롤은 회색으로 표시됩니다. 이러한 컨트롤에는 연결된 Security Center 평가가 없습니다. 고객의 요구 사항을 확인하고 해당 환경에서 평가합니다. 일부는 프로세스와 관련되며 기술적이지 않습니다.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="특정 표준 규정 준수에 대한 세부 정보 살펴보기":::
-
-1. 특정 표준에 대한 현재 규정 준수 상태가 요약된 PDF 보고서를 생성하려면 **보고서 다운로드** 를 선택합니다.
-
-    이 보고서는 Security Center 평가 데이터를 기반으로 선택한 표준의 규정 준수 상태에 대한 요약 정보를 제공합니다. 해당 특정 표준의 컨트롤에 따라 보고서가 구성됩니다. 이 보고서는 관련자와 공유할 수 있으며, 내부 및 외부 감사자에게 증거 자료를 제공할 수 있습니다.
-
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="규정 준수 보고서 다운로드":::
 
 ## <a name="improve-your-compliance-posture"></a>준수 상태 개선
 
@@ -84,10 +79,32 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     > [!NOTE]
     > 평가는 약 12시간마다 실행되므로 다음 관련 평가가 실행된 후에만 규정 준수 데이터에 미치는 영향이 표시됩니다.
 
+## <a name="generate-compliance-status-reports-and-certificates"></a>규정 준수 상태 보고서 및 인증서 생성
 
-## <a name="export-your-compliance-status-data"></a>규정 준수 상태 데이터 내보내기
+- 특정 표준에 대한 현재 규정 준수 상태가 요약된 PDF 보고서를 생성하려면 **보고서 다운로드** 를 선택합니다.
 
-사용자 환경에서 다른 모니터링 도구를 사용하여 규정 준수 상태를 추적하려는 경우 이를 간단하게 수행할 수 있는 내보내기 메커니즘이 Security Center에 포함됩니다. 선택한 데이터를 Azure Event Hub 또는 Log Analytics 작업 영역으로 보내도록 **연속 내보내기** 를 구성합니다.
+    이 보고서는 Security Center 평가 데이터를 기반으로 선택한 표준의 규정 준수 상태에 대한 요약 정보를 제공합니다. 해당 특정 표준의 컨트롤에 따라 보고서가 구성됩니다. 이 보고서는 관련자와 공유할 수 있으며, 내부 및 외부 감사자에게 증거 자료를 제공할 수 있습니다.
+
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Security Center의 규정 준수 대시보드를 사용하여 규정 준수 보고서 다운로드.":::
+
+- 구독에 적용된 표준에 대한 Azure 및 Dynamics **인증 보고서** 를 다운로드하려면 **감사 보고서** 옵션을 사용합니다. 
+
+    :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Security Center의 규정 준수 대시보드에서 도구 모음을 사용하여 Azure 및 Dynamics 인증 보고서 다운로드.":::
+
+    관련 보고서 유형(PCI, SOC, ISO 및 기타)에 대한 탭을 선택하고 필터를 사용하여 필요한 특정 보고서를 찾습니다.
+
+    :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="탭 및 필터를 사용하여 사용 가능한 Azure Audit 보고서 목록 필터링.":::
+
+    예를 들어 PCI 탭에서 인증서 해석 및 제공을 위해 필요한 참조 자료와 함께 Microsoft Azure, Dynamics 365 및 기타 온라인 서비스의 ISO22301 프레임워크 규정 준수 상태를 보여주는 디지털 방식으로 서명된 인증서가 포함된 ZIP 파일을 다운로드할 수 있습니다. 
+
+    > [!NOTE]
+    > 이러한 인증 보고서 중 하나를 다운로드하면 다음 개인정보취급방침이 표시됩니다.
+    > 
+    > _이 파일을 다운로드하면 다운로드 시 Microsoft가 현재 사용자 및 선택한 구독을 저장하는 데 동의하는 것으로 간주됩니다. 이 데이터는 다운로드한 감사 보고서가 변경되거나 업데이트될 때 알림을 제공하기 위한 목적으로 사용됩니다. 이 데이터는 알림이 필요할 때만 인증/보고서를 생성하는 Microsoft 및 감사 회사에서 사용됩니다._
+
+## <a name="configure-frequent-exports-of-your-compliance-status-data"></a>규정 준수 상태 데이터에 대한 빈번한 내보내기 구성
+
+사용자 환경에서 다른 모니터링 도구를 사용하여 규정 준수 상태를 추적하려는 경우 이를 간단하게 수행할 수 있는 내보내기 메커니즘이 Security Center에 포함됩니다. 선택한 데이터를 Azure Event Hub 또는 Log Analytics 작업 영역으로 보내도록 **연속 내보내기** 를 구성합니다. [Security Center 데이터 연속 내보내기](continuous-export.md)에서 자세히 알아보세요.
 
 연속 내보내기 데이터를 Azure Event Hub 또는 Log Analytics 작업 영역에 사용합니다.
 
@@ -99,11 +116,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="규정 준수 데이터의 주별 스냅샷을 지속적으로 내보내기" lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
 
-또한 규정 준수 대시보드에서 규정 준수 데이터의 **PDF/CSV 보고서** 를 직접 내보낼 수 있습니다.
-
-:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="규정 준수 데이터를 PDF 또는 CSV 보고서로 내보내기" lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
-
-[Security Center 데이터 연속 내보내기](continuous-export.md)에서 자세히 알아보세요.
+> [!TIP]
+> 또한 규정 준수 대시보드에서 직접 단일 특정 시점에 대한 보고서를 수동으로 내보낼 수 있습니다. **보고서 다운로드** 또는 **감사 보고서** 도구모음 옵션을 사용하여 **PDF/CSV 보고서** 또는 **Azure 및 Dynamics 인증 보고서** 를 생성합니다. [규정 준수 평가](#assess-your-regulatory-compliance) 참조 
 
 
 ## <a name="run-workflow-automations-when-there-are-changes-to-your-compliance"></a>규정 준수 상태 변경 시 워크플로 자동화 실행
@@ -143,7 +157,7 @@ Azure CIS 1.3.0, NIST SP 800-53, NIST SP 800-171, SWIFT CSP CSCF-v2020, 영국 �
 ### <a name="why-do-some-controls-appear-grayed-out"></a>일부 컨트롤이 회색으로 표시되는 이유는 무엇인가요?
 대시보드의 각 규정 준수 표준에 대해 표준 컨트롤 목록이 있습니다. 해당 컨트롤의 경우 통과 및 실패 평가의 세부 정보를 볼 수 있습니다.
 
-일부 컨트롤은 회색으로 표시됩니다. 이러한 컨트롤에는 연결된 Security Center 평가가 없습니다. 일부는 프로시저 또는 프로세스와 관련될 수 있으므로 Security Center에서 확인할 수 없습니다. 일부 경우에는 자동화된 정책 또는 평가가 아직 구현되지 않지만 향후 포함될 예정입니다. 그리고 일부 컨트롤은 [클라우드의 공유 책임](../security/fundamentals/shared-responsibility.md)에 설명된 대로 플랫폼 책임일 수 있습니다. 
+일부 컨트롤은 회색으로 표시됩니다. 이러한 컨트롤에는 연결된 Security Center 평가가 없습니다. 일부는 프로시저 또는 프로세스와 관련될 수 있으므로, Security Center에서 확인할 수 없습니다. 일부 경우에는 자동화된 정책 또는 평가가 아직 구현되지 않지만 향후 포함될 예정입니다. 그리고 일부 컨트롤은 [클라우드의 공유 책임](../security/fundamentals/shared-responsibility.md)에 설명된 대로 플랫폼 책임일 수 있습니다. 
 
 ### <a name="how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard"></a>대시보드에서 PCI DSS, ISO 27001 또는 SOC2 TSP와 같은 기본 제공 표준을 제거하려면 어떻게 해야 하나요? 
 규정 준수 대시보드를 사용자 지정하고 자신에게 적용되는 표준에만 집중하려면 조직과 관련이 없는 표시된 모든 규정 표준을 제거할 수 있습니다. 표준을 제거하려면 [대시보드에서 표준 제거](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard)의 지침을 따르세요.
@@ -187,11 +201,11 @@ Security Center에 기본 제공되고 보안 점수에 포함된 정책의 경�
 
 
 ### <a name="what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard"></a>규정 준수 대시보드를 사용하려면 어떤 Azure Defender 플랜 또는 라이선스가 필요한가요?
-Azure 리소스 유형에서 사용하도록 설정된 Azure Defender 패키지가 있는 경우 Security Center에서 모든 데이터와 함께 규정 준수 대시보드에 액세스할 수 있습니다.
+*모든* Azure Defender 플랜이 *모든* Azure 리소스에서 사용하도록 설정된 경우, Security Center의 규정 준수 대시보드 및 모든 데이터에 액세스할 수 있습니다.
 
 
 ### <a name="how-do-i-know-which-benchmark-or-standard-to-use"></a>무슨 벤치마크나 표준을 사용하는지 알아보려면 어떻게 할까요?
-ASB([Azure Security Benchmark](/security/benchmark/azure/introduction))는 Microsoft에서 정의한 보안 권장 사항과 모범 사례의 정식 집합으로, [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) 및 [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)을 비롯한 일반적인 규정 준수 제어 프레임워크를 따릅니다. ASB는 매우 포괄적인 벤치마크이며 다양한 Azure 서비스의 최신 보안 기능을 권장하도록 설계되었습니다. 보안 상태를 극대화하고 규정 준수 상태를 업계 표준으로 조정할 수 있는 고객은 ASB를 사용하는 것이 좋습니다.
+ASB([Azure Security Benchmark](/security/benchmark/azure/introduction))는 Microsoft에서 정의한 보안 권장 사항과 모범 사례의 정식 집합으로, [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) 및 [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)을 비롯한 일반적인 규정 준수 제어 프레임워크를 따릅니다. ASB는 포괄적인 벤치마크이며 다양한 Azure 서비스의 최신 보안 기능을 권장하도록 설계되었습니다. 보안 상태를 극대화하고 규정 준수 상태를 업계 표준에 맞게 조정하려는 고객은 ASB를 사용하는 것이 좋습니다.
 
 [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/)는 독립 엔터티(CIS(인터넷 보안 센터))에서 작성되며 핵심 Azure 서비스의 하위 집합에 대한 권장 사항을 포함합니다. Microsoft는 CIS를 사용하여 Azure의 최신 개선 사항과 함께 권장 사항이 최신 상태로 유지되도록 노력하고 있습니다. 하지만 권장 사항이 뒤쳐져 오래되는 경우도 있습니다. 그럼에도 불구하고 일부 고객은 초기 및 기본 보안 기준으로 CIS의 타사 평가를 이 목적으로 사용하려고 합니다.
 

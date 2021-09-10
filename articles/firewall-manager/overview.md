@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/21/2021
+ms.date: 08/03/2021
 ms.author: victorh
-ms.openlocfilehash: c5ba8ed36bc59b9b26dc854a0c1a1757f1c47266
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 9a6e6a0713179295379e758f454617484c75b9a2
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113595330"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779159"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Azure Firewall Manager란?
 
@@ -87,6 +87,8 @@ Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 |대량 IP 주소 추가 실패|여러 공용 IP 주소를 추가하면 보안 허브 방화벽이 실패한 상태가 됩니다.|더 작은 공용 IP 주소 증분을 추가합니다. 예를 들어 한 번에 10개를 추가합니다.|
 |DDoS Protection 표준은 보안 가상 허브에서 지원되지 않습니다.|DDoS Protection 표준은 vWAN과 통합되지 않습니다.|조사|
 |활동 로그가 완전히 지원되지 않습니다.|방화벽 정책은 현재 활동 로그를 지원하지 않습니다.|조사|
+|완전히 지원되지 않는 규칙에 대한 설명|방화벽 정책에는 ARM 내보내기의 규칙에 대한 설명이 표시되지 않습니다.|조사|
+|Azure Firewall Manager 가상 WAN 허브에서 가동 중지 시간을 발생시키는 정적 및 사용자 지정 경로를 덮어씁니다.|사용자 지정 또는 정적 경로로 구성된 배포에서 설정을 관리하기 위해 Azure Firewall Manager를 사용해서는 안 됩니다. Firewall Manager에서 업데이트하면 정적 또는 사용자 지정 경로 설정을 덮어쓸 수 있습니다.|정적 또는 사용자 지정 경로를 사용하는 경우 Virtual WAN 페이지를 사용하여 보안 설정을 관리하고 Azure Firewall Manager를 통한 구성을 방지합니다.<br><br>자세한 내용은 [시나리오: Azure Firewall - 사용자 지정](../virtual-wan/scenario-route-between-vnets-firewall.md)을 참조하세요.|
 
 ## <a name="next-steps"></a>다음 단계
 

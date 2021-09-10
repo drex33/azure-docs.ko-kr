@@ -1,19 +1,19 @@
 ---
 title: IP 방화벽 규칙 구성
 description: Azure Synapse Analytics에서 IP 방화벽 규칙을 구성하는 방법을 설명하는 문서입니다.
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
-ms.author: ronytho
-ms.reviewer: jrasnick
-ms.openlocfilehash: 787e600df4185346b250d9a96bdb89927e134075
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/15/2021
+ms.author: seshin
+ms.reviewer: wiassaf
+ms.openlocfilehash: a375c4c99e3b86706f9fed7bc52f3064995cd21c
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103472018"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252788"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules"></a>Azure Synapse Analytics IP 방화벽 규칙
 
@@ -25,15 +25,17 @@ IP 방화벽 규칙은 각 요청이 시작된 IP 주소를 기준으로 하여 
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>IP 방화벽 규칙 만들기 및 관리
 
-Synapse 작업 영역에 IP 방화벽 규칙을 추가하는 방법에는 두 가지가 있습니다. 작업 영역에 IP 방화벽을 추가하려면 **보안 + 네트워킹** 을 선택하고, 작업 영역을 만드는 동안 **모든 IP 주소에서 연결 허용** 을 선택합니다.
+Azure Synapse 작업 영역에 IP 방화벽 규칙을 추가하는 방법에는 두 가지가 있습니다. 작업 영역에 IP 방화벽을 추가하려면 **네트워킹** 을 선택하고, 작업 영역을 만드는 동안 **모든 IP 주소에서 연결 허용** 을 선택합니다.
 
-![보안 + 네트워킹 단추를 강조 표시하는 스크린샷.](./media/synpase-workspace-ip-firewall/ip-firewall-1.png)
+> [!Important]
+> 이 기능은 Managed VNet에 연결되지 않은 Azure Synapse 작업 영역에서만 사용할 수 있습니다.
 
-![Azure Portal Synapse 작업 영역 IP 구성](./media/synpase-workspace-ip-firewall/ip-firewall-2.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-connections-all-ip-addresses.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-connections-all-ip-addresses.png" alt-text="보안 탭 및 '모든 IP 주소에서 연결 허용' 확인란을 강조 표시하는 스크린샷.":::
+
 
 작업 영역을 만든 후에 Synapse 작업 영역에 IP 방화벽 규칙을 추가할 수도 있습니다. Azure Portal의 **보안** 에서 **방화벽** 을 선택합니다. 새 IP 방화벽 규칙을 추가하려면 이름, 시작 IP 및 끝 IP를 지정합니다. 완료되면 **저장** 을 선택합니다.
 
-![Azure Portal의 Azure Synapse 작업 영역 IP 구성](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-firewalls-add-client-ip.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-firewalls-add-client-ip.png" alt-text="클라이언트 IP 추가 단추 및 규칙 필드를 강조 표시하는 Synapse 작업 영역의 네트워킹 페이지 스크린샷.":::
 
 ## <a name="connect-to-synapse-from-your-own-network"></a>자체 네트워크에서 Synapse에 연결
 

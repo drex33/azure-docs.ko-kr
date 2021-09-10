@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 08/12/2021
 ms.author: alkohli
-ms.openlocfilehash: ae3504b1483dce5678a9d7b53556d9228e53ded0
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 68667c495384320731b8a7898e3590aa8487a13e
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839140"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860722"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>자습서: Azure Stack Edge Mini R에 대한 네트워크 구성
 
@@ -49,11 +49,16 @@ Azure Stack Edge Mini R 디바이스를 구성하고 설정하기 전에 다음 
 
 2. 0일 업데이트가 필요한 경우 유선 연결을 사용하여 데이터 포트를 구성하여 여기에서 해당 작업을 수행할 수 있습니다. 이 디바이스에 대해 유선 연결을 설정하는 방법에 대한 자세한 내용은 [디바이스에 케이블 연결](azure-stack-edge-mini-r-deploy-install.md#cable-the-device)을 참조하세요. 업데이트가 끝난 후에는 유선 연결을 제거할 수 있습니다.
 
-3. Wi-Fi 및 서명 체인에 대한 인증서를 만듭니다. 서명 체인과 Wi-Fi 인증서 모두 *.cer* 파일 확장명을 가진 DER 형식이어야 합니다. 자세한 지침은 [인증서 만들기](azure-stack-edge-gpu-manage-certificates.md)를 참조하세요.
+3. Wi-Fi 및 서명 체인에 대한 인증서를 만듭니다. 서명 체인과 Wi-Fi 인증서 모두 *.cer* 파일 확장명을 가진 DER 형식이어야 합니다. 자세한 지침은 [인증서 만들기](azure-stack-edge-gpu-manage-certificates.md)를 참조하세요. 인증을 위해 인증서 대신 Wi-Fi 프로필을 사용하는 경우 이 단계는 선택 사항입니다.
 
-4. 로컬 웹 UI에서 **시작** 으로 이동합니다. **보안** 타일에서 **인증서** 를 선택한 다음, **구성** 을 선택합니다. 
+   > [!NOTE] 
+   > 개인 Wi-Fi 네트워크에서 암호 기반 인증을 사용하는 경우 인증서 단계를 건너뛸 수 있습니다. Wi-Fi 포트를 구성한 다음, Wi-Fi 프로필을 업로드하기만 하면 됩니다.</br></br> WPA2 - 개인 네트워크용 Wi-Fi 프로필에 대해 알아보고 Wi-Fi 프로필을 내보내는 방법에 대해 알아보려면 [Wi-Fi 프로필 사용](azure-stack-edge-mini-r-use-wifi-profiles.md)을 참조하세요.
 
-   [![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png#lightbox)
+4. 디바이스에 인증서를 추가합니다. 
+
+   1. 로컬 웹 UI에서 **시작** 으로 이동합니다. **보안** 타일에서 **인증서** 를 선택한 다음, **구성** 을 선택합니다. 
+
+      [![로컬 웹 UI “인증서” 페이지](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png#lightbox)
 
    1. **+ 인증서 추가** 를 선택합니다. 
     
@@ -73,7 +78,7 @@ Azure Stack Edge Mini R 디바이스를 구성하고 설정하기 전에 다음 
 
    5. **시작** 으로 돌아갑니다.
 
-5. **네트워크** 타일에서 **구성** 을 선택합니다.  
+5. Wi-Fi 포트를 구성합니다. **네트워크** 타일에서 **구성** 을 선택합니다.  
 
    물리적 디바이스에 5개의 네트워크 인터페이스가 있습니다. 포트 1 및 포트 2는 1Gbps 네트워크 인터페이스입니다. PORT 3 및 PORT 4는 모두 10-Gbps 네트워크 인터페이스입니다. 다섯 번째 포트는 Wi-Fi 포트입니다. 
 

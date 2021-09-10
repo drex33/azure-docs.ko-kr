@@ -3,28 +3,30 @@ title: 소개
 description: Azure에서 VMware 기반 워크로드를 배포하고 관리하는 Azure VMware 솔루션의 기능과 이점에 대해 알아봅니다. Azure VMware Solution SLA는 Azure VMware 관리 도구(vCenter Server 및 NSX Manager)를 99.9% 이상 사용할 수 있도록 보장합니다.
 ms.topic: overview
 ms.date: 04/20/2021
-ms.openlocfilehash: 79739f230b057b030da7a90501e9fb3fb2630eba
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 10362ef88f572a40771fa6ab3e61b04220c79249
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433583"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122070740"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Azure VMware Solution이란?
 
-Azure VMware Solution은 전용 운영 체제 미설치 Azure 인프라에서 빌드된 vSphere 클러스터가 포함된 프라이빗 클라우드를 제공합니다. 최소 초기 배포는 호스트 3개이지만, 클러스터당 최대 16개의 호스트를 한 번에 하나씩 추가할 수 있습니다.  프로비저닝된 모든 프라이빗 클라우드에는 vCenter Server, vSAN, vSphere 및 NSX-T가 있습니다. 온-프레미스 환경에서 워크로드를 마이그레이션하고, 새 VM(가상 머신)을 배포하고, 프라이빗 클라우드에서 Azure 서비스를 사용할 수 있습니다.  Azure VMware 관리 도구(vCenter Server 및 NSX Manager)는 99.9% 이상 사용할 수 있습니다. 자세한 내용은 [Azure VMware Solution SLA](https://aka.ms/avs/sla)를 참조하세요.
+Azure VMware Solution은 전용 운영 체제 미설치 Azure 인프라에서 빌드된 vSphere 클러스터가 포함된 프라이빗 클라우드를 제공합니다. 최소 초기 배포는 호스트 3개이지만, 클러스터당 최대 16개의 호스트를 한 번에 하나씩 추가할 수 있습니다. 프로비저닝된 모든 프라이빗 클라우드에는 vCenter Server, vSAN, vSphere 및 NSX-T가 있습니다. 따라서 온-프레미스 환경에서 워크로드를 마이그레이션하고, 새 VM(가상 머신)을 배포하고, 프라이빗 클라우드에서 Azure 서비스를 사용할 수 있습니다. 또한 Azure VMware Solution 관리 도구(vCenter Server 및 NSX Manager)는 99.9% 이상 사용할 수 있습니다. 자세한 내용은 [Azure VMware Solution SLA](https://aka.ms/avs/sla)를 참조하세요.
 
-Azure VMware 솔루션은 향상된 기능과 업그레이드에 대해 지속적으로 유효성을 검사하고 테스트하는 VMware 유효성이 검사된 솔루션입니다. Microsoft는 프라이빗 클라우드 인프라와 소프트웨어를 관리하고 유지합니다. 이를 통해 프라이빗 클라우드에서 워크로드를 개발하고 실행하는 데 집중할 수 있습니다. 
+Azure VMware Solution은 향상된 기능과 업그레이드에 대해 지속적으로 유효성을 검사하고 테스트하는 VMware 유효성이 검사된 솔루션입니다. Microsoft는 프라이빗 클라우드 인프라와 소프트웨어를 관리하고 유지합니다. 이를 통해 프라이빗 클라우드에서 워크로드를 개발하고 실행하는 데 집중할 수 있습니다.
 
-다이어그램에서는 Azure, Azure 서비스 및 온-프레미스 환경에서 프라이빗 클라우드와 VNet 간의 인접성을 보여줍니다. 프라이빗 클라우드에서 Azure 서비스 또는 VNet으로의 네트워크 액세스는 Azure 서비스 엔드포인트의 SLA 기반 통합을 제공합니다. ExpressRoute Global Reach는 온-프레미스 환경을 Azure VMware Solution 프라이빗 클라우드에 연결합니다. 
+다이어그램에서는 Azure, Azure 서비스 및 온-프레미스 환경에서 프라이빗 클라우드와 VNet 간의 인접성을 보여줍니다. 프라이빗 클라우드에서 Azure 서비스 또는 VNet으로의 네트워크 액세스는 Azure 서비스 엔드포인트의 SLA 기반 통합을 제공합니다. ExpressRoute Global Reach는 온-프레미스 환경을 Azure VMware Solution 프라이빗 클라우드에 연결합니다.
+ 
 
 :::image type="content" source="media/adjacency-overview-drawing-final.png" alt-text="Azure 및 온-프레미스에 대한 Azure VMware 솔루션 프라이빗 클라우드 인접성의 다이어그램." border="false":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>호스트, 클러스터 및 프라이빗 클라우드
 
-Azure VMware 솔루션 프라이빗 클라우드 및 클러스터는 운영 체제 미설치 하이퍼 수렴형 Azure 인프라 호스트에서 빌드됩니다. 고성능 호스트에는 576GB RAM 및 듀얼 Intel 18 코어, 2.3GHz 프로세서가 있습니다. HE 호스트에는 총 15.36TB(SSD)의 원시 vSAN 용량 계층 및 3.2TB(NVMe) vSAN 캐시 계층이 있는 두 개의 vSAN 디스크 그룹이 있습니다.
+Azure VMware 솔루션 프라이빗 클라우드 및 클러스터는 운영 체제 미설치 하이퍼 수렴형 Azure 인프라 호스트에서 빌드됩니다. HE(고성능) 호스트에는 576GB RAM 및 듀얼 Intel 18 코어, 2.3GHz 프로세서가 있습니다. 또한 HE 호스트에는 총 15.36TB(SSD)의 원시 vSAN 용량 계층 및 3.2TB(NVMe) vSAN 캐시 계층이 있는 두 개의 vSAN 디스크 그룹이 있습니다.
 
-새 프라이빗 클라우드는 Azure Portal 또는 Azure CLI를 통해 배포됩니다.
+Azure Portal 또는 Azure CLI를 통해 새 프라이빗 클라우드를 배포할 수 있습니다.
+
 
 ## <a name="networking"></a>네트워킹
 
@@ -44,7 +46,7 @@ Azure VMware Solution 프라이빗 클라우드 및 VMware 소프트웨어를 �
 
 ## <a name="monitoring-your-private-cloud"></a>프라이빗 클라우드 모니터링
 
-Azure VMware Solution이 구독에 배포되면 [Azure Monitor 로그](../azure-monitor/overview.md)가 자동으로 생성됩니다. 
+Azure VMware Solution을 구독에 배포하면 [Azure Monitor 로그](../azure-monitor/overview.md)가 자동으로 생성됩니다. 
 
 프라이빗 클라우드에서 다음을 수행할 수 있습니다.
 - 각 VM에서 로그를 수집합니다.

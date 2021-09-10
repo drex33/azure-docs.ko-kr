@@ -1,19 +1,19 @@
 ---
 title: 관리형 가상 네트워크
 description: Azure Synapse Analytics의 관리형 가상 네트워크에 대해 설명하는 문서
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 01/18/2021
-ms.author: ronytho
-ms.reviewer: jrasnick
-ms.openlocfilehash: f55251932c8aa8f632bd3b498943ac722f006dee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/16/2021
+ms.author: seshin
+ms.reviewer: wiassaf
+ms.openlocfilehash: 9866a2c773193cc20bd6b9e193e025fa65eddcc6
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98569918"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446209"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Azure Synapse Analytics 관리형 가상 네트워크
 
@@ -50,25 +50,23 @@ Azure Synapse 작업 영역을 만들 때 작업 영역을 Microsoft Azure Virtu
 >[!IMPORTANT]
 >관리형 작업 영역 Virtual Network가 연결된 작업 영역에는 프라이빗 링크만 사용할 수 있습니다.
 
-![관리형 작업 영역 Virtual Network 사용](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-networking-managed-virtual-network-outbound-traffic.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-networking-managed-virtual-network-outbound-traffic.png" alt-text="관리형 가상 네트워크 옵션이 활성화되고 승인된 대상에만 아웃바운드 데이터 트래픽 허용 옵션이 예로 설정된 Synapse 작업 영역 네트워킹 만들기 페이지의 스크린샷.":::
 
 관리형 작업 영역 Virtual Network를 작업 영역과 연결하도록 선택한 후에는 관리형 작업 영역 Virtual Network에서 [관리형 프라이빗 엔드포인트](./synapse-workspace-managed-private-endpoints.md)를 사용하여 승인된 대상으로만 아웃바운드 연결을 허용하여 데이터 반출로부터 보호할 수 있습니다. **예** 를 선택하여 관리형 작업 영역 Virtual Network의 아웃바운드 트래픽을 관리형 프라이빗 엔드포인트를 통해 제한합니다. 
 
 
->[!IMPORTANT]
->메타스토어는 데이터 반출 보호를 사용하도록 설정된 Managed Virtual Network가 있는 Synapse 작업 영역에서 사용할 수 없습니다. 이러한 작업 영역에서는 Spark SQL을 사용할 수 없습니다.
 
-![관리형 프라이빗 엔드포인트를 사용하는 아웃바운드 트래픽](./media/synapse-workspace-managed-vnet/select-outbound-connectivity.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-allow-outbound-traffic.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-allow-outbound-traffic.png" alt-text="승인된 대상에만 아웃바운드 데이터 트래픽 허용 옵션이 예로 설정된 관리형 가상 네트워크 페이지의 스크린샷.":::
 
 작업 영역에서 모든 대상으로의 아웃바운드 트래픽을 허용하려면 **아니요** 를 선택합니다.
 
 Azure Synapse 작업 영역에서 관리형 프라이빗 엔드포인트가 만들어지는 대상을 제어할 수도 있습니다. 기본적으로 구독이 속한 동일한 AAD 테넌트의 리소스에 대한 관리형 프라이빗 엔드프인트가 허용됩니다. 구독이 속한 것과 다른 AAD 테넌트의 리소스에 대한 관리형 프라이빗 엔드포인트를 만들려면 **+ 추가** 를 선택하여 해당 AAD 테넌트를 추가할 수 있습니다. 드롭다운에서 AAD 테넌트를 선택하거나 AAD 테넌트 ID를 수동으로 입력할 수 있습니다.
 
-![추가 AAD 테넌트 추가](./media/synapse-workspace-managed-vnet/add-additional-azure-active-directory-tenants.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-private-endpoints-azure-ad.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-private-endpoints-azure-ad.png" alt-text="Azure 테넌트용 추가 단추가 강조 표시된 관리형 가상 네트워크 페이지의 스크린샷.":::
 
 작업 영역을 만든 후 Azure Portal에서 **개요** 를 선택하여 Azure Synapse 작업 영역이 관리형 작업 영역 Virtual Network에 연결되었는지 확인할 수 있습니다.
 
-![Azure Portal의 작업 영역 개요](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
+:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-overview-managed-virtual-network-enabled.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-overview-managed-virtual-network-enabled.png" alt-text="관리형 가상 네트워크가 사용하도록 설정되어 있음을 나타내는 Azure Synapse 작업 영역 개요 페이지의 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 

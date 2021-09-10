@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Object Anchors를 사용하여 HoloLens 
 author: craigktreasure
 manager: virivera
 ms.author: crtreasu
-ms.date: 02/02/2021
+ms.date: 08/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: eee130b0736c87b118b38f19e7523c07a431e5c9
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 605acf95b521e150456a69e84d2008be7080589a
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114202889"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254223"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>빠른 시작: C++/WinRT 및 DirectX로 Azure Object Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -38,6 +38,8 @@ ms.locfileid: "114202889"
   * HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안** 으로 이동한 다음, **업데이트 확인** 을 선택합니다.
 
 [!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
+[!INCLUDE [Upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
 ## <a name="open-the-sample-project"></a>샘플 프로젝트 열기
 
@@ -67,25 +69,19 @@ Visual Studio에서 `quickstarts/apps/directx/DirectXAoaSampleApp.sln`을 엽니
 
 샘플 프로젝트를 성공적으로 컴파일한 후에는 HoloLens에 앱을 배포할 수 있습니다.
 
-HoloLens 디바이스의 전원을 켜고, 로그인하고, USB 케이블을 사용해 PC에 연결합니다. **디바이스** 가 선택한 배포 대상인지 확인합니다(위 참조).
+HoloLens 디바이스의 전원이 켜져 있고 USB 케이블을 통해 PC에 연결되어 있는지 확인합니다. **디바이스** 가 선택한 배포 대상인지 확인합니다(위 참조).
 
 **AoaSampleApp** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 팝업 메뉴에서 **배포** 를 클릭하여 앱을 설치합니다. Visual Studio의 **출력 창** 에 오류가 표시되지 않으면 앱이 HoloLens에 설치됩니다.
 
 :::image type="content" source="./media/vs-deploy-app.png" alt-text="HoloLens에 앱 배포":::
 
-앱을 시작하기 전에 개체 모델을 업로드해야 합니다. 아래의 **개체 모델 수집 및 해당 인스턴스 검색** 섹션의 안내를 따르세요.
+앱을 시작하기 전에 개체 모델(예: **chair.ou)** 을 HoloLens의 **3D Objects** 폴더에 업로드해야 합니다. 아직 수행하지 않은 경우 ["모델 업로드"](#upload-your-model) 섹션의 지침을 따릅니다.
 
-앱을 실행하고 디버그하려면 **디버그 > 디버깅 시작** 을 선택합니다. 앱을 중지하려면 **디버깅 중지** 를 선택하거나 **Shift + F5** 를 누릅니다.
+앱을 실행하고 디버그하려면 **디버그 > 디버깅 시작** 을 선택합니다.
 
 ## <a name="ingest-object-model-and-detect-its-instance"></a>개체 모델 수집 및 해당 인스턴스 검색
 
-샘플 앱을 실행하려면 개체 모델을 만들어야 합니다. 사용자의 공간에서 개체의 CAD 또는 스캔된 3D 메시 모델을 이미 가지고 있다고 가정합니다. 모델을 만드는 방법은 [빠른 시작: 3D 모델 수집](./get-started-model-conversion.md)을 참조하세요.
-
-해당 모델(이 경우 **chair.ou**)을 컴퓨터에 다운로드합니다. 그런 다음 HoloLens 디바이스 포털에서 **시스템> 파일 탐색기 > LocalAppData> AoaSampleApp > LocalState** 를 선택하고 **찾아보기...** 를 선택합니다. 그런 다음 모델 파일(예: **chair.ou**)을 선택하고 **업로드** 를 선택합니다. 그러면 로컬 캐시에서 모델 파일을 볼 수 있습니다.
-
-:::image type="content" source="../../../includes/media/object-anchors-quickstarts/portal-upload-model.png" alt-text="포털 업로드 모델":::
-
-HoloLens에서 **AoaSampleApp** 앱을 시작합니다. 이미 열려있는 경우 닫았다가 다시 엽니다. 대상 개체(의자)에 가까이(2m 이내) 걸어가서 여러 관점에서 바라보면서 검사합니다. 개체 주변에 분홍색 경계 상자와 개체 표면 가까이에 렌더링된 노란색 점이 표시됩니다. 이는 개체가 검색되었음을 나타냅니다.
+이제 **AoaSampleApp** 앱이 HoloLens 디바이스에서 실행됩니다. 대상 개체(의자)에 가까이(2m 이내) 걸어가서 여러 관점에서 바라보면서 검사합니다. 개체 주변에 분홍색 경계 상자와 개체 표면 가까이에 렌더링된 노란색 점이 표시됩니다. 이는 개체가 검색되었음을 나타냅니다.
 
 :::image type="content" source="./media/chair-detection.png" alt-text="의자 검색":::
 
@@ -94,7 +90,7 @@ HoloLens에서 **AoaSampleApp** 앱을 시작합니다. 이미 열려있는 경�
 오른손 또는 왼손으로 공중에서 손가락을 클릭하여 앱에서 개체에 대한 검색 공간을 정의할 수 있습니다. 검색 공간은 반경 2미터의 구, 4m^3 경계 상자 및 뷰 절두체 사이에서 전환됩니다. 자동차와 같은 더 큰 개체의 경우 가장 좋은 선택은 일반적으로 약 2미터 거리에서 개체의 모서리를 향한 상태에서 뷰 절두체 선택을 사용하는 것입니다.
 검색 영역이 변경될 때마다 앱은 현재 추적 중인 인스턴스를 제거한 다음 새 검색 영역에서 다시 찾기를 시도합니다.
 
-이 앱은 여러 개체를 한 번에 추적할 수 있습니다. 이를 위해 여러 모델을 **LocalState** 폴더에 업로드하고 모든 대상 개체를 포함하는 검색 영역을 설정합니다. 여러 개체를 검색하고 추적하는 데 시간이 더 오래 걸릴 수 있습니다.
+이 앱은 여러 개체를 한 번에 추적할 수 있습니다. 이렇게 하려면 여러 모델을 디바이스의 **3D 개체** 폴더에 업로드하고 모든 대상 개체를 포함하는 검색 영역을 설정합니다. 여러 개체를 검색하고 추적하는 데 시간이 더 오래 걸릴 수 있습니다.
 
 앱은 3D 모델을 해당하는 실제 대응 개체에 가깝게 정렬합니다. 사용자는 왼손으로 에어 탭하여 고정밀 추적 모드를 켤 수 있으며, 이는 보다 정확한 포즈를 계산합니다. 이는 여전히 실험적인 기능으로, 더 많은 시스템 리소스를 소비하고 예상 포즈에서 더 높은 지터를 초래할 수 있습니다. 표준 추적 모드로 다시 전환하려면 왼손으로 다시 에어 탭합니다.
 

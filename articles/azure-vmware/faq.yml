@@ -2,22 +2,23 @@
 metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: Azure VMware Solution에 대한 일반적인 질문과 대답
-  ms.topic: troubleshooting
+  ms.topic: article
+  ms.service: azure-vmware
   ms.custom: contperf-fy21q4
-  ms.date: 06/16/2021
-  ms.openlocfilehash: 1d3268c9f2bd35b9907ac6370598099d8d5cb9b9
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.date: 08/19/2021
+  ms.openlocfilehash: 716605f2a617d5f02d93596e760156b58f9ddcb2
+  ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114466403"
+  ms.lasthandoff: 08/20/2021
+  ms.locfileid: "122514667"
 title: Azure VMware 솔루션에 대한 일반적인 질문
 summary: 이 문서에서는 Azure VMware Solution에 대해 일반적으로 묻는 질문에 답변합니다.
 sections:
 - name: 일반
   questions:
   - question: Azure VMware Solution이란?
-    answer: 기업은 비즈니스 민첩성을 개선하고, 비용을 절감하고, 혁신을 가속화하는 IT 현대화 전략을 찾고 있으며, 고객의 디지털 변환을 가능하게 하는 핵심 요소로 하이브리드 클라우드 플랫폼이 등장했습니다. Azure VMware Solution은 VMware의 SDDC(소프트웨어 정의 데이터 센터) 소프트웨어를 Microsoft Azure 글로벌 클라우드 서비스 에코시스템과 결합합니다. Azure VMware Solution은 성능, 가용성, 보안 및 규정 준수 요구 사항을 충족하도록 관리됩니다. 자세한 내용은 [Azure VMware Solution이란?](introduction.md)을 참조하세요.
+    answer: 기업은 비즈니스 민첩성을 개선하고, 비용을 절감하고, 혁신을 가속화하는 IT 현대화 전략을 찾고 있으며, 고객의 디지털 변환을 가능하게 하는 핵심 요소로 하이브리드 클라우드 플랫폼이 등장했습니다. Azure VMware Solution은 VMware의 SDDC(소프트웨어 정의 데이터 센터) 소프트웨어를 Microsoft Azure 글로벌 클라우드 서비스 에코시스템과 결합합니다. 또한 Azure VMware Solution은 성능, 가용성, 보안 및 규정 준수 요구 사항을 충족합니다. 자세한 내용은 [Azure VMware Solution이란?](introduction.md)을 참조하세요.
   - question: 현재 Azure VMware Solution을 사용할 수 있는 위치는 어디인가요?
     answer: 이 서비스는 새 지역에서 추가적으로 계속 지원될 예정입니다. 자세한 내용은 [최신 서비스 가용성 정보](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware)를 참조하세요.
   - question: Azure VMware Solution은 어디에서 지원하나요?
@@ -26,13 +27,37 @@ sections:
 
       CSP(클라우드 솔루션 공급자) 관리형 구독의 경우 첫 번째 지원 수준은 CSP가 다른 Azure 서비스에 대해 수행하는 것과 동일한 방식으로 솔루션 공급자를 제공합니다.
   - question: Azure VMware Solution 인스턴스에서 실행되는 워크로드가 Azure 서비스와 통합될 수 있나요?
-    answer: Azure VMware Solution 고객은 모든 Azure 서비스를 사용할 수 있습니다. 서비스의 성능 및 가용성 제한은 서비스마다 다르게 접근해야 합니다.
+    answer: Azure VMware Solution 고객은 모든 Azure 서비스를 사용할 수 있습니다. 특정 서비스의 성능 및 가용성 제한은 사례별로 다루어야 합니다.
   - question: Azure VMware Solution과 호환되는 게스트 운영 체제는 무엇인가요?
     answer: '[VMware 호환성 가이드](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16)를 사용하여 vSphere와의 게스트 운영 체제 호환성에 대한 정보를 찾을 수 있습니다. Azure VMware Solution 실행되는 vSphere 버전을 확인하려면 [VMware 소프트웨어 버전](concepts-private-clouds-clusters.md#vmware-software-versions)을 참조하세요.'
   - question: 변경 제어 프로세스는 어떻게 생겼나요?
-    answer: 서비스 자체에 대한 업데이트는 Microsoft Azure의 표준 변경 관리 프로세스를 따릅니다. 고객은 워크로드 관리 작업 및 관련된 변경 관리 프로세스를 담당합니다.
+    answer: 수행된 업데이트는 Microsoft Azure의 표준 변경 관리 프로세스를 따릅니다. 고객은 워크로드 관리 작업 및 관련된 변경 관리 프로세스를 담당합니다.
   - question: 이 버전은 Azure VMware Solution by CloudSimple과 어떻게 다른가요?
-    answer: 새 Azure VMware Solution과 관련하여 Microsoft와 VMware는 직접 클라우드 공급자 파트너십을 체결했습니다. 새 솔루션을 설계, 빌드, 지원하는 일은 전적으로 Microsoft의 책임이고, VMware는 제품을 보증합니다. 전용 Azure 인프라에서 실행되는 VMware 기술 스택을 사용하므로 솔루션의 아키텍처는 동일합니다.
+    answer: 새 Azure VMware Solution과 관련하여 Microsoft와 VMware는 직접 클라우드 공급자 파트너십을 체결했습니다. 새 솔루션을 설계, 빌드, 지원하는 일은 Microsoft의 책임이고, VMware는 제품을 보증합니다. 전용 Azure 인프라에서 실행되는 VMware 기술 스택을 사용하므로 솔루션의 아키텍처는 동일합니다.
+- name: 결제
+  questions:
+  - question: 미리 보기로 제공되는 기간에는 어떤 방식으로 요금이 청구되나요?
+    answer: 미리 보기 기간에는 종량제 기준으로 매달 요금이 청구됩니다. 추가 옵션은 GA(일반 공급)로 전환되는 시점에 사용할 수 있습니다.
+  - question: 오류가 발생 시 교체용 디스크에 대한 SLA가 있나요?
+    answer: 디스크 문제가 있는 모든 호스트를 교체합니다. 이를 통해 Azure VMware Solution 서비스의 최대 99.9 SLA 가용성이 지원됩니다.
+  - question: Azure VMware Solution에 대한 가격 책정은 어떻게 구성되나요?
+    answer: 가격 책정에 대한 일반적인 질문은 Azure VMware Solution [가격 책정](https://azure.microsoft.com/pricing/details/azure-vmware) 페이지를 참조하세요.
+  - question: VMware HCX Enterprise를 사용할 수 있나요? 그렇다면 비용은 얼마나 드나요?
+    answer: VMware HCX Enterprise는 *미리 보기* 기능/서비스로서 Azure VMware Solution에서 사용할 수 있습니다. Azure VMware Solution을 위한 VMware HCX Enterprise는 현재 미리 보기로 제공되는 무료 기능/서비스이며 미리 보기 서비스 사용 약관을 따릅니다. VMware HCX Enterprise 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 이후에는 이 서비스를 끄거나 옵트아웃할 수 있습니다.
+  - question: ExpressRoute를 통하는 온-프레미스와 Azure VMware Solution 간의 트래픽은 데이터 요금제에서 아웃바운드 데이터 전송 요금을 발생하나요?
+    answer: "Azure VMware Solution ExpressRoute 회로의 트래픽은 어떤 경우에도 요금이 발생하지 않습니다. 온-프레미스에서 Azure로 연결하는 ExpressRoute 회로의 트래픽은 ExpressRoute 가격 책정 플랜에 따라 요금이 부과됩니다.\n\n- **VNet에 대한 Azure VMware Solution** 은 내부 ExpressRoute 회로를 사용하며 Azure VMware Solution 동일한 지역 내에서 비용이 들지 않습니다. 그러나 내부 ExpressRoute 회로가 지역 간에 연결되면 데이터 전송 요금이 적용됩니다.\n\n- **온-프레미스에 대한 Azure VMware Solution** 은 VNet 또는 ExpressRoute Global Reach 통해 수행됩니다(내부 ExpressRoute와 외부 ExpressRoute 간). VNet에 대한 연결(위에서 언급함) 또는 ExpressRoute Global Reach 사용이 Azure VMware Solution 배포된 지역 내에 있는 경우 여전히 무료입니다. \n"
+  - question: 평가판 Azure VMware Solution 클러스터에 대한 계량은 언제 시작되고 종료됩니까?
+    answer: 평가판 클러스터는 Azure VMware Solution 프라이빗 클라우드의 30일 평가판에 사용되는 세 개의 호스트로 제한됩니다. 30일 후에 클러스터는 해당 요율에 따라 자동으로 계량됩니다. 평가판 클러스터가 30일 종료 날짜 전에 삭제되면 삭제 시 Azure VMware Solution 평가판이 종료됩니다.
+  - question: L2 확장을 사용하여 온-프레미스 VM 환경으로부터 마이그레이션할 때, AV36 인스턴스 외에 추가적인 VMware 라이선스 및 리소스를 조달해야 하나요?
+    answer: "아니요, Azure VMware Solution 서비스 외에 추가 VMware 라이선스를 조달할 필요가 없습니다. 자세한 내용은 [Azure VMware Solution 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-vmware/)를 참조하여 포함된 VMware 기술을 확인하세요.     \n"
+- name: 지원
+  questions:
+  - question: Azure VMware Solution의 호스트 할당량 증가를 요청하려면 어떻게 하나요?
+    answer: 기존 프라이빗 클라우드에 더 많은 호스트가 필요하거나 새 프라이빗 클라우드를 만드는 경우 호스트를 할당하기 위해 지원 티켓을 제출해야 합니다.  자세한 내용은 [Azure VMware Solution에 대한 호스트 할당량 요청](request-host-quota-azure-vmware-solution.md)을 참조하세요.
+  - question: Azure VMware Solution 프라이빗 클라우드를 만들기 위해 어떤 계정이 필요한가요?
+    answer: Azure 구독의 Azure 계정이 필요합니다.
+  - question: Azure VMware Solution에서 Red Hat 솔루션이 지원되나요?
+    answer: Microsoft와 Red Hat은 Azure 플랫폼에서 실행되는 Red Hat 에코시스템에 대한 통합된 연락 지점을 제공하는 같은 위치에 배치된 통합 지원 팀을 공유합니다.  Red Hat Enterprise Linux에서 작동하는 다른 Azure 플랫폼 서비스와 마찬가지로, Azure VMware Solution은 Cloud Access 및 통합된 지원 시스템에 속합니다. Red Hat Enterprise Linux는 Azure 내에서의 Azure VMware Solution 기반 실행을 지원합니다.
 - name: 고객 커뮤니케이션
   questions:
   - question: Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 어떻게 경고를 받을 수 있나요?
@@ -49,7 +74,7 @@ sections:
   - question: Azure VMware Solution VM에서 VMRC를 설치하고 사용하기 위한 특별한 지침이 있나요?
     answer: 아니요. VM 필수 구성 요소를 충족하려면 [VMware에서 제공하는 지침](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html)을 따르세요.
   - question: 온-프레미스에서 실행되는 vRealize Suite를 사용할 수 있나요?
-    answer: 구체적인 통합 및 사용 사례는 건별로 평가할 수 있습니다.
+    answer: 구체적인 통합 및 사용 사례는 건별로 평가됩니다.
   - question: 온-프레미스 환경의 vSphere VM을 Azure VMware Solution 프라이빗 클라우드로 마이그레이션할 수 있나요?
     answer: 예. 표준 교차 vCenter [vMotion 요구 사항](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952)을 충족하는 경우 VM 마이그레이션 및 vMotion을 사용하여 VM을 프라이빗 클라우드로 이동할 수 있습니다.
   - question: 온-프레미스 환경에서 특정 버전의 vSphere가 필요한가요?
@@ -63,15 +88,13 @@ sections:
     answer: >
       [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
   - question: 프라이빗 클라우드는 VMware NSX를 사용하나요? 그렇다면 어떤 버전이 지원되나요?
-    answer: 예, Azure VMware Solution 프라이빗 클라우드의 소프트웨어 정의 네트워킹에 NSX-T 2.5가 사용됩니다. 현재 지원되는 유일한 NSX 버전은 NSX-T입니다.
+    answer: "예, 현재 지원되는 유일한 NSX 버전은 NSX-T입니다.   \n\nAzure VMware Solution 프라이빗 클라우드의 소프트웨어 정의 네트워킹에 NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)]가 사용됩니다.\n"
   - question: 프라이빗 클라우드에 연결하는 온-프레미스 환경 또는 네트워크에서 NSX가 필요한가요?
     answer: 아니요, 온-프레미스에서는 NSX를 사용할 필요가 없습니다.
   - question: VMware Horizon 8 2012는 Azure VMware Solution과 호환되나요?
     answer: 예.
   - question: 기본 vSphere Web Client 시간 제한 값을 변경할 수 있나요?
     answer: 예. 시간 제한 값 변경에 대한 내용은 [vSphere Web Client 시간 제한 값 구성](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html)을 참조하세요.
-  - question: NSX-T에서 Windows 2008은 AD(Active Directory) 서버 또는 RDSH(원격 데스크톱 세션 호스트) OS로 지원되나요?
-    answer: 아니요.
 - name: 마이그레이션
   questions:
   - question: Sentinel Appliance 서비스를 사용할 때 HCX Manager에 내 Sentinel 관리 탭이 표시되지 않는 이유는 무엇인가요?
@@ -86,10 +109,8 @@ sections:
     answer: 서버의 RAM은 576GB입니다.
   - question: Azure VMware Solution이 ESXi/ESX를 중첩된 가상화 솔루션으로 실행하는 것을 지원하나요?
     answer: 아니요. VMware는 공식적으로 중첩된 가상화를 지원하지 않습니다.
-- name: 타사 백업 및 복구
+- name: Backup
   questions:
-  - question: Azure VMware Solution에서 cloudadmin 확장 권한을 지원하나요?
-    answer: 아니요. 현재 cloudadmin 확장 권한은 지원되지 않으며, 향후 지원할 계획이 없습니다.
   - question: Azure VMware Solution에는 어떤 ISV(독립 소프트웨어 공급업체) 백업 솔루션이 작동하나요?
     answer: Commvault, Veritas 및 Veeam은 Azure VMware Solution에서 작동하도록 백업 솔루션을 확장했습니다.  그러나 HotAdd 전송 모드에서 VADP(VMware vStorage API for Data Protection)를 사용하는 모든 백업 솔루션은 Azure VMware Solution에서 바로 작동합니다. 자세한 내용은 [Azure VMware Solution VM에 대한 백업 솔루션](ecosystem-back-up-vms.md)을 참조하세요.
   - question: ISV 백업 솔루션에 대한 지원은 어떤가요?
@@ -138,6 +159,8 @@ sections:
     answer: 예.
   - question: ExpressRoute Global Reach의 Azure Virtual WAN을 통해 온-프레미스와 Azure VMware Solution 간에 전송 연결을 설정할 수 있나요?
     answer: Azure Virtual WAN은 연결된 두 ExpressRoute 회로와 비가상 WAN ExpressRoute 게이트웨이 간에 전이적 라우팅을 제공하지 않습니다. ExpressRoute Global Reach는 온-프레미스와 Azure VMware Solution 간의 연결을 허용하지만 Virtual WAN Hub 대신 Microsoft의 글로벌 네트워크를 통과합니다.
+  - question: NSX-T에서 Windows 2008은 AD(Active Directory) 서버 또는 RDSH(원격 데스크톱 세션 호스트) OS로 지원되나요?
+    answer: 아니요.
 - name: 스토리지
   questions:
   - question: 중복 제거 설정에 대한 올바른 스토리지 정책은 무엇인가요?
@@ -169,7 +192,7 @@ sections:
   - question: 현재 프라이빗 클라우드 리소스를 관리하는 데 사용하는 것과 동일한 도구를 사용하나요?
     answer: 예. 배포 및 여러 관리 작업에는 Azure Portal을 사용합니다. vSphere 및 NSX-T 리소스 관리에는 vCenter 및 NSX Manager가 사용됩니다.
   - question: 온-프레미스 vCenter를 사용하여 프라이빗 클라우드를 관리할 수 있나요?
-    answer: 시작할 때 Azure VMware Solution은 온-프레미스 및 프라이빗 클라우드 환경에서 단일 관리 환경을 지원하지 않습니다. 프라이빗 클라우드 클러스터는 프라이빗 클라우드에 로컬인 vCenter 및 NSX Manager를 통해 관리됩니다.
+    answer: 시작할 때 Azure VMware Solution은 온-프레미스 및 프라이빗 클라우드 환경에서 단일 관리 환경을 지원하지 않습니다. 프라이빗 클라우드 클러스터는 프라이빗 클라우드에 로컬인 vCenter 및 NSX Manager를 통해 관리합니다.
   - question: 클러스터가 스케일 업된 후 워크로드 수요가 감소하는 경우 다시 스케일 다운할 수 있나요?
     answer: 예, 프라이빗 클라우드에 할당된 할당량이 있는 한, 클러스터를 스케일 아웃할 수 있습니다. 워크로드 수요가 감소하면 클러스터에서 호스트를 삭제하여 스케일 다운할 수 있습니다. 이 작업은 Azure VMware Solution 포털에서 수행할 수 있습니다.
   - question: 기본 인프라를 공유하나요?
@@ -183,7 +206,7 @@ sections:
 - name: ID 관리
   questions:
   - question: 새 Azure VMware Solution 프라이빗 클라우드에서는 어떤 계정과 권한을 얻게 되나요?
-    answer: vCenter의 cloudadmin 사용자에 대한 자격 증명과 NSX-T 관리자에 대한 관리자 액세스 권한이 제공됩니다. Azure Active Directory를 통합하는 데 사용할 수 있는 CloudAdmin 그룹도 있습니다. 자세한 내용은 [액세스 및 ID 개념](concepts-identity.md)을 참조하세요.
+    answer: vCenter의 cloudadmin 사용자에 대한 자격 증명과 NSX-T 관리자에 대한 관리자 액세스 권한이 제공됩니다. CloudAdmin 그룹을 사용하여 Azure Active Directory를 통합할 수도 있습니다. 자세한 내용은 [액세스 및 ID 개념](concepts-identity.md)을 참조하세요.
   - question: ESXi 호스트에 관리자로 액세스할 수 있나요?
     answer: 아니요, 솔루션의 보안 요구 사항을 충족하기 위해 ESXi에 대한 관리자 권한 액세스는 제한되어 있습니다.
   - question: vCenter에서 어떤 권한을 얻게 되나요?
@@ -218,23 +241,3 @@ sections:
     answer: 예, 고객은 CSP에서 관리하는 Azure 구독 내에서 Azure VMware Solution을 배포할 수 있습니다.
   - question: 예약 인스턴스를 CSP 프로그램을 통해 구매할 수 있나요?
     answer: 예. CSP는 고객을 위해 예약 인스턴스를 구매할 수 있습니다. 자세한 내용은 [예약 인스턴스로 비용 절감](reserved-instance.md)을 참조하세요.
-- name: 청구 및 지원
-  questions:
-  - question: 오류가 발생 시 교체용 디스크에 대한 SLA가 있나요?
-    answer: 디스크 문제가 있는 모든 호스트가 대체됩니다. 이를 통해 Azure VMware Solution 서비스의 최대 99.9 SLA 가용성이 지원됩니다.
-  - question: Azure VMware Solution에 대한 가격 책정은 어떻게 구성되나요?
-    answer: 가격 책정에 대한 일반적인 질문은 Azure VMware Solution [가격 책정](https://azure.microsoft.com/pricing/details/azure-vmware) 페이지를 참조하세요.
-  - question: Azure VMware Solution 프라이빗 클라우드를 만들기 위해 어떤 계정이 필요한가요?
-    answer: Azure 구독의 Azure 계정이 필요합니다.
-  - question: Azure VMware Solution에서 Red Hat 솔루션이 지원되나요?
-    answer: Microsoft와 Red Hat은 Azure 플랫폼에서 실행되는 Red Hat 에코시스템에 대한 통합된 연락 지점을 제공하는 같은 위치에 배치된 통합 지원 팀을 공유합니다.  Red Hat Enterprise Linux에서 작동하는 다른 Azure 플랫폼 서비스와 마찬가지로, Azure VMware Solution은 Cloud Access 및 통합된 지원 시스템에 속합니다. Red Hat Enterprise Linux는 Azure 내의 Azure VMware Solution을 토대로 실행될 수 있습니다.
-  - question: VMware HCX Enterprise를 사용할 수 있나요? 그렇다면 비용은 얼마나 드나요?
-    answer: VMware HCX Enterprise는 *미리 보기* 기능/서비스로서 Azure VMware Solution에서 사용할 수 있습니다. Azure VMware Solution을 위한 VMware HCX Enterprise는 현재 미리 보기로 제공되는 무료 기능/서비스이며 미리 보기 서비스 사용 약관을 따릅니다. VMware HCX Enterprise 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 이 서비스를 끄거나 옵트아웃할 수 있습니다.
-  - question: Azure VMware Solution의 호스트 할당량 증가를 요청하려면 어떻게 하나요?
-    answer: 기존 프라이빗 클라우드에 더 많은 호스트가 필요하거나 새 프라이빗 클라우드를 만드는 경우 호스트를 할당하기 위해 지원 티켓을 제출해야 합니다.  자세한 내용은 [Azure VMware Solution에 대한 호스트 할당량 요청](request-host-quota-azure-vmware-solution.md)을 참조하세요.
-  - question: ExpressRoute를 통하는 온-프레미스와 Azure VMware Solution 간의 트래픽은 데이터 요금제에서 아웃바운드 데이터 전송 요금을 발생하나요?
-    answer: Azure VMware Solution ExpressRoute 회로의 트래픽은 어떤 경우에도 요금이 발생하지 않습니다. 온-프레미스에서 Azure로 연결하는 ExpressRoute 회로의 트래픽은 ExpressRoute 가격 책정 플랜에 따라 요금이 부과됩니다.
-  - question: L2 확장을 사용하여 온-프레미스 VM 환경에서 마이그레이션할 때 AV36 인스턴스 이외의 라이선스 및 리소스를 조달해야 하나요?
-    answer: "아니요.        \n"
-  - question: 평가판 Azure VMware Solution 클러스터에 대한 계량은 언제 시작되고 종료됩니까?
-    answer: 평가판 클러스터는 Azure VMware Solution 프라이빗 클라우드의 30일 평가판에 사용되는 세 개의 호스트로 제한됩니다. 30일 후에 클러스터는 해당 요율에 따라 자동으로 계량됩니다. 평가판 클러스터가 30일 종료 날짜 전에 삭제되면 삭제 시 Azure VMware Solution 평가판이 종료됩니다.

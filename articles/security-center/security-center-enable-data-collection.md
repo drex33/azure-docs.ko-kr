@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 03/04/2021
+ms.date: 08/18/2021
 ms.author: memildin
-ms.openlocfilehash: 3f7663c62b514cb002b4de3df59d2185cfa815d3
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 96b5becdda011243cdcc9e510450683c255e7c1c
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284217"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122607951"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Azure Security Center에서 에이전트 및 확장에 대한 자동 프로비저닝 구성
 
@@ -25,10 +25,10 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
 | 양상                  | 세부 정보                                                                                                                                                                                                                      |
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 릴리스 상태:          | **기능**: 자동 프로비저닝은 GA(일반 공급)입니다.<br>**에이전트 및 확장**: Azure VM용 Log Analytics 에이전트는 GA이고, Microsoft 종속성 에이전트는 미리 보기로 제공되며, Kubernetes용 정책 추가 기능은 GA입니다.                |
+| 릴리스 상태:          | **기능**: 자동 프로비저닝은 GA(일반 공급)입니다.<br>**에이전트 및 확장**: Azure VM용 Log Analytics 에이전트는 GA이고 Microsoft 종속성 에이전트는 미리 보기 상태이며, Kubernetes용 정책 추가 기능은 GA이고, 게스트 구성 에이전트는 미리 보기 상태입니다.  |
 | 가격 책정:                | Free                                                                                                                                                                                                                         |
 | 지원되는 대상: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure 머신<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Arc 머신<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes 노드<br>:::image type="icon" source="./media/icons/no-icon.png":::Virtual Machine Scale Sets |
-| 클라우드:                 | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov, Azure 중국                                                                                                      |
+| 클라우드:                 | **기능**:<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure 중국 21Vianet<br>**에이전트 및 확장**:<br>Azure VM용 Log Analytics 에이전트는 모든 클라우드에서 사용할 수 있으며, Kubernetes용 정책 추가 기능은 모든 클라우드에서 사용할 수 있지만 게스트 구성 에이전트는 상업용 클라우드에서만 사용할 수 있습니다.  |
 |                         |                                                                                                                                                                                                                              |
 
 ## <a name="how-does-security-center-collect-data"></a>Security Center에서 데이터를 수집하는 방법은 무엇인가요?
@@ -67,9 +67,9 @@ Log Analytics 에이전트를 자동으로 프로비저닝하도록 설정하려
 
 1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
 1. 관련 구독을 선택합니다.
-1. **자동 프로비저닝** 페이지에서 Log Analytics 에이전트 상태를 **켜기** 로 설정합니다.
+1. **자동 프로비저닝** 페이지에서 Log Analytics 에이전트에 대한 자동 프로비저닝 상태를 **켜기** 로 설정합니다.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정합니다.":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정합니다." lightbox="./media/security-center-enable-data-collection/enable-automatic-provisioning.png":::
 
 1. 구성 옵션 창에서 사용할 작업 영역을 정의합니다.
 
@@ -120,13 +120,14 @@ Log Analytics 에이전트를 자동으로 프로비저닝하도록 설정하려
 
         :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="K8s 정책 추가 기능에 대해 자동 프로비저닝을 사용하도록 설정합니다.":::
 
-    1. **저장** 을 선택합니다. Azure 정책이 할당되고 수정 작업이 만들어집니다.
+    1. **저장** 을 선택합니다. Azure Policy 정의가 할당되고 수정 작업이 만들어집니다.
 
         |확장명  |정책  |
         |---------|---------|
-        |Kubernetes에 대한 Policy 추가 기능|[Azure Kubernetes Service 클러스터에 Azure Policy 추가 기능 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
+        |Kubernetes에 대한 Policy 추가 기능                      |[Azure Kubernetes Service 클러스터에 Azure Policy 추가 기능 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
         |Microsoft 종속성 에이전트(미리 보기)(Windows VM)|[Windows 가상 머신용 종속성 에이전트 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1c210e94-a481-4beb-95fa-1571b434fb04)         |
-        |Microsoft 종속성 에이전트(미리 보기)(Linux VM)|[Linux 가상 머신용 종속성 에이전트 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
+        |Microsoft 종속성 에이전트(미리 보기)(Linux VM)  |[Linux 가상 머신용 종속성 에이전트 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
+        |게스트 구성 에이전트(미리 보기)               |[필수 구성 요소를 배포하여 가상 머신에서 게스트 구성 정책을 사용하도록 설정](https://github.com/Azure/azure-policy/blob/64dcfa3033a3ff231ec4e73d2c1dad4db4e3b5dd/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json)|
         |||
 
 1. **저장** 을 선택합니다. 작업 영역을 프로비저닝해야 하는 경우 에이전트 설치에는 최대 25분이 걸릴 수 있습니다.
@@ -221,7 +222,7 @@ Log Analytics 에이전트를 수동으로 설치하려면 다음을 수행합�
    - [Windows용 Log Analytics 에이전트 설치](../virtual-machines/extensions/oms-windows.md)
    - [Linux용 Log Analytics 에이전트 설치](../virtual-machines/extensions/oms-linux.md)
 
-1. 에이전트를 기존 VM에 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/vm/quick-collect-azurevm.md)의 지침을 따릅니다(**이벤트 및 성능 데이터 수집** 섹션은 선택 사항임).
+1. 에이전트를 기존 VM에 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/vm/monitor-virtual-machine.md)의 지침을 따릅니다(**이벤트 및 성능 데이터 수집** 섹션은 선택 사항임).
 
 1. PowerShell을 사용하여 에이전트를 배포하려면 가상 머신 설명서의 지침을 사용하세요.
 

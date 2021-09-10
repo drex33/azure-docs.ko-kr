@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 08/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 9636c8cbb517c7aece450f53cfc37e4ddd9803b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6527666bcc3f70e1386a857a921b83301f36645c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92455496"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769508"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-comm100-live-chat"></a>자습서: Comm100 Live Chat과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,9 +26,7 @@ ms.locfileid: "92455496"
 * 사용자가 자신의 Azure AD 계정으로 Comm100 Live Chat에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -44,42 +42,41 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
-## <a name="adding-comm100-live-chat-from-the-gallery"></a>갤러리에서 Comm100 Live Chat 추가
+## <a name="add-comm100-live-chat-from-the-gallery"></a>갤러리에서 Comm100 Live Chat 추가
 
 Comm100 Live Chat의 Azure AD로의 통합을 구성하려면 갤러리의 Comm100 Live Chat을 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Comm100 Live Chat** 을 입력합니다.
 1. 결과 패널에서 **Comm100 Live Chat** 을 선택한 후 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-comm100-live-chat"></a>Comm100 Live Chat에 대한 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-comm100-live-chat"></a>Comm100 Live Chat에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 Comm100 Live Chat에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Comm100 Live Chat의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-Comm100 Live Chat에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+Comm100 Live Chat에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+   1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+   1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Comm100 Live Chat SSO 구성](#configure-comm100-live-chat-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[Comm100 Live Chat 테스트 사용자 만들기](#create-comm100-live-chat-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Comm100 Live Chat에 만듭니다.
+   1. **[Comm100 Live Chat 테스트 사용자 만들기](#create-comm100-live-chat-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Comm100 Live Chat에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Comm100 Live Chat** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **Comm100 Live Chat** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -112,7 +109,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -123,13 +120,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **Comm100 Live Chat** 을 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
-
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
@@ -140,15 +131,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 페이지 오른쪽 상단에서 **내 계정** 을 클릭합니다.
 
-   ![Comm100 Live Chat 내 계정](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+   ![Comm100 Live Chat 내 계정.](./media/comm100livechat-tutorial/account.png)
 
 1. 왼쪽 메뉴에서 **보안** 을 클릭한 다음, **에이전트 Single Sign-On** 을 클릭합니다.
 
-   !["보안" 및 "에이전트 Single Sign-On"이 강조 표시된 왼쪽 계정 메뉴를 보여주는 스크린샷.](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   !["보안" 및 "에이전트 Single Sign-On"이 강조 표시된 왼쪽 계정 메뉴를 보여주는 스크린샷.](./media/comm100livechat-tutorial/security.png)
 
 1. **에이전트 Single Sign-On** 페이지에서 다음 단계를 수행합니다.
 
-   ![Comm100 Live Chat 보안](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+   ![Comm100 Live Chat 보안.](./media/comm100livechat-tutorial/certificate.png)
 
    a. 첫 번째 강조 표시된 링크를 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에서 **로그온 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -170,15 +161,15 @@ Azure AD 사용자가 Comm100 Live Chat에 로그인할 수 있도록 하려면 
 
 2. 페이지 오른쪽 상단에서 **내 계정** 을 클릭합니다.
 
-    ![Comm100 Live Chat 내 계정](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+    ![Comm100 Live Chat 내 계정.](./media/comm100livechat-tutorial/account.png)
 
 3. 왼쪽 메뉴에서 **에이전트** 를 클릭한 다음, **새 에이전트** 를 클릭합니다.
 
-    ![Comm100 Live Chat 에이전트](./media/comm100livechat-tutorial/tutorial_comm100livechat_agent.png)
+    ![Comm100 Live Chat 에이전트.](./media/comm100livechat-tutorial/agent.png)
 
 4. **새 에이전트** 페이지에서 다음 단계를 수행합니다.
 
-    ![Comm100 Live Chat 새 에이전트](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
+    ![Comm100 Live Chat 새 에이전트.](./media/comm100livechat-tutorial/new-agent.png)
 
     a. a. **이메일** 텍스트 상자에 사용자의 이메일(예: **B.simon\@contoso.com**)을 입력합니다.
 
@@ -194,16 +185,14 @@ Azure AD 사용자가 Comm100 Live Chat에 로그인할 수 있도록 하려면 
 
 ## <a name="test-sso"></a>SSO 테스트 
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 Comm100 Live Chat 타일을 클릭하면 SSO를 설정한 Comm100 Live Chat에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Comm100 Live Chat 로그온 URL로 리디렉션됩니다. 
 
-## <a name="additional-resources"></a>추가 리소스
+* Comm100 Live Chat 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Comm100 Live Chat 타일을 클릭하면 Comm100 라이브 채팅 로그인 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
-
-- [Azure AD로 Comm100 Live Chat 사용해보기](https://aad.portal.azure.com/)
+Comm100 Live Chat이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

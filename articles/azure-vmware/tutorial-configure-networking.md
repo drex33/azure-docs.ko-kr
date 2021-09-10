@@ -3,29 +3,78 @@ title: 자습서 - Azure에서 VMware 프라이빗 클라우드에 대한 네트
 description: Azure에서 프라이빗 클라우드를 배포하는 데 필요한 네트워킹을 만들고 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
-ms.date: 04/23/2021
-ms.openlocfilehash: 10326a07e5838dd5fe2264029c857f5ad49f5811
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 07/30/2021
+ms.openlocfilehash: 61a1c1c45455c9edc402aca1e5471f3ed95a8d66
+ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114442023"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122069561"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>자습서: Azure에서 VMware 프라이빗 클라우드에 대한 네트워킹 구성
 
-Azure VMware Solution 프라이빗 클라우드에는 Azure Virtual Network가 필요합니다. Azure VMware Solution에서 온-프레미스 vCenter를 지원하지 않으므로 온-프레미스 환경과 통합하려면 추가 단계가 필요합니다. ExpressRoute 회로와 가상 네트워크 게이트웨이도 설정해야 합니다.
+Azure VMware Solution 프라이빗 클라우드에는 Azure Virtual Network가 필요합니다. Azure VMware Solution이 온-프레미스 vCenter를 지원하지 않으므로 온-프레미스 환경과 통합하려면 추가 단계가 필요합니다. ExpressRoute 회로와 가상 네트워크 게이트웨이도 설정해야 합니다.
 
 [!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
+
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 가상 네트워크 만들기
+> * 가상 네트워크 만들기 
 > * 가상 네트워크 게이트웨이 만들기
 > * 게이트웨이에 ExpressRoute 회로 연결
 
+>[!NOTE]
+>새 VNet을 만들기 전에 Azure에 기존 VNet이 이미 있는지 확인하고 이를 사용해서 Azure VMware Solution에 연결할지 또는 VNet을 완전히 새로 만들지 여부를 계획합니다.  
+>* 기존 VNet을 사용하려면 **연결** 아래에서 **[Azure VNet 연결](#select-an-existing-vnet)** 탭을 사용합니다. 
+>* 새 VNet을 만들려면 **[Azure VNet 연결](#create-a-new-vnet)** 탭을 사용하거나 항목을 [수동으로](#create-a-vnet-manually) 만듭니다.
 
-## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+## <a name="connect-with-the-azure-vnet-connect-feature"></a>Azure VNet 연결 기능을 사용하여 연결
+
+**Azure VNet 연결** 기능을 사용하여 기존 VNet을 사용하거나 새 VNet을 만들어서 Azure VMware Solution에 연결할 수 있습니다.   
+
+>[!NOTE]
+>VNet의 주소 공간은 Azure VMware Solution 프라이빗 클라우드 CIDR과 겹칠 수 없습니다.
+
+
+### <a name="select-an-existing-vnet"></a>기존 VNet 선택
+
+기존 VNet을 선택하면 VNet 및 기타 리소스를 만드는 ARM(Azure Resource Manager) 템플릿이 다시 배포됩니다. 이 경우 리소스는 공용 IP, 게이트웨이, 게이트웨이 연결 및 ExpressRoute 권한 부여 키입니다. 모든 항목이 설정되었으면 배포가 아무 것도 변경하지 않습니다. 하지만 누락된 항목이 있으면 자동으로 생성됩니다. 예를 들어 GatewaySubnet이 누락되었으면 배포 중에 추가됩니다.
+
+1. Azure VMware Solution 프라이빗 클라우드의 **관리** 에서 **연결** 을 선택합니다.
+
+2. **Azure VNet 연결** 탭을 선택한 후 기존 VNet을 선택합니다.
+
+   :::image type="content" source="media/networking/azure-vnet-connect-tab.png" alt-text="기존 VNet이 선택된 상태로 연결 아래의 Azure VNet 연결 탭을 보여주는 스크린샷입니다.":::
+
+3. **저장** 을 선택합니다.
+
+   이 시점에서 VNet은 Azure VMware Solution과 VNet 사이에 겹치는 IP 주소 공간이 검색되었는지 확인합니다. 검색되었으면 겹치지 않도록 프라이빗 클라우드 또는 VNet의 네트워크 주소를 변경합니다. 
+
+
+### <a name="create-a-new-vnet"></a>새 VNet 만들기
+
+새 VNet을 만들 때 Azure VMware Solution에 연결하는 데 필요한 구성 요소가 자동으로 생성됩니다.
+
+1. Azure VMware Solution 프라이빗 클라우드의 **관리** 에서 **연결** 을 선택합니다.
+
+2. **Azure VNet 연결** 탭을 선택한 후 **새로 만들기** 를 선택합니다.
+
+   :::image type="content" source="media/networking/azure-vnet-connect-tab-create-new.png" alt-text="연결 아래의 Azure VNet 연결 탭을 보여주는 스크린샷입니다.":::
+
+3. 새 VNet에 대해 정보를 제공하거나 업데이트한 후 **확인** 을 선택합니다.
+
+   이 시점에서 VNet은 Azure VMware Solution과 VNet 사이에 겹치는 IP 주소 공간이 검색되었는지 확인합니다. 검색되었으면 겹치지 않도록 프라이빗 클라우드 또는 VNet의 네트워크 주소를 변경합니다. 
+
+   :::image type="content" source="media/networking/create-new-virtual-network.png" alt-text="가상 네트워크 만들기 창을 보여주는 스크린샷입니다.":::
+
+제공된 주소 공간 및 GatewaySubnet을 포함하는 VNet이 구독 및 리소스 그룹에 생성됩니다.  
+
+
+## <a name="connect-to-the-private-cloud-manually"></a>프라이빗 클라우드에 수동으로 연결
+
+### <a name="create-a-vnet-manually"></a>수동으로 VNet 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -52,7 +101,9 @@ Azure VMware Solution 프라이빗 클라우드에는 Azure Virtual Network가 �
 
 1. 정보를 확인하고 **만들기** 를 선택합니다. 배포가 완료되면 리소스 그룹에 가상 네트워크가 표시됩니다.
 
-## <a name="create-a-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
+
+
+### <a name="create-a-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
 
 가상 네트워크를 만들었으므로 이제 가상 네트워크 게이트웨이를 만듭니다.
 
@@ -78,10 +129,11 @@ Azure VMware Solution 프라이빗 클라우드에는 Azure Virtual Network가 �
 
    :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="가상 네트워크 게이트웨이에 대한 세부 정보를 보여주는 스크린샷." border="true":::
 
-1. 세부 정보가 올바른지 확인하고 **만들기** 를 선택하여 가상 네트워크 게이트웨이의 배포를 시작합니다. 
+1. 세부 정보가 올바른지 확인하고 **만들기** 를 선택하여 가상 네트워크 게이트웨이의 배포를 시작합니다.
+
 1. 배포가 완료되면 다음 섹션으로 이동하여 ExpressRoute 연결을 Azure VMware Solution 프라이빗 클라우드가 포함된 가상 네트워크 게이트웨이에 연결합니다.
 
-## <a name="connect-expressroute-to-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이에 ExpressRoute 연결
+### <a name="connect-expressroute-to-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이에 ExpressRoute 연결
 
 가상 네트워크 게이트웨이를 배포했으므로 이제 게이트웨이와 Azure VMware Solution 프라이빗 클라우드 간에 연결을 추가합니다.
 
@@ -90,10 +142,11 @@ Azure VMware Solution 프라이빗 클라우드에는 Azure Virtual Network가 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
+본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
 
 > [!div class="checklist"]
-> * 가상 네트워크 만들기
+> * VNet 연결 기능을 사용하여 가상 네트워크 만들기
+> * 수동으로 가상 네트워크 만들기
 > * 가상 네트워크 게이트웨이 만들기
 > * 게이트웨이에 ExpressRoute 회로 연결
 

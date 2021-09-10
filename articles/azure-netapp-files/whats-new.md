@@ -12,20 +12,44 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 08/18/2021
 ms.author: b-juche
-ms.openlocfilehash: a50b8eee5a45fdd496aa0e063272c1c32cf0e5a7
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: 0bf972cd5b597d4cf0fb608eee8481cb72080425
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113664452"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769344"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
 
-## <a name="june-2021"></a>2021년 6월
+## <a name="august-2021"></a>2021년 8월
+
+* [기존 SMB 볼륨에서 지속적인 가용성 사용](enable-continuous-availability-existing-SMB.md) 지원
+
+    이미 [새 SMB 볼륨을 만들](azure-netapp-files-create-volumes-smb.md#continuous-availability) 때 SMB CA(지속적인 가용성) 기능을 사용하도록 설정할 수 있습니다. 이제는 기존 SMB 볼륨에서 SMB CA를 사용하도록 설정할 수도 있습니다. [기존 SMB 볼륨에서 지속적인 가용성 사용](enable-continuous-availability-existing-SMB.md)을 참조하세요.
+
+* [스냅샷 정책](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)이 이제 GA(일반 공급) 방식으로 제공됨  
+
+    이제 스냅샷 정책 기능이 일반 제공됩니다. 이 기능을 사용하기 전에 더 이상 등록할 필요가 없습니다.
+
+* [NFS `Chown Mode` 내보내기 정책 및 UNIX 내보내기 권한](configure-unix-permissions-change-ownership-mode.md)(미리 보기)   
+
+    이제 Unix 보안 스타일을 통해 Azure NetApp Files NFS 볼륨 또는 이중 프로토콜 볼륨에 대한 Unix 권한과 소유권 모드 변경(`Chown Mode`) 옵션을 설정할 수 있습니다. 볼륨을 만드는 동안 또는 볼륨을 만든 후에 이러한 설정을 지정할 수 있습니다.   
+
+    소유권 모드 변경(`Chown Mode`) 기능을 사용하면 파일 및 디렉터리의 소유권 관리 기능을 설정할 수 있습니다. 볼륨의 내보내기 정책에서 설정을 지정하거나 수정할 수 있습니다. `Chown Mode`에 두 가지 옵션을 사용할 수 있습니다. *제한*(기본값) 옵션에서는 루트 사용자만 파일 및 디렉터리의 소유권을 변경할 수 있고, *무제한* 에서는 루트가 아닌 사용자도 자신이 소유한 파일과 디렉터리의 소유권을 변경할 수 있습니다.   
+
+    Azure NetApp Files Unix 권한 기능을 사용하면 탑재 경로에 대한 변경 권한을 지정할 수 있습니다. 
+
+    이러한 새로운 기능은 특정 파일 및 디렉터리에 대한 액세스 제어 권한을 서비스 운영자가 아닌 데이터 사용자에게 넘길 수 있는 옵션을 제공합니다.   
+
+* [이중 프로토콜(NFSv4.1 및 SMB) 볼륨](create-volumes-dual-protocol.md)(미리 보기)   
+
+    Azure NetApp Files는 이미 [2020년 7월](#july-2020) 기준으로 NFSv3 및 SMB 볼륨에 대한 이중 프로토콜 액세스를 지원하고 있습니다. 이제 LDAP 사용자 매핑을 지원하여 동시 이중 프로토콜(NFSv4.1 및 SMB) 액세스를 허용하는 Azure NetApp Files 볼륨을 만들 수 있습니다. 이 기능을 사용하면 액세스에 NFSv4.1을 사용하는 Linux 기반 워크로드가 있고 해당 워크로드가 Azure NetApp Files 볼륨에 데이터를 생성 및 저장하는 사용 사례를 구현할 수 있습니다. 동시에 직원은 Windows 기반 클라이언트와 소프트웨어를 사용하여 동일한 Azure NetApp Files 볼륨에서 새로 생성된 데이터를 분석해야 합니다. 동시 이중 프로토콜 액세스 기능을 사용하면 다른 프로토콜을 사후 분석에 사용하여 워크로드 생성 데이터를 별도의 볼륨에 복사할 필요가 없으므로 스토리지 비용과 운영 시간을 절약할 수 있습니다. 이 기능은 무료이며(일반 Azure NetApp Files 스토리지 비용은 계속 적용됨) 일반 공급됩니다. [동시 이중 프로토콜 NFSv4.1/SMB 액세스](create-volumes-dual-protocol.md) 설명서에서 자세히 알아보세요.
+
+## <a name="june-2021"></a>2021년 6월  
 
 * [Azure NetApp Files 스토리지 서비스 추가 기능](storage-service-add-ons.md)
 
@@ -86,11 +110,11 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
     사용자가 프로비전된 용량에 대한 직접 제어를 요청했습니다. 사용자는 스토리지 용량 및 사용률을 제어하고 균형을 조정하고자 합니다. 또한 애플리케이션 볼륨의 가용, 사용 및 프로비전된 용량 및 성능에 대한 애플리케이션 측 및 클라이언트 측 가시성과 함께 비용을 제어하고자 합니다. 이제 이 새로운 동작으로 이러한 기능이 모두 지원됩니다.
 
-* [FSLogix 사용자 프로필 컨테이너의 SMB CA(지속적인 가용성) 공유 지원](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)(미리 보기)  
+* [FSLogix 사용자 프로필 컨테이너의 SMB CA(지속적인 가용성) 공유 지원](azure-netapp-files-create-volumes-smb.md#continuous-availability)(미리 보기)  
 
-    [FSLogix](/fslogix/overview)는 비 영구 Windows 컴퓨팅 환경을 개선, 사용 및 간소화하는 솔루션 세트입니다. FSLogix 솔루션은 퍼블릭 클라우드와 프라이빗 클라우드의 가상 환경에 적합합니다. 또한 FSLogix 솔루션은 물리적 디바이스를 사용하는 경우 이식 가능 컴퓨팅 세션을 만드는 데 사용될 수 있습니다. FSLogix는 Azure NetApp Files 등 SMB 공유 네트워크 스토리지에 저장된 영구 사용자 프로필 컨테이너에 동적 액세스를 제공하는 데 사용될 수 있습니다. 스토리지 서비스 유지 관리 이벤트에 대한 FSLogix 복원력을 강화하기 위해 Azure NetApp Files에서는 [Azure NetApp Files의 SMB CA(지속적인 가용성) 공유](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)를 통해 사용자 프로필 컨테이너에 대한 SMB 투명 장애 조치(Failover)를 추가로 지원합니다. 자세한 내용은 Azure NetApp Files [Windows Virtual Desktop 솔루션](azure-netapp-files-solution-architectures.md#windows-virtual-desktop)을 참조하세요.  
+    [FSLogix](/fslogix/overview)는 비 영구 Windows 컴퓨팅 환경을 개선, 사용 및 간소화하는 솔루션 세트입니다. FSLogix 솔루션은 퍼블릭 클라우드와 프라이빗 클라우드의 가상 환경에 적합합니다. 또한 FSLogix 솔루션은 물리적 디바이스를 사용하는 경우 이식 가능 컴퓨팅 세션을 만드는 데 사용될 수 있습니다. FSLogix는 Azure NetApp Files 등 SMB 공유 네트워크 스토리지에 저장된 영구 사용자 프로필 컨테이너에 동적 액세스를 제공하는 데 사용될 수 있습니다. 스토리지 서비스 유지 관리 이벤트에 대한 FSLogix 복원력을 강화하기 위해 Azure NetApp Files에서는 [Azure NetApp Files의 SMB CA(지속적인 가용성) 공유](azure-netapp-files-create-volumes-smb.md#continuous-availability)를 통해 사용자 프로필 컨테이너에 대한 SMB 투명 장애 조치(Failover)를 추가로 지원합니다. 자세한 내용은 Azure NetApp Files [Azure Virtual Desktop 솔루션](azure-netapp-files-solution-architectures.md#windows-virtual-desktop)을 참조하세요.  
 
-* [SMB3 프로토콜 암호화](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)(미리 보기) 
+* [SMB3 프로토콜 암호화](azure-netapp-files-create-volumes-smb.md#smb3-encryption)(미리 보기) 
 
     이제 Azure NetApp Files SMB 및 이중 프로토콜 볼륨에서 SMB3 프로토콜 암호화를 사용하도록 설정할 수 있습니다. 이 기능을 통해 [SMB 3.0의 AES-CCM 알고리즘과 SMB 3.1.1의 AES GCM 알고리즘](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) 연결을 사용하여 진행 중인 SMB3 데이터를 암호화할 수 있습니다. SMB3 암호화를 사용하지 않는 SMB 클라이언트는 이 볼륨에 액세스할 수 없습니다. 미사용 데이터는 이 설정에 관계없이 암호화됩니다. SMB 암호화를 통해 보안이 강화됩니다. 그러나 클라이언트(메시지 암호화 및 암호 해독을 위한 CPU 오버헤드)에 영향을 줄 수 있습니다. 스토리지 리소스 사용률(처리량 감소)에도 영향을 줄 수 있습니다. 프로덕션에 워크로드를 배포하기 전에 애플리케이션에 대한 암호화 성능 영향을 테스트해야 합니다.
 
@@ -138,7 +162,7 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
     수동 QoS 용량 풀에서는 볼륨의 용량과 처리량을 독립적으로 할당할 수 있습니다. 수동 QoS 용량 풀로 만든 모든 볼륨의 총 처리량은 풀의 총 처리량으로 제한됩니다. 이는 풀 크기와 서비스 수준 처리량의 조합에 따라 결정됩니다. 또는 용량 풀의 [QoS 유형](azure-netapp-files-understand-storage-hierarchy.md#qos_types)이 기본값인 auto(자동)가 될 수 있습니다. 자동 QoS 용량 풀에서 처리량은 볼륨에 할당된 크기 할당량에 비례하여 풀의 볼륨에 자동으로 할당됩니다.
 
-* [LDAP 서명](azure-netapp-files-create-volumes-smb.md)(미리 보기)   
+* [LDAP 서명](create-active-directory-connections.md#create-an-active-directory-connection)(미리 보기)   
 
     Azure NetApp Files는 이제 Azure NetApp Files 서비스와 사용자 지정 Active Directory Domain Services 도메인 컨트롤러 간의 보안 LDAP 조회를 위해 LDAP 서명을 지원합니다. 이 기능은 현재 미리 보기로 제공됩니다.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 08/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 7ddd3941c3001ba5c12a06d9f8710e2fc6328433
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4ffc4af491380fe02028848b2abeb53c73d8cd8b
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059862"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324467"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>자습서: Azure Stack Edge Pro R 배포 준비
 
@@ -69,8 +69,6 @@ Azure Stack Edge Pro R을 배포하려면 다음 자습서를 지정된 순서�
 - 다음에서 이 디바이스에 대한 안전 정보를 검토했습니다. [Azure Stack Edge 디바이스에 대한 안전 지침](azure-stack-edge-pro-r-safety.md).
 [!INCLUDE [Azure Stack Edge device prerequisites](../../includes/azure-stack-edge-gateway-device-prerequisites.md)] 
 
-
-
 ### <a name="for-the-datacenter-network"></a>데이터 센터 네트워크의 경우
 
 시작하기 전에 다음 사항을 확인합니다.
@@ -86,25 +84,57 @@ Azure Stack Edge Pro R을 배포하려면 다음 자습서를 지정된 순서�
 
 물리적 디바이스를 관리할 수 있는 기존 Azure Stack Edge 리소스가 있으면 이 단계를 건너뛰고 [활성화 키 가져오기](#get-the-activation-key)로 이동합니다.
 
-### <a name="portal"></a>[포털](#tab/azure-portal)
+---
+
+### <a name="azure-edge-hardware-center-preview"></a>[Azure Edge Hardware Center(미리 보기)](#tab/azure-edge-hardware-center)
+
+Azure Edge Hardware Center(미리 보기)는 Azure Stack Edge Pro 디바이스를 포함하여 Azure 하이브리드 포트폴리오의 다양한 하드웨어를 탐색하고 주문할 수 있게 해주는 새로운 서비스입니다.
+
+Azure Edge Hardware Center를 통해 주문할 때는 여러 주소로 여러 디바이스 배송을 주문할 수 있고 다른 주문에 배송지 주소를 재사용할 수 있습니다.
+
+Azure Edge Hardware Center를 통해 주문하면 모든 주문 관련 정보가 포함된 Azure 리소스가 생성됩니다. 주문되는 각 단위마다 각각 하나의 리소스가 생성됩니다. 디바이스를 받은 후 이를 활성화하고 관리하려면 Azure Stack Edge 리소스를 만들어야 합니다.
+
+[!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
+
+#### <a name="create-management-resources-for-devices"></a>디바이스에 대한 관리 리소스 만들기
+
+Azure Edge Hardware Center에서 주문한 디바이스를 관리하려면 Azure Stack Edge에서 관리 리소스를 만듭니다. 
+
+디바이스를 활성화하면 관리 리소스가 주문 항목과 연결됩니다. 관리 리소스에서 주문 항목을 열고 주문 항목에서 관리 리소스를 열 수 있습니다. 
+
+디바이스를 배송한 후에는 **하드웨어 구성** 링크가 주문 항목 세부 정보에 추가되어 관리 리소스를 만들기 위한 마법사를 직접 열 수 있습니다. Azure Stack Edge에서 **관리 리소스 만들기** 옵션을 사용할 수도 있습니다.
+
+[!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
+
+### <a name="portal-classic"></a>[포털(기본)](#tab/azure-portal)
 
 Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
 
 1. Microsoft Azure 자격 증명을 사용하여 [https://portal.azure.com](https://portal.azure.com) URL에서 Azure Portal에 로그인합니다.
 
-2. 왼쪽 창에서 **+ 리소스 만들기** 를 선택합니다. **Azure Stack Edge/Data Box Gateway** 를 검색하여 선택합니다. **만들기** 를 선택합니다. 
+2. **Azure 서비스** 에서 **Azure Stack Edge** 를 검색하고 선택합니다. 그런 다음, **+ 만들기** 를 선택합니다. 
+
+3. **Azure Stack Edge 디바이스 관리** 에서 **Azure Hardware Center 사용해 보기** 링크를 선택합니다.
+
+    ![\+ 만들기 단추로 열린 “Azure Stack Edge 디바이스 관리” 화면의 스크린샷입니다. “Azure Edge Hardware Center 사용해 보기” 링크가 강조 표시되어 있습니다.](media/azure-stack-edge-pro-r-deploy-prep/classic-order-experience-1.png)
+
+    그러면 Azure Edge Hardware Center에서 주문을 만들기 위한 **시작** 화면이 열립니다. 
+
+4. Hardware Center를 통해 주문하지 않으려면 **시작** 화면에서 **클래식 주문 환경을 사용하여 주문** 을 선택합니다.
+
+   ![Azure Stack Edge에서 시작하기 화면의 스크린샷입니다. “클래식 주문 환경을 사용하여 주문” 링크가 강조 표시되어 있습니다.](media/azure-stack-edge-pro-r-deploy-prep/classic-order-experience-2.png)
 
 3. Azure Stack Edge Pro 디바이스에 사용하려는 구독을 선택합니다. 이 물리적 디바이스를 배송하려는 국가를 선택합니다. **디바이스 표시** 를 선택합니다.
 
-    ![리소스 만들기 1](media/azure-stack-edge-pro-r-deploy-prep/create-resource-1.png)
+    ![Azure Stack Edge 리소스에 대해 구독 및 배송 지역을 선택하기 위한 “디바이스 유형 선택” 화면의 스크린샷입니다. 디바이스 표시 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-1.png)
 
 4. 디바이스 유형을 선택합니다. **Azure Stack Edge** 아래에서 **Azure Stack Edge Pro R** 을 선택한 다음, **선택** 을 선택합니다. 문제가 있거나 디바이스 유형을 선택할 수 없는 경우 [주문 문제 해결](azure-stack-edge-troubleshoot-ordering.md)로 이동합니다.
 
-    ![리소스 만들기 2](media/azure-stack-edge-pro-r-deploy-prep/create-resource-2.png)
+    ![Azure Stack Edge 리소스에 대해 디바이스 유형을 선택할 수 있는 “디바이스 유형 선택” 화면의 스크린샷입니다. 디바이스 유형에 대한 선택 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-2.png#lightbox)
 
 5. 비즈니스 요구 사항에 따라 **Azure Stack Edge Pro R 단일 노드** 또는 **UPS가 포함된 Azure Stack Edge Pro R 단일 노드** 를 선택할 수 있습니다.  
 
-    ![리소스 만들기 3](media/azure-stack-edge-pro-r-deploy-prep/create-resource-3.png)
+    ![Azure Stack Edge 리소스에 대해 Azure Stack Edge Pro R 디바이스 구성을 선택하기 위한 화면의 스크린샷 하드웨어 구성 및 선택 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-3.png)
 
 6. **기본 사항** 탭에서 다음 **프로젝트 세부 정보** 를 입력하거나 선택합니다.
     
@@ -120,24 +150,24 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
     |속성   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
     |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
 
-    ![리소스 만들기 4](media/azure-stack-edge-pro-r-deploy-prep/create-resource-4.png)
+    ![Azure Stack Edge에 대한 리소스 만들기 및 디바이스 주문 마법사의 기본 탭을 보여주는 스크린샷입니다. 기본 탭 및 다음: 배송 주소 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-4.png)
 
 
 8. 완료되면 **다음: 배송 주소** 를 선택합니다.
 
     - 디바이스가 이미 있는 경우 **Azure Stack Edge Pro R 디바이스가 있습니다.** 콤보 상자를 선택합니다.
 
-        ![리소스 만들기 5](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
+        ![Azure Stack Edge의 리소스 만들기 마법사에서 선택한 “디바이스 배송 주소가 이미 있음” 옵션이 선택된 “배송 주소” 탭의 스크린샷입니다.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
 
     - 이 디바이스가 주문하는 새 디바이스인 경우 연락처 이름, 회사, 디바이스를 배송할 주소, 연락처 정보를 입력합니다.
 
-        ![리소스 만들기 6](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
+        ![새 Azure Stack Edge 리소스를 만들 때 리소스 만들기 마법사에 표시되는 “배송 주소” 탭의 스크린샷입니다.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
 
 9. 완료되면 **다음: 태그** 를 선택합니다. 필요에 따라 리소스를 범주화하고 청구를 통합하는 태그를 입력합니다. 완료되면 **다음: 리뷰 + 만들기** 를 클릭합니다.
 
 10. **검토 + 만들기** 탭에서 **가격 책정 세부 정보**, **사용 약관** 및 리소스 세부 정보를 살펴봅니다. **I have reviewed the privacy terms**(개인정보처리방침을 검토했습니다) 콤보 상자를 선택합니다.
 
-    ![리소스 만들기 7](media/azure-stack-edge-pro-r-deploy-prep/create-resource-7.png) 
+    ![Azure Stack Edge 주문에 대한 검토 + 만들기 탭의 스크린샷입니다.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-7.png) 
 
     또한 리소스를 만드는 동안 클라우드 서비스에 인증할 때 MSI(관리되는 서비스 ID)를 사용할 수 있다는 알림이 표시됩니다. 이 ID는 리소스가 존재하는 동안 존재합니다.
 
@@ -147,7 +177,7 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
     리소스가 생성되고 배포된 후에는 알림이 표시됩니다. **리소스로 이동** 을 선택합니다.
 
-    ![Azure Stack Edge Pro 리소스로 이동](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![새 Azure Stack Edge 리소스 배포가 완료되었음을 나타내는 스크린샷 리소스로 이동 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
 
 주문이 완료되면 Microsoft에서 주문을 검토하고 배송 세부 정보가 포함된 이메일을 통해 연락을 드립니다.
 
@@ -215,9 +245,9 @@ Azure Stack Edge 리소스가 가동되면 활성화 키를 가져와야 합니�
 
    키 자격 증명 모음 이름을 지정했으면 **활성화 키 생성** 을 선택하여 활성화 키를 만듭니다.
 
-   ![활성화 키 가져오기](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
+   ![새로 만든 Azure Stack Edge 리소스에 대한 개요 창의 스크린샷입니다. 활성화 키 생성 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-   키 자격 증명 모음 및 활성화 키가 생성되는 동안 몇 분 정도 기다립니다. 복사 아이콘을 선택하여 키를 복사하고 나중에 사용할 수 있도록 저장합니다.<!--Verify that the new screen has a copy icon.-->
+   키 자격 증명 모음 및 활성화 키가 생성되는 동안 몇 분 정도 기다립니다. 복사 아이콘을 선택하여 키를 복사하고 나중에 사용할 수 있도록 저장합니다.
 
 > [!IMPORTANT]
 > - 활성화 키는 생성되고 3일 후에 만료됩니다.

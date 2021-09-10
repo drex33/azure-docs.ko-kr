@@ -3,27 +3,36 @@ title: Azure VMware Solution 배포 및 구성
 description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware Solution 프라이빗 클라우드를 배포하고 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.custom: contperf-fy22q1, devx-track-azurecli
-ms.date: 07/09/2021
-ms.openlocfilehash: 30c6360e49da2574edd87c639811aac4b66d5e9e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 07/28/2021
+ms.openlocfilehash: fd3d39a33fcf86556b12fefe7a07dde48dd14c2c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114438204"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729053"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Azure VMware Solution 배포 및 구성
 
-이 문서에서는 [계획 섹션](production-ready-deployment-steps.md)의 정보를 사용하여 Azure VMware Solution을 배포하고 구성합니다. 
+[배포를 계획](plan-private-cloud-deployment.md)한 후에는 Azure VMware Solution 프라이빗 클라우드를 배포하고 구성할 수 있습니다. 
 
 다이어그램은 Azure VMware Solution의 배포 워크플로를 보여 줍니다. 
 
-:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Azure VMware Solution 배포 워크플로의 다이어그램." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
+:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Azure VMware Solution 배포 워크플로를 보여주는 다이어그램." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
 
-## <a name="step-1-register-the-microsoftavs-resource-provider"></a>1단계. **Microsoft.AVS** 리소스 공급자 등록
+이 방법 가이드에서는 다음을 수행하게 됩니다.
+
+> [!div class="checklist"]
+> * 리소스 공급자 등록 및 프라이빗 클라우드 생성
+> * 신규 또는 기존 ExpressRoute 가상 네트워크 게이트웨이에 연결
+> * 네트워크 연결 유효성 검사
+
+완료되면 마지막에 권장되는 다음 단계에 따라 이 시작 가이드의 단계를 계속 진행합니다.
+
+## <a name="register-the-microsoftavs-resource-provider"></a>**Microsoft.AVS** 리소스 공급자 등록
 
 [!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
-## <a name="step-2-create-an-azure-vmware-solution-private-cloud"></a>2단계. Azure VMware Solution 프라이빗 클라우드 만들기
+## <a name="create-an-azure-vmware-solution-private-cloud"></a>Azure VMware Solution 프라이빗 클라우드 만들기
 
 [!INCLUDE [create-private-cloud-azure-portal-steps](includes/create-private-cloud-azure-portal-steps.md)]
 
@@ -31,7 +40,7 @@ ms.locfileid: "114438204"
 >이 단계의 엔드투엔드 개요는 [Azure VMware Solution: 배포](https://www.youtube.com/embed/gng7JjxgayI) 비디오를 참조하세요.
 
 
-## <a name="step-3-connect-to-azure-virtual-network-with-expressroute"></a>3단계: ExpressRoute를 사용하여 Azure Virtual Network에 연결
+## <a name="connect-to-azure-virtual-network-with-expressroute"></a>ExpressRoute를 사용하여 Azure Virtual Network에 연결
 
 계획 단계에서 *기존* 또는 *새* ExpressRoute 가상 네트워크 게이트웨이를 사용할지 여부를 정의했습니다.  
 
@@ -47,21 +56,20 @@ ms.locfileid: "114438204"
 
 | 조건 | 결과  |
 | --- | --- |
-| 가상 네트워크가 아직 없습니다.     |  다음을 만듭니다.<ol><li><a href="tutorial-configure-networking.md#create-a-virtual-network">가상 네트워크</a></li><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">가상 네트워크 게이트웨이</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">게이트웨이에 ExpressRoute 연결</a></li></ol>        |
+| 가상 네트워크가 아직 없습니다.     |  다음을 만듭니다.<ol><li><a href="tutorial-configure-networking.md#create-a-vnet-manually">가상 네트워크</a></li><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">가상 네트워크 게이트웨이</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">게이트웨이에 ExpressRoute 연결</a></li></ol>        |
 | GatewaySubnet이 **없는** 가상 네트워크가 이미 있습니다.   | 다음을 만듭니다. <ol><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">가상 네트워크 게이트웨이</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">게이트웨이에 ExpressRoute 연결</a></li></ol>          |
 | GatewaySubnet이 **있는** 가상 네트워크가 이미 있습니다. | 다음을 만듭니다. <ol><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">가상 네트워크 게이트웨이</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">게이트웨이에 ExpressRoute 연결</a></li></ol>    |
-
 
 ### <a name="use-an-existing-virtual-network-gateway"></a>기존 가상 네트워크 게이트웨이 사용
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 
-## <a name="step-4-validate-the-connection"></a>4단계. 연결 유효성 검사
+## <a name="validate-the-connection"></a>연결 유효성 검사
 
 ExpressRoute를 종료하는 Azure Virtual Network와 Azure VMware Solution 프라이빗 클라우드가 연결되어 있어야 합니다. 
 
-1. Azure VMware Solution ExpressRoute를 종료하는 Azure Virtual Network 내에 있는 [가상 머신](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)을 사용합니다([3단계. ExpressRoute를 사용하여 Azure Virtual Network에 연결](#step-3-connect-to-azure-virtual-network-with-expressroute) 참조).  
+1. Azure VMware Solution ExpressRoute를 종료하는 Azure Virtual Network 내에 있는 [가상 머신](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)을 사용합니다. 자세한 내용은 [ExpressRoute를 사용하여 Azure Virtual Network에 연결](#connect-to-azure-virtual-network-with-expressroute)을 참조하세요.  
 
    1. Azure [Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -80,7 +88,7 @@ ExpressRoute를 종료하는 Azure Virtual Network와 Azure VMware Solution 프�
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 섹션에서는 ExpressRoute를 통해 Azure VMware Solution을 온-프레미스 네트워크에 연결합니다.
+다음 자습서에서는 ExpressRoute를 통해 Azure VMware Solution을 온-프레미스 네트워크에 연결합니다.
 
 > [!div class="nextstepaction"]
 > [온-프레미스 환경에 연결](tutorial-expressroute-global-reach-private-cloud.md)

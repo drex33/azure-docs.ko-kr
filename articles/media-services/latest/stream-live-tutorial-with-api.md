@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 06/13/2019
 ms.author: inhenkel
-ms.openlocfilehash: d471431da7cc738f9ef908897ccab34343cc4c4b
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f10ef55a44aa917fd8f0fb3783dcd29284512d7e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470432"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732669"
 ---
 # <a name="tutorial-stream-live-with-media-services-by-using-net-50"></a>자습서: .NET 5.0을 사용하여 Media Services로 라이브 스트리밍
 
@@ -68,11 +68,7 @@ git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
 
 라이브 스트리밍 샘플은 [Live](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Live) 폴더에 있습니다.
 
-다운로드한 프로젝트에서 [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/appsettings.json) 파일을 엽니다. 값을 [Azure CLI를 사용하여 Azure Media Services API에 액세스](./access-api-howto.md)에서 가져온 자격 증명으로 바꿉니다.
-
-또한 프로젝트의 루트에서 *.env* 파일 형식을 사용하여 .NET 샘플 리포지토리의 모든 프로젝트에 대해 환경 변수를 한 번만 설정할 수 있습니다. *sample.env* 파일을 복사한 다음, Azure Portal의 Media Services **API 액세스** 페이지 또는 Azure CLI에서 가져온 정보를 입력하기만 하면 됩니다. 모든 프로젝트에서 사용하려면 *sample.env* 파일의 이름을 *.env* 로 바꿉니다.
-
-*.gitignore* 파일은 포크 처리된 리포지토리에 이 파일이 게시되지 않도록 이미 구성되어 있습니다. 
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 > [!IMPORTANT]
 > 이 샘플에서는 각 리소스에 고유한 접미사를 사용합니다. 디버깅을 취소하거나 앱을 실행하지 않고 종료하면 계정에서 여러 라이브 이벤트가 발생합니다.
@@ -81,14 +77,16 @@ git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>라이브 스트리밍을 수행하는 코드 검사
 
-이 섹션에서는 *LiveEventWithDVR* 프로젝트의 [Authentication.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Common_Utils/Authentication.cs) 파일 및 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) 파일에 정의된 함수를 살펴봅니다.
+이 섹션에서는 *LiveEventWithDVR* 프로젝트의 [Authentication.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Common_Utils/Authentication.cs) 파일(Common_Utils 폴더에 있는) 및 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs) 파일에 정의된 함수를 살펴봅니다.
 
 샘플을 정리하지 않고 여러 번 실행하더라도 이름이 충돌하지 않도록, 이 샘플에서는 각 리소스의 고유 접미사를 만듭니다.
 
 
 ### <a name="start-using-media-services-apis-with-the-net-sdk"></a>.NET SDK로 Media Services API 사용 시작
 
-.NET으로 Media Services API를 사용하려면 `AzureMediaServicesClient` 개체를 만들어야 합니다. 개체를 만들려면 Azure Active Directory를 사용하여 클라이언트가 Azure에 연결할 수 있는 자격 증명을 제공해야 합니다. 또 다른 옵션은 `GetCredentialsInteractiveAuthAsync`에서 구현된 대화형 인증을 사용하는 것입니다.
+Authentication.cs는 로컬 구성 파일(appsettings.json 또는 .env)에 제공된 자격 증명을 사용하여 `AzureMediaServicesClient` 개체를 만듭니다.
+
+`AzureMediaServicesClient` 개체를 사용하면 .NET에서 Media Services API 사용을 시작할 수 있습니다. 개체를 만들려면 `GetCredentailsAsync`에서 구현된 Azure Active Directory를 사용하여 클라이언트가 Azure에 연결할 수 있는 자격 증명을 제공해야 합니다. 또 다른 옵션은 `GetCredentialsInteractiveAuthAsync`에서 구현된 대화형 인증을 사용하는 것입니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
 
@@ -204,7 +202,7 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ## <a name="watch-the-event"></a>이벤트 보기
 
-이벤트를 보려면 스트리밍 로케이터를 만들기 위해 코드를 실행할 때 가져온 스트리밍 URL을 복사합니다. 원하는 미디어 플레이어를 사용할 수 있습니다. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)는 [Media Player 데모 사이트](https://ampdemo.azureedge.net)에서 스트림을 테스트하는 데 사용할 수 있습니다.
+**Ctrl+F5** 를 눌러 코드를 실행합니다. 그러면 라이브 이벤트를 시청하는 데 사용할 수 있는 스트리밍 URL이 출력됩니다. 스트리밍 로케이터를 만들기 위해 가져온 스트리밍 URL을 복사합니다. 원하는 미디어 플레이어를 사용할 수 있습니다. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)는 [Media Player 데모 사이트](https://ampdemo.azureedge.net)에서 스트림을 테스트하는 데 사용할 수 있습니다.
 
 라이브 이벤트가 중지되면 이벤트가 자동으로 주문형 콘텐츠로 변환됩니다. 이벤트를 중지하고 삭제한 후에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트리밍할 수 있습니다. 이벤트에서 사용 중인 자산은 삭제할 수 없습니다. 이벤트를 먼저 삭제해야 합니다.
 

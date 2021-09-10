@@ -1,15 +1,15 @@
 ---
 title: 오스트레일리아 정부 ISM PROTECTED에 대한 규정 준수 세부 정보
 description: 오스트레일리아 정부 ISM PROTECTED 규정 준수 기본 제공 이니셔티브의 세부 정보입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 08/27/2021
+ms.date: 09/03/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 8a3c28dbcbcc3ae16918e2438d5f1adcf01616f5
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: b8594d87495d9bb9804d1bd370b0d0388789ded6
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108860"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478287"
 ---
 # <a name="details-of-the-australian-government-ism-protected-regulatory-compliance-built-in-initiative"></a>오스트레일리아 정부 ISM PROTECTED 규정 준수 기본 제공 이니셔티브의 세부 정보
 

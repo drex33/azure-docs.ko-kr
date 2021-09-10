@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 07/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 7f0e9d0c97b9325a30de3cb8c6ce10a3ba8489f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a49dec3b7a87eebebbb6d4737618a387c80e4f1a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92454116"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742823"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-elium"></a>자습서: Elium과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "92454116"
 * 사용자가 자신의 Azure AD 계정으로 Elium에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -40,10 +40,10 @@ ms.locfileid: "92454116"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Elium은 **SP 및 IDP** 시작 SSO를 지원합니다.
-* Elium에서 **Just-In-Time** 사용자 프로비전을 지원합니다.
+* Elium에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+* Elium에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
-## <a name="adding-elium-from-the-gallery"></a>갤러리에서 Elium 추가
+## <a name="add-elium-from-the-gallery"></a>갤러리에서 Elium 추가
 
 Elium과 Azure AD의 통합을 구성하려면 갤러리의 Elium을 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -58,13 +58,13 @@ Elium과 Azure AD의 통합을 구성하려면 갤러리의 Elium을 관리되�
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 Elium에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Elium의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-Elium에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+Elium에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Elium SSO 구성](#configure-elium-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    * **[Elium 테스트 사용자 만들기](#create-elium-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Elium에 만듭니다.
+    1. **[Elium 테스트 사용자 만들기](#create-elium-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Elium에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -73,11 +73,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Elium** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     a. **식별자** 텍스트 상자에서 `https://<platform-domain>.elium.com/login/saml2/metadata` 패턴을 사용하여 URL을 입력합니다.
 
@@ -123,7 +123,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -153,15 +153,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 오른쪽 위 모서리에서 **사용자 프로필** 을 클릭한 다음, **설정** 을 선택합니다.
 
-    ![Single Sign-On Elium 01 구성](./media/elium-tutorial/elium-01.png)
+    ![Single Sign-On 사용자 프로필을 구성합니다.](./media/elium-tutorial/profile.png)
 
 1. **고급** 에서 **보안** 을 선택합니다.
 
-    ![Single Sign-On Elium 02 구성](./media/elium-tutorial/elium-02.png)
+    ![Single Sign-On 고급을 구성합니다.](./media/elium-tutorial/security.png)
 
 1. **SSO(Single Sign-On)** 섹션까지 아래로 스크롤하여 다음 단계를 수행합니다.
 
-    ![Single Sign-On Elium 03 구성](./media/elium-tutorial/elium-03.png)
+    ![Single Sign-On을 구성합니다.](./media/elium-tutorial/configuration.png)
 
     a. **계정에서 SAML2 인증이 작동하는지 확인** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **로그온 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -176,11 +176,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     e. **SP 메타데이터** 파일에서 **entityID** 를 검색하고, 해당 **entityID** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다. 
 
-    ![Single Sign-On Elium 04 구성](./media/elium-tutorial/elium-04.png)
+    ![Single Sign-On 구성을 구성합니다.](./media/elium-tutorial/metadata.png)
 
     f. **SP 메타데이터** 파일에서 **AssertionConsumerService** 를 검색하고, **위치** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
-    ![Single Sign-On Elium 05 구성](./media/elium-tutorial/elium-05.png)
+    ![Single Sign-On AssertionConsumerService를 구성합니다.](./media/elium-tutorial/service.png)
 
     g. Azure Portal에서 다운로드한 메타데이터 파일을 메모장에 열고, 내용을 복사한 다음, **IdP 메타데이터** 텍스트 상자에 붙여넣습니다.
 
@@ -207,7 +207,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
  
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Elium에 자동으로 로그인됩니다. 
  
-Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 Elium 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Elium에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Elium 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Elium에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 26bd2a4e39f2698f47a27a08716dc3049c7b70f8
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: ce49a0a6fc249f3cea6bfdac613beade5322142f
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113106824"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323895"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 및 사용자 지정 정책 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "113106824"
 
 ::: zone pivot="b2c-user-flow"
 > [!IMPORTANT]
-> 사용자 흐름 버전을 참조하는 방법이 변경되었습니다. 이전에는 V1(프로덕션 준비) 버전과 V1.1 및 V2(미리 보기) 버전을 제공했습니다. 이제 사용자 흐름을 최신 기능이 포함된 **권장** 사용자 흐름 및 **표준(레거시)** 사용자 흐름 등 두 가지 버전으로 통합했습니다. 퍼블릭 클라우드에서 모든 레거시 미리 보기 사용자 흐름(V1.1 및 V2)은 **2021년 8월 1일** 에 사용 중단될 예정입니다. 자세한 내용은 [Azure AD B2C의 사용자 흐름 버전](user-flow-versions.md)을 참조하세요. *이러한 변경 사항은 Azure 퍼블릭 클라우드에만 적용됩니다. 다른 환경에서는 [레거시 사용자 흐름 버전 관리](user-flow-versions-legacy.md)를 계속 사용합니다.* 
+> 사용자 흐름 버전을 참조하는 방법이 변경되었습니다. 이전에는 V1(프로덕션 준비) 버전과 V1.1 및 V2(미리 보기) 버전을 제공했습니다. 이제 사용자 흐름을 최신 기능이 포함된 **권장** 사용자 흐름 및 **표준(레거시)** 사용자 흐름 등 두 가지 버전으로 통합했습니다. 모든 레거시 미리 보기 사용자 흐름(V1.1 및 V2)은 더 이상 사용되지 않습니다. 자세한 내용은 [Azure AD B2C의 사용자 흐름 버전](user-flow-versions.md)을 참조하세요. *이러한 변경 사항은 Azure 퍼블릭 클라우드에만 적용됩니다. 다른 환경에서는 [레거시 사용자 흐름 버전 관리](user-flow-versions-legacy.md)를 계속 사용합니다.* 
 ::: zone-end
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -70,7 +70,7 @@ ms.locfileid: "113106824"
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **정책** 아래에서 **사용자 흐름** 을 선택한 다음, **새 사용자 흐름** 을 선택합니다.
 
-    ![새 사용자 흐름 단추가 강조 표시된 포털의 사용자 흐름 페이지](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![새 사용자 흐름 단추가 강조 표시된 포털의 사용자 흐름 페이지](./media/tutorial-create-user-flows/sign-up-sign-in-user-flow.png)
 
 1. **사용자 흐름 만들기** 탭에서 **가입 및 로그인** 사용자 흐름을 선택합니다.
 
@@ -339,9 +339,17 @@ GitHub에서 사용자 지정 정책 시작 팩을 가져온 다음, Azure AD B2
 > * 프로필 편집 사용자 흐름 만들기
 > * 암호 재설정 사용자 흐름 만들기
 
-다음으로, Azure AD B2C를 사용하여 애플리케이션에 사용자를 로그인하고 등록하는 방법에 대해 알아봅니다. 아래 링크된 ASP.NET 웹 애플리케이션을 따르거나 **사용자 인증** 아래에 있는 목차에서 다른 애플리케이션으로 이동합니다.
+다음으로, Azure AD B2C를 사용하여 애플리케이션에 사용자를 로그인하고 등록하는 방법에 대해 알아봅니다. 아래 링크된 샘플 앱을 따르세요.
 
-> [!div class="nextstepaction"]
-> [자습서: Azure AD B2C를 사용하여 웹 애플리케이션에서 인증을 사용하도록 설정 >](tutorial-web-app-dotnet.md)
+- [샘플 ASP.NET Core 웹앱 구성](configure-authentication-sample-web-app.md)
+- [웹 API를 호출하는 샘플 ASP.NET Core 웹앱 구성](configure-authentication-sample-web-app-with-api.md)
+- [샘플 Python 웹 애플리케이션에서 인증 구성](configure-authentication-sample-python-web-app.md)
+- [샘플 SPA(단일 페이지 애플리케이션) 구성](configure-authentication-sample-spa-app.md)
+- [샘플 Angular 단일 페이지 앱 구성](configure-authentication-sample-angular-spa-app.md)
+- [샘플 Android 모바일 앱 구성](configure-authentication-sample-android-app.md)
+- [샘플 iOS 모바일 앱 구성](configure-authentication-sample-ios-app.md)
+- [샘플 WPF 데스크톱 애플리케이션에서 인증 구성](configure-authentication-sample-wpf-desktop-app.md)
+- [웹 API에서 인증 사용](enable-authentication-web-api.md)
+- [SAML 애플리케이션 구성](saml-service-provider.md) 
 
 [Azure AD B2C 아키텍처 심층 분석 시리즈](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm)에서도 자세히 알아볼 수 있습니다.

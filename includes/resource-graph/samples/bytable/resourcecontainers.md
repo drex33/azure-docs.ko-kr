@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 698120a0609e1c070348e5b0a6cf3c447bd0b16c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: d3b4b8b989fc307faae39c8afe1cdf09f2467380
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308849"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535904"
 ---
 ### <a name="combine-results-from-two-queries-into-a-single-result"></a>두 쿼리의 결과를 단일 결과로 결합
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 08/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 81c11665db1ee1f7c73e8abee95f01b8ea62d2fe
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: b223d428daf1a7080478f4f80b6a997fb97cd7a0
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113504894"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322679"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>자습서: Azure Stack Edge Pro device with GPU 배포 준비 
 
@@ -63,18 +63,20 @@ Azure Stack Edge Pro를 배포하려면 먼저 환경을 준비해야 합니다.
 
 ### <a name="for-the-azure-stack-edge-resource"></a>Azure Stack Edge 리소스
 
+<!--Why isn't the include file used, as for the Pro R and Mini R SKUs? Check for differences. Also, the presentation of requirements is organized a bit differently; standard presentation would be more usable, even if the GPU requirements are different.-->
+
 시작하기 전에 다음 사항을 확인합니다.
 
 - Data Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다. 종량제 구독은 지원되지 않습니다. 보유한 Azure 구독의 유형을 식별하려면 [Azure 제품이란?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)을 참조하세요.
-- Azure Stack Edge Pro/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
+- Azure Stack Edge Pro, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
 
-    - Azure Stack Edge / Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상)로서 권한이 있어야 합니다. 
+    - Azure Stack Edge 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상) 권한이 있어야 합니다. 
     - 또한 `Microsoft.DataBoxEdge` 및 `MicrosoftKeyVault` 리소스 공급자가 등록되었는지 확인해야 합니다. IoT Hub 리소스를 만들려면 `Microsoft.Devices` 공급자를 등록해야 합니다. 
         - 리소스 공급자를 등록하려면 Azure Portal에서 **홈 > 구독 > 사용자 구독 > 리소스 공급자** 로 이동합니다. 
         - 특정 리소스 공급자(예: `Microsoft.DataBoxEdge`)를 검색하고 리소스 공급자를 등록합니다. 
     - 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
+- Azure Edge Hardware Center에서 주문을 만들려면 `Microsoft.EdgeOrder` 공급자가 등록되어 있는지 확인해야 합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
 - 스토리지 계정을 사용하는 공유 만들기와 같이 활성화 키 또는 자격 증명 작업을 생성하는 Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
-
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 디바이스
 
@@ -102,67 +104,91 @@ Azure Stack Edge Pro를 배포하려면 먼저 환경을 준비해야 합니다.
 
 물리적 디바이스를 관리할 수 있는 기존 Azure Stack Edge 리소스가 있으면 이 단계를 건너뛰고 [활성화 키 가져오기](#get-the-activation-key)로 이동합니다.
 
-### <a name="portal"></a>[포털](#tab/azure-portal)
+---
 
-Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
+### <a name="azure-edge-hardware-center-preview"></a>[Azure Edge Hardware Center(미리 보기)](#tab/azure-edge-hardware-center)
+
+Azure Edge Hardware Center(미리 보기)는 Azure Stack Edge Pro 디바이스를 포함하여 Azure 하이브리드 포트폴리오의 다양한 하드웨어를 탐색하고 주문할 수 있게 해주는 새로운 서비스입니다.
+
+Azure Edge Hardware Center를 통해 주문할 때는 여러 주소로 여러 디바이스 배송을 주문할 수 있고 다른 주문에 배송지 주소를 재사용할 수 있습니다.
+
+Azure Edge Hardware Center를 통해 주문하면 모든 주문 관련 정보가 포함된 Azure 리소스가 생성됩니다. 주문되는 각 단위마다 각각 하나의 리소스가 생성됩니다. 디바이스를 받은 후 이를 활성화하고 관리하려면 Azure Stack Edge 리소스를 만들어야 합니다.
+
+[!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
+
+#### <a name="create-a-management-resource-for-each-device"></a>각 디바이스에 대한 관리 리소스 만들기
+
+[!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
+
+### <a name="portal-classic"></a>[포털(기본)](#tab/azure-portal)
+
+Azure Stack Edge 서비스를 통해 Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
 
 1. Microsoft Azure 자격 증명을 사용하여 [https://portal.azure.com](https://portal.azure.com) URL에서 Azure Portal에 로그인합니다.
 
-2. 왼쪽 창에서 **+ 리소스 만들기** 를 선택합니다. **Azure Stack Edge/Data Box Gateway** 를 검색하여 선택합니다. **만들기** 를 선택합니다. 
+2. **Azure 서비스** 에서 **Azure Stack Edge** 를 검색하고 선택합니다. 그런 다음, **+ 만들기** 를 선택합니다. 
 
-3. Azure Stack Edge Pro 디바이스에 사용하려는 구독을 선택합니다. 이 물리적 디바이스를 배송하려는 국가를 선택합니다. **디바이스 표시** 를 선택합니다.
+3. **Azure Stack Edge 디바이스 관리** 에서 **Azure Hardware Center 사용해 보기** 링크를 선택합니다.
 
-    ![리소스 만들기 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
+    ![\+ 만들기 단추로 열린 “Azure Stack Edge 디바이스 관리” 화면의 스크린샷입니다. “Azure Edge Hardware Center 사용해 보기” 링크가 강조 표시되어 있습니다.](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-1.png)
 
-4. 디바이스 유형을 선택합니다. **Azure Stack Edge Pro** 아래에서 **GPU가 있는 Azure Stack Edge Pro** 를 선택한 다음, **선택** 을 클릭합니다. 문제가 있거나 디바이스 유형을 선택할 수 없는 경우 [주문 문제 해결](azure-stack-edge-troubleshoot-ordering.md)로 이동합니다.
+4. Hardware Center를 통해 주문하지 않으려면 **시작** 화면에서 **클래식 주문 환경을 사용하여 주문** 을 선택합니다.
 
-    ![리소스 만들기 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
+   ![Azure Stack Edge에서 시작하기 화면의 스크린샷입니다. “클래식 주문 환경을 사용하여 주문” 링크가 강조 표시되어 있습니다.](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-2.png)
 
-5. 비즈니스 요구 사항에 따라 Nvidia의 GPU(Graphical Processing Unit)가 1개 또는 2개 장착된 Azure Stack Edge Pro를 선택할 수 있습니다. 
+5. Azure Stack Edge Pro GPU 디바이스에 사용하려는 구독을 선택합니다. 물리적 디바이스를 배송할 국가 또는 지역을 선택합니다. 그런 다음, **디바이스 표시** 를 선택합니다.
 
-    ![리소스 만들기 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
+    ![Azure Stack Edge 리소스에 대해 구독 및 배송 지역을 선택하기 위한 “디바이스 유형 선택” 화면의 스크린샷입니다. 디바이스 표시 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-6. **기본 사항** 탭에서 다음 **프로젝트 세부 정보** 를 입력하거나 선택합니다.
+6. 디바이스 유형을 선택합니다. **Azure Stack Edge Pro** 아래에서 **GPU가 있는 Azure Stack Edge Pro** 를 선택한 다음, **선택** 을 클릭합니다. 문제가 있거나 디바이스 유형을 선택할 수 없는 경우 [주문 문제 해결](azure-stack-edge-troubleshoot-ordering.md)로 이동합니다.
+
+    ![Azure Stack Edge 리소스에 대해 디바이스 유형을 선택할 수 있는 “디바이스 유형 선택” 화면의 스크린샷입니다. 디바이스 유형에 대한 선택 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
+
+7. 비즈니스 요구 사항에 따라 Nvidia의 GPU(Graphical Processing Unit)가 1개 또는 2개 장착된 Azure Stack Edge Pro를 선택할 수 있습니다. 
+
+    ![Azure Stack Edge 리소스에 대해 Azure Stack Edge Pro GPU 디바이스 구성을 선택하기 위한 화면의 스크린샷입니다. 하드웨어 구성 및 선택 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
+
+8. **기본 사항** 탭에서 다음 **프로젝트 세부 정보** 를 입력하거나 선택합니다.
     
     |설정  |값  |
     |---------|---------|
     |Subscription    |이전에 선택한 내용에 따라 구독이 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
     |Resource group  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.     |
 
-7. 다음 **인스턴스 세부 정보** 를 입력하거나 선택합니다.
+9. 다음 **인스턴스 세부 정보** 를 입력하거나 선택합니다.
 
     |설정  |값  |
     |---------|---------|
     |속성   | 리소스를 식별하기 위한 이름.<br>이름은 문자, 숫자 및 하이픈을 포함하는 2~50자입니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
     |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
 
-    ![리소스 만들기 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
+    ![Azure Stack Edge에 대한 리소스 만들기 및 디바이스 주문 마법사의 기본 탭을 보여주는 스크린샷입니다. 기본 탭 및 다음: 배송 주소 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
-8. 완료되면 **다음: 배송 주소** 를 선택합니다.
+10. 완료되면 **다음: 배송 주소** 를 선택합니다.
 
     - 디바이스가 이미 있는 경우 **이미 디바이스가 있습니다** 의 콤보 상자를 선택합니다.
 
-        ![리소스 만들기 6](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
+        ![Azure Stack Edge의 리소스 만들기 마법사에서 선택한 “디바이스 배송 주소가 이미 있음” 옵션이 선택된 “배송 주소” 탭의 스크린샷입니다.](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
     - 이 디바이스가 지금 주문하는 새 디바이스인 경우 연락처 이름, 회사, 디바이스를 배송할 주소, 연락처 정보를 입력합니다.
 
-        ![리소스 만들기 7](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
+        ![새 Azure Stack Edge 리소스를 만들 때 리소스 만들기 마법사에 표시되는 “배송 주소” 탭의 스크린샷입니다.](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
 
-9. 완료되면 **다음: 태그** 를 선택합니다. 필요에 따라 리소스를 범주화하고 청구를 통합하는 태그를 입력합니다. 완료되면 **다음: 리뷰 + 만들기** 를 클릭합니다.
+11. 완료되면 **다음: 태그** 를 선택합니다. 필요에 따라 리소스를 범주화하고 청구를 통합하는 태그를 입력합니다. 완료되면 **다음: 리뷰 + 만들기** 를 클릭합니다.
 
-10. **검토 + 만들기** 탭에서 **가격 책정 세부 정보**, **사용 약관** 및 리소스 세부 정보를 살펴봅니다. **I have reviewed the privacy terms**(개인정보처리방침을 검토했습니다) 콤보 상자를 선택합니다.
+12. **검토 + 만들기** 탭에서 **가격 책정 세부 정보**, **사용 약관** 및 리소스 세부 정보를 살펴봅니다. **I have reviewed the privacy terms**(개인정보처리방침을 검토했습니다) 콤보 상자를 선택합니다.
 
-    ![리소스 만들기 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
+    ![Azure Stack Edge 주문에 대한 검토 + 만들기 탭의 스크린샷입니다.](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
     또한 리소스를 만드는 동안 클라우드 서비스에 인증할 때 관리 ID를 사용할 수 있다는 알림이 표시됩니다. 이 ID는 리소스가 존재하는 동안 존재합니다.
 
-11. **만들기** 를 선택합니다.
+13. **만들기** 를 선택합니다.
 
     리소스 생성에는 몇 분 정도가 소요됩니다. Azure Stack Edge 디바이스가 Azure의 리소스 공급자와 통신할 수 있도록 하는 관리 ID도 생성됩니다.
 
     리소스가 생성되고 배포된 후에는 알림이 표시됩니다. **리소스로 이동** 을 선택합니다.
 
-    ![Azure Stack Edge Pro 리소스로 이동](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
+    ![새 Azure Stack Edge 리소스 배포가 완료되었음을 나타내는 스크린샷입니다. 리소스로 이동 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
 주문이 완료되면 Microsoft에서 주문을 검토하고 배송 세부 정보가 포함된 이메일을 통해 연락을 드립니다.
 
@@ -230,7 +256,7 @@ Azure Stack Edge 리소스가 가동되면 활성화 키를 가져와야 합니�
 
    키 자격 증명 모음 이름을 지정했으면 **키 생성** 을 선택하여 활성화 키를 만듭니다. 
 
-   ![활성화 키 가져오기](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+   ![새로 만든 Azure Stack Edge 리소스에 대한 개요 창의 스크린샷입니다. 활성화 키 생성 단추가 강조 표시되어 있습니다.](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
 
    키 자격 증명 모음 및 활성화 키가 생성되는 동안 몇 분 정도 기다립니다. 복사 아이콘을 선택하여 키를 복사하고 나중에 사용할 수 있도록 저장합니다.<!--Verify that the new screen has a copy icon.-->
 

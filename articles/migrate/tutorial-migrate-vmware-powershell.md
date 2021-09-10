@@ -5,14 +5,14 @@ author: rahulg1190
 ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 08/20/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 018b11d53cf201de41f0f6ff9bc4f1f5c7488d7a
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 8ce9dc354ff4ed3f4ff5246ce761a481f220e263
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765315"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123186284"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음) - PowerShell
 
@@ -154,6 +154,7 @@ Initialize-AzMigrateReplicationInfrastructure -ResourceGroupName $ResourceGroup.
  디스크 유형 | 필수 | 생성할 부하 분산 장치의 이름을 지정합니다. 
  인프라 중복성 | 선택 사항 | 다음과 같이 인프라 중복성 옵션을 지정합니다. <br/><br/> 마이그레이션된 머신을 지역의 특정 가용성 영역에 고정하는 - **가용성 영역**. 이 옵션을 사용하여 가용성 영역에서 다중 노드 애플리케이션 계층을 구성하는 서버를 배포합니다. 이 옵션은 마이그레이션을 위해 선택한 대상 지역이 가용성 영역을 지원하는 경우에만 사용할 수 있습니다. 가용성 영역을 사용하려면 (`TargetAvailabilityZone`) 매개 변수의 가용성 영역 값을 지정합니다. <br/> 마이그레이션된 머신을 가용성 집합에 배치하기 위한 - **가용성 집합** 입니다. 이 옵션을 사용하려면 선택한 대상 리소스 그룹에 하나 이상의 가용성 집합이 있어야 합니다. 가용성 집합을 사용하려면 (`TargetAvailabilitySet`) 매개 변수의 가용성 집합 ID를 지정합니다. 
  부팅 진단 스토리지 계정 | 선택 사항 | 부팅 진단 스토리지 계정을 사용하려면 (`TargetBootDiagnosticStorageAccount`) 매개 변수에 대한 ID를 지정합니다. <br/> - 부팅 진단에 사용되는 스토리지 계정은 VM을 마이그레이션하는 것과 동일한 구독에 있어야 합니다. <br/> - 기본적으로 이 매개 변수에는 값이 설정되지 않습니다. 
+ 태그 | 선택 사항 | 마이그레이션된 가상 머신, 디스크 및 NIC에 태그를 추가합니다. <br/>  (`Tag`)를 사용하여 가상 머신, 디스크 및 NIC에 태그를 추가합니다. <br/> 또는 <br/> (`VMTag`)를 사용하여 마이그레이션된 가상 머신에 태그를 추가합니다.<br/> (`DiskTag`)를 사용하여 디스크에 태그를 추가합니다. <br/> (`NicTag`)를 사용하여 네트워크 인터페이스에 태그를 추가합니다. <br/> 예를 들어 $tags 변수에 필요한 태그를 추가하고 필요한 매개 변수에서 변수를 전달합니다.  $tags = @{Organization=”Contoso”}
 
 
 
@@ -346,7 +347,9 @@ Virtual Network | 선택 사항 | [`TargetNetworkId`] 매개 변수를 사용하
 네트워크 인터페이스 | 선택 사항 | [`TargetVMName`] 매개 변수를 사용하여 만들 Azure VM의 이름을 지정합니다. 
 가용성 영역 | 선택 사항 | 가용성 영역을 사용하려면 [`TargetAvailabilityZone`] 매개 변수의 가용성 영역 값을 지정합니다. 
 가용성 집합 | 선택 사항 | 가용성 집합을 사용하려면 [`TargetAvailabilitySet`] 매개 변수의 가용성 집합 ID를 지정합니다. 
-
+태그 | 선택 사항 | 태그를 업데이트하려면 매개 변수 [`UpdateTag`] 또는 [`UpdateVMTag`], [`UpdateDiskTag`], [`UpdateNicTag`]와, 태그 작업 업데이트 형식 [`UpdateTagOperation`] 또는 [`UpdateVMTagOperation`], [`UpdateDiskTagOperation`], [`UpdateNicTagOperation`]을 사용합니다.   태그 작업 업데이트는 Merge, Delete 및 Replace 값을 사용합니다. <br/> [`UpdateTag`]를 사용하여 가상 머신, 디스크 및 NIC 전체의 모든 태그를 업데이트합니다. <br/> [`UpdateVMTag`]를 사용하여 가상 머신 태그를 업데이트합니다. <br/> [`UpdateDiskTag`]를 사용하여 디스크 태그를 업데이트합니다. <br/> [`UpdateNicTag`]를 사용하여 NIC 태그를 업데이트합니다. <br/> [`UpdateTagOperation`]를 사용하여 가상 머신, 디스크 및 NIC 전체에서 모든 태그의 작업을 업데이트합니다. <br/>  [`UpdateVMTagOperation`]를 사용하여 가상 머신 태그를 업데이트합니다. <br/> [`UpdateDiskTagOperation`]를 사용하여 디스크 태그를 업데이트합니다. <br/> [`UpdateNicTagOperation`]를 사용하여 NIC 태그를 업데이트합니다. <br/> <br/> *Replace* 옵션은 기존 태그의 전체 집합을 새 집합으로 바꿉니다. <br/> *Merge* 옵션을 사용하면 새 이름으로 태그를 추가하고 기존 이름으로 태그 값을 업데이트합니다. <br/> *Delete* 옵션을 사용하면 지정된 이름 또는 이름/값 쌍을 기반으로 태그를 선별 삭제할 수 있습니다. 
+디스크 | 선택 사항 | OS 디스크의 경우: <br/> [`TargetDiskName`] 매개 변수를 사용하여 OS 디스크의 이름을 업데이트합니다.  <br/><br/> 여러 디스크 업데이트의 경우: <br/>  [Set-AzMigrateDiskMapping](/powershell/module/az.migrate/set-azmigratediskmapping)을 사용하여 디스크 이름을 *$DiskMapping* 변수로 설정한 다음, [`DiskToUpdate`] 매개 변수를 사용하여 변수와 함께 전달합니다. <br/> <br/> **참고:** [Set-AzMigrateDiskMapping](/powershell/module/az.migrate/set-azmigratediskmapping)에서 사용할 디스크 ID는  [Get-AzMigrateDiscoveredServer](/powershell/module/az.migrate/get-azmigratediscoveredserver) cmdlet을 사용하여 검색된 디스크의 고유 식별자(UUID) 속성입니다. 
+NIC 이름 | 선택 사항 | [New-AzMigrateNicMapping](/powershell/module/az.migrate/new-azmigratenicmapping)을 사용하여 NIC 이름을 *$NICMapping* 변수로 설정한 다음, [`NICToUpdate`] 매개 변수를 사용하여 변수와 함께 전달합니다.
 
 [Get-AzMigrateServerReplication](/powershell/module/az.migrate/get-azmigrateserverreplication) cmdlet은 작업 상태를 모니터링하기 위해 추적할 수 있는 작업을 반환합니다.
 
@@ -363,13 +366,13 @@ $ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $Replicating
 Write-Output $ReplicatingServer.ProviderSpecificDetail.VMNic
 ```
 
-다음 예제에서는 첫 번째 NIC를 기본으로 설정하고 고정 IP를 할당하여 NIC 구성을 업데이트합니다. 마이그레이션의 두 번째 NIC를 삭제하고 대상 VM 이름 및 크기를 업데이트합니다.
+다음 예제에서는 첫 번째 NIC를 기본으로 설정하고 고정 IP를 할당하여 NIC 구성을 업데이트합니다. 마이그레이션의 두 번째 NIC를 삭제하여 대상 VM 이름 및 크기를 업데이트하고 NIC 이름을 사용자 지정합니다.
 
 ```azurepowershell-interactive
 # Specify the NIC properties to be updated for a replicating VM.
 $NicMapping = @()
-$NicMapping1 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[0].NicId -TargetNicIP ###.###.###.### -TargetNicSelectionType Primary
-$NicMapping2 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[1].NicId -TargetNicSelectionType DoNotCreate
+$NicMapping1 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[0].NicId -TargetNicIP ###.###.###.### -TargetNicSelectionType Primary TargetNicName "ContosoNic_1"
+$NicMapping2 = New-AzMigrateNicMapping -NicId $ReplicatingServer.ProviderSpecificDetail.VMNic[1].NicId -TargetNicSelectionType DoNotCreate - TargetNicName "ContosoNic_2"
 
 $NicMapping += $NicMapping1
 $NicMapping += $NicMapping2
@@ -378,6 +381,32 @@ $NicMapping += $NicMapping2
 # Update the name, size and NIC configuration of a replicating server
 $UpdateJob = Set-AzMigrateServerReplication -InputObject $ReplicatingServer -TargetVMSize Standard_DS13_v2 -TargetVMName MyMigratedVM -NicToUpdate $NicMapping
 ```
+
+다음 예제에서는 디스크 이름을 사용자 지정합니다.
+
+```azurepowershell-interactive
+# Customize the Disk names for a replicating VM
+$OSDisk = Set-AzMigrateDiskMapping -DiskID "6000C294-1217-dec3-bc18-81f117220424" -DiskName "ContosoDisk_1" 
+$DataDisk1= Set-AzMigrateDiskMapping -DiskID "6000C292-79b9-bbdc-fb8a-f1fa8dbeff84" -DiskName "ContosoDisk_2" 
+$DiskMapping = $OSDisk, $DataDisk1 
+```
+
+```azurepowershell-interactive
+# Update the disk names for a replicating server
+$UpdateJob = Set-AzMigrateServerReplication InputObject $ReplicatingServer DiskToUpdate $DiskMapping 
+ ```
+
+다음 예제에서는 복제하는 VM에 태그를 추가합니다.
+
+```azurepowershell-interactive
+# Update all tags across virtual machines, disks, and NICs.
+Set-azmigrateserverreplication UpdateTag $UpdateTag UpdateTagOperation Merge/Replace/Delete
+
+# Update virtual machines tags
+Set-azmigrateserverreplication UpdateVMTag $UpdateVMTag UpdateVMTagOperation Merge/Replace/Delete 
+```
+다음 예제를 사용하여 작업 상태를 추적합니다.
+
 ```azurepowershell-interactive
 # Track job status to check for completion
 while (($UpdateJob.State -eq 'InProgress') -or ($UpdateJob.State -eq 'NotStarted')){
@@ -388,8 +417,6 @@ while (($UpdateJob.State -eq 'InProgress') -or ($UpdateJob.State -eq 'NotStarted
 # Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded".
 Write-Output $UpdateJob.State
 ```
-
-
 
 ## <a name="11-run-a-test-migration"></a>11. 테스트 마이그레이션 실행
 

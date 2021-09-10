@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: f362bc76a3361b511b08a3822c01730c200d37b1
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cfbca90fe4c0053816421ff392f0af93938ff5ee
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957029"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254167"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -349,45 +349,32 @@ NSG(네트워크 보안 그룹) 리소스를 사용하여 공용 IP 주소를 �
 마지막으로 컴퓨터 시스템 관리와 마찬가지로 보안 자격 증명과 소프트웨어 방화벽을 사용하여 운영 체제에서 Azure 가상 컴퓨터에 대한 보안을 제공해야 합니다.
 
 ## <a name="azure-storage"></a>Azure Storage
-
-Azure Storage는 내구성이 뛰어나고 확장 가능하며 중복 스토리지를 제공하는 Microsoft 관리 서비스입니다. 리소스 배포 방법을 사용하여 Azure storage 계정을 리소스 그룹에 리소스로 추가할 수 있습니다. Azure의 네 가지 스토리지 유형은: Blob Storage, File Storage, Table Storage 및 Queue Storage입니다. 스토리지 계정을 배포할 때 범용 및 Blob Storage라는 두 가지 계정 유형을 사용할 수 있습니다. 범용 스토리지 계정을 사용하면 네 가지 스토리지 유형 모두에 액세스할 수 있습니다. Blob Storage 계정은 범용 계정과 유사하지만 핫 액세스 계층 및 콜드 액세스 계층을 포함하는 특수한 Blob을 포함합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage](../../storage/blobs/storage-blob-storage-tiers.md)를 참조하세요.
-
-Azure storage 계정은 여러 수준의 중복성으로 구성할 수 있습니다.
-
-- **로컬 중복 스토리지** 는 모든 데이터의 3개 사본이 동기식으로 작성된 후에야 쓰기가 성공한 것으로 간주하여 가용성을 높입니다. 이러한 복사본은 단일 지역의 단일 시설에 저장됩니다. 복제본은 별도의 장애 도메인 및 업그레이드 도메인에 상주합니다. 즉, 데이터를 보유하고 있는 스토리지 노드에 장애가 발생하거나 업데이트를 위해 오프라인 상태가 된 경우에도 데이터를 사용할 수 있습니다.
-
-- **지역 중복 스토리지** 는 고가용성을 위해 주 지역에 있는 데이터의 동기식 복사본을 3개 만들고 재해 복구를 위해 한 쌍의 지역에 3개의 비동기식 복제본을 만듭니다.
-
-- **읽기 액세스 지역 중복 스토리지** 는 중복된 스토리지와 보조 지역의 데이터를 읽을 수 있는 기능입니다. 이 기능은 부분 재해 복구에 적합합니다. 주 지역에 문제가 있는 경우 쌍으로 된 지역에 대한 읽기 전용 액세스 권한을 가지도록 애플리케이션을 변경할 수 있습니다.
+Azure는 다양한 스토리지 사용 사례에 부응하기 위해 내구성, 확장성, 중복성을 보장하는 Azure Blob Storage, Azure Files, Azure Table Storage 및 Azure Queue Storage를 제공합니다. Azure Storage 서비스는 리소스 배포 방법을 통해 리소스 그룹에 리소스로 배포할 수 있는 Azure Storage 계정을 통해 관리됩니다. 
 
 ### <a name="use-cases"></a>사용 사례
-
 각 스토리지 유형마다 사용 사례가 다릅니다.
 
 #### <a name="blob-storage"></a>Blob Storage
+*Blob* 이라는 단어는 *Binary Large Object* 의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob Storage는 문서, 미디어 파일 또는 애플리케이션 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob Storage를 개체 스토리지라고 합니다.
 
-*Blob* 이라는 단어는 *Binary Large Object* 의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob Storage는 문서, 미디어 파일 또는 애플리케이션 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob Storage를 개체 스토리지라고 합니다. Azure Blob Storage에는 Azure Virtual Machines 데이터 디스크도 저장됩니다.
+Azure Blob Storage는 다음 세 종류의 BLOB을 지원합니다.
 
-Azure Storage는 세 종류의 Blob을 지원합니다.
+- **블록 Blob** 은 최대 195GiB 크기(4MiB×50,000블록)의 일반 파일을 저장하는 데 사용됩니다. 블록 Blob에 대한 기본 사용 사례는 웹 사이트의 이미지 파일 또는 미디어 파일과 같이 처음부터 끝까지 읽는 파일을 스토리지하는 것입니다. 64MiB보다 큰 파일은 작은 블록으로 업로드해야 하기 때문에 이 파일을 블록 Blob이라고 합니다. 그런 다음 이러한 블록은 최종 Blob에 통합(또는 커밋)됩니다.
 
-- **블록 Blob** 은 최대 195GB 크기(4MB×50,000 블록)의 일반 파일을 저장하는 데 사용됩니다. 블록 Blob에 대한 기본 사용 사례는 웹 사이트의 이미지 파일이나 미디어 파일과 같이 처음부터 끝까지 읽는 파일을 스토리지하는 것입니다. 64MB보다 큰 파일은 작은 블록으로 업로드해야 하기 때문에 이 파일을 블록 Blob이라고 합니다. 그런 다음 이러한 블록은 최종 Blob에 통합(또는 커밋)됩니다.
+- **페이지 Blob** 은 최대 1TiB 크기의 임의 액세스 파일을 저장하는 데 사용됩니다. 페이지 Blob은 주로 Azure의 IaaS 컴퓨팅 서비스인 Azure Virtual Machines에 지속형 디스크를 제공하는 VHD의 백업 스토리지로 사용됩니다. 이들은 512바이트 페이지에 대한 임의의 읽기/쓰기 권한을 제공하기 때문에 페이지 Blob이라고 합니다.
 
-- **페이지 Blob** 은 최대 1TB 크기의 임의 액세스 파일을 저장하는 데 사용됩니다. 페이지 Blob은 주로 Azure의 IaaS 컴퓨팅 서비스인 Azure Virtual Machines에 지속형 디스크를 제공하는 VHD의 백업 스토리지로 사용됩니다. 이들은 512바이트 페이지에 대한 임의의 읽기/쓰기 권한을 제공하기 때문에 페이지 Blob이라고 합니다.
+- **추가 Blob** 은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 이들은 하나 이상의 소스에서 동일한 Blob으로 정보를 기록하는 데 자주 사용됩니다. 예를 들어 여러 VM에서 실행 중인 애플리케이션에 대한 모든 추적 로깅을 동일한 추가 Blob에 기록할 수 있습니다. 하나의 추가 Blob은 최대 195GiB까지 가능합니다.
 
-- **추가 Blob** 은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 이들은 하나 이상의 소스에서 동일한 Blob으로 정보를 기록하는 데 자주 사용됩니다. 예를 들어 여러 VM에서 실행 중인 애플리케이션에 대한 모든 추적 로깅을 동일한 추가 Blob에 기록할 수 있습니다. 하나의 추가 Blob은 최대 195GB까지 가능합니다.
+자세한 내용은 [Azure Blob Storage: 스토리지란?](../../storage/blobs/storage-blobs-overview.md)을 참조하세요.
 
-자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요.
+#### <a name="azure-files"></a>Azure 파일
+Azure Files는 산업 표준 SMB(서버 메시지 블록) 또는 NFS(네트워크 파일 시스템) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전 관리형 파일 공유를 제공합니다. 이 서비스는 SMB 3.1.1, SMB 3.0, SMB 2.1 및 NFS 4.1을 모두 지원합니다. Azure Files를 사용하여 파일 공유에 의존하는 애플리케이션을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 머신, 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 애플리케이션은 클라우드에 파일 공유를 탑재할 수 있습니다.
 
-#### <a name="file-storage"></a>File Storage
+Azure 파일 공유는 표준 SMB 또는 NFS 엔드포인트를 공개하므로, Azure에서 실행되는 애플리케이션은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 애플리케이션을 마이그레이션할 수 있습니다. IT 전문가는 PowerShell cmdlet을 사용하여 Azure 애플리케이션 관리의 일부로 Azure 파일 공유를 만들고 탑재하고 관리할 수 있습니다.
 
-Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 이 서비스는 SMB 2.1 및 SMB 3.0을 모두 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 애플리케이션을 비용이 많이 드는 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. Azure 가상 머신, 클라우드 서비스 또는 온-프레미스 클라이언트에서 실행되는 애플리케이션은 클라우드에 파일 공유를 탑재할 수 있습니다. 이는 데스크톱 애플리케이션이 일반적인 SMB 공유를 탑재하는 방법과 비슷합니다. File Storage 공유를 동시에 탑재하고 액세스할 수 있는 애플리케이션 구성 요소 수에는 제한이 없습니다.
-
-File Storage 공유는 표준 SMB 파일 공유이므로, Azure에서 실행되는 애플리케이션은 파일 시스템 I/O API를 통해 공유의 데이터에 액세스할 수 있습니다. 따라서 개발자는 기존의 코드와 기술을 이용하여 기존 애플리케이션을 마이그레이션할 수 있습니다. IT 전문가는 PowerShell cmdlet을 사용하여 Azure 애플리케이션 관리의 일부로 File Storage 공유를 만들고 탑재하고 관리할 수 있습니다.
-
-자세한 내용은 [Windows에서 Azure File Storage 시작](../../storage/files/storage-how-to-use-files-windows.md) 또는 [Linux에서 Azure File Storage 사용 방법](../../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
+자세한 내용은 [Azure Files란?](../../storage/files/storage-files-introduction.md)을 참조하세요.
 
 #### <a name="table-storage"></a>Table Storage
-
 Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스입니다. Table Storage는 스키마 없이 디자인된 키/특성 저장소입니다. Table Storage는 스키마가 없기 때문에 애플리케이션의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. 모든 종류의 애플리케이션에서 빠르고 비용 효율적으로 데이터에 액세스할 수 있습니다. 비슷한 양의 데이터일 때 Table Storage는 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
 Table Storage를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 디바이스 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 세트을 저장할 수 있습니다. 엔터티를 원하는 수만큼 테이블에 저장할 수 있습니다. 스토리지 계정은 스토리지 계정의 최대 용량 한도 내에서 원하는 수의 테이블을 포함할 수 있습니다.
@@ -395,7 +382,6 @@ Table Storage를 사용하여 웹 애플리케이션의 사용자 데이터, 주
 자세한 내용은 [Azure Table Storage 시작](../../cosmos-db/tutorial-develop-table-dotnet.md)을 참조하세요.
 
 #### <a name="queue-storage"></a>Queue Storage
-
 Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 애플리케이션을 디자인할 때는 애플리케이션 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. Queue Storage는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 디바이스에서 실행 중인지와 관계 없이 애플리케이션 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. Queue Storage는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
 
 자세한 내용은 [Azure Queue Storage 시작](../../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
@@ -418,17 +404,17 @@ Azure 리소스를 개별적으로 배포하는 것 외에도 Azure PowerShell �
 
 #### <a name="command-line-interface-cli"></a>CLI(명령줄 인터페이스)
 
-PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 자동화를 제공하며 Windows, OS X 또는 Linux 시스템에서 사용할 수 있습니다. Azure CLI **storage account create** 명령을 사용하여 스토리지 계정을 만들 수 있습니다. 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/blobs/storage-quickstart-blobs-cli.md)을 참조하세요.
+PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 자동화를 제공하며 Windows, macOS 또는 Linux 시스템에서 사용할 수 있습니다. Azure CLI **storage account create** 명령을 사용하여 스토리지 계정을 만들 수 있습니다. 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/blobs/storage-quickstart-blobs-cli.md)을 참조하세요.
 
 마찬가지로 Azure CLI를 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
 
-### <a name="access-and-security-for-azure-storage"></a>Azure Storage의 액세스 및 보안
+### <a name="access-and-security-for-azure-storage-services"></a>Azure Storage 서비스의 액세스 및 보안
 
-Azure Storage는 Azure Portal을 통해, VM 생성 및 작동 중에, Storage 클라이언트 라이브러리에서 등 다양한 방법으로 액세스됩니다.
+Azure Storage 서비스는 Azure Portal을 통해, VM 생성 및 작동 중에, Storage 클라이언트 라이브러리에서 등 다양한 방법으로 액세스됩니다.
 
 #### <a name="virtual-machine-disks"></a>가상 머신 디스크
 
-가상 머신을 배포할 때는 가상 머신 운영 체제 디스크와 추가 데이터 디스크를 보관할 스토리지 계정을 만들어야 합니다. 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다. Blob의 최대 크기는 1,024GB이므로 단일 VM 디스크의 최대 크기는 1,023GB입니다. 대용량 데이터 디스크를 구성하려면 여러 데이터 디스크를 가상 컴퓨터에 사용하고 단일 논리 디스크로 함께 풀링하면 됩니다. 자세한 내용은 [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) 및 [Linux](../../virtual-machines/linux/tutorial-manage-disks.md)용 "Azure 디스크 관리"를 참조하세요.
+가상 머신을 배포할 때는 가상 머신 운영 체제 디스크와 추가 데이터 디스크를 보관할 스토리지 계정을 만들어야 합니다. 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다. Blob의 최대 크기는 1,024GiB이므로 단일 VM 디스크의 최대 크기는 1,023GiB입니다. 대용량 데이터 디스크를 구성하려면 여러 데이터 디스크를 가상 컴퓨터에 사용하고 단일 논리 디스크로 함께 풀링하면 됩니다. 자세한 내용은 [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) 및 [Linux](../../virtual-machines/linux/tutorial-manage-disks.md)용 "Azure 디스크 관리"를 참조하세요.
 
 #### <a name="storage-tools"></a>스토리지 도구
 
@@ -436,7 +422,7 @@ Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한
 
 #### <a name="storage-api"></a>스토리지 API
 
-스토리지 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure Storage는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기식 호출, 작업 일괄 처리, 예외 관리 및 자동 재시도와 같은 세부 사항을 처리하여 Azure Storage 작업을 간소화합니다. 자세한 내용은 [Azure Storage 서비스 REST API 참조](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
+스토리지 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure Storage 서비스는 널리 사용되는 여러 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기식 호출, 작업 일괄 처리, 예외 관리 및 자동 재시도와 같은 세부 사항을 처리하여 Azure Storage 플랫폼 작업을 간소화합니다. 자세한 내용은 [Azure Storage 서비스 REST API 참조](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
 
 #### <a name="storage-access-keys"></a>스토리지 액세스 키
 

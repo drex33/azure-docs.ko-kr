@@ -2,13 +2,14 @@
 title: Azure Lab Services로 랩 계정 설정 | Microsoft Docs
 description: Azure Lab Services를 사용하여 랩 계정을 설정하고, 랩 작성자를 추가하고, 랩 계정의 랩에서 사용할 Marketplace 이미지를 지정하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
-ms.date: 06/26/2020
-ms.openlocfilehash: fba4dbc5386407bd796606d86a5b7bdc7c10fd61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 07/26/2021
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: d6107c1a70b22682636b63c0fb0f7374a0d96873
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445069"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634017"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>자습서: Azure Lab Services로 랩 계정 설정
 Azure Lab Services에서 랩 계정은 조직의 랩을 관리하는 중앙 계정 역할을 합니다. 랩 계정에서 랩을 만들고 랩 계정의 모든 랩에 적용되는 정책을 설정할 수 있는 권한을 다른 사람에게 부여하세요. 이 자습서에서는 랩 계정을 만드는 방법을 알아봅니다. 
@@ -50,17 +51,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ![랩 계정 페이지](./media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>랩 작성자 역할에 사용자 추가
-랩 계정에서 클래스룸 랩을 설정하려면 사용자는 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 강사가 클래스를 위한 랩을 만들 수 있도록 권한을 제공하려면 강사를 **랩 작성자** 역할에 추가합니다.
+랩 계정에서 클래스룸 랩을 설정하려면 사용자는 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 강사가 클래스를 위한 랩을 만들 수 있도록 권한을 제공하려면 강사를 **랩 작성자** 역할에 추가합니다. 자세한 단계는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 > [!NOTE]
 > 랩 계정을 만드는 데 사용한 계정이 이 역할에 자동으로 추가됩니다. 이 자습서에서 동일한 사용자 계정을 사용하여 클래스룸 랩을 만들려는 경우 이 단계를 건너뜁니다. 
 
-1. **랩 계정** 페이지에서 **액세스 제어(IAM)** 를 선택하고, 도구 모음에서 **+ 추가**, **+ 역할 할당 추가** 를 차례로 선택합니다. 
 
-    ![액세스 제어 -> 역할 할당 추가 단추](./media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. **역할 할당 추가** 페이지에서 **역할** 에 대한 **랩 작성자** 를 선택하고, 랩 작성자 역할에 추가할 사용자를 선택하고, **저장** 을 선택합니다. 
+1. **랩 계정 페이지** 에서 **액세스 제어(IAM)** 를 선택합니다.
 
-    ![랩 작성자 추가](./media/tutorial-setup-lab-account/add-lab-creator.png)
+1. **추가** > **역할 할당 추가(미리 보기)** 를 선택합니다.
+
+    ![역할 할당 추가 메뉴가 열려 있는 액세스 제어(IAM) 페이지.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. **역할** 탭에서 **랩 작성자** 역할을 선택합니다.
+
+    ![역할 탭이 선택된 역할 할당 페이지를 추가합니다.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. **멤버** 탭에서 랩 작성자 역할에 추가할 사용자를 선택합니다.
+
+1. **검토 + 할당** 탭에서 **검토 + 할당** 을 선택하여 역할을 할당합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

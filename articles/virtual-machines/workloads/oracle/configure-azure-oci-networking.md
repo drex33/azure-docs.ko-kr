@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 06f0eb1ef36e711c5297af936d704f442596fc1a
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 9c785be73e424d4669b24600c353a14127e9279a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887579"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696026"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure 및 Oracle Cloud Infrastructure 간 직접 상호 연결 설정  
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 [통합된 다중 클라우드 환경](oracle-oci-overview.md)을 만들기 위해 Microsoft와 Oracle은 [ExpressRoute](../../../expressroute/expressroute-introduction.md) 및 [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm)를 통해 Azure 및 OCI(Oracle Cloud Infrastructure) 간에 직접 상호 연결을 제공합니다. ExpressRoute 및 FastConnect 상호 연결을 통해 고객은 두 클라우드 간에 짧은 대기 시간, 높은 처리량, 프라이빗 직접 연결을 갖춘 환경을 경험할 수 있습니다.
 

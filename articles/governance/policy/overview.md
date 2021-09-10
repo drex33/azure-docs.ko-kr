@@ -3,12 +3,12 @@ title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
 ms.date: 07/27/2021
 ms.topic: overview
-ms.openlocfilehash: 387c52eb1337f6d3aa7046b122fa66ff93be5e64
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 9462281ce37e066a920c17d1dc142a177b97fb2a
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114726688"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770553"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 

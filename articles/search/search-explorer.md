@@ -1,27 +1,27 @@
 ---
-title: Azure Portal의 검색 탐색기 쿼리 도구
+title: '빠른 시작: 검색 탐색기 쿼리 도구'
 titleSuffix: Azure Cognitive Search
-description: 이 Azure Portal 빠른 시작에서는 검색 탐색기를 사용하여 쿼리 구문을 배우고, 쿼리 식을 테스트하고, 검색 문서를 검사합니다. 검색 탐색기는 Azure Cognitive Search의 인덱스를 쿼리합니다.
+description: 검색 탐색기는 Azure Cognitive Search의 검색 인덱스에 쿼리 요청을 보내는 Azure Portal의 쿼리 도구입니다. 구문을 배우거나 쿼리 표현식을 테스트하거나 검색 문서를 검사하는 데 사용합니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: e9607a71ed6b045ac704c43bf4ea54c9f181bbf4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/24/2021
+ms.openlocfilehash: d246c9aad024b1086a531c31a2a9559dfa798642
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98179778"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772833"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>빠른 시작: 포털에서 검색 탐색기를 사용하여 쿼리 실행
 
-**검색 탐색기** 는 Azure Cognitive Search의 검색 인덱스에 대한 쿼리를 실행하는 데 사용되는 기본 제공 쿼리 도구입니다. 이 도구를 사용하면 쿼리 구문을 쉽게 배우고 쿼리 또는 필터 식을 테스트 하거나 인덱스에 새 콘텐츠가 있는지 여부를 확인하여 데이터 새로 고침을 확인할 수 있습니다.
+**검색 탐색기** 는 Azure Cognitive Search의 검색 인덱스에 대한 쿼리를 실행하는 데 사용되는 Azure Portal의 기본 제공 쿼리 도구입니다. 이 도구를 사용하면 쿼리 구문을 쉽게 배우고 쿼리 또는 필터 식을 테스트 하거나 인덱스에 새 콘텐츠가 있는지 여부를 확인하여 데이터 새로 고침을 확인할 수 있습니다.
 
-이 빠른 시작에서는 기존 인덱스를 사용하여 검색 탐색기를 보여줍니다. 요청은 [검색 REST API](/rest/api/searchservice/search-documents)를 사용하여 공식화되며, 응답은 자세한 JSON 문서로 반환됩니다.
+이 빠른 시작에서는 기존 인덱스를 사용하여 검색 탐색기를 보여줍니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 
@@ -44,6 +44,8 @@ ms.locfileid: "98179778"
    :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="검색 탐색기 탭" border="true":::
 
 ## <a name="unspecified-query"></a>지정되지 않은 쿼리
+
+검색 탐색기에서 요청은 [검색 REST API](/rest/api/searchservice/search-documents)를 사용하여 공식화되며, 응답은 자세한 JSON 문서로 반환됩니다.
 
 콘텐츠를 대략적으로 살펴보려면 용어를 입력하지 않은 상태로 **검색** 을 클릭하여 빈 검색을 실행합니다. 빈 검색은 전체 문서를 반환하여 문서 컴퍼지션을 검토할 수 있도록 하므로 첫 번째 쿼리로서 유용합니다. 빈 검색에서는 검색 순위가 없으며 문서가 임의 순서로 반환됩니다(모든 문서의 경우 `"@search.score": 1`). 기본적으로 하나의 검색 요청에서 50개의 문서가 반환됩니다.
 

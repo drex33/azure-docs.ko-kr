@@ -10,12 +10,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 07/14/2021
-ms.openlocfilehash: dd8fc18b8f24a6164830dda6044c1b03151eb180
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 31c9f128c1e98ce3b5a3e6a50f11e4afea33ecbc
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727355"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121747667"
 ---
 # <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>자습서: Azure SQL Database의 보안 Enclave를 사용한 Always Encrypted 시작
 
@@ -125,7 +125,7 @@ PowerShell 갤러리와 계속 상호 작용하려면 Install-Module 명령을 �
    ```PowerShell
    Connect-AzAccount
    $subscriptionId = "<your subscription ID>"
-   Set-AzContext -Subscription $subscriptionId
+   $context = Set-AzContext -Subscription $subscriptionId
    ```
 
 1. 새 리소스 그룹 만들기
@@ -253,8 +253,17 @@ PowerShell 갤러리와 계속 상호 작용하려면 Install-Module 명령을 �
    $attestationProviderName = "<your attestation provider name>" 
    New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
    ```
+1. 증명 정책을 구성할 수 있는 권한이 있는지 확인하려면 증명 공급자의 증명 참가자 역할에 자신을 할당합니다.
 
-1. 증명 정책을 구성합니다.
+   ```powershell
+   New-AzRoleAssignment -SignInName $context.Account.Id `
+    -RoleDefinitionName "Attestation Contributor" `
+    -ResourceName $attestationProviderName `
+    -ResourceType "Microsoft.Attestation/attestationProviders" `
+    -ResourceGroupName $resourceGroupName
+   ```
+   
+3. 증명 정책을 구성합니다.
   
    ```powershell
    $policyFile = "<the pathname of the file from step 1 in this section>"

@@ -11,14 +11,16 @@ ms.subservice: redhat
 ms.custom:
 - mode-api
 ms.collection: linux
-ms.openlocfilehash: 34d0fdb605e81606960e56a3a15f9f41ee078898
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 77d113dac4f081210746851a76c6c4f623a79645
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112467422"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771978"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 JBoss EAP를 사용하여 엔터프라이즈 Java 애플리케이션을 Azure에 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 이 문서의 Azure 빠른 시작 템플릿은 [RHEL(Red Hat Enterprise Linux)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)에서 [JBoss EAP(Enterprise Application Platform)](https://www.redhat.com/en/technologies/jboss-middleware/application-platform)를 Azure VM(Virtual Machines) 및 가상 머신 확장 집합에 배포하는 방법을 보여줍니다. 샘플 Java 앱을 사용하여 배포의 유효성을 검사합니다. 
 
@@ -155,7 +157,7 @@ PAYG VM 가격 책정에 대한 자세한 내용은 [Red Hat Enterprise Linux �
 BYOS를 RHEL OS에 사용하려면 Azure에서 RHEL OS를 사용할 수 있는 자격이 있는 유효한 Red Hat 구독이 있어야 합니다. BYOS 모델에서 RHEL OS를 배포하기 전에 다음 필수 구성 요소를 완료합니다.
 
 1. RHEL OS 및 JBoss EAP 자격이 Red Hat 구독에 연결되어 있는지 확인합니다.
-2. RHEL BYOS 이미지를 사용할 수 있는 권한을 Azure 구독 ID에 부여합니다. [Red Hat Subscription Management 설명서](https://access.redhat.com/documentation/red_hat_subscription_management/1/)에 따라 다음 단계가 포함된 프로세스를 완료합니다.
+2. RHEL BYOS 이미지를 사용할 수 있는 권한을 Azure 구독 ID에 부여합니다. [Red Hat Subscription Management 설명서](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1)에 따라 다음 단계가 포함된 프로세스를 완료합니다.
 
    1. Red Hat Cloud Access 대시보드에서 Microsoft Azure를 공급자로 사용하도록 설정합니다.
 
@@ -230,7 +232,7 @@ JBoss EAP는 BYOS 모델을 통해서만 Azure에서 사용할 수 있습니다.
 
 * <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-multivm-rhel/"> RHEL 기반 JBoss EAP(클러스터형, 여러 VM)</a>. *n* 개의 RHEL 7.7 또는 8.0 VM에서 실행되는 JBoss EAP 7.2 또는 7.3 클러스터에 eap-session-replication이라는 웹 애플리케이션이 배포됩니다. *n* 값은 사용자가 결정합니다. 모든 VM이 부하 분산 장치의 백 엔드 풀에 추가됩니다.
 
-* <a href="https://azure.microsoft.com/en-us/resources/templates/jboss-eap-clustered-vmss-rhel/"> RHEL 기반 JBoss EAP(클러스터형, 가상 머신 확장 집합)</a> RHEL 7.7 또는 8.0 가상 머신 확장 집합에서 실행되는 JBoss EAP 7.2 또는 7.3 클러스터에 eap-session-replication이라는 웹 애플리케이션이 배포됩니다.
+* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-vmss-rhel/"> RHEL 기반 JBoss EAP(클러스터형, 가상 머신 확장 집합)</a> RHEL 7.7 또는 8.0 가상 머신 확장 집합에서 실행되는 JBoss EAP 7.2 또는 7.3 클러스터에 eap-session-replication이라는 웹 애플리케이션이 배포됩니다.
 
 ## <a name="resource-links"></a>리소스 링크
 
@@ -242,8 +244,8 @@ JBoss EAP는 BYOS 모델을 통해서만 Azure에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/)에 대해 자세히 알아봅니다.
-* [JBoss EAP 7.3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/)에 대해 자세히 알아봅니다.
+* [JBoss EAP 7.2](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2)에 대해 자세히 알아봅니다.
+* [JBoss EAP 7.3](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3)에 대해 자세히 알아봅니다.
 * [Red Hat Subscription Management](https://access.redhat.com/products/red-hat-subscription-management)에 대해 자세히 알아봅니다.
 * [Azure의 Red Hat 워크로드](./overview.md)에 대해 알아봅니다.
 * [Azure Marketplace에서 RHEL VM 또는 가상 머신 확장 집합에 JBoss EAP](https://aka.ms/AMP-JBoss-EAP)를 배포합니다.

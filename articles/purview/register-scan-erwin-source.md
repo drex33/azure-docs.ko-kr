@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 7/16/2021
-ms.openlocfilehash: 55ec355cf28f08618b1c51670b876f93dee69cc8
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 2b6c9f621c4c18a172e12bc93387eb75451cb851
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393656"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736340"
 ---
 # <a name="register-and-scan-erwin-mart-server-preview"></a>erwin Mart 서버 등록 및 검사(미리 보기)
 
@@ -54,12 +54,12 @@ erwin Mart 원본에 지원되는 유일한 인증은 사용자 이름 및 암�
 
 새 erwin Mart를 데이터 카탈로그에 등록하려면 다음을 수행합니다.
 
-1.  Purview 계정으로 이동합니다.
-2.  왼쪽 탐색 영역에서 **원본** 을 선택합니다.
-3.  **등록** 을 선택합니다.
-4.  [원본 등록]에서 **erwin** 을 선택합니다. **계속** 을 선택합니다.
+1. Purview 계정으로 이동합니다.
+1. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
+1. **등록** 을 선택합니다.
+1. [원본 등록]에서 **erwin** 을 선택합니다. **계속** 을 선택합니다.
     :::image type="content" source="media/register-scan-erwin-source/register-sources.png" alt-text="erwin 원본 등록" border="true":::
-    
+
 [원본 등록(erwin)] 화면에서 다음을 수행합니다.
 
 1.  카탈로그에서 나열되는 데이터 원본의 **이름** 을 입력합니다.

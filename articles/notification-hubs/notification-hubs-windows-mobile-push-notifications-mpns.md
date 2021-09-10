@@ -6,26 +6,27 @@ documentationcenter: windows
 keywords: 푸시 알림, 푸시 알림, windows phone 푸시
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 01/04/2019
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e91d250b8cc9b80f2c97910c7fa972af32fa9104
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ac1fdc7669278de05408ca441a8a99eedc82b253
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88998342"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771471"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 푸시 알림 보내기
+
+> [!NOTE]
+> MPNS(Microsoft 푸시 알림 서비스)는 더 이상 사용되지 않으며 지원하지 않습니다.
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 

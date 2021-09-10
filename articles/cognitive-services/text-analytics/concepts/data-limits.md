@@ -8,26 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/19/2020
+ms.date: 04/07/2021
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 9ba9fe7ca73e874fb55c228e22b884a86de736cf
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: b583caa4fdb2a1e72833d4e24c317282be041513
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661462"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822138"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Text Analytics API에 대한 데이터 및 속도 제한
 <a name="data-limits"></a>
 
-이 문서를 사용하여 Text Analytics API에 데이터를 보낼 수 있는 크기 및 속도에 대한 제한을 찾습니다. 가격 책정은 데이터 제한 또는 속도 제한의 영향을 받지 않습니다. 가격 책정은 Text Analytics 리소스의 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)에 따라 결정됩니다.
+이 문서를 사용하여 Text Analytics API에 데이터를 보낼 수 있는 크기 및 속도에 대한 제한을 찾습니다.
 
 ## <a name="data-limits"></a>데이터 제한
 
 > [!NOTE]
-> * 허용 한도보다 큰 문서를 분석해야 하는 경우 텍스트를 API로 보내기 전에 텍스트를 더 작은 텍스트 청크로 분할할 수 있습니다. 
-> * 문서는 텍스트 문자의 단일 문자열입니다.  
+> * 가격 책정은 데이터 또는 요금 제한의 영향을 받지 않습니다. 가격 책정은 API로 보내는 텍스트 레코드 수를 기반으로 하며 Text Analytics 리소스의 [가격 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)에 따라 결정됩니다.
+>   * 텍스트 레코드는 1,000자로 측정됩니다. 
+> * 데이터 및 요금 제한은 API로 보내는 문서 수를 기반으로 합니다. 허용 한도보다 큰 문서를 분석해야 하는 경우 텍스트를 API로 보내기 전에 텍스트를 더 작은 텍스트 청크로 분할할 수 있습니다. 
+>   * 문서는 텍스트 문자의 단일 문자열입니다.  
 
 | 제한 | 값 |
 |------------------------|---------------|
@@ -88,6 +90,8 @@ ms.locfileid: "98661462"
 
 요청 비율은 각 Text Analytics 기능에 대해 개별적으로 측정됩니다. 가격 책정 계층에 대한 최대 요청 수를 각 기능에 동시에 보낼 수 있습니다. 예를 들어 `S` 계층에 있고 한 번에 1000개의 요청을 보내는 경우 59초 동안 다른 요청을 보낼 수 없습니다.
 
+
+S0-S4 계층은 더 이상 사용되지 않으며 S 계층으로 전환하는 것이 좋습니다.
 
 ## <a name="see-also"></a>참고 항목
 

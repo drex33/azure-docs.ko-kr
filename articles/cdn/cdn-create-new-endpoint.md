@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e8b3b5c28d00b4d7c81fa3e245113119ae3134ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d98b7050b2472c1dd0405c213b450c719bcd8572
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555706"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322448"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기
 
@@ -50,7 +50,7 @@ CDN 프로필을 만든 후에 엔드포인트를 만드는 데 사용할 수 �
     | **원본 형식** | **스토리지** 를 선택합니다. | 
     | **원본 호스트 이름** | 드롭다운 목록에서 사용 중인 Azure Storage 계정의 호스트 이름(예: *cdnstorageacct123.blob.core.windows.net*)을 선택합니다. |
     | **원본 경로** | 비워 둡니다. |
-    | **원본 호스트 헤더** | 기본 값(스토리지 계정의 호스트 이름)을 그대로 둡니다. |  
+    | **원본 호스트 헤더** | 기본값(원본 호스트 이름)을 그대로 유지합니다. |  
     | **프로토콜** | 기본값 **HTTP** 및 **HTTPS** 옵션을 선택해 둡니다. |
     | **원본 포트** | 포트 기본값을 그대로 둡니다. | 
     | **최적화 기준** | 기본 선택 영역 **일반 웹 배달** 을 그대로 둡니다. |

@@ -14,14 +14,14 @@ ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce3e4c6a7708fba15560564577c9b01722c8aec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79673341845504590d1c70f802a04c644d20b7db
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96548055"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750544"
 ---
-# <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>여러 Azure Active Directory 조직 간의 상호 작용 방식 이해
+# <a name="understand-how-multiple-azure-active-directory-tenant-organizations-interact"></a>여러 Azure Active Directory 테넌트 조직 간의 상호 작용 방식 이해
 
 Azure AD(Azure Active Directory)의 각 Azure AD 조직은 완전히 독립적입니다. 관리하는 다른 Azure AD 조직과 논리적으로 독립된 피어입니다. 조직 간 독립성에는 리소스 독립성, 관리 독립성 및 동기화 독립성이 포함됩니다. 또한 조직 간에는 부모-자식 관계가 없습니다.
 
@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory)의 각 Azure AD 조직은 완전히 독립적�
 'Contoso' 조직의 관리자가 아닌 사용자가 테스트 조직 'Test'를 만들면 다음과 같이 수행됩니다.
 
 * 기본적으로 조직을 만드는 사용자는 해당하는 새 조직에서 외부 사용자로 추가되고 해당 조직의 전역 관리자 역할이 할당됩니다.
-* 'Test'의 관리자가 'Test' 조직에 대한 관리 권한을 특별히 부여하지 않으면 'Contoso' 조직의 관리자는 이 디렉터리에 대한 직접 관리 권한이 없습니다. 그러나 'Contoso'의 관리자가 'Test'를 만든 사용자 계정을 제어하는 경우 'Test' 조직에 대한 액세스를 제어할 수 있습니다.
+* 'Test'의 관리자가 'Test' 조직에 대한 관리 권한을 특별히 부여하지 않으면 'Contoso' 조직의 관리자는 이 디렉터리에 대한 직접 관리 권한이 없습니다. 그러나 'Contoso'의 관리자가 'Test'를 만든 사용자 계정에 로그인하는 경우 'Test' 조직에 대한 액세스를 제어할 수 있습니다.
 * 한 조직에서 사용자에 대한 Azure AD 역할을 추가하거나 제거 하는 경우 해당 사용자가 다른 Azure AD 조직에서 할당된 역할에는 변경 내용이 적용되지 않습니다.
 
 ## <a name="synchronization-independence"></a>동기화 독립성

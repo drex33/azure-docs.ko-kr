@@ -10,14 +10,17 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f2eaa92b99e286d4046b0bbb784c12f090c3903e
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 68941b2253e1b4655a9e0e61da3b0a4f0db27bdf
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677739"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697588"
 ---
 # <a name="how-to-map-azure-disks-to-windows-vm-guest-disks"></a>Windows VM 게스트 디스크에 Azure Disk를 매핑하는 방법
+
+**적용 대상:** :heavy_check_mark: Windows VM 
+
 
 VM의 게스트 디스크를 백업하는 Azure 디스크를 결정해야 할 수도 있습니다. 일부 시나리오에서는 디스크 또는 볼륨 크기를 연결된 Azure Disk의 크기와 비교할 수 있습니다. VM에 동일한 크기의 Azure Disk가 여러 개 연결된 시나리오에서는 데이터 디스크의 LUN(논리 단위 번호)을 사용해야 합니다. 
 

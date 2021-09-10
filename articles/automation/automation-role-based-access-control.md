@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure 리소스의 액세스 관리를 사용�
 keywords: 자동화 rbac, 역할 기반 액세스 제어, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2020
+ms.date: 06/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 943fa65f114e46c80c8c1ef576f784f9117c9f79
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4af5a6d105867df7d5c7a00f6fc47bd0032f4336
+ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083803"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122597414"
 ---
 # <a name="manage-role-permissions-and-security"></a>역할 권한 및 보안 관리
 
@@ -26,7 +26,7 @@ Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 애플�
 |:--- |:--- |
 | 소유자 |소유자 역할을 사용하면 Automation 계정을 관리하기 위해 다른 사용자, 그룹 및 애플리케이션에 대한 액세스 권한 제공이 포함된 Automation 계정 내에서 모든 리소스 및 동작에 액세스할 수 있습니다. |
 | 참가자 |참가자 역할을 사용하면 Automation 계정에 대한 다른 사용자의 액세스 권한 수정을 제외한 모든 사항을 관리할 수 있습니다. |
-| 판독기 |읽기 역할을 사용하면 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다. |
+| 판독기 |리더 역할을 사용하면 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다. |
 | Automation 운영자 |Automation 연산자 역할을 사용하면 Runbook 이름 및 속성을 보고 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 이 역할은 자격 증명 자산 및 Runnbook 등의 Automation 계정 리소스를 보거나 수정하지 못하도록 보호하며 조직의 구성원이 이러한 Runbook을 여전히 실행하도록 하려는 경우 유용합니다. |
 |Automation 작업 연산자|Automation 작업 연산자 역할을 사용하면 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다.|
 |Automation Runbook 연산자|Automation Runbook 연산자 역할을 사용하면 Runbook의 이름 및 속성을 볼 수 있습니다.|
@@ -62,7 +62,7 @@ Contributor는 액세스를 제외한 모든 것을 관리할 수 있습니다. 
 
 ### <a name="reader"></a>판독기
 
-Reader는 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다.
+리더는 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다.
 
 |**actions**  |**설명**  |
 |---------|---------|
@@ -258,13 +258,92 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |저장된 검색 만들기/편집     | Microsoft.OperationalInsights/workspaces/write           | 작업 영역        |
 |범위 구성 만들기/편집  | Microsoft.OperationalInsights/workspaces/write   | 작업 영역|
 
+## <a name="custom-azure-automation-contributor-role"></a>사용자 지정 Azure Automation 기여자 역할
+
+Microsoft는 Log Analytics 기여자 역할에서 Automation 계정 권한을 제거하려고 합니다. 현재 위에서 설명한 기본 제공 [Log Analytics 기여자](#log-analytics-contributor) 역할은 구독 [기여자](./../role-based-access-control/built-in-roles.md#contributor) 역할로 권한을 에스컬레이션할 수 있습니다. Automation 계정 실행 계정은 처음에 구독에 대한 기여자 권한으로 구성되므로 공격자가 새 Runbook을 만들고 구독에 대한 기여자로서 코드를 실행하는 데 사용할 수 있습니다.
+
+이러한 보안 위험으로 인해 Automation 작업을 실행하는 데 Log Analytics 기여자 역할을 사용하지 않는 것이 좋습니다. 대신 Azure Automation 기여자 사용자 지정 역할을 만들고 Automation 계정과 관련된 작업에 사용합니다. 이 사용자 지정 역할을 만들려면 다음 단계를 수행합니다.
+
+### <a name="create-using-the-azure-portal"></a>Azure Portal을 사용하여 만들기
+
+다음 단계를 수행하여 Azure Portal에서 Azure Automation 사용자 지정 역할을 만듭니다. 자세한 알아보려면 [Azure 사용자 지정 역할](./../role-based-access-control/custom-roles.md)을 참조하세요.
+
+1. 다음 JSON 구문을 파일에 복사하여 붙여넣습니다. 로컬 컴퓨터 또는 Azure 스토리지 계정에 파일을 저장합니다. JSON 파일에서 **assignableScopes** 속성 값을 구독 GUID로 바꿉니다.
+
+   ```json
+   {
+    "properties": {
+        "roleName": "Automation Account Contributor (Custom)",
+        "description": "Allows access to manage Azure Automation and its resources",
+        "assignableScopes": [
+            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.Insights/metrics/read",
+                    "Microsoft.Insights/diagnosticSettings/*",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Automation/automationAccounts/*",
+                    "Microsoft.Support/*"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+      }
+   }
+   ```
+
+1. [Azure Portal을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트](../role-based-access-control/custom-roles-portal.md#start-from-json)에 설명된 대로 나머지 단계를 완료합니다. [3단계: 기본 사항](../role-based-access-control/custom-roles-portal.md#step-3-basics)의 경우 다음 사항에 유의하세요.
+
+    -  **사용자 지정 역할 이름** 필드에 **Automation 계정 기여자(사용자 지정)** 또는 이름 지정 표준과 일치하는 이름을 입력합니다.
+    - **기준 권한** 의 경우 **JSON에서 시작** 을 선택합니다. 그런 다음, 이전에 저장한 사용자 지정 JSON 파일을 선택합니다.
+
+1. 나머지 단계를 완료한 다음, 사용자 지정 역할을 검토하고 만듭니다. 사용자 지정 역할이 표시될 때까지 몇 분 정도 걸릴 수 있습니다.
+
+### <a name="create-using-powershell"></a>PowerShell을 사용하여 만들기
+
+다음 단계를 수행하여 PowerShell을 통해 Azure Automation 사용자 지정 역할을 만듭니다. 자세한 알아보려면 [Azure 사용자 지정 역할](./../role-based-access-control/custom-roles.md)을 참조하세요.
+
+1. 다음 JSON 구문을 파일에 복사하여 붙여넣습니다. 로컬 컴퓨터 또는 Azure 스토리지 계정에 파일을 저장합니다. JSON 파일에서 **AssignableScopes** 속성 값을 구독 GUID로 바꿉니다.
+
+    ```json
+    { 
+        "Name": "Automation account Contributor (custom)",
+        "Id": "",
+        "IsCustom": true,
+        "Description": "Allows access to manage Azure Automation and its resources",
+        "Actions": [
+            "Microsoft.Authorization/*/read",
+            "Microsoft.Insights/alertRules/*",
+            "Microsoft.Insights/metrics/read",
+            "Microsoft.Insights/diagnosticSettings/*",
+            "Microsoft.Resources/deployments/*",
+            "Microsoft.Resources/subscriptions/resourceGroups/read",
+            "Microsoft.Automation/automationAccounts/*",
+            "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "AssignableScopes": [
+            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+        ] 
+    } 
+    ```
+
+1. [Azure PowerShell을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트](./../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template)에 설명된 대로 나머지 단계를 완료합니다. 사용자 지정 역할이 표시될 때까지 몇 분 정도 걸릴 수 있습니다.
+
 ## <a name="update-management-permissions"></a>업데이트 관리 권한
 
-업데이트 관리는 여러 서비스에서 해당 서비스를 제공합니다. 다음 표에서는 업데이트 관리 배포를 관리하는 데 필요한 사용 권한을 보여줍니다.
+업데이트 관리를 사용하여 동일한 Azure AD(Azure Active Directory) 테넌트에서 또는 Azure Lighthouse를 사용하여 테넌트 간 여러 구독의 머신에 대해 업데이트 배포를 평가하고 예약할 수 있습니다. 다음 표에는 업데이트 배포를 관리하는 데 필요한 권한이 나와 있습니다.
 
 |**리소스** |**역할** |**범위** |
 |---------|---------|---------|
-|Automation 계정 |Log Analytics 참가자 |Automation 계정 |
+|Automation 계정 |[사용자 지정 Azure Automation 기여자 역할](#custom-azure-automation-contributor-role) |Automation 계정 |
 |Automation 계정 |가상 머신 참가자  |계정의 리소스 그룹  |
 |Log Analytics 작업 영역 Log Analytics 기여자|Log Analytics 작업 영역 |
 |Log Analytics 작업 영역 |Log Analytics 독자|Subscription|
@@ -400,7 +479,7 @@ Remove-AzRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -R
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>Automation 운영자 역할에 대한 사용자 환경 - Automation 계정
 
-Automation 계정 범위에서 Automation 운영자 역할이 할당된 사용자가 본인이 할당된 Automation 계정을 볼 때 사용자는 해당 Automation 계정에서 생성된 Runbook, Runbook 작업 및 일정 목록만 볼 수 있고 그 정의는 볼 수 없습니다. 사용자는 Runbook 작업을 시작, 중지, 일시 중단, 다시 시작 또는 예약할 수 있습니다. 그러나 구성, Hybrid Worker 그룹 또는 DSC 노드와 같은 다른 Automation 리소스에는 액세스할 수 없습니다.
+Automation 계정 범위에서 Automation 운영자 역할이 할당된 사용자가 본인이 할당된 Automation 계정을 볼 때 사용자는 해당 Automation 계정에서 생성된 Runbook, Runbook 작업 및 일정 목록만 볼 수 있고 이 사용자는 이러한 항목의 정의를 볼 수 없습니다. 사용자는 Runbook 작업을 시작, 중지, 일시 중단, 다시 시작 또는 예약할 수 있습니다. 그러나 사용자는 구성, Hybrid Runbook Worker 그룹 또는 DSC 노드와 같은 다른 Automation 리소스에는 액세스할 수 없습니다.
 
 ![리소스에 대한 액세스 권한 없음](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 

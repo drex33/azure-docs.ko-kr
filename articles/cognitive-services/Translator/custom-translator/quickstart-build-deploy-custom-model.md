@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: quickstart
-ms.openlocfilehash: ae417006903c8d2478126f928f05647361bad1b9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e77196572a0ea3b18f0b28a6ad26349e6e7c668e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896209"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744787"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역을 위한 사용자 지정 모델 빌드, 배포 및 사용
 
@@ -27,6 +27,8 @@ ms.locfileid: "98896209"
 2. Azure Portal 통해 Translator Text API 구독. Custom Translator에서 작업 영역과 연결할 Translator Text API 구독 키가 필요합니다. [Translator Text API에 등록하는 방법](../translator-how-to-signup.md)을 참조하세요.
 
 3. 위의 두 가지가 모두 있는 경우 [사용자 지정 변환기](https://portal.customtranslator.azure.ai) 포털에 로그인하여 작업 영역, 프로젝트, 파일 업로드 및 모델 만들기/배포를 만듭니다.
+
+[YouTube](https://www.youtube.com/watch?v=TykB6WDTkRc&t=3s)에서 Custom Translator 연습 비디오 전체를 처음부터 끝까지 볼 수도 있습니다.
 
 >[!Note]
 >Custom Translator는 [활성화된 VNET](../../../api-management/api-management-using-with-vnet.md) 내에서 생성된 Translator Text API 리소스에 대한 작업 영역 생성을 지원하지 않습니다.

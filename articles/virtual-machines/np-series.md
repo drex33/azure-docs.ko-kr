@@ -7,14 +7,17 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 0592af3d5f73476b1dd479fde2651be07ba8aa33
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e009f24f1ce7d05c8890b197ea1208f2d01666d4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949801"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697960"
 ---
 # <a name="np-series"></a>NP 시리즈 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
+
 NP 시리즈 가상 머신은 기계 학습 유추, 비디오 트랜스코딩 및 데이터베이스 검색 & 분석을 비롯한 워크로드를 가속화하기 위해 [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGA를 통해 구동됩니다. NP 시리즈 VM은 Intel Xeon 8171M(Skylake) CPU에서 구동되며 모든 코어 turbo 클록 속도는 3.2GHz입니다.
 
 [Premium Storage](premium-storage-performance.md): 지원됨<br>

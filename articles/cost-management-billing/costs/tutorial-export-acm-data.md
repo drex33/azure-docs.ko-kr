@@ -3,18 +3,18 @@ title: 자습서 - Azure Cost Management에서 내보낸 데이터 만들기 및
 description: 이 문서에서는 내보낸 Azure Cost Management 데이터를 외부 시스템에서 사용할 수 있도록 만들고 관리하는 방법을 보여줍니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/26/2021
+ms.date: 08/05/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 592ef54b359c84309da350bf53da6bb0a4152374
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: f6d640d40b586e435e1484fce8d6560a961ba6ac
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708633"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731945"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -32,7 +32,7 @@ Azure Storage로의 Azure 비용 데이터 예약된 내보내기를 만드는 �
 > * 일일 내보내기 만들기
 > * 데이터가 수집되는지 확인
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 내보내기는 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 및 [Microsoft 고객 계약](get-started-partners.md) 고객을 비롯한 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 다음 Azure 사용 권한 또는 범위는 사용자 및 그룹별 데이터 내보내기에 대해 구독별로 지원됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
@@ -259,11 +259,11 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 ### <a name="file-partitioning-for-large-datasets"></a>대량 데이터 세트에 대한 파일 분할
 
-Microsoft 고객 계약 또는 Microsoft 파트너 계약이 있는 경우 내보내기를 사용하도록 설정하여 데이터 수집에 도움이 되는 여러 개의 작은 파일 파티션으로 파일을 청크 분할할 수 있습니다. 내보내기를 처음 구성할 때 **File Partitioning**(파일 분할) 설정을 **켜기** 로 설정합니다. 설정은 기본적으로 **끄기** 입니다.
+Microsoft 고객 계약, Microsoft 파트너 계약 또는 기업계약이 있는 경우 내보내기를 사용하도록 설정하여 데이터 수집에 도움이 되는 여러 개의 작은 파일 파티션으로 파일을 청크 분할할 수 있습니다. 내보내기를 처음 구성할 때 **File Partitioning**(파일 분할) 설정을 **켜기** 로 설정합니다. 설정은 기본적으로 **끄기** 입니다.
 
 :::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="파일 분할 옵션을 보여 주는 스크린샷" lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
 
-Microsoft 고객 계약 또는 Microsoft 파트너 계약이 없는 경우 **파일 분할** 옵션이 표시되지 않습니다.
+Microsoft 고객 계약, Microsoft 파트너 계약 또는 기업계약이 없는 경우 **파일 분할** 옵션이 표시되지 않습니다.
 
 #### <a name="update-existing-exports-to-use-file-partitioning"></a>파일 분할을 사용하도록 기존 내보내기 업데이트
 

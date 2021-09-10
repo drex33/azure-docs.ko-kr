@@ -9,14 +9,16 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: c6f572ad472bcafe0ca1ff301f2d32a34a924424
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 058ba9a3b2593ec6f635485771d5bbe140beb510
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112291820"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698991"
 ---
 # <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 가상 머신 확장 집합 암호화
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 집합을 암호화하거나 암호 해독을 수행할 수 있습니다.
 

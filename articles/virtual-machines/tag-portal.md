@@ -7,14 +7,16 @@ author: cynthn
 ms.service: virtual-machines
 ms.date: 11/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 9c220814ae1f714e9eac0c0c11a50d9cf68a621d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 543317b2e1dcc0c55ac970212612f5266e5f84aa
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897411"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695364"
 ---
 # <a name="tagging-a-vm-using-the-portal"></a>포털을 사용하여 VM에 태그 지정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 이 문서에서는 포털을 사용하여 VM에 태그를 추가하는 방법을 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 50개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다.
 

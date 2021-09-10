@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: aashishb
+ms.author: jmartens
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/20/2020
-ms.openlocfilehash: a079504872eaf3840416a99e784c4d33a6828b0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/02/2021
+ms.openlocfilehash: 27bd8124c0b78d1fecd1f7027104c3b5c9b8a8a1
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94992032"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541506"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning의 Enterprise 보안 및 거버넌스
 
@@ -48,13 +48,23 @@ Azure AD에서 다단계 인증을 사용하는 Azure Machine Learning의 인증
 | 주요 자격 증명 모음 | 모든 키, 비밀, 인증서에 대한 액세스 |
 | Azure Container Registry | 참가자 |
 | 작업 영역을 포함하는 리소스 그룹 | 참가자 |
-| 키 자격 증명 모음이 포함된 리소스 그룹(작업 영역이 포함된 것과 다른 경우) | 참가자 |
+
+시스템 할당 관리 ID는 Azure Machine Learning과 다른 Azure 리소스 간의 내부 서비스 간 인증에 사용됩니다. ID 토큰은 사용자가 액세스할 수 없으며 이러한 리소스에 대한 액세스 권한을 얻는 데 사용할 수 없습니다. 사용자는 충분한 RBAC 권한이 있는 경우 [Azure Machine Learning 제어 및 데이터 평면 API](how-to-assign-roles.md)를 통해서만 리소스에 액세스할 수 있습니다.
+
+연결된 리소스를 프로비전하고 [웹 서비스 엔드포인트용 Azure Container Instances를 배포](how-to-deploy-azure-container-instance.md)하려면 관리 ID에 작업 영역이 포함된 리소스 그룹에 대한 기여자 권한이 필요합니다.
 
 이전 표에 언급된 리소스의 관리 ID에 대한 액세스를 관리자가 취소하지 않는 것이 좋습니다. 액세스 복원은 [키 다시 동기화 작업](how-to-change-storage-access-key.md)을 통해 가능합니다.
 
-또한 Azure Machine Learning은 모든 작업 영역 구독에서 참가자 수준 액세스 권한이 있는 추가 응용 프로그램(이름이 `aml-` 또는 `Microsoft-AzureML-Support-App-`로 시작하는)을 만듭니다. 예를 들어, 미국 동부에 작업 영역이 하나 있고 동일한 구독의 북유럽에 하나가 있으면 해당 애플리케이션은 두 개가 보입니다. 이러한 애플리케이션을 통해 Azure Machine Learning에서 컴퓨팅 리소스를 관리할 수 있습니다.
+> [!NOTE]
+> Azure Machine Learning 작업 영역에 __2021년 5월 14일 이전__ 에 생성된 컴퓨팅 대상(컴퓨팅 클러스터, 컴퓨팅 인스턴스, Azure Kubernetes Service 등)이 있는 경우 추가 Azure Active Directory 계정이 있을 수도 있습니다. 계정 이름은 `Microsoft-AzureML-Support-App-`으로 시작하며 모든 작업 영역 지역에 대한 구독에 기여자 수준 액세스 권한이 있습니다.
+> 
+> 작업 영역에 AKS(Azure Kubernetes Service)가 연결되어 있지 않으면 이 Azure AD 계정을 안전하게 삭제할 수 있습니다. 
+> 
+> 작업 영역에 AKS 클러스터가 연결되어 있고 _2021년 5월 14일 이전에 생성_ 된 경우 __이 Azure AD 계정을 삭제하지 마세요__. 이 시나리오에서는 먼저 AKS 클러스터를 삭제하고 다시 만들어야 Azure AD 계정을 삭제할 수 있습니다.
 
-Azure Virtual Machines 및 Azure Machine Learning 계산 클러스터에서 사용할 관리 ID를 구성할 수도 있습니다. VM을 사용하면 관리 ID로 개별 사용자의 Azure AD 계정 대신 SDK에서 작업 영역에 액세스할 수 있습니다. 계산 클러스터를 사용하면 관리 ID로 학습 작업을 실행하는 사용자가 액세스할 수 없는 보안된 데이터 저장소와 같은 리소스에 액세스합니다. 자세한 내용은 [Azure Machine Learning 작업 영역 인증](how-to-setup-authentication.md)을 참조하세요.
+사용자 할당 관리 ID를 사용하도록 작업 영역을 프로비전하고 관리 ID에 추가 역할을 부여할 수 있습니다(예: 기본 Docker 이미지에 대한 자체 Azure Container Registry에 액세스). 자세한 내용은 [액세스 제어에 관리 ID 사용](how-to-use-managed-identities.md)을 참조하세요.
+
+Azure Machine Learning 컴퓨팅 클러스터에서 사용할 관리 ID를 구성할 수도 있습니다. 이 관리 ID는 작업 영역 관리 ID와 독립적입니다. 계산 클러스터를 사용하면 관리 ID로 학습 작업을 실행하는 사용자가 액세스할 수 없는 보안된 데이터 저장소와 같은 리소스에 액세스합니다. 자세한 내용은 [Azure의 스토리지 서비스에 대한 ID 기반 데이터 액세스](how-to-identity-based-data-access.md)를 참조하세요.
 
 > [!TIP]
 > Azure Machine Learning 내에서 Azure AD 및 Azure RBAC를 사용할 때는 몇 가지 예외사항이 있습니다.

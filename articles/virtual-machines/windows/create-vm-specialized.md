@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ccd1383349f4e009cc5ce5728eda25587e95a831
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 2a10d58dc36304afdbd37c3fd1c3c41dd819d022
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669225"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693457"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 특수 관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD(가상 하드 디스크) 복사본으로, 사용자 계정, 애플리케이션 및 원본 VM의 기타 상태 데이터를 포함합니다. 
 

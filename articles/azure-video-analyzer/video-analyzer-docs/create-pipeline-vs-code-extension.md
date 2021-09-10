@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Azure Video Analyzer Visual Studio Code�
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.openlocfilehash: dd342d1aaf8cf93bfcf518342315ad022e52f4f9
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: e3d118f2651e7b680b85bbb41bb6ecc3d7106bba
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604023"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745683"
 ---
 # <a name="quickstart-azure-video-analyzer-visual-studio-code-extension"></a>빠른 시작: Azure Video Analyzer Visual Studio Code 확장
 
@@ -25,7 +25,7 @@ ms.locfileid: "114604023"
 * 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * 다음 확장이 포함된 [Visual Studio Code](https://code.visualstudio.com/)
-    * [Video Analyzer](https://go.microsoft.com/fwlink/?linkid=2163332)
+    * [Video Analyzer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-video-analyzer)
 
 * [시작 - Azure Video Analyzer](./get-started-detect-motion-emit-events.md) 빠른 시작을 완료하지 않은 경우 [Azure 리소스를 설정](#set-up-azure-resources)해야 합니다.    
 
@@ -58,7 +58,7 @@ ms.locfileid: "114604023"
 
 파이프라인 토폴로지는 Video Analyzer에서 작업 수행 방법을 정의하는 데 사용하는 기본 구성 블록입니다.  파이프라인 토폴로지에 대한 자세한 내용은 [여기](./pipeline.md)서 확인할 수 있습니다.  이 섹션에서는 템플릿인 파이프라인 토폴로지를 배포한 다음, 토폴로지 또는 라이브 파이프라인의 인스턴스를 만듭니다. 라이브 파이프라인은 실제 비디오 스트림에 연결됩니다.
 
-1.  왼쪽의 `Modules` 아래에서 `Pipeline topologies`를 마우스 오른쪽 단추로 클릭하고 'Create pipeline topology'를 선택합니다.
+1.  왼쪽의 `Modules`에서 `Pipeline topologies`을 마우스 오른쪽 단추로 클릭하고 `Create pipeline topology`을 선택합니다.
 1.  위쪽에 있는 `Try sample topologies`의 `Motion Detection`에서 `Publish motion events to IoT Hub`를 선택합니다.  메시지가 표시되면 `Proceed`를 클릭합니다.
 1.  오른쪽 위에서 `Save`를 클릭합니다.
 
@@ -67,9 +67,9 @@ ms.locfileid: "114604023"
 1.  왼쪽의 `Pipeline topologies`에서 `MotionDetection`을 마우스 오른쪽 단추로 클릭하고 `Create live pipeline`을 선택합니다.
 1.  `Live pipeline name`에 `mdpipeline1`을 입력합니다.
 1.  `Parameters` 섹션에서 다음 작업을 수행합니다.
-    - “rtspPassword”에 “testuser”를 입력합니다.
+    - “rtspPassword”에 “testpassword”를 입력합니다.
     - “rtspUrl”에 “rtsp://rtspsim:554/media/camera-300s.mkv”를 입력합니다.
-    - “rtspUserName”에 “testpassword”를 입력합니다.
+    - “rtspUserName”에 “testuser”를 입력합니다.
 1.  오른쪽 위에서 "저장 및 활성화"를 클릭합니다.
 
 그러면 에지 디바이스에 시작 토폴로지가 배포되고 라이브 파이프라인이 가동됩니다.  빠른 시작 시작하기에서 Azure IoT Hub 확장을 설치한 경우 Azure IoT-Hub Visual Studio Code 확장에서 빌드 이벤트 엔드포인트를 모니터링하여 [관찰 결과](./get-started-detect-motion-emit-events.md#observe-results) 섹션에 표시된 것처럼 모니터링할 수 있습니다.

@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 04ee9f19f23d16af9070d3366981b0690ba9ef27
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 4aad194e1bfbd31cb31795ec4b6d21737800e06d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113113"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722558"
 ---
 이 빠른 시작에서는 JavaScript용 Azure Communication Services 채팅 SDK를 사용하여 Teams 모임에서 채팅하는 방법을 알아봅니다.
 
@@ -22,15 +22,9 @@ ms.locfileid: "113113113"
 *  [Teams 배포](/deployoffice/teams-install). 
 * 작동하는 [채팅 앱](../get-started.md). 
 
-## <a name="enable-teams-interoperability"></a>Teams 상호 운용성 사용 
-
-게스트 사용자로 Teams 미팅에 조인하는 Communication Services 사용자는 Teams 미팅 호출에 조인한 경우에만 미팅 채팅에 액세스할 수 있습니다. Teams 미팅 호출에 Communication Services 사용자를 추가하는 방법을 알아보려면 [Teams interop](../../voice-video-calling/get-started-teams-interop.md) 설명서를 참조하세요.
-
-이 기능을 사용하려면 두 엔터티를 소유하는 조직의 구성원이어야 합니다.
-
 ## <a name="joining-the-meeting-chat"></a>모임 채팅 참가 
 
-Teams 상호 운용성을 사용하도록 설정하면 Communication Services 사용자가 Calling SDK를 사용하여 외부 사용자로 Teams 통화에 조인할 수 있습니다. 통화에 조인하면 채팅 통화에 참가자로 추가됩니다. 그러면 통화 중인 다른 사용자와 메시지를 주고받을 수 있습니다. 사용자는 통화에 조인하기 전에 전송된 채팅 메시지에 액세스할 수 없습니다. 모임에 참가하고 채팅을 시작하려면 다음 단계를 수행하면 됩니다.
+Communication Services 사용자는 호출 SDK를 사용하여 익명 사용자로 Teams 모임에 참가할 수 있습니다. 모임에 참가하면 모임 채팅에도 참가자로 추가됩니다. 그러면 모임의 다른 사용자와 메시지를 보내고 받을 수 있습니다. 사용자는 모임에 참가하기 전에 전송된 채팅 메시지에 액세스할 수 없으며 모임이 끝난 후에는 메시지를 보내거나 받을 수 없습니다. 모임에 참가하고 채팅을 시작하려면 다음 단계를 수행하면 됩니다.
 
 ## <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 

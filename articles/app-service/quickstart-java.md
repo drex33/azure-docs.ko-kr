@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: 7393a8085a2ac597f3fdbcc365608d32956f39b7
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 54ca249d1b89eb90b636da72e1378eadfd5fe0c1
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111667"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681395"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 
@@ -98,7 +98,7 @@ Azure App Service에 대한 배포 프로세스는 Azure CLI의 Azure 자격 증
 아래의 maven 명령을 실행하여 배포를 구성합니다. 이 명령은 App Service 운영 체제, Java 버전 및 Tomcat 버전을 설정하는 데 도움이 됩니다.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.0.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -273,7 +273,7 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
 
 필요한 경우 `pom.xml`에서 직접 App Service에 대한 구성을 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
-속성 | 필수 | 설명 | 버전
+속성 | 필수 | Description | 버전
 ---|---|---|---
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
 `<subscriptionId>` | false | 구독 ID를 지정합니다. | 0.1.0+
@@ -291,13 +291,7 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
 
 ## <a name="deploy-the-app"></a>앱 배포
 
-Maven 플러그 인은 Azure CLI의 계정 자격 증명을 사용하여 App Services에 배포합니다. 계속하려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)합니다.
-
-```azurecli-interactive
-az login
-```
-
-그런 후, 다음 명령을 사용하여 Java 앱을 Azure에 배포할 수 있습니다.
+pom 파일에서 모든 구성이 준비되면 단일 명령으로 Java 앱을 Azure에 배포할 수 있습니다.
 
 ```azurecli-interactive
 mvn package azure-webapp:deploy

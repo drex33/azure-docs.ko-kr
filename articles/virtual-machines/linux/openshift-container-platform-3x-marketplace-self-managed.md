@@ -11,14 +11,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 57916a7f142663711215fdb2a7f641e35fd9ad0f
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 43c1785a80738741478e93289fd9ff239dca7719
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114389981"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697798"
 ---
 # <a name="configure-prerequisites"></a>필수 조건 구성
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure에서 자체 관리형 OpenShift Container Platform 3.11 클러스터를 배포하기 위해 Marketplace 제품 을 사용하기 전에는 몇 가지 필수 구성 요소를 구성해야 합니다.  SSH 키(암호 제외), Azure Key Vault, key vault 비밀, 서비스 원칙을 만드는 방법에 대한 자세한 내용은 [OpenShift 필수 구성 요소](./openshift-container-platform-3x-prerequisites.md) 문서를 참조하세요.
 

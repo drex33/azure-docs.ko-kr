@@ -8,14 +8,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: cynthn
-ms.openlocfilehash: 45616c5b5648153291c81c9ac17e3da3a2c66e3f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5e7c342ae66594e502870030f8e8561ba861b05b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769978"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692105"
 ---
 # <a name="use-scp-to-move-files-to-and-from-a-linux-vm"></a>SCP를 사용하여 Linux VM 간에 파일 이동 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서에서는 보안 복사본(SCP)를 사용하여 워크스테이션에서 Azure Linux VM으로 또는 Azure Linux VM에서 워크스테이션으로 파일을 이동하는 방법을 보여 줍니다. 워크스테이션과 Linux VM 간에 신속하고 안전하게 파일을 이동하는 것은 Azure 인프라 관리의 중요한 부분입니다. 
 

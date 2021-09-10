@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: 7eab410bb2344617e555a7a9d1d44cd9adcc676d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 819732043ce035214fc9a56e22a99e9a3dec28a2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674720"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694286"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 대한 비용 절감
 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 Azure reserved VM instance에 커밋하면 비용을 아낄 수 있습니다. 예약 할인은 예약 범위 및 특성과 일치하는 실행 중인 가상 머신 수에 자동으로 적용됩니다. 할인을 받기 위해 가상 머신에 예약을 할 필요가 없습니다. 예약 인스턴스 구매는 VM 사용량의 계산 부분에 대해서만 적용됩니다. Windows VM의 경우, 사용량 미터는 두 개의 개별 미터로 나뉩니다. Linux 미터와 같은 계산 미터와 Windows IP 미터입니다. 구매 시 확인할 수 있는 요금은 계산 비용에만 해당하는 것입니다. 요금에는 Windows 소프트웨어 비용이 들어가지 않습니다. 소프트웨어 비용에 대한 자세한 내용은 [Azure Reserved VM Instances에 포함되지 않는 소프트웨어 비용](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)을 참조하세요.
 
@@ -116,9 +117,9 @@ EA 계약이 있는 경우 **추가 옵션** 을 사용하여 인스턴스를 �
 
 ## <a name="usage-data-and-reservation-utilization"></a>사용량 데이터 및 예약 사용률
 
-예약 할인이 적용되는 사용량의 경우 사용량 데이터의 유효 가격은 0입니다. 예약별로 예약 할인을 받은 VM 인스턴스를 확인할 수 있습니다.
+예약 할인이 적용되는 사용량의 경우 사용량 데이터의 유효 가격은 0입니다. 예약 할인을 받은 VM 인스턴스를 예약별로 확인할 수 있습니다.
 
-EA 고객인 경우 사용량 데이터에 예약 할인이 표시되는 방식에 대한 자세한 내용은 [기업 등록에 대한 Azure 예약 사용량 이해하기](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)를 참조하세요. 개별 구독이 있는 경우, [종량제 구독에 대한 Azure 예약 사용량 이해하기](../cost-management-billing/reservations/understand-reserved-instance-usage.md)를 참조하세요.
+EA 고객인 경우 사용량 현황 데이터에 예약 할인이 표시되는 방식에 대한 자세한 내용은 [기업 등록에 대한 Azure 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)를 참조하세요. 개별 구독이 있는 경우, [종량제 구독에 대한 Azure 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage.md)를 참조하세요.
 
 ## <a name="change-a-reservation-after-purchase"></a>구매 후 예약 변경
 
@@ -137,7 +138,7 @@ EA 고객인 경우 사용량 데이터에 예약 할인이 표시되는 방식�
 - 수량
 - Duration
 
-그렇지만, 변경을 원하는 경우 예약을 *교환* 할 수는 있습니다.
+그거나 변경을 원하는 경우 예약을 ‘교환’할 수는 있습니다.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 

@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/23/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cec466fc420e435159e2882d7b39ef6d03eeea7c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c53686338ae45971519735edce0ac62a0544ac2e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733485"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744778"
 ---
 # <a name="use-the-headpose-attribute"></a>HeadPose 특성 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "101733485"
 
 ### <a name="explore-the-sample-code"></a>샘플 코드 탐색
 
-HeadPose 특성을 사용하여 얼굴 사각형을 프로그래밍 방식으로 회전시킬 수 있습니다. 얼굴을 감지할 때 이 특성을 지정하면([얼굴 감지 방법](HowtoDetectFacesinImage.md) 참조) 나중에 이를 쿼리할 수 있습니다. [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 앱의 다음 메서드는 **DetectedFace** 개체 목록을 가져와서 **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** 개체 목록을 반환합니다. 여기서 **Face** 는 업데이트된 사각형 좌표를 포함하여 얼굴 데이터를 저장하는 사용자 지정 클래스입니다. **top**, **left**, **width** 및 **height** 에 대한 새 값이 계산되며, 새 **FaceAngle** 필드에서 회전을 지정합니다.
+HeadPose 특성을 사용하여 얼굴 사각형을 프로그래밍 방식으로 회전시킬 수 있습니다. 얼굴을 감지할 때 이 특성을 지정하면([검색 API 호출](HowtoDetectFacesinImage.md) 참조) 나중에 이를 쿼리할 수 있습니다. [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 앱의 다음 메서드는 **DetectedFace** 개체 목록을 가져와서 **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** 개체 목록을 반환합니다. 여기서 **Face** 는 업데이트된 사각형 좌표를 포함하여 얼굴 데이터를 저장하는 사용자 지정 클래스입니다. **top**, **left**, **width** 및 **height** 에 대한 새 값이 계산되며, 새 **FaceAngle** 필드에서 회전을 지정합니다.
 
 ```csharp
 /// <summary>

@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.date: 02/24/2017
 ms.author: mimckitt
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ea648f460207e469dbfbc8c32c78f0e44581df60
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: af975db3c0737d9fb075b50b6087cc987198d7fd
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027188"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691715"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신용 Key Vault를 설정하는 방법
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Resource Manager 스택에서 암호/인증서는 Key Vault에서 제공하는 리소스로 모델링됩니다. Azure Key Vault에 대한 자세한 내용을 보려면 [Azure Key Vault란?](../../key-vault/general/overview.md) Key Vault을 Azure Resource Manager VM에서 사용하려면 Key Vault에 대한 *EnabledForDeployment* 속성을 true로 설정해야 합니다. 이 문서에서는 Azure CLI를 사용하여 Azure VM(가상 머신)에서 사용할 Key Vault를 설정하는 방법을 설명합니다. 
 

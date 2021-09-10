@@ -8,14 +8,16 @@ ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: fb6180754be5e94091e5ff1ca21823b85c8a6e6d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 5ea12e47b67f79ab2d5aa559f3afc1db587e1a55
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538619"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695916"
 ---
 # <a name="using-azure-ultra-disks"></a>Azure Ultra Disk 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 이 문서에서는 Ultra Disk를 배포하고 사용하는 방법을 설명합니다. Ultra Disk에 대한 개념 정보는 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md#ultra-disk)을 참조하세요.
 
@@ -56,7 +58,7 @@ if($sku){$sku[0].LocationInfo[0].ZoneDetails} Else {Write-host "$vmSize is not s
 
 **영역** 값을 유지합니다. 이 값은 가용성 영역을 나타내며, Ultra Disk를 배포하는 데 필요합니다.
 
-|ResourceType  |이름  |위치  |영역  |제한 사항  |기능  |값  |
+|ResourceType  |이름  |Location  |영역  |제한 사항  |기능  |값  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 

@@ -7,14 +7,17 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 03/08/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 821c50b5cb48bddb586c3589326a7f31c7bafded
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 77e2ef4a5af250f19e505dfb9f725aa7674f691f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604535"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694479"
 ---
 # <a name="availability-options-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 가용성 옵션
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
+
 이 문서에서는 Azure VM(가상 머신)의 가용성 옵션에 대한 개요를 제공합니다.
 
 ## <a name="availability-zones"></a>가용성 영역
@@ -57,6 +60,6 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 - 온-프레미스 VM, Azure Stack VM 및 실제 서버.
 
 ## <a name="next-steps"></a>다음 단계
-- [가용성 영역에서 가상 머신 만들기](/azure/virtual-machines/linux/create-cli-availability-zone)
-- [가용성 집합에서 가상 머신 만들기](/azure/virtual-machines/linux/tutorial-availability-sets)
+- [가용성 영역에서 가상 머신 만들기](./linux/create-cli-availability-zone.md)
+- [가용성 집합에서 가상 머신 만들기](./linux/tutorial-availability-sets.md)
 - [가상 머신 확장 집합 만들기](../virtual-machine-scale-sets/quick-create-portal.md)

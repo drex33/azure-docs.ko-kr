@@ -3,16 +3,16 @@ title: 컨테이너 레지스트리용 Azure Defender - 이점 및 특징
 description: 컨테이너 레지스트리용 Azure Defender의 이점 및 특징에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 07/05/2021
+ms.date: 08/16/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d448d0b0a67987ced1caec04557773c2f8ab33d7
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 60f5ffd766c5731500bd4120556cb0fc547ff2a0
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113651823"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252847"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
@@ -20,7 +20,17 @@ ACR(Azure Container Registry)은 중앙 레지스트리에서 Azure 배포에 �
 
 구독의 Azure Resource Manager 기반 레지스트리를 보호하려면 구독 수준에서 **컨테이너 레지스트리용 Azure Defender** 를 사용하도록 설정합니다. 그러면 Azure Defender가 최근 30일 이내에 레지스트리에 푸시한 이미지, 레지스트리로 가져온 이미지 또는 풀한 이미지를 모두 검사합니다. 검사되는 모든 이미지에 대해 이미지당 한 번씩 요금이 청구됩니다.
 
-[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
+## <a name="availability"></a>가용성
+
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|GA(일반 공급)|
+|가격 책정:|**컨테이너 레지스터리용 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
+|지원되는 레지스트리 및 이미지:|셸 액세스를 사용하여 공용 인터넷에서 액세스할 수 있는 ACR 레지스트리의 Linux 이미지<br>[Azure Private Link로 보호되는 ACR 레지스트리](../container-registry/container-registry-private-link.md)|
+|지원되지 않는 레지스트리 및 이미지:|Windows 이미지<br>'프라이빗' 레지스트리<br>[Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 초 미니멀 이미지 또는 패키지 관리자, 셸 또는 OS 없이 애플리케이션과 그 런타임 종속성만 포함하는 "Distroless" 이미지<br>[OCI(Open Container Initiative) 이미지 형식 사양](https://github.com/opencontainers/image-spec/blob/master/spec.md)을 사용하는 이미지|
+|필요한 역할 및 권한:|**보안 읽기 권한자** 및 [Azure Container Registry 역할 및 권한](../container-registry/container-registry-roles.md)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: 미국 정부 및 중국 정부 - 현재 푸시 기능의 검색만 지원됩니다. [이미지가 언제 검사되나요?](#when-are-images-scanned)에서 자세히 알아보기|
+|||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender의 이점은?
 

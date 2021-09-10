@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 05/28/2021
 ms.author: cynthn
 ms.reviewer: ''
-ms.openlocfilehash: f6473340baf29861c9f10ac4244deed413310b88
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 3a716e8baaeae1527dc04005a36c59d772abca83
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853103"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697252"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Azure VM에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 Microsoft에서는 서비스가 필요할 때 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 다만 경우에 따라 계획되지 않은 서비스 중단이 발생하여 강제적으로 제어 영향을 벗어날 때가 있습니다.
 

@@ -9,14 +9,17 @@ ms.subservice: extensions
 ms.date: 6/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 20e5bff87d5cd0d6e0a35a558462bb5598bfe3f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23313c1c06e01d69021f7ab17002773cc90062a4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87080491"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697443"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Azure DSC 확장에 Virtual Machine Scale Sets 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
+
 [Azure DSC(필요한 상태 구성)](../virtual-machines/extensions/dsc-overview.md?toc=/azure/virtual-machines/windows/toc.json) 확장 처리기에 [Virtual Machine Scale Sets](./overview.md)를 사용할 수 있습니다. 가상 머신 확장 집합은 많은 수의 가상 머신을 배포 및 관리하는 방법을 제공하며 부하에 따라 탄력적으로 확장 및 축소될 수 있습니다. DSC는 VM이 온라인으로 전환되어 프로덕션 소프트웨어를 실행하도록 VM을 구성하는 데 사용합니다.
 
 ## <a name="differences-between-deploying-to-virtual-machines-and-virtual-machine-scale-sets"></a>Virtual Machines 및 Virtual Machine Scale Sets에 대한 배포 간의 차이점

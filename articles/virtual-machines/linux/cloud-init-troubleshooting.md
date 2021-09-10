@@ -3,19 +3,21 @@ title: cloud-init를 사용하여 문제 해결
 description: cloud-init를 사용하여 Azure VM 프로비전 문제를 해결합니다.
 author: danielsollondon
 ms.service: virtual-machines
-ms.subservice: imaging
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 842107245fe26155d53866bf95e11b08d7593ad1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: cloud-init
+ms.openlocfilehash: b9a113c4c7f54bfb47d10795325f163cd6f35429
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582156"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687930"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>cloud-init를 사용하여 VM 프로비전 문제 해결
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 cloud-init를 사용하여 프로비전을 수행하는 일반화된 사용자 지정 이미지를 만들었으나 VM이 올바르게 생성되지 않은 것을 발견한 경우 사용자 지정 이미지 문제를 해결해야 합니다.
 

@@ -9,14 +9,16 @@ ms.collection: windows
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e81d29922bee53ba9021c9c26816258f7922a59c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6db23229cf0f3521c5855226ac96ad7d52c0fc87
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107759725"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693439"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows VM 만들기 및 암호화
+
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Windows Server 2016 VM(가상 머신)을 만들고 암호화하는 방법을 보여 줍니다.
 

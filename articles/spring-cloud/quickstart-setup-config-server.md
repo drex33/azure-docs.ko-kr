@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 95f4e7e9dcc8c9f16465d2a577d4bdf425dae4a8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f3a3e4897904dcfd02b6ef3879736d1afb533747
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114470558"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014719"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>빠른 시작: Azure Spring Cloud 구성 서버 설정
 
@@ -27,7 +27,7 @@ Azure Spring Cloud 구성 서버는 분산 시스템을 위한 중앙 집중식 
 
 ## <a name="azure-spring-cloud-config-server-procedures"></a>Azure Spring Cloud 구성 서버 절차
 
-다음 명령을 실행하여 프로젝트의 git 리포지토리 위치로 구성 서버를 설정합니다. `<service instance name>`을 앞에서 만든 서비스 이름으로 바꿉니다. 이전 빠른 시작에서 설정한 서비스 인스턴스 이름의 기본값은 이 명령에서 작동하지 않습니다.
+다음 명령을 실행하여 프로젝트의 git 리포지토리 위치로 구성 서버를 설정합니다. *\<service instance name>* 을 앞에서 만든 서비스 이름으로 바꿉니다. 이전 빠른 시작에서 설정한 서비스 인스턴스 이름의 기본값은 이 명령에서 작동하지 않습니다.
 
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --search-paths steeltoe-sample/config
@@ -57,22 +57,21 @@ Azure Spring Cloud 구성 서버는 분산 시스템을 위한 중앙 집중식 
 
 2. **기본 리포지토리** 섹션에서 **URI** 를 "https://github.com/azure-samples/spring-petclinic-microservices-config"로 설정합니다.
 
-3. **유효성 검사** 를 클릭합니다.
+3. **유효성 검사** 를 선택합니다.
 
     ![구성 서버로 이동](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
-4. 유효성 검사가 완료되면 **적용** 을 클릭하여 변경 내용을 저장합니다.
+4. 유효성 검사가 완료되면 **적용** 을 선택하여 변경 내용을 저장합니다.
 
     ![구성 서버 유효성 검사](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
 
 5. 구성을 업데이트하는 데 몇 분 정도 걸릴 수 있습니다.
- 
-    ![구성 서버 업데이트](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+    ![구성 서버 업데이트](media/spring-cloud-quickstart-launch-app-portal/updating-config.png)
 
 6. 구성이 완료되면 알림을 받게 됩니다.
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
-
 
 다음 절차에서는 Azure CLI를 사용하여 [Pet Clinic 샘플](https://github.com/azure-samples/spring-petclinic-microservices)을 배포하도록 구성 서버를 설정합니다.
 
@@ -91,24 +90,24 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 
 다음 절차에서는 구성 서버 설정 문제를 해결하는 방법을 설명합니다.
 
-1. Azure Portal에서 서비스 **개요** 페이지로 이동하여 **로그** 를 선택합니다. 
-1. **쿼리** 를 선택하고 **"오류" 또는 "예외" 용어"가 포함된 애플리케이션 로그 표시** 를 선택합니다. 
-1. **실행** 을 클릭합니다. 
+1. Azure Portal에서 서비스 **개요** 페이지로 이동하여 **로그** 를 선택합니다.
+1. **쿼리** 를 선택하고 **"오류" 또는 "예외" 용어"가 포함된 애플리케이션 로그 표시** 를 선택합니다.
+1. **실행** 을 선택합니다.
 1. 로그에서 **java.lang.illegalStateException** 오류가 발견되면 Spring Cloud Service가 구성 서버에서 속성을 찾을 수 없음을 나타냅니다.
 
     [ ![ASC 포털 실행 쿼리](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
 
 1. 서비스 **개요** 페이지로 이동합니다.
-1. **문제 진단 및 해결** 을 선택합니다. 
+1. **문제 진단 및 해결** 을 선택합니다.
 1. **Config Server** 감지기를 선택합니다.
 
     [ ![ASC 포털 문제 진단](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
 
-3. **Config Serve 상태 확인** 을 클릭합니다.
+1. **Config Serve 상태 확인** 을 선택합니다.
 
     [ ![ASC 포털 지니](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
 
-4. **Config Server 상태** 를 클릭하여 감지기에서 자세한 정보를 확인합니다.
+1. **Config Server 상태** 를 선택하여 감지기에서 자세한 정보를 확인합니다.
 
     [ ![ASC 포털 상태](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 

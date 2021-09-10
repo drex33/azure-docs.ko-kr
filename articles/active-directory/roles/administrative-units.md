@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0cdaefcc92a1a690ae3e3e222053976c3aa3178
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 26b91b216c6a813270cf3b30cde0d8450f964668
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730805"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734479"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Azure Active Directory의 관리 단위
 
@@ -33,9 +33,9 @@ ms.locfileid: "113730805"
 
 중앙 관리자는 다음과 같은 작업을 할 수 있습니다.
 
-- 경영대학 관리 단위에 속한 Azure AD 사용자만 관리할 수 있는 역할을 만듭니다.
 - 경영대학의 관리 단위를 만듭니다.
-- 관리 단위를 경영대학 학생 및 교직원으로만 채웁니다.
+- 경영대학 내의 학생과 직원으로만 관리 단위를 채웁니다.
+- 경영대학 관리 단위에 속한 Azure AD 사용자에 대해서만 관리 권한이 있는 역할을 만듭니다.
 - 경영대학 IT 팀을 해당 범위와 함께 역할에 추가합니다.
 
 ## <a name="license-requirements"></a>라이선스 요구 사항

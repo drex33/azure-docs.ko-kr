@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ada4235539c96fee6969f9731c1b5a63934e825
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: ba229ed81cd5ece4a6013654a11c21740c00c844
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112115613"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254064"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure Files의 공유 스냅샷 개요
 Azure 파일은 파일 공유의 공유 스냅샷을 생성하는 기능을 제공합니다. 공유 스냅샷은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅샷이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.
@@ -67,7 +67,7 @@ http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.
 
 공유 스냅샷이 증분식으로 저장되더라도 공유를 복원하려면 가장 최근의 공유 스냅샷만 유지해야 합니다. 공유 스냅샷을 삭제하면 해당 공유 스냅샷에 고유한 데이터만 제거됩니다. 활성 스냅샷에는 (공유 스냅샷을 생성한 시점부터) 데이터를 찾아서 원래 위치 또는 다른 위치로 복원하는 데 필요한 모든 정보가 들어 있습니다. 항목 수준에서 복원 할 수 있습니다.
 
-스냅샷은 5TB 공유 제한에 포함되지 않습니다. 공유 스냅샷이 차지하는 총 공간에는 제한이 없습니다. 다만 스토리지 계정 제한은 여전히 적용됩니다.
+스냅샷은 공유 크기 제한을 계산하지 않습니다. 공유 스냅샷이 차지하는 총 공간에는 제한이 없습니다. 다만 스토리지 계정 제한은 여전히 적용됩니다.
 
 ## <a name="limits"></a>제한
 

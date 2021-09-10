@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e76245c9ad08a9a826e1d0431c2dd01b61a6b860
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a79a3d87fb7937c01896a30076385e86c65ad4bc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077575"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691726"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>자습서: Windows VM에 대한 재해 복구를 사용하도록 설정
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 이 자습서에서는 Windows를 실행하는 Azure VM에 대한 재해 복구를 설정하는 방법을 보여줍니다. 이 문서에서는 다음 방법을 알아봅니다.
 

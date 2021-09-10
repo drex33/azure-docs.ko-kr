@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Sentinel에서 자동화 규칙으로 플레이북 사용'
+title: Azure Sentinel에서 자동화 규칙으로 플레이북 사용
 description: 이 자습서는 Azure Sentinel의 자동화 규칙과 함께 플레이북을 사용하여 인시던트 응답을 자동화하고 보안 위협을 해결하는 데 도움이 됩니다.
 services: sentinel
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: a9411d044a8c176387d8b9900ca56a7512c4a0de
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 152b034fe5fd5571ec58c001a8befc98c84f4107
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112458329"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737551"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화 규칙으로 플레이북 사용
 
@@ -33,6 +33,10 @@ ms.locfileid: "112458329"
 > * 플레이북 만들기
 > * 플레이북에 작업 추가
 > * 자동화 규칙 또는 분석 규칙에 플레이북을 연결하여 위협 대응 자동화
+
+> [!NOTE]
+> 이 자습서는 주요 고객 작업인 인시던트 분류를 위한 자동화 만들기에 대한 기본 지침을 제공합니다. 자세한 내용은 [Azure Sentinel에서 플레이북으로 위협 대응 자동화](automate-responses-with-playbooks.md) 및 [Azure Sentinel 플레이북에서 트리거 및 작업 사용](playbook-triggers-actions.md)과 같은 **방법** 섹션을 참조하세요.
+>
 
 ## <a name="what-are-automation-rules-and-playbooks"></a>자동화 규칙 및 플레이북이란?
 
@@ -124,7 +128,7 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
    만들고 있는 플레이북의 유형과 일치하는 트리거를 선택합니다.
 
     > [!NOTE]
-    > **인시던트 트리거** 를 기반으로 하는 플레이북만 자동화 규칙을 통해 호출할 수 있습니다. **경고 트리거** 를 기반으로 하는 플레이북은 [분석 규칙](tutorial-detect-threats-custom.md#set-automated-responses-and-create-the-rule)에서 직접 실행되도록 정의해야 하며 수동으로 실행할 수도 있습니다.
+    > **인시던트 트리거** 를 기반으로 하는 플레이북만 자동화 규칙을 통해 호출할 수 있습니다. **경고 트리거** 를 기반으로 하는 플레이북은 [분석 규칙](detect-threats-custom.md#set-automated-responses-and-create-the-rule)에서 직접 실행되도록 정의해야 하며 수동으로 실행할 수도 있습니다.
     > 
     > 사용할 트리거에 대한 자세한 내용은 [**Azure Sentinel 플레이북에서 트리거 및 작업 사용**](playbook-triggers-actions.md)을 참조하세요.
 
@@ -205,7 +209,7 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
 
 ### <a name="respond-to-alerts"></a>경고에 대응
 
-플레이북을 사용하여 **경고** 에 대응할 수 있습니다. [분석 규칙 마법사](tutorial-detect-threats-custom.md)에서 경고가 생성될 때 실행되는 **분석 규칙** 을 만들거나 기존 규칙을 편집하고 플레이북을 자동 응답으로 선택하면 됩니다.
+플레이북을 사용하여 **경고** 에 대응할 수 있습니다. [분석 규칙 마법사](detect-threats-custom.md)에서 경고가 생성될 때 실행되는 **분석 규칙** 을 만들거나 기존 규칙을 편집하고 플레이북을 자동 응답으로 선택하면 됩니다.
 
 1. Azure Sentinel 탐색 메뉴의 **분석** 블레이드에서 대응을 자동화할 분석 규칙을 선택하고, 세부 정보 창에서 **편집** 을 클릭합니다.
 

@@ -6,12 +6,12 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 04/27/2021
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: 9cc8f3659633d7029729a006c0fdebd001f2fe46
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 55f7ec48ba940f57daf0b97cf4bf4d82b38c5e75
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "109752961"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730667"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>App Service에서 Ruby on Rails 앱 만들기
 
@@ -31,31 +31,39 @@ ms.locfileid: "109752961"
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-터미널 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
+1. 터미널 창에서 샘플 애플리케이션을 로컬 머신에 복제하고 샘플 코드가 포함된 디렉터리로 이동합니다. 
 
-```bash
-git clone https://github.com/Azure-Samples/ruby-docs-hello-world
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/ruby-docs-hello-world
+    cd ruby-docs-hello-world
+    ```
 
-## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
+1. 기본 분기가 `main`인지 확인합니다.
 
-애플리케이션을 로컬로 실행하여 Azure에 애플리케이션을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고, `hello-world` 디렉터리로 변경하고, `rails server` 명령을 사용하여 서버를 시작합니다.
+    ```bash
+    git branch -m main
+    ```
+    
+    > [!TIP]
+    > App Service에는 분기 이름 변경이 필요하지 않습니다. 그러나 많은 리포지토리가 기본 분기를 `main`으로 변경하고 있으므로 이 자습서에서는 `main`에서 리포지토리를 배포하는 방법도 보여 줍니다. 자세한 내용은 [배포 분기 변경](deploy-local-git.md#change-deployment-branch)을 참조하세요.
 
-첫 번째 단계는 필요한 Gem을 설치하는 것입니다. 샘플에 포함된 `Gemfile`이 있으므로 다음 명령을 실행하기만 하면 됩니다.
+## <a name="run-the-application-locally"></a>애플리케이션을 로컬로 실행
 
-```bash
-bundle install
-```
+1. 필요한 gem을 설치합니다. 샘플에 포함된 `Gemfile`이 있으므로 다음 명령을 실행하기만 하면 됩니다.
 
-Gem이 설치되면 번들러를 사용하여 앱을 시작합니다.
+    ```bash
+    bundle install
+    ```
 
-```bash
-bundle exec rails server
-```
+1. gem이 설치되면 앱을 시작합니다.
 
-웹 브라우저를 사용하여 `http://localhost:3000`으로 이동한 후 앱을 로컬로 테스트합니다.
+    ```bash
+    bundle exec rails server
+    ```
 
-![Hello World가 구성됨](./media/quickstart-ruby/hello-world-updated.png)
+1. 웹 브라우저를 사용하여 `http://localhost:3000`으로 이동한 후 앱을 로컬로 테스트합니다.
+
+    ![Hello World가 구성됨](./media/quickstart-ruby/hello-world-updated.png)
 
 [!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
@@ -67,45 +75,70 @@ bundle exec rails server
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
+1. `myAppServicePlan` App Service 계획에서 [웹앱](overview.md#app-service-on-linux)을 만듭니다. 
 
-기본 제공 이미지를 사용하여 새로 만든 웹앱을 보려면 앱으로 이동합니다. _&lt;앱 이름>_ 을 해당하는 웹앱 이름으로 바꿉니다.
+    Cloud Shell에서 [`az webapp create`](/cli/azure/webapp) 명령을 사용할 수 있습니다. 다음 예에서 `<app-name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 런타임은 `RUBY|2.6.2`으로 설정됩니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes --linux`](/cli/azure/webapp)를 실행합니다. 
 
-```bash
-http://<app_name>.azurewebsites.net
-```
+    ```azurecli-interactive
+    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'RUBY|2.6.2' --deployment-local-git
+    ```
 
-새로운 웹앱은 다음과 같아야 합니다.
+    웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
 
-![시작 페이지](./media/quickstart-ruby/splash-page.png)
+    <pre>
+    Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
+    {
+      "availabilityState": "Normal",
+      "clientAffinityEnabled": true,
+      "clientCertEnabled": false,
+      "cloningInfo": null,
+      "containerSize": 0,
+      "dailyMemoryTimeQuota": 0,
+      "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+      "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
+      "enabled": true,
+      &lt; JSON data removed for brevity. &gt;
+    }
+    </pre>
+    
+    git 배포를 활성화하여 새 빈 웹앱을 만들었습니다.
+
+    > [!NOTE]
+    > Git 원격의 URL은 `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git` 형식으로 `deploymentLocalGitUrl` 속성에 표시됩니다. 나중에 필요하므로 이 URL을 저장합니다.
+    >
+
+1. 기본 제공 이미지를 사용하여 새로 만든 웹앱을 보려면 앱으로 이동합니다. _&lt;app-name>_ 을 웹앱 이름으로 바꿉니다.
+
+    ```bash
+    http://<app_name>.azurewebsites.net
+    ```
+
+    새로운 웹앱은 다음과 같아야 합니다.
+
+    ![시작 페이지](./media/quickstart-ruby/splash-page.png)
 
 ## <a name="deploy-your-application"></a>애플리케이션 배포
 
-다음 명령을 실행하여 Azure 웹앱에 로컬 애플리케이션을 배포합니다.
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure-no-h.md)] 
 
-```bash
-git remote add azure <Git deployment URL from above>
-git push azure main
-```
+   <pre>
+   remote: Using turbolinks 5.2.0
+   remote: Using uglifier 4.1.20
+   remote: Using web-console 3.7.0
+   remote: Bundle complete! 18 Gemfile dependencies, 78 gems now installed.
+   remote: Bundled gems are installed into `/tmp/bundle`
+   remote: Zipping up bundle contents
+   remote: .......
+   remote: ~/site/repository
+   remote: Finished successfully.
+   remote: Running post deployment command(s)...
+   remote: Deployment successful.
+   remote: App container will begin restart within 10 seconds.
+   To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+      a6e73a2..ae34be9  main -> main
+   </pre>
 
-원격 배포 작업이 성공을 보고하는지 확인합니다. 이 명령은 다음 텍스트와 유사한 출력을 생성합니다.
-
-```bash
-remote: Using turbolinks 5.2.0
-remote: Using uglifier 4.1.20
-remote: Using web-console 3.7.0
-remote: Bundle complete! 18 Gemfile dependencies, 78 gems now installed.
-remote: Bundled gems are installed into `/tmp/bundle`
-remote: Zipping up bundle contents
-remote: .......
-remote: ~/site/repository
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
-To https://<app-name>.scm.azurewebsites.net/<app-name>.git
-   a6e73a2..ae34be9  main -> main
-```
+## <a name="browse-to-the-app"></a>앱으로 이동
 
 배포가 완료되면 웹앱이 다시 시작될 때까지 10초 정도 기다린 후 웹앱으로 이동하여 결과를 확인합니다.
 

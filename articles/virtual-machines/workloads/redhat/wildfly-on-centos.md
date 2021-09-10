@@ -11,14 +11,16 @@ ms.subservice: redhat
 ms.custom:
 - mode-api
 ms.collection: linux
-ms.openlocfilehash: 1f7bc4bcefe7535e531fcd8288a6dce0e93696e0
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: b2903ebbbeee8a33a0acfe37ada7c8f9cc13a85e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113486124"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696738"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>빠른 시작: CentOS 8 기반 WildFly
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 이 빠른 시작에서는 CentOS 8 VM의 WildFly 독립 실행형 노드를 배포하는 방법을 보여 줍니다. 이는 Azure에서 엔터프라이즈 Java 애플리케이션을 개발하고 테스트하는 데 적합합니다. 애플리케이션 서버 구독은 이 빠른 시작을 배포하는 데 필요하지 않습니다.
 

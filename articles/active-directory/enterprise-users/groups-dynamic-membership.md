@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/18/2021
+ms.date: 08/06/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d93acbfa8ae89b459fafb69411d35706b18fcbb
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 9551906dc3a80a07597fc8406228a5869688d317
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982991"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750566"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -176,25 +176,25 @@ David는 true로 평가되고, Da는 false로 평가됩니다.
 
 식에 사용된 값은 다음을 포함하여 여러 형식으로 구성할 수 있습니다.
 
-* 문자열
-* 부울 – true, false
-* 숫자
-* 배열 - 숫자 배열, 문자열 배열
+- 문자열
+- 부울 – true, false
+- 숫자
+- 배열 - 숫자 배열, 문자열 배열
 
 식 내에서 값을 지정하는 경우 올바른 구문을 사용하여 오류를 방지해야 합니다. 구문 팁 일부는 다음과 같습니다.
 
-* 값이 문자열이 아니면 큰따옴표는 선택 사항입니다.
-* 문자열 및 regex 연산은 대/소문자를 구분하지 않습니다.
-* 문자열 값에 큰따옴표가 포함되면 두 큰따옴표에서 모두 \` 문자를 사용하여 이스케이프해야 합니다. 예를 들어 "Sales"가 값인 경우 user.department -eq \`"Sales\`"가 올바른 구문입니다.
-* null을 값으로 사용하여 Null 검사를 수행할 수도 있습니다(예: `user.department -eq null`).
+- 값이 문자열이 아니면 큰따옴표는 선택 사항입니다.
+- 문자열 및 regex 연산은 대/소문자를 구분하지 않습니다.
+- 문자열 값에 큰따옴표가 포함되면 두 큰따옴표에서 모두 \` 문자를 사용하여 이스케이프해야 합니다. 예를 들어 "Sales"가 값인 경우 user.department -eq \`"Sales\`"가 올바른 구문입니다. 작은따옴표는 매번 한 개가 아닌 두 개의 작은따옴표를 사용하여 이스케이프해야 합니다.
+- null을 값으로 사용하여 Null 검사를 수행할 수도 있습니다(예: `user.department -eq null`).
 
 ### <a name="use-of-null-values"></a>Null 값 사용
 
 규칙에 null 값을 지정하려면 *null* 값을 사용할 수 있습니다. 
 
-* 식에서 *null* 값을 비교하는 경우 -eq 또는 -ne를 사용합니다.
-* 리터럴 문자열 값으로 해석되도록 하려면 *null* 단어 주위에 따옴표를 사용합니다.
-* -not 연산자는 null에 대한 비교 연산자로 사용할 수 없습니다. 이 연산자를 사용할 경우 null을 사용하든 아니면 $null을 사용하든 오류가 발생합니다.
+- 식에서 *null* 값을 비교하는 경우 -eq 또는 -ne를 사용합니다.
+- 리터럴 문자열 값으로 해석되도록 하려면 *null* 단어 주위에 따옴표를 사용합니다.
+- -not 연산자는 null에 대한 비교 연산자로 사용할 수 없습니다. 이 연산자를 사용할 경우 null을 사용하든 아니면 $null을 사용하든 오류가 발생합니다.
 
 null 값을 참조하는 올바른 방법은 다음과 같습니다.
 
@@ -241,9 +241,9 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 
 멤버 자격 규칙은 속성, 연산자 및 값에서 더 복잡한 형식을 사용하는 복잡한 식으로 구성할 수 있습니다. 다음 중 하나가 충족되면 해당 식이 복잡한 식으로 간주됩니다.
 
-* 속성이 값의 컬렉션, 특히 다중 값이 있는 속성으로 구성됩니다.
-* 식에서 -any 및 -all 연산자를 사용합니다.
-* 식의 값 자체가 하나 이상의 식일 수 있습니다.
+- 속성이 값의 컬렉션, 특히 다중 값이 있는 속성으로 구성됩니다.
+- 식에서 -any 및 -all 연산자를 사용합니다.
+- 식의 값 자체가 하나 이상의 식일 수 있습니다.
 
 ## <a name="multi-value-properties"></a>다중 값 속성
 
@@ -258,8 +258,8 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 
 -any 및 -all 연산자를 사용하여 각각 컬렉션의 항목 중 하나 또는 모두에 조건을 적용할 수 있습니다.
 
-* -any(컬렉션에서 적어도 하나의 항목이 조건과 일치하는 경우 충족)
-* -all(컬렉션에서 모든 항목이 조건과 일치하는 경우 충족)
+- -any(컬렉션에서 적어도 하나의 항목이 조건과 일치하는 경우 충족)
+- -all(컬렉션에서 모든 항목이 조건과 일치하는 경우 충족)
 
 #### <a name="example-1"></a>예 1
 
@@ -357,8 +357,8 @@ device.objectId -ne null
 
 [사용자 지정 확장 속성](../hybrid/how-to-connect-sync-feature-directory-extensions.md)은 온-프레미스 Windows Server AD 또는 연결된 SaaS 애플리케이션에서 동기화되며 `user.extension_[GUID]_[Attribute]` 형식입니다. 여기서
 
-* [GUID]는 Azure AD에서 속성을 만든 애플리케이션에 대한 Azure AD의 고유 식별자입니다.
-* [Attribute]는 Azure AD에서 만든 속성의 이름입니다.
+- [GUID]는 Azure AD에서 속성을 만든 애플리케이션에 대한 Azure AD의 고유 식별자입니다.
+- [Attribute]는 Azure AD에서 만든 속성의 이름입니다.
 
 사용자 지정 확장 속성을 사용하는 규칙의 예제는 다음과 같습니다.
 

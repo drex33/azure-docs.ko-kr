@@ -7,18 +7,18 @@ ms.subservice: core
 ms.topic: overview
 author: peterclu
 ms.author: peterlu
-ms.date: 08/24/2020
+ms.date: 08/23/2021
 adobe-target: true
-ms.openlocfilehash: ca53c42c5c80a86e50db5ac52e6efee75c17cd8e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f52c27bbcd0f289028f51c6fcb1fa22ae321f8b4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770644"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695772"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
-이 문서에서는 [Azure Machine Learning](overview-what-is-azure-ml.md)의 데이터 과학자 개발자를 위한 웹 포털인 Azure Machine Learning 스튜디오에 대해 알아봅니다. 스튜디오는 포괄적인 데이터 과학 플랫폼을 위해 코드 없는 환경과 코드 우선 환경을 결합합니다.
+이 문서에서는 [Azure Machine Learning](overview-what-is-azure-machine-learning.md)의 데이터 과학자 개발자를 위한 웹 포털인 Azure Machine Learning 스튜디오에 대해 알아봅니다. 스튜디오는 포괄적인 데이터 과학 플랫폼을 위해 코드 없는 환경과 코드 우선 환경을 결합합니다.
 
 이 문서에서는 다음에 대해 알아봅니다.
 >[!div class="checklist"]
@@ -27,7 +27,7 @@ ms.locfileid: "108770644"
 > - [Azure Machine Learning 스튜디오와 ML Studio(클래식)](#ml-studio-classic-vs-azure-machine-learning-studio) 간의 차이점.
 
 운영 체제와 호환되는 가장 최신 브라우저를 사용하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.
-  * Microsoft Edge(새로운 Microsoft Edge, 최신 버전. Microsoft Edge 레거시 아님)
+  * Microsoft Edge(최신 버전)
   * Safari(최신 버전, Mac만 해당)
   * Chrome(최신 버전)
   * Firefox(최신 버전)
@@ -52,7 +52,7 @@ ms.locfileid: "108770644"
 
   사용하기 쉬운 인터페이스로 [자동화된 ML 실험](tutorial-first-experiment-automated-ml.md)을 만드는 방법을 알아보세요. 
 
-  [![Azure Machine Learning Studio 탐색 창](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+  ![Azure Machine Learning 스튜디오 탐색 창의 AutoML](./media/overview-what-is-azure-ml-studio/azure-machine-learning-automated-ml-ui.jpg)
 
 + **데이터 레이블 지정**
 
@@ -76,17 +76,15 @@ ms.locfileid: "108770644"
 
 ## <a name="ml-studio-classic-vs-azure-machine-learning-studio"></a>ML Studio(클래식) 및 Azure Machine Learning 스튜디오
 
-2015년에 출시된 **ML Studio(클래식)** 는 첫 번째 끌어서 놓기 기계 학습 작성기였습니다. 
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
 
-**ML Studio(클래식)** 는 시각적 환경만 제공하는 독립 실행형 서비스입니다. Studio(클래식)는 Azure Machine Learning과 상호 운용되지 않습니다.
+2015년에 릴리스된 **ML Studio(클래식)** 는 Azure의 최초 끌어서 놓기 기계 학습 모델 작성기입니다. **ML Studio(클래식)** 는 시각적 환경만 제공하는 독립 실행형 서비스입니다. Studio(클래식)는 Azure Machine Learning과 상호 운용되지 않습니다.
 
 **Azure Machine Learning** 은 완전한 데이터 과학 플랫폼을 제공하는 별도의 현대화된 서비스입니다. 코드 우선 및 낮은 코드 환경을 모두 지원합니다.
 
 **Azure Machine Learning 스튜디오** 는 프로젝트 작성 및 자산 관리를 위한 낮은 코드와 코드 없음 옵션이 포함된 Azure Machine Learning *의* 웹 포털입니다. 
 
-새로운 사용자는 최신 데이터 과학 도구 범위에 ML Studio(클래식) 대신 **Azure Machine Learning** 을 선택하는 것이 좋습니다. 기존 ML Studio(클래식) 사용자인 경우 [Azure Machine Learning으로 마이그레이션](classic/migrate-overview.md)하는 것이 좋습니다.
-
-Azure Machine Learning으로 전환하면 다음과 같은 이점이 있습니다.
+신규 사용자인 경우 ML Studio(클래식) 대신 **Azure Machine Learning** 을 선택합니다. 완전한 ML 플랫폼인 Azure Machine Learning은 다음을 제공합니다.
 
 - 대규모 학습을 위한 확장 가능한 컴퓨팅 클러스터.
 - 엔터프라이즈 보안 및 거버넌스.

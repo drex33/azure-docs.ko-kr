@@ -10,12 +10,12 @@ ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca738136984941b050c0ae3a7c2408273724b1cd
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: d3a1fe8f4b06601ed6b3e77ffa5743506e923ec4
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112379279"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771753"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
@@ -98,8 +98,8 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 | 권한 부여 유형  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | 지원됨      | 지원되지 않음   | 지원됨     |
-| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨      | 지원 여부        | 지원 여부     |
-| [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)    | 지원 여부      | 지원 여부        | 지원 여부     |
+| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨      | 지원됨        | 지원 여부     |
+| [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)    | 지원 여부      | 지원됨        | 지원 여부     |
 
 ## <a name="firewall-protected-storage"></a>방화벽으로 보호된 스토리지
 
@@ -195,7 +195,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 ### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
 
-해당 인스턴스의 [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 [신뢰할 수 있는 Microsoft 서비스 허용... 설정](../../storage/common/storage-network-security.md#trusted-microsoft-services) 및 명시적으로 [Azure 역할 할당](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)이 필요합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다.
+해당 인스턴스의 [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 [신뢰할 수 있는 Microsoft 서비스 허용... 설정](../../storage/common/storage-network-security.md#trusted-microsoft-services) 및 명시적으로 [Azure 역할 할당](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)이 필요합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다.
 
 ### <a name="anonymous-access"></a>[익명 액세스](#tab/public-access)
 

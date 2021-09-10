@@ -9,16 +9,18 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 04319066c59dda5d240f527d86894674a505eaed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f54e9b80bc6babe90093e45d6a9b7400fa0a5b5
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669350"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698133"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-a-resource-manager-template"></a>Resource Manager 템플릿을 이용해 Azure Spot Virtual Machines 배포하기
 
-[Azure Spot Virtual Machines](../spot-vms.md)를 사용하면 사용되지 않는 용량을 활용하여 비용을 크게 절감할 수 있습니다. 언제든지 Azure에 용량이 다시 필요하면 Azure 인프라가 Azure Spot Virtual Machines를 제거합니다. 따라서 Azure Spot Virtual Machines는 일괄 처리 작업, 개발/테스트 환경, 대규모 컴퓨팅 워크로드 등과 같이 중단을 처리할 수 있는 워크로드에 매우 적합합니다.
+**적용 대상:** :heavy_check_mark: Linux VM
+
+[Azure Spot Virtual Machines](../spot-vms.md)를 사용하면 사용되지 않는 용량을 활용하여 비용을 크게 절감할 수 있습니다. Azure에 용량이 다시 필요한 경우 언제든지 인프라에서 Azure 스폿 가상 머신을 제거합니다. 따라서 Azure Spot Virtual Machines는 일괄 처리 작업, 개발/테스트 환경, 대규모 컴퓨팅 워크로드 등과 같이 중단을 처리할 수 있는 워크로드에 매우 적합합니다.
 
 Azure Spot Virtual Machines의 가격 책정은 지역과 SKU에 따라 다릅니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에 대한 VM 가격 책정을 참조하세요.
 

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/01/2021
-ms.openlocfilehash: 9e42ff971f2ea0a374fe40815ac8cf7fddb29189
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/30/2021
+ms.openlocfilehash: b2c174fce6e79b574276d1f95cfc4e1c93c321cd
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642967"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123318381"
 ---
 # <a name="copy-data-from-or-to-mongodb-atlas-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB Atlas에서 또는 MongoDB Atlas로 데이터 복사
 
@@ -36,13 +36,39 @@ MongoDB Atlas 데이터베이스에서 지원되는 싱크 데이터 저장소�
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## <a name="create-a-linked-service-to-mongodb-atlas-using-ui"></a>UI를 사용하여 MongoDB Atlas에 연결된 서비스 만들기
+
+다음 단계를 사용하여 Azure Portal UI에서 MongoDB Atlas에 연결된 서비스를 만듭니다.
+
+1. Azure Data Factory 또는 Synapse 작업 영역에서 관리 탭으로 이동하고 연결된 서비스를 선택한 다음 새로 만들기를 클릭합니다.
+
+    # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Azure Data Factory UI를 사용하여 새 연결된 서비스를 만듭니다.":::
+
+    # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Azure Synapse UI를 사용하여 새 연결된 서비스를 만듭니다.":::
+
+2. MongoDB를 검색하고 MongoDB Atlas 커넥터를 선택합니다.
+
+    :::image type="content" source="media/connector-mongodb-atlas/mongodb-atlas-connector.png" alt-text="MongoDB Atlas 커넥터를 선택합니다.":::    
+
+1. 서비스 세부 정보를 구성하고 연결을 테스트하고 새 연결된 서비스를 만듭니다.
+
+    :::image type="content" source="media/connector-mongodb-atlas/configure-mongodb-atlas-linked-service.png" alt-text="MongoDB Atlas에 연결된 서비스를 구성합니다.":::
+
+## <a name="connector-configuration-details"></a>커넥터 구성 세부 정보
+
+
+
 다음 섹션에서는 MongoDB Atlas 커넥터와 관련된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
 MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type |형식 속성은 **MongoDbAtlas** 로 설정해야 합니다. |예 |
 | connectionString |MongoDB Atlas 연결 문자열을 지정합니다(예: `mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>`). <br/><br /> Azure Key Vault에 연결 문자열을 넣을 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. |예 |
@@ -72,7 +98,7 @@ MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. MongoDB Atlas 데이터 세트에 대해 다음 속성을 지원합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **MongoDbAtlasCollection** 으로 설정해야 합니다. | 예 |
 | collectionName |MongoDB Atlas 데이터베이스에 있는 컬렉션의 이름입니다. |예 |
@@ -104,7 +130,7 @@ MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 
 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **MongoDbAtlasSource** 로 설정해야 합니다. | 예 |
 | filter | 쿼리 연산자를 사용하여 선택 영역 필터를 지정합니다. 컬렉션의 모든 문서를 반환하려면 이 매개 변수를 생략하거나 빈 문서({})를 전달합니다. | 예 |
@@ -159,7 +185,7 @@ MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 
 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성을 **MongoDbAtlasSink** 로 설정해야 합니다. |예 |
 | writeBehavior |MongoDB Atlas에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 동작은 동일한 `_id`의 문서가 이미 존재하는 경우 문서를 바꾸는 것으로, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: `_id`가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 `_id`를 자동으로 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |예<br />(기본값: **insert**) |

@@ -1,27 +1,54 @@
 ---
-title: '자습서: Azure IoT Central을 사용하여 용수 사용량 모니터링 앱 만들기'
-description: '자습서: Azure IoT Central 애플리케이션 템플릿을 사용하여 용수 사용량 모니터링 애플리케이션을 만드는 방법을 알아봅니다.'
+title: 자습서 - Azure IoT 물 소비량 모니터링 | Microsoft Docs
+description: 이 자습서에서는 IoT Central용 물 소비량 모니터링 애플리케이션 템플릿을 배포하고 사용하는 방법을 보여 줍니다.
 author: miriambrus
 ms.author: miriamb
-ms.date: 12/11/2020
+ms.date: 08/02/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: df5752760dcb9968b44243fb4c2d2412698267df
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 5b27c9b26c71fba3f5acbd326ff78514212c00ef
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588996"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183777"
 ---
-# <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>자습서: Azure IoT Central을 사용하여 용수 사용량 모니터링 애플리케이션 만들기
+# <a name="tutorial--deploy-and-walk-through-the-water-consumption-monitoring-application"></a>자습서: 물 소비량 모니터링 애플리케이션 배포 및 살펴보기
 
-이 자습서에서는 Azure IoT Central 용수 사용량 모니터링 애플리케이션을 만드는 방법을 보여줍니다.
+IoT Central *물 소비량 모니터링* 애플리케이션 템플릿과 이 문서의 지침을 사용하여 엔드투엔드 물 소비량 모니터링 솔루션을 개발합니다.
 
-이 자습서에서는 다음 작업 방법을 배웁니다.
+![용수 사용량 모니터링 아키텍처](./media/tutorial-waterconsumptionmonitoring/concepts-waterconsumptionmonitoring-architecture1.png)
+
+### <a name="devices-and-connectivity"></a>디바이스 및 연결
+
+용수 관리 솔루션은 유량계, 용수 품질 모니터, 스마트 밸브, 누수 탐지기와 같은 스마트 워터 디바이스를 사용합니다.
+
+스마트 워터 솔루션의 LPWAN(저전력 광대역 네트워크) 또는 타사 네트워크 사업자를 통해 연결할 수 있습니다. 이러한 유형의 디바이스의 경우 [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md)를 사용하여 디바이스 데이터를 Azure IoT Central의 IoT 애플리케이션으로 전송합니다. IP 기능이 포함되고 IoT Central에 직접 연결할 수 있는 디바이스 게이트웨이를 사용할 수도 있습니다.
+
+### <a name="iot-central"></a>IoT Central
+
+Azure IoT Central은 IoT 솔루션을 신속하게 빌드하고 배포하는 데 도움이 되는 IoT 앱 플랫폼입니다. 솔루션을 브랜딩 및 사용자 지정하거나 타사 서비스와 통합할 수 있습니다.
+
+스마트 워터 디바이스를 IoT Central에 연결하면 애플리케이션에서 디바이스 명령 및 제어, 모니터링 및 경고, RBAC가 기본 제공된 사용자 인터페이스, 구성 가능한 대시보드, 확장성 옵션을 제공합니다.
+
+### <a name="extensibility-and-integrations"></a>확장성 및 통합
+
+Azure IoT Central에서 IoT 애플리케이션을 확장하고 필요에 따라 다음을 수행할 수 있습니다.
+
+* 고급 분석을 위해 IoT 데이터를 변환하고 통합합니다(예: IoT Central 애플리케이션에서 데이터를 지속적으로 내보내 기계 학습 모델 학습).
+* IoT Central 애플리케이션의 Power Automate 또는 웹후크를 사용해 작업을 트리거하여 다른 시스템의 워크플로를 자동화합니다.
+* Azure IoT Central API를 통해 Azure IoT Central에서 IoT 애플리케이션에 프로그래밍 방식으로 액세스합니다.
+
+### <a name="business-applications"></a>비즈니스 애플리케이션
+
+IoT 데이터를 사용하여 워터 유틸리티 내에서 다양한 비즈니스 애플리케이션을 지원할 수 있습니다. [IoT Central 용수 소비 모니터링 애플리케이션](tutorial-water-consumption-monitoring.md)에서 규칙 및 작업을 구성하고 [Connected Field Service](/dynamics365/field-service/connected-field-service)에서 경고를 만들도록 설정할 수 있습니다. IoT Central 규칙에서 Power Automate를 구성하여 애플리케이션 및 서비스에서 워크플로를 자동화합니다. 또한 Connected Field Service의 서비스 활동에 따라 정보를 Azure IoT Central로 다시 보낼 수 있습니다.
+
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
+
 > * Azure IoT Central 용수 사용량 모니터링 템플릿을 사용하여 용수 사용량 모니터링 애플리케이션을 만듭니다.
 > * 대시보드를 탐색하고 사용자 지정합니다.
 > * 디바이스 템플릿을 살펴봅니다.
@@ -30,55 +57,30 @@ ms.locfileid: "113588996"
 > * 작업을 구성합니다.
 > * 흰색 레이블 지정을 사용하여 애플리케이션 브랜딩을 사용자 지정합니다.
 
+## <a name="prerequisites"></a>사전 요구 사항
 
-## <a name="create-a-water-consumption-monitoring-app-with-azure-iot-central"></a>Azure IoT Central을 사용하여 용수 사용량 모니터링 앱 만들기
+* 이 앱을 배포하는 데 필요한 특정 필수 구성 요소가 없습니다.
+* 무료 가격 책정 요금제를 사용하거나 Azure 구독을 사용할 수 있습니다.
 
-이 섹션에서는 Azure IoT Central 용수 사용량 모니터링 템플릿을 사용하여 Azure IoT Central에서 용수 사용량 모니터링 애플리케이션을 만듭니다.
+## <a name="create-water-consumption-monitoring-application"></a>물 소비량 모니터링 애플리케이션 만들기
 
-새 Azure IoT Central 용수 사용량 모니터링 애플리케이션을 만들려면 다음을 수행합니다.
+다음 단계를 사용하여 애플리케이션을 만듭니다.
 
-1. [Azure IoT Central 홈페이지](https://aka.ms/iotcentral) 웹 사이트로 이동합니다.
+1. [Azure IoT Central 빌드](https://aka.ms/iotcentral) 사이트로 이동합니다. 그런 다음, Microsoft 개인, 회사 또는 학교 계정으로 로그인합니다. 왼쪽 탐색 모음에서 **빌드** 를 선택한 다음 **정부** 탭을 선택합니다. :::image type="content" source="media/tutorial-waterconsumptionmonitoring/iot-central-government-tab-overview1.png" alt-text="애플리케이션 템플릿":::
 
-    Azure 구독이 있으면 액세스하는 데 사용하는 자격 증명을 사용하여 로그인합니다. 그렇지 않으면 Microsoft 계정을 사용하여 로그인합니다.
+1. **물 소비량 모니터링** 에서 **앱 만들기** 를 선택합니다.
 
-    ![조직 계정 입력](media/tutorial-waterconsumptionmonitoring/sign-in.png)
+자세한 내용은 [IoT Central 애플리케이션 만들기](../core/howto-create-iot-central-application.md)를 참조하세요.
 
-1. 왼쪽 창에서 **빌드** 를 선택하고 **정부** 탭을 선택합니다. **정부** 페이지에는 몇 가지 정부 애플리케이션 템플릿이 표시됩니다.
+## <a name="walk-through-the-application"></a>애플리케이션 살펴보기
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png" alt-text="정부 앱 템플릿을 빌드합니다.":::
-  
+다음 섹션에서는 애플리케이션의 주요 기능을 안내합니다.
 
-1. **용수 사용량 모니터링** 애플리케이션 템플릿을 선택합니다.
-이 템플릿에는 용수 사용량 디바이스 템플릿 샘플, 시뮬레이션된 디바이스, 대시보드 및 미리 구성된 모니터링 규칙이 포함되어 있습니다.
-
-1. **앱 만들기** 를 선택하여 다음 필드가 있는 **새 애플리케이션** 만들기 양식을 엽니다.
-    * **애플리케이션 이름**: 이 애플리케이션에서는 기본적으로 *용수 사용량 모니터링* 뒤에 Azure IoT Central에서 생성하는 고유한 ID 문자열을 사용합니다. 필요에 따라 친숙한 애플리케이션 이름을 선택해도 됩니다. 애플리케이션 이름은 나중에 변경할 수도 있습니다.
-    * **URL**: Azure IoT Central에서 애플리케이션 이름에 기반한 URL을 자동으로 생성합니다. URL을 원하는 대로 업데이트하도록 선택할 수 있습니다. URL도 나중에 변경할 수 있습니다.
-    * Azure 구독이 있는 경우 **디렉터리**, **Azure 구독** 및 **위치** 정보를 입력합니다. 구독이 없는 경우 **7일 평가판** 옵션을 선택하고 필요한 연락처 정보를 작성할 수 있습니다.
-
-1. 페이지의 맨 아래에서 **만들기** 를 선택합니다.
-
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/new-application-water-consumption-monitoring.png" alt-text="Azure IoT Central 새 애플리케이션 페이지.":::
-
-    ![Azure IoT Central 청구 정보 페이지](./media/tutorial-waterconsumptionmonitoring/new-application-water-consumption-monitoring-billing-info.png)
-
-이제 Azure IoT Central 용수 사용량 모니터링 템플릿을 사용하여 용수 사용량 모니터링 앱을 만들었습니다.
-
-용수 사용량 모니터링 애플리케이션은 다음과 같이 미리 구성된 상태로 제공됩니다.
-
-* 샘플 대시보드.
-* 미리 정의된 용수 흐름 및 밸브 디바이스 템플릿 샘플
-* 시뮬레이션된 용수 흐름 및 스마트 밸브 디바이스
-* 규칙 및 작업
-* 샘플 브랜딩.
-
-빌드 중인 애플리케이션이므로 언제든지 수정할 수 있습니다. 다음으로, 애플리케이션을 살펴보고 몇 가지 사용자 지정을 수행합니다.
-
-## <a name="explore-and-customize-the-dashboard"></a>대시보드 탐색 및 사용자 지정
+### <a name="dashboard"></a>대시보드
 
 애플리케이션이 만들어지면 **Wide World 용수 사용량 대시보드** 샘플이 열립니다.
   
- :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-full.png" alt-text="용수 사용량 모니터링 대시보드.":::
+:::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-full.png" alt-text="용수 사용량 모니터링 대시보드.":::
 
 
 운영자의 대시보드에서 보기를 만들고 사용자 지정할 수 있습니다.
@@ -268,4 +270,4 @@ Azure IoT Central에서 작업을 사용하면 여러 디바이스에서 디바�
 
 ## <a name="next-steps"></a>다음 단계
  
-제안된 다음 단계는 [용수 사용량 모니터링 개념](./concepts-waterconsumptionmonitoring-architecture.md)에 대해 알아보는 것입니다.
+제안된 다음 단계는 [용수 품질 모니터링](./tutorial-water-quality-monitoring.md)에 대해 알아보는 것입니다.

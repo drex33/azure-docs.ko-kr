@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92bf7b7c1d2f24b7a858f6e9b786b84943651239
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 6f9fd7f2827e298f3273ad11ab104b75a7e81582
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810735"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121744832"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>예제: 실시간으로 비디오를 분석하는 방법
 
@@ -176,4 +176,4 @@ while (true)
 [GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 제안 사항을 보내주세요. 더 광범위한 API 피드백의 경우 [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743) 사이트를 이용하셔도 됩니다.
 
 ## <a name="related-topics"></a>관련 항목
-- [이미지에서 얼굴을 감지하는 방법](HowtoDetectFacesinImage.md)
+- [검색 API 호출](HowtoDetectFacesinImage.md)

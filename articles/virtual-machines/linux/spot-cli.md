@@ -9,20 +9,22 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 8e1d16ad0d3fd0e45917754b028c4af362a1e9f4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 81753681776ab4fd8ae42081ac3d5b0998d4f219
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142966"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692067"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Spot Virtual Machines 배포
 
-[Azure Spot Virtual Machines](../spot-vms.md)를 사용하면 대폭 절감된 비용으로 사용되지 않은 용량을 활용할 수 있습니다. Azure에 용량이 다시 필요한 경우 언제든지 인프라에서 Azure 스폿 가상 머신을 제거합니다. 따라서 Azure Spot Virtual Machines는 일괄 처리 작업, 개발/테스트 환경, 대용량 컴퓨팅 워크로드 등과 같은 중단을 처리할 수 있는 워크로드에 매우 적합합니다.
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
-Azure Spot Virtual Machines의 가격 책정은 지역과 SKU에 따라 가변적입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에 대한 VM 가격 책정을 참조하세요. 
+[Azure Spot Virtual Machines](../spot-vms.md)를 사용하면 사용되지 않는 용량을 활용하여 비용을 크게 절감할 수 있습니다. Azure에 용량이 다시 필요한 경우 언제든지 인프라에서 Azure 스폿 가상 머신을 제거합니다. 따라서 Azure Spot Virtual Machines는 일괄 처리 작업, 개발/테스트 환경, 대규모 컴퓨팅 워크로드 등과 같이 중단을 처리할 수 있는 워크로드에 매우 적합합니다.
 
-VM에 대해 시간당 지불할 최고 가격을 설정하는 옵션이 있습니다. Azure Spot Virtual Machine 한 대당 최고 가격을 미국 달러(USD)로 최대 소수점 5자릿수까지 설정할 수 있습니다. 예를 들어 `0.98765` 값은 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을 `-1`로 설정하는 경우 가격에 따라 VM이 제거되지 않습니다. VM의 가격은 사용 가능한 용량과 할당량을 초과하는 경우 Azure Spot Virtual Machines의 현재 가격과 표준 VM의 가격 중에서 더 작은 가격이 됩니다. 최고 가격을 설정하는 방법에 대한 자세한 내용은 [Azure Spot Virtual Machines - 가격 책정](../spot-vms.md#pricing)을 참조하세요.
+Azure Spot Virtual Machines의 가격 책정은 지역과 SKU에 따라 다릅니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에 대한 VM 가격 책정을 참조하세요. 
+
+VM에 대해 시간당 지불할 최고 가격을 설정하는 옵션이 있습니다. Azure Spot Virtual Machine 한 대당 최고 가격을 미국 달러(USD)로 최대 소수 자릿수 5자리까지 설정할 수 있습니다. 예를 들어 `0.98765` 값은 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을 `-1`로 설정하는 경우 가격에 따라 VM이 제거되지 않습니다. VM의 가격은 사용 가능한 용량과 할당량을 초과하는 경우 Azure Spot Virtual Machines의 현재 가격과 표준 VM의 가격 중에서 더 작은 가격이 됩니다. 최고 가격을 설정하는 방법에 대한 자세한 내용은 [Azure Spot Virtual Machines - 가격 책정](../spot-vms.md#pricing)을 참조하세요.
 
 Azure CLI를 사용하여 Azure Spot Virtual Machines를 만드는 프로세스는 [빠른 시작 문서](./quick-create-cli.md)에 자세히 설명된 것과 같습니다. '--priority Spot' 매개 변수를 추가하고 `--eviction-policy`를 할당 취소(기본값) 또는 `Delete`로 설정한 후 최대 가격 또는 `-1`을 제공합니다. 
 
@@ -69,7 +71,7 @@ az vm list \
 
 REST, PowerShell 또는 CLI를 사용하여 Azure Spot Virtual Machine 제거를 시뮬레이션하여 애플리케이션이 갑작스러운 제거에 얼마나 잘 대응하는지 테스트할 수 있습니다.
 
-대부분의 경우 REST API [가상 머신 - 제거 시뮬레이션](/rest/api/compute/virtualmachines/simulateeviction)을 사용하면 애플리케이션의 자동화된 테스트에 도움이 됩니다. REST의 경우 `Response Code: 204`가 나타나면 제거 시뮬레이션이 성공적으로 완료되었음을 의미합니다. 제거 시뮬레이션을 [예약된 이벤트 서비스](scheduled-events.md)와 결합하면 VM 제거 시 앱의 대응 방식을 자동화할 수 있습니다.
+대부분의 경우 REST API [가상 머신 - 제거 시뮬레이션](/rest/api/compute/virtualmachines/simulateeviction)을 사용하면 애플리케이션의 자동화된 테스트에 도움이 됩니다. REST의 경우 `Response Code: 204`가 나타나면 제거 시뮬레이션이 성공적으로 완료되었음을 의미합니다. 제거 시뮬레이션을 [ 서비스](scheduled-events.md)와 결합하면 VM 제거 시 앱의 대응 방식을 자동화할 수 있습니다.
 
 작동 중인 예약된 이벤트를 보려면 [Azure Friday - Azure Scheduled Events를 사용하여 VM 유지 관리에 대비](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance)합니다.
 
@@ -80,7 +82,7 @@ REST, PowerShell 또는 CLI를 사용하여 Azure Spot Virtual Machine 제거를
 
 예약된 이벤트는 이벤트에 대한 요청을 처음 수행하는 서비스에 대해 사용할 수 있습니다. 
 
-VM에 원격으로 연결한 다음, 명령 프롬프트를 엽니다. 
+VM에 원격으로 연결한 다음 명령 프롬프트를 엽니다. 
 
 VM의 명령 프롬프트에서 다음을 입력합니다.
 

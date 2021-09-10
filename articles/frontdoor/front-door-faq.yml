@@ -12,12 +12,12 @@ metadata:
   ms.workload: infrastructure-services
   ms.date: 06/10/2021
   ms.author: duau
-  ms.openlocfilehash: 790f1d8d69fb70556bb083e95e50039e4fbd4c1a
-  ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+  ms.openlocfilehash: 4f846d521473c483f7e127df13b5305e7b9cd6de
+  ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/23/2021
-  ms.locfileid: "112553798"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122324584"
 title: Azure Front Door에 대한 자주 묻는 질문
 summary: >
   이 문서에서는 Azure Front Door의 특징 및 기능에 대한 일반적인 질문에 답변합니다. 질문에 대한 답을 찾지 못한 경우 다음 채널을 통해 (제시된 채널 순서에 따라) 문의할 수 있습니다.
@@ -68,7 +68,7 @@ sections:
   - question: >
       Azure Front Door 에지 위치는 어디인가요?
     answer: >
-      Azure Front Door 에지 위치에 대한 전체 목록은 [Azure Front Door 에지 위치](edge-locations-by-region.md)를 참조하세요.
+      Azure Front Door 에지 위치의 전체 목록은 [Azure Front Door 에지 위치](edge-locations-by-region.md)를 참조하세요.
   - question: >
       Azure Front Door는 내 애플리케이션에 대한 전용 배포인가요? 아니면 고객 간에 공유되나요?
     answer: >
@@ -95,7 +95,7 @@ sections:
     answer: "예, Azure Front Door는 X-Forwarded-For, X-Forwarded-Host, X-Forwarded-Proto 헤더를 지원합니다. X-Forwarded-For 헤더가 이미 있는 경우에는 Front Door가 클라이언트 소켓 IP를 해당 헤더에 추가합니다. 없는 경우에는 클라이언트 소켓 IP를 포함한 헤더를 값으로 추가합니다. X-Forwarded-Host 및 X-Forwarded-Proto의 경우 값이 재정의됩니다.\n\n[Front Door 지원 HTTP 헤더](front-door-http-headers-protocol.md)에 대해 자세히 알아보세요.  \n"
   - question: >
       Azure Front Door를 배포하는 데 얼마나 걸리나요? Front Door는 업데이트 중에도 작동하나요?
-    answer: "대부분의 새 Front Door 만들기 및 업데이트는 모든 에지 위치에 전체적으로 배포되는 데 약 3~20분이 걸립니다. \n\n> [!Note]  \n> 대부분의 사용자 지정 TLS/SSL 인증서 업데이트는 전체적으로 배포되는 데 약 30분이 걸립니다.\n\n경로 또는 백 엔드 풀 등에 대한 모든 업데이트는 가동 중지 시간 없이 원활하게 이루어집니다(새 구성이 올바른 경우). ‘AFD 관리형’에서 ‘자신의 인증서 사용’으로 전환하거나 그 반대로 전환하지 않는 한, 인증서 업데이트도 원자성이며 중단을 일으키지 않습니다.\n"
+    answer: "대부분의 새 Front Door 만들기 및 업데이트는 모든 에지 위치에 전체적으로 배포되는 데 약 3~20분이 걸립니다. \n\n> [!Note]  \n> 대부분의 사용자 지정 TLS/SSL 인증서 업데이트는 전역적으로 배포되는 데 몇 분에서 한 시간 정도 걸립니다.\n\n경로 또는 백 엔드 풀 등에 대한 모든 업데이트는 가동 중지 시간 없이 원활하게 이루어집니다(새 구성이 올바른 경우). ‘AFD 관리형’에서 ‘자신의 인증서 사용’으로 전환하거나 그 반대로 전환하지 않는 한, 인증서 업데이트도 원자성이며 중단을 일으키지 않습니다.\n"
 - name: 구성
   questions:
   - question: >
@@ -108,7 +108,7 @@ sections:
       [Azure Front Door에 대한 시간 제한 및 제한 사항](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits) 관련 문서를 통해 확인해 보세요.
   - question: >
       규칙이 Front Door 규칙 엔진에 추가된 후 적용되기까지 얼마나 걸리나요?
-    answer: "대부분의 규칙 엔진 구성 업데이트는 20 분 이내에 완료 됩니다. 업데이트가 완료되는 즉시 규칙이 적용된다고 볼 수 있습니다. \n"
+    answer: "대부분의 규칙 엔진 구성 업데이트는 20분 이내에 완료됩니다. 업데이트가 완료되는 즉시 규칙이 적용된다고 볼 수 있습니다. \n"
   - question: >
       내 Front Door 프로필 뒤에 Azure CDN을 구성할 수 있나요? 혹은 그 반대의 경우도 가능한가요?
     answer: "두 서비스 모두 요청에 응답할 때 동일한 Azure 에지 사이트를 활용하기 때문에 Azure Front Door와 Azure CDN을 함께 구성할 수 없습니다. \n"
@@ -138,7 +138,7 @@ sections:
     answer: >
       Front Door 관리형 인증서 옵션의 경우 인증서는 Front Door에 의해 자동 순환됩니다. Front Door 관리 인증서를 사용 중이며 인증서 만료 날짜까지 60일 미만이 남아 있는 경우 지원 티켓을 제출합니다.
 
-      </br>사용자 지정 TLS/SSL 인증서의 경우 자동 순환은 지원되지 않습니다. 지정된 사용자 지정 도메인에 처음으로 설정한 방식과 마찬가지로, Front Door에 키 자격 증명 모음의 올바른 인증서 버전을 지정하고, Front Door의 서비스 사용자가 계속해서 키 자격 증명 모음에 액세스할 수 있도록 해야 합니다. Front Door에 의해 업데이트된 이 인증서 배포 작업은 원자성이며, 인증서의 주체 이름 또는 SAN이 변경되지 않는 한 프로덕션에 영향을 미치지 않습니다.
+      </br>고유한 사용자 지정 TLS/SSL 인증서의 경우 Azure Front Door가 Key Vault에 업로드된 최신 비밀 버전으로 자동 교체되도록 비밀 버전을 최신으로 설정합니다. 새 버전의 인증서/비밀을 배포하는 데 최대 24시간이 걸릴 수 있습니다. 비밀 버전을 특정 버전으로 구성하는 경우 Front Door가 Key Vault의 올바른 인증서 버전을 가리키도록 해야 합니다. Front Door 서비스 주체가 여전히 Key Vault에 액세스할 수 있는지 확인합니다. Key Vault에 대한 [액세스 권한을 부여하는 방법](standard-premium/how-to-configure-https-custom-domain.md#grant-azure-front-door-access-to-your-key-vault)을 참조하세요. Front Door가 업데이트된 인증서 출시 작업으로 인해 인증서의 주체 이름 또는 SAN(주체 대체 이름)이 변경되지 않으면 프로덕션 중단 시간이 발생하지 않습니다.
   - question: >
       Azure Front Door에서 지원되는 현재 암호 그룹은 무엇인가요?
     answer: "TLS 1.2의 경우 지원되는 암호 그룹은 다음과 같습니다. \n\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n\n> [!NOTE]  \n> Windows 10 이상 버전의 경우 보안을 강화하기 위해 두 ECDHE 암호 그룹 중 하나 또는 둘 다를 사용하도록 설정하는 것이 좋습니다. Windows 8.1, 8 및 7은 이러한 ECDHE 암호 그룹과 호환되지 않습니다. DHE 암호 그룹은 이러한 운영 체제와의 호환성을 위해 제공되었습니다.\n\nTLS 1.0/1.1을 사용하는 사용자 지정 도메인을 사용하는 경우 다음 암호 그룹이 지원됩니다.\n\n- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\n- TLS_RSA_WITH_AES_256_GCM_SHA384\n- TLS_RSA_WITH_AES_128_GCM_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA256\n- TLS_RSA_WITH_AES_128_CBC_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA\n- TLS_RSA_WITH_AES_128_CBC_SHA\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n"

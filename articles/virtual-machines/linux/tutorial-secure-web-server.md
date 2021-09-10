@@ -8,14 +8,18 @@ ms.topic: tutorial
 ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4b2290d29d1f6fbf8acd2e2652cd47a321fe674f
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: fbe2aabbcf9595cbb7520d160f72d17b58872293
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107813167"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698971"
 ---
 # <a name="tutorial-use-tlsssl-certificates-to-secure-a-web-server"></a>자습서: TLS/SSL 인증서를 사용하여 웹 서버 보호
+
+
+**적용 대상:** :heavy_check_mark: Linux VM 
+
 웹 서버를 보호하기 위해 이전에 SSL(Secure Sockets Layer)로 알려진 TLS(Transport Layer Security) 인증서를 사용하여 웹 트래픽을 암호화할 수 있습니다. 이러한 TLS/SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Linux VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]

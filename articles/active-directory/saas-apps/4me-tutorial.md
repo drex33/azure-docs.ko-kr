@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: ee9b326a43adb9c96fe6013eeecaabf955c78d45
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 98b8b3c1de7879301d82356bbb23e2d2d19ff9cc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986393"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768435"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>자습서: 4me와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -42,6 +42,7 @@ ms.locfileid: "111986393"
 
 * 4me에서 **SP** 시작 SSO를 지원합니다.
 * 4me에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* 4me는 [자동화된 사용자 프로비저닝](4me-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-4me-from-the-gallery"></a>갤러리에서 4me 추가
 
@@ -104,7 +105,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 4me 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 속성 | 원본 특성|
+    | Name | 원본 특성|
     | ---------------| --------------- |
     | first_name | user.givenname |
     | last_name | user.surname |
@@ -129,7 +130,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

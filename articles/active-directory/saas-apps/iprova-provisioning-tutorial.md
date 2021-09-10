@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: thwimmer
-ms.openlocfilehash: c48f5bace8c19d2bbf64668eedf60ae811e5398d
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e3ff62f4099e4098c2ca695d0e7c07bbc5c08b0a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113726935"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746096"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 iProva 구성
 
-이 자습서에서는 사용자 및/또는 그룹을 [iProva](https://www.iProva.com/)로 자동으로 프로비저닝 및 프로비저닝을 해제하도록 Azure AD(Azure Active Directory)를 구성하기 위해 iProva 및 Azure AD에서 수행하는 단계를 보여 줍니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 사용자 및/또는 그룹을 [iProva](https://www.iProva.com/)로 자동으로 프로비저닝 및 프로비저닝을 해제하도록 Azure AD(Azure Active Directory)를 구성하기 위해 iProva 및 Azure AD에서 수행하는 단계를 보여 줍니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 이 자습서를 사용하려면 먼저 모든 요구 사항을 알고 충족해야 합니다. 질문이 있는 경우 Infoland에 문의하세요.
 
 > [!NOTE]
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -29,7 +29,7 @@ ms.locfileid: "113726935"
 ## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]
 > * iProva에서 사용자 만들기
-> * iProva에서 더 이상 액세스할 필요가 없는 사용자 제거
+> * iProva에서 더 이상 액세스할 필요가 없는 사용자 제거/사용 안 함
 > * Azure AD와 iProva 간에 사용자 특성을 동기화된 상태로 유지
 > * iProva에서 그룹 및 그룹 멤버 자격 프로비저닝
 > * iProva에 대한 [Single Sign-On](./iprova-tutorial.md)(권장)
@@ -102,7 +102,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 **테넌트 URL** 및 **비밀 토큰** 필드에서 각각 이전에 검색된 **SCIM 2.0 기본 URL 및 영구 토큰** 값을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 iProva에 연결할 수 있는지 확인합니다. 연결이 실패하면 iProva 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
+5. **관리자 자격 증명** 섹션에서 이전에 검색된 **SCIM 2.0 기본 URL 및 영구 토큰** 값을 **테넌트 URL** 에 입력하고 /scim/을 추가합니다. **비밀 토큰** 도 추가합니다. 비밀 토큰은 iProva에서 **영구 토큰** 단추를 사용하여 생성할 수 있습니다. **연결 테스트** 를 클릭하여 Azure AD가 iProva에 연결할 수 있는지 확인합니다. 연결이 실패하면 iProva 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다. 
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -120,32 +120,12 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |---|---|
    |활성|부울|
    |displayName|String|
-   |title|String|
    |emails[type eq "work"].value|String|
    |preferredLanguage|String|
    |userName|String|
-   |addresses[type eq "work"].country|String|
-   |addresses[type eq "work"].locality|String|
-   |addresses[type eq "work"].postalCode|String|
-   |addresses[type eq "work"].formatted|String|
-   |addresses[type eq "work"].region|String|
-   |addresses[type eq "work"].streetAddress|String|
-   |addresses[type eq "other"].formatted|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |name.formatted|String|
-   |phoneNumbers[type eq "fax"].value|String|
-   |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "work"].value|String|
    |externalId|String|
-   |roles[primary eq "True"].display|String|
-   |roles[primary eq "True"].type|String|
-   |roles[primary eq "True"].value|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+
 
 
 10. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 iProva에 동기화** 를 선택합니다.
@@ -156,6 +136,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
       |---|---|
       |displayName|String|
       |members|참조|
+      |externalID|String|
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

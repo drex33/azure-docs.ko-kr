@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio(클래식): 빠른 시작: 데이터 과학 실험 만들기 - Azure'
+title: 'ML Studio(클래식): 데이터 과학 실험 만들기 - Azure'
 description: 이 기계 학습 빠른 시작에서는 간단한 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,21 +9,20 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 68741d273cc0461bc2c0d362c1a859146d696cad
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 8049b3fcce0d9f07314a71b051162819da42514c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582477"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689622"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>빠른 시작: Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
+# <a name="create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
 
 **적용 대상:** ![이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이 문서가 Azure Machine Learning에 적용되지 않음을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
-[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
-
-이 빠른 시작에서는 [Machine Learning Studio(클래식)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)에서 제조업체 및 기술 사양과 같은 다양한 변수에 따라 자동차 가격을 예측하는 기계 학습 실험을 만듭니다.
+이 문서에서는 [Machine Learning Studio(클래식)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)에서 제조업체 및 기술 사양과 같은 다양한 변수에 따라 자동차 가격을 예측하는 기계 학습 실험을 만듭니다.
 
 기계 학습을 처음 사용하는 경우 [초급자를 위한 데이터 과학](data-science-for-beginners-the-5-questions-data-science-answers.md) 비디오 시리즈는 일상적인 언어와 개념을 사용하는 기계 학습에 대한 훌륭한 소개입니다.
 

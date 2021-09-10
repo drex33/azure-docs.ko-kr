@@ -2,18 +2,18 @@
 title: 빠른 시작 - Azure CLI를 사용하여 Azure Spring Cloud 프로비저닝
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 기존 가상 네트워크에 Spring Cloud 클러스터를 배포하는 방법을 보여 줍니다.
 services: azure-cli
-author: vinodramasubbu
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java
 ms.author: vramasubbu
 ms.date: 06/15/2021
-ms.openlocfilehash: 7eb9b1a3194398dff60b72d1bc65f6ad71cb6822
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: a8dd727b0f0f999f1b0b8e6c9b6ed5977779f5ff
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289484"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271377"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Spring Cloud 프로비저닝
 
@@ -157,7 +157,7 @@ Azure CLI 스크립트를 사용하여 Azure Spring Cloud 클러스터를 배포
    az account list-locations --output table
    ```
 
-1. 리소스를 배포할 리소스 그룹을 만듭니다. 
+1. 리소스를 배포할 리소스 그룹을 만듭니다.
 
    ```azurecli
    az group create --name <your-resource-group-name> --location <location-name>
@@ -172,38 +172,28 @@ Azure CLI 스크립트를 사용하여 Azure Spring Cloud 클러스터를 배포
 1. 스크립트에서 요구할 경우 다음 값을 입력합니다.
 
    - 이전에 저장한 Azure 구독 ID
-
    - 이전에 저장한 Azure 위치 이름
-
    - 이전에 만든 리소스 그룹의 이름
-
    - 리소스를 배포할 가상 네트워크 리소스 그룹의 이름
-
    - 스포크 가상 네트워크의 이름(예: *vnet-spoke*)
-
    - Spring Cloud App Service에서 사용할 서브넷의 이름(예: *snet-app*)
-
    - Spring Cloud 런타임 서비스에서 사용할 서브넷의 이름(예: *snet-runtime*)
-
    - Azure Log Analytics 작업 영역이 진단 로그를 저장하는 데 사용할 리소스 그룹의 이름
-
    - Azure Log Analytics 작업 영역의 이름(예: *la-cb5sqq6574o2a*)
-
    - Azure Spring Cloud에서 사용할 가상 네트워크의 CIDR 범위(예: *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*)
-
    - 태그를 지원하는 모든 리소스에서 태그로 적용할 키/값 쌍. 자세한 내용은 [태그를 사용하여 Azure 리소스 및 관리 계층 구조 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요. 여러 태그를 적용하려면 공백으로 구분된 목록을 사용합니다(예: *environment=Dev BusinessUnit=finance*).
 
 이 정보를 입력하면 스크립트에서 Azure 리소스를 만들고 배포합니다.
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
-Azure Portal을 사용하여 배포된 리소스를 확인하거나 Azure CLI 또는 Azure PowerShell 스크립트를 사용하여 배포된 리소스를 나열할 수 있습니다.
+Azure Portal을 사용하여 배포된 리소스를 확인하거나 Azure CLI를 사용하여 배포된 리소스를 나열할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 후속 빠른 시작 및 자습서를 계속 사용하려는 경우 이러한 리소스를 그대로 유지할 수 있습니다. 더 이상 필요 없으면 리소스 그룹을 삭제합니다. 그러면 리소스 그룹의 리소스가 삭제됩니다. Azure CLI를 사용하여 리소스 그룹을 삭제하려면 다음 명령을 사용합니다.
 
-```azurecli-interactive
+```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az group delete --name $resourceGroupName &&

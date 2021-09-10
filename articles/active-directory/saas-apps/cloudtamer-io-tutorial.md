@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 07/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 407a6284c46eb6eef4057d98cef0f5e86a38bcea
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 6e19b051378bb068172d6356397ee16761611bae
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601823"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732232"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudtamerio"></a>자습서: cloudtamer.io와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "114601823"
 * 사용자가 자신의 Azure AD 계정으로 cloudtamer.io에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -74,6 +74,8 @@ cloudtamer.io에서 Azure AD SSO를 구성하고 테스트하려면 다음 단�
 
     ![IDMS 만들기 스크린샷](./media/cloudtamer-io-tutorial/idms-creation.png)
 
+1. **SAML 2.0** 을 IDMS 형식으로 선택합니다.
+
 1. 이 화면을 열어 두고 이 화면의 값을 Azure AD 구성으로 복사합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -88,16 +90,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 cloudtamer.io의 **ID 공급자 발급자(엔터티 ID)** 를 이 상자에 붙여넣습니다.
+    a. **식별자** 텍스트 상자에서 cloudtamer.io의 **서비스 공급자 발급자(엔터티 ID)** 를 이 상자에 붙여넣습니다.
 
     b. **회신 URL** 텍스트 상자에 cloudtamer.io의 **서비스 공급자 ACS URL** 을 이 상자에 붙여넣습니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-    **로그인 URL** 텍스트 상자에서 `https://<CUSTOMERDOMAIN>.<EXTENSION>/login` 패턴을 사용하여 URL을 입력합니다.
-
-    > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수 있습니다.
+    **로그온 URL** 텍스트 상자에 cloudtamer.io의 **서비스 공급자 ACS URL** 을 이 상자에 붙여넣습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -137,19 +136,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![IDMS 추가 스크린샷](./media/cloudtamer-io-tutorial/configuration.png)
 
-    a. 드롭다운에서 **IDMS 유형** 으로 **SAML2.0** 을 선택합니다.
+    a. **IDMS 이름** 에서 사용자가 로그인 화면에서 인식할 이름을 지정합니다.
 
-    b. **IDMS 이름** 에서 사용자가 로그인 화면에서 인식할 이름을 지정합니다.
+    b. Azure Portal에서 복사한 **식별자** 값을 **ID 공급자 발급자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
 
-    c. Azure Portal에서 복사한 **식별자** 값을 **ID 공급자 발급자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
+    다. Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 을 메모장에서 열고, **ID 공급자 메타데이터** 텍스트 상자에 콘텐츠를 붙여넣습니다.
 
-    d. Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 을 메모장에서 열고, **ID 공급자 메타데이터** 텍스트 상자에 콘텐츠를 붙여넣습니다.
+    d. **서비스 공급자 발급자(엔터티 ID)** 값을 복사하고, 이 값을 Azure Portal의 기본 SAML 구성 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다.
 
-    e. **서비스 공급자 발급자(엔터티 ID)** 값을 복사하고, 이 값을 Azure Portal의 기본 SAML 구성 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다.
+    e. **서비스 공급자 ACS URL** 값을 복사하고, 이 값을 Azure Portal의 기본 SAML 구성 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
-    f. **서비스 공급자 ACS URL** 값을 복사하고, 이 값을 Azure Portal의 기본 SAML 구성 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
-
-    g. 어설션 매핑에서 다음 값을 입력합니다.
+    f. 어설션 매핑에서 다음 값을 입력합니다.
 
     | 필드 | 값 |
     |-----------|-------|

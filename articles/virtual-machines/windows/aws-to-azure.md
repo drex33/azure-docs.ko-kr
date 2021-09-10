@@ -8,14 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 86d3e67b121bf7d66651e1e823e5f137e918a171
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2df6c65b3065d2d5e733b7ced8f2caf1cb622697
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550793"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697637"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>AWS(Amazon Web Services)에서 Azure 가상 머신으로 Windows VM 이동
+
+**적용 대상:** :heavy_check_mark: Windows VM 
+
 
 워크로드를 호스팅하기 위해 Azure 가상 머신을 평가하는 경우 기존 AWS(Amazon Web Services) EC2 Windows VM 인스턴스를 내보낸 다음 VHD(가상 하드 디스크)를 Azure로 업로드할 수 있습니다. VHD를 업로드하면 VHD에서 Azure로 새 VM을 만들 수 있습니다. 
 

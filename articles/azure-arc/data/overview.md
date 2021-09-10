@@ -8,25 +8,27 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: overview
-ms.openlocfilehash: cb905bd3e8ceb7012415a65bda1928b25da3037b
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 5a2bd61c2e59e5933361cc5d64462ba50a12d836
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113760990"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737119"
 ---
-# <a name="what-are-azure-arc-enabled-data-services-preview"></a>Azure Arc 지원 데이터 서비스(미리 보기)란?
+# <a name="what-are-azure-arc-enabled-data-services"></a>Azure Arc 지원 데이터 서비스란?
 
 Azure Arc를 통해 선택한 인프라 및 Kubernetes를 사용하여 온-프레미스, 에지 및 퍼블릭 클라우드 환경의 Azure 데이터 서비스를 실행할 수 있습니다.
 
-현재 다음과 같은 Azure Arc 지원 데이터 서비스는 미리 보기로 제공됩니다.
+현재 다음과 같은 Azure Arc 지원 데이터 서비스를 사용할 수 있습니다. 
 
 - SQL Managed Instance
-- PostgreSQL 하이퍼스케일
+- PostgreSQL 하이퍼스케일(미리 보기)
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+Azure Arc 지원 데이터 서비스가 하이브리드 작업 환경을 지원하는 방식에 대한 소개는 다음 소개 비디오를 참조하세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
 
 ## <a name="always-current"></a>항상 최신
 
@@ -43,6 +45,8 @@ Azure Arc 지원 SQL 관리형 인스턴스 및 Azure Arc 지원 PostgreSQL 하�
 ## <a name="unified-management"></a>통합 관리
 
 이제 Azure Portal, Azure Data Studio, Azure CLI(`az`)(`arcdata` 확장 포함)와 같은 익숙한 도구를 사용하여 Azure Arc로 배포된 모든 데이터 자산에 대한 통합된 보기를 얻을 수 있습니다. 사용자 환경 및 Azure에서 다양한 관계형 데이터베이스를 보고 관리할 수 있을 뿐만 아니라, 기본 인프라 용량과 상태를 분석하기 위해 Kubernetes API에서 로그와 원격 분석을 가져올 수 있습니다. 이제는 지역화된 로그 분석 및 성능 모니터링 외에도 전체 자산 전반에 걸친 종합적인 운영 인사이트에도 Azure Monitor를 활용할 수 있습니다.
+
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ## <a name="disconnected-scenario-support"></a>연결되지 않은 시나리오 지원
 

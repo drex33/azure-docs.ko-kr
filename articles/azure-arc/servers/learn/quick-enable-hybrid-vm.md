@@ -1,24 +1,24 @@
 ---
-title: Azure Arc 사용 서버를 사용하여 하이브리드 머신 연결
-description: Azure Arc 사용 서버를 사용하여 하이브리드 머신을 연결하고 등록하는 방법을 알아봅니다.
+title: Azure Arc 지원 서버를 사용하여 하이브리드 머신 연결
+description: Azure Arc 지원 서버를 사용하여 하이브리드 머신을 연결하고 등록하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: c52b8d1f7098a7a2a88a9770a3b768b7fea31775
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5f1699447093f148b0dadbdd23857c9e16e13a3
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646829"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772662"
 ---
-# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>빠른 시작: Azure Arc 사용 서버를 사용하여 하이브리드 머신 연결
+# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>빠른 시작: Azure Arc 지원 서버를 사용하여 하이브리드 머신 연결
 
-[Azure Arc 사용 서버](../overview.md)를 사용하면 온-프레미스, 에지 및 다중 클라우드 환경에서 호스트되는 Windows 및 Linux 머신을 관리하고 제어할 수 있습니다. 이 빠른 시작에서는 Arc 사용 서버를 사용하여 관리하기 위해 Azure 외부에 호스트된 Windows 또는 Linux 머신에서 Connected Machine 에이전트를 배포하고 구성합니다.
+[Azure Arc 지원 서버](../overview.md)를 사용하면 온-프레미스, 에지, 다중 클라우드 환경에서 호스트되는 Windows 머신과 Linux 머신을 관리하고 제어할 수 있습니다. 이 빠른 시작에서는 Arc 지원 서버를 통한 관리를 위해 Azure 외부에 호스트된 Windows 머신이나 Linux 머신에서 Connected Machine 에이전트를 배포하고 구성합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-* Arc 사용 서버 Hybrid Connected Machine 에이전트를 배포하려면 머신에 에이전트를 설치하고 구성하기 위한 관리자 권한이 있어야 합니다. Linux에서는 루트 계정을 사용하고 Windows에서는 로컬 관리자 그룹의 멤버인 계정을 사용합니다.
+* Arc 지원 서버 하이브리드 Connected Machine 에이전트를 배포하려면 머신에 에이전트를 설치하고 구성하기 위한 관리자 권한이 있어야 합니다. Linux에서는 루트 계정을 사용하고 Windows에서는 로컬 관리자 그룹의 멤버인 계정을 사용합니다.
 
 * 시작하기 전에 에이전트 [필수 구성 요소](../agent-overview.md#prerequisites)를 검토하고 다음을 확인해야 합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "101646829"
 
     * 머신이 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버를 통해 연결되는 경우 [나열된](../agent-overview.md#networking-configuration) URL이 차단되지 않는지 확인합니다.
 
-    * Azure Arc 사용 서버는 [여기](../overview.md#supported-regions)에서 지정된 영역만 지원합니다.
+    * Azure Arc 지원 서버는 [여기](../overview.md#supported-regions)에 지정된 지역만 지원합니다.
 
 > [!WARNING]
 > Linux 호스트 이름 또는 Windows 컴퓨터 이름은 이름에 예약된 단어나 상표 중 하나를 사용할 수 없습니다. 그렇지 않으면 Azure에 연결된 컴퓨터를 등록하려고 하면 실패합니다. 예약된 단어 목록은 [예약된 리소스 이름 오류 해결](../../../azure-resource-manager/templates/error-reserved-resource-name.md)을 참조하세요.
@@ -37,7 +37,7 @@ ms.locfileid: "101646829"
 
 ## <a name="register-azure-resource-providers"></a>Azure 리소스 공급자 등록
 
-Azure Arc 사용 서버는 이 서비스를 사용하기 위해 구독의 다음 Azure 리소스 공급자를 사용합니다.
+Azure Arc 지원 서버는 이 서비스를 사용하기 위해 구독의 다음 Azure 리소스 공급자를 사용합니다.
 
 * Microsoft.HybridCompute
 * Microsoft.GuestConfiguration
@@ -56,7 +56,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 1. **모든 서비스** 를 클릭한 다음, **서버 - Azure Arc** 를 검색하고 선택하여 Azure Portal에서 Azure Arc 서비스를 시작합니다.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="모든 서비스에서 Arc 사용 서버 검색" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="모든 서비스에서 Arc 지원 서버 검색" border="false":::
 
 1. **서버 - Azure Arc** 페이지에서 왼쪽 위에 있는 **추가** 를 선택합니다.
 
@@ -106,7 +106,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Azure Arc 연결 확인
 
-에이전트가 설치되고 Azure Arc 사용 서버에 연결하도록 구성되면 Azure Portal로 이동하여 서버가 성공적으로 연결되었는지 확인합니다. [Azure Portal](https://aka.ms/hybridmachineportal)에서 머신을 확인합니다.
+에이전트가 설치되고 Azure Arc 지원 서버에 연결하도록 구성되면 Azure Portal로 이동하여 서버가 성공적으로 연결되었는지 확인합니다. [Azure Portal](https://aka.ms/hybridmachineportal)에서 머신을 확인합니다.
 
 :::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="머신 연결 성공" border="false":::
 
@@ -114,7 +114,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 Linux 또는 Windows 하이브리드 머신을 사용하도록 설정하고 서비스에 성공적으로 연결되었으므로 Azure의 규정 준수를 이해하도록 Azure Policy를 사용할 수 있습니다.
 
-Log Analytics 에이전트가 설치되어 있지 않은 Azure Arc 사용 서버 사용 머신을 확인하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
+Log Analytics 에이전트가 설치되어 있지 않은 Azure Arc 지원 서버 사용 머신을 확인하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 > [비준수 리소스를 식별하는 정책 할당 만들기](tutorial-assign-policy-portal.md)

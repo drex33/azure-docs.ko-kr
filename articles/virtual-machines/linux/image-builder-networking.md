@@ -1,21 +1,23 @@
 ---
 title: Azure Image Builder 서비스 네트워킹 옵션
 description: Azure VM Image Builder 서비스를 배포하는 경우 네트워킹 옵션 이해
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.openlocfilehash: cd5027ca6e0ce3dc02da14b7dd6afd6e00e3f92d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1285f3673851e5784a5bc35b606e2dc30d7cfd09
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669433"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691872"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Azure Image Builder 서비스 네트워킹 옵션
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 기존 VNET을 사용하거나 사용하지 않고 Azure Image Builder를 배포하도록 선택해야 합니다.
 
@@ -63,7 +65,7 @@ Azure Image Builder가 기존 VNET을 사용하려면 특정 권한이 필요합
         },
 ```
 
-| 설정 | 설명 |
+| 설정 | Description |
 |---------|---------|
 | name | (선택 사항) 기존 가상 네트워크의 이름입니다. |
 | subnetName | 지정된 가상 네트워크 내에 있는 서브넷의 이름입니다. *name* 이 지정된 경우에만 지정해야 합니다. |

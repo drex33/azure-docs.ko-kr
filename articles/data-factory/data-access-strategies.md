@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: dd52d74ab4b5be261e6c170d897e15f14a332d9c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0b5d2921a59cc62ec4a58230a76eee33e4347ed0
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642442"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250713"
 ---
 # <a name="data-access-strategies"></a>데이터 액세스 전략
 
@@ -52,8 +52,8 @@ Azure Integration Runtime 및 자체 호스팅 통합 런타임의 데이터 저
     |                              | Azure Data Explorer                                 | -                | -                   | 예*            | 예*         | -                    |
     |                              | Azure Data Lake Gen1                                | -                | -                   | 예             | -            | 예                  |
     |                              | Azure Database for MariaDB, MySQL, PostgreSQL       | -                | -                   | 예             | -            | 예                  |
-    |                              | Azure File Storage                                  | 예              | -                   | 예             | -            | .                    |
-    |                              | Azure Storage(Blob, ADLS Gen2)                     | 예              | 예(MSI 인증만 해당) | 예             | -            | .                    |
+    |                              | Azure 파일                                  | 예              | -                   | 예             | -            | .                    |
+    |                              | Azure Blob Storage 및 ADLS Gen2                     | 예              | 예(MSI 인증만 해당) | 예             | -            | .                    |
     |                              | Azure SQL DB, Azure Synapse Analytics), SQL Ml  | 예(Azure SQL DB/DW에만 해당)        | -                   | 예             | -            | 예                  |
     |                              | Azure Key Vault(암호/연결 문자열을 가져오는 데 사용됨) | 예      | 예                 | 예             | -            | -                    |
     | 그 외 PaaS/SaaS 데이터 저장소 | AWS S3, SalesForce, Google Cloud Storage 등.    | -                | -                   | 예             | -            | -                    |
@@ -70,8 +70,8 @@ Azure Integration Runtime 및 자체 호스팅 통합 런타임의 데이터 저
     |                                | Azure Data Explorer                                           | -         | -                   |
     |                                | Azure Data Lake Gen1                                          | 예       | -                   |
     |                                | Azure Database for MariaDB, MySQL, PostgreSQL               | 예       | -                   |
-    |                                | Azure File Storage                                            | 예       | -                   |
-    |                                | Azure Storage(블로그, ADLS Gen2)                             | 예       | 예(MSI 인증만 해당) |
+    |                                | Azure 파일                                            | 예       | -                   |
+    |                                | Azure Blob Storage 및 ADLS Gen2                             | 예       | 예(MSI 인증만 해당) |
     |                                | Azure SQL DB, Azure Synapse Analytics), SQL   Ml          | 예       | -                   |
     |                                | Azure Key Vault(암호/연결 문자열을 가져오는 데 사용됨) | 예       | 예                 |
     | 그 외 PaaS/SaaS 데이터 저장소 | AWS S3, SalesForce, Google Cloud Storage 등.              | 예       | -                   |

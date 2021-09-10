@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c40dd2b6b5abd4173f1f1e042768725ed11bb651
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 697db582a16068ffe1f7aaaab56d39be3268033d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112283306"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698283"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Windows VM용 Azure AD을 사용한 Azure Disk Encryption(이전 릴리스)
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 **Azure Disk Encryption의 새 릴리스는 Azure AD 애플리케이션 매개 변수 제공에 대한 요구 사항을 제거하여 VM 디스크 암호화를 사용하도록 설정합니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 모든 새 VM은 새 릴리스를 사용하는 Azure AD 애플리케이션 매개 변수를 사용하지 않고 암호화되어야 합니다. 새 릴리스를 사용한 VM 디스크 암호화 사용에 관한 지침을 보려면 [Windows VM용 Azure Disk Encryption](disk-encryption-windows.md)을 참조하세요. Azure AD 애플리케이션 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.**
 
@@ -54,7 +56,7 @@ Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS W
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 Marketplace 시나리오에서 새 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | 설명 | 
+| 매개 변수 | Description | 
 | --- | --- |
 | adminUserName | 가상 머신의 관리 사용자 이름 |
 | adminPassword | 가상 머신의 관리 사용자 암호 |
@@ -163,7 +165,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 비밀 |

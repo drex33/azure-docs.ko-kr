@@ -6,12 +6,12 @@ ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: 5c9396cdfe8296b4869f6713ff0022bc896dc733
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: faa08121bde07f82a24fad24ca49b2fe2d0ea618
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957230"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731451"
 ---
 # <a name="tutorial-how-to-access-sql-managed-instance-from-data-factory-managed-vnet-using-private-endpoint"></a>자습서: 프라이빗 엔드포인트를 사용하여 Data Factory 관리형 VNET에서 Microsoft Azure SQL Managed Instance에 액세스하는 방법
 
@@ -88,7 +88,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
     | 설정 | 값 |
     |:--- |:--- |
-    |속성|**myHealthProbe** 를 입력합니다.|
+    |Name|**myHealthProbe** 를 입력합니다.|
     |프로토콜|**TCP** 를 선택합니다.|
     |포트|22를 입력합니다.|
     |간격|프로브 시도 **간격**(초)으로 **15** 를 입력합니다.|
@@ -235,13 +235,12 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 4. **관리형 프라이빗 엔드포인트** 에서 **+ 새로 만들기** 를 선택합니다.
 5. 목록에서 **Private Link 서비스** 타일, **계속** 을 차례로 선택합니다.
 6. 프라이빗 엔드포인트의 이름을 입력하고 프라이빗 링크 서비스 목록에서 **myPrivateLinkService** 를 선택합니다.
-7. 대상 SQL Managed Instance의 FQDN 및 프라이빗 링크 서비스의 NAT IP를 추가합니다.
+7. 대상 SQL Managed Instance의 FQDN을 추가합니다.
     
     :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="SQL MI의 호스트를 보여 주는 스크린샷." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-nat-ip.png" alt-text="연결된 서비스의 NAT IP를 보여 주는 스크린샷." lightbox="./media/tutorial-managed-virtual-network/link-service-nat-ip-expanded.png":::
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-2.png" alt-text="프라이빗 엔드포인트 설정을 보여 주는 스크린샷.":::
+    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-5.png" alt-text="프라이빗 엔드포인트 설정을 보여 주는 스크린샷.":::
 
 8. 프라이빗 엔드포인트 만들기
 

@@ -7,14 +7,16 @@ ms.date: 06/29/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 60ccfe222b06e9c250eab3b8fa568cc4e5a925b2
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 4ec7c3640a242212010de68a9f08c4d6e3e27300
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356184"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694322"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Azure 디스크 예약을 사용하여 비용 절감
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 예약된 용량으로 Azure Disk Storage 사용량을 절약하세요. Azure Reserved Virtual Machine Instances와 결합된 Azure Disk Storage 예약을 사용하면 총 VM(가상 머신) 비용을 낮출 수 있습니다. 예약 할인은 선택한 예약 범위에서 일치하는 디스크에 자동으로 적용됩니다. 이 자동 애플리케이션 덕분에, 할인을 받기 위해 예약을 관리 디스크에 할당할 필요가 없습니다.
 
@@ -67,7 +69,7 @@ ms.locfileid: "113356184"
 
 1. 다음 표에서 설명하는 필수 값을 지정합니다.
 
-   |요소  |설명  |
+   |요소  |Description  |
    |---------|---------|
    |**범위**   |  예약과 관련된 청구 혜택을 사용할 수 있는 구독 수입니다. 이 값은 특정 구독에 예약이 적용되는 방법을 지정하기도 합니다. <br/><br/> **공유** 를 선택하면 청구 컨텍스트 내의 모든 구독에서 Azure Storage 용량에 예약 할인이 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 경우 공유 범위에는 계정 관리자가 만든 종량제 요금을 사용하는 모든 개별 구독이 포함됩니다.  <br/><br/>  **단일 구독** 을 선택하면 선택한 구독의 Azure Storage 용량에 예약 할인이 적용됩니다. <br/><br/> **단일 리소스 그룹** 을 선택하는 경우 선택한 구독의 Azure Storage 용량과 해당 구독의 선택된 리소스 그룹에 예약 할인이 적용됩니다. <br/><br/> 예약 용량을 구입한 후 예약 범위를 변경할 수 있습니다.  |
    |**구독**  | Azure Storage 예약 요금을 지불하는 데 사용하는 구독입니다. 선택한 구독의 결제 방법을 사용하여 비용을 청구합니다. 구독은 다음 유형 중 하나여야 합니다.<br/><ul><li> 기업계약(제품 번호 MS-AZR-0017P 및 MS-AZR-0148P) 기업 구독의 경우 요금은 등록계약의 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감되거나 초과분에 대해 청구됩니다.</li><br/><li>종량제 요금을 사용한 개별 구독(제품 번호: MS-AZR-0003P 및 MS-AZR-0023P) 종량제 요율이 적용되는 구독의 경우 요금은 구독의 신용 카드 또는 청구서 결제 방법으로 청구됩니다.</li></ul>    |

@@ -10,14 +10,16 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c202b8b2d4535afd96ffad1806460c3cf43e34b6
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 591ad83cf9beeff7b25ffa1234441109dc169aa2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028040"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691261"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>PowerShell을 사용하여 일반화 이미지에서 확장 집합 만들기 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)에 저장된 일반화 이미지 버전에서 VM을 만듭니다. 특수화 이미지를 사용하여 확장 집합을 만들려면 [특수화 이미지에서 확장 집합 인스턴스 만들기](instance-specialized-image-version-powershell.md)를 참조하세요.
 
@@ -28,7 +30,7 @@ ms.locfileid: "112028040"
 특정 이미지 버전이 지역에서 삭제되거나 제거되어 사용할 수 없는 경우, 해당 이미지 버전을 사용하면 자동화가 실패할 수 있습니다. 특정 이미지 버전이 필요하지 않은 경우 이미지 정의 ID를 사용하여 새 VM을 만드는 것이 좋습니다.
 
 
-다음 예제에서는 *SouthCentralUS* 위치의 *myVMSSRG* 리소스 그룹에서 *myScaleSet* 이라는 확장 집합을 만듭니다. 확장 집합은 *myGalleryRG* 리소스 그룹의 *myGallery* 이미지 갤러리에 있는 *myImageDefinition* 이미지에서 생성됩니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 사용자 고유의 관리 자격 증명을 설정합니다.
+다음 예에서는 *SouthCentralUS* 위치의 *myVMSSRG* 리소스 그룹에 *myScaleSet* 라는 확장 집합을 만듭니다. 확장 집합은 *myGalleryRG* 리소스 그룹의 *myGallery* 이미지 갤러리에 있는 *myImageDefinition* 이미지에서 생성됩니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 사용자 고유의 관리 자격 증명을 설정합니다.
 
 
 ## <a name="simplified-parameter-set"></a>간소화된 매개 변수 세트

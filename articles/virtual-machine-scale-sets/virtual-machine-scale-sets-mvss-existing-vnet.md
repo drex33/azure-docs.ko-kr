@@ -9,14 +9,16 @@ ms.subservice: networking
 ms.date: 03/30/2021
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: f15fddc54f4b7c5a03843da1bcc11d1991b70d02
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 13e8cf6b95394cd879c1e86e1e0b6dd7dfac7ccd
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076669"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692891"
 ---
 # <a name="reference-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에서 기존 가상 네트워크 참조
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 이 문서에서는 [기본 확장 집합 템플릿](virtual-machine-scale-sets-mvss-start.md)을 수정하여 새 가상 네트워크를 만드는 대신 기존 가상 네트워크에 배포하는 방법을 보여 줍니다.
 

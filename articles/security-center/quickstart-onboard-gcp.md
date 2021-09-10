@@ -7,12 +7,12 @@ ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 74c43f9c912892370da81bf1ce37a4fb5d40a3df
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 087a9d39cf3e5d361a8a2ea33f330aef727ea7b9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113486916"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741985"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Azure Security Center에 GCP 계정 연결
 
@@ -39,7 +39,7 @@ GCP 계정을 Security Center에 온보딩하면 GCP Security Command Center와 
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
 |필요한 역할 및 권한:|관련 Azure 구독에 대한 **소유자** 또는 **기여자**|
-|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/소버린(US Gov, Azure 중국)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
 ## <a name="connect-your-gcp-account"></a>GCP 계정 연결

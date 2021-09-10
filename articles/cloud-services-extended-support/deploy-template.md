@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 10ebb60caed4bb42bb8e8d8351b465d692eaaf0a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: de46eb9fca550d95caa8aa5d42449ab10d1bb9a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114445096"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741124"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>ARM 템플릿을 사용하여 Cloud Service(추가 지원)를 배포합니다.
 
@@ -109,7 +109,30 @@ ms.locfileid: "114445096"
           ] 
     ```
  
-3. 네트워크 프로필 개체를 만들고, 공용 IP 주소를 부하 분산 장치의 프런트 엔드에 연결합니다. 부하 분산 장치는 플랫폼에서 자동으로 만들어집니다.
+3. 템플릿 내에서 가상 네트워크 또는 공용 IP를 배포하는 경우 적절한 `dependsOn` 참조를 추가하여 클라우드 서비스(추가 지원) 개체를 만듭니다. 
+
+    ```json
+    {
+      "apiVersion": "2021-03-01",
+      "type": "Microsoft.Compute/cloudServices",
+      "name": "[variables('cloudServiceName')]",
+      "location": "[parameters('location')]",
+      "tags": {
+        "DeploymentLabel": "[parameters('deploymentLabel')]",
+        "DeployFromVisualStudio": "true"
+      },
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]",
+        "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPName'))]"
+      ],
+      "properties": {
+        "packageUrl": "[parameters('packageSasUri')]",
+        "configurationUrl": "[parameters('configurationSasUri')]",
+        "upgradeMode": "[parameters('upgradeMode')]"
+      }
+    }
+    ```
+4. 클라우드 서비스에 대한 네트워크 프로필 개체를 만들고 공용 IP 주소를 부하 분산 장치의 프런트 엔드에 연결합니다. 부하 분산 장치는 플랫폼에서 자동으로 만들어집니다. 
 
     ```json
     "networkProfile": { 
@@ -135,7 +158,7 @@ ms.locfileid: "114445096"
     ```
  
 
-4. 키 자격 증명 모음 참조를 ARM 템플릿의  `OsProfile` 섹션에 추가합니다. Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. 인증서를 Key Vault에 추가한 다음, 서비스 구성(.cscfg) 파일에서 인증서 지문을 참조합니다. 또한 Cloud Services(추가 지원) 리소스가 Key Vault에서 비밀로 저장된 인증서를 검색할 수 있도록 포털에서 '배포를 위한 Azure Virtual Machines'에 Key Vault '액세스 정책'을 사용하도록 설정해야 합니다. 키 자격 증명 모음은 클라우드 서비스와 동일한 지역 및 구독에 있어야 하며 고유한 이름을 사용해야 합니다. 자세한 내용은 [Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
+5. 키 자격 증명 모음 참조를 ARM 템플릿의  `OsProfile` 섹션에 추가합니다. Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. 인증서를 Key Vault에 추가한 다음, 서비스 구성(.cscfg) 파일에서 인증서 지문을 참조합니다. 또한 Cloud Services(추가 지원) 리소스가 Key Vault에서 비밀로 저장된 인증서를 검색할 수 있도록 포털에서 '배포를 위한 Azure Virtual Machines'에 Key Vault '액세스 정책'을 사용하도록 설정해야 합니다. 키 자격 증명 모음은 클라우드 서비스와 동일한 지역 및 구독에 있어야 하며 고유한 이름을 사용해야 합니다. 자세한 내용은 [Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
      
     ```json
     "osProfile": { 
@@ -159,7 +182,7 @@ ms.locfileid: "114445096"
     > - certificateUrl은 **비밀 식별자** 로 레이블이 지정된 키 자격 증명 모음의 인증서로 이동하여 확인할 수 있습니다.  
    >  - certificateUrl은 https://{keyvault-endpoin}/secrets/{secretname}/{secret-id} 형식이어야 합니다.
 
-5. 역할 프로필을 만듭니다. ARM 템플릿의 서비스 구성(.cscfg), 서비스 정의(.csdef) 및 역할 프로필 섹션에서 역할 수, 역할 이름, 각 역할의 인스턴스 수 및 크기가 동일한지 확인합니다.
+6. 역할 프로필을 만듭니다. ARM 템플릿의 서비스 구성(.cscfg), 서비스 정의(.csdef) 및 역할 프로필 섹션에서 역할 수, 역할 이름, 각 역할의 인스턴스 수 및 크기가 동일한지 확인합니다.
     
     ```json
     "roleProfile": {
@@ -184,7 +207,7 @@ ms.locfileid: "114445096"
     }   
     ```
 
-6. (선택 사항) 확장을 클라우드 서비스에 추가하는 확장 프로필을 만듭니다. 다음 예제에서는 원격 데스크톱 및 Windows Azure 진단 확장을 추가합니다.
+7. (선택 사항) 확장을 클라우드 서비스에 추가하는 확장 프로필을 만듭니다. 다음 예제에서는 원격 데스크톱 및 Windows Azure 진단 확장을 추가합니다.
    > [!Note] 
    > 원격 데스크톱의 암호는 8-123자 사이이고 다음과 같은 암호 복잡성 요구 사항 중 3개 이상을 만족해야 합니다. 1) 대문자 포함 2) 소문자 포함 3) 숫자 포함 4) 특수 문자 포함 5) 제어 문자 사용 불가
 
@@ -220,7 +243,7 @@ ms.locfileid: "114445096"
         }
     ```
 
-7. 전체 템플릿을 검토합니다.
+8. 전체 템플릿을 검토합니다.
 
     ```json
     {
@@ -448,7 +471,7 @@ ms.locfileid: "114445096"
     }
     ```
 
-8. 템플릿 및 매개 변수 파일(템플릿 파일의 매개 변수 정의)을 배포하여 클라우드 서비스(확장 지원) 배포를 만듭니다. 필요에 따라 이러한 [샘플 템플릿](https://github.com/Azure-Samples/cloud-services-extended-support)을 참조하세요.
+9. 템플릿 및 매개 변수 파일(템플릿 파일의 매개 변수 정의)을 배포하여 클라우드 서비스(확장 지원) 배포를 만듭니다. 필요에 따라 이러한 [샘플 템플릿](https://github.com/Azure-Samples/cloud-services-extended-support)을 참조하세요.
 
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"

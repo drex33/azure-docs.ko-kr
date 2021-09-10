@@ -1,22 +1,22 @@
 ---
-title: Site Recovery를 사용하여 VMware VM을 Azure로 장애 조치(failover)
-description: Azure Site Recovery에서 VMware VM을 Azure로 장애 조치(failover)하는 방법 알아보기
+title: Site Recovery를 사용하여 VMware VM을 Azure로 장애 조치(failover) - 클래식
+description: Azure Site Recovery에서 VMware VM을 Azure로 장애 조치(failover)하는 방법 알아보기 - 클래식
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/16/2019
+ms.date: 08/19/2021
 ms.custom: MVC
-ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c1de30fee09da94546ea0f8b5835477e0f83a2a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86131999"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445308"
 ---
-# <a name="fail-over--vmware-vms"></a>VMware VM 장애 조치(failover)
+# <a name="fail-over-vmware-vms---classic"></a>VMware VM 장애 조치(failover) - 클래식
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM(가상 머신)을 Azure로 장애 조치(failover)하는 방법을 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM(가상 머신)을 Azure로 장애 조치(failover)하는 방법을 설명합니다 - 클래식.
 
-이는 온-프레미스 머신에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 다섯 번째 자습서입니다.
+미리 보기 릴리스의 장애 조치(failover)에 대한 자세한 내용은 [이 문서를 참조](vmware-azure-tutorial-failover-failback-preview.md)하세요.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "86131999"
 이전 자습서 완료:
 
 1. VMware VM, Hyper-V VM 및 물리적 머신의 온-프레미스 재해 복구가 Azure에 수행되도록 [Azure를 설정](tutorial-prepare-azure.md)했는지 확인합니다.
-2. 재해 복구용 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 환경을 준비합니다. 
+2. 재해 복구용 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 환경을 준비합니다.
 3. [VMware VM](vmware-azure-tutorial.md)에 대한 재해 복구를 설정합니다.
 4. [재해 복구 훈련](tutorial-dr-drill-azure.md)을 실행하여 모든 항목이 예상대로 작동하는지 확인합니다.
 
@@ -95,6 +95,7 @@ ms.locfileid: "86131999"
 
 >[!TIP]
 > 장애 조치(failover) 후 연결 문제가 발생하는 경우 [문제 해결 가이드](site-recovery-failover-to-azure-troubleshoot.md)를 따릅니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

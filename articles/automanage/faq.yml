@@ -9,12 +9,12 @@ metadata:
   ms.topic: troubleshooting
   ms.date: 02/22/2021
   ms.author: deanwe
-  ms.openlocfilehash: b1cc973af2c4e50ea0f50698f6628bac77c1dfeb
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: dca933c5b86875b50d04a67f482713830437350b
+  ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114482017"
+  ms.lasthandoff: 08/20/2021
+  ms.locfileid: "122608106"
 title: Vm에 대한 Azure Automanage 자주 묻는 질문
 summary: >
   이 문서에서는 [가상 머신에 대한 Azure Automanage](automanage-virtual-machines.md)에 대해 가장 일반적인 질문 중 몇 가지에 대한 답변을 제공합니다.
@@ -78,9 +78,9 @@ sections:
     answer: >
       Azure Automanage는 공개 미리 보기에서 추가 비용 없이 사용할 수 있습니다. Azure Backup와 같은 연결된 Azure 리소스는 비용이 발생합니다.
   - question: >
-      Azure 정책을 통해 Automanage를 적용할 수 있나요?
+      Azure Policy를 통해 Automanage를 적용할 수 있나요?
     answer: >
-      예, Automanage를 정의된 범위 내의 모든 Vm에 자동으로 적용하는 기본 제공 정책이 있습니다. 또한 Automanage 계정과 함께 환경 구성(DevTest 또는 Production)도 지정합니다. Azure 정책을 통한 Automanage 사용에 대한 자세한 내용은 [여기](virtual-machines-policy-enable.md)를 참조하세요.
+      예, Automanage를 정의된 범위 내의 모든 Vm에 자동으로 적용하는 기본 제공 정책이 있습니다. 또한 Automanage 계정과 함께 환경 구성(DevTest 또는 Production)도 지정합니다. Azure Policy를 통해 Automanage를 사용하도록 설정하는 방법에 대한 자세한 내용은 [여기](virtual-machines-policy-enable.md)를 참조하세요.
   - question: >
       Automanage 계정은 무엇인가요?
     answer: >

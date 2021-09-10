@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 05/24/2021
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: dcf45e90198cec208720ba69e4366650ed00a821
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 731c656020629b857a19a215027b5c48dca435e4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697886"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741627"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -117,6 +117,12 @@ Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
 ---
 
 클러스터에 대한 연결을 확인하려면 [kubectl get nodes][kubectl-get] 명령을 실행하여 클러스터 노드 목록을 반환합니다.
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+다음 예제 출력에서는 클러스터 노드 목록을 보여 줍니다.
 
 ```
 $ kubectl get nodes

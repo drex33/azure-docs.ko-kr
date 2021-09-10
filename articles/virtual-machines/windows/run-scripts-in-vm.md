@@ -8,15 +8,16 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
-manager: carmonm
-ms.openlocfilehash: 34abfb3195f8a3640b1b4797aa430b6250d15b68
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 7c45718726e9037021edc53346d20f26273a92b3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112452371"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687491"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Windows VM에서 스크립트 실행
+
+**적용 대상:** VM: heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합: heavy_check_mark: 단일 확장 집합
 
 태스크를 자동화하거나 문제를 해결하려면 VM에서 명령을 실행해야 할 수 있습니다. 다음 문서에서는 VM 내에서 스크립트 및 명령을 실행할 수 있는 기능의 간략한 개요를 제공합니다.
 

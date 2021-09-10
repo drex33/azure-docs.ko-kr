@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 5affe9f8876ef8d69a585119155d6cdd77ab46ac
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 847e80822cffe0a1a1daaf7595062b2e7a522ab5
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078737"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772203"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alertmedia"></a>자습서: AlertMedia와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "110078737"
 * 사용자가 자신의 Azure AD 계정으로 AlertMedia에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -39,6 +39,7 @@ ms.locfileid: "110078737"
 
 * AlertMedia에서 **IDP** 시작 SSO를 지원합니다.
 * AlertMedia에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* AlertMedia는 [자동화된 사용자 프로비저닝](alertmedia-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-alertmedia-from-the-gallery"></a>갤러리에서 AlertMedia 추가
 
@@ -107,7 +108,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

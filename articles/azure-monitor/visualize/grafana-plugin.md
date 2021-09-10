@@ -3,12 +3,12 @@ title: Grafana를 사용하여 Azure 서비스 및 애플리케이션 모니터�
 description: Azure Monitor 및 Application Insights 데이터를 라우팅하여 Grafana에서 볼 수 있도록 합니다.
 ms.topic: conceptual
 ms.date: 11/06/2017
-ms.openlocfilehash: decd0353bcb2cf048fd5591ea8c895cf22944809
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 1bfb3322dda2b6702eb3e18eb44cc0cb2cd942ec
+ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048661"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113666864"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 애플리케이션을 모니터링할 수 있습니다. 플러그 인은 다양한 로그 및 메트릭을 포함하여 Azure Monitor에서 수집된 애플리케이션 성능 데이터를 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
@@ -18,12 +18,12 @@ Grafana 서버를 설정하고 Azure Monitor에서 메트릭 및 로그에 대�
 ## <a name="set-up-a-grafana-server"></a>Grafana 서버 설정
 
 ### <a name="set-up-grafana-locally"></a>Grafana를 로컬로 설정
-Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다운로드하여 설치](https://grafana.com/grafana/download)합니다. 플러그 인의 Azure Monitor 통합을 사용 하려면 Grafana 버전 5.3 이상을 설치 합니다.
+Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다운로드하여 설치](https://grafana.com/grafana/download)합니다. 플러그 인의 Azure Monitor 통합을 사용하려면 Grafana 버전 5.3 이상을 설치합니다.
 
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Azure Marketplace를 통해 Azure에서 Grafana 설정
 1. Azure Marketplace로 이동하여 Grafana Labs에서 Grafana를 선택합니다.
 
-2. 이름 및 세부 정보를 입력합니다. 새 리소스 그룹을 만듭니다. VM 사용자 이름, VM 암호 및 Grafana 서버 관리자 암호에 대해 선택한 값을 추적합니다.  
+2. 이름 및 세부 정보를 입력합니다. 새 리소스 그룹 만들기 VM 사용자 이름, VM 암호 및 Grafana 서버 관리자 암호에 대해 선택한 값을 추적합니다.  
 
 3. VM 크기 및 스토리지 계정을 선택합니다.
 
@@ -41,11 +41,14 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
 
 ## <a name="sign-in-to-grafana"></a>Grafana에 로그인
 
-1. 서버의 IP 주소를 사용 하 여 *http:// \<IP address\> : 3000* 또는 브라우저의 *\<DNSName> \: 3000* 에서 로그인 페이지를 엽니다. 3000은 기본 포트이지만, 설정하는 동안 다른 포트를 설치했을 수도 있습니다. 빌드한 Grafana 서버에 대한 로그인 페이지가 표시됩니다.
+> [!IMPORTANT]
+> Internet Explorer 브라우저 및 이전 Microsoft Edge 브라우저는 Grafana와 호환되지 않으므로 Microsoft Edge를 포함한 chromium 기반 브라우저를 사용해야 합니다. [Grafana에 대해 지원되는 브라우저](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers)를 참조하세요.
+
+1. 서버의 IP 주소를 사용하여 브라우저에서 *http://\<IP address\>:3000* 또는 *\<DNSName>\:3000* 의 로그인 페이지를 엽니다. 3000은 기본 포트이지만, 설정하는 동안 다른 포트를 설치했을 수도 있습니다. 빌드한 Grafana 서버에 대한 로그인 페이지가 표시됩니다.
 
     ![Grafana 로그인 화면](./media/grafana-plugin/grafana-login-screen.png)
 
-2. 이전에 만든 사용자 이름 *관리자* 및 Grafana 서버 관리자 암호를 사용 하 여 로그인 합니다. 로컬 설정을 사용하는 경우 기본 암호는 *admin* 이며 첫 번째 로그인에서 변경하라는 메시지가 표시됩니다.
+2. 사용자 이름 *admin* 및 이전에 만든 Grafana 서버 관리자 암호를 사용하여 로그인합니다. 로컬 설정을 사용하는 경우 기본 암호는 *admin* 이며 첫 번째 로그인에서 변경하라는 메시지가 표시됩니다.
 
 ## <a name="configure-data-source-plugin"></a>데이터 원본 플러그 인 구성
 
@@ -63,7 +66,7 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
     Log Analytics API에는 읽기 권한자 역할의 사용 권한을 포함하며 여기에 추가하는 [Log Analytics Reader 역할](../../role-based-access-control/built-in-roles.md#log-analytics-reader)이 필요합니다.
 
 4. 사용하려는 API에 연결 세부 정보를 제공합니다. 전부 또는 일부에만 연결할 수 있습니다. 
-    * Azure Monitor의 메트릭과 로그 모두에 연결 하는 경우 **AZURE MONITOR API와 동일한 세부 정보** 를 선택 하 여 동일한 자격 증명을 다시 사용할 수 있습니다.
+    * Azure Monitor에서 메트릭과 로그 모두에 연결하는 경우 **Azure Monitor API와 동일한 세부 사항** 을 선택하여 동일한 자격 증명을 재사용할 수 있습니다.
     * 플러그 인을 구성하는 동안 플러그 인을 모니터링할 Azure 클라우드(공용, Azure 미국 정부, Azure 독일 또는 Azure 중국)를 지정할 수 있습니다.
     * Application Insights를 사용하는 경우 Application Insights API 및 애플리케이션 ID를 포함하여 Application Insights 기반 메트릭을 수집할 수도 있습니다. 자세한 내용은 [API 키 및 애플리케이션 ID 가져오기](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 참조하세요.
 
@@ -90,7 +93,7 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
 4. 구성한 경우 Azure Monitor 데이터 원본을 선택합니다.
    * Azure Monitor 메트릭 수집 - 서비스 드롭다운에서 **Azure Monitor** 를 선택합니다. 선택 목록이 표시되면 이 차트에서 모니터링할 리소스 및 메트릭을 선택할 수 있습니다. VM에서 메트릭을 수집하려면 네임스페이스 **Microsoft.Compute/VirtualMachines** 를 사용합니다. VM 및 메트릭을 선택하고 나면 대시보드에서 해당 데이터 보기를 시작할 수 있습니다.
      ![Azure Monitor를 위한 Grafana 그래프 구성](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * Azure Monitor 로그 데이터 수집-서비스 드롭다운에서 **Azure Log Analytics** 를 선택 합니다. 쿼리할 작업 영역을 선택하고 쿼리 텍스트를 설정합니다. 여기에 이미 있는 모든 로그 쿼리를 복사 하거나 새로 만들 수 있습니다. 쿼리에 입력할 때 IntelliSense가 표시되어 자동 완성 옵션을 제안합니다. 시각화 유형인 **시계열** **테이블** 을 선택하고 쿼리를 실행합니다.
+   * Azure Monitor 로그 데이터 수집 - 서비스 드롭다운에서 **Azure Log Analytics** 를 선택합니다. 쿼리할 작업 영역을 선택하고 쿼리 텍스트를 설정합니다. 이미 가지고 있는 로그 쿼리를 여기에 복사하거나 새로 만들 수 있습니다. 쿼리에 입력할 때 IntelliSense가 표시되어 자동 완성 옵션을 제안합니다. 시각화 유형인 **시계열** **테이블** 을 선택하고 쿼리를 실행합니다.
     
      > [!NOTE]
      >
@@ -119,7 +122,7 @@ Telegraf 및 InfluxDB를 설치하여 동일한 Grafana 인스턴스에서 사�
 
 ## <a name="advanced-grafana-features"></a>고급 Grafana 기능
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>변수
 일부 쿼리 값은 UI 드롭다운을 통해 선택하고 쿼리에서 업데이트할 수 있습니다. 한 예로 다음 쿼리를 고려해 보세요.
 ```
 Usage 

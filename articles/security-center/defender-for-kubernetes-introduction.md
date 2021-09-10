@@ -7,12 +7,12 @@ ms.date: 07/20/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 85a47bc3f676dc57d3e8cf6107a8acc8b9c6f793
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 53c5ef179a3df860d97cbe31287f2defcec2411b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114466679"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750711"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes 소개
 
@@ -37,7 +37,7 @@ Azure Security Center 및 AKS는 [Security Center의 컨테이너 보안](contai
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**Azure Defender for Kubernetes** 는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.|
 |필요한 역할 및 권한:|**보안 관리자** 는 경고를 해제할 수 있습니다.<br>**보안 읽기 권한자** 는 발견 사항을 볼 수 있습니다.|
-|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(US Gov, Azure 중국)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes의 이점은?

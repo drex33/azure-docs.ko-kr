@@ -9,14 +9,16 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurepowershell
-ms.openlocfilehash: f9771c3e9b7961eb984b50b45083814e25b70bc9
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: da9bc6e9a5d8dbef843a2c6894a95285cfca4534
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673655"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694497"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하여 수직으로 규모 조정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 이 문서에서는 다시 프로비저닝을 사용하거나 사용하지 않고 Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 수직으로 확장하는 방법을 설명합니다. 
 

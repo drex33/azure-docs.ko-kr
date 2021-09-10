@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ce10143be81da9ad797ba0ccd68837b647aeb7a7
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 6a9a7d23d4fb8f11c27f279bdef8d2b46274b21e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113301975"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743374"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에서 규칙 생성 및 알림 설정
 
@@ -110,7 +110,7 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 
     :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="작성된 집계 조건을 보여주는 스크린샷":::
 
-**+ 조건** 을 선택하여 규칙에 여러 조건을 추가할 수 있습니다. 조건을 여러 개 지정하는 경우 모든 조건을 충족해야 규칙이 트리거됩니다. 각 조건은 암시적 `AND` 절을 통해 조인됩니다. 여러 조건이 있는 시간 집계를 사용하는 경우 모든 원격 분석 값을 집계해야 합니다.
+**+ 조건** 을 선택하여 규칙에 여러 조건을 추가할 수 있습니다. 여러 조건이 추가된 경우 규칙이 트리거되기 위해 모든 조건이 충족되어야 하는지 아니면 조건 중 하나라도 충족되면 되는지 지정할 수 있습니다. 여러 조건이 있는 시간 집계를 사용하는 경우 모든 원격 분석 값을 집계해야 합니다.
 
 ### <a name="configure-actions"></a>작업 구성
 

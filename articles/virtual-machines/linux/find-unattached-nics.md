@@ -8,14 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 5b28226cfe6bc51a2619c4dd63e666ddd51dad2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35c2bb34b3fa19a8bc127f45fe00223686f820b6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96016202"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691899"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Azure VM에 대한 연결되지 않은 NIC(네트워크 인터페이스 카드)를 찾아서 삭제하는 방법
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 Azure에서 VM(가상 머신)을 삭제하는 경우 NIC(네트워크 인터페이스 카드)는 삭제되지 않습니다. 여러 VM을 만들고 삭제하는 경우 사용되지 않은 NIC는 내부 IP 주소 임대를 계속 사용합니다. 다른 VM NIC를 만들 때는 서브넷의 주소 공간에서 IP 임대를 획득하지 못할 수 있습니다. 이 문서에서는 연결되지 않은 NIC를 찾아서 삭제하는 방법을 보여 줍니다.
 
 ## <a name="find-and-delete-unattached-nics"></a>연결되지 않은 NIC 찾기 및 삭제

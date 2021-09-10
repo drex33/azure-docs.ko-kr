@@ -17,12 +17,12 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a0e4bb393e522d54bb259e1a85c645fe7f3f5e48
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: dcbc2f726d4c7c935462743578f863efc8762f79
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786360"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749204"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
@@ -159,7 +159,7 @@ Azure AD Premium P2 라이선스가 필요하지 **않은** 작업은 다음과 
 
 - 초기 카탈로그, 패키지 및 정책을 설정하고 다른 사용자에게 관리 작업을 위임할 수 있는 전역 관리자 역할이 있는 사용자에게는 라이선스가 필요하지 않습니다.
 - 카탈로그 작성자, 카탈로그 소유자 및 액세스 패키지 관리자와 같은 관리 작업을 위임받은 사용자에게는 라이선스가 필요하지 않습니다.
-- 액세스 패키지를 **요청할 수 있지만** 액세스 패키지를 요청하지 않는 게스트에게는 라이선스가 필요하지 **않습니다**.
+- **액세스 패키지를 요청할 수 있는 권한** 이 있지만 패키지를 요청하도록 **선택하지 않은** 게스트에게는 라이선스가 필요하지 않습니다.
 
 라이선스에 대한 자세한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
 

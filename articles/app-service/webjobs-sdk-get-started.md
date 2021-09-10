@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 06/25/2021
 ms.author: glenga
 ms.topic: tutorial
-ms.openlocfilehash: 4a017d57062e2871052305eb9bbf393c808a643d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 6b4875f028fe8645125743d04770c2fd237b4f62
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293282"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752463"
 ---
 # <a name="tutorial-get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>자습서: 이벤트 기반 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -246,7 +246,7 @@ WebJobs SDK 버전 3부터 Azure Storage 서비스에 연결하려면 별도의 
     }
     ```
 
-    메시지가 `queue`라는 큐에 추가되면 함수가 실행되고 `message` 문자열이 로그에 기록됩니다. 모니터링되는 큐는 다음에 만드는 기본 Azure Storage 계정에 있습니다.
+    *Functions* 클래스를 `public static`으로 표시해야 런타임이 메서드에 액세스하여 실행할 수 있습니다. 위의 코드 샘플에서는 메시지가 `queue`라는 큐에 추가되면 함수가 실행되고 `message` 문자열이 로그에 기록됩니다. 모니터링되는 큐는 다음에 만드는 기본 Azure Storage 계정에 있습니다.
    
 `message` 매개 변수는 문자열일 필요는 없습니다. JSON 개체, 바이트 배열 또는 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 개체에 바인딩할 수도 있습니다. [큐 트리거 사용을 참조하세요](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#usage). 각 바인딩 형식(예: 큐, Blob 또는 테이블)에는 바인딩할 수 있는 다른 매개 변수 형식 집합이 있습니다.
 

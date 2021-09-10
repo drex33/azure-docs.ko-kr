@@ -9,14 +9,16 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: af870b3be9c2ab7022a05c9cf9e3a662c5850214
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 2d711c646fc4b1783ed9f6c609a4094ddfc605d7
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875074"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691410"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
+
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 균일한 확장 집합
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 가상 머신 확장 집합을 만들고 암호화하는 방법을 보여줍니다. 가상 머신 확장 집합에 Azure Disk Encryption을 적용하는 방법에 대한 자세한 내용은 [Virtual Machine Scale Sets를 위한 Azure Disk Encryption](disk-encryption-overview.md)을 참조하세요.
 

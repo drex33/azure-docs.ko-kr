@@ -3,12 +3,12 @@ title: Bicep 함수
 description: Bicep 파일에서 값을 검색하고, 문자열과 숫자로 작업하고, 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 ms.topic: conceptual
 ms.date: 06/16/2021
-ms.openlocfilehash: 827770c449d144e266022ee1b53c3b10078f605f
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: dcc0e71917431ac2a181ae87374499a89a27482c
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112292936"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123303988"
 ---
 # <a name="bicep-functions"></a>Bicep 함수
 
@@ -89,6 +89,7 @@ ms.locfileid: "112292936"
 * [listSecrets](./bicep-functions-resource.md#list)
 * [list*](./bicep-functions-resource.md#list)
 * [pickZones](./bicep-functions-resource.md#pickzones)
+* [공급자(사용되지 않음)](./bicep-functions-resource.md#providers)
 * [reference](./bicep-functions-resource.md#reference)
 * [resourceId](./bicep-functions-resource.md#resourceid) - 모든 범위에서 사용할 수 있지만 유효한 매개 변수는 범위에 따라 변경됩니다.
 * [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)

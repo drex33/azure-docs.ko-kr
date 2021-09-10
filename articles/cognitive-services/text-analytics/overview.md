@@ -12,12 +12,12 @@ ms.date: 04/14/2021
 ms.author: aahi
 keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: bf148645ebdd762b65d59c86e5453b83423201e9
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 804af634c7202fdc3f822e32e7cd1fbf827bfab1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113550609"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733968"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?
 
@@ -52,6 +52,10 @@ v3.1부터 오피니언 마이닝(OM)은 감정 분석의 기능입니다. NLP(�
 ## <a name="named-entity-recognition"></a>명명된 엔터티 인식
 
 NER(명명된 엔터티 인식)은 사람, 장소, 조직, 수량으로 텍스트의 [엔터티를 식별하고 분류](how-tos/text-analytics-how-to-entity-linking.md)할 수 있습니다. 잘 알려진 엔터티도 인식되고 웹에서 더 많은 정보에 연결됩니다.
+
+## <a name="text-summarization"></a>텍스트 요약
+
+[요약](how-tos/extractive-summarization.md)은 원본 콘텐츠 내에서 가장 중요하거나 관련성 있는 정보를 집합적으로 나타내는 문장을 추출하여 텍스트 요약을 생성합니다. 이 기능은 기사, 보고서 또는 문서를 핵심 문장으로 압축합니다.
 
 ## <a name="text-analytics-for-health"></a>의료 분야 Text Analytics
 

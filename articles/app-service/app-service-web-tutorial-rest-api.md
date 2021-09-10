@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18, devx-track-azurecli
-ms.openlocfilehash: 8317db1b7c4e71f05694ab902738dca87925a4d6
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: 43eaa0db5530483cae58ade96bb8ff65408790f1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112992192"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730715"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
@@ -28,7 +28,7 @@ ms.locfileid: "112992192"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -41,35 +41,44 @@ ms.locfileid: "112992192"
 
 ### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.  
+1. 터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.  
 
-다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 
+1. 샘플 리포지토리를 복제하고 리포지토리 루트로 변경합니다. 
 
-```bash
-git clone https://github.com/Azure-Samples/dotnet-core-api
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/dotnet-core-api
+    cd dotnet-core-api
+    ```
 
-이 리포지토리에는 자습서: [Swagger를 사용한 ASP.NET Core Web API 도움말 페이지](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio)에 따라 만든 앱이 포함되어 있으며, Swagger 생성기를 사용하여 [Swagger UI](https://swagger.io/swagger-ui/)와 Swagger JSON 엔드포인트를 제공합니다.
+    이 리포지토리에는 자습서: [Swagger를 사용한 ASP.NET Core Web API 도움말 페이지](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio)에 따라 만든 앱이 포함되어 있으며, Swagger 생성기를 사용하여 [Swagger UI](https://swagger.io/swagger-ui/)와 Swagger JSON 엔드포인트를 제공합니다.
+
+1. 기본 분기가 `main`인지 확인합니다.
+
+    ```bash
+    git branch -m main
+    ```
+    
+    > [!TIP]
+    > App Service에는 분기 이름 변경이 필요하지 않습니다. 그러나 많은 리포지토리가 기본 분기를 `main`으로 변경([배포 분기 변경](deploy-local-git.md#change-deployment-branch) 참조)하고 있으므로 이 자습서에서는 `main`에서 리포지토리를 배포하는 방법도 보여 줍니다.
 
 ### <a name="run-the-application"></a>애플리케이션 실행
 
-다음 명령을 실행하여 필요한 패키지를 설치하고 데이터베이스 마이그레이션을 실행하고 애플리케이션을 시작합니다.
+1. 다음 명령을 실행하여 필요한 패키지를 설치하고 데이터베이스 마이그레이션을 실행하고 애플리케이션을 시작합니다.
 
-```bash
-cd dotnet-core-api
-dotnet restore
-dotnet run
-```
+    ```bash
+    dotnet restore
+    dotnet run
+    ```
 
-브라우저에서 `http://localhost:5000/swagger`로 이동하여 Swagger UI를 실행해 봅니다.
+1. 브라우저에서 `http://localhost:5000/swagger`로 이동하여 Swagger UI를 실행해 봅니다.
 
-![로컬로 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
+    ![로컬로 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
-`http://localhost:5000/api/todo`로 이동하여 ToDo JSON 항목 목록을 확인합니다.
+1. `http://localhost:5000/api/todo`로 이동하여 ToDo JSON 항목 목록을 확인합니다.
 
-`http://localhost:5000`으로 이동하여 브라우저 앱을 실행해 봅니다. 나중에 CORS 기능을 테스트하기 위해 브라우저 앱을 App Service의 원격 API로 지정할 것입니다. 브라우저 앱에 대한 코드는 리포지토리의 _wwwroot_ 디렉터리에 있습니다.
+1. `http://localhost:5000`으로 이동하여 브라우저 앱을 실행해 봅니다. 나중에 CORS 기능을 테스트하기 위해 브라우저 앱을 App Service의 원격 API로 지정할 것입니다. 브라우저 앱에 대한 코드는 리포지토리의 _wwwroot_ 디렉터리에 있습니다.
 
-언제든지 ASP.NET Core를 중지하려면 터미널에서 `Ctrl+C`를 누릅니다.
+1. 언제든지 ASP.NET Core를 중지하려면 터미널에서 `Ctrl+C`를 누릅니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -97,42 +106,42 @@ dotnet run
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-<pre>
-Enumerating objects: 83, done.
-Counting objects: 100% (83/83), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (78/78), done.
-Writing objects: 100% (83/83), 22.15 KiB | 3.69 MiB/s, done.
-Total 83 (delta 26), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id '509236e13d'.
-remote: Generating deployment script.
-remote: Project file path: .\TodoApi.csproj
-remote: Generating deployment script for ASP.NET MSBuild16 App
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
-remote: .
-remote: .
-remote: .
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Triggering recycle (preview mode disabled).
-remote: Deployment successful.
-To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
- * [new branch]      master -> master
-</pre>
+   <pre>
+   Enumerating objects: 83, done.
+   Counting objects: 100% (83/83), done.
+   Delta compression using up to 8 threads
+   Compressing objects: 100% (78/78), done.
+   Writing objects: 100% (83/83), 22.15 KiB | 3.69 MiB/s, done.
+   Total 83 (delta 26), reused 0 (delta 0)
+   remote: Updating branch 'master'.
+   remote: Updating submodules.
+   remote: Preparing deployment for commit id '509236e13d'.
+   remote: Generating deployment script.
+   remote: Project file path: .\TodoApi.csproj
+   remote: Generating deployment script for ASP.NET MSBuild16 App
+   remote: Generated deployment script files
+   remote: Running deployment command...
+   remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
+   remote: .
+   remote: .
+   remote: .
+   remote: Finished successfully.
+   remote: Running post deployment command(s)...
+   remote: Triggering recycle (preview mode disabled).
+   remote: Deployment successful.
+   To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
+   * [new branch]      master -> master
+   </pre>
 
 ### <a name="browse-to-the-azure-app"></a>Azure 앱 찾아보기
 
-브라우저에서 `http://<app_name>.azurewebsites.net/swagger`로 이동하여 Swagger UI를 실행해 봅니다.
+1. 브라우저에서 `http://<app_name>.azurewebsites.net/swagger`로 이동하여 Swagger UI를 실행해 봅니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
+    ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
-`http://<app_name>.azurewebsites.net/swagger/v1/swagger.json`으로 이동하여 배포된 API에 대한 _swagger.json_ 을 확인합니다.
+1. `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json`으로 이동하여 배포된 API에 대한 _swagger.json_ 을 확인합니다.
 
-`http://<app_name>.azurewebsites.net/api/todo`로 이동하여 배포된 API가 작동하는지 확인합니다.
+1. `http://<app_name>.azurewebsites.net/api/todo`로 이동하여 배포된 API가 작동하는지 확인합니다.
 
 ## <a name="add-cors-functionality"></a>CORS 기능 추가
 
@@ -140,23 +149,23 @@ To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
 
 ### <a name="test-cors-in-sample-app"></a>샘플 앱에서 CORS 테스트
 
-로컬 리포지토리에서 _wwwroot/index.html_ 을 엽니다.
+1. 로컬 리포지토리에서 _wwwroot/index.html_ 을 엽니다.
 
-51번 줄에서 `apiEndpoint` 변수를 배포된 API의 URL(`http://<app_name>.azurewebsites.net`)로 설정합니다. _\<appname>_ 를 App Service의 앱 이름으로 바꿉니다.
+1. 51번 줄에서 `apiEndpoint` 변수를 배포된 API의 URL(`http://<app_name>.azurewebsites.net`)로 설정합니다. _\<appname>_ 를 App Service의 앱 이름으로 바꿉니다.
 
-로컬 터미널 창에서 샘플 앱을 다시 실행합니다.
+1. 로컬 터미널 창에서 샘플 앱을 다시 실행합니다.
 
-```bash
-dotnet run
-```
+    ```bash
+    dotnet run
+    ```
 
-`http://localhost:5000`에 있는 브라우저 앱으로 이동합니다. 브라우저에서 개발자 도구 창을 열고(Windows용 Chrome에서 `Ctrl`+`Shift`+`i`) **콘솔** 탭을 검사합니다. 이제 `No 'Access-Control-Allow-Origin' header is present on the requested resource` 오류 메시지가 표시됩니다.
+1. `http://localhost:5000`에 있는 브라우저 앱으로 이동합니다. 브라우저에서 개발자 도구 창을 열고(Windows용 Chrome에서 `Ctrl`+`Shift`+`i`) **콘솔** 탭을 검사합니다. 이제 `No 'Access-Control-Allow-Origin' header is present on the requested resource` 오류 메시지가 표시됩니다.
 
-![브라우저 클라이언트에서 발생한 CORS 오류](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
+    ![브라우저 클라이언트에서 발생한 CORS 오류](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
-브라우저 앱(`http://localhost:5000`)과 원격 리소스(`http://<app_name>.azurewebsites.net`) 간에 도메인이 일치하지 않고 App Service의 API에서 `Access-Control-Allow-Origin` 헤더를 보내지 않기 때문에 브라우저에서 도메인 간 콘텐츠가 브라우저 앱에 로드되지 않도록 차단했습니다.
+    브라우저 앱(`http://localhost:5000`)과 원격 리소스(`http://<app_name>.azurewebsites.net`) 간에 도메인이 일치하지 않고 App Service의 API에서 `Access-Control-Allow-Origin` 헤더를 보내지 않기 때문에 브라우저에서 도메인 간 콘텐츠가 브라우저 앱에 로드되지 않도록 차단했습니다.
 
-프로덕션 환경에서 브라우저 앱에는 localhost URL 대신 공용 URL이 있지만, CORS를 localhost URL로 사용하도록 설정하는 방법은 공용 URL과 동일합니다.
+    프로덕션 환경에서 브라우저 앱에는 localhost URL 대신 공용 URL이 있지만, CORS를 localhost URL로 사용하도록 설정하는 방법은 공용 URL과 동일합니다.
 
 ### <a name="enable-cors"></a>CORS를 사용하도록 설정 
 

@@ -2,13 +2,13 @@
 title: 템플릿 함수
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 값을 검색하고 문자열과 숫자로 작업하며 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: 012e570a769e8ea969d0c527a71053f55ecdf5a9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 08/31/2021
+ms.openlocfilehash: a094bfca418cfb2ab28fd0c80b19e580cab76024
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959397"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123310366"
 ---
 # <a name="arm-template-functions"></a>ARM 템플릿 함수
 
@@ -176,6 +176,7 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
 * [pickZones](template-functions-resource.md#pickzones)
+* [공급자(사용되지 않음)](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup) - 리소스 그룹에 대한 배포에서만 사용할 수 있습니다.
 * [resourceId](template-functions-resource.md#resourceid) - 모든 범위에서 사용할 수 있지만 유효한 매개 변수는 범위에 따라 변경됩니다.

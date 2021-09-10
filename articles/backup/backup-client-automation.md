@@ -2,14 +2,14 @@
 title: PowerShell을 사용하여 Azure에 Windows Server 백업
 description: 이 문서에서는 PowerShell을 사용하여 Windows Server 또는 Windows 클라이언트에서 Azure Backup을 설정하고 백업 및 복구를 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 12/2/2019
+ms.date: 08/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0149fb56a970d2962088a850e3a56a3674cb1a4b
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1d72dec0e9e2c1df0f93df5b557d72e8ad5c857e
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672223"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779496"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
@@ -408,6 +408,9 @@ PolicyState     : Valid
 ### <a name="applying-the-policy"></a>정책 적용
 
 이제 정책 개체가 완료되었으므로 연결된 백업 일정, 보존 정책 및 파일의 포함/제외 목록이 있습니다. 이제는 이 정책을 Azure Backup에 커밋하여 사용할 수 있습니다. 새로 만든 정책을 적용하기 전에 [Remove-OBPolicy](/powershell/module/msonlinebackup/remove-obpolicy) cmdlet을 사용하여 서버에 연결된 기존 백업 정책이 없도록 만듭니다. 정책을 제거하면 확인 메시지가 나타납니다. 확인 메시지를 건너뛰려면 이 cmdlet에서 `-Confirm:$false` 플래그를 사용합니다.
+
+>[!Note]
+>cmdlet을 실행하는 동안 보안 PIN을 설정하라는 메시지가 표시되는 경우 [방법 1 섹션](/azure/backup/backup-azure-delete-vault#method-1)을 참조하세요.
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy

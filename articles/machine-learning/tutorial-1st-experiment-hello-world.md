@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
 ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 40fdfcec5e74c7b86807f5cd1577d12ed4904632
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 472fcf4c7a1cc486db5aded40c87ffec2a9e796a
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765746"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634696"
 ---
 # <a name="tutorial-get-started-with-a-python-script-in-azure-machine-learning-part-1-of-3"></a>자습서: Azure Machine Learning에서 Python 스크립트 시작(1/3부)
 
@@ -149,13 +149,19 @@ print(aml_url)
 
 ## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> 클라우드에서 코드 제출 및 실행
 
-**터미널에서 스크립트 저장 및 실행** 을 선택하여 컨트롤 스크립트를 실행합니다. 이어서 컴퓨팅 클러스터에서 [설정 자습서](quickstart-create-resources.md)에 따라 만든 `hello.py`을 실행합니다.
+1. **터미널에서 스크립트 저장 및 실행** 을 선택하여 컨트롤 스크립트를 실행합니다. 이어서 컴퓨팅 클러스터에서 [설정 자습서](quickstart-create-resources.md)에 따라 만든 `hello.py`을 실행합니다.
 
-터미널에서 인증하려면 로그인하라는 메시지가 표시될 수 있습니다.  코드를 복사하고 링크를 따라 이 단계를 완료합니다.
+1. 터미널에서 인증하려면 로그인하라는 메시지가 표시될 수 있습니다.  코드를 복사하고 링크를 따라 이 단계를 완료합니다.
 
-> [!TIP]
-> 컴퓨팅 클러스터 만들기를 방금 완료한 경우 “UserError: 필요한 Docker 이미지를 찾을 수 없습니다.” 오류가 표시될 수 있습니다. 약 5분 정도 기다린 후 다시 시도하세요.  컴퓨팅 클러스터에서 노드를 실행할 준비를 하려면 시간이 더 필요할 수 있습니다.
+1. 인증이 완료되면 터미널에 링크가 표시됩니다. 실행을 보려면 링크를 선택합니다.
 
+    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+
+## <a name="view-the-output"></a>출력 보기
+
+1. 열리는 페이지에서 실행 상태를 볼 수 있습니다.
+1. 실행 상태가 **완료됨** 이면 페이지 상단에서 **출력 + 로그** 를 선택합니다.
+1. 실행 결과를 보려면 **70_driver_log.txt** 를 선택합니다.
 
 ## <a name="monitor-your-code-in-the-cloud-in-the-studio"></a><a name="monitor"></a>스튜디오의 클라우드에서 코드 모니터링
 

@@ -10,16 +10,19 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 38ac40f8d6d56bce4862f2e861a6568b3eefd15a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 68f8e78f2c08c86a176d3254de5e32fe2534cc1f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087511"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690849"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 디스크 사용
 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
+
 이 문서는 가상 머신을 프로비전하는 데 Azure Resource Manager 템플릿을 사용할 때 관리 및 관리되지 않는 디스크 간의 차이점을 설명합니다. 이 예제에서는 관리되지 않는 디스크를 사용하는 기존 템플릿을 관리 디스크로 업데이트하는 데 도움이 됩니다. 참조를 위해 [vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows) 템플릿을 가이드로 사용합니다. 직접 비교하려는 경우 [관리 디스크](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json)를 사용하는 것과 [관리되지 않는 디스크](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json)를 사용하는 이전 버전을 사용하는 템플릿을 살펴볼 수 있습니다.
+
 
 ## <a name="unmanaged-disks-template-formatting"></a>관리되지 않는 디스크 템플릿 서식 지정
 

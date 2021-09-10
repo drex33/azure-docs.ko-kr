@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
-ms.openlocfilehash: 8def06990b72d6e08127e8c4f16e0dfd87905d4f
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 4492eb9a346d89789f1527bf80b46a08cc74fe92
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565188"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696091"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서에서는 Azure Portal을 사용하여 Azure에서 Linux VHD(가상 하드 디스크) 파일을 다운로드하는 방법을 알아봅니다. 
 

@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Azure Video Analyzer를 시작하는 단
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.openlocfilehash: 335890f4bb939123290e5dfe9cccbf9f9aef1242
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 001b1bd2e1f2f3350ad9e9cef28bb3ec682332ef
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605181"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748680"
 ---
 # <a name="quickstart-get-started-with-azure-video-analyzer"></a>빠른 시작: Azure Video Analyzer 시작
 
@@ -91,14 +91,14 @@ ms.locfileid: "114605181"
 
 ## <a name="use-direct-method-calls"></a>직접 메서드 호출 사용
 
-이제 Video Analyzer 에지 모듈이 노출하는 직접 메서드를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다. 모듈이 제공하는 직접 메서드를 모두 검사하려면 [Video Analyzer 직접 메서드](direct-methods.md)를 참조하세요. 
+이제 Video Analyzer 에지 모듈이 노출하는 직접 메서드를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다. 모듈이 제공하는 직접 메서드를 모두 검사하려면 [Video Analyzer 직접 메서드](direct-methods.md)를 참조하세요. 직접 메서드에 대한 스키마는 [여기](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.0.0/AzureVideoAnalyzerSdkDefinitions.json)에서 찾을 수 있습니다.
 
 ### <a name="enumerate-pipeline-topologies"></a>파이프라인 토폴로지 열거
 
 이 단계를 수행하면 모듈의 모든 [파이프라인 토폴로지](pipeline.md)가 열거됩니다.
 
 1. "avaedge" 모듈을 마우스 오른쪽 단추로 클릭하고 바로 가기 메뉴에서 **모듈 직접 메서드 호출** 을 선택합니다.
-1. Visual Studio Code 창의 상단 가운데에 편집 상자 팝업 창이 표시됩니다. 편집 상자에 "pipelineTopologyList"를 입력하고 Enter 키를 누릅니다.
+1. Visual Studio Code 창의 상단 가운데에 편집 상자 팝업 창이 표시됩니다. 편집 상자에 `pipelineTopologyList`를 입력하고 Enter 키를 누릅니다.
 1. 그런 다음, 편집 상자에 아래 JSON 페이로드를 복사하여 붙여넣고 Enter 키를 누릅니다.
    
 ```json

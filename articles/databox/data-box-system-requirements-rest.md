@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 10/05/2020
 ms.author: alkohli
-ms.openlocfilehash: ac5f2de383066d6ee399dac3b0ad8c365b2e72bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c62c1e854e55b8817724c78bc325badc703bc27
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91744107"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250661"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box Blob Storage 요구 사항
 
@@ -26,13 +26,13 @@ Data Box Blob Storage에 연결하기 전에 정보를 주의 깊게 검토한 �
 
 |     기능                                             |     Azure Storage                                     |     Data Box Blob Storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Azure File Storage                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
+|    Azure 파일                                   |    클라우드 기반 SMB 및 NFS 파일 공유 지원됨               |    지원되지 않음      |
 |    미사용 데이터에 대한 서비스 암호화                  |    256비트 AES 암호화                             |    256비트 AES 암호화 |
 |    스토리지 계정 유형                                 |    범용 및 Azure Blob Storage 계정    |    범용 v1만|
 |    Blob 이름                                            |    1,024자(2,048바이트)                     |    880자(1,760바이트)|
-|    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    Azure Data Box v 3.0 이상의 경우 4.75TB(100MB x 50,000개 블록)|
-|    페이지 Blob 최대 크기                               |    8 TB                                               |    1TB                   |
-|    페이지 Blob 페이지 크기                                  |    512바이트                                          |    4KB                   |
+|    블록 Blob 최대 크기                              |    4.75TiB(100MB X 50,000개 블록)                   |    Azure Data Box v 3.0 이상의 경우 4.75TiB(100MB x 50,000개 블록)|
+|    페이지 Blob 최대 크기                               |    8TiB                                               |    1TiB                   |
+|    페이지 Blob 페이지 크기                                  |    512바이트                                          |    4KiB                   |
 
 ## <a name="supported-api-versions"></a>지원되는 API 버전
 

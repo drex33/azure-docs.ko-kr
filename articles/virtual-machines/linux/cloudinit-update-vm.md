@@ -8,14 +8,17 @@ ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: cynthn
 ms.subservice: cloud-init
-ms.openlocfilehash: ab44e9710fc4a0a86d3225b11f7755400bca0b79
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: a5bd15f19cd641ce7c10ea932084d36cca0d7901
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111853301"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687903"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure의 Linux VM에서 패키지 업데이트 및 설치
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 이 문서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 Azure의 프로비저닝 시간에 Linux 가상 머신(VM) 또는 가상 머신 확장 집합에 패키지를 업데이트하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
 
 ## <a name="update-a-vm-with-cloud-init"></a>cloud-init를 사용하여 VM 업데이트

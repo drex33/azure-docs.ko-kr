@@ -1,17 +1,17 @@
 ---
 title: '빠른 시작: 템플릿을 사용하여 공유 쿼리 만들기'
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 OS별 가상 머신 수를 계산하는 Resource Graph 공유 쿼리를 만듭니다.
-ms.date: 05/11/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 970c8633c0b7d5cb62520ad3778626d1423857b5
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 509de954d7d2b3c66148264e2e76524ac5f367ad
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750864"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122322428"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 공유 쿼리 만들기
 
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **구매** 를 선택합니다.
 
-몇 가지 추가 리소스:
+일부 기타 리소스:
 
 - 더 많은 샘플 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)을 참조하세요.
 - 템플릿 참조를 보려면 [Azure 템플릿 참조](/azure/templates/microsoft.resourcegraph/allversions)를 참조하세요.

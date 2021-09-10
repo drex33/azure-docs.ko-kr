@@ -2,14 +2,14 @@
 title: Azure Backup이란?
 description: Azure Backup 서비스에 대해 간략히 설명하고, BCDR(비즈니스 연속성 및 재해 복구) 전략에 어떤 방식으로 기여하는지 설명합니다.
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 07fc6ee0afb29f9d6c701c7eb2c65be988971eaf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f5e5250860b1388bd679e6167f6f9c9f2920b787
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612639"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722672"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Azure Backup 서비스란?
 
@@ -26,7 +26,7 @@ Azure Backup 서비스는 데이터를 백업하고 Microsoft Azure 클라우드
 - **Azure VM의 SQL Server** -  [Azure VM에서 실행되는 SQL Server 데이터베이스를 백업합니다](backup-azure-sql-database.md).
 - **Azure VM의 SAP HANA 데이터베이스** - [Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업합니다](backup-azure-sap-hana-database.md).
 - **Azure Database for PostgreSQL 서버(미리 보기)** [ -  Azure PostgreSQL 데이터베이스를 백업하고 최대 10년 동안 백업 유지](backup-azure-database-postgresql.md)
-- **Azure Blob(미리 보기)**  - [Azure Blob에 대한 운영 백업 개요(미리 보기 상태)](blob-backup-overview.md)
+- **Azure Blob** - [Azure Blob에 대한 운영 백업 개요](blob-backup-overview.md)
 
 ![Azure Backup 개요](./media/backup-overview/azure-backup-overview.png)
 

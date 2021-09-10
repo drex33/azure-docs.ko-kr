@@ -4,20 +4,22 @@ description: Azure에서 HBv3 시리즈 VM 크기의 성능 및 확장성에 대
 services: virtual-machines
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: bf64cfc8ad00fc7f761019ed2fa66089434a96ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb32a407813ba7e85f55fc39790fba81ca452c50
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604773"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693401"
 ---
 # <a name="hbv3-series-virtual-machine-performance"></a>HBv3 시리즈 가상 머신 성능
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 일반적인 HPC 마이크로 벤치마크를 사용하는 성능 기대치는 다음과 같습니다.
 
@@ -45,7 +47,7 @@ OSU 마이크로 벤치마크 제품군의 MPI 대역폭 테스트는 다음에 
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 ## <a name="mellanox-perftest"></a>Mellanox Perftest
-[Mellanox Perftest 패키지](https://community.mellanox.com/s/article/perftest-package)에는 대기 시간(ib_send_lat) 및 대역폭(ib_send_bw)과 같은 많은 InfiniBand 테스트가 있습니다. 예제 명령은 다음과 같습니다.
+[Mellanox Perftest 패키지](https://community.mellanox.com/s/article/perftest-package)에는 대기 시간(ib_send_lat)과 대역폭(ib_send_bw)과 같은 많은 InfiniBand 테스트가 있습니다. 예제 명령은 다음과 같습니다.
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```

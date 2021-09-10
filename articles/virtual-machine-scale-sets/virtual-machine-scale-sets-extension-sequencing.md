@@ -9,14 +9,17 @@ ms.subservice: extensions
 ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 013404113c3346cfce752f53266062a3b5386092
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1aa6a3291ef5d770104697669ec20468d91efc66
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673962"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690507"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>가상 머신 확장 집합의 확장 프로비전 시퀀스 지정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
+
 Azure 가상 머신 확장 집합은 배포 후 구성 및 관리, 모니터링, 보안 등의 기능을 제공합니다. 프로덕션 배포는 일반적으로 VM 인스턴스에 대해 구성된 여러 개의 확장 조합을 사용하여 원하는 결과를 얻습니다.
 
 가상 머신에서 여러 개의 확장을 사용하는 경우 동일한 OS 리소스가 필요한 확장이 동시에 이러한 리소스 획득을 시도하지 않도록 하는 것이 중요합니다. 또한 일부 확장은 환경 설정, 비밀 등의 필수 구성을 제공하기 위해 다른 확장에 의존합니다. 올바른 순서 및 시퀀스가 없으면 종속 확장 배포가 실패할 수 있습니다.

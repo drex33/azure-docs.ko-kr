@@ -9,14 +9,17 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6541f1a54391ca4dd991ff9ae2299cd9e337cc7b
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: a9c000d5c1ced86fd12e78b362fa437da119bf45
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985935"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690491"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
+
 이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](./overview.md)를 참조하세요.
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>가상 머신 대신 확장 집합을 사용하는 경우

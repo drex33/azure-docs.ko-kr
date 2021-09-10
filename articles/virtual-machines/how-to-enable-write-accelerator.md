@@ -10,14 +10,16 @@ ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8658845a3f5a0e9913536a73850d0cf6442e69d3
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 6b6db47d812b13bced9d0e52530ec8c59b58be19
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669515"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770800"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 Write Accelerator는 Azure Managed Disks를 단독으로 갖춘 Premium Storage의 M 시리즈 VM(가상 머신)용 디스크 기능입니다. 이름에서 알 수 있듯이, 이 기능은 Azure Premium Storage에 대한 쓰기의 I/O 대기 시간을 향상시키기 위한 것입니다. Write Accelerator는 최신 데이터베이스를 위해 성능이 매우 뛰어난 방식으로 디스크에서 로그 파일 업데이트를 유지해야 하는 경우에 이상적입니다.
 
@@ -52,9 +54,10 @@ Write Accelerator에서 지원할 수 있는 VM당 Azure Premium Storage VHD 수
 | --- | --- | --- |
 | M416ms_v2, M416s_v2| 16 | 20000 |
 | M208ms_v2, M208s_v2| 8 | 10000 |
-| M128ms, M128s | 16 | 20000 |
-| M64ms, M64ls, M64s | 8 | 10000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 5,000 |
+| M192ids_v2, M192idms_v2, M192is_v2, M192ims_v2, | 16 | 20000 |
+| M128ms, M128s, M128ds_v2, M128dms_v2, M128s_v2, M128ms_v2 | 16 | 20000 |
+| M64ms, M64ls, M64s, M64ds_v2, M64dms_v2, M64s_v2, M64ms_v2 | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s, M32dms_v2, M32ms_v2 | 4 | 5,000 |
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
 

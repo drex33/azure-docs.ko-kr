@@ -10,12 +10,12 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d403bb00099de4a1fb5f4b9799f45386beb6a9f0
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 8ff972965533dac423cafc731aa4a10165570977
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679256"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123258758"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure 스토리지 계정을 다른 지역으로 이동
 
@@ -60,7 +60,7 @@ Azure Portal을 사용하여 템플릿을 내보내려면:
 
 4. **템플릿 내보내기** 블레이드에서 **다운로드** 를 선택합니다.
 
-5. 포털에서 다운로드한 .zip 파일을 찾은 다음 선택한 폴더에 파일 압축을 풉니다.
+5. 포털에서 다운로드한 .zip 파일을 찾은 다음, 선택한 폴더에 파일 압축을 풉니다.
 
    이 zip 파일에는 템플릿과 템플릿 배포 스크립트로 구성된 .json 파일이 들어 있습니다.
 
@@ -239,7 +239,7 @@ Azure Data Factory를 사용하여 데이터를 이동할 수도 있습니다. A
 
   - [Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](/azure/data-factory/connector-azure-blob-storage)
   - [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사](/azure/data-factory/connector-azure-data-lake-storage)
-  - [Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사](/azure/data-factory/connector-azure-file-storage)
+  - [Azure Data Factory를 사용하여 Azure Files 간에 데이터 복사](/azure/data-factory/connector-azure-file-storage)
   - [Azure Data Factory를 사용하여 Azure Table Storage 간 데이터 복사](/azure/data-factory/connector-azure-table-storage)
 
 ---

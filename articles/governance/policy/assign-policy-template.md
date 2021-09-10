@@ -1,15 +1,15 @@
 ---
 title: 템플릿을 사용하여 새 정책 할당
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
-ms.date: 04/22/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c25107bf5701b4e730924417e01c5e2486317c8e
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 52daeb50d1b8eea91b43c07e45682d87e0bc12cb
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330947"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323483"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>ARM 템플릿을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 값을 선택하거나 입력합니다.
 
-   | 속성 | 값 |
+   | Name | 값 |
    |------|-------|
    | Subscription | Azure 구독을 선택합니다. |
    | Resource group | **새로 만들기** 를 선택하고 이름을 지정한 다음, **확인** 을 선택합니다. 스크린샷에서 리소스 그룹 이름은 _mypolicyquickstart\<Date in MMDD\>rg_ 입니다. |
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **구매** 를 선택합니다.
 
-몇 가지 추가 리소스:
+일부 기타 리소스:
 
 - 더 많은 샘플 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)을 참조하세요.
 - 템플릿 참조를 보려면 [Azure 템플릿 참조](/azure/templates/microsoft.authorization/allversions)를 참조하세요.

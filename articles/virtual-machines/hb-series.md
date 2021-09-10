@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 02eb75f96cee6df8cf2659e65cbb48099b0d81e4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ae1107deb58aa7bcc52fc9ed8055772c81cd4eb3
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768250"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696311"
 ---
 # <a name="hb-series"></a>HB 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 HB 시리즈 VM은 유체 역학, 명시적 유한 요소 분석, 날씨 모델링처럼 메모리 대역폭으로 구동되는 애플리케이션에 최적화되었습니다. HB VM은 60 AMD EPYC 7551 프로세서 코어, CPU 코어 당 4GB RAM을 탑재했으며, 동시 멀티스레딩은 지원하지 않습니다. HB VM은 최대 260GB/초의 메모리 대역폭을 제공합니다.
 
@@ -24,7 +26,7 @@ HB 시리즈 VM은 100GB/초 Mellanox EDR InfiniBand를 탑재했습니다. 이�
 [ACU](acu.md): 199-216<br>
 [Premium Storage](premium-storage-performance.md): 지원됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
-[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대한 [자세한 정보](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
+[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대해 [자세히 알아보기](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>

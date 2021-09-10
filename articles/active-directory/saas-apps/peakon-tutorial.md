@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a84d4d71e5190c455441d1e627381be86ef5e129
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fa227e1aa503cf17da6027da8754a6f51e7f469
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97608530"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>자습서: Peakon과 Azure Active Directory 통합
 
@@ -45,6 +45,7 @@ Peakon과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Peakon은 **SP** 및 **IDP** 시작 SSO를 지원합니다.
+* Peakon은 [**자동** 사용자 프로비저닝 및 프로비저닝 해제](peakon-provisioning-tutorial.md)(권장)를 지원합니다.
 
 ## <a name="adding-peakon-from-the-gallery"></a>갤러리에서 Peakon 추가
 

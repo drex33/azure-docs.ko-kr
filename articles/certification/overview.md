@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 04/09/2021
 ms.custom: template-overview
 ms.service: certification
-ms.openlocfilehash: e7cd664e9eb61cae4f1888e4c94f02f19301e9e5
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 73b7922e8295f33191f29f6bf7e7bb947764724b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502099"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751135"
 ---
 # <a name="what-is-the-azure-certified-device-program"></a>Azure Certified Device 프로그램이란?
 
-Azure Certified Device 프로그램에 관심을 가져주셔서 감사합니다! Azure Certified Device는 Azure에서 실행되도록 빌드된 IoT 디바이스를 차별화, 인증 및 승격할 수 있는 무료 프로그램입니다. 인텔리전트 카메라에서 연결된 센서, 에지 인프라에 이르기까지 향상된 IoT 디바이스 인증 프로그램은 디바이스 빌더에서 제품 가시성을 높이고 고객이 솔루션을 빌드하는 시간을 절약할 수 있도록 지원합니다.
+Azure Certified Device 프로그램에 관심을 가져주셔서 감사합니다! Azure Certified Device는 Azure에서 실행되도록 빌드된 IoT 디바이스를 차별화, 인증, 승격할 수 있는 평가판 프로그램입니다. 인텔리전트 카메라에서 연결된 센서, 에지 인프라에 이르기까지 향상된 IoT 디바이스 인증 프로그램은 디바이스 빌더에서 제품 가시성을 높이고 고객이 솔루션을 빌드하는 시간을 절약할 수 있도록 지원합니다.
 
 ## <a name="our-certification-promise"></a>인증 약속
 

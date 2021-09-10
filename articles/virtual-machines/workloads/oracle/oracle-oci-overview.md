@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: kegorman
-ms.openlocfilehash: 04a3fb9e4e7dd1d498714cd3b2ebd4c5f6b55bec
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 1dfeaf71d846dfe33f42df3e9931293a76f62209
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210349"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698629"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Microsoft Azure와 Oracle 클라우드 인프라를 통합하는 Oracle 애플리케이션 솔루션
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 Microsoft와 Oracle은 협력을 통해 대기 시간은 낮으면서 처리량은 높은 클라우드 간 연결을 제공하므로 두 클라우드의 장점을 활용할 수 있습니다. 
 

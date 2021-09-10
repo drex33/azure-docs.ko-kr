@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: kegorman
-ms.openlocfilehash: 862bb886c7ec5dfd40c7acdbae2f70f6698a711b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac9c699addf996178b1d6aabdf010267bda75964
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669933"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690071"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Azure에서 Oracle 애플리케이션을 배포하는 아키텍처
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 Microsoft와 Oracle은 고객이 Oracle E-Business Suite, JD Edwards EnterpriseOne 및 PeopleSoft와 같은 Oracle 애플리케이션을 클라우드에 배포할 수 있도록 협력했습니다. Microsoft Azure와 OCI(Oracle Cloud Infrastructure) 간의 [개인 네트워크 상호 연결](configure-azure-oci-networking.md) 미리 보기가 도입됨에 따라 이제 Azure에서 Oracle 애플리케이션을 Azure 또는 OCI의 백 엔드 데이터베이스와 함께 배포할 수 있습니다. 또한 Oracle 애플리케이션은 Azure Active Directory와 통합할 수 있으므로 사용자가 Azure AD(Azure Active Directory) 자격 증명을 사용하여 Oracle 애플리케이션에 로그인할 수 있도록 Single Sign-On을 설정할 수 있습니다.
 

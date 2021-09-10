@@ -9,14 +9,16 @@ ms.collection: windows
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4aed2ce182e535ebb60eae0007353c9c7bddef78
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 689a871a656aa03eea50faee5bbc48a3786f87f4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555264"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692594"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Windows 가상 머신 만들기 및 암호화
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Windows 가상 머신을 만들고 암호화 키 스토리지용 Key Vault를 만들고 VM을 암호화하는 방법을 보여 줍니다. 
 

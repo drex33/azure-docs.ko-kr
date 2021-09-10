@@ -9,14 +9,17 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 2ee2db62cf43dc191da2b92f7d4b67ff775f628f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f04ff9d68297c34adbdaa6e6c326b940e6c496bc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537515"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697481"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 가상 머신 확장 집합의 크기를 자동으로 조정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
+
 확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 애플리케이션 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 애플리케이션 성능 변화에 대응할 수 있습니다.
 
 이 문서에서는 Azure Portal에서 확장 집합의 VM 인스턴스 성능을 모니터링하는 자동 크기 조정 규칙을 만드는 방법을 보여줍니다. 이러한 자동 크기 조정 규칙은 성능 메트릭에 따라 VM 인스턴스 수를 늘리거나 줄일 수 있습니다. [Azure PowerShell](tutorial-autoscale-powershell.md) 또는 [Azure CLI](tutorial-autoscale-cli.md)를 사용하여 이러한 단계를 완료할 수도 있습니다.

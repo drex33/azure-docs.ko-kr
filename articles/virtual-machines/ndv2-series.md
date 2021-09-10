@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 07b76f565aa9eda4db885b6ec37a42a21b2d25bc
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 1009a63f1ffc323073deb00e7c628d3752af2408
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744374"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690217"
 ---
 # <a name="updated-ndv2-series"></a>업데이트된 NDv2 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 NDv2 시리즈 가상 머신은 가장 까다로운 GPU 가속 AI, 기계 학습, 시뮬레이션 및 HPC 워크로드의 요구 사항에 맞게 설계된 GPU 제품군에 새롭게 추가되었습니다.
 
@@ -35,7 +37,7 @@ NDv2 인스턴스는 CUDA GPU에 최적화된 계산 커널 및 GPU 가속화를
 
 [Premium Storage](premium-storage-performance.md): 지원됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
-[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대한 [자세한 정보](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
+[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대해 [자세히 알아보기](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 2세대<br>

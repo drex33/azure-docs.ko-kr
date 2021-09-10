@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/06/2021
 ms.author: yashar
-ms.openlocfilehash: a6ddcef1493f15442a723bcc93850e6197db84d8
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 5576ee62f1945266dfb4bc2d9e41124a88ab17f5
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285601"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694232"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances에서 가상 머신 크기 유연성
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 예약 VM 인스턴스를 구매하는 경우 인스턴스 크기 유연성 또는 용량 우선 순위를 최적화하도록 선택할 수 있습니다. 예약 VM 인스턴스의 최적화 설정을 지정하거나 변경하는 방법에 대한 자세한 내용은 [예약 VM 인스턴스의 최적화 설정 변경](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances)을 참조하세요.
 

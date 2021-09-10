@@ -9,17 +9,19 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: tagore
-ms.openlocfilehash: c1a2a5f035ca0a182371f0beea3b5b58e7353bcc
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: af032e52886772de6238d1f6dff456189e7e8b3e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112322965"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698124"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보
 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM
+
 > [!IMPORTANT]
-> 현재, IaaS VM 중 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 중입니다. 2020년 2월 28일부터 클래식 VM은 더 이상 사용되지 않으며 2023년 3월 1일에 완전히 사용 중지될 예정입니다. 사용 중지 및 [그 영향](./classic-vm-deprecation.md#how-does-this-affect-me)에 대한 [자세한 내용을 확인하세요]( https://aka.ms/classicvmretirement).
+> 현재 IaaS VM의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용하고 있습니다. 2020년 2월 28일부터 클래식 VM은 더 이상 사용되지 않으며 2023년 3월 1일에 완전히 사용 중지될 예정입니다. 사용 중지 및 [그 영향](./classic-vm-deprecation.md#how-does-this-affect-me)에 대한 [자세한 내용을 확인하세요]( https://aka.ms/classicvmretirement).
 
 Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 자세하게 살펴보겠습니다. Azure 플랫폼에서 두 가지 배포 모델 간에 리소스를 마이그레이션하는 방법을 더욱 잘 이해할 수 있도록 리소스 및 기능 수준에서 리소스를 검토합니다. 자세한 내용은 서비스 발표 문서 [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](migration-classic-resource-manager-overview.md)을 읽어보세요.
 

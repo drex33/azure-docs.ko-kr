@@ -1,15 +1,14 @@
 ---
 title: 관리 그룹으로 리소스 구성 - Azure Governance
 description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대해 알아봅니다.
-ms.date: 04/28/2021
+ms.date: 08/17/2021
 ms.topic: overview
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: b3624500632d0f02d4b255aef6b836ee0491ff83
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 541ac526ba7105322cb00a7fd26f1c7075af0a60
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733623"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323005"
 ---
 # <a name="what-are-azure-management-groups"></a>Azure 관리 그룹이란?
 
@@ -190,6 +189,10 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 **예외**: 대상 또는 기존 부모 관리 그룹이 루트 관리 그룹인 경우 권한 요구 사항이 적용되지 않습니다. 루트 관리 그룹은 모든 새 관리 그룹 및 구독의 기본 랜딩 스팟이므로 루트 관리 그룹에 대한 권한이 없어도 항목을 이동할 수 있습니다.
 
 구독의 소유자 역할이 현재 관리 그룹에서 상속되는 경우 이동 대상이 제한됩니다. 소유자 역할이 있는 다른 관리 그룹으로만 구독을 이동할 수 있습니다. 기여자인 관리 그룹으로는 이동할 수 없습니다. 구독의 소유권을 잃게 되기 때문입니다. 구독의 소유자 역할(관리 그룹에서 상속되지 않음)에 직접 할당되는 경우 기여자인 관리 그룹으로 이동할 수 있습니다.
+
+> [!IMPORTANT]
+> Azure Resource Manager는 최대 30분 동안 관리 그룹 계층 구조 세부 정보를 캐시합니다.
+> 따라서 관리 그룹을 이동하면 Azure Portal에 즉시 반영되지 않을 수 있습니다. 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>활동 로그를 사용하여 관리 그룹 감사
 

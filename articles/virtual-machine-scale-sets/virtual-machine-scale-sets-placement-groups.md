@@ -9,14 +9,17 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: ffa2a3a921e988b92ad90831041a6fb4d321bc42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3171b9ffd15fe7dd9e13b3fdde1a3394efb6327
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92747809"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697378"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>대규모 가상 머신 확장 집합과 작동
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
+
 이제 최대 1,000대 VM의 용량을 갖춘 Azure [가상 머신 확장 집합](./index.yml)을 만들 수 있습니다. 이 문서에서는 _대규모 가상 머신 확장 집합_ 이 100대 이상의 VM까지 확장할 수 있는 확장 집합으로 정의됩니다. 이 기능은 확장 집합 속성에 의해 설정됩니다(_singlePlacementGroup=False_). 
 
 부하 분산 및 장애 도메인 등 대규모 확장 집합의 특정 측면은 표준 확장 집합과 다르게 동작합니다. 이 문서에서는 대규모 확장 세트의 특징에 대해 설명하고 애플리케이션에서 성공적으로 사용하기 위해 알아야 할 내용을 설명합니다. 

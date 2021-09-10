@@ -10,14 +10,15 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 4d41c4b9157791f29c4d2ba1873c2e5b458d45a9
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a4fe089672b1d62d321c1306983acfb66f5c0579
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110667989"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688619"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 TLS/SSL 인증서로 Azure에서 Windows 가상 머신의 웹 서버 보호
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 > [!NOTE]
 > 현재 이 문서는 일반화된 이미지에만 적용됩니다. 특수 디스크를 사용하여 이 자습서를 시도하면 오류가 발생합니다. 

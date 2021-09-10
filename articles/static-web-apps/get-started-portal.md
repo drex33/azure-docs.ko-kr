@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: static-web-apps
 ms.custom:
 - mode-portal
-ms.openlocfilehash: ce4c37091fc56398c9986396d56e2cc66f9b1d8a
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: d83a9f96745e798d307c6e5299da84f1ac717e76
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813945"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609087"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 정적 사이트 빌드
 
@@ -22,7 +22,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정
@@ -67,9 +67,9 @@ GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
     # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
 
     1. _빌드 사전 설정_ 드롭다운에서 **사용자 지정** 을 선택합니다.
-    1. _앱 위치_ 상자에서 기본값을 유지합니다.
+    1. _앱 위치_ 상자에 **./src** 를 입력합니다.
     1. _Api 위치_ 상자를 비워 둡니다.
-    1. _앱 아티팩트 위치_ 상자를 비워 둡니다.
+    1. _앱 아티팩트 위치_ 상자에 **./src** 를 입력합니다.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 

@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 �
 description: 사용자 계정을 Azure AD에서 Bpanda로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 57e424f8-6fbc-4701-a312-899b562589ea
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/05/2021
-ms.author: Zhchia
-ms.openlocfilehash: 7e11f60fee0565b86fe62008f418175bce21be03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 90e2b260e59caceaca059b524c34233603959ef3
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585182"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327708"
 ---
 # <a name="tutorial-configure-bpanda-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Bpanda 구성
 
@@ -51,7 +51,7 @@ ms.locfileid: "104585182"
 ## <a name="step-2-configure-bpanda-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 Bpanda 구성
 1. 인증 테넌트 URL에 대한 자세한 내용은 support@mid.de에 문의하세요.
 
-2. 액세스 토큰을 추가로 생성하기 위한 클라이언트 암호입니다. 이는 안전한 방법으로 사용자에게 전송되어야 합니다. 자세한 내용은 support@mid.de를 확인하세요.
+2. 액세스 토큰을 추가로 생성하기 위한 클라이언트 암호입니다. 이 비밀은 안전한 방법으로 전송되어야 합니다. 자세한 내용은 support@mid.de를 확인하세요.
 
 3. Azure AD와 Bpanda 간의 성공적인 연결을 설정하려면 다음 방법 중 하나를 사용하여 액세스 토큰을 검색해야 합니다.
 
@@ -83,7 +83,7 @@ Azure AD 애플리케이션 갤러리에서 Bpanda를 추가하여 Bpanda에 대
 
 Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-* Bpanda에 사용자 및 그룹을 할당할 때 **기본 액세스**  이외의 역할을 선택해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 역할을 더 추가할 수 있습니다. 
+* Bpanda에 사용자 및 그룹을 할당할 때 **기본 액세스**  이외의 역할을 선택해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 다른 역할을 추가할 수 있습니다. 
 
 * 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 지정할 수 있습니다. 
 
@@ -136,6 +136,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |phoneNumbers[type eq "mobile"].value|String|
    |externalId|String|
    |title|String|
+   |preferredLanguage|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|

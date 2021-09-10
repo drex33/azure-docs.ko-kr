@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: 680e22974aa85ae2d179f0b927a44b3471b4939d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a106f6f4a9a539b8139c6a423d70d78faa97e769
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87101197"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122229034"
 ---
 # <a name="what-is-azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching이란?
 
@@ -37,6 +37,9 @@ Azure Dev Tools for Teaching은 Azure를 상업적으로 사용할 수 있는 14
 모든 소프트웨어는 교육 사용자가 사용할 수 있는 모든 제품과 서비스를 제공하는 [Education Hub](https://azureforeducation.microsoft.com/devtools)([Azure Portal](https://portal.azure.com/)에서 기본 제공됨)를 통해 액세스할 수 있습니다. 학생들은 Imagine 구독에 액세스하기 위해 사용하는 것과 동일한 자격 증명을 사용하여 Azure Portal에 로그인하여 소프트웨어에 액세스합니다.
 
 학생들은 자신의 소프트웨어 혜택에 액세스할 수 있도록 Azure 구독에 가입할 필요가 없습니다. 그러나 Microsoft는 Azure 크레딧에서 USD$100을 제공하고 학생용 체험 Azure 서비스에 액세스할 수 있도록 합니다. 학생은 신용 카드가 필요 없이 [Azure for Students 제품](azure-students-program.md)에 가입할 수 있습니다.
+
+## <a name="why-cant-i-purchase-azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching을 구매할 수 없는 이유는 무엇인가요?
+Azure Dev Tools for Teaching은 이제 Microsoft와 VL(볼륨 라이선스) 계약이 있는 경우에만 사용할 수 있습니다.  Microsoft와 VL 계약을 체결했지만 여전히 사용하는 데 문제가 있는 경우 지원팀에 문의하세요.  교육용 볼륨 라이선스에 대한 자세한 내용은 https://aka.ms/ees 를 참조하세요.
 
 ## <a name="getting-help"></a>도움말 보기
 

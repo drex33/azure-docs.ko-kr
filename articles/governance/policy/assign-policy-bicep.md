@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: Bicep(미리 보기) 파일을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Bicep(미리 보기) 파일을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
-ms.date: 05/20/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: subject-bicepqs
-ms.openlocfilehash: 0f48804fd73b073479617aa3359e6d338056fb39
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: 116058395d556d4e5f7d8a9c67867376e703a7cc
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007178"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323754"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-bicep-file"></a>빠른 시작: Bicep 파일을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -37,7 +37,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 param policyAssignmentName string = 'audit-vm-manageddisks'
 param policyDefinitionID string = '/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d'
 
-resource assignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource assignment 'Microsoft.Authorization/policyAssignments@2021-09-01' = {
     name: policyAssignmentName
     scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
     properties: {
@@ -79,7 +79,7 @@ az deployment group create \
 
 ---
 
-몇 가지 추가 리소스:
+일부 기타 리소스:
 
 - 더 많은 샘플 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)을 참조하세요.
 - 템플릿 참조를 보려면 [Azure 템플릿 참조](/azure/templates/microsoft.authorization/allversions)를 참조하세요.

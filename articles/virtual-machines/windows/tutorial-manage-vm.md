@@ -8,14 +8,15 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: ae298562b5d3306cf6c20b4c2fb7b378ba99c986
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ca70f0cf236cf786bcc578fa96e7a81597e5c06
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561622"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690044"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure VM(가상 머신) 배포 작업을 설명합니다. 다음 방법을 알아봅니다.
 

@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 645402d6c6b1fe744938ef5597098f46bc80c78e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c10034e8cd38e9ca4744026f27ed49dbaadba7ec
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101672364"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693943"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11을 배포하기 위한 일반적인 필수 구성 요소
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서는 Azure에서 OpenShift Container Platform 또는 OKD를 배포하기 위한 일반적인 필수 조건을 설명합니다.
 

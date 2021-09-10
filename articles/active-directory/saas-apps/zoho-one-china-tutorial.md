@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 08/09/2021
 ms.author: jeedes
-ms.openlocfilehash: d4762aff046c6820a3e3a208aa9be5c4f6e23cb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3f765062895fc31ea3e8e768a025b35ca88d4a0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643886"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746064"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoho-one-china"></a>자습서: Zoho One China와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,21 +26,21 @@ ms.locfileid: "101643886"
 * 사용자가 해당 Azure AD 계정으로 Zoho One China에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Zoho One China SSO(Single Sign-On)를 사용하도록 설정된 구독
 
-> [!NOTE]
-> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
-
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Zoho One China에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+* Zoho One China는 **SP 및 IDP** 시작 SSO를 지원합니다.
+
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="add-zoho-one-china-from-the-gallery"></a>갤러리에서 Zoho One China 추가
 
@@ -76,7 +76,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     **회신 URL** 텍스트 상자에 `https://accounts.zoho.com.cn/signin/samlsp/<zoid>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

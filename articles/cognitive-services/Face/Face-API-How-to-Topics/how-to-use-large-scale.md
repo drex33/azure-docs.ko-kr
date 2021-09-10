@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b35b66615bd5c577dd73faca77d3ea20468442f8
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: cd0623303b34c9d461a2fbd7c2d9e364ec032374
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913520"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121742581"
 ---
 # <a name="example-use-the-large-scale-feature"></a>예제: 대규모 기능 사용
 
-이 가이드는 기존 PersonGroup 및 FaceList 개체에서 LargePersonGroup 및 LargeFaceList 개체로 각각 강화하는 방법에 대한 고급 문서입니다. 이 가이드에서는 마이그레이션 프로세스를 설명합니다. 여기서는 PersonGroup 및 FaceList 개체, [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)(학습) 작업 및 얼굴 인식 함수에 대해 기본적으로 이해하고 있다고 가정합니다. 이러한 주제에 대한 자세한 내용은 [얼굴 인식](../concepts/face-recognition.md) 개념 가이드를 참조하세요.
+이 가이드는 기존 PersonGroup 및 FaceList 개체에서 LargePersonGroup 및 LargeFaceList 개체로 각각 강화하는 방법에 대한 고급 문서입니다. 이 가이드에서는 마이그레이션 프로세스를 설명합니다. 여기서는 PersonGroup 및 FaceList 개체, [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)(학습) 작업 및 얼굴 인식 함수에 대해 기본적으로 이해하고 있다고 가정합니다. 이러한 주제에 대해 자세히 알아보려면 [얼굴 인식](../concepts/face-recognition.md) 개념 가이드를 참조하세요.
 
 LargePersonGroup과 LargeFaceList는 총괄하여 대규모 작업이라고 합니다. LargePersonGroup은 최대 100만 명의 사람을 포함할 수 있으며, 각 사람마다 최대 248개의 얼굴이 있습니다. LargeFaceList는 최대 100만 개의 얼굴을 포함할 수 있습니다. 대규모 작업은 기존의 PersonGroup 및 FaceList와 비슷하지만 새 아키텍처로 인해 몇 가지 차이점이 있습니다. 
 

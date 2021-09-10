@@ -3,16 +3,17 @@ metadata:
   title: Azure Monitor FAQ | Microsoft Docs
   description: Azure Monitor에 대한 질문과 대답입니다.
   services: azure-monitor
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: azure-monitor
   author: bwren
   ms.author: bwren
   ms.date: 10/08/2020
-  ms.openlocfilehash: 8493312bcb15e2358191fb0aa6f0c0236961a446
-  ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
+  ms.openlocfilehash: 280a020b66ce20f8efdf124b92afa24bab0c9c13
+  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/12/2021
-  ms.locfileid: "113616368"
+  ms.lasthandoff: 08/17/2021
+  ms.locfileid: "122252830"
 title: Azure Monitor 질문과 대답
 summary: >
   이 Microsoft FAQ는 Azure Monitor에 대한 일반적인 질문과 대답 목록입니다. 추가 질문이 있으면 [토론 포럼](/answers/questions/topics/single/24223.html)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -106,7 +107,7 @@ sections:
   - question: >
       Log Analytics 스토리지를 변경할 수 있나요?
     answer: >
-      수집한 후에는 데이터베이스 스토리지의 데이터를 변경할 수 없지만, [*제거* API 경로를 통해 삭제하여 프라이빗 데이터](./logs/personal-data-mgmt.md#delete)를 삭제할 수는 있습니다. 데이터를 변경할 수 없지만, 일부 인증 시 데이터를 변경할 수 없는 상태로 유지하고 스토리지에서 변경하거나 삭제할 수 없도록 요구할 수 있습니다. 데이터 불변성은 [변경 불가능한 스토리지](../storage/blobs/storage-blob-immutability-policies-manage.md)로 구성된 스토리지 계정에 [데이터 내보내기](./logs/logs-data-export.md)를 사용하여 달성할 수 있습니다.
+      수집한 후에는 데이터베이스 스토리지의 데이터를 변경할 수 없지만, [*제거* API 경로를 통해 삭제하여 프라이빗 데이터](./logs/personal-data-mgmt.md#delete)를 삭제할 수는 있습니다. 데이터를 변경할 수 없지만, 일부 인증 시 데이터를 변경할 수 없는 상태로 유지하고 스토리지에서 변경하거나 삭제할 수 없도록 요구할 수 있습니다. 데이터 불변성은 [변경 불가능한 스토리지](../storage/blobs/immutable-policy-configure-version-scope.md)로 구성된 스토리지 계정에 [데이터 내보내기](./logs/logs-data-export.md)를 사용하여 달성할 수 있습니다.
   - question: >
       Log Analytics 작업 영역은 무엇인가요?
     answer: >
@@ -207,20 +208,21 @@ sections:
 
       로그 경고가 조건과 일치할 때 하트비트가 15분 넘게 누락되면 알림을 받도록 기존 또는 새 [작업 그룹](alerts/action-groups.md)을 지정합니다.
   - question: >
-      Azure Monitor 에이전트에 대한 방화벽 요구 사항은 무엇인가요?
+      Log Analytics 에이전트에 대한 방화벽 요구 사항은 무엇인가요?
     answer: >
       방화벽 요구 사항에 대한 자세한 내용은 [네트워크 방화벽 요구 사항](agents/log-analytics-agent.md#network-requirements)을 참조하세요.
 - name: Azure Monitor 에이전트
   questions:
   - question: >
       Log Analytics 에이전트에서 Azure Monitor 에이전트로 업그레이드 경로는 무엇인가요? 어떻게 마이그레이션하나요?
-    answer: "머신에서 기존 에이전트를 완전히 제거하고 새 에이전트를 설치하기 때문에 현재 자동 업데이트 경로가 없습니다. 따라서 고객은 기능 패리티에 따라 가장 적합한 시간에 마이그레이션을 계획하는 것으로 간주합니다.\n더 중요한 이유는 새로운 에이전트를 사용하면 데이터 수집 설정이 훨씬 간단하고 중앙 집중화되며 **데이터 수집 규칙의 힘을 사용하여 동일한 또는 여러 대상에 연결된 시스템의 하위 집합에 대해 구성할 수 있기 때문입니다. 기존 Log Analytics 에이전트 설정**.\n\n**따라서 데이터 수집 요구 사항을 전체적으로 살펴보고 먼저 올바른 DCR을 만든 다음 에이전트 업데이트를 수행하여이 새로운 설정을 진행하는 것이 좋습니다**. 이렇게 하려면 대규모로 배포하는 방법에 대한 지침을 따를 수 있습니다. \n"
+    answer: >
+      [Log Analytics 에이전트에서 마이그레이션](./agents/azure-monitor-agent-migration.md)을 참조하세요.
   - question: >
-      SCOM 모니터링을 위해 MMA(Log Analytics Agent)에서 AMA(Azure Monitor Agent) 로의 업그레이드 경로는 무엇인가요? SCOM 시나리오에 AMA를 사용할 수 있나요?
-    answer: "AMA가 두 SCOM 관련 모니터 시나리오에 미치는 영향은 다음과 같습니다.\n- **시나리오 1**: SCOM의 Windows 운영 체제를 모니터링하기 위해 업그레이드 경로는 다른 시스템과 동일합니다. 여기서 필요한 패리티 기능이 확보되는 즉시 MMA(버전 2016, 2019)에서 AMA로 마이그레이션할 수 있습니다. AMA에서 사용할 수 있습니다.\n- **시나리오 2**: Log Analytics/Azure Monitor용 SCOM 커넥터를 통해 활성화되므로 SCOM을 Log Analytics 작업 영역에 온 보딩/연결하는 경우 SCOM 관리 서버에 MMA 또는 AMA를 설치할 필요가 없습니다. 따라서 AMA 관점에서이 사용 사례에 영향을 주지 않습니다.  \n\n> [!NOTE] \n> MMA 및 AMA를 사용하여 위의 두 시나리오는 영향을 주지 않고 함께 실행할 수 있습니다.\n"
+      SCOM(System Center Operations Manager) 모니터링을 위한 Log Analytics 에이전트(MMA)에서 AMA(Azure Monitor 에이전트)로의 업그레이드 경로는 무엇인가요? SCOM 시나리오에 AMA를 사용할 수 있나요?
+    answer: "AMA가 두 가지 SCOM(System Center Operations Manager) 관련 모니터 시나리오에 영향을 미치는 방식은 다음과 같습니다.\n- **시나리오 1**: SCOM의 Windows 운영 체제를 모니터링하기 위해 업그레이드 경로는 다른 시스템과 동일합니다. 여기서 필요한 패리티 기능이 확보되는 즉시 MMA(버전 2016, 2019)에서 AMA로 마이그레이션할 수 있습니다. AMA에서 사용할 수 있습니다.\n- **시나리오 2**: Log Analytics/Azure Monitor용 SCOM 커넥터를 통해 활성화되므로 SCOM을 Log Analytics 작업 영역에 온 보딩/연결하는 경우 SCOM 관리 서버에 MMA 또는 AMA를 설치할 필요가 없습니다. 따라서 AMA 관점에서이 사용 사례에 영향을 주지 않습니다.  \n\n> [!NOTE] \n> MMA 및 AMA를 사용하여 위의 두 시나리오는 영향을 주지 않고 함께 실행할 수 있습니다.\n"
   - question: >
-      새 Azure Monitor 에이전트가 다양한 Log Analytics 솔루션에 대한 데이터 수집을 지원하나요?
-    answer: "솔루션 또는 관리 팩으로 익숙한 것이 이제 Azure Monitor 에이전트 확장을 사용하여 Azure Monitor로 데이터를 보내는 VM 확장이 됩니다. AMA에서 솔루션을 사용하도록 설정하면 해당하는 경우 추가 VM 확장이 설치됩니다.\n시간이 지남에 따라 AMA는 Azure Monitor(또는 지원되는 추가 대상)에 데이터를 업로드하는 유일한 에이전트가 됩니다. 솔루션별 VM 확장은 시나리오별 데이터를 수집하거나 필요에 따라 변환/처리를 수행한 다음, AMA를 사용하여 최종 데이터를 Azure Monitor 라우팅하기 위해 존재합니다. \n\n다음은 **새로운 확장 성 아키텍처** 를 설명하는 다이어그램입니다.\n\n![확장 아키텍처](agents/media/azure-monitor-agent/extensibility-arch-new.png)\n"
+      새 Azure Monitor 에이전트는 다양한 Log Analytics 솔루션 및 Azure 서비스(예: Security Center, Sentinel 등)에 대한 데이터 수집을 지원하나요?
+    answer: "[현재 미리 보기로 제공되는 AMA 확장](./agents/azure-monitor-agent-overview.md#supported-services-and-features) 목록을 검토하세요. 이 목록은 새 Azure Monitor 에이전트에서 사용할 수 있는 솔루션 및 서비스와 동일합니다. 솔루션/서비스에 대해 설치되는 추가 확장을 확인할 수 있습니다. 이러한 확장은 솔루션/서비스에 필요한 추가 데이터를 수집하거나 변환/처리를 수행한 다음, AMA를 사용하여 최종 데이터를 Azure Monitor로 라우팅합니다. \n\n다음은 **새로운 확장 성 아키텍처** 를 설명하는 다이어그램입니다.\n\n![확장 아키텍처](agents/media/azure-monitor-agent/extensibility-arch-new.png)\n"
   - question: >
       새 Azure Monitor 에이전트에서 지원되는 Log Analytics 솔루션은 무엇인가요?
     answer: >
@@ -239,14 +241,14 @@ sections:
       예, 가능하지만 특정 고려 사항이 있습니다. 자세한 내용은 [여기](agents/azure-monitor-agent-overview.md#coexistence-with-other-agents)를 읽어보세요.
   - question: >
       기존 에이전트와의 새 Azure Monitor 에이전트가 패리티인가요?
-    answer: "기존 에이전트에는 전체 패리티가 아직 없습니다. 몇가지 개략적인 차이가 있습니다.\n\n- **Log Analytics 에이전트(MMA/OMS)와 비교**\n    -   현재 모든 Log Analytics 솔루션이 지원되는 것은 아닙니다. 위의 표를 참조하세요.\n    -   개인 링크에 대한 지원 없음 \n    -   프록시 서버 또는 Log Analytics(OMS) 게이트웨이 지원 안 함\n    -   사용자 지정 로그 또는 IIS 로그 수집을 지원하지 않습니다.\n    -   Hybrid Runbook worker에 대한 지원 없음\n\n- **Azure Diagnostic Extensions(WAD/LAD)와 비교**\n    -   대상으로 Event Hubs 및 스토리지 계정을 지원하지 않습니다.\n"
+    answer: "기존 에이전트에는 전체 패리티가 아직 없습니다. 몇가지 개략적인 차이가 있습니다.\n\n- **Log Analytics 에이전트(MMA/OMS)와 비교**\n    -   현재 모든 Log Analytics 솔루션이 지원되는 것은 아닙니다. [지원되는 기능](agents/azure-monitor-agent-overview.md#supported-services-and-features)을 참조하세요.\n    -   개인 링크에 대한 지원 없음 \n    -   사용자 지정 로그 또는 IIS 로그 수집을 지원하지 않습니다.\n\n- **Azure Diagnostic Extensions(WAD/LAD)와 비교**\n    -   대상으로 Event Hubs 및 스토리지 계정을 지원하지 않습니다.\n"
   - question: >
       새 Azure Monitor 에이전트가 비 Azure 환경(다른 클라우드, 온-프레미스)을 지원하나요?
     answer: >
-      현재 Azure ARC 에이전트가 설치되어 있으면 온-프레미스 컴퓨터와 다른 클라우드에 연결된 컴퓨터가 모두 서버에 대해 지원됩니다. AMA 및 DCR 실행을 위해 ARC 요구 사항은 **추가 비용이나 리소스 소비가 없습니다**. ARC 에이전트는 설치 메커니즘으로만 사용되며 사용자가 활성화하지 않는한 어떤 작업도 수행하지 않기 때문입니다.
+      Azure ARC 에이전트가 설치되어 있으면 온-프레미스 머신과 다른 클라우드에 연결된 머신 모두 서버에서 지원됩니다. AMA 및 DCR 실행을 위해 ARC 요구 사항은 **추가 비용이나 리소스 소비가 없습니다**. ARC 에이전트는 설치 메커니즘으로만 사용되며 사용자가 활성화하지 않는한 어떤 작업도 수행하지 않기 때문입니다.
   - question: >
       새 Azure Monitor 에이전트가 지 원하는 컴퓨터 유형은 무엇인가요?
-    answer: "Virtual Machines, Virtual Machines 확장 집합 및 ARC 사용 서버에만 직접 설치할 수 있습니다. \n"
+    answer: "Virtual Machines, Virtual Machines Scale Sets 및 ARC 지원 서버에만 직접 설치할 수 있습니다. \n"
   - question: >
       이벤트 ID를 사용하여 이벤트를 필터링할 수 있습니다. 즉, 새 Azure Monitor 에이전트를 사용하는 보다 세부적인 이벤트 필터링이 있나요?
     answer: "예. Windows 시스템에서 이벤트를 필터링하기 위해 **Xpath 쿼리** 를 사용할 수 있습니다. [자세한 정보](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)  \n성능 카운터의 경우 수집하려는 특정 카운터를 지정하고 필요하지 않은 카운터는 제외할 수 있습니다.\nLinux의 syslog의 경우 수집할 각 기능에 대한 시설 및 로그 수준을 선택할 수 있습니다.\n"

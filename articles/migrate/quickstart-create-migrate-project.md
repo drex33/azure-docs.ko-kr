@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 29bd42bedb9c7aa70769236d95339a510ae9dfe9
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 4380b52489a483faf8063516cf2d3fd6af6b061d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487492"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121726235"
 ---
 # <a name="quickstart-create-an-azure-migrate-project-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Migrate 프로젝트 만들기
 
@@ -37,8 +37,6 @@ ms.locfileid: "113487492"
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/migrate-project-create/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.migrate/migrate-project-create/azuredeploy.json":::
-
-
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
@@ -66,7 +64,7 @@ Azure Migrate 프로젝트를 만들었는지 확인하려면 Azure Portal을 �
 
 
 1. Azure Portal의 검색 창에서 **Azure Migrate** 를 검색하여 Azure Migrate로 이동합니다.
-2. Windows, Linux 및 SQL Server 타일에서 **검색,** **평가** 및 **마이그레이션** 단추를 클릭합니다.
+2. 서버, 데이터베이스 및 웹앱 타일 아래에서 **검색**, **평가** 및 **마이그레이션** 단추를 클릭합니다.
 3. 배포에 지정된 값에 따라 **Azure 구독** 및 **프로젝트** 를 선택합니다.
 
 

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad10e8d9f376578a61aaa7f5dc2cb0e896dd29cb
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98120226"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324664"
 ---
 # <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 참고 자료
 
@@ -92,10 +92,10 @@ ms.locfileid: "98120226"
 
 ## <a name="partitioning"></a>분할
 
-큰 팩트 테이블(10억 개 행 보다 큼)이 있는 경우 테이블을 분할할 수 있습니다. 99%의 경우 파티션 키는 날짜를 기반으로 해야 합니다. 특히 클러스터형 columnstore 인덱스가 있는 경우 과도하게 분할하지 않도록 주의합니다.
+큰 팩트 테이블(10억 개 행 보다 큼)이 있는 경우 테이블을 분할할 수 있습니다. 99%의 경우 파티션 키는 날짜를 기반으로 해야 합니다. 
 
 ELT가 필요한 스테이징 테이블을 사용하면 분할의 이점을 활용할 수 있습니다. 데이터 수명 주기 관리가 용이해집니다.
-특히 클러스터형 columnstore 인덱스에서 데이터를 과도하게 분할하지 않도록 주의합니다.
+특히 클러스터형 columnstore 인덱스에서 팩트 또는 준비 테이블을 과도하게 분할하지 않도록 주의합니다.
 
 [파티션](sql-data-warehouse-tables-partition.md)에 대해 자세히 알아보세요.
 

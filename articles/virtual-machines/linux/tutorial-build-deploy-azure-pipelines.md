@@ -1,25 +1,25 @@
 ---
-title: 자습서 - Azure Pipelines를 사용하여 Azure VM에 CI/CD
-description: 이 자습서에서는 YAML 기반 Azure 파이프라인을 사용하여 Node.js 앱의 CI(지속적인 통합) 및 CD(지속적인 배포)를 Azure VM에 설정하는 방법을 알아봅니다.
+title: Azure Pipelines를 사용하여 Azure VM에 CI/CD 설정
+description: YAML 기반 Azure 파이프라인을 사용하여 Node.js 앱의 CI(연속 통합) 및 CD(지속적인 배포)를 Azure VM에 설정하는 방법을 알아봅니다.
+ms.service: virtual-machines
 author: ushan
 tags: azure-devops-pipelines
-ms.assetid: ''
-ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
-ms.tgt_pltfrm: azure-pipelines
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 49282bf6cbc7c24b75fbe3f1bbe68bd1fac62ae3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a50a51d68154654d204149a5e76e5aa94e57683
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552493"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697744"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>자습서: Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
+# <a name="deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 CI(지속적인 통합) 및 CD(지속적인 배포)는 모든 코드를 커밋한 후에 코드를 빌드, 릴리스 및 배포할 수 있는 파이프라인을 구성합니다. 이 문서에는 Azure Pipelines를 사용하여 다중 머신 배포를 수행하기 위한 CI/CD 파이프라인 설정과 관련된 단계가 포함되어 있습니다.
 

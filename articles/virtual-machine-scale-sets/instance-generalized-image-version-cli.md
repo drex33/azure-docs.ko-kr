@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
-ms.openlocfilehash: 7be64109aa304e25ec6c61053f446733ed922b32
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: a9ac2bd794ee4aa9f531ad9fcd2f07bb744d02c8
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028058"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691252"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Azure CLI로 정규화된 이미지에서 확장 집합 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 Azure CLI를 사용하여 [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)에 저장되어 있는 정규화된 이미지에서 확장 집합을 만듭니다. 특수 이미지 버전을 사용하여 확장 집합을 만들려면 [특수 이미지에서 확장 집합 인스턴스 만들기](instance-specialized-image-version-cli.md)를 참조하세요.
 

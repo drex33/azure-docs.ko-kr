@@ -3,20 +3,20 @@ title: Azure SQL 데이터 동기화 모범 사례
 description: Azure SQL 데이터 동기화의 구성 및 실행에 대한 모범 사례를 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MaraSteiu
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 12/20/2018
-ms.openlocfilehash: ee15bfaa1d69e2e5047e7d24986f8e4e7d5b8b31
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: e4a08dca9fe30b632b2653270ff6a41c6c081b41
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180244"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689762"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화 모범 사례 
 
@@ -27,14 +27,14 @@ ms.locfileid: "102180244"
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-data-sync-data-sql-server-sql-database.md)를 참조하세요.
 
 > [!IMPORTANT]
-> Azure SQL 데이터 동기화는 현재 Azure SQL Managed Instance를 지원 **하지** 않습니다.
+> Azure SQL 데이터 동기화는 현재 Azure SQL Managed Instance를 지원하지.
 
 ## <a name="security-and-reliability"></a><a name="security-and-reliability"></a> 보안 및 안정성
 
 ### <a name="client-agent"></a>클라이언트 에이전트
 
 -   네트워크 서비스 액세스 권한을 가진 최소 권한 사용자 계정을 사용하여 클라이언트 에이전트를 설치합니다.  
--   SQL Server 컴퓨터가 아닌 컴퓨터에 클라이언트 에이전트를 설치 합니다.  
+-   SQL Server 컴퓨터가 아닌 컴퓨터에 클라이언트 에이전트를 설치합니다.  
 -   온-프레미스 데이터베이스를 여러 에이전트에 등록하지 마세요.    
     -   여러 동기화 그룹에 대한 여러 테이블을 동기화하는 경우에도 마찬가지입니다.  
     -   온-프레미스 데이터베이스를 여러 클라이언트 에이전트에 등록하면 동기화 그룹 중 하나를 삭제하는 경우 문제가 발생합니다.
@@ -43,7 +43,7 @@ SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 �
 
 -   **동기화 설정의 경우**. 테이블 만들기/변경, 데이터베이스 변경, 프로시저 만들기, 스키마 선택/변경, 사용자 정의 형식 만들기.
 
--   **진행 중인 동기화의 경우**. 동기화를 위해 선택 된 테이블 및 동기화 메타 데이터와 추적 테이블에서 선택/삽입/업데이트/삭제 서비스에서 생성 된 저장 프로시저에 대 한 Execute 권한 사용자 정의 테이블 형식에 대 한 Execute 권한
+-   **진행 중인 동기화의 경우**. 동기화에 선택된 테이블과 동기화 메타데이터 및 추적 테이블에서 선택/삽입/업데이트/삭제, 서비스에서 생성한 저장 프로시저에 대한 실행 권한, 사용자 정의 테이블 유형에 대한 실행 권한.
 
 -   **프로비전 해제의 경우**. 동기화 중 테이블 부분 변경, 동기화 메타데이터 테이블에서 선택/삭제, 동기화 추적 테이블, 저장 프로시저 및 사용자 정의 형식 제어.
 
@@ -54,7 +54,7 @@ Azure SQL Database는 단일 자격 증명 세트만 지원합니다. 이 제약
 
 ### <a name="auditing"></a>감사
 
-동기화 그룹의 데이터베이스 수준에서 감사를 사용 하도록 설정 하는 것이 좋습니다. 
+동기화 그룹의 데이터베이스 수준에서 감사를 사용하도록 설정하는 것이 좋습니다. 
 
 ## <a name="setup"></a>설정
 
@@ -62,7 +62,7 @@ Azure SQL Database는 단일 자격 증명 세트만 지원합니다. 이 제약
 
 #### <a name="database-size"></a>데이터베이스 크기
 
-새 데이터베이스를 만들 때 최대 크기를 설정 하 여 배포 하는 데이터베이스 보다 항상 커집니다. 최대 크기를 배포된 데이터베이스보다 크게 설정하지 않으면 동기화가 실패합니다. SQL 데이터 동기화는 자동 확장을 제공하지 않지만, 데이터베이스가 생성된 후 `ALTER DATABASE` 명령을 실행하여 데이터베이스의 크기를 늘릴 수 있습니다. 데이터베이스 크기 제한을 벗어나지 않도록 합니다.
+새 데이터베이스를 만들 때 항상 배포한 데이터베이스보다 크도록 최대 크기를 설정합니다. 최대 크기를 배포된 데이터베이스보다 크게 설정하지 않으면 동기화가 실패합니다. SQL 데이터 동기화는 자동 확장을 제공하지 않지만, 데이터베이스가 생성된 후 `ALTER DATABASE` 명령을 실행하여 데이터베이스의 크기를 늘릴 수 있습니다. 데이터베이스 크기 제한 내에 있는지 확인합니다.
 
 > [!IMPORTANT]
 > SQL 데이터 동기화는 각 데이터베이스와 함께 추가 메타데이터를 저장합니다. 필요한 공간을 계산할 때 이 메타데이터를 고려해야 합니다. 추가 오버 헤드의 양은 테이블 너비(예: 테이블이 좁으면 더 많은 오버헤드가 필요) 및 트래픽 양에 비례합니다.
@@ -75,7 +75,7 @@ Azure SQL Database는 단일 자격 증명 세트만 지원합니다. 이 제약
 
 #### <a name="primary-keys"></a>기본 키
 
-동기화 그룹의 각 테이블에는 기본 키가 있어야 합니다. SQL 데이터 동기화 기본 키가 없는 테이블을 동기화 할 수 없습니다.
+동기화 그룹의 각 테이블에는 기본 키가 있어야 합니다. SQL 데이터 동기화는 기본 키가 없는 테이블을 동기화할 수 없습니다.
 
 SQL 데이터 동기화를 프로덕션에 사용하기 전에 초기 및 지속적인 동기화 성능을 테스트하세요.
 
@@ -100,7 +100,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 -   원본 테이블의 기존 트리거는 프로비전되지 않습니다.  
 -   보기 및 저장 프로시저는 대상 데이터베이스에 생성되지 않습니다.
 -   외래 키 제약 조건에 대한 UPDATE CASCADE 및 ON DELETE CASCADE 작업은 대상 테이블에서 다시 생성되지 않습니다.
--   전체 자릿수가 28 보다 큰 decimal 또는 numeric 열이 있는 경우 동기화 중에 SQL 데이터 동기화 변환 오버플로 문제가 발생할 수 있습니다. Decimal 또는 numeric 열의 전체 자릿수를 28 이하로 제한 하는 것이 좋습니다.
+-   전체 자릿수가 28보다 큰 10진수 또는 숫자 열이 있는 경우, SQL 데이터 동기화에서 동기화 중에 변환 오버플로 문제가 발생할 수 있습니다. 10진수 또는 숫자 열의 전체 자릿수를 28 이하로 제한하는 것이 좋습니다.
 
 #### <a name="recommendations"></a>권장 사항
 
@@ -201,7 +201,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 #### <a name="scenario"></a>시나리오
 
-1. 로컬 에이전트 1과 연결 된 SQL Database 인스턴스 및 SQL Server 데이터베이스를 사용 하 여 동기화 그룹 A를 만들었습니다.
+1. 로컬 에이전트 1과 연결되는 SQL Database 인스턴스 및 SQL Server 데이터베이스를 사용하여 동기화 그룹 A를 만들었습니다.
 2. 동일한 온-프레미스 데이터베이스가 로컬 에이전트 2(이 에이전트는 어떠한 동기화 그룹에도 연결되지 않음)로 등록됩니다.
 3. 온-프레미스 데이터베이스를 로컬 에이전트 2에서 등록 취소하면 추적/메타 테이블이 온-프레미스 데이터베이스의 동기화 그룹에서 제거됩니다.
 4. “데이터베이스가 동기화에 대해 프로비전되지 않거나 동기화 구성 테이블에 대한 사용 권한이 없으므로 현재 작업을 완료할 수 없습니다.”라는 오류와 함께 동기화 그룹 A 작업에 실패합니다.
@@ -226,21 +226,21 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 ### <a name="avoid-schema-refresh-timeout"></a>스키마 새로 고침 제한 시간 방지
 
-동기화 할 복잡 한 스키마가 있는 경우 동기화 메타 데이터 데이터베이스에 더 낮은 SKU (예: 기본)가 있는 경우 스키마를 새로 고치는 동안 "작업 시간 제한"이 발생할 수 있습니다. 
+동기화할 복잡한 스키마가 있는 경우 동기화 메타데이터 데이터베이스의 SKU가 더 낮을 때(예: 기본) 스키마 새로 고침 중 "작업 제한 시간"이 발생할 수 있습니다. 
 
 #### <a name="solution"></a>솔루션
 
-이 문제를 완화 하려면 S3와 같이 더 높은 SKU를 갖도록 동기화 메타 데이터 데이터베이스를 확장 하세요. 
+이 문제를 완화하려면 S3과 같은 더 높은 SKU를 갖도록 동기화 메타데이터 데이터베이스를 확장하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 -   개요 - [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-data-sync-data-sql-server-sql-database.md)
 -   SQL 데이터 동기화 설정
-    - 포털에서- [자습서: Azure SQL Database와 SQL Server 간에 데이터를 동기화 SQL 데이터 동기화 설정](sql-data-sync-sql-server-configure.md)
+    - 포털 - [자습서: Azure SQL Database와 SQL Server 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](sql-data-sync-sql-server-configure.md)
     - PowerShell 사용
-        -  [PowerShell을 사용 하 여 Azure SQL Database에서 여러 데이터베이스 간 동기화](scripts/sql-data-sync-sync-data-between-sql-databases.md)
-        -  [PowerShell을 사용 하 여 SQL Database 데이터베이스와 SQL Server 인스턴스의 데이터베이스 간 동기화](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
+        -  [PowerShell을 사용하여 Azure SQL Database의 여러 데이터베이스 간에 동기화](scripts/sql-data-sync-sync-data-between-sql-databases.md)
+        -  [PowerShell을 사용하여 SQL Database의 데이터베이스와 SQL Server 인스턴스의 데이터베이스 간에 동기화](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   데이터 동기화 에이전트 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](sql-data-sync-agent-overview.md)
 -   모니터 - [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](./monitor-tune-overview.md)
 -   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](sql-data-sync-troubleshoot.md)

@@ -10,14 +10,15 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: cf30282ee37beaa99e83b78b8b7455f2060d8023
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 0834fa6fd7eff41f37eb8f16dc3429189be284cb
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668007"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688679"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 모니터링
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합
 
 Azure 모니터링은 에이전트를 사용하여 Azure VM에서 부팅 및 성능 데이터를 수집하고 이 데이터를 Azure Storage에 저장하며 포털, Azure PowerShell 모듈 및 Azure CLI를 통해 액세스할 수 있도록 합니다. 고급 모니터링은 성능 메트릭을 수집하고, VM에 설치된 애플리케이션 구성 요소를 검색하고, 성능 차트와 종속성 맵을 포함하여 VM용 Azure Monitor와 함께 제공됩니다.
 

@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 04/23/2021
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 424954d18fc719748175c2ad9428bb621d577a70
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4ff1666222eedecd944b94de428c7666b0998d03
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114470784"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271580"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링
 
 ::: zone pivot="programming-language-csharp"
-Azure Spring Cloud의 기본 제공 모니터링 기능을 사용하여 복잡한 문제를 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 Steeltoe [분산 추적](https://steeltoe.io/docs/3/tracing/distributed-tracing)을 Azure의 [Application Insights](../azure-monitor/app/app-insights-overview.md)와 통합합니다. 이 통합은 Azure Portal에서 강력한 로그, 메트릭 및 분산 추적 기능을 제공합니다.
+Azure Spring Cloud의 기본 제공 모니터링 기능을 사용하여 복잡한 문제를 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 Steeltoe [분산 추적](https://docs.steeltoe.io/api/v3/tracing/)을 Azure의 [Application Insights](../azure-monitor/app/app-insights-overview.md)와 통합합니다. 이 통합은 Azure Portal에서 강력한 로그, 메트릭 및 분산 추적 기능을 제공합니다.
 
 다음 절차에서는 이전 빠른 시작에서 배포한 샘플 앱에서 로그 스트리밍, Log Analytics, 메트릭 및 분산 추적을 사용하는 방법을 설명합니다.
 
@@ -66,7 +66,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 1. Azure Portal에서 **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **로그** 를 선택합니다. Azure Spring Cloud에 대한 샘플 쿼리 중 하나에서 **실행** 을 선택합니다.
 
    [ ![Logs Analytics 항목](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
-    
+
 1. 경고 및 오류 로그에 대한 표시를 제한하는 Where 절을 제거하도록 쿼리를 편집합니다.
 
 1. 그런 다음, `Run`을 선택하면 로그가 표시됩니다. 쿼리 작성에 대한 자세한 지침은 [Azure Log Analytics 문서](../azure-monitor/logs/get-started-queries.md)를 참조하세요.
@@ -80,8 +80,8 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 1. Azure Portal에서 **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **메트릭** 을 선택합니다. **메트릭** 드롭다운의 **성능(.NET)** 또는 **요청(.NET**)에서 .NET 메트릭 중 하나를 선택하여 첫 번째 메트릭을 추가하고 해당 메트릭에 대한 타임라인을 확인하려면 **집계** 의 `Avg`를 선택합니다.
 
    [ ![메트릭 항목 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
-    
-1. 도구 모음에서 **필터 추가** 를 클릭하고, `App=solar-system-weather`를 선택하여 **solar-system-weather** 앱에 대해서만 CPU 사용량을 확인합니다.
+
+1. 도구 모음에서 **필터 추가** 를 선택하고, `App=solar-system-weather`를 선택하여 **solar-system-weather** 앱에 대해서만 CPU 사용량을 확인합니다.
 
    [ ![메트릭에서 필터 사용 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
 
@@ -95,14 +95,14 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [ ![분산 추적 항목 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 
-1. 이제 앱 간의 호출 상태를 볼 수 있습니다. 
+1. 이제 앱 간의 호출 상태를 볼 수 있습니다.
 
    [ ![분산 추적 개요 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png#lightbox)
-    
+
 1. **solar-system-weather** 와 **planet-weather-provider** 사이의 링크를 선택하여 HTTP 메서드에 의한 가장 느린 호출과 같은 자세한 정보를 확인합니다.
 
    [![ 분산 추적 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call-steeltoe.png#lightbox)
-    
+
 1. 마지막으로, **성능** 조사를 선택하여 더 강력한 기본 제공 성능 분석을 탐색합니다.
 
    [ ![분산 추적 성능 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png#lightbox)
@@ -113,7 +113,7 @@ Azure Spring Cloud의 기본 제공 모니터링 기능을 사용하여 복잡�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이전 단계를 완료합니다. 
+이전 단계를 완료합니다.
 
 * [Azure Spring Cloud의 인스턴스 프로비저닝](./quickstart-provision-service-instance.md)
 * [구성 서버 설정](./quickstart-setup-config-server.md)
@@ -153,11 +153,11 @@ Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 �
 1. 드롭다운 목록에서 **스트리밍 로그** 를 선택합니다.
 
    ![스트리밍 로그 선택](media/spring-cloud-intellij-howto/streaming-logs.png)
-    
+
 1. **인스턴스** 를 선택합니다.
 
    ![인스턴스 선택](media/spring-cloud-intellij-howto/select-instance.png)
-    
+
 1. 스트리밍 로그는 출력 창에 표시됩니다.
 
    ![스트리밍 로그 출력](media/spring-cloud-intellij-howto/streaming-log-output.png)
@@ -168,7 +168,7 @@ Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 �
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **로그** 를 선택합니다. Azure Spring Cloud에 대한 샘플 쿼리 중 하나에서 **실행** 을 클릭합니다.
+1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **로그** 를 선택합니다. Azure Spring Cloud에 대한 샘플 쿼리 중 하나에서 **실행** 을 선택합니다.
 
    [ ![Logs Analytics 포털 항목](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png#lightbox)
 
@@ -178,8 +178,10 @@ Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 �
 
 ## <a name="metrics"></a>메트릭
 
-`Metrics` 블레이드로 이동 - Spring Boot 앱, Spring Cloud 모듈 및 종속성에서 제공하는 메트릭을 볼 수 있습니다. 아래 차트는 `gateway-requests`(Spring Cloud Gateway), `hikaricp_connections`(JDBC 연결) 및 `http_client_requests`를 보여줍니다.
- 
+`Application insights` 블레이드로 이동합니다. 그런 다음 `Metrics` 블레이드로 이동 - Spring Boot 앱, Spring Cloud 모듈 및 종속성에서 제공하는 메트릭을 볼 수 있습니다. 
+
+아래 차트는 `gateway-requests`(Spring Cloud Gateway), `hikaricp_connections`(JDBC 연결) 및 `http_client_requests`를 보여줍니다.
+
 [ ![메트릭 블레이드](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-metrics.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-metrics.jpg#lightbox)
 
 Spring Boot는 JVM, CPU, Tomcat, Logback 등 많은 수의 핵심 메트릭을 등록합니다. Spring Boot 자동 구성은 Spring MVC가 처리하는 요청을 계측할 수 있도록 합니다.
@@ -209,11 +211,11 @@ Azure Spring Cloud에서 만든 Application Insights를 열고 마이크로 서�
 
 `Performance/Dependenices` 블레이드로 이동 - 종속성, 특히 SQL 호출에 대한 성능 수치를 볼 수 있습니다. [ ![성능/종속성 블레이드](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg#lightbox)
 
-SQL 호출을 클릭하여 컨텍스트에서 엔드투엔드 트랜잭션을 확인합니다. [ ![SQL 엔드투엔드 트랜잭션](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg#lightbox)
+SQL 호출을 선택하여 컨텍스트에서 엔드투엔드 트랜잭션을 확인합니다. [ ![SQL 엔드투엔드 트랜잭션](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg#lightbox)
 
-`Failures/Exceptions` 블레이드로 이동 - 예외 컬렉션을 볼 수 있습니다. [ ![실패/예외](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.jpg#lightbox)
+`Failures/Exceptions` 블레이드로 이동 - 예외 컬렉션을 볼 수 있습니다. [ ![실패/예외](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.png#lightbox)
 
-예외를 클릭하여 컨텍스트에서 엔드투엔드 트랜잭션 및 stacktrace를 확인합니다. [ ![Stacktrace 엔드투엔드](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg#lightbox)
+예외를 선택하여 컨텍스트에서 엔드투엔드 트랜잭션 및 stacktrace를 확인합니다. [ ![Stacktrace 엔드투엔드](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg#lightbox)
 
 ::: zone-end
 

@@ -5,24 +5,22 @@ services: notification-hubs
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: c454f5a3-a06b-45ac-91c7-f91210889b25
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 03/22/2019
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: d91320d8f78942ca916084cbf29a88818d95f531
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9cd34c85f938a6deade8316577714d836fd021df
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92314633"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769131"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows 앱에 지역화된 푸시 알림 보내기
 
@@ -31,6 +29,9 @@ ms.locfileid: "92314633"
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 ## <a name="overview"></a>개요
+
+> [!NOTE]
+> MPNS(Microsoft 푸시 알림 서비스)는 더 이상 사용되지 않으며 지원하지 않습니다.
 
 이 자습서에서는 Notification Hubs 서비스에 등록된 모바일 디바이스에 지역화된 알림을 푸시하는 방법을 보여줍니다. 이 자습서에서는 [자습서: 특정 디바이스에 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)에서 만든 애플리케이션을 업데이트하여 다음 시나리오를 지원합니다.
 

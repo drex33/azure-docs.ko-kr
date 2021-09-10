@@ -8,15 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b08e8ebbba3ba91c1c1aa0f135c4cba37ba038b1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bb35fd8a8a2cf032e42d8d286707a66fc2a8faed
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769916"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692650"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서에서는 Azure CLI를 사용하여 여러 NIC가 있는 VM을 만드는 방법을 설명합니다.
 

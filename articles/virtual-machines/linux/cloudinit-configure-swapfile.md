@@ -8,14 +8,17 @@ ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: mimckitt
 ms.subservice: cloud-init
-ms.openlocfilehash: bc55bf12b766002fff7fda45af0d802164a2b503
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6ac16d84e71bbb59ee52b84f4a3e1e9fbcd80b32
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784128"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687921"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>cloud-init를 사용하여 Linux VM에서 스왑 파티션 구성
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 이 문서에서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 다양한 Linux 배포판에서 스왑 파티션을 구성하는 방법을 보여 줍니다. 스왑 파티션은 일반적으로 해당 파티션이 필요한 배포에 따라 Linux 에이전트(WALA)에 의해 구성되었습니다.  이 문서에서는 cloud-init를 사용하여 프로비저닝 시간 동안 요청 시 스왑 파티션을 빌드하는 프로세스에 대해 간략하게 설명합니다.  기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
 
 ## <a name="create-swap-partition-for-ubuntu-based-images"></a>Ubuntu 기반 이미지에 대한 스왑 파티션 만들기

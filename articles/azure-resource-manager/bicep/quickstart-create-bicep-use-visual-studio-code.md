@@ -1,15 +1,15 @@
 ---
 title: Bicep 파일 만들기 - Visual Studio Code
 description: Azure 리소스 배포를 위해 Visual Studio Code 및 Bicep 파일에 대한 Bicep 확장 사용
-ms.date: 06/25/2021
+ms.date: 07/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8167516a41943ea17fdeb47bce84767178593e85
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: 4f76d18c756855798651e0c129fd4f0caec15984
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112970106"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750152"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기
 
@@ -61,7 +61,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
 }
 ```
 
-이 코드 조각에는 가상 네트워크를 정의하는 데 필요한 모든 값이 포함됩니다. 그러나 요구 사항에 맞게 코드를 수정할 수 있습니다. 예를 들어, `name`은 가상 네트워크의 좋은 이름이 아닙니다. `name` 속성을 `examplevnet`로 변경합니다.
+이 코드 조각에는 가상 네트워크를 정의하는 데 필요한 모든 값이 포함되어 있습니다. 그러나 요구 사항에 맞게 코드를 수정할 수 있습니다. 예를 들어, `name`은 가상 네트워크의 좋은 이름이 아닙니다. `name` 속성을 `examplevnet`로 변경합니다.
 
 ```bicep
 name: 'examplevnet'
@@ -118,13 +118,13 @@ param storageName string
 
 스토리지 계정을 정의하는 코드 조각을 사용하는 대신 Intellisense를 사용하여 값을 설정합니다. Intellisense를 사용하면 값을 수동으로 입력하는 것보다 훨씬 더 쉽게 이 단계를 수행할 수 있습니다.
 
-`resource` 키워드를 사용하여 리소스를 정의합니다.  가상 네트워크 아래에 **resource exampleStorage** 를 입력합니다.
+리소스를 정의하려면 `resource` 키워드를 사용합니다.  가상 네트워크 아래에 **resource exampleStorage** 를 입력합니다.
 
 ```bicep
 resource exampleStorage
 ```
 
-**exampleStorage** 는 배포 중인 리소스의 기호 이름입니다. 이를 사용하여 Bicep 파일의 다른 부분에서 리소스를 쉽게 참조할 수 있습니다.
+**exampleStorage** 는 배포 중인 리소스의 기호 이름입니다. 이 이름을 사용하여 Bicep 파일의 다른 부분에 있는 리소스를 참조할 수 있습니다.
 
 기호 이름 뒤에 공백을 추가하면 리소스 종류 목록이 표시됩니다. 사용 가능한 옵션에서 선택할 수 있을 때까지 **스토리지** 를 계속 입력합니다.
 
@@ -154,7 +154,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 거의 완료되었습니다. 해당 속성의 값을 제공하면 됩니다.
 
-다시, Intellisense가 도움이 됩니다. `name`의 경우 스토리지 계정의 이름을 포함하는 매개 변수를 제공합니다. `location`의 경우 `eastus`로 설정합니다. SKU 이름 및 종류를 추가할 때 Intellisense는 유효한 옵션을 제공합니다.
+다시, Intellisense가 도움이 됩니다. 스토리지 계정의 이름을 포함하는 매개 변수인 `name`을 `storageName`으로 설정합니다. `location`의 경우 `eastus`로 설정합니다. SKU 이름 및 종류를 추가할 때 Intellisense는 유효한 옵션을 제공합니다.
 
 완료되면 다음을 사용할 수 있습니다.
 
@@ -234,7 +234,7 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.
 ---
 
 > [!NOTE]
-> **{your-unique-name}** (중괄호 포함)을 고유한 스토리지 계정 이름으로 바꿉니다.
+> 중괄호를 포함하여 **{your-unique-name}** 을 고유한 스토리지 계정 이름으로 바꿉니다.
 
 배포가 완료되면 배포에 성공했음을 나타내는 메시지가 표시됩니다. 스토리지 계정이 이미 사용되었음을 나타내는 오류 메시지가 표시되면 입력한 스토리지 이름이 사용 중입니다. 고유할 가능성이 높은 이름을 제공합니다.
 

@@ -8,13 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: 이 문서에서는 Azure Arc 지원 Kubernetes 개요를 제공합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.custom: references_regions
-ms.openlocfilehash: d2e71b61210baf93950cb9e8fb2270320f882404
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 80d1b741c4a3a1d60cc44e3afdeac22a61a7db4b
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967154"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768291"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes란?
 
@@ -47,26 +46,11 @@ Azure Arc 지원 Kubernetes는 다음과 같은 시나리오를 지원합니다.
 
 * Azure Defender for Kubernetes를 사용하여 위협 보호를 적용합니다.
 
-* Kubernetes에 대한 Azure Policy를 사용하여 정책을 적용합니다.
+* Kubernetes용 Azure Policy를 사용하여 정책 정의를 적용합니다.
 
 * Azure Arc 지원 Data Services, [Azure Arc의 App Services](../../app-service/overview-arc-integration.md)(웹, 함수 및 논리 앱 포함), [Kubernetes의 Event Grid](../../event-grid/kubernetes/overview.md)를 배포하기 위한 대상 위치로 [사용자 지정 위치](./custom-locations.md)를 만듭니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
-
-## <a name="supported-regions"></a>지원되는 지역 
-
-현재 Azure Arc 지원 Kubernetes는 다음 지역에서 지원됩니다. 
-
-* 미국 동부
-* 서유럽
-* 미국 중서부
-* 미국 중남부
-* 동남아시아
-* 영국 남부
-* 미국 서부 2
-* 오스트레일리아 동부
-* 미국 동부 2
-* 북유럽
 
 ## <a name="next-steps"></a>다음 단계
 

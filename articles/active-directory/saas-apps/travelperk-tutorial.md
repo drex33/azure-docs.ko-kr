@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/23/2020
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: eefc47e1308dc5b59d8b57d7481a5250a7d2af93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ab437afbd8e0dd3035837da47bbbb89e358103f
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822520"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272310"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-travelperk"></a>자습서: TravelPerk와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -37,11 +37,11 @@ ms.locfileid: "99822520"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* TravelPerk은 **SP** 시작 SSO를 지원합니다.
+* TravelPerk는 **SP** 시작 SSO를 지원합니다.
 
-* TravelPerk은 **Just In Time** 사용자 프로비저닝을 지원합니다.
+* TravelPerk는 **Just In Time** 사용자 프로비저닝을 지원합니다.
 
-## <a name="adding-travelperk-from-the-gallery"></a>갤러리에서 TravelPerk 추가
+## <a name="add-travelperk-from-the-gallery"></a>갤러리에서 TravelPerk 추가
 
 TravelPerk의 Azure AD 통합을 구성하려면 갤러리의 TravelPerk를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -51,7 +51,6 @@ TravelPerk의 Azure AD 통합을 구성하려면 갤러리의 TravelPerk를 관�
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **TravelPerk** 을 입력합니다.
 1. 결과 패널에서 **TravelPerk** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-travelperk"></a>TravelPerk에 대한 Azure AD SSO 구성 및 테스트
 
@@ -72,20 +71,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **TravelPerk** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<COMPANY>.travelperk.com/` 패턴을 사용하는 URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<COMPANY>.travelperk.com/accounts/saml2/metadata/<APPLICATION_ID>` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<COMPANY>.travelperk.com/accounts/saml2/metadata/<APPLICATION_ID>` 패턴을 사용하는 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<COMPANY>.travelperk.com/accounts/saml2/callback/<APPLICATION_ID>/?acs` 패턴을 사용하여 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://<COMPANY>.travelperk.com/accounts/saml2/callback/<APPLICATION_ID>/?acs` 패턴을 사용하여 URL을 입력합니다.
+    다. **로그온 URL** 텍스트 상자에서 `https://<COMPANY>.travelperk.com/` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 이러한 값을 업데이트합니다. TravelPerk 계정 내에서 값을 찾을 수 있습니다. **회사 설정** > **통합** > **Single Sign-On** 으로 이동합니다. 도움이 필요하면 [TravelPerk 도움말 센터](https://support.travelperk.com/hc/en-us/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML-)를 방문하세요.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. TravelPerk 계정 내에서 값을 찾을 수 있습니다. **회사 설정** > **통합** > **Single Sign-On** 으로 이동합니다. 도움이 필요하면 [TravelPerk 도움말 센터](https://support.travelperk.com/hc/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML)를 방문하세요.
 
 1. TravelPerk 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. 기본 매핑에서 **emailaddress** 는 **user.mail** 로 매핑됩니다. 그러나 TravelPerk 애플리케이션은 **emailaddress** 가 **user.userprincipalname** 으로 매핑될 것으로 예상합니다. TravelPerk의 경우 특성 매핑을 편집해야 합니다. **편집** 아이콘을 클릭한 다음, 특성 매핑을 변경합니다. 특성을 편집하려면 특성을 클릭하여 편집 모드를 엽니다.
 
@@ -98,6 +97,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **TravelPerk 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -106,7 +106,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -134,11 +134,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 TravelPerk 로그온 URL로 리디렉션됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 TravelPerk 로그온 URL로 리디렉션됩니다. 
 
-2. TravelPerk 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* TravelPerk 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 TravelPerk 타일을 클릭하면 TravelPerk 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 TravelPerk 타일을 클릭하면 TravelPerk 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

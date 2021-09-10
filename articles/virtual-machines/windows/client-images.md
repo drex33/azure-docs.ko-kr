@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: mimckitt
-ms.openlocfilehash: 7879e355573d2b9952728828bd3780094a919fe3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1fc0b3b628256f5ecbc0361ee2294e70e1619160
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869058"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698350"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
+
+**적용 대상:** :heavy_check_mark: Windows VM 
+
 적절한 Visual Studio(이전의 MSDN) 구독이 있으면 Azure에서 개발/테스트 시나리오에 Windows 7, Windows 8 또는 Windows 10 Enterprise(x64)를 사용할 수 있습니다. 
 
 프로덕션 환경에서 Windows 10을 실행하려면 [Azure에서 다중 테넌트 호스팅 권한으로 Windows 10을 배포하는 방법](windows-desktop-multitenant-hosting-deployment.md)을 참조하세요.

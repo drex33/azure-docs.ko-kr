@@ -7,27 +7,33 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 07/30/2021
 ms.topic: overview
-ms.openlocfilehash: 91501d89a7fe286dc12311f7d1f6d423b58e2505
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 42ad3481d9732d8ddef37624de87f465ae41d297
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113729869"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121733514"
 ---
 # <a name="azure-arc-enabled-sql-managed-instance-overview"></a>Azure Arc 지원 SQL Managed Instance
 
 Azure Arc 지원 SQL Managed Instance는 원하는 인프라에서 만들 수 있는 Azure SQL 데이터 서비스입니다. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="description"></a>Description
 
 Azure Arc 지원 SQL Managed Instance는 최신 SQL Server 데이터베이스 엔진과 거의 100% 호환되며, 기존 SQL Server 고객은 데이터 주권을 유지하면서도 애플리케이션과 데이터베이스를 최소로 변경하여 애플리케이션을 Azure Arc 데이터 서비스로 리프트 앤 시프트할 수 있습니다. 뿐만 아니라 SQL Managed Instance는 관리 오버헤드를 대폭 줄이는 기본 제공 관리 기능을 포함하고 있습니다. 
 
-관련 기능에 대한 자세한 내용은 노출되는 데이터 에피소드를 참조할 수도 있습니다.
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-Arc-Enabled-SQL-Managed-Instance--Data-Exposed/player?format=ny]
+이러한 기능에 대해 자세히 알아보려면 다음 소개 비디오를 시청하세요.
+
+### <a name="azure-arc-enabled-sql-managed-instance---indirect-connected-mode"></a>Azure Arc 지원 SQL Managed Instance - 간접 연결 모드
+
+> [!VIDEO https://channel9.msdn.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-disconnected-mode/player?format=ny]
+
+### <a name="azure-arc-enabled-sql-managed-instance---direct-connected-mode"></a>Azure Arc 지원 SQL Managed Instance - 직접 연결 모드
+
+> [!VIDEO https://channel9.msdn.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-connected-mode/player?format=ny]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.devlang: java
 ms.custom:
 - devx-track-java
 - mode-api
-ms.openlocfilehash: fdcc8b9355556804b2f13fccd206eb13ac7c0cb6
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: c5f363ce78724ed569ec3ab24cd6c1fa640954e2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462058"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444434"
 ---
 # <a name="quickstart-use-java-to-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service"></a>빠른 시작: Java를 사용하여 SignalR Service와 Azure Functions로 GitHub 별모양 개수를 표시하는 앱 만들기
 
@@ -140,7 +140,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
             HttpResponse<String> res = client.send(req, BodyHandlers.ofString());
             Gson gson = new Gson();
             GitResult result = gson.fromJson(res.body(), GitResult.class);
-            return new SignalRMessage("newMessage", "Current start count of https://github.com/Azure/azure-signalr is:".concat(result.stargazers_count));
+            return new SignalRMessage("newMessage", "Current star count of https://github.com/Azure/azure-signalr is:".concat(result.stargazers_count));
         }
     
         class GitResult {
@@ -228,9 +228,9 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     1. 기본 연결 문자열을 복사합니다. 그런 다음 아래의 명령을 실행합니다.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         # Also we need to set AzureWebJobsStorage as Azure Function's requirement
-        func settings add AzureWebJobsStorage 'UseDevelopmentStorage=true'
+        func settings add AzureWebJobsStorage "UseDevelopmentStorage=true"
         ```
     
 6. 로컬에서 Azure Function 실행:
@@ -240,7 +240,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     mvn azure-functions:run
     ```
 
-    로컬로 Azure Function을 실행한 후 브라우저에서 `http://localhost:7071/api/index`를 방문하면 현재 시작 횟수를 볼 수 있습니다. 그리고 GitHub에서 별모양을 표시하거나 표시 해제하면 몇 초마다 시작 횟수가 새로 고쳐집니다.
+    로컬로 Azure Function을 실행한 후 브라우저에서 `http://localhost:7071/api/index`를 방문하면 현재 별 개수를 볼 수 있습니다. 또한 GitHub에서 별을 표시하거나 표시 해제하면 몇 초마다 별 개수가 바뀝니다.
 
     > [!NOTE]
     > SignalR 바인딩에는 Azure Storage가 필요하지만 함수가 로컬에서 실행 중일 때 로컬 스토리지 에뮬레이터를 사용할 수 있습니다.
@@ -255,8 +255,8 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 로컬에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. Azure Functions에 대해 SignalR Service 바인딩을 사용하는 방법에 대해 자세히 알아봅니다.
-다음으로 SignalR Service를 사용하여 클라이언트와 Azure Function 간의 양방향 통신 방법에 대해 자세히 알아봅니다.
+이 빠른 시작에서는 로컬에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. Azure Functions에 대해 SignalR Service 바인딩을 사용하는 방법을 자세히 알아봅니다.
+그런 다음, SignalR Service를 사용하여 클라이언트와 Azure Function 간 양방향 통신을 수행하는 방법을 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Functions의 SignalR Service 바인딩](../azure-functions/functions-bindings-signalr-service.md)

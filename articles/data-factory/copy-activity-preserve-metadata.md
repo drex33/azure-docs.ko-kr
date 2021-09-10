@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jianleishen
-ms.openlocfilehash: 1883d1192a1908611e3440ea2d39e770b4599bc6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b5bb9cc624f298ae4997b46a5cc7b4cf2a0d21ed
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642878"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123250743"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Azure Data Factory에서 복사 작업을 사용하여 메타데이터 및 ACL 유지
 
@@ -24,7 +24,7 @@ Azure Data Factory 복사 작업을 사용하여 원본에서 싱크로 데이�
 
 ## <a name="preserve-metadata-for-lake-migration"></a><a name="preserve-metadata"></a> 레이크 마이그레이션에 대한 메타데이터 유지
 
-[Amazon S3](connector-amazon-simple-storage-service.md), [azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md)를 포함하여 한 데이터 레이크에서 다른 데이터 레이크로 데이터를 마이그레이션하는 경우 데이터와 함께 파일 메타데이터를 유지하도록 선택할 수 있습니다.
+[Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md)를 포함하여 한 데이터 레이크에서 다른 데이터 레이크로 데이터를 마이그레이션하는 경우 데이터와 함께 파일 메타데이터를 유지하도록 선택할 수 있습니다.
 
 복사 작업은 데이터 복사 중 다음 특성을 유지하도록 지원합니다.
 
@@ -33,7 +33,7 @@ Azure Data Factory 복사 작업을 사용하여 원본에서 싱크로 데이�
 
 **메타데이터 간 차이 처리:** Amazon S3 및 Azure Storage는 고객 지정 메타데이터의 키에 다른 문자 세트를 허용합니다. 복사 작업을 사용하여 메타데이터를 유지하도록 선택하면 ADF는 잘못된 문자를 자동으로 '_'로 바꿉니다.
 
-이진 형식을 사용하여 Amazon S3/Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage to Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage에서 파일을 있는 그대로 복사하는 경우 작업 작성을 위한 **복사 작업** > **설정** 탭 또는 데이터 복사 도구의 **설정** 페이지에서 **보존** 옵션을 찾을 수 있습니다.
+이진 형식을 사용하여 Amazon S3/Azure Data Lake Storage Gen2/Azure Blob storage/Azure Files에서 Azure Data Lake Storage Gen2/Azure Blob storage/Azure Files로 파일을 있는 그대로 복사하는 경우 작업 작성을 위한 **복사 작업** > **설정** 탭 또는 데이터 복사 도구의 **설정** 페이지에서 **유지** 옵션을 찾을 수 있습니다.
 
 ![복사 작업 메타데이터 유지](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 

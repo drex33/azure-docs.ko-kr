@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 50cc8f2454aa18dd9a0f1365490fadedcbb623b7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a0ae17c5108a4af15245d833f4f2636f9a330138
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140680"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862253"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>자습서: Key Vault에서 인증서 자동 회전 구성
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-certificate-in-key-vault"></a>Key Vault에서 인증서 만들기
 
-인증서를 만들거나 키 자격 증명 모음으로 인증서를 가져옵니다([Key Vault에서 인증서를 만드는 단계](../secrets/quick-create-portal.md) 참조). 여기서는 **ExampleCertificate** 라는 인증서를 사용합니다.
+인증서를 만들거나 키 자격 증명 모음으로 인증서를 가져옵니다([Key Vault에서 인증서를 만드는 단계](../certificates/quick-create-portal.md) 참조). 여기서는 **ExampleCertificate** 라는 인증서를 사용합니다.
 
 ## <a name="update-certificate-lifecycle-attributes"></a>인증서 수명 주기 특성 업데이트
 

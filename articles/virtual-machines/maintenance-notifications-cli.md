@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: d8a9b7ec6425a3cd32b597c3f14f8227fde67064
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7b4f79724ee3105e9a64b44617762d71f4f6a158
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777872"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698802"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Azure CLI를 사용하여 계획된 유지 관리 알림 처리
 
-**이 문서는 Linux 및 Windows 모두를 실행하는 Azure 가상 머신에 적용됩니다.**
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 CLI를 사용하여 [유지 관리](maintenance-notifications.md)를 위해 VM이 예약되는 시기를 확인할 수 있습니다. 계획된 유지 관리 정보는 [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view)에서 제공됩니다.
  

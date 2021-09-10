@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: cynthn
-ms.openlocfilehash: eb207b5ece190a4398c7b9ef15472db409ac4d71
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8d518bde3dc86c871f66f64dec8f39fc8b68e763
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087799"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692269"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서에서는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다.
 

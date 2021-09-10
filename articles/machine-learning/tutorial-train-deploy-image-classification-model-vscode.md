@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 05/25/2021
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 098f2d63f7bfd87aed8c7c88d1ec13be684983c1
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 195ea650e15024366d3d9d9426b466cf73951bb1
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459355"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418872"
 ---
 # <a name="train-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Azure Machine Learning Visual Studio Code 확장(미리 보기)을 사용하여 이미지 분류 TensorFlow 모델 학습
 
@@ -34,7 +34,7 @@ TensorFlow 및 Azure Machine Learning Visual Studio Code 확장을 사용하여 
 - 동작합니다. 구독이 없는 경우 [Azure Machine Learning의 평가판 또는 유료 버전](https://azure.microsoft.com/free/t.com/free/)에 가입하여 사용해 보세요.
 - 간단한 플랫폼 간 코드 편집기인 [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)를 설치합니다.
 - Azure Machine Learning Visual Studio Code 확장. 설치 지침은 [Azure Machine Learning Visual Studio Code 확장 가이드 설정](./how-to-setup-vs-code.md)을 참조하세요.
-- 2.0 CLI(미리 보기). 설치 지침은 [2.0 CLI 설치, 설정 및 사용(미리 보기)](how-to-configure-cli.md)을 참조하세요.
+- CLI(v2)(미리 보기) 설치 지침은 [CLI(v2)(미리 보기) 설치, 설정 및 사용](how-to-configure-cli.md)을 참조하세요.
 
 ## <a name="understand-the-code"></a>코드 이해
 
@@ -70,7 +70,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
 
     사양 파일은 `WestUS2` 영역에 `TeamWorkspace`라는 작업 영역을 만듭니다. 사양 파일에 정의된 나머지 옵션은 작업 영역에 대한 식별 이름 지정, 설명 및 태그를 제공합니다.
 
-1. 사양 파일을 마우스 오른쪽 단추로 클릭하고 **Azure ML: 리소스 만들기** 를 선택합니다. 리소스 만들기는 YAML 사양 파일에 정의된 구성 옵션을 사용하고 2.0 CLI를 사용하여 작업을 제출합니다. 이 시점에서 새 작업 영역 및 종속 리소스를 계정에 만들도록 요구하는 요청을 Azure에 보냅니다. 몇 분 후에 새 작업 영역이 구독 노드에 표시됩니다.
+1. 사양 파일을 마우스 오른쪽 단추로 클릭하고 **Azure ML: 리소스 만들기** 를 선택합니다. 리소스 만들기는 YAML 사양 파일에 정의된 구성 옵션을 사용하고 CLI(v2)를 사용하여 작업을 제출합니다. 이 시점에서 새 작업 영역 및 종속 리소스를 계정에 만들도록 요구하는 요청을 Azure에 보냅니다. 몇 분 후에 새 작업 영역이 구독 노드에 표시됩니다.
 1. `TeamWorkspace`를 기본 작업 영역으로 설정합니다. 이렇게 하면 기본적으로 작업 영역에 사용자가 만든 리소스와 작업이 배치됩니다. Visual Studio Code 상태 표시줄에서 **Azure ML 작업 영역 설정** 단추를 선택하고 프롬프트에 따라 `TeamWorkspace`를 기본 작업 영역으로 설정합니다.
 
 작업 영역에 대한 자세한 내용은 [VS Code에서 리소스를 관리하는 방법](how-to-manage-resources-vscode.md)을 참조하세요.

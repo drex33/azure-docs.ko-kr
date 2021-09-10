@@ -11,14 +11,16 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 08b6e72d6b4cb1352a203008e3f20ae39333ec02
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: f39cefa300b334c3df433461fa5ea1bb2c84eb8a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592289"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698656"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata 서비스: Windows VM의 예약된 이벤트
+
+**적용 대상**: heavy_check_mark: Windows VM: heavy_check_mark: 유연한 확장 집합: heavy_check_mark: 단일 확장 집합
 
 예약된 이벤트는 애플리케이션이 VM(가상 머신) 유지 관리를 준비할 시간을 부여하는 Azure Metadata Service입니다. 향후 유지 관리 이벤트(예: 재부팅)에 대한 정보를 제공하여 애플리케이션이 이에 대비하고 서비스 중단을 제한할 수 있도록 합니다. 이 기능은 Windows와 Linux 모두에서 PaaS 및 IaaS를 포함한 모든 Azure Virtual Machines 유형에 사용할 수 있습니다. 
 

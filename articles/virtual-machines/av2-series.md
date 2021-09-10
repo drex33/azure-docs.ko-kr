@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 680ffe7964104f157debc64e44ac2f004ddac86d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dbb10405408250be55bf10f49d3c557a0205df92
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565515"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692871"
 ---
 # <a name="av2-series"></a>Av2 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 다양한 하드웨어 유형 및 프로세서에 Av2 시리즈 VM을 배포할 수 있습니다. Av2 시리즈 VM에는 개발 및 테스트와 같은 엔트리 레벨 워크로드에 가장 적합한 CPU 성능 및 메모리 구성이 있습니다. 배포된 하드웨어와 관계없이 인스턴스 실행 시 일관된 프로세서 성능을 제공하기 위해 크기가 제한됩니다. 이 크기가 배포되는 실제 하드웨어를 확인하려면 Virtual Machine 내에서 가상 하드웨어를 쿼리합니다. 사용 사례로는 개발 및 테스트 서버, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스, 개념 증명, 코드 리포지토리 등이 있습니다.
 

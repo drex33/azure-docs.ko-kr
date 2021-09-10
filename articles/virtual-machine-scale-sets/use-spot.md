@@ -9,14 +9,16 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 817c3e4a9e3c6226d25e28d1aad378813369d765
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b0c0ffdce85450900c0d4ca0da936b8675820f79
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077737"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690567"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 위한 Azure Spot Virtual Machines 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 확장 집합에 Azure Spot Virtual Machines를 사용하면 미사용 용량을 대폭 절감된 비용으로 활용할 수 있습니다. Azure에 용량이 다시 필요한 경우 언제든지 Azure 인프라에서 Azure Spot Virtual Machine 인스턴스를 제거합니다. 따라서 Azure Spot Virtual Machines 인스턴스는 일괄 처리 작업, 개발/테스트 환경, 대용량 컴퓨팅 워크로드 등과 같은 중단을 처리할 수 있는 워크로드에 매우 적합합니다.
 
@@ -226,7 +228,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 **A:** 예, 다만 Azure Spot Virtual Machines는 SLA가 없으며 언제든지 제거될 수 있습니다.
 
 
-**Q:** 제거하고도 여전히 용량이 필요한 경우에는 어떻게 해야 하나요?
+**Q:** 제거되었지만 여전히 용량이 필요한 경우에는 어떻게 해야 하나요?
 
 **A:** 용량이 당장 필요하다면 Azure Spot Virtual Machines 대신 표준 VM을 사용하는 것이 좋습니다.
 

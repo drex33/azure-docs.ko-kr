@@ -14,14 +14,16 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: 14dbf2580b8dc114ea1c2706a682541bbd0aecc9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: f6ae323dadd2f2859079899906c3ba51a12df935
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "114288204"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698162"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Linux 가상 머신 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM
 
 이 빠른 시작에서는 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다.
 

@@ -7,15 +7,15 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 08/31/2021
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a67bb6a79e6ef3e51269090611d18c0711fb5bbd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: c0138a36c976a9c7c273d61fdd19a50ffbe31354
+ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691024"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123305950"
 ---
 # <a name="assign-azure-roles-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 역할 할당
 
@@ -29,7 +29,7 @@ ms.locfileid: "110691024"
 
 - [User Access Administrator](built-in-roles.md#user-access-administrator), [Owner](built-in-roles.md#owner) 등의 `Microsoft.Authorization/roleAssignments/write`사용 권한
 - [Azure Cloud Shell의 PowerShell](../cloud-shell/overview.md) 또는 [Azure PowerShell](/powershell/azure/install-az-ps)
-- PowerShell 명령을 사용하는 계정에는 Microsoft Graph`Directory.Read.All` 권한이 있어야 합니다.
+- PowerShell 명령을 실행하기 위해 사용하는 계정에는 Azure Active Directory Graph `Directory.Read.All` 및 Microsoft Graph `Directory.Read.All` 권한이 있어야 합니다.
 
 ## <a name="steps-to-assign-an-azure-role"></a>Azure 역할 할당 단계
 

@@ -3,15 +3,15 @@ title: 서비스 카탈로그 관리형 앱 게시
 description: 조직의 구성원을 위한 Azure 관리형 애플리케이션을 만드는 방법이 나와 있습니다.
 author: tfitzmac
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 04/14/2020
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.date: 08/16/2021
 ms.author: tomfitz
-ms.openlocfilehash: b5306b40688974b17fb268a31c2d095de264df6d
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 7722017e2cbe9c0f195ce24ee5452674ad0fd344
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314700"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253750"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>빠른 시작: 관리되는 애플리케이션 정의 만들기 및 게시
 
@@ -309,14 +309,9 @@ az managedapp definition create \
 
 ### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>스토리지 계정에서 “어플라이언스 리소스 공급자”에 대한 역할 할당을 설정합니다.
 
-스토리지 계정에 관리형 애플리케이션 정의를 배포하기 전에 **어플라이언스 리소스 공급자** 역할에 대한 기여자 권한을 부여하여 스토리지 계정의 컨테이너에 정의 파일을 쓸 수 있도록 해야 합니다.
+관리되는 애플리케이션 정의를 스토리지 계정에 배포하려면 먼저 스토리지 계정 범위에서 **어플라이언스 리소스 공급자** 사용자에게 **기여자** 역할을 할당합니다. 이 할당을 통해 ID는 스토리지 계정의 컨테이너에 정의 파일을 쓸 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
-1. **액세스 제어(IAM)** 를 선택하여 스토리지 계정에 대한 액세스 제어 설정을 표시합니다. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
-1. **역할 할당 추가** 창에서 **기여자** 역할을 선택합니다.
-1. **액세스 할당** 필드에서 **Azure AD 사용자, 그룹 또는 서비스 주체** 를 선택합니다.
-1. **선택** 에서 **어플라이언스 리소스 공급자** 역할을 검색하여 선택합니다.
-1. 역할 할당을 저장합니다.
+세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>ARM 템플릿을 사용하여 관리형 애플리케이션 정의 배포
 

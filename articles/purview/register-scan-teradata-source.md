@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 7dae716944426ce21cb81bdbb36992238e4bb227
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3d6f30e3d50fa79ac394460f9b13e1127cf16168
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112298442"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740268"
 ---
 # <a name="register-and-scan-teradata-source"></a>Teradata 원본 등록 및 검사
 
@@ -48,7 +48,7 @@ Teradata 원본에 대해 유일하게 지원되는 인증은 **기본 인증** 
 새 Teradata 원본을 데이터 카탈로그에 등록하려면 다음을 수행합니다.
 
 1.  Purview 계정으로 이동합니다.
-2.  왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+2.  왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 3.  **등록** 을 선택합니다.
 4.  원본 등록에서 **Teradata** 를 선택합니다. **계속** 을 선택합니다.
 

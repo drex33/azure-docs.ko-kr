@@ -8,14 +8,16 @@ ms.subservice: hpc
 ms.topic: overview
 ms.date: 04/09/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 8017b3e84c80acc71fca1442c4493bd1ec239175
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2b9f89126f49b75f5e232521f807f6db3ba9d4e9
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141220"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693392"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>InfiniBand 지원 H 시리즈 및 N 시리즈 VM의 고성능 컴퓨팅
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 Azure의 InfiniBand 지원 H 시리즈 및 N 시리즈 VM은 다양한 실제 HPC 및 AI 워크로드에 최상의 성능, MPI(메시지 전달 인터페이스) 확장성 및 비용 효율성을 제공하도록 설계되었습니다. 이러한 HPC(고성능 컴퓨팅) 최적화 VM은 유체역학, 지구 모델링, 날씨 시뮬레이션 등과 같이 과학 및 엔지니어링 분야의 가장 계산 집약적인 문제를 해결하는 데 사용됩니다.
 

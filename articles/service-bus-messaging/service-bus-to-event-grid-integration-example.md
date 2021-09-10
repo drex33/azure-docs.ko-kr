@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Logic Apps를 사용하여 Event Grid를 
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 08/13/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36690973f441c80f71c1941c63cd40d91c1efd08
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 013468d1b6e5ba6fccb1277f715b5a42a469f4a2
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114719802"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182605"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
 이 자습서에서는 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 
@@ -44,7 +44,7 @@ ms.locfileid: "114719802"
     2. **리소스 종류** 로 **Microsoft.ServiceBus.Namespaces** 를 선택합니다. 
     3. **리소스 이름** 에 대해 Service Bus 네임스페이스를 선택합니다. 
     4. **새 매개 변수 추가** 를 선택하고 **접미사 필터** 를 선택합니다. 
-    5. **접미사 필터** 에 대해 두 번째 Service Bus 항목 구독의 이름을 입력합니다. 
+    5. **접미사 필터** 에 대해 Service Bus 항목 구독의 이름을 입력합니다. 
         ![Logic Apps 디자이너 - 이벤트 구성](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. 디자이너에서 **+ 새 단계** 를 선택하고 다음 단계를 수행합니다.
     1. **Service Bus** 를 검색합니다.
@@ -102,7 +102,7 @@ ms.locfileid: "114719802"
     1. **최근** 목록에서 **Service Bus** 를 선택합니다.
     2. 작업 목록에서 **항목 구독의 메시지 완료** 를 선택합니다. 
     3. Service Bus **항목** 을 선택합니다.
-    4. 항목에 대한 두 번째 **구독** 을 선택합니다.
+    4. 항목에 대한 **구독** 을 선택합니다.
     5. **메시지의 잠금 토큰** 에 대해 **동적 콘텐츠** 의 **잠금 토큰** 을 선택합니다. 
 
         ![Logic Apps 디자이너 - 메시지 완료](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)

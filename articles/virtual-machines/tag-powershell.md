@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2020
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ed1201bf90a7178d59a6f7e287dd144c14790838
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 78edd5c62c4f7abe78e70ae90e1b1e7ce3a5dc65
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668079"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695337"
 ---
 # <a name="how-to-tag-a-virtual-machine-in-azure-using-powershell"></a>Azure에서 PowerShell을 사용하여 가상 머신에 태그를 지정하는 방법
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 이 문서에서는 Azure에서 PowerShell을 사용하여 VM에 태그를 지정하는 방법을 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 50개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. Azure CLI를 사용하여 가상 머신에 태그를 지정하려면 [Azure에서 Azure CLI를 사용하여 가상 머신에 태그를 지정하는 방법](tag-cli.md)을 참조하세요.
 

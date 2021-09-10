@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.openlocfilehash: b87f36b755037519d29881eeaefddfa8c92f6a3f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 07/21/2021
+ms.openlocfilehash: e3ae63b202d826e48789bd8d15a197048d5566b7
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744938"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567585"
 ---
 # <a name="create-a-query-that-invokes-semantic-ranking-and-returns-semantic-captions"></a>의미론적 순위를 호출하고 의미론적 캡션을 반환하는 쿼리 만들기
 
 > [!IMPORTANT]
-> 의미 체계 검색은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 퍼블릭 미리 보기로 제공됩니다. Azure Portal, 미리 보기 REST API, 베타 SDK를 통해 사용할 수 있습니다. 이러한 기능에는 비용이 청구될 수 있습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
+> 의미 체계 검색은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. Azure Portal, 미리 보기 REST API, 베타 SDK를 통해 사용할 수 있습니다. 이러한 기능에는 비용이 청구될 수 있습니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조하세요.
 
 의미 체계 검색은 결과 집합에 대한 의미 체계 순위 지정 알고리즘을 호출하고 의미 체계 캡션(및 선택 사항으로 [의미 체계 답변](semantic-answers.md))을 반환하고 가장 관련성이 큰 용어와 구를 강조 표시하는 Azure Cognitive Search의 프리미엄 기능입니다. ‘의미 체계’ 쿼리 유형을 사용하여 작성된 쿼리 요청에서 캡션과 답변이 모두 반환됩니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "111744938"
 
 + [미리 보기에 등록하세요](https://aka.ms/SemanticSearchPreviewSignup). 예상 소요 시간은 영업일 기준 약 2일입니다.
 
-+ [지원되는 언어](/rest/api/searchservice/preview-api/search-documents#queryLanguage)로 된 콘텐츠가 있는 기존 검색 인덱스
++ [지원되는 언어](/rest/api/searchservice/preview-api/search-documents#queryLanguage)로 된 콘텐츠가 있는 기존 검색 인덱스 의미 체계 검색은 정보 또는 설명이 포함된 콘텐츠에서 가장 잘 작동합니다.
 
 + 쿼리 전송을 위한 검색 클라이언트
 
@@ -98,13 +98,13 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 다음 테이블은 의미 체계 쿼리에서 사용되는 매개 변수를 요약합니다. 요청 내 모든 매개 변수 목록은 [문서 검색(REST 미리 보기)](/rest/api/searchservice/preview-api/search-documents)을 참조하세요.
 
-| 매개 변수 | Type | Description |
+| 매개 변수 | 형식 | Description |
 |-----------|-------|-------------|
 | queryType | String | 유효한 값은 simple, full, semantic입니다. 의미 체계 쿼리에는 "semantic" 값이 필요합니다. |
 | queryLanguage | String | 의미 체계 쿼리에 필요합니다. 지정한 어휘집은 의미 체계 순위 지정, 캡션, 답변, 맞춤법 검사에 동일하게 적용됩니다. 자세한 내용은 [지원되는 언어(REST API 참조)](/rest/api/searchservice/preview-api/search-documents#queryLanguage)를 참조하세요. |
 | searchFields | String | 쉼표로 구분된 검색 가능한 필드입니다. 캡션 및 답변을 추출할 의미 체계 순위가 발생하는 필드를 지정합니다. </br></br>단순 및 전체 쿼리 유형과 달리 필드가 나열되는 순서에 따라 우선 순위가 결정됩니다. 자세한 사용 지침은 [2단계: searchFields 설정](#searchfields)을 참조하세요. |
 | speller | String | 검색 엔진에 도달하기 전에 철자가 틀린 용어를 수정하는 선택적 매개 변수(의미 체계 쿼리에 한정되지 않음)입니다. 자세한 내용은 [쿼리에 맞춤법 수정 추가](speller-how-to-add.md)를 참조하세요. |
-| answers |String | 의미 체계 답변이 결과에 포함될지 여부를 지정하는 선택적 매개 변수입니다. 현재 "extractive"만 구현되어 있습니다. 답변은 최대 5개를 반환하도록 구성할 수 있습니다. 기본값은 1개입니다. 이 예제에서는 "extractive\|count3"`의 세 가지 답변을 보여 줍니다. 자세한 내용은 [의미 체계 답변 반환](semantic-answers.md)을 참조하세요.|
+| answers |String | 의미 체계 답변이 결과에 포함될지 여부를 지정하는 선택적 매개 변수입니다. 현재 "extractive"만 구현되어 있습니다. 답변은 최대 10개를 반환하도록 구성할 수 있습니다. 기본값은 1개입니다. 이 예제에서는 `extractive\|count-3`의 세 가지 답변을 보여 줍니다. 자세한 내용은 [의미 체계 답변 반환](semantic-answers.md)을 참조하세요.|
 
 ### <a name="formulate-the-request"></a>요청 작성
 
@@ -163,9 +163,13 @@ SearchFields 설정 시, 다음의 [지원되는 데이터 형식](/rest/api/sea
 
   + 이러한 필드와 문서의 주요 콘텐츠와 같이 의미 체계 쿼리에 대한 답변을 찾을 수 있는 다른 설명 필드에 따릅니다.
 
-#### <a name="step-3-remove-orderby-clauses"></a>3단계: orderBy 절 제거
+#### <a name="step-3-remove-or-bracket-query-features-that-bypass-relevance-scoring"></a>3단계: 관련성 점수 매기기를 바이패스하는 쿼리 기능을 제거하거나 대괄호로 묶습니다.
 
-기존 쿼리 코드에서 orderBy 절을 삭제합니다. 의미 점수는 결과를 정렬하는 데 사용되며, 명시적 정렬 논리를 포함하는 경우 HTTP 400오류가 반환됩니다.
+Cognitive Search의 여러 쿼리 기능은 관련성 점수 매기기를 거치지 않으며 일부 쿼리 기능은 전체 텍스트 검색 엔진을 모두 무시합니다. 쿼리 논리에 다음 기능이 포함된 경우 결과에 대한 관련성 점수 또는 의미 체계 순위 지정을 받을 수 없습니다.
+
++ 필터, 모호성 검색 쿼리 및 정규식은 토큰화되지 않은 텍스트를 반복하여 콘텐츠에서 축자와 일치하는 항목을 검색합니다. 위의 모든 쿼리 형식에 대한 검색 점수는 균일한 1.0이며 의미 체계 순위 지정을 위한 의미 있는 입력을 제공하지 않습니다.
+
++ 특정 필드에 대한 정렬(orderBy 절)도 검색 점수 및 의미 체계 점수를 재정의합니다. 의미 체계 점수가 결과를 정렬하는 데 사용된다는 점을 고려할 때 명시적 정렬 논리를 포함하면 HTTP 400 오류가 반환됩니다.
 
 #### <a name="step-4-add-answers"></a>4단계: 답변 추가
 
@@ -190,6 +194,17 @@ SearchFields 설정 시, 다음의 [지원되는 데이터 형식](/rest/api/sea
 ```
 
 응답의 캡션에 강조 표시 스타일이 적용됩니다. 기본 스타일을 사용하거나 필요에 따라 캡션에 적용되는 강조 스타일을 사용자 지정할 수 있습니다. 캡션을 사용하면 응답이 요약된 문서의 주요 구절에 강조 표시 서식이 적용됩니다. 기본값은 `<em>`입니다. 서식 유형(예: 노란색 배경)을 지정하려면 highlightPreTag와 highlightPostTag를 설정하면 됩니다.
+
+## <a name="query-using-azure-sdks"></a>Azure SDK를 사용하여 쿼리
+
+Azure SDK의 베타 버전에는 의미 체계 검색에 대한 지원이 포함되어 있습니다. SDK는 베타 버전이므로 설명서나 샘플은 없지만 위의 REST API 섹션에서 API 작동 방식에 대한 인사이트를 참조할 수 있습니다.
+
+| Azure SDK | 패키지 |
+|-----------|---------|
+| .NET | [Azure.Search.Documents 패키지 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2)  |
+| Java | [com.azure:azure-search-documents 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar)  |
+| JavaScript | [azure/search-documents 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2)|
+| Python | [azure-search-documents 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
 
 ## <a name="evaluate-the-response"></a>응답 평가
 

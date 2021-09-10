@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: b62f531c355852dd8a66f8186d4bd73a875e6948
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: 97ecb049d4307bacf6c9a7b73d08e3d25e05f112
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371628"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821670"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
@@ -51,11 +51,11 @@ Virtual WAN 아키텍처 및 Virtual WAN으로 마이그레이션하는 방법�
 
 * **virtualWAN:** virtualWAN 리소스는 Azure 네트워크의 가상 오버레이를 나타내며 여러 리소스의 컬렉션입니다. 가상 WAN 내에서 가지려는 모든 가상 허브에 대한 링크를 포함합니다. Virtual WAN 리소스는 서로 격리되며 공통의 허브를 포함할 수 없습니다. Virtual WAN에서 가상 허브는 서로 통신하지 않습니다.
 
-* **허브**: 가상 허브는 Microsoft에서 관리하는 가상 네트워크입니다. 허브에는 연결을 활성화하는 다양한 서비스 엔드포인트가 있습니다. 사용자의 온-프레미스 네트워크(vpnsite)에서 가상 허브 내의 VPN Gateway에 연결하거나, 가상 허브에 ExpressRoute 회로를 연결할 수 있으며 가상 허브의 지점 및 사이트 간 게이트웨이에 모바일 사용자를 연결할 수도 있습니다. 허브는 지역에서 네트워크의 핵심입니다. Azure 지역당 하나의 허브만 있을 수 있습니다.
+* **허브**: 가상 허브는 Microsoft에서 관리하는 가상 네트워크입니다. 허브에는 연결을 활성화하는 다양한 서비스 엔드포인트가 있습니다. 사용자의 온-프레미스 네트워크(vpnsite)에서 가상 허브 내의 VPN Gateway에 연결하거나, 가상 허브에 ExpressRoute 회로를 연결할 수 있으며 가상 허브의 지점 및 사이트 간 게이트웨이에 모바일 사용자를 연결할 수도 있습니다. 허브는 지역에서 네트워크의 핵심입니다. 동일한 지역에서 여러 가상 허브를 만들 수 있습니다. 
 
   허브 게이트웨이는 ExpressRoute 및 VPN Gateway에 사용하는 가상 네트워크 게이트웨이와 동일하지 않습니다. 예를 들어 Virtual WAN을 사용하는 경우 온-프레미스 사이트에서 VNet으로의 직접적인 사이트 간 연결을 만들지 않습니다. 대신 사이트 간 연결을 허브에 만듭니다. 트래픽은 항상 허브 게이트웨이를 통해 이동합니다. VNet에 자체 가상 네트워크 게이트웨이가 필요하지 않다는 것을 의미합니다. Virtual WAN을 사용하면 VNet은 가상 허브와 가상 허브 게이트웨이를 통해 쉽게 크기 조정을 활용할 수 있습니다.
 
-* **허브 가상 네트워크 연결:** 허브 가상 네트워크 연결 리소스는 허브를 가상 네트워크에 원활하게 연결하는 데 사용됩니다.
+* **허브 가상 네트워크 연결:** 허브 가상 네트워크 연결 리소스는 허브를 가상 네트워크에 원활하게 연결하는 데 사용됩니다. 하나의 가상 네트워크는 하나의 가상 허브에만 연결할 수 있습니다. 
 
 * **허브 간 연결:** 허브는 모두 가상 WAN에서 서로 연결되어 있습니다. 따라서 로컬 허브에 연결된 분기, 사용자 또는 VNet이 연결된 허브의 풀 메시 아키텍처를 사용하여 다른 분기나 VNet과 통신할 수 있습니다. 가상 허브를 통해 전송 중인 허브 내의 VNet을 연결할 수 있을 뿐만 아니라 허브-허브 연결 프레임워크를 사용하여 허브 전체의 VNet을 연결할 수도 있습니다.
 

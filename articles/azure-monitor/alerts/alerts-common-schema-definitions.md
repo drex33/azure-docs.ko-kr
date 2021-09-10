@@ -3,13 +3,13 @@ title: Azure Monitor의 경고 스키마 정의
 description: Azure Monitor에 대한 일반 경고 스키마 정의 이해
 author: ofirmanor
 ms.topic: conceptual
-ms.date: 04/12/2021
-ms.openlocfilehash: a026fa846901d4db7cb56196de50508f077e4fc6
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.date: 07/20/2021
+ms.openlocfilehash: 165753b293d73d89865710074ad11869c6e1aa6b
+ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108018262"
+ms.lasthandoff: 07/22/2021
+ms.locfileid: "114440708"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
@@ -33,6 +33,9 @@ ms.locfileid: "108018262"
       "monitoringService": "Platform",
       "alertTargetIDs": [
         "/subscriptions/<subscription ID>/resourcegroups/pipelinealertrg/providers/microsoft.compute/virtualmachines/wcus-r2-gen2"
+      ],
+      "configurationItems": [
+        "wcus-r2-gen2"
       ],
       "originAlertId": "3f2d4487-b0fc-4125-8bd5-7ad17384221e_PipeLineAlertRG_microsoft.insights_metricAlerts_WCUS-R2-Gen2_-117781227",
       "firedDateTime": "2019-03-22T13:58:24.3713213Z",
@@ -79,6 +82,7 @@ ms.locfileid: "108018262"
 | monitorCondition | 경고가 발생할 때 경고의 모니터 조건은 **실행됨** 으로 설정됩니다. 경고를 발생시킨 기본 조건이 사라지면 모니터 조건이 **해결됨** 으로 설정됩니다.   |
 | monitoringService | 경고를 생성한 모니터링 서비스 또는 솔루션입니다. 경고 컨텍스트의 필드는 모니터링 서비스에 의해 결정됩니다. |
 | alertTargetIds | 경고의 대상에 영향을 주는 Azure Resource Manager ID의 목록입니다. Log Analytics 작업 영역 또는 Application Insights 인스턴스에 정의된 로그 경고의 경우 해당 작업 영역 또는 애플리케이션입니다. |
+| configurationItems | 경고의 영향을 받는 리소스 목록입니다. 구성 항목은 Log Analytics 작업 영역에 정의된 로그 메트릭 또는 로그 경고와 같은 경우에 경고 대상과 다를 수 있습니다. 여기서 구성 항목은 작업 영역이 아닌 원격 분석을 보내는 실제 리소스입니다. 이 필드는 ITSM 시스템에서 CMDB의 리소스에 대한 경고를 상호 연관지을 때 사용됩니다. |
 | originAlertId | 경고를 생성하는 모니터링 서비스에서 생성한 경고 인스턴스의 ID입니다. |
 | firedDateTime | 경고 인스턴스가 UTC(협정 세계시)로 실행된 날짜 및 시간입니다. |
 | resolvedDateTime | 경고 인스턴스의 모니터 조건이 UTC로 **확인됨** 으로 설정된 날짜 및 시간입니다. 현재 메트릭 경고에만 적용됩니다.|
@@ -110,7 +114,7 @@ ms.locfileid: "108018262"
 
 ## <a name="alert-context"></a>경고 컨텍스트
 
-### <a name="metric-alerts-excluding-availability-tests"></a>메트릭 경고(가용성 테스트 제외)
+### <a name="metric-alerts---static-threshold"></a>메트릭 경고 - 정적 임계값
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -145,7 +149,43 @@ ms.locfileid: "108018262"
 }
 ```
 
-### <a name="metric-alerts-availability-tests"></a>메트릭 경고(가용성 테스트)
+### <a name="metric-alerts---dynamic-threshold"></a>메트릭 경고 - 동적 임계값
+
+#### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
+
+**샘플 값**
+```json
+{
+  "alertContext": {
+      "properties": null,
+      "conditionType": "DynamicThresholdCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "alertSensitivity": "High",
+            "failingPeriods": {
+              "numberOfEvaluationPeriods": 1,
+              "minFailingPeriodsToAlert": 1
+            },
+            "ignoreDataBefore": null,
+            "metricName": "Egress",
+            "metricNamespace": "microsoft.storage/storageaccounts",
+            "operator": "GreaterThan",
+            "threshold": "47658",
+            "timeAggregation": "Total",
+            "dimensions": [],
+            "metricValue": 50101
+          }
+        ],
+        "windowStartTime": "2021-07-20T05:07:26.363Z",
+        "windowEndTime": "2021-07-20T05:12:26.363Z"
+      }
+    }
+}
+```
+
+### <a name="metric-alerts---availability-tests"></a>메트릭 경고 - 가용성 테스트
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -179,7 +219,7 @@ ms.locfileid: "108018262"
 ### <a name="log-alerts"></a>로그 경고
 
 > [!NOTE]
-> 사용자 지정 이메일 제목 및/또는 JSON 페이로드가 정의된 로그 경고의 경우 공통 스키마를 사용하도록 설정하면 이메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정된 것으로 되돌아갑니다. 즉, 사용자 지정 JSON 페이로드를 정의하려는 경우 웹후크에서 일반 경고 스키마를 사용할 수 없습니다. 공통 스키마가 활성화된 경고는 경고당 256KB로 제한됩니다. 검색 결과는 경고 크기가 이 임계값을 초과하게 되면 로그 경고 페이로드에 포함되지 않습니다. `IncludeSearchResults` 플래그를 선택하여 이를 확인할 수 있습니다. 검색 결과가 포함되지 않은 경우 `LinkToFilteredSearchResultsAPI` 또는 `LinkToSearchResultsAPI`를 사용하여 [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get)를 통해 쿼리 결과에 액세스해야 합니다.
+> 사용자 지정 이메일 제목 및/또는 JSON 페이로드가 정의된 로그 경고의 경우 공통 스키마를 사용하도록 설정하면 이메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정된 것으로 되돌아갑니다. 즉, 사용자 지정 JSON 페이로드를 정의하려는 경우 웹후크에서 일반 경고 스키마를 사용할 수 없습니다. 공통 스키마가 활성화된 경고는 경고당 256KB로 제한됩니다. 검색 결과는 경고 크기가 이 임계값을 초과하게 되면 로그 경고 페이로드에 포함되지 않습니다. `IncludedSearchResults` 플래그를 선택하여 이를 확인할 수 있습니다. 검색 결과가 포함되지 않은 경우 `LinkToFilteredSearchResultsAPI` 또는 `LinkToSearchResultsAPI`를 사용하여 [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get)를 통해 쿼리 결과에 액세스해야 합니다.
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -251,7 +291,7 @@ ms.locfileid: "108018262"
         ]
       }
     ],
-  "IncludeSearchResults": "True",
+  "IncludedSearchResults": "True",
   "AlertType": "Metric measurement"
   }
 }
@@ -323,13 +363,16 @@ ms.locfileid: "108018262"
         }
       ]
     },
-    "IncludeSearchResults": "True",
+    "IncludedSearchResults": "True",
     "AlertType": "Metric measurement"
   }
 }
 ```
 
 #### <a name="monitoringservice--log-alerts-v2"></a>`monitoringService` = `Log Alerts V2`
+
+> [!NOTE]
+> API 버전 2020-05-01의 로그 경고 규칙은 공통 스키마만 지원하는 이 페이로드 유형을 사용합니다. 이 버전을 사용하는 경우 검색 결과는 로그 경고 페이로드에 포함되지 않습니다. [차원](./alerts-unified-log.md#split-by-alert-dimensions)을 사용하여 발생된 경고에 컨텍스트를 제공해야 합니다. `LinkToFilteredSearchResultsAPI` 또는 `LinkToSearchResultsAPI`를 사용하여 [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get)로 쿼리 결과에 액세스할 수도 있습니다. 결과를 포함해야 하는 경우 제공된 링크가 있는 논리 앱을 사용하여 사용자 지정 페이로드를 생성합니다.
 
 **샘플 값**
 ```json

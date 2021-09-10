@@ -2,33 +2,35 @@
 title: 관리 ID를 사용하여 스토리지 계정에 대한 연결 설정
 titleSuffix: Azure Cognitive Search
 description: 관리 ID를 사용하여 Azure Storage 계정에 인덱서 연결을 설정하는 방법 알아보기
-manager: luisca
 author: markheff
 ms.author: maheff
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 91ca017bf94f2c9a75a8016fb861cc085dc47ebe
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 07/02/2021
+ms.openlocfilehash: 7dd06e48d6d610b99f6c52affcd1d6101e04c9ba
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556967"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122567740"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정
 
 이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공하는 대신 관리 ID를 사용하여 Azure Storage 계정에 인덱서 연결을 설정하는 방법을 설명합니다.
 
-이 기능에 대해 자세히 알아보기 전에 인덱서가 무엇이며 데이터 원본에 대해 인덱서를 설정하는 방법을 이해하는 것이 좋습니다. 자세한 내용은 다음 링크에서 확인할 수 있습니다.
+시스템이 할당한 관리 ID나 사용자가 할당한 관리 ID(미리 보기)를 사용할 수 있습니다.
+
+이 기능을 학습하기 전에 인덱서가 무엇인지와 데이터 원본에 대해 인덱서를 설정하는 방법을 이해하는 것이 좋습니다. 자세한 내용은 다음 링크에서 확인할 수 있습니다.
 * [인덱서 개요](search-indexer-overview.md)
 * [Azure Blob 인덱서](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2 인덱서](search-howto-index-azure-data-lake-storage.md)
 * [Azure 테이블 인덱서](search-howto-indexing-azure-tables.md)
 
-## <a name="set-up-the-connection"></a>연결 설정
+## <a name="1---set-up-a-managed-identity"></a>1 - 관리 ID 설정
 
-### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - 시스템 할당 관리 ID 켜기
+다음 옵션 중 하나를 사용하여 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 설정합니다.
+
+### <a name="option-1---turn-on-system-assigned-managed-identity"></a>옵션 1 - 시스템이 할당한 관리 ID 켜기
 
 시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음, 인덱싱 중에 데이터 액세스를 허용하는 Azure RBAC(Azure 역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
 
@@ -38,9 +40,52 @@ ms.locfileid: "111556967"
 
 ![개체 ID](./media/search-managed-identities/system-assigned-identity-object-id.png "개체 ID입니다.")
  
-### <a name="2---add-a-role-assignment"></a>2 - 역할 할당 추가
+### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>옵션 2 - 사용자가 할당한 관리 ID를 검색 서비스(미리 보기)에 할당
 
-이 단계에서는 Azure Cognitive Search 서비스에 스토리지 계정에서 데이터를 읽을 수 있는 권한을 부여합니다.
+사용자가 할당한 관리 ID를 아직 만들지 않은 경우 새로 만들어야 합니다. 사용자가 할당한 관리 ID는 Azure 리소스입니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. **+ 리소스 만들기** 를 선택합니다.
+1. “검색 서비스 및 마켓플레이스” 검색 창에서 “사용자가 할당한 관리 ID”를 검색한 다음, **만들기** 를 선택합니다.
+1. ID에 설명이 포함된 이름을 지정합니다.
+
+그런 다음, 사용자가 할당한 관리 ID를 검색 서비스에 할당합니다. 이 작업은 [2021-04-01-preview 관리 API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용하여 수행할 수 있습니다.
+
+ID 속성은 유형과 하나 이상의 정규화된 사용자 할당 ID를 사용합니다.
+
+* **type** 은 ID 유형입니다. 유효한 값은 “SystemAssigned”, “UserAssigned” 또는 둘 다 사용하려는 경우 “SystemAssigned, UserAssigned”입니다. “None” 값은 검색 서비스에서 이전에 할당한 ID를 모두 지웁니다.
+* **userAssignedIdentities** 에는 사용자가 할당한 관리 ID의 세부 정보가 포함됩니다.
+    * 사용자가 할당한 관리 ID 형식: 
+        * /subscriptions/**구독 ID**/resourcegroups/**리소스 그룹 이름**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**관리 ID 이름**
+
+사용자가 할당한 관리 ID를 검색 서비스에 할당하는 방법 예제:
+
+```http
+PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
+Content-Type: application/json
+
+{
+  "location": "[region]",
+  "sku": {
+    "name": "[sku]"
+  },
+  "properties": {
+    "replicaCount": [replica count],
+    "partitionCount": [partition count],
+    "hostingMode": "default"
+  },
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[name of managed identity]": {}
+    }
+  }
+} 
+```
+
+## <a name="2---add-a-role-assignment"></a>2 - 역할 할당 추가
+
+이 단계에서는 스토리지 계정에서 데이터를 읽는 권한을 Azure Cognitive Search Service나 사용자가 할당한 관리 ID에 부여합니다.
 
 1. Azure Portal에서 인덱싱하려는 데이터가 포함된 스토리지 계정으로 이동합니다.
 2. **액세스 제어(IAM)** 를 선택합니다.
@@ -53,19 +98,23 @@ ms.locfileid: "111556967"
     1. Azure Data Lake Storage Gen2를 사용하려면 **Storage Blob Data 읽기 권한자** 역할에 검색 서비스를 추가해야 합니다.
     1. Azure Table Storage를 사용하려면 **읽기 권한자 및 데이터 액세스** 역할에 검색 서비스를 추가해야 합니다.
 5.  **액세스 할당** 을 **Azure AD 사용자, 그룹 또는 서비스 보안 주체** 로 둡니다.
-6.  검색 서비스를 검색하고 선택한 다음 **저장** 을 선택합니다.
+6.  시스템이 할당한 관리 ID를 사용하는 경우 검색 서비스를 검색하여 선택합니다. 사용자가 할당한 관리 ID를 사용하는 경우 사용자가 할당한 관리 ID의 이름을 검색하여 선택합니다. **저장** 을 선택합니다.
 
-    Azure Blob Storage 및 Azure Data Lake Storage Gen2의 예:
+    시스템이 할당한 관리 ID를 사용하는 Azure Blob Storage 및 Azure Data Lake Storage Gen2에 대한 예제:
 
     ![스토리지 Blob 데이터 읽기 권한자 역할 할당 추가](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "스토리지 Blob 데이터 읽기 권한자 역할 할당 추가")
 
-    Azure Table Storage의 예:
+    시스템이 할당한 관리 ID를 사용하는 Azure Table Storage에 대한 예제:
 
     ![읽기 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 및 데이터 액세스 역할 할당 추가")
 
-### <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
+## <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)는 관리 ID 연결 문자열을 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 ID 연결 문자열을 사용하여 스토리지 계정에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법의 예입니다. 관리 ID 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일합니다.
+데이터 원본을 만들고 시스템이 할당한 관리 ID나 사용자가 할당한 관리 ID(미리 보기)를 제공합니다. 아래 단계에서는 더 이상 관리 REST API를 사용하지 않습니다.
+
+### <a name="option-1---create-the-data-source-with-a-system-assigned-managed-identity"></a>옵션 1 - 시스템이 할당한 관리 ID를 사용하여 데이터 원본 만들기
+
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal, [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)는 시스템이 할당한 관리 ID 사용을 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 ID 연결 문자열을 사용하여 스토리지 계정에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법의 예입니다. 관리 ID 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일합니다.
 
 스토리지 계정에서 인덱싱할 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
 
@@ -73,7 +122,7 @@ ms.locfileid: "111556967"
 * **type**
     * Azure Blob Storage: `azureblob`
     * Azure Table Storage: `azuretable`
-    * Azure Data Lake Storage Gen2: [이 양식](https://aka.ms/azure-cognitive-search/mi-preview-request)을 사용하여 미리 보기에 등록하면 **type** 이 제공됩니다.
+    * Azure Data Lake Storage Gen2: `adlsgen2`
 * **credentials**
     * 관리 ID를 사용하여 인증하는 경우 **자격 증명** 형식은 관리 ID를 사용하지 않는 경우와 다릅니다. 여기서는 계정 키 또는 암호가 없는 ResourceId를 제공합니다. ResourceId는 스토리지 계정의 구독 ID, 스토리지 계정의 리소스 그룹 및 스토리지 계정 이름이 포함되어야 합니다.
     * 관리 ID 형식: 
@@ -82,7 +131,7 @@ ms.locfileid: "111556967"
 
 다음은 [REST API](/rest/api/searchservice/create-data-source)를 사용하여 Blob 데이터 원본 개체를 만드는 방법의 예입니다.
 
-```
+```http
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
@@ -90,12 +139,60 @@ api-key: [admin key]
 {
     "name" : "blob-datasource",
     "type" : "azureblob",
-    "credentials" : { "connectionString" : "ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name/;" },
-    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
+    "credentials" : { 
+        "connectionString" : "ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Storage/storageAccounts/[storage account name]/;" 
+    },
+    "container" : { 
+        "name" : "my-container", "query" : "<optional-virtual-directory-name>" 
+    }
 }   
 ```
 
-### <a name="4---create-the-index"></a>4 - 인덱스 만들기
+### <a name="option-2---create-the-data-source-with-a-user-assigned-managed-identity"></a>옵션 2 - 사용자가 할당한 관리 ID를 사용하여 데이터 원본 만들기
+
+2021-04-30-preview REST API는 사용자가 할당한 관리 ID를 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source), 관리 ID 연결 문자열, 사용자가 할당한 관리 ID를 사용하여 스토리지 계정의 데이터를 인덱싱할 데이터 원본을 만드는 방법의 예제입니다.
+
+스토리지 계정에서 인덱싱할 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
+
+* **name** 은 검색 서비스 내 데이터 원본의 고유 이름입니다.
+* **type**
+    * Azure Blob Storage: `azureblob`
+    * Azure Table Storage: `azuretable`
+    * Azure Data Lake Storage Gen2: `adlsgen2`
+* **credentials**
+    * 관리 ID를 사용하여 인증하는 경우 **자격 증명** 형식은 관리 ID를 사용하지 않는 경우와 다릅니다. 여기서는 계정 키 또는 암호가 없는 ResourceId를 제공합니다. ResourceId는 스토리지 계정의 구독 ID, 스토리지 계정의 리소스 그룹 및 스토리지 계정 이름이 포함되어야 합니다.
+    * 관리 ID 형식: 
+        * *ResourceId=/subscriptions/**구독 ID**/resourceGroups/**구독 이름**/providers/Microsoft.Storage/storageAccounts/**스토리지 계정 이름**/;*
+* **container** 는 스토리지 계정에서 컨테이너 또는 테이블 이름을 지정합니다. 기본적으로 컨테이너 내의 모든 BLOB은 검색 가능합니다. 특정 가상 디렉터리의 BLOB만 인덱싱하려면 선택 사항인 **query** 매개 변수를 사용하여 해당 디렉터리를 지정할 수 있습니다,
+* **identity** 는 사용자가 할당한 관리 ID의 컬렉션을 포함합니다. 데이터 원본을 생성할 때 사용자가 할당한 관리 ID는 하나만 제공해야 합니다.
+    * **userAssignedIdentities** 에는 사용자가 할당한 관리 ID의 세부 정보가 포함됩니다.
+        * 사용자가 할당한 관리 ID 형식: 
+            * /subscriptions/**구독 ID**/resourcegroups/**리소스 그룹 이름**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**관리 ID 이름**
+
+다음은 [REST API](/rest/api/searchservice/create-data-source)를 사용하여 Blob 데이터 원본 개체를 만드는 방법의 예입니다.
+
+```http
+POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview
+Content-Type: application/json
+api-key: [admin key]
+
+{
+    "name" : "blob-datasource",
+    "type" : "azureblob",
+    "credentials" : { 
+        "connectionString" : "ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Storage/storageAccounts/[storage account name]/;" 
+    },
+    "container" : { 
+        "name" : "my-container", "query" : "<optional-virtual-directory-name>" 
+    },
+    "identity" : { 
+        "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]" 
+    }
+}   
+```
+
+## <a name="4---create-the-index"></a>4 - 인덱스 만들기
 
 인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다.
 
@@ -117,7 +214,7 @@ api-key: [admin key]
 
 인덱스 만들기에 자세한 내용은 [인덱스 만들기](/rest/api/searchservice/create-index)를 참조하세요.
 
-### <a name="5---create-the-indexer"></a>5 - 인덱서 만들기
+## <a name="5---create-the-indexer"></a>5 - 인덱서 만들기
 
 인덱서는 데이터 원본을 대상 검색 인덱스와 연결하고 데이터 새로 고침을 자동화하는 일정을 제공합니다.
 

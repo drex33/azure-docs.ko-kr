@@ -3,12 +3,12 @@ title: '빠른 시작: 시작'
 description: 이 빠른 시작에서는 Defender for IoT 배포의 기본 워크플로를 시작하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
 ms.date: 06/06/2021
-ms.openlocfilehash: c0d8406f842e182c6c129ba32f38dd11fdfbd46c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: bb67cb5788e891861eb0c1f5fe2533d62b4ee520
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011448"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254084"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>빠른 시작: Defender for IoT 시작
 
@@ -32,8 +32,8 @@ ms.locfileid: "113011448"
 | 사용 권한 | 보안 판독기 | 보안 관리자 | 구독 기여자 | 구독 소유자 |
 |--|--|--|--|--|
 | 세부 정보를 보고 소프트웨어, 활성화 파일 및 위협 인텔리전스 패키지에 액세스  | ✓ | ✓ | ✓ | ✓ |
-| 센서 온보딩  |  |  ✓ | ✓ | ✓ |
-| 가격 책정 업데이트  |  |  ✓ | ✓ | ✓ |
+| 온보드 센서  |  |  ✓ | ✓ | ✓ |
+| 구독 온보딩 및 커밋된 디바이스 업데이트  |  |  | ✓ | ✓ |
 | 암호 복구  | ✓  |  ✓ | ✓ | ✓ |
 
 ## <a name="identify-the-solution-infrastructure"></a>솔루션 인프라 식별
@@ -46,7 +46,7 @@ ms.locfileid: "113011448"
 
 Azure Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합니다. 물리적 배포의 경우 다양한 인증 어플라이언스를 구입할 수 있습니다. 자세한 내용은 [필수 어플라이언스 식별](how-to-identify-required-appliances.md)을 참조하세요.
 
-모니터링할 대략적인 디바이스 수를 계산하는 것이 좋습니다. 나중에 Azure 구독을 포털에 등록할 때 이 숫자를 입력하라는 메시지가 표시됩니다. 1,000초 간격으로 숫자를 늘릴 수 있습니다. 모니터링되는 디바이스 수를 *커밋된 디바이스* 라고 합니다.
+모니터링할 대략적인 디바이스 수를 계산하는 것이 좋습니다. 나중에 Azure 구독을 포털에 등록할 때 이 숫자를 입력하라는 메시지가 표시됩니다. 1,000 간격으로 숫자를 추가할 수 있습니다(예: 1,000, 2,000, 3,000). 모니터링되는 디바이스 수를 *커밋된 디바이스* 라고 합니다.
 
 ## <a name="register-with-azure-defender-for-iot"></a>Azure Defender for IoT에 등록
 

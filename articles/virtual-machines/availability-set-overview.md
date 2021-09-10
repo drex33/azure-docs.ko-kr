@@ -6,14 +6,16 @@ ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: b4e9f106354915fe40a4bcf9b60bc35443345202
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f1580c69a4fc1671d4dbe86ede05392b32534db6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530578"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693681"
 ---
 # <a name="availability-sets-overview"></a>가용성 집합 개요
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM
 
 이 문서에서는 Azure VM(가상 머신)의 가용성 기능에 대한 개요를 제공합니다.
 

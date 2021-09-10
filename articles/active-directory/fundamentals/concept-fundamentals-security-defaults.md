@@ -5,28 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/03/2021
+ms.date: 08/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: rogoya
+ms.reviewer: lvandenende
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: c663282865e19df0e103e75a7e32d86651232a93
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a82b2632d5415091986c418ca7cd3871e519b374
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762554"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634187"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란?
 
 암호 스프레이, 재생, 피싱 같은 일반적인 ID 관련 공격이 더 많이 확산하게 되면 보안 관리가 어려울 수 있습니다. 보안 기본값을 사용하면 미리 구성된 보안 설정을 사용하여 조직을 이러한 공격에서 쉽게 보호할 수 있습니다.
 
 - 모든 사용자에게 Azure AD Multi-Factor Authentication에 등록하도록 요구
-- 관리자에게 다단계 인증을 수행하도록 요구
+- 관리자에게 다단계 인증을 수행하도록 요구합니다.
 - 레거시 인증 프로토콜 차단
-- 필요한 경우 사용자에게 다단계 인증을 수행하도록 요구
+- 필요한 경우 사용자에게 다단계 인증을 수행하도록 요구합니다.
 - Azure Portal에 대한 액세스와 같은 권한 있는 작업 보호
 
 ![보안 기본값을 사용하도록 설정/해제하는 Azure Portal의 스크린샷](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
@@ -35,12 +35,12 @@ ms.locfileid: "108762554"
 
 ## <a name="availability"></a>가용성
 
-Microsoft는 모든 사용자가 보안 기본값을 사용할 수 있도록 합니다. 목표는 모든 조직에서 추가 비용 없이 기본 수준의 보안을 설정할 수 있도록 하는 것입니다. Azure Portal에서 보안 기본값을 설정합니다. 테넌트가 2019년 10월 22일 이후에 만들어진 경우에는 테넌트에서 보안 기본값을 이미 사용할 수 있습니다. 모든 사용자를 보호하기 위해 생성된 모든 새 테넌트로 보안 기본값이 롤아웃됩니다.
+Microsoft는 모든 사용자가 보안 기본값을 사용할 수 있도록 합니다. 목표는 모든 조직에서 추가 비용 없이 기본 수준의 보안을 설정할 수 있도록 하는 것입니다. Azure Portal에서 보안 기본값을 설정합니다. 테넌트가 2019년 10월 22일 이후에 만들어진 경우에는 테넌트에서 보안 기본값을 사용하도록 설정할 수 있습니다. 모든 사용자를 보호하기 위해 보안 값은 생성 시 새 테넌트에 롤아웃됩니다.
 
 ### <a name="whos-it-for"></a>누구를 위한 기능인가요?
 
 - 보안 상태를 높이려고 하지만 어떻게 어디서부터 시작해야 할지 잘 모르는 조직은 보안 기본값을 사용하면 좋습니다.
-- Azure Active Directory 라이선스의 무료 계층을 활용하고 있는 조직은 보안 기본값을 사용하면 좋습니다.
+- Azure Active Directory 라이선스의 무료 계층을 사용하고 있는 조직은 보안 기본값을 사용하면 좋습니다.
 
 ### <a name="who-should-use-conditional-access"></a>조건부 액세스는 어떤 사용자가 사용해야 하나요?
 
@@ -58,7 +58,7 @@ Microsoft는 모든 사용자가 보안 기본값을 사용할 수 있도록 합
 
 권한 있는 액세스 권한이 있는 사용자는 사용자 환경에 대해 강화된 액세스 권한을 갖습니다. 이러한 계정은 권한이 크기 때문에 특별히 주의해서 처리해야 합니다. 권한 있는 계정의 보호를 향상하는 한 가지 일반적인 방법은 로그인 시 보다 강력한 형태의 계정 확인을 요구하는 것입니다. Azure AD에서 다단계 인증을 요구하면 보다 강력한 계정 확인이 가능합니다.
 
-Azure AD 다단계 인증 등록을 완료한 후에는 로그인할 때마다 추가 인증을 위해 다음 9개의 Azure AD 관리자 역할이 필요합니다.
+Azure AD Multi-Factor Authentication 등록을 완료한 후에는 로그인할 때마다 추가 인증을 수행하기 위해 다음 9개의 Azure AD 관리자 역할이 필요합니다.
 
 - 전역 관리자
 - SharePoint 관리자
@@ -77,9 +77,9 @@ Azure AD 다단계 인증 등록을 완료한 후에는 로그인할 때마다 �
 
 관리자 계정도 추가 인증 계층이 필요한 유일한 계정이라고 생각하는 경향이 있습니다. 관리자는 중요한 정보에 대해 광범위한 액세스 권한을 가지며 구독 전체 설정을 변경할 수 있습니다. 그러나 공격자는 최종 사용자를 대상으로 하는 경우가 많습니다. 
 
-이러한 공격자는 액세스 권한을 얻은 후에 원래 계정 소유자를 대신하여 권한 있는 정보에 대한 액세스를 요청할 수 있습니다. 전체 디렉터리를 다운로드하여 전체 조직에서 피싱 공격을 수행할 수도 있습니다. 
+이러한 공격자는 액세스 권한을 얻은 후에 원래 계정 소유자의 권한 있는 정보에 대한 액세스를 요청할 수 있습니다. 전체 디렉터리를 다운로드하여 전체 조직에서 피싱 공격을 수행할 수도 있습니다. 
 
-모든 사용자에 대해 보호를 개선하는 일반적인 방법 중 하나는 모든 사용자에 대해 다단계 인증과 같은 보다 강력한 형식의 계정 확인을 요구하는 것입니다. 사용자가 다단계 인증 등록을 완료한 후에는 필요할 때마다 추가 인증을 요구하는 메시지가 표시됩니다. 사용자 새 디바이스나 애플리케이션을 사용하여 인증하거나 중요한 역할 및 작업을 수행할 때 주로 메시지가 표시됩니다. 이 기능은 SaaS 애플리케이션을 포함하여 Azure AD에 등록된 모든 애플리케이션을 보호합니다.
+모든 사용자에 대해 보호를 개선하는 일반적인 방법 중 하나는 모든 사용자에 대해 다단계 인증과 같은 보다 강력한 형식의 계정 확인을 요구하는 것입니다. 사용자가 Multi-Factor Authentication 등록을 완료한 후에는 필요할 때마다 다른 인증을 요구하는 메시지가 표시됩니다. 사용자 새 디바이스나 애플리케이션을 사용하여 인증하거나 중요한 역할 및 작업을 수행할 때 주로 메시지가 표시됩니다. 이 기능은 SaaS 애플리케이션을 포함하여 Azure AD에 등록된 모든 애플리케이션을 보호합니다.
 
 ### <a name="blocking-legacy-authentication"></a>레거시 인증 차단
 
@@ -88,7 +88,7 @@ Azure AD 다단계 인증 등록을 완료한 후에는 로그인할 때마다 �
 - 최신 인증을 사용하지 않는 클라이언트(예: Office 2010 클라이언트)
 - IMAP, SMTP, POP3 등의 이전 메일 프로토콜을 사용하는 모든 클라이언트
 
-현재 대부분의 손상된 로그인 시도는 레거시 인증에서 발생합니다. 레거시 인증은 다단계 인증을 지원하지 않습니다. 디렉터리에서 다단계 인증 정책을 사용하도록 설정한 경우에도 공격자는 이전 프로토콜을 사용하여 인증하고 다단계 인증을 무시할 수 있습니다. 
+현재 대부분의 손상된 로그인 시도는 레거시 인증에서 발생합니다. 레거시 인증은 Multi-Factor Authentication을 지원하지 않습니다. 디렉터리에서 다단계 인증 정책을 사용하도록 설정한 경우에도 공격자는 이전 프로토콜을 사용하여 인증하고 다단계 인증을 무시할 수 있습니다. 
 
 테넌트에서 보안 기본값을 사용하도록 설정한 후에는 이전 프로토콜을 통해 수행된 모든 인증 요청이 차단됩니다. 보안 기본값은 Exchange Active Sync 기본 인증을 차단합니다.
 
@@ -137,7 +137,7 @@ Azure Resource Manager에 액세스하고 구성을 업데이트하려는 사용
 - *** 앱 암호는 관리자가 사용하도록 설정한 경우에만 레거시 인증 시나리오를 사용하여 사용자별 MFA에서 사용할 수 있습니다.
 
 > [!WARNING]
-> 보안 기본값을 사용하는 경우 조직에 대한 메서드를 사용하지 않도록 설정하지 마십시오. 메서드를 사용하지 않도록 설정하면 테넌트에서 스스로 잠금이 발생할 수 있습니다. [MFA 서비스 설정 포털](../authentication/howto-mfa-getstarted.md#choose-verification-options)에서 **사용자가 사용할 수 있는 모든 메서드** 를 그대로 둡니다.
+> 보안 기본값을 사용하는 경우 조직에 대한 메서드를 사용하지 않도록 설정하지 마십시오. 메서드를 사용하지 않도록 설정하면 테넌트에서 스스로 잠금이 발생할 수 있습니다. [MFA 서비스 설정 포털](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa)에서 **사용자가 사용할 수 있는 모든 메서드** 를 그대로 둡니다.
 
 ### <a name="disabled-mfa-status"></a>사용하지 않도록 설정된 MFA 상태
 
@@ -145,17 +145,16 @@ Azure Resource Manager에 액세스하고 구성을 업데이트하려는 사용
 
 ### <a name="conditional-access"></a>조건부 액세스
 
-조건부 액세스를 사용하여 보안 기본값과 유사하지만 보안 기본값에서는 사용할 수 없는 사용자 제외를 비롯한 보다 강력한 세분성으로 정책을 구성할 수 있습니다. 조건부 액세스를 사용하고 사용자 환경에서 조건부 액세스 정책을 사용하도록 설정하는 경우 보안 기본값을 사용할 수 없습니다. 조건부 액세스를 제공하는 라이선스가 있지만 사용자 환경에서 조건부 액세스 정책을 사용하도록 설정하지 않은 경우 조건부 액세스 정책을 사용하도록 설정할 때까지 보안 기본값 사용할 수 있습니다. Azure AD 라이선스에 대한 자세한 내용은 [Azure AD 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
+조건부 액세스를 사용하여 보안 기본값과 유사하지만 보안 기본값에서는 사용할 수 없는 사용자 제외를 비롯한 보다 강력한 세분성으로 정책을 구성할 수 있습니다. 조건부 액세스를 사용하고 사용자 환경에서 조건부 액세스 정책을 사용하도록 설정하는 경우 보안 기본값을 사용할 수 없습니다. 조건부 액세스를 제공하는 라이선스가 있지만 사용자 환경에서 조건부 액세스 정책을 사용하도록 설정하지 않은 경우 조건부 액세스 정책을 사용하도록 설정할 때까지 보안 기본값을 사용할 수 있습니다. Azure AD 라이선스에 대한 자세한 내용은 [Azure AD 가격 책정 페이지](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)에서 찾을 수 있습니다.
 
 ![보안 기본값 또는 조건부 액세스 중 하나만 사용할 수 있다는 경고 메시지](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
-조건부 액세스를 사용하여 보안 기본값을 통해 사용하도록 설정된 정책과 동급의 정책을 구성하는 방법에 대한 단계별 가이드는 다음과 같습니다.
+다음은 조건부 액세스를 사용하여 ID를 보호하기 위한 좋은 출발점을 형성하는 정책 세트를 구성하는 방법에 대한 단계별 가이드입니다.
 
 - [관리자용 MFA 필요](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Azure 관리용 MFA 필요](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [레거시 인증 차단](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [모든 사용자용 MFA 필요](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Azure AD MFA 등록 필요](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Azure AD Premium P2의 Azure AD ID 보호 부분이 필요합니다.
 
 ## <a name="enabling-security-defaults"></a>보안 기본값 사용
 

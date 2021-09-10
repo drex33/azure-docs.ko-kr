@@ -8,14 +8,17 @@ ms.service: virtual-machine-scale-sets
 ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c759cf564654990149424acf5aa3efaea4b37be0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0274477a3938f01a2c966739376b92b626f17add
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933443"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694488"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>가상 머신 확장 집합 템플릿에 대해 알아보기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
+
 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md#template-deployment-process)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 기본 확장 집합 템플릿을 만드는 방법과 이러한 템플릿을 다양한 시나리오에 맞게 수정하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다.
 
 이 템플릿은 간단하게 제작되었습니다. 확장 집합 템플릿의 전체 예제를 보려면 [Azure 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)를 참조하고 문자열 `vmss`가 포함된 폴더를 검색하세요.

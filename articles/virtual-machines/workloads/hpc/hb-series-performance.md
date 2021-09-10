@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f37f0bb14cf29551e85c0e592c327b86048f18e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2545c04074d60d72b0c21877dae3393d6e34fa0f
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721255"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691468"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>HB 시리즈 가상 머신 크기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 몇 가지 성능 테스트가 HB 시리즈 크기에 대해 실행되었습니다. 다음은 이러한 성능 테스트의 결과 중 일부입니다.
 
@@ -51,7 +53,7 @@ OSU 마이크로 벤치마크 제품군의 MPI 대역폭 테스트가 실행됩�
 
 ## <a name="mellanox-perftest"></a>Mellanox Perftest
 
-[Mellanox Perftest 패키지](https://community.mellanox.com/s/article/perftest-package)에는 대기 시간(ib_send_lat) 및 대역폭(ib_send_bw)과 같은 많은 InfiniBand 테스트가 있습니다. 예제 명령은 다음과 같습니다.
+[Mellanox Perftest 패키지](https://community.mellanox.com/s/article/perftest-package)에는 대기 시간(ib_send_lat)과 대역폭(ib_send_bw)과 같은 많은 InfiniBand 테스트가 있습니다. 예제 명령은 다음과 같습니다.
 
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a

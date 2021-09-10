@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 03/15/2021
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c37017269eb8989102353b079f61c104f5061749
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 87d3518b59bd5297bed4af25b11d7a47b7021a58
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074929"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692464"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure 포털에서 Windows 가상 머신 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 Azure Portal을 통해 Azure VM(가상 머신)을 만들 수 있습니다. 이 방법은 VM 및 관련 리소스를 만드는 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Windows Server 2019를 실행하는 Azure에서 VM(가상 머신)을 배포하는 방법을 보여줍니다. 작업에서 VM을 보려면 VM에 RDP를 수행하고 IIS 웹 서버를 설치합니다.
 
@@ -30,7 +32,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. 검색에서 **가상 머신** 을 입력합니다.
 1. **서비스** 에서 **가상 머신** 을 선택합니다.
-1. **가상 머신** 페이지에서 **추가** 를 선택한 다음, **가상 머신** 을 선택합니다. 
+1. **가상 머신** 페이지에서 **만들기** 를 선택한 다음, **가상 머신** 을 선택합니다. 
 1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, 리소스 그룹 **새로 만들기** 를 선택합니다. 이름으로 *myResourceGroup* 을 입력합니다. 
 
     ![가상 머신에 대한 Azure 구독 및 리소스 그룹을 선택하는 위치를 보여주는 프로젝트 세부 정보 섹션의 스크린샷](./media/quick-create-portal/project-details.png)

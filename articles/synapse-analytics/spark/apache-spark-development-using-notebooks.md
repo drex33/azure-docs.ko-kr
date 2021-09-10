@@ -1,34 +1,34 @@
 ---
-title: Synapse Studio Notebook
-description: 이 문서에서는 데이터 준비 및 시각화를 수행하기 위해 Azure Synapse Studio Notebook을 만들고 개발하는 방법을 알아봅니다.
+title: Synapse Notebook 사용 방법
+description: 이 문서에서는 데이터 준비 및 시각화를 수행하기 위해 Synapse Notebook을 만들고 개발하는 방법을 알아봅니다.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 10/19/2020
+ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4635848032d60c056b525d4ece0d50ad2eaf6039
+ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612328"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122538887"
 ---
-# <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Azure Synapse Studio Notebook 만들기, 개발, 유지 관리
+# <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Notebook 만들기, 개발, 유지 관리
 
-Synapse Studio Notebook은 라이브 코드, 시각화, 내레이션 텍스트를 포함하는 파일을 만들 수 있는 웹 인터페이스입니다. Notebook은 아이디어를 검증하고 빠른 실험을 사용하여 데이터를 통해 인사이트를 확보하기 좋은 도구입니다. Notebook은 데이터 준비, 데이터 시각화, 기계 학습 및 기타 빅 데이터 시나리오에서도 널리 사용됩니다.
+Synapse Notebook은 라이브 코드, 시각화, 내레이션 텍스트를 포함하는 파일을 만들 수 있는 웹 인터페이스입니다. Notebook은 아이디어를 검증하고 빠른 실험을 사용하여 데이터를 통해 인사이트를 확보하기 좋은 도구입니다. Notebook은 데이터 준비, 데이터 시각화, 기계 학습 및 기타 빅 데이터 시나리오에서도 널리 사용됩니다.
 
-Azure Synapse Studio Notebook을 사용하면 다음이 가능합니다.
+Synapse Notebook의 이점은 다음과 같습니다.
 
 * 시작에 필요한 설정 작업이 전혀 없습니다.
 * 기본 제공 엔터프라이즈 보안 기능으로 데이터 보안을 유지합니다.
 * 원시 형식(CSV, txt, JSON 등), 처리된 파일 형식(parquet, Delta Lake, ORC 등), SQL 및 Spark에 대한 SQL 테이블 형식 데이터 파일 모두에서 데이터를 분석합니다.
 * 향상된 제작 기능 및 기본 제공 데이터 시각화를 통해 생산성을 높일 수 있습니다.
 
-이 문서에서는 Azure Synapse Studio에서 Notebook을 사용하는 방법을 설명합니다.
+이 문서에서는 Synapse Studio에서 Notebook을 사용하는 방법을 설명합니다.
 
 ## <a name="preview-of-the-new-notebook-experience"></a>새 Notebook 환경의 프리뷰
 Synapse 팀은 새로운 Notebook 구성 요소를 Synapse Studio로 가져와서 Microsoft 고객을 위한 일관된 Notebook 환경을 제공하고 검색 기능, 생산성, 공유, 협업을 극대화합니다. 새 Notebook 환경은 프리뷰 준비가 되었습니다. Notebook 도구 모음의 **미리 보기 기능** 단추를 선택하여 이 기능을 켭니다. 다음 표에는 기존 Notebook("클래식 노트북"이라고 함)과 새 프리뷰 Notebook 간의 기능 비교가 정리되어 있습니다.  
@@ -36,24 +36,25 @@ Synapse 팀은 새로운 Notebook 구성 요소를 Synapse Studio로 가져와�
 |기능|클래식 Notebook|프리뷰 Notebook|
 |--|--|--|
 |%run| 지원되지 않음 | &#9745;|
-|%history| 지원되지 않음 |&#9745;
+|%history| 지원되지 않음 |&#9745;|
 |%load| 지원되지 않음 |&#9745;|
 |%%html| 지원되지 않음 |&#9745;|
 |끌어서 놓아 셀 이동| 지원되지 않음 |&#9745;|
-|Persistent Display() 출력|&#9745;| 사용할 수 없음 |
+|개요(목차)| 지원되지 않음 |&#9745;|
+|변수 탐색기| 지원되지 않음 |&#9745;|
 |도구 모음 단추를 사용하여 텍스트 셀 서식 지정|&#9745;| 사용할 수 없음 |
 |셀 작업 실행 취소| &#9745;| 사용할 수 없음 |
 
 
 ## <a name="create-a-notebook"></a>Notebook 만들기
 
-Notebook을 만드는 방법은 두 가지입니다. **개체 탐색기** 에서 새 Notebook을 만들거나 Azure Synapse 작업 영역으로 기존 Notebook을 가져올 수 있습니다. Azure Synapse Studio Notebook은 표준 Jupyter Notebook IPYNB 파일을 인식할 수 있습니다.
+Notebook을 만드는 방법은 두 가지입니다. **개체 탐색기** 에서 새 Notebook을 만들거나 Synapse 작업 영역으로 기존 Notebook을 가져올 수 있습니다. Synapse Notebook은 표준 Jupyter Notebook IPYNB 파일을 인식합니다.
 
 ![Notebook 가져오기 만들기](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook-2.png)
 
 ## <a name="develop-notebooks"></a>Notebook 개발
 
-노트북은 셀로 구성됩니다. 셀은 독립적으로 또는 그룹으로 실행할 수 있는 개별 코드 또는 텍스트 블록입니다.
+Notebook은 셀로 구성됩니다. 셀은 독립적으로 또는 그룹으로 실행할 수 있는 개별 코드 또는 텍스트 블록입니다.
 
 ### <a name="add-a-cell"></a>셀 추가
 
@@ -86,7 +87,7 @@ Notebook에 새 셀을 추가하는 방법은 여러 가지입니다.
 
 ### <a name="set-a-primary-language"></a>주 언어 설정
 
-Azure Synapse Studio Notebook은 네 가지 Apache Spark 언어를 지원합니다.
+Synapse Notebook은 4개의 Apache Spark 언어를 지원합니다.
 
 * pySpark(Python)
 * Spark(Scala)
@@ -114,7 +115,7 @@ Azure Synapse Studio Notebook은 네 가지 Apache Spark 언어를 지원합니�
 
 ### <a name="use-temp-tables-to-reference-data-across-languages&quot;></a>임시 테이블을 사용하여 언어 간 데이터 참조
 
-Synapse Studio Notebook의 여러 언어 간에 직접 데이터나 변수를 참조할 수 없습니다. Spark에서는 여러 언어 간에 임시 테이블을 참조할 수 있습니다. 다음은 차선책으로 Spark temp 테이블을 사용하여 `PySpark`와 `SparkSQL`에서 `Scala` DataFrame을 읽는 방법의 예입니다.
+Synapse Notebook의 여러 언어 간에 직접 데이터나 변수를 참조할 수 없습니다. Spark에서는 여러 언어 간에 임시 테이블을 참조할 수 있습니다. 다음은 차선책으로 Spark temp 테이블을 사용하여 `PySpark`와 `SparkSQL`에서 `Scala` DataFrame을 읽는 방법의 예입니다.
 
 1. 셀 1에서는 Scala를 사용하여 SQL 풀 커넥터에서 DataFrame을 읽고 임시 테이블을 생성합니다.
 
@@ -140,7 +141,7 @@ Synapse Studio Notebook의 여러 언어 간에 직접 데이터나 변수를 �
 
 ### <a name="ide-style-intellisense"></a>IDE 스타일 IntelliSense
 
-Azure Synapse Studio Notebook은 Monaco 편집기와 통합되어 IDE 스타일 IntelliSense를 셀 편집기로 가져옵니다. 구문 강조 표시, 오류 표식, 자동 코드 완성 기능은 신속하게 코드를 작성하고 문제를 식별하는 데 유용합니다.
+Synapse Notebook은 Monaco 편집기와 통합되어 IDE 스타일 IntelliSense를 셀 편집기로 가져옵니다. 구문 강조 표시, 오류 표식, 자동 코드 완성 기능은 신속하게 코드를 작성하고 문제를 식별하는 데 유용합니다.
 
 IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되는 기능은 다음 표를 참조하세요.
 
@@ -149,7 +150,20 @@ IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되�
 |PySpark(Python)|예|예|예|예|예|예|예|예|
 |Spark(Scala)|예|예|예|예|-|-|-|예|
 |SparkSQL|예|예|-|-|-|-|-|-|
-|.NET for Spark(C#)|예|-|-|-|-|-|-|-|
+|.NET for Spark(C#)|예|예|예|예|예|예|예|예|
+
+>[!Note]
+> 활성 Spark 세션은 변수 코드 완성, 시스템 함수 코드 완성, Spark(C#)용 .NET에 대한 사용자 함수 코드 완료를 활용하는 데 필요합니다.
+
+### <a name="code-snippets"></a>코드 조각
+
+Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽기 또는 matplotlib로 차트 그리기와 같은 일반적으로 사용되는 코드 패턴을 쉽게 입력할 수 있게 해주는 코드 조각을 제공합니다.
+
+코드 조각은 [IntelliSense](#ide-style-intellisense)에 다른 제안 사항과 혼합되어 표시됩니다. 코드 조각 콘텐츠는 코드 셀 언어에 따라 달라집니다. **Snippet** 을 입력하여 사용 가능한 코드 조각을 확인할 수 있고 또는 아무 키워드나 입력하면 코드 셀 편집기의 코드 조각 제목에 표시됩니다. 예를 들어 **read** 를 입력하면 여러 데이터 원본으로부터 데이터 읽기를 위한 코드 조각 목록이 표시됩니다.
+
+![Synapse 코드 조각](./media/apache-spark-development-using-notebooks/synapse-code-snippets.gif#lightbox)
+
+
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>도구 모음 단추를 사용하여 텍스트 셀 서식 지정
 
@@ -182,7 +196,7 @@ IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되�
 
 # <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
 
-줄임표(...)를 선택하면 오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스할 수 있습니다. 그런 다음, **위로 셀 이동** 또는 **아래로 셀 이동** 을 선택하여 현재 셀을 이동합니다. 
+줄임표(...)를 선택하면 오른쪽 끝에 있는 다른 셀 작업 메뉴에 액세스할 수 있습니다. 그런 다음, **위로 셀 이동** 또는 **아래로 셀 이동** 을 선택하여 현재 셀을 이동합니다. 
 
 [명령 모드에서 바로 가기 키](#shortcut-keys-under-command-mode)를 사용할 수도 있습니다. 현재 셀을 위로 이동하려면 **Ctrl+Alt+↑** 키를 누릅니다. 현재 셀을 아래로 이동하려면 **Ctrl+Alt+↓** 키를 누릅니다.
 
@@ -199,7 +213,7 @@ IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되�
 
 # <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
 
-셀을 삭제하려면 줄임표(...)를 선택하여 오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스한 후 **셀 삭제** 를 선택합니다. 
+셀을 삭제하려면 줄임표(...)를 선택하여 오른쪽 끝에 있는 다른 셀 작업 메뉴에 액세스한 후 **셀 삭제** 를 선택합니다. 
 
 [명령 모드에서 바로 가기 키](#shortcut-keys-under-command-mode)를 사용할 수도 있습니다. 현재 행을 삭제하려면 **D,D** 를 누릅니다.
   
@@ -248,6 +262,21 @@ IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되�
 
 ---
 
+### <a name="notebook-outline"></a>Notebook 개요
+
+# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
+
+지원되지 않습니다.
+
+# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
+
+개요(목차)는 빠른 탐색을 위해 사이드바 창에 있는 모든 Markdown 셀의 첫 번째 Markdown 헤더를 나타냅니다. Outlines 사이드바는 가능한 최적의 방법으로 화면에 맞게 크기 조절 및 축소가 가능합니다. Notebook 명령 모음에서 **개요** 단추를 선택하여 사이드바를 열거나 숨길 수 있습니다.
+
+![azure-notebook-outline](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png)
+
+---
+
+
 ## <a name="run-notebooks"></a>Notebook 실행
 
 Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있습니다. 각 셀의 상태와 진행률이 Notebook에 표시됩니다.
@@ -274,7 +303,7 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 
 # <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
 
-오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스하려면 줄임표( **...** )를 선택합니다. 그런 다음, 현재 셀 위에 있는 모든 셀을 순서대로 실행하려면 **Run cells above**(위 셀 실행)를 선택합니다. 현재 셀 아래 모든 셀을 순서대로 실행하려면 **Run cells below**(아래 셀 실행)을 선택합니다.
+오른쪽 끝에 있는 다른 셀 작업 메뉴에 액세스하려면 줄임표( **...** )를 선택합니다. 그런 다음, 현재 셀 위에 있는 모든 셀을 순서대로 실행하려면 **Run cells above**(위 셀 실행)를 선택합니다. 현재 셀 아래 모든 셀을 순서대로 실행하려면 **Run cells below**(아래 셀 실행)을 선택합니다.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
@@ -309,17 +338,34 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 
 # <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
-```%run <notebook path>``` 매직 명령을 사용하여 현재 Notebook의 컨텍스트 내에서 다른 Notebook을 참조할 수 있습니다. 참조 Notebook에 정의된 모든 변수는 현재 Notebook에서 사용할 수 있습니다. ```%run``` 매직 명령은 중첩된 호출을 지원하지만 재귀 호출은 지원하지 않습니다. 문 깊이가 5보다 크면 예외를 수신하게 됩니다. 현재 ```%run``` 명령은 Notebook 경로를 매개 변수로 전달하는 기능만 지원합니다. 
+```%run <notebook path>``` 매직 명령을 사용하여 현재 Notebook의 컨텍스트 내에서 다른 Notebook을 참조할 수 있습니다. 참조 Notebook에 정의된 모든 변수는 현재 Notebook에서 사용할 수 있습니다. ```%run``` 매직 명령은 중첩된 호출을 지원하지만 재귀 호출은 지원하지 않습니다. 문 깊이가 5보다 크면 예외를 수신하게 됩니다.  현재 ```%run``` 명령은 Notebook 경로를 매개 변수로 전달하는 기능만 지원합니다. 
 
 예: ``` %run /path/notebookA ```.
 
+Notebook 참조는 대화형 모드와 Synapse 파이프라인 모두에서 작동합니다.
+
 > [!NOTE]
-> Synapse 파이프라인에서는 Notebook 참조가 지원되지 않습니다.
->
+> 참조된 Notebook을 게시해야 합니다. 참조하려면 Notebook을 게시해야 합니다. Synapse Studio는 Git 리포지토리에서 게시되지 않은 Notebook을 인식하지 못합니다. 
 >
 
 ---
 
+### <a name="variable-explorer"></a>변수 탐색기
+
+# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
+
+지원되지 않습니다.
+
+# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
+
+Synapse Notebook은 PySpark(Python) 셀에 대한 현재 Spark 세션의 변수 이름, 유형, 길이 및 값 목록을 볼 수 있는 기본 제공 변수 탐색기를 제공합니다. 코드 셀에 정의된 대로 더 많은 변수가 자동으로 표시됩니다. 각 열 헤더를 클릭하면 테이블의 변수가 정렬됩니다.
+
+Notebook 명령 모음에서 **변수** 단추를 선택하여 변수 탐색기를 열거나 숨길 수 있습니다.
+
+![azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
+
+
+---
 
 ### <a name="cell-status-indicator"></a>셀 상태 표시기
 
@@ -329,7 +375,7 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 
 ### <a name="spark-progress-indicator"></a>Spark 진행률 표시기
 
-Azure Synapse Studio Notebook은 순전히 Spark 기반입니다. 코드 셀은 서버리스 Apache Spark 풀에서 원격으로 실행됩니다. Spark 작업 진행률 표시기에 실시간 진행률 표시줄이 제공되어 작업 실행 상태를 이해하는 데 유용합니다.
+Synapse Notebook은 순전히 Spark 기반입니다. 코드 셀은 서버리스 Apache Spark 풀에서 원격으로 실행됩니다. Spark 작업 진행률 표시기에 실시간 진행률 표시줄이 제공되어 작업 실행 상태를 이해하는 데 유용합니다.
 각 작업 또는 단계당 태스크 수를 통해 Spark 작업의 병렬 수준을 확인할 수 있습니다. 작업(또는 단계) 이름의 링크를 선택하여 특정 작업(또는 단계)의 Spark UI로 드릴다운할 수도 있습니다.
 
 
@@ -344,10 +390,10 @@ Azure Synapse Studio Notebook은 순전히 Spark 기반입니다. 코드 셀은 
 #### <a name="spark-session-config-magic-command"></a>Spark 세션 구성 매직 명령
 **%% configure** 매직 명령을 통해 Spark 세션 설정을 지정할 수도 있습니다. 설정을 적용하려면 Spark 세션을 다시 시작해야 합니다. Notebook의 시작 부분에서 **%% configure** 를 실행하는 것이 좋습니다. 다음은 샘플입니다. 유효한 매개 변수의 전체 목록은 https://github.com/cloudera/livy#request-body 를 참조하세요. 
 
-```
-%%configure -f
+```json
+%%configure
 {
-    to config the session.
+    // refer to https://github.com/cloudera/livy#request-body for a list of valid parameters to config the session.
     "driverMemory":"2g",
     "driverCores":3,
     "executorMemory":"2g",
@@ -359,8 +405,8 @@ Azure Synapse Studio Notebook은 순전히 Spark 기반입니다. 코드 셀은 
 }
 ```
 > [!NOTE]
-> Spark 세션 구성 매직 명령은 Synapse 파이프라인에서 지원되지 않습니다.
->
+> - Synapse 파이프라인에서 Spark 세션 구성 매직 명령을 사용할 수 있습니다. 최상위 수준에서 호출된 경우에만 적용됩니다. 참조된 Notebook에 사용된 %%구성은 무시됩니다.
+> - Spark 구성 속성은 "conf" 본문에서 사용해야 합니다. Spark 구성 속성에 대한 최상위 참조는 지원되지 않습니다.
 >
 
 ## <a name="bring-data-to-a-notebook"></a>Notebook에 데이터 가져오기
@@ -416,6 +462,83 @@ df = spark.read.option("header", "true") \
 
 ![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
+## <a name="ipython-widgets"></a>IPython 위젯
+
+
+# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
+
+지원되지 않습니다.
+
+# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
+
+위젯은 일반적으로 슬라이더, 텍스트 상자 등의 컨트롤처럼 브라우저에 표시되는 이벤트성 python 개체입니다. IPython 위젯은 Python 환경에서만 작동하며 다른 언어(예: Scala, SQL, C#)에서는 아직 지원되지 않습니다. 
+
+### <a name="to-use-ipython-widget"></a>IPython 위젯을 사용하려면
+1. Jupyter 위젯 프레임워크를 사용하려면 먼저 `ipywidgets` 모듈을 가져와야 합니다.
+   ```python
+   import ipywidgets as widgets
+   ```
+2. 최상위 수준 `display` 함수를 사용하여 위젯을 렌더링하거나 코드 셀의 마지막 줄에  **위젯** 형식의 식을 남길 수 있습니다.
+   ```python
+   slider = widgets.IntSlider()
+   display(slider)
+   ```
+
+   ```python
+   slider = widgets.IntSlider()
+   slider
+   ```
+   
+3. 셀을 실행하면 위젯이 출력 영역에 표시됩니다.
+
+   ![ipython 위젯 슬라이더](./media/apache-spark-development-using-notebooks/ipython-widgets-slider.png)
+
+4. 여러 `display()` 호출을 사용하여 동일한 위젯 인스턴스를 여러 번 렌더링할 수 있지만 서로 동기화된 상태를 유지합니다.
+
+   ```python
+   slider = widgets.IntSlider()
+   display(slider)
+   display(slider)
+   ```
+
+   ![ipython 위젯 슬라이더](./media/apache-spark-development-using-notebooks/ipython-widgets-multiple-sliders.png)
+
+5. 서로 독립적인 두 위젯을 렌더링하려면 두 개의 위젯 인스턴스를 만듭니다.
+
+   ```python
+   slider1 = widgets.IntSlider()
+   slider2 = widgets.IntSlider()
+   display(slider1)
+   display(slider2)
+   ```
+
+
+### <a name="supported-widgets"></a>지원되는 위젯
+
+|위젯 형식|위젯|
+|--|--|
+|숫자 위젯|IntSlider, FloatSlider, FloatLogSlider, IntRangeSlider, FloatRangeSlider, IntProgress, FloatProgress, BoundedIntText, BoundedFloatText, IntText, FloatText|
+|부울 위젯|ToggleButton, Checkbox, Valid|
+|선택 위젯|Dropdown, RadioButtons, Select, SelectionSlider, SelectionRangeSlider, ToggleButtons, SelectMultiple|
+|문자열 위젯|텍스트, 텍스트 영역, 콤보 상자, 암호, 레이블, HTML, HTML 수학, 이미지, 단추|
+|재생(애니메이션) 위젯|날짜 선택기, 색 편집기, 컨트롤러|
+|컨테이너/레이아웃 위젯|상자, HBox, VBox, GridBox, 아코디언, 탭, 누적|
+
+
+### <a name="know-issue"></a>알려진 문제
+
+다음 위젯은 아직 지원되지 않으므로 아래와 같이 해결 방법을 수행할 수 있습니다.
+
+|기능|해결 방법|
+|--|--|
+|`Output` 위젯|`print()` 함수를 대신 사용하여 텍스트를 stdout으로 작성할 수 있습니다.|
+|`widgets.jslink()`|`widgets.link()` 함수를 사용하여 두 개의 유사한 위젯을 연결할 수 있습니다.|
+|`FileUpload` 위젯| 아직 지원하지 않습니다.|
+
+
+---
+
+
 ## <a name="save-notebooks"></a>Notebook 저장
 
 작업 영역에 단일 Notebook 또는 모든 Notebook을 저장할 수 있습니다.
@@ -433,7 +556,7 @@ Notebook 속성에서 저장할 때 셀 출력을 포함할지 여부를 구성�
    ![notebook-properties](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
 ## <a name="magic-commands"></a>매직 명령
-Azure Synapse Studio Notebook에서 익숙한 Jupyter 매직 명령을 사용할 수 있습니다. 현재 사용 가능한 매직 명령은 아래 목록에서 확인하세요. 필요에 맞는 매직 명령을 계속 빌드할 수 있도록 [GitHub에 사용 사례](https://github.com/MicrosoftDocs/azure-docs/issues/new)를 알려주세요.
+Synapse Notebook에서 익숙한 Jupyter 매직 명령을 사용할 수 있습니다. 현재 사용 가능한 매직 명령은 아래 목록에서 확인하세요. 필요에 맞는 매직 명령을 계속 빌드할 수 있도록 [GitHub에 사용 사례](https://github.com/MicrosoftDocs/azure-docs/issues/new)를 알려주세요.
 
 > [!NOTE]
 > Synapse 파이프라인에서는 %%pyspark, %%spark, %%csharp, %%sql 매직 명령만 지원됩니다. 
@@ -468,7 +591,7 @@ Azure Synapse Studio Notebook에서 익숙한 Jupyter 매직 명령을 사용할
 
 # <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
 
-Notebook을 매개 변수화하려면 줄임표(...)를 선택하여 오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스하면 됩니다. 그런 다음, **매개 변수 셀 설정/해제** 를 선택하여 셀을 매개 변수 셀로 지정합니다.
+Notebook을 매개 변수화하려면 줄임표(...)를 선택하여 오른쪽 끝에 있는 다른 셀 작업 메뉴에 액세스하면 됩니다. 그런 다음, **매개 변수 셀 설정/해제** 를 선택하여 셀을 매개 변수 셀로 지정합니다.
 
 ![toggle-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 
@@ -485,7 +608,7 @@ Azure Data Factory는 매개 변수 셀을 찾고 실행 시 전달되는 매개
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>파이프라인에서 매개 변수 값 할당
 
-매개 변수를 사용하여 Notebook을 만든 후에는 Azure Synapse Notebook 활동을 사용하여 파이프라인에서 이를 실행할 수 있습니다. 파이프라인 캔버스에 활동을 추가한 후에는 **설정** 탭의 **기본 매개 변수** 섹션에서 매개 변수 값을 설정할 수 있습니다. 
+매개 변수를 사용하여 Notebook을 만든 후에는 Synapse Notebook 활동을 사용하여 파이프라인에서 이를 실행할 수 있습니다. 파이프라인 캔버스에 활동을 추가한 후에는 **설정** 탭의 **기본 매개 변수** 섹션에서 매개 변수 값을 설정할 수 있습니다. 
 
 ![매개 변수 할당](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
@@ -495,7 +618,7 @@ Azure Data Factory는 매개 변수 셀을 찾고 실행 시 전달되는 매개
 
 ## <a name="shortcut-keys"></a>바로 가기 키
 
-Jupyter 노트북과 마찬가지로 Azure Synapse Studio Notebook에는 모달 사용자 인터페이스가 있습니다. 키보드는 Notebook 셀이 있는 모드에 따라 다른 작업을 수행합니다. Synapse Studio Notebook은 지정된 코드 셀에 대해 두 가지 모드(명령 모드 및 편집 모드)를 지원합니다.
+Jupyter Notebook과 마찬가지로 Synapse Notebook에는 모달 사용자 인터페이스가 있습니다. 키보드는 Notebook 셀이 있는 모드에 따라 다른 작업을 수행합니다. Synapse Notebook은 지정된 코드 셀에 대해 두 가지 모드(명령 모드 및 편집 모드)를 지원합니다.
 
 1. 입력하라는 텍스트 커서가 없으면 셀은 명령 모드에 있습니다. 셀이 명령 모드에 있으면 Notebook을 전체적으로 편집할 수 있지만 개별 셀에는 입력할 수 없습니다. `ESC` 키를 누르거나 마우스를 사용하여 셀의 편집기 영역 외부를 선택하면 명령 모드로 전환됩니다.
 
@@ -509,9 +632,9 @@ Jupyter 노트북과 마찬가지로 Azure Synapse Studio Notebook에는 모달 
 
 # <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
 
-다음과 같은 키 입력 바로 가기를 사용하면 Azure Synapse Notebook에서 보다 편리하게 코드를 탐색하고 실행할 수 있습니다.
+다음과 같은 키 입력 바로 가기를 사용하면 Synapse Notebook에서 보다 편리하게 코드를 탐색하고 실행할 수 있습니다.
 
-| 작업 |Synapse Studio Notebook 바로 가기  |
+| 작업 |Synapse Notebook 바로 가기  |
 |--|--|
 |현재 셀을 실행하고 아래 선택 | Shift+Enter |
 |현재 셀을 실행하고 아래에 삽입 | Alt+Enter |
@@ -528,7 +651,7 @@ Jupyter 노트북과 마찬가지로 Azure Synapse Studio Notebook에는 모달 
 
 # <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
-| 작업 |Synapse Studio Notebook 바로 가기  |
+| 작업 |Synapse Notebook 바로 가기  |
 |--|--|
 |현재 셀을 실행하고 아래 선택 | Shift+Enter |
 |현재 셀을 실행하고 아래에 삽입 | Alt+Enter |
@@ -547,9 +670,9 @@ Jupyter 노트북과 마찬가지로 Azure Synapse Studio Notebook에는 모달 
 ### <a name="shortcut-keys-under-edit-mode"></a>편집 모드의 바로 가기 키
 
 
-편집 모드에서 다음과 같은 키 입력 바로 가기를 사용하면 Azure Synapse Notebook에서 보다 편리하게 코드를 탐색하고 실행할 수 있습니다.
+편집 모드에서 다음과 같은 키 입력 바로 가기를 사용하면 Synapse Notebook에서 보다 편리하게 코드를 탐색하고 실행할 수 있습니다.
 
-| 작업 |Synapse Studio Notebook 바로 가기  |
+| 작업 |Synapse Notebook 바로 가기  |
 |--|--|
 |커서를 위로 이동 | 위로 |
 |커서를 아래로 이동|아래로|

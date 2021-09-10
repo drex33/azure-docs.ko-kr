@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 6f9cc05e244b26ae881f2bc4d501c468a711b007
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f33cedfa9220510e23cfa5b1c72ac4182e9dd028
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934566"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692372"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio에서 Virtual Machine Scale Set를 만드는 방법
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 이 문서는 Visual Studio 리소스 그룹 배포를 사용하여 Azure Virtual Machine Scale Set를 배포하는 방법을 보여줍니다.
 

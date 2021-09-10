@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9a931790428a138ea926b0408dd236917987c620
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 29e6f131b5efb36788d2400a940902f3757f5405
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114285977"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725060"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 
@@ -78,19 +78,19 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
     az account set --subscription "<your subscription>"
     ```
 
-2. [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) 명령을 사용하여 IoT Hub를 만듭니다. 이 예제에서는 **MyASAIoTHub** 라는 IoT Hub를 만듭니다. IoT Hub 이름은 고유하므로 사용자 고유의 IoT Hub 이름으로 표시해야 합니다. 구독에 사용 가능한 경우 체험 계층을 사용하도록 SKU를 F1로 설정합니다. 그러지 않으면 다음으로 가장 낮은 계층을 선택합니다.
+2. [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) 명령을 사용하여 IoT Hub를 만듭니다. 이 예제에서는 **MyASAIoTHub** 라는 IoT Hub를 만듭니다. IoT Hub 이름은 고유하므로 사용자 고유의 IoT Hub 이름으로 표시해야 합니다. 구독에 사용 가능한 경우 체험 계층을 사용하도록 SKU를 F1로 설정합니다. 그러지 않으면 다음으로 가장 낮은 계층을 선택합니다.
 
     ```azurecli
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    IoT Hub가 만들어지면 [az iot hub show-connection-string](/cli/azure/iot/hub) 명령을 사용하여 IoT Hub 연결 문자열을 가져옵니다. 전체 연결 문자열을 복사하여 IoT Hub를 Stream Analytics 작업에 대한 입력으로 추가할 때를 위해 저장해 둡니다.
+    IoT Hub가 만들어지면 [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) 명령을 사용하여 IoT Hub 연결 문자열을 가져옵니다. 전체 연결 문자열을 복사하여 IoT Hub를 Stream Analytics 작업에 대한 입력으로 추가할 때를 위해 저장해 둡니다.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. [az iothub device-identity create](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#create-a-simulated-device) 명령을 사용하여 IoT Hub에 디바이스를 추가합니다. 이 예제에서는 **MyASAIoTDevice** 라는 디바이스를 만듭니다.
+3. [az iothub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) 명령을 사용하여 IoT Hub에 디바이스를 추가합니다. 이 예제에서는 **MyASAIoTDevice** 라는 디바이스를 만듭니다.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"

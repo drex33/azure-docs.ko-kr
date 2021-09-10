@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c67dfe6295a62a464d1a7a5eeb7a9ba7afd88ced
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: 717c9595a9fbda39583be0be5bc6565d2938dc63
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113128771"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823371"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호
 
@@ -133,7 +133,7 @@ ms.locfileid: "113128771"
 
 ![HTTPS 적용](./media/configure-ssl-bindings/enforce-https.png)
 
-작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 다음은 그 예입니다. 
+작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 다음은 그 예입니다.
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -154,6 +154,17 @@ ms.locfileid: "113128771"
 App Service에서, [TLS 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
 
 [Linux Node.js 구성](configure-language-nodejs.md#detect-https-session) 가이드와 같은 언어별 구성 가이드에서는 애플리케이션 코드에서 HTTPS 세션을 검색하는 방법을 보여 줍니다.
+
+## <a name="renew-certificate-binding"></a>인증서 바인딩 갱신
+
+> [!NOTE]
+> [구매한 App Service 인증서](configure-ssl-certificate.md#import-an-app-service-certificate)를 갱신하려면 [(App Service) 인증서 내보내기](configure-ssl-certificate.md#export-certificate)를 참조하세요. App Service 인증서는 자동으로 갱신할 수 있으며 바인딩은 자동으로 동기화됩니다.
+
+만료되는 인증서를 교체하기 위해 새 인증서로 인증서 바인딩을 업데이트하는 방법은 사용자 환경에 부정적인 영향을 줄 수 있습니다. 예를 들어 바인딩이 IP 기반이라고 해도 바인딩을 삭제하면 인바운드 IP 주소가 변경될 수 있습니다. 이것은 IP 기반 바인딩에 이미 있는 인증서를 갱신할 때 특히 중요합니다. 앱의 IP 주소가 변경되지 않도록 하고 앱의 가동 중지 시간을 방지하려면 다음 단계를 순서대로 수행합니다.
+
+1. 새 인증서 업로드
+2. 만료되는 기존 인증서를 삭제하지 않고 동일한 사용자 지정 도메인에 새 인증서를 바인딩합니다. 이 작업은 기존 인증서를 제거하는 대신 바인딩을 교체합니다.
+3. 기존 인증서를 삭제합니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 

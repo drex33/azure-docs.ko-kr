@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b5e83f883b5e1e35842ab128e4732e993fb937a0
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: ff3c4dc893a6760c317b39b4a76f4de2e24da96e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383696"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690907"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-linux-virtual-machines"></a>자습서: Linux 가상 머신에 대한 재해 복구 설정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 자습서에서는 Linux를 실행하는 Azure VM에 대한 재해 복구를 설정하는 방법을 보여 줍니다. 이 문서에서는 다음 방법을 알아봅니다.
 

@@ -4,12 +4,12 @@ description: Oracle 데이터베이스용 BareMetal에서 사용할 수 있는 �
 ms.topic: overview
 ms.subservice: baremetal-oracle
 ms.date: 04/16/2021
-ms.openlocfilehash: 52bd9856b9203dfc515d5507fda310d567e1b588
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: 73473cb99521be76be5518ad82dfbb9ec9d1feb0
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579141"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862482"
 ---
 # <a name="high-availability-features-for-oracle-on-azure-baremetal"></a>Azure BareMetal의 Oracle용 고가용성 기능
 
@@ -55,9 +55,9 @@ Data Guard는 스토리지 수준 복제보다 다음과 같은 이점을 제공
 - 논리적 블록 내 손상 및 쓰기 손실 손상을 방지합니다. 또한 스토리지 관리자가 실수로 대기 데이터베이스로 복제할 위험을 제거합니다.
 다시 실행은 미리 정해진 기간 동안 지연될 수 있으므로, 사용자 오류가 대기 데이터베이스로 즉시 복제되지 않습니다.
 
-## <a name="azure-netapp-files-snapshots"></a>Azure NetApp Files 스냅샷
+## <a name="baremetal-snapshot-recovery"></a>BareMetal 스냅샷 복구
 
-BareMetal에서 사용되는 NetApp Files 스토리지 솔루션을 사용하면 볼륨의 스냅샷을 만들 수 있습니다. 스냅샷을 사용하면 파일 시스템을 특정 시점으로 빠르게 되돌릴 수 있습니다. 스냅샷 기술은 데이터베이스 백업을 복원하는 데 필요한 시간의 일부인 RTO(복구 시간 목표) 시간을 허용합니다.
+인프라에 제공된 NetApp을 사용하는 BareMetal 스토리지 솔루션을 사용하여 볼륨의 스냅샷을 만들 수 있습니다. 스냅샷을 사용하면 파일 시스템을 특정 시점으로 빠르게 되돌릴 수 있습니다. 스냅샷 기술은 데이터베이스 백업을 복원하는 데 필요한 시간의 일부인 RTO(복구 시간 목표) 시간을 허용합니다.
 
 Oracle 데이터베이스의 스냅샷 기능은 Azure NetApp SnapCenter를 통해 사용할 수 있습니다. SnapCenter는 백업용 스냅샷을 지원하고, SnapVault는 오프라인 저장을 제공하며, Snap Clone은 셀프 서비스 복원 및 기타 작업을 지원합니다. 자세한 내용은 [Baremetal Infrastructure의 Oracle용 SnapCenter 통합](netapp-snapcenter-integration-oracle-baremetal.md)을 참조하세요.
 

@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 83bb3b8e2f6704c595b6398a15f620be6927f3d5
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 97691d3b9c2d94a42e3ff434a5bbaef1bd281975
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846629"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698838"
 ---
 # <a name="m-series"></a>M 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 M 시리즈는 높은 vCPU 수(최대 128개의 vCPU)와 많은 양의 메모리(최대 3.8TiB)를 제공합니다. 높은 vCPU 수와 많은 양의 메모리를 활용하는 매우 큰 데이터베이스나 다른 애플리케이션에도 이상적입니다. M 시리즈 크기는 Intel&reg; Xeon&reg; CPU E7-8890 v3 @ 2.50GHz 및 Intel&reg; Xeon&reg; Platinum 8280M(Cascade Lake) 모두에서 지원됩니다.
 

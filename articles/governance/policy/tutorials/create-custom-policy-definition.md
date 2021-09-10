@@ -1,14 +1,14 @@
 ---
 title: '자습서: 사용자 지정 정책 정의 만들기'
 description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
-ms.openlocfilehash: 51b1f71985bde3a405b56514078e905042340321
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: ee7939461c6d655447ebbd32079ec2e1345a89ad
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114362155"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122323620"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 요구 사항에서 "사용" 및 "사용 안 함" 리소스 상태를 정확하게 식별해야 합니다.
 
-예상되는 리소스 상태를 정의했지만, 비 규격 리소스에 원하는 내용은 아직 정의하지 않았습니다. Azure Policy에서는 다양한 [효과](../concepts/effects.md)를 지원합니다. 이 자습서에서는 비즈니스 규칙을 준수하지 않는 리소스 만들기를 차단하는 비즈니스 요구 사항을 정의할 것입니다. 이 목표를 달성하기 위해 [Deny](../concepts/effects.md#deny) 효과를 사용하겠습니다. 또한 특정 할당에 대한 정책을 일시 중단하려고 합니다. 따라서 [Disabled](../concepts/effects.md#disabled) 효과를 사용하고, 정책 정의에 [매개 변수](../concepts/definition-structure.md#parameters) 효과를 만들겠습니다.
+예상되는 리소스 상태를 정의했지만, 비 규격 리소스에 원하는 내용은 아직 정의하지 않았습니다. Azure Policy는 많은 [효과](../concepts/effects.md)를 지원합니다. 이 자습서에서는 비즈니스 규칙을 준수하지 않는 리소스 만들기를 차단하는 비즈니스 요구 사항을 정의할 것입니다. 이 목표를 달성하기 위해 [Deny](../concepts/effects.md#deny) 효과를 사용하겠습니다. 또한 특정 할당에 대한 정책을 일시 중단하려고 합니다. 따라서 [Disabled](../concepts/effects.md#disabled) 효과를 사용하고, 정책 정의에 [매개 변수](../concepts/definition-structure.md#parameters) 효과를 만들겠습니다.
 
 ## <a name="determine-resource-properties"></a>리소스 속성 확인
 

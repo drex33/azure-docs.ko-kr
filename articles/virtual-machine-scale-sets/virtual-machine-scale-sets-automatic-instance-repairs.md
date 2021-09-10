@@ -9,14 +9,16 @@ ms.subservice: instance-protection
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: af63d27f60c3e3fa8f6aa95cd30d1f93114d4078
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 6134e1f4b4823b2198a1ecc316644ef0cd11ca33
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031172"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690538"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 자동 인스턴스 복구
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 Azure 가상 머신 확장 집합에 대해 자동 인스턴스 복구를 활성화하면 정상적인 인스턴스 집합을 유지 관리하여 애플리케이션의 고가용성을 달성할 수 있습니다. [애플리케이션 상태 확장](./virtual-machine-scale-sets-health-extension.md) 또는 [부하 분산 장치 상태 프로브](../load-balancer/load-balancer-custom-probe-overview.md)에서 보고한 대로 확장 집합의 인스턴스가 비정상인 것으로 확인되면 이 기능은 비정상 인스턴스를 삭제하고 교체할 새 인스턴스를 만들어 인스턴스 복구를 자동으로 수행합니다.
 

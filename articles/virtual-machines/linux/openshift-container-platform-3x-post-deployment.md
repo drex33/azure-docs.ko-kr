@@ -11,14 +11,16 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible, devx-track-azurecli
-ms.openlocfilehash: c3f9aaa15a697202aa76c563ed62bf37443d69ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9370fcbe4955c1163d8f533dac43039bff9f5989
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669391"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688265"
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 OpenShift 클러스터를 배포한 후에는 추가 항목을 구성할 수 있습니다. 이 문서에서는 다음 내용을 설명합니다.
 

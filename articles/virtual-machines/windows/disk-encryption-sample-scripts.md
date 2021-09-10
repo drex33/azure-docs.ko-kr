@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 529132863b40ba667757eeaf2b2295c36d0ba67f
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 27d29256f85d932727b9c859eb0dd0965596220a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112283324"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698292"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption 샘플 스크립트
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 이 문서에서는 미리 암호화된 VHD 및 기타 작업을 준비하기 위한 샘플 스크립트를 제공합니다.
 

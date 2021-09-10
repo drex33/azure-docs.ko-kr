@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 7/16/2021
-ms.openlocfilehash: 903435ff45249d0c066b386d84ce060057bac666
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: ed524382bf1fcc0c93fc61dd1c0450d69a16b74c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666581"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749410"
 ---
 # <a name="register-and-scan-lookerpreview"></a>Looker 등록 및 검사(미리 보기)
 
@@ -45,7 +45,7 @@ Looker 서버에 연결하려면 API3 키가 필요합니다. API3 키는 공용
 새 Looker 서버를 데이터 카탈로그에 등록하려면 다음을 수행합니다.
 
 1. Purview 계정으로 이동합니다.
-2. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+2. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 3. **등록** 을 선택합니다.
 4. 원본 등록에서 **Looker** 를 선택합니다. **계속** 을 선택합니다.
     :::image type="content" source="media/register-scan-looker-source/register-sources.png" alt-text="looker 원본 등록" border="true":::

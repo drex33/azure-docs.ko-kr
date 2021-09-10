@@ -9,39 +9,38 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 08/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 45d7939840f1fd3055f29d3aee677e105890a94d
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 88336401fa7e351791ecddbaf0b9caf5b3a54bd3
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802093"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122272188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>자습서: Andromeda와 Azure Active Directory 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 Andromeda를 통합하는 방법에 대해 알아봅니다.
-Andromeda와 Azure AD를 통합하면 다음과 같은 이점이 제공됩니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 Andromeda를 통합하는 방법에 대해 알아봅니다. Azure AD와 Andromeda를 통합하면 다음을 수행할 수 있습니다.
 
-- Azure AD에서는 Andromeda에 대한 액세스 권한이 있는 사용자를 제어할 수 있습니다.
-- 사용자가 자신의 Azure AD 계정으로 Andromeda에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
+* Azure AD에서 Andromeda에 액세스할 수 있는 사용자를 제어합니다.
+* 사용자가 Azure AD 계정으로 Andromeda에 자동으로 로그인되도록 설정합니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Andromeda와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요합니다.
 
-- Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-- Andromeda Single Sign-On을 사용하도록 설정된 구독
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Andromeda Single Sign-On이 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-- Andromeda는 **SP 및 IDP** 시작 SSO를 지원합니다.
-- Andromeda는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* Andromeda는 **SP 및 IDP** 시작 SSO를 지원합니다.
+* Andromeda는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
-## <a name="adding-andromeda-from-the-gallery"></a>갤러리에서 Andromeda 추가
+## <a name="add-andromeda-from-the-gallery"></a>갤러리에서 Andromeda 추가
 
 Azure AD에 Andromeda를 통합하도록 구성하려면 갤러리의 Andromeda를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -75,15 +74,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다. 
 
    a. **식별자** 텍스트 상자에서 `https://<tenantURL>.ngcxpress.com/` 패턴을 사용하여 URL을 입력합니다.
 
    b. **회신 URL** 텍스트 상자에서 `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx` 패턴을 사용하여 URL을 입력합니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
-
-   ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
    **로그인 URL** 텍스트 상자에서 `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx` 패턴을 사용하여 URL을 입력합니다.
 
@@ -92,9 +89,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Andromeda 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
-   ![스크린샷은 givenname user.givenname 및 emailaddress user.mail과 같은 사용자 특성을 보여줍니다.](common/edit-attribute.png)
+   ![사용자 특성을 보여 주는 스크린샷](common/edit-attribute.png)
 
-   > [!Important]
+   > [!NOTE]
    > 이러한 설정 동안 네임스페이스 정의를 지웁니다.
 
 1. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘** 을 사용하여 클레임을 편집하거나 **새 클레임 추가** 를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
@@ -142,7 +139,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -164,15 +161,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 메뉴 모음 상단에 있는 **관리자** 를 클릭하고 **관리** 로 이동합니다.
 
-   ![Andromeda 관리자](./media/andromedascm-tutorial/tutorial_andromedascm_admin.png)
+   ![Andromeda 관리자](./media/andromedascm-tutorial/admin.png)
 
 3. 도구 모음 왼쪽의 **인터페이스** 섹션 아래에서 **SAML 구성** 을 클릭합니다.
 
-   ![Andromeda saml](./media/andromedascm-tutorial/tutorial_andromedascm_saml.png)
+   ![Andromeda SAML](./media/andromedascm-tutorial/interface.png)
 
 4. **SAML 구성** 섹션 페이지에서 다음 단계를 수행합니다.
 
-   ![Andromeda 구성](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
+   ![Andromeda 구성](./media/andromedascm-tutorial/configure.png)
 
    a. **SAML에서 SSO 사용** 을 선택합니다.
 
@@ -190,7 +187,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    h. Azure AD에서 SSO 로그인을 편리하게 수행하려면 다음 특성을 해당 값에 매핑합니다. **사용자 ID** 특성은 로그인하는 데 필요합니다. 프로비전의 경우 **전자 메일**, **회사**, **UserType** 및 **역할** 이 필요합니다. 이 섹션에서는 Azure Portal 내에서 정의된 특성 매핑(이름 및 값)과 상호 연관되는 특성 매핑을 정의합니다.
 
-   ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+   ![Andromeda 특성](./media/andromedascm-tutorial/mapping.png)
 
    i. **저장** 을 클릭합니다.
 
@@ -204,15 +201,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 #### <a name="sp-initiated"></a>SP 시작:
 
-- Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Andromeda 로그온 URL로 리디렉션됩니다.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Andromeda 로그온 URL로 리디렉션됩니다.
 
-- Andromeda 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* Andromeda 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
 #### <a name="idp-initiated"></a>IDP 시작:
 
-- Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Andromeda에 자동으로 로그인됩니다.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Andromeda에 자동으로 로그인됩니다.
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Andromeda 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Andromeda에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Andromeda 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Andromeda에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

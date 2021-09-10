@@ -8,12 +8,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 05/11/2021
-ms.openlocfilehash: 606197b7dbc327c80da9d8a1ed9f3b933dad176a
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.openlocfilehash: 781cce588654ab5babcd74277a3fca97f9f906c1
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810587"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123252568"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure SQL을 사용하는 Azure Active Directory 서비스 주체
 
@@ -80,7 +80,7 @@ Azure AD 애플리케이션 대신 SQL Database에서 Azure AD 개체 만들기�
 > [!IMPORTANT]
 > 1단계와 2단계는 위의 순서대로 실행해야 합니다. 먼저 서버 ID를 만들거나 할당한 다음 [**디렉터리 읽기 권한자**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 부여합니다. 단계 중 하나 또는 둘 다 생략하면 Azure AD 애플리케이션 대신 Azure SQL에서 Azure AD 개체를 만드는 동안 실행 오류가 발생합니다.
 >
-> **퍼블릭 미리 보기** 에서 Azure AD의 그룹에 **디렉터리 읽기 권한자** 역할을 할당할 수 있습니다. 그런 다음, 그룹 소유자는 관리 ID를 이 그룹의 멤버로 추가할 수 있습니다. 그러면 **전역 관리자** 또는 **권한 있는 역할 관리자** 에게 **디렉터리 읽기 권한자** 역할을 부여할 필요가 없습니다. 이 기능에 대한 자세한 내용은 [Azure SQL용 Azure Active Directory의 Directory Readers 역할](authentication-aad-directory-readers-role.md)을 참조하세요.
+> Azure AD의 그룹에 **디렉터리 읽기 권한자** 역할을 할당할 수 있습니다. 그런 다음, 그룹 소유자는 관리 ID를 이 그룹의 멤버로 추가할 수 있습니다. 그러면 **전역 관리자** 또는 **권한 있는 역할 관리자** 에게 **디렉터리 읽기 권한자** 역할을 부여할 필요가 없습니다. 이 기능에 대한 자세한 내용은 [Azure SQL용 Azure Active Directory의 Directory Readers 역할](authentication-aad-directory-readers-role.md)을 참조하세요.
 
 ## <a name="troubleshooting-and-limitations"></a>문제 해결 및 제한 사항
 

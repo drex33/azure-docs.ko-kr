@@ -7,14 +7,16 @@ ms.subservice: disks
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 92e3be9111abe5712549ba85ef4550a9ac1473f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd23b2381fb042d80297c7b29fad382787ef1281
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596810"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697180"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Azure Disk Encryption을 사용하는 논리 볼륨 관리 디바이스의 크기를 조정하는 방법
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서에서는 Azure Disk Encryption을 사용하는 데이터 디스크의 크기를 조정하는 방법을 알아봅니다. 디스크 크기를 조정하려면 Linux에서 LVM(논리 볼륨 관리)을 사용합니다. 이러한 단계는 여러 시나리오에 적용됩니다.
 

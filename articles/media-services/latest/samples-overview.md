@@ -8,24 +8,18 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 03/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: abdaafbaf03e76c9de466fa8fb264c3ab5cc00d3
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 6dd82d635199e4aa47a07e09b3c4649dbc4ef7cd
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113216318"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "122643648"
 ---
 # <a name="media-services-v3-samples"></a>Media Services v3 샘플
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 이 문서에는 메서드 및 SDK별로 구성된 Media Services에 사용할 수 있는 모든 샘플의 목록이 포함되어 있습니다.  샘플에는 .NET, Node.JS(Typescript), Python 및 Java 외에도 Postman을 사용하는 REST가 포함됩니다.
-
-## <a name="rest-postman-collection"></a>REST Postman Collection
-
-[REST Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman) 샘플에는 Postman 클라이언트로 가져올 수 있는 Postman 환경 및 컬렉션이 포함되어 있습니다. Postman 컬렉션 샘플은 API 구조, ARM(Azure Resource Management)과의 작동 방식 및 클라이언트 SDK의 호출 구조를 숙지하는 데 권장됩니다. 
-
-프로덕션 워크로드의 경우 Azure Resource Management 게이트웨이에서 정의한 재시도 정책을 지원하기 때문에 이 REST API를 래핑하는 클라이언트 SDK를 사용해야 합니다. REST API 호출을 직접 구현하도록 선택하는 경우 더 높은 SLA를 얻기 위해 다시 시도해야 하는 경우가 있습니다.
 
 ## <a name="samples-by-sdk"></a>SDK별 샘플
 
@@ -50,7 +44,7 @@ ms.locfileid: "113216318"
 | [ContentProtection/OfflinePlayReadyAndWidevine](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/OfflinePlayReadyAndWidevine)|이 샘플은 PlayReady 및 Widevine DRM을 사용하여 콘텐츠를 동적으로 암호화하고, 라이선스 서비스에서 라이선스를 요청하지 않고 콘텐츠를 재생하는 방법을 설명합니다. 기본 제공 AdaptiveStreaming 사전 설정을 사용하여 변환을 만들고, 작업을 제출하고, 개방 제한 및 PlayReady/Widevine 영구 구성을 사용하여 ContentKeyPolicy를 만들고, ContentKeyPolicy를 StreamingLocator와 연결하고, 재생할 URL을 출력하는 방법을 보여 줍니다.|
 | [Streaming/AssetFilters](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/AssetFilters)|이 샘플은 기본 제공 AdaptiveStreaming 사전 설정을 사용하여 변환을 만들고, 작업을 제출하고, 자산 필터 및 계정 필터를 만들고, 필터를 스트리밍 로케이터와 연결하고, 재생할 URL을 출력하는 방법을 설명합니다.|
 | [Streaming/StreamHLSAndDASH](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamHLSAndDASH)|이 샘플은 기본 제공 AdaptiveStreaming 사전 설정을 사용하여 변환을 만들고, 작업을 제출하고, HLS 및 DASH 스트리밍에 대한 출력 자산을 게시하는 방법을 설명합니다.|
-| [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | 이 샘플은 주문형 인코딩 또는 분석을 사용하는 프로덕션 시스템에 대한 지침 및 모범 사례를 제공합니다. 읽기 권한자는 [Media Services 및 VOD를 통한 고가용성](media-services-high-availability-encoding.md) 관련 문서를 시작해야 합니다. [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/Readme.md) 샘플에 제공되는 별도의 솔루션 파일이 있습니다. |
+| [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | 이 샘플은 주문형 인코딩 또는 분석을 사용하는 프로덕션 시스템에 대한 지침 및 모범 사례를 제공합니다. 읽기 권한자는 [Media Services 및 VOD를 통한 고가용성](architecture-high-availability-encoding-concept.md) 관련 문서를 시작해야 합니다. [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/HighAvailabilityEncodingStreaming/README.md) 샘플에 제공되는 별도의 솔루션 파일이 있습니다. |
 
 ## <a name="nodejs"></a>[Node.JS](#tab/node/)
 
@@ -59,7 +53,7 @@ ms.locfileid: "113216318"
 |[Hello World - 자산 나열](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/HelloWorld-ListAssets/list-assets.ts)|자산을 연결하고 나열하는 방법에 대한 기본 예제입니다. |
 |[라이브 스트리밍](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live/index.ts)| 기본 라이브 스트리밍 예제입니다. **경고** 라이브를 사용하는 경우 모든 리소스가 정리되고 포털에서 더는 청구되지 않는지 확인해야 합니다.|
 |[HLS 및 DASH 업로드 및 스트림](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample/index.ts)| 로컬 파일을 업로드하거나 원본 URL에서 인코딩하는 기본 예제입니다. 샘플에서는 스토리지 SDK를 사용하여 콘텐츠를 다운로드하는 방법을 보여 주고 플레이어에 스트리밍하는 방법을 보여 줍니다. |
-|[Playready 및 Widevine DRM을 사용하여 HLS 및 DASH 업로드 및 스트림](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Widevine 및 PlayReady DRM을 사용하여 인코딩하고 스트림하는 방법을 설명합니다. |
+|[PlayReady 및 Widevine DRM을 사용하여 HLS 및 DASH 업로드 및 스트림](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Widevine 및 PlayReady DRM을 사용하여 인코딩하고 스트림하는 방법을 설명합니다. |
 |[비디오 및 오디오 인덱싱을 위한 AI 업로드 및 사용](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/VideoIndexerSample/index.ts)| 비디오 및 오디오 분석기 사전 설정을 사용하여 비디오 또는 오디오 파일에서 메타데이터와 인사이트를 생성하는 예제입니다. |
 
 ## <a name="python"></a>[Python](#tab/python)
@@ -92,3 +86,9 @@ ms.locfileid: "113216318"
 |[EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoEncoding/EncodingWithMESPredefinedPreset)|기본 제공 사전 설정 및 HTTP URL 입력을 사용하여 작업을 제출하고, 스트리밍을 위해 출력 자산을 게시하고, 확인을 위해 결과를 다운로드하는 방법입니다.|
 
 ---
+
+## <a name="rest-postman-collection"></a>REST Postman Collection
+
+[REST Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman) 샘플에는 Postman 클라이언트로 가져올 수 있는 Postman 환경 및 컬렉션이 포함되어 있습니다. Postman 컬렉션 샘플은 API 구조, ARM(Azure Resource Management)과의 작동 방식 및 클라이언트 SDK의 호출 구조를 숙지하는 데 권장됩니다. 
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]

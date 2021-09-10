@@ -11,16 +11,16 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: 'mvc, ms.custom: devx-track-csharp'
-ms.date: 12/05/2019
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 4f55b6eafe230f722979d535111ce45aa35981f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26463b85a52b05426fb0ec05c33bf44fc0fa7d90
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93125040"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772797"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기
 
@@ -54,6 +54,9 @@ ms.locfileid: "93125040"
 이 자습서를 완료해야 다른 모든 UWP 앱용 Notification Hubs 자습서를 진행할 수 있습니다.
 
 ## <a name="create-an-app-in-windows-store"></a>Windows 스토어에서 앱 만들기
+
+> [!NOTE]
+> MPNS(Microsoft 푸시 알림 서비스)는 더 이상 사용되지 않으며 지원하지 않습니다.
 
 UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결합니다. 그런 다음 WNS와 통합되도록 알림 허브를 구성합니다.
 

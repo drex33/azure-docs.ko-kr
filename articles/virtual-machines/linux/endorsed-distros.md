@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: guybo
-ms.openlocfilehash: e602909467ca155beb010c5bdd61e6f6408dd12a
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: b9262d512ed27419bab38b3ad26e1bae8cddee0d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553790"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696192"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Azure 보증 Linux 배포판
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합: heavy_check_mark: 단일 확장 집합 
 
 파트너는 Azure Marketplace에서 Linux 이미지를 제공합니다. Microsoft는 다양한 Linux 커뮤니티와 함께 작업하여 보증 배포 목록에 다양한 옵션을 추가합니다. Marketplace에서 제공하지 않는 배포판의 경우 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](./create-upload-generic.md)의 지침에 따라 항상 고유한 Linux를 가져올 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: f76f036e2101fb1dbb4483ba417f5cf10f3e37f4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6beaafe19184e9c7b27c4e533f20c023948e9209
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782397"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121736111"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>CLI를 사용하여 Cosmos DB에 App Service 앱 연결
 
@@ -43,7 +43,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 | [`az webapp create`](/cli/azure/webapp#az_webapp_create) | App Service 앱을 만듭니다. |
 | [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) | Cosmos DB 계정을 만듭니다. |
 | [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb#az_cosmosdb_list_connection_strings) | 지정된 Cosmos DB 계정에 대한 연결 문자열을 나열합니다. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | App Service 앱에 대한 앱 설정을 만들거나 업데이트합니다. 앱 설정은 앱에 대한 환경 변수로 노출됩니다. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | App Service 앱에 대한 앱 설정을 만들거나 업데이트합니다. 앱 설정은 앱에 대한 환경 변수로 노출됩니다([환경 변수 및 앱 설정 참조](../reference-app-settings.md) 참조). |
 
 ## <a name="next-steps"></a>다음 단계
 

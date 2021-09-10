@@ -9,16 +9,18 @@ ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a6943d2a26075c0671ad7c631e8d0d8f46c5b47e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f8fbcbb70ae73c9fdfe0aa388c07d23d6c4f8e20
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528539"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692622"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>PowerShell을 사용하여 Windows VM에 데이터 디스크 연결
 
-이 문서에서는 PowerShell을 사용하여 새 디스크와 기존 디스크를 Windows 가상 머신에 연결하는 방법을 보여 줍니다.
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
+
+이 문서에서는 PowerShell을 사용하여 새 디스크와 기존 디스크를 Windows 가상 머신에 연결하는 방법을 보여 줍니다. 
 
 먼저 다음 팁을 검토합니다.
 

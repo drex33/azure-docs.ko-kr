@@ -1,18 +1,18 @@
 ---
 title: Azure Stream Analytics 소개
 description: IoT(사물 인터넷)의 스트리밍 데이터를 실시간으로 분석하도록 도와주는 관리되는 서비스인 Azure Stream Analytics에 대해 알아봅니다.
-author: enkrumah
-ms.author: ebnkruma
+author: jeanb
+ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q2
-ms.date: 11/12/2020
-ms.openlocfilehash: 5aea6460f3a876d63544ce8422f9f205c22f2a0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 8/20/2021
+ms.openlocfilehash: ee78ca8fee1b83ea10ea86ef180b3804279bbe91
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98015252"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687688"
 ---
 # <a name="welcome-to-azure-stream-analytics"></a>Azure Stream Analytics 시작
 
@@ -100,7 +100,7 @@ Azure Stream Analytics는 [Azure 규정 준수 개요](https://gallery.technet.m
 
 ## <a name="performance"></a>성능
 
-Stream Analytics는 매초 수백만 개의 이벤트를 처리할 수 있으며 매우 짧은 대기 시간으로 결과를 제공할 수 있습니다. 복잡한 대규모 실시간 이벤트 처리 애플리케이션을 처리할 수 있도록 스케일 업 및 스케일 아웃할 수 있습니다. Stream Analytics는 분할을 통해 더 높은 성능을 지원하므로 복잡한 쿼리를 여러 스트리밍 노드에서 병렬로 처리하고 실행할 수 있습니다. Azure Stream Analytics는 Microsoft Research와의 협업을 통해 개발된 고성능 메모리 내 스트리밍 분석 엔진인 [Trill](https://github.com/Microsoft/Trill)을 기반으로 합니다.
+Stream Analytics는 매초 수백만 개의 이벤트를 처리할 수 있으며 매우 짧은 대기 시간으로 결과를 제공할 수 있습니다. 워크로드에 맞게 [확장](stream-analytics-autoscale.md)할 수 있습니다. Stream Analytics는 분할을 통해 더 높은 성능을 지원하므로 복잡한 쿼리를 여러 스트리밍 노드에서 병렬로 처리하고 실행할 수 있습니다. Azure Stream Analytics는 Microsoft Research와의 협업을 통해 개발된 고성능 메모리 내 스트리밍 분석 엔진인 [Trill](https://github.com/Microsoft/Trill)을 기반으로 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

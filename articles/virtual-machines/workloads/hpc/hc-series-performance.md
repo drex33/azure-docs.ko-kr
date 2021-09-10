@@ -8,14 +8,16 @@ ms.topic: article
 ms.date: 09/10/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 177a58090303a70491d9a9226eca40d0bb371764
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40cdd0ffeafe9e55444eb6ac4836a335aacbacc1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722262"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687500"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>HC-시리즈 가상 머신 크기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 몇 가지 성능 테스트가 HC-시리즈 크기에 대해 실행되었습니다. 다음은 이 성능 테스트의 결과 중 일부입니다.
 
@@ -59,4 +61,4 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크로드 예제 및 성능 결과에 대해 읽어보세요.
-- HPC 워크로드를 실행하는 상위 수준의 아키텍처 뷰는 [Azure의 고성능 컴퓨팅 (HPC)](/azure/architecture/topics/high-performance-computing/)을 참조하세요.
+- HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

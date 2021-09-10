@@ -7,18 +7,21 @@ manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 6784331dccd779390ace7dc632d54fe54aedc458
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2b46d3f4831ed98e54a47d8daa77107a625e362
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87760994"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770899"
 ---
 # <a name="configure-microsoft-push-notification-service-mpns-settings-in-the-azure-portal"></a>Azure Portal에서 MPNS(Microsoft 푸시 알림 서비스) 설정 구성
+
+> [!NOTE]
+> MPNS(Microsoft 푸시 알림 서비스)는 사용되지 않으며 더 이상 지원되지 않습니다.
 
 이 문서에서는 Azure Portal을 사용하여 Azure 알림 허브에 대해 MPNS(Microsoft 푸시 알림 서비스) 설정을 구성하는 방법을 보여 줍니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 6066dc8709fe376f99babcc3dd1360e4bf571ef2
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: d5731c8ae901edc57e17b050a8078f511759d772
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655354"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122178854"
 ---
 # <a name="tutorial-integrate-miro-with-azure-active-directory"></a>자습서: Azure Active Directory와 Miro 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "110655354"
 * 사용자가 자신의 Azure AD 계정으로 Miro에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -37,6 +37,7 @@ ms.locfileid: "110655354"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. 
 * Miro는 **SP 및 IDP** 시작 SSO 및 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* Miro는 [**자동** 사용자 프로비저닝 및 프로비저닝 해제](miro-provisioning-tutorial.md)(권장)를 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -97,7 +98,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

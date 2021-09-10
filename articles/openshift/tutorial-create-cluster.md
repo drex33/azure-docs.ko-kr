@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: 219ff986e88bca31912cfe8be72e9dba179b9236
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 707ee38ef71a0f3f3f09e142bd4d944bb04cff3d
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112289570"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122446132"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 만들기
 
@@ -42,7 +42,7 @@ ARO 끌어오기 비밀은 ARO에 대한 RH OpenShift 라이선스의 비용을 
 
 이 자습서를 진행하는 동안 클러스터의 가상 네트워크를 포함하는 리소스 그룹을 만듭니다. 가상 네트워크에 직접 연결하거나 가상 네트워크를 포함하는 리소스 그룹 또는 구독에 대한 기여자 및 사용자 액세스 관리자 권한 또는 소유자 권한이 있어야 합니다.
 
-또한 클러스터를 대신하여 애플리케이션 및 서비스 주체를 만들 수 있는 도구에 충분한 Azure Active Directory 권한이 필요합니다.
+또한 도구가 클러스터에 대해 사용자를 대신하여 애플리케이션 및 서비스 주체를 만들려면 충분한 Azure Active Directory 권한(테넌트의 구성원 사용자 또는 **애플리케이션 관리자** 역할이 할당된 게스트 사용자)이 필요합니다. 자세한 내용은 [구성원 및 게스트 사용자](/azure/active-directory/fundamentals/users-default-permissions#member-and-guest-users) 및 [Azure Active Directory 사용자에게 관리자 및 비관리자 역할 할당](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)을 참조하세요.
 
 ### <a name="register-the-resource-providers"></a>리소스 공급자 등록
 
@@ -124,7 +124,7 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
    Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치이기도 합니다. [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다.
     
    > [!NOTE] 
-   > Azure 리소스 그룹을 만들 수 있는 일부 지역에서는 Azure Red Hat OpenShift를 사용할 수 없습니다. Azure Red Hat OpenShift가 지원되는 위치에 대한 정보는 [사용 가능한 지역](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift)을 참조하세요.
+   > Azure 리소스 그룹을 만들 수 있는 일부 지역에서는 Azure Red Hat OpenShift를 사용할 수 없습니다. Azure Red Hat OpenShift가 지원되는 위치에 대한 정보는 [사용 가능한 지역](https://azure.microsoft.com/global-infrastructure/services/?products=openshift)을 참조하세요.
 
    ```azurecli-interactive
    az group create \

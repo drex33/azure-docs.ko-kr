@@ -10,14 +10,16 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 048afc8997f4e2b3f1d9a9cf6aea67be63c659ee
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 4da68df884eae4e0ae0f8e929d5ee58d4e782db8
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027146"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691746"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Azure에서 Linux 이미지 가져오기 및 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일 확장 집합 
 
 이 개요에서는 이미징에 대한 기본 개념 및 Azure에서 Linux 이미지를 성공적으로 빌드하고 사용하는 방법에 대해 설명합니다. 사용자 지정 이미지를 Azure로 가져오기 전에 사용 가능한 유형과 옵션에 대해 알고 있어야 합니다.
 

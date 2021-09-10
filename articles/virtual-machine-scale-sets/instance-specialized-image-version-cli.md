@@ -10,14 +10,16 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7f3680af94e8ae36a1d2a2b356d717fcc25b575e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 361ea49a9ab740cc981beac3952301a137e629af
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028022"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691243"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Azure CLI를 통해 특수 이미지 버전을 사용하는 확장 집합 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 Shared Image Gallery에 저장된 [특수 이미지 버전](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images)에서 확장 집합을 만듭니다. 일반 이미지 버전을 사용하는 확장 집합을 만들려는 경우 [일반 이미지에서 확장 집합 만들기](instance-generalized-image-version-cli.md)를 참조하세요.
 

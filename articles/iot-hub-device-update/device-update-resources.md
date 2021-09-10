@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ba43889b885252f68bb3b4b158b5626411aac3d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8194a269aec09f087632d2f6069d0624d7a835b
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101663646"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410660"
 ---
 # <a name="device-update-resources"></a>장치 업데이트 리소스
 
@@ -29,16 +29,35 @@ IoT Hub의 장치 업데이트를 사용하려면 장치 업데이트 계정 및
 
 ## <a name="configuring-device-update-linked-iot-hub"></a>장치 업데이트 연결된 IoT Hub 구성 
 
-장치 업데이트는 IoT Hub에서 변경 알림을 받을 수 있도록 "기본 제공" Event Hub와 통합됩니다. 인스턴스 내에서 "IoT Hub 구성" 단추를 클릭하면 IoT 장치와 통신하는 데 필요한 메시지 경로와 액세스 정책이 구성됩니다. 
+장치 업데이트는 IoT Hub에서 변경 알림을 받을 수 있도록 "기본 제공" Event Hub와 통합됩니다. 인스턴스 내에서 "IoT Hub 구성" 단추를 클릭하면 IoT 디바이스와 통신하는 데 필요한 메시지 경로, 소비자 그룹 및 액세스 정책이 구성됩니다. 
+
+### <a name="message-routing"></a>메시지 라우팅
 
 장치 업데이트에 대해 다음 메시지 경로가 구성됩니다.
 
-|   경로 이름    | 라우팅 쿼리  | Description  |
-| :--------- | :---- |:---- |
-|  DeviceUpdate.DigitalTwinChanges | true |디지털 쌍 변경 이벤트 수신 대기  |
-|  DeviceUpdate.DeviceLifeCycle | opType = 'deleteDeviceIdentity'  | 삭제된 장치 수신 대기 |
-|  DeviceUpdate.TelemetryModelInformation | iothub-interface-id = "urn:azureiot:ModelDiscovery:ModelInformation:1 | 새 장치 유형 수신 대기 |
-|  DeviceUpdate.DeviceTwinEvents| (opType = 'updateTwin' OR opType = 'replaceTwin') 및 IS_DEFINED($body.tags.ADUGroup) | 새 장치 업데이트 그룹 수신 대기 |
+|   경로 이름    | 데이터 원본 | 라우팅 쿼리  | 엔드포인트 | 설명  |
+| :--------- | :---- |:---- |:---- |:---- |
+|  DeviceUpdate.DigitalTwinChanges | DigitalTwinChangeEvents | true | events | 디지털 쌍 변경 이벤트 수신 대기  |
+|  DeviceUpdate.DeviceLifecycle | DeviceLifecycleEvents | opType = 'deleteDeviceIdentity' OR opType = 'deleteModuleIdentity'  | events | 삭제된 장치 수신 대기 |
+|  DeviceUpdate.DeviceTwinEvents| TwinChangeEvents | (opType = 'updateTwin' OR opType = 'replaceTwin') 및 IS_DEFINED($body.tags.ADUGroup) | events | 새 장치 업데이트 그룹 수신 대기 |
+
+> [!NOTE]
+> 이러한 경로를 구성할 때 경로 이름은 중요하지 않습니다. 이름이 일관되고 디바이스 업데이트에 사용되고 있음을 쉽게 식별할 수 있도록 DeviceUpdate를 접두사로 포함합니다. 디바이스 업데이트가 제대로 작동하려면 아래 표와 같이 나머지 경로 속성을 구성해야 합니다. 
+
+### <a name="consumer-group"></a>소비자 그룹
+
+IoT Hub를 구성하면 디바이스 업데이트 관리 서비스에 필요한 이벤트 허브 소비자 그룹도 만들어집니다. 
+
+:::image type="content" source="media/device-update-resources/consumer-group.png" alt-text="소비자 그룹의 스크린샷." lightbox="media/device-update-resources/consumer-group.png":::
+
+### <a name="access-policy"></a>액세스 정책
+
+"Deviceupdateservice"라는 공유 액세스 정책은 디바이스 업데이트 관리 서비스에서 업데이트 가능 디바이스를 쿼리하는 데 필요합니다. "deviceupdateservice" 정책이 생성되고 IoT Hub를 구성하는 과정에서 다음과 같은 사용 권한이 제공됩니다.
+- 레지스트리 읽기
+- 서비스 연결
+- 디바이스 연결
+
+:::image type="content" source="media/device-update-resources/access-policy.png" alt-text="액세스 정책의 스크린샷." lightbox="media/device-update-resources/access-policy.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

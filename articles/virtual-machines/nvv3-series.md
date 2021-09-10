@@ -8,14 +8,16 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 4b0c9777602eae50de45cb383eff1a05cb8395d8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2477820a7b6c30ebad1c676cc9ec31f513eed1de
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744338"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690216"
 ---
 # <a name="nvv3-series"></a>NVv3 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 NVv3 시리즈 가상 머신은 Intel E5-2690 v4(Broadwell) CPU 및 Intel 하이퍼 스레딩 기술이 적용된 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 및 NVIDIA GRID 기술로 구동됩니다. 이러한 가상 머신은 고객이 데이터를 시각화하고 결과를 시뮬레이트하여 보고 CAD에서 작업하거나 콘텐츠를 렌더링 및 스트림하려고 하는 GPU 가속 그래픽 애플리케이션 및 가상 데스크톱을 대상으로 합니다. 또한 이러한 가상 머신은 인코딩 및 렌더링과 같은 단정밀도 워크로드를 실행할 수 있습니다. NVv3 가상 머신은 Premium Storage를 지원하고 이전 NV 시리즈에 비해 두 배의 시스템 메모리(RAM)를 제공합니다.  
 
@@ -23,7 +25,7 @@ NVv3 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 
 
 [Premium Storage](premium-storage-performance.md): 지원됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
-[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대한 [자세한 정보](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
+[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대해 [자세히 알아보기](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
@@ -47,7 +49,7 @@ Azure N 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA GPU 드�
 
 [NVIDIA GPU 드라이버 확장](./extensions/hpccompute-gpu-windows.md)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](./extensions/hpccompute-gpu-windows.md)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요.
 
-NVIDIA GPU 드라이버를 수동으로 설치하려면 지원되는 운영 체제, 드라이버, 설치, 확인 단계에 대한 [Windows용 N 시리즈 GPU 드라이버 설치](./windows/n-series-driver-setup.md) 또는 [Linux용 N 시리즈 GPU 드라이버 설치](./linux/n-series-driver-setup.md)를 참조하세요.
+NVIDIA GPU 드라이버를 수동으로 설치하려는 경우 지원되는 운영 체제, 드라이버, 설치 및 인증 단계에 대해서는 [Windows용 N 시리즈 GPU 드라이버 설정](./windows/n-series-driver-setup.md) 또는 [Linux용 N 시리즈 GPU 드라이버 설정](./linux/n-series-driver-setup.md)을 참조하세요.
 
 ## <a name="other-sizes"></a>기타 크기
 

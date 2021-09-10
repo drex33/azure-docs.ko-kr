@@ -9,14 +9,15 @@ ms.subservice: instance-protection
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurepowershell
-ms.openlocfilehash: 1b54a1be03aca62cacf6afe7361028a42ea7f84c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 60d7b1c2a869d22e3d8220e0f3537b2882ea0db4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673905"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690426"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대한 인스턴스 보호
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 Azure 가상 머신 확장 집합을 사용하면 [자동 크기 조정](virtual-machine-scale-sets-autoscale-overview.md)을 통해 워크로드에 대해 더 나은 탄력성을 사용할 수 있으므로 인프라가 스케일 아웃될 때와 규모가 감축될 때를 구성할 수 있습니다. 또한 확장 집합을 사용하면 다양한 [업그레이드 정책](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) 설정을 통해 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있습니다. 업그레이드 정책을 자동 또는 롤링으로 설정한 경우 확장 집합 모델에 대해 업데이트를 구성할 수 있으며 새 구성은 모든 확장 집합 인스턴스에 자동으로 적용됩니다.
 

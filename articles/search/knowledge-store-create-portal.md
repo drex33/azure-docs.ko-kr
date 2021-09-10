@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 지식 저장소 만들기
+title: '빠른 시작: Azure Portal에서 지식 저장소 만들기'
 titleSuffix: Azure Cognitive Search
 description: 데이터 가져오기 마법사를 사용하여 보강 콘텐츠를 유지하는 데 사용되는 지식 저장소를 만듭니다. 분석을 목적으로 다른 앱에서 지식 저장소에 연결하거나, 보강 콘텐츠를 다운스트림 프로세스에 보냅니다.
 author: HeidiSteen
@@ -7,19 +7,19 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/17/2020
-ms.openlocfilehash: 3225013f09abd326c619b67caf77918889a64859
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/10/2021
+ms.openlocfilehash: d7af6f2ad8e3a45041a22a6268efdbfee32377df
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94741810"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768165"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 지식 저장소 만들기
 
-지식 저장소는 후속 분석 또는 다운스트림 처리를 위해 콘텐츠 처리 파이프라인의 출력을 유지하는 Azure Cognitive Search의 기능입니다. 
+지식 저장소는 후속 분석 또는 다운스트림 처리를 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 출력을 유지하는 Azure Cognitive Search의 기능입니다. 
 
-파이프라인은 구조화되지 않은 텍스트와 이미지 콘텐츠를 허용하고 Cognitive Services(예: OCR 및 자연어 처리)에서 제공하는 AI를 적용하며, 이전에 존재 하지 않았던 새 구조 및 정보를 출력합니다. 파이프라인에서 만드는 실제 아티팩트 중 하나는 도구를 통해 액세스하여 콘텐츠를 분석하고 살펴볼 수 있는 [지식 저장소](knowledge-store-concept-intro.md)입니다.
+파이프라인은 구조화되지 않은 텍스트와 이미지 콘텐츠를 허용하고 Cognitive Services(예: 감정 분석 및 텍스트 번역)에서 제공하는 AI를 적용하며, 이전에 존재 하지 않았던 새 구조 및 정보를 출력합니다. 파이프라인에서 만드는 실제 아티팩트 중 하나는 도구를 통해 액세스하여 Azure Storage의 콘텐츠를 분석하고 살펴볼 수 있는 [지식 저장소](knowledge-store-concept-intro.md)입니다.
 
 이 빠른 시작에서는 Azure 클라우드에서 서비스와 데이터를 결합하여 지식 저장소를 만듭니다. 모든 것이 준비되면 포털에서 **데이터 가져오기** 마법사를 실행하여 모두 가져옵니다. 최종 결과는 원본 텍스트 콘텐츠와 AI에서 생성한 콘텐츠이며, 포털에서 볼 수 있습니다([Storage Explorer](knowledge-store-view-storage-explorer.md)).
 
@@ -158,9 +158,9 @@ Azure Portal에서 클릭 가능한 **Azure Cognitive Search 알림** 상태 링
 
 Storage Explorer에서 콘텐츠를 볼 수도 있고, Power BI를 사용하여 시각화를 통해 인사이트를 얻을 수도 있습니다.
 
-> [!div class="nextstepaction"]
-> [Storage Explorer에서 보기](knowledge-store-view-storage-explorer.md)
-> [Power BI와 연결](knowledge-store-connect-power-bi.md)
++ [Storage Explorer를 사용하여 보기](knowledge-store-view-storage-explorer.md)
+
++[Power BI와 연결](knowledge-store-connect-power-bi.md)
 
 > [!Tip]
 > 이 연습을 반복하거나 다른 AI 보강 연습을 수행하려면 *hotel-reviews-idxr* 인덱서를 삭제합니다. 인덱서를 삭제하면 Cognitive Services 처리를 위해 무료 일별 트랜잭션 카운터가 0으로 다시 설정됩니다.

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 80a066aab79e3ca6ca541a82fe6b7fe023653a81
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c020e239c566accfe10f0ad298bf76f2c749309b
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448793"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740153"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>자습서: Azure Portal을 사용하여 앱 그룹 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "114448793"
 새 Azure Virtual Desktop 호스트 풀에 대해 만든 기본 앱 그룹도 전체 데스크톱을 게시합니다. 뿐만 아니라 호스트 풀에 대한 하나 이상의 RemoteApp 애플리케이션 그룹을 만들 수 있습니다. 이 자습서에 따라 RemoteApp 앱 그룹을 만들고 개별 시작 메뉴 엡을 게시해 보세요.
 
 >[!NOTE]
->사용자 세션에 MISX 앱을 동적으로 연결하거나 사용자 지정 VM(가상 머신) 이미지에 앱 패키지를 추가하여 조직의 앱을 게시할 수 있습니다. [Azure Virtual Desktop을 사용하여 사용자 지정 앱을 호스트하는 방법](./remote-app-streaming/custom-apps.md)에서 자세히 알아보세요.
+>사용자 세션에 MSIX 앱을 동적으로 연결하거나 사용자 지정 VM(가상 머신) 이미지에 앱 패키지를 추가하여 조직의 앱을 게시할 수 있습니다. [Azure Virtual Desktop을 사용하여 사용자 지정 앱을 호스트하는 방법](./remote-app-streaming/custom-apps.md)에서 자세히 알아보세요.
 
 이 자습서에서는 다음 방법을 알아봅니다.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 06/30/2021
-ms.openlocfilehash: a5edf1b85d97798e5ed159433961c4c0d76cfcca
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: ed3a0abc6bdd99e5c86e67a410d7c9ecadf7a718
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114208256"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737650"
 ---
 # <a name="register-and-scan-an-azure-mysql-database"></a>Azure MySQL Database 등록 및 검사
 
@@ -53,7 +53,7 @@ Purview는 Azure MySQL Database에 대한 SQL 인증만 지원합니다.
 
 1. Purview 계정으로 이동합니다.
 
-1. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 
 1. **등록** 을 선택합니다.
 

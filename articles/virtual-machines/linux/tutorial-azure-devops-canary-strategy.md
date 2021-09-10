@@ -1,25 +1,26 @@
 ---
-title: 자습서 - Azure Linux Virtual Machines에 대한 카나리아 배포 구성
-description: 이 자습서에서는 CD(지속적인 배포) 파이프라인을 설정하는 방법을 알아봅니다. 이 파이프라인은 카나리아 배포 전략을 사용하여 Azure Linux 가상 머신 그룹을 업데이트합니다.
+title: Azure Linux Virtual Machines에서 카나리아 배포 구성
+description: CD(지속적인 배포) 파이프라인을 설정하는 방법을 알아봅니다. 이 파이프라인은 카나리아 배포 전략을 사용하여 Azure Linux 가상 머신 그룹을 업데이트합니다.
 author: moala
 tags: azure-devops-pipelines
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: bbfe6571cf075b2ce4930eea91bfd1e239470c5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f9ab4712e6419303f010d7cf1a417a8a907f9a05
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552510"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690951"
 ---
-# <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>자습서 - Azure Linux Virtual Machines에 대한 카나리아 배포 전략 구성
+# <a name="configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Azure Linux Virtual Machines에서 카나리아 배포 전략 구성
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 ## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>IaaS(Infrastructure as a Service) - CI/CD 구성
 

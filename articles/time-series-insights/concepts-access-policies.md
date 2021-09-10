@@ -3,24 +3,28 @@ title: 데이터 액세스 권한 부여를 위한 보안 구성 - Azure Time Se
 description: Azure Time Series Insights 환경에서 보안, 사용 권한을 구성하고 데이터 액세스 정책을 관리하는 방법에 대해 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: shipra1mishra
-ms.author: shmishr
+author: tedvilutis
+ms.author: tvilutis
 manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 84b973dfa016b069b18fda47a4336fe952f73b3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebbb3c02263d860822482e2e19293d9a032274ef
+ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96780861"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113135364"
 ---
 # <a name="grant-data-access-to-an-environment"></a>환경에 대한 데이터 액세스 권한 부여
 
 이 문서에서는 두 가지 유형의 Azure Time Series Insights 액세스 정책에 대해 설명합니다.
+
+> [!Warning]
+> 액세스 정책은 Azure AD 사용자 및/또는 그룹 데이터 평면에 Time Series Insights Environment에 대한 액세스 권한을 부여합니다.
+> Azure Active Directory는 테넌트에 연결됩니다. 따라서 테넌트 간에 구독을 이동하려는 경우 [아래 섹션](#procedure-for-when-the-subscription-is-moved-across-tenants)의 절차를 따라야 합니다.
 
 ## <a name="sign-in-to-azure-time-series-insights"></a>Azure Time Series Insights에 로그인
 
@@ -119,6 +123,29 @@ ms.locfileid: "96780861"
     이제 **5단계** 에서 제공된 역할과 연결된 모든 기능을 사용할 수 있습니다.
 
     [![게스트 사용자가 드롭다운 메뉴에서 Azure 테넌트 선택](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
+
+## <a name="procedure-for-when-the-subscription-is-moved-across-tenants"></a>구독이 테넌트 간에 이동되는 경우에 대한 절차
+
+Time Series Insights 데이터 액세스 정책은 구독이 있는 Azure 테넌트에 연결된 Azure Active Directory를 통해 지원됩니다.
+
+데이터 액세스 정책을 부여하는 Azure AD 개체와 Time Series Insights 환경 자체는 동일한 테넌트 아래에 있어야 합니다. 그렇지 않으면 이러한 개체는 환경에 액세스할 수 없습니다.
+
+환경이 있는 구독을 다른 테넌트로 이동하려는 경우 새 테넌트에서 Azure AD 개체를 반영하도록 데이터 액세스 정책이 업데이트되었는지 확인해야 합니다.
+
+이 프로세스를 원활하게 진행하려면 아래 단계를 수행합니다.
+
+### <a name="before-moving-a-subscription-to-another-tenant"></a>구독을 다른 테넌트로 이동하기 전에
+
+- 원본 테넌트에 있는 동안 데이터 액세스 정책 할당 목록을 현재 환경의 상태로 유지해야 합니다.
+- 구독이 대상 테넌트에서 Active Directory로 마이그레이션된 후에도 환경에 계속 액세스하려는 사용자, 그룹 또는 앱이 있는지 확인합니다.
+- 데이터 액세스 정책을 대상 테넌트의 환경에 다시 적용할 수 있도록 구독이 이동된 후 구독에 대한 기여자 이상의 액세스 권한이 있거나 다른 사용자와 연결되어 있어야 합니다.
+
+### <a name="after-moving-a-subscription-to-another-tenant"></a>구독을 다른 테넌트로 이동한 후
+
+대상 테넌트의 구독에 대한 기여자 액세스 권한이 있으면 다음을 수행할 수 있습니다.
+
+- 원본 테넌트에 속하므로 환경과 함께 마이그레이션된 모든 데이터 액세스 정책을 제거합니다.
+- 이제 대상 테넌트의 Azure AD 개체를 가리키는 위의 단계에 따라 환경에 액세스 정책을 다시 부여합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

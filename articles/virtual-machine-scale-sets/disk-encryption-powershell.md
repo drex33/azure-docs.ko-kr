@@ -9,14 +9,16 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 59b015232fcfe2fd98e1b9f28c2eb4fa86606049
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b7ed6cbfcf93e05efb294c7af907a2416c3fe56
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519574"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691343"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다.  이 문서는 Azure PowerShell을 사용하여 가상 머신 확장 집합을 만들고 암호화하는 방법을 보여 줍니다. 가상 머신 확장 집합에 Azure Disk Encryption을 적용하는 방법에 대한 자세한 내용은 [Virtual Machine Scale Sets용 Azure Disk Encryption](disk-encryption-overview.md)을 참조하세요.
 

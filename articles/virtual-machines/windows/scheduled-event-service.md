@@ -7,14 +7,16 @@ ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 866522da162d22621bd37bf9d2f2fa6838206e17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8e13f8a8bd577e3e872d3fc59b099e34fd495d1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674697"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694214"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Azure VM에 예약된 이벤트 모니터링하기
+
+**적용 대상:** VM: heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합: heavy_check_mark: 단일 확장 집합
 
 업데이트는 매일 Azure의 다른 부분에 적용되므로 서비스를 안전하게 실행하고 최신 상태로 유지할 수 있습니다. 계획된 업데이트 외에 계획되지 않은 이벤트도 발생할 수 있습니다. 예를 들어, 하드웨어 성능 저하 또는 오류가 감지되면 Azure 서비스는 계획되지 않은 유지 관리를 수행해야 할 수 있습니다. 실시간 마이그레이션, 메모리 보존 업데이트를 사용하고 업데이트가 미치는 영향에 대해 엄격한 기준을 유지하므로, 대부분의 경우 이러한 이벤트는 고객에 게 거의 투명하게 진행되며, 가상 머신에 전혀 영향을 주지 않거나 기껏해야 몇 초 정도만 가상 머신 작동을 중단합니다. 그러나 일부 애플리케이션의 경우 가상 머신이 몇 초 정도만 중단되어도 영향을 받을 수 있습니다. 이러한 애플리케이션에 대해 최상의 환경을 보장하기 위해 예정된 Azure 유지 관리를 미리 파악하는 것이 중요합니다. [Scheduled Events 서비스](scheduled-events.md)는 프로그래밍 인터페이스를 통해 예정된 유지 관리에 대한 알림을 제공하고, 유지 관리를 정상적으로 처리할 수 있도록 합니다. 
 

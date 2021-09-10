@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a04d7dde8b6f2a492538d2012de5222686fd7fcf
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 6f7a0d8169fed92564437166c74255743ea61a7f
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762386"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122820769"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -13,7 +13,15 @@ ms.locfileid: "113762386"
 
 ## <a name="create-azure-communication-services-resource"></a>Azure Communication Services 리소스 만들기
 
-Azure Communication Services 리소스를 만들려면 [Azure CLI에 로그인합니다](/cli/azure/authenticate-azure-cli). ```Connect-AzAccount``` 명령을 사용하고 자격 증명을 제공하여 터미널을 통해 이 작업을 수행할 수 있습니다. 다음 명령을 실행하여 리소스를 만듭니다.
+Azure Communication Services 리소스를 만들려면 [Azure CLI에 로그인합니다](/cli/azure/authenticate-azure-cli). ```Connect-AzAccount``` 명령을 사용하고 자격 증명을 제공하여 터미널을 통해 이 작업을 수행할 수 있습니다.
+
+먼저 다음 명령을 사용하여 Azure Communication Services 모듈 ```Az.Communication```을 설치해야 합니다.
+
+```PowerShell
+PS C:\> Install-Module Az.Communication
+```
+
+다음 명령을 실행하여 리소스를 만듭니다.
 
 ```PowerShell
 PS C:\> New-AzCommunicationService -ResourceGroupName ContosoResourceProvider1 -Name ContosoAcsResource1 -DataLocation UnitedStates -Location Global

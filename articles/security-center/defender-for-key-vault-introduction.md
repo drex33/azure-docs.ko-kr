@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 51908deb8e24ce7106b937450683309046440ae7
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 0b14b30e5ea749b53819d94fc69ff7f3d2eee0b4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487312"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121743119"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Azure Defender for Key Vault 소개
 
@@ -27,7 +27,7 @@ Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**Azure Defender for Key Vault** 는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.|
-|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/소버린(US Gov, Azure 중국)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-key-vault"></a>Azure Defender for Key Vault의 이점은?

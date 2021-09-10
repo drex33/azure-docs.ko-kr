@@ -9,14 +9,17 @@ ms.subservice: terminate-notification
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9104aeb3a4cd9f0eb123aaab036b1cade5c7b1c9
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 29466a1954e64b79614eec0afdd139e45a44df5b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673774"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698265"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대한 종료 알림
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
+
 확장 집합 인스턴스는 인스턴스 종료 알림을 받도록 허용하고 종료 작업에 미리 정의된 지연 제한 시간을 설정할 수 있습니다. 종료 알림은 재부팅 및 재배포와 같은 영향력이 강한 작업에 대한 알림을 제공하는 Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md)를 통해 전송됩니다. 이 솔루션은 Scheduled Events 목록에 또 다른 이벤트(종료)를 추가하며, 종료 이벤트의 관련 지연 시간은 확장 집합 모델 구성에서 사용자가 지정한 지연 시간 제한에 따라 달라집니다.
 
 기능에 등록된 확장 집합 인스턴스는 삭제되기 전에 지정된 제한 시간이 만료될 때까지 기다릴 필요가 없습니다. 인스턴스는 종료 알림을 받은 후 언제든지 종료 시간 제한이 만료되기 전에 삭제하도록 선택할 수 있습니다.

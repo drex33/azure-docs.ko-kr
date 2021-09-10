@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: c1c53da8c62acc1b4aacd2b0fa79dd968c65c13a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61b8a15e4e765113455be0e8b37ba22b98e6e4ad
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645640"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271116"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>자습서: KnowledgeOwl과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -136,7 +136,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -156,13 +156,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다른 웹 브라우저 창에서 KnowledgeOwl 회사 사이트에 관리자로 로그인합니다.
 
-1. **설정** 을 클릭한 다음, **보안** 을 선택합니다.
+1. **설정** 을 클릭한 다음, **SSO** 를 선택합니다.
 
-    ![스크린샷은 설정 메뉴에서 선택한 보안을 보여줍니다.](./media/knowledgeowl-tutorial/configure-1.png)
+    ![설정 메뉴에서 선택한 SSO를 보여 주는 스크린샷](./media/knowledgeowl-tutorial/settings-sso-dropdown.png)
 
-1. **SAML SSO 통합** 으로 스크롤하여 다음 단계를 수행합니다.
+1. **SAML 설정** 탭으로 스크롤하여 다음 단계를 수행합니다.
 
-    ![스크린샷은 여기에 설명된 대로 변경할 수 있는 SAML SSO 통합을 보여줍니다.](./media/knowledgeowl-tutorial/configure-2.png)
+    ![스크린샷은 여기에 설명된 대로 변경할 수 있는 SAML SSO 통합을 보여줍니다.](./media/knowledgeowl-tutorial/sso-settings-required-fields.png)
 
     a. **SAML SSO 사용** 을 선택합니다.
 
@@ -176,21 +176,24 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     f. Azure Portal에서 복사한 **로그아웃 URL** 값을 **IdP 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
-    g. **IdP 인증서 업로드** 를 클릭하여 Azure Portal에서 다운로드한 인증서 양식을 업로드합니다.
+    g. **IdP 인증서** 아래의 **업로드** 링크를 클릭하여 Azure Portal에서 다운로드한 인증서를 업로드합니다.
 
-    h. **맵 SAML 특성** 을 클릭하여 특성을 매핑하고 다음 단계를 수행합니다.
+    h. 페이지 맨 아래에서 **저장** 을 클릭합니다.
 
-    ![스크린샷은 여기에 설명된 대로 변경할 수 있는 SAML 특성 매핑을 보여줍니다.](./media/knowledgeowl-tutorial/configure-3.png)
+    ![스크린샷은 저장 단추를 보여줍니다.](./media/knowledgeowl-tutorial/sso-settings-saml-save.png)
+
+    i. **SAML Attribute Map**(SAML 특성 맵) 탭을 열어 특성을 매핑하고 다음 단계를 수행합니다.
+
+    ![스크린샷은 여기에 설명된 대로 변경할 수 있는 SAML 특성 매핑을 보여줍니다.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-fields.png)
 
     * **SSO ID** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid`를 입력합니다.
     * **사용자 이름/이메일** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
     * **이름** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
     * **성** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
-    * **저장** 을 클릭합니다.
 
-    i. 페이지 맨 아래에서 **저장** 을 클릭합니다.
+    j. 페이지 맨 아래에서 **저장** 을 클릭합니다.
 
-    ![스크린샷은 저장 단추를 보여줍니다.](./media/knowledgeowl-tutorial/configure-4.png)
+    ![저장 단추를 보여 주는 스크린샷1](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-save.png)
 
 ### <a name="create-knowledgeowl-test-user"></a>KnowledgeOwl 테스트 사용자 만들기
 
@@ -203,18 +206,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-#### <a name="sp-initiated"></a>SP 시작:
+#### <a name="sp-initiated"></a>SP 시작
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 KnowledgeOwl 로그온 URL로 리디렉션됩니다.  
 
 * KnowledgeOwl 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-#### <a name="idp-initiated"></a>IDP 시작:
+#### <a name="idp-initiated"></a>IDP 시작
 
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 KnowledgeOwl에 자동으로 로그인됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 KnowledgeOwl 애플리케이션에 자동으로 로그인됩니다. 
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 KnowledgeOwl 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 KnowledgeOwl에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+Microsoft 내 앱 포털을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱 포털에서 KnowledgeOwl 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 KnowledgeOwl 애플리케이션에 자동으로 로그인됩니다. 내 앱 포털에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-KnowledgeOwl이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+KnowledgeOwl이 구성되면 세션 제어를 적용하여 조직에서 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

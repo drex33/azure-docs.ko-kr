@@ -9,14 +9,17 @@ ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f07d11e1760cb7f2a3535a15a5fccf166b8536c
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 855045625467963d03e2aca57317b51ff20cc1aa
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677773"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697915"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>다른 Azure 구독 또는 리소스 그룹으로 Windows VM 이동
+
+**적용 대상:** :heavy_check_mark: Windows VM
+
 이 문서에서는 리소스 그룹 또는 구독 간에 Windows VM(가상 머신)을 이동하는 방법을 안내합니다. 개인 구독에서 원래 VM을 만들고 회사 구독으로 이동한 후 작업을 계속하려는 경우에 구독 간의 이동이 편리할 수 있습니다. VM을 이동하기 위해 VM을 중지할 필요가 없으며 이동 중에도 VM이 계속 실행되어야 합니다.
 
 > [!IMPORTANT]

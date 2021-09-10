@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/25/2021
+ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e25fc61fe99a5c7df19b7c0ecb8265f4dcc681cc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9fbd65204534e978446109c99ca7286c0af00d68
+ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137024"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112580389"
 ---
-# <a name="sign-ins-logs-in-azure-active-directory---preview"></a>Azure Active Directory 로그인 로그 - 미리 보기
+# <a name="sign-in-logs-in-azure-active-directory---preview"></a>Azure Active Directory 로그인 로그 - 미리 보기
 
 IT 관리자가 IT 환경의 운영 상태를 파악하려고 합니다. 시스템 상태 정보를 사용하여 잠재적 이슈에 대응해야 하는지 여부와 방법을 평가할 수 있습니다. 
 
@@ -32,10 +32,10 @@ IT 관리자가 IT 환경의 운영 상태를 파악하려고 합니다. 시스�
 
 - **[로그인](concept-sign-ins.md)** – 로그인 및 사용자가 리소스를 사용하는 방법에 대한 정보입니다.
 - **[감사](concept-audit-logs.md)** – 사용자 및 그룹 관리 또는 테넌트 리소스에 적용된 업데이트와 같이 테넌트에 적용된 변경 사항에 대한 정보입니다.
-- **[프로비전](concept-provisioning-logs.md)** – ServiceNow의 그룹 생성 또는 Workday에서 가져온 사용자와 같이 프로비저닝 서비스에서 수행하는 활동입니다.
+- **[프로비저닝](concept-provisioning-logs.md)** – ServiceNow의 그룹 생성 또는 Workday에서 가져온 사용자와 같이 프로비저닝 서비스에서 수행하는 활동입니다.
 
 
-Azure Active Directory의 클래식 로그인 보고서는 대화형 사용자 로그인에 대한 개요를 제공합니다. 또한 이제 미리 보기로 제공되는 세 가지 추가 로그인 로그에 액세스할 수 있습니다.
+Azure Active Directory의 클래식 로그인 로그는 대화형 사용자 로그인에 대한 개요를 제공합니다. 또한 이제 미리 보기로 제공되는 세 가지 추가 로그인 로그에 액세스할 수 있습니다.
 
 - 비 대화형 사용자 로그인
 
@@ -81,7 +81,7 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 
 [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) 링크를 사용하여 로그인 로그에 직접 액세스할 수도 있습니다.
 
-로그인 보고서 블레이드에서 다음 사이를 전환할 수 있습니다.
+로그인 페이지에서 다음 중 하나를 전환할 수 있습니다.
 
 - **대화형 사용자 로그인** - 사용자가 암호, MFA 앱을 통한 응답, 생체 인식 요소 또는 QR 코드와 같은 인증 요소를 제공하는 로그인입니다.
 
@@ -92,11 +92,11 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 - **Azure 리소스에 대한 관리 ID 로그인** - Azure에서 관리하는 비밀이 있는 Azure 리소스에 의한 로그인입니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../managed-identities-azure-resources/overview.md)을 참조하세요. 
 
 
-![로그인 보고서 유형](./media/concept-all-sign-ins/sign-ins-report-types.png)
+![로그인 로그 유형](./media/concept-all-sign-ins/sign-ins-report-types.png)
 
 
 
-로그인 블레이드의 각 탭은 아래와 같은 기본 열을 보여줍니다. 일부 탭에는 다음과 같은 추가 열이 있습니다.
+로그인 페이지의 각 탭은 아래와 같은 기본 열을 보여줍니다. 일부 탭에는 다음과 같은 추가 열이 있습니다.
 
 - 로그인 날짜
 
@@ -118,12 +118,12 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 대화형 사용자 로그인은 사용자가 Azure AD에 인증 요소를 제공하거나 Azure AD 또는 Microsoft Authenticator 앱과 같은 도우미 앱과 직접 상호 작용하는 로그인입니다. 사용자가 제공하는 요인에는 사용자가 Azure AD 또는 도우미 앱에 제공하는 암호, MFA 문제에 대한 응답, 생체 인식 요인 또는 QR 코드가 포함됩니다.
 
 > [!NOTE]
-> 이 보고서에는 Azure AD에 페더레이션된 ID 공급자의 페더레이션된 로그인도 포함됩니다.  
+> 이 로그에는 Azure AD에 페더레이션된 ID 공급자의 페더레이션된 로그인도 포함됩니다.  
 
 
 
 > [!NOTE] 
-> 대화형 사용자 로그인 보고서는 Microsoft Exchange 클라이언트의 일부 비 대화형 로그인을 포함하는 데 사용됩니다. 이러한 로그인은 대화형이 아니었지만 추가 가시성을 위해 대화형 사용자 로그인 보고서에 포함되었습니다. 2020년 11월 비 대화형 사용자 로그인 보고서가 공개 미리 보기에 들어가면 이러한 비 대화형 로그인 이벤트 로그는 정확성을 높이기 위해 비 대화형 사용자 로그인 보고서로 이동되었습니다. 
+> 대화형 사용자 로그인 로그는 Microsoft Exchange 클라이언트의 일부 비 대화형 로그인을 포함하는 데 사용됩니다. 이러한 로그인은 대화형이 아니었지만 추가 가시성을 위해 대화형 사용자 로그인 로그에 포함되었습니다. 2020년 11월 비 대화형 사용자 로그인 로그가 공개 미리 보기에 들어가면 이러한 비 대화형 로그인 로그는 정확성을 높이기 위해 비 대화형 사용자 로그인 로그로 이동되었습니다. 
 
 
 **보고서 크기:** 작음 <br> 
@@ -138,7 +138,7 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 - 사용자는 AD FS SAML 어설션을 사용하여 Azure AD에 페더레이션됩니다.
 
 
-기본 필드 외에도 대화형 로그인 보고서에는 다음이 표시됩니다. 
+기본 필드 외에도 대화형 로그인 로그에는 다음이 표시됩니다. 
 
 - 로그인 위치
 
@@ -184,7 +184,7 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 
 
 
-기본 필드 외에도 비 대화형 로그인 보고서에는 다음이 표시됩니다. 
+기본 필드 외에도 비 대화형 로그인 로그에는 다음이 표시됩니다. 
 
 - 리소스 ID
 
@@ -226,7 +226,7 @@ Azure Portal은 로그에 액세스하는 몇 가지 옵션을 제공합니다. 
 
 ## <a name="service-principal-sign-ins"></a>서비스 주체 로그인
 
-대화형 및 비 대화형 사용자 로그인과 달리 서비스 주체 로그인은 사용자를 포함하지 않습니다. 대신 앱 또는 서비스 주체와 같은 비 사용자 계정에 의한 로그인입니다(관리 ID 로그인 보고서에만 포함되는 관리 ID 로그인 제외). 이러한 로그인에서 앱 또는 서비스는 리소스를 인증하거나 액세스하기 위한 인증서 또는 앱 비밀과 같은 자체 자격 증명을 제공합니다.
+대화형 및 비 대화형 사용자 로그인과 달리 서비스 주체 로그인은 사용자를 포함하지 않습니다. 대신 앱 또는 서비스 주체와 같은 비 사용자 계정에 의한 로그인입니다(관리 ID 로그인 로그에만 포함되는 관리 ID 로그인 제외). 이러한 로그인에서 앱 또는 서비스는 리소스를 인증하거나 액세스하기 위한 인증서 또는 앱 비밀과 같은 자체 자격 증명을 제공합니다.
 
 
 **보고서 크기:** 큼 <br>
@@ -311,8 +311,6 @@ Azure 리소스에 대한 관리 ID 로그인은 자격 증명 관리를 단순�
 - 관리 ID 이름 또는 ID
 
 - 상태
-
-- IP 주소
 
 - 리소스 이름 또는 ID
 
@@ -435,7 +433,27 @@ Azure Portal의 로그인 활동 보고서는 미리 보기 보고서를 켜고 
 ![파일 다운로드](./media/concept-all-sign-ins/download-files.png "파일 다운로드")
 
 
+## <a name="return-log-data-with-microsoft-graph"></a>Microsoft Graph를 사용하여 로그 데이터 반환
 
+Azure Portal을 사용하는 것 외에도 Microsoft Graph API를 사용하여 로그인 로그를 쿼리하여 여러 유형의 로그인 정보를 반환할 수 있습니다. 잠재적 성능 문제를 방지하려면 쿼리를 관심 있는 데이터에만 범위를 지정합니다. 
+
+다음 예제에서는 레코드 수, 특정 기간 및 로그인 이벤트 유형별로 쿼리 범위를 지정합니다.
+
+```msgraph-interactive
+GET https://graph.microsoft.com/beta/auditLogs/signIns?$top=100&$filter=createdDateTime ge 2020-09-10T06:00:00Z and createdDateTime le 2020-09-17T06:00:00Z and signInEventTypes/any(t: t eq 'nonInteractiveUser')
+```
+
+예제의 쿼리 매개 변수는 다음과 같은 결과를 제공합니다.
+
+- [$top](/graph/query-parameters#top-parameter) 매개 변수는 상위 100개 결과를 반환합니다.
+- [$filter](/graph/query-parameters#filter-parameter) 매개 변수는 결과가 반환되는 시간 프레임을 제한하고 signInEventTypes 속성을 사용하여 비 대화형 사용자 로그인만 반환합니다.
+
+다음 값은 여러 로그인 유형별로 필터링하는 데 사용할 수 있습니다. 
+
+- interactiveUser
+- nonInteractiveUser
+- servicePrincipal 
+- managedIdentity
 
 ## <a name="next-steps"></a>다음 단계
 

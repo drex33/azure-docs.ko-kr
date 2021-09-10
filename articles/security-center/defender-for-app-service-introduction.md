@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4ab8f3eb36e254a9b98444ecf85904fc574bcc65
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 788cce5f8f380c2bcf2fa7c66b06f22bcda167f2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113487384"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732582"
 ---
 # <a name="protect-your-web-apps-and-apis"></a>웹앱 및 API 보호
 
@@ -36,7 +36,7 @@ Azure Defender for App Service를 사용하여 Azure App Service 요금제를 �
 | 릴리스 상태:               | GA(일반 공급)                                                                                                                                                                      |
 | 가격 책정:                     | [Azure Defender for App Service](azure-defender.md)는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.<br>모든 요금제의 총 컴퓨팅 인스턴스에 따라 청구됩니다.       |
 | 지원되는 App Service 요금제: | [소비 계획에 대한 Azure Functions](../azure-functions/functions-scale.md)를 제외한 [모든 App Service 요금제](https://azure.microsoft.com/pricing/details/app-service/plans/)가 지원됩니다. |
-| 클라우드:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/소버린(US Gov, Azure 중국)                                                     |
+| 클라우드:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)                                                     |
 |                              |                                                                                                                                                                                                |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Azure Defender for App Service의 이점은?
@@ -93,10 +93,11 @@ Azure App Service 경고의 전체 목록은 [경고 참조 테이블](alerts-re
 
 이 문서에서는 Azure Defender for App Service에 대해 알아보았습니다. 
 
+> [!div class="nextstepaction"]
+> [Azure Defender 사용](enable-azure-defender.md)
+
 관련 자료는 다음 문서를 참조하세요. 
 
 - 경고를 Azure Sentinel, 타사 SIEM 또는 기타 외부 도구로 내보내려면 [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](export-to-siem.md)의 지침을 따릅니다.
 - Azure Defender for App Service 경고 목록은 [경고 참조 테이블](alerts-reference.md#alerts-azureappserv)를 참조하세요.
 - App Service 요금제에 대한 자세한 내용은 [App Service 요금제](https://azure.microsoft.com/pricing/details/app-service/plans/)를 참조하세요.
-> [!div class="nextstepaction"]
-> [Azure Defender 사용](enable-azure-defender.md)

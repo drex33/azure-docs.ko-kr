@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: bc02f9c526ec9b0826bbe640efc4b474794f30ae
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 5d3836d46b7a6db071887918a1e2f915f298038f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278493"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121740164"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -94,7 +94,7 @@ SAS(공유 액세스 서명)는 브라우저에서 실행되는 코드에서 Azu
 다음 단계에 따라 Blob service SAS URL을 가져옵니다.
 
 1. Azure Portal에서 스토리지 계정을 선택합니다.
-2. **설정** 섹션으로 이동하여 **공유 액세스 서명** 을 선택합니다.
+2. **보안 + 네트워킹** 섹션으로 이동하여 **공유 액세스 서명** 을 선택합니다.
 3. 아래로 스크롤하여 **SAS 및 연결 문자열 생성** 단추를 클릭합니다.
 4. 더 아래로 스크롤하여 **Blob service SAS URL** 필드를 찾습니다.
 5. **Blob service SAS URL** 필드의 오른쪽 끝에 있는 **클립보드에 복사** 단추를 클릭합니다.

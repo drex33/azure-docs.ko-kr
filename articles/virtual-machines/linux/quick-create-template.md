@@ -9,14 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 4a7bd76a6b7536a6bbc117d52fb2c0770145ab9d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 173adbaa32444a2eb28c050266a503c9f448f927
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078711"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693934"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Ubuntu Linux 가상 머신 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure에서 Ubuntu Linux VM(가상 머신)을 배포하는 방법을 보여줍니다.
 

@@ -6,16 +6,19 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/10/2017
 ms.author: mimckitt
-ms.openlocfilehash: 9361814a12e2f3c0d8c57852c89299e477f43dcb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 058e79d8fad0c9e77d575eb79580cf52cf1ff2a4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738146"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691955"
 ---
 # <a name="resize-a-virtual-machine-using-azure-cli"></a>Azure CLI를 사용하여 가상 머신 크기 조정 
 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 VM(가상 머신)을 프로비전한 후 [VM 크기][vm-sizes]를 변경하여 VM의 크기를 확장 또는 축소할 수 있습니다. 경우에 따라 먼저 VM의 할당을 취소해야 합니다. VM을 호스트하는 하드웨어 클러스터에서 원하는 크기를 사용할 수 없는 경우 VM 할당을 취소해야 합니다. 이 문서에서는 Azure CLI에서 VM 크기를 조정하는 방법을 자세히 설명합니다. 
+
 
 ## <a name="resize-a-vm"></a>VM 크기 조정
 VM의 크기를 조정하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.

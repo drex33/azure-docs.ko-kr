@@ -8,14 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 3/8/2021
-ms.openlocfilehash: e874a76cc447158127da8482f23bf03d56961818
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 168bafe6991e6b661af9a389e2b29324f2bfdb1d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504612"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694223"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 지역
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 성능, 가용성 및 중복성을 최대화하는 옵션을 함께 Azure에서 VMs(가상 머신)가 작동하는 위치와 방법을 이해하는 것이 중요합니다. 이 문서에서는 Azure의 가용성 및 중복성 기능에 대 한 개요를 제공합니다.
 
@@ -77,7 +79,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | 데이터가 여러 시설에 걸쳐 복제됩니다. |예 |예 |예 |예 |
-| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |예 |예 |예 |예 |
+| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |예 |아니요 |아니요 |예 |
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. |3 |3 |6 |6 |
 
 [여기에서 Azure Storage 복제 옵션](../storage/common/storage-redundancy.md)에 대해 자세히 알아볼 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](./managed-disks-overview.md)를 참조하세요.

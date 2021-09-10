@@ -13,14 +13,16 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: dd47250989be5c31d5f0ade2b602b9d6af535d83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5212357fe123d722b7dbb853c874190a3ef9dee0
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564002"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697724"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>자습서 - Azure Linux 가상 머신에 대한 롤링 배포 전략 구성
+
+**적용 대상:** :heavy_check_mark: Linux VM
 
 Azure DevOps는 모든 Azure 리소스에 대한 DevOps 프로세스의 각 부분을 자동화하는 기본 제공 Azure 서비스입니다. 앱에서 가상 머신, 웹앱, Kubernetes 또는 기타 리소스를 사용하는지 여부에 관계없이 Azure와 Azure DevOps를 사용하여 IaC(Infrastructure as Code), 연속 통합, 지속적인 테스트, 지속적인 업데이트 및 지속적인 모니터링을 구현할 수 있습니다.
 

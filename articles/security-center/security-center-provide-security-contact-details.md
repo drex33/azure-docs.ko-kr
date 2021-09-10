@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: 736979bf85d75c7ca9e141e7ff04da4c9fe1c9c4
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 4bdfdcc83a920b5b2e7317c4706c470e302cc49f
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113486052"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731094"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>보안 경고에 대한 이메일 알림 구성 
 
@@ -38,7 +38,7 @@ ms.locfileid: "113486052"
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free|
 |필요한 역할 및 권한:|**보안 관리자**<br>**구독 소유자** |
-|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(US Gov, Azure 중국)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
 

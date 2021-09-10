@@ -11,14 +11,16 @@ ms.workload: infrastructure
 ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 191eb1338533cf1a5f81f4d04c5dfc6fd5cc569c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 33be1136005d6a8e54906372056bed0a96978453
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818749"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698982"
 ---
 # <a name="tutorial-load-balance-vms-for-high-availability"></a>자습서: 고가용성을 위한 VM 부하 분산
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서에서는 트래픽을 분산하고 고가용성을 제공하는 Azure Load Balancer의 여러 다른 구성 요소에 대해 알아봅니다. 다음 방법을 알아봅니다.
 

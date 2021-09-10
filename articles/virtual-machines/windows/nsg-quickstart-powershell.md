@@ -9,14 +9,17 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8390b5c779e6aa053e1af2754c436dd51e410b06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50979abac226797a7b8e309678846bc327d28428
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550419"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697816"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-using-powershell"></a>PowerShell을 사용하여 VM에 대한 포트 및 엔드포인트를 여는 방법
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
+
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>빠른 명령

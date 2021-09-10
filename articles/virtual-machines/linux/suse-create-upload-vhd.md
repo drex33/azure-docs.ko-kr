@@ -9,15 +9,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 7788d7e7a8aa92d4c06b0895c5bea000e13e2d85
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 30246166650cddc1c89fa3a2ca377c163fb5847b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713129"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697753"
 ---
 # <a name="prepare-a-sles-or-opensuse-leap-virtual-machine-for-azure"></a>Azure용 SLES 또는 openSUSE Leap 가상 머신 준비
 
+**적용 대상:** :heavy_check_mark: Linux VM: heavy_check_mark: 유연한 확장 집합 **적용 대상:** heavy_check_mark: 단일 확장 집합
 
 이 문서에서는 가상 하드 디스크에 SUSE 또는 openSUSE Leap Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하십시오.
 

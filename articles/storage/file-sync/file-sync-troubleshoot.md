@@ -4,16 +4,16 @@ description: Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 4/20/2021
+ms.date: 8/16/2021
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 633926710e4f6b92e2cd19aaf852135c07929966
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 15bc06f1f84b01df8d6999147d47e5f5f48ec45f
+ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677133"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122538286"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -59,7 +59,7 @@ PDC 역할 소유자가 Windows Server 2008 R2 이하 OS 버전에 있는 Active
 <a id="parameter-is-incorrect"></a>**다음 오류로 인해 Windows Server 2012 R2의 볼륨에 액세스하지 못합니다. 매개 변수가 올바르지 않습니다.**  
 Windows Server 2012 R2에서 서버 엔드포인트를 만든 후 볼륨에 액세스할 때 다음 오류가 발생합니다.
 
-driveletter:\에 액세스할 수 없습니다.  
+드라이버 문자 :\에 액세스할 수 없습니다.  
 매개 변수가 올바르지 않습니다.
 
 이 문제를 해결하려면 [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014)를 설치하고 서버를 다시 시작합니다. 최신 업데이트가 이미 설치되어 있기 때문에 이 업데이트가 설치되지 않으면 Windows 업데이트로 이동하여 Windows Server 2012 R2용 최신 업데이트를 설치한 다음, 서버를 다시 시작합니다.
@@ -74,9 +74,8 @@ ServerRegistration.exe를 사용하여 서버를 등록하는 경우 Azure 구�
 다음 PowerShell 명령을 사용하여 서버를 등록하면 이 문제도 해결할 수 있습니다.
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzureRmStorageSync -SubscriptionID "<guid>" -TenantID "<guid>"
-Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<string>" -StorageSyncServiceName "<string>"
+Connect-AzAccount -Subscription "<guid>" -Tenant "<guid>"
+Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
 ```
 
 <a id="server-registration-prerequisites"></a>**서버 등록에 다음 메시지가 표시됩니다. "필수 구성 요소가 누락되었습니다."**  
@@ -177,7 +176,7 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
     **compact /u /s**
 
 <a id="-2134376345"></a>**다음 오류로 인해 서버 엔드포인트 생성 실패: "MgmtServerJobFailed"(오류 코드: -2134376345 또는 0x80C80067)**  
-서버당 서버 엔드포인트 수 제한에 도달한 경우에 이 오류가 발생합니다. Azure 파일 동기화는 현재 서버당 최대 30개의 서버 엔드포인트를 지원합니다. 자세한 내용은 [Azure 파일 동기화 크기 조정 목표](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets)를 참조하세요.
+서버당 서버 엔드포인트 수 제한에 도달하면 이 오류가 발생합니다. Azure 파일 동기화는 현재 서버당 최대 30개의 서버 엔드포인트를 지원합니다. 자세한 내용은 [Azure 파일 동기화 크기 조정 목표](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets)를 참조하세요.
 
 <a id="-2134376427"></a>**다음 오류로 인해 서버 엔드포인트 생성 실패: "MgmtServerJobFailed"(오류 코드: -2134376427 또는 0x80c80015)**  
 이 오류는 다른 서버 엔드포인트에서 지정된 서버 엔드포인트 경로를 이미 동기화하고 있는 경우에 발생합니다. Azure 파일 동기화는 동일한 디렉터리 또는 볼륨을 동기화하는 여러 서버 엔드포인트를 지원하지 않습니다.
@@ -260,7 +259,7 @@ Set-AzStorageSyncServerEndpoint `
 ![Azure Portal 스크린샷](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
 # <a name="server"></a>[Server](#tab/server)
-서버의 원격 분석 로그로 이동합니다. `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`의 이벤트 뷰어에서 찾을 수 있습니다. 이벤트 9102는 완료된 동기화 세션에 해당합니다. 동기화의 마지막 상태를 보려면 ID가 9102인 최신 이벤트를 살펴보세요. SyncDirection은 이 세션이 업로드 또는 다운로드되었는지 알려줍니다. HResult가 0이면 동기화 세션이 성공한 것입니다. HResult가 0 이외의 값이면 동기화 중에 오류가 발생했다는 의미입니다. 일반적인 오류 목록은 아래를 참조하세요. PerItemErrorCount가 0보다 크면 일부 파일 또는 폴더가 올바르게 동기화되지 않은 것입니다. HResult는 0이지만 PerItemErrorCount가 0보다 클 수 있습니다.
+서버의 원격 분석 로그로 이동합니다. `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`의 이벤트 뷰어에서 찾을 수 있습니다. 이벤트 9102는 완료된 동기화 세션에 해당합니다. 동기화의 마지막 상태를 보려면 ID가 9102인 최신 이벤트를 살펴보세요. SyncDirection은 이 세션이 업로드인지 아니면 다운로드인지 알려줍니다. `HResult`가 0이면 동기화 세션이 성공한 것입니다. `HResult`가 0 이외의 값이면 동기화 중에 오류가 발생했다는 의미입니다. 일반적인 오류 목록은 아래를 참조하세요. PerItemErrorCount가 0보다 크면 일부 파일 또는 폴더가 올바르게 동기화되지 않은 것입니다. `HResult`는 0이지만 PerItemErrorCount가 0보다 클 수 있습니다.
 
 아래는 성공적인 업로드의 예입니다. 간단하게 설명하기 위해, 각 9102 이벤트에 포함된 값 중 일부만 아래에 나열되어 있습니다. 
 
@@ -286,7 +285,7 @@ PerItemErrorCount: 0,
 TransferredFiles: 0, TransferredBytes: 0, FailedToTransferFiles: 0, FailedToTransferBytes: 0.
 ```
 
-동기화 세션이 전체적으로 실패하거나 PerItemErrorCount의 값이 0이 아니지만, 여전히 동기화가 계속 진행되고 일부 파일이 성공적으로 동기화되는 경우가 가끔 있습니다. 적용됨* 필드(AppliedFileCount, AppliedDirCount, AppliedTombstoneCount 및 AppliedSizeBytes)에서 볼 수 있으며, 이 필드는 성공하는 세션 수를 알려줍니다. 여러 동기화 세션이 연속으로 실패하지만 적용됨* 횟수가 증가하는 경우 지원 티켓을 열기 전에 동기화 시간을 지정하고 다시 시도해 보세요.
+동기화 세션이 전체적으로 실패하거나 PerItemErrorCount의 값이 0이 아니지만, 여전히 동기화가 계속 진행되고 일부 파일이 성공적으로 동기화되는 경우가 가끔 있습니다. *Applied* 필드(AppliedFileCount, AppliedDirCount, AppliedTombstoneCount 및 AppliedSizeBytes)를 살펴보면 진행 상황을 확인할 수 있습니다. 이러한 필드는 세션이 얼마나 성공적으로 진행되고 있는지 설명합니다. 여러 동기화 세션이 연속으로 실패하는데 *Applied* 횟수는 증가하는 경우 지원 티켓을 개설하기 전에 동기화될 때까지 좀 더 기다렸다가 다시 시도해 보세요.
 
 ---
 
@@ -319,11 +318,11 @@ PerItemErrorCount: 1006.
 # <a name="server"></a>[Server](#tab/server)
 완료된 동기화 세션을 살펴보세요. 각 서버에 대한 원격 분석 이벤트 로그에 9102 이벤트로 표시됩니다(이벤트 뷰어에서 `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`로 이동). 
 
-1. 특정 서버에서 최신 업로드 및 다운로드 세션이 완료되었는지 확인합니다. 이것을 확인하려면 HResult 및 PerItemErrorCount가 업로드와 다운로드 모두 0인지 확인합니다(SyncDirection 필드는 특정 세션이 업로드 세션인지 아니면 다운로드 세션인지 나타냄). 최근에 완료된 동기화 세션이 보이지 않는 경우 현재 동기화 세션이 진행 중일 가능성이 높으며, 대량의 데이터를 방금 추가 또는 수정한 경우에 예상되는 동작입니다.
+1. 특정 서버에서 최신 업로드 및 다운로드 세션이 완료되었는지 확인합니다. 이렇게 하려면 `HResult` 및 PerItemErrorCount가 업로드와 다운로드 모두 0인지 확인합니다(SyncDirection 필드는 특정 세션이 업로드 세션인지 아니면 다운로드 세션인지 나타냄). 최근에 완료된 동기화 세션이 보이지 않는 경우 현재 동기화 세션이 진행 중일 가능성이 높으며, 대량의 데이터를 방금 추가 또는 수정한 경우에 예상되는 동작입니다.
 2. 서버가 클라우드를 통해 완전히 최신 상태가 되고 어느 방향으로든 동기화할 변경 내용이 없으면 빈 동기화 세션이 표시됩니다. 이를 나타내는 것은 업로드 및 다운로드 이벤트로, 모든 동기화* 필드(SyncFileCount, SyncDirCount, SyncTombstoneCount 및 SyncSizeBytes)가 0이면 동기화할 내용이 하나도 없다는 뜻입니다. 변동률이 높은 서버에는 항상 동기화할 내용이 있으므로 빈 동기화 세션이 발생하지 않을 수 있습니다. 동기화 작업이 없는 경우 30분마다 발생해야 합니다. 
 3. 모든 서버가 클라우드를 통해 최신 상태가 되면, 다시 말해서 최신 업로드 및 다운로드 세션이 빈 동기화 세션이면 시스템 전체가 동기화되었다고 확실하게 말할 수 있습니다. 
     
-Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 24시간마다 발생하는 변경 열거형이 실행될 때까지 이 변경 내용을 감지하지 못합니다. Azure 파일 공유에서 최근에 직접 변경한 내용이 없으면 서버는 클라우드를 통해 최신 상태가 되었다고 말할 수 있습니다. 
+Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 24시간마다 발생하는 변경 열거형이 실행될 때까지 이러한 변경 내용을 감지하지 못합니다. Azure 파일 공유에서 최근에 직접 변경한 내용이 없으면 서버는 클라우드를 통해 최신 상태가 되었다고 말할 수 있습니다.
 
 ---
 
@@ -335,8 +334,8 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 > [!Note]  
 > FileSyncErrorsReport.ps1 스크립트가 "파일 오류가 없음"을 반환하거나 동기화 그룹에 대한 항목당 오류가 나열되지 않으면 원인은 다음 중 하나입니다.
 >
->- 원인 1: 마지막으로 완료된 동기화 세션에 항목당 오류가 없습니다. 포털이 곧 업데이트되어 동기화 상태가 아닌 파일을 0개로 표시할 것입니다. 
->    - 원격 분석 이벤트 로그에서 [이벤트 ID 9102](?tabs=server%252cazure-portal#broken-sync)를 확인하여 PerItemErrorCount가 0인지 확인합니다. 
+>- 원인 1: 마지막으로 완료된 동기화 세션에 항목당 오류가 없습니다. 포털이 곧 업데이트되어 동기화 상태가 아닌 파일을 0개로 표시할 것입니다. 기본적으로 FileSyncErrorsReport.ps1 스크립트는 마지막으로 완료된 동기화 세션에 대한 항목별 오류만 표시합니다. 모든 동기화 세션에 대한 항목별 오류를 보려면 -ReportAllErrors 매개 변수를 사용합니다.
+>    - 원격 분석 이벤트 로그에서 최신 [이벤트 ID 9102](?tabs=server%252cazure-portal#broken-sync)를 확인하여 PerItemErrorCount가 0인지 확인합니다. 
 >
 >- 원인 2: 항목별 오류가 너무 많아 서버의 ItemResults 이벤트 로그가 래핑되었기 때문에 더 이상 이벤트 로그에 이 동기화 그룹에 오류가 포함되지 않습니다.
 >    - 이 문제를 방지하려면 ItemResults 이벤트 로그 크기를 늘립니다. ItemResults 이벤트 로그는 이벤트 뷰어의 "Applications and Services Logs\Microsoft\FileSync\Agent"에서 찾을 수 있습니다. 
@@ -359,6 +358,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | 파일 또는 디렉터리를 건너 뛰었지만 다음 동기화 세션에서 동기화됩니다. 항목을 다운로드할 때 이 오류가 보고되는 경우 파일 또는 디렉터리 이름이 잘못된 것일 수 있습니다. | 파일을 업로드할 때 이 오류가 보고되는 경우에는 아무 조치도 필요하지 않습니다. 파일을 다운로드할 때 오류가 보고되는 경우 해당 파일 또는 디렉터리의 이름을 바꿉니다. 자세한 내용은 [지원되지 않는 문자 처리](?tabs=portal1%252cazure-portal#handling-unsupported-characters)를 참조하세요. |
 | 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | 대상에 항목이 이미 존재하고 동기화가 변경 내용을 인식하지 못했기 때문에 파일 또는 디렉터리 만들기를 동기화할 수 없습니다. | 아무 조치도 취할 필요가 없습니다. 대상에서 변경 검색이 실행되고 동기화가 이 새 항목을 인식하면 동기화에서 이 오류 기록을 중지합니다. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Azure 파일 공유 제한에 도달하여 파일을 동기화할 수 없습니다. | 이 문제를 해결하려면 문제 해결 가이드의 [Azure 파일 공유 스토리지 용량 한도에 도달했습니다](?tabs=portal1%252cazure-portal#-2134351810) 섹션을 참조하세요. |
+| 0x80c83008 | -2134364152 | ECS_E_CANNOT_CREATE_AZURE_STAGED_FILE | Azure 파일 공유 제한에 도달하여 파일을 동기화할 수 없습니다.  | 이 문제를 해결하려면 문제 해결 가이드의 [Azure 파일 공유 스토리지 용량 한도에 도달했습니다](?tabs=portal1%252cazure-portal#-2134351810) 섹션을 참조하세요. |
 | 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | 파일이 지원되지 않는 솔루션(예: NTFS EFS)에 의해 암호화됩니다. | 파일 암호를 해독하고 지원되는 암호화 솔루션을 사용합니다. 지원 솔루션 목록은 계획 가이드의 [암호화](file-sync-planning.md#encryption) 섹션을 참조하세요. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | 파일이 DFS-R 읽기 전용 복제 폴더에 있습니다. | 파일이 DFS-R 읽기 전용 복제 폴더에 있습니다. Azure 파일 동기화는 DFS-R 읽기 전용 복제 폴더에서 서버 엔드포인트를 지원하지 않습니다. 자세한 내용은 [계획 지침](file-sync-planning.md#distributed-file-system-dfs)을 참조하세요. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | 파일이 삭제 보류 중 상태입니다. | 아무 조치도 취할 필요가 없습니다. 열린 파일 핸들이 닫히면 파일이 삭제됩니다. |
@@ -369,6 +369,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 동기화 중에 파일이 변경되었으므로 다시 동기화해야 합니다. | 아무 조치도 취할 필요가 없습니다. |
 | 0x80070017 | -2147024873 | ERROR_CRC | CRC 오류로 인해 파일을 동기화할 수 없습니다. 이 오류는 서버 엔드포인트를 삭제하기 전에 계층화된 파일이 회수되지 않았거나 파일이 손상된 경우에 발생할 수 있습니다. | 이 문제를 해결하려면 [서버 엔드포인트를 삭제한 후 서버에서 계층화된 파일에 액세스할 수 없음](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)을 참조하여 분리된 계층화된 파일을 제거합니다. 분리된 계층화된 파일을 제거한 후에도 오류가 계속 발생하면 볼륨에서 [chkdsk](/windows-server/administration/windows-commands/chkdsk)를 실행합니다. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | 충돌 파일이 최대 수에 도달했기 때문에 파일을 동기화할 수 없습니다. Azure 파일 동기화는 파일당 100개의 충돌 파일을 지원합니다. 파일 충돌에 대해 자세히 알아보려면 Azure 파일 동기화 [FAQ](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-conflict-resolution)를 참조하세요. | 이 문제를 해결하려면 충돌 파일 수를 줄입니다. 충돌 파일 수가 100 미만이면 파일이 동기화됩니다. |
+| 0x80c8027d | -2134375811 | ECS_E_DIRECTORY_RENAME_FAILED | 디렉터리 내의 파일 또는 폴더에 열린 핸들이 있으므로 디렉터리 이름 변경을 동기화할 수 없습니다. | 아무 조치도 취할 필요가 없습니다. 디렉터리 내의 열려 있는 파일 핸들이 모두 닫히면 디렉터리 이름 변경이 동기화됩니다. |
 
 #### <a name="handling-unsupported-characters"></a>지원되지 않는 처리 문자
 지원되지 않는 문자로 인해 **FileSyncErrorsReport.ps1** PowerShell 스크립트에서 항목별 동기화 오류(오류 코드 0x8007007b 또는 0x80c80255)를 표시하면 각 파일 이름에서 오류가 있는 문자를 제거하거나 이름을 변경해야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. 
@@ -383,14 +384,14 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x0000FDD0 - 0x0000FDDD(아라비아식 표현꼴-a) | 14 |
 | <ul><li>0x00000022(따옴표)</li><li>0x0000002A(별표)</li><li>0x0000002F(슬래시)</li><li>0x0000003A(콜론)</li><li>0x0000003C(보다 작음)</li><li>0x0000003E(보다 큼)</li><li>0x0000003F(물음표)</li><li>0x0000005C(백슬래시)</li><li>0x0000007C(파이프 또는 막대)</li></ul> | 9 |
 | <ul><li>0x0004FFFE - 0x0004FFFF = 2(noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2(noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2(noncharacter)</li><li>0x0010FFFE - 0x0010FFFF = 2(noncharacter)</li></ul> | 8 |
-| <ul><li>0x0000009D(osc operating system command)</li><li>0x00000090(dcs device control string)</li><li>0x0000008F(ss3 single shift three)</li><li>0x00000081(high octet preset)</li><li>0x0000007F(del delete)</li><li>0x0000008D(ri reverse line feed)</li></ul> | 6 |
+| <ul><li>0x0000009D(`osc` operating system command)</li><li>0x00000090(dcs device control string)</li><li>0x0000008F(ss3 single shift three)</li><li>0x00000081(high octet preset)</li><li>0x0000007F(del delete)</li><li>0x0000008D(ri reverse line feed)</li></ul> | 6 |
 | 0x0000FFF0, 0x0000FFFD, 0x0000FFFE, 0x0000FFFF(특수) | 4 |
 | 마침표로 끝나는 파일 또는 디렉터리 | 1 |
 
 ### <a name="common-sync-errors"></a>일반적인 동기화 오류
 <a id="-2147023673"></a>**동기화 세션이 취소되었습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x800704c7 |
 | **HRESULT(10진)** | -2147023673 | 
@@ -401,7 +402,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 <a id="-2147012889"></a>**서비스와 연결할 수 없습니다.**    
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT(10진)** | -2147012889 | 
@@ -410,9 +411,12 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
+> [!Note]  
+> Azure 파일 동기화 서비스에 대한 네트워크 연결이 복원되더라도 동기화가 즉시 재개되지 않을 수 있습니다. 서버 엔드포인트 위치 내에서 변경 내용이 검색되지 않는 경우 기본적으로 Azure 파일 동기화는 30분마다 동기화 세션을 시작합니다. 동기화 세션을 강제로 시작하려면 스토리지 동기화 에이전트(FileSyncSvc) 서비스를 다시 시작하거나 서버 엔드포인트 위치 내의 파일 또는 디렉터리를 변경합니다.
+
 <a id="-2134376372"></a>**사용자 요청이 서비스에 의해 제한되었습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8004c |
 | **HRESULT(10진)** | -2134376372 |
@@ -421,9 +425,20 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 아무 조치도 필요 없습니다. 서버가 다시 시도합니다. 이 오류가 몇 시간 동안 지속되면 지원 요청을 만드세요.
 
+<a id="-2134364160"></a>**작업이 중단되어 동기화하지 못했습니다.**  
+
+| 오류 | 코드 |
+|-|-|
+| **HRESULT** | 0x80c83000 |
+| **HRESULT(10진)** | -2134364160 |
+| **오류 문자열** | ECS_E_OPERATION_ABORTED |
+| **재구성 필요** | 예 |
+
+사용자가 조치할 필요는 없습니다. 이 오류가 몇 시간 동안 지속되면 지원 요청을 만드세요.
+
 <a id="-2134364043"></a>**변경 검색이 복원 후 작업을 완료할 때까지 동기화가 차단됩니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c83075 |
 | **HRESULT(10진)** | -2134364043 |
@@ -434,7 +449,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 <a id="-2147216747"></a>**동기화 데이터베이스가 언로드되어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80041295 |
 | **HRESULT(10진)** | -2147216747 |
@@ -445,7 +460,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 <a id="-2134364065"></a>**동기화에서 클라우드 엔드포인트에 지정된 Azure 파일 공유에 액세스할 수 없습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8305f |
 | **HRESULT(10진)** | -2134364065 |
@@ -461,7 +476,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 <a id="-2134351804"></a>**요청에 이 작업을 수행할 수 있는 권한이 없어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c86044 |
 | **HRESULT(10진)** | -2134351804 |
@@ -477,7 +492,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**사용된 스토리지 계정 이름을 확인할 수 없습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80C83060 |
 | **HRESULT(10진)** | -2134364064 |
@@ -494,7 +509,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 <a id="-2134364022"></a><a id="storage-unknown-error"></a>**스토리지 계정에 액세스하는 동안 알 수 없는 오류가 발생했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8308a |
 | **HRESULT(10진)** | -2134364022 |
@@ -506,7 +521,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 <a id="-2134364014"></a>**스토리지 계정이 잠겨 있어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c83092 |
 | **HRESULT(10진)** | -2134364014 |
@@ -517,7 +532,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 <a id="-1906441138"></a>**동기화 데이터베이스에 문제가 있어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT(10진)** | -1906441138 |
@@ -528,25 +543,32 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 <a id="-2134364053"></a>**서버에 설치된 Azure 파일 동기화 에이전트 버전이 지원되지 않습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80C8306B |
 | **HRESULT(10진)** | -2134364053 |
 | **오류 문자열** | ECS_E_AGENT_VERSION_BLOCKED |
 | **재구성 필요** | 예 |
 
-서버에 설치된 Azure 파일 동기화 에이전트 버전이 지원되지 않으면 이 오류가 발생합니다. 이 문제를 해결하려면 [지원되는 에이전트 버전]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)으로 [업그레이드]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths)합니다.
+서버에 설치된 Azure 파일 동기화 에이전트 버전이 지원되지 않으면 이 오류가 발생합니다. 이 문제를 해결하려면 [지원되는 에이전트 버전](file-sync-release-notes.md#supported-versions)으로 [업그레이드](file-sync-release-notes.md#azure-file-sync-agent-update-policy)합니다.
 
 <a id="-2134351810"></a>**Azure 파일 공유 스토리지 용량 한도에 도달했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8603e |
 | **HRESULT(10진)** | -2134351810 |
 | **오류 문자열** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
 | **재구성 필요** | 예 |
 
-이 오류는 Azure 파일 공유 스토리지 한도에 도달한 경우에 발생하며, Azure 파일 공유에 할당량이 적용되거나 사용량이 Azure 파일 공유의 한도를 초과할 때 발생할 수 있습니다. 자세한 내용은 [Azure 파일 공유의 현재 한도](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)를 참조하세요.
+| Error | 코드 |
+|-|-|
+| **HRESULT** | 0x80c80249 |
+| **HRESULT(10진)** | -2134375863 |
+| **오류 문자열** | ECS_E_NOT_ENOUGH_REMOTE_STORAGE |
+| **재구성 필요** | 예 |
+
+Azure 파일 공유 스토리지 한도에 도달하면 이러한 오류와 함께 동기화 세션이 실패하며, Azure 파일 공유에 할당량이 적용되거나 사용량이 Azure 파일 공유의 한도를 초과할 때 발생할 수 있습니다. 자세한 내용은 [Azure 파일 공유의 현재 한도](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)를 참조하세요.
 
 1. 스토리지 동기화 서비스 내에서 동기화 그룹으로 이동합니다.
 2. 동기화 그룹 내에서 클라우드 엔드포인트를 선택합니다.
@@ -565,7 +587,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 <a id="-2134351824"></a>**Azure 파일 공유를 찾을 수 없습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c86030 |
 | **HRESULT(10진)** | -2134351824 |
@@ -581,7 +603,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134364042"></a>**이 Azure 구독이 일시 중단된 동안 동기화가 일시 중단되었습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80C83076 |
 | **HRESULT(10진)** | -2134364042 |
@@ -592,7 +614,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134375618"></a>**스토리지 계정에 방화벽 또는 가상 네트워크가 구성되어 있습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8033e |
 | **HRESULT(10진)** | -2134375618 |
@@ -603,7 +625,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134375911"></a>**동기화 데이터베이스에 문제가 있어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c80219 |
 | **HRESULT(10진)** | -2134375911 |
@@ -619,7 +641,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2146762487"></a>**서버가 보안 연결을 설정하지 못했습니다. 클라우드 서비스가 예기치 않은 인증서를 받았습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x800b0109 |
 | **HRESULT(10진)** | -2146762487 |
@@ -644,7 +666,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2147012894"></a>**서비스와 연결할 수 없습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80072ee2 |
 | **HRESULT(10진)** | -2147012894 |
@@ -653,9 +675,23 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
+> [!Note]  
+> Azure 파일 동기화 서비스에 대한 네트워크 연결이 복원되더라도 동기화가 즉시 재개되지 않을 수 있습니다. 서버 엔드포인트 위치 내에서 변경 내용이 검색되지 않는 경우 기본적으로 Azure 파일 동기화는 30분마다 동기화 세션을 시작합니다. 동기화 세션을 강제로 시작하려면 스토리지 동기화 에이전트(FileSyncSvc) 서비스를 다시 시작하거나 서버 엔드포인트 위치 내의 파일 또는 디렉터리를 변경합니다.
+
+<a id="-2147012721"></a>**서버가 Azure 파일 동기화 서비스의 응답을 디코딩할 수 없어 동기화가 실패했습니다.**  
+
+| 오류 | 코드 |
+|-|-|
+| **HRESULT** | 0x80072f8f |
+| **HRESULT(10진)** | -2147012721 |
+| **오류 문자열** | WININET_E_DECODING_FAILED |
+| **재구성 필요** | 예 |
+
+일반적으로 이 오류는 네트워크 프록시가 Azure 파일 동기화 서비스의 응답을 수정하는 경우에 발생합니다. 프록시 구성을 확인하세요.
+
 <a id="-2134375680"></a>**인증에 문제가 있어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c80300 |
 | **HRESULT(10진)** | -2134375680 |
@@ -666,7 +702,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134364040"></a>**인증서 만료로 인해 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c83078 |
 | **HRESULT(10진)** | -2134364040 |
@@ -690,7 +726,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134375896"></a>**인증 인증서를 찾을 수 없어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c80228 |
 | **HRESULT(10진)** | -2134375896 |
@@ -710,7 +746,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134364039"></a>**인증 ID를 찾을 수 없어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c83079 |
 | **HRESULT(10진)** | -2134364039 |
@@ -721,7 +757,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**서버 엔드포인트가 있는 볼륨의 디스크 공간이 부족합니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT(10진)** | -1906441711 |
@@ -735,11 +771,11 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **오류 문자열** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
 | **재구성 필요** | 예 |
 
-이 오류는 볼륨이 꽉 찼기 때문에 발생합니다. 이 오류는 일반적으로 서버 엔드포인트 외부의 파일이 볼륨의 공간을 모두 사용할 때 발생합니다. 서버 엔드포인트를 추가하거나, 파일을 다른 볼륨으로 이동하거나, 서버 엔드포인트가 있는 볼륨의 크기를 늘려서 볼륨의 공간을 확보해야 합니다.
+볼륨의 디스크 공간이 부족하거나 디스크 할당량 한도에 도달했기 때문에 이러한 오류 중 하나와 함께 동기화 세션이 실패합니다. 이 오류는 일반적으로 서버 엔드포인트 외부의 파일이 볼륨의 공간을 모두 사용할 때 발생합니다. 서버 엔드포인트를 추가하거나, 파일을 다른 볼륨으로 이동하거나, 서버 엔드포인트가 있는 볼륨의 크기를 늘려서 볼륨의 공간을 확보해야 합니다. [파일 서버 리소스 관리자](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) 또는 [NTFS 할당량](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-quota)을 사용하여 볼륨에서 디스크 할당량이 구성된 경우 할당량 한도를 늘려야 합니다.
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a> **서비스를 이 서버 엔드포인트와 동기화할 준비가 완료되지 않았습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8300f |
 | **HRESULT(10진)** | -2134364145 |
@@ -750,7 +786,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**여러 개별 파일의 문제로 인해 동기화가 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8023b |
 | **HRESULT(10진)** | -2134375877 |
@@ -778,7 +814,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134376423"></a>**서버 엔드포인트 경로에 문제가 있어 동기화가 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c80019 |
 | **HRESULT(10진)** | -2134376423 |
@@ -789,7 +825,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134375817"></a>**필터 드라이버 버전이 에이전트 버전과 호환되지 않아 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80C80277 |
 | **HRESULT(10진)** | -2134375817 |
@@ -800,7 +836,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134376373"></a>**서비스를 현재 사용할 수 없습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8004b |
 | **HRESULT(10진)** | -2134376373 |
@@ -809,9 +845,12 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 이 오류는 Azure 파일 동기화 서비스를 사용할 수 없기 때문에 발생합니다. 이 오류는 Azure 파일 동기화 서비스를 다시 사용할 수 있는 경우 자동으로 해결됩니다.
 
+> [!Note]  
+> Azure 파일 동기화 서비스에 대한 네트워크 연결이 복원되더라도 동기화가 즉시 재개되지 않을 수 있습니다. 서버 엔드포인트 위치 내에서 변경 내용이 검색되지 않는 경우 기본적으로 Azure 파일 동기화는 30분마다 동기화 세션을 시작합니다. 동기화 세션을 강제로 시작하려면 스토리지 동기화 에이전트(FileSyncSvc) 서비스를 다시 시작하거나 서버 엔드포인트 위치 내의 파일 또는 디렉터리를 변경합니다.
+
 <a id="-2146233088"></a>**예외로 인해 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80131500 |
 | **HRESULT(10진)** | -2146233088 |
@@ -822,7 +861,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134364045"></a>**스토리지 계정이 다른 지역으로 장애 조치(failover)되어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c83073 |
 | **HRESULT(10진)** | -2134364045 |
@@ -833,7 +872,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134375922"></a>**동기화 데이터베이스에 일시적인 문제가 있어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8020e |
 | **HRESULT(10진)** | -2134375922 |
@@ -844,7 +883,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 
 <a id="-2134364024"></a>**Azure Active Directory 테넌트 변경 때문에 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c83088 |
 | **HRESULT(10진)** | -2134364024 | 
@@ -857,7 +896,7 @@ Azure 파일 동기화 에이전트가 최신 버전인지 확인합니다. Azur
 
 <a id="-2134364010"></a>**방화벽 및 가상 네트워크 예외가 구성되지 않아 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c83096 |
 | **HRESULT(10진)** | -2134364010 | 
@@ -868,7 +907,7 @@ Azure 파일 동기화 에이전트가 최신 버전인지 확인합니다. Azur
 
 <a id="-2147024891"></a>**시스템 볼륨 정보 폴더에 대한 권한이 잘못되어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80070005 |
 | **HRESULT(10진)** | -2147024891 |
@@ -880,14 +919,14 @@ Azure 파일 동기화 에이전트가 최신 버전인지 확인합니다. Azur
 이 문제를 해결하려면 다음 단계를 수행합니다.
 
 1. [PsExec](/sysinternals/downloads/psexec) 도구를 다운로드합니다.
-2. 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 시스템 계정으로 명령 프롬프트를 시작합니다. **PsExec.exe -i -s -d cmd** 
-3. 시스템 계정으로 실행되는 명령 프롬프트에서 다음 명령을 실행하여 NT AUTHORITY\SYSTEM 계정에 시스템 볼륨 정보 폴더에 대한 액세스 권한이 없는지 확인합니다. **cacls "drive letter:\system volume information" /T /C**
-4. NT AUTHORITY\SYSTEM 계정에 시스템 볼륨 정보 폴더에 대한 액세스 권한이 없는 경우 다음 명령을 실행합니다. **cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
-    - 액세스 거부로 인해 4단계가 실패한 경우 다음 명령을 실행하여 시스템 볼륨 정보 폴더의 소유권을 가져온 다음 4단계를 반복합니다. **takeown /A /R /F "drive letter:\System Volume Information"**
+2. 관리자 권한 명령 프롬프트에서 `PsExec.exe -i -s -d cmd` 명령을 실행하여 시스템 계정으로 명령 프롬프트를 시작합니다.
+3. 시스템 계정에서 실행되는 명령 프롬프트에서 `cacls "drive letter:\system volume information" /T /C` 명령을 실행하여 NT AUTHORITY\SYSTEM 계정에 System Volume Information 폴더에 대한 액세스 권한이 없는지 확인합니다.
+4. NT AUTHORITY\SYSTEM 계정에 System Volume Information 폴더에 대한 액세스 권한이 없는 경우 `cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"` 명령을 실행합니다.
+    - 액세스 거부로 인해 4단계가 실패하는 경우 `takeown /A /R /F "drive letter:\System Volume Information"` 명령을 실행하여 System Volume Information 폴더의 소유권을 가져온 다음, 4단계를 반복합니다.
 
 <a id="-2134375810"></a>**Azure 파일 공유가 삭제 후 다시 생성되었으므로 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8027e |
 | **HRESULT(10진)** | -2134375810 |
@@ -904,9 +943,20 @@ Azure 파일 동기화 에이전트가 최신 버전인지 확인합니다. Azur
 4. 서버 엔드포인트에서 클라우드 계층화를 사용하도록 설정한 경우 [서버 엔드포인트를 삭제한 후 서버에서 계층화된 파일에 액세스할 수 없음](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) 섹션에 설명된 단계를 수행하여 서버에서 분리되고 계층화된 파일을 삭제합니다.
 5. 동기화 그룹을 다시 만듭니다.
 
+<a id="-2134375852"></a>**동기화 중에 이전 상태로 복원된 복제본을 발견했습니다.**  
+
+| 오류 | 코드 |
+|-|-|
+| **HRESULT** | 0x80c80254 |
+| **HRESULT(10진)** | -2134375852 |
+| **오류 문자열** | ECS_E_SYNC_REPLICA_BACK_IN_TIME |
+| **재구성 필요** | 예 |
+
+사용자가 조치할 필요는 없습니다. 이 오류는 동기화 중에 이전 상태로 복원된 복제본을 발견할 때 발생합니다. 이제 동기화가 조정 모드로 전환됩니다. 이 모드에서는 Azure 파일 공유의 콘텐츠와 서버 엔드포인트의 데이터를 병합하여 동기화 관계를 다시 만듭니다. 조정 모드가 트리거되면 네임스페이스 크기에 따라 프로세스가 매우 오래 걸릴 수 있습니다. 정기적인 동기화는 조정이 완료될 때까지 발생하지 않으며, Azure 파일 공유와 서버 엔드포인트 간에 서로 다른(마지막으로 수정된 시간 또는 크기) 파일이 있으면 파일 충돌이 발생합니다.
+
 <a id="-2145844941"></a>**HTTP 요청이 리디렉션되어 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80190133 |
 | **HRESULT(10진)** | -2145844941 |
@@ -917,7 +967,7 @@ Azure 파일 동기화 에이전트가 최신 버전인지 확인합니다. Azur
 
 <a id="-2134364027"></a>**오프라인 데이터 전송 도중 시간 초과가 발생했지만 아직 진행 중입니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c83085 |
 | **HRESULT(10진)** | -2134364027 |
@@ -928,7 +978,7 @@ Azure 파일 동기화 에이전트가 최신 버전인지 확인합니다. Azur
 
 <a id="-2134375814"></a>**서버에서 서버 엔드포인트 경로를 찾을 수 없으므로 동기화에 실패했습니다.**  
 
-| Error | 코드 |
+| 오류 | 코드 |
 |-|-|
 | **HRESULT** | 0x80c8027a |
 | **HRESULT(10진)** | -2134375814 |
@@ -939,8 +989,26 @@ Azure 파일 동기화 에이전트가 최신 버전인지 확인합니다. Azur
 
 디렉터리가 삭제되면 다음 단계를 수행하여 기존 서버 엔드포인트를 제거하고 새 경로를 사용하여 새 서버 엔드포인트를 만듭니다.
 
-1. [서버 엔드포인트 제거](file-sync-server-endpoint.md#remove-a-server-endpoint)에 설명된 단계를 수행하여 동기화 그룹에서 서버 엔드포인트를 제거합니다.
-2. [서버 엔드포인트 추가](file-sync-server-endpoint.md#add-a-server-endpoint)에 설명된 단계를 수행하여 동기화 그룹에 서버 엔드포인트를 만듭니다.
+1. [서버 엔드포인트 제거](file-sync-server-endpoint-delete.md)에 설명된 단계를 수행하여 동기화 그룹에서 서버 엔드포인트를 제거합니다.
+1. [서버 엔드포인트 추가](file-sync-server-endpoint-create.md)에 설명된 단계를 수행하여 동기화 그룹에 서버 엔드포인트를 만듭니다.
+
+<a id="-2134375783"></a>**서버 경로가 비어 있어 서버 엔드포인트 프로비저닝이 실패했습니다.**
+
+| 오류 | 코드 |
+|-|-|
+| **HRESULT** | 0x80C80299 |
+| **HRESULT(10진)** | -2134375783 |
+| **오류 문자열** | ECS_E_SYNC_AUTHORITATIVE_UPLOAD_EMPTY_SET |
+| **재구성 필요** | 예 |
+
+다음 조건이 충족되면 이 오류 코드와 함께 서버 엔드포인트 프로비저닝이 실패합니다. 
+* 이 서버 엔드포인트는 초기 동기화 모드 [서버 권한](file-sync-server-endpoint-create.md#initial-sync-section)을 사용하여 프로비저닝되었습니다.
+* 로컬 서버 경로가 비어 있거나 동기화 가능한 것으로 인식되는 항목이 없습니다.
+
+이 프로비저닝 오류는 Azure 파일 공유에서 사용할 수도 있는 모든 콘텐츠를 삭제하지 못하도록 차단합니다. 서버 권한 업로드는 이미 시드된 클라우드 위치를 서버 위치의 업데이트로 보완하는 특수 모드입니다. 이 [마이그레이션 가이드](../files/storage-files-migration-server-hybrid-databox.md)를 검토하여 이 모드가 어떤 시나리오를 위해 개발되었는지 알아보세요.
+
+1. [서버 엔드포인트 제거](file-sync-server-endpoint-delete.md)에 설명된 단계를 수행하여 동기화 그룹에서 서버 엔드포인트를 제거합니다.
+1. [서버 엔드포인트 추가](file-sync-server-endpoint-create.md)에 설명된 단계를 수행하여 동기화 그룹에 서버 엔드포인트를 만듭니다.
 
 ### <a name="common-troubleshooting-steps"></a>일반적인 문제 해결 단계
 <a id="troubleshoot-storage-account"></a>**스토리지 계정이 있는지 확인합니다.**  
@@ -1142,7 +1210,7 @@ if ($role -eq $null) {
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | Azure Storage 문제로 인해 파일을 계층화하지 못했습니다. | 오류가 지속되면 지원 요청을 작성합니다. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | 동시에 회수되었기 때문에 파일을 계층화하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 회수가 완료되고 파일이 더 이상 사용되지 않을 때 파일이 계층화됩니다. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Azure 파일 공유와 동기화되지 않았으므로 파일을 계층화하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 파일은 Azure 파일 공유에 동기화된 후 계층화됩니다. |
-| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | 클라우드 계층화 필터 드라이버(storagesync.sys)가 실행되고 있지 않으므로 파일을 계층화하지 못했습니다. | 이 문제를 해결하려면 관리자 권한 명령 프롬프트를 열고 다음 명령을 실행합니다. `fltmc load storagesync`<br>fltmc 명령을 실행할 때 storagesync 필터 드라이버를 로드하지 못한 경우 Azure 파일 동기화 에이전트를 제거하고 서버를 다시 시작한 후 Azure 파일 동기화 에이전트를 다시 설치합니다. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | 클라우드 계층화 필터 드라이버(storagesync.sys)가 실행되고 있지 않으므로 파일을 계층화하지 못했습니다. | 이 문제를 해결하려면 관리자 권한 명령 프롬프트를 열고 다음 명령을 실행합니다. `fltmc load storagesync`<br>fltmc 명령을 실행할 때 Azure 파일 동기화 필터 드라이버를 로드하지 못한 경우 Azure 파일 동기화 에이전트를 제거하고, 서버를 다시 시작하고, Azure 파일 동기화 에이전트를 다시 설치합니다. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | 서버 엔드포인트가 있는 볼륨의 디스크 공간이 부족하기 때문에 파일을 계층화하지 못했습니다. | 이 문제를 해결하려면 서버 엔드포인트가 있는 볼륨에서 100MB 이상의 디스크 공간을 확보합니다. |
 | 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Azure 파일 공유와 동기화되지 않았으므로 파일을 계층화하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 파일은 Azure 파일 공유에 동기화된 후 계층화됩니다. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | 지원되지 않는 재분석 지점이므로 파일을 계층화하지 못했습니다. | 파일이 데이터 중복 제거 재분석 지점인 경우 [계획 지침](file-sync-planning.md#data-deduplication)의 단계에 따라 데이터 중복 제거 지원을 사용하도록 설정합니다. 데이터 중복 제거 이외의 재분석 지점이 있는 파일은 지원되지 않으며 계층화되지 않습니다.  |
@@ -1153,6 +1221,8 @@ if ($role -eq $null) {
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | 시스템 리소스가 부족하여 파일을 계층화하지 못했습니다. | 오류가 계속 발생하면 시스템 리소스를 소모하는 애플리케이션 또는 커널 모드 드라이버를 조사합니다. |
 | 0x8e5e03fe | -1906441218 | JET_errDiskIO | 클라우드 계층화 데이터베이스에 쓸 때 I/O 오류 때문에 파일을 계층화하지 못했습니다. | 오류가 지속되면 볼륨에서 chkdsk를 실행하고 스토리지 하드웨어를 확인합니다. |
 | 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | 클라우드 계층화 데이터베이스가 실행되고 있지 않기 때문에 파일을 계층화하지 못했습니다. | 이 문제를 해결하려면 FileSyncSvc 서비스 또는 서버를 다시 시작합니다. 오류가 지속되면 볼륨에서 chkdsk를 실행하고 스토리지 하드웨어를 확인합니다. |
+| 0x80C80285 | -2160591493 | ECS_E_GHOSTING_SKIPPED_BY_CUSTOM_EXCLUSION_LIST | 파일 형식이 계층화에서 제외되므로 파일을 계층화할 수 없습니다. | 이 파일 형식을 사용하여 파일을 계층화하려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync 아래에 있는 GhostingExclusionList 레지스트리 설정을 수정합니다. |
+| 0x80C86050 | -2160615504 | ECS_E_REPLICA_NOT_READY_FOR_TIERING | 현재 동기화 모드가 초기 업로드 또는 조정 모드이므로 파일을 계층화하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 동기화에서 초기 업로드 또는 조정이 완료되면 파일이 계층화됩니다. |
 
 
 
@@ -1182,6 +1252,9 @@ if ($role -eq $null) {
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | 시스템 리소스가 부족하여 파일을 회수하지 못했습니다. | 오류가 계속 발생하면 시스템 리소스를 소모하는 애플리케이션 또는 커널 모드 드라이버를 조사합니다. |
 | 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | 메모리가 부족하여 파일을 회수하지 못했습니다. | 오류가 계속 발생하면 메모리 부족 상태를 유발하는 애플리케이션 또는 커널 모드 드라이버를 조사합니다. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | 디스크 공간이 부족하여 파일을 회수하지 못했습니다. | 이 문제를 해결하려면 파일을 다른 볼륨으로 이동하여 볼륨의 공간을 확보하거나, 볼륨의 크기를 늘리거나, Invoke-StorageSyncCloudTiering cmdlet을 사용하여 파일을 강제로 계층화합니다. |
+| 0x80072f8f | -2147012721 | WININET_E_DECODING_FAILED | 서버가 Azure 파일 동기화 서비스의 응답을 디코딩할 수 없어 파일을 회수하지 못했습니다. | 일반적으로 이 오류는 네트워크 프록시가 Azure 파일 동기화 서비스의 응답을 수정하는 경우에 발생합니다. 프록시 구성을 확인하세요. |
+| 0x80090352 | -2146892974 | SEC_E_ISSUING_CA_UNTRUSTED | 조직에서 TLS 종료 프록시를 사용하거나 악의적인 엔터티가 서버와 Azure 파일 동기화 서비스 간 트래픽을 가로채고 있어서 파일을 회수하지 못했습니다. | 조직에서 TLS 종료 프록시를 사용하기 때문에 충분히 예상할 수 있는 오류인 경우 [CERT_E_UNTRUSTEDROOT](https://docs.microsoft.com/azure/storage/file-sync/file-sync-troubleshoot?tabs=portal1%2Cazure-portal#-2146762487) 오류에 대해 문서화된 단계에 따라 이 문제를 해결하세요. |
+| 0x80c86047 | -2134351801 | ECS_E_AZURE_SHARE_SNAPSHOT_NOT_FOUND | 파일이 더 이상 Azure 파일 공유에 없는 파일 버전을 참조하므로 파일을 회수하지 못했습니다. | 이 문제는 계층화된 파일이 백업에서 복원된 경우에 발생할 수 있습니다. 이 문제를 해결하려면 지원 요청을 개설하세요. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>서버 엔드포인트를 삭제한 후 서버에서 계층화된 파일에 액세스할 수 없음
 서버에서 계층화된 파일은 서버 엔드포인트를 삭제하기 전에 파일이 회수되지 않은 경우 사용할 수 없게 됩니다.
@@ -1202,7 +1275,7 @@ if ($role -eq $null) {
 
 **참고 사항**
 - 서버에서 계층화된 파일에 액세스할 수 없는 경우 Azure 파일 공유에 직접 액세스하면 전체 파일에 액세스할 수 있습니다.
-- 나중에 분리된 계층화된 파일을 방지하려면 서버 엔드포인트를 삭제할 때 [서버 엔드포인트 제거](file-sync-server-endpoint.md#remove-a-server-endpoint)에 설명된 단계를 따르세요.
+- 나중에 분리된 계층화된 파일을 방지하려면 서버 엔드포인트를 삭제할 때 [서버 엔드포인트 제거](file-sync-server-endpoint-delete.md)에 설명된 단계를 따르세요.
 
 <a id="get-orphaned"></a>**분리된 계층화된 파일 목록을 가져오는 방법** 
 
@@ -1223,7 +1296,7 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 
 1. Azure 파일 동기화 에이전트 버전 v5.1 이상이 설치되어 있는지 확인합니다.
 2. Azure 파일 공유 및 서버 엔드포인트 위치를 백업합니다.
-3. [서버 엔드포인트 제거](file-sync-server-endpoint.md#remove-a-server-endpoint)에 설명된 단계를 수행하여 동기화 그룹에서 서버 엔드포인트를 제거합니다(있는 경우).
+3. [서버 엔드포인트 제거](file-sync-server-endpoint-delete.md)에 설명된 단계를 수행하여 동기화 그룹에서 서버 엔드포인트를 제거합니다(있는 경우).
 
 > [!Warning]  
 > Remove-StorageSyncOrphanedTieredFiles cmdlet을 사용하기 전에 서버 엔드포인트를 제거하지 않은 경우 서버에서 분리된 계층화된 파일을 삭제하면 Azure 파일 공유에서 전체 파일이 삭제됩니다. 
@@ -1273,6 +1346,18 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 
 > [!NOTE]
 >애플리케이션으로 인해 회수가 발생하는지를 확인하려면 원격 분석 이벤트 로그에서 이벤트 ID 9059를 사용합니다. 서버 엔드포인트의 애플리케이션 회수 분포를 제공하는 이 이벤트는 1시간마다 기록됩니다.
+
+### <a name="process-exclusions-for-azure-file-sync"></a>Azure 파일 동기화 대한 프로세스 제외
+
+Azure 파일 동기화에서 액세스하는 파일의 검사를 건너뛰도록 바이러스 백신 또는 다른 애플리케이션을 구성하려면 다음 프로세스를 제외하도록 구성합니다.
+
+- C:\Program Files\Azure\StorageSyncAgent\AfsAutoUpdater.exe
+- C:\Program Files\Azure\StorageSyncAgent\FileSyncSvc.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentLauncher.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentHost.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentManager.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentCore.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\Extensions\XSyncMonitoringExtension\AzureStorageSyncMonitor.exe
 
 ### <a name="tls-12-required-for-azure-file-sync"></a>Azure 파일 동기화에 TLS 1.2 필요
 

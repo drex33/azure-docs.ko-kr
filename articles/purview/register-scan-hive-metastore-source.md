@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 5/17/2021
-ms.openlocfilehash: c289ab60973c0e907deb97c0e8520f8b608099eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0a7d8a22cf8f9dcdaac9d3fe07bd6ab006e61818
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467084"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751906"
 ---
 # <a name="register-and-scan-hive-metastore-database"></a>Hive 메타스토어 데이터베이스 등록 및 검색
 
@@ -36,7 +36,7 @@ Hive 메타스토어 원본은 **Hive 메타스토어 데이터베이스** 에�
     > [!Note]
     > VM의 모든 계정에서 드라이버에 액세스할 수 있어야 합니다. 사용자 계정에는 설치하지 마세요.
 
-5.  지원되는 Hive 버전은 2.x~3.x입니다.
+5.  지원되는 Hive 버전은 2.x~3.x입니다. 지원되는 Databricks 버전은 8.0 이상입니다. 
 
 ## <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
 
@@ -48,7 +48,7 @@ Hive 메타스토어 데이터베이스에 대해 유일하게 지원되는 인�
 
 1.  Purview 계정으로 이동합니다.
 
-2.  왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+2.  왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 
 3.  **등록** 을 선택합니다.
 

@@ -8,14 +8,17 @@ ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
-ms.openlocfilehash: 703732725ae7215d3ff59ad92a4c171a86251c20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82aa54f1b9aea331c7c08128487fbc9711cac2df
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677187"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696841"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>RHEL(Red Hat Enterprise Linux) 수명 주기 연장 지원
+
+**적용 대상:** :heavy_check_mark: Linux VM 
+
 본 문서에서는 Red Hat Enterprise 이미지의 수명 주기 연장 지원 관련 정보를 제공합니다.
 * Red Hat Enterprise Linux 6  
 
@@ -48,7 +51,7 @@ Red Hat에 직접 연락하여서 직접 지원을 받아야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure의 RHEL 이미지 전체 목록을 확인하려면 [Azure에서 사용 가능한 RHEL(Red Hat Enterprise Linux) 이미지](./redhat-imagelist.md)를 참조하세요.
-* Azure Red Hat 업데이트 인프라에 대하여 자세히 확인하려면 [Azure의 주문형 RHEL VM용 Red Hat 업데이트 인프라](./redhat-rhui.md)를 참조하세요.
-* RHEL BYOS 제품에 대하여 자세히 확인하려면 [Azure의 Red Hat Enterprise Linux BYOS 골드 이미지](./byos.md)를 참조하세요.
-* RHEL 전체 버전의 Red Hat 지원 정책에 대한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조하세요.
+* Azure의 RHEL 이미지 전체 목록을 보려면 [Azure에서 사용 가능한 RHEL(Red Hat Enterprise Linux) 이미지](./redhat-imagelist.md)를 참조하세요.
+* Azure Red Hat 업데이트 인프라에 대해 자세히 알아보려면 [Azure의 주문형 RHEL VM용 Red Hat 업데이트 인프라](./redhat-rhui.md)를 참조하세요.
+* RHEL BYOS 제품에 대해 자세히 알아보려면 [Azure의 Red Hat Enterprise Linux BYOS 골드 이미지](./byos.md)를 참조하세요.
+* 모든 RHEL 버전의 Red Hat 지원 정책에 대한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조하세요.

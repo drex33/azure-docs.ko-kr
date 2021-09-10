@@ -9,12 +9,12 @@ ms.topic: overview
 ms.subservice: azure-video-analyzer-media
 ms.date: 07/15/2021
 ms.author: juliako
-ms.openlocfilehash: 79c6dc98bd214594b938cf74ce9176a64867fe3e
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 9f7b76a0de33e89a17f89f3c93fc7de430a681c9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114711853"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734153"
 ---
 # <a name="what-is-video-analyzer-for-media"></a>Video Analyzer for Media란?
 
@@ -74,7 +74,7 @@ Video Analyzer for Media의 인사이트는 다음과 같은 다양한 시나리
 
 ### <a name="audio-insights"></a>오디오 인사이트
 
-* **오디오 전사**: 음성을 12개 언어의 텍스트로 변환하고 확장을 허용합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 아랍어, 러시아어, 포르투갈어, 힌디어 및 한국어입니다.
+* **오디오 대화 내용 기록**: 음성을 50개 이상 언어의 텍스트로 변환하고 확장을 허용합니다. 지원되는 언어에는 영어 미국, 영어 영국, 영어 오스트레일리아, 스페인어, 스페인어(멕시코), 프랑스어, 프랑스어(캐나다), 독일어, 이탈리아어, 중국어(북경어), 중국어(광동어, 번체), 중국어(간체), 일본어, 러시아어, 포르투갈어, 힌디어, 체코어, 네덜란드어, 폴란드어, 덴마크어, 노르웨이어, 핀란드어, 스웨덴어, 태국어, 터키어, 한국어, 아랍어(이집트), 아랍어(시리아), 아랍어(이스라엘), 아랍어(이라크), 아랍어(요르단), 아랍어(쿠웨이트), 아랍어(레바논), 아랍어(오만), 아랍어(카타르), 아랍어(사우디아라비아), 아랍어(아랍에미리트), 아랍어(팔레스타인 자치 정부), 아랍어 최신 표준(바레인)이 있습니다.
 * **자동 언어 감지**: 기준 음성 언어를 자동으로 식별합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 러시아어 및 포르투갈어입니다. 언어를 확실하게 식별할 수 없는 경우 Video Analyzer for Media는 음성 언어를 영어로 가정합니다. 자세한 내용은 [언어 식별 모델](language-identification-model.md)을 참조하세요.
 * **다국어 음성 식별 및 전사**: 오디오의 여러 세그먼트에서 음성 언어를 자동으로 식별합니다. 미디어 파일의 각 세그먼트를 전사되도록 전송한 다음 전사를 다시 하나의 통합된 전사로 결합합니다. 자세한 내용은 [자동으로 다국어 콘텐츠 식별 및 전사](multi-language-identification-transcription.md)를 참조하세요.
 * **선택 자막**: VTT, TTML, SRT의 세 가지 형식으로 선택 자막을 만듭니다.

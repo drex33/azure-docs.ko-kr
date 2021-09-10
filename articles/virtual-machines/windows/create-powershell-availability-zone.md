@@ -8,14 +8,16 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 01c4c22dcf806eced40cf6d3aa382dbeb68078aa
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5e059cd4112b39565ba07b39d80d2db4a53c9d46
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669259"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693475"
 ---
 # <a name="create-a-virtual-machine-in-an-availability-zone-using-azure-powershell"></a>Azure PowerShell을 사용하여 가용성 영역에서 가상 머신 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 이 문서는 Azure PowerShell을 사용하여 Azure 가용성 영역에서 Windows Server 2016을 실행 중인 Azure 가상 머신 만들기를 자세히 설명합니다. [가용성 영역](../../availability-zones/az-overview.md)은 Azure 지역에서 물리적으로 별도 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
 

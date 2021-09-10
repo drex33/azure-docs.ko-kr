@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 05/08/2021
-ms.openlocfilehash: 655314720975738ebdbddb009d6d31ad7a322e72
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: 06f3ee8b820d732c0f605adc3201cff57fa70b42
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112552289"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121739087"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance 등록 및 검사
 
@@ -95,7 +95,7 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 1. [Azure Portal](https://portal.azure.com)에서 서비스 주체로 이동합니다.
 1. **개요** 에서 **애플리케이션(클라이언트) ID** 값을 복사하고, **인증서 및 비밀** 에서 **클라이언트 암호** 값을 복사합니다.
 1. 키 자격 증명 모음으로 이동
-1. **설정 > 비밀** 을 선택합니다.
+1. **설정 > 비밀** 을 차례로 선택합니다.
 1. **+ 생성/가져오기** 를 선택하고, 선택한 **이름** 및 **값** 을 서비스 주체의 **클라이언트 암호** 로 입력합니다.
 1. **만들기** 를 선택하여 완료합니다.
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
@@ -105,7 +105,7 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 
 1. Purview 계정으로 이동합니다.
 
-1. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 
 1. **등록** 을 선택합니다.
 

@@ -10,15 +10,16 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: 622ebfed8294dbcb441aa509fc4f6ba75114f28d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 167d46b96853c372790002bdb0d9609581970426
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499359"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690201"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Azure 가상 머신 관련 보안 권장 사항
 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 이 문서에는 Azure Virtual Machines에 대한 보안 권장 사항이 포함되어 있습니다. 권장 사항을 따르면 공유 책임 모델에 설명된 보안 의무를 충족할 수 있습니다. 또한 권장 사항은 웹앱 솔루션의 전반적인 배포 관련 보안 수준을 높이는 데 도움이 됩니다. Microsoft에서 서비스 공급자 책임을 충족하기 위해 수행하는 작업에 대한 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)을 참조하세요.
 

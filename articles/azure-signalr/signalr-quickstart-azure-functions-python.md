@@ -10,12 +10,12 @@ ms.devlang: python
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: 46c15f932f55883be66745d415820767089ae0f1
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 99d2f7a67ede762f84e5f6d9abf5af78c5751d22
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462004"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444971"
 ---
 # <a name="quickstart-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service-using-python"></a>빠른 시작: Python을 사용하여 SignalR Service와 Azure Functions로 GitHub 별모양 개수를 표시하는 앱 만들기
 
@@ -65,7 +65,30 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
         ```bash
         func new -n index -t HttpTrigger
         ```
-        
+        `index/function.json`을 열고 다음 json 코드를 복사합니다.
+
+        ```json
+        {
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ]
+        }
+        ```
+
         `index/__init__.py`를 열고 다음 코드를 복사합니다.
 
         ```javascript
@@ -92,7 +115,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
           "scriptFile": "__init__.py",
           "bindings": [
             {
-              "authLevel": "function",
+              "authLevel": "anonymous",
               "type": "httpTrigger",
               "direction": "in",
               "name": "req",
@@ -133,9 +156,9 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
         # install requests
         pip install requests
         ```
-    
+
         `broadcast/function.json`을 열고 다음 코드를 복사합니다.
-    
+
         ```json
         {
           "scriptFile": "__init__.py",
@@ -177,7 +200,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
             }))
         ```
 
-3. 이 샘플의 클라이언트 인터페이스는 웹 페이지입니다. `index` 함수에서 `content/index.html`의 HTML 콘텐츠를 읽은 것으로 간주하여 `content` 디렉터리에 새 파일 `index.html`을 만듭니다. 그리고 다음 내용을 복사합니다.
+3. 이 샘플의 클라이언트 인터페이스는 웹 페이지입니다. `index` 함수에서 `content/index.html`의 HTML 콘텐츠를 읽은 것으로 간주하여 프로젝트 루트 폴더 아래의 `content` 디렉터리에 새 파일 `index.html`을 만듭니다. 그리고 다음 내용을 복사합니다.
 
     ```html
     <html>
@@ -211,14 +234,14 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
         ![SignalR Service 인스턴스를 검색합니다.](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-    1. SignalR Service 인스턴스의 연결 문자열을 보려면 **키** 를 선택합니다.
+    2. SignalR Service 인스턴스의 연결 문자열을 보려면 **키** 를 선택합니다.
     
         ![기본 연결 문자열을 강조 표시하는 스크린샷.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. 기본 연결 문자열을 복사합니다. 그런 다음 아래의 명령을 실행합니다.
+    3. 기본 연결 문자열을 복사합니다. 그런 다음 아래의 명령을 실행합니다.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
 5. 로컬에서 Azure Function 실행:
@@ -227,7 +250,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     func start
     ```
 
-    로컬로 Azure Function을 실행한 후 브라우저에서 `http://localhost:7071/api/index`를 방문하면 현재 시작 횟수를 볼 수 있습니다. 그리고 GitHub에서 별모양을 표시하거나 표시 해제하면 몇 초마다 시작 횟수가 새로 고쳐집니다.
+    로컬로 Azure Function을 실행한 후 브라우저에서 `http://localhost:7071/api/index`를 방문하면 현재 별 개수를 볼 수 있습니다. 또한 GitHub에서 별을 표시하거나 표시 해제하면 몇 초마다 별 개수가 바뀝니다.
 
     > [!NOTE]
     > SignalR 바인딩에는 Azure Storage가 필요하지만 함수가 로컬에서 실행 중일 때 로컬 스토리지 에뮬레이터를 사용할 수 있습니다.

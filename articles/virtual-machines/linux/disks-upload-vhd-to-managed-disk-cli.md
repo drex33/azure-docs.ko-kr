@@ -8,18 +8,20 @@ ms.date: 06/29/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 4928cb098990a0f91fd0d6a4fbde4844a81ed338
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: e78998d089ffe6446e9b7dbdf898b2d4ee4ba3a1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113358384"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694932"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Azure에 VHD 업로드 또는 다른 지역에 관리 디스크 복사 - Azure CLI
 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
+
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 최신 [AzCopy v10 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드합니다.
 - [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).

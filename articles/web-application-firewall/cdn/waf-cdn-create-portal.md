@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 9579d0da3347bdd4ecc627662cee42f909cbfaf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8710bac1d3161581f1002aa2d7531350c197be1
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92132774"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696718"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure CDN에 WAF 정책 만들기
 
@@ -39,8 +39,8 @@ ms.locfileid: "92132774"
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | 정책            |Azure CDN(미리 보기)을 선택합니다.|
-    | Subscription            |Front Door 구독 이름을 선택합니다.|
-    | Resource group          |Front Door 리소스 그룹 이름을 선택합니다.|
+    | Subscription            |CDN 프로필 구독 이름을 선택합니다.|
+    | Resource group          |CDN 프로필 리소스 그룹 이름을 선택합니다.|
     | 정책 이름             |WAF 정책의 고유한 이름을 입력합니다.|
 
    :::image type="content" source="../media/waf-cdn-create-portal/basic.png" alt-text="검토 + 만들기 단추 및 다양한 설정에 대해 입력한 값이 포함된 WAF 정책 페이지의 스크린샷" border="false":::

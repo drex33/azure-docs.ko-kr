@@ -1,18 +1,18 @@
 ---
 title: 빠른 시작 - Terraform을 사용하여 Azure Spring Cloud 프로비저닝
 description: 이 빠른 시작에서는 Terraform을 사용하여 기존 가상 네트워크에 Spring Cloud 클러스터를 배포하는 방법을 보여 줍니다.
-author: aluna033
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-java
 ms.author: ariel
 ms.date: 06/15/2021
-ms.openlocfilehash: d099e86f5a28aae145723b728e79ce3ee55f8250
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: f3459ef8fe7f3d1dcc491c0c7dcc8863df0b2cb1
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114287571"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271513"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-terraform"></a>빠른 시작: Terraform을 사용하여 Azure Spring Cloud 프로비저닝
 
@@ -38,7 +38,7 @@ Azure Spring Cloud를 사용하면 코드 변경 없이 Spring Boot 마이크로
 
 ```hcl
 provider "azurerm" {
-    features {} 
+    features {}
 }
 
 resource "azurerm_resource_group" "sc_corp_rg" {
@@ -55,24 +55,24 @@ resource "azurerm_application_insights" "sc_app_insights" {
 }
 
 resource "azurerm_spring_cloud_service" "sc" {
-  name                = var.sc_service_name 
+  name                = var.sc_service_name
   resource_group_name = var.resource_group_name
   location            = var.location
-  
+
   network {
     app_subnet_id                   = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.app_subnet_id}"
     service_runtime_subnet_id       = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.service_runtime_subnet_id}"
     cidr_ranges                     = var.sc_cidr
   }
-  
+
   timeouts {
       create = "60m"
       delete = "2h"
   }
-  
+
   depends_on = [azurerm_resource_group.sc_corp_rg]
   tags = var.tags
-  
+
 }
 
 resource "azurerm_monitor_diagnostic_setting" "sc_diag" {
@@ -111,27 +111,19 @@ resource "azurerm_monitor_diagnostic_setting" "sc_diag" {
 
    - [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all)에 표시된 대로 Azure Spring Cloud를 사용할 수 있는 지역의 배포 위치. 약식 형태의 위치 이름이 필요합니다. 이 값을 얻으려면 다음 명령을 사용하여 Azure 위치 목록을 생성한 다음, 선택한 지역의 **이름** 값을 조회합니다.
 
-      ```azurecli
-      az account list-locations --output table
-      ```
+   ```azurecli
+   az account list-locations --output table
+   ```
 
    - 배포할 리소스 그룹의 이름
-
    - 선택한 Spring Cloud 배포 이름
-
    - 리소스를 배포할 가상 네트워크 리소스 그룹의 이름
-
    - 스포크 가상 네트워크의 이름(예: *vnet-spoke*)
-
    - Spring Cloud App Service에서 사용할 서브넷의 이름(예: *snet-app*)
-
    - Spring Cloud 런타임 서비스에서 사용할 서브넷의 이름(예: *snet-runtime*)
-
    - Azure Log Analytics 작업 영역의 이름
-
    - Azure Spring Cloud에서 사용할 가상 네트워크의 CIDR 범위(예: *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*)
-
-   - 태그를 지원하는 모든 리소스에서 태그로 적용할 키/값 쌍. 자세한 내용은 [태그를 사용하여 Azure 리소스 및 관리 계층 구조 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요. 
+   - 태그를 지원하는 모든 리소스에서 태그로 적용할 키/값 쌍. 자세한 내용은 [태그를 사용하여 Azure 리소스 및 관리 계층 구조 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
 1. 다음 명령을 실행하여 Terraform 모듈을 초기화합니다.
 

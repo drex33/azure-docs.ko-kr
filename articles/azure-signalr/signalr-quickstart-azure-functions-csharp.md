@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 06/09/2021
 ms.author: zhshang
-ms.openlocfilehash: 1856f6e012c2b90e173162f055d64402f0c4c908
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 3a3fa958ac6ad1cb440f30b5c680ae3f9139d29a
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462112"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444926"
 ---
 # <a name="quickstart-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service-using-c"></a>빠른 시작: C를 사용하여 SignalR Service와 Azure Functions로 GitHub 별모양 개수를 표시하는 앱 만들기\#
 
@@ -105,7 +105,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
                     new SignalRMessage
                     {
                         Target = "newMessage",
-                        Arguments = new[] { $"Current start count of https://github.com/Azure/azure-signalr is: {result.StartCount}" }
+                        Arguments = new[] { $"Current star count of https://github.com/Azure/azure-signalr is: {result.StarCount}" }
                     });
             }
     
@@ -113,14 +113,14 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
             {
                 [JsonRequired]
                 [JsonProperty("stargazers_count")]
-                public string StartCount { get; set; }
+                public string StarCount { get; set; }
             }
         }
     }
     ```
-    이 코드에는 세 가지 함수가 있습니다. `Index`는 웹사이트를 클라이언트로 가져오는 데 사용됩니다. `Negotiate`는 클라이언트가 액세스 토큰을 가져오는 데 사용됩니다. `Broadcast`는 주기적으로 GitHub에서 시작 카운트를 가져오고 모든 클라이언트에 메시지를 브로드캐스트합니다.
+    이 코드에는 세 가지 함수가 있습니다. `Index`는 웹사이트를 클라이언트로 가져오는 데 사용됩니다. `Negotiate`는 클라이언트가 액세스 토큰을 가져오는 데 사용됩니다. `Broadcast`는 GitHub에서 별 개수를 주기적으로 가져오고 메시지를 모든 클라이언트에 브로드캐스트합니다.
 
-3. 이 샘플의 클라이언트 인터페이스는 웹 페이지입니다. `GetHomePage` 함수에서 `content/index.html`의 HTML 콘텐츠를 읽은 것으로 간주하여 `content` 디렉터리에 새 파일 `index.html`을 만듭니다. 그리고 다음 내용을 복사합니다.
+3. 이 샘플의 클라이언트 인터페이스는 웹 페이지입니다. `GetHomePage` 함수의 `content/index.html`에서 HTML 콘텐츠를 읽은 것으로 간주하고 프로젝트 루트 폴더 아래의 `content` 디렉터리에 새 파일 `index.html`을 만듭니다. 그리고 다음 내용을 복사합니다.
     ```html
     <html>
     
@@ -147,29 +147,39 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     </html>
     ```
 
-4. 이제 거의 완료되었습니다. 마지막 단계는 Azure Function 설정에 SignalR Service의 연결 문자열을 설정하는 것입니다.
+4. `*.csproj`를 업데이트하여 빌드 출력 폴더에 콘텐츠 페이지를 만듭니다.
+
+    ```html
+    <ItemGroup>
+      <None Update="content/index.html">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+    ```
+
+5. 이제 거의 완료되었습니다. 마지막 단계는 Azure Function 설정에 SignalR Service의 연결 문자열을 설정하는 것입니다.
 
     1. Azure Portal이 열리는 브라우저에서, 포털의 맨 위에 있는 검색 상자에서 해당 이름을 검색하여 이전에 배포한 SignalR Service 인스턴스를 성공적으로 만들었는지 확인합니다. 인스턴스를 선택하여 엽니다.
 
         ![SignalR Service 인스턴스를 검색합니다.](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-    1. SignalR Service 인스턴스의 연결 문자열을 보려면 **키** 를 선택합니다.
+    2. SignalR Service 인스턴스의 연결 문자열을 보려면 **키** 를 선택합니다.
     
         ![기본 연결 문자열을 강조 표시하는 스크린샷.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. 기본 연결 문자열을 복사합니다. 그런 다음 아래의 명령을 실행합니다.
+    3. 기본 연결 문자열을 복사합니다. 그런 다음 아래의 명령을 실행합니다.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
-5. 로컬에서 Azure Function 실행:
+6. 로컬에서 Azure Function 실행:
 
     ```bash
     func start
     ```
 
-    로컬로 Azure Function을 실행한 후 브라우저에서 `http://localhost:7071/api/index`를 방문하면 현재 시작 횟수를 볼 수 있습니다. 그리고 GitHub에서 별모양을 표시하거나 표시 해제하면 몇 초마다 시작 횟수가 새로 고쳐집니다.
+    로컬로 Azure Function을 실행한 후 브라우저에서 `http://localhost:7071/api/index`를 방문하면 현재 별 개수를 볼 수 있습니다. 또한 GitHub에서 별을 표시하거나 표시 해제하면 몇 초마다 별 개수가 바뀝니다.
 
     > [!NOTE]
     > SignalR 바인딩에는 Azure Storage가 필요하지만 함수가 로컬에서 실행 중일 때 로컬 스토리지 에뮬레이터를 사용할 수 있습니다.
@@ -183,15 +193,15 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 로컬에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. Azure Functions에 대해 SignalR Service 바인딩을 사용하는 방법에 대해 자세히 알아봅니다.
-다음으로 SignalR Service를 사용하여 클라이언트와 Azure Function 간의 양방향 통신 방법에 대해 자세히 알아봅니다.
+이 빠른 시작에서는 로컬에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. Azure Functions에 대해 SignalR Service 바인딩을 사용하는 방법을 자세히 알아봅니다.
+그런 다음, SignalR Service를 사용하여 클라이언트와 Azure Function 간 양방향 통신을 수행하는 방법을 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Functions의 SignalR Service 바인딩](../azure-functions/functions-bindings-signalr-service.md)
 
 > [!div class="nextstepaction"]
-> [서버리스에서 양방향 통신](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
+> [서버리스의 양방향 통신](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
 
 > [!div class="nextstepaction"]
-> [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md)
+> [Visual Studio를 사용하여 Azure 함수 앱에 배포](../azure-functions/functions-develop-vs.md#publish-to-azure)
 

@@ -7,14 +7,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 73b21947410ac275a568e20208c062f0da7a1b2e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ae954f1a461f2a5fd98b0f0374f6583fed34ce05
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769960"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689883"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Linux 가상 머신을 만드는 방법
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Cloud shell의 Azure Resource Manager 템플릿과 Azure CLI를 사용하여 Linux VM(가상 머신)을 만드는 방법에 대해 알아봅니다. Windows 가상 머신을 만들려면, [Resource Manager 템플릿에서 windows 가상 머신 만들기](../windows/ps-template.md)를 참조하세요.
 

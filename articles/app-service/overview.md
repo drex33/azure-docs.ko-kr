@@ -3,14 +3,14 @@ title: 개요
 description: Azure App Service로 웹 애플리케이션을 개발 및 호스팅하는 방법에 대해 알아보세요.
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 07/06/2020
+ms.date: 07/21/2021
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 8994edd417f4f9e94ae14e5923dd1a0d7398f584
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 481ef611bb3bd48ae5096abc538bd43a1bac2423
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209772"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741527"
 ---
 # <a name="app-service-overview"></a>App Service 개요
 
@@ -54,9 +54,11 @@ Linux의 App Service는 다양한 언어별 기본 제공 이미지를 지원합
 
 ### <a name="limitations"></a>제한 사항
 
+> [!NOTE]
+> Linux 및 Windows App Service 요금제는 이제 리소스 그룹을 공유할 수 있습니다. 이 제한은 플랫폼에서 해제되었으며 기존 리소스 그룹은 이를 지원하도록 업데이트되었습니다.
+>
+
 - Linux의 App Service는 [공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 가격 책정 계층에서 지원되지 않습니다. 
-- 동일한 App Service 계획에서 Windows 및 Linux 앱을 혼합할 수 없습니다.  
-- 이전에는 동일한 리소스 그룹에서 Windows 및 Linux 앱을 혼합할 수 없었습니다. 그러나 2021년 1월 21일 이후에 생성된 모든 리소스 그룹은 이 시나리오를 지원합니다. 2021년 1월 21일 이전에 만든 리소스 그룹의 경우 혼합 플랫폼 배포를 추가하는 기능이 곧 Azure 지역(국가별 클라우드 지역 포함) 전체에 롤아웃됩니다.
 - Azure Portal에는 현재 Linux 앱에서 작동하는 기능만 표시됩니다. 기능이 활성화되면 포털에서 활성화됩니다.
 - 기본 제공 이미지에 배포된 경우 코드 및 콘텐츠에는 Azure Storage에서 지원하는 웹 콘텐츠용 스토리지 볼륨이 할당됩니다. 이 볼륨의 디스크 대기 시간은 컨테이너 파일 시스템의 대기 시간보다 높고 더 많은 변수가 있습니다. 콘텐츠 파일에 대한 많은 읽기 전용 액세스를 필요로 하는 앱은 콘텐츠 볼륨 대신 파일 시스템에 파일을 배치하는 사용자 지정 컨테이너 옵션의 이점을 누릴 수 있습니다.
 

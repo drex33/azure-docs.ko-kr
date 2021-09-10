@@ -6,19 +6,21 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 07/02/2019
+ms.date: 08/09/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 651d644070f13933fadf4a2616e770a27c014c92
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: ca4466c307a893ac7058581a5e22aec87b9a71a2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112074884"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694687"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows 가상 머신 만들기
 
-명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Windows Server 2016을 실행하는 Azure에서 VM(가상 머신)을 배포하는 방법을 보여 줍니다. 작업에서 VM을 보려면 VM에 RDP를 수행하고 IIS 웹 서버를 설치합니다.
+**적용 대상:** :heavy_check_mark: Windows VM
+
+명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Windows Server 2019을 실행하는 Azure에서 VM(가상 머신)을 배포하는 방법을 보여 줍니다. 작업에서 VM을 보려면 VM에 RDP를 수행하고 IIS 웹 서버를 설치합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -41,17 +43,21 @@ az group create --name myResourceGroup --location eastus
 [az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myVM* 이라는 VM을 만듭니다. 이 예에서는 관리자 이름으로 *azureuser* 를 사용합니다. 
 
 [Azure VM의 암호 요구 사항](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
-)을 충족하는 암호를 제공해야 합니다. 아래 예제를 사용하여 명령줄에서 암호를 입력하라는 메시지가 표시됩니다. 암호에 대한 값을 사용하여 `--admin-password` 매개 변수를 추가할 수도 있습니다. 사용자 이름 및 암호는 나중에 VM에 연결할 때 사용됩니다.
+)을 충족하는 암호를 제공해야 합니다. 
+
+아래 예제를 사용하여 명령줄에서 암호를 입력하라는 메시지가 표시됩니다. 암호에 대한 값을 사용하여 `--admin-password` 매개 변수를 추가할 수도 있습니다. 사용자 이름 및 암호는 나중에 VM에 연결할 때 사용됩니다.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image win2016datacenter \
+    --image Win2019Datacenter \
+    --public-ip-sku Standard \
     --admin-username azureuser 
 ```
 
 VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다. 다음 예제 출력은 VM 만들기 작업이 완료되었음을 보여줍니다.
+
 
 ```output
 {
@@ -67,8 +73,6 @@ VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다. 다음 예제 
 ```
 
 VM의 출력에서 사용자 고유의 `publicIpAddress`를 적어 둡니다. 이 주소는 다음 단계에서 VM에 액세스하는 데 사용됩니다.
-
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## <a name="open-port-80-for-web-traffic"></a>웹 트래픽에 대해 포트 80 열기
 

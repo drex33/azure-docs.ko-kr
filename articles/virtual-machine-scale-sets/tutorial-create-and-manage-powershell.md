@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 1d420239a2aeea516151a047f1b9fecd37b99bfb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6ac2bdcbea608c4b2ed8faadfa92b4b3b9d10c73
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108771983"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769146"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기 및 관리
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 균일한 확장 집합
 
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -145,7 +147,7 @@ VM 인스턴스에 로그인한 후 필요에 따라 일부 구성 변경을 수
 
 
 ## <a name="understand-vm-instance-images"></a>VM 인스턴스 이미지 이해
-Azure Marketplace에는 VM 인스턴스를 만드는 데 사용할 수 있는 많은 VM 이미지가 포함되어 있습니다. 사용 가능한 게시자 목록을 보려면 [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) 명령을 사용합니다.
+Azure Marketplace에는 VM 인스턴스를 만드는 데 사용할 수 있는 많은 이미지가 포함되어 있습니다. 사용 가능한 게시자 목록을 보려면 [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) 명령을 사용합니다.
 
 ```azurepowershell-interactive
 Get-AzVMImagePublisher -Location "EastUS"

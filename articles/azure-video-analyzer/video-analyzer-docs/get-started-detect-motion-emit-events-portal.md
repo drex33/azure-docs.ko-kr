@@ -3,12 +3,12 @@ title: Azure Portal을 사용하여 Azure Video Analyzer 시작 - Azure
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Video Analyzer를 시작하는 단계를 안내합니다.
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.openlocfilehash: 4ff89417a10e50ff404ce22b7c57a2c0e29322e6
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: df63755aa66399a2f457673ba17391d5b42f31a8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601087"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734234"
 ---
 # <a name="quickstart-get-started-with-azure-video-analyzer-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Video Analyzer 시작
 
@@ -230,7 +230,7 @@ Azure Video Analyzer 계정을 만들 때 Azure Storage 계정을 연결해야 �
 
 ## <a name="use-direct-method-calls"></a>직접 메서드 호출 사용
 
-이제 Video Analyzer 에지 모듈이 노출하는 직접 메서드를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다. 모듈이 제공하는 직접 메서드를 모두 검사하려면 [Video Analyzer 직접 메서드](direct-methods.md)를 참조하세요.
+이제 Video Analyzer 에지 모듈이 노출하는 직접 메서드를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다. 모듈이 제공하는 직접 메서드를 모두 검사하려면 [Video Analyzer 직접 메서드](direct-methods.md)를 참조하세요. 직접 메서드에 대한 스키마는 [여기](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.0.0/AzureVideoAnalyzerSdkDefinitions.json)에서 찾을 수 있습니다.
 
 ### <a name="enumerate-pipeline-topologies"></a>파이프라인 토폴로지 열거
 

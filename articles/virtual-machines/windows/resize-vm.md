@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5126f6a0dedec746792e9ed545541f938c110c72
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 9d953b9b10a92e8d20a30713e7764348a90c64e4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110672652"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697780"
 ---
 # <a name="resize-a-virtual-machine-using-the-azure-portal-or-powershell"></a>Azure Portal 또는 PowerShell을 사용하여 가상 머신 크기 조정
+
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서에서는 VM을 다른 [VM 크기](../sizes.md)로 전환하는 방법을 보여 줍니다.
 

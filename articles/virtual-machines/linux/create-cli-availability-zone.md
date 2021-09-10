@@ -6,14 +6,16 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3405468c64a7130bb0d71543403dd4ce5ef9c241
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 646a5a65105912215bc378ae7e7813dfa9ffe31b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558375"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692096"
 ---
 # <a name="create-a-virtual-machine-in-an-availability-zone-using-azure-cli"></a>Azure CLI를 사용하여 가용성 영역에서 가상 머신 생성하기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서는 Azure CLI를 사용하여 Azure 가용성 영역에서 Linux VM을 만드는 단계를 안내합니다. [가용성 영역](../../availability-zones/az-overview.md)은 Azure 지역에서 물리적으로 별도 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
 

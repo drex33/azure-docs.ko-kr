@@ -7,17 +7,17 @@ manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
-ms.date: 06/22/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 31d915cd44bcf60f3515eb1a84309980f45d40b0
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: d7a46f41aecf4b53fed309ef9d1eaaaeadb819fc
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868289"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770310"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>빠른 시작: 알림 허브에서 푸시 알림 설정
 
@@ -123,6 +123,9 @@ WNS(Windows Push Notification Service)를 설정하려면 다음을 수행합니
 자세한 내용은 [Azure Notification Hubs를 사용하여 UWP에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)를 참조하세요.
 
 ## <a name="microsoft-push-notification-service-for-windows-phone"></a>Windows Phone용 Microsoft Push Notification Service
+
+> [!NOTE]
+> MPNS(Microsoft 푸시 알림 서비스)는 더 이상 사용되지 않으며 지원하지 않습니다.
 
 Windows Phone용 MPNS(Microsoft Push Notification Service)를 설정하려면 다음을 수행합니다.
 

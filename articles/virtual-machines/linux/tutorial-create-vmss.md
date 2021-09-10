@@ -10,14 +10,16 @@ ms.collection: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 322a0122b2be984792b1ef37e4245989d4edbba5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e20622d48132172387e78d2e4db6ef808e68bf12
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768214"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697713"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>자습서: Azure CLI를 통해 Linux에서 가상 머신 확장 집합 만들기 및 고가용성 앱 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 균일한 확장 집합
 
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 머신 확장 집합을 배포합니다. 다음 방법을 알아봅니다.
 

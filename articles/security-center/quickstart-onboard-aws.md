@@ -7,12 +7,12 @@ ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6450907ca888a01acaed90abeb6c3cdd02e32834
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: ac057d169e3bab1b154eeb7fc9148310873ed549
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113486934"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731132"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -42,7 +42,7 @@ AWS 계정을 Security Center에 온보딩하면 AWS Security Hub와 Azure Secur
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
 |필요한 역할 및 권한:|관련 Azure 구독의 **소유자**<br>소유자가 서비스 주체 세부 정보를 제공하는 경우에는 **기여자** 를 AWS 계정에 연결할 수도 있습니다.|
-|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/소버린(US Gov, Azure 중국)|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
 
 

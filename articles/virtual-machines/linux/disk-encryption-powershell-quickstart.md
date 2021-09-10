@@ -9,14 +9,16 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1833b25554df53a480af9a8fc643755dbc2bbdb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 916f1b268e8fc8a3b765e4362190a2db78ec306a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564682"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698486"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure에서 Linux VM 만들기 및 암호화
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Linux 가상 머신을 만들고 암호화 키 스토리지용 Key Vault를 만들고 VM을 암호화하는 방법을 보여 줍니다. 이 빠른 시작에서는 Canonical 및 VM Standard_D2S_V3 크기의 Ubuntu 16.04 LTS 마켓플레이스 이미지를 사용합니다. 
 

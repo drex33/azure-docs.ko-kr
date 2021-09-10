@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2021
-ms.openlocfilehash: 45d9104c5669b3b0adef2c32757076097656ae87
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: cafe928ad8baed2a597bfef9bbedca8ca72e1d76
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967891"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122202004"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-offline-using-dms"></a>자습서: DMS를 사용하여 MySQL에서 Azure Database for MySQL로 오프라인 마이그레이션
 
@@ -25,8 +25,6 @@ Azure Database Migration Service의 고속 데이터 마이그레이션 기능�
 
 > [!IMPORTANT]
 > 온라인 마이그레이션의 경우에는 [데이터 입력 복제](../mysql/concepts-data-in-replication.md) 기능이 있는 [MyDumper/MyLoader](https://centminmod.com/mydumper.html)와 같은 오픈 소스 도구를 사용합니다. 
-
-[!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
 
 > [!NOTE]
 > 이 마이그레이션 환경의 PowerShell 기반 스크립트 가능한 버전은 [Azure Database for MySQL로의 스크립트 가능한 오프라인 마이그레이션](./migrate-mysql-to-azure-mysql-powershell.md)을 참조하세요.
@@ -76,6 +74,24 @@ Azure Database Migration Service의 고속 데이터 마이그레이션 기능�
 * Azure Database for MySQL은 InnoDB 테이블만 지원합니다. MyISAM 테이블을 InnoDB로 변환하려면 [MyISAM에서 InnoDB로 테이블 변환](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) 문서를 참조하세요.
 * 사용자에게 원본 데이터베이스에서 데이터를 읽을 수 있는 권한이 있어야 합니다.
 
+## <a name="sizing-the-target-azure-database-for-mysql-instance"></a>대상 Azure Database for MySQL 인스턴스 크기 조정
+
+Azure Database Migration Service를 사용하여 더 빠르게 데이터를 로드할 수 있도록 대상 Azure Database for MySQL 서버를 준비하려면 다음 서버 매개 변수 및 구성을 변경하는 것이 좋습니다. 
+
+* max_allowed_packet – 대량 행으로 인한 연결 문제를 방지하려면 1073741824(1GB)로 설정합니다. 
+* slow_query_log – 저속 쿼리 로그를 해제하려면 OFF로 설정합니다. 이렇게 하면 데이터 로드 중 느린 쿼리 로깅으로 인한 오버헤드가 제거됩니다.
+* query_store_capture_mode – 쿼리 저장소를 해제하려면 NONE으로 설정합니다. 이렇게 하면 쿼리 저장소의 샘플링 작업으로 인한 오버헤드가 제거됩니다.
+* innodb_buffer_pool_size – innodb_buffer_pool_size는 Azure Database for MySQL 서버를 위한 컴퓨팅을 스케일 업해야만 늘릴 수 있습니다. 마이그레이션 중 포털의 가격 책정 계층에서 서버를 64개의 vCore 범용 SKU로 스케일 업하여 innodb_buffer_pool_size를 늘립니다. 
+* innodb_io_capacity & innodb_io_capacity_max - Azure Portal의 서버 매개 변수에서 9000으로 변경하여 마이그레이션 속도를 최적화하기 위해 IO 사용률을 향상시킵니다.
+* innodb_write_io_threads & innodb_write_io_threads - 마이그레이션의 속도를 개선하기 위해 Azure Portal의 서버 매개 변수에서 4로 변경합니다.
+* 스토리지 계층 스케일 업 – 스토리지 계층이 증가함에 따라 Azure Database for MySQL 서버의 IOP가 점진적으로 증가합니다. 
+    * 단일 서버 배포 옵션에서 더 빠르게 로드하려면 스토리지 계층을 늘려 프로비저닝된 IOP를 늘리는 것이 좋습니다. 
+    * 유연한 서버 배포 옵션에서는 스토리지 크기에 관계없이 IOPS를 스케일링(증가 또는 감소)하는 것이 좋습니다. 
+    * 스토리지 크기는 스케일 업만 가능하며 스케일 다운할 수 없습니다.
+
+마이그레이션이 완료되면 서버 매개 변수 및 구성을 워크로드에 필요한 값으로 다시 되돌릴 수 있습니다. 
+
+
 ## <a name="migrate-database-schema"></a>데이터베이스 스키마 마이그레이션
 
 테이블 스키마, 인덱스 및 저장 프로시저와 같은 모든 데이터베이스 개체를 전송하려면 원본 데이터베이스에서 스키마를 추출하여 대상 데이터베이스에 적용해야 합니다. 스키마를 추출하려면 `--no-data` 매개 변수가 있는 mysqldump를 사용할 수 있습니다. 이를 위해서는 원본 MySQL 데이터베이스와 대상 Azure Database for MySQL 모두에 연결할 수 있는 컴퓨터가 필요합니다.
@@ -104,47 +120,9 @@ mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file pa
 mysql.exe -h mysqlsstrgt.mysql.database.azure.com -u docadmin@mysqlsstrgt -p migtestdb < d:\migtestdb.sql
  ```
 
-스키마에 외래 키가 있는 경우 마이그레이션 중의 병렬 데이터 로드는 마이그레이션 작업을 통해 처리됩니다. 스키마를 마이그레이션하는 동안 외래 키를 삭제할 필요는 없습니다.
+스키마에 외래 키 또는 트리거가 있으면 마이그레이션 작업에서 마이그레이션 중 병렬 데이터 로드를 처리합니다. 스키마 마이그레이션 중에는 외래 키 또는 트리거를 삭제할 필요가 없습니다.
 
-데이터베이스에 트리거가 있는 경우 원본의 전체 데이터 마이그레이션에 앞서 대상에 데이터 무결성을 적용합니다. 마이그레이션 중에 대상의 모든 테이블에서 트리거를 사용하지 않도록 설정한 다음, 마이그레이션이 완료되면 트리거를 사용하도록 설정하는 것이 좋습니다.
-
-MySQL Workbench에서 대상 데이터베이스에 다음 스크립트를 실행하여 drop trigger 스크립트와 add trigger 스크립트를 추출합니다.
-
-```sql
-SELECT
-    SchemaName,
-    GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery,
-    Concat('DELIMITER $$ \n\n', GROUP_CONCAT(AddQuery SEPARATOR '$$\n'), '$$\n\nDELIMITER ;') as AddQuery
-FROM
-(
-SELECT 
-    TRIGGER_SCHEMA as SchemaName,
-    Concat('DROP TRIGGER `', TRIGGER_NAME, "`") as DropQuery,
-    Concat('CREATE TRIGGER `', TRIGGER_NAME, '` ', ACTION_TIMING, ' ', EVENT_MANIPULATION, 
-            '\nON `', EVENT_OBJECT_TABLE, '`\n' , 'FOR EACH ', ACTION_ORIENTATION, ' ',
-            ACTION_STATEMENT) as AddQuery
-FROM  
-    INFORMATION_SCHEMA.TRIGGERS
-ORDER BY EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, ACTION_TIMING, EVENT_MANIPULATION, ACTION_ORDER ASC
-) AS Queries
-GROUP BY SchemaName
-```
-
-결과에서 생성된 drop trigger 쿼리(DropQuery 열)를 실행하여 대상 데이터베이스의 트리거를 삭제합니다. add trigger 쿼리는 저장했다가 데이터 마이그레이션 완료 후에 사용하면 됩니다.
-
-## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
-
-각 Azure 구독에서 리소스 공급자 등록을 한 번 수행해야 합니다. 등록하지 않으면 **Azure Database Migration Service** 의 인스턴스를 만들 수 없습니다.
-
-1. Azure Portal에 로그인하고, **모든 서비스** 를 선택한 다음, **구독** 을 선택합니다.
-
-   ![포털 구독 표시](media/tutorial-mysql-to-azure-mysql-offline-portal/01-dms-portal-select-subscription.png)
-
-2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음, **리소스 공급자** 를 선택합니다.
-
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration** 의 오른쪽에서 **등록** 을 선택합니다.
-
-    ![리소스 공급자 등록](media/tutorial-mysql-to-azure-mysql-offline-portal/02-dms-portal-register-rp.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## <a name="create-a-database-migration-service-instance"></a>Database Migration Service 인스턴스 만들기
 
@@ -188,7 +166,7 @@ GROUP BY SchemaName
     
     ![새 마이그레이션 프로젝트 만들기](media/tutorial-mysql-to-azure-mysql-offline-portal/08-02-dms-portal-new-project.png)
 
-3. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 유형** 선택 상자에서 **MySQL** 을 선택하고, **대상 서버 유형** 선택 상자에서 **Azure Database For MySQL** 을 선택하고, **마이그레이션 작업 유형** 선택 상자에서 **데이터 마이그레이션 \[미리 보기\]** 를 선택합니다. **활동 만들기 및 실행** 을 선택합니다.
+3. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 유형** 선택 상자에서 **MySQL** 을 선택하고, **대상 서버 유형** 선택 상자에서 **Azure Database For MySQL** 을 선택하고, **마이그레이션 작업 유형** 선택 상자에서 **데이터 마이그레이션** 을 선택합니다. **활동 만들기 및 실행** 을 선택합니다.
 
     ![Database Migration Service 프로젝트 만들기](media/tutorial-mysql-to-azure-mysql-offline-portal/09-dms-portal-project-mysql-create.png)
 

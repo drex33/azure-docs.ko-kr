@@ -9,14 +9,16 @@ ms.topic: sample
 ms.service: virtual-machines
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e70284a3a89c30d0f1d1363a15652449a6a1d4f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fc60e5b149ace0243df53e6da09c4f93aaf158a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100558088"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694470"
 ---
 # <a name="move-a-marketplace-azure-virtual-machine-to-another-subscription"></a>Marketplace Azure Virtual Machine을 다른 구독으로 이동
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합
 
 Marketplace 가상 머신을 다른 구독으로 이동하려면 OS 디스크를 해당 구독으로 이동한 다음, 가상 머신을 다시 만들어야 합니다.
 

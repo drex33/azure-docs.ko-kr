@@ -3,18 +3,18 @@ title: 빠른 시작 - 비용 분석을 사용하여 Azure 비용 살펴보기
 description: 이 빠른 시작에서는 비용 분석을 사용하여 Azure 조직 비용을 탐색하고 분석하는 데 도움이 되는 정보를 제공합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/10/2021
+ms.date: 07/28/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy21q2, devx-track-azurecli
-ms.openlocfilehash: 9769b6ecb04ca513c4b48ec3d0ca32bdd3c64b5f
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: contperf-fy22q1
+ms.openlocfilehash: 2391fbdf586c652f7567b5c4b08757a68546314a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107887114"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121731975"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -151,64 +151,9 @@ Azure 태그 정책을 사용하여 비용 데이터 가시성을 향상시키�
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-비용 분석을 고정하려면 오른쪽 위 모서리나 "<Subscription Name> | 비용 분석" 바로 뒤에 있는 핀 아이콘을 선택합니다. 비용 분석이 고정되면 기본 차트 또는 테이블 보기만 저장합니다. 다른 사용자가 타일에 액세스할 수 있도록 대시보드를 공유합니다. 대시보드 구성만 공유되며, 다른 사용자에게 기본 데이터에 대한 액세스 권한을 부여하지 않습니다. 비용에 대한 액세스 권한이 없지만 공유 대시보드에 대한 액세스은 있는 경우 “액세스 거부” 메시지가 표시됩니다.
+비용 분석을 고정하려면 오른쪽 위 모서리 또는 **‘구독 이름’** | _*비용 분석** 바로 다음에 있는 고정 아이콘을 선택합니다. 비용 분석이 고정되면 기본 차트 또는 테이블 보기만 저장합니다. 다른 사용자가 타일에 액세스할 수 있도록 대시보드를 공유합니다. 대시보드 구성만 공유되며, 다른 사용자에게 기본 데이터에 대한 액세스 권한을 부여하지 않습니다. 비용에 대한 액세스 권한이 없지만 공유 대시보드에 대한 액세스은 있는 경우 “액세스 거부” 메시지가 표시됩니다.
 
 비용 분석에 대한 링크를 공유하려면 창 위쪽에 있는 **공유** 를 선택합니다. 그러면 해당 특정 범위의 해당 특정 보기가 열리는 사용자 지정 URL이 표시됩니다. 비용에 대한 액세스 권한이 없고 이 URL이 없으면 "액세스 거부" 메시지가 표시됩니다.
-
-## <a name="download-usage-data"></a>사용량 데이터 다운로드
-
-### <a name="portal"></a>[포털](#tab/azure-portal)
-
-추가 분석을 위해 데이터를 다운로드하거나, 사용자 고유의 데이터와 병합하거나, 사용자 고유의 시스템에 통합해야 하는 경우가 있습니다. Cost Management는 몇 가지 다른 옵션을 제공합니다. 먼저, 비용 분석에 제공되는 정보와 같은 개괄적인 요약 정보를 빠르게 확인해야 하는 경우 필요한 보기를 작성합니다. 그런 다음, **내보내기** 를 선택하고 **CSV로 데이터 다운로드** 또는 **Excel에 데이터 다운로드** 를 선택하여 다운로드합니다. Excel 다운로드는 범위, 쿼리 구성, 총계 및 생성 날짜와 같이 다운로드를 생성하는 데 사용한 보기에 대한 추가 컨텍스트를 제공합니다.
-
-집계되지 않은 전체 데이터 세트가 필요한 경우 청구 계정에서 해당 데이터 세트를 다운로드합니다. 그런 다음, 포털의 왼쪽 탐색 창에 있는 서비스 목록에서 **비용 관리 + 청구** 로 이동합니다. 청구 계정(해당하는 경우)을 선택합니다. **사용량 + 요금** 으로 이동한 다음, 원하는 청구 기간에 대한 **다운로드** 아이콘을 선택합니다.
-
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Azure CLI에 대한 환경 준비하는 것으로 시작합니다.
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-로그인한 후 [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) 명령을 사용하여 구독에 대한 월간 누계 사용 정보를 쿼리합니다.
-
-```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
-```
-
-**--dataset-filter** 매개 변수 또는 기타 매개 변수를 사용하여 쿼리 범위를 좁힐 수도 있습니다.
-
-```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
-   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
-```
-
-**--dataset-filter** 매개 변수는 JSON 문자열 또는 `@json-file`을 사용합니다.
-
-[az costmanagement export](/cli/azure/costmanagement/export) 명령을 사용하여 사용량 데이터를 Azure 스토리지 계정으로 내보낼 수도 있습니다. 여기에서 데이터를 다운로드할 수 있습니다.
-
-1. 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. 리소스 그룹을 만들려면 [az group create](/cli/azure/group#az_group_create) 명령을 실행합니다.
-
-   ```azurecli
-   az group create --name TreyNetwork --location "East US"
-   ```
-
-1. 내보내기를 수신하거나 기존 스토리지 계정을 사용할 스토리지 계정을 만듭니다. 계정을 만들려면 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용합니다.
-
-   ```azurecli
-   az storage account create --resource-group TreyNetwork --name cmdemo
-   ```
-
-1. [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) 명령을 실행하여 내보내기를 만듭니다.
-
-   ```azurecli
-   az costmanagement export create --name DemoExport --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
-   --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
-   ```
-
----
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

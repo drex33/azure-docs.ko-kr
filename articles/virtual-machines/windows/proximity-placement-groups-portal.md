@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 3/8/2021
 ms.author: cynthn
-ms.openlocfilehash: daf844870670c14db5208f45fbd9c9adf46be985
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37e959615ea9e5d483a081c7059556d36b5fc8ff
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504629"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694869"
 ---
 # <a name="create-a-proximity-placement-group-using-the-azure-portal"></a>Azure Portal을 사용하여 근접 배치 그룹 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM 
 
 VM을 최대한 가깝게 유지하고, 대기 시간을 최대한 줄이려면, VM을 [근접 배치 그룹](../co-location.md#proximity-placement-groups) 내에 배포해야 합니다.
 

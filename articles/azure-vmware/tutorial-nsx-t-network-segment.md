@@ -4,16 +4,16 @@ description: vCenter에서 VM(가상 머신)에 사용할 네트워크 세그먼
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
 ms.date: 07/16/2021
-ms.openlocfilehash: 04681c5d55536e3ee1cc0b12d2ebc94f19b3873f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a678e29591bc3ca17a1ec6638e111ffeb8c264b0
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464451"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734224"
 ---
 # <a name="tutorial-add-a-network-segment-in-azure-vmware-solution"></a>자습서: Azure VMware Solution에서 네트워크 세그먼트 추가 
 
-Azure VMware Solution을 배포한 후 NSX-T Manager 또는 Azure Portal에서 NSX-T 네트워크 세그먼트를 구성할 수 있습니다.  구성된 세그먼트는 Azure VMware Solution, NSX-T Manager, vCenter에 표시됩니다.  NSX-T는 기본적으로 **활성/활성** 모드의 NSX-T 계층 0 게이트웨이와 **활성/대기** 모드의 기본 NSX-T 계층 1 게이트웨이로 사전 프로비저닝됩니다.  이러한 게이트웨이를 통해 세그먼트(논리적 스위치)를 연결하고 동-서 및 북-남 연결을 제공할 수 있습니다. 
+Azure VMware Solution을 배포한 후 NSX-T Manager 또는 Azure Portal에서 NSX-T 네트워크 세그먼트를 구성할 수 있습니다. 구성된 세그먼트는 Azure VMware Solution, NSX-T Manager, vCenter에 표시됩니다. NSX-T는 기본적으로 **활성/활성** 모드의 NSX-T 계층 0 게이트웨이와 **활성/대기** 모드의 기본 NSX-T 계층 1 게이트웨이로 사전 프로비저닝됩니다.  이러한 게이트웨이를 통해 세그먼트(논리적 스위치)를 연결하고 동-서 및 북-남 연결을 제공할 수 있습니다. 
 
 >[!TIP]
 >Azure Portal은 VMware 관리자가 정기적으로 필요로 하고 NSX-T Manager에 익숙하지 않은 사용자를 대상으로 하는 NSX-T 작업의 간소화된 보기를 제공합니다. 

@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: a13d79a28ac07d736b1eaf0d0e6b7f7b1ba4a4ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ec87f5377fad1e42ad5b6e96f32a4dae241a4ca
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557712"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698793"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>포털을 사용하여 계획된 유지 관리 알림 처리
 
-**이 문서는 Linux 및 Windows 모두를 실행하는 Azure 가상 머신에 적용됩니다.**
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 [계획된 유지 관리](maintenance-notifications.md) 웨이브가 예약되면 영향을 받는 가상 머신의 목록을 확인할 수 있습니다. 
 

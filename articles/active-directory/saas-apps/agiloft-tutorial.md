@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 25bea4a80a33d520683ec56ee4b40dd54b9652c9
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: bcb919a12590c7cb97ba220da8fb44dc59782331
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111527031"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271703"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft-contract-management-suite"></a>자습서: Agiloft Contract Management Suite와 Azure Active Directory 통합
 
@@ -123,15 +123,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다른 웹 브라우저 창에서 Agiloft Contract Management Suite 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. (왼쪽 창에서)**설치** 를 클릭하고 **액세스** 를 선택합니다.
+2. 페이지의 오른쪽 위 모서리에 있는 **설정** 아이콘을 클릭합니다.
 
-    ![액세스 섹션을 강조 표시하는 스크린샷.](./media/agiloft-tutorial/access.png)
+    ![설정 아이콘이 강조 표시된 스크린샷](./media/agiloft-tutorial/settings.png)
 
-3. **SAML 2.0 Single Sign-On 구성** 단추를 클릭합니다.
+3. **액세스** 를 선택합니다.
+
+    ![액세스 영역이 강조 표시된 스크린샷](./media/agiloft-tutorial/access.png)
+
+
+4. **SAML 2.0 Single Sign-On 구성** 단추를 클릭합니다.
 
     ![SAML 2.0 Single Sign-On 구성 단추를 강조 표시하는 스크린샷.](./media/agiloft-tutorial/setup.png)
 
-4. 마법사 대화 상자가 나타납니다. 대화 상자에서 **ID 공급자 세부 정보** 를 클릭하고 다음과 같은 필드를 입력합니다.  
+5. 마법사 대화 상자가 나타납니다. 대화 상자에서 **ID 공급자 세부 정보** 를 클릭하고 다음과 같은 필드를 입력합니다.  
 
     ![Agiloft Contract Management Suite 구성](./media/agiloft-tutorial/details.png)
 

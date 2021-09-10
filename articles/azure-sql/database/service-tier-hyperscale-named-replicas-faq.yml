@@ -1,77 +1,79 @@
 ### YamlMime:FAQ
 metadata:
   title: Azure SQL Database 하이퍼스케일 명명된 복제본 FAQ
-  description: 고객이 하이퍼스케일 서비스 계층 명명된 복제본의 SQL Database에 있는 데이터베이스에 대해 묻는 일반적인 질문에 대한 대답입니다.
+  description: 하이퍼스케일 명명된 복제본에 대해 고객이 일반적으로 하는 질문에 대한 답변입니다.
   services: sql-database
   ms.service: sql-database
-  ms.subservice: 
+  ms.subservice: service-overview
   ms.custom: 
   ms.devlang: 
   ms.topic: conceptual
   author: yorek
   ms.author: damauri
   ms.reviewer: 
-  ms.date: 06/09/2021
-  ms.openlocfilehash: 53dd0035a9ee973b68b7a1f795e500775e226e3f
-  ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+  ms.date: 07/27/2021
+  ms.openlocfilehash: 223873b80235c9a8734d0b7d6c3a04781e202a4d
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/02/2021
-  ms.locfileid: "113233445"
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121722912"
 title: Azure SQL Database 하이퍼스케일 명명된 복제본 FAQ
-summary: "[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]\n\n이 문서에서는 이 FAQ의 나머지 부분에서 간단히 하이퍼스케일이라고 하는 Azure SQL Database 하이퍼스케일 서비스 계층의 데이터베이스를 고려하는 고객을 위해 질문과 대답을 제공합니다. 이 문서에서는 하이퍼스케일에서 지원하는 시나리오와 하이퍼스케일과 호환되는 기능에 대해 설명합니다.\n\n- 이 FAQ는 하이퍼스케일 서비스 계층 명명된 복제본에 대해 간략히 이해하고 있고 특정 질문 및 문제에 대한 대답을 원하는 독자를 대상으로 합니다.\n- 하이퍼스케일 명명된 복제본에 대한 자세한 내용은 [하이퍼스케일 복제본 명명된 복제본](service-tier-hyperscale-replicas.md#named-replica-in-preview)을 참조하세요. \n"
+summary: >
+  [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+
+  이 FAQ는 하이퍼스케일 [명명된 복제본](service-tier-hyperscale-replicas.md#named-replica-in-preview)에 대해 전반적으로 이해하고 있고 특정 질문 및 문제에 대한 대답을 원하는 독자를 대상으로 합니다.
 sections:
 - name: 일반적인 질문
   questions:
   - question: >
-      명명된 복제본을 장애 조치(failover) 대상으로 사용할 수 있나요?
+      Can a named replica be used as a failover target?
     answer: >
-      아니요, 명명된 복제본은 장애 조치(failover) 대상으로 사용할 수 없습니다. 이러한 용도에는 HA 복제본을 사용합니다.
+      No, named replicas cannot be used as failover targets for the primary replica. Add HA replicas for that purpose.
   - question: >
-      읽기 전용 워크로드를 명명된 복제본 간에 분산하려면 어떻게 해야 하나요?
+      How can I distribute a read-only workload across my named replicas?
     answer: >
-      명명된 복제본마다 서비스 수준 목표가 다를 수 있고 이에 따라 서로 다른 사용 사례에 사용될 수 있으므로 주 복제본에 보낸 읽기 전용 트래픽을 관련 명명된 복제본으로 전달하는 기본 제공 방법이 없습니다. 예를 들어 8개의 명명된 복제본이 있을 수 있고, OLTP 워크로드를 1~4의 명명된 복제본으로만 전달하려고 할 수 있습니다. 한편 모든 Power BI 분석 워크로드에서 5 및 6의 명명된 복제본을 사용하고, 데이터 과학 워크로드에서 7 및 8의 복제본을 사용합니다. 사용하는 도구 또는 프로그래밍 언어에 따라 이러한 워크로드를 분산하는 전략이 달라질 수 있습니다. REST 백 엔드에서 스케일 아웃할 수 있도록 워크로드 라우팅 솔루션을 만드는 한 가지 예는 [OLTP 스케일 아웃 샘플](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)입니다.
+      Since every named replica may have a different service level objective and thus be used for different use cases, there is no built-in way to direct read-only traffic sent to the primary to a set of named replicas. For example, you may have eight named replicas, and you may want to direct OLTP workload only to named replicas 1 to 4, while all the Power BI analytical workloads will use named replicas 5 and 6 and the data science workload will use replicas 7 and 8. Depending on which tool or programming language you use, strategies to distribute such workload may vary. One example of creating a workload routing solution to allow a REST backend to scale out is here: [OLTP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout).
   - question: >
-      명명된 복제본이 주 복제본의 지역과 다른 지역에 있을 수 있나요?
+      Can a named replica be in a region different from the region of the primary replica?
     answer: >
-      아니요, 명명된 복제본은 주 복제본의 동일한 페이지 서버를 사용하므로 동일한 지역에 있어야 합니다.
+      No, as named replicas use the same page servers of the primary replica, they must be in the same region.
   - question: >
-      명명된 복제본에서 주 복제본의 가용성 또는 성능에 영향을 줄 수 있나요?
+      Can a named replica impact availability or performance of the primary replica?
     answer: >
-      명명된 복제본은 주 복제본의 가용성에 영향을 줄 수 없습니다. 명명된 복제본은 정상적인 상황에서 주 복제본의 성능에 영향을 줄 가능성이 거의 없지만, 리소스를 많이 사용하는 워크로드가 실행되는 경우에는 영향을 줄 수 있습니다. HA 복제본과 마찬가지로 명명된 복제본은 트랜잭션 로그 서비스를 통해 주 복제본과 동기화된 상태로 유지됩니다. 어떤 이유로든 명명된 복제본에서 트랜잭션 로그를 충분히 빠르게 사용할 수 없는 경우 주 복제본에서 로그 생성 속도를 늦추도록(제한) 요청하기 시작합니다. 그러면 주 복제본에서 캐치업할 수 있습니다. 이 동작은 주 복제본의 가용성에 영향을 주지 않지만 성능에는 영향을 줍니다. 이러한 상황을 방지하려면 트랜잭션 로그를 지연 없이 처리할 수 있도록 사용 가능한 리소스(주로 CPU)가 명명된 복제본에 충분히 있는지 확인합니다. 예를 들어 주 복제본에서 많은 데이터 변경 내용을 처리하는 경우 복제본의 CPU 병목 상태를 방지하고 이에 따라 주 복제본이 느려지지 않도록 적어도 서비스 수준 목표가 주 복제본과 동일한 명명된 복제본을 사용하는 것이 좋습니다.
+      A named replica cannot impact the availability of the primary replica. Named replicas, under normal circumstances, are unlikely to impact the primary's performance, but it can happen if there are intensive workloads running. Just like an HA replica, a named replica is kept in sync with the primary via the transaction log service. If a named replica, for any reason, is not able to consume the transaction log fast enough, it will start asking the primary replica to slow down (throttle) its log generation, so that it can catch up. While this behavior will not impact the primary's availability, it may impact performance of write workloads on the primary. To avoid this situation, make sure that your named replicas have enough resource headroom – mainly CPU – to process transaction log without delay. For example, if the primary is processing numerous data changes, it is recommended to have named replicas with at least the same Service Level Objective as the primary, to avoid saturating CPU on the replicas and thus forcing the primary to slow down.
   - question: >
-      예를 들어 계획된 유지 관리로 인해 주 복제본을 사용할 수 없는 경우 명명된 복제본은 어떻게 되나요?
+      What happens to named replicas if the primary replica is unavailable, for example because of planned maintenance?
     answer: >
-      명명된 복제본은 평소와 같이 읽기 전용 액세스에 계속 사용할 수 있습니다.
+      Named replicas will still be available for read-only access, as usual.
   - question: >
-      SSMS(SQL Server Management Studio) 또는 다른 클라이언트 도구를 사용하여 보조 컴퓨팅 복제본에 성공적으로 연결했는지 확인하려면 어떻게 할까요?
+      How do I validate if I have successfully connected to secondary compute replica using SQL Server Management Studio (SSMS) or other client tools?
     answer: >
-      다음 T-SQL 쿼리를 실행할 수 있습니다.
+      You can execute the following T-SQL query. The database context must be set to the name of the Hyperscale database, not to the `master` database.
 
 
       ```sql
 
-      SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
+      SELECT @@SERVERNAME AS logical_server_name, DB_NAME() AS database_name, DATABASEPROPERTYEX(DB_NAME(), 'Updateability') AS replica_updateability;
 
       ```
 
 
-      결과는 읽기 전용 보조 복제본에 연결된 경우 `READ_ONLY`이고, 주 복제본에 연결된 경우 `READ_WRITE`입니다. 데이터베이스 컨텍스트는 `master` 데이터베이스가 아니라 하이퍼스케일 데이터베이스의 이름으로 설정해야 합니다.
+      `replica_updateability` will be `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica.
   - question: >
-      내 보조 컴퓨팅 복제본에서 개체 또는 인덱스를 만들 수 있나요?
+      Can I create any objects or indexes on my secondary compute replicas?
     answer: >
-      아니요. 하이퍼스케일 데이터베이스에는 공유 스토리지가 있습니다. 즉, 모든 컴퓨팅 복제본에서 동일한 테이블, 인덱스, 보기를 볼 수 있습니다. 보조 복제본에 대한 읽기에 최적화된 추가 인덱스를 원하는 경우 주 복제본에서 해당 인덱스를 추가해야 합니다.
+      No. Hyperscale databases have shared storage, meaning that all compute replicas see the same tables, indexes, views, etc. If you want additional indexes optimized for reads on secondary, you must add them on the primary.
 
 
-      여전히 임시 테이블을 만들고 사용하여 임시 데이터를 저장할 수 있습니다.
+      You can still create temporary tables (table names prefixed with # or ##) on each secondary replica to store temporary data. Temporary tables are read-write.
   - question: >
-      주 및 보조 컴퓨팅 복제본 사이의 대기 시간은 얼마인가요?
+      How much delay is there between the primary and secondary compute replicas?
     answer: >
-      트랜잭션이 주 복제본에서 커밋된 시간부터 보조 복제본에서 읽을 수 있는 시간까지의 데이터 대기 시간은 현재 로그 생성 속도, 트랜잭션 크기, 복제본의 로드 및 기타 요인에 따라 달라집니다. 소규모 트랜잭션의 일반적인 데이터 대기 시간은 수십 밀리초이지만, 데이터 대기 시간의 상한이 없습니다. 지정된 보조 복제본의 데이터는 항상 트랜잭션 일관성을 유지합니다. 그러나 특정 시점에서 데이터 대기 시간은 보조 복제본마다 다를 수 있습니다. 커밋된 데이터를 즉시 읽어야 하는 워크로드는 주 복제본에서 실행해야 합니다.
+      Data latency from the time a transaction is committed on the primary to the time it is readable on a secondary depends on current log generation rate, transaction size, load on the replica, and other factors. Typical data latency for small transactions is in tens of milliseconds, however there is no upper bound on data latency. Data on a given secondary replica is always transactionally consistent. However, at a given point in time data latency may be different for different secondary replicas. Workloads that need to read committed data immediately should run on the primary replica.
   - question: >
-      명명된 복제본의 가용성을 향상시키려면 어떻게 해야 하나요?
+      How can I improve availability of named replicas?
     answer: >
-      기본적으로 명명된 복제본에는 HA 복제본이 없습니다. 그러나 일반(읽기 전용) Azure SQL 데이터베이스처럼 작동하므로 HA 복제본에서 제공하는 [더 높은 수준의 SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/)를 활용할 수 있습니다. HA 복제본 수를 설정하려면 [AZ CLI](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_create)에서 `--ha-replicas` 매개 변수를 사용하거나, [PowerShell](/powershell/module/az.sql/set-azsqldatabase)에서 `--HighAvailabilityReplicaCount` 매개 변수를 사용하거나, [REST API](/rest/api/sql/2021-02-01-preview/databases/create-or-update)에서 `highAvailabilityReplicaCount` 속성을 통해 사용할 수 있습니다.
-
-      HA 복제본 수는 명명된 복제본을 만드는 동안 설정할 수 있으며, 명명된 복제본이 만들어지면 언제든지 AZ CLI, PowerShell 또는 REST API를 통해서만 변경할 수 있습니다. 명명된 복제본에 대한 HA 복제본의 가격 책정은 일반 데이터베이스에 대한 HA 복제본과 동일합니다.
-additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n하이퍼스케일 서비스 계층에 대한 자세한 내용은 [하이퍼스케일 서비스 계층](service-tier-hyperscale.md)을 참조하세요.\n하이퍼스케일 복제본에 대한 자세한 내용은 [하이퍼스케일 복제본](service-tier-hyperscale-replicas.md)을 참조하세요."
+      By default, named replicas do not have any HA replicas of their own. A failover of a named replica requires creating a new replica first, which typically takes about 1-2 minutes. However, named replicas can also benefit from higher availability and shorter failovers provided by HA replicas. To add HA replicas for a named replica, you can use the parameter `ha-replicas` with [AZ CLI](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_create), or the parameter `HighAvailabilityReplicaCount` with [PowerShell](/powershell/module/az.sql/set-azsqldatabase), or the `highAvailabilityReplicaCount` property with [REST API](/rest/api/sql/2021-02-01-preview/databases/create-or-update). The number of HA replicas can be set during the creation of a named replica and can be changed – only via AZ CLI, PowerShell or REST API – anytime after the named replica has been created. Pricing of HA replicas for named replicas is the same of HA replicas for regular Hyperscale databases.
+additionalContent: "\n## Next steps\n\nFor more information about the Hyperscale service tier, see [Hyperscale service tier](service-tier-hyperscale.md).\nFor more information about the Hyperscale replicas, see [Hyperscale Replicas](service-tier-hyperscale-replicas.md)."

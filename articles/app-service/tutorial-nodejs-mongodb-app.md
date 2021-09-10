@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/13/2021
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: ee40828bcb83d81aee7f1ece06971decf8143370
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 7338e5c8ef1e3f1fce6242b62153dd492de9e3a2
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113767437"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746017"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>자습서: Azure에서 Node.js 및 MongoDB 앱 빌드
 
@@ -43,7 +43,7 @@ ms.locfileid: "113767437"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -101,7 +101,7 @@ MEAN 샘플 애플리케이션은 데이터베이스에 사용자 데이터를 �
 
 이 단계에서는 Azure에 MongoDB 데이터베이스를 만듭니다. Azure에 앱을 배포하면 이 클라우드 데이터베이스가 사용됩니다.
 
-MongoDB의 경우 이 자습서에서는 [Azure Cosmos DB](/azure/cosmos-db/)를 사용합니다. Cosmos DB는 MongoDB 클라이언트 연결을 지원합니다.
+MongoDB의 경우 이 자습서에서는 [Azure Cosmos DB](../cosmos-db/index.yml)를 사용합니다. Cosmos DB는 MongoDB 클라이언트 연결을 지원합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -579,5 +579,5 @@ az webapp log tail --name <app-name> --resource-group myResourceGroup
 
 또는 다른 리소스를 확인합니다.
 
-> [!div class="nextstepaction"]
-> [Node.js 앱 구성](configure-language-nodejs.md)
+- [Node.js 앱 구성](configure-language-nodejs.md)
+- [환경 변수 및 앱 설정 참조](reference-app-settings.md)

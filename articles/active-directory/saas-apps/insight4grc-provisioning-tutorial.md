@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: thwimmer
-ms.openlocfilehash: d3172f571afbcdbac83a527ef1de5e56283b7438
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: d8fbdff34ea84685366c04ee956473b4165a4cd2
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766959"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444586"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Insight4GRC 구성
 
@@ -100,11 +100,12 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성-매핑** 섹션에서는 Azure AD에서 Insight4GRC로 동기화된 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성을 사용하여 업데이트 작업에서 Insight4GRC의 사용자 계정과 일치시킵니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 Insight4GRC API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|Type|
-   |---|---|
-   |userName|String|
-   |externalId|String|
+   |attribute|Type|필터링에 지원됨|
+   |---|---|--|
+   |userName|String|&check;
+   |externalId|String|&check;
    |활성|부울|
+   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
    |title|String|
    |name.givenName|String|
    |name.familyName|String|
@@ -143,6 +144,10 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 여부를 확인합니다.
 * [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 * 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.
+
+## <a name="change-log"></a>로그 변경
+
+* 2021년 8월 19일 - 엔터프라이즈 확장 사용자 특성 **manager** 가 추가되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

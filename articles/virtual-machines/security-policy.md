@@ -8,14 +8,16 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 6754e4e60c31c35531b27e6cc2047e9f8ce3d0bc
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 2010347f2b796a7cac181d0b574401ad34b6f859
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817398"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697261"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Azure에서 보안 적용 및 정책 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 실행하는 애플리케이션의 VM(가상 머신) 보안을 항상 유지해야 합니다. VM 보안은 VM에 대한 보안 액세스 및 데이터의 보안 스토리지를 포함하는 하나 이상의 Azure 서비스 및 기능을 포함할 수 있습니다. 이 문서에서는 VM 및 애플리케이션을 안전하게 유지할 수 있도록 하는 정보를 제공합니다.
 

@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.date: 04/26/2018
 ms.reviewer: mimckitt
-ms.openlocfilehash: 56e27c7978ef95ad49e6db7592fe3c755af2b0ab
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6508935cc104f2eac46f8e61b50850c45e6856cc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756146"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697396"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 사용자 지정 이미지 추가
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 이 문서에서는 사용자 지정 이미지에서 배포할 [기본 확장 집합 템플릿](virtual-machine-scale-sets-mvss-start.md)을 수정하는 방법을 보여 줍니다.
 

@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 04654672cc5806465ec9f75b695772dcb2037eab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6808d7dc2c2addcf6639c75dfd870ac7fe62d262
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564138"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696971"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Linux의 암호화 상태 확인 
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서의 범위는 Azure Portal, PowerShell, Azure CLI 또는 VM(가상 머신)의 운영 체제를 사용하여 가상 머신의 암호화 상태를 확인하는 방법을 포함합니다. 
 

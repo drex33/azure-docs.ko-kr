@@ -4,12 +4,12 @@ description: App Service 앱에서 비즈니스 프로세스를 호출하는 방
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 04bdab82c9d1efed6da3f533617f19b82cf0781e
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 567bf62d2f78074cef331aeedcfd29bc382e79c4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290707"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121752424"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>자습서: App Service에서 이메일 보내기 및 다른 비즈니스 프로세스 호출
 
@@ -319,3 +319,4 @@ connection = clnt.post_async(ENV['LOGIC_APP_URL'], body)
 [자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅](app-service-web-tutorial-rest-api.md)  
 [Logic Apps에 대한 HTTP 요청/응답 참조](../connectors/connectors-native-reqres.md)  
 [빠른 시작: Azure Logic Apps를 사용하여 첫 번째 워크플로 만들기 - Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+- [환경 변수 및 앱 설정 참조](reference-app-settings.md)

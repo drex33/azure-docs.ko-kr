@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 07/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4f56ce9fa86dc27b77ad6b463479d13c8e4e7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bb5bc57ea387695ed77193c4b642b615186a7a3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91856515"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121749107"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL에 액세스
 
@@ -153,6 +153,9 @@ if (accessToken != null) {
 }
 ```
 
+>[!NOTE]
+>[SDK](qs-configure-sdk-windows-vm.md)를 사용하여 다른 프로그래밍 옵션으로 작업하는 동안 관리 ID를 사용할 수 있습니다.
+
 또는 VM에서 앱을 작성 및 배포하지 않고도 PowerShell을 사용하여 전체적인 설정을 빠르게 테스트할 수도 있습니다.
 
 1. Portal에서 **Virtual Machines** -> Windows Virtual Machines로 이동한 다음 **개요** 에서 **연결** 을 클릭합니다.
@@ -209,3 +212,4 @@ if (accessToken != null) {
 
 > [!div class="nextstepaction"]
 > [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)
+

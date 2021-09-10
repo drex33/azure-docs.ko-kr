@@ -5,23 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 07/26/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019, contperf-fy21q4-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4089559b341dd268928b1f150b6fc173869ead
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: d7b12d0611f6488a9ab5475ec6488328a764434f
+ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529922"
+ms.lasthandoff: 07/27/2021
+ms.locfileid: "114721051"
 ---
 # <a name="email-one-time-passcode-authentication"></a>이메일 일회용 암호 인증
 
-이 문서에서는 B2B 게스트 사용자에게 이메일 일회용 암호 인증을 사용하도록 설정하는 방법을 설명합니다. 이메일 일회용 암호 기능은 B2B 게스트 사용자가 Azure AD, MSA(Microsoft 계정) 또는 Google 페더레이션과 같은 다른 수단을 통해 인증할 수 없을 때 해당 사용자를 인증합니다. 일회성 암호 인증을 사용하면 Microsoft 계정을 만들 필요가 없습니다. 게스트 사용자는 초대를 사용하거나 공유 리소스에 액세스할 때 메일 주소로 전송되는 임시 코드를 요청할 수 있습니다. 그런 다음, 이 코드를 입력하여 로그인을 계속합니다.
+메일 일회용 암호 기능은 Azure AD, Microsoft 계정(MSA), 소셜 ID 공급자 등의 다른 방법으로 인증할 수 없는 B2B 협업 사용자를 인증하는 방법입니다. B2B 게스트 사용자가 초대를 사용하거나 공유 리소스에 로그인하려고 하면 이메일 주소로 전송되는 임시 암호를 요청할 수 있습니다. 그런 다음, 이 암호를 입력하여 로그인을 계속합니다.
+
+테넌트의 외부 ID 설정에서 이메일 일회용 암호 ID 공급자를 구성하여 언제든지 Azure Portal에서 이 기능을 사용하도록 설정할 수 있습니다. 기능을 활성화 또는 비활성화하거나, 2021년 10월에 자동으로 활성화되도록 선택할 수 있습니다.
 
 ![이메일 일회용 암호 개요 다이어그램](media/one-time-passcode/email-otp.png)
 
@@ -55,22 +57,39 @@ ms.locfileid: "107529922"
 
 - Azure AD 계정이 없는 경우
 - Microsoft 계정이 없는 경우
-- 초대하는 테넌트가 @gmail.com 및 @googlemail.com 사용자에 대해 Google 페더레이션을 설정하지 않은 경우
+- 초대 테넌트는 소셜(예: [Google](google-federation.md)) 또는 기타 ID 공급자와 페더레이션을 설정하지 않습니다.
 
 초대할 때 초대를 받는 사용자가 일회성 암호 인증을 사용할 것이라는 표시는 없습니다. 그러나 게스트 사용자가 로그인할 때 다른 인증 방법을 사용할 수 없다면 일회성 암호 인증이 대체 방법이 됩니다.
 
-사용자의 세부 정보에서 **원본** 속성을 통해 게스트 사용자가 일회용 암호를 사용하여 인증하는지 여부를 확인할 수 있습니다. Azure Portal에서 **Azure Active Directory** > **사용자** 로 이동한 다음 사용자를 선택하고 세부 정보 페이지를 엽니다.
-
-![OTP의 원본 값을 사용하는 일회용 암호 사용자를 보여주는 스크린샷](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
 > 사용자가 일회성 암호를 사용하고 나중에 MSA, Azure AD 계정 또는 기타 페더레이션 계정을 얻을 경우 일회성 암호를 사용하여 계속 인증됩니다. 사용자의 인증 방법을 업데이트하려는 경우 [상환 상태를 다시 설정](reset-redemption-status.md)할 수 있습니다.
 
-### <a name="example&quot;></a>예제
+### <a name="example"></a>예제
 
 게스트 사용자 teri@gmail.com이 Google 페더레이션이 설정되지 않은 Fabrikam에 초대되었습니다. Teri에게는 Microsoft 계정이 없습니다. 인증을 위해 일회용 암호를 받게 됩니다.
 
-## <a name=&quot;disable-email-one-time-passcode&quot;></a>이메일 일회용 암호 사용 안 함
+## <a name="enable-email-one-time-passcode"></a>이메일 일회용 암호를 사용하도록 설정
+
+1. Azure AD 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
+2. 탐색 창에서 **Azure Active Directory** 를 선택합니다.
+
+3. **외부 ID** > **모든 ID 공급자** 를 차례로 선택합니다.
+
+4. **이메일 일회용 암호** 를 선택하여 구성 창을 엽니다.
+
+5. **게스트용 이메일 일회용 암호** 아래에서 다음 중 하나를 선택합니다.
+
+   - 기능을 즉시 사용하도록 설정하지 않고 2021년 10월 자동 활성화 날짜를 기다리려면 **2021년 10월부터 게스트에 대해 이메일 일회용 암호를 자동으로 사용하도록 설정** 합니다.
+   - 지금 기능을 사용하도록 설정하려면 **지금 유효한 게스트용 이메일 일회용 암호를 사용하도록 설정** 합니다.
+   - 예/아니요 토글이 표시되면 **예** 를 선택하여 지금 기능을 사용하도록 설정합니다. 이 토글은 이전에 기능을 사용하지 않도록 설정한 경우에 표시됩니다.
+
+   ![이메일 일회용 암호 토글 사용](media/one-time-passcode/enable-email-otp-options.png)
+
+5. **저장** 을 선택합니다.
+
+## <a name="disable-email-one-time-passcode&quot;></a>이메일 일회용 암호 사용 안 함
 
 2021년 10월부터 모든 기존 테넌트에 대해 이메일 일회용 암호 기능이 설정되고 새 테넌트에 대해 기본적으로 사용하도록 설정됩니다. 이때 Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는(&quot;바이럴&quot; 또는 &quot;just-in-time") Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 게스트 사용자에게 원활한 대체 인증 방법을 제공하므로 이메일 일회용 암호 기능을 사용하고 있습니다. 그러나 이 기능을 사용하지 않으려면 사용하지 않도록 설정하는 옵션이 있습니다.
 
@@ -86,13 +105,13 @@ ms.locfileid: "107529922"
 
 3. **외부 ID** > **모든 ID 공급자** 를 차례로 선택합니다.
 
-4. **이메일 일회용 암호** 를 선택한 다음 **게스트용 이메일 일회용 암호 사용 안 함** 을 선택합니다.
+4. **이메일 일회용 암호** 를 선택한 다음, **게스트용 이메일 일회용 암호** 에서 **게스트용 이메일 일회성 암호 사용 안 함** 을 선택합니다(또는 미리 보기 중에 기능이 활성화, 비활성화 또는 옵트인된 경우 **아니요** 선택).
+
+   ![이메일 일회용 암호 토글 사용 안 함](media/one-time-passcode/disable-email-otp-options.png)
 
    > [!NOTE]
    > Azure Portal의 이메일 일회용 암호 설정이 **외부 공동 작업 설정** 에서 **모든 ID 공급자** 로 이동했습니다.
    > 이 기능을 이전에 사용하거나 사용하지 않도록 설정했거나 미리 보기에 옵트인한 경우에는 이메일 일회용 암호 옵션 대신 토글이 표시됩니다. 기능을 사용하지 않도록 설정하려면 **아니요** 를 선택합니다.
-   >
-   >![이메일 일회용 암호 토글 사용 안 함](media/one-time-passcode/enable-email-otp-disabled.png)
 
 5. **저장** 을 선택합니다.
 
@@ -108,9 +127,9 @@ ms.locfileid: "107529922"
 
 - **2021년 10월부터 자동으로 게스트용 이메일 일회용 암호를 사용하도록 설정합니다.** (기본값) 테넌트에 대해 이메일 일회용 암호 기능을 아직 사용하도록 설정하지 않은 경우 2021년 10월부터 자동으로 설정됩니다. 그때 해당 기능을 사용하도록 설정하려면 추가 작업이 필요하지 않습니다. 해당 기능을 이미 사용하도록 설정했거나 아직 설정하지 않은 경우에는 이 옵션을 사용할 수 없습니다.
 
-- **게스트용 이메일 일회용 암호를 사용하도록 설정하면 지금부터 적용됩니다**. 테넌트에 대해 메일 일회용 암호 기능을 설정합니다.
+- **게스트에게 일회용 암호를 메일로 보내도록 설정하면 지금부터 적용됩니다**. 테넌트에 대해 메일 일회용 암호 기능을 설정합니다.
 
-- **게스트용 이메일 일회용 암호를 사용하지 않도록 설정합니다.** 테넌트에 대한 이메일 일회용 암호 기능을 해제하며 2021년 10월에는 해당 기능을 설정할 수 없습니다.
+- **게스트에게 일회용 암호를 메일로 보내지 않도록 설정합니다.** 테넌트에 대한 이메일 일회용 암호 기능을 해제하며 2021년 10월에는 해당 기능을 설정할 수 없습니다.
 
 ## <a name="note-for-azure-us-government-customers"></a>Azure 미국 정부 고객에 대한 참고 사항
 

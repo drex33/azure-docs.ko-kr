@@ -3,12 +3,12 @@ title: 자습서 - Azure VMware Solution 프라이빗 클라우드 배포
 description: Azure VMware Solution 프라이빗 클라우드를 만들고 배포하는 방법 알아보기
 ms.topic: tutorial
 ms.date: 06/11/2021
-ms.openlocfilehash: 5d882098c29db7fb0272bb503eae42a244113b5b
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
+ms.openlocfilehash: d91e9fe9261aa4a04f5e5dffd3505742d9886623
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021378"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730354"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드 배포
 
@@ -21,7 +21,7 @@ vSphere와 NSX-T Manager를 사용하여 클러스터 구성 또는 작업의 �
 >[!TIP]
 >초기 배포 수를 초과해야 하는 경우 언제든지 나중에 클러스터를 확장하고 클러스터를 추가할 수 있습니다.
 
-Azure VMware Solution에서는 시작 시에 온-프레미스 vCenter를 사용하여 프라이빗 클라우드를 관리할 수 없으므로 추가 구성이 필요합니다. 이러한 절차 및 관련 사전 요구 사항은 이 자습서에서 다룹니다.
+Azure VMware Solution에서는 시작 시 온-프레미스 vCenter를 사용하여 프라이빗 클라우드를 관리할 수 없으므로 추가 단계를 수행하여 구성해야 합니다.  이 자습서에서는 이러한 단계 및 관련 필수 조건에 대해 설명합니다.
 
 이 자습서에서 학습할 방법은 다음과 같습니다.
 
@@ -32,9 +32,9 @@ Azure VMware Solution에서는 시작 시에 온-프레미스 vCenter를 사용�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 프라이빗 클라우드를 만들 수 있는 적절한 관리 권한 및 사용 권한 구독에서 최소 기여자 수준이어야 합니다.
-- [계획](production-ready-deployment-steps.md) 문서에서 수집한 정보에 따라 Azure VMware Solution을 배포합니다.
+- [계획](plan-private-cloud-deployment.md) 자습서에서 수집한 정보에 따라 Azure VMware Solution을 배포합니다.
 - [네트워크 계획 검사 목록](tutorial-network-checklist.md)의 설명대로 적절한 네트워킹이 구성되어 있는지 확인합니다.
-- 호스트가 프로비전되고 Microsoft.AVS [리소스 공급자가 등록되었습니다](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
+- 호스트가 프로비저닝되고 Microsoft.AVS [리소스 공급자가 등록되었습니다](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider).
 
 ## <a name="create-a-private-cloud"></a>프라이빗 클라우드 만들기
 

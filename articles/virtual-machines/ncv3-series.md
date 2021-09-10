@@ -7,26 +7,28 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: d9076962cdab1494b26f794b0f370b8a5677eb10
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 33048b616ef7c36685a912dba7bef1ed3a83261c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744500"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697978"
 ---
 # <a name="ncv3-series"></a>NCv3 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 NCv3 시리즈 VM은 NVIDIA Tesla V100 GPU로 구동됩니다. 이러한 GPU는 NCv2 시리즈보다 1.5배의 계산 성능을 제공할 수 있습니다. 고객은 저수지 모델링, DNA 배열, 단백질 분석, 몬테카를로 시뮬레이션 등 기존 HPC 워크로드에 이러한 업데이트된 GPU를 활용할 수 있습니다. NC24rs v3 구성은 긴밀하게 결합된 병렬 컴퓨팅 작업에 최적화된 짧은 대기 시간과 높은 처리량의 네트워크 인터페이스를 제공합니다. GPU에 더해 NCv3 시리즈 VM은 Intel Xeon E5-2690 v4 (Broadwell) CPU로도 구동됩니다.
 
 [Premium Storage](premium-storage-performance.md): 지원됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
-[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대한 [자세한 정보](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
+[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대해 [자세히 알아보기](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원되지 않음<br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨([미리 보기](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
-NVIDIA NVLink Interconnect: 지원되지 않음<br>
+Nvidia NVLink Interconnect: 지원되지 않음<br>
 
 > [!IMPORTANT]
 > 이 VM 시리즈의 경우 구독의 vCPU(코어) 할당량은 각 지역에서 처음에 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 시리즈에 대한 [vCPU 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)합니다. 이러한 SKU는 평가판 또는 Visual Studio 구독자 Azure 구독에 사용할 수 없습니다. 구독 수준에서 SKU의 선택이나 배포를 지원하지 않을 수 있습니다. 
@@ -51,7 +53,7 @@ Azure N 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA GPU 드�
 
 [NVIDIA GPU 드라이버 확장](./extensions/hpccompute-gpu-windows.md)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](./extensions/hpccompute-gpu-windows.md)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요.
 
-NVIDIA GPU 드라이버를 수동으로 설치하려면 지원되는 운영 체제, 드라이버, 설치, 확인 단계에 대한 [Windows용 N 시리즈 GPU 드라이버 설치](./windows/n-series-driver-setup.md) 또는 [Linux용 N 시리즈 GPU 드라이버 설치](./linux/n-series-driver-setup.md)를 참조하세요.
+NVIDIA GPU 드라이버를 수동으로 설치하려는 경우 지원되는 운영 체제, 드라이버, 설치 및 인증 단계에 대해서는 [Windows용 N 시리즈 GPU 드라이버 설정](./windows/n-series-driver-setup.md) 또는 [Linux용 N 시리즈 GPU 드라이버 설정](./linux/n-series-driver-setup.md)을 참조하세요.
 
 ## <a name="other-sizes"></a>기타 크기
 

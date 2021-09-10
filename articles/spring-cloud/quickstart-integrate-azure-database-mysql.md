@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/13/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 223a3ba0fdb11824cd7c45218dc72271054db428
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 86795c29f5eaaedb1ea08975a69b6afde9d755c1
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114470680"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271489"
 ---
 # <a name="quickstart-integrate-azure-spring-cloud-with-azure-database-for-mysql"></a>빠른 시작: Azure Spring Cloud와 Azure Database for MySQL 통합
 
@@ -20,7 +20,7 @@ ms.locfileid: "114470680"
 
 ## <a name="variables-preparation"></a>변수 준비
 
-다음 값을 사용합니다. 텍스트 파일 또는 환경 변수에 저장하여 오류를 방지합니다.
+다음 값을 사용합니다. 텍스트 파일 또는 환경 변수에 저장하여 오류를 방지합니다. 암호는 최소 8자 이상이어야 하며 영문 대문자 1개, 영문 소문자 1개, 숫자 1개, 영숫자가 아닌 문자(!, $, #, % 등)가 1개 이상 포함되어야 합니다.
 
 ```bash
 export RESOURCE_GROUP=<resource-group-name> # customize this
@@ -34,7 +34,7 @@ export MYSQL_DATABASE_NAME=petclinic
 
 ## <a name="prepare-an-azure-database-for-mysql-instance"></a>Azure Database for MySQL 인스턴스 준비
 
-1. Azure Database for MySQL 서버를 만듭니다.
+1. Azure Database for MySQL 서버를 만듭니다. 
 
     ```azcli
     az mysql server create --resource-group ${RESOURCE_GROUP} \
@@ -79,35 +79,35 @@ export MYSQL_DATABASE_NAME=petclinic
     // SUBSTITUTE values
     mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
      -h ${MYSQL_SERVER_FULL_NAME} -P 3306 -p
-    
+
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 64379
     Server version: 5.6.39.0 MySQL Community Server (GPL)
-    
+
     Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
-    
+
     Oracle is a registered trademark of Oracle Corporation and/or its
     affiliates. Other names may be trademarks of their respective
     owners.
-    
+
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-    
+
     mysql> CREATE DATABASE petclinic;
     Query OK, 1 row affected (0.10 sec)
-    
+
     mysql> CREATE USER 'root' IDENTIFIED BY 'petclinic';
     Query OK, 0 rows affected (0.11 sec)
-    
+
     mysql> GRANT ALL PRIVILEGES ON petclinic.* TO 'root';
     Query OK, 0 rows affected (1.29 sec)
-    
+
     mysql> CALL mysql.az_load_timezone();
     Query OK, 3179 rows affected, 1 warning (6.34 sec)
-    
+
     mysql> SELECT name FROM mysql.time_zone_name;
     ...
-    
+
     mysql> quit
     Bye
     ```
@@ -161,5 +161,6 @@ az spring-cloud app update --name visits-service \
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩](how-to-bind-mysql.md)
 * [관리 ID를 사용하여 Azure SQL Database를 Azure Spring Cloud 앱에 연결](./connect-managed-identity-to-azure-sql.md)

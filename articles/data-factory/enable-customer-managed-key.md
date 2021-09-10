@@ -1,18 +1,19 @@
 ---
 title: 고객 관리형 키를 사용하여 Azure Data Factory 암호화
 description: BYOK(Bring Your Own Key)를 사용하여 Data Factory 보안 강화
-author: chez-charlie
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/08/2020
-ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: a18d06e3a0324889a4cb9936fb339fd9d8f9b816
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 3580ae78497426f1399981035e861bc51c912144
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222698"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697559"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>고객 관리형 키를 사용하여 Azure Data Factory 암호화
 
@@ -85,7 +86,7 @@ Azure Key Vault 및 Azure Data Factory가 동일한 Azure AD(Azure Active Direct
 
 1. Azure Data Factory 포털을 시작하고, 왼쪽의 탐색 모음을 사용하여 Data Factory 관리 포털로 이동합니다.
 
-1. __고객 관리형 키__ 아이콘을 클릭합니다. :::image type="content" source="media/enable-customer-managed-key/05-customer-managed-key-configuration.png" alt-text="Data Factory UI에서 고객 관리형 키를 사용하도록 설정하는 방법의 스크린샷":::
+1. __고객 관리형 키__ 아이콘을 클릭합니다. :::image type="content" source="media/enable-customer-managed-key/05-customer-managed-key-configuration.png" alt-text="Data Factory UI에서 고객 관리형 키를 사용하도록 설정하는 방법에 대한 스크린샷":::
 
 1. 앞에서 복사한 고객 관리형 키의 URI를 입력합니다.
 

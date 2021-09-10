@@ -9,14 +9,16 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a7d32bdb2ea1897a0458708425cd7af025818fd8
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 759f48a8bcfaa30c190c701ba5dcc8b9cad8a876
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113596338"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696145"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>PowerShell을 사용하여 Azure Image Builder 서비스 권한 구성
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 (AIB)에 등록하면 AIB 서비스에 스테이징 리소스 그룹(IT_*)을 만들고, 관리하고, 삭제할 수 있는 권한이 부여되며, 이미지 빌드에 필요한 리소스를 추가할 수 있는 권한이 부여됩니다. 성공적으로 등록하는 동안 구독에서 사용할 수 있는 AIB SPN(서비스 주체 이름)이 이 작업을 수행합니다.
 

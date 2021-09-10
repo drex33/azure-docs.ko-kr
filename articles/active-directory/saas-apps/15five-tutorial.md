@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/27/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: b463460fe649034d4e0175e46154e41cd401689d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 9d39d65ca7ec64587bd619cecbeebdfdf58a42a8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555272"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122771933"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>자습서: 15Five와 Azure Active Directory 통합
 
@@ -38,6 +38,7 @@ ms.locfileid: "111555272"
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * 15Five는 **SP** 시작 SSO를 지원합니다.
+* 15Five는 [자동화된 사용자 프로비저닝](15five-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-15five-from-the-gallery"></a>갤러리에서 15Five 추가
 
@@ -98,7 +99,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

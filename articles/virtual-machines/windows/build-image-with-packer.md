@@ -10,14 +10,18 @@ ms.workload: infrastructure
 ms.date: 08/05/2020
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1959c87043c4bce932070556556a6ba447802854
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.openlocfilehash: cb8a9ad1963f6a5c4ab38104a5a280790bc99b9b
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652565"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693645"
 ---
 # <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: Azure에서 Packer를 사용하여 가상 머신 이미지를 만드는 방법
+
+**적용 대상:** :heavy_check_mark: Windows VM 
+
+
 Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 OS 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 빌드하는 방법을 자세히 설명합니다.
 
 이 문서는 [Packer](https://www.packer.io/docs/install) 1.6.1 버전을 사용하여 2020년 8월 5일에 마지막으로 테스트되었습니다.

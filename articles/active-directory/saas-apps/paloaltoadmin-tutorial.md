@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 57b1d47fa40c0af4bced1e4169fe60cd759ee2f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aceaed29b83a190e4e943f0ec1ae99a8daa44682
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963641"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121727591"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>자습서: Palo Alto Networks - Admin UI와 Azure Active Directory 통합
 
@@ -107,7 +107,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | | |
 
     > [!NOTE]
-    > _adminrole_ 값은 9단계에서 설명한 대로 **Palo Alto Networks** 에 구성된 역할 이름과 동일해야 합니다. 
+    > 위에서 _adminrole_ 로 표시된 **이름** 값은 **[Palo Alto Networks - Admin UI SSO 구성](#configure-palo-alto-networks---admin-ui-sso)** 섹션의 12단계에서 구성된 ‘관리자 역할 특성’과 같아야 합니다. 위에서 _customadmin_ 으로 표시된 **원본 특성** 값은 **[Palo Alto Networks - Admin UI SSO 구성](#configure-palo-alto-networks---admin-ui-sso)** 섹션의 9단계에서 구성된 ‘관리자 역할 프로필 이름’과 같아야 합니다.  
 
     > [!NOTE]
     > 특성에 대한 자세한 내용은 다음 문서를 참조하세요.
@@ -131,7 +131,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

@@ -7,14 +7,16 @@ ms.date: 06/29/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 90fb9a1ae1b0a07b3f58174c21fb06ab349a04f1
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 864716118cbb0d65c871a5a50071ff08cae0af62
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113362290"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692278"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks"></a>VM 디스크의 확장성 및 성능 목표
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 

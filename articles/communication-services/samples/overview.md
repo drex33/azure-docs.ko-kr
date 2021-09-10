@@ -9,12 +9,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6b0239a431e2c5ec8cd516686456ec68cb543b8e
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 9096b11331a4e935bb0d9a23e648404b5c0d5bab
+ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107598"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122271668"
 ---
 # <a name="samples"></a>샘플
 
@@ -25,7 +25,7 @@ Azure Communication Services에는 사용자 고유의 애플리케이션 또는
 | 샘플 이름                                                                                          | Description                                                         | 사용 가능한 언어/플랫폼      |
 | :--------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ | :--------------------------------- |
 | [그룹 통화 주인공 샘플](./calling-hero-sample.md)                                                | 그룹 통화 애플리케이션을 만드는 샘플을 제공합니다.          | [웹](https://github.com/Azure-Samples/communication-services-web-calling-hero), [iOS](https://github.com/Azure-Samples/communication-services-ios-calling-hero), [Android](https://github.com/Azure-Samples/communication-services-android-calling-hero)                           |
-| [웹 통화 샘플](./web-calling-sample.md)                                                        | 웹 내에서 기능을 호출하는 ACS 단계별 연습입니다. | [Web](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)                                |
+| [웹 통화 샘플](./web-calling-sample.md)                                                        | PSTN을 포함하여 웹 내의 ACS 통화 기능에 대한 단계별 연습입니다. | [Web](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)                                |
 | [채팅 주인공 샘플](./chat-hero-sample.md)                                                            | 채팅 애플리케이션을 만드는 샘플을 제공합니다.                   | [Web](https://github.com/Azure-Samples/communication-services-web-chat-hero)                    |
 | [Contoso 의료 앱](https://github.com/Azure-Samples/communication-services-contoso-med-app)       | 환자-의사 흐름을 보여주는 샘플 앱입니다.                     | 웹 및 Node.js                      |
 | [Contoso 소매 앱](https://github.com/Azure-Samples/communication-services-contoso-retail-app)     | 소매 지원 흐름을 보여주는 샘플 앱입니다.                     | ASP.NET, .NET Core, JavaScript/Web |

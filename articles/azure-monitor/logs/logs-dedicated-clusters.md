@@ -6,12 +6,12 @@ author: rboucher
 ms.author: robb
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: e9385787dd48e3354d3359cf7991492b8f813f0c
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 447836fa8a7468b9bf2a76fdfd81c899f7105ed0
+ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539270"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123187778"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor 로그 전용 클러스터
 
@@ -24,9 +24,8 @@ Azure Monitor 로그 전용 클러스터는 Azure Monitor 로그 고객이 고�
 - **[고객 관리형 키](../logs/customer-managed-keys.md)** - 고객이 제공하고 제어하는 키를 사용하여 클러스터 데이터를 암호화합니다.
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Microsoft 지원 엔지니어의 데이터 액세스 요청을 제어합니다.
 - **[이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** - 암호화 알고리즘 또는 키 중 하나가 손상될 수 있는 상황으로부터 보호합니다. 이 경우 추가 암호화 계층은 계속해서 데이터를 보호합니다.
-- **[가용성 영역](../../availability-zones/az-overview.md)** - 전용 클러스터의 가용성 영역과 관련된 데이터 센터 오류로부터 데이터를 보호합니다. 가용성 영역은 분리된 물리적 위치에 있는 데이터 센터이며 독립적인 전원, 냉각, 네트워킹 등을 갖추고 있습니다. 영역의 이 독립적인 인프라와 물리적 분리를 사용하면 작업 영역이 영역의 리소스를 사용할 수 있기 때문에 인시던트 발생 가능성이 훨씬 낮아집니다.
+- **[가용성 영역](./availability-zones.md)** - 전용 클러스터의 가용성 영역과 관련된 데이터 센터 오류로부터 데이터를 보호합니다. 가용성 영역은 분리된 물리적 위치에 있는 데이터 센터이며 독립적인 전원, 냉각, 네트워킹 등을 갖추고 있습니다. 영역의 이 독립적인 인프라와 물리적 분리를 사용하면 작업 영역이 영역의 리소스를 사용할 수 있기 때문에 인시던트 발생 가능성이 훨씬 낮아집니다.
 - **[다중 작업 영역](../logs/cross-workspace-query.md)** - 고객이 프로덕션에 둘 이상의 작업 영역을 사용하는 경우 전용 클러스터를 사용하는 것이 적합할 수 있습니다. 모든 작업 영역이 동일한 클러스터에 있으면 작업 영역 간 쿼리가 더 신속하게 실행됩니다. 또한 할당된 약정 계층이 모든 클러스터 수집을 고려하고, 그중 일부가 작고 약정 계층 할인 대상이 아니더라도 모든 작업 영역에 적용되므로 전용 클러스터를 사용하는 것이 더 비용 효율적일 수 있습니다.
-
 
 
 ## <a name="management"></a>관리 
@@ -93,10 +92,18 @@ cluster 리소스를 만든 후에는 *sku*, *keyVaultProperties 또는 *billing
 
 클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한`Microsoft.OperationalInsights/clusters/write`이 있어야 하며, 이들 권한은 역할 할당 시 이 특정 작업 또는 `Microsoft.OperationalInsights/*` 또는 `*/write`를 포함하여 부여할 수 있습니다.
 
+**CLI**
+```azurecli
+az monitor log-analytics cluster create --no-wait --resource-group "resource-group-name" --name "cluster-name" --location "region-name" --sku-capacity "daily-ingestion-gigabyte"
+
+# Wait for job completion
+az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.operationalinsights/clusters/cluster-name --include-response-body true
+```
+
 **PowerShell**
 
 ```powershell
-New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} -AsJob
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" -AsJob
 
 # Check when the job is done
 Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
@@ -130,28 +137,28 @@ Content-type: application/json
 
 202 (Accepted) 및 헤더여야 합니다.
 
-
-
 ### <a name="check-cluster-provisioning-status"></a>클러스터 프로비전 상태 확인
 
-Log Analytics 클러스터 프로비전을 완료하는 데는 시간이 걸립니다. 다음 방법 중 하나를 사용하여 프로비저닝 상태를 확인합니다.
+Log Analytics 클러스터 프로비전을 완료하는 데는 시간이 걸립니다. 다음 방법 중 하나를 사용하여 *ProvisioningState* 속성을 확인합니다. 값은 프로비전 중에는 *ProvisioningAccount* 이고 완료 시에는 *Succeeded* 입니다.
+
+**CLI**
+
+```azurecli
+az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
+```
 
 **PowerShell**
 
-리소스 그룹 이름으로 *Get-AzOperationalInsightsCluster* 를 실행하고 *ProvisioningState* 속성을 확인합니다. 값은 프로비전 중에는 *ProvisioningAccount* 이고 완료 시에는 *Succeeded* 입니다. 응답에서 Azure-AsyncOperation URL 값을 복사하고 비동기 작업 상태 검사를 수행합니다.
-
-
-  ```powershell
-  Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
-  ```
-
+```powershell
+Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+```
  
 **REST API**
 
 GET 요청을 클러스터 리소스에 보내고 *provisioningState* 값을 확인합니다. 값은 프로비전 중에는 *ProvisioningAccount* 이고 완료 시에는 *Succeeded* 입니다.
 
   ```rest
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
   Authorization: Bearer <token>
   ```
 
@@ -193,7 +200,6 @@ GET 요청을 클러스터 리소스에 보내고 *provisioningState* 값을 확
 ---
 
 
-
 ## <a name="link-a-workspace-to-a-cluster"></a>클러스터에 작업 영역 연결
 
 기존 데이터가 기존 클러스터에 남아 있는 반면, Log Analytics 작업 영역을 전용 클러스터에 연결하면 작업 영역에 수집되는 새 데이터가 새 클러스터로 라우팅됩니다. 전용 클러스터를 CMK(고객 관리형 키)로 암호화하는 경우 키로 새 데이터만 이 키로 암호화됩니다. 시스템은 이 차이를 추상화하므로 시스템이 백그라운드에서 클러스터 간 쿼리를 수행하는 동안 평소처럼 작업 영역을 쿼리할 수 있습니다.
@@ -214,17 +220,27 @@ GET 요청을 클러스터 리소스에 보내고 *provisioningState* 값을 확
 > [!WARNING]
 > 작업 영역을 클러스터에 연결하려면 여러 백 엔드 구성 요소를 동기화하고 캐시 하이드레이션을 보장해야 합니다. 이 작업을 완료하는 데 최대 2시간이 걸릴 수 있기 때문에 비동기적으로 실행해야 합니다.
 
+다음 명령을 사용하여 작업 영역을 클러스터에 연결합니다.
+
+**CLI**
+```azurecli
+# Find cluster resource ID
+$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")]" --query [].id --output table
+
+az monitor log-analytics workspace linked-service create --no-wait --name cluster --resource-group "resource-group-name" --workspace-name "workspace-name" --write-access-resource-id $clusterResourceId
+
+# Wait for job completion
+az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.operationalinsights/clusters/cluster-name --include-response-body true
+```
 
 **PowerShell**
 
-다음 PowerShell 명령을 사용하여 클러스터에 연결합니다.
-
 ```powershell
 # Find cluster resource ID
-$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
+$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name").id
 
 # Link the workspace to the cluster
-Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
+Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
 
 # Check when the job is done
 Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
@@ -265,6 +281,7 @@ Content-type: application/json
 ```azurecli
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
+
 **PowerShell**
 
 ```powershell
@@ -339,6 +356,7 @@ Authorization: Bearer <token>
 ```azurecli
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
+
 **PowerShell**
 
 ```powershell
@@ -430,9 +448,8 @@ Authorization: Bearer <token>
 
 **CLI**
 
-
 ```azurecli
-az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 500
+az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
 
 ### <a name="powershell"></a>PowerShell
@@ -459,7 +476,6 @@ Content-type: application/json
 ```
 
 ---
-
 
 
 ### <a name="update-billingtype-in-cluster"></a>클러스터에서 billingType 업데이트
@@ -491,6 +507,8 @@ Content-type: application/json
 > [!WARNING] 
 > 특정 작업 영역에 한 달 동안 수행 가능한 연결 작업 횟수는 2회로 제한됩니다. 따라서 연결을 해제할 때는 신중하게 고려하고 계획해야 합니다.
 
+클러스터와 작업 영역의 연결을 해제하려면 다음 명령을 사용합니다.
+
 **CLI**
 
 ```azurecli
@@ -499,16 +517,12 @@ az monitor log-analytics workspace linked-service delete --resource-group "resou
 
 **PowerShell**
 
-클러스터와 작업 영역의 연결을 해제하려면 다음 PowerShell 명령을 사용합니다.
-
 ```powershell
 # Unlink a workspace from cluster
-Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster
+Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName {workspace-name} -LinkedServiceName cluster
 ```
 
 ---
-
-
 
 
 ## <a name="delete-cluster"></a>클러스터 삭제
@@ -524,9 +538,14 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-nam
 > [!WARNING] 
 > 구독당 클러스터 3개로 제한됩니다. 활성 삭제 및 일시 삭제된 클러스터가 모두 여기에 계산됩니다. 고객은 클러스터를 만들고 삭제하는 되풀이 프로시저를 만들면 안 됩니다. 이렇게 하면 Log Analytics 백 엔드 시스템에 상당한 영향을 미치게 됩니다.
 
-**PowerShell**
+클러스터를 삭제하려면 다음 명령을 사용합니다.
 
-클러스터를 삭제하려면 다음 PowerShell 명령을 사용합니다.
+**CLI**
+```azurecli
+az monitor log-analytics cluster delete --resource-group "resource-group-name" --name $clusterName
+```
+
+**PowerShell**
 
 ```powershell
 Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"

@@ -1,66 +1,68 @@
 ---
-title: '자습서: IoT Central을 사용하여 스마트 미터 분석 앱 만들기'
-description: '자습서: Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 미터 모니터링 애플리케이션을 만드는 방법에 대해 알아봅니다.'
+title: 자습서 - Azure IoT 스마트 미터 모니터링 | Microsoft Docs
+description: 이 자습서에서는 IoT Central용 스마트 미터 모니터링 애플리케이션 템플릿을 배포하고 사용하는 방법을 보여 줍니다.
 author: op-ravi
 ms.author: omravi
-ms.date: 12/11/2020
+ms.date: 08/02/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 42e88d322bd4d2b174d7a52e4892970caf5b1a5e
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: a332ab10ce4e7c38442288165c56d1161081cd9c
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112963242"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179482"
 ---
-# <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>자습서: 스마트 미터 모니터링 앱 템플릿 만들기 및 연습 
+# <a name="tutorial-deploy-and-walk-through-the-smart-meter-monitoring-app-template"></a>자습서: 스마트 미터 모니터링 앱 템플릿 배포 및 연습 
 
-이 자습서에서는 스마트 미터 모니터링 애플리케이션을 만드는 과정을 안내하며, 여기에는 시뮬레이션된 데이터를 사용하는 샘플 디바이스 모델이 포함됩니다. 이 자습서에서는 다음에 대해 알아봅니다.
+IoT Central *스마트 미터 모니터링* 애플리케이션 템플릿과 이 문서의 지침을 사용하여 엔드투엔드 스마트 미터 모니터링 솔루션을 개발합니다.
 
-> [!div class="checklist"]
-> * 무료로 스마트 미터 앱 만들기
-> * 애플리케이션 연습
-> * 리소스 정리
+  :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="스마트 측정기 아키텍처.":::
 
+이 아키텍처는 다음과 같은 구성 요소로 구성됩니다. 일부 솔루션에는 여기에 나열된 모든 구성 요소가 필요하지 않을 수 있습니다.
 
-구독이 없는 경우 [평가판 계정을 만듭니다](https://azure.microsoft.com/free).
+### <a name="smart-meters-and-connectivity"></a>스마트 미터 및 연결
+
+스마트 미터는 모든 에너지 자산에서 가장 중요한 디바이스 중 하나입니다. 에너지 소비 데이터를 기록하고 모니터링 및 기타 사용 사례(예: 청구 및 수요 대응)를 위해 유틸리티로 전달합니다. 미터 유형에 따라 게이트웨이나 다른 중간 디바이스 또는 시스템(예: 에지 디바이스 및 헤드엔드 시스템)을 사용하여 IoT Central에 연결할 수 있습니다. 직접 연결할 수 없는 디바이스를 연결하기 위해 IoT Central 디바이스 브리지를 빌드합니다. IoT Central 디바이스 브리지는 오픈 소스 솔루션이며 [여기](../core/howto-build-iotc-device-bridge.md)에서 전체 세부 정보를 확인할 수 있습니다. 
+
+### <a name="iot-central-platform"></a>IoT Central 플랫폼
+
+Azure IoT Central은 IoT 솔루션의 빌드를 간소화하고 IoT 관리, 운영 및 개발 부담과 비용을 줄여주는 플랫폼입니다. IoT Central을 사용하면 대규모로 손쉽게 IoT(사물 인터넷) 자산을 연결, 모니터링 및 관리할 수 있습니다. 스마트 미터를 IoT Central에 연결하면 앱 템플릿에서 디바이스 모델, 명령, 대시보드 등의 기본 제공 기능을 사용합니다. 또한 앱 템플릿은 근 실시간 측정기 데이터 모니터링, 분석, 규칙 및 시각화와 같은 웜 경로 시나리오에 IoT Central 스토리지를 사용합니다. 
+
+### <a name="extensibility-options-to-build-with-iot-central"></a>IoT Central을 사용하여 빌드하는 확장성 옵션
+
+IoT Central 플랫폼은 두 가지 확장성 옵션인 CDE(연속 데이터 내보내기) 및 API를 제공합니다. 고객 및 파트너는 특정 요구 사항에 맞게 솔루션을 사용자 지정하기 위해 이러한 옵션 중에서 선택할 수 있습니다. 예를 들어 파트너 중 하나가 ADLS(Azure Data Lake Storage)를 사용하여 CDE를 구성했습니다. 장기 데이터 보존 및 기타 콜드 경로 스토리지 시나리오(일괄 처리, 감사 및 보고 목적)에 ADLS를 사용하고 있습니다.
+
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+
+- 무료로 스마트 미터 앱 만들기
+- 애플리케이션 연습
+- 리소스 정리
 
 ## <a name="prerequisites"></a>사전 요구 사항
-- None
-- Azure 구독을 권장하지만, 꼭 사용할 필요는 없습니다.
 
-## <a name="create-a-smart-meter-monitoring-app"></a>스마트 측정기 모니터링 앱 만들기 
+* 이 앱을 배포하는 데 필요한 특정 필수 구성 요소가 없습니다.
+* 무료 가격 책정 요금제를 사용하거나 Azure 구독을 사용할 수 있습니다.
 
-이 애플리케이션은 다음과 같은 세 가지 간단한 단계로 만들 수 있습니다.
+## <a name="create-a-smart-meter-monitoring-application"></a>스마트 측정기 모니터링 애플리케이션 만들기
 
-1. [Azure IoT Central 홈페이지](https://apps.azureiotcentral.com)를 열고 **빌드** 를 클릭하여 새 애플리케이션을 만듭니다. 
-1. **에너지** 탭을 선택하고 **스마트 미터 모니터링** 애플리케이션 타일 아래에서 **앱 만들기** 를 클릭합니다.
+1. [Azure IoT Central 빌드](https://aka.ms/iotcentral) 사이트로 이동합니다. 그런 다음, Microsoft 개인, 회사 또는 학교 계정으로 로그인합니다. 왼쪽 탐색 모음에서 **빌드** 를 선택한 다음, **에너지** 탭을 선택합니다.
 
-    > [!div class="mx-imgBorder"]
-    > ![앱 빌드](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
-    
+    :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-build.png" alt-text="스마트 미터 템플릿":::
 
-1. **앱 만들기** 에서 **새 애플리케이션** 양식이 열립니다. 아래 그림처럼 요청된 정보를 입력합니다.
-    * **애플리케이션 이름**: IoT Central 애플리케이션의 이름을 선택합니다. 
-    * **URL**: IoT Central URL을 선택하면 플랫폼에서 해당 URL의 고유성을 확인합니다.
-    * **7일 평가판**: Azure 구독이 이미 있는 경우 기본 설정을 사용하는 것이 좋습니다. Azure 구독이 없는 경우 평가판으로 시작하세요.
-    * **청구 정보**: 애플리케이션 자체는 무료입니다. 앱의 리소스를 프로비저닝하려면 디렉터리, Azure 구독 및 영역 세부 정보가 필요합니다.
-    * 페이지 맨 아래에서 **만들기** 단추를 클릭하면 1분 내에 앱이 생성됩니다.
+1. **스마트 미터 모니터링** 에서 **앱 만들기** 를 선택합니다.
 
-        ![새 애플리케이션 양식](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+자세한 내용은 [IoT Central 애플리케이션 만들기](../core/howto-create-iot-central-application.md)를 참조하세요.
 
-        ![새 애플리케이션 양식 청구 정보](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
+## <a name="walk-through-the-application"></a>애플리케이션 살펴보기
 
-### <a name="verify-the-application-and-simulated-data"></a>애플리케이션 및 시뮬레이션된 데이터 확인
+다음 섹션에서는 애플리케이션의 주요 기능을 안내합니다.
 
-새로 생성된 스마트 미터 앱은 여러분의 앱이며 언제든지 수정할 수 있습니다. 앱을 수정하기 전에 앱이 배포되었고 예상대로 작동하는지 확인합니다.
+### <a name="dashboard"></a>대시보드
 
-앱 만들기 및 데이터 시뮬레이션을 확인하려면 **대시보드** 로 이동합니다. 데이터가 포함된 타일이 보이면 앱 배포에 성공한 것입니다. 데이터 시뮬레이션에서 데이터를 생성할 때까지 몇 분 정도 걸릴 수 있으므로 1-2분 정도 기다립니다. 
-
-## <a name="application-walk-through"></a>애플리케이션 연습
-앱 템플릿을 성공적으로 배포한 후에는 앱과 함께 샘플 스마트 미터 디바이스, 디바이스 모델 및 대시보드가 제공됩니다. 
+애플리케이션 템플릿을 배포한 후에는 샘플 스마트 미터 디바이스, 디바이스 모델 및 대시보드가 제공됩니다. 
 
 Adatum은 스마트 미터를 모니터링 및 관리하는 가상의 에너지 회사입니다. 스마트 미터 모니터링 대시보드에는 스마트 미터 속성, 데이터 및 샘플 명령이 표시됩니다. 운영자와 지원 팀은 지원 인시던트가 발생하기 전에 다음 작업을 선제적으로 수행할 수 있습니다. 
 * 맵의 최신 미터 정보 및 설치된 [위치](../core/howto-use-location-data.md) 검토
@@ -70,39 +72,34 @@ Adatum은 스마트 미터를 모니터링 및 관리하는 가상의 에너지 
 * 계획 및 요금 청구 목적에 사용할 수 있도록 총 에너지 사용량 추적
 * 미터 다시 연결 및 펌웨어 버전 업데이트와 같은 명령 및 제어 작업. 템플릿의 명령 단추는 가능한 기능을 보여주지만 실제 명령을 보내지는 않습니다. 
 
-> [!div class="mx-imgBorder"]
-> ![스마트 미터 모니터링 대시보드](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png" alt-text="스마트 미터 모니터링 대시보드.":::
 
 ### <a name="devices"></a>디바이스
+
 앱과 함께 샘플 스마트 미터 디바이스가 제공됩니다. **디바이스** 탭을 클릭하여 디바이스 세부 정보를 볼 수 있습니다.
 
-> [!div class="mx-imgBorder"]
-> ![스마트 미터 디바이스](media/tutorial-iot-central-smart-meter/smart-meter-devices.png)
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-devices.png" alt-text="스마트 미터 디바이스.":::
 
 디바이스 세부 정보를 보려면 샘플 디바이스 **SM0123456789** 링크를 클릭합니다. **속성 업데이트** 페이지에서 디바이스의 쓰기 가능 속성을 업데이트하고, 업데이트된 값을 대시보드에 시각화할 수 있습니다.
 
-> [!div class="mx-imgBorder"]
-> ![스마트 미터 속성](media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png)
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png" alt-text="스마트 미터 속성.":::
 
 ### <a name="device-template"></a>디바이스 템플릿
+
 **디바이스 템플릿** 탭을 클릭하여 스마트 미터 디바이스 모델을 봅니다. 모델에는 데이터, 속성, 명령 및 보기에 대해 미리 정의된 인터페이스가 있습니다.
 
-> [!div class="mx-imgBorder"]
-> ![스마트 미터 디바이스 템플릿](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
-
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-template.png" alt-text="스마트 미터 디바이스 템플릿.":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
+
 이 애플리케이션이 더 이상 필요 없는 경우 다음 단계에 따라 애플리케이션을 삭제합니다.
 
 1. 왼쪽 창에서 [관리] 탭을 엽니다.
 1. [애플리케이션 설정]을 선택하고 페이지 아래쪽에서 [삭제] 단추를 클릭합니다. 
 
-    > [!div class="mx-imgBorder"]
-    > ![애플리케이션 삭제](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)
+    :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png" alt-text="애플리케이션 삭제.":::
 
 ## <a name="next-steps"></a>다음 단계
 
-스마트 미터 앱 아키텍처에 대해 알아보려면 다음을 참조하세요.
+> [자습서: 태양광 패널 애플리케이션 템플릿 배포 및 살펴보기](tutorial-solar-panel-app.md)
 
-> [!div class="nextstepaction"]
-> [스마트 미터 애플리케이션 아키텍처](./concept-iot-central-smart-meter-app.md)

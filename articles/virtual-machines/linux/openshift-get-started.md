@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: aba01fc2317372438bc0d93a6618d518ab03ed0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 940973aa0465c94e8df4882af9b2a1a89c65ff87
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101672311"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687865"
 ---
 # <a name="openshift-in-azure"></a>Azure의 OpenShift
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 OpenShift는 엔터프라이즈에 Docker 및 Kubernetes를 제공하는 확장 가능한 개방형 컨테이너 애플리케이션 플랫폼입니다.  
 

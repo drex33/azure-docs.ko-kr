@@ -10,14 +10,16 @@ ms.date: 07/07/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1ba23474034623228cc7c645ffb3d0ec5ae65474
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 63e49c5fa68ca415ffd63e7db64bc7f5f89a7ab6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110679050"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688657"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 Shared Gallery에서 이미지를 만드는 경우 Azure Marketplace 이미지에서 최초로 만들어진 원본을 사용하면 구매 계획 정보를 추적해야 할 수 있습니다. 이 문서에서는 VM에 대한 구매 계획 정보를 찾은 다음 이미지 정의를 만들 때 해당 정보를 사용하는 방법을 보여 줍니다. 이미지에 대한 VM을 만들 때 구매 계획 정보를 간편하게 제공하기 위해 이미지 정의의 정보를 사용하는 방법도 다룹니다.
 

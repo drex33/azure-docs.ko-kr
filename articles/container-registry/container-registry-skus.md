@@ -2,13 +2,13 @@
 title: 레지스트리 서비스 계층 및 기능
 description: Azure Container Registry의 기본, 표준 및 프리미엄 서비스 계층(SKU)에 있는 기능 및 제한(할당량)에 대해 알아봅니다.
 ms.topic: article
-ms.date: 05/18/2020
-ms.openlocfilehash: 323d36fe022d8b8e9618b8beb1facae93d22df4e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 06/24/2021
+ms.openlocfilehash: 8c27426cae6d80e31aef3d7ef9b75d28a14bd923
+ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781256"
+ms.lasthandoff: 07/07/2021
+ms.locfileid: "113437543"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure Container Registry 서비스 계층
 
@@ -27,6 +27,41 @@ Azure Container Registry는 다중 서비스 계층(SKU라고도 함)에서 사�
 다음 표에서는 기본, 표준 및 프리미엄 서비스 계층의 기능 및 레지스트리 제한에 대해 자세히 설명합니다.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
+
+## <a name="registry-throughput-and-throttling"></a>레지스트리 처리량 및 제한
+
+### <a name="throughput"></a>처리량 
+
+높은 비율의 레지스트리 작업을 생성할 때 예상되는 최대 처리량에 대한 지침으로 읽기와 쓰기 작업 및 대역폭에 대한 서비스 계층의 제한을 사용합니다. 이러한 제한은 이미지 및 기타 아티팩트 나열, 삭제, 푸시 및 끌어오기와 같은 데이터 평면 작업에 영향을 줍니다.
+
+특히 이미지 끌어오기 및 푸시의 처리량을 예측하려면 레지스트리 제한과 다음 요소를 고려합니다. 
+
+* 이미지 계층의 수 및 크기
+* 이미지 전체에서 레이어 또는 기본 이미지 다시 사용
+* 각 끌어오기 또는 푸시에 필요할 수 있는 추가 API 호출
+
+자세한 내용은 [Docker HTTP API V2](https://docs.docker.com/registry/spec/api/) 설명서를 참조하세요.
+
+레지스트리 처리량을 평가하거나 문제를 해결할 때 클라이언트 환경의 구성도 고려합니다.
+
+* 동시 작업에 대한 Docker 디먼 구성
+* 레지스트리의 데이터 엔드포인트(또는 레지스트리가 [지역 복제](container-registry-geo-replication.md)된 경우 엔드포인트)에 대한 네트워크 연결입니다.
+
+레지스트리의 처리량에 문제가 발생하는 경우 레지스트리 [성능 문제 해결](container-registry-troubleshoot-performance.md)을 참조하세요. 
+
+#### <a name="example"></a>예
+
+단일 133MB `nginx:latest` 이미지를 Azure Container Registry에 푸시하려면 이미지의 5개 계층에 대해 여러 읽기 및 쓰기 작업이 필요합니다. 
+
+* 레지스트리에 있는 경우 이미지 매니페스트를 읽기 위한 읽기 작업
+* 이미지의 구성 Blob을 작성하는 쓰기 작업
+* 이미지 매니페스트를 작성하는 쓰기 작업
+
+### <a name="throttling"></a>제한
+
+레지스트리에서 요청 속도가 레지스트리의 서비스 계층에 허용되는 제한을 초과하는 것으로 확인되면 끌어오기 또는 푸시 작업이 제한될 수 있습니다. `Too many requests`와 유사한 HTTP 429 오류가 표시될 수 있습니다.
+
+읽기 및 쓰기 작업의 평균 속도가 레지스트리 제한 내에 있는 경우에도 매우 짧은 기간 내에 이미지 끌어오기 또는 푸시 작업의 버스트를 생성할 때 제한이 일시적으로 발생할 수 있습니다. 코드에서 일부 백오프를 사용하여 재시도 논리를 구현하거나 레지스트리에 대한 최대 요청 속도를 줄여야 할 수 있습니다.
 
 ## <a name="changing-tiers"></a>계층 변경
 

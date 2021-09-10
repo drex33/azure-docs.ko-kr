@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6710273438b291c1547688b2213b0c57ac766b99
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: b018dead90b593276a9cb92696dd964473057407
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110796378"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732315"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>빠른 시작: 무제한 앱 등록 만들기에 대한 사용 권한 부여
 
@@ -26,7 +26,7 @@ ms.locfileid: "110796378"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure AD Premium P1 또는 P2 라이선스
 - 권한 있는 역할 관리자 또는 전역 관리자
@@ -39,8 +39,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** 를 선택하고 **역할 및 관리자** 를 선택한 다음, **새 사용자 지정 역할** 을 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **역할 및 관리자** 를 선택한 다음, **새 사용자 지정 역할** 을 선택합니다.
 
     ![역할 및 관리자 페이지에서 역할 만들기 또는 편집](./media/quickstart-app-registration-limits/new-custom-role.png)
 
@@ -56,9 +57,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="assign-the-role"></a>역할 할당
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** 를 선택한 다음, **역할 및 관리자** 를 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+
+1. **Azure Active Directory** > **역할 및 관리자** 를 선택합니다.
+
 1. 애플리케이션 등록 작성자 역할을 선택하고 **할당 추가** 를 선택합니다.
+
 1. 원하는 사용자를 선택하고 **선택** 을 클릭하여 사용자를 역할에 추가합니다.
 
 완료되었습니다. 이 빠른 시작에서는 갯수 제한 없이 앱 등록을 만들 수 있는 권한이 있는 사용자 지정 역할을 만든 다음, 해당 역할을 사용자에게 할당했습니다.

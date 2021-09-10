@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 08/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 36740e7b135309524b70a74e0f92ceb7e2ac1238
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 5e655177f37ecafea407899c4512d803ba2295ad
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461818"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122252805"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-anyconnect"></a>자습서: Cisco AnyConnect와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -37,7 +37,7 @@ ms.locfileid: "112461818"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Cisco AnyConnect에서 **IDP** 시작 SSO를 지원합니다.
+* Cisco AnyConnect는 **IDP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-cisco-anyconnect-from-the-gallery"></a>갤러리에서 Cisco AnyConnect 추가
 
@@ -76,10 +76,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **SAML로 Single Sign-On 설정** 페이지에서 다음 필드에 값을 입력합니다(값은 대/소문자를 구분함).
 
    1. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.  
-      `https://*.YourCiscoServer.com/saml/sp/metadata/TGTGroup`
+      `https://<SUBDOMAIN>.YourCiscoServer.com/saml/sp/metadata/<Tunnel_Group_Name>`
 
    1. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.  
-      `https://YOUR_CISCO_ANYCONNECT_FQDN/+CSCOE+/saml/sp/acs?tgname=TGTGroup`
+      `https://<YOUR_CISCO_ANYCONNECT_FQDN>/+CSCOE+/saml/sp/acs?tgname=<Tunnel_Group_Name>`
 
     > [!NOTE]
     > 이러한 값에 대한 자세한 내용은 Cisco TAC 지원에 문의하세요. Cisco TAC에서 제공하는 실제 식별자와 회신 URL로 값을 업데이트합니다. 해당 값을 얻으려면 [Cisco AnyConnect 클라이언트 지원 팀](https://www.cisco.com/c/en/us/support/index.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -93,7 +93,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> 서버의 여러 TGT 보드를 원하는 경우 갤러리에서 Cisco AnyConnect 애플리케이션의 여러 인스턴스를 추가해야 합니다. 또한 이러한 모든 애플리케이션 인스턴스에 대해 Azure AD에서 사용자 고유의 인증서를 업로드하도록 선택할 수 있습니다. 이렇게 하면 애플리케이션에 대해 동일한 인증서를 사용할 수 있지만 모든 애플리케이션에 대해 서로 다른 식별자와 회신 URL을 구성할 수 있습니다.
+> 서버의 여러 TGT 보드를 온보딩하려면 갤러리에서 Cisco AnyConnect 애플리케이션의 여러 인스턴스를 추가해야 합니다. 또한 이러한 모든 애플리케이션 인스턴스에 대해 Azure AD에서 사용자 고유의 인증서를 업로드하도록 선택할 수 있습니다. 이렇게 하면 애플리케이션에 대해 동일한 인증서를 사용할 수 있지만 모든 애플리케이션에 대해 서로 다른 식별자와 회신 URL을 구성할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -170,7 +170,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ```
 
     > [!NOTE]
-    > SAML IdP 구성 기능이 있습니다. IdP 구성을 변경하는 경우 변경 내용이 적용되려면 터널 그룹에서 saml identity-provider 구성을 제거한 후에 다시 적용해야 합니다.
+    > SAML IdP 구성에 대한 해결 방법이 있습니다. IdP 구성을 변경하는 경우 터널 그룹에서 saml identity-provider 구성을 제거한 후 다시 적용해야 변경 내용이 적용됩니다.
 
 ### <a name="create-cisco-anyconnect-test-user"></a>Cisco AnyConnect 테스트 사용자 만들기
 

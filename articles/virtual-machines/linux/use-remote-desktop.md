@@ -9,14 +9,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 1a7e656cb1f20c05073a9fe80ee64af51268a8c7
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: d6dd3fd6e4f4196c49fc6431218448e632c9e8b4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529763"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698876"
 ---
 # <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Ubuntu에 원격 데스크톱을 사용하도록 xrdp 설치 및 구성
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure의 Linux VM(가상 머신)은 SSH(보안 셸) 연결을 사용하여 명령줄에서 일반적으로 관리됩니다. Linux를 처음 사용하거나 빠른 문제 해결 시나리오의 경우 원격 데스크톱을 사용하는 편이 더 쉬울 수 있습니다. 이 문서에서는 Ubuntu를 실행 중인 Linux VM에 데스크톱 환경([xfce](https://www.xfce.org)) 및 원격 데스크톱([xrdp](http://xrdp.org))을 설치하고 구성하는 방법에 대해 자세히 설명합니다.
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 04/28/2021
 ms.author: memildin
-ms.openlocfilehash: fcadb8879f718913d93e33f81f6ec544ce9edb80
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: cb6f81fc02245e7932222d8555774e398944f1f4
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277987"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121751831"
 ---
 # <a name="tutorial-investigate-the-health-of-your-resources"></a>자습서: 리소스 상태 조사
 
@@ -78,7 +78,7 @@ Security Center의 포털 페이지에서 현재 미리 보기로 제공되는 �
 
 - 구독에 적용 되는 정책에 따라 리소스가 확정 되도록 하려면 권장 사항에 설명된 문제를 해결합니다.
     1. 오른쪽 창에서 권장 사항을 선택합니다.
-    1. 화면의 지시에 따라 진행합니다.
+    1. 화면의 지시에 따라 계속합니다.
 
         > [!TIP]
         > 발생한 문제를 보안 권장 사항에 따라 해결하는 지침은 Security Center의 각 권장 사항에 따라 다릅니다.

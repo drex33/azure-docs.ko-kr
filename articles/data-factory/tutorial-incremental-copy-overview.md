@@ -4,15 +4,16 @@ description: 이 자습서는 원본 데이터 저장소에서 대상 데이터 
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 7161fb30c8b445681b4cd577d8f8ac9fff5106df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a7dae1f33583a7350dd273a44efa90e9cb7dd725
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739248"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122638859"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>원본 데이터 저장소에서 대상 데이터 저장소로 데이터 증분 로드
 
@@ -43,7 +44,7 @@ ms.locfileid: "101739248"
 - [변경 내용 추적 기술을 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 복사](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>LastModifiedDate를 사용하여 새 파일과 변경된 파일 로드
-LastModifiedDate를 사용하여 새 파일과 변경된 파일만 대상 저장소에 복사할 수 있습니다. ADF는 원본 저장소의 모든 파일을 검색하고, LastModifiedDate별로 파일 필터를 적용하고, 마지막 시간 이후의 새 파일과 변경된 파일만 대상 저장소에 복사합니다.  ADF가 대량의 파일을 검색하되, 몇 가지 파일만 대상에 복사하도록 해도 파일 검색에 시간이 오래 걸려서 대기 시간이 길어집니다.   
+LastModifiedDate를 사용하여 새 파일과 변경된 파일만 대상 저장소에 복사할 수 있습니다. ADF는 원본 저장소의 모든 파일을 검색하고, LastModifiedDate별로 파일 필터를 적용하고, 마지막 시간 이후의 새 파일과 변경된 파일만 대상 저장소에 복사합니다.  ADF에서 많은 양의 파일을 검색하도록 하고 몇 개의 파일만 대상에 복사하면 파일 검색 프로세스로 인해 시간이 오래 걸릴 수 있습니다.   
 
 단계별 지침은 다음 자습서를 참조하세요. <br/>
 - [LastModifiedDate를 기반으로 Azure Blob Storage에서 Azure Blob Storage로 새 파일과 변경된 파일 증분 복사](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

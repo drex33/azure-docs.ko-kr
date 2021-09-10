@@ -13,12 +13,12 @@ ms.custom:
 - seo-python-october2019
 - devx-track-azurecli
 - contperf-fy21q1
-ms.openlocfilehash: 9814037b9a4ace0a5f39d6ab0b01d1d940fb00fa
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: cda15b8d0dfd5074fca75283589c3ea173310b4e
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112991985"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769953"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Kubernetes Service 클러스터 배포
 
@@ -75,25 +75,23 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="enable-cluster-monitoring"></a>클러스터 모니터링 사용
 
-1. *Microsoft.OperationsManagement* 및 *Microsoft.OperationalInsights* 가 구독에 등록되어 있는지 확인합니다. 등록 상태를 확인하는 방법은 다음과 같습니다.
+*Microsoft.OperationsManagement* 및 *Microsoft.OperationalInsights* 가 구독에 등록되어 있는지 확인합니다. 등록 상태를 확인하는 방법은 다음과 같습니다.
 
-    ```azurecli
-    az provider show -n Microsoft.OperationsManagement -o table
-    az provider show -n Microsoft.OperationalInsights -o table
-    ```
+```azurecli
+az provider show -n Microsoft.OperationsManagement -o table
+az provider show -n Microsoft.OperationalInsights -o table
+```
  
-    등록되지 않은 경우 다음을 사용하여 *Microsoft.OperationsManagement* 및 *Microsoft.OperationalInsights* 를 등록합니다.
+등록되지 않은 경우 다음을 사용하여 *Microsoft.OperationsManagement* 및 *Microsoft.OperationalInsights* 를 등록합니다.
  
-    ```azurecli
-    az provider register --namespace Microsoft.OperationsManagement
-    az provider register --namespace Microsoft.OperationalInsights
-    ```
-
-2. *--enable-addons monitoring* 매개 변수를 사용하여 [컨테이너용 Azure Monitor][azure-monitor-containers]를 사용하도록 설정합니다. 
+```azurecli
+az provider register --namespace Microsoft.OperationsManagement
+az provider register --namespace Microsoft.OperationalInsights
+```
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 
+[컨테이너용 Azure Monitor][azure-monitor-containers]를 사용하도록 설정하는 *--enable-addons monitoring* 매개 변수와 함께 [az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -168,7 +166,7 @@ Kubernetes 클러스터를 관리하려면 Kubernetes 명령줄 클라이언트�
             app: azure-vote-back
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-back
             image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
@@ -211,7 +209,7 @@ Kubernetes 클러스터를 관리하려면 Kubernetes 명령줄 클라이언트�
             app: azure-vote-front
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-front
             image: mcr.microsoft.com/azuredocs/azure-vote-front:v1

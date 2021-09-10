@@ -7,14 +7,14 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/18/2021
-ms.openlocfilehash: cf69321045a3c79e2803445964ff7f09a5e522e7
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: b1168833242aa69b8e1bff5d7bd810f2c3db019d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114732113"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693589"
 ---
-# <a name="connect-azure-database-for-sql-flexible-server-with-private-access-connectivity-method"></a>프라이빗 액세스 연결 방법을 사용하는 Azure Database for SQL 유연한 서버에 연결
+# <a name="connect-azure-database-for-mysql-flexible-server-with-private-access-connectivity-method"></a>프라이빗 액세스 연결 방법을 사용하는 Azure Database for MySQL 유연한 서버에 연결
 
 Azure Database for MySQL 유연한 서버는 클라우드에서 고가용성 MySQL 서버를 실행, 관리 및 크기 조정하는 데 사용할 수 있는 관리되는 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 가상 네트워크에서 유연한 서버를 만드는 방법을 보여 줍니다.
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 4. **기본 사항** 탭에서 **구독**, **리소스 그룹** , **지역**, **관리자 사용자 이름** 및 **관리자 암호** 를 입력합니다.  기본값을 사용하면 vCore 1개, 2GiB 메모리 및 32GiB 스토리지를 사용하여 버스트 가능한 SKU가 있는 버전 5.7의 MySQL 서버가 프로비저닝됩니다. 백업 보존 기간은 7일입니다. 구성을 변경할 수 있습니다.
 
-    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png" alt-text="유연한 서버 페이지의 기본 탭을 보여 주는 스크린샷" lightbox="/media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png":::
+    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png" alt-text="유연한 서버 페이지의 기본 탭을 보여 주는 스크린샷" lightbox="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png":::
 
    > [!TIP]
    > 마이그레이션 중에 더 빠른 데이터 로드를 위해 컴퓨팅 크기에서 지원되는 최대 크기로 IOPS를 늘리고 나중에 비용을 절약하기 위해 다시 규모를 조정하는 것이 좋습니다.
@@ -133,7 +133,7 @@ ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
 서버에 연결하려면 mysql-client 도구를 설치해야 합니다.
 
 ```bash
-sude apt-getupdate
+sudo apt-getupdate
 sudo apt-get install mysql-client
 ```
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 06/16/2021
 ms.author: cshoe
-ms.openlocfilehash: 3ec36a06dafb8622f97ded317f8ab2617e96662a
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
+ms.openlocfilehash: b543831ceead6d386de0617b02db93a99d9507a6
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112428833"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122609131"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>빠른 시작: Azure Static Web Apps를 사용하여 첫 번째 정적 사이트 빌드
 
@@ -46,6 +46,9 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 1. _Static Web Apps_ 레이블 아래에서 **더하기 기호** 를 선택합니다.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="애플리케이션 이름":::
+    
+    > [!NOTE]
+    > Azure Static Web Apps Visual Studio Code 확장은 일련의 기본값을 사용하여 만들기 프로세스를 간소화합니다. 만들기 프로세스를 세부적으로 제어하려면 명령문을 열고 **Azure Static Web Apps: 정적 웹앱 만들기...(고급)** 을 선택합니다.
 
 1. 편집기 맨 위에 명령 팔레트가 열리고 구독 이름을 선택하라는 메시지가 표시됩니다.
 
@@ -65,11 +68,11 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="애플리케이션 사전 설정: 프레임워크 없음":::
 
-    애플리케이션 파일의 위치로 를 입력하고 <kbd>Enter</kbd> 키를 누릅니다.
+    애플리케이션 파일의 위치로 **./src** 를 입력하고 <kbd>Enter</kbd> 키를 누릅니다.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="애플리케이션 빌드 출력 위치":::
 
-    빌드 출력 위치로 **./** 를 입력하고 <kbd>Enter</kbd> 키를 누릅니다.
+    빌드 출력 위치로 **./src** 를 입력하고 <kbd>Enter</kbd> 키를 누릅니다.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 

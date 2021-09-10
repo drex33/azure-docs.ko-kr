@@ -4,15 +4,15 @@ description: Azure App Service Environments를 통해 완전히 격리된 전용
 author: ccompy
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.topic: overview
-ms.date: 04/19/2018
+ms.date: 07/28/2021
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 990d1ca07d4cf9e66c50a22f213817dda3ae029c
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 195da1286251ca51c9d36aaf7c2dcfb3c2177766
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432917"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121725737"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
 > [!NOTE]
@@ -49,7 +49,7 @@ ASE는 한 고객에서만 애플리케이션을 호스팅하고 VNet 중 하나
 
 ## <a name="dedicated-environment"></a>전용 환경 ##
 
-ASE는 단일 구독에 단독으로 전용되어 100개의 App Service 계획 인스턴스를 호스팅할 수 있습니다. 단일 App Service 계획의 100개 인스턴스부터 100개의 단일 인스턴스 App Service 계획까지 가능하며 모든 항목은 이 두 계획 사이에 있습니다.
+ASE는 단일 고객에게만 제공되는 전용 환경으로 App Service 요금제의 총 인스턴스 200개를 호스트할 수 있습니다. 격리된 단일 SKU App Service 요금제에는 최대 100개의 인스턴스가 포함될 수 있습니다. 해당 ASE의 모든 App Service 요금제에서 모든 인스턴스를 추가하는 경우 합계는 200보다 작거나 같아야 합니다.
 
 ASE는 프런트 엔드 및 작업자로 구성됩니다. 프런트 엔드는 ASE 내의 앱 요청에 대한 자동 부하 분산 및 HTTP/HTTPS 종료를 담당합니다. 프런트 엔드는 ASE의 App Service 계획이 스케일 아웃됨에 따라 자동으로 추가됩니다.
 

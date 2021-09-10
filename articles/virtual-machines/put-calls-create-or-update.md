@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.date: 08/4/2020
 ms.custom: avverma
-ms.openlocfilehash: d6ee4179dce905d637e933743ade7452a2484077
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07d22c4535bc10012ea5df6cfb222f5a53eb0a81
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91978563"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697288"
 ---
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>컴퓨팅 리소스의 만들기 또는 업데이트에 대한 PUT 호출
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
+
 
 `Microsoft.Compute` 리소스는 *HTTP PUT* 의미 체계의 기본 정의를 지원하지 않습니다. 대신 이러한 리소스는 PUT 및 PATCH 동사 모두에 대해 PATCH 의미 체계를 사용합니다.
 

@@ -3,16 +3,16 @@ title: 자습서 - Azure Monitor VM 인사이트를 사용하여 하이브리드
 description: Azure Monitor에서 하이브리드 머신의 데이터를 수집하고 분석하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 04/21/2021
-ms.openlocfilehash: f59ad448440110e2c5e6dd1fa1b2858d9cf42e91
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 8ab801885e86ed90d5f28c2ce90a994828b358a0
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834267"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122772626"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-vm-insights"></a>자습서: VM 인사이트를 사용하여 하이브리드 머신 모니터링
 
-[Azure Monitor](../../../azure-monitor/overview.md)는 상세한 분석 및 상관 관계 파악을 위해 하이브리드 머신에서 Log Analytics 작업 영역으로 데이터를 직접 수집할 수 있습니다. 일반적으로 이는 구성 관리 표준에 따라 스크립트, 수동으로 또는 자동화된 방법을 사용하여 머신에 [Log Analytics 에이전트](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent)를 설치해야 합니다. Arc 사용 서버는 최근에 Windows 및 Linux용 Log Analytics 및 종속성 에이전트 [VM 확장](../manage-vm-extensions.md)을 설치하는 기능을 지원하므로 [VM 인사이트](../../../azure-monitor/vm/vminsights-overview.md)에서 Azure VM이 아닌 VM에서 데이터를 수집할 수 있습니다.
+[Azure Monitor](../../../azure-monitor/overview.md)는 상세한 분석 및 상관 관계 파악을 위해 하이브리드 머신에서 Log Analytics 작업 영역으로 데이터를 직접 수집할 수 있습니다. 일반적으로 이는 구성 관리 표준에 따라 스크립트, 수동으로 또는 자동화된 방법을 사용하여 머신에 [Log Analytics 에이전트](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent)를 설치해야 합니다. Arc 지원 서버는 최근에 Windows 및 Linux용 Log Analytics 및 종속성 에이전트 [VM 확장](../manage-vm-extensions.md)을 설치하는 기능을 지원하므로 [VM 인사이트](../../../azure-monitor/vm/vminsights-overview.md)에서 Azure VM이 아닌 VM에서 데이터를 수집할 수 있습니다.
 
 이 자습서에서는 환경을 간소화하고 시간을 단축하는 데 사용되는 간단한 단계 세트에 따라 VM 인사이트를 사용하도록 설정하여 Linux 또는 Windows 머신에서 데이터를 구성하고 수집하는 방법을 보여줍니다.  
 
@@ -34,7 +34,7 @@ ms.locfileid: "107834267"
 
 1. **모든 서비스** 를 클릭한 다음, **머신 - Azure Arc** 를 검색하고 선택하여 Azure Portal에서 Azure Arc 서비스를 시작합니다.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="모든 서비스에서 Arc 사용 서버 검색" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="모든 서비스에서 Arc 지원 서버 검색" border="false":::
 
 1. **머신 - Azure Arc** 페이지에서 [빠른 시작](quick-enable-hybrid-vm.md) 문서에서 만든 연결된 머신을 선택합니다.
 

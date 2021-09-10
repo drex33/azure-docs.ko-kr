@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 08/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4b357213f4e552fd791fb575d8b7a287b924c7f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ad2014b8fce21eada9ced1e63a3511daa5e1891
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489073"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122529699"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>다른 Azure AD B2C 테넌트의 Azure AD B2C 계정을 사용하여 등록 및 로그인 설정
 
@@ -41,11 +41,19 @@ ms.locfileid: "103489073"
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
+### <a name="verify-the-applications-publisher-domain"></a>애플리케이션의 게시자 도메인 확인
+2020년 11월부터 [애플리케이션의 게시자 도메인이 확인](../active-directory/develop/howto-configure-publisher-domain.md)***되고*** 회사의 ID가 Microsoft 파트너 네트워크로 확인되고 애플리케이션과 연결되지 않는 한 새 애플리케이션 등록이 사용자 동의 프롬프트에 확인되지 않은 것으로 표시됩니다. (이 변경 사항에 대해 [자세히 알아보기](../active-directory/develop/publisher-verification-overview.md)) Azure AD B2C 사용자 흐름의 경우 게시자 도메인은 [Microsoft 계정](../active-directory-b2c/identity-provider-microsoft-account.md) 또는 기타 Azure AD 테넌트를 ID 공급자로 사용할 때만 나타납니다. 이러한 새로운 요구 사항을 충족하려면 다음을 수행합니다.
+
+1. [MPN(Microsoft 파트너 네트워크) 계정을 사용하여 회사 ID를 확인](/partner-center/verification-responses)합니다. 이 프로세스는 회사 및 회사의 기본 연락처에 대한 정보를 확인합니다.
+1. 다음 옵션 중 하나를 사용하여 MPN 계정을 앱 등록과 연결하려면 게시자 확인 프로세스를 완료합니다.
+   - Microsoft 계정 ID 공급자에 대한 앱 등록이 Azure AD 테넌트에 있는 경우 [앱 등록 포털에서 앱을 확인](../active-directory/develop/mark-app-as-publisher-verified.md)합니다.
+   - Microsoft 계정 ID 공급자에 대한 앱 등록이 Azure AD B2C 테넌트에 있는 경우 [Microsoft Graph API를 사용하여 앱을 게시자 확인으로 표시합니다](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls)(예: Graph Explorer 사용). 앱의 확인된 게시자를 설정하기 위한 UI는 현재 Azure AD B2C 테넌트에서 사용할 수 없습니다.
+
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
 Azure AD B2C(예: Contoso)에서 다른 Azure AD B2C 테넌트(예: Fabrikam)의 계정이 있는 사용자에 대한 로그인을 사용 설정하려면 다음 단계를 따릅니다.
 
-1. [사용자 흐름](tutorial-create-user-flows.md) 또는 [사용자 지정 정책](custom-policy-get-started.md)을 만듭니다.
+1. [사용자 흐름](tutorial-create-user-flows.md?pivots=b2c-user-flow) 또는 [사용자 지정 정책](tutorial-create-user-flows.md?pivots=b2c-custom-policy)을 만듭니다.
 1. 그런 다음 이 섹션에 설명된 대로 Azure AD B2C에서 애플리케이션을 만듭니다. 
 
 애플리케이션을 만들려면 다음을 따릅니다.
@@ -116,7 +124,7 @@ Azure AD B2C(예: Contoso)에서 다른 Azure AD B2C 테넌트(예: Fabrikam)의
 1. **소셜 ID 공급자** 에서 **Fabrikam** 을 선택합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 에서 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **Fabrikam** 을 선택하여 다른 Azure AD B2C 테넌트로 로그인합니다.
 
@@ -229,7 +237,7 @@ Azure AD B2C(예: Contoso)에서 다른 Azure AD B2C 테넌트(예: Fabrikam)의
 ## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
 
 1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
-1. **애플리케이션** 에서 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 에서 [이전에 등록된](tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **Fabrikam** 을 선택하여 다른 Azure AD B2C 테넌트로 로그인합니다.
 

@@ -9,14 +9,15 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 2b624f43a892c3b3fc07a7128a18dc9cc66736f8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c31c77fee8f4a9706f4c7d2ad0c39d89d1327d78
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668114"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689291"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 변경 내용 및 업데이트 모니터링
+**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure [변경 내용 추적](../../automation/change-tracking/overview.md) 및 [업데이트 관리](../../automation/update-management/overview.md)를 사용하면 Azure에서 Windows 가상 머신의 변경 내용을 쉽게 식별하고 해당 VM의 운영 체제 업데이트를 관리할 수 있습니다.
 

@@ -1,56 +1,76 @@
 ---
-title: 컨테이너에 대해 일시 삭제 사용 및 관리 (미리 보기)
+title: 컨테이너에 대한 일시 삭제 사용 및 관리
 titleSuffix: Azure Storage
-description: 컨테이너 일시 삭제 (미리 보기)를 사용 하 여 데이터가 잘못 수정 되거나 삭제 될 때 더 쉽게 데이터를 복구할 수 있습니다.
+description: 컨테이너 일시 삭제를 사용하여 데이터를 잘못 수정하거나 삭제할 때 더 쉽게 복구할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2097c1743e07b5563bc75d3d1cce48aa11b98e5f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 2284344e525608c2c1498503f3bf479df1cea559
+ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102216346"
+ms.lasthandoff: 07/08/2021
+ms.locfileid: "113504508"
 ---
-# <a name="enable-and-manage-soft-delete-for-containers-preview"></a>컨테이너에 대해 일시 삭제 사용 및 관리 (미리 보기)
+# <a name="enable-and-manage-soft-delete-for-containers"></a>컨테이너에 대한 일시 삭제 사용 및 관리
 
-컨테이너 일시 삭제 (미리 보기)는 데이터를 실수로 또는 실수로 수정 또는 삭제 하지 않도록 보호 합니다. 저장소 계정에 대해 컨테이너 일시 삭제를 사용 하도록 설정 하면 컨테이너와 해당 콘텐츠가 삭제 된 후 지정 된 보존 기간 내에 복구 될 수 있습니다.
+컨테이너 일시 삭제는 데이터가 실수로 또는 잘못하여 수정되거나 삭제되지 않도록 보호합니다. 스토리지 계정에 대해 컨테이너 일시 삭제를 사용하면 지정한 보존 기간 내에 컨테이너 및 해당 콘텐츠가 삭제된 후 복구될 수 있습니다. 컨테이너 일시 삭제에 대한 자세한 내용은 [컨테이너에 대한 일시 삭제](soft-delete-container-overview.md)를 참조하세요.
 
-응용 프로그램 또는 다른 저장소 계정 사용자가 실수로 데이터를 수정 하거나 삭제할 수 있는 경우 컨테이너 일시 삭제를 설정 하는 것이 좋습니다. 이 문서에서는 컨테이너에 대해 일시 삭제를 사용 하도록 설정 하는 방법을 보여 줍니다. 미리 보기에 등록 하는 방법을 비롯 하 여 컨테이너 일시 삭제에 대 한 자세한 내용은 [컨테이너의 일시 삭제 (미리 보기)](soft-delete-container-overview.md)를 참조 하세요.
-
-종단 간 데이터 보호를 위해 blob 및 Blob 버전 관리에 대해서도 일시 삭제를 사용 하도록 설정 하는 것이 좋습니다. Blob에 대해 일시 삭제를 사용 하도록 설정 하는 방법을 알아보려면 [blob에 대 한 일시 삭제 설정 및 관리](soft-delete-blob-enable.md)를 참조 하세요. Blob 버전 관리를 사용 하도록 설정 하는 방법을 알아보려면 [blob 버전 관리](versioning-overview.md)를 참조 하세요.
-
-> [!IMPORTANT]
->
-> 컨테이너 일시 삭제는 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+엔드투엔드 데이터 보호의 경우 Blob 및 Blob 버전에 대해 일시 삭제를 사용하는 것이 좋습니다. 또한 Blob에 대해 일시 삭제를 사용하는 방법을 알아보려면 [Blob에 대한 일시 삭제 사용 및 관리](soft-delete-blob-enable.md)를 참조하세요. Blob 버전 관리를 사용하는 방법을 알아보려면 [Blob 버전 관리](versioning-overview.md)를 참조하세요.
 
 ## <a name="enable-container-soft-delete"></a>컨테이너 일시 삭제 사용
 
-언제 든 지 Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 저장소 계정에 대해 컨테이너 일시 삭제를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
+Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 사용하여 언제든지 스토리지 계정에 대해 컨테이너 일시 삭제를 사용하거나 사용하지 않을 수 있습니다. 컨테이너 일시 삭제의 보존 기간을 최소 7일로 설정하는 것이 좋습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal를 사용 하 여 저장소 계정에 대해 컨테이너 일시 삭제를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+Azure Portal을 사용하여 스토리지 계정에 대해 컨테이너 일시 삭제를 사용하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 스토리지 계정으로 이동합니다.
-1. **Blob service** 에서 **데이터 보호** 설정을 찾습니다.
-1. **컨테이너 일시 삭제** 속성을 *사용* 으로 설정 합니다.
-1. **보존 정책** 에서 소프트 삭제 된 컨테이너를 Azure Storage 유지 하는 기간을 지정 합니다.
+1. **데이터 관리** 에서 **데이터 보호** 설정을 찾습니다.
+1. **컨테이너에 대해 일시 삭제 사용** 을 선택합니다.
+1. 1~365일 사이의 보존 기간을 지정합니다.
 1. 변경 내용을 저장합니다.
 
-:::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-configure.png" alt-text="Azure Portal에서 컨테이너 일시 삭제를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-configure.png" alt-text="Azure Portal에서 컨테이너 일시 삭제를 사용하는 방법을 보여 주는 스크린샷":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell에서 컨테이너 일시 삭제를 사용하려면 먼저 [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈, 버전 3.9.0 이상을 설치합니다. 다음으로 **Enable-AzStorageContainerDeleteRetentionPolicy** 명령을 호출하고 보존 기간에 대한 기간(일)을 지정합니다. 꺾쇠 괄호로 묶인 값을 다음과 같이 고유한 값으로 바꿔야 합니다.
+
+```azurepowershell-interactive
+Enable-AzStorageContainerDeleteRetentionPolicy -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -RetentionDays 7 
+```
+
+컨테이너 일시 삭제를 사용하지 않으려면 **Disable-AzStorageContainerDeleteRetentionPolicy** 명령을 호출합니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI에서 컨테이너 일시 삭제를 사용하려면 먼저 Azure CLI, 버전 2.26.0 이상을 설치합니다. 다음으로 [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) 명령을 호출하고 보존 기간에 대한 기간(일)을 지정합니다. 꺾쇠 괄호로 묶인 값을 다음과 같이 고유한 값으로 바꿔야 합니다.
+
+```azurecli-interactive
+az storage account blob-service-properties update \
+    --enable-container-delete-retention true \
+    --container-delete-retention-days 7 \
+    --account-name <storage-account> \
+    --resource-group <resource_group>
+```
+
+컨테이너 일시 삭제를 사용하지 않으려면 `--enable-container-delete-retention` 매개 변수에 대해 `false`를 지정합니다.
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-Azure Resource Manager 템플릿을 사용 하 여 컨테이너 일시 삭제를 사용 하도록 설정 하려면 **containerDeleteRetentionPolicy** 속성을 설정 하는 템플릿을 만듭니다. 다음 단계에서는 Azure Portal에서 템플릿을 만드는 방법을 설명 합니다.
+Azure Resource Manager 템플릿에서 컨테이너 일시 삭제를 사용하려면 **containerDeleteRetentionPolicy** 속성을 설정하는 템플릿을 만듭니다. 다음 단계에서는 Azure Portal에서 템플릿을 만드는 방법을 설명합니다.
 
-1. Azure Portal에서 **리소스 만들기** 를 선택 합니다.
-1. **Marketplace 검색** 에서 **템플릿 배포** 를 입력 하 고 **enter** 키를 누릅니다.
-1. **템플릿 배포** 를 선택 하 고 **만들기** 를 선택한 다음 **편집기에서 사용자 고유의 템플릿 빌드** 를 선택 합니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택합니다.
+1. **Marketplace 검색** 에서 **템플릿 배포** 를 입력하고 **ENTER** 를 누릅니다.
+1. **템플릿 배포** 를 선택하고 **만들기** 를 선택한 다음 **편집기에서 고유의 템플릿 빌드** 를 선택합니다.
 1. 템플릿 편집기에서 다음 JSON을 붙여넣습니다. `<account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
     ```json
@@ -75,34 +95,34 @@ Azure Resource Manager 템플릿을 사용 하 여 컨테이너 일시 삭제를
     }
     ```
 
+1. 보존 기간을 지정합니다. 기본값은 7입니다.
+1. 템플릿을 저장하는 경우
+1. 해당 계정의 리소스 그룹을 지정한 다음, **검토 + 만들기** 단추를 선택하여 템플릿을 배포하고 컨테이너 일시 삭제를 사용합니다.
+
 ---
 
-1. 보존 기간을 지정 합니다. 기본값은 7입니다.
-1. 템플릿을 저장하는 경우
-1. 계정에 대 한 리소스 그룹을 지정한 다음 **검토 + 만들기** 단추를 선택 하 여 템플릿을 배포 하 고 컨테이너 일시 삭제를 사용 하도록 설정 합니다.
+## <a name="view-soft-deleted-containers"></a>일시 삭제된 컨테이너 보기
 
-## <a name="view-soft-deleted-containers"></a>일시 삭제 된 컨테이너 보기
+일시 삭제를 사용하면 Azure Portal에서 일시 삭제된 컨테이너를 볼 수 있습니다. 일시 삭제된 컨테이너는 지정된 보존 기간 동안 표시됩니다. 보존 기간이 만료되면 일시 삭제된 컨테이너가 영구적으로 삭제되고 더 이상 표시되지 않습니다.
 
-일시 삭제를 사용 하도록 설정 하면 Azure Portal에서 일시 삭제 된 컨테이너를 볼 수 있습니다. 일시 삭제 된 컨테이너는 지정 된 보존 기간 동안 표시 됩니다. 보존 기간이 만료 된 후에는 일시 삭제 된 컨테이너가 영구적으로 삭제 되 고 더 이상 표시 되지 않습니다.
+Azure Portal에서 일시 삭제된 컨테이너를 보려면 다음 단계를 수행합니다.
 
-Azure Portal에서 일시 삭제 된 컨테이너를 보려면 다음 단계를 수행 합니다.
+1. Azure Portal의 스토리지 계정으로 이동하여 컨테이너 목록을 확인합니다.
+1. 삭제된 컨테이너 표시 스위치를 전환하여 삭제된 컨테이너를 목록에 포함합니다.
 
-1. Azure Portal의 저장소 계정으로 이동 하 여 컨테이너의 목록을 확인 합니다.
-1. 삭제 된 컨테이너 표시 스위치를 설정/해제 하 여 목록에 삭제 된 컨테이너를 포함 합니다.
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Azure Portal에서 일시 삭제된 컨테이너를 보는 방법을 보여 주는 스크린샷":::
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Azure Portal에서 일시 삭제 된 컨테이너를 보는 방법을 보여 주는 스크린샷":::
+## <a name="restore-a-soft-deleted-container"></a>일시 삭제된 컨테이너 복원
 
-## <a name="restore-a-soft-deleted-container"></a>일시 삭제 된 컨테이너 복원
+일시 삭제된 컨테이너와 해당 콘텐츠를 보존 기간 내에 복원할 수 있습니다. Azure Portal에서 일시 삭제된 컨테이너를 복원하려면 다음 단계를 수행합니다.
 
-보존 기간 내에 일시 삭제 된 컨테이너 및 해당 콘텐츠를 복원할 수 있습니다. Azure Portal에서 일시 삭제 된 컨테이너를 복원 하려면 다음 단계를 수행 합니다.
+1. Azure Portal의 스토리지 계정으로 이동하여 컨테이너 목록을 확인합니다.
+1. 복원하려는 컨테이너에 대한 바로 가기 메뉴를 표시하고 메뉴에서 **삭제 취소** 를 선택합니다.
 
-1. Azure Portal의 저장소 계정으로 이동 하 여 컨테이너의 목록을 확인 합니다.
-1. 복원 하고자 하는 컨테이너에 대 한 상황에 맞는 메뉴를 표시 하 고 메뉴에서 **삭제 취소** 를 선택 합니다.
-
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Azure Portal에서 일시 삭제 된 컨테이너를 복원 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Azure Portal에서 일시 삭제된 컨테이너를 복원하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 
-- [컨테이너에 대 한 일시 삭제 (미리 보기)](soft-delete-container-overview.md)
+- [컨테이너에 대한 일시 삭제](soft-delete-container-overview.md)
 - [Blob에 대한 일시 삭제](soft-delete-blob-overview.md)
 - [Blob 버전 관리](versioning-overview.md)

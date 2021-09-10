@@ -2,33 +2,43 @@
 title: 온-프레미스 환경을 Azure VMware Solution에 피어링
 description: Azure VMware Solution의 프라이빗 클라우드에 대한 ExpressRoute Global Reach 피어링을 만드는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.custom: contperf-fy22q1
-ms.date: 06/21/2021
-ms.openlocfilehash: 7e3542dbd91204688b39eddcdbdb5f374a1b35d2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: contperf-fy21q4, contperf-fy22q1
+ms.date: 07/28/2021
+ms.openlocfilehash: b930aab15ef9af8e43919af1671f44c20e6b2075
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464524"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121730263"
 ---
 # <a name="peer-on-premises-environments-to-azure-vmware-solution"></a>온-프레미스 환경을 Azure VMware Solution에 피어링
 
-빠른 시작의 이 단계에서는 Azure VMware Solution을 온-프레미스 환경에 연결합니다. ExpressRoute Global Reach는 온-프레미스 환경을 Azure VMware Solution 프라이빗 클라우드에 연결합니다. ExpressRoute Global Reach 연결은 프라이빗 클라우드 ExpressRoute 회로와 온-프레미스 환경에 대한 기존 ExpressRoute 연결 간에 설정됩니다. 
+Azure VMware Solution 프라이빗 클라우드를 배포한 후 온-프레미스 환경에 연결합니다. ExpressRoute Global Reach는 온-프레미스 환경을 Azure VMware Solution 프라이빗 클라우드에 연결합니다. ExpressRoute Global Reach 연결은 프라이빗 클라우드 ExpressRoute 회로와 온-프레미스 환경에 대한 기존 ExpressRoute 연결 간에 설정됩니다. 
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Global Reach 온-프레미스 네트워크 연결을 보여주는 다이어그램." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
 
 >[!NOTE]
 >VPN을 통해 연결할 수도 있지만 이 빠른 시작 가이드에서는 설명하지 않습니다.
 
+이 문서에서는 다음을 수행합니다.
+
+> [!div class="checklist"]
+> * 온-프레미스 ExpressRoute 회로에서 ExpressRoute 권한 키를 만듭니다.
+> * 온-프레미스 ExpressRoute 회로와 프라이빗 클라우드 피어링
+> * 온-프레미스 네트워크 연결 확인
+
+완료되면 끝 부분에서 권장되는 다음 단계를 수행하여 이 시작 가이드의 단계를 계속 진행합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - [다양한 Azure 구독에서 연결을 사용하도록 설정](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions)하는 방법에 대한 설명서를 검토합니다.  
-- 온-프레미스 환경을 Azure에 연결하는 데 사용되는 별도의 정상 작동하는 ExpressRoute 회로로, 피어링의 _회로 1_ 입니다.
+
+- 온-프레미스 환경을 Azure에 연결하기 위해 필요한 별도의 작동하는 ExpressRoute 회로(피어링의 경우 ‘회로 1’)입니다.
+
 - ExpressRoute 공급자 서비스를 포함한 모든 게이트웨이가 4바이트 ASN(자율 시스템 번호)을 지원하는지 확인합니다. Azure VMware Solution은 경고를 알리는 데 4바이트 공용 ASN을 사용합니다.
 
 >[!NOTE]
-> 기본 경로를 Azure(0.0.0.0/0)로 보급하는 경우 기본 경로 외에도 온-프레미스 네트워크를 포함하는 보다 구체적인 경로를 보급하여 AVS에 대한 관리 액세스를 사용하도록 설정해야 합니다. 성공적인 서비스 운영을 보장하기 위해 단일 0.0.0.0/0 경로는 Azure VMware Solution의 관리 네트워크에서 삭제됩니다.
+>기본 경로를 Azure(0.0.0.0/0)로 보급하는 경우 기본 경로 외에도 온-프레미스 네트워크를 포함하는 보다 구체적인 경로를 보급하여 Azure VMware Solution에 대한 관리 액세스를 사용하도록 설정해야 합니다. 성공적인 서비스 운영을 보장하기 위해 단일 0.0.0.0/0 경로는 Azure VMware Solution의 관리 네트워크에서 삭제됩니다.
 
 ## <a name="create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit"></a>온-프레미스 ExpressRoute 회로에서 ExpressRoute 권한 키를 만듭니다.
 
@@ -68,16 +78,16 @@ ms.locfileid: "114464524"
 
 ## <a name="verify-on-premises-network-connectivity"></a>온-프레미스 네트워크 연결 확인
 
-이제 ExpressRoute에서 NSX 네트워크 세그먼트와 Azure VMware Solution 관리 세그먼트를 연결하는 **온-프레미스 에지 라우터** 에 표시됩니다.
+이제 **온-프레미스 에지 라우터** 에서 ExpressRoute가 NSX-T 네트워크 세그먼트와 Azure VMware Solution 관리 세그먼트를 연결하는 위치가 표시됩니다.
 
 >[!IMPORTANT]
 >모든 사용자는 다른 환경을 가지며, 일부는 이러한 경로를 온-프레미스 네트워크에 다시 전파하도록 허용해야 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
-Azure VMware Solution 프라이빗 클라우드를 위한 VMware HCX 솔루션을 배포 및 구성하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+Azure VMware Solution 프라이빗 클라우드에 VMware HCX 추가 기능을 설치하려면 다음 자습서로 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [VMware HCX 배포 및 구성](tutorial-deploy-vmware-hcx.md)
+> [VMware HCX 설치](install-vmware-hcx.md)
 
 
 <!-- LINKS - external-->

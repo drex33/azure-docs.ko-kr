@@ -1,17 +1,20 @@
 ---
 title: 보안 및 액세스 제어 문제 해결
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory에서 보안 및 액세스 제어 문제를 해결하는 방법에 대해 알아봅니다.
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/31/2021
+ms.date: 07/28/2021
 ms.author: lle
-ms.openlocfilehash: ff95f5c3f8d978d58146529825adee94f82eaf07
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: a025e46914390d203537d0ddd0c9faf5f22488ab
+ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110782896"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122864158"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Azure Data Factory 보안 및 액세스 제어 문제 해결
 
@@ -189,6 +192,37 @@ ADF는 관리형 VNet IR을 계속 사용할 수 있지만, 관리형 VNet의 Az
 - 관리형 VNet IR을 사용하는 경우 원본 및 싱크 쪽에서 프라이빗 엔드포인트를 사용하도록 설정합니다.
 - 여전히 퍼블릭 엔드포인트를 사용하려는 경우 원본 및 싱크에 대해 관리형 VNet IR을 사용하는 대신, 퍼블릭 IR로 전환할 수 있습니다. 퍼블릭 IR로 다시 전환하더라도 관리형 VNet IR이 여전히 있는 경우 ADF에서 관리형 VNet IR을 계속 사용할 수 있습니다.
 
+### <a name="internal-error-while-trying-to-delete-adf-with-customer-managed-key-cmk-and-user-assigned-managed-identity-ua-mi"></a>CMK(고객 관리형 키) 및 UA-MI(사용자가 할당한 관리 ID)를 사용하여 ADF를 삭제하는 동안 내부 오류 발생
+
+#### <a name="symptoms"></a>증상
+`{\"error\":{\"code\":\"InternalError\",\"message\":\"Internal error has occurred.\"}}`
+
+#### <a name="cause"></a>원인
+
+CMK와 관련된 작업을 수행하는 경우 먼저 모든 ADF 관련 작업을 수행한 다음, 외부 작업(예: 관리 ID 또는 키 자격 증명 모음 작업)을 수행해야 합니다. 예를 들어 모든 리소스를 삭제하려면 먼저 팩터리를 삭제한 다음, 키 자격 증명 모음을 삭제해야 합니다. 다른 순서로 수행하면 더 이상 관련 개체를 읽을 수 없어 ADF 호출이 실패하고, 삭제 가능 여부를 확인할 수 없습니다. 
+
+#### <a name="solution"></a>솔루션
+
+다음 세 가지 방법으로 이 문제를 해결할 수 있습니다. 다음과 같습니다.
+
+* CMK 키가 저장된 키 자격 증명 모음에 대한 ADF의 액세스 권한을 취소했습니다. 
+**키 가져오기, 래핑 해제 및 키 래핑** 권한에 따라 데이터 팩터리에 대한 액세스 권한을 재할당할 수 있습니다. 이러한 권한은 Data Factory에서 고객 관리형 키를 사용하도록 설정하는 데 필요합니다. [ADF에 대한 액세스 권한 부여](enable-customer-managed-key.md#grant-data-factory-access-to-azure-key-vault)를 참조하세요. 권한이 제공되면 ADF를 삭제할 수 있어야 합니다.
+ 
+* 고객이 ADF를 삭제하기 전에 키 자격 증명 모음 / CMK를 삭제했습니다. ADF의 CMK에는 기본 보존 정책이 90일인 “일시 삭제”와 “제거 방지”를 사용하도록 설정되어 있어야 합니다. 삭제된 키를 복원할 수 있습니다.  
+ [삭제된 키 복구](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) 및 [삭제된 키 값](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)을 검토하세요.
+
+* ADF 이전에 UA-MI(사용자가 할당한 관리 ID)가 삭제되었습니다. REST API 호출을 사용하여 이 문제를 복구할 수 있으며 모든 프로그래밍 언어로 선택한 HTTP 클라이언트에서 이 작업을 수행할 수 있습니다. Azure 인증을 사용하여 REST API 호출을 아직 설정하지 않은 경우 POSTMAN/Fiddler를 사용하는 것이 가장 쉬운 방법입니다. 다음 단계를 수행하세요.
+
+   1.  `https://management.azure.com/subscriptions/YourSubscription/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourFactoryName?api-version=2018-06-01`과 같은 GET URL 메서드를 사용하여 팩터리에 GET 호출을 수행합니다.
+
+   2. 다른 이름으로 새 사용자 관리 ID를 만들어야 합니다(동일한 이름을 사용해도 되지만, 명확성을 위해 GET 응답에 있는 이름과 다른 이름을 사용하는 것이 더 안전함).
+
+   3. 새로 생성된 관리 ID를 가리키도록 encryption.identity 속성 및 identity.userassignedidentities를 수정합니다. userAssignedIdentity 개체에서 clientId 및 principalId를 제거합니다. 
+
+   4.  새 본문을 전달하는 동일한 팩터리 URL에 PUT 호출을 수행합니다. GET 응답에서 얻은 모든 것을 전달하고 ID만 수정하는 것이 매우 중요합니다. 그러지 않으면 의도하지 않게 다른 설정이 재정의됩니다. 
+
+   5.  호출에 성공하면 엔터티를 다시 확인하고 삭제를 다시 시도할 수 있습니다. 
+
 ## <a name="sharing-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 공유
 
 ### <a name="sharing-a-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>다른 테넌트의 자체 호스팅 IR 공유는 지원되지 않습니다. 
@@ -201,13 +235,14 @@ Azure Data Factory UI에서 자체 호스팅 IR을 공유하려고 할 때 (다�
 
 자체 호스팅 IR은 테넌트 간에 공유할 수 없습니다.
 
+
 ## <a name="next-steps"></a>다음 단계
 
 문제 해결에 대한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 *  [Data Factory용 Private Link](data-factory-private-link.md)
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A 페이지](/answers/topics/azure-data-factory.html)
 *  [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)

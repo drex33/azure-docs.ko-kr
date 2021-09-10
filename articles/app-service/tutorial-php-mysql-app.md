@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0810f023f4e2e192f2cb0d83f2a028cdded9e275
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 832f685bd53f19d4295863b922789b0c4ee85f62
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779473"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746858"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP 및 MySQL 앱 빌드
 
@@ -42,7 +42,7 @@ ms.locfileid: "107779473"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -71,17 +71,17 @@ mysql -u root -p
 
 ### <a name="create-a-database-locally"></a>로컬에서 데이터베이스 만들기
 
-`mysql` 프롬프트에서 데이터베이스를 만듭니다.
+1. `mysql` 프롬프트에서 데이터베이스를 만듭니다.
 
-```sql 
-CREATE DATABASE sampledb;
-```
+    ```sql 
+    CREATE DATABASE sampledb;
+    ```
 
-`quit`을 입력하여 서버 연결을 종료합니다.
+1. `quit`을 입력하여 서버 연결을 종료합니다.
 
-```sql
-quit
-```
+    ```sql
+    quit
+    ```
 
 <a name="step2"></a>
 
@@ -92,19 +92,27 @@ quit
 
 터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.
 
-다음 명령을 실행하여 샘플 리포지토리를 복제합니다.
+1. 샘플 리포지토리를 복제하고 리포지토리 루트로 변경합니다.
 
-```bash
-git clone https://github.com/Azure-Samples/laravel-tasks
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/laravel-tasks
+    cd laravel-tasks
+    ```
 
-`cd`를 사용하여 복제된 디렉터리로 이동합니다.
-필요한 패키지를 설치합니다.
+1. 기본 분기가 `main`인지 확인합니다.
 
-```bash
-cd laravel-tasks
-composer install
-```
+    ```bash
+    git branch -m main
+    ```
+    
+    > [!TIP]
+    > App Service에는 분기 이름 변경이 필요하지 않습니다. 그러나 많은 리포지토리가 기본 분기를 `main`으로 변경하고 있으므로 이 자습서에서는 `main`에서 리포지토리를 배포하는 방법도 보여 줍니다. 자세한 내용은 [배포 분기 변경](deploy-local-git.md#change-deployment-branch)을 참조하세요.
+
+1. 필요한 패키지를 설치합니다.
+
+    ```bash
+    composer install
+    ```
 
 ### <a name="configure-mysql-connection"></a>MySQL 연결 구성
 
@@ -126,29 +134,29 @@ Laravel에서 _.env_ 파일을 사용하는 방법에 대한 자세한 내용은
 
 ### <a name="run-the-sample-locally"></a>로컬에서 샘플 실행
 
-[Laravel 데이터베이스 마이그레이션](https://laravel.com/docs/5.4/migrations)(영문)을 실행하여 애플리케이션에 필요한 테이블을 만듭니다. 마이그레이션에서 만들어진 테이블을 보려면 Git 리포지토리의 _database/migrations_ 디렉터리를 살펴봅니다.
+1. [Laravel 데이터베이스 마이그레이션](https://laravel.com/docs/5.4/migrations)(영문)을 실행하여 애플리케이션에 필요한 테이블을 만듭니다. 마이그레이션에서 만들어진 테이블을 보려면 Git 리포지토리의 _database/migrations_ 디렉터리를 살펴봅니다.
 
-```bash
-php artisan migrate
-```
+    ```bash
+    php artisan migrate
+    ```
 
-새 Laravel 애플리케이션 키를 생성합니다.
+1. 새 Laravel 애플리케이션 키를 생성합니다.
 
-```bash
-php artisan key:generate
-```
+    ```bash
+    php artisan key:generate
+    ```
 
-애플리케이션을 실행합니다.
+1. 애플리케이션을 실행합니다.
 
-```bash
-php artisan serve
-```
+    ```bash
+    php artisan serve
+    ```
 
-브라우저에서 `http://localhost:8000` 으로 이동합니다. 해당 페이지에서 몇 가지 작업을 추가합니다.
+1. 브라우저에서 `http://localhost:8000` 으로 이동합니다. 해당 페이지에서 몇 가지 작업을 추가합니다.
 
-![PHP가 MySQL 연결에 성공](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+    ![PHP가 MySQL 연결에 성공](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
-PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
+1. PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ## <a name="create-mysql-in-azure"></a>Azure에서 MySQL 만들기
 
@@ -186,52 +194,48 @@ MySQL 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표�
 
 ### <a name="configure-server-firewall"></a>서버 방화벽 구성
 
-Cloud Shell에서 [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
+1. Cloud Shell에서 [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
 
-```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
-```
+    ```azurecli-interactive
+    az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+    ```
 
-> [!TIP] 
-> [앱이 사용하는 아웃바운드 IP 주소만 사용](overview-inbound-outbound-ips.md#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
->
+    > [!TIP] 
+    > [앱이 사용하는 아웃바운드 IP 주소만 사용](overview-inbound-outbound-ips.md#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
+    >
 
-Cloud Shell에서 *\<your-ip-address>* 를 [로컬 IPv4 IP 주소](https://www.whatsmyip.org/)로 바꾸어 로컬 컴퓨터에서 액세스할 수 있도록 명령을 다시 실행합니다.
+1. Cloud Shell에서 *\<your-ip-address>* 를 [로컬 IPv4 IP 주소](https://www.whatsmyip.org/)로 바꾸어 로컬 컴퓨터에서 액세스할 수 있도록 명령을 다시 실행합니다.
 
-```azurecli-interactive
-az mysql server firewall-rule create --name AllowLocalClient --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
-```
-
-### <a name="connect-to-production-mysql-server-locally"></a>로컬에서 프로덕션 MySQL 서버에 연결
-
-로컬 터미널 창에서 Azure의 MySQL 서버에 연결합니다. _&lt;admin-user>_ 및 _&lt;mysql-server-name>_ 에 대해 이전에 지정한 값을 사용합니다. 암호를 묻는 메시지가 표시되면 Azure에서 데이터베이스를 만들 때 지정한 암호를 사용합니다.
-
-```bash
-mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
-```
+    ```azurecli-interactive
+    az mysql server firewall-rule create --name AllowLocalClient --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
+    ```
 
 ### <a name="create-a-production-database"></a>프로덕션 데이터베이스 만들기
 
-`mysql` 프롬프트에서 데이터베이스를 만듭니다.
+1. 로컬 터미널 창에서 Azure의 MySQL 서버에 연결합니다. _&lt;admin-user>_ 및 _&lt;mysql-server-name>_ 에 대해 이전에 지정한 값을 사용합니다. 암호를 묻는 메시지가 표시되면 Azure에서 데이터베이스를 만들 때 지정한 암호를 사용합니다.
 
-```sql
-CREATE DATABASE sampledb;
-```
+    ```bash
+    mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
+    ```
 
-### <a name="create-a-user-with-permissions"></a>사용 권한이 있는 사용자 만들기
+1. `mysql` 프롬프트에서 데이터베이스를 만듭니다.
 
-_phpappuser_ 라는 데이터베이스 사용자를 만들고 `sampledb` 데이터베이스의 모든 권한을 부여합니다. 자습서의 편의를 위해 _MySQLAzure2017_ 을 암호로 사용합니다.
+    ```sql
+    CREATE DATABASE sampledb;
+    ```
 
-```sql
-CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
-GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
-```
+1. _phpappuser_ 라는 데이터베이스 사용자를 만들고 `sampledb` 데이터베이스의 모든 권한을 부여합니다. 자습서의 편의를 위해 _MySQLAzure2017_ 을 암호로 사용합니다.
 
-`quit`를 입력하여 서버 연결을 종료합니다.
+    ```sql
+    CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
+    GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
+    ```
 
-```sql
-quit
-```
+1. `quit`를 입력하여 서버 연결을 종료합니다.
+
+    ```sql
+    quit
+    ```
 
 ## <a name="connect-app-to-azure-mysql"></a>Azure MySQL에 앱 연결
 
@@ -300,31 +304,31 @@ MYSQL_SSL=true
 
 ### <a name="test-the-application-locally"></a>로컬에서 애플리케이션 테스트
 
-_.env.production_ 을 환경 파일로 사용해서 Laravel 데이터베이스 마이그레이션을 실행하고 Azure Database for MySQL에서 MySQL 데이터베이스에 테이블을 만듭니다. _.env.production_ 에는 Azure의 MySQL 데이터베이스에 대한 연결 정보가 있습니다.
+1. _.env.production_ 을 환경 파일로 사용해서 Laravel 데이터베이스 마이그레이션을 실행하고 Azure Database for MySQL에서 MySQL 데이터베이스에 테이블을 만듭니다. _.env.production_ 에는 Azure의 MySQL 데이터베이스에 대한 연결 정보가 있습니다.
 
-```bash
-php artisan migrate --env=production --force
-```
+    ```bash
+    php artisan migrate --env=production --force
+    ```
 
-_.env.production_ 에는 아직 유효한 애플리케이션 키가 없습니다. 터미널에서 새 키를 생성합니다.
+1. _.env.production_ 에는 아직 유효한 애플리케이션 키가 없습니다. 터미널에서 새 키를 생성합니다.
 
-```bash
-php artisan key:generate --env=production --force
-```
+    ```bash
+    php artisan key:generate --env=production --force
+    ```
 
-_.env.production_ 을 환경 파일로 사용해서 샘플 애플리케이션을 실행합니다.
+1. _.env.production_ 을 환경 파일로 사용해서 샘플 애플리케이션을 실행합니다.
 
-```bash
-php artisan serve --env=production
-```
+    ```bash
+    php artisan serve --env=production
+    ```
 
-`http://localhost:8000`로 이동합니다. 오류 없이 페이지가 로드되면 PHP 애플리케이션이 Azure의 MySQL 데이터베이스에 연결됩니다.
+1. `http://localhost:8000`로 이동합니다. 오류 없이 페이지가 로드되면 PHP 애플리케이션이 Azure의 MySQL 데이터베이스에 연결됩니다.
 
-해당 페이지에서 몇 가지 작업을 추가합니다.
+1. 해당 페이지에서 몇 가지 작업을 추가합니다.
 
-![PHP가 Azure Database for MySQL에 성공적으로 연결됨](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+    ![PHP가 Azure Database for MySQL에 성공적으로 연결됨](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
-PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
+1. PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ### <a name="commit-your-changes"></a>변경 내용을 커밋합니다
 
@@ -401,19 +405,19 @@ PHP [getenv](https://www.php.net/manual/en/function.getenv.php) 메서드를 사
 
 Laravel에는 App Service의 애플리케이션 키가 필요합니다. 앱 설정을 사용하여 키를 구성할 수 있습니다.
 
-로컬 터미널 창에서 `php artisan`을 사용하여 _.env_ 로 저장하지 않으면서 새 애플리케이션 키를 생성합니다.
+1. 로컬 터미널 창에서 `php artisan`을 사용하여 _.env_ 로 저장하지 않으면서 새 애플리케이션 키를 생성합니다.
 
-```bash
-php artisan key:generate --show
-```
+    ```bash
+    php artisan key:generate --show
+    ```
 
-Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용하여 App Service 앱에서 애플리케이션 키를 설정합니다. 자리 표시자 _&lt;app-name>_ 및 _&lt;outputofphpartisankey:generate>_ 를 바꿉니다.
+1. Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용하여 App Service 앱에서 애플리케이션 키를 설정합니다. 자리 표시자 _&lt;app-name>_ 및 _&lt;outputofphpartisankey:generate>_ 를 바꿉니다.
 
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
-```
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
+    ```
 
-`APP_DEBUG="true"`는 배포된 앱에서 오류가 발생하면 디버깅 정보를 반환하도록 Laravel에 지시합니다. 프로덕션 애플리케이션을 실행할 때 더 안전한 `false`로 설정합니다.
+    `APP_DEBUG="true"`는 배포된 앱에서 오류가 발생하면 디버깅 정보를 반환하도록 Laravel에 지시합니다. 프로덕션 애플리케이션을 실행할 때 더 안전한 `false`로 설정합니다.
 
 ### <a name="set-the-virtual-application-path"></a>가상 애플리케이션 경로 설정
 
@@ -445,30 +449,30 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-<pre>
-Counting objects: 3, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
-Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'main'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'a5e076db9c'.
-remote: Running custom deployment command...
-remote: Running deployment command...
-...
-&lt; Output has been truncated for readability &gt;
-</pre>
-
-> [!NOTE]
-> 배포 프로세스를 진행하면 마지막에 [Composer](https://getcomposer.org/) 패키지가 설치되는 것을 알 수 있습니다. App Service는 기본 배포 중에 이러한 자동화를 실행하지 않으므로 이 샘플 리포지토리는 사용 설정에 사용되는 추가 파일 3개가 루트 디렉터리에 들어 있습니다.
->
-> - `.deployment` - 이 파일은 App Service에서 `bash deploy.sh`를 사용자 지정 배포 스크립트로 실행하게 만듭니다.
-> - `deploy.sh` - 사용자 지정 배포 스크립트입니다. 파일을 검토하는 경우 `npm install` 다음에 `php composer.phar install`이 실행되는 것을 볼 수 있습니다.
-> - `composer.phar` - Composer 패키지 관리자입니다.
->
-> 이 방식으로 App Service에 대한 Git 기반 배포에 어떤 단계든 추가할 수 있습니다. 자세한 내용은 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 참조하세요.
->
+   <pre>
+   Counting objects: 3, done.
+   Delta compression using up to 8 threads.
+   Compressing objects: 100% (3/3), done.
+   Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
+   Total 3 (delta 2), reused 0 (delta 0)
+   remote: Updating branch 'main'.
+   remote: Updating submodules.
+   remote: Preparing deployment for commit id 'a5e076db9c'.
+   remote: Running custom deployment command...
+   remote: Running deployment command...
+   ...
+   &lt; Output has been truncated for readability &gt;
+   </pre>
+    
+   > [!NOTE]
+   > 배포 프로세스를 진행하면 마지막에 [Composer](https://getcomposer.org/) 패키지가 설치되는 것을 알 수 있습니다. App Service는 기본 배포 중에 이러한 자동화를 실행하지 않으므로 이 샘플 리포지토리는 사용 설정에 사용되는 추가 파일 3개가 루트 디렉터리에 들어 있습니다.
+   >
+   > - `.deployment` - 이 파일은 App Service에서 `bash deploy.sh`를 사용자 지정 배포 스크립트로 실행하게 만듭니다.
+   > - `deploy.sh` - 사용자 지정 배포 스크립트입니다. 파일을 검토하는 경우 `npm install` 다음에 `php composer.phar install`이 실행되는 것을 볼 수 있습니다.
+   > - `composer.phar` - Composer 패키지 관리자입니다.
+   >
+   > 이 방식으로 App Service에 대한 Git 기반 배포에 어떤 단계든 추가할 수 있습니다. 자세한 내용은 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 참조하세요.
+   >
 
 ::: zone-end
 
@@ -476,21 +480,21 @@ remote: Running deployment command...
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-<pre>
-Counting objects: 3, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
-Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'main'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'a5e076db9c'.
-remote: Running custom deployment command...
-remote: Running deployment command...
-...
-&lt; Output has been truncated for readability &gt;
-</pre>
-
+   <pre>
+   Counting objects: 3, done.
+   Delta compression using up to 8 threads.
+   Compressing objects: 100% (3/3), done.
+   Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
+   Total 3 (delta 2), reused 0 (delta 0)
+   remote: Updating branch 'main'.
+   remote: Updating submodules.
+   remote: Preparing deployment for commit id 'a5e076db9c'.
+   remote: Running custom deployment command...
+   remote: Running deployment command...
+   ...
+   &lt; Output has been truncated for readability &gt;
+   </pre>
+    
 ::: zone-end
 
 ### <a name="browse-to-the-azure-app"></a>Azure 앱 찾아보기
@@ -509,137 +513,137 @@ remote: Running deployment command...
 
 ### <a name="add-a-column"></a>열 추가
 
-로컬 터미널 창에서 Git 리포지토리의 루트로 이동합니다.
+1. 로컬 터미널 창에서 Git 리포지토리의 루트로 이동합니다.
 
-`tasks` 테이블에 대한 새 데이터베이스 마이그레이션을 생성합니다.
+1. `tasks` 테이블에 대한 새 데이터베이스 마이그레이션을 생성합니다.
 
-```bash
-php artisan make:migration add_complete_column --table=tasks
-```
+    ```bash
+    php artisan make:migration add_complete_column --table=tasks
+    ```
 
-이 명령은 생성되는 마이그레이션 파일의 이름을 표시합니다. _database/migrations_ 에서 이 파일을 찾아서 엽니다.
+1. 이 명령은 생성되는 마이그레이션 파일의 이름을 표시합니다. _database/migrations_ 에서 이 파일을 찾아서 엽니다.
 
-`up` 메서드를 다음 코드로 바꿉니다.
+1. `up` 메서드를 다음 코드로 바꿉니다.
 
-```php
-public function up()
-{
-    Schema::table('tasks', function (Blueprint $table) {
-        $table->boolean('complete')->default(False);
-    });
-}
-```
+    ```php
+    public function up()
+    {
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->boolean('complete')->default(False);
+        });
+    }
+    ```
 
-앞의 코드는 `complete`라는 `tasks` 테이블에 부울 열을 추가합니다.
+    앞의 코드는 `complete`라는 `tasks` 테이블에 부울 열을 추가합니다.
 
-`down` 메서드를 롤백 작업에 대한 다음 코드로 바꿉니다.
+1. `down` 메서드를 롤백 작업에 대한 다음 코드로 바꿉니다.
 
-```php
-public function down()
-{
-    Schema::table('tasks', function (Blueprint $table) {
-        $table->dropColumn('complete');
-    });
-}
-```
+    ```php
+    public function down()
+    {
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropColumn('complete');
+        });
+    }
+    ```
 
-로컬 터미널 창에서 Laravel 데이터베이스 마이그레이션을 실행하여 로컬 데이터베이스를 변경합니다.
+1. 로컬 터미널 창에서 Laravel 데이터베이스 마이그레이션을 실행하여 로컬 데이터베이스를 변경합니다.
 
-```bash
-php artisan migrate
-```
+    ```bash
+    php artisan migrate
+    ```
 
-[Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`(_app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
+    [Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`(_app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
 
 ### <a name="update-application-logic"></a>애플리케이션 논리 업데이트
 
-*routes/web.php* 파일을 엽니다. 애플리케이션에서 해당 경로 및 비즈니스 논리를 여기에 정의합니다.
+1. *routes/web.php* 파일을 엽니다. 애플리케이션에서 해당 경로 및 비즈니스 논리를 여기에 정의합니다.
 
-파일의 끝에 다음 코드를 포함하는 경로를 추가합니다.
+1. 파일의 끝에 다음 코드를 포함하는 경로를 추가합니다.
 
-```php
-/**
- * Toggle Task completeness
- */
-Route::post('/task/{id}', function ($id) {
-    error_log('INFO: post /task/'.$id);
-    $task = Task::findOrFail($id);
+    ```php
+    /**
+     * Toggle Task completeness
+     */
+    Route::post('/task/{id}', function ($id) {
+        error_log('INFO: post /task/'.$id);
+        $task = Task::findOrFail($id);
+    
+        $task->complete = !$task->complete;
+        $task->save();
+    
+        return redirect('/');
+    });
+    ```
 
-    $task->complete = !$task->complete;
-    $task->save();
-
-    return redirect('/');
-});
-```
-
-앞의 코드는 `complete` 값을 설정/해제하여 데이터 모델을 간단히 업데이트합니다.
+    앞의 코드는 `complete` 값을 설정/해제하여 데이터 모델을 간단히 업데이트합니다.
 
 ### <a name="update-the-view"></a>보기 업데이트
 
-*resources/views/tasks.blade.php* 파일을 엽니다. `<tr>` 여는 태그를 찾아 다음으로 바꿉니다.
+1. *resources/views/tasks.blade.php* 파일을 엽니다. `<tr>` 여는 태그를 찾아 다음으로 바꿉니다.
 
-```html
-<tr class="{{ $task->complete ? 'success' : 'active' }}" >
-```
+    ```html
+    <tr class="{{ $task->complete ? 'success' : 'active' }}" >
+    ```
 
-앞의 코드는 작업이 완료되었는지 여부에 따라 행 색을 변경합니다.
+    앞의 코드는 작업이 완료되었는지 여부에 따라 행 색을 변경합니다.
 
-다음 줄에는 다음 코드가 있습니다.
+1. 다음 줄에는 다음 코드가 있습니다.
 
-```html
-<td class="table-text"><div>{{ $task->name }}</div></td>
-```
+    ```html
+    <td class="table-text"><div>{{ $task->name }}</div></td>
+    ```
 
-전체 줄을 다음 코드로 바꿉니다.
+    전체 줄을 다음 코드로 바꿉니다.
 
-```html
-<td>
-    <form action="{{ url('task/'.$task->id) }}" method="POST">
-        {{ csrf_field() }}
+    ```html
+    <td>
+        <form action="{{ url('task/'.$task->id) }}" method="POST">
+            {{ csrf_field() }}
+    
+            <button type="submit" class="btn btn-xs">
+                <i class="fa {{$task->complete ? 'fa-check-square-o' : 'fa-square-o'}}"></i>
+            </button>
+            {{ $task->name }}
+        </form>
+    </td>
+    ```
 
-        <button type="submit" class="btn btn-xs">
-            <i class="fa {{$task->complete ? 'fa-check-square-o' : 'fa-square-o'}}"></i>
-        </button>
-        {{ $task->name }}
-    </form>
-</td>
-```
-
-앞의 코드는 이전에 정의한 경로를 참조하는 제출 단추를 추가합니다.
+    앞의 코드는 이전에 정의한 경로를 참조하는 제출 단추를 추가합니다.
 
 ### <a name="test-the-changes-locally"></a>로컬에서 변경 내용 테스트
 
-로컬 터미널 창에서 Git 리포지토리의 루트 디렉터리에서 개발 서버를 실행합니다.
+1. 로컬 터미널 창에서 Git 리포지토리의 루트 디렉터리에서 개발 서버를 실행합니다.
 
-```bash
-php artisan serve
-```
+    ```bash
+    php artisan serve
+    ```
 
-작업 상태 변경을 확인하려면 `http://localhost:8000`으로 이동하고 확인란을 선택합니다.
+1. 작업 상태 변경을 확인하려면 `http://localhost:8000`으로 이동하고 확인란을 선택합니다.
 
-![작업에 확인란이 추가됨](./media/tutorial-php-mysql-app/complete-checkbox.png)
+    ![작업에 확인란이 추가됨](./media/tutorial-php-mysql-app/complete-checkbox.png)
 
-PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
+1. PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ### <a name="publish-changes-to-azure"></a>변경 내용을 Azure에 게시
 
-로컬 터미널 창에서 프로덕션 연결 문자열로 Laravel 데이터베이스 마이그레이션을 실행하여 Azure 데이터베이스를 변경합니다.
+1. 로컬 터미널 창에서 프로덕션 연결 문자열로 Laravel 데이터베이스 마이그레이션을 실행하여 Azure 데이터베이스를 변경합니다.
 
-```bash
-php artisan migrate --env=production --force
-```
+    ```bash
+    php artisan migrate --env=production --force
+    ```
 
-Git에서 모든 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
+1. Git에서 모든 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
 
-```bash
-git add .
-git commit -m "added complete checkbox"
-git push azure main
-```
+    ```bash
+    git add .
+    git commit -m "added complete checkbox"
+    git push azure main
+    ```
 
-`git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.
+1. `git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.
 
-![Azure에 게시된 모델 및 데이터베이스 변경 내용](media/tutorial-php-mysql-app/complete-checkbox-published.png)
+    ![Azure에 게시된 모델 및 데이터베이스 변경 내용](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 모든 작업을 추가했으면 데이터베이스에서 유지됩니다. 데이터 스키마를 업데이트하는 경우 기존 데이터는 그대로 유지됩니다.
 
@@ -676,17 +680,17 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="manage-the-azure-app"></a>Azure 앱 관리
 
-만든 앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. 만든 앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-왼쪽 메뉴에서 **App Services** 를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
+1. 왼쪽 메뉴에서 **App Services** 를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 앱에 대한 포털 탐색](./media/tutorial-php-mysql-app/access-portal.png)
+    ![Azure 앱에 대한 포털 탐색](./media/tutorial-php-mysql-app/access-portal.png)
 
-앱의 [개요] 페이지가 표시됩니다. 여기서 중지, 시작, 다시 시작, 찾아보기 및 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
+    앱의 [개요] 페이지가 표시됩니다. 여기서 중지, 시작, 다시 시작, 찾아보기 및 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 
-왼쪽 메뉴에서 앱을 구성하기 위한 페이지를 제공합니다.
+    왼쪽 메뉴에서 앱을 구성하기 위한 페이지를 제공합니다.
 
-![Azure Portal의 App Service 페이지](./media/tutorial-php-mysql-app/web-app-blade.png)
+    ![Azure Portal의 App Service 페이지](./media/tutorial-php-mysql-app/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

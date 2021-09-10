@@ -10,14 +10,16 @@ ms.subservice: disks
 ms.date: 6/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 03cbe4eb56f3b3b99f87048b699f76b30b7937c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cf6fc21baae657b28b7d3edfb242ee1bcef407c
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85373967"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690506"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>확장 집합 템플릿을 변환하여 관리되는 디스크 확장 집합 템플릿 사용
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 확장 집합을 만드는 데 관리되는 디스크를 사용하지 않고 Resource Manager 템플릿을 사용하는 고객은 관리되는 디스크를 사용하도록 수정하려고 할 수 있습니다. 이 문서에서는 샘플 Resource Manager 템플릿용 커뮤니티 중심 리포지토리 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)에서 끌어오기 요청을 예로 사용하여 관리 디스크를 수행하는 방법을 보여 줍니다. 전체 끌어오기 요청은 [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)에서 찾을 수 있으며 차이점 관련 부분은 설명과 함께 아래에 있습니다.
 

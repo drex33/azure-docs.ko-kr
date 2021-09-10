@@ -9,14 +9,14 @@ ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 9/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f40e3478a10a1a141e02510d88f4564062ff2ce5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 894d16e1a72243bee9aff1fff2778ec75c2af6ec
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567426"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123227150"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용하여 자동 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -24,6 +24,9 @@ ms.locfileid: "122567426"
 경량 모드에서 [SQL IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 사용하여 Azure VM(Virtual Machines)에서 현재 및 향후의 모든 SQL Server를 자동으로 등록하려면 Azure Portal에서 자동 등록 기능을 사용하도록 설정합니다. 
 
 이 문서에서는 자동 등록 기능을 사용하도록 설정하는 방법을 설명합니다. 또는 [단일 VM을 등록](sql-agent-extension-manually-register-single-vm.md)하거나 SQL IaaS 에이전트 확장을 사용하여 [VM을 대량으로 등록](sql-agent-extension-manually-register-vms-bulk.md)할 수 있습니다. 
+
+> [!NOTE]
+> 2021년 9월부터 전체 모드에서 SQL IaaS 확장에 등록하는 것은 더 이상 SQL Server 서비스를 다시 시작하지 않아도 됩니다. 
 
 ## <a name="overview"></a>개요
 

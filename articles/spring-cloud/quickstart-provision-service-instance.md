@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 243f176fd906ecfe33c38bebc7e7745a7dc15e1e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f96eeaaddbf49a0649cbec8737052b8d555b2681
+ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114470594"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122681250"
 ---
 # <a name="quickstart-provision-an-azure-spring-cloud-service"></a>빠른 시작: Azure Spring Cloud 서비스 프로비저닝
 
@@ -41,7 +41,7 @@ az --version
 az extension add --name spring-cloud
 ```
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 1. Azure CLI에 로그인합니다.
 
@@ -84,10 +84,12 @@ az extension add --name spring-cloud
    ```azurecli
    az config set defaults.spring-cloud=<service instance name>
    ```
+
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스화할 수 있습니다.  두 방법 모두 다음 절차에 설명되어 있습니다.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * [JDK 8 설치](/java/azure/jdk/)
@@ -101,7 +103,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 
 다음 절차에서는 Azure Portal을 사용하여 Azure Spring Cloud의 인스턴스를 만듭니다.
 
-1. 새 탭에서 [Azure Portal](https://ms.portal.azure.com/)을 엽니다. 
+1. 새 탭에서 [Azure Portal](https://ms.portal.azure.com/)을 엽니다.
 
 2. 상단 검색 상자에서 **Azure Spring Cloud** 를 검색합니다.
 
@@ -109,11 +111,12 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 
     ![ASC 아이콘 시작](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
-4. Azure Spring Cloud 페이지에서 **+ 추가** 를 클릭합니다.
+4. Azure Spring Cloud 페이지에서 **만들기** 를 선택합니다.
 
-    ![ASC 아이콘 추가](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+    ![ASC 아이콘 추가](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-create.png)
 
 5. Azure Spring Cloud **만들기** 페이지에 있는 양식을 채웁니다.  다음 지침을 고려하세요.
+
     - **구독**: 이 리소스 대한 요금이 청구될 구독을 선택합니다.
     - **리소스 그룹**: 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다. 이는 이후 단계에서 **\<resource group name\>** 로 사용됩니다.
     - **서비스 세부 정보/이름**: **\<service instance name\>** 를 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
@@ -123,7 +126,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 
     ![ASC 포털 시작](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
-6. **검토 + 만들기** 를 클릭합니다.
+6. **검토 및 만들기** 를 선택합니다.
 
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
@@ -148,9 +151,9 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 
 1. Azure Spring Cloud 서비스의 이름을 준비합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
 
-1. Azure Spring Cloud 서비스를 포함할 리소스 그룹을 만듭니다.  Azure Spring Cloud 서비스의 인스턴스에서 만듭니다.  
+1. Azure Spring Cloud 서비스를 포함할 리소스 그룹을 만듭니다.  Azure Spring Cloud 서비스의 인스턴스에서 만듭니다.
 
-    ```azurecli 
+    ```azurecli
     az group create --name <resource group name>
     az spring-cloud create -n <service instance name> -g <resource group name> --enable-java-agent
     ```
@@ -162,6 +165,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
     ```azurecli
     az config set defaults.group=<resource group name> defaults.spring-cloud=<service name>
     ```
+
 ---
 ::: zone-end
 

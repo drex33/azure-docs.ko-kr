@@ -7,14 +7,16 @@ ms.date: 09/25/2019
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: aba38411be9502fd8592e293580a3c816fc9b55b
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 1ef24210e033c5e0af623dfa6f3cd79146732640
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113362272"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692296"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Azure Storage Explorer를 사용하여 Azure 관리 디스크 관리
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 Storage Explorer 1.10.0을 사용하면 사용자가 관리 디스크를 업로드, 다운로드, 복사할 수 있으며 스냅샷을 만들 수 있습니다. 이 추가 기능으로 인해 Storage Explorer를 사용하여 온-프레미스에서 Azure로 데이터를 마이그레이션하고 Azure 지역 간에 데이터를 마이그레이션할 수 있습니다.
 

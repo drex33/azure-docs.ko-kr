@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
-ms.openlocfilehash: f31986b7c202309d41556c47233e8e8400590d3d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1be03bee5005cbcc4b2eec3d469631d504d3c504
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668834"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690156"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Windows 가상 머신 만들기
+
+**적용 대상:** :heavy_check_mark: Windows VM 
 
 Azure Cloud shell의 Azure Resource Manager 템플릿과 Azure PowerShell을 사용하여 Windows 가상 머신을 만드는 방법에 대해 알아봅니다. 이 문서에 사용된 템플릿은 단일 서브넷을 사용하는 새 가상 네트워크에서 Windows Server를 실행하는 단일 가상 머신을 배포합니다. Linux 가상 머신을 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Linux 가상 머신을 만드는 방법](../linux/create-ssh-secured-vm-from-template.md)을 참조하세요.
 

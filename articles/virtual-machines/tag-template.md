@@ -7,14 +7,16 @@ ms.workload: infrastructure-services
 ms.author: cynthn
 author: cynthn
 ms.date: 10/26/2018
-ms.openlocfilehash: 7a07c3b2c95367debb375785effc15b69dc8de0a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 92be32279b812d4a8ff3baad3e3ccc881fe20049
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110087583"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122695328"
 ---
 # <a name="tagging-a-vm-using-a-template"></a>템플릿을 사용하여 VM 태그 지정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 이 문서에서는 Resource Manager 템플릿을 사용하여 Azure에서 VM에 태그를 만드는 방법을 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 50개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다.
 

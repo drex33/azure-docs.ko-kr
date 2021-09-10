@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a88fd0cd1e973118cc52456030046b3478d07e7a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dadbd135617335ecff85a4583fd85a79af5b2e34
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528944"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687874"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Linux VM에서 Azure AD를 사용하여 Azure Disk Encryption 사용(이전 릴리스)
 
-Azure Disk Encryption의 새 릴리스에서는 VM 디스크 암호화를 사용하도록 설정하기 위해 Azure Active Directory(Azure AD) 애플리케이션 매개 변수를 제공할 필요가 없습니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 새 릴리스를 사용하여 Azure AD 애플리케이션 매개 변수 없이 모든 새 VM을 암호화해야 합니다. 새 릴리스를 사용하여 VM 디스크 암호화를 사용하도록 설정하는 방법에 대한 지침은 [Linux VM에 대한 Azure Disk Encryption](disk-encryption-linux.md)을 참조하세요. Azure AD 애플리케이션 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
+Azure Disk Encryption의 새 릴리스에서는 VM 디스크 암호화를 사용하도록 설정하기 위해 Azure AD(Azure Active Directory) 애플리케이션 매개 변수를 제공할 필요가 없습니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 새 릴리스를 사용하여 Azure AD 애플리케이션 매개 변수 없이 모든 새 VM을 암호화해야 합니다. 새 릴리스를 사용하여 VM 디스크 암호화를 사용하도록 설정하는 방법에 대한 지침은 [Linux VM에 대한 Azure Disk Encryption](disk-encryption-linux.md)을 참조하세요. Azure AD 애플리케이션 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.
 
 여러 디스크 암호화 시나리오를 사용하도록 설정할 수 있으며, 시나리오에 따라 해당 단계는 달라질 수 있습니다. 다음 섹션에서는 Linux IaaS(서비스 제공 인프라) VM에 대한 보다 자세한 시나리오를 다룹니다. 디스크 암호화는 지원되는 VM [크기와 운영 체제](disk-encryption-overview.md#supported-vms-and-operating-systems)의 가상 머신에만 적용할 수 있습니다. 또한 다음과 같은 필수 조건도 충족해야 합니다.
 
@@ -143,7 +145,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |

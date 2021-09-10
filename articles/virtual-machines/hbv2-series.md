@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 70bc81edde843f70dfb4403b63dfeb55ec2036fe
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bceda42909a2d6a2940da00d09cd46767e3c2e2d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750890"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689993"
 ---
 # <a name="hbv2-series"></a>HBv2 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 HBv2 시리즈 VM은 유체 역학, 유한 요소 분석, 저수지 시뮬레이션 등 메모리 대역폭으로 구동되는 애플리케이션에 최적화되어 있습니다. HBv2 VM에는 120개의 AMD EPYC 7742 프로세서 코어, CPU 코어당 4GB RAM이 있으며 동시 다중 스레딩이 없습니다. 각 HBv2 VM은 최대 340GB/초 메모리 대역폭, 최대 4테라플롭 FP64 컴퓨팅을 제공합니다.
 
@@ -23,7 +25,7 @@ HBv2 시리즈 VM은 200Gb/초 Mellanox HDR InfiniBand를 제공합니다. 이�
 
 [Premium Storage](premium-storage-performance.md): 지원됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
-[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대한 [자세한 정보](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
+[Ultra Disks](disks-types.md#ultra-disk): 지원됨(가용성, 사용량 및 성능에 대해 [자세히 알아보기](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312)) <br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>

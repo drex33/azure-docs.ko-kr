@@ -8,14 +8,16 @@ ms.custom: REST
 ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: a7237bfc82a932b774b4b6ef293c242a84fd75af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 536a3040bda2fec6aa5139949d31ef47bd2bbd9e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591222"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122694923"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>REST API를 사용하여 가상 머신 사용률 메트릭 가져오기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 예제에서는 [Azure REST API](/rest/api/azure/)를 사용하여 Linux 가상 머신의 CPU 사용량을 검색하는 방법을 보여 줍니다.
 

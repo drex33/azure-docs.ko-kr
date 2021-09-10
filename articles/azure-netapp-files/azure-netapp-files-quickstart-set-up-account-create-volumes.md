@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 08/10/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: b90b19edd1cf7f22f7396476866208e7e3bd2523
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: 3d97c10236391157dbf0a8d32110e3e1d540a3b3
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112574626"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121729272"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기
 
@@ -89,9 +89,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 
       ![Azure NetApp Files 선택](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
-2. **+ 추가** 를 클릭하여 새 NetApp 계정을 만듭니다.
-
-     ![새 NetApp 계정 만들기](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
+2. **+ 만들기** 를 클릭하여 새 NetApp 계정을 만듭니다.
 
 3. [새 NetApp 계정] 창에서 다음 정보를 입력합니다.
    1. 계정 이름으로 **myaccount1** 을 입력합니다.
@@ -287,11 +285,9 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 
     ![빠른 시작에 대한 NFS 프로토콜 지정](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
-5. **검토 + 만들기** 를 클릭합니다.
+5. **검토 + 만들기** 를 클릭하여 만드는 볼륨에 대한 정보를 표시합니다.  
 
-    ![검토 및 만들기 창](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)
-
-6. 볼륨의 정보를 검토한 다음, **만들기** 를 클릭합니다.
+6. **만들기** 를 클릭하여 볼륨을 만듭니다. 
     만든 볼륨은 볼륨 블레이드에 표시됩니다.
 
     ![만든 볼륨](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)

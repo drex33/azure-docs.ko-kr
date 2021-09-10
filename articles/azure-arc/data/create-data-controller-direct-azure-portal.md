@@ -7,18 +7,16 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: overview
-ms.openlocfilehash: c1c72ea44dc392e169f505c4820f99affdc82615
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 6ac96cb0420ecdba934b364c185bedf01f9f4321
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602516"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122822651"
 ---
 #  <a name="create-azure-arc-data-controller-from-azure-portal---direct-connectivity-mode"></a>Azure Portal에서 Azure Arc 데이터 컨트롤러 만들기 - 직접 연결 모드
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 이 문서에서는 이 기능의 현재 미리 보기 기간 동안 직접 연결 모드에서 Azure Arc 데이터 컨트롤러를 배포하는 방법을 설명합니다. 
 
@@ -26,21 +24,13 @@ ms.locfileid: "114602516"
 
 시작하기 전에 [데이터 컨트롤러 배포 - 직접 연결 모드 - 필수 조건](create-data-controller-direct-prerequisites.md)에서 필수 조건을 완료 했는지 확인합니다.
 
->[!NOTE]
->먼저 Azure CLI를 사용하여 Arc 지원 Kubernetes 데이터 서비스 확장을 배포해야 합니다.
->
->```azurecli
->az k8s-extension create -c "{connected_cluster_name}" -g "{resource_group_name}" --name "arcdataservices" --cluster-type "connectedClusters" --extension-type "microsoft.arcdataservices" --scope "cluster" --release-namespace {namespace} --config "Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper"
->```
-
-
 ## <a name="deploy-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 배포
 
 Azure Arc 데이터 컨트롤러 만들기 흐름은 다음 방법 중 하나로 Azure Portal에서 시작할 수 있습니다.
 
 - Azure Portal의 검색 창에서 "Azure Arc 데이터 컨트롤러"를 검색하고 "+ 만들기"를 선택합니다.
 - Azure Arc 지원 Kubernetes 클러스터의 개요 페이지에서
-  - 설정 아래의 "확장(미리 보기)"을 선택합니다.
+  - 설정에서 “확장”을 선택합니다.
   - 확장 개요 페이지에서 "추가"를 선택한 다음 "Azure Arc 데이터 컨트롤러"를 선택합니다.
   - Azure Arc 데이터 컨트롤러 마켓플레이스 갤러리에서 만들기를 선택합니다.
   

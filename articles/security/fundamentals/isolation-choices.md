@@ -3,9 +3,8 @@ title: Azure 퍼블릭 클라우드에서 격리 | Microsoft Docs
 description: Azure가 악의적인 사용자와 악의적이지 않은 사용자 모두에게 격리를 제공하고, 설계자에게 다양한 격리 선택 사항을 제공하는 방법을 알아 봅니다.
 services: security
 documentationcenter: na
-author: UnifyCloud
+author: TomSh
 manager: rkarlin
-editor: TomSh
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
-ms.author: TomSh
-ms.openlocfilehash: c06fb0830ae709918b668ed60efbaaf47a63ce84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/30/2021
+ms.author: terrylan
+ms.openlocfilehash: 3ef9f5cb6e0175a501b05da6e79194da76b18dae
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94842841"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123257253"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
 
@@ -42,9 +41,9 @@ Azure 테넌트(Azure 구독)는 [Azure Active Directory](../../active-directory
 
 사용자, 그룹 및 해당 디렉터리에서 애플리케이션은 Azure 구독에서 리소스를 관리할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 이러한 액세스 권한을 할당할 수 있습니다. Azure AD 테넌트는 보안 경계를 사용하여 논리적으로 격리되므로 어떤 고객도 악의적으로 또는 실수로 공동 테넌트에 액세스하거나 손상시킬 수 없습니다. Azure AD는 분리된 네트워크 세그먼트에서 격리된 "운영 체제 미설치(bare metal)" 서버에서 실행되며, 여기서 호스트 수준 패킷 필터링과 Windows 방화벽은 원하지 않는 연결과 트래픽을 차단합니다.
 
-- Azure AD의 데이터에 대한 액세스는 보안 토큰 서비스(STS)를 통해 사용자 인증이 필요합니다. 사용자의 존재, 활성화된 상태 및 역할에 대한 정보는 권한 부여 시스템에서 사용되어 대상 테넌트에 대해 요청된 액세스가 이 세션에서 사용자에 대한 권한이 있는지 확인합니다.
+:::image type="content" source="media/isolation-choices/azure-isolation-fig-1.svg" alt-text="Azure 테넌트를 보여주는 다이어그램입니다." border="false":::
 
-![Azure 테넌트](./media/isolation-choices/azure-isolation-fig1.png)
+- Azure AD의 데이터에 대한 액세스는 보안 토큰 서비스(STS)를 통해 사용자 인증이 필요합니다. 사용자의 존재, 활성화된 상태 및 역할에 대한 정보는 권한 부여 시스템에서 사용되어 대상 테넌트에 대해 요청된 액세스가 이 세션에서 사용자에 대한 권한이 있는지 확인합니다.
 
 - 테넌트는 각각 별개의 컨테이너이며, 이들 사이에 아무 관계가 없습니다.
 
@@ -90,7 +89,7 @@ Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
 
 - Azure AD는 온-프레미스 디렉터리와 함께 [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), 동기화 및 복제를 사용하여 페더레이션을 통해 IaaS(Identity as a Service)를 제공합니다.
 
-- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)은 사용자에게 모바일 앱, 전화 통화 또는 문자 메시지를 사용하여 로그인을 검증하도록 요구하는 다단계 인증 서비스입니다. Azure AD와 함께 사용할 수 있으며 Azure Multi-Factor Authentication 서버를 통해 온-프레미스 리소스의 보안을 유지하도록 도와주며, SDK를 사용하여 사용자 지정 애플리케이션 및 디렉터리와도 사용될 수 있습니다.
+- [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)을 사용할 경우 사용자가 모바일 앱, 전화 통화 또는 문자 메시지를 사용해서 로그인을 확인해야 합니다. Azure AD와 함께 사용할 수 있으며 Multi-Factor Authentication 서버를 통해 온-프레미스 리소스의 보안을 유지하도록 도와주며, SDK를 사용하여 사용자 지정 애플리케이션 및 디렉터리와도 사용될 수 있습니다.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/)를 사용하면 도메인 컨트롤러를 배포하지 않고도 Azure 가상 머신이 도메인에 가입될 수 있습니다. 이러한 가상 머신에 회사 Active Directory 자격 증명을 사용하여 로그인하고 모든 Azure Virtual Machines에 보안 기준을 적용하도록 그룹 정책을 사용하여 도메인에 가입된 가상 머신을 관리할 수 있습니다.
 
@@ -317,6 +316,6 @@ Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Windows Azure Virtual Network의 컴퓨터에 대한 네트워크 격리 옵션](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)에 대해 알아봅니다. 여기에는 특정 클라이언트 또는 다른 컴퓨터가 IP 주소의 허용 목록을 기반으로 하여 특정 엔드포인트에 연결할 수 있도록 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터에서 허용하는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함됩니다.
+- [Windows Azure Virtual Network의 컴퓨터에 대한 네트워크 격리 옵션](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)에 대해 알아봅니다. 여기에는 특정 클라이언트 또는 다른 컴퓨터가 IP 주소의 허용 목록을 기반으로 하여 특정 엔드포인트에 연결할 수 있도록 특정 백 엔드 네트워크 또는 서브네트워크의 컴퓨터에서 허용하는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함됩니다.
 
 - [Azure의 가상 머신 격리](../../virtual-machines/isolation.md)에 대해 알아봅니다. Azure Compute는 특정 하드웨어 유형으로 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.

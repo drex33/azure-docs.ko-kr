@@ -10,12 +10,12 @@ ms.subservice: automanage
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: d0c319fa9579f68c7f429283327f43869c4ab2b1
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: e8347e2f4a46e420f8beb6a966e60345456213f8
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113006053"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768354"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신용 Azure Automanage 사용
 

@@ -1,27 +1,55 @@
 ---
-title: '자습서: Azure IoT Central을 사용하여 용수 품질 모니터링 앱 만들기'
-description: '자습서: Azure IoT Central 애플리케이션 템플릿을 사용하여 용수 품질 모니터링 애플리케이션을 만드는 방법을 알아봅니다.'
+title: 자습서 - Azure IoT 용수 품질 모니터링 | Microsoft Docs
+description: 이 자습서에서는 IoT Central용 용수 품질 모니터링 애플리케이션 템플릿을 배포하고 사용하는 방법을 보여 줍니다.
 author: miriambrus
 ms.author: miriamb
-ms.date: 12/11/2020
+ms.date: 08/02/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: fdab861cc122fe738cce4da049154ecb4039ca65
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 481a085b1fd5fec55cd34f885dfcda40fec6f5e7
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588978"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179140"
 ---
-# <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 용수 품질 모니터링 애플리케이션 만들기
+# <a name="tutorial-deploy-and-walk-through-the-water-quality-monitoring-application"></a>자습서: 용수 품질 모니터링 애플리케이션 배포 및 살펴보기
 
-이 자습서에서는 Azure IoT Central에서 용수 품질 모니터링 애플리케이션을 만드는 과정을 안내합니다. Azure IoT Central **용수 품질 모니터링** 애플리케이션 템플릿에서 애플리케이션을 만듭니다.
+IoT Central *용수 품질 모니터링* 애플리케이션 템플릿과 이 문서의 지침을 사용하여 엔드투엔드 용수 품질 모니터링 솔루션을 개발합니다.
+
+
+![용수 품질 모니터링 아키텍처](./media/tutorial-waterqualitymonitoring/concepts-water-quality-monitoring-architecture1.png)
+
+### <a name="devices-and-connectivity"></a>디바이스 및 연결
+
+용수 관리 솔루션은 유량계, 용수 품질 모니터, 스마트 밸브, 누수 탐지기와 같은 스마트 워터 디바이스를 사용합니다.
+
+스마트 워터 솔루션의 LPWAN(저전력 광대역 네트워크) 또는 타사 네트워크 사업자를 통해 연결할 수 있습니다. 이러한 유형의 디바이스의 경우 [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md)를 사용하여 디바이스 데이터를 Azure IoT Central의 IoT 애플리케이션으로 전송합니다. IP 기능이 포함되고 IoT Central에 직접 연결할 수 있는 디바이스 게이트웨이를 사용할 수도 있습니다.
+
+### <a name="iot-central"></a>IoT Central
+
+Azure IoT Central은 IoT 솔루션을 신속하게 빌드하고 배포하는 데 도움이 되는 IoT 앱 플랫폼입니다. 솔루션을 브랜딩 및 사용자 지정하거나 타사 서비스와 통합할 수 있습니다.
+
+스마트 워터 디바이스를 IoT Central에 연결하면 애플리케이션에서 디바이스 명령 및 제어, 모니터링 및 경고, RBAC가 기본 제공된 사용자 인터페이스, 구성 가능한 대시보드, 확장성 옵션을 제공합니다.
+
+### <a name="extensibility-and-integrations"></a>확장성 및 통합
+
+Azure IoT Central에서 IoT 애플리케이션을 확장하고 필요에 따라 다음을 수행할 수 있습니다.
+
+* 고급 분석을 위해 IoT 데이터를 변환하고 통합합니다(예: IoT Central 애플리케이션에서 데이터를 지속적으로 내보내 기계 학습 모델 학습).
+* IoT Central 애플리케이션의 Power Automate 또는 웹후크를 사용해 작업을 트리거하여 다른 시스템의 워크플로를 자동화합니다.
+* IoT Central API를 통해 IoT Central의 IoT 애플리케이션에 프로그래밍 방식으로 액세스합니다.
+
+### <a name="business-applications"></a>비즈니스 애플리케이션
+
+IoT 데이터를 사용하여 워터 유틸리티 내에서 다양한 비즈니스 애플리케이션을 지원할 수 있습니다. [IoT Central 용수 소비 모니터링 애플리케이션](tutorial-water-consumption-monitoring.md)에서 규칙 및 작업을 구성하고 [Connected Field Service](/dynamics365/field-service/connected-field-service)에서 경고를 만들도록 설정할 수 있습니다. IoT Central 규칙에서 Power Automate를 구성하여 애플리케이션 및 서비스에서 워크플로를 자동화합니다. 또한 Connected Field Service의 서비스 활동에 따라 정보를 Azure IoT Central로 다시 보낼 수 있습니다.
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
+
 > * **용수 품질 모니터링** 템플릿을 사용하여 용수 품질 모니터링 애플리케이션을 만듭니다.
 > * 대시보드를 탐색하고 사용자 지정합니다.
 > * 용수 품질 모니터링 디바이스 템플릿을 살펴봅니다.
@@ -32,55 +60,28 @@ ms.locfileid: "113588978"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 Azure 구독을 보유하는 것이 좋습니다. Azure 구독이 아직 없는 경우 [Azure 가입 페이지](https://aka.ms/createazuresubscription)에서 만들 수 있습니다.
+* 이 앱을 배포하는 데 필요한 특정 필수 구성 요소가 없습니다.
+* 무료 가격 책정 요금제를 사용하거나 Azure 구독을 사용할 수 있습니다.
 
-## <a name="create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Azure IoT Central에서 용수 품질 모니터링 애플리케이션 만들기
+## <a name="create-water-quality-monitoring-application"></a>용수 품질 모니터링 애플리케이션 만들기
 
-이 섹션에서는 Azure IoT Central **용수 품질 모니터링** 템플릿을 사용하여 용수 품질 모니터링 애플리케이션을 만듭니다.
+다음 단계를 사용하여 애플리케이션을 만듭니다.
 
-1. [Azure IoT Central 홈 페이지](https://aka.ms/iotcentral)로 이동합니다.
+1. [Azure IoT Central 빌드](https://aka.ms/iotcentral) 사이트로 이동합니다. 그런 다음, Microsoft 개인, 회사 또는 학교 계정으로 로그인합니다. 왼쪽 탐색 모음에서 **빌드** 를 선택한 다음 **정부** 탭을 선택합니다. :::image type="content" source="media/tutorial-waterqualitymonitoring/iot-central-government-tab-overview1.png" alt-text="애플리케이션 템플릿":::
 
-    Azure 구독이 있으면 액세스하는 데 사용하는 자격 증명을 사용하여 로그인합니다. 그렇지 않으면 Microsoft 계정을 사용하여 로그인합니다.
+1. **용수 품질 모니터링** 에서 **앱 만들기** 를 선택합니다.
 
-    ![조직 계정에 로그인](./media/tutorial-waterqualitymonitoring/sign-in.png)
+자세한 내용은 [IoT Central 애플리케이션 만들기](../core/howto-create-iot-central-application.md)를 참조하세요.
 
-1. Azure IoT Central의 맨 왼쪽 창에서 **빌드**, **정부** 탭을 차례로 선택합니다. 정부 창에는 몇 가지 정부 애플리케이션 템플릿이 표시됩니다.
+## <a name="walk-through-the-application"></a>애플리케이션 살펴보기
 
-    ![정부 애플리케이션 템플릿](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
+다음 섹션에서는 애플리케이션의 주요 기능을 안내합니다.
 
-1. **용수 품질 모니터링** 애플리케이션 템플릿을 선택합니다. 이 애플리케이션 템플릿에는 용수 품질 디바이스 템플릿, 시뮬레이션된 디바이스, 대시보드 및 미리 구성된 모니터링 규칙이 포함되어 있습니다.
-
-1. **앱 만들기** 를 선택합니다. **새 애플리케이션** 창이 열리고 다음 요소가 표시됩니다.
-
-    * **애플리케이션 이름**: 기본적으로 애플리케이션 이름은 **용수 품질 모니터링** 이며, Azure IoT Central에서 생성하는 고유한 ID 문자열이 뒤에 붙습니다. 원하는 경우 표시 이름을 입력하거나 나중에 애플리케이션 이름을 변경할 수 있습니다.
-    * **URL**: 원하는 URL을 입력하거나 나중에 URL 값을 변경할 수 있습니다.
-    * Azure 구독이 있으면 **디렉터리**, **Azure 구독** 및 **위치** 에 대한 값을 입력합니다. 구독이 없으면 **7일 평가판** 을 설정하고 필요한 연락처 정보를 작성할 수 있습니다.
-
-1. 페이지의 왼쪽 아래 부분에서 **만들기** 단추를 선택합니다.
-
-    ![Azure IoT Central 새 애플리케이션 페이지](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
-
-    ![Azure IoT Central 새 애플리케이션 청구 정보](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1-billinginfo.png)
-
-이제 Azure IoT Central **용수 품질 모니터링** 템플릿을 사용하여 용수 품질 모니터링 애플리케이션이 만들어졌습니다.
-
-새 애플리케이션에서 제공하는 미리 구성된 구성 요소는 다음과 같습니다.
-
-* 대시보드
-* 용수 품질 모니터링 디바이스 템플릿
-* 시뮬레이션된 용수 품질 모니터링 디바이스
-* 규칙 및 작업
-* 흰색 레이블 지정을 사용하는 브랜딩
-
-애플리케이션은 언제든지 수정할 수 있습니다.
-
-다음으로, 애플리케이션을 살펴보고 일부 사용자 지정을 수행합니다.
-
-## <a name="explore-and-customize-the-dashboard"></a>대시보드 탐색 및 사용자 지정
+### <a name="dashboard"></a>대시보드
 
 애플리케이션이 만들어지면 **Wide World 용수 품질 대시보드** 창이 열립니다.
 
-   ![용수 품질 모니터링 대시보드](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard1.png)
+:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-dashboard1.png" alt-text="용수 품질 모니터링 대시보드.":::
 
 작성자는 대시보드에서 운영자가 사용할 보기를 만들고 사용자 지정할 수 있습니다. 그러나 사용자 지정을 수행하기 전에 먼저 대시보드를 살펴보세요.
 
@@ -110,7 +111,7 @@ ms.locfileid: "113588978"
 
 1. **편집** 을 선택하여 **Wide World 용수 품질 대시보드** 창을 사용자 지정합니다. **편집** 메뉴에서 명령을 선택하여 대시보드를 사용자 지정할 수 있습니다. 대시보드가 편집 모드에 있으면 새 타일을 추가하거나 기존 파일을 구성할 수 있습니다.
 
-    ![대시보드 편집](./media/tutorial-waterqualitymonitoring/edit-dashboard.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/edit-dashboard.png" alt-text="대시보드 편집.":::
 
 1. **+ 새로 만들기** 를 선택하여 구성할 수 있는 새 대시보드를 만듭니다. 여러 대시보드를 사용할 수 있으며, 대시보드 메뉴에서 서로 간에 탐색할 수 있습니다.
 
@@ -125,7 +126,7 @@ Azure IoT Central의 디바이스 템플릿은 디바이스 기능을 정의합�
 1. Azure IoT Central에서 애플리케이션의 맨 왼쪽 창에 있는 **디바이스 템플릿** 을 선택합니다.
 1. 디바이스 템플릿 목록에서 **용수 품질 모니터** 를 선택하여 해당 디바이스 템플릿을 엽니다.
 
-    ![디바이스 템플릿](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
+:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-device-template.png" alt-text="디바이스 템플릿.":::
 
 ### <a name="customize-the-device-template"></a>디바이스 템플릿 사용자 지정
 
@@ -148,7 +149,7 @@ Azure IoT Central의 디바이스 템플릿은 디바이스 기능을 정의합�
 
 용수 품질 모니터링 디바이스 템플릿에는 미리 정의된 보기가 제공됩니다. 보기는 운영자가 디바이스 데이터를 보고 클라우드 속성을 설정하는 방법을 정의합니다. 보기를 살펴보고 변경하는 방법을 연습합니다.
 
-  ![디바이스 템플릿 보기](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate-views.png)
+:::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-device-template-views.png" alt-text="디바이스 템플릿 뷰.":::
 
 ### <a name="publish-the-device-template"></a>디바이스 템플릿 게시
 
@@ -167,11 +168,11 @@ Azure IoT Central의 디바이스 템플릿은 디바이스 기능을 정의합�
 
 1. 애플리케이션의 맨 왼쪽 창에서 **디바이스** 를 선택합니다.
 
-   ![디바이스](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devices.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-devices.png" alt-text="디바이스":::
 
 1. 하나의 시뮬레이션된 디바이스를 선택합니다.
 
-    ![디바이스 1 선택](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitor-device1.png" alt-text="디바이스 1 선택":::
 
 1. **클라우드 속성** 탭에서 **산도(pH) 임계값** 을 **8** 에서 **9** 로 변경하고 **저장** 을 선택합니다.
 1. **디바이스 속성** 탭 및 **디바이스 대시보드** 탭을 살펴봅니다.
@@ -197,11 +198,11 @@ Azure IoT Central에서는 디바이스 원격 분석을 자동으로 모니터�
 
 1. 애플리케이션의 맨 왼쪽 창에서 **규칙** 을 선택합니다.
 
-   ![규칙](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-rules.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-rules.png" alt-text="규칙.":::
 
 1. 애플리케이션의 미리 구성된 규칙 중 하나인 **높은 pH 경고** 를 선택합니다.
 
-   ![높은 pH 경고 규칙](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-highphalert.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-high-ph-alert.png" alt-text="높은 pH 경고 규칙.":::
 
    **높은 pH 경고** 규칙은 8보다 큰 산도(pH) 조건인지 확인하도록 구성되어 있습니다.
 
@@ -237,7 +238,7 @@ Azure IoT Central 작업을 사용하면 여러 디바이스에서 디바이스 
 1. **브라우저 아이콘** 아래에서 **변경** 을 선택하여 브라우저 탭에 나타나는 이미지를 선택합니다.
 1. **브라우저 색** 아래에서 기본값을 HTML 16진수 색 코드로 바꿀 수 있습니다.
 
-   ![애플리케이션 사용자 지정](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-customize-your-application1.png" alt-text="애플리케이션 사용자 지정":::
 
 ### <a name="update-the-application-image"></a>애플리케이션 이미지 업데이트
 
@@ -252,11 +253,4 @@ Azure IoT Central 작업을 사용하면 여러 디바이스에서 디바이스 
 1. 애플리케이션의 맨 왼쪽 창에서 **관리** 탭을 엽니다.
 1. **애플리케이션** 을 선택하고 **삭제** 단추를 선택합니다.
 
-    ![애플리케이션 삭제](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)
-
-## <a name="next-steps"></a>다음 단계
-
-* 자세한 정보 
-
-> [!div class="nextstepaction"]
-> [용수 품질 모니터링 개념](./concepts-waterqualitymonitoring-architecture.md).
+    :::image type="content" source="media/tutorial-waterqualitymonitoring/water-quality-monitoring-application-settings-delete-app1.png" alt-text="애플리케이션 삭제.":::

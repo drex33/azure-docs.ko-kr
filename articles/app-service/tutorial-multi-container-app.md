@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: b9a3880c88224906e68054475233e8d8ce02476a
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 0e4bcc24aa64cfa875057d8503d0d6b629b36896
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964971"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121748820"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -530,8 +530,8 @@ WordPress가 Redis 서버에 연결됩니다. 연결 **상태** 가 동일한 �
 
 또는 다른 리소스를 확인합니다.
 
-> [!div class="nextstepaction"]
-> [사용자 지정 컨테이너 구성](configure-custom-container.md)
+- [사용자 지정 컨테이너 구성](configure-custom-container.md)
+- [환경 변수 및 앱 설정 참조](reference-app-settings.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

@@ -5,18 +5,20 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: extensions
+ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
-ms.custom: avverma, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 1cc8e06b2057444efc4fa317790047e3bb9c4f00
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: avverma, devx-track-azurepowershell
+ms.openlocfilehash: 29ee2d1daf9d8c022a045fec403e740fc4afe904
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768484"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697452"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 세트에 애플리케이션 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 확장 집합의 VM(가상 머신) 인스턴스에서 애플리케이션을 실행하려면 먼저 애플리케이션 구성 요소 및 필요한 파일을 설치해야 합니다. 이 문서에서는 확장 집합의 인스턴스에 대한 사용자 지정 VM 이미지를 빌드하거나 기존 VM 인스턴스에 설치 스크립트를 자동으로 실행하는 방법을 소개합니다. 또한 확장 집합 전체에서 애플리케이션 또는 OS 업데이트를 관리하는 방법도 알아봅니다.
 

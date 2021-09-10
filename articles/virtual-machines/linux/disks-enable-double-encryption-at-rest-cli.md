@@ -8,14 +8,16 @@ ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: dd7f0e0a56fd27053830fac9144359d1850ba0d4
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 9fc3e8570deb2cb9dd588f34e30f3c6662c7f91a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113358267"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698457"
 ---
 # <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Azure CLI를 사용하여 관리 디스크에 대해 미사용 데이터 이중 암호화를 사용하도록 설정합니다.
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Disk Storage는 관리 디스크에 대해 미사용 데이터 이중 암호화를 지원합니다. 미사용 데이터 이중 암호화 및 기타 관리 디스크 암호화 유형에 대한 개념 정보는 디스크 암호화 문서의 [미사용 데이터 이중 암호화](../disk-encryption.md#double-encryption-at-rest) 섹션을 참조하세요.
 

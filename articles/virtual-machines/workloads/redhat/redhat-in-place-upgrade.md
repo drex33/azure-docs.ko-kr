@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 1be0904cc640eff5af7a77bba3abd6aa062991a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccd3e58babc6627a384636dbea28ef82969be9fc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676065"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696747"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>현재 위치의 Red Hat Enterprise Linux 업그레이드
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 본 문서에서는 RHEL(Red Hat Enterprise Linux) 7을 현재 위치에서 Red Hat Enterprise Linux 8로 업그레이드하는 방법에 대한 지침을 제공합니다. 본 지침에서는 Azure의 `leapp` 도구를 사용합니다. 현재 위치 업그레이드 중, 기존의 RHEL 7 운영 체제는 RHEL 8 버전으로 대체됩니다.
 

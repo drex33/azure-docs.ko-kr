@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: vikancha
-ms.openlocfilehash: d9eb0d5bc93cbe9c2a7cbae56c336115bb227b04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c421c30e9a8f117806e9e93b2df5154bd881e7c2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557678"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697933"
 ---
 # <a name="fpga-optimized-virtual-machine-sizes"></a>FPGA 최적화 가상 머신 크기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 FPGA 최적화 VM 크기는 단일 또는 여러 FPGA에서 사용 가능한 특수한 가상 머신입니다. 이러한 크기는 계산 집약적인 작업용으로 설계되었습니다. 이 문서에서는 FPGA, vCPU, 데이터 디스크 및 NIC의 개수와 종류에 대한 정보를 제공합니다. 이 그룹화의 각 크기에 대해 스토리지 처리량 및 네트워크 대역폭도 포함되어 있습니다.
 

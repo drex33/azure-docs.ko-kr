@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: e8650802b4add9b33664205367bb3242b32b9754
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1e37e401bd44c4e6077e9a69dbc6ad72f8eaa0d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670388"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693961"
 ---
 # <a name="deploy-openshift-container-platform-4x-in-azure"></a>Azure에서 OpenShift Container Platform 4.x 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이제 Azure에 IPI(설치 프로그램 프로비저닝된 인프라) 모델을 통해 OCP(OpenShift Container Platform) 4.2를 배포할 수 있습니다.  OpenShift 4 체험용 방문 페이지는 [try.openshift.com](https://try.openshift.com/)입니다. OCP 4.2를 Azure에 설치하려면 [Red Hat OpenShift 클러스터 관리자](https://cloud.redhat.com/openshift/install/azure/installer-provisioned) 페이지를 방문하세요.  해당 사이트에 액세스하려면 Red Hat 자격 증명이 필요합니다.
 

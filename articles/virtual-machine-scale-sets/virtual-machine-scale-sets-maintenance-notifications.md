@@ -9,15 +9,16 @@ ms.subservice: maintenance-control
 ms.date: 04/26/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: e23630fb0d102c10194d85d3beff1ce626fbf898
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 1f20b83d89258de2d557fc230edd57810fc13806
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673906"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697414"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 Azure는 주기적으로 업데이트를 수행하여 VM(가상 머신)에 대한 호스트 인프라의 안정성, 성능 및 보안을 향상시킵니다. 업데이트에는 호스팅 환경 패치 또는 하드웨어 업그레이드 및 서비스 해제가 포함될 수 있습니다. 대부분의 업데이트는 호스팅된 VM에 영향을 주지 않습니다. 그러나 업데이트는 다음 시나리오에서 VM에 영향을 줍니다.
 
@@ -81,7 +82,7 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 
 이제 **셀프 서비스 유지 관리** 열이 가상 머신 확장 집합 목록에 나타납니다. 각 가상 머신 확장 집합의 셀프 서비스 유지 관리 열에는 다음 값 중 하나가 표시될 수 있습니다.
 
-| 값 | 설명 |
+| 값 | Description |
 |-------|-------------|
 | 예 | 가상 머신 확장 집합에 있는 하나 이상의 VM이 셀프 서비스 기간에 있습니다. 이 셀프 서비스 기간 동안 언제든지 유지 관리를 시작할 수 있습니다. | 
 | No | 영향을 받는 가상 머신 확장 집합의 셀프 서비스 기간에 VM이 없습니다. | 

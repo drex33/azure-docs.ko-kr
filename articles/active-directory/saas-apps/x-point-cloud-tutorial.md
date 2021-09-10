@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/15/2021
+ms.date: 08/23/2021
 ms.author: jeedes
-ms.openlocfilehash: 87516b3114e665275c5a3e2ead0caf8c49987d33
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: 77c954d5fd3541b172ec51e237443b00e7e86154
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114373359"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768552"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-x-point-cloud"></a>자습서: X-point Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -77,14 +77,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<SUBDOMAIN>.atledcloud.jp` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **로그온 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.atledcloud.jp/xpoint` 패턴을 사용하는 URL을 입력합니다.
+    b. **Reply URL(Assertion Consumer Service URL)** 텍스트 상자에서 `https://<SUBDOMAIN>.atledcloud.jp/xpoint/saml/acs` 패턴을 사용하는 URL을 입력합니다.
+
+    다. **로그온 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.atledcloud.jp/xpoint` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [X-point Cloud 클라이언트 지원 팀](mailto:x-point@atled.jp)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [X-point Cloud 클라이언트 지원 팀](mailto:x-point@atled.jp)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 찾고, **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/certificatebase64.png)
+    ![인증서 다운로드 링크](common/certificateraw.png)
 
 1. **X-point Cloud 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
@@ -116,7 +118,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-x-point-cloud-sso"></a>X-point Cloud SSO 구성
 
-**X-point Cloud** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [X-point Cloud 지원 팀](mailto:x-point@atled.jp)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**X-point Cloud** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(원시)** 및 복사한 해당 URL을 [X-point Cloud 지원 팀](mailto:x-point@atled.jp)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-x-point-cloud-test-user"></a>X-point Cloud 테스트 사용자 만들기
 

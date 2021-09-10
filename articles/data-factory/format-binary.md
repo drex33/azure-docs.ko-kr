@@ -9,18 +9,18 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jianleishen
-ms.openlocfilehash: 32a1f7f9cc84adc3142bd7f03b399c759b01f824
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: be1407d9b8efe16dea3546161125e7c68213da11
+ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642791"
+ms.lasthandoff: 08/31/2021
+ms.locfileid: "123254981"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Azure Data Factory의 이진 형식
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이진 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md) 커넥터에 적용됩니다.
+이진 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md) 커넥터에 지원됩니다.
 
 [복사 작업](copy-activity-overview.md), [GetMetadata 작업](control-flow-get-metadata-activity.md) 또는 [삭제 작업](delete-activity.md)에서 이진 데이터 세트를 사용할 수 있습니다. 이진 데이터 세트를 사용하는 경우 ADF는 파일 콘텐츠를 구문 분석하지 않고 그대로 처리합니다. 
 

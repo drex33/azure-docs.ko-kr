@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 08/20/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1c4a006a12e9708b35ea15ff68728569822ae26d
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 37f5e0163d7c2ed57866f8c4eda49458a969ad87
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114390755"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687764"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure VM(가상 머신)은 디스크를 사용하여 운영 체제, 애플리케이션 및 데이터를 저장합니다. VM을 만들 때 예상되는 워크로드에 적합한 디스크 크기와 구성을 선택하는 것이 중요합니다. 이 자습서에서는 VM 디스크를 배포하고 관리하는 방법을 보여줍니다. 다음에 대해 알아봅니다.
 
@@ -111,7 +113,7 @@ az vm disk attach \
 가상 머신과 SSH 연결 만들기 예제 IP 주소를 가상 머신의 공용 IP로 바꿉니다.
 
 ```console
-ssh 10.101.10.10
+ssh azureuser@10.101.10.10
 ```
 
 `parted`를 사용하여 디스크를 분할합니다.

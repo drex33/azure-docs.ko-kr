@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 08/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0023d40fdc26fa1c42a67ce78a9259643098abb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9abc9e2e2ca2b9305cccf5cec554994c3703ef1
+ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96741408"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123214497"
 ---
 # <a name="getting-started-with-azure-ad-multi-factor-authentication-and-active-directory-federation-services"></a>Azure AD Multi-Factor Authentication 및 Active Directory Federation Services 시작
 
@@ -46,5 +46,5 @@ ms.locfileid: "96741408"
 Azure Multi-Factor Authentication 또는 AD FS를 통한 Azure Multi-factor Authentication Server를 설정하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure AD Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지](howto-mfa-adfs.md)
-* [Windows Server 2012 R2 AD FS와 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지](howto-mfaserver-adfs-2012.md)
+* [Windows Server와 Azure Multi-Factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지](howto-mfaserver-adfs-windows-server.md)
 * [AD FS 2.0과 함께 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지](howto-mfaserver-adfs-2.md)

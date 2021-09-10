@@ -7,15 +7,15 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.topic: tutorial
 ms.custom: tutorial, devplatv2
-ms.openlocfilehash: 78cbec0c8f4805794062b6fd525567f8aebcb2b6
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 681d78d07ac27cb8796f4dad5920d91d9efcb94a
+ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448839"
+ms.lasthandoff: 08/18/2021
+ms.locfileid: "122418883"
 ---
 # <a name="tutorial-access-resources-with-managed-online-endpoints-and-identity-preview"></a>자습서: 관리형 온라인 엔드포인트와 ID(미리 보기)를 사용하여 리소스 액세스
 
@@ -37,7 +37,7 @@ ms.locfileid: "114448839"
 
 * Azure 기계 학습을 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
-* Azure CLI 및 ML 확장을 설치하고 구성해야 합니다. 자세한 내용은 [2.0 CLI(미리 보기) 설치, 설정 및 사용](how-to-configure-cli.md)을 참조하세요. 
+* Azure CLI 및 ML 확장을 설치하고 구성해야 합니다. 자세한 내용은 [CLI(v2)(미리 보기) 설치, 설정 및 사용](how-to-configure-cli.md)을 참조하세요. 
 
 * Azure 리소스 그룹이 있고, 사용자(또는 사용하는 서비스 주체)에게 이에 대한 `Contributor` 액세스 권한이 있어야 합니다. 위의 문서에 따라 ML 확장을 구성한 경우 이러한 리소스 그룹이 있을 것입니다. 
 
@@ -72,7 +72,7 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
 
-YAML 참조는 [관리형 온라인 엔드포인트(미리 보기) YAML 참조](reference-online-endpoint-yaml.md)를 참조하세요.
+YAML 참조는 [관리형 온라인 엔드포인트(미리 보기) YAML 참조](reference-yaml-endpoint-managed-online.md)를 참조하세요.
 
 ## <a name="configure-variables-for-your-deployment"></a>배포에 대한 변수 구성
 
@@ -193,7 +193,7 @@ init 메서드 출력을 확인하려면 다음 코드를 사용하여 배포 �
 
 * CLI 사용에 대한 자세한 내용은 [Azure Machine Learning용 CLI 확장 사용](reference-azure-machine-learning-cli.md)을 참조하세요.
 * 특정 데이터만 반환하도록 JSON 쿼리를 구체화하려면 [Azure CLI 명령 출력 쿼리](/cli/azure/query-azure-cli)를 참조하세요.
-* YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참조](reference-online-endpoint-yaml.md) 문서를 참조하세요.
+* YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참조](reference-yaml-endpoint-managed-online.md) 문서를 참조하세요.
 * 사용할 수 있는 컴퓨팅 리소스를 확인하려면 [관리형 온라인 엔드포인트 SKU 목록(미리 보기)](reference-managed-online-endpoints-vm-sku-list.md)을 참조하세요.
 * 비용에 대한 자세한 내용은 [Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)의 비용 보기](how-to-view-online-endpoints-costs.md)를 참조하세요.
 * 배포에 대한 자세한 내용은 [온라인 엔드포인트(미리 보기)의 안전한 출시](how-to-safely-rollout-managed-endpoints.md)를 참조하세요.

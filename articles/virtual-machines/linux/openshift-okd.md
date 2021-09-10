@@ -10,14 +10,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: dc14b10081cf175581d29524dcea60c52763b03c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e011b48323246d9cff2b6cc6116cb6746fb81299
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667218"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692668"
 ---
 # <a name="deploy-okd-in-azure"></a>Azure에서 OKD 배포
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure에서 OKD(이전의 OpenShift Origin)를 배포하는 두 가지 방법 중 하나를 사용할 수 있습니다.
 

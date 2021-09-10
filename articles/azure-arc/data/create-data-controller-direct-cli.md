@@ -7,20 +7,19 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: overview
-ms.openlocfilehash: 467547b3a7aa9b1c0e728282ab8208134911d9b0
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 042d7fd04ca3a41016e67481f81237a56e0dfc8d
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113734083"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121737176"
 ---
 #  <a name="create-azure-arc-data-controller-in-direct-connectivity-mode-using-cli"></a>CLI를 사용하여 직접 연결 모드에서 Azure Arc 데이터 컨트롤러 만들기
 
 이 문서에서는 이 기능의 현재 미리 보기 기간 동안 **직접** 연결 모드에서 CLI를 사용하여 Azure Arc 데이터 컨트롤러를 만드는 방법을 설명합니다. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="complete-prerequisites"></a>필수 조건 완료
 
@@ -105,7 +104,7 @@ az k8s-extension create -c "my-connected-cluster" -g "my-resource-group" --name 
 #### <a name="azure-portal"></a>Azure portal
 1. Azure Portal에 로그인하고 Kubernetes 연결 된 클러스터 리소스가 있는 리소스 그룹을 찾습니다.
 1. 확장이 배포된 Arc 지원 kubernetes 클러스터(유형 = "Kubernetes - Azure Arc")를 선택합니다.
-1. 왼쪽의 탐색 메뉴에서 **설정** 아래에 있는 "확장(미리 보기)"을 선택합니다.
+1. 왼쪽 탐색의 **설정** 에서 “확장”을 선택합니다.
 1. 앞서 만든 확장이 "설치됨" 상태로 표시됩니다.
 
 :::image type="content" source="media/deploy-data-controller-direct-mode-prerequisites/dc-extensions-dashboard.png" alt-text="확장 대시보드":::

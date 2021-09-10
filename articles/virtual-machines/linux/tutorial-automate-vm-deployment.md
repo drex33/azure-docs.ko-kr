@@ -1,7 +1,6 @@
 ---
 title: 자습서 - Azure의 cloud-init를 사용하여 Linux VM 사용자 지정
 description: 이 자습서에서는 cloud-init 및 Key Vault를 사용하여 Azure에서 처음 부팅 시 Linux VM을 사용자 지정하는 방법에 대해 알아봅니다.
-documentationcenter: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
@@ -9,14 +8,16 @@ ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 461a52bca90040279ceaf2bab0bb1361336f355e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 98723a6390958f38acec4909d6635adadc65ff13
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816317"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692058"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>자습서 - cloud-init를 사용하여 첫 번째 부팅 시 Azure에서 Linux 가상 머신을 사용자 지정하는 방법
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이전 자습서에서는 VM(가상 머신)에 SSH를 적용하고 NGINX를 수동으로 설치하는 방법에 대해 알아보았습니다. 빠르고 일관된 방식으로 VM을 만들려면 일반적으로 자동화 기능이 필요합니다. 처음 부팅 시 VM을 사용자 지정하는 일반적인 방법은 [cloud-init](https://cloudinit.readthedocs.io)를 사용하는 것입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

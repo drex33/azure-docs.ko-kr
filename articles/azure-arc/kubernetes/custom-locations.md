@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 ms.custom: references_regions, devx-track-azurecli
 description: 사용자 지정 위치를 사용하여 Azure Arc 지원 Kubernetes 클러스터에 Azure PaaS 서비스 배포
-ms.openlocfilehash: 5fa255755dd0b78498203624194d081447d70a13
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: a4586f6f527bd98f0f347e51c787f2bcda7c6d8d
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730859"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768304"
 ---
 # <a name="create-and-manage-custom-locations-on-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes의 사용자 지정 위치 만들기 및 관리
 
@@ -57,29 +57,26 @@ Azure 위치와 마찬가지로 사용자 지정 위치에 대한 액세스 권�
 - `Microsoft.ExtendedLocation`에 대한 완료된 공급자 등록을 확인합니다.
     1. 다음 명령을 입력합니다.
     
-    ```azurecli
-    az provider register --namespace Microsoft.ExtendedLocation
-    ```
+        ```azurecli
+        az provider register --namespace Microsoft.ExtendedLocation
+        ```
 
     2. 등록 프로세스를 모니터링합니다. 등록은 10분 정도 걸릴 수 있습니다.
     
-    ```azurecli
-    az provider show -n Microsoft.ExtendedLocation -o table
-    ```
+        ```azurecli
+        az provider show -n Microsoft.ExtendedLocation -o table
+        ```
+
+        등록된 후에는 `RegistrationState` 상태가 `Registered` 값을 가지게 됩니다.
 
 - 기존 [Azure Arc 지원 Kubernetes 연결 클러스터](quickstart-connect-cluster.md)가 있는지 확인합니다.
     - 버전 1.1.0 이상으로 [에이전트를 업그레이드](agent-upgrade.md#manually-upgrade-agents)합니다.
-
->[!NOTE]
->**사용자 지정 위치에 대해 지원되는 지역:**
->* 미국 동부
->* 서유럽
 
 ## <a name="enable-custom-locations-on-cluster"></a>클러스터에서 사용자 지정 위치 사용
 
 Azure AD 사용자 권한으로 Azure CLI에 로그인한 경우 클러스터에서 이 기능을 사용하도록 설정하려면 다음 명령을 실행합니다.
 
-```console
+```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
@@ -87,13 +84,13 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 1. Azure Arc 서비스에서 사용하는 Azure AD 애플리케이션의 개체 ID를 가져옵니다.
 
-    ```console
+    ```azurecli
     az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
     ```
 
 1. 위 단계의 `<objectId>` 값을 사용하여 클러스터에서 사용자 지정 위치 기능을 사용하도록 설정합니다.
 
-    ```console
+    ```azurecli
     az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
     ```
 

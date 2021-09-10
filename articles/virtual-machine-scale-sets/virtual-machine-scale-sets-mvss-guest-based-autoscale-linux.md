@@ -9,14 +9,16 @@ ms.subservice: autoscale
 ms.date: 04/26/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 0605780651e1a3c54ae53d13a3f99e1124fa76db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ea607f788d9acb971312639851b745eb28b313d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585000"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697387"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Linux 확장 집합 템플릿에서 게스트 메트릭을 사용한 자동 크기 조정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 단일 확장 집합
 
 Azure에는 VM 및 스케일링 세트에서 수집되는 메트릭 유형이 크게 두 가지가 존재합니다. 바로 호스트 메트릭과 게스트 메트릭입니다. 상위 수준에서 표준 CPU, 디스크 및 네트워크 메트릭을 사용하는 경우 호스트 메트릭이 가장 잘 맞을 것입니다. 그러나 보다 광범위한 메트릭을 선택해야 할 경우에는 게스트 메트릭이 더 적합할 것입니다.
 

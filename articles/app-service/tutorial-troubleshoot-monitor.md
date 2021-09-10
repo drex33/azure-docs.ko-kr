@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: d45a8b8f426df32b9f5ac6f64237107083e0f9ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 907ae75b17bcb7496c2ad3e76a8e4da1bd44b1fa
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586280"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121728115"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>자습서: Azure Monitor를 사용하여 App Service 앱 문제 해결
 
@@ -43,15 +43,18 @@ ms.locfileid: "100586280"
 
 ## <a name="create-azure-resources"></a>Azure 리소스 만들기
 
-먼저 여러 명령을 로컬로 실행하여 이 자습서에서 사용할 샘플 앱을 설정합니다. 이러한 명령은 샘플 앱을 복제하고, Azure 리소스를 만들고, 배포 사용자를 만들고, 앱을 Azure에 배포합니다. 배포 사용자를 만드는 과정의 일환으로 제공된 암호를 묻는 메시지가 표시됩니다. 
+먼저 여러 명령을 로컬로 실행하여 이 자습서에서 사용할 샘플 앱을 설정합니다. 이러한 명령은 Azure 리소스를 만들고, 배포 사용자를 만들고, 샘플 앱을 Azure에 배포합니다. 배포 사용자를 만드는 과정의 일환으로 제공된 암호를 묻는 메시지가 표시됩니다. 
 
 ```bash
-git clone https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor
 az group create --name myResourceGroup --location "South Central US"
 az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
-git remote add azure <url_from_previous_step>
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
+git clone https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor
+cd App-Service-Troubleshoot-Azure-Monitor
+git branch -m main
+git remote add azure <url-from-app-webapp-create>
 git push azure main
 ```
 

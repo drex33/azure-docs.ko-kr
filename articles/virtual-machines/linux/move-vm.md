@@ -7,14 +7,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 7dbe06a9f2fff8abf59adbdfc9e41055c85e8f2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2ceae3fbf1a59f5f148a488900e9bb88e6be4e4
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889300"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688282"
 ---
 # <a name="move-a-vm-to-another-subscription-or-resource-group"></a>VM을 다른 구독 또는 리소스 그룹으로 이동
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 이 문서에서는 리소스 그룹 또는 구독 간에 VM(가상 머신)을 이동하는 방법을 안내합니다. 개인 구독에서 VM을 만들고 회사 구독으로 이동하려면 구독 간의 VM 이동이 편리할 수 있습니다.
 
 > [!IMPORTANT]

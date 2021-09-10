@@ -8,14 +8,17 @@ ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: mimckitt
 ms.subservice: cloud-init
-ms.openlocfilehash: 7b50cddf4f0af6a5b54faf729a2529b500b49e49
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: b3944edfae6fe1fa98ee7adc0ed20575fe0deedc
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538590"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122696201"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure에서 Linux VM에 대한 호스트 이름 설정
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 이 문서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 Azure의 프로비전 시간에서 VM(가상 머신) 또는 VMSS(가상 머신 확장 집합)에 특정 호스트 이름을 구성하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
 
 ## <a name="set-the-hostname-with-cloud-init"></a>cloud-init로 호스트 이름 설정

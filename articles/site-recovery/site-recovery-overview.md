@@ -2,14 +2,14 @@
 title: Azure Site Recovery 정보
 description: Azure Site Recovery 서비스의 개요를 제공하고 재해 복구 및 마이그레이션 배포 시나리오를 요약합니다.
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 08/19/2021
 ms.custom: MVC
-ms.openlocfilehash: 19860e64182cd73fe9f9fa1246f440a03109d465
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d5558930c77c115ba25cb4b35e88d470afc38a23
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92281886"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122445693"
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
 
@@ -33,6 +33,7 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 --- | ---
 **간단한 BCDR 솔루션** | Site Recovery를 사용하면 Azure Portal의 단일 위치로부터 복제, 장애 조치 및 장애 복구를 설정 및 관리할 수 있습니다.
 **Azure VM 복제** | 기본 지역의 Azure VM을 보조 지역으로 재해 복구하도록 설정할 수 있습니다.
+**VMware VM 복제** | 구성 서버보다 더 나은 보안 및 복원력을 제공하는 향상된 Azure Site Recovery 복제 어플라이언스를 사용하여 VMware VM을 Azure에 복제할 수 있습니다. 자세한 내용은 [VMware VM의 재해 복구](vmware-azure-about-disaster-recovery.md)을 참조하세요.
 **온-프레미스 VM 복제** | 온-프레미스 VM 및 물리적 서버를 Azure 또는 보조 온-프레미스 데이터 센터에 복제할 수 있습니다. Azure에 복제하면 보조 데이터 센터를 유지하는 비용과 복잡성을 제거할 수 있습니다.
 **워크로드 복제** | 지원되는 Azure VM, 온-프레미스 Hyper-V 및 VMware VM, Windows/Linux 물리적 서버에서 실행되는 모든 워크로드를 복제할 수 있습니다.
 **데이터 복원력** | Site Recovery는 애플리케이션 데이터를 차단하지 않고 복제를 오케스트레이션합니다. Azure에 복제할 때 데이터는 제공되는 복원력을 통해 Azure Storage에 저장됩니다. 장애 조치(failover)가 발생하는 경우 복제된 데이터를 기반으로 하여 Azure VM을 만듭니다.
@@ -58,3 +59,4 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 
 - [워크로드 지원](site-recovery-workload.md)에 대해 자세히 알아봅니다.
 - [지역 간 Azure VM 복제](azure-to-azure-quickstart.md)를 시작합니다.
+- [VMware VM 복제](vmware-azure-enable-replication.md) 시작합니다.

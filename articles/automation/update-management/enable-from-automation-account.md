@@ -6,16 +6,16 @@ ms.subservice: update-management
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 089d5d70d8ad8060455e5c1bee45e0bee4a12fae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc17b875c8f16304d5292f7ed852909373b8c5d9
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575844"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768313"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Automation 계정에서 업데이트 관리 사용
 
-이 문서에서는 Automation 계정을 사용하여 [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 등록된 컴퓨터 또는 서버를 포함하여 환경의 VM에 [업데이트 관리](overview.md) 기능을 사용하도록 설정하는 방법에 대해 설명합니다. 대규모 Azure VM을 사용하도록 설정하려면 업데이트 관리를 사용하여 기존 Azure VM을 사용하도록 설정해야 합니다.
+이 문서에서는 Automation 계정을 사용하여 [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 등록된 컴퓨터 또는 서버를 포함하여 사용자 환경의 VM에 [업데이트 관리](overview.md) 기능을 사용하도록 설정하는 방법에 대해 설명합니다. 대규모 Azure VM을 사용하도록 설정하려면 업데이트 관리를 사용하여 기존 Azure VM을 사용하도록 설정해야 합니다.
 
 > [!NOTE]
 > 업데이트 관리를 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](../how-to/region-mappings.md)을 참조하세요.
@@ -24,7 +24,7 @@ ms.locfileid: "100575844"
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](../automation-security-overview.md)
-* [Azure 가상 머신](../../virtual-machines/windows/quick-create-portal.md) 또는 Arc 지원 서버에 등록된 VM 또는 서버. 비 Azure VM 또는 서버에는 Windows 또는 Linux용 [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)가 설치되어 있고, Automation 계정 업데이트 관리에 연결된 작업 영역에 대한 보고가 사용하도록 설정되어 있어야 합니다. 먼저 컴퓨터를 [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 연결하여 Windows 또는 Linux용 Log Analytics 에이전트를 설치한 다음, Azure Policy를 사용하여 [*Linux* 또는 *Windows* Azure Arc 컴퓨터에 Log Analytics 에이전트 배포](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책을 할당하는 것이 좋습니다. 또는 VM용 Azure Monitor를 사용하여 컴퓨터를 모니터링하려는 경우 [VM용 Azure Monitor 사용](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브를 대신 사용합니다.
+* [Azure 가상 머신](../../virtual-machines/windows/quick-create-portal.md) 또는 Arc 지원 서버에 등록된 VM이나 서버. 비 Azure VM 또는 서버에는 Windows 또는 Linux용 [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)가 설치되어 있고, Automation 계정 업데이트 관리에 연결된 작업 영역에 대한 보고가 사용하도록 설정되어 있어야 합니다. 먼저 컴퓨터를 [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)에 연결하여 Windows 또는 Linux용 Log Analytics 에이전트를 설치한 후, Azure Policy를 사용하여 [Log Analytics 에이전트 배포 기본 제공 정책을 *Linux* 또는 *Windows* Azure Arc 컴퓨터](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 정책에 할당하는 것이 좋습니다. 또는 VM용 Azure Monitor를 사용하여 컴퓨터를 모니터링하려는 경우 [VM용 Azure Monitor 사용](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브를 대신 사용합니다.
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -51,7 +51,7 @@ ms.locfileid: "100575844"
 
 ## <a name="enable-non-azure-vms"></a>비 Azure VM 사용
 
-Azure Arc 지원 서버에 등록된 컴퓨터를 포함하여 Azure 외부에서 호스팅되는 컴퓨터 또는 서버의 경우 다음 단계를 수행하여 업데이트 관리를 사용하도록 설정합니다.  
+Azure Arc 지원 서버에 등록된 컴퓨터를 포함하여, Azure 외부에서 호스팅되는 컴퓨터 또는 서버의 경우 다음 단계를 수행하여 업데이트 관리를 사용하도록 설정합니다.  
 
 1. Automation 계정의 **업데이트 관리** 아래에서 **업데이트 관리** 를 선택합니다.
 

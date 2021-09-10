@@ -3,12 +3,15 @@ title: Azure VMware Solution을 사용하여 NSX-T 네트워크 세그먼트 추
 description: Azure Portal에서 Azure VMware Solution의 NSX-T 네트워크 세그먼트를 추가하는 단계입니다.
 ms.topic: include
 ms.date: 07/16/2021
-ms.openlocfilehash: 7744884da7e1e6d46428bb00b52f88772c866760
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
+ms.openlocfilehash: 4b153d95ad339d3a71d5b227e0f794675014a28c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114229338"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121734211"
 ---
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
@@ -26,7 +29,7 @@ ms.locfileid: "114229338"
 
    - **서브넷 게이트웨이** - 서브넷 마스크가 있는 세그먼트의 서브넷 게이트웨이 IP 주소입니다. VM은 논리 세그먼트에 연결되고, 이 세그먼트에 연결된 모든 VM은 동일한 서브넷에 속합니다.  또한 이 논리 세그먼트에 연결된 모든 VM은 동일한 세그먼트의 IP 주소를 가져야 합니다.
 
-   - **DHCP**(선택 사항) - 논리적 세그먼트의 DHCP 범위입니다. [ DHCP 서버 또는 DHCP 릴레이](../configure-dhcp-azure-vmware-solution.md)는 세그먼트에서 DHCP를 사용하도록 구성되어야 합니다.  
+   - **DHCP**(선택 사항) - 논리적 세그먼트의 DHCP 범위입니다. 세그먼트에서 DHCP를 사용하도록 [DHCP 서버 또는 DHCP 릴레이](../configure-dhcp-azure-vmware-solution.md)를 구성해야 합니다.    
 
    >[!NOTE]
    >**연결된 게이트웨이** 는 기본적으로 선택되며 읽기 전용입니다.  계층 1 게이트웨이와 세그먼트 유형 정보를 표시합니다. 

@@ -9,18 +9,20 @@ ms.service: storage
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9bec6aaf34691adf03dad9204b93af006008c7a0
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 2260603ce4b2baa969734d87d91aa4c949e875f2
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356157"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692491"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Azure에 VHD를 업로드하거나 관리 디스크를 다른 지역에 복사 - Azure PowerShell
 
+**적용 대상:** :heavy_check_mark: Windows VM 
+
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 최신 [AzCopy v10 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드합니다.
 - [Azure PowerShell 모듈을 설치합니다](/powershell/azure/install-Az-ps).
@@ -104,7 +106,7 @@ Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<you
 `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>`, `<yourTargetLocationHere>`(위치 값이 uswest2인 예)를 사용자의 값으로 바꾼 다음 관리 디스크를 복사하기 위한 다음 스크립트를 실행합니다.
 
 > [!TIP]
-> OS 디스크를 만드는 경우에는 `New-AzDiskConfig`에 -HyperVGeneration '<yourGeneration>'를 추가합니다.
+> OS 디스크를 만드는 경우 `New-AzDiskConfig`에 `-HyperVGeneration '<yourGeneration>'`을 추가합니다.
 
 ```powershell
 

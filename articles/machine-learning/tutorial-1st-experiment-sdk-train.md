@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/27/2021
+ms.date: 08/18/2021
 ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
-ms.openlocfilehash: c96936635898f9173b7eb8e60502ea059420cf0b
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: f8ff5e9d5a7b35bcc4ada9fd600d28b54ead57a9
+ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113758861"
+ms.lasthandoff: 08/21/2021
+ms.locfileid: "122634353"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-2-of-3"></a>자습서: 첫 번째 기계 학습 모델 학습(2/3부)
 
@@ -77,7 +77,7 @@ ms.locfileid: "113758861"
 
     **src** 하위 폴더에 *train.py* 스크립트를 만듭니다.
 
-     ```python
+    ```python
     import torch
     import torch.optim as optim
     import torchvision
@@ -200,16 +200,18 @@ if __name__ == "__main__":
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Azure Machine Learning에 실행 제출
 
-**터미널에서 스크립트 저장 및 실행** 을 선택하여 *run-pytorch.py* 스크립트를 실행합니다.
+1. **터미널에서 스크립트 저장 및 실행** 을 선택하여 *run-pytorch.py* 스크립트를 실행합니다.
 
->[!NOTE] 
-> 이 스크립트를 처음 실행하면 Azure Machine Learning이 PyTorch 환경에서 새 Docker 이미지를 빌드합니다. 전체 실행을 완료하는 데 3~4분이 걸릴 수 있습니다. 
->
-> Docker 빌드 로그는 Azure Machine Learning 스튜디오에서 확인할 수 있습니다. Studio에 대한 링크에서 **출력 + 로그** 탭을 선택한 다음, `20_image_build_log.txt`를 선택합니다.
->
-> 이 이미지는 이후 실행에서 다시 사용되므로 훨씬 더 빨리 실행됩니다.
+1. 열리는 터미널 창에 링크가 표시됩니다. 실행을 보려면 링크를 선택합니다.
 
-이미지가 빌드되면 `70_driver_log.txt`를 선택하여 학습 스크립트의 출력을 확인합니다.
+    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+
+### <a name="view-the-output"></a>출력 보기
+
+1. 열리는 페이지에서 실행 상태를 볼 수 있습니다. 이 스크립트를 처음 실행하면 Azure Machine Learning이 PyTorch 환경에서 새 Docker 이미지를 빌드합니다. 전체 실행을 완료하는 데 3~4분이 걸릴 수 있습니다.  이 이미지는 이후 실행에서 다시 사용되므로 훨씬 더 빨리 실행됩니다.
+1. Docker 빌드 로그 보기는 Azure Machine Learning 스튜디오에서 확인할 수 있습니다. **출력 + 로그** 탭을 선택한 다음 **20_image_build_log.txt** 를 선택합니다.
+1. 실행 상태가 **완료됨** 이면 **출력 + 로그** 를 선택합니다.
+1. 실행 결과를 보려면 **70_driver_log.txt** 를 선택합니다.
 
 ```txt
 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
@@ -230,10 +232,11 @@ epoch=2, batch=12000: loss 1.27
 Finished Training
 ```
 
-> [!WARNING]
-> 오류 `Your total snapshot size exceeds the limit`가 표시되면 **데이터** 폴더가 `ScriptRunConfig`에서 사용되는 `source_directory` 값에 있음을 나타냅니다.
->
-> 폴더 끝에 있는 **...** 를 선택한 다음, **이동** 을 선택하여 **데이터** 를 **get-started** 폴더로 이동합니다.  
+오류 `Your total snapshot size exceeds the limit`가 표시되면 **데이터** 폴더가 `ScriptRunConfig`에서 사용되는 `source_directory` 값에 있음을 나타냅니다.
+
+폴더 끝에 있는 **...** 를 선택한 다음, **이동** 을 선택하여 **데이터** 를 **get-started** 폴더로 이동합니다.  
+
+
 
 ## <a name="log-training-metrics"></a><a name="log"></a> 학습 메트릭 기록
 

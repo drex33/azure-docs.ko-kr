@@ -10,12 +10,12 @@ ms.devlang: javascript
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: 9e8bb3d49ef236521f7d4a48060b2405dbbbc104
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: fa3c4405bd2c62642e5d61dad10b078695fb32cd
+ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462022"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122444677"
 ---
 # <a name="quickstart-use-javascript-to-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service"></a>빠른 시작: JavaScript를 사용하여 SignalR Service와 Azure Functions로 GitHub 별모양 개수를 표시하는 앱 만들기
 
@@ -61,12 +61,35 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 2. 프로젝트를 초기화한 후에는 함수를 만들어야 합니다. 이 샘플에서는 3개의 함수를 만들어야 합니다.
 
-    1. 다음 명령을 실행하여 클라이언트용 웹 페이지를 호스팅할 `index` 함수를 만듭니다.
+    1. 다음 명령을 실행하여 클라이언트용 웹 페이지를 호스트할 `index` 함수를 만듭니다.
 
         ```bash
         func new -n index -t HttpTrigger
         ```
-        
+        `index/function.json`을 열고 다음 json 코드를 복사합니다.
+
+        ```json
+        {
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ]
+        }
+        ```
+
         `index/index.js`를 열고 다음 코드를 복사합니다.
 
         ```javascript
@@ -191,7 +214,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
         }    
         ```
 
-3. 이 샘플의 클라이언트 인터페이스는 웹 페이지입니다. `index` 함수에서 `content/index.html`의 HTML 콘텐츠를 읽은 것으로 간주하여 `content` 디렉터리에 새 파일 `index.html`을 만듭니다. 그리고 다음 내용을 복사합니다.
+3. 이 샘플의 클라이언트 인터페이스는 웹 페이지입니다. `index` 함수에서 `content/index.html`의 HTML 콘텐츠를 읽은 것으로 간주하여 프로젝트 루트 폴더 아래의 `content` 디렉터리에 새 파일 `index.html`을 만듭니다. 그리고 다음 내용을 복사합니다.
 
     ```html
     <html>
@@ -232,7 +255,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     1. 기본 연결 문자열을 복사합니다. 그런 다음 아래의 명령을 실행합니다.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
 5. 로컬에서 Azure Function 실행:
@@ -241,7 +264,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     func start
     ```
 
-    로컬로 Azure Function을 실행한 후 브라우저에서 `http://localhost:7071/api/index`를 방문하면 현재 시작 횟수를 볼 수 있습니다. 그리고 GitHub에서 별모양을 표시하거나 표시 해제하면 몇 초마다 시작 횟수가 새로 고쳐집니다.
+    로컬로 Azure Function을 실행한 후 브라우저에서 `http://localhost:7071/api/index`를 방문하면 현재 별 개수를 볼 수 있습니다. 또한 GitHub에서 별을 표시하거나 표시 해제하면 몇 초마다 별 개수가 바뀝니다.
 
     > [!NOTE]
     > SignalR 바인딩에는 Azure Storage가 필요하지만 함수가 로컬에서 실행 중일 때 로컬 스토리지 에뮬레이터를 사용할 수 있습니다.
@@ -255,14 +278,14 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 로컬에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. Azure Functions에 대해 SignalR Service 바인딩을 사용하는 방법에 대해 자세히 알아봅니다.
-다음으로 SignalR Service를 사용하여 클라이언트와 Azure Function 간의 양방향 통신 방법에 대해 자세히 알아봅니다.
+이 빠른 시작에서는 로컬에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. Azure Functions에 대해 SignalR Service 바인딩을 사용하는 방법을 자세히 알아봅니다.
+그런 다음, SignalR Service를 사용하여 클라이언트와 Azure Function 간 양방향 통신을 수행하는 방법을 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Functions의 SignalR Service 바인딩](../azure-functions/functions-bindings-signalr-service.md)
 
 > [!div class="nextstepaction"]
-> [서버리스에서 양방향 통신](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
+> [서버리스의 양방향 통신](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
 
 > [!div class="nextstepaction"]
 > [VS Code로 Azure Functions 배포](/azure/developer/javascript/tutorial-vscode-serverless-node-01)

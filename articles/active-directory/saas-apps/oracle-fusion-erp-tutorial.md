@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 3a950727034d4be822e0b9554424074a1aaebf33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44286f0f5a0d5f367cd3934ff61653eb4772c1fd
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649916"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122182468"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-fusion-erp"></a>자습서: Oracle Fusion ERP와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "101649916"
 * 사용자가 자신의 Azure AD 계정으로 Oracle Fusion ERP에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -38,6 +38,7 @@ ms.locfileid: "101649916"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Oracle Fusion ERP에서 **SP** 시작 SSO를 지원합니다.
+* Oracle Fusion ERP는 [**자동** 사용자 프로비저닝 및 프로비저닝 해제](oracle-fusion-erp-provisioning-tutorial.md)(권장)를 지원합니다.
 
 ## <a name="add-oracle-fusion-erp-from-the-gallery"></a>갤러리에서 Oracle Fusion ERP 추가
 
@@ -98,7 +99,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

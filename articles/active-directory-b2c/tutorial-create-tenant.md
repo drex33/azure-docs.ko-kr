@@ -10,12 +10,13 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56a306e56991500a6b1d5acab1ab38a3b4fa457f
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.custom: b2c-support
+ms.openlocfilehash: e8f5405e55c3443b020265e68d68737f6d266a17
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613302"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122179308"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
@@ -49,6 +50,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     Azure Portal 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, 구독이 포함된 디렉터리를 선택합니다. 이 디렉터리는 Azure AD B2C 테넌트가 포함될 디렉터리와는 다릅니다.
 
     ![구독 테넌트, 구독 테넌트가 선택된 디렉터리 + 구독 필터](media/tutorial-create-tenant/portal-01-pick-directory.png)
+
+1. 사용 중인 Azure 구독에 대한 리소스 공급자로 **Microsoft.AzureActiveDirectory** 를 추가합니다([자세히 알아보기](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)).
+
+    1. Azure Portal 메뉴 또는 **홈** 페이지에서 **구독** 을 선택합니다.
+    2. 구독을 선택한 다음, **리소스 공급자** 를 선택합니다.
+    3. **Microsoft.AzureActiveDirectory** 행에 **등록됨** 상태가 표시되는지 확인합니다. 표시되지 않으면 행을 선택한 다음, **등록** 을 선택합니다.
 
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 

@@ -8,14 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: f9a5c8e95b5230b5689a63a74bb31324c083e28a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5fd43ebed8d1ebcad3d5f76bda21b978bdb0950e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078297"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693238"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 균일한 확장 집합
 
 가상 머신 확장 집합을 사용하면 자동 크기 조정 가상 머신 세트를 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure Portal에서 가상 머신 확장 집합을 만듭니다.
 
@@ -38,7 +40,7 @@ Azure [Load Balancer](../load-balancer/load-balancer-overview.md)는 들어오�
     | ---| ---|
     | Subscription  | 구독을 선택합니다.    |    
     | Resource group | **새로 만들기** 를 선택하고 텍스트 상자에 *myVMSSResourceGroup* 을 입력합니다.|
-    | 속성           | *myLoadBalancer*         |
+    | Name           | *myLoadBalancer*         |
     | 지역         | **미국 동부** 를 선택합니다.       |
     | Type          | **공용** 을 선택합니다.       |
     | SKU           | **표준** 을 선택합니다.       |

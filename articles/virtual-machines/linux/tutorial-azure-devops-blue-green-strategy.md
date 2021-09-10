@@ -1,25 +1,26 @@
 ---
-title: 자습서 - Azure Linux 가상 머신에 대한 카나리아 배포 구성
-description: 이 자습서에서는 CD(지속적인 배포) 파이프라인을 설정하는 방법을 알아봅니다. 이 파이프라인은 파란색-녹색 배포 전략을 사용하여 Azure Linux 가상 머신 그룹을 업데이트합니다.
+title: Azure Linux Virtual Machines에서 카나리아 배포 구성
+description: CD(지속적인 배포) 파이프라인을 설정하는 방법을 알아봅니다. 이 파이프라인은 파란색-녹색 배포 전략을 사용하여 Azure Linux 가상 머신 그룹을 업데이트합니다.
 author: moala
 tags: azure-devops-pipelines
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 4545891cce926f049673cd2c2380a8309f2e71a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a455950e1637dbcef63acc52de139c5d0a9a2e10
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552590"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122690969"
 ---
-# <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>자습서 - Azure Linux 가상 머신에 대한 파란색-녹색 배포 전략 구성
+# <a name="configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Azure Linux Virtual Machines에서 파란색-녹색 배포 전략 구성
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 ## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>IaaS(Infrastructure as a Service) - CI/CD 구성
 

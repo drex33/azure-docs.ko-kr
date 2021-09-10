@@ -3,16 +3,16 @@ title: 자습서 - Azure Portal을 사용하여 새 정책 할당
 description: 이 자습서에서는 Azure Portal을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
 ms.topic: tutorial
 ms.date: 04/21/2021
-ms.openlocfilehash: 20cb8125a157a3ce97c88278c99f90936b449b65
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: be7752b5ccf73269b1e4715fc05c85162b4ea546
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831657"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770346"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>자습서: 비준수 리소스를 식별하는 정책 할당 만들기
 
-Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다. Azure Policy는 게스트 구성 정책을 사용하여 Arc 지원 서버의 상태 감사를 지원합니다. 게스트 구성 정책은 구성을 적용하지 않고 머신 내의 설정만 감사합니다. 이 자습서에서는 Arc 지원 서버 중 Log Analytics 에이전트가 설치되지 않은 서버를 식별하는 정책을 만들고 할당하는 프로세스를 단계별로 안내합니다.
+Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다. Azure Policy에서는 게스트 구성 정책을 사용하여 Arc 지원 서버의 상태를 감사할 수 있습니다. Azure Policy의 게스트 구성 정의는 머신 내에서 설정을 감사하거나 적용할 수 있습니다. 이 자습서에서는 Arc 지원 서버 중 Log Analytics 에이전트가 설치되지 않은 서버를 식별하는 정책을 만들고 할당하는 프로세스를 단계별로 안내합니다.
 
 이 프로세스가 끝나면 Windows 또는 Linux용 Log Analytics 에이전트가 설치되지 않은 머신을 성공적으로 식별할 수 있습니다. 이 가상 머신은 정책 할당을 _비준수_ 합니다.
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    사용 가능한 기본 제공 정책의 부분 목록은 [Azure Policy 샘플](../../../governance/policy/samples/index.md)을 참조하세요.
 
-1. Windows 기반 머신에서 Arc 지원 서버 에이전트를 사용하도록 설정한 경우 정책 정의 목록을 검색하여 _\[미리 보기]: Log Analytics 에이전트를 Windows Azure Arc 머신에 설치해야 함_ 정의를 찾습니다. Linux 기반 머신의 경우 해당 _\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 정책 정의를 찾습니다. 해당 정책을 클릭하고 **선택** 을 클릭합니다.
+1. Windows 기반 머신에서 Arc 지원 서버 에이전트를 사용하도록 설정한 경우 정책 정의 목록을 검색하여 ‘\[미리 보기]: Microsoft Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함’ 정의를 찾습니다. Linux 기반 머신의 경우 해당 _\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 정책 정의를 찾습니다. 해당 정책을 클릭하고 **선택** 을 클릭합니다.
 
    :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="올바른 정책 정의 찾기" border="false":::
 

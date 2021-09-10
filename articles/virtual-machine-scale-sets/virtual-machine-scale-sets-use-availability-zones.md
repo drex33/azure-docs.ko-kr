@@ -9,14 +9,16 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d66c6fada13bf88083a6359f5fa3e7ca826a6266
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 5584f052dc9dcb72f03b923c1a4c666e212b5385
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673706"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697360"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 데이터 센터 수준 오류로부터 가상 머신 확장 집합을 보호하려면 가용성 영역에서 확장 집합을 만들 수 있습니다. 가용성 영역을 지원하는 Azure 지역은 각각 독립적인 전원, 네트워크 및 냉각 기능을 갖춘 3개 이상의 별도 지역을 포함합니다. 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md)를 참조하세요.
 

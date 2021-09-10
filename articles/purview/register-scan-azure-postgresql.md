@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 06/30/2021
-ms.openlocfilehash: 4f4e9b51a44ee193a946f76499c95d6fe77f2e5e
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 622e89392dc10f12fe81ed1c1085e5b9cc524999
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114665402"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122181301"
 ---
 # <a name="register-and-scan-an-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 등록 및 검색
 
@@ -37,7 +37,7 @@ Purview의 Azure Database for PostgreSQL에 대한 SQL 인증만 지원합니다
 
 #### <a name="sql-authentication-for-an-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대한 SQL 인증
 
-Azure Database for PostgreSQL 데이터베이스에 연결하려면 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다. [CONNECT AND QUERY](/azure/postgresql/connect-python)의 지침에 따라 Azure Database for PostgreSQL에 대한 로그인을 만들 수 있습니다(사용할 수 없는 경우). 다음 단계를 수행하려면 **사용자 이름** 및 **암호** 가 필요합니다.
+Azure Database for PostgreSQL 데이터베이스에 연결하려면 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다. [CONNECT AND QUERY](../postgresql/connect-python.md)의 지침에 따라 Azure Database for PostgreSQL에 대한 로그인을 만들 수 있습니다(사용할 수 없는 경우). 다음 단계를 수행하려면 **사용자 이름** 및 **암호** 가 필요합니다.
 
 1. Azure Portal에서 키 자격 증명 모음으로 이동합니다.
 1. **설정 > 비밀** 을 선택합니다.
@@ -52,7 +52,7 @@ Azure Database for PostgreSQL 데이터베이스에 연결하려면 정규화된
 
 1. Purview 계정으로 이동합니다.
 
-1. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 
 1. **등록** 을 선택합니다.
 

@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 07/22/2021
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: e157e976186f03aa984877435c42b996ce476740
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8e2197d5eb84c3ae25dc0b4ebe61ca085badca9
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102040195"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114603301"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>LUIS용 Docker 컨테이너 설치 및 실행
 
@@ -37,13 +37,28 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 LUIS 컨테이너를 실행하려면 다음 사전 요구 사항을 확인하세요.
 
-|필수|목적|
-|--|--|
-|Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows** 에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
-|Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
-|Azure `Cognitive Services` 리소스 및 LUIS [패키징된 앱](luis-how-to-start-new-app.md) 파일 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* _Cognitive Services_ Azure 리소스 및 연결된 청구 키, 청구 엔드포인트 URI 두 값은 모두 리소스의 개요 및 키 페이지에서 제공되며 컨테이너를 시작하는 데 필요합니다. <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱 LUIS 포털 또는 작성 API에서 패키징된 파일을 가져올 수 있습니다. [작성 API](#authoring-apis-for-package-file)에서 LUIS 패키징된 앱을 가져오는 경우에는 _작성 키_ 도 필요합니다.<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}** : 이 키는 클라우드의 LUIS 서비스에서 패키징된 앱을 가져오고 쿼리 로그를 클라우드에 다시 업로드하는 데 사용됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APP_ID}** : 이 ID는 앱을 선택하는 데 사용됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{API_KEY}** : 이 키는 컨테이너를 시작하는 데 사용됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 _Cognitive Services_ 리소스의 키 목록 내의 Azure Portal입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{ENDPOINT_URI}** : 개요 페이지에 제공된 엔드포인트입니다.<br><br>[작성 키 및 엔드포인트 키](luis-limits.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
+* 호스트 컴퓨터에 설치된 [Docker](https://docs.docker.com/). Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. 
+    * Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.
+    * [Docker 개념](https://docs.docker.com/get-started/overview/)에 대한 기본적으로 이해하고 있어야 합니다. 
+* 무료(F0) 또는 표준(S) [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)을 사용하는 Azure <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne"  title="LUIS 리소스 만들기"  target="_blank">LUIS 리소스 </a>.
+* 연결된 앱 ID와 함께 컨테이너에 탑재된 입력으로 패키징된 학습되거나 게시된 앱. LUIS 포털 또는 작성 API에서 패키징된 파일을 가져올 수 있습니다. [작성 API](#authoring-apis-for-package-file)에서 LUIS 패키징된 앱을 가져오는 경우에는 _작성 키_ 도 필요합니다.
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
+
+### <a name="app-id-app_id"></a>앱 ID `{APP_ID}`
+
+이 ID는 앱을 선택하는 데 사용됩니다. 앱 ID는 앱의 화면 상단에서 **관리** 를 클릭한 후 **설정** 을 클릭하면 [LUIS 포털](https://www.luis.ai/)에서 찾을 수 있습니다.
+
+:::image type="content" source="./media/luis-container-how-to/app-identification.png" alt-text="앱 ID를 찾기 위한 화면." lightbox="./media/luis-container-how-to/app-identification.png":::
+
+### <a name="authoring-key-authoring_key"></a>작성 키 `{AUTHORING_KEY}`
+
+이 키는 클라우드에서 LUIS 서비스에서 패키징된 앱을 가져오는 데 사용되고 클라우드로 다시 쿼리 로그를 업로드하는 데 사용됩니다. 문서의 후반부에 설명된 [REST API 를 사용하여 앱을 내보내는 경우](#export-published-apps-package-from-api) 작성 키가 필요합니다. 
+
+앱 화면 상단에서 **관리** 를 클릭한 후 **Azure 리소스** 를 선택하여 [LUIS 포털](https://www.luis.ai/)에서 작성 키를 얻을 수 있습니다.
+
+:::image type="content" source="./media/luis-container-how-to/authoring-resource.png" alt-text="제작 리소스 키를 찾기 위한 화면." lightbox="./media/luis-container-how-to/authoring-resource.png":::
+
 
 ### <a name="authoring-apis-for-package-file"></a>패키지 파일용 작성 API
 
@@ -391,7 +406,7 @@ LUIS 컨테이너는 Asure 계정에서 _Cognitive Services_ 리소스를 사용
 
 * [컨테이너 구성](luis-container-configuration.md)에서 구성 설정을 검토하세요.
 * 알려진 기능 제한 사항은 [LUIS 컨테이너 제한 사항](luis-container-limitations.md)을 참조하세요.
-* LUIS 기능과 관련된 문제를 해결하려면 [문제 해결](troubleshooting.md)을 참조하세요.
+* LUIS 기능과 관련된 문제를 해결하려면 [문제 해결](troubleshooting.yml)을 참조하세요.
 * 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용
 
 <!-- Links - external -->

@@ -7,14 +7,16 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 696125f75e41d39b4f9aaa1ff852b03eff589fb0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e129b596473784c72cab93568be88dd6dcb6fe2a
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204246"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697996"
 ---
 # <a name="msv2-and-mdsv2-series-medium-memory"></a>Msv2 및 Mdsv2 시리즈 중간 메모리
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
 Msv2 및 Mdsv2 Medium Memory VM 시리즈는 2.7GHz 및 4.0GHz 단일 코어 터보 주파수의 모든 코어 기본 주파수를 가진 Intel® Xeon® Platinum 8280(Cascade Lake) 프로세서가 탑재되어 있습니다. 이러한 VM을 통해 고객은 로컬 디스크 및 디스크 없는 옵션을 사용하여 유연성을 높일 수 있습니다. 또한 고객은 4TiB 메모리가 장착된 vCPU가 192개까지 증가하는 더 많은 CPU와 메모리를 사용하여 새로이 격리된 VM 크기 세트에 액세스할 수 있습니다. 
 

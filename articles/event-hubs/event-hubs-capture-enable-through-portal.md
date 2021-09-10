@@ -3,12 +3,12 @@ title: Event Hubs - Azure Portal을 사용하여 스트리밍 이벤트 캡처
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정하는 방법을 설명합니다.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 8c89a6e56c2d0bc7b7ff09d5fd63737009239eb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b603af17ca4e46b8004b7b2550cddd87164da157
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653954"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122253640"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정
 
@@ -34,7 +34,7 @@ Azure [Event Hubs 캡처][capture-overview]를 사용하면 Event Hubs의 스트
 
 ## <a name="capture-data-to-azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2에 데이터 캡처 
 
-1. [스토리지 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) 문서를 따라 Azure Storage 계정을 만듭니다. **고급** 탭에서 **계층 구조 네임스페이스** 를 **사용** 으로 설정하여 Azure Data Lake Storage Gen 2 계정으로 만듭니다.
+1. [스토리지 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) 문서를 따라 Azure Storage 계정을 만듭니다. **고급** 탭에서 **계층 구조 네임스페이스** 를 **사용** 으로 설정하여 Azure Data Lake Storage Gen 2 계정으로 만듭니다. Azure Storage 계정은 이벤트 허브와 동일한 구독에 있어야 합니다.
 2. 이벤트 허브를 만들 때 다음 단계를 수행합니다. 
 
     1. **캡처** 에 대해 **켜기** 를 선택합니다. 

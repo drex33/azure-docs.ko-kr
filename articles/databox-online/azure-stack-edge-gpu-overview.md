@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 07/14/2021
+ms.date: 08/12/2021
 ms.author: alkohli
-ms.openlocfilehash: a307fd2e2504e3c11c96fb56c7ab4f55db9508ff
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: a61178917214e53f6a2d01183a3d35a1ba93eff3
+ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114221267"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "122429666"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>GPU가 있는 Azure Stack Edge Pro란?
 
@@ -51,6 +51,7 @@ Azure Stack Edge Pro GPU의 기능은 다음과 같습니다.
 |데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
 |암호화    | *https* 를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
 |대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다.|
+|간편한 주문| Azure Edge Hardware Center(미리 보기)를 통해 디바이스의 대량 주문 및 추적이 가능합니다.|
 |특수 네트워크 함수|Azure Network Function Manager의 Marketplace 환경을 사용하여 모바일 패킷 코어, SD-WAN 에지 및 VPN 서비스 등의 네트워크 기능을 온-프레미스 환경에서 실행되는 Azure Stack Edge 디바이스에 신속하게 배포합니다. 자세한 내용은 [Azure Network Function Manager란?(미리 보기)](../network-function-manager/overview.md)을 참조하세요.|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
@@ -60,10 +61,13 @@ Azure Stack Edge Pro GPU의 기능은 다음과 같습니다.
 Azure Stack Edge Pro GPU 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge Pro GPU 물리적 디바이스 및 로컬 웹 UI로 구성됩니다.
 
 * **Azure Stack Edge Pro GPU 물리적 디바이스** - Azure로 데이터를 전송하도록 구성할 수 있는 Microsoft 제공 1U 랙 탑재 서버입니다.
-    
-* **Azure Stack Edge 리소스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Azure Stack Edge Pro GPU 디바이스를 관리할 수 있는 Azure Portal의 리소스입니다. Azure Stack Edge 리소스를 사용하여 리소스를 생성/관리하고, 디바이스와 경고를 확인/관리하고, 공유를 관리합니다.  
+
+    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
 
     자세한 내용은 [Azure Stack Edge Pro GPU 디바이스에 대한 주문 만들기](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource)를 참조하세요.
+    
+* **Azure Stack Edge 리소스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Azure Stack Edge Pro GPU 디바이스를 관리할 수 있는 Azure Portal의 리소스입니다. Azure Stack Edge 리소스를 사용하여 리소스를 생성/관리하고, 디바이스와 경고를 확인/관리하고, 공유를 관리합니다.  
+   
 
 * **Azure Stack Edge Pro GPU 로컬 웹 UI** - 주로 디바이스의 초기 구성에 사용되는 Azure Stack Edge Pro GPU 디바이스의 브라우저 기반 로컬 사용자 인터페이스입니다. 로컬 웹 UI를 사용하여 진단을 실행하고, Azure Stack Edge Pro GPU 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, Microsoft 지원에 연락하여 서비스를 요청하세요.
 
@@ -82,6 +86,8 @@ Azure Stack Edge Pro GPU 솔루션은 Azure Stack Edge 리소스, Azure Stack Ed
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Azure Stack Edge Pro GPU 데이터를 저장하는 지역이 디바이스를 사용하는 지역과 가까이 있어야 합니다. 스토리지 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다.
 
 Azure Stack Edge 서비스는 비 지역 서비스입니다. 자세한 내용은 [Azure의 지역 및 가용성 영역](../availability-zones/az-overview.md)을 참조하세요. Azure Stack Edge 서비스는 특정 Azure 지역에 대한 종속성이 없으므로 영역 전체 중단 및 지역 전체 중단에 탄력적으로 대처할 수 있습니다.
+
+Azure Stack Edge 서비스, 디바이스, 데이터 스토리지 지역을 선택할 때의 고려 사항에 대한 자세한 내용은 [Azure Stack Edge 지역 선택](azure-stack-edge-gpu-regions.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

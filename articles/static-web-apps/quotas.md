@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 12666d69f6dcab043e909dbb2b49276644a70d76
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5030b0fb4e714be221e28e590c463186ec81ad04
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069565"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515588"
 ---
 # <a name="quotas-in-azure-static-web-apps"></a>Azure Static Web Apps의 할당량
 
@@ -24,6 +24,7 @@ Azure Static Web Apps에는 다음과 같은 할당량이 있습니다.
 | 초과분 대역폭           | 사용할 수 없음      | GB당 $0.20 |
 | Azure 구독당 앱 | 10               | 제한 없음 |
 | 앱 크기                    | 250MB           | 500MB |
+| 계획 크기                   | 단일 배포의 경우 최대 앱 크기 500MB, 모든 준비 및 프로덕션 환경의 경우 최대 0.50GB  | 단일 배포의 경우 최대 500MB의 앱 크기, 모든 준비 및 프로덕션 환경에서 결합하여 최대 2.00GB |
 | 사전 프로덕션 환경 | 3                | 10 |
 | 사용자 지정 도메인              | 앱당 2개        | 앱당 5개 |
 | 권한 부여(사용자 지정 역할 및 라우팅 규칙 사용) | 사용자 지정 역할에 속할 수 있는 최대 25명의 최종 사용자 | 사용자 지정 역할에 속할 수 있는 최대 25명의 최종 사용자 |

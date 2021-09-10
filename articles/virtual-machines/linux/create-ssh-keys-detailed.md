@@ -7,14 +7,16 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 9d888de78432558cda8e08c3de91be9673231b47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 38a35aacb8123d66b76d8ebc25be660612cccfe6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554720"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122689910"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 SSH(Secure Shell) 키 쌍을 사용하면 인증에 SSH 키를 사용하는 Linux 가상 머신을 만들 수 있습니다. 이 문서에서는 SSH 클라이언트 연결을 위해 SSH RSA 퍼블릭 및 프라이빗 키 파일 쌍을 만들고 사용하는 방법을 보여 줍니다.
 

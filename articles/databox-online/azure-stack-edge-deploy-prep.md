@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/23/2021
 ms.author: alkohli
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: eecdead171e68915430aefe9aebeb24833485789
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: d215c1cc8650eb23d1702f7ef0fd782278cfb6d8
+ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688978"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122605208"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-fpga"></a>자습서: Azure Stack Edge Pro FPGA 배포 준비  
 
@@ -79,7 +79,7 @@ Azure Stack Edge Pro FPGA를 배포하려면 다음 자습서를 지정된 순�
 
 * 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
 
-* 시스템 관리자가 설정한 Azure 정책에 의해 차단되지 않습니다. 정책에 대한 자세한 내용은 [빠른 시작: 비규격 리소스를 식별하는 정책 할당 만들기](../governance/policy/assign-policy-portal.md)를 참조하세요.
+* 시스템 관리자가 설정한 Azure Policy 할당에 의해 차단되지 않습니다. Azure Policy에 대한 자세한 내용은 [빠른 시작: 비준수 리소스를 식별하는 정책 할당 만들기](../governance/policy/assign-policy-portal.md)를 참조하세요.
 
 
 ### <a name="for-the-azure-stack-edge-pro-fpga-device"></a>Azure Stack Edge Pro FPGA 디바이스

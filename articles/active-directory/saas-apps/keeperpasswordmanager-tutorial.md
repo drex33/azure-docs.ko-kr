@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: jeedes
-ms.openlocfilehash: b70c50e7c2900f884dd4d91c6650205bc626326e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12471ef2816f5e4cb1e5f545f6d5670be59b4863
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96178044"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122183927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>자습서: Keeper Password Manager & Digital Vault와 Azure Active Directory 통합
 
@@ -40,7 +40,7 @@ Keeper Password Manager & Digital Vault와 Azure AD의 통합을 구성하려면
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Keeper Password Manager & Digital Vault에서 SP 시작 SSO를 지원합니다.
-
+* Keeper Password Manager는 [**자동** 사용자 프로비저닝 및 프로비저닝 해제](keeper-password-manager-digitalvault-provisioning-tutorial.md)(권장)를 지원합니다.
 * Keeper Password Manager & Digital Vault에서 Just-In-Time 사용자 프로비저닝을 지원합니다.
 
 ## <a name="add-keeper-password-manager--digital-vault-from-the-gallery"></a>갤러리에서 Keeper Password Manager & Digital Vault 추가

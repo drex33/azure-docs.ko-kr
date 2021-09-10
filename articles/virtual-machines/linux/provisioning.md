@@ -10,14 +10,17 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6dafa400f2ce2421db6775084befc0abeab70a04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ec66c0aa34fe2a41d4bd0f450175cd884a3bae8
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563221"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692087"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Azure Linux VM 프로비저닝
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
+
 일반화된 이미지(Shared Image Gallery 또는 관리형 이미지)로 VM을 만들 때 컨트롤 플레인을 사용하여 VM을 만들고 매개 변수와 설정을 VM에 전달할 수 있습니다. 이것을 VM *프로비저닝* 이라고 합니다. 프로비저닝하는 동안 플랫폼은 VM이 부팅될 때 사용할 수 있는 필수 VM 생성 매개 변수 값(호스트 이름, 사용자 이름, 암호, SSH 키, customData)을 만듭니다. 
 
 이미지 속에 구워진 프로비저닝 에이전트는 플랫폼과 상호 작용하고, 여러 독립 프로비저닝 인터페이스에 연결하고, 속성을 설정하고, 플랫폼에 완료되었다는 신호를 보냅니다. 

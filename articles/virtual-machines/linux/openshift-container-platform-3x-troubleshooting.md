@@ -7,19 +7,20 @@ ms.service: virtual-machines
 ms.subservice: openshift
 ms.collection: linux
 ms.topic: troubleshooting
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
-ms.openlocfilehash: b6dfb4cb697e7d66c7db323df9786ff7ad45e1d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f01a31bbee5a6abe40020a5760ef5a5fafcd3ff
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101672327"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688235"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Azure에서의 OpenShift Container Platform 3.11 배포 문제 해결
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 OpenShift 클러스터가 성공적으로 배포되지 않으면 Azure Portal에서 오류가 출력됩니다. 출력이 읽기 어려워 문제를 파악하기가 어려울 수도 있습니다. 이 출력에서 종료 코드 3, 4 또는 5를 빠르게 검사합니다. 다음은 이러한 세 개의 종료 코드에 대한 정보를 제공합니다.
 

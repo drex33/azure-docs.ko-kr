@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c350d91e04ea284ed91c3afb6912d76ed1e39ab0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 6b2066ef94cb87a9ab9c000615c018938cbeddb1
+ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079700"
+ms.lasthandoff: 08/30/2021
+ms.locfileid: "123220625"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 통해 Azure에 여러 SQL VM 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,9 +30,12 @@ ms.locfileid: "112079700"
 
 이 문서에서는 SQL Server VM을 대량으로 수동 등록하는 방법을 설명합니다. 또는 [모든 SQL Server VM을 자동으로](sql-agent-extension-automatic-registration-all-vms.md) 등록하거나 [개별 SQL Server VM을 수동으로](sql-agent-extension-manually-register-single-vm.md) 등록할 수 있습니다. 
 
+> [!NOTE]
+> 2021년 9월부터 전체 모드에서 SQL IaaS 확장에 등록하는 것은 더 이상 SQL Server 서비스를 다시 시작하지 않아도 됩니다. 
+
 ## <a name="overview"></a>개요
 
-`Register-SqlVMs` cmdlet을 사용하여 지정된 구독, 리소스 그룹 목록 또는 특정 가상 머신 목록에 있는 모든 가상 머신을 등록할 수 있습니다. 이 cmdlet은 [lightweight_ management 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)에서 가상 머신을 등록한 다음, [보고서 및 로그 파일](#output-description)을 둘 다 생성합니다. 
+`Register-SqlVMs` cmdlet을 사용하여 지정된 구독, 리소스 그룹 목록 또는 특정 가상 머신 목록에 있는 모든 가상 머신을 등록할 수 있습니다. 이 cmdlet은 [경량 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)에서 가상 머신을 등록한 다음, [보고서 및 로그 파일](#output-description)을 둘 다 생성합니다. 
 
 등록 프로세스는 위험 없이 진행되고, 가동 중지 시간이 없으며, SQL Server 서비스 또는 가상 머신을 다시 시작하지 않습니다. 
 
@@ -40,7 +43,7 @@ ms.locfileid: "112079700"
 
 확장에 SQL Server VM을 등록하려면 다음이 필요합니다. 
 
-- [**Microsoft.SqlVirtualMachine** 공급자](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-resource-provider)에 등록되었으며 등록되지 않은 SQL Server 가상 머신을 포함하는 [Azure 구독](https://azure.microsoft.com/free/)입니다. 
+- [**Microsoft.SqlVirtualMachine** 리소스 공급자에 등록되었으며](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp), 등록되지 않은 SQL Server 가상 머신을 포함하는 [Azure 구독](https://azure.microsoft.com/free/)입니다. 
 - 가상 머신을 등록하는 데 사용되는 클라이언트 자격 증명은 **Virtual Machine 기여자**, **기여자** 또는 **소유자** 와 같은 Azure 역할 중 하나에 존재합니다. 
 - 최신 버전의 [Az PowerShell](/powershell/azure/new-azureps-module-az)(최소 5.0). 
 

@@ -8,14 +8,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: 77b55315256de8b2170a40c76006f05431aac267
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 93557e5fb32a6f5100bdc99cdfbeed3375fcc379
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112454999"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122691964"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 제공되는 Red Hat Enterprise Linux의 BYOS(사용자 구독 필요) 골드 이미지
+
+**적용 대상:** :heavy_check_mark: Linux VM 
 
 RHEL(Red Hat Enterprise Linux) 이미지는 종량제 또는 BYOS(사용자 구독 필요)(Red Hat 골드 이미지) 모델을 통해 Azure에서 이용할 수 있습니다. 본 문서에서는 Azure의 Red Hat 골드 이미지에 대한 개요를 제공합니다.
 

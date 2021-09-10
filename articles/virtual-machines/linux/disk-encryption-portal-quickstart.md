@@ -7,14 +7,16 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 188ba72f4da4e5a24554f895473f1c74e48d50fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd3a0138fbf29c360e4491919c6288a0c1080c36
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558358"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122698506"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 만들기 및 암호화
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure Portal을 통해 Azure VM(가상 머신)을 만들 수 있습니다. Azure Portal은 VM 및 관련 리소스를 만드는 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Ubuntu 18.04 LTS를 실행하는 Linux VM(가상 머신)을 배포하고, 암호화 키 스토리지용 키 자격 증명 모음을 만든 다음, VM을 암호화합니다.
 

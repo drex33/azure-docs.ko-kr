@@ -11,14 +11,16 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 3ce28efa30b04a2a762c39f47dac739633eac209
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: ec348f462255a07841cfd794a3054292d2592f95
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107818479"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122697733"
 ---
 # <a name="install-the-elastic-stack-elk-on-an-azure-vm"></a>Azure VM에 ELK(Elastic Stack) 설치
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서에서는 Azure의 Ubuntu VM에서 [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash) 및 [Kibana](https://www.elastic.co/products/kibana)를 배포하는 방법을 설명합니다. Elastic Stack이 작동하는지 보려면 Kibana에 선택적으로 연결하여 샘플 로깅 데이터로 작업합니다. 
 

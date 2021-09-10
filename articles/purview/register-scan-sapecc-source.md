@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 62015554f7e8e17e1443cc85812b3f37ee64f0a4
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: f9cd8601ef3e59de3c11073d7ac73176367f4fc9
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113551707"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724261"
 ---
 # <a name="register-and-scan-sap-ecc-source"></a>SAP ECC 원본 등록 및 검사
 
@@ -55,7 +55,7 @@ SAP ECC 원본에 대해 유일하게 지원되는 인증은 **기본 인증** �
 새 SAP ECC 원본을 데이터 카탈로그에 등록하려면 다음을 수행합니다.
 
 1.  Purview 계정으로 이동합니다.
-2.  왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+2.  왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 3.  **등록** 을 선택합니다.
 4.  원본 등록에서 **SAP ECC** 를 선택합니다. **계속** 을 선택합니다.
 

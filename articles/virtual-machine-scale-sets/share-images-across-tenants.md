@@ -9,14 +9,16 @@ ms.subservice: shared-image-gallery
 ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: b6b5e48997da03c7f180c62a9142c99b05c95b46
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b1833fe7c692529649e078e18e17e9333d74bfa6
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106444040"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693205"
 ---
 # <a name="share-images-across-tenants-with-shared-image-gallery"></a>Shared Image Gallery를 사용하여 테넌트 간에 이미지 공유
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 

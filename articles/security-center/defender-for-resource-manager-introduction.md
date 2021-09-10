@@ -7,12 +7,12 @@ ms.date: 07/14/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1acf785021f83605db2f8bfe3188e0e2ac874d4e
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 38eeaa02bf34f27580b29662f75455358c83ccb7
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113761876"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121732565"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Azure Defender for Resource Manager 소개
 
@@ -28,7 +28,7 @@ Azure Defender for Resource Manager는 Azure Portal, Azure REST API, Azure CLI �
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**Azure Defender for Resource Manager** 는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.|
-|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure 중국|
+|클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure 중국 21Vianet|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-resource-manager"></a>Azure Defender for Resource Manager의 이점은?
@@ -70,9 +70,11 @@ Azure Defender for Resource Manager에서 경고를 조사하려면 다음을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Defender for Resource Manager에 대해 알아보았습니다. 관련 자료는 다음 문서를 참조하세요. 
+이 문서에서는 Azure Defender for Resource Manager에 대해 알아보았습니다. 
+
+> [!div class="nextstepaction"]
+> [Azure Defender 사용](enable-azure-defender.md)
+
+관련 자료는 다음 문서를 참조하세요. 
 
 - 보안 경고는 Security Center에서 생성되거나 Security Center에서 다른 보안 제품으로부터 수신할 수 있습니다. 이러한 모든 경고를 Azure Sentinel, 타사 SIEM 또는 기타 외부 도구로 내보내려면 [SIEM으로 경고 내보내기](continuous-export.md)의 지침을 따릅니다.
-
-- > [!div class="nextstepaction"]
-    > [Azure Defender 사용](enable-azure-defender.md)

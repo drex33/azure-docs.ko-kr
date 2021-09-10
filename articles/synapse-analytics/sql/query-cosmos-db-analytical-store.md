@@ -10,12 +10,12 @@ ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 64a112fd29ee9e3fbb82d9b54322415569b3ff85
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: a0f3e5f707600933ce68e51634145cd3515c5d6a
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209539"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122530103"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Azure Synapse Link에서 서버리스 SQL 풀을 사용하여 Azure Cosmos DB 데이터를 쿼리
 
@@ -23,7 +23,19 @@ ms.locfileid: "107209539"
 
 Azure Cosmos DB 쿼리를 위해 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) 노출 영역은 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함하는 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원됩니다. CETAS([Create External Table As Select](develop-tables-cetas.md#cetas-in-serverless-sql-pool))를 사용하여 Azure Blob Storage 또는 Azure Data Lake Storage의 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재는 CETAS를 사용하여 Azure Cosmos DB에 서버리스 SQL 풀 쿼리 결과를 저장할 수 없습니다.
 
-이 문서에서는 Azure Synapse Link를 사용하여 사용하도록 설정된 Azure Cosmos DB 컨테이너에서 데이터를 쿼리하는 서버리스 SQL 풀로 쿼리를 작성하는 방법을 알아봅니다. 그런 다음 Azure Cosmos DB 컨테이너를 통해 서버리스 SQL 풀 뷰를 빌드하고 [이 자습서](./tutorial-data-analyst.md)의 Power BI 모델에 연결하는 방법을 자세히 알아볼 수 있습니다. 이 자습서에서는 [Azure Cosmos DB 잘 정의된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)가 있는 컨테이너를 사용합니다.
+이 문서에서는 Azure Synapse Link를 사용하여 사용하도록 설정된 Azure Cosmos DB 컨테이너에서 데이터를 쿼리하는 서버리스 SQL 풀로 쿼리를 작성하는 방법을 알아봅니다. 그런 다음, [이 자습서](./tutorial-data-analyst.md)에서 Azure Cosmos DB 컨테이너를 통해 서버리스 SQL 풀 뷰를 빌드하고 Power BI 모델에 연결하는 방법에 대해 자세히 알아볼 수 있습니다. 이 자습서에서는 [Azure Cosmos DB가 잘 정의된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)가 있는 컨테이너를 사용합니다. [Azure Synapse Analytics용 SQL 서버리스를 사용하여 Azure Cosmos DB를 쿼리](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/)하는 방법에 대한 학습 모듈을 확인할 수도 있습니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+- 분석 저장소를 준비했는지 확인합니다.
+  - [Cosmos DB 컨테이너](../quickstart-connect-synapse-link-cosmos-db.md#enable-azure-cosmos-db-analytical-store)에서 분석 저장소를 사용하도록 설정합니다.
+  - 분석 저장소를 쿼리하는 데 사용할 읽기 전용 키로 연결 문자열을 가져옵니다. 
+  - [Cosmos DB 컨테이너에 액세스하는 데 사용되는 읽기 전용 키](../../cosmos-db/database-security.md#primary-keys)를 가져옵니다.
+- 다음과 같은 [모범 사례](best-practices-serverless-sql-pool.md)를 모두 적용했는지 확인합니다.
+  - Cosmos DB 분석 저장소가 서버리스 SQL 풀과 동일한 지역에 있는지 확인합니다.
+  - 클라이언트 애플리케이션(Power BI, Analysis Services)이 서버리스 SQL 풀과 동일한 지역에 있는지 확인합니다.
+  - 많은 양의 데이터(80GB보다 큼)를 반환하는 경우 Analysis Services와 같은 캐싱 계층을 사용하여 Analysis Services 모델에서 80GB보다 작은 파티션을 로드하는 것이 좋습니다.
+  - 문자열 열을 사용하여 데이터를 필터링하는 경우 최대한 가장 작은 형식의 명시적 `WITH` 절과 함께 `OPENROWSET` 함수를 사용하고 있는지 확인합니다. 예를 들어 속성에 최대 5자가 있다는 것을 알고 있는 경우 VARCHAR(1000)을 사용하지 마세요.
 
 ## <a name="overview"></a>개요
 
@@ -94,7 +106,7 @@ OPENROWSET(
 
 ## <a name="sample-dataset"></a>샘플 데이터 세트
 
-이 문서의 예는 [유럽 질병 방지 및 제어(ECDC)센터 COVID-19사례](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/)와 [CORD-19(COVID-19 Open Research Dataset), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/)의 데이터를 기반으로 합니다.
+이 문서의 예는 [유럽 질병 방지 및 제어(ECDC)센터 COVID-19사례](../../open-datasets/dataset-ecdc-covid-cases.md)와 [CORD-19(COVID-19 Open Research Dataset), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/)의 데이터를 기반으로 합니다.
 
 이러한 페이지에서 데이터의 라이선스 및 구조를 확인할 수 있습니다. [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) 및 [CORD-19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) 데이터 세트에 대한 샘플 데이터를 다운로드할 수도 있습니다.
 
@@ -164,7 +176,7 @@ FROM OPENROWSET(
 
 `OPENROWSET` 함수를 사용하면 컨테이너의 데이터에서 읽을 속성을 명시적으로 지정하고 해당 데이터 형식을 지정할 수 있습니다.
 
-다음 구조를 포함하는 [ECDC COVID 데이터 세트](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/)의 일부 데이터를 Azure Cosmos DB으로 가져온다고 가정하겠습니다.
+다음 구조를 포함하는 [ECDC COVID 데이터 세트](../../open-datasets/dataset-ecdc-covid-cases.md)의 일부 데이터를 Azure Cosmos DB으로 가져온다고 가정하겠습니다.
 
 ```json
 {"date_rep":"2020-08-13","cases":254,"countries_and_territories":"Serbia","geo_id":"RS"}
@@ -426,22 +438,9 @@ GROUP BY geo_id
 
 이 예에서는 사례 수가 `int32`, `int64` 또는 `float64` 값으로 저장됩니다. 국가 당 사례 수를 계산하려면 모든 값을 추출해야 합니다.
 
-## <a name="known-issues"></a>알려진 문제
+## <a name="troubleshooting"></a>문제 해결
 
-- 서버리스 SQL 풀은 `OPENROWSET` 열 데이터 정렬에 UTF-8 인코딩이 없으면 컴파일 시간 경고를 반환합니다. T-SQL 문 `alter database current collate Latin1_General_100_CI_AS_SC_UTF8`을 사용하여 현재 데이터베이스에서 실행되는 모든 `OPENROWSET` 함수에 대한 기본 데이터 정렬을 쉽게 변경할 수 있습니다.
-
-가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
-
-| 오류 | 근본 원인 |
-| --- | --- |
-| 구문 오류:<br/> - `Openrowset` 근처의 구문이 잘못되었습니다.<br/> - `...`가 인식할 수 있는 `BULK OPENROWSET` 공급자 옵션이 아닙니다.<br/> - `...` 근처의 구문이 잘못되었습니다. | 가능한 근본 원인:<br/> - 첫 번째 매개 변수로 CosmosDB를 사용하지 않음.<br/> - 세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용함.<br/> - 세 번째 매개 변수(컨테이너 이름)를 지정하지 않음. |
-| CosmosDB 연결 문자열에 오류가 발생했습니다. | - 계정, 데이터베이스 또는 키가 지정되지 않음. <br/> - 인식되지 않는 연결 문자열에는 몇 가지 옵션이 있음.<br/> - 세미콜론(`;`)은 연결 문자열의 끝에 배치됩니다. |
-| "잘못된 계정 이름" 또는 "잘못된 데이터베이스 이름" 오류로 인해 CosmosDB 경로를 확인하지 못했습니다. | 지정된 계정 이름, 데이터베이스 이름 또는 컨테이너를 찾을 수 없거나 지정된 컬렉션에 대해 분석 스토리지를 사용하도록 설정하지 않았습니다.|
-| "잘못된 비밀 값" 또는 "비밀이 Null이거나 비어 있습니다." 오류로 인해 CosmosDB 경로를 확인하지 못했습니다. | 계정 키가 잘못되었거나 없습니다. |
-| `type name` 유형의 `column name` 열이 외부 데이터 유형 `type name`과 호환되지 않습니다. | `WITH` 절에서 지정된 열 유형이 Azure Cosmos DB 컨테이너의 유형과 일치하지 않습니다. [Azure Cosmos DB에서 SQL 형식 매핑](#azure-cosmos-db-to-sql-type-mappings) 섹션에 설명된 바와 같이 열 형식을 변경하거나 `VARCHAR` 형식을 사용하십시오. |
-| 열이 모든 셀의 `NULL` 값을 포함합니다. | `WITH` 절에 잘못된 열 이름 또는 경로 식이 있을 수 있습니다. `WITH` 절에서 열 이름(또는 열 유형 뒤의 경로 식)은 Azure Cosmos DB 컬렉션의 일부 속성 이름과 일치해야 합니다. 비교 시 *대/소문자가 구분* 됩니다. 예를 들어 `productCode`와 `ProductCode`는 서로 다른 속성입니다. |
-
-[Azure Synapse Analytics 피드백 페이지](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862)에서 제안과 문제를 보고할 수 있습니다.
+[자체 도움말 페이지](resources-self-help-sql-on-demand.md#cosmos-db)를 검토하여 Cosmos DB 쿼리의 잠재적인 문제를 해결하는 데 도움이 되는 알려진 문제 또는 문제 해결 단계를 찾습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -450,3 +449,5 @@ GROUP BY geo_id
 - [Azure Synapse Link를 사용하여 Power BI 및 서버리스 SQL 풀 사용](../../cosmos-db/synapse-link-power-bi.md)
 - [서버리스 SQL 풀에서 뷰 만들기 및 사용](create-use-views.md)
 - [Azure Cosmos DB에 대해 서버리스 SQL 풀 뷰를 빌드하고 DirectQuery를 통해 Power BI 모델에 연결하는 방법에 대한 자습서](./tutorial-data-analyst.md)
+- 오류가 발생하거나 성능 문제가 있는 경우 [Cosmos DB 자체 도움말 페이지에 대한 Synapse 링크](resources-self-help-sql-on-demand.md#cosmos-db)를 방문하세요.
+- [Azure Synapse Analytics용 SQL 서버리스를 사용하여 Azure Cosmos DB를 쿼리](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/)하는 방법에 대한 학습 모듈을 확인하세요.

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: aca3e1231e2883bb077cb9fb8c2c353b607aa37e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a4bfa5687c4b552a99b8d4e5a7e5c8f79807d766
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114473579"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122014919"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>소스 코드에서 Spring Cloud 애플리케이션을 시작하는 방법
 
@@ -32,6 +32,7 @@ Java 소스 코드 또는 미리 빌드된 JAR에서 직접 애플리케이션�
 > * 애플리케이션에 대한 공용 엔드포인트 할당
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
 시작하기 전에 Azure 구독에 필요한 종속성이 있는지 확인합니다.
 
 1. [Git 설치](https://git-scm.com/)
@@ -53,7 +54,7 @@ az extension add --name spring-cloud
 
 ## <a name="provision-a-service-instance-using-the-azure-cli"></a>Azure CLI를 사용하여 서비스 인스턴스 프로비저닝
 
-Azure CLI에 로그인하고 활성 구독을 선택합니다. 
+Azure CLI에 로그인하고 활성 구독을 선택합니다.
 
 ```azurecli
 az login
@@ -101,13 +102,13 @@ az spring-cloud app create -n <app-name>
 활성 배포에 fat-JAR을 배포하려면
 
 ```azurecli
-az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
+az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR, for example "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 특정 배포에 fat-JAR을 배포하려면
 
 ```azurecli
-az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
+az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-fat-JAR, for example "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 ### <a name="deploy-from-source-code"></a>소스 코드에서 배포
@@ -146,7 +147,7 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 
 1. **애플리케이션 대시보드** 페이지를 엽니다.
 2. `gateway` 애플리케이션을 선택하여 **애플리케이션 세부 정보** 페이지를 표시합니다.
-3. **엔드포인트 할당** 을 선택하여 게이트웨이에 퍼블릭 엔드포인트를 할당합니다. 몇 분 정도 걸릴 수 있습니다. 
+3. **엔드포인트 할당** 을 선택하여 게이트웨이에 퍼블릭 엔드포인트를 할당합니다. 몇 분 정도 걸릴 수 있습니다.
 4. 브라우저에 할당된 공용 IP를 입력하여 실행 중인 애플리케이션을 봅니다.
 
 > [!div class="nextstepaction"]

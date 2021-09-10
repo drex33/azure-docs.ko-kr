@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: b82e36b798611aad20044592cd3bec60cdf2e871
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 598702dee3c4e5fa712144eaad5aefff564df602
+ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469260"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122015502"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -133,7 +133,7 @@ ms.locfileid: "114469260"
    ```console
    az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip
    ```
-   
+
    이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="assign-public-endpoint"></a>퍼블릭 엔드포인트 할당
@@ -162,11 +162,7 @@ ms.locfileid: "114469260"
 
 ## <a name="test-the-application"></a>애플리케이션 테스트
 
-`solar-system-weather` 앱에 GET 요청을 보냅니다. 브라우저에서 끝에 추가된 `/weatherforecast`를 사용하여 공용 URL로 이동합니다. 다음은 그 예입니다. 
-
-```
-https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast
-```
+`solar-system-weather` 앱에 GET 요청을 보냅니다. 브라우저에서 끝에 추가된 `/weatherforecast`를 사용하여 공용 URL로 이동합니다. 예: `https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast`
 
 출력은 JSON입니다.
 
@@ -198,13 +194,14 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 
 ## <a name="build-the-microservices-applications-locally"></a>로컬에서 마이크로서비스 애플리케이션 빌드
 
-1. 샘플 앱 리포지토리를 Azure Cloud 계정에 복제합니다.  디렉터리를 변경하고 프로젝트를 빌드합니다. 
+1. 샘플 앱 리포지토리를 Azure Cloud 계정에 복제합니다.  디렉터리를 변경하고 프로젝트를 빌드합니다.
 
     ```azurecli
     git clone https://github.com/azure-samples/spring-petclinic-microservices
     cd spring-petclinic-microservices
     mvn clean package -DskipTests -Denv=cloud
     ```
+
 프로젝트를 컴파일하는 데 5~10분이 걸립니다. 완료되면 각 서비스에 대한 개별 JAR 파일이 해당 폴더에 포함되어야 합니다.
 
 ## <a name="create-and-deploy-apps-on-azure-spring-cloud"></a>Azure Spring Cloud에서 앱 생성 및 배포
@@ -212,7 +209,7 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 1. 이전 빠른 시작에서 다음 명령을 실행하지 않은 경우 CLI 기본값을 설정합니다.
 
     ```azurecli
-    az configure --defaults group=<resource group name> spring-cloud=<service name>  
+    az configure --defaults group=<resource group name> spring-cloud=<service name>
     ```
 
 1. PetClinic을 위한 2개의 코어 마이크로 서비스(API 게이트웨이 및 고객 서비스)를 만듭니다.
@@ -238,8 +235,8 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
     ```azurecli
         Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
     -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
-    api-gateway        eastus      xxxxxx-sp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -     
-    customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -     
+    api-gateway        eastus      xxxxxx-sp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -
+    customers-service  eastus      <service name>         default                                                                       Succeeded              1      2         1/1                 1/1                    -
     ```
 
 ## <a name="verify-the-services"></a>서비스 확인
@@ -263,17 +260,19 @@ az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin
 az spring-cloud app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
 az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
 ```
+
 #### <a name="maven"></a>[Maven](#tab/Maven)
 
 ## <a name="build-the-microservices-applications-locally"></a>로컬에서 마이크로서비스 애플리케이션 빌드
 
-1. 샘플 앱 리포지토리를 Azure Cloud 계정에 복제합니다.  디렉터리를 변경하고 프로젝트를 빌드합니다. 
+1. 샘플 앱 리포지토리를 Azure Cloud 계정에 복제합니다.  디렉터리를 변경하고 프로젝트를 빌드합니다.
 
     ```azurecli
     git clone https://github.com/azure-samples/spring-petclinic-microservices
     cd spring-petclinic-microservices
     mvn clean package -DskipTests -Denv=cloud
     ```
+
 프로젝트를 컴파일하는 데 5~10분이 걸립니다. 완료되면 각 서비스에 대한 개별 JAR 파일이 해당 폴더에 포함되어야 합니다.
 
 ## <a name="generate-configurations-and-deploy-to-the-azure-spring-cloud"></a>구성 생성 및 Azure Spring Cloud에 배포
@@ -283,14 +282,16 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
     ```azurecli
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.6.0:config
     ```
-    
+
     다음 중 선택하라는 메시지가 표시됩니다.
+
     * **모듈:** `api-gateway` 및 `customers-service`를 선택합니다.
     * **구독:** Azure Spring Cloud 인스턴스를 만드는 데 사용되는 구독입니다.
     * **서비스 인스턴스:** Azure Spring Cloud 인스턴스의 이름입니다.
     * **퍼블릭 엔드포인트:** 제공된 프로젝트 목록에서 `api-gateway`에 해당하는 숫자를 입력합니다.  공용 액세스 권한을 부여합니다.
 
 1. POM 파일의 `appName` 요소가 올바른지 확인합니다.
+
     ```xml
     <build>
         <plugins>
@@ -302,33 +303,36 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
                     <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>
                     <appName>customers-service</appName>
-    
+
     ```
+
     `appName` 텍스트가 다음과 일치하는지 확인하고 필요한 경우 접두사를 제거하고 파일을 저장합니다.
     * api-gateway
     * customers-service
 
-1. 이제 POM에는 플러그 인 종속성 및 구성이 포함됩니다. 다음 명령을 사용하여 앱을 배포합니다. 
+1. 이제 POM에는 플러그 인 종속성 및 구성이 포함됩니다. 다음 명령을 사용하여 앱을 배포합니다.
 
     ```azurecli
     mvn azure-spring-cloud:deploy
     ```
-    
+
 ## <a name="verify-the-services"></a>서비스 확인
 
 성공적인 배포 명령은 `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io` 형식의 URL을 반환합니다. 이를 사용하여 실행 중인 서비스로 이동합니다.
 
 ![Pet Clinic 액세스](media/build-and-deploy/access-customers-service.png)
 
-Azure Portal로 이동하여 URL을 찾을 수도 있습니다. 
-1. 서비스로 이동
-2. **앱** 선택
-3. **api-gateway** 선택 
-4. **api-gateway | 개요** 페이지에서 URL 찾기
+Azure Portal로 이동하여 URL을 찾을 수도 있습니다.
+
+1. 서비스로 이동합니다.
+2. **앱** 을 선택합니다.
+3. **api-gateway** 를 선택합니다.
+4. **api-gateway | 개요** 페이지에서 URL을 찾습니다.
 
 ## <a name="deploy-extra-apps"></a>추가 앱 배포
 
 PetClinic 앱이 관리 서버, 방문 및 수의사 같은 모든 기능과 함께 작동하도록 하려면 다른 마이크로 서비스 앱을 배포하면 됩니다. 구성 명령을 다시 실행하고 다음 마이크로 서비스를 선택합니다.
+
 * admin-server
 * vets-service
 * visits-service
@@ -339,7 +343,7 @@ PetClinic 앱이 관리 서버, 방문 및 수의사 같은 모든 기능과 함
 
 ## <a name="import-sample-project-in-intellij"></a>IntelliJ에서 샘플 프로젝트 가져오기
 
-1. 이 자습서의 원본 리포지토리를 다운로드하여 압축을 풀거나 Git: `git clone https://github.com/azure-samples/spring-petclinic-microservices`를 사용하여 복제합니다. 
+1. 이 자습서의 원본 리포지토리를 다운로드하여 압축을 풀거나 Git: `git clone https://github.com/azure-samples/spring-petclinic-microservices`를 사용하여 복제합니다.
 
 1. IntelliJ **시작** 대화 상자를 열고 **프로젝트 가져오기** 를 선택하여 가져오기 마법사를 엽니다.
 
@@ -348,6 +352,7 @@ PetClinic 앱이 관리 서버, 방문 및 수의사 같은 모든 기능과 함
     ![프로젝트 가져오기](media/spring-cloud-intellij-howto/import-project-1-pet-clinic.png)
 
 ### <a name="deploy-api-gateway-app-to-azure-spring-cloud"></a>Azure Spring Cloud에 api-gateway 앱 배포
+
 Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정으로 로그인하고 구독을 선택해야 합니다. 로그인 세부 정보는 [설치 및 로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)을 참조하세요.
 
 1. IntelliJ 프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure** -> **Azure Spring Cloud에 배포** 를 선택합니다.
@@ -360,27 +365,28 @@ Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정
 1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
 1. **퍼블릭 엔드포인트** 를 *사용* 으로 설정합니다.
 1. **App:** 텍스트 상자에서 **앱 만들기...** 를 선택합니다.
-1. *api-gateway* 를 입력한 다음, **확인** 을 클릭합니다.
+1. *api-gateway* 를 입력한 다음 **확인** 을 선택합니다.
 1. 메모리를 2GB로 지정하고 JVM 옵션을 `-Xms2048m -Xmx2048m`으로 지정합니다.
 
-     ![메모리 JVM 옵션](media/spring-cloud-intellij-howto/memory-jvm-options.png)
+    ![메모리 JVM 옵션](media/spring-cloud-intellij-howto/memory-jvm-options.png)
 
 1. 대화 상자의 **시작하기 전에** 섹션에서 *Maven 목표 실행* 을 두 번 클릭합니다.
 1. **작업 디렉터리** 텍스트 상자에서 *spring-petclinic-microservices/gateway* 폴더로 이동합니다.
-1. **명령줄** 텍스트 상자에 *package -DskipTests* 를 입력합니다. **확인** 을 클릭합니다.
+1. **명령줄** 텍스트 상자에 *package -DskipTests* 를 입력합니다. **확인** 을 선택합니다.
 
     ![Azure OK에 배포](media/spring-cloud-intellij-howto/deploy-to-azure-spring-cloud-2-pet-clinic.png)
 
-1. **Azure Spring Cloud 앱 배포** 대화 상자 아래쪽에 있는 **실행** 단추를 클릭하여 배포를 시작합니다. 플러그 인은 `api-gateway` 앱에서 `mvn package` 명령을 실행하고 `package` 명령으로 생성된 jar을 배포합니다.
+1. **Azure Spring Cloud 앱 배포** 대화 상자 아래쪽에 있는 **실행** 단추를 선택하여 배포를 시작합니다. 플러그 인은 `api-gateway` 앱에서 `mvn package` 명령을 실행하고 `package` 명령으로 생성된 jar을 배포합니다.
 
 ### <a name="deploy-customers-service-and-other-apps-to-azure-spring-cloud"></a>Azure Spring Cloud에 customers-service 및 기타 앱 배포
+
 위의 단계를 반복하여 `customers-service` 및 기타 Pet Clinic 앱을 Azure Spring Cloud에 배포합니다.
 
 1. **이름** 및 **아티팩트** 를 수정하여 `customers-service` 앱을 식별합니다.
 1. **App:** 텍스트 상자에서 **앱 만들기...** 를 선택하여 `customers-service` 앱을 만듭니다.
 1. **퍼블릭 엔드포인트** 옵션이 *사용 안 함* 으로 설정되어 있는지 확인합니다.
 1. 대화 상자의 **시작하기 전에** 섹션에서 **작업 디렉터리** 를 *petclinic/customers-service* 폴더로 전환합니다.
-1. **Azure Spring Cloud 앱 배포** 대화 상자 아래쪽에 있는 **실행** 단추를 클릭하여 배포를 시작합니다. 
+1. **Azure Spring Cloud 앱 배포** 대화 상자 아래쪽에 있는 **실행** 단추를 선택하여 배포를 시작합니다.
 
 ## <a name="verify-the-services"></a>서비스 확인
 
@@ -388,14 +394,17 @@ Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정
 
 ![Pet Clinic 액세스](media/build-and-deploy/access-customers-service.png)
 
-Azure Portal로 이동하여 URL을 찾을 수도 있습니다. 
+Azure Portal로 이동하여 URL을 찾을 수도 있습니다.
+
 1. 서비스로 이동
 2. **앱** 선택
-3. **api-gateway** 선택 
+3. **api-gateway** 선택
 4. **api-gateway | 개요** 페이지에서 URL 찾기
 
 ## <a name="deploy-extra-apps"></a>추가 앱 배포
-이 샘플에 포함된 다른 마이크로 서비스를 비슷한 방식으로 배포할 수 있습니다. 
+
+이 샘플에 포함된 다른 마이크로 서비스를 비슷한 방식으로 배포할 수 있습니다.
+
 * admin-server
 * vets-service
 * visits-service

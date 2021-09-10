@@ -1,55 +1,65 @@
 ---
-title: 자습서 - Azure IoT Central을 사용하여 지속적인 환자 모니터링 앱 만들기 | Microsoft Docs
-description: 이 자습서에서는 Azure IoT Central 애플리케이션 템플릿을 사용하여 지속적인 환자 모니터링 애플리케이션을 빌드하는 방법을 알아봅니다.
+title: 자습서 - Azure IoT 지속적인 환자 모니터링 | Microsoft Docs
+description: 이 자습서에서는 IoT Central용 지속적인 환자 모니터링 애플리케이션 템플릿을 배포하고 사용하는 방법을 보여 줍니다.
 author: philmea
 ms.author: philmea
-ms.date: 09/24/2019
+ms.date: 08/02/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 07cd77eb5546143936af1fc963f0212112fc6eb7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: dc1cf6a9a250b64b84cacbcf300183b913144b45
+ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743366"
+ms.lasthandoff: 08/14/2021
+ms.locfileid: "122180168"
 ---
-# <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>자습서: 지속적인 환자 모니터링 앱 템플릿 배포 및 연습
+# <a name="tutorial-deploy-and-walkthrough-the-continuous-patient-monitoring-app-template"></a>자습서: 지속적인 환자 모니터링 앱 템플릿 배포 및 연습
 
-이 자습서에서는 IoT Central 지속적인 환자 모니터링 애플리케이션 템플릿을 배포하여 시작하는 방법을 보여 줍니다. 템플릿을 배포하고 사용하는 방법에 대해 알아봅니다.
+:::image type="content" source="media/cpm-architecture.png" alt-text="환자 연속 모니터링 아키텍처":::
+
+## <a name="bluetooth-low-energy-ble-medical-devices"></a>BLE(Bluetooth Low Energy) 의료 디바이스
+
+의료 IoT 솔루션에서 사용되는 다수의 의료 착용식 장치는 BLE 디바이스입니다. 이러한 디바이스는 클라우드와 직접 통신할 수 없으며 클라우드 솔루션과 데이터를 교환하는 데 게이트웨이를 사용해야 합니다. 이 아키텍처는 휴대폰 애플리케이션을 게이트웨이로 사용합니다.
+
+## <a name="mobile-phone-gateway"></a>휴대폰 게이트웨이
+
+휴대폰 애플리케이션의 기본 기능은 의료 디바이스에서 BLE 데이터를 수집하여 IoT Central에 전달하는 것입니다. 이 앱은 디바이스 설정을 통해 환자를 안내하고 개인 상태 데이터를 볼 수 있도록 합니다. 다른 솔루션은 병실에 있는 태블릿 게이트웨이 또는 정적 게이트웨이를 사용할 수 있습니다. Android 및 iOS용 오픈 소스 샘플 모바일 애플리케이션을 애플리케이션 개발의 출발점으로 사용할 수 있습니다. 자세한 내용은 [IoT Central Continuous Patient Monitoring 모바일 앱](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/)을 참조하세요.
+
+## <a name="export-to-azure-api-for-fhirreg"></a>Azure API for FHIR에 배포&reg;
+
+Azure IoT Central은 HIPAA 규격이며 HITRUST&reg; 인증을 받았습니다. [Azure API for FHIR](../../healthcare-apis/fhir/overview.md)을 사용하여 환자 상태 데이터를 다른 서비스로 보낼 수 있습니다. Azure API for FHIR은 임상 상태 데이터를 위한 표준 기반 API입니다. [FHIR용 Azure IoT 커넥터](../../healthcare-apis/fhir/iot-fhir-portal-quickstart.md)를 사용하면 Azure API for FHIR을 IoT Central의 연속 데이터 내보내기 대상으로 사용할 수 있습니다.
+
+## <a name="machine-learning"></a>기계 학습
+
+FHIR 데이터와 함께 기계 학습 모델을 사용하여 인사이트를 생성하고 의료 팀의 의사 결정을 지원합니다. 자세한 내용은 [Azure 기계 학습 설명서](../../machine-learning/index.yml)를 참조하세요.
+
+## <a name="provider-dashboard"></a>공급자 대시보드
+
+Azure API for FHIR 데이터를 사용하여 환자 인사이트 대시보드를 빌드하거나 의료 팀에서 사용하는 전자 의료 기록에 직접 통합합니다. 의료 팀은 대시보드를 사용하여 환자를 지원하고 악화되는 상태의 조기 경고 징후를 식별할 수 있습니다. 자세한 내용은 [Power BI 공급자 대시보드 빌드](tutorial-health-data-triage.md) 자습서를 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
-> [!div class="checklist"]
-> * 애플리케이션 템플릿 만들기
-> * 애플리케이션 템플릿 살펴보기
+- 애플리케이션 템플릿 만들기
+- 애플리케이션 템플릿 살펴보기
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 있습니다. Azure 구독이 아직 없는 경우 [Azure 가입 페이지](https://aka.ms/createazuresubscription)에서 만들 수 있습니다.
+- 이 앱을 배포하는 데 필요한 특정 필수 구성 요소가 없습니다.
+- 무료 가격 책정 요금제를 사용하거나 Azure 구독을 사용할 수 있습니다.
 
-## <a name="create-an-application-template"></a>애플리케이션 템플릿 만들기
+## <a name="create-continuous-patient-monitoring-application"></a>지속적인 환자 모니터링 애플리케이션 만들기
 
-[Azure IoT Central 애플리케이션 관리자 웹 사이트](https://apps.azureiotcentral.com/)로 이동합니다. 왼쪽 탐색 모음에서 **빌드** 를 선택한 다음, **의료** 탭을 선택합니다.
+1. [Azure IoT Central 빌드](https://aka.ms/iotcentral) 사이트로 이동합니다. 그런 다음, Microsoft 개인, 회사 또는 학교 계정으로 로그인합니다. 왼쪽 탐색 모음에서 **빌드** 를 선택한 다음, **의료** 탭을 선택합니다. :::image type="content" source="media/app-manager-health.png" alt-text="애플리케이션 템플릿":::
 
-:::image type="content" source="media/app-manager-health.png" alt-text="의료 앱 템플릿":::
+1. **지속적인 환자 모니터링** 에서 **앱 만들기** 를 선택합니다.
 
-**앱 만들기** 단추를 선택하여 애플리케이션 만들기를 시작한 다음, Microsoft 개인, 회사 또는 학교 계정으로 로그인합니다. **새 애플리케이션** 페이지로 이동합니다.
+자세한 내용은 [IoT Central 애플리케이션 만들기](../core/howto-create-iot-central-application.md)를 참조하세요.
 
-![의료 애플리케이션 만들기](media/app-manager-health-create.png)
+## <a name="walk-through-the-application"></a>애플리케이션 살펴보기
 
-![의료 애플리케이션 만들기 청구 정보](media/app-manager-health-create-billinginfo.png)
-
-애플리케이션을 만드는 방법은 다음과 같습니다.
-
-1. Azure IoT Central은 사용자가 선택한 템플릿을 기반으로 애플리케이션 이름을 자동으로 제안합니다. 이 이름을 그대로 적용해도 되고, **지속적인 환자 모니터링** 처럼 친숙한 애플리케이션 이름을 직접 입력해도 됩니다. 또한 Azure IoT Central은 애플리케이션 이름을 기반으로 고유한 URL 접두사를 자동으로 생성합니다. 원하는 경우 이 URL 접두사를 더욱 기억하기 쉬운 것으로 자유롭게 변경할 수 있습니다.
-
-2. *무료* 가격 책정 플랜 또는  *표준* 가격 책정 플랜 중 무엇을 사용하여 애플리케이션을 만들지 선택할 수 있습니다. 무료 플랜을 사용하여 만드는 애플리케이션은 7일 후 만료되며, 최대 5대의 디바이스에서 사용할 수 있습니다. 만료되기 전에는 언제든지 무료 플랜에서 표준 플랜으로 애플리케이션을 이동할 수 있습니다. 무료 플랜을 선택한 경우 연락처 정보를 입력하고 Microsoft에서 정보 및 팁을 받을 것인지 여부를 선택합니다. 표준 플랜을 사용하여 만든 애플리케이션은 최대 2개의 디바이스에서 사용할 수 있으며 요금 청구를 위해 Azure 구독 정보를 입력해야 합니다.
-
-3. 페이지 맨 아래에서 **만들기** 를 선택하여 애플리케이션을 배포합니다.
-
-## <a name="walk-through-the-application-template"></a>애플리케이션 템플릿 살펴보기
+다음 섹션에서는 애플리케이션의 주요 기능을 안내합니다.
 
 ### <a name="dashboards"></a>대시보드
 
@@ -75,9 +85,9 @@ Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 �
 
 **디바이스 템플릿** 을 선택하면 템플릿에 두 가지 디바이스 유형이 표시됩니다.
 
-* **스마트 바이탈 패치**: 이 디바이스는 다양한 활력징후를 측정하는 패치를 나타냅니다. 병원 내외부에서 환자를 모니터링하는 데 사용됩니다. 템플릿을 선택하면 패치에서 보내는 디바이스 데이터(예: 배터리 수준 및 디바이스 온도)와 환자 상태 데이터(예: 호흡수 및 혈압)가 모두 표시됩니다.
+- **스마트 바이탈 패치**: 이 디바이스는 다양한 활력징후를 측정하는 패치를 나타냅니다. 병원 내외부에서 환자를 모니터링하는 데 사용됩니다. 템플릿을 선택하면 패치에서 보내는 디바이스 데이터(예: 배터리 수준 및 디바이스 온도)와 환자 상태 데이터(예: 호흡수 및 혈압)가 모두 표시됩니다.
 
-* **스마트 무릎 보호대**: 이 디바이스는 환자가 무릎 인공 관절 수술에서 회복할 때 사용하는 무릎 보호대를 나타냅니다. 이 템플릿을 선택하면 디바이스 데이터, 동작 범위 및 가속과 같은 기능이 표시됩니다.
+- **스마트 무릎 보호대**: 이 디바이스는 환자가 무릎 인공 관절 수술에서 회복할 때 사용하는 무릎 보호대를 나타냅니다. 이 템플릿을 선택하면 디바이스 데이터, 동작 범위 및 가속과 같은 기능이 표시됩니다.
 
 :::image type="content" source="media/smart-vitals-device-template.png" alt-text="스마트 패치 템플릿":::
 
@@ -91,11 +101,11 @@ Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 �
 
 **규칙** 을 선택하면 템플릿에 다음 세 가지 규칙이 표시됩니다.
 
-* **무릎 보호대 온도 높음**: 이 규칙은 스마트 무릎 보호대의 디바이스 온도가 5분 범위 동안 95&deg;F보다 높을 때 트리거됩니다. 환자 및 진료 팀에게 경고하고 디바이스를 원격으로 냉각시키려면 이 규칙을 사용합니다.
+- **무릎 보호대 온도 높음**: 이 규칙은 스마트 무릎 보호대의 디바이스 온도가 5분 범위 동안 95&deg;F보다 높을 때 트리거됩니다. 환자 및 진료 팀에게 경고하고 디바이스를 원격으로 냉각시키려면 이 규칙을 사용합니다.
 
-* **낙상 감지됨**: 이 규칙은 환자의 낙상이 감지되면 트리거됩니다. 낙상 환자를 지원하기 위해 운영 팀을 배치하는 작업을 구성하려면 이 규칙을 사용합니다.
+- **낙상 감지됨**: 이 규칙은 환자의 낙상이 감지되면 트리거됩니다. 낙상 환자를 지원하기 위해 운영 팀을 배치하는 작업을 구성하려면 이 규칙을 사용합니다.
 
-* **패치 배터리 부족**: 이 규칙은 디바이스의 배터리 수준이 10% 미만이면 트리거됩니다. 환자에게 디바이스를 충전하도록 요구하는 알림을 트리거하려면 이 규칙을 사용합니다.
+- **패치 배터리 부족**: 이 규칙은 디바이스의 배터리 수준이 10% 미만이면 트리거됩니다. 환자에게 디바이스를 충전하도록 요구하는 알림을 트리거하려면 이 규칙을 사용합니다.
 
 :::image type="content" source="media/brace-temp-rule.png" alt-text="규칙.":::
 
@@ -119,9 +129,6 @@ Azure 구독이 권장됩니다. 대신 무료 7일 평가판을 사용할 수 �
 
 :::image type="content" source="media/knee-brace-dashboard.png" alt-text="무릎 보호대 대시보드":::
 
-### <a name="data-export"></a>데이터 내보내기
-
-데이터 내보내기를 사용하면 [Azure API for FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir)을 포함한 다른 Azure 서비스에 디바이스 데이터를 지속적으로 내보낼 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

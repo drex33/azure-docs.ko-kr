@@ -8,14 +8,16 @@ ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 136207afef3fef9266fadcea1e67bb0aa6a38a32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6321058c863b6db190ec987887e61cf20ed8be50
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549756"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122692686"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Azure 소프트웨어 플랜 선결제
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure에서 SUSE 및 RedHat 소프트웨어 사용 대금을 선결제할 경우 종량제 요금에 대한 비용을 절감할 수 있습니다. 할인은 가상 머신 사용량이 아닌 SUSE 및 RedHat 미터에 대해서만 적용됩니다. 비용을 더 절약하기 위해 가상 머신에 대한 예약을 개별적으로 구매할 수 있습니다.
 

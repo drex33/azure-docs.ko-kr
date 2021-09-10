@@ -10,14 +10,16 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: c70b02bdc554c723f53ad5f8c0d36c5eca87811e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f8aa1b8e50a287861cb6367e21878579d69e2d2d
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774371"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122687883"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>VM 및 이미지에서 Linux 에이전트를 사용하지 않도록 설정하거나 제거
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 Linux 에이전트를 제거하기 전에 Linux 에이전트가 제거된 후 VM에서 수행할 수 없는 작업이 무엇인지 이해해야 합니다.
 

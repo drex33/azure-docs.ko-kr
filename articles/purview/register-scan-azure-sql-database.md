@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 06/08/2021
-ms.openlocfilehash: f4fa21c99a17111b1045b66713490b86592e04bf
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 83fd36ca1f352371e4d0717968512d791443d590
+ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467119"
+ms.lasthandoff: 08/20/2021
+ms.locfileid: "122515538"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Azure SQL Database 등록 및 검사
 
@@ -112,7 +112,7 @@ Purview에서 서비스 주체 또는 Purview의 **관리 ID** 를 사용하여 
 1. [Azure Portal](https://portal.azure.com)에서 서비스 주체로 이동합니다.
 1. **개요** 에서 **애플리케이션(클라이언트) ID** 값을 복사하고, **인증서 및 비밀** 에서 **클라이언트 암호** 값을 복사합니다.
 1. 키 자격 증명 모음으로 이동
-1. **설정 > 비밀** 을 선택합니다.
+1. **설정 > 비밀** 을 차례로 선택합니다.
 1. **+ 생성/가져오기** 를 선택하고, 선택한 **이름** 및 **값** 을 서비스 주체의 **클라이언트 암호** 로 입력합니다.
 1. **만들기** 를 선택하여 완료합니다.
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
@@ -140,9 +140,9 @@ Azure 연결을 사용하도록 설정하면 방화벽 자체를 업데이트하
 
 개인 네트워크의 리소스에 연결하기 위해 머신에 SHIR(자체 호스팅 통합 런타임)을 설치할 수 있습니다.
 
-1. 개인용 머신이나 데이터베이스 서버와 동일한 VNet 내의 머신에 [자체 호스팅 통합 런타임을 만들고 설치](/azure/purview/manage-integration-runtimes)합니다.
+1. 개인용 머신이나 데이터베이스 서버와 동일한 VNet 내의 머신에 [자체 호스팅 통합 런타임을 만들고 설치](./manage-integration-runtimes.md)합니다.
 1. 데이터베이스 서버 방화벽을 검사하여 SHIR 머신이 방화벽을 통해 액세스할 수 있는지 확인합니다. 아직 액세스할 수 없는 경우 머신의 IP를 추가합니다.
-1. Azure SQL Server가 프라이빗 엔드포인트 뒤에 있거나 VNet에 있는 경우, 엔드투엔드 네트워크 격리를 보장하기 위해 [수집 프라이빗 엔드포인트](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources)를 사용할 수 있습니다.
+1. Azure SQL Server가 프라이빗 엔드포인트 뒤에 있거나 VNet에 있는 경우, 엔드투엔드 네트워크 격리를 보장하기 위해 [수집 프라이빗 엔드포인트](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources)를 사용할 수 있습니다.
 
 ## <a name="register-an-azure-sql-database-data-source"></a>Azure SQL Database 데이터 원본 등록
 
@@ -150,7 +150,7 @@ Azure 연결을 사용하도록 설정하면 방화벽 자체를 업데이트하
 
 1. Purview 계정으로 이동합니다.
 
-1. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 
 1. **등록** 을 선택합니다.
 

@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 02/24/2021
-ms.openlocfilehash: 16320021ede4a4e285c4e1973c166d2cdf643c4a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.date: 08/02/2021
+ms.openlocfilehash: f0004845033493dc7546bb3af467918ea77ebcad
+ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529533"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122201624"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 지역 간 Azure Load Balancer 만들기
 
@@ -45,100 +45,86 @@ Azure Portal에 [로그인](https://portal.azure.com)합니다.
 
 ## <a name="create-cross-region-load-balancer"></a>지역 간 부하 분산 장치 만들기
 
-이 섹션에서는 지역 간 부하 분산 장치 및 공용 IP 주소를 만듭니다.
+이 섹션에서는 다음을 만듭니다. 
 
-1. **리소스 만들기** 를 선택합니다. 
-2. 검색 상자에 **부하 분산 장치** 를 입력합니다. 검색 결과에서 **부하 분산 장치** 를 선택합니다.
-3. **부하 분산 장치** 페이지에서 **만들기** 를 선택합니다.
-4. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
+* 영역 간 부하 분산 장치
+* 전역 공용 IP 주소가 있는 프런트 엔드
+* 2개의 지역 부하 분산 장치가 있는 백 엔드 풀
 
-    | 설정                 | 값                                              |
+> [!IMPORTANT]
+> 이러한 단계를 완료하려면 백 엔드 풀을 사용하는 두 개의 지역 부하 분산 장치가 구독에 배포되어 있는지 확인합니다.  자세한 내용은 **[빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-portal.md)** 를 참조하세요.
+
+1. 포털 맨 위에 있는 검색 상자에 **부하 분산 장치** 를 입력합니다. 검색 결과에서 **부하 분산 장치** 를 선택합니다.
+
+2. **부하 분산 장치** 페이지에서 **만들기** 를 선택합니다.
+
+3. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
+
+    | Setting                 | 값                                              |
     | ---                     | ---                                                |
+    | **프로젝트 세부 정보** |    |
     | Subscription               | 구독을 선택합니다.    |    
-    | Resource group         | **새로 만들기** 를 선택하고 텍스트 상자에 **CreateCRLBTutorial-rg** 를 입력합니다.|
+    | Resource group         | **새로 만들기** 를 선택하고 텍스트 상자에 **CreateCRLBTutorial-rg** 를 입력합니다. |
+    | **인스턴스 세부 정보** |   |
     | Name                   | **myLoadBalancer-CR** 을 입력합니다.                                   |
     | 지역         | **(미국) 미국 서부** 를 선택합니다.                                        |
     | Type          | **공용** 을 선택합니다.                                        |
     | SKU           | 기본값인 **표준** 을 그대로 둡니다. |
     | 계층           | **글로벌** 을 선택합니다. |
-    | 공용 IP 주소 | **새로 만들기** 를 선택합니다.|
-    | 공용 IP 주소 이름 | 텍스트 상자에 **myPublicIP-CR** 을 입력합니다.|
-    | 라우팅 기본 설정| **Microsoft 네트워크** 를 선택합니다. </br> 라우팅 기본 설정에 대한 자세한 내용은 [라우팅 기본 설정(미리 보기)이란?](../virtual-network/routing-preference-overview.md)을 참조하세요. |
+
+    :::image type="content" source="./media/tutorial-cross-region-portal/create-cross-region.png" alt-text="지역 간 부하 분산 장치 만들기" border="true":::
+  
+4. 페이지 하단에서 **다음: 프런트 엔드 IP 구성** 을 선택합니다.
+
+5. **프런트 엔드 IP 구성** 에서 **+ 프런트 엔드 IP 추가** 를 선택합니다.
+
+6. **프런트 엔드 IP 주소 추가** 의 **이름** 에 **LoadBalancerFrontend** 를 입력합니다.
+
+7. **IP 버전** 에 대해 **IPv4** 또는 **IPv6** 을 선택합니다.
+
+8. **공용 IP 주소** 에서 **새로 만들기** 를 선택합니다. **이름** 에 **myPublicIP-cr** 을 입력합니다.  **확인** 을 선택합니다.
+
+9. **추가** 를 선택합니다.
+
+10. 페이지 하단에서 **다음: 백 엔드 풀** 을 선택합니다.
+
+11. **백 엔드 풀** 에서 **+ 백 엔드 풀 추가** 를 선택합니다.
+
+12. **백 엔드 풀 추가** 의 **이름** 에 **myBackendPool-cr** 을 입력합니다.
+
+13. **부하 분산 장치** 에서 **myLoadBalancer-r1** 을 선택하거나 **부하 분산 장치** 풀다운 상자에서 첫 번째 지역 부하 분산 장치를 선택합니다. **프런트 엔드 IP 구성** 및 **IP 주소** 가 **myLoadBalancer-r1** 에 해당하는지 확인합니다.
+
+14. **myLoadBalancer-r2** 또는 **부하 분산 장치** 풀다운 상자에서 두 번째 지역 부하 분산 장치를 선택합니다. **프런트 엔드 IP 구성** 및 **IP 주소** 가 **myLoadBalancer-r2** 에 해당하는지 확인합니다.
+
+15. **추가** 를 선택합니다.
+
+16. 페이지 하단에서 **다음: 수신 규칙** 을 선택합니다.
+
+17. **인바운드 규칙** 에서 **+ 부하 분산 규칙 추가** 를 선택합니다.
+
+18. **부하 분산 장치 규칙 추가** 에서 다음 정보를 입력하거나 선택합니다.
+
+    | Setting | 값 |
+    | ------- | ----- |
+    | Name | **myHTTPRule-cr** 을 입력합니다. |
+    | IP 버전 | **IP 버전** 에 대해 **IPv4** 또는 **IPv6** 을 선택합니다. |
+    | 프런트 엔드 IP 주소 | **LoadBalancerFrontend** 를 선택합니다. |
+    | 프로토콜 | **TCP** 를 선택합니다. |
+    | 포트 | **80** 을 입력합니다. |
+    | 백 엔드 풀 | **myBackendPool-cr** 을 선택합니다. |
+    | 세션 지속성 | **없음** 을 선택합니다. |
+    | 유휴 제한 시간(분) | 슬라이더를 입력하거나 **15** 로 이동합니다. |
+    | TCP 재설정 | **사용** 을 선택합니다. |
+    | 부동 IP | **사용 안 함**(기본값)을 그대로 둡니다. |
+
+19. **추가** 를 선택합니다.
+
+20. 페이지 아래쪽에서 **검토 + 만들기** 를 선택합니다.
+
+21. **검토 + 만들기** 탭에서 **만들기** 를 선택합니다.
 
     > [!NOTE]
     > 지역 간 부하 분산 장치는 다음 홈 지역에서만 배포할 수 있습니다. **미국 동부 2, 미국 서부, 서유럽, 동남아시아, 미국 중부, 북유럽, 동아시아** 자세한 내용은 **https://aka.ms/homeregionforglb** 을(를) 참조하세요.
-
-
-3. 나머지 설정에는 기본값을 적용한 다음, **검토 + 만들기** 를 선택합니다.
-
-4. **검토 + 만들기** 탭에서 **만들기** 를 선택합니다.   
-
-    :::image type="content" source="./media/tutorial-cross-region-portal/create-cross-region.png" alt-text="지역 간 부하 분산 장치 만들기" border="true":::
-
-## <a name="create-backend-pool"></a>백 엔드 풀 만들기
-
-이 섹션에서는 지역 간 부하 분산 장치의 백 엔드 풀에 두 개의 지역 표준 부하 분산 장치를 추가합니다.
-
-> [!IMPORTANT]
-> 이러한 단계를 완료하려면 백 엔드 풀을 사용하는 두 개의 지역 부하 분산 장치가 구독에 배포되어 있는지 확인합니다.  자세한 내용은 **[빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-portal.md)** 를 참조하세요.
-
-지역 표준 부하 분산 장치를 포함하도록 백 엔드 주소 풀 **myBackendPool-CR** 을 만듭니다.
-
-1. 왼쪽 메뉴에서 **모든 서비스** 를 선택하고 **모든 리소스** 를 선택한 다음, 리소스 목록에서 **myLoadBalancer-CR** 을 선택합니다.
-
-2. **설정** 에서 **백 엔드 풀** 을 선택한 다음, **추가** 를 선택합니다.
-
-3. **백 엔드 풀 추가** 페이지에서 이름에 **myBackendPool-CR** 을 입력합니다.
-
-4. **추가** 를 선택합니다.
-
-4. **myBackendPool-CR** 을 선택합니다.
-
-5. **부하 분산 장치** 에서 **부하 분산 장치** 아래의 풀 다운 상자를 선택합니다.
-
-5. **myLoadBalancer-R1** 또는 지역 1에서 부하 분산 장치의 이름을 선택합니다.
-
-6. **프런트 엔드 IP 구성** 에서 풀 다운 상자를 선택합니다. **LoadBalancerFrontEnd** 를 선택합니다.
-
-7. 4-6단계를 반복하여 **myLoadBalancer-R2** 를 추가합니다.
-
-8. **추가** 를 선택합니다.
-
-    :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="백 엔드 풀에 지역 부하 분산 장치 추가" border="true":::
-
-## <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
-
-이 섹션에서 만드는 부하 분산 장치 규칙은 다음과 같습니다.
-
-* 이름은 **myHTTPRule** 입니다.
-* 프런트 엔드에서 이름은 **LoadBalancerFrontEnd** 입니다.
-* **포트 80** 에서 수신 대기합니다.
-* 부하 분산된 트래픽을 **포트 80** 에서 **myBackendPool-CR** 이라는 백 엔드로 보냅니다.
-
-    > [!NOTE]
-    > 프런트 엔드 포트는 백 엔드 포트 및 백 엔드 풀에 있는 지역 부하 분산 장치의 프런트 엔드 포트와 일치해야 합니다.
-
-1. 왼쪽 메뉴에서 **모든 서비스** 를 선택하고 **모든 리소스** 를 선택한 다음, 리소스 목록에서 **myLoadBalancer-CR** 을 선택합니다.
-
-2. **설정** 아래에서 **부하 분산 규칙** 을 선택한 다음, **추가** 를 선택합니다.
-
-3. 다음 값을 사용하여 부하 분산 규칙을 구성합니다.
-    
-    | 설정 | 값 |
-    | ------- | ----- |
-    | 속성 | **myHTTPRule** 을 입력합니다. |
-    | IP 버전 | **IPv4** 를 선택합니다. |
-    | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
-    | 프로토콜 | **TCP** 를 선택합니다. |
-    | 포트 | **80** 을 입력합니다.|
-    | 백 엔드 포트 | **80** 을 입력합니다. |
-    | 백 엔드 풀 | **myBackendPool** 을 선택합니다.|
-    | 유휴 제한 시간(분) | 슬라이더를 **15** 로 이동합니다. |
-    | TCP 재설정 | **사용** 을 선택합니다. |
-
-4. 나머지는 기본값으로 둔 다음, **확인** 을 선택합니다.
-
-    :::image type="content" source="./media/tutorial-cross-region-portal/create-lb-rule.png" alt-text="부하 분산 장치 규칙 만들기" border="true":::
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 

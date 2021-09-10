@@ -9,14 +9,16 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 452d24d95fc0c43d8301e29b2304b9f0baa3cb25
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 85a4305abf1708d45627f775a583ae219db22b8e
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110673928"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122693990"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
+
+**적용 대상:** :heavy_check_mark: 단일 확장 집합
 
 포털을 통해 Azure 가상 머신 확장 집합을 배포하면 인바운드 NAT 규칙이 있는 Azure Load Balancer와 같은 특정 네트워크 속성이 기본값으로 설정됩니다. 이 문서에서는 확장 집합을 사용하여 구성할 수 있는 고급 네트워킹 기능 중 일부를 사용하는 방법에 대해 설명합니다.
 
@@ -516,6 +518,24 @@ PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/provid
     }
     ```
 
+
+## <a name="explicit-network-outbound-connectivity-for-flexible-scale-sets"></a>유연한 확장 집합에 대한 명시적 네트워크 아웃바운드 연결 
+
+기본 네트워크 보안을 향상하기 위해 [유연한 오케스트레이션을 사용하는 가상 머신 확장 집합](..\virtual-machines\flexible-virtual-machine-scale-sets.md)에는 자동 크기 조정 프로필을 통해 암시적으로 만들어진 인스턴스가 다음 방법 중 하나를 통해 명시적으로 정의된 아웃바운드 연결이 필요합니다. 
+
+- 대부분의 시나리오에서는 [NAT Gateway를 서브넷에 연결](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md)하는 것이 좋습니다.
+- 보안 요구 사항이 높은 시나리오, Azure Firewall이나 NVA(네트워크 가상 어플라이언스)를 사용할 때는 방화벽을 통해 사용자 지정 사용자 정의 경로를 다음 홉으로 지정할 수 있습니다. 
+- 인스턴스는 표준 SKU Azure Load Balancer의 백 엔드 풀에 있습니다. 
+- 인스턴스 네트워크 인터페이스에 공용 IP 주소를 연결합니다. 
+
+단일 인스턴스 VM 및 균일한 오케스트레이션이 있는 가상 머신 확장 집합을 사용하는 경우, 아웃바운드 연결이 자동으로 제공됩니다. 
+
+명시적 아웃바운드 연결을 필요로 하는 일반적인 시나리오는 다음과 같습니다. 
+
+- Windows VM을 활성화하려면 VM 인스턴스에서 Windows 활성화 키 관리 서비스(KMS)로의 아웃바운드 연결을 정의해야 합니다. 더 많은 정보는 [Azure Windows VM 활성화 문제 해결](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)을 참조하세요.  
+- 스토리지 계정 또는 Key Vault에 액세스합니다. Azure 서비스 연결은 [프라이빗 링크](../private-link/private-link-overview.md)를 통해 설정할 수도 있습니다. 
+
+안전한 아웃바운드 연결을 정의하는 방법에 대한 세부 정보는 [Azure에서 기본값 아웃바운드 액세스](https://aka.ms/defaultoutboundaccess)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

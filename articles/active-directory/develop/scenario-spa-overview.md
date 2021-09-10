@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 270b3e3f4c5e462b66129413d7acf983efd3f8eb
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: be14a8cb9d72c439f5ba127858ccd3a3249b8a14
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357628"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122770773"
 ---
 # <a name="scenario-single-page-application"></a>시나리오: 단일 페이지 애플리케이션
 
@@ -35,7 +35,7 @@ SPA(단일 페이지 애플리케이션)를 빌드하는 데 필요한 모든 �
 
 Microsoft ID 플랫폼은 단일 페이지 애플리케이션에서 사용자를 로그인하고 토큰을 가져와서 백 엔드 서비스 또는 웹 API에 액세스하는 다음과 같은 **두 가지** 옵션을 제공합니다.
 
-- [OAuth 2.0 인증 코드 흐름(PKCE 사용)](./v2-oauth2-auth-code-flow.md). 권한 부여 코드 흐름을 사용하면 인증된 사용자를 나타내는 **ID** 토큰과 보호된 API를 호출하는 데 필요한 **액세스** 토큰의 권한 부여 코드를 애플리케이션에서 교환할 수 있습니다. 뿐만 아니라 애플리케이션은 해당 사용자와의 상호 작용을 요구하지 않고 사용자 대신 리소스에 대한 장기 액세스 권한을 제공하는 **새로 고침** 토큰을 반환합니다. 이 방법을 사용하는 것이 **좋습니다**.
+- [OAuth 2.0 인증 코드 흐름(PKCE 사용)](./v2-oauth2-auth-code-flow.md). 권한 부여 코드 흐름을 사용하면 인증된 사용자를 나타내는 **ID** 토큰과 보호된 API를 호출하는 데 필요한 **액세스** 토큰의 권한 부여 코드를 애플리케이션에서 교환할 수 있습니다. PKCE는 코드 교환을 위한 증명 키이며 여러 공격을 방지하고 퍼블릭 클라이언트에서 OAuth 교환을 안전하게 수행할 수 있도록 설계되었습니다. PKCE는 RFC 7636에 문서화된 IETF 표준입니다. 뿐만 아니라 애플리케이션은 해당 사용자와의 상호 작용을 요구하지 않고 사용자 대신 리소스에 대한 장기 액세스 권한을 제공하는 **새로 고침** 토큰을 반환합니다. 이 방법을 사용하는 것이 **좋습니다**.
 
 ![단일 페이지 애플리케이션 인증](./media/scenarios/spa-app-auth.svg)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 위협 방지 | Microsoft Docs
-description: Azure AD ID 보호 서비스와 같은 Azure에 대 한 기본 제공 위협 방지 기능에 대해 알아봅니다.
+description: Azure AD ID 보호 서비스와 같은 Azure의 기본 제공 위협 방지 기능에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 81b2227ac519de4d03bb63907d14c23b9c34dc64
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 19944b336a9140a7133b2f96d7821c56a59abe7e
+ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101038"
+ms.lasthandoff: 06/24/2021
+ms.locfileid: "112676855"
 ---
 # <a name="azure-threat-protection"></a>Azure 위협 방지
 
-Azure는 Azure Active Directory (Azure AD), Azure Monitor 로그 및 Azure Security Center와 같은 서비스를 통해 기본 제공 되는 위협 방지 기능을 제공 합니다. 이 보안 서비스 및 기능 모음을 사용하면 Azure 배포에서 발생하는 상황을 간단하고 빠르게 파악할 수 있습니다.
+Azure는 Azure AD(Azure Active Directory), Azure Monitor 로그 및 Azure Security Center와 같은 서비스를 통해 기본 제공 위협 방지 기능을 제공합니다. 이 보안 서비스 및 기능 모음을 사용하면 Azure 배포에서 발생하는 상황을 간단하고 빠르게 파악할 수 있습니다.
 
 Azure는 앱 배포의 요구 사항에 맞게 보안을 구성하고 사용자 지정할 수 있는 다양한 옵션을 제공합니다. 이 문서에서는 이러한 요구 사항을 충족하는 방법에 대해 설명합니다.
 
@@ -64,13 +64,13 @@ Azure ID 보호를 사용하여 계정과 ID를 보호할 수 있는 몇 가지 
 
 ### <a name="azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management
 
-[Azure Active Directory PIM(Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md)을 사용하여 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. 이 기능에는 Azure AD의 리소스에 대 한 액세스 및 기타 Microsoft 온라인 서비스 (예: Microsoft 365 또는 Microsoft Intune)가 포함 됩니다.
+[Azure Active Directory PIM(Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md)을 사용하여 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. 이 기능에는 Azure AD 및 다른 Microsoft 온라인 서비스(예: Microsoft 365 또는 Microsoft Intune)의 리소스에 대한 액세스가 포함됩니다.
 
 ![Azure AD Privileged Identity Management 다이어그램](./media/threat-detection/azure-threat-detection-fig2.png)
 
 PIM은 다음과 같이 도움을 줍니다.
 
--   Azure AD 관리자 및 Microsoft 365 및 Intune과 같은 Microsoft 온라인 서비스에 대 한 JIT (just-in-time) 관리 액세스에 대 한 경고 및 보고서를 가져옵니다.
+-   Microsoft 온라인 서비스(예: Microsoft 365 및 Intune)에 대한 Azure AD 관리자 및 JIT(Just-In-Time) 관리 액세스에 대한 경고 및 보고서를 받습니다.
 
 -   관리자 액세스 기록 및 관리자 할당 변경에 대한 보고서를 가져옵니다.
 
@@ -84,7 +84,7 @@ Azure Monitor 로그는 자체적으로 중요 서비스를 제공하는 것 외
 
 ### <a name="holistic-security-and-compliance-posture"></a>전체적인 보안 및 규정 준수 상태
 
-[Azure Security Center](../../security-center/security-center-introduction.md) 는 주의가 필요한 주요 문제에 대 한 기본 제공 검색 쿼리를 통해 조직의 IT 보안 상태에 대 한 종합적인 뷰를 제공 합니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며 지난 24 시간, 7 일 또는 기타 사용자 지정 시간 프레임의 모든 이벤트를 볼 수도 있습니다.
+[Azure Security Center](../../security-center/security-center-introduction.md)는 주의가 필요한 주요 문제에 대한 기본 제공 검색 쿼리를 통해 조직의 IT 보안 상태에 대한 포괄적인 보기를 제공합니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며 지난 24시간, 7일, 기타 사용자 지정 기간 동안 발생한 모든 이벤트를 확인할 수도 있습니다.
 
 Azure Monitor 로그를 사용하면 소프트웨어 업데이트 평가, 맬웨어 방지 평가 및 구성 기준을 포함하여 IT 운영 컨텍스트 내에서 모든 환경의 전반적인 보안 상태를 빠르고 쉽게 이해할 수 있습니다. 또한 보안 로그 데이터에 쉽게 액세스하여 보안 및 규정 준수 감사 프로세스를 간소화할 수 있습니다.
 
@@ -104,7 +104,7 @@ Azure Monitor 로그와의 상호 작용은 대부분 모든 브라우저에서 
 
 솔루션은 Azure Monitor 로그에 기능을 추가합니다. 주로 클라우드에서 실행되며 로그 분석 리포지토리에 수집된 데이터의 분석을 제공합니다. 또한 솔루션에서는 수집할 새 레코드 유형을 정의하여 로그 검색을 사용하거나 솔루션이 로그 분석 대시보드에서 제공하는 추가 사용자 인터페이스를 사용하여 분석할 수 있습니다.
 
-Security Center은 이러한 유형의 솔루션에 대 한 예입니다.
+Security Center는 이러한 솔루션 유형의 한 예입니다.
 
 ### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automation 및 Control: 보안 구성 표류에 대한 경고
 
@@ -116,11 +116,11 @@ Azure에서 호스트되는 DSC 리소스를 만들고 관리하며 클라우드
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center은 하이브리드 클라우드 환경을 보호 하는 데 도움이 됩니다. 연결 된 리소스에 대 한 지속적인 보안 평가를 수행 하 여 검색 된 취약성에 대 한 자세한 보안 권장 사항을 제공할 수 있습니다.
+Azure Security Center는 하이브리드 클라우드 환경을 보호하는 데 도움이 됩니다. 연결된 리소스에 대한 지속적인 보안 평가를 수행하면 검색된 취약성에 대한 자세한 보안 권장 사항을 제공할 수 있습니다.
 
-Security Center 권장 사항은 일반적인 규정 준수 프레임 워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대 한 Microsoft에서 작성 한 Azure 관련 지침 집합을 기반으로 하는 [Azure 보안 벤치 마크](../benchmarks/introduction.md) 입니다. 광범위 하 게 적용 되는 벤치 마크는 클라우드 중심 보안에 초점을 맞춘 [ci (Internet Security)의 중앙](https://www.cisecurity.org/benchmark/azure/) 에서 제어 하 고 [NIST (표준 및 기술)](https://www.nist.gov/) 를 기반으로 합니다.
+Security Center의 권장 사항은 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트인 [Azure Security Benchmark](../benchmarks/introduction.md)를 기반으로 합니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
 
-Security Center의 CWPP (통합 클라우드 워크 로드 보호 플랫폼), **Azure Defender** 는 azure 및 하이브리드 리소스 및 워크 로드에 대 한 고급, 인텔리전트, 보호를 제공 합니다. Azure Defender를 사용 하도록 설정 하면 다양 한 추가 보안 기능이 제공 됩니다 ( [Azure Defender 소개](../../security-center/azure-defender.md)참조). Security Center의 Azure Defender 대시보드는 사용자 환경에 대한 CWP 기능의 가시성 및 제어 기능을 제공합니다.
+Security Center의 통합 CWPP(클라우드 워크로드 보호 플랫폼)인 **Azure Defender** 는 Azure 및 하이브리드 리소스 및 워크로드에 고급 인텔리전트 보호 기능을 제공합니다. Azure Defender를 사용하도록 설정하면 다양한 추가 보안 기능이 제공됩니다([Azure Defender 소개](../../security-center/azure-defender.md) 참조). Security Center의 Azure Defender 대시보드는 사용자 환경에 대한 CWP 기능의 가시성 및 제어 기능을 제공합니다.
 
 :::image type="content" source="../../security-center/media/azure-defender/sample-defender-dashboard.png" alt-text="Azure Defender 대시보드의 예" lightbox="../../security-center/media/azure-defender/sample-defender-dashboard.png":::
 
@@ -130,17 +130,17 @@ Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니�
 
 :::image type="content" source="../../security-center/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center의 보안 경고 목록":::
 
-Azure Defender는 리소스, 네트워크 및 연결 된 파트너 솔루션에서 보안 정보를 자동으로 수집 합니다. 이 정보를 분석하며 여러 원본의 정보를 상호 연결하여 위협을 식별합니다.
+Azure Defender는 리소스, 네트워크 및 연결된 파트너 솔루션에서 보안 정보를 자동으로 수집합니다. 이 정보를 분석하며 여러 원본의 정보를 상호 연결하여 위협을 식별합니다.
 
-Azure Defender 경고는 위협을 해결 하는 방법에 대 한 권장 사항과 함께 Security Center에서 우선 순위가 지정 됩니다.
+Azure Defender 경고는 위협을 해결하는 방법에 대한 권장 사항과 함께 Security Center에서 우선 순위가 지정됩니다.
 
-보안 센터는 서명 기반 방식을 뛰어 넘는 고급 보안 분석을 사용합니다. 빅 데이터 및 [기계 학습](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) 기술의 돌파구는 전체 클라우드에서 이벤트를 평가 하는 데 사용 됩니다. 고급 분석은 수동 접근 방법을 통해 식별할 수 없는 위협을 검색 하 고 공격의 진화를 예측할 수 있습니다. 이러한 보안 분석 유형은 다음 섹션에서 설명합니다.
+보안 센터는 서명 기반 방식을 뛰어 넘는 고급 보안 분석을 사용합니다. 빅 데이터 및 [기계 학습](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) 기술의 혁신을 통해 전체 클라우드에서 이벤트를 평가합니다. 고급 분석에서는 수동 접근 방식을 통해 식별할 수 없는 위협을 탐지하고 공격의 진화를 예측할 수 있습니다. 이러한 보안 분석 유형은 다음 섹션에서 설명합니다.
 
 ### <a name="threat-intelligence"></a>위협 인텔리전스
 
 Microsoft는 방대한 글로벌 위협 인텔리전스에 대한 액세스 권한을 보유합니다.
 
-원격 분석은 Azure, Microsoft 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft DCU (Digital Crimes Unit) 및 MSRC (Microsoft 보안 대응 센터)와 같은 여러 원본에서 흐릅니다.
+원격 분석 결과는 Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft DCU(Digital Crimes Unit), MSRC(Microsoft 보안 대응 센터) 등의 여러 소스에서 얻습니다.
 
 ![위협 인텔리전스 결과](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -175,7 +175,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스에 대한 액세스 권�
 
 -   **악의적인 PowerShell 스크립트**: 공격자는 PowerShell을 사용하여 대상 가상 머신에서 다양한 목적으로 악성 코드를 실행할 수 있습니다. 보안 센터는 의심스러운 활동의 증거에 대해 PowerShell 작업을 검사합니다.
 
--   **외향적 공격**: 공격자는 종종 추가 공격을 탑재한 해당 리소스를 사용할 목표를 가지고 클라우드 리소스를 겨냥합니다. 예를 들어, 다른 가상 머신에 무차별 대입 공격을 시작하고 스팸을 전송하거나 인터넷에서 오픈 포트 및 다른 디바이스를 검색하는 데 손상된 가상 머신을 사용할 수 있습니다. 보안 센터는 네트워크 트래픽에 기계 학습을 적용하여 아웃바운드 네트워크 통신이 표준을 초과하는 경우를 감지할 수 있습니다. 스팸이 Security Center 검색 되 면 Microsoft 365의 인텔리전스를 사용 하 여 비정상적인 메일 트래픽과의 상관 관계를 지정 하 여 메일을 부정한 하거나 합법적인 전자 메일 캠페인의 결과를 확인할 수도 있습니다.
+-   **외향적 공격**: 공격자는 종종 추가 공격을 탑재한 해당 리소스를 사용할 목표를 가지고 클라우드 리소스를 겨냥합니다. 예를 들어, 다른 가상 머신에 무차별 대입 공격을 시작하고 스팸을 전송하거나 인터넷에서 오픈 포트 및 다른 디바이스를 검색하는 데 손상된 가상 머신을 사용할 수 있습니다. 보안 센터는 네트워크 트래픽에 기계 학습을 적용하여 아웃바운드 네트워크 통신이 표준을 초과하는 경우를 감지할 수 있습니다. 또한 스팸의 경우, Security Center는 Microsoft 365의 인텔리전스와 비정상적인 이메일 트래픽을 상호 연결하여 메일이 부정한 것인지 또는 합법적인 이메일 캠페인의 결과인지 여부를 결정합니다.
 
 ### <a name="anomaly-detection"></a>이상 감지
 
@@ -287,7 +287,7 @@ SQL Database 위협 감지기는 다음 검색 방법 중 하나를 사용합니
 
 Anomaly Detection API는 시계열 데이터에서 다양한 비정상 패턴을 검색하는 데 유용한 API입니다. API는 시계열의 각 데이터 요소에 변칙 점수를 지정하며, 이 점수는 경고 생성, 대시보드를 통한 모니터링 또는 티켓 시스템과 연결에 사용할 수 있습니다.
 
-[변칙 검색 API](../../machine-learning/team-data-science-process/apps-anomaly-detection-api.md)는 시계열 데이터에서 다음과 같은 유형의 변칙을 검색할 수 있습니다.
+[변칙 검색 API](/azure/architecture/data-science-process/apps-anomaly-detection-api)는 시계열 데이터에서 다음과 같은 유형의 변칙을 검색할 수 있습니다.
 
 -   **급증 및 급락**: 서비스에 대한 로그인 실패 횟수 또는 전자상거래 사이트의 체크 아웃 수를 모니터링할 때 비정상적인 급증 또는 급락은 보안 공격 또는 서비스 중단을 나타낼 수 있습니다.
 
@@ -325,7 +325,7 @@ Anomaly Detection API는 시계열 데이터에서 다양한 비정상 패턴을
 
 섀도 IT를 발견하고, 위험을 평가하며, 정책을 적용하고, 활동을 조사하며, 위협을 중지할 수 있는 도구를 사용하면 조직에서 중요한 데이터에 대한 제어를 유지하면서 보다 안전하게 클라우드로 이동할 수 있습니다.
 
-| 범주 | Description |
+| 범주 | 설명 |
 | -------- | ----------- |
 | 검색 | Cloud App Security로 섀도 IT를 발견합니다. 클라우드 환경에서 앱, 활동, 사용자, 데이터 및 파일을 검색하여 가시성을 확보합니다. 클라우드에 연결된 타사 앱을 발견합니다.|
 |조사 | 클라우드 법정 분석 도구로 클라우드 앱을 조사하여 네트워크에서 위험한 앱, 특정 사용자 및 파일을 심층 분석합니다. 클라우드에서 수집한 데이터의 패턴을 찾습니다. 클라우드를 모니터링하는 보고서를 생성합니다. |

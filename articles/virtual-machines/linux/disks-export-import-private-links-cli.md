@@ -8,14 +8,16 @@ ms.date: 07/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 05cff1385ee4e606a3d5ecae3f04139a67be699a
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 16ba38828cc9137e7d69e113126826b254aaf957
+ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289250"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122688995"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
 [프라이빗 엔드포인트](../../private-link/private-endpoint-overview.md)를 사용하여 관리 디스크의 내보내기 및 가져오기를 제한하고 Azure 가상 네트워크의 클라이언트에서 [Private Link](../../private-link/private-link-overview.md)를 통해 안전하게 데이터에 액세스할 수 있습니다. 프라이빗 엔드포인트는 관리 디스크 서비스에 대해 가상 네트워크 주소 공간의 IP 주소를 사용합니다. 가상 네트워크의 클라이언트와 관리 디스크 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크만 통과하여 공용 인터넷으로부터의 노출을 제거합니다.
 
@@ -156,5 +158,5 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 
 - Azure에 VHD를 업로드하거나 관리 디스크를 다른 지역에 복사 - [Azure CLI](disks-upload-vhd-to-managed-disk-cli.md) 또는 [Azure PowerShell 모듈](../windows/disks-upload-vhd-to-managed-disk-powershell.md)
 - VHD 다운로드- [Windows](../windows/download-vhd.md) 또는 [Linux](download-vhd.md)
-- [Private Links에 대한 FAQ](/azure/virtual-machines//faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Private Links에 대한 FAQ](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [CLI를 사용하여 관리 스냅샷을 다른 지역의 스토리지 계정에 VHD로 내보내기/복사](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 05/24/2021
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 0c577a316e5034e4a21599b0806be534c5f6888a
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: ab994a49ed81a13eeb018d39d2f1d8be7eaee733
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697780"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121741616"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
@@ -101,14 +101,21 @@ Kubernetes는 [수평 Pod 자동 크기 조정][kubernetes-hpa]을 지원하여 
 > kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
-자동 크기 조정기를 사용하려면 Pod와 Pod의 모든 컨테이너에 CPU 요청 및 제한이 정의되어 있어야 합니다. `azure-vote-front` 배포에서 프런트 엔드 컨테이너는 0.25 CPU를 요청하며 제한은 0.5 CPU입니다. 다음 예제 코드 조각에 나와 있는 것처럼 이러한 리소스 요청 및 제한이 정의됩니다.
+자동 크기 조정기를 사용하려면 Pod와 Pod의 모든 컨테이너에 CPU 요청 및 제한이 정의되어 있어야 합니다. `azure-vote-front` 배포에서 프런트 엔드 컨테이너는 0.25 CPU를 요청하며 제한은 0.5 CPU입니다.
+
+다음 예제 코드 조각에 나와 있는 것처럼 이러한 리소스 요청 및 한도는 각 컨테이너에 대해 정의됩니다.
 
 ```yaml
-resources:
-  requests:
-     cpu: 250m
-  limits:
-     cpu: 500m
+  containers:
+  - name: azure-vote-front
+    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+    ports:
+    - containerPort: 80
+    resources:
+      requests:
+        cpu: 250m
+      limits:
+        cpu: 500m
 ```
 
 다음 예제에서는 [kubectl autoscale][kubectl-autoscale] 명령을 사용하여 *azure-vote-front* 배포의 Pod 수를 자동으로 조정합니다. 모든 Pod의 평균 CPU 사용률이 요청된 사용량의 50%를 초과하는 경우 자동 크기 조정은 Pod를 최대 *10* 개의 인스턴스로 늘립니다. 그런 다음, 최소 *3* 개의 인스턴스가 배포에 대해 정의됩니다.

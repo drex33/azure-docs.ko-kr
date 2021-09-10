@@ -5,34 +5,38 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/10/2020
+ms.date: 06/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 697e594581636bb3940684371661705539068e6a
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: c7f33156394b3dfde100014ace6d8b7f1cbc8caf
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001667"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122528551"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Azure CLI 및 REST API를 사용하여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리하는 방법
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 이 문서에서는 Azure CLI 및 REST API를 사용하여 Azure Database for MySQL 서비스에서 읽기 복제본을 만들고 관리하는 방법을 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
 
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용하여 읽기 복제본을 생성하고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 - [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)
 - 원본 서버로 사용할 [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md) 
 
 > [!IMPORTANT]
-> 읽기 복제본 기능은 범용 또는 메모리 최적화 가격 책정 계층의 Azure Database for MySQL 서버에서만 사용 가능합니다. 원본 서버가 이러한 가격 책정 계층 중 하나에 포함되어 있는지 확인하세요.
+> 읽기 복제본 기능은 범용 또는 메모리 최적화 가격 책정 계층의 Azure Database for MySQL 서버에서만 사용 가능합니다. 원본 서버가 이러한 가격 책정 계층 중 하나에 포함되어 있는지 확인합니다.
 
 ### <a name="create-a-read-replica"></a>읽기 복제본 만들기
 
 > [!IMPORTANT]
 > 기존 복제본이 없는 원본에 대한 복제본을 만드는 경우 원본이 먼저 다시 시작하여 자체적으로 복제할 준비를 합니다. 이를 고려하고 사용량이 적은 기간 동안 이러한 작업을 수행합니다.
+>
+>주 서버에서 GTID를 사용하는 경우(`gtid_mode` = ON) 새로 만든 복제본도 GTID를 지원하고 GTID 기반 복제를 사용합니다. 자세한 내용은 [GTID(글로벌 트랜잭션 식별자)](concepts-read-replicas.md#global-transaction-identifier-gtid) 참조
 
 다음 명령을 사용하여 읽기 복제본 서버를 만들 수 있습니다.
 
@@ -58,7 +62,9 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 > 복제본을 만들 수 있는 지역에 대해 자세히 알아보려면 [읽기 복제본 개념 문서](concepts-read-replicas.md)를 참조하세요. 
 
 > [!NOTE]
-> 읽기 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본이 생성된 후에 복제본 서버 구성을 변경할 수 있습니다. 복제본이 마스터를 유지할 수 있도록 복제본 서버 구성을 원본과 같거나 더 큰 값으로 유지하는 것이 좋습니다.
+> * `az mysql server replica create`명령에는 Azure CLI를 사용하여 복제본을 만드는 동안 sku(`{pricing_tier}_{compute generation}_{vCores}`)를 지정할 수 있는 `--sku-name` 인수가 있습니다. </br>
+> * 주 서버와 읽기 복제본은 동일한 가격 책정 계층(범용 또는 메모리 최적화)에 있어야 합니다. </br>
+> * 복제본 서버 구성을 먼저 만든 후 변경할 수도 있습니다. 복제본이 마스터를 유지할 수 있도록 복제본 서버 구성을 원본과 같거나 더 큰 값으로 유지하는 것이 좋습니다.
 
 
 ### <a name="list-replicas-for-a-source-server"></a>원본 서버에 대한 복제본 나열
@@ -79,7 +85,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 ### <a name="stop-replication-to-a-replica-server"></a>복제본 서버로의 복제 중지
 
 > [!IMPORTANT]
-> 서버로의 복제는 중지하고 나면 취소할 수 없습니다. 원본과 복제본 사이의 복제가 중단된 경우, 중단을 취소할 수는 없습니다. 복제를 중지하고 나면 복제본 서버는 독립 실행형 서버가 되어 읽기와 쓰기를 모두 지원합니다. 이 서버를 다시 복제본으로 설정할 수는 없습니다.
+> 서버로의 복제는 중지하고 나면 취소할 수 없습니다. 원본과 복제본 사이의 복제가 중단된 경우, 중단을 취소할 수 없습니다. 복제를 중지하고 나면 복제본 서버는 독립 실행형 서버가 되어 읽기와 쓰기를 모두 지원합니다. 이 서버를 다시 복제본으로 설정할 수는 없습니다.
 
 다음 명령을 사용하여 읽기 복제본 서버에 대한 복제를 중지할 수 있습니다.
 
@@ -178,6 +184,14 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}?api-version=2017-12-01
 ```
 
+### <a name="known-issue"></a>알려진 문제
+
+범용 및 메모리 최적화 계층의 서버가 사용하는 스토리지에는 범용 스토리지 v1(최대 4TB까지 지원) 및 범용 스토리지 v2(최대 16TB 스토리지까지 지원)의 두 세대가 있습니다.
+원본 서버와 복제본 서버의 스토리지 유형은 동일해야 합니다. 일부 지역에서는 [범용 스토리지 v2](./concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)를 사용할 수 없으므로, 읽기 복제본 만들기를 위해 CLI 또는 REST API를 통해 위치를 사용하는 동안 올바른 복제본 지역을 선택해야 합니다. 원본 서버의 스토리지 유형을 식별하는 방법은 [내 서버가 실행 중인 스토리지 유형을 확인하는 방법](./concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on) 링크를 참조하세요. 
+
+사용자의 원본 서버에 대한 읽기 복제본을 만들 수 없는 지역을 선택하는 경우, 아래 그림과 같이 배포가 계속 실행되고 *“리소스 프로비전 작업이 허용된 시간 제한 기간 내에 완료되지 않았습니다”* 라는 오류와 함께 시간 제한이 초과됩니다.
+
+[ :::image type="content" source="media/howto-read-replicas-cli/replcia-cli-known-issue.png" alt-text="읽기 복제본 cli 오류.":::](media/howto-read-replicas-cli/replcia-cli-known-issue.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

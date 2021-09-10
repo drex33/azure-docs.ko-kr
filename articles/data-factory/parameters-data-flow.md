@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/19/2021
-ms.openlocfilehash: f1e0c0648a89ecfb1102287e7fc1db8d62c92070
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 08/24/2021
+ms.openlocfilehash: 5d06d55e199e0c5f2f1fcda9f1a9d121ed1726e5
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642333"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821602"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>매핑 데이터 흐름 매개 변수화
 

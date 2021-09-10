@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 05/31/2021
 ms.author: lle
-ms.openlocfilehash: b833b8b63415a36fb0ee2862c9dfa261cfeb44ef
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 2af9d5979635042c857e23e9514ea0e5a1df530e
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864212"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642254"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -850,7 +850,7 @@ DigiCert에서 서명된 새 SSL 인증서를 출시했습니다. DigiCert Globa
 문제 해결에 대한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
+*  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A 페이지](/answers/topics/azure-data-factory.html)
 *  [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)

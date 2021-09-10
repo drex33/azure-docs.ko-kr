@@ -3,12 +3,12 @@ title: Azure Application Gateway를 사용하여 Azure VMware Solution에서 웹
 description: Azure VMware Solution에서 실행되는 웹앱을 안전하게 노출하도록 Azure Application Gateway를 구성합니다.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 897b5788d3bb4cb76fee44cb29e8c73d5f7f34c7
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 407dd74b708006ffe2fb125a16cff4e220efc1fe
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257012"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122567944"
 ---
 # <a name="protect-web-apps-on-azure-vmware-solution-with-azure-application-gateway"></a>Azure Application Gateway를 사용하여 Azure VMware Solution에서 웹앱 보호
 
@@ -39,7 +39,7 @@ Application Gateway 인스턴스는 Azure 공용 IP 주소를 사용하여 전�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 활성 구독이 있는 Azure 계정.    
+- 활성 구독이 있는 Azure 계정.
 - 배포되어 실행 중인 Azure VMware Solution 프라이빗 클라우드.
 
 ## <a name="deployment-and-configuration"></a>배포 및 구성

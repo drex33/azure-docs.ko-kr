@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 06/18/2021
 ms.author: abnarain
-ms.openlocfilehash: bab07b19efc1978836d1f14463392f8de2bd6e92
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 7ae441bde7dc6196b01bb285f0ebf65e5c9f4e83
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864554"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "122642388"
 ---
 # <a name="troubleshoot-azure-data-factory-and-synapse-pipelines"></a>Azure Data Factory 및 Synapse 파이프라인 문제 해결
 
@@ -1027,7 +1027,7 @@ ms.locfileid: "122864554"
 문제 해결을 위한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 * [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Data Factory 기능 요청](/answers/topics/azure-data-factory.html)
+* [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
 * [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)
 * [Azure 비디오](https://azure.microsoft.com/resources/videos/index/)

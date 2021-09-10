@@ -8,14 +8,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 08/24/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: 8055f9a81f9788a7f9f53d0fd2672d527ebc203a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b0fda7e6376cd7adb302db2c0f3aac39da38b407
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642324"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821512"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics의 파이프라인 실행 및 트리거
 
